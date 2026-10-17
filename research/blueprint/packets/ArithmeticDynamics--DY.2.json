@@ -542,10 +542,7 @@
           "kind": "comparison",
           "statement": "For z↦z² over K, classical Julia=∅ but Berkovich Julia={ζ_G}; ζ_G is a nonclassical type-II point."
         }
-      ],
-      "planet": {
-        "name": "Berkovich Julia set"
-      }
+      ]
     },
     {
       "id": "ArithmeticDynamics:DY.2/exceptional-classification",
@@ -1353,10 +1350,7 @@
         "module": "TauCeti/Dynamics/Arithmetic/Local/Julia",
         "namespace": "TauCeti.ArithmeticDynamics"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Lyubich measure"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticDynamics:DY.2/archimedean-measure-identification",
@@ -1568,10 +1562,7 @@
         "module": "TauCeti/Dynamics/Arithmetic/Local/Julia",
         "namespace": "TauCeti.ArithmeticDynamics"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Maximal entropy"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticDynamics:DY.2/power-map-julia-measure-comparison",
@@ -1700,10 +1691,7 @@
         "module": "TauCeti/Dynamics/Arithmetic/Local/Periods",
         "namespace": "TauCeti.ArithmeticDynamics"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Zieve period bound"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticDynamics:DY.2/zieve-rational-cycle-adapter",
@@ -2181,5 +2169,8 @@
         "note": "Read rendered Zieve Proposition 44, Lemmas 45–47, Corollaries 48–49 and Theorem 50 pp.34–38. Unit-denominator interpolation preserves the selected values and the reduced return multiplier under the collision hypothesis. Parent consequence retains finite K/Q_p and global good reduction; no exact characteristic-zero multiplier preservation is claimed."
       }
     ]
-  }
+  },
+  "upstreamNotes": [
+    "ASM-ArithmeticDynamics (Codex codex-ZkPH2V): assembled with the accepted parent and DY.2/DY.3/DY.6 packets. Original independent-review verdicts are preserved as input provenance; the assembly changes, including rank propagation and consumer rewiring, require their own review. See handoff/ASM-ArithmeticDynamics.md. No external roadmap files were edited."
+  ]
 }

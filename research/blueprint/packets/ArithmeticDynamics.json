@@ -12,7 +12,7 @@
     "ArithmeticDynamics:DY.6"
   ],
   "status": "complete",
-  "summary": "Arithmetic dynamics, completed planning pass at the inherited 415-node budget, from free sources against the pinned libraries, with the two DeMarco papers whose accepted source routes name these layers covered. DY.0 builds self-maps of the projective line from coprime homogeneous forms on Mathlib's iteration and periodic points: the action on points, iterates, the binary resultant with its Nullstellensatz certificate and its behaviour under conjugation, PGL₂-conjugacy, fixed points, multipliers and critical points with multiplicity, good reduction, and the moduli spaces M_d and M_d^cm with Milnor's M₂ ≅ 𝔸² (the scheme structure waits for a GIT owner). DY.1 builds Tate's limit and the Call–Silverman canonical height for a polarised morphism, its P¹ form normalised against Mathlib's Weil height (the ClassicalArithmeticCompletion request), uniqueness, the zero-height criterion, Northcott for preperiodic points, and the comparisons with Tau Ceti's elliptic canonical height and with multiplication on abelian varieties. DY.2 builds escape rates and local canonical heights at every place with their decomposition of the global height, good reduction through the escape rate, reduction of cycles and multipliers with the residue characteristic retained, and the canonical measure with Δλ = µ − δ_∞ over the Berkovich line requested from TropicalAndBerkovichArithmetic. DY.3 builds period and dynatomic polynomials with formal versus exact period and effectivity, the dynatomic curves Y₁(n), Northcott finiteness of bounded-degree preperiodic points, the rational preperiodic classification for z² + c with its computational inputs requested, certified enumeration, and the uniform boundedness conjecture as a statement only. DY.4 builds adelic measures and metrics on P¹, energies and the Arakelov–Zhang pairing, the Favre–Rivera-Letelier equidistribution theorem for small points, Yuan's theorem as a stated endpoint, dynamical equidistribution, the vanishing of the dynamical pairing and equidistribution of PCF parameters. DY.5 builds rooted-tree automorphism groups, preimage trees and the arboreal Galois representation, the discriminant and stability criteria, Stoll's maximality criterion with the fully worked x² + 1 over ℚ, Jones's ramification criterion and Odoni's theorem. DY.6 builds power maps and Lattès maps with their canonical heights, Call–Silverman specialisation and Tate's variation theorem, the critical height and Ingram's comparison with a moduli height, DeMarco–Krieger–Ye's uniform bound for common torsion images of Legendre pairs, and the proven dynamical Mordell–Lang cases, with the open conjectures stated and never consumed. Remaining work is listed per layer, with seventeen gaps and twenty-six requests to other owners. The Lech–Cassels parameter/root chain includes algebraically independent p-adic parameters in prescribed residue classes and Hensel specialization preserving degree and all marked denominator units; arbitrary-field presentation and embedding transport remain explicit gaps. No nodes are added in this completion pass. DY.0, DY.1, DY.4 and DY.5 are planned at target level; DY.2, DY.3 and DY.6 remain partial with specific missing statements and proof inputs in their coverage records. Complete is the status of this bounded pass, not a claim that any stage is closed or any theorem is formalised.",
+  "summary": "Assembled arithmetic dynamics roadmap: 490 distinct targets across iteration and moduli, canonical heights, local Julia and measure theory, dynatomic geometry and certified arithmetic, adelic equidistribution, arboreal representations, and families and orbit intersections. The three accepted follow-ups are reconciled with the parent at their precise supplier nodes. All stages are planned, none is closed; conditional rank statements, analytic suppliers, source-access gaps and exact computation contracts remain explicit. No implementation is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3752,6 +3752,20 @@
       ],
       "reviewRead": "2026-10-10",
       "reviewBy": "REV-ArithmeticDynamics"
+    },
+    {
+      "id": "Zieve1996",
+      "title": "Cycles of polynomial mappings",
+      "authors": "Michael E. Zieve",
+      "edition": "Berkeley PhD thesis, 1996, University of Michigan author copy; read 14 October 2026",
+      "url": "https://websites.umich.edu/~zieve/papers/ucthesis.pdf",
+      "sha256": "4889037f43ddd9b0eb3079dacb6034c28a4fe4952dbc493895727dbf3c9de8d2",
+      "readSections": [
+        "§2.1, Proposition 1, Corollary 4 and Theorem 8, pp.5–9",
+        "§2.3.1–2.3.4, Lemmas 29–30 and 39–42, Propositions 31–32 and Theorem 33, pp.21–31",
+        "§2.4, composition warning and Theorem 43, pp.32–34",
+        "§2.5, Proposition 44, Lemmas 45–47, Corollaries 48–49 and Theorem 50, pp.34–38"
+      ]
     }
   ],
   "nodes": [
@@ -9754,10 +9768,7 @@
           "kind": "non-example",
           "statement": "For the Lattès-free example f(z) = (z² + 1)/(3z) over ℂ₃ with F = (X₀² + X₁², 3X₀X₁): λ̂(i) = −(1/2)·log 3 ≠ 0 = log⁺ |i|₃, so λ̂ is not the naive local height although it agrees with it on ℚ₃."
         }
-      ],
-      "planet": {
-        "name": "Local canonical height"
-      }
+      ]
     },
     {
       "id": "ArithmeticDynamics:DY.2/dynamical-green-function",
@@ -10369,10 +10380,7 @@
           "kind": "non-example",
           "statement": "For P of exact period n ≥ 2 the fixed-point multiplier f.multiplier P of DY.0 is not the cycle multiplier (P is not fixed by f; for [1 : 1] and z² − z − 1 it is DY.0's junk value, while the cycle multiplier is −3)."
         }
-      ],
-      "planet": {
-        "name": "Multiplier of a periodic cycle"
-      }
+      ]
     },
     {
       "id": "ArithmeticDynamics:DY.2/multiplier-chain-rule",
@@ -10780,21 +10788,27 @@
         "f good reduction"
       ],
       "proofSteps": [
-        "Reduce to 0 of exact period p^e with multiplier ≡ 1 as in DY.2/period-exponent-bound.",
-        "Zieve's refinement of the valuation recursion (a second-order expansion g(z) = µ + λz + νz² + ⋯ as indicated in Silverman's notes) sharpens DY.2/p-power-iterate-valuation-recursion; its proof is in Zieve's thesis (Cycles of polynomial mappings, UC Berkeley 1996), which is not publicly available, and is recorded as a gap."
+        "Use periods-under-good-reduction to separate the residue period m, multiplier order r, and residual p-power exponent.",
+        "Apply zieve-rational-cycle-adapter: local rational expansions have integral coefficients and reduce the cycle to the weighted coefficient and jet-growth estimates. The public Zieve thesis, Chapter 2, Theorem 50, p.38, gives the sharp bound; zieve-weighted-coefficient-divisibility retains the explicitly recorded nilpotent quadratic-preparation gap. Hutz’s separate estimate remains a weaker independent comparison, not a substitute for Zieve’s constant."
       ],
       "acceptance": [
         "Over ℚ: a ℚ-rational periodic point of a map with good reduction at 2 has n ∈ {m, m·r, 2·m·r} with m ≤ 3, r = 1 (𝔽₂^× is trivial), so n ≤ 6."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.2/periods-under-good-reduction",
-        "ArithmeticDynamics:DY.2/period-exponent-bound"
+        "ArithmeticDynamics:DY.2/period-exponent-bound",
+        "ArithmeticDynamics:DY.2/zieve-rational-cycle-adapter"
       ],
       "sources": [
         {
           "sourceId": "silverman-aws-2010",
           "locator": "Theorem 27, p. 22",
           "match": "Exactly the statement (Zieve)."
+        },
+        {
+          "sourceId": "Zieve1996",
+          "locator": "Chapter 2, Theorem 50, p.38; Lemma 46, pp.35–36; Corollaries 48–49, p.37",
+          "match": "The polynomial-cycle comparison preserves the reduced multiplier, and good reduction at every cycle point lets the polynomial period theorem apply to a projective rational map. These pages were re-read during assembly; the full algebra-preparation proof remains the supplement’s recorded gap."
         }
       ],
       "library": {
@@ -11487,10 +11501,11 @@
       "kind": "definition",
       "statement": "Let f be a rational map of degree d ≥ 2 over ℂ with lift F, and g_F = dynamical-green-function at the usual absolute value, a continuous function on the Riemann sphere ℙ¹(ℂ) = OnePoint ℂ (= P^{1,an}_ℂ). With Δ the measure-valued Laplacian on ℙ¹(ℂ) normalised as dd^c (Δ log|z| = δ₀ on ℂ, so Δ log⁺|z| = ω − δ_∞ with ω the normalised arc length on the unit circle), the archimedean canonical measure is µ_{f,∞} = Δg_F + ω. Equivalently Δλ̂_{F,∞} = µ_{f,∞} − δ_∞, and on ℂ µ_{f,∞} = (1/2π)·Δ_eucl(G_F(z, 1)) in the sense of distributions. For v an archimedean place of a number field K one uses the embedding K → ℂ of v.",
       "hypotheses": [
-        "d ≥ 2"
+        "d ≥ 2",
+        "The measure-valued sphere Laplacian is supplied on differences of subharmonic potentials with Radon Riesz measures; the escape potential belongs to this domain. Continuity alone does not give a measure-valued Laplacian."
       ],
       "proofSteps": [
-        "g_F is continuous on ℙ¹(ℂ) (DY.2/escape-rate-continuous), and on ℂ the function G_F(z, 1) is the uniform limit of the subharmonic functions d^{−n} log max(|Fⁿ₀(z, 1)|, |Fⁿ₁(z, 1)|) (DY.2/escape-rate-tendsto); its distributional Laplacian is therefore a measure. The measure-valued Laplacian of continuous functions on the Riemann sphere is not in the libraries and is recorded as a gap of this layer.",
+        "On each affine chart the escape potential is a locally uniform limit of subharmonic functions, by DY.2/escape-rate-tendsto, so it has a positive Radon Riesz measure. Subtracting the chart reference potential gives the global continuous g_F in the differences-of-subharmonic domain. Use the exact sphere Riesz/Laplacian contract retained in the DY.2 continuation’s gap; no measure Laplacian is asserted for an arbitrary continuous function.",
         "Define µ_{f,∞} = Δg_F + ω; it does not depend on the lift, since g_{cF} − g_F is constant."
       ],
       "acceptance": [
@@ -11604,10 +11619,11 @@
       "kind": "theorem",
       "statement": "For f of degree d ≥ 2 over ℂ: µ_{f,∞} is a Borel probability measure on ℙ¹(ℂ) without atoms, Δλ̂_{F,∞} = µ_{f,∞} − δ_∞, and f^*µ_{f,∞} = d·µ_{f,∞}, f_*µ_{f,∞} = µ_{f,∞}.",
       "hypotheses": [
-        "d ≥ 2"
+        "d ≥ 2",
+        "The measure-valued sphere Laplacian is supplied on differences of subharmonic potentials with Radon Riesz measures; the escape potential belongs to this domain. Continuity alone does not give a measure-valued Laplacian."
       ],
       "proofSteps": [
-        "Total mass 1: the Laplacian of a continuous function on the compact Riemann sphere has total mass 0.",
+        "Total mass 1: the distributional Laplacian pairs to zero with the constant test function on the compact sphere. Since g_F is in the stated Riesz domain, its Laplacian is a signed measure of total mass zero.",
         "Positivity: on ℂ, λ̂_{F,∞} = G_F(·, 1) is a uniform limit of subharmonic functions, hence subharmonic; near ∞ use the chart 1/z (DY.2/escape-rate-conjugation).",
         "No atoms: a measure with a continuous potential has no atoms (Riesz decomposition).",
         "Invariance: apply Δ to the functional equation of DY.2/local-canonical-height-functional-equation, with Δ(h ∘ f) = f^*Δh and Δ log|F₁(z, 1)| = Σ δ_{zeros} − deg·δ_∞, exactly as in DY.2/canonical-measure-invariance; then f_* f^* = d."
@@ -11647,19 +11663,22 @@
       ],
       "title": "µ_{f,∞} is Lyubich's measure of maximal entropy",
       "kind": "comparison",
-      "statement": "For f of degree d ≥ 2 over ℂ, µ_{f,∞} equals the Lyubich / Freire–Lopes–Mañé measure: it is the unique Borel probability measure on ℙ¹(ℂ) without atoms with f^*µ = d·µ; for every non-exceptional a ∈ ℙ¹(ℂ), d^{−n}·Σ_{fⁿ(z) = a} δ_z → µ_{f,∞} weakly (with multiplicity); and µ_{f,∞} is the unique f-invariant measure of maximal entropy log d (Lyubich; Mañé). For the Lattès maps of DY.6 it is the push-forward of Haar measure of the elliptic curve.",
+      "statement": "For f of degree d ≥ 2 over ℂ, µ_{f,∞} equals the Lyubich / Freire–Lopes–Mañé measure: it is the unique Borel probability measure on ℙ¹(ℂ) without atoms with f^*µ = d·µ; for every non-exceptional a ∈ ℙ¹(ℂ), d^{−n}·Σ_{fⁿ(z) = a} δ_z → µ_{f,∞} weakly (with multiplicity); and µ_{f,∞} is the unique f-invariant measure of maximal entropy log d (Lyubich; Mañé). The Haar-measure description for Lattès maps is a downstream DY.6 application of this identification.",
       "hypotheses": [
         "d ≥ 2"
       ],
       "proofSteps": [
-        "By DY.2/archimedean-canonical-measure-properties µ_{f,∞} has no atoms and f^*µ = d·µ.",
-        "The uniqueness of such a measure, the equidistribution of preimages and the entropy characterisation are the theorems of Lyubich (1983), Freire–Lopes–Mañé (1983) and Mañé (1983) (Baker–Rumely Theorem 2.1); they belong to the complex dynamics of rational maps, which no roadmap of the atlas plans, and are recorded as a gap of this layer. Given them, µ_{f,∞} is Lyubich's measure (Baker–Rumely Proposition 3.36(B))."
+        "The parent construction and properties give an atom-free balanced probability measure, subject to the sphere Riesz/Laplacian supplier contract.",
+        "archimedean-measure-identification identifies it with complex-transfer-limit and supplies preimage equidistribution and Julia support. complex-canonical-measure-entropy gives entropy log d, while complex-maximal-entropy-uniqueness establishes uniqueness among invariant probabilities. These are distinct conclusions with distinct suppliers: spherical Montel, repelling density, the Banach contraction splitting, and generic measure entropy remain recorded proof gaps."
       ],
       "acceptance": [
         "z^d: ω is the measure of maximal entropy log d and the limit of d^{−n}Σ_{zⁿᵈ = a} δ_z for a ≠ 0, ∞."
       ],
       "prerequisites": [
-        "ArithmeticDynamics:DY.2/archimedean-canonical-measure-properties"
+        "ArithmeticDynamics:DY.2/archimedean-canonical-measure-properties",
+        "ArithmeticDynamics:DY.2/archimedean-measure-identification",
+        "ArithmeticDynamics:DY.2/complex-canonical-measure-entropy",
+        "ArithmeticDynamics:DY.2/complex-maximal-entropy-uniqueness"
       ],
       "sources": [
         {
@@ -14184,7 +14203,7 @@
       ],
       "title": "The dynatomic curve Y₁(n) of the family x^d + c",
       "kind": "definition",
-      "statement": "For d ≥ 2 and n ≥ 1, the dynatomic curve Y₁(n) is the affine plane curve over ℤ defined by Φ*ₙ(x, c) = 0, i.e. Spec of the coordinate ring ℤ[c][x]/(Φ*ₙ(x, c)). Its points in a ring L are the pairs (x, c) ∈ L² with Φ*ₙ(x, c) = 0; over a field these are the pairs with x of formal period n for x^d + c (exact period n apart from the points described by ArithmeticDynamics:DY.3/formal-period-classification, e.g. (−1/2, −3/4) on Y₁(2)). The substitution σ : x ↦ x^d + c induces an automorphism of Y₁(n) whose n-th power is the identity. The normalisation X₁(n) of its projective closure and the quotient X₀(n) = X₁(n)/⟨σ⟩ are the curves of Flynn–Poonen–Schaefer, Poonen and Stoll; their construction as smooth projective curves belongs to curve theory and is only named here.",
+      "statement": "For d ≥ 2 and n ≥ 1, the dynatomic curve Y₁(n) is the affine plane curve over ℤ defined by Φ*ₙ(x, c) = 0, i.e. Spec of the coordinate ring ℤ[c][x]/(Φ*ₙ(x, c)). Its points in a ring L are the pairs (x, c) ∈ L² with Φ*ₙ(x, c) = 0; over a field these are the pairs with x of formal period n for x^d + c (exact period n apart from the points described by ArithmeticDynamics:DY.3/formal-period-classification, e.g. (−1/2, −3/4) on Y₁(2)). The substitution σ : x ↦ x^d + c induces an automorphism of Y₁(n) whose n-th power is the identity. This node owns only the affine coordinate ring and rotation. The downstream projective-dynatomic-model and dynatomic-cycle-quotient targets construct X₁(n) and X₀(n) over characteristic-zero fields; quadratic-dynatomic-genera computes their genera. These downstream constructions are not prerequisites of the affine curve.",
       "hypotheses": [
         "d ≥ 2, n ≥ 1; the coordinate ring is Mathlib's AdjoinRoot of Φ*ₙ(x, c) over ℤ[c]."
       ],
@@ -14292,13 +14311,12 @@
       "kind": "theorem",
       "statement": "For d ≥ 2 and n ≥ 1, the polynomial Φ*ₙ(x, c) is irreducible in ℂ[x, c] and the affine curve Φ*ₙ(x, c) = 0 in ℂ² is nonsingular: there is no (x, c) with Φ*ₙ = ∂Φ*ₙ/∂x = ∂Φ*ₙ/∂c = 0 (Bousch for d = 2; Buff–Tan; Gao–Ou for all d).",
       "hypotheses": [
-        "d ≥ 2, n ≥ 1, over ℂ. Gao–Ou prove smoothness and irreducibility of the closure of Xₙ = {(c, z) : z of exact period n, multiplier ≠ 1}; that closure is the zero set of Φ*ₙ by ArithmeticDynamics:DY.3/formal-period-classification-char-zero, and Φ*ₙ is squarefree because for generic c its roots are simple."
+        "d ≥ 2, n ≥ 1, over ℂ. The closure of the exact-period, multiplier-not-one locus is identified with the reduced zero set of Φ*ₙ by ArithmeticDynamics:DY.3/analytic-dynatomic-identification, including its parabolic boundary and its unresolved analytic/comparison inputs. Formal-period classification alone does not supply that identification. Generic simple roots make Φ*ₙ squarefree."
       ],
       "proofSteps": [
-        "Identify closure(Xₙ) with V(Φ*ₙ): points of formal period n in characteristic 0 have exact period n, or exact period m ∣ n with multiplier a primitive (n/m)-th root of unity (ArithmeticDynamics:DY.3/formal-period-classification-char-zero), which is Gao–Ou's description of the boundary ∂Xₙ.",
-        "Smoothness (Gao–Ou, Theorem 1.1 / 2.1): a partial derivative of a defining function is the coefficient of a quadratic differential (f_c)_*Q − Q, nonzero by Thurston's contraction principle. This input is recorded as a gap (no roadmap of the atlas plans holomorphic dynamics).",
-        "Irreducibility (Gao–Ou, Theorem 1.2; Bousch): a kneading-sequence argument (Lau–Schleicher) shows all components meet; recorded in the same gap.",
-        "From the smooth irreducible reduced zero set and squarefreeness of Φ*ₙ, the polynomial is irreducible and its gradient never vanishes on the curve."
+        "analytic-dynatomic-identification identifies the reduced analytic marked-periodic curve with V(Φ*ₙ), including its parabolic boundary. Its two explicit analytic and comparison gaps remain prerequisites of this endpoint.",
+        "Use the quadratic-differential pushforward and contraction, transversality, kneading and labelled monodromy targets to obtain smoothness and transitivity. Gao–Ou Theorems 1.1–1.2 supply the endpoint; the detailed contracts are the follow-up nodes, rather than an undecomposed appeal to holomorphic dynamics.",
+        "Generic simple roots make Φ*ₙ squarefree; smoothness of the reduced zero set and transitive marked monodromy then give the stated polynomial irreducibility and nonvanishing gradient."
       ],
       "acceptance": [
         "n = 1, d = 2: Φ*₁ = x² − x + c, ∂/∂c = 1 ≠ 0 everywhere; irreducible (degree one in c)."
@@ -14307,7 +14325,8 @@
         "ArithmeticDynamics:DY.3/unicritical-dynatomic-polynomial",
         "ArithmeticDynamics:DY.3/formal-period-classification-char-zero",
         "mathlib:Irreducible",
-        "mathlib:Polynomial.derivative"
+        "mathlib:Polynomial.derivative",
+        "ArithmeticDynamics:DY.3/analytic-dynatomic-identification"
       ],
       "sources": [
         {
@@ -15214,14 +15233,15 @@
       ],
       "title": "Certified enumeration over a number field from a height enumeration",
       "kind": "theorem",
-      "statement": "Let L be a number field presented exactly (ComputationalNumberTheory:CN.0), φ binary forms of degree d ≥ 2 over L with a Nullstellensatz certificate, f the induced map of ℙ¹(L), B = C/(d − 1) the bound of ArithmeticDynamics:DY.3/height-bound-for-preperiodic-points, and S a finite set of points of ℙ¹(L) certified to contain every point of logarithmic height ≤ B (EffectiveDiophantineMethods:ED.0). Then PrePer(f, ℙ¹(L)) = preperiodicFilter f S.",
+      "statement": "Let L be a number field presented exactly (ComputationalNumberTheory:CN.0), φ binary forms of degree d ≥ 2 over L with a Nullstellensatz certificate, f the induced map of ℙ¹(L), B = C/(d − 1) the native relative logarithmic height bound of ArithmeticDynamics:DY.3/height-bound-for-preperiodic-points, and S a finite set of points of ℙ¹(L) certified to contain every point of native relative logarithmic height ≤ B (EffectiveDiophantineMethods:ED.0/bounded-height-enumeration). Then PrePer(f, ℙ¹(L)) = preperiodicFilter f S.",
       "hypotheses": [
         "L a number field with an exact presentation and decidable equality (CN.0); S a certified bounded-height enumeration (ED.0).",
-        "x is preperiodic for f when ∃ m, f^[m] x ∈ Function.periodicPts f."
+        "x is preperiodic for f when ∃ m, f^[m] x ∈ Function.periodicPts f.",
+        "Apply ED.0/bounded-height-enumeration with a rational D ≥ exp(B), since this B is the native relative logarithmic height bound. For a separately supplied absolute bound B_abs use D ≥ exp([L:ℚ]·B_abs). Include both output lists and infinity. The exact-dynamical-runtime-adapter supplies terminating operations and equality compatible with realization."
       ],
       "proofSteps": [
-        "Preperiodic points have h ≤ B (ArithmeticDynamics:DY.3/height-bound-for-preperiodic-points), so S contains them.",
-        "Apply ArithmeticDynamics:DY.3/preperiodic-filter-correct, using the decidable equality of the exact carrier (ComputationalNumberTheory:CN.0)."
+        "Use the native relative height bound B with ED.0/bounded-height-enumeration at rational radius D ≥ exp(B), and take the union of its two certified lists together with infinity. The chosen integral basis, embedding data and root-enclosure certificate hypotheses remain required. An absolute logarithmic input is first multiplied by [L:ℚ].",
+        "Transport evaluation and equality through exact-dynamical-runtime-adapter, and apply preperiodic-filter-correct. The relative-height-candidate-adapter is a downstream specialization of this endpoint, not a prerequisite."
       ],
       "acceptance": [
         "For L = ℚ this is ArithmeticDynamics:DY.3/rational-preperiodic-enumeration-over-Q with S = ratPointsOfHeightLE H."
@@ -15229,8 +15249,8 @@
       "prerequisites": [
         "ArithmeticDynamics:DY.3/height-bound-for-preperiodic-points",
         "ArithmeticDynamics:DY.3/preperiodic-filter-correct",
-        "ComputationalNumberTheory:CN.0",
-        "EffectiveDiophantineMethods:ED.0"
+        "ArithmeticDynamics:DY.3/exact-dynamical-runtime-adapter",
+        "EffectiveDiophantineMethods:ED.0/bounded-height-enumeration"
       ],
       "sources": [
         {
@@ -15258,15 +15278,14 @@
       ],
       "title": "Rational points of period 1, 2, 3 for z² + c",
       "kind": "theorem",
-      "statement": "Let c ∈ ℚ and f = z² + c. (1) f has a rational fixed point iff c = 1/4 − ρ² for some ρ ∈ ℚ; the fixed points are 1/2 ± ρ. (2) f has a rational point of exact period 2 iff c = −3/4 − σ² for some σ ∈ ℚ, σ ≠ 0; they are −1/2 ± σ and form a 2-cycle. (3) f has a rational point of exact period 3 iff c = −(τ⁶ + 2τ⁵ + 4τ⁴ + 8τ³ + 9τ² + 4τ + 1)/(4τ²(τ + 1)²) for some τ ∈ ℚ ∖ {0, −1}; the cycle is x₁ = (τ³ + 2τ² + τ + 1)/(2τ(τ + 1)) ↦ x₂ = (τ³ − τ − 1)/(2τ(τ + 1)) ↦ x₃ = −(τ³ + 2τ² + 3τ + 1)/(2τ(τ + 1)) ↦ x₁, and τ = x₁ + x₂. There is at most one rational 3-cycle.",
+      "statement": "Let c ∈ ℚ and f = z² + c. (1) f has a rational fixed point iff c = 1/4 − ρ² for some ρ ∈ ℚ; the fixed points are 1/2 ± ρ. (2) f has a rational point of exact period 2 iff c = −3/4 − σ² for some σ ∈ ℚ, σ ≠ 0; they are −1/2 ± σ and form a 2-cycle. (3) f has a rational point of exact period 3 iff c = −(τ⁶ + 2τ⁵ + 4τ⁴ + 8τ³ + 9τ² + 4τ + 1)/(4τ²(τ + 1)²) for some τ ∈ ℚ ∖ {0, −1}; the cycle is x₁ = (τ³ + 2τ² + τ + 1)/(2τ(τ + 1)) ↦ x₂ = (τ³ − τ − 1)/(2τ(τ + 1)) ↦ x₃ = −(τ³ + 2τ² + 3τ + 1)/(2τ(τ + 1)) ↦ x₁, and τ = x₁ + x₂. The at-most-one rational 3-cycle conclusion is owned separately by morton-rational-three-cycle-reduction.",
       "hypotheses": [
         "f_c(z) = z² + c with c ∈ ℚ; exact period is Mathlib's Function.minimalPeriod of f_c on ℚ (0 for non-periodic points)."
       ],
       "proofSteps": [
         "(1) f(x) = x iff c = x − x² = 1/4 − (x − 1/2)²: put ρ = x − 1/2.",
         "(2) A point of exact period 2 is a root of Φ*₂ = x² + x + c + 1 that is not fixed (ArithmeticDynamics:DY.3/exact-period-is-formal-period, API of ArithmeticDynamics:DY.3/dynatomic-polynomial-of-a-polynomial-map); x = −1/2 ± σ with σ² = −3/4 − c, and σ = 0 is exactly the fixed point −1/2 of formal period 2 (ArithmeticDynamics:DY.3/lower-period-root-of-a-dynatomic-polynomial).",
-        "(3) Parametrisation: substituting shows x₁ ↦ x₂ ↦ x₃ ↦ x₁ under z² + c(τ) (checked by computer algebra). Converse: for a rational point x of exact period 3, Φ*₃(x, c) = 0; put τ := x + f(x) ∈ ℚ. Modulo Φ*₃(x, c), 2τ(τ + 1)·x = τ³ + 2τ² + τ + 1 and 4τ²(τ + 1)²·c = −(τ⁶ + ⋯ + 1) (identities verified by reduction modulo the monic Φ*₃ in ℚ[c][x]); the first identity forces τ ∉ {0, −1}, so c = c(τ) and x = x₁(τ).",
-        "At most one rational 3-cycle: Morton 1992, Theorem 3 (Φ₃ never splits completely over ℚ), proved through the ℚ-points of the elliptic curve Y² = 4X³ − 11X² + 8X (Morton 1992, Lemma 6), requested from EffectiveDiophantineMethods:ED.3."
+        "(3) Parametrisation: substituting shows x₁ ↦ x₂ ↦ x₃ ↦ x₁ under z² + c(τ) (checked by computer algebra). Converse: for a rational point x of exact period 3, Φ*₃(x, c) = 0; put τ := x + f(x) ∈ ℚ. Modulo Φ*₃(x, c), 2τ(τ + 1)·x = τ³ + 2τ² + τ + 1 and 4τ²(τ + 1)²·c = −(τ⁶ + ⋯ + 1) (identities verified by reduction modulo the monic Φ*₃ in ℚ[c][x]); the first identity forces τ ∉ {0, −1}, so c = c(τ) and x = x₁(τ)."
       ],
       "acceptance": [
         "c = −29/16 (τ = 1): the 3-cycle −1/4 ↦ −7/4 ↦ 5/4 ↦ −1/4, with x₁(1) = 5/4, x₂(1) = −1/4, x₃(1) = −7/4."
@@ -15275,7 +15294,6 @@
         "ArithmeticDynamics:DY.3/exact-period-is-formal-period",
         "ArithmeticDynamics:DY.3/dynatomic-polynomial-of-a-polynomial-map",
         "ArithmeticDynamics:DY.3/lower-period-root-of-a-dynatomic-polynomial",
-        "EffectiveDiophantineMethods:ED.3",
         "mathlib:Function.minimalPeriod"
       ],
       "sources": [
@@ -15376,8 +15394,8 @@
         "ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct",
         "ArithmeticDynamics:DY.3/exact-period-is-formal-period",
         "ArithmeticDynamics:DY.3/unicritical-dynatomic-polynomial",
-        "EffectiveDiophantineMethods:ED.3",
-        "EffectiveDiophantineMethods:ED.4",
+        "EffectiveDiophantineMethods:ED.3/fps-genus-two-mordell-weil",
+        "EffectiveDiophantineMethods:ED.4/fps-quintic-cycle-curve",
         "mathlib:Function.minimalPeriod"
       ],
       "sources": [
@@ -15432,8 +15450,8 @@
       "prerequisites": [
         "ArithmeticDynamics:DY.3/dynatomic-curve",
         "ArithmeticDynamics:DY.3/exact-period-is-formal-period",
-        "EffectiveDiophantineMethods:ED.3",
-        "EffectiveDiophantineMethods:ED.4"
+        "EffectiveDiophantineMethods:ED.3/stoll-genus-four-subgroup",
+        "EffectiveDiophantineMethods:ED.4/stoll-six-cycle-curve"
       ],
       "sources": [
         {
@@ -15632,15 +15650,17 @@
       ],
       "title": "Points of type (3, 2) occur only for c = −29/16",
       "kind": "theorem",
-      "statement": "Let c ∈ ℚ. z² + c has rational points of type (3, 2) iff c = −29/16; the points are ±3/4.",
+      "statement": "Conditional on rank J(C₁(3₂))(ℚ) ≤ 1, let c ∈ ℚ. z² + c has rational points of type (3, 2) iff c = −29/16; the points are ±3/4.",
       "hypotheses": [
         "f_c(z) = z² + c with c ∈ ℚ; exact period is Mathlib's Function.minimalPeriod of f_c on ℚ (0 for non-periodic points).",
-        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3)."
+        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3).",
+        "Assume rank J(C₁(3₂))(ℚ) ≤ 1 for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1. The corrected 2-adic/743-adic descent is an explicit supplier gap; the author’s erratum asserts the repaired result but does not print its computation."
       ],
       "proofSteps": [
         "r² + c is the negative of a point of period 3, so (τ, 2τ(τ + 1)r) lies on C : y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1 (the curve C₁(3₂)).",
         "Requests: EffectiveDiophantineMethods:ED.3 (J(C)(ℚ) ≅ ℤ by a 2-descent; Poonen's Proposition 1, with the correction of Poonen's errata: the local point used at 743 is (−2, √33), and the 2-adic information is needed; ArithmeticDynamics/E404) and EffectiveDiophantineMethods:ED.4 (Chabauty–Coleman modulo 3, with the variant embedding P ↦ [P + S₊] on the residue disc of the Weierstrass point (1, 0) mod 3: C(ℚ) = {(−1, ±1), (0, ±1), (1, ±3), ∞±}).",
-        "Only τ = 1 gives an admissible c, namely −29/16; the enumeration ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct computes the full graph for c = −29/16."
+        "Only τ = 1 gives an admissible c, namely −29/16; the enumeration ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct computes the full graph for c = −29/16.",
+        "Carry the rank hypothesis through this dependency chain. The all-point theorem ED.4/poonen-type-three-two-curve needs it as well as its explicit finite residue, integral-series and tail certificates; ED.3 currently supplies torsion, a rank lower bound and 3-saturation, not the missing rank upper bound."
       ],
       "acceptance": [
         "c = −29/16: 3/4 ↦ −5/4 ↦ −1/4 ↦ −7/4 ↦ 5/4 ↦ −1/4 (Poonen 1995, p. 6)."
@@ -15648,8 +15668,8 @@
       "prerequisites": [
         "ArithmeticDynamics:DY.3/quadratic-rational-cycles-of-length-at-most-three",
         "ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct",
-        "EffectiveDiophantineMethods:ED.3",
-        "EffectiveDiophantineMethods:ED.4",
+        "EffectiveDiophantineMethods:ED.3/poonen-genus-two-mordell-weil",
+        "EffectiveDiophantineMethods:ED.4/poonen-type-three-two-curve",
         "mathlib:Function.minimalPeriod"
       ],
       "sources": [
@@ -15683,15 +15703,17 @@
       ],
       "title": "Incompatible combinations of types and periods",
       "kind": "theorem",
-      "statement": "Let c ∈ ℚ and 1 ≤ a ≤ 3. If z² + c has a rational point of type (a, 2), it has no rational point of period b ≤ 3 with b ≠ a.",
+      "statement": "Conditional on rank J(C₁(3₂))(ℚ) ≤ 1, let c ∈ ℚ and 1 ≤ a ≤ 3. If z² + c has a rational point of type (a, 2), it has no rational point of period b ≤ 3 with b ≠ a.",
       "hypotheses": [
         "f_c(z) = z² + c with c ∈ ℚ; exact period is Mathlib's Function.minimalPeriod of f_c on ℚ (0 for non-periodic points).",
-        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3)."
+        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3).",
+        "Assume rank J(C₁(3₂))(ℚ) ≤ 1 for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1. The corrected 2-adic/743-adic descent is an explicit supplier gap; the author’s erratum asserts the repaired result but does not print its computation."
       ],
       "proofSteps": [
         "a = 3: by ArithmeticDynamics:DY.3/poonen-type-three-two, c = −29/16, whose graph (enumeration) has no fixed point or 2-cycle.",
         "a = 1, b = 3 and a = 2, b = 3: ArithmeticDynamics:DY.3/poonen-period-combinations (2). a = 1, b = 2: a rational point on t² = 5µ⁴ + 14µ² − 3, birational to E15: y² + xy + y = x³ + x² (15A8); a = 2, b = 1: t² = 5µ⁴ − 8µ³ + 6µ² + 8µ + 5, birational to E17: y² + xy + y = x³ − x² − x (17A4).",
-        "Request EffectiveDiophantineMethods:ED.3: E15(ℚ) = {O, (0, 0), (−1, 0), (0, −1)} and E17(ℚ) = {O, (0, 0), (1, −1), (0, −1)}; they correspond to µ = ±1, excluded (Poonen's correspondence list for E15 contains a misprint, ArithmeticDynamics/E403; the map for E17 has the erratum ArithmeticDynamics/E405)."
+        "Request EffectiveDiophantineMethods:ED.3: E15(ℚ) = {O, (0, 0), (−1, 0), (0, −1)} and E17(ℚ) = {O, (0, 0), (1, −1), (0, −1)}; they correspond to µ = ±1, excluded (Poonen's correspondence list for E15 contains a misprint, ArithmeticDynamics/E403; the map for E17 has the erratum ArithmeticDynamics/E405).",
+        "Carry the rank hypothesis through this dependency chain. The all-point theorem ED.4/poonen-type-three-two-curve needs it as well as its explicit finite residue, integral-series and tail certificates; ED.3 currently supplies torsion, a rank lower bound and 3-saturation, not the missing rank upper bound."
       ],
       "acceptance": [
         "c = −2 has 0 of type (1, 2) and the fixed points −1, 2 only; no 2-cycle."
@@ -15724,15 +15746,17 @@
       ],
       "title": "No rational points of type (m, n) with m ≤ 3 and n ≥ 3",
       "kind": "theorem",
-      "statement": "Let c ∈ ℚ. z² + c has no rational point of type (1, n), (2, n) or (3, n) for n ≥ 3.",
+      "statement": "Conditional on rank J(C₁(3₂))(ℚ) ≤ 1, let c ∈ ℚ. z² + c has no rational point of type (1, n), (2, n) or (3, n) for n ≥ 3.",
       "hypotheses": [
         "f_c(z) = z² + c with c ∈ ℚ; exact period is Mathlib's Function.minimalPeriod of f_c on ℚ (0 for non-periodic points).",
-        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3)."
+        "A point of type (m, n) (n ≥ 1) enters an m-cycle after exactly n steps: minimalPeriod(fⁿ(x)) = m and f^{n−1}(x) is not periodic (Poonen 1995, §3).",
+        "Assume rank J(C₁(3₂))(ℚ) ≤ 1 for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1. The corrected 2-adic/743-adic descent is an explicit supplier gap; the author’s erratum asserts the repaired result but does not print its computation."
       ],
       "proofSteps": [
         "It suffices to treat n = 3 (iterating reduces n). Type (3, n): by ArithmeticDynamics:DY.3/poonen-type-three-two and the enumeration for c = −29/16.",
         "Types (1, 3) and (2, 3): q² + c is of type (1, 2) or (2, 2), which leads to t² = 2(η³ + η² − η + 1), i.e. E11 : y² + y = x³ − x² = X₁(11) (η = 2x − 1, t = 4y + 2).",
-        "Request EffectiveDiophantineMethods:ED.3: E11(ℚ) = {O, (0, 0), (0, −1), (1, 0), (1, −1)}; these give η = ±1, excluded."
+        "Request EffectiveDiophantineMethods:ED.3: E11(ℚ) = {O, (0, 0), (0, −1), (1, 0), (1, −1)}; these give η = ±1, excluded.",
+        "Carry the rank hypothesis through this dependency chain. The all-point theorem ED.4/poonen-type-three-two-curve needs it as well as its explicit finite residue, integral-series and tail certificates; ED.3 currently supplies torsion, a rank lower bound and 3-saturation, not the missing rank upper bound."
       ],
       "acceptance": [
         "c = −2: 0 is of type (1, 2) and nothing maps onto 0 rationally (z² − 2 = 0 has no rational root)."
@@ -15859,15 +15883,17 @@
       ],
       "title": "Under Poonen's conjecture, #PrePer(z² + c, ℙ¹(ℚ)) ≤ 9",
       "kind": "theorem",
-      "statement": "Assume Poonen's conjecture. Then for every c ∈ ℚ, z² + c has at most eight finite rational preperiodic points (nine with ∞), and the bound is attained (c = −29/16, −21/16). The graph of PrePer(z² + c, ℚ) is one of the twelve graphs of Poonen's Figure 1.",
+      "statement": "Conditional on rank J(C₁(3₂))(ℚ) ≤ 1, assume Poonen's conjecture. Then for every c ∈ ℚ, z² + c has at most eight finite rational preperiodic points (nine with ∞), and the bound is attained (c = −29/16, −21/16). The graph of PrePer(z² + c, ℚ) is one of the twelve graphs of Poonen's Figure 1.",
       "hypotheses": [
         "f_c(z) = z² + c with c ∈ ℚ; exact period is Mathlib's Function.minimalPeriod of f_c on ℚ (0 for non-periodic points).",
-        "Explicit hypothesis: ArithmeticDynamics:DY.3/poonen-conjecture."
+        "Explicit hypothesis: ArithmeticDynamics:DY.3/poonen-conjecture.",
+        "Assume rank J(C₁(3₂))(ℚ) ≤ 1 for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1. The corrected 2-adic/743-adic descent is an explicit supplier gap; the author’s erratum asserts the repaired result but does not print its computation."
       ],
       "proofSteps": [
         "Under the conjecture every rational cycle has length ≤ 3, and every preperiodic point is of type (m, n) with m ≤ 3.",
-        "By ArithmeticDynamics:DY.3/poonen-no-long-tails, n ≤ 2; the points of period ≤ 3 are described by ArithmeticDynamics:DY.3/quadratic-rational-cycles-of-length-at-most-three and ArithmeticDynamics:DY.3/poonen-period-combinations; types (m, 1) by ArithmeticDynamics:DY.3/poonen-type-m-one; types (1, 2), (2, 2), (3, 2) and their compatibilities by ArithmeticDynamics:DY.3/poonen-type-one-two, ArithmeticDynamics:DY.3/poonen-type-two-two, ArithmeticDynamics:DY.3/poonen-type-three-two and ArithmeticDynamics:DY.3/poonen-type-exclusions.",
-        "Counting in each admissible configuration gives at most 8 finite points; c = −29/16 attains 8 (ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct)."
+        "By ArithmeticDynamics:DY.3/poonen-no-long-tails, n ≤ 2; the points of period ≤ 3 are described by ArithmeticDynamics:DY.3/quadratic-rational-cycles-of-length-at-most-three and ArithmeticDynamics:DY.3/poonen-period-combinations; types (m, 1) by ArithmeticDynamics:DY.3/poonen-type-m-one; types (1, 2), (2, 2), (3, 2) and their compatibilities by ArithmeticDynamics:DY.3/poonen-type-one-two, ArithmeticDynamics:DY.3/poonen-type-two-two, ArithmeticDynamics:DY.3/poonen-type-three-two and ArithmeticDynamics:DY.3/poonen-type-exclusions. The number of rational 3-cycles is bounded by morton-rational-three-cycle-reduction, after the period-three parametrization; the parametrization itself does not use that reduction.",
+        "Counting in each admissible configuration gives at most 8 finite points; c = −29/16 attains 8 (ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct).",
+        "Carry the rank hypothesis through this dependency chain. The all-point theorem ED.4/poonen-type-three-two-curve needs it as well as its explicit finite residue, integral-series and tail certificates; ED.3 currently supplies torsion, a rank lower bound and 3-saturation, not the missing rank upper bound."
       ],
       "acceptance": [
         "c = −29/16 and c = −21/16 each have the eight finite rational preperiodic points ±1/4, ±3/4, ±5/4, ±7/4 (computed by the certified enumeration)."
@@ -15882,7 +15908,8 @@
         "ArithmeticDynamics:DY.3/poonen-type-two-two",
         "ArithmeticDynamics:DY.3/poonen-type-three-two",
         "ArithmeticDynamics:DY.3/poonen-type-exclusions",
-        "ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct"
+        "ArithmeticDynamics:DY.3/unicritical-rational-preperiodic-enumeration-correct",
+        "ArithmeticDynamics:DY.3/morton-rational-three-cycle-reduction"
       ],
       "sources": [
         {
@@ -26298,8 +26325,9 @@
         "Ingram Lemma 9: if P has pole order m at β and enters B⁰_β, construct the formal Böttcher coordinate G_β in the Laurent series field; w^mG_β is a power-series unit for a uniformizer w. Hensel uniqueness, coefficient bounds and the Schwarz estimate give convergence in a v-adic neighbourhood of β, uniformly outside finitely many places. This uses Laurent series, correcting the power-series-ring slip recorded in E713.",
         "Ingram Lemma 13: the quotient G_β^{d−1}a_d/g is an analytic unit near β (after the chosen iteration). Its logarithm gives the local difference between the canonical and divisor heights there, hence a bounded difference; at all but finitely many places this difference vanishes on the prescribed discs. Lemmas 7–8 and 11 give the coefficient and escape bounds with the same finite exceptional set.",
         "For poles of the coefficients or P outside Supp D, bounded formal iterates and the maximum-modulus estimate bound the specialized escape rate. Away from all poles, the coefficients and P are bounded and the geometric escape-rate estimate supplies a uniform local bound. Ingram Lemmas 11–13 and the proof of Theorem 1 on pp. 18–19 patch these regions into a bound b_v, zero for almost all v.",
-        "The generic-height-zero case of Ingram Lemma 12 additionally uses Benedetto’s function-field zero-height/isotriviality theorem. This named nonroutine input is recorded in the existing GTZ/Benedetto gap with this node as a consumer; no Northcott theorem over K(t) is being assumed.",
-        "Sum the bounds over places, with r_v = [L_v:ℚ_v]/[L:ℚ] and the extension compatibility of the heights. The bound remains independent of the finite field L containing t. The degree of D is ĥ_f(P); on ℙ¹, the height of D differs from deg(D)h(t) by O(1). This proves the displayed t-line statement."
+        "The generic-height-zero case of Ingram Lemma 12 uses ArithmeticDynamics:DY.6/followup-benedetto-zero-height. This replaces the former broad GTZ/Benedetto gap by that node’s explicit proof leaves; it does not assume Northcott over K(t).",
+        "Sum the bounds over places, with r_v = [L_v:ℚ_v]/[L:ℚ] and the extension compatibility of the heights. The bound remains independent of the finite field L containing t. The degree of D is ĥ_f(P); on ℙ¹, the height of D differs from deg(D)h(t) by O(1). This proves the displayed t-line statement.",
+        "Assembly supplier refinement: use DY.6/followup-benedetto-zero-height. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "f = z² + t, P = 0: ĥ_{z²+t₀}(0) = ½ h(t₀) + O(1)."
@@ -26308,7 +26336,8 @@
         "ArithmeticDynamics:DY.6/specialization-of-canonical-heights",
         "ArithmeticDynamics:DY.2/escape-rate",
         "ArithmeticDynamics:DY.1/canonical-height-over-a-global-height-field",
-        "ArithmeticDynamics:DY.6/rational-function-field-heights"
+        "ArithmeticDynamics:DY.6/rational-function-field-heights",
+        "ArithmeticDynamics:DY.6/followup-benedetto-zero-height"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/Families",
@@ -26704,11 +26733,12 @@
       "proofSteps": [
         "Upper bound: the critical-point coefficient/root estimate and |ĥ_f−h| ≪ h_{Hom_d}(f)+1 bound ĥ_crit(f) by a constant times h_{Hom_d}(f)+1. Use a representative of minimal coefficient height and Silverman’s comparison (Ingram Lemma 13) to obtain the moduli upper bound. That comparison is an explicit recorded input.",
         "Ingram Lemma 11: move a fixed point γ of multiplier λ ≠ 0,1 to 0 and another fixed point to ∞. For γ = [α:γ₀] and the other point [β:δ], use ψ(z) = (βz+α)/(δz+γ₀), so ψ(0) is the λ-point. Normalize each column separately to bound h(ψ) by the sum of the two point heights. The homogeneous fixed-point polynomial bounds that sum, and coefficient estimates yield h_{Hom_d}(ψ⁻¹fψ) ≤ (d+2)h_{Hom_d}(f)+O_d(1). E714 records the reversed columns in the source.",
-        "Ingram Lemmas 7–9: the resultant-adjugate estimate bounds the homogeneous escape rate below and hence the Green function. At an archimedean place Koebe’s quarter theorem produces a critical point in the attracting domain; at a finite place the quantitative attracting-cycle theorem of Benedetto–Ingram–Jones–Levy does this when |λ|_v is sufficiently small. Root/coefficient estimates relate the size of the attracting disc to h_{Hom_d}. These two attracting-cycle inputs are recorded as gaps, not treated as routine algebra.",
+        "Ingram Lemmas 7–9: the resultant-adjugate estimate bounds the homogeneous escape rate below and hence the Green function. At an archimedean place Koebe’s quarter theorem produces a critical point in the attracting domain; at a finite place the quantitative attracting-cycle theorem of Benedetto–Ingram–Jones–Levy does this when |λ|_v is sufficiently small. Root/coefficient estimates relate the size of the attracting disc to h_{Hom_d}. The followup-quantitative-attracting-branch target identifies the archimedean and finite-place analytic inputs and keeps their proof leaves explicit.",
         "Ingram Lemma 10: use the branch divisor B′ obtained by removing critical images whose forward orbit reaches 0. The removed part has canonical height zero, while f_*^k B′ remains disjoint from 0 so its Green pairing is defined. The attracted critical orbit supplies the k log⁺|λ⁻¹|_v term; the other terms have the uniform Green lower bound. The resulting error is linear in k and in local coefficient size, with resultant term r_v(f).",
         "Ingram Lemma 12: sum with the absolute place weights. The resultant contribution cancels by the product formula; Σ_v r_v log⁺|λ⁻¹|_v = h(λ). The Green pairing sums to d^{k+1}ĥ_crit(f). Combining with the coordinate estimate gives d^{k+1}ĥ_crit(f) ≥ (k−1)h(λ) − (4d−1)(d+2)h_{Hom_d}(f) − c₀k. The cases λ = 0,1 follow directly from nonnegativity.",
         "Sum over all fixed-point multipliers and apply the estimate to a fixed iterate f^n, using ĥ_crit(f^n) = nĥ_crit(f). McMullen supplies some n with finite multiplier-spectrum fibres outside all Lattès classes. Ingram Lemmas 14–15 use the RP.0 finite-fibre height comparison to bound an ample moduli height by the spectrum height. For a sufficiently large fixed k, its positive k-dependent coefficient absorbs the remaining coefficient-height error. This proves the lower bound outside all Lattès classes, exactly as Ingram Theorem 1 states.",
-        "To state the endpoint outside the flexible Lattès locus, absorb the finitely many rigid Lattès classes of fixed degree into the additive constant. Milnor Theorem 5.1, Corollary 5.2 and Lemmas 5.4–5.5 classify these by the finite possible imaginary-quadratic multipliers a with |a|²=d, invariant lattice classes and finite translation quotients; the nonrigid n=2 cases have integral a and are precisely the flexible ones. This classification input is explicitly included in the recorded gap. No multiplier-finiteness theorem on the flexible locus is claimed."
+        "To state the endpoint outside the flexible Lattès locus, absorb the finitely many rigid Lattès classes of fixed degree into the additive constant. Milnor Theorem 5.1, Corollary 5.2 and Lemmas 5.4–5.5 classify these by the finite possible imaginary-quadratic multipliers a with |a|²=d, invariant lattice classes and finite translation quotients; the nonrigid n=2 cases have integral a and are precisely the flexible ones. The classification contract is ArithmeticDynamics:DY.6/followup-rigid-lattes-finiteness, with its remaining extraction gap. No multiplier-finiteness theorem on the flexible locus is claimed.",
+        "Assembly supplier refinement: use DY.6/followup-finite-multiplier-spectrum, DY.6/followup-rigid-lattes-finiteness, DY.6/followup-minimum-conjugate-height, DY.6/followup-quasifinite-height-comparison, DY.6/followup-quantitative-attracting-branch. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "PCF maps z² + c with c ∈ ℚ̄: the set of such c has bounded height (Benedetto–Ingram–Jones–Levy), a special case.",
@@ -26723,7 +26753,12 @@
         "ArithmeticDynamics:DY.2/escape-rate",
         "ArithmeticDynamics:DY.2/multiplier-of-a-periodic-cycle",
         "ArithmeticDynamics:DY.1/canonical-height-on-the-projective-line",
-        "HeightsRationalPointsAndObstructions:RP.0"
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "ArithmeticDynamics:DY.6/followup-finite-multiplier-spectrum",
+        "ArithmeticDynamics:DY.6/followup-rigid-lattes-finiteness",
+        "ArithmeticDynamics:DY.6/followup-minimum-conjugate-height",
+        "ArithmeticDynamics:DY.6/followup-quasifinite-height-comparison",
+        "ArithmeticDynamics:DY.6/followup-quantitative-attracting-branch"
       ],
       "planet": {
         "name": "Critical height is a moduli height"
@@ -27066,7 +27101,8 @@
       "proofSteps": [
         "(a) is DeMarco–Faber [DF1, Theorem B] (or [DF2, Theorem D] with a vertex set in [ζ_{0,1}, ζ_{0,|T|₀}]) applied to the meromorphic family f_t, allowing coordinate changes and base changes.",
         "(b), (c) are Favre's convergence theorem in the hybrid space [Fa, Theorem B, Theorem 2.10, §4.3].",
-        "These theorems of complex dynamics are not decomposed in DY.6 (gap); the hybrid space is TropicalAndBerkovichArithmetic:TB.0's."
+        "The hybrid carrier belongs to TropicalAndBerkovichArithmetic:TB.0. ArithmeticDynamics:DY.6/followup-hybrid-equilibrium-limit decomposes the comparison route; its remaining uniform-comparison proof gap is inherited here.",
+        "Assembly supplier refinement: use DY.6/followup-hybrid-equilibrium-limit. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "∫ φ̂_f dμ̂_f = −1/3 (the constant behind Theorem 5.1)."
@@ -27075,7 +27111,8 @@
         "ArithmeticDynamics:DY.6/legendre-lattes-map",
         "ArithmeticDynamics:DY.2/canonical-measure",
         "ArithmeticDynamics:DY.6/legendre-escape-rate-away-from-two",
-        "TropicalAndBerkovichArithmetic:TB.0"
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "ArithmeticDynamics:DY.6/followup-hybrid-equilibrium-limit"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/UniformManinMumford",
@@ -27146,14 +27183,16 @@
       "proofSteps": [
         "The segment [0, ∞] of P^{1,an}_{k₀} is compact; ϕ extends continuously to X^hyb (DY.6/legendre-measure-degeneration (c)).",
         "The hybrid topology makes the annular sets {|t|^{a+δ} < |z| < |t|^{a−δ}, 0 < |t| < δ} ∪ A(|T|₀^{a+δ}, |T|₀^{a−δ}) open (TropicalAndBerkovichArithmetic:TB.0); uniform continuity on a compact neighbourhood of the segment gives (a).",
-        "(b) is (a) plus the bounded difference G_{F_t}(z, 1) − ϕ(t, z) log|t|⁻¹ = log⁺|z| ≤ log M."
+        "(b) is (a) plus the bounded difference G_{F_t}(z, 1) − ϕ(t, z) log|t|⁻¹ = log⁺|z| ≤ log M.",
+        "Assembly supplier refinement: use DY.6/followup-hybrid-uniform-potential. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "At a = 0 the central value is φ̂_f(ζ_{0,1}) = 0."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.6/legendre-measure-degeneration",
-        "TropicalAndBerkovichArithmetic:TB.0"
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "ArithmeticDynamics:DY.6/followup-hybrid-uniform-potential"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/UniformManinMumford",
@@ -27735,15 +27774,17 @@
         "π(x, y) = x on the Legendre curve E_t."
       ],
       "proofSteps": [
-        "DeMarco–Wang–Ye (Amer. J. Math. 138 (2016)), Proposition 1.4, cited by DeMarco–Krieger–Ye §8.2; not decomposed in DY.6 (gap).",
-        "For x ∈ ℚ̄ ∖ {0, 1}, the point P_t = (x, √(x(x − 1)(x − t))) over ℚ̄(t) is not torsion; with DY.6/lattes-map-preperiodic-iff-torsion this says x is not preperiodic for the family f_t over ℚ̄(t)."
+        "Use DeMarco–Wang–Ye Proposition 1.4 through ArithmeticDynamics:DY.6/followup-legendre-marked-degree-growth. This follow-up states the marked-iterate degree calculation and records its remaining extraction gap; the endpoint remains conditional on that proof leaf.",
+        "For x ∈ ℚ̄ ∖ {0, 1}, the point P_t = (x, √(x(x − 1)(x − t))) over ℚ̄(t) is not torsion; with DY.6/lattes-map-preperiodic-iff-torsion this says x is not preperiodic for the family f_t over ℚ̄(t).",
+        "Assembly supplier refinement: use DY.6/followup-legendre-marked-degree-growth. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "x = 0, 1, ∞ are x-coordinates of 2-torsion or O for every t."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.6/legendre-lattes-map",
-        "ArithmeticDynamics:DY.6/lattes-map-preperiodic-iff-torsion"
+        "ArithmeticDynamics:DY.6/lattes-map-preperiodic-iff-torsion",
+        "ArithmeticDynamics:DY.6/followup-legendre-marked-degree-growth"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/UniformManinMumford",
@@ -28001,8 +28042,9 @@
         "x₀ algebraic, ≠ 0, 1."
       ],
       "proofSteps": [
-        "Tor(x₀) := {t ∈ ℚ̄ ∖ {0, 1} : P_t torsion on E_t} is infinite (DeMarco–Wang–Ye 2016, Theorem 1.2, by equidistribution; gap) and is a proper subset (DY.6/torsion-images-common-to-all-legendre-curves), hence a set of bounded height (the canonical height of x₀ on the family grows with h(t): DY.6/specialization-of-canonical-heights with DY.6/lattes-map-canonical-height).",
-        "For each n there are finitely many t with P_t of order ≤ n (roots of the finitely many division-polynomial relations ΨSq_m(x₀; t) = 0, m ≤ n, nonzero polynomials in t by DY.6/torsion-images-common-to-all-legendre-curves); an infinite Tor(x₀) therefore contains t₁ ≠ t₂ with orders ≥ N."
+        "ArithmeticDynamics:DY.6/followup-legendre-torsion-infinitude supplies the planned infinitude of Tor(x₀) := {t ∈ ℚ̄ ∖ {0,1} : P_t is torsion}, with its activity and equidistribution inputs still open. DY.6/torsion-images-common-to-all-legendre-curves shows that the marked generic point is not torsion. The resulting positive generic canonical height and specialization bound the heights of Tor(x₀).",
+        "For each n there are finitely many t with P_t of order ≤ n (roots of the finitely many division-polynomial relations ΨSq_m(x₀; t) = 0, m ≤ n, nonzero polynomials in t by DY.6/torsion-images-common-to-all-legendre-curves); an infinite Tor(x₀) therefore contains t₁ ≠ t₂ with orders ≥ N.",
+        "Assembly supplier refinement: use DY.6/followup-legendre-torsion-infinitude. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "Consequence: the uniform bound of DY.6/legendre-uniform-common-torsion-images bounds the number, not the orders, of common torsion images."
@@ -28012,7 +28054,8 @@
         "ArithmeticDynamics:DY.6/specialization-of-canonical-heights",
         "ArithmeticDynamics:DY.6/lattes-map-canonical-height",
         "ArithmeticDynamics:DY.6/legendre-lattes-map",
-        "mathlib:WeierstrassCurve.ΨSq"
+        "mathlib:WeierstrassCurve.ΨSq",
+        "ArithmeticDynamics:DY.6/followup-legendre-torsion-infinitude"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/UniformManinMumford",
@@ -28316,9 +28359,10 @@
         "Smoothness here is relative to ℤ_p at x, not just smoothness of the special fibre. This makes the total local ring regular and p a regular parameter."
       ],
       "proofSteps": [
-        "(a) Ô_{𝒳,x} is a complete regular local ring, unramified (p ∉ m̂² because of the ℤ_p-point), with residue field 𝔽_p; by the Cohen structure theorem (Matsumura, Theorem 29.7; gap) it is a power series ring over ℤ_p.",
+        "(a) Relative smoothness at the rational special-fibre point makes the completed local ring regular with p a regular parameter and residue field 𝔽_p. ArithmeticDynamics:DY.6/followup-unramified-cohen-adapter supplies the planned ℤ_p-compatible power-series presentation, retaining its SF.0 coefficient-map request.",
         "(b) Points reducing to x are the primes q of Ô with Ô/q ≅ ℤ_p, which are (T₁ − pz₁, …, T_g − pz_g).",
-        "(c) Φ* T_i = H_i ∈ ℤ_p[[T]] with constant term in pℤ_p; set F_i(T) := p⁻¹ H_i(pT₁, …, pT_g)."
+        "(c) Φ* T_i = H_i ∈ ℤ_p[[T]] with constant term in pℤ_p; set F_i(T) := p⁻¹ H_i(pT₁, …, pT_g).",
+        "Assembly supplier refinement: use DY.6/followup-unramified-cohen-adapter. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "𝒳 = 𝔸¹_{ℤ_p}, Φ(z) = z + p, x = 0: F(U) = U + 1."
@@ -28327,7 +28371,8 @@
         "mathlib:PowerSeries",
         "mathlib:PadicInt",
         "mathlib:AlgebraicGeometry.Scheme",
-        "mathlib:AlgebraicGeometry.FormallyUnramified"
+        "mathlib:AlgebraicGeometry.FormallyUnramified",
+        "ArithmeticDynamics:DY.6/followup-unramified-cohen-adapter"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/MordellLang",
@@ -28890,10 +28935,9 @@
         "The marked finite set may contain zero and need not generate L. The target is ℚ_p itself, not an unspecified finite extension."
       ],
       "proofSteps": [
-        "Remaining field-presentation gap: starting from Algebra.EssFiniteType ℚ L, use the existing finite-transcendence-basis and primitive-element theorems to identify L with a simple finite extension of Frac(ℤ[T₁,…,Tₙ]). Produce a positive-degree generically separable H(Y,T) for the primitive element and, for each marked element, an expression U(y,T)/V(T) with integral polynomials and V ≠ 0. Baseline integer normalization and common-denominator lemmas exist; their transport through this presentation and the evaluation identities still need a declaration-sized adapter.",
-        "Apply DY.6/lech-independent-hensel-specialization to the supplied H and marked denominator set D with bound max(N,3). Its chain constructs the resultant certificate, integral specialization, suitable prime, independent ξ ∈ ℤ_pⁿ and integral simple root η, preserves degree and makes every marked denominator a unit. The prime-selection chain is elementary and does not use Chebotarev.",
-        "Remaining transport gap: use independence of ξ to extend parameter evaluation through Frac(ℤ[T₁,…,Tₙ]); use the primitive-element presentation and irreducibility to send y to η and obtain a field embedding of L. Prove the evaluation identities for all marked rational expressions and injectivity.",
-        "Under that embedding, the numerator U(η,ξ) is integral by polynomial evaluation in ℤ_p and the denominator V(ξ) is a unit by DY.6/lech-independent-hensel-specialization. Thus every marked element has integral image. The arbitrary-field presentation and embedding-transport contracts remain the two parts of the Lech gap."
+        "followup-integral-primitive-presentation obtains the integer parameter ring, its fraction-field embedding, generically separable primitive equation and marked expressions with parameter-only denominators from arbitrary EssFiniteType Q L. Marks may include zero and need not generate the field.",
+        "Use the accepted lech-independent-hensel-specialization with bound max(N,3) to get independent integral parameters, a simple integral root, and unit denominators.",
+        "followup-primitive-root-transport extends the parameter-field map through that root; evaluate the marked expressions to get integral images. followup-lech-integral-assembly joins these statements, discharging the two inherited presentation/transport gaps at planning level without assuming an embedding conclusion or using Chebotarev."
       ],
       "acceptance": [
         "Finite generators u and marked elements s are separate inputs: for L = ℚ one may take u = ∅ and s = {1/6}.",
@@ -28908,7 +28952,8 @@
         "mathlib:Field.exists_primitive_element",
         "mathlib:IsLocalization.integerNormalization_spec",
         "mathlib:IsLocalization.exist_integer_multiples",
-        "ArithmeticDynamics:DY.6/lech-independent-hensel-specialization"
+        "ArithmeticDynamics:DY.6/lech-independent-hensel-specialization",
+        "ArithmeticDynamics:DY.6/followup-lech-integral-assembly"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/MordellLang",
@@ -29165,7 +29210,8 @@
       "proofSteps": [
         "Number fields (GTZ §3, Theorem 3.4): if fᵐ(X) = gᵐ(Y) has infinitely many S-integral solutions for every m, the Bilu–Tichy theorem (GTZ Theorem 2.1, from Siegel's theorem on integral points; gap) forces standard-pair decompositions of fᵐ and gᵐ, and GTZ's decomposition results (Proposition 3.3, Lemmas 4.1–4.2) combine them into a common iterate.",
         "Reduction from general K to number fields by induction on the transcendence degree (GTZ §6): a specialisation α : R → E′ must keep leading coefficients nonzero, keep f_α^k ≠ g_α^k for all k (Proposition 6.1, from Ritt's classification of polynomials with a common iterate, GTZ Proposition 6.3; gap) and keep x₀ wandering (Proposition 6.2: the case ĥ_f(x₀) > 0 is DY.6/specialization-of-non-preperiodic-points over a number-field base; the isotrivial case uses GTZ Lemma 6.8, and non-isotrivial f use Benedetto's theorem, GTZ Lemma 6.7; gap).",
-        "The specialisation step of GTZ runs over a base curve C over a finitely generated field E of positive transcendence degree; DY.6/specialization-of-canonical-heights covers the base ℙ¹ over a number field, and the general base is a remaining item."
+        "The specialisation step of GTZ runs over a base curve C over a finitely generated field E of positive transcendence degree; DY.6/specialization-of-canonical-heights covers the base ℙ¹ over a number field, and the general base is a remaining item.",
+        "Assembly supplier refinement: use DY.6/followup-bilu-tichy-equal-degree, DY.6/followup-ritt-common-iterate, DY.6/followup-benedetto-zero-height, DY.6/followup-global-curve-specialization. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "f = g = X² + 1, x₀ = 0, y₀ = 1 (= f(0)): the orbits share infinitely many points and f = g.",
@@ -29174,7 +29220,11 @@
       "prerequisites": [
         "ArithmeticDynamics:DY.6/specialization-of-non-preperiodic-points",
         "ArithmeticDynamics:DY.6/specialization-of-canonical-heights",
-        "ArithmeticDynamics:DY.1/canonical-height-over-a-global-height-field"
+        "ArithmeticDynamics:DY.1/canonical-height-over-a-global-height-field",
+        "ArithmeticDynamics:DY.6/followup-bilu-tichy-equal-degree",
+        "ArithmeticDynamics:DY.6/followup-ritt-common-iterate",
+        "ArithmeticDynamics:DY.6/followup-benedetto-zero-height",
+        "ArithmeticDynamics:DY.6/followup-global-curve-specialization"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/MordellLang",
@@ -29212,11 +29262,12 @@
         "char K = 0; f, g arbitrary polynomials (possibly of different degrees or linear)."
       ],
       "proofSteps": [
-        "GTZ §5: reduce to L the diagonal (Lemma 5.1) and to deg f ≥ 2; if f and g are linear the result is Siegel's theorem on integral points in the form u αⁿ + v βⁿ = w (Proposition 5.3; gap).",
+        "GTZ §5, Lemma 5.1 reduces to the diagonal. In the linear case use ArithmeticDynamics:DY.6/followup-linear-synchronized-intersection, with the S-unit/Siegel contract explicitly required there. The degree-at-least-two case uses the following height comparison and common-iterate reduction.",
         "Comparing heights of fⁿ(x₀) and gⁿ(y₀) (canonical heights, DY.1/canonical-height-on-the-projective-line) forces deg f = deg g when there are infinitely many common points (Lemma 5.7).",
         "Equal degrees: DY.6/polynomial-orbits-on-lines-equal-degree gives f^k = g^k, so the diagonal is (f, g)^k-invariant, i.e. periodic.",
         "Periodic L of period k: the return set is a union of the progressions {kj + ℓ} through the first return points, plus finitely many points (DY.6/finite-union-of-arithmetic-progressions).",
-        "The first assertion counts distinct orbit points, not indices. If the orbit has only finitely many points, its time sequence is eventually periodic, which gives the return-set conclusion directly even when L is not periodic. If the orbit is infinite but has finitely many points on L, those occur at finitely many times. These cases complete the DML assertion for every orbit."
+        "The first assertion counts distinct orbit points, not indices. If the orbit has only finitely many points, its time sequence is eventually periodic, which gives the return-set conclusion directly even when L is not periodic. If the orbit is infinite but has finitely many points on L, those occur at finitely many times. These cases complete the DML assertion for every orbit.",
+        "Assembly supplier refinement: use DY.6/followup-bilu-tichy-equal-degree, DY.6/followup-ritt-common-iterate, DY.6/followup-linear-synchronized-intersection, DY.6/followup-global-curve-specialization. Their stated hypotheses and named proof gaps remain in force; the endpoint does not discharge those supplier gaps."
       ],
       "acceptance": [
         "f(X) = 2X, g(X) = 3X, L : Y = X + 1, x₀ = y₀ = 1: 3ⁿ = 2ⁿ + 1 only for n = 1, finite."
@@ -29225,7 +29276,11 @@
         "ArithmeticDynamics:DY.6/polynomial-orbits-on-lines-equal-degree",
         "ArithmeticDynamics:DY.6/finite-union-of-arithmetic-progressions",
         "ArithmeticDynamics:DY.6/dynamical-mordell-lang-conjecture",
-        "ArithmeticDynamics:DY.1/canonical-height-on-the-projective-line"
+        "ArithmeticDynamics:DY.1/canonical-height-on-the-projective-line",
+        "ArithmeticDynamics:DY.6/followup-bilu-tichy-equal-degree",
+        "ArithmeticDynamics:DY.6/followup-ritt-common-iterate",
+        "ArithmeticDynamics:DY.6/followup-linear-synchronized-intersection",
+        "ArithmeticDynamics:DY.6/followup-global-curve-specialization"
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/MordellLang",
@@ -29630,22 +29685,8 @@
       ]
     },
     {
-      "supplier": "ComputationalNumberTheory:CN.0",
-      "need": "For a number field L (and for ℚ): an exact computable presentation of L (elements as coordinate vectors in a fixed ℚ-basis) with decidable equality and computable field operations, together with a proven ring isomorphism to Mathlib's carrier; and a normal form for points of ℙ¹(L) ([x : 1] or [1 : 0]) giving decidable equality on ℙ L (Fin 2 → L) compatible with Projectivization.mk.",
-      "neededBy": [
-        "ArithmeticDynamics:DY.3/rational-preperiodic-enumeration-over-a-number-field"
-      ]
-    },
-    {
-      "supplier": "EffectiveDiophantineMethods:ED.0",
-      "need": "For a number field L presented as in ComputationalNumberTheory:CN.0 and a real bound B: a certified finite list S of points of ℙ¹(L) with a proof that every [v] ∈ ℙ¹(L) with Mathlib's Height.logHeight v ≤ B lies in S (completeness), i.e. an explicit enumeration of the finite set of NumberField.finite_setOfPred_mulHeight₁_le together with ∞.",
-      "neededBy": [
-        "ArithmeticDynamics:DY.3/rational-preperiodic-enumeration-over-a-number-field"
-      ]
-    },
-    {
       "supplier": "EffectiveDiophantineMethods:ED.3",
-      "need": "Mordell–Weil computations for the genus-2 Jacobians used by Flynn–Poonen–Schaefer and Poonen: (a) for C₀(5): y² = x⁶ + 8x⁵ + 22x⁴ + 22x³ + 5x² + 6x + 1, J(ℚ) ≅ ℤ (2-descent; FPS 1995, Theorem 3), with an explicit generator class usable for Chabauty; (b) for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1, J(ℚ) ≅ ℤ generated up to index prime to 3 by [∞₊ − ∞₋] (Poonen 1995, Proposition 1, with Poonen's erratum: the local point at 743 is (−2, √33) and the 2-adic information is used).",
+      "need": "Mordell–Weil certificates for two genus-2 Jacobians: (a) for C₀(5): y² = x⁶ + 8x⁵ + 22x⁴ + 22x³ + 5x² + 6x + 1, the FPS Theorem 3 rank-one result and explicit generator data, with the finite descent and local certificates required by ED.3/fps-genus-two-mordell-weil; (b) for C₁(3₂): y² = x⁶ − 2x⁴ + 2x³ + 5x² + 2x + 1, ED.3/poonen-genus-two-mordell-weil supplies the torsion/rank-lower-bound and 3-saturation contracts for [∞₊ − ∞₋]. A corrected descent proving rank ≤ 1 is still requested and is an explicit hypothesis of the dynamical consumers. Poonen Proposition 1 and the author errata, p. 1, correct the 743-adic point to (−2, √33) and require 2-adic information; the errata do not themselves provide the missing formal descent certificate.",
       "neededBy": [
         "ArithmeticDynamics:DY.3/flynn-poonen-schaefer-no-rational-five-cycles",
         "ArithmeticDynamics:DY.3/poonen-type-three-two"
@@ -29658,8 +29699,7 @@
         "ArithmeticDynamics:DY.3/poonen-type-one-two",
         "ArithmeticDynamics:DY.3/poonen-type-two-two",
         "ArithmeticDynamics:DY.3/poonen-type-exclusions",
-        "ArithmeticDynamics:DY.3/poonen-no-long-tails",
-        "ArithmeticDynamics:DY.3/quadratic-rational-cycles-of-length-at-most-three"
+        "ArithmeticDynamics:DY.3/poonen-no-long-tails"
       ]
     },
     {
@@ -29845,23 +29885,22 @@
     },
     {
       "stageId": "ArithmeticDynamics:DY.2",
-      "status": "partial",
-      "note": "DY.2 is decomposed from DeMarco–Krieger–Ye §2 (items 13 and 17 of PAPER-DEMARCO-KRIEGER-YE-20; items 14, 26 and 27 are routed to DY.6 and consume DY.2/escape-rate, DY.2/escape-rate-conjugation and DY.2/canonical-measure), Baker–Rumely §3, Favre–Rivera-Letelier §6, Benedetto's and Silverman's AWS 2010 notes, Call–Silverman §2 and Hutz §3. Escape rates, local canonical heights, the global decomposition, good reduction, reduction of points and cycles, multipliers with their reduction in residue characteristic p, the Morton–Silverman period theorem with Hutz's exponent bound, and the nonarchimedean canonical measure are decomposed to Mathlib, to DY.0/DY.1 interface nodes and to the TB.0/TB.1 requests. No DY.2 theorem needs a semistability hypothesis; each local theorem states separately whether K must be algebraically closed (DY.2/good-reduction-of-escape-rate, DY.2/good-reduction-of-canonical-measure, DY.2/potential-good-reduction-iff-point-mass) and whether good reduction is assumed.",
+      "status": "planned",
+      "note": "Assembled target-level plan: the parent nodes and reviewed DY.2 follow-up together cover this stage. Exact consumer-to-supplier links replace the former broad remainder. Every node remains unchecked; planned does not mean closed.",
       "remaining": [
-        "Berkovich Fatou and Julia sets and the support theorem supp µ_{f,v} = J_{f,Ber} (DeMarco–Krieger–Ye §2.4, p. 9; Benedetto's notes §4.4 and §6.4, Propositions 4.22–4.24, 6.20, 6.23, Corollary 6.25), with the classical Julia set over ℂ and supp µ_{f,∞} = J_f, are not yet planned in this layer.",
-        "The archimedean nodes rest on two recorded gaps (the measure-valued Laplacian on the Riemann sphere; Lyubich–Freire–Lopes–Mañé): once suppliers are fixed, cite their nodes in DY.2/archimedean-canonical-measure, DY.2/archimedean-canonical-measure-properties and DY.2/archimedean-canonical-measure-is-maximal-entropy-measure.",
-        "Verify the recorded Zieve exponent-bound endpoint against a cleared or public proof of the second-order argument; until then its proof remains the named source-access gap, independent of Hutz’s weaker bound."
+        "Close the six precisely named gaps (five supplier extensions and the classical density proof); then update the parent’s three archimedean endpoints and Zieve proof dependencies using the refinement map in the handoff.",
+        "Complete and review TB.0/TB.1 and compact-surface/sphere interface requests; source-backed planning does not assert implementation."
       ]
     },
     {
       "stageId": "ArithmeticDynamics:DY.3",
-      "status": "partial",
-      "note": "All definitions and key theorems of Morton–Silverman 1995 §§1–4 (restricted to ℙ¹), Hutz 2010 (dimension one), Call–Silverman 1993 Corollary 1.1.1, Hutz 2015 (height bound, algorithm, the family z^d + c), Poonen 1995 (Theorems 1–3, Corollary 1), Flynn–Poonen–Schaefer 1995 (Theorem 1 and its reduction to C₀(5)), Morton 1998 (Theorem 4), Stoll 2008 (Theorem 6) and the dynatomic curves of Gao–Ou and Doyle–Poonen are nodes; the uniform boundedness and Poonen conjectures are recorded as propositions with no consumer except explicit hypotheses. The local theory is proved in the formal power series ring after moving the point to 0, which replaces Morton–Silverman's intersection theory on ℙ¹.",
+      "status": "planned",
+      "note": "Assembled target-level plan: the parent nodes and reviewed DY.3 follow-up together cover this stage. Exact consumer-to-supplier links replace the former broad remainder. Every node remains unchecked; planned does not mean closed.",
       "remaining": [
-        "Open requests: ComputationalNumberTheory:CN.0 (exact number-field carrier with decidable equality on ℙ¹) and EffectiveDiophantineMethods:ED.0 (certified bounded-height enumeration) for the number-field enumeration; EffectiveDiophantineMethods:ED.3 (Mordell–Weil and rank-zero point lists: C₀(5), C₁(3₂), E11, E15, E17, E24, E40, Morton's Y² = 4X³ − 11X² + 8X, the X₁(13), X₁(16), X₁(18) models, Stoll's saturation) and EffectiveDiophantineMethods:ED.4 (Chabauty for C₀(5), C₁(3₂), X₀^dyn(6)).",
-        "Gap: the complex-dynamics inputs (Thurston's contraction principle, kneading sequences) for ArithmeticDynamics:DY.3/unicritical-dynatomic-curve-smooth-irreducible.",
-        "Genus formulas for C₁(N), C₀(N) (FPS §2, after Bousch and Morton 1996) and the smooth projective models X₁(n), X₀(n) are named but not planned: they need curve theory (normalisation, genus) from SchemeAndStackFoundations:SF.3 or the Tau Ceti algebraic-curves roadmap.",
-        "Morton 1992, Theorem 3 (at most one rational 3-cycle) is consumed as a statement through the ED.3 request for Y² = 4X³ − 11X² + 8X; the reduction from Φ₃ to that curve (Morton 1992, §§2–3) is not decomposed."
+        "Close G1/G2 by extracting the exact analytic supplier and comparison statements; the dyadic word/transversality/monodromy route is planned here.",
+        "Obtain CN.0’s exact carrier/realization operations contract; ED.0’s existing two-list theorem is consumed with the relative-height factor.",
+        "Keep G3 and the genus-four rank hypothesis attached to arithmetic all-point consumers until ED closes/certifies them.",
+        "Discharge the AlgebraicCurves and ConformalMapping imports from their owning roadmaps; no general curve/conformal theory is duplicated."
       ]
     },
     {
@@ -29889,13 +29928,18 @@
     },
     {
       "stageId": "ArithmeticDynamics:DY.6",
-      "status": "partial",
-      "note": "DY.6 covers: power maps and Lattès maps with complete examples across DY.1–DY.5 objects, flexible Lattès maps and their postcritical finiteness; heights on k(t), canonical heights over fields with admissible absolute values, specialisation of maps and points, Call–Silverman Theorems 3.1 and 4.1 for families over the t-line, the elliptic specialisation theorem, Tate's and Ingram's O(1) theorems as endpoints; critical points, PCF maps, the critical height and Ingram's theorem; the DeMarco–Krieger–Ye items routed to DY.6 (Propositions 2.1, 2.3, 3.2–3.6, Theorem 3.1, §§4–5 estimates, Lemmas 6.1–6.3, Theorems 1.4–1.7, 7.1, 8.1, Proposition 1.8, Corollary 8.2, Proposition 8.3, DWY Proposition 1.4, standard projections); the DeMarco–Mavraki–Ye items routed to DY.6 (critical height, Ingram's comparison); dynamical Mordell–Lang: arithmetic progressions, the conjecture, the Bell–Ghioca–Tucker étale theorem with its p-adic decomposition, the Ghioca–Tucker–Zieve theorems, the positive-characteristic counterexample; the conjectures (dynamical Lehmer, uniform boundedness, dynamical Mordell–Lang, dynamical André–Oort) as Prop-valued definitions, consumed only as explicit hypotheses.",
+      "status": "planned",
+      "note": "Assembled target-level plan: the parent nodes and reviewed DY.6 follow-up together cover this stage. Exact consumer-to-supplier links replace the former broad remainder. Every node remains unchecked; planned does not mean closed.",
       "remaining": [
-        "Complete the two remaining Lech–Cassels contracts: the arbitrary-field primitive-element presentation with integral marked numerators/denominators and evaluation identities; and extension/transport of the injective parameter fraction-field map to the whole field. DY.6/lech-independent-hensel-specialization now decomposes all residue, algebraic-independence, Hensel-root, degree and denominator-unit steps from a supplied generically separable integral equation. Do not reintroduce these discharged parameter/root obligations into the presentation gap.",
-        "Decompose the other proofs recorded as gaps: Cohen structure theorem (BGT Proposition 2.1), DeMarco–Faber/Favre degeneration, DeMarco–Wang–Ye Proposition 1.4 and Theorem 1.2, Tate's theorem, McMullen's theorem and Silverman's moduli-height comparison, and the Bilu–Tichy/Ritt/Benedetto inputs of Ghioca–Tucker–Zieve. The polynomial variation target’s generic-height-zero case uses the same Benedetto input; the critical-moduli target also needs the named attracting-cycle theorems and the rigid Lattès classification now recorded in its gap.",
-        "Extend DY.6/specialization-of-canonical-heights from the t-line over a number field to a smooth projective base curve over a global height field (Call–Silverman Theorem 4.1 in general), as Ghioca–Tucker–Zieve §6 needs.",
-        "Receive the requested TB.0 (Berkovich line, hybrid space), SF.0 (quasi-projective varieties, spreading out) and RP.0 (ample Weil heights on M_d) inputs."
+        "Local smallest-disc and inverse-disc theorems: Audit and decompose Benedetto Lemmas 5.1–5.2, whose proofs are referred to his earlier preperiodic-points paper (Lemmas 2.5 and 2.7). Lemma 5.3 and the global product-formula step are explicit here; a general nonarchimedean root-disc theory is still missing from the chain.",
+        "Activity to infinitely many preperiodic parameters: The exact marked-potential convergence contract is DWY Theorem 1.5, including the cusp-uniform estimates in §4. Those estimates, the complex curvature/potential adapter, the normality/activity equivalence and the Montel moving-target argument cited in DWY §6.5 (DeMarco Theorem 9.1; Baker–DeMarco Lemma 2.4; Dujardin–Favre Lemma 2.3) need a proof audit and supplier interfaces. Here degree-growth and algebraicity are explicit; no claim that degree growth alone proves distinct torsion parameters is made.",
+        "Hybrid analytic comparison proofs: The TB.0 request specifies the actual model-function and measure comparison contracts. Their proofs in Favre §§2–4 are not yet decomposed to a library/roadmap API; the carrier, density, and measure continuity must all be supplied before the inherited degeneration gap is closed.",
+        "Affine quotient classification and rigidity: Supply complex elliptic uniformization, classification of finite torus quotients (Milnor Theorem 3.1 and Lemma 3.5), and the conjugacy invariants of Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.",
+        "Bounded-height conjugacy representatives: Ingram Lemma 13 gives the statement and its bibliography [21] identifies Silverman, Moduli Spaces and Arithmetic Dynamics (2012), p.103. The public sample of the different book The Arithmetic of Dynamical Systems is not a proof of this bound. The cited book is absent from the cleared index, and no public proof of this precise representative-height bound was located on the author or publisher sites. A public or cleared proof is still required; no other book copy was used.",
+        "Quantitative attracting-cycle analytic suppliers: Need Koebe quarter and the unbranched inverse-component argument over C, and Benedetto–Ingram–Jones–Levy [4, Theorem 4.1] as used in Ingram Lemma 8 over nonarchimedean fields. Read the latter original proof and its directional-multiplicity constants before closing this gap; the present source audit verifies the exact consumer statement and its two proof routes, not those supplier proofs.",
+        "Bilu–Tichy and Ritt classification proofs: The exact equal-degree Bilu–Tichy and equal-common-iterate Ritt contracts are named here, with their elementary consequences separated from the missing classification proofs. Audit Bilu–Tichy Theorem 10.5 and Ritt p.356, or public proofs of those exact cases; Siegel alone is insufficient. Dickson-polynomial existence and its functional identities must be imported from a polynomial-decomposition supplier rather than presumed supplied by the integral-point theorem.",
+        "Receive the exact SF.0, RP.0/RP.4 and TB.0 requests; retain all inherited DY.6 supplier requests not replaced by exact node citations.",
+        "The original Tate O(1) variation endpoint is imported unchanged. A public/cleared proof via Néron local heights and a parameter divisor remains unavailable; it is recorded below as a separate proof gap."
       ]
     }
   ],
@@ -29908,35 +29952,6 @@
         "ArithmeticDynamics:DY.0/moduli-space-of-quadratic-maps"
       ],
       "detail": "The layer plans M_d(K) = Rat_d(K)/PGL₂(K) and M_d^cm(K) as sets (with Milnor's descriptions for d = 2). The scheme-level statements of the sources are not decomposed: Rat_d = ℙ^{2d+1} ∖ V(Res) with its SL₂-action as an affine scheme over ℤ; M_d = Rat_d/SL₂ as a geometric quotient over Spec ℤ, affine of dimension 2d − 2 with a projective GIT compactification over ℚ (DeMarco–Mavraki–Ye §2.1 citing Silverman, Duke Math. J. 94 (1998) 41–77); stability of every morphism (Levy, Theorem 2.2, via the Hilbert–Mumford criterion); M₂ ≅ A²_ℤ as schemes (Silverman 1998) and the singularity of M_d for d > 2; the finite branched cover M_d^cm → M_d carrying a family f : M_d^cm × ℙ¹ → M_d^cm × ℙ¹ with marked critical points (DeMarco–Mavraki–Ye (2.1)). Missing input: Mumford's geometric invariant theory (reductive group actions, geometric and categorical quotients, the Hilbert–Mumford criterion, Seshadri's theorem over ℤ) and SL₂ as a group scheme acting on Rat_d. No atlas roadmap plans geometric invariant theory; Silverman's 1998 paper is not publicly accessible to this worker. A restructure proposal assigns the theory to AlgebraicModuliForArithmeticGeometry."
-    },
-    {
-      "title": "Measure-valued Laplacian on the Riemann sphere",
-      "neededBy": [
-        "ArithmeticDynamics:DY.2/archimedean-canonical-measure",
-        "ArithmeticDynamics:DY.2/archimedean-canonical-measure-properties"
-      ],
-      "detail": "The archimedean canonical measure is Δg_F + ω with Δ the distributional Laplacian of a continuous function on ℙ¹(ℂ) in the dd^c normalisation (Δ log|z| = δ₀). Mathlib has distributions (Mathlib/Analysis/Distribution/Distribution.lean) and the C² Laplacian, and Tau Ceti has the C² Laplacian with maximum principles (TauCeti/Analysis/InnerProductSpace/Laplacian/), but neither has the Riesz measure of a (difference of) subharmonic function(s): positivity for subharmonic functions, total mass 0 on ℙ¹(ℂ), Δ log|g| = the divisor of g, stability under uniform limits, Δ(u ∘ φ) = φ^*Δu for rational φ, Liouville and 'continuous potential ⟹ no atoms'. No roadmap of the atlas plans it (Tau Ceti PDE lane C covers C² potential theory on ℝⁿ and Perron's method). It is the archimedean counterpart of the TB.1 request, needed also by DY.4's archimedean local energies; a complex potential-theory layer (for instance a Part II of Tau Ceti PDE lane C) should own it."
-    },
-    {
-      "title": "Complex dynamics of rational maps: Lyubich's measure",
-      "neededBy": [
-        "ArithmeticDynamics:DY.2/archimedean-canonical-measure-is-maximal-entropy-measure"
-      ],
-      "detail": "The identification of µ_{f,∞} with Lyubich's measure uses the theorems of Lyubich (1983), Freire–Lopes–Mañé (1983) and Mañé (1983): uniqueness of the atom-free probability measure with f^*µ = d·µ, equidistribution of iterated preimages of non-exceptional points, and maximal entropy log d (Baker–Rumely, Theorem 2.1, citing [Ly], [FLM], [HP]). The complex Fatou–Julia theory of rational maps and measure-theoretic entropy of rational maps are planned by no roadmap of the atlas. DeMarco–Krieger–Ye use the maximal-entropy description for Lattès maps (DY.6)."
-    },
-    {
-      "title": "Zieve's proof of the sharp exponent bound for periods",
-      "neededBy": [
-        "ArithmeticDynamics:DY.2/zieve-period-exponent-bound"
-      ],
-      "detail": "Silverman's AWS notes (Theorem 27) state Zieve's bound p^{e−1} ≤ 2e_K/(p − 1) (e_K/(p − 1) for p = 2) without proof; the proof is in M. Zieve, Cycles of polynomial mappings, PhD thesis, UC Berkeley 1996, which is not publicly accessible (the author's pages returned 404/403 on 2026-09-24), and in Silverman's book The Arithmetic of Dynamical Systems, which is not public. Hutz's public proof (DY.2/period-exponent-bound) gives the weaker 2^{e−1} ≤ ord(p) (Fibonacci bound for p = 2). The node's statement is recorded; its proof is not decomposed until a public text of Zieve's second-order argument is fixed."
-    },
-    {
-      "title": "Complex-dynamics inputs for the smoothness and irreducibility of the unicritical dynatomic curves over ℂ",
-      "neededBy": [
-        "ArithmeticDynamics:DY.3/unicritical-dynatomic-curve-smooth-irreducible"
-      ],
-      "detail": "Gao–Ou (arXiv:1304.4751), following Buff–Tan for d = 2 and Bousch's thesis, prove that the closure of Xₙ in ℂ² is smooth using pushforwards of meromorphic quadratic differentials and Thurston's contraction principle ((f_c)_*Q − Q ≠ 0), and irreducible using kneading sequences (a simplified Lau–Schleicher argument). No roadmap of the atlas plans holomorphic dynamics of polynomials on ℂ (quadratic differentials, the contraction principle, kneading theory), and the Tau Ceti libraries have none of it. Morton 1996 (Compositio 103, Theorem B) gives an algebraic proof of irreducibility only under a computable discriminant condition, so it does not close the gap for all n. Nothing else in DY.3 depends on this theorem: the arithmetic results (Morton's n = 4, Flynn–Poonen–Schaefer's n = 5) use explicit models and a Gröbner-basis smoothness certificate instead."
     },
     {
       "title": "G1: adelic line bundles on projective varieties over number fields, their intersection numbers and Zhang's successive minima",
@@ -29978,52 +29993,7 @@
       "neededBy": [
         "ArithmeticDynamics:DY.6/p-adic-power-series-coordinates"
       ],
-      "detail": "Bell–Ghioca–Tucker Proposition 2.1 uses Matsumura Theorem 29.7: an unramified complete regular local ring of characteristic 0 with residue field 𝔽_p is ℤ_p[[T₁, …, T_g]]. Neither pinned library contains it and no atlas layer plans it."
-    },
-    {
-      "title": "Lech's embedding lemma",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/lech-embedding-lemma"
-      ],
-      "detail": "From a supplied positive-degree generically separable H over ℤ[T₁,…,Tₙ] and finite nonzero denominator set D, DY.6/lech-independent-hensel-specialization supplies arbitrarily large suitable primes, algebraically independent integral p-adic parameters, a simple integral root, unchanged degree, and unit leading coefficient and denominators. Its five new component nodes remove the cardinality, rational rescaling/translation, residue and Hensel-transport obligations from this gap. Still open: (1) assemble the baseline finite transcendence basis, primitive element, integer normalization and common-denominator results into an explicit presentation of an arbitrary Algebra.EssFiniteType ℚ L field over Frac(ℤ[T₁,…,Tₙ]), with positive-degree generically separable H and marked expressions U(y,T)/V(T), V ≠ 0, and their evaluation identities; (2) extend the injective parameter/fraction-field map across the primitive element to L, proving all marked evaluation identities and injectivity. The original embedding endpoint assumes neither the desired presentation nor its own embedding conclusion. Chebotarev is not required."
-    },
-    {
-      "title": "Degeneration of maximal-entropy measures (DeMarco–Faber; Favre)",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/legendre-measure-degeneration"
-      ],
-      "detail": "DeMarco–Faber, Forum Math. Sigma 2 (2014) (arXiv:1302.4769), Theorem B, and arXiv:1309.7103, Theorem D; Favre, J. Inst. Math. Jussieu 19 (2020) (arXiv:1611.08490), Theorem B: weak convergence μ_t → μ̂_f and continuity of the normalised potentials in the hybrid space. These complex-dynamical theorems are cited, not decomposed; no atlas layer plans them."
-    },
-    {
-      "title": "DeMarco–Wang–Ye on torsion points in the Legendre family",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/torsion-images-common-to-all-legendre-curves",
-        "ArithmeticDynamics:DY.6/common-torsion-image-orders-unbounded"
-      ],
-      "detail": "DeMarco–Wang–Ye, Torsion points and the Lattès family, Amer. J. Math. 138 (2016): Proposition 1.4 (only 0, 1, ∞ are torsion images for every t) and Theorem 1.2 (for x₀ ∈ ℚ̄ ∖ {0, 1} the set of t with (x₀, ·) torsion on E_t is infinite). Cited by DeMarco–Krieger–Ye and not decomposed."
-    },
-    {
-      "title": "Tate's variation theorem (source not public)",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/tate-variation-of-canonical-height"
-      ],
-      "detail": "Tate, Variation of the canonical height of a point depending on a parameter, Amer. J. Math. 105 (1983): the proof through Néron local heights is not publicly available; the statement is taken from Call–Silverman (Remark after Theorem 4.1) and Ingram (§1)."
-    },
-    {
-      "title": "Attracting-cycle inputs, multiplier-spectrum finiteness, moduli-height comparison and rigid Lattès classification",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/critical-height-is-a-moduli-height"
-      ],
-      "detail": "Ingram's proof uses McMullen, Families of rational maps and iterative root-finding algorithms (Ann. Math. 1987), Corollary 2.3 (for some n the multiplier spectrum σ_n is finite-to-one on M_d ∖ L_d), and Silverman's comparison h_{M_d} ≍ min_{g ~ f} h_{Hom_d}(g) (Ingram Lemma 13, from The Arithmetic of Dynamical Systems p. 103, not public). Neither is planned in the atlas; McMullen's theorem belongs with the bifurcation theory of the proposed Part II. Also required by Ingram Lemma 8: Koebe’s quarter theorem and the nonarchimedean quantitative attracting-cycle theorem of Benedetto–Ingram–Jones–Levy (theorem cited as [4, Theorem 4.1] there), including its small-residue-prime constants. The flexible-only exclusion additionally uses Milnor §5, Theorem 5.1, Corollary 5.2 and Lemmas 5.4–5.5: at each fixed d the rigid Lattès conjugacy classes are finite, so their bounded heights are absorbed into the additive constant. The required elliptic uniformization/classification is not supplied by the multiplication-only Lattès nodes."
-    },
-    {
-      "title": "Inputs of the Ghioca–Tucker–Zieve theorems",
-      "neededBy": [
-        "ArithmeticDynamics:DY.6/polynomial-orbits-on-lines-equal-degree",
-        "ArithmeticDynamics:DY.6/polynomial-lines-dynamical-mordell-lang",
-        "ArithmeticDynamics:DY.6/polynomial-variation-of-canonical-height"
-      ],
-      "detail": "Bilu–Tichy's theorem on F(x) = G(y) (via Siegel's theorem on integral points; GTZ Theorem 2.1), Ritt's classification of polynomials with a common iterate (GTZ Proposition 6.3), Benedetto's theorem that non-isotrivial polynomials over function fields have ĥ = 0 only at preperiodic points (GTZ Lemma 6.7), and Call–Silverman Theorem 4.1 over a base curve over a finitely generated field of positive transcendence degree (DY.6 proves it for the t-line over a number field). None is planned in the atlas. The same Benedetto input is needed for the generic-height-zero case of Ingram, Variation, Lemma 12, pp. 16–17, used by polynomial-variation-of-canonical-height. Its positive-height escape-region case is expanded in that target’s proof sketch."
+      "detail": "The DY.6/followup-unramified-cohen-adapter imports SF.0/cohen-ring and SF.0/cohen-structure, retaining the relative unramified coefficient-map contract in its SF.0 request. In particular the power-series isomorphism must preserve the fixed continuous Z_p coefficient map; an abstract ring isomorphism is insufficient."
     }
   ],
   "sourceIssues": [
@@ -31642,7 +31612,8 @@
         "tauceti:EllipticCurves"
       ],
       "note": "Baseline migration observation, not an upstream error: at required Tau Ceti pin f790474821cf4256814db967cb154e7af3d0c369, Point.canonicalHeight in TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean is half the naive x-coordinate Tate limit. Current Tau Ceti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 moves the definition to CanonicalHeight/Basic.lean and normalizes it to the full naive-height limit. This packet and its elaborated signatures use the required pin. At packaging against a newer baseline, adapt the existing DY.1 elliptic and DY.6 Lattès/specialization comparison factors to the imported convention; import the native height rather than defining it again."
-    }
+    },
+    "ASM-ArithmeticDynamics (Codex codex-ZkPH2V): assembled with the accepted parent and DY.2/DY.3/DY.6 packets. Original independent-review verdicts are preserved as input provenance; the assembly changes, including rank propagation and consumer rewiring, require their own review. See handoff/ASM-ArithmeticDynamics.md. No external roadmap files were edited."
   ],
   "review": {
     "status": "accepted",
