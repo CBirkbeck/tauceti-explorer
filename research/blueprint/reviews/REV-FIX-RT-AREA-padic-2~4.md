@@ -1,39 +1,59 @@
 # Independent review of the round-four p-adic fixes
 
-**Blocked checkpoint, independently rechecked 11 October 2026 by Codex session
-codex-T4CCgc.** The issued three-packet review is complete; generated queue scope
-still prevents intake from recording completion. The bot confirmed
-[claim comment 6108093763](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108093763)
-in [comment 6108094958](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108094958).
-This continuation wrote none of the fix or earlier reviews.
+**Blocked checkpoint, independently rechecked 17 October 2026 by Codex session
+codex-00h8oD.** The issued three-packet review already has its verdicts; the
+current generated queue still prevents intake from recording completion.
+The bot confirmed [claim comment 6241587397](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6241587397)
+in [comment 6241590088](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6241590088).
+The live issue was fetched again after confirmation. This session wrote none
+of the fixes or previous reviews and claimed no second job.
 
-At input commit `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`, and independently
-fetched current main `772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`, the review job
-requires **31 outputs / fifteen packets**. The re-read live issue authorizes
-**seven outputs / three packets**. The two queues' ordered output lists agree,
-and every output exists. Fresh calls to the unmodified
-`issues.deliverables_complete` return `True` for the issued seven-output
-contract and `False` for both actual queue entries. Each of the twelve extra
-packets has an accepted review from a different independent review job.
-Perfectoid's existing `needs_changes` is a completed review verdict and is not
-the intake blocker.
+The checkout at `9bca7917e6e2791f93e1e2d96336af62938ec8f6` and independently
+fetched GitHub main at `37d735d33f813af3b7bf2043228bbc613955e77d` both require
+**27 outputs / thirteen packets**. The issue still authorizes **seven outputs /
+three packets**. These current counts supersede the 31-output/fifteen-packet
+counts in the historical continuation records below. Both current queues have
+the same ordered output list; every output exists. Fresh execution of the
+unmodified `issues.deliverables_complete` returns:
 
-The current-main generator still conditions preservation of an issued following
-round on neither new missing files nor a preceding send-back being present.
-Both repair paths, `research/blueprint/queue.json` and
-`research/blueprint/make_queue.py`, fail fresh `intake.file_problems` calls as
-outside swarm output paths. WORKERS.md also restricts edits to named issue
-files. The previously demonstrated repair therefore needs maintainer work;
-changing twelve unrelated packet verdicts would not reconcile the scope.
+| Contract | Complete |
+|---|---|
+| Issue's seven authorized outputs | `True` |
+| Local generated queue's 27 outputs | `False` |
+| Current-main generated queue's 27 outputs | `False` |
 
-Fresh pinned-index checks of the three authorized packets report **zero errors
-and zero warnings** (56, 326 and 537 nodes). Only this report's current blocker
-notice and the [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) change. This
-continuation preserves the mathematical verdicts, source-reading attribution,
-Lean-check attribution and repair experiments below. It makes no new source or
-mathematical-review claim. Lean was not rerun for documentation-only changes.
-No second job was claimed. Reconcile the issued and generated contracts before
-assigning another continuation.
+All ten extra packets have accepted verdicts under their own independent
+review identifiers. The required exact reviewer identifier is missing from
+those packets, rather than a verdict or file being missing. Perfectoid's
+existing `needs_changes` is a completed review verdict under this predicate.
+
+The extra packets are AInfCohomology, CohomologyComparisons,
+IgusaVarietiesAndTorsionConcentration, PadicHodgeTheory,
+FiniteFlatGroupsAndIntegralPadicHodgeTheory, PrismaticCohomology,
+DerivedDeRhamCohomology, AutomorphicGaloisRepresentations,
+AutomorphicGaloisRepresentationsPartII, and
+PadicDifferentialEquationsAndRigidCohomology. Replacing their reviews would
+exceed the issued scope and misrepresent this continuation's work.
+
+Both local and fetched current-main generators retain the conditional `made`
+assignment identified below. Fresh `intake.file_problems` calls reject both
+`research/blueprint/queue.json` and `research/blueprint/make_queue.py` as outside
+swarm output paths. WORKERS.md also permits edits only to the issue's named
+files and the handoff. The recorded generator/scope repair therefore still
+requires authorized maintainer work. The earlier repair experiments were not
+rerun by this session.
+
+Fresh checks with the manifest-matching pinned declaration index pass for all
+three authorized packets: **56, 326 and 537 nodes, zero errors and zero
+warnings**. This checks packet structure and indexed baseline references, not
+a fresh mathematical or source audit. This continuation changes only this
+report's current blocker notice and the [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md).
+The mathematical verdicts and all source-reading and Lean-check attributions
+below remain those of the named earlier reviewers. Lean was not rerun for
+these documentation changes. No link map or restructuring proposal is changed.
+
+The maintainer must reconcile the issued and generated contracts before
+assigning another continuation; the existing repair reproducer remains below.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
