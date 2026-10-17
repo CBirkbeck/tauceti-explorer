@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-17T04:59:47Z",
- "exported_at": "2026-10-17T04:59:47Z",
+ "cutoff": "2026-10-17T11:18:20Z",
+ "exported_at": "2026-10-17T11:18:20Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 270,
-  "recent": 9722,
-  "total": 16025,
+  "open": 296,
+  "recent": 9779,
+  "total": 16111,
   "unattributed": {
-   "no_label": 1516,
+   "no_label": 1518,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    1649,
    2267,
    2827,
-   2339
+   2425
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "69031d7d6a84db64605eb1ed900ac6a1368141be",
+ "roadmap_head": "350e970ce49f707a327909beac0b7b7c782cc7ee",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-17T03:03:40Z",
-    "open": 5,
-    "recent": 287,
-    "since_report": 74,
-    "total": 588,
+    "last": "2026-10-17T05:00:22Z",
+    "open": 4,
+    "recent": 288,
+    "since_report": 75,
+    "total": 589,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      42,
      61,
      83,
-     92
+     93
     ]
    },
    "arxiv": "math.AG",
@@ -147,7 +147,7 @@
   {
    "activity": {
     "last": "2026-10-17T01:28:56Z",
-    "open": 1,
+    "open": 3,
     "recent": 5,
     "since_report": null,
     "total": 5,
@@ -211,7 +211,7 @@
   {
    "activity": {
     "last": "2026-10-17T01:16:45Z",
-    "open": 0,
+    "open": 3,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -263,7 +263,7 @@
   {
    "activity": {
     "last": "2026-10-17T01:06:14Z",
-    "open": 7,
+    "open": 9,
     "recent": 229,
     "since_report": 62,
     "total": 303,
@@ -408,7 +408,7 @@
    "activity": {
     "last": "2026-10-17T04:18:17Z",
     "open": 2,
-    "recent": 231,
+    "recent": 230,
     "since_report": 66,
     "total": 237,
     "weekly": [
@@ -530,11 +530,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:03:30Z",
-    "open": 2,
-    "recent": 103,
-    "since_report": 39,
-    "total": 103,
+    "last": "2026-10-17T09:06:06Z",
+    "open": 3,
+    "recent": 105,
+    "since_report": 41,
+    "total": 105,
     "weekly": [
      0,
      0,
@@ -551,7 +551,7 @@
      16,
      28,
      26,
-     25
+     27
     ]
    },
    "arxiv": "math.AG",
@@ -649,11 +649,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:33:56Z",
-    "open": 1,
-    "recent": 101,
-    "since_report": 35,
-    "total": 118,
+    "last": "2026-10-17T07:27:46Z",
+    "open": 3,
+    "recent": 102,
+    "since_report": 36,
+    "total": 119,
     "weekly": [
      0,
      0,
@@ -670,7 +670,7 @@
      21,
      29,
      26,
-     17
+     18
     ]
    },
    "arxiv": "math.AG",
@@ -825,7 +825,7 @@
   {
    "activity": {
     "last": "2026-10-17T00:53:45Z",
-    "open": 2,
+    "open": 3,
     "recent": 135,
     "since_report": 43,
     "total": 147,
@@ -1092,7 +1092,7 @@
    "activity": {
     "last": "2026-10-15T10:12:40Z",
     "open": 1,
-    "recent": 55,
+    "recent": 54,
     "since_report": 6,
     "total": 104,
     "weekly": [
@@ -1224,11 +1224,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T03:03:39Z",
-    "open": 10,
-    "recent": 422,
-    "since_report": 126,
-    "total": 442,
+    "last": "2026-10-17T09:38:36Z",
+    "open": 8,
+    "recent": 424,
+    "since_report": 129,
+    "total": 445,
     "weekly": [
      0,
      0,
@@ -1245,7 +1245,7 @@
      84,
      104,
      140,
-     79
+     82
     ]
    },
    "arxiv": "math.NT",
@@ -1377,11 +1377,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T22:49:51Z",
+    "last": "2026-10-17T06:58:40Z",
     "open": 1,
-    "recent": 7,
+    "recent": 8,
     "since_report": null,
-    "total": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -1398,7 +1398,7 @@
      0,
      0,
      0,
-     7
+     8
     ]
    },
    "arxiv": "math.AT",
@@ -1449,11 +1449,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:03:28Z",
+    "last": "2026-10-17T08:55:13Z",
     "open": 1,
-    "recent": 178,
-    "since_report": 32,
-    "total": 279,
+    "recent": 179,
+    "since_report": 33,
+    "total": 280,
     "weekly": [
      5,
      4,
@@ -1470,7 +1470,7 @@
      19,
      65,
      42,
-     35
+     36
     ]
    },
    "arxiv": "math.GT",
@@ -1561,11 +1561,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T15:18:10Z",
+    "last": "2026-10-17T07:37:39Z",
     "open": 2,
-    "recent": 2,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -1582,7 +1582,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.FA",
@@ -1753,11 +1753,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:38:39Z",
-    "open": 5,
+    "last": "2026-10-17T07:58:45Z",
+    "open": 6,
     "recent": 124,
-    "since_report": 23,
-    "total": 159,
+    "since_report": 24,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -1774,7 +1774,7 @@
      25,
      32,
      20,
-     34
+     35
     ]
    },
    "arxiv": "math.CT",
@@ -1893,11 +1893,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:54:28Z",
-    "open": 4,
-    "recent": 101,
+    "last": "2026-10-17T10:08:47Z",
+    "open": 3,
+    "recent": 104,
     "since_report": null,
-    "total": 101,
+    "total": 104,
     "weekly": [
      0,
      0,
@@ -1914,7 +1914,7 @@
      0,
      0,
      52,
-     49
+     52
     ]
    },
    "arxiv": "math.SG",
@@ -2131,11 +2131,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:17:57Z",
-    "open": 5,
-    "recent": 82,
+    "last": "2026-10-17T10:58:10Z",
+    "open": 6,
+    "recent": 87,
     "since_report": null,
-    "total": 82,
+    "total": 87,
     "weekly": [
      0,
      0,
@@ -2152,7 +2152,7 @@
      0,
      0,
      18,
-     64
+     69
     ]
    },
    "arxiv": "math.DG",
@@ -2243,11 +2243,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T20:27:03Z",
-    "open": 2,
-    "recent": 30,
+    "last": "2026-10-17T08:55:48Z",
+    "open": 5,
+    "recent": 31,
     "since_report": null,
-    "total": 30,
+    "total": 31,
     "weekly": [
      0,
      0,
@@ -2264,7 +2264,7 @@
      0,
      0,
      0,
-     30
+     31
     ]
    },
    "arxiv": "math.NT",
@@ -2323,11 +2323,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T03:13:11Z",
-    "open": 5,
-    "recent": 266,
-    "since_report": 48,
-    "total": 611,
+    "last": "2026-10-17T09:06:05Z",
+    "open": 4,
+    "recent": 267,
+    "since_report": 51,
+    "total": 614,
     "weekly": [
      0,
      0,
@@ -2344,7 +2344,7 @@
      36,
      48,
      78,
-     85
+     88
     ]
    },
    "arxiv": "math.NT",
@@ -2464,11 +2464,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T23:00:30Z",
-    "open": 6,
-    "recent": 107,
-    "since_report": 23,
-    "total": 335,
+    "last": "2026-10-17T06:28:04Z",
+    "open": 5,
+    "recent": 108,
+    "since_report": 24,
+    "total": 336,
     "weekly": [
      29,
      19,
@@ -2485,7 +2485,7 @@
      37,
      23,
      13,
-     25
+     26
     ]
    },
    "arxiv": "math.PR",
@@ -2575,7 +2575,7 @@
   {
    "activity": {
     "last": "2026-10-17T02:03:31Z",
-    "open": 4,
+    "open": 5,
     "recent": 10,
     "since_report": null,
     "total": 10,
@@ -2745,11 +2745,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:27:29Z",
+    "last": "2026-10-17T09:18:39Z",
     "open": 1,
-    "recent": 2,
+    "recent": 4,
     "since_report": null,
-    "total": 2,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -2766,7 +2766,7 @@
      0,
      0,
      0,
-     2
+     4
     ]
    },
    "arxiv": "math.AT",
@@ -2797,11 +2797,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T00:32:09Z",
-    "open": 4,
-    "recent": 12,
+    "last": "2026-10-17T09:06:29Z",
+    "open": 7,
+    "recent": 13,
     "since_report": null,
-    "total": 12,
+    "total": 13,
     "weekly": [
      0,
      0,
@@ -2818,7 +2818,7 @@
      0,
      0,
      0,
-     12
+     13
     ]
    },
    "arxiv": "math.MG",
@@ -2877,11 +2877,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:54:27Z",
-    "open": 7,
-    "recent": 373,
-    "since_report": 179,
-    "total": 477,
+    "last": "2026-10-17T09:06:30Z",
+    "open": 6,
+    "recent": 375,
+    "since_report": 181,
+    "total": 479,
     "weekly": [
      5,
      3,
@@ -2898,7 +2898,7 @@
      19,
      80,
      214,
-     43
+     45
     ]
    },
    "arxiv": "math.GT",
@@ -3023,7 +3023,7 @@
   {
    "activity": {
     "last": "2026-10-16T14:29:33Z",
-    "open": 1,
+    "open": 2,
     "recent": 127,
     "since_report": 9,
     "total": 142,
@@ -3146,11 +3146,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T21:29:55Z",
-    "open": 2,
-    "recent": 44,
-    "since_report": 4,
-    "total": 55,
+    "last": "2026-10-17T09:06:43Z",
+    "open": 1,
+    "recent": 45,
+    "since_report": 6,
+    "total": 57,
     "weekly": [
      0,
      0,
@@ -3167,7 +3167,7 @@
      11,
      10,
      10,
-     5
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -3403,11 +3403,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:27:28Z",
-    "open": 2,
-    "recent": 182,
-    "since_report": 16,
-    "total": 312,
+    "last": "2026-10-17T07:37:41Z",
+    "open": 3,
+    "recent": 183,
+    "since_report": 17,
+    "total": 313,
     "weekly": [
      9,
      4,
@@ -3424,7 +3424,7 @@
      33,
      31,
      56,
-     54
+     55
     ]
    },
    "arxiv": "math.SG",
@@ -3524,11 +3524,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T15:42:03Z",
-    "open": 2,
-    "recent": 11,
+    "last": "2026-10-17T10:18:20Z",
+    "open": 4,
+    "recent": 14,
     "since_report": null,
-    "total": 11,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -3545,7 +3545,7 @@
      0,
      0,
      0,
-     11
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -3602,7 +3602,7 @@
    "activity": {
     "last": "2026-10-17T03:24:08Z",
     "open": 0,
-    "recent": 64,
+    "recent": 63,
     "since_report": 8,
     "total": 104,
     "weekly": [
@@ -3694,11 +3694,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:06:23Z",
+    "last": "2026-10-17T10:29:46Z",
     "open": 1,
-    "recent": 3,
+    "recent": 6,
     "since_report": null,
-    "total": 3,
+    "total": 6,
     "weekly": [
      0,
      0,
@@ -3715,7 +3715,7 @@
      0,
      0,
      0,
-     3
+     6
     ]
    },
    "arxiv": "math.LO",
@@ -3766,11 +3766,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:54:10Z",
+    "last": "2026-10-17T06:28:02Z",
     "open": 7,
-    "recent": 149,
-    "since_report": 101,
-    "total": 211,
+    "recent": 150,
+    "since_report": 5,
+    "total": 212,
     "weekly": [
      0,
      0,
@@ -3787,7 +3787,7 @@
      0,
      40,
      68,
-     40
+     41
     ]
    },
    "arxiv": "math.NT",
@@ -3797,12 +3797,14 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 1": "Nikulin relations 1.8.2 (1G), odd Gauss-sum values and Theorem 1.11.3 (1H), Milgram (1I), van der Blij (1L)",
-     "Layer 2": "Minkowski and Hermite bounds (2E), Minkowski's second theorem (2F), reduction and finiteness of classes (2G)",
-     "Layer 3": "3A compatibilities; Jordan splittings, odd-p and dyadic classification, the genus and density exponents (3B to 3I)",
-     "Layer 5": "everything except primitivity (5F): genus and discriminant form, existence, uniqueness, primitive embeddings, 2-elementary lattices",
-     "Layer 6": "indefinite classification, existence, rank at most 9, E8^2 and D16+, Niemeier lattices, and the order of O(E8); only 6F is in",
-     "Layer 8": "the rows for the 1G relations, 1H, 1I, and the rank-16 and rank-24 lattices 6D and 6E"
+     "Layer 0": "positive definiteness compared with the real form (0E); the stated failure of cancellation, which needs the E8^2 and D16+ pair (0F)",
+     "Layer 1": "a normal form or complete classification of finite quadratic forms from the 1.8.2 relations, and O(q) as a group (1G)",
+     "Layer 3": "odd dyadic unimodular forms (3D), 2-adic symbols (3E), genus symbols (3G), rational comparison (3H), density profile of a lattice (3I)",
+     "Layer 4": "class sets and class numbers, double cosets, spinor genera, Eichler, general p-neighbours; only the even 2-neighbour exists",
+     "Layer 5": "genus from discriminant form, existence, uniqueness, embeddings, 2-elementary lattices; only 5F and one direction of 5G are in",
+     "Layer 6": "indefinite classification (6A), rank at most 9 (6C), E8^2 vs D16+ (6D), Niemeier lattices (6E), order of O(E8) (6G)",
+     "Layer 8": "the rank-16 and rank-24 rows 6D and 6E",
+     "Layer B": "classes to Picard group bijection (B2), composition (B3), units and isometries (B4), indefinite reduction (B5), tori and mass (B6 to B8)"
     },
     "source": "marker"
    },
@@ -3855,12 +3857,12 @@
    "readme_sha": "c8d318905a5cbba2bfd00a417cbec20f5e115c3cc75dc0e7488d13978ed0da99",
    "retired": null,
    "states": [
+    "partial",
+    "partial",
     "done",
     "partial",
     "partial",
     "partial",
-    "untouched",
-    "untouched",
     "partial",
     "partial",
     "untouched",
@@ -3870,44 +3872,44 @@
    "status": {
     "frontier": [
      {
-      "name": "Nikulin's relations",
-      "text": ": now that every nondegenerate form decomposes into generators, prove Proposition 1.8.2 so that the decomposition becomes a classification (1G). Layers 3 and 5 need it."
+      "name": "Classifying finite quadratic forms",
+      "text": ": turn Nikulin's generators and relations into a normal form, or a decision procedure for isometry of generator sums (1G). Layer 5 rests on it."
      },
      {
-      "name": "Gauss-sum values at odd primes and Nikulin 1.11.3",
-      "text": ": compute `sign q_θ^{(p)}(p^k) ≡ k²(1−p) + 4kη`. Then prove that forms with isometric bilinear forms are isometric exactly when their invariants agree (1H)."
+      "name": "The genus from discriminant forms",
+      "text": ": prove that the signature and `q_L` determine the genus (Nikulin 1.9.4, 5A). The prerequisites are showing that the genus determines the determinant and a classification at `p = 2`."
      },
      {
-      "name": "Milgram's theorem",
-      "text": ": `t₊ − t₋ ≡ sign q_L (mod 8)` (1I). Van der Blij (1L) and the rank-8 results of Layer 6 wait on it."
+      "name": "Dyadic classification and genus symbols",
+      "text": ": classify odd unimodular `ℤ₂`-lattices and Conway–Sloane 2-adic symbols (3D, 3E). Then attach the density profile of 3I to an actual Jordan splitting."
      },
      {
-      "name": "Minkowski's bounds",
-      "text": ": Minkowski's and Hermite's bounds on `min L` (2E), then Minkowski's second theorem for the successive minima (2F). Reduction and the finiteness of classes (2G) follow."
+      "name": "`E₈²` versus `D₁₆⁺`",
+      "text": ": show the two are in one genus but not isometric, for example by counting roots (6D). This also supplies the cancellation counterexample of 0F and a Layer 8 row."
      },
      {
-      "name": "Jordan splittings",
-      "text": ": turn the odd-prime diagonalisation into the splitting `⊕ pⁱ Lᵢ` with unique invariants (3B, 3C), and handle `ℤ₂` separately (3D)."
+      "name": "The binary dictionary",
+      "text": ": map proper classes of binary lattices to the (narrow) Picard group of the quadratic order and prove it bijective (B2), then add indefinite cycle reduction (B5)."
      }
     ],
-    "glance": "Layer 0 is done, and the overlattice and discriminant-form theory of Layer 1 is solid. Nikulin's generator decomposition now holds for every nondegenerate finite quadratic form. Layers 1 to 3, 5, 6 and 8 are partial. Milgram's theorem, reduction theory, the genus, the binary theory, spinor genera, masses and the LMFDB certificates have not begun.",
+    "glance": "Positive definite reduction theory (Layer 2) is done, and the discriminant-form theory of Layer 1 is complete apart from the classification of finite quadratic forms. The local theory, binary lattices, neighbours, Nikulin's embedding theory and the unimodular classification have each started, while masses and the LMFDB certificates have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/IntegralLattices/STATUS.md",
     "progress_path": "TauCetiRoadmap/IntegralLattices/PROGRESS.md",
-    "report_sha": "64021617b2a9f7bdc2aa79aa5e127d1bbeca9f5498df12d64500b2c1b9411265",
-    "to_sha": "8334df225e9c15d22464fe5432d849ee6391c09a",
-    "ts": "2026-10-07T18:27:27Z"
+    "report_sha": "a2bfbfad1c9c8ec4d0a7fb2a7abc3dfd3fe87a8146468d12d8ce7a733253f66f",
+    "to_sha": "c1700319076ee4007035a29454414afddb73e78a",
+    "ts": "2026-10-17T01:16:24Z"
    },
    "title": "integral quadratic forms and lattices",
    "topic": "Number Theory"
   },
   {
    "activity": {
-    "last": "2026-10-16T22:05:54Z",
-    "open": 3,
-    "recent": 11,
+    "last": "2026-10-17T08:55:50Z",
+    "open": 1,
+    "recent": 14,
     "since_report": null,
-    "total": 11,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -3924,7 +3926,7 @@
      0,
      0,
      0,
-     11
+     14
     ]
    },
    "arxiv": "math.MG",
@@ -3985,7 +3987,7 @@
    "activity": {
     "last": "2026-10-17T04:17:47Z",
     "open": 2,
-    "recent": 132,
+    "recent": 131,
     "since_report": 53,
     "total": 222,
     "weekly": [
@@ -4101,7 +4103,7 @@
    "activity": {
     "last": "2026-10-16T21:53:13Z",
     "open": 0,
-    "recent": 142,
+    "recent": 141,
     "since_report": 10,
     "total": 155,
     "weekly": [
@@ -4321,11 +4323,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:43:47Z",
-    "open": 1,
-    "recent": 1,
+    "last": "2026-10-17T09:06:32Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -4342,7 +4344,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -4397,11 +4399,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T03:38:57Z",
-    "open": 3,
-    "recent": 182,
-    "since_report": 64,
-    "total": 182,
+    "last": "2026-10-17T09:28:58Z",
+    "open": 2,
+    "recent": 184,
+    "since_report": 66,
+    "total": 184,
     "weekly": [
      0,
      0,
@@ -4418,7 +4420,7 @@
      0,
      5,
      95,
-     82
+     84
     ]
    },
    "arxiv": "math.NT",
@@ -4535,8 +4537,8 @@
   {
    "activity": {
     "last": "2026-10-17T04:27:29Z",
-    "open": 4,
-    "recent": 167,
+    "open": 5,
+    "recent": 165,
     "since_report": 3,
     "total": 569,
     "weekly": [
@@ -4684,11 +4686,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T23:31:39Z",
-    "open": 1,
-    "recent": 1,
+    "last": "2026-10-17T08:34:02Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -4705,7 +4707,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.DG",
@@ -4737,7 +4739,7 @@
   {
    "activity": {
     "last": "2026-10-16T23:31:41Z",
-    "open": 2,
+    "open": 3,
     "recent": 8,
     "since_report": null,
     "total": 8,
@@ -4820,11 +4822,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T18:05:57Z",
-    "open": 1,
-    "recent": 9,
+    "last": "2026-10-17T08:55:35Z",
+    "open": 2,
+    "recent": 11,
     "since_report": null,
-    "total": 9,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -4841,7 +4843,7 @@
      0,
      0,
      0,
-     9
+     11
     ]
    },
    "arxiv": "math.OA",
@@ -4874,7 +4876,7 @@
    "activity": {
     "last": "2026-10-16T15:30:55Z",
     "open": 1,
-    "recent": 119,
+    "recent": 117,
     "since_report": 23,
     "total": 155,
     "weekly": [
@@ -5071,7 +5073,7 @@
   {
    "activity": {
     "last": "2026-10-16T21:41:01Z",
-    "open": 0,
+    "open": 1,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -5122,11 +5124,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:18:18Z",
+    "last": "2026-10-17T09:06:31Z",
     "open": 4,
-    "recent": 131,
+    "recent": 133,
     "since_report": null,
-    "total": 131,
+    "total": 133,
     "weekly": [
      0,
      0,
@@ -5143,7 +5145,7 @@
      0,
      0,
      39,
-     92
+     94
     ]
    },
    "arxiv": "math.FA",
@@ -5547,7 +5549,7 @@
   {
    "activity": {
     "last": "2026-10-17T04:06:25Z",
-    "open": 0,
+    "open": 1,
     "recent": 207,
     "since_report": 43,
     "total": 254,
@@ -5708,11 +5710,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T03:24:07Z",
-    "open": 2,
-    "recent": 152,
-    "since_report": 55,
-    "total": 152,
+    "last": "2026-10-17T06:37:57Z",
+    "open": 1,
+    "recent": 154,
+    "since_report": 57,
+    "total": 154,
     "weekly": [
      0,
      0,
@@ -5729,7 +5731,7 @@
      33,
      41,
      57,
-     21
+     23
     ]
    },
    "arxiv": "math.NT",
@@ -5813,11 +5815,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:17:58Z",
-    "open": 3,
-    "recent": 260,
-    "since_report": 72,
-    "total": 370,
+    "last": "2026-10-17T10:39:22Z",
+    "open": 4,
+    "recent": 261,
+    "since_report": 74,
+    "total": 372,
     "weekly": [
      13,
      4,
@@ -5834,7 +5836,7 @@
      34,
      36,
      86,
-     92
+     94
     ]
    },
    "arxiv": "math.AP",
@@ -5928,11 +5930,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T08:58:46Z",
-    "open": 2,
-    "recent": 2,
+    "last": "2026-10-17T10:29:45Z",
+    "open": 4,
+    "recent": 4,
     "since_report": null,
-    "total": 2,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -5949,7 +5951,7 @@
      0,
      0,
      0,
-     2
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -6008,11 +6010,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T20:15:57Z",
+    "last": "2026-10-17T06:58:39Z",
     "open": 3,
-    "recent": 12,
+    "recent": 14,
     "since_report": null,
-    "total": 12,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -6029,7 +6031,7 @@
      0,
      0,
      0,
-     12
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -6200,11 +6202,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T00:32:25Z",
+    "last": "2026-10-17T10:58:09Z",
     "open": 2,
-    "recent": 9,
+    "recent": 10,
     "since_report": null,
-    "total": 9,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -6221,7 +6223,7 @@
      0,
      0,
      0,
-     9
+     10
     ]
    },
    "arxiv": "math.QA",
@@ -6305,7 +6307,7 @@
   {
    "activity": {
     "last": "2026-10-16T14:43:46Z",
-    "open": 1,
+    "open": 2,
     "recent": 86,
     "since_report": 5,
     "total": 113,
@@ -6504,11 +6506,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:43:46Z",
-    "open": 4,
-    "recent": 242,
-    "since_report": 35,
-    "total": 293,
+    "last": "2026-10-17T10:08:49Z",
+    "open": 2,
+    "recent": 247,
+    "since_report": 40,
+    "total": 298,
     "weekly": [
      0,
      0,
@@ -6525,7 +6527,7 @@
      51,
      65,
      78,
-     40
+     45
     ]
    },
    "arxiv": "math.GR",
@@ -6783,11 +6785,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T00:22:06Z",
+    "last": "2026-10-17T05:42:48Z",
     "open": 1,
-    "recent": 167,
-    "since_report": 9,
-    "total": 188,
+    "recent": 168,
+    "since_report": 10,
+    "total": 189,
     "weekly": [
      0,
      0,
@@ -6804,7 +6806,7 @@
      40,
      50,
      43,
-     28
+     29
     ]
    },
    "arxiv": "math.NT",
@@ -6910,11 +6912,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T12:34:32Z",
-    "open": 6,
-    "recent": 2,
+    "last": "2026-10-17T09:06:44Z",
+    "open": 5,
+    "recent": 4,
     "since_report": null,
-    "total": 2,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -6931,7 +6933,7 @@
      0,
      0,
      0,
-     2
+     4
     ]
    },
    "arxiv": "math.OA",
@@ -6962,11 +6964,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T19:13:35Z",
-    "open": 1,
-    "recent": 192,
-    "since_report": 70,
-    "total": 192,
+    "last": "2026-10-17T08:55:11Z",
+    "open": 0,
+    "recent": 193,
+    "since_report": 71,
+    "total": 193,
     "weekly": [
      0,
      0,
@@ -6983,7 +6985,7 @@
      5,
      53,
      102,
-     32
+     33
     ]
    },
    "arxiv": "math.AG",
@@ -7085,11 +7087,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T04:17:46Z",
-    "open": 27,
-    "recent": 693,
-    "since_report": 349,
-    "total": 1527,
+    "last": "2026-10-17T10:08:48Z",
+    "open": 24,
+    "recent": 701,
+    "since_report": 358,
+    "total": 1536,
     "weekly": [
      4,
      9,
@@ -7106,7 +7108,7 @@
      69,
      132,
      273,
-     179
+     188
     ]
    },
    "arxiv": "math.AG",
@@ -7218,7 +7220,7 @@
   {
    "activity": {
     "last": "2026-10-17T04:06:22Z",
-    "open": 3,
+    "open": 4,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -7313,11 +7315,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:54:12Z",
+    "last": "2026-10-17T07:48:23Z",
     "open": 20,
-    "recent": 865,
-    "since_report": 292,
-    "total": 1694,
+    "recent": 866,
+    "since_report": 293,
+    "total": 1695,
     "weekly": [
      0,
      0,
@@ -7334,7 +7336,7 @@
      150,
      247,
      293,
-     137
+     138
     ]
    },
    "arxiv": "math.RT",
@@ -8673,7 +8675,7 @@
   {
    "activity": {
     "last": "2026-10-16T21:00:16Z",
-    "open": 2,
+    "open": 5,
     "recent": 2,
     "since_report": null,
     "total": 2,
@@ -8761,7 +8763,7 @@
   {
    "activity": {
     "last": "2026-10-17T01:42:40Z",
-    "open": 0,
+    "open": 1,
     "recent": 5,
     "since_report": null,
     "total": 5,
@@ -8844,11 +8846,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T20:03:31Z",
+    "last": "2026-10-17T09:28:57Z",
     "open": 2,
-    "recent": 9,
+    "recent": 10,
     "since_report": null,
-    "total": 9,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -8865,7 +8867,7 @@
      0,
      0,
      0,
-     9
+     10
     ]
    },
    "arxiv": "math.AG",
@@ -8925,7 +8927,7 @@
   {
    "activity": {
     "last": "2026-10-17T00:02:04Z",
-    "open": 3,
+    "open": 6,
     "recent": 127,
     "since_report": 30,
     "total": 132,
@@ -9054,11 +9056,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T10:08:38Z",
+    "last": "2026-10-17T06:27:36Z",
     "open": 2,
-    "recent": 108,
-    "since_report": 37,
-    "total": 124,
+    "recent": 109,
+    "since_report": 38,
+    "total": 125,
     "weekly": [
      0,
      0,
@@ -9075,7 +9077,7 @@
      24,
      23,
      27,
-     22
+     23
     ]
    },
    "arxiv": "math.AG",
@@ -9195,11 +9197,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-16T05:20:57Z",
-    "open": 0,
-    "recent": 62,
-    "since_report": 9,
-    "total": 189,
+    "last": "2026-10-17T09:54:48Z",
+    "open": 3,
+    "recent": 61,
+    "since_report": 10,
+    "total": 190,
     "weekly": [
      0,
      0,
@@ -9216,7 +9218,7 @@
      36,
      2,
      3,
-     6
+     7
     ]
    },
    "arxiv": "math.PR",
@@ -9333,11 +9335,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 4,
-    "recent": 0,
+    "last": "2026-10-17T08:19:00Z",
+    "open": 3,
+    "recent": 2,
     "since_report": null,
-    "total": 0,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -9354,7 +9356,7 @@
      0,
      0,
      0,
-     0
+     2
     ]
    },
    "arxiv": "math.DG",
@@ -9385,11 +9387,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T00:53:46Z",
+    "last": "2026-10-17T08:08:49Z",
     "open": 2,
     "recent": 194,
-    "since_report": 115,
-    "total": 236,
+    "since_report": 1,
+    "total": 237,
     "weekly": [
      0,
      0,
@@ -9406,7 +9408,7 @@
      20,
      33,
      72,
-     54
+     55
     ]
    },
    "arxiv": "math.RT",
@@ -9416,12 +9418,12 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 3": "inverse quantum Cartan comparison with preprojective Hilbert series",
-     "Layer 4": "self-injectivity for E8 and the An, Dn families; non-Dynkin Koszulity (injectivity of the Koszul complex's left map) and Hilbert series",
-     "Layer 5": "classical Koszulity of zigzag algebras exactly off finite ADE; Koszul complex exactness beyond the second stage",
+     "Layer 3": "inverse quantum Cartan comparison with the preprojective Hilbert series for non-Dynkin trees",
+     "Layer 4": "Koszul theorem and Hilbert series for non-Dynkin trees such as affine Dn, E6, E7, E8",
+     "Layer 5": "classical Koszulity of zigzag algebras of non-Dynkin trees",
      "Layer 6": "Calabi-Yau completion identifications for Pi2 and Gamma3",
      "Layer 7": "derived Koszul duality, Hochschild comparison, nontriviality of the Liu-Wang deformation, intrinsic formality for trees",
-     "Layer 8": "inverse, commuting and braid homotopy equivalences; K0 action; spherical-twist comparison"
+     "Layer 8": "braid group action, K0 action and reflection comparison, spherical twists, transfer through derived equivalences"
     },
     "source": "marker"
    },
@@ -9481,33 +9483,33 @@
    "status": {
     "frontier": [
      {
-      "name": "Koszulity off Dynkin type.",
-      "text": "For the preprojective algebra, prove the left map `e_vΠ → ⨁_b e_iΠ` injective for connected non-Dynkin quivers, and deduce the Hilbert series. For the zigzag algebra, extend the Koszul complex beyond its second stage. Layer 3's inverse-Cartan comparison waits on both."
+      "name": "Non-Dynkin trees.",
+      "text": "Prove the left-end exactness of the preprojective Koszul complex for affine `Dₙ`, `E₆`, `E₇`, `E₈` and the other non-Dynkin trees, then deduce the Hilbert series and zigzag Koszulity. These trees have no orientation without sinks, so the current argument does not reach them."
      },
      {
-      "name": "Self-injectivity of ADE preprojective algebras.",
-      "text": "`D₄` is done. `E₈` and the `Aₙ`, `Dₙ` families remain. The type-`A` corner bases are a step toward the families, and `Dₙ` still needs a basis of its fork corner."
+      "name": "The braid group action and `K₀`.",
+      "text": "Assemble the proved relations into an action of the Artin braid group on the homotopy category of graded modules, and compare its action on graded `K₀` with the reflection representation."
      },
      {
-      "name": "Braid relations.",
-      "text": "Prove that `B_i` and its inverse complex are mutually inverse, that `B_i` and `B_j` commute for nonadjacent vertices and satisfy the braid relation for adjacent ones, then compute the action on graded `K₀`."
+      "name": "Spherical twists and transfer.",
+      "text": "Prove the Seidel–Thomas type-`A_m` relations and the transfer of the action through a supplied derived equivalence."
      },
      {
       "name": "Liu–Wang formality.",
-      "text": "Prove that the affine `D₄` deformation is nontrivial up to `A∞` isomorphism, then establish the Hochschild comparison and intrinsic formality for trees. This needs derived Koszul duality for `Π₂(Q)`, which has not begun."
+      "text": "Prove that the affine `D₄` deformation is nontrivial up to `A∞` isomorphism, then prove the Hochschild comparison and intrinsic formality for trees. This needs derived Koszul duality for `Π₂(Q)`, which has not begun."
      },
      {
       "name": "Calabi–Yau completions.",
-      "text": "Identify `Π₂(Q)` and `Γ₃(Q, W)` with the sibling roadmap's derived and deformed completions. This waits on that roadmap's completion."
+      "text": "Identify `Π₂(Q)` and `Γ₃(Q, W)` with the sibling roadmap's derived and deformed completions. This waits on that roadmap's completion layer."
      }
     ],
-    "glance": "Layers 0–2 are done. Layers 3–6 are partial. Every finite ADE preprojective algebra is known to be finite-dimensional, and self-injectivity now reaches `D₄`, but neither Koszulity theorem nor any Calabi–Yau completion identification has landed. Layers 7 and 8 have their first constructions, Liu–Wang's affine `D₄` `A∞` deformation and the braid complexes, but none of their theorems.",
+    "glance": "Layers 0–2 are done. On the preprojective side, the finite ADE theory is complete: finite-dimensionality and self-injectivity hold for every orientation. The non-Dynkin theory, meaning Koszul resolutions and the Hilbert series, is proved for every connected graph containing a cycle, but not for the non-Dynkin trees. The braid complexes satisfy their inverse, commutation and braid relations. The Calabi–Yau completion identifications, derived Koszul duality and Liu–Wang formality have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ZigzagPreprojective/STATUS.md",
     "progress_path": "TauCetiRoadmap/ZigzagPreprojective/PROGRESS.md",
-    "report_sha": "5472589c976f281cd604c98461fe7b5d5515cd8a49e977dafa06bc12abb1a850",
-    "to_sha": "8334df225e9c15d22464fe5432d849ee6391c09a",
-    "ts": "2026-10-07T18:27:27Z"
+    "report_sha": "b9bcaa67839f67e99abea620db0350de712dabf8370c9dc6d3fdd3eb343f3dd5",
+    "to_sha": "c1700319076ee4007035a29454414afddb73e78a",
+    "ts": "2026-10-17T01:16:24Z"
    },
    "title": "Zigzag, preprojective, and Ginzburg algebras",
    "topic": "Representation Theory"
@@ -9516,7 +9518,7 @@
    "activity": {
     "last": "2026-10-13T00:23:08Z",
     "open": 1,
-    "recent": 80,
+    "recent": 78,
     "since_report": 1,
     "total": 88,
     "weekly": [
@@ -9618,7 +9620,7 @@
    "activity": {
     "last": "2026-10-14T01:13:31Z",
     "open": 0,
-    "recent": 73,
+    "recent": 72,
     "since_report": 4,
     "total": 136,
     "weekly": [
@@ -10038,11 +10040,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T02:54:10Z",
+    "last": "2026-10-17T06:28:02Z",
     "open": 7,
-    "recent": 149,
-    "since_report": 124,
-    "total": 211,
+    "recent": 150,
+    "since_report": 125,
+    "total": 212,
     "weekly": [
      0,
      0,
@@ -10059,7 +10061,7 @@
      0,
      40,
      68,
-     40
+     41
     ]
    },
    "arxiv": "math.NT",
