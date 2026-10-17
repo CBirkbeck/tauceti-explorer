@@ -1,14 +1,14 @@
 # Generalized Heegner cycles
 
-This roadmap constructs generalized Heegner cycles on products of Kuga–Sato varieties and CM elliptic curves, their étale and p-adic Abel–Jacobi classes, ordinary norm-compatible systems, and their explicit reciprocity laws. It then relates these classes to Selmer groups and ordinary Hida families. The final layer checks the weight-two specialization against divisors, Kummer classes and Heegner points, keeping the integral lattice and initial conductor step visible.
+**Summary.** This roadmap constructs generalized Heegner cycles on products of Kuga–Sato varieties and CM elliptic curves, their étale and p-adic Abel–Jacobi classes, ordinary norm-compatible systems, and their explicit reciprocity laws. It then relates these classes to Selmer groups and ordinary Hida families. The final layer checks the weight-two specialization against divisors, Kummer classes and Heegner points, keeping the integral lattice and initial conductor step visible.
 
 The geometry and its realization maps come before the Euler-system arguments. A rational correspondence identity, an integral class, a character specialization and a Selmer local condition are separate results. Every comparison below specifies its coefficient module, field, normalization and compatibility maps; none follows merely from an equality of rational ranks.
 
 ## Boundaries and conventions
 
-**ModularCurvesPartII R14.3** supplies the modular curve, universal elliptic family, compactified and resolved classical fiber powers W_m, the classical correspondence ε_W, and the integral newform lattice comparison. **ComplexMultiplicationAndExplicitReciprocity CM.1** and **HeegnerPointEulerSystems HE.1** supply canonical CM curves, marked ideal isogenies and their reciprocity. This roadmap constructs the product with the CM factor, its projector and cycles, and the new comparisons on that product. The general Chow, Gysin, de Rham, étale, syntomic and continuous-cohomology theories remain with their cited geometric and cohomological roadmaps.
+**ModularCurvesPartII R14.3** supplies relative coefficient systems, parabolic cohomology and geometric Hecke actions. **AutomorphicGaloisRepresentations R19.1** owns the classical Scholl projector and newform factor. The canonical resolved fiber powers W_m, their boundary calculation and integral fine-level descent are missing geometric prerequisites: R14.3 does not construct them, and R19.1 itself requires them before applying the projector. **ComplexMultiplicationAndExplicitReciprocity CM.1** and **HeegnerPointEulerSystems HE.1** supply canonical CM curves, marked ideal isogenies and their reciprocity. This roadmap constructs the product with the CM factor, its projector and cycles, and the new comparisons on that product. The general Chow, Gysin, de Rham, étale, syntomic and continuous-cohomology theories remain with their cited geometric and cohomological roadmaps.
 
-**KolyvaginSystemsAndSelmerBounds KS** owns the abstract descent machinery; **PadicHodgeRegulators L3**, with its relative Lubin–Tate and two-variable extension, supplies the local regulators, integral twisting and unramified coefficient descent specified below. **AutomorphicPadicLFunctions L3h** owns the GL₂ square-root distribution and its interpolation. **GrossZagierAndArithmeticHeights GZ.9** consumes the weight-zero GL₂ formula here and owns its quaternionic and exceptional branches. **AutomorphicIwasawaMainConjectures L2** and **BSD** consume the reciprocity and comparison maps here, and own their congruence, divisibility and control arguments. Generalized Heegner classes are not identified with Beilinson–Flach classes.
+**KolyvaginSystemsAndSelmerBounds KS** owns the abstract descent machinery; **PadicHodgeRegulators L3–L4** supplies the cyclotomic crystalline regulator and its Wach/Mellin and interpolation interfaces. The relative Lubin–Tate integral regulator, Ochiai exponential, Yager module and ordinary two-variable deformation regulator are additional required constructions, with no supplying layer identified here. **AutomorphicPadicLFunctions L3h** owns the GL₂ square-root distribution and its interpolation. **GrossZagierAndArithmeticHeights GZ.9** consumes the weight-zero GL₂ formula here and owns its quaternionic and exceptional branches. **AutomorphicIwasawaMainConjectures L2** and **BSD** consume the reciprocity and comparison maps here, and own their congruence, divisibility and control arguments. Generalized Heegner classes are not identified with Beilinson–Flach classes.
 
 Write K for an imaginary quadratic field, H_K for its Hilbert class field, O_c=ℤ+cO_K for the order of conductor c, and K_c for the ring class field. A chosen level point may require a ray extension K̃_c; its field of definition must be retained until descent is proved. The canonical CM action is normalized by [a]*ω_A=aω_A. The conjugate eigenvector η_A satisfies ⟨ω_A,η_A⟩=1. Replacing ω_A by bω_A replaces η_A by b⁻¹η_A.
 
@@ -48,21 +48,32 @@ LV16 denotes the version-one preprint, not the 2019 version of record. CH22 page
 
 ## Required dependency interfaces
 
-The citations in each target use the following precise exports. Construct these in their cited owner, and import them with the displayed coefficient conventions.
+The following interfaces distinguish the cited exports from additional mathematical prerequisites. The missing geometry and regulator interfaces must acquire explicit supplying targets before their consumers can be constructed. A reference to R14.3 or L3 alone does not supply these extensions.
 
-- **ModularCurvesPartII R14.3**: the canonical desingularized generalized-elliptic fiber power W_m over X₁(N), its smooth proper model over ℤ[1/N], N-torsion averaging and signed projector with denominator N^m2^m m!, projected cohomology in degree m+1, parabolic Hodge filtration, Hecke action and newform factor. The lattice comparison must specify a Hecke congruence denominator. Include auxiliary fine-level descent for N≤4, with degrees, CM marks and all denominator changes.
+- **ModularCurvesPartII R14.3**: relative coefficient systems, parabolic cohomology, coefficient-system Hecke actions and their comparisons. These are the cohomological inputs, rather than a construction of resolved higher fiber powers.
+- **AutomorphicGaloisRepresentations R19.1**, targets `scholl-projector` and `newform-projector-and-coefficient-descent`: the classical signed projector, its parabolic realization and the newform factor with coefficient descent. Their use requires the canonical geometric input below. The integral newform comparison retains its Hecke congruence denominator.
+
+<a id="missing-canonical-geometry-interface"></a>
+
+**Missing canonical geometry interface.** Construct the equivariant compactification and resolution of the generalized-elliptic fiber power W_m over X₁(N), its smooth proper model over ℤ[1/N] and the boundary calculation needed for the classical projector. Include auxiliary fine-level descent for N≤4, with CM marks, degrees and every denominator change. The required order is geometry and boundary calculation, then the R19.1 classical projector and newform factor, then GH.0's product with A^m. R19.1 requires the first step from GH.0, whereas GH.0's present product targets only assume it; naming R19.1 as a supplier of the geometry would therefore be circular. No target below constructs that first step. With geometry supplied, retain the N-torsion averaging and signed-projector denominator N^m2^m m! in the classical factor, and the separate CM-factor denominator in GH.0.4.
+
 - **ComplexMultiplicationAndExplicitReciprocity CM.1**, with **HeegnerPointEulerSystems HE.1–HE.2**: normalized CM action and Hodge characters; marked ideal quotients, target-order classification, conductor-changing neighbors and marked-isogeny descent over H̃·H_c, including the exceptional unit fields. Identify finite geometric kernels and isogeny degrees over an algebraically closed characteristic-zero field. For B=Res_{H_K/K}A, construct the G_K action on its Tate module and the full symmetric-power character summands, including the finite-order twist χ_t, integral projector and class-inclusion denominators. Do not commute symmetric powers with induction.
 - **DerivedDeRhamCohomology DD.2** and **EtaleDualityAndPerverseSheaves EDC.6**: filtered scheme-level de Rham and rational p-adic étale Künneth, cup products, cycle classes and correspondence action. For rational étale cohomology, prove the passage from finite coefficient systems with derived-limit control. Include the rational Gysin sequence, Tate twists, support enlargement and rational-equivalence independence of the cycle extension.
 - **SchemeAndStackFoundations SF.5**: rational Chow groups with proper pushforward, flat pullback, products of isogeny graphs, composition and transpose of correspondences, and their base-change action. Relate this intersection theory to the degree-zero cycle complex and to the support-independent Gysin construction. Use **ArithmeticGaloisDuality R02.1** to identify continuous extension classes with H¹ by the cocycle g↦g·lift(1)−lift(1), including change of lift, restriction and coefficient naturality. The compact five-term sequence in R02.2 supplies the distinct integral descent step.
 - **PadicHodgeTheory R06.2 and R06.5**: negative-weight filtered Frobenius extension comparison, Φ=Φ₀^[F:ℚ_p], the holomorphic-minus-Frobenius quotient, and the proper smooth comparison for projected X_m. Establish the geometric Abel–Jacobi finite-local condition also after finite ramified support-field extensions; retain D_cris over the maximal unramified subfield and D_dR over the full field.
 - **PadicDifferentialEquationsAndRigidCohomology RD.3–RD.4**: overconvergent coefficient F-isocrystals, wide-open algebraic/rigid comparison, annular and cusp residues, the rigid residue theorem and the Čech–de Rham cup pairing. Give the actual analytic section and differential carriers, connection and F-linear Frobenius polynomial action, and prove that the modular differential lies in the admissible image used by the normalized Coleman constructor.
 - **PadicHodgeRegulators D.2**: the higher-dimensional Chow-cycle syntomic Abel–Jacobi regulator for smooth proper X_m, compatible with correspondences, proper/flat maps, the étale Gysin extension and the Bloch–Kato logarithm. The regulator on Spec O_F and the K₂ curve specialization supply different comparisons.
-- **PadicHodgeRegulators L1 and L3**, with the **L3 relative and two-variable extension**: logarithm naturality for quotient maps and finite local extensions, including ramified extensions, with its actual filtration quotient and differential functional; corestriction adjoint to field trace. Supply the relative Lubin–Tate integral Ω map, lattice and finite-pairing compatibility, CH Theorem 5.1 in both interpolation ranges, Castella Theorem 3.4 on the ideal J, the Yager trace module and covariance, and the localized two-variable map of Castella Theorem 3.7/Corollary 3.9. Prove the descended quotient kernel comparison and the survival of the nonzero crystalline-line pairing. At a specialization killing λ_reg, use a regular coefficient model or a proved cleared-denominator identity.
+- **PadicHodgeRegulators L1 and L3–L4**: Bloch–Kato logarithms and the cyclotomic crystalline/Wach/Mellin regulator, with their stated naturality and interpolation hypotheses. These do not by themselves construct the relative or two-variable interfaces below.
+
+<a id="missing-relative-regulator-interface"></a>
+
+**Missing relative regulator interface.** Retain logarithm naturality for quotient maps and finite local extensions, including ramified extensions, with the actual filtration quotient and differential functional, and corestriction adjoint to field trace. The additional local inputs are the relative Lubin–Tate integral Ω map with lattice, twisting and finite-pairing compatibility; CH Theorem 5.1's two interpolation ranges; Castella Theorem 3.4's ideal-restricted exponential on J; the Yager trace module and covariance; and the localized ordinary deformation regulator of Castella Theorem 3.7/Corollary 3.9. These require separate supplying targets in the regulator direction; L3–L4 has no such extension. Anticyclotomic descent must also prove the quotient kernel comparison and survival of the nonzero crystalline-line pairing. Injectivity before quotienting the unramified direction does not prove these assertions. At a specialization killing λ_reg, construct a regular coefficient model or a cleared-denominator identity with a justified specialized conclusion. The required constructions are specified in GH.4.4 and GH.7.5–GH.7.8, but their current L3 references leave this prerequisite unresolved.
+
 - **AutomorphicGaloisRepresentations R19.1 and R19.6**, with **PadicFamilies L0**: the newform representation and stable lattice in the geometric-Frobenius convention; the determinant-restricted big-image subgroup and its solvable-tower invariant vanishing. Supply the ordinary Hida Jacobian tower representation, rank-two freeness, rank-one ordinary sequence, determinant, trace and arithmetic specialization after critical twist. **HE.1** supplies the p-power-level CM point tower, its diamond character and degeneracy traces.
 - **AutomorphicPadicLFunctions L3h**: one GL₂ square-root distribution, negative θ powers on p-depleted ordinary CM expansions, BDP toric interpolation and continuity, CH nonvanishing with the auxiliary residual hypotheses of Hsieh Theorem C, and Castella family interpolation with all periods, epsilon, Euler and gamma factors.
 - **EulerSystemsAndKolyvaginSystems ES.5**: retain separate interfaces for clean Howard H0–H5 descent and CH anticyclotomic descent with bounded local errors and Nekovář constants. The latter must prove residual detection, finite–singular correction, admissible-prime supply and the p^C annihilator under CH's own hypotheses. **SelmerIwasawaCohomology L4** supplies source-qualified Greenberg/Bloch–Kato comparisons and the corrected Nekovář family parity theorem with its precise self-dual family and local plus-module assumptions.
 
-The weight-two layer also needs explicit internal adapters: the empty fiber-power and quotient correspondence in GH.0; the finite Picard–Kummer/Gysin cocycle comparison and degree-one de Rham functional in GH.1; uniformly bounded forward and reverse lattice maps and finite-character descent in GH.3; the period, sign and group-like-factor transport in GH.4; and the integral leading-class unit in GH.5. Their extension to the nonsplit tame-prime auxiliary-form range of the corrected multiplicative BSD theorem is part of GH.8's final export target. Its p-new elliptic specialization is reached by the BSD congruence and control argument, rather than by a p-old cycle/point comparison.
+The weight-two layer also needs explicit internal adapters: the empty fiber-power and quotient correspondence in GH.0; the finite Picard–Kummer/Gysin cocycle comparison and degree-one de Rham functional in GH.1; uniformly bounded forward and reverse lattice maps and finite-character descent in GH.3; the period, sign and group-like-factor transport in GH.4; and the integral leading-class unit in GH.5. Their extension to the nonsplit tame-prime auxiliary-form range of the corrected multiplicative BSD theorem is a missing prerequisite of GH.8.16; the source-qualified GH.0–GH.7 targets do not establish it. Its p-new elliptic specialization is reached by the BSD congruence and control argument, rather than by a p-old cycle/point comparison.
 
 <a id="layer-gh-0"></a>
 
@@ -174,7 +185,7 @@ Over F⊇H form X_m=W_m×_F A^m, dim X_m=2m+1, and ε_X=ε_W ε_A using commutin
 - `epsX_weight_zero`: With the CM factor trivial, ε_X=ε_W.
 - `epsX_factor_test`: On a supplied tensor-factor realization the action is the composite, in the displayed order.
 
-**Prerequisites.** **ModularCurvesPartII**, **R14.3**; [GH.0.2: The projector ε_A on A^m and Lemma 1.8](#cm-projector-and-symmetric-power); **SchemeAndStackFoundations**, **SF.5**.
+**Prerequisites.** [missing canonical geometry interface](#missing-canonical-geometry-interface); **AutomorphicGaloisRepresentations**, **R19.1**; [GH.0.2: The projector ε_A on A^m and Lemma 1.8](#cm-projector-and-symmetric-power); **SchemeAndStackFoundations**, **SF.5**.
 
 **Sources.** **BDP13**, §2.2, p. 1060; **BDP13**, §2.2, (2.2.1), p. 1061; **BDP13**, §2.1, (2.1.2), p. 1057.
 
@@ -195,7 +206,7 @@ For m≥1, ε_X H*_dR(X_m)=ε_X H^{2m+1}_dR(X_m)=H¹_par(C,L_m,∇)⊗Sym^m H¹_
 
 **Construction or proof route.** Apply the supplied de Rham Künneth decomposition for W_m×A^m, respecting both factor projectors. The CM projector kills degrees other than m; the modular projector kills degrees other than m+1. Their surviving tensor summand is therefore in degree 2m+1. Use the rational p-adic étale Künneth export and the same graph actions to obtain the Galois-equivariant identification.
 
-**Prerequisites.** **ModularCurvesPartII**, **R14.3**; [GH.0.4: The variety X_m = W_m × A^m and the projector ε_X = ε_W ε_A](#generalized-kuga-sato-variety-and-its-projector); **EtaleDualityAndPerverseSheaves**, **EDC.2:pairings** — adic and rational poincare duality; **DerivedDeRhamCohomology**, **DD.2**; **EtaleDualityAndPerverseSheaves**, **EDC.6**.
+**Prerequisites.** [missing canonical geometry interface](#missing-canonical-geometry-interface); **AutomorphicGaloisRepresentations**, **R19.1**; [GH.0.4: The variety X_m = W_m × A^m and the projector ε_X = ε_W ε_A](#generalized-kuga-sato-variety-and-its-projector); **EtaleDualityAndPerverseSheaves**, **EDC.2:pairings** — adic and rational poincare duality; **DerivedDeRhamCohomology**, **DD.2**; **EtaleDualityAndPerverseSheaves**, **EDC.6**.
 
 **Sources.** **BDP13**, §2.2, Proposition 2.4, p. 1061; **BDP13**, §2.2, proof of Proposition 2.4, p. 1062.
 
@@ -214,9 +225,9 @@ For m≥1 and X_m/F with its supplied de Rham realization, f⊗α↦ω_f∧α id
 
 - At m=1 the filtration has dimension 2 dim S₃, and contains both ω_f⊗ω_A and ω_f⊗η_A; retaining only ω_A gives half the required space.
 
-**Construction or proof route.** Import the modular Hodge identification from R14.3 and the filtered Künneth theorem from DD.2. The holomorphic modular summand of filtration m+1 tensored with Fil⁰ of the CM factor contributes the stated whole tensor. The antiholomorphic modular summand has filtration zero, while the CM factor has filtration at most m, so it contributes nothing to Fil^{m+1}. Identify the surviving tensor by the wedge map, preserving the specified differential normalization.
+**Construction or proof route.** Import the modular Hodge identification through the R19.1 classical realization, conditional on the missing canonical geometry interface and the filtered Künneth theorem from DD.2. The holomorphic modular summand of filtration m+1 tensored with Fil⁰ of the CM factor contributes the stated whole tensor. The antiholomorphic modular summand has filtration zero, while the CM factor has filtration at most m, so it contributes nothing to Fil^{m+1}. Identify the surviving tensor by the wedge map, preserving the specified differential normalization.
 
-**Prerequisites.** [GH.0.5: Projected middle cohomology](#cohomology-of-the-generalized-kuga-sato-variety); **ModularCurvesPartII**, **R14.3**; **DerivedDeRhamCohomology**, **DD.2**.
+**Prerequisites.** [GH.0.5: Projected middle cohomology](#cohomology-of-the-generalized-kuga-sato-variety); [missing canonical geometry interface](#missing-canonical-geometry-interface); **AutomorphicGaloisRepresentations**, **R19.1**; **DerivedDeRhamCohomology**, **DD.2**.
 
 **Sources.** **BDP13**, §2.2, Proposition 2.5, p. 1062.
 
@@ -230,7 +241,7 @@ Poincaré duality on the smooth proper (2m + 1)-dimensional X_m restricts to a p
 
 - ε_X^t = ε_X (target generalized-kuga-sato-variety-and-its-projector) is what makes the pairing restrict to the image.
 - The twist (m + 1) is the self-dual twist of a weight 2m + 1 representation: V is pure of weight −1 at good primes.
-- The f-isotypic identification uses the Hecke action on H¹_par(C, 𝕃_m) and the newform f's Galois representation V_f, imported from ModularCurvesPartII R14.3.
+- The f-isotypic identification uses the Hecke action on H¹_par(C, 𝕃_m) and the newform f's Galois representation V_f, imported from AutomorphicGaloisRepresentations R19.1.
 
 **Tests and boundary cases.**
 
@@ -249,7 +260,7 @@ For a normalized eigenform f of weight k=m+2, take the imported f-isotypic Hecke
 **Hypotheses and conventions.**
 
 - N>4 for the chosen fine Γ₁ model; k≥2; supplied Hecke eigensystem and CM realization
-- At original source levels N≤4, use the R14.3 fine-level descent; the displayed N>4 condition belongs to the chosen model, not to CH’s source theorem.
+- At original source levels N≤4, use the fine-level descent required by the missing canonical geometry interface; the displayed N>4 condition belongs to the chosen model, not to CH’s source theorem.
 
 **Required API.**
 
@@ -263,7 +274,7 @@ For a normalized eigenform f of weight k=m+2, take the imported f-isotypic Hecke
 - `coefficientProjector_order`: On commuting projectors the order of projection does not matter.
 - `coefficientProjector_denominator`: A rational idempotent with 1/2 entries need not preserve an integral lattice: the average of (1,0) and (0,1) is (1/2,1/2).
 
-**Prerequisites.** **ModularCurvesPartII**, **R14.3**; [GH.0.3: The eigenbasis ω_A^jη_A^{m−j} of Sym^m H¹_dR(A) and its O_K-characters](#cm-character-decomposition); [GH.0.7: Self-duality of ε_X H^{2m+1}(X_m)(m + 1)](#self-duality-of-the-projected-cohomology).
+**Prerequisites.** [missing canonical geometry interface](#missing-canonical-geometry-interface); **AutomorphicGaloisRepresentations**, **R19.1**; [GH.0.3: The eigenbasis ω_A^jη_A^{m−j} of Sym^m H¹_dR(A) and its O_K-characters](#cm-character-decomposition); [GH.0.7: Self-duality of ε_X H^{2m+1}(X_m)(m + 1)](#self-duality-of-the-projected-cohomology).
 
 **Sources.** **CH22**, §4.2, pp.14–15.
 
@@ -271,7 +282,7 @@ For a normalized eigenform f of weight k=m+2, take the imported f-isotypic Hecke
 
 ### GH.0.9: Good model comparison for the CM product
 
-If W_m and A have smooth proper models over O_F, their product has a smooth proper model over O_F. For BDP §3 take F/Q_p finite unramified, p∤N, and a chosen good CM model; in their canonical conductor-c application also p∤c d_K. An arbitrary CM twist is not made good by p∤N. The model of W_m over Z[1/N] supplied by Conrad belongs to R14.3; it is not a global model of X_m.
+If W_m and A have smooth proper models over O_F, their product has a smooth proper model over O_F. For BDP §3 take F/Q_p finite unramified, p∤N, and a chosen good CM model; in their canonical conductor-c application also p∤c d_K. An arbitrary CM twist is not made good by p∤N. The model of W_m over Z[1/N] in Conrad's appendix is required by the missing canonical geometry interface; it is not a global model of X_m.
 
 **Hypotheses and conventions.**
 
@@ -283,7 +294,7 @@ If W_m and A have smooth proper models over O_F, their product has a smooth prop
 - At p=5 the CM curve y²=x³−25x has bad reduction although 5∤7; the level criterion cannot apply to its CM factor.
 - Positive product-model test: at p=5 the CM curve y²=x³−x has discriminant 64, a unit in Z₅. With the supplied smooth proper W_m model for level 13, the product after a common finite unramified base change is smooth proper. Smoothness and properness must be checked on both supplied factors.
 
-**Prerequisites.** **ModularCurvesPartII**, **R14.3**; [GH.0.4: The variety X_m = W_m × A^m and the projector ε_X = ε_W ε_A](#generalized-kuga-sato-variety-and-its-projector); **SchemeAndStackFoundations**, **SF.2**; Mathlib: `AlgebraicGeometry.Smooth`; Mathlib: `AlgebraicGeometry.IsProper`.
+**Prerequisites.** [missing canonical geometry interface](#missing-canonical-geometry-interface); **AutomorphicGaloisRepresentations**, **R19.1**; [GH.0.4: The variety X_m = W_m × A^m and the projector ε_X = ε_W ε_A](#generalized-kuga-sato-variety-and-its-projector); **SchemeAndStackFoundations**, **SF.2**; Mathlib: `AlgebraicGeometry.Smooth`; Mathlib: `AlgebraicGeometry.IsProper`.
 
 **Sources.** **BDP13**, §3.2, p.1067; appendix introduction, p.1139.
 
@@ -721,7 +732,7 @@ For the specialized anticyclotomic Heegner Euler system in CH Proposition 7.8, t
 
 **Construction or proof route.** Lift h∈R̃₁^{ψ=0}⊗D_cris(V_f)^{φ=α}(r) to h′ over the conductor coefficient ring using surjectivity of unramified trace. Apply the integral Ω map to h′; use norm compatibility and the finite local pairing (KO (4.49)–(4.50)). KO Lemma 4.7 makes regulator images orthogonal. Apply conjugation at p̄ and ordinary/regulator-image comparison where its hypotheses hold.
 
-**Prerequisites.** [GH.2.4: Finite local Abel–Jacobi class](#finite-local-abel-jacobi-class); [GH.2.2: Complex conjugation of Heegner classes](#cycle-conjugation); **PadicHodgeRegulators**, **L3**.
+**Prerequisites.** [GH.2.4: Finite local Abel–Jacobi class](#finite-local-abel-jacobi-class); [GH.2.2: Complex conjugation of Heegner classes](#cycle-conjugation); **PadicHodgeRegulators**, **L3** (cyclotomic input only); [missing relative regulator interface](#missing-relative-regulator-interface).
 
 **Sources.** **KO**, §2.4, Condition 2.3, p. 13; §4, Lemma 4.7 p.42; Lemma 4.10 pp.44–45; (4.47) p.44 and (4.49)–(4.50) p.45; **CH erratum**, Second correction, p. 1.
 
@@ -947,7 +958,7 @@ Apply the supplier’s relative Lubin–Tate Perrin–Riou map to V=V_f(r)⊗ψ�
 
 - The line unramified before a Tate twist need not stay unramified after the twist; ψ is part of the repair.
 
-**Prerequisites.** **PadicHodgeRegulators**, **L3**; [GH.3.3: Iwasawa Heegner class](#iwasawa-heegner-class); [GH.4.3: Ramified character Abel–Jacobi formula](#ramified-character-abel-jacobi-formula).
+**Prerequisites.** **PadicHodgeRegulators**, **L3** (cyclotomic input only); [missing relative regulator interface](#missing-relative-regulator-interface); [GH.3.3: Iwasawa Heegner class](#iwasawa-heegner-class); [GH.4.3: Ramified character Abel–Jacobi formula](#ramified-character-abel-jacobi-formula).
 
 **Sources.** **CH22**, §5.1 and §5.3, Theorem 5.1, Lemma 5.5 and proof of Theorem 5.7, pp.21–25.
 
@@ -1357,7 +1368,7 @@ The local supplier must provide Castella Theorem 3.4: with Ical=I⊗̂Z_p[[Γ_cy
 
 - At an exceptional arithmetic character the J-specialized map can vanish; an everywhere-isomorphism claim is invalid.
 
-**Prerequisites.** **PadicHodgeRegulators**, **L3**; [GH.7.1: Critical character and CM family twist](#critical-character-twist).
+**Prerequisites.** **PadicHodgeRegulators**, **L3** (cyclotomic input only); [missing relative regulator interface](#missing-relative-regulator-interface); [GH.7.1: Critical character and CM family twist](#critical-character-twist).
 
 **Sources.** **Castella**, §3.2, Theorem 3.4, pp.14–15.
 
@@ -1375,7 +1386,7 @@ The supplier’s Yager module S∞ is the inverse limit under trace of the finit
 
 - The coefficient action is by [u], with σ^{-1} in the Yager sum; changing either inversion changes descent.
 
-**Prerequisites.** **PadicHodgeRegulators**, **L3**; [GH.7.5: Ochiai exponential](#ochiai-exponential).
+**Prerequisites.** **PadicHodgeRegulators**, **L3** (cyclotomic input only); [missing relative regulator interface](#missing-relative-regulator-interface); [GH.7.5: Ochiai exponential](#ochiai-exponential).
 
 **Sources.** **Castella**, §3.3, Proposition 3.5 and (3.6), p.15.
 
@@ -1394,7 +1405,7 @@ With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3
 
 - At λ_reg=0 localization does not produce a value; exceptional arithmetic primes require a separate statement.
 
-**Prerequisites.** **PadicHodgeRegulators**, **L3**; [GH.7.6: Yager module and unramified descent](#yager-unramified-descent); [GH.7.5: Ochiai exponential](#ochiai-exponential).
+**Prerequisites.** **PadicHodgeRegulators**, **L3** (cyclotomic input only); [missing relative regulator interface](#missing-relative-regulator-interface); [GH.7.6: Yager module and unramified descent](#yager-unramified-descent); [GH.7.5: Ochiai exponential](#ochiai-exponential).
 
 **Sources.** **Castella**, §3.4, Theorem 3.7 and Corollary 3.9, pp.16–17.
 
@@ -1881,6 +1892,8 @@ Export to AutomorphicCongruences L2 the GH.4 CH 2022 scalar regulator identity a
 
 ### GH.8.16: Higher-weight input comparison for the corrected multiplicative BSD proof
 
+**Missing source-range adapter.** This export is conditional on an additional auxiliary-form comparison which is not constructed by GH.0–GH.7. CH22 Hypothesis (H), pp. 1–2, requires every tame prime to split; BSD erratum Theorem 2.3, pp. 3–4, requires a nonsplit q exactly dividing the auxiliary level. These ranges are disjoint. A supplying target must construct the classes and their corrected local conditions in the nonsplit-special range, prove the integral leading-class unit and non-torsion there, and control the varying-weight lattices without the all-split factorial exclusion. The erratum invokes LV19 Theorem 4.7; the LV16 v1 input below cannot substitute for that theorem without a comparison of editions and hypotheses. Until those supplying targets are identified, the following is a required conditional export, rather than a consequence of the preceding layers.
+
 For each auxiliary ordinary prime-to-p-level newform g_m of even weight k_m>2 in the corrected Castella multiplicative proof, export the GH.2--GH.7 Heegner system with its actual lattice T_{g_m}, Selmer local conditions, character convention and completed unramified coefficients. In the source convention used by the proof, its initial Kolyvagin class agrees with the stabilized Iwasawa class kappa_{g_m,infty} through the higher-weight GH.5 comparison on the actual GH.3 class; GH.5 supplies that unit and its inverse, not just a rational nonzero multiple. Export the CH 5.7 scalar regulator formula -c_0^{r_m-1} L_{p,psi}(g_m) sigma_{-1,p}, and GH.7 Castella 2.11/5.3 analytic moments, along their proved normalization maps. Under any specified coefficient reduction R_{g_m} to R_{g_m}/p^m, these exact identities commute with reduction. The source Selmer containment and non-torsion conclusion must be proved under the precise tame-level hypotheses used for g_m. BSD.6a supplies the congruences T_{g_m}/p^m congruent to T_pE/p^m, the analytic-function congruence, control, both divisibilities and the limit argument; GH.8 supplies their source-qualified higher-weight inputs, without claiming a p-old cycle/point comparison for the p-new multiplicative weight-two form.
 
 **Hypotheses and conventions.**
@@ -1900,7 +1913,7 @@ For each auxiliary ordinary prime-to-p-level newform g_m of even weight k_m>2 in
 - The supersingular BSTW/CLW branch has its own zeta elements and signed reciprocity. This ordinary export supplies none of those conclusions.
 - The dependency graph for this export does not require a weight-two point comparison at an auxiliary nonsplit tame level. Its native higher-weight supplier range is checked separately.
 
-**Construction or proof route.** Read the corrected proof of Theorem 2.3 as an import list: CH (4.7) and Section 5.2 from GH.2/GH.3, CH Theorem 5.7 from GH.4, LV Theorem 4.7 and the integral leading-class unit from GH.5, and CH Theorem 6.1 non-torsion from GH.6. GH.7 supplies the native Castella Theorems 2.11/5.3 analytic inputs. Do not replan those systems. Prove the source-range adapter for nonsplit tame primes and weight-dependent admissibility in GH.0--GH.7. The source-range adapter is a prerequisite of this export; it must be proved independently of the consumer conclusion. Compare the selected integral coefficient lattice, Iwasawa group action (including any inversion from discrete-dual conventions) and local conditions by actual maps. GH.5 supplies the higher-weight leading-class unit, and GH.7 the analytic moment identity in a defined coefficient model. Apply coefficient reduction to the exact scalar reciprocity identities. Hand the resulting equalities and verified hypothesis packages to BSD.6a; that consumer compares with its Sigma-imprimitive analytic function and proves the congruence/control passage to the multiplicative elliptic curve.
+**Construction or proof route.** Read the corrected proof of Theorem 2.3 as an import list: CH (4.7) and Section 5.2 from GH.2/GH.3, CH Theorem 5.7 from GH.4, LV Theorem 4.7 and the integral leading-class unit from GH.5, and CH Theorem 6.1 non-torsion from GH.6. GH.7 supplies the native Castella Theorems 2.11/5.3 analytic inputs. Do not replan those systems. Import a separately constructed source-range adapter for nonsplit tame primes and variable-weight integral admissibility. No earlier target currently supplies this adapter. Its proof must precede this export and be independent of the BSD consumer conclusion. Compare the selected integral coefficient lattice, Iwasawa group action (including any inversion from discrete-dual conventions) and local conditions by actual maps. GH.5 supplies the higher-weight leading-class unit, and GH.7 the analytic moment identity in a defined coefficient model. Apply coefficient reduction to the exact scalar reciprocity identities. Hand the resulting equalities and verified hypothesis packages to BSD.6a; that consumer compares with its Sigma-imprimitive analytic function and proves the congruence/control passage to the multiplicative elliptic curve.
 
 **Prerequisites.** [GH.4.5: Castella–Hsieh explicit reciprocity law](#castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity); [GH.0](#layer-gh-0); [GH.2](#layer-gh-2); [GH.3](#layer-gh-3); [GH.4](#layer-gh-4); [GH.5](#layer-gh-5); [GH.6](#layer-gh-6); [GH.7](#layer-gh-7).
 
