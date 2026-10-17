@@ -132304,6 +132304,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv.md",
    "note": "claimed on GitHub issue #10210"
+  },
+  {
+   "id": "FIX-PKG-PrismaticCohomology~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PrismaticCohomology~adv2.md",
+    "research/blueprint/packages/PrismaticCohomology/review.json",
+    "research/blueprint/packages/PrismaticCohomology/README.md",
+    "research/blueprint/packages/PrismaticCohomology/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv2.md"
   }
  ]
 }
