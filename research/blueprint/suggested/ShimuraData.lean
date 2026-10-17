@@ -23,13 +23,12 @@ import Mathlib.AlgebraicTopology.FundamentalGroupoid.Basic
 import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Coordinate.HopfAlgebra
 import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Coordinate.BaseChange
 import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Basic
-import TauCeti.Algebra.HopfAlgebra.Kernel
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.Geometry.Hodge.Structure
 import TauCeti.Geometry.Hodge.Polarization
 
 /-!
-# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4)
+# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4, reviewed in REV-ShimuraData~4)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ShimuraData.md` is definitive. The statements suggest Lean forms so that
@@ -150,29 +149,34 @@ swap, is not at the pins and is left out; the Mumford–Tate ideal does not depe
 def IsAlgebraicSMap (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Prop :=
   ∃ ψ : GLCoord ℂ n →ₐc[ℂ] SplitTorusAlg, ∀ x, φ x = ψ (glBaseChange n x)
 
-/-- The Mumford–Tate ideal: the kernel of the coordinate map of `h` on `O(GL(V))`. -/
-def mumfordTateIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Ideal (GLCoord ℚ n) :=
+/-- The kernel of the coordinate map of `h` on `O(GL(V))`: the ideal of the `ℚ`-Zariski closure of
+`h(S)`. It need not be a Hopf ideal (the closure of a torus can be a union of Galois-conjugate
+tori), so it is not the Mumford–Tate ideal. -/
+def hodgeKernelIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Ideal (GLCoord ℚ n) :=
   RingHom.ker φ
 
-/-- **D1/mumford-tate-group.** The Mumford–Tate Hopf ideal. Its data is the kernel ideal; the
-three Hopf conditions are the content of `mumfordTateHopf`. -/
-def mumfordTateHopfIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (_hφ : IsAlgebraicSMap n φ) :
+/-- **D1/mumford-tate-group.** The Mumford–Tate Hopf ideal: the largest Hopf ideal killed by the
+coordinate map of `h`, the supremum of all such Hopf ideals. -/
+def mumfordTateHopfIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) :
     TauCeti.HopfIdeal ℚ (GLCoord ℚ n) :=
-  TauCeti.HopfIdeal.ofIdeal (mumfordTateIdeal n φ) (fun _ _ ↦ by sorry) (fun _ _ ↦ by sorry)
-    (fun _ _ ↦ by sorry)
+  sSup {I | ∀ x ∈ I, φ x = 0}
+
+/-- The ideal of `MT(V)` in `O(GL(V))`. -/
+def mumfordTateIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Ideal (GLCoord ℚ n) :=
+  (mumfordTateHopfIdeal n φ).toIdeal
 
 /-- **D1/mumford-tate-group.** `MT(V) = Spec (O(GL(V)) / I_MT)` as a commutative Hopf algebra. -/
-def mumfordTateGroup (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (hφ : IsAlgebraicSMap n φ) :
-    CommHopfAlgCat ℚ :=
-  CommHopfAlgCat.of ℚ (GLCoord ℚ n ⧸ (mumfordTateHopfIdeal n φ hφ).toIdeal)
+def mumfordTateGroup (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : CommHopfAlgCat ℚ :=
+  CommHopfAlgCat.of ℚ (GLCoord ℚ n ⧸ (mumfordTateHopfIdeal n φ).toIdeal)
 
 theorem mumfordTateMinimal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
     (I : TauCeti.HopfIdeal ℚ (GLCoord ℚ n)) (hI : ∀ x ∈ I, φ x = 0) :
     I.toIdeal ≤ mumfordTateIdeal n φ := by
   sorry
 
-theorem mumfordTateHopf (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (hφ : IsAlgebraicSMap n φ) :
-    ∃ I : TauCeti.HopfIdeal ℚ (GLCoord ℚ n), I.toIdeal = mumfordTateIdeal n φ := by
+/-- `mumfordTateHopf`: `I_MT` is a Hopf ideal by construction and lies in the kernel of `h`. -/
+theorem mumfordTateHopf (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) :
+    mumfordTateIdeal n φ ≤ hodgeKernelIdeal n φ := by
   sorry
 
 /-- The character `(a,b) ↦ −(a+b)` through which the weight `w(r) = (r⁻¹, r⁻¹)` acts. -/
@@ -188,14 +192,18 @@ theorem mumfordTateWeight (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAl
       χ.comp (Ideal.Quotient.mkₐ ℚ (mumfordTateIdeal n φ)) = weightCoordinate.comp φ := by
   sorry
 
+/-- `mumfordTateIsomorphism`: a change of coordinates induced by a `ℚ`-linear isomorphism
+`V ≅ V′` is a Hopf algebra automorphism of `O(GL_n)`; it carries `I_MT` to `I′_MT`. -/
 theorem mumfordTateIsomorphism (n : ℕ) (φ φ' : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
-    (e : GLCoord ℚ n ≃ₐ[ℚ] GLCoord ℚ n) (he : φ'.comp e.toAlgHom = φ) :
+    (e : GLCoord ℚ n ≃ₐc[ℚ] GLCoord ℚ n) (he : φ'.comp e.toAlgEquiv.toAlgHom = φ) :
     (mumfordTateIdeal n φ).map e = mumfordTateIdeal n φ' := by
   sorry
 
+/-- `mumfordTateComplexified`: the kernel of `h` is the contraction of the kernel of the
+complexified split map; `I_MT` is the largest Hopf ideal inside it. -/
 theorem mumfordTateComplexified (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
     (ψ : GLCoord ℂ n →ₐc[ℂ] SplitTorusAlg) (hψ : ∀ x, φ x = ψ (glBaseChange n x)) :
-    mumfordTateIdeal n φ = (RingHom.ker (ψ : GLCoord ℂ n →+* SplitTorusAlg)).comap (glBaseChange n) := by
+    hodgeKernelIdeal n φ = (RingHom.ker (ψ : GLCoord ℂ n →+* SplitTorusAlg)).comap (glBaseChange n) := by
   sorry
 
 /-- **D1/mumford-tate-connected.** `MT(V)` is geometrically connected. -/
@@ -220,13 +228,13 @@ def hodgeGeneric (g : ℕ) (φ : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg) 
   mumfordTateIdeal (g + g) φ = gspIdeal g
 
 theorem hodgeGenericBasis (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg)
-    (e : GLCoord ℚ (g + g) ≃ₐ[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgHom = φ)
+    (e : GLCoord ℚ (g + g) ≃ₐc[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgEquiv.toAlgHom = φ)
     (hJ : (gspIdeal g).map e = gspIdeal g) :
     hodgeGeneric g φ ↔ hodgeGeneric g φ' := by
   sorry
 
 theorem hodgeGenericIsogeny (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg)
-    (e : GLCoord ℚ (g + g) ≃ₐ[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgHom = φ)
+    (e : GLCoord ℚ (g + g) ≃ₐc[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgEquiv.toAlgHom = φ)
     (hJ : (gspIdeal g).map e = gspIdeal g) (hgen : hodgeGeneric g φ) : hodgeGeneric g φ' := by
   sorry
 
@@ -1173,6 +1181,14 @@ example (φ : GLCoord ℚ 2 →ₐ[ℚ] SplitTorusAlg)
       mumfordTateIdeal 2 φ ≠ ⊥ := by
   sorry
 
+/-- `mtKernelNotHopf`: the kernel of `h` need not be a Hopf ideal. For `V = ℚ(ζ₅)` (so `n = 4`) with
+`h` acting through one complex place by `z/z̄` and trivially through the other, the kernel cuts out
+two Galois-conjugate one-dimensional tori, while `MT(V)` is the two-dimensional norm-one torus of
+`ℚ(ζ₅)/ℚ(√5)`; so the Mumford–Tate ideal is strictly smaller than the kernel. -/
+example : ∃ φ : GLCoord ℚ 4 →ₐ[ℚ] SplitTorusAlg, IsAlgebraicSMap 4 φ ∧
+    mumfordTateIdeal 4 φ ≠ hodgeKernelIdeal 4 φ := by
+  sorry
+
 /-- `genericCmFalse`: `τ = i` is not Hodge generic. -/
 example (φ : GLCoord ℚ (1 + 1) →ₐ[ℚ] SplitTorusAlg)
     (hφ : ∀ i j, φ (GeneralLinear.genericMatrix ℚ (1 + 1) i j) = ellipticEntry Complex.I i j) :
@@ -1208,7 +1224,7 @@ bundles are not in Mathlib or Tau Ceti at the pins). They are specified in
 
 D1.
 * `mumfordTateReductive` — for a polarizable rational Hodge structure, the Hopf algebra
-  `mumfordTateGroup n φ hφ`, bundled as a `FiniteTypeCommHopfAlgCat ℚ` object, satisfies Tau Ceti's
+  `mumfordTateGroup n φ`, bundled as a `FiniteTypeCommHopfAlgCat ℚ` object, satisfies Tau Ceti's
   `reductiveCommHopfAlgProperty ℚ`. Polarizability needs the real structure of `S`.
 
 D2.
@@ -1218,6 +1234,8 @@ D2.
 
 D3.
 * `compactDualTangent` — the tangent space of `G_ℂ/P_h` at the base point is `g_ℂ/F⁰g_ℂ`.
+* `compactDualBorelEmbedding` — the Borel embedding of ShimuraVarieties §P.3 lands in `G_ℂ/P_h` and
+  is a `G(ℝ)`-equivariant holomorphic open embedding, independent of the faithful representation.
 * `reflexFlagDescent` — the projective `E(G,X)`-scheme `Par_t(G_E)` with complex fibre `X^∨` and
   `G_L/P` over any `L` with an `L`-rational parabolic of type `t`.
 * `bruhatIntegral` — for a pinned split reductive `ℤ`-group and standard `P`, the cells
@@ -1232,8 +1250,10 @@ D3.
 
 D4 (all on ShimuraVarieties §P.1's pure datum).
 * `PureDatum.AdditionalAxioms` — the predicates SV2*, SV4, SV5, SV6; API `sv2Star_indep`,
-  `sv2Star_sv2`, `sv4_rationalHodge`, `additionalAxioms_iso`, `additionalAxioms_prod`; tests
-  `additionalGl2`, `additionalHilbertSV5`, `additionalQuaternionWeight`, `additionalTrivialTorus`.
+  `sv2Star_sv2`, `sv4_rationalHodge`, `additionalAxioms_iso`, `additionalAxioms_prod` (SV4–SV6 for a
+  product iff for both factors; SV2* only from the product to the factors); tests `additionalGl2`,
+  `additionalHilbertSV5`, `additionalQuaternionWeight`, `additionalTrivialTorus`,
+  `additionalProductSV2Star` (`GL₂ × GL₂` fails SV2*).
 * `sv5_iff_anisotropic` — `T(ℚ)` discrete in `T(𝔸_f)` iff the largest `ℚ`-anisotropic subtorus has
   compact real points.
 * `PureDatum.IsPELType` — isomorphic to `RationalPELDatum.toShimuraDatum` of PELModuli §M0.12; API
@@ -1242,6 +1262,7 @@ D4 (all on ShimuraVarieties §P.1's pure datum).
 * `preabelianType` — API `abelianTypePreabelian`, `preabelianTypeAdjoint`,
   `preabelianTypeIsomorphism`; tests `preabelianSiegel`, `preabelianTorus`, `preabelianComponent`.
 * `typeImplications` — PEL ⇒ Hodge ⇒ abelian ⇒ preabelian.
+* `reflexField_prod` — `E(G₁ × G₂, X₁ × X₂) = E(G₁, X₁) · E(G₂, X₂)` inside `ℚ̄`.
 * `exists_pureDatum_lift` — every connected datum lifts to a datum with `G^der = H` satisfying SV1,
   SV2, SV2*, SV3, SV4, SV5, SV6.
 
