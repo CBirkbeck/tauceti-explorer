@@ -3896,7 +3896,7 @@
    ],
    "title": "Unramified weight-two elements give closed currents and period classes",
    "kind": "theorem",
-   "statement": "Let X be a smooth projective complex curve and xi = sum_i f_i wedge g_i in Lambda^2 C(X)^x with |tame_x(xi)| = 1 at every point x (in particular if xi is unramified, Res xi = 0). Then eta(xi) = sum_i eta(f_i, g_i) extends to a closed 1-current on X(C); its class in H^1(X(C), R) depends only on xi; for a 1-cycle gamma avoiding the supports, integral_gamma eta(xi) depends only on the class of gamma in H_1(X(C), Z); if X and the f_i, g_i are defined over R, F_infinity^* eta(xi) = -eta(xi), so the class lies in H^1(X(C), R)^-. The identification of this class with the Beilinson regulator in H^2_D(X, R(2)) = H^1(X(C), R(1)) is conditional on MotivicEtaleKTheory M.8 and P.5/regulator-induces-beilinson.",
+   "statement": "Let X be a smooth projective complex curve and xi = sum_i f_i wedge g_i in Lambda^2 C(X)^x with |tame_x(xi)| = 1 at every point x (in particular if xi is unramified, Res xi = 0). Then eta(xi) = sum_i eta(f_i, g_i) extends to a closed 1-current on X(C); its class in H^1(X(C), R) depends only on xi; for a 1-cycle gamma avoiding the supports, integral_gamma eta(xi) depends only on the class of gamma in H_1(X(C), Z); if X and the f_i, g_i are defined over R, F_infinity^* eta(xi) = -eta(xi), so the class lies in H^1(X(C), R)^-. The identification of this class with the Beilinson regulator in H^2_D(X, R(2)) = H^1(X(C), R(1)) is conditional on MotivicEtaleKTheory:M.8/deligne-regulator and P.5/regulator-induces-beilinson.",
    "hypotheses": [
     "X is a smooth projective complex curve; xi has residues of absolute value one."
    ],
@@ -3912,7 +3912,8 @@
     "Polylogarithms:P.5/weight-two-regulator-form",
     "Polylogarithms:P.5/r-form-differential",
     "Polylogarithms:P.5/curve-polylogarithmic-complex",
-    "K2SymbolsBrauer:T.3/tame-symbol"
+    "K2SymbolsBrauer:T.3/tame-symbol",
+    "MotivicEtaleKTheory:M.8/deligne-regulator"
    ],
    "sources": [
     {
@@ -4506,13 +4507,14 @@
    "kind": "comparison",
    "statement": "For a regular complex projective variety X, C_D(X; n) is quasi-isomorphic to the truncated Beilinson-Deligne complex tau_{<=2n} R(X; n)_D (Proposition 2.1, with Lemma 2.2).",
    "proofSteps": [
-    "Lemma 2.2 (a cone construction for a morphism injective in low degrees and surjective in high degrees) and the Dolbeault resolution; the Beilinson-Deligne complex is M.8's."
+    "Lemma 2.2 (a cone construction for a morphism injective in low degrees and surjective in high degrees) and the Dolbeault resolution; the Beilinson-Deligne complex is the smooth projective M.8/deligne-regulator export, with the real-complex comparison requested explicitly."
    ],
    "acceptance": [
     "For X a point and n = 1 both sides are R in degree 1."
    ],
    "prerequisites": [
-    "Polylogarithms:P.5/goncharov-deligne-complex"
+    "Polylogarithms:P.5/goncharov-deligne-complex",
+    "MotivicEtaleKTheory:M.8/deligne-regulator"
    ],
    "sources": [
     {
@@ -5034,7 +5036,8 @@
     "Polylogarithms:P.5/regulator-map-chain-map",
     "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
     "MotivicEtaleKTheory:M.4",
-    "MotivicEtaleKTheory:M.6"
+    "MotivicEtaleKTheory:M.6",
+    "MotivicEtaleKTheory:M.8/deligne-regulator"
    ],
    "sources": [
     {
@@ -6191,8 +6194,8 @@
    ]
   },
   {
-   "supplier": "MotivicEtaleKTheory:M.8",
-   "need": "The real Deligne-Beilinson complex for smooth varieties over R, with its products and long exact sequence, as an early part needing no BorelRegulators input (confirmed findings RT-AREA-ktheory-2/7 and /24), and Beilinson's regulator in the normalisation of Burgos Gil-Feliu-Takeda. FIX-RT-AREA-ktheory-2~2: require an EARLY real Deligne complex and generic regulator definition interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
+   "supplier": "MotivicEtaleKTheory:M.8/deligne-regulator",
+   "need": "The accepted deligne-regulator node now supplies the smooth projective Deligne complex, normalized rational regulator, products and real conjugation before R.7/D.2. Consume that exact node for proper targets. P.5 still needs the comparison of Goncharov’s current complex with the same real Deligne convention and the Burgos Gil–Feliu–Takeda regulator comparison, including its sign. The supplier itself records mixed-Hodge/realization proof gaps; its existence as an accepted plan is not an implemented carrier or a closed proof. No dependence on the late whole of M.8 is introduced.",
    "neededBy": [
     "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
     "Polylogarithms:P.5/unramified-weight-two-class",
@@ -6861,9 +6864,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-  "date": "2026-10-11",
-  "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /7: the ordered ideal-tetrahedron formula remains in P.2, with direct GeometricTopology 7/8 inputs. Checked Zagier I.3 equations (3),(5), p.11, I.4 equations (7)-(9), pp.13-14, Neumann v2 Theorem 2.6 and section 3, pp.420-421, and current metric/measure owners. Cross-ratio and orientation tests distinguish cocycle conventions; canonical regions, finite-volume integration and regulator calibration stay open. QT.5 must import the formula explicitly. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+  "date": "2026-10-17",
+  "notes": "Codex session codex-gM56zj; independent review of FIX-RT-AREA-ktheory-2~2, following independent-review-REV-FIX-RT-AREA-topology~4 (2026-10-11), preserved unchanged in reviewHistory. Findings /7, /23–27: checked ownership of the analytic regulator form, the proper Deligne export versus the current-complex comparison, the early strong-Leopoldt completed-unit map, and the separation of weak/strong/abelian statements. Replaced the obsolete whole-M.8 request with deligne-regulator and three exact prerequisites. Current/logarithmic realization and sign comparisons, metric/ideal-boundary geometry and the existing source proof gaps remain open. No weight-four proof or reserved-ID migration is accepted by this bounded review. The packet checker with the pinned declaration index passes with zero errors/warnings; the compact Suggested file elaborates with only admitted-declaration warnings. All packet targets are retained. Accepted is a bounded planning-fix verdict, not a new exhaustive audit, stage closure or formalisation; see the report and external handoff."
  },
  "reviewHistory": [
   {
@@ -7404,6 +7407,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-11",
    "notes": "Codex (GPT-6), codex-8VNvtM: Independent bounded review of FIX-RT-AREA-topology~4. Review of assigned finding /7: P.2 owns the ordered ideal-tetrahedron identity and imports GeometricTopology 7/8. Zagier I.3 equations (3),(5), p.11, and I.4 equations (7)-(9), pp.13-14 distinguish the cocycle from its signed geometric interpretation; Neumann v2 Theorem 2.6 and section 3, pp.420-421, fix the regulator comparison. Independent exact arithmetic checks all 24 cross-ratio orders. Canonical regions, signed integration and regulator calibration remain explicit gaps; current metric/measure APIs are imports. No mathematical payload changed. Follows codex-kCCEnu's bounded review of 11 October 2026, retained whole in reviewHistory; this is not a new full-plan audit."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-11",
+   "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /7: the ordered ideal-tetrahedron formula remains in P.2, with direct GeometricTopology 7/8 inputs. Checked Zagier I.3 equations (3),(5), p.11, I.4 equations (7)-(9), pp.13-14, Neumann v2 Theorem 2.6 and section 3, pp.420-421, and current metric/measure owners. Cross-ratio and orientation tests distinguish cocycle conventions; canonical regions, finite-volume integration and regulator calibration stay open. QT.5 must import the formula explicitly. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
   }
  ]
 }

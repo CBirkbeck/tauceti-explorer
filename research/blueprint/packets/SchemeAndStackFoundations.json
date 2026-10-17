@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "complete",
-  "summary": "Budget-finished breadth pass: 232 inherited whole nodes retained and 71 declaration-sized targets added (303 total). The four previously absent reserved keys now have mathematical carriers, scope-qualified APIs and discriminating tests: scheme Brauer groups, coherent Grothendieck duality, equivariant sheaf cohomology and Galois gerbs. All implementations remain unchecked; proof/carrier gaps and SF.0–SF.6 remaining targets are explicit. Complete describes this pass, not stage closure or formalisation.",
+  "summary": "Budget-finished breadth pass: 232 inherited whole nodes retained and 71 declaration-sized targets added (303 total). The four previously absent reserved keys now have mathematical carriers, scope-qualified APIs and discriminating tests: scheme Brauer groups, coherent Grothendieck duality, equivariant sheaf cohomology and Galois gerbs. All implementations remain unchecked; proof/carrier gaps and SF.0–SF.6 remaining targets are explicit. Complete describes this pass, not stage closure or formalisation. The independent k-theory fix review records the existing separate SF.2 Nisnevich foundation and its pending review, rather than duplicating its targets; the broader qcqs spectral criterion remains an explicit gap.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1451,6 +1451,41 @@
         "module": "Mathlib/Topology/Homeomorph/Defs.lean",
         "provides": "An actual equivalence with continuity in both directions.",
         "checked": "Independent statement, proof context and relevant ambient parameters read by REV-SchemeAndStackFoundations at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; declaration line43, module SHA-256627d2110ba6afc292d90f5ca9fca5c7cf627968cc708426301b2e7b115477c78. Native hypotheses/conventions checked against the citing strands; no implementation closure claim."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.residueFieldMap",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/ResidueField.lean",
+        "provides": "The canonical map κ(f(y))→κ(y), rather than an arbitrary field isomorphism.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-17; the asymmetric Mayer–Vietoris hypotheses and canonical direction of the residue map were checked."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.residueFieldMap_id",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ResidueField.lean",
+        "provides": "The residue map of the identity is the identity.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-17; the asymmetric Mayer–Vietoris hypotheses and canonical direction of the residue map were checked."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.MayerVietorisSquare",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Sites/MayerVietorisSquare.lean",
+        "provides": "Native square with one mono and a pushout after Yoneda and sheafification.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-17; the asymmetric Mayer–Vietoris hypotheses and canonical direction of the residue map were checked."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.MayerVietorisSquare.mk'",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/MayerVietorisSquare.lean",
+        "provides": "Constructor from pullbacks after evaluation in every set-valued sheaf; does not require the étale leg to be mono.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-17; the asymmetric Mayer–Vietoris hypotheses and canonical direction of the residue map were checked."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.MayerVietorisSquare.SheafCondition",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/MayerVietorisSquare.lean",
+        "provides": "Ordinary pullback condition in a target category; no homotopy or spectral descent assertion.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-17; the asymmetric Mayer–Vietoris hypotheses and canonical direction of the residue map were checked."
       }
     ]
   },
@@ -2400,6 +2435,42 @@
         "date": "2026-10-05",
         "boundary": "Section 47.16 opening definition of normalization, fixing RHom of the residue field in degree zero; cited 47.15.12 proof is a leaf."
       }
+    },
+    {
+      "id": "MV.A1.1999.Nisnevich",
+      "title": "A¹-homotopy theory of schemes",
+      "authors": "Fabien Morel and Vladimir Voevodsky",
+      "edition": "Public Numdam scan, Publications Mathématiques IHÉS 90 (1999)",
+      "url": "https://www.numdam.org/article/PMIHES_1999__90__45_0.pdf",
+      "sha256": "170d4a97b4ac3d0b11319b7bdbc04060e6c6daf93fbd1662534d47ecd2d63216",
+      "readSections": [
+        "§3.1, Definitions 1.2–1.3 and Proposition 1.4, pp.95–96; Lemmas 1.5–1.6, pp.96–98; Definition 1.13, Proposition 1.16 and Lemma 1.18, pp.100–102."
+      ],
+      "independentRead": "Codex codex-gM56zj, 2026-10-17; the noetherian finite-dimensional hypotheses and empty-object condition were checked against the cd-structure formulation below."
+    },
+    {
+      "id": "Voevodsky.CD.2008v1",
+      "title": "Homotopy theory of simplicial sheaves in completely decomposable topologies",
+      "authors": "Vladimir Voevodsky",
+      "edition": "arXiv:0805.4578v1",
+      "url": "https://arxiv.org/pdf/0805.4578v1",
+      "sha256": "9520671b475feb55fc03cce16239a0ae0f71261ecf2f3980a10f9c5982231825",
+      "readSections": [
+        "Definition 2.1, p.4; Corollaries 2.16–2.17, p.9; Definition 3.3, p.14; Lemma 3.5 and proof, pp.16–17; Theorem 3.10 and proof, pp.19–20."
+      ],
+      "independentRead": "Codex codex-gM56zj, 2026-10-17; complete/regular/bounded assumptions and F(empty) were checked separately."
+    },
+    {
+      "id": "Voevodsky.NisCDH.2008v1",
+      "title": "Unstable motivic homotopy categories in Nisnevich and cdh-topologies",
+      "authors": "Vladimir Voevodsky",
+      "edition": "arXiv:0805.4576v1",
+      "url": "https://arxiv.org/pdf/0805.4576v1",
+      "sha256": "ed2d2e3e44dc73eab9a9c71307612204912923c8f002f9333592f25d3043b9f1",
+      "readSections": [
+        "§2, upper cd-structure, pp.2–3; Lemma 2.2, p.4; Proposition 2.9, pp.6–7; Lemma 2.13, pp.8–9; Lemma 2.15 and Proposition 2.16 with proof, p.10."
+      ],
+      "independentRead": "Codex codex-gM56zj, 2026-10-17; the standing noetherian convention on p.2 and finite-dimensional boundedness restriction on p.6 are retained."
     }
   ],
   "nodes": [
@@ -18002,7 +18073,57 @@
       ]
     }
   ],
-  "requests": [],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/nisnevich-covering",
+      "need": "Etale families with canonical residue-field-isomorphic lifts; identity, composition, base change and empty family; joint surjectivity alone is insufficient. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/nisnevich-topology",
+      "need": "The generated native Grothendieck topology, its big/small restrictions and subcanonicity, with the empty covering explicit. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/elementary-distinguished-square",
+      "need": "The actual Cartesian square with an open leg and etale leg inducing an isomorphism over the reduced closed complement; the etale leg need not be mono. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/distinguished-square-mayer-vietoris",
+      "need": "The set-sheaf pushout/ordinary pullback comparison using native MayerVietorisSquare.mk'; mk_of_isPullback demands both legs mono and cannot cover the general etale case. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/nisnevich-sheaf-criterion",
+      "need": "Set-valued sheaf iff singleton at empty and Cartesian distinguished squares in the source-supported noetherian finite-dimensional scope; do not infer the spectral theorem from an ordinary pullback. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/nisnevich-points-henselization",
+      "need": "Ordinary henselizations and canonical residue-preserving neighbourhoods give the conservative points. Strict henselizations instead test the etale topology and do not detect the Nisnevich distinction. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2/brown-gersten-vanishing",
+      "need": "Finite-dimensional noetherian Brown–Gersten vanishing and the simplicial local-to-objectwise comparison, with contractibility at empty; not an arbitrary-qcqs spectral descent theorem. Existing part packet review is needs_changes; this is a precise outstanding import, not a duplicate construction or approval of that packet.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    }
+  ],
   "coverage": [
     {
       "stageId": "SchemeAndStackFoundations:SF.0",
@@ -18031,7 +18152,8 @@
       "remaining": [
         "The scheme-brauer, coherent-duality and equivariant-sheaf-cohomology keys now have 55 nodes with mathematical specifications, APIs and tests. Finish noncommutative sheaf-algebra/Azumaya descent and the native H² units bridge; derived QCoh/RHom, compactification and coherent adjunction; semilinear equivariant categories, enough injectives and derived-composite acyclicity. The three keys are not typed or proof-closed.",
         "Split early site/coefficients from later comparisons: import EDC/CPC and EtaleDualityAbsolutePurityPartII. Preserve coherent-curve SR2 and general coherent-duality distinction; do not create a second six-operations or absolute-purity theory.",
-        "Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry."
+        "Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry.",
+        "The separate SF.2 packet already owns nisnevich-covering, nisnevich-topology, elementary-distinguished-square, distinguished-square-mayer-vietoris, nisnevich-sheaf-criterion, nisnevich-points-henselization and brown-gersten-vanishing. Reuse those exact targets after that packet’s needs_changes review is resolved; do not plan them again. Its source-supported finite-dimensional noetherian simplicial theorem does not close the arbitrary-qcqs spectrum-valued descent criterion requested by S.4."
       ]
     },
     {
@@ -18304,6 +18426,13 @@
         "SchemeAndStackFoundations:key/excellent-schemes"
       ],
       "detail": "The exact P3/henselisation-of-pairs and R03.3/catenary nodes were read in their current research packets, but neither is a visible promoted node in the assembled atlas at the review base. The read-only candidate replay therefore emits no cross-roadmap stage edge for either exact import. Preserve the exact mathematical imports and their formal comparison gaps; publish them through the normal supplier review/promotion process rather than silently substituting a coarse dependency or changing another owner."
+    },
+    {
+      "title": "Nisnevich supplier approval and the broader spectral criterion",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "detail": "RT-AREA-ktheory-2/38 is only partly discharged. The existing SchemeAndStackFoundations--SF.2 packet supplies the cover/topology, distinguished squares, henselian points, set sheaf and finite-dimensional noetherian Brown–Gersten targets, but its top-level independent review is needs_changes. Reuse its seven exact node IDs in requests below, without duplicating their constructions in this aggregate. The arbitrary-qcqs spectrum-valued sheaf criterion remains a separate unresolved theorem: distinguish ordinary pullbacks in Mathlib MayerVietorisSquare.SheafCondition from homotopy pullbacks of spectra, include F(empty)=0, and state the actual sheaf versus hyperdescent and finiteness hypotheses. Morel–Voevodsky §3.1, pp.95–102, and Voevodsky arXiv:0805.4578v1, Definition 3.3/Lemma 3.5/Theorem 3.10, pp.14–20, verify only the recorded bounded simplicial route here. S.4 must also prove K-theory excision, with its own exact spectral realization adapter."
     }
   ],
   "sourceIssues": [
@@ -19971,10 +20100,10 @@
     }
   },
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-11",
-    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /1, /8, /11, /15–18 and /31 preserve the unique foundation owners and precise supplier requests. Fresh graph reconstruction has 5,819 stages and 15,530 acyclic edges, with 15,524 after six SF.5 forwarding cuts. Both de Rham branches and the prismatic branch survive; the reverse MC.4-to-SF.4 whole-stage import is cyclic. De Jong 2.24, p.62 was reread: g >= 0 and n >= 3, finite etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization over the boundary. The supplier split remains an unimplemented request. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+    "date": "2026-10-17",
+    "notes": "Independent review of FIX-RT-AREA-ktheory-2~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2. Corrected the aggregate’s stale omission by recording seven exact existing SF.2 Nisnevich supplier contracts, their pending review, the empty-object condition and the unresolved arbitrary-qcqs spectral criterion. Independently checked the cited finite-dimensional noetherian set/simplicial scope and pinned MayerVietorisSquare/residue-map statements. No duplicate Nisnevich target was retained. Needs changes for RT-AREA-ktheory-2/38: the separate supplier remains needs_changes and the requested general spectral criterion is not established in the allowed files. Earlier unrelated foundation decisions are preserved in reviewHistory. The compact real-bodied native signatures elaborate as recorded in the report; that does not close the mathematical gap."
   },
   "reviewHistory": [
     {
@@ -21640,6 +21769,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /1, /8, /11, /15–18 and /31 retain unique foundation owners and precise supplier requests. A fresh read-only reconstruction reproduces the 15,502-edge acyclic graph and 15,496-edge graph after removing six SF.5 forwarding inputs. The two de Rham paths and prismatic path survive, and MC.4 to SF.4 creates a cycle. Freshly read de Jong 2.24, p.62: all g≥0 and n≥3, level étaleness on the smooth open only, and a finite dominant projective normalized cover. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /1, /8, /11, /15–18 and /31 preserve the unique foundation owners and precise supplier requests. Fresh graph reconstruction has 5,819 stages and 15,530 acyclic edges, with 15,524 after six SF.5 forwarding cuts. Both de Rham branches and the prismatic branch survive; the reverse MC.4-to-SF.4 whole-stage import is cyclic. De Jong 2.24, p.62 was reread: g >= 0 and n >= 3, finite etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization over the boundary. The supplier split remains an unimplemented request. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
     }
   ]
 }

@@ -8380,9 +8380,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
-  "date": "2026-10-10",
-  "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+  "date": "2026-10-17",
+  "notes": "Codex session codex-gM56zj; independent review of FIX-RT-AREA-ktheory-2~2, following independent-review-REV-FIX-RT-AREA-ktheory-1~2 (2026-10-10), preserved unchanged in reviewHistory. Findings /13, /17 and /19–23: checked finite-field stabilization with the characteristic inverted, the q≥4 and odd norm-one Cartan scopes, the actual bar/generator maps, the existing T.2 global-Milnor and graded-product owners, L.1 transfer direction and P.2 rational-proportionality versus R.7 normalization. The finite-field corollary statements support the corrections; the full refined Bloch–Wigner proof gap is retained. No node payload needed further correction. The packet checker with the pinned declaration index passes with zero errors/warnings; the compact Suggested file elaborates with only admitted-declaration warnings. All packet targets are retained. Accepted is a bounded planning-fix verdict, not a new exhaustive audit, stage closure or formalisation; see the report and external handoff."
  },
  "sourceVersions": [
   {
@@ -8950,6 +8950,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
    "date": "2026-10-10",
    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Reread K-book VI.5.2–5.4, including the number-field specializations and distinction between the skew tensor quotient and the exterior square. Rechecked V.1 imports from T.1 and the V.5 absence of reverse N.8 prerequisites. Acceptance remains scoped to finding /29 and the area-fix obligations; unrelated Suslin/Hilton–Milnor source gaps are retained. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+   "date": "2026-10-10",
+   "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
   }
  ]
 }
