@@ -132926,6 +132926,44 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartII~adv.md",
    "note": "claimed on GitHub issue #10301"
+  },
+  {
+   "id": "FIX-PKG-AnalyticNumberTheoryPartI~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AnalyticNumberTheoryPartI"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AnalyticNumberTheoryPartI~adv.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartI/review.json",
+    "research/blueprint/packages/AnalyticNumberTheoryPartI/README.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartI/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartI~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ArithmeticStatisticsPartV~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticStatisticsPartV"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ArithmeticStatisticsPartV~adv.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartV/review.json",
+    "research/blueprint/packages/ArithmeticStatisticsPartV/README.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartV/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatisticsPartV~adv.md"
   }
  ]
 }
