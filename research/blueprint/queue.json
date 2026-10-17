@@ -47448,8 +47448,8 @@
    ],
    "revisionOf": "PKG-AnalyticNumberTheory",
    "prompt": "research/blueprint/prompts/PKG-AnalyticNumberTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10157"
+   "state": "done",
+   "note": "package already on main (delivered and repaired by earlier pull requests); stale claim released by the manager 2026-10-17"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheory~2",
@@ -47876,8 +47876,8 @@
    ],
    "revisionOf": "PKG-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatistics~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10158"
+   "state": "done",
+   "note": "package already on main (delivered and repaired by earlier pull requests); stale claim released by the manager 2026-10-17"
   },
   {
    "id": "REV-PKG-ArithmeticStatistics~2",
