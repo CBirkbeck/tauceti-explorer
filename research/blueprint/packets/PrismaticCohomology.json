@@ -15,7 +15,7 @@
  ],
  "status": "partial",
  "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
- "summary": "Blocked revision checkpoint: general-envelope existence over any orientable base is supplied by countable solution operations, a cardinality bound and a product construction. The remaining formal-QCoh, completed-framing and external-input boundaries stay explicit. Whole-roadmap serialization still conflicts with canonical duplicate-ID checking and the four-file scope; no effective assembly or consumer repointing is claimed.",
+ "summary": "Blocked revision checkpoint: general-envelope existence over orientable bases is retained, and a new PR.2 quasiregular-quotient theorem supplies bounded initial prisms over arbitrary bounded base prisms, with unbounded target range. This removes the claimed need for regularity of the original log-exactified kernel. Formal-QCoh, completed-framing and external-input boundaries stay explicit. Whole-roadmap serialization still conflicts with canonical duplicate-ID checking and the four-file scope; no effective assembly or consumer repointing is claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -121,7 +121,8 @@
    "accessDate": "2026-10-13",
    "readSections": [
     "Corollaries 3.2.9–3.2.10 and proof, pp.42–43; §3.3, pp.43–44, including Definitions 3.3.1–3.3.3, Proposition 3.3.5, Lemma 3.3.10 and Corollary 3.3.11. Earlier part readings are historical provenance only.",
-    "codex-ruVgAp, 2026-10-17: Proposition 3.2.8 and Corollaries 3.2.9–3.2.10 with proofs, pp.41–43; §3.3, pp.43–45, especially the paragraph before Proposition 3.3.5, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11."
+    "codex-ruVgAp, 2026-10-17: Proposition 3.2.8 and Corollaries 3.2.9–3.2.10 with proofs, pp.41–43; §3.3, pp.43–45, especially the paragraph before Proposition 3.3.5, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11.",
+    "codex-escJNw, 2026-10-17: Corollary 4.1.17, p.81; Variant 4.1.19 and Remark 4.1.20, pp.81–82; Remark 4.3.9 and Lemma 4.3.10 with proof, p.87. Read for the quasiregular-quotient initial-prism reduction."
    ],
    "revisionReading": {
     "date": "2026-10-09",
@@ -154,7 +155,8 @@
    "url": "https://arxiv.org/pdf/1905.08229v4",
    "readSections": [
     "Constructions 16.19–16.20, pp.114–115, including footnote 21; the framing, automorphism and divided-derivative arguments. The retained sourceIssues and other part readings are historical provenance.",
-    "Notation 17.1, printed p.117: cyclotomic q, ξ and the A_inf base topology; re-read Constructions 16.19–16.20, pp.114–115 for completed coordinate sums."
+    "Notation 17.1, printed p.117: cyclotomic q, ξ and the A_inf base topology; re-read Constructions 16.19–16.20, pp.114–115 for completed coordinate sums.",
+    "codex-escJNw, 2026-10-17: Lemma 7.7 and its proof, pp.57–58; Example 7.9 and Proposition 7.10 with proof, pp.59–60. The finite-root monic reduction is applied over the enlarged bounded prism, not to the original exactified kernel."
    ],
    "accessDate": "2026-10-17",
    "accessNote": "Public arXiv v4 PDF downloaded and identified by its recorded SHA-256 on 2026-10-17. Read the q-framing, completed-form and A_inf passages recorded in workerReading. This is not the publisher edition or a fresh recertification of the retained part sourceIssues.",
@@ -332,6 +334,19 @@
     "§93 (HTML §15.93): Lemma 93.1(1),(6),(7) and telescope proof, pp.261–262, tag 091P; Lemma 93.2 and proof, p.262, tag 091Q; Definition 93.4, p.263, tag 091S. Printed PDF pagination; HTML has the chapter prefix 15."
    ],
    "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2"
+  },
+  {
+   "id": "KY",
+   "title": "Logarithmic prismatic cohomology II",
+   "authors": "Teruhisa Koshikawa and Zijian Yao",
+   "edition": "arXiv:2306.00364v1, 1 June 2023",
+   "url": "https://arxiv.org/pdf/2306.00364v1",
+   "accessDate": "2026-10-17",
+   "sha256": "7c55cba22922d94587979fbc45296eb51b13f17b3a5cb23c4d5c138c3866541b",
+   "readSections": [
+    "codex-escJNw, 2026-10-17: §4.3, setup and Proposition 4.14 with proof, pp.37–38; Remarks 4.15–4.16 and Proposition 4.17 with proof, p.39; Lemma 4.18 with proof and Lemma 4.20 with proof, p.40. Fresh reading is limited to these initial-prism arguments; historical PR.8 source-issue verdicts are not recertified.",
+    "codex-escJNw, 2026-10-17: Lemmas 2.9–2.10 and Theorem 2.11, pp.14–15, and Proposition 4.5 with the setup of Proposition 4.7, p.34; log-to-ordinary cotangent and derived comparison interfaces."
+   ]
   }
  ],
  "nodes": [
@@ -380,7 +395,7 @@
     },
     {
      "where": "Koshikawa–Yao II, §4.3, Proposition 4.14, pp.37–38",
-     "how": "Supplies existence in the A_inf-based initial prelog prism construction. The QRSP boundedness comparison still requires a separate regular-sequence reduction."
+     "how": "Supplies arbitrary-kernel existence in the A_inf-based initial prelog prism construction. Boundedness in the QRSP case is supplied separately by PR.2/quasiregular-quotient-initial-prism after log base change, without a regularity assumption on the original kernel."
     }
    ],
    "api": [
@@ -469,6 +484,122 @@
      "match": "The telescope criterion and finite-generator completeness criterion are the existing DD.1 input. Applied to discrete modules, they give the two bijective sequence operators used in this proof."
     }
    ]
+  },
+  {
+   "id": "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism",
+   "parentStageId": "PrismaticCohomology:PR.2",
+   "realises": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "kind": "theorem",
+   "title": "Initial prisms of quasiregular quotients of a bounded prism",
+   "statement": "Let (A,I) be a bounded prism and let A/I→S be a surjection, where S is derived p-complete with bounded p-power torsion and the derived p-completion of L_{S/(A/I)}[−1] is p-completely flat over S. Then Δ_{S/A} is a discrete delta-A-algebra, its reduction modulo I is p-completely faithfully flat over S, and (Δ_{S/A},IΔ_{S/A}) is a bounded prism initial among all prisms over (A,I) equipped with S→B/IB, including unbounded target prisms. If I=(d) and K=ker(A→S), its universal property identifies it with the general envelope of (A,K). No complete-flatness or regular-sequence hypothesis on the original K is required, and no absolute initiality or independence of the arbitrary base A is asserted.",
+   "hypotheses": [
+    "p is prime. The prism (A,I) is bounded, but it need not be perfect or orientable. Orientation is used only for the last comparison with the general-envelope target.",
+    "The map A/I→S is surjective as a map of ordinary rings. S is derived p-complete and has bounded p-power torsion. The shifted completed cotangent complex is a p-completely flat S-module in degree zero; these notions are imported from DD.0 and DD.1.",
+    "The target category is the unbounded relative prism category. Its morphisms preserve the fixed A-map and the map from S; the result does not assert an initial prism among maps from S with no fixed A-structure."
+   ],
+   "proofSteps": [
+    "The derived Hodge–Tate comparison gives gr_i^conj Δ̄_{S/A}=Γ_S^i((L_{S/(A/I)}[−1])^∧_p){−i}^∧_p. These are p-completely flat discrete S-modules. The increasing conjugate filtration, its degree-zero unit, and bounded p-torsion give a discrete, p-completely faithfully flat Δ̄ with the same bound on p-power torsion. The discrete-case construction of derived-agrees-with-site supplies a delta-structure on Δ, a bounded prism, and a natural idempotent e_S whose image is the initial object of the category containing all target prisms. It remains to prove e_S is the identity.",
+    "Choose generators f_j for ker(A/I→S). Put S′=((A/I)⟨X_j^{1/p^∞} | j∈J⟩/(X_j−f_j | j∈J))^∧_p. Sending every X_j^{1/p^n} to zero gives S′→S. The p-completed cotangent complex of the perfected polynomial extension is zero, and the relation classes map onto the conormal module of S. Consequently the map on shifted completed cotangent complexes is surjective modulo p, and L_{S/S′} has no terms in degrees greater than −2 after derived reduction modulo p. Both rings satisfy the quasiregular hypothesis. The conjugate filtration gives a surjection Δ_{S′/A}→Δ_{S/A}: on each divided-power graded piece use the surjection of flat modules modulo p, then use derived completion. This is the argument of BL22 Remark 4.1.20, not a claim that an arbitrary surjection of rings induces a surjection on Δ.",
+    "Naturality gives e_S∘u=u∘e_{S′} for the surjection u:Δ_{S′/A}→Δ_{S/A}; hence e_{S′}=id implies e_S=id. Express S′ as a derived p-completed filtered colimit of the finite-coordinate rings T=((A/I)⟨X_1^{1/p^∞},…,X_r^{1/p^∞}⟩/(X_i−f_i))^∧_p. Colimit preservation of Δ and naturality reduce e_{S′}=id to the same assertion for every T.",
+    "For finite T, set A′=(A[X_1^{1/p^∞},…,X_r^{1/p^∞}])^∧_{(p,I)} with delta(X_i^{1/p^n})=0. This is a bounded prism over A; its reduction is the p-completed perfected polynomial extension of A/I. That extension is p-completely formally étale. The cotangent triangle and the conjugate graded pieces therefore show Δ_{T/A}→Δ_{T/A′} is an equivalence, compatible with delta and the natural idempotents (BL22 Corollary 4.1.17). This is invariance under this specific base extension, not arbitrary invariance under changing the prism.",
+    "Choose lifts of the finitely many f_i in A. In A′/IA′ the relations X_i−f_i are Koszul-regular: at every finite root level X_i=(X_i^{1/p^n})^{p^n}, they are successive monic polynomials in distinct variables. Their quotients are free over A/I at that level. Flat filtered passage to all roots and derived p-completion preserve the exact Koszul calculation; the quotients are p-completely flat with bounded p-torsion. Thus regular-quotient-prismatic-envelope (BS22 Example 7.9) applies over A′ and proves e_T=id. Its use of complete-flat regular envelopes occurs only after passing to the universal oriented prism of that existing target's proof. It makes no regularity assertion about the original K.",
+    "The preceding reductions prove e_S=id and therefore initiality even for unbounded target prisms. For an orientable A, maps from (A,K) into a prism over A are precisely maps from S into its reduction. The general-envelope universal property gives the unique comparison isomorphism. Boundedness here comes from the Hodge–Tate calculation, not from general-envelope existence."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.2/derived-hodge-tate-comparison",
+    "PrismaticCohomology:PR.2/derived-agrees-with-site",
+    "PrismaticCohomology:PR.2/idempotent-retract-initial-object",
+    "PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope",
+    "PrismaticCohomology:PR.2/kunneth-formula",
+    "PrismaticCohomology:PR.2/comparison-to-prisms",
+    "PrismaticCohomology:PR.0/general-prismatic-envelope",
+    "PrismaticCohomology:PR.0/bounded-prism-complete-flatness",
+    "DerivedDeRhamCohomology:DD.0/cotangent-transitivity",
+    "DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent",
+    "DerivedDeRhamCohomology:DD.0/derived-divided-powers",
+    "DerivedDeRhamCohomology:DD.1/complete-flatness",
+    "DerivedDeRhamCohomology:DD.1/bounded-torsion-criterion",
+    "DerivedDeRhamCohomology:DD.1/completion-exchanges"
+   ],
+   "acceptance": [
+    "The contract treats arbitrary bounded base prisms, whereas qrsp-prism assumes an A_inf base and proves the stronger absolute initiality specific to a perfect base.",
+    "In the reduction, verify surjectivity on the shifted cotangent complex before using surjectivity of Δ; keep the finite-root monic calculation and naturality of the idempotent explicit.",
+    "The log consumer identifies its log complex with the ordinary relative complex over the exactified bounded prism by log base change. Only then apply this ordinary theorem, with its actual cotangent-complex and bounded-torsion hypotheses."
+   ],
+   "uses": [
+    {
+     "where": "Koshikawa–Yao II, Proposition 4.17, printed p.39; Lemma 4.18, printed p.40",
+     "how": "After log base change to A_inf(R,M̃), proves boundedness and identifies the weakly initial derived prism with the general envelope. This does not require the original exactified kernel to be a completely regular sequence."
+    }
+   ],
+   "api": [
+    {
+     "name": "Prismatic.quasiregularQuotient.initial",
+     "role": "universal-property",
+     "statement": "For each prism (B,IB) over A, compatible maps Δ_{S/A}→B correspond to maps S→B/IB, even if B is unbounded."
+    },
+    {
+     "name": "Prismatic.quasiregularQuotient.bounded",
+     "role": "compatibility",
+     "statement": "The Hodge–Tate reduction is p-completely faithfully flat over S and has bounded p-power torsion, so the initial prism is bounded."
+    },
+    {
+     "name": "Prismatic.quasiregularQuotient.envelopeEquiv",
+     "role": "equivalence",
+     "statement": "For I=(d), identify Δ_{S/A} with the general envelope of (A,ker(A→S)), respecting the A-map, delta and reduction map from S."
+    },
+    {
+     "name": "Prismatic.quasiregularQuotient.map",
+     "role": "functoriality",
+     "statement": "A map of bounded-prism quotient diagrams satisfying the hypotheses induces the unique map of their initial prisms. No isomorphism under arbitrary base change is asserted."
+    }
+   ],
+   "tests": [
+    {
+     "name": "quasiregularQuotient_identity",
+     "kind": "degenerate",
+     "statement": "For S=A/I, the cotangent complex is zero and the initial relative prism is A with the identity map. This holds for bounded prisms that are not perfect."
+    },
+    {
+     "name": "quasiregularQuotient_fatPoint",
+     "kind": "computation",
+     "statement": "For A=Z_p⟨x⟩ with delta(x)=0, I=(p) and S=F_p[x]/(x²), the shifted cotangent complex over F_p[x] is free of rank one. The initial prism is the prismatic envelope adjoining x²/p and its iterated delta-relations; S need not be semiperfectoid."
+    },
+    {
+     "name": "quasiregularQuotient_unboundedTargets",
+     "kind": "scope",
+     "statement": "The lift equivalence is required for every unbounded prism over A as well as bounded ones; restricting to the bounded site loses the envelope universal property needed by the log consumer."
+    },
+    {
+     "name": "quasiregularQuotient_nonsurjective",
+     "kind": "non-example",
+     "statement": "The inclusion F_p→F_p[x] has a degree-zero cotangent generator dx and is not a surjection. The theorem supplies no discrete initial prism for this input; its positive-dimensional Hodge–Tate cohomology detects the omitted hypotheses."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "KY",
+     "locator": "§4.3, Lemma 4.18 and proof, printed p.40; Proposition 4.17 and proof, printed p.39",
+     "match": "The exact ordinary relative statement, its unbounded target range, and the exactified log-QRSP consumer. No source passage is reproduced."
+    },
+    {
+     "sourceId": "BL22",
+     "locator": "Remark 4.1.20, printed p.82; Corollary 4.1.17, printed p.81; Remark 4.3.9 and Lemma 4.3.10 with proof, printed p.87",
+     "match": "Explains the surjection on prismatic complexes, invariance under p-completely formally étale coefficient extension, and the idempotent reduction to monic perfected polynomial quotients. The statement numbered 4.3.10 in this version is a lemma, not a proposition."
+    },
+    {
+     "sourceId": "BS22-v4",
+     "locator": "Lemma 7.7, printed pp.57–58; Example 7.9, printed p.59; Proposition 7.10 and proof, printed pp.59–60",
+     "match": "Existing discrete-prism, regular-quotient and idempotent arguments. Proposition 7.10 alone is not attributed the general bounded-base range."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Prismatic/Semiperfectoid/Discrete",
+    "namespace": "TauCeti.Prismatic.Semiperfectoid"
+   },
+   "implementationStatus": "unchecked"
   },
   {
    "id": "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
@@ -1489,7 +1620,9 @@
   {
    "stageId": "PrismaticCohomology:PR.2",
    "status": "partial",
-   "nodes": [],
+   "nodes": [
+    "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism"
+   ],
    "importedNodes": 29,
    "remaining": [
     "Serialize and reconcile this layer’s retained accepted targets in the effective whole-roadmap graph. The imports metadata is not expanded by the atlas importer; its historical acceptance does not validate the new supplier replacements.",
@@ -1592,7 +1725,7 @@
     "(accepted part) The ownerless full bounded algebraic Witt-Frobenius Riemann–Hilbert/extension-by-zero input and arc-descent input remain the two exact mathematical routing gaps.",
     "(accepted part) Complete the recorded supplier extensions for C0, non-fine CR.5/DD.6, CR.6 and AI.1/DD.1 before calling PR.8 closed.",
     "(accepted part) Elaborated signatures use explicitly documented object fixtures and omitted higher/sheaf-level conditions under PROTOCOL §13; implementations must instantiate the definitive packet ranges and the supplier interfaces.",
-    "The general envelope covers arbitrary kernels over any orientable base. Establish the separate QRSP completely-flat regular-presentation reduction before claiming boundedness of its initial log prism."
+    "The general envelope supplies arbitrary-kernel existence. PR.2/quasiregular-quotient-initial-prism now supplies the bounded-prism relative comparison used in KY Lemma 4.18; the original exactified kernel need not be regular. Apply the reader’s log-base-change and strictness argument before invoking it. The actual PR.8 prerequisite edit remains pending executable assembly and independent review."
    ]
   }
  ],
@@ -1613,7 +1746,7 @@
   },
   {
    "title": "Executable whole-roadmap assembly",
-   "detail": "The top packet has ten serialized nodes and retains imports only as provenance. The importer does not expand imports. Consolidating the 369 retained nodes with their IDs produces 361 duplicate-ID errors against the retained part packets. Resolve the assembly/part lifecycle in the checker or authorize archiving those parts, preserving their reviews and all sourceIssues. Then serialize the graph and apply justified R1–R7 changes. No deliverable outside this issue was edited.",
+   "detail": "The top packet has eleven serialized nodes and retains imports only as provenance. The importer does not expand imports. Consolidating the 369 retained nodes with their IDs produces 361 duplicate-ID errors against the retained part packets. Resolve the assembly/part lifecycle in the checker or authorize archiving those parts, preserving their reviews and all sourceIssues. Then serialize the graph and apply justified R1–R7 changes. No deliverable outside this issue was edited.",
    "neededBy": [
     "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
     "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
@@ -1640,13 +1773,6 @@
     "PrismaticCohomology:PR.6/framed-q-automorphisms",
     "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
     "PrismaticCohomology:PR.6/completed-q-derivative-summability"
-   ]
-  },
-  {
-   "title": "QRSP regular-presentation reduction",
-   "detail": "The general-envelope target now supplies arbitrary-kernel existence over any orientable base using a small-solution-set construction. For initial-log-prism-qrsp, separately exhibit a completely flat presentation with completely regular kernel and compare its envelope to the general envelope by the universal property. K1 Proposition 3.2 gives boundedness and complete flatness only after those hypotheses; general existence does not supply them.",
-   "neededBy": [
-    "PrismaticCohomology:PR.8/initial-log-prism-qrsp"
    ]
   },
   {
@@ -1801,8 +1927,8 @@
    "roadmaps": [
     "PrismaticCohomology"
    ],
-   "detail": "R6. The 39 bare stage occurrences remain in the retained PR.8 packet. The general-envelope target now has an existence proof over any orientable base. The QRSP regular-presentation reduction remains separate. No retained part or effective consumer graph was edited.",
-   "proposal": "Preserve the consumer-specific map below as candidates. Row 5 now has a general-envelope supplier covering the full orientable-base range, rather than the false regular-kernel replacement. Row 31 separately requires the QRSP regular-envelope reduction for boundedness and comparison. Resolve the assembly scope blocker before applying these rows to the effective graph.",
+   "detail": "R6. The 39 bare stage occurrences remain in the retained PR.8 packet. The general-envelope target now has an existence proof over any orientable base. The relative quasiregular-quotient target now supplies the bounded-base comparison needed by the QRSP consumer. No retained part or effective consumer graph was edited.",
+   "proposal": "Preserve the consumer-specific map below as candidates. Row 5 now has a general-envelope supplier covering the full orientable-base range, rather than the false regular-kernel replacement. Row 30 uses the new bounded-base relative theorem for boundedness and comparison; row 31 uses general-envelope existence only. Do not impose regularity on the original exactified kernel. Resolve the assembly scope blocker before applying these rows to the effective graph.",
    "map": [
     {
      "row": 1,
@@ -2117,22 +2243,21 @@
      "node": "PrismaticCohomology:PR.8/initial-log-prism-qrsp",
      "stageCited": "PrismaticCohomology:PR.2",
      "replaceBy": [
-      "PrismaticCohomology:PR.2/qrsp-prism",
+      "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism",
       "PrismaticCohomology:PR.2/perfectoidization-coconnective",
       "PrismaticCohomology:PR.2/perfection-of-prismatic-cohomology",
       "PrismaticCohomology:PR.2/connective-perfectoidization-perfectoid"
      ],
-     "confidence": "conditional candidate: these PR.2 nodes supply QRSP and perfection comparisons; separately use general-envelope existence and prove the regular-presentation reduction of row 31"
+     "confidence": "quasiregular bounded-base initiality uses the new relative theorem, not the A_inf-only qrsp-prism; apply after log base change and strictness identify the ordinary cotangent hypothesis. Perfection is a separate comparison. Effective graph edit remains pending assembly."
     },
     {
      "row": 31,
      "node": "PrismaticCohomology:PR.8/initial-log-prism-qrsp",
      "stageCited": "PrismaticCohomology:PR.0",
      "replaceBy": [
-      "PrismaticCohomology:PR.0/general-prismatic-envelope",
-      "PrismaticCohomology:PR.0/regular-prismatic-envelopes"
+      "PrismaticCohomology:PR.0/general-prismatic-envelope"
      ],
-     "confidence": "general existence uses the first target; QRSP boundedness/comparison still requires the complete-flatness and regular-kernel reduction before using the second"
+     "confidence": "general existence uses the arbitrary-kernel envelope; boundedness and comparison use the relative quasiregular theorem in row 30. Do not impose complete regularity or complete flatness on the original exactified kernel."
     },
     {
      "row": 32,
@@ -2461,11 +2586,11 @@
   "job": "BP-PrismaticCohomology~2",
   "issue": 10119,
   "agent": "Codex",
-  "session": "codex-A1oqbT",
+  "session": "codex-escJNw",
   "date": "2026-10-17",
   "status": "blocked",
   "blocker": "Serializing the retained 369 targets in this packet produces 361 also-appears errors in check_blueprint.py: 282 against PrismaticCohomology--PR.0.json and 79 against PrismaticCohomology--PR.8.json. WORKERS.md Doing the work allows edits only to issue deliverables; neither retained part nor the checker is a deliverable of #10119. No IDs were renamed and no checker was bypassed.",
-  "reviewBoundary": "The 2026-10-13 review below applies only to the previous seven-node packet. Neither the later general-envelope target nor this formal-affine target has independent review.",
-  "progress": "Replaced the general-envelope transfinite-realization gap with a discrete small-solution-set construction over any orientable base; added telescope and unbounded-output scope checks. Formal-QCoh, completed-framing and QRSP regular-presentation obligations remain. Historical source verdicts are preserved, not independently reviewed."
+  "reviewBoundary": "The 2026-10-13 review applies only to the earlier seven-node packet. The subsequent general-envelope, formal-affine, completed-summability and relative quasiregular-quotient targets have no independent review.",
+  "progress": "Added the bounded-prism quasiregular-quotient theorem of KY Lemma 4.18, with the monic perfected-variable and natural-idempotent reduction, unbounded target range, four API entries and four checks. Updated R6 rows 30–31 to avoid incorrectly requiring the original exactified kernel to be regular. General-envelope existence is retained. Assembly scope remains blocked; formal-QCoh and completed-framing obligations remain explicit."
  }
 }
