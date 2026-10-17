@@ -4,7 +4,7 @@
 
 ## Scope and ownership
 
-This is the analytic continuation of ArithmeticDirichletSeries, a completed Tau Ceti roadmap. It owns quantitative refinements and the analytic comparisons below. It also owns the particular Hecke algebra and operator-algebra constructions needed for Bost–Connes, the Mellin and determinant constructions for compact hyperbolic surfaces, and the analytic continuation of the selected prehomogeneous and double Dirichlet series. These objects are different: a spectral determinant is not a prime-system zeta function, and a quadratic reciprocity matrix is not the binary-cubic Fourier matrix.
+This roadmap builds on completed ArithmeticDirichletSeries and the open LFunctions and ZerosOfLFunctions roadmaps. It owns the quantitative refinements and analytic comparisons specified below. The generic order-one theory, Gamma asymptotics, degree-one zero theory, rational explicit formula and rational PNT remainder are supplier contracts. It also owns the particular Hecke algebra and operator-algebra constructions needed for Bost–Connes, the Mellin and determinant constructions for compact hyperbolic surfaces, and the analytic continuation of the selected prehomogeneous and double Dirichlet series. These objects are different: a spectral determinant is not a prime-system zeta function, and a quadratic reciprocity matrix is not the binary-cubic Fourier matrix.
 
 ### Prerequisites and boundaries
 
@@ -24,7 +24,7 @@ The commutative representation of a positive functional by a finite inner-regula
 
 DifferentialGeometry Layer 5 supplies oriented integration of top forms, `integralTopForm_mextDeriv` for compactly supported C¹ forms on a smooth half-space manifold, and the abstract boundary version for corners. Layer 12 supplies the Laplace–Beltrami normalization and Green identities. The Nielsen-core work below must transport these statements across the finite orbifold charts, preserve boundary multiplicities, and justify the noncompact cusp limit; it does not construct general manifold Stokes again.
 
-ArithmeticStatistics, in the same dependency bundle, owns cubic arithmetic orbit parametrizations and counting estimates, quadratic large-sieve and fourth-moment inputs. The binary-cubic integrals and analytic functional equation here consume those arithmetic data. GeometryOfNumbersAndQuadraticArithmetic owns quadratic classes and their CM/geodesic geometry; the precise normalized period comparisons belong here. The additional Nielsen-core and boundary construction needed for the negative-factor genus period is stated below, from hyperbolic geometry and its class dictionary, rather than assumed from an unnamed Fuchsian-orbifold extension.
+Layer 5 owns the binary-cubic arithmetic needed by its analytic series: the twisted action, locally free cubic algebra correspondence, discriminant and trace-dual conditions, finite weighted coefficients and the uniform degree-at-most-three field count. It also owns the quadratic large sieve and its fourth-moment consequence. GeometryOfNumbersAndQuadraticArithmetic owns quadratic classes and their CM/geodesic geometry; the precise normalized period comparisons belong here. The additional Nielsen-core and boundary construction needed for the negative-factor genus period is stated below, from hyperbolic geometry and its class dictionary, rather than assumed from an unnamed Fuchsian-orbifold extension.
 
 ## Conventions
 
@@ -38,7 +38,7 @@ Write Γℝ(s)=π^(−s/2)Γ(s/2), and use the Γℂ convention of the consumed 
 
 For the quadratic genus-period formulas, write Λ_DIT(s,χ_d)=|d|^(s/2)π^(−s/2)Γ((s+α_d)/2)L(s,χ_d), with α_d=(1−sign d)/2, as a meromorphic completion (Duke–İmamoğlu–Tóth (5.13), p.964). Thus Λ_DIT=π^(α_d/2)|d|^(s/2)·DirichletCharacter.completedLFunction(χ_d,s). This differs for odd characters from the completion Λ_std=(|d|/π)^((s+α_d)/2)Γ((s+α_d)/2)L used for the imaginary quadratic endpoint values: Λ_std=(|d|/π)^(α_d/2)Λ_DIT. In particular the two completions agree for d>0; for d=−4, Λ_DIT(0)=Λ_DIT(1)=√π/2 whereas Λ_std(0)=Λ_std(1)=1; for d=−3, the corresponding values are √π/3 and 1/√3. These comparisons use canonical continued values at the endpoints.
 
-An entire upper-order condition means that for every `b>ρ` there is `C_b>0` with `|f(z)|≤C_b exp(|z|^b)`. Hadamard factorization requires a nonzero function. Strict positivity of every derivative additionally requires nonpolynomiality and the stated parity and real-sign conditions. Barnes G is fixed by its canonical product, not by recurrence and `G(1)=1` alone. Its Gamma recurrence is pointwise only away from Gamma poles; at zero, Mathlib's totalized Gamma gives `Γ(0)G(0)=0`, whereas `G(1)=1`.
+Use the supplier’s `OrderLE` predicate for upper order. For an entire function and ρ≥0 its cobounded formulation is equivalent, by compact boundedness, to: for every `b>ρ` there is `C_b>0` with `|f(z)|≤C_b exp(|z|^b)`. Hadamard factorization requires a nonzero function. Strict positivity of every derivative additionally requires nonpolynomiality and the stated parity and real-sign conditions. Barnes G is fixed by its canonical product, not by recurrence and `G(1)=1` alone. Its Gamma recurrence is pointwise only away from Gamma poles; at zero, Mathlib's totalized Gamma gives `Γ(0)G(0)=0`, whereas `G(1)=1`.
 
 A Beurling prime system is an indexed locally finite nondecreasing sequence, with multiplicities; generalized integers are indexed finite prime multisets and can have coincident real values. Bost–Connes coefficient fields are ℚ-algebras when rational averaging is used, and positivity, C⋆-norms, states and KMS conditions use ℂ. A state-space homeomorphism uses weak evaluation topology. For a nonsingular action the ratio-set derivative is the pushforward Radon–Nikodym derivative at the target point, witnessed on `A ∩ gA`.
 
@@ -74,6 +74,23 @@ Consume [ArithmeticDirichletSeries layer 6 abel and perron summation](https://gi
 
 Consume [ArithmeticDirichletSeries layer 5 ideal and prime estimates](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates). Canonical inclusive prime counts, ideal von Mangoldt coefficients, higher-prime-power and finite ramification-discard estimates for quadratic splitting. Match the exact degree/discriminant-dependent errors needed in LOW Lemma4.3; qualitative PNT asymptotics alone do not supply these errors.
 
+
+### From LFunctions and ZerosOfLFunctions
+
+Consume the open upstream roadmaps [LFunctions #248](https://github.com/roed-math/TauCetiRoadmap/blob/e632e3a41fc257fce7b0d9938d48507b962f4fbb/TauCetiRoadmap/LFunctions/README.md) (head e632e3a4) and [ZerosOfLFunctions #253](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md) (head cce2e041). These are planned supplier interfaces, not declarations at the historical Lean pin. The following contracts use the same completed-function records and meromorphic germs. The [rational dictionary](#dirichlet-ray-dictionary) below identifies Mathlib's Dirichlet functions with the K=ℚ records once, including conductor, parity and deleted factors.
+
+| Supplier | Exact contract consumed here |
+| --- | --- |
+| [0.1–0.2](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-0-growth-predicates-and-the-entire-completion) | `OrderLE f A` is cobounded big-O of exp(‖z‖^b) for every b>A; entirety is a separate hypothesis. `entireCompletion` is the unique analytic extension of the pole-cleared completion, with exact divisor and no zero at a former pole. For ζ its normalization is s(s−1)Λ, without 1/2. |
+| [1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function) | Analytic logΓ on slit sectors, Stirling remainder, vertical-strip modulus and phase, digamma and balanced Gamma-quotient estimates. Branches are analytic logarithms, not pointwise principal logs of Gamma values. Higher derivatives of the remainder are the local refinement below. |
+| [3.3–3.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-3-convexity-in-vertical-strips) | Pole-cleared convexity uniformly in conductor at fixed degree and shift bounds, and order at most one for the actual ζ and primitive Hecke entire completions. Finite order alone does not imply order one. |
+| [Layer 4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-4-zero-counting) | The locally finite analytic zero divisor, multiplicity-weighted restrictions and finite zero counts; local O(log analyticQ) counts at high height. A strict symmetric band means restriction of this divisor, not a second zero-multiset carrier. The local bounded-height quantitative refinement below retains conductor uniformity. |
+| [5.2–5.7](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization) | Summability and tails for the zero divisor, E₁(w)=(1−w)exp(w), its API, locally uniform unordered canonical products, Hadamard for order≤1 with f(0)≠0, and its logarithmic derivative. The origin-zero adapter below is the only extension of this factorization. |
+| [6.2–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions) | Fixed-degree conductor-uniform zero-free regions, including ζ; at most one simple real exception for a real character. `IsExceptionalZero`, `.unique`, `.divisor_eq_one`, `.sq_eq_one` are used with their supplied width. The c-parametrized predicate here inherits them only after the explicit width comparison below. This does not supply a family Landau–Page theorem. |
+| [7.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-7-the-riemannvon-mangoldt-formula) | Multiplicity-sensitive Riemann–von Mangoldt formula, including its Gamma phase and safe-height argument. |
+| [8.2–8.8](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-8-the-explicit-formula) | Truncated explicit formulas with the supplier's endpoint and admissible-height conventions; rational PNT remainder; fixed-character and fixed-field abelian effective estimates. The conductor-uniform character PNT and nonabelian Chebotarev estimates below go beyond those fixed-family contracts. |
+
+For finite symmetric zero sums use the supplier divisor restricted by |Im ρ|<T and the critical strip. Endpoints at |Im ρ|=T are excluded explicitly; safe-height limits avoid endpoint zeros. General complex characters pair with their conjugates, rather than having a real-character conjugation symmetry. Completed/ArithmeticDirichletSeries supplies Perron kernels and half-weight endpoints; ZerosOfLFunctions owns their application to ζ, not this package.
 
 ### From GlobalNumberFields
 
@@ -166,17 +183,6 @@ Consume [UniversalCovers stage 2 lifting criterion and galois correspondence](ht
 Consume `Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33`. Consume the completed contour theory and its current-library corollaries: TauCeti.Contour.Cycle.classicalResidueTheorem_nullHomologous for off-pole cycles and TauCeti.Contour.argumentPrinciple_nullHomologous for the logarithmic derivative. These are proved in Analysis/Contour/Cycle/Residue and Analysis/Contour/Argument/Cycle. Match a finite zero-avoiding rectangle to the native piecewise-C1 closed curve/cycle, open neighborhood, finite singularity set, null-homology, order and winding conventions. This is an adapter request; do not plan the general residue theorem, argument principle or homological Cauchy theorem again. The zeta phase estimates and symmetric infinite-contour limits are constructed here.
 
 
-### From ArithmeticStatistics
-
-Consume ArithmeticStatistics ST.2. In the analytic-number-theory/arithmetic-statistics bundle, supply the quadratic large sieve for primitive real characters and the fourth-moment contract specified by the quadratic fourth-moment comparison below (Heath-Brown Theorem 2, p.238; proof pp.267–269).
-
-Consume ArithmeticStatistics ST.0. Provide bounded-discriminant finiteness and inverse-automorphism-weighted coefficient sums for all locally free cubic O_F-algebras, retaining reducible and nonmaximal rings.
-
-Consume ArithmeticStatistics ST.1. Provide the binary-cubic twisted action, discriminant, local nondegenerate orbit types, trace-divisible dual lattice and adelic parametrization including nonprincipal locally free O_F-modules. The Delone–Faddeev results are used only in their proved base-ring scope.
-
-Consume ArithmeticStatistics ST.3. Supply LOWW Lemma3.5 cubic-extension count over F, including h2(F) and uniform discriminant powers, for the Layer 5 reducible/field coefficient estimate.
-
-
 ### From AdelicAlgebraicGroups
 
 Consume AdelicAlgebraicGroups AA.2. Supply GL2 quotient Haar measures, local GL2 factors and inversion transport between quotient sides. Finite-adèle carriers come from GlobalNumberFields Layer 4 and integral/restricted-product topology from RestrictedProducts. Additive Haar normalization belongs to AA.0; RestrictedProducts does not supply measures. Also supply the GL2 rank-one compact-times-Siegel-set integration majorant of Wright Lemmas 3.1–3.2, p.515: quotient |F| integral ≤γ integral_Theta+ F0(theta)t(theta)^(−2)dtheta when |F(c theta)|≤F0(theta) for the fixed compact C, and its determinant-one specialization.
@@ -212,7 +218,7 @@ Consume [Chebotarev layer 8 the cyclic fixed field fibre](https://github.com/Tau
 
 ## How to read the build
 
-The seven layers group the mathematics by its objects. Within each layer the targets are arranged in prerequisite order. Named links specify the proof order across topics: local factorization and zero counts precede quantitative prime estimates; Gamma estimates precede period and multiple-series bounds; Barnes G precedes its moment and determinant applications. Every internal prerequisite lies in the same or an earlier layer. In particular the rational prime error follows the explicit formula, the period bounds follow Stirling, the Möbius truncation cancellation follows its multiplicative estimates, and the moment constants follow Barnes G. Quantitative constants are uniform exactly in the parameters stated. A source that states an estimate while citing another proof identifies the theorem to establish; the mathematical ingredients below remain required proof obligations.
+The seven layers group the mathematics by its objects. Named links specify the proof order within and across topics: imported order-one factorization and zero counts precede quantitative prime estimates; Gamma estimates precede period and multiple-series bounds; Barnes G precedes its moment and determinant applications. Every internal prerequisite lies in the same or an earlier layer. In particular the rational prime error consumes the imported explicit formula, the period bounds follow Stirling, the Möbius truncation cancellation follows its multiplicative estimates, and the moment constants follow Barnes G. Quantitative constants are uniform exactly in the parameters stated. A source that states an estimate while citing another proof identifies the theorem to establish; the mathematical ingredients below remain required proof obligations.
 
 <a id="layer-0-entire-functions-and-quantitative-prime-estimates"></a>
 
@@ -243,7 +249,9 @@ The required interface consists of the following operations and identities.
 
 See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), Section 7, Proposition 7.1 and following paragraph, pp. 373-374.
 
-*Needs:* `DirichletCharacter.LFunction`.
+The comparison API is `ExceptionalRealZero.to_supplier`: let c₁>0 be the degree-one zero-free constant from [6.3–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions). For 0<c≤min(c₁/3, (log 3)/2), every c-exceptional β satisfies the supplier's `IsExceptionalZero` predicate after the rational dictionary. Indeed primitive nonprincipal quadratic conductors have N≥3, β>1/2, and log analyticQ(χ,0)≤log(4N)≤3log N. Thus c/log N≤c₁/log analyticQ(χ,0), so the strict local cutoff lies inside the supplier's closed region. Conversely membership is the supplier predicate together with the stricter cutoff and the primitive nonprincipal quadratic conditions. Import uniqueness and simplicity only under this width restriction; arbitrary c>0 does not imply them. Reducing c preserves any exclusion statement, but need not preserve existence of an exceptional zero.
+
+*Needs:* `DirichletCharacter.LFunction`; [rational dictionary](#dirichlet-ray-dictionary); [6.3–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions).
 
 <a id="chebyshev-sum-in-a-residue-class-theta-ap"></a>
 
@@ -317,11 +325,11 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 There is an effective absolute c>0 such that among primitive Dirichlet characters of moduli q<=T, T>=2, there is at most one zero rho=beta+i*t with |t|<=T and beta>1-c/log T. Any exception is a simple real zero of a real character.
 
-The proof proceeds as follows. Apply the conductor-height region of §0.35 separately to each primitive character. If q≤T and |t|≤T, then log(q(|t|+2))≤3log T+O(1), so a sufficiently smaller common width excludes every nonreal zero and makes each possible exception real, simple and attached to a real character. For two distinct real primitive characters of conductors≤T, the nonnegative Euler coefficients of ζ(s)L(s,χ₁)L(s,χ₂)L(s,χ₁χ₂) give the two-zero contradiction in the proof of §0.35; the product conductor is at most T². Decrease the same effective width once to handle this factor and the bounded T range. Thus there is at most one exceptional zero in the whole family, with multiplicity counted. The principal character is handled by the zeta region, not by a nonprincipal L-function formula.
+The proof proceeds as follows. Apply ZerosOfLFunctions 6.2–6.4 through the [rational dictionary](#dirichlet-ray-dictionary) separately to each primitive character. If q≤T and |t|≤T, then log(q(|t|+2))≤3log T+O(1), so a sufficiently smaller common width excludes every nonreal zero and makes each possible exception real, simple and attached to a real character. For two distinct real primitive characters of conductors≤T, the nonnegative Euler coefficients of ζ(s)L(s,χ₁)L(s,χ₂)L(s,χ₁χ₂) give the [two-real-zero contradiction](#two-real-zero-inequality-two-real-zero-separation); the product conductor is at most T². Decrease the same effective width once to handle this factor and the bounded T range. Thus there is at most one exceptional zero in the whole family, with multiplicity counted. For the primitive principal character, the zeta region excludes nonreal zeros in this smaller width. There is no real ζ-zero in (0,1): the alternating eta series is positive there and ζ(s)=η(s)/(1−2^(1−s))<0. Shrink c so the lower cutoff exceeds 1/2 even at T=2. Thus the family exception belongs to a nonprincipal real character.
 
 See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), §12 opening, p. 386; Bombieri §5 p.39; Iwaniec–Kowalski Theorem 5.26.
 
-*Needs:* `DirichletCharacter.LFunction`; `DirichletCharacter.conductor`; [Joint conductor-height and two-character argument](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region).
+*Needs:* `DirichletCharacter.LFunction`; `DirichletCharacter.conductor`; [Rational dictionary](#dirichlet-ray-dictionary); [two-real-zero separation](#two-real-zero-inequality-two-real-zero-separation).
 
 <a id="quadratic-real-zero-separation-from-one-quadratic-effective-zero-gap"></a>
 
@@ -361,7 +369,7 @@ The case with no near-one zero uses the same elementary log-derivative integrati
 
 See [Koukoulopoulos, authorized preliminary text](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf), Theorem12.9 and its Goldfeld proof pp.125–127. The proof just described uses its contour/positivity argument and retains all character and conductor factors. The theorem here is the L-value form; the zero-separation form follows with the derivative adapter specified below.
 
-*Needs:* `DirichletCharacter.LFunction`; `DirichletCharacter.LFunction_ne_zero_of_one_le_re`; [Near-one derivative bounds](#proof-dirichlet-near-one-derivative); [Local logarithmic derivative](#proof-primitive-character-unit-height-zero-count); [Conductor-height zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region); native Mellin inversion and finite contour shift.
+*Needs:* `DirichletCharacter.LFunction`; `DirichletCharacter.LFunction_ne_zero_of_one_le_re`; [Near-one derivative bounds](#proof-dirichlet-near-one-derivative); [Local logarithmic derivative](#proof-primitive-character-unit-height-zero-count); [Conductor-height zero-free region](#dirichlet-ray-dictionary); native Mellin inversion and finite contour shift.
 
 <a id="prime-number-input-prime-interval-three-x"></a>
 
@@ -429,67 +437,13 @@ See [Peter Koymans, Carlo Pagano — On Stevenhagen’s conjecture](https://arxi
 
 *Needs:* [GlobalNumberFields layer 10 archimedean characters infinity types and cyclotomic arithmetic](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic); `DirichletCharacter.LFunction`.
 
-<a id="entire-order-at-most-entire-order-at-most"></a>
-
-### 0.14 Entire order at most ρ
-
-For a complex function f and real ρ, orderAtMost(f,ρ) means ρ≥0, f is entire, and for every b>ρ there is C_b>0 with |f(z)|≤C_b exp(|z|^b) for all z. At ρ=0 this is the same infimum-order convention, including polynomials and the zero function; the latter is excluded in factorization theorems. It is an upper-order predicate, not an exact-order or exponential-type predicate. The representative upper-order predicate is `EntireOrderAtMost`; `entireOrderAtMost_riemannXi` is its xi specialization.
-
-The proof proceeds as follows. Use the displayed conjunction on the existing complex-function carrier. Compact continuity turns the source's large-radius bound into the global bound; conversely the global bound implies the asymptotic bound. For products at exponent b>ρ choose ρ<b′<b; absorb 2r^b′ into r^b outside a fixed ball and use compact boundedness inside it.
-
-The required interface consists of the following operations and identities.
-
-- `entire_order_at_most.bound`: Every exponent strictly larger than ρ has its own global multiplicative growth constant.
-- `entire_order_at_most.mono`: If ρ≤ρ′ and orderAtMost(f,ρ), then orderAtMost(f,ρ′).
-- `entire_order_at_most.polynomial`: Every polynomial has order at most 0.
-- `entire_order_at_most.product`: Products of entire functions of order at most ρ≥0 again have order at most ρ.
-
-**Checks.**
-
-- exp(z) has order at most 1.
-- exp(z²) does not have order at most 1.
-- 1−z² has order at most 0.
-- For every entire f and real C, if |f(z)|≤exp(C|z|log(2+|z|)) for every z, then orderAtMost(f,1). This upper bound alone asserts neither exact order one nor failure of finite exponential type.
-- The identically zero function has order at most zero.
-
-The result must also satisfy these compatibility requirements: exp(z) has order at most 1. exp(z²) does not have order at most 1. 1−z² has order at most 0. For every entire f and real C, if |f(z)|≤exp(C|z|log(2+|z|)) for every z, then orderAtMost(f,1). This upper bound alone asserts neither exact order one nor failure of finite exponential type.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Definition 8.1, printed p.47; extension to ρ=0 by the same growth condition.
-
-*Needs:* `Differentiable`.
-
-<a id="genus-one-canonical-factor-genus-one-factor"></a>
-
-### 0.15 Genus-one canonical factor
-
-E₁(w)=(1−w)exp(w), for every complex w.
-
-The proof proceeds as follows. Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications.
-
-The required interface consists of the following operations and identities.
-
-- `genus_one_factor.value`: The function is exactly (1−w)exp(w).
-- `genus_one_factor.entire`: E₁ is entire.
-- `genus_one_factor.zeros`: Its only zero is w=1 and that zero is simple.
-- `genus_one_factor.pair`: E₁(w)E₁(−w)=1−w².
-
-**Checks.**
-
-- E₁(0)=1.
-- E₁(1)=0.
-- E₁′(0)=0, which excludes the uncorrected factor 1−w.
-
-The result must also satisfy these compatibility requirements: E₁(0)=1. E₁(1)=0. E₁′(0)=0, which excludes the uncorrected factor 1−w.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7, (8.2.3), printed p.49; corrected quadratic sign in the normalization convention.
-
-*Needs:* `Complex.exp`.
-
 <a id="pole-cancelled-riemann-xi-riemann-xi"></a>
 
-### 0.16 Pole-cancelled Riemann xi
+### 0.14 Pole-cancelled Riemann xi
 
 ξ(s)=1/2+(1/2)s(s−1)completedRiemannZeta₀(s). This is the entire extension of (1/2)s(s−1)π^(−s/2)Γ(s/2)ζ(s) away from the completed poles, not the pointwise pole-multiplication convention at s=0,1. Use `riemannXi` for the pole-cancelled entire function, `riemannXi_eq` for the identity off 0 and 1, and `riemannXi_one_sub` for its reflection.
+
+The comparison is `2 * riemannXi = entireCompletion (dirichletData 1)`, using [LFunctions 4](https://github.com/roed-math/TauCetiRoadmap/blob/e632e3a41fc257fce7b0d9938d48507b962f4fbb/TauCetiRoadmap/LFunctions/README.md#layer-4-dirichlet-l-functions-and-factorizations) and [0.2](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-0-growth-predicates-and-the-entire-completion). This equality is of analytic extensions, including 0 and 1. Entirety, symmetry and order one are inherited from that completion. In particular ξ(0)=ξ(1)=1/2 and ξ(2)=ξ(−1)=π/6; omitting the factor 2 would fail both pairs of values.
 
 The proof proceeds as follows. Define xi directly as 1/2+(s*(s-1)/2)*completedRiemannZeta0 s, reusing its entire carrier. Entirety and reflection are finite algebra applied to the differentiability and reflection of completed0; at 0 and 1 the polynomial term vanishes. For s!=0,1, use completedRiemannZeta_eq and multiply the rational correction terms to obtain the comparison with the regular completed zeta; use the separate gamma nonvanishing condition before comparing to gamma times zeta.
 
@@ -504,7 +458,7 @@ The required interface consists of the following operations and identities.
 
 - ξ(0)=1/2, not0.
 - ξ(1)=1/2, not0.
-- ξ(2)=ξ(−1), checking the centre1/2.
+- ξ(2)=ξ(−1)=π/6, fixing both the centre 1/2 and the factor 2 against the supplier completion.
 
 The result must also satisfy these compatibility requirements: ξ(0)=1/2, not0. ξ(1)=1/2, not0. ξ(2)=ξ(−1), checking the centre1/2.
 
@@ -512,21 +466,9 @@ See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org
 
 *Needs:* `completedRiemannZeta₀`; `differentiable_completedZeta₀`; `completedRiemannZeta₀_one_sub`; `completedRiemannZeta_eq`.
 
-<a id="weak-zeta-convexity-in-a-closed-strip-riemann-zeta-weak-convexity"></a>
-
-### 0.17 Weak zeta convexity in a closed strip
-
-For every ε>0 there exists C_ε>0 such that |ζ(σ+it)|≤C_ε|t|^(1−σ+ε) whenever1/2≤σ≤1 and |t|≥1/100. This is the weak convexity estimate used to bound ζ(1+z+z′) in Green–Tao (A.5).
-
-The proof proceeds as follows. Obtain vertical-strip growth from the functional equation, gamma estimates and a strip interpolation theorem; these analytic inputs are listed in the Green–Tao note at the end of this layer. Enlarge the constant on bounded heights with |t|≥1/100; the exclusion of t=0 avoids the pole.
-
-See [Ben Green and Terence Tao — The primes contain arbitrarily long arithmetic progressions](https://annals.math.princeton.edu/wp-content/uploads/annals-v167-n2-p03.pdf), AppendixA proof of LemmaA.3, (A.5), printed p.544.
-
-*Needs:* `riemannZeta`.
-
 <a id="elementary-canonical-factors-of-every-genus-canonical-factor"></a>
 
-### 0.18 Elementary canonical factors of every genus
+### 0.15 Elementary canonical factors of every genus
 
 For n≥0 define E_n(w)=(1−w)exp(Σ_(j=1)^n w^j/j), with an empty sum for n=0. This is an entire function with a simple zero exactly at1. Genus1 agrees with the existing E₁.
 
@@ -535,7 +477,7 @@ The proof proceeds as follows. Use the finite polynomial sum and exponential. On
 The required interface consists of the following operations and identities.
 
 - `canonical_factor.zero_genus`: E₀(w)=1−w.
-- `canonical_factor.one_genus`: E₁(w)=(1−w)e^w equals genus_one_factor.
+- `canonical_factor.one_genus`: E₁(w)=(1−w)e^w agrees with ZerosOfLFunctions 5.3 on the nose.
 - `canonical_factor.entire`: E_n is entire for every n.
 - `canonical_factor.zeros`: E_n(w)=0 iff w=1, and its vanishing order there is1.
 - `canonical_factor.log_tail`: There is C_n>0 with |log(1−w)+Σ_(j=1)^n w^j/j|≤C_n|w|^(n+1) for |w|≤1/2, using the principal analytic log.
@@ -553,7 +495,7 @@ See [Zhiwei Yun and Wei Zhang — Shtukas and the Taylor expansion of L-function
 
 <a id="mod-eight-prime-mass-mod-eight-interval-mass"></a>
 
-### 0.19 Mod-eight prime mass
+### 0.16 Mod-eight prime mass
 
 With epsilon=0.002811, for a=3 or 5 and k>=2*10^10, theta(k;a,8)-theta(k/2;a,8)>=(1-3*epsilon)*k/8.
 
@@ -565,31 +507,21 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="two-real-zero-inequality-two-real-zero-separation"></a>
 
-### 0.20 Two-real-zero inequality
+### 0.17 Two-real-zero inequality
 
 There is an effective absolute c_star>0 such that if distinct real primitive quadratic characters of conductors N1,N2>1 have real zeros beta1,beta2, then min(beta1,beta2)<1-3*c_star/log(N1*N2).
 
-The proof proceeds as follows. Use the common-conductor-product zero-repulsion theorem with distinct primitive quadratic characters. Fix one effective c_star small enough for this theorem and the exceptional-zero definition simultaneously.
+The proof proceeds as follows. Present χ₁,χ₂ and χ₁χ₂ at their common level dividing N₁N₂. At each good prime, the coefficients of the negative logarithmic derivative of ζLχ₁Lχ₂Lχ₁χ₂ have the nonnegative factor (1+χ₁(p)^k)(1+χ₂(p)^k). The two distinct primitive quadratic characters have nonprincipal product. Use ZerosOfLFunctions 6.4b–6.4d for primitive-source corrections, Gamma terms and the real-part logarithmic-derivative bound. Discard every zero term except the two assumed near-one real zeros; for 1<σ≤2 this gives
+`1/(σ−β₁)+1/(σ−β₂) ≤ 1/(σ−1)+C log(N₁N₂)`
+with one effective absolute C≥0. Set ℒ=log(N₁N₂), a=1/(4(C+1)), b=a/4 and σ=1+a/ℒ. If both β_j≥1−b/ℒ, the left side is at least 2ℒ/(a+b)=1.6ℒ/a, larger than ℒ/a+Cℒ, a contradiction. Choose 3c_star≤b, and shrink it for the exceptional-predicate width comparison. This proves the strict minimum inequality, including zeros exactly on the proposed lower boundary; it is stronger than uniqueness for one character. The two-real-zero proof also supplies the family step of Landau–Page.
 
 See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), Proposition 7.1(i), (23), p. 373.
 
 *Needs:* [Exceptional real zero](#exceptional-real-zero-exceptional-real-zero); `DirichletCharacter.LFunction`.
 
-<a id="uniqueness-and-simplicity-of-an-exceptional-zero-exceptional-zero-unique"></a>
-
-### 0.21 Uniqueness and simplicity of an exceptional zero
-
-For that same c_star, a primitive nonprincipal quadratic character of conductor N has at most one real zero in (1-c_star/log N,1), and any such zero is simple.
-
-The proof proceeds as follows. Apply the conductor-uniform zero-free region to the real near-one interval. Use the multiplicity version of the logarithmic-derivative inequality to force multiplicity one.
-
-See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), Proposition 7.1(ii), (24), pp. 373–374.
-
-*Needs:* [Exceptional real zero](#exceptional-real-zero-exceptional-real-zero).
-
 <a id="effective-character-prime-number-estimate-character-weighted-pnt"></a>
 
-### 0.22 Effective character prime-number estimate
+### 0.18 Effective character prime-number estimate
 
 For a primitive nonprincipal character chi of conductor N>1 and X sufficiently large, sum_{m<=X}chi(m)*Lambda(m)=-X^beta/beta+O(X*exp(-c*log X/(sqrt(log X)+log N))*(log N)^4), with the beta term only when an exceptional zero exists; c>0 and the implied constant are absolute and effective.
 
@@ -601,7 +533,7 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="explicit-reciprocal-prime-estimate-explicit-prime-reciprocal"></a>
 
-### 0.23 Explicit reciprocal-prime estimate
+### 0.19 Explicit reciprocal-prime estimate
 
 There is the prime Mertens constant B=0.26149.. such that for x>=286, |sum_{p<=x}1/p-log log x-B|<1/(2*(log x)^2).
 
@@ -613,7 +545,7 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="weighted-prime-sum-on-an-interval-weighted-prime-interval"></a>
 
-### 0.24 Weighted prime sum on an interval
+### 0.20 Weighted prime sum on an interval
 
 For x≥y≥319, Σ_{y<p≤x}(log p)/p>log(x/y)−1/(2 log x)−1/(2 log y).
 
@@ -625,7 +557,7 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="mertens-sum-and-product-inputs-mertens-prime-reciprocal"></a>
 
-### 0.25 Mertens's second theorem: the reciprocal-prime sum
+### 0.21 Mertens's second theorem: the reciprocal-prime sum
 
 There is a real B such that Σ_{p≤x}1/p=log log x+B+O(1/log x) for real x≥2, with an absolute implied constant.
 
@@ -639,342 +571,48 @@ See [Dimitris Koukoulopoulos — The Distribution of Prime Numbers](https://dms.
 
 <a id="hadamard-factorization-in-order-at-most-one-order-one-hadamard"></a>
 
-### 0.26 Hadamard factorization in order at most one
+### 0.22 Origin-zero adapter for Hadamard factorization
 
-For nonzero entire f of order at most1, f(z)=z^m exp(a+bz)∏_αE₁(z/α), with locally uniform convergence, exact zero multiplicities and finite/empty zero sets permitted.
+Let f be entire, not identically zero, with `OrderLE f 1`, and let m be its finite analytic order at 0. Extend f(z)/z^m analytically across 0 to g. Then g(0)≠0 and `OrderLE g 1`. Apply [ZerosOfLFunctions 5.4–5.6](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization) to g and multiply by z^m. The resulting product has precisely the nonzero divisor of f, with multiplicities and the supplier's locally uniform unordered convergence. Only removal of the origin zero belongs here; the canonical product, zero estimates and affine logarithm are imported.
 
-Assume f is entire, not identically zero, and has order at most one; m is the finite analytic order at zero.
+Use the finite analytic-order factorization near 0 and the quotient elsewhere. They agree on the punctured neighbourhood. At infinity |z|≥1 implies |g(z)|≤|f(z)|, which preserves the supplier's cobounded growth predicate. No assertion is made for identically zero f.
 
-The proof proceeds as follows. Assemble the origin factor, the canonical product, its entire quotient logarithm and the affine-log theorem.
+**Checks.**
 
-The result must also satisfy these compatibility requirements: f(z)=z²exp(z) has the empty nonzero-zero product and m=2. f(z)=1−z² has two simple nonzero zeros; the paired factors give exactly 1−z². Every zero occurrence family is locally finite, and convergence is locally uniform for the net of finite subsets, not merely pointwise.
+- For f(z)=z²exp(z), m=2 and g=exp, so the nonzero-zero product is empty.
+- For f(z)=1−z², m=0 and E₁(z)E₁(−z)=1−z², fixing the pairing sign.
+- For f=1 the divisor and m are zero; for f=0 the finite-order-at-origin hypothesis fails.
 
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+See [Kedlaya, Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, p.52. This adapter extends the supplier's f(0)≠0 hypothesis.
 
-*Needs:* [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.borelCaratheodory`; `Complex.exists_continuousOn_eqOn_exp_comp`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `TendstoLocallyUniformlyOn.differentiableOn`; `AnalyticOnNhd.sum_divisor_le`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `Complex.exp_eq_one_iff`; `Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le`; `is_const_of_deriv_eq_zero`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Uniform tail bound for the canonical product](#proof-canonical-product-compact-tail); [Entire locally uniform canonical product](#proof-canonical-product-entire); [Zero divisor of the canonical product](#proof-canonical-product-zero-orders); [Analyticity of a continuous logarithm](#proof-continuous-log-analytic-upgrade); [Entire logarithm of the quotient](#proof-zero-free-entire-log); [A good radius in every long-enough interval](#proof-summable-excluded-radii); [Lower bound for P on good circles](#proof-canonical-product-lower-good-circles); [Growth of the entire quotient logarithm](#proof-hadamard-log-growth); [The quotient logarithm is affine](#proof-borel-cauchy-affine-log); [Truncated reciprocal weights of zeros](#proof-zero-reciprocal-truncation-bound); [Reciprocal-square tail of zeros](#proof-zero-reciprocal-square-tail-bound); [Lower bound for inner canonical factors](#proof-canonical-product-inner-lower-bound); [Lower bound for middle canonical factors](#proof-canonical-product-middle-lower-bound); [Lower bound for outer canonical factors](#proof-canonical-product-outer-lower-bound).
-
-<a id="proof-origin-zero-factor"></a>
-
-**Isolate the origin zero.** For nonzero entire f, with m=analyticOrderNatAt f 0, there is an entire g with g(0)≠0 and f(z)=z^m g(z) for all z. If f has order at most ρ≥0, so does g.
-
-Entirety and the identity theorem exclude a locally zero germ. The finite analytic-order factorization gives a local analytic g with g(0)≠0. Define g(z)=f(z)/z^m off zero and use that local residual value at zero; equality to the analytic residual on a neighbourhood patches the quotient analytically. No global removable-singularity theorem is required. For |z|≥1 division by z^m cannot increase the bound. Continuity bounds the remaining compact ball.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-compact-zero-count"></a>
-
-**Multiplicity count of compact zeros.** A nonzero entire f has finitely many zeros in each closed disk, and every zero has finite analytic multiplicity.
-
-The nonzero entire hypothesis and the identity theorem exclude a locally zero germ at every point; hence each analytic order is finite. Apply the global isolated-zero/codiscrete theorem on C. Restrict its codiscrete nonzero set to a closed disk and apply the compact finite-complement theorem; sum the finitely many finite multiplicities.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49.
-
-<a id="proof-jensen-growth-zero-count"></a>
-
-**Zero count from an order bound.** If g is entire, g(0)≠0 and has order at most ρ, then for every b>ρ the number n_g(r) of zeros with multiplicity in |z|≤r is O_b(r^b) for r≥1.
-
-Here ρ≥0; g entire and g(0)≠0; orderAtMost(g,ρ); r≥1; zeros are counted with analytic multiplicity.
-
-For b>ρ, enlarge the global growth constant so M=C_b exp((2r)^b)≥1. Apply the Jensen inequality with centre 0, positive inner radius r and outer radius 2r. The exact upper bound is log(M/|g(0)|)/log 2. It is bounded by K_{g,b}r^b for r≥1. Library Jensen permits zeros on the outer circle; its stated analytic-neighbourhood hypothesis holds by entirety.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49.
-
-<a id="proof-dyadic-zero-reciprocal-square"></a>
-
-**Summable reciprocal squares of zeros.** For a nonzero entire g with g(0)≠0 and order at most one, its nonzero zero family α_i, with every index carrying one occurrence of analytic multiplicity, satisfies Σ_i|α_i|⁻²<∞. Finite and empty index sets are included.
-
-Choose b=3/2 in the Jensen zero count. Split |α|≥1 into dyadic annuli; their contributions are bounded by C·2^(−j/2). Handle the finitely many inner zeros separately.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49.
-
-<a id="proof-canonical-factor-log-tail"></a>
-
-**Small canonical-factor logarithm.** On |w|≤1/2 set L(w)=Log(1−w)+w, using the principal logarithm. This is the analytic logarithm of E₁(w) with L(0)=0: exp L(w)=E₁(w), L(w)=−Σ_{k≥2}w^k/k, and |L(w)|≤|w|². The logarithm series and its numerical remainder estimate are imported results, not new versions of those general results.
-
-For |w|≤1/2, 1−w lies in the slit plane. Its principal logarithm is analytic and exp(Log(1−w)+w)=(1−w)exp(w). Subtract the n=0 and n=1 terms from the HasSum logarithm expansion. Substitute z=−w in the remainder estimate and use 2(1−|w|)≥1.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-compact-tail"></a>
-
-**Uniform tail bound for the canonical product.** Under the stated family hypotheses, for R>0 the log-factor tails Σ_{i in S, |α_i|>2R}(Log(1−z/α_i)+z/α_i), directed by finite subsets S, converge uniformly for |z|≤R. Every omitted-tail norm is at most R² times the corresponding reciprocal-square tail.
-
-Here An indexed family α_i of nonzero complex numbers; every bounded disk contains finitely many indices, with repeated values representing multiplicity; Σ_i|α_i|⁻²<∞.
-
-Use the small-factor logarithm bound and dominate every tail by R²Σ_tail |α|^−2. Keep the finite inner factors outside the logarithm to allow zeros inside the disk.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-entire"></a>
-
-**Entire locally uniform canonical product.** Under the stated family hypotheses, finite-subset products ∏_{i∈S}E₁(z/α_i), directed by inclusion of finite subsets, converge locally uniformly on C to the unordered product P(z). P is entire and P(0)=1. Enumeration changes preserve this product; finite and empty families are included.
-
-Here An indexed family α_i of nonzero complex numbers; every bounded disk contains finitely many indices, with repeated values representing multiplicity; Σ_i|α_i|⁻²<∞.
-
-Exponentiate the uniformly convergent logarithmic tail and multiply by the finite inner factors. Apply the locally uniform holomorphic-limit theorem.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-zero-orders"></a>
-
-**Zero divisor of the canonical product.** For the preceding P, its zeros are exactly the α, with the listed multiplicities, and P is nonzero elsewhere.
-
-Here An indexed family α_i of nonzero complex numbers; every bounded disk contains finitely many indices, with repeated values representing multiplicity; Σ_i|α_i|⁻²<∞.
-
-At a chosen zero separate all its equal finite factors from a nonvanishing uniformly convergent tail. Use the simple zero of E₁ and the analytic-order local factorization.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-continuous-log-analytic-upgrade"></a>
-
-**Analyticity of a continuous logarithm.** If g is analytic and nonzero on open U, and a continuous L satisfies exp(L)=g on U, then L is analytic on U.
-
-For x∈U, shrink to a neighbourhood where g(y)/g(x) lies near 1 in the slit plane. Define the analytic local lift ℓ(y)=L(x)+Log(g(y)/g(x)); then exp ℓ=g and ℓ(x)=L(x). By the exponential-kernel theorem L(y)−ℓ(y) is an integer multiple of 2πi. Continuity makes its norm <2π on a smaller neighbourhood, where it must be zero. Thus L locally equals the analytic ℓ, with no simply connected hypothesis on U.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-zero-free-entire-log"></a>
-
-**Entire logarithm of the quotient.** For nonzero entire f and its origin factor z^m P with the same zero divisor, the quotient extends to a nonvanishing entire q and q=exp(h) for an entire h.
-
-Use the finite local zero-order factorizations for numerator and denominator. Equal multiplicities cancel, leaving an analytic nonzero quotient in each zero neighbourhood; patch this with f/(z^mP) off the zero set. The patched q is continuous and nonzero on the open simply connected set C. Apply the continuous-log existence theorem there, then continuous-log-analytic-upgrade.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-summable-excluded-radii"></a>
-
-**A good radius in every long-enough interval.** If forbidden intervals around |α| have total length at most M<∞, then every [r,r+M+1] contains a radius not in their union.
-
-The interval has length M+1, while the union has outer length≤M. Consequently the good radii have bounded gaps, not merely a subsequence tending to infinity.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-lower-good-circles"></a>
-
-**Lower bound for P on good circles.** For every 0<ε<1 there is C_ε>0 such that every good radius R≥2 satisfying |R−|α_i||>|α_i|⁻² for all i obeys log|P(z)|≥−C_ε R^(1+ε) for every |z|=R. Every [r,r+M+1] with r≥2 contains such a radius, where M=2Σ_i|α_i|⁻²; thus the good radii have bounded gaps.
-
-Here An indexed nonzero locally finite zero family α_i, counted with multiplicity, whose n_α(t) is O_b(t^b) for every b>1.; P is its genus-one unordered canonical product, including finite/empty families.
-
-Choose b=1+ε/2, and fix its zero-count constant before R. Split factors into |α_i|<R/2, R/2≤|α_i|≤2R and |α_i|>2R. Apply the three named inner/middle/outer lower-bound lemmas. The first two factors are finite and nonzero; the outer factor is a nonzero exponential. Their product is P by finite/infinite product splitting. Use 1+log(2R)≤K_ε R^(ε/2) for R≥2 to absorb the middle range and add the bounds. Each forbidden closed interval has length 2|α_i|⁻²; summable-excluded-radii supplies a good radius in every interval of length M+1.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-hadamard-log-growth"></a>
-
-**Growth of the entire quotient logarithm.** For nonzero entire f of order at most1 and q=f/(z^mP)=exp h, for every ε>0, Re h(z)≤C_ε(1+|z|^(1+ε)) on C.
-
-Use the f upper bound and P lower bound on good circles. Fill every bounded gap between good radii by the maximum principle for Re h.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-borel-cauchy-affine-log"></a>
-
-**The quotient logarithm is affine.** If entire h has Re h(z)≤C_ε(1+|z|^(1+ε)) for every ε>0, then h(z)=a+bz.
-
-Fix 0<ε<1. The Borel–Carathéodory estimate on the ball of radius 2R gives |h(z)|≤K_ε(1+R^(1+ε)) for |z|≤R, including the fixed h(0) term. At an arbitrary centre c, the same global bound on radius R is at most K_{c,ε}(1+R^(1+ε)) for R≥max(1,|c|). Apply the second-derivative Cauchy estimate and let R tend to infinity. The upper bound tends to zero, so h″ vanishes everywhere and h is affine.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-zero-reciprocal-truncation-bound"></a>
-
-**Truncated reciprocal weights of zeros.** Under the family/count hypotheses there is K>0, depending on α,C,b, such that for R≥2, Σ_{|α_i|<R}|α_i|⁻¹≤K R^(b−1). The sum is finite and counts repeated zeros.
-
-Here An indexed family α_i≠0 of complex numbers, with finitely many indices in every bounded disk; repeated indices represent multiplicity.; Fix 1<b<2 and C>0 with n_α(t)≤Ct^b for all t≥1, where n_α(t) counts indices with |α_i|≤t.
-
-The finitely many indices |α_i|<1 contribute a fixed S, even when the minimum radius is small. On each dyadic shell 2^j≤|α_i|<2^(j+1), bound the reciprocal sum by C·2^((j+1)b−j). Summing the finite increasing geometric sequence, whose ratio is 2^(b−1)>1, gives K R^(b−1). Include S using R≥2.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52.
-
-<a id="proof-zero-reciprocal-square-tail-bound"></a>
-
-**Reciprocal-square tail of zeros.** Under the family/count hypotheses there is K>0, depending only on C,b, such that for R≥1, the reciprocal-square series over |α_i|>R is summable and Σ_{|α_i|>R}|α_i|⁻²≤K R^(b−2).
-
-Here An indexed family α_i≠0 of complex numbers, with finitely many indices in every bounded disk; repeated indices represent multiplicity.; Fix 1<b<2 and C>0 with n_α(t)≤Ct^b for all t≥1, where n_α(t) counts indices with |α_i|≤t.
-
-Use annuli 2^jR<|α_i|≤2^(j+1)R. Their contributions are at most C·2^b R^(b−2)·2^(j(b−2)). The decreasing geometric ratio 2^(b−2)<1 gives both summability and K=C·2^b/(1−2^(b−2)); shell-boundary choices count each index once.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-inner-lower-bound"></a>
-
-**Lower bound for inner canonical factors.** Under the family/count hypotheses there is K>0 such that for R≥2, |z|=R and every finite subset S of indices with |α_i|<R/2, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b.
-
-Here An indexed family α_i≠0 of complex numbers, with finitely many indices in every bounded disk; repeated indices represent multiplicity.; Fix 1<b<2 and C>0 with n_α(t)≤Ct^b for all t≥1, where n_α(t) counts indices with |α_i|≤t.
-
-The reverse triangle inequality gives |1−z/α_i|≥R/|α_i|−1>1, so its real logarithm is nonnegative. Since log|E₁(z/α_i)|=log|1−z/α_i|+Re(z/α_i), it is at least −R/|α_i|. Apply zero-reciprocal-truncation-bound to the finite inner family.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-middle-lower-bound"></a>
-
-**Lower bound for middle canonical factors.** Under the family/count hypotheses there is K>0 such that for R≥2 satisfying |R−|α_i||>|α_i|⁻² for every index, |z|=R and every finite S with R/2≤|α_i|≤2R, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b(1+log(2R)).
-
-Here An indexed family α_i≠0 of complex numbers, with finitely many indices in every bounded disk; repeated indices represent multiplicity.; Fix 1<b<2 and C>0 with n_α(t)≤Ct^b for all t≥1, where n_α(t) counts indices with |α_i|≤t.
-
-For a middle index, |1−z/α_i|≥|R−|α_i||/|α_i|>|α_i|⁻³≥(2R)⁻³; in particular this factor is nonzero. Re(z/α_i)≥−2, so each logarithm is at least −3log(2R)−2. There are at most n_α(2R)≤C(2R)^b indices. Sum the lower bounds, with one constant independent of R,z,S.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52.
-
-<a id="proof-canonical-product-outer-lower-bound"></a>
-
-**Lower bound for outer canonical factors.** Under the family/count hypotheses there is K>0 such that for R≥2 and |z|=R the unordered outer product P_out(z)=∏_{|α_i|>2R}E₁(z/α_i) is nonzero and log|P_out(z)|≥−K R^b.
-
-Here An indexed family α_i≠0 of complex numbers, with finitely many indices in every bounded disk; repeated indices represent multiplicity.; Fix 1<b<2 and C>0 with n_α(t)≤Ct^b for all t≥1, where n_α(t) counts indices with |α_i|≤t.
-
-For |α_i|>2R the normalized w=z/α_i has |w|<1/2. canonical-factor-log-tail bounds the logarithm by R²|α_i|⁻² in absolute value. The sum is absolutely convergent and has norm at most K R^b by zero-reciprocal-square-tail-bound at 2R. The outer product is the exponential of that sum by compact-tail/entire-product construction, hence nonzero; taking real parts gives the lower bound.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, (8.2.4), printed p.49; Exercise 8.4.10, printed p.52.
+*Needs:* `AnalyticAt.analyticOrderAt_eq_natCast`; analytic factorization at a finite-order zero; [ZerosOfLFunctions 0.1 (OrderLE)](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-0-growth-predicates-and-the-entire-completion); [ZerosOfLFunctions 5.4–5.6](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization).
 
 <a id="finite-order-hadamard-factorization-finite-order-hadamard"></a>
 
-### 0.27 Finite-order Hadamard factorization
+### 0.23 Finite-order Hadamard factorization
 
 For nonzero entire f of finite order at most ρ≥0, set n=floor ρ. Its nonzero zeros α with multiplicity satisfy Σ|α|^(−n−1)<∞ and f(z)=z^m exp(h(z))∏E_n(z/α), where E_n(w)=(1−w)exp(Σ_{j=1}^n w^j/j), h is a polynomial of degree≤n and the product converges locally uniformly. Finite/empty zero sets are allowed.
 
-The proof proceeds as follows. Generalize the Jensen annulus and canonical-log-tail proofs from n=1 to n=floorρ. Use a good-circle lower bound, Borel–Carathéodory and Cauchy estimates to kill derivatives of order>n.
+The proof proceeds as follows. Extend the imported order-one zero-count and canonical-product estimates to n=floorρ, with the strict summability exponent n+1>ρ. Use a good-circle lower bound, Borel–Carathéodory and Cauchy estimates to kill derivatives of order>n.
 
 See [Zhiwei Yun and Wei Zhang — Shtukas and the Taylor expansion of L-functions](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p02-p.pdf), Appendix B.1, (B.1)–(B.3), printed pp.901–902; cited Ahlfors §§5.2.3/5.3.2.
 
-*Needs:* [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `AnalyticOnNhd.sum_divisor_le`; `Complex.borelCaratheodory`; [Elementary canonical factors of every genus](#elementary-canonical-factors-of-every-genus-canonical-factor).
+*Needs:* [Entire order at most ρ](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-0-growth-predicates-and-the-entire-completion); `AnalyticOnNhd.sum_divisor_le`; `Complex.borelCaratheodory`; [Elementary canonical factors of every genus](#elementary-canonical-factors-of-every-genus-canonical-factor).
 
 <a id="proof-gamma-sector-remainder"></a>
 
-**Gamma sector remainder and digamma bound.** On the slit plane z∉(−∞,0], choose analytic logΓ normalized to the real logarithm on positive reals, and principal Log z. With Q(t)=({t}−{t}²)/2,
-`logΓ(z)=(z−1/2)Log z−z+log sqrt(2π)+R(z)`,
-`R(z)=∫_0^∞ Q(t)/(z+t)² dt`.
-Since0≤Q≤1/8, for θ=arg z,
-`|R(z)|≤sec²(θ/2)/(8|z|)` and `|R′(z)|≤sec³(θ/2)/(8|z|²)`.
-In particular ψ(z)=Log z−1/(2z)+R′(z), with a uniform error on every closed sector |θ|≤π−δ. The constants are explicit for δ>0. The branches are analytic logarithms of Gamma, rather than pointwise principal logs of its values.
+**Higher derivatives of the Gamma remainder.** Consume the analytic logΓ branch and its remainder R from [1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function). With Q(t)=({t}−{t}²)/2, for every integer j≥1 and z off the nonpositive real axis,
+`R^(j)(z)=(-1)^j (j+1)! ∫₀^∞ Q(t)/(z+t)^(j+2) dt`,
+`|R^(j)(z)|≤j! sec^(j+2)(arg(z)/2)/(8|z|^(j+1))`.
+This is the derivative refinement; the j=0 Stirling theorem and the digamma expansion belong to the supplier. Fix δ>0 before taking a uniform constant on |arg z|≤π−δ.
 
-For completeness the integral formula is a target with its own derivation: apply Euler–Maclaurin on [0,N] to Log(z+t), integrate the mean-zero sawtooth once, and use its continuous periodic primitive −Q(t). Insert the result in the finite Gauss product for Γ(z) and pass N→∞ first on Re z>0; the tail is absolutely O(1/N), uniformly on compact z sets. The remaining constant is fixed by Γ(1)=1 and the real Stirling constant sqrt(2π), obtained by Wallis' product or the Gaussian integral. This is the Stieltjes formula used in Nemes (2.5), §2 p.6; no error estimate is inferred from the asymptotic series alone. The integral converges normally on the slit plane: on each compact set |z+t|≥c_K(1+t). Differentiate under it using the cubic-denominator majorant. The elementary geometric inequality |z+t|≥cos(θ/2)(|z|+t) and integration of (|z|+t)^(−2) and2(|z|+t)^(−3) give the two displayed bounds. Analytic continuation extends the right-half-plane identity to the connected slit plane. For repeated derivatives, the same argument gives `|R^(j)(z)|≤j! sec^(j+2)(θ/2)/(8|z|^(j+1))`.
+Differentiate the Stieltjes integral under the integral sign: every compact subset of the slit plane has |z+t|≥c_K(1+t). Use 0≤Q≤1/8 and |z+t|≥cos(arg(z)/2)(|z|+t), then integrate the resulting power. API: `gammaRemainder.iteratedDeriv_integral`, `.iteratedDeriv_sector_bound`. **Checks:** R′(x)<0 for x>0; at x=1, R′(1)=1/2−EulerGamma; the kernel (z+1)⁻² has first derivative −1/4 and second derivative 3/8 at z=1, fixing the sign and factorial; δ=0 and z=0 are excluded. The geometric estimate remains valid when Re z<0 inside the slit sector.
 
-API: `gammaStieltjes.integrable`, `.hasDerivAt`, `.sector_bound`, `.digamma_bound`, `.vertical_relative_error`, `.quotient_rate`. Checks: z>0 gives R(z)>0; at x=1/2 the resulting modulus agrees with sqrt(π/cosh(πy)); the bound is valid at arg z=3π/4 and does not diverge merely because Re z becomes negative; δ=0 is excluded; `1/Γ(1+it)` retains exponential growth. Sources: [Gergő Nemes — Error bounds and exponential improvements for the asymptotic expansions of the gamma function and its reciprocal](https://arxiv.org/pdf/1310.0166v2), (2.5) and Lemma2.1, §2 p.6; [Koukoulopoulos, authorized preliminary text](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf), Theorem1.10 pp.15–16 for Euler–Maclaurin and Theorem1.12 pp.15–16 for the real constant, completed there by Theorem1.13/Exercise1.11. The compact-sector inequalities above are direct consequences of the integral, including the derivative remainder needed by Layer0.
-
-*Needs:* `Complex.Gamma`; the finite Gauss-product limit for Gamma; pinned Bernoulli polynomials; dominated differentiation of parameter integrals; real Gaussian integral; [ArithmeticDirichletSeries Abel summation](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation).
-
-<a id="classical-high-height-zero-free-region-classical-zero-free-region"></a>
-
-### 0.28 Classical high-height zero-free region
-
-There exist real c>0 and t₀>1 such that ζ(s)≠0 whenever Im(s)≥t₀ and Re(s)≥1−c/log(Im(s)). This is the high positive-height conclusion of Kedlaya's proof, not a full-height effective region or a conductor-uniform Dirichlet region. The representative positive-height signature is `classical_zero_free_region`.
-
-Assume The constants c,t₀ are absolute existence constants, not certified numerical values.
-
-The proof proceeds as follows. Use the nonnegative trigonometric polynomial 3+4 cos θ+cos 2θ with the absolutely convergent logarithmic derivative for Re(s)>1. The simple pole at 1 bounds the real-axis term by 1/(σ−1)+O(1). The corrected Hadamard/Gamma identity bounds the σ+2it term by O(log t). Keeping a zero β+it bounds the σ+it term by O(log t)−1/(σ−β). Combine to obtain 4/(σ−β)≤3/(σ−1)+C log t. Choose σ=1+A/log t with A sufficiently small relative to C to derive β<1−c/log t for t≥t₀. Hadamard factorization, logarithmic differentiation, Gamma estimates, zero summability and effective choices are named inputs of this proof, not routine steps; see the notes at the end of this layer.
-
-The result must also satisfy these compatibility requirements: t₀>1 avoids division by log 1. This estimate alone does not control negative or bounded heights. No RH or Siegel-effectivity assumption is inserted.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem8.8 and (8.3.1)–(8.3.6), printed pp.50–51; prerequisites §8.2 pp.48–49.
-
-*Needs:* `riemannZeta_eq_mul_completedRiemannZeta₀`; `riemannZeta_residue_one`; `differentiable_completedZeta₀`; `Complex.Gamma_ne_zero_of_re_pos`; `Complex.digamma`; [ArithmeticDirichletSeries layer 8 landau type positivity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-8-landau-type-positivity); `ArithmeticFunction.LSeriesSummable_vonMangoldt`; `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`; `ArithmeticFunction.vonMangoldt_nonneg`; [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `riemannZeta_ne_zero_of_one_le_re`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Logarithmic gamma bound](#proof-digamma-right-half-plane); [Pole term near one](#proof-zeta-pole-log-derivative); [Zeta three-four-one inequality](#proof-zeta-three-four-one-derivative); [A near-one zero forces a positive reciprocal term](#proof-single-zero-positive-term); [Uniform selection of the zero-free constant](#proof-zero-free-region-constant-selection); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip).
-
-<a id="proof-canonical-product-log-derivative"></a>
-
-**Logarithmic derivative of the canonical product.** For the order-one factorization of nonzero entire f, away from zero and its zeros, f′(z)/f(z)=m/z+b+Σ_α(1/(z−α)+1/α). The corrected summands, indexed with analytic multiplicity, converge locally uniformly there. The correction equals z/(α(z−α)); at z=0 it vanishes, and the term m/z is omitted there when m=0.
-
-Use the canonical-product compact-tail estimate to prove summability of the regularized derivative summands on each compact set avoiding the zero family. Apply logDeriv_tprod_eq_tsum on the open complement of the locally finite zero set; canonical-product-zero-orders proves that the limit is nonzero there. Every individual factor is entire and nonzero at the evaluation point. For the normalization convention(z/α), the logarithmic derivative is1/(z−α)+1/α=z/(α(z−α)); add the affine exponential and the origin factor m/z. Track the finite/empty family and, when m=0, extend the origin value using its nonsingular formula. Match local uniform sum/reindexing separately from this pointwise theorem.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
-
-<a id="proof-theta-tail-decay"></a>
-
-**Exponential decay of the theta tail.** For x≥1, ω(x)=(HurwitzZeta.evenKernel(0,x)−1)/2=Σ_(n≥1)exp(−πn²x) satisfies 0≤ω(x)≤exp(−πx)/(1−exp(−π)); reuse the existing theta kernel.
-
-Pair n and -n in the integer Gaussian HasSum at a=0, retaining its n=0 term1, to identify the positive-natural theta tail. For n≥1 and x≥1, n²−1≥n−1, so exp(−πn²x)≤exp(−πx)exp(−π(n−1)). Sum the nonnegative geometric majorant. Its ratio exp(−π) lies strictly between0 and1, including the endpoint x=1.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §5.1 omega/theta definitions and (5.1.4), p.34; Lemma8.3 p.47.
-
-<a id="proof-xi-integral-comparison"></a>
-
-**Entire integral representation of xi.** For all s∈C, ξ(s)=1/2+(1/2)s(s−1)∫_1^∞(x^(s/2−1)+x^((1−s)/2−1))ω(x)dx, where ω(x)=(HurwitzZeta.evenKernel(0,x)−1)/2. The integrand is absolutely integrable, and finite integrals up to R converge locally uniformly in s as R→∞.
-
-Unfold completed0 as the zero-parameter Hurwitz weak-FE Mellin transform, not as a new meromorphic continuation of zeta. Split the modified Mellin integral at1; its value at1 is measure zero. On x>1 the modified kernel is theta−1=2ω; on0<x<1 use the same weak-FE symmetry and substitution x=1/y to obtain the second x>1 integral. On a compact set of s, each complex power and each s derivative is bounded by a fixed real power of x times a logarithmic power; exponential theta decay gives integrable domination. Match the exact split/inversion, integrability and locally uniform truncated-integral declarations at the pin; these formal adapters are part of this target, not an existing integral theorem.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §5.1 (5.1.4), p.34; Lemma8.3 integral display, p.47.
-
-<a id="proof-gamma-integral-growth-majorant"></a>
-
-**Growth bound for the theta integral.** For every real r≥2, ∫_1^∞(x^(r/2+1)+1)exp(−πx)dx≤exp(2r log(2+r)). In particular one absolute growth constant works for all r; no Stirling theorem is required.
-
-Set k=ceil(r/2+1), a natural integer. For r≥2, r/2+1≤k≤r/2+2≤r+1. On x≥1, x^(r/2+1)≤x^k and exp(−πx)≤exp(−x). Extend both nonnegative integrals to x>0. Library gamma integrability and Gamma(k+1)=k! bound the sum by k!+1. Use Nat.factorial_le_pow and real monotonicity to get k!+1≤2(r+1)^(r+1). Taking logarithms bounds this by exp(2r log(2+r)) for r≥2. Keep integrability separate from the totalized integral value. This repairs the false uniform-in-x majorant in Lemma8.3.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Lemma8.3 p.47, corrected using the Euler gamma integral §5.1 p.33 and factorial bound.
-
-<a id="proof-xi-order-one-growth"></a>
-
-**Order-one growth of xi.** There are absolute C,R>0 such that |ξ(s)|≤exp(C|s|log(2+|s|)) for |s|≥R; consequently ξ has order at most1.
-
-For r=|s|≥2 and x≥1, each complex power has norm x to its real exponent, bounded by x^(r/2+1)+1 after harmless enlargement. Use the exponential theta bound and the explicit integral majorant; |s(s−1)|≤r(r+1). Absorb this polynomial and the absolute theta constant into exp(Cr log(2+r)). For each b>1, log(2+r)=o(r^(b−1)), so the displayed growth is at most a constant times exp(r^b) for large r. Enlarge the constant on a compact disk and use xi entirety to obtain entire_order_at_most ξ1.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.1 Lemma8.3, corrected proof.
-
-<a id="proof-zeta-hadamard-log-derivative"></a>
-
-**Corrected logarithmic derivative of zeta.** For s≠0,1 with ζ(s)≠0 and s/2 not a nonpositive integer, there exist Hadamard constants A,B and a locally finite multiplicity-indexed family of nonzero ξ zeros ρ such that ζ′(s)/ζ(s)=B−1/s−1/(s−1)+(log π)/2−(1/2)Γ′(s/2)/Γ(s/2)+Σ_ρ(1/(s−ρ)+1/ρ). The corrected sum is locally uniformly convergent away from ξ zeros.
-
-Apply order-one Hadamard to the nonzero entire xi; ξ(0)=1/2 implies origin order0. On the stated comparison domain, Gamma(s/2), s, s−1 and π^(−s/2) are all nonzero. Differentiate the xi product comparison and divide only there. Use the derivative-limit theorem for the multiplicity-indexed canonical product; the regularized summand is s/(ρ(s−ρ)). Equivalently combine the −1/s term with −(1/2)ψΓ(s/2) using ψΓ(z+1)=ψΓ(z)+1/z; this yields ψΓ(1+s/2), never the printed ψΓ((s+1)/2).
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.2 (8.2.5), p.49; §8.3 (8.3.3), p.50, corrected argument the normalization convention.
-
-<a id="proof-digamma-right-half-plane"></a>
-
-**Logarithmic gamma bound.** There is an absolute C>0 such that for every complex z with Re z≥1/2 and |z|≥2, |Complex.digamma(z)−Log(z)|≤C/|z|; the logarithm is principal. Consequently |Γ′(z)/Γ(z)|≤C′log(2+|z|) with an absolute C′.
-
-Use the existing digamma=logDeriv Gamma carrier and Gamma nonvanishing for positive real part. DLMF5.11.2 and §5.11(ii) give the sector-uniform remainder after Log z−1/(2z); on |arg z|≤π/2 its sec(arg z/2)^3 factor is bounded. This supplies an explicit first-remainder target. An asymptotic statement alone is not a formal proof adapter: the complex Euler–Maclaurin/Stirling remainder proof, with its constants and branch matched to the library's `Complex.Gamma`, is part of this target. Bound |Log z|≤log|z|+π/2 on the right half-plane, absorbing the remainder into log(2+|z|).
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.4 Exercise8.4.5, p.52; DLMF5.11.2 and §5.11(ii); [NIST DLMF editors and Chapter5 authors — NIST Digital Library of Mathematical Functions, Gamma asymptotic expansions](https://dlmf.nist.gov/5.11), §5.11(i), (5.11.2), and §5.11(ii) complex remainder bound.
-
-<a id="proof-zeta-pole-log-derivative"></a>
-
-**Pole term near one.** There are absolute δ,K>0 such that for every real1<σ<1+δ, |−ζ′(σ)/ζ(σ)−1/(σ−1)|≤K.
-
-Use the regular-completion formula to construct the analytic pole-cleared germ g(s)=(s−1)ζ(s) off1, with g(1)=1. The punctured residue limit fixes this value; residue alone is not derivative control. The regular denominator 2π^(−s/2)Γ(s/2+1) is analytic and nonzero near1. In the formula the numerator of g simplifies to 1+s(s−1)completed0(s). Shrink the neighbourhood so g is nonzero and its logarithmic derivative is bounded on a compact disk. Off1, −ζ′/ζ=1/(s−1)−g′/g; restrict to the real right-hand interval.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.3 (8.3.2), p.50; pole-cleared regular-completion formula.
-
-<a id="proof-zeta-three-four-one-derivative"></a>
-
-**Zeta three-four-one inequality.** For σ>1 and real t, 3(−ζ′/ζ)(σ)+4Re(−ζ′/ζ)(σ+it)+Re(−ζ′/ζ)(σ+2it)≥0.
-
-Import ADS8’s nonnegative3-4-1 trigonometric package, retaining that upstream ownership. Specialize the absolutely convergent von-Mangoldt logarithmic-derivative series at σ,σ+it,σ+2it. Each coefficient is Λ(n)n^−σ≥0; its bracket is3+4cos(t log n)+cos(2t log n)=2(1+cos(t log n))². Absolute summability permits taking real parts and adding the three series.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.3 (8.3.1) and preceding Λ-series, p.50.
-
-<a id="proof-single-zero-positive-term"></a>
-
-**A near-one zero forces a positive reciprocal term.** For a ξ zero ρ=β+it and1<σ≤2, 0<β<1 and Re(1/(σ+it−ρ))=1/(σ−β)>0. For every other ξ zero ρ′, Re(1/(σ+it−ρ′))≥0 and Re(1/ρ′)>0. The real parts of the regularized Hadamard summands may therefore be dropped or bounded below by any one retained term.
-
-First invoke xi-zero-critical-strip; its strict boundaries follow from zeta nonvanishing and xi reflection, not from the zero-count definition. For s=σ+it and ρ′=β′+it′, Re(1/(s−ρ′))=(σ−β′)/((σ−β′)²+(t−t′)²)>0. At ρ′=ρ this is1/(σ−β). Also Re(1/ρ′)=β′/|ρ′|²>0. Reciprocal-square summability makes these nonnegative constant real parts summable, while local uniform convergence handles the full regularized sum. Finite partial sums preserve the single-term lower bound; take their convergent limit to justify dropping the remaining terms.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.3 (8.3.4)–(8.3.6), pp.50–51; Remark5.2 p.35.
-
-<a id="proof-zero-free-region-constant-selection"></a>
-
-**Uniform selection of the zero-free constant.** There are effective absolute c>0 and t₀>1 such that any ξ zero β+it with t≥t₀ satisfies β<1−c/log t; hence the same high-height nontrivial zeta-zero exclusion holds.
-
-On1<σ≤min(2,1+δ), |t|≥2, combine the corrected Hadamard formula with the gamma bound. The nonzero elementary rational terms are O(1) and gamma is O(log|t|), with constants uniform in σ. Use positivity to obtain −Re ζ′/ζ(σ+2it)≤C log t and −Re ζ′/ζ(σ+it)≤C log t−1/(σ−β). Insert these and the real pole bound into the3-4-1 inequality, obtaining4/(σ−β)≤3/(σ−1)+C₀log t. Enlarge C₀ to be at least1. Choose a=1/(2C₀), c=a/10. Then4/(a+c)>3/a+C₀. If β≥1−c/log t, set σ=1+a/log t and contradict the previous inequality. Choose t₀ effectively so t₀≥2 and a/log t₀≤min(1,δ). Effective constants require an explicitly bounded gamma remainder and pole-germ radius, which are part of this target.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.3 (8.3.1)–(8.3.6) and final selection, pp.50–51.
-
-<a id="proof-xi-entire-and-endpoints"></a>
-
-**Xi is entire with nonzero endpoints.** ξ is entire and ξ(0)=ξ(1)=1/2.
-
-The definition is a polynomial times the entire completed0, plus1/2, hence entire. At s=0,1 the polynomial vanishes exactly, leaving1/2; consequently xi is not identically zero and its origin order is0.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §5.1 xi definition, p.35; Lemma8.3 integral display, p.47.
-
-<a id="proof-xi-zero-critical-strip"></a>
-
-**Every xi zero lies in the open critical strip.** For every complex ρ with ξ(ρ)=0,0<Re ρ<1.
-
-For Re s≥1 and s!=1, the xi comparison has nonzero factors s,s−1,π^(−s/2),Gamma(s/2),zeta(s); zeta nonvanishing includes the line Re s=1. At s=1, xi=1/2. If Re s≤0, then Re(1−s)≥1 and xi(s)=xi(1−s) is nonzero by reflection. Thus any zero has strict0<Re s<1, including exclusion of both boundary lines and all trivial zeta zeros.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §5.1 Remark5.2, p.35; §8.3 p.51.
+See [Nemes, Gamma error bounds](https://arxiv.org/pdf/1310.0166v2), (2.5) and Lemma 2.1, §2 p.6; the displayed derivative formula follows by dominated differentiation. *Needs:* [1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); dominated differentiation of parameter integrals.
 
 <a id="repulsion-of-exceptional-conductors-exceptional-conductor-repulsion"></a>
 
-### 0.29 Repulsion of exceptional conductors
+### 0.24 Repulsion of exceptional conductors
 
 With c_star from Proposition 7.1, two distinct exceptional quadratic conductors N1<N2 satisfy N2>N1^2.
 
@@ -986,7 +624,7 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="explicit-prime-euler-product-bound-explicit-plus-euler-product"></a>
 
-### 0.30 Explicit prime Euler-product bound
+### 0.25 Explicit prime Euler-product bound
 
 For real x>=10^8, product_{p prime,p<=x}(1+1/p)<=2*log x.
 
@@ -998,7 +636,7 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 <a id="mertens-sum-and-product-inputs-mertens-prime-product"></a>
 
-### 0.31 Mertens's third theorem: the Euler product
+### 0.26 Mertens's third theorem: the Euler product
 
 For real x≥2, ∏_{p≤x}(1−1/p)^−1=e^γ log x+O(1), with γ Euler’s constant and an absolute implied constant.
 
@@ -1010,11 +648,11 @@ See [Dimitris Koukoulopoulos — The Distribution of Prime Numbers](https://dms.
 
 <a id="landau-repulsion-for-exceptional-squareclasses-squareclass-exceptional-repulsion"></a>
 
-### 0.32 Landau repulsion for exceptional squareclasses
+### 0.27 Landau repulsion for exceptional squareclasses
 
 There is an effective absolute0<c_Landau<1/2 such that distinct d,e∈S(c_Landau) with |d|≤|e| satisfy |d|²≤|e|. This pairwise form applies to every existing finite ordered segment; no infinitude of S(c_Landau) is asserted.
 
-The proof proceeds as follows. Let Q_d be the fundamental-discriminant conductor. For nonzero squarefree d≠1, |d|≤Q_d≤4|d| and |d|≥1. Distinct squareclasses have distinct primitive field characters even when their absolute radicands agree. If |e|<|d|², then Q_d Q_e<16|d|³. For a=|d|≥1, log(16a³)≤5log(a+4), since16a³≤(a+4)^5. Also log(|e|+4)≥log(|d|+4). Both near-one zeros are at least1−c_Landau/log(|d|+4). Since log(Q_d Q_e)≤5log(|d|+4), choose c_Landau≤3c_star/5; both are then at least1−3c_star/log(Q_d Q_e), contradicting two_real_zero_separation. Choose c_Landau effectively small enough to lie in(0,1/2). The strict two-real-zero theorem (§0.20) is an input of this proof; the elementary conductor-log deduction introduces no new analytic theorem.
+The proof proceeds as follows. Let Q_d be the fundamental-discriminant conductor. For nonzero squarefree d≠1, |d|≤Q_d≤4|d| and |d|≥1. Distinct squareclasses have distinct primitive field characters even when their absolute radicands agree. If |e|<|d|², then Q_d Q_e<16|d|³. For a=|d|≥1, log(16a³)≤5log(a+4), since16a³≤(a+4)^5. Also log(|e|+4)≥log(|d|+4). Both near-one zeros are at least1−c_Landau/log(|d|+4). Since log(Q_d Q_e)≤5log(|d|+4), choose c_Landau≤3c_star/5; both are then at least1−3c_star/log(Q_d Q_e), contradicting two_real_zero_separation. Choose c_Landau effectively small enough to lie in(0,1/2). The strict two-real-zero theorem (§0.17) is an input of this proof; the elementary conductor-log deduction introduces no new analytic theorem.
 
 The result must also satisfy these compatibility requirements: The conclusion is pairwise and vacuous for an empty/singleton exceptional set. Retain Q_−1=4 and Q_2=8; replacing conductor by |d| breaks the cited analytic input. Use the explicit slack c_Landau≤3c_star/5 and log(Q_d Q_e)≤5log(|d|+4). This keeps the factor4 and the+4 height convention.
 
@@ -1024,7 +662,7 @@ See [Peter Koymans, Carlo Pagano — On Stevenhagen’s conjecture](https://arxi
 
 <a id="quadratic-prime-character-interval-estimate-quadratic-prime-character-interval"></a>
 
-### 0.33 Quadratic prime-character interval estimate
+### 0.28 Quadratic prime-character interval estimate
 
 There are positive absolute effective constants c,C such that for every nonzero squarefree integer D≠1, its primitive field character χ_D of conductor Q_D=|Disc(Q(√D))|, and real2≤u<v, |Σ_{u<p<v, p prime, p∤Q_D}χ_D(p)|≤C[E_D(v)+v exp(−c log v/(√log v+log Q_D))(log(vQ_D))⁴]. Here E_D(v)=v^β if the conductor-uniform zero-free region singles out a simple real exceptional zero β∈(1/2,1), and E_D(v)=0 otherwise. Equivalently extend χ_D by0 at ramified primes and sum over all primes. This is an upper bound, not an asymptotic for short intervals.
 
@@ -1038,7 +676,7 @@ See [Peter Koymans, Carlo Pagano — On Stevenhagen’s conjecture](https://arxi
 
 <a id="strict-derivative-positivity-requires-nonpolynomiality-paired-product-strict-derivatives"></a>
 
-### 0.34 Strict derivative positivity requires nonpolynomiality
+### 0.29 Strict derivative positivity requires nonpolynomiality
 
 Let f be a nonzero entire function of order at most 1, let m be its vanishing order at 0, and suppose f(−z)=(−1)^m f(z), every zero of f is purely imaginary, and f(x)>0 for all sufficiently large positive real x. If f is not a polynomial, every derivative f^(k)(x) with k≡m mod2 is strictly positive for x>0, and the same-parity Taylor coefficients from degree m onward are positive.
 
@@ -1050,15 +688,15 @@ The result must also satisfy these compatibility requirements: cosh(z) has infin
 
 See [Zhiwei Yun and Wei Zhang — Shtukas and the Taylor expansion of L-functions](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p02-p.pdf), Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
 
-*Needs:* `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); [Pairing imaginary zeros](#proof-paired-imaginary-factors); [Nonnegative coefficients of the paired product](#proof-paired-product-nonnegative-coefficients); [Paired genus-one factors](#proof-canonical-factor-pair).
+*Needs:* `TendstoLocallyUniformlyOn.deriv`; [ZerosOfLFunctions 5.4–5.6](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization); [Genus-one canonical factor](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization); [Pairing imaginary zeros](#proof-paired-imaginary-factors); [Nonnegative coefficients of the paired product](#proof-paired-product-nonnegative-coefficients); [Paired genus-one factors](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization).
 
 <a id="proof-paired-imaginary-factors"></a>
 
 **Pairing imaginary zeros.** Under these hypotheses, there is c>0 and a locally finite positive-real family λ_j, with one index per positive-imaginary zero occurrence, such that f(z)=c z^m∏_j(1+z²/λ_j²). The products converge locally uniformly over finite subsets; finite and empty families are included.
 
-Here f entire and not identically zero; m is its finite analytic order at zero; orderAtMost(f,1); f(−z)=(−1)^m f(z); every zero is purely imaginary; f(x) is positive real for all sufficiently large positive real x.
+Here f entire and not identically zero; m is its finite analytic order at zero; `OrderLE f 1`; f(−z)=(−1)^m f(z); every zero is purely imaginary; f(x) is positive real for all sufficiently large positive real x.
 
-Parity gives equal zero multiplicities at ±iλ. Pair the genus-one factors by canonical-factor-pair; reciprocal-square summability makes this reindexing valid. The paired product is even and has value 1 at zero. Comparing f(−z) and (−1)^m f(z) near zero gives exp(−2bz)=1 for all sufficiently small z, forcing b=0. For positive x every paired factor and x^m is positive, so eventual positive reality of f forces c=exp(a)>0.
+Parity gives equal zero multiplicities at ±iλ. Pair the imported genus-one factors using E₁(w)E₁(−w)=1−w²; reciprocal-square summability makes this reindexing valid. The paired product is even and has value 1 at zero. Comparing f(−z) and (−1)^m f(z) near zero gives exp(−2bz)=1 for all sufficiently small z, forcing b=0. For positive x every paired factor and x^m is positive, so eventual positive reality of f forces c=exp(a)>0.
 
 See [Zhiwei Yun and Wei Zhang — Shtukas and the Taylor expansion of L-functions](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p02-p.pdf), Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
 
@@ -1070,50 +708,51 @@ Finite products have nonnegative coefficients in z². Use locally uniform deriva
 
 See [Zhiwei Yun and Wei Zhang — Shtukas and the Taylor expansion of L-functions](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p02-p.pdf), Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
 
-<a id="proof-canonical-factor-pair"></a>
+<a id="dirichlet-ray-dictionary"></a>
 
-**Paired genus-one factors.** E₁(w)E₁(−w)=1−w² for all w∈C.
+### 0.30 Rational Dirichlet-to-ray-class dictionary
 
-Unfold the stated definition and apply the finite algebraic, positivity or convergent geometric-series computation.
+For q≥1, the narrow ray class group of ℚ of finite modulus (q) and the real place identifies with (ℤ/qℤ)ˣ: an ideal prime to q maps to the residue of its positive rational generator. For an integral ideal (n), n>0, evaluate the corresponding ray character as χ(n), with no inverse or conjugation. Its primitive finite conductor is the Dirichlet conductor f; its infinite conductor contains the real place exactly when χ(−1)=−1. The narrow presentation is allowed for even characters, but is then imprimitive at infinity.
 
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §8.2, Theorem8.7 and its genus-one product, printed pp.48–49.
+The adapter `dirichletRayEquiv` uses GlobalNumberFields' ray-class carrier; `dirichletData_eq_rayData` compares [LFunctions 4–5](https://github.com/roed-math/TauCetiRoadmap/blob/e632e3a41fc257fce7b0d9938d48507b962f4fbb/TauCetiRoadmap/LFunctions/README.md#layer-4-dirichlet-l-functions-and-factorizations). The primitive continued functions agree on Re s>1 by their Euler series, hence as meromorphic germs everywhere. Their finite conductor is f, the gamma factor is Γ_R(s+a), a=0 or 1 according to parity, and the completion is f^(s/2)Γ_R(s+a)L(s,χ). Compare root numbers in that normalization. At level q retain exactly ∏_{p|q, p∤f}(1−χ*(p)p^(−s)); their zeros lie on Re s=0. Equality at a pole always means equality of germs, not equality of totalized values.
 
-<a id="conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region"></a>
+API: `.ideal_nat`, `.conductor`, `.parity`, `.primitive_source`, `.continued_eq`, `.completion_eq`, `.deleted_factors`, and transport of the supplier divisor and zero counts. Construct the group equivalence by clearing denominators prime to q and using positive generators; its kernel is the narrow ray principal subgroup. Character transport and the absolutely convergent Euler products determine the analytic comparison uniquely.
 
-### 0.35 Conductor-uniform Dirichlet zero-free region
+**Checks.**
 
-There is an effective absolute c>0 such that a primitive nonprincipal Dirichlet L-function of conductor q≥2 has no zero in Re s≥1−c/log(q(|Im s|+2)), except possibly one simple real zero of a real character.
+- At q=1 the functions are ζ and its normalization-1 entire completion is 2ξ.
+- At χ₋₄ the conductor is 4 and a=1, giving Γ_R(s+1).
+- For the principal character of level 6 the primitive conductor is 1 and L=(1−2^(−s))(1−3^(−s))ζ; the two factors cannot be discarded.
+- For the quartic character modulo 5 with χ(2)=i, the ideal (2) has value i and χ(2)−χ(2)⁻¹=2i; replacing it by its inverse changes the sign. Thus the comparison fixes conjugation as well as parity.
 
-The proof proceeds as follows. Use the conductor-uniform disk/logarithmic-derivative contract below and the nonnegative trigonometric polynomial 3+4cosθ+cos2θ. For χ modulo q, σ>1 and real t, its Euler logarithmic coefficients give
-`−3ζ′/ζ(σ)−4 Re(L′/L(σ+it,χ))−Re(L′/L(σ+2it,χ²))≥−C log q`.
-The O(log q) accounts for primes dividing q. Put ℒ=log(q(|t|+2)), σ=1+1/(Mℒ), c=1/M². A proposed zero β+it with β≥1−c/ℒ contributes at least(M−1)ℒ to Re L′/L at σ+it. The principal χ² term contributes at worst −Mℒ, and at worst −Mℒ/2 unless χ is real and |t|≤1/(2M log q). Thus 4(M−1)ℒ on the left is incompatible with3Mℒ plus the half-principal term for effective sufficiently large M. In the remaining real-character small-height case, two copies of a multiple real zero contribute2(M−1)ℒ; for a nonreal conjugate pair reset σ=1+1/(M log q). The zero-free width already assumed is at most c/log q. Hence a=σ−β lies between1/(M log q) and(1/M+1/M²)/log q, while |2t|≤1/(M log q). The two contributions at σ+it are 1/a+a/(a²+4t²)≥1.4M log q for sufficiently large M, contradicting the real-part bound M log q+O(log q). For two distinct real characters, use the nonnegative Euler coefficients of ζ Lχ₁ Lχ₂ Lχ₁χ₂ at real σ. Their two near-one zeros cannot both coexist with its single principal pole. The same estimates with ℒ=log(q₁q₂) give the two-conductor version. Choose one smaller effective c for all these inequalities. Conjugation is used for real characters only; a general complex character is paired with its conjugate character. Primitive q=1 is handled by the zeta contract; q=2 has no primitive nonprincipal character.
+Use [6.2–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions) through this dictionary for the conductor-uniform Dirichlet region and its exceptional-zero API. Those results are not targets here.
 
-This follows the proof of Koukoulopoulos Theorem12.3, pp.119–121, with the displayed source misprints corrected: in (12.7) the first distance on the right is Dσ(χ₁,μ), and the conjugate-zero contribution uses (2t)² in its denominator. The low-height calculation uses the reset σ and the two-sided bound on a just given; the resulting constant1.4 is sufficient. A lower bound on a alone would not justify that contribution. The logarithmic conductor-height denominator is proved here; Kedlaya's printed max(1,|t|)log q is not invoked.
-
-The result must also satisfy these compatibility requirements: At t=0 the allowed exception is a single simple real zero of a real nonprincipal character. The modulus is the primitive conductor, with q=1/principal characters excluded.
-
-See [Koukoulopoulos — The Distribution of Prime Numbers, authorized preliminary text](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf), Lemma11.4 pp.114–115, Lemma12.2 and proof of Theorem12.3 pp.119–121; the local analytic proof is Lemmas8.5–8.6 pp.89–91.
-
-*Needs:* [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; `DirichletCharacter.differentiable_completedLFunction`; [Conductor-uniform local Dirichlet zero count](#proof-primitive-character-unit-height-zero-count).
+See [Milne, Class Field Theory](https://www.jmilne.org/math/CourseNotes/CFT.pdf), V §1, Example 1.4 and Theorem 1.7, pp.149–151 (ray classes over ℚ), and LFunctions 4–5 for the analytic records. *Needs:* GlobalNumberFields Layers 2 and 9; [LFunctions 4–5](https://github.com/roed-math/TauCetiRoadmap/blob/e632e3a41fc257fce7b0d9938d48507b962f4fbb/TauCetiRoadmap/LFunctions/README.md#layer-5-finite-order-hecke-l-functions); Mathlib `DirichletCharacter.LFunction_changeLevel` and the primitive completed functional equation.
 
 <a id="proof-primitive-character-unit-height-zero-count"></a>
 
-**Conductor-uniform local Dirichlet zero count.** There is an absolute C>0 such that for every primitive nonprincipal Dirichlet character χ of conductor q≥1 and every real u, the nontrivial L-zero occurrences with u≤Imρ≤u+1 number at most C log(q(2+|u|)).
+**Conductor-uniform rational logarithmic-derivative adapter.** For primitive nonprincipal χ of conductor q≥3, combine the imported divisor, fixed-degree conductor-uniform strip growth and high-height count from [ZerosOfLFunctions Layers 3–4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-4-zero-counting) with the following compact-height specialization. The local contour interface has absolute constants before χ,q, rather than constants after fixing a character.
 
-Use the primitive continuation and its functional equation, retaining parity, root number and conductor. Set Q=q(|u|+2). Periodicity and mean zero give |Σ_{n≤v}χ(n)|≤q. Split the Dirichlet series at N=ceil(q(|s|+2)); partial summation gives a polynomial bound C Q^C on every fixed vertical strip Re s≥1/2. Differentiation inserts powers of log n and gives the corresponding derivative bound. Reflect to any fixed left strip using the primitive functional equation and the sector Gamma estimates above; at bounded heights use the entire reciprocal-Gamma factor, avoiding division at a pole. Thus |L(s,χ)|≤C Q^C on |s−(2+iu)|≤12, with absolute constants. Meanwhile the absolute Euler product gives |L(2+iu,χ)|≥1/ζ(2)>0. This is an actual uniform centre lower bound, independent of χ,q,u.
+For |u|≤2 and |s−(2+iu)|≤12, the imported wide-strip bound gives |L(s,χ)|≤Cq^B with absolute C,B; there is no pole for nonprincipal χ. The Euler-product lower bound at 2+iu is ≥1/ζ(2), through LFunctions' absolutely convergent product. Apply the supplier's Jensen disc bound (4.5) to these two bounds, with radii 6 and 12. This gives O(log q) zeros in the radius-6 disc, including the compact-height range. A compact bound after fixing q would not suffice.
 
-For g(z)=L(2+iu+z,χ), the elementary finite-zero disk lemma with R=3 gives both the count in |z|≤3 and, away from zero occurrences, `g′/g(z)=Σ_{|z_j|≤6}1/(z−z_j)+O(log Q)` for |z|≤3. Its proof removes the finitely many zeros, applies the maximum modulus principle on radius12 to the remaining analytic logarithm normalized at0, and bounds its derivative by Borel–Carathéodory; the latter follows by integrating the positive part of its real Fourier coefficients (Koukoulopoulos Lemmas8.5–8.6, pp.89–91). The zero count alternatively uses the finite Blaschke-factor maximum principle, with no unproved infinite Jensen identity. The critical-strip zeros with |Imρ−u|≤1 all lie in the radius3 disk, proving the claimed count, including bounded u. Terms in the radius6 disk outside that height window have distance≥1 and number O(log Q), so may be absorbed. The result needed below is
-`L′/L(s,χ)=Σ_{|Imρ−Im s|≤1}1/(s−ρ)+O(log(q(|s|+2)))`
-for −1≤Re s≤2 away from zeros and at distance≥1/2 from trivial zeros. At Re s≥2 the Euler series proves it directly; farther left use the functional equation and the digamma bound. Near an even-character zero at0 separate its exact analytic order before using the formula. Nontrivial zeros are counted with multiplicity, and conjugation changes χ to its conjugate.
+The local logarithmic-derivative refinement is
+`L′/L(s,χ)=Σ_{nontrivial ρ, |Imρ−Im s|≤1} mρ/(s−ρ)+O(log(q(|s|+2)))`
+for −1≤Re s≤2, away from all zeros and at distance≥1/2 from trivial zeros. At compact height, remove the finitely many disc zeros from g(z)=L(2+iu+z,χ), normalize the remaining analytic logarithm at 0, and apply the finite Blaschke-factor maximum principle and Borel–Carathéodory derivative bound on the nested discs. Terms outside the unit height window have distance≥1 and there are O(log q) of them; the finitely many trivial zeros in the disc contribute O(1) under the distance condition. At high height use the imported conductor-uniform strip growth and count in the identical finite-disc argument. For Re s≥2 the Euler series gives the needed bound directly; farther left the functional equation and imported digamma estimate give the contour version. Near the even-character zero at 0 separate its exact analytic order first. This refines the imported count to the particular logarithmic-derivative interface; it does not construct a second divisor, Jensen theorem or growth theory.
 
-API: `primitiveL.polynomial_disk_growth`, `.right_edge_lower`, `.local_zero_count`, `.local_log_derivative`, `.safe_height`, `.real_part_drop_zeros`. To choose a safe height in [T,T+1], discard intervals of radius c/log(q(T+2)) around the O(log(q(T+2))) ordinates; choose an absolute c whose total removed length is<1/2. The logarithmic derivative is then O(log²(q(T+2))) on a fixed horizontal strip. Checks: u=0 keeps its log q dependence; complex χ has zeros reflected to the conjugate character, not generally to itself; deleting Euler factors introduces Re s=0 zeros and is handled separately; a repeated zero contributes its full multiplicity. Source: [Koukoulopoulos](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf), Lemma11.2 p.113, Lemma11.4 pp.114–115 and Lemmas8.5–8.6 pp.89–91. The supplied partial-summation proof uses the weaker periodic bound q instead of requiring Pólya–Vinogradov.
+API: `primitiveL.bounded_height_count`, `.local_log_derivative`, `.safe_height_both_characters`. For a safe height in [T,T+1], T≥2, remove intervals of radius c/log(q(T+2)) around the imported O(log(q(T+2))) ordinates, for χ and its conjugate together. Choose one absolute c so their total length is <1/2. The local expansion is then O(log²(q(T+2))) on the fixed contour strip. This is a simultaneous two-character choice, as required for the positive and negative contour edges of a complex character.
 
-*Needs:* primitive Dirichlet continuation and functional equation at the pins; absolute Euler product; [Gamma sector remainder](#proof-gamma-sector-remainder); completed ContourIntegration maximum modulus/Cauchy bounds; finite analytic zero orders.
+**Checks.**
 
+- u=0 retains O(log q), rather than an unspecified constant depending on χ.
+- Conjugation reflects zeros of χ to those of its conjugate, generally a different character; both families enter the safe-height choice.
+- A zero of analytic multiplicity 2 contributes 2/(s−ρ), not one copy.
+- Imprimitive deleted factors have zeros on Re s=0 and are outside this primitive signature; a trivial zero at 0 must be separated before dividing.
+
+See [Koukoulopoulos](https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf), Lemma11.2 p.113, Lemma11.4 pp.114–115 and Lemmas8.5–8.6 pp.89–91. *Needs:* [rational dictionary](#dirichlet-ray-dictionary); ZerosOfLFunctions 3.3–3.4 and 4.5–4.8; its Gamma bounds; native finite analytic orders, maximum modulus and Cauchy estimates.
 
 <a id="mertens-product-input-mertens-product-comparison"></a>
 
-### 0.36 Mertens product input
+### 0.31 Mertens product input
 
 For y≥2, ∏_{p≤y}(1−1/p) is comparable to 1/log y, with absolute positive upper and lower constants. The application here needs the lower estimate after removing finitely many fixed primes, not an unsourced precise constant.
 
@@ -1131,7 +770,7 @@ See [Dimitris Koukoulopoulos — The Distribution of Prime Numbers](https://dms.
 
 For a primitive nonprincipal χ of conductor Q≥3 and the fixed-width interval1−η≤σ≤1,0<η<1/4, the primitive functional equation, the sector Gamma bound and three-lines on a slightly enlarged strip give |L(σ+it,χ)|≪_η Q^((1−σ)/2)log(Q(|t|+2)) for |t|≤1. Cauchy on a circle of radius1/log Q, and the bound on the right of1 from the split character sum, give |L′(σ,χ)|≪_η Q^((1−σ)/2)log²Q. This separate `quadratic_fixed_width_derivative` is the bound used at β₁ in the Goldfeld argument; the narrower elementary derivative bound is sufficient for the effective and Siegel zero-gap consequences.
 
-API: `dirichletL.near_one_derivative`, `.fixed_width_derivative`. Checks: the principal character is excluded; q=3 keeps a positive lower bound for σ; the fixed-width estimate retains its conductor power. Source: Koukoulopoulos Lemma11.2, p.113, and (12.11)–(12.12), p.124. *Needs:* native character partial sums and Abel summation; primitive functional equation; [Sector Gamma remainder](#proof-gamma-sector-remainder); native three-lines and Cauchy bounds.
+API: `dirichletL.near_one_derivative`, `.fixed_width_derivative`. Checks: the principal character is excluded; q=3 keeps a positive lower bound for σ; the fixed-width estimate retains its conductor power. Source: Koukoulopoulos Lemma11.2, p.113, and (12.11)–(12.12), p.124. *Needs:* native character partial sums and Abel summation; primitive functional equation; [ZerosOfLFunctions 1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); native three-lines and Cauchy bounds.
 
 <a id="proof-quadratic-zero-gap-from-lvalue"></a>
 
@@ -1143,7 +782,7 @@ API: `dirichletL.near_one_derivative`, `.gap_of_lvalue`, `.siegel_gap`, `.effect
 
 <a id="siegel-walfisz-theorem-siegel-walfisz"></a>
 
-### 0.37 Siegel–Walfisz theorem
+### 0.32 Siegel–Walfisz theorem
 
 For every A,B>0, uniformly for q≤(log x)^B and gcd(a,q)=1, π(x;a,q)=Li(x)/φ(q)+O_{A,B}(x(log x)^−A) as x→∞. The constant and threshold may be ineffective. The representative inclusive ψ signature is `siegel_walfisz`.
 
@@ -1153,37 +792,31 @@ The result must also satisfy these compatibility requirements: For B=1 one may t
 
 See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §10.5 Theorem10.9 pp.62–63 and Theorem10.11 p.63; corrected coprimality, range and ineffectivity.
 
-*Needs:* [Conductor-uniform Dirichlet zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region); [Siegel's theorem](#siegel-s-theorem-siegel-quadratic-lvalue); [Effective character prime-number estimate](#effective-character-prime-number-estimate-character-weighted-pnt); `DirichletCharacter.sum_char_inv_mul_char_eq`; `DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta`; `Chebyshev.isBigO_psi_sub_theta_sqrt`; [ArithmeticDirichletSeries layer 6 abel and perron summation](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation); [Near-one derivative and zero separation](#proof-quadratic-zero-gap-from-lvalue).
+*Needs:* [Conductor-uniform Dirichlet zero-free region](#dirichlet-ray-dictionary); [Siegel's theorem](#siegel-s-theorem-siegel-quadratic-lvalue); [Effective character prime-number estimate](#effective-character-prime-number-estimate-character-weighted-pnt); `DirichletCharacter.sum_char_inv_mul_char_eq`; `DirichletCharacter.LFunctionTrivChar_eq_mul_riemannZeta`; `Chebyshev.isBigO_psi_sub_theta_sqrt`; [ArithmeticDirichletSeries layer 6 abel and perron summation](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation); [Near-one derivative and zero separation](#proof-quadratic-zero-gap-from-lvalue).
 
 <a id="zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip"></a>
 
-### 0.38 Zero-free zeta strip and logarithmic bounds
+### 0.33 Zero-free zeta strip and logarithmic bounds
 
 There exist0<β<1 and C>0 such that for Z={s:1−β/log(|Im s|+2)≤Re s≤10}, ζ is meromorphic with its only pole in Z a simple pole at1 of residue1 and no zeros away from1. The functions G(s)=ζ(s)−1/(s−1) and R(s)=1/ζ(s), initially defined off1, have analytic extensions to a neighbourhood of Z, with R(1)=0 and |G(s)|,|R(s)|≤C log(|Im s|+2) throughout Z. Values at1 refer to these extensions, not to totalized ζ(1).
 
-The proof proceeds as follows. Combine the high-height logarithmic-derivative zero-free proof with the real-line nonvanishing and pole germ on compact bounded-height sets. Shrink β to join the regions. Prove high-height logarithmic bounds for ζ after pole subtraction and its reciprocal, and absorb the compact-region bounds into C. These are named quantitative inputs with a complete quantitative proof still required; high-height nonvanishing alone is insufficient.
+The proof proceeds as follows. Combine the imported high-height zero-free region with the real-line nonvanishing and pole germ on compact bounded-height sets. Shrink β to join the regions. Prove high-height logarithmic bounds for ζ after pole subtraction and its reciprocal, and absorb the compact-region bounds into C. These are named quantitative inputs with a complete quantitative proof still required; high-height nonvanishing alone is insufficient.
 
 See [Ben Green and Terence Tao — The primes contain arbitrarily long arithmetic progressions](https://annals.math.princeton.edu/wp-content/uploads/annals-v167-n2-p03.pdf), AppendixA LemmaA.1, printed p.541.
 
-*Needs:* [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `differentiable_completedZeta₀`; `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `riemannZeta`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints).
+*Needs:* [ZerosOfLFunctions 6.2](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions); [its local logarithmic derivative and zero counts](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-4-zero-counting); [its Gamma estimates](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); native right-half-plane nonvanishing and the pole germ at 1; compact continuity.
 
 ### Remaining analytic proof obligations
 
-**Canonical-product analytic foundations.** For the order-one product, establish unordered exponential-sum/product convergence, finite-head/tail splitting and locally uniform derivative summability with multiplicity-preserving reindexing. The general product logarithmic-derivative theorem is an imported result; verify its factor and limit nonvanishing hypotheses. Used in [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); [Zero-free zeta strip and logarithmic bounds](#zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip); [Classical PNT remainder](#classical-pnt-remainder-rational-pnt-error); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count); [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error).
-
-**Canonical-product lower bound on good circles.** The three radial estimates require the finite/infinite logarithm-to-product identity, positive-power absorption and interval outer-measure subadditivity. The excluded intervals have total length 2Σ|α|^(−2), giving a good radius in every interval longer than that total. Used in [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard).
-
 **Higher-genus factorization refinement.** For genus floor(ρ), prove reciprocal-power summability of exponent floor(ρ)+1, the compact-normal product limit and the polynomial degree bound in the entire logarithm. Yun–Zhang Appendix B.1, pp.901–902 states the needed finite-order theorem; its cited original good-circle proof remains a source boundary. Used in [Finite-order Hadamard factorization](#finite-order-hadamard-factorization-finite-order-hadamard).
 
-**Xi Mellin and real gamma estimates.** Match the weak functional-equation Mellin split at 1, inversion x↦1/x and locally uniform truncated-integral limits to the theta kernel. The integer Gamma/factorial majorant proves the growth bound without a Stirling upper bound. Used in [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); [Zero-free zeta strip and logarithmic bounds](#zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip); [Classical PNT remainder](#classical-pnt-remainder-rational-pnt-error); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count); [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error); [Finite zero multiset](#finite-zero-multiset-zeta-zero-multiset).
+**Gamma derivative refinement.** The [higher derivative remainder](#proof-gamma-sector-remainder) supplies explicit derivative constants beyond [Layer 1](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function). The high-height reciprocal-zeta bound remains a local quantitative target.
 
-**Quantitative zeta analytic estimates.** The [sector Gamma remainder](#proof-gamma-sector-remainder) gives an explicit branch, digamma bound and constants. The pole-cleared zeta germ still needs its quantitative compact-neighbourhood bound; high-height logarithmic reciprocal bounds are separately retained in §0.38. A qualitative residue limit alone does not control a derivative. Used in [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); [Zero-free zeta strip and logarithmic bounds](#zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip); [Classical PNT remainder](#classical-pnt-remainder-rational-pnt-error); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count); [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error).
+**Primitive character explicit-formula uniformity.** The [rational logarithmic-derivative adapter](#proof-primitive-character-unit-height-zero-count) consumes strip growth, the Euler product and the divisor; its compact-height specialization and simultaneous safe-height choice retain absolute constants and multiplicities. The [subtracted character contour](#proof-character-subtracted-perron) supplies the primitive half-interval formula, including its parity term, endpoint corrections and both safe heights. A full unsubtracted character formula and imprimitive deleted-factor adapters are separate targets. Its low-zero weight remains min(1,1/|ρ|), never1/|Imρ|. Used in [Classical PNT remainder](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-8-the-explicit-formula); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); [Conductor-uniform Dirichlet zero-free region](#dirichlet-ray-dictionary).
 
-**Primitive character explicit-formula uniformity.** The [local Dirichlet zero-count contract](#proof-primitive-character-unit-height-zero-count) gives the conductor-height disk growth, Euler-product centre lower bound, multiplicities, low-height treatment and safe heights. The [subtracted character contour](#proof-character-subtracted-perron) supplies the primitive half-interval formula, including its parity term, endpoint corrections and both safe heights. A full unsubtracted character formula and imprimitive deleted-factor adapters are separate targets. Its low-zero weight remains min(1,1/|ρ|), never1/|Imρ|. Used in [Classical PNT remainder](#classical-pnt-remainder-rational-pnt-error); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); [Conductor-uniform Dirichlet zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region).
+**Siegel–Walfisz proof.** Import the conductor-uniform region through the [rational dictionary](#dirichlet-ray-dictionary). The near-one derivative adapter converts the local Siegel L-value lower bound to exceptional-zero separation; the Siegel–Walfisz target performs the uniform logarithmic-modulus optimization.
 
-**Conductor-uniform region and Siegel–Walfisz proof.** The §0.35 proof supplies the logarithmic conductor-height denominator, including the reset real-character small-height calculation. The [near-one derivative adapter](#proof-quadratic-zero-gap-from-lvalue) converts the L(1,χ) lower bound to exceptional-zero separation; §0.37 performs the logarithmic-modulus absorption with explicitly ineffective constants. The character prime-number estimate still consumes the finite explicit-formula contour contract; Kedlaya’s differently printed zero-free denominator is not used. Used in [Conductor-uniform Dirichlet zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region); [Siegel–Walfisz theorem](#siegel-walfisz-theorem-siegel-walfisz).
-
-**Conductor-uniform zero theory.** Use the one effective width obtained in §0.35 for uniqueness, simplicity and the two-character repulsion, shrinking it once for every displayed conductor-product comparison. The family counts retain complex zeros and analytic multiplicities. Verify the finite repulsion numerical choices separately; the zero-density theorem still requires its original family-density proof and adds1 if the source omits the exceptional zero. Used in [Repulsion of exceptional conductors](#repulsion-of-exceptional-conductors-exceptional-conductor-repulsion); [Two-real-zero inequality](#two-real-zero-inequality-two-real-zero-separation); [Uniqueness and simplicity of an exceptional zero](#uniqueness-and-simplicity-of-an-exceptional-zero-exceptional-zero-unique); [Effective character prime-number estimate](#effective-character-prime-number-estimate-character-weighted-pnt); [Bounded-height Landau–Page theorem](#bounded-height-landau-page-theorem-landau-page-bounded-height); [Selberg zero-density input](#selberg-zero-density-input-selberg-zero-density).
+**Family repulsion and explicit constants.** Import per-character uniqueness and simplicity from [6.3–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions). The local two-character and conductor-product repulsion estimates need their own uniform width comparison and numerical choices; they are not consequences of per-character uniqueness.
 
 **Certified numerical analytic inputs.** Certify every literal threshold and numerical constant by rational logarithm enclosures and analytic tails: quadratic conductors include 24; progression subtraction at k and k/2 requires k≥2·10^10; higher prime powers retain their strict bound; the reciprocal-prime and Mertens-product ranges begin at 286 and 319; the sharper tail begins at 10^8. The explicit separation constant 40 needs the class-number and derivative comparison, and unconditional theta tables must not be replaced by RH tables. Used in [Largest prime factor of a quadratic conductor](#largest-prime-factor-of-a-quadratic-conductor-quadratic-conductor-largest-prime); [Schoenfeld explicit Chebyshev bound](#schoenfeld-explicit-chebyshev-bound-schoenfeld-theta-upper); [Mod-eight prime mass](#mod-eight-prime-mass-mod-eight-interval-mass); [Prime powers do not erase the character-sum margin](#prime-powers-do-not-erase-the-character-sum-margin-prime-power-interval-margin); [Rosser–Schoenfeld explicit prime-count bounds](#rosser-schoenfeld-explicit-prime-count-bounds-rosser-schoenfeld-pi); [Explicit reciprocal-prime estimate](#explicit-reciprocal-prime-estimate-explicit-prime-reciprocal); [Quadratic real-zero separation from one](#quadratic-real-zero-separation-from-one-quadratic-effective-zero-gap); [Weighted-prime sum input to the factorial estimate](#weighted-prime-sum-input-to-the-factorial-estimate-explicit-weighted-prime-sum); [Explicit prime Euler-product bound](#explicit-prime-euler-product-bound-explicit-plus-euler-product).
 
@@ -1195,7 +828,7 @@ See [Ben Green and Terence Tao — The primes contain arbitrarily long arithmeti
 
 **Koymans–Pagano analytic suppliers.** The [compact transfer](#proof-compact-selberg-delange) and §3.41 coefficient proof cover every fixed A. Retain conductor-aware repulsion with Q_d≤4|d|, log(Q_dQ_e)≤5log(|d|+4) and c_Landau≤3c_star/5; prime-interval transfer retains higher powers, Abel and envelopes. The [Stark finite-character argument](#proof-bounded-degree-residue-lower) supplies the Aramata, integral-order, cyclic restriction and subgroup-average steps without a general Artin-holomorphy hypothesis. Exact repulsion constants and the inherited original density/source boundaries remain separate requirements. Used in [Restricted squarefree Landau asymptotic](#restricted-squarefree-landau-asymptotic-restricted-squarefree-landau-count); [Restricted squarefree Sathe–Selberg bounds](#restricted-squarefree-sathe-selberg-bounds-restricted-sathe-selberg-count); [Landau repulsion for exceptional squareclasses](#landau-repulsion-for-exceptional-squareclasses-squareclass-exceptional-repulsion); [Quadratic prime-character interval estimate](#quadratic-prime-character-interval-estimate-quadratic-prime-character-interval); [Effective distance of a quadratic real zero from one](#effective-distance-of-a-quadratic-real-zero-from-one-effective-quadratic-zero-separation); [Heilbronn's theorem on real zeros of Dedekind zeta functions](#heilbronn-s-theorem-on-real-zeros-of-dedekind-zeta-functions-heilbronn-simple-real-zero).
 
-**Green–Tao 2008 analytic contract.** The Green–Tao contract needs high-height logarithmic and reciprocal bounds, bounded-height completion and weak convexity. A consumer using a growing W(N) must prove W(N)≤(log N)^B before applying Siegel–Walfisz; a fixed-modulus prime theorem does not establish that condition. Used in [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); [Conductor-uniform Dirichlet zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region); [Siegel–Walfisz theorem](#siegel-walfisz-theorem-siegel-walfisz); [Zero-free zeta strip and logarithmic bounds](#zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip); [Weak zeta convexity in a closed strip](#weak-zeta-convexity-in-a-closed-strip-riemann-zeta-weak-convexity).
+**Green–Tao 2008 analytic contract.** The Green–Tao contract needs high-height logarithmic and reciprocal bounds, bounded-height completion and weak convexity. A consumer using a growing W(N) must prove W(N)≤(log N)^B before applying Siegel–Walfisz; a fixed-modulus prime theorem does not establish that condition. Used in [Classical high-height zero-free region](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions); [Conductor-uniform Dirichlet zero-free region](#dirichlet-ray-dictionary); [Siegel–Walfisz theorem](#siegel-walfisz-theorem-siegel-walfisz); [Zero-free zeta strip and logarithmic bounds](#zero-free-zeta-strip-and-logarithmic-bounds-green-tao-zeta-strip); [Weak zeta convexity in a closed strip](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-3-convexity-in-vertical-strips).
 
 ### Examples
 
@@ -1203,7 +836,7 @@ At modulus 1 the progression sums recover the ordinary Chebyshev sums. At modulu
 
 ### Dependencies
 
-Mathlib complex analysis, arithmetic functions, Chebyshev sums, Dirichlet continuation and nonvanishing; ArithmeticDirichletSeries Layers 3, 6 and 8; the canonical factor and ξ targets of this layer. Qualitative prime theorems are consumed only through the boundary contracts.
+Mathlib complex analysis, arithmetic functions, Chebyshev sums, Dirichlet continuation and nonvanishing; ArithmeticDirichletSeries Layers 3, 6 and 8; LFunctions Layers 4–5 and ZerosOfLFunctions Layers 0–6; the local higher-genus and ξ adapters. Qualitative prime theorems are consumed only through the boundary contracts.
 
 <a id="layer-1-explicit-formulas-mean-values-and-conditional-prime-estimates"></a>
 
@@ -1221,7 +854,7 @@ The proof proceeds as follows. Use the zero-free region and pole-cleared recipro
 
 See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadratic fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)'); [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadratic fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Proof of Proposition2, printed p.969, sentence preceding (6.7).
 
-*Needs:* [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region).
+*Needs:* [Classical high-height zero-free region](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions).
 
 <a id="davenport-uniform-m-bius-exponential-cancellation-davenport-mobius-cancellation"></a>
 
@@ -1255,7 +888,7 @@ Finite Perron on the half-integer nearest y avoids endpoint singularities. Shift
 
 The named interfaces are `mobius_vaughan_identity`, `mobius_type_I_bound`, `mobius_type_II_bound`, `mobius_reciprocal_narrow_rectangle`, `mobius_small_modulus_progressions` and `mobius_major_minor_uniform`. The source's elementary type-I/type-II proofs and its exercise supply the decomposition route; the explicit polylogarithmic cutoffs and narrow reciprocal contour above provide the quantitative adapters. At θ=0 choose q=1, so the major-arc branch is indispensable. At n=1 the identity reads−1+0+1+1=1. A fixed rational denominator cannot be declared a minor arc.
 
-*Needs:* `ArithmeticFunction.moebius`; [Conductor-height zero-free region](#conductor-uniform-dirichlet-zero-free-region-dirichlet-conductor-zero-free-region); [Siegel zero separation](#proof-quadratic-zero-gap-from-lvalue); [Local zero count and safe heights](#proof-primitive-character-unit-height-zero-count); ADS.6 finite Perron and Abel summation.
+*Needs:* `ArithmeticFunction.moebius`; [Conductor-height zero-free region](#dirichlet-ray-dictionary); [Siegel zero separation](#proof-quadratic-zero-gap-from-lvalue); [Local zero count and safe heights](#proof-primitive-character-unit-height-zero-count); ADS.6 finite Perron and Abel summation.
 
 <a id="admissible-weil-test-function-weil-test-function"></a>
 
@@ -1288,37 +921,9 @@ See [Jean-François Mestre — Formules explicites et minorations de conducteurs
 
 *Needs:* `BoundedVariationOn`; `Function.leftLim`; `Function.rightLim`; `MeasureTheory.Integrable`; `MeasureTheory.integral`.
 
-<a id="finite-zero-multiset-zeta-zero-multiset"></a>
-
-### 1.4 Finite zero multiset
-
-For T≥0, Z(T) is the finite multiset of nontrivial zeros of ξ in 0≤Re ρ≤1 and |Im ρ|<T, with each ρ repeated analyticOrderNatAt ξ ρ times. The strict height cutoff and finite analytic orders are mandatory; the compact enclosing rectangle proves finiteness.
-
-The proof proceeds as follows. Use xi entirety and nonzero endpoints, and its strict zero-strip lemma. The closed rectangle0≤Reρ≤1,|Imρ|≤T is compact, so isolated zeros and finite analytic orders give a finite support. Restrict to the strict height cutoff and use a Finsupp over complex points whose value is the analytic order; Multiset repetition is an equivalent presentation. The xi/zeta multiplicity comparison on the open strip multiplies zeta by analytic nonzero elementary/gamma factors. The Mellin comparison gives conjugation of xi; conjugation preserves analytic orders. For T≤0 the strict-height support is empty. Prove the monotonicity and endpoint tests without confusing the enclosing closed rectangle with the actual strict cutoff.
-
-The required interface consists of the following operations and identities.
-
-- `zeta_zero_multiset.multiplicity`: The multiplicity of ρ in Z(T) is its finite analytic order if it lies in the stated rectangle, and0 otherwise.
-- `zeta_zero_multiset.mono`: If T≤U then Z(T) is a submultiset of Z(U).
-- `zeta_zero_multiset.conjugation`: Conjugation preserves the zero multiset and multiplicities.
-- `zeta_zero_multiset.xi_zeta`: On 0<Re ρ<1, ξ and ζ have the same zeros and analytic multiplicities.
-
-**Checks.**
-
-- Z(0) is empty, using the strict height inequality.
-- A double analytic zero occurs twice, not once.
-- A zero with |Im ρ|=T is excluded from Z(T).
-- s=0 and1 are not xi zeros since ξ has value1/2 there.
-
-The result must also satisfy these compatibility requirements: Z(0) is empty, using the strict height inequality. A double analytic zero occurs twice, not once. A zero with |Im ρ|=T is excluded from Z(T). s=0 and1 are not xi zeros since ξ has value1/2 there.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §9.2 Lemma9.2 and strict-cutoff Theorem9.9, pp.54,56–58; §5.1 xi symmetry p.35.
-
-*Needs:* [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; `AnalyticAt.analyticOrderAt_ne_top`; `analyticOrderNatAt`; `differentiable_completedZeta₀`; `riemannZeta_ne_zero_of_one_le_re`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero_of_re_pos`; `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; [Multiplicity count of compact zeros](#proof-compact-zero-count); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip).
-
 <a id="half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula"></a>
 
-### 1.5 Half-interval explicit formula and low-zero-safe bound
+### 1.4 Half-interval explicit formula and low-zero-safe bound
 
 There are absolute C>0 and k₀≥2 such that for every primitive nonprincipal Dirichlet characterχ of conductor q, integer k≥k₀ and real2≤T≤k, Σ_(k/2<m≤k)χ(m)Λ(m)=−Σ_(nontrivial zeros |Imρ|≤T)mρ(k^ρ−(k/2)^ρ)/ρ+E, with |E|≤C[k log²(qk)/T+log²(qk)]. Endpoint sums are over positive integers; powers use exp(ρ log x).
 
@@ -1328,7 +933,7 @@ The result must also satisfy these compatibility requirements: For odd k, k/2 is
 
 See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), Bennett–Siksek §12 Proposition12.2 p.387; Kedlaya §§10.1–10.2 pp.59–60, parity corrected the normalization convention; [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §10.2 Lemma10.3 p.60, uniform local count used in the explicit-formula route.
 
-*Needs:* `DirichletCharacter.differentiable_completedLFunction`; `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `differentiable_completedZeta₀`; `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `ArithmeticFunction.LSeriesSummable_vonMangoldt`; `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`; `ArithmeticFunction.vonMangoldt_nonneg`; `Complex.digamma`; `Complex.Gamma_ne_zero_of_re_pos`; `riemannZeta_ne_zero_of_one_le_re`; `Complex.differentiableAt_Gamma`; [ArithmeticDirichletSeries layer 6 abel and perron summation](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation); [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Logarithmic gamma bound](#proof-digamma-right-half-plane); [Bounded right-edge logarithmic derivative](#proof-zeta-log-derivative-right); [Low-zero-safe interval kernel](#proof-low-zero-safe-interval-kernel); [Logarithmic-square sum of zero weights](#proof-zero-weight-sum); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip); [Uniform reciprocal-square zero weight](#proof-zeta-poisson-zero-weight); [Conductor-uniform local Dirichlet zero count](#proof-primitive-character-unit-height-zero-count); [Subtracted character Perron contour](#proof-character-subtracted-perron).
+*Needs:* [Rational dictionary](#dirichlet-ray-dictionary); [ZerosOfLFunctions Layer 4 divisor and high-height estimates](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-4-zero-counting); [its Gamma estimates](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); Completed/ArithmeticDirichletSeries Layer 6 finite Perron; [bounded-height logarithmic derivative](#proof-primitive-character-unit-height-zero-count); [subtracted character Perron contour](#proof-character-subtracted-perron); [low-zero-safe interval kernel](#proof-low-zero-safe-interval-kernel); [zero-weight summation](#proof-zero-weight-sum).
 
 <a id="proof-character-subtracted-perron"></a>
 
@@ -1338,9 +943,9 @@ Apply the imported finite Perron remainder separately at the integer or half-int
 
 Move the left edge to Re s=−N−1/2, so it stays≥1/2 from every trivial zero. For Re s≤−1 the functional equation, Gamma reflection and the absolutely convergent right-half-plane L-series give |L′/L|≪log(q(|s|+2)) away from those trivial zeros. The horizontal kernel bound is (k^σ+(k/2)^σ)/T′. Its integral from−∞ to c is O(k/T), since log(k/2)≥log2. The distant vertical integral tends to0 as N→∞, by exponential decay (k/2)^(−N). Hence the only nontrivial residues are −mρK_k(ρ). For even χ the simple trivial zero at0 contributes −log2; for odd χ it is absent. All negative trivial-zero contributions sum absolutely to O(1), since |K_k(−j)|≤2(2/k)^j/j. There is no pole of the kernel at0 and no residual character constant. These facts are the reason for subtracting before shifting.
 
-Removing zeros with T<|Imρ|≤T′ costs O(k log(q(T+2))/T), by the local count and |K_k(ρ)|≤2k/T there. Converting the half weights at the two endpoints costs O(log k). This yields §1.5, including its inclusive cutoff and parity conventions. The primary contour model is Koukoulopoulos, *The Distribution of Prime Numbers*, Chapter8 proof of Theorem5.1, pp.85–86; its conductor-uniform local expansion is Lemma11.4, pp.114–115, preceding Theorem11.3. The modification here replaces x^s/s by the entire difference K_k, rather than quoting the unspecified b(χ) in another explicit formula.
+Removing zeros with T<|Imρ|≤T′ costs O(k log(q(T+2))/T), by the local count and |K_k(ρ)|≤2k/T there. Converting the half weights at the two endpoints costs O(log k). This yields §1.4, including its inclusive cutoff and parity conventions. The primary contour model is Koukoulopoulos, *The Distribution of Prime Numbers*, Chapter8 proof of Theorem5.1, pp.85–86; its conductor-uniform local expansion is Lemma11.4, pp.114–115, preceding Theorem11.3. The modification here replaces x^s/s by the entire difference K_k, rather than quoting the unspecified b(χ) in another explicit formula.
 
-Checks: K_k(0)=log2 while the separate k^s/s terms have poles; at k=4 the negative-trivial-zero tail is bounded by2Σ2^(−j)/j; a complex character requires safe heights in both bands, not just the positive one. The near-zero kernel Check in §1.5 applies unchanged. *Needs:* ArithmeticDirichletSeries Layer6 finite Perron and its endpoint remainder; [Local Dirichlet zero count and logarithmic derivative](#proof-primitive-character-unit-height-zero-count); [Sector Gamma remainder](#proof-gamma-sector-remainder); native finite residue theorem.
+Checks: K_k(0)=log2 while the separate k^s/s terms have poles; at k=4 the negative-trivial-zero tail is bounded by2Σ2^(−j)/j; a complex character requires safe heights in both bands, not just the positive one. The near-zero kernel Check in §1.4 applies unchanged. *Needs:* ArithmeticDirichletSeries Layer6 finite Perron and its endpoint remainder; [Local Dirichlet zero count and logarithmic derivative](#proof-primitive-character-unit-height-zero-count); [ZerosOfLFunctions 1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); native finite residue theorem.
 
 <a id="proof-zeta-log-derivative-right"></a>
 
@@ -1362,21 +967,13 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 **Logarithmic-square sum of zero weights.** There is an absolute C>0 such that for every primitive Dirichlet characterχ of conductor q≥1 and every T≥2, Σ_(nontrivial zeros |Imρ|≤T)mρ min(1,1/|ρ|)≤C log²(q(T+2)). Nontrivial means0<Reρ<1, and multiplicity is analytic order.
 
-For a primitive nonprincipal character, invoke the new conductor-uniform local count, including |Imρ|≤1; the weight there is at most1, so an arbitrarily low exceptional zero does not introduce1/|ρ|. For each unit band m≤|Imρ|<m+1 with m≥1, the weight is at most1/m and the count is at most C0 log(q(m+2)). Sum C0 log(q(m+2))/m for1≤m≤ceil T; the harmonic/log-harmonic bound is O(log q log(T+2)+log²(T+2)), at most O(log²(q(T+2))). The primitive principal conductor1 case is the zeta-only count from zeta-poisson-zero-weight and the same band argument. The local proof is the explicit conductor-uniform disk contract in Layer0; this summation deduction does not license the false unweighted1/|ρ| estimate at tiny zeros.
+For a primitive nonprincipal character, invoke the new conductor-uniform local count, including |Imρ|≤1; the weight there is at most1, so an arbitrarily low exceptional zero does not introduce1/|ρ|. For each unit band m≤|Imρ|<m+1 with m≥1, the weight is at most1/m and the count is at most C0 log(q(m+2)). Sum C0 log(q(m+2))/m for1≤m≤ceil T; the harmonic/log-harmonic bound is O(log q log(T+2)+log²(T+2)), at most O(log²(q(T+2))). The primitive principal conductor1 case is the zeta local count from ZerosOfLFunctions Layer 4 and the same band argument. The local proof is the explicit conductor-uniform disk contract in Layer0; this summation deduction does not license the false unweighted1/|ρ| estimate at tiny zeros.
 
 See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), Bennett–Siksek §12 Proposition12.2 p.387; Kedlaya Lemma10.3 p.60.
 
-<a id="proof-zeta-poisson-zero-weight"></a>
-
-**Uniform reciprocal-square zero weight.** There is an absolute C>0 such that for every real t, Σ_(ξ(ρ)=0)mρ/(1+(t−Imρ)²) is summable and at most C log(2+|t|), with mρ=analyticOrderNatAt ξρ.
-
-Evaluate the corrected Hadamard log derivative at s=2+it; the right-edge zeta series is bounded and the gamma term is O(log(2+|t|)), using compact continuity to include bounded t. Write a=2−Reρ∈(1,2). Then Re(1/(2+it−ρ))=a/(a²+(t−Imρ)²)≥1/(4(1+(t−Imρ)²)). Also Re(1/ρ)>0. The real parts of finite regularized sums are nonnegative. Their convergent limit therefore bounds the weighted positive sum; the same finite-sum comparison proves summability. Fixed Re B contributes only an absolute constant. Absorb bounded t into log(2+|t|), which is always at least log2. This is the missing Exercise8.4.9 argument rather than an assumed Jensen centre bound.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Exercise8.4.9 p.52; Lemma9.4 and Exercise9.6.1 pp.54,58.
-
 <a id="mean-square-of-a-dirichlet-polynomial-dirichlet-polynomial-mean-square"></a>
 
-### 1.6 Mean square of a Dirichlet polynomial
+### 1.5 Mean square of a Dirichlet polynomial
 
 For every integer N≥0, real T≥0 and complex a₁,…,a_N, the absolute difference between ∫_{−T}^T|Σ_{n=1}^N a_n n^(−it)|²dt and 2TΣ|a_n|² is at most 6πΣn|a_n|². Empty sums are zero. The representative signature is `dirichlet_polynomial_mean_square`.
 
@@ -1402,7 +999,7 @@ API: `weightedHilbert.finite`, `.empty`, `.singleton`, `.frequency_shift`, `.fre
 
 <a id="riemann-and-generalized-riemann-hypotheses-as-statements-generalized-riemann-hypothesis"></a>
 
-### 1.7 Riemann and generalized Riemann hypotheses as statements
+### 1.6 Riemann and generalized Riemann hypotheses as statements
 
 For a Dirichlet character χ modulo N ≥ 1, DirichletGRH χ is the proposition: for every s ∈ ℂ with Re s > 0, (χ ≠ 1 or s ≠ 1) and L(s,χ) = 0 imply Re s = 1/2, where L(s,χ) is DirichletCharacter.LFunction χ s. GRH is the proposition that DirichletGRH χ holds for every N ≥ 1 and every χ modulo N. The Riemann hypothesis is Mathlib’s RiemannHypothesis. These are statements, never assumptions of an unconditional theorem; a theorem that uses one carries it as an explicit hypothesis.
 
@@ -1432,113 +1029,9 @@ See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org
 
 *Needs:* `RiemannHypothesis`; `DirichletCharacter.LFunction`; `DirichletCharacter.LFunction_ne_zero_of_one_le_re`; `riemannZeta`.
 
-<a id="uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling"></a>
-
-### 1.8 Uniform Stirling bounds for Γ on vertical strips
-
-Fix real numbers a ≤ b. (i) As |y| → ∞, |Γ(x + iy)| = √(2π) |y|^{x−1/2} e^{−π|y|/2} (1 + o(1)) uniformly for x ∈ [a, b]. (ii) Consequently, for fixed real α, β there are C, c > 0 with c |t|^{α−β} ≤ |Γ(σ + α + it)/Γ(σ + β + it)| ≤ C |t|^{α−β} for σ ∈ [a, b] and |t| ≥ 1 (with σ + α + it and σ + β + it away from the poles), the exponential factors cancelling. (iii) A finite Gamma quotient with real affine arguments a_j s+b_j has polynomial vertical growth when its total exponential rate is nonpositive: the sum of |a_j| in the numerator is at least that in the denominator. In the balanced case these sums are equal. Constants depend on the closed real strip and all fixed shifts; bounded heights require a compact subset avoiding poles. For cubic functional equations the accompanying sine factors must be included in this rate calculation. The representative fixed-strip signature is `uniform_complex_stirling`.
-
-Assume a ≤ b fixed; the implied constants depend on a, b, α, β.
-
-The proof proceeds as follows. Establish the sector remainder below from Euler–Maclaurin and the canonical Gamma function. For |y| sufficiently large depending only on [a,b], z=x+iy lies in |arg z|≤3π/4 and |z|≥|y|. Its remainder is O_(a,b)(1/|y|). Uniformly in x, log|z|=log|y|+O(1/y²) and arg z=sign(y)π/2−x/y+O_(a,b)(1/|y|³). Taking real parts gives `(x−1/2)log|y|−π|y|/2+log sqrt(2π)+O_(a,b)(1/|y|)`; exponentiation gives a relative O(1/|y|) error. For every affine argument track its own slope in the exponential rate, adding numerator rates and subtracting denominator rates. In a compact pole-free bounded-height range use continuity and Gamma nonvanishing to obtain both bounds.
-
-The result must also satisfy these compatibility requirements: x = 1/2: |Γ(1/2 + iy)| = (π / cosh(π y))^{1/2}, whose asymptotic is √(2π) e^{−π|y|/2}, matching (i). For s=1/2+it and α,β∈{0,1}, apply (i) separately to the two half-argument numerator factors and the denominator. Their exponential terms cancel and their net power is (α+β−1)/2≤1/2, giving |Γ((s+α)/2)Γ((s+β)/2)/Γ(s)|≪|s|^(1/2). Bounded heights are handled by continuity; no factor has a pole on this line. Negative control: 1/Γ(1+it) grows exponentially like exp(π|t|/2)/sqrt(2π|t|), and is not polynomially bounded. Γ(1+it)/Γ(2+it)=1/(1+it) is balanced and decays like |t|^(−1).
-
-See [F. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier et al. (eds.); Chapter 5 by R. A. Askey and R. Roy — NIST Digital Library of Mathematical Functions, §5.11 Gamma function: asymptotic expansions](https://dlmf.nist.gov/5.11), §5.11(i), equations (5.11.1) and (5.11.9).
-
-*Needs:* `Complex.Gamma`.
-
-<a id="truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error"></a>
-
-### 1.9 Truncated von Mangoldt formula
-
-For x≥2 and T≥2, let ψ₀(x)=∑_{1≤n<x}Λ(n)+(1/2)∑_{1≤n=x}Λ(n), and let d(x)>0 be the distance to the nearest prime power other than x. There is an absolute C such that ψ₀(x)−x=−∑_{ρ:0≤Reρ≤1, |Imρ|<T}x^ρ/ρ−ζ′(0)/ζ(0)−(1/2)log(1−x⁻²)+R(x,T), with zeros counted with analytic multiplicity and |R(x,T)|≤C[x log²(xT)/T+(log x)min(1,x/(T d(x)))]. Powers of positive x use exp(ρ log x). The PNT-error corollary associated with this formula is a separate theorem.
-
-Assume x≥2; T≥2; zeros counted with multiplicity; symmetric strict height cutoff; half-weight at a prime-power endpoint.
-
-The proof proceeds as follows. Apply the ADS truncated arithmetic Perron formula to the half-weight ψ₀. Shift the contour using the residue lemma, horizontal bound and left-contour limit. Adjust from a good height to the stated strict cutoff with multiplicity-weighted local zero counting; include the nearest-prime-power error.
-
-The result must also satisfy these compatibility requirements: At a prime power m, ψ₀(m)=Chebyshev.psi(m)−Λ(m)/2; at x=2 the value is (log2)/2, not log2. Multiplicity cannot be replaced by a set of distinct zeros. At a zero height T, a strict cutoff must agree with the height-adjustment error, not silently switch to ≤. The s=0 residue uses ζ(0), and each trivial-zero residue carries the minus sign; Kedlaya Lemma9.2 has a trivial-zero sign error and a missing logarithmic-derivative denominator, while the target retains the corrected formula.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Definition7.1/Theorem7.2, printed pp.43–44; Theorem9.9 final assembly, pp.56–58.
-
-*Needs:* [Finite zero multiset](#finite-zero-multiset-zeta-zero-multiset); `Complex.digamma`; `Complex.Gamma_ne_zero_of_re_pos`; [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `differentiable_completedZeta₀`; `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `ArithmeticFunction.LSeriesSummable_vonMangoldt`; `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`; `ArithmeticFunction.vonMangoldt_nonneg`; `riemannZeta_ne_zero_of_one_le_re`; `Complex.differentiableAt_Gamma`; `riemannZeta_one_sub`; `analyticOrderNatAt`; `riemannZeta_eq_mul_completedRiemannZeta₀`; `riemannZeta_residue_one`; `Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33`; [ArithmeticDirichletSeries layer 6 abel and perron summation](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation); `Complex.digamma_apply_add_one`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Logarithmic gamma bound](#proof-digamma-right-half-plane); [Bounded right-edge logarithmic derivative](#proof-zeta-log-derivative-right); [Pole term near one](#proof-zeta-pole-log-derivative); [Local zero count](#proof-zeta-unit-height-zero-count); [Choosing a contour height](#proof-good-height-selection); [Local logarithmic-derivative expansion](#proof-zeta-local-log-derivative); [Left-half-plane bound away from trivial zeros](#proof-zeta-left-log-derivative); [Residues of the Perron integrand](#proof-explicit-formula-residues); [Nearest-prime-power remainder](#proof-perron-nearest-prime-power-error); [Horizontal contour bound](#proof-explicit-formula-horizontal-bound); [Left contour limit](#proof-explicit-formula-left-contour); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip); [Uniform reciprocal-square zero weight](#proof-zeta-poisson-zero-weight); [Trivial zeta zeros are simple](#proof-zeta-trivial-zero-simple).
-
-<a id="proof-zeta-unit-height-zero-count"></a>
-
-**Local zero count.** There is an absolute C>0 such that for every real T≥2, the number of nontrivial zeta-zero occurrences with T≤Imρ≤T+1 is at most C log(T+2).
-
-Invoke zeta-poisson-zero-weight at t=T. Every zero in the closed unit interval has reciprocal-square weight≥1/2. The xi/zeta API identifies analytic multiplicities inside the open critical strip; sum the finite nonnegative inequality. For T≥2, log(T+2) is comparable to log T. This avoids a shifted-Jensen centre lower bound and disk-growth estimate.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Lemma9.4 p.54 and Exercise9.6.1 p.58, via Exercise8.4.9 p.52.
-
-<a id="proof-good-height-selection"></a>
-
-**Choosing a contour height.** There are absolute c,C>0 such that for every T≥2 there is T′∈[T,T+1] with |T′−Imρ|≥c/log(T+2) for every ξ zeroρ. For x≥2, changing the symmetric strict cutoff from T to T′ changes Σmρ x^ρ/ρ by at most C x log(T+2)/T; arbitrary weights require their own uniform band bound.
-
-Choose c small enough that h=c/log(T+2)≤1/4. Only ordinates in[T−1,T+2] can have excluded h-neighbourhoods meeting[T,T+1]. Cover this enlarged band by a fixed number of unit intervals; the positive-weight bound gives one C0 log(T+2) count, with multiplicity and bounded T included. The total lengths of excluded closed intervals are at most2h C0 log(T+2). Choose c with this strictly less than1; finite interval subadditivity gives a point in[T,T+1] outside every interval. Conjugation gives separation at−T′ too. Changed zero occurrences lie in the two unit bands; each |x^ρ/ρ|≤x/T. Add their finite count bound. No assertion is made for unbounded arbitrary weights.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Remark9.3 p.54 and Theorem9.9 height adjustment p.57.
-
-<a id="proof-zeta-local-log-derivative"></a>
-
-**Local logarithmic-derivative expansion.** There is an absolute C>0 such that for −1≤σ≤2,|t|≥2, and σ+it not a nontrivial zero, ζ′/ζ(σ+it)=Σ_(|t−Imρ|<1)mρ/(σ+it−ρ)+E(σ,t), with |E(σ,t)|≤C log(2+|t|). It also holds at a zero ordinate if the evaluation point itself is not a zero.
-
-Subtract the corrected Hadamard formulas at s=σ+it and s0=2+it; the1/ρ corrections and B cancel. Use digamma(z+1)=digamma(z)+1/z to move s/2 to1+s/2, whose real part is at least1/2. The gamma and elementary rational differences are O(log(2+|t|)); gamma poles and s=0,1 are absent because |t|≥2. For |t−Imρ|≥1, the reciprocal difference is bounded in norm by3/|t−Imρ|²≤6/(1+(t−Imρ)²). The positive-weight lemma controls the entire tail, without an unproved separate annulus summation. For |t−Imρ|<1, subtracting the s0 reciprocal costs at most1 per zero occurrence, because2−Reρ>1. Bound this local count with the same weight lemma; the right-edge series controls ζ′/ζ(s0).
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Lemma9.6 pp.55–56 and Exercise9.6.2 p.58.
-
-<a id="proof-zeta-left-log-derivative"></a>
-
-**Left-half-plane bound away from trivial zeros.** For every fixed c>0 there is C_c>0 such that for every complex w with Re w≤−1 and |w+2n|≥c for every integer n≥1, ζ(w)≠0 and |ζ′(w)/ζ(w)|≤C_c log(2+|w|).
-
-Set s=1−w, so Re s≥2. Import riemannZeta_one_sub, already in the2(2π)^(-s)Gamma(s)cos(πs/2)zeta(s) form; no separate duplication/reflection construction is needed. All factors are nonzero off the odd positive s integers, precisely the excluded negative-even w points. Differentiate the identity and divide on this regular domain. The exponential factors contribute constants; digamma(s) is O(log(2+|s|)) and the right-edge logarithmic zeta derivative is uniformly bounded. The tangent factor is uniformly O_c(1): for large |Im s| use its exponential quotient; for bounded imaginary part use periodicity on a compact real strip avoiding cosine zeros by c. Bounded |s| is absorbed by compact continuity.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Lemma9.8 p.56; full functional equation.
-
-<a id="proof-explicit-formula-residues"></a>
-
-**Residues of the Perron integrand.** For x>1, the integrand −(ζ′/ζ)(s)x^s/s has residue x at1, −m_ρx^ρ/ρ at a nontrivial zeroρ, x^(−2n)/(2n) at−2n, and −ζ′(0)/ζ(0) at0. Summing the trivial zeros gives −(1/2)log(1−x^−2).
-
-At a nontrivial zeroρ of order mρ, write ζ(s)=(s−ρ)^mρ g(s), with analytic nonzero g; then −ζ′/ζ has residue−mρ. Multiplication by x^s/s evaluates the regular factor x^ρ/ρ. At1 use the nonzero pole-cleared germ from zeta-pole-log-derivative; its logarithmic derivative gives the opposite residue+1, hence residue x. Use zeta-trivial-zero-simple to obtain order1 at−2n, rather than merely importing a zero-value theorem. Its integrand residue is x^(−2n)/(2n). At0, ζ(0)=−1/2 and zeta is analytic; only1/s contributes the residue−ζ′(0)/ζ(0). Sum the positive trivial-zero series using the convergent−log(1−u) Taylor series at u=x^−2∈(0,1). Consume the completed ContourIntegration cycle residue theorem and current Tau Ceti classicalResidueTheorem_nullHomologous. Match the finite rectangle, winding numbers and local Laurent residues to its hypotheses; the zeta-specific adapter is part of this target, and the general theorem is not planned again.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §9.2 Lemma9.2 p.54, proof omitted; local analytic-order factorization.
-
-<a id="proof-perron-nearest-prime-power-error"></a>
-
-**Nearest-prime-power remainder.** For real x≥2,T≥2,c=1+1/log x, put δ(x)=infDist(x,{m∈ℝ:m is a natural prime power and m≠x})>0. The Perron remainder for ψ₀(x), after retaining the exact endpoint kernel, is bounded by C[x log²(xT)/T+(log x)min(1,x/(Tδ(x)))], with one absolute C. A prime-power endpoint has half weight only in the infinite-height limit.
-
-Prime powers are a nonempty locally finite subset of the positive integers. After excluding x, their distance has a positive attained minimum. The endpoint m=x is treated separately. Use ADS6’s exact finite kernel. At y=1 its value is arctan(T/c)/π, and its difference from1/2 is O(c/T), contributing O(log x/T) here. For |m/x−1|≥1/4, use the absolutely convergent Λ series and −ζ′(c)/ζ(c)=O(log x). The near-one pole estimate applies for sufficiently large x; for remaining x use positivity/summability at a fixed c>1 and compact absorption. On each of the two intervals3x/4<m<x and x<m<5x/4, isolate the closest prime power. Its contribution is at most C log x min(1,x/(Tδ(x))). For all other m in that interval use integer spacing, |log(m/x)|≥C|m−x|/x, Λ(m)≤log m and the positive harmonic sum. This contributes O(x log²x/T). The actual nearest-prime-power term remains unabsorbed. Match the infDist/local-finiteness and finite-height kernel constants rather than assuming the formal infinite Perron identity can be summed absolutely.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Lemma9.5 p.55; full Theorem9.9 proof pp.57–58; ADS6 endpoint contract.
-
-<a id="proof-explicit-formula-horizontal-bound"></a>
-
-**Horizontal contour bound.** For x≥2, c=1+1/log x and a height T′≥2 separated from every ξ-zero ordinate by at least c₀/log(T′+2), the two horizontal Perron integrals from Re s=−1 to c have norm at most C_(c₀) x log²(T′+2)/(T′log x).
-
-On−1≤σ≤min(2,c), the local expansion, unit count and height separation bound |ζ′/ζ(σ±iT′)| by C_(c0)log²(T′+2). If2<c, use the bounded right-edge series on the additional interval[2,c]. This case occurs for2≤x<e and is not covered by the local expansion alone. On the entire segment |s|≥T′ and ∫_(−1)^c x^σ dσ=(x^c−x^−1)/log x≤e x/log x. Multiply the bounds and sum the two integrals. For a good height from the selection lemma, c0 is fixed absolute, making C absolute.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem9.9 proof, horizontal segments p.57.
-
-<a id="proof-explicit-formula-left-contour"></a>
-
-**Left contour limit.** For every fixed x≥2,T≥2, the Perron vertical integral at Re s=−U tends to0 as U→∞ through positive odd integers. Uniformly in x,T, the two horizontal tails Re s≤−1 have norm O(log(T+2)/(Tx log x)+1/(Tx(log x)²)), with an absolute constant.
-
-For odd U, every point on the vertical segment remains distance≥1 from all negative-even trivial zeros. The left logarithmic-derivative bound gives norm at most C T log(2+U+T)/(U x^U), which tends to0 with x,T fixed. On the two horizontal tails, |s|≥T and distance to every real trivial zero≥T≥2, so the same left bound has one absolute constant. Use log(2+u+T)≤log(T+2)+u for u≥1, and integrate x^(−u) and u x^(−u) from1 to∞. Their exact values give the two displayed tail terms after absorbing1/log x in the log(T+2) term. The limit is U→∞, correcting the source’s printed U→0 slip. No uniform limit over growing T is asserted.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Theorem9.9 proof, remaining segments p.57.
-
-<a id="proof-zeta-trivial-zero-simple"></a>
-
-**Trivial zeta zeros are simple.** For every natural n≥1, analyticOrderNatAt riemannZeta(−2n)=1.
-
-Apply riemannZeta_one_sub at s=1+2n, which lies in the zero-free right half-plane. The factors2,(2π)^(-s),Gamma(s),zeta(s) are analytic and nonzero near that point. cos(πs/2) has a simple zero at the odd integer, with nonzero sine derivative. The change of variable s↦1−s has nonzero derivative, so the analytic order at−2n is1. No claim about a totalized gamma pole is used.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Remark5.2 p.35; Lemma9.2 p.54, trivial-zero residues.
-
 <a id="selberg-zero-density-input-selberg-zero-density"></a>
 
-### 1.10 Selberg zero-density input
+### 1.7 Selberg zero-density input
 
 For epsilon>0, Q>=2, T>=2, and 1/2<=sigma<=1, sum_{q<=Q} sum_{chi primitive mod q} N(sigma,T,chi) <<_epsilon (Q^(5+epsilon)*T^(3+epsilon))^(1-sigma), with effective constants with the right-hand side enlarged by +1, so the count includes the exceptional zero.
 
@@ -1548,21 +1041,11 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 *Needs:* [Mean square of a Dirichlet polynomial](#mean-square-of-a-dirichlet-polynomial-dirichlet-polynomial-mean-square); `DirichletCharacter.LFunction`.
 
-<a id="critical-line-gamma-quotient-critical-line-gamma-quotient"></a>
-
-### 1.11 Critical-line gamma quotient
-
-For s=1/2+it, t real and α,β∈{0,1}, |Γ((s+α)/2)Γ((s+β)/2)/Γ(s)|≤C|s|^(1/2), with one absolute C.
-
-The proof proceeds as follows. Apply the uniform complex Stirling estimate on the three gamma factors, with bounded-height continuity separately. The exponential factors cancel on s=1/2+it; the remaining power is bounded by |s|^(1/2).
-
-See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadratic fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Proof of Proposition 2, p.969 ('standard estimates for the gamma function quotient and for ζ(2s)'); [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadratic fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Proof of Proposition2, printed p.969, sentence preceding (6.7).
-
-*Needs:* `Complex.Gamma`; [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling).
-
 <a id="weil-s-explicit-formula-mestre-s-formalism-mestre-weil-explicit-formula"></a>
 
-### 1.12 Weil's explicit formula (Mestre's formalism)
+### 1.8 Weil's explicit formula (Mestre's formalism)
+
+The consumer is Chenevier–Taïbi §2.3, pp.275–276, (2.3.5), applied to automorphic Rankin–Selberg pairs in the classical-group multiplicity programme. Their gamma factors and paired functional equations are not confined to the degree-one Dedekind/Hecke families of [8.2–8.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-8-the-explicit-formula). This target retains that generality and its test-function carrier; the degree-one specializations use the supplier.
 
 Let A, B > 0, a_i, a′_i ≥ 0 (1 ≤ i ≤ M) with Σ a_i = Σ a′_i, b_i, b′_i ∈ C with non-negative real parts, and Λ_1, Λ_2 meromorphic on C with (i) Λ_1(1 − s) = wΛ_2(s) for some w ∈ C^×; (ii) finitely many poles; (iii) Λ_i minus its singular parts bounded in every vertical strip of finite width; (iv) for some c ≥ 0 and Re s > 1 + c, Λ_1(s) = A^s Π_{i=1}^M Γ(a_i s + b_i) Π_p Π_{i=1}^{M′} (1 − α_i(p)p^{−s})^{−1} and Λ_2(s) = B^s Π_{i=1}^M Γ(a′_i s + b′_i) Π_p Π_{i=1}^{M′} (1 − β_i(p)p^{−s})^{−1} with |α_i(p)|, |β_i(p)| ≤ p^c. Let F satisfy weil_test_function(c,F). For every zero gamma slope a_i=0 (respectively a′_i=0), assume b_i≠0 (respectively b′_i≠0), so its constant gamma factor is finite and nonzero. Then Σ_ρ Φ(ρ) − Σ_μ Φ(μ) + Σ_{i=1}^M I(a_i, b_i) + Σ_{i=1}^M J(a′_i, b′_i) = F(0) log(AB) − Σ_{p,i,k≥1} (α_i(p)^k F(k log p) + β_i(p)^k F(−k log p)) log p / p^{k/2}, where ρ (resp. μ) runs over the zeros (resp. poles) of Λ_1 with −c ≤ Re ≤ 1 + c, with multiplicity, Σ_ρ Φ(ρ) = lim_{T→∞} Σ_{|Im ρ|<T} Φ(ρ), Φ(s) = ∫_R F(x) e^{(s−1/2)x} dx, I(a, b) = a ∫_0^∞ (F(ax) e^{−(a/2+b)x}/(1 − e^{−x}) − F(0) e^{−x}/x) dx and J(a, b) is the same with F(−ax). For a>0 the displayed I,J are ordinary convergent combined integrals (do not integrate the two individually divergent subtraction terms separately). For a=0 set I(0,b)=J(0,b)=0 after removing its constant gamma factor; this is not0 times an undefined integral.
 
@@ -1574,61 +1057,29 @@ See [Jean-François Mestre — Formules explicites et minorations de conducteurs
 
 *Needs:* [Admissible Weil test function](#admissible-weil-test-function-weil-test-function); `Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33`.
 
-<a id="riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count"></a>
-
-### 1.13 Riemann–von Mangoldt zero count
-
-There is an absolute C>0 such that for every real T≥2, N(T)=#{ξ-zero occurrencesρ:0<Imρ≤T} satisfies |N(T)−[(T/(2π))log(T/(2π))−T/(2π)]|≤C log(T+2).
-
-The proof proceeds as follows. Use current TauCeti.Contour.argumentPrinciple_nullHomologous from completed ContourIntegration on a zero-avoiding rectangle symmetric about the real axis. Match its finite singularity set, null-homology and analytic-order/winding conventions; xi endpoint/strip and conjugation APIs specify the multiplicities. Choose and track continuous argument branches for the gamma, polynomial and zeta factors; the leading gamma phase requires the full complex Stirling remainder, beyond a norm bound for digamma. Bound the change of zeta argument by O(log T), with a separate Jensen/real-part-zero argument. A local zero count alone does not prove that phase bound. Read the original Davenport§15 phase argument cited by Remark9.7 or an equivalent public proof. Import the completed general argument principle; only the rectangle/order adapter and zeta/gamma phase estimates remain AN inputs. The source uses0<Imρ<T; passing to the inclusive cutoff changes the count by at most the unit-height O(log(T+2)) bound.
-
-The result must also satisfy these compatibility requirements: N counts only positive ordinates, not both signs. The strict source cutoff and inclusive target differ by a controlled endpoint multiplicity.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Remark9.7 p.56, citing Davenport§15; original phase proof still required.
-
-*Needs:* [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); [Finite zero multiset](#finite-zero-multiset-zeta-zero-multiset); `Complex.digamma`; `Complex.Gamma_ne_zero_of_re_pos`; `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `differentiable_completedZeta₀`; `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `ArithmeticFunction.LSeriesSummable_vonMangoldt`; `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`; `ArithmeticFunction.vonMangoldt_nonneg`; `riemannZeta_ne_zero_of_one_le_re`; `Complex.differentiableAt_Gamma`; `Completed/ContourIntegration#layer-4-the-hungerbühlerwasem-generalized-residue-theorem-hw-theorem-33`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Logarithmic gamma bound](#proof-digamma-right-half-plane); [Bounded right-edge logarithmic derivative](#proof-zeta-log-derivative-right); [Local zero count](#proof-zeta-unit-height-zero-count); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip); [Uniform reciprocal-square zero weight](#proof-zeta-poisson-zero-weight).
-
-<a id="classical-pnt-remainder-rational-pnt-error"></a>
-
-### 1.14 Classical PNT remainder
-
-There are absolute effective c,C>0 such that |ψ(x)−x|≤C x exp(−c√log x) for all sufficiently large x; ψ is the inclusive function. The representative ψ error is `abs_psi_sub_self_le`.
-
-The proof proceeds as follows. Use the truncated ψ₀ formula with analytic multiplicities, conjugation of Riemann zeros and the high positive-height zero-free region. For |Imρ|≥t₀ this gives β≤1−c/log|Imρ|. The low-height critical zeros form a finite multiset. Library line-one nonvanishing and nonzero xi endpoints give a positive margin δ from β=1 and nonzero ρ; sum their finitely many |1/ρ| separately, never dividing by Imρ=0. For high zeros the dyadic zero-weight bound gives O(log²T); hence their sum is O(x exp(−c log x/log T) log²T). Choose T=exp(a sqrt(log x)) for one fixed a>0. The Perron endpoint/nearest-prime-power term is at most log x; absorb this, the finite low-zero O(x^(1−δ)) and powers of log x into a weaker exp(−c′sqrt(log x)) bound. Effectivity of the compact margin and constants is part of this target.
-
-The result must also satisfy these compatibility requirements: Inclusive ψ and half-weight ψ₀ differ by at most (1/2)log x, already absorbed. Real zeros, if treated before excluding them, are in the finite low-height sum and never divided by ordinate0.
-
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §7.2 Theorem7.7 and its proof, printed p.45; ψ endpoint convention §7.1 p.43.
-
-*Needs:* [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error); [Classical high-height zero-free region](#classical-high-height-zero-free-region-classical-zero-free-region); `DirichletCharacter.differentiable_completedLFunction`; `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; [Pole-cancelled Riemann xi](#pole-cancelled-riemann-xi-riemann-xi); `HurwitzZeta.evenKernel`; `HurwitzZeta.hasSum_int_evenKernel`; `HurwitzZeta.hurwitzEvenFEPair`; `HurwitzZeta.completedHurwitzZetaEven₀`; `WeakFEPair.f_modif`; `WeakFEPair.Λ₀`; `mellin`; `Real.GammaIntegral_convergent`; `Real.Gamma_eq_integral`; `Real.Gamma_nat_eq_factorial`; `Nat.factorial_le_pow`; [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); `differentiable_completedZeta₀`; `TendstoLocallyUniformlyOn.deriv`; [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); `AnalyticOnNhd.sum_divisor_le`; `AnalyticAt.analyticOrderAt_eq_natCast`; `AnalyticOnNhd.eqOn_of_preconnected_of_frequently_eq`; `AnalyticAt.analyticOrderAt_ne_top`; `AnalyticOnNhd.eqOn_zero_or_eventually_ne_zero_of_preconnected`; `IsCompact.finite_sdiff_of_mem_codiscreteWithin`; [Genus-one canonical factor](#genus-one-canonical-factor-genus-one-factor); `Complex.norm_log_one_add_sub_self_le`; `Complex.hasSum_taylorSeries_neg_log`; `analyticAt_clog`; `logDeriv_tprod_eq_tsum`; `riemannZeta_eq_completedRiemannZeta₀`; `Complex.Gamma_ne_zero`; `ArithmeticFunction.LSeriesSummable_vonMangoldt`; `ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div`; `ArithmeticFunction.vonMangoldt_nonneg`; `Complex.digamma`; `Complex.Gamma_ne_zero_of_re_pos`; `riemannZeta_ne_zero_of_one_le_re`; `Complex.differentiableAt_Gamma`; [Isolate the origin zero](#proof-origin-zero-factor); [Multiplicity count of compact zeros](#proof-compact-zero-count); [Zero count from an order bound](#proof-jensen-growth-zero-count); [Summable reciprocal squares of zeros](#proof-dyadic-zero-reciprocal-square); [Small canonical-factor logarithm](#proof-canonical-factor-log-tail); [Logarithmic derivative of the canonical product](#proof-canonical-product-log-derivative); [Exponential decay of the theta tail](#proof-theta-tail-decay); [Entire integral representation of xi](#proof-xi-integral-comparison); [Growth bound for the theta integral](#proof-gamma-integral-growth-majorant); [Order-one growth of xi](#proof-xi-order-one-growth); [Corrected logarithmic derivative of zeta](#proof-zeta-hadamard-log-derivative); [Logarithmic gamma bound](#proof-digamma-right-half-plane); [Bounded right-edge logarithmic derivative](#proof-zeta-log-derivative-right); [Logarithmic-square sum of zero weights](#proof-zero-weight-sum); [Xi is entire with nonzero endpoints](#proof-xi-entire-and-endpoints); [Every xi zero lies in the open critical strip](#proof-xi-zero-critical-strip); [Uniform reciprocal-square zero weight](#proof-zeta-poisson-zero-weight); [Conductor-uniform local Dirichlet zero count](#proof-primitive-character-unit-height-zero-count).
-
 <a id="prime-error-terms-under-rh-and-grh-conditional-prime-error-terms"></a>
 
-### 1.15 Prime error terms under RH and GRH
+### 1.9 Prime error terms under RH and GRH
 
 (i) If RiemannHypothesis holds, then for every ε > 0, ψ(x) − x = O_ε(x^{1/2+ε}) as x → ∞. (ii) Fix q ≥ 1. If DirichletGRH χ holds for every character χ modulo q, then for every ε > 0 and every a with gcd(a,q) = 1, ψ(x;a,q) − x/φ(q) = O_{q,ε}(x^{1/2+ε}), where ψ(x;a,q) = Σ_{n≤x, n≡a mod q} Λ(n). The hypotheses are explicit; neither conclusion is used by an unconditional target. The fixed-modulus representative signatures are `psi_sub_self_isBigO_of_riemannHypothesis` and `psiAP_isBigO_of_dirichletGRH`.
 
 Assume (i): RiemannHypothesis.; (ii): DirichletGRH χ for every χ modulo q; gcd(a,q) = 1.
 
-The proof proceeds as follows. (i) Insert Re ρ = 1/2 into the truncated explicit formula of this layer, bound Σ_{|γ|<T} 1/|ρ| by O(log² T) using the Riemann–von Mangoldt count, and take T = x. (ii) Expand ψ(x;a,q) by orthogonality of characters modulo q into φ(q)^{−1} Σ_χ χ̄(a) ψ(x,χ); the principal character gives ψ(x) up to O(log q · log x), and each nonprincipal χ is handled by the explicit formula for ψ(x,χ) (character-half-interval explicit formula of this layer) with its zeros on Re s = 1/2.
+The proof proceeds as follows. (i) Insert Re ρ = 1/2 into the imported ZerosOfLFunctions 8.2–8.4 truncated formula, bound Σ_{|γ|<T} 1/|ρ| by O(log² T) using the Riemann–von Mangoldt count, and take T = x. (ii) Expand ψ(x;a,q) by orthogonality of characters modulo q into φ(q)^{−1} Σ_χ χ̄(a) ψ(x,χ); the principal character gives ψ(x) up to O(log q · log x), and each nonprincipal χ is handled by the fixed-character explicit formula from ZerosOfLFunctions 8.6, transported by the rational dictionary with its zeros on Re s = 1/2.
 
 The result must also satisfy these compatibility requirements: The hypothesis appears in the statement; dropping it leaves only the de la Vallée Poussin error of Layer 0. (ii) fixes q: the implied constant may depend on q, and no Bombieri–Vinogradov-type average is claimed (that is SieveMethodsAndPrimePatterns:SV.3).
 
 See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §7.3, equation (7.3.1), p. 46; §10.3, equation (10.3.1), p. 61.
 
-*Needs:* [Riemann and generalized Riemann hypotheses as statements](#riemann-and-generalized-riemann-hypotheses-as-statements-generalized-riemann-hypothesis); [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error); [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); `Chebyshev.psi`; `DirichletCharacter.sum_char_inv_mul_char_eq`.
+*Needs:* [Riemann and generalized Riemann hypotheses as statements](#riemann-and-generalized-riemann-hypotheses-as-statements-generalized-riemann-hypothesis); [Truncated von Mangoldt formula](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-8-the-explicit-formula); [Riemann–von Mangoldt zero count](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-7-the-riemannvon-mangoldt-formula); [Half-interval explicit formula and low-zero-safe bound](#half-interval-explicit-formula-and-low-zero-safe-bound-character-half-interval-formula); `Chebyshev.psi`; `DirichletCharacter.sum_char_inv_mul_char_eq`.
 
 ### Remaining analytic proof obligations
 
-**Explicit-formula analytic adapters.** Match multiplicity-indexed positive weighted zero sums, the tangent bound away from its poles, local Laurent residues, rectangle winding numbers and the exact finite Perron interchange. The nearest-other-prime-power distance needs its positive attained minimum. Include the right-edge segment c>2 when 2≤x<e. General contour residue theory is a boundary input. Used in [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count); [Truncated von Mangoldt formula](#truncated-von-mangoldt-formula-von-mangoldt-explicit-formula-and-pnt-error).
-
-**Argument principle and zero-count phase.** The sharp zero-count remainder requires continuous argument branches, the full Gamma phase and a bounded zeta argument on safe rectangles. A unit-height count and a digamma norm bound alone do not supply that phase asymptotic. Import the general argument principle and prove the rectangle adapter. Used in [Riemann–von Mangoldt zero count](#riemann-von-mangoldt-zero-count-riemann-von-mangoldt-count).
-
-**PNT boundary adapters and quantitative remainder.** The quantitative rational remainder requires the continuous pole-cleared germ and a finite multiplicity-weighted compact zero separation, followed by explicit height optimization. The qualitative prime theorem is a boundary input and cannot supply this error or effective constants. Used in [Classical PNT remainder](#classical-pnt-remainder-rational-pnt-error).
+**Half-interval analytic adapters.** The subtracted character contour retains multiplicity-weighted zero sums and its low-zero-safe kernel; the general rational truncated formula and residue computation are supplied by ZerosOfLFunctions Layer 8.
 
 **Dirichlet-polynomial Hilbert inequality.** The [weighted finite Hilbert proof](#proof-weighted-hilbert-inequality) now specifies the Montgomery–Vaughan cosecant-matrix route, finite spectral theorem, spacing lemmas, doubling and ε limit. At logarithmic frequencies it yields the arbitrary-coefficient error6πΣn|a_n|² for every T≥0. The README and Lean agree, including empty and singleton polynomials and the two-term conjugation check. Used in [Mean square of a Dirichlet polynomial](#mean-square-of-a-dirichlet-polynomial-dirichlet-polynomial-mean-square).
 
-**Gamma and inverse-zeta quantitative bounds.** The sector remainder in §1.8 supplies uniform complex Stirling, its derivative bounds and compact-height control away from poles. Balanced Gamma quotients must still apply the displayed exponential-rate condition before claiming polynomial growth. The reciprocal-zeta line-one bound needs its own quantitative proof and compact-height argument; pole-cleared continuity near 1 is a different input. Used in [Critical-line gamma quotient](#critical-line-gamma-quotient-critical-line-gamma-quotient); [Reciprocal zeta on the line one](#reciprocal-zeta-on-the-line-one-reciprocal-zeta-line-one).
+**Reciprocal zeta.** Consume [Layer 1](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function) for Stirling, Gamma quotients and their rates. The reciprocal-zeta line-one estimate retains its quantitative small-value argument; the higher Gamma derivatives are the local refinement above.
 
 **Möbius and multiplicative-mean uniformity.** The [major/minor-arc proof](#proof-mobius-major-minor) now specifies the exact convolution identity, polylogarithmic cutoffs, hyperbolic type-II bound and narrow reciprocal-L rectangle, including nonunit residues. Retain both coprime Möbius estimates uniformly for q≤T^4: these polynomial-modulus coprimality estimates are different from the logarithmic-modulus progression estimate proved in §1.2 and still need their own prime-exclusion proof. The shifted q≤sqrt(T) consequence uses U=T/q and one extra logarithm. The long-divisor/bilinear Fourier argument must retain positive-truncation cancellation and the separate zero term from ordinary Möbius cancellation plus Abel summation. Used in [Davenport uniform Möbius exponential cancellation](#davenport-uniform-m-bius-exponential-cancellation-davenport-mobius-cancellation); [Coprime Möbius sums from the prime number theorem ((3.6))](#coprime-m-bius-sums-from-the-prime-number-theorem-3-6-coprime-mobius-log-sum); [Shifted coprime Möbius sum](#shifted-coprime-m-bius-sum-shifted-coprime-mobius-sum); [Uniform cancellation of the truncation error E_z (Corollary 3.3)](#uniform-cancellation-of-the-truncation-error-e-z-corollary-3-3-positive-truncation-error-cancellation); [Coprime Möbius sums from the prime number theorem ((3.6))](#coprime-m-bius-sums-from-the-prime-number-theorem-3-6-coprime-mobius-reciprocal-sum).
 
@@ -1640,7 +1091,7 @@ For ψ₀(4), the contribution at 4 is (log 2)/2, whereas ψ(4) includes log 2. 
 
 ### Dependencies
 
-Mathlib analytic orders, bounded variation, one-sided limits and integration; completed ContourIntegration via its exact boundary contracts; Layer 0 factorization and zero-free estimates. The finite-zero explicit formula and its safe-height estimates precede the rational prime error theorem within this layer.
+Mathlib analytic orders, bounded variation, one-sided limits and integration; completed ContourIntegration via its exact boundary contracts; Layer 0 higher-genus and origin-zero adapters. ZerosOfLFunctions Layers 1, 4–8 supply the Gamma estimates, zero-free regions, the divisor, zero-count phase, rational explicit formula and PNT remainder.
 
 <a id="layer-2-hecke-and-artin-comparisons-and-quantitative-number-field-estimates"></a>
 
@@ -2144,7 +1595,9 @@ See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org
 
 <a id="uniform-finite-order-hecke-convexity-primitive-hecke-convexity"></a>
 
-### 2.22 Uniform finite-order Hecke convexity
+### 2.22 Explicit degree-uniform Hecke convexity
+
+This is the Rademacher–Thorner–Zaman refinement of [3.3](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-3-convexity-in-vertical-strips): its one implied constant is absolute, independent of K, n and r. All degree and strip-width dependence remains in the displayed ζ(1+r)^n, (2π)^n and height factors. The supplier’s generic fixed-degree, ε-dependent convexity estimate is consumed, not restated as a target.
 
 Let chi be a primitive finite-order Hecke character over a degree-n number field K, Q=D_K*N(f_chi), 0<r<=1/2, and -r<=sigma<=1+r. For s=sigma+it with chi nontrivial or s≠1, |L_f(s,chi)| << |(1+s)/(1-s)|^delta(chi) * zeta_Q(1+r)^n * (Q*(3+|t|)^n/(2*pi)^n)^((1+r-sigma)/2), with an absolute implied constant. Define the pole factor to be |(1+s)/(1-s)| for the trivial character, and 1 for every nontrivial character (including at s=1); zeta_Q means the Riemann zeta function.
 
@@ -2334,7 +1787,7 @@ The result must also satisfy these compatibility requirements: For the trivial r
 
 See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Chapter22, §§22.2–22.5, Theorems22.3–22.4, printed pp.128–129.
 
-*Needs:* [Canonical ray-character comparison and the quadratic endpoint](#canonical-ray-character-comparison-and-the-quadratic-endpoint-hecke-nonvanishing-on-line-one); `Complex.exp`; `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`; `analyticAt_clog`; `Complex.exp_eq_one_iff`; `Complex.exists_continuousOn_eqOn_exp_comp`; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [NumberFieldArithmetic layer 2 frobenius elements and the artin symbol](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [Artin Euler series](#artin-euler-series-artin-euler-series); `LinearMap.charpoly_prodMap`; [ArithmeticDirichletSeries layer 1 norm fibres and mathlib lseries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries); [ArithmeticDirichletSeries layer 3 local factors and euler products](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products); [NumberFieldArithmetic layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary); [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula); [Hecke series and Tate integral comparison](#hecke-series-and-tate-integral-comparison-hecke-L-function-euler-product-comparison); [ClassFieldTheory layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [Gluing m-th roots across the line Re s = 1](#proof-mth-root-gluing); [Analyticity of a continuous logarithm](#proof-continuous-log-analytic-upgrade); [Direct sums of Artin local factors](#proof-artin-direct-sum-factor); [Absolute convergence of Artin factors](#proof-artin-absolute-convergence); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Analytic root on a nonvanishing disc](#proof-analytic-root-on-disc); [Overlaps of boundary-centred discs](#proof-boundary-disc-overlap); [Uniform finite Artin factor bound](#proof-artin-local-reciprocal-bound); [Ramified local Artin induction identity](#proof-artin-ramified-induction-polynomial).
+*Needs:* [Canonical ray-character comparison and the quadratic endpoint](#canonical-ray-character-comparison-and-the-quadratic-endpoint-hecke-nonvanishing-on-line-one); `Complex.exp`; `AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq`; `analyticAt_clog`; `Complex.exp_eq_one_iff`; `Complex.exists_continuousOn_eqOn_exp_comp`; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [NumberFieldArithmetic layer 2 frobenius elements and the artin symbol](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [Artin Euler series](#artin-euler-series-artin-euler-series); `LinearMap.charpoly_prodMap`; [ArithmeticDirichletSeries layer 1 norm fibres and mathlib lseries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries); [ArithmeticDirichletSeries layer 3 local factors and euler products](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products); [NumberFieldArithmetic layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary); [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula); [Hecke series and Tate integral comparison](#hecke-series-and-tate-integral-comparison-hecke-L-function-euler-product-comparison); [ClassFieldTheory layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [Gluing m-th roots across the line Re s = 1](#proof-mth-root-gluing); [Analyticity of a continuous logarithm](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization); [Direct sums of Artin local factors](#proof-artin-direct-sum-factor); [Absolute convergence of Artin factors](#proof-artin-absolute-convergence); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Analytic root on a nonvanishing disc](#proof-analytic-root-on-disc); [Overlaps of boundary-centred discs](#proof-boundary-disc-overlap); [Uniform finite Artin factor bound](#proof-artin-local-reciprocal-bound); [Ramified local Artin induction identity](#proof-artin-ramified-induction-polynomial).
 
 <a id="proof-mth-root-gluing"></a>
 
@@ -2511,7 +1964,7 @@ There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0,
 
 Assume k is a number field of fixed degree n; D_k is its absolute discriminant; Q,T>1; 1/2≤σ<1; ε>0.; Count nontrivial zeros with analytic multiplicity and strict σ<Reρ<1, inclusive |Imρ|≤T. Sum once over each primitive finite-order ray class character of exact conductor ideal𝔮, including its infinity component.
 
-The proof proceeds as follows. Use the canonical finite-order ray-class/Hecke carrier and its continued L-function; form a locally finite zero multiset with analytic multiplicities, rather than an unweighted set of zero locations. Specialize the original family-density theorem to the trivial GL1 base representation and retain the ε exponent. The degree dependence and full character/conductor family must match LOW Theorem4.2. The Pasten appendix/Thorner–Zaman proof and the zero-multiset construction are steps of this target.
+The proof proceeds as follows. Use the canonical finite-order ray-class/Hecke carrier and its continued L-function; consume the locally finite analytic zero divisor from [ZerosOfLFunctions Layer 4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-4-zero-counting), including its multiplicities. Specialize the original family-density theorem to the trivial GL1 base representation and retain the ε exponent. The degree dependence and full character/conductor family must match LOW Theorem4.2. The Pasten appendix/Thorner–Zaman family-density proof is the local step; the zero-divisor construction is imported.
 
 See [Robert Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://doi.org/10.1017/S2050508625000009), Theorem 4.2, p.20, citing Lemke Oliver–Thorner [Pas17, Proposition A.2] and Thorner–Zaman [TZ21, Theorem 1.2], Forum Math. Pi 13 (2025), e19; [Robert Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://doi.org/10.1017/S2050508625000009), §4, Theorem4.2, printed p.20.
 
@@ -2628,7 +2081,9 @@ See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org
 
 <a id="zero-free-regions-for-dedekind-zeta-and-hecke-l-functions-dedekind-hecke-zero-free-region"></a>
 
-### 2.44 Zero-free regions for Dedekind zeta and Hecke L-functions
+### 2.44 Explicit exceptional-zero region for an abelian character product
+
+Consume per-character zero-free regions and simplicity from [6.2–6.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-6-zero-free-regions). The additional target is simultaneous uniqueness over all characters of an abelian extension, with the numerical constant 0.0875. Per-character uniqueness alone cannot give uniqueness for the product. The trivial-extension case below is a check of this product theorem.
 
 (i) Let L/K be an abelian extension of number fields, Q = Q(L/K) the maximum of the norms of the conductors of the Hecke characters χ of K attached to L/K, n_K = [K:ℚ] and D_K = |disc(K/ℚ)|. If D_K Q n_K^{n_K} is sufficiently large, the product Π_χ L(s,χ,K) of these continued Hecke L-functions has at most one zero, counted with multiplicity, in σ ≥ 1 − 0.0875/log(D_K Q n_K^{n_K}), |t| ≤ 1 (s = σ + it); if it exists it is a simple real zero and its character is real. (ii) In particular, if D_K n_K^{n_K} is sufficiently large, ζ_K has at most one zero in σ ≥ 1 − 0.0875/log(D_K n_K^{n_K}), |t| ≤ 1, and such a zero is real. The possible zero is the exceptional zero β₁ of the effective Chebotarev theorem.
 
@@ -2640,7 +2095,7 @@ The result must also satisfy these compatibility requirements: K = ℚ, L = ℚ(
 
 See [Asif Ali Zaman — Analytic estimates for the Chebotarev Density Theorem and their applications](https://www.math.toronto.edu/zaman/files/thesis.pdf), §1.3.2, Theorem 1.3.5 and Corollary 1.3.6, p. 16; §4.1, Theorem 4.1.1, p. 69.
 
-*Needs:* [Primitive Hecke functional-equation normalization](#primitive-hecke-functional-equation-normalization-hecke-primitive-functional-equation); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [Imprimitive Hecke deleted factors](#imprimitive-hecke-deleted-factors-imprimitive-hecke-factors); [Canonical ray-character comparison and the quadratic endpoint](#canonical-ray-character-comparison-and-the-quadratic-endpoint-hecke-nonvanishing-on-line-one); [Hadamard factorization in order at most one](#hadamard-factorization-in-order-at-most-one-order-one-hadamard); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity).
+*Needs:* [Primitive Hecke functional-equation normalization](#primitive-hecke-functional-equation-normalization-hecke-primitive-functional-equation); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [Imprimitive Hecke deleted factors](#imprimitive-hecke-deleted-factors-imprimitive-hecke-factors); [Canonical ray-character comparison and the quadratic endpoint](#canonical-ray-character-comparison-and-the-quadratic-endpoint-hecke-nonvanishing-on-line-one); [ZerosOfLFunctions 5.4–5.6](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-5-hadamard-factorization); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity).
 
 <a id="logarithmic-functional-equation-artin-log-functional-equation"></a>
 
@@ -2696,7 +2151,7 @@ The result must also satisfy these compatibility requirements: The field discrim
 
 See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadratic fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), (6.7), proof of Proposition 2, p.969.
 
-*Needs:* [Theorem3 negative factors](#theorem3-negative-factors-negative-genus-core-period); [Theorem3 positive factors](#theorem3-positive-factors-positive-genus-geodesic-period); [Theorem3 CM factors](#theorem3-cm-factors-mixed-genus-cm-period); [Critical-line gamma quotient](#critical-line-gamma-quotient-critical-line-gamma-quotient); [Reciprocal zeta on the line one](#reciprocal-zeta-on-the-line-one-reciprocal-zeta-line-one); GeometryOfNumbersAndQuadraticArithmetic GN.3; AutomorphicSpectralTheory AS.1; AutomorphicSpectralTheory AS.2.
+*Needs:* [Theorem3 negative factors](#theorem3-negative-factors-negative-genus-core-period); [Theorem3 positive factors](#theorem3-positive-factors-positive-genus-geodesic-period); [Theorem3 CM factors](#theorem3-cm-factors-mixed-genus-cm-period); [Critical-line gamma quotient](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); [Reciprocal zeta on the line one](#reciprocal-zeta-on-the-line-one-reciprocal-zeta-line-one); GeometryOfNumbersAndQuadraticArithmetic GN.3; AutomorphicSpectralTheory AS.1; AutomorphicSpectralTheory AS.2.
 
 <a id="many-split-primes-outside-a-small-quadratic-exception-set-most-quadratic-many-split-primes"></a>
 
@@ -3961,7 +3416,7 @@ The result must also satisfy these compatibility requirements: G(n) = (n − 2)!
 
 See [F. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier et al. (eds.); Chapter 5 by R. A. Askey and R. Roy — NIST Digital Library of Mathematical Functions, §5.17 Barnes’ G-function (double gamma function)](https://dlmf.nist.gov/5.17), §5.17, equations (5.17.1)–(5.17.5); [Victor S. Adamchik — Contributions to the Theory of the Barnes Function](https://arxiv.org/pdf/math/0308086v1), canonical product p.2, (20) and Proposition3.1, pp.7–8, Lemma5.1 and proof, pp.10–11 (right-half-plane asymptotic).
 
-*Needs:* `Complex.Gamma`; `Complex.exp`; [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling); [Barnes full-sector remainder](#proof-barnes-full-sector-remainder).
+*Needs:* `Complex.Gamma`; `Complex.exp`; [Uniform Stirling bounds for Γ on vertical strips](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); [Barnes full-sector remainder](#proof-barnes-full-sector-remainder).
 
 <a id="proof-barnes-full-sector-remainder"></a>
 
@@ -4465,7 +3920,7 @@ To derive the inequality from AA, invert its covering Siegel set, choose a measu
 
 <a id="proof-cubic-local-distribution-continuation"></a>
 
-**Local orbital distributions and their continuation boundary.** Distinguish the additive discriminant integral in §5.4 from the orbital integral Z_α(ω,Φ)=∫_G ω(det g)Φ(gx_α)dg. The orbital Jacobian converts the latter into a scalar times ∫_α |P(x)|^(u/2−1)Φ(x)dx for ω=|·|^u. Thus the orbital strip Re u>1/3 is the additive strip Re s>−5/6. No factor-of-two change is implicit.
+**Local orbital distributions and their continuation boundary.** Distinguish the additive discriminant integral in §5.8 from the orbital integral Z_α(ω,Φ)=∫_G ω(det g)Φ(gx_α)dg. The orbital Jacobian converts the latter into a scalar times ∫_α |P(x)|^(u/2−1)Φ(x)dx for ω=|·|^u. Thus the orbital strip Re u>1/3 is the additive strip Re s>−5/6. No factor-of-two change is implicit.
 
 Over R, let D=P(∂) with the dual-pairing coordinates and b(v)=2⁴3⁶(v−1/6)v²(v+1/6). The polynomial identity D(P^v)=b(v)P^(v−1), first away from P=0, gives integration-by-parts recurrences for the distributions. Dividing by the corresponding Γ factors removes the possible poles and continues them as continuous Schwartz functionals. Shintani, [On Dirichlet series whose coefficients are class-numbers of integral binary cubic forms](https://www.jstage.jst.go.jp/article/jmath1948/24/1/24_1_132/_pdf), Proposition1.3 pp.139–140 and Proposition2.7 pp.160–161, supplies these steps. His Lemma1.3 pp.140–141 kills a distribution supported on P=0 by P^N for N larger than its order: multiply by a cutoff at |P|≤ε and let ε→0. Apply the recurrence to the difference of the two Fourier expressions; this proves equality on all Schwartz functions from equality away from P=0 (Theorem1.1 proof pp.143–144). This prevents an unaccounted singular-supported correction.
 
@@ -4489,13 +3944,100 @@ API: `.real_fourier_matrix`, `.basis_comparison`, `.double_fourier`, `.sine_norm
 
 Use the self-dual Gaussian Φ₀=exp(−2π(|x₁|_C+|x₂|_C/3+|x₃|_C/3+|x₄|_C)). Multiply by P^|m| or its conjugate as dictated by the sign of m. Fourier exchanges the two and their orbital zeta integrals are Z(u+|m|,0,Φ₀). Applying D to the Gaussian multiplies by (2π)⁴P̄, so the differential recurrence makes f(u)=Z(u,0,Φ₀)/r(u) entire and 2-periodic. Stirling and the positive Gaussian integral bound leave only the Fourier modes0,±1, hence f=a+b cos(πu)+c sin(πu). Evaluate the scalar Fourier equation on a compactly supported nondegenerate test at each parameter to show that its normalized coefficient is entire; this step does not divide globally by Z(Φ₀). The reflection formula expresses it by f(u)/f(2−u). Entireness forces matching roots; positivity of the Gaussian integral for real u>1/3 excludes the remaining real-root alternative. Thus f(u)=f(2−u); cancellation gives the ratio above. This also proves the angular-character shift, not only m=0.
 
-API: `.complex_fourier_factor`, `.angular_shift`, `.gaussian_recurrence`, `.reflection_cancellation`. Checks: m and−m give the same factor; at u=1 the ratio is1; when m=0, C_C(u) is minus the determinant of the displayed real matrix. *Needs:* the complex part of [Local orbital distributions and their continuation boundary](#proof-cubic-local-distribution-continuation); AL.0 Gaussian Fourier; [Uniform sectorial Gamma remainder](#proof-gamma-sector-remainder).
+API: `.complex_fourier_factor`, `.angular_shift`, `.gaussian_recurrence`, `.reflection_cancellation`. Checks: m and−m give the same factor; at u=1 the ratio is1; when m=0, C_C(u) is minus the determinant of the displayed real matrix. *Needs:* the complex part of [Local orbital distributions and their continuation boundary](#proof-cubic-local-distribution-continuation); AL.0 Gaussian Fourier; [ZerosOfLFunctions 1.2–1.4](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function).
+
+<a id="cubic-action-discriminant"></a>
+
+### 5.4 Binary-cubic action, discriminant and local orbit data
+
+For a commutative ring A, write f(u,v)=au³+bu²v+cuv²+dv³. On invertible 2×2 matrices use the left action `(g·f)(u,v)=det(g)⁻¹ f((u,v)g)` with row variables. Thus g·(h·f)=(gh)·f. Define
+`P(a,b,c,d)=b²c²−4ac³−4b³d−27a²d²+18abcd`.
+The polynomial identity is `P(g·f)=det(g)² P(f)` over every A; no inversion of 2 or 3 is needed. The carrier may use Mathlib homogeneous polynomials; it is not a new polynomial theory. The representative `cubicDiscriminant_diagonal` states the diagonal specialization over arbitrary fields with nonzero diagonal entries; the full GL₂ action over commutative rings is the separate target here.
+
+API: `cubicAction.one`, `.mul`, `.discriminant_covariance`, `cubicDiscriminant`. Prove covariance first on the universal polynomial ring and transport by evaluation. The algebra table in the next target identifies its trace discriminant with P, so the determinant square is checked against the algebraic discriminant rather than chosen by convention.
+
+**Checks.**
+
+- The two-term form u³−v³ has P=−27; diag(2,1) takes it to 4u³−v³/2, with P=−108=2²(−27).
+- The unipotent matrix [[1,1],[0,1]] takes it to −3u²v−3uv²−v³, with the same P=−27.
+- The two-term form uv(u−v) has P=1. The zero form has P=0 and is excluded from the étale orbit set.
+- For u³−v³, P is 1 in 𝔽₂ and 0 in 𝔽₃; the polynomial construction works in both characteristics, while separability fails in characteristic 3.
+- A scalar matrix λI takes f to λf, giving λ⁴P=(det(λI))²P.
+
+See [Wood, Parametrizing quartic algebras over an arbitrary base](https://msp.org/ant/2011/5-8/ant-v5-n8-p05-p.pdf), §2, Theorem 2.1 and (1), pp.1073–1074; [Datskovsky–Wright II](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0367/LOG_0007.pdf), §1 pp.29–34 (representation, discriminant, separable orbit types). *Needs:* Mathlib multivariate polynomials, `GeneralLinearGroup`, trace and finite projective modules.
+
+<a id="proof-cubic-projective-parametrization"></a>
+
+### 5.5 Cubic algebras and projective forms
+
+**Cubic parameterization on nonprincipal modules.** For O=O_F, use locally free rank-three commutative unital O-algebras C, not only globally free algebras. Put V=(C/O·1)^∨. The analytic coefficient adapter includes every rank-two projective V and a section f of Sym³V⊗(∧²V)^∨. Isomorphisms of these pairs correspond to algebra isomorphisms, including stabilizers; discriminants are compared as sections of the determinant-line square before taking their ideal norms. Over a Dedekind domain these sections give the discriminant ideals even when there is no global discriminant element.
+
+Construct the free/local multiplication below, then glue it on every rank-two projective module. The equivalence includes algebra isomorphisms and their stabilizers, not merely a bijection of rational field orbits. Wood, [Parametrizing quartic algebras over an arbitrary base](https://msp.org/ant/2011/5-8/ant-v5-n8-p05-p.pdf), §2 Theorem2.1 and explicit construction, pp.1073–1074, gives the required general-base cubic construction. On a local trivialization, choose 1,ω,θ and shift ω,θ uniquely so that ωθ is scalar. Associativity determines the table. In Wood's sign convention it is
+ωθ=−ad, ω²=−ac+bω−aθ, θ²=−bd+dω−cθ.
+The simultaneously negated basis (−ω,−θ) gives the equivalent table with −b,+a,−d,+c; keep this basis change explicit when comparing source conventions. The construction uses no division by2 or3. To check gluing, compute the normalized basis change for a general invertible 2×2 matrix on C/O, with the scalar shifts obtained from the cross-product coefficients; the resulting form transforms in Sym³V⊗(∧²V)^∨. These changes compose because normalization is unique. Thus the local free algebras and their algebra maps glue, and the reverse index-form construction glues to its inverse. A global basis or a choice of principal ideal class is never used. The quotient C/O is locally free: at every residue field the nonzero vector1 extends to a basis, and a suitable minor remains invertible on a neighbourhood.
+
+Over a characteristic-zero local field, P≠0 corresponds under this equivalence to an étale cubic algebra. Its possible types are F³, F×E for quadratic E/F, and a cubic field (cyclic or non-Galois). Their automorphism orders are respectively 6, 2, 3, 1; retain the individual extension, not just its degree or discriminant valuation. Over ℝ only ℝ³ and ℝ×ℂ occur, and over ℂ only ℂ³ occurs.
+
+For the adelic comparison, a rank-two O-lattice Λ in F² corresponds to its completed lattices g_v O_v²; changing the F-basis and the O_v-bases gives the double coset GL₂(F)\GL₂(A_f)/∏GL₂(O_v). Recover Λ as F²∩∏g_v O_v². Localizing this intersection recovers each given local lattice, by clearing the finitely many denominators and the Chinese remainder theorem; this proves the two constructions inverse. The determinant ideal identifies its Steinitz class. A finite sum over these classes, with each actual lattice's binary forms, is therefore the integral adelic orbit sum. A form and its stabilizer descend by the preceding gluing, so weights are exactly1/|Aut_O C|. The trace condition for the dual is imposed locally as Tr(C)⊆3O; the Fourier dual includes the different from the separate measure comparison and is not identified with the original lattice at places over3.
+
+API: `.projective_form_equiv_cubic_algebra`, `cubicOrbit.etaleEquiv`, `.local_type`, `.stabilizer_equiv_aut`, `.discriminant_ideal`, `.adelic_lattice_equiv`, `.trace_dual_comparison`.
+
+**Checks.**
+
+- V=O² recovers the displayed free multiplication table; uv(u−v) gives O³ with automorphism order 6.
+- V=O⊕I with I nonprincipal gives C/O≅O⊕I⁻¹ and cannot be replaced by O².
+- The zero form gives the square-zero algebra O⊕V^∨, including in characteristics 2 and 3.
+- At a place over 3, the trace-divisible lattice is a proper condition, rather than an automatic consequence of rank 3.
+
+*Needs:* the preceding binary-cubic action and discriminant; AA.3.4 finite class-number decomposition; existing finite projective modules and local module gluing. The same equivalence supplies the arithmetic coefficients and local orbit selectors in the following targets.
+
+<a id="cubic-coefficient-finiteness"></a>
+
+### 5.6 Discriminant fibres and weighted cubic coefficients
+
+For a number field F, let CubicOrders(F) be isomorphism classes of locally free rank-three commutative unital O_F-algebras C whose generic fibre is étale. Use the trace-pairing discriminant ideal d(C)⊂O_F and its positive absolute norm D(C), with the archimedean signature α. The coefficient `cubicCoeff(F,α,n)` is the finite sum of 1/|Aut C| over D(C)=n and signature α; set it to 0 at n=0. The dual coefficient restricts the same sum by `Tr(C)⊆3O_F`. Neither maximality nor irreducibility is built in. These coefficients define the series below, without assuming that C is globally free.
+
+Use `Algebra.trace` and Mathlib's basis trace discriminant. For a locally free order, the determinants of its local trace matrices glue to d(C), since basis changes multiply them by a unit square. Compare with the determinant-line discriminant of the projective cubic form. Current Tau Ceti `relDiscr` applies to Dedekind-domain extensions and is used only for field maximal orders and the tower formula; a nonmaximal or reducible cubic order does not satisfy that domain hypothesis. The local order-discriminant ideal and its finite coefficient fibre are targets here. In the normalized free basis the traces of 1,ω,θ are 3,b,−c, so the trace-divisible condition is exactly b,c∈3O_F. Localization makes this independent of basis. The alternating binary-cubic pairing identifies the corresponding dual lattice; the separate Fourier-measure adapter retains the different and every place over 3.
+
+API: `cubicCoeff.finite_fibre`, `.nonneg`, `.zero`, `.signature_partition`, `.orbit_sum`, `cubicTraceDual.local_iff`, `.isomorphism_invariant`. For finiteness with D(C)≤B, first classify the generic étale algebra as F³, F×E or a cubic field. Consume `NumberField.finite_of_discr_bdd` and the tower-discriminant identity for its field factors; embeddings over F add only finitely many choices. Every order lies in its maximal order with D(C)=D(A)·Norm(index(C))². A bounded index has finitely many ideal possibilities and finite residue modules, hence finitely many sublattices. This proves finiteness for each B, not just for maximal orders. Aut C injects into the finite permutation group on the three geometric embeddings, so its order is positive and at most 6. The orbit equivalence supplies the inverse stabilizer weight exactly.
+
+**Checks.**
+
+- O_F³ has D=1 and weight 1/6.
+- The zero form gives a square-zero rank-three algebra with zero discriminant, outside CubicOrders(F), even though the algebra correspondence includes it.
+- For uv(u−v), b=1,c=−1, so its split algebra fails the trace-divisible condition at places over 3.
+- For u³−v³, b=c=0 and the trace condition holds.
+- A nonprincipal projective component is retained by the same fibre and signature tests.
+
+See [LOWW](https://arxiv.org/pdf/2110.07712), §3.2 pp.11–13, definition before Proposition 3.7 and Lemma 3.9; [Wood](https://msp.org/ant/2011/5-8/ant-v5-n8-p05-p.pdf), §2 pp.1073–1074 for trace/discriminant comparison. *Needs:* the preceding cubic equivalence; `NumberField.finite_of_discr_bdd`; existing finite ideal norm fibres; finite-index lattice theory and the discriminant tower formula. No quantitative cubic count is inferred from qualitative Hermite finiteness.
+
+<a id="cubic-uniform-field-count"></a>
+
+### 5.7 Uniform small-degree field-discriminant count
+
+Fix d≥1 and ε>0. There is C(d,ε)>0, chosen before F and n, such that for every degree-d number field F and integer n≥1, the number of F-isomorphism classes of extensions E/F with [E:F]≤3 and Norm(d(E/F))=n is at most
+`C(d,ε) n^(1/2+ε) |disc F|^(1/2+ε) h₂(F)`.
+Here h₂(F)=|Cl(F)[2]|, including its identity. Counting subfields in a fixed algebraic closure gives the same bound up to a factor at most 3, absorbed in C. Summing n≤X gives the corresponding O(d,ε)(X^(3/2+ε)|disc F|^(1/2+ε)h₂(F)) cumulative bound. The base field itself contributes at n=1.
+
+The local theorem `relativeClassTorsion.bound` states: for an arbitrary number-field extension [E:F]=r≥1 and integer ℓ≥1, `|ker(Nm:Cl(E)→Cl(F))[ℓ]| ≪_[E:ℚ],ε Norm(d(E/F))^(1/2+ε)|disc F|^((r−1)/2+ε)` (LOWW Lemma 2.5, p.8). Its proof uses the class-group norm cokernel bound ≤r, the class number formula and bounded-degree residue estimates of Layer 2, together with `relativeRegulatorRatio.lower`, the uniform lower bound R_E/R_F≳_[E:ℚ]1 for the relative unit covolume (rank-zero regulators use the convention R=1). The latter is the Friedman–Skoruppa regulator-ratio theorem cited in that proof, not an assertion that relative torsion is bounded independently of discriminants. These two bounds are local targets used by this count. For E=F the norm kernel is trivial and the regulator ratio is 1; both bounds retain this case. The norm cokernel, rather than the norm kernel, is bounded by r.
+
+For the field count, quadratic class field theory leaves h₂(F) choices after local ramification data are fixed. Divisor and local-unit choices at fixed degree contribute n^ε, including primes over 2 and 3. An S₃ extension has a quadratic resolvent of discriminant dividing n; its cyclic cubic closure over that resolvent is controlled by the displayed relative 3-torsion bound. Handle cyclic cubics by the absolute class-group bound and the same local data. Split ε among these finite divisor estimates. API: `smallDegreeFields.finite`, `.pointwise_bound`, `.summatory_bound`; the weighted ring-series bound below also uses the orders generating series, since this theorem counts fields only.
+
+**Checks.**
+
+- n=0 is excluded; at n=1 the identity extension is present.
+- Cyclic and non-Galois cubic fields both occur and have different closure degrees.
+- The reducible algebra F³ is not counted as a field; it is included separately in cubic coefficients.
+- The constant may depend on d and ε but not on F, its signature or n; qualitative Hermite finiteness would not establish this uniform bound.
+- For E=F the norm kernel has one element and R_E/R_F=1; ℓ=1 gives trivial torsion for every extension.
+
+See [LOWW](https://arxiv.org/pdf/2110.07712), Lemma 2.5 and proof p.8, Lemma 3.5 and proof p.11, Proposition 3.4 pp.10–11; its conventions use the norm of the relative discriminant. *Needs:* ClassFieldTheory global reciprocity and local conductor groups; Layer 2 bounded-degree class-number/residue bounds; relative norm exact sequence and the stated regulator-ratio bound.
 
 <a id="binary-cubic-local-zeta-integrals-pvs-local-zeta"></a>
 
-### 5.4 Binary-cubic local zeta integrals
+### 5.8 Binary-cubic local zeta integrals
 
-For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately.
+For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from the [local action](#cubic-action-discriminant). For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately.
 
 The proof proceeds as follows. Import the invariant/action and local field normalization rather than redefining them. Restrict away from P=0 before forming complex powers. Decompose an integral test function into disjoint measurable valuation shells and apply dominated summation.
 
@@ -4511,19 +4053,19 @@ The required interface consists of the following operations and identities.
 - When Φ is supported where |P|=1, the integral is ∫Φ dx, independently of s.
 - For prime p, the linear invariant x on Z_p⊂Q_p and additive Haar measure with μ(Z_p)=1 give the actual integral (1−p^(−1))/(1−p^(−s−1)) for Re s>−1. The valuation shells have masses (1−p^(−1))p^(−k), k≥0.
 
-The result must also satisfy these compatibility requirements: For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from ST.1. For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately.
+The result must also satisfy these compatibility requirements: For a local field F, take V(F)=Sym³(F²) and its twisted GL2 action and discriminant P from the [local action](#cubic-action-discriminant). For a Schwartz–Bruhat test function Φ and fixed additive Haar measure dx, define the local integral over P(x)≠0 by ∫Φ(x)|P(x)|F^s dx on its proven integrability half-plane. For a nonarchimedean place with residue cardinal q and dx(O_F^4)=1, the shell density dk(U) is the measure of {x∈U:ord P(x)=k}; for Φ=1_U with U⊆O_F⁴ the resulting shell series is Σk≥0 dk(U)q^(−ks). For general Φ use Φ-weighted shell integrals, not unweighted masses. Zero-discriminant mass is recorded separately.
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14; [Boris Datskovsky and David J. Wright — The adelic zeta function associated to the space of binary cubic forms. II: local theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0367/LOG_0007.pdf), §3, definition (3.1) and Proposition 3.1, pp.37–38.
 
-*Needs:* ArithmeticStatistics ST.1; AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2.
+*Needs:* [Cubic action and projective parametrization](#cubic-action-discriminant); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2.
 
 <a id="signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series"></a>
 
-### 5.5 Signature-refined cubic Shintani zeta functions
+### 5.9 Signature-refined cubic Shintani zeta functions
 
-For a number field F and each archimedean cubic signature α, let ξF,α(s)=ΣR |Aut R|^(−1)|Disc R|^(−s), over isomorphism classes of locally free rank-three O_F-algebras with nonzero discriminant and signature α. Reducible rings and nonmaximal orders are retained. Define the dual series by the same weights on rings satisfying 3|tr(t) for every t. ST supplies the actual isomorphism classes, discriminants, trace and automorphism groups; Layer 5 owns the analytic series.
+For a number field F and each archimedean cubic signature α, let ξF,α(s)=ΣR |Aut R|^(−1)|Disc R|^(−s), over isomorphism classes of locally free rank-three O_F-algebras with nonzero discriminant and signature α. Reducible rings and nonmaximal orders are retained. Define the dual series by the same weights on rings satisfying 3|tr(t) for every t. The preceding arithmetic targets supply the actual isomorphism classes, discriminants, trace, automorphism groups and finite weighted fibres.
 
-The proof proceeds as follows. Group the ST isomorphism classes by absolute discriminant norm, summing inverse stabilizer orders. Preserve the archimedean signature and the trace-divisible dual subset. Use absolute convergence only on Res>1 and distinguish the analytic continuation.
+The proof proceeds as follows. Group the CubicOrders(F) isomorphism classes by absolute discriminant norm, summing inverse stabilizer orders. Preserve the archimedean signature and the trace-divisible dual subset. Use absolute convergence only on Res>1 and distinguish the analytic continuation.
 
 The required interface consists of the following operations and identities.
 
@@ -4538,25 +4080,25 @@ The required interface consists of the following operations and identities.
 - O_F[ε]/ε³ has zero discriminant and contributes no term.
 - A ring violating 3|tr(t) is omitted by the dual selector, while its ordinary coefficient is unchanged.
 
-The result must also satisfy these compatibility requirements: For a number field F and each archimedean cubic signature α, let ξF,α(s)=ΣR |Aut R|^(−1)|Disc R|^(−s), over isomorphism classes of locally free rank-three O_F-algebras with nonzero discriminant and signature α. Reducible rings and nonmaximal orders are retained. Define the dual series by the same weights on rings satisfying 3|tr(t) for every t. ST supplies the actual isomorphism classes, discriminants, trace and automorphism groups; Layer 5 owns the analytic series.
+The result must also satisfy these compatibility requirements: For a number field F and each archimedean cubic signature α, let ξF,α(s)=ΣR |Aut R|^(−1)|Disc R|^(−s), over isomorphism classes of locally free rank-three O_F-algebras with nonzero discriminant and signature α. Reducible rings and nonmaximal orders are retained. Define the dual series by the same weights on rings satisfying 3|tr(t) for every t. The preceding arithmetic targets supply the actual isomorphism classes, discriminants, trace, automorphism groups and finite weighted fibres.
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 definition before Proposition 3.7 and dual definition in (3), p.12.
 
-*Needs:* ArithmeticStatistics ST.0; ArithmeticStatistics ST.1; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); `LSeries`.
+*Needs:* [Cubic coefficient finiteness](#cubic-coefficient-finiteness); [Cubic action and projective parametrization](#cubic-action-discriminant); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); `LSeries`.
 
 <a id="local-density-and-coefficient-conventions-agree-local-density-coefficient-comparison"></a>
 
-### 5.6 Local density and coefficient conventions agree
+### 5.10 Local density and coefficient conventions agree
 
 For a nonarchimedean characteristic-zero local field with residue size q, additive dx normalized by dx(O⁴)=1 and dg normalized by dg(GL2(O))=1, an open orbit α with representative xα, Δ=P(xα) and stabilizer order oα satisfies ∫α Φ(x)|P(x)|^(s−1)dx = (1−q^(−1))(1−q^(−2)) |Δ|^s/oα · ∫GL2(F) |det g|^(2s)Φ(g·xα)dg, whenever either integral is absolutely convergent. The stabilizer orders are 6,2,3,1 for split, quadratic, cyclic cubic, and non-Galois cubic types. Local additive mass is not itself a global arithmetic count.
 
 The proof proceeds as follows. Match the discriminant invariant before specializing motivic/local functions. Use the measure dx(O_F^4)=1 to identify shell masses. Record the orbit-dependent local normalizing constants and small-residue-characteristic cases as the next original-source leaves.
 
-The result must also satisfy these compatibility requirements: For a compact-open integral local condition U, the normalized binary-cubic Haar integral uses shell masses dk(U); its arithmetic coefficient condition is the ST-local orbit selector with the same discriminant valuation and inverse stabilizer convention. LD.3 specialization is invoked only for its proved residue-characteristic range; factors at2 and3 are kept separately.
+The result must also satisfy these compatibility requirements: For a compact-open integral local condition U, the normalized binary-cubic Haar integral uses shell masses dk(U); its arithmetic coefficient condition is the local cubic-algebra orbit selector with the same discriminant valuation and inverse stabilizer convention. LD.3 specialization is invoked only for its proved residue-characteristic range; factors at2 and3 are kept separately.
 
 See [Boris Datskovsky and David J. Wright — The adelic zeta function associated to the space of binary cubic forms. II: local theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0367/LOG_0007.pdf), Proposition 2.2 and (2.4), pp.36–38.
 
-*Needs:* AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; ArithmeticStatistics ST.1; [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian).
+*Needs:* AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Cubic action and projective parametrization](#cubic-action-discriminant); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian).
 
 <a id="proof-local-measure-normalization"></a>
 
@@ -4576,15 +4118,15 @@ See [Boris Datskovsky and David J. Wright — The adelic zeta function associate
 
 <a id="the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta"></a>
 
-### 5.7 The selected adelic binary-cubic zeta integral
+### 5.11 The selected adelic binary-cubic zeta integral
 
-With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison with its exact arithmetic adapter request. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
+With the preceding binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison with its exact arithmetic adapter request. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
 
-The proof proceeds as follows. Import the twisted action and discriminant covariance from ST. Prove right GL2(F)-invariance of the theta sum; the product formula makes |det h|_A=1. Transport the AA.2 left-quotient measure through inversion before forming the right-quotient integral. Prove convergence and orbit unfolding with exact local factors; those original-source leaves are recorded below.
+The proof proceeds as follows. Use the local twisted action and discriminant covariance. Prove right GL2(F)-invariance of the theta sum; the product formula makes |det h|_A=1. Transport the AA.2 left-quotient measure through inversion before forming the right-quotient integral. Prove convergence and orbit unfolding with exact local factors; those original-source leaves are recorded below.
 
 The required interface consists of the following operations and identities.
 
-- `TauCeti.SeveralVariableZeta.CubicAdelic.integral`: Integrate the supplied descended theta function against the supplied right-quotient measure with determinant exponent 2s. The requested ST.1, AL.0 and AA.2 extensions must certify the canonical GL2 adelic quotient adapter.
+- `TauCeti.SeveralVariableZeta.CubicAdelic.integral`: Integrate the supplied descended theta function against the supplied right-quotient measure with determinant exponent 2s. The local cubic correspondence, AL.0 and AA.2 adapters must certify the canonical GL2 adelic quotient adapter.
 - `TauCeti.SeveralVariableZeta.CubicAdelic.linear`: Z(aΦ+bΨ,s)=aZ(Φ,s)+bZ(Ψ,s) when the summands are integrable.
 - `TauCeti.SeveralVariableZeta.CubicAdelic.theta_right_invariant`: A supplied equivalence reindexing the rational nonsingular theta summands proves invariance under rational right translation. The canonical adapter separately uses the product formula for the determinant norm.
 - `TauCeti.SeveralVariableZeta.CubicAdelic.inversion_kernel`: For positive determinant norm d with d(g⁻¹)=d(g)⁻¹, the inverted kernel is d(g)^(−2s)·theta(g⁻¹). Transporting the quotient measure by inversion changes the right-quotient convention to the left-quotient convention.
@@ -4596,15 +4138,15 @@ The required interface consists of the following operations and identities.
 - Degenerate binary cubics are excluded from the theta sum and return only as separately analyzed singular terms after Poisson.
 - Right rational translation leaves the theta integrand unchanged; inversion transports it to the left quotient with inverse action and determinant exponent −2s.
 
-The result must also satisfy these compatibility requirements: With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison target. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
+The result must also satisfy these compatibility requirements: With the preceding binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison target. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14; [D. J. Wright — The adelic zeta function associated to the space of binary cubic forms. Part I: global theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0270/LOG_0046.pdf), §2, p.511; §3, pp.515–516; definition before Theorem 4.1, p.516.
 
-*Needs:* ArithmeticStatistics ST.1; AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2.
+*Needs:* [Cubic action and projective parametrization](#cubic-action-discriminant); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2.
 
 <a id="ordinary-cubic-continuation-data-cubic-continuation-data"></a>
 
-### 5.8 Ordinary cubic continuation data
+### 5.12 Ordinary cubic continuation data
 
 For an ordinary cubic series ξ initially defined on Res>1, continuation data consists of a meromorphic function agreeing with ξ there and an entire function C such that C(s)=(s−1)(s−5/6)ξcontinued(s) off the two poles. C(1) and C(5/6) determine the residues as 6C(1) and −6C(5/6). Existence and the order-one growth bound remain the separate original global theorems; the data constructor does not prove them.
 
@@ -4628,7 +4170,7 @@ See [Boris Datskovsky and David J. Wright — The adelic zeta function associate
 
 <a id="orders-in-a-fixed-tale-cubic-algebra-cubic-orders-generating-series"></a>
 
-### 5.9 Orders in a fixed étale cubic algebra
+### 5.13 Orders in a fixed étale cubic algebra
 
 For an étale cubic F-algebra A, let an(A) count O_F-orders in O_A of relative index norm n. Then Σn≥1 an(A)n^(−2s)=ζF(4s)ζF(6s−1)ζA(2s)/ζA(4s) in a right half-plane. The exponent2s encodes discriminant multiplication by index².
 
@@ -4638,7 +4180,7 @@ The result must also satisfy these compatibility requirements: For an étale cub
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 Lemma 3.9, p.13; explicitly cites DW86 Theorem 6.1; [Boris Datskovsky and David J. Wright — The adelic zeta function associated to the space of binary cubic forms. II: local theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0367/LOG_0007.pdf), Theorem 6.1 and proof, p.68; relation (6.4), p.69.
 
-*Needs:* AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; ArithmeticStatistics ST.1; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor).
+*Needs:* AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Cubic action and projective parametrization](#cubic-action-discriminant); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor).
 
 <a id="proof-local-split-orbit-factor"></a>
 
@@ -4690,7 +4232,7 @@ See [Boris Datskovsky and David J. Wright — The adelic zeta function associate
 
 <a id="the-selected-quadratic-double-dirichlet-series-quadratic-double-series"></a>
 
-### 5.10 The selected quadratic double Dirichlet series
+### 5.14 The selected quadratic double Dirichlet series
 
 For odd d>0 put χd(n)=(d/n) on odd n, retaining square factors of d. Let L2(s,χdψ)=Σn positive odd χd(n)ψ(n)n^(−s), ζ2(s)=(1−2^(−s))ζ(s), and Z(s,w;ψ,ψ′)=ζ2(2s+2w−1)Σd positive odd L2(s,χdψ)ψ′(d)d^(−w). These are series on their stated convergence regions; their analytic continuations are separate functions. Row indices are (ψ,ψ′), with ψ′ varying fastest.
 
@@ -4717,7 +4259,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="quadratic-reciprocity-matrix-double-functional-system"></a>
 
-### 5.11 Quadratic reciprocity matrix
+### 5.15 Quadratic reciprocity matrix
 
 Define the 16×16 matrix A indexed by (ψ,ψ′),(ρ,ρ′) by A=1/16 Ση,ν∈{1,3,5,7} ψ(ν)ψ′(η)ρ(η)ρ′(ν)(−1)^(((η−1)/2)((ν−1)/2)). This is the odd Jacobi reciprocity transform. The affine transformations and the Gamma reflection matrix are separate constructions.
 
@@ -4751,7 +4293,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="primitive-quadratic-twist-data-double-primitive-twist-data"></a>
 
-### 5.12 Primitive quadratic twist data
+### 5.16 Primitive quadratic twist data
 
 For i=0,1,2,3 corresponding to ψ1,ψ−1,ψ2,ψ−2 and η=1,3,5,7, define q=8 for i≥2, q=1 for (i=0,η≡1mod4) or (i=1,η≡3mod4), and q=4 otherwise. Define κ=0,1,0,1. The removed Euler value e is zero unless q=1; then e=+1 for η=1,7 and e=−1 for η=3,5. These are the conductor factor, parity and value at 2 of the primitive quadratic character.
 
@@ -4775,7 +4317,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="imprimitive-odd-quadratic-twist-quadratic-twist-character"></a>
 
-### 5.13 Imprimitive odd quadratic twist
+### 5.17 Imprimitive odd quadratic twist
 
 For a positive odd integer d and twist i, define the Dirichlet character of modulus 8d with natural-integer coefficient χi,d(n)=(d/n)ψi(n) for odd n and zero for even n. This character retains all deleted square-factor Euler factors. Its primitive conductor is identified by quadratic-primitive-adapter, not assumed to be 8d.
 
@@ -4799,7 +4341,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="iterated-continuation-tubes-double-iterated-tube-bases"></a>
 
-### 5.14 Iterated continuation tubes
+### 5.18 Iterated continuation tubes
 
 Define B0={(x,y):y>1,x+y>3/2}. Recursively B(k+1)=Bk∪ak(Bk), where ak(x,y)=(y,x) for even k and ak(x,y)=(1−x,x+y−1/2) for odd k. Thus B0,..,B5 are the real bases R1,..,R6; their complex tubes allow arbitrary imaginary coordinates.
 
@@ -4823,7 +4365,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="the-binary-cubic-archimedean-functional-equation-matrix-cubic-archimedean-matrix"></a>
 
-### 5.15 The binary-cubic archimedean functional-equation matrix
+### 5.19 The binary-cubic archimedean functional-equation matrix
 
 At a real place use row/column signatures F_v³ and F_v×C, with c11=c22=(1/2)sin(2πs), c12=(3/2)sin(πs), c21=(1/2)sin(πs). At a complex place the single coefficient is sin²(πs)sin(πs−π/6)sin(πs+π/6). Define cαβ(s) as the product over archimedean places. The degree is n=r1+2r2, not the number of places.
 
@@ -4847,35 +4389,23 @@ See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The averag
 
 *Needs:* `Complex.cpow`; [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Real binary-cubic Fourier matrix](#proof-cubic-real-fourier-matrix); [Complex binary-cubic Fourier factor](#proof-cubic-complex-fourier-factor).
 
-<a id="proof-cubic-projective-parametrization"></a>
-
-**Cubic parameterization on nonprincipal modules.** For O=O_F, use locally free rank-three commutative unital O-algebras C, not only globally free algebras. Put V=(C/O·1)^∨. The analytic coefficient adapter includes every rank-two projective V and a section f of Sym³V⊗(∧²V)^∨. Isomorphisms of these pairs correspond to algebra isomorphisms, including stabilizers; discriminants are compared as sections of the determinant-line square before taking their ideal norms. Over a Dedekind domain these sections give the discriminant ideals even when there is no global discriminant element.
-
-Consume ST.1's explicit free/local multiplication and discriminant calculation. Its current scope explicitly excludes projective modules; the following gluing extension is a named local coefficient adapter here. Wood, [Parametrizing quartic algebras over an arbitrary base](https://msp.org/ant/2011/5-8/ant-v5-n8-p05-p.pdf), §2 Theorem2.1 and explicit construction, pp.1073–1074, gives the required general-base cubic construction. On a local trivialization, choose 1,ω,θ and shift ω,θ uniquely so that ωθ is scalar. Associativity determines the table. In Wood's sign convention it is
-ωθ=−ad, ω²=−ac+bω−aθ, θ²=−bd+dω−cθ.
-ST uses the simultaneously negated basis (−ω,−θ), giving its table with −b,+a,−d,+c; perform this basis comparison before identifying coefficient forms. The construction uses no division by2 or3. To check gluing, compute the normalized basis change for a general invertible 2×2 matrix on C/O, with the scalar shifts obtained from the cross-product coefficients; the resulting form transforms in Sym³V⊗(∧²V)^∨. These changes compose because normalization is unique. Thus the local free algebras and their algebra maps glue, and the reverse index-form construction glues to its inverse. A global basis or a choice of principal ideal class is never used. The quotient C/O is locally free: at every residue field the nonzero vector1 extends to a basis, and a suitable minor remains invertible on a neighbourhood.
-
-For the adelic comparison, a rank-two O-lattice Λ in F² corresponds to its completed lattices g_v O_v²; changing the F-basis and the O_v-bases gives the double coset GL₂(F)\GL₂(A_f)/∏GL₂(O_v). Recover Λ as F²∩∏g_v O_v². Localizing this intersection recovers each given local lattice, by clearing the finitely many denominators and the Chinese remainder theorem; this proves the two constructions inverse. The determinant ideal identifies its Steinitz class. A finite sum over these classes, with each actual lattice's binary forms, is therefore the integral adelic orbit sum. A form and its stabilizer descend by the preceding gluing, so weights are exactly1/|Aut_O C|. The trace condition for the dual is imposed locally as Tr(C)⊆3O; the Fourier dual includes the different from the separate measure comparison and is not identified with the original lattice at places over3.
-
-API: `.projective_form_equiv_cubic_algebra`, `.stabilizer_equiv_aut`, `.discriminant_ideal`, `.adelic_lattice_equiv`, `.trace_dual_comparison`. Checks: V=O² recovers ST's free/local bijection; V=O⊕I with I nonprincipal gives C/O≅O⊕I⁻¹ and cannot be replaced by O²; f=0 gives the square-zero algebra O⊕V^∨, including in characteristics2,3; at a place over3, the trace-divisible lattice is a proper condition, rather than an automatic consequence of rank3. *Needs:* ST.1 free/local binary cubics and stabilizers; AA.3.4 finite class-number decomposition; existing finite projective modules and local module gluing. This extension moves the minimum projective parameterization needed by the analytic series into this layer; a future general arithmetic PartII should consume it, not develop a second equivalence.
-
 <a id="from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient"></a>
 
-### 5.16 From arithmetic cubic orbits to analytic coefficients
+### 5.20 From arithmetic cubic orbits to analytic coefficients
 
-ST.1 Delone–Faddeev and stabilizer identifications transport the inverse-automorphism-weighted cubic-ring count to binary-cubic orbit coefficients, preserving discriminant, signature and the trace-divisible dual lattice. Over general O_F, nonprincipal locally free modules are included by the full adelic orbit interface.
+The local projective cubic correspondence and stabilizer identifications transport the inverse-automorphism-weighted cubic-ring count to binary-cubic orbit coefficients, preserving discriminant, signature and the trace-divisible dual lattice. Over general O_F, nonprincipal locally free modules are included by the full adelic orbit interface.
 
-The proof proceeds as follows. Apply the named projective parameterization adapter, which extends ST's local calculation by descent and identifies every adelic lattice component. Match determinant-line discriminants before taking ideal norms, preserve the trace-divisible condition locally, and transport stabilizers to algebra automorphisms. Summing all components gives the stated coefficients; there is no globally free-module assumption.
+The proof proceeds as follows. Apply the named projective parameterization adapter, which glues the preceding local multiplication law and identifies every adelic lattice component. Match determinant-line discriminants before taking ideal norms, preserve the trace-divisible condition locally, and transport stabilizers to algebra automorphisms. Summing all components gives the stated coefficients; there is no globally free-module assumption.
 
-The result must also satisfy these compatibility requirements: ST.1 Delone–Faddeev and stabilizer identifications transport the inverse-automorphism-weighted cubic-ring count to binary-cubic orbit coefficients, preserving discriminant, signature and the trace-divisible dual lattice. Over general O_F, nonprincipal locally free modules are included by the full adelic orbit interface.
+The result must also satisfy these compatibility requirements: The local projective cubic correspondence and stabilizer identifications transport the inverse-automorphism-weighted cubic-ring count to binary-cubic orbit coefficients, preserving discriminant, signature and the trace-divisible dual lattice. Over general O_F, nonprincipal locally free modules are included by the full adelic orbit interface.
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2, Proposition 3.7 and Lemmas 3.8–3.11, pp.11–14.
 
-*Needs:* [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); ArithmeticStatistics ST.1; [Cubic parameterization on nonprincipal modules](#proof-cubic-projective-parametrization).
+*Needs:* [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Cubic action and projective parametrization](#cubic-action-discriminant); [Cubic parameterization on nonprincipal modules](#proof-cubic-projective-parametrization).
 
 <a id="the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance"></a>
 
-### 5.17 The two cubic poles and their residues
+### 5.21 The two cubic poles and their residues
 
 For each signature α, there is an entire function CF,α agreeing off the poles with (s−1)(s−5/6)ξF,α(s); it is entire of order at most 1. The two residues are specified in separate declarations. An entire cleared function retains nonzero pole limits instead of assigning totalized product values at those points.
 
@@ -4885,7 +4415,7 @@ The result must also satisfy these compatibility requirements: Let ρF=Res_s=1 �
 
 See [Boris Datskovsky and David J. Wright — The adelic zeta function associated to the space of binary cubic forms. II: local theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0367/LOG_0007.pdf), Theorem 6.2(ii), p.71; LOWW Proposition 3.7(5), p.13.
 
-*Needs:* [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); ArithmeticStatistics ST.1; AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); AutomorphicSpectralTheory AS.2; [Ordinary cubic continuation data](#ordinary-cubic-continuation-data-cubic-continuation-data); [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Cubic meromorphic continuation](#proof-cubic-meromorphic-continuation); [Order-one bound for cubic clearance](#proof-cubic-entire-order-bound); [Cubic residue at one](#proof-cubic-residue-one); [Cubic secondary residue](#proof-cubic-residue-five-sixths).
+*Needs:* [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); [Cubic action and projective parametrization](#cubic-action-discriminant); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); AutomorphicSpectralTheory AS.2; [Ordinary cubic continuation data](#ordinary-cubic-continuation-data-cubic-continuation-data); [Uniform Stirling bounds for Γ on vertical strips](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Cubic meromorphic continuation](#proof-cubic-meromorphic-continuation); [Order-one bound for cubic clearance](#proof-cubic-entire-order-bound); [Cubic residue at one](#proof-cubic-residue-one); [Cubic secondary residue](#proof-cubic-residue-five-sixths).
 
 <a id="proof-cubic-adelic-convergence"></a>
 
@@ -4905,9 +4435,9 @@ See [D. J. Wright — The adelic zeta function associated to the space of binary
 
 <a id="proof-cubic-class-group-components"></a>
 
-**All class-group components in unfolding.** The S-integral adelic zeta decomposes over the full double quotient G(A_S)\G(A)/G(F), not just the identity lattice. Each component uses its associated rank-two lattice, binary-cubic lattice and arithmetic stabilizer. This is the analytic interface needed for the ST extension to nonprincipal locally free modules.
+**All class-group components in unfolding.** The S-integral adelic zeta decomposes over the full double quotient G(A_S)\G(A)/G(F), not just the identity lattice. Each component uses its associated rank-two lattice, binary-cubic lattice and arithmetic stabilizer. This is the analytic interface needed for the local correspondence on nonprincipal locally free modules.
 
-Choose double-quotient representatives and transport the rational-orbit sum into each lattice. Unfold each component with its own stabilizer and use the [projective parameterization adapter](#proof-cubic-projective-parametrization) to identify all locally free cubic algebras. The free ST calculation is imported; this minimum nonprincipal extension is owned here.
+Choose double-quotient representatives and transport the rational-orbit sum into each lattice. Unfold each component with its own stabilizer and use the [projective parameterization adapter](#proof-cubic-projective-parametrization) to identify all locally free cubic algebras. The local multiplication law and its projective gluing both belong to the preceding arithmetic target.
 
 See [D. J. Wright — The adelic zeta function associated to the space of binary cubic forms. Part I: global theory](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0270/LOG_0046.pdf), Proposition 4.2, p.519; DW (6.8), p.73.
 
@@ -5075,7 +4605,7 @@ See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The averag
 
 <a id="continued-odd-quadratic-l-function-quadratic-L-continuation"></a>
 
-### 5.18 Continued odd quadratic L-function
+### 5.22 Continued odd quadratic L-function
 
 For positive odd d, put L2continued(i,d,s)=DirichletCharacter.LFunction(χi,d,s). It agrees with the odd series on Re s>1, is meromorphic on C, and is entire when χi,d is nonprincipal. All mean estimates outside Re s>1 use this continued function.
 
@@ -5099,7 +4629,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="local-quadratic-reflection-ratio-double-local-reflection-ratio"></a>
 
-### 5.19 Local quadratic reflection ratio
+### 5.23 Local quadratic reflection ratio
 
 Define the meromorphic ratio r_i,η(s)=(q/π)^(1/2−s)Γ((1−s+κ)/2)/Γ((s+κ)/2)·(1−e2^(−s))/(1−e2^(s−1)). On Res<1 the numerator Gamma function and the Euler denominator have no poles or zeros, and reciprocal Gamma fills its denominator poles with zero. This determines an analytic function on that half-plane; the raw totalized quotient is used only where its factors are defined.
 
@@ -5123,7 +4653,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="the-cubic-global-matrix-functional-equation-cubic-global-functional-equation"></a>
 
-### 5.20 The cubic global matrix functional equation
+### 5.24 The cubic global matrix functional equation
 
 Write n=[F:Q], D=|Disc F|. Then ξF,α(1−s)=[3^(6s−2)π^(−4s)Γ(s)²Γ(s−1/6)Γ(s+1/6)]^n D^(4s−2) Σβ cαβ(s) ξhatF,β(s). This is LOWW Proposition 3.7(3), obtained from the original adelic equation and the stated local Fourier comparisons; the nonarchimedean local distribution theorem is Datskovsky–Wright Theorem 3.2, p.47, proved from Igusa 1984, Theorem 1.
 
@@ -5133,7 +4663,7 @@ The result must also satisfy these compatibility requirements: Write n=[F:Q], D=
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 Proposition 3.7(3), pp.12–13.
 
-*Needs:* [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; ArithmeticStatistics ST.1; AutomorphicSpectralTheory AS.2; [The binary-cubic archimedean functional-equation matrix](#the-binary-cubic-archimedean-functional-equation-matrix-cubic-archimedean-matrix); `Complex.Gamma`; [From arithmetic cubic orbits to analytic coefficients](#from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Archimedean Fourier comparison](#proof-cubic-archimedean-fourier-comparison).
+*Needs:* [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Cubic action and projective parametrization](#cubic-action-discriminant); AutomorphicSpectralTheory AS.2; [The binary-cubic archimedean functional-equation matrix](#the-binary-cubic-archimedean-functional-equation-matrix-cubic-archimedean-matrix); `Complex.Gamma`; [From arithmetic cubic orbits to analytic coefficients](#from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Archimedean Fourier comparison](#proof-cubic-archimedean-fourier-comparison).
 
 <a id="proof-cubic-archimedean-fourier-comparison"></a>
 
@@ -5145,7 +4675,7 @@ See [Boris Datskovsky and David J. Wright — The adelic zeta function associate
 
 <a id="pole-cleared-quadratic-l-function-quadratic-pole-clearance"></a>
 
-### 5.21 Pole-cleared quadratic L-function
+### 5.25 Pole-cleared quadratic L-function
 
 Define H_i,d(s)=(s−1)L2continued(i,d,s) away from 1 and fill its value at 1 by the residue. If χi,d is principal that value is product_p|8d(1−p^(−1)); otherwise it is zero. The resulting H_i,d is entire. This is the function in the pole-aware strip moment.
 
@@ -5169,7 +4699,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="quadratic-reflection-matrix-double-reflection-matrix"></a>
 
-### 5.22 Quadratic reflection matrix
+### 5.26 Quadratic reflection matrix
 
 Define B(s) blockwise: B(s)[(i,j),(i,k)]=1/4 Ση ψj(η)r_i,η(s)ψk(η); blocks with different i vanish. The matrix is a meromorphic matrix, with removable values filled. The local ratios use the displayed primitive conductor table, not conductor 8 in every twist.
 
@@ -5193,7 +4723,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="the-degree-dependent-zero-at-the-origin-cubic-zero-at-origin"></a>
 
-### 5.23 The degree-dependent zero at the origin
+### 5.27 The degree-dependent zero at the origin
 
 For n≥2, ξF,α(0)=0. More precisely the functional equation gives vanishing order at least n−1 at0, since each dual series has at most a simple pole at1.
 
@@ -5203,7 +4733,7 @@ The result must also satisfy these compatibility requirements: For n≥2, ξF,α
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 Lemma 3.8 and proof, p.13.
 
-*Needs:* [The binary-cubic archimedean functional-equation matrix](#the-binary-cubic-archimedean-functional-equation-matrix-cubic-archimedean-matrix); [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; ArithmeticStatistics ST.1; [From arithmetic cubic orbits to analytic coefficients](#from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient); `Complex.Gamma`; [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); AutomorphicSpectralTheory AS.2; [Ordinary cubic continuation data](#ordinary-cubic-continuation-data-cubic-continuation-data); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor); [Absolute convergence of cubic Shintani series](#proof-cubic-absolute-convergence); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Cubic meromorphic continuation](#proof-cubic-meromorphic-continuation); [Archimedean coefficients vanish to degree order](#proof-arch-entry-vanishing-at-one); [The global prefactor is a unit at one](#proof-gamma-unit-at-one); [Simple poles of the dual cubic Shintani series](#proof-cubic-dual-simple-poles).
+*Needs:* [The binary-cubic archimedean functional-equation matrix](#the-binary-cubic-archimedean-functional-equation-matrix-cubic-archimedean-matrix); [The selected adelic binary-cubic zeta integral](#the-selected-adelic-binary-cubic-zeta-integral-cubic-adelic-zeta); AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups AA.2; [Cubic action and projective parametrization](#cubic-action-discriminant); [From arithmetic cubic orbits to analytic coefficients](#from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient); `Complex.Gamma`; [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); AutomorphicSpectralTheory AS.2; [Ordinary cubic continuation data](#ordinary-cubic-continuation-data-cubic-continuation-data); [Self-dual versus integral-normalized measures](#proof-local-measure-normalization); [Binary cubic orbital Jacobian](#proof-local-orbit-jacobian); [Adelic binary cubic convergence](#proof-cubic-adelic-convergence); [Adelic orbital unfolding](#proof-cubic-adelic-unfolding); [All class-group components in unfolding](#proof-cubic-class-group-components); [Split local factor](#proof-local-split-orbit-factor); [Unramified quadratic local factor](#proof-local-unramified-quadratic-factor); [Ramified quadratic local factor](#proof-local-ramified-quadratic-factor); [Unramified cubic local factor](#proof-local-unramified-cubic-factor); [Ramified cubic local factor](#proof-local-ramified-cubic-factor); [Five local orbital Euler factors](#proof-local-orbital-euler-factor); [Absolute convergence of cubic Shintani series](#proof-cubic-absolute-convergence); [Entire truncated cubic integral](#proof-cubic-truncated-entire); [Poisson decomposition of the global integral](#proof-cubic-poisson-decomposition); [Rank-one smoothing extracts the quotient integral](#proof-cubic-smoothing-residue); [Zero-orbit contribution](#proof-cubic-zero-singular-term); [Compact averaging and Fourier](#proof-cubic-compact-average-laws); [Singular distributions from Tate integrals](#proof-cubic-singular-tate-restrictions); [Unfold the triple-root orbit](#proof-cubic-triple-root-unfolding); [Triple-root contour residues](#proof-cubic-triple-root-residue); [Unfold the double-root orbit](#proof-cubic-double-root-unfolding); [Double-root contour residues](#proof-cubic-double-root-residue); [Cancel the extra smoothing poles](#proof-cubic-singular-cancellation); [Integrate the singular radial powers](#proof-cubic-singular-rational-term); [Adelic cubic continuation and equation](#proof-cubic-adelic-meromorphic-equation); [Fourier transform of the integral lattice](#proof-local-finite-fourier-dual); [Cubic meromorphic continuation](#proof-cubic-meromorphic-continuation); [Archimedean coefficients vanish to degree order](#proof-arch-entry-vanishing-at-one); [The global prefactor is a unit at one](#proof-gamma-unit-at-one); [Simple poles of the dual cubic Shintani series](#proof-cubic-dual-simple-poles).
 
 <a id="proof-cubic-absolute-convergence"></a>
 
@@ -5241,7 +4771,7 @@ See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The averag
 
 <a id="pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity"></a>
 
-### 5.24 Pole-aware cubic convexity bound
+### 5.28 Pole-aware cubic convexity bound
 
 For −1/2≤σ≤3/2, |t|≥1 and ε>0, ξF,α(σ+it)≪ε,n h2(F)D^(7/2−2σ+ε)(1+|t|)^(2n(3/2−σ)+ε). Apply Phragmén–Lindelöf to the pole-cleared function. The displayed inequality without pole exclusion is false at s=1 and5/6; the bound is asserted only on this pole-free range.
 
@@ -5251,11 +4781,11 @@ The result must also satisfy these compatibility requirements: For −1/2≤σ�
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 Lemma 3.11 and proof, p.14; restricted to |t|≥1 to avoid poles.
 
-*Needs:* [Orders in a fixed étale cubic algebra](#orders-in-a-fixed-tale-cubic-algebra-cubic-orders-generating-series); [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); ArithmeticStatistics ST.3; [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation); [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling); [Entire order at most ρ](#entire-order-at-most-entire-order-at-most); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [The weighted cubic-coefficient bound](#proof-cubic-reducible-and-field-coefficient-bound); [Reflected vertical bound from the matrix equation](#proof-cubic-reflected-bound).
+*Needs:* [Orders in a fixed étale cubic algebra](#orders-in-a-fixed-tale-cubic-algebra-cubic-orders-generating-series); [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Uniform small-degree field count](#cubic-uniform-field-count); [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation); [Uniform Stirling bounds for Γ on vertical strips](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); [Entire order at most ρ](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-0-growth-predicates-and-the-entire-completion); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [The weighted cubic-coefficient bound](#proof-cubic-reducible-and-field-coefficient-bound); [Reflected vertical bound from the matrix equation](#proof-cubic-reflected-bound).
 
 <a id="proof-cubic-reducible-and-field-coefficient-bound"></a>
 
-**The weighted cubic-coefficient bound.** For every ε>0 and real σ>3/2, ξF,α(σ)≪[F:Q],σ,ε D^(1/2+ε)h2(F). Prove the separate split/quadratic-factor and cubic-field contributions using LOWW Lemma3.5 and the orders formula; the field-count input remains with ST.
+**The weighted cubic-coefficient bound.** For every ε>0 and real σ>3/2, ξF,α(σ)≪[F:Q],σ,ε D^(1/2+ε)h2(F). Prove the separate split/quadratic-factor and cubic-field contributions using LOWW Lemma3.5 and the orders formula; the field-count input is the [uniform small-degree count](#cubic-uniform-field-count) of this layer.
 
 Decompose cubic étale algebras into split, quadratic-factor and cubic-field types. Use the appropriate discriminant/count bound for each. Sum the order-index factor with σ>3/2 and retain h2(F).
 
@@ -5269,9 +4799,31 @@ Bound the dual by the ordinary positive-coefficient series at1−σ>3/2. Apply S
 
 See [Robert J. Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average size of 3-torsion in class groups of 2-extensions](https://arxiv.org/pdf/2110.07712), §3.2 proof of Lemma 3.11, left-boundary estimate, p.14; combine Proposition 3.7(3) with Lemma 3.10.
 
+<a id="quadratic-large-sieve"></a>
+
+### 5.29 Quadratic large sieve and primitive real-character moment
+
+For every ε>0 there is C_ε>0 such that for positive integers M,N and arbitrary complex coefficients a₁,…,a_N,
+`Σ_{m≤M, m odd squarefree} |Σ_{n≤N, n odd squarefree} a_n (n/m)|² ≤ C_ε (MN)^ε (M+N) Σ_{n≤N, n odd squarefree}|a_n|²`.
+The symbol is the Jacobi symbol, extended by zero when numerator and denominator are not coprime; m=1 and n=1 are included. The associated primitive-real-character form, for Q,N≥1, is
+`Σ_{χ primitive real, cond χ≤Q} |Σ_{n≤N} μ²(n)a_nχ(n)|² ≤ C_ε (QN)^ε(Q+N)Σ_{n≤N}μ²(n)|a_n|²`.
+For unrestricted coefficients replace the inner polynomial by Σa_nχ(n) and the final squarefree diagonal by `Σ_{1≤n₁,n₂≤N, n₁n₂ a square}|a_n₁a_n₂|` (Corollary 2); the same (QN)^ε(Q+N) factor applies. The constant is uniform in the coefficients and the two cutoffs. This is a family estimate, not an individual cancellation assertion. The carrier is Mathlib's existing Dirichlet characters, with realness χ²=1 and primitivity stated explicitly.
+
+The proof target is Heath-Brown's reciprocity/duality recursion: dyadically localize, use quadratic reciprocity to interchange the two squarefree variables, apply Poisson to the smoothed character sum, and iterate the resulting norm bound until its exponents reach M+N (Theorem 1, §§2–9). For Corollary 1, partition odd discriminants by residue modulo 4 or 8 and separate the 2-adic twists; the four primitive real characters at conductors 1,4,8 are the finite parity data. For non-squarefree coefficients use Corollary 2's square-pair convolution, not this squarefree inequality without a correction. The fourth moment below is an additional theorem obtained by the smoothed L² functional equation, not by extending an individual Dirichlet series into the critical strip.
+
+**Checks.**
+
+- With a₁=1 and all other coefficients zero, the left side is exactly the number of odd squarefree m≤M.
+- With M=1,N=3,a₁=1,a₃=−1 it is 0, whereas a₁=a₃=1 gives 4; arbitrary complex signs must be retained before squaring.
+- For m=n=3 the symbol is 0; replacing it by a unit would change the sum.
+- The principal conductor-one character is present in the finite polynomial bound, but excluded from the pole-sensitive fourth moment at s=1.
+- For σ=1/2 the fourth-moment bound has size Q(1+|t|), up to ε powers; σ=1 gives Q+1. No asymptotic fourth-moment formula at the critical line is asserted.
+
+See [Heath-Brown, A mean value estimate for real character sums](https://matwbn.icm.edu.pl/ksiazki/aa/aa72/aa7234.pdf), Theorem 1 and Corollary 1 p.237, Corollary 2 and Theorem 2 p.238, proof of Theorem 1 §§2–9 pp.239–267, fourth-moment proof §10 pp.267–269. API: `quadraticLargeSieve.odd_squarefree`, `.primitive_real`, `.square_pair_correction`; `quadraticFourthMoment`. The representative Lean statements are `quadratic_large_sieve` and `quadratic_fourth_moment`; the latter allows any finite subset of this primitive real family. *Needs:* Mathlib `jacobiSym`, quadratic reciprocity and finite Dirichlet characters; Fourier/Poisson from AutomorphicLFunctionsAndLocalFactors AL.0; the primitive functional equation and the imported Gamma bounds.
+
 <a id="meromorphic-continuation-and-the-three-polar-hyperplanes-double-series-continuation"></a>
 
-### 5.25 Meromorphic continuation and the three polar hyperplanes
+### 5.30 Meromorphic continuation and the three polar hyperplanes
 
 For each twist pair i,j there is a unique entire function Eij on C² whose value on Res>1, Rew>1 is P(s,w)Zij(s,w), where P=(s−1)(w−1)(s+w−3/2). The meromorphic continuation is represented off P=0 by Eij/P. Values of a totalized quotient on P=0 are not used. Functional equations are germ identities; polynomial vertical growth is a separate lemma.
 
@@ -5281,7 +4833,7 @@ The result must also satisfy these compatibility requirements: For each pair of 
 
 See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §3 Lemma 2, equation (27), p.361; proof pp.361–364.
 
-*Needs:* `AnalyticOnNhd`; `jacobiSym`; [The selected quadratic double Dirichlet series](#the-selected-quadratic-double-dirichlet-series-quadratic-double-series); `zeta_eq_tsum_one_div_nat_cpow`; `LSeries`; [Primitive quadratic twist data](#primitive-quadratic-twist-data-double-primitive-twist-data); `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; `DirichletCharacter.LFunction_changeLevel`; [The four real characters modulo eight](#the-four-real-characters-modulo-eight-characters-mod-eight); [Continued odd quadratic L-function](#continued-odd-quadratic-l-function-quadratic-L-continuation); [Imprimitive odd quadratic twist](#imprimitive-odd-quadratic-twist-quadratic-twist-character); `DirichletCharacter`; ArithmeticStatistics ST.2; [Pole-cleared quadratic L-function](#pole-cleared-quadratic-l-function-quadratic-pole-clearance); [Quadratic reciprocity matrix](#quadratic-reciprocity-matrix-double-functional-system); [Swap of double-series variables](#swap-of-double-series-variables-double-affine-swap); [Quadratic reflection matrix](#quadratic-reflection-matrix-double-reflection-matrix); [Quadratic reflection of double-series variables](#quadratic-reflection-of-double-series-variables-double-affine-reflection); [Iterated continuation tubes](#iterated-continuation-tubes-double-iterated-tube-bases); [Local quadratic reflection ratio](#local-quadratic-reflection-ratio-double-local-reflection-ratio); [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling); [Normal convergence in the first tube](#proof-double-normal-convergence); [Absolute convergence in the initial double tube](#proof-odd-double-sum-absolute); [Unique odd squarefree factorization](#proof-odd-squarefree-factorization); [Quadratic conductor and root number](#proof-quadratic-primitive-adapter); [Nonzero squarefree-series denominator](#proof-double-denominator-unit); [Separating square factors of the discriminant index](#proof-squarefree-square-decomposition); [Quadratic fourth moment](#proof-quadratic-fourth-moment); [Primitive quadratic first moment](#proof-quadratic-holder-first-moment); [Imprimitive square-factor bound](#proof-quadratic-square-factor-sum); [The first-moment input for the wider convergence tube](#proof-quadratic-mean-bound-import); [Pole-aware strip first moment](#proof-quadratic-pole-aware-strip-moment); [Locally uniform convergence in R1](#proof-double-R1-convergence); [The swap functional equation](#proof-reciprocity-swap-equation); [The reflection functional equation](#proof-quadratic-reflection-equation); [The zero block that removes a false pole](#proof-reflect-holomorphy-and-zero); [Functional branches agree on overlaps](#proof-double-overlap-identity); [Cancellation of spurious reflected poles](#proof-double-reflected-pole-cancellation); [Gluing the four continued tubes](#proof-tube-overlap-gluing); [Bochner tube extension](#proof-tube-bochner-extension); [Bound survives tube extension](#proof-tube-reciprocal-bound); [Affine dihedral action](#proof-double-affine-dihedral); [Real shell convex hull](#proof-double-shell-hull); [Gamma reflection block growth](#proof-double-gamma-quotient-growth); [Bounded normalization on the shell tube](#proof-double-shell-normalizer); [Filling the remaining real twelve-gon](#proof-tube-hull-extension); [Polynomial growth of cleared double series](#proof-double-growth).
+*Needs:* `AnalyticOnNhd`; `jacobiSym`; [The selected quadratic double Dirichlet series](#the-selected-quadratic-double-dirichlet-series-quadratic-double-series); `zeta_eq_tsum_one_div_nat_cpow`; `LSeries`; [Primitive quadratic twist data](#primitive-quadratic-twist-data-double-primitive-twist-data); `DirichletCharacter.IsPrimitive.completedLFunction_one_sub`; `DirichletCharacter.LFunction_changeLevel`; [The four real characters modulo eight](#the-four-real-characters-modulo-eight-characters-mod-eight); [Continued odd quadratic L-function](#continued-odd-quadratic-l-function-quadratic-L-continuation); [Imprimitive odd quadratic twist](#imprimitive-odd-quadratic-twist-quadratic-twist-character); `DirichletCharacter`; [Quadratic large sieve and fourth moment](#quadratic-large-sieve); [Pole-cleared quadratic L-function](#pole-cleared-quadratic-l-function-quadratic-pole-clearance); [Quadratic reciprocity matrix](#quadratic-reciprocity-matrix-double-functional-system); [Swap of double-series variables](#swap-of-double-series-variables-double-affine-swap); [Quadratic reflection matrix](#quadratic-reflection-matrix-double-reflection-matrix); [Quadratic reflection of double-series variables](#quadratic-reflection-of-double-series-variables-double-affine-reflection); [Iterated continuation tubes](#iterated-continuation-tubes-double-iterated-tube-bases); [Local quadratic reflection ratio](#local-quadratic-reflection-ratio-double-local-reflection-ratio); [Uniform Stirling bounds for Γ on vertical strips](https://github.com/roed-math/TauCetiRoadmap/blob/cce2e04188a559be9a16037d0d65e00a815fcecc/TauCetiRoadmap/ZerosOfLFunctions/README.md#layer-1-gamma-factor-asymptotics-and-the-continued-l-function); [Normal convergence in the first tube](#proof-double-normal-convergence); [Absolute convergence in the initial double tube](#proof-odd-double-sum-absolute); [Unique odd squarefree factorization](#proof-odd-squarefree-factorization); [Quadratic conductor and root number](#proof-quadratic-primitive-adapter); [Nonzero squarefree-series denominator](#proof-double-denominator-unit); [Separating square factors of the discriminant index](#proof-squarefree-square-decomposition); [Quadratic fourth moment](#proof-quadratic-fourth-moment); [Primitive quadratic first moment](#proof-quadratic-holder-first-moment); [Imprimitive square-factor bound](#proof-quadratic-square-factor-sum); [The first-moment input for the wider convergence tube](#proof-quadratic-mean-bound-import); [Pole-aware strip first moment](#proof-quadratic-pole-aware-strip-moment); [Locally uniform convergence in R1](#proof-double-R1-convergence); [The swap functional equation](#proof-reciprocity-swap-equation); [The reflection functional equation](#proof-quadratic-reflection-equation); [The zero block that removes a false pole](#proof-reflect-holomorphy-and-zero); [Functional branches agree on overlaps](#proof-double-overlap-identity); [Cancellation of spurious reflected poles](#proof-double-reflected-pole-cancellation); [Gluing the four continued tubes](#proof-tube-overlap-gluing); [Bochner tube extension](#proof-tube-bochner-extension); [Bound survives tube extension](#proof-tube-reciprocal-bound); [Affine dihedral action](#proof-double-affine-dihedral); [Real shell convex hull](#proof-double-shell-hull); [Gamma reflection block growth](#proof-double-gamma-quotient-growth); [Bounded normalization on the shell tube](#proof-double-shell-normalizer); [Filling the remaining real twelve-gon](#proof-tube-hull-extension); [Polynomial growth of cleared double series](#proof-double-growth).
 
 <a id="proof-double-normal-convergence"></a>
 
@@ -5333,7 +4885,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 <a id="proof-quadratic-fourth-moment"></a>
 
-**Quadratic fourth moment.** For fixed σ∈[1/2,1] and ε>0, Σχ nonprincipal primitive real,condχ≤Q |L(σ+it,χ)|⁴ ≤ Cσ,ε [Q+(Q(1+|t|))^(2−2σ)](Q(1+|t|))^ε, for Q≥1 and t∈R. The conductor-one principal character is treated separately.
+**Quadratic fourth moment.** Consume the [quadratic large sieve](#quadratic-large-sieve) just stated.  For fixed σ∈[1/2,1] and ε>0, Σχ nonprincipal primitive real,condχ≤Q |L(σ+it,χ)|⁴ ≤ Cσ,ε [Q+(Q(1+|t|))^(2−2σ)](Q(1+|t|))^ε, for Q≥1 and t∈R. The conductor-one principal character is treated separately.
 
 Use the quadratic large sieve on the smoothed Dirichlet polynomial for L². Bound the reflected contour using the primitive functional equation; bootstrap the dyadic fourth moment and treat σ=1/2 by σ=1/2−ε.
 
@@ -5520,7 +5072,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 **Bochner connected-tube extension.** The [primary connected-tube proof](#proof-tube-bochner-extension), from Hounie’s Gaussian entire approximation and analytic discs, covers arbitrary finite dimension and its m=0 specialization. The bound passes by the reciprocal argument for1/(f−a). Connectedness, openness and all imaginary directions remain hypotheses; an arbitrary punctured complex domain is excluded. Used in [Meromorphic continuation and the three polar hyperplanes](#meromorphic-continuation-and-the-three-polar-hyperplanes-double-series-continuation).
 
-**Cubic rings on nonprincipal modules.** The [projective gluing adapter](#proof-cubic-projective-parametrization) extends the imported ST free/local multiplication law using Wood’s general-base construction and all adelic lattice components. It preserves stabilizers, determinant-line discriminants and the trace-divisible dual. ArithmeticStatistics remains the owner of finite inverse-automorphism-weighted counts and the field-count estimate; the free calculation is consumed rather than repeated. A PID-only parametrization is not used for the global series. Used in [From arithmetic cubic orbits to analytic coefficients](#from-arithmetic-cubic-orbits-to-analytic-coefficients-cubic-orbit-to-coefficient); [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [The degree-dependent zero at the origin](#the-degree-dependent-zero-at-the-origin-cubic-zero-at-origin); [Signature-refined cubic Shintani zeta functions](#signature-refined-cubic-shintani-zeta-functions-cubic-shintani-series); [Pole-aware cubic convexity bound](#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity).
+**Cubic arithmetic coefficients.** The preceding projective correspondence owns the free multiplication law and its gluing on every Steinitz component. Finite weighted discriminant fibres and the uniform small-degree field count belong to this layer. The orders formula converts field counts to ring coefficients; it does not omit reducible or nonmaximal rings. The trace-divisible dual and local stabilizers retain their exact weights.
 
 **Local distribution functional equations: external original proofs.** The [real Shintani calculation](#proof-cubic-real-fourier-matrix) and [complex Gaussian calculation](#proof-cubic-complex-fourier-factor) specify the archimedean matrices and basis conversion. The [nonarchimedean distribution theorem](#proof-cubic-local-distribution-continuation) (Datskovsky–Wright Theorem3.2, p.47, proved from Igusa 1984, Theorem1) covers arbitrary Schwartz tests and ramified characters; the five unramified standard-test factors do not replace it. Retain residue characteristics2,3, the different, discriminant and |3| in every measure comparison. Used in [Binary-cubic local zeta integrals](#binary-cubic-local-zeta-integrals-pvs-local-zeta); [Orders in a fixed étale cubic algebra](#orders-in-a-fixed-tale-cubic-algebra-cubic-orders-generating-series); [The two cubic poles and their residues](#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance); [The degree-dependent zero at the origin](#the-degree-dependent-zero-at-the-origin-cubic-zero-at-origin); [The cubic global matrix functional equation](#the-cubic-global-matrix-functional-equation-cubic-global-functional-equation).
 
@@ -5538,7 +5090,7 @@ The four real characters modulo 8 are separated by their values at 3, 5 and 7. S
 
 ### Dependencies
 
-AutomorphicLFunctionsAndLocalFactors Layer 0 for Fourier and Poisson estimates; AdelicAlgebraicGroups Layer 2 for GL₂ quotient measures and inversion; ArithmeticStatistics Layers 0–3 for cubic orbits, local densities, large sieve, fourth moments and uniform cubic counts; AutomorphicSpectralTheory §§1.2–1.5 for general reductive Eisenstein theory; the local Wright adapter supplies the GL₂ height, residue and fixed-strip Fourier normalization. Layers 0–2 supply prime estimates, uniform Gamma factors and quadratic Hecke continuation.
+AutomorphicLFunctionsAndLocalFactors Layer 0 for Fourier and Poisson estimates; AdelicAlgebraicGroups Layer 2 for GL₂ quotient measures and inversion; the local cubic arithmetic targets and quadratic large sieve/fourth moment for coefficient estimates; AutomorphicSpectralTheory §§1.2–1.5 for general reductive Eisenstein theory; the local Wright adapter supplies the GL₂ height, residue and fixed-strip Fourier normalization. Layers 0–2 supply prime estimates, the rational Hecke dictionary and quantitative refinements; ZerosOfLFunctions supplies generic Gamma and zero estimates.
 
 <a id="layer-6-the-bost-connes-system-and-compact-spectral-determinants"></a>
 
@@ -7622,7 +7174,7 @@ Mathlib Hecke and C⋆-algebra, Hilbert-space, trace-class and measure tools whe
 
 ## Downstream consumers
 
-ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progression estimates, divisor constants and Mangoldt-window bounds. For a growing W-trick modulus the consumer must prove W≤(log x)^B before using Siegel–Walfisz. ArithmeticStatistics consumes quadratic and cubic analytic estimates and supplies the arithmetic input of the same bundle. CM-height applications consume the fixed-degree conductor, value and logarithmic-derivative bounds with the odd normal-closure representation family stated above. Quadratic period applications consume the ordinary/narrow class and regulator dictionary. Spectral and noncommutative arithmetic applications consume the completed Bost–Connes system, its phase transition and the compact determinant comparison. These are uses of the results, not additional prerequisite roadmaps.
+ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progression estimates, divisor constants and Mangoldt-window bounds. For a growing W-trick modulus the consumer must prove W≤(log x)^B before using Siegel–Walfisz. ArithmeticStatistics is downstream: it consumes the cubic parametrization, finite weighted coefficients, field-count bounds, quadratic large sieve, fourth moments and analytic continuations provided here. Its references to these inputs should point to Layer 5. CM-height applications consume the fixed-degree conductor, value and logarithmic-derivative bounds with the odd normal-closure representation family stated above. Quadratic period applications consume the ordinary/narrow class and regulator dictionary. Spectral and noncommutative arithmetic applications consume the completed Bost–Connes system, its phase transition and the compact determinant comparison. These are uses of the results, not additional prerequisite roadmaps.
 
 ## References
 
@@ -7691,3 +7243,6 @@ ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progres
 - Asif Ali Zaman. [Analytic estimates for the Chebotarev Density Theorem and their applications](https://www.math.toronto.edu/zaman/files/thesis.pdf). PhD thesis, University of Toronto, 2017.
 
 - Stéphane Louboutin. [Explicit upper bounds for residues of Dedekind zeta functions and values of L-functions at s=1, and explicit lower bounds for relative class numbers of CM-fields](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2672D419BA7EA98C5C7C757259F2DA83/S0008414X00028418a.pdf/explicit-upper-bounds-for-residues-of-dedekind-zeta-functions-and-values-of-l-functions-at-s-1-and-explicit-lower-bounds-for-relative-class-numbers-of-cm-fields.pdf). Canadian Journal of Mathematics53(6)(2001),1194–1222; Theorem1(1), §6.1, pp.1214–1215.
+
+- Melanie Matchett Wood. [Parametrizing quartic algebras over an arbitrary base](https://msp.org/ant/2011/5-8/ant-v5-n8-p05-p.pdf). Algebra & Number Theory 5 (2011), 1069–1094; §2, Theorem 2.1, pp.1073–1074 supplies the general-base cubic correspondence.
+- Gergő Nemes. [Error bounds and exponential improvements for the asymptotic expansions of the gamma function and its reciprocal](https://arxiv.org/pdf/1310.0166v2). arXiv:1310.0166v2; §2, (2.5), p.6 supplies the Stieltjes representation used for differentiated remainders.
