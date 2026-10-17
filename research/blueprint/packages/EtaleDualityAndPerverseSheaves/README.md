@@ -28,6 +28,8 @@ A correspondence has legs c₁:C→X₁ and c₂:C→X₂. Its cohomological mor
 
 ## Exact supplier contracts
 
+The named suppliers below are the existing TauCetiRoadmap documents, with versioned references in the bibliography. In particular, the weight-theory input is [TauCetiRoadmap.DeligneWeightsAndPurity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/5f713c436ee303ceb25938d815e236b1a2c3d09a/TauCetiRoadmap/DeligneWeightsAndPurity/README.md), whose scalar, lisse and absolute Lefschetz targets are consumed here.
+
 ### From Mathlib and Tau Ceti
 
 Use Mathlib at `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti at `f790474821cf4256814db967cb154e7af3d0c369`. `CategoryTheory.Triangulated.TStructure` supplies the predicates `le`, `ge`, `heart`, `bounded`, the `Heart` inclusion class, and the functors `truncLE` and `truncGE`. `TStructure.heart` is the intersection of the two degree-zero object properties. At this pin the assertion that every heart is abelian is still absent; `Triangulated.AbelianSubcategory.abelian` supplies a criterion for the proof in Layer 2. `DerivedCategory.TStructure.t` and `DerivedCategory.homologyFunctor` supply the ordinary derived-category comparison. Ordinary category theory supplies adjunctions, images, kernels, full subcategories and finite biproducts.
@@ -62,7 +64,7 @@ DeligneWeightsAndPurity §§0.1–0.19 supply scalar Weil numbers and fixed-ι w
 
 ComplexComparisonPartII §§C−1.1, C5.4, C6.0–C6.6 supplies algebraically constructible analytic coefficient categories, finite Artin comparison, ordinary and compact integral/rational realization, proper Rf* and separated finite-Tor Rf! comparison, and the integral exponential/Kummer first-Chern comparison. The additional nonproper constructible Rf* exchange, perverse equivalence and rational stable-lattice essential image are §3.5 below. AlgebraicTopology Stage 6 supplies relative cochains, local orientations and products. Section 3.6 constructs the additional supported normal-bundle Thom/Gysin maps, complete coefficient systems and torsion-sensitive noncompact constructible duality from those cochains, localization and local orientation calculations.
 
-ClassicalAdicEtaleCohomology §§H3, H5 supplies the chart-independent analytic smooth trace, analytic c₁ and Huber proper and nonproper algebraic-model cohomology comparisons. AdicSpacesPartII §R1 supplies scheme-fibre-product analytification. The full smooth-duality comparison in §3.8 uses Huber's prime-to-**residue**-characteristic range, a quasi-separated target and tautness for proper supports. Extending it to normalized integral analytic systems additionally requires an analytic constructible derived-complete realization with common strata and uniform bounds; that extension is not asserted by the finite theorem.
+ClassicalAdicEtaleCohomology §§9.3–9.6, 8.2 and 11.1 supplies the chart-independent analytic smooth trace, analytic c₁ and Huber proper and nonproper algebraic-model cohomology comparisons. AdicSpacesPartII §R1 supplies scheme-fibre-product analytification. The full smooth-duality comparison in §3.8 uses Huber's prime-to-**residue**-characteristic range, a quasi-separated target and tautness for proper supports. Extending it to normalized integral analytic systems additionally requires an analytic constructible derived-complete realization with common strata and uniform bounds; that extension is not asserted by the finite theorem.
 
 AdicCoefficientsAndComparisons §§L0–L3 supplies the ambient completed coefficient categories, the characteristic-p scheme/diamond functor c*, its full faithfulness, monoidality and pullback, Rf! comparison and right-adjoint recovery of f! and internal Hom. Sections L4 and L6 supply the complete-DVR proper-support and constructible direct-image/full-faithfulness comparisons in their finite prime-to-residue-characteristic range. These give the mate and recovery equations in §3.9. Strong c*f! comparison additionally requires the specified essential-image/counit condition; ambient full faithfulness alone does not imply it.
 
@@ -671,7 +673,7 @@ contract above.
 
 - X = Spec k: (a) is RHom(K, Λ) ≅ RHom(K, Λ).
 
-- X = Spec 𝔽_q, K = Λ: relative duality holds in D(𝔽_q,ét, Λ), while the absolute form fails in degrees ±1 (H¹(𝔽_q, Λ) = Λ against Ext^{−1} = Λ in degree −1),.
+- X = Spec 𝔽_q, K = Λ: relative duality holds in D(𝔽_q,ét, Λ), while the absolute form fails in degrees ±1 (H¹(𝔽_q, Λ) = Λ against Ext^{−1} = Λ in degree −1).
 
 - X = P¹ over an algebraically closed field: H^{−q}(X, D Λ) = H^{2−q}(X, Λ(1)) is dual to H^q(X, Λ).
 
@@ -939,7 +941,7 @@ compactifiable of pure relative dimension d, n invertible on S, Λ = O/πⁿ, an
 constructible sheaf of Λ-modules on X such that the R^q f_!(F^∨) are locally constant constructible for all q.
 Then R^q f_*F ≅ Hom_Λ(R^{2d−q}f_!(F^∨), Λ)(−d) for every q, compatibly with base change; in particular, for f
 proper smooth the sheaves R^q f_*F and R^{2d−q}f_*(F^∨(d)) are dual local systems. This is the scheme analogue
-of Berkovich's Theorem 7.4.9 required by ClassicalAdicEtaleCohomology H5.
+of Berkovich's Theorem 7.4.9 used in ClassicalAdicEtaleCohomology §9.2.
 
 Work with the following additional hypotheses. f smooth compactifiable of pure relative dimension d; F locally
 constant constructible with locally constant R^q f_!(F^∨); Λ self-injective.
@@ -2519,9 +2521,9 @@ no shift by 2d). If X is smooth and L extends to a locally constant sheaf L_X on
 1, IC_X(L) ≅ (j_*L)[1]; if ν : X′ → X is finite and an isomorphism over U with X′ smooth of pure dimension d
 and L′ locally constant on X′ extending L, then IC_X(L) ≅ ν_*(L′[d]); IC_X(L) is simple if L is irreducible
 and Λ is a field. No half-twist normalisation is built into the definition. For X irreducible of dimension d
-with a dense open U smooth over k and L locally constant constructible on U, D_X IC_X(L) ≅ IC_X(L^∨(d)) with
+with a dense open U smooth over k, L locally constant constructible on U and self-injective Λ, D_X IC_X(L) ≅ IC_X(L^∨(d)) with
 L^∨ := Hom(L, Λ). No isomorphism IC_X(L) ≅ D_X IC_X(L) is asserted without a given perfect pairing L ⊗ L →
-Λ(−d).
+Λ(d).
 
 Work with the following additional hypotheses. k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U
 are separated schemes of finite type over k; every point x has dim(x) := dim of its closure
@@ -2648,6 +2650,8 @@ EtaleCohomologyFoundations §§F.0–F.6 and the scheme-site contract above; §2
 - On 𝔸¹ over k̄ with Λ a field, Rj_*Λ[1] for j : 𝔾_m → 𝔸¹ has length 2, with constituents Λ_{𝔸¹}[1] and i_*Λ_0(−1).
 
 - Over Λ = ℤ_ℓ on a point, ℤ_ℓ has the infinite descending chain ℤ_ℓ ⊃ ℓℤ_ℓ ⊃ …, so Perv(pt, ℤ_ℓ) is not artinian.
+
+- On X₀ = 𝔸²_{𝔽_q} with rational coefficients and L = ℚ_ℓ(1), IC_X(L) = ℚ_ℓ(1)[2] and D_X IC_X(L) = ℚ_ℓ(1)[2]. The perfect pairing has target ℚ_ℓ(2), as the positive d twist requires. In contrast L = ℚ_ℓ(−1) pairs with itself into ℚ_ℓ(−2), but its dual intersection complex is ℚ_ℓ(3)[2], with a different Frobenius eigenvalue. Forgetting Frobenius would hide the sign error; the arithmetic structures distinguish them. The rational example uses the extension of this duality in §3.1.
 
 ### 2.11 Nonconstructible perversity conditions
 
@@ -3318,7 +3322,7 @@ A proof proceeds as follows.
 Import analytification and the finite/adic ordinary and compact comparisons from ComplexComparisonPartII
 §§C−1.1,C6.0–C6.6 (TauCetiRoadmap #848, head d6cb0fc). Its generic enhanced analytic categories use
 EnhancedDerivedSheaves §§0.1–0.4. It already supplies proper Rf_* and separated Rf_! exchange on ctf inputs.
-Request only the remaining nonproper constructible Rf_* comparison through EtaleCohomologyFoundations
+Prove the remaining nonproper constructible Rf_* comparison using EtaleCohomologyFoundations
 §§F.0–F.6 and the scheme-site contract above. BBD 6.1.2, pp.148–151 supplies the categorical refinement:
 finite and integral equivalences and rational full faithfulness with the stable-lattice essential image. Apply
 the finite comparisons levelwise to the coherent λ-adic systems for ramified O_E.
@@ -3625,8 +3629,8 @@ assigns models to arbitrary analytic spaces nor enlarges analytic duality to res
 
 Work with the following additional hypotheses. Λ=Z/n, n≥1 prime to residue characteristic, and L bounded
 below; for bounded constructible duality restrict to actual finite-Tor inputs and bounds.
-H3/general-analytic-smooth-trace already supplies the shifted-constant trace, in a broader coefficient range.
-The required H3 smooth-duality extension supplies the full D⁺ trace-normalized adjunction used here, in
+ClassicalAdicEtaleCohomology §9.5 (`GeneralSmoothTrace`) already supplies the shifted-constant trace, in a broader coefficient range.
+Its §9.6 smooth-duality theorem supplies the full D⁺ trace-normalized adjunction used here, in
 Huber’s narrower range. Use scheme-fibre-product analytification from AdicSpacesPartII and finite-dimensional,
 separated/taut analytic support hypotheses. General finite-type field direct-image comparison Huber 3.8.1
 needs n prime to char(k) in positive characteristic; this weaker condition in characteristic zero does not
@@ -3639,10 +3643,10 @@ Name the resulting statement `analyticSmoothTraceComparison`.
 A proof proceeds as follows.
 
 Import Huber 5.7.2’s proper-support comparison (and its pseudo-adic version 5.7.5) through the existing
-analytic owner. For proper maps use H5/proper-comparison-3-7-2 and for open embeddings use extension by zero;
+analytic owner. For proper maps use ClassicalAdicEtaleCohomology §8.2 and for open embeddings use extension by zero;
 glue through the compactification comparison.
 
-Import H3/general-analytic-smooth-trace and its chart, composition, pullback and P¹ normalization, rather than
+Import ClassicalAdicEtaleCohomology §9.5 and its chart, composition, pullback and P¹ normalization, rather than
 plan another trace. Huber 7.3.4 constructs the all-dimensional trace on local étale affine charts from the
 algebraic trace by 5.7.5; compare the chartwise normalized constructions and glue on the given algebraic
 model.
@@ -3653,14 +3657,14 @@ adjoint gives the stated smooth-purity comparison.
 For a smooth closed pair apply transitivity of exceptional pullback to the two smooth structure maps, then
 their trace-normalized purity formulas, to obtain codimension-c purity. The proper closed/open localization
 comparisons transport the supported Layer 1 class and its Gysin map. This is smooth-pair purity on an
-algebraic model; arbitrary regular analytic pairs are outside the claim. Import H3/analytic-first-chern-class
+algebraic model; arbitrary regular analytic pairs are outside the claim. Import ClassicalAdicEtaleCohomology §9.3 (`AnalyticFirstChernClass`)
 for the Kummer normalization already compared with schemes.
 
 Use [Huber-1996] Theorems 3.7.2 and 3.8.1, pp.226–228; Theorems 5.7.2 and 5.7.5, pp.316–318; [Huber-1996]
 Theorem 7.3.4 and proof, pp.378–382; Theorem 7.5.3 and Lemma 7.5.4(ii) and proof, pp.390–392.
 
-*Needs:* ClassicalAdicEtaleCohomology §H3 and the analytic duality contract above;
-ClassicalAdicEtaleCohomology §H5; AdicSpacesPartII §R1; EtaleCohomologyFoundations §§0.11, F.6;
+*Needs:* ClassicalAdicEtaleCohomology §§9.3–9.6 and the analytic duality contract above;
+ClassicalAdicEtaleCohomology §§8.2, 11.1; AdicSpacesPartII §R1; EtaleCohomologyFoundations §§0.11, F.6;
 EtaleCohomologyFoundations §§0.10, F.6; §1.1.
 
 **Checks.**
@@ -3722,11 +3726,9 @@ isomorphic to c_Y^*T. This pointwise candidate criterion uses ambient adjunction
 ambient full faithfulness or an adjunction between bounded restrictions. No exceptional-image preservation
 follows from 27.7.
 
-Use [ECD-2026] Propositions 27.1–27.4, pp.163–165; 27.5–27.7, pp.166–168.
+Use [ECD-2026] Propositions 27.1–27.4, pp.163–165; 27.5–27.7, pp.166–167.
 
-*Needs:* AdicCoefficientsAndComparisons §§L0–L6; ClassicalAdicEtaleCohomology §§H0–H3;
-AdicCoefficientsAndComparisons §L3; counit compatibility and conditional image test in §3.9 here;
-AdicCoefficientsAndComparisons §L3; AdicCoefficientsAndComparisons §L4; AdicCoefficientsAndComparisons §L6;
+*Needs:* AdicCoefficientsAndComparisons §§L0–L6; ClassicalAdicEtaleCohomology §§8.2, 11.1–11.2;
 `CategoryTheory.Adjunction.isIso_counit_app_iff_mem_essImage`; EtaleCohomologyFoundations §F.5;
 EnhancedDerivedSheaves §0.5.
 
@@ -5917,8 +5919,8 @@ bijectivity of η^i), f₀ factors through ℙ^d × Y₀ with η = c₁(𝒪(1))
 Case i = 1: η is the composite of restriction pH^{−1}(Rf_*F) → pH^0(Rh_*((uv)^*F[d−1])) along the universal
 hyperplane and its dual Gysin map back to pH^1(Rf_*F)(1) (after u^*[d]).
 
-By §5.8, u^*pH^{−1} is the largest subobject of P := pH^0(Rh_*((uv)^*F[d−1])) coming from Y, and dually
-u^*pH^1(1) is its largest quotient coming from Y.
+By §5.8, u^*(pH^{−1}(Rf_*F))[d] is the largest subobject of P := pH^0(Rh_*((uv)^*F[d−1])) coming from Y, and dually
+u^*(pH^1(Rf_*F))(1)[d] is its largest quotient coming from Y.
 
 (uv)^*F₀[d−1] is pure (smooth pullback), so Rh_* of it and P are pure (DeligneWeightsAndPurity §8.12, §5.6),
 hence P is semisimple over 𝔽̄_q (§5.5); the largest sub coming from Y maps isomorphically to the largest such
@@ -6079,7 +6081,7 @@ SchemeAndStackFoundations §§0.7, 0.9, 4.11 and the geometric contracts above.
 
 - `TauCeti.EtaleDuality.restrictedCategory_mono`: Enlarging the families L(T) enlarges the restricted category; refinements of (T, L) therefore induce the restriction maps of germs used in BBD 6.1.10.
 
-- For X = a point and T = {X}, D^b_{T,L}(X, ℤ_ℓ) is the category of perfect ℤ_ℓ-complexes, identical over ℂ and over s̄; for X = ℙ¹_ℂ with one stratum and L = {ℤ/ℓ}, the specialisation sends Rπ_*ℤ_ℓ to Rπ_*ℤ_ℓ on ℙ¹_{s̄}, both with cohomology ℤ_ℓ, 0, ℤ_ℓ(−1).
+- For X = a point, T = {X} and L = {𝔽_ℓ}, D^b_{T,L}(X, ℤ_ℓ) is the category of perfect ℤ_ℓ-complexes, identical over ℂ and over s̄. For X = ℙ¹_ℂ with one stratum and L = {𝔽_ℓ}, specialisation sends the constant ℤ_ℓ-object on ℙ¹ to the constant object on ℙ¹_{s̄}. Commutation with pushforward along the structural maps identifies their global cohomology: H⁰ = ℤ_ℓ, H² = ℤ_ℓ(−1), and all other degrees vanish. These pushforwards are objects on the respective base points.
 
 - A non-quasi-unipotent ℤ_ℓ-local system on 𝔾_m still belongs to a restricted category: its finite-dimensional mod-ℓ representation has finitely many irreducible constituents, which can be chosen as L(T). BBD 6.1.8 warns that the entire ℓ-adic sheaf need not descend to a finitely generated field; the restricted-category specialization germ does not assert such descent.
 
@@ -7014,7 +7016,8 @@ Use [Varshavsky-LV-2007] Theorem 2.1.3 and its proof, pp. 17–18 (arXiv v2).
 - For the graph-type correspondence of Frobenius and Z = {x} a fixed closed point, LT_x(u) is the naive term Tr(u_x | F_x).
 
 **Frobenius twists are contracting for large powers.** Let c : C → X × X be a correspondence over 𝔽̄_q defined
-over 𝔽_q. (a) If Z ⊂ X is closed, n satisfies qⁿ > ram(c₂, Z), and Z is c^{(n)}-invariant, then c^{(n)} is
+over 𝔽_q. Give every closed subset Z its reduced scheme structure when forming ram(c₂,Z).
+(a) If Z ⊂ X is closed, n satisfies qⁿ > ram(c₂, Z), and Z is c^{(n)}-invariant, then c^{(n)} is
 contracting near Z. (b) If Z is a closed locally c-invariant subset defined over 𝔽_q, then c^{(n)} is
 contracting near Z in a neighbourhood of fixed points for every n with qⁿ > ram(c₂, Z). (c) If c₂ is
 quasi-finite, then for every n with qⁿ > ram(c₂), c^{(n)} is contracting near every closed point in a
@@ -7158,7 +7161,7 @@ Use [Varshavsky-LocalTerms-2020] Definitions 4.3–4.4, Remarks 4.5–4.6 and Le
 ### 7.2 ULA trace constancy and normal-cone comparison
 
 **Constancy of relative traces for universally locally acyclic coefficients.** Let S be connected, c:C→X×_S X
-a relative correspondence, and u:c₁*F→c₂!F a relative cohomological correspondence. Assume F is universally
+a relative correspondence, and u:c₁^*F→c₂^!F a relative cohomological correspondence. Assume F is universally
 locally acyclic over S and Fix(c)→S is topologically constant: Fix(c)_red≅Y×S_red over S for some Y. For any
 geometric points s,t of S, the canonical identification H⁰(Fix(c_s),K_Fix(c_s))≅H⁰(Fix(c_t),K_Fix(c_t)) takes
 Tr(c_s,u_s) to Tr(c_t,u_t). The groups belong to the fixed-point fibres, not to X_s and X_t.
@@ -7305,7 +7308,7 @@ component of the full scheme equalizer Fix(g) supported at x, and N_Z(g) the ind
 N_ZX. Then Fix(N_Z(g))=Z scheme-theoretically. The scalar-twisted cone maps have a finite bad set of
 parameters, avoiding 0 and 1, outside which their fixed subscheme is Z. Thus the graph (g,id) has no almost
 fixed points in the punctured tubular neighbourhood of Z and satisfies the proper-component hypothesis of the
-normal-cone trace theorem. In particular, for any constructible finite-Tor adic complex F with u:g*F→F,
+normal-cone trace theorem. In particular, for any constructible finite-Tor adic complex F with u:g^*F→F,
 LT_x(u)=Tr(u_x). X need not be normal or smooth and g need not have finite order.
 
 Work with the following additional hypotheses. Z is the full scheme fixed component, including its nilpotents;
@@ -7370,7 +7373,7 @@ SchemeAndStackFoundations §§0.7, 0.9, 4.11 and the geometric contracts above; 
 
 **Local terms at tame and semisimple isolated fixed points.** Let k be algebraically closed and X separated of
 finite type over k. (a) If f:X→X fixes x and N_x(f) has no nonzero fixed points, then x is isolated and
-LT_x(u)=Tr(u_x|F_x) for any u:f*F→F with F constructible of finite Tor dimension. (b) If X is smooth at an
+LT_x(u)=Tr(u_x|F_x) for any u:f^*F→F with F constructible of finite Tor dimension. (b) If X is smooth at an
 isolated fixed point x of a semisimple element g of a linear algebraic group acting on X, the normal-cone
 hypothesis holds and the same equality follows. (c) For an automorphism g of finite order invertible in k, the
 equality holds at every isolated fixed point, including singular ones, by applying the trace comparison to the
@@ -7601,6 +7604,8 @@ Use [Deligne-WeilI-1974] (2.4) and (2.6), pp. 281–282; [Milne-LEC] Remark 27.1
 
 - A smooth quadric surface over 𝔽_q (d = 2) whose two rulings are swapped by Frobenius: F on H² = ℚ_ℓ(−1)² has eigenvalues q and −q, m_− = 1, so det(F₂) = −q², the sign that the split quadric (eigenvalue q twice) does not have.
 
+- For the numerical definitions alone, zero Betti numbers give χ = 0 and three rank-one degrees 0,1,2 give χ = 1. Scalar automorphisms 2,3,5 on those three degrees give Δ = 2·3⁻¹·5 = 10/3. For d = 0 and a single rank-one space with automorphism q, Δ = q. These test the actual alternating product and its endpoints; the arbitrary scalar triple is not claimed to satisfy Poincaré duality.
+
 ### Examples
 
 For P¹, d=1, b₀=b₂=1, b₁=0, F₀=1 and F₂=q. Thus χ=2, Δ=q and P₂(t)=1−qt, giving Δ²=q². The zero vector space has determinant and characteristic power series 1. In odd middle degree the alternating form forces even dimension, including when the coefficient field is Q₂.
@@ -7662,6 +7667,10 @@ GeometricSatakeAndFusion and the proposed stack and perfect-space extensions use
 - **[Stacks-MoreEtale]** The Stacks Project Authors, [The Stacks Project, Chapter 'More Étale Cohomology' (tag 0F4U)](https://stacks.math.columbia.edu/download/more-etale.pdf). Chapter PDF, version ed88ff78 compiled 14 July 2026.
 
 - **[Stacks-Morphisms]** The Stacks Project Authors, [The Stacks Project, Chapter 29: Morphisms of Schemes](https://stacks.math.columbia.edu/download/morphisms.pdf). Version ed88ff78 (compiled 14 July 2026).
+
+- **[TCR-AdicCoefficientsAndComparisons-965]** TauCetiRoadmap contributors, [Adic coefficients and comparison with schemes](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4a7b4d83e2622df066e2a883525bb755bce6b115/TauCetiRoadmap/AdicCoefficientsAndComparisons/README.md). README.md at 4a7b4d83e2622df066e2a883525bb755bce6b115.
+
+- **[TCR-ClassicalAdicEtaleCohomology-875]** TauCetiRoadmap contributors, [Classical analytic étale cohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e36805f4bbf96f644034fbc220ab0607a15ace83/TauCetiRoadmap/ClassicalAdicEtaleCohomology/README.md). README.md at e36805f4bbf96f644034fbc220ab0607a15ace83.
 
 - **[TCR-ComplexComparisonPartII-848]** TauCetiRoadmap contributors, [Complex comparison, part II](https://github.com/TauCetiProject/TauCetiRoadmap/blob/d6cb0fc8f2ef059d222be2503f8e99285293111a/TauCetiRoadmap/ComplexComparisonPartII/README.md). README at d6cb0fc8f2ef059d222be2503f8e99285293111a.
 

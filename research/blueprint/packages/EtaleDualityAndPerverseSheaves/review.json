@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-EtaleDualityAndPerverseSheaves",
+    "date": "2026-10-17",
+    "notes": "Independent fixing review by Codex session codex-C6qk1G (#10165), distinct from package author codex-j3C1Td. Checked all 227 input nodes (138 retained, 89 imported), retained definitions and Checks, all layers adversarially, 15 reproducibly sampled source locators, pinned declarations, current upstream/library ownership and more than ten Lean signatures. Corrected IC self-pairing Tate twist and coefficient qualifier, relative Lefschetz smooth shifts, restricted specialization pushforward base, reduced ramification input, correspondence map notation, stale analytic supplier sections, a self-prerequisite and ECD pages. Explicitly mapped weight inputs to the existing versioned TauCetiRoadmap owner. Replaced tautological scalar tests by actual Euler/determinant controls. Final Suggested.lean: 417 lines, 11 real-bodied definitions; lean-check exit 0 with 34 sorry-only warnings. No sorry-defined data; all five unchanged packets and six-file intake pass. No additional ownership removals or unresolved in-scope defect. Integral analytic realization and strong diamond exceptional-image extensions retain explicit conditions; no formalization or unconditional extension is claimed. Full evidence: research/blueprint/reviews/REV-PKG-EtaleDualityAndPerverseSheaves.md."
+  }
+}
