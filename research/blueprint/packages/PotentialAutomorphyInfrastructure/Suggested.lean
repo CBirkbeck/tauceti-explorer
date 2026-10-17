@@ -183,7 +183,34 @@ theorem shifted_partition_recovery (A B C D : Finset ℤ) (m : ℕ) (hm : 0 < m)
 so the dual lower degree is `q_GL + 1`. -/
 example : (Finset.Icc (2 : ℤ) 5).image (fun i => 8 - i) = Finset.Icc 3 6 := by sorry
 
+/-- `arithmetic_franke_inputs.eisenstein`: the two induced geometric Frobenius eigenvalues
+`5, 1` give trace `6` and determinant `5`, whereas omitting the twist gives trace `2`. -/
+example : (Polynomial.X - Polynomial.C (5 : ℚ)) * (Polynomial.X - 1) =
+    Polynomial.X ^ 2 - Polynomial.C 6 * Polynomial.X + Polynomial.C 5 ∧
+    (6 : ℚ) ≠ 2 := by
+  constructor
+  · simp only [map_ofNat]
+    ring
+  · norm_num
+
 /-! ## Layer 2: Soluble transport and rank-two compatible systems -/
+
+/-- `rank_two_reducibility_dichotomy.metadata`: determinant weights do not recover the full
+Hodge multiset of an extremely weak system. -/
+example : ({(2 : ℤ), -3} : Multiset ℤ).sum = ({0, -1} : Multiset ℤ).sum ∧
+    ({(2 : ℤ), -3} : Multiset ℤ) ≠ {0, -1} := by decide
+
+/-- `extremely_weak_rational_maximality.coefficients`: the product of the conjugate quadratic
+polynomials is `X⁴ + 1` when the coefficient has square `2`. -/
+example {R : Type*} [CommRing R] (a : R) (ha : a ^ 2 = 2) :
+    (Polynomial.X ^ 2 - Polynomial.C a * Polynomial.X + 1) *
+      (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + 1) =
+        (Polynomial.X ^ 4 + 1 : Polynomial R) := by
+  calc
+    _ = Polynomial.X ^ 4 + Polynomial.C (2 - a ^ 2) * Polynomial.X ^ 2 + 1 := by
+      simp only [map_sub, map_ofNat, map_pow]
+      ring
+    _ = _ := by rw [ha]; simp
 
 /-- Composita of Galois extensions with a common simple Galois group (Qian, proof of Lemma
 2.6(2), pp. 1251–1252): a subfamily indexed by `J` has the same compositum, the Galois group of
@@ -437,6 +464,23 @@ would lose this sign. -/
 example (t : ℚ_[2]ˣ) (ht : (t : ℚ_[2]) = -1) :
     BruhatOrientationCharacter (MonoidHom.id ℚ_[2]ˣ) t = -1 := by sorry
 end BruhatOrientationCharacter
+
+/-- `twisted_steinberg_ordinarity_criterion.modulus`: the inverse modulus cancels the
+unnormalized Steinberg Jacquet scalar, already for `GL₂(ℚ₅)`. -/
+example : (5 : ℚ) * (1 / 5) = 1 ∧ (1 : ℚ) / 5 ≠ 1 := by norm_num
+
+/-- `twisted_steinberg_ordinarity_criterion.weight`: the negative weight exponent makes both
+operators units; reversing it fails. This also computes the unramified degree-two norm test. -/
+example : (5 : ℚ) ^ (-2 : ℤ) * 25 = 1 ∧ (5 : ℚ) ^ (-4 : ℤ) * 625 = 1 ∧
+    (5 : ℚ) ^ (2 : ℤ) * 25 ≠ 1 := by norm_num
+
+/-- `iota_ordinary_soluble_base_change.unramified`: normalized slopes scale by the residue
+degree, and zero slope is preserved in both directions. -/
+example (a b : ℚ) : 2 * a - 2 * b = 0 ↔ a - b = 0 := by constructor <;> intro h <;> linarith
+
+/-- `iota_ordinary_soluble_base_change.ramified`: two extended embeddings each contribute
+half the weight slope in a totally ramified quadratic extension. -/
+example (b : ℚ) : b / 2 + b / 2 = b := by ring
 
 /-! ## Layer 4: Arithmetic deformation and support inputs -/
 
