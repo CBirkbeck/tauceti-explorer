@@ -1,21 +1,19 @@
 import Mathlib
 
 /-!
-# PrismaticCohomology: representative target signatures
+# PrismaticCohomology: Delta algebra and relative cohomology
 
 The roadmap is README.md. This file records light definitions and representative theorem
 signatures statable against the pinned APIs; it is not exhaustive. The correction polynomial
 has integral coefficients before evaluation, Frobenius congruences contain no chosen division,
-and logarithmic delta data retain their multiplicative correction. The elementary polynomial
-prefix makes sense over any commutative ring; the prismatic and logarithmic geometric targets
+and quotient stability retains the specified delta operation. The elementary polynomial
+prefix makes sense over any commutative ring; the prismatic geometric targets
 in the README retain their p-local and completeness hypotheses.
 -/
 
 namespace TauCetiRoadmap.PrismaticCohomology
 
 open scoped BigOperators
-
-/-! ## Layer 0: Delta algebra and prisms -/
 
 namespace Delta
 
@@ -180,6 +178,12 @@ example (d : Structure 2 ℤ) : idealClosure d (Ideal.span {(2 : ℤ)}) = ⊤ :=
 example (p : ℕ) (d : Structure p R) : idealClosure d (⊥ : Ideal R) = ⊥ := by
   sorry
 
+/-- Containment of a delta closure does not force stability of its target ideal. -/
+example (d : Structure 2 ℤ) :
+    idealClosure d (⊥ : Ideal ℤ) ≤ Ideal.span {(2 : ℤ)} ∧
+      ¬ IsStable d (Ideal.span {(2 : ℤ)}) := by
+  sorry
+
 /-- For p=2, delta(2)=-1 is a unit even over the integers. -/
 example (d : Structure 2 ℤ) : IsDistinguished d 2 := by
   sorry
@@ -201,9 +205,6 @@ example (p : ℕ) (hp : p.Prime) (d : Structure p R) : associatedFrobenius d 0 =
 
 end Delta
 
-/-! ## Layer 1: Relative prismatic cohomology and smooth comparisons -/
-/-! The prismatic sites, their sheaves, totalisations and comparisons are README targets. -/
-
 /-- The completion counterexample uses a right shift: the first coordinate becomes zero,
 and the next coordinate is multiplied by the distinguished parameter. -/
 example {R : Type*} [CommRing R] (d : R) :
@@ -224,231 +225,5 @@ example : ¬ (Polynomial.X : Polynomial (ZMod 2)) ^ 2 ∣ Polynomial.X := by
 
 /-- In the next torsion component, the second power is killed, not the first. -/
 example : (Polynomial.X : Polynomial (ZMod 2)) ^ 2 ∣ Polynomial.X ^ 2 := dvd_refl _
-
-/-! ## Layer 2: Animated inputs and perfectoidization -/
-/-! Completed left Kan extensions and perfectoidization require the derived carriers
-specified in the README. Ordinary derived categories alone do not state these constructions. -/
-
-/-! ## Layer 3: Nygaard filtration and Breuil–Kisin twists -/
-/-! The relative filtration is on the Frobenius pullback. The completed, uncompleted and
-Hodge–Tate objects are kept distinct in the README. -/
-
-/-! ## Layer 4: Absolute prismatic cohomology and Cartier–Witt geometry -/
-/-! Formal stacks and their quasi-coherent infinity categories are README targets. -/
-
-/-! ## Layer 5: q-crystalline and q-de Rham comparison -/
-
-namespace QCrys
-
-variable {R : Type*} [CommRing R]
-
-/-- The general q-integer is a polynomial evaluation, defined even at q=1 and n=0. -/
-def qInteger (n : ℕ) (q : R) : R := ∑ i ∈ Finset.range n, q ^ i
-
-/-- The prism's distinguished cyclotomic value is the prime q-integer. -/
-def pAnalog (p : ℕ) (q : R) : R := qInteger p q
-
-/-- The denominator-free geometric-series identity includes q=1. -/
-theorem qInteger_mul_sub_one (n : ℕ) (q : R) :
-    qInteger n q * (q - 1) = q ^ n - 1 := by
-  sorry
-
-/-- Evaluation at q=1 agrees with the integer n, without a 0/0 quotient. -/
-theorem qInteger_one (n : ℕ) : qInteger n (1 : R) = n := by
-  sorry
-
-/-- The distinguished generator specializes to p. -/
-example (p : ℕ) : pAnalog p (1 : ℤ) = p := by
-  sorry
-
-/-- The empty sum is zero, including at q=0. -/
-example (q : R) : qInteger 0 q = 0 := by simp [qInteger]
-
-/-- A dyadic q-integer has two terms, not one. -/
-example (q : R) : pAnalog 2 q = 1 + q := by
-  simp [pAnalog, qInteger, Finset.sum_range_succ]
-
-/-- A nontrivial specialization distinguishes the polynomial from the constant n. -/
-example : qInteger 3 (2 : ℤ) = 7 := by
-  norm_num [qInteger, Finset.sum_range_succ]
-
-/-- The two-endomorphism cochain Koszul convention `d⁰ m = (D₁ m, D₂ m)`,
-`d¹ (a, b) = D₂ a - D₁ b`: commuting operators give `d¹ ∘ d⁰ = 0`. -/
-example {M : Type*} [AddCommGroup M] [Module R M] (D₁ D₂ : M →ₗ[R] M)
-    (h : D₁ ∘ₗ D₂ = D₂ ∘ₗ D₁) (m : M) : D₂ (D₁ m) - D₁ (D₂ m) = 0 := by
-  rw [← LinearMap.comp_apply, ← h, LinearMap.comp_apply, sub_self]
-
-/-- Replacing subtraction by addition fails already at the integer unit. -/
-example : 3 * (2 * (1 : ℤ)) + 2 * (3 * 1) = 12 := by norm_num
-
-/-- In the dyadic derivative thickening, the epsilon-square term changes the coefficient.
-This pins the Frobenius formula without cancelling the coordinate. -/
-example (t x e : R) (he : e ^ 2 = t * x * e) :
-    (x + e) ^ 2 = x ^ 2 + (2 + t) * x * e := by
-  calc
-    (x + e) ^ 2 = x ^ 2 + 2 * x * e + e ^ 2 := by ring
-    _ = x ^ 2 + (2 + t) * x * e := by rw [he]; ring
-
-end QCrys
-
-/-! ## Layer 6: Étale comparisons and syntomic complexes -/
-/-! Frobenius fixed points are derived fibres after restriction to the coefficient ring.
-Their prismatic and syntomic carriers remain README targets. -/
-
-/-! ## Layer 7: Prismatic F-crystals and crystalline lattices -/
-/-! Crystals, their period realizations, and the equivalence with crystalline lattices
-require the sites and period rings specified in the README. -/
-
-/-! ## Layer 8: Logarithmic prismatic cohomology -/
-
-namespace Log
-
-variable {R M : Type*} [CommRing R] [CommMonoid M]
-
-/-- Elementary logarithmic delta data on a prelog ring. The logarithmic geometric theory
-uses these polynomial axioms on p-local rings with the completeness hypotheses in README.md. -/
-structure DeltaLogStructure (p : ℕ) (R M : Type*) [CommRing R] [CommMonoid M]
-    (alpha : M →* R) where
-  ringDelta : Delta.Structure p R
-  logDelta : M → R
-  logDelta_one : logDelta 1 = 0
-  compatibility : ∀ m, alpha m ^ p * logDelta m = ringDelta.delta (alpha m)
-  logDelta_mul : ∀ m n,
-    logDelta (m * n) = logDelta m + logDelta n + (p : R) * logDelta m * logDelta n
-
-/-- The multiplicative logarithmic unit factor; it is a unit only under the stated
-Jacobson-radical hypothesis in the geometric theory. -/
-def unitFactor {p : ℕ} {alpha : M →* R} (d : DeltaLogStructure p R M alpha) (m : M) : R :=
-  1 + (p : R) * d.logDelta m
-
-/-- The log Frobenius correction is multiplicative, with its p cross term. -/
-theorem unitFactor_mul (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha)
-    (m n : M) : unitFactor d (m * n) = unitFactor d m * unitFactor d n := by
-  sorry
-
-/-- The ring Frobenius acts on a chart section with the logarithmic correction. -/
-theorem frobenius_chart (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha)
-    (m : M) : Delta.associatedFrobenius d.ringDelta (alpha m) =
-      alpha m ^ p * unitFactor d m := by
-  sorry
-
-/-- The unit section has zero logarithmic delta, rather than delta(1)=1. -/
-example (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha) :
-    d.logDelta 1 = 0 := d.logDelta_one
-
-/-- The correction factor at the unit section is exactly one. -/
-example (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha) :
-    unitFactor d 1 = 1 := by simp [unitFactor, d.logDelta_one]
-
-/-- The dyadic product has the cross term; an additive log operation would give two. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
-    (hm : d.logDelta m = 1) : d.logDelta (m * m) = 4 := by
-  rw [d.logDelta_mul, hm]
-  norm_num
-
-/-- The multiplicative factor squares to nine on that same logarithmic section. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
-    (hm : d.logDelta m = 1) : unitFactor d m = 3 := by
-  simp [unitFactor, hm]
-
-/-- The product correction is nine, fixing the multiplicative rather than additive law. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
-    (hm : d.logDelta m = 1) : unitFactor d (m * m) = 9 := by
-  rw [unitFactor_mul]
-  norm_num [unitFactor, hm]
-
-/-- At p = 2 the coefficients `2!` and `4!` of the first two Frobenius iterates on a divided
-power have 2-adic valuations exactly one and three, the contraction exponents `2ⁿ - 1`. -/
-example : 2 ∣ Nat.factorial 2 ∧ ¬ 4 ∣ Nat.factorial 2 ∧
-    8 ∣ Nat.factorial 4 ∧ ¬ 16 ∣ Nat.factorial 4 := by
-  decide
-
-end Log
-
-/-!
-Full definitions retained in README.md also include the following geometric or derived
-objects. Their carriers are not introduced in this signature file.
-
-Layer 0: Delta structures on a square-zero extension; Delta structures as Witt-vector
-sections; Coefficient map on length-two Witt vectors; Localization of a delta structure; Shifted
-quotient delta operation; Canonical delta structure on the inverse-limit completion; Localization
-with a radical target; The canonical p-local integer delta structure; Universal delta quotient by
-an ideal; Free δ-rings; Limits, colimits and Witt vectors of δ-rings; Simplicial commutative
-δ-rings; p-local localization of a δ-ring; Completely regular sequences relative to a base; Prisms; Maps of prisms; perfect, bounded,
-orientable and crystalline prisms; Crystalline prisms; The perfect prism of a perfectoid ring; The
-Breuil–Kisin prism; The q-de Rham prism; The universal oriented prism; Perfection of a prism;
-Prismatic envelopes of regular ideals; A (p,f)-complete ring with bounded torsion modulo f and
-unbounded torsion; Joyal operations and Witt-coordinate identities.
-
-Layer 1: The site of all bounded prisms and its structure sheaves; The relative prismatic site
-(X/A)_Δ; Relative prismatic cohomology Δ_{X/A}; Hodge–Tate cohomology Δ̄_{X/A} and Breuil–Kisin
-twists of A/I-modules; Weakly initial objects and Čech–Alexander complexes; The Frobenius of
-prismatic cohomology; The Bockstein differential on twisted Hodge–Tate cohomology; Mapping an
-oriented prism to a crystalline one; The Hodge–Tate comparison map η^*.
-
-Layer 2: Derived prismatic cohomology; Conjugate filtration on derived Hodge–Tate cohomology; The
-comparison map from derived prismatic cohomology to prisms and to site cohomology; Perfection of
-derived prismatic cohomology and perfectoidization.
-
-Layer 3: Nygaard filtration of a quasiregular semiperfectoid ring; Nygaard filtration on prismatic
-cohomology over a perfectoid base; Divided Frobenius; Transversal prisms and the ideals I_r;
-Breuil–Kisin twist of a transversal prism; Breuil–Kisin twists A{n} of a prism; Large quasisyntomic
-algebras over A/I; Relative Nygaard filtration on the Frobenius twist φ_A^*Δ_{R/A}; Nygaard
-completion.
-
-Layer 4: The absolute prismatic site of a p-adic formal scheme; Generalized Cartier divisors and the
-stack Cart; Cartier–Witt divisors; The Cartier–Witt stack WCart; The point ρ_A : Spf(A) → WCart of a
-prism; Quasi-coherent and perfect complexes on WCart; The group scheme G_m^♯ and the Frobenius
-kernel of W^×; The Hodge–Tate divisor WCart^HT and its identification with BG_m^♯; Complexes on the
-Hodge–Tate divisor and the Sen operator; The Frobenius endomorphism of WCart; The prismatic
-cohomology sheaf on WCart and absolute prismatic cohomology; Absolute Hodge–Tate cohomology and the
-diffracted Hodge complex; The absolute Nygaard filtration; The Frobenius on absolute prismatic
-cohomology; Cyclotomic chart and its Hodge–Tate torsor.
-
-Layer 5: The operation γ on N(D); q-PD pairs; q-PD envelopes; The q-crystalline
-site and q-crystalline cohomology; Čech–Alexander complexes for q-crystalline cohomology; Framed
-D-algebras and framed q-PD data; The q-de Rham complex of a framed q-PD datum; The all-coordinates
-comparison map from q-crystalline cohomology to AΩ.
-
-Layer 6: Derived Frobenius fixed points of a φ-module; Syntomic complexes Z_p(n) on quasisyntomic
-rings; Syntomic cohomology of animated rings and bounded p-adic formal schemes; The prismatic
-logarithm; Syntomic cohomology of schemes.
-
-Layer 7: Prismatic crystals in vector bundles and in perfect complexes; F-crystals over a single
-prism; Prismatic F-crystals on a p-adic formal scheme; Laurent F-crystals; The étale realisation
-functor; The crystalline and de Rham realisations; The Breuil–Kisin and A_inf prisms as covers of
-Spf(O_K), and their Čech nerves; Period sheaves on the quasi-syntomic site of O_K; From filtered
-φ-modules to F-crystals over the open unit disc; The prismatic F-crystal of a crystalline lattice.
-
-Layer 8: Algebraic Witt–Frobenius modules; Bounded algebraic Frobenius derived category;
-The monoid Frobenius of a δ_log log ring; Limits, colimits and free
-δ_log-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
-Prelog prismatic envelopes; Perfectoid monoids and perfectoid log rings; Perfect log prisms; The
-relative log prismatic site; Log prismatic cohomology complexes; The absolute saturated log
-prismatic site; Čech–Alexander complexes for log prismatic cohomology; The log Hodge–Tate comparison
-map; The δ_log-crystalline site; The log crystalline comparison map; Log q-PD triples and log q-PD
-envelopes; The log q-crystalline site; Log q-de Rham complexes; Breuil–Kisin cohomology of
-semistable formal schemes; The log quasisyntomic site; Quasiregular semiperfectoid pre-log rings;
-Derived log prismatic cohomology; The log Nygaard filtration; The Kummer étale site of an fs log
-scheme; Fs log adic Kummer foundations; Log diamonds; The log diamond generic fibre; Strictly
-totally disconnected log perfectoid spaces; The quasi-pro-Kummer-étale site; Kummer-étale local
-systems; p-Kummer local systems; Laurent F-crystals on the absolute saturated log prismatic site.
-
-Additional definitions in README.md: formal completed quasi-coherent pullback and quotient
-descent; arc and arc_p sites and their formal variants; general complete delta-base framings
-and their cochain Koszul models; the graded prismatic Beilinson square and filtered
-Frobenius bundle dictionary; the skew q-de Rham differential graded algebra and its
-semicosimplicial multiplicative comparison; completed untilt ring sheaves and constant
-condensed coefficient sheaves on diamond sites; formal integral logarithmic charts,
-smooth and étale formal logarithmic geometry, completed logarithmic cotangent sheaves,
-completed log PD envelopes and the big formal log crystalline site.
-The pointwise categories QCohPrestack, PerfPrestack and PicPrestack; the finite free
-delta derivative thickening and its q-PD ideal; the absolute trace comparison, TC, HH, HC,
-HCMinus and HP with their filtrations; the schematic Fargues–Fontaine curve, its Robba
-ring and Frobenius modules, and filtered-isocrystal modifications are README constructions.
-The completed-localisation prism with nonzero p-torsion, the augmented monoid log PD
-deformation base, and its proper Cartier-type log crystalline complex are also README
-constructions; the Frobenius rigidity and nonzero-parameter scalar comparison use them.
--/
 
 end TauCetiRoadmap.PrismaticCohomology
