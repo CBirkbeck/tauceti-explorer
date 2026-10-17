@@ -4945,5 +4945,9 @@
  "PKG-EtaleDualityAndPerverseSheaves~codex": 10120,
  "PKG-GL2ModularityLifting~codex": 10121,
  "BP-AutomorphicFormsOnReductiveGroups~5": 10124,
- "REV-AutomorphicFormsOnReductiveGroups~5": 10125
+ "REV-AutomorphicFormsOnReductiveGroups~5": 10125,
+ "BP-EtaleDualityAndPerverseSheaves--EDC.4~5": 10133,
+ "BP-ShimuraData~5": 10134,
+ "REV-EtaleDualityAndPerverseSheaves--EDC.4~5": 10135,
+ "REV-ShimuraData~5": 10136
 }
