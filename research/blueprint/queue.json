@@ -132705,6 +132705,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartII~adv.md"
+  },
+  {
+   "id": "REV-PKG-ArithmeticStatisticsPartI~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticStatisticsPartI"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArithmeticStatisticsPartI~adv.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartI/review.json",
+    "research/blueprint/packages/ArithmeticStatisticsPartI/README.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartI/Suggested.lean",
+    "research/blueprint/packages/ArithmeticStatisticsPartI/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartI~adv.md"
   }
  ]
 }
