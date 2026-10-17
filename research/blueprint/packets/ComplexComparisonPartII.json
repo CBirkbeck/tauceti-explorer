@@ -408,6 +408,20 @@
         "§1 pp.199–201, connection, extended differential and curvature; §2 Theorem1 and proof pp.201–204; §3 filtration connecting map and Čech reduction pp.204–206"
       ],
       "sha256": "c6b78daf421a0597d88cf2cc0349201bdaabb343e2265933f31545b0ddf18527"
+    },
+    {
+      "id": "CKG-PROPOSAL",
+      "title": "Complex and Kähler geometry roadmap (open proposal)",
+      "authors": "Tau Ceti Project contributors",
+      "edition": "ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/13b2335ea038b439655df55654e71b19603d8ee1/TauCetiRoadmap/ComplexKahlerGeometry/README.md",
+      "accessed": "2026-10-17",
+      "readSections": [
+        "K5a: smooth bundle forms, Hodge star and compact elliptic/Hodge system",
+        "K5b.0–K5b.1: local Hermitian identities and compact Dolbeault Hodge theory",
+        "K6.0–K6.1: local Kähler identities and compact Kähler Hodge theorem; K8: Frölicher degeneration"
+      ],
+      "accessNote": "A proposed roadmap contract, not a primary mathematical proof or a merged/pinned implementation. Primary sources on each node remain necessary."
     }
   ],
   "nodes": [
@@ -419,7 +433,7 @@
       ],
       "title": "Applying the shared complex analytification carrier",
       "kind": "application",
-      "statement": "Use the finite-type complex-scheme analytification supplied by ComplexComparison PR196 Layers0–2, including quotient structure sheaves, nonreduced schemes, morphisms over C and the canonical locally ringed-space map φ_X:X^an→X. This target applies that carrier to coherent sheaves; it does not construct a second analytification functor.",
+      "statement": "Apply the ordinary nilpotent-preserving analytification functor requested from SchemeAndStackFoundations SF.2 Part II to coherent sheaves, through its canonical locally C-ringed-space map φ_X:X^an→X. Compare it with ComplexComparison PR196 Layers0–2 when that proposal integrates. C0 owns coherent analytic algebra and comparison on this shared carrier.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
@@ -3551,11 +3565,13 @@
       ],
       "title": "Hodge star on the existing smooth-form carrier",
       "kind": "construction",
-      "statement": "On an oriented Riemannian real m-manifold, define the fibrewise Hodge star on DifferentialGeometry’s smooth exterior forms by α∧*β=⟨α,β⟩vol. Extend C-linearly to complex forms and use the Hermitian pairing with conjugation in the defining identity. The native smooth-form carrier and wedge product are imported, not reconstructed.",
+      "statement": "Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, Hodge star and pairing convention), then identify its maps with the shared smooth/coherent carriers used here. On an oriented Riemannian real m-manifold, define the fibrewise Hodge star on DifferentialGeometry’s smooth exterior forms by α∧*β=⟨α,β⟩vol. Extend C-linearly to complex forms and use Mathlib’s Hermitian convention, conjugate-linear in the first slot: α∧*conj(β)=⟨β,α⟩vol. The native smooth-form carrier and wedge product are imported, not reconstructed.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "Use the induced metric and oriented volume element on each cotangent exterior power.",
         "The nondegenerate wedge pairing defines a unique star; smooth local orthonormal frames prove smoothness.",
         "Compare frames and extend complex linearly, keeping conjugation in the Hermitian formula."
@@ -3571,6 +3587,11 @@
           "sourceId": "DEMAILLY",
           "locator": "VI3.1–3.9, pp.291–293",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K5a, Hodge star and pairing convention",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3582,7 +3603,7 @@
         {
           "name": "HodgeStar.wedge_identity",
           "role": "characterisation",
-          "statement": "α∧*conj(β)=⟨α,β⟩vol for complex forms."
+          "statement": "α∧*conj(β)=⟨β,α⟩vol with the native inner product conjugate-linear in its first slot."
         },
         {
           "name": "HodgeStar.square",
@@ -3609,7 +3630,7 @@
         {
           "name": "HodgeStar.complexLinearity",
           "kind": "characterisation",
-          "statement": "*(iα)=i*α; conjugation belongs in the pairing, not in the star map."
+          "statement": "*(iα)=i*α. For a real form θ, (iθ)∧*conj(θ)=i‖θ‖²vol; this detects reversal of the native inner-product arguments."
         }
       ],
       "uses": [
@@ -3631,11 +3652,13 @@
       ],
       "title": "Positive Hodge Laplacian and formal adjoint",
       "kind": "construction",
-      "statement": "On a compact oriented Riemannian m-manifold without boundary, the codifferential on r-forms is δ_r=(−1)^(m(r+1)+1)*d*. The Hodge Laplacian is Δ_r=dδ+δd and has nonnegative energy ⟨Δα,α⟩=||dα||²+||δα||². DifferentialGeometry’s scalar laplaceBeltrami uses div grad; Δ_0 is its negative. Use the existing smooth forms, integration and metric APIs.",
+      "statement": "Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, formal adjoints and positive Hodge Laplacian), then identify its maps with the shared smooth/coherent carriers used here. On a compact oriented Riemannian m-manifold without boundary, the codifferential on r-forms is δ_r=(−1)^(m(r+1)+1)*d*. The Hodge Laplacian is Δ_r=dδ+δd and has nonnegative energy ⟨Δα,α⟩=||dα||²+||δα||². DifferentialGeometry’s scalar laplaceBeltrami uses div grad; Δ_0 is its negative. Use the existing smooth forms, integration and metric APIs.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "Use Stokes and the wedge-star identity to compute the adjoint sign with the input degree r.",
         "Expand Δ and use d²=0 to prove commutation with d and δ.",
         "Integration on the compact boundary-free manifold gives the energy identity and positivity."
@@ -3651,6 +3674,11 @@
           "sourceId": "DEMAILLY",
           "locator": "VI1.1–1.2, pp.287–288; VI3.9–3.14, pp.293–294",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K5a, formal adjoints and positive Hodge Laplacian",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3711,28 +3739,34 @@
       ],
       "title": "Compact bundle elliptic Fredholm and regularity interface",
       "kind": "application",
-      "statement": "Import an extension of PDEPartII to formally self-adjoint strongly elliptic operators on finite-rank vector bundles over compact smooth boundary-free manifolds. The required contract is H^{s+2} elliptic regularity, a global Gårding estimate, Rellich compactness, finite-dimensional smooth kernel, closed image equal to its orthogonal complement, and bounded inverse on that complement. The present scalar Euclidean PDE roadmap does not yet provide this contract.",
+      "statement": "Import ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 K5a for formally self-adjoint strongly elliptic operators on finite-rank bundles over compact smooth manifolds without boundary: H^{s+2} regularity, global Gårding estimate, Rellich compactness, finite smooth kernel, closed image equal to its orthogonal complement, and bounded inverse there. Compare its positive Laplacian, smooth-form and Sobolev interfaces with the geometric Hodge application. The scalar Euclidean PDE D16 alone does not supply this theorem.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "Apply the requested local system estimates in finitely many bundle trivializations and control commutator terms with a partition of unity.",
         "Compact Sobolev inclusion makes the kernel finite and the orthogonal-complement estimate coercive.",
         "The self-adjoint closed-range argument and elliptic regularity produce a smooth Green solution for smooth data."
       ],
       "acceptance": [
-        "Demailly states the Rellich and Gårding inputs but refers out for their proofs; this is an explicit supplier gap.",
+        "The exact general bundle-system contract is imported from proposed PR953 K5a, with integration still open. Demailly VI2.2–2.3 cites external proofs of its Rellich/Gårding inputs.",
         "Neither scalar Lax–Milgram alone nor a bare Hilbert-space spectral theorem proves this bundle elliptic contract."
       ],
       "prerequisites": [
-        "ComplexComparisonPartII:C5/hodge-laplacian",
-        "tauceti:TauCetiRoadmap/PDE#milestone-d-16"
+        "ComplexComparisonPartII:C5/hodge-laplacian"
       ],
       "sources": [
         {
           "sourceId": "DEMAILLY",
           "locator": "VI2.2–2.4, pp.289–291; elliptic regularity VI1.6 pp.288–289",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K5a, Sobolev/Rellich/Gårding, elliptic regularity and Green inverse",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3749,11 +3783,13 @@
       ],
       "title": "Harmonic projection and Green operator",
       "kind": "construction",
-      "statement": "For the compact manifold and Hodge Laplacian above, H_r is the orthogonal projection onto its finite-dimensional smooth kernel and G_r is zero on that kernel and the inverse of Δ_r on its orthogonal complement. Thus id=H+ΔG=H+GΔ on smooth forms. Harmonic forms represent de Rham cohomology uniquely.",
+      "statement": "Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, compact Hodge decomposition and Green operator), then identify its maps with the shared smooth/coherent carriers used here. For the compact manifold and Hodge Laplacian above, H_r is the orthogonal projection onto its finite-dimensional smooth kernel and G_r is zero on that kernel and the inverse of Δ_r on its orthogonal complement. Thus id=H+ΔG=H+GΔ on smooth forms. Harmonic forms represent de Rham cohomology uniquely.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "Use the imported compact bundle elliptic Fredholm result to split kernel and orthogonal complement.",
         "Define the Green inverse there and prove smoothness by regularity.",
         "Commutation with d and δ gives the exact/coexact/harmonic decomposition and the unique cohomology representative."
@@ -3770,6 +3806,11 @@
           "sourceId": "DEMAILLY",
           "locator": "VI2.4, pp.290–291; VI3.15–3.17, pp.294–295",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K5a, compact Hodge decomposition and Green operator",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3830,11 +3871,13 @@
       ],
       "title": "Kähler identities and equality of Laplacians",
       "kind": "theorem",
-      "statement": "On a Kähler manifold, with L=ω∧ and Λ its adjoint, [Λ,∂]=i∂̄* and [Λ,∂̄]=−i∂*. Consequently Δ_d=2Δ_∂=2Δ_∂̄, with the positive Hodge sign. On a general Hermitian manifold torsion terms occur, so these uncorrected identities are not asserted.",
+      "statement": "Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K6.0, local Kähler identities without compactness), then identify its maps with the shared smooth/coherent carriers used here. On a Kähler manifold, with L=ω∧ and Λ its adjoint, [Λ,∂]=i∂̄* and [Λ,∂̄]=−i∂*. Consequently Δ_d=2Δ_∂=2Δ_∂̄, with the positive Hodge sign. On a general Hermitian manifold torsion terms occur, so these uncorrected identities are not asserted.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "Compute wedge/contraction commutators in constant orthonormal complex coordinates.",
         "Kähler normal coordinates kill the first metric derivatives at the chosen point, globalizing the identities.",
         "Apply graded Jacobi and ∂²=∂̄²=∂∂̄+∂̄∂=0 to identify the three Laplacians."
@@ -3851,6 +3894,11 @@
           "sourceId": "DEMAILLY",
           "locator": "VI6.1–6.7, pp.304–306; VI6.8–6.9 pp.306–307",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K6.0, local Kähler identities without compactness",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3867,11 +3915,13 @@
       ],
       "title": "Compact Kähler geometric Hodge decomposition",
       "kind": "theorem",
-      "statement": "For a compact Kähler manifold T, smooth de Rham cohomology in degree n is canonically the direct sum of harmonic (p,q)-forms with p+q=n, hence of H^q(T,Ω^p_T); complex conjugation exchanges (p,q) and(q,p). The Hodge filtration and its conjugate are opposed, and the Hodge-to-de Rham spectral sequence degenerates at E1. E1 degeneration on a general compact complex manifold alone is not used to infer this canonical decomposition.",
+      "statement": "Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K6.1 and K8, compact Kähler Hodge decomposition and Frölicher degeneration), then identify its maps with the shared smooth/coherent carriers used here. For a compact Kähler manifold T, smooth de Rham cohomology in degree n is canonically the direct sum of harmonic (p,q)-forms with p+q=n, hence of H^q(T,Ω^p_T); complex conjugation exchanges (p,q) and(q,p). The Hodge filtration and its conjugate are opposed, and the Hodge-to-de Rham spectral sequence degenerates at E1. E1 degeneration on a general compact complex manifold alone is not used to infer this canonical decomposition.",
       "hypotheses": [
-        "The hypotheses and conventions are part of the stated target."
+        "The hypotheses and conventions are part of the stated target.",
+        "The PR953 supplier is an open proposal. Its integration and compatibility maps remain obligations; no new accepted stage id is assumed."
       ],
       "proofSteps": [
+        "Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5.",
         "The equal Laplacians preserve bidegree, so the unique harmonic representative splits into harmonic (p,q) components.",
         "Dolbeault’s fine resolution identifies those components with coherent H^q(Ω^p).",
         "The conjugation and harmonic splitting prove opposed filtrations; the ∂∂̄ lemma yields filtration compatibility and degeneration."
@@ -3891,6 +3941,11 @@
           "sourceId": "DEMAILLY",
           "locator": "VI8.1–8.6, pp.309–311; corrected use of VI11.3 pp.322–323",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
+        },
+        {
+          "sourceId": "CKG-PROPOSAL",
+          "locator": "K6.1 and K8, compact Kähler Hodge decomposition and Frölicher degeneration",
+          "match": "Import the general analytic target from this open supplier proposal; C5 records the comparison with its algebraic/coherent interfaces. This is not a proof or an installed stage dependency."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5542,7 +5597,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Native derived sheaf-module exchange maps, bounded hypercohomology and triangle compatibility. Extend the scheme-only D_QCoh nodes to proper algebraic spaces with the QCoh-inclusion right adjoint/quasi-coherator, perfect support approximation (Hall Theorem3.8 and Lemma5.5), bounded-coherent preservation and residue testing. Also supply Noetherian separated finite-type compactification in the coherent-duality direction; the compactification leaf is not a proved Nagata theorem. Supply coherent sheaf Ext under finite local presentations, its flat pullback comparison and the natural local-to-global Ext spectral sequence, used for proper coherent extension algebraization.",
+      "need": "Native derived sheaf-module exchange maps, bounded hypercohomology and triangle compatibility. Extend the scheme-only D_QCoh nodes to proper algebraic spaces with the QCoh-inclusion right adjoint/quasi-coherator, perfect support approximation (Hall Theorem3.8 and Lemma5.5), bounded-coherent preservation and residue testing. Also supply Noetherian separated finite-type compactification in the coherent-duality direction; the compactification leaf is not a proved Nagata theorem. Supply coherent sheaf Ext under finite local presentations, its flat pullback comparison and the natural local-to-global Ext spectral sequence, used for proper coherent extension algebraization. The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage.",
       "neededBy": [
         "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
         "ComplexComparisonPartII:C4/proper-support-algebraization",
@@ -5550,7 +5605,8 @@
         "ComplexComparisonPartII:C5/holomorphic-de-rham-complex",
         "ComplexComparisonPartII:C5/differential-operator-analytification",
         "ComplexComparisonPartII:C5/bounded-operator-hypergaga",
-        "ComplexComparisonPartII:C3/proper-coherent-ext-comparison"
+        "ComplexComparisonPartII:C3/proper-coherent-ext-comparison",
+        "ComplexComparisonPartII:C0/repair-analytification"
       ]
     },
     {
@@ -5578,7 +5634,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-      "need": "Relative proper coherent direct-image finiteness, projection and cohomology/base-change with the stated flatness and fibre hypotheses; extend the curve interface to the higher-dimensional proper maps required by GAGA rather than assert arbitrary individual R^q base change.",
+      "need": "Import the existing J-C shared proper coherent cohomology/base-change contract recorded in StableReduction’s supplier table and JacobianChallenge Layer C: proper finitely presented morphisms over locally Noetherian bases, with the stated coherence, flatness and fibre hypotheses, projection and Leray maps. Its general relative-dimension contract already exists upstream; no higher-dimensional extension is replanned. Individual R^q base change still requires the supplier’s criteria.",
       "neededBy": [
         "ComplexComparisonPartII:C2/relative-projective-comparison",
         "ComplexComparisonPartII:C2/gaga-base-change",
@@ -5587,15 +5643,8 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/PDE#milestone-d-16",
-      "need": "PDE PartII: bundle-valued strongly elliptic operators on compact manifolds without boundary, global Sobolev regularity and Gårding estimate, Rellich compactness, Fredholm closed range, finite smooth kernel and inverse on the orthogonal complement. Current D16 is scalar Euclidean Gårding; it is a starting point, not this full result.",
-      "neededBy": [
-        "ComplexComparisonPartII:C5/compact-elliptic-hodge"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-      "need": "Import its coherent algebraic cohomology, projective twists and curve duality in their precise scope. General all-degree projective/relative proper inputs are requested from R09 and JacobianChallenge; curve duality alone is insufficient.",
+      "need": "Import StableReduction Layer2’s proper coherent pushforward/finiteness and cohomology/base-change targets over locally Noetherian bases in all relative dimensions, with its J-C shared-file ownership. Its curve vanishing and duality are additional specializations. Import relative Proj/ampleness here and the already planned detailed projective O(k)/Serre contracts from R09.1; no duplicate proper-cohomology development is requested.",
       "neededBy": [
         "ComplexComparisonPartII:C2/projective-cohomology"
       ]
@@ -5604,7 +5653,7 @@
   "gaps": [
     {
       "title": "Shared analytic-space suppliers need tracked integration",
-      "detail": "ComplexComparison PR196 Layers0–2 (head4bd72379658126cbe9be935656396f0c9dac4de0) and AnalyticGeometry PR279 Milestones5–7 (head581f66fed0f12fe49b8f5dd96aa18d3e435c190a) are open proposals. Record their nonreduced quotient, gluing, étale and holomorphic-bundle exports once as tracked suppliers. No accepted stage ID or pinned implementation is invented.",
+      "detail": "The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. Track ComplexComparison PR196 Layers0–2 (head4bd72379658126cbe9be935656396f0c9dac4de0) as the proposed analytification adapter, and AnalyticGeometry PR279 Milestones5–7 (head275ce8b253d32e715b7832d2b0df4a62ccbb0699) as the proposed holomorphic manifold/gluing/bundle supplier. Retain the distinction between ordinary analytic spaces and manifolds.",
       "neededBy": [
         "ComplexComparisonPartII:C0/repair-analytification",
         "ComplexComparisonPartII:C0/holomorphic-bundle-dictionary"
@@ -5659,10 +5708,15 @@
       ]
     },
     {
-      "title": "Compact bundle elliptic estimates",
-      "detail": "PDE D16 is a scalar Euclidean estimate. Demailly VI2.2–2.3 states Rellich/Gårding and refers out for proofs. The PDE PartII contract must prove the compact bundle system version before Green operators and geometric Hodge theory close.",
+      "title": "ComplexKahlerGeometry analytic supplier integration",
+      "detail": "The open ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 plans the general star, Laplacian, compact elliptic/Hodge and Kähler theorems in K5a–K6, with Frölicher degeneration in K8. Import those contracts instead of proposing another PDE Part II construction. C5 retains proper algebraic Hodge structures, algebraic-filtration identification, relative nonreduced-base Hodge bundles and cycle/coherent compatibility. Integration of the proposed analytic supplier and its native maps is still open; neither a proposed target nor Demailly’s statement-only Rellich/Gårding input is a completed proof.",
       "neededBy": [
-        "ComplexComparisonPartII:C5/compact-elliptic-hodge"
+        "ComplexComparisonPartII:C5/hodge-star",
+        "ComplexComparisonPartII:C5/hodge-laplacian",
+        "ComplexComparisonPartII:C5/compact-elliptic-hodge",
+        "ComplexComparisonPartII:C5/harmonic-projection-green",
+        "ComplexComparisonPartII:C5/kaehler-identities",
+        "ComplexComparisonPartII:C5/kaehler-hodge-decomposition"
       ]
     },
     {
@@ -5910,8 +5964,8 @@
       "roadmaps": [
         "ComplexComparisonPartII"
       ],
-      "detail": "Track the existing ComplexComparison PR196 and AnalyticGeometry PR279 supplier layers once. Reuse current AlgebraicVectorBundles, DifferentialGeometry and completed HodgeStructures from upstream main, which postdate the atlas snapshot.",
-      "proposal": "Retain C0 as the coherent-module application of ComplexComparison PR196 Layers0–2 and AnalyticGeometry PR279 Milestones5–7. Track these open supplier targets rather than creating a second analytification carrier. Import AlgebraicVectorBundles L0A–L0C, DifferentialGeometry L5–L9 and Completed HodgeStructures by their actual current upstream layers; record those dependencies in the package boundary once the suppliers integrate."
+      "detail": "Reconcile the ordinary analytic foundations proposal with PELModuli: SF.2 Part II is the shared carrier owner; C0 is its coherent-comparison application. Track open PR196 and PR279 as proposals.",
+      "proposal": "The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. Import PR279 Milestones5–7 for holomorphic manifold gluing and bundles. Current AlgebraicVectorBundles, DifferentialGeometry and completed HodgeStructures remain imported suppliers. No graph edges or new stage ids are installed here."
     },
     {
       "action": "rescope",
@@ -5926,8 +5980,8 @@
       "roadmaps": [
         "ComplexComparisonPartII"
       ],
-      "detail": "Request DifferentialGeometry PartII (Ehresmann and holomorphic Hermitian Chern connection), PDE PartII (compact bundle elliptic estimates) and OperatorTheory PartII (Montel/Schwartz compact-map cohomology); these extend existing directions and are not duplicate C5 foundational carriers.",
-      "proposal": "Add PartII extensions to the existing DifferentialGeometry, PDE and OperatorTheory directions. DifferentialGeometry supplies proper-submersion Ehresmann/finite-CW and Hermitian holomorphic Chern connections; PDE supplies compact bundle elliptic estimates; OperatorTheory supplies Montel/Schwartz compact-map coherent finiteness. Keep analytic exhaustion and smooth plurisubharmonic approximation with the shared analytic owner. C1/C5 retain their analytic-cohomology and geometric Hodge applications, importing these exact supplier contracts rather than rebuilding the underlying carriers."
+      "detail": "Current PR953 already proposes the general compact bundle elliptic and Kähler Hodge targets. Import K5a–K6/K8; keep DifferentialGeometry and OperatorTheory extensions only for genuinely additional interfaces.",
+      "proposal": "Import proposed ComplexKahlerGeometry K5a–K6 and K8 for generic smooth bundle Hodge/elliptic and Kähler theory. C5 owns their algebraic/coherent comparison, smooth proper algebraic extension, relative Hodge bundles over possibly nonreduced characteristic-zero bases, and geometric cycle integration. Retain the Ehresmann and exact Chern-connection request only to the extent not supplied by that proposal, and OperatorTheory Montel/Schwartz compact-map cohomology. No duplicate PDE Part II or second generic Hodge construction is proposed. Supplier proposals need integration before stage edges can be installed."
     }
   ],
   "upstreamNotes": [
@@ -5941,11 +5995,15 @@
     },
     {
       "where": "PDE D16 and OperatorTheory",
-      "note": "Current scalar Euclidean Gårding and Hilbert spectral theory do not cover compact bundle elliptic estimates or the Montel/Schwartz theorem. The exact PartII contracts are recorded above."
+      "note": "PDE D16 is only scalar Euclidean Gårding. Current open PR953 K5a now proposes the general compact bundle elliptic/Green system; K6 proposes Kähler Hodge theory. Import these contracts, with integration explicit, rather than create a duplicate PDE Part II. The separate Montel/Schwartz cohomology request remains."
     },
     {
       "where": "AnalyticToricGeometry Layer3 and ShimuraVarieties V1",
       "note": "Confirmed finding28 uses PR279 open gluing Milestones5–7. Import the same tracked supplier; do not construct another analytic atlas in C0."
+    },
+    {
+      "where": "Current supplier check, 2026-10-17",
+      "note": "Read TauCetiRoadmap main0d144d044dacebca17b654695b6f1ad58f159b27 and TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. The atlas snapshot omits newer AlgebraicVectorBundles and DifferentialGeometry contracts. PR196 head4bd72379658126cbe9be935656396f0c9dac4de0, PR279 head275ce8b253d32e715b7832d2b0df4a62ccbb0699 and PR953 head13b2335ea038b439655df55654e71b19603d8ee1 are open proposals, not merged carriers."
     }
   ],
   "sourceIssues": [

@@ -2,17 +2,17 @@
 
 This roadmap constructs the complex Shimura tower and its canonical models from a pure Shimura datum. It begins with arithmetic stabilizers and the actual diagonal rational quotient, proves algebraicity through the automorphic compactification, formulates special-point reciprocity, constructs the Siegel model from the theorem of complex multiplication, and separates the abelian-type inheritance argument from the general conjugation argument. The final descent step requires a continuous system of algebraic comparisons. The mathematical objects, named declarations, proof routes and tests specified here are the definitive plan; the accompanying suggested file only prototypes signatures supported by the pinned libraries.
 
-The packet is a complete **target-level planning pass**, with 69 declaration nodes, 58 API items, 29 discriminating test specifications and 41 planets. All eight stages are planned; none is closed. Nineteen explicit proof/carrier refinements and eighteen supplier requests identify the inputs that must be certified to close the stages. This means that every scoped target has a route ending in the audited libraries, an existing supplier node, a requested supplier stage or a named gap. It does not mean that the theorem proofs or their advanced Lean signatures have been implemented. Every declaration retains unchecked implementation status. The bibliography distinguishes passages actually inspected from primary arguments that the gap register requires.
+The packet is a complete **target-level planning pass**, with 69 declaration nodes, 58 API items, 29 discriminating test specifications and 41 planets. All eight stages are planned; none is closed. Twenty explicit proof/carrier refinements and eighteen supplier requests identify the inputs that must be certified to close the stages. This means that every scoped target has a route ending in the audited libraries, an existing supplier node, a requested supplier stage or a named gap. It does not mean that the theorem proofs or their advanced Lean signatures have been implemented. Every declaration retains unchecked implementation status. The bibliography distinguishes passages actually inspected from primary arguments that the gap register requires.
 
 ## Conventions and ownership
 
-A pure datum is the object of `ShimuraData:D4/shimura-datum`; its domain, homomorphisms, cocharacter class and reflex field are imported from D2–D4. Write X⁺ for a connected domain component and G(Q)₊ for the inverse image of Gᵃᵈ(R)⁺. Compact adjoint factors are removed only when forming the effective domain action. For a compact open subgroup K of G(A_f), write [x,a]ₖ for the class of (x,a). The finite-adelic coordinate is essential. Neither the finite component double quotient nor one connected quotient is the full analytic variety.
+A pure datum is the object of the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties; its domain, homomorphisms, cocharacter class and reflex field are imported from D2–D4. Write X⁺ for a connected domain component and G(Q)₊ for the inverse image of Gᵃᵈ(R)⁺. Compact adjoint factors are removed only when forming the effective domain action. For a compact open subgroup K of G(A_f), write [x,a]ₖ for the class of (x,a). The finite-adelic coordinate is essential. Neither the finite component double quotient nor one connected quotient is the full analytic variety.
 
 The component arithmetic group is Γₐ=G(Q)₊∩aKa⁻¹. Quotient charts use its effective image Γₐᵉᶠᶠ. Rational neatness is the predicate owned by ShimuraData D5, with its representation independence. Neatness makes the **effective** action free once discreteness has been proved. It does not eliminate every rational central unit, and it does not make a raw level-group action faithful. For a normal level inclusion the quotient-action subgroup is computed from the effective finite action, with its kernel retained. A disconnected cover can have more automorphisms over its base: for the norm G_m datum, K(21)⊂K(3) gives six points over one, with regular quotient-action group C₆ and full automorphism group S₆. For GL₂ the full domain has its two half-plane components; at principal level N≥3 the full complex variety has φ(N) components, whereas the split one-point torus example has a quotient by ±1.
 
 Arithmetic reduction, real Siegel sets, class-number finiteness, adelic quotient topology and the topological level/Hecke tower belong to AdelicAlgebraicGroups AA.3–AA.4 and the locally symmetric supplier, following accepted RS-04. V0 applies their results to Shimura components. V1 adds the holomorphic and analytic content. Strong approximation is used for the semisimple simply connected derived group, with its noncompact simple real factors, and never as an unrestricted statement about a reductive group or torus. Real density in the Hecke-orbit argument is a different input.
 
-Complex analytic spaces include nilpotent holomorphic local models. An analytic space is locally a locally C-ringed space (V(I), O_U/I), with U open in Cⁿ and I a locally finitely generated holomorphic ideal. A quotient manifold is a special case. A carrier with only points and a topology cannot support coherent ideals, projective GAGA or analytic fibre products. The proposed CA.0 supplier owns these foundations, gluing and analytification; V1–V3 use them. The general foundation is not defined anew as a Shimura-specific structure. The current C0 repair target does not itself construct this category, and the retired integration roadmap cannot supply it.
+Complex analytic spaces include nilpotent holomorphic local models. An analytic space is locally a locally C-ringed space (V(I), O_U/I), with U open in Cⁿ and I a locally finitely generated holomorphic ideal. A quotient manifold is a special case. A carrier with only points and a topology cannot support coherent ideals, projective GAGA or analytic fibre products. The proposed SchemeAndStackFoundations SF.2 Part II supplier owns ordinary analytic-space foundations and analytification; the existing PR279 proposal owns holomorphic manifold gluing; V1–V3 use them. The general foundation is not defined anew as a Shimura-specific structure. The current C0 repair target does not itself construct this category, and the retired integration roadmap cannot supply it.
 
 The compactification in V2 is the rational Satake, or minimal Baily–Borel, compactification. The initial automorphic ring consists of **analytic** canonical sections whose coefficients in every rational adapted unbounded realization extend continuously in the Satake topology and holomorphically on the boundary stratum. Boundary restriction takes values in the line factor induced by the ambient Jacobian; its intrinsic boundary weight can differ. It is not defined using the algebraic line bundle whose existence the construction is intended to prove. Cusp forms impose an additional vanishing condition. A positive tensor power changes the ring by a Veronese construction and must preserve the projective realization. General toroidal compactifications, their fans and integral models have separate owners.
 
@@ -55,7 +55,7 @@ The construction or proof follows this route:
 2. Passing to the finite-index component stabilizer preserves arithmeticity. The algebraic image theorem (Milne 3.2) and removal of the compact ineffective factor give a discrete arithmetic domain image.
 3. Distinguish discreteness of Γ in all real group points from discreteness of its domain image: the latter is the input to D5/effective-free.
 
-Direct inputs: `ShimuraData:D5/component-subgroup`, `ShimuraData:D5/effective-kernel`, `AdelicAlgebraicGroups:AA.3/arithmetic-subgroup-of-level`, `ArithmeticLocallySymmetricSpaces:ALS.0`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.3`.
+Direct inputs: the existing upstream §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties, the existing upstream §P.4 Levels and basic examples of ShimuraVarieties; §P.2 Hermitian components of ShimuraVarieties, `AdelicAlgebraicGroups:AA.3/arithmetic-subgroup-of-level`, `ArithmeticLocallySymmetricSpaces:ALS.0`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.3`.
 
 Acceptance checks:
 
@@ -80,7 +80,7 @@ The construction or proof follows this route:
 1. Import Reduction.levelArithmetic_commensurable_pair for the two compact-open level arithmetic subgroups; intersect with the same finite-index rational component subgroup. This gives commensurability for arbitrary representatives, without assuming they lie in one double coset.
 2. Compute the conjugation identity for b=qak, preserving the chosen component.
 
-Direct inputs: `ShimuraVarieties:V0/stabilizer-arithmetic`, `ShimuraData:D5/component-subgroup`.
+Direct inputs: `ShimuraVarieties:V0/stabilizer-arithmetic`, the existing upstream §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -104,7 +104,7 @@ The construction or proof follows this route:
 2. Use the checked AA.4 neat-level and D5 neat-level predicates: both require rational points in every adelic conjugate to be neat. Representation independence identifies their conventions.
 3. Apply the supplier to each prescribed compact open sublevel. Neatness is stable under subgroups, so these sublevels form a cofinal system for the tower.
 
-Direct inputs: `AdelicAlgebraicGroups:AA.4/neat-level-exists`, `AdelicAlgebraicGroups:AA.4/neat-level`, `ShimuraData:D5/neat-level`, `ShimuraData:D5/neat-representation-independence`.
+Direct inputs: `AdelicAlgebraicGroups:AA.4/neat-level-exists`, `AdelicAlgebraicGroups:AA.4/neat-level`, the existing upstream §4.3 Neat elements and levels of AdelicAlgebraicGroups, the existing upstream §4.3 Neat elements and levels of AdelicAlgebraicGroups.
 
 Acceptance checks:
 
@@ -128,7 +128,7 @@ The construction or proof follows this route:
 1. Discreteness from stabilizer-arithmetic combines with the proper symmetric-space action supplied by ALS.0.
 2. Use D5/effective-free to exclude effective stabilizers at neat level. Descend charts through disjoint translates; manifold gluing is an explicit requested supplier.
 
-Direct inputs: `ShimuraVarieties:V0/stabilizer-arithmetic`, `ShimuraData:D5/effective-free`, `ArithmeticLocallySymmetricSpaces:ALS.0`.
+Direct inputs: `ShimuraVarieties:V0/stabilizer-arithmetic`, the existing upstream §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties, `ArithmeticLocallySymmetricSpaces:ALS.0`.
 
 Acceptance checks:
 
@@ -153,7 +153,7 @@ The construction or proof follows this route:
 2. Milne 5.11–5.13 identify representatives and stabilizers by the diagonal rational action.
 3. For topology use open finite adelic cosets. For analytic compatibility use the effective quotient charts and representative-change holomorphic maps.
 
-Direct inputs: `AdelicAlgebraicGroups:AA.3/class-number-finite`, `AdelicAlgebraicGroups:AA.3/component-decomposition`, `ShimuraVarieties:V0/stabilizer-commensurable`, `ShimuraVarieties:V0/effective-proper-action`, `ShimuraData:D2/hermitian-domain-components`.
+Direct inputs: `AdelicAlgebraicGroups:AA.3/class-number-finite`, `AdelicAlgebraicGroups:AA.3/component-decomposition`, `ShimuraVarieties:V0/stabilizer-commensurable`, `ShimuraVarieties:V0/effective-proper-action`, the existing upstream §P.2 Hermitian components of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -179,7 +179,7 @@ The construction or proof follows this route:
 3. Import AA §4.5 abelianization-integral-lifts and finite-adelic abelianization: smooth reductive models outside finitely many primes, connected-kernel residue-field surjectivity by Lang and integral lifting by Hensel are already planned. Restricted products then give adelic surjectivity; do not plan these inputs again. The positivity identity and local openness specialization remain the AA.4 request.
 4. Apply strong approximation to G^der, with noncompactness on each Q-simple real factor supplied by SV3, to make the fibres single connected arithmetic quotients. Local openness gives compact open ν(K).
 
-Direct inputs: `ShimuraVarieties:V0/component-decomposition`, `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem`, `ShimuraData:D4/shimura-datum`, `AdelicAlgebraicGroups:AA.4/class-set-abelianization`, `AdelicAlgebraicGroups:AA.4/kneser-local-torsor`, `AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected`.
+Direct inputs: `ShimuraVarieties:V0/component-decomposition`, `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `AdelicAlgebraicGroups:AA.4/class-set-abelianization`, `AdelicAlgebraicGroups:AA.4/kneser-local-torsor`, `AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected`.
 
 Acceptance checks:
 
@@ -208,7 +208,7 @@ The construction or proof follows this route:
 1. Form the right K-cosets, then the rational diagonal orbit quotient using the baseline orbit setoid.
 2. Use the explicit component equivalence of V0 to specify the quotient topology and map points.
 
-Direct inputs: `ShimuraData:D4/shimura-datum`, `AdelicAlgebraicGroups:AA.4/level-quotient`, `mathlib:MulAction.orbitRel.Quotient`, `ShimuraVarieties:V0/component-decomposition`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `AdelicAlgebraicGroups:AA.4/level-quotient`, `mathlib:MulAction.orbitRel.Quotient`, `ShimuraVarieties:V0/component-decomposition`.
 
 Uses that determine the API:
 
@@ -346,7 +346,7 @@ The construction or proof follows this route:
 2. Holomorphicity is inherited from the Hodge-domain map, then checked on component quotient charts.
 3. Retain Milne 5.16 separation of stabilizers for the suitably small-level embedding, used in V6.
 
-Direct inputs: `ShimuraData:D4/datum-morphism`, `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V1/right-translation`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V1/right-translation`.
 
 Acceptance checks:
 
@@ -372,7 +372,7 @@ The construction or proof follows this route:
 2. Construct S_F and π_F by the adapted Cayley/Siegel realization. BB §§1.8–1.11 and 3.3(ii) show that normalizer Jacobians descend along π_F, and that compatible realization changes identify the induced factors.
 3. Use BB §§3.8–3.9 for nested boundary components and their simultaneous standard realizations; use the product decomposition of §§3.3(i), 8.9 for general semisimple domains.
 
-Direct inputs: `ShimuraData:D2/hermitian-domain-components`, `ShimuraData:D3/borel-embedding`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.3/parabolic-double-cosets-finite`.
+Direct inputs: the existing upstream §P.2 Hermitian components of ShimuraVarieties, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.3/parabolic-double-cosets-finite`.
 
 Sources:
 
@@ -421,7 +421,7 @@ The construction or proof follows this route:
 3. Uniqueness on the dense interior gives compatible restriction Φ_F. Multiplying the extended coefficient functions preserves continuity and stratum holomorphy, hence grading and product restriction. Pullback to finite-index arithmetic subgroups preserves the predicate.
 4. Use BB §8.9 to pass from Q-simple factors to their products and finite-index arithmetic groups, with compact factors unchanged. Once normal-analytic-compactification is proved, admissible degree-zero functions are holomorphic on a compact connected normal analytic space, hence constant.
 
-Direct inputs: `ShimuraVarieties:V2/rational-boundary`, `ShimuraVarieties:V2/satake-compactness`, `ShimuraVarieties:V1/analytic-structure`, `ShimuraData:D3/homogeneous-variation`, `ComplexComparisonPartII:C0`.
+Direct inputs: `ShimuraVarieties:V2/rational-boundary`, `ShimuraVarieties:V2/satake-compactness`, `ShimuraVarieties:V1/analytic-structure`, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, `ComplexComparisonPartII:C0`.
 
 Uses that determine the API:
 
@@ -830,7 +830,7 @@ The construction or proof follows this route:
 2. Check Galois invariance of the product formula and descend the morphism over Q.
 3. Evaluate on restricted adelic points and prove rational-principal and level compatibility.
 
-Direct inputs: `ShimuraData:D4/special-pair`, `ShimuraData:D3/cocharacter-class`, `ShimuraData:D3/reflex-field`, `ReductiveGroupsPartII:RG2.0a`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.1/base-change-adelic`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, `ReductiveGroupsPartII:RG2.0a`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AdelicAlgebraicGroups:AA.1/base-change-adelic`.
 
 Uses that determine the API:
 
@@ -895,7 +895,7 @@ The construction or proof follows this route:
 2. Use reciprocity-finite-action to make the formula independent of the lift.
 3. Record finite-level and compatible-tower variants and compare them via sufficiently small levels.
 
-Direct inputs: `ShimuraVarieties:V3/finite-quotient-algebraization`, `ShimuraData:D4/special-pair`, `ShimuraData:D3/reflex-field`, `ShimuraVarieties:V4/reciprocity-finite-action`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:CategoryTheory.Over`.
+Direct inputs: `ShimuraVarieties:V3/finite-quotient-algebraization`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, `ShimuraVarieties:V4/reciprocity-finite-action`, `mathlib:AlgebraicGeometry.Scheme`, `mathlib:CategoryTheory.Over`.
 
 Uses that determine the API:
 
@@ -1001,7 +1001,7 @@ The construction or proof follows this route:
 1. Choose a regular semisimple Lie element in the compact-mod-centre real Cartan; approximate by a rational regular semisimple element.
 2. Its rational maximal torus supports the conjugated special homomorphism. Apply the same construction near arbitrary domain points.
 
-Direct inputs: `ShimuraData:D4/special-point`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ShimuraVarieties:V2/baily-borel`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ShimuraVarieties:V2/baily-borel`.
 
 Acceptance checks:
 
@@ -1308,7 +1308,7 @@ The construction or proof follows this route:
 1. Use the Mumford–Tate torus criterion for a polarized weight-one Hodge structure.
 2. By complete reducibility and positive Rosati involution, a torus Mumford–Tate action gives a full CM algebra in the endomorphisms. Conversely a full CM algebra forces a torus Hodge image.
 
-Direct inputs: `ShimuraVarieties:V5/cm-abelian-variety`, `ShimuraData:D5/siegel-datum`, `ShimuraData:D4/special-point`, `AbelianSchemesAndArithmeticModuli:A6`.
+Direct inputs: `ShimuraVarieties:V5/cm-abelian-variety`, the existing upstream §P.4 Levels and basic examples of ShimuraVarieties, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `AbelianSchemesAndArithmeticModuli:A6`.
 
 Acceptance checks:
 
@@ -1384,7 +1384,7 @@ The construction or proof follows this route:
 2. Apply hodge-inheritance to the constructed Siegel model.
 3. Use V8 uniqueness only after both candidate models satisfy the full V4 condition; its foundational dependencies are checked to avoid a cycle.
 
-Direct inputs: `ShimuraData:D4/hodge-type`, `ShimuraVarieties:V5/siegel-canonical`, `ShimuraVarieties:V6/hodge-inheritance`, `ShimuraVarieties:V8/model-uniqueness`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `ShimuraVarieties:V5/siegel-canonical`, `ShimuraVarieties:V6/hodge-inheritance`, `ShimuraVarieties:V8/model-uniqueness`.
 
 Acceptance checks:
 
@@ -1411,7 +1411,7 @@ The construction or proof follows this route:
 1. Construct the congruence-indexed inverse system and its compatible symmetry, as in the 1983 appendix.
 2. Use the Deligne completed-symmetry construction to define the connected canonical datum with actual Galois compatibility. Its exact extension/coherence source must be checked separately, recorded as a gap.
 
-Direct inputs: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V3/finite-quotient-algebraization`, `ShimuraVarieties:V4/canonical-model`, `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem`, `ShimuraData:D4/adjoint-datum`.
+Direct inputs: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V3/finite-quotient-algebraization`, `ShimuraVarieties:V4/canonical-model`, `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties.
 
 Uses that determine the API:
 
@@ -1477,7 +1477,7 @@ The construction or proof follows this route:
 2. Use reflex-norm functoriality to compare marked tori and the Galois extension.
 3. Apply compatible finite-component descent where the full datum is reconstructed.
 
-Direct inputs: `ShimuraVarieties:V6/connected-tower`, `ShimuraVarieties:V6/connected-full-equivalence`, `ShimuraVarieties:V4/reflex-norm`, `ShimuraData:D4/product-datum`.
+Direct inputs: `ShimuraVarieties:V6/connected-tower`, `ShimuraVarieties:V6/connected-full-equivalence`, `ShimuraVarieties:V4/reflex-norm`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -1504,7 +1504,7 @@ The construction or proof follows this route:
 3. Verify reciprocity by central-isogeny compatibility of the cocharacter norm; compare the inverse systems.
 4. Central isogenies identify the adjoint groups and hence the S-maps of connected data; no algebraic lift S→G₁ is required. D4/central-isogeny-lift only treats a given lift of a full datum and does not supply such an existence assertion.
 
-Direct inputs: `ShimuraVarieties:V6/connected-tower`, `ShimuraVarieties:V3/finite-quotient-algebraization`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AlgebraicModuliForArithmeticGeometry:R09.3`, `ShimuraData:D4/adjoint-datum`.
+Direct inputs: `ShimuraVarieties:V6/connected-tower`, `ShimuraVarieties:V3/finite-quotient-algebraization`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `AlgebraicModuliForArithmeticGeometry:R09.3`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -1528,7 +1528,7 @@ The construction or proof follows this route:
 2. Descend the Hodge-type connected model through its completion kernel; reconstruct the target full tower.
 3. Check V4 on all special pairs and use uniqueness to remove witness choices.
 
-Direct inputs: `ShimuraData:D4/abelian-type`, `ShimuraVarieties:V6/hodge-canonical`, `ShimuraVarieties:V6/connected-products`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraVarieties:V6/connected-full-equivalence`.
+Direct inputs: the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `ShimuraVarieties:V6/hodge-canonical`, `ShimuraVarieties:V6/connected-products`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraVarieties:V6/connected-full-equivalence`.
 
 Acceptance checks:
 
@@ -1556,7 +1556,7 @@ The construction or proof follows this route:
 2. Separate the central torus/component reconstruction from the semisimple conjugation assertion.
 3. Use product and central-isogeny descent only with their completed symmetry; do not identify full data by derived groups.
 
-Direct inputs: `ShimuraVarieties:V6/connected-full-equivalence`, `ShimuraVarieties:V6/connected-products`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraData:D4/shimura-datum`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0a`.
+Direct inputs: `ShimuraVarieties:V6/connected-full-equivalence`, `ShimuraVarieties:V6/connected-products`, `ShimuraVarieties:V6/central-isogeny-descent`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0a`.
 
 Acceptance checks:
 
@@ -1585,7 +1585,7 @@ The construction or proof follows this route:
 2. Construct the diagonal inclusion into Res_{F′/Q}(G′_{F′}) with the induced components.
 3. Apply the subgroup comparison principle of Milne 1.6 and §6.4. Compatibility and choice independence are checked in the marked comparison.
 
-Direct inputs: `ShimuraVarieties:V7/simple-connected-reduction`, `ShimuraData:D4/special-pair`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0a`, `ShimuraVarieties:V3/algebraic-data-maps`, `ShimuraData:D4/adjoint-datum`.
+Direct inputs: `ShimuraVarieties:V7/simple-connected-reduction`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0a`, `ShimuraVarieties:V3/algebraic-data-maps`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -1612,7 +1612,7 @@ The construction or proof follows this route:
 2. Construct the reductive subgroup generated by T′ and the ±α root groups and descend it by quadratic Galois stability. Project the marked S-map to its adjoint group, then verify Hodge types and the Cartan condition. The semisimple cover carries the same adjoint S-map; do not use a full-datum lift existence assertion.
 3. Use the A₁ symplectic realization and V5/V6 to prove its marked conjugation comparison from CM, not just canonical-model existence. The precise A₁ comparison bridge is an explicit refinement gap.
 
-Direct inputs: `ShimuraVarieties:V7/auxiliary-cm-splitting`, `ShimuraData:D4/special-pair`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ShimuraVarieties:V6/abelian-canonical`, `ShimuraData:D4/adjoint-datum`.
+Direct inputs: `ShimuraVarieties:V7/auxiliary-cm-splitting`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ShimuraVarieties:V6/abelian-canonical`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties.
 
 Acceptance checks:
 
@@ -1667,7 +1667,7 @@ The construction or proof follows this route:
 2. Form the contracted product for ρ_h:S→T^ad acting by conjugation. The pulled-back maximal torus T is unchanged because this action on T is trivial.
 3. Descend τμ_h in T^ad to {}^τh:S→({}^{τ,h}G)^ad_R and verify the connected Shimura conditions. Compute the finite-local trivializations and the real class τμ_h(−1)/μ_h(−1) in H¹(R,T^ad); do not demand an S-map into the simply connected cover.
 
-Direct inputs: `ShimuraVarieties:V7/simple-connected-reduction`, `ShimuraData:D4/special-pair`, `ShimuraData:D3/cocharacter-class`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ShimuraData:D4/adjoint-datum`, `ShimuraVarieties:V6/connected-tower`.
+Direct inputs: `ShimuraVarieties:V7/simple-connected-reduction`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, the existing upstream §P.3 Hodge filtrations and reflex fields of ShimuraVarieties, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, the existing upstream §P.1 Pure data and special pairs of ShimuraVarieties, `ShimuraVarieties:V6/connected-tower`.
 
 Uses that determine the API:
 
@@ -1966,7 +1966,7 @@ Consumers: `ShimuraVarieties:V4/reflex-norm`, `ShimuraVarieties:V7/simple-connec
 
 ### ComplexComparisonPartII:C0
 
-Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the CA.0 ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2. Apply the étale/smooth chart comparison to strict-SNC boundary coordinates, and identify analytification of a finite group quotient with the analytic quotient.
+Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the SF.2 Part II ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2. Apply the étale/smooth chart comparison to strict-SNC boundary coordinates, and identify analytification of a finite group quotient with the analytic quotient.
 
 Consumers: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V3/borel-extension`, `ShimuraVarieties:V3/unique-algebraization`, `ShimuraVarieties:V3/borel-algebraicity`, `ShimuraVarieties:V3/finite-quotient-algebraization`.
 
@@ -2048,13 +2048,13 @@ All stages are planned at target level. None is closed: the following named refi
 
 ### G1. Analytic carrier with nilpotents: RT-AREA-algebraicgeometry/3
 
-Add first layer CA.0 to ComplexComparisonPartII before C0: complex analytic spaces as locally C-ringed spaces locally (V(I),O_U/I), U open in Cⁿ and I locally finitely generated holomorphic ideal, including nilpotents; morphisms, open/closed subspaces, open gluing and fibre products; analytification representing Hom from analytic locally C-ringed spaces to finite-type C-schemes (SGA 1 XII 1.1), compatible with products/immersions and étale/smooth comparison. Encode CA.0→C0,V1,V2,ShimuraCompactifications:C2,PELModuli:M3,ModularCurvesPartII:R12.3 and list those consumers in the PR196 external record. C0/repair-analytification supplies a requested target, not a constructed carrier. The issue permits no edits to those supplier/atlas files, so the repair is a concrete unapplied ownership proposal.
+The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. Proposed outgoing consumers are C0, V1–V2, ShimuraCompactifications C2, PELModuli M3 and ModularCurvesPartII R12.3. C0/repair-analytification is the coherent application; PR196 Layers0–2 are tracked integration work. Supplier and atlas edge edits remain outside this fix.
 
 Required by: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V2/baily-borel`, `ShimuraVarieties:V3/borel-extension`.
 
 ### G2. Holomorphic manifold gluing: RT-AREA-algebraicgeometry/28
 
-The same new CA.0 must own compatible complex-atlas transport on TopCat.GlueData with holomorphic transitions, open holomorphic inclusions, finite-gluing topology/proper maps and holomorphic vector bundles (PR279 Milestones 5–7). Encode M5/M6 or CA.0→AnalyticToricGeometry Layer 3 and M7 or CA.0→C0, with the direct V1 edge. If PR279 is tracked instead, expose those milestones as real stage ids. Update its external consumers and declared_by_areas with AnalyticToricGeometry. LI.4/LI.2 are retired and provide none of this; no edge through them remains in the packet.
+Import the existing open AnalyticGeometry PR279 Milestones5–7 (head275ce8b253d32e715b7832d2b0df4a62ccbb0699): compatible complex-atlas transport on TopCat.GlueData, holomorphic open inclusions, finite-gluing topology/proper maps and holomorphic vector bundles. Keep this manifold supplier distinct from the proposed SF.2 Part II ordinary analytic-space carrier. Proposed supplier links are M5/M6→AnalyticToricGeometry Layer3, M7→C0 and the direct V1 import. The atlas external records and stage edges require maintainer integration; retired LI.4/LI.2 supply none of this.
 
 Required by: `ShimuraVarieties:V0/effective-proper-action`, `ShimuraVarieties:V0/component-decomposition`, `ShimuraVarieties:V1/analytic-structure`.
 
@@ -2144,7 +2144,7 @@ Required by: `ShimuraVarieties:V5/main-cm`.
 
 ### G17. Connected adjoint datum convention and carrier
 
-The connected carrier is a G^ad(R)^+-class of S→G^ad_R even for simply connected G. Its actual analytic/pro-algebraic implementation and comparison to D4/adjoint-datum remain to be supplied. D4/special-pair applies to the adjoint datum, with the torus pulled back to G; the standard PGL₂ cocharacter does not lift integrally to SL₂. No S-map lift is assumed. V6 supplies this explicit connected convention before advanced V6/V7 Lean signatures can be restored.
+The connected carrier is a G^ad(R)^+-class of S→G^ad_R even for simply connected G. Its actual analytic/pro-algebraic implementation and comparison to the adjoint-datum construction of existing upstream ShimuraVarieties §P.1 remain to be supplied. The special-pair construction of existing upstream ShimuraVarieties §P.1 applies to the adjoint datum, with the torus pulled back to G; the standard PGL₂ cocharacter does not lift integrally to SL₂. No S-map lift is assumed. V6 supplies this explicit connected convention before advanced V6/V7 Lean signatures can be restored.
 
 Required by: `ShimuraVarieties:V6/connected-tower`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraVarieties:V7/auxiliary-cm-splitting`, `ShimuraVarieties:V7/rank-one-subdata`, `ShimuraVarieties:V7/conjugated-datum`.
 
@@ -2162,9 +2162,9 @@ Required by: `ShimuraVarieties:V0/stabilizer-arithmetic`, `ShimuraVarieties:V4/r
 
 ## Ownership proposals for assembly
 
-**ComplexComparisonPartII**. RT-AREA-algebraicgeometry/3 and /28: analytic spaces/analytification and holomorphic gluing have no mathematical owner; external PR196/279 are not encoded stages, and FoundationsAndLibraryIntegration is retired.
+**ComplexComparisonPartII**. Unify finding/3 with PELModuli’s SF.2 Part II ordinary analytic carrier proposal, and finding/28 with the existing open PR279 holomorphic gluing supplier.
 
-Insert CA.0: Complex analytic foundations before C0, with analytic local models including nilpotents, morphisms/gluing/fibre products, SGA1 analytification, smooth/étale comparison and compatible complex manifold gluing/finite-gluing topology/holomorphic bundles. Encode the consumer edges and PR196/279 external record updates listed in the two gaps. It agrees with PR196 Layers 0–2 and PR279 Milestones 5–7 if those PRs merge. This proposal is not applied in the present four-file job.
+The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. C0 supplies the coherent comparison application. Track PR196 Layers0–2 and PR279 Milestones5–7 as proposed interfaces; do not invent an accepted CA.0 stage. The consumer links in the two gaps are proposed, not graph edits.
 
 **ComplexMultiplicationAndExplicitReciprocity**. V7 needs the actual Serre/Taniyama torsor, not only types/reflex types or the scalar CM reciprocity theorem.
 
@@ -2437,3 +2437,7 @@ The reviewer independently reread these public copies on 10 October 2026 and mat
 - [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11). Annals of Mathematics 84:3 (1966), pp.442–528; published article, OCR reproduction. Read: 2026-10-10. Inspected: §§1.8–1.11, pp.454–457, and §3.3(ii), pp.470–472: adapted unbounded realizations, projection and ambient Jacobian factors. §§3.5–3.7, pp.472–474: rational normalizers and arithmetic boundary quotients; Proposition 3.15, p.478: boundary codimension under the no-three-dimensional-Q-normal-subgroup hypothesis; §§4.8–4.11, pp.482–484: Satake topology, good neighborhoods, incidence and compactness. §§8.1–8.9, pp.509–514: induced boundary bundles, local and global integral forms, coordinate independence, restriction and product factors. §§9.6–9.7, pp.517–518, and §§10.4–10.11, pp.520–523: portions of normality and projective realization; full convergence estimates, analyticity-criterion proof and complete section-ring identification remain refinements. Theorem 10.14, pp.523–524: full holomorphic section-ring finite generation under the exclusion of three-dimensional Q-normal subgroups; this does not close the modular-curve/mixed-factor comparison. [Primary article reproduction read](https://paperzz.com/doc/6992794/compactification-of-arithmetic-quotients-of-bounded-symme...).
 
 - [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/dea8191cc6047d6142a65872ebce6eeeb841a29b/TauCetiRoadmap/AdelicAlgebraicGroups/README.md). TauCetiRoadmap main at dea8191cc6047d6142a65872ebce6eeeb841a29b. Read: 2026-10-10. Inspected: §§3.4, 4.1, 4.3–4.5 and Suggested.lean declaration Reduction.levelArithmetic_commensurable_pair: level commensurability, neat existence, local/global simply connected inputs, integral abelianization lifts and class-set abelianization. These are roadmap specifications, not implementation claims.
+
+## Supplier retargets after ShimuraData revision 5
+
+The accepted ShimuraData revision removed the duplicated datum/domain/reflex-field and level foundations. Their owner is the existing open [ShimuraVarieties PR933](https://github.com/TauCetiProject/TauCetiRoadmap/pull/933), checked at `1dd09ed7a832fd36e071726e9066948d76173d0a`, §§P.1–P.4 before Layer0; general neatness and neat-level existence are AdelicAlgebraicGroups §4.3. The packet’s `upstreamImports` records every consumer and former node, following the accepted supplier’s `consumerRetargets`. These are imported roadmap contracts, not new targets or pinned implementations. Same-stage uses name the upstream prefix explicitly without adding a self-edge. PEL’s Hilbert trace embedding is its own existing upstream §M5.4; its former reverse import of ShimuraData’s comparison is removed. Existing Suggested signatures and review verdicts are unchanged.

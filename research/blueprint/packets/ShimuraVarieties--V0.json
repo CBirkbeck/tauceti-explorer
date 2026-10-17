@@ -228,7 +228,9 @@
       "kind": "theorem",
       "statement": "For a pure datum (G,X), component X⁺, compact open K and a∈G(A_f), Γ_a=G(Q)_+∩aKa⁻¹ is an arithmetic subgroup of G(Q), of finite index in G(Q)∩aKa⁻¹. Its image in the effective real automorphism group of X⁺ is arithmetic and discrete. G(Q)_+ means the inverse image of G^ad(R)^+, with compact adjoint factors removed only in the effective image.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/component-subgroup node is superseded.",
+        "Supplier retarget: §P.4 Levels and basic examples of ShimuraVarieties; §P.2 Hermitian components of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/effective-kernel node is superseded."
       ],
       "proofSteps": [
         "Import AA §3.4 and Reduction.levelArithmetic_commensurable_pair for arbitrary compact-open levels and adelic representatives. Identify one integral-model level with the faithful GL_n(Z) definition of arithmeticity; request that comparison and the algebraic-image/effective-kernel specialization from AA.3. The general pairwise commensurability theorem is already planned upstream.",
@@ -236,8 +238,6 @@
         "Distinguish discreteness of Γ in all real group points from discreteness of its domain image: the latter is the input to D5/effective-free."
       ],
       "prerequisites": [
-        "ShimuraData:D5/component-subgroup",
-        "ShimuraData:D5/effective-kernel",
         "AdelicAlgebraicGroups:AA.3/arithmetic-subgroup-of-level",
         "ArithmeticLocallySymmetricSpaces:ALS.0",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
@@ -279,15 +279,15 @@
       "kind": "theorem",
       "statement": "For fixed G and X⁺, Γ_{a,K} and Γ_{b,L} are commensurable for arbitrary a,b∈G(A_f) and compact open K,L, since they are arithmetic in the same rational group. If b=qak with q∈G(Q)_+, k∈K and L=K, then Γ_b=qΓ_aq⁻¹, and x↦qx identifies their effective quotients.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/component-subgroup node is superseded."
       ],
       "proofSteps": [
         "Import Reduction.levelArithmetic_commensurable_pair for the two compact-open level arithmetic subgroups; intersect with the same finite-index rational component subgroup. This gives commensurability for arbitrary representatives, without assuming they lie in one double coset.",
         "Compute the conjugation identity for b=qak, preserving the chosen component."
       ],
       "prerequisites": [
-        "ShimuraVarieties:V0/stabilizer-arithmetic",
-        "ShimuraData:D5/component-subgroup"
+        "ShimuraVarieties:V0/stabilizer-arithmetic"
       ],
       "sources": [
         {
@@ -322,7 +322,9 @@
       "kind": "theorem",
       "statement": "Specialize AA.4/neat-level-exists to the rational group of a pure Shimura datum: every compact open K contains a normal open K₀ of finite index that is neat in the D5 rational-conjugate sense. Apply the same supplier inside every prescribed compact open sublevel for cofinality. Existence and the normal-core construction remain owned by AA.4; this node is only the convention bridge to the Shimura tower.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §4.3 Neat elements and levels of AdelicAlgebraicGroups. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/neat-representation-independence node is superseded.",
+        "Supplier retarget: §4.3 Neat elements and levels of AdelicAlgebraicGroups. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/neat-level node is superseded."
       ],
       "proofSteps": [
         "Import AA.4/neat-level-exists, including its normality and finite-index conclusions; do not repeat its faithful-representation congruence proof.",
@@ -332,8 +334,7 @@
       "prerequisites": [
         "AdelicAlgebraicGroups:AA.4/neat-level-exists",
         "AdelicAlgebraicGroups:AA.4/neat-level",
-        "ShimuraData:D5/neat-level",
-        "ShimuraData:D5/neat-representation-independence"
+        "AdelicAlgebraicGroups:AA.4"
       ],
       "sources": [
         {
@@ -366,7 +367,8 @@
       "kind": "theorem",
       "statement": "The effective image Γ_a^eff acts properly discontinuously on X⁺; at rationally neat K it acts freely. Thus its orbit projection is a covering map locally biholomorphic once the holomorphic quotient carrier is supplied. No conclusion that Γ_a itself acts freely is drawn.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/effective-free node is superseded."
       ],
       "proofSteps": [
         "Discreteness from stabilizer-arithmetic combines with the proper symmetric-space action supplied by ALS.0.",
@@ -374,7 +376,6 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V0/stabilizer-arithmetic",
-        "ShimuraData:D5/effective-free",
         "ArithmeticLocallySymmetricSpaces:ALS.0"
       ],
       "sources": [
@@ -408,7 +409,8 @@
       "kind": "theorem",
       "statement": "For every compact open K, G(Q)_+\\G(A_f)/K is finite, and choice of representatives a induces ⨿_a Γ_a\\X⁺ ≅ G(Q)\\(X×G(A_f)/K), first as topological spaces and then as complex analytic spaces. Changing a=qbk transports the component by q, so the decomposition is independent of representatives up to the specified analytic isomorphisms.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.2 Hermitian components of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D2/hermitian-domain-components node is superseded."
       ],
       "proofSteps": [
         "Finite index of G(Q)_+ in G(Q) refines AA.3 class finiteness to the plus double cosets.",
@@ -419,8 +421,7 @@
         "AdelicAlgebraicGroups:AA.3/class-number-finite",
         "AdelicAlgebraicGroups:AA.3/component-decomposition",
         "ShimuraVarieties:V0/stabilizer-commensurable",
-        "ShimuraVarieties:V0/effective-proper-action",
-        "ShimuraData:D2/hermitian-domain-components"
+        "ShimuraVarieties:V0/effective-proper-action"
       ],
       "sources": [
         {
@@ -453,7 +454,8 @@
       "kind": "theorem",
       "statement": "Assume G^der is simply connected. Put T=G/G^der and ν:G→T, T(Q)^†=ν(G(Q)_+)=T(Q)∩ν(Z(G)(R)). Then π₀(Sh_K^an(G,X))≃T(Q)^†\\T(A_f)/ν(K). Apply strong approximation only to the semisimple simply connected derived group, whose Q-simple factors have noncompact real points by SV3; never to G or a torus without hypotheses.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/shimura-datum node is superseded."
       ],
       "proofSteps": [
         "Specialize AA.4/class-set-abelianization to the component stabilizer G(Q)_+. The derived rational subgroup lies in G(Q)_+; retain the actual image ν(G(Q)_+).",
@@ -464,7 +466,6 @@
       "prerequisites": [
         "ShimuraVarieties:V0/component-decomposition",
         "AdelicAlgebraicGroups:AA.4/strong-approximation-theorem",
-        "ShimuraData:D4/shimura-datum",
         "AdelicAlgebraicGroups:AA.4/class-set-abelianization",
         "AdelicAlgebraicGroups:AA.4/kneser-local-torsor",
         "AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected"
@@ -505,14 +506,14 @@
       "kind": "definition",
       "statement": "For a pure datum and compact open K, Sh_K^pts is the orbit set of X×G(A_f)/K under q·(x,aK)=(qx,qaK), q∈G(Q). Its quotient topology comes from X with its domain topology and the discrete coset space G(A_f)/K. This defines the carrier; V1/analytic-structure equips it with its complex analytic structure.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/shimura-datum node is superseded."
       ],
       "proofSteps": [
         "Form the right K-cosets, then the rational diagonal orbit quotient using the baseline orbit setoid.",
         "Use the explicit component equivalence of V0 to specify the quotient topology and map points."
       ],
       "prerequisites": [
-        "ShimuraData:D4/shimura-datum",
         "AdelicAlgebraicGroups:AA.4/level-quotient",
         "mathlib:MulAction.orbitRel.Quotient",
         "ShimuraVarieties:V0/component-decomposition"
@@ -771,7 +772,8 @@
       "kind": "theorem",
       "statement": "A morphism f:(G,X)→(H,Y) and levels f(K)⊂L induce a holomorphic map Sh_K^an(G,X)→Sh_L^an(H,Y), [x,a]↦[f(x),f(a)], compatible with levels and translations. An injective subdatum yields a closed immersion at suitable sufficiently small levels after V3 algebraization; no closed-immersion assertion is made at arbitrary coarse levels.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/datum-morphism node is superseded."
       ],
       "proofSteps": [
         "Descend the equivariant map of domain and finite adelic coordinates.",
@@ -779,7 +781,6 @@
         "Retain Milne 5.16 separation of stabilizers for the suitably small-level embedding, used in V6."
       ],
       "prerequisites": [
-        "ShimuraData:D4/datum-morphism",
         "ShimuraVarieties:V1/analytic-structure",
         "ShimuraVarieties:V1/right-translation"
       ],
@@ -810,7 +811,9 @@
       "kind": "theorem",
       "statement": "Let D be the effective Hermitian symmetric domain of a rational semisimple adjoint group. A boundary component F in its bounded realization is rational precisely when its normalizer N(F), viewed as an algebraic subgroup, is defined over Q. For a Q-simple noncompact factor these are the proper maximal rational parabolics; for products take products of boundary components, allowing an interior factor. The image Γ(F) of N(F)∩Γ in N(F)/Z(F), where Z(F) fixes F pointwise, is an arithmetic discontinuous group on the Hermitian domain F. Construct the standard unbounded realization S_F of D and the holomorphic projection π_F:D→F. In adapted coordinates the ambient Jacobian determinant of each normalizer element is constant on π_F-fibres and induces an equivariant boundary line factor. The rational extension D*=D∪⋃F uses just these rational components, with their bounded-realization closure incidence.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.2 Hermitian components of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D2/hermitian-domain-components node is superseded.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/borel-embedding node is superseded."
       ],
       "proofSteps": [
         "Use BB §§3.5–3.7 to identify rationality by the Q-defined normalizer and to obtain Γ(F). Relative rational roots and parabolics are imported from the reductive supplier; complete classification interfaces are the recorded refinement.",
@@ -818,8 +821,6 @@
         "Use BB §§3.8–3.9 for nested boundary components and their simultaneous standard realizations; use the product decomposition of §§3.3(i), 8.9 for general semisimple domains."
       ],
       "prerequisites": [
-        "ShimuraData:D2/hermitian-domain-components",
-        "ShimuraData:D3/borel-embedding",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "AdelicAlgebraicGroups:AA.3/parabolic-double-cosets-finite"
       ],
@@ -907,7 +908,8 @@
       "hypotheses": [
         "D has the rational semisimple effective presentation of V0 and rational boundary data of V2; Γ is arithmetic, effective and torsion-free.",
         "The Satake topology and adapted unbounded realizations are constructed before this definition. No analytic or algebraic structure on Γ\\D* is assumed in its boundary predicate.",
-        "The convention uses a left domain action and canonical-section pullback; coordinate changes of coefficients include their determinant to the n-th power."
+        "The convention uses a left domain action and canonical-section pullback; coordinate changes of coefficients include their determinant to the n-th power.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/homogeneous-variation node is superseded."
       ],
       "proofSteps": [
         "Use the derivative cocycle for K_D and the adapted π_F-fibre-constant determinants of rational-boundary to construct ℰ_F. BB §8.2 identifies this induced boundary factor under rational and nested realization changes.",
@@ -919,7 +921,6 @@
         "ShimuraVarieties:V2/rational-boundary",
         "ShimuraVarieties:V2/satake-compactness",
         "ShimuraVarieties:V1/analytic-structure",
-        "ShimuraData:D3/homogeneous-variation",
         "ComplexComparisonPartII:C0"
       ],
       "sources": [
@@ -1708,7 +1709,10 @@
       "kind": "definition",
       "statement": "For an actual special pair (T,h) with cocharacter μ_h defined over E=E(T,h), define r_h:Res_{E/Q}G_m→T by r_h=Norm_{E/Q}∘Res_{E/Q}(μ_h). Over a splitting field its value is the product ∏_{ρ:E→C}ρ(μ_h(s_ρ)); evaluate it on finite ideles to get r_h:A_{f,E}×→T(A_f). The product is multiplicative, never the sum misprinted in SVI (60),(61).",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/cocharacter-class node is superseded.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/reflex-field node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded."
       ],
       "proofSteps": [
         "Construct restriction of scalars of the cocharacter and the torus norm using the supplier character/cocharacter lattice equivalence.",
@@ -1716,9 +1720,6 @@
         "Evaluate on restricted adelic points and prove rational-principal and level compatibility."
       ],
       "prerequisites": [
-        "ShimuraData:D4/special-pair",
-        "ShimuraData:D3/cocharacter-class",
-        "ShimuraData:D3/reflex-field",
         "ReductiveGroupsPartII:RG2.0a",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "AdelicAlgebraicGroups:AA.1/base-change-adelic"
@@ -1860,7 +1861,9 @@
       "kind": "definition",
       "statement": "A finite-level canonical model of (G,X,K) is a normal quasi-projective scheme S over E(G,X), with an isomorphism S_C^an≅Sh_K^an, such that for every actual special pair i:(T,h)→(G,X) of D4 and every a∈G(A_f), the point [h,a] is defined over E(T,h)^ab and every σ∈Gal(E(T,h)^ab/E(T,h)) acts by σ[h,a]=[h,i(r_h(s))a] for art_{E(T,h)}(s)=σ. A canonical tower includes compatible level maps and the right G(A_f)-action over E, with these conditions at every level.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/reflex-field node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded."
       ],
       "proofSteps": [
         "Take the model over the actual cocharacter reflex field and the analytic comparison; quantify over actual torus subdata, not a free set of points.",
@@ -1869,8 +1872,6 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V3/finite-quotient-algebraization",
-        "ShimuraData:D4/special-pair",
-        "ShimuraData:D3/reflex-field",
         "ShimuraVarieties:V4/reciprocity-finite-action",
         "mathlib:AlgebraicGeometry.Scheme",
         "mathlib:CategoryTheory.Over"
@@ -2126,14 +2127,14 @@
       "kind": "theorem",
       "statement": "Every pure datum has an actual special point, obtained from a rational maximal torus compact modulo the appropriate centre. Such points are dense in X in its real topology, hence their images are Zariski dense in each complex algebraized component.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-point node is superseded."
       ],
       "proofSteps": [
         "Choose a regular semisimple Lie element in the compact-mod-centre real Cartan; approximate by a rational regular semisimple element.",
         "Its rational maximal torus supports the conjugated special homomorphism. Apply the same construction near arbitrary domain points."
       ],
       "prerequisites": [
-        "ShimuraData:D4/special-point",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "ShimuraVarieties:V2/baily-borel"
       ],
@@ -2718,7 +2719,9 @@
       "kind": "theorem",
       "statement": "For the Siegel datum, a complex abelian variety gives a special point precisely when it has full CM by a commutative CM algebra of degree 2g. Products are included, so all special points rather than only simple CM fields are covered.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-point node is superseded.",
+        "Supplier retarget: §P.4 Levels and basic examples of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/siegel-datum node is superseded."
       ],
       "proofSteps": [
         "Use the Mumford–Tate torus criterion for a polarized weight-one Hodge structure.",
@@ -2726,8 +2729,6 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V5/cm-abelian-variety",
-        "ShimuraData:D5/siegel-datum",
-        "ShimuraData:D4/special-point",
         "AbelianSchemesAndArithmeticModuli:A6"
       ],
       "sources": [
@@ -2849,7 +2850,8 @@
       "kind": "theorem",
       "statement": "Every Hodge-type datum of D4 has a canonical tower over its reflex field, by choosing its actual embedding into a Siegel datum, applying Siegel existence and subdatum inheritance. The resulting tower is independent of the embedding through canonical-model uniqueness.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/hodge-type node is superseded."
       ],
       "proofSteps": [
         "Choose the symplectic embedding supplied by the definition of Hodge type.",
@@ -2857,7 +2859,6 @@
         "Use V8 uniqueness only after both candidate models satisfy the full V4 condition; its foundational dependencies are checked to avoid a cycle."
       ],
       "prerequisites": [
-        "ShimuraData:D4/hodge-type",
         "ShimuraVarieties:V5/siegel-canonical",
         "ShimuraVarieties:V6/hodge-inheritance",
         "ShimuraVarieties:V8/model-uniqueness"
@@ -2892,7 +2893,8 @@
       "kind": "construction",
       "statement": "For the connected derived datum (G^der,X⁺), whose points are S→G^ad_R and are not required to lift to G^der_R, form the analytic pro-object M⁰=(Γ\\X⁺)_Γ and its inverse-limit point set over torsion-free arithmetic subgroups of G^ad(Q)^+ open in the congruence topology induced by G^der. Retain the completion of G^ad(Q)^+ relative to G^der and its action. A connected canonical formulation includes the adelic/Galois extension and its reciprocity on actual maximal special tori, as in Deligne 2.7.13; a bare connected pro-variety over Qbar is insufficient.",
       "hypotheses": [
-        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory."
+        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/adjoint-datum node is superseded."
       ],
       "proofSteps": [
         "Construct the congruence-indexed inverse system and its compatible symmetry, as in the 1983 appendix.",
@@ -2902,8 +2904,7 @@
         "ShimuraVarieties:V1/analytic-structure",
         "ShimuraVarieties:V3/finite-quotient-algebraization",
         "ShimuraVarieties:V4/canonical-model",
-        "AdelicAlgebraicGroups:AA.4/strong-approximation-theorem",
-        "ShimuraData:D4/adjoint-datum"
+        "AdelicAlgebraicGroups:AA.4/strong-approximation-theorem"
       ],
       "sources": [
         {
@@ -3034,7 +3035,8 @@
       "kind": "theorem",
       "statement": "The connected canonical construction is compatible with finite products of connected derived data, including the product of their congruence completions and the diagonal Galois action through the required extension. The product model satisfies the connected special-point condition.",
       "hypotheses": [
-        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory."
+        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/product-datum node is superseded."
       ],
       "proofSteps": [
         "Take product inverse systems and product level quotients.",
@@ -3044,8 +3046,7 @@
       "prerequisites": [
         "ShimuraVarieties:V6/connected-tower",
         "ShimuraVarieties:V6/connected-full-equivalence",
-        "ShimuraVarieties:V4/reflex-norm",
-        "ShimuraData:D4/product-datum"
+        "ShimuraVarieties:V4/reflex-norm"
       ],
       "sources": [
         {
@@ -3074,7 +3075,8 @@
       "kind": "theorem",
       "statement": "For a central isogeny f:G₁→G₂ of semisimple derived groups with compatible connected data and a connected canonical model of (G₁,X₁⁺), the connected tower for (G₂,X₂⁺) is the quotient of the source tower by the kernel of the induced map on congruence completions. At each finite level use the finite effective quotient; descend its canonical symmetry and reciprocity. The source in Milne 14.16(b) must be G₁, correcting the repeated G₂ misprint.",
       "hypotheses": [
-        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory."
+        "Connected data use the Appendix (C1)–(C3) class of S→G^ad_R recorded in V6/connected-tower; an S-map into the semisimple cover is not assumed. All additional hypotheses in the statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/adjoint-datum node is superseded."
       ],
       "proofSteps": [
         "Compute the map of completed adjoint rational symmetry and its kernel; finite-level images act on the source quotient.",
@@ -3086,8 +3088,7 @@
         "ShimuraVarieties:V6/connected-tower",
         "ShimuraVarieties:V3/finite-quotient-algebraization",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "AlgebraicModuliForArithmeticGeometry:R09.3",
-        "ShimuraData:D4/adjoint-datum"
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
       ],
       "sources": [
         {
@@ -3119,7 +3120,8 @@
       "kind": "theorem",
       "statement": "Every abelian-type datum as defined in D4 admits a canonical tower over its reflex field. Use the Hodge-type witness, products and central-isogeny descent for the connected derived datum, then connected-full-equivalence. The full components and reflex-field action are reconstructed rather than identified with those of the Hodge-type witness.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/abelian-type node is superseded."
       ],
       "proofSteps": [
         "Apply the actual abelian-type central-isogeny relation to the derived connected data.",
@@ -3127,7 +3129,6 @@
         "Check V4 on all special pairs and use uniqueness to remove witness choices."
       ],
       "prerequisites": [
-        "ShimuraData:D4/abelian-type",
         "ShimuraVarieties:V6/hodge-canonical",
         "ShimuraVarieties:V6/connected-products",
         "ShimuraVarieties:V6/central-isogeny-descent",
@@ -3163,7 +3164,8 @@
       "kind": "theorem",
       "statement": "To prove general canonical-model existence it suffices to prove marked conjugation with completed symmetry for connected data whose group is semisimple simply connected and almost Q-simple. Such a group is Res_{F/Q}G′ for a totally real number field F and an absolutely almost simple simply connected F-group G′. Products, the derived central cover and V6 reconstruction then restore the original reductive datum.",
       "hypotheses": [
-        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory."
+        "Pure datum means D4/shimura-datum; all additional hypotheses in this statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/shimura-datum node is superseded."
       ],
       "proofSteps": [
         "Use the classification of Q-simple semisimple groups as restrictions of scalars and the real Cartan condition to force F totally real.",
@@ -3174,7 +3176,6 @@
         "ShimuraVarieties:V6/connected-full-equivalence",
         "ShimuraVarieties:V6/connected-products",
         "ShimuraVarieties:V6/central-isogeny-descent",
-        "ShimuraData:D4/shimura-datum",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "ReductiveGroupsPartII:RG2.0a"
       ],
@@ -3209,7 +3210,9 @@
       "kind": "theorem",
       "statement": "For the simple connected case and a maximal torus T′⊂G′ whose adjoint image contains the marked S-map, choose a finite totally real extension F′/F such that the base-changed torus splits over a CM quadratic extension L′/F′. The corresponding restriction-of-scalars datum admits the compatible connected embedding of the original datum. Proving the comparison there implies it for the original embedded connected tower.",
       "hypotheses": [
-        "Connected datum means the Appendix (C1)–(C3) adjoint S-map convention recorded in V6/connected-tower. Any special pair in this connected setting is instantiated in the adjoint datum, then its maximal torus is pulled back to the semisimple group. All additional hypotheses in the statement are mandatory."
+        "Connected datum means the Appendix (C1)–(C3) adjoint S-map convention recorded in V6/connected-tower. Any special pair in this connected setting is instantiated in the adjoint datum, then its maximal torus is pulled back to the semisimple group. All additional hypotheses in the statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/adjoint-datum node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded."
       ],
       "proofSteps": [
         "The adjoint special torus is compact at every real place by the Cartan condition; since G′ is semisimple, its preimage T′ is also compact. Complex conjugation acts as −1 on its character lattice at every real embedding. In a finite Galois splitting field this involution is central, so the splitting field is CM; take a totally real extension containing its maximal real subfield, making the compositum quadratic CM.",
@@ -3218,11 +3221,9 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V7/simple-connected-reduction",
-        "ShimuraData:D4/special-pair",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "ReductiveGroupsPartII:RG2.0a",
-        "ShimuraVarieties:V3/algebraic-data-maps",
-        "ShimuraData:D4/adjoint-datum"
+        "ShimuraVarieties:V3/algebraic-data-maps"
       ],
       "sources": [
         {
@@ -3252,7 +3253,9 @@
       "kind": "theorem",
       "statement": "Assume T′ splits over a CM quadratic L/F. For each root α of (G′,T′) noncompact at some real place, the Lie algebra Lie(T′)⊕g_α⊕g_{−α} descends to a reductive F-subgroup H′_α containing T′, whose derived group has type A₁. Res_{F/Q}H′_α has an induced adjoint S-map obtained by projecting h through T^ad→(H′_α)^ad. After taking the simply connected cover of its derived group and removing compact ineffective factors it gives the required connected rank-one subdatum. No lift of h to that cover is required.",
       "hypotheses": [
-        "Connected datum means the Appendix (C1)–(C3) adjoint S-map convention recorded in V6/connected-tower. Any special pair in this connected setting is instantiated in the adjoint datum, then its maximal torus is pulled back to the semisimple group. All additional hypotheses in the statement are mandatory."
+        "Connected datum means the Appendix (C1)–(C3) adjoint S-map convention recorded in V6/connected-tower. Any special pair in this connected setting is instantiated in the adjoint datum, then its maximal torus is pulled back to the semisimple group. All additional hypotheses in the statement are mandatory.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/adjoint-datum node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded."
       ],
       "proofSteps": [
         "The quadratic CM involution exchanges α and −α, so the displayed Lie algebra is stable under Gal(L/F).",
@@ -3261,10 +3264,8 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V7/auxiliary-cm-splitting",
-        "ShimuraData:D4/special-pair",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "ShimuraVarieties:V6/abelian-canonical",
-        "ShimuraData:D4/adjoint-datum"
+        "ShimuraVarieties:V6/abelian-canonical"
       ],
       "sources": [
         {
@@ -3335,7 +3336,10 @@
       "kind": "construction",
       "statement": "Let G/Q be semisimple simply connected with connected datum X⁺, a G^ad(R)^+-class of h:S→G^ad_R satisfying the connected Shimura conditions. Choose a maximal rational torus T⊂G with h factoring through T^ad=T/Z(G); this is a D4 special pair for the adjoint datum. For τ∈Aut(C), the Taniyama extension 1→S→𝒯→Gal(Qbar/Q)→1 supplies the Serre-protorus torsor S_τ and its distinguished finite-adelic point. The marked cocharacter μ_h is in X_*(T^ad), and gives ρ_h:S→T^ad. Use this inner action to form {}^{τ,h}G=S_τ×^S G. T is unchanged, {}^τh:S→({}^{τ,h}G)^ad_R factors through T^ad with cocharacter τμ_h, and {}^{τ,h}X⁺ is its connected adjoint real class. Retain the distinguished topological isomorphism G(A_f)≅{}^{τ,h}G(A_f). This construction is of connected data, not a full pure datum on the simply connected group.",
       "hypotheses": [
-        "G is semisimple simply connected over Q; h:S→G^ad_R lies in X⁺ with the Appendix (C1)–(C3) conditions. The maximal special torus is read in the adjoint datum and pulled back to G. No lift h:S→G_R is assumed."
+        "G is semisimple simply connected over Q; h:S→G^ad_R lies in X⁺ with the Appendix (C1)–(C3) conditions. The maximal special torus is read in the adjoint datum and pulled back to G. No lift h:S→G_R is assumed.",
+        "Supplier retarget: §P.3 Hodge filtrations and reflex fields of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/cocharacter-class node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/adjoint-datum node is superseded.",
+        "Supplier retarget: §P.1 Pure data and special pairs of ShimuraVarieties. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded."
       ],
       "proofSteps": [
         "Construct the Serre/Taniyama extension and its finite-adelic splitting from the corrected reciprocity class formation; this missing common CM supplier is explicitly requested and recorded as a gap.",
@@ -3344,10 +3348,7 @@
       ],
       "prerequisites": [
         "ShimuraVarieties:V7/simple-connected-reduction",
-        "ShimuraData:D4/special-pair",
-        "ShimuraData:D3/cocharacter-class",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "ShimuraData:D4/adjoint-datum",
         "ShimuraVarieties:V6/connected-tower"
       ],
       "sources": [
@@ -3886,7 +3887,7 @@
     },
     {
       "supplier": "ComplexComparisonPartII:C0",
-      "need": "Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the CA.0 ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2. Apply the étale/smooth chart comparison to strict-SNC boundary coordinates, and identify analytification of a finite group quotient with the analytic quotient.",
+      "need": "Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the SF.2 Part II ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2. Apply the étale/smooth chart comparison to strict-SNC boundary coordinates, and identify analytification of a finite group quotient with the analytic quotient.",
       "neededBy": [
         "ShimuraVarieties:V1/analytic-structure",
         "ShimuraVarieties:V2/analytic-automorphic-ring",
@@ -4139,7 +4140,7 @@
         "ShimuraVarieties:V2/baily-borel",
         "ShimuraVarieties:V3/borel-extension"
       ],
-      "detail": "Add first layer CA.0 to ComplexComparisonPartII before C0: complex analytic spaces as locally C-ringed spaces locally (V(I),O_U/I), U open in Cⁿ and I locally finitely generated holomorphic ideal, including nilpotents; morphisms, open/closed subspaces, open gluing and fibre products; analytification representing Hom from analytic locally C-ringed spaces to finite-type C-schemes (SGA 1 XII 1.1), compatible with products/immersions and étale/smooth comparison. Encode CA.0→C0,V1,V2,ShimuraCompactifications:C2,PELModuli:M3,ModularCurvesPartII:R12.3 and list those consumers in the PR196 external record. C0/repair-analytification supplies a requested target, not a constructed carrier. The issue permits no edits to those supplier/atlas files, so the repair is a concrete unapplied ownership proposal."
+      "detail": "The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. Proposed outgoing consumers are C0, V1–V2, ShimuraCompactifications C2, PELModuli M3 and ModularCurvesPartII R12.3. C0/repair-analytification is the coherent application; PR196 Layers0–2 are tracked integration work. Supplier and atlas edge edits remain outside this fix."
     },
     {
       "title": "Holomorphic manifold gluing: RT-AREA-algebraicgeometry/28",
@@ -4148,7 +4149,7 @@
         "ShimuraVarieties:V0/component-decomposition",
         "ShimuraVarieties:V1/analytic-structure"
       ],
-      "detail": "The same new CA.0 must own compatible complex-atlas transport on TopCat.GlueData with holomorphic transitions, open holomorphic inclusions, finite-gluing topology/proper maps and holomorphic vector bundles (PR279 Milestones 5–7). Encode M5/M6 or CA.0→AnalyticToricGeometry Layer 3 and M7 or CA.0→C0, with the direct V1 edge. If PR279 is tracked instead, expose those milestones as real stage ids. Update its external consumers and declared_by_areas with AnalyticToricGeometry. LI.4/LI.2 are retired and provide none of this; no edge through them remains in the packet."
+      "detail": "Import the existing open AnalyticGeometry PR279 Milestones5–7 (head275ce8b253d32e715b7832d2b0df4a62ccbb0699): compatible complex-atlas transport on TopCat.GlueData, holomorphic open inclusions, finite-gluing topology/proper maps and holomorphic vector bundles. Keep this manifold supplier distinct from the proposed SF.2 Part II ordinary analytic-space carrier. Proposed supplier links are M5/M6→AnalyticToricGeometry Layer3, M7→C0 and the direct V1 import. The atlas external records and stage edges require maintainer integration; retired LI.4/LI.2 supply none of this."
     },
     {
       "title": "Arithmetic and effective-level supplier extensions",
@@ -4376,16 +4377,45 @@
       ],
       "detail": "The read upstream ReductiveGroups Layer 7 gives structural root/tori/parabolic theory, not rational real density, arithmetic images under algebraic maps, all-place torus norm obstructions or restriction-of-scalars classification with Hermitian real hypotheses. Import AA §3.4 pairwise level commensurability and route the faithful-integral/effective arithmetic-image comparison to AA.3; route abelianized component images to AA.4; refine the remaining rational real-density/torus-conjugacy, Q-simple classification and cohomological/root-centre interfaces in ReductiveGroups Part II. Each use must preserve the input field, real component and centre hypotheses. These are ownership requests; the upstream roadmaps are read-only inputs.",
       "addedBy": "REV-ShimuraVarieties--V0"
+    },
+    {
+      "title": "Upstream datum-foundation prefix integration",
+      "detail": "Accepted ShimuraData revision5 moved these foundations to the already proposed ShimuraVarieties PR933 §§P.1–P.4 (head1dd09ed7a832fd36e071726e9066948d76173d0a), before Layer0. Import its datum/domain/Hodge-reflex/effective-level contracts once, rather than restore superseded ShimuraData nodes. Same-stage consumers record the upstream prefix in upstreamImports and hypotheses; no self-edge is inserted. Integrating that existing prefix into the atlas is an explicit obligation. Its §P.4 neatness input is AdelicAlgebraicGroups §4.3. This does not replace general analytic-space integration or claim a pinned datum carrier.",
+      "neededBy": [
+        "ShimuraVarieties:V0/component-decomposition",
+        "ShimuraVarieties:V2/rational-boundary",
+        "ShimuraVarieties:V2/analytic-automorphic-ring",
+        "ShimuraVarieties:V4/reflex-norm",
+        "ShimuraVarieties:V7/conjugated-datum",
+        "ShimuraVarieties:V4/canonical-model",
+        "ShimuraVarieties:V0/simply-connected-components",
+        "ShimuraVarieties:V1/analytic-points",
+        "ShimuraVarieties:V7/simple-connected-reduction",
+        "ShimuraVarieties:V1/datum-analytic-map",
+        "ShimuraVarieties:V6/connected-products",
+        "ShimuraVarieties:V6/connected-tower",
+        "ShimuraVarieties:V6/central-isogeny-descent",
+        "ShimuraVarieties:V7/auxiliary-cm-splitting",
+        "ShimuraVarieties:V7/rank-one-subdata",
+        "ShimuraVarieties:V4/special-existence",
+        "ShimuraVarieties:V5/siegel-special-cm",
+        "ShimuraVarieties:V6/hodge-canonical",
+        "ShimuraVarieties:V6/abelian-canonical",
+        "ShimuraVarieties:V0/stabilizer-arithmetic",
+        "ShimuraVarieties:V0/stabilizer-commensurable",
+        "ShimuraVarieties:V0/effective-proper-action"
+      ]
     }
   ],
   "restructure": [
     {
       "action": "rescope",
       "roadmaps": [
+        "SchemeAndStackFoundations",
         "ComplexComparisonPartII"
       ],
-      "detail": "RT-AREA-algebraicgeometry/3 and /28: analytic spaces/analytification and holomorphic gluing have no mathematical owner; external PR196/279 are not encoded stages, and FoundationsAndLibraryIntegration is retired.",
-      "proposal": "Insert CA.0: Complex analytic foundations before C0, with analytic local models including nilpotents, morphisms/gluing/fibre products, SGA1 analytification, smooth/étale comparison and compatible complex manifold gluing/finite-gluing topology/holomorphic bundles. Encode the consumer edges and PR196/279 external record updates listed in the two gaps. It agrees with PR196 Layers 0–2 and PR279 Milestones 5–7 if those PRs merge. This proposal is not applied in the present four-file job."
+      "detail": "Unify finding/3 with PELModuli’s SF.2 Part II ordinary analytic carrier proposal, and finding/28 with the existing open PR279 holomorphic gluing supplier.",
+      "proposal": "The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. C0 supplies the coherent comparison application. Track PR196 Layers0–2 and PR279 Milestones5–7 as proposed interfaces; do not invent an accepted CA.0 stage. The consumer links in the two gaps are proposed, not graph edits."
     },
     {
       "action": "rescope",
@@ -5501,6 +5531,348 @@
           "note": "Milne descent Theorem 2.3 combines the continuous canonical cocycle with effective quasi-projective descent, then compatible maps and finite quotients. The special action and auxiliary-choice independence were established beforehand. It is a justified target-level endpoint with recorded supplier/proof leaves, not an implemented existence theorem."
         }
       ]
+    }
+  ],
+  "upstreamImports": [
+    {
+      "node": "ShimuraVarieties:V0/component-decomposition",
+      "from": "ShimuraData:D2/hermitian-domain-components",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.2 Hermitian components of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V2/rational-boundary",
+      "from": "ShimuraData:D2/hermitian-domain-components",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.2 Hermitian components of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V2/analytic-automorphic-ring",
+      "from": "ShimuraData:D3/homogeneous-variation",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V2/rational-boundary",
+      "from": "ShimuraData:D3/borel-embedding",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/reflex-norm",
+      "from": "ShimuraData:D3/cocharacter-class",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/conjugated-datum",
+      "from": "ShimuraData:D3/cocharacter-class",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/reflex-norm",
+      "from": "ShimuraData:D3/reflex-field",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/canonical-model",
+      "from": "ShimuraData:D3/reflex-field",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/simply-connected-components",
+      "from": "ShimuraData:D4/shimura-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V1/analytic-points",
+      "from": "ShimuraData:D4/shimura-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/simple-connected-reduction",
+      "from": "ShimuraData:D4/shimura-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V1/datum-analytic-map",
+      "from": "ShimuraData:D4/datum-morphism",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V6/connected-products",
+      "from": "ShimuraData:D4/product-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V6/connected-tower",
+      "from": "ShimuraData:D4/adjoint-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V6/central-isogeny-descent",
+      "from": "ShimuraData:D4/adjoint-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/auxiliary-cm-splitting",
+      "from": "ShimuraData:D4/adjoint-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/rank-one-subdata",
+      "from": "ShimuraData:D4/adjoint-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/conjugated-datum",
+      "from": "ShimuraData:D4/adjoint-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/reflex-norm",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/canonical-model",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/auxiliary-cm-splitting",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/rank-one-subdata",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V7/conjugated-datum",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V4/special-existence",
+      "from": "ShimuraData:D4/special-point",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V5/siegel-special-cm",
+      "from": "ShimuraData:D4/special-point",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V6/hodge-canonical",
+      "from": "ShimuraData:D4/hodge-type",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V6/abelian-canonical",
+      "from": "ShimuraData:D4/abelian-type",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/neat-sublevels",
+      "from": "ShimuraData:D5/neat-representation-independence",
+      "to": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "upstream": "§4.3 Neat elements and levels of AdelicAlgebraicGroups",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/neat-sublevels",
+      "from": "ShimuraData:D5/neat-level",
+      "to": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "upstream": "§4.3 Neat elements and levels of AdelicAlgebraicGroups",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/stabilizer-arithmetic",
+      "from": "ShimuraData:D5/component-subgroup",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/stabilizer-commensurable",
+      "from": "ShimuraData:D5/component-subgroup",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/stabilizer-arithmetic",
+      "from": "ShimuraData:D5/effective-kernel",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties; §P.2 Hermitian components of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V0/effective-proper-action",
+      "from": "ShimuraData:D5/effective-free",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties; §0.1 Arithmetic component stabilizers; §0.4 Proper effective arithmetic action of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "ShimuraVarieties:V5/siegel-special-cm",
+      "from": "ShimuraData:D5/siegel-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
     }
   ]
 }
