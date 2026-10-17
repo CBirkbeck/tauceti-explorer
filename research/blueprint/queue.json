@@ -132509,6 +132509,66 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv2.md"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartII~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartII/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartII/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartII/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartII~adv.md"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartIII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartIII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartIII~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIII~adv.md"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartIV~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartIV"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartIV~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIV~adv.md"
   }
  ]
 }
