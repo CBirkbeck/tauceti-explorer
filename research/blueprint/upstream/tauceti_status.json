@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T19:33Z",
+ "updated": "2026-10-17T20:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -106,7 +106,7 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "9d20803",
+   "head": "c4c1e68",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -149,7 +149,7 @@
    "stage": "pr",
    "pr": 818,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "4624e66",
+   "head": "d1d9888",
    "review": {
     "recommendation": "changes",
     "current": false,
@@ -355,7 +355,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "a264b09",
+   "head": "dba09d0",
    "depends_on": [
     779,
     789,
@@ -535,7 +535,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "01d05e5",
+   "head": "d90b604",
    "depends_on": [
     849,
     857,
@@ -657,10 +657,10 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "a58a2ed",
+   "head": "d2a1dbd",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -793,7 +793,7 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "183e39b",
+   "head": "d3ed65b",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -985,7 +985,7 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "0c2a01d",
+   "head": "520d7b5",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
@@ -1141,7 +1141,7 @@
   "ShimuraCompactifications": {
    "stage": "pr",
    "pr": 1053,
-   "head": "fa1badb",
+   "head": "bd94a9e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
     "recommendation": null,
@@ -1153,7 +1153,7 @@
   "PrismaticCohomology": {
    "stage": "pr",
    "pr": 1057,
-   "head": "7901cc8",
+   "head": "014c25b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": null,
@@ -1178,7 +1178,85 @@
    "stage": "pr",
    "pr": 1063,
    "head": "48d2456",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "CohomologyComparisons": {
+   "stage": "pr",
+   "pr": 1064,
+   "head": "70537c2",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "OrdinaryAutomorphicFormsAndModularityLifting": {
+   "stage": "pr",
+   "pr": 1066,
+   "head": "773b123",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "PrismaticCohomologyPartII": {
+   "stage": "pr",
+   "pr": 1065,
+   "head": "905b457",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "AutomorphicBundles": {
+   "stage": "pr",
+   "pr": 1069,
+   "head": "4e96caa",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 47); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "PrismaticCohomologyPartIII": {
+   "stage": "pr",
+   "pr": 1070,
+   "head": "9284636",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "GL2ModularityLifting": {
+   "stage": "pr",
+   "pr": 1071,
+   "head": "6b0b155",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"

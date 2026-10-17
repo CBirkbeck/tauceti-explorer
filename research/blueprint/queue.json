@@ -54585,8 +54585,9 @@
     "PKG-PrismaticCohomology~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10233"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10233",
+   "finishedAt": "2026-10-17T19:43:22Z"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
@@ -132513,9 +132514,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv2.md",
-   "note": "claimed on GitHub issue #10234"
+   "note": "deliverables arrived from an external worker on issue #10234",
+   "finishedAt": "2026-10-17T19:43:26Z"
   },
   {
    "id": "REV-PKG-PrismaticCohomologyPartII~adv",
@@ -132534,9 +132536,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartII~adv.md",
-   "note": "claimed on GitHub issue #10237"
+   "note": "deliverables arrived from an external worker on issue #10237",
+   "finishedAt": "2026-10-17T19:43:31Z"
   },
   {
    "id": "REV-PKG-PrismaticCohomologyPartIII~adv",
@@ -132555,9 +132558,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIII~adv.md",
-   "note": "claimed on GitHub issue #10236"
+   "note": "deliverables arrived from an external worker on issue #10236",
+   "finishedAt": "2026-10-17T19:43:34Z"
   },
   {
    "id": "REV-PKG-PrismaticCohomologyPartIV~adv",
@@ -132576,9 +132580,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIV~adv.md",
-   "note": "claimed on GitHub issue #10238"
+   "note": "deliverables arrived from an external worker on issue #10238",
+   "finishedAt": "2026-10-17T19:43:39Z"
   },
   {
    "id": "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2",
@@ -132596,8 +132601,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md",
+   "note": "claimed on GitHub issue #10242"
   }
  ]
 }
