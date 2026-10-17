@@ -132370,6 +132370,25 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidShimuraVarieties~adv.md",
    "note": "deliverables arrived from an external worker on issue #10216",
    "finishedAt": "2026-10-17T17:59:05Z"
+  },
+  {
+   "id": "FIX-PKG-MetaplecticAutomorphicForms~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-MetaplecticAutomorphicForms~adv.md",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/review.json",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/README.md",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MetaplecticAutomorphicForms~adv.md"
   }
  ]
 }
