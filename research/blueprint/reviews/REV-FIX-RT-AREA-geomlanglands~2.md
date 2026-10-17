@@ -1,67 +1,67 @@
 # Independent review of the second geometrisation fix
 
-Reviewer: Codex, session `codex-8zLSxs`; job #5161;
-`independent-review-REV-FIX-RT-AREA-geomlanglands~2`, 10 October 2026.
-Input: atlas main `9849e286b`, including `FIX-RT-AREA-geomlanglands~2`
-by session `codex-rtOQ9t`. This reviewer did none of that fix.
+Codex, session `codex-WkJRnK`, 17 October 2026; issue #5161;
+`independent-review-REV-FIX-RT-AREA-geomlanglands~2`.
+Input: atlas `37d735d33f813af3b7bf2043228bbc613955e77d`.
+This session did none of the fixes under review.
 
-## Verdict and scope
+## Verdict and submission blocker
 
-| Packet | Verdict | Reason |
+| Authorized packet | Verdict | Boundary |
 | --- | --- | --- |
-| SchemeAndStackFoundations | **accepted**, for this fix's handoff boundary | The original fix issue #5160 excluded this packet. Findings /15 and /27 were explicitly handed to their owners rather than claimed applied. The handoffs respect the verifier and existing ownership. SF.5 positivity/Keel/Stein and SF.1 effective descent/stack interfaces remain unfinished; this verdict does not certify them. |
-| MotivesAndAlgebraicCycles | **needs_changes** | Finding /17 has the correct early supplier and source-level targets after the corrections below, but the bridge to the pinned Beck theorem remains open. The reconstruction carriers and most suggested signatures are also absent. The packet honestly records these gaps; compiling its existing declarations does not supply them. |
+| SchemeAndStackFoundations | **accepted** | The /15 and /27 excluded-owner handoffs are correct. This does not certify completion of SF.5 positivity/Keel/Stein or SF.1 effective descent. Scheme mathematics is unchanged. |
+| MotivesAndAlgebraicCycles | **needs_changes** | /17 has the correct early abstract targets, conventions and recognition hypotheses. The source-to-pinned-Beck preservation bridge remains unresolved. |
 
-The complete red-team result, verifier and second-round fix report were read,
-including /33–39. The review distinguishes an adequate excluded-owner handoff
-from a mathematical correction actually present in an allowlisted packet.
-It does not re-review all older nodes, pending iwasawa fixes, or upstream roadmaps.
-Both immediately preceding packet review objects are preserved unchanged in
-`reviewHistory`; they were the algebraic-geometry second-round reviews dated
-2026-10-10.
+The live issue names these two packets and matching Suggested files. Its queue
+entry instead names nineteen packets and matching Suggested files.
+`research/blueprint/issues.py`, `deliverables_complete`, requires this job's
+reviewer and a verdict in **every** queue-listed packet. Seventeen are outside
+the live issue's edit scope. WORKERS.md's instruction to edit only issue-named
+files prevents supplying those markers without scope authorization. The two
+reviews are finished; the complete queue submission is blocked by that mismatch.
+This PR is a **checkpoint**, not a claim to have reviewed the seventeen excluded
+packets. No scope extension was received before submission.
 
-Only the two packet review objects, the specified motives corrections, the motives
-suggested file and this review's report/handoff change. The scheme suggested file
-was checked unchanged. Readers, source-item routing, consumer packets, campaign
-files, decompositions, links and the live stage graph are outside this issue's
-edit scope.
+The preceding top-level reviews are copied unchanged into each packet's
+`reviewHistory`: scheme's algebraic-geometry review by `codex-iBDlUc`, and motives'
+iwasawa review by `codex-BIjxwP`, both dated 11 October. Earlier reviews, including
+the 10 October geometrisation review, remain there. PR #8485 is another open,
+unmerged checkpoint of this job; its changes are not assumed present or imported.
 
-## Corrections made
+## Work and corrections in this session
 
-1. Fixed the relative finite-piece monad convention. Transporting through symmetry
-   to `A_i ⊗ V` gives **left** `A_i`-modules and **right** dual-coalgebra comodules.
-   Keeping `V ⊗ A_i` uses the opposite multiplication. Updated the statement,
-   proof plan, API, acceptance criteria and suggested inventory together.
-2. Strengthened the three finite-piece tests: regular left modules over a matrix
-   algebra distinguish multiplication from its opposite; a finite-support graded
-   fibre functor has no representer on the whole category, while bounded pieces
-   may have one; evaluation of the transposed right coaction recovers the left
-   action and unit. Exact faithfulness alone is not presented as failure of the
-   entire relative theorem.
-3. Added the missing upstream ReductiveGroups layer-1 prerequisite to finiteness
-   recognition. Narrowed the existing request to its closed-immersion and
-   coefficient-generation input. The neutral reconstruction instead imports the
-   already pinned `TauCeti.fgPointRepresentationCategoryEquivalence` directly,
-   after constructing the Hopf algebra.
-4. Corrected the Mathlib near-miss namespace to
-   `TannakaDuality.FiniteGroup.equiv`. It reconstructs representations of an
-   already supplied finite group, not an arbitrary neutral fibre functor.
-5. Added the `neutralHull_zero` non-example to the packet and a typed Lean example:
-   over a field, the hull of the zero module cannot contain an object isomorphic
-   to the one-dimensional module. This rejects replacing the hull by the entire
-   ambient category. Reused `ModuleCat` and imported its existing biproducts
-   instance, with a checked baseline credit.
-6. Recorded the missing typed interfaces explicitly in a new gap and MC.6
-   coverage. Replaced the packet review verdicts with the bounded verdicts above.
-   The suggested-file header records this review's successful elaboration and
-   distinguishes it from the historical unchecked input.
+Read all 39 original findings, their verified evidence and the second-round fix
+report, including its rejected remedies and out-of-scope dispositions. The table
+below reassesses those dispositions. A handoff verdict says the report routes the
+required work correctly; it does not assert that an excluded consumer was fixed.
+
+1. Replaced the finite-piece proof plan's generic Beck application by the pinned
+   **conservative** variant,
+   `CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms`.
+   It needs an adjunction, reflection of isomorphisms, and existence and preservation
+   of functor-split coequalizers. Conservativity supplies reflection of isomorphisms;
+   a separate coequalizer-reflection instance is unnecessary for this variant.
+2. Added `relativePieceMonadicOfPreserves`, a real-bodied application over Mathlib's
+   categories and adjunction. Preservation is an explicit hypothesis. It proves
+   only the ordinary Beck step under sufficient hypotheses; it neither constructs
+   the relative tensor/comodule comparison nor derives preservation from FS.
+3. Removed the obsolete gap demanding development of heavy reconstruction carriers
+   and typed API/test signatures in Suggested.lean. WORKERS.md and
+   PACKAGE_REVIEW.md's binding 12 October shape rule puts targets over missing
+   carriers in the roadmap prose. Updated the coverage and Suggested inventory
+   accordingly. The separate mathematical preservation gap remains explicit.
+4. Replaced the two top-level review objects with these bounded verdicts, preserving
+   their predecessors exactly. No reader, consumer, live graph, queue, errata,
+   upstream roadmap or library is changed.
+
+The prior review's corrections to left modules/right dual comodules, matrix-unit
+and graded-vector-space tests, the zero-hull non-example and recognition imports
+are retained. They are input to this session, not new work claimed here.
 
 ## Finding-by-finding decisions
 
-Every number below denotes `RT-AREA-geomlanglands/<number>`. “Handoff accepted”
-means the fix report specifies the correct work for an excluded owner; it does
-not mean that owner has implemented it. /3 and /35 remain rejected as in the
-verifier. /33–39 were not enumerated in the original fix issue.
+Numbers denote `RT-AREA-geomlanglands/<number>`. /3 and /35 follow the verifier's
+rejection. /33–39 were outside the original fix enumeration.
 
 | Finding | Decision and reason |
 | --- | --- |
@@ -81,7 +81,7 @@ verifier. /33–39 were not enumerated in the original fix issue.
 | /14 | **Handoff accepted.** Both bounded properness and its dependent closedness move to integral Witt geometry. Generic loop geometry remains separate, and no reductive integral model for every ramified group is assumed. |
 | /15 | **Handoff accepted; mathematics pending.** SF.5 owns the positivity/Keel/Stein results and GS0 the Bhatt–Scholze application. The G817/G815 duplication and G819 routing are correctly assigned outside the fix's allowlist. SF.5 remains unplanned in this packet, so this is not acceptance of a completed theorem. |
 | /16 | **Handoff accepted.** Reuses the accepted KPZ26 route to RG2.3. Preserves both residue-characteristic/group alternatives and the affine finite-type target of Prasad–Yu. GS4 performs its adjoint reduction; /4's different early result is not moved behind LP1. |
-| /17 | **Needs changes after local corrections.** The nine-node early reconstruction plan, neutrality/rigidity distinctions and recognition hypotheses are correct. The relative preservation adapter and typed reconstruction interfaces below remain missing, so the common supplier is not yet closed. |
+| /17 | **Needs changes after local corrections.** The nine-node early reconstruction plan, neutrality/rigidity distinctions and recognition hypotheses are correct. The source-to-pinned-Beck preservation bridge remains open. Heavy missing carriers belong in prose under the current shape rule; their absence from Lean is not a separate defect. |
 | /18 | **Handoff accepted.** L1/L3 supply perfection comparison, EDC.5 supplies perversity/recollement, and unsupported VS3 gates are removed from the torsion Chapter VI constructions. HS1's independent lisse input remains. |
 | /19 | **Handoff accepted.** GS4 exports finite-projective Satake; HS1 owns its perfect-complex extension. The accepted common integral-representation Part II is imported for every ℓ≠p, rather than duplicating it or imposing VIII.5 good-prime restrictions. |
 | /20 | **Handoff accepted.** Distinguishes SW's minuscule rigidification inputs from its nonemptiness proposition. Higher-dimensional compact-support Huber/diamond comparison remains an explicit HS3 supplier request. |
@@ -105,138 +105,97 @@ verifier. /33–39 were not enumerated in the original fix issue.
 | /38 | **Outside enumeration; boundary accepted.** BG3's IV.1.23–24 inputs retain the smooth Artin-stack hypotheses; its excluded packet is not claimed fixed. |
 | /39 | **Outside enumeration; boundary accepted.** The known unused Viehmann closure result does not justify adding another unnecessary target. |
 
-## Source and baseline checks for /17
+## Primary-source checks and mathematical boundary
 
-The review read the relevant public source pages directly, not just the fix's
-citations. These were selected-page reads, not full-paper extractions. All results
-here and in the packet are stated in the reviewer's own words.
+These are selected-page reads of public sources, not full-paper extractions.
+Statements in this review and the packet are paraphrases.
 
-| Public text | Locations read for this review | SHA-256; accessed |
+| Source | Locations freshly read | Version receipt |
 | --- | --- | --- |
-| [Fargues–Scholze, arXiv v4](https://arxiv.org/pdf/2102.13459v4), 27 November 2024 | Proposition VI.10.2 and proof, printed/PDF pp.232–234; VI.11's recognition application, pp.235–237 | `1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027`; 2026-10-10 |
-| [Deligne–Milne, corrected author text](https://www.jmilne.org/math/xnotes/tc.pdf), corrections 15 August 2012 | Proposition 1.13, p.12; Theorem 2.11, Lemmas 2.12–13 and Propositions 2.14–16, pp.20–24; Propositions 2.20–21, Corollary 2.22 and Proposition 2.23 with proofs, pp.24–27 | `48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8`; 2026-10-10 |
+| [Fargues–Scholze](https://arxiv.org/pdf/2102.13459v4) | VI.10.2 and proof, printed/PDF pp.232–234; VI.11 application, pp.235–237 | arXiv v4, 27 November 2024; accessed 17 October 2026; SHA-256 `1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027` |
+| [Deligne–Milne](https://www.jmilne.org/math/xnotes/tc.pdf) | 1.13, p.12; 2.11–2.16, pp.20–24; 2.20–2.23, pp.24–27; graded example 2.30, p.27 | Author text corrected 15 August 2012; accessed 17 October 2026; SHA-256 `48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8` |
 
-The relative nodes retain a rigid symmetric monoidal base, the action and
-A-linear symmetric monoidal conservative functor, filtered full represented
-pieces stable under the relevant action/coequalizers, and comodules with
-underlying objects in A. The filtered assembly and multiplication targets match
-VI.10.2, pp.233–234. A commutative bialgebra is obtained before an antipode;
-rigidity of C is an additional hypothesis. The already recorded premature Hopf
-label and letter slips, `PAPER-FARGUES-SCHOLZE-21/E108` and `/E46`, are reused.
+FS VI.10.2 supplies the represented finite-piece adjunction, dual-coalgebra
+assembly, multiplication from tensor products and antipode under rigidity. Its
+printed split-coequalizer hypothesis names existence and reflection. The packet
+acknowledges that the chosen pinned Beck application also needs preservation.
+Changing to conservative Beck removes an unnecessary separate reflection adapter,
+but does not establish preservation. The fix must give a precise source convention
+or an argument deriving that instance, or retain the printed source target as an
+unmet obligation alongside the stronger sufficient-hypothesis theorem. This is a
+proof-plan interface gap, not a finding that FS is false.
 
-For the finite-piece comparison, writing the monad on the left fixes the algebra
-side. On regular left B-modules the transported product is B's product; for
-B=M₂(k), E₁₂E₂₁=E₁₁, whereas the opposite gives E₂₂. Transposing the action
-gives a right B-dual coaction whose evaluation at b returns b's left action.
-These tests address an actual convention error in the input rather than merely
-rephrasing its proposed comparison.
+For the finite-piece convention, symmetry gives the monad A_i tensor V and left
+A_i-modules. Transposition gives right dual-coalgebra comodules. Matrix units in
+M₂(k) distinguish the product from the opposite product. Finite-support graded
+vector spaces have no single global representer for the forgetful functor, while
+bounded pieces may have one; this does not refute relative reconstruction.
 
-The neutral finite hull in DM Lemmas 2.12–13, pp.21–22, is finite sums and
-subquotients, not tensor closure. Its stabilizer algebra and regular representing
-object are necessary constructions; neutral representability does not follow
-just by substituting vector spaces in the relative theorem. No semisimplicity
-assumption is introduced. The coalgebra and scalar-algebra-natural tensor
-endomorphism targets use DM 2.14–16, pp.22–24; rigidity and DM 1.13, p.12,
-turn endomorphisms into automorphisms for Theorem 2.11.
+DM 2.12–2.13 use finite sums and subquotients, not tensor closure, to construct a
+representer and its stabilizer algebra. The neutral theorem starts with an exact
+faithful symmetric monoidal fibre functor, not with a representing Hopf algebra.
+DM 2.14–2.16 construct the coalgebra and tensor endomorphisms; rigidity and 1.13
+supply invertibility. DM 2.20 distinguishes a finite-sum/subquotient generator
+(finite group) from a tensor generator involving a dual (finite-type group).
+DM 2.22 needs characteristic zero and a nontrivial action; nonzero objects alone
+do not suffice. DM 2.23 gives pro-reductivity in the arbitrary affine connected
+case; the finite-type reductivity application imports the existing upstream
+finite-type/smooth interface and ReductiveGroups layer 6. No semisimplicity or
+positive-characteristic generalization has been added.
 
-DM 2.20, pp.24–25, distinguishes a finite-sum/subquotient generator for a finite
-group from a tensor generator using X and its dual for a finite-type group.
-DM 2.22, p.25, requires characteristic zero and a **nontrivial action**, not
-merely a nonzero object. The α_p counterexample prevents an unqualified extension
-to positive characteristic. DM 2.23, p.26, gives pro-reductivity for an arbitrary
-connected affine group in characteristic zero. The finite-type reductivity
-application additionally uses its finite-type/smooth interface and imports
-upstream ReductiveGroups layer 6. FS p.236 uses the rational recognition route;
-p.237's separate finite-subgroup argument is not a characteristic-p version of
-DM 2.22.
+The proposed early abstract closure is still acyclic with no MC.5 ancestor.
+Installing its stage split is the maintainer's normal PROTOCOL §9 handoff. GS4
+imports only the suppliers whose hypotheses its Satake category satisfies.
+The excluded reader still needs reconciliation by an authorized owner.
 
-The following baseline statements were read at Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`, rather than inferred from their names:
+## Library and upstream checks
 
-| Existing supplier | Boundary checked |
-| --- | --- |
-| Mathlib `CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers`, `CategoryTheory/Monad/Monadicity.lean` | Requires an adjunction and existence, preservation **and** reflection of split coequalizers. It supplies ordinary Beck, not the relative tensor/comodule adapter. |
-| Mathlib `CategoryTheory.Ind`, `CategoryTheory/Limits/Indization/Category.lean` | Ind-objects and a fully faithful embedding exist. A monoidal extension and internal-comodule comparison are not supplied by this definition. |
-| Mathlib `CategoryTheory.BimonObj`, `CategoryTheory/Monoidal/Bimon_.lean` | Supplies compatibility laws, not reconstruction of an object from a fibre functor. |
-| Mathlib `TannakaDuality.FiniteGroup.equiv`, `RepresentationTheory/Tannaka.lean` | Starts with a finite group and a commutative domain of scalars. |
-| Mathlib `ringEquivEndForget₂`, `Algebra/Category/ModuleCat/Tannaka.lean` | Starts with a given ring; it does not construct a general neutral representing Hopf algebra. |
-| Mathlib `Abelian`, `Linear`, `Functor.Faithful`, `RigidCategory`, `Equivalence`, `Bialgebra`, `ModuleCat` and its finite biproducts instance | Native categories, structures and instances are reused; the new test does not invent a replacement module category. |
-| Tau Ceti `FGComoduleCat`, its rigid instance, `tensorAutFunctor` and `pointsFunctorIsoTensorAutFunctor` | The category uses right comodules. The group-functor comparison starts with a commutative Hopf algebra; the rigid instance runs from a Hopf algebra to rigidity, not conversely. |
-| Tau Ceti `fgPointRepresentationCategoryEquivalence` | Existing finite representation/comodule dictionary over a commutative Hopf algebra; used only after constructing that algebra. |
+The new Beck declaration and the three split-coequalizer classes were read in
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
+`CategoryTheory/Monad/Monadicity.lean`, especially lines 249–290 and 362–374.
+The latter proof obtains coequalizer reflection from conservativity and
+preservation before applying ordinary Beck. `MonadicRightAdjoint` in
+`Monad/Adjunction.lean`, lines 251–260, retains the adjunction and comparison
+equivalence. The new definition reuses this data; it does not redevelop Beck.
 
-The reviewed library audit has no MotivesAndAlgebraicCycles entry; no audit was
-invented. Its SF.1/SF.5 records were read for the handoff boundary. The scheme
-packet has concrete lower-stage material but no SF.5 nodes providing the requested
-Keel/Stein mathematics or general effective-stack interface.
+At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, the statements of
+`TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor` in
+`Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean` and
+`TauCeti.fgPointRepresentationCategoryEquivalence` in
+`Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean` start with a
+commutative Hopf algebra. They remain imports after constructing that algebra;
+they do not reconstruct it from an arbitrary neutral fibre functor.
 
-Current upstream main was also read at
-`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`: the ReductiveGroups roadmap and the
-RepresentationTheory index and SemisimpleAlgebras roadmap, together with the
-relevant newer roadmap/library searches. Current Tau Ceti was checked at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These do not already provide the
-arbitrary-fibre-functor construction planned here. Known-Hopf reconstruction and
-the upstream representation/reductivity suppliers remain imports. The reader
-and current library check do not change the pinned baseline or certify all
-upstream roadmaps.
-
-## Remaining obligations for /17
-
-The substantive source-to-library bridge remains open: FS VI.10.2 prints
-existence and reflection of F-split coequalizers; the pinned Beck theorem also
-requires preservation. The input acknowledges this and adds preservation to a
-sufficient-hypothesis version. That stronger version does not discharge the
-source's target. The next fix must construct the needed instance under a precise
-source convention, or explicitly separate the stronger theorem and retain the
-printed target as an unmet obligation. This is an interface gap, not a claim that
-FS's result is false.
-
-The five new construction nodes have 16 named API entries; only
-`neutralFiniteHull` has a typed declaration. Fifteen API entries, four new theorem
-signatures and the original 24 reconstruction/recognition test statements are
-still planning comments. The added zero-hull non-example is typed, but does not
-repair those omissions. The missing work includes the relative action and
-representer adjunction, tensor monad comparison, monoidal Ind extension,
-internal right comodules and filtered factorization, and the neutral fibre
-functor, stabilizer algebra and filtered-coalgebra comparison. Supply real typed
-carriers and signatures with placeholder proof bodies, rather than Prop-valued
-surrogates or a representing Hopf algebra as an input.
-
-The prospective early split is otherwise sound: the nine new nodes and existing
-`rigid-bialgebra-is-hopf` form an acyclic same-packet closure with no MC.5 ancestor.
-The late `tensor-automorphism-group` and `pro-algebraic-approximation` consumers
-import the abstract suppliers. The four proposed abstract planets are not
-installed; existing planets and the `restructure` proposal are unchanged in
-this review. Maintainer installation under PROTOCOL §9 remains a normal handoff,
-not an additional mathematical error. GS4 should import the selected relative
-or neutral targets after its own hypotheses are checked, rather than a whole
-late MC.6 stage. The excluded reader must later be reconciled with this review's
-convention and test corrections by a job authorized to edit it.
+Read the reviewed library audit's SF.1 and SF.5 entries; it has no motives entry.
+Existing descent/topology and cycle fragments are not the missing general
+scheme-stack or positivity interfaces. Checked current upstream main
+`0d144d044dacebca17b654695b6f1ad58f159b27`, its ReductiveGroups and
+RepresentationTheory roadmaps and nearby SemisimpleAlgebras conventions, and
+current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The existing known-group reconstruction remains an import; this review plans no
+replacement for it. No upstream or library build was run.
 
 ## Validation
 
-- `scripts/check_blueprint.py` on both packets: **0 errors, 0 warnings** at the
-  pinned declaration index. Scheme: 303 nodes, 253 API entries, 236 tests, 191
-  baseline declarations. Motives: 182 nodes, 451 API entries, 255 tests, 109
-  baseline declarations. Its 23 gaps and 16 requests remain explicit.
-- Full suggested-file elaboration with the shared pinned `lean-check` build,
-  one file at a time: scheme exit 0, 362 declaration-uses-`sorry` warnings;
-  final motives exit 0, 806 such warnings. Neither has errors or other warnings.
-  These are signature checks, not implementation or coverage claims.
-- Scheme suggested SHA-256:
-  `7d7dd0439924404df02f6ed8f1761e2751b060c04ff98710d7616deb9d4ce66e`.
-  Final motives suggested SHA-256:
-  `6251d873dabe50917470c218184c89c80ffd19d9784b74694eb6358ab904839d`.
-- Structural comparison preserves every old node identifier, all 47 motives
-  source issues and all 10 scheme source issues, and the immediately preceding
-  reviews exactly. Scheme mathematics is unchanged. No `excerpt` keys remain
-  in either edited packet. The ten-node abstract closure is acyclic and has no
-  MC.5 dependency.
-- No link map or standalone restructuring result is under review, so
-  `check_links.py` and `check_restructure.py` have no applicable input. The embedded
-  packet proposal is checked by the packet checker and inspected above; it is
-  not a standalone RS result. Submission-path validation and `git diff --check`
-  also pass.
+- Both packet validators: **0 errors, 0 warnings**, using the declaration index
+  for pinned Mathlib/Tau Ceti. Scheme: 303 nodes, 253 API entries, 236 tests,
+  191 baseline declarations, 16 explicit gaps. Motives: 182 nodes, 463 API entries,
+  261 tests, 114 baseline declarations, 23 explicit gaps and 16 requests.
+- Both full Suggested files checked sequentially using `lean-check` at Mathlib
+  `082e2d3` and Tau Ceti `f790474`: exit 0; scheme 362 and motives 817
+  declaration-uses-`sorry` warnings; no errors or other warnings. The added Beck
+  application has a real body. These checks certify elaboration, not implementation.
+- Preceding reviews are preserved exactly, all node IDs and source issues are
+  unchanged, and neither edited packet contains excerpt keys. Scheme mathematics
+  is unchanged. File-scope validation: 5 files, 0 problems. `git diff --check` passes.
+- Suggested SHA-256: scheme `7d7dd0439924404df02f6ed8f1761e2751b060c04ff98710d7616deb9d4ce66e`;
+  motives `4396ba69cb9aa964939a9181f9d19d7b7a7f0f38a29fb3f9b37dbfd509ba65d3`.
 
-This is a completed independent review returning a precise revision list, not a
-checkpoint of unfinished review work.
+
+No standalone link map or restructuring result is under review. The packet's
+embedded stage proposal is inspected above and checked by the packet validator;
+there is no standalone input for check_links.py or check_restructure.py.
+
+See [the handoff](../handoff/REV-FIX-RT-AREA-geomlanglands~2.md) for the exact scope
+repair and remaining mathematical action. All information needed to resume is
+in tracked files; no scratch source or log is required.

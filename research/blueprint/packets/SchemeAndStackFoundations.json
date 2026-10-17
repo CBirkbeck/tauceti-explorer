@@ -19972,9 +19972,10 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-11",
-    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /1, /8, /11, /15–18 and /31 preserve the unique foundation owners and precise supplier requests. Fresh graph reconstruction has 5,819 stages and 15,530 acyclic edges, with 15,524 after six SF.5 forwarding cuts. Both de Rham branches and the prismatic branch survive; the reverse MC.4-to-SF.4 whole-stage import is cyclic. De Jong 2.24, p.62 was reread: g >= 0 and n >= 3, finite etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization over the boundary. The supplier split remains an unimplemented request. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+    "date": "2026-10-17",
+    "session": "codex-WkJRnK",
+    "notes": "Codex, session codex-WkJRnK: bounded independent review of FIX-RT-AREA-geomlanglands~2; read all 39 claims, verifier decisions and fix dispositions. Follows the immediately preceding review preserved unchanged in reviewHistory. Live issue #5161 authorizes two packets, whereas queue completion requires nineteen; excluded packet verdicts are not asserted. Accepted only the excluded-owner handoffs /15 and /27: SF.5 positivity/Keel/Stein and SF.1 effective descent remain pending; reuse the installed generic quotient-stack owner D0 and omit the verifier-rejected transfer of derived QCoh/Perf. No scheme mathematics was changed."
   },
   "reviewHistory": [
     {
@@ -21640,6 +21641,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /1, /8, /11, /15–18 and /31 retain unique foundation owners and precise supplier requests. A fresh read-only reconstruction reproduces the 15,502-edge acyclic graph and 15,496-edge graph after removing six SF.5 forwarding inputs. The two de Rham paths and prismatic path survive, and MC.4 to SF.4 creates a cycle. Freshly read de Jong 2.24, p.62: all g≥0 and n≥3, level étaleness on the smooth open only, and a finite dominant projective normalized cover. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /1, /8, /11, /15–18 and /31 preserve the unique foundation owners and precise supplier requests. Fresh graph reconstruction has 5,819 stages and 15,530 acyclic edges, with 15,524 after six SF.5 forwarding cuts. Both de Rham branches and the prismatic branch survive; the reverse MC.4-to-SF.4 whole-stage import is cyclic. De Jong 2.24, p.62 was reread: g >= 0 and n >= 3, finite etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization over the boundary. The supplier split remains an unimplemented request. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
     }
   ]
 }
