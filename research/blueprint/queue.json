@@ -132943,8 +132943,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartI~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartI~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10305",
+   "finishedAt": "2026-10-17T23:49:07Z"
   },
   {
    "id": "FIX-PKG-ArithmeticStatisticsPartV~adv",
@@ -132962,8 +132964,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatisticsPartV~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatisticsPartV~adv.md",
+   "note": "claimed on GitHub issue #10306"
   }
  ]
 }
