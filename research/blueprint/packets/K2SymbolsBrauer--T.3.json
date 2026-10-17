@@ -12,7 +12,7 @@
   "K2SymbolsBrauer:T.6",
   "K2SymbolsBrauer:T.7"
  ],
- "summary": "Residues, reciprocity and the arithmetic of K_2, planned from Weibel's K-book, chapters III and V. T.3:symbols builds the tame symbol of a discrete valuation in the roadmap's normalisation, the inverse of the K-book's, with independence of the uniformiser, bimultiplicativity and the Steinberg relation by the source's case analysis, the induced homomorphism on K_2 and the ramification formula; it also hosts the Milnor residue theory the localisation sub-stage's text lists — Serre's residue algebra and the higher Milnor residues (Π on the right, so that in degree two they are T.3's symbol and in degree n they are (−1)^{n−1} times Theorem III.7.3's) with their product formula, specialisation, finite support and rigidity — so that T.4 can use it (RT-AREA-ktheory-1/28). T.4 proves Milnor's exact sequence for F(t) as the K-book does, builds the Milnor transfer through the residue at infinity with its projection, degree and base-change formulas, proves the elementary norm/residue identities and then Kato's independence theorem, the general norm–residue formula, and Suslin's reciprocity law in every degree for a proper curve over any field, over the places of its regular model with Kato's norms for inseparable residue extensions (exported to MotivicEtaleKTheory M.4), its tame-symbol form and its disjoint-support case, compared with EllipticCurves Layer 2's f(div g) = g(div f); the closed-point–place dictionary is imported from AlgebraicCurves Layer 12. T.3:localization-comparison, after T.4, identifies the tame symbols with the boundary of the localisation sequence of a discrete valuation ring and of a Dedekind domain, proves the norm–residue square for Quillen's transfers and compares T.4's Milnor norm with Quillen's transfer on K_2, and supplies these to SchemeKTheoryOperations S.3 and EllipticKTheory E.3 (RS-18). T.5 defines the unramified subgroup, derives the tame-kernel sequences of O_{F,S} (residues outside S) and O_F and the relative sequence (residues in S) through the Dedekind localisation sequence with SK_1 = 0 from KTheoryLowDegrees U.4, and computes K_2(ℤ) and K_2(ℚ), which ArithmeticKTheory N.2 and N.8 import; the certificate engine is N.6's, and K_2 of a finite field is the companion part's T.2 node. T.6 owns the Dennis–Stein symbols under 1 − rs invertible, their relations, the presentation theorems under their hypotheses and the Keune–Loday relative group. T.7 imports the Galois symbol and Tate's theorems from their single owner MotivicEtaleKTheory M.3 and keeps the symbol formula against the pinned Kummer map and cup product, the classical local symbols, the change-of-root rule, the Brauer-valued symbol, the local Hilbert/invariant comparison, a reciprocity adapter over ClassFieldTheory Layers 10 and 14 and ClassicalArithmeticCompletion CA.1, and the Chern clause as a compatibility. Nothing here is formalised; implementationStatus is unchecked throughout.",
+ "summary": "Residues, reciprocity and the arithmetic of K_2, planned from Weibel's K-book, chapters III and V. T.3:symbols builds the tame symbol of a discrete valuation in the roadmap's normalisation, the inverse of the K-book's, with independence of the uniformiser, bimultiplicativity and the Steinberg relation by the source's case analysis, the induced homomorphism on K_2 and the ramification formula; it also hosts the Milnor residue theory the localisation sub-stage's text lists — Serre's residue algebra and the higher Milnor residues (Π on the right, so that in degree two they are T.3's symbol and in degree n they are (−1)^{n−1} times Theorem III.7.3's) with their product formula, specialisation, finite support and rigidity — so that T.4 can use it (RT-AREA-ktheory-1/28). T.4 proves Milnor's exact sequence for F(t) as the K-book does, builds the Milnor transfer through the residue at infinity with its projection, degree and base-change formulas, proves the elementary norm/residue identities and then Kato's independence theorem, the general norm–residue formula, and Suslin's reciprocity law in every degree for a proper curve over any field, over the places of its regular model with Kato's norms for inseparable residue extensions (exported to MotivicEtaleKTheory M.4), its tame-symbol form and its disjoint-support case, compared with EllipticCurves Layer 2's f(div g) = g(div f); the closed-point–place dictionary is imported from AlgebraicCurves Layer 12. T.3:localization-comparison, after T.4, identifies the tame symbols with the boundary of the localisation sequence of a discrete valuation ring and of a Dedekind domain, proves the norm–residue square for Quillen's transfers and compares T.4's Milnor norm with Quillen's transfer on K_2, and supplies these to SchemeKTheoryOperations S.3 and EllipticKTheory E.3 (RS-18). T.5 defines the unramified subgroup, derives the tame-kernel sequences of O_{F,S} (residues outside S) and O_F and the relative sequence (residues in S) through the Dedekind localisation sequence with SK_1 = 0 from KTheoryLowDegrees U.4, and computes K_2(ℤ) and K_2(ℚ), which ArithmeticKTheory N.2 and N.8 import; the certificate engine is N.6's, and K_2 of a finite field is the companion part's T.2 node. T.6 owns the Dennis–Stein symbols under 1 − rs invertible, their relations, the presentation theorems under their hypotheses and the Keune–Loday relative group. T.7 imports the Galois symbol and Tate's theorems from their single owner MotivicEtaleKTheory M.3 and keeps the symbol formula against the pinned Kummer map and cup product, the classical local symbols, the change-of-root rule, the Brauer-valued symbol, the local Hilbert/invariant comparison, a reciprocity adapter over ClassFieldTheory Layers 10 and 14 and ClassicalArithmeticCompletion CA.1, and the Chern clause as a compatibility. Nothing here is formalised; implementationStatus is unchecked throughout. The arbitrary-residue complete-DVR support is routed to a source-backed LocalFieldsRamification Part II brief in restructure.supportPlan; its unregistered-supplier gap remains explicit, and the finite-residue Layer 3 is no longer an invalid generic prerequisite.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -592,12 +592,12 @@
    "edition": "Cambridge Studies in Advanced Mathematics 101, first edition, 2006; institutional author-hosted PDF.",
    "url": "https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf",
    "readSections": [
-    "7.3.6–7.3.12, pp. 198–203: arbitrary field base change, prime-degree residue argument, completion square and transitivity",
+    "7.3.6–7.3.12, pp. 197–203: arbitrary field base change, prime-degree residue argument, completion square and transitivity",
     "7.4.1–7.4.4, pp. 204–206: all-degree norm–residue theorem and curve reciprocity",
-    "Appendix A.6.4, p. 312: completion decomposition under finite integral closure; A.6.8(2), p. 313: norm valuation identity"
+    "Appendix A.6.4, printed p. 312/PDF p. 326: completion decomposition under finite integral closure; A.6.7–A.6.8(1),(2), printed p. 313/PDF p. 327: finite-normalization degree, unique complete extended valuation and integral closure, norm valuation. Rechecked 17 October 2026; external Serre proofs are not claimed as read."
    ],
    "sha256": "3697582f57a11547addeb8d5d63764d788b9d670e2bd76bd7401b9f3994f1e63",
-   "accessed": "2026-10-06"
+   "accessed": "2026-10-17"
   },
   {
    "id": "Milnor.1971",
@@ -650,6 +650,35 @@
     "Tags 032N, 032O and 032L: normal-hull reduction, polynomial N-2 and separable trace proof"
    ],
    "sha256": "006c9c4fb36aae28dc403381cfe5600f830abe3c71dce0105fe65431e9d6944e"
+  },
+  {
+   "id": "Stacks.Algebra.20261017",
+   "title": "The Stacks Project, Commutative Algebra",
+   "authors": "The Stacks Project authors",
+   "edition": "Chapter PDF downloaded 17 October 2026; chapter page numbers and stable tags.",
+   "url": "https://stacks.math.columbia.edu/download/algebra.pdf",
+   "sha256": "b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947",
+   "accessed": "2026-10-17",
+   "readSections": [
+    "10.119.7 (00PD), PDF pp. 285–286: DVR recognition",
+    "10.121.8 (02MJ), PDF p. 295: norm valuation from determinant and module lengths",
+    "10.153.4 (04GH), PDF p. 414: finite extensions of henselian rings",
+    "10.162.8 (032W), PDF pp. 446–447: complete Noetherian local rings are Nagata"
+   ]
+  },
+  {
+   "id": "Stacks.MoreAlgebra.20261017",
+   "title": "The Stacks Project, More on Algebra",
+   "authors": "The Stacks Project authors",
+   "edition": "Chapter PDF downloaded 17 October 2026; chapter page numbers and stable tags.",
+   "url": "https://stacks.math.columbia.edu/download/more-algebra.pdf",
+   "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2",
+   "accessed": "2026-10-17",
+   "readSections": [
+    "15.113.1 (09E4), PDF p. 333: extension and positive ramification index",
+    "15.113.6 (09E8), PDF p. 334: finite separable normalization and ef",
+    "15.116.1 (09EM), PDF pp. 342–343: integral closure and finite base change, reduced versus separable tensor"
+   ]
   }
  ],
  "sourceVersions": [
@@ -1346,6 +1375,7 @@
     "The integral closure of the valuation ring of v in E is a finite module over it (Σ_w e_w f_w = [E : F]). Without it the formula fails: in degree one, for x = π ∈ F, it would read [E : F] = Σ_w e_w f_w."
    ],
    "proofSteps": [
+    "Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.",
     "Let R be the DVR and S its finite integral closure. Complete R and the finite module S. The semilocal completion splits by Chinese remaindering into the completions of S_w; inverting a uniformizer gives E⊗_F F̂≅∏_w Ê_w. Finite normalization is essential to this argument. Import the completion-decomposition contract (GS Appendix A.6.4 and Corollary 7.4.3), whose exact owner request is recorded; do not treat a name search for tensor-product completion as the splitting theorem.",
     "Apply transfer-base-change to F̂/F: the algebra is a product of fields, so every Artinian multiplicity is 1. This gives res_F̂/F N_E/F=Σ_w N_Ê_w/F̂ res_Ê_w/E. Completion has ramification index 1 and identical residue field, so higher residues commute with these restriction maps.",
     "Apply complete-norm-residue to each Ê_w/F̂ and add. The residue fields are the original k_w and k_v, and their transfer maps are Kato’s norms even when inseparable. This proves the whole all-degree square (GS Corollary 7.4.3, using the completion diagram of Corollary 7.3.11).",
@@ -2145,7 +2175,7 @@
     {
      "name": "TauCeti.MilnorK.higher_ramification_infinite",
      "kind": "compatibility",
-     "statement": "Instantiate higher_ramification_formula at ℚ → ℚ(u), the 5-adic valuation and its e = 1 Gauss extension: the residues commute in every degree, with k_w = F_5(u). The suggested instance has the actual RatFunc ℚ carrier and no FiniteDimensional hypothesis."
+     "statement": "Instantiate higher_ramification_formula at ℚ → ℚ(u), the 5-adic valuation and its e = 1 Gauss extension: the residues commute in every degree, with k_w = F_5(u). The degree-two suggested instance uses the actual RatFunc ℚ carrier and no FiniteDimensional hypothesis; the all-degree statement is a README target until the Milnor carriers exist at the pins."
     },
     {
      "name": "TauCeti.MilnorK.higher_residue_trivial_restriction",
@@ -3206,6 +3236,7 @@
     "F complete for v; E/F normal of prime degree p; residues normalised as in T.3/higher-milnor-residues."
    ],
    "proofSteps": [
+    "Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.",
     "Set δ=∂_F N(α)−N_l/k ∂_E α in K_(n−1)^M(k). Base-change to E: for a separable normal degree-p extension E⊗_F E is p copies of E; for a purely inseparable extension it is a local algebra of length p with residue E. Transfer-base-change and residue ramification show pδ=0 in the unramified case and p²δ=0 in the ramified or purely inseparable case (GS Proposition 7.3.9). The length p is retained in the inseparable case.",
     "Use p-closed-generation over F^(p) to express the restriction of α as a finite sum of symbols with all but one entry in F^(p). The expressions, Steinberg relations and tower data involve finitely many elements, so descend to finite F′/F of degree d prime to p. E′=EF′ still has degree p and is normal over F′. F′ and E′ are complete DISCRETE valuation fields. Apply prime-degree-residue-on-generated-symbols termwise at this finite stage; do not put a normalized discrete valuation on the infinite F^(p).",
     "If r=e(F′/F), k′ is its residue field and f′=[k′:k], the base-change/ramification squares give r·res_k′/k δ=0 (the relative indices for E′/E and F′/F agree, since the prime-degree extension is disjoint from F′). Apply the residue transfer: r f′ δ=dδ=0. Both r and f′ divide d and are prime to p; no ramification factor is canceled in a torsion group. Combine dδ=0 and p²δ=0 by Bézout to get δ=0."
@@ -3226,7 +3257,6 @@
     "K2SymbolsBrauer:T.4/milnor-projection-formula",
     "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
     "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
     "K2SymbolsBrauer:T.4/restriction-transfer-degree"
    ],
    "sources": [
@@ -5165,6 +5195,7 @@
     "F is complete for its normalized discrete valuation; E/F is finite; residues use the uniformizer-last convention."
    ],
    "proofSteps": [
+    "Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice, LocalFieldsRamificationPartII:DVR.3/base-change-component-length. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.",
     "Factor E/F through the maximal separable subextension. The purely inseparable branch is a finite tower of radical extensions of prime degree equal to char F; kato-complete-residue and norm transitivity handle every step.",
     "For the separable branch fix a prime p. Over F^(p), E⊗_F F^(p) splits as a product of finite fields L_i of p-power degree, each admitting a tower of normal degree-p extensions (GS Lemma 7.3.7). Descend the finite list of polynomial coefficients, idempotents, generators and normality witnesses to finite F′/F inside F^(p). Irreducibility over F^(p) implies irreducibility at the finite stage; normality witnesses can be included there. Thus E⊗_F F′ is a product of fields E_i, each with a normal degree-p tower over F′. The degree d=[F′:F] is prime to p.",
     "Every field at this finite stage is complete for a discrete valuation. Apply kato-complete-residue along each normal-prime-degree tower and use transitivity to prove the square for each E_i/F′. Infinite F^(p) is used only to find the finite algebraic data, never as a discrete or complete valuation field.",
@@ -5181,7 +5212,6 @@
     "K2SymbolsBrauer:T.4/prime-to-p-closure",
     "K2SymbolsBrauer:T.4/transfer-base-change",
     "K2SymbolsBrauer:T.3/higher-ramification-formula",
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
     "K2SymbolsBrauer:T.4/restriction-transfer-degree"
    ],
    "sources": [
@@ -5191,7 +5221,24 @@
      "match": "Complete arbitrary-extension square, with inseparable steps and prime-to-p descent. The henselian stages in the source reduction are explicitly distinguished from complete base fields."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "tests": [
+    {
+     "name": "complete_norm_residue_infinite_ramified",
+     "kind": "computation",
+     "statement": "For ℚ((s))/ℚ((t)), t=s², in degree one: N(s)=−t and ∂_F N(s)=1=N_ℚ/ℚ(∂_E s). An extra transfer ramification coefficient would give 2."
+    },
+    {
+     "name": "complete_norm_residue_constant_quadratic",
+     "kind": "computation",
+     "statement": "For ℚ(i)((t))/ℚ((t)), e=1,f=2: ∂_F N(t)=2=N_ℚ(i)/ℚ(1) in K₀^M(ℚ)=ℤ. The right factor is the residue degree."
+    },
+    {
+     "name": "complete_norm_residue_inseparable_residue",
+     "kind": "non-example",
+     "statement": "For k=F₂(a), E=k((t))(α), α²+tα+a=0, one has e=1, f=2 and ∂_F N(t)=2. This finite separable complete extension has inseparable residue; a separable-residue or finite-residue hypothesis would exclude a required case."
+    }
+   ]
   },
   {
    "id": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
@@ -5211,7 +5258,7 @@
     "Both units: both residues are zero, since the norm of a unit is a unit. First uniformizer and a₂ unit: ord_F N(π′)=f and restriction fixes the base-unit residues, so both outputs are f{ā₂,…,ā_n}.",
     "First unit and a₂=π: write π=u′(π′)^e. The upper residue is −e{ā′,ā₃,…}, its residue norm is −e{N_l/k(ā′),ā₃,…}; the lower residue is −{res N(a′),ā₃,…}. The determinant filtration identity res N(a′)=N_l/k(ā′)^e identifies them.",
     "Both uniformizers: π=u′(π′)^e and N(π′)=uπ^f. The upper residue followed by norm is {(−1)^(ef)N_l/k(ū′),ā₃,…}; the lower is {(−1)^f ū⁻¹,ā₃,…}. Since ef=p, either e=1,f=p, where choose π′=π and u′=u=1, or e=p,f=1. In the latter choose π as the constant term of the Eisenstein minimal polynomial of π′, so u=(−1)^p and ū′=−1. The two expressions agree in both cases.",
-    "The norm identities have explicit source-backed supplier contracts: length_R(S/yS)=f ord_E y for the valuation, and the e-step π′-adic filtration of S/πS for the residue of a unit. They apply without finite residue fields; the requested upstream extension is stated honestly."
+    "Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice, LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis."
    ],
    "acceptance": [
     "The both-uniformizers case retains the sign and unit correction; it is not covered by the units-only calculation.",
@@ -5220,8 +5267,7 @@
    "prerequisites": [
     "K2SymbolsBrauer:T.4/milnor-projection-formula",
     "K2SymbolsBrauer:T.4/transfer-low-degrees",
-    "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+    "K2SymbolsBrauer:T.3/milnor-residue-product-formula"
    ],
    "sources": [
     {
@@ -5458,7 +5504,7 @@
    "status": "partial",
    "note": "The Bass–Tate sequence as the K-book proves it (Theorem III.7.4, Milnor) through the leading-coefficient splitting, the corrected degree reduction and the two filtration lemmas; the simple Milnor transfer with its degree-one identification and the projection and degree formulas; the elementary all-degree norm/residue identities Kato's proof uses, all before the transitivity theorem (base change Ex. III.7.7, ramification Ex. III.7.8, the complete case Corollary III.7.6.3, the constant extensions Ex. III.7.9 and Proposition III.7.6.4); Kato's theorem that the norm does not depend on the chain of generators; the general Milnor norm–residue formula; Suslin's reciprocity law in every degree for a proper curve over any field, over the places of the regular proper model and with Kato's norms for possibly inseparable residue extensions (RT-AREA-ktheory-1/12; MotivicEtaleKTheory M.4 imports it); the tame-symbol form on a proper regular curve; its disjoint-support case f(div g) = g(div f) and the compatibility with EllipticCurves Layer 2's milestone (RT-AREA-ktheory-1/32); and the transport of symbols along AlgebraicCurves Layer 12's closed-point/place, residue-field and divisor dictionary, which is imported and not re-proved. The place at infinity is outside the sum of the sequence and its role is recorded.",
    "remaining": [
-    "Import AlgebraicCurves Layer 2’s exact finite-normalization/completion contracts. Resolve the recorded generic complete-DVR support gap: the arbitrary-residue norm and base-change length statements exceed the current LocalFieldsRamification Layer 3 scope.",
+    "Import AlgebraicCurves Layer 2’s exact finite-normalization/completion contracts. Apply the LocalFieldsRamification Part II routing brief (restructure.supportPlan, DVR.0–DVR.3) and replace the unregistered-supplier gap by the registered owner contracts. Existing finite-residue Layer 3 is not used as a generic prerequisite.",
     "Stage edges for the maintainer: EllipticCurves Layer 2 → T.4 and T.4 → MotivicEtaleKTheory M.4 (RT-AREA-ktheory-1/32 and /12); the link AlgebraicCurves Layer 12 → T.4 (AC-L40) already exists."
    ]
   },
@@ -5529,14 +5575,14 @@
    "detail": "The stage text makes the square-zero examples 'tests of K.5', whose relative K-theory is the homotopy fibre of K(A) → K(A/I). The comparison of its π₂ with the relative group K₂(R, I) of K-book Definition III.5.7 is attributed to Keune and Loday in K-book IV.1.11 (PDF p. 276) and not proved there, and neither GeneralAlgebraicKTheory K.5's text nor this packet owns it. Until it is supplied the T.6 computations test the classical relative group only."
   },
   {
-   "title": "Generic complete-DVR norm and finite-base-change length support has no in-scope supplier contract",
+   "title": "Generic complete-DVR support is routed to an unregistered LocalFieldsRamification Part II",
    "neededBy": [
     "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
     "K2SymbolsBrauer:T.4/kato-complete-residue",
     "K2SymbolsBrauer:T.4/complete-norm-residue",
     "K2SymbolsBrauer:T.3/transfer-and-norm-residue"
    ],
-   "detail": "The four-case calculation and finite descent require, for every finite extension E/F of complete discrete valuation fields with arbitrary (possibly imperfect or infinite) residue field, a unique normalized extended valuation, a finite free integral-closure lattice S/R of rank e f=[E:F], ord_F N(y)=f ord_E(y), and res N(u)=N_l/k(res u)^e. For finite complete base change F′/F and separable E/F they also require the componentwise identity Σ_(i over j)e(E_i/E)[l_i:L_j]=e(F′/F) length(A_j), with A_j the Artinian factors of l⊗k k′. The packet supplies determinant/filtration proof outlines for the norm identities and a full-lattice reduction proof outline for the length identity. However LocalFieldsRamification Layers 0–3 export these local structures under IsNonarchimedeanLocalField, hence finite residue fields; their existing Layer 3 norm milestone cannot close this arbitrary-residue import. AlgebraicCurves Layer 5’s arbitrary-residue completion comparison does not itself promise these finite-extension support exports. The current request and upstream note are maintainer routing information, not an in-scope prerequisite. Identify and link an exact existing general supplier or establish a Part II support plan in the owning direction under PROTOCOL §15, with the finite-extension substrate and these exports. Retain complete fields here; a general henselian assertion additionally needs appropriate finiteness/defect hypotheses. No T.4 private norm theory is created."
+   "detail": "The missing substrate and exports are specified, source-backed and assigned once in restructure.supportPlan: LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation; LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice; LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue; LocalFieldsRamificationPartII:DVR.3/base-change-component-length. The plan includes normalized valuations and completeness, finite free integral closure with rank ef=[E:F], the valuation and residue norm identities (also for inseparable residues), and separable generic base change with Artinian residue component lengths. Existing LocalFieldsRamification Layer 3 is not an in-scope supplier and has been removed from the affected node prerequisites and requests. The maintainer must register/design/review the proposed Part II, then install its precise owner requests and links. This is an ownership-routing gap, not an unproved assertion that the current stage has broader scope; no generic valuation theory is owned by K2. T.4 retains arbitrary-residue complete fields, and the existing proof decompositions are conditional on this routed supply."
   },
   {
    "title": "G-monomial-kernel: the finite-rank unit-symbol import has no owning node",
@@ -5758,15 +5804,6 @@
    ]
   },
   {
-   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-   "need": "The existing norm-on-valuations milestone gives ord_F N(y)=f ord_E(y) for local fields. T.4 also needs its complete DISCRETE-VALUATION-field form without finite residue fields, and res N(u)=N_l/k(res u)^e for a unit u, including inseparable residue extensions. Determinant proof: the finite free valuation-ring lattice S has rank ef; the determinant of multiplication by y has valuation length_R(S/yS)=f ord_E(y) for integral nonzero y, and extend to fractions. For a unit u, filter S/π_F S by powers of π_E; there are e successive copies of l as k-vector spaces, and multiplication on each has determinant N_l/k(ū). Multiply the e determinants. GS Lemma 7.3.10, pp. 200–201 uses these identities. This extends the standing local-field scope and is flagged in upstreamNotes; no generic norm theory is rebuilt in T.4. Also supply the generic complete-DVR base-change length identity: For finite separable E/F and any finite complete-DVR base change F′/F, put r=e(F′/F), k′ its residue field, e=e(E/F), and E⊗F F′=∏ E_i with residue l_i. Write l⊗k k′=∏ A_j with residue L_j and length t_j. Let e_i=e(E_i/F′), e′_i=e(E_i/E), with i assigned to its residue component j. Then Σ_(i over j) e′_i [l_i:L_j]=r t_j. Proof: B=S⊗R R′ and its finite normalization C=∏S_i are full R′-lattices in the same algebra, with torsion quotient D. Reduction modulo π′ has equal composition multiplicities for B and C, since the finite-length kernel and cokernel of multiplication by π′ on D have equal multiplicities by length additivity. This is an elementary module-length argument, not a new Quillen G-theory construction. The e-step filtration of S/πS gives e t_j on B, while C gives Σ e_i [l_i:L_j]. Thus Σ e_i [l_i:L_j]=e t_j. Multiply by r and use r e_i=e e′_i; cancel the positive integer e in the LENGTH identity, not in a Milnor K-group. This establishes the displayed multiplicities. Combined with restriction-transfer degree in the residue fields, it proves the r·residue-base-change square used in complete-norm-residue without assuming that composita of residue fields exhaust l_i. UNRESOLVED SCOPE: Layer 3’s stated IsNonarchimedeanLocalField contract does not supply these arbitrary-residue-field statements. This is a maintainer routing request, recorded as a gap, not evidence that the current upstream stage covers them. A generic support contract or a Part II in the owning direction is required before this proof chain is closed.",
-   "neededBy": [
-    "K2SymbolsBrauer:T.4/kato-complete-residue",
-    "K2SymbolsBrauer:T.4/complete-norm-residue",
-    "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols"
-   ]
-  },
-  {
    "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
    "need": "Finite normalization completion contract used by T.4: for a DVR R with fraction F, finite E/F and finite integral closure S/R, the semilocal completion is ∏_w completed S_w and E⊗_F F̂≅∏_w Ê_w, with identical residue fields and ramification index 1 for E→Ê_w. Prove via finite-module tensor completion, Chinese remaindering S/π^nS, and inverting π; source GS Appendix A.6.4 and Corollary 7.4.3. Request the generic DVR form from the normalization owner, rather than applying number-field-only completions to imperfect function fields.",
    "neededBy": [
@@ -5800,7 +5837,7 @@
   {
    "kind": "ownership",
    "title": "K_2 of a finite field is owned by T.2",
-   "detail": "K2SymbolsBrauer:T.2/k2-finite-field (companion packet) plans K_2(𝔽_q) = 1 with the source's counting proof, and T.2/rational-function-field and T.2/milnor-examples build on it, so it cannot move to T.5 without a stage cycle. T.5's target 'K₂(F_q)=0' is realised by that node; T.5/k2-of-a-finite-field is removed as a duplicate, and its verbatim excerpts (Corollary III.6.1.1, PDF p. 239) should replace the companion node's one-line excerpt. KTheoryFiniteLocalFields L.1 recovers the same statement in its own model and is a compatibility check, not a second owner."
+   "detail": "K2SymbolsBrauer:T.2/k2-finite-field (companion packet) plans K_2(𝔽_q) = 1 with the source's counting proof, and T.2/rational-function-field and T.2/milnor-examples build on it, so it cannot move to T.5 without a stage cycle. T.5's target 'K₂(F_q)=0' is realised by that node; T.5/k2-of-a-finite-field is removed as a duplicate, and Corollary III.6.1.1 (PDF p. 239) is its source locator; retain the source claim in the worker’s own words. KTheoryFiniteLocalFields L.1 recovers the same statement in its own model and is a compatibility check, not a second owner."
   },
   {
    "kind": "ownership",
@@ -5831,6 +5868,335 @@
    "kind": "ownership",
    "title": "Milnor norms and Suslin reciprocity are exported to MotivicEtaleKTheory M.4",
    "detail": "RT-AREA-ktheory-1/12 (confirmed, with a field-scope obligation): T.4 owns the all-degree Milnor norms with Kato's independence of the chain of generators and Suslin's reciprocity law for K^M_{n+1} of the function field of a proper curve over any field, which M.4's Nesterenko–Suslin/Totaro comparison imports (edge T.4 → M.4). T.4/weil-reciprocity is that law, stated over the places of the regular proper model (the normalisation) with Kato's norms for possibly inseparable residue extensions, never under a smoothness hypothesis; the finiteness it needs over an imperfect field is recorded as a gap."
+  },
+  {
+   "action": "extend",
+   "roadmaps": [
+    "K2SymbolsBrauer"
+   ],
+   "detail": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2 identifies a scope mismatch: the generic complete-DVR substrate and norm/length identities used by T.4 exceed LocalFieldsRamification’s finite-residue exports. PROTOCOL §§15 and 17 route additions in that direction to a Part II; this fix does not alter the upstream roadmap.",
+   "proposal": "LocalFieldsRamificationPartII, titled Local Fields and Ramification, Part II: complete discrete valuation fields with arbitrary residue, supplies DVR.0 normalized finite-extension valuations; DVR.1 finite free integral-closure lattices, ef and the totally ramified uniformizer; DVR.2 determinant norm identities; DVR.3 componentwise base-change lengths. The attached supportPlan gives sources, proof decompositions, API, counterexamples, native carriers and proposed consumer links. These are proposed identifiers, not registered suppliers; the explicit gap remains until routing is applied.",
+   "supportPlan": {
+    "route": "part-ii",
+    "proposedRoadmapId": "LocalFieldsRamificationPartII",
+    "title": "Local Fields and Ramification, Part II: complete discrete valuation fields with arbitrary residue",
+    "extends": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "status": "proposed-for-maintainer-routing; not a registered roadmap or executable prerequisite",
+    "firstPrerequisites": [
+     "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+     "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+    ],
+    "boundary": "Extend the existing finite-residue local-field theory to arbitrary-residue complete DVRs. Reuse native Valuation, valuationSubring, IsAdicComplete, integralClosure, IsLocalRing.ResidueField, Algebra.norm and module-length APIs. Compare the general constructions with the existing local-field structures by uniqueness and restriction of scalars. Do not reconstruct finite-residue local fields, add local compactness, assume perfect residues, or import Milnor/Quillen K-theory. AlgebraicCurves keeps completion of a place and the regular-model dictionary; K2SymbolsBrauer keeps Milnor norms, residues and the norm/residue square.",
+    "baselineAudit": [
+     {
+      "declaration": "mathlib:spectralNorm.normedField",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "file": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean",
+      "locator": "lines 690–700, 798–828, 910–917",
+      "scope": "The base is a complete nontrivially normed ultrametric field; the extension is algebraic. spectralNorm_unique gives uniqueness of power-multiplicative algebra norms; spectralNorm.completeSpace supplies completeness for a finite-dimensional extension. No residue-field finiteness is assumed. These do not by themselves export a normalized integer-valued valuation or its finite integral-closure lattice."
+     },
+     {
+      "declaration": "tauceti:Valuation.ord",
+      "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "file": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+      "scope": "Reuse the existing additive order and uniformizer/unit decomposition, rather than a second order function."
+     },
+     {
+      "declaration": "tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer",
+      "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "file": "TauCeti/RingTheory/DiscreteValuationRing/Uniformizer.lean",
+      "locator": "lines 47–49, 185–205",
+      "scope": "For any DVR R and irreducible uniformizer π, this existing R-linear equivalence identifies its residue field with the mth maximal-ideal graded piece. No completeness or finite residue field is required. DVR.1 reuses it, then restricts scalars along k→l; no new graded-piece construction."
+     },
+     {
+      "declaration": "mathlib:Ideal.sum_ramification_inertia_eq_finrank",
+      "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "file": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
+      "locator": "lines 67–75",
+      "scope": "Existing finite-flat rank formula, already in the packet baseline. After DVR.1 supplies a finite free integral closure and identifies the unique prime, reuse this formula and compare module rank with [E:F]; do not reprove finite-flat ramification algebra."
+     },
+     {
+      "declaration": "tauceti:TauCeti.Algebra.norm_quotient_mk",
+      "pin": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 (current read-only Tau Ceti, after the atlas pin)",
+      "file": "TauCeti/RingTheory/Norm/Quotient.lean",
+      "locator": "lines 29–48",
+      "scope": "For a finite free commutative R-algebra S, the determinant norm commutes with reduction modulo any ideal. Read at current main; not available in the pinned build and not added to its baseline. The future Part II must reuse this current export for DVR.2 rather than plan the reduction theorem again. Its remaining work is the e-step residue filtration and comparison with field norms."
+     }
+    ],
+    "targets": [
+     {
+      "id": "LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation",
+      "kind": "construction",
+      "statement": "For a field F with a surjective v:F→ℤᵐ⁰ and v-adically complete valuation ring R, and any finite E/F, construct the unique normalized discrete valuation w on E extending the valuation class of v. E is complete for w, and ord_w(x)=e ord_v(x) on F× for a positive integer e. No separability or residue-field finiteness hypothesis.",
+      "prerequisites": [
+       "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+       "mathlib:spectralNorm.normedField",
+       "mathlib:spectralNorm_unique",
+       "mathlib:spectralNorm.completeSpace"
+      ],
+      "proofSteps": [
+       "Transport the π-adic completeness of R to the nontrivial real norm |x|=2^(−ord_v x) on F, with |0|=0. The valuation and norm topologies have the same powers-of-π neighborhood basis. Apply Mathlib’s existing spectral norm on E/F and its finite-dimensional completeness; no local compactness is used.",
+       "Distinct cosets of the value group of F in that of E give F-linearly independent elements: a linear relation would have a unique term of greatest norm, impossible by the ultrametric inequality. The index is therefore finite, at most [E:F]. A subgroup of ℝ containing ℤ with finite index is (1/e)ℤ for a unique e>0; normalize this group to ℤ and extend by the zero value.",
+       "An alternative normalized valuation with positive restriction index gives a real algebra norm extending |·| on F; spectralNorm_unique makes it the same norm. Surjectivity then identifies the normalized valuations and their ramification indices. Transport this uniqueness through field embeddings, isomorphisms and towers."
+      ],
+      "api": [
+       {
+        "name": "finiteExtensionValuation",
+        "statement": "The normalized Valuation E ℤᵐ⁰, with surjectivity, positive restriction index and no preinstalled valuation on E."
+       },
+       {
+        "name": "adicComplete_iff_complete_norm",
+        "statement": "The native π-adic completeness and completeness for 2^(−ord) agree; the norm and valuation topologies agree."
+       },
+       {
+        "name": "finiteExtensionValuation_unique",
+        "statement": "Any surjective discrete valuation on E with positive restriction index is this valuation; compatibility is a named equality, not a second global instance."
+       },
+       {
+        "name": "finiteExtensionValuation_tower",
+        "statement": "Restriction indices multiply in a finite tower; compatible embeddings preserve units and induce the native local residue map."
+       },
+       {
+        "name": "finiteExtensionValuation_localField",
+        "statement": "Under IsNonarchimedeanLocalField F, identify this construction with the existing Layer 0 valuation class and normalized valuation."
+       }
+      ],
+      "tests": [
+       {
+        "name": "identity_extension",
+        "statement": "E=F gives e=1, the original valuation and residue map, and the original topology."
+       },
+       {
+        "name": "infinite_residue_ramification",
+        "statement": "F=ℚ((t)), E=ℚ((s)), t=s²: ord_E(s)=1, ord_E(t)=2 and e=2. No IsNonarchimedeanLocalField instance is assumed."
+       },
+       {
+        "name": "inseparable_residue_separable_field",
+        "statement": "k=F₂(a), F=k((t)), E=F(α), α²+tα+a=0: E/F is separable, e=1, residue l=k(√a) has inseparable degree 2. Reject a separable-residue requirement."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "GilleSzamuely.2006",
+        "locator": "Proposition A.6.8(1), printed p. 313, PDF p. 327",
+        "match": "Statement of existence, uniqueness, completeness and integral closure; its references are not used as proofs read here."
+       },
+       {
+        "sourceId": "Stacks.MoreAlgebra.20261017",
+        "locator": "Definition 15.113.1 (09E4), PDF p. 333; Remark 15.116.1 (09EM), PDF pp. 342–343",
+        "match": "Positive restriction index and the finite-base-change valuation-ring diagram. The spectral-norm/value-coset argument above supplies the proposed construction."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice",
+      "kind": "theorem",
+      "statement": "For the preceding finite E/F, S=integralClosure R E is the valuation ring of w, a complete DVR and a finite free R-module of rank [E:F]=e[l:k], with l and k the native residue fields. Identify π_F S=𝔪_S^e, and the e successive quotients with l as k-vector spaces. Residue extensions may be inseparable.",
+      "prerequisites": [
+       "LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation",
+       "tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer",
+       "mathlib:Ideal.sum_ramification_inertia_eq_finrank"
+      ],
+      "proofSteps": [
+       "Fix an F-basis of E. Continuity of its coordinate maps in the finite-dimensional spectral norm bounds the closed unit ball S₀ inside π_F^(−N)R^d for one N. The ball is an R-submodule; R is a Noetherian PID, so S₀ is finite and torsion free, hence free. Scaling the chosen basis into S₀ shows that its rank is d=[E:F]. This bounded-lattice argument uses neither compactness nor a finite residue field.",
+       "The ball is a subring. Since it is a finite R-algebra, each of its elements is integral. Conversely the ultrametric monic-polynomial argument bounds every integral element by 1. Thus S₀=integralClosure R E. The normalized discrete valuation identifies its maximal ideal and makes it a DVR; the spectral norm gives completeness.",
+       "Write π_F=uπ_E^e. The quotient S/π_F S has dimension d over k by freeness, and its π_E-adic filtration has e quotients isomorphic to l as k-vector spaces. Therefore d=e[l:k]; this also proves finite residue degree without a perfectness assumption. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for the graded pieces and restrict scalars from l to k. The existing finite-flat Ideal.sum_ramification_inertia_eq_finrank supplies the rank formula once this finite free local lattice is constructed; the filtration identifies its terms with these native e and f.",
+       "If l=k and [E:F]=e, a uniformizer of E generates E/F: its value group forces degree at least e. Uniqueness of the extended valuation bounds the nonleading coefficients of its minimal polynomial, and the constant coefficient has F-order one. Export the resulting Eisenstein polynomial for the two-uniformizer computation."
+      ],
+      "api": [
+       {
+        "name": "valuationSubring_equiv_integralClosure",
+        "statement": "A named R-algebra equivalence identifying the ring, its maximal ideal, residue field and units."
+       },
+       {
+        "name": "integralClosure_finite_free",
+        "statement": "Module.Finite R S and Module.Free R S; finrank F E equals the R-module rank of S."
+       },
+       {
+        "name": "ramification_mul_residueDegree",
+        "statement": "e>0, [l:k]>0 and [E:F]=e[l:k], including purely inseparable E/F."
+       },
+       {
+        "name": "extension_uniformizer_filtration",
+        "statement": "Identify π_F S=𝔪_S^e and the e-step quotient S/π_F S. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for each piece; export the compatibility with the k-vector-space filtration, not a second graded-piece construction."
+       },
+       {
+        "name": "uniformizer_minpoly_eisenstein",
+        "statement": "If e=[E:F] and l=k, every uniformizer π_E generates E/F and its minimal polynomial over F is Eisenstein over R."
+       }
+      ],
+      "tests": [
+       {
+        "name": "tame_lattice",
+        "statement": "For t=s² over ℚ, S=ℚ[[s]] is R-free on 1,s; S/tS has two residue layers, each ℚ."
+       },
+       {
+        "name": "constant_lattice",
+        "statement": "E=ℚ(i)((t)) over ℚ((t)) has e=1, [l:k]=2, basis 1,i; t remains a uniformizer."
+       },
+       {
+        "name": "fierce_lattice",
+        "statement": "For α²+tα+a in characteristic 2, R[α] is free on 1,α, local with maximal ideal (t) and residue k(√a), hence a DVR and already the integral closure. It has e=1,f=2, not e=2,f=1."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.Algebra.20261017",
+        "locator": "Lemma 10.119.7 (00PD), PDF pp. 285–286; Lemma 10.153.4 (04GH), PDF p. 414; Lemma 10.162.8 (032W), PDF pp. 446–447",
+        "match": "DVR recognition and an independent finite-normalization route: a complete Noetherian DVR is Nagata, finite normalization is local by henselianity. The bounded-lattice proof above avoids requiring a new generic Nagata theory as a dependency."
+       },
+       {
+        "sourceId": "GilleSzamuely.2006",
+        "locator": "Propositions A.6.7–A.6.8, printed p. 313, PDF p. 327; Lemma 7.3.10, printed pp. 200–201",
+        "match": "Degree and complete-DVR scope, and the totally ramified Eisenstein specialization used by K2."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue",
+      "kind": "theorem",
+      "statement": "For every finite extension E/F in DVR.0, ord_F(N_E/F y)=[l:k]ord_E(y) for y≠0. For u∈S×, N_E/F(u)∈R× and res_k(N_E/F u)=N_l/k(res_l u)^e. Here norms are the existing determinant norms, also for inseparable residue extensions.",
+      "prerequisites": [
+       "LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice",
+       "mathlib:Algebra.norm"
+      ],
+      "proofSteps": [
+       "For integral nonzero y, the determinant of multiplication on the finite free R-lattice S has order length_R(S/yS). The π_E-filtration gives [l:k]ord_E(y). Write a general y as a quotient to extend the equality to E×.",
+       "For a unit u, reduce its multiplication matrix modulo π_F and filter S/π_F S by the e powers of π_E. On each quotient multiplication is by res_l u on l, with k-determinant N_l/k(res_l u). Multiplication of the e diagonal-block determinants gives the residue formula. This uses no embeddings or separability of l/k. The matrix-reduction step is already TauCeti.Algebra.norm_quotient_mk on current main (after the atlas pin); use it in the future supplier. Algebra.algebraMap_intNorm and Algebra.norm_norm are the existing integral/field and tower comparisons."
+      ],
+      "api": [
+       {
+        "name": "ord_norm",
+        "statement": "The valuation-of-norm identity for all nonzero elements, not just units."
+       },
+       {
+        "name": "residue_norm_unit",
+        "statement": "The displayed exponent-e residue identity for S×→R×."
+       },
+       {
+        "name": "norm_integral_norm_unit",
+        "statement": "Use the existing integral norm and Algebra.algebraMap_intNorm to restrict S→R, and restrict the homomorphism to units; do not define a second determinant norm."
+       },
+       {
+        "name": "norm_tower_and_localField",
+        "statement": "Reuse Algebra.norm_norm for tower maps. Compare the new identities with existing LocalFieldsRamification Layer 3 norms through the DVR.0 uniqueness comparisons."
+       }
+      ],
+      "tests": [
+       {
+        "name": "ramified_norm_sign",
+        "statement": "For t=s² over ℚ, N(s)=−t and N(2)=4. Hence ord_F N(s)=1, and residue N(2)=2²: both the sign and exponent e=2 are visible."
+       },
+       {
+        "name": "constant_norm_degree",
+        "statement": "For ℚ(i)((t))/ℚ((t)), N(t)=t² and N(1+i)=2; the valuation factor is f=2, not e=1."
+       },
+       {
+        "name": "inseparable_residue_norm",
+        "statement": "For α²+tα+a, N(α)=a=N_l/k(√a), N(t)=t², e=1 and f=2. A norm defined as a product of distinct residue embeddings gives the wrong answer."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.Algebra.20261017",
+        "locator": "Lemma 10.121.8 (02MJ), PDF p. 295",
+        "match": "The determinant/module-length proof of the valuation of a norm, under finite normalization."
+       },
+       {
+        "sourceId": "GilleSzamuely.2006",
+        "locator": "Lemma 7.3.10, printed pp. 200–201; Proposition A.6.8(2), printed p. 313",
+        "match": "Norm identities used in the generated-symbol residue calculation; the residue determinant-filtration proof is specified above."
+       }
+      ]
+     },
+     {
+      "id": "LocalFieldsRamificationPartII:DVR.3/base-change-component-length",
+      "kind": "theorem",
+      "statement": "Let E/F be finite SEPARABLE and F′/F any finite extension of complete discretely valued fields. Let R,S,R′ be their valuation rings, k,l,k′ their residues, e=e(E/F), r=e(F′/F), E⊗F F′=∏E_i with valuation rings S_i and residues l_i. Write l⊗k k′=∏A_j, with L_j the residue of A_j and t_j=length_(A_j)(A_j). Put e_i=e(E_i/F′), e′_i=e(E_i/E). The natural residue maps assign each i to j and inject L_j into l_i. Then Σ_(i over j) e_i[l_i:L_j]=e t_j and Σ_(i over j) e′_i[l_i:L_j]=r t_j. No separability of l/k or equality l_i=L_j is assumed.",
+      "prerequisites": [
+       "LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice"
+      ],
+      "proofSteps": [
+       "Separability of E/F makes its tensor with F′ a product of fields. B=S⊗R R′ injects into that algebra by R-flatness of R′; C=∏S_i is its finite normalization and B⊂C are full R′-lattices. Their quotient D is finite torsion. The R′- and B-actions are retained in the following length computation.",
+       "For multiplication by π′ on D, length additivity gives equal composition multiplicities of its kernel and cokernel, component by component. The snake exact sequence therefore gives equal B-module composition multiplicities of B/π′B and C/π′C. The simple factors are the L_j; this is elementary finite-length module additivity, not K(B)=G(B).",
+       "Filter B/π′B=(S/π_F S)⊗k k′ into e copies of l⊗k k′: the j multiplicity is e t_j. The i component of C/π′C has e_i copies of l_i, hence j multiplicity e_i[l_i:L_j]. This proves the first identity. Tower compatibility gives r e_i=e e′_i. Multiply the first identity by r and cancel positive e in ℕ to get the second. No torsion K-group cancellation occurs."
+      ],
+      "api": [
+       {
+        "name": "tensor_normalization_lattice",
+        "statement": "The canonical inclusion B⊂∏S_i is finite, has the stated common fraction algebra, and has finite-length cokernel over R′."
+       },
+       {
+        "name": "residue_component_map",
+        "statement": "The canonical A_j→l_i factors through an injective L_j→l_i, with complete assignment of factors and invariance under relabeling."
+       },
+       {
+        "name": "baseChange_component_length",
+        "statement": "Both displayed componentwise identities, natural in finite towers and compatible with e e′_i=r e_i."
+       },
+       {
+        "name": "separable_scope",
+        "statement": "Do not assert E⊗F F′ is reduced for inseparable E/F. Such E/F is handled by normal prime-degree towers in the K2 consumer; Artinian transfer lengths remain in the arbitrary-field base-change theorem."
+       }
+      ],
+      "tests": [
+       {
+        "name": "ramified_self_base_change",
+        "statement": "E=ℚ((s)), s²=t, F′=E: r=e=2; two E_i=E, each e_i=e′_i=1; l⊗k k′=ℚ has t_j=1, so the sum is 2."
+       },
+       {
+        "name": "larger_residue_than_compositum",
+        "statement": "E=ℚ((s)), s²=t and F′=ℚ((u)), u²=2t: one E_i=ℚ(√2)((u)), e_i=e′_i=1 and [l_i:L_j]=2 with L_j=ℚ, t_j=1. The length sum is 2; replacing l_i by the residue compositum gives 1 and fails."
+       },
+       {
+        "name": "nonreduced_residue_tensor",
+        "statement": "For α²+tα+a over F₂(a)((t)) and F′=E, the separable generic tensor is E×E but l⊗k l≅l[ε]/ε² has t_j=2. Here e=r=e_i=e′_i=1 and the two residue-degree terms are 1, giving 2=1·2. Using reduced residue factors with multiplicity 1 fails."
+       }
+      ],
+      "sources": [
+       {
+        "sourceId": "Stacks.MoreAlgebra.20261017",
+        "locator": "Remark 15.116.1 (09EM), PDF pp. 342–343",
+        "match": "The normalization/base-change diagram and the separable versus reduced-tensor distinction. The componentwise multiplicity identity is derived by the lattice argument above; it is not claimed as the statement of 09EM."
+       },
+       {
+        "sourceId": "GilleSzamuely.2006",
+        "locator": "Proposition 7.4.1, printed p. 204, PDF p. 218; Lemma 7.3.6, printed p. 197, PDF p. 211",
+        "match": "The K2 use of complete-field base change. Use composition lengths, with the first-edition issue E13 retained; do not assume residual composita exhaust l_i."
+       }
+      ]
+     }
+    ],
+    "proposedLinks": [
+     {
+      "source": "LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation",
+      "target": "K2SymbolsBrauer:T.4/kato-complete-residue",
+      "use": "Valuations and completeness at the finite prime-to-p descent stage."
+     },
+     {
+      "source": "LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice",
+      "target": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+      "use": "Degree ef and totally ramified Eisenstein uniformizer."
+     },
+     {
+      "source": "LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue",
+      "target": "K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols",
+      "use": "Degree-one valuation and unit residue norm; the two mixed generated-symbol cases."
+     },
+     {
+      "source": "LocalFieldsRamificationPartII:DVR.3/base-change-component-length",
+      "target": "K2SymbolsBrauer:T.4/complete-norm-residue",
+      "use": "Component multiplicities in the separable complete-extension descent; retain r before transfer back."
+     },
+     {
+      "source": "LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice",
+      "target": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+      "use": "Automatic finite normalization for the complete base, distinct from AlgebraicCurves’ normalization/completion contracts."
+     }
+    ],
+    "otherConsumers": "HigherLocalFields HL.0/HL.1 use finite extensions of residue towers, including infinite first residue fields. They should import this support after their own scope is checked; this is a maintainer lead, not a new edge or a modification of that packet. AlgebraicCurves Layer 5 keeps its arbitrary-residue completion comparisons. The new roadmap has no dependency on K2SymbolsBrauer, HigherLocalFields, ClassFieldTheory or AlgebraicCurves.",
+    "registration": "Maintainer: register/design/review LocalFieldsRamificationPartII with the four stable proposed contracts and links above, extending the existing roadmap first. Once registered, replace the generic-support gap by requests and stage prerequisites; once finer owner nodes exist, use their exact IDs. Until then these names occur only in this routing brief, prose and the explicit gap, never in prerequisites or requests."
+   }
   }
  ],
  "sourceIssues": [
@@ -6424,7 +6790,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-   "note": "The norm-on-valuations milestone is already in Layer 3. The residue norm and valuation formulas requested here must also cover complete discrete valuation fields with arbitrary residue field, including the finite complete extensions used in descent; this is stronger than the roadmap’s standing local-field scope. Its owner should supply a generic DVR support lemma or Part II, rather than T.4 rebuilding local-field norm theory. Independent review REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2: the proposed existing-stage import fails PROTOCOL §3’s scope condition. AlgebraicCurves Layer 5 does cover arbitrary-residue completions, but its completion comparison does not state these general finite-extension norm and lattice-length exports. Do not silently widen either upstream roadmap; resolve the generic support ownership through an exact existing contract or Part II."
+   "note": "Route Local Fields and Ramification, Part II: complete discrete valuation fields with arbitrary residue, under PROTOCOL §15. The complete brief is the final restructure entry’s supportPlan (DVR.0–DVR.3): native carriers, pinned spectral-norm starting point, normalized finite extensions, finite free integral-closure lattices, ef, norm valuation/residue identities, and componentwise base-change lengths. It supplies the four affected K2 nodes without finite/perfect residue assumptions. Compare each generic construction with existing Layers 0/3 by uniqueness; leave those upstream layers untouched. Register/design/review the new roadmap before its proposed identifiers become executable prerequisites. The unsupported Layer 3 request has been removed, and the exact routing gap is retained. AlgebraicCurves Layers 2/5 keep normalization of function fields and completion comparison, respectively; neither is silently widened."
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
