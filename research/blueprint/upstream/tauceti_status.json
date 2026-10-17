@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T20:27Z",
+ "updated": "2026-10-17T20:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -152,7 +152,7 @@
    "head": "d1d9888",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "APPROVED"
    }
@@ -535,7 +535,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "d90b604",
+   "head": "71fa206",
    "depends_on": [
     849,
     857,
@@ -633,11 +633,11 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "318ed0b",
+   "head": "48e8e5f",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -829,11 +829,11 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "2030d76",
+   "head": "efc042c",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -865,11 +865,11 @@
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "1637b2d",
+   "head": "43661eb",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -913,7 +913,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "8d286a4",
+   "head": "fc19910",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
    "review": {
     "recommendation": "approve",
@@ -1097,7 +1097,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1105,11 +1105,11 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "052ef9e",
+   "head": "92d1794",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1153,7 +1153,7 @@
   "PrismaticCohomology": {
    "stage": "pr",
    "pr": 1057,
-   "head": "014c25b",
+   "head": "0590dd5",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": null,
@@ -1165,10 +1165,10 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "6911964",
+   "head": "280f64c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
@@ -1262,13 +1262,25 @@
    "stage": "pr",
    "pr": 1075,
    "head": "70b7119",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "PrismaticCohomologyPartIV": {
    "stage": "pr",
    "pr": 1080,
    "head": "f213bc8",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"

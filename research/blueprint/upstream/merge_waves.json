@@ -74,19 +74,19 @@
   "FaltingsFinitenessAndIsogenyTheorems": 26,
   "GL2AutomorphicRepresentationsAndTransfer": 22,
   "AutomorphicGaloisRepresentationsPartII": 26,
-  "TorsionCohomologyInfrastructure": 35,
-  "IgusaVarietiesAndTorsionConcentration": 36,
+  "TorsionCohomologyInfrastructure": 32,
+  "IgusaVarietiesAndTorsionConcentration": 33,
   "AutomorphicGaloisRepresentations": 27,
   "SerreWeightAndLevelOptimisation": 26,
   "OrdinaryAutomorphicFormsAndModularityLifting": 29,
   "GL2ModularityLifting": 30,
   "PotentialModularityAndCompatibleSystems": 31,
-  "PotentialAutomorphyInfrastructure": 38,
+  "PotentialAutomorphyInfrastructure": 37,
   "SmallRamificationAndAbelianVarietyBaseCases": 24,
   "ClassicalSerreModularity": 28,
   "EllipticCurveModularity": 29,
-  "ModularityAndLanglandsExtensions": 39,
-  "CrystallineLocalGlobalCompatibilityCM": 40,
+  "ModularityAndLanglandsExtensions": 38,
+  "CrystallineLocalGlobalCompatibilityCM": 39,
   "EllipticCurveModularityImaginaryQuadratic": 31,
   "AdicSpacesPartIII": 2,
   "AdicSpacesPartIV": 5,
@@ -100,6 +100,7 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": 30,
   "MetaplecticAutomorphicForms": 26,
   "PrismaticCohomologyPartII": 21,
-  "PrismaticCohomologyPartIII": 22
+  "PrismaticCohomologyPartIII": 22,
+  "PrismaticCohomologyPartIV": 24
  }
 }
