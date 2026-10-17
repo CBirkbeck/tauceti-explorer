@@ -15,7 +15,7 @@ namespace TauCetiRoadmap.ModularityAndLanglandsExtensions
 
 open scoped BigOperators MatrixGroups
 
-/-! ## Layer 0: assertions and realization comparisons -/
+/-! ## Layer 0: realization comparisons and the singular-weight Hodge prediction -/
 
 namespace LanglandsRegister
 
@@ -118,19 +118,35 @@ section
 local instance : Fact (Nat.Prime 7) := ⟨by decide⟩
 local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
 
+/-- The identity representation of `GL₂(𝔽₇)` meets the rank-three condition (README §1.7). -/
 example : ProjectiveImageSandwich 7 1 3 (RingHom.id (ZMod 7))
-    (MonoidHom.id (Matrix.GeneralLinearGroup (Fin 2) (ZMod 7))) := sorry
+    (MonoidHom.id (Matrix.GeneralLinearGroup (Fin 2) (ZMod 7))) := by
+  refine ⟨by norm_num, le_rfl, by norm_num, by rw [ZMod.card]; norm_num,
+    by rw [ZMod.card]; norm_num, 1, ?_, ?_⟩
+  · rintro x -
+    obtain ⟨g, rfl⟩ := Matrix.ProjGenLinGroup.mk_surjective x
+    exact ⟨g, by simp⟩
+  · rintro x -
+    exact ⟨x, by simp [Matrix.ProjGenLinGroup.map_id]⟩
 
+/-- Over `𝔽₅` the strict bound `5 > max 5 3` fails for every representation (README §1.7). -/
 example (ρ : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5) →*
     Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) :
-    ¬ ProjectiveImageSandwich 5 1 2 (RingHom.id (ZMod 5)) ρ := sorry
+    ¬ ProjectiveImageSandwich 5 1 2 (RingHom.id (ZMod 5)) ρ := by
+  intro h
+  have h1 := h.2.2.2.2.1
+  rw [ZMod.card] at h1
+  norm_num at h1
 
 end
 
 /-- A degree-zero finite-field parameter is excluded explicitly. -/
 example {G k K : Type*} [Group G] [Field k] [Fintype k] [Field K]
     (p n : ℕ) (ι : k →+* K) (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) :
-    ¬ ProjectiveImageSandwich p 0 n ι ρ := sorry
+    ¬ ProjectiveImageSandwich p 0 n ι ρ := by
+  intro h
+  have := h.2.1
+  omega
 
 /-- Small characteristic is allowed by the bound; the prime need not exceed the rank. -/
 example : (2 : ℕ) ^ 3 > max 5 (2 * 4 - 1) ∧ 2 ≤ 4 := by decide
@@ -170,11 +186,30 @@ theorem orthogonalSignKernel_even {ι : Type*} [Fintype ι]
 theorem orthogonalSignKernel_one_odd (d : ℕ) (h : Odd d) :
     orthogonalSignKernel (fun (_ : Fin 1) => d) = ⊥ := sorry
 
+/-- One dimension-three block forces the trivial sign; the empty index set imposes nothing. -/
 example : orthogonalSignKernel (fun (_ : Fin 1) => 3) = ⊥ ∧
-    orthogonalSignKernel (fun (i : Fin 0) => i.elim0) = ⊤ := sorry
+    orthogonalSignKernel (fun (i : Fin 0) => i.elim0) = ⊤ := by
+  have h3 : ((3 : ℕ) : ZMod 2) = 1 := by decide
+  constructor
+  · ext s
+    simp only [orthogonalSignKernel, AddSubgroup.mem_mk, AddSubmonoid.mem_mk,
+      AddSubsemigroup.mem_mk, Set.mem_ofPred_eq, Fin.sum_univ_one, h3, one_mul,
+      AddSubgroup.mem_bot]
+    constructor
+    · intro h
+      funext i
+      fin_cases i
+      simpa using h
+    · intro h
+      simp [h]
+  · ext s
+    simp [orthogonalSignKernel]
 
+/-- Two odd blocks: the signs must agree. -/
 example (s : Fin 2 → ZMod 2) :
-    s ∈ orthogonalSignKernel (fun (_ : Fin 2) => 1) ↔ s 0 = s 1 := sorry
+    s ∈ orthogonalSignKernel (fun (_ : Fin 2) => 1) ↔ s 0 = s 1 := by
+  have key : ∀ a b : ZMod 2, a + b = 0 ↔ a = b := by decide
+  simp [orthogonalSignKernel, Fin.sum_univ_two, key]
 
 /-- An even block is free while the odd block must have positive sign. -/
 example (s : Fin 2 → ZMod 2) :
@@ -212,7 +247,9 @@ example : IsParallelWeight (fun (_ : Fin 2) (_ : Fin 2) => (0 : ℤ)) ∧
 example : ¬ IsParallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
     if i = 0 then if τ = 0 then (0 : ℤ) else 2 else 0) ∧
     parallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
-      if i = 0 then if τ = 0 then (0 : ℤ) else 2 else 0) 1 = 4 := sorry
+      if i = 0 then if τ = 0 then (0 : ℤ) else 2 else 0) 1 = 4 := by
+  simp only [IsParallelWeight, parallelWeight]
+  decide
 
 example : IsParallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
     if i = 0 then if τ = 0 then (2 : ℤ) else 3 else if τ = 0 then 0 else 1) ∧
@@ -229,7 +266,7 @@ end SymmetricPower
 
 /-! ## Numerical convention witnesses -/
 
-/-- Ramification scaling preserves the rational rank-two nilpotence index. -/
+/-- Ramification scaling preserves the rational rank-two nilpotence index (README §2.10). -/
 example :
     (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 ∧
     (2 • !![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 ∧
@@ -238,7 +275,8 @@ example :
     Matrix.cons_eq_zero_iff]
   decide
 
-/-- Maximal N and Nφ=pφN do not encode the consecutive-Hodge-list premise. -/
+/-- Maximal N and Nφ=pφN do not encode the consecutive-Hodge-list premise: the weakly admissible
+`diag(5,25)` example of README §2.11 has `t_N = t_H = 3` and a stable line with `t_H < t_N`. -/
 example :
     (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * !![5, 0; 0, 25] =
       5 • (!![5, 0; 0, 25] * !![0, 1; 0, 0]) ∧
@@ -246,7 +284,8 @@ example :
   norm_num [Matrix.mul_fin_two, Matrix.smul_cons, Matrix.smul_empty]
   decide
 
-/-- Residue cardinality q, rather than coefficient prime p, fixes the unramified scale. -/
+/-- Residue cardinality q, rather than coefficient prime p, fixes the unramified scale (README
+Conventions and §3.7). -/
 example : (Real.sqrt 9) ^ 3 = 27 ∧ (Real.sqrt 5) ^ 3 ≠ 27 := by
   constructor
   · norm_num
@@ -254,31 +293,35 @@ example : (Real.sqrt 9) ^ 3 = 27 ∧ (Real.sqrt 5) ^ 3 ≠ 27 := by
     have hn := Real.sqrt_nonneg (5 : ℝ)
     nlinarith [sq_nonneg (Real.sqrt 5 - 3)]
 
-/-- The archimedean angular character remembers the value at the negative real unit. -/
+/-- The archimedean angular character remembers the value at the negative real unit (README
+Conventions). -/
 example : ((-1 : ℂ) / ‖(-1 : ℂ)‖) ^ 1 = -1 ∧
     (-1 : ℂ) / star (-1 : ℂ) = 1 := by norm_num
 
-/-- The cohomological symmetric square has weights 0,1,2 and determinant exponent -3. -/
+/-- The cohomological symmetric square has weights 0,1,2 and determinant exponent -3 (README
+Conventions). -/
 example : (List.range 3).map (fun i => (i : ℤ)) = [0, 1, 2] ∧
     -(∑ i ∈ Finset.range 3, (i : ℤ)) = -3 := by decide
 
-/-- Rank n means symmetric-power degree n-1; distinct Satake roots may collide in degree two. -/
+/-- Rank n means symmetric-power degree n-1; distinct Satake roots may collide in degree two
+(README Conventions and §1.1). -/
 example : (1 : ℕ) - 1 = 0 ∧ (3 : ℕ) - 1 = 2 ∧
     [((1 : ℤ) ^ 2), 1 * (-1), (-1) ^ 2] = [1, -1, 1] := by decide
 
-/-- The boundary chamber and its integral lattice impose different constraints. -/
+/-- The boundary chamber and its integral lattice impose different constraints (README §3.29). -/
 example : (((1 - 3 : ℤ) : ZMod 2) = (2 : ZMod 2)) ∧
     (((1 - 3 : ℤ) : ZMod 2) ≠ (1 : ZMod 2)) ∧
     ((1 + 1 : ℤ), (0 + 2 : ℤ)) = (2, 2) := by decide
 
-/-- Weak good range includes a zero pairing and excludes a negative one. -/
+/-- The Adams–Johnson weak good range includes a zero root pairing and excludes `-1` (README §3.20). -/
 example : (0 : ℤ) ≤ 0 ∧ ¬ (0 : ℤ) ≤ -1 := by decide
 
-/-- Nonvanishing rules out cancellation of a higher pole by a zero. -/
+/-- Nonpositive pole orders summing to `-1` are `(-1, 0)` or `(0, -1)`: boundary nonvanishing rules
+out cancellation of a higher pole by a zero (README §3.3). -/
 example (a b : ℤ) (ha : a ≤ 0) (hb : b ≤ 0) (hab : a + b = -1) :
     (a = -1 ∧ b = 0) ∨ (a = 0 ∧ b = -1) := by omega
 
-/-- The ordinary idempotent selects the unit-root coordinate in this mod-three model. -/
+/-- The ordinary idempotent selects the unit-root coordinate in this mod-three model (README §2.3). -/
 example : (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 =
     !![1, 0; 0, 0] ∧
     Matrix.mulVec (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ![0, 1] = 0 := by
@@ -286,15 +329,15 @@ example : (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 =
     Fin.sum_univ_two, Matrix.cons_eq_zero_iff]
   decide
 
-/-- Deligne–Lusztig cuspidal-type signs distinguish the two split block sizes. -/
+/-- Deligne–Lusztig cuspidal-type signs distinguish the two split block sizes (README §4.4). -/
 example : (-1 : ℤ) ^ (2 - 1) = -1 ∧ (-1 : ℤ) ^ (5 - 1) = 1 := by decide
 
-/-- The normalized Jacquet factor and the spectrum twist are different powers. -/
+/-- The normalized Jacquet factor and the spectrum twist are different powers (README §4.3). -/
 example : (Real.sqrt ((9 : ℝ)⁻¹))⁻¹ = 3 ∧ (((9 : ℝ)⁻¹)⁻¹) = 9 := by
   norm_num
 
 /-!
-The README also specifies the assertion records, automorphic realization, accessible refinements,
+The README also specifies the automorphic realization, accessible refinements,
 Artin/functorial/symmetric-power predicates, integral Hecke and Dwork objects, ordinary flags,
 Conjecture B, twisted modular curves and exceptional-curve certificates; oscillator/theta and
 metaplectic descent, Arthur parameters/packets, Adams–Johnson induction, unitary eigenvarieties
