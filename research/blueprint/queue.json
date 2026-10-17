@@ -54442,8 +54442,8 @@
    ],
    "revisionOf": "PKG-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9878"
+   "state": "done",
+   "note": "delivered by pull request #10032 (continuation of checkpoint #9948, issue #10016); marked done by the manager 2026-10-17"
   },
   {
    "id": "REV-PKG-PrismaticCohomology~2",
