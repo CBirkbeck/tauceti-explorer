@@ -112,6 +112,36 @@ example (D : DeltaStructure p ℤ) : D.δ (p : ℤ) * p = p - p ^ p := by
 
 end Delta
 
+/-! ### Checks on the countable equations in general-envelope existence
+
+The solution operations are a proof device for the DD.1 telescope criterion. The actual prism
+construction remains a reader target. These checks fix the zero, unit and sign conventions.
+-/
+
+/-- Test `generalEnvelope_telescopeZero`: the zero-parameter operator is the identity. -/
+example : Function.Bijective (fun x : ℕ → ℤ => fun n => x n - 0 * x (n + 1)) := by
+  constructor
+  · intro x y h
+    funext n
+    simpa using congrFun h n
+  · intro y
+    refine ⟨y, ?_⟩
+    funext n
+    simp
+
+/-- Test `generalEnvelope_telescopeUnit`: distinct constants have the same image. -/
+example : ¬ Function.Injective (fun x : ℕ → ℤ => fun n => x n - 1 * x (n + 1)) := by
+  intro h
+  have heq : (fun _ : ℕ => (0 : ℤ)) = (fun _ : ℕ => (1 : ℤ)) :=
+    h (by funext n; simp)
+  have hzero := congrFun heq 0
+  exact (zero_ne_one : (0 : ℤ) ≠ 1) hzero
+
+/-- Test `generalEnvelope_telescopeSign`: `x - 2 shift(x) = 1` for the constant `-1`. -/
+example : (fun _ : ℕ => (-1 : ℤ) - 2 * (-1)) = (fun _ => (1 : ℤ)) := by
+  funext n
+  rfl
+
 /-! ## Layer PR.6: q-crystalline charts and the AΩ comparison
 
 The finite and sufficiently complete framed q-automorphisms and q-derivatives are planned here.
@@ -270,12 +300,13 @@ stated there only.
   absolute prismatic sites, derived prismatic cohomology, perfectoidization, the conjugate and
   Nygaard filtrations, Breuil–Kisin twists, syntomic complexes and the étale comparison (PR.0–PR.4),
   prismatic crystals and F-crystals (PR.7), and the logarithmic theory (PR.8).
-  The general-envelope target in PR.0 is over bounded orientable bases and has no regular-kernel
-  assumption. Its transfinite torsion-removal/completion construction, universal property and
-  identity/unit-ideal/regular-comparison/nonregular-input tests are README targets. The required
-  delta-ring category and derived completion carriers are missing at the pins; no placeholder
-  definition or envelope existence axiom is introduced here. General existence supplies neither
-  bounded output nor flatness, and the unbounded-base extension remains a separate reader gap.
+  The general-envelope target in PR.0 is over any orientable base and has no regular-kernel
+  assumption. Its small-solution-set construction, universal property and
+  identity/unit-ideal/regular-comparison/nonregular-input/unbounded-identity tests are README
+  targets. The delta-ring category and derived completion carriers are missing at the pins.
+  General existence supplies neither bounded output nor flatness; the QRSP regular-presentation
+  reduction remains a separate reader gap. The three elementary telescope checks above do not
+  assert prism existence in Lean.
 * Needing ∞-categories of quasi-coherent complexes (PR.5): `QCohPrestack`, `QCohPrestack.eval`,
   `QCohPrestack.ofPoints`, `QCohPrestack.pullback`, `QCohPrestack.specEquiv`,
   `QCohPrestack.limitOfColimit`, `QCohPrestack.isEquiv_iff_eval`, `QCohPrestack.unit_eval`,
