@@ -81,6 +81,16 @@ example (c : ℝ) {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) :
     ¬ IsExceptionalRealZero c χ 1 := by
   sorry
 
+/-- Width zero does not designate an exceptional zero. -/
+example {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) (β : ℝ) :
+    ¬ IsExceptionalRealZero 0 χ β := by
+  simp [IsExceptionalRealZero]
+
+/-- Conductor one is excluded before any logarithmic denominator is used. -/
+example (c β : ℝ) (χ : DirichletCharacter ℂ 1) :
+    ¬ IsExceptionalRealZero c χ β := by
+  simp [IsExceptionalRealZero]
+
 /-- The entire Riemann `ξ`, written through Mathlib's entire
 `completedRiemannZeta₀`, so that no junk value at `s = 0, 1` enters. -/
 def riemannXi (s : ℂ) : ℂ :=
@@ -99,31 +109,31 @@ theorem riemannXi_one_sub (s : ℂ) : riemannXi (1 - s) = riemannXi s := by
 example : riemannXi 0 = 1 / 2 := by
   sorry
 
-/-- `f` is entire of order at most `ρ` (an upper-order predicate). -/
-def EntireOrderAtMost (ρ : ℝ) (f : ℂ → ℂ) : Prop :=
-  0 ≤ ρ ∧ Differentiable ℂ f ∧ ∀ b > ρ, ∃ C > 0, ∀ z : ℂ, ‖f z‖ ≤ C * Real.exp (‖z‖ ^ b)
+/-- The other former pole has the same analytic value. -/
+example : riemannXi 1 = 1 / 2 := by
+  norm_num [riemannXi]
 
-/-- The exponential has upper order one. -/
-example : EntireOrderAtMost 1 Complex.exp := by
+/-- Two regular values fix the factor of two against the normalization-one completion. -/
+example : riemannXi 2 = (Real.pi : ℂ) / 6 ∧ riemannXi (-1) = (Real.pi : ℂ) / 6 := by
   sorry
 
-/-- `exp (z²)` has order `2`, not at most `1`. -/
-example : ¬ EntireOrderAtMost 1 fun z => Complex.exp (z ^ 2) := by
+/-- A paired supplier E₁ product: its exponential factors cancel with this sign. -/
+example (z : ℂ) :
+    ((1 - z) * Complex.exp z) * ((1 + z) * Complex.exp (-z)) = 1 - z ^ 2 := by
   sorry
 
-/-- A bound `exp (C |z| log (2 + |z|))` gives order at most one. -/
-example (f : ℂ → ℂ) (hf : Differentiable ℂ f) (C : ℝ)
-    (h : ∀ z : ℂ, ‖f z‖ ≤ Real.exp (C * ‖z‖ * Real.log (2 + ‖z‖))) : EntireOrderAtMost 1 f := by
+/-- First and second differentiated Stieltjes kernels at one. -/
+example :
+    deriv (fun z : ℂ => (z + 1) ^ (-2 : ℤ)) 1 = -1 / 4 ∧
+      iteratedDeriv 2 (fun z : ℂ => (z + 1) ^ (-2 : ℤ)) 1 = 3 / 8 := by
   sorry
 
-/-- `ξ` is entire of order at most one. -/
-theorem entireOrderAtMost_riemannXi : EntireOrderAtMost 1 riemannXi := by
-  sorry
-
-/-- The Riemann zeta function has a classical zero-free region at large positive height. -/
-theorem classical_zero_free_region :
-    ∃ c > 0, ∃ t₀ > 1, ∀ s : ℂ, t₀ ≤ s.im → 1 - c / Real.log s.im ≤ s.re → riemannZeta s ≠ 0 := by
-  sorry
+/-- In the rational ray dictionary, a quartic character's value distinguishes inversion. -/
+example (chi : DirichletCharacter ℂ 5) (hchi : chi 2 = I) :
+    chi 2 - (chi 2)⁻¹ = 2 * I := by
+  rw [hchi]
+  simp
+  ring
 
 /-- Siegel–Walfisz in ψ form, uniformly for q ≤ (log x)^B; the constant can be ineffective. -/
 theorem siegel_walfisz (A B : ℝ) (hA : 0 < A) (hB : 0 < B) :
@@ -147,12 +157,6 @@ end AN2
 /-! ## Layer 1: Explicit formulas, mean values and conditional prime estimates -/
 
 section AN3
-
-/-- The explicit formula and zero-free region give the de la Vallée Poussin error term. -/
-theorem abs_psi_sub_self_le :
-    ∃ c > 0, ∃ C > 0, ∀ᶠ x in atTop,
-      |Chebyshev.psi x - x| ≤ C * x * Real.exp (-c * Real.sqrt (Real.log x)) := by
-  sorry
 
 /-- The Riemann hypothesis for one Dirichlet `L`-function.
 `0 < re s` removes trivial zeros and the zeros of missing Euler factors; the pole of the principal
@@ -196,14 +200,6 @@ theorem psiAP_isBigO_of_dirichletGRH (q : ℕ) [NeZero q]
     (h : ∀ χ : DirichletCharacter ℂ q, DirichletGRH χ) (a : ZMod q) (ha : IsUnit a) {ε : ℝ}
     (hε : 0 < ε) :
     (fun x => psiAP q a x - x / q.totient) =O[atTop] fun x => x ^ (1 / 2 + ε) := by
-  sorry
-
-/-- `|Γ(x + iy)| ~ √(2π) |y|^(x - 1/2) e^(-π|y|/2)` as
-`|y| → ∞`, uniformly for `x` in a compact interval. -/
-theorem uniform_complex_stirling (a b : ℝ) {ε : ℝ} (hε : 0 < ε) :
-    ∃ Y > 0, ∀ x ∈ Set.Icc a b, ∀ y : ℝ, Y ≤ |y| →
-      |‖Complex.Gamma (x + y * I)‖ /
-          (Real.sqrt (2 * Real.pi) * |y| ^ (x - 1 / 2) * Real.exp (-(Real.pi * |y|) / 2)) - 1| ≤ ε := by
   sorry
 
 /-- The Dirichlet-polynomial mean square has the Montgomery–Vaughan weighted error. -/
@@ -474,6 +470,68 @@ the first constant-term monomial is four, while the ratio is also four. -/
 example : (2 : ℚ) ^ 2 = 4 ∧ (4 : ℚ) ^ 1 = 4 := by
   norm_num
 
+/-- The relative invariant of the twisted binary-cubic action. -/
+def cubicDiscriminant {A : Type*} [CommRing A] (a b c d : A) : A :=
+  b ^ 2 * c ^ 2 - 4 * a * c ^ 3 - 4 * b ^ 3 * d - 27 * a ^ 2 * d ^ 2 +
+    18 * a * b * c * d
+
+/-- Covariance under diagonal matrices in the row-variable action. -/
+theorem cubicDiscriminant_diagonal {F : Type*} [Field F] (a b c d l m : F)
+    (hl : l ≠ 0) (hm : m ≠ 0) :
+    cubicDiscriminant (a * l ^ 2 / m) (b * l) (c * m) (d * m ^ 2 / l) =
+      (l * m) ^ 2 * cubicDiscriminant a b c d := by
+  sorry
+
+/-- Split, two-term and degenerate discriminants are distinct. -/
+example : cubicDiscriminant (0 : ℚ) 1 (-1) 0 = 1 ∧
+    cubicDiscriminant (1 : ℚ) 0 0 (-1) = -27 ∧
+    cubicDiscriminant (0 : ℚ) 0 0 0 = 0 := by
+  norm_num [cubicDiscriminant]
+
+/-- diag(2,1) scales the discriminant by four, with no inverse power. -/
+example : cubicDiscriminant (4 : ℚ) 0 0 (-1 / 2) =
+    4 * cubicDiscriminant (1 : ℚ) 0 0 (-1) := by
+  norm_num [cubicDiscriminant]
+
+/-- The upper unipotent matrix preserves the two-term form's discriminant. -/
+example : cubicDiscriminant (0 : ℚ) (-3) (-3) (-1) = -27 := by
+  norm_num [cubicDiscriminant]
+
+/-- The polynomial identity is integral; separability still detects characteristic three. -/
+example : cubicDiscriminant (1 : ZMod 2) 0 0 (-1) = 1 ∧
+    cubicDiscriminant (1 : ZMod 3) 0 0 (-1) = 0 := by
+  decide
+
+/-- Heath-Brown's odd squarefree large sieve; coefficients are arbitrary complex numbers. -/
+theorem quadratic_large_sieve (e : ℝ) (he : 0 < e) :
+    ∃ C > 0, ∀ M N : ℕ, 0 < M → 0 < N → ∀ a : ℕ → ℂ,
+      (∑ m ∈ (Finset.Icc 1 M).filter (fun m => Odd m ∧ Squarefree m),
+        ‖∑ n ∈ (Finset.Icc 1 N).filter (fun n => Odd n ∧ Squarefree n),
+          a n * (jacobiSym (n : ℤ) m : ℂ)‖ ^ 2) ≤
+      C * ((M : ℝ) * N) ^ e * (M + N) *
+        ∑ n ∈ (Finset.Icc 1 N).filter (fun n => Odd n ∧ Squarefree n), ‖a n‖ ^ 2 := by
+  sorry
+
+/-- The fourth-moment bound applies to every finite subset of the primitive real family.
+Primitivity makes the level the conductor; the principal character is excluded at s=1. -/
+theorem quadratic_fourth_moment (sig e : ℝ) (hsig : sig ∈ Set.Icc (1 / 2 : ℝ) 1)
+    (he : 0 < e) :
+    ∃ C > 0, ∀ Q : ℝ, 1 ≤ Q → ∀ t : ℝ,
+      ∀ S : Finset (Σ q : ℕ+, DirichletCharacter ℂ (q : ℕ)),
+      (∀ chi ∈ S, (chi.1 : ℝ) ≤ Q ∧ chi.2.IsPrimitive ∧ chi.2 ≠ 1 ∧ chi.2 ^ 2 = 1) →
+      (∑ chi ∈ S, ‖DirichletCharacter.LFunction chi.2 ((sig : ℂ) + t * I)‖ ^ 4) ≤
+        C * (Q + (Q * (1 + |t|)) ^ (2 - 2 * sig)) * (Q * (1 + |t|)) ^ e := by
+  sorry
+
+/-- Common factors give zero, while denominator one retains the constant coefficient. -/
+example : jacobiSym 3 3 = 0 ∧ jacobiSym 1 1 = 1 ∧ jacobiSym 3 1 = 1 := by
+  norm_num [jacobiSym.eq_zero_iff]
+
+/-- The two coefficients cancel before taking the norm; changing their sign gives four. -/
+example : ‖(1 : ℂ) + (-1) * (jacobiSym 3 1 : ℂ)‖ ^ 2 = 0 ∧
+    ‖(1 : ℂ) + (jacobiSym 3 1 : ℂ)‖ ^ 2 = 4 := by
+  norm_num
+
 /-! ## Layer 6: The Bost–Connes system and compact spectral determinants -/
 
 section AN9
@@ -512,28 +570,5 @@ example : -(2 - 1 : ℚ) / 3 - 1 = -4 / 3 := by
 
 end AN9
 
-
-/-!
-The additional definitions and constructions specified in README.md are the genus-one and
-general canonical factors; finite zero multiset; Weil test functions; all-prime Artin local
-polynomials and Euler series, Artin holomorphy, Dedekind ERH and Hecke GRH; exceptional
-squareclasses; even and truncated von Mangoldt functions and their error; the Halász coefficient
-class; Dickman function, Beurling zeta and moment constants; Lerch covering continuation and
-complex Hurwitz continuation; mod-eight characters, quadratic twist data, double Dirichlet
-series and their reflection/tube data; local binary-cubic integrals, Shintani series, signature
-matrix, adelic integral, continuation data and cubic-order generating series; the positive ax+b
-pair and its integral subgroup, named matrices, diagonal map and Hecke algebra; rational
-presentation and rational forms, time evolution, regular representation, heat operator, Gibbs
-and KMS states, C⋆-completion, coefficient state, completed states and barycentres, finite-adele
-scaling measures, symmetry action, KMS∞ and ground states, trigonometric Eisenstein functions
-and recurrence polynomials, arithmetic algebra and ratio set; scalar heat and Selberg products,
-regularized and entire shifted determinants, and the finite spectral determinant benchmark.
-The additional local constructions are quadratic Nielsen cores with their oriented boundary
-maps, ramification-defined Artin conductors, algebraic bounded-generator GNS, universal
-completion, minimal dilation and crossed products, the conditional expectation and measured
-group algebra, and its flow-of-weights and type predicates. Scalar heat kernels, the Gaussian trace
-identity, the measured regular-representation comparison and projective cubic gluing use
-those imported heavy carriers and remain README targets.
--/
 
 end TauCetiRoadmap.AnalyticNumberTheory
