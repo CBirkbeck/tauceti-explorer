@@ -23176,21 +23176,25 @@
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
       "need": "Local field quadratic classification with actual dyadic discriminant/Hasse/sign conventions; only the field input, not integral genus.",
       "neededBy": [
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-field-classification-adapter",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/spinor-unimodular-stabilizer"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry",
       "need": "Rational isometry from matching local field forms with all real signatures and finite invariants retained; no integral isometry conclusion.",
       "neededBy": [
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/global-field-isometry-adapter"
       ]
     },
     {
       "supplier": "AdelicAlgebraicGroups:AA.1",
       "need": "Finite adelic points and functorial induced spin-cover maps, with their actual restricted-product topology.",
       "neededBy": [
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/spinor-adelic-norm"
       ]
     },
     {
@@ -23203,9 +23207,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
-      "need": "Compare the general exact-category degree-zero Witt/GW presentations with the existing field theory under its exact characteristic and form conventions.",
+      "need": "Import the field Witt ring for the generic-field and trivial-involution hermitian comparisons and for the exact-category degree-zero Witt/GW presentation, retaining the characteristic and form conventions of each adapter.",
       "neededBy": [
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/field-witt-comparison",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-hermitian-witt-comparison"
       ]
     },
     {
@@ -23695,25 +23701,16 @@
       "citation": "Author errata, 21 May 2019, two pages, read in full; Algorithm 3.22 correction, no Example 3.14 correction."
     }
   ],
-  "restructure": [
-    {
-      "action": "rescope",
-      "roadmaps": [
-        "GeometryOfNumbersAndQuadraticArithmetic",
-        "AdelicAlgebraicGroups"
-      ],
-      "detail": "Confirmed RT-AREA-algebraicnt-1/1: the proposed roadmap names its actual suppliers in prose but omits roadmap-level dependency and reciprocal-consumer records. Current prerequisites contain only ClassicalArithmeticCompletion and GeneralAlgebraicKTheory.",
-      "proposal": "Add tauceti:TauCetiRoadmap/QuadraticFormInvariants, tauceti:TauCetiRoadmap/GlobalQuadraticForms, AdelicAlgebraicGroups and tauceti:Completed/IntegralLattices to this proposed roadmap’s prerequisites and record the corresponding reciprocal consumers through the maintainer’s integration workflow. The packet and reader retain the mathematical import boundaries. This proposal does not mutate atlas/data or a Tau Ceti anchor. No new stage edge is asserted solely from a vocabulary match."
-    }
-  ],
+  "restructure": [],
   "upstreamNotes": [
     {
       "roadmaps": [
         "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
         "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
-        "tauceti:Completed/IntegralLattices"
+        "tauceti:Completed/IntegralLattices",
+        "AdelicAlgebraicGroups"
       ],
-      "note": "RT-AREA-algebraicnt-1/1 reciprocal consumer metadata is forwarded to the maintainer: ten direct GN.2 comparison nodes import QFI Layers 1,3,4,5,6, GlobalQuadraticForms Layers 5,6, and completed IntegralLattices Layers 1,2,4. Preserve these GN.2 consumer edges on immutable upstream documents; GN does not duplicate their theory."
+      "note": "RT-AREA-algebraicnt-1/1 is represented by the existing node prerequisites, not a pending restructuring: ten GN.2 comparison nodes import QFI Layers 1,3,4,5,6 (including the 6D classification contract), GlobalQuadraticForms Layers 5,6, and completed IntegralLattices Layers 1,2,4. GN.3/adelic-mass-identity imports AA.2 and AA.3; GN.3/definite-genus-class-finite also imports AA.3. scripts/blueprints.py merge_blueprints derives the twelve supplier-to-consumer stage edges from these prerequisites, and refresh_roadmap_links derives the four roadmap prerequisites and reciprocal consumers. No upstream document or generated atlas record needs a hand edit for this finding. These are imported theories; GN retains only its comparisons and downstream applications."
     },
     {
       "roadmaps": [
