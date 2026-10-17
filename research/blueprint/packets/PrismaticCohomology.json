@@ -15,7 +15,7 @@
  ],
  "status": "partial",
  "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
- "summary": "Blocked revision checkpoint: general-envelope existence over orientable bases is retained, and a new PR.2 quasiregular-quotient theorem supplies bounded initial prisms over arbitrary bounded base prisms, with unbounded target range. This removes the claimed need for regularity of the original log-exactified kernel. Formal-QCoh, completed-framing and external-input boundaries stay explicit. Whole-roadmap serialization still conflicts with canonical duplicate-ID checking and the four-file scope; no effective assembly or consumer repointing is claimed.",
+ "summary": "Revision checkpoint: the regular-chart formal-affine comparison now has an unbounded effectivity proof, including its completed functor coherence, for crystalline and transversal prism charts. The full nontransversal bounded-prism range stays explicit. General envelopes and the bounded-base relative quasiregular-quotient theorem are retained. Whole-roadmap serialization still conflicts with canonical duplicate-ID checking and the four-file scope; no effective assembly or consumer repointing is claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -122,7 +122,8 @@
    "readSections": [
     "Corollaries 3.2.9–3.2.10 and proof, pp.42–43; §3.3, pp.43–44, including Definitions 3.3.1–3.3.3, Proposition 3.3.5, Lemma 3.3.10 and Corollary 3.3.11. Earlier part readings are historical provenance only.",
     "codex-ruVgAp, 2026-10-17: Proposition 3.2.8 and Corollaries 3.2.9–3.2.10 with proofs, pp.41–43; §3.3, pp.43–45, especially the paragraph before Proposition 3.3.5, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11.",
-    "codex-escJNw, 2026-10-17: Corollary 4.1.17, p.81; Variant 4.1.19 and Remark 4.1.20, pp.81–82; Remark 4.3.9 and Lemma 4.3.10 with proof, p.87. Read for the quasiregular-quotient initial-prism reduction."
+    "codex-escJNw, 2026-10-17: Corollary 4.1.17, p.81; Variant 4.1.19 and Remark 4.1.20, pp.81–82; Remark 4.3.9 and Lemma 4.3.10 with proof, p.87. Read for the quasiregular-quotient initial-prism reduction.",
+    "codex-pqU1gU, 2026-10-17: Proposition 3.2.8 and Corollaries 3.2.9–3.2.10, pp.41–43; §3.3 through Corollary 3.3.11, pp.43–44. Fresh reading for the regular-chart effectivity refinement; earlier review scopes are preserved."
    ],
    "revisionReading": {
     "date": "2026-10-09",
@@ -156,7 +157,8 @@
    "readSections": [
     "Constructions 16.19–16.20, pp.114–115, including footnote 21; the framing, automorphism and divided-derivative arguments. The retained sourceIssues and other part readings are historical provenance.",
     "Notation 17.1, printed p.117: cyclotomic q, ξ and the A_inf base topology; re-read Constructions 16.19–16.20, pp.114–115 for completed coordinate sums.",
-    "codex-escJNw, 2026-10-17: Lemma 7.7 and its proof, pp.57–58; Example 7.9 and Proposition 7.10 with proof, pp.59–60. The finite-root monic reduction is applied over the enlarged bounded prism, not to the original exactified kernel."
+    "codex-escJNw, 2026-10-17: Lemma 7.7 and its proof, pp.57–58; Example 7.9 and Proposition 7.10 with proof, pp.59–60. The finite-root monic reduction is applied over the enlarged bounded prism, not to the original exactified kernel.",
+    "codex-pqU1gU, 2026-10-17: §1.2, footnote 7, p.12, on the unbounded Koszul-completion comparison and its reference to BS15 Lemma 3.5.5. Read in place in the maintainer-supplied arXiv v4 PDF."
    ],
    "accessDate": "2026-10-17",
    "accessNote": "Public arXiv v4 PDF downloaded and identified by its recorded SHA-256 on 2026-10-17. Read the q-framing, completed-form and A_inf passages recorded in workerReading. This is not the publisher edition or a fresh recertification of the retained part sourceIssues.",
@@ -346,6 +348,17 @@
    "readSections": [
     "codex-escJNw, 2026-10-17: §4.3, setup and Proposition 4.14 with proof, pp.37–38; Remarks 4.15–4.16 and Proposition 4.17 with proof, p.39; Lemma 4.18 with proof and Lemma 4.20 with proof, p.40. Fresh reading is limited to these initial-prism arguments; historical PR.8 source-issue verdicts are not recertified.",
     "codex-escJNw, 2026-10-17: Lemmas 2.9–2.10 and Theorem 2.11, pp.14–15, and Proposition 4.5 with the setup of Proposition 4.7, p.34; log-to-ordinary cotangent and derived comparison interfaces."
+   ]
+  },
+  {
+   "id": "BS15-PROETALE",
+   "title": "The pro-étale topology for schemes",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "arXiv:1309.1198v2, 17 December 2014; printed preprint pagination",
+   "url": "https://arxiv.org/abs/1309.1198v2",
+   "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
+   "readSections": [
+    "Lemmas 3.5.4–3.5.5, p.25; Lemma 3.5.7(5), pp.25–26; read in the maintainer-supplied freely available author preprint on 2026-10-17"
    ]
   }
  ],
@@ -781,19 +794,26 @@
    "hypotheses": [
     "The prism is bounded: A/I has bounded p-power torsion. The bounded-prism comparison is not extended here to an individual unbounded prism. I is an invertible Cartier ideal; one may work locally with I=(d).",
     "D(A) and its completion are enhanced infinity-categories imported from E1 and DD.1. Ordinary adic completion of modules and the triangulated category alone are insufficient. Use the universe convention of the prestack construction.",
-    "For prism maps, rigidity identifies the target ideal with IB, hence the target topology is the one generated by the image of J. The displayed scalar-change formula is for these compatible ideals. A point A→R has nilpotent image of J, so no further completion is imposed on R⊗^L_A M."
+    "For prism maps, rigidity identifies the target ideal with IB, hence the target topology is the one generated by the image of J. The displayed scalar-change formula is for these compatible ideals. A point A→R has nilpotent image of J, so no further completion is imposed on R⊗^L_A M.",
+    "The proof below establishes the unrestricted complex range when J has a finite regular generating sequence, including crystalline prisms I=(p) and transversal prisms locally with regular sequence (d,p). The remaining proof gap is the general bounded-prism case outside this regular-ideal range; the statement above retains BL22’s full bounded-prism target."
    ],
    "proofSteps": [
-    "The bounded-prism equivalence is the assertion immediately before BL22 Proposition 3.3.5, p.43; Warning 3.3.6 isolates its boundedness requirement. Since Spf A is the filtered colimit of Spec(A/J^n) on ordinary rings, the prestack limit construction identifies its category with lim_n D(A/J^n), with derived transition functors. Recovering every compatible unbounded system from its limit is an effectivity step; it is not a formal interchange of tensor and inverse limit. This proof refinement remains in the formal-affine gap.",
+    "The bounded-prism equivalence is stated before BL22 Proposition 3.3.5, p.43, with its boundedness warning 3.3.6. The ordinary-ring prestack Spf A is colim_n Spec(A/J^n), so its quasi-coherent category is lim_n D(A/J^n) with derived transitions. The following argument proves effectivity for a regular generating sequence, without a noetherian hypothesis or a bound on complexes. It does not prove the general nontransversal case.",
+    "Suppose J=(f_1,...,f_r) is generated by a regular sequence, r>=1. Set B_n=A/(f_1^n,...,f_r^n). These rectangular ideals are cofinal with J^n: J^(r(n-1)+1) is contained in (f_i^n), which is contained in J^n. The Koszul resolution makes each B_n perfect of uniform A-Tor amplitude [-r,0]. Let M_n be a compatible system, meaning B_n tensor-derived over B_m with M_m is M_n for m>=n, and let M=Rlim_n M_n. Each M_n, and hence M, is derived J-complete by DD.1.",
+    "For n>=k let E_(n,k) be the fibre of B_n tensor-derived over A with B_k -> B_k, as a B_n-module. Resolving B_n by the Koszul complex on f_i^n shows that E_(n,k) has cohomology only in [-r,-1]; its degree -j cohomology is the j-th exterior power of B_k^r for 1<=j<=r. The transition from m to n is induced by the Koszul map whose degree-one generators are multiplied by f_i^(m-n). Thus it kills every cohomology group of E when m-n>=k.",
+    "All coefficient maps from levels at most m can be restricted to D(B_m). For objects in a fixed interval of r cohomological degrees, r composable maps vanishing on cohomology have zero composite: if the common top degree is b, the first map factors through truncation <=b-1 of its target, the next restricted map factors through truncation <=b-2, and after r maps the target truncation is zero. These factorizations follow from the t-structure orthogonality and the zero map on the current top cohomology. Consequently E_(n+rk,k) -> E_(n,k), the composite through r steps of size k, is zero in D(B_(n+rk)). This is a uniform statement in the derived category, stronger than pro-vanishing of individual Tor groups.",
+    "Tensor that zero coefficient map with M_(n+rk) and use the system’s derived scalar-change equivalences. It follows that the tower M_n tensor-derived over B_n with E_(n,k) is uniformly pro-zero, without truncating M_n. Its derived limit vanishes. Since B_k is A-perfect, tensor with B_k commutes with Rlim; the fibre sequences then identify B_k tensor-derived over A with M with M_k. This proves the counit on every compatible, possibly two-sided unbounded system. For a complete M, the unit is DD.1’s Koszul completion formula M=Rlim_n(B_n tensor-derived over A with M). These constructions and maps are in the enhanced categories, so give mutually inverse functors, including their mapping spaces.",
+    "For the crystalline prism (A,(p)), p is regular and J=(p), so r=1 applies. For an oriented transversal prism, d is regular and A/d is p-torsion-free, so (d,p) is a regular sequence and r=2 applies. Local orientations are reconciled by descent and the intrinsic reduction functor. No regularity assertion is made for (d,p) over a nontransversal bounded prism.",
     "Use DD.1/derived-completion and completion-exchanges for the reflective complete category, its completed colimits and tensor. SAG Corollary 8.2.4.15 and Remark 8.2.4.16, p.650 identify spectral formal QCoh with complete modules; Corollary 8.2.4.22 and Notation 8.2.4.23, pp.651–652 give completed tensor. They corroborate these operations but do not by themselves identify the ordinary-ring pointwise category used here.",
     "Do not use SAG Theorem 8.3.4.4, pp.667–668 to discharge unbounded ordinary-ring effectivity: it compares connective spectral formal complexes, with almost-connective extension in Corollary 8.3.4.6. Remark 8.3.4.5 explicitly leaves the unrestricted spectral comparison open. The bounded-prism assertion in BL22 is the source for the stronger range in this node.",
-    "After effectivity is proved, evaluate the inverse comparison at every nilpotent ordinary test ring. Derived scalar-change associativity identifies pullback and tensor pointwise; DD.1 completion has the same reductions. Evaluation detects equivalences and supplies the coherent identity/composition laws. The unit is A since a bounded prism is derived J-complete. Complete-category colimits follow from the reflector, not from the raw inclusion into D(A).",
+    "In this proved range, evaluation at all nilpotent ordinary test rings detects equivalences. DD.1 completion preserves reductions, and derived scalar-change associativity gives the completed pullback and tensor formulas for maps between these charts. The evaluation construction is symmetric monoidal and functorial before taking the limit, so its natural equivalences carry all coherence; it is not enough to choose unrelated triangulated isomorphisms. The reflective complete category gives completed colimits. The same formulas for an arbitrary bounded nontransversal chart remain part of the stated proof gap.",
     "For use in the WCart Cech presentation, combine this comparison with BL22 Lemma 3.3.10 and Corollary 3.3.11, p.44. The completed tensor transition formula is stated in the paragraph between them. Affineness of prism charts is Corollary 3.2.9, p.42; flatness for bounded prisms is equivalent to transversality by Corollary 3.2.10, pp.42–43. Keep that distinction when applying the separate flat affine pushforward theorem."
    ],
    "acceptance": [
     "For the crystalline prism (Z_p,(p)), recover the entire derived p-complete category, including shifts of complete modules in every degree; Q_p completes to zero.",
     "The countable coproduct of the unit is the completed direct sum, while reduction to an ordinary nilpotent test ring uses derived tensor and retains Tor.",
-    "For the universal oriented-prism Cech nerve, this comparison supplies exactly the complete module categories and completed transitions of BL22 Lemma 3.3.10, p.44."
+    "For the universal oriented-prism Cech nerve, this comparison supplies exactly the complete module categories and completed transitions of BL22 Lemma 3.3.10, p.44.",
+    "The regular-chart proof handles one compatible system with nonzero cohomology in every integer degree, and proves uniform nullity of derived coefficient maps before tensoring. No tensor-limit interchange with a nonperfect ordinary quotient is used."
    ],
    "prerequisites": [
     "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
@@ -802,7 +822,9 @@
     "EnhancedDerivedSheaves:E1/enhanced-derived-category",
     "DerivedDeRhamCohomology:DD.1/derived-completeness",
     "DerivedDeRhamCohomology:DD.1/derived-completion",
-    "DerivedDeRhamCohomology:DD.1/completion-exchanges"
+    "DerivedDeRhamCohomology:DD.1/completion-exchanges",
+    "DerivedDeRhamCohomology:DD.1/koszul-complex",
+    "DerivedDeRhamCohomology:DD.1/koszul-completion-tower"
    ],
    "sources": [
     {
@@ -814,6 +836,16 @@
      "sourceId": "SAG",
      "locator": "Corollary 8.2.4.15, Remark 8.2.4.16, p.650; Proposition 8.2.4.21, Corollary 8.2.4.22 and Notation 8.2.4.23, pp.651–652; Theorem 8.3.4.4, Remark 8.3.4.5 and Corollary 8.3.4.6, pp.667–668",
      "match": "Complete-module description and completed tensor for spectral formal QCoh; the later functor comparison has a connectivity restriction, so is not cited as an unrestricted ordinary-ring comparison."
+    },
+    {
+     "sourceId": "BS15-PROETALE",
+     "locator": "Lemmas 3.5.4–3.5.5 and 3.5.7(5), printed pp.25–26 (arXiv:1309.1198v2)",
+     "match": "The regular-ideal unbounded comparison uses perfect Koszul quotients and derived limits. The argument here spells out a uniform Postnikov/Tor vanishing estimate to apply that mechanism to the regular prism charts without importing a noetherian hypothesis."
+    },
+    {
+     "sourceId": "BS22-v4",
+     "locator": "§1.2, footnote 7, printed p.12 (arXiv v4)",
+     "match": "Explains the unrestricted enhanced Koszul-completion comparison used for complete flat descent, referring to the method of BS15 Lemma 3.5.5 rather than treating the connective SAG theorem as a proof of the unbounded case."
     }
    ],
    "implementationStatus": "unchecked",
@@ -862,6 +894,11 @@
      "name": "FormalAffineQCoh.reductions",
      "role": "characterisation",
      "statement": "On a compatible system M_n in D(A/J^n), the inverse comparison is Rlim_n M_n, and (A/J^n)⊗^L_A Rlim_m M_m≃M_n. This is the unbounded effectivity obligation, not an assumed tensor-limit interchange."
+    },
+    {
+     "name": "FormalAffineQCoh.regularReductions",
+     "role": "characterisation",
+     "statement": "If J has a regular generating sequence f_1,...,f_r, B_n=A/(f_i^n), and (M_n) is any derived scalar-compatible system in D(B_n), then B_k tensor-derived over A with Rlim_n M_n is M_k for every k. The fibre tower used to prove this has zero transition from level n+rk to level n after tensoring with M_(n+rk); no boundedness condition on the M_n is imposed."
     }
    ],
    "tests": [
@@ -884,6 +921,16 @@
      "name": "FormalAffineQCoh.identityAndShift",
      "kind": "compatibility",
      "statement": "For the identity bounded-prism map and every integer k, completed pullback fixes A[k]; the reduction at A→A/J is (A/J)[k]. A comparison restricted to connective complexes cannot satisfy the test for all k."
+    },
+    {
+     "name": "FormalAffineQCoh.twoSidedUnbounded",
+     "kind": "compatibility",
+     "statement": "For A=Z_p[[q-1]], d=[p]_q, B_n=A/(p^n,d^n), take M_n=the direct sum over all integers j of B_n[j], with derived scalar-change transitions. Reconstruction is the zero-differential complex with A in every integer degree, and its reduction is M_n. Thus H^k(M)=A and H^k(M_n)=B_n for every integer k. This single compatible system has neither an upper nor a lower cohomological bound; proving the comparison only for individual shifts does not establish this check."
+    },
+    {
+     "name": "FormalAffineQCoh.principalTorTransition",
+     "kind": "computation",
+     "statement": "For A=Z_p, n>=k>=1, E_(n,k)=fib((Z/p^n) tensor-derived over Z_p with Z/p^k -> Z/p^k) is Z/p^k[1]. Its transition E_(n+k,k)->E_(n,k) is zero as a Z/p^(n+k)-linear morphism. The individual degree -1 groups are nonzero, so discarding them at one finite level is incorrect."
     }
    ],
    "library": {
@@ -1675,7 +1722,7 @@
     "(accepted part) Derive the Beilinson connective-cover and completion universal properties from the stated DD.1 extension. Completed Frobenius and its sifted-colimit characterization are included.",
     "(accepted part) The Galois interpretation of Sen theory, integral uncompleted diffracted Hodge theory and exponentiation of the Sen operator have no consumer in these targets; twists are imported from PR.3 and syntomic complexes are owned by PR.4.",
     "The ten nodes of the accepted part that cite LanglandsParameterStacks:LP1 are proposed to be re-pointed to the appropriate nodes among the four new targets (restructure R1); the re-pointing is applied to the part packet when it is next revised.",
-    "Implement the new formal-affine target’s unbounded compatible-reduction effectivity and completed functor coherence before treating the formal-QCoh gap as discharged."
+    "The formal-affine target now proves unbounded effectivity, completed tensor/scalar coherence and completed colimits when J=(p)+I has a finite regular generating sequence, covering crystalline and transversal prism charts. The remaining range is the general bounded-prism case outside the regular-ideal argument, in particular nontransversal charts where the ordinary quotients A/J^n need not be perfect of uniformly bounded Tor amplitude. Supply effectivity for every compatible unbounded ordinary-quotient system there and deduce the same coherent completed operations. Bounded p-torsion or weak proregularity alone has not been shown here to provide that category equivalence. BL22 p.43 states the full bounded-prism result; the connective SAG theorem is not its unrestricted proof."
    ]
   },
   {
@@ -1759,7 +1806,7 @@
   },
   {
    "title": "Formal affine quasi-coherent complexes",
-   "detail": "The new PR.5/formal-affine-complete-qcoh states the bounded-prism contract and completed operations. Refine its unbounded effectivity proof: reconstruct every compatible system in lim_n D(A/((p)+I)^n) from its inverse limit and prove derived reduction recovers each component, then establish coherent scalar change and tensor compatibility. DD.1 supplies completion operations, not this geometric comparison. SAG Theorem 8.3.4.4 is only connective and does not discharge the obligation; BL22 p.43 states the bounded-prism range. The flat affine direct-image node applies to ordinary-ring points of bounded transversal charts; no arbitrary nonflat chart formula is claimed.",
+   "detail": "The formal-affine target now proves unbounded effectivity, completed tensor/scalar coherence and completed colimits when J=(p)+I has a finite regular generating sequence, covering crystalline and transversal prism charts. The remaining range is the general bounded-prism case outside the regular-ideal argument, in particular nontransversal charts where the ordinary quotients A/J^n need not be perfect of uniformly bounded Tor amplitude. Supply effectivity for every compatible unbounded ordinary-quotient system there and deduce the same coherent completed operations. Bounded p-torsion or weak proregularity alone has not been shown here to provide that category equivalence. BL22 p.43 states the full bounded-prism result; the connective SAG theorem is not its unrestricted proof.",
    "neededBy": [
     "PrismaticCohomology:PR.5/formal-affine-complete-qcoh",
     "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
@@ -2410,6 +2457,13 @@
    "read": "2026-10-17",
    "version": "ed88ff78, compiled 14 July 2026",
    "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1309.1198v2",
+   "citation": "Bhatt–Scholze, The pro-étale topology for schemes, arXiv:1309.1198v2",
+   "read": "2026-10-17",
+   "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84"
   }
  ],
  "maintainerSources": {
@@ -2586,11 +2640,11 @@
   "job": "BP-PrismaticCohomology~2",
   "issue": 10119,
   "agent": "Codex",
-  "session": "codex-escJNw",
+  "session": "codex-pqU1gU",
   "date": "2026-10-17",
   "status": "blocked",
   "blocker": "Serializing the retained 369 targets in this packet produces 361 also-appears errors in check_blueprint.py: 282 against PrismaticCohomology--PR.0.json and 79 against PrismaticCohomology--PR.8.json. WORKERS.md Doing the work allows edits only to issue deliverables; neither retained part nor the checker is a deliverable of #10119. No IDs were renamed and no checker was bypassed.",
   "reviewBoundary": "The 2026-10-13 review applies only to the earlier seven-node packet. The subsequent general-envelope, formal-affine, completed-summability and relative quasiregular-quotient targets have no independent review.",
-  "progress": "Added the bounded-prism quasiregular-quotient theorem of KY Lemma 4.18, with the monic perfected-variable and natural-idempotent reduction, unbounded target range, four API entries and four checks. Updated R6 rows 30–31 to avoid incorrectly requiring the original exactified kernel to be regular. General-envelope existence is retained. Assembly scope remains blocked; formal-QCoh and completed-framing obligations remain explicit."
+  "progress": "Refined PR.5/formal-affine-complete-qcoh with an unbounded regular-ideal effectivity proof, uniform derived coefficient-fibre nullity, coherent completed operations, one API entry and two discriminating checks. This covers crystalline and transversal charts; the full bounded-prism range remains a gap. Existing general-envelope and bounded-base quasiregular-quotient proofs are retained without a new review. Assembly remains blocked by four-file scope; no consumer repointing is claimed."
  }
 }
