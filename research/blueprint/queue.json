@@ -131468,6 +131468,45 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~5"
    ],
    "state": "pending"
+  },
+  {
+   "id": "PKG-AutomorphicFormsOnReductiveGroups~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/packages/AutomorphicFormsOnReductiveGroups/README.md",
+    "research/blueprint/packages/AutomorphicFormsOnReductiveGroups/Suggested.lean",
+    "research/blueprint/packages/AutomorphicFormsOnReductiveGroups/metadata.toml",
+    "research/blueprint/handoff/PKG-AutomorphicFormsOnReductiveGroups~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups~codex.md"
+  },
+  {
+   "id": "REV-PKG-DirichletPadicLFunctions~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-DirichletPadicLFunctions~adv.md",
+    "research/blueprint/packages/DirichletPadicLFunctions/review.json",
+    "research/blueprint/packages/DirichletPadicLFunctions/README.md",
+    "research/blueprint/packages/DirichletPadicLFunctions/Suggested.lean",
+    "research/blueprint/packages/DirichletPadicLFunctions/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-DirichletPadicLFunctions~adv.md"
   }
  ]
 }
