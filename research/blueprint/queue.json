@@ -132121,6 +132121,44 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv.md",
    "note": "deliverables arrived from an external worker on issue #10180",
    "finishedAt": "2026-10-17T14:11:09Z"
+  },
+  {
+   "id": "FIX-PKG-AInfCohomology~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AInfCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AInfCohomology~adv.md",
+    "research/blueprint/packages/AInfCohomology/review.json",
+    "research/blueprint/packages/AInfCohomology/README.md",
+    "research/blueprint/packages/AInfCohomology/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AInfCohomology~adv.md"
+  },
+  {
+   "id": "FIX-PKG-PerfectoidQuotients~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PerfectoidQuotients"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PerfectoidQuotients~adv2.md",
+    "research/blueprint/packages/PerfectoidQuotients/review.json",
+    "research/blueprint/packages/PerfectoidQuotients/README.md",
+    "research/blueprint/packages/PerfectoidQuotients/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv2.md"
   }
  ]
 }
