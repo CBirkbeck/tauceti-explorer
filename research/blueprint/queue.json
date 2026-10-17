@@ -131220,7 +131220,7 @@
     "research/blueprint/handoff/BP-GL2ModularityLifting--R22.1~2.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1~2.md",
    "scope": [
     "GL2ModularityLifting:R22.1",
@@ -131239,7 +131239,8 @@
     "REV-GL2ModularityLifting--R22.1~1"
    ],
    "revisionOf": "BP-GL2ModularityLifting--R22.1",
-   "note": "claimed on GitHub issue #10105"
+   "note": "deliverables arrived from an external worker on issue #10105",
+   "finishedAt": "2026-10-17T11:40:26Z"
   },
   {
    "id": "REV-GL2ModularityLifting--R22.1~2",
@@ -131382,7 +131383,7 @@
     "research/blueprint/handoff/BP-ShimuraData~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~5.md",
    "scope": [
     "ShimuraData:D0",
@@ -131395,7 +131396,8 @@
    "after": [
     "REV-ShimuraData~4"
    ],
-   "revisionOf": "BP-ShimuraData"
+   "revisionOf": "BP-ShimuraData",
+   "note": "claimed on GitHub issue #10134"
   },
   {
    "id": "REV-ShimuraData~5",
@@ -131439,7 +131441,7 @@
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md",
    "scope": [
     "EtaleDualityAndPerverseSheaves:EDC.4"
@@ -131448,7 +131450,8 @@
     "REV-EtaleDualityAndPerverseSheaves--EDC.4~4"
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
-   "note": "claimed on GitHub issue #10133"
+   "note": "deliverables arrived from an external worker on issue #10133",
+   "finishedAt": "2026-10-17T11:40:27Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~5",
@@ -131514,9 +131517,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-DirichletPadicLFunctions~adv.md",
-   "note": "claimed on GitHub issue #10142"
+   "note": "deliverables arrived from an external worker on issue #10142",
+   "finishedAt": "2026-10-17T11:40:28Z"
   },
   {
    "id": "FIX-PKG-AnalyticNumberTheory~adv",
