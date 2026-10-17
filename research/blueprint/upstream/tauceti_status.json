@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T18:00Z",
+ "updated": "2026-10-17T18:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -149,10 +149,10 @@
    "stage": "pr",
    "pr": 818,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "3a308c7",
+   "head": "4624e66",
    "review": {
-    "recommendation": "approve",
-    "current": true,
+    "recommendation": "changes",
+    "current": false,
     "draft": false,
     "maintainer": "APPROVED"
    }
@@ -355,7 +355,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "c7265e0",
+   "head": "a264b09",
    "depends_on": [
     779,
     789,
@@ -445,8 +445,8 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "approve",
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -535,7 +535,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "f86591e",
+   "head": "01d05e5",
    "depends_on": [
     849,
     857,
@@ -549,7 +549,7 @@
    ],
    "note": "N2 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -558,10 +558,10 @@
   "EnhancedDerivedSheaves": {
    "stage": "pr",
    "pr": 908,
-   "head": "b3ea60e",
+   "head": "ba9de88",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    },
@@ -833,7 +833,7 @@
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -841,7 +841,7 @@
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
-   "head": "369f034",
+   "head": "577b525",
    "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro",
    "review": {
     "recommendation": "approve",
@@ -937,12 +937,12 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "11d0362",
+   "head": "cc46c40",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round; draft",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1105,7 +1105,7 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "6721ccb",
+   "head": "2959841",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": null,
