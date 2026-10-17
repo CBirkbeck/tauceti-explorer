@@ -102,6 +102,35 @@ example : WeakSquareDivides (fun a : Fin 1 → ℤ => a 0) 3 0 ∧
 
 end Coefficients
 
+namespace MirrorCubic
+variable {R : Type*} [CommRing R]
+
+/-- Binomial coordinates converted to Mathlib's existing ordinary cubic coefficients. -/
+def ordinaryCubic (v : Fin 4 → R) : Cubic R :=
+  ⟨v 0, 3 * v 1, 3 * v 2, v 3⟩
+
+/-- The integral normalized invariant used by the SL₂ three-isogeny representation. -/
+def normalizedDisc (v : Fin 4 → R) : R :=
+  v 0 ^ 2 * v 3 ^ 2 - 3 * v 1 ^ 2 * v 2 ^ 2 + 4 * v 0 * v 2 ^ 3 +
+    4 * v 1 ^ 3 * v 3 - 6 * v 0 * v 1 * v 2 * v 3
+
+/-- The identity is integral; no inversion of 27 or a leading coefficient is involved. -/
+theorem ordinary_discr (v : Fin 4 → R) :
+    (ordinaryCubic v).discr = -27 * normalizedDisc v := by sorry
+
+theorem normalizedDisc_map {S : Type*} [CommRing S] (f : R →+* S) (v : Fin 4 → R) :
+    normalizedDisc (fun i => f (v i)) = f (normalizedDisc v) := by sorry
+
+example : normalizedDisc (![1, 0, 0, 1] : Fin 4 → ℤ) = 1 ∧
+    (ordinaryCubic (![1, 0, 0, 1] : Fin 4 → ℤ)).discr = -27 := by sorry
+example : normalizedDisc (![0, 1, 0, 1] : Fin 4 → ℤ) = 4 ∧
+    (ordinaryCubic (![0, 1, 0, 1] : Fin 4 → ℤ)).discr = -108 := by sorry
+example : normalizedDisc (![0, 1, 0, 1] : Fin 4 → ZMod 3) = 1 ∧
+    (ordinaryCubic (![0, 1, 0, 1] : Fin 4 → ZMod 3)).discr = 0 := by sorry
+example (u : ℚ) : normalizedDisc (![0, 1, 0, u / 4] : Fin 4 → ℚ) = u := by sorry
+
+end MirrorCubic
+
 /-- Binary quartics use ordinary monomial coefficients, with no binomial factors. -/
 structure BinaryQuartic (R : Type*) where
   a : R
@@ -480,7 +509,7 @@ Layer 2:
 strongly and weakly divisible values; real root types of binary quartic forms; fundamental sets
 for real binary quartic orbits; gauss fundamental domain in iwasawa coordinates; averaged count
 of binary quartic orbits; averaged count of binary cubic orbits; square divisor tail; kappa
-acceptable; section kernel.
+acceptable; section kernel; integral mass correction; unit-square representative windows.
 
 Layer 3:
 number field counting function; torsion count of class groups; splitting symbol and local sets
