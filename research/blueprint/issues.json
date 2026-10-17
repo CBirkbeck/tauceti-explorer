@@ -4979,5 +4979,9 @@
  "FIX-PKG-PerfectoidShimuraVarieties~adv": 10216,
  "FIX-PKG-ShimuraCompactifications~adv": 10217,
  "BP-MetaplecticAutomorphicForms": 10223,
- "FIX-PKG-MetaplecticAutomorphicForms~adv": 10224
+ "FIX-PKG-MetaplecticAutomorphicForms~adv": 10224,
+ "PKG-ModularityAndLanglandsExtensions~3": 10230,
+ "PKG-PrismaticCohomology~3": 10231,
+ "REV-PKG-ModularityAndLanglandsExtensions~3": 10232,
+ "REV-PKG-PrismaticCohomology~3": 10233
 }
