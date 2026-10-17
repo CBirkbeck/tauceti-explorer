@@ -256675,9 +256675,9 @@
    "owner": "ShimuraData",
    "file": "research/blueprint/packets/ShimuraData.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Author notes, 2017 edition",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraData~5",
+   "reviewReason": "The recorded p.64 lists odd powers of 1+√2 among norm-one points, but its norm is −1. Even powers give precisely the stated correction; infinitude survives."
   },
   {
    "id": "ShimuraData/E20",
@@ -256694,9 +256694,9 @@
    "owner": "ShimuraData",
    "file": "research/blueprint/packets/ShimuraData.json",
    "citation": "J. S. Milne, Shimura varieties and moduli, Published Handbook of Moduli, Vol. II (2013), author-hosted typeset chapter; printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraData~5",
+   "reviewReason": "At p.513 the stated equations give weight 2w for μ−μ₀ and zero for μ+μ₀. The later opposite weight convention explains the slip; the existence argument survives."
   },
   {
    "id": "ShimuraData/E21",
@@ -256713,9 +256713,9 @@
    "owner": "ShimuraData",
    "file": "research/blueprint/packets/ShimuraData.json",
    "citation": "George Boxer; Vincent Pilloni, Higher Coleman theory, arXiv:2110.10251v1 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraData~5",
+   "reviewReason": "The p.32 page image has C_w as the union summand despite varying w′. In the rank-one flag example the minimal-index union must be the whole projective line; the corrected indices also match the ensuing proof."
   },
   {
    "id": "ShimuraData/E22",
@@ -256732,9 +256732,9 @@
    "owner": "ShimuraData",
    "file": "research/blueprint/packets/ShimuraData.json",
    "citation": "Frank Calegari; David Geraghty, Minimal modularity lifting for nonregular symplectic representations, Publisher-typeset Duke Math. J. advance-publication PDF, ©2019, DOI 10.1215/00127094-2019-0044, pp.1–96, hosted on author site; final volume/issue/page numbers unassigned in this copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraData~5",
+   "reviewReason": "The p.28 page image introduces C₀ through C₄ but displays exactly C₀ through C₃, and Theorem 5.5 indexes i=0,…,3. The upper index is a counting misprint."
   },
   {
    "id": "ShimuraVarieties/E1",
