@@ -1552,7 +1552,7 @@ To prove the assertion, Define the structure with four coefficients, the evaluat
 <a id="cubic-ring"></a>
 
 
-**Cubic ring.** A cubic algebra over a commutative ring R is a commutative R-algebra A (with 1) that is free of rank 3 as an R-module (Mathlib: Module.Free R A, Module.Finite R A, Module.finrank R A = 3); a cubic ring is a cubic Z-algebra. The discriminant of A with respect to a basis b is Disc_b(A) = det(Tr_{A/R}(b_i b_j)), Mathlib's Algebra.discr R b; a change of basis by P multiplies it by (det P)^2, so it is a well-defined element of the orbit set of R under multiplication by unit squares, denoted R/(R^x)^2, and for R = Z an integer independent of the basis. A ring A that is free of finite rank over Z is maximal at a prime p if every subring B with A subset B subset A[1/p] that is finitely generated as a Z-module equals A; it is maximal if it is maximal at every prime.
+**Cubic ring.** A cubic algebra over a commutative ring R is a commutative R-algebra A (with 1) equipped, up to change of basis, with an R-basis indexed by Fin 3; a cubic ring is a cubic Z-algebra. For nontrivial R this is equivalently Module.Free R A, Module.Finite R A and Module.finrank R A = 3. The basis formulation also applies to the zero ring, where finrank is zero and cannot express the intended rank. The discriminant of A with respect to a basis b is Disc_b(A) = det(Tr_{A/R}(b_i b_j)), Mathlib's Algebra.discr R b; a change of basis by P multiplies it by (det P)^2, so it is a well-defined element of the orbit set of R under multiplication by unit squares, denoted R/(R^x)^2, and for R = Z an integer independent of the basis. A ring A that is free of finite rank over Z is maximal at a prime p if every subring B with A subset B subset A[1/p] that is finitely generated as a Z-module equals A; it is maximal if it is maximal at every prime.
 
 Throughout this assertion, Rank 3 and freeness are part of the notion; over a PID or a local ring the quotient A/R.1 is then free of rank 2 (quotient-by-scalars-is-free). Maximality at p is tested only against overrings inside A[1/p] (index a power of p); this is Bhargava-Shankar-Tsimerman's R_1 = R' intersect (R tensor Z[1/p]). For a free Z-module A of finite rank the map A -> A[1/p] is injective, so A is identified with its image.
 
@@ -1587,6 +1587,8 @@ To prove the assertion, Define discr via Algebra.discr; the change-of-basis form
 
 
 - The standard basis of Z^3 (as the ring Fin 3 -> Z) has discriminant 1.
+
+- Over the zero ring R, R^3 still has its Fin 3-indexed basis, but Module.finrank R (R^3)=0. Requiring finrank=3 without Nontrivial R would incorrectly exclude this base change.
 
 - The power basis of Z[x]/(x^3 - 2) has discriminant -108.
 
@@ -5536,6 +5538,44 @@ To prove the assertion, Apply the displayed coefficient condition at p=2 and the
 - The general statement does not demand an integral representative at the unscaled invariant f.
 
 
+<a id="quartic-monicization"></a>
+
+**Quartic monicization.** For ordinary coefficients f=(a,b,c,d,e) over a commutative ring, define `BinaryQuartic.monicize f` to have coefficients (1,b,ac,a²d,a³e). This is a polynomial operation, including at a=0. Over a field with a≠0 its binary polynomial is a⁻¹f(x,ay). Its invariants are a²I(f), a³J(f) and a⁶Δ(f). Over Q, for separable f with a≠0, its double cover is the quadratic twist by a of C_f, after changing y to ay. Its Jacobian therefore need not be isomorphic to Jac(C_f); the two-torsion schemes are canonically identified, while the Selmer subgroups of H¹ need not coincide.
+
+The interface exposes:
+
+- `BinaryQuartic.monicize_a`: the leading coefficient is 1.
+- `BinaryQuartic.monicize_eq_self`: a monic quartic is unchanged.
+- `BinaryQuartic.monicize_invariants`: the I, J and discriminant identities hold over every commutative ring, without cancelling 27.
+- `BinaryQuartic.monicize_twist`: for a nonsingular rational quartic with a≠0, identify the quadratic twist and its two-torsion, preserving the stated direction of the coordinate change.
+
+*Needs:* [binary quartic invariants](#binary-quartic-invariants), TauCetiRoadmap.EllipticCurves Layer 5.
+
+([[33]](#ref-33), §1.2, pp.3–4, and §3.1, p.13; the polynomial identities follow by substitution.)
+
+**Checks.**
+
+- For (2,3,5,7,11), the new tuple is (1,3,10,28,88), not coefficientwise division by 2.
+- For a=1, all five coefficients are unchanged; for a=0, the tuple is (1,b,0,0,0) and has zero discriminant, so the twist comparison cannot extend to this case.
+- For f=2x⁴−2y⁴, the new form is x⁴−16y⁴: I changes from −48 to −192 and Δ from −16384 to −1048576. These are factors a² and a⁶ respectively.
+- For f=−x⁴−y⁴, the monicized form x⁴+y⁴ has real points although C_f has none. Local solubility of an arbitrary covering cannot be inferred from its monicization.
+
+<a id="marked-quartic-selmer-embedding"></a>
+
+**Marked quartic Selmer embedding.** Let f be a separable integral binary quartic, with a≠0, whose curve C_f is soluble over every completion of Q. There is a natural injection from Sel₂(Jac(C_f)) into rational (SL₄/μ₂)-orbits of pairs of symmetric matrices (A,B) with det(xA+yB)=f^mon. There is a fixed positive integer k, independent of f, such that, after replacing f(x,y) by g(x,y)=f(x,ky), every image orbit for g has an integral representative with A the antidiagonal matrix of ones. The coordinate change identifies C_g with C_f and hence their Selmer groups. The central quotient means rational points of the quotient group scheme. For the signed-minus pencil convention above, replace B by −B; in dimension four the determinant sign is +1.
+
+Prove the injection through the étale quartic algebra and the norm-one squareclass description of the two-torsion cohomology. Identify the local Kummer images of the original curve before monicization. The obstruction to a rational orbit lies in H²(Q,μ₂); local solubility kills its images at every place, and the global-to-local Brauer injection kills the global obstruction. The first quadratic form is split at every place; the quadratic-form Hasse principle makes it split over Q. Obtain integral representatives from the inverse-different ideal-square-root dictionary, patching its local lattices; the fixed coordinate scaling clears the denominators uniformly. Fixing A then identifies these orbits, and their stabilizers, with PSO_A-orbits of B. This construction transports the original Selmer elements into a different orbit representation; it does not identify Sel₂(Jac(C_f)) with Sel₂(Jac(C_{f^mon})).
+
+*Needs:* [quartic monicization](#quartic-monicization), [oriented ideal triples](#refinement-oriented-ideal-triples), [symmetric pencil](#refinement-symmetric-pencil), SelmerIwasawaCohomology:L0–L2, ArithmeticGaloisDuality (the global-to-local Brauer injection), TauCetiRoadmap.GlobalQuadraticForms Layer 5, TauCetiRoadmap.GlobalNumberFields Layers 9–11.
+
+([[33]](#ref-33), Theorem 1.4, p.4; Proposition 2.2, p.8; §§3.1–3.2, pp.13–19.)
+
+**Checks.**
+
+- The fixed A has determinant 1; therefore the x⁴ coefficient of its pencil is 1, agreeing with f^mon.
+- The substitution y↦ky preserves the isomorphism class of C_f, whereas multiplication of f by an arbitrary nonsquare need not do so.
+- Distinct original Selmer elements give distinct rational orbits; integral orbit counts still require the rational-orbit weight.
+
 ### 1.13 Weak-discriminant lifts and marked hyperdeterminants
 
 
@@ -7287,9 +7327,6 @@ To prove the assertion, Average the finite-cover fundamental domain with its sta
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -7355,9 +7392,6 @@ To prove the assertion, Use the 40-dimensional finite-cover domain and lattice-t
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -7373,14 +7407,6 @@ To prove the assertion, For index p^k use the local suborder bound O(p^min(2k−
 *Needs:* [quintic finite congruence count](#refinement-quintic-finite-congruence-count), [maximality of quintic rings at p](#maximality-of-quintic-rings-at-p).
 
 ([[78]](#ref-78), Proposition 19, §3.1, pp.1586–1588.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.10 Global-field orbit counts
@@ -7399,14 +7425,6 @@ To prove the assertion, Choose the S-arithmetic Siegel set and invariant bounded
 ([[80]](#ref-80), Theorem 4.7, §4.6, p.18; count convention §4.1; quadratic replacement §§9.1–9.4, pp.25–28.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-global-field-large-prime-tail"></a>
 
 
@@ -7420,14 +7438,6 @@ To prove the assertion, The extra-ramification locus W_p^(2) reduces into a fixe
 ([[80]](#ref-80), Theorems 5.2–5.3 and proof, pp.19–21; quadratic maximal sieve §9.3, p.27.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-global-field-large-local-count"></a>
 
 
@@ -7439,14 +7449,6 @@ To prove the assertion, First fix finitely many local conditions and apply the f
 *Needs:* [global field generic finite count](#refinement-global-field-generic-finite-count), [global field large prime tail](#refinement-global-field-large-prime-tail), [acceptable weight function](#acceptable-weight-function).
 
 ([[80]](#ref-80), Theorem 5.1, pp.18–19; tail proof pp.19–21; quadratic specialization §§9.2–9.4, pp.27–28.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.11 Secondary cubic densities
@@ -7465,14 +7467,6 @@ To prove the assertion, Slice the averaged cusp by first coefficient, then smoot
 ([[79]](#ref-79), Theorem 27 and Remark 3, p.20; smoothing derivation pp.19–20.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-cubic-secondary-sieve-error"></a>
 
 
@@ -7484,14 +7478,6 @@ To prove the assertion, Replace squarefree-index nonmaximal conditions by simple
 *Needs:* [cubic secondary congruence count](#refinement-cubic-secondary-congruence-count), [uniformity estimate for nonmaximal binary cubic forms](#uniformity-estimate-for-nonmaximal-binary-cubic-forms), [uniformity estimate for binary cubic discriminants](#uniformity-estimate-for-binary-cubic-discriminants), AnalyticNumberTheory:AN.5.
 
 ([[79]](#ref-79), Theorem 7, p.3; §9.1 switching identities (63)–(71), pp.27–28; §9.7 proof, pp.35–36.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.12 Summed square-divisor tails
@@ -7530,9 +7516,6 @@ To prove the assertion, Use the finite positive divisor set of the nonzero invar
 
 - Delta=0 has empty tail and multiplicity 0, although every positive square divides 0.
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-kappa-acceptable"></a>
@@ -7566,9 +7549,6 @@ To prove the assertion, Compare coordinates modulo p^kappa. Keep a single thresh
 
 - The same nonconstant parity factor is not acceptable with kappa=0, since modulus 1 identifies every coefficient vector.
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.13 Monic weighted sieves
@@ -7587,13 +7567,32 @@ To prove the assertion, A rational root is integral and divides the constant ter
 ([[74]](#ref-74), Lemma 4.2, p.21.)
 
 
+<a id="rectangular-plane-curve-count"></a>
+
+**Rectangular plane-curve count.** Fix `d≥1` and `ε>0`. For an irreducible nonconstant `F∈Z[u,v]` of total degree `d` and real `P_1,P_2≥2`, let `T=max{P_1^i P_2^j : u^i v^j occurs in F}`. Then `T≥2` and
+`#{(u,v)∈Z²:F(u,v)=0, |u|≤P_1, |v|≤P_2} ≪_(d,ε) max(P_1,P_2)^ε exp(log(P_1)log(P_2)/log(T))`.
+The constant is independent of the coefficients of `F`. In particular, a pure monomial `u^m` with `m≥1` gives the upper bound `max(P_1,P_2)^ε P_2^(1/m)`.
+
+For an absolutely irreducible curve homogenize with the extra coordinate fixed to one. In the determinant method order the auxiliary monomials by their rectangular weights and exclude multiples of a leading monomial of `F`. On each good-prime residue class compare the real determinant bound from those weights with the p-adic divisibility obtained by expanding in a smooth local parameter. Choose the auxiliary degree and prime ranges with ε slack so that the determinant vanishes. The resulting auxiliary polynomial is not divisible by `F`; Bézout bounds its intersections with `F`. Singular classes and exceptional primes are handled by the uniform coefficient-height alternative in this argument, so the final bound does not acquire a coefficient-dependent constant. If `F` is irreducible over Q but not absolutely irreducible, its rational points lie on intersections of distinct conjugate components; Bézout gives `O_d(1)` instead. Sources: [Dietmann](https://arxiv.org/pdf/1010.5341v1), Lemma 6 and its proof, p.4; [Browning–Heath-Brown, *Plane curves in boxes and equal sums of two powers*](https://arxiv.org/pdf/math/0506497v1), Theorem 1 and (3), p.2, §2 pp.4–11 for the determinant argument, with the integral-point specialization (3) on p.2. *Needs:* AlgebraicCurves:Layers 1–5 (plane curves, smooth local parameters and Bézout); Mathlib matrices, determinants, integer divisibility and p-adic valuations; AnalyticNumberTheory:AN.2–AN.5 (prime selection and elementary size estimates). The rectangular determinant estimate is proved here; ordinary lattice-point counting does not supply it.
+
 **Checks.**
 
+- `F=u` has exactly `2⌊P_2⌋+1` points; the formula gives `O(P_2 max(P_1,P_2)^ε)`.
+- `F=u^m−v`, `P_1=Y`, `P_2=Y^m`, has `2⌊Y⌋+1` points, while `T=Y^m` gives the exponent `Y`, up to ε.
+- `F=u²−2v²` is Q-irreducible but not geometrically irreducible and has only `(0,0)` as an integer zero. The conjugate-component branch covers it. Requiring `P_i≥2` also prevents the undefined `log T=0` case.
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
+<a id="weighted-monic-galois-exclusion"></a>
 
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
+**Weighted monic Galois exclusion.** Fix `n≥2`, `G≤S_n`, `m=[S_n:G]` and `ε>0`, and put `D=n(n+1)/2`. Among the separable monic integer polynomials with `|a_i|<X^i`, `X≥2`, those whose root-permutation group is conjugate to `G` number
+`O_(n,ε)(X^(D−n+1)+X^(D−n+n/m+ε))`. Constants are uniform in the coefficients being specialized; `n` is fixed. This is an anisotropic-box estimate, not a consequence of qualitative Hilbert irreducibility.
 
+To prove it, fix `a_1,…,a_(n−2)` and vary `a_(n−1)`. The generic polynomial over `Q(t)` fails to have group `S_n` for at most `n²+n` values; these fibres contribute `O(X^(D−n+1))`. On each other fibre use PolynomialGaloisGroups Layer 4's integral orbit-resolvent construction and write H=G and choose a primitive H-invariant with distinct generic coset values. To make that choice uniform, span the splitting field by monomials in its n roots with each exponent less than n!, then take H-orbit sums. For each pair of cosets equality of values is one proper linear condition on the coefficients of their linear combination. A grid with more than `binomial(m,2)` integer values in each coefficient avoids the union of those hyperplanes. Thus the degrees and chosen coefficients are bounded in terms of n alone. The resulting generic resolvent is irreducible and monic of degree `m`; every specialization with group conjugate to H still supplies an integral root, without a specialized separation hypothesis. Its root bound is `X^C` with `C` depending only on `n`. The uniform two-variable integral-point estimate, with side lengths `X^C,X^n` and the pure root monomial of degree `m`, gives `O_(n,ε)(X^(n/m+ε))` specializations. Sum the `O(X^(D−n))` other fibres. The resolvent construction must retain the generic irreducibility and integral-root implication; an arbitrary resolvent with repeated values does not suffice. Sources: [Dietmann, *On the distribution of Galois groups*](https://arxiv.org/pdf/1010.5341v1), Lemmas 1,2,5,6 and the proof of Theorem 1, pp.3–5, with the side lengths changed as above; [[74]](#ref-74), proof of Proposition 4.3 pp.21–22. *Needs:* TauCetiRoadmap.PolynomialGaloisGroups Layers 0,2,4 (root actions, static integral resolvents and separation evidence); InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 (specialization); [rectangular plane-curve count](#rectangular-plane-curve-count).
+
+**Checks.**
+
+- For `G=S_n`, `m=1`, the exponent is `D`, so this statement supplies no false saving on the full group.
+- In degree four the conjugate-quadratic wreath group has index three, giving `10−4+4/3=22/3`; using index six would give an unjustified stronger bound.
+- For a proper group of index two the second exponent is `D−n/2+ε`. Exceptional generic fibres still contribute the first term and cannot be discarded.
 
 <a id="refinement-monic-extra-reducible-bound"></a>
 
@@ -7601,9 +7600,9 @@ To prove the assertion, A rational root is integral and divides the constant ter
 **Monic extra reducible bound.** Let V_n^red be the union of monic polynomials reducible over Q and, for even n>=4, products of two conjugate factors over a quadratic extension. In the weighted box, its size is O_n(X^(D−n+1) log X) for n>=2,n!=4; for n=4 the source argument supplies O_epsilon(X^(22/3+epsilon)).
 
 
-To prove the assertion, Separate the rational-root case and other proper Galois-group subgroups. Use a correctly normalized quantitative non-full-Galois-group estimate. For conjugate quadratic factors at n=4 the subgroup index can be3, giving22/3, which still suffices for the tail. The general weighted-box sieve input is requested, not supplied by qualitative Hilbert irreducibility. For even degree the conjugate-factor splitting group is contained in a wreath product of order 2((n/2)!)^2. Its index is 3 in degree 4 and 10 in degree 6; the latter already exceeds n and supplies the claimed non-quartic saving. Retain the subgroup index in the quantitative weighted-box estimate.
+To prove the assertion, Separate the rational-root case and other proper Galois-group subgroups. Use the weighted monic Galois exclusion above with its subgroup index retained. For conjugate quadratic factors at n=4 the subgroup index can be3, giving22/3, which still suffices for the tail. The weighted-box estimate is separate from qualitative Hilbert irreducibility. For even degree the conjugate-factor splitting group is contained in a wreath product of order 2((n/2)!)^2. Its index is 3 in degree 4 and 10 in degree 6; the latter already exceeds n and supplies the claimed non-quartic saving. Retain the subgroup index in the quantitative weighted-box estimate.
 
-*Needs:* [monic rational root bound](#refinement-monic-rational-root-bound), [coefficient sieves](#support-sieves) and [quadratic character-sum bounds](#support-character-sums).
+*Needs:* [monic rational root bound](#refinement-monic-rational-root-bound), [weighted monic Galois exclusion](#weighted-monic-galois-exclusion).
 
 ([[74]](#ref-74), Proposition 4.3, pp.21–22.)
 
@@ -7611,12 +7610,21 @@ To prove the assertion, Separate the rational-root case and other proper Galois-
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - At degree 2 the exceptional locus contains only Q-reducible polynomials; quadratic conjugate factors are included only for even degrees at least4.
 
+
+<a id="weighted-distinguished-selberg-sieve"></a>
+
+**Weighted distinguished Selberg sieve.** Let a finite nonnegative weighted multiset of integer vectors have total comparison mass `V`. Outside a fixed finite prime set, let forbidden residue sets have proportions `g(p)` with `c≤g(p)≤1−c` for one fixed `c>0`. For squarefree `d` put `g(d)=∏_(p|d)g(p)`. Suppose the mass satisfying all forbidden conditions at `p|d` is `V g(d)+r_d`, with `|r_d|≤C_ε E d^(1+ε)` uniformly. Then for `L≥2` the mass avoiding every forbidden set at primes `p≤√L` is `O_ε(V L^(−1/2+ε)+E L^(2+ε))`. Constants depend on `c`, the finite exceptional set and the displayed remainder constants. This applies to an averaged torus count only after the same remainder bound has been integrated against its positive Haar weight.
+
+Use Selberg's square majorant with coefficients supported on squarefree integers at most `√L`. Minimizing its main quadratic form gives the reciprocal of `Σ_(d≤√L) μ²(d)∏_(p|d)g(p)/(1−g(p))`, whose lower bound is `L^(1/2−ε)`; fixed exceptional primes do not alter that exponent. Bound the minimizing coefficients by `d^ε`. Group pairs of divisors by their least common multiple, at most `L`, to bound the remainder by `E Σ_(d≤L) d^(1+ε)3^ω(d)=O_ε(E L^(2+ε))`, after shrinking the auxiliary ε. Sources: [[74]](#ref-74), Proposition 2.6 p.13 and Proposition 3.5 p.19, whose Selberg step is expanded here. *Needs:* AnalyticNumberTheory:AN.2–AN.5 (multiplicative sums and partial summation); the finite quadratic-form minimization and divisor grouping in this proof. For the distinguished representation, the additional geometric input is the uniform good-prime exclusion proportion and integrated remainder `E=X^(D−1)` on the `b_11≠0` region, obtained from its residue-class lattice count; neither follows from an unweighted pointwise torus error.
+
+**Checks.**
+
+- With `V=X^D`, `E=X^(D−1)` and `L=X^(2/5)`, both terms have exponent `D−1/5+ε`.
+- If `g(p)=0` at every good prime, the conclusion would falsely save a power on an unrestricted multiset; the positive lower bound is essential.
+- Counting each least common multiple once without its divisor-pair multiplicity would miss `3^ω(d)`; retaining it changes only the ε loss.
 
 <a id="refinement-monic-distinguished-off-block"></a>
 
@@ -7624,19 +7632,11 @@ To prove the assertion, Separate the rational-root case and other proper Galois-
 **Monic distinguished off block.** For the odd/even split orthogonal slices of Layer 1, n>=3, an averaged torus count over a fixed bounded fundamental slice of distinguished nonzero-discriminant matrices outside W00 is O_epsilon(X^(D−1/5+epsilon)). W00 has entries b_ij=0 for i+j<n. Use the source integral lattices (half-integral odd and quarter-integral even), not an all-integral symmetric-matrix substitute.
 
 
-To prove the assertion, Separate b11=0 (O_epsilon X^(D−1+epsilon)) from b11 nonzero. The latter distinguished locus avoids a uniformly positive fraction of good-prime classes. Establish remainder r_d=O_epsilon(X^(D−1)d^(1+epsilon)) and apply the requested multidimensional Selberg sieve; balance X^D L^(−1/2+epsilon)+X^(D−1)L^(2+epsilon) at L=X^(2/5).
+To prove the assertion, Separate b11=0 (O_epsilon X^(D−1+epsilon)) from b11 nonzero. The latter distinguished locus avoids a uniformly positive fraction of good-prime classes. Establish remainder r_d=O_epsilon(X^(D−1)d^(1+epsilon)) and apply the weighted distinguished Selberg sieve; balance X^D L^(−1/2+epsilon)+X^(D−1)L^(2+epsilon) at L=X^(2/5).
 
-*Needs:* [one matrix slice](#refinement-one-matrix-slice), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count, [coefficient sieves](#support-sieves) and [quadratic character-sum bounds](#support-character-sums).
+*Needs:* [one matrix slice](#refinement-one-matrix-slice), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count, [weighted distinguished Selberg sieve](#weighted-distinguished-selberg-sieve).
 
 ([[74]](#ref-74), Propositions 2.5–2.6, p.13; Propositions 3.4–3.5, p.19.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-monic-q-cusp-tail"></a>
@@ -7652,14 +7652,6 @@ To prove the assertion, A nonzero determinant forces a lattice point only when e
 ([[74]](#ref-74), Proposition 2.7, p.14; Proposition 3.6 and (36)–(37), pp.19–20; even torus coordinates p.18.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-monic-strong-tail"></a>
 
 
@@ -7671,14 +7663,6 @@ To prove the assertion, The strong locus lies on a fixed codimension-two reducti
 *Needs:* [quantitative ekedahl geometric sieve](#quantitative-ekedahl-geometric-sieve), [strongly and weakly divisible values](#strongly-and-weakly-divisible-values).
 
 ([[74]](#ref-74), Theorem 1.5(a), pp.3–4; §4 weighted geometric sieve.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-monic-weak-tail"></a>
@@ -7694,14 +7678,6 @@ To prove the assertion, Lift weak forms to marked distinguished slices with pres
 ([[74]](#ref-74), Theorem 1.5(b), p.4; §§2–4.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-monic-summed-tail"></a>
 
 
@@ -7715,14 +7691,6 @@ To prove the assertion, Factor the squarefree m into strong and weak parts; one 
 ([[74]](#ref-74), Theorem 4.4, (39), p.22.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-monic-fixed-modulus-sieve"></a>
 
 
@@ -7734,14 +7702,6 @@ To prove the assertion, Use Mobius truncation only on Delta nonzero and CRT for 
 *Needs:* [kappa acceptable](#refinement-kappa-acceptable), [monic summed tail](#refinement-monic-summed-tail), [local density of values divisible by p squared](#local-density-of-values-divisible-by-p-squared), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count.
 
 ([[74]](#ref-74), Theorem 4.1, p.21; proof (41), p.23.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.14 Invariant geometric-sieve criterion
@@ -7760,14 +7720,6 @@ To prove the assertion, Strong divisibility is handled by the codimension-two si
 ([[81]](#ref-81), Conditions (1)–(6), p.8; Theorem 2.1, p.9; proof §3.4, pp.14–18; corrected (40)–(44), pp.17–18.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 ### 2.15 Odd-degree binary-form sieves
 
 
@@ -7784,14 +7736,6 @@ To prove the assertion, Apply the geometric sieve on the coefficient cube to the
 ([[82]](#ref-82), Theorem 5(a), pp.3–4.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-odd-binary-cusp-count"></a>
 
 
@@ -7805,14 +7749,6 @@ To prove the assertion, Use weights t_i^-1 t_j^-1 for both symmetric matrices, a
 ([[82]](#ref-82), §4 (14)–(17), Propositions 4.4,4.5,4.8, pp.16–23.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-odd-binary-weak-tail"></a>
 
 
@@ -7824,14 +7760,6 @@ To prove the assertion, Transfer weak forms into marked pencils with Q=m and bou
 *Needs:* [odd binary cusp count](#refinement-odd-binary-cusp-count), [weak lift odd](#refinement-weak-lift-odd), [strongly and weakly divisible values](#strongly-and-weakly-divisible-values).
 
 ([[82]](#ref-82), Theorem 5(b), pp.3–4; Proposition 4.2 and §4.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.16 Even-degree binary-form tails and finite truncation
@@ -7869,9 +7797,6 @@ To prove the assertion, Control small discriminant by its polynomial sublevel es
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Use the small positive kappa range; count each integer slice with its boundary term and dyadic height windows.
 
@@ -7887,14 +7812,6 @@ To prove the assertion, For each prime dividing m, weak discriminant divisibilit
 *Needs:* [strongly and weakly divisible values](#strongly-and-weakly-divisible-values), [binary strong tail](#refinement-binary-strong-tail), [even weak lift](#refinement-even-weak-lift).
 
 ([[82]](#ref-82), Lemma 6.2, pp.25–26.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-even-binary-main-shallow"></a>
@@ -7913,9 +7830,6 @@ To prove the assertion, The two main-body alternatives yield two savings, whose 
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Do not certify these source-derived main/shallow bounds until the row-contained spanning lattice count is justified under its existence and vanishing hypotheses. This conditional clause is separate from the restricted deep Gram estimate.
 
@@ -7954,14 +7868,6 @@ To prove the assertion, Enumerate saturated row lattices and successive-minimum 
 ([[82]](#ref-82), Theorem 6.24, p.44; Proposition 6.26, pp.45–47; (74)–(78), pp.47–49; conditional restricted estimate.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-binary-summed-tail"></a>
 
 
@@ -7970,17 +7876,9 @@ To prove the assertion, Enumerate saturated row lattices and successive-minimum 
 
 To prove the assertion, Split a squarefree modulus into its strong and weak factors; control the total divisor multiplicity on the nonzero locus. Use a union bound by the sum of the strong-large and weak-large counts; neither count separately bounds the original union. Use the odd tail directly. In the even case balance restricted deep, shallow, small-discriminant, small-constant-term and non-Sn terms with slack. The inequalities in tau make the general finite-modulus sieve errors subleading. Recover the source truncation 3(eta+xi) only with a tail exponent delta>=1/3.
 
-*Needs:* [square divisor tail](#refinement-square-divisor-tail), [binary strong tail](#refinement-binary-strong-tail), [odd binary weak tail](#refinement-odd-binary-weak-tail), [even binary constant term tail](#refinement-even-binary-constant-term-tail), [even binary main shallow](#refinement-even-binary-main-shallow), [even binary restricted deep tail](#refinement-even-binary-restricted-deep-tail), [coefficient sieves](#support-sieves) and [quadratic character-sum bounds](#support-character-sums), [even binary small discriminant](#refinement-even-binary-small-discriminant).
+*Needs:* [square divisor tail](#refinement-square-divisor-tail), [binary strong tail](#refinement-binary-strong-tail), [odd binary weak tail](#refinement-odd-binary-weak-tail), [even binary constant term tail](#refinement-even-binary-constant-term-tail), [even binary main shallow](#refinement-even-binary-main-shallow), [even binary restricted deep tail](#refinement-even-binary-restricted-deep-tail), [coefficient sieves](#support-sieves), [even binary small discriminant](#refinement-even-binary-small-discriminant).
 
 ([[82]](#ref-82), Corollary 6.27, p.51; corrected nonzero domain and union bound; even clause conditional on the restricted hypothesis.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-quadratic-binary-summed-tail"></a>
@@ -7996,14 +7894,6 @@ To prove the assertion, For each fixed nonzero Delta=N, fix a1 and count divisor
 ([[82]](#ref-82), Degree2 boundary of Theorem 7.1;.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-binary-fixed-modulus-sieve"></a>
 
 
@@ -8015,14 +7905,6 @@ To prove the assertion, Build the initial residue set so it already contains the
 *Needs:* [binary summed tail](#refinement-binary-summed-tail), [quadratic binary summed tail](#refinement-quadratic-binary-summed-tail), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count.
 
 ([[82]](#ref-82), Theorem 7.1 and its proof, pp.51–52; generalized truncation from the proved tail exponent; degree 2 remains separate.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.17 Symmetric-pencil orbit counts
@@ -8044,9 +7926,6 @@ To prove the assertion, Choose the real component section and finite-cover domai
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -8085,14 +7964,6 @@ To prove the assertion, Embed every bad reduction into the fixed codimension-two
 ([[73]](#ref-73), Definition 39, pp.31–32; Proposition 42, pp.32–33.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 ### 2.18 Ternary cubic orbit counts
 
 
@@ -8112,9 +7983,6 @@ To prove the assertion, Use the SL3 finite-cover domain, normalized Jacobian and
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -8132,14 +8000,6 @@ To prove the assertion, On a compact fundamental-domain truncation apply the geo
 ([[85]](#ref-85), Proposition 25 and Lemma 26, §2.7, pp.13–14.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-ternary-cubic-acceptable-count"></a>
 
 
@@ -8151,14 +8011,6 @@ To prove the assertion, Prove the finite-weight identity, approximating locally 
 *Needs:* [ternary cubic finite count](#refinement-ternary-cubic-finite-count), [ternary cubic prime tail](#refinement-ternary-cubic-prime-tail), [acceptable weight function](#acceptable-weight-function).
 
 ([[85]](#ref-85), Theorem 24, §2.7, p.13.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.19 Quaternary two-covering orbit counts
@@ -8180,9 +8032,6 @@ To prove the assertion, Use the integral half-Gram convention and the correct de
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -8200,14 +8049,6 @@ To prove the assertion, Compact truncation of the 20-dimensional height slice gi
 ([[86]](#ref-86), Theorem 23, §3.5, pp.16–17.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-quaternary-acceptable-count"></a>
 
 
@@ -8219,14 +8060,6 @@ To prove the assertion, Apply finite-weight counts with their actual G and half-
 *Needs:* [quaternary finite count](#refinement-quaternary-finite-count), [quaternary prime tail](#refinement-quaternary-prime-tail), [acceptable weight function](#acceptable-weight-function).
 
 ([[86]](#ref-86), Theorem 22, §3.5, p.16.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.20 Quinary five-covering orbit counts
@@ -8248,9 +8081,6 @@ To prove the assertion, Use the 50-dimensional height slice, Jacobian J and real
 **Checks.**
 
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 - Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.
 
@@ -8270,14 +8100,6 @@ To prove the assertion, Apply the strong geometric sieve on the compact 50-dimen
 ([[87]](#ref-87), Theorem 27 and Lemma 28, pp.18–20.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-quinary-acceptable-count"></a>
 
 
@@ -8289,14 +8111,6 @@ To prove the assertion, Approximate the finite local factors by residue step fun
 *Needs:* [quinary finite count](#refinement-quinary-finite-count), [quinary prime tail](#refinement-quinary-prime-tail), [acceptable weight function](#acceptable-weight-function).
 
 ([[87]](#ref-87), Theorem 29, p.20; finite main term corrected by (18), p.17.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.21 Smooth unfolding and sparse quaternary counts
@@ -8337,9 +8151,6 @@ To prove the assertion, Use the native action and equality of vectors in the tra
 
 - Let the two-element permutation group of Fin 2 act trivially on a singleton, with its unique inv and section, Theta=2 and phi=3. The kernel value is 12. Dropping or averaging the stabilizer would give 6.
 
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-smoothed-orbit-unfolding"></a>
@@ -8355,14 +8166,6 @@ To prove the assertion, Unfold the arithmetic group fundamental domain and the t
 ([[88]](#ref-88), Theorem 5.1 and full unfolding proof, pp.24–25; hypotheses §5, pp.23–24.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-smoothed-quaternary-count"></a>
 
 
@@ -8376,14 +8179,6 @@ To prove the assertion, Separate the special rank-one congruences at primes divi
 *Needs:* [smoothed orbit unfolding](#refinement-smoothed-orbit-unfolding), [symmetric pencil](#refinement-symmetric-pencil), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count.
 
 ([[88]](#ref-88), Theorem 6.3 and acceptability definition, p.30; proof pp.38–39; fixed section and support §§5–6.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### 2.22 Number-field three-isogeny orbit counts
@@ -8414,25 +8209,31 @@ To prove the assertion, use the general-abelian dictionary and uniform local int
 ### 2.23 Hypersurface local densities
 
 
+<a id="degree-uniform-hypersurface-smooth-points"></a>
+
+**Degree-uniform hypersurface smooth points.** For `n,d≥2` there is `C(n,d)>0` such that every geometrically integral degree-`d` hypersurface `H⊂P^n_(F_q)` has
+`#H_smooth(F_q) ≥ q^(n−1)−C(n,d)(q^(n−3/2)+q^(n−2))`.
+Consequently `q>Q(n,d)` guarantees a smooth rational point, uniformly in the defining coefficients and characteristic. This uniform-in-the-model statement is stronger than the fixed-model estimate imported from IG.2.
+
+Prove degree-uniform Lang–Weil by induction on dimension: the curve case uses the genus bound and the curve Weil estimate; average hyperplane sections and bound their bad locus by equations of bounded degree. For the smooth-locus version, at least one partial derivative is nonzero for an absolutely irreducible polynomial over the perfect field `F_q`. Intersect with that derivative, obtaining dimension at most `n−2` and degree at most `d(d−1)`, and subtract its `O_(n,d)(q^(n−2))` points. Sources: [Lang–Weil, *Number of points of varieties in finite fields*](https://doi.org/10.2307/2372655), Theorem 1 and Lemmas 1–2, pp.819–823; [[83]](#ref-83), proof of Theorem 3.6 p.3, for this smooth-point consequence. *Needs:* DeligneWeightsAndPurity §1.6 (curve point bound); AlgebraicCurves:Layers 3–5 (normalization and genus bound); SchemeAndStackFoundations:SF.0–SF.3 (projective intersections, dimension, degree and hyperplane families); [uniform subscheme point bound](#uniform-bound-for-points-of-a-subscheme-modulo-p). The hyperplane bad-locus degree bound is part of the local induction, not an assumption of smoothness of `H`.
+
+**Checks.**
+
+- The absolutely irreducible singular cubic `y²z=x³` over `F_5` has six projective points and one singular point, hence five smooth points. Smoothness of the whole hypersurface is unnecessary.
+- A repeated line `x²=0` is geometrically nonreduced and has no smooth points; geometric integrality cannot be replaced by irreducibility of the underlying topological space.
+- The reducible degree-`d` coefficient locus is the union of multiplication images `P^(N_r−1)×P^(N_(d−r)−1)`, `1≤r<d`. Its affine codimension is at least `N_d−N_r−N_(d−r)+1`, where `N_j=binomial(n+j,n)`: for `(n,d,r)=(2,2,1)` this is one, whereas `(2,3,1)` gives two. This supplies exactly the conic exception in the next target.
+
 <a id="refinement-hypersurface-local-tail"></a>
 
 
 **Hypersurface local tail.** For degree d>=2 hypersurfaces in P^n, n>=2,(n,d)!=(2,2), with N=binomial(n+d,d) coefficients, local insolubility at some p>M is confined, for M beyond a finite threshold, to reduction in a fixed codimension-two geometrically reducible locus. In the coefficient ball of radius A the count is O_{n,d}(A^N/(M log M)+A^(N−1)), A,M>=2. The same upper bound holds after restriction to primitive vectors.
 
 
-To prove the assertion, Uniform Lang–Weil gives an F_p-point on geometrically integral hypersurfaces at all sufficiently large p; choose a smooth point, lift in a univariate transverse chart by Hensel. Except plane conics, the geometrically reducible coefficient locus has codimension at least2. Apply the geometric sieve to the Euclidean unit ball; primitive restriction decreases the numerator. Prove the degree-bounded smooth-point estimate and the geometrically reducible coefficient-locus codimension assertion used here.
+To prove the assertion, Uniform Lang–Weil gives an F_p-point on geometrically integral hypersurfaces at all sufficiently large p; choose a smooth point, lift in a univariate transverse chart by Hensel. Except plane conics, the geometrically reducible coefficient locus has codimension at least2. Apply the geometric sieve to the Euclidean unit ball; primitive restriction decreases the numerator. Use the degree-uniform smooth-point estimate and the multiplication-image codimension calculation above.
 
-*Needs:* [quantitative ekedahl geometric sieve](#quantitative-ekedahl-geometric-sieve), InverseGaloisAndArithmeticFundamentalGroups:IG.2 and [uniform trace estimates](#support-cohomology), `hensels_lemma` (Mathlib), SchemeAndStackFoundations:SF.0, [uniform bound for points of a subscheme modulo p](#uniform-bound-for-points-of-a-subscheme-modulo-p).
+*Needs:* [quantitative ekedahl geometric sieve](#quantitative-ekedahl-geometric-sieve), [degree-uniform hypersurface smooth points](#degree-uniform-hypersurface-smooth-points), `hensels_lemma` (Mathlib), SchemeAndStackFoundations:SF.0, [uniform bound for points of a subscheme modulo p](#uniform-bound-for-points-of-a-subscheme-modulo-p).
 
 ([[83]](#ref-83), PV Theorem 3.6, p.3, with proof; coefficient conventions §1 pp.1–2; Fano §1 pp.1–3.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 <a id="refinement-hypersurface-finite-local-count"></a>
@@ -8448,14 +8249,6 @@ To prove the assertion, Use Mobius inversion for the common coefficient gcd, CRT
 ([[83]](#ref-83), PV Theorem 3.6 and proof, p.3; primitive restriction Remark 2.1, p.2; Euclidean-ball adaptation not in PV.)
 
 
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
-
-
 <a id="refinement-hypersurface-local-density"></a>
 
 
@@ -8467,14 +8260,6 @@ To prove the assertion, For each finite place set use the primitive ball count. 
 *Needs:* [hypersurface local tail](#refinement-hypersurface-local-tail), [hypersurface finite local count](#refinement-hypersurface-finite-local-count).
 
 ([[83]](#ref-83), PV Theorem 3.6 and proof, p.3; Fano §1 (1.2)–(1.3), pp.1–3; real ball factor recomputed.)
-
-
-**Checks.**
-
-
-- Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.
-
-- Do not replace a uniform estimate by separate fixed-prime asymptotics.
 
 
 ### Supporting uniform estimates
@@ -10361,7 +10146,7 @@ To prove the assertion, Given A and ε_0, apply [finite moment control of masses
 
 - EVW (8.5.1) ⇒ Cohen–Lenstra distribution statement for imaginary quadratic fields, ℓ odd ([cohen lenstra moment form implies heuristic](#cohen-lenstra-moment-form-implies-heuristic)).
 
-- EVW's word 'equivalent' in §8.5 overstates this: see .
+- EVW's word 'equivalent' in §8.5 overstates this: the [distribution/moment counterexample](#distribution-convergence-does-not-force-moment-convergence) separates the two implications.
 
 
 <a id="distribution-convergence-does-not-force-moment-convergence"></a>
@@ -10376,7 +10161,7 @@ To prove the assertion, Total variation distance of ν_n and μ is at most 2ℓ^
 
 *Needs:* [cohen lenstra moments](#cohen-lenstra-moments), [exact surjection count formula](#exact-surjection-count-formula), [surjection moment](#surjection-moment).
 
-([[37]](#ref-37), Annals 183 (2016), §8.5, p. 774.)
+The displayed mixture is a direct counterexample to the converse asserted in [[37]](#ref-37), Annals 183 (2016), §8.5, p.774. That passage is the assertion being tested; it does not supply this counterexample.
 
 
 **Checks.**
@@ -12772,10 +12557,6 @@ To prove the assertion, Use the infinite product only in coordinate zero, and fi
 
 - For m=1,p=2,b=(2,0),z=(4,8) the finite second-coordinate factor vanishes.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 <a id="refinement-wood-coefficient-bound"></a>
 
@@ -12792,8 +12573,6 @@ To prove the assertion, Prove locally uniform convergence of the head product on
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The first head coefficient is −p^(−b₀)/(p−1), so the absolute-value estimate is essential rather than a positivity assertion.
 
@@ -12814,8 +12593,6 @@ To prove the assertion, Use the exact subgroup count by conjugate partition, ret
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For G=Z/p the subgroup sum is 2 and the p-exponent in the bound is zero; the uniform constant must absorb that factor.
 
 
@@ -12835,8 +12612,6 @@ To prove the assertion, For each profile ν expand the product of grid separator
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - With no selected primes the profile carrier is a singleton and equality of the zero moment determines its mass.
 
 
@@ -12855,8 +12630,6 @@ To prove the assertion, Convert surjection moments to homomorphism moments by th
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - At a=1 there is one quotient class, with mass 1. At a=p² the statement distinguishes Z/p² from (Z/p)²; it cannot use cardinality alone.
 
@@ -14172,8 +13945,38 @@ To prove the assertion, Parametrisation: locally soluble 5-coverings embed in �
 
 - 6 = 5 + 1 is the Poonen–Rains prediction p + 1 at p = 5.
 
-- Combined with Layer 4's rank inequality the average rank is at most (6 + 15)/20 = 1.05 using 20r − 15 ≤ 5^r; the source's sharper bound 0.885 uses root-number equidistribution (coverage remaining).
+- Combined with Layer 4's rank inequality the average rank is at most (6 + 15)/20 = 1.05 using 20r − 15 ≤ 5^r; the sharper bound 0.885 follows from the [root-balanced-family mixture](#refinement-five-full-average-rank).
 
+
+<a id="marked-quartic-factorial-moment-bound"></a>
+
+**Marked quartic factorial-moment bound.** Let F be a nonempty family of minimal short elliptic curves over Q specified by finitely many congruence conditions, with an optional discriminant sign. Write N(E)=#Sel₂(E), H(E)=max(4|A|³,27B²), and D_F(X)=#{E∈F:H(E)<X}. Then
+
+```text
+limsup_(X→∞) D_F(X)⁻¹ Σ_(E∈F,H(E)<X) (N(E)−1)(N(E)−2) ≤ 8.
+```
+
+The summand is nonnegative: N(E) is a power of two, so it is zero when N=1 or 2. It counts an ordered nonidentity first class and a second class excluding the identity and that first class. Equivalently, mark each nontrivial quartic covering of E, then remove its two distinguished second classes. The denominator is the count of elliptic curves, not the count of marked quartics.
+
+Prove this bound by inserting the [marked quartic Selmer embedding](#marked-quartic-selmer-embedding) into the smoothed orbit integral. Retain the reciprocal transporter weights on both the quartic and the fixed-A representations. Nongeneric nondistinguished orbits contribute O_F(X^(5/6−λ)) for some λ>0 after integration, rather than merely having coefficient density zero. The two distinguished classes account exactly for the subtracted 2 for every generic first class.
+
+The leading-coefficient sum requires the following uniform estimates as part of this target. If p divides a exactly once, the special integral representatives have rank at most one modulo p; their local density is p⁻⁶. For valuation j≥2 the specialness condition comes from the integral ideal-square-root construction, not just that rank-one reduction. It has a majorant with prime-power factors p⁻¹² at j=2, p⁻¹⁷ at j=3, and p^(−11j/2) at j≥4. These give a summable bound on coefficients with a large squareful part. More precisely, for small fixed θ,ε>0, the contribution with squareful part exceeding X^θ is O_F,ε(X^(5/6−θ/6+ε)); the range |a|≤(X^(1/6)/t⁴)^(1−ρ), in the quartic torus coordinate t, contributes O_F,ε(X^(5/6−ρ/6+ε)) for small fixed ρ>0. Thus neither range is estimated by multiplying an unweighted exceptional density by an unbounded Selmer size.
+
+On the complementary range use finite-level upper approximations to the actual local weights. At p^l their mass error is O(p^(−l/60)); at primes with p²|a the source's depth is increased by 360v_p(a). The modulus bound is consequently X^(361θ) before expressing it in the fixed-A size parameter. Choose θ and ρ sufficiently small in terms of the absolute saving in the [smoothed quaternary count](#refinement-smoothed-quaternary-count), then choose ε. Sum its errors over a and integrate the torus variable. The remaining local-volume error from large square divisors is controlled by Σ_(p²|a,p≥L)1/p, whose sum over |a|≤T is O(T/L²).
+
+Evaluate the main term using the same invariant differentials on PSO_A and PGL₂. The split adjoint quaternary group PSO_A is PGL₂×PGL₂ and has Tamagawa number 4, the product of the two PGL₂ values 2. The quotient (SL₂×SL₂)/diag(μ₂) is SO_A, whose remaining center must also be quotiented to obtain PSO_A. The local Kummer ratios are 2 at two, 1/2 at infinity, and 1 at odd primes. Their product is 1. Rational Jacobian constants and the fixed integral scaling cancel by the product formula, giving the bound 8 above. Smooth majorants of each sign's height region remove smoothing: let X tend to infinity before the approximation error tends to zero. Finite unions of residue conditions use disjoint curve counts and their actual denominator weights.
+
+*Needs:* [marked quartic Selmer embedding](#marked-quartic-selmer-embedding), [smoothed orbit unfolding](#refinement-smoothed-orbit-unfolding), [smoothed quaternary count](#refinement-smoothed-quaternary-count), [orbit weight as a stabilizer sum](#orbit-weight-as-a-stabilizer-sum), [local Selmer mass ratios](#local-selmer-mass-ratios), [count of curves in a large family](#count-of-curves-in-a-large-family), [Tamagawa number of PGL₂ is two](#tamagawa-number-of-pgl2-is-two), AdelicAlgebraicGroups:AA.0–AA.4 (quotient/product measures) and the split adjoint D₂ isomorphism.
+
+([[33]](#ref-33), Lemma 7.3 and Theorem 7.4, pp.41–42; Theorem 7.7 and estimates (62)–(65), pp.43–44; Lemma 7.8, pp.44–45; Proposition 7.10 through Theorem 7.14, pp.45–46; removal of smoothing, p.47. The displayed bound uses limsup; the argument does not require existence of a second-moment limit.)
+
+**Checks.**
+
+- N=1,2,4 gives respectively 0,0,6 marked pairs after excluding the two distinguished second classes. Counting N(N−1) instead would give 0,2,12.
+- The first-moment limit 3 gives average (N−1)→2. Restoring the two distinguished classes therefore changes the upper bound 8 to 12 for N(N−1).
+- Dividing this latter bound by the marked-cover denominator, asymptotic to 2D_F(X), gives 6, the marked-Jacobian bound. Multiplying two unconditioned Selmer means would instead give 9 and would not prove either statement.
+- At a square prime divisor p²|a, rank at most one modulo p alone cannot supply p⁻¹²; retain the higher-depth specialness condition.
+- The split SO₄ cover has a residual central μ₂, whereas PSO₄≅PGL₂×PGL₂ has trivial center. Computing its mass as if it were SO₄ gives the wrong group and normalization.
 
 <a id="second-moment-of-the-2-selmer-group"></a>
 
@@ -14183,9 +13986,9 @@ To prove the assertion, Parametrisation: locally soluble 5-coverings embed in �
 Throughout this assertion, F a family of elliptic curves over ℚ defined by finitely many congruence conditions F is nonempty and its height counting function tends to infinity; finite congruence conditions must admit minimal nonsingular models. Empty congruence families are excluded.
 
 
-To prove the assertion, Separate the trivial first 2-Selmer element, whose contribution is the first-moment average 3. For a nontrivial first element choose its locally soluble integral binary quartic f with leading coefficient a≠0. The second element belongs to Sel₂(J_f), with J_f≅E. Its distribution over these marked quartics is weighted by the first element; one cannot multiply two unconditioned averages. Replace f by f^mon=a⁻¹f(x,ay). The curve C_{f^mon} has a rational point and is a quadratic twist of C_f; its Jacobian has invariants (a²I,a³J). The canonical identification of the 2-torsion schemes gives an isomorphism on H¹, but does not identify the two Selmer groups. BSS Theorem 1.4 injects the original Sel₂(J_f) into (SL₄/μ₂)(Q)-orbits with determinant f^mon and supplies integral representatives after a fixed scaling κ. Count the special integral orbits with their actual height and leading-coefficient conditions. For squarefree a the specialness condition is rank≤1 modulo every p|a; it has density about a⁻⁶. The source controls errors uniformly in a using twisted Poisson summation, and treats small a and large powerful parts by unskewing into the full SL₄ representation and separate upper bounds. A fixed-a Davenport estimate does not suffice. The weighted global count, uniform errors and local mass evaluations in BSS §§5–7 bound the nontrivial-first-element contribution by 12, giving 3+12=15. The heuristic 3+2·6 on p.3 is a consistency guide, not the proof of that weighted bound. The parametrisation, sparse-orbit estimates and assembly remain explicit Layer 1/Layer 2/Layer 5 planning gaps; this node records the theorem with partial proof coverage.
+To prove the assertion, put N(E)=#Sel₂(E) and use the pointwise identity N²=(N−1)(N−2)+3N−2. The [marked quartic factorial-moment bound](#marked-quartic-factorial-moment-bound) gives upper average at most 8 for the first term, and the first-moment theorem gives average N→3. Thus the upper second moment is at most 8+9−2=15. The marked count excludes two distinguished second classes, not one. Its integral parametrization, uniform leading-coefficient estimates and mass normalization are specified in the linked parametrization and marked-count targets. This argument does not multiply two unconditioned averages or identify the Selmer groups before and after monicization.
 
-*Needs:* [family defined by local conditions](#family-defined-by-local-conditions), [invariants height and eligible pairs](#invariants-height-and-eligible-pairs), [height moments in an arithmetic family](#height-moments-in-an-arithmetic-family), [average size of the 2 selmer group is three](#average-size-of-the-2-selmer-group-is-three), [binary quartic parametrization of two selmer](#binary-quartic-parametrization-of-two-selmer), [smoothed quaternary count](#refinement-smoothed-quaternary-count).
+*Needs:* [height moments in an arithmetic family](#height-moments-in-an-arithmetic-family), [average size of the 2 selmer group is three](#average-size-of-the-2-selmer-group-is-three), [marked quartic factorial-moment bound](#marked-quartic-factorial-moment-bound), [invariants height and eligible pairs](#invariants-height-and-eligible-pairs).
 
 ([[33]](#ref-33), §1.1, Theorem 1.1, p. 2 (arXiv v1); [[33]](#ref-33), §1.1, p. 2 (arXiv v1).)
 
@@ -14234,8 +14037,6 @@ To prove the assertion, Use Layer 0 coefficient models and the actual local clos
 
 - Taking every local coefficient set empty is not admissible: a₀=1 and a_i=0 for i>0 has the local point (x,y,z)=(1,0,1) for every prime, including the generic n=0 interface.
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 
 <a id="refinement-degree-one-arithmetic-comparison"></a>
 
@@ -14248,12 +14049,6 @@ To prove the assertion, Apply the Picard/Brauer obstruction sequence and global-
 *Needs:* SchemeAndStackFoundations:SF.3 (unpointed degree torsors), SchemeAndStackFoundations:SF.3 (Picard–Brauer obstruction), TauCetiRoadmap.ClassFieldTheory Layer 10.
 
 ([[110]](#ref-110), Introduction pp.1–4, Theorems 1,2,12.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-generic-weierstrass-class"></a>
@@ -14290,12 +14085,6 @@ To prove the assertion, Use the finite transporter/stabilizer formula already ow
 ([[110]](#ref-110), §11 pp.31–32, (19) and cited weight factorisation.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-pencil-selmer-weighted-count"></a>
 
 
@@ -14307,12 +14096,6 @@ To prove the assertion, Scale the invariant by 16, using κ=4 and z↦4z; transp
 *Needs:* [integral soluble pencils](#refinement-integral-soluble-pencils), [locally soluble pencil orbits](#refinement-locally-soluble-pencil-orbits), [pencil local global weight](#refinement-pencil-local-global-weight), [orbit weight as a stabilizer sum](#orbit-weight-as-a-stabilizer-sum), [pencil finite congruence count](#refinement-pencil-finite-congruence-count).
 
 ([[110]](#ref-110), Theorem 40 pp.31–32, (18)–(20).)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 ### 4.16 Hyperelliptic local masses and the upper average
@@ -14348,12 +14131,6 @@ To prove the assertion, Use the invariant-map Jacobian formula on the regular or
 *Needs:* [hyperelliptic local mass ratio](#refinement-hyperelliptic-local-mass-ratio), [pencil local global weight](#refinement-pencil-local-global-weight), [pencil finite congruence count](#refinement-pencil-finite-congruence-count), AdelicAlgebraicGroups:AA.2.
 
 ([[110]](#ref-110), §11 p.32, two displayed mass identities.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-tamagawa-central-quotient"></a>
@@ -14438,8 +14215,6 @@ To prove the assertion, Intersect the pullbacks of the effective-divisor images 
 
 - An empty image at one place makes the restriction empty.
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 
 <a id="refinement-odd-component-bound"></a>
 
@@ -14480,8 +14255,6 @@ To prove the assertion, Count odd subsets of connected components. Each real poi
 
 - S_1(k)=1 for k>0.
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 
 <a id="refinement-real-effective-divisor-image"></a>
 
@@ -14494,12 +14267,6 @@ To prove the assertion, Compute the x−T descent value of a conjugate pair usin
 *Needs:* [restricted selmer set](#refinement-restricted-selmer-set), [odd component bound](#refinement-odd-component-bound), TauCetiRoadmap.JacobianChallenge Layer d, [field pencil stabilizers](#refinement-field-pencil-stabilizers), SchemeAndStackFoundations:SF.3 (section-free Abel maps), SchemeAndStackFoundations:SF.3 (unpointed degree torsors).
 
 ([[110]](#ref-110), Theorem 7 proof pp.33–34.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 ### 4.18 Parity in four-twist families
@@ -14521,8 +14288,6 @@ To prove the assertion, Import self-duality and the isogeny-quotient formula for
 **Checks.**
 
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 - Sha^[p] means the finite p-primary quotient modulo divisibles, rather than Sha[p]; any parity comparison between their orders must use the Poonen–Stoll pairing theorem.
 
 - The exponent n_i belongs on each factor in the Brauer product. The p=2 formula retains Sha when the polarization is not known to come from a rational divisor.
@@ -14539,12 +14304,6 @@ To prove the assertion, Use Θ={1}−H_α−H_β−H_(αβ)+2G. Each of the four
 *Needs:* [selmer regulator parity](#refinement-selmer-regulator-parity), SelmerIwasawaCohomology:L2.
 
 ([[110]](#ref-110), Corollary A.8 pp.38–39.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-four-twist-local-parity"></a>
@@ -14579,12 +14338,6 @@ To prove the assertion, Substitute y=2Y+x and divide by four. The reduced equati
 ([[110]](#ref-110), Proposition A.4 p.36.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-odd-residue-field-models"></a>
 
 
@@ -14617,12 +14370,6 @@ To prove the assertion, The prescribed coefficient residue class modulo eight, i
 ([[110]](#ref-110), Theorem A.1 p.35 and Proposition A.4 p.36.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-admissible-family-selmer-parities"></a>
 
 
@@ -14634,12 +14381,6 @@ To prove the assertion, Put small residue fields and primes above two into a fin
 *Needs:* [admissibility](#refinement-admissibility), [four twist local parity](#refinement-four-twist-local-parity), [odd residue field models](#refinement-odd-residue-field-models), [hyperelliptic model family](#hyperelliptic-model-family), [coefficient box](#coefficient-box), [large coefficient family tail](#refinement-large-coefficient-family-tail).
 
 ([[110]](#ref-110), Theorem A.2 p.35 and proof p.37.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 ### 4.19 Hyperelliptic local masses and the upper average
@@ -14658,12 +14399,6 @@ To prove the assertion, Sieve the coefficient denominator with the uniform exclu
 ([[110]](#ref-110), Theorem 6 p.3; Proposition 42 and proof pp.33–34.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 ### 4.20 Restricted Selmer sets and small odd-degree points
 
 
@@ -14678,12 +14413,6 @@ To prove the assertion, Sieve the numerator by the real effective-divisor image 
 *Needs:* [hyperelliptic average two](#refinement-hyperelliptic-average-two), [real effective divisor image](#refinement-real-effective-divisor-image), [odd component bound](#refinement-odd-component-bound), [pencil infinite weight upper bound](#refinement-pencil-infinite-weight-upper-bound).
 
 ([[110]](#ref-110), Theorem 7 pp.3,33–34.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-order-k-vanishing-average"></a>
@@ -14740,12 +14469,6 @@ To prove the assertion, Outside generic exceptions, a nonempty Sel₂(J¹) has s
 ([[110]](#ref-110), Theorem 5 p.3, introduction pp.3–4 and §12 p.34.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-positive-index-two"></a>
 
 
@@ -14757,12 +14480,6 @@ To prove the assertion, A rational point of J¹ pulls multiplication-by-two on J
 *Needs:* [positive empty selmer set](#refinement-positive-empty-selmer-set), [degree one arithmetic comparison](#refinement-degree-one-arithmetic-comparison).
 
 ([[110]](#ref-110), Theorems 1,2 pp.1–2 and Theorem 12 p.4.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-positive-nontrivial-sha-two"></a>
@@ -14778,12 +14495,6 @@ To prove the assertion, Use the cohomological Kummer exact sequence to map the t
 ([[110]](#ref-110), Corollary 3 p.2.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-degree-one-points-empty-or-infinite"></a>
 
 
@@ -14795,12 +14506,6 @@ To prove the assertion, Use the generic two-torsion and W[2] statements and the 
 *Needs:* [generic weierstrass class](#refinement-generic-weierstrass-class), [degree one arithmetic comparison](#refinement-degree-one-arithmetic-comparison), HeightsRationalPointsAndObstructions:RP.1.
 
 ([[110]](#ref-110), Remark 4 p.2.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-corrected-two-prime-criterion"></a>
@@ -14838,12 +14543,6 @@ To prove the assertion, Use the finite-to-p∞ Kummer and local comparison in Le
 ([[112]](#ref-112), Bhargava–Skinner Theorem 3 pp.2–3 and proof pp.6–8; [[114]](#ref-114), Theorem C p.332 and its surrounding hypotheses pp.331–332..)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-twisted-rank-one-selmer-criterion"></a>
 
 
@@ -14855,12 +14554,6 @@ To prove the assertion, Compare the Bloch–Kato Selmer group over K with the in
 *Needs:* SelmerIwasawaCohomology:L2, [elliptic modularity and the precise rank-one converse](#support-analytic-rank).
 
 ([[112]](#ref-112), Bhargava–Skinner Theorem 4 p.3 and proof pp.7–8; [[114]](#ref-114), Theorem B p.331; introduction pp.329–334..)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-rank-one-family"></a>
@@ -14902,8 +14595,6 @@ To prove the assertion, Replace the local reduction conditions by their discrimi
 
 - The pair (−1000,1136) satisfies the other coefficient conditions but has #E(F₅)=6, so it is excluded by the ordinary test.
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 
 <a id="refinement-rank-one-family-properties"></a>
 
@@ -14918,12 +14609,6 @@ To prove the assertion, At two, transform the short equation to a good integral 
 ([[112]](#ref-112), Lemma 14 and Lemma 15 pp.14–15; §2 pp.3–4; final proof p.17.)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 <a id="refinement-local-five-quotient-comparison"></a>
 
 
@@ -14935,12 +14620,6 @@ To prove the assertion, Import the local point-group comparison (good reduction 
 *Needs:* [genus one stabilizer schemes](#refinement-genus-one-stabilizer-schemes), NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence, SelmerIwasawaCohomology:L2.
 
 ([[112]](#ref-112), Propositions 11–12 and Theorem 7 deduction pp.11–13.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-five-selmer-local-equidistribution"></a>
@@ -15016,12 +14695,6 @@ To prove the assertion, The satisfied E and their successful D-twists have heigh
 ([[112]](#ref-112), Theorem 1 and Corollary 2 pp.1–2; final proof p.17.; [[114]](#ref-114), Theorem D p.332..)
 
 
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
-
 ### 4.24 Rational solubility of plane cubics
 
 
@@ -15036,12 +14709,6 @@ To prove the assertion, Use E(Q)/3E(Q)↪Sel₃(E) and the finite-generation ran
 *Needs:* [positive simultaneous rank one](#refinement-positive-simultaneous-rank-one), [average size of the 3 selmer group](#average-size-of-the-3-selmer-group), [ternary cubic forms and their invariants](#ternary-cubic-forms-and-their-invariants), [genus one stabilizer schemes](#refinement-genus-one-stabilizer-schemes), SelmerIwasawaCohomology:L2.
 
 ([[113]](#ref-113), Plane-cubic §1.2 pp.4–5 and Theorem 11 §3 p.8.)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 <a id="refinement-plane-cubic-height-and-orbit-transfer"></a>
@@ -15079,8 +14746,6 @@ To prove the assertion, Use the homogeneous geometry-of-numbers fundamental regi
 **Checks.**
 
 
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
-
 - A weighted orbit/multiset count implies a coefficient-vector lower count only after a uniform point-multiplicity bound is fixed.
 
 
@@ -15095,12 +14760,6 @@ To prove the assertion, Choose r so the bounded intersection F₁∩r[−1,1]^10
 *Needs:* [soluble ternary fundamental count](#refinement-soluble-ternary-fundamental-count), [coefficient box](#coefficient-box), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count, `Set.ncard` (Mathlib), `Filter.limsup` (Mathlib).
 
 ([[113]](#ref-113), Theorem 16 p.10; Theorem 2 statement p.3 and proof pp.11–13..)
-
-
-**Checks.**
-
-
-- Check all local places and the exact height denominator; retain every displayed hypothesis.
 
 
 ### 4.25 Three-Selmer rank and nonvanishing consequences
@@ -15122,8 +14781,6 @@ To prove the assertion, Import finite3-Selmer parity as the requested Dokchitser
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The finite-height minimal costs are 1 at dimension zero, 9 at nonzero even dimension and 3 at odd dimension; these yield the exact 1/4 bound.
 
 
@@ -15142,8 +14799,6 @@ To prove the assertion, Odd3-Selmer ranks are1 or at least3, hence cardinalities
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - Odd dimensions one and at least three cost 3 and at least 27; the resulting 5/12 conclusion must retain finite Sha.
 
@@ -15164,8 +14819,6 @@ To prove the assertion, Use additive dyadic reduction with unit j, the source od
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The −1 twist preserves H and acts on the constructed subfamily. The proof must establish opposite root signs there without assuming full-family root balance.
 
 
@@ -15184,8 +14837,6 @@ To prove the assertion, Import the residual representation, ordinary local condi
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - All four source conditions must be present, including ramification at the multiplicative prime distinct from three.
 
@@ -15206,8 +14857,6 @@ To prove the assertion, Intersect the root-balanced rank-zero construction with 
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The family has good ordinary reduction at three and exactly valuation one at five for its discriminant; the residual ramification check is part of acceptance.
 
 
@@ -15226,8 +14875,6 @@ To prove the assertion, Use the common algebraic-and-analytic-rank-zero subset i
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The conclusion stops at algebraic and analytic rank zero; no formula for the central-value leading coefficient is obtained.
 
@@ -15251,8 +14898,6 @@ To prove the assertion, Discard rational2-torsion using a weighted tail controll
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The pointwise bound 5·2^a−8≤4^a−2^a holds already at a=0 and a=1. The 1/5 bound has Selmer-element, rather than curve, denominator.
 
 
@@ -15275,8 +14920,6 @@ To prove the assertion, Use20r−15≤5^r for every integer r≥0. Use the cost5
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - At dimensions zero and one the rank-cost inequality 20r−15≤5^r holds, and every dimension at least two costs at least 25.
 
 
@@ -15295,8 +14938,6 @@ To prove the assertion, Use12r+1≤5^r on even r and60r−55≤5^r on odd r. At 
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - Prove the inequality using the total finite-height sum, not separately attained conditional limsups; retain the rounded constants 3/4,7/8,3/8.
 
@@ -15317,8 +14958,6 @@ To prove the assertion, Apply the finite dyadic and3-adic residue tables with mi
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - Certify the residue-class masses and remaining prime-product error sufficiently to prove density greater than 5501/10000 with the actual real-sign masses.
 
 
@@ -15337,8 +14976,6 @@ To prove the assertion, Use balanced bound3/4 on F and basic bound21/20 on its c
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The exact rational mixture is 88497/100000, strictly less than 177/200.
 
@@ -15359,8 +14996,6 @@ To prove the assertion, Apply the finite-height low-Selmer-rank bounds in F and 
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The exact mixture is 100501/120000≥67/80; lower Selmer rank bounds Mordell–Weil rank without finite Sha.
 
 
@@ -15380,8 +15015,6 @@ To prove the assertion, Use the balanced-family trivial5-Selmer proportion3/8. M
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The exact unrounded product is 16503/80000≥1031/5000.
 
 
@@ -15394,17 +15027,15 @@ To prove the assertion, Use the balanced-family trivial5-Selmer proportion3/8. M
 **Jacobian marked average.** Count locally soluble curves z²=f(x,y), with f an irreducible integral binary quartic, up to the source twisted PGL₂(Q) action, ordered by invariant height of Jac(C). The limsup average#Sel₂(Jac C) is at most6. This denominator counts the quartic genus-one objects, not unweighted elliptic Jacobians or arbitrary coefficient vectors; it is a key input to the second-moment bound≤15.
 
 
-To prove the assertion, Import the quartic-to-Jacobian carrier and quotient denominator. The requested even-degree monicization and fixed-A integral descent encode each marked curve and an additional Selmer class. Use the increasingly sparse leading-coefficient-dependent counts, cusp/tail bounds and local mass assembly, rather than multiplying two marginal means.
+To prove the assertion, transport nontrivial first Selmer elements to their locally soluble quartic coverings, using the rational-orbit weight and the invariant-height comparison. Apart from the negligible genericity exceptions controlled in the [marked quartic factorial-moment bound](#marked-quartic-factorial-moment-bound), the marked-cover denominator is Σ_E(N(E)−1)~2D_F(X), and its Selmer numerator is Σ_E N(E)(N(E)−1). The identity N(N−1)=(N−1)(N−2)+2(N−1) bounds that numerator by (8+4)D_F(X)+o(D_F(X)). Division by the positive marked denominator gives limsup at most 6. The denominator comparison here must retain the stabilizer weights until the exceptional rational stabilizers have been estimated.
 
-*Needs:* [binary quartic parametrization of two selmer](#binary-quartic-parametrization-of-two-selmer), [symmetric pencil](#refinement-symmetric-pencil), [smoothed quaternary count](#refinement-smoothed-quaternary-count), [genus one stabilizer schemes](#refinement-genus-one-stabilizer-schemes), [hyperelliptic model family](#hyperelliptic-model-family), [density denominator comparisons](#density-denominator-comparisons).
+*Needs:* [marked quartic factorial-moment bound](#marked-quartic-factorial-moment-bound), [binary quartic parametrization of two selmer](#binary-quartic-parametrization-of-two-selmer), [average size of the 2 selmer group is three](#average-size-of-the-2-selmer-group-is-three), [density denominator comparisons](#density-denominator-comparisons).
 
 ([[126]](#ref-126), Theorem 1.2, p. 2; monicization and proof assembly, Sections 3–7, pp. 13–47.)
 
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - Two distinct quartic objects with the same Jacobian contribute separately when the orbit denominator distinguishes them; the bound is a limsup at most 6.
 
@@ -15493,7 +15124,7 @@ To prove the assertion, Encode the family by a function d ↦ K_d with [K_d : �
 
 - For real fields the predicted mass of ℤ/p is c_{p,1}/(p(p − 1)), not the imaginary value c_{p,0}/(p − 1).
 
-- The predicted proportion of imaginary quadratic fields with 3 ∤ h is c_{3,0} ≈ 0.560 (EVW §1.1 prints ≈ 0.440 for 'indivisible',).
+- The predicted proportion of imaginary quadratic fields with 3 ∤ h is c_{3,0} ≈ 0.560 (EVW §1.1 prints ≈ 0.440 for indivisibility).
 
 - Changing the ordering (e.g. by |d| instead of |disc|) is a different statement until a comparison is proved (Layer 0's acceptance).
 
@@ -17806,7 +17437,7 @@ To prove the assertion, Put x_j = k_j n_j. Case A, every x_j < 0.99g: since k_j 
 <a id="model-ring-orbit-count-concentration"></a>
 
 
-**Model ring orbit count concentration.** Fix a prime p. There is g_0 = g_0(p) such that for every g ≥ g_0 and every model ring R_{L,n} = ∏_i M_{n_i}(O_{L_i}) with conjugate-transpose involution, where the L_i are distinct CM fields generated by p-Weil numbers with totally real subfields K_i and Σ_i [K_i:ℚ]n_i = g, the following holds: if the number n_{L,n} of R_{L,n}^×-orbits on the positive symmetric units of R_{L,n} (action a ↦ γ* a γ) satisfies log n_{L,n} ≥ 0.495 g² log g, then some i_0 has [K_{i_0}:ℚ] = 1 and n_{i_0} ≥ 0.99g.,.)
+**Model ring orbit count concentration.** Fix a prime p. There is g_0 = g_0(p) such that for every g ≥ g_0 and every model ring R_{L,n} = ∏_i M_{n_i}(O_{L_i}) with conjugate-transpose involution, where the L_i are distinct CM fields generated by p-Weil numbers with totally real subfields K_i and Σ_i [K_i:ℚ]n_i = g, the following holds: if the number n_{L,n} of R_{L,n}^×-orbits on the positive symmetric units of R_{L,n} (action a ↦ γ* a γ) satisfies log n_{L,n} ≥ 0.495 g² log g, then some i_0 has [K_{i_0}:ℚ] = 1 and n_{i_0} ≥ 0.99g.
 
 Throughout this assertion, p a fixed prime g ≥ g_0(p) Σ_i [K_i:ℚ]n_i = g
 
@@ -17846,7 +17477,7 @@ To prove the assertion, (The finite-field abelian counting assertion in Layer 0)
 
 - g = 1: every principally polarized abelian variety is an elliptic curve E = E^1 with 1 ≥ 0.99, so no class is bad.
 
-- The alternative B_0^m cannot be dropped without new input: principal polarizations on B_0^m have log count 2m² log m + O(m²), the same leading term per dimension as E^g ().
+- The alternative B_0^m cannot be dropped without new input: principal polarizations on B_0^m have log count 2m² log m + O(m²), the same leading term per dimension as E^g.
 
 
 ### 5.14 Spacing measures and Frobenius model obstructions
@@ -18022,7 +17653,7 @@ To prove the assertion, By most-ppavs-have-a-large-elliptic-or-real-weil-factor,
 <a id="enhanced-cohen-lenstra-fails-for-ppavs"></a>
 
 
-**Enhanced cohen lenstra fails for ppavs.** Let p be an odd prime satisfying the corrected conclusion of Lemma 5.11 and assume H1 and H2 (as in most-ppavs-have-a-large-elliptic-or-real-weil-factor). Let S be the set of primes ℓ ≠ p with ℓ < (p + 1)², and assume that for each ℓ ∈ S the limit CL_{(1,2),ℓ}(0, 0) = lim_{g→∞} Haar_g{F ∈ M_g(ℤ_ℓ) : coker(1 − F) = 0 and coker(1 − F²) = 0} exists (). Then, for (A, λ) uniform among the g-dimensional ppav classes over 𝔽_p, Prob(A(𝔽_p)[S^∞] = 0 and A(𝔽_{p²})[S^∞] = 0) → 0 as g → ∞, whereas CL_{(1,2),S}(0, 0) = ∏_{ℓ∈S} CL_{(1,2),ℓ}(0, 0) > 0. Hence the joint law of (A(𝔽_p)[S^∞], A(𝔽_{p²})[S^∞]) does not converge to CL_{(1,2),S}: the enhanced Cohen–Lenstra model does not describe this family.
+**Enhanced cohen lenstra fails for ppavs.** Let p be an odd prime satisfying the corrected conclusion of Lemma 5.11 and assume H1 and H2 (as in most-ppavs-have-a-large-elliptic-or-real-weil-factor). Let S be the set of primes ℓ ≠ p with ℓ < (p + 1)², and assume that for each ℓ ∈ S the limit CL_{(1,2),ℓ}(0, 0) = lim_{g→∞} Haar_g{F ∈ M_g(ℤ_ℓ) : coker(1 − F) = 0 and coker(1 − F²) = 0} exists. Then, for (A, λ) uniform among the g-dimensional ppav classes over 𝔽_p, Prob(A(𝔽_p)[S^∞] = 0 and A(𝔽_{p²})[S^∞] = 0) → 0 as g → ∞, whereas CL_{(1,2),S}(0, 0) = ∏_{ℓ∈S} CL_{(1,2),ℓ}(0, 0) > 0. Hence the joint law of (A(𝔽_p)[S^∞], A(𝔽_{p²})[S^∞]) does not converge to CL_{(1,2),S}: the enhanced Cohen–Lenstra model does not describe this family.
 
 Throughout this assertion, p odd, satisfying the corrected Lemma 5.11 H1 and H2 existence of CL_{(1,2),ℓ}(0,0) for ℓ ∈ S
 
@@ -18253,7 +17884,7 @@ To prove the assertion, Class groups Cl(O_L) are finite (function-field class nu
 
 - ν_1 is the Dirac mass at the trivial group (genus 0: Cl(O_L) = 0).
 
-- Using the whole class group Cl(O_L) ≅ A instead of the ℓ-part does not define a probability measure on ℓ-groups (EVW p.777 prints Cl(O_L) ≃ A; ).
+- Using the whole class group Cl(O_L) ≅ A instead of the ℓ-part does not define a probability measure on ℓ-groups (EVW p.777 prints Cl(O_L) ≃ A).
 
 
 <a id="lower-and-upper-degree-densities"></a>
@@ -18935,7 +18566,7 @@ To prove the assertion, Theorem 4.5(2)–(3) and Theorem 4.7 (IG.5) for CHur^{c,
 
 - This is the rigid pair count; dividing by |c|·|Aut_{G′}(G)| (Layer 3's conversion) gives E^+.
 
-- The printed discriminant sentence is corrected ().
+- The discriminant counts only finite ramification in the real exact slice.
 
 
 <a id="imaginary-normalized-nonabelian-moment"></a>
@@ -19299,7 +18930,7 @@ To prove the assertion, Finitely many profile values occur (API profile_mem_fini
 
 *Needs:* [moment minus component profile vanishes](#moment-minus-component-profile-vanishes), [whole fixed degree component profile](#whole-fixed-degree-component-profile), [bad type lower bound](#bad-type-lower-bound), `Filter.limsup` (Mathlib).
 
-([[50]](#ref-50), Proof of Theorem 4.8, bad case, p.24 (arXiv v2; Duke 168, p.409).)
+The finite-profile assertion follows from the elementary argument above. The arithmetic lower bound it uses is proved in [[50]](#ref-50), proof of Theorem 4.8, bad case, p.24 (arXiv v2; Duke 168, p.409); that proof does not establish eventual constancy of the profile.
 
 
 **Checks.**
@@ -19457,7 +19088,7 @@ To prove the assertion, An abelian Γ-group is admissible iff gcd(|H|, |Γ|) = 1
 <a id="refinement-lc-quadratic"></a>
 
 
-**Lc quadratic.** For a locally compact Hausdorff topological abelian group V, a continuous QuadraticMap ℤ V (ℝ/ℤ) q has a polar adjoint V ≃ₜ+ Hom_cont(V,ℝ/ℤ), with compact-open topology; its value on (x,y) is q(x+y)−q(x)−q(y). Store this homeomorphic additive equivalence, not just injectivity. Second countability is imposed on the measure theorem, not on the carrier.
+**Lc quadratic.** Locally compact quadratic data on a locally compact Hausdorff topological abelian group V consist of a continuous QuadraticMap ℤ V (ℝ/ℤ) q together with a polar adjoint V ≃ₜ+ Hom_cont(V,ℝ/ℤ), with compact-open topology; its value on (x,y) is q(x+y)−q(x)−q(y). Store this homeomorphic additive equivalence, not just injectivity. Second countability is imposed on the measure theorem, not on the carrier.
 
 Throughout this assertion, V is locally compact, Hausdorff and a topological abelian group.
 
@@ -19486,18 +19117,12 @@ To prove the assertion, Use the existing quadratic-map and continuous-homomorphi
 
 **Checks.**
 
+- On V=(Z/2)² with the discrete topology, q(x,y)=xy/2 in R/Z has polar value 1/2 on ((1,0),(0,1)), but value 0 on ((1,0),(1,0)). Its four polar characters are distinct and exhaust the character group.
 
-- q(0)=0.
+- For the same q, q(1,1)=1/2 and polar(q)((1,1),(1,1))=0=2q(1,1). Quadratic value and polar diagonal must not be identified at two.
 
-- polar(q)(x,x)=2q(x).
+- The zero quadratic map on Z/2 is continuous but its polar adjoint is zero, so it cannot define these data. On the zero group it does define the unique such data.
 
-- If q is the zero quadratic map, V is a subsingleton.
-
-- Every continuous additive character is the polar character of some x.
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
 
 
 <a id="refinement-weak-metabolic"></a>
@@ -19528,16 +19153,13 @@ To prove the assertion, Define the predicate by compactness, openness, quadratic
 
 **Checks.**
 
+- In the discrete hyperbolic plane V=(Z/2)² with q(x,y)=xy/2, each coordinate axis is compact and open, q vanishes on it, and its orthogonal is itself. Both axes are weakly metabolic.
 
-- If the whole self-dual space is weakly metabolic, V is a subsingleton.
+- The diagonal in that plane is self-orthogonal for the polar form but contains (1,1), where q=1/2. It is not weakly metabolic.
 
-- An element x∈W with q(x)≠0 precludes weak metabolicity.
+- The zero subgroup in that nonzero plane is compact, open and quadratic-isotropic, but its orthogonal is V. It is not weakly metabolic.
 
-- For finite discrete V the predicate reduces exactly to quadratic vanishing and W⊥=W.
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
+- For V=R² and q(x,y)=xy modulo Z, the x-axis is closed and quadratic-isotropic with orthogonal itself; it is neither compact nor open. It therefore fails weak metabolicity despite satisfying the algebraic conditions.
 
 
 ### 5.24 Locally compact maximal isotropics
@@ -19571,16 +19193,11 @@ To prove the assertion, Form the closed, quadratic-isotropic, self-annihilating 
 
 **Checks.**
 
+- In the discrete hyperbolic plane (Z/2)² with q(x,y)=xy/2, I(V) has exactly two points, the coordinate axes. The diagonal is polar-isotropic but is excluded because q(1,1)=1/2.
 
-- q vanishes on every element of the underlying subgroup.
+- For V=0, I(V) is a singleton. In the nonzero hyperbolic plane the zero subgroup is not a point, since its orthogonal is all of V.
 
-- Equality of underlying subgroups gives equality of points.
-
-- A weakly metabolic compact-open subgroup determines a point of I(V) in a Hausdorff ambient space.
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
+- For V=R² with q(x,y)=xy modulo Z, the x-axis is a point of I(V). It is closed and self-orthogonal with q zero, although it is not compact-open; replacing all maximal isotropics by the weakly metabolic subgroups would lose it.
 
 
 ### 5.25 Common-parity product laws
@@ -19623,10 +19240,6 @@ To prove the assertion, Use a finite dependent product indexed by Fin k. Mix the
 
 - The empty rank vector has weight 1.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 ### 5.26 Locally compact quadratic probability
 
@@ -19647,8 +19260,6 @@ To prove the assertion, Use compact-open annihilator duality to show finiteness 
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - In a finite discrete metabolic space, X=0 recovers the original finite maximal-isotropic set and the reduction map is the identity.
 
 
@@ -19667,8 +19278,6 @@ To prove the assertion, The finite reduction map has constant fibre size, giving
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - In a finite hyperbolic plane over F₂, each of its two maximal quadratic-isotropic lines has probability 1/2.
 
@@ -19689,8 +19298,6 @@ To prove the assertion, Choose an exhaustion of the countable discrete dual W* a
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - A finite hyperbolic plane has only intersection dimensions zero and one; do not assign its law the positive tail of the infinite-dimensional distribution.
 
 
@@ -19709,8 +19316,6 @@ To prove the assertion, Use the completed RestrictedProducts carrier and its com
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - For the hyperbolic finite groups with their standard isotropic subgroups, only finitely many coordinate quadratic values can be nonzero at a restricted-product point.
 
@@ -19734,8 +19339,6 @@ To prove the assertion, Use Chebotarev to inject constant cyclic classes into th
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - A constant cyclic module must give zero Sha¹ even when the associated abelian variety has nonzero Tate–Shafarevich group.
 
 
@@ -19754,8 +19357,6 @@ To prove the assertion, Import the existing A3 theta-group extension; extend it 
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - For λ=[2], retain the theta quadratic refinement and the symmetric-sheaf hypothesis; a polar alternating pairing alone cannot certify quadratic isotropy.
 
@@ -19778,8 +19379,6 @@ To prove the assertion, Sum separately over the two parity classes; factor each 
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The empty selection has every moment 1; primes 2 and 3 have joint first cardinality moment 12.
 
@@ -19817,10 +19416,6 @@ To prove the assertion, Express the precise finite-height averaging assertion on
 
 - n=6,m=1 predicts 12, while independent distribution convergence is insufficient to prove it.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 <a id="refinement-odd-degree-jacobian-conjecture"></a>
 
@@ -19854,10 +19449,6 @@ To prove the assertion, Request the fixed-global-field coefficient-height model 
 - The Selmer cardinality prediction at n=1 is 1.
 
 - Isomorphic Jacobians from different coefficient models retain their model multiplicities.
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
 
 
 <a id="refinement-even-genus-two-selmer-conjecture"></a>
@@ -19893,10 +19484,6 @@ To prove the assertion, Request the fixed-global-field coefficient-height model 
 
 - No assertion is obtained for g=1 from this proposition.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 ### 5.29 Integral orthogonal Grassmannians and rank strata
 
@@ -19917,8 +19504,6 @@ To prove the assertion, Import the general bounded Oesterlé measure with reduct
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For X=P¹ over Z_p, total mass is (p+1)/p and every level-e point cylinder has probability 1/((p+1)p^(e−1)).
 
 
@@ -19937,8 +19522,6 @@ To prove the assertion, Import the generic Grassmannian, universal subbundle and
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - OGr₀ is a point and OGr₁ has two points in each fibre, including characteristic two; the latter is not the whole projective line.
 
@@ -19959,8 +19542,6 @@ To prove the assertion, Use the requested integral component morphism to Spec(Z�
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - At n=1, the two coordinate isotropic lines lie in different components because their intersection dimension is zero.
 
 
@@ -19980,8 +19561,6 @@ To prove the assertion, Use the finite-field maximal-isotropic count at e=1. Eac
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For n=2,p=2,e=2 the formula gives 12 direct-summand points; n=1 gives 2 at every prime-power level.
 
 
@@ -20000,8 +19579,6 @@ To prove the assertion, Use the fixed parity component and determinantal interse
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - At n=2,r=2 the locus is a point and is null for the dimension-one ambient measure; it still has its own normalized intrinsic point mass.
 
@@ -20025,8 +19602,6 @@ To prove the assertion, Import the A_r formula and its mass-one proof. Use the S
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For the trivial symplectic p-group, the mass is ∏_{i≥r+1}(1−p^(1−2i)); the first factor changes when r increases.
 
 
@@ -20045,8 +19620,6 @@ To prove the assertion, Apply Mathlib’s infinite product measure to the finite
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - At r=1 the nontriviality probability is O(p^(−3)), so infinitely many nontrivial components have probability zero.
 
@@ -20067,8 +19640,6 @@ To prove the assertion, Apply Mathlib’s infinite product measure to the finite
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For P consisting of one prime the group is finite almost surely; for the set of all primes it is infinite almost surely.
 
 
@@ -20088,8 +19659,6 @@ To prove the assertion, Use the symplectic mass formula as a formal power-series
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For N=1 the sum is 1; for N=p the sole order-p² symplectic group has weight p/(p²−1).
 
 
@@ -20108,8 +19677,6 @@ To prove the assertion, For mean-zero f truncate the absolutely summable P-group
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - For f the indicator that the P-primary part is trivial, the limit is c_P; absolute summability is required before the truncation step.
 
@@ -20150,10 +19717,6 @@ To prove the assertion, Express the precise finite-height averaging assertion on
 
 - For q=4, Z/4 has2 injections from Z/4, whereas (Z/2)^2 has0 despite equal cardinality.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 <a id="refinement-kummer-direct-summand"></a>
 
@@ -20170,8 +19733,6 @@ To prove the assertion, For every m|n, the m-torsion Kummer sequence lifts an or
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - At n=1 both the Kummer image and the quotient cohomology are zero; in characteristic p, n=p must use fppf cohomology.
 
@@ -20191,8 +19752,6 @@ To prove the assertion, Apply the local algebraic splitting theorem. Outside the
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - A complement tuple with nonzero entries at infinitely many good places is excluded unless those entries belong to the integral reference subgroups.
 
@@ -20230,10 +19789,6 @@ To prove the assertion, Express the precise finite-height averaging assertion on
 
 - In characteristic2 the denominator does not use short Weierstrass equations.
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
-- All named API statements and all discriminating tests below must hold with these carriers and conventions.
-
 
 <a id="refinement-trivial-action-global-splitting"></a>
 
@@ -20250,8 +19805,6 @@ To prove the assertion, The Weil pairing gives µ_n⊂k and E[n]≅µ_n². For e
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - At n=1 the assertion is tautological; at larger n retain both trivial torsion action and invertibility of n in k.
 
@@ -20276,8 +19829,6 @@ To prove the assertion, apply the general-abelian orbit count in Layer 2, whose 
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - For a local-ratio-one subfamily the formula predicts mean 2. Keep the height and Haar conventions when passing from elliptic to higher-dimensional A.
 
 
@@ -20296,8 +19847,6 @@ To prove the assertion, Use the requested general-abelian isogeny-chain exact se
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - An endomorphism acting as identity on one product factor cannot use its degree to infer a positive uniform index bound on that factor; the additional c hypothesis is mandatory.
 
@@ -20318,8 +19867,6 @@ To prove the assertion, Mordell–Weil finite generation computes the3-quotient 
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - On a free Mordell–Weil group of rank r, the quotient by three has exactly 3^r elements; torsion can only increase that index.
 
 
@@ -20338,8 +19885,6 @@ To prove the assertion, Pass to the finite3-torsion splitting extension. Use the
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The torsion-splitting extension and complete flag factor [3]; all twist averages then use L-squareclasses, not the old F denominator.
 
@@ -20360,8 +19905,6 @@ To prove the assertion, On a signed t=m stratum, use Cassels’ formula to compa
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - On t=0 the rank bound is 1; on |t|=1 it is 4/3. The strata must have the established local densities.
 
 
@@ -20381,8 +19924,6 @@ To prove the assertion, Use archimedean Selmer ratios and the finite-place attai
 **Checks.**
 
 
-- Retain every stated hypothesis and the exact normalization and convergence mode.
-
 - The imaginary-quadratic conclusion is positive density of the union of algebraic ranks zero and one; neither individual density is asserted.
 
 
@@ -20401,8 +19942,6 @@ To prove the assertion, Use E_k:y²=x³+(4^k·3^8+27)(x+4)² with k satisfying t
 
 **Checks.**
 
-
-- Retain every stated hypothesis and the exact normalization and convergence mode.
 
 - The example must work for every squareclass after one finite choice of k satisfying the local conditions; it is not an average-only lower bound.
 
@@ -20872,7 +20411,7 @@ AnalyticNumberTheory uses the invariant and local-count interfaces. Field-counti
 
 <a id="ref-83"></a>
 
-[83] Bjorn Poonen, José Felipe Voloch. [Random Diophantine equations](https://math.mit.edu/~poonen/papers/random.pdf). Author PDF dated 19 June 2003, 8 pages; published pp.175–184 (2004),.
+[83] Bjorn Poonen, José Felipe Voloch. [Random Diophantine equations](https://math.mit.edu/~poonen/papers/random.pdf). Author PDF dated 19 June 2003, 8 pages; published pp.175–184 (2004).
 
 
 <a id="ref-84"></a>

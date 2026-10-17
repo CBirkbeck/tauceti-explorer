@@ -151,6 +151,24 @@ example : invI (⟨0, 1, 0, -1, 0⟩ : BinaryQuartic (ZMod 3)) = 0 ∧
 end BinaryQuartic
 
 /-! ## Layer 1: Integral orbit dictionaries -/
+namespace BinaryQuartic
+variable {R : Type*} [CommRing R]
+
+/-- Polynomial monicization; the geometric twist comparison additionally requires `a ≠ 0`. -/
+def monicize (f : BinaryQuartic R) : BinaryQuartic R :=
+  ⟨1, f.b, f.a * f.c, f.a ^ 2 * f.d, f.a ^ 3 * f.e⟩
+
+/-- Monicization scales the integral invariants without division by 27. -/
+theorem monicize_invariants (f : BinaryQuartic R) :
+    invI (monicize f) = f.a ^ 2 * invI f ∧
+    invJ (monicize f) = f.a ^ 3 * invJ f ∧
+    disc (monicize f) = f.a ^ 6 * disc f := by sorry
+
+example : monicize (⟨2, 3, 5, 7, 11⟩ : BinaryQuartic ℤ) = ⟨1, 3, 10, 28, 88⟩ := by sorry
+example : monicize (⟨0, 3, 5, 7, 11⟩ : BinaryQuartic ℤ) = ⟨1, 3, 0, 0, 0⟩ := by sorry
+
+end BinaryQuartic
+
 namespace Orbits
 
 /-- Plücker coordinates of the two rows in the quartic coefficient convention. -/
@@ -645,6 +663,8 @@ their self-dual determinant interfaces are specified with the Layer 4 parity tar
 The full ring/resolvent and covering dictionaries, arithmetic field and Selmer
 asymptotics, uniform sieve estimates, finite-group laws, and Hurwitz component limits
 remain the end theorems of the README, with their exact hypotheses and source locators.
+These include the marked quartic Selmer embedding and its factorial-moment bound;
+the geometric monicization comparison uses the original curve's local Kummer images.
 -/
 
 end TauCetiRoadmap.ArithmeticStatistics
