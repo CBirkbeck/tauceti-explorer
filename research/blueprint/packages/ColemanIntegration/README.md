@@ -25,7 +25,7 @@ It leaves to other roadmaps, and imports:
 - **PadicDifferentialEquationsAndRigidCohomology** Layers RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18 and RD.4–RD.6: Frobenius lifts on weak completions and the finite-order linear algebra of Frobenius; diagonal-tube charts, the Taylor convergence criterion and the connection/stratification equivalence; rigid cohomology, its finite-dimensionality, independence of choices and Frobenius weights.
 - **PadicMeasuresIwasawaAlgebras** Layers L2 and L3: bounded Mahler–Amice theory over O_K, continuous rotation and residue-class integrals; evaluation of pseudomeasures at nontrivial characters.
 - **LocallyAnalyticDistributions** Layer L1: locally analytic distributions on ℤ_p, their Amice transforms onto R⁺ and restriction to ℤ_p^×.
-- **DirichletPadicLFunctions** Layers L0–L3, the other roadmap of this arithmetic bundle together with ComputationalNumberTheory: Gauss-sum conventions, smoothing measures, character measures and the Kubota–Leopoldt normalization (RJW Definition 5.18). It imports the logarithm branches of Layer L0 and supplies measures and L-functions to Layer L3.
+- **DirichletPadicLFunctions** Layers L0–L3: Gauss-sum conventions, smoothing measures, character measures and the Kubota–Leopoldt normalization (RJW Definition 5.18 and Remark 5.19, p. 35). This earlier roadmap supplies the arithmetic objects consumed in Layer L3 and constructs its own Iwasawa logarithm on finite extensions of ℚ_p. The branches on ℂ_p and their Iwasawa specialization remain the constructions of L0.15 and L0.18 here; agreement on finite extensions follows from their common principal-unit series and normalization at p (L0.17–L0.18).
 - **TauCetiRoadmap AdelicAlgebraicGroups** §2.4 (convergence factors): finite-image complex Artin factors on inertia invariants, their induction formula and the Euler product, consumed by L3.Fd.1.
 - **TauCetiRoadmap RepresentationTheory**, the induction–restriction roadmap, Layer 6: the virtual character ring and Brauer's induction theorem, consumed by L3.Fd.2.
 - **TauCetiRoadmap GrothendieckEulerForms** Layers 0–2 and **AlgebraicVectorBundles** L0A–L0C: exact structures and K₀, finite locally free sheaves and their polynomial operations, consumed by L3.Fa.1. Higher K-theory and Adams operations are constructed here.
@@ -84,14 +84,14 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 - **IntegralHeckeAndGaloisDeterminants**, §6.4: the Koszul complex of a linear functional and its maps; exactness locally for a regular sequence. L3.Fa.1 uses the tautological functional over Sym(E), takes homogeneous components and glues them for a vector bundle E.
 - **JacobianChallenge**, Layer B: genus, Riemann–Roch and Serre duality for a smooth proper geometrically integral curve over a field with a rational point (the current library has `SchemeWeilDivisor.eulerCharBelow_sheaf_eq_relativeDegree_add_one_sub_genus` and `SchemeWeilDivisor.cohomologyOneDualEquivCohomologyZero`). L1.9 supplies the additional differential/canonical-sheaf comparison, extends scalars to supply a rational point and uses geometric integrality for the constant field.
 
-### From other roadmaps (lower tiers, and this bundle)
+### From other roadmaps
 
 - **AdicSpacesPartII F1, R2, R3** — as listed under Scope; L1 states its carriers (wide opens, dagger algebras A⁺ and differentials Ω⁺) as these suppliers construct them.
 - **PadicHodgeTheory P7** — the Laurent carrier O_K(A(e; r, s)) of an annulus with |a_n|ρ^n → 0 for ρ ∈ (r, s), its restriction maps and Gauss norms; L0.11 defines the residue on it.
 - **PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18, RD.4–RD.6** — diagonal-tube charts, the Taylor convergence criterion and the connection/stratification equivalence (L1.21); Frobenius lifts and homotopies between them, rigid cohomology of smooth curves with its finiteness and independence of the lift, and the Frobenius weights used in L1.8 and L3.Fb.3.
 - **PadicMeasuresIwasawaAlgebras L2, L3** — bounded measures with O_K coefficients, their Amice transforms, rotation by p-power roots of unity, residue-class values, and pseudomeasure values at nontrivial characters.
 - **LocallyAnalyticDistributions L1** — D^la(ℤ_p, K), the Amice isomorphism onto R⁺, multiplication by x and restriction to ℤ_p^×.
-- **DirichletPadicLFunctions L0–L3** — the Gauss sum G(θ⁻¹) with a chosen primitive root, the smoothing measure μ_b with Amice transform 1/T − b/((1 + T)^b − 1), the measures μ_θ, the Teichmüller character and the p-adic L-function L_p(θ, s) of RJW Definition 5.18 for odd p.
+- **DirichletPadicLFunctions L0–L3** — the Gauss sum G(θ⁻¹) with a chosen primitive root, the smoothing measure μ_b with Amice transform 1/T − b/((1 + T)^b − 1), the measures μ_θ, the Teichmüller character and the p-adic L-function L_p(θ, s) of RJW Definition 5.18 and Remark 5.19, p. 35, for odd p. Its independently constructed arithmetic logarithm agrees, after embedding the finite coefficient field in ℂ_p, with the restriction of L0.18: both are homomorphisms, agree with the principal-unit series and vanish at p. The uniqueness statement of L0.17 proves this comparison; the construction of L0 does not require that arithmetic logarithm.
 
 ## How to read the build
 
@@ -360,10 +360,12 @@ Standing hypotheses of this target: p prime; a in ℂ_p. As a Lean function on a
 **Checks.**
 
 - padicLogBranch p a p = a and padicLogBranch p a 1 = 0.
+- Every branch kills −1, including at p = 2; this is a torsion identity, not an injectivity assertion on all principal units.
 - For p = 3 and every a: log_a(4) = 3 + 2*3^2 + 3^3 + 2*3^5 + 2*3^6 + 3^8 + 2*3^10 + 3^11 modulo 3^12 (PARI/GP).
 - For p = 5 and ζ in Q_5 with ζ^4 = 1 and ζ = 2 mod 5: log_a(ζ) = 0; and log_a(-2) = log_a(16)/4.
 - On the open ball of radius 1 around 1 the branch equals Tau Ceti's `NormedSpace.logOneAdd` composed with u↦1 + u.
 - The series sum (-1)^(n+1) (x - 1)^n/n diverges at x = p, so no branch is given by one power series on ℂ_p^x.
+- The zero function fails `IsLogBranch` for every a: even at a = 0 it fails the nonzero logarithm at a sufficiently small nontrivial principal unit. Two branches satisfying the same series and normalization agree at every nonzero point; their unrestricted values at 0 need not agree.
 
 ### L0.16 Changing the branch of the logarithm
 
@@ -374,6 +376,12 @@ Standing hypotheses of this target: p prime; a in ℂ_p. As a Lean function on a
 *In `Suggested.lean`:* `logBranch_sub`.
 
 *Needs:* L0.15, L0.14, `Real.logb`.
+
+**Checks.**
+
+- At x = p, log_b(p) − log_a(p) = b − a.
+- At x = p², log_b(p²) − log_a(p²) = 2(b − a), fixing the sign and the normalization v_p(p) = 1; this also holds at p = 2.
+- At any unit x, the difference is zero. A formula with an arbitrary nonzero branch difference on units would contradict their common principal-unit series and the finite-order residue-field reduction.
 
 ### L0.17 Compatibility of the branches with automorphisms and finite extensions
 
@@ -388,7 +396,7 @@ Standing hypotheses of this target: a in ℂ_p; for (b) and (c), K and L are fin
 
 ### L0.18 The Iwasawa logarithm log_p
 
-**Definition.** The Iwasawa branch of the p-adic logarithm is log_p := log_0 (L0.15): the unique group homomorphism ℂ_p^x→ℂ_p that is the series log(1 + u) on 1 + m_{ℂ_p} and satisfies log_p(p) = 0. It is equivariant under every continuous field automorphism of ℂ_p, maps K^x into K for finite extension K of ℚ_p inside ℂ_p, and log_a = log_p + a v_p. This is the branch used for the statements about L-values in Layer L3 and imported by DirichletPadicLFunctions L3. (RJW Thm. 6.1(ii), p. 36; F §2.1, p. 7.)
+**Definition.** The Iwasawa branch of the p-adic logarithm is log_p := log_0 (L0.15): the unique group homomorphism ℂ_p^x→ℂ_p that is the series log(1 + u) on 1 + m_{ℂ_p} and satisfies log_p(p) = 0. It is equivariant under every continuous field automorphism of ℂ_p, maps K^x into K for finite extension K of ℚ_p inside ℂ_p, and log_a = log_p + a v_p. This is the branch used for the statements about L-values in Layer L3. For K inside ℂ_p finite over ℚ_p, its restriction agrees with any independently constructed homomorphism ℓ_K : K^× → K that has the same principal-unit series and ℓ_K(p) = 0: for x^N p^(−m) in 1 + m_K, both values multiplied by N equal log(x^N p^(−m)). This comparison identifies the arithmetic logarithm used in the supplier's L-values without making its construction depend on Coleman integration. (RJW Thm. 6.1(ii), p. 36; F §2.1, p. 7.)
 
 Standing hypotheses of this target: p prime.
 
@@ -398,6 +406,7 @@ Standing hypotheses of this target: p prime.
 - `iwasawaLog_map`: iwasawaLog p (σ x) = σ (iwasawaLog p x) for continuous field automorphism σ of ℂ_p.
 - `iwasawaLog_mem_of_finite`: For K a finite extension of ℚ_p inside ℂ_p and x in K^x, iwasawaLog p x lies in K.
 - `iwasawaLog_of_unit`: On units of O_{ℂ_p} the Iwasawa logarithm agrees with every branch.
+- `iwasawaLog_eq_normalizedLog`: For a finite extension K of ℚ_p inside ℂ_p and a homomorphism ℓ_K : K^× → K agreeing with the principal-unit series and vanishing at p, the inclusion of ℓ_K(x) into ℂ_p equals iwasawaLog p x for every x ∈ K^×.
 
 *Construction.* Specialise L0.15 at a = 0. Galois equivariance and values in finite extensions: L0.17 with σ(0) = 0. Relation to other branches: L0.16.
 
@@ -407,6 +416,7 @@ Standing hypotheses of this target: p prime.
 **Checks.**
 
 - iwasawaLog p (p^k) = 0 for all k.
+- At p = 2, iwasawaLog 2 (−1) = 0 and iwasawaLog 2 4 = 0; the principal-unit logarithm condition alone does not fix the value at 2, whereas the normalization does.
 - In Q_3: iwasawaLog 3 63 = iwasawaLog 3 7.
 - iwasawaLog commutes with every continuous ℚ_p-automorphism σ of ℂ_p. If σ(a)≠a, then log_a does not commute with σ, as evaluation at p shows. An algebraic a with a nontrivial conjugate gives a discriminating example; no assertion about the fixed field of all automorphisms is needed.
 - padicLogBranch p 1 agrees with iwasawaLog on units but padicLogBranch p 1 p = 1≠0.
@@ -2962,7 +2972,6 @@ Layers L0–L2; DirichletPadicLFunctions L0–L3; PadicMeasuresIwasawaAlgebras L
 
 ## Downstream consumers
 
-- **DirichletPadicLFunctions** (same bundle): the logarithm branches and the Iwasawa logarithm of Layer L0, and Coleman's formula of Layer L3 for the values of L_p at positive integers.
 - **AnabelianGeometryAndNonabelianChabauty**: the word algebra, Coleman functions, the uniqueness principle and the punctured-line polylogarithms (Layers L1–L2), as the depth-n quotients of the unipotent fundamental group and their Coleman realizations.
 - **EffectiveDiophantineMethods**: Coleman integrals on curves (Layer L1) for Chabauty–Coleman bounds.
 - **Polylogarithms**, **BorelRegulators**, **PadicHodgeRegulators** and **EllipticRegulators**: Coleman's polylogarithms (Layer L2), the modified polylogarithm and the syntomic regulator of cyclotomic elements, and the regulator foundations L3.Fa.1–L3.Fd.2.

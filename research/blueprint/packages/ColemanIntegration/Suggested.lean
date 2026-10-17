@@ -233,6 +233,45 @@ example {L L' : ℂ_[p] → ℂ_[p]} (hL : IsLogBranch p 0 L)
     (hL' : IsLogBranch p 1 L') : L' p - L p = 1 := by
   sorry
 
+/-- Evaluation at `p · p` fixes the sign and valuation normalization at `p²`. -/
+example {a b : ℂ_[p]} {L L' : ℂ_[p] → ℂ_[p]}
+    (hL : IsLogBranch p a L) (hL' : IsLogBranch p b L') :
+    L' ((p : ℂ_[p]) ^ 2) - L ((p : ℂ_[p]) ^ 2) = 2 * (b - a) := by
+  sorry
+
+/-- Every branch kills the multiplicative identity and the order-two root of unity. -/
+example {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]} (hL : IsLogBranch p a L) :
+    L 1 = 0 ∧ L (-1) = 0 := by
+  sorry
+
+/-- The principal-unit series and normalization identify independent branch constructions
+on nonzero inputs; the predicate leaves the value at zero unrestricted. -/
+example {a : ℂ_[p]} {L L' : ℂ_[p] → ℂ_[p]}
+    (hL : IsLogBranch p a L) (hL' : IsLogBranch p a L') :
+    Set.EqOn L L' {x | x ≠ 0} := by
+  sorry
+
+/-- Different normalizations still agree on every unit of the valuation ring. -/
+example {a b : ℂ_[p]} {L L' : ℂ_[p] → ℂ_[p]}
+    (hL : IsLogBranch p a L) (hL' : IsLogBranch p b L') {x : ℂ_[p]} (hx : ‖x‖ = 1) :
+    L' x = L x := by
+  sorry
+
+open Classical in
+/-- A change only at zero preserves the branch predicate, whose laws concern nonzero inputs. -/
+example {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]} (hL : IsLogBranch p a L) (c : ℂ_[p]) :
+    IsLogBranch p a (Function.update L 0 c) := by
+  sorry
+
+/-- The Iwasawa specialization is valid also at `p = 2`: torsion and powers of `2` vanish. -/
+example {L : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 0 L) :
+    L (-1) = 0 ∧ L 4 = 0 := by
+  sorry
+
+/-- The normalization at `3` removes the factor `9` in `63 = 9 · 7`. -/
+example {L : ℂ_[3] → ℂ_[3]} (hL : IsLogBranch 3 0 L) : L 63 = L 7 := by
+  sorry
+
 /-- The zero function fails the principal-unit logarithm condition. -/
 example (a : ℂ_[p]) : ¬ IsLogBranch p a (fun _ => 0) := by
   sorry
@@ -576,7 +615,8 @@ end PositiveIntegerValues
 
 * L0: annulus residues and logarithmic primitives (L0.11–L0.12, L0.20–L0.25); the
   constructions of valuation and logarithm branches, Iwasawa logarithm and local-field
-  compatibility (L0.14–L0.18). The branch existence and change milestones are stated above.
+  compatibility, including comparison with an independently normalized logarithm on a finite
+  extension (L0.14–L0.18). The branch existence and change milestones are stated above.
 * L1: good-reduction pairs, wide opens, dagger algebras, logarithmic ends and Frobenius lifts
   (L1.1–L1.6); coordinate maps, change of basis and iteration of Frobenius data (L1.7);
   their geometric existence and the differential/dualizing-sheaf comparison (L1.9); the
