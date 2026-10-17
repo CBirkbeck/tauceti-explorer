@@ -2,7 +2,7 @@
 
 This roadmap plans the theory of Shimura data that lies beyond what the open TauCetiRoadmap pull requests already state. Revision 4 (job BP-ShimuraData~4, 17 October 2026) follows the maintainer's instruction: Shimura data are treated in full generality — Deligne's axioms, the reflex field, canonical models — with the PEL and Hodge-type cases as specialisations, and ShimuraVarieties and PELModuli, which are open upstream pull requests, own what they state. This document therefore *consumes* their statements and plans only the rest.
 
-The plan has 54 declaration-sized nodes in six layers, all **planned** and none closed; every node keeps implementation status *unchecked*. Seventy-four nodes of revision 3 are superseded by upstream statements of the same targets; each is listed below with its owner, and the 126 prerequisites in seven other packets that cited them are listed in the packet's `consumerRetargets`. A restructure proposal (end of this document) reverses the atlas edges to ShimuraVarieties and PELModuli and merges D0 into D5 and D2 into D3. The independent review REV-ShimuraData~4 accepted this revision with corrections (section *Review status* at the end).
+The plan has 56 declaration-sized nodes in six layers, all **planned** and none closed; every node keeps implementation status *unchecked*. Seventy-four nodes of revision 3 are superseded by upstream statements of the same targets; each is listed below with its owner, and the prerequisites in seven other packets that cited them are listed in the packet's `consumerRetargets`. A restructure proposal (end of this document) reverses the atlas edges to ShimuraVarieties and PELModuli and merges D0 into D5 and D2 into D3. The independent review REV-ShimuraData~4 accepted revision 4 with corrections (section *Review status*). Revision 5 (BP-ShimuraData~5) answers the requests other roadmaps address to these stages, among them two new D4 nodes on Lovering's distinguished data, consumes ComplexKahlerGeometry §K4 for holomorphic flat bundles, and turns every acceptance line into a check (section *Revision 5*).
 
 ## Scope and ownership
 
@@ -14,10 +14,12 @@ The plan has 54 declaration-sized nodes in six layers, all **planned** and none 
 - AdelicAlgebraicGroups (pull request #792, head 241d5d6a9b): functoriality and discreteness of adelic points (§1.3), restriction of scalars on adelic points (§1.4), compactness of anisotropic arithmetic quotients (§3.4), neat elements and levels and the distance of `p`-adic roots of unity from one (§4.3).
 - ArithmeticLocallySymmetricSpaces (pull request #871, head e7e16145f2): real points as Lie groups (§ALS.F.1) and Cartan involutions (§§ALS.0.1–0.2).
 - AbelianSchemesAndArithmeticModuli (pull request #849): the polarized Hodge structure `H¹(A, ℚ)` of a complex abelian variety (§§A5.2, A5.5).
+- ComplexKahlerGeometry (pull request #953, head 8b03be51f4), §K4: holomorphic connections, parallel local frames, and the equivalence of groupoids between flat holomorphic connections, flat smooth `ℂ`-linear connections and finite-rank `ℂ`-local systems (`L ⊗ O` with `1 ⊗ d`), natural in holomorphic pullback. It supplies the holomorphic flat bundle of a variation (D3).
+- ComplexManifolds (pull request #279, head 275ce8b253), Milestone 7: holomorphic vector bundles on Mathlib's `VectorBundle`, with pullback, direct sums, duals and tensor operations, which §K4 consumes.
 
-In the atlas these upstream roadmaps are still represented by the proposed roadmaps of the same names, so the packet cites them through their atlas stages: ShimuraVarieties §§P.1–P.5 through `ShimuraVarieties:V0` (the layer those sections precede), PELModuli through `PELModuli:M0` and `PELModuli:M5`, the others through their own stage ids; each citation has a supplier request naming the exact upstream section.
+In the atlas these upstream roadmaps are still represented by the proposed roadmaps of the same names, so the packet cites them through their atlas stages: ShimuraVarieties §§P.1–P.5 through `ShimuraVarieties:V0` (the layer those sections precede), PELModuli through `PELModuli:M0` and `PELModuli:M5`, the others through their own stage ids; each citation has a supplier request naming the exact upstream section. ComplexKahlerGeometry and ComplexManifolds are not yet atlas roadmaps; they are cited in the text and in the packet's `upstreamImports`, and a gap records that their registration is the only missing step.
 
-**What this roadmap owns.** The rational-weight criterion; Mumford–Tate groups, their connectedness and reductivity, and Hodge genericity (D1). Uniqueness of the complex structure on `X` (D2). Variations of Hodge structure in general, with morphisms and rational and integral polarizations; the filtration parabolic; the compact dual and its descent to the reflex field; Kostant representatives and the integral Bruhat and Schubert geometry of `P\G` (D3). The additional axioms SV2\*, SV4, SV5, SV6, the SV5 criterion, PEL type, the PEL–Hodge–abelian–preabelian implications, preabelian type, and the lifting of connected data to full data (D4). The restriction-of-scalars Hilbert datum and its comparison with the scalar-determinant datum, the Siegel compact dual, the Siegel and genus-two coordinate dictionaries, adelic neatness and the unipotent-Iwahori neatness criterion (D5). The two Hilbert point comparisons (D0).
+**What this roadmap owns.** The rational-weight criterion; Mumford–Tate groups, their connectedness and reductivity, and Hodge genericity (D1). Uniqueness of the complex structure on `X` (D2). Variations of Hodge structure in general, with morphisms, subvariations, kernels, direct sums and orthogonal splittings, and rational and integral polarizations; the filtration parabolic; the compact dual and its descent to the reflex field; Kostant representatives and the integral Bruhat and Schubert geometry of `P\G` (D3). The additional axioms SV2\*, SV4, SV5, SV6, the SV5 criterion, PEL type, the PEL–Hodge–abelian–preabelian implications, preabelian type, the lifting of connected data to full data, preabelian type for connected data, and Lovering's distinguished data `B(G^der, X⁺, E)` with their centre and Levi identities (D4). The restriction-of-scalars Hilbert datum and its comparison with the scalar-determinant datum, the Siegel compact dual, the Siegel and genus-two coordinate dictionaries, adelic neatness and the unipotent-Iwahori neatness criterion (D5). The two Hilbert point comparisons (D0).
 
 ## Conventions
 
@@ -29,7 +31,7 @@ In the atlas these upstream roadmaps are still represented by the proposed roadm
 
 ## Generality: axioms, reflex field, canonical models, PEL and Hodge type
 
-Deligne's definition of a Shimura datum is used without restriction to PEL, Hodge or abelian type: `TauCeti.Shimura.PureDatum` of ShimuraVarieties §P.1 imposes SV1–SV3 only, and the further conditions are separate predicates (D4/additional-axioms). The reflex field `E(G,X)` is the field of definition of the conjugacy class of `μ_h` (ShimuraVarieties §P.3); D3/reflex-flag-descent descends the compact dual to it as the variety of parabolics of the Galois-stable type, without assuming a rational representative. Canonical models — the condition (§4.4), uniqueness (§4.12) and existence for every pure datum (§7.14) — are ShimuraVarieties'; nothing about them is planned again here, and the predicates of D4 are the hypotheses their consumers impose. The specialisations are predicates with witnesses: PEL type through PELModuli §M0.12's Shimura datum of a PEL datum (D4/pel-type), Hodge type and abelian type as in ShimuraVarieties §P.1, and preabelian type as in Hansen–Johansson (D4/preabelian-type), with PEL ⇒ Hodge ⇒ abelian ⇒ preabelian and no converse (D4/type-implications). D4/connected-datum-lift shows that nothing is lost by working with full data: every connected datum is the connected datum of a full datum satisfying every axiom.
+Deligne's definition of a Shimura datum is used without restriction to PEL, Hodge or abelian type: `TauCeti.Shimura.PureDatum` of ShimuraVarieties §P.1 imposes SV1–SV3 only, and the further conditions are separate predicates (D4/additional-axioms). The reflex field `E(G,X)` is the field of definition of the conjugacy class of `μ_h` (ShimuraVarieties §P.3); D3/reflex-flag-descent descends the compact dual to it as the variety of parabolics of the Galois-stable type, without assuming a rational representative. Canonical models — the condition (§4.4), uniqueness (§4.12) and existence for every pure datum (§7.14) — are ShimuraVarieties'; nothing about them is planned again here, and the predicates of D4 are the hypotheses their consumers impose. The specialisations are predicates with witnesses: PEL type through PELModuli §M0.12's Shimura datum of a PEL datum (D4/pel-type), Hodge type and abelian type as in ShimuraVarieties §P.1, and preabelian type as in Hansen–Johansson (D4/preabelian-type), with PEL ⇒ Hodge ⇒ abelian ⇒ preabelian and no converse (D4/type-implications). D4/connected-datum-lift shows that nothing is lost by working with full data: every connected datum is the connected datum of a full datum satisfying every axiom. Conversely, D4/distinguished-datum attaches to a connected datum and a field `E` containing a reflex field a canonical full datum `B(G^der, X⁺, E)` of reflex field `E` (Lovering §4.6), through which abelian-type constructions are reduced to Hodge type.
 
 ## Layer overview
 
@@ -39,27 +41,30 @@ Deligne's definition of a Shimura datum is used without restriction to PEL, Hodg
 | [D1](#d1) | The Deligne torus and Hodge structures | Rational weight, Mumford–Tate groups and Hodge genericity | 5 | 2 | planned |
 | [D2](#d2) | Real reductive groups and Hermitian domains | Uniqueness of the complex structure | 1 | 1 | planned |
 | [D3](#d3) | Homogeneous variations and compact duals | Variations, compact duals and Kostant–Bruhat geometry | 18 | 5 | planned |
-| [D4](#d4) | Data, morphisms, and distinguished classes | Generality of data: additional axioms, PEL type and lifting | 7 | 5 | planned |
+| [D4](#d4) | Data, morphisms, and distinguished classes | Generality of data: additional axioms, PEL type, lifting and distinguished data | 9 | 6 | planned |
 | [D5](#d5) | Levels and explicit examples | Explicit data, coordinates and neatness | 21 | 5 | planned |
 
-The register has 54 nodes: 11 definitions, 8 constructions, 21 lemmas and 14 theorems, with 69 API items, 60 unit tests, 19 planets, 22 checked baseline declarations, 25 supplier requests and 8 recorded gaps.
+The register has 56 nodes: 11 definitions, 9 constructions, 22 lemmas and 14 theorems, with 85 API items, 71 unit tests, 20 planets, 29 checked baseline declarations, 25 supplier requests, 16 answered requests from other roadmaps and 8 recorded gaps.
 
 ## Sources and pinned baseline
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Every baseline declaration below was read in its source file at these commits.
 
-- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf) — J. S. Milne; Author notes, 2017 edition. Read: §1 pp.10–12,15–18; §2 pp.23–31; §3 pp.32,34; §4 pp.44–45; §5 pp.54–59; §5 pp.63–64; §6 pp.67–69; §9 pp.91–95; §12 pp.111–113; Complements A, Lemmas A.5–A.6 p.155; Re-read 2026-10-17 (BP-ShimuraData~4): Proposition 5.9 p.56; §5 Additional axioms, Example 5.24, Theorem 5.26, Remark 5.27 and Notes pp.63–66; §8 PEL data and PEL Shimura data pp.82–88.; Read by REV-ShimuraData~4 (2026-10-17): §2 pp.23–31; §5 Proposition 5.7 p.55 and pp.63–66; §8 pp.86–88; §12 pp.111–112. SHA-256: f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e.
-- [Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques](https://publications.ias.edu/sites/default/files/34_VarietesdeShimura.pdf) — Pierre Deligne; Published Proc. Symp. Pure Math. 33 II (1979), IAS scan. Read: Introduction pp.247–248; §1.1 pp.251–256; §2.1 pp.265–267. SHA-256: 591ee837c4c87e5263b76427b393742e111d615c6e098c940f132519a0861922.
+- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf) — J. S. Milne; Author notes, 2017 edition. Read: §1 pp.10–12,15–18; §2 pp.23–31; §3 pp.32,34; §4 pp.44–45; §5 pp.54–59; §5 pp.63–64; §6 pp.67–69; §9 pp.91–95; §12 pp.111–113; Complements A, Lemmas A.5–A.6 p.155; Re-read 2026-10-17 (BP-ShimuraData~4): Proposition 5.9 p.56; §5 Additional axioms, Example 5.24, Theorem 5.26, Remark 5.27 and Notes pp.63–66; §8 PEL data and PEL Shimura data pp.82–88; Read by BP-ShimuraData~5 (2026-10-17): Theorem 2.14 and its proof pp.29–30; Example 5.25 and Theorem 5.26 p.64..; Read by REV-ShimuraData~4 (2026-10-17): §2 pp.23–31; §5 Proposition 5.7 p.55 and pp.63–66; §8 pp.86–88; §12 pp.111–112. SHA-256: f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e.
+- [Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques](https://publications.ias.edu/sites/default/files/34_VarietesdeShimura.pdf) — Pierre Deligne; Published Proc. Symp. Pure Math. 33 II (1979), IAS scan. Read: Introduction pp.247–248; §1.1 pp.251–256; §2.1 pp.265–267; Read by BP-ShimuraData~5 (2026-10-17): 2.5.1–2.5.7, pp.281–282 (page images; the scan has no text layer).. SHA-256: 591ee837c4c87e5263b76427b393742e111d615c6e098c940f132519a0861922.
 - [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf) — George Boxer; Vincent Pilloni; Author copy 2025-11-05; published Invent. Math. 244 (2026) version not accessible here. Read: §1.1 p.2; §1.3 pp.3–5; §3.1 pp.33–34; §6.1 p.60.; Read by REV-ShimuraData~4 (2026-10-17): §1.3 pp.3–5; §3.1 pp.33–34 (page image of p.34); §6.1.8 p.60. SHA-256: af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6.
-- [Higher Coleman theory](https://arxiv.org/pdf/2110.10251v1) — George Boxer; Vincent Pilloni; arXiv:2110.10251v1 (2021). Read: §3.1 pp.31–32, especially Lemma 3.1.2.; Read by REV-ShimuraData~4 (2026-10-17): §3.1 pp.31–32, Lemmas 3.1.2–3.1.3 (page image of p.32). SHA-256: 85526b90c48d0955f2a042f63d619a22584e3801391934504563994733d58596.
-- [Minimal modularity lifting for nonregular symplectic representations](https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf) — Frank Calegari; David Geraghty; Publisher-typeset Duke Math. J. advance-publication PDF, ©2019, DOI 10.1215/00127094-2019-0044, pp.1–96, hosted on author site; final volume/issue/page numbers unassigned in this copy. Read: §§2.1–2.2, PDF pp.7–11; §5.3/Theorem 5.5 proof, PDF pp.28–29.; Read by REV-ShimuraData~4 (2026-10-17): §§2.1–2.2 PDF pp.7–10; §5.3 PDF pp.28–29 (page images). SHA-256: fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5.
+- [Higher Coleman theory](https://arxiv.org/pdf/2110.10251v1) — George Boxer; Vincent Pilloni; arXiv:2110.10251v1 (2021). Read: §3.1 pp.31–32, especially Lemma 3.1.2; Read by BP-ShimuraData~5 (2026-10-17): §4.1.1 and Remark 4.1.2 p.48; §4.4.41 to Principle 4.4.44 pp.78–82; Remark 4.6.6 pp.89–90; p.32 page image (E21)..; Read by REV-ShimuraData~4 (2026-10-17): §3.1 pp.31–32, Lemmas 3.1.2–3.1.3 (page image of p.32). SHA-256: 85526b90c48d0955f2a042f63d619a22584e3801391934504563994733d58596.
+- [Minimal modularity lifting for nonregular symplectic representations](https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf) — Frank Calegari; David Geraghty; Publisher-typeset Duke Math. J. advance-publication PDF, ©2019, DOI 10.1215/00127094-2019-0044, pp.1–96, hosted on author site; final volume/issue/page numbers unassigned in this copy. Read: §§2.1–2.2, PDF pp.7–11; §5.3/Theorem 5.5 proof, PDF pp.28–29; Read by BP-ShimuraData~5 (2026-10-17): §2.2 PDF pp.9–10 and §5.3 PDF pp.28–29 (page images)..; Read by REV-ShimuraData~4 (2026-10-17): §§2.1–2.2 PDF pp.7–10; §5.3 PDF pp.28–29 (page images). SHA-256: fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5.
 - [Higher coherent cohomology and p-adic modular forms of singular weights](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf) — Vincent Pilloni; Author copy 2019-06-17, 113 pages; published Duke version not accessible here. Read: §5.1.1 p.20; §5.1.2–5.1.6 pp.21–24; §15.2.1 pp.107–108.; Read by REV-ShimuraData~4 (2026-10-17): §§5.1.1–5.1.2 p.20. SHA-256: 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58.
 - [Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://par.nsf.gov/servlets/purl/10200187) — Benjamin Bakker; Bruno Klingler; Jacob Tsimerman; Published JAMS 33 (2020), NSF copy. Read: §1.3, published pp.920–921 (PDF pp.4–5); §2.1, published pp.922–923 (PDF pp.6–7). SHA-256: b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058.
 - [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf) — Olivier Benoist; Published Publ. Math. IHÉS 130 (2019), pp.63–110. Read: §6.2, published pp.93–95, especially Proposition 6.6 proof p.94 (PDF p.32). SHA-256: 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b.
 - [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf) — George Boxer; Frank Calegari; Toby Gee; Vincent Pilloni; Published Publ. Math. IHÉS 134 (2021), pp.153–501. Read: Definition 3.2.1 pp.201–202; Lemma 7.8.3 p.409.; Read by REV-ShimuraData~4 (2026-10-17): Definition 3.2.1 pp.201–202; Lemma 7.8.3 p.409. SHA-256: b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af.
 - [Abelian varieties isogenous to no Jacobian](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf) — David Masser; Umberto Zannier; Published Annals of Math. 191 (2020), pp.635–674. Read: §1 (Introduction), p.637, paragraph preceding Theorem 1.1. SHA-256: 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60.
 - [Completed cohomology and preabelian type Shimura varieties](https://pure.mpg.de/rest/items/item_3525265_3/component/file_3560933/content) — David Hansen; Christian Johansson; Published J. Lond. Math. Soc. 107 (2023), §4.1 p.1980 (PDF p.27), DOI 10.1112/jlms.12799; public MPG copy. Read: §4.1, p.1980 (PDF p.27), Definition 4.1 and preceding Hodge/abelian-type definitions.; Read by REV-ShimuraData~4 (2026-10-17): §4.1 p.1980, Definition 4.1. SHA-256: 24fa8fb4040cb374d90fd9fafc7d086027312eb16a1dfc6e37f65ded817f4cdf.
-- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf) — J. S. Milne; Published Handbook of Moduli, Vol. II (2013), author-hosted typeset chapter; printed pagination. Read: §6, definition of Mumford–Tate groups and connectedness, p.494; §6, Propositions 6.3–6.4 and Corollary 6.5, p.495; Re-read 2026-10-17 (BP-ShimuraData~4): §8, Proposition 8.1 p.509, Proposition 8.8 and Corollary 8.9 pp.512–513.; Read by REV-ShimuraData~4 (2026-10-17): §8 pp.509–514 (Propositions 8.1, 8.8, 8.10 and Corollary 8.9). SHA-256: 7237c2a4dda0727923d4ec3d9c6ca8aac6e618ed90be3fa3c6ba34f79b94aaaa.
+- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf) — J. S. Milne; Published Handbook of Moduli, Vol. II (2013), author-hosted typeset chapter; printed pagination. Read: §6, definition of Mumford–Tate groups and connectedness, p.494; §6, Propositions 6.3–6.4 and Corollary 6.5, p.495; Re-read 2026-10-17 (BP-ShimuraData~4): §8, Proposition 8.1 p.509, Proposition 8.8 and Corollary 8.9 pp.512–513; Read by BP-ShimuraData~5 (2026-10-17): Proposition 8.8, Corollary 8.9 and Proposition 8.10, pp.512–513..; Read by REV-ShimuraData~4 (2026-10-17): §8 pp.509–514 (Propositions 8.1, 8.8, 8.10 and Corollary 8.9). SHA-256: 7237c2a4dda0727923d4ec3d9c6ca8aac6e618ed90be3fa3c6ba34f79b94aaaa.
+- [Integral canonical models for automorphic vector bundles of abelian type](https://arxiv.org/pdf/1605.02717v3) — Tom Lovering; arXiv:1605.02717v3; published Algebra Number Theory 11 (2017), no. 8, 1837–1890 (not read here). Read: §4.6, 4.6.1–Lemma 4.6.6, pp.37–41 (read 2026-10-17 by BP-ShimuraData~5); §4.7.2–4.7.3, pp.41–42. SHA-256: cdf3cc00e911a412b9a6e7ca9777c68a63cb61c815a3e5c55f8bfdb500ea99cf.
+- [ComplexKahlerGeometry (TauCetiRoadmap pull request #953): complex manifolds, Dolbeault theory, and Kähler geometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/8b03be51f4642eef1442c7ccbe611e71151836a7/TauCetiRoadmap/ComplexKahlerGeometry/README.md) — Tau Ceti Project; README at head 8b03be51f4642eef1442c7ccbe611e71151836a7 (open pull request, read 2026-10-17). Read: Conventions and suppliers; §K4 Holomorphic and Hermitian bundles (holomorphic connections; flat holomorphic connections, flat smooth connections and finite-rank ℂ-local systems).
+- [ComplexManifolds (TauCetiRoadmap pull request #279): transport, quotients, bundles, and gluing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/275ce8b253d32e715b7832d2b0df4a62ccbb0699/TauCetiRoadmap/ComplexManifolds/README.md) — Tau Ceti Project; README at head 275ce8b253d32e715b7832d2b0df4a62ccbb0699 (open pull request, read 2026-10-17). Read: Milestone 7: holomorphic vector and line bundles.
 
 Baseline declarations:
 
@@ -85,6 +90,13 @@ Baseline declarations:
 - `tauceti:TauCeti.LocalCoefficientSystem` (`TauCeti/AlgebraicTopology/LocalCoefficient.lean`): FundamentalGroupoid X ⥤ ModuleCat R; transport, constant and pullback API. Does not itself supply a holomorphic flat bundle.
 - `tauceti:TauCeti.geometricallyConnectedCommHopfAlgProperty` (`TauCeti/Algebra/AlgebraicGroup/Connected/CommHopfAlgCat.lean`): Geometric connectedness of a commutative Hopf algebra: its prime spectrum stays connected after every field extension. Used to state the separate MT connectedness target; it does not prove connectedness.
 - `tauceti:TauCeti.reductiveCommHopfAlgProperty` (`TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean`): Reductivity predicate on finite-type commutative Hopf algebras, including smoothness, geometric connectedness and trivial connected normal smooth unipotent subgroups of the geometric fiber. Used to state the separate MT reductivity target; it does not prove reductivity.
+- `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure` (`TauCeti/Geometry/Hodge/Substructure.lean`): A sub-Hodge structure of a pure Hodge structure: a complex subspace stable under the conjugation and spanned by its intersections with the Hodge components (line 86). The fibre condition of variationSub.
+- `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure.hodgeStructure` (`TauCeti/Geometry/Hodge/Substructure.lean`): The pure Hodge structure induced on a sub-Hodge structure, with filtration the ambient filtration intersected with the subspace (line 139); the fibres of a subvariation.
+- `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure.isMorphism_subtype` (`TauCeti/Geometry/Hodge/Substructure.lean`): The inclusion of a sub-Hodge structure is a morphism of pure Hodge structures (line 174).
+- `tauceti:TauCeti.Hodge.HodgeStructureOn.IsMorphism.isSubstructure_ker` (`TauCeti/Geometry/Hodge/Substructure.lean`): The kernel of a morphism of pure Hodge structures is a sub-Hodge structure (line 335); fibrewise half of variationHomKer.
+- `tauceti:TauCeti.Hodge.HodgeStructureOn.IsMorphism.isSubstructure_range` (`TauCeti/Geometry/Hodge/Substructure.lean`): The image of a morphism of pure Hodge structures is a sub-Hodge structure (line 342).
+- `tauceti:TauCeti.Hodge.RationalHodgeSubstructure.orthogonal` (`TauCeti/Geometry/Hodge/Orthogonal.lean`): For a polarization (integral form on a lattice), the orthogonal complement of a rational Hodge substructure is a rational Hodge substructure (line 228); fibrewise half of rationalVariationOrthogonal.
+- `tauceti:TauCeti.Hodge.RationalHodgeSubstructure.isCompl_orthogonal` (`TauCeti/Geometry/Hodge/Orthogonal.lean`): A polarization splits a rational Hodge substructure off: W and its orthogonal complement are complements in the lattice of rational Hodge substructures (line 253).
 
 <a id="d0"></a>
 
@@ -115,7 +127,7 @@ Proof or construction:
 2. Because F is totally real, x⊗r↦(σ\_i(x)r)_i is an ℝ-algebra isomorphism F⊗\_ℚℝ≅ℝ^d (the archimedean case of AA §1.4's local factors); GL₂ of a finite product of rings is the product of the GL₂'s.
 3. Points of a fibre product are the fibre product of the points, and the diagonal G_m(ℝ)→(Res_{F/ℚ}G_m)(ℝ)=(ℝ^×)^d is the scalar embedding, so G\*(ℝ) consists of the tuples with a common determinant t.
 4. GL₂(ℝ) has the two components det>0 and det<0, so G(ℝ) has 2^d. For a fixed sign of t, dividing every g_i by |t|^{1/2} and, when t<0, multiplying by one fixed element of determinant −1 identifies {(g_i): det g_i=t for all i} with ℝ\_{>0}×∏\_iSL₂(ℝ), which is connected; hence G\*(ℝ) has two components.
-5. ALS.F.1 applied to the closed embeddings G_ℝ⊂GL_{2d,ℝ} and G\*_ℝ⊂G_ℝ makes the identifications isomorphisms of real Lie groups.
+5. ALS.F.1 applied to the closed embeddings G_ℝ⊂GL_{2d,ℝ} and G\*\_ℝ⊂G_ℝ makes the identifications isomorphisms of real Lie groups.
 
 Acceptance:
 
@@ -191,8 +203,10 @@ Proof or construction:
 
 Acceptance:
 
-- For a finite-dimensional rational V with an algebraic real S-action h, its weight w_h=h∘(inverse diagonal) descends to a ℚ-cocharacter of GL(V) if and only if the real weight decomposition is the scalar extension of an internal finite ℚ-grading. The rational grading acts by t^n on weight n. The full homomorphism h need not descend to ℚ.
-- The signature concludes this named comparison on the specified constructed object; it does not take that conclusion as a premise.
+- ℚ(1), of type (−1,−1): w_h(t)=h_ℂ(t⁻¹,t⁻¹) acts by t^{−2} on the one-dimensional space, a ℚ-cocharacter with the one-piece grading in weight −2.
+- Elliptic H₁, of types (−1,0) and (0,−1): w_h(t) is t⁻¹·id, rational with one graded piece of weight −1; for a curve without complex multiplication h(i)∈End(V_ℝ) does not lie in End_ℚ(V), so the criterion concerns w_h and not h.
+- Non-example: on V=ℚ² let h act trivially on the real line ℝ(1,√2) and by z↦zz̄ (type (−1,−1)) on ℝ(1,−√2). The weight decomposition into these two irrational lines is not the scalar extension of a ℚ-grading, and w_h is not defined over ℚ.
+- Degenerate case: V=0 has the empty grading and w_h is the trivial cocharacter.
 
 Direct prerequisites: `ReductiveGroupsPartII:RG2.0a`; `ShimuraVarieties:V0`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`; `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition`.
 
@@ -282,7 +296,10 @@ Proof or construction:
 
 Acceptance:
 
-- For any finite-dimensional rational pure Hodge structure V, MT(V) is geometrically connected over ℚ. Polarizability is not required.
+- ℚ(1): MT=G_m acting by the scalar character (D1/mumford-tate-group test mtTate), which is connected.
+- A Hodge structure purely of type (0,0) has trivial MT (test mtTrivial).
+- For an elliptic curve with complex multiplication by an imaginary quadratic K, MT(H₁)=Res_{K/ℚ}G_m, a connected two-dimensional torus; for V=H₁⊕H₁ of the same curve, MT(V) is the diagonal copy of MT(H₁), not its square, again connected.
+- No polarization is used: the argument only needs that S is connected and that MT(V) is minimal, so it applies verbatim to the non-polarizable structures of D1/mumford-tate-reductive's last acceptance line.
 
 Direct prerequisites: `ShimuraData:D1/mumford-tate-group`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `tauceti:TauCeti.geometricallyConnectedCommHopfAlgProperty`.
 
@@ -308,7 +325,9 @@ Proof or construction:
 
 Acceptance:
 
-- For a finite-dimensional polarizable rational pure Hodge structure V, the connected group MT(V) is reductive over ℚ.
+- For H₁ of a complex elliptic curve, MT is GL₂ without complex multiplication and Res_{K/ℚ}G_m with complex multiplication by K; both are reductive.
+- For ℚ(1)^{⊕n}, MT is G_m acting by scalars, reductive.
+- Polarizability cannot be dropped. Sub-Hodge structures of V are exactly its MT(V)-stable subspaces, so if MT(V) is reductive every sub-Hodge structure has a Hodge complement. H¹ of a two-dimensional complex torus that contains an elliptic curve but is not isogenous to a product of elliptic curves is a pure weight-one rational Hodge structure with a rank-two sub-Hodge structure and no complement; it is not polarizable, and its MT is not reductive.
 
 Direct prerequisites: `ShimuraData:D1/mumford-tate-group`; `ShimuraData:D1/mumford-tate-connected`; `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`; `tauceti:TauCeti.reductiveCommHopfAlgProperty`.
 
@@ -413,11 +432,11 @@ Planet: Uniqueness of the domain complex structure.
 
 ## D3. Variations, compact duals and Kostant–Bruhat geometry
 
-This layer owns the general notion of a variation of Hodge structure used by Bakker–Klingler–Tsimerman and Benoist (local system, holomorphic filtration of the associated flat bundle, fibrewise opposedness, Griffiths transversality), its morphisms and its rational and integral polarized forms, with the local-frame description of transversality. ShimuraVarieties §P.3 makes the Hodge filtration of every representation of a datum such a variation and states the Borel embedding and the reflex field; those nodes are superseded. Here remain the filtration parabolic `P_h` and the compact dual `X^∨ = G_ℂ/P_h`, with the comparison of §P.3's Borel embedding to a holomorphic open embedding `X → X^∨` that the automorphic bundles need, its descent to the reflex field as the variety of parabolics of the Galois-stable type, and the Kostant and Bruhat combinatorics of a general `(G, μ)` routed from Boxer–Pilloni: minimal representatives `^M W`, the cone criterion and decomposition, the opposition involution, the integral Bruhat stratification of `P\G` and the Schubert and opposite Schubert loci with `X^w ⊂ Y_w`.
+This layer owns the general notion of a variation of Hodge structure used by Bakker–Klingler–Tsimerman and Benoist (local system, holomorphic filtration of the associated flat bundle, fibrewise opposedness, Griffiths transversality), its morphisms and its rational and integral polarized forms, with the local-frame description of transversality. ShimuraVarieties §P.3 makes the Hodge filtration of every representation of a datum such a variation and states the Borel embedding and the reflex field; those nodes are superseded. Here remain the filtration parabolic `P_h` and the compact dual `X^∨ = G_ℂ/P_h`, with the comparison of §P.3's Borel embedding to a holomorphic open embedding `X → X^∨` that the automorphic bundles need, its descent to the reflex field as the variety of parabolics of the Galois-stable type, and the Kostant and Bruhat combinatorics of a general `(G, μ)` routed from Boxer–Pilloni: minimal representatives `^M W`, the cone criterion and decomposition, the opposition involution, the integral Bruhat stratification of `P\G` and the Schubert and opposite Schubert loci with `X^w ⊂ Y_w`. The holomorphic flat bundle `L ⊗ O_B` of a local system is ComplexKahlerGeometry §K4's; a variation adds its filtration, and the API now exports what the Hodge-theory consumers ask for: the filtered flat bundle, the Griffiths equation and the real-analytic Hodge bundles, as well as subvariations, kernels, direct sums and, for a polarization, orthogonal splittings. Type-A Kostant representatives (shuffles) and the Grassmannian compact duals of unitary data are tests beside the Siegel ones.
 
 **Dependencies.** Within this roadmap: none. Other roadmaps: `SchemeAndStackFoundations:SF.1`, `ShimuraVarieties:V0`, `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition`, `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`.
 
-**Remaining refinements.** Holomorphic flat bundles and connections from local systems (gap). Integral flag geometry over ℤ exceeds the field Bruhat theorem of ReductiveGroups layer 7 (gap; layer 9 request). Representability and descent of the parabolic-type functor for the reflex-field compact dual (gap). Complex-manifold structure of the compact dual G_ℂ/P_h from LieGroups layer 8 (gap narrowed to the compact dual).
+**Remaining refinements.** Holomorphic flat bundles and connections: planned upstream by ComplexKahlerGeometry §K4 (pull request #953), which is not yet an atlas stage (gap). Integral flag geometry over ℤ exceeds the field Bruhat theorem of ReductiveGroups layer 7 (gap; layer 9 request). Representability and descent of the parabolic-type functor for the reflex-field compact dual (gap). Complex-manifold structure of the compact dual G_ℂ/P_h from LieGroups layer 8 (gap narrowed to the compact dual).
 
 <a id="d3-variation"></a>
 
@@ -441,6 +460,9 @@ API:
 - `TauCeti.Shimura.variationPullback` (functoriality): Holomorphic pullback constructs the entire variation: local system, associated holomorphic flat bundle, induced connection and pulled-back filtration. Its local system agrees with the native fundamental-groupoid pullback.
 - `TauCeti.Shimura.variationMk` (constructor): From a finite-rank local system, its glued flat holomorphic bundle and connection, a holomorphic subbundle filtration, opposed fibers and Griffiths transversality, construct the variation.
 - `TauCeti.Shimura.variationExt` (extensionality): Two variations on the same base and weight agree when their underlying flat filtered bundles agree; the transversality proofs add no data.
+- `TauCeti.Shimura.variationFilteredFlatBundle` (projection): The underlying filtered flat bundle: the holomorphic bundle 𝒱=L⊗O_B with the flat connection ∇ whose flat sections are the sections of L⊗ℂ, and the holomorphic subbundles F^p⊂𝒱. 𝒱 and ∇ are the flat holomorphic connection that ComplexKahlerGeometry §K4 (TauCetiRoadmap pull request #953) attaches to the complexified local system; the variation adds only F and its two conditions. It is defined for real and rational variations alike, and an integral variation uses its rationalization.
+- `TauCeti.Shimura.variationGriffiths` (relation): Griffiths transversality ∇F^p⊆F^{p−1}⊗Ω¹\_B, for every p. In a flat chart it says that the derivative of the local period map lies in F^{−1}End/F⁰End (D3/transversality-tangent); for weight one it holds automatically.
+- `TauCeti.Shimura.variationHodgeBundles` (other): The Hodge pieces H^{p,q}_b=F^p_b∩conj(F^q_b) have locally constant rank dim F^p−dim F^{p+1}. They form real-analytic subbundles of 𝒱 with 𝒱=⊕\_{p+q=n}H^{p,q}, the projections onto them are real-analytic, and on a flat chart they are the Hodge projections of the marked fibre.
 
 Unit tests:
 
@@ -457,12 +479,18 @@ Acceptance:
 - A constant pure Hodge structure with constant filtration is a variation.
 - The weight-one elliptic family over ℍ has moving F¹ and satisfies transversality.
 - On a small disk take a constant weight-three rank-four polarized real space with complex basis e₀,e₁,e₂,e₃, conjugation e₀↔e₃,e₁↔e₂, Q(e₀,e₃)=i,Q(e₁,e₂)=−i (skew extended). Put F³(z)=ℂ(e₀+ze₃), F²(z)=F³(z)+ℂe₁ and F¹(z)=F³(z)^⊥. Near 0 the fibers are polarized and the flags holomorphic, but dF³(0)=e₃ mod F³(0) is outside F²(0)/F³(0), so this is not a variation.
+- The underlying filtered flat bundle: the holomorphic bundle 𝒱=L⊗O_B with the flat connection ∇ whose flat sections are the sections of L⊗ℂ, and the holomorphic subbundles F^p⊂𝒱. 𝒱 and ∇ are the flat holomorphic connection that ComplexKahlerGeometry §K4 (TauCetiRoadmap pull request #953) attaches to the complexified local system; the variation adds only F and its two conditions. It is defined for real and rational variations alike, and an integral variation uses its rationalization.
+- Griffiths transversality ∇F^p⊆F^{p−1}⊗Ω¹\_B, for every p. In a flat chart it says that the derivative of the local period map lies in F^{−1}End/F⁰End (D3/transversality-tangent); for weight one it holds automatically.
+- The Hodge pieces H^{p,q}_b=F^p_b∩conj(F^q_b) have locally constant rank dim F^p−dim F^{p+1}. They form real-analytic subbundles of 𝒱 with 𝒱=⊕\_{p+q=n}H^{p,q}, the projections onto them are real-analytic, and on a flat chart they are the Hodge projections of the marked fibre.
 
 Uses:
 
 - ShimuraVarieties §P.3 Hodge filtrations and reflex fields: Homogeneous Hodge variation consumes variation of hodge structure: Evaluation at b returns the existing pure Hodge structure of weight n. (the consumer is now owned upstream; see supersededNodes)
 - BKT period-map definitions: Its period maps require a finite-free integral local system, flat polarization and Griffiths-transverse holomorphic filtration, including nontrivial monodromy.
 - Benoist vanishing-cycle subvariation: The H² vanishing-cycle variation supplies the polarized integral carrier; real involution and geometric vanishing-cycle criteria belong to HodgeStructures Part II.
+- HodgeStructuresPartII:H.0 (Griffiths filtration and graded Higgs bundle): takes the underlying filtered flat bundle and the Griffiths equation (variationFilteredFlatBundle, variationGriffiths) and forms the graded Higgs field; H.0 owns only that algebraic operation
+- HodgeStructuresPartII:H.2 and H.3 (complex, real and mixed variations; marked period maps): use this carrier with fibrewise opposedness and transversality, and mark it on simply connected patches by flat frames (D3/flat-bundle-local)
+- HodgeStructuresPartII:H.8 (real action, transported Hodge loci, Green's evaluation submersion): evaluate classes along flat charts and project to the Hodge bundles H^{p,q}, which variationHodgeBundles makes real-analytic
 
 Direct prerequisites: `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition`; `tauceti:TauCeti.LocalCoefficientSystem`.
 
@@ -487,6 +515,7 @@ Hypotheses and conventions:
 Proof or construction:
 
 1. Use the native fundamental-groupoid natural transformations. Filtration inequalities and connection squares are preserved by linear identity, zero and composition; naturality is the flat transport condition.
+2. Subvariations, kernels and images: fibrewise, Tau Ceti's IsMorphism.isSubstructure_ker and isSubstructure_range make the kernel and image of a Hodge morphism sub-Hodge structures, IsSubstructure.hodgeStructure gives their induced structure and isMorphism_subtype the inclusion. The kernel of a map of local systems is a local system because transport is invertible. On a flat chart the ranks of F^p∩W_ℂ are locally constant, since F^p∩W_ℂ and conj(F^{n+1−p})∩W_ℂ are complementary in W_ℂ and both ranks are upper semicontinuous; hence F^p∩(W⊗O_B) is a holomorphic subbundle and ∇ preserves it up to Ω¹. Direct sums are formed fibrewise.
 
 API:
 
@@ -495,24 +524,36 @@ API:
 - `TauCeti.Shimura.variationHomIdentity` (constructor): The identity variation morphism has the identity local-system map.
 - `TauCeti.Shimura.variationMorphism` (functoriality): Compose the underlying local-system maps; filtration and connection compatibility compose.
 - `TauCeti.Shimura.variationHomCompMap` (simp): The local-system map of the composite is the categorical composite.
+- `TauCeti.Shimura.variationSub` (constructor): A sub-local system W⊆L whose complexified fibres are sub-Hodge structures is a variation of the same weight, with the filtration F^p∩(W⊗O_B), and its inclusion is a morphism. The ranks of F^p∩W_ℂ are locally constant: on each fibre F^p∩W_ℂ and conj(F^{n+1−p})∩W_ℂ are complementary in W_ℂ, and both ranks are upper semicontinuous. Transversality is inherited because ∇ preserves W⊗O_B.
+- `TauCeti.Shimura.variationHomKer` (constructor): For a morphism φ:H→K of variations of the same weight, ker φ and im φ are sub-local systems whose fibres are sub-Hodge structures (a morphism of Hodge structures is strict for F), hence subvariations of H and K by variationSub.
+- `TauCeti.Shimura.variationDirectSum` (constructor): The direct sum of two variations of the same weight over B has the direct-sum local system and filtrations; its inclusions and projections are morphisms. A flat idempotent endomorphism e that is a morphism splits a variation as the direct sum of the subvariations im e and ker e.
 
 Unit tests:
 
 - `TauCeti.Shimura.tests.variationHomIdentity` (compatibility): The identity local-system map is a variation morphism.
 - `TauCeti.Shimura.tests.variationHomZero` (degenerate): The zero flat map between two equal-weight variations is a variation morphism.
 - `TauCeti.Shimura.tests.variationHomReject` (non-example): A flat local-system map carrying a specified F^p fiber vector outside the target F^p cannot underlie a variation morphism.
+- `TauCeti.Shimura.tests.variationKerZero` (degenerate): The kernel of the identity of a variation is the zero subvariation, and the kernel of the zero morphism H→K is H.
+- `TauCeti.Shimura.tests.variationSubRationalLine` (non-example): For the constant weight-one variation H₁(E,ℚ) of an elliptic curve without complex multiplication over a point, a rational line is a sub-local system but not a subvariation: its complexification is not a sum of Hodge pieces.
 
 Acceptance:
 
 - The identity local-system map is a variation morphism.
 - The zero flat map between two equal-weight variations is a variation morphism.
 - A flat local-system map carrying a specified F^p fiber vector outside the target F^p cannot underlie a variation morphism.
+- A sub-local system W⊆L whose complexified fibres are sub-Hodge structures is a variation of the same weight, with the filtration F^p∩(W⊗O_B), and its inclusion is a morphism. The ranks of F^p∩W_ℂ are locally constant: on each fibre F^p∩W_ℂ and conj(F^{n+1−p})∩W_ℂ are complementary in W_ℂ, and both ranks are upper semicontinuous. Transversality is inherited because ∇ preserves W⊗O_B.
+- For a morphism φ:H→K of variations of the same weight, ker φ and im φ are sub-local systems whose fibres are sub-Hodge structures (a morphism of Hodge structures is strict for F), hence subvariations of H and K by variationSub.
+- The direct sum of two variations of the same weight over B has the direct-sum local system and filtrations; its inclusions and projections are morphisms. A flat idempotent endomorphism e that is a morphism splits a variation as the direct sum of the subvariations im e and ker e.
+- The kernel of the identity of a variation is the zero subvariation, and the kernel of the zero morphism H→K is H.
+- For the constant weight-one variation H₁(E,ℚ) of an elliptic curve without complex multiplication over a point, a rational line is a sub-local system but not a subvariation: its complexification is not a sum of Hodge pieces.
 
 Uses:
 
 - ShimuraVarieties §P.3 Hodge filtrations and reflex fields: The homogeneous tensor comparison must be an isomorphism of variations, not a local-system pullback equality. (the consumer is now owned upstream; see supersededNodes)
+- HodgeStructuresPartII:H.8/orthogonal-constant-splitting: splits a variation as the direct sum of a constant Hodge sub-local system and its orthogonal kernel (variationSub, variationHomKer, variationDirectSum)
+- HodgeStructuresPartII:H.2/realification: forms L⊕conj(L) as a direct sum of variations
 
-Direct prerequisites: `ShimuraData:D3/variation`; `tauceti:TauCeti.LocalCoefficientSystem`.
+Direct prerequisites: `ShimuraData:D3/variation`; `tauceti:TauCeti.LocalCoefficientSystem`; `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure`; `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure.hodgeStructure`; `tauceti:TauCeti.Hodge.HodgeStructureOn.IsSubstructure.isMorphism_subtype`; `tauceti:TauCeti.Hodge.HodgeStructureOn.IsMorphism.isSubstructure_ker`; `tauceti:TauCeti.Hodge.HodgeStructureOn.IsMorphism.isSubstructure_range`.
 
 Sources:
 
@@ -533,30 +574,36 @@ Hypotheses and conventions:
 Proof or construction:
 
 1. Use the already existing pure Hodge–Riemann conditions on rationalized fibers. Parallel forms glue over local flat frames and are checked against the same real variation; scalar-extension comparisons are required to be natural.
+2. Orthogonal splitting: on a fibre choose a ℤ-lattice on which a multiple of Q is integral; Tau Ceti's RationalHodgeSubstructure.orthogonal and isCompl_orthogonal then give W_b^⊥ as a rational Hodge substructure complementary to W_b. W^⊥ is a sub-local system because Q is parallel, so it is a subvariation by variationSub, and L=W⊕W^⊥.
 
 API:
 
 - `TauCeti.Shimura.rationalVariationMk` (constructor): Bundle the rational local system, real variation, natural comparison and full parallel Hodge–Riemann form.
 - `TauCeti.Shimura.rationalVariationExt` (extensionality): Equality of the rational local system, real variation, scalar-extension comparison and form implies equality of polarized rational variations.
 - `TauCeti.Shimura.rationalVariationParallel` (compatibility): Parallel transport preserves the rational form on each pair of fiber vectors.
+- `TauCeti.Shimura.rationalVariationOrthogonal` (relation): For a subvariation W of a polarized rational variation (L,Q), the Q-orthogonal W^⊥ is a subvariation, L=W⊕W^⊥ as variations, and Q restricts to polarizations of W and W^⊥. Fibrewise, Q restricted to a sub-Hodge structure still satisfies the Hodge–Riemann conditions and so is nondegenerate, and W^⊥ is the kernel of the flat Hodge morphism L→W^∨(−n) induced by Q.
 
 Unit tests:
 
 - `TauCeti.Shimura.tests.rationalTate` (compatibility): Rationalizing the constant integral Tate variation retains weight −2, F^{−1}=Vℂ and its nonzero polarization.
 - `TauCeti.Shimura.tests.rationalScaled` (computation): Rationalization of twice an integral polarization gives twice its rational form, under the canonical common fiber comparison.
 - `TauCeti.Shimura.tests.rationalNegativeFalse` (non-example): On any nonzero pure piece the negative of the polarizing form fails the native positive-real Hodge–Riemann inequality with the same Hodge filtration.
+- `TauCeti.Shimura.tests.rationalOrthogonalSum` (computation): For the constant polarized variation H⊕H′ with the orthogonal sum of polarizations, the Q-orthogonal of the subvariation H is H′.
 
 Acceptance:
 
 - Rationalizing the constant integral Tate variation retains weight −2, F^{−1}=Vℂ and its nonzero polarization.
 - Rationalization of twice an integral polarization gives twice its rational form, under the canonical common fiber comparison.
 - On any nonzero pure piece the negative of the polarizing form fails the native positive-real Hodge–Riemann inequality with the same Hodge filtration.
+- For a subvariation W of a polarized rational variation (L,Q), the Q-orthogonal W^⊥ is a subvariation, L=W⊕W^⊥ as variations, and Q restricts to polarizations of W and W^⊥. Fibrewise, Q restricted to a sub-Hodge structure still satisfies the Hodge–Riemann conditions and so is nondegenerate, and W^⊥ is the kernel of the flat Hodge morphism L→W^∨(−n) induced by Q.
+- For the constant polarized variation H⊕H′ with the orthogonal sum of polarizations, the Q-orthogonal of the subvariation H is H′.
 
 Uses:
 
 - ShimuraData:D3/polarized-integral-variation: This is the actual target of rationalization, with its flat filtration and form retained.
+- HodgeStructuresPartII:H.8/orthogonal-constant-splitting: the polarized case of the orthogonal splitting, in which the complement of a subvariation is again polarized (rationalVariationOrthogonal); H.8 states its own variant for a nondegenerate flat form that is not a polarization
 
-Direct prerequisites: `ShimuraData:D3/variation`; `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory`; `tauceti:TauCeti.Hodge.IsPolarization`.
+Direct prerequisites: `ShimuraData:D3/variation`; `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory`; `tauceti:TauCeti.Hodge.IsPolarization`; `tauceti:TauCeti.Hodge.RationalHodgeSubstructure.orthogonal`; `tauceti:TauCeti.Hodge.RationalHodgeSubstructure.isCompl_orthogonal`.
 
 Sources:
 
@@ -632,8 +679,9 @@ Proof or construction:
 
 Acceptance:
 
-- In every simply connected local-system trivialization, the associated connection is the ordinary differential on holomorphic sections, and fiberwise opposedness is exactly the existing pure HodgeStructureOn condition. These descriptions agree on overlaps by locally constant transition maps. In local flat frames the connection is the differential of the local coordinate section, and transition maps are locally constant. Gluing produces L⊗O_B; path transport identities alone do not produce this object.
-- The signature concludes this named comparison on the specified constructed object; it does not take that conclusion as a premise.
+- On a simply connected B with a flat frame e₁,…,e_r of L, the associated bundle is O_B^r and ∇(Σf_ie_i)=Σdf_i⊗e_i; for the constant local system ℚ^r on ℍ this is the trivial bundle with the differential d.
+- A change of flat frame by a constant A∈GL_r(ℚ) changes coordinates by A⁻¹ and commutes with d because dA=0; for a holomorphic but non-constant change of frame g(b) the connection acquires the matrix g⁻¹dg≠0, so only flat frames compute ∇ as d.
+- On ℂ^× let L be the rank-one local system with monodromy −1. Then L⊗O is holomorphically trivial, trivialized by z^{1/2}·e for a local flat section e (both factors have monodromy −1), and in this trivialization ∇=d+dz/(2z). So L⊗O≅O as bundles while (L⊗O,∇)≇(O,d): the glued object remembers the connection, not just the bundle.
 
 Direct prerequisites: `ShimuraData:D3/variation`; `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition`.
 
@@ -659,7 +707,9 @@ Proof or construction:
 
 Acceptance:
 
-- For a holomorphic family with constant local system V, Griffiths transversality is equivalent to the differential of its flag map lying in F^{−1}End(Vℂ)/F⁰End(Vℂ) at every point. This is a first-order condition, not merely continuity of the Hodge pieces.
+- Weight one: F^{−1}End(V_ℂ)=End(V_ℂ), so every holomorphic family of weight-one filtrations, for instance F¹(τ)=ℂ(τe₁+e₂) on ℍ, is transversal.
+- The constant family has zero differential and is transversal.
+- Weight three, rank four (D3/variation test variationNonHorizontal): for F³(z)=ℂ(e₀+ze₃), F²(z)=F³(z)+ℂe₁, the differential sends e₀∈H^{3,0} to e₃∈H^{0,3} modulo F³(0), an endomorphism of type (−3,3) outside F^{−1}End; the family is not transversal, although it is holomorphic.
 
 Direct prerequisites: `ShimuraData:D3/flat-bundle-local`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`.
 
@@ -744,6 +794,7 @@ Unit tests:
 - `TauCeti.Shimura.tests.dualGl2` (computation): The GL₂ compact dual is ℙ¹ℂ.
 - `TauCeti.Shimura.tests.dualTorus` (computation): The torus compact dual is a point.
 - `TauCeti.Shimura.tests.dualSiegel` (computation): The Siegel compact dual is the Lagrangian Grassmannian with dimension g(g+1)/2.
+- `TauCeti.Shimura.tests.dualUnitary` (computation): For K imaginary quadratic and PELModuli §M5.5's unitary datum of signature (p,q) with pq>0, the compact dual is the Grassmannian of p-planes in ℂ^{p+q}, of dimension pq; for the Picard signature (2,1) it is ℙ².
 
 Acceptance:
 
@@ -754,6 +805,7 @@ Acceptance:
 - The GL₂ compact dual is ℙ¹ℂ.
 - The torus compact dual is a point.
 - The Siegel compact dual is the Lagrangian Grassmannian with dimension g(g+1)/2.
+- For K imaginary quadratic and PELModuli §M5.5's unitary datum of signature (p,q) with pq>0, the compact dual is the Grassmannian of p-planes in ℂ^{p+q}, of dimension pq; for the Picard signature (2,1) it is ℙ².
 
 Uses:
 
@@ -761,13 +813,14 @@ Uses:
 - ShimuraData:D3/reflex-flag-descent: Compact dual over the reflex field consumes compact dual: The basepoint has stabilizer P_h.
 - PerfectoidShimuraVarieties Hodge–Tate target: The consumer uses compact dual through these concrete interfaces: The basepoint has stabilizer P_h. Changing h by g gives the equivariant conjugate-parabolic identification.
 - AutomorphicBundles:B0/homogeneous-hodge-torsor: pulls the P_h-torsor G_ℂ→X^∨ back along the Borel embedding X→X^∨, which must be holomorphic and G(ℝ)-equivariant with target G_ℂ/P_h
+- HigherHidaAndColemanTheory (flag variety of the datum): takes the compact dual G_ℂ/P_h and its parabolic, in the Siegel case and in the unitary case, where it is a Grassmannian (test dualUnitary)
 
 Direct prerequisites: `ShimuraData:D3/filtration-parabolic`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat`; `ShimuraVarieties:V0`.
 
 Sources:
 
 - [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), §2, Flag varieties, pp.23–24, with Aside 2.3. Milne constructs Grassmannian and flag varieties with their tangent spaces (16) and (18) and, in Aside 2.3, identifies the flag variety with GL(V)/P(F) for the parabolic stabilizer P(F) of a flag; the compact dual is the G_ℂ-orbit of a Hodge flag, identified with G_ℂ/P_h in the same way.
-- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), §2, Flag varieties, pp.23–24, with Aside 2.3. Milne constructs Grassmannian and flag varieties with their tangent spaces (16) and (18) and, in Aside 2.3, identifies the flag variety with GL(V)/P(F) for the parabolic stabilizer P(F) of a flag; the compact dual is the G_ℂ-orbit of a Hodge flag, identified with G_ℂ/P_h in the same way.
+- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 2.14 and its proof, pp.29–30, with diagram (26). Milne shows that the filtration map s↦F_s from a connected component of S(d,T) into the flag manifold is injective, because the Hodge filtration determines the Hodge decomposition, and computes its differential by diagram (26): it is the inclusion of g/g⁰⁰, identified with g_ℂ/F⁰, into End(V_ℂ)/F⁰. This is the injectivity and open-embedding argument of compactDualBorelEmbedding.
 
 Planet: Compact dual.
 
@@ -790,7 +843,9 @@ Proof or construction:
 
 Acceptance:
 
-- Let t be the geometric conjugacy type of P_h. The Galois-stable type over E defines the projective E-scheme Par_t(G_E) of parabolic subgroups of that type. Its complex extension is X∨; over any L/E with an L-rational P of type t, it is G_L/P. The E-scheme may have no E-points.
+- GL₂ and the genus-g Siegel datum: E=ℚ, and Par_t(G) is ℙ¹\_ℚ, respectively the Lagrangian Grassmannian of a 2g-dimensional symplectic ℚ-space; both have ℚ-points.
+- For an indefinite quaternion division algebra B over ℚ and G=B^× with X=ℍ^± (the Shimura-curve datum), E=ℚ and Par_t(G) is the variety of Borel subgroups of B^×, the conic of B. It has no ℚ-point because B is not split, and over a splitting field L of B it becomes ℙ¹\_L=G_L/P.
+- For a torus datum (T,{h}), P_h=T_ℂ, the type t is trivial and Par_t(T_E)=Spec E.
 
 Direct prerequisites: `ShimuraData:D3/filtration-parabolic`; `ShimuraData:D3/compact-dual`; `ShimuraVarieties:V0`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `SchemeAndStackFoundations:SF.1`.
 
@@ -828,10 +883,18 @@ Unit tests:
 - `TauCeti.Shimura.tests.kostantBorel` (degenerate): When M=T, ^MW=W.
 - `TauCeti.Shimura.tests.kostantWholeGroup` (degenerate): When P=G, ^MW={1}.
 - `TauCeti.Shimura.tests.kostantA2Left` (computation): For A₂ and WM=⟨s₁⟩, ^MW={1,s₂,s₂s₁}.
+- `TauCeti.Shimura.tests.kostantTypeA` (computation): For GL_n with M=GL_p×GL_q (p+q=n, p,q≥1), ^MW is the set of permutations w with w⁻¹ increasing on {1,…,p} and on {p+1,…,n}. It has C(n,p) elements, of lengths 0 to pq=dim Gr(p,n); for n=3 and p=2 it is {1,s₂,s₂s₁}.
 
 Acceptance:
 
-- For a split reductive group with T⊂B⊂P and Levi M containing T, ^MW consists of the unique minimal-length representatives of the left cosets WM\\W. Use the left action wκ(t)=κ(w⁻¹tw); in particular ^MW is characterized by w⁻¹ΦM⁺⊂Φ⁺. Specialize to the cocharacter parabolic only after choosing its compatible Borel.
+- Every left coset has exactly one minimal representative.
+- w belongs iff w⁻¹ΦM⁺⊂Φ⁺.
+- For u∈WM and w∈^MW, ℓ(uw)=ℓ(u)+ℓ(w).
+- ^MW is the index set W^P of ArithmeticLocallySymmetricSpaces §ALS.4.5: w lies in ^MW iff w⁻¹α>0 for every simple root α of M.
+- When M=T, ^MW=W.
+- When P=G, ^MW={1}.
+- For A₂ and WM=⟨s₁⟩, ^MW={1,s₂,s₂s₁}.
+- For GL_n with M=GL_p×GL_q (p+q=n, p,q≥1), ^MW is the set of permutations w with w⁻¹ increasing on {1,…,p} and on {p+1,…,n}. It has C(n,p) elements, of lengths 0 to pq=dim Gr(p,n); for n=3 and p=2 it is {1,s₂,s₂s₁}.
 
 Uses:
 
@@ -839,6 +902,7 @@ Uses:
 - ShimuraData:D5/siegel-weyl-permutations: the Siegel minimal representatives are computed as the elements w with w⁻¹Φ\_M⁺⊂Φ⁺
 - PotentialAutomorphyInfrastructure Kostant input: The consumer uses kostant representatives through these concrete interfaces: Every left coset has exactly one minimal representative. w belongs iff w⁻¹ΦM⁺⊂Φ⁺.
 - ArithmeticLocallySymmetricSpaces §ALS.4.5 (TauCetiRoadmap PR #871): Kostant's theorem over a splitting field is indexed by the same set W^P (w⁻¹α>0 for every simple root α of M)
+- HigherHidaAndColemanTheory (weight dictionary, Bruhat–Cousin complexes): uses ^MW in the split C₂ coordinates (D5) and in type A for unitary data, where ^MW is the set of shuffles (test kostantTypeA)
 
 Direct prerequisites: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `ShimuraData:D3/filtration-parabolic`.
 
@@ -866,7 +930,9 @@ Proof or construction:
 
 Acceptance:
 
-- For w∈W, w(X\*(T)⁺)⊆X\*(T)^{+,M} iff w⁻¹ΦM⁺⊂Φ⁺ iff w∈^MW. ΦM⁺ denotes positive Levi roots, distinct from the complementary noncompact roots Φ^{+,M}.
+- A₂ with W_M=⟨s₁⟩: for w=s₂, s₂⁻¹α₁=α₁+α₂>0 and s₂ maps the dominant cone into {⟨λ,α₁^∨⟩≥0}. For w=s₁, s₁α₁=−α₁<0 and s₁ϖ₁=ϖ₁−α₁ has ⟨s₁ϖ₁,α₁^∨⟩=−1, so s₁ fails both sides of the criterion.
+- M=T: Φ\_M⁺ is empty, X\*(T)^{+,M}=X\*(T), and every w∈W satisfies both sides.
+- Genus one (GL₂ with M=T): both Weyl elements qualify. The printed criterion of BP p.34 tests noncompact roots and would exclude the non-identity element (E2).
 
 Direct prerequisites: `ShimuraData:D3/kostant-representatives`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
@@ -892,7 +958,10 @@ Proof or construction:
 
 Acceptance:
 
-- X\*(T)^{+,M}=⋃w∈^MW wX\*(T)⁺, including boundary weights. In the real weight space the same union covers the closed Levi chamber.
+- M=T: X\*(T)=⋃\_{w∈W}wX\*(T)⁺, every character being W-conjugate to a dominant one.
+- P=G: only w=1 occurs, and X\*(T)^{+,G}=X\*(T)⁺.
+- A₂ with W_M=⟨s₁⟩: the half-space ⟨λ,α₁^∨⟩≥0 is the union of the closed chambers C, s₂C and s₂s₁C. The boundary weight ϖ₁, fixed by s₂, lies in both C and s₂C, so the cones overlap on walls.
+- Genus two in CG coordinates: the chambers C₀={a≥b≥0}, C₁={a≥−b≥0}, C₂={−b≥a≥0} and C₃={−b≥−a≥0} of CG p.28 cover exactly the Levi-dominant half-space a≥b.
 
 Direct prerequisites: `ShimuraData:D3/kostant-cone-criterion`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
@@ -918,7 +987,9 @@ Proof or construction:
 
 Acceptance:
 
-- Writing w0,G and w0,M for the longest elements of W and WM, w↦w0,M w w0,G preserves ^MW, is an involution, and changes length to dim(G/P)−ℓ(w). The longest Levi and full Weyl elements are different.
+- A₂ with W_M=⟨s₁⟩, w₀,M=s₁ and w₀,G=s₁s₂s₁: the map exchanges 1 and s₂s₁ and fixes s₂, with lengths 0↔2 and 1↔1, and dim(G/P)=3−1=2.
+- Genus two (D5/gsp4-kostant): the map exchanges 1 with s₂s₁s₂ and s₂ with s₂s₁, reversing the lengths 0,1,2,3.
+- M=T: w₀,M=1 and the map is w↦ww₀, with ℓ(ww₀)=ℓ(w₀)−ℓ(w).
 
 Direct prerequisites: `ShimuraData:D3/kostant-representatives`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
@@ -944,7 +1015,9 @@ Proof or construction:
 
 Acceptance:
 
-- For a split pinned reductive group over ℤ and standard P, the left-coset flag scheme P\\G has B-orbit cells Cw=P\\PwB indexed by ^MW, each isomorphic to A^{ℓ(w)}_ℤ. The cells stratify the flag scheme, commute with base change, and have relative dimension ℓ(w). This includes ℤp and 𝔽p, not only characteristic-zero points.
+- GL₂ with P=B: P\\G=ℙ¹\_ℤ is the union of the point C₁ and the affine line C_s; over 𝔽\_q it has 1+q points.
+- Point count: #(P\\G)(𝔽\_q)=Σ\_{w∈^MW}q^{ℓ(w)}. For A₂ with W_M=⟨s₁⟩, the lengths 0,1,2 give 1+q+q²=#ℙ²(𝔽\_q); for the genus-two Siegel parabolic, the lengths 0,1,2,3 give (1+q)(1+q²), the number of Lagrangian planes in 𝔽\_q⁴.
+- P=G: the flag scheme is Spec ℤ with the single cell C₁.
 
 Direct prerequisites: `ShimuraData:D3/kostant-representatives`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
@@ -985,7 +1058,12 @@ Unit tests:
 
 Acceptance:
 
-- On P\\G, define Xw as the scheme-theoretic closure of Cw and X^w as closure of the opposite-Borel cell C^w. Define Yw as the open union of standard cells Cv with v≥w. Use the corrected distinction between cells and their closures.
+- The underlying locus of Xw is ⋃v≤w Cv; the reduced schematic closure is the supplied Schubert variety, compatibly with base change. A disjoint cell union is not asserted to equal Xw as a scheme.
+- The underlying locus of X^w is ⋃v≥w C^v, fiberwise and compatibly with the supplied integral stratification. The disjoint cell union is not an equality of schemes.
+- Yw is open, contains Cw, and its complement is the lower closed Bruhat union.
+- For P=B in SL₂, X₁ is a point, X_s=ℙ¹, Y₁=ℙ¹ and Y_s is an affine open.
+- The opposite closed point X^s is contained in the standard open cell Y_s, not in X₁.
+- For P=G all three loci are the point and ℓ(1)=0.
 
 Uses:
 
@@ -1017,7 +1095,9 @@ Proof or construction:
 
 Acceptance:
 
-- The underlying locus of Cv is contained in that of Xw iff v≤w, and the underlying locus of Xw is the union of those cell loci, fiberwise through the integral stratification. This is not an isomorphism from the disjoint union of cell schemes onto Xw.
+- ℙ¹: C₁⊂X_s=ℙ¹ because 1≤s, and C_s⊄X₁={point} because s≰1.
+- ℙ² (A₂ with W_M=⟨s₁⟩): 1<s₂<s₂s₁ is a chain, and the Schubert varieties are a point, a line and the plane.
+- The underlying set of X_s=ℙ¹ is C₁⊔C_s, but the disjoint union of schemes 𝔸⁰⊔𝔸¹ is not ℙ¹: it is neither proper nor connected.
 
 Direct prerequisites: `ShimuraData:D3/bruhat-integral`; `ShimuraData:D3/schubert-families`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
@@ -1043,7 +1123,9 @@ Proof or construction:
 
 Acceptance:
 
-- For the standard and opposite Schubert varieties over an algebraically closed field, X^w∩Xv is nonempty iff w≤v. The integral closure/emptiness statements needed for the inclusion must remain valid after every base change.
+- ℙ¹ (P=B): X^1=ℙ¹ and X^s={s}, while X₁={1} and X_s=ℙ¹. Hence X^1∩X₁, X^1∩X_s and X^s∩X_s are nonempty, and X^s∩X₁=∅ because s≰1.
+- For every w∈^MW, X^w∩X_w is the single T-fixed point P\\Pw.
+- For w≤v the intersection X^w∩X_v (a Richardson variety) has dimension ℓ(v)−ℓ(w), since dim X_v=ℓ(v) and X^w has codimension ℓ(w).
 
 Direct prerequisites: `ShimuraData:D3/schubert-families`; `ShimuraData:D3/bruhat-closure-order`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
@@ -1069,7 +1151,9 @@ Proof or construction:
 
 Acceptance:
 
-- For every w∈^MW, X^w⊂Yw as a closed subscheme of the open Yw. This holds for the integral flag and its ℤp and 𝔽p fibers.
+- ℙ¹: X^1=ℙ¹⊂Y₁=C₁∪C_s=ℙ¹, and X^s={s}⊂Y_s=C_s≅𝔸¹.
+- For the longest w∈^MW, Y_w=C_w is the open cell and X^w is the point P\\Pw inside it.
+- The index matters: X^1=ℙ¹ is not contained in Y_s=𝔸¹. So X^w⊂Y_{w′} fails for w′>w, and Y_w with C_w in place of C_{w′} (E21) would be too small.
 
 Direct prerequisites: `ShimuraData:D3/opposite-intersection`; `ShimuraData:D3/bruhat-closure-order`; `ShimuraData:D3/schubert-families`.
 
@@ -1079,13 +1163,13 @@ Sources:
 
 <a id="d4"></a>
 
-## D4. Generality of data: additional axioms, PEL type and lifting
+## D4. Generality of data: additional axioms, PEL type, lifting and distinguished data
 
-Pure Shimura data — Deligne's axioms SV1–SV3, morphisms, products, adjoint and connected data, special pairs and points, Hodge and abelian type — are ShimuraVarieties §P.1's (`TauCeti.Shimura.PureDatum`); the thirteen D4 nodes that planned them are superseded. Reflex fields are §P.3's and canonical models §§4.4, 4.12 and 7.14's (the canonical-model condition, uniqueness, and existence for every pure datum). This layer states the generality those roadmaps leave out. The *additional axioms* SV2\*, SV4, SV5 and SV6 complete Deligne's list 2.1.1.1–2.1.1.5 and Milne's SV5–SV6; SV5 is characterised through the anisotropic part of the centre (Milne, Theorem 5.26). *PEL type* is the specialisation through PELModuli §M0.12, and the chain PEL ⇒ Hodge ⇒ abelian ⇒ preabelian (Hansen–Johansson) is proved without identifying the predicates. Finally, every connected datum lifts to a full datum satisfying all the axioms (Milne 2013, Proposition 8.8 and Corollary 8.9). The reflex field of a product of data is the compositum of the reflex fields; §§P.1 and P.3 do not state it, and the Hilbert–Shimura-curve comparisons use it.
+Pure Shimura data — Deligne's axioms SV1–SV3, morphisms, products, adjoint and connected data, special pairs and points, Hodge and abelian type — are ShimuraVarieties §P.1's (`TauCeti.Shimura.PureDatum`); the thirteen D4 nodes that planned them are superseded. Reflex fields are §P.3's and canonical models §§4.4, 4.12 and 7.14's (the canonical-model condition, uniqueness, and existence for every pure datum). This layer states the generality those roadmaps leave out. The *additional axioms* SV2\*, SV4, SV5 and SV6 complete Deligne's list 2.1.1.1–2.1.1.5 and Milne's SV5–SV6; SV5 is characterised through the anisotropic part of the centre (Milne, Theorem 5.26). *PEL type* is the specialisation through PELModuli §M0.12, and the chain PEL ⇒ Hodge ⇒ abelian ⇒ preabelian (Hansen–Johansson) is proved without identifying the predicates. Finally, every connected datum lifts to a full datum satisfying all the axioms (Milne 2013, Proposition 8.8 and Corollary 8.9). The reflex field of a product of data is the compositum of the reflex fields; §§P.1 and P.3 do not state it, and the Hilbert–Shimura-curve comparisons use it. Preabelian type is also defined for connected data. Lovering's *distinguished datum* `B(G^der, X⁺, E) = G ×_{G^ab} Res_{E/ℚ} G_m` depends only on the connected datum and `E`, maps to `(G, X)`, and for an abelian-type datum with a Hodge-type witness gives Boxer–Pilloni's diagram `B₁ → B → G`, `B₁ → G₁`. Its centre and Levi satisfy `Z_s(B₁) = Z_s(Res_{E/ℚ} G_m)` and `M^c_{μ_{B₁}} = M_{μ_{G₁}} ×_{G₁^{ab}} T^c`, the identity Boxer–Pilloni's Principle 4.4.44 uses without proof. PerfectoidShimuraVarieties requests both.
 
-**Dependencies.** Within this roadmap: `ShimuraData:D1`. Other roadmaps: `AdelicAlgebraicGroups:AA.1`, `AdelicAlgebraicGroups:AA.3`, `ArithmeticLocallySymmetricSpaces:ALS.0`, `PELModuli:M0`, `ReductiveGroupsPartII:RG2.1`, `ShimuraVarieties:V0`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
+**Dependencies.** Within this roadmap: `ShimuraData:D1`, `ShimuraData:D3`. Other roadmaps: `AdelicAlgebraicGroups:AA.1`, `AdelicAlgebraicGroups:AA.3`, `ArithmeticLocallySymmetricSpaces:ALS.0`, `PELModuli:M0`, `ReductiveGroupsPartII:RG2.0a`, `ReductiveGroupsPartII:RG2.1`, `ShimuraVarieties:V0`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
 
-**Remaining refinements.** The finite-index half of Ono's theorem for tori is an AdelicAlgebraicGroups §3.4 extension request. The Milne–Shih central extension with prescribed derived cover is a ReductiveGroupsPartII §RG2.1 extension request (gap).
+**Remaining refinements.** The finite-index half of Ono's theorem for tori is an AdelicAlgebraicGroups §3.4 extension request. The Milne–Shih central extension with prescribed derived cover is a ReductiveGroupsPartII §RG2.1 extension request (gap). Lovering's distinguished data and their centre and Levi identities (D4/distinguished-datum, D4/distinguished-levi) are planned; PerfectoidShimuraVarieties S6 should cite them (consumerRetargets).
 
 <a id="d4-preabelian-type"></a>
 
@@ -1109,12 +1193,14 @@ API:
 - `TauCeti.Shimura.abelianTypePreabelian` (characterisation): Abelian type implies preabelian type by forgetting the derived isogeny.
 - `TauCeti.Shimura.preabelianTypeAdjoint` (characterisation): The predicate depends only on the connected adjoint datum.
 - `TauCeti.Shimura.preabelianTypeIsomorphism` (characterisation): Isomorphic connected adjoint data have equivalent preabelian predicates.
+- `TauCeti.Shimura.preabelianTypeConnected` (characterisation): For a connected datum (H,X⁺) in ShimuraVarieties §P.1's convention (C1)–(C3), with H semisimple, preabelian type means (H^ad,X⁺)≅(G₁^ad,X₁⁺) for some Hodge-type datum (G₁,X₁). A pure datum is of preabelian type exactly when its connected derived datum (G^der,X⁺) is, and the predicate on connected data depends only on (H^ad,X⁺) (Hansen–Johansson Definition 4.1).
 
 Unit tests:
 
 - `TauCeti.Shimura.tests.preabelianSiegel` (computation): The Siegel datum is preabelian type.
 - `TauCeti.Shimura.tests.preabelianTorus` (computation): Every torus datum is preabelian type.
 - `TauCeti.Shimura.tests.preabelianComponent` (non-example): For real quadratic F, the general Hilbert datum is preabelian via the Hodge-type common-determinant datum, although their full domains have four and two components respectively.
+- `TauCeti.Shimura.tests.preabelianConnectedSl2` (computation): The connected datum (SL₂,ℍ) is of preabelian type through GL₂, although the fundamental PGL₂ cocharacter does not lift to SL₂ (ShimuraVarieties §P.1 Check).
 
 Acceptance:
 
@@ -1124,11 +1210,14 @@ Acceptance:
 - The Siegel datum is of preabelian type.
 - Every torus datum is of preabelian type (its adjoint group is trivial, as is that of a torus Hodge-type datum).
 - For real quadratic F, the restriction-of-scalars Hilbert datum is of preabelian type through the scalar-determinant datum, although the two full domains have four and two components.
+- For a connected datum (H,X⁺) in ShimuraVarieties §P.1's convention (C1)–(C3), with H semisimple, preabelian type means (H^ad,X⁺)≅(G₁^ad,X₁⁺) for some Hodge-type datum (G₁,X₁). A pure datum is of preabelian type exactly when its connected derived datum (G^der,X⁺) is, and the predicate on connected data depends only on (H^ad,X⁺) (Hansen–Johansson Definition 4.1).
+- The connected datum (SL₂,ℍ) is of preabelian type through GL₂, although the fundamental PGL₂ cocharacter does not lift to SL₂ (ShimuraVarieties §P.1 Check).
 
 Uses:
 
 - PerfectoidShimuraVarieties:PSV.0: The consumer uses preabelian type through these concrete interfaces: Abelian type implies preabelian type by forgetting the derived isogeny. The predicate depends only on the connected adjoint datum.
 - Hansen–Johansson completed-cohomology route: The consumer uses preabelian type through these concrete interfaces: Abelian type implies preabelian type by forgetting the derived isogeny. The predicate depends only on the connected adjoint datum.
+- PerfectoidShimuraVarieties:S4/property-p and S4/preabelian-minimal-perfectoid: state Property 𝒫 and the perfectoid minimal compactification for connected data (H,X⁺) of preabelian type (preabelianTypeConnected)
 
 Direct prerequisites: `ShimuraVarieties:V0`.
 
@@ -1305,6 +1394,7 @@ Unit tests:
 - `TauCeti.Shimura.tests.pelSiegel` (computation): The genus-g Siegel datum (g≥1) is of PEL type, through the Siegel PEL datum with B=ℚ (PELModuli §M5.1).
 - `TauCeti.Shimura.tests.pelHilbertStar` (computation): For totally real F the scalar-determinant Hilbert datum of PELModuli §M5.4 is of PEL type.
 - `TauCeti.Shimura.tests.pelQuaternionNot` (non-example): Milne's Example 5.24 datum for a quaternion algebra over ℚ(√2) split at exactly one real place is not of PEL type: it fails SV4.
+- `TauCeti.Shimura.tests.pelUnitarySignature` (computation): For a CM field K and PELModuli §M5.5's unitary datum of signatures (r_τ,s_τ) at τ∈Φ, with GU(V) connected and SV3 holding, the datum is of PEL type and its domain has dimension Σ\_τ r_τs_τ. Signature (n,n) at every τ gives dimension \[K⁺:ℚ]n², and the wholly definite signature (n,0), n≥2, gives no datum, because SV3 fails (E18).
 
 Acceptance:
 
@@ -1315,12 +1405,14 @@ Acceptance:
 - The genus-g Siegel datum (g≥1) is of PEL type, through the Siegel PEL datum with B=ℚ (PELModuli §M5.1).
 - For totally real F the scalar-determinant Hilbert datum of PELModuli §M5.4 is of PEL type.
 - The quaternion datum of Milne's Example 5.24 with exactly one split real place of ℚ(√2) is not of PEL type, since it fails SV4.
+- For a CM field K and PELModuli §M5.5's unitary datum of signatures (r_τ,s_τ) at τ∈Φ, with GU(V) connected and SV3 holding, the datum is of PEL type and its domain has dimension Σ\_τ r_τs_τ. Signature (n,n) at every τ gives dimension \[K⁺:ℚ]n², and the wholly definite signature (n,0), n≥2, gives no datum, because SV3 fails (E18).
 
 Uses:
 
 - PELModuli §M0.12 (TauCetiRoadmap PR #966): toShimuraDatum and siegelMorphism are the witnesses and the Hodge-type comparison
 - ShimuraData:D4/type-implications: PEL type heads the chain PEL ⇒ Hodge ⇒ abelian ⇒ preabelian
 - Milne SVI §8, p.88: a PEL Shimura datum is defined when G is connected and maps into the Siegel datum
+- AutomorphicGaloisRepresentationsPartII (TauCetiRoadmap pull request #1006), Layer AG2.4, HLTT ordinary boundary geometry: uses the quasi-split unitary datum of signature (n,n) of a CM field, of dimension \[F⁺:ℚ]n², an instance of PELModuli §M5.5 of PEL type (test pelUnitarySignature)
 
 Direct prerequisites: `ShimuraVarieties:V0`; `PELModuli:M0`; `ShimuraData:D4/additional-axioms`.
 
@@ -1401,6 +1493,109 @@ Sources:
 
 - [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Lemma 12.1, Definition 12.2 and Remark 12.3, pp.111–112. Milne shows that the conjugacy class of μ\_x is defined over ℚ̄ (Lemma 12.1), defines E(G,X) as the fixed field of its Galois stabilizer (Definition 12.2) and notes that an inclusion of data reverses the inclusion of reflex fields (Remark 12.3(c)); the product formula is derived here from the definition.
 
+<a id="d4-distinguished-datum"></a>
+
+### Lovering's distinguished datum B(G^der, X⁺, E)
+
+Node `ShimuraData:D4/distinguished-datum` (construction). Lean name: `TauCeti.Shimura.distinguishedDatum`.
+
+Let (G,X) be a pure datum (ShimuraVarieties §P.1) with a component X⁺ and connected derived datum (G^der,X⁺), and let E⊂ℂ be a number field containing the reflex field E(G,X) (ShimuraVarieties §P.3). The abelianized Hodge cocharacter μ^ab (μ\_h followed by G→G^ab) does not depend on h∈X and is defined over E(G,X)⊆E. Let r:E\*=Res_{E/ℚ}G_m→G^ab be Res_{E/ℚ}(μ^ab) followed by the norm Res_{E/ℚ}G^ab_E→G^ab, and put B=G×\_{G^ab}E\* for δ:G→G^ab and r. (a) B is a connected reductive ℚ-group in an exact sequence 1→G^der→B→E\*→1, so B^der=G^der and B^ad=G^ad. (b) For h∈X⁺ let h_E:S→E\*\_ℝ be z↦zz̄ at the place of E given by E⊂ℂ when that place is real, z↦z there when it is complex, and trivial at the other archimedean places. Then (h,h_E) factors through B_ℝ, and its B(ℝ)-class X_B is a pure datum with reflex field E and a morphism (B,X_B)→(G,X); X_B does not depend on h∈X⁺. (c) Up to canonical isomorphism, (B,X_B) depends only on (G^der,X⁺) and E, among the data with connected datum (G^der,X⁺) and reflex field contained in E. (d) A central isogeny of connected data (G₁^der,X₁⁺)→(G^der,X⁺), with E containing both reflex fields, induces a morphism (B₁,X_{B₁})→(B,X_B) given by a central isogeny B₁→B. For E(G,X)⊆F⊆E the norm N_{E/F} induces (B_E,X_E)→(B_F,X_F). For (G,X) of abelian type with a Hodge-type witness (G₁,X₁) and E=E(G,X)E(G₁,X₁), this gives Boxer–Pilloni's diagram (B₁,X_{B₁})→(B,X_B), (B₁,X_{B₁})→(G₁,X₁), (B,X_B)→(G,X), with B₁=G₁×\_{G₁^ab}Res_{E/ℚ}G_m. All four data share the adjoint datum (G^ad,X^ad) and the compact dual G^ad_ℂ/P_h^ad.
+
+Hypotheses and conventions:
+
+- (G,X) is a pure Shimura datum in the sense of ShimuraVarieties §P.1; reflex fields and the cocharacter class are §P.3's; Weil restriction and norms of tori are ReductiveGroupsPartII §RG2.0a's.
+- E is a number field with a fixed embedding E⊂ℂ and E⊇E(G,X); in (d) E contains the reflex fields of both data. Abelian type and Hodge type are ShimuraVarieties §P.1's.
+
+Proof or construction:
+
+1. μ^ab is a cocharacter of the torus G^ab, so its conjugacy class is a single cocharacter. It is fixed by Gal(ℚ̄/E(G,X)) because the class of μ\_h is, and therefore defined over E(G,X)⊆E. The norm of Res_{E/ℚ}(μ^ab) is a ℚ-map r:E\*→G^ab (Lovering 4.6.1, p.37).
+2. B=G×\_{G^ab}E\* is a fibre product of ℚ-groups. Since δ is surjective with kernel G^der, the projection B→E\* is surjective with kernel G^der, so B is connected and reductive, with B^der=G^der and B^ad=G^ad (Lovering Lemma 4.6.2, p.38).
+3. (h,h_E) is a point of B_ℝ because δ∘h, the real S-map of the torus G^ab with cocharacter μ^ab, equals r∘h_E; Lovering checks this at a real and at a complex place (Proposition 4.6.5, pp.39–40). Its image in G^ad is that of h, so SV1–SV3 hold. The reflex field is E(B^ad,X^ad)·E(B^ab,h^ab)=E. For h′∈X⁺, h′=ghg⁻¹ with g∈G^der(ℝ)⁺, since G^der(ℝ)⁺→G^ad(ℝ)⁺ is onto; as G^der⊂B, (h′,h_E) lies in X_B.
+4. Independence: two data (G,X), (G′,X′) with connected datum (G^der,X⁺) and reflex fields in E receive morphisms from the neutral component G″ of G×\_{G^ad}G′, with the class of (h,h′). This is Deligne's fibre-product argument, 2.5.6, p.282. A morphism α:(G,X)→(G₂,X₂) inducing an isomorphism on connected data gives B→B₂ by f=α∘pr_G and k=pr_{E\*}; these agree in G₂^ab because α^ab∘μ^ab=μ₂^ab, so α^ab∘r=r₂. Both outer maps of the extensions are isomorphisms, so B≅B″≅B′ canonically (Lovering Proposition 4.6.3, pp.38–39).
+5. Functoriality: for a central isogeny with kernel Δ₁⊂G₁^der⊂B₁, the quotient (B₁/Δ₁,X_{B₁}/Δ₁) has connected datum (G^der,X⁺) and reflex field in E, so by independence it is isomorphic to (B,X_B). The norm N_{E/F}:E\*→F\* induces B_E→B_F, and h_F=N_{E/F}∘h_E (Lovering Lemma 4.6.6, pp.40–41).
+6. Abelian type: apply the construction to (G₁,X₁) and to (G,X) with the same E. The central isogeny G₁^der→G^der gives B₁→B by functoriality. The projections give B₁→G₁ and B→G, and all these maps are isomorphisms or central isogenies on derived groups (Boxer–Pilloni §4.4.41, pp.78–79). The centre of a reductive group lies in every parabolic subgroup, so the compact duals are all G^ad_ℂ/P_h^ad.
+
+API:
+
+- `TauCeti.Shimura.distinguishedDatum` (constructor): The group B=G×\_{G^ab}Res_{E/ℚ}G_m for δ and r=N_{E/ℚ}∘Res_{E/ℚ}(μ^ab), with the class X_B of (h,h_E).
+- `TauCeti.Shimura.distinguishedDatumExact` (structure): 1→G^der→B→E\*→1 is exact; B is connected reductive with B^der=G^der and B^ad=G^ad.
+- `TauCeti.Shimura.distinguishedDatumToDatum` (projection): The first projection is a morphism of data (B,X_B)→(G,X) inducing the identity on connected derived data.
+- `TauCeti.Shimura.distinguishedDatumReflex` (characterisation): E(B,X_B)=E, and X_B does not depend on h∈X⁺.
+- `TauCeti.Shimura.distinguishedDatumIndep` (characterisation): Up to canonical isomorphism the extension and the datum depend only on (G^der,X⁺) and E.
+- `TauCeti.Shimura.distinguishedDatumIsogeny` (functoriality): A central isogeny of connected data induces a morphism of distinguished data given by a central isogeny of groups.
+- `TauCeti.Shimura.distinguishedDatumNorm` (functoriality): For E(G,X)⊆F⊆E the norm induces (B_E,X_E)→(B_F,X_F).
+- `TauCeti.Shimura.distinguishedDatumAbelian` (relation): For abelian type with a Hodge-type witness (G₁,X₁) and E=E(G,X)E(G₁,X₁): the diagram (B₁,X_{B₁})→(B,X_B)→(G,X), (B₁,X_{B₁})→(G₁,X₁), with one adjoint datum and one compact dual.
+
+Unit tests:
+
+- `TauCeti.Shimura.tests.distinguishedGl2` (computation): (GL₂,ℍ^±) with E=ℚ: μ^ab is the identity of G_m, r is the identity and B=GL₂. Since det h(z)=zz̄=h_ℚ(z), the distinguished datum is (GL₂,ℍ^±) itself.
+- `TauCeti.Shimura.tests.distinguishedImaginaryReflex` (computation): (GL₂,ℍ^±) with E=ℚ(i): r is the norm of ℚ(i)/ℚ and B={(g,e):det g=Nm(e)}⊂GL₂×Res_{ℚ(i)/ℚ}G_m, of dimension 5, with reflex field ℚ(i); so B depends on E.
+- `TauCeti.Shimura.tests.distinguishedTorus` (degenerate): For a torus datum (T,{h}) with reflex field E, G^der=1 and B≅E\* by the second projection, with X_B={h_E}; its morphism to (T,{h}) is r.
+- `TauCeti.Shimura.tests.distinguishedNotProduct` (non-example): B is not G×E\*: for (GL₂,ℍ^±) and E=ℚ the product has a two-dimensional centre, B a one-dimensional one.
+
+Acceptance:
+
+- (B,X_B)→(G,X) has the same connected derived datum, and B^ad=G^ad.
+- E(B,X_B)=E for every E⊇E(G,X), and the construction is independent of h∈X⁺.
+- Independence of (G,X), up to canonical isomorphism, among data with connected datum (G^der,X⁺) and reflex field in E.
+- Central isogenies of connected data and norms between intermediate fields induce morphisms of distinguished data.
+- For abelian type with a Hodge-type witness, Boxer–Pilloni's diagram of four data with one adjoint datum and one compact dual.
+- (GL₂,ℍ^±) with E=ℚ: μ^ab is the identity of G_m, r is the identity and B=GL₂. Since det h(z)=zz̄=h_ℚ(z), the distinguished datum is (GL₂,ℍ^±) itself.
+- (GL₂,ℍ^±) with E=ℚ(i): r is the norm of ℚ(i)/ℚ and B={(g,e):det g=Nm(e)}⊂GL₂×Res_{ℚ(i)/ℚ}G_m, of dimension 5, with reflex field ℚ(i); so B depends on E.
+- For a torus datum (T,{h}) with reflex field E, G^der=1 and B≅E\* by the second projection, with X_B={h_E}; its morphism to (T,{h}) is r.
+- B is not G×E\*: for (GL₂,ℍ^±) and E=ℚ the product has a two-dimensional centre, B a one-dimensional one.
+
+Uses:
+
+- PerfectoidShimuraVarieties:S6/abelian-auxiliary-data: the auxiliary data (B₁,X_{B₁}) and (B,X_B) of an abelian-type datum, with their maps and the common flag variety FL_{G,μ}=FL_{G₁,μ\_{G₁}}=FL_{B₁,μ\_{B₁}}
+- PerfectoidShimuraVarieties:S6/abelian-connected-towers-and-descent-group: (B₁^der,X_{B₁}⁺)=(G₁^der,X₁⁺), so the connected towers of B₁ and G₁ agree, and B₁→G is the map whose finite Galois quotients are taken
+- Boxer–Pilloni, Higher Coleman theory, §4.4.41 and Remark 4.6.6: the diagram through which abelian-type constructions are reduced to Hodge type
+- Lovering, Integral canonical models for automorphic vector bundles of abelian type, §4.7: pulls the Hodge-type torsors back along B→G while keeping the abelian part
+
+Direct prerequisites: `ShimuraVarieties:V0`; `ReductiveGroupsPartII:RG2.0a`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`; `ShimuraData:D3/compact-dual`.
+
+Sources:
+
+- [Integral canonical models for automorphic vector bundles of abelian type](https://arxiv.org/pdf/1605.02717v3), §4.6, 4.6.1–Lemma 4.6.6, pp.37–41 (arXiv v3). Lovering defines μ\_E, the norm map r:E\*→G^ab and B=G×\_{G^ab}E\* (4.6.1), proves the exact sequence with kernel G^der (Lemma 4.6.2) and its independence of G (Proposition 4.6.3), defines h_E at the real and complex place and proves that (h_G,h_E) gives a datum with reflex field E and a map to (G,X) (4.6.4–Proposition 4.6.5), and proves functoriality under central isogenies and norms (Lemma 4.6.6).
+- [Higher Coleman theory](https://arxiv.org/pdf/2110.10251v1), §4.4.41, pp.78–79 (arXiv v1). Boxer and Pilloni take an abelian-type datum with a Hodge-type witness and E the composite of the reflex fields, and recall from Lovering the diagram (B₁,X_{B₁})→(B,X_B), (B₁,X_{B₁})→(G₁,X₁), (B,X_B)→(G,X), with B₁=G₁×\_{G₁^ab}Res_{E/ℚ}G_m, isomorphisms on derived groups and a central isogeny B₁→B.
+- [Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques](https://publications.ias.edu/sites/default/files/34_VarietesdeShimura.pdf), 2.5.6, p.282. Deligne shows that the extension attached to a system lifting a conjugacy class depends only on the derived group, by passing to the neutral component of the fibre product of two systems over the adjoint group; the independence step here uses the same fibre product.
+
+Planet: Distinguished Shimura datum.
+
+<a id="d4-distinguished-levi"></a>
+
+### Centre and Levi of the distinguished datum
+
+Node `ShimuraData:D4/distinguished-levi` (lemma). Lean name: `TauCeti.Shimura.distinguishedDatum_levi`.
+
+For a reductive ℚ-group H let Z_s(H) be the largest subtorus of its centre that is ℝ-split and contains no ℚ-split subtorus, put H^c=H/Z_s(H), and for a datum write M_μ for the centralizer of the Hodge cocharacter. Let (G₁,X₁) be of Hodge type, E⊇E(G₁,X₁), T=Res_{E/ℚ}G_m and B₁=G₁×\_{G₁^ab}T (D4/distinguished-datum). Then: (a) Z_s(G₁)=1 and Z_s(G₁^ab)=1; (b) Z_s(B₁)=1×Z_s(T), which lies in the kernel of r, so B₁^c=G₁×\_{G₁^ab}T^c; (c) M_{μ\_{B₁}}=M_{μ\_{G₁}}×\_{G₁^ab}T and M^c_{μ\_{B₁}}=M_{μ\_{G₁}}×\_{G₁^ab}T^c. This is Boxer–Pilloni's identity M^c_{μ\_{B₁}}=M^c_{μ\_{G₁}}×\_{M^{ab,c}}T^c, with the base the torus G₁^ab, which is the Levi of its own torus datum; (d) Z_s(T) is the norm-one torus of E/ℚ when E is totally real, and the norm-one torus of Res_{E⁺/ℚ}G_m when E is a CM field with maximal totally real subfield E⁺.
+
+Hypotheses and conventions:
+
+- (G₁,X₁) is a Hodge-type datum (ShimuraVarieties §P.1); B₁, r and T are those of D4/distinguished-datum for (G₁,X₁) and E.
+- Subtori and their real and rational splitting are ReductiveGroups layer 4's; images and preimages of subtori under isogenies of tori correspond through X\*(−)⊗ℚ.
+
+Proof or construction:
+
+1. (a) A Hodge-type datum satisfies SV2\* and has rational weight (D4/type-implications), so Z(G₁)°/w(G_m) is ℝ-anisotropic. An ℝ-split subtorus of Z(G₁)° therefore lies in w(G_m), which is ℚ-split. So Z_s(G₁)=1, and Z_s(G₁^ab)=1 because Z(G₁)°→G₁^ab is an isogeny.
+2. (b) The images of an ℝ-split torus with no ℚ-split subtorus are again of that kind, since characters of the image inject Galois-equivariantly into those of the source. So r(Z_s(T))⊂Z_s(G₁^ab)=1, and 1×Z_s(T) is a central subtorus of B₁ of the required kind. Conversely, a central subtorus of B₁ of that kind projects into Z_s(G₁)=1, so it lies in 1×ker r⊂1×T and hence in 1×Z_s(T). Since Z_s(T)⊂ker r, B₁/(1×Z_s(T))=G₁×\_{G₁^ab}(T/Z_s(T)).
+3. (c) μ\_{B₁}=(μ\_{G₁},μ\_T). As T is commutative, (g,t) centralizes it exactly when g centralizes μ\_{G₁}, giving the fibre product. Dividing by 1×Z_s(T)⊂ker r gives the second identity, and M^c_{μ\_{G₁}}=M_{μ\_{G₁}} by (a).
+4. (d) Complex conjugation acts on X\*(T)⊗ℚ=ℚ\[Hom(E,ℂ)] through τ↦conj∘τ. For E totally real it is trivial, T is ℝ-split, and its largest ℚ-anisotropic subtorus is the norm-one torus. For E CM, conjugation commutes with the Galois action, its coinvariants are ℚ\[Hom(E⁺,ℝ)], the largest ℝ-split subtorus is Res_{E⁺/ℚ}G_m, and its largest ℚ-anisotropic subtorus is the norm-one torus.
+
+Acceptance:
+
+- Siegel datum (GSp_{2g},ℋ^±), E=ℚ: T=G_m, Z_s(T)=1, B₁=GSp_{2g} and every identity is trivial.
+- E real quadratic, (G₁,X₁)=(GL₂,ℍ^±): Z_s(T) is the one-dimensional norm-one torus of E, T^c≅G_m by the norm, and B₁^c≅GL₂.
+- Boxer–Pilloni Remark 4.1.2 agrees: Z_s=1 for Hodge type is (a), and Z_s(Res_{L/ℚ}GSp_{2g}), the kernel of the norm Res_{L/ℚ}G_m→G_m for L totally real, is the computation of (d) applied to the centre Res_{L/ℚ}G_m.
+- The base of the fibre product cannot be M_{μ\_{G₁}}^{ab}: for the genus-two Siegel parabolic, M^{ab}=G_m² while G₁^ab=G_m, and T maps only to G₁^ab.
+
+Direct prerequisites: `ShimuraData:D4/distinguished-datum`; `ShimuraData:D4/type-implications`; `ShimuraData:D4/additional-axioms`; `ShimuraData:D3/filtration-parabolic`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`.
+
+Sources:
+
+- [Higher Coleman theory](https://arxiv.org/pdf/2110.10251v1), §4.1.1 and Remark 4.1.2, p.48; Theorem 4.4.43(3) and Principle 4.4.44(1), pp.81–82 (arXiv v1). Boxer and Pilloni define Z_s(G) as the largest central subtorus that is ℝ-split with no ℚ-split subtorus, and G^c=G/Z_s. Remark 4.1.2 says Z_s=1 in the Hodge case and identifies Z_s for the symplectic datum. Theorem 4.4.43(3) describes the torsor of B₁ as a fibre product over the torus G₁^ab, and Principle 4.4.44(1) uses the identity of the groups M^c without a proof; the node proves it.
+- [Integral canonical models for automorphic vector bundles of abelian type](https://arxiv.org/pdf/1605.02717v3), Lemma 4.6.2, p.38 (arXiv v3). The exact sequence of B and its description as a fibre product over G^ab, which (b) and (c) refine for the centre and the Levi.
+
 <a id="d5"></a>
 
 ## D5. Explicit data, coordinates and neatness
@@ -1442,7 +1637,12 @@ Unit tests:
 
 Acceptance:
 
-- Fix compatible embeddings ℚ̄→ℚ̄ℓ. For g∈G(𝔸f), let Λg,ℓ be the subgroup of ℚ̄ℓˣ generated by its local eigenvalues. g is adelically neat when the intersection over ℓ of the torsion subgroups ℚ̄ˣ∩Λg,ℓ is {1}; for prime-to-p adeles intersect only ℓ≠p. An adelic compact open is neat when every element is. Rationally conjugate elements and rational elements are compared explicitly.
+- An adelically neat element coming from G(ℚ) is rationally neat.
+- Local/adelic conjugation preserves the eigenvalue torsion condition.
+- An adelically neat prime-to-p level remains adelically neat after inserting any compact open p-component.
+- The identity adele is adelically neat.
+- The rational scalar −1 is not adelically neat.
+- A prime-to-p level certified at v≠p stays neat for every p-level.
 
 Uses:
 
@@ -1612,7 +1812,9 @@ Proof or construction:
 
 Acceptance:
 
-- Use the native R7 symplectic root datum. In BP coordinates κ=(k₁,…,k_g;k), Σk_i≡k mod 2, and the Borel inside the opposite Siegel parabolic is upper triangular on each diagonal block. Its compact roots are e_i−e_j (i<j), and its noncompact roots are −e_i−e_j (i≤j). Thus ρ\_i=−i, ρ\_nc,i=−(g+1)/2, both with central coordinate zero; G-dominance is 0≥k₁≥⋯≥k_g and M-dominance k₁≥⋯≥k_g. These are not the CG upper-triangular full-Borel signs.
+- g=1: there is no compact root; the positive noncompact root is −2e₁, ρ=ρ\_nc=(−1;0), G-dominance is 0≥k₁, and every k₁ is M-dominant.
+- g=2: the positive roots are e₁−e₂, −2e₁, −e₁−e₂ and −2e₂, with simple roots e₁−e₂ and −2e₁. Half their sum is ρ=(−1,−2;0), and the noncompact half-sum is ρ\_nc=(−3/2,−3/2;0). G-dominance is k₁−k₂≥0 and −k₁≥0, that is 0≥k₁≥k₂.
+- Counts: there are g² positive roots, g(g−1)/2 of them compact and g(g+1)/2 noncompact, the last being the dimension of the Siegel space.
 
 Direct prerequisites: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `ShimuraVarieties:V0`; `ShimuraData:D3/filtration-parabolic`; `mathlib:RootPairing`; `mathlib:RootPairing.Base`; `mathlib:RootPairing.Base.IsPos`.
 
@@ -1639,7 +1841,9 @@ Proof or construction:
 
 Acceptance:
 
-- For g≥1 the supplier Weyl group identifies with permutations of {1,…,2g} commuting with i↦2g+1−i. The Siegel Levi subgroup preserves {1,…,g}. Minimal left-coset representatives satisfy w⁻¹(g+1)≺⋯≺w⁻¹(2g), for the cyclic order g+1≺⋯≺2g≺1≺⋯≺g, not the usual numeric order. There are 2^g such representatives.
+- |W|=2^g·g! and |W_M|=g!, so ^MW has 2^g elements; for g=1 both elements of W are minimal.
+- g=2: the pairs (w⁻¹(3),w⁻¹(4)) allowed in W are the ordered pairs (x,y) with y∉{x,5−x}, eight in all. The cyclic order 3≺4≺1≺2 selects (3,4), (3,1), (4,2) and (1,2), the four elements of ^MW. E3's representative (4,2,3,1) has inverse indices (3,1).
+- Using the numeric order instead selects (3,4), (1,2), (1,3) and (2,4); this differs from ^MW, which is the error recorded in E3.
 
 Direct prerequisites: `ShimuraData:D5/siegel-root-convention`; `ShimuraData:D3/kostant-representatives`; `ShimuraData:D3/kostant-cone-criterion`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `mathlib:RootPairing.weylGroup`.
 
@@ -1677,7 +1881,12 @@ Unit tests:
 
 Acceptance:
 
-- For w∈^MW set a₀=0 and a_i=#{j≤i:g+j∈w⁻¹{g+1,…,2g}}. Thus a_i−a_{i−1}∈{0,1}. The increment subset determines w using the cyclic order. This sequence is unrelated to the names of Weyl elements w₀,w₁,… used in CG.
+- a₀=0.
+- The increment at i is the indicator of g+i∈w⁻¹{g+1,…,2g}.
+- The sequence determines w uniquely among minimal left representatives.
+- For g=1 the two sequences are (0,0) and (0,1).
+- For g=2 the four sequences are (0,0,0),(0,0,1),(0,1,1),(0,1,2).
+- (0,0,2) cannot occur.
 
 Uses:
 
@@ -1711,7 +1920,9 @@ Proof or construction:
 
 Acceptance:
 
-- For x∈C_w⊂P\\G over any field, let L_x=x⁻¹⟨e_{g+1},…,e_{2g}⟩. Then a_i(w)=dim(L_x∩⟨e_{g+1},…,e_{g+i}⟩). The equality is invariant under the parabolic representative and constant on the Bruhat cell.
+- w=1: L_x=⟨e_{g+1},…,e_{2g}⟩, and a_i=i for every i.
+- g=1, w=s: L_x=⟨e₁⟩, so L_x∩⟨e₂⟩=0 and a₁=0.
+- g=2: for the permutation matrix of w with (w⁻¹(3),w⁻¹(4))=(3,1), L_x=⟨e₃,e₁⟩ meets ⟨e₃⟩ and ⟨e₃,e₄⟩ in lines, so a=(0,1,1). The other three representatives (3,4), (4,2) and (1,2) give (0,1,2), (0,0,1) and (0,0,0), the four sequences of D5/kostant-sequence.
 
 Direct prerequisites: `ShimuraData:D5/kostant-sequence`; `ShimuraData:D3/bruhat-integral`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `mathlib:Matrix.GeneralLinearGroup.toLin`.
 
@@ -1738,7 +1949,9 @@ Proof or construction:
 
 Acceptance:
 
-- In CG upper-triangular coordinates χ=(a,b;c), χ(diag(t₁,t₂,νt₂⁻¹,νt₁⁻¹))=t₁ᵃt₂ᵇνᶜ. Positive roots are (1,−1;0),(0,2;−1),(1,1;−1),(2,0;−1), with simple first two, ρ=(2,1;−3/2), and coroots (1,−1;0),(0,1;0),(1,1;0),(1,0;0). Dominant cones are a≥b≥0 for G and a≥b for M. The isogeny Tder×Z→T sends χ to Pilloni parity coordinates (a,b;a+b+2c).
+- Each positive root pairs to 2 with its coroot: (1,−1;0)·(1,−1;0)=(0,2;−1)·(0,1;0)=(1,1;−1)·(1,1;0)=(2,0;−1)·(1,0;0)=2. The simple off-diagonal pairings are −1 and −2, the Cartan matrix of type C₂.
+- ρ=½(4,2;−3)=(2,1;−3/2). The similitude character ν=(0,0;1) pairs to zero with every coroot.
+- The conversion (a,b;c)↦(a,b;a+b+2c) sends ρ to (2,1;0), and the four positive roots to (1,−1;0), (0,2;0), (1,1;0), (2,0;0): the positive roots of CG p.10, as D5/gsp4-cayley-action explains.
 
 Direct prerequisites: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `ShimuraData:D5/siegel-root-convention`; `mathlib:RootPairing`; `mathlib:RootPairing.Base`; `mathlib:RootPairing.Base.IsPos`.
 
@@ -1765,7 +1978,9 @@ Proof or construction:
 
 Acceptance:
 
-- In CG coordinates ^MW has four elements with actions (a,b;c), (a,−b;b+c), (b,−a;a+c), (−b,−a;a+b+c), of lengths 0,1,2,3. The element called w₀ in CG acts (a,b;c)↦(b,a;c) and is the longest Levi element. The full longest Weyl element acts (−a,−b;a+b+c). The duality involution w↦w₀,Mww₀,G reverses these four lengths.
+- The simple reflections act by s₁(a,b;c)=(b,a;c) and s₂(a,b;c)=(a,−b;b+c), the reflection in (0,2;−1) with coroot (0,1;0). Then s₂s₁(a,b;c)=(b,−a;a+c), s₂s₁s₂(a,b;c)=(−b,−a;a+b+c) and ^MW={1,s₂,s₂s₁,s₂s₁s₂}.
+- For these four elements, w⁻¹ sends the Levi root (1,−1;0) to (1,−1;0), (1,1;−1), (1,1;−1) and (1,−1;0) respectively, all positive, while s₁ sends it to (−1,1;0).
+- w₀,G=s₁s₂s₁s₂ acts by (−a,−b;a+b+c), and the duality exchanges 1↔s₂s₁s₂ and s₂↔s₂s₁ (lengths 0↔3, 1↔2).
 
 Direct prerequisites: `ShimuraData:D5/gsp4-cg-roots`; `ShimuraData:D3/kostant-involution`; `ShimuraData:D3/kostant-representatives`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `mathlib:RootPairing.weylGroup`.
 
@@ -1791,7 +2006,9 @@ Proof or construction:
 
 Acceptance:
 
-- For C_i=ŵ\_i C_G⁺, i=0,1,2,3, the map −w₀,M on the character vector space sends C_i to C_{3−i}. Here the minus negates all three coordinates and w₀,M swaps a,b; the central coordinate is unrestricted. This distinguishes the Levi longest element from the full longest element.
+- −w₀,M acts by (a,b;c)↦(−b,−a;−c). It maps C₀={a≥b≥0} onto C₃={−b≥−a≥0} and C₁={a≥−b≥0} onto C₂={−b≥a≥0}, the chambers printed on CG p.28.
+- The full longest element does not do this: −w₀,G acts by (a,b;c)↦(a,b;−a−b−c), which preserves each chamber's derived part.
+- The central coordinate is unrestricted in every C_i, so the reversal is a statement on the derived coordinates (a,b).
 
 Direct prerequisites: `ShimuraData:D5/gsp4-kostant`; `ShimuraData:D3/kostant-cones`.
 
@@ -1817,7 +2034,9 @@ Proof or construction:
 
 Acceptance:
 
-- For CG J=h(i), K^h={g∈GSp₄(ℝ):gᵀg=ν(g)I₄}=ℝ\_{>0}K∞,1=ℝˣK∞,1, with K∞,1=Sp₄(ℝ)∩O(4). Every element has positive similitude. The full K∞=GSp₄(ℝ)∩O(4) also has negative similitudes and does not centralize h.
+- D=diag(1,1,−1,−1) satisfies DᵀD=I and DᵀJD=−J, so it lies in GSp₄(ℝ)∩O(4) with similitude −1. It anticommutes with J=h(i) and is not in K^h (E7).
+- The positive scalars rI₄ (similitude r²) and J itself (similitude 1, Jᵀ J=I) lie in K^h.
+- Every k∈K^h has ν(k)>0, because kᵀk=ν(k)I₄ and kᵀk is positive definite.
 
 Direct prerequisites: `ShimuraVarieties:V0`; `ShimuraData:D5/gsp4-cg-roots`.
 
@@ -1845,7 +2064,9 @@ Proof or construction:
 
 Acceptance:
 
-- Put S=\[\[0,1],\[1,0]]. Elements of K∞,1 are \[\[SAS,SB],\[−BS,A]] with AᵀA+BᵀB=I and AᵀB=BᵀA. The map k↦A+iB is a real Lie-group isomorphism K∞,1≅U(2).
+- A=I, B=0 gives the identity, and A=0, B=I gives k=\[\[0,S],\[−S,0]]=J with k²=−I₄, mapped to iI₂ with (iI₂)²=−I₂.
+- Multiplicativity: the product of the elements with (A,B) and (A′,B′) has blocks A″=AA′−BB′ and B″=AB′+BA′, because S²=I. This is the real form of (A+iB)(A′+iB′).
+- (A+iB)\*(A+iB)=AᵀA+BᵀB+i(AᵀB−BᵀA)=I₂, so the image is unitary exactly under the two defining relations.
 
 Direct prerequisites: `ShimuraData:D5/gsp4-centralizer`; `ArithmeticLocallySymmetricSpaces:ALS.0`; `mathlib:Matrix.unitaryGroup`.
 
@@ -1920,7 +2141,9 @@ Proof or construction:
 
 Acceptance:
 
-- In CG coordinates h(t₁,t₂;z) on h_C, the exponential kernel consists of (2πm,2πn;2πik) and (π+2πm,π+2πn;πi+2πik), for m,n,k∈ℤ. In particular the extra element h(π,π;πi) forces a+b≡c mod2 on integral characters.
+- h(π,π;πi) lies in the kernel: both rotations are by π, giving −I₄, and e^{πi}=−1.
+- h(π,0;πi) does not: it gives e^{πi}·diag(−1,1,1,−1)=diag(1,−1,−1,1)≠I₄.
+- On the extra kernel element the character (a,b;c), the form at₁i+bt₂i+cz, takes the value πi(a+b+c). Its exponential (−1)^{a+b+c} is 1 exactly when a+b≡c mod 2: (1,0;1) passes and (1,0;0) fails.
 
 Direct prerequisites: `ShimuraData:D5/gsp4-compact-cartan`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms`.
 
@@ -1958,7 +2181,9 @@ Unit tests:
 
 Acceptance:
 
-- For the CG J and real basis e₁,…,e₄, take f₁=e₁−ie₄,f₂=e₂−ie₃,f₃=e₃−ie₂,f₄=e₄−ie₁. They are the columns of C=\[\[I₂,−iS],\[−iS,I₂]] and give bases of the two ±i-eigenspaces of J. C is invertible, with inverse 1/2 \[\[I₂,iS],\[iS,I₂]].
+- The columns of C=\[\[I₂,−iS],\[−iS,I₂]] are (1,0,0,−i), (0,1,−i,0), (0,−i,1,0) and (−i,0,0,1), which are f₁,…,f₄ (CG p.10).
+- With J=h(1,1;0), the matrix with rows (0,0,0,1), (0,0,1,0), (0,−1,0,0) and (−1,0,0,0) (CG p.9), Jf₁=−if₁ and Jf₃=if₃. So f₁,f₂ span V⁻ and f₃,f₄ span V⁺.
+- C·½\[\[I₂,iS],\[iS,I₂]]=½\[\[I₂+S²,0],\[0,S²+I₂]]=I₄, since (−i)(i)=1 and S²=I₂.
 
 Uses:
 
@@ -1977,7 +2202,7 @@ Sources:
 
 Node `ShimuraData:D5/gsp4-cayley-action` (lemma). Lean name: `TauCeti.Shimura.gsp4CayleyAction`.
 
-For k=\[\[SAS,SB],\[−BS,A]], C⁻¹kC=diag(SAS−iSBS,A+iB). In compact coordinates the positive compact root is (1,−1;0) and the three positive noncompact roots are (0,2;0),(1,1;0),(2,0;0), according to CG convention.
+For k=\[\[SAS,SB],\[−BS,A]], C⁻¹kC=diag(SAS−iSBS,A+iB). In compact coordinates the positive compact root is (1,−1;0) and the three positive noncompact roots are (0,2;0),(1,1;0),(2,0;0), according to CG convention. On Lie algebras, C⁻¹h(t₁,t₂;z)C=diag(z−it₁,z−it₂,z+it₂,z+it₁) (CG p.10 for z=0; z is central). Hence the Cayley transform identifies the CG split character (a,b;c) of diag(t₁,t₂,νt₂⁻¹,νt₁⁻¹) with the compact character (−a,−b;a+b+2c), and CG's positive system on H_ℂ is the image of the roots of the lower-triangular Borel. Composing with the longest Weyl element, which is −1 on the angular coordinates, gives the conversion (a,b;c)↦(a,b;a+b+2c). It carries the upper-triangular positive roots onto those positive roots and ρ\_T=(2,1;−3/2) to ρ\_H=(2,1;0).
 
 Hypotheses and conventions:
 
@@ -1989,7 +2214,9 @@ Proof or construction:
 
 Acceptance:
 
-- For k=\[\[SAS,SB],\[−BS,A]], C⁻¹kC=diag(SAS−iSBS,A+iB). In compact coordinates the positive compact root is (1,−1;0) and the three positive noncompact roots are (0,2;0),(1,1;0),(2,0;0), according to CG convention.
+- For k=exp h(t₁,t₂;0), the blocks are A=diag(cos t₂,cos t₁) and B=diag(sin t₂,sin t₁), so A+iB=diag(e^{it₂},e^{it₁}) and C⁻¹kC=diag(e^{−it₁},e^{−it₂},e^{it₂},e^{it₁}), the exponential of diag(−it₁,−it₂,it₂,it₁) (CG p.10).
+- The lower-triangular roots of T map, under (a,b;c)↦(−a,−b;a+b+2c), to CG's positive roots: (−1,1;0)↦(1,−1;0), (0,−2;1)↦(0,2;0), (−1,−1;1)↦(1,1;0) and (−2,0;1)↦(2,0;0). The lower-Borel half-sum (−2,−1;3/2) maps to ρ\_H=(2,1;0).
+- CG p.28 pairs μ=(a,b;c) with σ=(−b,−a;a+b+2c), the Cayley image followed by the Levi swap. It then uses λ=(2−b,1−a;−a−b−2c), whose derived part (2−b,1−a) is that of σ+ρ\_H and whose central coordinate is −(a+b+2c).
 
 Direct prerequisites: `ShimuraData:D5/gsp4-cayley-basis`; `ShimuraData:D5/gsp4-unitary`; `ShimuraData:D5/gsp4-compact-cartan`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
@@ -2015,7 +2242,9 @@ Proof or construction:
 
 Acceptance:
 
-- Import R7 parity coordinates e₁=(1,0;1),e₂=(0,1;1),e₃=(0,0;2)=ν and the half-integral dual lattice {(b₁,b₂;d)∈(1/2)ℤ³:b₁+d,b₂+d∈ℤ}. Pilloni uses the lower full Borel: positives e₂−e₁,−2e₁+e₃,−e₁−e₂+e₃,−2e₂+e₃; simples e₂−e₁,−2e₂+e₃; ρ=(−2,−1;0), with coroots f₂−f₁ and −f₂ in the displayed dual basis. The first simple root is compact and the other positives lie in g_C/p_Si. The R7 lattice pairing and RG2.5 dualization must use these corrected root/coroot bases. The CG conversion is (a,b;c)_CG↦(a,b;a+b+2c)_P. The BP Borel swaps the compact order, giving ρ\_BP=(−1,−2;0) for g=2.
+- ρ: ½\[(e₂−e₁)+(−2e₁+e₃)+(−e₁−e₂+e₃)+(−2e₂+e₃)]=½(−4e₁−2e₂+3e₃). With e₁=(1,0;1), e₂=(0,1;1) and e₃=(0,0;2), this is ½(−4,−2;−4−2+6)=(−2,−1;0).
+- The dual basis f₁=(1,0;0), f₂=(0,1;0), f₃=(−½,−½;½) pairs with e₁, e₂, e₃ by the dot product. Then ⟨α₁,f₂−f₁⟩=2, ⟨α₂,−f₂⟩=2, ⟨α₁,−f₂⟩=−1 and ⟨α₂,f₂−f₁⟩=−2, the Cartan matrix of type C₂.
+- The CG conversion sends the CG positive roots to the negatives of Pilloni's, and CG's ρ=(2,1;−3/2) to (2,1;0)=−ρ\_Pilloni: the two Borels are opposite. For g=2, BP's ρ=(−1,−2;0) (D5/siegel-root-convention) differs from Pilloni's by the swap of the compact order.
 
 Direct prerequisites: `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `ShimuraData:D5/gsp4-cg-roots`; `ShimuraData:D5/siegel-root-convention`; `ShimuraData:D5/gsp4-cayley-action`; `ReductiveGroupsPartII:RG2.5`; `mathlib:RootPairing`; `mathlib:RootPairing.Base`; `mathlib:RootPairing.Base.IsPos`.
 
@@ -2041,7 +2270,9 @@ Proof or construction:
 
 Acceptance:
 
-- Let F_v/ℚ\_l be absolutely unramified, normalize v(l)=1, and let γ∈Iw₁(v)⊂GSp₄(F_v). Every eigenvalue λ in an algebraic closure satisfies v(λ−1)≥1/4, since χγ(X)≡(X−1)^4 modulo the maximal ideal.
+- For ℓ odd, −I₄∉Iw₁(v): its reduction is −1, not unipotent, consistent with v(−1−1)=v(−2)=0<1/4.
+- For F_v=ℚ₇ and the scalar uI₄ with u=7+5√2 at v=(7,√2−3) (E17), √2≡3 mod v gives u−1≡21≡0, so every eigenvalue u satisfies v(u−1)≥1.
+- The normalization matters: if F_v/ℚ\_ℓ had ramification index e with v(ℓ)=1, the same argument would give only v(λ−1)≥1/(4e).
 
 Direct prerequisites: `AdelicAlgebraicGroups:AA.4`; `ReductiveGroupsPartII:RG2.3`; `mathlib:AddValuation`; `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`; `mathlib:AddValuation.map_mul`; `mathlib:AddValuation.map_le_add`; `mathlib:AddValuation.map_inv`; `mathlib:AddValuation.map_zero`.
 
@@ -2067,7 +2298,9 @@ Proof or construction:
 
 Acceptance:
 
-- If v(λ\_j−1)≥1/4 for finitely many λ\_j, every integer product η=∏λ\_j^{n_j} also satisfies v(η−1)≥1/4. All λ\_j are units. Inversion preserves v(λ−1), and multiplication uses ab−1=(a−1)b+(b−1).
+- Generators are needed, not just eigenvalues: λ₁=2 and λ₂=−1/2 (E15's diag(2,−1/2)) are not torsion but λ₁λ₂=−1 is, and they fail the hypothesis because v(2−1)=0.
+- For ℓ=7, λ=8 and μ=−6: v(λμ−1)=v(−49)=2 and v(λ/μ−1)=v(−14/6)=1, both ≥1/4.
+- Use in D5/iwahori-neat: a root of unity ζ≠1 of ℓ-power order has v(ζ−1)≤1/(ℓ−1)<1/4 for ℓ>5, and one of order prime to ℓ has v(ζ−1)=0. So the generated group contains no nontrivial torsion.
 
 Direct prerequisites: `ShimuraData:D5/local-eigenvalue-bound`; `mathlib:AddValuation`; `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`; `mathlib:AddValuation.map_mul`; `mathlib:AddValuation.map_le_add`; `mathlib:AddValuation.map_inv`; `mathlib:AddValuation.map_zero`.
 
@@ -2096,7 +2329,9 @@ Proof or construction:
 
 Acceptance:
 
-- For a number field F and a compact open K⊂GSp₄(𝔸F,f), choose one rational prime ℓ>5. Suppose every place v|ℓ is absolutely unramified and the projection of K to GSp₄(F_v) is contained in Iw₁(v). Then every k∈K is adelically neat for the faithful ℚ-representation of Res_F/ℚ GSp₄ on the underlying ℚ-space of F⁴, as in Definition 3.2.1. Hence for every g∈GSp₄(𝔸F,f), every γ∈GSp₄(F)∩gKg⁻¹ is rationally neat in that representation. The same certification proves the prime-to-p statement when ℓ≠p and all places above ℓ are retained. For F=ℚ this recovers the one-place criterion. One arbitrary F-place does not suffice for this rational conclusion: see E17.
+- F=ℚ and ℓ=7: a compact open K⊂GSp₄(𝔸\_f) with K₇⊂Iw₁(7) is neat. This is BCGP Lemma 7.8.3 for F=ℚ.
+- F=ℚ(√2), ℓ=7: 7 splits as (7,√2−3)(7,√2+3), and u=7+5√2 is ≡1 at the first place and ≡−1 at the second. So uI₄ lies in Iw₁ at one place above 7 but not at both. It is excluded by the hypothesis, as it must be: its rational eigenvalues u and 7−5√2 have product −1 (E17).
+- The bound needs ℓ>5. For ℓ=5 a primitive fifth root of unity ζ has v(ζ−1)=1/4, so the inequality v(η−1)≥1/4 no longer excludes torsion.
 
 Direct prerequisites: `ShimuraData:D5/local-eigenvalue-bound`; `ShimuraData:D5/local-products-bound`; `ShimuraData:D5/adelic-neat`; `AdelicAlgebraicGroups:AA.4`; `mathlib:AddValuation`; `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`; `AdelicAlgebraicGroups:AA.1`; `ReductiveGroupsPartII:RG2.3`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`; `mathlib:NumberField.RingOfIntegers`; `mathlib:IsDedekindDomain.FiniteAdeleRing`.
 
@@ -2196,28 +2431,51 @@ Each row is a revision-3 node whose target an upstream pull request now states; 
 - `ArithmeticLocallySymmetricSpaces:ALS.0` — Import from TauCetiRoadmap pull request #871 (head e7e16145f2), as stated: §ALS.F.1 realPoints_lieGroup (real points of a linear algebraic group form a real Lie group with finitely many components and Lie algebra Lie(H), independent of the embedding) and §§ALS.0.1–0.2 (IsCartanInvolution by compactness of the twisted real form, with the Killing criterion on the derived algebra and a separate condition on the central torus). Needed by: `ShimuraData:D0/hilbert-real-points`, `ShimuraData:D4/additional-axioms`, `ShimuraData:D4/sv5-criterion`, `ShimuraData:D5/gsp4-unitary`.
 - `PELModuli:M0` — Import §M0.12 of TauCetiRoadmap pull request #966 (head 7577fe7ccc) as stated: RationalPELDatum.toShimuraDatum for a rational PEL datum with connected group and SV3, and RationalPELDatum.siegelMorphism to the genus-g Siegel datum of ShimuraVarieties §P.4, with §§M0.6–M0.11 behind them. Nothing new is requested. Needed by: `ShimuraData:D4/pel-type`, `ShimuraData:D4/type-implications`, `ShimuraData:D5/hilbert-star-datum`.
 - `PELModuli:M5` — Import §M5.4 of TauCetiRoadmap pull request #966 as stated: hilbertRationalDatum (Case C: the subgroup G\* of Res_{F/ℚ}GL₂ with determinant in G_m), hilbertPairing and hilbertTraceEmbedding with its multiplier and h-compatibility; and §M5.1's Siegel PEL data. Nothing new is requested. Needed by: `ShimuraData:D5/hilbert-star-datum`.
-- `ReductiveGroupsPartII:RG2.0a` — Import §RG2.0a of TauCetiRoadmap pull request #785 (head f24efef614) as stated: WeilRestriction (functor, representing Hopf algebra, pointsMulEquiv, mapHopf) and §RG2.0a.3 DeligneTorus (realPointsMulEquiv with isHomeomorph_realPointsMulEquiv, complexSplitting with complexSplitting_real and conj_swap, diagonal, weight, norm, mu and characterGroup). Needed by: `ShimuraData:D0/hilbert-adelic-points`, `ShimuraData:D0/hilbert-real-points`, `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D5/hilbert-datum`.
+- `ReductiveGroupsPartII:RG2.0a` — Import §RG2.0a of TauCetiRoadmap pull request #785 (head f24efef614) as stated: WeilRestriction (functor, representing Hopf algebra, pointsMulEquiv, mapHopf) and §RG2.0a.3 DeligneTorus (realPointsMulEquiv with isHomeomorph_realPointsMulEquiv, complexSplitting with complexSplitting_real and conj_swap, diagonal, weight, norm, mu and characterGroup). D4/distinguished-datum also uses the Weil restriction Res_{E/ℚ}G_m and the norm Res_{E/ℚ}T_E→T of a ℚ-torus T. Needed by: `ShimuraData:D0/hilbert-adelic-points`, `ShimuraData:D0/hilbert-real-points`, `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D4/distinguished-datum`, `ShimuraData:D5/hilbert-datum`.
 - `ReductiveGroupsPartII:RG2.1` — For a reductive ℚ-group G split by a finite Galois extension L and a central isogeny H′→G^der, a central extension 1→N→G₁→G→1 with N a product of copies of Res_{L/ℚ}G_m and G₁^der→G^der equal to H′→G^der (Milne–Shih 1982, 3.1, as quoted in Milne 2013, §8). §RG2.1.5 constructs z-extensions, the simply connected case; the prescribed-cover form is requested as an extension. Needed by: `ShimuraData:D4/connected-datum-lift`.
 - `ReductiveGroupsPartII:RG2.3` — The pro-unipotent Iwahori Iw₁(v)⊂GSp₄(O_v) of an absolutely unramified place (LevelSubgroups.proPIwahori in the symplectic case) and the fact that the characteristic polynomial of each of its elements reduces to (X−1)⁴ modulo the maximal ideal. Needed by: `ShimuraData:D5/iwahori-neat`, `ShimuraData:D5/local-eigenvalue-bound`.
 - `ReductiveGroupsPartII:RG2.5` — Import §RG2.5's gsp4-self-dual as stated: the parity character lattice of the GSp₄ torus in Pilloni's coordinates, its half-integral dual with basis f₁,f₂,f₃, the corrected base α₁=e₂−e₁, α₂=e₃−2e₂ with coroots f₂−f₁ and −f₂, and the unimodular self-duality. D5 adds only the Siegel-datum positive system, ρ and the compact root. Needed by: `ShimuraData:D5/gsp4-pilloni-convention`.
 - `SchemeAndStackFoundations:SF.1` — Supply effective equivariant descent of projective schemes along finite separable field extensions, applied to the represented parabolic-type functor from R7. Descent does not imply a rational point. Needed by: `ShimuraData:D3/reflex-flag-descent`.
-- `ShimuraVarieties:V0` — Import, as stated in TauCetiRoadmap pull request #933 (head 1dd09ed7a8), the prerequisites §§P.1–P.5 that ShimuraVarieties constructs before its Layer 0 (atlas stage V0): §P.1 TauCeti.Shimura.PureDatum (SV1–SV3, morphisms, products, adjoint data, the connected convention (C1)–(C3), special pairs and points, Hodge and abelian type, central-isogeny lifts); §P.2 the Hermitian components; §P.3 the representation–Hodge dictionary, holomorphic and polarized homogeneous variations, the Borel embedding, the cocharacter class and the reflex field with finiteness and functoriality; §P.4 levels, effective stabilizers and the GL₂, Siegel and torus examples; §P.5 maximal tori through h. Nothing new is requested; revision 4 consumes these instead of planning them. D3/compact-dual and D4/product-reflex-field build on §P.3's Borel embedding and reflex field; the equivariance, holomorphy and openness of the Borel embedding and the reflex field of a product are stated here, not requested. Needed by: `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D2/unique-complex-structure`, `ShimuraData:D3/compact-dual`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D3/reflex-flag-descent`, `ShimuraData:D4/additional-axioms`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D4/pel-type`, `ShimuraData:D4/preabelian-type`, `ShimuraData:D4/product-reflex-field`, `ShimuraData:D4/type-implications`, `ShimuraData:D5/gsp4-cayley-basis`, `ShimuraData:D5/gsp4-centralizer`, `ShimuraData:D5/hilbert-datum`, `ShimuraData:D5/hilbert-star-datum`, `ShimuraData:D5/siegel-reflex-dual`, `ShimuraData:D5/siegel-root-convention`.
+- `ShimuraVarieties:V0` — Import, as stated in TauCetiRoadmap pull request #933 (head 1dd09ed7a8), the prerequisites §§P.1–P.5 that ShimuraVarieties constructs before its Layer 0 (atlas stage V0): §P.1 TauCeti.Shimura.PureDatum (SV1–SV3, morphisms, products, adjoint data, the connected convention (C1)–(C3), special pairs and points, Hodge and abelian type, central-isogeny lifts); §P.2 the Hermitian components; §P.3 the representation–Hodge dictionary, holomorphic and polarized homogeneous variations, the Borel embedding, the cocharacter class and the reflex field with finiteness and functoriality; §P.4 levels, effective stabilizers and the GL₂, Siegel and torus examples; §P.5 maximal tori through h. Nothing new is requested; revision 4 consumes these instead of planning them. D3/compact-dual and D4/product-reflex-field build on §P.3's Borel embedding and reflex field; the equivariance, holomorphy and openness of the Borel embedding and the reflex field of a product are stated here, not requested. D4/distinguished-datum uses §P.1's abelian and Hodge type and connected convention and §P.3's reflex field of a datum, of its adjoint datum and of a torus. Needed by: `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D2/unique-complex-structure`, `ShimuraData:D3/compact-dual`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D3/reflex-flag-descent`, `ShimuraData:D4/additional-axioms`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D4/distinguished-datum`, `ShimuraData:D4/pel-type`, `ShimuraData:D4/preabelian-type`, `ShimuraData:D4/product-reflex-field`, `ShimuraData:D4/type-implications`, `ShimuraData:D5/gsp4-cayley-basis`, `ShimuraData:D5/gsp4-centralizer`, `ShimuraData:D5/hilbert-datum`, `ShimuraData:D5/hilbert-star-datum`, `ShimuraData:D5/siegel-reflex-dual`, `ShimuraData:D5/siegel-root-convention`.
 - `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition` — Use existing pure real/rational/integral Hodge carriers, conjugation, opposed filtrations, decomposition, tensor, dual and Tate conventions; supply elliptic H₁/H¹ comparison. Record the missing H0→D1 stage dependence required by RT-AREA-algebraicgeometry/27. Needed by: `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D3/flat-bundle-local`, `ShimuraData:D3/variation`.
 - `tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory` — Supply rational polarization, positive Hermitian comparison, polarizable rational semisimplicity and invariance under rational isogeny; these are used in MT and fiberwise polarized variations. Record H1→D3 required by RT-AREA-algebraicgeometry/27. Needed by: `ShimuraData:D1/hodge-generic`, `ShimuraData:D1/mumford-tate-reductive`, `ShimuraData:D3/polarized-integral-variation`, `ShimuraData:D3/rational-polarized-variation`.
 - `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions` — Extension of the normalized valuation of an absolutely unramified ℓ-adic field to an algebraic closure, with v(ℓ)=1, and the ultrametric rules used for the Iw₁ eigenvalue bound. The cyclotomic distances are now AdelicAlgebraicGroups §4.3's. Needed by: `ShimuraData:D5/iwahori-neat`, `ShimuraData:D5/local-eigenvalue-bound`, `ShimuraData:D5/local-products-bound`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary` — Use the algebraic group/functor/Hopf dictionary, matrix representations, base change and closed immersion criterion. Supply finite-type noetherian sum of subgroup ideals representing their scheme-theoretic intersection for the smallest rational algebraic subgroup containing an S-map after real extension. Needed by: `ShimuraData:D1/mumford-tate-group`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules` — Finite-dimensional algebraic representations are comodules; supply tensor/dual/subquotient operations, scalar-extension faithfulness, and effective conjugate-semilinear descent of comodules over the supplied descended torus. A faithful representation tensor-generates finite-dimensional representations for neatness independence. Tensor generation must also hold after extension to any subfield of ℂ, so neatness passes to real algebraic effective quotients. For the rational Iwahori conclusion identify the faithful ℚ-representation on the underlying ℚ-space of F⁴, with its dimension 4\[F:ℚ], and its scalar-extension local spectra. Needed by: `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D2/unique-complex-structure`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D5/iwahori-neat`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components` — Use algebraic closed subgroups, quotients and connected components; scheme-theoretic image of a torus is a torus. For MT use that connected real S lies in the scalar extension of the rational identity component. Needed by: `ShimuraData:D1/mumford-tate-connected`.
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori` — Supply rational Gm weight-space grading, diagonalizable closure of a semisimple element, and rational torus factorization; finite-dimensional rational representations have rational eigenspaces under a rational Gm. Needed by: `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D4/sv5-criterion`.
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups` — Use connected reductive/adjoint/derived groups, rational simple-factor quotients, central isogenies, centers and semisimple representation criterion. Provide reductivity of MT of a polarizable rational Hodge structure using H1 semisimplicity. Supply the rational algebraic GSp of a nondegenerate alternating form independently of its later D5 datum; D1 genericity consumes only this group. Needed by: `ShimuraData:D1/hodge-generic`, `ShimuraData:D1/mumford-tate-reductive`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D5/hilbert-star-datum`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori` — Supply rational Gm weight-space grading, diagonalizable closure of a semisimple element, and rational torus factorization; finite-dimensional rational representations have rational eigenspaces under a rational Gm. D4/distinguished-levi uses subtori of a torus, their real and rational splitting, and the correspondence of subtori under isogenies of tori through X\*(−)⊗ℚ. Needed by: `ShimuraData:D1/rational-weight-criterion`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D4/distinguished-datum`, `ShimuraData:D4/distinguished-levi`, `ShimuraData:D4/sv5-criterion`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups` — Use connected reductive/adjoint/derived groups, rational simple-factor quotients, central isogenies, centers and semisimple representation criterion. Provide reductivity of MT of a polarizable rational Hodge structure using H1 semisimplicity. Supply the rational algebraic GSp of a nondegenerate alternating form independently of its later D5 datum; D1 genericity consumes only this group. Needed by: `ShimuraData:D1/hodge-generic`, `ShimuraData:D1/mumford-tate-reductive`, `ShimuraData:D4/connected-datum-lift`, `ShimuraData:D4/distinguished-datum`, `ShimuraData:D5/hilbert-star-datum`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory` — Supply cocharacter parabolics, Levi factors, flag varieties, tangent/Lie quotient, finite-type conjugacy classes and Bruhat order over fields. Supply the parabolic-type variety representing a Galois-invariant type, without assuming an E-rational representative parabolic. Supply the absolute symplectic based root datum, Weyl action and split/parity character and dual cocharacter coordinates; these are native R7 outputs under RS-31, distinct from RG2.5 dualization. Needed by: `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/compact-dual`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D3/kostant-cone-criterion`, `ShimuraData:D3/kostant-cones`, `ShimuraData:D3/kostant-involution`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/reflex-flag-descent`, `ShimuraData:D3/transversality-tangent`, `ShimuraData:D5/gsp4-cayley-action`, `ShimuraData:D5/gsp4-cg-roots`, `ShimuraData:D5/gsp4-compact-cartan`, `ShimuraData:D5/gsp4-kostant`, `ShimuraData:D5/gsp4-pilloni-convention`, `ShimuraData:D5/hilbert-datum`, `ShimuraData:D5/siegel-reflex-dual`, `ShimuraData:D5/siegel-root-convention`, `ShimuraData:D5/siegel-weyl-permutations`.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ` — Supply pinned split reductive ℤ-group schemes and smooth parabolic quotients; integral Bruhat affine cells, flat Schubert/opposite closures, base-change-compatible incidence and the nonemptiness criterion X^w∩C_v≠∅ iff v≥w. These are stronger than the field-only layer7 statements and must hold over every residue field. Needed by: `ShimuraData:D3/bruhat-closure-order`, `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/opposite-intersection`, `ShimuraData:D3/schubert-families`, `ShimuraData:D5/kostant-sequence-geometry`.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms` — Supply compact twisted real forms, conjugation-compatible Lie complexification and complexified compact torus exponential. D2 consumes the native layer7→D2 dependency. Needed by: `ShimuraData:D5/gsp4-exp-kernel`.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-8-borel-weil-flag-manifolds-and-bruhat` — Supply complex flag quotient charts, tangent identification and open real orbit criterion used in Borel embedding. Needed by: `ShimuraData:D2/unique-complex-structure`, `ShimuraData:D3/compact-dual`, `ShimuraData:D3/transversality-tangent`.
 
+## Requests from other roadmaps
+
+Requests that other packets address to these stages, and how this revision answers them (packet `incomingRequests`). Where the owner is upstream, the consumer should cite the upstream stage named here.
+
+| Requesting packet | Addressed to | Disposition | Nodes here | Note |
+| --- | --- | --- | --- | --- |
+| AbelianVarietiesIsogenousToNoJacobian.json | ShimuraData:D1 | met | `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/hodge-generic` | The rational Hodge and Mumford–Tate carrier and Hodge genericity are D1's; the sign dictionary is ShimuraVarieties §P.3's homology convention, recorded in this roadmap's Conventions. The absolute-Hodge proof leaf stays with the consumer. |
+| AbelianVarietiesIsogenousToNoJacobian.json | ShimuraData:D4 | owned upstream | — | Special points, subdata and morphisms of the Siegel datum are ShimuraVarieties §P.1 (special pairs, morphisms of data); the consumer should cite ShimuraVarieties:V0 for them. The weakly-special dichotomy is LogicAndDefinabilityPartII's, as the paper route records. |
+| AbelianVarietiesIsogenousToNoJacobian.json | ShimuraData:D5 | owned upstream, with one clause here | `ShimuraData:D5/siegel-reflex-dual` | The Siegel datum and domain, its dimension and arithmetic action are ShimuraVarieties §P.4 and PELModuli §§M5.1–M5.2; the period interpretation with lattice conventions is AbelianSchemesAndArithmeticModuli §§A5.2 and A5.5. D5/siegel-reflex-dual adds the reflex field ℚ and the Lagrangian compact dual. |
+| AutomorphicFormsOnReductiveGroups.json | ShimuraData:D3 | met | `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/kostant-involution`, `ShimuraData:D5/siegel-root-convention`, `ShimuraData:D5/siegel-weyl-permutations` | ^MW for W_M\\W, w₀,M and the GSp_{2g} coordinates of Boxer–Pilloni §1.3 and §3.1. |
+| AutomorphicFormsOnReductiveGroups.json | ShimuraData:D5 | met, with a sign made explicit | `ShimuraData:D5/gsp4-cg-roots`, `ShimuraData:D5/gsp4-compact-cartan`, `ShimuraData:D5/gsp4-cayley-action`, `ShimuraData:D5/gsp4-cone-reversal` | ρ\_T=(2,1;−3/2), the parity lattice of H_ℂ, the chambers C₀–C₃ and ρ\_H=(2,1;0) are stated. The conversion c_H=a+b+2c_T holds, but the Cayley transform itself sends the split character (a,b;c) to the compact one (−a,−b;a+b+2c). The requested (a,b;c)↦(a,b;a+b+2c) is that map followed by the longest Weyl element, and it is the one that carries the upper-triangular positive roots to CG's Φ⁺ (D5/gsp4-cayley-action, revised in this round). |
+| AutomorphicGaloisRepresentationsPartII.json | ShimuraData:D4 | owned upstream | `ShimuraData:D4/pel-type` | PELModuli §M5.5 constructs unitary PEL data of any signature, with unitaryDatum_relDim=Σ r_τs_τ, and the consumer is itself TauCetiRoadmap pull request #1006, which states the quasi-split signature-(n,n) model. D4/pel-type records the case as test pelUnitarySignature: the datum is of PEL type and has dimension \[F⁺:ℚ]n². |
+| ComplexMultiplicationAndExplicitReciprocity.json | ShimuraData:D3 | owned upstream | — | The cocharacter class and reflex field are ShimuraVarieties §P.3; CM types and their reflex fields §5.1 there. The comparison with the trace-generated field of a CM type is the consumer's own target. |
+| HigherHidaAndColemanTheory.json | ShimuraData:D3 | met | `ShimuraData:D3/compact-dual`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/bruhat-integral`, `ShimuraData:D5/siegel-root-convention`, `ShimuraData:D5/gsp4-cg-roots` | The compact dual and its parabolic, ^MW and the Bruhat cells; the split C₂ coordinates are D5's. The type-A coordinates are new tests in this round: ^MW for GL_p×GL_q is the set of shuffles (kostantTypeA), and the unitary compact dual is a Grassmannian (dualUnitary). |
+| HodgeStructuresPartII--H.0.json | ShimuraData:D3 | met | `ShimuraData:D3/variation`, `ShimuraData:D3/transversality-tangent`, `ShimuraData:D3/flat-bundle-local` | API items variationFilteredFlatBundle and variationGriffiths export the underlying filtered flat bundle and the Griffiths equation. The flat holomorphic connection itself is ComplexKahlerGeometry §K4's (pull request #953), consumed here. |
+| HodgeStructuresPartII--H.3.json | ShimuraData:D1/mumford-tate-group, D1/mumford-tate-connected, D1/mumford-tate-reductive, D3/variation, D3/flat-bundle-local, D3/transversality-tangent, D3/polarized-integral-variation | met | `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/mumford-tate-connected`, `ShimuraData:D1/mumford-tate-reductive`, `ShimuraData:D3/variation`, `ShimuraData:D3/flat-bundle-local`, `ShimuraData:D3/transversality-tangent`, `ShimuraData:D3/polarized-integral-variation` | All seven node ids are current; the packet they cite has been accepted since REV-ShimuraData~4, so the request's 'needs_changes' caveat is out of date. |
+| HodgeStructuresPartII--H.8.json | ShimuraData:D3 | met | `ShimuraData:D3/variation`, `ShimuraData:D3/variation-morphism`, `ShimuraData:D3/rational-polarized-variation`, `ShimuraData:D3/flat-bundle-local` | Flat marked charts are D3/flat-bundle-local. The Hodge bundles with real-analytic projections are variationHodgeBundles. Kernels, images, subvariations and direct sums are variationHomKer, variationSub and variationDirectSum, and the orthogonal splitting for a polarization is rationalVariationOrthogonal. H.8 keeps its own variant for a nondegenerate flat form that is not a polarization. |
+| HodgeStructuresPartII.json | ShimuraData:D3 | met | `ShimuraData:D3/variation`, `ShimuraData:D3/rational-polarized-variation`, `ShimuraData:D3/polarized-integral-variation` | The common carrier with fibrewise opposedness, rational and integral polarizations and Griffiths transversality. |
+| PerfectoidShimuraVarieties.json | ShimuraData:D4 | owned upstream, with one clause here | `ShimuraData:D4/preabelian-type` | Connected data and the connected data (G^der,X⁺), (G^ad,X⁺) of a datum are ShimuraVarieties §P.1's connected convention (C1)–(C3) and §6.3. Preabelian type for connected data is the new API item preabelianTypeConnected, which agrees with D4/preabelian-type for full data. |
+| PerfectoidShimuraVarieties.json | ShimuraData:D4 | met by new nodes | `ShimuraData:D4/distinguished-datum`, `ShimuraData:D4/distinguished-levi` | Lovering's B and B₁ are now D4/distinguished-datum, with the reflex-norm map, the cocharacter h_E, the maps to G₁ and G through B, and the common adjoint datum and compact dual. The Z_s, G^c and Levi fibre-product identities that Boxer–Pilloni Principle 4.4.44(1) uses without a proof are D4/distinguished-levi. The consumer's S6 nodes should cite these two nodes; consumerRetargets records the replacement for the superseded D4/central-isogeny-lift. |
+| ShimuraCompactifications--C0.json, ShimuraCompactifications.json | ShimuraData:D3 | owned upstream, with one clause here | `ShimuraData:D3/polarized-integral-variation` | The polarizable homogeneous variations of a datum are ShimuraVarieties §P.3 (the superseded D3/homogeneous-variation). The integral polarized carrier is D3/polarized-integral-variation, and the mixed boundary datum is the consumer's C1. |
+| ShimuraCompactifications--C0.json, ShimuraCompactifications.json | ShimuraData:D4 | owned upstream | — | The ambient pure datum and its morphisms were D4/shimura-datum and D4/datum-morphism, which are superseded by ShimuraVarieties §P.1 (TauCeti.Shimura.PureDatum). The consumer cites the bare stage ShimuraData:D4 and should cite ShimuraVarieties:V0 instead. |
+
 ## Gaps
 
-- **Holomorphic flat bundles and connections from local systems.** The pinned fundamental-groupoid local coefficient system supplies monodromy/transport. It does not provide L⊗O_B, holomorphic subbundles, Ω¹, or a flat connection. The variation node plans their use; a general complex analytic bundle/connection supplier is still missing. Required result: local trivializations glue the flat holomorphic bundle, pullback commutes, and filtered derivative is well defined. Needed by: `ShimuraData:D3/variation`, `ShimuraData:D3/variation-morphism`, `ShimuraData:D3/rational-polarized-variation`.
+- **Holomorphic flat bundles: the upstream supplier is not yet an atlas stage.** The pinned fundamental-groupoid local coefficient system supplies monodromy and transport, but not L⊗O_B, its holomorphic subbundles, Ω¹ or the flat connection. ComplexKahlerGeometry §K4 (TauCetiRoadmap pull request #953, head 8b03be51f4) plans exactly this input: holomorphic connections, parallel local frames, and the equivalence of groupoids between flat holomorphic connections, flat smooth ℂ-linear connections and finite-rank ℂ-local systems (L⊗O with 1⊗d), natural in holomorphic pullback. It does so on ComplexManifolds Milestone 7 (pull request #279), the holomorphic vector bundles with pullback, direct sums and duals. Neither is an atlas roadmap, so the packet cites them in text and in upstreamImports and not as prerequisites. Once they are registered, D3/variation, D3/variation-morphism, D3/rational-polarized-variation and D3/flat-bundle-local cite §K4 and this gap closes; nothing else is missing. Needed by: `ShimuraData:D3/variation`, `ShimuraData:D3/variation-morphism`, `ShimuraData:D3/rational-polarized-variation`.
 - **Integral flag geometry supplier exceeds field Bruhat theorem.** RG layer7 is over a field. RG layer9 must supply integral parabolic quotients, Schubert flatness and base-change-compatible opposite incidence. BP and BP21 cite \[BL03] I Lemma1 for incidence; that proof has not been read. The exact requested incidence theorem is a leaf, not an unproved claim of library coverage. Needed by: `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/opposite-intersection`.
 - **Reflex parabolic-type descent representability.** Need the representability and descent of the parabolic-type functor requested from R7, with descent compatible with the μ conjugacy class. General SGA3 representability proof has not been read. No E-point, E-rational μ, or E-rational parabolic is inferred. Needed by: `ShimuraData:D3/reflex-flag-descent`.
 - **Mumford–Tate and genericity proof inputs.** The Hopf-ideal sum and the native finite-comodule carriers are available. Finite-type rational subgroup representability and its comparison with the MT quotient remain R0/R3 inputs; polarizable semisimplicity and the faithful representation criterion remain H1/R6 inputs. The exact independent elliptic classification is: MT(H¹(Eτ,ℚ)) is the two-dimensional CM torus for a rational imaginary-quadratic relation for τ, and GL₂ otherwise. H0/H1 must supply the rational Hodge-endomorphism calculation and geometric H₁/H¹ comparison; D1/D4 cannot import all of later CM.0, since CM.0 consumes D3. Masser–Zannier states full-GSp genericity but does not prove these classification inputs. Needed by: `ShimuraData:D1/mumford-tate-group`, `ShimuraData:D1/hodge-generic`.
@@ -2248,16 +2506,25 @@ Each finding is stated in our own words at its locator, with the correction the 
 - **ShimuraData/E16** (Higher coherent cohomology and p-adic modular forms of singular weights, §5.1.2, author p.20, copy recorded in sourceVersions; misprint). The source specifies P_W as the object being stabilized. Correction: The parabolic subgroup P_W stabilizes the totally isotropic direct factor W. Reason: The sentence is defining P_W from W, and the following examples identify the line stabilizer as the Klingen parabolic and the maximal isotropic plane stabilizer as the Siegel parabolic. Stabilizing P_W itself is not this defining action on V. Affects: nothing. Known: Recorded in PAPER-PILLONI-20/E21 and its extraction review; no author or publisher corrigendum is claimed.. Review: confirmed.
 - **ShimuraData/E17** (Abelian surfaces over totally real fields are potentially modular, Lemma 7.8.3, published p.409, compared with Definition 3.2.1 and §3.1, published pp.201–202; error). A single absolutely unramified F-place of residue characteristic greater than five, with Iw₁ level there, is asserted to certify neatness for G₁=Res_F/ℚ GSp₄ in the rational-prime definition. Correction: Require Iw₁ containment at every F-place above one rational prime ℓ>5, all absolutely unramified. The four-dimensional single-place generated-eigenvalue bound remains valid but does not alone control the faithful rational restriction-of-scalars representation. Reason: Take F=ℚ(√2), O_F=ℤ\[√2], u=7+5√2=(1+√2)³ of norm −1, and ℓ=7. At v=(7,√2−3), F_v=ℚ₇ and u≡1 mod v. The scalar γ=uI₄ belongs to Iw₁(v) and to full integral level at every other finite place. In the faithful rational representation on F⁴ the eigenvalues include u and its conjugate 7−5√2, whose product is −1. Thus γ is not rationally neat and its diagonal adele fails Definition 3.2.1 at every rational prime. Its similitude u² is totally positive, so restricting to G₁(ℚ)⁺ does not remove it. The other 7-adic place has u≡−1, illustrating the missing factor. E15 product closure within one local factor cannot repair this counterexample. Affects: a stated result. Known: Independently confirmed by REV-ShimuraData~3. No corresponding author or publisher corrigendum was located in the Numdam/journal listing, arXiv history or Calegari publication page as checked on 2026-10-09; this search is not a claim that none exists.. Review: confirmed.
 - **ShimuraData/E18** (Introduction to Shimura varieties, §8, p.87 (after Proposition 8.14: SV3 deduced from the nontriviality of h and the simplicity of G^ad) and p.88, sentence before the definition of a PEL Shimura datum (2017 author notes); error). Milne deduces from the embedding of G into the Siegel group, which carries X into the Siegel domain, that (G,X) satisfies SV1–SV4. Correction: SV1, SV2 and SV4 follow; SV3 must be added as a hypothesis. For a wholly definite unitary PEL datum of rank n≥2 (signature (n,0) at every real place) h is central, G^ad is a nontrivial ℚ-simple group with compact real points, and SV3 fails. Reason: Take K imaginary quadratic, B=K with complex conjugation, V=K^n with a definite skew-hermitian form and h(z) acting on V⊗ℝ=ℂ^n by the scalar z. The positivity condition of Proposition 8.14 holds, h(S) is central, so its projection to G^ad=PU(n) is trivial while PU(n) is a nontrivial ℚ-simple factor for n≥2. The embedding into the Siegel datum transfers SV1, SV2 and SV4 but not SV3. Affects: a stated result. Known: new in the atlas; PELModuli §M0.12 (TauCetiRoadmap pull request #966) states the same correction independently. No correction on Milne's errata page or in Jungin Lee's list.. Review: confirmed.
-- **ShimuraData/E19** (Introduction to Shimura varieties, §5, Example 5.25(c), p.64 (2017 author notes); misprint). T(ℤ)={±(1+√2)^n | n∈ℤ} for the norm-one torus of ℚ(√2) Correction: T(ℤ)={±(1+√2)^{2n}}={±(3+2√2)^n}: the norm-one units of ℤ\[√2] are the even powers. Reason: Nm(1+√2)=(1+√2)(1−√2)=−1, so 1+√2 is a unit of norm −1 and not a point of T. The conclusion that T(ℤ) is infinite and T(ℚ) not discrete in T(𝔸\_f) is unaffected. Affects: nothing. Known: new. Review: awaiting review.
-- **ShimuraData/E20** (Shimura varieties and moduli, §8, proof of Proposition 8.8, p.513; misprint). With w=−μ−ιμ and (ι+1)μ₀=w, μ is replaced by μ−μ₀ to make the weight zero. Correction: Replace μ by μ+μ₀ (or take μ₀ with (ι+1)μ₀=−w). Reason: The weight of μ−μ₀ is −(1+ι)(μ−μ₀)=w+(ι+1)μ₀=2w. The proof of Proposition 8.10 on p.513 uses the opposite convention w_h=(ι+1)μ\_h, under which μ−μ₀ is right; Proposition 8.8 mixes the two. The existence statement is unaffected. Affects: nothing. Known: new. Review: awaiting review.
-- **ShimuraData/E21** (Higher Coleman theory, §3.1, definition of Y_w before Lemma 3.1.2, p.32 (arXiv v1); misprint). Y_w=∪\_{w′≥w}C_w Correction: Y_w=∪\_{w′≥w}C_{w′}. Reason: As printed the union is the single cell C_w; the next sentence (Y_w is open and contains C_w) and the proof of Lemma 3.1.2 (X^w⊆∪\_{v≥w}C_v) use the union of the cells C_{w′} with w′≥w. Affects: nothing. Known: new. Review: awaiting review.
-- **ShimuraData/E22** (Minimal modularity lifting for nonregular symplectic representations, §5.3, sentence before Theorem 5.5, PDF p.28; misprint). The Weyl chambers C₀,…,C₄ Correction: C₀,…,C₃. Reason: Section 2.1 defines four chambers C₀=closed dominant chamber and C_i=w̃\_i(C₀) for i=1,2,3, and the display that follows lists exactly C₀,…,C₃. Affects: nothing. Known: new. Review: awaiting review.
+- **ShimuraData/E19** (Introduction to Shimura varieties, §5, Example 5.25(c), p.64 (2017 author notes); misprint). T(ℤ)={±(1+√2)^n | n∈ℤ} for the norm-one torus of ℚ(√2) Correction: T(ℤ)={±(1+√2)^{2n}}={±(3+2√2)^n}: the norm-one units of ℤ\[√2] are the even powers. Reason: Nm(1+√2)=(1+√2)(1−√2)=−1, so 1+√2 is a unit of norm −1 and not a point of T. The conclusion that T(ℤ) is infinite and T(ℚ) not discrete in T(𝔸\_f) is unaffected. Affects: nothing. Known: new. Review: awaiting review. Reproduced at the locator by BP-ShimuraData~5.
+- **ShimuraData/E20** (Shimura varieties and moduli, §8, proof of Proposition 8.8, p.513; misprint). With w=−μ−ιμ and (ι+1)μ₀=w, μ is replaced by μ−μ₀ to make the weight zero. Correction: Replace μ by μ+μ₀ (or take μ₀ with (ι+1)μ₀=−w). Reason: The weight of μ−μ₀ is −(1+ι)(μ−μ₀)=w+(ι+1)μ₀=2w. The proof of Proposition 8.10 on p.513 uses the opposite convention w_h=(ι+1)μ\_h, under which μ−μ₀ is right; Proposition 8.8 mixes the two. The existence statement is unaffected. Affects: nothing. Known: new. Review: awaiting review. Reproduced at the locator by BP-ShimuraData~5.
+- **ShimuraData/E21** (Higher Coleman theory, §3.1, definition of Y_w before Lemma 3.1.2, p.32 (arXiv v1); misprint). Y_w=∪\_{w′≥w}C_w Correction: Y_w=∪\_{w′≥w}C_{w′}. Reason: As printed the union is the single cell C_w; the next sentence (Y_w is open and contains C_w) and the proof of Lemma 3.1.2 (X^w⊆∪\_{v≥w}C_v) use the union of the cells C_{w′} with w′≥w. Affects: nothing. Known: new. Review: awaiting review. Reproduced at the locator by BP-ShimuraData~5.
+- **ShimuraData/E22** (Minimal modularity lifting for nonregular symplectic representations, §5.3, sentence before Theorem 5.5, PDF p.28; misprint). The Weyl chambers C₀,…,C₄ Correction: C₀,…,C₃. Reason: Section 2.1 defines four chambers C₀=closed dominant chamber and C_i=w̃\_i(C₀) for i=1,2,3, and the display that follows lists exactly C₀,…,C₃. Affects: nothing. Known: new. Review: awaiting review. Reproduced at the locator by BP-ShimuraData~5.
 
 ## Restructure proposal
 
 **rescope** (ShimuraData, ShimuraVarieties, PELModuli, ReductiveGroupsPartII, AdelicAlgebraicGroups, ArithmeticLocallySymmetricSpaces). The upstream pull requests now state most of what this roadmap planned. ShimuraVarieties (#933) constructs, before its Layer 0, the pure datum and its category, Hermitian components, the representation–Hodge dictionary, homogeneous variations, the Borel embedding, the cocharacter class and reflex field, levels and the GL₂/Siegel/torus examples (§§P.1–P.5); PELModuli (#966) the PEL Shimura datum and the scalar-determinant Hilbert datum with its trace embedding (§§M0.12, M5.4); ReductiveGroupsPartII (#785) the Deligne torus (§RG2.0a.3) and the GSp₄ self-duality (§RG2.5); AdelicAlgebraicGroups (#792) restriction of scalars on adelic points and neatness (§§1.3–1.4, 4.3); ArithmeticLocallySymmetricSpaces (#871) the Lie structure of real points and Cartan involutions (§§ALS.F.1, ALS.0.1–0.2). Revision 4 supersedes 74 nodes accordingly (supersededNodes). The atlas still draws ShimuraData as their supplier: stage edges ShimuraData:D5→ShimuraVarieties:V0, ShimuraData:D3→ShimuraVarieties:V4 and ShimuraData:D4→PELModuli:M0, and tier 12 below the PEL/ShimuraVarieties bundle of tier 13.
 
-Proposal: Rescope ShimuraData as the roadmap that builds on ShimuraVarieties §§P.1–P.5 and PELModuli §§M0.12, M5.4 rather than supplying them: (1) remove the three stage edges above and add ShimuraVarieties:V0→ShimuraData:D1–D5, PELModuli:M0→ShimuraData:D4 and PELModuli:M5→ShimuraData:D5; (2) move ShimuraData to the tier after the PEL/ShimuraVarieties bundle; (3) retitle it "Shimura data, Part II: additional axioms, Mumford–Tate groups, variations and explicit coordinates", with ShimuraVarieties as parent; (4) merge D0 (two Hilbert point comparisons) into D5 and D2 (uniqueness of the complex structure) into D3, keeping the stage ids D1 (Mumford–Tate groups and Hodge genericity), D3 (variations, compact duals, Kostant and Bruhat geometry), D4 (additional axioms, the SV5 criterion, PEL type, the type implications and the lifting of connected data) and D5 (Hilbert data, Siegel and GSp₄ coordinates, adelic neatness and the Iw₁ criterion); (5) retarget the 126 prerequisites in seven packets listed in consumerRetargets to the upstream stages named there.
+Proposal: Rescope ShimuraData as the roadmap that builds on ShimuraVarieties §§P.1–P.5 and PELModuli §§M0.12, M5.4 rather than supplying them: (1) remove the three stage edges above and add ShimuraVarieties:V0→ShimuraData:D1–D5, PELModuli:M0→ShimuraData:D4 and PELModuli:M5→ShimuraData:D5; (2) move ShimuraData to the tier after the PEL/ShimuraVarieties bundle; (3) retitle it "Shimura data, Part II: additional axioms, Mumford–Tate groups, variations and explicit coordinates", with ShimuraVarieties as parent; (4) merge D0 (two Hilbert point comparisons) into D5 and D2 (uniqueness of the complex structure) into D3, keeping the stage ids D1 (Mumford–Tate groups and Hodge genericity), D3 (variations, compact duals, Kostant and Bruhat geometry), D4 (additional axioms, the SV5 criterion, PEL type, the type implications, the lifting of connected data and Lovering's distinguished data) and D5 (Hilbert data, Siegel and GSp₄ coordinates, adelic neatness and the Iw₁ criterion); (5) retarget the prerequisites in seven packets listed in consumerRetargets to the upstream stages named there.
+
+## Revision 5
+
+BP-ShimuraData~5 (17 October 2026) is a stall-detector round. It was queued while REV-ShimuraData~4 was running, and that review then accepted revision 4. This round therefore keeps every node, statement and correction of revision 4 and its review. It does four things.
+
+- **Acceptance lines.** REV-ShimuraData~4 noted that thirty lemma and theorem nodes repeated their statement as their only acceptance line. All thirty-two such nodes now have checks, each recomputed here: small cases, degenerate cases and non-examples. Examples are the conic of a quaternion algebra (no rational point) for the reflex descent, the point counts `Σ q^{ℓ(w)}` for the Bruhat cells, the four genus-two Kostant elements with their action on the Levi root, the exponential kernel element `h(π,π;πi)`, and E17's unit at the two places above 7.
+- **Requests from other roadmaps.** Sixteen requests addressed to these stages are now dispositioned (table above). Two new D4 nodes answer PerfectoidShimuraVarieties. New API items and tests answer HodgeStructuresPartII (filtered flat bundle, Griffiths equation, Hodge bundles, subvariations and orthogonal splittings), HigherHidaAndColemanTheory (type-A Kostant representatives, unitary compact duals), AutomorphicGaloisRepresentationsPartII (unitary PEL data of any signature) and AutomorphicFormsOnReductiveGroups. For the last, the Cayley transform sends the split character `(a,b;c)` to the compact one `(−a,−b;a+b+2c)`, and the requested `(a,b;a+b+2c)` is that map followed by the longest Weyl element (D5/gsp4-cayley-action).
+- **Upstream consumed.** ComplexKahlerGeometry §K4 (#953) and ComplexManifolds Milestone 7 (#279) supply the holomorphic flat bundle of a local system. The D3 gap is narrowed to their registration as atlas roadmaps.
+- **Sources.** E19–E22 are reproduced at their locators, E21 and E22 on page images. D3/compact-dual's duplicated source entry is replaced by Milne Theorem 2.14 with diagram (26). Lovering's §4.6 and Deligne 2.5.6 are added for the new nodes.
 
 ## Review status
 
@@ -2273,5 +2540,4 @@ Seven other packets still cite superseded node ids. They fail `check_blueprint.p
 
 ## Suggested Lean file
 
-`research/blueprint/suggested/ShimuraData.lean` states the retained targets on carriers that exist at the pins — Tau Ceti's GL coordinate Hopf algebras and Hopf ideals, the split torus algebra `ℂ[ℤ²]`, local coefficient systems and pure Hodge structures, Mathlib's Coxeter systems, root pairings, matrices, valuations and finite adeles — and elaborates at Mathlib 082e2d3 and Tau Ceti f790474 with placeholder-proof warnings only. Statements whose carriers are not at the pins (a pure Shimura datum, flag schemes over `ℤ`, the parabolic-type scheme over the reflex field, holomorphic flat bundles) are README targets; the file names each of them, with its intended form, in a closing section, and leaves out, with a comment, every condition its carriers cannot express.
-
+`research/blueprint/suggested/ShimuraData.lean` states the retained targets on carriers that exist at the pins — Tau Ceti's GL coordinate Hopf algebras and Hopf ideals, the split torus algebra `ℂ[ℤ²]`, local coefficient systems and pure Hodge structures, Mathlib's Coxeter systems, root pairings, matrices, valuations and finite adeles — and elaborates at Mathlib 082e2d3 and Tau Ceti f790474 with placeholder-proof warnings only. Statements whose carriers are not at the pins (a pure Shimura datum, flag schemes over `ℤ`, the parabolic-type scheme over the reflex field, holomorphic flat bundles) are README targets; the file names each of them, with its intended form, in a closing section, and leaves out, with a comment, every condition its carriers cannot express. Revision 5 adds the type-A Kostant count and the unitary compact dual as examples, the Cayley conversion of genus-two characters as a theorem, and the new D3 and D4 API and test names to the README-only list.
