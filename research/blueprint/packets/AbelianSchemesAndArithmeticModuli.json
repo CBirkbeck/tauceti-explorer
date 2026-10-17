@@ -12,7 +12,7 @@
     "AbelianSchemesAndArithmeticModuli:A6"
   ],
   "status": "complete",
-  "summary": "Target-level pass over all seven layers of the accepted RS-02 Part II. Preserves and corrects the 21 inherited checkpoint IDs, imports the lower-tier R09.4 abelian/polarization carriers and R09.3 restriction functor, and covers the routed arithmetic consumers. Every stage is planned, with explicit proof/source gaps and supplier requests; no stage or declaration is claimed formalized. Minimal Tate/BT/PD deformation foundations move down to respect the upstream tiers.",
+  "summary": "Target-level pass over all seven layers of the accepted RS-02 Part II. Preserves and corrects the 21 inherited checkpoint IDs, imports the lower-tier R09.4 abelian/polarization carriers and R09.3 restriction functor, and covers the routed arithmetic consumers. Every stage is planned, with explicit proof/source gaps and supplier requests; no stage or declaration is claimed formalized. Minimal Tate/BT/PD deformation foundations move down to respect the upstream tiers. Round-2 red-team fix retains the stable all-degree aggregate, adds seven precise prerequisites/refinements (including the minimal ordinary de Rham interface moved down by tier order), records the A4 rescope proposal and separates arbitrary-base sheaves from the restricted completed application. These additions await independent fix review and retain G-exterior.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -142,6 +142,34 @@
         "module": "TauCeti/Geometry/Lie/Exponential/LocalInverse.lean",
         "provides": "For a finite-dimensional smooth boundaryless Hausdorff real Lie group, the native exponential is a smooth local diffeomorphism at zero. This does not itself construct an abelian analytification or its holomorphic comparison.",
         "checked": "Opened the declaration and surrounding variables independently at f790474, 2026-10-09, Codex codex-Tr1NVt."
+      },
+      {
+        "ref": "mathlib:ExteriorAlgebra.lift",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+        "provides": "For a commutative ring R and an R-module M, R-linear maps M→an R-algebra with square-zero images correspond to algebra maps out of ExteriorAlgebra R M; square-zero is an explicit hypothesis.",
+        "checked": "Read the declaration, namespace and surrounding variables at Mathlib 082e2d3, 2026-10-17, Codex codex-pxMEXH."
+      },
+      {
+        "ref": "mathlib:ExteriorAlgebra.ι_sq_zero",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+        "provides": "The square of each canonical exterior generator is zero over any commutative ring, including characteristic two.",
+        "checked": "Read the declaration, namespace and surrounding variables at Mathlib 082e2d3, 2026-10-17, Codex codex-pxMEXH."
+      },
+      {
+        "ref": "mathlib:exteriorPower.finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
+        "provides": "For a finite free module over a nontrivial commutative ring, finrank of its nth exterior power is the binomial coefficient of its finrank.",
+        "checked": "Read the declaration, namespace and surrounding variables at Mathlib 082e2d3, 2026-10-17, Codex codex-pxMEXH."
+      },
+      {
+        "ref": "mathlib:Nat.add_choose_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Vandermonde.lean",
+        "provides": "Vandermonde identity on the antidiagonal: choose(m+n,k) is the sum of choose(m,i)choose(n,j).",
+        "checked": "Read the declaration, namespace and surrounding variables at Mathlib 082e2d3, 2026-10-17, Codex codex-pxMEXH."
       }
     ]
   },
@@ -238,7 +266,8 @@
       "url": "https://mail.jmilne.org/math/xnotes/AVs.pdf",
       "readSections": [
         "Theorem 13.3, p.25; Theorem 17.3 and Lemma 17.4 with proof, pp.35–37; §§18–20, pp.38–44; field projectivity and quotient comparisons.",
-        "Independent review: Corollary 12.8 p.22; Theorem 15.1, Lemma 15.2 and Remark 15.4 with proof, pp.27–28; Theorem 17.3 and Lemma 17.4 with proof, pp.35–37."
+        "Independent review: Corollary 12.8 p.22; Theorem 15.1, Lemma 15.2 and Remark 15.4 with proof, pp.27–28; Theorem 17.3 and Lemma 17.4 with proof, pp.35–37.",
+        "Codex codex-pxMEXH, 2026-10-17: Theorem 15.1, Lemma 15.2 and Remark 15.4 pp.27–28, author AVs PDF; Borel proof cited there not independently read."
       ],
       "accessed": "2026-10-09",
       "sha256": "bffdf81c57c77420b5454b31270007989d12f332abea62424be15c424079fc7c"
@@ -322,7 +351,8 @@
       "edition": "arXiv:1907.10525v4; PDF page 53",
       "url": "https://arxiv.org/pdf/1907.10525v4",
       "readSections": [
-        "Proposition 4.5.1 and proof, p.53 (v4), read with the bounded-prism/p-adic-completion context. The BBM II 2.5.2 proof is not read."
+        "Proposition 4.5.1 and proof, p.53 (v4), read with the bounded-prism/p-adic-completion context. The BBM II 2.5.2 proof is not read.",
+        "Codex codex-pxMEXH, 2026-10-17: v4 §4.5 setup and Proposition 4.5.1 p.53; BBM original not read. Retain bounded-prism quotient and p-adic-completion hypotheses."
       ],
       "accessed": "2026-10-09",
       "sha256": "6eb02c16c525360141b1c5d118ae04db070f3c0e9cb9fff0f1598fc889b50aec"
@@ -458,6 +488,42 @@
       ],
       "accessed": "2026-10-09",
       "sha256": "b3861de7e9c0584a7da44e514fbc777b168a3f67f392e2468db655f2d5b58d7d"
+    },
+    {
+      "id": "kurama-fourier-mukai",
+      "title": "Fourier-Mukai partners of abelian varieties and K3 surfaces in positive and mixed characteristics",
+      "authors": "Riku Kurama",
+      "edition": "arXiv:2410.14065v2, 17 February 2026; numbered pages",
+      "url": "https://arxiv.org/pdf/2410.14065v2",
+      "readSections": [
+        "§4.1, pp.8–10: locally noetherian hypothesis, Lemma 4.1 (attributed to BBM82 Proposition 2.5.2), Proposition 4.2, Lemmas 4.3–4.4 and their proofs."
+      ],
+      "accessed": "2026-10-17",
+      "sha256": "e7942fbce1f3bcad84e32f533c96797db2db6a461803616b2997417fe340138f"
+    },
+    {
+      "id": "stacks-ordinary-derham",
+      "title": "The Stacks Project, de Rham Cohomology",
+      "authors": "The Stacks Project Authors",
+      "edition": "Chapter 50, version ed88ff78, compiled 14 July 2026; chapter-page locators, tags stable",
+      "url": "https://stacks.math.columbia.edu/download/derham.pdf",
+      "readSections": [
+        "§§50.2–50.3 pp.2–4: ordinary differential complex, filtration and Lemma 50.3.5 (0FM0); §50.8 pp.8–9: product formula and Lemma 50.8.3 (0FMC). The proper-smooth hypotheses and distinction between derived and ordinary base change were checked.",
+        "§50.11, Lemmas 50.11.2–50.11.4 (0FUK, 0FMI, 0FMJ), pp.16–18: projective-space calculation used only as the ordinary-interface test."
+      ],
+      "accessed": "2026-10-17",
+      "sha256": "d1dc49a3e49b26b2b205f1ca87c36d1a79829fbf98be4eeab4665924005d1c42"
+    },
+    {
+      "id": "stacks-splitting",
+      "title": "The Stacks Project, splitting complexes",
+      "authors": "The Stacks Project Authors",
+      "edition": "§15.78, Lemma 15.78.2 (0A1U), online version read 2026-10-17; tag locator",
+      "url": "https://stacks.math.columbia.edu/tag/0A1U",
+      "readSections": [
+        "Full statement and proof of the local splitting criterion from surjectivity of fibre cohomology; not a constant-rank criterion."
+      ],
+      "accessed": "2026-10-17"
     }
   ],
   "nodes": [
@@ -2908,9 +2974,8 @@
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A1/relative-invariant-forms",
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
-        "AlgebraicModuliForArithmeticGeometry:R09.6",
-        "SchemeAndStackFoundations:SF.3",
-        "AbelianSchemesAndArithmeticModuli:A4/universal-vector-extension"
+        "AbelianSchemesAndArithmeticModuli:A4/universal-vector-extension",
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface"
       ],
       "proofSteps": [
         "Use the bounded relative de Rham complex and the invariant-form comparison ω_(E(A))≃H¹_dR(A/S) from A4/universal-vector-extension. The dual Lie sequence gives the Hodge exact sequence; this comparison retains G-vector-extension.",
@@ -3012,6 +3077,358 @@
       }
     },
     {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Ordinary relative de Rham interface",
+      "kind": "construction",
+      "statement": "For a proper smooth morphism f:X→S construct Ω•_(X/S), with Ω^j=∧^jΩ¹, exterior multiplication and the relative differential, and K_dR=Rf_*Ω• in D(O_S). The differential is f⁻¹O_S-linear, not O_X-linear: take the complex on the source over f⁻¹O_S. The stupid filtration F^jΩ•=Ω≥j gives F^jK_dR and E₁^{j,i}=R^if_*Ω^j⇒H^{i+j}(K_dR). Locally on S these are bounded filtered complexes. For every u:T→S, derived pullback identifies K_dR and Rf_*Ω^j with the corresponding objects for X_T/T; each is perfect, as is F^jK_dR. Multiplication is compatible with filtration, pullback and products. For proper smooth X,Y over S the external cup product K_dR(X)⊗^L K_dR(Y)→K_dR(X×_S Y) is an isomorphism. This does not by itself assert ordinary cohomology-sheaf base change, local freeness, or Hodge degeneration. The analogous coherent product map Rf_*O_X⊗^LRg_*O_Y→Rh_*O_(X×Y) is an isomorphism for proper smooth X,Y; its proof is flat base change followed by the projection formula.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "EnhancedDerivedSheaves:E1/ringed-pullback-pushforward",
+        "EnhancedDerivedSheaves:E1/projection-formula",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "proofSteps": [
+        "Use the relative Kähler differential and its universal derivation to form the exterior differential complex, retaining only base-linearity of d. Push forward in the base-linear module category and filter by form degree; the associated graded is Rf_*Ω^j[−j].",
+        "Import the existing coherent pushforward/base-change contract of JacobianChallenge Layer C; specialize to the S-flat finite locally free Ω^j. The perfect derived pushforward/base-change assertion needed beyond its named contract is stated here, with the proof of Stacks 0FM0: descend from forms to each stupid truncation by finite distinguished triangles. It is not a new plan of coherent cohomology or general formal functions.",
+        "Compute products on finite affine Čech covers locally on S; the tensor product of the two de Rham double complexes gives the product complex, with the Koszul sign. Proper smooth morphisms are quasi-compact with affine diagonal, so Stacks 0FMC applies. For coherent O-cohomology first use smooth flat base change along X→S and then the projection formula to obtain coherent derived Künneth.",
+        "Keep the splitting criterion of Stacks 0A1U available in proof sketches: surjectivity of ordinary-to-derived fibre cohomology at degree n splits off the upper truncation locally. Applying it at every degree of a bounded perfect complex yields finite locally free cohomology and ordinary base change. A constant fibre dimension alone is not this criterion."
+      ],
+      "acceptance": [
+        "For f=id_S the complex is O_S in degree zero, its F¹ is zero and the cup/base-change maps are the identity.",
+        "On A¹_R the differential of t is dt; treating it as an O_X-linear differential would force dt=t·d1=0 and fails this test (the complex exists without properness).",
+        "For X=P¹_S, projective-space de Rham cohomology has O_S in degrees 0 and 2 and zero in degree 1; perfection does not mean that all cohomology lies in degree zero.",
+        "The perfect complex [R --ε→ R] over R=k[ε]/ε² shows why perfection plus constant dimensions at geometric points alone cannot assert locally free cohomology."
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-ordinary-derham",
+          "locator": "§§50.2–50.3, Lemma 50.3.5 (0FM0), pp.2–4; §50.8, Lemma 50.8.3 (0FMC), p.9",
+          "match": "Ordinary complexes, perfect derived pushforwards/base change and the product formula; no all-degree abelian degeneration follows from perfection."
+        },
+        {
+          "sourceId": "stacks-splitting",
+          "locator": "Lemma 15.78.2 (0A1U), §15.78",
+          "match": "Surjective fibre-cohomology comparison splits truncations locally; use the criterion in each degree."
+        },
+        {
+          "sourceId": "stacks-ordinary-derham",
+          "locator": "§50.11, Lemma 50.11.4 (0FMJ), pp.17–18",
+          "match": "The projective-line test has one copy of the base in de Rham degrees zero and two."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2",
+      "api": [
+        {
+          "name": "OrdinaryDeRham.complex",
+          "role": "constructor",
+          "statement": "Construct Ω• as a complex of f⁻¹O_S-modules, then its derived pushforward to O_S-modules."
+        },
+        {
+          "name": "OrdinaryDeRham.filtered",
+          "role": "data",
+          "statement": "Expose F^j=Rf_*Ω≥j, gr^j=Rf_*Ω^j[−j] and the Hodge spectral sequence."
+        },
+        {
+          "name": "OrdinaryDeRham.cup",
+          "role": "structure",
+          "statement": "Give unital associative graded-commutative multiplication, with form-degree filtration and Koszul signs."
+        },
+        {
+          "name": "OrdinaryDeRham.derivedBaseChange",
+          "role": "functoriality",
+          "statement": "Give Lu*Rf_*Ω•≃Rf_T*Ω• and the analogous comparisons for forms and stupid truncations, compatible with identity and composition."
+        },
+        {
+          "name": "OrdinaryDeRham.kunneth",
+          "role": "compatibility",
+          "statement": "Identify the derived tensor of the two complexes with the complex of the fibre product for proper smooth schemes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "OrdinaryDeRham.identity",
+          "kind": "degenerate",
+          "statement": "For id_S recover O_S in degree zero and F¹=0."
+        },
+        {
+          "name": "OrdinaryDeRham.differential_not_source_linear",
+          "kind": "non-example",
+          "statement": "The relative differential on R[t] sends t to dt and is not R[t]-linear."
+        },
+        {
+          "name": "OrdinaryDeRham.projective_line",
+          "kind": "computation",
+          "statement": "For P¹_S obtain cohomology of ranks 1,0,1, and the two product generators on P¹×P¹."
+        },
+        {
+          "name": "OrdinaryDeRham.dual_numbers_not_flat",
+          "kind": "non-example",
+          "statement": "The perfect two-term ε-complex over dual numbers fails the ordinary base-change/local-freeness conclusion without fibre-surjectivity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "A4 first and all-degree de Rham cohomology",
+          "how": "Supply the minimal ordinary complex/formalism needed at tier 6. Higher-tier DerivedDeRhamCohomology imports this interface; animated, crystalline and prismatic theories are not prerequisites."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/DeRham/Ordinary",
+        "namespace": "TauCeti.AlgebraicGeometry.OrdinaryDeRham"
+      }
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Bounded Hopf algebra exterior criterion",
+      "kind": "lemma",
+      "statement": "Let H=⊕_{n≥0}H^n be a finite-dimensional connected graded-commutative Hopf algebra over a perfect field k, with H⁰=k and H^n=0 for n>d. Then dim_k H¹≤d. If dim_k H¹=d, multiplication factors through an isomorphism of graded algebras ∧•_k H¹≃H. In particular every degree-one square is zero, including in characteristic two. The coproduct is multiplicative into the graded tensor product with (a⊗b)(c⊗d)=(−1)^(deg b deg c)ac⊗bd for homogeneous elements. A coproduct with this sign rule is part of the hypotheses; finite dimensionality and graded commutativity alone do not suffice.",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:ExteriorAlgebra.lift"
+      ],
+      "proofSteps": [
+        "Use the bounded connected Hopf-algebra structure argument cited in Milne Lemma 15.2. For homogeneous generators the product of their maximal nonzero powers has total degree at most d, so there are at most d independent degree-one generators. Equality forces all generators to have degree one and nilpotence exponent two. The structure theorem itself remains the precise unread input G-exterior, rather than an assumed consequence of signs.",
+        "Degree-one classes are primitive by the counit and connected grading. The square-zero conclusion supplies the hypothesis for the existing ExteriorAlgebra.lift; dimension and generation give the isomorphism. For a nonperfect field pass to its algebraic closure, apply this criterion and descend the asserted canonical map by faithful flatness."
+      ],
+      "acceptance": [
+        "An exterior algebra on d degree-one generators has top degree d and dimensions binomial(d,n).",
+        "Over F₂, k[x]/(x²), |x|=1, with primitive x meets the equality case and has square-zero generator.",
+        "Over F₂, k[x]/(x⁴) with primitive x has top degree 3 and dim H¹=1: equality is necessary and x² need not vanish in the inequality case."
+      ],
+      "sources": [
+        {
+          "sourceId": "milne-2022",
+          "locator": "Lemma 15.2 and proof, p.28",
+          "match": "The bounded graded Hopf argument includes characteristic two; its proof invokes Borel 1953 Theorem 6.1, which was not independently read."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/cohomology-of-the-structure-sheaf",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Exterior coherent cohomology",
+      "kind": "theorem",
+      "statement": "For an abelian scheme f:A→S of relative dimension g, V=R¹f_*O_A≃Lie(A∨) is finite locally free of rank g with arbitrary base change. Cup product is alternating on V, including in characteristic two, and induces ∧^i V≃R^if_*O_A for every i≥0. These are finite locally free sheaves of rank binomial(g,i), zero for i>g, natural for homomorphisms of abelian schemes and arbitrary base change. R⁰f_*O_A=O_S via the unit.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "AbelianSchemesAndArithmeticModuli:A4/universal-vector-extension",
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+        "AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion",
+        "SchemeAndStackFoundations:SF.2/noetherian-space-vanishing"
+      ],
+      "proofSteps": [
+        "The tangent space of the rigidified Picard functor identifies R¹f_*O with Lie(A∨), with its rank-g base-change comparison. This degree-one Picard/extension input retains G-picard-dual and G-vector-extension; it does not use the higher-degree theorem being proved.",
+        "Over an algebraically closed field coherent Künneth and addition give the bounded connected Hopf algebra H*(A,O). Cohomological vanishing above dim A=g (SF.2) and dim H¹=g give the exterior result by the Hopf criterion. Descend to any field by flat base change.",
+        "Over affine opens in S the perfect complex Rf_*O has derived base change by the ordinary interface. Products of a local basis of V lift every field class in each degree, giving surjectivity of the ordinary-to-derived fibre comparison. Apply Stacks 0A1U degree by degree, not merely constancy of fibre ranks. This proves local freeness and arbitrary ordinary base change over nonreduced and nonnoetherian bases.",
+        "For relative alternation do not use vanishing on fibres. Locally the products x_jx_k, j<k, give a basis of R²f_*O by the field result and the established equal ranks (for g≤1 it is zero). Every x∈V is primitive. The reduced (1,1)-coproduct of x² is zero, whereas that of ∑c_jk x_jx_k is ∑c_jk(x_j⊗x_k−x_k⊗x_j). Independence of the tensor basis forces all c_jk=0 even over a nonreduced characteristic-two base. Now use ExteriorAlgebra.lift and fibrewise isomorphism between finite locally free sheaves."
+      ],
+      "acceptance": [
+        "For an elliptic scheme the ranks of R^if_*O are 1,1 and then zero.",
+        "For a dimension-two abelian scheme they are 1,2,1; for the identity group only R⁰ is O_S.",
+        "After S′=Spec(k[ε]/ε²)→S the same exterior maps are isomorphisms; a proof only checking x² on geometric fibres fails the ε test."
+      ],
+      "sources": [
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "§4.1, Lemma 4.1 and Lemma 4.4 proof, pp.8–10",
+          "match": "The locally noetherian discussion uses the coherent exterior calculation; the arbitrary-base argument here is a separate proof obligation, not attributed to Kurama."
+        },
+        {
+          "sourceId": "milne-2022",
+          "locator": "Lemma 15.2, p.28",
+          "match": "Apply the algebraic Hopf criterion to coherent cohomology, using its own bound g rather than the étale bound 2g."
+        },
+        {
+          "sourceId": "stacks-splitting",
+          "locator": "Lemma 15.78.2 (0A1U)",
+          "match": "The field-generation argument supplies the surjectivity that is required for local splitting."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "All-degree Hodge cohomology",
+      "kind": "theorem",
+      "statement": "Let f:A→S be an abelian scheme of dimension g and ω=e*Ω¹_(A/S)=f_*Ω¹_(A/S). For all i,j≥0, Ω^j_(A/S)≃f*∧^jω and cup/exterior product gives (∧^i R¹f_*O_A)⊗(∧^jω)≃R^if_*Ω^j_(A/S). Thus these sheaves are finite locally free of rank binomial(g,i)binomial(g,j), vanish if i>g or j>g, and commute with arbitrary base change. The comparison respects homomorphism pullback and the bigraded product with the signs from cohomological degree and exterior form degree.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A1/relative-invariant-forms",
+        "AbelianSchemesAndArithmeticModuli:A4/cohomology-of-the-structure-sheaf",
+        "EnhancedDerivedSheaves:E1/projection-formula"
+      ],
+      "proofSteps": [
+        "Take exterior powers of the existing invariant-form isomorphism Ω¹≃f*ω using AlgebraicVectorBundles L0C, without introducing a second vector-bundle construction.",
+        "The finite locally free projection formula pulls ∧^jω out of Rf_*. Apply the coherent exterior theorem to R^if_*O; flatness of ∧^jω permits ordinary cohomology. Its base-change and product compatibilities give the stated naturalities."
+      ],
+      "acceptance": [
+        "For elliptic schemes the four nonzero Hodge sheaves (i,j)=(0,0),(1,0),(0,1),(1,1) all have rank one.",
+        "For g=2, total degree two has Hodge ranks 1,4,1, hence sum six.",
+        "For g=0 all positive i or j vanish; the (0,0) term is O_S."
+      ],
+      "sources": [
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "Lemma 4.4 and proof, p.10",
+          "match": "The field rank computation uses invariant forms and coherent exterior powers."
+        },
+        {
+          "sourceId": "stacks-ordinary-derham",
+          "locator": "§50.2, Lemma 50.2.1 (0FL5), pp.2–3",
+          "match": "Exterior differential forms and their arbitrary base change; use the existing projection-formula supplier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Hodge degeneration and universal de Rham bundles",
+      "kind": "theorem",
+      "statement": "For every abelian scheme f:A→S of dimension g, H^n_dR(A/S)=H^n(Rf_*Ω•) is finite locally free of rank binomial(2g,n), zero for n>2g, and commutes with arbitrary base change. The relative Hodge spectral sequence E₁^{j,i}=R^if_*Ω^j⇒H^{i+j}_dR degenerates at E₁. Each H^n(Rf_*Ω≥j) is finite locally free, injects into H^n_dR with image F^j, and commutes with arbitrary base change; its quotient in H^n_dR is finite locally free. Canonically gr_F^j H^n_dR≃R^{n−j}f_*Ω^j for 0≤j≤n, and zero otherwise. No canonical splitting of the filtration is asserted.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+        "AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion",
+        "mathlib:Nat.add_choose_eq"
+      ],
+      "proofSteps": [
+        "First work over an algebraically closed field. The Hodge spectral sequence bounds de Rham cohomology above 2g; the degree-one input has dimension 2g. Addition and derived Künneth give its Hopf algebra. The Hopf criterion forces exterior generation, dimensions binomial(2g,n) and square-zero degree-one products.",
+        "The Hodge ranks sum to binomial(2g,n) by Vandermonde. Equality with the abutment in every total degree forces every differential to vanish over a field. Truncating by form degree gives the same degeneration and the stated filtered-piece dimensions on every field.",
+        "For general S, use perfectness/derived base change of K_dR. Products of degree-one classes lift a spanning family of every fibre H^n_dR, so Stacks 0A1U in all degrees gives finite local freeness and arbitrary ordinary base change. Fieldwise zero differentials alone would not establish this over a nonreduced base.",
+        "For the filtered step, invariant differentials of a smooth commutative group are closed (evaluate the exterior differential on invariant vector fields: their bracket is zero). Thus ω lifts to H¹(Rf_*Ω≥1); this uses no higher degeneration. Over a field, choose a basis of H¹ adapted to ω. The unfiltered exterior isomorphism and E₁ degeneration already proved over fields show by dimensions that products of j classes from ω and n−j classes from H¹ span F^jH^n, and H^n(Rf_*Ω≥j) injects with this image. Products of the corresponding relative degree-one lifts lie in H^n(Rf_*Ω≥j) and lift these fibre generators. Apply Stacks 0A1U degree by degree to each perfect truncated complex. Its cohomology is then finite locally free with arbitrary base change. The map to H^n_dR is injective with locally free cokernel because it is so on every fibre. The truncation triangles now give the exact sequences with Hodge bundles as quotients and universal E₁ degeneration. Verify this filtered-generator and splitting argument as part of G-exterior; do not infer nilpotent differentials vanish from fibre dimensions alone.",
+        "Kurama Lemma 4.3 supplies the truncated-complex proof once universal degeneration is established; its Proposition 4.2 then gives filtered exterior compatibility. Keep the hypotheses and the unverified general-base step separate."
+      ],
+      "acceptance": [
+        "For g=1 de Rham ranks are 1,2,1 and the H¹ Hodge sequence has ranks 1,2,1.",
+        "For g=2 de Rham ranks are 1,4,6,4,1 and gr^0,gr^1,gr^2 of H² have ranks 1,4,1.",
+        "Pullback to dual numbers preserves the exact filtered-piece sequences, rather than only the dimensions of their unique geometric fibre."
+      ],
+      "sources": [
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "§4.1, Lemma 4.1, Lemmas 4.3–4.4, pp.8–10",
+          "match": "Lemma 4.1 states the package for locally noetherian bases and attributes it to BBM82 Proposition 2.5.2; Lemma 4.3 proves the filtered-piece consequences. This does not independently verify BBM or the arbitrary-base step."
+        },
+        {
+          "sourceId": "stacks-ordinary-derham",
+          "locator": "Lemma 50.3.5 (0FM0), pp.3–4",
+          "match": "Derived perfection/base change is distinct from ordinary cohomology base change."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Filtered exterior de Rham cohomology",
+      "kind": "theorem",
+      "statement": "For an abelian scheme f:A→S, cup product is alternating on H¹_dR(A/S), including in characteristic two. The resulting canonical homomorphism ∧•_(O_S)H¹_dR(A/S)→H•_dR(A/S) is an isomorphism of graded algebras, natural for homomorphisms, products and arbitrary base change. In degree n it is an isomorphism for the Hodge filtration, where F^j∧^nH¹ is the image of ∧^j F¹H¹⊗∧^{n−j}H¹ for 0≤j≤n (and F^j is full for j≤0 and zero for j>n). Its associated graded is ∧^{n−j}(R¹f_*O_A)⊗∧^jω, identified with R^{n−j}f_*Ω^j by the Hodge theorem.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration",
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+        "mathlib:ExteriorAlgebra.lift",
+        "mathlib:exteriorPower.finrank_eq"
+      ],
+      "proofSteps": [
+        "Over S, Hodge degeneration and flatness give ordinary Künneth from derived Künneth. The unit section and grading imply every H¹ class is primitive.",
+        "Locally choose a basis x₁,…,x₂g of H¹. The x_ax_b with a<b give a basis of H²: they do so on every field by the Hopf criterion, and both sides have the same established finite rank. Write x² in that basis. The reduced (1,1)-coproduct vanishes on x², but on the basis products it is x_a⊗x_b−x_b⊗x_a. Independence forces the coefficients to vanish over S itself. This also covers characteristic two and nilpotents; for g=0 the degree-one sheaf is zero.",
+        "Now apply the existing square-zero universal property ExteriorAlgebra.lift. In each degree fibrewise generation and equal locally free ranks give an isomorphism, compatible with pullback and products by its construction.",
+        "Multiplication preserves form-degree filtration. Choose a local basis of H¹ adapted to its subbundle ω. The induced exterior filtration has the stated associated graded. Identify it with the Hodge bundles by the Hodge theorem and the filtration result of the preceding node; or apply Kurama Proposition 4.2 to the filtered-piece surjections. A finite filtration with these graded isomorphisms gives the filtered isomorphism."
+      ],
+      "acceptance": [
+        "For elliptic E/S, ∧²H¹_dR≃H²_dR is a line; for E₁×E₂ the rank-six degree-two term decomposes as 1+4+1.",
+        "On a nonreduced characteristic-two base every local degree-one square is zero; anticommutativity, which yields only 2x²=0, is not sufficient.",
+        "The filtration is transported without choosing a global splitting of H¹ or assuming a polarization."
+      ],
+      "sources": [
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "Proposition 4.2 and Lemmas 4.3–4.4, pp.9–10",
+          "match": "Read proof of the filtered isomorphism over the locally noetherian bases stipulated there; the additional general-base work is G-exterior."
+        },
+        {
+          "sourceId": "anschütz-lebras",
+          "locator": "Proposition 4.5.1, p.53 (v4)",
+          "match": "The completed bounded-prism instance states alternation and the algebra isomorphism, citing BBM II 2.5.2. It does not itself prove this arbitrary-scheme-base statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion",
+      "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
+      "realises": [],
+      "title": "Continuous cohomology of the p-adic completion",
+      "kind": "theorem",
+      "statement": "Let p be prime, R a classically p-adically complete ring with bounded p-power torsion, B an abelian scheme over Spec R, B_r=B×_R R/p^r for r≥1 and X its p-adic completion. Define the continuous complexes C_dR=Rlim_r RΓ(B_r,Ω•_(B_r/(R/p^r))) and C_j=Rlim_r RΓ(B_r,Ω^j_(B_r/(R/p^r))). The canonical maps RΓ(B,Ω•_(B/R))→C_dR and RΓ(B,Ω^j_(B/R))→C_j are isomorphisms. Their cohomology modules are finite projective of ranks binomial(2g,n) and binomial(g,i)binomial(g,j), respectively, and the cup map ∧•_R H¹(C_dR)→H•(C_dR) is an isomorphism of filtered graded algebras. They commute with every continuous base change R→R′ to another such complete ring, with the base-change comparison computed by completed derived tensor. For R=A/I arising from a bounded prism, these continuous complexes agree with the completed de Rham/Hodge cohomology used in Anschütz–Le Bras Proposition 4.5.1. That last formal-sheaf identification is asserted here only in their bounded-prism quotient situation; no unrestricted nonnoetherian formal-functions theorem or prismatic cohomology is assumed.",
+      "hypotheses": [
+        "Work on a component of constant relative dimension g; statements on an arbitrary base are sheaf statements, with no affineness or reducedness assumption unless specified."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra",
+        "EnhancedDerivedSheaves:E4/completed-base-change"
+      ],
+      "proofSteps": [
+        "Use arbitrary algebraic base change to identify each level complex with the corresponding perfect R-complex tensor^L R/p^r. Over affine Spec R its finite projective cohomology splits the bounded complex noncanonically as a direct sum of these projectives in their degrees; the comparison map itself is canonical.",
+        "For a finite projective module M, M≃lim M/p^rM because R is p-complete (take a summand of a finite free module). The transition maps are surjective, so R¹lim vanishes. Therefore the above bounded split complexes identify canonically with the derived inverse limits of their ordinary reductions. The finite projective filtered pieces obey the same argument. This proves the inverse-limit extension independently from the source’s bounded-prism hypothesis.",
+        "Tensor, exterior powers, products and the finite filtration pass through these identifications; for complete R′ use E4/completed-base-change on perfect complexes. At the cohomology level this is ordinary tensor since the modules are finite projective.",
+        "For the actual formal sheaf cohomology appearing in ALB, retain their precise setup and Proposition 4.5.1, p.53, which attributes the result to BBM II 2.5.2. Its formal-to-level-limit identification and the underlying proof are retained in G-exterior until checked independently; the inverse-limit calculation is not a claim to have read BBM or proved general formal functions."
+      ],
+      "acceptance": [
+        "For an elliptic scheme over Z_p continuous de Rham cohomology has ranks 1,2,1 and reduction mod p^r recovers the algebraic calculation.",
+        "For R=F₂[ε]/ε² the tower is constant, but alternation still has to hold over R, not just its residue field.",
+        "For g=2 the continuous H² has rank six; its Hodge graded pieces have ranks 1,4,1.",
+        "Without completeness the comparison to the limit need not be an isomorphism: already the dimension-zero object over Z has degree-zero limit Z_p."
+      ],
+      "sources": [
+        {
+          "sourceId": "anschütz-lebras",
+          "locator": "§4.5 setup and Proposition 4.5.1, p.53 (v4)",
+          "match": "Source statement concerns a bounded prism and the p-adic completion of an algebraic abelian scheme over A/I; not an arbitrary formal abelian group."
+        },
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "Lemma 4.3, p.9",
+          "match": "Filtered-piece finiteness/base change is the algebraic input to passing the Hodge filtration through the limit, with the base restriction and proof obligation retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-arithmeticgeometry-1~2"
+    },
+    {
       "id": "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology",
       "parentStageId": "AbelianSchemesAndArithmeticModuli:A4",
       "realises": [
@@ -3022,17 +3439,20 @@
       "statement": "For every abelian scheme π:A→S, R^iπ_*Ω^j and H^n_dR are finite locally free and commute with arbitrary base change. Cup products identify R^iπ_*Ω^j≅∧^i R¹π_*O⊗∧^j π_*Ω¹ and H^n_dR≅∧^n H¹_dR, compatibly with products and pullbacks; the Hodge spectral sequence degenerates. Exterior means squares vanish also in characteristic two. For A over an algebraically closed field k and any prime ℓ≠char k, H*_et(A,Z_ℓ)≃∧*H¹_et(A,Z_ℓ) and H¹_et≃Hom_Z_ℓ(T_ℓA,Z_ℓ), with ranks binomial(2g,n). Reduction gives the same exterior statement over F_ℓ. This includes the characteristic-zero mod-p case used by FKW and the prime-to-characteristic cohomology used by Rosati positivity.",
       "hypotheses": [],
       "prerequisites": [
-        "AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham",
-        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion",
+        "AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion",
         "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison"
       ],
       "proofSteps": [
-        "Identify coherent cohomology as an exterior algebra using the Hopf structure and universal vector extension. Establish universal ranks and filtered exterior compatibility before applying base change.",
+        "Combine the explicit coherent, Hodge, universal-degeneration, filtered-exterior and continuous-completion targets below. This aggregate preserves its existing ID and prime-to-characteristic étale clause. The unresolved source/proof inputs are G-exterior and G-etale-exterior, not unnamed full comparison theorems.",
         "For prime-to-characteristic étale cohomology, use the addition Hopf algebra, Künneth and the rank-2g Tate injection as in Milne 2022 Theorem 15.1. A bounded graded Hopf-algebra argument forces exterior generation and degree-one square-zero, including ℓ=2; the integral coefficient sequence then proves torsion-freeness and integral exterior compatibility. The proof uses the general étale Künneth/cohomological-dimension and Hopf structure inputs recorded in G-etale-exterior. In characteristic zero there is also the complex-torus comparison route."
       ],
       "acceptance": [
         "For g=2 the de Rham ranks are 1,4,6,4,1.",
-        "Degree-one squares vanish in characteristic two; graded skew symmetry alone is insufficient."
+        "Degree-one squares vanish in characteristic two; graded skew symmetry alone is insufficient.",
+        "Over nonaffine S use the finite locally free higher direct image sheaves, not the global section modules of those sheaves; arbitrary base change includes nonflat and nonreduced T→S."
       ],
       "sources": [
         {
@@ -3049,9 +3469,17 @@
           "sourceId": "milne-2022",
           "locator": "Theorem 15.1, Lemma 15.2 and Remark 15.4, pp.27–28",
           "match": "The read argument supplies integral and mod-ℓ exterior cohomology for every ℓ different from the characteristic, subject to the general étale/Hopf inputs."
+        },
+        {
+          "sourceId": "kurama-fourier-mukai",
+          "locator": "§4.1, Lemma 4.1 and Proposition 4.2, pp.8–10",
+          "match": "Public statement and filtered refinement of the locally noetherian algebraic package, attributed there to BBM Proposition 2.5.2."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Exterior cohomology of abelian schemes"
+      }
     },
     {
       "id": "AbelianSchemesAndArithmeticModuli:A4/p-divisible-group",
@@ -5443,16 +5871,7 @@
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6",
       "need": "Proper-flat cohomology and arbitrary coherent base change after the required local-freeness/rank hypotheses; no curve-only shortcut.",
       "neededBy": [
-        "AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham",
-        "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology",
         "AbelianSchemesAndArithmeticModuli:A0/relative-moduli-imports"
-      ]
-    },
-    {
-      "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Relative differentials, Lie/tangent duality and the bounded de Rham complex.",
-      "neededBy": [
-        "AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham"
       ]
     },
     {
@@ -5505,6 +5924,13 @@
       "neededBy": [
         "AbelianSchemesAndArithmeticModuli:A1/relative-elliptic-equivalence"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "need": "Reuse the existing proper-flat-finitely-presented coherent pushforward, flat base change, cohomology-and-base-change and semicontinuity contract of current JacobianChallenge Layer C. The derived proper-smooth forms/complex perfection, arbitrary derived base change and de Rham Künneth refinements are proved in A4/ordinary-de-rham-interface from Stacks 0FM0 and 0FMC, rather than attributed to an unnamed upstream theorem.",
+      "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface"
+      ]
     }
   ],
   "coverage": [
@@ -5542,7 +5968,7 @@
       "stageId": "AbelianSchemesAndArithmeticModuli:A4",
       "status": "planned",
       "remaining": [
-        "G-exterior: All-degree abelian cohomology proof",
+        "G-exterior: All-degree cohomology proof verification (including the scope extension and completed specialization)",
         "G-pd: Degree-one PD evaluation and lifting proof",
         "G-odd-level: Odd-prime truncated polarized BT lifting",
         "G-dyadic: Ordinary dyadic finite-level descent",
@@ -5581,11 +6007,18 @@
     },
     {
       "id": "G-exterior",
-      "title": "All-degree abelian cohomology proof",
+      "title": "All-degree cohomology proof verification",
       "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+        "AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion",
+        "AbelianSchemesAndArithmeticModuli:A4/cohomology-of-the-structure-sheaf",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion",
         "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology"
       ],
-      "detail": "Anschütz–Le Bras v4 Proposition 4.5.1 p.53 assumes a bounded prism and the p-adic completion of an abelian scheme over its quotient; its proof cites BBM II 2.5.2. BBM is neither publicly accessible in the permitted sources nor cleared, and was not read. Faltings–Chai VI.2 pp.207–210 proves an exterior coherent calculation for a particular compactified moduli construction. Neither inspected passage by itself proves the arbitrary-base coherent/de Rham target. Verify local freeness, universal base change, filtration degeneracy and square-zero multiplication in characteristic two over every S. The separate prime-to-characteristic étale proof input is G-etale-exterior."
+      "detail": "The targets and an acyclic proof plan are explicit, but this is not a closed implementation/proof verification. BBM II Proposition 2.5.2 is the original attribution through ALB Proposition 4.5.1 p.53 and Kurama Lemma 4.1 pp.8–9; BBM is uncleared and was not opened. Kurama assumes locally noetherian bases and proves the filtered refinement, not the arbitrary-base theorem from scratch. Verify Borel 1953 Theorem 6.1 used by Milne Lemma 15.2; the R¹O=Lie(A∨) arbitrary-base Picard comparison retained with G-picard-dual/G-vector-extension; coherent Künneth and the field-to-relative surjective-cohomology/base-change argument; universal filtered degeneration via lifted filtered generators and Stacks 0A1U over nonreduced/nonnoetherian bases; and the relative primitive-coproduct square-zero argument. In the completed formal-sheaf application retain exactly ALB’s bounded-prism quotient setup until its formal-to-level-limit identification is checked. The general inverse-limit calculation on perfect complexes with finite projective cohomology is given separately and does not assert general formal functions. FKW supplies a characteristic-zero mod-p étale application, not these arbitrary-base de Rham steps. No full comparison or inaccessible proof is silently imported."
     },
     {
       "id": "G-pd",
@@ -5684,7 +6117,7 @@
         "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology",
         "AbelianSchemesAndArithmeticModuli:A6/rosati-positivity"
       ],
-      "detail": "Milne 2022 Theorem 15.1 and Lemma 15.2 pp.27–28 give the Hopf-algebra and integral-reduction proof. Supply its nonroutine general étale Künneth/cohomological-dimension contracts and the bounded connected graded Hopf-algebra structure theorem, or use a justified smooth proper lifting/comparison argument. The complex-comparison supplier alone only proves the characteristic-zero case."
+      "detail": "Milne 2022 Theorem 15.1 and Lemma 15.2 pp.27–28 give the integral/reduction strategy. Supply its general étale Künneth and cohomological-dimension contracts and reduction/torsion-freeness argument. The common bounded Hopf criterion is now A4/hopf-algebra-exterior-criterion with its Borel structure-theorem proof input in G-exterior. The complex-comparison supplier proves only the characteristic-zero alternative; it does not supply arbitrary-characteristic étale or arbitrary-base de Rham cohomology."
     },
     {
       "id": "G-abelian-image",
@@ -5921,6 +6354,33 @@
       "citation": "Levent Alpöge, Manjul Bhargava, Wei Ho and Ari Shnidman, Rank stability in quadratic extensions and Hilbert's tenth problem for the ring of integers of a number field, Inventiones mathematicae 243 (2026), no. 3, 1129–1139; online 1 December 2025. The downloaded publisher PDF header itself says (2025); the journal landing page assigns volume 243 to 2026.",
       "read": "2026-10-09",
       "sha256": "94190b392b135905918368a0f52bb0ec1491488f65d9228fdabcee0bf08281ec"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arxiv.org/pdf/2410.14065v2",
+      "citation": "Riku Kurama, Fourier-Mukai partners of abelian varieties and K3 surfaces in positive and mixed characteristics, arXiv:2410.14065v2, 17 February 2026; numbered pages",
+      "read": "2026-10-17",
+      "sha256": "e7942fbce1f3bcad84e32f533c96797db2db6a461803616b2997417fe340138f"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/derham.pdf",
+      "citation": "The Stacks Project Authors, The Stacks Project, de Rham Cohomology, Chapter 50 PDF read 2026-10-17; chapter-page locators, tags stable",
+      "read": "2026-10-17",
+      "sha256": "d1dc49a3e49b26b2b205f1ca87c36d1a79829fbf98be4eeab4665924005d1c42"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/0A1U",
+      "citation": "The Stacks Project Authors, The Stacks Project, splitting complexes, §15.78, Lemma 15.78.2 (0A1U), online version read 2026-10-17; tag locator",
+      "read": "2026-10-17"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://arxiv.org/pdf/1907.10525v4",
+      "citation": "Johannes Anschütz and Arthur-César Le Bras, Prismatic Dieudonné theory, v4, §4.5 p.53",
+      "read": "2026-10-17",
+      "sha256": "6eb02c16c525360141b1c5d118ae04db070f3c0e9cb9fff0f1598fc889b50aec"
     }
   ],
   "upstreamNotes": [
@@ -5947,6 +6407,14 @@
     {
       "target": "AlgebraicVectorBundles current main, L0B/L0C/L2A/L2B",
       "note": "Exact imports: finite locally free sheaves, dual and arbitrary pullback (L0B); exterior powers and fixed-rank determinant with pullback (L0C); vector-group total space Spec Sym(F∨), functorial in F (L2A/L2B). Use these for A1 invariant forms, A4 cohomology/universal vector extensions and A6 Hodge determinant. These current-main layers are absent from the atlas stage catalogue, so they are recorded as explicit upstream imports here and in the reader, not invented baseline declarations or new general bundle nodes."
+    },
+    {
+      "target": "DerivedDeRhamCohomology DD.2 and DD.5",
+      "note": "Tier-order move: A4/ordinary-de-rham-interface now owns the minimal ordinary proper-smooth complex, filtration, perfect derived pushforward/base change and product formula needed at tier 6. The higher DD.2 ordinary-complex/base-change and DD.5 proper-smooth-control direction should import that interface; keep animated/general derived de Rham and higher comparisons there. No upward DD prerequisite is added. Existing JacobianChallenge C coherent cohomology and AlgebraicVectorBundles operations remain imports. The DD packet is outside this job’s allowlist; redirection is recorded for the maintainer."
+    },
+    {
+      "target": "AlgebraicModuliForArithmeticGeometry R09.6 and SchemeAndStackFoundations SF.3",
+      "note": "Their current finished packets do not supply the ordinary proper-smooth de Rham interface formerly requested by A4/abelian-h1-de-rham and the aggregate. Those consumers now use A4/ordinary-de-rham-interface and current upstream JacobianChallenge C for coherent foundations. R09.6’s remaining A0 import description is inherited outside this finding and needs separate alignment with its current deformation-theory packet; no new coherent theorem is attributed to that stage."
     }
   ],
   "nativeTypes": {
@@ -5957,7 +6425,9 @@
     "hodge": "Native TauCeti.Hodge.HodgeStructure, IsPolarization and Polarization are imports from Structure/Polarization.lean. The native complex-structure adapter gives effective weight one; homological weight −1 requires the geometric sign/duality adapter. Nondegenerate integral polarization need not be unimodular. HodgeStructureOn.dual and the effective weight-one Riemann criterion are also native. Under the homological types used here C=−J and Q=−E.",
     "riemann": "Finite-dimensional native real normed vector space, actual bilinear LinearMap, AlmostComplexStructure and discrete IsZLattice integral submodule; positivity and J-invariance are genuine conditions.",
     "missingSignatures": "Relative dual/Poincaré, Picard quotient, BT tower, PD evaluation, de Rham hypercohomology, formal deformation and analytic-family carriers lack native pinned declarations. Suggested uses explicit named omission records for these exact mathematical signatures, never Prop placeholders.",
-    "lieExponential": "Native lieExp and isLocalDiffeomorphAt_lieExp_zero are imports at the pinned baseline. Their finite-dimensional smooth real boundaryless Hausdorff manifold hypotheses must be supplied by the geometric analytification; holomorphicity is additional."
+    "lieExponential": "Native lieExp and isLocalDiffeomorphAt_lieExp_zero are imports at the pinned baseline. Their finite-dimensional smooth real boundaryless Hausdorff manifold hypotheses must be supplied by the geometric analytification; holomorphicity is additional.",
+    "ordinaryDeRham": "At Tau Ceti f790474, Scheme.Modules.Cohomology is ordinary sheaf cohomology; Cohomology/Module/Basic gives its global-functions module action and linear maps (and Module/Base restricts base scalars). These are existing substrate, not a relative module-valued higher-direct-image or filtered base-linear de Rham hypercohomology API. Keep the missing relative signatures as exact README targets, without synthetic Prop carriers.",
+    "signedHopf": "Mathlib 082e2d3 has ordinary Bialgebra/HopfAlgebra, GradedAlgebra and the graded-object braiding inherited without degree signs. Their pinned definitions were read. The cohomology criterion needs the Koszul-signed tensor coproduct, not the ordinary ungraded Bialgebra multiplication law. No ready signed graded Hopf carrier/criterion was found in the pinned searches; keep this precisely stated setup as a README theorem target rather than treating the ungraded class as its carrier."
   },
   "consumerCoverage": [
     {
@@ -6218,7 +6688,7 @@
       "targets": [
         "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology"
       ],
-      "boundary": "Reuse the target with the exact hypotheses in its statement; this mapping claims planning coverage, not formalization."
+      "boundary": "The exterior input here is characteristic-zero mod-p étale cohomology (FKW v2 Corollary 2.3.5 pp.17–18 and Lemma 3.2.2 p.24), via the retained aggregate’s étale clause. It is not a source proof of arbitrary-base de Rham cohomology."
     },
     {
       "item": "PAPER-FARB-KISIN-WOLFSON-24/145",
@@ -6605,9 +7075,12 @@
     {
       "item": "PAPER-ANSCHUTZ-LEBRAS-23/97",
       "targets": [
-        "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology"
+        "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra"
       ],
-      "boundary": "The inspected proposition is in the bounded-prism/p-adic-completion setting. The broader arbitrary-base coherent/de Rham target retains G-exterior; this routing does not close that general proof."
+      "boundary": "ALB v4 §4.5 p.53 uses the p-adic completion over the quotient of a bounded prism. The continuous-level-limit refinement and the retained formal-sheaf identification obligation are explicit; no unrestricted formal-functions theorem is inferred."
     },
     {
       "item": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/247",
@@ -6696,7 +7169,7 @@
     }
   ],
   "suggestedCoverage": {
-    "policy": "Native field degree/characteristic-polynomial, coefficient algebra and finite-dimensional real Riemann-form signatures elaborate where their conditions are expressible. Native general Hodge and polarization carriers are imports. All unavailable relative, analytic and PD declarations have exact named omission records; compilation validates present signatures only, not proofs or closure.",
+    "policy": "The suggested file states supported native field/Hom and coefficient-algebra theorems and uses only lightweight data with real bodies (coefficient tensor carrier/identity/units, real Riemann-form predicates and explicit Hermitian formula). Heavy degree/characteristic-polynomial, coefficient composition and Riemann-form constructions remain exact README/manifest targets, without unproved data stubs. The seven round-2 refinements have exact omission records because their graded Hopf or relative/filtered/continuous cohomology carrier and hypotheses are not native at the pins. Native exterior-square and binomial-rank examples compile with complete proofs; these validate algebraic statements only, not the missing geometric proofs or closure.",
     "implementationStatus": "unchecked"
   },
   "upstreamImports": [
@@ -6715,9 +7188,27 @@
         "AbelianSchemesAndArithmeticModuli:A4/universal-vector-extension",
         "AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham",
         "AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology",
-        "AbelianSchemesAndArithmeticModuli:A6/hodge-determinant-and-moduli-export"
+        "AbelianSchemesAndArithmeticModuli:A6/hodge-determinant-and-moduli-export",
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface",
+        "AbelianSchemesAndArithmeticModuli:A4/cohomology-of-the-structure-sheaf",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme",
+        "AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra",
+        "AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion"
       ],
       "checked": "Current read-only main README and Suggested.lean inspected independently, 2026-10-09. It is an upstream plan, not an implemented baseline declaration."
+    },
+    {
+      "roadmap": "JacobianChallenge",
+      "layers": [
+        "C"
+      ],
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/JacobianChallenge",
+      "provides": "Existing relative coherent pushforward, flat base change, cohomology-and-base-change/semicontinuity contract, with its proper-flat-finite-presentation hypotheses; the extra proper-smooth derived de Rham theorem is explicit in A4.",
+      "neededBy": [
+        "AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface"
+      ],
+      "checked": "Read current main README Layer C and its scope caveats, 2026-10-17. This is an upstream plan, not a pinned implemented declaration."
     }
   ],
   "review": {
@@ -7172,5 +7663,15 @@
         "note": "Added the missing construction with addedBy. For V(F)=Spec Sym(F-dual), the kernel is V(omega of A-dual), universal pushout represents Ext1, omega(E(A)) is H1dR(A), and Lie(E(A)) is its dual. Public sources' delegation of the universal-property proof is retained as G-vector-extension; five APIs and four diagnostic tests are supplied."
       }
     ]
-  }
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AbelianSchemesAndArithmeticModuli"
+      ],
+      "detail": "RS-02 narrowed A4 to degree-one realizations; accepted routes and confirmed finding RT-AREA-arithmeticgeometry-1/1 require all-degree Hodge/de Rham exterior cohomology. The stable existing aggregate already states it, but did not decompose its dependencies or formal-completion application.",
+      "proposal": "Keep stage ID A4. Extend its degree-one realization/deformation scope to the all-degree coherent/Hodge/de Rham package and the continuous p-adic completion specialization. The seven new prerequisite/refinement nodes have realises=[] while this extension awaits the independent fix review/maintainer scope decision; the existing A4/all-degree-exterior-cohomology milestone and all existing realises entries are retained. Exclude unnamed full Hodge/étale/p-adic comparison theorems and general crystalline/prismatic theories. Move only the minimal ordinary proper-smooth de Rham interface down from the higher-tier DerivedDeRhamCohomology direction; higher owners import it. No upstream roadmap is replanned."
+    }
+  ]
 }

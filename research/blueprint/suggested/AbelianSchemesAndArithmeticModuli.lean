@@ -2,7 +2,7 @@
 This file is not the roadmap and is not exhaustive. The roadmap document
 research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on
-names and signatures. Every proof/body is a prototype; no implementation is claimed.
+names and signatures. Theorem proofs may be prototypes; data definitions have real bodies. No geometric implementation is claimed.
 Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -29,6 +29,9 @@ import Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic
 import Mathlib.RingTheory.SimpleModule.WedderburnArtin
 import Mathlib.RingTheory.DividedPowers.Basic
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
+import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
+import Mathlib.Data.Nat.Choose.Vandermonde
 
 open CategoryTheory Polynomial
 open scoped TensorProduct
@@ -38,74 +41,9 @@ open scoped Hom
 universe u
 variable {K : Type u} [Field K] {A B C : AbelianVariety K}
 
-/-- A6/degree-of-an-endomorphism: equal-dimensional maps use rank if isogenies, zero otherwise.
-The degree-zero object has its unique map of degree one. -/
-noncomputable def Hom.deg (f : A ⟶ B) : ℕ := by sorry
-
-/-- API `deg_comp`: dimension equality is necessary for this statement. -/
-theorem deg_comp (f : A ⟶ B) (h : B ⟶ C) (hAB : A.dim = B.dim) (hBC : B.dim = C.dim) :
-    Hom.deg (f ≫ h) = Hom.deg f * Hom.deg h := by sorry
-
-/-- API `deg_mulBy`: the zero-dimensional case uses 0^0=1. -/
-theorem deg_mulBy (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (n : ℤ) :
-    Hom.deg (mulBy A n) = n.natAbs ^ (2 * g) := by sorry
-
-theorem isIsogeny_iff_deg_ne_zero (f : A ⟶ B) (hAB : A.dim = B.dim) :
-    IsIsogeny f ↔ Hom.deg f ≠ 0 := by sorry
-
-/-- API `End.degRat`: Q is the coefficient factor, not a geometric field extension. -/
-noncomputable def End.degRat (α : ℚ ⊗[ℤ] End A) : ℚ := by sorry
-
-theorem degree_dimension_zero (A : AbelianVariety K) (hg : A.dim = 0) (α : End A) :
-    Hom.deg (End.toHom α) = 1 := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.deg_mulBy_two_elliptic`. -/
-example (A : AbelianVariety K) (hg : A.dim = 1) : Hom.deg (mulBy A 2) = 4 := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.deg_zero`: positive dimension. -/
-example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hpos : 0 < g) :
-    Hom.deg (End.toHom (0 : End A)) = 0 ∧ Hom.deg (𝟙 A) = 1 := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.deg_zero`: dimension zero. -/
-example (A : AbelianVariety K) (hg : A.dim = 0) : Hom.deg (End.toHom (0 : End A)) = 1 := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.deg_neg_one`. -/
-example (A : AbelianVariety K) : Hom.deg (mulBy A (-1)) = 1 := by sorry
-
-/-- A6/characteristic-polynomial-of-an-endomorphism, integral construction. -/
-noncomputable def End.charpoly (α : End A) : ℤ[X] := by sorry
-
-/-- The positive-dimensional trace is minus the penultimate coefficient; at dimension zero it is 0. -/
-noncomputable def End.trace (α : End A) : ℤ := by sorry
-
-theorem End.charpoly_eval (α : End A) (r : ℤ) :
-    (End.charpoly α).eval r = (Hom.deg (End.toHom (α - (r : End A))) : ℤ) := by sorry
-
-theorem End.charpoly_monic (α : End A) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) :
-    (End.charpoly α).Monic ∧ (End.charpoly α).natDegree = 2 * g := by sorry
-
-theorem End.charpoly_coeff_zero (α : End A) :
-    (End.charpoly α).coeff 0 = (Hom.deg (End.toHom α) : ℤ) := by sorry
-
-theorem End.trace_add (α β : End A) : End.trace (α + β) = End.trace α + End.trace β := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.charpoly_mulBy`:
-explicit conversion from native mulBy (a morphism) to End (an additive ring). -/
-example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (n : ℤ) :
-    End.charpoly (End.ofHom (mulBy A n)) = (X - Polynomial.C n) ^ (2 * g) := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.charpoly_zero`. -/
-example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) :
-    End.charpoly (0 : End A) = X ^ (2 * g) := by sorry
-
-/-- Test `TauCeti.AlgebraicGeometry.AbelianVariety.charpoly_ne_minpoly`: the scalar minimal
-polynomial is linear, while the geometric characteristic polynomial has degree 2g. -/
-example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hpos : 0 < g) (n : ℤ) :
-    End.charpoly (n : End A) ≠ X - Polynomial.C n := by sorry
-
-/-- Dimension-zero boundary of the characteristic-polynomial construction. -/
-example (A : AbelianVariety K) (hg : A.dim = 0) (α : End A) :
-    End.charpoly α = 1 ∧ End.trace α = 0 := by sorry
+/- The degree, rational degree, characteristic-polynomial and trace constructions and their
+API/tests remain exact README/manifest targets below. Their former sorry-bodied data
+signatures are omitted under the current roadmap shape rule, as are dependent statements. -/
 
 /-- Algebraic lemma used for uniqueness of P, against native polynomial evaluation. -/
 theorem eq_of_eval_intCast {p q : ℚ[X]} (h : ∀ r : ℤ, p.eval (r : ℚ) = q.eval (r : ℚ)) :
@@ -135,12 +73,6 @@ theorem hom_is_free_of_finite_rank (A B : AbelianVariety K) :
 theorem endQ_isSemisimple (A : AbelianVariety K) :
     IsSemisimpleRing (ℚ ⊗[ℤ] End A) ∧ Module.Finite ℚ (ℚ ⊗[ℤ] End A) := by sorry
 
-/-- A6/degree-is-a-polynomial-function: genuine homogeneous polynomials on every finite family. -/
-theorem degree_polynomial (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞))
-    {ι : Type*} [Fintype ι] (e : ι → ℚ ⊗[ℤ] End A) :
-    ∃ p : MvPolynomial ι ℚ, p.IsHomogeneous (2 * g) ∧
-      ∀ x : ι → ℚ, MvPolynomial.eval x p = End.degRat (∑ i, x i • e i) := by sorry
-
 /-- Integral congruence lemma used in full-level descent and polarized automorphism rigidity. -/
 theorem eq_one_of_root_of_unity {F : Type*} [Field F] [CharZero F] {ζ π : F}
     (hπ : IsIntegral ℤ π) {n : ℤ} (hn : 3 ≤ n) (hζ : ζ = 1 + n * π)
@@ -162,21 +94,8 @@ variable {R : Type*} [CommRing R] [Algebra ℚ R]
 noncomputable def id (A : AbelianVariety K) : CoefficientHom A A R :=
   1 ⊗ₜ[ℤ] Additive.ofMul (𝟙 A)
 
-/-- API `CoefficientHom.comp`: bilinear categorical composition. -/
-noncomputable def comp : CoefficientHom A B R →ₗ[R]
-    CoefficientHom B C R →ₗ[R] CoefficientHom A C R := by sorry
-
-/-- API `CoefficientHom.baseChange`: a coefficient map, not a change of the field K. -/
-noncomputable def baseChange {R' : Type*} [CommRing R'] [Algebra ℚ R']
-    (f : R →ₐ[ℚ] R') : CoefficientHom A B R →+ CoefficientHom A B R' := by sorry
-
-/-- Coefficient composition preserves the actual native identity. -/
-theorem id_comp (f : CoefficientHom A B R) : comp (id A) f = f := by sorry
-
-theorem comp_id (f : CoefficientHom A B R) : comp f (id B) = f := by sorry
-
-theorem baseChange_id (f : CoefficientHom A B R) :
-    baseChange (AlgHom.id ℚ R) f = f := by sorry
+/- CoefficientHom.comp/baseChange and their identity laws are README API targets.
+The native tensor carrier and identity above do not implement those constructions. -/
 
 /-- The actual unit group, supplying the points of the future affine unit-group scheme. -/
 abbrev units (A : AbelianVariety K) := (R ⊗[ℤ] End A)ˣ
@@ -216,40 +135,19 @@ variable {Λ} {J : TauCeti.AlmostComplexStructure V}
 
 /-- API `RiemannForm.hermitian`; this formula is first-variable linear in the induced complex
 structure, and its imaginary part is the alternating form. -/
-noncomputable def hermitian (E : RiemannForm Λ J) (v w : V) : ℂ := by sorry
+noncomputable def hermitian (E : RiemannForm Λ J) (v w : V) : ℂ :=
+  (E.form (J v) w : ℂ) + Complex.I * (E.form v w : ℂ)
 
 /-- API `RiemannForm.integral` is the actual structure projection above. -/
 theorem hermitian_formula (E : RiemannForm Λ J) (v w : V) :
     E.hermitian v w = (E.form (J v) w : ℂ) + Complex.I * (E.form v w : ℂ) := by sorry
 
-/-- API `RiemannForm.integralPairing`: choose the integer values using the actual integrality proof. -/
-noncomputable def integralPairing (E : RiemannForm Λ J) : Λ →ₗ[ℤ] Λ →ₗ[ℤ] ℤ := by sorry
-
-/-- API `RiemannForm.scale`: positive integral scaling preserves the Riemann relations. -/
-noncomputable def scale (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) :
-    RiemannForm Λ J := by sorry
-
-theorem scale_form (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) :
-    (E.scale n hn).form = (n : ℝ) • E.form := by sorry
-
 /-- API `RiemannForm.ext`: all remaining fields are propositions. -/
 @[ext] theorem ext {E E' : RiemannForm Λ J} (h : E.form = E'.form) : E = E' := by sorry
 
-/-- API `RiemannForm.isPrincipal`: unimodularity, not merely rational nondegeneracy. -/
-def isPrincipal (E : RiemannForm Λ J) : Prop := Function.Bijective E.integralPairing
-
-/-- API `RiemannForm.pullback`: positivity requires an injective map and the lattice and
-complex structures must be respected. -/
-noncomputable def pullback {W : Type*} [NormedAddCommGroup W] [NormedSpace ℝ W]
-    [FiniteDimensional ℝ W]
-    (Λ' : Submodule ℤ W) [DiscreteTopology Λ'] [IsZLattice ℝ Λ']
-    (J' : TauCeti.AlmostComplexStructure W) (E : RiemannForm Λ J)
-    (f : W →ₗ[ℝ] V) (hinj : Function.Injective f)
-    (hΛ : ∀ x : Λ', f x ∈ Λ) (hJ : ∀ v, f (J' v) = J (f v)) :
-    RiemannForm Λ' J' := by sorry
-
-/-- Test `RiemannForm.zero_dimension`: both the lattice and its integral dual are zero. -/
-example [Subsingleton V] (E : RiemannForm Λ J) : E.isPrincipal := by sorry
+/- IntegralPairing, positive scaling, unimodularity and pullback, with the zero-rank
+and nonprincipal-scaling tests, are retained as README/manifest targets. Their data
+constructions are heavier than this suggested file's permitted light definitions. -/
 
 /-- Test `RiemannForm.negative`: the negative form fails the positive convention. -/
 example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) : ¬ 0 < -(E.form (J v) v) := by sorry
@@ -258,13 +156,37 @@ example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) : ¬ 0 < -(E.form (J v) v)
 example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) :
     0 < -(E.form (-(J v)) v) := by sorry
 
-/-- Tests `RiemannForm.double` and `RiemannForm.scale_nonprincipal`: doubling a principal
-form on a nonzero finite lattice preserves positivity and loses unimodularity. -/
-example [Nontrivial Λ] (E : RiemannForm Λ J) (hE : E.isPrincipal) :
-    ¬ (E.scale 2 (by decide)).isPrincipal := by sorry
-
 end RiemannForm
 end TauCeti.AbelianRiemann
+
+namespace TauCeti.AbelianCohomologyChecks
+open scoped BigOperators
+
+/-- The numerical Hodge-to-de Rham rank identity, using the native Vandermonde theorem. -/
+theorem hodge_rank_sum (g n : ℕ) :
+    (∑ ij ∈ Finset.antidiagonal n, g.choose ij.1 * g.choose ij.2) = (2 * g).choose n := by
+  simpa [two_mul] using (Nat.add_choose_eq g g n).symm
+
+/-- Elliptic and surface ranks. These check the targets, not any geometric carrier. -/
+example : ((2 : ℕ).choose 0, (2 : ℕ).choose 1, (2 : ℕ).choose 2) = (1, 2, 1) := by decide
+example : ((4 : ℕ).choose 0, (4 : ℕ).choose 1, (4 : ℕ).choose 2, (4 : ℕ).choose 3, (4 : ℕ).choose 4) =
+    (1, 4, 6, 4, 1) := by decide
+example : (2 : ℕ).choose 2 * (2 : ℕ).choose 0 + (2 : ℕ).choose 1 * (2 : ℕ).choose 1 +
+    (2 : ℕ).choose 0 * (2 : ℕ).choose 2 = 6 := by decide
+
+/-- The native exterior algebra requires actual square-zero, including over Z/2Z. -/
+example (v : Fin 2 → ZMod 2) :
+    ExteriorAlgebra.ι (ZMod 2) v * ExteriorAlgebra.ι (ZMod 2) v = 0 :=
+  ExteriorAlgebra.ι_sq_zero v
+
+/-- A finite free rank-four module has rank-six second exterior power. -/
+example (k : Type*) [Field k] (M : Type*) [AddCommGroup M] [Module k M]
+    [Module.Finite k M] (h : Module.finrank k M = 4) :
+    Module.finrank k (⋀[k]^2 M) = 6 := by
+  rw [exteriorPower.finrank_eq, h]
+  decide
+
+end TauCeti.AbelianCohomologyChecks
 
 /-! ## Exact target and omission manifest
 
@@ -503,7 +425,7 @@ Test `AbelianH1dR.polarization_degree` (non-example): In characteristic p on a p
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology (theorem): Exterior cohomology of abelian schemes
 Exact mathematical signature: For every abelian scheme π:A→S, R^iπ_*Ω^j and H^n_dR are finite locally free and commute with arbitrary base change. Cup products identify R^iπ_*Ω^j≅∧^i R¹π_*O⊗∧^j π_*Ω¹ and H^n_dR≅∧^n H¹_dR, compatibly with products and pullbacks; the Hodge spectral sequence degenerates. Exterior means squares vanish also in characteristic two. For A over an algebraically closed field k and any prime ℓ≠char k, H*_et(A,Z_ℓ)≃∧*H¹_et(A,Z_ℓ) and H¹_et≃Hom_Z_ℓ(T_ℓA,Z_ℓ), with ranks binomial(2g,n). Reduction gives the same exterior statement over F_ℓ. This includes the characteristic-zero mod-p case used by FKW and the prime-to-characteristic cohomology used by Rosati positivity.
-Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
+Signature boundary: Relative higher direct images and filtered de Rham hypercohomology are not native pinned declarations. The following seven README targets refine this aggregate. G-exterior and G-etale-exterior remain explicit.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/etale-tate-module (construction): Integral prime-to-characteristic Tate modules
@@ -630,7 +552,7 @@ Signature boundary: The geometric abelian analytification, standard torus lattic
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/riemann-form (definition): Riemann forms and polarization sign
 Exact mathematical signature: For a finite-dimensional real vector space V with complex structure J and full lattice Λ, a Riemann form is an integral alternating form E:Λ×Λ→Z whose real extension satisfies E(Jv,Jw)=E(v,w) and E(Jv,v)>0 for v≠0. Its Hermitian form, linear in the first variable, is H(v,w)=E(Jv,w)+iE(v,w). Its degree/type uses the integral elementary divisors; unimodularity is an additional principal-polarization condition. The associated homological polarization has weight −1 and types (−1,0),(0,−1). For the native homological weight −1 convention, let the (−1,0) component be the +i eigenspace of J. Its Weil operator is −J, and the native polarizing form is Q=−E; this preserves Q(Cv,v)=E(Jv,v)>0. The effective weight-one Riemann criterion already exists in the Hodge library and is imported.
-Signature boundary: Native finite-dimensional RiemannForm, integral pairing, Hermitian formula, positive scaling, extensionality, injective pullback and principal predicate appear above. Zero-dimensional, negative and nonprincipal-doubling tests elaborate. The explicit Gaussian lattice example and the geometric Hodge sign/duality comparison are omitted signatures; native general integral Hodge/polarization carriers are imported.
+Signature boundary: The finite-dimensional RiemannForm predicate and explicit Hermitian formula have real bodies above; extensionality, negative-form and homological-sign theorem statements elaborate. Integral pairing, scaling, unimodularity, pullback and their tests remain README targets along with the Gaussian lattice and geometric Hodge comparison. Their former sorry-bodied data declarations are omitted. Native general Hodge/polarization carriers are imports.
 API `RiemannForm.hermitian`: Recover H=E(J·,·)+iE.
 API `RiemannForm.integral`: The restriction to Λ has integer values and E(x,x)=0.
 API `RiemannForm.pullback`: Pull back along an injective complex-linear lattice map.
@@ -681,7 +603,7 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 Target AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism (definition): The characteristic polynomial and trace of an endomorphism
 Exact mathematical signature: For α∈End A there is a unique monic P_α∈Z[X] of degree 2g with P_α(r)=deg(α−[r]) for all r∈Z. For g>0 Tr α is minus the coefficient of X^(2g−1); for g=0 set Tr α=0 and P_α=1. On End⁰ A put P_(α/n)(X)=n^(−2g)P_α(nX)∈Q[X]. It is monic, denominator-independent and Tr is Q-linear; its constant coefficient is deg α.
 Additional hypotheses: Uniqueness holds because a polynomial is determined by its values on ℤ (infinitely many points).; For integral α, coefficient integrality follows from finite generation of End(A) and the determinant trick after the rational Tate determinant comparison. Integer-valued polynomiality by itself is insufficient.; P_α is not the minimal polynomial of α in End⁰(A): for α = [n] it is (X − n)^{2g}.
-Signature boundary: Native integral characteristic polynomial, trace and scalar tests appear above. The Frobenius test requires the missing native Frobenius endomorphism adapter; the rational rescaling API is recorded in this exact target statement.
+Signature boundary: The integral characteristic polynomial, trace, scalar tests and rational rescaling are README targets. Their former sorry-bodied data declarations and dependent theorem signatures are omitted; the Frobenius test additionally needs its geometric endomorphism adapter.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.End.charpoly`: End.charpoly (α : End A) : ℤ[X], monic of degree 2g.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.End.charpoly_eval`: (End.charpoly α).eval r = Hom.deg (α − r) for r : ℤ.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.End.charpoly_monic`: (End.charpoly α).Monic ∧ (End.charpoly α).natDegree = 2 * g.
@@ -707,7 +629,7 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/coefficient-hom-and-units (construction): Coefficient Hom, quasi-isogenies and unit schemes
 Exact mathematical signature: For field abelian varieties define Hom⁰(A,B)=Q⊗Z Hom(A,B), End⁰(A)=Hom⁰(A,A). For a commutative Q-algebra R use R⊗Q Hom⁰, with bilinear composition and two-sided inverses defining R-isogenies. The Hom functor is the affine Q-space Spec Sym(Hom⁰*); End⁰ units are the determinant-open locus for left multiplication, forming Aut_Q(A). R changes coefficients, not the geometric base field of A.
-Signature boundary: Native coefficient tensor Hom, bilinear composition, identity, coefficient maps and the actual unit group appear above, with scalar-two, square-zero and positive-dimensional-zero tests. Representability of the affine Hom/unit functors and the nonfield geometric interpretation remain omitted signatures.
+Signature boundary: The coefficient tensor Hom, identity and unit group have real bodies above; scalar-two, square-zero and positive-dimensional-zero theorem tests elaborate. Bilinear composition and coefficient maps are README API targets, with their former sorry-bodied data declarations omitted. Representability and the nonfield geometric interpretation remain omitted signatures.
 API `CoefficientHom.points`: Hom_Q(A,B)(R)≅R⊗Q Hom⁰(A,B).
 API `CoefficientHom.id`: Tensor the native identity; composition and coefficient base change preserve it.
 API `CoefficientHom.comp`: Composition is bilinear and compatible with coefficient maps.
@@ -753,13 +675,13 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 Target AbelianSchemesAndArithmeticModuli:A6/degree-is-a-polynomial-function (theorem): The degree is a homogeneous polynomial function of degree 2g on End⁰(A)
 Exact mathematical signature: Let A be an abelian variety of dimension g over a field k. The function deg : End⁰(A) → ℚ is a homogeneous polynomial function of degree 2g: for every finite family e_1, …, e_n in End⁰(A), deg(x_1e_1 + … + x_ne_n) is given by a homogeneous polynomial of degree 2g in (x_1, …, x_n) with rational coefficients.
 Additional hypotheses: The source's Lemma 10.12 must be read with a bound on degrees: if x ↦ f(xv + w) is a polynomial of degree at most d for all v and w, then f is a polynomial function. Without the bound the proof's first sum can be infinite (a known erratum, recorded in sourceIssues).; The proof uses intersection numbers of divisors and their behaviour under finite surjective maps, requested from SchemeAndStackFoundations SF.5, and the theorem of the cube (A1).
-Signature boundary: The native signature degree_polynomial above states the full finite-family homogeneous polynomial assertion.
+Signature boundary: The finite-family polynomial assertion is a README target, omitted here because its degree-law construction is not native and may not be supplied by sorry-bodied data.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism (definition): The degree of an endomorphism, extended to End⁰(A)
 Exact mathematical signature: For field abelian varieties A,B of equal dimension g, deg f is the finite-flat rank if f is an isogeny and zero otherwise; for an isogeny it equals the function-field degree, including inseparable degree. For equal-dimensional composable maps it is multiplicative. On End A, deg[n]=|n|^(2g), including n=0 with 0^0=1. Extend to End⁰ A by deg(q)=deg(nq)/n^(2g) for any positive denominator n; the extension is independent of n and is nonzero exactly on units. For g=0 End A is the zero ring, its unique morphism is the identity and has degree one.
 Additional hypotheses: The degree counts inseparable degree. For the Frobenius π of an elliptic curve over 𝔽_p, deg π = p while ker π(k̄) = 0. So deg is not the number of geometric points of the kernel.; The extension to End⁰(A) uses that End(A) is torsion-free (theorem hom-to-tate-module-homs-is-injective).; deg [n] = n^{2g} is AbelianSchemesAndArithmeticModuli A3's statement that [n] is finite locally free of rank n^{2g}.
-Signature boundary: Native Hom.deg, composition, multiplication, isogeny characterization, rational extension and zero-dimensional signatures appear above. Frobenius constructor and its elliptic finite-flat kernel comparison are not supplied by the pinned carrier.
+Signature boundary: The degree construction, rational extension and all dependent API/tests are exact README targets. Their former sorry-bodied data declarations and dependent statements are omitted. The Frobenius constructor and finite-flat kernel comparison also need their geometric interface.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.Hom.deg`: Hom.deg (α : A ⟶ B) : ℕ, the degree of α if it is an isogeny and 0 otherwise.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.deg_comp`: For A,B,C of equal dimension, deg(f≫h)=deg f·deg h.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.deg_mulBy`: Hom.deg (mulBy A n) = n.natAbs ^ (2 * g) for g the dimension of A.
@@ -956,4 +878,55 @@ Target AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-ex
 Exact mathematical signature: Let L/k be a finite separable extension and X an L-variety with Res_{L/k}(X) representable. Then Res_{L/k}(X) ×_k k̄ ≅ ∏_{σ ∈ Hom_k(L, k̄)} X ×_{L,σ} k̄. When L/k is Galois with group G, Res_{L/k}(X)_L ≅ ∏_{σ∈G} σX. The Galois group Gal(k̄/k) acts on the right-hand side by permuting the factors through its action on Hom_k(L, k̄), compatibly with its action on each factor.
 Additional hypotheses: Separability makes L ⊗_k k̄ ≅ ∏_σ k̄. For inseparable L/k the base change is not a product of copies of k̄ (Poonen Exercise 4.9).
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/ordinary-de-rham-interface (construction): Ordinary relative de Rham interface
+Exact mathematical signature: For a proper smooth morphism f:X→S construct Ω•_(X/S), with Ω^j=∧^jΩ¹, exterior multiplication and the relative differential, and K_dR=Rf_*Ω• in D(O_S). The differential is f⁻¹O_S-linear, not O_X-linear: take the complex on the source over f⁻¹O_S. The stupid filtration F^jΩ•=Ω≥j gives F^jK_dR and E₁^{j,i}=R^if_*Ω^j⇒H^{i+j}(K_dR). Locally on S these are bounded filtered complexes. For every u:T→S, derived pullback identifies K_dR and Rf_*Ω^j with the corresponding objects for X_T/T; each is perfect, as is F^jK_dR. Multiplication is compatible with filtration, pullback and products. For proper smooth X,Y over S the external cup product K_dR(X)⊗^L K_dR(Y)→K_dR(X×_S Y) is an isomorphism. This does not by itself assert ordinary cohomology-sheaf base change, local freeness, or Hodge degeneration. The analogous coherent product map Rf_*O_X⊗^LRg_*O_Y→Rh_*O_(X×Y) is an isomorphism for proper smooth X,Y; its proof is flat base change followed by the projection formula.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
+API `OrdinaryDeRham.complex`: Construct Ω• as a complex of f⁻¹O_S-modules, then its derived pushforward to O_S-modules.
+API `OrdinaryDeRham.filtered`: Expose F^j=Rf_*Ω≥j, gr^j=Rf_*Ω^j[−j] and the Hodge spectral sequence.
+API `OrdinaryDeRham.cup`: Give unital associative graded-commutative multiplication, with form-degree filtration and Koszul signs.
+API `OrdinaryDeRham.derivedBaseChange`: Give Lu*Rf_*Ω•≃Rf_T*Ω• and the analogous comparisons for forms and stupid truncations, compatible with identity and composition.
+API `OrdinaryDeRham.kunneth`: Identify the derived tensor of the two complexes with the complex of the fibre product for proper smooth schemes.
+Test `OrdinaryDeRham.identity` (degenerate): For id_S recover O_S in degree zero and F¹=0.
+Test `OrdinaryDeRham.differential_not_source_linear` (non-example): The relative differential on R[t] sends t to dt and is not R[t]-linear.
+Test `OrdinaryDeRham.projective_line` (computation): For P¹_S obtain cohomology of ranks 1,0,1, and the two product generators on P¹×P¹.
+Test `OrdinaryDeRham.dual_numbers_not_flat` (non-example): The perfect two-term ε-complex over dual numbers fails the ordinary base-change/local-freeness conclusion without fibre-surjectivity.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/hopf-algebra-exterior-criterion (lemma): Bounded Hopf algebra exterior criterion
+Exact mathematical signature: Let H=⊕_{n≥0}H^n be a finite-dimensional connected graded-commutative Hopf algebra over a perfect field k, with H⁰=k and H^n=0 for n>d. Then dim_k H¹≤d. If dim_k H¹=d, multiplication factors through an isomorphism of graded algebras ∧•_k H¹≃H. In particular every degree-one square is zero, including in characteristic two. The coproduct is multiplicative into the graded tensor product with (a⊗b)(c⊗d)=(−1)^(deg b deg c)ac⊗bd for homogeneous elements. A coproduct with this sign rule is part of the hypotheses; finite dimensionality and graded commutativity alone do not suffice.
+Signature boundary: Ordinary Bialgebra/HopfAlgebra and GradedAlgebra exist at the pins; their ordinary tensor law is not the Koszul-signed coproduct used here. No ready signed graded Hopf carrier/criterion was found. This exact README target retains that setup and G-exterior rather than replacing it with an ungraded instance or a substitute Prop.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/cohomology-of-the-structure-sheaf (theorem): Exterior coherent cohomology
+Exact mathematical signature: For an abelian scheme f:A→S of relative dimension g, V=R¹f_*O_A≃Lie(A∨) is finite locally free of rank g with arbitrary base change. Cup product is alternating on V, including in characteristic two, and induces ∧^i V≃R^if_*O_A for every i≥0. These are finite locally free sheaves of rank binomial(g,i), zero for i>g, natural for homomorphisms of abelian schemes and arbitrary base change. R⁰f_*O_A=O_S via the unit.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/hodge-cohomology-of-an-abelian-scheme (theorem): All-degree Hodge cohomology
+Exact mathematical signature: Let f:A→S be an abelian scheme of dimension g and ω=e*Ω¹_(A/S)=f_*Ω¹_(A/S). For all i,j≥0, Ω^j_(A/S)≃f*∧^jω and cup/exterior product gives (∧^i R¹f_*O_A)⊗(∧^jω)≃R^if_*Ω^j_(A/S). Thus these sheaves are finite locally free of rank binomial(g,i)binomial(g,j), vanish if i>g or j>g, and commute with arbitrary base change. The comparison respects homomorphism pullback and the bigraded product with the signs from cohomological degree and exterior form degree.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/hodge-to-de-rham-degeneration (theorem): Hodge degeneration and universal de Rham bundles
+Exact mathematical signature: For every abelian scheme f:A→S of dimension g, H^n_dR(A/S)=H^n(Rf_*Ω•) is finite locally free of rank binomial(2g,n), zero for n>2g, and commutes with arbitrary base change. The relative Hodge spectral sequence E₁^{j,i}=R^if_*Ω^j⇒H^{i+j}_dR degenerates at E₁. Each H^n(Rf_*Ω≥j) is finite locally free, injects into H^n_dR with image F^j, and commutes with arbitrary base change; its quotient in H^n_dR is finite locally free. Canonically gr_F^j H^n_dR≃R^{n−j}f_*Ω^j for 0≤j≤n, and zero otherwise. No canonical splitting of the filtration is asserted.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-is-an-exterior-algebra (theorem): Filtered exterior de Rham cohomology
+Exact mathematical signature: For an abelian scheme f:A→S, cup product is alternating on H¹_dR(A/S), including in characteristic two. The resulting canonical homomorphism ∧•_(O_S)H¹_dR(A/S)→H•_dR(A/S) is an isomorphism of graded algebras, natural for homomorphisms, products and arbitrary base change. In degree n it is an isomorphism for the Hodge filtration, where F^j∧^nH¹ is the image of ∧^j F¹H¹⊗∧^{n−j}H¹ for 0≤j≤n (and F^j is full for j≤0 and zero for j>n). Its associated graded is ∧^{n−j}(R¹f_*O_A)⊗∧^jω, identified with R^{n−j}f_*Ω^j by the Hodge theorem.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
+-/
+
+/-
+Target AbelianSchemesAndArithmeticModuli:A4/de-rham-cohomology-of-the-p-adic-completion (theorem): Continuous cohomology of the p-adic completion
+Exact mathematical signature: Let p be prime, R a classically p-adically complete ring with bounded p-power torsion, B an abelian scheme over Spec R, B_r=B×_R R/p^r for r≥1 and X its p-adic completion. Define the continuous complexes C_dR=Rlim_r RΓ(B_r,Ω•_(B_r/(R/p^r))) and C_j=Rlim_r RΓ(B_r,Ω^j_(B_r/(R/p^r))). The canonical maps RΓ(B,Ω•_(B/R))→C_dR and RΓ(B,Ω^j_(B/R))→C_j are isomorphisms. Their cohomology modules are finite projective of ranks binomial(2g,n) and binomial(g,i)binomial(g,j), respectively, and the cup map ∧•_R H¹(C_dR)→H•(C_dR) is an isomorphism of filtered graded algebras. They commute with every continuous base change R→R′ to another such complete ring, with the base-change comparison computed by completed derived tensor. For R=A/I arising from a bounded prism, these continuous complexes agree with the completed de Rham/Hodge cohomology used in Anschütz–Le Bras Proposition 4.5.1. That last formal-sheaf identification is asserted here only in their bounded-prism quotient situation; no unrestricted nonnoetherian formal-functions theorem or prismatic cohomology is assumed.
+Signature boundary: The required graded Hopf-algebra structure or relative/filtered/continuous geometric cohomology carrier and its hypotheses have no native pinned declaration. The README states the full target, source locators, proof obligations and checks; no substitute Prop is introduced.
 -/
