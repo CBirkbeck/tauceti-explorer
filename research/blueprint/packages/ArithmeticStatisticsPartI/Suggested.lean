@@ -35,13 +35,15 @@ def count (S : Set A) (X : ℝ) : ℕ := {a | a ∈ S ∧ F.height a ≤ X}.ncar
 def HasRelativeDensity (S T : Set A) (d : ℝ) : Prop :=
   Tendsto (fun X : ℝ => (F.count (S ∩ T) X : ℝ) / F.count T X) atTop (nhds d)
 
-/-- Densities multiply along nested subfamilies of an infinite ambient family. -/
+/-- Densities multiply along nested subfamilies, including empty and finite ones. -/
 theorem relativeDensity_mul (U T S : Set A) (hUT : U ⊆ T) (hTS : T ⊆ S)
-    (hS : S.Infinite) (d e : ℝ) (hT : F.HasRelativeDensity T S d)
+    (d e : ℝ) (hT : F.HasRelativeDensity T S d)
     (hU : F.HasRelativeDensity U T e) : F.HasRelativeDensity U S (e * d) := by
   sorry
 
 example (X : ℝ) : F.count ∅ X = 0 := by sorry
+example : F.HasRelativeDensity ∅ ∅ 0 ∧ ¬ F.HasRelativeDensity ∅ ∅ 1 := by sorry
+example (a : A) : F.HasRelativeDensity ({a} : Set A) {a} 1 := by sorry
 example (S : Set A) (hS : S.Infinite) : F.HasRelativeDensity S S 1 := by sorry
 example : (⟨fun n : ℕ => (n : ℝ), by sorry⟩ : ArithmeticFamily ℕ).count Set.univ 3 = 4 := by sorry
 example : ¬ Northcott (fun x : ℚ => (|x| : ℝ)) := by sorry
@@ -169,7 +171,38 @@ example : invI (⟨1,0,0,1,0⟩ : BinaryQuartic ℤ) = 0 ∧
     disc (⟨1,0,0,1,0⟩ : BinaryQuartic ℤ) = -27 := by sorry
 example : pairHeight 0 0 = 0 := by sorry
 example : pairHeight (-2) 8 = 16 := by sorry
+example : invJ (⟨1,0,0,1,0⟩ : BinaryQuartic ℤ) = -27 ∧
+    invJ (⟨0,1,0,0,1⟩ : BinaryQuartic ℤ) = -27 := by sorry
 
 end BinaryQuartic
+
+/-!
+The remaining README definitions are targets on their stated suppliers:
+`ArithmeticFamily.heightLE`, `weightedCount`, `countLT`, `ofQuotient`, `comap`,
+`rescale`, `ofNat`, `ofMulHeight`, `ratio`, `ratioLT`, `upperDensity`, `lowerDensity`,
+`stabilizerWeight`, `weightedOrbitCount`; `LocalConditions` with `FinitelyMany`,
+`IsRegular`, `localDensity`, `IsLargeRel`; congruence-weight presentations,
+`IsAcceptable` and `localMass`; quartic evaluation, substitution, twisted action,
+`eligibilityCongruence` and `IsEligible`; `EllipticFamily`, its invariant maps and
+congruence subfamilies; `oddSupport`, `unitHeight`, `supportIdeal`, `squareclassHeight`,
+`twistModel`, `twistClass`, `twistFamily`, `posSquarefree`, `evenParityClasses`;
+discriminant-ordered and embedded number-field families and their Galois selectors;
+the imported cubic-action/algebra adapters and their maximality predicate;
+hypersurface monomial coordinates, primitive residue vectors, local-density moments
+and projective equation families; odd quadratic function-field slices;
+monic and binary coefficient boxes, fixed-degree binary discriminants, strong and
+weak discriminant loci, local proportions and acceptable monic specifications;
+hyperelliptic equation families, odd-root predicates and density transfers;
+negative-Pell radicands; unpolarized, principally polarized and polarization-fiber
+counts; natural bundle law, parity tails, Picard quotient, representatives and carry,
+finite joint bundle mass, theta tails, parity product and Hecke pushforward;
+rank-two projective-line splitting, `p1BundleIndex`, finite double-cover pushforwards,
+the hyperelliptic involution comparison and `thetaClasses`;
+Wood outside involutions, admissible and good embedded types, type automorphisms,
+continuous surjections, infinity adapters and exact imaginary/real slices,
+rigid average normalizations and root-of-unity refinements; symmetric pencils,
+binary-form orders and their ideal lattices; monic local formulas and Euler products.
+Their full hypotheses, APIs and Checks are in README.md.
+-/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartI
