@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T18:20Z",
+ "updated": "2026-10-17T18:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -248,7 +248,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -264,7 +264,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -339,7 +339,7 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "edb3a45",
+   "head": "a8238d9",
    "depends_on": [
     789,
     785
@@ -347,7 +347,7 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -607,11 +607,11 @@
   "ClassicalArithmeticCompletion": {
    "stage": "pr",
    "pr": 921,
-   "head": "d0882d1",
+   "head": "2728a17",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    },
@@ -796,7 +796,7 @@
    "head": "2d7f7ef",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -877,11 +877,11 @@
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "b042939",
+   "head": "c3c64ca",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -977,7 +977,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -988,8 +988,8 @@
    "head": "252be03",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1057,11 +1057,11 @@
   "DirichletPadicLFunctions": {
    "stage": "pr",
    "pr": 1039,
-   "head": "06335c7",
+   "head": "ad42345",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1093,7 +1093,7 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "96964ef",
+   "head": "6c97efa",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": null,
