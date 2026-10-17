@@ -1,4 +1,5 @@
 import Mathlib
+import TauCeti.Analysis.Normed.Algebra.LogOneAdd.Basic
 import TauCeti.NumberTheory.DirichletCharacter.Basic
 
 /-!
@@ -6,9 +7,10 @@ import TauCeti.NumberTheory.DirichletCharacter.Basic
 
 The roadmap is README.md. This file records light definitions and representative end theorems
 statable against the pinned APIs; it is not exhaustive. It fixes the Bernoulli sign, integral
-smoothing quotient, normalized analytic denominator, signed Gamma, full division fibers and
-ordered arithmetic divisor coefficients. Arithmetic analytic expressions are evaluated only
-with the convergence and nonvanishing hypotheses stated in the roadmap.
+smoothing quotient, the Iwasawa normalization of the p-adic logarithm, normalized analytic
+denominator, signed Gamma, full division fibers and ordered arithmetic divisor coefficients.
+Arithmetic analytic expressions are evaluated only with the convergence and nonvanishing
+hypotheses stated in the roadmap.
 -/
 
 noncomputable section
@@ -64,6 +66,189 @@ example : (259 / 24 : ℚ) = 1 / 8 + 16 * (2 / 3) := by norm_num
 
 /-- A quartic finite-unit character detects the inverse in the GL₁ Euler convention. -/
 example : (Complex.I)⁻¹ = -Complex.I := by simp
+
+/-! ### The Iwasawa logarithm -/
+
+/-- The logarithm series converges on the open unit disc of a complete field over `ℚ_[p]`. -/
+theorem hasSum_logOneAdd_of_norm_lt_one (p : ℕ) [Fact p.Prime] {K : Type*} [NormedField K]
+    [NormedAlgebra ℚ_[p] K] [CompleteSpace K] [CharZero K] {z : K} (hz : ‖z‖ < 1) :
+    HasSum (fun n : ℕ => (-1 : K) ^ (n + 1) / n * z ^ n) (NormedSpace.logOneAdd K K z) := by
+  sorry
+
+/-- The logarithm series turns products of principal units into sums. -/
+theorem logOneAdd_add_mul_of_norm_lt_one (p : ℕ) [Fact p.Prime] {K : Type*} [NormedField K]
+    [NormedAlgebra ℚ_[p] K] [CompleteSpace K] [CharZero K] {z w : K} (hz : ‖z‖ < 1)
+    (hw : ‖w‖ < 1) :
+    NormedSpace.logOneAdd K K (z + w + z * w) =
+      NormedSpace.logOneAdd K K z + NormedSpace.logOneAdd K K w := by
+  sorry
+
+/-- Every nonzero element has a power that is a power of `p` times a principal unit. -/
+def HasIwasawaDecomposition (p : ℕ) (K : Type*) [NormedField K] : Prop :=
+  ∀ x : K, x ≠ 0 → ∃ n : ℕ, 0 < n ∧ ∃ m : ℤ, ‖x ^ n * (p : K) ^ (-m) - 1‖ < 1
+
+/-- The Iwasawa normalization: zero at `0` and at `p`, additive on nonzero products, and the
+logarithm series on the open unit disc around `1`. -/
+def IsIwasawaLog (p : ℕ) {K : Type*} [NormedField K] [CharZero K] (L : K → K) : Prop :=
+  L 0 = 0 ∧ L p = 0 ∧ (∀ x y : K, x ≠ 0 → y ≠ 0 → L (x * y) = L x + L y) ∧
+    ∀ z : K, ‖z‖ < 1 → L (1 + z) = NormedSpace.logOneAdd K K z
+
+/-- Finite extensions of `ℚ_[p]` have the decomposition. -/
+theorem hasIwasawaDecomposition_of_finiteDimensional (p : ℕ) [Fact p.Prime] (K : Type*)
+    [NormedField K] [NormedAlgebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] :
+    HasIwasawaDecomposition p K := by
+  sorry
+
+/-- The `p`-adic complex numbers have the decomposition. -/
+theorem hasIwasawaDecomposition_padicComplex (p : ℕ) [Fact p.Prime] :
+    HasIwasawaDecomposition p ℂ_[p] := by
+  sorry
+
+/-- The Iwasawa logarithm exists and is unique under the decomposition hypothesis. -/
+theorem existsUnique_isIwasawaLog (p : ℕ) [Fact p.Prime] (K : Type*) [NormedField K]
+    [NormedAlgebra ℚ_[p] K] [CompleteSpace K] [CharZero K] (hK : HasIwasawaDecomposition p K) :
+    ∃! L : K → K, IsIwasawaLog p L := by
+  sorry
+
+/-- The Iwasawa logarithm of `ℂ_[p]`. -/
+theorem existsUnique_isIwasawaLog_padicComplex (p : ℕ) [Fact p.Prime] :
+    ∃! L : ℂ_[p] → ℂ_[p], IsIwasawaLog p L := by
+  sorry
+
+/-- The intrinsic Iwasawa logarithm of a finite extension of `ℚ_[p]`. -/
+theorem existsUnique_isIwasawaLog_of_finiteDimensional (p : ℕ) [Fact p.Prime] (K : Type*)
+    [NormedField K] [NormedAlgebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CharZero K] :
+    ∃! L : K → K, IsIwasawaLog p L := by
+  sorry
+
+namespace IsIwasawaLog
+
+variable {p : ℕ} {K : Type*} [NormedField K] [CharZero K] {L : K → K}
+
+/-- The logarithm of one is zero, from the series at the origin. -/
+theorem map_one (hL : IsIwasawaLog p L) : L 1 = 0 := by
+  simpa using hL.2.2.2 0 (by simp)
+
+/-- Powers of a nonzero element multiply its logarithm. -/
+theorem map_pow (hL : IsIwasawaLog p L) {x : K} (hx : x ≠ 0) (n : ℕ) :
+    L (x ^ n) = n * L x := by
+  induction n with
+  | zero => simpa using hL.map_one
+  | succ n ih =>
+    rw [pow_succ, hL.2.2.1 _ _ (pow_ne_zero n hx) hx, ih]
+    push_cast
+    ring
+
+/-- Inverses negate the logarithm. -/
+theorem map_inv (hL : IsIwasawaLog p L) {x : K} (hx : x ≠ 0) : L x⁻¹ = -L x := by
+  have h := hL.2.2.1 x x⁻¹ hx (inv_ne_zero hx)
+  rw [mul_inv_cancel₀ hx, hL.map_one] at h
+  linear_combination -h
+
+/-- Roots of unity of positive order have logarithm zero. -/
+theorem eq_zero_of_pow_eq_one (hL : IsIwasawaLog p L) {ζ : K} {n : ℕ} (hn : 0 < n)
+    (hζ : ζ ^ n = 1) : L ζ = 0 := by
+  have hζ0 : ζ ≠ 0 := by
+    rintro rfl
+    simp [hn.ne'] at hζ
+  have h := hL.map_pow hζ0 n
+  rw [hζ, hL.map_one] at h
+  exact (mul_eq_zero.mp h.symm).resolve_left (Nat.cast_ne_zero.mpr hn.ne')
+
+/-- The sign does not change the logarithm, also at `p = 2`. -/
+theorem map_neg (hL : IsIwasawaLog p L) (x : K) : L (-x) = L x := by
+  rcases eq_or_ne x 0 with rfl | hx
+  · simp
+  have h1 : L (-1) = 0 := hL.eq_zero_of_pow_eq_one two_pos (by norm_num)
+  rw [neg_eq_neg_one_mul, hL.2.2.1 _ _ (by norm_num) hx, h1, zero_add]
+
+/-- The finite product law for nonzero factors. -/
+theorem map_prod (hL : IsIwasawaLog p L) {ι : Type*} (s : Finset ι) (f : ι → K)
+    (hf : ∀ i ∈ s, f i ≠ 0) : L (∏ i ∈ s, f i) = ∑ i ∈ s, L (f i) := by
+  classical
+  induction s using Finset.induction_on with
+  | empty => simpa using hL.map_one
+  | insert a s ha ih =>
+    have hs : ∀ i ∈ s, f i ≠ 0 := fun i hi => hf i (Finset.mem_insert_of_mem hi)
+    rw [Finset.prod_insert ha, Finset.sum_insert ha,
+      hL.2.2.1 _ _ (hf a (Finset.mem_insert_self a s)) (Finset.prod_ne_zero_iff.mpr hs), ih hs]
+
+/-- A multiplicative function with the same series differs by its value at `p` times `m / n`. -/
+theorem natCast_mul_eq_of_map_mul [Fact p.Prime] (hL : IsIwasawaLog p L) {ℓ : K → K}
+    (hmul : ∀ x y : K, x ≠ 0 → y ≠ 0 → ℓ (x * y) = ℓ x + ℓ y)
+    (hser : ∀ z : K, ‖z‖ < 1 → ℓ (1 + z) = NormedSpace.logOneAdd K K z)
+    {x : K} (hx : x ≠ 0) (n : ℕ) (m : ℤ) (hu : ‖x ^ n * (p : K) ^ (-m) - 1‖ < 1) :
+    (n : K) * ℓ x = n * L x + m * ℓ p := by
+  sorry
+
+/-- Isometric `ℚ_[p]`-algebra maps out of a complete field with the decomposition commute with
+the Iwasawa logarithms. -/
+theorem map_algHom [Fact p.Prime] [NormedAlgebra ℚ_[p] K] [CompleteSpace K]
+    (hK : HasIwasawaDecomposition p K)
+    (hL : IsIwasawaLog p L) {K' : Type*} [NormedField K'] [CharZero K'] [NormedAlgebra ℚ_[p] K']
+    {L' : K' → K'} (hL' : IsIwasawaLog p L') (σ : K →ₐ[ℚ_[p]] K') (hσ : ∀ x, ‖σ x‖ = ‖x‖)
+    (x : K) : L' (σ x) = σ (L x) := by
+  sorry
+
+end IsIwasawaLog
+
+/-- Continuous field automorphisms of `ℂ_[p]` commute with its Iwasawa logarithm. -/
+theorem IsIwasawaLog.map_padicComplex_ringEquiv {p : ℕ} [Fact p.Prime] {L : ℂ_[p] → ℂ_[p]}
+    (hL : IsIwasawaLog p L) (σ : ℂ_[p] ≃+* ℂ_[p]) (hσ : Continuous σ) (x : ℂ_[p]) :
+    L (σ x) = σ (L x) := by
+  sorry
+
+/-- The Iwasawa logarithm of `ℂ_[p]` preserves every finite extension of `ℚ_[p]` inside it. -/
+theorem IsIwasawaLog.mem_intermediateField {p : ℕ} [Fact p.Prime] {L : ℂ_[p] → ℂ_[p]}
+    (hL : IsIwasawaLog p L) (F : IntermediateField ℚ_[p] ℂ_[p]) [FiniteDimensional ℚ_[p] F]
+    {x : ℂ_[p]} (hx : x ∈ F) : L x ∈ F := by
+  sorry
+
+/-- Powers of `p` have logarithm zero. -/
+example {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K] [CharZero K] {L : K → K}
+    (hL : IsIwasawaLog p L) (k : ℕ) : L ((p : K) ^ k) = 0 := by
+  have hp : (p : K) ≠ 0 := Nat.cast_ne_zero.mpr (Fact.out : p.Prime).ne_zero
+  rw [hL.map_pow hp, hL.2.1, mul_zero]
+
+/-- The normalization at `p` detects the factor `3²` of `63`. -/
+example {L : ℚ_[3] → ℚ_[3]} (hL : IsIwasawaLog 3 L) : L 63 = L 7 := by
+  have h3 : L 3 = 0 := by simpa using hL.2.1
+  have h63 : (63 : ℚ_[3]) = 3 * 3 * 7 := by norm_num
+  rw [h63, hL.2.2.1 _ _ (by norm_num) (by norm_num), hL.2.2.1 _ _ (by norm_num) (by norm_num),
+    h3]
+  ring
+
+example {L : ℚ_[2] → ℚ_[2]} (hL : IsIwasawaLog 2 L) : L (-1) = 0 :=
+  hL.eq_zero_of_pow_eq_one two_pos (by norm_num)
+
+/-- At `p = 2` the series itself vanishes at the root of unity `-1`. -/
+example : NormedSpace.logOneAdd ℚ_[2] ℚ_[2] (-2) = 0 := by
+  sorry
+
+/-- The product of the conjugates `1 ± 3i` is `10`. -/
+example {K : Type*} [NormedField K] [CharZero K] {L : K → K} (hL : IsIwasawaLog 3 L) (i : K)
+    (hi : i ^ 2 = -1) : L (1 + 3 * i) + L (1 - 3 * i) = L 10 := by
+  have hprod : (1 + 3 * i) * (1 - 3 * i) = 10 := by linear_combination (-9) * hi
+  have h10 : (10 : K) ≠ 0 := by norm_num
+  have h1 : 1 + 3 * i ≠ 0 := fun h => h10 (by rw [← hprod, h, zero_mul])
+  have h2 : 1 - 3 * i ≠ 0 := fun h => h10 (by rw [← hprod, h, mul_zero])
+  rw [← hprod, hL.2.2.1 _ _ h1 h2]
+
+/-- The logarithm of `4` in `ℚ_[3]` has the norm of `3`. -/
+example : ‖NormedSpace.logOneAdd ℚ_[3] ℚ_[3] 3‖ = 1 / 3 := by
+  sorry
+
+/-- The first two terms of the dyadic series for `log 3` cancel. -/
+example : ‖NormedSpace.logOneAdd ℚ_[2] ℚ_[2] 2‖ = 1 / 4 := by
+  sorry
+
+/-- A branch with value one at `p` is not the Iwasawa logarithm. -/
+example {p : ℕ} {K : Type*} [NormedField K] [CharZero K] {L : K → K} (h : L p = 1) :
+    ¬ IsIwasawaLog p L := fun hL => one_ne_zero (h.symm.trans hL.2.1)
+
+/-- The pair `N = 2, m = 0` is admissible for `2` in `ℚ_[3]`. -/
+example : ‖(2 : ℚ_[3]) ^ 2 * (3 : ℚ_[3]) ^ (-(0 : ℤ)) - 1‖ < 1 := by
+  sorry
 
 /-! ## Layer 1: integral smoothing -/
 
@@ -471,6 +656,7 @@ example : (1 : ℚ) - (4 : ℚ)⁻¹ = 3 / 4 := by norm_num
 The following README constructions use supplier interfaces or substantial arithmetic and
 remain there with their specifications and Checks:
 normalizedMellinContinuation, algebraicDirichletValue, dedekindPoleCleared;
+iwasawaLog, localIwasawaLog, localIwasawaLog_norm_eq_trace, localIwasawaLog_exp;
 unitSmoothedMeasure, smoothedNumerator, intrinsicNumerator, padicSmoothingDenominator,
 padicSmoothedSeries, padicSmoothedMeasure, padicSmoothedNumerator, padicIntrinsicNumerator,
 kubotaLeopoldtPseudomeasure; primePowerCharacter, primePowerArithmeticCharacter,
