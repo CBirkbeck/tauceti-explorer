@@ -201,8 +201,8 @@
    "url": "https://arxiv.org/abs/1211.6357",
    "readSections": [
     "Introduction, Theorems A–C (pp. 3–6)",
-    "§5.1 Theorem 5.1.4 (p. 50)",
-    "§5.2 Theorem 5.2.1 and its proof (pp. 51–55)"
+    "§5.1 Theorem 5.1.4 (p. 49)",
+    "§5.2 Theorem 5.2.1 and its proof (pp. 51–57)"
    ]
   },
   {
@@ -285,7 +285,7 @@
    "edition": "Inventiones Mathematicae 171 (2008), 617–628",
    "url": "https://doi.org/10.1007/s00222-007-0090-x",
    "readSections": [
-    "Theorem 1.1 and Lemma 4.8, as cited by Anschütz–Le Bras, Remark 5.3.2 and the paragraph before Proposition 5.3.5"
+    "Theorem 1.1, as cited by Anschütz–Le Bras before Proposition 5.3.5 (the article itself was not read here)"
    ]
   },
   {
@@ -356,7 +356,7 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Definition 2.1, p. 4",
+     "locator": "Definition 2.1 and Lemma 2.2, p. 3",
      "match": "the original notion of a frame (S, I, R, σ, σ₁) with σ = θσ₁ on I and of u-homomorphisms between frames, which the prismatic paper specialises"
     }
    ],
@@ -371,7 +371,7 @@
      "how": "displays are windows over the Witt frame, and the Nygaard frame maps to it by a u-morphism"
     },
     {
-     "where": "This roadmap PD.5/essential-surjectivity-qrsp",
+     "where": "This roadmap PD.5/essential-surjectivity",
      "how": "deformation of windows along surjections of frames carries the perfectoid case to quasi-regular semiperfectoid rings"
     }
    ],
@@ -586,7 +586,7 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Definition 2.3, p. 5",
+     "locator": "Definition 2.3, p. 3",
      "match": "windows over a frame in Lau's formalism, from which the prismatic definition is taken"
     }
    ],
@@ -632,7 +632,7 @@
      "statement": "The finite projective R-module M/Fil M."
     },
     {
-     "name": "TauCeti.PrismaticDieudonne.Window.frob_eq_mul_frobOne",
+     "name": "TauCeti.PrismaticDieudonne.Window.frobM_eq_smul_frobOneM",
      "role": "simp",
      "statement": "φ_M(m) = ϖφ_{M,1}(m) for m ∈ Fil M."
     }
@@ -701,8 +701,8 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Lemma 2.5 and Definition 2.4, p. 5",
-     "match": "base change of windows along u-homomorphisms of frames"
+     "locator": "Definition 2.6 and the paragraphs on base change of windows that follow it, pp. 4–5",
+     "match": "u-homomorphisms of frames and base change of windows along them"
     }
    ],
    "implementationStatus": "unchecked",
@@ -848,7 +848,7 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Remark 2.4 and Lemma 2.5, p. 5",
+     "locator": "Remark 2.4 and Lemma 2.5, p. 4",
      "match": "normal decompositions and their description by an invertible semilinear map"
     }
    ],
@@ -1160,7 +1160,7 @@
     "Part (2) is the injectivity half of the same argument (Anschütz–Le Bras, Remark 4.1.34, p. 39)."
    ],
    "acceptance": [
-    "Applied in node PD.5/essential-surjectivity-qrsp to Δ_S → B with S = Ā⟨X_j^{1/p^∞}⟩/(X_j) and in node PD.7/breuil-kisin-comparison to the Breuil–Kisin prism.",
+    "Applied in node PD.5/essential-surjectivity to Δ_S → B with S = Ā⟨X_j^{1/p^∞}⟩/(X_j) and in node PD.7/breuil-kisin-comparison to the Breuil–Kisin prism.",
     "The hypothesis cannot be dropped: for the kernel of A_crys(R) → W(R), R = F_p[x^{1/p^∞}]/(x), the divided Frobenius fixes the nonzero element Σ_k p^k[x^{1/p^k}] (the 2025 erratum), so it is not topologically nilpotent there."
    ],
    "prerequisites": [
@@ -1179,7 +1179,7 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Theorem 3.2, p. 7",
+     "locator": "Theorem 3.2, p. 6",
      "match": "the deformation theorem for windows along frame maps whose kernel carries a nilpotent divided Frobenius"
     },
     {
@@ -2083,7 +2083,7 @@
     "For general modules, the same iteration U(β) = φ_N ∘ (1 ⊗ β) ∘ φ_M^{-1} converges to 0 on maps M → JN, using that φ_M^♯ has cokernel killed by ξ̃ (Anschütz–Le Bras, Lemma 4.1.33, p. 39)."
    ],
    "acceptance": [
-    "Applied to Δ_S → Δ_{S̃} in the essential-surjectivity argument (node PD.5/essential-surjectivity-qrsp)."
+    "Applied to Δ_S → Δ_{S̃} in the essential-surjectivity argument (node PD.5/essential-surjectivity)."
    ],
    "prerequisites": [
     "PrismaticCohomologyPartII:PD.1/prismatic-dieudonne-module",
@@ -2465,8 +2465,8 @@
    "proofSteps": [
     "The functor is defined by the Hodge–Tate sequence of HodgeTateAndCanonicalSubgroups T2.",
     "Full faithfulness (Fargues): embed G into the multiplicative group G′ = T_pG(−1) ⊗ μ_{p^∞}; the generic fibre G^ad_η is the fibre product of G′^ad_η and Lie G ⊗ 𝔾_a over Lie G′ ⊗ 𝔾_a, so G^ad_η and then G = ⨆ Spf H⁰(Y, 𝒪⁺) are recovered from (T, W) (Scholze–Weinstein 2013, proof of Theorem 5.2.1, pp. 51–52).",
-    "Essential surjectivity for C spherically complete with surjective norm: define G^ad_η as that fibre product, show it is a p-divisible rigid-analytic group whose identity component is an open ball (Fargues, Corollaire 9 and Théorème 15; Scholze–Weinstein 2013, Proposition 5.2.5), and take G = ⨆ Spf H⁰(Y, 𝒪⁺) (pp. 52–54).",
-    "General C: realise (T, W) inside a Rapoport–Zink space using the description of the image of the period morphism (Scholze–Weinstein 2013, Theorem C and the proof of Theorem 5.2.1 for general C, pp. 54–55)."
+    "Essential surjectivity for C spherically complete with surjective norm: define G^ad_η as that fibre product, show it is a p-divisible rigid-analytic group whose identity component is an open ball (Fargues, Corollaire 9 and Théorème 15; Scholze–Weinstein 2013, Proposition 5.2.5), and take G = ⨆ Spf H⁰(Y, 𝒪⁺) (pp. 52–53).",
+    "General C: realise (T, W) inside a Rapoport–Zink space using the description of the image of the period morphism (Scholze–Weinstein 2013, Theorem C, p. 6, and the proof of Theorem 5.2.1 for general C, p. 57)."
    ],
    "acceptance": [
     "G = μ_{p^∞}: (ℤ_p(1), C(1) = ℤ_p(1) ⊗ C).",
@@ -2488,7 +2488,7 @@
     },
     {
      "sourceId": "SW13",
-     "locator": "Theorem B, p. 4; Theorem 5.2.1 and its proof, pp. 51–55",
+     "locator": "Theorem B, p. 4; Theorem C, p. 6; Theorem 5.2.1 and its proof, pp. 51–57",
      "match": "proves the classification: full faithfulness by reconstructing the generic fibre inside a multiplicative group, essential surjectivity by Fargues' theory of rigid-analytic p-divisible groups for spherically complete C and by the image of the period morphism in general"
     }
    ],
@@ -2574,7 +2574,7 @@
     },
     {
      "sourceId": "SW13",
-     "locator": "Theorem 5.1.4, p. 50",
+     "locator": "Theorem 5.1.4, p. 49",
      "match": "every p-divisible group over 𝒪_C is isotrivial: its reduction to 𝒪_C/p is quasi-isogenous to a constant group"
     }
    ],
@@ -4426,7 +4426,7 @@
    ],
    "proofSteps": [
     "V is injective with image I_R; F(V(x)) = p·x gives F = pF₁ on I_R (Mathlib WittVector.frobenius and WittVector.verschiebung, with WittVector.frobenius_verschiebung).",
-    "I_R + pW(R) lies in the radical since R is p-adically complete (Zink 2002, §1; Lau 2010, Example 2.2)."
+    "I_R + pW(R) lies in the radical since R is p-adically complete (Zink 2002, §1; Lau 2010, §2, the Witt frame example)."
    ],
    "acceptance": [
     "For k perfect, 𝒲_k = (W(k), pW(k), F, F/p, p).",
@@ -4447,8 +4447,8 @@
     },
     {
      "sourceId": "Lau10",
-     "locator": "Example 2.2",
-     "match": "the Witt frame of a p-adic ring"
+     "locator": "§2, the example of the Witt frame after Lemma 2.5, p. 4",
+     "match": "the Witt frame of a p-adically complete ring, with θ = p"
     },
     {
      "sourceId": "Zink02",
@@ -4525,7 +4525,7 @@
    ],
    "proofSteps": [
     "Window over 𝒲 (node witt-frame, node PD.0/window).",
-    "Displays satisfy faithfully flat descent (Zink 2002, Theorem 37), and over p-complete rings with bounded p^∞-torsion are compatible systems of displays over R/p^n (Lau 2008, Lemma 4.8), so the sheaf-theoretic definition agrees with windows over 𝒲_R (Anschütz–Le Bras, Definition 5.3.1 and Remark 5.3.2, pp. 87–88)."
+    "Displays satisfy faithfully flat descent (Zink 2002, Theorem 37), and over p-complete rings with bounded p^∞-torsion are compatible systems of displays over R/p^n, so the sheaf-theoretic definition agrees with windows over 𝒲_R (Anschütz–Le Bras, Definition 5.3.1 and Remark 5.3.2, pp. 87–88)."
    ],
    "acceptance": [
     "In the contravariant normalisation of the source, Z_k(μ_{p^∞}) = (W(k), Fil = W(k), F = pσ) is F-nilpotent and Z_k(ℚ_p/ℤ_p) = (W(k), Fil = pW(k), F = σ) is not (node display-functor)."
