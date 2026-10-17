@@ -22673,8 +22673,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AutomorphicBundles.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "superseded",
+   "suppliers": [],
+   "note": "stale duplicate plan job; the plan and package are accepted"
   },
   {
    "id": "REV-AutomorphicBundles",
@@ -130959,6 +130960,286 @@
    "prompt": "research/blueprint/prompts/DESIGN-HigherHidaAndColemanTheory.md",
    "note": "deliverables arrived from an external worker on issue #10100",
    "finishedAt": "2026-10-17T00:15:57Z"
+  },
+  {
+   "id": "FIX-PKG-DeformationAndDerivedPatchingAlgebra~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-DeformationAndDerivedPatchingAlgebra~adv.md",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/review.json",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/README.md",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DeformationAndDerivedPatchingAlgebra~adv.md"
+  },
+  {
+   "id": "FIX-PKG-PadicHodgeTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PadicHodgeTheory~adv.md",
+    "research/blueprint/packages/PadicHodgeTheory/review.json",
+    "research/blueprint/packages/PadicHodgeTheory/README.md",
+    "research/blueprint/packages/PadicHodgeTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeTheory~adv.md"
+  },
+  {
+   "id": "PKG-DirichletPadicLFunctions~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/DirichletPadicLFunctions/README.md",
+    "research/blueprint/packages/DirichletPadicLFunctions/Suggested.lean",
+    "research/blueprint/packages/DirichletPadicLFunctions/metadata.toml",
+    "research/blueprint/handoff/PKG-DirichletPadicLFunctions~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-DirichletPadicLFunctions~codex.md"
+  },
+  {
+   "id": "BP-AutomorphicFormsOnReductiveGroups~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
+    "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~4.md",
+   "scope": [
+    "AutomorphicFormsOnReductiveGroups:AF.0",
+    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "AutomorphicFormsOnReductiveGroups:AF.1a",
+    "AutomorphicFormsOnReductiveGroups:AF.2",
+    "AutomorphicFormsOnReductiveGroups:AF.3",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicFormsOnReductiveGroups:AF.5"
+   ],
+   "after": [
+    "REV-AutomorphicFormsOnReductiveGroups~3"
+   ],
+   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "id": "REV-AutomorphicFormsOnReductiveGroups~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 203100,
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AutomorphicFormsOnReductiveGroups~4.md",
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean"
+   ],
+   "after": [
+    "BP-AutomorphicFormsOnReductiveGroups~4"
+   ],
+   "avoidAccountOf": "BP-AutomorphicFormsOnReductiveGroups~4",
+   "independentOf": [
+    "BP-AutomorphicFormsOnReductiveGroups",
+    "BP-AutomorphicFormsOnReductiveGroups~2",
+    "BP-AutomorphicFormsOnReductiveGroups~3",
+    "BP-AutomorphicFormsOnReductiveGroups~4"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-ShimuraData~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ShimuraData.json",
+    "research/blueprint/readmes/ShimuraData.md",
+    "research/blueprint/suggested/ShimuraData.lean",
+    "research/blueprint/handoff/BP-ShimuraData~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-ShimuraData~4.md",
+   "scope": [
+    "ShimuraData:D0",
+    "ShimuraData:D1",
+    "ShimuraData:D2",
+    "ShimuraData:D3",
+    "ShimuraData:D4",
+    "ShimuraData:D5"
+   ],
+   "after": [
+    "REV-ShimuraData~3"
+   ],
+   "revisionOf": "BP-ShimuraData"
+  },
+  {
+   "id": "REV-ShimuraData~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 211700,
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ShimuraData~4.md",
+    "research/blueprint/packets/ShimuraData.json",
+    "research/blueprint/readmes/ShimuraData.md",
+    "research/blueprint/suggested/ShimuraData.lean"
+   ],
+   "after": [
+    "BP-ShimuraData~4"
+   ],
+   "avoidAccountOf": "BP-ShimuraData~4",
+   "independentOf": [
+    "BP-ShimuraData",
+    "BP-ShimuraData~2",
+    "BP-ShimuraData~3",
+    "BP-ShimuraData~4"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EtaleDualityAndPerverseSheaves--EDC.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
+    "research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.4.md",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean",
+    "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md",
+   "scope": [
+    "EtaleDualityAndPerverseSheaves:EDC.4"
+   ],
+   "after": [
+    "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
+   ],
+   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4"
+  },
+  {
+   "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 205800,
+   "roadmapIds": [
+    "EtaleDualityAndPerverseSheaves--EDC.4"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.4~4.md",
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
+    "research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.4.md",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean"
+   ],
+   "after": [
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~4"
+   ],
+   "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "independentOf": [
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~2",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~3",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~4"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-GL2ModularityLifting--R22.1~2",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GL2ModularityLifting--R22.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/readmes/GL2ModularityLifting--R22.1.md",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean",
+    "research/blueprint/handoff/BP-GL2ModularityLifting--R22.1~2.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1~2.md",
+   "scope": [
+    "GL2ModularityLifting:R22.1",
+    "GL2ModularityLifting:R22.2",
+    "GL2ModularityLifting:R22.3",
+    "GL2ModularityLifting:R22.4",
+    "GL2ModularityLifting:R22.5",
+    "GL2ModularityLifting:R22.6",
+    "GL2ModularityLifting:R32.1",
+    "GL2ModularityLifting:R32.2",
+    "GL2ModularityLifting:R32.3",
+    "GL2ModularityLifting:R32.4",
+    "GL2ModularityLifting:R32.5"
+   ],
+   "after": [
+    "REV-GL2ModularityLifting--R22.1~1"
+   ],
+   "revisionOf": "BP-GL2ModularityLifting--R22.1"
+  },
+  {
+   "id": "REV-GL2ModularityLifting--R22.1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 206700,
+   "roadmapIds": [
+    "GL2ModularityLifting--R22.1"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-GL2ModularityLifting--R22.1~2.md",
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/readmes/GL2ModularityLifting--R22.1.md",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean"
+   ],
+   "after": [
+    "BP-GL2ModularityLifting--R22.1~2"
+   ],
+   "avoidAccountOf": "BP-GL2ModularityLifting--R22.1~2",
+   "independentOf": [
+    "BP-GL2ModularityLifting--R22.1",
+    "BP-GL2ModularityLifting--R22.1~2"
+   ],
+   "state": "pending"
   }
  ]
 }
