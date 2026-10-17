@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T17:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T17:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -86,7 +86,7 @@ Generated 2026-10-17T17:40Z from the README supplier graph of every open pull re
 - #1034 DeformationAndDerivedPatchingAlgebra — draft; waits on #785, #858, #872, #908, #944
 
 ## Wave 17
-- #869 SelmerIwasawaCohomology — ready; waits on #816, #849, #852, #858, #879, #940, #944, #248
+- #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #816, #849, #852, #858, #879, #940, #944, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready (approved at an earlier head); waits on #785, #848, #850, #852, #853, #938
 - #873 LefschetzPencilsAndVanishingCycles — ready; waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #944
 - #914 FreeGroupsAndLimitGroups — ready; waits on #852, #444
@@ -137,7 +137,7 @@ Generated 2026-10-17T17:40Z from the README supplier graph of every open pull re
 - #1038 ShimuraData — ready; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
 
 ## Wave 26
-- #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1000, #1001, #1002, #792, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
+- #1004 FaltingsFinitenessAndIsogenyTheorems — ready; waits on #1000, #1001, #1002, #792, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
 - #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1002, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #938, #940, #964, #966, #999
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #785, #852, #856, #858, #879, #913, #920, #923, #928, #931
 - #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
@@ -156,3 +156,6 @@ Generated 2026-10-17T17:40Z from the README supplier graph of every open pull re
 
 ## Wave 30
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready; waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
+
+## Wave 31
+- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1006, #1007, #1018, #1036, #1046, #850, #856, #879, #913, #931

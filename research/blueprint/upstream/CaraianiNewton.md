@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-17T17:40Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-17T17:50Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. Of the thirteen tier 1–4 roadmaps, four are on main: SchemeAndStackFoundations (#779, with its étale-invariance/scheme-Frobenius follow-up #943), PadicMeasuresIwasawaAlgebras (#780), AdicSpacesPartII (#817) and RigidAnalyticGeometry (#937). The rest are open pull requests on TauCetiRoadmap: #785 ReductiveGroupsPartII (whose branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants, merged into it from #793 and #789) with #792 AdelicAlgebraicGroups stacked on it, and the adic stack #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #818 PerfectoidSpaces ← #815 AdicSpacesPartIV ← #820 DiamondsAndVStacks ← #816 PerfectoidTowers, restacked onto main after #817 merged. Every open roadmap pull request of ours is re-reviewed by ChatGPT Pro on each new head; a pull request is marked ready only while its latest verdict is an approval.
 **Needed.** The main roadmap, EllipticCurveModularityImaginaryQuadratic, reaches 94 roadmaps (601 layers) through the atlas's stage links. 6 of them (AutomorphicPadicLFunctions, ComputationalNumberTheory, FiniteFieldsAndCharacterSums, PadicHodgeRegulators, RelativeFarguesFontaine, SieveMethodsAndPrimePatterns) are left out of the order: five are reached only through an upward citation of a single layer (that notion moves down into the citing roadmap), and ComputationalNumberTheory is dropped: the explicit modular-curve data it supplied become hypotheses of the final theorem, while EffectiveDiophantineMethods keeps a minimal certified-numerics layer of its own (see `drops.json`), leaving 88 roadmaps (581 layers). Node-by-node packet citations reach 55 more (Habiro, K-theory, Euler systems and others); those are stray citations to be removed, not needs.
@@ -62,7 +62,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **Merged package:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
   - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #858 open** · reviewer recommends approval · cites outside the 94: FunctionFieldArithmetic (11)
-  - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 1/1 accepted · package not yet · CN needs 3/5 layers · **Tau Ceti: pull request #869 open** · reviewer recommends approval · cites outside the 94: IntegralIwasawaTheory (1)
+  - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 1/1 accepted · package not yet · CN needs 3/5 layers · **Tau Ceti: pull request #869 open** · reviewer recommends approval (at earlier head None; current head 38cc6e1) · cites outside the 94: IntegralIwasawaTheory (1)
 - **NeronModelsAndSemistableAbelianVarieties** — Néron models and semistable abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #852 open** · reviewer recommends approval · move down: PadicHodgeTheory (2) · cites outside the 94: NeronModelsAndSemistableAbelianVarietiesPartII (1)
 
 ## Tier 9
@@ -107,7 +107,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **Merged package:** AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology
   - **AInfCohomology** — Integral A_inf cohomology and Breuil–Kisin–Fargues structures. Plan 3/3 accepted · package not yet · CN needs 9/10 layers · **Tau Ceti: pull request #1044 open** · move down: CohomologyComparisons (7) · cites outside the 94: RefinedTraceMethods (7)
   - **PadicHodgeTheory** — P-adic Hodge theory and geometric comparison. Plan 3/3 accepted · package not yet · CN needs 9/10 layers · move down: CohomologyComparisons (5) · cites outside the 94: PhiGammaModulesAndIwasawaCohomology (40), VectorBundlesAndIsocrystals (5), BunGAndNewtonStrata (1)
-  - **PerfectoidQuotients** — Perfectoid quotients and their prismatic prerequisites. Plan 1/1 accepted · package accepted · CN needs 7/7 layers · **Tau Ceti: pull request #1042 open** · reviewer recommends approval (at earlier head None; current head 5eca3db)
+  - **PerfectoidQuotients** — Perfectoid quotients and their prismatic prerequisites. Plan 1/1 accepted · package accepted · CN needs 7/7 layers · **Tau Ceti: pull request #1042 open** · reviewer recommends approval (at earlier head None; current head a23c611)
   - **PrismaticCohomology** — Prismatic cohomology: relative, absolute, Nygaard and log variants. Plan 3/3 accepted · package not yet · CN needs 3/9 layers · move down: HodgeTateAndCanonicalSubgroups (1) · cites outside the 94: LanglandsParameterStacks (10), RefinedTraceMethods (4), QWittVectors (4), VectorBundlesAndIsocrystals (2)
 - **Merged package:** PELModuli + ShimuraVarieties
   - **PELModuli** — Siegel and PEL moduli problems. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #966 open** · reviewer recommends approval · move down: HilbertModularVarietiesAndShimuraCurves (2), ShimuraCompactifications (1)
@@ -149,7 +149,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **EffectiveDiophantineMethods** — Effective Diophantine methods and certified rational points. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: pull request #1046 open** · cites outside the 94: ComplexMultiplicationAndExplicitReciprocity (4), GrossZagierAndArithmeticHeights (3), JacobianChallengePartII (2), HeegnerPointEulerSystems (2)
 - **PerfectoidShimuraVarieties** — Shimura towers and perfectoid representability. Plan 1/1 accepted · package not yet · CN needs 5/8 layers
-- **FaltingsFinitenessAndIsogenyTheorems** — Faltings finiteness, semisimplicity and isogeny theorems. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1004 open** · cites outside the 94: MordellLawrenceVenkatesh (4)
+- **FaltingsFinitenessAndIsogenyTheorems** — Faltings finiteness, semisimplicity and isogeny theorems. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1004 open** · reviewer recommends approval · cites outside the 94: MordellLawrenceVenkatesh (4)
 - **AutomorphicGaloisRepresentationsPartII** — Automorphic Galois Representations PartII. Plan 3/3 accepted · package accepted · CN needs 9/10 layers · **Tau Ceti: pull request #1006 open** · reviewer recommends approval · move down: PotentialModularityAndCompatibleSystems (9), IgusaVarietiesAndTorsionConcentration (7), AutomorphicGaloisRepresentations (5), ModularityAndLanglandsExtensions (3) · cites outside the 94: AbelianSchemesAndArithmeticModuliPartII (1), HeckeStacksAndLocalShtukas (1)
 
 ## Tier 18
@@ -197,5 +197,5 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 28
 
-- **EllipticCurveModularityImaginaryQuadratic** — Modularity of elliptic curves, Part II: imaginary quadratic fields. Plan 1/1 accepted · package not yet · CN needs 8/8 layers
+- **EllipticCurveModularityImaginaryQuadratic** — Modularity of elliptic curves, Part II: imaginary quadratic fields. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · **Tau Ceti: pull request #1048 open**
 
