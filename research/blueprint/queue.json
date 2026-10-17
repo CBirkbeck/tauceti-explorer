@@ -132579,6 +132579,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIV~adv.md",
    "note": "claimed on GitHub issue #10238"
+  },
+  {
+   "id": "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticCurveModularityImaginaryQuadratic"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/review.json",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/README.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md"
   }
  ]
 }
