@@ -42065,8 +42065,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10119"
+   "state": "pending",
+   "note": "released on GitHub issue #10119"
   },
   {
    "priority": 2,
@@ -47332,8 +47332,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnalyticNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10114"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10114",
+   "finishedAt": "2026-10-17T09:40:58Z"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheory",
@@ -131079,7 +131080,9 @@
     "BP-AutomorphicFormsOnReductiveGroups~3",
     "BP-AutomorphicFormsOnReductiveGroups~4"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10110",
+   "finishedAt": "2026-10-17T09:41:03Z"
   },
   {
    "id": "BP-ShimuraData~4",
@@ -131096,7 +131099,7 @@
     "research/blueprint/handoff/BP-ShimuraData~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~4.md",
    "scope": [
     "ShimuraData:D0",
@@ -131110,7 +131113,8 @@
     "REV-ShimuraData~3"
    ],
    "revisionOf": "BP-ShimuraData",
-   "note": "claimed on GitHub issue #10106"
+   "note": "deliverables arrived from an external worker on issue #10106",
+   "finishedAt": "2026-10-17T09:41:05Z"
   },
   {
    "id": "REV-ShimuraData~4",
@@ -131153,7 +131157,7 @@
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md",
    "scope": [
     "EtaleDualityAndPerverseSheaves:EDC.4"
@@ -131162,7 +131166,8 @@
     "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
-   "note": "claimed on GitHub issue #10104"
+   "note": "deliverables arrived from an external worker on issue #10104",
+   "finishedAt": "2026-10-17T09:41:07Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
