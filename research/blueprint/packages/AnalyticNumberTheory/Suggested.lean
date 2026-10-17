@@ -208,11 +208,27 @@ theorem uniform_complex_stirling (a b : ℝ) {ε : ℝ} (hε : 0 < ε) :
 
 /-- The Dirichlet-polynomial mean square has the Montgomery–Vaughan weighted error. -/
 theorem dirichlet_polynomial_mean_square :
-    ∃ C > 0, ∀ (N : ℕ) (a : ℕ → ℂ) (T : ℝ), 1 ≤ T →
+    ∀ (N : ℕ) (a : ℕ → ℂ) (T : ℝ), 0 ≤ T →
       |(∫ t in (-T)..T, ‖∑ n ∈ Finset.Icc 1 N, a n * (n : ℂ) ^ (-((t : ℂ) * I))‖ ^ 2) -
           2 * T * ∑ n ∈ Finset.Icc 1 N, ‖a n‖ ^ 2| ≤
-        C * ∑ n ∈ Finset.Icc 1 N, (n : ℝ) * ‖a n‖ ^ 2 := by
+        (6 * Real.pi) * ∑ n ∈ Finset.Icc 1 N, (n : ℝ) * ‖a n‖ ^ 2 := by
   sorry
+
+/-- The weighted Hilbert inequality for distinct real frequencies, with any positive lower
+bounds for their nearest-neighbour spacings. Empty and singleton families are allowed. -/
+theorem weighted_hilbert_inequality (n : ℕ) (lam delta : Fin n → ℝ) (u : Fin n → ℂ)
+    (hdelta : ∀ r, 0 < delta r)
+    (hgap : ∀ r s, r ≠ s → delta r ≤ |lam r - lam s|) :
+    ‖∑ r : Fin n, ∑ s ∈ Finset.univ.erase r,
+        u r * star (u s) / ((lam r - lam s : ℝ) : ℂ)‖ ≤
+      (3 * Real.pi / 2) * ∑ r : Fin n, ‖u r‖ ^ 2 / delta r := by
+  sorry
+
+/-- Two frequencies zero and one, with coefficients one and i, pin the Hilbert-sum sign. -/
+example :
+    (1 : ℂ) * star I / (0 - 1) + I * star (1 : ℂ) / (1 - 0) = 2 * I := by
+  simp
+  ring
 
 end AN3
 
@@ -347,11 +363,31 @@ theorem exists_beurlingPrimeSystem_nth_prime :
 example (P : BeurlingPrimeSystem) {x : ℝ} (hx : x ≤ 1) : P.primeCount x = 0 := by
   sorry
 
+/-- Rational endpoint controls for the non-imaginary-quadratic Louboutin signatures. -/
+example : (6 : ℚ) * (329 / 1000) ^ 2 < 1 ∧ (318 : ℚ) / 1000 < 329 / 1000 := by
+  norm_num
+
 end AN5
 
 /-! ## Layer 4: Lerch continuation, complex Hurwitz zeta and Barnes G -/
 
 section AN7
+
+/-- Gamma--Laplace with a complex scale in the right half-plane and principal logarithm. -/
+theorem complex_gamma_laplace {s c : ℂ} (hs : 0 < s.re) (hc : 0 < c.re) :
+    (∫ t : ℝ in Set.Ioi 0, (t : ℂ) ^ (s - 1) * Complex.exp (-(c * t))) =
+      Complex.Gamma s * Complex.exp (-s * Complex.log c) := by
+  sorry
+
+/-- A nonreal scale cannot be replaced by its real part. -/
+example :
+    (∫ t : ℝ in Set.Ioi 0, Complex.exp (-((1 + I) * t))) = (1 - I) / 2 := by
+  sorry
+
+/-- At exponent two, scaling by two contributes one quarter. -/
+example :
+    (∫ t : ℝ in Set.Ioi 0, (t : ℂ) * Complex.exp (-(2 * (t : ℂ)))) = 1 / 4 := by
+  sorry
 
 /-- As its defining series `Σ zⁿ (n + c)^(-s)` with the principal
 logarithm; meaningful for `‖z‖ < 1`, `0 < re c`. -/
@@ -413,6 +449,17 @@ example : barnesG 4 = 2 ∧ barnesG 5 = 12 := by
 example : barnesG 0 = 0 := by
   sorry
 
+/-- The first correction in the Gamma-retaining Barnes expansion is -1/(720 z²).
+Expanding the retained Gamma term instead changes it to -1/(240 z²). -/
+example :
+    (-1 / 30 : ℚ) / (4 * 2 * 3) = -1 / 720 ∧
+      (-1 / 30 : ℚ) / (4 * 2 * 3) - 1 / 360 = -1 / 240 := by
+  norm_num
+
+/-- The Bernoulli difference in the full-sector remainder has the negative sign at t = 1/2. -/
+example : (-1 / 30 : ℚ) - 7 / 240 = -1 / 16 := by
+  norm_num
+
 end AN7
 
 /-! ## Layer 5: Double Dirichlet series and binary-cubic zeta functions
@@ -420,6 +467,11 @@ end AN7
 The canonical double-series and cubic continuation, local Fourier matrices, residues and
 pole-aware convexity bounds are specified in README.md.
 -/
+
+/-- Wright's height is the square root of the torus ratio: at height two and z = two,
+the first constant-term monomial is four, while the ratio is also four. -/
+example : (2 : ℚ) ^ 2 = 4 ∧ (4 : ℚ) ^ 1 = 4 := by
+  norm_num
 
 /-! ## Layer 6: The Bost–Connes system and compact spectral determinants -/
 
@@ -439,6 +491,23 @@ theorem spectralZetaSeries_smul (lam : ℕ → ℝ) (hlam : ∀ j, 0 < lam j) {c
 /-- Test: the spectrum `1, 2, 3, …` gives the Riemann zeta function for `1 < re s`. -/
 example {s : ℂ} (hs : 1 < s.re) : spectralZetaSeries (fun j => j + 1) s = riemannZeta s := by
   sorry
+
+/-- Matrix units in M₂ show that the vector state at the first coordinate is not tracial,
+although every element is analytic for the trivial dynamics. -/
+example :
+    let a : Matrix (Fin 2) (Fin 2) ℂ := Matrix.of fun i j => if i = 0 ∧ j = 1 then 1 else 0
+    let b : Matrix (Fin 2) (Fin 2) ℂ := Matrix.of fun i j => if i = 1 ∧ j = 0 then 1 else 0
+    (a * b) 0 0 = 1 ∧ (b * a) 0 0 = 0 := by
+  norm_num [Matrix.mul_apply, Fin.sum_univ_two, Matrix.of_apply]
+
+/-- BC positive imaginary time and Tomita positive imaginary time have reciprocal factors. -/
+example : (2 : ℚ) ^ (-1 : ℤ) = 1 / 2 ∧ (2 : ℚ) ^ (1 : ℤ) = 2 := by
+  norm_num
+
+/-- For a genus-two connected compact hyperbolic surface, the constant heat coefficient
+is minus one third and deleting its single zero mode gives zeta(0) = -4/3. -/
+example : -(2 - 1 : ℚ) / 3 - 1 = -4 / 3 := by
+  norm_num
 
 end AN9
 
@@ -461,7 +530,9 @@ regularized and entire shifted determinants, and the finite spectral determinant
 The additional local constructions are quadratic Nielsen cores with their oriented boundary
 maps, ramification-defined Artin conductors, algebraic bounded-generator GNS, universal
 completion, minimal dilation and crossed products, the conditional expectation and measured
-group algebra, and its flow-of-weights and type predicates.
+group algebra, and its flow-of-weights and type predicates. Scalar heat kernels, the Gaussian trace
+identity, the measured regular-representation comparison and projective cubic gluing use
+those imported heavy carriers and remain README targets.
 -/
 
 end TauCetiRoadmap.AnalyticNumberTheory
