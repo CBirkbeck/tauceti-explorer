@@ -168,7 +168,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 21
 
-- **GL2ModularityLifting** — GL₂ Modularity Lifting. Plan 2/3 accepted · package not yet · CN needs 6/12 layers · move down: PotentialModularityAndCompatibleSystems (8) · cites outside the 94: CompletedCohomologyAndLocalGlobalCompatibility (14), PadicLocalLanglandsForGL2Qp (6)
+- **GL2ModularityLifting** — GL₂ Modularity Lifting. Plan 2/3 accepted · package not yet · CN needs 6/12 layers · move down: PotentialModularityAndCompatibleSystems (5) · cites outside the 94: CompletedCohomologyAndLocalGlobalCompatibility (15), PadicLocalLanglandsForGL2Qp (7)
 
 ## Tier 22
 
