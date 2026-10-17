@@ -2,9 +2,9 @@
 
 **Summary.** This roadmap builds prismatic cohomology from δ-rings. It starts with δ-rings, prisms and prismatic envelopes (PR.0) and the relative prismatic site of a bounded prism (A, I), with the Hodge–Tate, crystalline and de Rham comparisons (PR.1). It then extends to derived prismatic cohomology and perfectoidization (PR.2), the Nygaard filtration, divided Frobenius and Breuil–Kisin twists (PR.3), and syntomic complexes with the étale comparison of Bhatt–Scholze, Theorem 9.1 (PR.4). It continues with absolute prismatic cohomology, the Cartier–Witt stack and its quasi-coherent complexes (PR.5), and q-crystalline cohomology with the AΩ comparison (PR.6). It ends at prismatic F-crystals and the classification of crystalline lattices (PR.7) and at logarithmic prismatic cohomology with its comparisons (PR.8). The end theorems are Bhatt–Scholze, Theorem 1.8 (the Hodge–Tate, crystalline, de Rham and étale comparisons), Theorem 1.16 (the Lη_I factorisation of Frobenius) and Theorem 1.18 (the syntomic complexes of Bhatt–Morrow–Scholze as prismatic syntomic complexes), with the q-crystalline and A_inf comparisons of their §§16–17; Bhatt–Lurie's absolute comparisons and syntomic complexes; Bhatt–Scholze's equivalence between prismatic F-crystals over O_K and crystalline Z_p-lattices; and Koshikawa–Yao's logarithmic comparisons.
 
-**Revision checkpoint (2026-10-17): blocked on assembly scope.** The packet has nine serialized additional targets. The 2026-10-13 independent review returned needs changes on the previous seven-node version. The added general-envelope and formal-affine targets are not independently reviewed. The 369 targets reproduced below retain their earlier part reviews; their source issues are not recertified by this review. The atlas importer does not expand the packet’s imports or apply the replacement tables. The formal-QCoh, general completed framing, infinite-coordinate convergence and nonregular prelog envelope interfaces remain open. A revised effective graph is required before this can be packaged as the whole roadmap.
+**Revision checkpoint (2026-10-17): blocked on assembly scope.** The packet has ten serialized additional targets. The 2026-10-13 independent review returned needs changes on the previous seven-node version. The general-envelope and formal-affine additions and this run’s q-topology/convergence changes have no independent review. The 369 targets reproduced below retain their earlier part reviews; their source issues are not recertified by this review. The atlas importer does not expand the packet’s imports or apply the replacement tables. The formal-QCoh, general completed framing, verification of infinite-coordinate convergence for the inherited completed envelopes, and nonregular prelog envelope interfaces remain open. A revised effective graph is required before this can be packaged as the whole roadmap.
 
-The plan of this roadmap has three pieces. The accepted plan of layers PR.0–PR.7 (290 targets) and the accepted plan of PR.8 (79 targets) are both carried in full in the layer sections below. Seven further targets follow from the upstream order; a general-envelope construction over bounded orientable bases and a bounded-prism formal-QCoh comparison supply two additional targets, with their proof boundaries recorded explicitly. Each layer section first gives these new targets and then the accepted ones.
+The plan of this roadmap has three pieces. The accepted plan of layers PR.0–PR.7 (290 targets) and the accepted plan of PR.8 (79 targets) are both carried in full in the layer sections below. Seven further targets follow from the upstream order. The general-envelope, bounded-prism formal-QCoh and infinite-coordinate convergence additions bring the top packet to ten targets, with their proof boundaries recorded explicitly. Each layer section first gives these new targets and then the accepted ones.
 
 ## Scope and ownership
 
@@ -30,7 +30,7 @@ The plan of this roadmap has three pieces. The accepted plan of layers PR.0–PR
 
 **Proposed ownership moves.** The accepted plan cited four roadmaps that are not in the Caraiani–Newton order: LanglandsParameterStacks, QWittVectors, RefinedTraceMethods and VectorBundlesAndIsocrystals. Under the upstream rule each such notion is either planned here or stated as a named input. The four cases go as follows.
 - **PR.5: quasi-coherent complexes.** PR.5 now owns quasi-coherent complexes on prestacks: the limit D(X) over the points of X, faithfully flat descent, and direct image along flat affine morphisms. These are proposed replacements for the ten LP1 citations. Flat ordinary-ring pushforward alone does not supply the missing formal complete-module interface, and the replacements have not been applied. Groupoid stacks and stackification remain with DiamondsAndVStacks D0 and SchemeAndStackFoundations SF.1.
-- **PR.6: framed q-de Rham machinery.** PR.6 now owns the framed q-automorphisms and the q-derivatives with their Koszul complex, under the sufficient completed finite-coordinate hypotheses stated below, for I = (q − 1) or I = (p, q − 1). The broader consumers still need the recorded extensions. The four QW.6 replacements remain conditional on the completed-framing and infinite-coordinate interfaces. The intended single owner is PR.6; consumer graph edits have not been applied.
+- **PR.6: framed q-de Rham machinery.** PR.6 now owns the framed q-automorphisms and the q-derivatives with their Koszul complex, under the sufficient completed hypotheses and infinite-family decay condition stated below, for I = (q − 1) or I = (p, q − 1). The broader consumers still need the recorded extensions. The four QW.6 replacements remain conditional on the completed-framing and infinite-coordinate interfaces. The intended single owner is PR.6; consumer graph edits have not been applied.
 - **PR.7: the Beilinson fibre square.** The analytic continuation of Tate twists, Bhatt–Scholze F-crystals Proposition 6.8, rests on the Beilinson fibre square of Antieau–Mathew–Morrow–Nikolaus. The cited source proves it through topological cyclic homology; this plan supplies no proof independent of that input. PR.7 states the square as a named input for the prismatic syntomic complexes of PR.4; RefinedTraceMethods RT.3b proves it.
 - **PR.7: the Fargues–Fontaine slope-zero input.** Essential surjectivity onto crystalline lattices (§6.4 of the same paper) rests on three results of Fargues–Fontaine on vector bundles on their curve. PR.7 states the schematic slope results, GAGA and the Robba dictionary as a named input. AdicSpaces Layer 6 supplies the adic quotient; the untilt point, bundle dictionary and construction matching remain separate gaps.
 
@@ -88,6 +88,7 @@ The layer sections below follow the numbering PR.0–PR.8. Each opens with an ov
 The suggested Lean file `PrismaticCohomology.lean` states what has carriers at the pins:
 - the δ-structure and its Frobenius lift;
 - distinguished elements and the prism condition p ∈ I + φ(I)A, with Bhatt–Scholze Lemma 2.25 and the computations over ℤ and ℤ_p;
+- the cofinal-power comparison of q-prismatic and cyclotomic completion ideals;
 - the q-derivation datum `QFraming`, with the q-derivative and its laws: twisted Leibniz rule, monomials, commutation and Frobenius.
 
 Everything else is a target of this document, and the file lists it by name at the end.
@@ -7181,37 +7182,46 @@ These targets replace citations of roadmaps that this one cannot build on (see "
 <a id="prismaticcohomology-pr-6-framed-q-automorphisms"></a>
 #### Framed algebras and their q-automorphisms
 
-`PR.6/framed-q-automorphisms` (construction).
+`PrismaticCohomology:PR.6/framed-q-automorphisms` · construction.
 
-Put t = q − 1 in a commutative coefficient ring D and I = (t) or (p,t). Let P be an ordinary D-algebra, classically and derived I-complete, with an I-completely ind-étale polynomial or toric framing D[X_s]^∧_I → P. Require that the completed framing source is discrete, that P/tP and P/(tX_s)P are classically I-complete, and that every tX_s is a nonzerodivisor. Then there are unique D-algebra automorphisms γ_s that scale X_s by q, fix the other coordinates and reduce to the identity modulo t. They commute, and γ_s(f) − f belongs to tX_sP. Continuous D-algebra maps with an injective coordinate map intertwine these automorphisms; automorphisms in extra target directions fix the image. If D and P are p-torsion-free, P/pP is classically I-complete, D is a δ-ring with δ(q)=0, and I=(p,t), P has the unique compatible δ-structure with δ(X_s)=0, and its Frobenius commutes with the γ_s. These are sufficient hypotheses for the completed variant, rather than a claim about all merely p-completely ind-étale framings.
+Put t = q − 1 in a commutative coefficient ring D and I = (t) or (p,t). Let P be an ordinary D-algebra, classically and derived I-complete, with an I-completely ind-étale polynomial or toric framing D[X_s]^∧_I → P. Require that the completed framing source is discrete, that P/tP and P/(tX_s)P are classically I-complete, and that every tX_s is a nonzerodivisor. Then there are unique D-algebra automorphisms γ_s that scale X_s by q, fix the other coordinates and reduce to the identity modulo t. They commute, and γ_s(f) − f belongs to tX_sP. Continuous D-algebra maps with an injective coordinate map intertwine these automorphisms; automorphisms in extra target directions fix the image. If D and P are p-torsion-free, P/pP is classically I-complete, D is a δ-ring with δ(q)=0, and I=(p,t), P has the unique compatible δ-structure with δ(X_s)=0, and its Frobenius commutes with the γ_s. These are sufficient hypotheses for the completed variant, rather than a claim about all merely p-completely ind-étale framings. The completion topologies used by the sources are compared by the following cofinal-power formulas: J=(p,[p]_q)⊆K=(p,q−1), K^(p−1)⊆J; for q=(1+u)^p and ξ=[p]_(1+u), K⊆H=(p,ξ) and H^p⊆K.
 
-**Hypotheses.**
+**Hypotheses and conventions.**
 
 - All coefficient automorphisms are D-linear and hence fix q. Polynomial completion is taken at I; in the toric variant the coordinates are units. Modulo every I^n the framing is ind-étale.
 - Classical completeness of P and the listed quotients is imposed so reduction and compatible infinitesimal lifts recover actual maps and principal-ideal divisibility. It is not inferred from the words derived complete alone. Extending this sufficient formulation to every general-base consumer remains a gap.
 - The parameter q is a unit in the I-completed framing source and in P because t ∈ I; D itself need not be complete or contain q^(−1).
-- The δ assertion needs p-torsion-freeness of P as well as D; I contains p and φ(t)=q^p−1 belongs to I.
+- The δ assertion needs p-torsion-freeness of P as well as D, and classical I-completeness of P/pP to detect divisibility by p after infinitesimal lifting. I contains p and φ(t)=q^p−1 belongs to I.
+- For prime p and t=q−1 in any commutative ring, put J=(p,[p]_q) and K=(p,t). Then J⊆K and K^(p−1)⊆J, hence K^((p−1)n)⊆J^n⊆K^n for every n. For u with q=(1+u)^p and ξ=[p]_(1+u), put H=(p,ξ). Then t=uξ, K⊆H and H^p⊆K, hence H^(pn)⊆K^n⊆H^n. These are cofinal ideal filtrations, not equal ideals. They identify the classical completions of every module and the corresponding continuous maps. For derived completion, use DD.1/ordinary-quotient-completion only after verifying its regular-sequence or other comparison hypotheses for both ideals. In A_inf(O_C), u=[ε^(1/p)]−1 and ξ generates ker θ; both p and the nonzero reductions of u,t,ξ are regular, so the regular-pair comparison applies. This argument neither gives a merely p-adic framing nor proves completeness of P/(tX_s).
 
 **Construction or proof.**
 
 1. On the completed polynomial algebra scale one coordinate by q. The inverse scales it by q^(−1), which exists in the completed source. The difference on a monomial is divisible by tX_s; the same formula holds on toric monomials.
 2. For each n, ind-étaleness modulo I^n lifts the identity modulo I uniquely along the nilpotent I/I^n thickening, with the changed polynomial structure map. Take the compatible limit in the classically I-complete algebra P. Applying the same uniqueness modulo t proves reduction to the identity. Uniqueness proves commutation and the inverse formula. This is the completed-lifting argument of SQDEF §3, pp.6–7, with the extra quotient-completeness hypotheses stated here.
 3. To obtain divisibility, repeat uniqueness in P/(tX_s,I^n), where the altered coordinate map is the identity. Completeness of P/(tX_s) identifies the inverse limit with this quotient, so γ_s acts as the identity there. For coordinate-injective maps compare the two induced lifts; an extra target direction has the unchanged polynomial map, hence fixes the image.
-4. For the δ assertion use PR.0/delta-etale-extension at I=(p,t) after putting δ(X_s)=0 on the framing source. Its compatibility follows from δ(q)=0 and δ(X_s)=0. The two Frobenius composites agree on the source and hence on P by unique infinitesimal lifting.
+4. For the δ assertion, put the framed Frobenius on the source: φ_D on coefficients and X_s↦X_s^p. Modulo I this is Frobenius; since φ(I)⊆I, unique ind-étale infinitesimal lifting extends it through each P/I^n and then to P. Compare modulo (p,I^n) with the characteristic-p Frobenius; completeness of P/pP gives φ_P(f)≡f^p modulo p. Dividing by p in the p-torsion-free P gives the unique δ-structure (PR.0/delta-ring-category). Its compatibility with the source and γ_s follows from δ(q)=δ(X_s)=0 and uniqueness of the same lifts. The ordinary delta-etale-extension node motivates this argument but is not being asserted to supply the completed extension without these hypotheses.
+5. The topology comparison is elementary: modulo p, [p]_q=t^(p−1). Thus J⊆K and every degree-(p−1) monomial in p,t lies in J. In the cyclotomic case the geometric-sum identity gives t=uξ, while modulo p one has t=u^p and ξ=u^(p−1), so ξ^p=t^(p−1) modulo p and H^p⊆K. Raise these inclusions to powers. Cofinal inverse systems give the classical module-completion comparison. For A_inf, p-torsion-freeness and the domain O_C^♭ identify the two generating pairs as regular; invoke the stated DD.1 ordinary-quotient comparison for derived completions. The identities compare topology only; do not transport a regular quotient or an ind-étale framing without checking it.
 
-**Sources.**
+**Direct prerequisites.**
 
-- [Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*](https://arxiv.org/pdf/1905.08229v4), Construction 16.19 and footnote 21, §16.3, p.114 of arXiv:1905.08229v4: The source treats A-flat q-PD bases and p-complete framed algebras. It motivates the operators, but its stated p-only extension is not the proof of this strengthened I-complete variant; inherited source issue E65 and the p-only counterexample remain relevant.
-- [Peter Scholze, *Canonical q-deformations in arithmetic geometry*](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7; §4, p.9 of arXiv:1606.01796v1: The t-adic framing gives unique q-automorphisms by formal étale lifting. The A_inf example instead completes at (p,ξ); relating its topology and this general-base interface requires the recorded comparison, not a claim that every p-complete framing works.
+- `PrismaticCohomology:PR.0/delta-etale-extension`
+- `PrismaticCohomology:PR.0/delta-ring-category`
+- `DerivedDeRhamCohomology:DD.1/derived-completeness`
+- `DerivedDeRhamCohomology:DD.1/complete-flatness`
+- `mathlib:AlgEquiv`
+- `mathlib:Algebra.FormallyEtale`
+- `mathlib:Ideal.span`
+- `mathlib:AdicCompletion`
+- `DerivedDeRhamCohomology:DD.1/ordinary-quotient-completion`
 
-**Uses.**
+**Consumers.**
 
-- PR.6/framed-q-pd-datum: the framed q-PD datum is a framed algebra with these γ_s and the δ-structure (3).
-- PR.6/gamma-extension-to-q-pd-envelope: extends these γ_s from P to the q-PD envelope.
-- PR.6/q-de-rham-prismatic-comparison-zp: the comparison uses the framed Frobenius of (3).
-- PR.8/log-q-de-rham-complex and HabiroCohomologyFoundations HQ.1, QWittVectors QW.6: consumers that import the framed q-automorphisms from here.
+- PR.6/framed-q-pd-datum: the framed q-PD datum is a framed algebra with these γ_s and the δ-structure (3)
+- PR.6/gamma-extension-to-q-pd-envelope: extends these γ_s from P to the q-PD envelope
+- PR.6/q-de-rham-prismatic-comparison-zp: the comparison uses the framed Frobenius of (3)
+- PR.8/log-q-de-rham-complex and HabiroCohomologyFoundations HQ.1, QWittVectors QW.6: consumers that import the framed q-automorphisms from here
 
-**API.**
+**Planning API.**
 
 - `FramedAlgebra` (structure): The framed ordinary I-complete D-algebra with ind-étale reductions, discrete completed source, complete quotients P/tP and P/(tX_s)P, and regular tX_s, as in the statement.
 - `FramedAlgebra.gamma` (data): The automorphism γ_s of P for s ∈ S.
@@ -7220,18 +7230,24 @@ Put t = q − 1 in a commutative coefficient ring D and I = (t) or (p,t). Let P 
 - `FramedAlgebra.gamma_sub_mem` (characterisation): γ_s(f) − f ∈ (q − 1)X_s P for all f.
 - `FramedAlgebra.gamma_unique` (extensionality): A continuous D-algebra endomorphism with the indicated polynomial structure map and the identity reduction modulo t is the uniquely lifted γ_s.
 - `FramedAlgebra.gamma_map` (functoriality): A map of framed algebras injective on coordinates commutes with γ_s for s in the source and with the identity in the target's other directions.
-- `FramedAlgebra.frobenius` (data): For p-torsion-free D and P, δ(q)=0 and I=(p,t), the uniquely extended framed Frobenius sends X_s to X_s^p and commutes with γ_s.
+- `FramedAlgebra.frobenius` (data): For p-torsion-free D and P, classically I-complete P/pP, δ(q)=0 and I=(p,t), the uniquely extended framed Frobenius sends X_s to X_s^p and commutes with γ_s.
 - `FramedAlgebra.gamma_mod` (compatibility): Reduction modulo q − 1 sends γ_s to the identity of P/(q − 1).
 - `FramedAlgebra.toQFraming` (data): The q-derivation datum (P, q, X, γ) of a framed algebra: the input of PR.6/q-derivations-and-their-koszul-complex.
 - `FramedAlgebra.gamma_inverse` (simp): γ_s^(−1)(X_s)=q^(−1)X_s and γ_s^(−1)(X_t)=X_t for t≠s; q^(−1) is in P, without requiring it in D.
+- `FramedAlgebra.qPDTopology` (compatibility): For any commutative ring D, prime p, q∈D and n≥0: (p,q−1)^((p−1)n)⊆(p,[p]_q)^n⊆(p,q−1)^n.
+- `FramedAlgebra.cyclotomicTopology` (compatibility): For q=(1+u)^p and ξ=Σ_(i<p)(1+u)^i in any commutative ring, (p,ξ)^(pn)⊆(p,q−1)^n⊆(p,ξ)^n for every n≥0.
+- `FramedAlgebra.classicalCompletionTopology` (equivalence): The identity induces natural isomorphisms of classical completions of any D-module at these cofinal ideals. For derived completions use the separately stated DD.1 comparison hypotheses; equality of the ideals is not asserted.
 
-**Checks.**
+**Unit tests.**
 
 - `FramedAlgebra.gamma_pow` (computation): For P = Z[q][X] (one coordinate, I = (q − 1), after completion) γ(X^3) = q^3X^3 and γ(X^3) − X^3 = (q − 1)X·(1 + q + q^2)X^2.
 - `FramedAlgebra.gamma_reduction` (degenerate): Reduce a regular framed algebra modulo t=q−1: every γ_s induces the identity on P/tP. The quotient is not itself asserted to satisfy the regular tX_s hypotheses; setting q=1 in the input would violate those hypotheses in a nonzero ring.
 - `FramedAlgebra.gamma_toric_inv` (computation): For the toric framing D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1}.
 - `FramedAlgebra.not_p_complete_only` (non-example): Over D = Z_p[[q − 1]] with only the p-adic topology, the p-completed localization P = D[X][1/(X − 1)]^∧_p is p-completely étale over D⟨X⟩, but X ↦ qX does not extend to P: it would send 1/(X − 1) to an inverse of qX − 1, and qX − 1 is not a unit of P (modulo p it generates the prime of F_p[[q − 1]][X, 1/(X − 1)] where X = q^{-1}, which does not contain X − 1). With the (p, q − 1)-adic completion qX − 1 = (X − 1)(1 + (q − 1)X/(X − 1)) is a unit and γ exists.
 - `FramedAlgebra.frobenius_gamma` (compatibility): For D=Z_p[[t]], q=1+t, φ(q)=q^p and P=D[X]^∧_(p,t), φ(γ(X))=q^pX^p=γ(φ(X)).
+- `FramedAlgebra.topology_p_two` (computation): For p=2, [2]_q=2+t, so (2,[2]_q)=(2,t). The first cofinality exponent is p−1=1, including n=0.
+- `FramedAlgebra.cyclotomic_unequal_ideals` (non-example): In Z_p[[u]], q=(1+u)^p and ξ=Σ_(i<p)(1+u)^i. Modulo p, (ξ)=(u^(p−1)) and (q−1)=(u^p), which are unequal. Nevertheless (p,ξ) and (p,q−1) have cofinal powers. This detects an erroneous equality-of-ideals formulation.
+- `FramedAlgebra.cyclotomic_choice_matters` (non-example): In A_inf, q=[ε] and u=[ε^(1/p)]−1 give ξ=[p]_(1+u). The principal θ-kernel is (ξ), whereas θ(u)=ζ_p−1≠0. Replacing ξ by u fails this kernel check even when the joint adic topologies agree.
 
 **Acceptance.**
 
@@ -7239,16 +7255,19 @@ Put t = q − 1 in a commutative coefficient ring D and I = (t) or (p,t). Let P 
 - For the toric framing P = D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1} and γ(X^{-1}) − X^{-1} = −q^{-1}(q − 1)X^{-1}.
 - Modulo q − 1 every γ_s is the identity, so all structure collapses to the plain framed algebra P/(q − 1).
 
-*Needs:* `PrismaticCohomology:PR.0/delta-etale-extension`; `PrismaticCohomology:PR.0/delta-ring-category`; `DerivedDeRhamCohomology:DD.1/derived-completeness`; `DerivedDeRhamCohomology:DD.1/complete-flatness`; `mathlib:AlgEquiv`; `mathlib:Algebra.FormallyEtale`.
+**Sources.**
+
+- [BS22-v4](https://arxiv.org/pdf/1905.08229v4), Constructions 16.19–16.20 and footnote 21, pp.114–115; Notation 17.1, p.117 of arXiv:1905.08229v4. The source treats A-flat q-PD bases and p-complete framed algebras. It motivates the operators, but its stated p-only extension is not the proof of this strengthened I-complete variant; inherited source issue E65 and the p-only counterexample remain relevant. Notation 17.1 fixes the A_inf cyclotomic q and ξ=φ^(-1)([p]_q); it does not identify the corresponding ideals as equal.
+- [SQDEF](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7; §4, p.9 of arXiv:1606.01796v1. The t-adic framing construction is in §3; §4, p.9 gives q=[ε], u=[ε^(1/p)]−1, ξ=[p]_(1+u), and (p,ξ)-completed A_inf frames. The cofinal-power bounds in this node are derived explicitly from these formulas; they are not attributed as a separately stated source theorem.
 
 <a id="prismaticcohomology-pr-6-q-derivations-and-their-koszul-complex"></a>
 #### q-derivatives and the framed q-de Rham Koszul complex
 
-`PR.6/q-derivations-and-their-koszul-complex` (construction).
+`PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex` · construction.
 
-Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting D-algebra automorphisms with γ_s(X_t)=q^(δ_st)X_t, γ_s(f)−f ∈ (q−1)X_sE, and each (q−1)X_s a nonzerodivisor. For any set S, the unique quotients ∇_(q,s) defined by (q−1)X_s∇_(q,s)(f)=γ_s(f)−f are D-linear, obey the twisted Leibniz law, satisfy ∇_(q,s)(X_s^n)=[n]_q X_s^(n−1) for n≥1 and commute pairwise. For finite S their cochain Koszul complex has qΩ^i = E ⊗_D Λ^i(D^S), in degrees 0 through |S|, and differential fω ↦ Σ_s ∇_(q,s)(f)dX_s∧ω. It is linear over the common γ-invariants. For an infinite S the completed version is asserted only after specifying continuous operators and a topology in which this sum converges for every input; the unrestricted extension remains a gap. A coordinate-injective D-algebra map gives a chain map if it intertwines matching γ_s and all extra target directions fix its image. For a finite complete étale framing as in the previous node, with flat coefficients and the completed reduction identified with the framed special fibre, reduction modulo q−1 is its continuous relative de Rham complex. For unit coordinates the change of basis dX_s = X_s dlog X_s identifies the complex with the Koszul complex of (γ_s−1)/(q−1), hence with η_(q−1) of the complex of γ_s−1. Finally, if φ commutes with γ_s, φ(q)=q^p and φ(X_s)=X_s^p, then ∇_(q,s)φ=[p]_q X_s^(p−1)φ∇_(q,s).
+Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting D-algebra automorphisms with γ_s(X_t)=q^(δ_st)X_t, γ_s(f)−f ∈ (q−1)X_sE, and each (q−1)X_s a nonzerodivisor. For any set S, the unique quotients ∇_(q,s) defined by (q−1)X_s∇_(q,s)(f)=γ_s(f)−f are D-linear, obey the twisted Leibniz law, satisfy ∇_(q,s)(X_s^n)=[n]_q X_s^(n−1) for n≥1 and commute pairwise. For finite S their cochain Koszul complex has qΩ^i = E ⊗_D Λ^i(D^S), in degrees 0 through |S|, and differential fω ↦ Σ_s ∇_(q,s)(f)dX_s∧ω. It is linear over the common γ-invariants. For infinite S the separate completed-q-derivative-summability target gives a construction under an explicit decay condition; verifying decay for every inherited consumer remains a gap. A coordinate-injective D-algebra map gives a chain map if it intertwines matching γ_s and all extra target directions fix its image. For a finite complete étale framing as in the previous node, with flat coefficients and the completed reduction identified with the framed special fibre, reduction modulo q−1 is its continuous relative de Rham complex. For unit coordinates the change of basis dX_s = X_s dlog X_s identifies the complex with the Koszul complex of (γ_s−1)/(q−1), hence with η_(q−1) of the complex of γ_s−1. Finally, if φ commutes with γ_s, φ(q)=q^p and φ(X_s)=X_s^p, then ∇_(q,s)φ=[p]_q X_s^(p−1)φ∇_(q,s).
 
-**Hypotheses.**
+**Hypotheses and conventions.**
 
 - The automorphisms fix the coefficient ring D, including q. For qΩ impose finite S, or the separately specified continuity and summability conditions; the exact quotient operators alone impose no summability.
 - For a map with coordinate injection j:S→S′, require hγ_s=γ′_(j(s))h and γ′_u h=h for u outside j(S). Injectivity alone is insufficient for arbitrary q-derivation data.
@@ -7262,19 +7281,27 @@ Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting
 4. Check the infinitesimal automorphism modulo t²: it induces X_s times the ordinary partial derivation. Unique infinitesimal lifting along the étale framing identifies this on P. Dividing first and then reducing gives the continuous partial derivatives and the completed de Rham complex. The identity γ_s≡1 modulo t by itself does not identify the divided quotient; use the first-order calculation (BS22 Construction 16.19, footnote 21, p.114).
 5. For unit coordinates use dX_s=X_s dlog X_s. The differential γ_s−1 is divisible by t, so the degree-i submodule of η_t of its Koszul complex is exactly t^i times the degree-i term; multiplication by t^i identifies the divided-operator complex with it. This directly establishes the required special case of the AI.1 décalage construction. For Frobenius apply φ to the quotient equation and cancel tX_s, using φ(tX_s)=t[p]_q X_s^p.
 
-**Sources.**
+**Direct prerequisites.**
 
-- [Peter Scholze, *Canonical q-deformations in arithmetic geometry*](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7 of arXiv:1606.01796v1: Defines the q-derivative as the finite q-difference quotient (γ_i(f) − f)/(qT_i − T_i), computes it on monomials as the q-integer times the lower power, forms the framed q-de Rham complex, and records that it reduces modulo q − 1 to the de Rham complex.
-- [Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*](https://arxiv.org/pdf/1905.08229v4), Constructions 16.19–16.20 and footnote 21, §16.3, pp.114–115 of arXiv:1905.08229v4: The q-de Rham complex of a framed q-PD datum as the Koszul complex of the commuting q-derivations.
+- `PrismaticCohomology:PR.6/framed-q-automorphisms`
+- `AInfCohomology:AI.1/koszul-products-and-cohomology`
+- `AInfCohomology:AI.1/ideal-decalage-complex`
+- `mathlib:KaehlerDifferential`
+- `mathlib:ExteriorAlgebra`
+- `AInfCohomology:AI.1`
+- `DerivedDeRhamCohomology:DD.2/formal-ordinary-derham`
+- `DerivedDeRhamCohomology:DD.1/quotient-completeness`
+- `DerivedDeRhamCohomology:DD.1/completion-exchanges`
+- `DerivedDeRhamCohomology:DD.2`
 
-**Uses.**
+**Consumers.**
 
-- PR.6/framed-q-de-rham-complex: this Koszul complex applied to the q-PD envelope D_{J,q}(P).
-- PR.6/q-de-rham-prismatic-comparison-zp: the framed q-de Rham complex of a smooth Z_p-algebra.
-- PR.8/log-q-de-rham-complex: the logarithmic form (5).
-- Bhatt–Scholze, Theorem 16.22 and Theorem 17.2: the q-crystalline and A_inf comparisons are computed by this complex, with the Frobenius of (6).
+- PR.6/framed-q-de-rham-complex: this Koszul complex applied to the q-PD envelope D_{J,q}(P)
+- PR.6/q-de-rham-prismatic-comparison-zp: the framed q-de Rham complex of a smooth Z_p-algebra
+- PR.8/log-q-de-rham-complex: the logarithmic form (5)
+- Bhatt–Scholze, Theorem 16.22 and Theorem 17.2: the q-crystalline and A_inf comparisons are computed by this complex, with the Frobenius of (6)
 
-**API.**
+**Planning API.**
 
 - `QFraming.qDeriv` (data): The q-derivative ∇_{q,s} : E → E.
 - `QFraming.qDeriv_spec` (characterisation): (q − 1)X_s ∇_{q,s}(f) = γ_s(f) − f, and ∇_{q,s}(f) is the unique element with this property.
@@ -7283,13 +7310,13 @@ Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting
 - `QFraming.qDeriv_mul` (relation): Twisted Leibniz: ∇_{q,s}(fg) = ∇_{q,s}(f)g + γ_s(f)∇_{q,s}(g).
 - `QFraming.qDeriv_X_pow` (simp): ∇_{q,s}(X_s^{n+1}) = [n + 1]_q X_s^n and ∇_{q,s}(X_t) = 0 for t ≠ s.
 - `QFraming.qDeriv_comm` (relation): ∇_{q,s}∇_{q,t} = ∇_{q,t}∇_{q,s}.
-- `QFraming.qDeRhamComplex` (constructor): For finite S, the cochain Koszul complex of the commuting D-linear q-derivatives. For infinite S a completed construction additionally requires specified continuous summable operators.
+- `QFraming.qDeRhamComplex` (constructor): For finite S, the cochain Koszul complex of the commuting D-linear q-derivatives. The infinite completed construction belongs to completed-q-derivative-summability and requires its decay hypothesis.
 - `QFraming.qDeRhamComplex_map` (functoriality): A coordinate-injective map intertwining matching automorphisms, with every extra target automorphism fixing its image, induces a map of complexes.
 - `QFraming.qDeRhamComplex_mod` (compatibility): Under the finite flat completely étale framing and reduction hypotheses, derived reduction modulo t is the continuous completed relative de Rham complex; for I=(p,t), the remaining completion is p-adic.
 - `QFraming.qDeRhamComplex_toric` (equivalence): For unit coordinates, the complex is η_{(q−1)} of the Koszul complex of the γ_s − 1.
 - `QFraming.qDeriv_frobenius` (relation): ∇_{q,s} ∘ φ = [p]_q X_s^{p−1} φ ∘ ∇_{q,s}.
 
-**Checks.**
+**Unit tests.**
 
 - `QFraming.qDeriv_X_cube` (computation): In Z[q,q^(−1)][X], ∇_q(X^3) = (1 + q + q^2)X^2.
 - `QFraming.qDeRham_empty` (degenerate): For S empty there are no q-derivatives and the complex is E in degree 0; for one coordinate it has length one, E → E·dX.
@@ -7304,7 +7331,71 @@ Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting
 - For P=Z[X][[t]] with its t-complete framing, reduction gives Z[X] → Z[X]dX with the ordinary derivative. For an I=(p,t) framing use continuous p-completed special-fibre forms.
 - The Frobenius identity (6) for f = X: ∇(X^p) = [p]_q X^{p−1}.
 
-*Needs:* `PrismaticCohomology:PR.6/framed-q-automorphisms`; `AInfCohomology:AI.1/koszul-products-and-cohomology`; `AInfCohomology:AI.1/ideal-decalage-complex`; `mathlib:KaehlerDifferential`; `mathlib:ExteriorAlgebra`; `AInfCohomology:AI.1`; `DerivedDeRhamCohomology:DD.2/formal-ordinary-derham`; `DerivedDeRhamCohomology:DD.1/quotient-completeness`; `DerivedDeRhamCohomology:DD.1/completion-exchanges`; `DerivedDeRhamCohomology:DD.2`.
+**Sources.**
+
+- [SQDEF](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7 of arXiv:1606.01796v1. Defines the q-derivative as the finite q-difference quotient (γ_i(f) − f)/(qT_i − T_i), computes it on monomials as the q-integer times the lower power, forms the framed q-de Rham complex, and records that it reduces modulo q − 1 to the de Rham complex.
+- [BS22-v4](https://arxiv.org/pdf/1905.08229v4), Constructions 16.19–16.20 and footnote 21, §16.3, pp.114–115 of arXiv:1905.08229v4. The q-de Rham complex of a framed q-PD datum as the Koszul complex of the commuting q-derivations.
+
+<a id="prismaticcohomology-pr-6-completed-q-derivative-summability"></a>
+#### Summability of q-derivatives in completed coordinate modules
+
+`PrismaticCohomology:PR.6/completed-q-derivative-summability` · construction.
+
+Let E be a classically I-adically complete separated D-algebra, with I a finitely generated ideal of D, and let (q,X_s,γ_s)_(s∈S) be the regular q-derivation datum of q-derivations-and-their-koszul-complex. Require the decay condition: for every f∈E and n≥1, ∇_s(f)∈I^nE for all but finitely many s. Define completed q-forms in degree i as lim_n ⊕_(F⊂S finite, |F|=i) (E/I^nE)e_F, using an auxiliary total order for wedge signs. They form a cochain complex with d(f e_F)=Σ_s ∇_s(f)e_s∧e_F, independent of the order by the canonical exterior-basis change. Finite S recovers the finite Koszul complex, because E is complete. A continuous D-algebra map with an injective coordinate map intertwining matching γ_s and fixed image under extra target γ_u induces a chain map of completed complexes. A sufficient criterion for decay is: some c≥0 satisfies (I^(n+c)E:tX_s)⊆I^nE uniformly in s,n≥1, and for every f,n the differences γ_s(f)−f lie in I^(n+c)E for all but finitely many s. Here t=q−1. The standard completed polynomial and Laurent charts over Z[[t]] with I=(t), or Z_p[[t]] with I=(p,t), satisfy this criterion with c=1. No assertion that every completed ind-étale algebra or q-PD envelope satisfies it is made without verification.
+
+**Hypotheses and conventions.**
+
+- I is pulled back from D. D-linearity implies ∇_s(I^nE)⊆I^nE uniformly in s, so each induced quotient operator is well-defined. Individual continuity without decay is insufficient.
+- The completed forms use the inverse-limit topology with kernels of projection to level n. No assertion that arbitrary ordinary quotients of a complete module are complete is used. The complex is D-linear; a usual commutative DGA product is not asserted.
+- For standard charts, first establish the uniform colon estimate from injectivity of multiplication by the initial form of tX_s in the associated graded ring. A general change of coefficient ring requires rechecking that estimate.
+- AI.1 owns the generic commuting-operator complex and its completion interface. This target checks the q-specific convergence contract and charts; it does not create a second generic Koszul theory. DD.2 continuous forms are used only in their stated finite smooth range.
+
+**Construction or proof.**
+
+1. Regular division gives the q-operators and their pairwise commutation by the preceding target. At level n, decay makes d(f e_F) a finite sum, and D-linearity makes it independent of the chosen lift of f modulo I^n. Extend linearly to the finite-support degree-i module. The two orders of every distinct pair of operators cancel by their wedge signs, while repeated indices wedge to zero. Thus d_n²=0, including in characteristic two. The quotient operators commute with transition maps; take the degreewise inverse limit. No interchange of cohomology with inverse limit is used.
+2. The algebraic exterior module is dense in these completed forms. The differentials preserve each projection kernel, so the formula extends uniquely and continuously. For finite S each degree has finitely many basis vectors and completion returns the finite Koszul terms over E.
+3. For maps, regular-quotient uniqueness intertwines matching derivatives; extra-direction fixed-image hypotheses make the additional terms zero. At every quotient level the induced wedge map takes finite support to finite support. Pass to the inverse limit, obtaining identity and composition compatibilities.
+4. For the sufficient criterion, divide γ_s(f)−f=tX_s∇_s(f) using the uniform colon inclusion. In a standard polynomial or Laurent chart, approximate f modulo I^(n+1) by a polynomial with finitely many coordinates. Every other γ_s fixes that approximation. The associated graded ring is Z[X_s][T] for I=(t), or F_p[X_s][P,T] for I=(p,t), with coordinates inverted in the Laurent case. Multiplication by TX_s is injective and raises filtration by one, proving (I^(n+1):tX_s)⊆I^n uniformly. Completeness and separatedness exclude an element of infinite nonzero filtration order.
+5. For a completed ind-étale or q-PD-envelope consumer, separately prove finite-coordinate approximation and the uniform division estimate, or prove decay directly on a dense generating family and use the uniform filtration bound. Regularity of each tX_s by itself supplies no uniform estimate. These consumer verifications remain in the complete-framing gap.
+
+**Direct prerequisites.**
+
+- `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`
+- `AInfCohomology:AI.1/koszul-products-and-cohomology`
+- `DerivedDeRhamCohomology:DD.1/derived-completion`
+- `mathlib:ExteriorAlgebra`
+
+**Consumers.**
+
+- PR.6/framed-q-de-rham-complex: An explicit convergence contract for infinite framed coordinates, conditional on verification for the completed q-PD envelope.
+- PR.8/log-q-de-rham-complex: The analogous convergence check is required if its coordinate presentation is infinite; the log divided operators and their estimates remain with PR.8.
+
+**Planning API.**
+
+- `QFraming.qDeriv_decay_of_colon` (characterisation): The uniform colon estimate and eventual smallness of γ_s(f)−f imply eventual smallness of ∇_s(f) at every I-adic level.
+- `QFraming.completedQForms` (constructor): Degree-i completed coordinate forms are lim_n ⊕_(|F|=i)(E/I^nE)e_F; degree zero is E and changing the chosen coordinate order gives the canonical exterior identification.
+- `QFraming.completedQDeRham` (constructor): Under decay, the continuous differential Σ_s∇_s e_s∧ defines a D-linear cochain complex with d²=0.
+- `QFraming.completedQDeRham_finite` (compatibility): For finite S, the completed complex is canonically the finite cochain Koszul complex of the q-derivatives.
+- `QFraming.completedQDeRham_map` (functoriality): A continuous coordinate-injective D-algebra map intertwining matching automorphisms and fixed by all extra target directions gives a continuous chain map, compatible with identities and composition.
+- `QFraming.polynomial_qDeriv_decay` (compatibility): For standard t-completed or (p,t)-completed polynomial and Laurent coordinate algebras, finite-coordinate approximation and the uniform c=1 colon estimate establish decay.
+
+**Unit tests.**
+
+- `QFraming.completedQDeRham_infinite_series` (computation): For E=Z[X_0,X_1,…][[t]], q=1+t and f=Σ_(r≥0)t^r X_r, ∇_r(f)=t^r. Thus d(f)=Σ_r t^r dX_r belongs to completed degree-one forms and not to the algebraic direct sum. Every reduction modulo t^n has finite support.
+- `QFraming.completedQDeRham_empty` (degenerate): For S empty, completed degree zero is E, every positive degree is zero and d=0. For finite S, agreement with the finite Koszul complex is degreewise, not merely an agreement of cohomology.
+- `QFraming.completedQDeRham_square_zero` (computation): On f=X_0X_1, d(f)=X_1dX_0+X_0dX_1 and d²(f)=dX_1∧dX_0+dX_0∧dX_1=0. Omitting the wedge signs fails over Z.
+- `QFraming.continuity_not_decay` (non-example): Let E=Z[Y,X_s^(±1):s∈N][[t]], D=Z[[t]], q=1+t. Let γ_s scale both X_s and Y by q and fix the other X_u. These are continuous commuting D-algebra automorphisms with regular tX_s and differences divisible by tX_s. But ∇_s(Y)=Y/X_s for every s, nonzero modulo t, so the derivative tuple does not belong to the completed direct sum. The missing étale framing of Y is essential; abstract regular q-data alone do not imply decay.
+- `QFraming.completedQDeRham_extra_coordinate` (compatibility): The standard inclusion E=D[X_0]^∧_I→D[X_0,X_1]^∧_I induces dX_0↦dX_0 because γ_1 fixes its image. For arbitrary data, omitting this fixed-image condition permits an extra ∇_1 term and destroys the chain-map equation.
+
+**Acceptance.**
+
+- The infinite-series test must lie in the completed sum and the common-Y non-example must be rejected. Do not promote continuity of individual operators into convergence of the family.
+- No E∞ or commutative-DGA structure is deduced from the operator complex, and no cohomology/ordinary-completion interchange is used.
+
+**Sources.**
+
+- [BS22-v4](https://arxiv.org/pdf/1905.08229v4), Constructions 16.19–16.20 and Lemma 16.21, §16.3, pp.114–115 of arXiv:1905.08229v4. Uses completed direct sums of coordinate forms and the Koszul differential for arbitrary framing sets. The explicit decay condition, uniform colon criterion and continuity counterexample are the present plan’s derivation of the convergence requirement, not numbered theorems quoted from the source.
+- [SQDEF](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7 of arXiv:1606.01796v1. Finite framed q-derivative formulas and their t-adic extension supply the finite-coordinate comparison. This finite statement alone is not cited as proving infinite summability.
 
 ### The accepted targets of PR.6
 
@@ -11855,9 +11946,9 @@ The following tables are proposals, not changes to the retained packets or the a
 
 - **Trace-theoretic proof of the Beilinson fibre square** (needed by `PrismaticCohomology:PR.7/beilinson-fibre-square-input`). Antieau–Mathew–Morrow–Nikolaus prove Theorem 6.17 and Proposition 6.18 through the pullback square TC → TC(R/p) over HC^- → HP and the motivic filtrations of Bhatt–Morrow–Scholze; in the atlas these belong to RefinedTraceMethods RT.3b and RT.6, which are not among the roadmaps this one may build on (they are outside the Caraiani–Newton order). No prismatic proof is known to this plan. The statement is therefore a named input of PR.7/tate-twist-analytic-continuation; RT.3b proves it, and imports the syntomic complexes of PR.4 to do so.
 - **Classification of vector bundles on the Fargues–Fontaine curve** (needed by `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`). The named input uses the schematic curve, FF Theorem 8.2.10(1) and Proposition 10.5.6, as well as the Robba/analytic dictionary of Corollary 11.2.22 and GAGA Theorem 11.3.1. AdicSpaces Layer 6 supplies an adic quotient, not this classification, the untilt point, GAGA or its bundle API. Supply the tensor-compatible schematic/analytic dictionary and identify the Robba module used by the consumer with the modification of its filtered module at ∞; match Frobenius-twisted scalar conventions and Robba-radius conventions. The consumer construction matching was already an inherited gap. These interfaces and the classification proof have no completed lower-tier owner here.
-- **Executable whole-roadmap assembly**. The top packet has nine serialized nodes and retains imports only as provenance. The importer does not expand imports. Consolidating the 369 retained nodes with their IDs produces 361 duplicate-ID errors against the retained part packets. Resolve the assembly/part lifecycle in the checker or authorize archiving those parts, preserving their reviews and all sourceIssues. Then serialize the graph and apply justified R1–R7 changes. No deliverable outside this issue was edited.
+- **Executable whole-roadmap assembly**. The top packet has ten serialized nodes and retains imports only as provenance. The importer does not expand imports. Consolidating the 369 retained nodes with their IDs produces 361 duplicate-ID errors against the retained part packets. Resolve the assembly/part lifecycle in the checker or authorize archiving those parts, preserving their reviews and all sourceIssues. Then serialize the graph and apply justified R1–R7 changes. No deliverable outside this issue was edited.
 - **Formal affine quasi-coherent complexes** (needed by `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`, `PrismaticCohomology:PR.5/affine-direct-image-and-base-change`). The new PR.5/formal-affine-complete-qcoh states the bounded-prism contract and completed operations. Refine its unbounded effectivity proof: reconstruct every compatible system in lim_n D(A/((p)+I)^n) from its inverse limit and prove derived reduction recovers each component, then establish coherent scalar change and tensor compatibility. DD.1 supplies completion operations, not this geometric comparison. SAG Theorem 8.3.4.4 is only connective and does not discharge the obligation; BL22 p.43 states the bounded-prism range. The flat affine direct-image node applies to ordinary-ring points of bounded transversal charts; no arbitrary nonflat chart formula is claimed.
-- **Complete framed and infinite-coordinate q interfaces** (needed by `PrismaticCohomology:PR.6/framed-q-automorphisms`, `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`). The sufficient completed framing hypotheses in framed-q-automorphisms do not establish all the inherited merely p-completely ind-étale cases. Identify the consumer topology (including A_inf (p,ξ) versus (p,q−1)), verify completeness of the quotients used for divisibility, and prove continuity and summability for infinite coordinate sets in completed differential modules. Without these, R2 is conditional and cannot remove the existing supplier request wholesale.
+- **Complete framed and infinite-coordinate q interfaces** (needed by `PrismaticCohomology:PR.6/framed-q-automorphisms`, `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`). The cofinal-power formulas now compare (p,[p]_q), (p,q−1) and cyclotomic (p,ξ); the new completed-q-derivative-summability target supplies a construction under decay and proves decay on standard completed polynomial/Laurent charts. Still verify completeness of the quotients used for regular division, finite-coordinate approximation and a uniform division estimate (or direct decay) for every inherited completely ind-étale and q-PD-envelope consumer. Neither cofinal topology nor regularity of individual divisors supplies these estimates. R2 remains conditional; do not remove the supplier request wholesale.
 - **Nonregular prelog prismatic envelopes**. The new PR.0/general-prismatic-envelope target covers arbitrary kernels over bounded orientable base prisms; it carries an explicit transfinite realization gap. The original PR.8/prelog-prismatic-envelope statement also permits an unbounded orientable base. K1 Proposition 3.1 states that stronger range, but the fetched Bhatt Lecture V proof sketch fixes a bounded base: supply the extension or propagate a bounded-base restriction. Independently, the QRSP comparison for initial-log-prism-qrsp must verify the completely flat and completely regular presentation before invoking regular-prismatic-envelopes. Neither boundedness nor flatness follows from general envelope existence.
 - **Beilinson syntomic and derived de Rham interface** (needed by `PrismaticCohomology:PR.7/beilinson-fibre-square-input`). Supply the coherent comparison of the source trace-defined syntomic functor with PR.4’s prismatic syntomic complex and the integral p-completed identification A_crys(R/p)≃LΩ_R for p-torsion-free quasiregular semiperfectoid R. DD.4/qrsp-pd-derham only states the mod-p characteristic-p comparison; it does not itself supply this integral mixed-characteristic identification.
 
@@ -11870,7 +11961,7 @@ The earlier part gaps and source issues are retained in Appendices A and B with 
 - `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Use AdicSpaces Layer 6 only for the E=Q_p adic Frobenius quotient curve of C^♭. The point ∞, schematic curve, bundle dictionary and slope classification are separate named-input gaps; they are not claimed to be supplied by this roadmap.
 - `EnhancedDerivedSheaves:E1`, for `PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks`: For the enhanced derived category of modules, identify perfect modules with monoidally dualizable modules, compatible with scalar change and the homotopy-category comparison. The existing enhancement and Perf-action nodes alone do not state this equivalence.
 - `DiamondsAndVStacks:D0`, for `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`: Extend the groupoid stackification interface to space-valued prestacks on ordinary rings, with fpqc sheafification and effective epimorphisms realized by their coherent Čech nerves; or explicitly restrict the consuming descent statements to the already supplied range.
-- `AInfCohomology:AI.1`, for `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`: Finite cochain Koszul complexes of commuting D-linear endomorphisms of a D-module E, in degrees 0 through the number of operators, with coordinate-injective maps and the divided-operator décalage identity. Infinite completed families require separately established summability. The present koszul-products-and-cohomology statement treats automorphisms and scalar-sequence formulas, not arbitrary divided operators.
+- `AInfCohomology:AI.1`, for `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex` and `PrismaticCohomology:PR.6/completed-q-derivative-summability`: Finite cochain Koszul complexes of commuting D-linear endomorphisms of a D-module E, in degrees 0 through the number of operators, with coordinate-injective maps and the divided-operator décalage identity. Infinite completed families require separately established summability. The present koszul-products-and-cohomology statement treats automorphisms and scalar-sequence formulas, not arbitrary divided operators. Supply the same generic carrier for I-adically summable commuting families by compatible finite-support quotient complexes. PR.6 owns the q-specific decay criterion and standard-chart verification; no unrestricted infinite-family interface is presumed present.
 - `PadicHodgeTheory:R06.2`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Filtered φ-modules with N=0 and weak admissibility for K complete discretely valued of characteristic zero with arbitrary perfect residue field, with D_K=D⊗_(W(k)[1/p])K; compare the Frobenius-twisted scalar convention of the prismatic consumer. The presently read supplier packet has finite-extension range.
 - `PadicHodgeTheory:P7`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Identify the extended Robba ring with FF Definition 1.8.1 for E=Q_p and F=(completed Kbar)^♭, including radius normalization, invertible Frobenius and the tensor-compatible module dictionary; its citation of another Robba owner is not itself the construction-matching proof.
 - `DerivedDeRhamCohomology:DD.2`, for `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`: Continuous relative de Rham forms and their scalar reduction for finite completely étale framed algebras completed at t=q−1 or (p,t); the p-complete smooth interface is used only in its supplied range.
@@ -11961,6 +12052,10 @@ The original source list below records the earlier review’s reading. This chec
 - Bhargav Bhatt and Peter Scholze, [Prismatic F-crystals and crystalline Galois representations](https://arxiv.org/abs/2106.14735v2). arXiv:2106.14735v2; PDF read in this review. Proposition 6.8 with proof, pp.22–24; §6.4, p.26, the essential-surjectivity paragraph and footnotes 12–13 naming the Fargues–Fontaine inputs and construction-matching qualification.
 - Laurent Fargues and Jean-Marc Fontaine, [Courbes et fibrés vectoriels en théorie de Hodge p-adique](https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf). Freely accessible author manuscript; page numbers below are its printed pagination, rather than a certification of the publisher edition.. Definition 1.8.1, p.37 (Robba-ring convention). Theorem 8.2.10(1), p.238; Chapter 10 hypotheses, p.264; Proposition 10.5.6 and its proof, p.290; Corollary 11.2.22 and preceding dictionary, pp.327–328; Theorem 11.3.1 and its proof, pp.330–331.
 - Jacob Lurie, [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf). 18 September 2017 manuscript. Proposition 4.6.1.11 and Remark 4.6.1.12, p.620; Proposition 7.2.4.4 and proof, p.1263.
+
+## Current checkpoint validation
+
+This revision remains partial: the packet serializes 10 additional targets with 55 API entries, 32 tests and 8 recorded gaps. The packet checker reports 0 errors and 0 warnings. The current 317-line suggested file elaborates with 26 warnings, all uses of `sorry`, and no errors; it passes the data-sorry check. These checks validate the submitted checkpoint’s structure and signatures, not a whole-roadmap assembly or the mathematical proofs. The following appendices preserve historical part checks, including their older, longer suggested files; those are not measurements of the current suggested file.
 
 ## Appendix A. Records of the accepted plan of PR.0–PR.7
 

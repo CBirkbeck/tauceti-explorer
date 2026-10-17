@@ -1,6 +1,7 @@
 import Mathlib.Algebra.Algebra.Equiv
 import Mathlib.Algebra.Ring.NonZeroDivisors
 import Mathlib.RingTheory.Ideal.Span
+import Mathlib.RingTheory.AdicCompletion.Basic
 import Mathlib.RingTheory.Jacobson.Ideal
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Data.Nat.Choose.Basic
@@ -114,9 +115,53 @@ end Delta
 /-! ## Layer PR.6: q-crystalline charts and the AΩ comparison
 
 The finite and sufficiently complete framed q-automorphisms and q-derivatives are planned here.
-The general-base and infinite-coordinate extensions are open interfaces in the reviewed document. A `QFraming` records the data the
+The general-base extension and verification of infinite-family decay on inherited envelopes remain open.
+The reader constructs the infinite complex under decay and proves it for standard polynomial charts. A `QFraming` records the data the
 q-derivative uses; the framed algebra `FramedAlgebra` of the document, whose completely étale framing
 produces the automorphisms, is a target without carrier at the pins. -/
+
+/-! ### Cofinal completion ideals (PR.6)
+
+The elementary ideal statements have carriers at the pins. They compare topology; they do not
+assert equality of the ideals, complete étaleness, quotient completeness or infinite summability.
+For the cyclotomic statement `u = [ε^(1/p)] - 1` and `ξ = ∑ i < p, (1 + u)^i`.
+-/
+
+namespace FramedAlgebra
+
+variable {D : Type*} [CommRing D]
+
+/-- Cofinal powers of the q-PD and joint q-adic ideals. -/
+theorem qPDTopology (p : ℕ) (hp : p.Prime) (q : D) (n : ℕ) :
+    (Ideal.span {(p : D), q - 1}) ^ ((p - 1) * n) ≤
+      (Ideal.span {(p : D), ∑ i ∈ range p, q ^ i}) ^ n ∧
+    (Ideal.span {(p : D), ∑ i ∈ range p, q ^ i}) ^ n ≤
+      (Ideal.span {(p : D), q - 1}) ^ n := by
+  sorry
+
+/-- Cofinal powers for a cyclotomic parameter; the two ideals usually differ. -/
+theorem cyclotomicTopology (p : ℕ) (hp : p.Prime) (u : D) (n : ℕ) :
+    (Ideal.span {(p : D), ∑ i ∈ range p, (1 + u) ^ i}) ^ (p * n) ≤
+      (Ideal.span {(p : D), (1 + u) ^ p - 1}) ^ n ∧
+    (Ideal.span {(p : D), (1 + u) ^ p - 1}) ^ n ≤
+      (Ideal.span {(p : D), ∑ i ∈ range p, (1 + u) ^ i}) ^ n := by
+  sorry
+
+/-- A representative typed specialization of the classical completion comparison.
+The reader specifies the natural cofinal reindexing map and its cyclotomic analogue. -/
+theorem classicalCompletionTopology (p : ℕ) (hp : p.Prime) (q : D)
+    (M : Type*) [AddCommGroup M] [Module D M] :
+    ∃ e : AdicCompletion (Ideal.span {(p : D), ∑ i ∈ range p, q ^ i}) M ≃ₗ[D]
+        AdicCompletion (Ideal.span {(p : D), q - 1}) M,
+      ∀ x : M, e (AdicCompletion.of _ M x) = AdicCompletion.of _ M x := by
+  sorry
+
+/-- Test `FramedAlgebra.topology_p_two`: here the ideals are actually equal. -/
+example (t : D) : Ideal.span {(2 : D), ∑ i ∈ range 2, (1 + t) ^ i} =
+    Ideal.span {(2 : D), t} := by
+  sorry
+
+end FramedAlgebra
 
 section QFraming
 
@@ -249,11 +294,22 @@ stated there only.
   `FramedAlgebra.gamma_sub_mem`, `FramedAlgebra.gamma_unique`, `FramedAlgebra.gamma_map`,
   `FramedAlgebra.frobenius`, `FramedAlgebra.gamma_mod`, `FramedAlgebra.toQFraming`; tests
   `FramedAlgebra.gamma_pow`, `FramedAlgebra.gamma_reduction`, `FramedAlgebra.gamma_toric_inv`,
-  `FramedAlgebra.not_p_complete_only`, `FramedAlgebra.frobenius_gamma`.
+  `FramedAlgebra.not_p_complete_only`, `FramedAlgebra.frobenius_gamma`; additional reader checks
+  `FramedAlgebra.cyclotomic_unequal_ideals`, `FramedAlgebra.cyclotomic_choice_matters` use the
+  indicated power-series/A_inf specializations. Cofinal topology is typed above; no complete
+  framing is inferred from it.
 * Needing finite Koszul complexes of commuting operators (PR.6), with a separate convergence
   interface for infinite completed coordinate families: `QFraming.qDeRhamComplex`,
   `QFraming.qDeRhamComplex_map`, `QFraming.qDeRhamComplex_mod`, `QFraming.qDeRhamComplex_toric`;
   tests `QFraming.qDeRham_empty`, `QFraming.qDeRham_not_functorial_diagonal`.
+* The infinite completed-coordinate construction is a reader target:
+  `QFraming.qDeriv_decay_of_colon`, `QFraming.completedQForms`, `QFraming.completedQDeRham`,
+  `QFraming.completedQDeRham_finite`, `QFraming.completedQDeRham_map`,
+  `QFraming.polynomial_qDeriv_decay`; tests `QFraming.completedQDeRham_infinite_series`,
+  `QFraming.completedQDeRham_empty`, `QFraming.completedQDeRham_square_zero`,
+  `QFraming.continuity_not_decay`, `QFraming.completedQDeRham_extra_coordinate`. These require
+  the supplier-owned completed commuting-operator carrier; no formal-series or inverse-limit
+  fixture is used to impersonate that carrier here. Individual continuity is insufficient.
 * Needing syntomic complexes, period rings and the Fargues–Fontaine curve's bundles (PR.7): the named
   inputs on the Beilinson fibre square and on slope-zero bundles.
 -/
