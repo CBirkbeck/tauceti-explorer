@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T16:20Z",
+ "updated": "2026-10-17T16:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -645,7 +645,7 @@
   "AutomorphicLFunctionsAndLocalFactors": {
    "stage": "pr",
    "pr": 924,
-   "head": "0123e04",
+   "head": "9c50e6c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
@@ -657,7 +657,7 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "64380dd",
+   "head": "a58a2ed",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
@@ -708,7 +708,7 @@
   "GL2AutomorphicRepresentationsAndTransfer": {
    "stage": "pr",
    "pr": 931,
-   "head": "e118f3b",
+   "head": "bf328d7",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 7035f1c; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
@@ -1045,7 +1045,7 @@
   "ShimuraData": {
    "stage": "pr",
    "pr": 1038,
-   "head": "8e6b807",
+   "head": "98a9e80",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": null,

@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T16:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T16:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -14,13 +14,13 @@ Generated 2026-10-17T16:20Z from the README supplier graph of every open pull re
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
-- #889 VonNeumannAlgebras (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #947 BordismFormalGroups (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
+- #1041 VonNeumannAlgebras (kim-em, other author)
 
 ## Wave 2
 - #813 AdicSpacesPartIII — draft; waits on #944
@@ -102,18 +102,18 @@ Generated 2026-10-17T16:20Z from the README supplier graph of every open pull re
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
 
 ## Wave 20
-- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
+- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #785, #814, #816, #818, #820, #875, #908, #922
 
 ## Wave 21
 - #921 ClassicalArithmeticCompletion — draft; waits on #785, #792, #851, #856, #924
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #785, #792, #856, #858, #871, #924, #889
+- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #1041
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — draft; waits on #854, #924
 
 ## Wave 22
-- #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #785, #792, #848, #856, #871, #873, #875, #923, #924, #925, #928, #938, #934
+- #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #856, #871, #873, #875, #923, #924, #925, #928, #938, #934
 - #964 FarguesFontaineDiamonds — ready (approved at an earlier head); waits on #813, #814, #818, #820, #908, #922, #965
 - #1002 PadicDifferentialEquationsAndRigidCohomology — draft; waits on #785, #813, #814, #815, #849, #850, #854, #856, #857, #868, #873, #875, #879, #908, #913, #921, #929, #938, #940, #965
 - #1040 EtaleDualityAndPerverseSheaves — draft; waits on #848, #849, #873, #875, #908, #929, #938, #965
