@@ -1,6 +1,6 @@
 # Roadmap: Kato's Euler systems
 
-Construct the cyclotomic zeta classes of a modular eigenform from normalized
+**Summary.** Construct the cyclotomic zeta classes of a modular eigenform from normalized
 theta units on elliptic curves. The construction passes through Siegel units,
 ordered symbols in the K₂ of open modular curves, étale Chern moments, and
 explicit reciprocity. Its endpoints are the rational Kato zeta morphism,
@@ -221,10 +221,11 @@ the elliptic and ordinary Selmer instances and finite/Poitou–Tate exact
 sequences. L3 must additionally identify the modular étale/Galois
 Iwasawa complex, the strict dual Selmer module with the global-to-local
 H² kernel, and the Euler-characteristic/torsion-free/rank-one passage.
-Character components and the semilinear twist must work at all primes,
-with global twist, specialization and localization commuting using the
-same roots. The cohomology constructor alone does not supply these
-comparisons.
+The semilinear twist is taken on the full cyclotomic algebra at every
+prime. Layer 5.3 derives its global/local and finite-specialization
+compatibilities from L0 cup naturality and the corestriction projection
+formula, using the same roots. This derivation needs no local regulator.
+The modular-complex and rank comparisons remain separate inputs.
 
 For the parabolic full-level result L3 must export Nakamura Lemma 3.4,
 p.221: on X(N),j_*V_k, the conductor Iwasawa H¹ is Λ_n-torsion-free at
@@ -279,11 +280,13 @@ cohomology contract, not by renaming an Euler-system index.
 
 From **PadicMeasuresIwasawaAlgebras** L4 require completed group-ring
 localization, characteristic ideals and multiplicativity of lengths.
-For Kato 13.12 require the precise full-algebra finite-support theorem:
-a finitely generated module annihilated by a regular μ, with Λ/μΛ
-p-torsion-free and zero localization at every height-one prime, is finite
-as an abelian group. This is required also at p=2. Finite quotient and
-equality of submodules are different conclusions.
+Layer 5.2 applies L4's pseudo-null finiteness criterion over O[[T]] to
+the full algebra by restriction of scalars. Its hypotheses are a
+finitely generated quotient killed by a regular μ, p-torsion-freeness
+of Λ/μΛ, and vanishing at the height-one primes away from p. Finite
+freeness over O[[T]] gives the reduction also when p=2. No integral
+character decomposition of the full algebra is used. Finite quotient
+and equality of submodules are different conclusions.
 
 The early CM elliptic-unit contract is not attached to an owner
 layer. It must supply H² torsion and H¹ rank one at every p, including
@@ -356,7 +359,7 @@ geometric theorem, not its proof.
 - `theta_pushforward_not_pullback`: at a nonzero two-torsion point over
   a characteristic-zero field, [2]^*(25[0]−E[5]) has coefficient 24,
   while 25[0]−E[5] has coefficient zero. The two divisor directions
-  cannot be interchanged; the Lean calculation is 0≠25−1.
+  cannot be interchanged; the coefficient calculation is 0≠25−1.
 
 - For `thetaCondition`, take rational units with divisor equal to their
   rational value and identity norms. One satisfies prescribed divisor one;
@@ -443,7 +446,8 @@ it does not follow from a product over only second-coordinate roots.
   shear fixes it. Transposing the action changes this value.
 - The identity matrix fixes (1/5,2/5), and the diagonal matrix
   diag(2,1) has determinant two, sending ζ_N to ζ_N² when
-  two is invertible modulo N. Suggested.lean pins both computations.
+  two is invertible modulo N. The two shear computations are the
+  representative Lean checks.
 - A=1 gives the one-element distribution fiber. A=0 is excluded:
   its fiber is not the finite isogeny fiber used by the theorem.
 
@@ -870,8 +874,8 @@ tower, not postulated for arbitrary vectors.
   coefficient still −2/3.
 - `zeta_p_direction`: a coherent source transfer and commuting
   moment square give cor(z_{n+1})=z_n, with no new Euler factor.
-  The representative example tests the constructed moments on both
-  sides of that square.
+  The constituent-square proof tests the constructed moments on both
+  sides of that square; it is a README API target.
 - `zeta_identity_moment`: the identity moment on ℚ-valued sequences
   applied to the constant-one tower has value one at index zero.
   Coherence alone would also admit a zero tower; this test rejects it
@@ -999,7 +1003,7 @@ Chern/Euler compatibility. Neither the Hecke action nor the norm
 relation is an assertion about unrelated Ch and moment maps.
 For the helper `fullLevelEulerOperator`, identity actions and ℓ=3
 send one to three, identity actions and ℓ=0 give the zero operator,
-and zero u gives the identity operator. These three Lean checks
+and zero u gives the identity operator. These Lean controls
 pin the coefficients and composition order; the ℓ=0 and u=0
 instances do not extend the geometric prime/Frobenius theorem.
 
@@ -1089,7 +1093,7 @@ identification is the exact open-curve comparison contract.
   the critical range is not empty.
 - `dualExp_coercion`: coercing the subtype value returns the imported
   exponential, including a nonzero input value. Suggested.lean
-  tests this for an arbitrary linear exp* with its proved range.
+  checks the restricted zero, identity and doubling maps on ℚ.
 
 - On the whole rational line, the identity exponential gives one on
   input one, rejecting a zero `modularDualExp` construction.
@@ -1356,6 +1360,8 @@ Define the algebraic action `upperUnipotent x` on column vectors by
 (v₀+xv₁,v₁). Its difference has range E·e₁ if x≠0. This calculation
 proves the rank-one rational quotient once the actual Galois image
 contains that element; it does not itself prove an image theorem.
+The light linear map is Mathlib `Matrix.toLin'` applied to
+[[1,x],[0,1]], using its column-vector convention.
 For a stable integral lattice the stronger `nonCmIntegralRankOne`
 requires full SL₂(ℤ_p) in the named basis. Then x=1 gives a free
 rank-one O quotient and residual irreducibility. Openness alone may
@@ -1586,8 +1592,9 @@ realization be used. `katoZetaSubmodule` is the span over the named
 - `katoSpan_identity`: the identity on ℚ has span the whole module,
   testing nonzero generation rather than merely membership of zero.
 - `katoSpan_member_one`: its value one belongs to the generated
-  span. All three span tests appear in Suggested.lean and concern
-  that construction rather than arithmetic nonvanishing.
+  span. The zero-span and whole-span tests appear in Suggested.lean;
+  membership is also part of the README API. These concern the
+  construction rather than arithmetic nonvanishing.
 - `katoMap_generator_one`: a one-element basis with prescribed value
   one receives that value. It excludes a constant-zero realization;
   the arithmetic analogue uses a nonzero spanning generator detected
@@ -1618,13 +1625,62 @@ factors. Rational equality alone does not yield the finite-index
 claim over the full Λ.
 
 Choose the auxiliary combination μ as in the construction, prove
-it regular and prove Λ/μΛ is p-torsion-free. At height-one primes
-away from p, analytic nonvanishing and auxiliary choices give the
-required localized equality. Include the primes over p using the
-specific p-torsion-free/support argument. Apply the full-algebra
-finite-support contract to the finite generated quotient. This
-argument includes p=2 and its finite tame part; a prime-to-p
-componentwise calculation does not supply the dyadic full algebra.
+it regular, prove μ kills M=Z(f,T)/Z_sm, and prove Λ/μΛ is
+p-torsion-free. At height-one primes away from p, analytic
+nonvanishing and auxiliary choices give M_𝔓=0. The following
+restriction-of-scalars argument supplies the finite-support step
+over the full algebra (Kato 12.1, pp.219–220; 13.12, pp.231–232).
+
+Choose a generator of the procyclic factor Γ₁ of G∞ and put
+A=O[[T]], so Λ=A[Δ] is finite free over A with basis Δ. At p=2 use
+Γ₁=1+4ℤ₂ and Δ={1,−1}; no division by |Δ| occurs. As multiplication
+by μ on Λ is injective, its determinant d over A is nonzero: after
+extension to Frac(A) it is an injective endomorphism of a finite
+dimensional vector space. The adjugate identity shows d kills Λ/μΛ,
+and hence M. In particular M has zero localization at (0) in A.
+
+At the vertical prime (ϖ) of A, the finite module
+(Λ/μΛ)_(ϖ) is torsion over the DVR A_(ϖ), hence has finite length.
+Multiplication by p is injective on it by the chosen μ condition.
+Some power of ϖ kills a finite-length module over this DVR, while
+p is a unit times a positive power of ϖ. Injectivity therefore
+forces (Λ/μΛ)_(ϖ)=0. Since μ kills the finitely generated module M,
+M is a quotient of a finite direct sum of copies of Λ/μΛ, so
+M_(ϖ)=0 as well. This argument allows ramified O.
+
+For any other height-one prime 𝔮 of A, every maximal prime of
+Λ⊗_A A_𝔮 comes from a height-one 𝔓 of Λ above 𝔮. Indeed Λ/A is
+integral and flat: incomparability contracts strict prime chains
+strictly, and going down lifts chains ending at 𝔮. Thus the two
+heights agree. These 𝔓 do not contain p, so the arithmetic localized
+equality gives M_𝔓=0. A module whose localizations at all maximal
+ideals vanish is zero, giving M_𝔮=0. As M is finite over A, it is
+pseudo-null over A. Apply PadicMeasuresIwasawaAlgebras
+L4/pseudo-null, `isPseudoNull_iff_finite`, over the two-dimensional
+complete regular local ring A with finite residue field. This proves
+M finite as an abelian group. The prime-chain steps are Stacks,
+Lemmas 10.36.20 and 10.39.19; the finite-length conclusion can also
+be read directly from Lemmas 10.62.1–10.62.2, since the only
+possible support over A is its maximal ideal.
+
+This reduces the full-algebra assertion to the existing A-module
+support theory; it requires no normality or DVR assertion for Λ at
+a prime above two. The arithmetic construction of μ and the
+height-one equality remain the substantive earlier steps.
+
+**Checks.**
+
+- Over A=ℤ₂[[T]], the nonzero module Λ/(2,T,δ−1) has two elements.
+  The regular choice μ=T kills it and Λ/TΛ=ℤ₂[C₂] is 2-torsion-free.
+  Its height-one localizations vanish, so the conclusion permits a
+  nonzero finite quotient.
+- With the same μ=T, Λ/TΛ is infinite. Its localization at the
+  height-one prime (T,δ−1) is nonzero, detecting the indispensable
+  horizontal vanishing hypothesis.
+- The elements δ−1 and δ+1 multiply to zero in ℤ₂[C₂]. Neither
+  is a permissible regular μ. Taking μ=2 instead is regular but
+  makes Λ/μΛ have 2-torsion, so it cannot replace the chosen μ
+  in the vertical-prime argument.
 
 The quotient can be nonzero and finite, as ℤ/2ℤ illustrates. A
 characteristic ideal equal to one or equality after localization
@@ -1634,8 +1690,9 @@ Integral membership Z(f,T)⊂H¹(T) under large-image hypotheses is a
 separate endpoint in Layer 7; it uses integral H¹ freeness.
 
 *Needs:* 5.1 and 4.2–4.4; Layer 2's two admitted geometric families;
-PadicMeasuresIwasawaAlgebras L4 regular-μ/p-torsion-free/full-support
-contract. This precise finite-support export remains an input.
+PadicMeasuresIwasawaAlgebras L4/pseudo-null over O[[T]], its regular
+local structure and finite-module localization API; Stacks Lemmas
+10.36.20 and 10.39.19 for the finite-free scalar restriction.
 
 ### 5.3 Critical interpolation of the canonical map
 
@@ -1655,9 +1712,58 @@ This is Kato Theorem 12.5(1), p.221. It uses the dual form f* and
 the actual semilinear Iwasawa twist. With target action distinguished
 from source action, twist_j(σx)=κ(σ)^(−j)σ twist_j(x).
 A finite-level root multiplied into a class is not a substitute for
-changing the representation twist. The global-to-local twist square
-is an all-prime SelmerIwasawaCohomology export and uses the same roots
-as the regulator.
+changing the representation twist. The required global/local square
+is `katoTwistLocalization`:
+
+```text
+loc_Iw,T(j) ∘ twist_j,global = twist_j,local ∘ loc_Iw,T.
+```
+
+Here both sides are O-linear and Tw_j-semilinear for the indicated
+Λ-actions. Derive this square from SelmerIwasawaCohomology L0's cup
+naturality and corestriction projection formula and L3/iwasawa-twist,
+rather than from a regulator's odd-prime twist theorem. For precision,
+work first with T/p^m, m≥1. On F_a=ℚ(ζ_{p^a}) with a≥m, the chosen
+basis e_(j,m) of (O/p^m)(j) is invariant. Cup with this degree-zero
+class gives the finite-coefficient twist. Restriction to the fixed
+decomposition group at p preserves that basis and commutes with cup.
+For two such deep levels the basis restricts to the same basis, so
+the corestriction projection formula gives a compatible system.
+Coefficient reductions also commute. Pass through the integral
+coefficient/tower comparison of L0, then invert p. As throughout,
+H¹_Iw(V) means H¹_Iw(T)[1/p], not an unrestricted rational inverse
+limit. This also constructs the needed local twist at p=2 without
+any regulator or sign projector.
+
+The companion `katoTwistSpecialization` is the commuting square with
+projection to level n and localization. Modulo p^m it has the
+explicit formula, for a≥max(n,m),
+
+```text
+pr_n,T(j)(twist_j x) mod p^m
+  = cor_(F_a/F_n)((x_a mod p^m) cup e_(j,m)).
+```
+
+Localizing this expression gives the same corestriction/cup formula
+over the completions. There is one prime above p in this cyclotomic
+tower; for a tower with several primes the localization target would
+be their direct sum. Independence of a uses the same projection
+formula. At a shallow level, e_(j,m) need not be invariant, so this
+statement asserts no untwisted finite-level cohomology isomorphism.
+The order of twist, projection, localization and exp* is precisely
+Kato 13.12, display (13.12.5), pp.232–233. The naturality derivation
+is the comparison needed here, not an additional assertion of
+reciprocity.
+
+**Checks of twist transport.**
+
+- For j=0 both twists are identity and the square is the usual
+  localization/projection square, including on zero classes.
+- At p=2 and κ(σ₃)=3, j=1, augmentation after Tw_j evaluates σ₃
+  as 1/3. The value 3 would use the inverse convention incorrectly;
+  treating the twist as Λ-linear would give 1.
+- At p=2, Tw_j(σ_(−1))=(−1)^jσ_(−1). Thus odd twists interchange
+  conjugation signs without an integral projector (1±σ_(−1))/2.
 
 Apply the Layer 3 formula first to smoothed generators, then the
 rational membership and auxiliary cancellation of 5.1–5.2. The
@@ -1669,8 +1775,10 @@ appears. The examples of `criticalSign` fix the parity in the
 interpolation, and the twist calculations in Layer 1 fix k−r.
 
 *Needs:* 5.1–5.2, 3.2 and 3.4; 4.4 rank-one structure;
-SelmerIwasawaCohomology L3 all-prime semilinear twist/specialization/
-localization contract; ModularSymbolsPadicLFunctions L1 periods.
+SelmerIwasawaCohomology L0/kummer-cup-shapiro and its finite-coefficient
+limit comparison, L3/iwasawa-twist and projection maps; ProfiniteCohomology
+Layer 12 cup naturality/projection formula; ModularSymbolsPadicLFunctions
+L1 periods. The regulator comparison of 3.4 remains a separate input.
 
 ### 5.4 Nakamura's twist-one zeta morphism
 
@@ -1732,14 +1840,15 @@ The canonical map vanishes on zero but is not the zero map, as
 Layer 4's detected generator will show componentwise in Layer 7.
 Finite index between spans need not be equality. Twist-one transport
 changes the conjugation sign while the two degree shifts add to one.
-The finite-support theorem and the all-prime twist square are both
-needed to pass from the geometric tower to the rational morphism.
+The finite-support and all-prime twist arguments above supply the
+particular scalar-restriction and localization comparisons needed
+in passing from the geometric tower to the rational morphism.
 
 ### Dependencies
 
 Layers 2–4; ModularSymbolsPadicLFunctions L0–L1;
 SelmerIwasawaCohomology L3;
-PadicMeasuresIwasawaAlgebras L4 full-support contract;
+PadicMeasuresIwasawaAlgebras L4 support theory over O[[T]];
 AutomorphicGaloisRepresentations R19.1. Neither an arithmetic family
 nor a reverse main-conjecture divisibility occurs in this layer.
 
@@ -2354,3 +2463,11 @@ specified printed edition unless a draft page is explicitly named.
   Its open-image assertion is used only through the locally split
   branch described in 4.1; a nonsplit quaternion algebra does not
   contain the same unipotent subgroup.
+- The Stacks Project, *Commutative Algebra*,
+  [Lemma 10.36.20, tag 00GT](https://stacks.math.columbia.edu/tag/00GT),
+  [Lemma 10.39.19, tag 00HS](https://stacks.math.columbia.edu/tag/00HS),
+  [Lemma 10.62.1, tag 00L0](https://stacks.math.columbia.edu/tag/00L0),
+  and [Lemma 10.62.2, tag 00L4](https://stacks.math.columbia.edu/tag/00L4).
+  These are the integral incomparability, flat going-down and prime
+  filtration inputs to the scalar-restriction proof in 5.2.
+  Stacks uses stable tags rather than fixed printed page numbers.
