@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T17:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T17:18Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -23,7 +23,7 @@ Generated 2026-10-17T17:10Z from the README supplier graph of every open pull re
 - #1041 VonNeumannAlgebras (kim-em, other author)
 
 ## Wave 2
-- #813 AdicSpacesPartIII — ready; waits on #944
+- #813 AdicSpacesPartIII — ready (approved at an earlier head); waits on #944
 - #248 LFunctions (roed-math, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
@@ -59,7 +59,7 @@ Generated 2026-10-17T17:10Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #286, #934
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
-- #1042 PerfectoidQuotients — draft; waits on #818, #857, #868, #908, #944
+- #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #818, #857, #868, #908, #944
 
 ## Wave 11
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #853, #857, #868, #908, #938, #944, #279, #887, #896, #918, #953, #954, #992
@@ -94,7 +94,7 @@ Generated 2026-10-17T17:10Z from the README supplier graph of every open pull re
 ## Wave 18
 - #875 ClassicalAdicEtaleCohomology — draft; waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
 - #913 ModularCurvesPartII — draft; waits on #785, #792, #813, #848, #849, #852, #853, #871, #873, #908, #938, #944
-- #923 LocalGaloisDeformationRings — draft; waits on #785, #792, #813, #853, #856, #858, #869, #879
+- #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #785, #792, #813, #853, #856, #858, #869, #879
 
 ## Wave 19
 - #920 GlobalGaloisDeformations — ready; waits on #856, #858, #869, #923
@@ -134,7 +134,7 @@ Generated 2026-10-17T17:10Z from the README supplier graph of every open pull re
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
 - #1005 HilbertModularVarietiesAndShimuraCurves — ready; waits on #1001, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #929, #931, #933, #938, #966, #934
-- #1038 ShimuraData — draft; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
+- #1038 ShimuraData — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
 
 ## Wave 26
 - #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1000, #1001, #1002, #792, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
