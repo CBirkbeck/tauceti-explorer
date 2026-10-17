@@ -4428,8 +4428,9 @@ def PaleyWienerBound (f : ℂ → ℂ) (r : ℝ) : Prop :=
     Real.exp (-r * |s.re|) * (1 + ‖s‖) ^ N * ‖f s‖ ≤ C
 
 /- AS.6/real-invariant-paley-wiener and AS.6/real-operator-paley-wiener:
-full signatures omitted until the AF local real-parabolic family and the actual
-Hecke/PW topological algebras exist. Scalar entire bounds and finite support alone
+full signatures require the AF.1/normalized-real-parabolic-induction carrier,
+its requested holomorphic-parameter and supplied-Hilbert comparisons, and the actual
+Hecke/PW topological algebras. Scalar entire bounds and finite support alone
 do not imply membership in an arbitrary transform range; arbitrary rings need not
 be isomorphic. The invariant theorem also needs Clozel–Delorme's relations (iii),
 (iv); the operator theorem needs every differentiated matrix-coefficient relation.
@@ -5544,9 +5545,10 @@ end TauCeti.AutomorphicSpectral
 Real harmonic-analysis export proposal (findings /4 and /24):
 AS.6/real-invariant-paley-wiener, real-operator-paley-wiener and
 spectral-multiplier form a proposed AS.1a prefix before ET.1 and AS.6.
-Only independent AS.0 LF/Schwartz/integration and the requested AF.1 local
-real-parabolic families on the independent supplied SF/Hilbert carrier, together
-with AF.1b real classification, belong to that prefix. The global adelic
+Only independent AS.0 nuclearity/Schwartz/integration, the AF.0 adelic LF carrier,
+AF.1/sf-representation, AF.1/normalized-real-parabolic-induction and AF.1/discrete-series
+belong to that prefix. Holomorphic families and the supplied-Hilbert comparison
+remain extensions requested from the same AF owner. The global adelic
 AS.1 induced-family is not a local real supplier. The multiplier uses the
 operator theorem. ET.1 then supplies ordinary orbital integrals to AS.6's
 weighted orbital and general Euler-Poincare consumers. This does not create
@@ -5566,3 +5568,14 @@ remain gaps. AS imports that owner; it does not create a second classification
 theory. The mu-function, Plancherel scalar and rank-one meromorphic-integral
 proof requirements remain separate local harmonic-analysis obligations.
 -/
+
+/- The adelic LF carrier and its support/level topology are AF.0/adelic-test-functions.
+AS.0/nuclear-lf-space enhances that carrier by nuclearity, strictness, bounded-stage
+control and distribution topologies. A stage fixes finite J-coset support as well as
+archimedean support and finite level; finite level alone does not bound support.
+Local AS.2 imports the AF Harish-Chandra, globalization, normalized-induction,
+tempered/discrete-series and Langlands contracts. The archimedean GL_n generic
+unitary bounds import AF.1/vogan-generic-unitary-dual. Classical-group real and
+finite-place unitary/standard-module extensions remain requested from AF and SR.3,
+with packet carriers requested from the endoscopic Part II. Analytic intertwining
+and normalization estimates remain here, with the recorded supplier proof gaps. -/
