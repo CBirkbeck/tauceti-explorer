@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T18:40Z",
+ "updated": "2026-10-17T19:33Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -137,7 +137,7 @@
     818
    ],
    "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-   "head": "4f9c123",
+   "head": "f466be4",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -194,10 +194,10 @@
     818
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
-   "head": "1f4f1bf",
+   "head": "dd042fb",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": ""
    }
@@ -256,16 +256,16 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "3929844",
+   "head": "da48e5f",
    "depends_on": [
     792,
     785
    ],
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -306,7 +306,7 @@
   "LocallyAnalyticDistributions": {
    "stage": "pr",
    "pr": 854,
-   "head": "fc6c8ae",
+   "head": "5e29212",
    "depends_on": [
     780,
     813,
@@ -570,12 +570,12 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "372b6e6",
+   "head": "2f3a763",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -595,11 +595,11 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "92e676a",
+   "head": "91910dc",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -633,12 +633,12 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "9abb3a2",
+   "head": "318ed0b",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -798,14 +798,14 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
-   "head": "ae96bcb",
+   "head": "0e05be3",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
@@ -817,12 +817,12 @@
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
    "pr": 970,
-   "head": "c0fe088",
+   "head": "2687dda",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -889,23 +889,23 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "4ababd2",
+   "head": "305843b",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
-    "recommendation": "approve",
-    "current": true,
-    "draft": false,
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
-   "head": "4a36810",
+   "head": "676769c",
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -913,11 +913,11 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "06cbbcf",
+   "head": "8d286a4",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -949,10 +949,10 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "e040b45",
+   "head": "0ce1375",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
@@ -965,7 +965,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied; draft",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -985,7 +985,7 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "a8a8cc9",
+   "head": "0c2a01d",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
@@ -1069,10 +1069,10 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "c669aec",
+   "head": "244af3e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
@@ -1093,10 +1093,10 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "45db72d",
+   "head": "e55dc34",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
@@ -1117,7 +1117,7 @@
   "EffectiveDiophantineMethods": {
    "stage": "pr",
    "pr": 1046,
-   "head": "bc7b635",
+   "head": "12caf04",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
     "recommendation": null,
@@ -1129,14 +1129,56 @@
   "EllipticCurveModularityImaginaryQuadratic": {
    "stage": "pr",
    "pr": 1048,
-   "head": "42f0d5b",
+   "head": "e9bcdd7",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "ShimuraCompactifications": {
+   "stage": "pr",
+   "pr": 1053,
+   "head": "fa1badb",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
    "review": {
     "recommendation": null,
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
+  },
+  "PrismaticCohomology": {
+   "stage": "pr",
+   "pr": 1057,
+   "head": "7901cc8",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "PadicHodgeTheory": {
+   "stage": "pr",
+   "pr": 1062,
+   "head": "6911964",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "MetaplecticAutomorphicForms": {
+   "stage": "pr",
+   "pr": 1063,
+   "head": "48d2456",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"

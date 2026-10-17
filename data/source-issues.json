@@ -227834,6 +227834,26 @@
    "reviewReason": "Inspected p.582: period-one symmetric X shifts identify D modulo CS. Replacing that quotient by NCS repeats each class N³ times while preserving the restrictions, so S₀ uses D mod C."
   },
   {
+   "id": "MetaplecticAutomorphicForms/E-WR-1",
+   "kind": "misprint",
+   "locator": "Proposition 2.1, printed p. 551, in the published Inventiones scan",
+   "printed": "The integral of θ^{N₀}_ν(Z, W) times the conjugate of θ^{N₀}_μ(Z, W) times exp(−4πN₀ Y⁻¹[Im W]) over ℂ²/Λ_Z, against Lebesgue measure, is stated to be √det Y/(2N₀) when μ ≡ ν mod 2N₀.",
+   "correction": "The value is √det Y/(4N₀).",
+   "reason": "Write W = Zλ + ρ; then dW = det(Y) dλ dρ on [0, 1)⁴. Integrating in ρ leaves the diagonal R = R′; the exponent is −4πN₀·Y[λ + R/(2N₀)]; summing over R ≡ ν mod 2N₀ and λ ∈ [0, 1)² gives ∫_{ℝ²} exp(−4πN₀ Y[u]) du = 1/(4N₀ √det Y), and multiplying by det Y gives √det Y/(4N₀). In one variable the same computation gives Eichler–Zagier's √(v/4m), and for Y = vI₂ the two-variable value is its square, v/(4N₀).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-17: web search for an erratum or corrigendum to Bump–Friedberg–Hoffstein, Invent. Math. 102 (1990), 543–618; the EuDML/mathdoc record (IM_1990__102_2_143846) lists none.",
+    "Why it affects nothing in BFH: Proposition 2.2 obtains the theta components from Fourier coefficients ((2.5)–(2.6), (2.10)–(2.11)); Proposition 2.1 is invoked once, on p. 554, to deduce (2.7), and only its orthogonality is used there; the unfolding of §5 uses the Gaussian integral on p. 581. The accepted MP.8 part copied the constant into MP.8/theta-pairing and MP.8/theta-components, where it does matter (restructure R6)."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms.json",
+   "citation": "Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein, Nonvanishing theorems for L-functions of modular forms and their derivatives, Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ModularCurvesPartII/E101",
    "kind": "error",
    "locator": "Author copy, §2.1, p.5, paragraph introducing the standard 1-gon (after Lemma 2.1.3)",

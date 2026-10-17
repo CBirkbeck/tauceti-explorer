@@ -1,0 +1,1623 @@
+{
+ "roadmapId": "MetaplecticAutomorphicForms",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "MetaplecticAutomorphicForms:MP.0",
+  "MetaplecticAutomorphicForms:MP.1",
+  "MetaplecticAutomorphicForms:MP.2",
+  "MetaplecticAutomorphicForms:MP.3",
+  "MetaplecticAutomorphicForms:MP.4",
+  "MetaplecticAutomorphicForms:MP.5",
+  "MetaplecticAutomorphicForms:MP.6",
+  "MetaplecticAutomorphicForms:MP.7",
+  "MetaplecticAutomorphicForms:MP.8"
+ ],
+ "status": "complete",
+ "title": "Metaplectic groups, Weil representations and automorphic theta kernels",
+ "summary": "Whole-roadmap pass over the metaplectic roadmap. It follows the two accepted parts, MetaplecticAutomorphicForms--MP.0 (layers MP.0–MP.7, 176 targets) and MetaplecticAutomorphicForms--MP.8 (85 targets), and adds the five targets the pass found missing. Four complete RT-AREA-automorphic-1/20 in MP.6: the metaplectic modular group Mp(2,ℤ) with vector-valued forms of half-integral weight, classical Jacobi forms of lattice index with their theta decomposition (Skoruppa), the unitary analogue of the Jacobi group with its Schrödinger–Weil representation, and the theta-paired Fourier–Jacobi coefficients along Heisenberg parabolics (Gan–Gross–Prasad). The fifth is the product formula and nonvanishing of the Jacobi theta function (MP.7), moved down from QSeriesPartitionsAndMockModularForms QM.1, which imports MP.7. Restructure R1–R6 route verified edits to the parts: a dependency order for the nine layers (eight targets change layer, after which no prerequisite runs backwards), exact suppliers for the local Langlands, Jacquet–Langlands and newform inputs that cited whole stages of ModularityAndLanglandsExtensions and GL2AutomorphicRepresentationsAndTransfer, the removal of latent cycles with ML.4 and with QSeries, node ids for the sixteen bare stage citations inside MP.8, and the corrected Gaussian norm √det Y/(4a) of the genus-two theta series (BFH Proposition 2.1 prints 2a; source issue E-WR-1), with a check that the unfolding prefactor 1/(2mN³) does not depend on it. R7–R8 are proposals for the maintainer (the function-field programme; the overlap with the upstream Theta Series roadmap). Every routed item of the maintainer's fifteen added sources is planned by an accepted MP.0 target, and the five red-team findings are handled in the parts and here. The atlas builds the roadmap from all three packets; a dry assembly gives 266 declarations, 48 planets and no skipped links. All nine stages are planned in the sense of Protocol §0, with the parts' recorded gaps and requests retained. Complete describes this planning pass, not independent acceptance or mathematical closure.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:SemidirectProduct",
+    "kind": "structure",
+    "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
+    "provides": "The semidirect product N ⋊[φ] G for φ : G →* MulAut N, with multiplication (n₁, g₁)(n₂, g₂) = (n₁ · φ g₁ n₂, g₁ g₂).",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:ModularForm",
+    "kind": "structure",
+    "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+    "provides": "Holomorphic modular forms of integral weight k for a subgroup Γ of GL(2,ℝ): slash-invariant holomorphic functions on ℍ bounded at every cusp.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.SpecialLinearGroup",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+    "provides": "SL(n, R) as the subtype of matrices of determinant 1, a group; SL(2,ℤ) is the instance used here.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:UpperHalfPlane",
+    "kind": "structure",
+    "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+    "provides": "The upper half plane ℍ = {τ : Im τ > 0} with the Möbius action of SL(2,ℤ) and GL(2,ℝ)⁺.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:jacobiTheta",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+    "provides": "jacobiTheta τ = Σ_{n∈ℤ} exp(π i n² τ).",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:jacobiTheta_eq_jacobiTheta₂",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/ModularForms/JacobiTheta/OneVariable.lean",
+    "provides": "jacobiTheta τ = jacobiTheta₂ 0 τ.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:tprod_one_add_ne_zero_of_summable",
+    "kind": "lemma",
+    "module": "Mathlib/Analysis/SpecialFunctions/Log/Summable.lean",
+    "provides": "In a complete normed ring with multiplicative norm, if every 1 + f i is nonzero and Σ ‖f i‖ converges, then ∏' (1 + f i) ≠ 0.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   },
+   {
+    "ref": "mathlib:HasFPowerSeriesAt.eq_formalMultilinearSeries",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+    "provides": "Two formal power series expansions of the same one-variable function at the same point are equal.",
+    "checked": "statement read at the pinned commit 082e2d3"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "GGP12",
+   "title": "Symplectic local root numbers, central critical L-values, and restriction problems in the representation theory of classical groups",
+   "authors": "Wee Teck Gan, Benedict H. Gross and Dipendra Prasad",
+   "edition": "arXiv:0909.2999v1 (2009); published in Astérisque 346 (2012), 1–109. Page numbers are those of the arXiv version.",
+   "url": "https://arxiv.org/abs/0909.2999",
+   "sha256": "97c28b21ece4cec640a43dc8c7136ec925001d46e9555e413df1b3f9865daae7",
+   "readSections": [
+    "§12, the representation ν of H, symplectic and skew-Hermitian cases (Fourier–Jacobi models), pp. 46–52",
+    "§22, Jacobi groups and the automorphic Weil representation, pp. 84–85",
+    "§23, global restriction problems and Fourier–Jacobi coefficients, pp. 86–89"
+   ]
+  },
+  {
+   "id": "Skoruppa07",
+   "title": "Jacobi forms of critical weight and Weil representations",
+   "authors": "Nils-Peter Skoruppa",
+   "edition": "arXiv:0707.0718v1 (5 July 2007); published in Modular Forms on Schiermonnikoog (Cambridge University Press, 2008). Page numbers are those of the arXiv version.",
+   "url": "https://arxiv.org/abs/0707.0718",
+   "sha256": "a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0",
+   "readSections": [
+    "§2 Notation, pp. 4–5",
+    "§3 Weil representations of Mp(2,ℤ), pp. 5–10",
+    "§4 Jacobi forms and vector valued modular forms, pp. 10–16"
+   ]
+  },
+  {
+   "id": "KongTeo23",
+   "title": "An elementary proof of the transformation formula for the Dedekind eta function",
+   "authors": "Ze-Yong Kong and Lee-Peng Teo",
+   "edition": "arXiv:2302.03280v1 (7 February 2023)",
+   "url": "https://arxiv.org/abs/2302.03280",
+   "sha256": "36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69",
+   "readSections": [
+    "§3, Theorem 3.1 with its proof and Corollary 3.2, pp. 4–6"
+   ]
+  },
+  {
+   "id": "BFH90",
+   "title": "Nonvanishing theorems for L-functions of modular forms and their derivatives",
+   "authors": "Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein",
+   "edition": "Inventiones mathematicae 102 (1990), 543–618; published scan, DOI 10.1007/BF01233440",
+   "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+   "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
+   "readSections": [
+    "§1, (1.20)–(1.24), p. 550–551",
+    "§2, (2.1)–(2.16), Propositions 2.1–2.3, pp. 551–554",
+    "§5, definition of H, Proposition 5.1 and its proof through the Gaussian integral, pp. 580–581"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/0909.2999v1",
+   "read": "2026-10-17",
+   "sha256": "97c28b21ece4cec640a43dc8c7136ec925001d46e9555e413df1b3f9865daae7",
+   "citation": "Gan–Gross–Prasad, arXiv v1; the Astérisque version was not collated, so locators are to the arXiv pages."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/0707.0718v1",
+   "read": "2026-10-17",
+   "sha256": "a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0",
+   "citation": "Skoruppa, arXiv v1; the published proceedings version was not collated."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2302.03280v1",
+   "read": "2026-10-17",
+   "sha256": "36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69"
+  },
+  {
+   "kind": "published",
+   "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+   "read": "2026-10-17",
+   "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c",
+   "citation": "Published Inventiones scan (the version the MP.8 part read); printed pp. 550–554 and 580–581 read in rendered page images; printed page = scan page + 541."
+  }
+ ],
+ "nodes": [
+  {
+   "id": "MetaplecticAutomorphicForms:MP.6/metaplectic-modular-group",
+   "parentStageId": "MetaplecticAutomorphicForms:MP.6",
+   "realises": [
+    "MetaplecticAutomorphicForms:MP.6"
+   ],
+   "title": "The metaplectic modular group and vector-valued forms of half-integral weight",
+   "kind": "definition",
+   "statement": "Mp(2,ℤ) is the group of pairs (A, w) with A = [a, b; c, d] ∈ SL(2,ℤ) and w a holomorphic function on the upper half plane with w(τ)² = cτ + d, under (A, w)(B, v) = (AB, τ ↦ w(Bτ) v(τ)). The projection (A, w) ↦ A is surjective with kernel {(1, 1), (1, −1)}, which is central. For k ∈ ½ℤ the weight-k slash operator (f|_k(A, w))(τ) = w(τ)^{−2k} f(Aτ) is a right action of Mp(2,ℤ) on functions on the upper half plane, and (1, −1) acts by (−1)^{2k}. For a subgroup Γ ⊂ Mp(2,ℤ) of finite index and a finite-dimensional unitary representation ρ of Γ on V, a modular form of weight k and type (Γ, ρ) is a holomorphic f : ℍ → V with f|_k α = ρ(α) f for all α ∈ Γ such that, for every α ∈ Mp(2,ℤ), f|_k α has an expansion Σ c(l) q^l (q^l = e(lτ)) over real l ≥ 0 lying in finitely many cosets of (1/h)ℤ, h the width of the cusp α∞; cusp forms have l > 0 only, and weakly holomorphic forms allow finitely many l < 0. One-dimensional ρ are the multiplier systems. Mp(2,ℤ) is the preimage of SL(2,ℤ) in the real metaplectic double cover of MP.2 (MP.1/metaplectic-double-cover before restructure R1), the pair (A, w) corresponding to the lift whose weight-1/2 automorphy factor is w.",
+   "hypotheses": [
+    "w ranges over holomorphic square roots of cτ + d on the simply connected upper half plane; there are exactly two for each A.",
+    "Expansions at the cusps are taken after slashing by every α ∈ Mp(2,ℤ), so the growth condition is imposed at every cusp. ρ is unitary, so ρ restricted to the stabilizer of a cusp is diagonalizable with eigenvalues e(κ_j), and the exponents lie in the cosets κ_j/h + (1/h)ℤ; they are rational when ρ has finite image, which the theta decomposition of MP.6/classical-jacobi-forms assumes. Non-unitary types, whose expansions acquire logarithmic terms, are not covered."
+   ],
+   "proofSteps": [
+    "The composition is well defined and associative because the factors compose as automorphy factors: (w(Bτ)v(τ))² = (c(Bτ) + d)(c_Bτ + d_B), which is the bottom-row factor of AB at τ. The identity is (1, 1) and the inverse of (A, w) is (A⁻¹, τ ↦ 1/w(A⁻¹τ)).",
+    "Two square roots of the same nowhere-vanishing holomorphic function on a connected domain differ by a constant sign, so the kernel of the projection is {(1, ±1)}; it is central because constants commute with the composition.",
+    "The slash law (f|_kα)|_kβ = f|_k(αβ) is the composition rule raised to the power −2k; at α = (1, −1) the factor is (−1)^{−2k} = (−1)^{2k}.",
+    "Comparison with the real double cover: the lifts of SL(2,ℝ) acting on the weight-1/2 automorphy factor form the classical model of the double cover; MP.8/similitude-cover makes the same comparison in genus two. Restricting to SL(2,ℤ) gives Mp(2,ℤ). The comparison is made on generators and preserves the central sign."
+   ],
+   "acceptance": [
+    "S̃ = (S, √τ) with the principal root and T̃ = (T, 1) satisfy S̃² = (−1, i) = (S̃T̃)³ and S̃⁴ = (1, −1), so S̃ has order 8.",
+    "For integral k and ρ trivial on (1, −1) the forms of type (Γ, ρ) are the classical vector-valued forms on the image of Γ in SL(2,ℤ)."
+   ],
+   "uses": [
+    {
+     "where": "Skoruppa, Jacobi forms of critical weight, §§2–4",
+     "how": "Jacobi forms of half-integral weight, the Weil representations W(F) of finite quadratic modules and the vector-valued forms of the theta decomposition are all stated over Mp(2,ℤ)."
+    },
+    {
+     "where": "MP.6/classical-jacobi-forms",
+     "how": "the modular part of the Jacobi group J_n(Γ) and the half-integral weight slash operator."
+    },
+    {
+     "where": "MP.7/theta-multiplier and MP.7/adelic-classical-half-weight",
+     "how": "the theta multiplier J(γ, τ) = θ(γτ)/θ(τ) is the weight-1/2 automorphy factor of a section of Mp(2,ℤ) over Γ₀(4), and classical half-integral weight forms are forms of type (Γ₀(4)*, χ)."
+    },
+    {
+     "where": "QSeriesPartitionsAndMockModularForms:QM.1 (requests to MP.7)",
+     "how": "half-integral weight automorphy factors, multiplier systems on finite-index subgroups, the classical Mp₂(ℤ) and vector-valued forms for a Weil representation; QM.1 imports them from here."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.mul_def",
+     "role": "simp",
+     "statement": "(A, w)(B, v) = (AB, τ ↦ w(Bτ) v(τ))."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.ker_proj",
+     "role": "characterisation",
+     "statement": "The kernel of Mp(2,ℤ) → SL(2,ℤ) is {(1, ±1)} and it is central."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.genS_genT",
+     "role": "relation",
+     "statement": "S̃ = (S, √τ) and T̃ = (T, 1) generate Mp(2,ℤ), with S̃² = (S̃T̃)³ = (−1, i) and S̃⁸ = 1."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.principalSection_cocycle",
+     "role": "relation",
+     "statement": "The principal-branch section A ↦ (A, (cτ + d)^{1/2}) has a ±1-valued 2-cocycle σ(A, B), independent of τ, with (f|_{1/2}A)|_{1/2}B = σ(A, B)^{−1} f|_{1/2}(AB) for the principal-branch slash on SL(2,ℤ)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.slash_mul",
+     "role": "structure",
+     "statement": "(f|_kα)|_kβ = f|_k(αβ), and f|_k(1, −1) = (−1)^{2k} f."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.modularForm_induce",
+     "role": "equivalence",
+     "statement": "Forms of type (Γ, ρ) correspond to forms of type (Mp(2,ℤ), Ind ρ) (Skoruppa's Lemma 1, stated there for Jacobi forms)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.modularForm_integral",
+     "role": "compatibility",
+     "statement": "For k ∈ ℤ, Γ the preimage of a finite-index subgroup Γ′ of SL(2,ℤ) and ρ trivial, the forms of type (Γ, ρ) are Mathlib's ModularForm of weight k for the image of Γ′ in GL(2,ℝ)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.toRealCover",
+     "role": "compatibility",
+     "statement": "Mp(2,ℤ) embeds in the real metaplectic double cover over SL(2,ℤ) ⊂ SL(2,ℝ), compatibly with the projections and the central signs."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.genS_sq",
+     "kind": "computation",
+     "statement": "(S, √τ)² = (−1, i): the constant √(−1/τ)·√τ equals i (check at τ = i: e^{iπ/4}·e^{iπ/4} = i), and (S, √τ)⁴ = (1, −1)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.principalSection_minusOne",
+     "kind": "non-example",
+     "statement": "The principal-branch section is not a homomorphism: σ(−1, −1) = −1, since (−1)^{1/2} = i and i·i = −1 while the factor of the identity is 1."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.halfIntegral_trivialType",
+     "kind": "degenerate",
+     "statement": "For k ∈ ½ + ℤ and a type ρ with ρ(1, −1) = 1, every form of type (Γ, ρ) vanishes, because (1, −1) acts by −1 on the weight-k slash."
+    },
+    {
+     "name": "TauCeti.Metaplectic.Mp2Z.integralWeight_compat",
+     "kind": "compatibility",
+     "statement": "For k = 12, Γ = Mp(2,ℤ) and ρ trivial the space of cusp forms is spanned by Δ, matching Mathlib's level-one cusp forms of weight 12."
+    }
+   ],
+   "prerequisites": [
+    "MetaplecticAutomorphicForms:MP.1/metaplectic-double-cover",
+    "mathlib:ModularForm",
+    "mathlib:Matrix.SpecialLinearGroup",
+    "mathlib:UpperHalfPlane"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularForms/Metaplectic/Basic",
+    "namespace": "TauCeti.Metaplectic"
+   },
+   "sources": [
+    {
+     "sourceId": "Skoruppa07",
+     "locator": "§2, pp. 4–5 (notation: Mp(2,ℤ), the standard multiplier j(A, τ) = θ(Aτ)/θ(τ), M_k(Γ))",
+     "match": "Defines Mp(2,ℤ) as pairs (A, w) with w² = cτ + d and the composition used here, and the spaces of modular forms of half-integral weight on subgroups of Γ₀(4) through the theta multiplier."
+    },
+    {
+     "sourceId": "Skoruppa07",
+     "locator": "§4, pp. 10–12 and p. 14",
+     "match": "The weight-k action of Mp(2,ℤ) through w(τ)^{−2k}, the action of (1, −1) by (−1)^{2k}, the induction isomorphism (Lemma 1) and vector-valued forms M_k(ρ) with transformation law h(Aτ) w(τ)^{−2k} = ρ(α)h(τ)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MetaplecticAutomorphicForms:MP.6/unitary-jacobi-group",
+   "parentStageId": "MetaplecticAutomorphicForms:MP.6",
+   "realises": [
+    "MetaplecticAutomorphicForms:MP.6"
+   ],
+   "title": "Unitary Jacobi group and its Schrödinger–Weil representation",
+   "kind": "construction",
+   "statement": "Let k/k₀ be a quadratic extension of local fields of characteristic zero, or the split algebra k₀ × k₀, with involution σ and quadratic character ω_{k/k₀}. Let (W, ⟨ , ⟩) be a nondegenerate skew-Hermitian k-space and let W₀ be W regarded as a k₀-space with the symplectic form Tr_{k/k₀}⟨ , ⟩. Then U(W) ⊂ Sp(W₀), and U(W) acts on the Heisenberg group H(W₀) = W₀ × k₀ of MP.0 by isometries of W₀, fixing the centre. The unitary Jacobi group is the semidirect product J_U(W) = H(W₀) ⋊ U(W). For a nontrivial unitary character ψ of k₀ and a character µ of k^× with µ|_{k₀^×} = ω_{k/k₀}, the splitting s_{ψ,µ} : U(W) → S_ψ into the scalar metaplectic extension of MP.1 (MP.3/unitary-splitting, for the dual pair formed by W and the Hermitian line of discriminant 1) gives a linear representation ω_{ψ,µ}(h, g) = ρ_ψ(h) A_{s_{ψ,µ}(g)} of J_U(W) on the smooth Schrödinger model, where A_s is the unitary operator component of s ∈ S_ψ. Its restriction to H(W₀) is the Stone–von Neumann representation with central character ψ, and its restriction to U(W) is the Weil representation ω_{ψ,µ}. Over a quadratic extension E/F of number fields, with ψ a character of 𝔸/F and µ a character of 𝔸_E^×/E^× restricting to ω_{E/F} on 𝔸^×, the local representations assemble into the restricted tensor product representation of J_U(W)(𝔸) on S(Y(𝔸)) for a Lagrangian Y ⊂ W₀, and Weil's theta distribution φ ↦ Σ_{ξ∈Y(F)} (ω_{ψ,µ}(j)φ)(ξ) is an automorphic realization θ_{ψ,µ} of it on J_U(W)(F)\\J_U(W)(𝔸), with central character ψ.",
+   "hypotheses": [
+    "Characteristic zero; W nondegenerate skew-Hermitian over k, of any dimension (W = 0 allowed); ψ nontrivial; µ|_{k₀^×} = ω_{k/k₀} exactly. The auxiliary Hermitian space is the line of discriminant 1, so the restriction condition has exponent 1, not dim W.",
+    "The symplectic form on W₀ is Tr_{k/k₀}⟨ , ⟩, as for V₁ ⊗ W with V₁ the Hermitian line of discriminant 1. Rescaling the form rescales ψ by the same factor, and the rescaling must be transported, not ignored.",
+    "Globally the local splittings are the standard ones at almost all places (where W₀ has a self-dual lattice stable under the integral unitary group and ψ, µ are unramified), so that their restricted product is defined."
+   ],
+   "proofSteps": [
+    "U(W) preserves Tr_{k/k₀}⟨ , ⟩, so it embeds in Sp(W₀); its action on H(W₀) is the restriction of MP.0/isometry-action and fixes the centre.",
+    "Form the semidirect product with Mathlib's SemidirectProduct; the multiplication is (h, g)(h′, g′) = (h · (g · h′), gg′).",
+    "The covariance A_s ρ_ψ(h) A_s⁻¹ = ρ_ψ(g · h) for s = s_{ψ,µ}(g), which is the defining property of S_ψ (MP.1/scalar-normalizer-extension), shows that (h, g) ↦ ρ_ψ(h) A_{s_{ψ,µ}(g)} is multiplicative; it is linear, not projective, because s_{ψ,µ} is a homomorphism into S_ψ.",
+    "Globally, at almost all places the local splitting fixes the standard lattice vector, so the restricted tensor product of the local representations is defined (MP.4/adelic-weil-representation). For γ in U(W)(F) the product over all places of the local splittings agrees with the canonical rational splitting of MP.4/rational-symplectic-splitting, because µ is trivial on E^× and the Weil indices satisfy the product formula (MP.4/global-weil-index-product). The theta distribution is invariant under the rationally split Sp(W₀)(F) (MP.5/theta-kernel) and under the rational points of H(W₀) (Poisson summation along Y), hence under J_U(W)(F).",
+    "Degenerate cases: if W = 0 the group is the centre k₀ and ω_{ψ,µ} = ψ, with no dependence on µ; if k = k₀ × k₀, U(W) is a general linear group of a polarization of W₀ and the splitting is the standard linear one."
+   ],
+   "acceptance": [
+    "For W = 0, J_U(W) is the centre k₀ and ω_{ψ,µ} is the character ψ.",
+    "For dim_k W = 1, W₀ is a symplectic plane and U(W) = k¹ = {z : zσ(z) = 1} acts on it as an anisotropic torus of SL₂(k₀); for k = ℂ, k₀ = ℝ it is the maximal compact subgroup SO(2) of SL₂(ℝ)."
+   ],
+   "uses": [
+    {
+     "where": "Gan–Gross–Prasad, Astérisque 346, §12, skew-Hermitian case, and §23",
+     "how": "H = N ⋊ U(W) maps to J_U(W); the representation ν_{ψ,µ} = ω_{ψ,µ} ⊗ λ and its automorphic realization θ_{ψ,µ} are pulled back from J_U(W)."
+    },
+    {
+     "where": "MP.6/fourier-jacobi-period",
+     "how": "supplies the theta functions θ_{ψ,µ}(φ) that are paired with automorphic forms on unitary groups."
+    },
+    {
+     "where": "AutomorphicCongruences L2 and L2s (Fourier–Jacobi calculations for unitary Eisenstein series)",
+     "how": "RT-AREA-automorphic-1/20 names the unitary analogue of the Jacobi group as their input from MP.6."
+    },
+    {
+     "where": "MP.6/jacobi-group",
+     "how": "the symplectic Jacobi group is the parallel object for Sp(W); through s_{ψ,µ}, J_U(W) maps into its scalar-extension form H(W₀) ⋊ S_ψ."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_mul",
+     "role": "simp",
+     "statement": "In J_U(W), (h, g)(h′, g′) = (h · (g · h′), g g′)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup.toScalarJacobi",
+     "role": "functoriality",
+     "statement": "For fixed ψ and µ, (h, g) ↦ (h, s_{ψ,µ}(g)) is an injective homomorphism from J_U(W) to H(W₀) ⋊ S_ψ, the scalar-extension version of the Jacobi group of MP.6/jacobi-group (S_ψ acting on H(W₀) through its projection to Sp(W₀))."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitarySchroedingerWeil_apply",
+     "role": "simp",
+     "statement": "ω_{ψ,µ}(h, g) = ρ_ψ(h) A_{s_{ψ,µ}(g)}; it is the pullback along toScalarJacobi of the representation (h, (g, A)) ↦ ρ_ψ(h) A of H(W₀) ⋊ S_ψ."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitarySchroedingerWeil_heisenberg",
+     "role": "characterisation",
+     "statement": "The restriction of ω_{ψ,µ} to H(W₀) is irreducible with central character ψ (Stone–von Neumann, MP.1)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitarySchroedingerWeil_character_change",
+     "role": "relation",
+     "statement": "Replacing µ by another character with the same restriction to k₀^× changes s_{ψ,µ} by a character of U(W), as recorded by MP.3/unitary-splitting; ω changes by that character on U(W) and not at all on H(W₀)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryTheta_invariant",
+     "role": "characterisation",
+     "statement": "Globally θ_{ψ,µ}(φ) is left invariant under J_U(W)(F) and the centre 𝔸 acts on it by ψ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_zero",
+     "kind": "degenerate",
+     "statement": "For W = 0, J_U(0) is the centre k₀ and ω_{ψ,µ} is the character ψ, independent of µ."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_restrict",
+     "kind": "compatibility",
+     "statement": "On H(W₀) the representation is the Schrödinger representation ρ_ψ of MP.0/schroedinger-model for the chosen polarization; on U(W) it is the Weil representation of MP.3/unitary-splitting for the pair (V₁, W)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_line",
+     "kind": "computation",
+     "statement": "For k = ℂ, k₀ = ℝ and W = ℂ with ⟨x, y⟩ = i x ȳ, W₀ = ℝ² with symplectic form Tr_{ℂ/ℝ}(i x ȳ) = −2 Im(x ȳ), which takes the value 2 on (1, i); U(W) = S¹ acts by rotations and is SO(2) ⊂ SL₂(ℝ) = Sp(W₀)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_not_product",
+     "kind": "non-example",
+     "statement": "The direct product H(W₀) × U(W) with the same operators is not a representation: for g acting nontrivially on W₀ the operators ρ_ψ(h) and ω(s(g)) do not commute, by covariance."
+    },
+    {
+     "name": "TauCeti.Metaplectic.unitaryJacobiGroup_not_doubleCover",
+     "kind": "non-example",
+     "statement": "The splitting cannot be taken into the metaplectic double cover: for k = ℂ, k₀ = ℝ and dim W = 1, the double cover Mp₂(ℝ) restricted to U(W) = SO(2) is the connected double cover of the circle, which has no continuous section. Splittings exist only into the scalar extension S_ψ, and each requires a choice of µ (GGP §12(ii))."
+    }
+   ],
+   "prerequisites": [
+    "MetaplecticAutomorphicForms:MP.0/topological-heisenberg",
+    "MetaplecticAutomorphicForms:MP.0/isometry-action",
+    "MetaplecticAutomorphicForms:MP.0/schroedinger-model",
+    "MetaplecticAutomorphicForms:MP.1/scalar-normalizer-extension",
+    "MetaplecticAutomorphicForms:MP.3/unitary-splitting",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+    "MetaplecticAutomorphicForms:MP.4/adelic-weil-representation",
+    "MetaplecticAutomorphicForms:MP.4/rational-symplectic-splitting",
+    "MetaplecticAutomorphicForms:MP.4/global-weil-index-product",
+    "MetaplecticAutomorphicForms:MP.5/theta-kernel",
+    "mathlib:SemidirectProduct"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Metaplectic/UnitaryJacobi",
+    "namespace": "TauCeti.Metaplectic"
+   },
+   "sources": [
+    {
+     "sourceId": "GGP12",
+     "locator": "§12, 'Symplectic and skew-Hermitian cases (Fourier–Jacobi models)', pp. 46–52, case (ii)",
+     "match": "Defines the homomorphism from the unipotent group N to the Heisenberg group of W regarded over k₀ with the trace form, and states that the projective Weil representation of U(W) becomes linear after choosing a character µ of k^× restricting to ω_{k/k₀}; the representation ν_{ψ,µ} of H = N ⋊ U(W) is built from it."
+    },
+    {
+     "sourceId": "GGP12",
+     "locator": "§22, pp. 84–85",
+     "match": "The Jacobi group J_W = Sp(W) ⋉ H(W), its adelic double cover, Jacobi forms as functions with central character ψ, and Weil's automorphic realization θ_ψ of the global Weil representation."
+    },
+    {
+     "sourceId": "GGP12",
+     "locator": "§23, pp. 88–89",
+     "match": "In the skew-Hermitian case an automorphic character µ with µ|_{𝔸^×} = ω_{E/F} gives a splitting H(𝔸) → J̃_W(𝔸) and the automorphic realization θ_{ψ,µ}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-period",
+   "parentStageId": "MetaplecticAutomorphicForms:MP.6",
+   "realises": [
+    "MetaplecticAutomorphicForms:MP.6"
+   ],
+   "title": "Fourier–Jacobi coefficients along Heisenberg parabolics, symplectic and unitary",
+   "kind": "construction",
+   "statement": "Let F be a number field and let W ⊂ V be nondegenerate spaces over E of one of the two Fourier–Jacobi types: both symplectic (E = F), or both skew-Hermitian for a quadratic extension E/F. Assume W^⊥ = X ⊕ X^∨ with X, X^∨ isotropic and in duality, dim_E X = n ≥ 0. Let H = N ⋊ G(W) ⊂ G(V) be the subgroup attached to a full isotropic flag in X: N is the unipotent radical of the parabolic stabilizing the flag, λ the G(W)-invariant generic character of N, and N → H(W₀) the G(W)-equivariant homomorphism to the Heisenberg group of W₀ (W over F with the form 2⟨ , ⟩ in the symplectic case and Tr_{E/F}⟨ , ⟩ in the skew-Hermitian case). Through MP.6/jacobi-group (symplectic case, on the metaplectic cover of Sp(W)) or MP.6/unitary-jacobi-group and a character µ (skew-Hermitian case), the theta functions θ(φ), φ ∈ S(Y(𝔸)), pull back to H(F)\\H(𝔸); put θ_ν(φ) = θ(φ) · λ. For a cuspidal automorphic form f on G(V)(𝔸) (and, in the symplectic case, the appropriate cover), the Fourier–Jacobi coefficient is FJ(f, φ)(g) = ∫_{N(F)\\N(𝔸)} f(ng) θ_ν(φ)(ng) dn for g in G(W)(𝔸) (its metaplectic cover in the symplectic case), and the Fourier–Jacobi period of f ⊗ f′ ⊗ φ, for f′ an automorphic form on G(W) (a genuine form on the metaplectic cover of Sp(W) in the symplectic case, so that f′ · θ_ν(φ) descends), is 𝒫(f, f′, φ) = ∫_{H(F)\\H(𝔸)} f(h) f′(h) θ_ν(φ)(h) dh. FJ(f, φ) is left G(W)(F)-invariant and rapidly decreasing, the period converges absolutely, and 𝒫(f, f′, φ) = ∫_{G(W)(F)\\G(W)(𝔸)} FJ(f, φ)(g) f′(g) dg.",
+   "hypotheses": [
+    "Fourier–Jacobi type in the sense of GGP §§12 and 23: V and W both symplectic, or both skew-Hermitian, with W^⊥ split of even dimension 2n; n = 0 is allowed (then N = 1 and H = G(W) = G(V)).",
+    "f is a smooth cusp form; f′ is of moderate growth; the measure on N(F)\\N(𝔸) is the probability measure and the measure on G(W)(F)\\G(W)(𝔸) is fixed in advance. In the skew-Hermitian case µ is an automorphic character of 𝔸_E^× with µ|_{𝔸^×} = ω_{E/F}.",
+    "The pairing convention is GGP's (f · θ, no complex conjugate). Sources that pair with the conjugate theta function use the data (ψ⁻¹, µ⁻¹), since complex conjugation carries ω_{ψ,µ} to ω_{ψ⁻¹,µ⁻¹} (MP.2/character-and-dual); the two conventions must not be mixed."
+   ],
+   "proofSteps": [
+    "GGP §12 constructs, for n ≥ 1, the G(W)-equivariant homomorphism from N to H(W₀) and the generic character λ; with the Jacobi group of MP.6/jacobi-group, or MP.6/unitary-jacobi-group and µ, this gives a homomorphism from H to the Jacobi group (on the metaplectic cover in the symplectic case).",
+    "Pull back Weil's theta functions (MP.5/theta-kernel, MP.6/unitary-jacobi-group) and multiply by λ; the result is smooth and of uniform moderate growth on H(F)\\H(𝔸) (MP.5/theta-growth-transfer).",
+    "N(F)\\N(𝔸) is compact (AF.3/unipotent-quotient-compact), so FJ(f, φ) is defined; left G(W)(F)-invariance follows from the invariance of f and of θ_ν under H(F). A cusp form is rapidly decreasing (AF.3/cusp-form-rapid-decay), which dominates the moderate growth of θ_ν and f′; hence the period converges absolutely and Fubini over N gives the stated equality.",
+    "Equivariance: replacing (f, f′, φ) by their translates under h′ ∈ H(𝔸) through R(h′), R(h′) and ν(h′) leaves 𝒫 unchanged; FJ(R(g′)f, ω(g′)φ)(g) = FJ(f, φ)(g g′) for g′ in G(W)(𝔸).",
+    "Integrating first over the centre of the Heisenberg group against ψ⁻¹ isolates the ψ-isotypic part of f, the central Fourier–Jacobi coefficient of MP.6/fourier-jacobi-extraction; FJ pairs that part with θ_ν(φ).",
+    "Degenerate cases: if W = 0, ν is a generic character of the unipotent radical of a Borel subgroup and FJ is the corresponding Whittaker coefficient (MP.5/metaplectic-constant-and-whittaker); if n = 0, FJ(f, φ) = f · θ(φ) on G(W) = G(V)."
+   ],
+   "acceptance": [
+    "W = 0 recovers the Whittaker coefficient of f for a generic character; n = 0 recovers the equal-rank pairing ∫ f f′ θ(φ).",
+    "The skew-Hermitian construction depends on µ only through the character of U(W) by which the splitting changes (MP.6/unitary-jacobi-group)."
+   ],
+   "uses": [
+    {
+     "where": "Gan–Gross–Prasad, §23 and §24",
+     "how": "the Fourier–Jacobi periods F(ν_ψ) and F(ν_{ψ,µ}) of the global restriction problem, whose nonvanishing on tempered cuspidal π is related to central L-values."
+    },
+    {
+     "where": "AutomorphicCongruences L2 and L2s",
+     "how": "degenerate and nondegenerate Fourier–Jacobi coefficients of Eisenstein series on unitary groups are instances of FJ(f, φ) (RT-AREA-automorphic-1/20)."
+    },
+    {
+     "where": "QSeriesPartitionsAndMockModularForms:QM.1",
+     "how": "Fourier–Jacobi coefficients of Siegel-type forms in rank one are the symplectic case with n = 1."
+    },
+    {
+     "where": "MP.8 (BFH genus-two Jacobi forms)",
+     "how": "the BFH Jacobi functions are central Fourier–Jacobi coefficients in the sense of MP.6/fourier-jacobi-extraction; this node adds the theta-paired coefficient that MP.8 does not need."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_automorphic",
+     "role": "characterisation",
+     "statement": "FJ(f, φ) is left G(W)(F)-invariant, smooth and rapidly decreasing on a Siegel domain."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_equivariant",
+     "role": "functoriality",
+     "statement": "FJ(R(g′)f, ω(g′)φ) = R(g′) FJ(f, φ) for g′ in G(W)(𝔸), and FJ(R(n′)f, ν(n′)φ) = FJ(f, φ) for n′ in N(𝔸)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiPeriod_eq_integral",
+     "role": "relation",
+     "statement": "𝒫(f, f′, φ) = ∫_{[G(W)]} FJ(f, φ) f′, the inner integral over the compact N(F)\\N(𝔸) with probability measure."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_central",
+     "role": "compatibility",
+     "statement": "FJ(f, φ) depends only on the ψ-isotypic central coefficient of f along the Heisenberg centre (MP.6/fourier-jacobi-extraction)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_whittaker",
+     "role": "example",
+     "statement": "For W = 0, FJ(f) is the Whittaker coefficient of f for the generic character λ."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_equalRank",
+     "role": "example",
+     "statement": "For n = 0, FJ(f, φ) = f · θ(φ) on G(W)(𝔸)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_zero",
+     "kind": "degenerate",
+     "statement": "FJ(0, φ) = 0 and FJ(f, 0) = 0."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_sl2",
+     "kind": "computation",
+     "statement": "For V a symplectic plane and W = 0, so G(V) = SL₂ and N is the upper unipotent group, FJ(f)(g) = ∫_{F\\𝔸} f(n(x)g) ψ(x) dx is the Whittaker coefficient of f for the character ψ."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_equalRank_test",
+     "kind": "compatibility",
+     "statement": "For n = 0 the period 𝒫(f, f′, φ) is the integral of f f′ θ(φ) over G(W)(F)\\G(W)(𝔸), the equal-rank pairing of the GGP Fourier–Jacobi case."
+    },
+    {
+     "name": "TauCeti.Metaplectic.fourierJacobiCoeff_needs_theta",
+     "kind": "non-example",
+     "statement": "Integrating f against ψ⁻¹ over the Heisenberg centre alone does not give a scalar automorphic form on G(W): that coefficient transforms under H(W₀)(𝔸) by the infinite-dimensional representation ρ_ψ, and only the pairing with θ_ν(φ) produces a function on G(W)(F)\\G(W)(𝔸)."
+    }
+   ],
+   "prerequisites": [
+    "MetaplecticAutomorphicForms:MP.6/unitary-jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-extraction",
+    "MetaplecticAutomorphicForms:MP.5/theta-kernel",
+    "MetaplecticAutomorphicForms:MP.5/theta-growth-transfer",
+    "MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces",
+    "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
+    "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact",
+    "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/AutomorphicForms/FourierJacobi",
+    "namespace": "TauCeti.Metaplectic"
+   },
+   "sources": [
+    {
+     "sourceId": "GGP12",
+     "locator": "§23, pp. 86–89",
+     "match": "The global Fourier–Jacobi coefficients F(ν_ψ) (symplectic case) and F(ν_{ψ,µ}) (skew-Hermitian case): integrals over H(F)\\H(𝔸) of a cusp form against the automorphic realization of ν = ω ⊗ λ."
+    },
+    {
+     "sourceId": "GGP12",
+     "locator": "§12, pp. 46–52",
+     "match": "The subgroup H = N ⋊ G(W), the generic character λ and the homomorphism N → H(W₀), including the degenerate cases W = 0 (a generic character of the unipotent radical of a Borel subgroup) and n = 0 (H = G(W))."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MetaplecticAutomorphicForms:MP.6/classical-jacobi-forms",
+   "parentStageId": "MetaplecticAutomorphicForms:MP.6",
+   "realises": [
+    "MetaplecticAutomorphicForms:MP.6"
+   ],
+   "title": "Classical Jacobi forms of lattice index and their theta decomposition",
+   "kind": "definition",
+   "statement": "Let F be a symmetric positive definite half-integral n × n matrix (2F integral with even diagonal) and F[x] = xᵗFx. For a subgroup Γ ⊂ Mp(2,ℤ) of finite index, J_n(Γ) = Γ ⋉ (ℤⁿ × ℤⁿ), with (α, (λ, µ))(α′, (λ′, µ′)) = (αα′, (λ, µ)A′ + (λ′, µ′)) and (λ, µ)A = (aλ + cµ, bλ + dµ) for A = [a, b; c, d] the image of α′. For k ∈ ½ℤ, J_n(Γ) acts on the right on functions on ℍ × ℂⁿ by φ|_{k,F}(A, w)(τ, z) = w(τ)^{−2k} e(−c F[z]/(cτ + d)) φ(Aτ, z/(cτ + d)) and φ|_{k,F}[λ, µ](τ, z) = e(τ F[λ] + 2zᵗFλ) φ(τ, z + λτ + µ). A Jacobi form of weight k, index F and type (Γ, ρ), for a finite-dimensional representation ρ of Γ on V, is a holomorphic φ : ℍ × ℂⁿ → V with φ|_{k,F} g = ρ(g)φ for g ∈ J_n(Γ) (ℤⁿ × ℤⁿ acting trivially on V) such that, for every α ∈ Mp(2,ℤ), φ|_{k,F}α = Σ c(l, r) q^l e(zᵗr) over l ∈ ℚ and r ∈ ℤⁿ with 4l − F⁻¹[r] ≥ 0; cusp forms have 4l − F⁻¹[r] > 0. With the theta functions ϑ_{F,x}(τ, z) = Σ_{r ≡ x mod 2Fℤⁿ} e(τ F⁻¹[r]/4 + rᵗz), every Jacobi form is uniquely Σ_{x ∈ ℤⁿ/2Fℤⁿ} h_x(τ) ϑ_{F,x}(τ, z), and when ρ has finite image the map φ ↦ (h_x) is an isomorphism J_{k,F}(Γ, ρ) ≅ (M_{k−n/2} ⊗ W(F)^*) ⊗_{ℂ[Mp(2,ℤ)]} Ind ρ. Here W(F) is the Weil representation of Mp(2,ℤ) on ℂ[ℤⁿ/2Fℤⁿ] for the quadratic form x ↦ F⁻¹[x]/4 mod ℤ; it is ρ_{L_F} for the even lattice L_F = (ℤⁿ, 2F) and the complex conjugate of the representation ω_{L_F} of MP.4/finite-weil-representation. Consequently J_{k,F}(Γ, ρ) = 0 for k < n/2, and J_{n/2,F}(Γ, ρ) ≅ Hom_{Mp(2,ℤ)}(W(F), Ind ρ).",
+   "hypotheses": [
+    "F positive definite and half-integral in the even-diagonal sense; a half-integral scalar index such as 1/2 is not covered and is reached by rescaling z (ϑ(τ, 2z) has index 2).",
+    "k ∈ ½ℤ; for k ∉ ℤ the slash operator uses the Mp(2,ℤ) factor w(τ)^{−2k}; the decomposition theorem needs ρ of finite image (so that the components are modular forms on a subgroup of finite index).",
+    "W(F) is normalized by (T, 1)e_x = e(F⁻¹[x]/4)e_x and (S, √τ)e_x = σ|D_F|^{−1/2} Σ_y e(−B(y, x)) e_y with σ = |D_F|^{−1/2} Σ_x e(−F⁻¹[x]/4) = e(−n/8) (Milgram)."
+   ],
+   "proofSteps": [
+    "The group law and the right action are checked on generators. Composing [λ, µ] and then [λ′, µ′] gives [λ + λ′, µ + µ′] up to the phase e(2µ′ᵗFλ) = e(µ′ᵗ(2F)λ), which is 1 because 2F is integral; this is why the integral Jacobi group needs no central coordinate.",
+    "Invariance under ℤⁿ × ℤⁿ makes the coefficients c(l, r) depend only on 4l − F⁻¹[r] and on r mod 2Fℤⁿ, which groups the expansion into Σ_x h_x ϑ_{F,x}; uniqueness is the linear independence of the ϑ_{F,x} (their orthogonality, the n-variable form of the Gaussian pairing of MP.8/theta-pairing and of MP.6/jacobi-theta-decomposition-interface).",
+    "The span Θ(F) of the ϑ_{F,x} is stable under |_{n/2,F} and is isomorphic to W(F)^* by λ ↦ Σ λ(x)ϑ_{F,x} (Poisson summation gives the S-transformation); the components h_x therefore form a vector-valued form of weight k − n/2 for W(F)^* ⊗ Ind ρ, and the cusp conditions match.",
+    "W(F) = ρ_{L_F}: the discriminant module of L_F = (ℤⁿ, 2F) is (2F)⁻¹ℤⁿ/ℤⁿ ≅ ℤⁿ/2Fℤⁿ with q(y) = yᵗFy = F⁻¹[x]/4 for y = (2F)⁻¹x; complex conjugation of ω_{L_F} is recorded on MP.4/finite-weil-representation.",
+    "Weight k < n/2 leaves M_{k−n/2} = 0; at k = n/2 the constants give the Hom description."
+   ],
+   "acceptance": [
+    "For n = 1, F = (m), k ∈ ℤ, Γ = SL(2,ℤ) and ρ trivial, the definition is Eichler–Zagier's J_{k,m}, and ϑ_{m,x} are their theta functions Σ_{r ≡ x (2m)} q^{r²/4m} ζ^r.",
+    "For F = (1), σ(D_1) = 2^{−1/2}(1 + e(−1/4)) = e(−1/8), matching Milgram's formula with signature 1."
+   ],
+   "uses": [
+    {
+     "where": "Skoruppa, Jacobi forms of critical weight, §4",
+     "how": "the Jacobi group J_n(Γ), the actions |_{k,F}, Jacobi forms of type (Γ, V) and Theorem 5 (Jacobi forms as vector-valued forms for W(F)^*)."
+    },
+    {
+     "where": "QSeriesPartitionsAndMockModularForms:QM.1",
+     "how": "QM.1's Jacobi forms, Jacobi cusp forms, theta functions of index m and theta decomposition are the case n = 1; its weak and weakly holomorphic variants relax the condition 4l − F⁻¹[r] ≥ 0 and are added there."
+    },
+    {
+     "where": "MP.8/bfh-jacobi-specialization and MP.8/theta-decomposition",
+     "how": "the BFH genus-two Jacobi functions have matrix index on the Siegel space; their rank-one analogue and the n-variable theta decomposition are this node."
+    },
+    {
+     "where": "RT-AREA-automorphic-1/20",
+     "how": "Jacobi forms of given weight and index with multiplier systems, in the generality QM.1 needs, planned once before the consumers."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.mul_def",
+     "role": "simp",
+     "statement": "(α, (λ, µ))(α′, (λ′, µ′)) = (αα′, (λ, µ)A′ + (λ′, µ′))."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.slash_mul",
+     "role": "structure",
+     "statement": "|_{k,F} is a right action of J_n(Γ); (1, −1) acts by (−1)^{2k}."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.jacobiForm_mem",
+     "role": "characterisation",
+     "statement": "φ ∈ J_{k,F}(Γ, ρ) iff φ is holomorphic, φ|_{k,F}g = ρ(g)φ on J_n(Γ), and every φ|_{k,F}α has coefficients supported on 4l − F⁻¹[r] ≥ 0."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.thetaF",
+     "role": "data",
+     "statement": "ϑ_{F,x}(τ, z) = Σ_{r ≡ x mod 2Fℤⁿ} e(τ F⁻¹[r]/4 + rᵗz), depending only on x mod 2Fℤⁿ."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.thetaDecomposition",
+     "role": "equivalence",
+     "statement": "For ρ of finite image, J_{k,F}(Γ, ρ) ≅ (M_{k−n/2} ⊗ W(F)^*) ⊗_{ℂ[Mp(2,ℤ)]} Ind ρ, compatibly with the cusp subspaces."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.weilRep_eq_lattice",
+     "role": "compatibility",
+     "statement": "W(F) = ρ_{L_F} = conj(ω_{L_F}) for L_F = (ℤⁿ, 2F), with ω_{L_F} the finite Weil representation of MP.4."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.eq_zero_of_lt",
+     "role": "other",
+     "statement": "J_{k,F}(Γ, ρ) = 0 for k < n/2, and J_{n/2,F}(Γ, ρ) ≅ Hom_{Mp(2,ℤ)}(W(F), Ind ρ)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.toJacobiSpace",
+     "role": "compatibility",
+     "statement": "J_{k,F}(Γ, ρ) is the rank-one, index-F instance of the Jacobi spaces of MP.6/jacobi-spaces, read in the coordinates (τ, z), with the Heisenberg centre acting through the character attached to F."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.below_critical",
+     "kind": "degenerate",
+     "statement": "J_{k,F}(Γ, ρ) = 0 whenever k < n/2; in particular J_{0,F} = 0 for every F of size n ≥ 1."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.theta_index_one",
+     "kind": "computation",
+     "statement": "For n = 1 and F = (1), ℤ/2Fℤ = ℤ/2, the two theta functions are ϑ_{1,0} = Σ_{r even} q^{r²/4}ζ^r and ϑ_{1,1} = Σ_{r odd} q^{r²/4}ζ^r, and σ(D_1) = e(−1/8)."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.eichlerZagier",
+     "kind": "compatibility",
+     "statement": "For n = 1, F = (m), k ∈ ℤ, Γ = SL(2,ℤ) and ρ trivial, J_{k,F}(Γ, ρ) is Eichler–Zagier's space J_{k,m} of Jacobi forms of weight k and index m."
+    },
+    {
+     "name": "TauCeti.Metaplectic.JacobiZ.halfIndex_excluded",
+     "kind": "non-example",
+     "statement": "The Jacobi theta function ϑ(τ, z) has index 1/2, which is not half-integral in the even-diagonal sense, so it is not a Jacobi form here; ϑ(τ, 2z) is one, of weight 1/2 and index 2 with the character ε³ of Mp(2,ℤ) (ε(A, w) = η(Aτ)/(w(τ)η(τ)))."
+    }
+   ],
+   "prerequisites": [
+    "MetaplecticAutomorphicForms:MP.6/metaplectic-modular-group",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-spaces",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface",
+    "MetaplecticAutomorphicForms:MP.4/finite-weil-representation",
+    "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularForms/Jacobi/Basic",
+    "namespace": "TauCeti.Metaplectic"
+   },
+   "sources": [
+    {
+     "sourceId": "Skoruppa07",
+     "locator": "§4, pp. 10–14: the Jacobi group J_n(Γ), the actions |_{k,F}, the Definition, Lemma 1, Theorem 5 and its Corollary",
+     "match": "Defines Jacobi forms of half-integral weight and matrix index with a typus (Γ, V) and proves that they are vector-valued modular forms of weight k − n/2 for W(F)^* tensored with the induced module."
+    },
+    {
+     "sourceId": "Skoruppa07",
+     "locator": "§2, pp. 4–5 (ϑ_{F,x}) and §3, pp. 5–8 (Weil representations W(M), D_F, σ(M), Milgram's formula)",
+     "match": "The theta functions with characteristic and the Weil representation of Mp(2,ℤ) of a finite quadratic module by its action of T̃ and S̃, with σ(D_F) = e(−signature(2F)/8)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MetaplecticAutomorphicForms:MP.7/jacobi-theta-nonvanishing",
+   "parentStageId": "MetaplecticAutomorphicForms:MP.7",
+   "realises": [
+    "MetaplecticAutomorphicForms:MP.7"
+   ],
+   "title": "Product formula and nonvanishing of the Jacobi theta function",
+   "kind": "theorem",
+   "statement": "For τ in the upper half plane put w = exp(πiτ), so that |w| < 1. Then Mathlib's jacobiTheta τ = Σ_{n∈ℤ} exp(πin²τ) equals the absolutely convergent product ∏_{n≥1}(1 − w^{2n})(1 + w^{2n−1})². No factor vanishes, so jacobiTheta τ ≠ 0 for every τ with Im τ > 0. Consequently the theta series θ(z) = Σ_{n∈ℤ} e(n²z) = jacobiTheta(2z) of MP.7 has no zero on the upper half plane, and neither has the unitary normalization y^{1/4}θ(z), y = Im z.",
+   "hypotheses": [
+    "τ ∈ ℂ with Im τ > 0; e(x) = exp(2πix). No square root or other branch enters the statement.",
+    "The product is over n ≥ 1 and converges absolutely because Σ_n |w|^n < ∞; the identity is an identity of complex numbers, not only of formal power series."
+   ],
+   "proofSteps": [
+    "Formal identity. ClassicalArithmeticCompletion:CA.4/theta-product-specialisations, part (ii), gives Σ_{n∈ℤ} x^{n²} = ∏_{n≥1}(1 + x^{2n−1})²(1 − x^{2n}) in ℤ⟦x⟧ with the pi topology. Equivalently, for each j the coefficient of x^j in the finite products over n ≤ M is eventually (for M large) the number of n ∈ ℤ with n² = j.",
+    "Analytic identity. On the open unit disc the finite products converge locally uniformly to the infinite product, since Σ_n (2|x|^{2n−1} + |x|^{4n−2} + |x|^{2n}) converges locally uniformly there. A locally uniform limit of holomorphic functions is holomorphic, and its Taylor coefficients at 0 are the limits of the coefficients (Cauchy estimates); by the first step they are the coefficients of Σ x^{n²}, which is holomorphic on the disc. Two holomorphic functions on the disc with the same power series at 0 coincide (uniqueness of power series, HasFPowerSeriesAt.eq_formalMultilinearSeries, and the identity theorem on the connected disc). Kong–Teo prove the same analytic identity directly by a two-variable argument (Theorem 3.1); either proof may be used.",
+    "Substitute x = w = exp(πiτ): the defining series of jacobiTheta is Σ_n w^{n²}. jacobiTheta_eq_jacobiTheta₂ identifies it with jacobiTheta₂ 0 τ when the two-variable form is preferred.",
+    "Nonvanishing. Write the product as ∏_i (1 + f_i) over the interleaved family f = (−w^{2n}, w^{2n−1}, w^{2n−1})_{n≥1}. Each 1 + f_i is nonzero because |f_i| < 1, and Σ_i |f_i| < ∞; tprod_one_add_ne_zero_of_summable gives a nonzero product.",
+    "θ(z) = Σ_n exp(2πi n² z) = Σ_n exp(πi n² (2z)) = jacobiTheta(2z), and 2z lies in the upper half plane when z does; y^{1/4} > 0."
+   ],
+   "acceptance": [
+    "At τ = i: jacobiTheta i = π^{1/4}/Γ(3/4) ≈ 1.0864, and the product truncated at n = 2 agrees with it to three decimal places.",
+    "Consistency with Mathlib: norm_jacobiTheta_sub_one_le gives ‖jacobiTheta τ − 1‖ < 1, hence nonvanishing, only where exp(−π Im τ) < 1/3. The theorem covers the whole half plane, including the region near the cusp τ = 1, where jacobiTheta tends to 0 and no such bound can apply.",
+    "Non-example: the two-variable function vanishes, jacobiTheta₂ ((1 + τ)/2) τ = 0, because the factor with n = 1 of the two-variable triple product vanishes there. Nonvanishing is special to the specialisation z = 0."
+   ],
+   "uses": [
+    {
+     "where": "MP.7/theta-multiplier",
+     "how": "θ(z) ≠ 0 makes J(γ, z) = θ(γz)/θ(z) defined on the whole upper half plane, for γ ∈ Γ₀(4)."
+    },
+    {
+     "where": "MP.7/theta-residue-normalization",
+     "how": "the residue ½θ of the half-weight Eisenstein family is a nowhere vanishing form, used for its Petersson normalization."
+    },
+    {
+     "where": "QSeriesPartitionsAndMockModularForms:QM.1 (theta and eta multipliers, Jacobi forms)",
+     "how": "QM.1 requires MP.7 and MP.8; it imports this theorem rather than planning it, which removes the citation of QM.1 from MP.7."
+    }
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.4/theta-product-specialisations",
+    "mathlib:jacobiTheta",
+    "mathlib:jacobiTheta_eq_jacobiTheta₂",
+    "mathlib:tprod_one_add_ne_zero_of_summable",
+    "mathlib:HasFPowerSeriesAt.eq_formalMultilinearSeries"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularForms/JacobiTheta/ProductFormula",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "KongTeo23",
+     "locator": "§3, Theorem 3.1, pp. 4–6, and Corollary 3.2, p. 6",
+     "match": "The analytic Jacobi triple product for |w| < 1 and nonzero z, proved by comparing the Laurent coefficients in z and showing the constant coefficient is 1; Corollary 3.2 is its form in the variables τ and z. At z = 1 (z = 0 in the corollary) it is the product formula of this node; nonvanishing then follows from absolute convergence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "imports": [
+  {
+   "packet": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "scope": [
+    "MetaplecticAutomorphicForms:MP.0",
+    "MetaplecticAutomorphicForms:MP.1",
+    "MetaplecticAutomorphicForms:MP.2",
+    "MetaplecticAutomorphicForms:MP.3",
+    "MetaplecticAutomorphicForms:MP.4",
+    "MetaplecticAutomorphicForms:MP.5",
+    "MetaplecticAutomorphicForms:MP.6",
+    "MetaplecticAutomorphicForms:MP.7"
+   ],
+   "review": "accepted independent-review-REV-FIX-RT-AREA-automorphic-1~5 (2026-10-08), after REV-MetaplecticAutomorphicForms--MP.0~2",
+   "nodeCount": 176,
+   "planets": 42,
+   "note": "Accepted part, assembled with this packet. scripts/blueprints.py (merge_blueprints) takes the nodes of every promoted packet of a roadmap, so the part's 176 targets, their 111 source-item routes, 23 source issues, gaps and review stay in that file and are not copied here; scripts/check_blueprint.py rejects a node id shared by two packets of one roadmap. Promoted to data/blueprints. Restructure R1, R2 and R4 route verified edits to its nodes; they are not applied in this file."
+  },
+  {
+   "packet": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json",
+   "scope": [
+    "MetaplecticAutomorphicForms:MP.8"
+   ],
+   "review": "accepted independent-review-REV-FIX-RT-AREA-automorphic-1~5 (2026-10-08), after REV-MetaplecticAutomorphicForms--MP.8~2",
+   "nodeCount": 85,
+   "planets": 6,
+   "note": "Accepted part, assembled with this packet; promoted to data/blueprints. Restructure R1, R3, R5 and R6 route verified edits to its nodes; they are not applied in this file."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.0",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 18,
+   "remaining": [
+    "The 18 accepted targets of MP.0 are those of the part MetaplecticAutomorphicForms--MP.0, assembled with this packet. No routed edit changes an MP.0 target; R5 makes MP.8/bfh-translation cite MP.0/bilinear-factor-set and MP.0/polarization-equivalence by id.",
+    "(accepted part) The finite-dimensional vector-space Fourier transform, self-dual measures and joint archimedean Schwartz carriers come from an AL.0 Part II request; the Hilbert and smooth-vector models need the native L² and Fréchet inputs the part names."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.1",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 7,
+   "remaining": [
+    "The 7 accepted targets of MP.1 are those of the part MetaplecticAutomorphicForms--MP.0. R1 moves MP.1/rao-factor-set, MP.1/metaplectic-double-cover and MP.1/genuine-oscillator to MP.2, because they use the Leray cocycle and Weil-index identities of MP.2; after it MP.1 holds Stone–von Neumann, the intertwiner lines and the scalar metaplectic extension. The edit is routed, not applied.",
+    "(accepted part) The smooth Stone–von Neumann proof rests on MVW 2.I.2, unread; the strong-operator topology of the normalizer extension is to be supplied on native unitary automorphisms."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.2",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 10,
+   "remaining": [
+    "The 10 accepted targets of MP.2 are those of the part MetaplecticAutomorphicForms--MP.0. R1 moves three MP.1 targets in and the two Hermitian targets out to MP.3, and removes the planet of MP.2/weil-index-identities so that MP.2 shows six planets.",
+    "(accepted part) The Weil index needs the AL.0 Part II Fourier transform of oscillatory distributions; the Leray composition proof (Rao) and Weil's big-cell continuation for the generator relations are unread inputs."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.3",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 44,
+   "remaining": [
+    "The 44 accepted targets of MP.3 are those of the part MetaplecticAutomorphicForms--MP.0. R2 replaces the bare citation of ModularityAndLanglandsExtensions:ML.4 in three targets by ET.4/tempered-unitary-local-packets with R01.2/local-epsilon-factor, R17.1/local-quaternionic-comparison and ML.4/extended-langlands-parameter, which closes the part's remaining items asking for an exact owner mapping of these inputs; R1 moves the two Hermitian targets of MP.2 here.",
+    "The PGSp₆–PGSO₈ citation of ML.4 stays a stage cycle until ModularityAndLanglandsExtensions moves its theta-dependent GSp₄ targets to a sub-layer (gap recorded here, proposal in R2).",
+    "(accepted part) Howe duality, the type-II input, MVW and the archimedean categories remain proof-closure inputs with the original sources unread, as the part records them (45 remaining items)."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.4",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 8,
+   "remaining": [
+    "The 8 accepted targets of MP.4 are those of the part MetaplecticAutomorphicForms--MP.0. R7 proposes that the function-field programme move to the function-field Part II when it is designed; it stays here as routed.",
+    "(accepted part) Exact restricted-product topology, the finite central quotient and the dyadic integral splittings remain as the part records them."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.5",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 16,
+   "remaining": [
+    "The 16 accepted targets of MP.5 are those of the part MetaplecticAutomorphicForms--MP.0. R1 moves MP.6/ideal-lattice-poisson here, which its consumer MP.5/ideal-class-theta-general-transform needs. R8 records that the binary ideal-class instance is a special case of the Hecke–Schoeneberg theorem of the upstream Theta Series roadmap (pull request #286), to be cited once the atlas tracks it.",
+    "(accepted part) Uniform differentiated lattice estimates and the regularization of divergent theta integrals remain as the part records them."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.6",
+   "status": "planned",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.6/metaplectic-modular-group",
+    "MetaplecticAutomorphicForms:MP.6/classical-jacobi-forms",
+    "MetaplecticAutomorphicForms:MP.6/unitary-jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-period"
+   ],
+   "importedNodes": 22,
+   "remaining": [
+    "The 22 accepted targets of MP.6 are those of the part MetaplecticAutomorphicForms--MP.0; this packet adds the four targets that RT-AREA-automorphic-1/20 asked MP.6 to plan and the part does not contain (the part's own restructure proposal names the classical lattice-index instance and the unitary instance as still to be added): Mp(2,ℤ) with vector-valued forms of half-integral weight, classical Jacobi forms of lattice index, the unitary Jacobi group and the theta-paired Fourier–Jacobi coefficients. R1 moves MP.6/ideal-lattice-poisson to MP.5.",
+    "Weak and weakly holomorphic Jacobi forms, Rankin–Cohen brackets and the Kohnen plus space of weakly holomorphic forms, which QSeriesPartitionsAndMockModularForms also requests, stay with that roadmap's revision: they relax or extend the conditions of MP.6/classical-jacobi-forms and MP.6/metaplectic-modular-group and are not used by any target of this roadmap.",
+    "The agreement of the product of local unitary splittings with the rational splitting is Kudla's global splitting theorem, an unread input of MP.3/unitary-splitting (gap recorded here).",
+    "(accepted part) Normalized sections, quotient measures, the justified see-saw interchange and the toric Shimizu comparison remain as the part records them."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.7",
+   "status": "planned",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.7/jacobi-theta-nonvanishing"
+   ],
+   "importedNodes": 51,
+   "remaining": [
+    "The 51 accepted targets of MP.7 are those of the part MetaplecticAutomorphicForms--MP.0; this packet adds the product formula and nonvanishing of jacobiTheta, moved down from QSeriesPartitionsAndMockModularForms QM.1. R4 re-points the seven QM citations of MP.7 to it and to AL.0 and AS.0, for which the two requests of this packet ask. R1 moves the two BFH export interfaces to MP.8.",
+    "(accepted part) Three-cusp L² Maass spaces, the Fourier coefficient maps and the source arithmetic trace objects remain as the part records them."
+   ]
+  },
+  {
+   "stageId": "MetaplecticAutomorphicForms:MP.8",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 85,
+   "remaining": [
+    "The 85 accepted targets of MP.8 are those of the part MetaplecticAutomorphicForms--MP.8. R5 replaces its sixteen bare citations of MP.1, MP.2, MP.4 and MP.6 by node ids; R3 replaces the whole-stage GL₂ citation by R16.6/primitive-classical-bijection; R6 corrects the Gaussian norm of the genus-two theta series in MP.8/theta-pairing and MP.8/theta-components and certifies that the unfolding prefactor 1/(2mN³) needs no change; R1 moves the two BFH export interfaces of MP.7 here.",
+    "(accepted part) The genuine induced topology, the dyadic comparison, the rank-two meromorphic continuation and the global compact transition of the Novodvorsky majorant remain as the part records them."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Stage cycle MP.3 ⇄ ML.4 until ModularityAndLanglandsExtensions splits its GSp₄ targets",
+   "neededBy": [
+    "MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta"
+   ],
+   "detail": "The Arthur–Mok local Langlands correspondence for Sp₆ and SO₈ has no owner other than ML.4 (ML.4/extended-langlands-parameter), and ML.4 also contains Gan–Takeda's GSp₄ correspondence, which uses MP.3. Until the theta-dependent ML.4 targets move to a sub-layer (R2), citing ML.4 from MP.3 closes a stage cycle; the atlas would skip one of the two edges."
+  },
+  {
+   "title": "Unitary Fourier–Jacobi coefficients: splitting compatibility at the real places",
+   "neededBy": [
+    "MetaplecticAutomorphicForms:MP.6/unitary-jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-period"
+   ],
+   "detail": "MP.3/unitary-splitting is stated for characteristic-zero local fields; the agreement of the product of local splittings with the rational splitting on U(W)(F) is Kudla's global splitting theorem, whose original proof the accepted part records as unread (MP.3 remaining item on Kudla's splitting formula). The two new MP.6 nodes inherit that input."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+   "need": "The Bessel functions of the first kind, beside AL.0/bessel-k: for ν, z ∈ ℂ, J_ν(z) = (z/2)^ν Σ_{j≥0} (−1)^j (z²/4)^j/(j! Γ(ν+j+1)) and I_ν(z) = (z/2)^ν Σ_{j≥0} (z²/4)^j/(j! Γ(ν+j+1)), with the principal power, entire in z after removing (z/2)^ν; Bessel's equation; I_ν(z) = e^{−νπi/2} J_ν(iz) on the slit plane; I_ν(x) > 0 for real ν > −1 and x > 0; and the Whittaker–Bessel integral formulas that express the Fourier coefficients of Poincaré series through I and J. AutomorphicSpectralTheory needs the same functions, so they cannot live in QSeriesPartitionsAndMockModularForms.",
+   "neededBy": [
+    "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+    "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum"
+   ]
+  },
+  {
+   "supplier": "AutomorphicSpectralTheory:AS.0",
+   "need": "The weight-k hyperbolic Laplacian for real k, Δ_k = −y²(∂_x² + ∂_y²) + i k y ∂_x on smooth functions on the upper half plane, its commutation with the weight-k slash operators of any multiplier system, and the relation Δ_unit,k = y^{k/2} Δ_hol,k y^{−k/2} + (k/2)(1 − k/2) between the holomorphic and unitary normalizations (at k = 1/2 the constant is 3/16). AutomorphicSpectralTheory AS.2 and AS.4 use the same operator.",
+   "neededBy": [
+    "MetaplecticAutomorphicForms:MP.7/half-weight-maass-space",
+    "MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight"
+   ]
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "RankZeroOneBSD"
+   ],
+   "detail": "R1. Dependency order of the layers. Fifteen prerequisites of the accepted parts run from a later layer to an earlier one (REV-PKG-MetaplecticAutomorphicForms~adv, blocker B3): the Rao factor set and the metaplectic double cover (MP.1) use the Leray cocycle and the Weil-index identities (MP.2); the Hermitian uncertainty principle and the Hermitian operator normalizations (MP.2) use the unitary splitting (MP.3); the ideal-class theta transformation (MP.5) uses the ideal-lattice Poisson comparison (MP.6); the two BFH export interfaces of MP.7 use five MP.8 targets. The declared layer order MP.0 → … → MP.8 is therefore not a dependency order. MP.1 and MP.2 are mutually dependent as written: MP.2's Leray cocycle uses MP.1's scalar extension, and MP.1's double cover uses MP.2's Weil index.",
+   "proposal": "Move eight accepted targets to the layer where their inputs are available, keeping their ids, statements and consumers: MP.1/rao-factor-set, MP.1/metaplectic-double-cover and MP.1/genuine-oscillator to MP.2; MP.2/hermitian-uncertainty and MP.2/hermitian-operator-normalizations to MP.3; MP.6/ideal-lattice-poisson to MP.5; MP.7/bfh-kernel-import and MP.7/ramified-quadratic-twist-kernel-inputs to MP.8. Rescope the stage texts accordingly: MP.1 keeps Stone–von Neumann, the intertwiner lines and Weil's scalar (U(1)) metaplectic extension, which is the metaplectic extension of its title; MP.2 gains the identification of the double cover by the Rao cocycle of normalized Weil indices and the export of genuine representations; the clause of MP.7 exporting the BFH input to BSD.2 moves to MP.8, which already exports to BSD.2. To keep MP.2 at six planets, drop the planet of MP.2/weil-index-identities (the identities stay a target). A simulation over the 261 accepted targets with these moves leaves no prerequisite running from a later layer to an earlier one. The moved ids keep their old layer prefix; renaming them is optional, since no node outside this roadmap cites any of them. Two RankZeroOneBSD nodes (BSD.2/twist-series-residue, BSD.2/prescribed-local-conditions-value-branch) cite the bare stage MP.7 for the BFH kernel; after the move they should cite MP.7/bfh-kernel-import and MP.7/ramified-quadratic-twist-kernel-inputs by id.",
+   "map": [
+    {
+     "node": "MetaplecticAutomorphicForms:MP.1/rao-factor-set",
+     "moveTo": "MetaplecticAutomorphicForms:MP.2",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.2"
+     ],
+     "verdict": "verified: its prerequisites MP.2/leray-cocycle and MP.2/weil-index-identities are MP.2 targets; its only consumer, MP.1/metaplectic-double-cover, moves with it."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.1/metaplectic-double-cover",
+     "moveTo": "MetaplecticAutomorphicForms:MP.2",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.2"
+     ],
+     "verdict": "verified: it uses MP.2/leray-cocycle and the Rao factor set; its consumers are MP.1/genuine-oscillator (moved), MP.2/operator-relations, MP.4/unramified-compact-splittings, MP.4/adelic-metaplectic-cover and MP.5/unipotent-splitting, all in MP.2 or later."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.1/genuine-oscillator",
+     "moveTo": "MetaplecticAutomorphicForms:MP.2",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.2"
+     ],
+     "verdict": "verified: it uses the double cover; its consumers MP.2/generator-operators, MP.2/character-and-dual, MP.3/orthogonal-cover-restriction, MP.4/adelic-weil-representation and MP.6/jacobi-group are in MP.2 or later. The new MP.6/unitary-jacobi-group uses MP.1/scalar-normalizer-extension instead, which stays in MP.1."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.2/hermitian-uncertainty",
+     "moveTo": "MetaplecticAutomorphicForms:MP.3",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.3"
+     ],
+     "verdict": "verified: it uses MP.3/unitary-splitting for the Hermitian Fourier normalization and has no consumer."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+     "moveTo": "MetaplecticAutomorphicForms:MP.3",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.3"
+     ],
+     "verdict": "verified: it uses MP.3/unitary-splitting; its consumer MP.6/unitary-siegel-weil-measure is later."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson",
+     "moveTo": "MetaplecticAutomorphicForms:MP.5",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.5"
+     ],
+     "verdict": "verified: its prerequisites are AL.0 nodes and MP.5/ideal-class-theta; its only consumer is MP.5/ideal-class-theta-general-transform."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/bfh-kernel-import",
+     "moveTo": "MetaplecticAutomorphicForms:MP.8",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.7",
+      "MetaplecticAutomorphicForms:MP.8"
+     ],
+     "verdict": "verified: it uses MP.8/jacobi-eisenstein, theta-decomposition, genuine-induced-comparison, unramified-euler-factors and bsd2-export, and has no consumer in this roadmap; it keeps realising MP.7's export target from its new place."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs",
+     "moveTo": "MetaplecticAutomorphicForms:MP.8",
+     "realises": [
+      "MetaplecticAutomorphicForms:MP.7",
+      "MetaplecticAutomorphicForms:MP.8"
+     ],
+     "verdict": "verified: it uses MP.8/bsd2-export and the three local-test-nonzero targets of MP.8, and has no consumer in this roadmap."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.2/weil-index-identities",
+     "planet": "remove",
+     "verdict": "planet bookkeeping only: MP.2 then shows Weil index, Leray invariant, Weil operators, Rao cocycle, Metaplectic group and Weil representation; MP.1 keeps Stone–von Neumann theorem and Unitary normalizer."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "ModularityAndLanglandsExtensions",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "ArithmeticGaloisRepresentations"
+   ],
+   "detail": "R2. A stage cycle between MP.3 and ML.4. Three MP.3 targets cite the bare stage ModularityAndLanglandsExtensions:ML.4 for local Langlands inputs, while ML.4/gan-takeda-llc-gsp4 and ML.5/local-descent-mp2n cite the bare stage MP.3 (Gan–Takeda's local Langlands correspondence for GSp₄ is proved through the similitude theta correspondence). The cycle is latent in the atlas only because the accepted ModularityAndLanglandsExtensions packet waits for promotion. The part's own coverage record asks for an exact owner mapping of these inputs (MP.3 remaining items on unitary equal rank and on PGSp₆–PGSO₈).",
+   "proposal": "Replace the bare ML.4 citation by the exact supplier nodes, none of which has an ancestor in this roadmap: the tempered local packets for unitary groups of EndoscopicTransferAndUnitaryTraceComparison ET.4 and the Deligne–Langlands local constants of ArithmeticGaloisRepresentations R01.2 for unitary equal and almost equal rank; the quaternionic local Jacquet–Langlands comparison of GL2AutomorphicRepresentationsAndTransfer R17.1 for the division ternary lift; and ML.4/extended-langlands-parameter for the PGSp₆–PGSO₈ lift. The last citation still closes a stage cycle with ML.4/gan-takeda-llc-gsp4. For the owner of ModularityAndLanglandsExtensions: move ML.4/gan-takeda-llc-gsp4, and the ML.4 targets that use it (gsp4-discrete-spectrum-types, gsp4-arthur-classification), to a sub-layer of ML.4 that requires both ML.4 and MP.3, so that ML.4's classification inputs do not depend on theta. ML.0/gsp4-galois-l-packet, which already cites the ML.4 node from an earlier layer, belongs to that sub-layer as well. With that split the stage graph is acyclic.",
+   "map": [
+    {
+     "node": "MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank",
+     "remove": [
+      "ModularityAndLanglandsExtensions:ML.4"
+     ],
+     "replaceBy": [
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tempered-unitary-local-packets",
+      "ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor"
+     ],
+     "verdict": "verified: the target needs, for tempered π of U(W_n) over a nonarchimedean field of characteristic zero, the L-parameter, the component-group characters over both pure inner forms V_n^±, and the root number ε(1/2, φ_π χ_V⁻¹, ψ₂^E). ET.4/tempered-unitary-local-packets states the tempered packets and their pairing for every extended pure inner twist (KMSW Theorem* 1.6.1), and R01.2/local-epsilon-factor the Deligne–Langlands local constants. Neither has an ancestor in this roadmap."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.3/division-ternary-theta",
+     "remove": [
+      "ModularityAndLanglandsExtensions:ML.4"
+     ],
+     "replaceBy": [
+      "GL2AutomorphicRepresentationsAndTransfer:R17.1/local-quaternionic-comparison"
+     ],
+     "verdict": "verified: the only classification input is the local Jacquet–Langlands transfer ρ ↦ JL(ρ) from supercuspidal representations of PGL₂(F) to representations of the division algebra with trivial central character; R17.1 states the correspondence with matching central characters. Its ancestors (R16.3, ET.6, Tau Ceti quaternion algebras) do not involve this roadmap."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta",
+     "remove": [
+      "ModularityAndLanglandsExtensions:ML.4"
+     ],
+     "replaceBy": [
+      "ModularityAndLanglandsExtensions:ML.4/extended-langlands-parameter"
+     ],
+     "verdict": "verified with a condition: the target needs the Arthur–Mok local Langlands correspondence for Sp₆ and SO₈ (standard parameters φ_b and φ_b ⊕ 1), which ML.4/extended-langlands-parameter states, with the conditional status recorded in ML.4/symplectic-branch-status carried as a hypothesis. The citation is acyclic at the level of nodes; at the level of stages it is acyclic once ML.4/gan-takeda-llc-gsp4 moves to the sub-layer proposed above."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "ownerProposal": "ModularityAndLanglandsExtensions: split the theta-dependent GSp₄ targets of ML.4 into a sub-layer requiring MP.3 (proposal for that roadmap's next revision)."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "GL2AutomorphicRepresentationsAndTransfer"
+   ],
+   "detail": "R3. The newform contract of MP.8. MP.8/bfh-seed and MP.8/genuine-induced-comparison cite the whole stage GL2AutomorphicRepresentationsAndTransfer:R16.2 (local smooth representation theory of GL₂). The adversarial package review (blocker B2) asks for an exact newform contract instead of a whole-stage dependency.",
+   "proposal": "Drop the citation from MP.8/bfh-seed, which uses only the classical newform and its Fricke transform (already cited from Tau Ceti ModularForms layers 4 and 6), and replace it in MP.8/genuine-induced-comparison by R16.6/primitive-classical-bijection.",
+   "map": [
+    {
+     "node": "MetaplecticAutomorphicForms:MP.8/bfh-seed",
+     "remove": [
+      "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+     ],
+     "replaceBy": [],
+     "verdict": "verified: the seed is built from f, f̂(τ) = τ^{−k} f(−1/(Nτ)) and a K-type; no local representation theory of GL₂ enters its construction or proof."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.8/genuine-induced-comparison",
+     "remove": [
+      "GL2AutomorphicRepresentationsAndTransfer:R16.2"
+     ],
+     "replaceBy": [
+      "GL2AutomorphicRepresentationsAndTransfer:R16.6/primitive-classical-bijection"
+     ],
+     "verdict": "verified: the comparison needs the cuspidal automorphic representation π_f generated by the normalized newform f of even weight k ≥ 2, trivial character and conductor M, with its finite newvector and holomorphic lowest-weight vector; R16.6/primitive-classical-bijection states exactly this dictionary (χ(−1) = (−1)^k holds for trivial χ and even k). It has no ancestor in this roadmap."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "QSeriesPartitionsAndMockModularForms",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory"
+   ],
+   "detail": "R4. A latent cycle with QSeriesPartitionsAndMockModularForms. QM.1 requires MP.7 and MP.8 (stage edges MP.7 → QM.1 and MP.8 → QM.1), yet seven MP.7 targets cite QM nodes: QM.1/jacobi-theta-nonvanishing (twice), QM.2/modified-bessel-function-i, QM.2/bessel-function-j (twice) and QM.3/weight-k-hyperbolic-laplacian (twice). The QSeries packet is not accepted, so the atlas does not yet draw these edges; once it is promoted they close the cycles QM.1 → MP.7 → QM.1 and its QM.2, QM.3 variants. AutomorphicSpectralTheory cites the same Bessel and Laplacian nodes, so their owner must sit below AutomorphicSpectralTheory.",
+   "proposal": "Theta nonvanishing moves down into this roadmap as MP.7/jacobi-theta-nonvanishing (new node of this packet; QM.1 imports it). The Bessel functions I_ν and J_ν belong beside AL.0/bessel-k in AutomorphicLFunctionsAndLocalFactors AL.0, and the weight-k hyperbolic Laplacian in AutomorphicSpectralTheory AS.0; both stages are already suppliers of MP.7, so the re-pointing adds no roadmap dependency. The two requests below ask for them.",
+   "map": [
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/theta-multiplier",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-nonvanishing"
+     ],
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.7/jacobi-theta-nonvanishing"
+     ],
+     "verdict": "verified: θ(z) = Σ e(n²z) = jacobiTheta(2z), and MP.7/jacobi-theta-nonvanishing states its nonvanishing on the whole upper half plane. The first proof step should read 'use MP.7/jacobi-theta-nonvanishing and the Γ₀(4) transformation of θ'."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/theta-residue-normalization",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-nonvanishing"
+     ],
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.7/jacobi-theta-nonvanishing"
+     ],
+     "verdict": "verified: only the nonvanishing of θ is used, for the residue ½θ."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/half-weight-maass-space",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian"
+     ],
+     "replaceBy": [
+      "AutomorphicSpectralTheory:AS.0"
+     ],
+     "verdict": "conditional on the AS.0 request: the target uses Δ_{1/2} = −y²(∂_x² + ∂_y²) + (i/2) y ∂_x and its covariance under weight-1/2 slash operators; the covariance under the theta multiplier stays in this node."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian"
+     ],
+     "replaceBy": [
+      "AutomorphicSpectralTheory:AS.0"
+     ],
+     "verdict": "conditional on the AS.0 request: the target uses the holomorphic and unitary normalizations of Δ_{1/2} and their conjugation by y^{1/4}."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i",
+      "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
+     ],
+     "replaceBy": [
+      "AutomorphicLFunctionsAndLocalFactors:AL.0"
+     ],
+     "verdict": "conditional on the AL.0 request: the target uses I_{2s−1} for nd < 0 and J_{2s−1} for nd > 0 with the principal branch, and the Whittaker–Bessel integral formulas."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum",
+     "remove": [
+      "QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j"
+     ],
+     "replaceBy": [
+      "AutomorphicLFunctionsAndLocalFactors:AL.0"
+     ],
+     "verdict": "conditional on the AL.0 request: the target uses J_{s−1/2} at positive real arguments."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "detail": "R5. The accepted MP.8 part cites earlier layers of this roadmap by bare stage id sixteen times (MP.1 twice, MP.2 three times, MP.4 twice, MP.6 nine times). Each row was checked against the consumer's statement and proof and the suppliers' statements.",
+   "proposal": "Replace each bare stage citation by the node ids of its row; row 16 drops a citation that no step uses. The rows of MP.1 nodes refer to the same ids after the move of R1.",
+   "map": [
+    {
+     "row": 1,
+     "node": "MetaplecticAutomorphicForms:MP.8/similitude-cover",
+     "stageCited": "MetaplecticAutomorphicForms:MP.1",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.1/metaplectic-double-cover"
+     ],
+     "verdict": "verified: the node compares its square-root cover on μ = 1 with the intrinsic double cover, which is MP.1/metaplectic-double-cover (moved to MP.2 by R1, id unchanged)."
+    },
+    {
+     "row": 2,
+     "node": "MetaplecticAutomorphicForms:MP.8/arithmetic-subgroup",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-group"
+     ],
+     "verdict": "verified: the node defines Γ_N in Sp₄(ℤ) and the two Heisenberg lattices of the arithmetic Jacobi subgroup; the group in which they live is MP.6/jacobi-group."
+    },
+    {
+     "row": 3,
+     "node": "MetaplecticAutomorphicForms:MP.8/bfh-slash",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+      "MetaplecticAutomorphicForms:MP.6/jacobi-spaces"
+     ],
+     "verdict": "verified: the BFH slash operator is the coordinate form of the Jacobi action of MP.6/jacobi-group on the functions of MP.6/jacobi-spaces with central character ψ_m."
+    },
+    {
+     "row": 4,
+     "node": "MetaplecticAutomorphicForms:MP.8/bfh-translation",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+      "MetaplecticAutomorphicForms:MP.0/bilinear-factor-set",
+      "MetaplecticAutomorphicForms:MP.0/polarization-equivalence"
+     ],
+     "verdict": "verified: the translation operators are the Heisenberg part of the Jacobi action. The phase e(2mνᵀλ) of their composition is ψ_m of the bilinear cocycle B((λ, ρ), (κ, ν)) = 2νᵀλ, the group law of the extension E_B of MP.0/bilinear-factor-set, which MP.0/polarization-equivalence identifies with the half-form Heisenberg group used by MP.6/jacobi-group."
+    },
+    {
+     "row": 5,
+     "node": "MetaplecticAutomorphicForms:MP.8/genus-two-theta",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface",
+      "MetaplecticAutomorphicForms:MP.5/theta-kernel"
+     ],
+     "verdict": "verified: θᵃ_ν are the Jacobi theta functions of index a of the decomposition interface, and the convention for summing a transformed Schwartz function over a lattice is that of MP.5/theta-kernel; normal convergence is the node's own Gaussian estimate (MP.8/theta-normal-convergence)."
+    },
+    {
+     "row": 6,
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-decomposition",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface"
+     ],
+     "verdict": "verified: the node is the genus-two BFH specialization of the general theta decomposition stated there."
+    },
+    {
+     "row": 7,
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
+     "stageCited": "MetaplecticAutomorphicForms:MP.2",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.2/generator-operators",
+      "MetaplecticAutomorphicForms:MP.2/weil-index"
+     ],
+     "verdict": "verified: the branch √(−det Z) is compared with the Weil phase of the Fourier generator, which MP.2/generator-operators expresses through the Weil index."
+    },
+    {
+     "row": 8,
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-fourier-transform",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface",
+      "AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation"
+     ],
+     "verdict": "verified: the rank-two Poisson theorem is AL.0's (its real lattice case), and the finite Fourier matrix acting on theta components is the transformation law of the decomposition interface. MP.6 has no separate rank-two Poisson node."
+    },
+    {
+     "row": 9,
+     "node": "MetaplecticAutomorphicForms:MP.8/bfh-jacobi-specialization",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-spaces"
+     ],
+     "verdict": "verified: the node evaluates the Jacobi spaces of MP.6 on BFH coordinates."
+    },
+    {
+     "row": 10,
+     "node": "MetaplecticAutomorphicForms:MP.8/jacobi-eisenstein",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+      "MetaplecticAutomorphicForms:MP.6/jacobi-spaces"
+     ],
+     "verdict": "verified: the Eisenstein series is a sum of Jacobi-action translates of the seed, landing in the Jacobi space."
+    },
+    {
+     "row": 11,
+     "node": "MetaplecticAutomorphicForms:MP.8/similitude-heisenberg-comparison",
+     "stageCited": "MetaplecticAutomorphicForms:MP.6",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+      "MetaplecticAutomorphicForms:MP.6/jacobi-spaces"
+     ],
+     "verdict": "verified: the node imports the Heisenberg group, the Schrödinger–Weil action and the Jacobi forms of MP.6 (as its proof says, following RT-AREA-automorphic-1/20) and transports the index under similitudes."
+    },
+    {
+     "row": 12,
+     "node": "MetaplecticAutomorphicForms:MP.8/full-real-cover",
+     "stageCited": "MetaplecticAutomorphicForms:MP.4",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.4/adelic-metaplectic-cover"
+     ],
+     "verdict": "verified: MP.4 is cited only for the adelic extension with which the chosen real reflection convention must later be compared; that comparison stays a recorded gap of the part."
+    },
+    {
+     "row": 13,
+     "node": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+     "stageCited": "MetaplecticAutomorphicForms:MP.1",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.1/rao-factor-set",
+      "MetaplecticAutomorphicForms:MP.1/metaplectic-double-cover",
+      "MetaplecticAutomorphicForms:MP.1/genuine-oscillator"
+     ],
+     "verdict": "verified: the node imports the local cocycle, the double cover and the genuine oscillator representation (all moved to MP.2 by R1, ids unchanged)."
+    },
+    {
+     "row": 14,
+     "node": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+     "stageCited": "MetaplecticAutomorphicForms:MP.2",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.2/generator-operators",
+      "MetaplecticAutomorphicForms:MP.2/operator-relations"
+     ],
+     "verdict": "verified: the comparison is made on unipotent, integral Levi and Fourier generators, whose operators and relations are these two nodes."
+    },
+    {
+     "row": 15,
+     "node": "MetaplecticAutomorphicForms:MP.8/arithmetic-adelic-comparison",
+     "stageCited": "MetaplecticAutomorphicForms:MP.4",
+     "replaceBy": [
+      "MetaplecticAutomorphicForms:MP.4/adelic-metaplectic-cover",
+      "MetaplecticAutomorphicForms:MP.4/rational-symplectic-splitting",
+      "MetaplecticAutomorphicForms:MP.4/adelic-weil-representation",
+      "MetaplecticAutomorphicForms:MP.4/unramified-compact-splittings",
+      "MetaplecticAutomorphicForms:MP.4/global-weil-index-product",
+      "MetaplecticAutomorphicForms:MP.4/finite-weil-representation"
+     ],
+     "verdict": "verified: the node uses the restricted product, the rational splitting, the global Schrödinger model, the integral splittings at good places, the product formula and the finite vector fixed by a compact-open subgroup, which are these six MP.4 targets."
+    },
+    {
+     "row": 16,
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-normal-convergence",
+     "stageCited": "MetaplecticAutomorphicForms:MP.2",
+     "replaceBy": [],
+     "verdict": "verified: drop the citation. The estimate is the node's own Gaussian majorant exp(−c‖R‖² + C‖R‖) on compacta; no MP.2 target (Weil index, operators, uncertainty) is used."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "detail": "R6. Gaussian norm of the genus-two theta series (adversarial package review, blocker B4). MP.8/theta-pairing states the squared norm √det(Y)/(2a), following BFH Proposition 2.1, and MP.8/theta-components divides by it. Direct computation gives √det(Y)/(4a): with W = Zλ + ρ the Lebesgue measure is det(Y) dλ dρ, the ρ-integral forces equal summation vectors R, the exponent becomes −4πa·Y[λ + R/(2a)], the translates tile ℝ², and ∫_{ℝ²} exp(−4πa·Y[u]) du = (16a² det Y)^{−1/2}. The same computation in one variable is Eichler–Zagier's √(v/4m). The review also asked whether the prefactor 1/(2mN³) of MP.8/fourier-unfolding-kernel and the unfolding identities that follow need re-deriving. They do not: BFH obtain N⁻³ from the coefficient formula (2.3) with j = 1, and 1/(2m) from the real Gaussian integral ∫_{ℝ²} e(−m Z⁻¹[W] − RᵀW) dW = √(−det Z)/(2m) · e(Z[R]/(4m)) on p. 581, which is correct (at Z = iY both sides equal (√det Y/(2m)) exp(−π Y[R]/(2m))). Neither uses Proposition 2.1. BFH's Proposition 2.2 obtains the theta components from Fourier coefficients ((2.5)–(2.6), (2.10)–(2.11)), not by projection, and uses Proposition 2.1 once, on p. 554, to deduce (2.7) from (2.12) and (2.14); that step needs only the orthogonality of the θ_ν (their linear independence), so the misprinted constant affects no formula of BFH.",
+   "proposal": "Correct MP.8/theta-pairing to the value √det(Y)/(4a) (statement, proof step 'the real Gaussian integral is 1/(4a√det Y)', and acceptance 'at Y = 4I₂ the squared norm is 1/a, not 2/a') and MP.8/theta-components to divide by √det(Im Z′)/(4a). With the old divisor the projection returns half the BFH component, contrary to the node's own claim that it equals the component of Proposition 2.2. Leave MP.8/fourier-unfolding-kernel and MP.8/cusp-one-unfolding unchanged. Source issue MetaplecticAutomorphicForms/E-WR-1 records the constant in BFH Proposition 2.1.",
+   "map": [
+    {
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-pairing",
+     "field": "statement, proofSteps, acceptance",
+     "from": "√det(Y)/(2a); Gaussian integral det(Y)^{−1/2}/(2a); at Y = 4I₂ the value 2/a",
+     "to": "√det(Y)/(4a); Gaussian integral 1/(4a√det Y); at Y = 4I₂ the value 1/a",
+     "verdict": "verified by the computation in the detail; the measure convention (Lebesgue measure on ℂ², period lattice ZZ² + Z²) is the node's and BFH's."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.8/theta-components",
+     "field": "statement",
+     "from": "divided by its norm √det(Im Z′)/(2a)",
+     "to": "divided by its squared norm √det(Im Z′)/(4a)",
+     "verdict": "verified: projecting Σ_ν E(ν) θᵃ_ν onto θᵃ_μ gives E(μ) · √det(Im Z′)/(4a), so this divisor returns E(μ)."
+    },
+    {
+     "node": "MetaplecticAutomorphicForms:MP.8/fourier-unfolding-kernel",
+     "field": "none",
+     "verdict": "checked, no change: the prefactor (2mN³)⁻¹ comes from BFH (2.3) and the Gaussian integral on p. 581, both correct and independent of the theta norm."
+    }
+   ],
+   "applicationStatus": "verified_routed_to_part_packet",
+   "routedTo": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.8.json"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "GeometricSatakeAndFusion"
+   ],
+   "detail": "R7. MP.4/function-field-metaplectic-programme records Lafforgue's §14 conditional programme, as the maintainer routed it (PAPER-LAFFORGUE-18/43). It cites GeometricSatakeAndFusion GS3 and GlobalShtukasAndFunctionFieldLanglands GS.5, and it has no consumer. Through it the whole of MP.4–MP.8, and every roadmap that imports them, acquires the shtuka and fusion roadmaps as ancestors, although none of their targets uses the programme.",
+   "proposal": "Keep the node as routed. When the function-field Part II is designed (DESIGN-MetaplecticAutomorphicFormsPartII, which carries the PAPER-DOR-23 direction 'local fields of odd positive characteristic and global function fields'), move the programme there, so that the main line of this roadmap does not depend on function-field Langlands. This is a decision for the maintainer.",
+   "applicationStatus": "proposal_for_maintainer"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MetaplecticAutomorphicForms",
+    "tauceti:TauCetiRoadmap/ModularForms"
+   ],
+   "detail": "R8. The open upstream roadmap Theta Series (TauCetiRoadmap pull request #286, read at head 1bc912d) owns Poisson summation for a full-rank lattice (its Layer 1), the theta series of positive definite lattices (Layer 3) and the Hecke–Schoeneberg theorem Θ_L ∈ M_k(Γ₀(N), χ_L) for even L of rank 2k and level N (Layer 7). The binary instance of MP.5 is a special case: for an integral ideal 𝔞 of an imaginary quadratic field of discriminant D < 0, the lattice L_𝔞 = (𝔞, x ↦ 2N(x)/N(𝔞)) is even of rank 2, determinant |D|, level |D| and character χ_L = χ_D, and θ_A = (1/w) Θ_{L_𝔞}. The atlas does not yet track Theta Series, so no packet can cite its layers.",
+   "proposal": "Once the atlas tracks Theta Series: prove MP.5/ideal-class-theta-modularity from Hecke–Schoeneberg (its 7C–7D) through θ_A = (1/w) Θ_{L_𝔞}, and MP.6/ideal-lattice-poisson (MP.5 after R1) from its Layer 1 in a Euclidean model of ℂ, reached by a real-linear equivalence that carries the trace form and the covolume, as that roadmap prescribes for number-field consumers. MP.5/ideal-class-theta (the Gross–Zagier normalization by 1/w and ideal counting) and the odd-discriminant all-SL₂(ℤ) transformation stay targets here.",
+   "applicationStatus": "atlas_edit_for_maintainer"
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "MetaplecticAutomorphicForms/E-WR-1",
+   "source": "BFH90",
+   "kind": "misprint",
+   "locator": "Proposition 2.1, printed p. 551, in the published Inventiones scan",
+   "printed": "The integral of θ^{N₀}_ν(Z, W) times the conjugate of θ^{N₀}_μ(Z, W) times exp(−4πN₀ Y⁻¹[Im W]) over ℂ²/Λ_Z, against Lebesgue measure, is stated to be √det Y/(2N₀) when μ ≡ ν mod 2N₀.",
+   "correction": "The value is √det Y/(4N₀).",
+   "reason": "Write W = Zλ + ρ; then dW = det(Y) dλ dρ on [0, 1)⁴. Integrating in ρ leaves the diagonal R = R′; the exponent is −4πN₀·Y[λ + R/(2N₀)]; summing over R ≡ ν mod 2N₀ and λ ∈ [0, 1)² gives ∫_{ℝ²} exp(−4πN₀ Y[u]) du = 1/(4N₀ √det Y), and multiplying by det Y gives √det Y/(4N₀). In one variable the same computation gives Eichler–Zagier's √(v/4m), and for Y = vI₂ the two-variable value is its square, v/(4N₀).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-17: web search for an erratum or corrigendum to Bump–Friedberg–Hoffstein, Invent. Math. 102 (1990), 543–618; the EuDML/mathdoc record (IM_1990__102_2_143846) lists none.",
+    "Why it affects nothing in BFH: Proposition 2.2 obtains the theta components from Fourier coefficients ((2.5)–(2.6), (2.10)–(2.11)); Proposition 2.1 is invoked once, on p. 554, to deduce (2.7), and only its orthogonality is used there; the unfolding of §5 uses the Gaussian integral on p. 581. The accepted MP.8 part copied the constant into MP.8/theta-pairing and MP.8/theta-components, where it does matter (restructure R6)."
+   ]
+  }
+ ],
+ "maintainerSources": {
+  "note": "Every item the maintainer routed to this roadmap in issue #10223 (fifteen sources, 111 items) is planned by a target of the accepted part MP.0 (its node sourceItems); the map is repeated here for the whole roadmap. None is planned in MP.8.",
+  "items": {
+   "PAPER-ZHANG-21/89": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-ZHANG-21/90": "MetaplecticAutomorphicForms:MP.5/theta-kernel",
+   "PAPER-ZHANG-21/127": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-LI-LIU-21/17": "MetaplecticAutomorphicForms:MP.3/unitary-doubling-dichotomy",
+   "PAPER-LI-LIU-21/50": "MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility",
+   "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/finite-weil": "MetaplecticAutomorphicForms:MP.4/finite-weil-representation",
+   "PAPER-YUAN-ZHANG-18/extended-schwartz": "MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil",
+   "PAPER-YUAN-ZHANG-18/unit-theta": "MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta",
+   "PAPER-YUAN-ZHANG-18/theta-automorphy": "MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta",
+   "PAPER-YUAN-ZHANG-18/rev-restriction-of-the-weil-representation": "MetaplecticAutomorphicForms:MP.5/extended-restriction-comparison",
+   "PAPER-GAN-ICHINO-18/howe-duality": "MetaplecticAutomorphicForms:MP.3/howe-duality",
+   "PAPER-GAN-ICHINO-18/conservation-relation": "MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation",
+   "PAPER-GAN-ICHINO-18/unramified-theta": "MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified",
+   "PAPER-GAN-ICHINO-18/induction-principle": "MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified",
+   "PAPER-GAN-ICHINO-18/mvw-involution": "MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction",
+   "PAPER-GAN-ICHINO-18/rev-dependence-of-theta-lifts-on": "MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified",
+   "PAPER-GAN-ICHINO-18/rev-unramified-theta-correspondence-from-mp": "MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified",
+   "PAPER-GAN-ICHINO-18/metaplectic-induction": "MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/73": "MetaplecticAutomorphicForms:MP.7/theta-multiplier",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/74": "MetaplecticAutomorphicForms:MP.7/half-weight-maass-space",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/75": "MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/76": "MetaplecticAutomorphicForms:MP.7/half-weight-eisenstein",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/77": "MetaplecticAutomorphicForms:MP.7/fundamental-eisenstein-coefficient",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/78": "MetaplecticAutomorphicForms:MP.7/eisenstein-divisor-coefficients",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/79": "MetaplecticAutomorphicForms:MP.7/eisenstein-product-normalization",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/80": "MetaplecticAutomorphicForms:MP.7/theta-residue-normalization",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/81": "MetaplecticAutomorphicForms:MP.7/kohnen-plus-space",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/82": "MetaplecticAutomorphicForms:MP.7/plus-operators",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/83": "MetaplecticAutomorphicForms:MP.7/plus-projection",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/84": "MetaplecticAutomorphicForms:MP.7/half-weight-kloosterman",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/85": "MetaplecticAutomorphicForms:MP.7/plus-kloosterman",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/86": "MetaplecticAutomorphicForms:MP.7/plus-kloosterman-symmetry",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/95": "MetaplecticAutomorphicForms:MP.7/half-weight-resolvent",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/96": "MetaplecticAutomorphicForms:MP.7/half-weight-poincare",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/97": "MetaplecticAutomorphicForms:MP.7/poincare-residues",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/98": "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/99": "MetaplecticAutomorphicForms:MP.7/projected-poincare-expansion",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/100": "MetaplecticAutomorphicForms:MP.7/plus-coefficient-residue",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/103": "MetaplecticAutomorphicForms:MP.7/quadratic-root-weyl-sum",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/104": "MetaplecticAutomorphicForms:MP.7/kohnen-salie-identity",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/106": "MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/107": "MetaplecticAutomorphicForms:MP.7/cm-poincare-sum",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/108": "MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/109": "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/119": "MetaplecticAutomorphicForms:MP.7/three-case-poincare-identity",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/120": "MetaplecticAutomorphicForms:MP.7/plus-hecke-basis",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/121": "MetaplecticAutomorphicForms:MP.7/shimura-eigenline-lift",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/122": "MetaplecticAutomorphicForms:MP.7/shimura-coefficient-relation",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/123": "MetaplecticAutomorphicForms:MP.7/spectral-residue-substitution",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/124": "MetaplecticAutomorphicForms:MP.7/spectral-trace-identity",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/125": "MetaplecticAutomorphicForms:MP.7/shimura-series-automorphy",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/126": "MetaplecticAutomorphicForms:MP.7/shimura-eigenline-bijection",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/127": "MetaplecticAutomorphicForms:MP.7/extended-shimura-trace",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/128": "MetaplecticAutomorphicForms:MP.7/negative-factor-trace",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/129": "MetaplecticAutomorphicForms:MP.7/positive-factor-trace",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/130": "MetaplecticAutomorphicForms:MP.7/cm-trace",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/149": "MetaplecticAutomorphicForms:MP.7/duke-coefficient-bound",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/168": "MetaplecticAutomorphicForms:MP.7/plus-normalization-conjugation",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/181": "MetaplecticAutomorphicForms:MP.7/positive-fourier-kernel",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/182": "MetaplecticAutomorphicForms:MP.7/finite-fourier-certificate",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/184": "MetaplecticAutomorphicForms:MP.7/finite-fourier-automorphy",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/dit11-lemma4-weight-half-eisenstein-coefficients": "MetaplecticAutomorphicForms:MP.7/dit11-eisenstein-comparison",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/geometric-trace-T": "MetaplecticAutomorphicForms:MP.7/geometric-trace",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/resolvent-fourier-expansion-weight-half": "MetaplecticAutomorphicForms:MP.7/resolvent-fourier-comparison",
+   "PAPER-DUKE-IMAMOGLU-TOTH-16/shimura-dirichlet-series-identity": "MetaplecticAutomorphicForms:MP.7/shimura-dirichlet-series",
+   "PAPER-DISEGNI-LIU-24/21": "MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure",
+   "PAPER-DISEGNI-LIU-24/22": "MetaplecticAutomorphicForms:MP.3/relevant-unitary-dichotomy and MetaplecticAutomorphicForms:MP.3/theta-coefficient-rationality and MetaplecticAutomorphicForms:MP.6/pi-coherence-parity",
+   "PAPER-GAN-SAVIN-23/sl2-o3-theta": "MetaplecticAutomorphicForms:MP.3/rank-one-oscillator-constituents",
+   "PAPER-GAN-SAVIN-23/classical-howe-duality": "MetaplecticAutomorphicForms:MP.3/howe-duality",
+   "PAPER-GAN-SAVIN-23/lemma-13-2": "MetaplecticAutomorphicForms:MP.3/gl2-gso4-theta",
+   "PAPER-GAN-SAVIN-23/yamana-minimal": "MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta",
+   "PAPER-GAN-SAVIN-23/rev-finiteness-for-sp-v-6": "MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta",
+   "PAPER-GAN-SAVIN-23/rev-theta-lifts-from-so-3": "MetaplecticAutomorphicForms:MP.3/division-ternary-theta",
+   "PAPER-ICHINO-PRASANNA-23/049": "MetaplecticAutomorphicForms:MP.3/similitude-theta-howe",
+   "PAPER-ICHINO-PRASANNA-23/050": "MetaplecticAutomorphicForms:MP.3/similitude-theta-howe",
+   "PAPER-ICHINO-PRASANNA-23/051": "MetaplecticAutomorphicForms:MP.3/real-discrete-series-theta",
+   "PAPER-ICHINO-PRASANNA-23/061": "MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum",
+   "PAPER-ICHINO-PRASANNA-23/062": "MetaplecticAutomorphicForms:MP.3/quaternionic-splitting",
+   "PAPER-ICHINO-PRASANNA-23/063": "MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting",
+   "PAPER-ICHINO-PRASANNA-23/064": "MetaplecticAutomorphicForms:MP.3/quaternionic-second-doubled-splitting",
+   "PAPER-ICHINO-PRASANNA-23/065": "MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent",
+   "PAPER-ICHINO-PRASANNA-23/066": "MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent",
+   "PAPER-ICHINO-PRASANNA-23/067": "MetaplecticAutomorphicForms:MP.3/quaternionic-see-saw-compatibility",
+   "PAPER-ICHINO-PRASANNA-23/068": "MetaplecticAutomorphicForms:MP.3/quaternionic-see-saw-compatibility",
+   "PAPER-ICHINO-PRASANNA-23/069": "MetaplecticAutomorphicForms:MP.3/periods-i-comparison",
+   "PAPER-ICHINO-PRASANNA-23/070": "MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation",
+   "PAPER-ICHINO-PRASANNA-23/071": "MetaplecticAutomorphicForms:MP.3/periods-i-second-scalar-calculation",
+   "PAPER-ICHINO-PRASANNA-23/072": "MetaplecticAutomorphicForms:MP.3/periods-i-square-quaternion-calculation",
+   "PAPER-ICHINO-PRASANNA-23/073": "MetaplecticAutomorphicForms:MP.3/harris-kudla-morita-comparison",
+   "PAPER-ICHINO-PRASANNA-23/074": "MetaplecticAutomorphicForms:MP.3/harris-kudla-morita-comparison",
+   "PAPER-ICHINO-PRASANNA-23/079": "MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta",
+   "PAPER-ICHINO-PRASANNA-23/085": "MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation",
+   "PAPER-GAN-SAVIN-23-B/50": "MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta",
+   "PAPER-GAN-SAVIN-23-B/120": "MetaplecticAutomorphicForms:MP.3/pgsp6-theta-dichotomy",
+   "PAPER-LI-LIU-22/47": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-LI-LIU-22/48": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-LI-LIU-22/49": "MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility",
+   "PAPER-LI-LIU-22/50": "MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility",
+   "PAPER-LI-ZHANG-22-B/21": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-LI-ZHANG-22-B/22": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+   "PAPER-LI-ZHANG-22-B/23": "MetaplecticAutomorphicForms:MP.2/quadratic-uncertainty",
+   "PAPER-LI-ZHANG-22-B/24": "MetaplecticAutomorphicForms:MP.2/hermitian-uncertainty",
+   "PAPER-LI-ZHANG-22-B/25": "MetaplecticAutomorphicForms:MP.6/siegel-weil-section",
+   "PAPER-LAFFORGUE-18/43": "MetaplecticAutomorphicForms:MP.4/function-field-metaplectic-programme",
+   "PAPER-CHENEVIER-TAIBI-20/rallis-unramified": "MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake",
+   "PAPER-GROSS-ZAGIER-86/19": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta",
+   "PAPER-GROSS-ZAGIER-86/177": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta",
+   "PAPER-GROSS-ZAGIER-86/178": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity",
+   "PAPER-GROSS-ZAGIER-86/194": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform",
+   "PAPER-GROSS-ZAGIER-86/195": "MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson",
+   "PAPER-GROSS-ZAGIER-86/328": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-conjugation"
+  }
+ },
+ "redTeamFindings": [
+  {
+   "finding": "RT-AREA-automorphic-1/19",
+   "severity": "medium",
+   "layers": [
+    "MetaplecticAutomorphicForms:MP.6"
+   ],
+   "handledBy": "accepted part MP.0 after FIX-RT-AREA-automorphic-1~5 (accepted 2026-10-08)",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.6/siegel-weil-section",
+    "MetaplecticAutomorphicForms:MP.6/anisotropic-siegel-weil",
+    "MetaplecticAutomorphicForms:MP.6/first-term-identity",
+    "MetaplecticAutomorphicForms:MP.6/second-term-identity",
+    "MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances"
+   ],
+   "check": "Read 2026-10-17: the norm-form node states the anisotropic binary (m = 2, r = 0) and division ternary (m = 3, r = 0) cases in Weil's convergent range, and the regularized identities the split cases need (split binary at the boundary A₁ = B₀, split ternary in the second-term range); the MP.6 → GZ.5 edge is drawn."
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/20",
+   "severity": "medium",
+   "layers": [
+    "MetaplecticAutomorphicForms:MP.6",
+    "MetaplecticAutomorphicForms:MP.8"
+   ],
+   "handledBy": "accepted part MP.0 for the symplectic Jacobi group, Jacobi spaces, central Fourier–Jacobi extraction and theta decomposition; completed by this packet",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-spaces",
+    "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-extraction",
+    "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface",
+    "MetaplecticAutomorphicForms:MP.6/metaplectic-modular-group",
+    "MetaplecticAutomorphicForms:MP.6/classical-jacobi-forms",
+    "MetaplecticAutomorphicForms:MP.6/unitary-jacobi-group",
+    "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-period"
+   ],
+   "check": "The finding asked for the Jacobi group and its unitary analogue with the Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems in the generality QM.1 needs, Fourier–Jacobi coefficients and the theta decomposition. The part plans the symplectic adelic case only and proposes (its restructure on RT/20) to add the classical lattice-index instance and the unitary instance; this packet adds them as MP.6/metaplectic-modular-group, MP.6/classical-jacobi-forms, MP.6/unitary-jacobi-group and MP.6/fourier-jacobi-period, and R5 makes the nine bare MP.6 citations of MP.8 exact. QM.1 can then cite these nodes instead of the bare stages MP.6 and MP.7."
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/21",
+   "severity": "medium",
+   "layers": [
+    "MetaplecticAutomorphicForms:MP.3"
+   ],
+   "handledBy": "accepted part MP.0 after FIX-RT-AREA-automorphic-1~5",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.3/big-theta-module",
+    "MetaplecticAutomorphicForms:MP.3/theta-finite-length",
+    "MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration",
+    "MetaplecticAutomorphicForms:MP.3/howe-duality"
+   ],
+   "check": "Read 2026-10-17: SR.0:abelian-category, SR.2, SR.3 and AF.1 are prerequisites of these and other MP.3 targets, and the stage edges are drawn."
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/22",
+   "severity": "medium",
+   "layers": [
+    "MetaplecticAutomorphicForms:MP.2"
+   ],
+   "handledBy": "accepted part MP.0 after FIX-RT-AREA-automorphic-1~5",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.2/weil-index-identities"
+   ],
+   "check": "Read 2026-10-17: the node cites QuadraticFormInvariants 6C for the Hilbert symbol and the local Hasse invariant and GlobalQuadraticForms layer 4 for the real place."
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/23",
+   "severity": "medium",
+   "layers": [
+    "MetaplecticAutomorphicForms:MP.5"
+   ],
+   "handledBy": "accepted part MP.0 after FIX-RT-AREA-automorphic-1~5",
+   "nodes": [
+    "MetaplecticAutomorphicForms:MP.5/theta-growth-transfer",
+    "MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces",
+    "MetaplecticAutomorphicForms:MP.5/theta-integral-convergence"
+   ],
+   "check": "Read 2026-10-17: AA.3, AF.2 and AF.3 are prerequisites of these targets and the stage edges are drawn."
+  }
+ ],
+ "upstreamNotes": [
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/IntegralLattices",
+    "TauCetiRoadmap pull request #286 (Theta Series)"
+   ],
+   "note": "TauCetiRoadmap main's IntegralLattices (read at 350e970) and the open Theta Series roadmap both list the Weil representation of SL(2, ℤ) on ℂ[L^∨/L] and half-integral weight modular forms as having no owner upstream. In the atlas, MetaplecticAutomorphicForms MP.4/finite-weil-representation plans the former (in the Andreatta–Goren–Howard–Madapusi Pera normalization, with its relation to the complex-conjugate ρ_L) and MP.7 the latter; the maintainer may wish to say so upstream."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/IntegralLattices"
+   ],
+   "note": "IntegralLattices names a successor, IndefiniteThetaAndSiegelWeil, for Siegel–Narain theta functions, theta lifts and the indefinite Siegel–Weil theorem. MetaplecticAutomorphicForms MP.5–MP.6 plan the adelic theta lift and the Siegel–Weil formulas in the range Gan–Qiu–Takeda treat. If that successor is written, its scope and MP.5–MP.6 overlap and should be divided before either is upstreamed."
+  },
+  {
+   "roadmaps": [
+    "TauCetiRoadmap pull request #286 (Theta Series)"
+   ],
+   "note": "The Hecke–Schoeneberg theorem of Theta Series (Layer 7) contains, for even binary lattices, the modularity of the Gross–Zagier ideal-class theta series that MP.5 plans; restructure R8 of this packet re-points MP.5 to it once the atlas tracks that roadmap."
+  }
+ ],
+ "revision": {
+  "job": "BP-MetaplecticAutomorphicForms",
+  "issue": 10223,
+  "agent": "Claude (Opus 5.5)",
+  "session": "claude-BTXvI0",
+  "date": "2026-10-17",
+  "status": "Complete whole-roadmap planning pass for independent review; nine planned stages with explicit remaining obligations.",
+  "assembly": "The effective roadmap is the union of this packet and the two accepted parts. scripts/blueprints.py (merge_blueprints) takes the nodes of every promoted packet of a roadmap; build.assemble with the three packets gives 266 declarations, 48 planets, nine layers and no skipped links. Re-serializing the 261 accepted targets here would duplicate them, which check_blueprint.py rejects, and the parts are not deliverables of this job.",
+  "routedEdits": "R1–R6 were checked node by node against the consumers' statements and proofs and the suppliers' statements, and are routed to the part packets that own the consumers. Applied together in a simulation over the 266 targets, R1 and R5 leave no prerequisite running from a later layer to an earlier one, no bare citation of a stage of this roadmap, and at most six planets per layer. No part packet or atlas edge is modified by this job.",
+  "reviewBoundary": "The 261 inherited targets keep their earlier reviews and source-issue verdicts; this pass re-read the statements it routes edits to, the supplier nodes it names, and the source passages listed in sources.readSections. The five new targets, the eight restructure records R1–R8 and source issue E-WR-1 need independent review."
+ }
+}

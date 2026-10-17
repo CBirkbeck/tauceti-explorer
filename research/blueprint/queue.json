@@ -26793,9 +26793,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #10223"
+   "note": "deliverables arrived from an external worker on issue #10223",
+   "finishedAt": "2026-10-17T19:05:41Z"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms",
@@ -53454,7 +53455,8 @@
    ],
    "revisionOf": "PKG-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10230"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions~3",
@@ -54555,7 +54557,8 @@
    ],
    "revisionOf": "PKG-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10231"
   },
   {
    "id": "REV-PKG-PrismaticCohomology~3",
@@ -54582,7 +54585,8 @@
     "PKG-PrismaticCohomology~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10233"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
@@ -132425,9 +132429,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv2.md",
-   "note": "claimed on GitHub issue #10214"
+   "note": "deliverables arrived from an external worker on issue #10214",
+   "finishedAt": "2026-10-17T19:05:41Z"
   },
   {
    "id": "FIX-PKG-ShimuraCompactifications~adv",
@@ -132487,9 +132492,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-MetaplecticAutomorphicForms~adv.md",
-   "note": "claimed on GitHub issue #10224"
+   "note": "deliverables arrived from an external worker on issue #10224",
+   "finishedAt": "2026-10-17T19:05:44Z"
   },
   {
    "id": "FIX-PKG-AnalyticNumberTheory~adv2",
@@ -132507,8 +132513,91 @@
    ],
    "after": [],
    "independentOf": [],
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv2.md",
+   "note": "claimed on GitHub issue #10234"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartII~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartII/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartII/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartII/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartII~adv.md",
+   "note": "claimed on GitHub issue #10237"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartIII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartIII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartIII~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartIII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIII~adv.md",
+   "note": "claimed on GitHub issue #10236"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomologyPartIV~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomologyPartIV"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomologyPartIV~adv.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/review.json",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/README.md",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomologyPartIV/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomologyPartIV~adv.md",
+   "note": "claimed on GitHub issue #10238"
+  },
+  {
+   "id": "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticCurveModularityImaginaryQuadratic"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/review.json",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/README.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
    "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv2.md"
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md"
   }
  ]
 }
