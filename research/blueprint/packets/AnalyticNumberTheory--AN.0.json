@@ -2286,6 +2286,45 @@
         "Theorem3.2 and complete Corollary3.3 proof pp.383–384; the following orbit applications pp.384–388. External Artin/Hecke/convexity proofs remain gaps.",
         "Codex codex-JySHSv, 2026-10-11: Published pp.382–385, selected Brauer–Siegel, conductor and Corollary3.3 passages; original quantitative proofs cited there remain gaps."
       ]
+    },
+    {
+      "id": "serre-nxp-primary-2011",
+      "title": "Lectures on N_X(p)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Author text, June 2011, hosted by the College de France; page numbers of this text",
+      "url": "https://www.college-de-france.fr/media/professeurs-honoraires/UPL47720_cours_Taiwan_avril__10juin_2011_.pdf",
+      "sha256": "8a9a308e6b918356c8b73402bb8bb3c4dccd1acdce0e3d30cc0a9bb6f797363d",
+      "accessed": "2026-10-17",
+      "readSections": [
+        "Chapter 9, §§9.1–9.4, pp.132–144: hypotheses, point counts, density, Frobenius and proof of Theorem9.11; selected supporting Corollaries7.11–7.13, pp.96–97."
+      ],
+      "readingScope": "Primary text checked for the ownership contract and normalization. The Part II design must still assign every geometric input of the proof to a supplier; this reading does not close that future plan."
+    },
+    {
+      "id": "av-primary-v1-density",
+      "title": "Symplectic L-functions and symplectic Reidemeister torsion (mod squares)",
+      "authors": "Amina Abdurrahman and Akshay Venkatesh",
+      "edition": "arXiv:2303.13436v1, 23 March 2023; preprint, not the published Inventiones article",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "accessed": "2026-10-17",
+      "readSections": [
+        "§2.8 p.18 and §2.14 pp.25–26; p.25 normalization also inspected as a page image."
+      ],
+      "readingScope": "Selected consumer passages only. The publisher PDF endpoint returned an HTML challenge, not the version of record. The IAS author copy was also checked at these passages and retains both issues recorded below."
+    },
+    {
+      "id": "schmidt-stix-primary-published-density",
+      "title": "Anabelian geometry with etale homotopy types",
+      "authors": "Alexander Schmidt and Jakob Stix",
+      "edition": "Annals of Mathematics 184 (2016), 817–868; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759",
+      "accessed": "2026-10-17",
+      "readSections": [
+        "Proof of Proposition5.1, pp.838–840; proof of Lemma5.2, pp.840–841."
+      ],
+      "readingScope": "Selected arithmetic-model Chebotarev applications, not a new review of the whole extraction."
     }
   ],
   "nodes": [
@@ -16839,6 +16878,40 @@
         "reason": "At m=0 the right side is an empty sum and equals0, but q₀(z)=1/(1−z), hence r₀(z)=1. The proof’s equivalent formula(5.17) already states m≥1. Fresh independent check on 2026-10-11 against the version named in the locator.",
         "by": "REV-AnalyticNumberTheory--AN.0~2"
       }
+    },
+    {
+      "id": "AnalyticNumberTheory/E42",
+      "source": "av-primary-v1-density",
+      "kind": "error",
+      "locator": "arXiv2303.13436v1, §2.8 p.18; not checked against the published version",
+      "printed": "Closed-point Frobenius conjugates are asserted to be dense in the fundamental group for every normal integral ring finitely generated over Z, with no characteristic or dominance restriction.",
+      "correction": "Use the dominant characteristic-zero case for the Serre Chapter9 statement and these arithmetic-model consumers. Any positive-characteristic version needs its own hypotheses and source; do not extend the assertion to zero-dimensional finite fields.",
+      "reason": "For S=F_p, Spec S has one closed point. In the connected constant degree-two cover Spec F_(p^2), its arithmetic Frobenius maps to the nonidentity element of C2, so the identity class does not occur and the set of Frobenius conjugates is not dense in this finite quotient. Serre §9.1.2 explicitly assumes dominance.",
+      "affects": "a stated result",
+      "known": "The restriction and counterexample were already recorded in RT-AREA-analytic.review.json and RT-AREA-analytic.fixes.md; whether the published paper corrects §2.8 is unknown.",
+      "searched": [
+        "arXiv2303.13436 submission history checked2026-10-17: v1 is the only listed version.",
+        "Publisher DOI10.1007/s00222-025-01349-6 and Springer PDF endpoint checked2026-10-17: HTML challenge, no published text obtained. These findings concern only the inspected preprint; publication corrections are unknown.",
+        "Venkatesh IAS author copy https://www.math.ias.edu/~akshay/research/RT.pdf (SHA256 4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8) read at §§2.8,2.14: same assertions.",
+        "Bounded web search for the title/arXiv identifier with erratum/correction/density on2026-10-17 found no correction; no claim of an exhaustive novelty search."
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory/E43",
+      "source": "av-primary-v1-density",
+      "kind": "misprint",
+      "locator": "arXiv2303.13436v1, §2.14 p.25, displayed weighted density and subsequent all-point normalization; not checked against the published version",
+      "printed": "With d the Krull dimension, the displayed density is lim Q^(−d)Σ_(q_x≤Q,x∈E)log q_x, and the all-point density is then said to equal1.",
+      "correction": "Insert a factor d in the definition, or use the ratio to the all-point weighted sum. Without that factor the all-point limit is1/d, and a Frobenius subset of relative densityδ has limitδ/d. The density-one double-cover detection argument is unchanged after consistent rescaling.",
+      "reason": "Serre Corollary9.2 gives π_X(Q)~Q^d/(d log Q). Partial summation θ_X(Q)=π_X(Q)log Q−∫_2^Q π_X(t)dt/t therefore gives θ_X(Q)~Q^d/d. Already X=A^1_Z (d=2) makes the displayed unnormalized limit1/2. The page25 image confirms the missing factor.",
+      "affects": "the proof",
+      "known": "new in the inspected preprint; the published version was unavailable and may differ",
+      "searched": [
+        "arXiv2303.13436 submission history checked2026-10-17: v1 is the only listed version.",
+        "Publisher DOI10.1007/s00222-025-01349-6 and Springer PDF endpoint checked2026-10-17: HTML challenge, no published text obtained. These findings concern only the inspected preprint; publication corrections are unknown.",
+        "Venkatesh IAS author copy https://www.math.ias.edu/~akshay/research/RT.pdf (SHA256 4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8) read at §§2.8,2.14: same assertions.",
+        "Bounded web search for the title/arXiv identifier with erratum/correction/density on2026-10-17 found no correction; no claim of an exhaustive novelty search."
+      ]
     }
   ],
   "provenance": {
@@ -18925,6 +18998,40 @@
       "url": "https://www.degruyterbrill.com/document/doi/10.1515/form.2011.048/pdf",
       "read": "2026-10-11",
       "citation": "Publisher acquisition attempted but no article text obtained: HTTP202 empty HTML response; not read. Fresh findings are scoped solely to arXiv1005.4967v2."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.college-de-france.fr/media/professeurs-honoraires/UPL47720_cours_Taiwan_avril__10juin_2011_.pdf",
+      "read": "2026-10-17",
+      "sha256": "8a9a308e6b918356c8b73402bb8bb3c4dccd1acdce0e3d30cc0a9bb6f797363d",
+      "citation": "Author text, June 2011, hosted by the College de France; page numbers of this text; selected reading listed under sources."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2303.13436v1",
+      "read": "2026-10-17",
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "citation": "arXiv2303.13436v1; §§2.8,2.14 only. E42/E43 are scoped to this text."
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01349-6.pdf",
+      "read": "2026-10-17",
+      "citation": "Acquisition attempted; server returned an HTML challenge rather than article text. Not read; E42/E43 do not assert an error in the version of record."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ias.edu/~akshay/research/RT.pdf",
+      "read": "2026-10-17",
+      "sha256": "4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8",
+      "citation": "IAS author copy, selected §§2.8,2.14; retains the two preprint assertions."
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+      "read": "2026-10-17",
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759",
+      "citation": "Annals of Mathematics 184 (2016), 817–868; published PDF; selected proofs pp.838–841."
     }
   ],
   "links": [],
@@ -19882,14 +19989,14 @@
       {
         "id": "PAPER-ABDURRAHMAN-VENKATESH-25/20",
         "name": "Chebotarev density for arithmetic schemes",
-        "statement": "For a normal integral ring S finitely generated over Z with a geometric base point, the Frobenius elements of the closed points are dense in π_1(Spec S) (Serre, Lectures on N_X(p), §9; Pink, App. B); the closed points x of S, weighted by log q_x, have natural density (in the normalization of §2.14) and a Z/2-cover split at a density-one set of closed points is trivial.",
+        "statement": "Let X be a nonempty normal integral scheme of finite type, dominant over Spec Z, of dimension d≥1, and Y→X a connected finite etale Galois cover with finite group G. For conjugacy-invariant C⊆G, let S_C be the closed points whose arithmetic Frobenius class lies in C. With q_x=#κ(x), π_C(Q)=#{x∈S_C:q_x≤Q} and π_X the all-point count, prove π_X(Q)~Li(Q^d) and π_C(Q)/π_X(Q)→|C|/|G|. This is Serre natural density (§9.2.1, Corollary9.12), not a definition by a Dirichlet sum. First use the affine normal case of Theorem9.11, then the density-zero complement of a dense affine open. No unrestricted positive-characteristic assertion is included. For δ=|C|/|G|, partial summation gives θ_C(Q)=Σ_(x∈S_C,q_x≤Q)log q_x=δ Q^d/d+o(Q^d), including δ=0. Thus d Q^(−d)θ_C(Q)→δ, or equivalently θ_C(Q)/θ_X(Q)→δ. AV v1 §2.14 omits d in its unit normalization: its displayed Q^(−d)θ_X(Q) tends to1/d. Use corrected normalization in the consumer corollary; no natural-density conclusion is inferred from a Dirichlet-density theorem alone.",
         "locator": "§2.8, p. 18; §2.14, pp. 25–26",
         "extraction": "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.result.json",
-        "sourceStatus": "accepted extraction read; original proof reading is separately recorded",
+        "sourceStatus": "Accepted extraction read; selected primary consumer passages and Serre Chapter9 freshly read2026-10-17; original unqualified payload corrected here, not in the extraction.",
         "nodes": [],
-        "disposition": "proposed Chebotarev Part II; outside the number-field stage",
-        "status": "accounted for by declarations or the explicitly identified outside-scope owner",
-        "ownershipOrRequest": "See requests/ownershipRequests; the input is not falsely treated as an AN.0–AN.7 theorem."
+        "disposition": "proposed owner ChebotarevPartIIArithmeticSchemes; outside AN.4; no adopted endpoint",
+        "status": "outside-scope ownership proposal with exact contract; maintainer adoption remains outstanding",
+        "ownershipOrRequest": "ownershipRequests finding RT-AREA-analytic/1 gives the proposed Part II, both extraction reroutes, source locators and normalization correction. This is not proof coverage by AN.4."
       },
       {
         "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/55",
@@ -20443,15 +20550,74 @@
   "ownershipRequests": [
     {
       "finding": "RT-AREA-analytic/1",
-      "disposition": "propose new extension; requires independent ownership review",
-      "title": "Chebotarev density theorem, Part II: arithmetic schemes",
+      "disposition": "propose source-qualified Part II; maintainer adoption and independent design/review required; no existing stage endpoint",
+      "title": "The Chebotarev density theorem, Part II: arithmetic schemes",
       "extends": "tauceti:TauCetiRoadmap/Chebotarev",
-      "need": "Normal integral schemes of finite type over Z, finite étale Galois covers, conjugacy-invariant Frobenius subsets of closed points, weighted natural-density normalization from Serre Lectures on N_X(p) §9 and the AV §2.14 application; recover number-field Chebotarev in relative dimension zero. Prove density of Frobenius in the profinite fundamental group and triviality of a finite cover split at a density-one set. Exact mixed-characteristic/finite-field component hypotheses and denominator must be read and stated before a quantitative density theorem.",
+      "need": "Let X be a nonempty normal integral scheme of finite type, dominant over Spec Z, of dimension d≥1, and Y→X a connected finite etale Galois cover with finite group G. For conjugacy-invariant C⊆G, let S_C be the closed points whose arithmetic Frobenius class lies in C. With q_x=#κ(x), π_C(Q)=#{x∈S_C:q_x≤Q} and π_X the all-point count, prove π_X(Q)~Li(Q^d) and π_C(Q)/π_X(Q)→|C|/|G|. This is Serre natural density (§9.2.1, Corollary9.12), not a definition by a Dirichlet sum. First use the affine normal case of Theorem9.11, then the density-zero complement of a dense affine open. No unrestricted positive-characteristic assertion is included.",
       "consumers": [
         "PAPER-ABDURRAHMAN-VENKATESH-25/20",
-        "PAPER-SCHMIDT-STIX-16"
+        "PAPER-SCHMIDT-STIX-16/38",
+        "PAPER-SCHMIDT-STIX-16/84"
       ],
-      "reason": "AN.4 after RS-07 owns number-field analytic comparisons, not arbitrary arithmetic schemes. Existing Chebotarev roadmap is number-field-only. This is a proposal, not an invented existing supplier or a live scope change."
+      "reason": "RS-07 keeps AN.4 at number-field analytic interfaces. The current upstream Chebotarev roadmap and library have number-field carriers. A scheme-theoretic extension therefore belongs to a Part II of that roadmap, not new upstream layers or an AN.4 theorem. Record this new-roadmap need for the maintainer under §17; never fabricate a resolvable supplier or claim the Part II has been adopted.",
+      "proposedRoadmap": "ChebotarevPartIIArithmeticSchemes",
+      "normalization": "For δ=|C|/|G|, partial summation gives θ_C(Q)=Σ_(x∈S_C,q_x≤Q)log q_x=δ Q^d/d+o(Q^d), including δ=0. Thus d Q^(−d)θ_C(Q)→δ, or equivalently θ_C(Q)/θ_X(Q)→δ. AV v1 §2.14 omits d in its unit normalization: its displayed Q^(−d)θ_X(Q) tends to1/d. Use corrected normalization in the consumer corollary; no natural-density conclusion is inferred from a Dirichlet-density theorem alone.",
+      "requiredTargets": [
+        {
+          "target": "Closed-point Frobenius, finite norm fibres and density",
+          "need": "Use arithmetic Frobenius t↦t^q on residue fields and conjugacy classes on the base; prove independence of the point above x, functoriality for quotient covers, finite counts at each real cutoff, all-point denominator, density-zero proper closed complements and compatibility under dense open restriction. Give the resulting definitions their API and at least three discriminating tests in the new owner, without duplicating number-field carriers.",
+          "source": "Serre §§9.1.1–9.2.3, pp.132–136; §9.3.1, p.137."
+        },
+        {
+          "target": "Natural-density Chebotarev for dominant arithmetic schemes",
+          "need": "Prove the natural-density specialization of Serre Theorem9.11/Corollary9.12 with all cover and conjugacy hypotheses above. Extract the full proof: constant-field quotient G/N and geometrically irreducible fibres, uniform compact-support Betti bounds, twisted Frobenius fixed-point estimates, degree>1 discard and partial summation over the number-field base. Each geometric input needs an exact existing supplier or an explicit new target in the Part II. Reuse current qualitative number-field Chebotarev; an effective error is not required by these consumers.",
+          "source": "Serre Theorem9.11 and Corollaries9.12–9.13, pp.137–138; §9.4, Theorem9.14, Proposition9.15 and Lemmas9.16–9.17, pp.139–144."
+        },
+        {
+          "target": "Frobenius occurrence and split-cover detection",
+          "need": "Every conjugacy class occurs and is Zariski dense. In the common connected Galois compositum of two connected finite etale Galois covers, prove that inclusion of complete-splitting sets is equivalent to inclusion of their open normal subgroups, hence to dominance of covers. A Z/2-torsor split on a set of corrected density1 is trivial: a connected double cover has split density1/2, while a disconnected torsor on a connected base is split. Density of all conjugates of closed-point Frobenii in the profinite fundamental group is a finite-quotient corollary, with basepoint conventions explicit.",
+          "source": "Serre Corollary9.13 p.138; Schmidt–Stix Proposition5.1 proof p.839 and Lemma5.2 proof pp.840–841; AV v1 §§2.8,2.14, pp.18,25–26."
+        },
+        {
+          "target": "Number-field comparison and normalization tests",
+          "need": "For X=Spec O_K[1/N], d=1, identify closed points and arithmetic Frobenius with the existing number-field prime subtype and artinSymbol, discarding the finitely many removed primes. Recover existing natural and Dirichlet density through their comparison theorems. Test C=∅ (0), C=G (1), the identity class of a connected double cover (1/2), and X=A^1_Z (d=2: unnormalized weighted limit1/2, corrected limit1). Reject Spec F_p with its constant degree-two cover as an unrestricted Frobenius-occurrence claim.",
+          "source": "Serre §§9.1.1–9.1.3 pp.132–133; §9.2.4 p.136; §9.3.2 pp.137–138. Weighted checks derived by partial summation from Corollary9.2."
+        }
+      ],
+      "routeCorrections": [
+        {
+          "extraction": "PAPER-ABDURRAHMAN-VENKATESH-25",
+          "items": [
+            "PAPER-ABDURRAHMAN-VENKATESH-25/20"
+          ],
+          "action": "On adoption, replace source route4 to AN.4 by a Part II route to ChebotarevPartIIArithmeticSchemes; qualify item20 to the dominant characteristic-zero case and correct its weighted normalization. Its existing review reason describes an unrelated item and must be corrected by the extraction review, not counted as supplier evidence."
+        },
+        {
+          "extraction": "PAPER-SCHMIDT-STIX-16",
+          "items": [
+            "PAPER-SCHMIDT-STIX-16/38",
+            "PAPER-SCHMIDT-STIX-16/84"
+          ],
+          "action": "On adoption, replace the rejected source-route4 candidate by the same Part II route in the extraction revision, retaining the regular connected flat arithmetic-model hypotheses. G4 and the rejection remain open until that revision is independently accepted; choosing an owner does not accept a rejected route."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "serre-nxp-primary-2011",
+          "locator": "§§9.1.2–9.3.2, pp.132–138; proof §9.4, pp.139–144",
+          "match": "Dominance in characteristic zero, the all-point denominator, natural-density convention and proof of higher-dimensional Chebotarev."
+        },
+        {
+          "sourceId": "av-primary-v1-density",
+          "locator": "§2.8 p.18; §2.14 pp.25–26",
+          "match": "Profinite detection and the characteristic-zero double-cover application; the quantitative contract uses the corrected dimension factor."
+        },
+        {
+          "sourceId": "schmidt-stix-primary-published-density",
+          "locator": "Proposition5.1 proof p.839; Lemma5.2 proof pp.840–841",
+          "match": "Dominance detected by splitting sets and realization of any finite-quotient element as Frobenius on regular arithmetic models."
+        }
+      ]
     },
     {
       "finding": "RT-AREA-combinatorics/8",
