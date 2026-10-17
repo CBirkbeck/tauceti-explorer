@@ -1,4 +1,63 @@
-import Mathlib
+import Mathlib.Algebra.Category.Grp.Abelian
+import Mathlib.Algebra.DualNumber
+import Mathlib.Algebra.Homology.ShortComplex.HomologicalComplex
+import Mathlib.Algebra.Module.Projective
+import Mathlib.Algebra.TrivSqZeroExt.Basic
+import Mathlib.AlgebraicGeometry.AffineScheme
+import Mathlib.AlgebraicGeometry.Fiber
+import Mathlib.AlgebraicGeometry.Geometrically.Integral
+import Mathlib.AlgebraicGeometry.Modules.Sheaf
+import Mathlib.AlgebraicGeometry.Morphisms.Etale
+import Mathlib.AlgebraicGeometry.Morphisms.Finite
+import Mathlib.AlgebraicGeometry.Morphisms.FiniteType
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
+import Mathlib.AlgebraicGeometry.Morphisms.OpenImmersion
+import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.AlgebraicGeometry.Morphisms.Smooth
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Basic
+import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme
+import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Topology
+import Mathlib.Analysis.Normed.Algebra.TrivSqZeroExt
+import Mathlib.Analysis.Normed.Module.Multilinear.Basic
+import Mathlib.Analysis.Normed.Operator.Compact.Basic
+import Mathlib.Analysis.Normed.Unbundled.SpectralNorm
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.CategoryTheory.Abelian.Basic
+import Mathlib.CategoryTheory.CofilteredSystem
+import Mathlib.CategoryTheory.Sites.SheafCohomology.Cech
+import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basic
+import Mathlib.LinearAlgebra.Trace
+import Mathlib.NumberTheory.Padics.Complex
+import Mathlib.RingTheory.AdicCompletion.Algebra
+import Mathlib.RingTheory.AdicCompletion.Functoriality
+import Mathlib.RingTheory.AdicCompletion.Noetherian
+import Mathlib.RingTheory.AdicCompletion.Topology
+import Mathlib.RingTheory.Flat.LocallyFree
+import Mathlib.RingTheory.Kaehler.Polynomial
+import Mathlib.RingTheory.Kaehler.TensorProduct
+import Mathlib.RingTheory.MvPowerSeries.Derivative
+import Mathlib.RingTheory.MvPowerSeries.Evaluation
+import Mathlib.RingTheory.MvPowerSeries.GaussNorm
+import Mathlib.RingTheory.MvPowerSeries.Restricted
+import Mathlib.RingTheory.PicardGroup
+import Mathlib.RingTheory.Polynomial.ContentIdeal
+import Mathlib.RingTheory.PowerSeries.PiTopology
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.RingTheory.Trace.Basic
+import Mathlib.RingTheory.Valuation.ValuationSubring
+import Mathlib.RingTheory.WittVector.Basic
+import Mathlib.RingTheory.WittVector.Frobenius
+import Mathlib.Topology.Algebra.Module.Complement
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Idempotent
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Quotient
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.RestrictScalars
+import Mathlib.Topology.Algebra.Ring.Ideal
+import Mathlib.Topology.ContinuousMap.ZeroAtInfty
+import Mathlib.Topology.Instances.TrivSqZeroExt
 import TauCeti.AlgebraicGeometry.AdicSpace.ResidueField
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.Analytic
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.Basic
@@ -10386,13 +10445,13 @@ end
 The following targets need carriers that the pinned libraries do not have (the category of adic
 spaces with its structure sheaf, formal schemes, rigid-analytic and dagger spaces, the étale and
 pro-étale sites, coherent sheaves and their cohomology), or are stated above only through a
-ring-level core. Their statements, hypotheses and tests are in `README.md`:
+ring-level core. This list identifies targets for which no full Lean signature is supplied:
 
 * Layer R0: R0.16, R0.17, R0.20, R0.33, R0.40, R0.41, R0.42, R0.44, R0.46, R0.47, R0.48, R0.61, R0.62, R0.63, R0.64, R0.65, R0.67, R0.68, R0.69, R0.70, R0.71, R0.72, R0.73, R0.74, R0.75, R0.76, R0.77, R0.79, R0.82, R0.83, R0.84, R0.85, R0.86, R0.88, R0.89, R0.90, R0.91, R0.92, R0.96, R0.97, R0.99, R0.100, R0.101, R0.102, R0.103, R0.104, R0.105, R0.106, R0.107, R0.108, R0.109, R0.110, R0.111, R0.112, R0.114, R0.116, R0.117, R0.118, R0.119, R0.120, R0.121, R0.122, R0.123, R0.124, R0.125, R0.126, R0.127, R0.128, R0.129, R0.130, R0.131, R0.132, R0.133.
 * Layer R1: R1.6, R1.8, R1.10, R1.11, R1.13, R1.14, R1.16, R1.18, R1.19, R1.20, R1.21, R1.24, R1.25, R1.26, R1.27, R1.28, R1.29, R1.30, R1.31, R1.32, R1.33, R1.34, R1.35, R1.36, R1.37, R1.38, R1.39, R1.42, R1.43, R1.44, R1.45, R1.46, R1.47, R1.48, R1.49, R1.50.
-* Layer F0: F0.1, F0.11, F0.12, F0.13, F0.14, F0.15, F0.17, F0.18, F0.19, F0.20, F0.21, F0.22, F0.24, F0.27, F0.28, F0.29, F0.30, F0.31, F0.32, F0.34, F0.35, F0.37, F0.38, F0.39, F0.39, F0.40, F0.41, F0.42, F0.43, F0.44, F0.46, F0.47, F0.48, F0.49, F0.50, F0.51, F0.52, F0.53, F0.54, F0.55, F0.56, F0.57, F0.58, F0.59, F0.60, F0.61, F0.62, F0.63, F0.64, F0.65.
+* Layer F0: F0.1, F0.11, F0.12, F0.13, F0.14, F0.15, F0.17, F0.18, F0.19, F0.20, F0.21, F0.22, F0.24, F0.27, F0.28, F0.29, F0.30, F0.31, F0.32, F0.34, F0.35, F0.37, F0.38, F0.39, F0.40, F0.41, F0.42, F0.43, F0.44, F0.46, F0.47, F0.48, F0.49, F0.50, F0.51, F0.52, F0.53, F0.54, F0.55, F0.56, F0.57, F0.58, F0.59, F0.60, F0.61, F0.62, F0.63, F0.64, F0.65.
 * Layer R2: R2.6, R2.7, R2.9, R2.11, R2.13, R2.15, R2.16, R2.18, R2.20, R2.21, R2.22, R2.23, R2.24, R2.26, R2.27, R2.32, R2.36, R2.41, R2.44, R2.50, R2.51, R2.52, R2.53, R2.54, R2.55, R2.56, R2.57, R2.64, R2.66, R2.67, R2.68, R2.69, R2.70, R2.71, R2.72, R2.73, R2.74, R2.75, R2.76, R2.78, R2.81, R2.82, R2.83, R2.84, R2.85, R2.86, R2.87, R2.88.
-* Layer R3: R3.1, R3.2, R3.3, R3.7, R3.8, R3.9, R3.13, R3.14, R3.15, R3.16, R3.18, R3.19, R3.20, R3.21, R3.22, R3.23, R3.24, R3.25, R3.26, R3.27, R3.29, R3.30, R3.31, R3.32, R3.37, R3.37, R3.41, R3.42, R3.43, R3.44, R3.45, R3.46, R3.48, R3.49, R3.50, R3.51, R3.52, R3.53, R3.54, R3.55, R3.56, R3.57, R3.65, R3.66, R3.67, R3.68, R3.69, R3.70, R3.71, R3.72, R3.73.
+* Layer R3: R3.1, R3.2, R3.3, R3.7, R3.8, R3.9, R3.13, R3.14, R3.15, R3.16, R3.18, R3.19, R3.20, R3.21, R3.22, R3.23, R3.24, R3.25, R3.26, R3.27, R3.29, R3.30, R3.31, R3.32, R3.37, R3.41, R3.42, R3.43, R3.44, R3.45, R3.46, R3.48, R3.49, R3.50, R3.51, R3.52, R3.53, R3.54, R3.55, R3.56, R3.57, R3.65, R3.66, R3.67, R3.68, R3.69, R3.70, R3.71, R3.72, R3.73.
 * Layer R4: R4.1, R4.2, R4.3, R4.4, R4.5, R4.6, R4.7, R4.8, R4.9, R4.10, R4.12, R4.13.
 * Layer R5: R5.7, R5.11, R5.12, R5.13, R5.14, R5.17, R5.18, R5.27, R5.28, R5.29, R5.32, R5.33, R5.34, R5.35, R5.36, R5.37, R5.39, R5.40, R5.41, R5.42, R5.43.
 * Layer F1: F1.30, F1.32, F1.33, F1.34, F1.35, F1.36, F1.37, F1.38, F1.39, F1.40, F1.41, F1.42, F1.43, F1.44, F1.45, F1.47, F1.50, F1.51, F1.53, F1.54, F1.55, F1.56, F1.57, F1.58, F1.59, F1.60, F1.61, F1.62, F1.63, F1.64, F1.65, F1.66, F1.67, F1.68, F1.69, F1.70, F1.71, F1.72, F1.73, F1.74, F1.75, F1.76, F1.77.
