@@ -16,56 +16,56 @@
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "Native finite integer combinations of normalized places, with coefficientwise order.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "Additive degree weighted by residue-field degrees, not the coefficient sum.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_zero",
         "kind": "lemma",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "The zero divisor has degree zero.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_add",
         "kind": "lemma",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "Degree of a sum is the sum of degrees.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_nonneg",
         "kind": "lemma",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "An effective divisor has nonnegative weighted degree.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_ofPoint",
         "kind": "lemma",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "The singleton coefficient-one divisor at P has degree P.degree.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.exists_le_degree_add_nsmul_ofPoint",
         "kind": "lemma",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "For IsFunctionField k F, any divisor D, place P and integer bound c, some natural n satisfies c<=degree(D+n[P]).",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.ofPoint",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Basic.lean",
         "provides": "The coefficient-one Finsupp divisor at a point, on the existing WeilDivisor carrier.",
-        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins. Independently re-read at the same pinned commit for REV-FunctionFieldArithmeticPartII--GC.5 on 2026-10-17; statement and hypotheses confirmed."
       }
     ]
   },
@@ -79,10 +79,11 @@
       "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
       "accessed": "2026-10-14",
       "readSections": [
-        "Appendix A.1–A.2.3, printed pp. 514–523, statements and proofs; not a claim to read all Appendix A.3.",
+        "Appendix A.1–A.2.2, printed pp. 514–523, statements and proofs; not a claim to read all Appendix A.3.",
         "Section 6.2.1, printed pp. 496–497, character-sheaf consumer.",
         "Page images of printed pp. 522–523 checked against extracted formulas."
-      ]
+      ],
+      "reviewed": "2026-10-17"
     },
     {
       "id": "TC-Divisor",
@@ -94,7 +95,8 @@
       "readSections": [
         "Divisor/Basic.lean: native divisor, degree, degree_nonneg, degree_ofPoint and unbounded growth statements and proofs.",
         "AlgebraicGeometry/WeilDivisor/Basic.lean: native Finsupp carrier and ofPoint."
-      ]
+      ],
+      "reviewed": "2026-10-17"
     },
     {
       "id": "UP-Curves",
@@ -105,7 +107,8 @@
       "accessed": "2026-10-14",
       "readSections": [
         "Layer 12A–12E comparison dictionary, especially closed points/places and divisor degree."
-      ]
+      ],
+      "reviewed": "2026-10-17"
     }
   ],
   "nodes": [
@@ -212,7 +215,7 @@
         },
         {
           "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_degree_two",
-          "kind": "computed-value",
+          "kind": "computation",
           "statement": "For an away place P with residue degree 2, [P] is a member exactly when B<=d+2."
         },
         {
@@ -227,7 +230,7 @@
         },
         {
           "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_negative_degree",
-          "kind": "computed-value",
+          "kind": "computation",
           "statement": "For an away degree-two P, 4[P] belongs for d=-5,B=3 and 3[P] does not."
         }
       ],
@@ -259,7 +262,7 @@
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
         "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
-        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). Use geometric Frobenius throughout; all sheaf maps are Frobenius-equivariant."
       ],
       "proofSteps": [
         "Use the parent effective divisor line and sum comparison, whose coherence is inherited from GC.3 symmetric multiplicativity, associativity and symmetry.",
@@ -332,7 +335,7 @@
         },
         {
           "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.test_degree_two_negative",
-          "kind": "computed-value",
+          "kind": "computation",
           "statement": "For a degree-two closed point x, Lambda_(-[x]) is (L_x1 tensor L_x2)^dual, with the dual cyclic Frobenius action; one selected stalk is insufficient."
         },
         {
@@ -377,7 +380,7 @@
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
         "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
-        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). Use geometric Frobenius throughout; all sheaf maps are Frobenius-equivariant."
       ],
       "proofSteps": [
         "Use the nonempty effective choice set from the parent auxiliary-divisors theorem; use the parent choice-comparison and choice-cocycle to obtain q_D and its compatibility.",
@@ -424,7 +427,7 @@
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
         "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
-        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). Use geometric Frobenius throughout; all sheaf maps are Frobenius-equivariant."
       ],
       "proofSteps": [
         "Use parent effective-pullback to identify delta_A^*P_(degA) with Lambda_A for effective A. Parent multiplication and unit give the corresponding value at the inverse delta_C, and identify delta_D^*P_(degD) with Lambda_A tensor Lambda_C^dual for D=A-C.",
@@ -475,7 +478,7 @@
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
         "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
-        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant.",
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). Use geometric Frobenius throughout; all sheaf maps are Frobenius-equivariant.",
         "Only the parent source-defined d,e>=0 section spaces and their actual addition maps enter this target. The effective empty divisor has global section 1; the zero global section is not the tensor unit."
       ],
       "proofSteps": [
@@ -782,8 +785,14 @@
       "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
       "searched": [
         "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
-      ]
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+        "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published proof of Lemma A.8, p. 520: the proof restricts the global character to signs although the lemma allows arbitrary rank-one input. Only branch inertia is forced to have order dividing two; an unramified order-three character separates the two conditions.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.5"
+      }
     },
     {
       "kind": "misprint",
@@ -798,8 +807,14 @@
       "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
       "searched": [
         "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
-      ]
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+        "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published Proposition A.11 proof, p. 523, including its page image: the isomorphism has a product Picard-stack base, so its checking map is the product of the two Abel–Jacobi maps, rather than the sum-degree map.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.5"
+      }
     },
     {
       "kind": "misprint",
@@ -814,8 +829,14 @@
       "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
       "searched": [
         "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
-      ]
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+        "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a suppressed qualification in the published Lemma A.10 proof, p. 522, including its page image: the later effective-divisor addition map requires an effective away divisor. Such a choice above a lower bound exists by sufficiently large multiples of one away closed point; a divisor of every exact degree is unnecessary.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.5"
+      }
     },
     {
       "kind": "misprint",
@@ -830,8 +851,14 @@
       "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
       "searched": [
         "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
-      ]
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+        "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published Proposition A.11 proof, p. 523, including its page image: all three expressions immediately preceding (A.8)–(A.9) are translated or multiplied Picard sheaves, so each needs the Picard decoration.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.5"
+      }
     }
   ],
   "restructure": [],
@@ -845,5 +872,47 @@
     "packet": "check_blueprint.py: zero errors and zero warnings, with all eight pinned declaration references checked by the available baseline index.",
     "lean": "lean-check exits 0 at the pinned build, only declaration-uses-admission warnings; native definition has a real body. No geometric formalization claim.",
     "implementationStatus": "unchecked"
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "read": "2026-10-17",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "citation": "Yun–Zhang, Annals of Mathematics 189 (2019), 393–526; published author-hosted copy, Appendix A.1–A.2.2 and §6.2.1."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.5",
+    "date": "2026-10-17",
+    "notes": "Independent review of all five new nodes, thirteen unchanged parent imports, eight pinned baseline declarations, sources and every sourceIssue. Corrected the nonexistent A.2.3 reading locator to A.2.2, made geometric Frobenius explicit, normalized computation test kinds and repaired the reader signed-line formula. Confirmed all four inherited source findings and recorded the published version read. Current upstream ownership and ordinary supplier interfaces checked. Accepted as a complete planning pass with GC.5 planned, not closed: three geometric gaps and the SF.3 integration request remain explicit. Native Lean elaborates with only thirteen admission warnings; no geometric implementation claim. See the independent review report for evidence and remaining supplier work.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/auxiliary-index",
+        "verdict": "verified",
+        "note": "Verified the real-bodied native index, weighted degree, lower-bound convention, all eight API statements and five discriminating tests against the pinned divisor declarations. Nonemptiness retains IsFunctionField and an explicit away place; the geometric dictionary remains a precise supplier request."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+        "verdict": "corrected",
+        "note": "Verified signed tensor powers, dual Frobenius action at negative multiplicity, all six API statements and four tests. Effective decomposition independence follows by comparing A+C′=A′+C with the imported coherent effective tensor API. Made geometric Frobenius explicit; actual lisse operations remain a named gap."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+        "verdict": "corrected",
+        "note": "Verified the compatible-morphism bijection using one admissible normalization and the imported comparison cocycle. Uniqueness includes the normalization maps; scalar automorphisms of the bare sheaf are not excluded. This is a derived API consequence, not a new descent claim. Made geometric Frobenius explicit."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+        "verdict": "corrected",
+        "note": "Verified the signed-degree indices, identification of the divisor-point value by effective pullback and duality, and composition/inverse/unit laws by restriction of imported character coherence. The effective agreement is normalized through a common high-degree choice. Made geometric Frobenius explicit."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.5/hat-addition-pullback",
+        "verdict": "corrected",
+        "note": "Verified the whole-space forgetful square, inverse-image/external-tensor comparison and inherited coherence for d,e>=0. The effective empty divisor has section 1; zero-section stalks stay rank one. The consumer in §6.2.1 uses the whole-space pullback. Made geometric Frobenius explicit."
+      }
+    ]
   }
 }

@@ -82,8 +82,9 @@ This exists for signed divisors. Addition of a divisor on an effective
 symmetric space, denoted $T_D$, is used only when $D\ge0$. Tensoring with
 a Frobenius line means tensoring with its inverse image from
 $\operatorname{Spec}k$. An arithmetic line need not be Frobenius-trivial.
-All comparisons below are Frobenius-equivariant maps of sheaves, not just
-equalities of functions on rational points.
+Use geometric Frobenius throughout. All comparisons below are
+Frobenius-equivariant maps of sheaves, not just equalities of functions on
+rational points.
 
 ## Native auxiliary choices
 
@@ -195,7 +196,7 @@ Every new API name has prefix
 | Test | Instance and error detected |
 | --- | --- |
 | `test_empty` | The zero signed divisor is the trivial Frobenius line. |
-| `test_degree_two_negative` | $\Lambda_{-[x]}=$L_{x_1}\otimes L_{x_2}$^\vee$ for a degree-two point, with the dual cyclic action; rejects a single selected stalk or undualized action. |
+| `test_degree_two_negative` | $\Lambda_{-[x]}\simeq(L_{x_1}\otimes L_{x_2})^\vee$ for a degree-two point, with the dual cyclic action; rejects a single selected stalk or undualized action. |
 | `test_cancellation` | $[x]-[x]$ and zero give the same canonical unit, with the sum/neg map equal to evaluation; rejects independent scalar normalizations. |
 | `test_order_three` | For a rational away point and an unramified rank-one input with Frobenius eigenvalue $\lambda$ of order three, $\Lambda_{-[x]}$ has eigenvalue $\lambda^{-1}\ne\lambda$; rejects the global quadratic restriction. |
 
@@ -486,8 +487,9 @@ remaining work; there is no implementation claim.
 
 ## Source qualifications and acceptance
 
-The published author-hosted PDF was read on 2026-10-14: A.1–A.2.3,
-printed pp. 514–523, and §6.2.1, pp. 496–497. Printed page images 522–523
+The published author-hosted PDF was read on 2026-10-14 and independently
+rechecked on 2026-10-17: A.1–A.2.2, printed pp. 514–523, and §6.2.1,
+pp. 496–497. Printed page images 522–523
 were checked against the extracted formulas. SHA-256 and URL are in the
 packet. No unavailable book is needed for this pass.
 
@@ -507,8 +509,9 @@ Four already confirmed parent source findings affect these conventions:
   on the Picard stack, not on the symmetric-space sheaf.
 
 These findings are inherited from the accepted independent parent review,
-and their selected published passages were rechecked. Historical errata
-searches remain attributed to that parent; no new exhaustive absence of a
+and all four have also been confirmed by this layer's independent review
+at their published locators. Historical errata searches remain attributed to
+that parent; no new exhaustive absence of a
 published correction is asserted. `sourceIssues` uses paraphrases rather
 than source excerpts. The source's coherence exercises are expanded into
 the explicit common-enlargement and pullback proof routes above.
@@ -520,4 +523,5 @@ checks. The five old parent planets plus the signed divisor tensor-line
 refinement give six planets for GC.5 in total; the native index and derived
 API theorems need no additional planets. The packet checker validates the
 new plan's ids and dependency closure; mathematical discharge still includes
-its named supplier leaves and independent review.
+its named supplier leaves. The [independent review](../reviews/REV-FunctionFieldArithmeticPartII--GC.5.md)
+accepts this planning pass while retaining those leaves explicitly.
