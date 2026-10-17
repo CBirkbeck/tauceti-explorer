@@ -16,6 +16,7 @@ The following boundaries fix the carriers and prevent parallel versions of exist
 - Scalar finite-measure moment determinacy with an exponential moment is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`, together with `ext_of_mgf`. Here surjection moments on finite group classes and exponential rank-grid moments have different growth assumptions and need the discrete separator and tightness arguments below.
 - Restricted-product groups and independent infinite product measures use Tau Ceti's completed RestrictedProducts roadmap and Mathlib's `MeasureTheory.Measure.infinitePi` and projective-measure interfaces. The added structure is the quadratic form, self-duality, finite reductions and canonical maximal-isotropic probability, not another restricted product or product measure.
 - SchemeAndStackFoundations:SF.3 owns unpointed Picard schemes and their degree torsors, the Picard–Brauer obstruction, rational-divisor-class comparison, norm and high-degree Abel maps. The Picard quotient, carry and Hecke probability here are finite statistical specializations. AbelianSchemesAndArithmeticModuli:A3 supplies theta groups and Cartier-dual isogeny kernels; A6 supplies polarized automorphisms and the Rosati-positive-unit orbit description of principal polarizations. The finite counting fibres and their asymptotics are new.
+- TauCetiRoadmap.AlgebraicVectorBundles L0 supplies finite locally free sheaves, their rank, tensor products and line-bundle comparison. JacobianChallenge Layers B–C supply curve cohomology, Riemann–Roch and finite pushforward. The rank-two splitting and hyperelliptic bundle-index formulas needed for the probabilities are the specialization stated in [the bundle geometry contract](#support-bundle-geometry).
 - InverseGaloisAndArithmeticFundamentalGroups:IG.3–IG.5 own reduced Schur multipliers and covers, arithmetic lifting invariants and Hurwitz components. They are imported with their marked central-cover choices and cyclotomic power actions. Here embedded wreath types, infinity rigidifications and the normalized component sums specify which arithmetic moments are counted.
 
 The pointwise two-Selmer rank identity is supplied by EllipticCurves Layer 7's exact sequence and Layer 6's Mordell–Weil theorem: `dim Sel₂(E)=rank E(Q)+dim E(Q)[2]+dim Sha(E)[2]`. Its explicit descent cardinal formula and rank inequality are already `WeierstrassCurve.Affine.card_range_μ` and `pow_rank_le_card_of_range_μ_le` in `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup`, transported by EllipticCurves' explicit/cohomological comparison. These pointwise facts are prerequisites; the new results here average them in the specified family.
@@ -58,7 +59,7 @@ From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embe
 
 From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
 
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+From AnalyticNumberTheoryPartII require the [binary-cubic action and discriminant](../AnalyticNumberTheoryPartII/README.md#s5-4) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheoryPartII/README.md#s5-5) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheoryPartII/README.md#s5-6) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheoryPartII/README.md#s5-7) (§5.7), [cubic continuation and residues](../AnalyticNumberTheoryPartII/README.md#s5-21) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheoryPartII/README.md#s5-28) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheoryPartII/README.md#s5-29) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
 
 ## How to read the build
 
@@ -72,7 +73,7 @@ The first layer fixes what a sample point is. Its main deliverable is a family w
 
 <a id="arithmetic-family"></a>
 
-**Arithmetic family.** An arithmetic family is a pair (ι, H) in which ι is a type of arithmetic objects already taken up to the family's equivalence relation — a quotient type Quotient s of a type of representatives by a setoid s (integral models up to change of variables, number fields up to ℚ-isomorphism) or an orbit type Γ\V = MulAction.orbitRel.Quotient Γ V of a group action (integral binary quartic forms up to GL₂(ℤ)) — and H : ι → ℝ is a height with Mathlib's Northcott property: {i : H(i) ≤ B} is finite for every real B. For a weight w : ι → M into an additive commutative monoid, the weighted counting function is N_H(w; X) := Σ_{H(i) ≤ X} w(i), a finite sum over heightLE X = {i : H(i) ≤ X}; the unweighted count of a subfamily S ⊆ ι is N_H(S; X) := #{i ∈ S : H(i) ≤ X} = N_H(1_S; X); the strict-cutoff count written by the sources is N_H^<(S; X) := #{i ∈ S : H(i) < X}. Constructions: ofQuotient, from a class-invariant height on representatives whose induced height is Northcott; comap along a map f : κ → ι with finite fibres (Northcott by Mathlib's Northcott.comp_of_finite_fibers), with the multiplicity formula N_{H∘f}(f⁻¹S; X) = N_H(#f⁻¹(·)·1_S; X), which is how an isomorphism multiplicity is made explicit; rescale by c > 0, with N_{cH}(S; X) = N_H(S; X/c); ofNat for a natural-valued Northcott height N, whose carrier heightLE is Tau Ceti's normLE N and whose weighted count is Tau Ceti's summatory N w; ofMulHeight, the elements of a number field ordered by Mathlib's multiplicative Weil height mulHeight₁ (Northcott by NumberField.finite_setOfPred_mulHeight₁_le). Proposed declaration: the structure ArithmeticFamily ι with fields height and northcott.
+**Arithmetic family.** An arithmetic family is a pair (ι, H) in which ι is a type of arithmetic objects already taken up to the family's equivalence relation — a quotient type Quotient s of a type of representatives by a setoid s (integral models up to change of variables, number fields up to ℚ-isomorphism) or an orbit type Γ\V = MulAction.orbitRel.Quotient Γ V of a group action (integral binary quartic forms up to GL₂(ℤ)) — and H : ι → ℝ is a height with Mathlib's Northcott property: {i : H(i) ≤ B} is finite for every real B. For a weight w : ι → M into an additive commutative monoid, the weighted counting function is N_H(w; X) := Σ_{H(i) ≤ X} w(i), a finite sum over heightLE X = {i : H(i) ≤ X}; the unweighted count of a subfamily S ⊆ ι is N_H(S; X) := #{i ∈ S : H(i) ≤ X} = N_H(1_S; X); the strict-cutoff count written by the sources is N_H^<(S; X) := #{i ∈ S : H(i) < X}. Constructions: ofQuotient, from a class-invariant height on representatives whose induced height is Northcott; comap along a map f : κ → ι with finite fibres (Northcott by Mathlib's Northcott.comp_of_finite_fibers), with the multiplicity formula N_{H∘f}(f⁻¹S; X) = N_H(#f⁻¹(·)·1_S; X), which is how an isomorphism multiplicity is made explicit; rescale by c > 0, with N_{cH}(S; X) = N_H(S; X/c); ofNat for a natural-valued Northcott height N, whose carrier heightLE is Tau Ceti's normLE N and whose weighted count is Tau Ceti's summatory N w; ofMulHeight, the elements of a number field ordered by Mathlib's multiplicative Weil height mulHeight₁ (Northcott by NumberField.finite_setOfPred_mulHeight₁_le). Proposed declaration: the structure ArithmeticFamily ι with fields height and northcott. Unlike the imported natural-height summatory functions, this interface also accepts real-valued Northcott heights.
 
 The equivalence relation is built into the type ι: counts are counts of classes, never of representatives, unless comap is used with its explicit fibre multiplicities. Heights are real-valued. A natural-valued height enters through ofNat and then agrees with Tau Ceti's normLE/summatory carrier, so Tau Ceti's counting lemmas apply unchanged. The cutoff is inclusive (H(i) ≤ X), as in Tau Ceti's normLE. The strict cutoff H(i) < X of the sources is countLT; relative densities do not depend on the choice ([relative density](#relative-density)).
 
@@ -210,9 +211,11 @@ For the proof, Nonnegativity and ratio_le_one: N_H(S ∩ T; X) ≤ N_H(T; X). ha
 
 - Strict and inclusive cutoffs give the same limit, as the sources' Σ(X) = {H < X} and Burungale–Tian's S(X) = {n ≤ X} require.
 
+- The empty ambient family has density 0 in itself under the 0/0 convention, whereas a singleton has density 1 in itself. Infinitude is sufficient but not necessary for self-density 1.
+
 <a id="relative-density-is-multiplicative-in-towers"></a>
 
-**Relative density is multiplicative in towers.** Let S ⊆ T ⊆ U be subfamilies of an arithmetic family. If S has relative density α in T and T has relative density β in U, then S has relative density αβ in U. Proposed declaration: ArithmeticFamily.HasDensity.trans.
+**Relative density is multiplicative in towers.** Let S ⊆ T ⊆ U be subfamilies of an arithmetic family. If S has relative density α in T and T has relative density β in U, then S has relative density αβ in U. Proposed declarations: ArithmeticFamily.HasDensity.trans, represented by ArithmeticFamily.relativeDensity_mul in Suggested.lean.
 
 No infinitude hypothesis is needed: the proportions are read with 0/0 = 0.
 
@@ -227,6 +230,8 @@ For the proof, For S ⊆ T ⊆ U and every X: if N(T; X) > 0 then N(S; X)/N(U; X
 - With P the positive squarefree integers, S ⊆ P those ≡ 1, 2, 3 (mod 8) and A of density one in S, A has density 1/2 in P ([density one in the even parity classes is half of all squarefree](#density-one-in-the-even-parity-classes-is-half-of-all-squarefree)): the passage from Burungale–Tian's Theorem 1.2 to the '50% of the positive square-free integers' of their abstract.
 
 - With α = 1/3 and β = 1/2 (one residue class of S inside S, S inside P) the class n ≡ 1 (mod 8) has density 1/6 in P.
+
+- For S=T=U=∅ every proportion and the product are zero. This tests the tower identity without an infinite ambient family.
 
 <a id="density-one-restricts-to-subfamilies-of-positive-lower-density"></a>
 
@@ -263,6 +268,8 @@ For the proof, count_rescale ([arithmetic family](#arithmetic-family)): {i ∈ S
 - Bhargava–Shankar: an X^(5/6) constant for the ordering by H becomes (4/27)^(5/6) times itself for the ordering by H′ (use the height change in this direction).
 
 - The average of #S₂(E) over a large family is the same for H and H′ (it is a ratio of two counts at the same cutoff).
+
+- On N with height n, rescaling by c=0 gives infinitely many elements below cutoff 0; it is excluded by c>0. Rescaling by c=2 gives count 2 at cutoff 3, instead of the original count 4.
 
 <a id="piecewise-rescaling-of-a-height"></a>
 
@@ -472,15 +479,15 @@ For the proof, For every v, the net of finite products of factors in [0,1] decre
 
 - A set defined by finitely many congruence conditions is acceptable (take p_0 larger than every prime involved).
 
-- For n=1 and f=x, the characteristic function of integer squares has the presentation phi_p=1_{x is a square in Z_p}, locally constant off {0}, and this presentation is not acceptable. Nonacceptability is not asserted for every primitive polynomial: f=1 is a counterexample.
+- For n=1 and f=x, the characteristic function of integer squares has the presentation phi_p=1_{x is a square in Z_p}, locally constant off {0}, and this presentation is not acceptable. The same fixed presentation also fails acceptability relative to f=1, since p² never divides 1 but nonsquare units still have local weight zero. In contrast, changing the weight to the indicator that f(v) is a square with f=1 gives the constant-one presentation, which is acceptable. Acceptability concerns the chosen local weights together with the reference polynomial.
 
 ### 0.3 Binary quartics and eligible invariants
 
 <a id="binary-quartic-form"></a>
 
-**Binary quartic form.** For a commutative ring R, a binary quartic form over R is f(x, y) = a x⁴ + b x³y + c x²y² + d xy³ + e y⁴, recorded by its coefficients (a, b, c, d, e) ∈ R⁵ (the structure BinaryQuartic R, in the style of Mathlib's WeierstrassCurve), with evaluation f(x, y), dehomogenisation f(X, 1) ∈ R[X] and the associated homogeneous polynomial of degree 4 in two variables. GL₂(R) acts on the left by linear substitution, γ·f(x, y) := f((x, y)·γ) with (x, y)·γ = (γ₀₀x + γ₁₀y, γ₀₁x + γ₁₁y) (Bhargava–Shankar (3)); for γ with rows (p, q) and (r, s) the new coefficients are a′ = f(p, q), e′ = f(r, s), b′ = 4a p³r + b p³s + 3b p²qr + 2c p²qs + 2c pq²r + 3d pq²s + d q³r + 4e q³s, c′ = 6a p²r² + 3b p²rs + 3b pqr² + c p²s² + 4c pqrs + c q²r² + 3d pqs² + 3d q²rs + 6e q²s², d′ = 4a pr³ + 3b pr²s + b qr³ + 2c prs² + 2c qr²s + d ps³ + 3d qrs² + 4e qs³. The twisted action is γ⋆f := (det γ)⁻²·f((x, y)·γ) (Bhargava–Shankar (21), (32)): scalars act trivially, so it is an action of PGL₂(R); for det γ = ±1 the two actions agree, so on V_ℤ the PGL₂(ℤ)-orbits are the GL₂(ℤ)-orbits; −1 acts trivially under both. Base change along ring homomorphisms is equivariant. V_ℤ ⊂ V_ℝ is the lattice of integral forms. Proposed declarations: BinaryQuartic R, subst, the MulAction instance, twistedSMul.
+**Binary quartic form.** For a commutative ring R, a binary quartic form over R is f(x, y) = a x⁴ + b x³y + c x²y² + d xy³ + e y⁴, recorded by its coefficients (a, b, c, d, e) ∈ R⁵ (the structure BinaryQuartic R, in the style of Mathlib's WeierstrassCurve), with evaluation f(x, y), dehomogenisation f(X, 1) ∈ R[X] and the associated homogeneous polynomial of degree 4 in two variables. GL₂(R) acts on the left by linear substitution, γ·f(x, y) := f((x, y)·γ) with (x, y)·γ = (γ₀₀x + γ₁₀y, γ₀₁x + γ₁₁y) (Bhargava–Shankar (3)); for γ with rows (p, q) and (r, s) the new coefficients are a′ = f(p, q), e′ = f(r, s), b′ = 4a p³r + b p³s + 3b p²qr + 2c p²qs + 2c pq²r + 3d pq²s + d q³r + 4e q³s, c′ = 6a p²r² + 3b p²rs + 3b pqr² + c p²s² + 4c pqrs + c q²r² + 3d pqs² + 3d q²rs + 6e q²s², d′ = 4a pr³ + 3b pr²s + b qr³ + 2c prs² + 2c qr²s + d ps³ + 3d qrs² + 4e qs³. The twisted action is γ⋆f := (det γ)⁻²·f((x, y)·γ) (Bhargava–Shankar (21), (32)): scalars act trivially, so it descends to the projective matrix quotient GL₂(R)/Rˣ, denoted PGL₂(R) in this subsection; for det γ = ±1 the two actions agree, so on V_ℤ the PGL₂(ℤ)-orbits are the GL₂(ℤ)-orbits; −1 acts trivially under both. Base change along ring homomorphisms is equivariant. V_ℤ ⊂ V_ℝ is the lattice of integral forms. Proposed declarations: BinaryQuartic R, subst, the MulAction instance, twistedSMul.
 
-The action is by the row vector (x, y)·γ, a left action: (γ₁γ₂)·f = γ₁·(γ₂·f). Using γ·(x, y)ᵀ instead gives a right action and different orbits formulas; the unit tests separate the two. Coefficients are arbitrary (Bhargava–Shankar allow all integer coefficients, not the even middle coefficients of classical conventions). The twisted action needs det γ invertible, which holds for every γ ∈ GL₂(R).
+The action is by the row vector (x, y)·γ, a left action: (γ₁γ₂)·f = γ₁·(γ₂·f). Using γ·(x, y)ᵀ instead gives a right action and different orbits formulas; the unit tests separate the two. Coefficients are arbitrary (Bhargava–Shankar allow all integer coefficients, not the even middle coefficients of classical conventions). The twisted action needs det γ invertible, which holds for every γ ∈ GL₂(R). Over a general ring, the projective matrix quotient is the group used here; it is not identified with every R-point of the quotient group scheme. The two notions agree over fields and over Z, where the scalar-torsor obstruction vanishes.
 
 The required API is:
 
@@ -613,6 +620,8 @@ For the proof, Both identities are polynomial identities with integer coefficien
 - For γ = 2·1 ∈ GL₂(ℚ) (det γ = 4) and f = x³y − xy³: I(γ·f) = 256·3 = 768; an implementation with weight (det γ)² fails.
 
 - For γ ∈ GL₂(ℤ), det γ = ±1 and I, J are GL₂(ℤ)-invariant, so H(f) is a class invariant.
+
+- Reversing coefficients of x⁴+xy³ gives y⁴+x³y. Both have I=0 and J=−27, so a determinant-sign factor in J would fail.
 
 <a id="quartic-discriminant-is-the-polynomial-discriminant"></a>
 
@@ -1266,7 +1275,7 @@ For the proof, The ℚ-embeddings K → A number n (mathlib:AlgHom.card). Aut(K/
 
 **Binary cubic forms and the twisted action.** For a commutative ring R, a binary cubic form over R is f(x,y) = a x^3 + b x^2 y + c x y^2 + d y^3 with a, b, c, d in R, recorded by its four coefficients (V_3(R) = R^4). Its discriminant is disc(f) = b^2 c^2 - 4 a c^3 - 4 b^3 d - 27 a^2 d^2 + 18 a b c d, which is Mathlib's Cubic.discr of the coefficient vector (valid also when a = 0). The group GL2(R) acts on the left by the twisted action (gamma . f)(x,y) = (det gamma)^{-1} f((x,y) gamma), where (x,y) gamma = (g00 x + g10 y, g01 x + g11 y) for gamma = (g_ij). The action is faithful: the scalar u.1 acts as multiplication by u. It satisfies disc(gamma . f) = (det gamma)^2 disc(f), and it commutes with base change of coefficients along ring homomorphisms.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#cubic-action-discriminant) §5.4 supplies the action and ordinary discriminant; the coefficient/base-change API below is its arithmetic-family adapter. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-4) §5.4 supplies the action and ordinary discriminant; the coefficient/base-change API below is its arithmetic-family adapter. The detailed contract and Checks are retained below for the specialization.
 
 R is a commutative ring; no assumption on 2 or 3 is made. Convention pinned: the substitution is by the row vector (x, y) times gamma, and the twist is (det gamma)^{-1}; with this convention the Delone-Faddeev correspondence is GL2(R)-equivariant for the change of basis of R(f)/R. The discriminant is the discriminant of the binary form, not of the dehomogenized polynomial: for a = 0 it is b^2 (c^2 - 4 b d), not the discriminant of a quadratic.
 
@@ -1334,7 +1343,7 @@ For the proof, Define the structure with four coefficients, the evaluation, the 
 
 **Cubic ring.** A cubic algebra over a commutative ring R is a commutative R-algebra A (with 1) equipped, up to change of basis, with an R-basis indexed by Fin 3; a cubic ring is a cubic Z-algebra. For nontrivial R this is equivalently Module.Free R A, Module.Finite R A and Module.finrank R A = 3. The basis formulation also applies to the zero ring, where finrank is zero and cannot express the intended rank. The discriminant of A with respect to a basis b is Disc_b(A) = det(Tr_{A/R}(b_i b_j)), Mathlib's Algebra.discr R b; a change of basis by P multiplies it by (det P)^2, so it is a well-defined element of the orbit set of R under multiplication by unit squares, denoted R/(R^x)^2, and for R = Z an integer independent of the basis. A ring A that is free of finite rank over Z is maximal at a prime p if every subring B with A subset B subset A[1/p] that is finitely generated as a Z-module equals A; it is maximal if it is maximal at every prime.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the general locally free cubic algebra; this free Fin 3 specialization keeps maximality as its additional statistical predicate. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the general locally free cubic algebra; this free Fin 3 specialization keeps maximality as its additional statistical predicate. The detailed contract and Checks are retained below for the specialization.
 
 Rank 3 and freeness are part of the notion; over a PID or a local ring the quotient A/R.1 is then free of rank 2 (quotient-by-scalars-is-free). Maximality at p is tested only against overrings inside A[1/p] (index a power of p); this is Bhargava-Shankar-Tsimerman's R_1 = R' intersect (R tensor Z[1/p]). For a free Z-module A of finite rank the map A -> A[1/p] is injective, so A is identified with its image.
 
@@ -1380,7 +1389,7 @@ For the proof, Define discr via Algebra.discr; the change-of-basis formula is Ma
 
 **Cubic ring of a binary cubic form.** For a binary cubic form f = (a,b,c,d) over a commutative ring R, let R(f) be the commutative R-algebra with R-basis <1, omega, theta> and multiplication omega theta = -ad, omega^2 = -ac - b omega + a theta, theta^2 = -bd - d omega + c theta. It is constructed as R[X_0, X_1]/(X_0 X_1 + ad, X_0^2 + ac + b X_0 - a X_1, X_1^2 + bd + d X_0 - c X_1). It is associative and commutative, free of rank 3 with the stated basis; the constants -ad, -ac, -bd are the only ones compatible with associativity for a normal basis (omega theta in R). Moreover: gamma . f gives an isomorphic R-algebra for gamma in GL2(R); the natural map R(n f) → R(f) has image R + n R(f), and identifies these algebras when n is a non-zero-divisor in R; for a = 1, R(f) = R[omega] with omega^3 + b omega^2 + c omega + d = 0; and R(f) tensor_R S = R(f_S) for any R-algebra S.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the algebra and its base change; use its simultaneously negated normal basis to obtain the signs below. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the algebra and its base change; use its simultaneously negated normal basis to obtain the signs below. The detailed contract and Checks are retained below for the specialization.
 
 Sign convention pinned (Bhargava-Shankar-Tsimerman (10)-(11)): omega^2 = -ac - b omega + a theta. Gross-Lucianovic and HCL III use the basis <1, i, j> = <1, -omega, -theta>, with i^2 = -ac + b i - a j; the index form of their basis is -f. No hypothesis on R.
 
@@ -1446,7 +1455,7 @@ For the proof, Associativity: (omega theta) theta = omega theta^2 and omega^2 th
 
 **Discriminant of the cubic ring of a form.** For every binary cubic form f over a commutative ring R, the discriminant of R(f) with respect to its normal basis <1, omega, theta> equals disc(f) = b^2c^2 - 4ac^3 - 4b^3d - 27a^2d^2 + 18abcd.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the discriminant comparison; the trace-matrix calculation below checks the chosen negated basis. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the discriminant comparison; the trace-matrix calculation below checks the chosen negated basis. The detailed contract and Checks are retained below for the specialization.
 
 R is any commutative ring; the identity is a polynomial identity in Z[a,b,c,d].
 
@@ -1716,7 +1725,7 @@ For the proof, Construct f_a from the finite coefficient tuple. Real roots of th
 
 <a id="binary-discriminant"></a>
 
-**Binary discriminant.** For n≥2 the universal binary discriminant D_n∈Z[a₀,…,a_n] is the integral homogeneous polynomial of degree 2n−2 agreeing with Disc(Σ a_i x^(n−i)) when a₀ is invertible and the polynomial has degree n. Evaluation defines Δ_n over every commutative ring, including a₀=0. At n=0,1 use Δ_n=1. Its covariance under γ∈GL₂ is det(γ)^(n(n−1)), and Δ_{n+1}(xf)=Δ_n(f) f(0,1)². A leading-zero vector must never be evaluated with the discriminant of its lower-degree affine polynomial.
+**Binary discriminant.** For n≥2 the universal binary discriminant D_n∈Z[a₀,…,a_n] is the integral homogeneous polynomial of degree 2n−2 agreeing with Disc(Σ a_i x^(n−i)) when a₀ is invertible and the polynomial has degree n. Evaluation defines Δ_n over every commutative ring, including a₀=0. At n=0,1 use Δ_n=1. Its covariance under γ∈GL₂ is det(γ)^(n(n−1)); for n≥1, Δ_{n+1}(xf)=Δ_n(f) f(0,1)². A leading-zero vector must never be evaluated with the discriminant of its lower-degree affine polynomial.
 
 The required API is:
 
@@ -1728,13 +1737,13 @@ The required API is:
 
 - `ArithmeticStatistics.ST0.binaryDisc_scale`: Scalar multiplication contributes c^(2n−2) for n≥2.
 
-- `ArithmeticStatistics.ST0.binaryDisc_add_root`: Multiplication by x adds the root (0:1) and contributes the square of f(0,1).
+- `ArithmeticStatistics.ST0.binaryDisc_add_root`: For n≥1, multiplication by x adds the root (0:1) and contributes the square of f(0,1).
 
 For the proof, Construct the universal polynomial through the resultant of the universal polynomial and its derivative, cancel the leading coefficient integrally, and prove base change. The root-product identity on the generic coefficient ring gives homogeneity, covariance and the added-root formula; injectivity into its fraction field extends them across the leading-zero locus.
 
 *Needs:* `Polynomial.discr` (Mathlib).
 
-([[59]](#ref-59), §1 pp.1–2 and Appendix A p.53.)
+([[59]](#ref-59), §1 p.2 and Appendix A pp.54–55.)
 
 **Checks.**
 
@@ -1743,6 +1752,8 @@ For the proof, Construct the universal polynomial through the resultant of the u
 - The binary quadratic xy has discriminant 1 although its leading coefficient is zero.
 
 - The binary quadratic y² has a repeated projective root and discriminant zero.
+
+- At n=0 and f=2, Δ₁(2x)=1 whereas Δ₀(2)f(0,1)²=4. The added-root identity therefore starts at n=1.
 
 <a id="binary-local-proportion"></a>
 
@@ -1890,7 +1901,7 @@ For the proof, Use actual residue subsets at each prime. Pull them back along co
 
 <a id="primitive-hypersurface-family"></a>
 
-**Primitive hypersurface family.** Let M=binomial(n+d,d), with the monomial ordering of Layer 5. Take nonzero primitive vectors in Z^M (the gcd of all coefficients is 1), modulo a∼−a, and order classes by the Euclidean norm (Σ a_i²)^(1/2). They parametrize equations of degree-d hypersurfaces in fixed P^n. There is no quotient by PGL_(n+1), and singular equations remain in the ambient family. Each class has precisely two primitive vectors; the Euclidean norm descends and is Northcott.
+**Primitive hypersurface family.** Let M=binomial(n+d,d), with the monomial ordering of [§0.10](#coefficient-vector-form). Take nonzero primitive vectors in Z^M (the gcd of all coefficients is 1), modulo a∼−a, and order classes by the Euclidean norm (Σ a_i²)^(1/2). They parametrize equations of degree-d hypersurfaces in fixed P^n. There is no quotient by PGL_(n+1), and singular equations remain in the ambient family. Each class has precisely two primitive vectors; the Euclidean norm descends and is Northcott.
 
 The required API is:
 
@@ -1930,7 +1941,7 @@ For the proof, Use primitive gcd and a nonzero condition, then the two-element s
 
 <a id="finite-local-hypersurface-set"></a>
 
-**Finite local hypersurface set.** For Q≥1, let R_M(Q) be Layer 5’s primitive coefficient residue vectors. F_loc(Q) consists of a∈R_M(Q) such that for each prime power p^r exactly dividing Q the homogeneous equation f_a has a primitive zero modulo p^r. By CRT this is equivalent to having a primitive zero modulo Q and to Layer 5’s σ(a;Q)>0. It is a finite-level condition; it does not alone assert a Qp-point. At Q=1 the primitive condition is vacuous and F_loc is the singleton residue vector.
+**Finite local hypersurface set.** For Q≥1, let R_M(Q) be [§0.10’s primitive coefficient residue vectors](#local-density-of-a-form-modulo-q). F_loc(Q) consists of a∈R_M(Q) such that for each prime power p^r exactly dividing Q the homogeneous equation f_a has a primitive zero modulo p^r. By CRT this is equivalent to having a primitive zero modulo Q and to [§0.10’s local density](#local-density-of-a-form-modulo-q) σ(a;Q)>0. It is a finite-level condition; it does not alone assert a Qp-point. At Q=1 the primitive condition is vacuous and F_loc is the singleton residue vector.
 
 The required API is:
 
@@ -2030,7 +2041,7 @@ The required API is:
 
 - `ArithmeticStatistics.ST0.pellRadicand_finite`: At every cutoff only finitely many radicands occur.
 
-- `ArithmeticStatistics.ST0.quadraticRadicandDisc`: The positive fundamental discriminant on this squarefree family.
+- `ArithmeticStatistics.ST0.quadraticRadicandDisc`: For d>1, the positive quadratic-field discriminant on this squarefree family; assign value 1 at the unit radicand as a convention.
 
 - `ArithmeticStatistics.ST0.pell_no_three_mod_four`: No prime 3 modulo 4 divides an admitted radicand.
 
@@ -2048,19 +2059,25 @@ For the proof, Restrict the squarefree Northcott carrier by the prime-factor con
 
 - Radicands 2 and 5 have discriminants 8 and 5.
 
+- The radicand 1 solves the negative-Pell equation with x=0,y=1 and has assigned discriminant 1, but it gives no quadratic field. The field carrier excludes it.
+
 <a id="twist-denominator-frontier"></a>
 
 **Positive squareclass denominator.** For a number field F, the squareclass height H(t)=product of norms of finite primes with odd valuation has finite fibers. For a nonempty admissible finite set of local conditions Σ, one needs #Σ(X)=c_(F,Σ) X+o(X), c_(F,Σ)>0, where each squareclass is counted once. Admissible means local conditions are compatible with global squareclasses, not merely that each local set is individually nonempty. Its ideal-counting proof must distinguish classes modulo Cl(F)² and the finite unit/Selmer fibers. Prove this denominator asymptotic from the squarefree ideal count and compatible ray-class conditions below; Northcott finiteness alone does not imply it.
 
-For the proof, Expand squarefree ideals in each ray class and use finite-order Hecke characters to select compatible classes. Count unit/Selmer fibers and local squareclass conditions explicitly. Analytic continuation and a Tauberian/ideal equidistribution theorem must produce the residue and its strict positivity. These analytic statements are requested from AN.4, rather than asserted as already supplied.
+For the proof, Expand squarefree ideals in each ray class and use finite-order Hecke characters to select compatible classes. Count unit/Selmer fibers and local squareclass conditions explicitly. Analytic continuation and a Tauberian/ideal equidistribution theorem must produce the residue and its strict positivity. Use [AnalyticNumberTheoryPartI §§2.3–2.5](../AnalyticNumberTheoryPartI/README.md#s2-3) for the Hecke continuation, line-one comparison and Dedekind residue, and GlobalNumberFields Layer 3 for ray-class ideal counts. ArithmeticDirichletSeries Layer 9 supplies `wienerIkehara`, with nonnegative coefficients, half-plane `LSeriesHasSum`, nonnegative residue and a separately defined continuous boundary remainder. The squarefree support-ideal expansion, the compatible Selmer fibers and the residue calculation remain the explicit arithmetic application here.
 
-*Needs:* [squareclass height](#squareclass-height), [finiteness of squareclasses of bounded height](#finiteness-of-squareclasses-of-bounded-height), AnalyticNumberTheory:AN.4.
+*Needs:* [squareclass height](#squareclass-height), [finiteness of squareclasses of bounded height](#finiteness-of-squareclasses-of-bounded-height), [AnalyticNumberTheoryPartI §§2.3–2.5](../AnalyticNumberTheoryPartI/README.md#s2-3), GlobalNumberFields Layer 3, ArithmeticDirichletSeries Layer 9.
 
 ([[68]](#ref-68), §2 p.2, squareclass height and Σ(X).)
 
 **Checks.**
 
-- Over Q with no local restriction the positive squarefree denominator is (6/π²)X+o(X). Compatibility and residue positivity, rather than mere local nonemptiness, must be established for general F.
+- Over Q with no local restriction, both signs occur and #Σ(X)=(12/π²)X+o(X). Imposing Σ_∞={+1} gives the positive squarefree denominator (6/π²)X+o(X). Compatibility and residue positivity, rather than mere local nonemptiness, must be established for general F.
+
+- At height at most 1 over Q, the unrestricted classes are [1] and [−1]; the positive real-place condition retains only [1]. A count with one class in the unrestricted family has lost its sign multiplicity.
+
+- An empty local set makes every finite count zero and cannot satisfy a positive-residue conclusion. Finitely many compatible conditions select an inhabited global family; a condition at every prime forcing even valuation is a different, infinite set of restrictions.
 
 ### 0.16 Finite-field abelian-variety counting families
 
@@ -2174,9 +2191,9 @@ The required API is:
 
 - `ArithmeticStatistics.ST0.bundleMass_from_aut`: Dividing the GL₂ inverse-automorphism weight by its total gives the stated probability.
 
-For the proof, Import Grothendieck splitting of bundles on P¹ and compute upper-triangular bundle automorphisms: n+1 global sections in the off-diagonal entry for n>0. Sum the geometric series, retaining the exceptional balanced bundle. The scalar quotient rescales all inverse masses by one common factor.
+For the proof, Use the rank-two splitting target in [the bundle geometry contract](#support-bundle-geometry) and compute upper-triangular bundle automorphisms: n+1 global sections in the off-diagonal entry for n>0. Sum the geometric series, retaining the exceptional balanced bundle. The scalar quotient rescales all inverse masses by one common factor.
 
-*Needs:* [stabilizer weighted orbit count](#stabilizer-weighted-orbit-count), [weighted and unweighted orbit counts](#weighted-and-unweighted-orbit-counts), TauCetiRoadmap.JacobianChallenge Layer b.
+*Needs:* [stabilizer weighted orbit count](#stabilizer-weighted-orbit-count), [weighted and unweighted orbit counts](#weighted-and-unweighted-orbit-counts), [bundle geometry](#support-bundle-geometry).
 
 ([[64]](#ref-64), §4, bundle measure display pp.29–30.)
 
@@ -2278,7 +2295,7 @@ The required API is:
 
 For the proof, Use finite uniform counting on Q. Translate the common variable by M₁. Import the involution relation and bundle-index invariance for the ratio/inverse convention comparison. Each marginal is the corresponding uniform bundle pushforward.
 
-*Needs:* [finite picard quotient](#finite-picard-quotient), TauCetiRoadmap.JacobianChallenge Layer b.
+*Needs:* [finite picard quotient](#finite-picard-quotient), [bundle geometry](#support-bundle-geometry).
 
 ([[64]](#ref-64), §4 joint distribution and theta intersection formulas pp.30–33.)
 
@@ -2296,7 +2313,7 @@ For the proof, Use finite uniform counting on Q. Translate the common variable b
 
 For the proof, For a split pushforward O(u)⊕O(v), use u+v=deg L−g−1 and h⁰(C,L)=h⁰(P¹,π_*L). Normalize the degree by κ to d=g−a. A nonzero section is equivalent to membership in Θ_d. Repeat for M⊗L^−1; degree parity determines whether simultaneous normalization is possible. Count distinct rational line-bundle classes, not individual divisors or sections.
 
-*Needs:* [finite joint bundle mass](#finite-joint-bundle-mass), [picard representatives and carry](#picard-representatives-and-carry), TauCetiRoadmap.JacobianChallenge Layer b.
+*Needs:* [finite joint bundle mass](#finite-joint-bundle-mass), [picard representatives and carry](#picard-representatives-and-carry), [bundle geometry](#support-bundle-geometry).
 
 ([[64]](#ref-64), §4 pp.30–33, single and joint theta-tail displays.)
 
@@ -2392,7 +2409,7 @@ For the proof, Reuse WreathProduct and its projections, multiplication and funct
 
 *Needs:* `TauCeti.WreathProduct` (Tau Ceti), `TauCeti.WreathProduct.map` (Tau Ceti).
 
-([[65]](#ref-65), §1 p.378; §2 p.383.)
+([[50]](#ref-50), §1 p.1; §2.1 p.5, arXiv v2.)
 
 **Checks.**
 
@@ -2418,7 +2435,7 @@ For the proof, Express generation as subgroup closure of the outside set, and th
 
 *Needs:* [wood outside involutions](#wood-outside-involutions).
 
-([[65]](#ref-65), §1 p.378; §2.2 Proposition 2.2 pp.386–387.)
+([[50]](#ref-50), §1 p.1; §2.2 Proposition 2.2 p.8, arXiv v2.)
 
 **Checks.**
 
@@ -2444,7 +2461,7 @@ For the proof, Use conjugation by elements of the subgroup itself. Admissibility
 
 *Needs:* [wood admissible type](#wood-admissible-type).
 
-([[65]](#ref-65), §1 p.378; Lemma 2.1 pp.385–386.)
+([[50]](#ref-50), §1 p.1; Lemma 2.1 p.7, arXiv v2.)
 
 **Checks.**
 
@@ -2470,7 +2487,7 @@ For the proof, Use the already built wreath map induced by α:G≃*G on both bas
 
 *Needs:* [wood admissible type](#wood-admissible-type), `TauCeti.WreathProduct.map` (Tau Ceti).
 
-([[65]](#ref-65), §2.1.1 printed pp.383–385.)
+([[50]](#ref-50), §2.1.1 pp.5–6, arXiv v2.)
 
 **Checks.**
 
@@ -2502,7 +2519,7 @@ For the proof, Take the surjective subtype of Mathlib’s continuous monoid homo
 
 *Needs:* `ContinuousMonoidHom` (Mathlib), [wood type automorphisms](#wood-type-automorphisms).
 
-([[65]](#ref-65), §2.1 printed pp.383–385.)
+([[50]](#ref-50), §1.4 p.5; §2.1 pp.5–7, arXiv v2.)
 
 **Checks.**
 
@@ -2530,7 +2547,7 @@ For the proof, Import the marked arithmetic extension and normal-closure embeddi
 
 *Needs:* [wood continuous surjections](#wood-continuous-surjections), [wood outside involutions](#wood-outside-involutions), InverseGaloisAndArithmeticFundamentalGroups:IG.4/marked-arithmetic-extensions, InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups, InverseGaloisAndArithmeticFundamentalGroups:IG.4.
 
-([[65]](#ref-65), §2 printed pp.383–385.)
+([[50]](#ref-50), §2.1 pp.5–7, arXiv v2.)
 
 **Checks.**
 
@@ -2560,6 +2577,8 @@ For the proof, A quadratic extension of F_q(t) is F_q(t)(√f) with f ∈ F_q[t]
 
 - The other ramified square class at ∞ (leading coefficient a nonsquare) is excluded from IQ; it belongs to neither IQ nor RQ (Wood §2 p.5).
 
+- For q=3 and n=2, the count is 3³−3²=18. The factor-two count of all odd-degree leading squareclasses would give 36 and is incorrect for this infinity slice.
+
 <a id="real-exact-slice-parametrization"></a>
 
 **Real exact slice parametrization.** Let q be odd and n ≥ 1. The quadratic extensions K of F_q(t) split completely at ∞ and with discriminant of norm q^{2n} (Wood's slice RQ_{=q^{2n}}) are exactly the fields F_q(t)(√f) for f monic squarefree of degree 2n, each from exactly one f. Hence #RQ_{=q^{2n}} = q^{2n} − q^{2n−1}. The place ∞ contributes nothing to the discriminant.
@@ -2578,17 +2597,19 @@ For the proof, ∞ splits in F_q(t)(√f) iff deg f is even and the leading coef
 
 - The discriminant exponent is Σ n_i = 2n, not Σ n_i + 1.
 
+- The case n=0 is excluded: the monic constant 1 defines the split algebra F_q(t)×F_q(t), not a quadratic field in RQ.
+
 ### 0.21 Embedded types and infinity markings
 
 <a id="wood-average-normalizations"></a>
 
-**Wood average normalizations.** Use the discriminant family, restricting its base to the prescribed imaginary or real infinity type. The imaginary rigid numerator sums type-H continuous surjections; the real numerator sums type-H pairs (ρ,y). Divide both by the number of quadratic base fields in the same carrier. Over Q use |Disc(K)|≤X for a height average; over F_q(t) use exact |Disc(K)|=q^(2n) slices when applying Layer 5’s parametrizations. A genuinely empty slice is assigned zero at the finite level; a claimed limiting statement must specify a sequence of inhabited slices. For fixed unmarked extensions the imaginary multiplicity is |Aut_H(G)|; in the good real case it is |c(H)|·|Aut_H(G)|.
+**Wood average normalizations.** Use the discriminant family, restricting its base to the prescribed imaginary or real infinity type. The imaginary rigid numerator sums type-H continuous surjections; the real numerator sums type-H pairs (ρ,y). Divide both by the number of quadratic base fields in the same carrier. Over Q use |Disc(K)|≤X for a height average; over F_q(t) use exact |Disc(K)|=q^(2n) slices when applying [§0.20’s exact parametrizations](#imaginary-exact-slice-parametrization). A genuinely empty slice is assigned zero at the finite level; a claimed limiting statement must specify a sequence of inhabited slices. For fixed unmarked extensions the imaginary multiplicity is |Aut_H(G)|; in the good real case it is |c(H)|·|Aut_H(G)|.
 
 For the proof, Restrict the base carrier, then use the weighted count with the exact rigid fiber count as weight. Kernel fibers give the imaginary torsor factor. For real good H, Wood Lemma 2.1 conjugates twists inside the top kernel and counts c(H) choices, each with the same type-preserving automorphism fiber. Do not identify exact and cumulative slices. The function-field imaginary monic family is one leading-coefficient squareclass, not all odd-degree squarefree equations.
 
 *Needs:* [number fields ordered by discriminant](#number-fields-ordered-by-discriminant), [imaginary exact slice parametrization](#imaginary-exact-slice-parametrization), [real exact slice parametrization](#real-exact-slice-parametrization), [wood good type](#wood-good-type), [wood type automorphisms](#wood-type-automorphisms), [wood infinity and type adapter](#wood-infinity-and-type-adapter), InverseGaloisAndArithmeticFundamentalGroups:IG.4.
 
-([[65]](#ref-65), §2.1.1–2.1.2 pp.383–386, Lemma 2.1.)
+([[50]](#ref-50), §§2.1.1–2.1.2 pp.5–7, Lemma 2.1 p.7, arXiv v2.)
 
 **Checks.**
 
@@ -2602,17 +2623,21 @@ For the proof, Restrict the base carrier, then use the weighted count with the e
 
 **Wood root unity and tame comparison.** Wood’s correction is the |μ_K|-torsion subgroup of the reduced multiplier H₂(H,c), where μ_K is the roots-of-unity group of the base global field K. Over Q use 2; over F_q(t) use q−1. Use InverseGaloisAndArithmeticFundamentalGroups:IG.3 for the reduced multiplier and IG.4 for the global lifting invariant. Restricting the quadratic base to the tame subfamily changes the denominator too. Moment counts refined by invariant value partition the rigid numerator; summing them does not by itself prove the arithmetic distribution law.
 
-Tame ramification and the lifting invariant’s hypotheses remain those of its owner.
+For the lifting-invariant comparison, H is good and admissible, the global map has tame ramification, and in positive characteristic the characteristic is coprime to |H|. Retain the chosen reduced cover and the infinity marking required by IG.3–IG.4. These are hypotheses of the comparison, not conclusions of the finite partition identity.
 
 For the proof, Reuse the reduced multiplier and its torsion subgroup. Check root-of-unity orders for the two bases. Apply finite partition identities to the already defined rigid fibers and the same tame base slice.
 
 *Needs:* InverseGaloisAndArithmeticFundamentalGroups:IG.3 (reduced multiplier and marked cover), InverseGaloisAndArithmeticFundamentalGroups:IG.4/global-arithmetic-invariant, [wood average normalizations](#wood-average-normalizations).
 
-([[65]](#ref-65), §1 p.378 and §3 arithmetic invariant pp.388–393.)
+([[50]](#ref-50), Conjecture 1.1 p.1 and §3 Definition 3.1 pp.8–9, arXiv v2. The predicted distribution remains conjectural.)
 
 **Checks.**
 
 - For a reduced multiplier C₃, 2-torsion has size 1 while 6-torsion has size 3; the q−1 correction can depend on q.
+
+- For a reduced multiplier C₄, the torsion subgroup has size 2 over F₃(t) and size 4 over F₅(t). Using the characteristic instead of q−1 gives the wrong sizes.
+
+- If four base fields include two tame ones and the tame rigid numerator is 2, the tame average is 2/2=1. Dividing that numerator by all four base fields would instead give 1/2 and is a different average. An empty tame slice has finite-level average zero.
 
 ### 0.22 Symmetric pencils and Jacobian torsors
 
@@ -2656,7 +2681,7 @@ The required API is:
 
 - `ArithmeticOrbitRefinement.binaryDiscriminant_map`: Coefficient ring maps commute with Δₙ.
 
-- `ArithmeticOrbitRefinement.binaryDiscriminant_scale`: Δₙ(tf)=t^{2n−2}Δₙ(f).
+- `ArithmeticOrbitRefinement.binaryDiscriminant_scale`: For n≥2, Δₙ(tf)=t^{2n−2}Δₙ(f).
 
 For the proof, Compare the Layer 0 discriminant polynomial with the signed universal resultant quotient over Z, establishing divisibility before evaluating the leading coefficient. Compare on a splitting algebra with f₀^{2n−2} times the squared product of root differences, then specialize the polynomial identity. The associated-order comparison is proved in refinement-binary-form-order after that order is constructed.
 
@@ -2714,11 +2739,11 @@ The required API is:
 
 - `ArithmeticStatistics.ST0.binary_no_weak_two`: The binary weak 2²-locus is empty.
 
-For the proof, Use the Layer 1 discriminant-preserving rank-n ring of a binary form. The integral trace Gram matrix of a based ring has determinant congruent to a square modulo 4 (Stickelberger); alternatively establish the universal binary polynomial congruence before specialization. Deduce invariance for all coefficient vectors congruent modulo 2.
+For the proof, establish the universal binary polynomial congruence before specialization, so the degree-two and leading-zero cases are included. For n≥3, nonzero leading coefficient and nonzero discriminant, the binary-form order of §0.22 gives the equivalent trace-discriminant proof. That order's hypotheses are not imposed on the universal statement. The polynomial discriminant modulo 4 is the square of an integral polynomial modulo 4, so it depends only on the coefficients modulo 2. Thus if 4 divides one discriminant, it divides every discriminant in that coefficient class modulo 2, which is precisely strong divisibility.
 
 *Needs:* [binary discriminant](#binary-discriminant), [binary form order](#refinement-binary-form-order), [strong weak discriminant](#strong-weak-discriminant).
 
-([[59]](#ref-59), §1 p.2 and Appendix A p.54.)
+([[59]](#ref-59), §1 p.2 and Appendix A pp.54–55.)
 
 **Checks.**
 
@@ -2784,6 +2809,18 @@ For the proof, Separate the factor at 2. Bound the defect at odd p by a summable
 
 ### Supporting constructions
 
+<a id="support-bundle-geometry"></a>
+
+For the rank-two bundle probability, prove `p1RankTwo_split`: over a field k every rank-two finite locally free sheaf E on P¹ has a unique ordered splitting type (a,b), a≥b, with E≅O(a)⊕O(b). The vector-bundle carrier, tensor and degree are those of AlgebraicVectorBundles L0 and JacobianChallenge A–C. Define `p1BundleIndex E=a−b`; prove `p1BundleIndex_tensor`, invariance under tensoring by O(m), and `p1BundleIndex_eq`, agreement with the normalized bundle-class index. To prove splitting, choose the largest a with a nonzero section of E(−a). Saturation gives a line subbundle O(a), with quotient O(b). Maximality and H¹(O(−1))=0 force b≤a; then H¹(O(a−b))=0 splits the extension. Existence of the extremal twist uses coherent-sheaf finiteness and generation after a sufficiently positive twist. This is the rank-two projective-line theorem consumed here. ([[64]](#ref-64), §1 pp.3–4; §4 p.29.)
+
+For a finite flat separable double cover π:C→P¹ with C smooth, proper and geometrically connected of genus g, prove `hyperelliptic_pushforward_rank_two` and `hyperelliptic_pushforward_degree`: π_*L is rank two and has degree deg L−g−1 for every line bundle L. Prove `hyperelliptic_pushforward_sections`, the equality of section spaces, and `hyperelliptic_involution_index`: σL=(deg L)κ−L in Pic(C), where κ=π*O(1), and π_*σL≅π_*L. The norm identity L⊗σ*L≅π*Nm(L) and Pic(P¹)=Z give the former; πσ=π gives the latter. Define `thetaClasses d` as the degree-d line-bundle classes admitting a nonzero section, with the empty set for d<0. These are the Θ_d used in the theta-tail counts. The finite-field statistical formulas use these targets with k=F_q. ([[64]](#ref-64), §4 Lemma 4.1 pp.29–30 and theta displays pp.30–33.)
+
+**Checks.**
+
+- E=O(3)⊕O(1) has ordered type (3,1) and index 2. Tensoring by O(−1) gives type (2,0) and the same index; using a+b as the index fails.
+- For the genus-zero double cover P¹→P¹ of degree two, π_*O_C=O⊕O(−1), of degree −1 and index 1; a degree-one line bundle on C pushes to O⊕O, of degree 0 and index 0.
+- Θ₀ consists only of the trivial line bundle and Θ_d is empty for d<0. On the pointless genus-two curve of [the regression example](#pointless-curve-regression), Θ₁(F₃) is empty although Pic¹(F₃) has four classes; all Picard classes cannot be used in place of the section locus.
+
 <a id="support-squareclasses"></a>
 
 For the number-field squareclass height, prove the finite-fibre description over a squarefree support ideal using `Cl(F)[2]`, units modulo squares and the prescribed archimedean signs. In each nonempty finite local rectangle prove `#Σ(H<X)=c_Σ X+o(X)` with `c_Σ>0`, counting each squareclass once. Representatives are chosen by finitely many ideal classes and a unit fundamental domain; the nonarchimedean local measure is the pullback of additive Haar on integral representatives. An arbitrary union of coupled residue conditions is decomposed into disjoint rectangles before averaging. The zero-mass and empty cases remain separate. The required reference is BKLOS, Theorems 2.1 and 7.2, §§7–8; the ideal-counting and unit-domain steps use the native class-field and number-field contracts. Prove the Möbius/CRT squarefree density first for a finite modulus, with an error uniform enough for this passage; over Q the six squarefree residues modulo eight have equal relative mass `1/6`.
@@ -2802,7 +2839,7 @@ The hypersurface adapter identifies degree-d homogeneous forms with the native m
 
 For integers of height absolute value, the inclusive count at three is seven and the strict count is five. The height on a rational coefficient line is not Northcott without a denominator restriction: infinitely many rationals lie in `[0,1]`.
 
-The coefficient reversal sends `x⁴-y⁴` to `y⁴-x⁴`, preserves I and Δ, and changes the sign of J only as dictated by degree six; here J is zero. In contrast a scalar substitution multiplies the ordinary invariants by powers eight and twelve. A scalar matrix acts trivially for the determinant-to-the-minus-two action. The pair `(I,J)=(-12,0)` has `27Δ=-6912=4(-12)³`, fixing the discriminant convention.
+The coefficient reversal sends `x⁴-y⁴` to `y⁴-x⁴`, preserves I, J and Δ: the substitution determinant is −1 and its fourth, sixth and twelfth powers are all 1. The nonzero-J witness `x⁴+xy³` reverses to `y⁴+x³y`, and both have J=−27. In contrast a scalar substitution multiplies the ordinary invariants by powers eight and twelve. A scalar matrix acts trivially for the determinant-to-the-minus-two action. The pair `(I,J)=(-12,0)` has `27Δ=-6912=4(-12)³`, fixing the discriminant convention.
 
 At degree zero the monic polynomial is one, with discriminant one; a strict weighted box at a positive bound has one empty vector. Over F_q the squarefree monic counts begin `1,q,q²-q`, so the formula `q^n-q^(n-1)` is restricted to `n≥2`. The odd quadratic exact slice at its smallest degree has q monic polynomials, not `q-1`.
 
@@ -2900,7 +2937,7 @@ The later arithmetic-statistics parts use the exact targets supplied here. Field
 
 <a id="ref-65"></a>
 
-[65] Melanie Matchett Wood. [Nonabelian Cohen–Lenstra moments](https://par.nsf.gov/servlets/purl/10152050). published Duke Mathematical Journal 168 (2019), 377–427; NSF author manuscript.
+[65] Melanie Matchett Wood. [Nonabelian Cohen–Lenstra moments](https://par.nsf.gov/servlets/purl/10152050). published Duke Mathematical Journal 168 (2019), 377–427; NSF author manuscript. The accessible [arXiv v2 version](https://arxiv.org/pdf/1702.04644v2) is [50]; locators above use its pagination.
 
 <a id="ref-67"></a>
 
