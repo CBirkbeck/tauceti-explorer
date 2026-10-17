@@ -13,9 +13,9 @@
   "PrismaticCohomology:PR.7",
   "PrismaticCohomology:PR.8"
  ],
- "status": "partial",
+ "status": "complete",
  "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
- "summary": "Whole-roadmap revision of the prismatic roadmap. This packet follows the two accepted parts, PrismaticCohomology--PR.0 (layers PR.0–PR.7, 290 targets) and PrismaticCohomology--PR.8 (79 targets), and adds the twelve targets the whole-roadmap pass found missing: general prismatic envelopes over an orientable prism (PR.0); initial prisms of quasiregular quotients of a bounded prism (PR.2); quasi-coherent complexes on prestacks, their flat descent, flat affine direct image and the complete-module comparison on formal affines (PR.5); framed q-automorphisms, q-derivations with their Koszul complex and its completed infinite-coordinate form, and the completeness and decay of framed algebras over flat bases (PR.6); and the Beilinson fibre square and Fargues–Fontaine slope-zero named inputs (PR.7). The atlas builds the roadmap from all three packets: scripts/blueprints.py takes the nodes of every promoted packet of a roadmap, and a dry assembly of the three gives 381 declarations, 54 planets and no skipped links. Restructure R1–R6 checks, node by node, the prerequisite edits that move the accepted parts off LanglandsParameterStacks, QWittVectors, RefinedTraceMethods and VectorBundlesAndIsocrystals and off bare stage citations, and routes them to the part packets that own those nodes; applied together in a simulation they leave the 381-node graph acyclic. Open: the formal-QCoh comparison outside regular charts, decay on q-PD envelopes with infinite framings, and the proofs behind the two named inputs.",
+ "summary": "Whole-roadmap revision of the prismatic roadmap. This packet follows the two accepted parts, PrismaticCohomology--PR.0 (layers PR.0–PR.7, 290 targets) and PrismaticCohomology--PR.8 (79 targets), and adds the thirteen targets the whole-roadmap pass found missing: general prismatic envelopes over an orientable prism (PR.0); Laurent relative Frobenius on Čech nerves (PR.1); initial prisms of quasiregular quotients of a bounded prism (PR.2); quasi-coherent complexes on prestacks, their flat descent, flat affine direct image and the complete-module comparison on formal affines (PR.5); framed q-automorphisms, q-derivations with their Koszul complex and its completed infinite-coordinate form, and the completeness and decay of framed algebras over flat bases (PR.6); and the Beilinson fibre square and Fargues–Fontaine slope-zero named inputs (PR.7). The atlas builds the roadmap from all three packets: scripts/blueprints.py takes the nodes of every promoted packet of a roadmap, and a dry assembly of the three gives 382 declarations, 54 planets and no skipped links. Restructure R1–R6 checks, node by node, the prerequisite edits that move the accepted parts off LanglandsParameterStacks, QWittVectors, RefinedTraceMethods and VectorBundlesAndIsocrystals and off bare stage citations, and routes them to the part packets that own those nodes; applied together in a simulation they leave the 382-node graph acyclic. Open: the formal-QCoh comparison outside regular charts, decay on q-PD envelopes with infinite framings, and the proofs behind the two named inputs. All nine stages are planned in the sense of Protocol §0: their targets are present in the accepted parts or here, and unresolved proof and routing obligations remain named. Complete describes this planning pass, not independent acceptance or mathematical closure.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -25,63 +25,63 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "The derived category of an abelian category with its triangulated structure; for ModuleCat R it is the homotopy category against which D(Spec R) is tested.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:ModuleCat",
     "kind": "structure",
     "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
     "provides": "The category of modules over a ring.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
     "provides": "Faithfully flat modules and algebras, the hypothesis of flat descent.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:AlgEquiv",
     "kind": "structure",
     "module": "Mathlib/Algebra/Algebra/Equiv.lean",
     "provides": "Algebra isomorphisms; the q-automorphisms γ_s are D-algebra automorphisms.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:Algebra.FormallyEtale",
     "kind": "class",
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
     "provides": "Ordinary formally étale algebras. The I-completely ind-étale framing and passage to completed infinitesimal lifts require the stated additional interface and hypotheses.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:KaehlerDifferential",
     "kind": "def",
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
     "provides": "Ordinary algebraic Kähler differentials. Continuous completed forms require the DD.2 interface; this declaration alone does not provide them.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:ExteriorAlgebra",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
     "provides": "The exterior algebra, giving the terms E ⊗ Λ^i of the Koszul complex.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13)."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:Ideal.span",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Ideal/Span.lean",
     "provides": "The ideal generated by a set; used for explicit inclusions between (p,[p]_q), (p,q−1) and (p,ξ). No derived-completion theorem is inferred from this declaration.",
-    "checked": "Read the abbreviation and its span_le/member interface in the pinned Mathlib source, 2026-10-17, codex-NLkW3i."
+    "checked": "Read the abbreviation and its span_le/member interface in the pinned Mathlib source, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    },
    {
     "ref": "mathlib:AdicCompletion",
     "kind": "def",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "Compatible ordinary module quotients defining classical adic completion; the cofinal-ideal theorem here uses this carrier and does not re-plan it.",
-    "checked": "Read the inverse-limit definition and AdicCompletion.of in pinned Mathlib, 2026-10-17, codex-NLkW3i."
+    "checked": "Read the inverse-limit definition and AdicCompletion.of in pinned Mathlib, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
    }
   ]
  },
@@ -146,6 +146,12 @@
     "session": "codex-ruVgAp",
     "scope": "Proposition 3.2.8 and Corollaries 3.2.9–3.2.10 with proofs, pp.41–43; §3.3, pp.43–45, especially the paragraph before Proposition 3.3.5, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11.",
     "sha256": "0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269"
+   },
+   "sessionReading": {
+    "date": "2026-10-17",
+    "session": "codex-3742mf",
+    "scope": "§3.3, printed pp.43–45, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11.",
+    "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
    }
   },
   {
@@ -181,6 +187,12 @@
     "session": "codex-NLkW3i",
     "date": "2026-10-17",
     "scope": "BS22-v4 Constructions 16.19–16.20, Lemma 16.21, pp.114–115, and Notation 17.1, p.117; SQDEF §3, pp.6–7 and §4, p.9. Fresh reading scoped to completion topology and q-derivative convergence; historical review records are preserved."
+   },
+   "sessionReading": {
+    "date": "2026-10-17",
+    "session": "codex-3742mf",
+    "scope": "Lemma 5.4 with proof, pp.48–49; Constructions 16.19–16.20 and Lemma 16.21 with proof, pp.114–115.",
+    "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
    }
   },
   {
@@ -323,7 +335,13 @@
    "sha256": "90f68a84bc17618b9bf491ad1b6c43e69e81620f3e2ae1139047cb31ab3a180d",
    "readSections": [
     "§3, Propositions 3.1–3.2, p.13, including footnote 8, pp.13–14; Propositions 3.6–3.7 with their setup and proofs, p.15."
-   ]
+   ],
+   "sessionReading": {
+    "date": "2026-10-17",
+    "session": "codex-3742mf",
+    "scope": "Appendix B, Proposition B.1 through Lemma B.4 with proofs, pp.61–62.",
+    "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   }
   },
   {
    "id": "ST-DERIVED-COMPLETE",
@@ -348,7 +366,13 @@
    "readSections": [
     "codex-escJNw, 2026-10-17: §4.3, setup and Proposition 4.14 with proof, pp.37–38; Remarks 4.15–4.16 and Proposition 4.17 with proof, p.39; Lemma 4.18 with proof and Lemma 4.20 with proof, p.40. Fresh reading is limited to these initial-prism arguments; historical PR.8 source-issue verdicts are not recertified.",
     "codex-escJNw, 2026-10-17: Lemmas 2.9–2.10 and Theorem 2.11, pp.14–15, and Proposition 4.5 with the setup of Proposition 4.7, p.34; log-to-ordinary cotangent and derived comparison interfaces."
-   ]
+   ],
+   "sessionReading": {
+    "date": "2026-10-17",
+    "session": "codex-3742mf",
+    "scope": "Propositions 4.17 and 4.19 and Lemmas 4.18 and 4.20 with proofs, pp.39–40.",
+    "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   }
   },
   {
    "id": "BS15-PROETALE",
@@ -359,7 +383,13 @@
    "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
    "readSections": [
     "Lemmas 3.5.4–3.5.5, p.25; Lemma 3.5.7(5), pp.25–26; read in the maintainer-supplied freely available author preprint on 2026-10-17"
-   ]
+   ],
+   "sessionReading": {
+    "date": "2026-10-17",
+    "session": "codex-3742mf",
+    "scope": "Lemmas 3.5.4–3.5.7 with proofs, pp.25–26.",
+    "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   }
   }
  ],
  "nodes": [
@@ -497,6 +527,58 @@
      "match": "The telescope criterion and finite-generator completeness criterion are the existing DD.1 input. Applied to discrete modules, they give the two bijective sequence operators used in this proof."
     }
    ]
+  },
+  {
+   "id": "PrismaticCohomology:PR.1/laurent-relative-frobenius-cosimplicial-lemma",
+   "parentStageId": "PrismaticCohomology:PR.1",
+   "realises": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "kind": "theorem",
+   "title": "Relative Frobenius on Laurent Čech nerves",
+   "statement": "Let p be prime, k a commutative ring of characteristic p, S any set, G=⊕_(s∈S) Z and B=k[G]. Write B^n=B^(⊗_k(n+1)) for the Čech nerve of k→B, and B^{•,(1)}=B^•⊗_(k,Frob_k)k for its relative Frobenius twist. For every cosimplicial B^{•,(1)}-module N, the natural map N→N⊗_(B^{•,(1)})B^• induces a quasi-isomorphism of unnormalized cochain complexes of k-modules. The tensor product here is degreewise ordinary tensor; each relative-Frobenius map is free. Neither finiteness of S nor flatness of N over k is assumed.",
+   "hypotheses": [
+    "Choose a basis of the free abelian group G. No assertion is made for arbitrary nonfree abelian groups or monoids with p-torsion.",
+    "Relative Frobenius fixes the coefficient k after twisting; it multiplies group exponents by p. It is not the absolute Frobenius on the coefficients."
+   ],
+   "proofSteps": [
+    "Refine the proof of BS22 Lemma 5.4, pp.48–49, with M=G instead of a free nonnegative monoid. Let T be the finitely supported basis-coordinate vectors with entries in {0,...,p−1}. Every g∈G has a unique expression ph+a with h∈G and a∈T, including negative coordinates. The zero representative makes T a pointed set and T→G/pG a pointed bijection.",
+    "In cosimplicial degree n, split each of the n+1 group coordinates by this expression. This identifies k[E(pG)]⊗_k k[ET] with k[EG] as semicosimplicial k[E(pG)]-modules; a coface inserts the zero coordinate, so respects representatives. The relative Frobenius identifies B^{•,(1)} with k[E(pG)]. The comparison map becomes id_N⊗η, where η:k→k[ET] selects the zero representative. The decomposition need not respect codegeneracies, which add coordinates; only cofaces enter the unnormalized differential.",
+    "Through T≅G/pG, the semicosimplicial module k[ET] is the underlying semicosimplicial module of the Čech nerve C^• of k→k[G/pG]. The augmentation k[G/pG]→k sending every group element to 1 is a section of the coefficient inclusion. Its split augmented Čech nerve gives a cosimplicial homotopy equivalence k→C^•. Tensoring this homotopy degreewise with any cosimplicial k-module N preserves it, without a flatness assumption. Thus id_N⊗η induces a quasi-isomorphism of the unnormalized complexes.",
+    "For infinite S, the same representatives and homotopy are defined directly: every group element has finite support and each Čech degree has only n+1 group coordinates. No reduction of an arbitrary coefficient module N to a finite-variable submodule is assumed. This supplies precisely the ordinary Laurent Čech step used in Koshikawa Appendix B, Lemma B.4, pp.61–62; the log Cartier-type exactness and homotopy assertions remain with the PR.8 consumer."
+   ],
+   "acceptance": [
+    "For S empty, B=k and relative Frobenius after twisting is the identity; the comparison is the identity on N.",
+    "For G=Z, p=2, the negative exponent −1 decomposes as 2·(−1)+1, so X^(−1)=X^(−2)X. Representatives must allow Laurent exponents in the coefficient group pG.",
+    "For p=2, a codegeneracy sends the pair of representatives (1,1) to 2, which is outside {0,1}; a claimed cosimplicial basis decomposition is false, while the semicosimplicial decomposition suffices.",
+    "The split homotopy applies to nonflat coefficients, for instance k=F_p[ε]/(ε²) and constant N=k/(ε) with all group variables acting as 1. A proof requiring k-flat N would not meet the statement."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma"
+   ],
+   "sources": [
+    {
+     "sourceId": "BS22-v4",
+     "locator": "Lemma 5.4 and its proof, printed pp.48–49, arXiv:1905.08229v4",
+     "match": "The source states the polynomial case. This node is the Laurent extension of its pointed-residue and split-Čech proof, with the extension and its infinite-rank argument supplied explicitly here."
+    },
+    {
+     "sourceId": "K1",
+     "locator": "Appendix B, Lemma B.4 and its proof, printed pp.61–62, arXiv:2007.14037v3",
+     "match": "The logarithmic consumer uses a free abelian group algebra and its Frobenius grading. The present target supplies the ordinary Laurent comparison, not the separate log Cartier-type argument."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PR.8/cartier-type-cosimplicial-frobenius",
+     "how": "Supplies the ordinary relative-Frobenius quasi-isomorphism on the Laurent group-algebra Čech nerve, correcting R6 row 20 without widening the polynomial supplier silently."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Prismatic/FrobeniusCech",
+    "namespace": "TauCeti.PrismaticFrobeniusCech"
+   }
   },
   {
    "id": "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism",
@@ -790,12 +872,13 @@
    ],
    "title": "Complete modules on bounded-prism formal affines",
    "kind": "construction",
-   "statement": "Fix a prime p and a bounded prism (A,I), and put J=(p)+I. Define Spf(A)(R) to be the set of continuous ring maps A→R when R has the discrete topology: equivalently, maps killing J^n for some n. Let D(Spf A) be the pointwise quasi-coherent infinity-category of PR.5/quasi-coherent-complexes-on-prestacks, on ordinary rings. There is a natural equivalence E_A:D(Spf A)≃D(A)^∧_J, where the right side is the full enhanced derived category of derived J-complete A-modules, with no cohomological boundedness restriction. Its inverse sends M to the family R⊗^L_A M at A→R. Under this equivalence the unit is A, tensor is M⊗̂^L_A N:=Λ_J(M⊗^L_A N), and colimits are Λ_J(colim_i M_i), where the inner colimit is formed in D(A). For a map of bounded prisms f:(A,I)→(B,IB), pullback corresponds to M↦Λ_(p,IB)(B⊗^L_A M). These equivalences respect identities, composition, units and tensor products, including all higher coherence. This is a formal-affine comparison, not an arbitrary nonflat ordinary-fibre-product base-change theorem. More generally, for any commutative ring R and ideal J generated by a finite regular sequence, the prestack Spf_J R of ring maps R→S with nilpotent image of J satisfies D(Spf_J R)≃D(R)^∧_J, with the same inverse, unit, completed tensor and completed colimits; for a transversal prism this applies to the Hodge–Tate chart (A/I,(p)).",
+   "statement": "Fix a prime p and a bounded prism (A,I), and put J=(p)+I. Define Spf(A)(R) to be the set of continuous ring maps A→R when R has the discrete topology: equivalently, maps killing J^n for some n. Let D(Spf A) be the pointwise quasi-coherent infinity-category of PR.5/quasi-coherent-complexes-on-prestacks, on ordinary rings. There is a natural equivalence E_A:D(Spf A)≃D(A)^∧_J, where the right side is the full enhanced derived category of derived J-complete A-modules, with no cohomological boundedness restriction. Its inverse sends M to the family R⊗^L_A M at A→R. Under this equivalence the unit is A, tensor is M⊗̂^L_A N:=Λ_J(M⊗^L_A N), and colimits are Λ_J(colim_i M_i), where the inner colimit is formed in D(A). For a map of bounded prisms f:(A,I)→(B,IB), pullback corresponds to M↦Λ_(p,IB)(B⊗^L_A M). These equivalences respect identities, composition, units and tensor products, including all higher coherence. This is a formal-affine comparison, not an arbitrary nonflat ordinary-fibre-product base-change theorem. More generally, for any commutative ring R and ideal J generated by a finite regular sequence, the prestack Spf_J R of ring maps R→S with nilpotent image of J satisfies D(Spf_J R)≃D(R)^∧_J, with inverse M↦(S⊗^L_R M)_(R→S), tensor unit Λ_J R, completed tensor Λ_J(M⊗^L_R N) and completed colimits Λ_J(colim M_i); for a transversal prism this applies to the Hodge–Tate chart (A/I,(p)).",
    "hypotheses": [
     "The prism is bounded: A/I has bounded p-power torsion. The bounded-prism comparison is not extended here to an individual unbounded prism. I is an invertible Cartier ideal; one may work locally with I=(d).",
     "D(A) and its completion are enhanced infinity-categories imported from E1 and DD.1. Ordinary adic completion of modules and the triangulated category alone are insufficient. Use the universe convention of the prestack construction.",
     "For prism maps, rigidity identifies the target ideal with IB, hence the target topology is the one generated by the image of J. The displayed scalar-change formula is for these compatible ideals. A point A→R has nilpotent image of J, so no further completion is imposed on R⊗^L_A M.",
-    "The proof below establishes the unrestricted complex range when J has a finite regular generating sequence, including crystalline prisms I=(p) and transversal prisms locally with regular sequence (d,p). The remaining proof gap is the general bounded-prism case outside this regular-ideal range; the statement above retains BL22’s full bounded-prism target."
+    "The proof below establishes the unrestricted complex range when J has a finite regular generating sequence, including crystalline prisms I=(p) and transversal prisms locally with regular sequence (d,p). The remaining proof gap is the general bounded-prism case outside this regular-ideal range; the statement above retains BL22’s full bounded-prism target.",
+    "The general regular-ideal clause does not assume that R is J-complete. Its tensor unit is Λ_J R, which is R precisely when R is derived J-complete. A bounded prism is already derived (p,I)-complete, so the prism clause has unit A."
    ],
    "proofSteps": [
     "The bounded-prism equivalence is stated before BL22 Proposition 3.3.5, p.43, with its boundedness warning 3.3.6. The ordinary-ring prestack Spf A is colim_n Spec(A/J^n), so its quasi-coherent category is lim_n D(A/J^n) with derived transitions. The following argument proves effectivity for a regular generating sequence, without a noetherian hypothesis or a bound on complexes. It does not prove the general nontransversal case.",
@@ -804,7 +887,7 @@
     "All coefficient maps from levels at most m can be restricted to D(B_m). For objects in a fixed interval of r cohomological degrees, r composable maps vanishing on cohomology have zero composite: if the common top degree is b, the first map factors through truncation <=b-1 of its target, the next restricted map factors through truncation <=b-2, and after r maps the target truncation is zero. These factorizations follow from the t-structure orthogonality and the zero map on the current top cohomology. Consequently E_(n+rk,k) -> E_(n,k), the composite through r steps of size k, is zero in D(B_(n+rk)). This is a uniform statement in the derived category, stronger than pro-vanishing of individual Tor groups.",
     "Tensor that zero coefficient map with M_(n+rk) and use the system’s derived scalar-change equivalences. It follows that the tower M_n tensor-derived over B_n with E_(n,k) is uniformly pro-zero, without truncating M_n. Its derived limit vanishes. Since B_k is A-perfect, tensor with B_k commutes with Rlim; the fibre sequences then identify B_k tensor-derived over A with M with M_k. This proves the counit on every compatible, possibly two-sided unbounded system. For a complete M, the unit is DD.1’s Koszul completion formula M=Rlim_n(B_n tensor-derived over A with M). These constructions and maps are in the enhanced categories, so give mutually inverse functors, including their mapping spaces.",
     "For the crystalline prism (A,(p)), p is regular and J=(p), so r=1 applies. For an oriented transversal prism, d is regular and A/d is p-torsion-free, so (d,p) is a regular sequence and r=2 applies. Local orientations are reconciled by descent and the intrinsic reduction functor. No regularity assertion is made for (d,p) over a nontransversal bounded prism. The argument uses only the regular sequence, not the prism structure, so it gives the general regular-ideal clause; for a transversal prism p is regular on A/I, which gives the Hodge–Tate chart (A/I,(p)) with r=1.",
-    "Use DD.1/derived-completion and completion-exchanges for the reflective complete category, its completed colimits and tensor. SAG Corollary 8.2.4.15 and Remark 8.2.4.16, p.650 identify spectral formal QCoh with complete modules; Corollary 8.2.4.22 and Notation 8.2.4.23, pp.651–652 give completed tensor. They corroborate these operations but do not by themselves identify the ordinary-ring pointwise category used here.",
+    "Use DD.1/derived-completion and completion-exchanges for the reflective complete category, its completed colimits and tensor. SAG Corollary 8.2.4.15 and Remark 8.2.4.16, p.650 identify spectral formal QCoh with complete modules; Corollary 8.2.4.22 and Notation 8.2.4.23, pp.651–652 give completed tensor. They corroborate these operations but do not by themselves identify the ordinary-ring pointwise category used here. In the general R,J clause, apply the reflector to the ordinary unit R to obtain Λ_J R; at every nilpotent test ring R→S its reduction is S, so this is the structure sheaf under the equivalence. For the empty regular sequence J=0, Spf_0 R=Spec R and the comparison is the usual affine one.",
     "Do not use SAG Theorem 8.3.4.4, pp.667–668 to discharge unbounded ordinary-ring effectivity: it compares connective spectral formal complexes, with almost-connective extension in Corollary 8.3.4.6. Remark 8.3.4.5 explicitly leaves the unrestricted spectral comparison open. The bounded-prism assertion in BL22 is the source for the stronger range in this node.",
     "In this proved range, evaluation at all nilpotent ordinary test rings detects equivalences. DD.1 completion preserves reductions, and derived scalar-change associativity gives the completed pullback and tensor formulas for maps between these charts. The evaluation construction is symmetric monoidal and functorial before taking the limit, so its natural equivalences carry all coherence; it is not enough to choose unrelated triangulated isomorphisms. The reflective complete category gives completed colimits. The same formulas for an arbitrary bounded nontransversal chart remain part of the stated proof gap.",
     "For use in the WCart Cech presentation, combine this comparison with BL22 Lemma 3.3.10 and Corollary 3.3.11, p.44. The completed tensor transition formula is stated in the paragraph between them. Affineness of prism charts is Corollary 3.2.9, p.42; flatness for bounded prisms is equivalent to transversality by Corollary 3.2.10, pp.42–43. Keep that distinction when applying the separate flat affine pushforward theorem."
@@ -813,7 +896,8 @@
     "For the crystalline prism (Z_p,(p)), recover the entire derived p-complete category, including shifts of complete modules in every degree; Q_p completes to zero.",
     "The countable coproduct of the unit is the completed direct sum, while reduction to an ordinary nilpotent test ring uses derived tensor and retains Tor.",
     "For the universal oriented-prism Cech nerve, this comparison supplies exactly the complete module categories and completed transitions of BL22 Lemma 3.3.10, p.44.",
-    "The regular-chart proof handles one compatible system with nonzero cohomology in every integer degree, and proves uniform nullity of derived coefficient maps before tensoring. No tensor-limit interchange with a nonperfect ordinary quotient is used."
+    "The regular-chart proof handles one compatible system with nonzero cohomology in every integer degree, and proves uniform nullity of derived coefficient maps before tensoring. No tensor-limit interchange with a nonperfect ordinary quotient is used.",
+    "The regular-ideal clause works for a base that is not already complete: R=Z, J=(p) has unit Z_p, whereas the complete prism R=Z_p has unit R."
    ],
    "prerequisites": [
     "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
@@ -907,7 +991,7 @@
     {
      "name": "FormalAffineQCoh.regularIdealEquiv",
      "role": "equivalence",
-     "statement": "For a commutative ring R and an ideal J generated by a finite regular sequence, D(Spf_J R)≃D(R)^∧_J, with inverse M↦S⊗^L_R M at points R→S, completed tensor and completed colimits. No prism structure is used."
+     "statement": "For a commutative ring R and an ideal J generated by a finite regular sequence, D(Spf_J R)≃D(R)^∧_J, with inverse M↦S⊗^L_R M at points R→S, unit Λ_J R, completed tensor Λ_J(M⊗^L_R N) and completed colimits Λ_J(colim M_i). No prism structure is used."
     }
    ],
    "tests": [
@@ -945,6 +1029,11 @@
      "name": "FormalAffineQCoh.hodgeTateChart",
      "kind": "compatibility",
      "statement": "For the q-de Rham prism A=Z_p[[q−1]], I=([p]_q), the ring A/I=Z_p[ζ_p] is p-torsion-free, so regularIdealEquiv with J=(p) and r=1 gives D(Spf Z_p[ζ_p])≃D(Z_p[ζ_p])^∧_p; the inverse sends the compatible system (Z_p[ζ_p]/p^n)_n to Z_p[ζ_p]."
+    },
+    {
+     "name": "FormalAffineQCoh.noncompleteBaseUnit",
+     "kind": "non-example",
+     "statement": "For R=Z and J=(p), the tensor unit of D(Spf_J Z) corresponds to Λ_p Z=Z_p in degree zero, not Z. Its reduction at Z→Z/p^n is Z/p^n. Since Z is not derived p-complete, assigning it as an object of D(Z)^∧_p already fails the carrier condition."
     }
    ],
    "library": {
@@ -1433,7 +1522,7 @@
     "The algebraic exterior module is dense in these completed forms. The differentials preserve each projection kernel, so the formula extends uniquely and continuously. For finite S each degree has finitely many basis vectors and completion returns the finite Koszul terms over E.",
     "For maps, regular-quotient uniqueness intertwines matching derivatives; extra-direction fixed-image hypotheses make the additional terms zero. At every quotient level the induced wedge map takes finite support to finite support. Pass to the inverse limit, obtaining identity and composition compatibilities.",
     "For the sufficient criterion, divide γ_s(f)−f=tX_s∇_s(f) using the uniform colon inclusion. In a standard polynomial or Laurent chart, approximate f modulo I^(n+1) by a polynomial with finitely many coordinates. Every other γ_s fixes that approximation. The associated graded ring is Z[X_s][T] for I=(t), or F_p[X_s][P,T] for I=(p,t), with coordinates inverted in the Laurent case. Multiplication by TX_s is injective and raises filtration by one, proving (I^(n+1):tX_s)⊆I^n uniformly. Completeness and separatedness exclude an element of infinite nonzero filtration order.",
-    "For a completed ind-étale or q-PD-envelope consumer, separately prove finite-coordinate approximation and the uniform division estimate, or prove decay directly on a dense generating family and use the uniform filtration bound. Regularity of each tX_s by itself supplies no uniform estimate. These consumer verifications remain in the complete-framing gap."
+    "For a completed ind-étale or q-PD-envelope consumer, verify finite-coordinate approximation and a uniform division estimate, or prove decay directly on a dense generating family. The later theorem framed-algebras-over-flat-bases supplies these estimates for completely ind-étale polynomial framings over a base flat over Z_p[[q−1]], for every coordinate set. The q-PD-envelope and monoid-chart verifications remain in the complete-framing gap. Regularity of each tX_s alone supplies no uniform estimate."
    ],
    "prerequisites": [
     "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
@@ -1552,7 +1641,7 @@
     "Associated graded ring. Tor_1^A(P,A/I^n)=0 makes I^n⊗_A P→P injective with image I^nP, and Tor_1^A(P,I^n/I^(n+1))=0 gives I^nP/I^(n+1)P≅(I^n/I^(n+1))⊗_(A/I)P/IP. Hence gr_I P≅F_p[p̄,t̄]⊗_(F_p)P/IP=(P/IP)[p̄,t̄].",
     "Regular elements and colon estimates. P/IP is ind-étale, hence flat, over (D/I)[X_S], on which X_s is a nonzerodivisor; so X̄_s is a nonzerodivisor on P/IP. Let g∈P have initial form of degree e that is a nonzerodivisor on gr_I P. If x∈I^mP∖I^(m+1)P, the initial form of gx is the product of the two initial forms, which is nonzero, so gx∉I^(m+e+1)P. Since P is separated, g is a nonzerodivisor and (I^kP:g)⊆I^(k−e)P. Apply this to p, t (e=1), X_s (e=0, initial form X̄_s when P≠0) and tX_s (e=1, initial form t̄X̄_s in the polynomial ring). The case tX_s is (3).",
     "Closed quotients. For g∈{p,t,tX_s}, step 4 gives I^kP∩gP=g·I^(k−e)P, so the subspace topology on gP is the I-adic topology of gP≅P. Then gP is complete, hence closed in the separated module P, and P/gP is separated and complete for the quotient topology, which is its I-adic topology. This proves (2): P and its framing source are discrete and classically and derived complete, P/tP and P/tX_sP are classically complete, tX_s is regular; for the δ-clause, D and P are p-torsion-free and P/pP is classically complete.",
-    "Finite-coordinate approximation. P/I^(n+1)P is a filtered colimit of étale (D/I^(n+1))[X_S]-algebras. Each is of finite presentation, so by the standard limit argument it is the base change of an étale algebra E_F over (D/I^(n+1))[X_s:s∈F] for a finite F. Choose one whose image contains f modulo I^(n+1). For s∉F, the reduction of γ_s and the map id⊗(X_s↦qX_s) on E_F⊗(D/I^(n+1))[X_S] agree on the polynomial ring and modulo I, since t∈I. Unique lifting along the étale map through the nilpotent thickening P/I^(n+1)P→P/IP (Algebra.FormallyEtale) makes them agree on the image of E_F⊗(D/I^(n+1))[X_S]. Hence γ_s(f)≡f modulo I^(n+1)P.",
+    "Finite-coordinate approximation. Put C=D/I^(n+1). The algebra P/I^(n+1)P is a filtered colimit of étale C[X_S]-algebras. Choose a piece and an element representing the image of f. Finite presentation descends the piece to an étale C[X_F]-algebra E_F for finite F⊆S. Enlarge F to include every additional variable appearing in the chosen element of E_F⊗_(C[X_F])C[X_S]; after this enlargement f is in the image of E_F itself. For s∉F, the structure map E_F→P/I^(n+1)P and its composite with γ_s are C[X_F]-algebra maps, because γ_s fixes C and X_F. They coincide modulo I, since γ_s reduces to the identity on P/IP. Formal étaleness makes lifts through the nilpotent kernel of P/I^(n+1)P→P/IP unique (Algebra.FormallyEtale). Hence the two maps agree and γ_s(f)≡f modulo I^(n+1)P. Including the variables in the element is essential: descent of the étale presentation alone does not imply this conclusion.",
     "Decay. For s∉F, tX_s∇_s(f)=γ_s(f)−f lies in I^(n+1)P, so ∇_s(f)∈I^nP by (3). This is the sufficient criterion of completed-q-derivative-summability with c=1.",
     "Scope. Flatness of D over A is used in step 1 and the polynomial framing in steps 4 and 6. The argument does not reach q-PD envelopes D_(J,q)(P), which are not ind-étale over a polynomial ring, nor the monoid-algebra charts of PR.8/log-q-de-rham-complex."
    ],
@@ -1714,7 +1803,7 @@
  "coverage": [
   {
    "stageId": "PrismaticCohomology:PR.0",
-   "status": "partial",
+   "status": "planned",
    "nodes": [
     "PrismaticCohomology:PR.0/general-prismatic-envelope"
    ],
@@ -1728,11 +1817,13 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.1",
-   "status": "partial",
-   "nodes": [],
+   "status": "planned",
+   "nodes": [
+    "PrismaticCohomology:PR.1/laurent-relative-frobenius-cosimplicial-lemma"
+   ],
    "importedNodes": 27,
    "remaining": [
-    "The accepted targets of PR.1 are those of the part packet PrismaticCohomology--PR.0, assembled with this packet in the atlas. R6 routes nine PR.8 citations of the bare stage PR.1 to its nodes (rows 11, 14–21); row 20 needs the relative Frobenius lemma for Laurent polynomial algebras.",
+    "The accepted targets of PR.1 are those of the part packet PrismaticCohomology--PR.0, assembled with this packet in the atlas. R6 routes nine PR.8 citations of the bare stage PR.1 to its nodes (rows 11, 14–21); row 20 is supplied by this packet’s Laurent extension; the routed prerequisite edit is not yet applied to the part.",
     "(accepted part) Produce global formal-scheme signatures from the requested SF.4 carrier, with SF.2 identifying X_ét through its special fibre; hyperdescent is a separate planned theorem.",
     "(accepted part) Refine the compatibility of the two crystalline comparison maps for general PD ideals in BS22 Theorem 5.2 and the calculation of Lemma 5.4.",
     "(accepted part) Resolve the recorded p-torsion-freeness gap for complete-flat modules over a general p-torsion-free bounded prism."
@@ -1740,7 +1831,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.2",
-   "status": "partial",
+   "status": "planned",
    "nodes": [
     "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism"
    ],
@@ -1755,7 +1846,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.3",
-   "status": "partial",
+   "status": "planned",
    "nodes": [],
    "importedNodes": 26,
    "remaining": [
@@ -1768,7 +1859,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.4",
-   "status": "partial",
+   "status": "planned",
    "nodes": [],
    "importedNodes": 33,
    "remaining": [
@@ -1781,7 +1872,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.5",
-   "status": "partial",
+   "status": "planned",
    "nodes": [
     "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
     "PrismaticCohomology:PR.5/formal-affine-complete-qcoh",
@@ -1801,7 +1892,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.6",
-   "status": "partial",
+   "status": "planned",
    "nodes": [
     "PrismaticCohomology:PR.6/framed-q-automorphisms",
     "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
@@ -1822,7 +1913,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.7",
-   "status": "partial",
+   "status": "planned",
    "nodes": [
     "PrismaticCohomology:PR.7/beilinson-fibre-square-input",
     "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input"
@@ -1839,7 +1930,7 @@
   },
   {
    "stageId": "PrismaticCohomology:PR.8",
-   "status": "partial",
+   "status": "planned",
    "nodes": [],
    "importedNodes": 79,
    "remaining": [
@@ -2216,8 +2307,8 @@
    "roadmaps": [
     "PrismaticCohomology"
    ],
-   "detail": "R6. The accepted PR.8 part cites its own roadmap's layers by bare stage id 39 times (41 rows, two already resolved). Each row was checked against the consumer's statement and proof and the suppliers' statements: 35 rows verified as listed (row 23 with a note on topologies), three conditional or probable with the condition stated (rows 20, 25 and 38), and one dropping a redundant citation (row 27).",
-   "proposal": "Replace each bare stage citation of the PR.8 part by the node ids of its row, after the condition stated in rows 20, 25 and 38. Row 5 uses general-prismatic-envelope over any orientable base; rows 30–31 use the bounded-base quasiregular theorem and the general envelope, imposing no regularity on the original exactified kernel.",
+   "detail": "R6. The accepted PR.8 part cites its own roadmap's layers by bare stage id 39 times (41 rows, two already resolved). Each row was checked against the consumer's statement and proof and the suppliers' statements: 36 rows verified (row 20 by the new Laurent extension; row 23 with a note on topologies), two conditional or probable with the condition stated (rows 25 and 38), and one dropping a redundant citation (row 27).",
+   "proposal": "Replace each bare stage citation of the PR.8 part by the node ids of its row, after the condition stated in rows 25 and 38. Row 5 uses general-prismatic-envelope over any orientable base; rows 30–31 use the bounded-base quasiregular theorem and the general envelope, imposing no regularity on the original exactified kernel. Row 20 uses the Laurent extension in this packet; the original polynomial lemma is unchanged.",
    "map": [
     {
      "row": 1,
@@ -2425,9 +2516,9 @@
      "node": "PrismaticCohomology:PR.8/cartier-type-cosimplicial-frobenius",
      "stageCited": "PrismaticCohomology:PR.1",
      "replaceBy": [
-      "PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma"
+      "PrismaticCohomology:PR.1/laurent-relative-frobenius-cosimplicial-lemma"
      ],
-     "verdict": "conditional: relative-frobenius-cosimplicial-lemma is stated for polynomial algebras, while the consumer applies it to the group algebra k[G] of a free abelian group. Widen the PR.1 lemma to Laurent polynomial algebras (k[G] is free over k[pG] on a set of coset representatives, and the same homotopy applies) before the edit"
+     "verdict": "verified extension: laurent-relative-frobenius-cosimplicial-lemma proves the ordinary Laurent group-algebra Čech comparison for every free abelian group, including infinite rank, by pointed residues and a split Čech homotopy. The consumer retains its log Cartier-type and homotopy arguments."
     },
     {
      "row": 21,
@@ -2883,13 +2974,34 @@
  "revision": {
   "job": "BP-PrismaticCohomology~2",
   "issue": 10119,
-  "agent": "Claude (Opus)",
-  "session": "claude-dJntse",
+  "agent": "Codex",
+  "session": "codex-3742mf",
   "date": "2026-10-17",
-  "status": "Complete revision, submitted for its independent review (REV-PrismaticCohomology~2).",
-  "assembly": "The effective roadmap is the union of this packet and the two accepted parts. scripts/blueprints.py (merge_blueprints) takes the nodes of every promoted packet of a roadmap; build.assemble with the three packets gives 381 declarations (PR.0 93, PR.1 27, PR.2 30, PR.3 26, PR.4 33, PR.5 35, PR.6 30, PR.7 28, PR.8 79), 54 planets and no skipped links, and the build passes. The PR.0 part was promoted on 2026-10-09; the PR.8 part is accepted and promote.py decides to promote it at its next run. Re-serializing the 369 accepted targets here would duplicate them, which check_blueprint.py rejects, and the parts are not deliverables of this job.",
-  "routedEdits": "R1–R4 and R6 were checked node by node against the consumers' statements and proofs and are routed to the part packets that own the consumers; R5 and R7 are stage-edge changes for the maintainer. Applied together in a simulation over the 381 nodes, the edits leave the graph acyclic, with no citation of LanglandsParameterStacks, QWittVectors, RefinedTraceMethods or VectorBundlesAndIsocrystals and no bare stage citation in PR.8.",
-  "changes": "Rewrote the summary, imports, coverage and restructure records; removed the gap 'Executable whole-roadmap assembly'; added the regular-ideal clause, its API entry and a test to formal-affine-complete-qcoh; added the theorem framed-algebras-over-flat-bases (PR.6), which settles two of the R2 consumers; replaced the checkpoint record by this record. No node id, planet, source or baseline declaration was removed.",
-  "reviewBoundary": "The review object of 2026-10-13 is preserved unchanged and covers the earlier seven targets. general-prismatic-envelope, quasiregular-quotient-initial-prism, formal-affine-complete-qcoh and completed-q-derivative-summability were added by the 2026-10-17 checkpoints (#10123, #10140, #10150, #10153, #10168, #10174) and have had no independent review; this revision re-derived their arguments and found them sound, as the handoff records. framed-algebras-over-flat-bases is new in this revision and has had no independent review."
+  "status": "Complete target-level revision for independent review; nine planned stages with explicit remaining obligations.",
+  "assembly": "The effective roadmap is the union of this packet and the two accepted parts. scripts/blueprints.py (merge_blueprints) takes the nodes of every promoted packet of a roadmap; build.assemble with the three packets gives 382 declarations (PR.0 93, PR.1 28, PR.2 30, PR.3 26, PR.4 33, PR.5 35, PR.6 30, PR.7 28, PR.8 79), 54 planets and no skipped links, and the build passes. The PR.0 part was promoted on 2026-10-09; the PR.8 part is accepted and promote.py decides to promote it at its next run. Re-serializing the 369 accepted targets here would duplicate them, which check_blueprint.py rejects, and the parts are not deliverables of this job.",
+  "routedEdits": "R1–R4 and R6 were checked node by node against the consumers' statements and proofs and are routed to the part packets that own the consumers; R5 and R7 are stage-edge changes for the maintainer. Applied together in a simulation over the 382 nodes, the edits leave the graph acyclic, with no citation of LanglandsParameterStacks, QWittVectors, RefinedTraceMethods or VectorBundlesAndIsocrystals and no bare stage citation in PR.8. These remain a proposed graph: no part packet or atlas edge is modified by this job. Conditional rows retain their proof obligations.",
+  "changes": "Corrected the unit of the regular-ideal formal-QCoh comparison to Λ_J R, added a noncomplete-base test, made finite-coordinate étale descent include the representative element, and added the Laurent relative-Frobenius extension with four acceptance checks. Audited the effective target inventory, set the packet complete and all nine stages planned as Protocol §0 requires, and retained every recorded proof gap, request and unapplied route.",
+  "reviewBoundary": "The historical needs_changes review of 2026-10-13 is unchanged. The four additions from earlier checkpoints, framed-algebras-over-flat-bases, and the new Laurent relative-Frobenius target require independent review. This run checked the source passages and baseline statements listed in sessionReading; it does not recertify the 369 inherited targets or their source-issue verdicts.",
+  "coverageBasis": {
+   "protocol": "PROTOCOL.md §0: planned stages may end in precisely recorded gaps and requested suppliers; complete sends the pass to independent review.",
+   "parts": [
+    {
+     "file": "PrismaticCohomology--PR.0.json",
+     "nodes": 290,
+     "planets": 48,
+     "coverage": "PR.0–PR.7 planned; accepted part review retained"
+    },
+    {
+     "file": "PrismaticCohomology--PR.8.json",
+     "nodes": 79,
+     "planets": 6,
+     "coverage": "PR.8 planned; accepted part review retained"
+    }
+   ],
+   "addedNodes": 13,
+   "effectiveNodes": 382,
+   "effectivePlanets": 54,
+   "remaining": "All inherited gaps, requests and remaining lists retained. R1–R4 and R6 require a job owning the parts to apply only the justified rows; R5 and R7 are maintainer stage-edge actions."
+  }
  }
 }

@@ -368,6 +368,11 @@ stated there only.
   theorem `framed-algebras-over-flat-bases` (completeness and decay with `c = 1` for completely
   ind-étale framed algebras over a base flat over `ℤ_[p]⟦q - 1⟧`) is a README target for the same
   reason.
+* The regular-ideal formal-QCoh comparison has unit `Λ_J R` for a general base `R`;
+  the reader check `FormalAffineQCoh.noncompleteBaseUnit` distinguishes `ℤ` from its
+  derived p-completion. The Laurent relative-Frobenius Čech comparison, including
+  infinite-rank free abelian groups and nonflat coefficients, is also a README target.
+  Its enhanced cosimplicial module carrier is not present at the pins.
 * Needing syntomic complexes, period rings and the Fargues–Fontaine curve's bundles (PR.7): the named
   inputs on the Beilinson fibre square and on slope-zero bundles.
 -/
