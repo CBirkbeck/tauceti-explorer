@@ -68,6 +68,96 @@ def hilbertSamuelFunction (I : Ideal A) (n : ℕ) : ℕ∞ :=
 def multiplicityCoefficient (d : ℕ) (P : Polynomial ℚ) : ℚ :=
   (Nat.factorial d : ℚ) * P.coeff d
 
+/-- Formal unmixedness tests all associated primes of the maximal-adic completion. -/
+def FormallyUnmixed [IsLocalRing A] : Prop :=
+  ∀ p ∈ associatedPrimes
+    (AdicCompletion (maximalIdeal A) A) (AdicCompletion (maximalIdeal A) A),
+    ringKrullDim ((AdicCompletion (maximalIdeal A) A) ⧸ p) = ringKrullDim A
+
+/-- Lescot's criterion uses the map induced by the actual residue quotient. -/
+theorem lescot_regular_iff [IsLocalRing A] [IsNoetherianRing A] :
+    IsRegularLocalRing A ↔ ∃ n : ℕ,
+      ∃ x : CategoryTheory.Abelian.Ext
+        (ModuleCat.of A (ResidueField A)) (ModuleCat.of A A) n,
+      x.comp (CategoryTheory.Abelian.Ext.mk₀
+        (ModuleCat.ofHom (Algebra.linearMap A (ResidueField A)))) (Nat.add_zero n) ≠ 0 := by
+  sorry
+
+/-- The finite-pd module version keeps nonzeroness and the quotient direction. -/
+theorem lescot_module_regular_iff (N : Type u) [AddCommGroup N] [Module A N]
+    [IsLocalRing A] [IsNoetherianRing A]
+    [Module.Finite A N] [Nontrivial N]
+    (hpd : CategoryTheory.projectiveDimension (ModuleCat.of A N) < ⊤) :
+    IsRegularLocalRing A ↔ ∃ n : ℕ,
+      ∃ x : CategoryTheory.Abelian.Ext
+        (ModuleCat.of A (ResidueField A)) (ModuleCat.of A N) n,
+      x.comp (CategoryTheory.Abelian.Ext.mk₀ (ModuleCat.ofHom
+        ((maximalIdeal A • (⊤ : Submodule A N)).mkQ))) (Nat.add_zero n) ≠ 0 := by
+  sorry
+
+/-- An eventual cumulative polynomial fixes multiplicity in all characteristics. -/
+theorem multiplicityOne_regular [IsLocalRing A] [IsNoetherianRing A]
+    (d : ℕ) (hd : ringKrullDim A = d) (P : Polynomial ℚ)
+    (hP : ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      P.eval (n : ℚ) = ((hilbertSamuelFunction A A (maximalIdeal A) n).toNat : ℚ)) :
+    IsRegularLocalRing A ↔ FormallyUnmixed A ∧ multiplicityCoefficient d P = 1 := by
+  sorry
+
+example (K : Type u) [Field K] : FormallyUnmixed K := by
+  sorry
+
+example [IsDomain A] [IsDiscreteValuationRing A] : FormallyUnmixed A := by
+  sorry
+
+example (K : Type u) [Field K] : FormallyUnmixed (TrivSqZeroExt K K) := by
+  sorry
+
+/-- The embedded prime in k[[x,y]]/(x²,xy) obstructs formal unmixedness. -/
+example (K : Type u) [Field K] (R : Type u) [CommRing R] [IsLocalRing R]
+    (e : R ≃+* (MvPowerSeries (Fin 2) K ⧸ Ideal.span
+      {(MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) K) ^ 2,
+        (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) K) *
+          MvPowerSeries.X (1 : Fin 2)})) :
+    ¬ FormallyUnmixed R := by
+  sorry
+
+/-- Degree-zero quotient-induced Ext over a field is nonzero. -/
+example (K : Type u) [Field K] :
+    ∃ x : CategoryTheory.Abelian.Ext (ModuleCat.of K K) (ModuleCat.of K K) 0,
+      x.comp (CategoryTheory.Abelian.Ext.mk₀ (CategoryTheory.CategoryStruct.id
+        (ModuleCat.of K K))) (Nat.add_zero 0) ≠ 0 := by
+  sorry
+
+/-- In the two-term parameter dual, the degree-one cokernel is A/(π). -/
+example (π : A) :
+    LinearMap.range (LinearMap.mul A A π) = Ideal.span {π} := by
+  sorry
+
+/-- A parameter resolution in cochain degrees -1,0 dualizes with differential -2. -/
+example : (-1 : ℚ) ^ ((0 : ℤ) + 1) * 2 = -2 ∧
+    (-1 : ℚ) ^ ((0 : ℤ) + 1) * 2 ≠ 2 := by
+  norm_num
+
+/-- Nonflat reduction creates a kernel in the two-term multiplication-by-two complex. -/
+example : LinearMap.ker (LinearMap.mul ℤ ℤ 2) = ⊥ ∧
+    LinearMap.ker (LinearMap.mul (ZMod 2) (ZMod 2) 2) = ⊤ := by
+  sorry
+
+/-- The first coefficient copy deforms by +T; the right coefficient copy is fixed. -/
+example (K : Type u) [Field K] (t : K) :
+    (Polynomial.C t + Polynomial.X) - Polynomial.C t = (Polynomial.X : Polynomial K) ∧
+      Polynomial.C t - (Polynomial.C t + Polynomial.X) = -(Polynomial.X : Polynomial K) := by
+  sorry
+
+/-- The inseparable diagonal at p=2 is already a nonreduced local algebra. -/
+example : ∃ e : TrivSqZeroExt (ZMod 2) (ZMod 2), e ≠ 0 ∧ e ^ 2 = 0 := by
+  sorry
+
+/-- Multiplicity one for the DVR polynomial and length two in dimension zero. -/
+example : multiplicityCoefficient 1 (Polynomial.X + (1 : Polynomial ℚ)) = 1 ∧
+    multiplicityCoefficient 0 (Polynomial.C (2 : ℚ)) = 2 := by
+  norm_num [multiplicityCoefficient, Polynomial.coeff_one]
+
 /-- The trace ideal uses all linear functionals, without a projectivity assumption. -/
 def traceIdeal : Ideal A :=
   Ideal.span {a : A | ∃ (f : M →ₗ[A] A) (m : M), f m = a}
@@ -465,14 +555,16 @@ universal Artinian test, finite matrix equation algebra, continuous framed funct
 principal-unit orbit functor and its hull.
 
 Layer 3: regular-sequence ideal and local complete-intersection presentation adapter and conormal comparisons,
-finite resolution/depth comparison, top local-cohomology tensor comparison, explicit Cohen-presentation and noncomplete bounded-complex duality comparisons and canonical CM dual, canonical module, Gorenstein predicate,
+bounded Hom subcomplex and stable quotient, residue acyclic closure with graded Lie square
+operations and its PBW/Yoneda comparison, stable residue injection, finite resolution/depth comparison, top local-cohomology tensor comparison, explicit Cohen-presentation and noncomplete bounded-complex duality comparisons and canonical CM dual, canonical module, Gorenstein predicate,
 type, graded Hilbert
-polynomial and intrinsic/ambient multiplicities, Koszul parameter Euler comparison,
+polynomial and intrinsic/ambient multiplicities, Koszul parameter Euler comparison, superficial reductions and normalization descent for multiplicity one,
 F-finiteness and local-locus adapters, total jets, shifted jet multiplication,
 plane-curve postulation defect and quotient length comparisons.
 
 Layer 4: algebraic/valued point comparison, generic formal smoothness and regular
-power-series generic fibres, pointed diagonal tensor coordinates,
+power-series generic fibres, separable coefficient DVR construction and Artinian jet-coordinate
+comparison for diagonal completions (finite algebraic differential rank), pointed diagonal tensor coordinates,
 geometric component and torsion-free specialization comparisons.
 
 Layer 5: Betti-number balance, finite decorated patch data, cofinal cutoff category,
@@ -492,7 +584,8 @@ coefficient spectral sequence, its finite abutment filtration and derived right 
 Layer 8: based matrix complex presentation, finite germ evaluation construction,
 finite complex patch datum, paired patch datum, finite decorated coefficient types,
 complete simultaneous patch, genuine derived deformation lift, augmentation and
-paired comparison, cohomology-action patch datum.
+paired comparison, finite-cutoff cohomology-action patch datum with actions on every framing quotient
+and original-level kernel containment.
 
 Layer 9: complex dimension and Fitting comparison, patched CM functor and finite-action canonical duality,
 spectral deformation support, generic and special action blocks, local length
