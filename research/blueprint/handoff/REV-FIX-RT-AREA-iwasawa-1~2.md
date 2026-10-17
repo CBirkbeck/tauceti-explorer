@@ -1,43 +1,70 @@
-# Handoff: #6217 is blocked by the issue/queue scope mismatch
+# Handoff: reconcile #6217 scope before another review
 
-Refs #6217. Codex — **codex-3e6LnC**, 11 October 2026.
-Input: `df91fe32260d17ef3558ec5fd610ca2a56f047cb`.
-Branch: `codex-3e6LnC-review-6217`.
-The bot confirmed the claim in
-[comment 6108463624](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6108463624).
-Only this job was claimed. This submission is a **blocked checkpoint**.
+Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
+Codex — **codex-xnTg4o**, 17 October 2026.
+Branch: `codex-xnTg4o-review-iwasawa-fixes`.
+Input: `c844b396e21e1fa45d3ee5127b777294f9deb8eb`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6241476191).
+This run claimed only this job. Submission: **blocked checkpoint**.
 
-The issued HE.0 review is complete and accepted. The live issue names three
-outputs; the queue requires 23, including ten further packet reviews. All
-files exist. Fresh execution of the real completion predicate returns false
-for the current queue and true for the three issued paths substituted only
-in memory. Other packets retain their genuine reviewers and verdicts.
+## Done
 
-Fresh HE.0 pinned-index validation: zero errors and warnings; 78 nodes,
-24 API items, eighteen tests, thirteen baseline entries, 21 gaps, 63 requests
-and eight planned stages. No mathematical verdict, packet or Lean file was
-changed. Sources were not reread and Lean was not rerun for documentation-only
-work; previous source and Lean receipts remain attributed to their authors.
+Reread the live issue after confirmation; read the four applicable findings,
+verification and round-two fix report; reproduced the current mismatch with
+both the local and fresh live-main queue using the real completion function.
+All outputs exist. The queue requires 21 outputs: ten packets and their Lean
+files plus the report. The issued review permits only HE.0 and its Lean file
+plus the report. Completion is false for the queue and true with the issued
+three outputs substituted in memory.
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) contains the
-applicable, unapplied repair patch, historical scopes, full regression
-reproducers and preserved mathematical reviews. The patch passes
-`git apply --check`. Fresh focused regression passes six fixtures and its
-follow-up checks. A fresh full in-memory generator replay preserves restored
-issued scopes across two passes and assigns additional work to round three.
-It changes 44 existing records and adds twenty; inspect those wider effects.
-Repository writes were prohibited during the replay.
+The unchanged HE.0 checker passes with zero errors and warnings: 78 nodes,
+24 API items, eighteen tests, thirteen baseline declarations, 21 gaps,
+63 requests and eight planned stages. Its accepted fix verdict and attributed
+source/Lean receipts are untouched. No fresh mathematical audit or Lean
+compilation was performed for this documentation-only checkpoint.
 
-**Required maintainer action before another worker resumes:** reconcile the
-published issue, queue and prompts. Authorize and inspect the repair, restoring
-the historical output arrays and preserving issued rounds, or explicitly
-publish the expanded scope and assign its additional reviews. Applying the
-guard alone would keep the already-expanded arrays. Do not redispatch an
-unchanged HE.0-only job: that work cannot complete the expanded queue entry.
+## Exact current extra scope
 
-WORKERS.md restricts edits to issue-named files and scratch; intake rejects
-queue.json and make_queue.py as outside swarm output paths. A scope-extension
-question was asked; no authorization has arrived. No automatic approval-review
-rejection occurred. Only this handoff and the report change. No queue,
-generator, issue, label or promotion data was edited. No background process
-remains. No scratch artifact is needed to resume.
+The queue requires this review's verdict on these **nine additional packets**,
+all under `research/blueprint/packets/`, and names their corresponding
+`research/blueprint/suggested/*.lean` files as outputs:
+
+- `HeegnerPointEulerSystems--HE.8c.json`
+- `HeegnerPointEulerSystems--HE.8.json`
+- `GrossZagierAndArithmeticHeights.json`
+- `HeightsRationalPointsAndObstructions.json`
+- `RankZeroOneBSD--BSD.0.json`
+- `HeegnerPointEulerSystems--HE.8b.json`
+- `EulerSystemsAndKolyvaginSystems.json`
+- `SelmerIwasawaCohomology.json`
+- `KatoEulerSystems.json`
+
+These replace the prior handoff's obsolete ten-packet list. The Euler-system
+packet still has `needs_changes`; the others have their own accepted reviews.
+None has been stamped with an unperformed fix review.
+
+## What must happen next
+
+Reconcile issue #6217, the queue's output arrays and generated instructions
+before redispatch. Either restore the issued review's three outputs and
+round-two fix's four outputs (historical arrays at `88f9bcd44`) and give the
+additional work a subsequent round, or publish and authorize the expanded
+scope with the actual fixes to review. Preserving issued rounds in
+`fix_rounds` alone cannot undo already-expanded arrays. Its wider scheduling
+effects need maintainer inspection.
+
+WORKERS.md restricts edits to issue-named files; current intake also rejects
+queue.json and make_queue.py as outside swarm output paths. A scope question
+was sent during this run and has not received authorization. This is a scope
+blocker, not an automatic approval-review rejection.
+
+The [current report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) contains current
+packet reviewer markers and a standalone read-only reproducer. The
+[report at 508e89592](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+preserves mathematical review arguments, source locators, historical repair
+patch and regression experiments. Its packet lists, line numbers and replay
+counts are historical, not fresh verification. No deleted scratch artifact
+is needed to resume.
+
+Only the report and this handoff change. The packet, suggested file, queue
+and generator remain untouched. No background process remains.
