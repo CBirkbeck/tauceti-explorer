@@ -142,6 +142,15 @@ example : (fun _ : ℕ => (-1 : ℤ) - 2 * (-1)) = (fun _ => (1 : ℤ)) := by
   funext n
   rfl
 
+/-! ## Layer PR.2: relative initiality for quasiregular quotients
+
+`quasiregular-quotient-initial-prism` (reader) treats quotients of any bounded base prism,
+with unbounded target prisms: Koshikawa–Yao II, Lemma 4.18, p.40. Its proof uses the natural
+idempotent and monic relations after adjoining perfected variables. It does not assume that
+the original exactified kernel is regular. Its prismatic and completed cotangent carriers are
+absent at the pins, so the theorem and its checks remain reader targets.
+-/
+
 /-! ## Layer PR.6: q-crystalline charts and the AΩ comparison
 
 The finite and sufficiently complete framed q-automorphisms and q-derivatives are planned here.
