@@ -212,6 +212,33 @@ example : pairing (1 : Matrix (Fin 1) (Fin 1) ℝ) (fun _ => 2) (fun _ => 3) = 6
 end Isotropic
 end Orbits
 
+namespace Cubic
+/-- Divided coefficients represent ax³+3bx²y+3cxy²+dy³; ordinary Δ is −27 times this. -/
+def normalizedDisc {R : Type*} [CommRing R] (v : Fin 4 → R) : R :=
+  v 0 ^ 2 * v 3 ^ 2 - 6 * v 0 * v 1 * v 2 * v 3 - 3 * v 1 ^ 2 * v 2 ^ 2 +
+    4 * v 0 * v 2 ^ 3 + 4 * v 1 ^ 3 * v 3
+
+/-- Coefficient scaling has degree four, in every characteristic. -/
+theorem normalizedDisc_smul {R : Type*} [CommRing R] (u : R) (v : Fin 4 → R) :
+    normalizedDisc (fun i => u * v i) = u ^ 4 * normalizedDisc v := by sorry
+
+/-- The ordinary coefficient convention gives the discriminant of the affine cubic. -/
+theorem ordinaryDisc_eq {K : Type*} [Field K] (v : Fin 4 → K) (ha : v 0 ≠ 0) :
+    (C (v 0) * X ^ 3 + C (3 * v 1) * X ^ 2 + C (3 * v 2) * X + C (v 3)).discr =
+      -27 * normalizedDisc v := by sorry
+
+example (s : ℚ) : normalizedDisc ![0,1,0,s/4] = s := by sorry
+example : normalizedDisc (![1,0,0,1] : Fin 4 → ℤ) = 1 ∧
+    (X ^ 3 + 1 : ℤ[X]).discr = -27 := by sorry
+example : normalizedDisc (![1,0,0,0] : Fin 4 → ℤ) = 0 := by sorry
+example : normalizedDisc (![0,1,0,1] : Fin 4 → ℚ) = 4 ∧
+    (C 3 * X ^ 2 + 1 : ℚ[X]).discr = -12 := by sorry
+example : normalizedDisc (![1,0,0,1] : Fin 4 → ZMod 3) = 1 ∧
+    (X ^ 3 + 1 : (ZMod 3)[X]).discr = 0 := by sorry
+example : normalizedDisc (![1,0,0,1] : Fin 4 → ZMod 2) = 1 ∧
+    (X ^ 3 + 1 : (ZMod 2)[X]).discr = 1 := by sorry
+end Cubic
+
 /-! ## Layer 2: Uniform orbit counts and sieves -/
 namespace Counting
 /-- Square-divisor tails exclude the singular discriminant-zero locus. -/
@@ -273,10 +300,101 @@ example : sectionKernel (fun _ : Unit => ()) (fun _ : Unit => ())
 example : ({x : ZMod 15 | x = 0 ∨ x = 1}.ncard : ℚ) / 15 = 2 / 15 ∧
     (2 : ℚ) / 15 ≠ (2 / 3) * (2 / 5) := by sorry
 
+/-- The cutoff dictated by the actual tail exponents, without assigning a numerical endpoint. -/
+def sieveCutoff (δ η ξ : ℝ) : ℝ := max η ((η + ξ) / δ)
+
+/-- Both strict cutoff inequalities are required for the even-degree fixed-modulus sieve. -/
+def EvenTailParameters (n : ℕ) (δ η ξ : ℝ) : Prop :=
+  4 ≤ n ∧ Even n ∧ 0 < δ ∧ 0 < η ∧ 0 ≤ ξ ∧
+    sieveCutoff δ η ξ < 1 ∧ (2 * (n : ℝ) + 1) * sieveCutoff δ η ξ < n + 1
+
+/-- Slack in all three sieve terms supplies a positive saving at fixed modulus. -/
+theorem even_sieve_positive_saving (n : ℕ) (δ η ξ : ℝ)
+    (h : EvenTailParameters n δ η ξ) :
+    0 < min η (min (1 - sieveCutoff δ η ξ)
+      ((n : ℝ) + 1 - (2 * n + 1) * sieveCutoff δ η ξ)) := by sorry
+
+example : sieveCutoff (1/2) (1/100) 0 = (1/50 : ℝ) ∧
+    EvenTailParameters 4 (1/2) (1/100) 0 := by sorry
+example : ¬ EvenTailParameters 4 (1/2) (9/10) 0 := by sorry
+example : sieveCutoff 1 (3/5) 0 < 1 ∧
+    ¬ EvenTailParameters 4 1 (3/5) 0 := by sorry
+example : ¬ EvenTailParameters 2 (1/2) (1/100) 0 ∧
+    ¬ EvenTailParameters 3 (1/2) (1/100) 0 := by sorry
+example : sieveCutoff 0 (1/100) 0 = (1/100 : ℝ) ∧
+    ¬ EvenTailParameters 4 0 (1/100) 0 := by sorry
+
+/-- These are local mass and integral-representative normalization checks. -/
+example : (3 : ℚ) / 3 = 1 ∧ (1 : ℚ) / 3 = 1/3 ∧
+    (1 / (1 * (1 + 1)) : ℚ) + 1 / (1 * (1 + 1)) = 1 := by sorry
+example : ((1 : ℚ) / (3 * (1/3))) / 3 = 1/3 ∧
+    1 + (1 : ℚ) = 2 := by sorry
+example : (2 : ℚ) ^ (-4 : ℤ) = (2 : ℚ) ^ (-3 : ℤ) * (2 : ℚ) ^ (-1 : ℤ) ∧
+    (2 : ℚ) ^ (-4 : ℤ) = 1/16 := by sorry
+
 end Counting
 
 /-! ## Layer 3: Fields, class groups and moment tools -/
 namespace FieldStatistics
+
+/-- Root dilation in descending monic coefficients, with weights 1,…,n. -/
+def weightedDilation {n : ℕ} (Y : ℝ) (a : Fin n → ℝ) : Fin n → ℝ :=
+  fun i => Y ^ (i.val + 1) * a i
+
+/-- The same separation constants are used for every normalized root tuple in the region. -/
+def separatedRoots {n : ℕ} (c C : ℝ) (z : Fin n → ℂ) : Prop :=
+  (∀ i, ‖z i‖ ≤ C) ∧ ∀ i j, i ≠ j → c ≤ ‖z i - z j‖
+
+/-- Weighted coefficient dilations compose multiplicatively. -/
+theorem weightedDilation_mul {n : ℕ} (U Y : ℝ) (a : Fin n → ℝ) :
+    weightedDilation U (weightedDilation Y a) = weightedDilation (U * Y) a := by sorry
+
+/-- Uniform inverse-Vandermonde estimate underlying the full-region generator fibre bound. -/
+theorem separated_generator_coefficients (n : ℕ) (hn : 2 ≤ n)
+    (c C : ℝ) (hc : 0 < c) (hC : 0 ≤ C) :
+    ∃ K : ℝ, 0 < K ∧ ∀ (Y : ℝ), 1 ≤ Y → ∀ z : Fin n → ℂ,
+      separatedRoots c C z → ∀ m : Fin n → ℤ,
+      (∀ j, ‖∑ i : Fin n, (m i : ℂ) * ((Y : ℂ) * z j) ^ i.val‖ ≤ C * Y) →
+      ∀ i, |(m i : ℝ)| * Y ^ i.val ≤ K * Y := by sorry
+
+/-- Integrality makes all coefficients of degree at least two vanish for large Y. -/
+theorem separated_generator_high_coefficients (n : ℕ) (hn : 2 ≤ n)
+    (c C : ℝ) (hc : 0 < c) (hC : 0 ≤ C) :
+    ∃ Y₀ : ℝ, 1 ≤ Y₀ ∧ ∀ (Y : ℝ), Y₀ < Y → ∀ z : Fin n → ℂ,
+      separatedRoots c C z → ∀ m : Fin n → ℤ,
+      (∀ j, ‖∑ i : Fin n, (m i : ℂ) * ((Y : ℂ) * z j) ^ i.val‖ ≤ C * Y) →
+      ∀ i, 2 ≤ i.val → m i = 0 := by sorry
+
+example : weightedDilation 2 (![1,2] : Fin 2 → ℝ) = ![2,8] := by sorry
+example : weightedDilation 3 (weightedDilation 2 (![1,2] : Fin 2 → ℝ)) =
+    ![6,72] := by sorry
+example (a : Fin 2 → ℝ) : weightedDilation 1 a = a ∧
+    weightedDilation 0 a = 0 := by sorry
+example : separatedRoots 2 1 (![-1,1] : Fin 2 → ℂ) := by sorry
+example : separatedRoots 2 1 (![-Complex.I,Complex.I] : Fin 2 → ℂ) := by sorry
+example (c : ℝ) (hc : 0 < c) :
+    ¬ separatedRoots c 1 (0 : Fin 2 → ℂ) := by sorry
+example : weightedDilation 2 (0 : Fin 0 → ℝ) = 0 ∧
+    separatedRoots 1 (-1) (0 : Fin 0 → ℂ) := by sorry
+example : separatedRoots 1 0 (0 : Fin 1 → ℂ) ∧
+    ¬ separatedRoots 1 (-1) (0 : Fin 1 → ℂ) := by sorry
+
+/-- Field-count and discriminant exponents include the loss of one translation parameter. -/
+example : ((3 * (3 + 1) / 2 : ℚ) - 1) / (3 * (3 - 1)) = 5/6 ∧
+    ((4 + 1 : ℚ) / (2 * 4 - 2)) = 5/6 ∧
+    (1/2 + 1/4 : ℚ) = 3/4 := by sorry
+
+/-- Signature and squarefreeness controls for the alternating-extension transfer. -/
+example : (X ^ 3 - X - 1 : ℤ[X]).discr = -23 := by sorry
+example : (X ^ 3 - 4 * X + 1 : ℤ[X]).discr = 229 := by sorry
+example : (X ^ 3 - 2 : ℤ[X]).discr = -108 := by sorry
+
+/-- The degree-two real transporter obstruction: xy is fixed by the split diagonal torus. -/
+example (u : ℝ) (hu : u ≠ 0) :
+    (MvPolynomial.C u * MvPolynomial.X (0 : Fin 2)) *
+      (MvPolynomial.C u⁻¹ * MvPolynomial.X (1 : Fin 2)) =
+        MvPolynomial.X (0 : Fin 2) * MvPolynomial.X (1 : Fin 2) := by sorry
+
 
 /-- The p-torsion in the (k−1)st power image, rather than all p-torsion. -/
 def powerRank (A : Type*) [CommGroup A] [Finite A] (p k : ℕ) : ℕ :=
@@ -480,7 +598,8 @@ Layer 2:
 strongly and weakly divisible values; real root types of binary quartic forms; fundamental sets
 for real binary quartic orbits; gauss fundamental domain in iwasawa coordinates; averaged count
 of binary quartic orbits; averaged count of binary cubic orbits; square divisor tail; kappa
-acceptable; section kernel.
+acceptable; section kernel; windowed cubic counting hypothesis, ideal-class squareclass charts,
+exact rational-to-integral orbit weights, SL₂ volume-one supplier and matched mass/denominator integrals.
 
 Layer 3:
 number field counting function; torsion count of class groups; splitting symbol and local sets
@@ -493,7 +612,9 @@ finite field; symmetric matrix kernel law; koymans pagano rank identity; prime p
 rank; fk linking phase; rigid embedded field family; embedded quadratic wreath type; nonabelian
 quadratic moment interface; embedded type catalogue; a4 appendix kernel enumerator; governing
 field interface; restricted real quadratic family; polynomial order lattice reduction;
-nonabelian tame local model; wood grid separator.
+nonabelian tame local model; wood grid separator; regular monic and binary coefficient regions;
+invariant-order fibres and compact binary transporters; squarefree normal-closure extension
+transfer with signature and bounded multiplicity.
 
 Layer 4:
 rational orbit weight; locally soluble forms attached to a family; local masses of a family;
