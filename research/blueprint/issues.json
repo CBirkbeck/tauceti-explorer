@@ -4953,5 +4953,15 @@
  "PKG-AutomorphicFormsOnReductiveGroups~codex": 10141,
  "REV-PKG-DirichletPadicLFunctions~adv": 10142,
  "FIX-PKG-AnalyticNumberTheory~adv": 10146,
- "FIX-PKG-ArithmeticStatistics~adv": 10147
+ "FIX-PKG-ArithmeticStatistics~adv": 10147,
+ "PKG-AnalyticNumberTheory~2": 10157,
+ "PKG-ArithmeticStatistics~2": 10158,
+ "PKG-AutomorphicFormsOnReductiveGroups": 10159,
+ "PKG-EtaleDualityAndPerverseSheaves": 10160,
+ "PKG-ShimuraData": 10161,
+ "REV-PKG-AnalyticNumberTheory~2": 10162,
+ "REV-PKG-ArithmeticStatistics~2": 10163,
+ "REV-PKG-AutomorphicFormsOnReductiveGroups": 10164,
+ "REV-PKG-EtaleDualityAndPerverseSheaves": 10165,
+ "REV-PKG-ShimuraData": 10166
 }
