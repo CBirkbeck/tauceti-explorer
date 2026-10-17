@@ -96,6 +96,16 @@ end MumfordTate
 
 /-! ## Layer 3: variations, compact duals and integral flags -/
 
+/-- A complex scalar preserving a weight-zero filtration need not preserve its rational form. -/
+example : ¬ ∃ q : ℚ, (q : ℝ) = Real.sqrt 2 := by
+  sorry
+
+/-- For `μ(t)=diag(1,t)`, the filtration-preserving upper unipotent contracts under `μ⁻¹`. -/
+example (t : ℂ) (ht : t ≠ 0) :
+    (!![1, 0; 0, t⁻¹] : Matrix (Fin 2) (Fin 2) ℂ) * !![1, 1; 0, 1] * !![1, 0; 0, t] =
+      !![1, t; 0, 1] := by
+  sorry
+
 section Kostant
 variable {B W : Type*} [Group W] {M : CoxeterMatrix B} (cs : CoxeterSystem M W)
 
@@ -160,6 +170,10 @@ example : cgCoroots 1 = (0, 1, 0) := by
 def cgPair (χ μ : CGWeight) : ℤ := χ.1 * μ.1 + χ.2.1 * μ.2.1 + χ.2.2 * μ.2.2
 
 example : ∀ i, cgPair (0, 0, 1) (cgCoroots i) = 0 := by
+  sorry
+
+/-- The dot pairing retains the central coordinate even though every coroot has central zero. -/
+example : cgPair (0, 0, 1) (0, 0, 1) = 1 := by
   sorry
 
 /-- The C₂ Cartan matrix and twice the half-sum, retaining its central coordinate. -/
@@ -279,6 +293,11 @@ theorem gsp4ExpKernel (t₁ t₂ z : ℂ) :
         z = Real.pi * Complex.I + 2 * Real.pi * Complex.I * k) := by
   sorry
 
+/-- The simultaneous odd half-period maps to the sign kernel and is not an even period. -/
+example : Complex.exp ((Real.pi : ℂ) * Complex.I) = -1 ∧
+    ¬ ∃ m : ℤ, (Real.pi : ℂ) = 2 * Real.pi * m := by
+  sorry
+
 /-- The Cayley matrix `C = [[I, −iS], [−iS, I]]`. -/
 def gsp4CayleyBasis : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℂ :=
   Matrix.fromBlocks 1 (-Complex.I • cgS.map (algebraMap ℝ ℂ)) (-Complex.I • cgS.map (algebraMap ℝ ℂ)) 1
@@ -362,6 +381,10 @@ theorem localEigenvalueBound (ℓ : ℕ) (hℓ : v (ℓ : K) = 1) (f : Polynomia
     ((1 / 4 : ℚ) : WithTop ℚ) ≤ v (lam - 1) := by
   sorry
 
+/-- At residue characteristic two, the distance bound permits the torsion eigenvalue `−1`. -/
+example (h₂ : v (2 : K) = 1) : v ((-1 : K) - 1) = 1 := by
+  sorry
+
 /-- The units within `v(x − 1) ≥ 1/4` form a subgroup. -/
 theorem localProductsBound (S : Set Kˣ) (hS : ∀ u ∈ S, ((1 / 4 : ℚ) : WithTop ℚ) ≤ v ((u : K) - 1)) :
     ∀ x ∈ Subgroup.closure S, ((1 / 4 : ℚ) : WithTop ℚ) ≤ v ((x : K) - 1) := by
@@ -436,5 +459,12 @@ product reflex fields, distinguished data and their Levi quotients, Hilbert datu
 Siegel root/permutation and Kostant-sequence geometry, the Cartan torus and its Lie group
 structure, and the global all-places Iwahori criterion. These use the group, analytic or flag
 carriers specified in README.md.
+
+In particular, the geometric definitions `mumfordTateGroup`, `hodgeGeneric`, `Variation`,
+`VariationHom`, `RationalPolarizedVariation`, `polarizedIntegralVariation`, `filtrationParabolic`,
+`parabolicTypeVariety`, `compactDual` and `schubertFamilies` remain README targets. So do
+`preabelianType`, `PureDatum.AdditionalAxioms`, `PureDatum.IsPELType`, `distinguishedDatum`,
+`hilbertDatum`, the supplied-datum comparison `hilbertStarDatum`, `kostantSequence` and
+`gsp4CompactCartan`; their full carriers are not constructed by the coordinate statements above.
 -/
 end TauCetiRoadmap.ShimuraData
