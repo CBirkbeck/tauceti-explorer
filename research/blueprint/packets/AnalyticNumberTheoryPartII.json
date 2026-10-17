@@ -231,7 +231,7 @@
       "readSections": [
         "Theorem 1 and Corollaries 2–6, pp. 85–87"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "O85",
@@ -246,7 +246,7 @@
         "§3, conditions C1–C4 and Theorem 2, pp. 314–319",
         "§§4–5, pp. 319–323"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "O88",
@@ -287,7 +287,7 @@
         "§§2–4, Lemmas 1–9 and Table I, pp. 530–539",
         "§5, approximate functional equation and numerical error bounds, pp. 539–542"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "LLS70",
@@ -302,7 +302,8 @@
         "Class number three application, pp. 445–447",
         "Table I continuation, pp. 448–451"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17",
+      "accessNote": "The identical PDF was accessed at the source URL with ?download=1; its SHA-256 agrees with the recorded version."
     },
     {
       "id": "G77",

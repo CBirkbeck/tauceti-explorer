@@ -4,7 +4,7 @@
   "area": "analytic",
   "parent": "AnalyticNumberTheory",
   "summary": "Extend the analytic class-number interfaces to Goldfeld’s effective lower bounds for imaginary quadratic fields. The proof combines positive Mellin kernels, modular elliptic L-functions with a third-order central zero, Gross–Zagier heights, genus theory and certified numerical estimates. Construct explicit discriminant bounds and a complete certified enumeration of the class number three fields, with independent arithmetic and analytic rank certificates for the two elliptic curves.",
-  "readme": "The draft reader is research/blueprint/readmes/AnalyticNumberTheoryPartII.md. Its integrated Mellin hypothesis, Heegner root-of-unity proof, exclusion of −5077, MW character parity and LLS 67-pattern threshold must be synchronized with the corrected packet before acceptance or publication. Exact corrections are recorded in research/blueprint/reviews/REV-DESIGN-AnalyticNumberTheoryPartII.md. Six layers lead to the effective logarithmic lower bound and the complete class-number-three list; generic quadratic arithmetic, modularity, Gross–Zagier theory and validated numerics remain with their existing owners.",
+  "readme": "The definitive reader is research/blueprint/readmes/AnalyticNumberTheoryPartII.md. Six layers extend the parent’s quadratic-character and class-number interfaces to positive Mellin comparison, two independently certified rank-three curves, effective logarithmic lower bounds and the sixteen imaginary quadratic fields of class number three. Generic quadratic arithmetic, modularity, Gross–Zagier theory and validated numerics are imported from their existing owners; the concrete certificate targets and the analytic comparison are developed here.",
   "prerequisites": [
     "AnalyticNumberTheory",
     "GeometryOfNumbersAndQuadraticArithmetic",
@@ -108,7 +108,7 @@
       "readSections": [
         "Theorem 1 and Corollaries 2–6, pp. 85–87"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "O85",
@@ -123,7 +123,7 @@
         "§3, conditions C1–C4 and Theorem 2, pp. 314–319",
         "§§4–5, pp. 319–323"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "O88",
@@ -164,7 +164,7 @@
         "§§2–4, Lemmas 1–9 and Table I, pp. 530–539",
         "§5, approximate functional equation and numerical error bounds, pp. 539–542"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17"
     },
     {
       "id": "LLS70",
@@ -179,7 +179,8 @@
         "Class number three application, pp. 445–447",
         "Table I continuation, pp. 448–451"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-17",
+      "accessNote": "The identical PDF was accessed at the source URL with ?download=1; its SHA-256 agrees with the recorded version."
     },
     {
       "id": "G77",
