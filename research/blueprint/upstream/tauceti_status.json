@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T18:30Z",
+ "updated": "2026-10-17T18:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -179,10 +179,10 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "cf31c19",
+   "head": "174bed1",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": ""
    }
@@ -238,7 +238,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "4e6abef",
+   "head": "57a651c",
    "depends_on": [
     779,
     785,
@@ -248,7 +248,7 @@
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -256,7 +256,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "101be94",
+   "head": "3929844",
    "depends_on": [
     792,
     785
@@ -264,7 +264,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -510,7 +510,7 @@
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
    "pr": 875,
-   "head": "cd2cc07",
+   "head": "cbc4ba5",
    "depends_on": [
     817,
     813,
@@ -526,7 +526,7 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -793,11 +793,11 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "2d7f7ef",
+   "head": "183e39b",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -961,10 +961,10 @@
   "EllipticCurveModularity": {
    "stage": "pr",
    "pr": 1018,
-   "head": "bec0035",
+   "head": "20a021e",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied; draft",
    "review": {
-    "recommendation": null,
+    "recommendation": "approve",
     "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -973,11 +973,11 @@
   "PadicFamilies": {
    "stage": "pr",
    "pr": 1019,
-   "head": "fa9dd1d",
+   "head": "6cd65b0",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -985,11 +985,11 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "252be03",
+   "head": "a8a8cc9",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1021,11 +1021,11 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
    "stage": "pr",
    "pr": 1036,
-   "head": "e4d410e",
+   "head": "320b7b2",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1093,7 +1093,7 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "6c97efa",
+   "head": "45db72d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": null,
@@ -1105,7 +1105,7 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "2959841",
+   "head": "052ef9e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": null,
@@ -1129,7 +1129,7 @@
   "EllipticCurveModularityImaginaryQuadratic": {
    "stage": "pr",
    "pr": 1048,
-   "head": "9ab1fc3",
+   "head": "42f0d5b",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
    "review": {
     "recommendation": null,
