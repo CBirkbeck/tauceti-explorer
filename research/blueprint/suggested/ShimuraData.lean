@@ -26,9 +26,10 @@ import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Basic
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.Geometry.Hodge.Structure
 import TauCeti.Geometry.Hodge.Polarization
+import TauCeti.Geometry.Hodge.Substructure
 
 /-!
-# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4, reviewed in REV-ShimuraData~4)
+# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4, reviewed in REV-ShimuraData~4; revision 5, BP-ShimuraData~5)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ShimuraData.md` is definitive. The statements suggest Lean forms so that
@@ -42,7 +43,8 @@ scalar-determinant Hilbert datum (PELModuli §§M0.12, M5.4, PR #966); the Delig
 (ReductiveGroupsPartII §RG2.0a.3, PR #785); adelic points and neatness (AdelicAlgebraicGroups
 §§1.3–1.4, 4.3, PR #792); real points as Lie groups and Cartan involutions
 (ArithmeticLocallySymmetricSpaces §§ALS.F.1, ALS.0.1–0.2, PR #871). None of these is at the pins,
-so nothing below re-defines them.
+so nothing below re-defines them. Revision 5 also consumes ComplexKahlerGeometry §K4 (PR #953) for
+the holomorphic flat bundle of a local system; it is not at the pins either.
 
 Conventions. Type `(p,q)` means the split character `(−p,−q)` of `S_ℂ = G_m × G_m`, so `h_ℂ(z₁,z₂)`
 acts on `V^{p,q}` by `z₁^{-p} z₂^{-q}` and `μ_h(z) = h_ℂ(z,1)` (ShimuraVarieties §P.3). The complexified
@@ -370,6 +372,13 @@ def variationMorphism {u v w : Variation B n} (f : VariationHom u v) (g : Variat
 
 theorem variationHomCompMap {u v w : Variation B n} (f : VariationHom u v) (g : VariationHom v w) :
     (variationMorphism f g).hom = f.hom ≫ g.hom := rfl
+
+/-- `variationHomKer`, fibrewise half: the kernel of the complexified fibre map of a morphism of
+variations is a sub-Hodge structure (Tau Ceti's `IsMorphism.isSubstructure_ker`); the README states
+that these kernels form a sub-local system and a subvariation. -/
+theorem variationHomKer {v w : Variation B n} (f : VariationHom v w) (b : FundamentalGroupoid B) :
+    (v.fiber b).IsSubstructure (LinearMap.ker (LinearMap.baseChange ℂ (f.hom.app b).hom)) := by
+  sorry
 
 /-- **D3/rational-polarized-variation.** A polarized rational variation: a rational local system
 whose real scalar extension is the local system of a real variation, with a parallel family of
@@ -799,7 +808,8 @@ def gsp4CompactCartan : AddSubgroup CGWeight where
   neg_mem' := fun _ ↦ by sorry
 
 theorem compactCartanRank :
-    Function.Bijective (fun x : ℤ × ℤ × ℤ ↦ (⟨(x.1, x.2.1, x.1 + x.2.1 + 2 * x.2.2), by sorry⟩ :
+    Function.Bijective (fun x : ℤ × ℤ × ℤ ↦ (⟨(x.1, x.2.1, x.1 + x.2.1 + 2 * x.2.2), by
+        change (x.1 + x.2.1 + (x.1 + x.2.1 + 2 * x.2.2)) % 2 = 0; omega⟩ :
       gsp4CompactCartan)) := by
   sorry
 
@@ -848,6 +858,21 @@ theorem gsp4CayleyAction (A B : Matrix (Fin 2) (Fin 2) ℝ) :
     ((1 / 2 : ℂ) • Matrix.fromBlocks 1 (Complex.I • Sc) (Complex.I • Sc) 1) *
         (Matrix.fromBlocks (Sc * Ac * Sc) (Sc * Bc) (-(Bc * Sc)) Ac) * gsp4CayleyBasis =
       Matrix.fromBlocks (Sc * Ac * Sc - Complex.I • (Sc * Bc * Sc)) 0 0 (Ac + Complex.I • Bc) := by
+  sorry
+
+/-- The Cayley conversion of D5/gsp4-cayley-action: the CG split character `(a,b;c)` is the compact
+character `(−a,−b;a+b+2c)`, because `C⁻¹ h(t₁,t₂;z) C = diag(z−it₁, z−it₂, z+it₂, z+it₁)`. -/
+def cgToCompact (χ : CGWeight) : CGWeight := (-χ.1, -χ.2.1, χ.1 + χ.2.1 + 2 * χ.2.2)
+
+/-- **D5/gsp4-cayley-action**, character clause. The lower-triangular roots (the negatives of
+`cgRoots`) go to CG's positive roots `(1,−1;0), (0,2;0), (1,1;0), (2,0;0)`, whose half-sum is
+`ρ_H = (2,1;0)`, and composing with `−1` on the angular coordinates gives `(a,b;c) ↦ (a,b;a+b+2c)`. -/
+theorem gsp4CayleyCompactCoordinates :
+    (Finset.univ.image fun i ↦ cgToCompact (-cgRoots i)) =
+        ({(1, -1, 0), (0, 2, 0), (1, 1, 0), (2, 0, 0)} : Finset CGWeight) ∧
+      (∑ i, cgToCompact (-cgRoots i)) = (4, 2, 0) ∧
+      ∀ χ : CGWeight, ((-(cgToCompact χ).1, -(cgToCompact χ).2.1, (cgToCompact χ).2.2) : CGWeight) =
+        cgToPilloni χ := by
   sorry
 
 /-- **D5/gsp4-pilloni-convention.** Pilloni's lower-Borel positive roots `e₂−e₁, −2e₁+e₃,
@@ -1038,6 +1063,18 @@ example (L : Submodule ℂ (Fin 2 → ℂ)) (hL : Module.finrank ℂ L = 1) :
       Projectivization ℂ (Fin 2 → ℂ)) := by
   sorry
 
+/-- `dualUnitary`: for a unitary datum of signature `(p, q)` the compact dual is the Grassmannian of
+`p`-planes in `ℂ^{p+q}` (here as `GL_{p+q}(ℂ)` modulo the stabilizer of a `p`-plane). -/
+example (p q : ℕ) (L : Submodule ℂ (Fin (p + q) → ℂ)) (hL : Module.finrank ℂ L = p) :
+    Nonempty (compactDual ((Fin (p + q) → ℂ) ≃ₗ[ℂ] (Fin (p + q) → ℂ)) (filtrationParabolic (lineFiltration L)) ≃
+      {L' : Submodule ℂ (Fin (p + q) → ℂ) // Module.finrank ℂ L' = p}) := by
+  sorry
+
+/-- `variationKerZero`: the kernel of the identity morphism is zero on every fibre. -/
+example {B : TopCat.{0}} {n : ℤ} (v : Variation B n) (b : FundamentalGroupoid B) :
+    LinearMap.ker (LinearMap.baseChange ℂ ((variationHomIdentity v).hom.app b).hom) = ⊥ := by
+  sorry
+
 /-- `dualTorus`: the compact dual of a torus datum is a point. -/
 example (G : Type*) [Group G] : Subsingleton (compactDual G ⊤) := by
   sorry
@@ -1066,6 +1103,13 @@ representatives are `1, s₂, s₂ s₁`. -/
 example : kostantRepresentatives (CoxeterMatrix.A 2).toCoxeterSystem {0} =
     {1, (CoxeterMatrix.A 2).toCoxeterSystem.simple 1,
       (CoxeterMatrix.A 2).toCoxeterSystem.simple 1 * (CoxeterMatrix.A 2).toCoxeterSystem.simple 0} := by
+  sorry
+
+/-- `kostantTypeA`: for `GL_{p+q}` with Levi `GL_p × GL_q` (all simple reflections except the
+`p`-th), there are `C(p+q, p)` minimal left representatives. -/
+example (p q : ℕ) (hp : 0 < p) (hq : 0 < q) :
+    (kostantRepresentatives (CoxeterMatrix.A (p + q - 1)).toCoxeterSystem
+      {j : Fin (p + q - 1) | (j : ℕ) ≠ p - 1}).ncard = Nat.choose (p + q) p := by
   sorry
 
 end D3Tests
@@ -1233,6 +1277,14 @@ D2.
   biholomorphic.
 
 D3.
+* `variationFilteredFlatBundle`, `variationGriffiths`, `variationHodgeBundles` — the holomorphic
+  flat bundle `L ⊗ O_B` with its connection (ComplexKahlerGeometry §K4, not at the pins), the
+  filtration by holomorphic subbundles, `∇F^p ⊆ F^{p−1} ⊗ Ω¹`, and the real-analytic Hodge bundles.
+* `variationSub`, `variationDirectSum` — subvariations from sub-local systems with sub-Hodge fibres
+  (Tau Ceti's `IsSubstructure.hodgeStructure`), and direct sums; tests `variationSubRationalLine`.
+* `rationalVariationOrthogonal` — `L = W ⊕ W^⊥` for a subvariation of a polarized rational
+  variation (fibrewise Tau Ceti's `RationalHodgeSubstructure.isCompl_orthogonal`); test
+  `rationalOrthogonalSum`.
 * `compactDualTangent` — the tangent space of `G_ℂ/P_h` at the base point is `g_ℂ/F⁰g_ℂ`.
 * `compactDualBorelEmbedding` — the Borel embedding of ShimuraVarieties §P.3 lands in `G_ℂ/P_h` and
   is a `G(ℝ)`-equivariant holomorphic open embedding, independent of the faithful representation.
@@ -1257,14 +1309,22 @@ D4 (all on ShimuraVarieties §P.1's pure datum).
 * `sv5_iff_anisotropic` — `T(ℚ)` discrete in `T(𝔸_f)` iff the largest `ℚ`-anisotropic subtorus has
   compact real points.
 * `PureDatum.IsPELType` — isomorphic to `RationalPELDatum.toShimuraDatum` of PELModuli §M0.12; API
-  `pelType_iso`, `pelType_hodgeType`, `pelType_sv4`, `pelType_ofDatum`; tests `pelSiegel`,
+  `pelType_iso`, `pelType_hodgeType`, `pelType_sv4`, `pelType_ofDatum`; tests `pelUnitarySignature`, `pelSiegel`,
   `pelHilbertStar`, `pelQuaternionNot`.
 * `preabelianType` — API `abelianTypePreabelian`, `preabelianTypeAdjoint`,
-  `preabelianTypeIsomorphism`; tests `preabelianSiegel`, `preabelianTorus`, `preabelianComponent`.
+  `preabelianTypeIsomorphism`, `preabelianTypeConnected` (connected data); tests `preabelianSiegel`,
+  `preabelianTorus`, `preabelianComponent`, `preabelianConnectedSl2`.
 * `typeImplications` — PEL ⇒ Hodge ⇒ abelian ⇒ preabelian.
 * `reflexField_prod` — `E(G₁ × G₂, X₁ × X₂) = E(G₁, X₁) · E(G₂, X₂)` inside `ℚ̄`.
 * `exists_pureDatum_lift` — every connected datum lifts to a datum with `G^der = H` satisfying SV1,
   SV2, SV2*, SV3, SV4, SV5, SV6.
+* `distinguishedDatum` — Lovering's `B = G ×_{G^ab} Res_{E/ℚ} G_m` with the class of `(h, h_E)`;
+  API `distinguishedDatumExact`, `distinguishedDatumToDatum`, `distinguishedDatumReflex`,
+  `distinguishedDatumIndep`, `distinguishedDatumIsogeny`, `distinguishedDatumNorm`,
+  `distinguishedDatumAbelian`; tests `distinguishedGl2`, `distinguishedImaginaryReflex`,
+  `distinguishedTorus`, `distinguishedNotProduct`.
+* `distinguishedDatum_levi` — `Z_s(B₁) = Z_s(Res_{E/ℚ} G_m)`, `B₁^c = G₁ ×_{G₁^ab} T^c` and
+  `M^c_{μ_{B₁}} = M_{μ_{G₁}} ×_{G₁^ab} T^c` for a Hodge-type `(G₁, X₁)`.
 
 D5.
 * `hilbertReflexDual` — the reflex field of the restriction-of-scalars Hilbert datum is `ℚ` and its
