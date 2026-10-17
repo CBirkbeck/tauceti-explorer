@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-ArithmeticStatistics",
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv",
     "date": "2026-10-17",
-    "notes": "Independent review for #10117 by Codex, session codex-NXdGFK. Applied source, arithmetic-check, API-test, dependency and ownership corrections; Suggested.lean elaborates with only sorry warnings. Remaining defects: the conditional elliptic SL2 cubic count lacks an exact quantified coregular supplier plan and its general-abelian specialization, yet unconditional three-isogeny averages consume it; the even-degree Bertini deduction drops the binary count's restricted paired-fibre/Gram assumptions; field-lower-bound restoration still needs specified uniform regular-family and bounded-multiplicity replacements. See research/blueprint/reviews/REV-PKG-ArithmeticStatistics.md for source receipts, validation and exact handoff."
+    "notes": "Completed #10147 by Codex, session codex-cMfB5u. Finding 1: replaced the cubic checklist by seven quantified general-abelian supplier contracts with exact multiplicity, balanced archimedean charts, fixed-congruence main terms, separate V/S tails and normalized mass assembly; C, including the explicit AA-II SL2 volume-one request, is retained in both Selmer means and every consuming rank/stratum/base-extension application. Finding 2: even-degree Bertini and binary field/extension consequences retain delta,eta,xi and both strict cutoff inequalities; no numerical endpoint is inferred. Finding 3: supplied full regular monic/binary regions and restricted sieves, O(Y) inverse-Vandermonde generator fibres, uniform invariant-order classes plus compact binary transporters, and explicit alternating-extension inertia/infinity/discriminant/multiplicity transfer. Existing OperatorTheory, Vandermonde, Stickelberger and quadratic-discriminant suppliers are cited rather than replanned. Handoff records every disposition, adversarial instances, source receipts and the AA-II ownership request. Suggested.lean elaborates at the pins: 650 lines, 104 sorry warnings only, no errors; sorry-data and seven packet checks pass. Conditional targets remain conditional; no arithmetic-statistical proof is claimed formalized."
   }
 }
