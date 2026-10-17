@@ -42065,7 +42065,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10119"
   },
   {
    "priority": 2,
@@ -47331,7 +47332,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnalyticNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10114"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheory",
@@ -47707,7 +47709,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatistics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10115"
   },
   {
    "id": "REV-PKG-ArithmeticStatistics",
@@ -131015,8 +131018,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-DirichletPadicLFunctions~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-DirichletPadicLFunctions~codex.md",
+   "note": "claimed on GitHub issue #10109"
   },
   {
    "id": "BP-AutomorphicFormsOnReductiveGroups~4",
@@ -131033,7 +131037,7 @@
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~4.md",
    "scope": [
     "AutomorphicFormsOnReductiveGroups:AF.0",
@@ -131047,7 +131051,9 @@
    "after": [
     "REV-AutomorphicFormsOnReductiveGroups~3"
    ],
-   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups"
+   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups",
+   "note": "deliverables arrived from an external worker on issue #10103",
+   "finishedAt": "2026-10-17T09:05:40Z"
   },
   {
    "id": "REV-AutomorphicFormsOnReductiveGroups~4",
@@ -131090,7 +131096,7 @@
     "research/blueprint/handoff/BP-ShimuraData~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~4.md",
    "scope": [
     "ShimuraData:D0",
@@ -131103,7 +131109,8 @@
    "after": [
     "REV-ShimuraData~3"
    ],
-   "revisionOf": "BP-ShimuraData"
+   "revisionOf": "BP-ShimuraData",
+   "note": "claimed on GitHub issue #10106"
   },
   {
    "id": "REV-ShimuraData~4",
@@ -131146,7 +131153,7 @@
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~4.md",
    "scope": [
     "EtaleDualityAndPerverseSheaves:EDC.4"
@@ -131154,7 +131161,8 @@
    "after": [
     "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
    ],
-   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4"
+   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
+   "note": "claimed on GitHub issue #10104"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
