@@ -1,6 +1,6 @@
 # Roadmap: Kato's Euler systems
 
-Construct the cyclotomic zeta classes of a modular eigenform from normalized
+**Summary.** Construct the cyclotomic zeta classes of a modular eigenform from normalized
 theta units on elliptic curves. The construction passes through Siegel units,
 ordered symbols in the K₂ of open modular curves, étale Chern moments, and
 explicit reciprocity. Its endpoints are the rational Kato zeta morphism,
@@ -1586,8 +1586,9 @@ realization be used. `katoZetaSubmodule` is the span over the named
 - `katoSpan_identity`: the identity on ℚ has span the whole module,
   testing nonzero generation rather than merely membership of zero.
 - `katoSpan_member_one`: its value one belongs to the generated
-  span. All three span tests appear in Suggested.lean and concern
-  that construction rather than arithmetic nonvanishing.
+  span. The zero and identity span tests appear in Suggested.lean;
+  these checks concern the span construction rather than arithmetic
+  nonvanishing.
 - `katoMap_generator_one`: a one-element basis with prescribed value
   one receives that value. It excludes a constant-zero realization;
   the arithmetic analogue uses a nonzero spanning generator detected
@@ -1655,9 +1656,75 @@ This is Kato Theorem 12.5(1), p.221. It uses the dual form f* and
 the actual semilinear Iwasawa twist. With target action distinguished
 from source action, twist_j(σx)=κ(σ)^(−j)σ twist_j(x).
 A finite-level root multiplied into a class is not a substitute for
-changing the representation twist. The global-to-local twist square
-is an all-prime SelmerIwasawaCohomology export and uses the same roots
-as the regulator.
+changing the representation twist. The following particular comparison
+uses the same roots globally, locally and in the regulator.
+
+Prove `katoTwistLocalization`, for a stable lattice T in V_E(f), any
+integer j and prime p, with a fixed embedding of the global separable closure into
+the local one at p:
+
+```text
+loc_{T(j)} ∘ φ_j^global = φ_j^local ∘ loc_T,
+pr_n^local ∘ loc_{T(j)} ∘ φ_j^global
+  = loc_{n,T(j)} ∘ pr_n^global ∘ φ_j^global.
+```
+
+Use the global cohomology convention of §2.1 with its finite bad-prime
+set; localization restricts to the selected p-adic decomposition group.
+Here φ_j is the semilinear twist of SelmerIwasawaCohomology L3,
+and pr_n projects to H¹ at the indicated cyclotomic field; the second
+identity also defines `katoTwistSpecialization`. The local root system
+is the image of the global one under the fixed embedding. The maps
+on the first line are on integral Iwasawa cohomology, then extended
+by inverting p; the second line holds at every finite level, including
+n=0 after descent. These are compatibility statements for the twist
+in Kato 12.5(1), p.221, and the local twist/projection in 16.4(i), p.270.
+They do not assert injectivity of the localization or exponential.
+
+Derive the first line from the existing cup/restriction and coefficient
+APIs, rather than assuming a new reciprocity theorem. For finite
+coefficients T/p^mT and a cyclotomic level a≥m, the chosen primitive
+p^m-th root gives a basis e_(j,m) of the invariant Tate line. For j<0
+use its dual basis. Twisting an inhomogeneous cochain c is the
+coefficient map c↦c⊗e_(j,m). Restricting to the local decomposition
+group sends this basis to exactly the chosen local basis, so
+restriction commutes with this map on cochains, before passage to
+cohomology. The same equality commutes with coefficient reduction.
+Corestriction compatibility is the cup projection formula with the
+same invariant basis; the local/global corestriction square uses the
+chosen places. Apply SelmerIwasawaCohomology's coefficient-limit and
+Iwasawa comparison to these compatible maps. Do not infer an
+interchange of H¹ and an arbitrary inverse limit. The resulting
+local map has the same semilinear scalar action
+Tw_j(σ)=κ(σ)^(−j)σ as the global one. The projection/localization
+square for the coefficient system then gives the second line;
+descent supplies the lower levels where the Tate basis is not itself
+invariant. No integral character projector or division by two occurs.
+
+The generic identities used here remain owned by the existing
+**ProfiniteCohomology** roadmap: Layer 12 `cup_res`, `cup_coeffMap`
+and `cup_projection`, with its coefficient pairing and continuity
+hypotheses, and its restriction/corestriction APIs. The target here
+specializes those identities to Kato's actual roots, lattices and
+finite-level projection. It adds no second cup-product construction.
+
+**Checks.**
+
+- At j=0 the coefficient map is c↦c⊗1. Both paths recover ordinary
+  localization, including at p=2 and at the zero class.
+- With p=2,m=2 and a≥2, the same primitive fourth root on both sides
+  gives the same basis of ℤ/4ℤ(1). Replacing only the local basis by
+  its negative changes the coefficient map by −1: on the coefficient
+  one the two paths give 1 and 3 modulo four. Modulo two would hide
+  this error, so that is an insufficient normalization check.
+- At p=5,j=1, a cyclotomic element with κ(σ)=2 acts through
+  Tw_1(σ)=2^(−1)σ. The scalar in the transported square is 1/2,
+  rather than 2. Using a Λ-linear twist without changing the action
+  fails this nonzero-coefficient check.
+- At any finite projection level, localizing pr_n(φ_j(x)) equals
+  pr_n(loc(φ_j(x))). Specializing the untwisted x into T and then
+  merely multiplying by a root leaves the representation unchanged
+  and cannot supply the displayed codomain T(j).
 
 Apply the Layer 3 formula first to smoothed generators, then the
 rational membership and auxiliary cancellation of 5.1–5.2. The
@@ -1669,8 +1736,9 @@ appears. The examples of `criticalSign` fix the parity in the
 interpolation, and the twist calculations in Layer 1 fix k−r.
 
 *Needs:* 5.1–5.2, 3.2 and 3.4; 4.4 rank-one structure;
-SelmerIwasawaCohomology L3 all-prime semilinear twist/specialization/
-localization contract; ModularSymbolsPadicLFunctions L1 periods.
+SelmerIwasawaCohomology L3 semilinear twist, coefficient limits and
+descent; ProfiniteCohomology Layer 12 cup naturality and projection;
+ModularSymbolsPadicLFunctions L1 periods.
 
 ### 5.4 Nakamura's twist-one zeta morphism
 
@@ -1708,7 +1776,7 @@ the rational morphism itself has the broader coefficient scope.
 The representative `twistedKatoZeta` is the three-map linear
 composite after the specified coefficient transport. Actual Iwasawa
 semilinearity, conductor norms and the positive conjugation theorem
-require the geometric map and global-to-local twist API.
+require the geometric map and the particular twist comparisons of 5.3.
 
 **Checks.**
 
@@ -1722,9 +1790,10 @@ require the geometric map and global-to-local twist API.
   on ℚ, one maps to one. A zero transport fails this example.
 
 *Needs:* 5.1 and 5.3; 2.4 dual/twist dictionary;
-SelmerIwasawaCohomology L3 all-prime twist compatibility and conductor
-transport; AutomorphicGaloisRepresentations R19.1 rational Γ₁
-Poincaré comparison. The integral clause retains its extra hypotheses.
+SelmerIwasawaCohomology L3 twist and conductor transport;
+5.3 localization/specialization comparison, applied at each p-adic place
+of the fixed conductor field; AutomorphicGaloisRepresentations R19.1
+rational Γ₁ Poincaré comparison. The integral clause retains its extra hypotheses.
 
 ### Examples
 
@@ -1732,8 +1801,8 @@ The canonical map vanishes on zero but is not the zero map, as
 Layer 4's detected generator will show componentwise in Layer 7.
 Finite index between spans need not be equality. Twist-one transport
 changes the conjugation sign while the two degree shifts add to one.
-The finite-support theorem and the all-prime twist square are both
-needed to pass from the geometric tower to the rational morphism.
+The finite-support theorem is still a separate full-algebra input;
+the all-prime twist square follows through the cochain comparison of 5.3.
 
 ### Dependencies
 
