@@ -4941,5 +4941,7 @@
  "REV-PKG-AnalyticNumberTheory": 10116,
  "REV-PKG-ArithmeticStatistics": 10117,
  "REV-PrismaticCohomology~2": 10118,
- "BP-PrismaticCohomology~2": 10119
+ "BP-PrismaticCohomology~2": 10119,
+ "PKG-EtaleDualityAndPerverseSheaves~codex": 10120,
+ "PKG-GL2ModularityLifting~codex": 10121
 }
