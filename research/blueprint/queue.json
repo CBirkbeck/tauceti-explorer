@@ -42065,8 +42065,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10119"
+   "state": "pending",
+   "note": "released on GitHub issue #10119"
   },
   {
    "priority": 2,
@@ -47359,8 +47359,9 @@
     "PKG-AnalyticNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10116"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10116",
+   "finishedAt": "2026-10-17T10:59:32Z"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -47738,7 +47739,9 @@
     "PKG-ArithmeticStatistics"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatistics.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10117",
+   "finishedAt": "2026-10-17T10:59:35Z"
   },
   {
    "id": "PKG-AutomorphicBundles",
@@ -131143,8 +131146,9 @@
     "BP-ShimuraData~3",
     "BP-ShimuraData~4"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #10113"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10113",
+   "finishedAt": "2026-10-17T10:59:39Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
@@ -131216,7 +131220,7 @@
     "research/blueprint/handoff/BP-GL2ModularityLifting--R22.1~2.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1~2.md",
    "scope": [
     "GL2ModularityLifting:R22.1",
@@ -131234,7 +131238,8 @@
    "after": [
     "REV-GL2ModularityLifting--R22.1~1"
    ],
-   "revisionOf": "BP-GL2ModularityLifting--R22.1"
+   "revisionOf": "BP-GL2ModularityLifting--R22.1",
+   "note": "claimed on GitHub issue #10105"
   },
   {
    "id": "REV-GL2ModularityLifting--R22.1~2",
@@ -131358,7 +131363,9 @@
     "BP-AutomorphicFormsOnReductiveGroups~4",
     "BP-AutomorphicFormsOnReductiveGroups~5"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10125",
+   "finishedAt": "2026-10-17T10:59:41Z"
   },
   {
    "id": "BP-ShimuraData~5",
@@ -131432,7 +131439,7 @@
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md",
    "scope": [
     "EtaleDualityAndPerverseSheaves:EDC.4"
@@ -131440,7 +131447,8 @@
    "after": [
     "REV-EtaleDualityAndPerverseSheaves--EDC.4~4"
    ],
-   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4"
+   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
+   "note": "claimed on GitHub issue #10133"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~5",
@@ -131485,8 +131493,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups~codex.md",
+   "note": "claimed on GitHub issue #10141"
   },
   {
    "id": "REV-PKG-DirichletPadicLFunctions~adv",
@@ -131505,8 +131514,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-DirichletPadicLFunctions~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-DirichletPadicLFunctions~adv.md",
+   "note": "claimed on GitHub issue #10142"
   }
  ]
 }
