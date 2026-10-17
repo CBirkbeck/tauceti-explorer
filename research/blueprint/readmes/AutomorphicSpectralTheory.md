@@ -542,19 +542,19 @@ Let X be σ-finite and K₁,K₂∈L²(X×X). The trace-class product T₁T₂ h
 
 Proposed interface: `TauCeti.AutomorphicSpectral.nuclear_lf_space` in `TauCeti/Automorphic/Spectral/AS0`.
 
-A Hausdorff locally convex complex space E is Fréchet if its topology comes from a countable seminorm family and is complete. A nuclear map factors through Banach spaces by a series Σλ_j ℓ_j⊗v_j with Σ|λ_j|<∞ and bounded vectors and functionals; E is nuclear if its continuous seminorm quotient maps admit such factorizations after strengthening the seminorm. A strict LF space is a countable inductive limit of Fréchet spaces with closed topological embeddings. Smooth functions at fixed finite adelic level and fixed compact archimedean support form nuclear Fréchet spaces; their support/level inductive limit is the nuclear LF test space 𝓓(G(𝔸)). Quasi-completeness means every closed bounded subset is complete.
+A Hausdorff locally convex complex space E is Fréchet if its topology comes from a countable seminorm family and is complete. A nuclear map factors through Banach spaces by a series Σλ_j ℓ_j⊗v_j with Σ|λ_j|<∞ and bounded vectors and functionals; E is nuclear if its continuous seminorm quotient maps admit such factorizations after strengthening the seminorm. A strict LF space is a countable inductive limit of Fréchet spaces with closed topological embeddings. Import the adelic test-function carrier and its support/level LF topology from AF.0/adelic-test-functions. At a fixed compact archimedean support, compact open finite level J and finite set of J-cosets in the finite adelic factor, its stage is a finite direct sum of smooth fixed-support spaces and is nuclear Fréchet. Their countable support/level exhaustion is strict LF. AS proves these nuclearity, strictness and bounded-set properties and equips the continuous dual with its distribution topologies; it does not construct a second adelic LF carrier. Quasi-completeness means every closed bounded subset is complete.
 
 **Hypotheses and conventions.**
 
-- A countable exhaustion and a second-countable finite-dimensional real Lie group are fixed; nonarchimedean test functions are locally constant.
+- Fix a countable cofinal exhaustion of archimedean compact supports, finite adelic coset supports and compact open levels, with the AF.0 transition maps; the real Lie group is finite-dimensional and second-countable.
 
 **Construction or proof.**
 
-1. Construct derivative seminorms on each compact support.
-2. Use compact-chart nuclearity and finite direct sums, then the strict LF limit.
+1. Use the AF.0 support/level stages and derivative seminorms; include a finite set of finite adelic J-cosets in each support stage.
+2. Prove nuclearity by compact charts and finite direct sums. Check closed topological embeddings under support enlargement and level refinement, and identify the strict LF limit with the imported AF.0 topology.
 3. Distinguish quasi-completeness from completeness, and import Banach–Steinhaus rather than reprove it.
 
-**Prerequisites.** `AutomorphicFormsOnReductiveGroups:AF.0/smooth-adelic-function`, [mathlib:WithSeminorms.banach_steinhaus](#mathlib-withseminorms-banach-steinhaus), [mathlib:TestFunction](#mathlib-testfunction), [mathlib:TestFunction.topologicalSpace](#mathlib-testfunction-topologicalspace).
+**Prerequisites.** `AutomorphicFormsOnReductiveGroups:AF.0/adelic-test-functions`, [mathlib:WithSeminorms.banach_steinhaus](#mathlib-withseminorms-banach-steinhaus), [mathlib:TestFunction](#mathlib-testfunction), [mathlib:TestFunction.topologicalSpace](#mathlib-testfunction-topologicalspace).
 
 **Uses that determine the interface.**
 
@@ -565,8 +565,8 @@ A Hausdorff locally convex complex space E is Fréchet if its topology comes fro
 
 | Proposed name | Role | Required statement |
 | --- | --- | --- |
-| `TauCeti.AutomorphicSpectral.nuclear_lf_space.supportLevelPiece` | constructor | Compact support and finite level define a nuclear Fréchet subspace with seminorms sup‖D f‖. |
-| `TauCeti.AutomorphicSpectral.nuclear_lf_space.inclusion` | functoriality | Increasing support and lowering finite level give continuous closed embeddings and their induced LF maps. |
+| `TauCeti.AutomorphicSpectral.nuclear_lf_space.supportLevelPiece` | constructor | A compact archimedean support, compact open finite level J and finite J-coset support select the imported AF.0 stage; it is nuclear Fréchet with derivative supremum seminorms. |
+| `TauCeti.AutomorphicSpectral.nuclear_lf_space.inclusion` | functoriality | Support enlargement and finite-level refinement give the AF.0 transition maps as continuous closed embeddings, hence the same LF topology. |
 | `TauCeti.AutomorphicSpectral.nuclear_lf_space.bounded_stage` | characterisation | A bounded set in the strict LF test space is contained and bounded in one Fréchet stage. |
 | `TauCeti.AutomorphicSpectral.nuclear_lf_space.distributionDual` | projection | Continuous complex-linear functionals form the strong and weak distribution duals with their named topologies. |
 
@@ -3134,7 +3134,7 @@ For a characteristic-zero local field k, a Levi M of a connected reductive G and
 1. Use the convergence estimates for matrix coefficients and the unipotent integral.
 2. Reduce to rank one and use local meromorphic continuation; parabolic induction transitivity handles higher rank.
 
-**Prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `AutomorphicFormsOnReductiveGroups:AF.1`, [AutomorphicSpectralTheory:AS.0/operator-meromorphic](#automorphicspectraltheory-as-0-operator-meromorphic).
+**Prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`, `AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module`, `AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization`, `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`, [AutomorphicSpectralTheory:AS.0/operator-meromorphic](#automorphicspectraltheory-as-0-operator-meromorphic).
 
 **Uses that determine the interface.**
 
@@ -3232,7 +3232,7 @@ There exist scalar meromorphic r_Q|P(π_λ), products of reduced-root rank-one f
 2. Construct rank-one factors satisfying r_P|P̄ r_P̄|P=μ⁻¹: real gamma factors in §3, nonarchimedean rational factors in §4 of Arthur 1989.
 3. Multiply over reduced roots; verify transitivity, adjoint symmetry and spherical normalization.
 
-**Prerequisites.** [AutomorphicSpectralTheory:AS.2/mu-function](#automorphicspectraltheory-as-2-mu-function), [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner), `SmoothRepresentationsOfLocalGroups:SR.4`.
+**Prerequisites.** [AutomorphicSpectralTheory:AS.2/mu-function](#automorphicspectraltheory-as-2-mu-function), [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner), `SmoothRepresentationsOfLocalGroups:SR.4`, `AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable`, `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`, `AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification`.
 
 **Acceptance and prototype scope.**
 
@@ -3419,7 +3419,7 @@ For the relevant generic local parameter φ⁺ of a generic global Arthur parame
 1. Use Proposition B.1 for standard-module irreducibility.
 2. Apply the archimedean/nonarchimedean generic unitary dual classification to bound the exponents.
 
-**Prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3`, `AutomorphicFormsOnReductiveGroups:AF.1`.
+**Prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3`, `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`, `AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification`, `AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable`, `AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual`.
 
 **Acceptance and prototype scope.**
 
@@ -3477,7 +3477,7 @@ For unitary tempered GL data τ and a tempered classical packet member σ₀, th
 1. Use Waldspurger IV.2.1 over nonarchimedean fields and Borel–Wallach Lemma 4.4 over archimedean fields for the raw integral.
 2. Compare tempered packet L-factors with the generic member and use their nonvanishing.
 
-**Prerequisites.** [AutomorphicSpectralTheory:AS.2/shahidi-normalization](#automorphicspectraltheory-as-2-shahidi-normalization), `AutomorphicFormsOnReductiveGroups:AF.1`, `SmoothRepresentationsOfLocalGroups:SR.3`.
+**Prerequisites.** [AutomorphicSpectralTheory:AS.2/shahidi-normalization](#automorphicspectraltheory-as-2-shahidi-normalization), `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`, `AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable`, `SmoothRepresentationsOfLocalGroups:SR.3`.
 
 **Acceptance and prototype scope.**
 
@@ -5020,7 +5020,7 @@ For a cocompact lattice Γ in a real reductive G with fixed central quotient and
 2. Apply the compact-operator spectral theorem to a family of smoothing convolution operators and admissibility for finite multiplicity.
 3. Compare the genuinely compact-group case with the pinned Peter–Weyl basis.
 
-**Prerequisites.** [AutomorphicSpectralTheory:AS.0/hilbert-schmidt](#automorphicspectraltheory-as-0-hilbert-schmidt), [AutomorphicSpectralTheory:AS.0/trace-class](#automorphicspectraltheory-as-0-trace-class), [AutomorphicSpectralTheory:AS.0/kernel-trace-diagonal](#automorphicspectraltheory-as-0-kernel-trace-diagonal), `AdelicAlgebraicGroups:AA.3/arithmetic-quotient-compact`, `AutomorphicFormsOnReductiveGroups:AF.1`, [tauceti:TauCeti.stdPeterWeylBasis](#tauceti-tauceti-stdpeterweylbasis), [tauceti:IsCompactOperator.finiteDimensional_eigenspace](#tauceti-iscompactoperator-finitedimensional-eigenspace).
+**Prerequisites.** [AutomorphicSpectralTheory:AS.0/hilbert-schmidt](#automorphicspectraltheory-as-0-hilbert-schmidt), [AutomorphicSpectralTheory:AS.0/trace-class](#automorphicspectraltheory-as-0-trace-class), [AutomorphicSpectralTheory:AS.0/kernel-trace-diagonal](#automorphicspectraltheory-as-0-kernel-trace-diagonal), `AdelicAlgebraicGroups:AA.3/arithmetic-quotient-compact`, `AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module`, `AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization`, [tauceti:TauCeti.stdPeterWeylBasis](#tauceti-tauceti-stdpeterweylbasis), [tauceti:IsCompactOperator.finiteDimensional_eigenspace](#tauceti-iscompactoperator-finitedimensional-eigenspace).
 
 **Acceptance and prototype scope.**
 
@@ -5110,7 +5110,7 @@ For a semisimple real group arising from a Q-group and an arithmetic lattice Γ 
 2. Temperedness puts their real exponents at or above the critical boundary, while L² imposes strict decay.
 3. The incompatible inequalities force every proper constant term to vanish.
 
-**Prerequisites.** `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicFormsOnReductiveGroups:AF.3/constant-term`, [AutomorphicSpectralTheory:AS.4/residual-spectrum](#automorphicspectraltheory-as-4-residual-spectrum).
+**Prerequisites.** `AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module`, `AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable`, `AutomorphicFormsOnReductiveGroups:AF.3/constant-term`, [AutomorphicSpectralTheory:AS.4/residual-spectrum](#automorphicspectraltheory-as-4-residual-spectrum).
 
 **Acceptance and prototype scope.**
 
@@ -5897,7 +5897,7 @@ At level one and trivial algebraic coefficients, the BCG diagram compares ⊕_π
 2. Identify the determinant double cover and its component-group action.
 3. Use the real cohomological representation calculation and GL_n multiplicity one to obtain the parity statements.
 
-**Prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology`, `AutomorphicFormsOnReductiveGroups:AF.1`.
+**Prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology`, `AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex`, `AutomorphicFormsOnReductiveGroups:AF.4/gln-tempered-cohomological`.
 
 **Acceptance and prototype scope.**
 
@@ -5988,7 +5988,7 @@ For a real reductive algebraic group G with maximal compact K and radius r>0, th
 **Hypotheses and conventions.**
 
 - The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed.
-- The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+- Import the local real compact picture, half-modulus covariance and induction in stages from AF.1/normalized-real-parabolic-induction, on the supplied AF.1/sf-representation carrier. Holomorphic parameter dependence and the required finite-K-type/Hilbert comparison remain the explicit supplier extension below. No global automorphic occurrence is required.
 
 **Construction or proof.**
 
@@ -5996,7 +5996,7 @@ For a real reductive algebraic group G with maximal compact K and radius r>0, th
 2. Apply the operator Paley–Wiener construction and the affiliation/induction relations.
 3. Reassemble finitely many discrete parameters, keeping the prescribed support radius.
 
-**Prerequisites.** [AutomorphicSpectralTheory:AS.0/nuclear-lf-space](#automorphicspectraltheory-as-0-nuclear-lf-space), `AutomorphicFormsOnReductiveGroups:AF.1`, `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`.
+**Prerequisites.** [AutomorphicSpectralTheory:AS.0/nuclear-lf-space](#automorphicspectraltheory-as-0-nuclear-lf-space), `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`, `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`, `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`.
 
 **Acceptance and prototype scope.**
 
@@ -6019,7 +6019,7 @@ For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,
 **Hypotheses and conventions.**
 
 - The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces.
-- The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+- Import the local real compact picture, half-modulus covariance and induction in stages from AF.1/normalized-real-parabolic-induction, on the supplied AF.1/sf-representation carrier. Holomorphic parameter dependence and the required finite-K-type/Hilbert comparison remain the explicit supplier extension below. No global automorphic occurrence is required.
 
 **Construction or proof.**
 
@@ -6027,7 +6027,7 @@ For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,
 2. Use Theorem III.3.3 for Fourier surjectivity with derivative relations.
 3. Fourier inversion gives injectivity and the LF topology; convolution becomes operator multiplication.
 
-**Prerequisites.** [AutomorphicSpectralTheory:AS.0/vector-schwartz](#automorphicspectraltheory-as-0-vector-schwartz), [AutomorphicSpectralTheory:AS.0/nuclear-lf-space](#automorphicspectraltheory-as-0-nuclear-lf-space), `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`, `AutomorphicFormsOnReductiveGroups:AF.1`.
+**Prerequisites.** [AutomorphicSpectralTheory:AS.0/vector-schwartz](#automorphicspectraltheory-as-0-vector-schwartz), [AutomorphicSpectralTheory:AS.0/nuclear-lf-space](#automorphicspectraltheory-as-0-nuclear-lf-space), `AutomorphicFormsOnReductiveGroups:AF.1/sf-representation`, `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`, `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`.
 
 **Acceptance and prototype scope.**
 
@@ -7606,15 +7606,9 @@ Required by [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspect
 
 ### SmoothRepresentationsOfLocalGroups:SR.3
 
-Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification.
+Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification. For the nonarchimedean part of AS.2/generic-standard-module, also extend the owner by the generic unitary GL_n exponent bounds and the classical-group standard-module irreducibility used in Jiang–Zhang Appendix B, Proposition B.1 and (B.5)–(B.6), pp.85–86, under its supplied generic-global-parameter and pure-inner-form hypotheses. Existing admissibility or Langlands classification alone does not supply these stronger outputs; packet carriers remain an endoscopic Part II input.
 
-Required by [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner), [AutomorphicSpectralTheory:AS.2/local-normalization](#automorphicspectraltheory-as-2-local-normalization).
-
-### AutomorphicFormsOnReductiveGroups:AF.1
-
-Real reductive Harish-Chandra modules, tempered/discrete-series parameters, compact-picture normalized induction and the real Langlands classification needed in local normalization.
-
-Required by [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner), [AutomorphicSpectralTheory:AS.2/local-normalization](#automorphicspectraltheory-as-2-local-normalization).
+Required by [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner), [AutomorphicSpectralTheory:AS.2/local-normalization](#automorphicspectraltheory-as-2-local-normalization), [AutomorphicSpectralTheory:AS.2/generic-standard-module](#automorphicspectraltheory-as-2-generic-standard-module).
 
 ### SmoothRepresentationsOfLocalGroups:SR.4
 
@@ -7712,11 +7706,17 @@ Supply the K-Bessel function with its convergent positive-real integral, order r
 
 Required by [AutomorphicSpectralTheory:AS.0/dit-113](#automorphicspectraltheory-as-0-dit-113), [AutomorphicSpectralTheory:AS.0/gz-217](#automorphicspectraltheory-as-0-gz-217).
 
-### AutomorphicFormsOnReductiveGroups:AF.1
+### AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction
 
-Local real normalized parabolic induction for every real parabolic P=M_P A_P N_P and a supplied admissible SF representation (or a supplied unitary Hilbert realization) of M_P, on the fixed compact picture with K∩M_P covariance. Supply the half-modulus convention a^(ν+ρ_P), right translation, finite K-type coefficient spaces, holomorphic parameter dependence, and induction-in-stages. The existing AF.1/principal-series only treats minimal parabolics with finite-dimensional inducing W and is not this general Levi-family theorem. Use the independent AF.1/sf-representation interface; do not require a global automorphic occurrence in L²([M]¹). Bernstein–Krötz §9.3, Proposition9.6 and pp.39–40 give the local source route with its good-module/globalization hypotheses; wider supplied-SF holomorphy remains a stated extension.
+Extend AF.1/normalized-real-parabolic-induction by holomorphic dependence on λ in its fixed compact-picture topology, with the finite-K-type matrix-coefficient families used by the two real Paley–Wiener theorems. For supplied unitary Hilbert inducing data, also identify the smooth-vector compact picture with that SF model under the relevant admissibility/goodness hypotheses. The carrier, half-modulus a^(λ+ρ_P), right translation and induction-in-stages are already the named AF contract. Bernstein–Krötz §9.3, pp.39–40, constructs the carrier and Proposition 9.6 treats irreducible good inducing modules; it does not by itself discharge this whole parameter-family extension. Global adelic AS.1 induction is not a substitute.
 
 Required by [AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener](#automorphicspectraltheory-as-6-real-invariant-paley-wiener), [AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener](#automorphicspectraltheory-as-6-real-operator-paley-wiener).
+
+### AutomorphicFormsOnReductiveGroups:AF.1
+
+For the archimedean part of AS.2/generic-standard-module, import AF.1/vogan-generic-unitary-dual for the generic unitary GL_n exponent bounds. Extend the same AF real-representation owner only for the classical-group standard-module irreducibility and strict exponent bounds used in Jiang–Zhang Appendix B, Proposition B.1 and (B.5), pp.85–86, retaining the relevant pure-inner-form and generic-global-parameter hypotheses. AF.1/langlands-classification gives a unique irreducible quotient, not irreducibility of every standard module in that application. The packet carriers belong to the endoscopic Part II request; AS keeps their application and the original-proof comparison obligations.
+
+Required by [AutomorphicSpectralTheory:AS.2/generic-standard-module](#automorphicspectraltheory-as-2-generic-standard-module).
 
 ## Proof and carrier closure
 
@@ -8018,7 +8018,7 @@ Needed by [AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener](#automorp
 
 ### Local real induction interface for the independent Paley–Wiener prefix
 
-Local real normalized parabolic induction for every real parabolic P=M_P A_P N_P and a supplied admissible SF representation (or a supplied unitary Hilbert realization) of M_P, on the fixed compact picture with K∩M_P covariance. Supply the half-modulus convention a^(ν+ρ_P), right translation, finite K-type coefficient spaces, holomorphic parameter dependence, and induction-in-stages. The existing AF.1/principal-series only treats minimal parabolics with finite-dimensional inducing W and is not this general Levi-family theorem. Use the independent AF.1/sf-representation interface; do not require a global automorphic occurrence in L²([M]¹). Bernstein–Krötz §9.3, Proposition9.6 and pp.39–40 give the local source route with its good-module/globalization hypotheses; wider supplied-SF holomorphy remains a stated extension.
+Extend AF.1/normalized-real-parabolic-induction by holomorphic dependence on λ in its fixed compact-picture topology, with the finite-K-type matrix-coefficient families used by the two real Paley–Wiener theorems. For supplied unitary Hilbert inducing data, also identify the smooth-vector compact picture with that SF model under the relevant admissibility/goodness hypotheses. The carrier, half-modulus a^(λ+ρ_P), right translation and induction-in-stages are already the named AF contract. Bernstein–Krötz §9.3, pp.39–40, constructs the carrier and Proposition 9.6 treats irreducible good inducing modules; it does not by itself discharge this whole parameter-family extension. Global adelic AS.1 induction is not a substitute.
 
 Needed by [AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener](#automorphicspectraltheory-as-6-real-invariant-paley-wiener), [AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener](#automorphicspectraltheory-as-6-real-operator-paley-wiener).
 
@@ -8083,8 +8083,8 @@ Needed by [AutomorphicSpectralTheory:AS.1/convergent-intertwiner](#automorphicsp
 - Local analytic extensions beyond representation carriers: SR.3 supplies admissible/tempered representation carriers, not the complete Harish-Chandra estimates, rank-one continuation or Langlands classification requested here. AF.1 now plans langlands-classification, discrete-series, archimedean-llc-gln and casselman-wallach-globalization in the single real-representation owner; its original classification/discrete-series proofs and faithful native signatures remain recorded gaps. Reuse those precise contracts rather than create another real classification owner. SR.4 supplies Satake and spherical constant terms, not a proof of the analytic Gindikin–Karpelevich c-function. Reuse the planned SR/AF interfaces and request the additional analytic inputs from their respective owners; SR.1 finite Hecke convolution also needs the unitary integrated L¹ norm bound before the analytic Hilbert action is used.
 - Smooth globalization, weighted χ projections and Siegel cutoffs: BPCZ items27–28 require the AF Part II SLF/Casselman–Wallach globalization and completed product, and Lapid smooth Eisenstein continuity into T_N([G]), beyond the finite-K-type Langlands prototypes. Item33 requires the weighted parabolic MW II.2.4 decomposition and equality of χ projections for different weights. Item45 is the AA Part II compact Siegel cutoff F^G (modulo the center), distinct from Λ^T. The previous routing of all four through Appendix A was not justified; these item-specific routes are now gap decisions.
 - Supplier request: SmoothRepresentationsOfLocalGroups:SR.2 — Local normalized induction, induction in stages and compact-picture source/target identifications over nonarchimedean fields.
-- Supplier request: SmoothRepresentationsOfLocalGroups:SR.3 — Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification.
-- Supplier request: AutomorphicFormsOnReductiveGroups:AF.1 — Real reductive Harish-Chandra modules, tempered/discrete-series parameters, compact-picture normalized induction and the real Langlands classification needed in local normalization.
+- Supplier request: SmoothRepresentationsOfLocalGroups:SR.3 — Admissible and tempered representations, Harish-Chandra matrix-coefficient estimates, rank-one meromorphic continuation and the nonarchimedean Langlands classification. For the nonarchimedean part of AS.2/generic-standard-module, also extend the owner by the generic unitary GL_n exponent bounds and the classical-group standard-module irreducibility used in Jiang–Zhang Appendix B, Proposition B.1 and (B.5)–(B.6), pp.85–86, under its supplied generic-global-parameter and pure-inner-form hypotheses. Existing admissibility or Langlands classification alone does not supply these stronger outputs; packet carriers remain an endoscopic Part II input. For the nonarchimedean part of AS.2/generic-standard-module, also extend the owner by the generic unitary GL_n exponent bounds and the classical-group standard-module irreducibility used in Jiang–Zhang Appendix B, Proposition B.1 and (B.5)–(B.6), pp.85–86, under its supplied generic-global-parameter and pure-inner-form hypotheses. Existing admissibility or Langlands classification alone does not supply these stronger outputs; packet carriers remain an endoscopic Part II input.
+- Supplier request: AutomorphicFormsOnReductiveGroups:AF.1 — For the archimedean part of AS.2/generic-standard-module, import AF.1/vogan-generic-unitary-dual for the generic unitary GL_n exponent bounds. Extend the same AF real-representation owner only for the classical-group standard-module irreducibility and strict exponent bounds used in Jiang–Zhang Appendix B, Proposition B.1 and (B.5), pp.85–86, retaining the relevant pure-inner-form and generic-global-parameter hypotheses. AF.1/langlands-classification gives a unique irreducible quotient, not irreducibility of every standard module in that application. The packet carriers belong to the endoscopic Part II request; AS keeps their application and the original-proof comparison obligations.
 - Supplier request: SmoothRepresentationsOfLocalGroups:SR.4 — Hyperspecial spherical vectors and the rank-one unramified c-function for normalized induction; fixed Haar volume K=1.
 - Supplier request: AutomorphicFormsOnReductiveGroups:AF.2 — Import AF.2/flath-factorization for the irreducible admissible algebraic restricted tensor product and almost-everywhere spherical vectors. Match its Hilbert completion and the separate discrete multiplicity space in AS.2; AF.4 rationality is not this theorem.
 - Supplier request: AutomorphicFormsOnReductiveGroups:AF.3 — Langlands square-integrability criterion for automorphic forms with finitely many parabolic exponents: negative real exponents on every proper parabolic modulo the split center, including the weak/non-strict boundary distinction.
@@ -9338,7 +9338,7 @@ This routing records the source items needed by the seven-stage spectral program
 
 RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.
 
-Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, the independent AF.1/sf-representation carrier and the precise AF.1 local real-parabolic induction request (including arbitrary supplied Levi data and holomorphic compact pictures), together with AF.1b real classification/discrete-series inputs. AS.1 global adelic induced-family is not a supplier for this local prefix. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
+Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, the independent AF.1/sf-representation carrier, AF.1/normalized-real-parabolic-induction and AF.1/discrete-series. The holomorphic-parameter and supplied-Hilbert comparisons remain the precise extension request to the induction owner. AS.1 global adelic induced-family is not a supplier for this local prefix. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
 
 ## Independent revision-2 review
 

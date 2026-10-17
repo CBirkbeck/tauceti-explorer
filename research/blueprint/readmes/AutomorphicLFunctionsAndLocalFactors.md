@@ -1309,11 +1309,11 @@ The matrix integral has exponent s+(n−1)/2, so rank one is exactly Tate's inte
 
 **Uses.** HumphriesGJ Theorem1.2: Identify the newform integral with the standard local L-factor. AL.2/global-godement-jacquet: Unfold the adelic matrix integral.
 
-**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; SmoothRepresentationsOfLocalGroups:SR.3; AutomorphicFormsOnReductiveGroups:AF.1/sf-representation; AdelicAlgebraicGroups:AA.0.
+**Direct inputs.** AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space; SmoothRepresentationsOfLocalGroups:SR.3; AutomorphicFormsOnReductiveGroups:AF.1/sf-representation; AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization; AdelicAlgebraicGroups:AA.0.
 
 **Acceptance checks.** For n=1 the exponent is s and Z is the Tate integral. For n=2 the determinant exponent is s+1/2. Φ=0 gives Z=0, including after continuation. Replacing dg by c dg multiplies Z by c; the L-factor normalization is independent of this choice.
 
-**Proof route.** Import the representation, contragredient and Schwartz carriers, then form the measurable integrand. Prove convergence from matrix-coefficient asymptotics and Schwartz decay before identifying the totalized integral with the analytic family.
+**Proof route.** Import the representation and continuous contragredient through AF.1/casselman-wallach-globalization at infinity, and the Schwartz carrier from AL.0, then form the measurable integrand. The common GL_n globalization is supplied by AF, with its topology and extension of morphisms; AL owns the zeta integral and its estimates. Prove convergence from matrix-coefficient asymptotics and Schwartz decay before identifying the totalized integral with the analytic family.
 
 **Source.** [Peter Humphries, Archimedean newform theory for GL(n)](https://arxiv.org/pdf/2008.12406v2), §2.3.2, (2.3), pp.5–6.
 
@@ -2742,7 +2742,7 @@ Supply the continuous real/complex character classification with complex norm ex
 
 ### 5. AutomorphicFormsOnReductiveGroups:AF.1
 
-Supply finite-length archimedean modules, Casselman–Wallach globalizations and proved archimedean LLC. Extend the AF classification supplier as AF.1b (RT-AREA-langlands-1/2): unitary/isobaric/residual GL_n classification and solvable base change/descent in Ramakrishnan’s precise range. These are requested outputs, not existing AF.1 fine-node claims.
+Import the existing AF.1/admissible-gk-module, AF.1/casselman-wallach-globalization and AF.1/archimedean-llc-gln planned contracts, including their topology and source hypotheses. The remaining extension of the single AF classification owner (AF.1b, RT-AREA-langlands-1/2) is unitary/isobaric/residual GL_n classification and solvable base change/descent in Ramakrishnan’s precise range. Those stronger outputs are not supplied by the current fine nodes; AL does not create another common archimedean classification or globalization foundation.
 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor; AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization; AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound; AutomorphicLFunctionsAndLocalFactors:AL.3/isobaric-strong-multiplicity-one; AutomorphicLFunctionsAndLocalFactors:AL.3/residual-rs-product; AutomorphicLFunctionsAndLocalFactors:AL.3/ramakrishnan-degree-one.
 
@@ -2886,7 +2886,7 @@ Supply Haar measure on the multiplicative local group GL_n(F), normalized by vol
 
 ### 29. AutomorphicFormsOnReductiveGroups:AF.2/flath-factorization
 
-Supply the actual Flath restricted tensor realization, extended to completed archimedean smooth globalizations with continuous functionals. AL derives factorization of the Whittaker coefficient from it and local uniqueness.
+Import AF.2/flath-factorization for algebraic restricted tensors and local-factor uniqueness, together with AF.1/casselman-wallach-globalization for the common archimedean smooth realization. The extension needed here is the specified completed archimedean tensor comparison carrying continuous Whittaker functionals and their product to the global realization. It remains with the AF owner and is not implied by algebraic factorization alone. AL derives the Whittaker coefficient factorization from this comparison and local continuous uniqueness.
 
 **Needed by.** AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization.
 

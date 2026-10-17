@@ -657,7 +657,8 @@ end TauCeti.AutomorphicLFunctions.AL2
 namespace TauCeti.AutomorphicLFunctions.AL3
 
 /-- The representation-theoretic image, on the native algebraic representation carrier.
-    The smooth/Casselman–Wallach topologies belong to SR.1/AF.1. -/
+    Finite-place smooth models come from SR.3; the common archimedean topology
+    comes from AF.1/casselman-wallach-globalization. -/
 def WhittakerModel {G V : Type*} [Monoid G] [AddCommGroup V] [Module ℂ V]
     (ρ : G →* Module.End ℂ V) (ℓ : V →ₗ[ℂ] ℂ) : Submodule ℂ (G → ℂ) := by sorry
 
@@ -1462,27 +1463,27 @@ TauCeti.TateZeta.completedHeckeL_one_sub
   For a character ω of 𝔸^×/k^×, Λ(s, ω) continues to a meromorphic function on ℂ with Λ(s, ω) = ε(s, ω)Λ(1 − s, ω^{−1}). Λ(s, ω) is entire unless ω = |·|^{iu} for some real u, in which case its only poles are simple, at s = −iu and s = 1 − iu. Equivalently (Tate §4.5) Hecke's ζ(s, χ) = Σ_{(𝔞,S)=1}χ(𝔞)N𝔞^{−s} continues and satisfies ζ(1 − s, χ^{−1}) = ∏_{v∈S}ρ_v(c̃_v|·|^{s+it_v})·∏_{v∉S}χ(𝔡_v)N𝔡_v^{s−1/2}·ζ(s, χ).
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-convergence
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.GodementJacquetConvergence
   For fixed π,β,Φ the Godement–Jacquet integral converges absolutely for Re(s)>c_π, locally uniformly there with every s-derivative obtained by insertion of powers of log|det g|.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.StandardLocalLFactor.normalized_zeta
   Every Z/L is entire; at each s₀ some quotient is nonzero.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.GodementJacquetFunctionalEquation
   With positive trace Fourier transform Φ̂(Y)=∫Φ(X)ψ(tr(XY))dX and self-dual additive measure, Z(1−s,β̌,Φ̂)/L(1−s,π∨)=ε(s,π,ψ)Z(s,β,Φ)/L(s,π), β̌(g)=β(g^(−1)). ε is a nonzero monomial in q^(−s) at finite places.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-newform-test
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.GodementJacquetNewformTest
   Let π be a ramified generic representation of GL_n(F), F nonarchimedean, with conductor c>0, normalized newvectors v°,v̌° and β(g)=⟨π(g)v°,v̌°⟩, β(1)=1. Let Φ(X)=ω_π(X_nn)^(−1)/vol K₀(P^c) when X∈Mat_n(O), X_nj∈P^c for j<n, X_nn∈O×, and 0 otherwise. Then Z(s,β,Φ)=L(s,π).
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.GlobalGodementJacquet
   For a unitary cuspidal π of GL_n(𝔸_K), the finite standard Euler product converges absolutely for Re(s)>1. The completed Λ(s,π)=∏_v L(s,π_v) has meromorphic continuation and Λ(s,π)=ε(s,π)Λ(1−s,π∨). If n≥2 it is entire. For n=1 its only possible poles are the Tate norm-character poles. The product of local epsilon factors is independent of the global additive character.
 
@@ -1608,7 +1609,7 @@ TauCeti.AutomorphicLFunctions.AL3.RsVerticalStripBounds
   The completed Λ(s,π×π′) for unitary cuspidal inputs is bounded on finite vertical strips away from its polar points. For m=n or n−1, finite K-finite test realization reduces this to the global-integral bounds. For arbitrary rank gaps use the general Gelbart–Shahidi theorem with its normalized-intertwining-operator hypothesis verified for GL(n).
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/jacquet-shalika-satake-bound
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.JacquetShalikaSatakeBound
   For an irreducible unitary generic unramified representation of GL_n(F), every unitary-normalized Satake root satisfies q^(−1/2)<|α_i|<q^(1/2). Hence a unitary global cusp form has these bounds at all unramified places. This does not assert temperedness over a number field.
 
@@ -1735,32 +1736,32 @@ TauCeti.AutomorphicLFunctions.AL3.WhittakerConductorShift
   Let ψ_v be trivial on P_v^(−n_v) but not P_v^(−n_v−1), and t_v=diag(ϖ_v^(−(n−1)n_v),…,ϖ_v^(−n_v),1). Then W↦(g↦W(t_vg)) identifies the spherical ψ_v model with the conductor-zero ψ_v(ϖ_v^(−n_v)·) model. For a nonzero spherical W, W(t_v)≠0. For the differential-defined global character, Σ_v n_v deg v=2g−2.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-spherical-test
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.GodementJacquetSphericalTest
   For unramified irreducible π of GL_n(F), choose K-fixed v,ℓ with ℓ(v)=1 and Φ=1_Mat_n(O). With K-volume1 and unitary Satake roots α_i, Z(s,β,Φ)=∏_i(1−α_iq^(−s))^(−1). For n=1 this is the Tate geometric series.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/unitary-self-dual-real-factors
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.UnitarySelfDualRealFactors
   If a local irreducible admissible π is unitary and self-dual, its finite-place normalized Euler polynomial has real coefficients. At infinity its gamma shifts are real or occur in conjugate pairs of the same gamma type. Consequently its local factor is positive at all sufficiently large real s.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.StandardOrderOne
   For unitary cuspidal π over a number field whose standard completion is entire, its conductor-balanced centered function φ(z)=Λ(1/2+z,π) is an entire function of order at most1: for every ε>0, |φ(z)|≤exp(C_ε(1+|z|)^(1+ε)). Over a function field an entire standard L-function is a polynomial in q^(−s) times a real exponential, hence has order at most1.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/standard-superpositivity
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.StandardSuperpositivity
   Let π be unitary, self-dual and cuspidal, with entire completed standard L-function. Under RH in the number-field case, every derivative of the real conductor-balanced Λ at1/2 is nonnegative. If centered Λ is non-polynomial, a nonzero derivative of order r forces every derivative of order r+2j to be positive. A constant centered function has positive zeroth derivative and zero higher derivatives.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/trivial-function-field-pole-clearer
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.TrivialFunctionFieldPoleClearer
   For the trivial character over X/F_q, let ζ_X(s)=P_X(q^(−s))/((1−q^(−s))(1−q^(1−s))) and Λ(1,s)=q^((g−1)(s−1/2))ζ_X(s). Then q^(s−1/2)(1−q^(−s))(1−q^(1−s))Λ(1,s)=q^(g(s−1/2))P_X(q^(−s)) is entire and symmetric under s↦1−s. Its central derivatives are nonnegative by the paired-root argument; for g=0 it is1.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/maass-standard-functional-equation
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.MaassStandardFunctionalEquation
   The canonical completion of the normalized level-one Maass cusp form is entire and satisfies Λ(s)=(-1)^εΛ(1−s).
 
@@ -1811,7 +1812,7 @@ TauCeti.AutomorphicLFunctions.AL5.LocalConductorTestVectorComparison
   For generic irreducible π of GL_n(F) with conductor-zero ψ, the degree in q^(−s) of the standard epsilon monomial is c_π, the imported generic newform conductor. The GJ normalized newform integral realizes L(s,π). At a good GL₂ place, twisting an unramified π by a ramified character χ of conductorν>0 gives L(s,π⊗χ)=1 and conductor2ν. At rank1 it gives L=1 and conductorν.
 
 AutomorphicLFunctionsAndLocalFactors:AL.2/archimedean-standard-epsilon
-Unavailable full input: SR.1 smooth/Casselman–Wallach representation and AF.1 cuspidal/global parameter carriers; general finite LLC is a recorded supplier gap.
+Unavailable full input: SR.3 smooth local representations, AF.1/casselman-wallach-globalization and AF.3 cuspidal carriers; general finite LLC is a recorded supplier gap.
 TauCeti.AutomorphicLFunctions.AL2.ArchimedeanStandardEpsilon
   For the positive standard Tate character, a real Weil constituent1 has epsilon1, sgn has epsilon i, and I_w=Ind_(W_C)^(W_R)(z/|z|)^w, w≥1, has epsilon i^(w+1). A weight-k discrete-series constituent therefore has epsilon i^k. Over C an angular character of weightκ has epsilon i^|κ|. Direct sums multiply these factors; norm twists do not change these archimedean constants.
 
@@ -1893,3 +1894,10 @@ classical/Hilbert instances concern their GL₂ realizations away from the
 coefficient prime; general finite GL_n and equal-characteristic epsilon
 compatibility remain conditional supplier obligations in G13.
 -/
+
+/- Archimedean Godement–Jacquet and Whittaker applications import the common
+AF.1/casselman-wallach-globalization carrier, topology and morphism comparison.
+AF.2/flath-factorization supplies algebraic restricted tensors. The completed
+archimedean tensor/continuous-functional comparison is still requested from AF;
+it is not inferred from algebraic factorization. Stronger unitary/residual
+classification and solvable descent also remain extensions of the AF owner. -/

@@ -4010,13 +4010,14 @@
         "F is a local field; at infinity π is a Casselman–Wallach representation and ℓ a continuous contragredient vector."
       ],
       "proofSteps": [
-        "Import the representation, contragredient and Schwartz carriers, then form the measurable integrand.",
+        "Import the representation and continuous contragredient through AF.1/casselman-wallach-globalization at infinity, and the Schwartz carrier from AL.0, then form the measurable integrand. The common GL_n globalization is supplied by AF, with its topology and extension of morphisms; AL owns the zeta integral and its estimates.",
         "Prove convergence from matrix-coefficient asymptotics and Schwartz decay before identifying the totalized integral with the analytic family."
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space",
         "SmoothRepresentationsOfLocalGroups:SR.3",
         "AutomorphicFormsOnReductiveGroups:AF.1/sf-representation",
+        "AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization",
         "AdelicAlgebraicGroups:AA.0"
       ],
       "acceptance": [
@@ -8474,7 +8475,7 @@
     },
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
-      "need": "Supply finite-length archimedean modules, Casselman–Wallach globalizations and proved archimedean LLC. Extend the AF classification supplier as AF.1b (RT-AREA-langlands-1/2): unitary/isobaric/residual GL_n classification and solvable base change/descent in Ramakrishnan’s precise range. These are requested outputs, not existing AF.1 fine-node claims.",
+      "need": "Import the existing AF.1/admissible-gk-module, AF.1/casselman-wallach-globalization and AF.1/archimedean-llc-gln planned contracts, including their topology and source hypotheses. The remaining extension of the single AF classification owner (AF.1b, RT-AREA-langlands-1/2) is unitary/isobaric/residual GL_n classification and solvable base change/descent in Ramakrishnan’s precise range. Those stronger outputs are not supplied by the current fine nodes; AL does not create another common archimedean classification or globalization foundation.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-local-l-factor",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-archimedean-realization",
@@ -8691,7 +8692,7 @@
     },
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.2/flath-factorization",
-      "need": "Supply the actual Flath restricted tensor realization, extended to completed archimedean smooth globalizations with continuous functionals. AL derives factorization of the Whittaker coefficient from it and local uniqueness.",
+      "need": "Import AF.2/flath-factorization for algebraic restricted tensors and local-factor uniqueness, together with AF.1/casselman-wallach-globalization for the common archimedean smooth realization. The extension needed here is the specified completed archimedean tensor comparison carrying continuous Whittaker functionals and their product to the global realization. It remains with the AF owner and is not implied by algebraic factorization alone. AL derives the Whittaker coefficient factorization from this comparison and local continuous uniqueness.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ]
