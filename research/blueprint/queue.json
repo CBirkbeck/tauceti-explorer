@@ -132900,6 +132900,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartVIII~adv.md",
    "note": "claimed on GitHub issue #10281"
+  },
+  {
+   "id": "FIX-PKG-AnalyticNumberTheoryPartII~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AnalyticNumberTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AnalyticNumberTheoryPartII~adv.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/review.json",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/README.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartII~adv.md"
   }
  ]
 }
