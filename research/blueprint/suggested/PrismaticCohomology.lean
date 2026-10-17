@@ -225,6 +225,12 @@ stated there only.
   absolute prismatic sites, derived prismatic cohomology, perfectoidization, the conjugate and
   Nygaard filtrations, Breuil–Kisin twists, syntomic complexes and the étale comparison (PR.0–PR.4),
   prismatic crystals and F-crystals (PR.7), and the logarithmic theory (PR.8).
+  The general-envelope target in PR.0 is over bounded orientable bases and has no regular-kernel
+  assumption. Its transfinite torsion-removal/completion construction, universal property and
+  identity/unit-ideal/regular-comparison/nonregular-input tests are README targets. The required
+  delta-ring category and derived completion carriers are missing at the pins; no placeholder
+  definition or envelope existence axiom is introduced here. General existence supplies neither
+  bounded output nor flatness, and the unbounded-base extension remains a separate reader gap.
 * Needing ∞-categories of quasi-coherent complexes (PR.5): `QCohPrestack`, `QCohPrestack.eval`,
   `QCohPrestack.ofPoints`, `QCohPrestack.pullback`, `QCohPrestack.specEquiv`,
   `QCohPrestack.limitOfColimit`, `QCohPrestack.isEquiv_iff_eval`, `QCohPrestack.unit_eval`,
