@@ -19,6 +19,17 @@ namespace TauCetiRoadmap.PotentialModularityAndCompatibleSystems
 
 /-! ## Layer 1: Compatible-family infrastructure -/
 
+/-- Quaternionic matrices have rational character values without rational local models.
+The relations pin the realization-field control in README §1.1. -/
+example :
+    (!![Complex.I, 0; 0, -Complex.I] : Matrix (Fin 2) (Fin 2) ℂ) ^ 2 = -1 ∧
+    (!![(0 : ℂ), 1; -1, 0] : Matrix (Fin 2) (Fin 2) ℂ) ^ 2 = -1 ∧
+    (!![Complex.I, 0; 0, -Complex.I] : Matrix (Fin 2) (Fin 2) ℂ) *
+      !![(0 : ℂ), 1; -1, 0] =
+      -(!![(0 : ℂ), 1; -1, 0] * !![Complex.I, 0; 0, -Complex.I]) := by
+  refine ⟨?_, ?_, ?_⟩ <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [pow_two, Matrix.mul_apply, Fin.sum_univ_two]
+
 namespace Factors
 
 /-- The normalized reciprocal polynomial, for a monic characteristic polynomial whose
@@ -133,6 +144,19 @@ example : ((Finsupp.single (0 : Fin 2) (2 : ℤ) + Finsupp.single 1 (-1)).sum fu
 
 end RepRing
 
+/-- The Hodge cocharacter of `1 + epsilon⁻¹` scales degrees `0,1` by `1,t`.
+Its product, trace and determinant distinguish this convention from inverse scaling. -/
+example :
+    (!![(1 : ℚ), 0; 0, 2] : Matrix (Fin 2) (Fin 2) ℚ) *
+      !![(1 : ℚ), 0; 0, 3] = !![(1 : ℚ), 0; 0, 6] ∧
+    Matrix.trace (!![(1 : ℚ), 0; 0, 2] : Matrix (Fin 2) (Fin 2) ℚ) = 3 ∧
+    Matrix.det (!![(1 : ℚ), 0; 0, 2] : Matrix (Fin 2) (Fin 2) ℚ) = 2 := by
+  refine ⟨?_, ?_, ?_⟩
+  · ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+  · norm_num [Matrix.trace, Fin.sum_univ_two]
+  · norm_num [Matrix.det_fin_two]
+
 /-! ## Layer 2: Integral points and controlled fields -/
 
 namespace Fields
@@ -183,6 +207,18 @@ end Auxiliary
 /-! ## Layer 8: Finiteness of global rings -/
 
 namespace PolarizedAdapter
+
+/-- Two odd CM multipliers need the quadratic correction; their raw product has the wrong sign. -/
+example : (-1 : ℤ) * (-1) = 1 ∧ (-1 : ℤ) * (-1) * (-1) = -1 := by
+  norm_num
+
+/-- The normalized unit has multiplier delta, so its two quadratic factors cancel. -/
+example (m : ℤ) : m * (-1) * (-1) = m := by
+  ring
+
+/-- Duality preserves the value of an odd multiplier at complex conjugation. -/
+example : (-1 : ℚ)⁻¹ = -1 := by
+  norm_num
 
 /-- At an odd involution, the matrix used in the rank-two prolongation is symmetric. -/
 example : Matrix.transpose (!![(0 : ℤ), -1; -1, 0]) = !![(0 : ℤ), -1; -1, 0] := by
@@ -281,10 +317,11 @@ def auxiliaryPrime : RequiredLiftParameters p k → Option ℕ
   | levelTwo q .. => some q
   | _ => none
 
-/-- In the weight-two prescription, `k=p+1` requires nonzero monodromy. -/
+/-- In the weight-two prescriptions, the exceptional weight is `4` at `p=2`
+and `p+1` at odd `p` (KW I Theorem 5.1(2)–(4), pp. 9–10). -/
 def requiresSteinberg : RequiredLiftParameters p k → Prop
   | minimalCrystalline _ => False
-  | _ => k = p + 1
+  | _ => if p = 2 then k = 4 else k = p + 1
 
 /-- The dyadic level-one character at `q=5` must have even exponent. -/
 example (k : ℕ) : ¬ (2 = 2 → Even 1) ∧
@@ -310,7 +347,30 @@ example (p k : ℕ) :
 
 /-- The exceptional weight requires Steinberg monodromy; weight two at `p=3` does not. -/
 example : (RequiredLiftParameters.weightTwo (p := 3) (k := 4)).requiresSteinberg ∧
-    ¬ (RequiredLiftParameters.weightTwo (p := 3) (k := 2)).requiresSteinberg := by sorry
+    ¬ (RequiredLiftParameters.weightTwo (p := 3) (k := 2)).requiresSteinberg := by
+  simp [requiresSteinberg]
+
+/-- The dyadic exceptional weight is `4`; neither `2` nor the spurious `p+1=3` qualifies. -/
+example : (RequiredLiftParameters.weightTwo (p := 2) (k := 4)).requiresSteinberg ∧
+    ¬ (RequiredLiftParameters.weightTwo (p := 2) (k := 2)).requiresSteinberg ∧
+    ¬ (RequiredLiftParameters.weightTwo (p := 2) (k := 3)).requiresSteinberg := by
+  simp [requiresSteinberg]
+
+/-- The minimal crystalline prescription has zero monodromy even at odd exceptional weight. -/
+example : ¬ (RequiredLiftParameters.minimalCrystalline (p := 3) (k := 4)
+    (by decide)).requiresSteinberg := by
+  simp [requiresSteinberg]
+
+/-- The auxiliary level-one prescription inherits the dyadic weight-four condition at `p`. -/
+example : (RequiredLiftParameters.levelOne (p := 2) (k := 4) 5 2 (by norm_num)
+    (by norm_num) (by norm_num) (by norm_num) (fun _ => even_two)).requiresSteinberg := by
+  simp [requiresSteinberg]
+
+/-- The level-two prescription has the same condition at `p`, independently of its `q=7` type. -/
+example : (RequiredLiftParameters.levelTwo (p := 2) (k := 4) 7 6 0 (by norm_num)
+    (by norm_num) (by norm_num) (by norm_num) ⟨3, by norm_num⟩
+    (fun _ => by decide)).requiresSteinberg := by
+  simp [requiresSteinberg]
 
 end RequiredLiftParameters
 end LiftParameters
@@ -337,7 +397,7 @@ end ResidualMembers
 
 /-! The following named targets are stated in README.md. Their arithmetic, geometric or
 automorphic carriers require the supplier theories described there.
-Layer 1: `weakCompatibility_ofKW`, `CompatibleSystem`, `ExtremelyWeaklyCompatibleSystem`, `induce`, `PolarizedSystem`, `WeaklyCompatibleSystem.IsRegular`, `symmetricPower`, `PolarizedSystem.tensor`, `characterSystem`, `rank_one_purity`, `induced_character_purity`, `artinSystem`, `artin_twist_purity`, `rank_two_reducibility_independent_of_lambda`, `partialLFunction`, `RepRing`, `monodromy_component_field`, `LarsenData.G`, `serre_theta_uniform_bounds`, `larsen_good_primes`, `residual_irreducibility_density_one`, `constituents_essentially_self_dual`.
+Layer 1: `weakCompatibility_ofKW`, `CompatibleSystem`, `extremelyWeak_rankOne_isWeak`, `weakening_preserves_hodgeMetadata`, `induce`, `polarizedSystem_signComparison`, `WeaklyCompatibleSystem.IsRegular`, `symmetricPower`, `PolarizedSystem.tensor`, `characterSystem_hodge`, `characterSystem_frob`, `rank_one_purity`, `induced_character_purity`, `artinSystem`, `artin_twist_purity`, `rank_two_reducibility_independent_of_lambda`, `partialLFunction`, `RepRing`, `monodromy_component_field`, `LarsenData.G`, `serre_theta_uniform_bounds`, `larsen_good_primes`, `residual_irreducibility_density_one`, `constituents_essentially_self_dual`.
 Layer 2: `SkolemDatum`, `densityOfAlgebraicLocalPoints`, `elementaryReductions`, `reductionToCurves`, `Picard.generalizedPicard`, `localPicardOpensAndApproximation`, `compactGeneralizedJacobianQuotient`, `moretBailly`, `theoremGFromMoretBailly`, `taylorTheoremG`, `functionFieldChebotarev`, `frobeniusPrimesGenerate`, `disjointnessByExtraSplitPlaces`, `Fields.towerLinearDisjoint`, `chtCharacterExtension`, `chtSolublePrescribedCompletions`, `moretBaillyThreeLocalConditions`, `moretBaillyAbovePreliminaryField`, `snowdenSolublePreliminaryField`, `surjectiveSpecialisation`, `functionFieldIsomTorsor`, `fixedConstantField`, `potentialGlobalGaloisLocalData`.
 Layer 3: `taylorLemma11`, `TaylorAuxiliaryData`, `localPointsTwistedHilbertModuli`, `restrictedAuxiliaryModuli`.
 Layer 4: `taylorLemma15`, `quaternionicHeckeGaloisRealisation`, `localResidualInertialShape`, `skinnerWilesLevelAdjustment`, `taylorCrystallineLifting`, `auxiliaryModularityTransfer`, `taylorOrdinaryPotentialResidual`, `taylorNiveauTwoPotentialResidual`, `weightReductionHeckeSurjection`, `weightShift`, `weightAndLevelPotentialResidual`, `taylorSerreWeightPotentialResidual`, `kwPotentialResidual`, `kwOrdinaryPotentialResidual`, `snowdenPotentialResidual`, `bcgpPotentialResidual`.
@@ -349,9 +409,11 @@ Layer 10: `bockle_presentation`, `Presentations.finite_presentation_complete_int
 Layer 11: `alpha_beta_from_residual_modularity`, `kw_theorem_4_1`.
 Layer 12: `brauerSystem`, `brauerOverlapHomCharacters`, `almost_strict_compatibility`, `strict_brauer_system`, `kw_theorem_5_1_systems`, `dieulefait_families`.
 Layer 13: `residual_members`, `local_compatibility_at_the_coefficient_prime`, `linked_systems_modularity_transfer`.
-The family predicates and operations are on the imported `CompatibleSystemData`:
-`WeaklyCompatibleSystem`, `CompatibleSystem`, `PolarizedSystem`, `VeryWeakSystem`,
-`ExtremelyWeakSystem`, with the regularity, purity, strictness and automorphy predicates of §1.6.
+The shared carrier `AutomorphicSystemData`, `Weak`, `Strict`, basic operations and
+character families come from AutomorphicGaloisRepresentationsPartII AG2.P;
+its AG2.6 supplies `VeryWeak` and `ExtremelyWeak`. AGR §7.1 supplies the DP rank-two
+almost-strict predicate and chosen `HilbertSystemRealizations`. The KW comparisons,
+induction, power operations and sign comparisons use those supplied objects.
 The full `cgRingFiniteness` and `dieulefait_families` retain the hypotheses in §§8.8 and 12.5;
 their adequate-image and KW-type milestones do not discharge the remaining cases. -/
 

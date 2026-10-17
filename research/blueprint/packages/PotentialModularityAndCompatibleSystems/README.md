@@ -19,13 +19,14 @@ A prerequisite written `Roadmap:Layer/target` denotes that owner's mathematical 
 | GlobalGaloisDeformations R04.2–R04.6, G7, §§5.1, 5.7, 6.4, 8.5; DeformationAndDerivedPatchingAlgebra R03.3–R03.6 | Carayol trace theorem, Taylor–Wiles data and primes, polarized deformation problems, finiteness of restriction, global local-condition rings, framed/unframed comparison, presentations and finite-image criteria, finite-flat complete intersections and characteristic-zero integral points |
 | GL2AutomorphicRepresentationsAndTransfer R16.1, R17.3–R17.6 | Finite Hecke characters with prescribed local components, Jacquet–Langlands, soluble base change and descent, quadratic automorphic induction and potential-modularity interfaces, with invariance and cuspidality conditions |
 | WeightsInEtaleCohomology; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3, R07.5 | The Riemann hypothesis for curves over finite fields and the Lefschetz trace formula (2.11); Fontaine–Laffaille filtered modules and their torsion functor (4.3); Savitt's residual types (12.4) |
-| AutomorphicGaloisRepresentations R19.2–R19.6, §3.13, §7.1 | The compatible-system carrier with its weak, strict and almost-strict predicates and operations (§7.1), geometric characters (§3.13), Galois realizations of Hilbert forms and of quaternionic Hecke algebras (§6.10), common-coefficient eigenform families, away-coefficient comparison and the full Skinner coefficient-prime theorem |
+| AutomorphicGaloisRepresentationsPartII AG2.P and AG2.6 | The arbitrary-rank `AutomorphicSystemData` carrier, weak/all-place strict predicates, basic operations and algebraic-character families (AG2.P, “Arbitrary-rank compatible data and operations”); very weak/extremely weak predicates and weakening maps (AG2.6, “Weak, very weak and extremely weak automorphic data”) |
+| AutomorphicGaloisRepresentations R19.2–R19.6, §3.13, §7.1 | The rank-two DP almost-strict predicate and chosen local models (§7.1), geometric characters (§3.13), Galois realizations of Hilbert forms and of quaternionic Hecke algebras (§6.10), common-coefficient eigenform families, away-coefficient comparison and the full Skinner coefficient-prime theorem |
 | OrdinaryAutomorphicFormsAndModularityLifting §§1.4–2.10, R21.2, R21.6; PadicFamilies L0a/L5 | The definite-quaternion pairing, traces and Ihara lemmas behind level adjustment; Hilbert ordinary weight change and ordinary lifts; ordinary projectors and Hida control |
 | GL2ModularityLifting R22.1, R22.4–R22.6 and R32.6 | Allowable base change (R22.1), integral R=T for smooth local conditions (R22.4), full odd-prime and dyadic KW lifting, and the modern residually reducible de Rham transfer |
 | NeronModelsAndSemistableAbelianVarieties §§5.1, 5.3; ShimuraVarieties §§5.3–5.10 | Néron–Ogg–Shafarevich and the crystalline comparison for good reduction; CM abelian varieties, their models and the main theorem of complex multiplication |
 | InverseGaloisAndArithmeticFundamentalGroups IG.1–IG.2; GL2AutomorphicRepresentationsAndTransfer R16.1; SerreWeightAndLevelOptimisation §6.6; EndoscopicTransferAndUnitaryTraceComparison §6.29; AutomorphicFormsOnReductiveGroups AF.4–AF.5 | Étale fundamental groups and specialization of finite quotients; finite Hecke characters with prescribed local components; the Khare–Wintenberger optimisation field; Labesse's base change and descent for unitary groups; algebraic modular forms on groups compact at infinity |
 
-Layer 1 builds on the compatible-system carrier of AutomorphicGaloisRepresentations §7.1: `CompatibleSystemData` with its weak, strict and almost-strict predicates and the operations of coefficient extension, direct sum, dual, tensor product, algebraic-character twist, finite restriction and conjugation. It also builds on the polarized representations of ArithmeticGaloisRepresentations §7.4 and on the algebraic Hecke characters of AutomorphicGaloisRepresentationsPartII AG2.0 and AutomorphicGaloisRepresentations §3.13. It adds what those do not contain: the Khare–Wintenberger rank-two predicates, very weak and extremely weak data, induction and symmetric and exterior powers of families, polarized families, regularity and purity, Artin and character families, L-functions, the arithmetic representation ring, monodromy and density-one irreducibility. It takes no eigenform or potential-modularity theorem as a premise. The construction of an eigenform family belongs to R19; proving that a supplied lift becomes automorphic belongs to Layer 5; assembling its descended family belongs to Layer 12.
+Layer 1 imports the construction-independent prelude of [AutomorphicGaloisRepresentationsPartII, AG2.P](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4a3681082bdda51d99b5276928db227758b34d31/TauCetiRoadmap/AutomorphicGaloisRepresentationsPartII/README.md#compatible-data-prelude) and its AG2.6 weakening predicates. Its `AutomorphicSystemData` permits a finite realization field L_λ/M_λ for each member; rational good polynomials alone do not give M_λ-models. Import coefficient extension, direct sum, dual, tensor product, algebraic-character twist, finite restriction and conjugation there. The [rank-two owner, §7.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/06cbbcfc56ba257910bbf16066e5e676e8204344/TauCetiRoadmap/AutomorphicGaloisRepresentations/README.md#71-the-compatible-system-carrier-and-operations) adds the DP almost-strict predicate and `HilbertSystemRealizations`, which records chosen E_λ-models after a specified coefficient extension. This roadmap uses those objects without reconstructing them. It adds the weaker Khare–Wintenberger rank-two predicates and their normalization comparisons, induction and symmetric and exterior powers of families, signed polarization comparisons and operations, regularity and away-coefficient purity comparisons, Artin families, L-functions, the arithmetic representation ring, monodromy and density-one irreducibility. The polarized representations of ArithmeticGaloisRepresentations §7.4 and the character avatars of AG2.0 and AGR §3.13 remain suppliers. No automorphic existence theorem is used to define the imported data. Eigenform-family construction belongs to R19; proving that a supplied lift becomes automorphic belongs to Layer 5; assembling its descended family belongs to Layer 12.
 
 The current Tau Ceti library supplies line-bundle classes and their tensor group, arbitrary-morphism rigidified line bundles, their isomorphism classes, pullback, forgetting and the global-unit criterion for equality. AlgebraicVectorBundles Layer 0 supplies geometric tensor/dual infrastructure, and JacobianChallenge Layer D supplies the ordinary relative Picard functor. Layer 2 uses these objects for a finite flat boundary and adds the relative group-sheaf, representability, degree and divisor-fibration results. LocalGaloisGroups' tame frame and ProfiniteArithmetic supply local Galois and profinite primitives; Completed RestrictedProducts supplies the adelic carrier. Those objects are imported. The current library's `HeckeCharacter/Purity.lean` supplies the purity of infinity types of algebraic Hecke characters. RepresentationTheory/InductionRestriction Layer 6 owns finite-group Brauer induction. The current library also supplies `TauCeti.repRing` for arbitrary monoids, its character homomorphism `repRingCharacter`, restriction `repRingRes`, and finite-index induction `repRingInd` in `RepresentationTheory/RepresentationRing/{Basic,Restriction,Induction}.lean`. This is the split Grothendieck ring of all algebraic finite-dimensional representations, without continuity or ramification conditions. The additional arithmetic carrier restricts to continuous, finitely ramified representations of G_F and imposes semisimplification relations; its trace recognition and arithmetic Euler factors require these additional conditions. It reuses the tensor, restriction and induction infrastructure rather than constructing another generic representation ring.
 
@@ -90,23 +91,25 @@ The comparison API is:
 - `wcs_newform_delta`: For the cohomological Δ family, Q₂=X²+24X+2048 and H={0,11}. Its dual has Q₂=X²+(3/256)X+1/2048 and H={0,−11}; changing the member without changing the polynomial fails.
 - `wcs_artin_weight_one`: An Artin family of a weight-one form has H={0,0}; the weak comparison applies, while regularity is false. Thus the comparison must not require regularity.
 - `wcs_exceptional_deRham`: Plain or KW almost-strict axioms supply no de Rham comparison in the residually reducible ramified coefficient-prime branch; that branch needs the additional hypothesis of `weakCompatibility_ofKW`.
+- `wcs_realization_field`: The two-dimensional quaternion-group representation with A=diag(i,−i) and B=(0,1;−1,0) has A²=B²=−I and AB=−BA. Its character values are rational (2,−2,0), but it has no ℚ₂-model: such a model would split the Hamilton quaternion algebra over ℚ₂. The norm x₀²+x₁²+x₂²+x₃² is anisotropic there, as scaling to a primitive integral vector and reducing squares modulo 8 shows. A finite realization extension is therefore essential; rational traces do not replace chosen local models.
+- `wcs_rank_zero`: The empty family has polynomial 1 and empty Hodge multisets at every embedding. The comparison remains meaningful without positive rank or regularity hypotheses.
 
 Use `weakCompatibility_ofKW` for this comparison.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page); [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §6, rank d weakly compatible systems over ℚ, p. 773 (PDF page 45).
 
-*Needs:* `AutomorphicGaloisRepresentations` §7.1 (`CompatibleSystemData`, `IsWeaklyCompatible`); `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `PadicHodgeTheory:R06.2`; `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`; `mathlib:LinearMap.charpoly`; `mathlib:NumberField.FinitePlace`; `mathlib:NumberField.FinitePlace.embedding`.
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P (`AutomorphicSystemData`, `Weak`); `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `PadicHodgeTheory:R06.2`; `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`; `mathlib:LinearMap.charpoly`; `mathlib:NumberField.FinitePlace`; `mathlib:NumberField.FinitePlace.embedding`.
 
 <a id="target-compatible-system"></a>
 ### 1.2 Rank-two plain, almost-strict and strict families
 
-For number fields F and E, define a rank-two E-rational family with continuous semisimple ρ_ι for every prime l and embedding ι:E↪Q̄_l, a Frobenius-semisimple WD parameter r_q over E at each finite q, unramified except at finitely many q, and fixed integers a≥b. Plain compatibility compares WD parameters whenever q∤l and requires crystallinity of weights (a,b) at coefficient places for sufficiently large l.
+For number fields F and E, specialize the imported raw data to rank two, with continuous semisimple ρ_ι for every prime l and embedding ι:E↪Q̄_l, and add a Frobenius-semisimple WD parameter r_q at each finite q, unramified except at finitely many q, and fixed integers a≥b. The common WD isomorphism class is algebraic over E; choose a finite extension when an E-model is required. Plain compatibility compares WD parameters whenever q∤l and requires crystallinity of weights (a,b) at coefficient places for sufficiently large l. The members may have finite realization fields over E_λ as in the raw carrier; choosing E_λ-models is additional data, not a consequence of E-rational good traces.
 
 KW strictness requires every member to be geometric of these weights and compares WD(ρ_ι|D_q)^Fss with ιr_q at **every** q, using Fontaine's construction when q|l. KW almost strictness adds to plain compatibility two coefficient-prime clauses: full geometric/WD comparison when the semisimplified residual member is irreducible; and, for l≠2 and unramified r_q, crystallinity of the common weights. It imposes no further coefficient-prime comparison in the residually reducible ramified case. Regularity means a≠b. Plain and KW almost-strict carriers need not be de Rham at every member.
 
 Dieulefait–Pacetti use a different almost-strict contract: every member is de Rham at its coefficient prime. Compare their five-tuple only after identifying coefficient embeddings and normalizations. Keep this additional condition explicit when translating between the two definitions.
 
-AutomorphicGaloisRepresentations §7.1 defines on `CompatibleSystemData` the all-place strict predicate `IsStrictlyCompatible` and the Dieulefait–Pacetti almost-strict predicate `IsAlmostStrictlyCompatible`, which at an odd coefficient prime with unramified common parameter still requires the full comparison. Use them. The Khare–Wintenberger family here is the rank-two specialization of that carrier indexed by embeddings ι with fixed integer weights a≥b; KW strictness is AGR's strict predicate for it, and KW almost strictness, which at such a prime asks only for crystallinity of the common weights, is the separate predicate below.
+AG2.P supplies the all-place `Strict` predicate on `AutomorphicSystemData`. AutomorphicGaloisRepresentations §7.1 supplies the Dieulefait–Pacetti predicate `IsAlmostStrictlyCompatible`, which at an odd coefficient prime with unramified common parameter still requires the full comparison. Use both. KW strictness agrees with `Strict` for these rank-two data after the normalization comparison. KW almost strictness, which at such a prime asks only for crystallinity of the common weights, is the separate predicate below. A literal comparison with DP's five-tuple additionally takes the chosen `HilbertSystemRealizations`; it does not infer local descent from trace rationality.
 
 The additional API specializes the supplied carrier without reconstructing its all-place strict predicate or its coefficient extension:
 
@@ -127,22 +130,20 @@ Use `CompatibleSystem` for this construction.
 
 The sources are [KW I][kw-serre-modularity-I], §5, p. 7 of the preprint, §5, p. 8 of the preprint; [Dieulefait–Pacetti v2][dieulefait-pacetti], Definition 1.10 and after, p. 7 of the arXiv version.
 
-*Needs:* `AutomorphicGaloisRepresentations` §7.1 (`IsStrictlyCompatible`, `IsAlmostStrictlyCompatible`); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`.
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P (`AutomorphicSystemData`, `Strict`); `AutomorphicGaloisRepresentations` §7.1 (`IsAlmostStrictlyCompatible`, `HilbertSystemRealizations`); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`.
 
 <a id="target-weakened-compatible-data"></a>
 ### 1.3 Very weak and extremely weak families
 
-Extremely weak data retain the number fields, finite exceptional set, actual continuous semisimple members and common monic good Frobenius polynomials of a weak system, but impose only HT_τ(det r_λ)=ΣH_τ at every λ. They require no full-member Hodge or de Rham comparison. Very weak data additionally require crystallinity at all places above l and the full Hodge multisets for l outside a Dirichlet-density-zero set. A weak system is very weak, and a very weak system is extremely weak.
+Use AG2.6's `VeryWeak` and `ExtremelyWeak` on the single `AutomorphicSystemData` carrier. These predicates and their weakening maps are imported. Extremely weak data retain the good-place unramifiedness and common monic Frobenius polynomial identities, but impose only HT_τ(det r_λ)=ΣH_τ at every λ. They require no full-member Hodge or de Rham comparison. Very weak data additionally require crystallinity at all places above l and the full Hodge multisets for every λ|l and coefficient embedding outside a Dirichlet-density-zero set of rational primes. A weak system is very weak, and a very weak system is extremely weak.
 
 In rank one the determinant condition recovers the full Hodge condition, and character classification gives weak compatibility. In higher rank it controls only the sum of the Hodge entries. Accordingly, induction and Artin-twist purity use the canonical transported Hodge data rather than arbitrary multisets with the same sum.
 
-The construction has the following API:
+The additional comparison API is:
 
-- `ExtremelyWeaklyCompatibleSystem`: The common Q, members and H with determinant-Hodge condition only.
-- `VeryWeaklyCompatibleSystem`: Extremely weak data with density-one crystallinity and full labeled Hodge comparisons.
-- `WeaklyCompatibleSystem.toVeryWeak`: Forget the all-λ de Rham/full Hodge requirement to the density-one one.
-- `VeryWeaklyCompatibleSystem.toExtremelyWeak`: Forget the density-one full-member condition, retaining determinant Hodge comparison.
-- `ExtremelyWeaklyCompatibleSystem.hodgeSum`: At every λ, the determinant labeled Hodge number equals Σ H_τ.
+- `extremelyWeak_rankOne_isWeak`: A rank-one extremely weak family is weak, using geometric-character classification at one coefficient place, the common good polynomials and semisimple recognition at every other place.
+- `weakening_preserves_hodgeMetadata`: AG2.6's weakening maps preserve the supplied members, good polynomials and full metadata H, even though the weaker predicates constrain only the displayed parts.
+- `extremelyWeak_hodgeSum`: Retrieve the imported determinant-Hodge clause at each λ; this is a projection of the supplier predicate.
 
 **Checks.**
 
@@ -151,16 +152,16 @@ The construction has the following API:
 - `weakening_hodge_purity_not_sum`: For a weight-zero rank-two Artin family, H_τ={−1,1} and H_cτ={0,0} have the correct zero determinant sums but fail H_cτ=−H_τ. Thus extremely weak Hodge metadata need not satisfy purity.
 - `weakening_transitive`: The composite weak→very weak→extremely weak map preserves each r_λ, Q_v and H_τ.
 
-Use `ExtremelyWeaklyCompatibleSystem` for this construction.
+Use the imported predicates for these comparisons; no second very weak or extremely weak carrier is constructed.
 
 The sources are [ACC+][acc-2023], §7.1, pp.1084–1085.
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `PadicHodgeTheory:R06.2`.
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P and AG2.6 (“Weak, very weak and extremely weak automorphic data”); `AutomorphicGaloisRepresentations` §3.13 (`geometricCharacter_isHeckeAvatar`); `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `PadicHodgeTheory:R06.2`.
 
 <a id="target-system-operations"></a>
 ### 1.4 Induction of families
 
-Twists by algebraic-character families, restrictions to finite base-field extensions, coefficient extension and conjugation are the operations of AutomorphicGaloisRepresentations §7.1, with its transport of the weak and strict predicates and its rank-two almost-strict transport rule; import them. Construct here the induction from a finite extension, applying representation, WD and Hodge operations together. Enlarge S by ramification of the extension for induction, and at each local place use the sum of locally induced WD parameters. At a place above the coefficient prime this requires that D_pst of an induced representation is the induced Weil–Deligne representation; prove it here from the compatibility of Fontaine's functor with restriction and the Mackey description of induction. Plain compatibility is preserved; all-place strictness is preserved for the de Rham input systems using the local operations of R06.3.
+Twists by algebraic-character families, restrictions to finite base-field extensions, coefficient extension and conjugation are the operations of AG2.P, with its preservation of `Weak` and `Strict`; import them. For the DP rank-two predicate use AGR §7.1's additional transport rule, which checks required output pairs. Construct here the induction from a finite extension, applying representation, WD and Hodge operations together. Enlarge S by ramification of the extension for induction, and at each local place use the sum of locally induced WD parameters. At a place above the coefficient prime this requires that D_pst of an induced representation is the induced Weil–Deligne representation; prove it here from the compatibility of Fontaine's functor with restriction and the Mackey description of induction. Plain compatibility is preserved; all-place strictness is preserved for the de Rham input systems using the local operations of R06.3.
 
 For an almost-strict system the unconditional output is plain. Retaining almost strictness requires checking every newly irreducible residual output against the source's coefficient-prime comparison cases and every unramified coefficient-prime output for crystallinity. A strict character twist preserves the residual irreducibility test in rank two; restriction or induction can change it. A virtual Brauer combination is still a class in a representation ring until genuineness is proved.
 
@@ -181,16 +182,16 @@ Use `induce` for this construction.
 
 The sources are [KW II][kw-serre-modularity-II], §10.3.2, p. 93 of the preprint.
 
-*Needs:* [Layer 1, Rank-two plain, almost-strict and strict families](#target-compatible-system); `AutomorphicGaloisRepresentations` §7.1 (`twist`, `restrict`, `coefficientExtension`, `conjugate`); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor`; `PadicHodgeTheory:R06.2` (induction and restriction of scalars); `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:G7`; `mathlib:Representation.ind`; `mathlib:Representation.dual`.
+*Needs:* [Layer 1, Rank-two plain, almost-strict and strict families](#target-compatible-system); `AutomorphicGaloisRepresentationsPartII` AG2.P (character twist, restriction, coefficient extension and conjugation); `AutomorphicGaloisRepresentations` §7.1 (rank-two almost-strict transport); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor`; `PadicHodgeTheory:R06.2` (induction and restriction of scalars); `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:G7`; `mathlib:Representation.ind`; `mathlib:Representation.dual`.
 
 <a id="target-polarized-system"></a>
 ### 1.5 Polarized weakly compatible families
 
-For CM F/F⁺ and a weak system ℛ, take a rank-one multiplier system ℳ of G_(F⁺) over the same coefficient field, with ramification below that of ℛ. A polarization includes, for every λ and real place v, an actual perfect pairing B with B(x,y)=ε_vB(y,x), B(r_λ(g)x,r_λ(c_vgc_v)y)=μ_λ(g)B(x,y), and ε_v=−μ_λ(c_v). Total oddness means ε_v=+1 at every real place. Forgetting the pairing gives essential conjugate self-duality, not a polarization witness. For totally real fields use the orthogonal/symplectic convention of BLGGT §2.1 instead of imposing the CM sign equation without a CM extension. The representation-level pairing, multiplier, sign and total oddness are those of ArithmeticGaloisRepresentations §7.4 (`PolarizedRep`); this target assembles them over a family.
+For CM F/F⁺ and a weak system ℛ, use AG2.P’s family-polarization predicate with the representation-level witnesses of ArithmeticGaloisRepresentations §7.4. Take a rank-one multiplier system ℳ of G_(F⁺) over the same coefficient field, with ramification below that of ℛ. A polarization includes, for every λ and real place v, an actual perfect pairing B with B(x,y)=ε_vB(y,x), B(r_λ(g)x,r_λ(c_vgc_v)y)=μ_λ(g)B(x,y), and ε_v=−μ_λ(c_v). Total oddness means ε_v=+1 at every real place. Forgetting the pairing gives essential conjugate self-duality, not a polarization witness. For totally real fields use the orthogonal/symplectic convention of BLGGT §2.1 instead of imposing the CM sign equation without a CM extension. The representation-level pairing, multiplier, sign and total oddness are those of ArithmeticGaloisRepresentations §7.4 (`PolarizedRep`); this target compares those supplied witnesses with the signed BLGGT convention, without constructing another family-polarization carrier.
 
 The construction has the following API:
 
-- `PolarizedSystem`: Pair ℛ,ℳ with an actual polarization witness at every λ.
+- `PolarizedSystem`: Notation for the supplied family data ℛ,ℳ with an actual polarization witness at every λ.
 - `PolarizedSystem.multiplier`: The rank-one character system ℳ of G_F⁺, including μ(c_v).
 - `PolarizedSystem.pairing`: The perfect representation-level pairing from G7, for each λ and real place v.
 - `PolarizedSystem.IsTotallyOdd`: All pairing signs ε_v are +1; for CM this requires μ(c_v)=−1.
@@ -203,16 +204,16 @@ The construction has the following API:
 - `polarized_multiplier_wrong`: Changing μ(c_v) while retaining the same pairing reverses the required CM equation ε_v=−μ(c_v).
 - `polarized_forget_pairing`: Forgetting the perfect signed pairing gives r^c≅r∨⊗μ; an isomorphism alone does not determine a correctly signed polarization.
 
-Use `PolarizedSystem` for this construction.
+Use `polarizedSystem_signComparison` for the comparison between the supplied witnesses and the displayed CM sign convention.
 
 The sources are [BLGGT v4][blggt-2014-v4], §2.1, p.31; §5.1, p.62.
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7` (§7.4, `PolarizedRep`, `IsTotallyOdd`).
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P (family polarization predicate); [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7` (§7.4, `PolarizedRep`, `IsTotallyOdd`).
 
 <a id="target-compatible-system-predicates"></a>
 ### 1.6 Regularity, purity, strictness and automorphy
 
-Define the following predicates separately on a weak system ℛ=(M,S,Q,r,H). Regular means every H_τ has distinct entries. Extremely regular additionally means that, for some τ, distinct submultisets of the same cardinality have different sums. For rank-one systems over totally real fields, total oddness means r_λ(c_v)=−1. Essential conjugate self-duality is expressed using a character system ℳ of G_(F⁺) and representation-level comparisons; total odd essential conjugate self-duality uses their signed pairing convention.
+Use AG2.P’s supplied purity and polarization predicates on a weak system ℛ=(M,S,Q,r,H); add the following regularity, automorphy and away-coefficient comparisons on the same carrier. Regular means every H_τ has distinct entries. Extremely regular additionally means that, for some τ, distinct submultisets of the same cardinality have different sums. For rank-one systems over totally real fields, total oddness means r_λ(c_v)=−1. Essential conjugate self-duality is expressed using a character system ℳ of G_(F⁺) and representation-level comparisons; total odd essential conjugate self-duality uses their signed pairing convention.
 
 Irreducibility means irreducibility at every λ over a set of rational primes of Dirichlet density one. BLGGT strict compatibility supplies a WD_v over M̄ with Frobenius-semisimple comparison at all λ **away from the residue characteristic of v**. Purity of weight w requires |ια|²=q_v^w for every good Frobenius root and H_(cτ)={w−h:h∈H_τ}. Strict purity additionally requires every local WD_v pure of weight w, including its monodromy filtration. Automorphy requires a regular algebraic cuspidal π of GL_n(A_F) whose normalized rec(π_v|det|^((1−n)/2)) has the specified good polynomial.
 
@@ -222,9 +223,9 @@ The construction has the following API:
 
 - `WeaklyCompatibleSystem.IsRegular`: Distinct Hodge–Tate numbers for every τ.
 - `WeaklyCompatibleSystem.IsExtremelyRegular`: Regular, and some H_τ has no distinct equal-cardinality submultisets with the same sum.
-- `WeaklyCompatibleSystem.IsStrictlyCompatible`: A Weil–Deligne representation WD_v(ℛ) matching every r_λ at v, λ ∤ residue characteristic of v.
-- `WeaklyCompatibleSystem.IsPure`: Weight-w purity of the Q_v and the symmetry H_{cτ} = w − H_τ.
-- `WeaklyCompatibleSystem.IsEssentiallySelfDual`: Essential conjugate self-duality with a character system of G_{F⁺}, and its totally odd version.
+- `WeaklyCompatibleSystem.IsAwayStrictlyCompatible`: A Weil–Deligne representation WD_v(ℛ) matching every r_λ at v, λ ∤ residue characteristic of v.
+- `blggtPurity_iff_supplied`: The displayed weight-w Frobenius and Hodge-symmetry conditions are the imported AG2.P purity predicate, without a second definition.
+- `essentialSelfDuality_iff_supplied`: Identify the displayed character-system and signed-pairing conventions with the imported polarization predicate; forgetting its witness gives essential conjugate self-duality.
 - `WeaklyCompatibleSystem.IsIrreducible`: Irreducible for λ above a density-one set of primes.
 - `WeaklyCompatibleSystem.IsAutomorphic`: Frobenius polynomials of a regular algebraic cuspidal π.
 
@@ -244,7 +245,7 @@ The sources are [BLGGT v1][blggt-2014], §5.1, the subsidiary definitions, p. 51
 <a id="target-linear-algebra-operations-on-systems"></a>
 ### 1.7 Linear-algebra operations on families
 
-Over a common coefficient field use the direct sums, semisimplified tensor products and contragredients of AutomorphicGaloisRepresentations §7.1, and construct symmetric and exterior powers, using the characteristic-polynomial identities of ArithmeticGaloisRepresentations §7.1. At a good place, sum multiplies the polynomials, tensor multiplies every pair of roots, and the dual polynomial is X^n Q_v(0)⁻¹Q_v(X⁻¹). Symmetric powers use repeated products, exterior powers distinct products. Hodge data are the corresponding disjoint unions, pairwise sums, negatives and repeated/distinct sums.
+Over a common coefficient field use the direct sums, semisimplified tensor products and contragredients of AutomorphicGaloisRepresentationsPartII AG2.P, and construct symmetric and exterior powers, using the characteristic-polynomial identities of ArithmeticGaloisRepresentations §7.1. At a good place, sum multiplies the polynomials, tensor multiplies every pair of roots, and the dual polynomial is X^n Q_v(0)⁻¹Q_v(X⁻¹). Symmetric powers use repeated products, exterior powers distinct products. Hodge data are the corresponding disjoint unions, pairwise sums, negatives and repeated/distinct sums.
 
 These operations, restriction and induction preserve weak and away-coefficient strict compatibility with the appropriate enlargement of S. Pure direct sums require equal weights; tensor weights add, duality negates weight, and the k-th powers have weight kw. Restriction and induction preserve weight with their canonical transported Hodge data; local strict purity uses the analogous WD preservation. Duality and restriction preserve regularity. The other operations can create Hodge collisions. Duality preserves irreducibility, while arbitrary sums, tensors, restrictions and inductions need not. Cuspidal automorphy is asserted only through a theorem establishing it for the particular operation.
 
@@ -274,7 +275,7 @@ Use `symmetricPower` and `Factors.dualPolynomial` for these constructions.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, operations, p. 51 (arXiv v1; printed page = PDF page), §5.1, restriction, p. 53 (arXiv v1; printed page = PDF page).
 
-*Needs:* [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); [Layer 1, Twisting, restriction and induction](#target-system-operations); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:G7`; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `PadicHodgeTheory:R06.2`.
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P (sum, tensor and dual); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); [Layer 1, Twisting, restriction and induction](#target-system-operations); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:G7`; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `PadicHodgeTheory:R06.2`.
 
 <a id="target-polarized-operations"></a>
 ### 1.8 Operations with polarization witnesses
@@ -307,13 +308,13 @@ The sources are [BLGGT v4][blggt-2014-v4], §2.1, p.31; §5.1, p.62; tensor-prod
 <a id="target-character-system"></a>
 ### 1.9 Algebraic character families
 
-Use a type-A₀ algebraic Hecke character χ of F, with a number field M containing its algebraic finite values, to assemble the common-coefficient rank-one family of its l-adic realizations. It is de Rham at every coefficient place and crystalline outside the finite conductor set. If its connected-infinity character is ∏_τ(τx)^(−a_τ), its labeled Hodge multiset is {a_τ}. The good geometric-Frobenius polynomial comes from the common algebraic character value and the fixed reciprocity convention.
+For a type-A₀ algebraic Hecke character χ of F and a number field M containing its algebraic finite values, use AG2.P’s construction of the common-coefficient rank-one family of its l-adic realizations. It is de Rham at every coefficient place and crystalline outside the finite conductor set. If its connected-infinity character is ∏_τ(τx)^(−a_τ), its labeled Hodge multiset is {a_τ}. The good geometric-Frobenius polynomial comes from the common algebraic character value and the fixed reciprocity convention.
 
-Conversely, a finitely ramified de Rham l-adic character is the avatar of such a Hecke character after enlarging the coefficient field. Import Hecke characters and their infinity types from GlobalNumberFields Layers 9–10 and reciprocity from ClassFieldTheory Layer 11, whose arithmetic normalization is composed with inversion for geometric Frobenius. The l-adic character of an algebraic Hecke character, its Hodge–Tate numbers and its weight are AutomorphicGaloisRepresentationsPartII AG2.0 (`AlgHeckeChar.galoisChar`); the converse is AutomorphicGaloisRepresentations §3.13 (`geometricCharacter_isHeckeAvatar`). This target assembles these realizations over one coefficient field into a family.
+Conversely, a finitely ramified de Rham l-adic character is the avatar of such a Hecke character after enlarging the coefficient field. Import Hecke characters and their infinity types from GlobalNumberFields Layers 9–10 and reciprocity from ClassFieldTheory Layer 11, whose arithmetic normalization is composed with inversion for geometric Frobenius. The l-adic character of an algebraic Hecke character, its Hodge–Tate numbers and its weight are AutomorphicGaloisRepresentationsPartII AG2.0 (`AlgHeckeChar.galoisChar`); the converse is AutomorphicGaloisRepresentations §3.13 (`geometricCharacter_isHeckeAvatar`). The common-field rank-one family and its character-twist operation are already supplied by AG2.P. Use them; the additional target here identifies their normalization with the character convention used in the purity and induction arguments.
 
-The construction has the following API:
+The imported construction and its normalization comparisons have the following API:
 
-- `characterSystem`: Assemble the common-field rank-one family from the owner’s algebraic Hecke character realizations.
+- `characterSystem`: The imported AG2.P rank-one family; this name denotes that supplier construction.
 - `characterSystem_hodge`: H_τ={a_τ} for connected-infinity exponent −a_τ.
 - `characterSystem_frob`: The common linear polynomial matches the geometric Frobenius value with the chosen Artin convention.
 - `characterSystem_unique`: Unique up to memberwise representation isomorphism from good Frobenius polynomials.
@@ -325,11 +326,11 @@ The construction has the following API:
 - `character_finite_order`: A finite-order Hecke character has H={0}, all good roots roots of unity, and weight 0.
 - `character_non_algebraic`: An arbitrary continuous character with nonintegral infinity exponent has no type-A₀ algebraic realization theorem and is not accepted by this constructor.
 
-Use `characterSystem` for this construction.
+Use the imported `characterSystem` and the displayed normalization comparisons.
 
 The sources are [BLGGT v4][blggt-2014-v4], Appendix A.2, p.87, before Lemma A.2.1; [ACC+][acc-2023], §7.1, pp.1085,1092.
 
-*Needs:* `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic`; `AutomorphicGaloisRepresentationsPartII:AG2.0` (`AlgHeckeChar.galoisChar`, `hodgeTate_galoisChar`, `AlgHeckeChar.wt`); `AutomorphicGaloisRepresentations` §3.13; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+*Needs:* `AutomorphicGaloisRepresentationsPartII` AG2.P (algebraic-character family); `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic`; `AutomorphicGaloisRepresentationsPartII:AG2.0` (`AlgHeckeChar.galoisChar`, `hodgeTate_galoisChar`, `AlgHeckeChar.wt`); `AutomorphicGaloisRepresentations` §3.13; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
 
 <a id="target-rank-one-purity"></a>
 ### 1.10 Rank-one purity
@@ -482,13 +483,13 @@ For any weak system there is a single finite Galois F⁰/F identifying Gal(F⁰/
 
 Use `componentKernelIndependent` in the following form. For each finite-index open H⊆G_F and coset γH, take the Zariski closure of its characteristic-polynomial image. Common good Frobenius polynomials make this an E-defined variety independent of the coefficient place. The identity-component image has the same property. A component coset has the same characteristic-polynomial image as the identity component exactly when it is that component (Larsen–Pink §4, Propositions 4.9–4.10). Thus membership of γ in the inverse image of the identity component is independent of the coefficient place. This common open normal kernel cuts out F⁰. For coefficients E rather than ℚ, carry out the characteristic-polynomial argument over E with the chosen embeddings, as in BLGGT Lemma 5.3.1; restriction of scalars without tracking these embeddings would not identify the desired component kernel.
 
-For the regularity assertion, the Hodge–Tate cocharacter has n distinct weights in the natural representation. Its image lies in G_λ⁰ after extending scalars to the completed algebraic closure; the required local contract is `hodgeTateCocharacterInMonodromy` in ArithmeticGaloisRepresentations §7.6, obtained from the Sen operator and its integer eigenvalues. A maximal torus therefore has n distinct weights. This implies multiplicity one and supplies an element of G_λ⁰ with n distinct eigenvalues. Frobenius density supplies two good split primes of different residue characteristic with this property; adjoining the roots of their two E-polynomials gives one coefficient extension working for every λ. Every open subgroup has Zariski closure containing G_λ⁰, so BLGGT Appendix A.1 Lemma A.1.5 applies to all its subrepresentations. Compactness then supplies stable lattices.
+For the regularity assertion, the Hodge–Tate cocharacter has n distinct weights in the natural representation. Its image lies in G_λ⁰ after extending scalars to the completed algebraic closure. For the required local contract `hodgeTateCocharacterInMonodromy` of ArithmeticGaloisRepresentations §7.6, use the tensor-category argument in Serre §1.3–§1.4: on the tensor category generated by a Hodge–Tate representation and its dual, the Hodge grading is compatible with tensor products, duals, subobjects and morphisms. Scaling its degree-h part by t^h is therefore a tensor automorphism of the scalar-extended fibre functor. The tensor automorphism group is the Zariski closure of the local image, so this defines a cocharacter into that closure, hence into the global monodromy group. Connectedness of the multiplicative group puts the image in G_λ⁰. For finite coefficient extensions retain the coefficient action in the tensor category, so the cocharacter is linear over the chosen coefficient embedding. This inclusion uses the Hodge grading, without requiring the stronger assertion that its conjugates generate the entire local monodromy group. A maximal torus therefore has n distinct weights. This implies multiplicity one and supplies an element of G_λ⁰ with n distinct eigenvalues. Frobenius density supplies two good split primes of different residue characteristic with this property; adjoining the roots of their two E-polynomials gives one coefficient extension working for every λ. Every open subgroup has Zariski closure containing G_λ⁰, so BLGGT Appendix A.1 Lemma A.1.5 applies to all its subrepresentations. Compactness then supplies stable lattices.
 
-The API `componentKernelIndependent` returns the common kernel and its quotient identifications, `regularMonodromyDistinctWeights` returns the torus-weight condition, and `constituentsDescendAfterCoefficientExtension` returns the single coefficient extension and the quantified descent/lattice assertion. **Checks.** A finite Artin system has F⁰ equal to its kernel field. The regular sum 1⊕ε has connected torus monodromy and multiplicity-one constituents. The nonregular sum 1⊕1 has multiplicity two, so cannot satisfy the regular conclusion. A single Frobenius polynomial at residue characteristic q cannot supply the argument for coefficient places above q; the second polynomial is essential.
+The API `componentKernelIndependent` returns the common kernel and its quotient identifications, `regularMonodromyDistinctWeights` returns the torus-weight condition, and `constituentsDescendAfterCoefficientExtension` returns the single coefficient extension and the quantified descent/lattice assertion. **Checks.** A finite Artin system has F⁰ equal to its kernel field. The regular sum 1⊕ε has connected torus monodromy and multiplicity-one constituents. The nonregular sum 1⊕1 has multiplicity two, so cannot satisfy the regular conclusion. For 1⊕ε⁻¹ the cocharacter is diag(1,t), with weights {0,1}; at t=2 its trace is 3 and determinant 2, and diag(1,2)diag(1,3)=diag(1,6). Replacing the degree-one factor by t⁻¹ fails these values. In rank zero the cocharacter is the unique map to GL₀ and the distinct-weight assertion is vacuous; no positive-rank assumption is needed. A single Frobenius polynomial at residue characteristic q cannot supply the argument for coefficient places above q; the second polynomial is essential.
 
 Use `monodromy_component_field` for this construction.
 
-The sources are [BLGGT v4][blggt-2014-v4], Lemma 5.3.1, pp.70–71, Appendix A.1 Lemma A.1.5, p.85; [Larsen–Pink][larsen-pink], §6, Lemma 6.11 and Propositions 6.12, 6.14, pp.14–15. The Sen Theorem 1 input to the Hodge–Tate cocharacter remains the explicit lower monodromy supplier, not a consequence of Frobenius compatibility alone.
+The sources are [BLGGT v4][blggt-2014-v4], Lemma 5.3.1, pp.70–71, Appendix A.1 Lemma A.1.5, p.85; [Larsen–Pink][larsen-pink], §6, Lemma 6.11 and Propositions 6.12, 6.14, pp.14–15. For the Hodge–Tate cocharacter inclusion, [Serre, Hodge–Tate groups][serre-ht], §1.3–§1.4, pp.157–159, gives the tensor-category argument above. His Theorem 2 and variants, pp.159–160, state the stronger Sen generation result; that stronger result is not needed for this inclusion. Frobenius compatibility alone supplies neither the Hodge grading nor the cocharacter.
 
 *Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7` (§7.6: Zariski closure, identity component and component field of one representation); `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices`.
 
@@ -1742,11 +1743,11 @@ The sources are [KW Annals][kw-annals-2009], Theorem 3.3, printed p. 239, Introd
 Fix an S-type ρ̄, with cyclotomic absolute irreducibility and 2≤k(ρ̄)≤p+1 for p>2, or nonsoluble image for p=2. A lift of required type is an O′-point of the fixed-determinant global ring for one of the following local prescriptions.
 
 1. It is minimal at all l≠p and crystalline of weight k(ρ̄) at p. Require k=2 when p=2.
-2. It is minimal at all l≠p and has weight two at p, with inertial WD parameter (ω_p^(k−2)⊕1,0). At k=p+1 replace this by (id,N) with N≠0 nilpotent; the dyadic exceptional weight is k=4.
+2. It is minimal at all l≠p and has weight two at p, with inertial WD parameter (ω_p^(k−2)⊕1,0). At odd p with k=p+1, or at p=2 with k=4, replace this by (id,N) with N≠0 nilpotent.
 3. Let q be odd with q∥N(ρ̄), p|(q−1) and residual inertia (χ,*;0,1). At p use type 2, and be minimal away from p,q. At q prescribe (χ′,*;0,1), where χ′=ω_q^i lifts χ and 0<i≤q−2. Require i even when p=2.
 4. Let q≠p, p|(q+1), and assume residual decomposition-group shape (χ_p,*;0,1) up to unramified twist. At p use type 2 and be minimal away from p,q. At q prescribe χ′⊕χ′^q, with χ′=ω_(q,2)^iω_(q,2)^(qj) of p-power order and genuinely level two, 0≤j<i≤q−1. Require i+j even when p=2. Such a character is unavailable in the dyadic case v₂(q+1)=1.
 
-The numerical part is `LiftParameters.RequiredLiftParameters`, with the four constructors and the displayed prime, exponent, order and parity restrictions. Its `auxiliaryPrime` returns q only in cases 3–4. Its `requiresSteinberg` is false for the minimal crystalline case and otherwise tests k=p+1. These parameters do not encode the residual local representation, determinant or point of a deformation ring; `RequiredLiftType` includes all those arithmetic data.
+The numerical part is `LiftParameters.RequiredLiftParameters`, with the four constructors and the displayed prime, exponent, order and parity restrictions. Its `auxiliaryPrime` returns q only in cases 3–4. Its `requiresSteinberg` is false for the minimal crystalline case; in cases 2–4 it tests k=4 at p=2 and k=p+1 at odd p. The latter three prescriptions share their local condition at p even though their auxiliary q-types differ. These parameters do not encode the residual local representation, determinant or point of a deformation ring; `RequiredLiftType` includes all those arithmetic data.
 
 Minimality uses Diamond's condition and the dyadic version from KW II §3.3.1, imported through R08.6. In type 4 the distinct inertia characters split any characteristic-zero extension. If q∥N(ρ̄) and p∤q−1, a geometric lift with q∥N(ρ) is automatically minimal there; this explains the divisibility hypothesis of type 3.
 
@@ -1762,8 +1763,11 @@ The construction has the following API:
 
 - `type3_parity_p2`: p = 2, q = 5: χ′ = ω₅ has i = 1 odd and is excluded; ω₅² (i = 2) is allowed
 - `type4_level_two_exists`: p = 2: q = 7 has v₂(8) = 3 ≥ 2, so level-2 characters of 2-power order exist; q = 5 has v₂(6) = 1 and none exist
-- `type2_steinberg`: k(ρ̄) = p + 1: the inertial parameter is (id, N ≠ 0), a Steinberg type
+- `type2_steinberg`: at odd p with k(ρ̄)=p+1, and at p=2 with k(ρ̄)=4, the inertial parameter is (id,N≠0), a Steinberg type.
 - `type2_parameters`: the weight-two prescription has no auxiliary prime; at p=3 its weight k=4 requires Steinberg monodromy, whereas k=2 does not.
+- `type2_dyadic_weight`: at p=2 the weight-two prescription requires Steinberg monodromy at k=4 and excludes it at k=2. The numerical value k=3 also fails the predicate; it is not a dyadic Serre weight. This distinguishes the dyadic rule from an unconditional test k=p+1.
+- `type1_zero_monodromy`: the minimal crystalline prescription at p=3,k=4 does not require Steinberg monodromy, despite the equality k=p+1.
+- `auxiliary_types_dyadic_monodromy`: the allowed level-one parameters p=2,q=5,i=2,k=4 and level-two parameters p=2,q=7,i=6,j=0,k=4 both require Steinberg monodromy at p. Changing q does not change this condition.
 - `type3_needs_p_divides`: p=3, q=5: 3∤4=q−1, so type (3) is unavailable. For a geometric regular lift with q∥N(ρ̄), the imported R08.6 automatic-minimality criterion applies at q when p∤q−1.
 
 Use `RequiredLiftType` for this construction.
@@ -1786,7 +1790,7 @@ The sources are [KW I][kw-serre-modularity-I], Theorem 5.1(1), p. 9 of the prepr
 <a id="target-theorem-5-1-part-2-weight-two"></a>
 ### 10.7 Minimal weight-two lifts
 
-With the common required-type hypotheses, obtain a type-2 weight-two lift, minimal away from p. Its inertial WD parameter is (ω^(k−2)⊕1,0), or (id,N≠0) in the exceptional k=p+1 branch. At p=2,k=4 use the semistable noncrystalline weight-two condition C.
+With the common required-type hypotheses, obtain a type-2 weight-two lift, minimal away from p. Its inertial WD parameter is (ω^(k−2)⊕1,0), except that it is (id,N≠0) when p>2,k=p+1 or p=2,k=4. The latter dyadic branch uses the semistable noncrystalline weight-two condition C; at p=2,k=2 it instead has N=0.
 
 Use `theorem_5_1_part_2_weight_two` for this construction.
 
@@ -2101,6 +2105,8 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 
 - **[Thorne][thorne]** — Jack Thorne. *On the automorphy of l-adic Galois representations with small residual image*. Author copy of JIMJ 11 (2012); author pagination.
 
+- **[Serre, Hodge–Tate groups][serre-ht]** — Jean-Pierre Serre. *Groupes algébriques associés aux modules de Hodge–Tate*. Astérisque 65 (1979), 155–188; printed journal pagination, §1.3–§1.4, pp.157–160.
+
 - **[Larsen–Pink][larsen-pink]** — Michael Larsen and Richard Pink. *On l-independence of algebraic monodromy groups in compatible systems of representations*. Author manuscript of Invent. Math. 107 (1992), 603–636; manuscript pagination, §6 pp.14–15 and §8 pp.17–18.
 
 - **[Bruhat–Tits II][bruhat-tits-II]** — François Bruhat and Jacques Tits. *Groupes réductifs sur un corps local. II. Schémas en groupes. Existence d’une donnée radicielle valuée*. Publ. Math. IHÉS 60 (1984), 5–184; printed journal pagination.
@@ -2210,3 +2216,5 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 [bruhat-tits-II]: https://www.numdam.org/item/PMIHES_1984__60__5_0/
 
 [rogawski-tunnell]: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0074/LOG_0007.pdf
+
+[serre-ht]: https://www.numdam.org/item/AST_1979__65__155_0.pdf
