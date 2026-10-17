@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T13:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T13:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -36,13 +36,13 @@ Generated 2026-10-17T13:30Z from the README supplier graph of every open pull re
 - #896 CharacteristicClasses (kim-em, other author)
 
 ## Wave 5
-- #815 AdicSpacesPartIV — draft; waits on #813, #814, #818
+- #815 AdicSpacesPartIV — draft; waits on #813, #814, #818, #944
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #813, #814, #818
 - #908 EnhancedDerivedSheaves — ready; waits on #818, #944, #947
 
 ## Wave 6
 - #816 PerfectoidTowers — ready; waits on #813, #814, #815, #818, #820
-- #938 EtaleCohomologyFoundations — ready; waits on #813, #908, #944
+- #938 EtaleCohomologyFoundations — ready (approved at an earlier head); waits on #813, #908, #944
 
 ## Wave 7
 - #940 PadicPeriodRings — ready; waits on #816, #818, #938, #944
@@ -60,7 +60,7 @@ Generated 2026-10-17T13:30Z from the README supplier graph of every open pull re
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
 
 ## Wave 11
-- #848 ComplexComparisonPartII — ready; waits on #853, #857, #868, #908, #938, #944, #279, #887, #896, #918, #953, #954, #992
+- #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #853, #857, #868, #908, #938, #944, #279, #887, #896, #918, #953, #954, #992
 
 ## Wave 12
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #848, #857, #908, #938, #280
@@ -79,7 +79,7 @@ Generated 2026-10-17T13:30Z from the README supplier graph of every open pull re
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #785, #849, #856, #857, #858, #868, #938, #940, #944
 
 ## Wave 16
-- #852 NeronModelsAndSemistableAbelianVarieties — ready; waits on #785, #813, #848, #849, #850, #853, #856, #857, #879, #938, #940, #444
+- #852 NeronModelsAndSemistableAbelianVarieties — ready (approved at an earlier head); waits on #785, #813, #848, #849, #850, #853, #856, #857, #879, #938, #940, #444
 
 ## Wave 17
 - #869 SelmerIwasawaCohomology — draft; waits on #816, #849, #852, #858, #879, #940, #944, #248
