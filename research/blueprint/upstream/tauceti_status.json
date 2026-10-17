@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T22:40Z",
+ "updated": "2026-10-17T22:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -636,9 +636,9 @@
    "head": "21df972",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -829,11 +829,11 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "f8cf12b",
+   "head": "95d7465",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -889,11 +889,11 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "91e9dcf",
+   "head": "b6f1553",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1333,7 +1333,7 @@
   "IgusaVarietiesAndTorsionConcentration": {
    "stage": "pr",
    "pr": 1090,
-   "head": "4f6fee6",
+   "head": "02db064",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
     "recommendation": null,
