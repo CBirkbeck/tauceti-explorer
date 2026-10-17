@@ -1,0 +1,272 @@
+{
+ "id": "PrismaticCohomologyPartII",
+ "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants, Part II: prismatic Dieudonné theory",
+ "area": "padic",
+ "parent": "PrismaticCohomology",
+ "summary": "Prismatic Dieudonné theory, as the second part of the prismatic cohomology roadmap. Over a quasi-syntomic ring R the prismatic structure sheaf, its first Nygaard piece and its ideal push forward to the quasi-syntomic site as O^pris, N^{≥1}O^pris and I^pris. A prismatic Dieudonné crystal is a finite locally free O^pris-module with a Frobenius whose linearisation has cokernel killed by I^pris, and it is admissible when its Frobenius image modulo I^pris is a locally free direct summand of the right shape. The prismatic Dieudonné functor sends a p-divisible group G to ℰxt¹(G, O^pris). The roadmap plans the frame-and-window algebra of Lau and Zink in which admissibility lives (PD.0), the coefficient sheaves and the crystals (PD.1), the functor and its Ext-theoretic descriptions (PD.2), the perfectoid base case after Scholze–Weinstein (PD.3), the computation through abelian schemes giving finiteness, admissibility and the crystalline comparison (PD.4), and Anschütz–Le Bras's theorem that ℳ_Δ is an antiequivalence between p-divisible groups and admissible prismatic Dieudonné crystals, with Cartier duality and full faithfulness through Bhatt–Lurie's description of T_pG_m (PD.5). The complements are the classification of finite locally free group schemes over perfectoid rings and the covariant theory over perfect F_p-schemes used by Česnavičius–Scholze (PD.6), and the Breuil–Kisin classification over 𝒪_K, the display functor with the Zink–Lau classification of formal groups, and the étale comparison (PD.7). Four inputs of the perfectoid case and the higher-dimensional Breuil–Kisin comparison are recorded gaps.",
+ "readme": "The definitive reader document is research/blueprint/readmes/PrismaticCohomologyPartII.md.\n\n**Purpose.** Classify p-divisible groups over every quasi-syntomic ring by prismatic linear algebra, after Anschütz–Le Bras, together with the perfectoid base case of Scholze–Weinstein and the finite-group and perfect-base versions used by Česnavičius–Scholze.\n\n**Scope.** This Part II starts where PrismaticCohomology stops: that roadmap builds prisms, the absolute site, the quasi-regular semiperfectoid calculation, the Nygaard filtration and Breuil–Kisin twists, syntomic complexes and prismatic F-crystals (PR.0–PR.7). Here those objects are pushed to the quasi-syntomic site and used to build the prismatic Dieudonné functor and prove that it is an antiequivalence onto admissible prismatic Dieudonné crystals. p-divisible groups, Cartier duality, Raynaud's embedding, classical and crystalline Dieudonné theory and Kisin modules are imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory and AbelianSchemesAndArithmeticModuli; Breuil–Kisin–Fargues modules and Fargues' theorem from AInfCohomology.\n\n**Conventions.** ℳ_Δ is contravariant: ℳ_Δ(ℚ_p/ℤ_p) = (O^pris, φ) and ℳ_Δ(μ_{p^∞}) = O^pris{−1}, locally (O^pris, ξ̃φ). For a perfectoid ring, (Δ_R, I) = (A_inf(R), (ξ̃)) with ξ̃ = φ(ξ) and ker θ = (ξ). The covariant functors of Scholze–Weinstein and Česnavičius–Scholze are the naive dual, respectively the composite with Cartier duality.\n\n**Layers.** PD.0 frames and windows; PD.1 coefficient sheaves and crystals; PD.2 the functor; PD.3 the perfectoid case; PD.4 abelian schemes, admissibility and the crystalline comparison; PD.5 the classification; PD.6 finite group schemes; PD.7 regular local rings, displays and the étale comparison.\n\n**Not here.** Crystalline local systems on smooth formal schemes (Guo–Reinecke), F-smoothness and étale Tate twists (Bhatt–Mathew) and the integral Riemann–Hilbert functor (Bhatt et al.) are separate Part II roadmaps of PrismaticCohomology; see the split proposal in the packet.",
+ "prerequisites": [
+  "PrismaticCohomology",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "AbelianSchemesAndArithmeticModuli",
+  "AInfCohomology",
+  "CrystallineCohomology",
+  "DerivedDeRhamCohomology",
+  "HodgeTateAndCanonicalSubgroups",
+  "PerfectoidQuotients",
+  "PerfectoidSpaces",
+  "PELModuli",
+  "GeometricSatakeAndFusion",
+  "DiamondsAndVStacks"
+ ],
+ "stages": [
+  {
+   "key": "PD.0",
+   "title": "Frames, windows and minuscule Breuil–Kisin modules",
+   "description": "Pure algebra after Lau and Zink. Targets: frames (A, Fil A, φ, φ₁, ϖ) with φ = ϖφ₁ on Fil A and u-morphisms; the d-frame and the Nygaard frame of an oriented prism; windows (M, Fil M, φ_M, φ_{M,1}) and their base change along u-morphisms; lifting of finite projective modules along henselian pairs; normal decompositions; Fil M = φ_M^{-1}(ϖM) when Fil A = φ^{-1}(ϖA); minuscule Breuil–Kisin modules over a prism (effective F-crystals of PrismaticCohomology PR.7 with cokernel killed by I) and the projectivity of their cokernel over A/I; the Cais–Lau equivalence between windows over the d-frame and minuscule Breuil–Kisin modules; deformation of unit φ-modules and of windows along henselian surjections whose kernel carries a topologically nilpotent (divided) Frobenius, and faithfulness of base change. Sources: Anschütz–Le Bras §4.1 (pp. 32–39); Lau 2010 §§2–3; Cais–Lau Lemma 2.1.16.",
+   "requires": [
+    "PrismaticCohomology:PR.0",
+    "PrismaticCohomology:PR.3",
+    "PrismaticCohomology:PR.7"
+   ]
+  },
+  {
+   "key": "PD.1",
+   "title": "Quasi-syntomic coefficients and prismatic Dieudonné crystals",
+   "description": "Targets: the cocontinuous functor u from the absolute prismatic site of a p-complete ring to its big quasi-syntomic site, the morphism of topoi it defines, the restriction to the small site and v = ε ∘ u, and exactness of u^{-1}; the sheaves O^pris = v_*O_Δ, N^{≥1}O^pris and I^pris, their values Δ_R, N^{≥1}Δ_R, IΔ_R on quasi-regular semiperfectoid R, and O^pris/N^{≥1}O^pris ≅ 𝒪; henselianity of (Δ_R, ker θ); finite locally free O_Δ-modules versus finite locally free O^pris-modules (agreeing with PrismaticCohomology PR.7); prismatic Dieudonné crystals and their admissibility with the snake-lemma reformulation; the categories DM(R) ⊇ DM^adm(R) and their stack property; prismatic Dieudonné modules over quasi-regular semiperfectoid rings and their identification with crystals; admissible modules as windows over the Nygaard frame with the base-change formula for Fil; automatic admissibility over perfectoid rings (minuscule Breuil–Kisin–Fargues modules); filtered prismatic Dieudonné crystals; faithfulness of base change. Sources: Anschütz–Le Bras §3.3 (pp. 22–23) and §4.1 (pp. 27–39).",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.0",
+    "PrismaticCohomology:PR.2",
+    "PrismaticCohomology:PR.5",
+    "PrismaticCohomology:PR.7",
+    "DerivedDeRhamCohomology:DD.5",
+    "AInfCohomology:AI.2"
+   ]
+  },
+  {
+   "key": "PD.2",
+   "title": "The prismatic Dieudonné functor",
+   "description": "Targets: Breen's functorial resolution of an abelian group object of a topos and the derived Yoneda lemma; the prismatic Dieudonné crystal ℳ_Δ(G) = ℰxt¹_{(R)_qsyn}(G, O^pris) of a p-divisible group G over a quasi-syntomic ring, with its Frobenius, functoriality and base change, and the prismatic Dieudonné module over a quasi-regular semiperfectoid ring; vanishing of Hom(G, Q) for derived p-complete Q; ℳ_Δ(G) ≅ v_*ℰxt¹_{(R)_Δ}(u^{-1}G, O_Δ); exactness of the universal-cover sequence and ℳ_Δ(G) ≅ ℋom(T_pG, O^pris). Sources: Anschütz–Le Bras §4.2 and §4.4 (pp. 39–43, 52).",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.1",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "AbelianSchemesAndArithmeticModuli:A4"
+   ]
+  },
+  {
+   "key": "PD.3",
+   "title": "The perfectoid case",
+   "description": "Targets: Scholze–Weinstein Theorem B (p-divisible groups over 𝒪_C are pairs (T, W) through the Hodge–Tate sequence); p-divisible groups over 𝒪_C as minuscule Breuil–Kisin–Fargues modules; every p-divisible group over 𝒪_C is a direct factor of that of a formal abelian scheme; the crystalline Dieudonné module over A_crys(𝒪_C/p) as the base change of the BKF module (with Faltings' comparison); Dieudonné theory over integral perfectoid rings (Scholze–Weinstein Theorem 17.5.2, by v-descent from valuation rings); universal covers through B_crys^+; and the identification of the prismatic Dieudonné functor over a perfectoid ring with the naive dual of the Scholze–Weinstein functor, an exact antiequivalence BT(R) ≃ DM(R). Sources: Scholze–Weinstein, Berkeley lectures, Lectures 12, 14, 15 and the appendices to Lectures 14 and 17; Scholze–Weinstein 2013 §5; Anschütz–Le Bras §4.3 (pp. 48–50); Lau 2018.",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.2",
+    "AInfCohomology:AI.2",
+    "AInfCohomology:AI.4",
+    "HodgeTateAndCanonicalSubgroups:T2",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+    "PrismaticCohomology:PR.6",
+    "GeometricSatakeAndFusion:GS0:Witt-geometry"
+   ]
+  },
+  {
+   "key": "PD.4",
+   "title": "Abelian schemes, finiteness, admissibility and crystalline comparison",
+   "description": "Targets: degeneration of the conjugate spectral sequence and the exterior structure of Hodge–Tate and prismatic cohomology of abelian schemes over a bounded prism; primitive elements of exterior algebras; vanishing of Ext⁰ and Ext² and local freeness of rank 2g of Ext¹ of an abelian scheme into Ō_Δ and O_Δ; ℳ_Δ(X[p^∞]) = v_*R¹f_{Δ,*}O_Δ; Ext-crystals of finite locally free groups and of truncated Barsotti–Tate groups; ℳ_Δ(G) finite locally free of rank the height; admissibility of ℳ_Δ(G) with ℳ_Δ(G)/Fil ≅ Lie(Ǧ); exactness of ℳ_Δ; O^pris ≅ 𝒪^crys in characteristic p and the comparison with the crystalline Dieudonné functor (also on any crystalline prism); the classical Dieudonné module over a perfect field; the Hom-description through O_Δ[1/p]/O_Δ. Sources: Anschütz–Le Bras §4.3 (pp. 43–51), §4.5 and §4.6 (pp. 53–65).",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.3",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "CrystallineCohomology:CR.7",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+   ]
+  },
+  {
+   "key": "PD.5",
+   "title": "The classification of p-divisible groups",
+   "description": "Targets: the q-logarithm and the divided q-logarithm ℓ_q; ℳ_Δ of étale groups; O_Δ{−1} = ℳ_Δ(μ_{p^∞}) trivialised by ℓ_q over the q-de Rham prism with φ(ℓ_q) = [p]_q ℓ_q; multiplicative groups; the functor on Hom(ℚ_p/ℤ_p, μ_{p^∞}); Cartier duality ℳ_Δ(G)^∨ ⊗ ℳ_Δ(μ_{p^∞}) ≅ ℳ_Δ(Ǧ); recovery of T_pǦ as the kernel of φ/ξ̃ − 1 on N^{≥1}ℳ_Δ(G) from Bhatt–Lurie's weight-one computation; full faithfulness and essential surjectivity over quasi-regular semiperfectoid rings; the main theorem (Anschütz–Le Bras): ℳ_Δ : BT(R) → DM^adm(R) is an antiequivalence for every quasi-syntomic R; the explicit quasi-inverse and étale groups as unit-root crystals; crystalline Dieudonné theory over quasi-syntomic F_p-algebras. Sources: Anschütz–Le Bras §2.2, §4.6–4.9 (pp. 14–16, 63–74), Remark 1.4.7.",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.4",
+    "PrismaticCohomology:PR.4",
+    "PrismaticCohomology:PR.3"
+   ]
+  },
+  {
+   "key": "PD.6",
+   "title": "Finite locally free group schemes over perfectoid and perfect bases",
+   "description": "Targets: torsion prismatic Dieudonné modules (M, φ_M, ψ_M) over a perfectoid ring and exactness of their base change; the exact antiequivalence between finite locally free group schemes of p-power order over a perfectoid ring and torsion prismatic Dieudonné modules with M_Δ(H) = Ext¹_{(R)_Δ}(u^{-1}H, O_Δ); Cartier duality for finite locally free group schemes; the covariant normalisation 𝕄(G) = M_Δ(G^*) with FV = Frob(ξ), VF = ξ and the modules of μ_{p^n} and ℤ/p^n used for flat purity; the covariant crystalline classification over perfect F_p-schemes (Berthelot, Gabber, Lau) with Zariski gluing, base change and exactness. Sources: Anschütz–Le Bras §5.1 (pp. 75–77); Česnavičius–Scholze §§4.1–4.2 (pp. 36, 41); Lau 2018 §10.",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.5",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+   ]
+  },
+  {
+   "key": "PD.7",
+   "title": "Regular local rings, displays and the étale comparison",
+   "description": "Targets: quasi-syntomic perfectoid covers of complete regular local rings with perfect residue field and automatic admissibility over them; the Breuil–Kisin classification of p-divisible groups over complete regular local rings of dimension ≤ 1 by evaluation on the Breuil–Kisin prism, and its identification with Kisin's functor through Breuil's ring S; the Witt frame, displays as windows over it, the frame map from the Nygaard frame to the Witt frame, the display functor Z_R, and the Zink–Lau antiequivalence between formal p-divisible groups and F-nilpotent displays (proved by Zink and Lau; the printed prismatic proof is retracted by the 2025 erratum); the étale comparison recovering Hom(G[p^n]_η, ℤ/p^n) from ℳ_Δ(G). Sources: Anschütz–Le Bras §§5.2–5.4 (pp. 78–93) and erratum; Lau 2010, 2014; Zink 2002; Lau 2008.",
+   "requires": [
+    "PrismaticCohomologyPartII:PD.5",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+    "PELModuli:M2",
+    "PerfectoidSpaces:P7",
+    "PrismaticCohomology:PR.4"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "AL23",
+   "title": "Prismatic Dieudonné theory",
+   "authors": "Johannes Anschütz, Arthur-César Le Bras",
+   "edition": "arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
+   "url": "https://arxiv.org/abs/1907.10525v4",
+   "readSections": [
+    "§1.3–1.4 (pp. 6–9)",
+    "§2.2 (pp. 14–16)",
+    "§3.3 (pp. 20–23)",
+    "§4.1–4.9 (pp. 27–74)",
+    "§5.1–5.4 (pp. 75–93)"
+   ]
+  },
+  {
+   "id": "ALerr",
+   "title": "Erratum to Prismatic Dieudonné theory",
+   "authors": "Johannes Anschütz, Arthur-César Le Bras",
+   "edition": "Forum of Mathematics, Pi 13 (2025), e3; authors' copy",
+   "url": "https://lebras.perso.math.cnrs.fr/Erratum_PDT.pdf",
+   "readSections": [
+    "the whole erratum (one page)"
+   ]
+  },
+  {
+   "id": "SW20",
+   "title": "Berkeley lectures on p-adic geometry",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207, Princeton 2020; authors' free copy of March 2020 (printed page numbers)",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
+   "readSections": [
+    "Lecture 12 §12.1 (pp. 98–100)",
+    "Lecture 14 §§14.1, 14.4 and Appendix §§14.8–14.9 (pp. 115–130)",
+    "Lecture 15 §15.2 (p. 135)",
+    "Appendix to Lecture 17 (pp. 158–160)"
+   ]
+  },
+  {
+   "id": "SW13",
+   "title": "Moduli of p-divisible groups",
+   "authors": "Peter Scholze, Jared Weinstein",
+   "edition": "Cambridge Journal of Mathematics 1 (2013); arXiv:1211.6357",
+   "url": "https://arxiv.org/abs/1211.6357",
+   "readSections": [
+    "Introduction, Theorems A–C (pp. 3–6)",
+    "§5.1 Theorem 5.1.4 (p. 50)",
+    "§5.2 Theorem 5.2.1 and its proof (pp. 51–55)"
+   ]
+  },
+  {
+   "id": "CS24",
+   "title": "Purity for flat cohomology",
+   "authors": "Kęstutis Česnavičius, Peter Scholze",
+   "edition": "arXiv:1912.10932v3; Annals of Mathematics 199 (2024)",
+   "url": "https://arxiv.org/abs/1912.10932v3",
+   "readSections": [
+    "§4.1.1–4.1.3 (p. 36)",
+    "§4.2.1–4.2.3 (p. 41)"
+   ]
+  },
+  {
+   "id": "Lau10",
+   "title": "Frames and finite group schemes over complete regular local rings",
+   "authors": "Eike Lau",
+   "edition": "Documenta Mathematica 15 (2010); arXiv:0908.4588v1",
+   "url": "https://arxiv.org/abs/0908.4588",
+   "readSections": [
+    "§1 Theorems 1.1–1.2",
+    "§2 frames and windows",
+    "§3 Theorem 3.2"
+   ]
+  },
+  {
+   "id": "Lau14",
+   "title": "Relations between Dieudonné displays and crystalline Dieudonné theory",
+   "authors": "Eike Lau",
+   "edition": "Algebra & Number Theory 8 (2014); arXiv:1006.2720",
+   "url": "https://arxiv.org/abs/1006.2720",
+   "readSections": [
+    "Introduction and statement of the main results"
+   ]
+  },
+  {
+   "id": "Lau18",
+   "title": "Dieudonné theory over semiperfect rings and perfectoid rings",
+   "authors": "Eike Lau",
+   "edition": "Compositio Mathematica 154 (2018); arXiv:1603.07831",
+   "url": "https://arxiv.org/abs/1603.07831",
+   "readSections": [
+    "Introduction",
+    "§9 Theorem 9.8",
+    "§10 Lemma 10.10 and Theorem 10.12"
+   ]
+  },
+  {
+   "id": "CL17",
+   "title": "Dieudonné crystals and Wach modules for p-divisible groups",
+   "authors": "Bryden Cais, Eike Lau",
+   "edition": "Proceedings of the London Mathematical Society 114 (2017); arXiv:1412.3174",
+   "url": "https://arxiv.org/abs/1412.3174",
+   "readSections": [
+    "§2.1 windows and Breuil–Kisin modules, Lemma 2.1.16"
+   ]
+  },
+  {
+   "id": "Zink02",
+   "title": "The display of a formal p-divisible group",
+   "authors": "Thomas Zink",
+   "edition": "Astérisque 278 (2002), 127–248; author's copy",
+   "url": "https://www.math.uni-bielefeld.de/~zink/display.pdf",
+   "readSections": [
+    "Introduction, Theorem 9",
+    "§1 Definition 1 and Theorem 37",
+    "Theorem 103"
+   ]
+  },
+  {
+   "id": "Lau08",
+   "title": "Displays and formal p-divisible groups",
+   "authors": "Eike Lau",
+   "edition": "Inventiones Mathematicae 171 (2008), 617–628",
+   "url": "https://doi.org/10.1007/s00222-007-0090-x",
+   "readSections": [
+    "Theorem 1.1, as cited by Anschütz–Le Bras before Proposition 5.3.5 (the article itself was not read here)"
+   ]
+  },
+  {
+   "id": "BL22",
+   "title": "Absolute prismatic cohomology",
+   "authors": "Bhargav Bhatt, Jacob Lurie",
+   "edition": "arXiv:2201.06120",
+   "url": "https://arxiv.org/abs/2201.06120",
+   "readSections": [
+    "Theorem 7.5.6, through PrismaticCohomology PR.4/syntomic-low-weights which plans it"
+   ]
+  },
+  {
+   "id": "BS-FCRYS",
+   "title": "Prismatic F-crystals and crystalline Galois representations",
+   "authors": "Bhargav Bhatt, Peter Scholze",
+   "edition": "arXiv:2106.14735v2",
+   "url": "https://arxiv.org/abs/2106.14735",
+   "readSections": [
+    "Proposition 2.14, through PrismaticCohomology PR.7/quasisyntomic-crystal-comparison"
+   ]
+  },
+  {
+   "id": "Stacks",
+   "title": "The Stacks project",
+   "authors": "The Stacks project authors",
+   "edition": "online, read 2026-10-17",
+   "url": "https://stacks.math.columbia.edu",
+   "readSections": [
+    "Tags 00XJ, 00XL, 0D4A, 0DYD, 068W, 0D4B"
+   ]
+  }
+ ],
+ "status": "draft"
+}
