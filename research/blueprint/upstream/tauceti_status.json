@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T19:33Z",
+ "updated": "2026-10-17T19:39Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1179,6 +1179,12 @@
    "pr": 1063,
    "head": "48d2456",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running"
+  },
+  "CohomologyComparisons": {
+   "stage": "pr",
+   "pr": 1064,
+   "head": "70537c2",
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
