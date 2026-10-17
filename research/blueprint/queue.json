@@ -11555,8 +11555,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3365"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3365",
+   "finishedAt": "2026-10-17T17:58:58Z"
   },
   {
    "id": "REV-DESIGN-PrismaticCohomologyPartII",
@@ -47476,7 +47477,8 @@
     "PKG-AnalyticNumberTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10162"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -47904,7 +47906,8 @@
     "PKG-ArithmeticStatistics~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatistics~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10163"
   },
   {
    "id": "PKG-AutomorphicBundles",
@@ -132342,8 +132345,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ShimuraCompactifications~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ShimuraCompactifications~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10217",
+   "finishedAt": "2026-10-17T17:59:03Z"
   },
   {
    "id": "FIX-PKG-PerfectoidShimuraVarieties~adv",
@@ -132361,8 +132366,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidShimuraVarieties~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidShimuraVarieties~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10216",
+   "finishedAt": "2026-10-17T17:59:05Z"
   }
  ]
 }
