@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T21:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T21:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -99,7 +99,7 @@ Generated 2026-10-17T21:10Z from the README supplier graph of every open pull re
 ## Wave 19
 - #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #785, #856, #858, #869, #923
 - #922 DiamondEtaleCohomology — ready; waits on #814, #818, #820, #858, #875, #908, #938
-- #928 AlgebraicModularFormsAndSerreWeights — ready; waits on #848, #849, #856, #879, #913, #938
+- #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #848, #849, #856, #879, #913, #938
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
 - #1044 AInfCohomology — draft; waits on #1042, #813, #814, #818, #857, #858, #868, #875, #879, #908, #940, #944
 
@@ -110,7 +110,7 @@ Generated 2026-10-17T21:10Z from the README supplier graph of every open pull re
 
 ## Wave 21
 - #921 ClassicalArithmeticCompletion — ready (approved at an earlier head); waits on #785, #792, #851, #856, #924
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #1041
+- #925 AutomorphicSpectralTheory — draft; waits on #1037, #785, #792, #856, #858, #871, #924, #1041
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — draft; waits on #854, #924
@@ -164,6 +164,7 @@ Generated 2026-10-17T21:10Z from the README supplier graph of every open pull re
 ## Wave 29
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1013, #1020, #852, #856, #879, #913, #928
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — draft; waits on #1005, #1007, #1013, #1019, #1020, #1034, #1039, #1062, #785, #856, #858, #920, #923, #931
+- #1085 PerfectoidShimuraVarieties — draft; waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #813, #816, #818, #820, #933, #966
 
 ## Wave 30
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
