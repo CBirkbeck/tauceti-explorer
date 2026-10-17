@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatisticsPartII~adv",
     "date": "2026-10-17",
-    "notes": "Integral orbit dictionaries. Kept marked quartic monicization scales and original Kummer images; standalone Fin 5 monicization has three mirrored witnesses. Pencils keep fixed matrix size, determinant sign and characteristic-two bilinear/quadratic distinction. Cubic dictionaries are AN-owned import/specialization contracts. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 28 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+    "notes": "Independent fixing review of all 86 target blocks, their definitions, APIs, Checks, conventions and supplier contracts. Verified 15 randomly sampled public-source locators and sources supporting corrections. Fixed quartic resultant/resolvent-discriminant factors, Wood pair adapter, marked-Q sign, small-characteristic coefficient definitions, Picard suppliers and exact genus-one/three-isogeny descent contracts; added discriminating negative controls. Audited current upstream roadmaps and Tau Ceti a91d3aaf; imported existing generic quartic resolvents and retained only the integral comparison. Original ST.1 coverage is 83 targets here plus seven explicitly linked Part I suppliers; all original Checks preserved or corrected. Final lean-check exits 0 at Mathlib 082e2d3/Tau Ceti f790474, with 34 warnings all declaration uses sorry. No sorry-defined data. Exact rational/resultant and finite local-density computations pass. Full adversarial table and source/split audit are in the independent review report. Accepted with these fixes, not a claim of formalized proofs."
   }
 }

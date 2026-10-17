@@ -29,7 +29,7 @@ example : monicize (![0,3,5,7,11] : Fin 5 → ℤ) = ![1,3,0,0,0] := by sorry
 example (b c d e : ℤ) : monicize (![1,b,c,d,e] : Fin 5 → ℤ) = ![1,b,c,d,e] := by sorry
 end BinaryQuartic
 
-namespace Orbits
+namespace ArithmeticOrbitRefinement
 
 /-- Plücker coordinates of the two rows in the quartic coefficient convention. -/
 def quarticMinors (M : Matrix (Fin 2) (Fin 6) ℤ) : Matrix (Fin 6) (Fin 6) ℤ :=
@@ -95,8 +95,16 @@ example : (⊥ : Submodule K (Fin 0 → K)) ∈
 example (u v : Fin 0 → K) : pairing (0 : Matrix (Fin 0) (Fin 0) K) u v = 0 := by sorry
 example : pairing (!![2] : Matrix (Fin 1) (Fin 1) ℚ) ![3] ![5] = 30 := by sorry
 
+/-- In characteristic two, diagonal quadratic vanishing misses mixed bilinear values. -/
+example : (⊤ : Submodule (ZMod 2) (Fin 2 → ZMod 2)) ∉
+    commonIsotropic 2 (!![0,1;1,0]) 0 := by sorry
+
+/-- A rank larger than the ambient dimension is excluded, even for the zero pencil. -/
+example : commonIsotropic 3 (0 : Matrix (Fin 2) (Fin 2) ℚ) 0 = ∅ := by sorry
+
+
 end Isotropic
-end Orbits
+end ArithmeticOrbitRefinement
 
 namespace Cubic
 /-- Divided coefficients represent ax³+3bx²y+3cxy²+dy³; ordinary Δ is −27 times this. -/
@@ -124,5 +132,40 @@ example : normalizedDisc (![1,0,0,1] : Fin 4 → ZMod 3) = 1 ∧
 example : normalizedDisc (![1,0,0,1] : Fin 4 → ZMod 2) = 1 ∧
     (X ^ 3 + 1 : (ZMod 2)[X]).discr = 1 := by sorry
 end Cubic
+
+namespace BinaryQuartic
+/-- The resolvent discriminant uses 729 times the ordinary quartic discriminant. -/
+example : (X ^ 3 - C 9 * X : ℚ[X]).discr = 2916 ∧
+    (X ^ 3 - C 9 * X : ℚ[X]).discr ≠ 27 * 4 := by sorry
+
+/-- For x⁴−y⁴, the quartic covariant resultant is 81Δ². -/
+example : (X ^ 4 - 1 : ℚ[X]).resultant (C 48 * X ^ 2) = 5308416 := by sorry
+
+/-- For x⁴−y⁴, the sextic covariant resultant is Δ³. -/
+example : (X ^ 4 - 1 : ℚ[X]).resultant (-C 32 * X * (X ^ 4 + 1)) =
+    -16777216 := by sorry
+end BinaryQuartic
+
+/-! For g=1 the signed-minor coefficient determinant is Q. These matrices record
+its values for the standard blocks and the two adapted completions in the README. -/
+example : ( !![0,-1;-1,0] : Matrix (Fin 2) (Fin 2) ℤ).det = -1 ∧
+    ( !![0,1;1,0] : Matrix (Fin 2) (Fin 2) ℤ).det = -1 ∧
+    ( !![0,1;-1,0] : Matrix (Fin 2) (Fin 2) ℤ).det = 1 := by sorry
+
+/-!
+The README also specifies the arithmetic and geometric constructions whose
+carriers are not assumed here: based cubic index forms and normal bases;
+Davenport–Heilbronn selectors; integer-valued ternary quadratic forms and their
+pairs; quartic rings and quadratic cubic-resolvent maps; alternating quintuples
+and quadruples, Pfaffian covariants, quintic multiplication and based sextic
+resolvents; monogenized cubic resolvents; binary-quartic orbit actions, solubility,
+covariants, the cubic invariant, point quartics and projected ternary cubics;
+ternary cubic invariants; Veronese orbit embedding; oriented ideal triples and
+norm pairs; the regular-pencil Fano and generalized Picard constructions;
+weak-discriminant loci, Q and marked Q; genus-one degree-three, four and five
+covering dictionaries; three-isogeny mirror algebras and integral multiplicities.
+Their APIs, hypotheses and Checks remain in the README. The signed polynomial
+pencil invariant above specializes the earlier-part symmetric-pencil interface.
+-/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartII
