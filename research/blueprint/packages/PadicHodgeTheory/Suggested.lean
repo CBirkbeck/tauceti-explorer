@@ -23,6 +23,10 @@ namespace TauCetiRoadmap.PadicHodgeTheory
 
 /-! ## Layer 0: Rational period rings -/
 
+/-- A normalized trace fixes one in a degree-two step, including the 2-adic tower. -/
+example : (1 / 2 : ℚ) * 2 = 1 ∧ (2 : ℚ) ≠ 1 := by
+  norm_num
+
 /-- A theta-kernel element and its translate by p have different theta images.
 This checks the kernel-membership hypothesis independently of reduction modulo p. -/
 example {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S)
@@ -233,6 +237,16 @@ This is not an assertion of a period torsor for nonadmissible data. -/
 example : (1 : ℤ) - 0 = 1 ∧ (0 : ℤ) - 1 = -1 := by
   norm_num
 
+/-- The nonzero torsion coordinate of a PGL-two or quadratic norm-one torsor
+survives in Z/2; the two difference signs agree here and cannot fix that sign. -/
+example : (1 : ZMod 2) ≠ 0 ∧ 2 * (1 : ZMod 2) = 0 ∧
+    (1 : ZMod 2) - 0 = 0 - 1 := by
+  decide
+
+/-- The sign action on the cocharacter lattice imposes the relation two. -/
+example : (1 : ℤ) - (-1) = 2 := by
+  norm_num
+
 /-! ## Layer 6: Ordinary lifting -/
 
 /-- The mod-five tame factors cancel in the first residual character. -/
@@ -425,6 +439,30 @@ example : (1 / 2 : ℚ) • tateMonodromyMatrix (5 : ℚ) =
 /-- The prime two has reciprocal period Frobenius. -/
 example : tatePhiMatrix (2 : ℚ) = !![1/2, 0; 0, 1] := by
   sorry
+
+/-- A ramified quadratic inertia sign at p = 2 remains nontrivial over Q_2;
+its mod-two reduction cannot detect that sign. These are scalar coordinates. -/
+example : (-1 : ℚ) ≠ 1 ∧ (-1 : ZMod 2) = 1 := by
+  constructor
+  · norm_num
+  · decide
+
+/-- The unramified quadratic twist at p = 2 keeps reciprocal determinant. -/
+example : (!![(-1/2 : ℚ), 0; 0, -1]).det = 1/2 := by
+  norm_num [Matrix.det_fin_two]
+
+/-- Twisting both Frobenius eigenvalues preserves the monodromy relation. -/
+example : tateMonodromyMatrix (1 : ℚ) * !![-1/2, 0; 0, -1] =
+    (2 : ℚ) • (!![-1/2, 0; 0, -1] * tateMonodromyMatrix (1 : ℚ)) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [tateMonodromyMatrix, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- Arithmetic Frobenius inverts the two negative period eigenvalues. -/
+example : (!![(-1/2 : ℚ), 0; 0, -1]) * !![-2, 0; 0, -1] = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [Matrix.mul_apply, Fin.sum_univ_two]
 
 /-- Inverting period Frobenius gives arithmetic Weil Frobenius. -/
 example : tatePhiMatrix (3 : ℚ) * !![3, 0; 0, 1] = 1 := by
