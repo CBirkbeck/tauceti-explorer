@@ -1,2611 +1,1254 @@
-import Mathlib.LinearAlgebra.RootSystem.Base
-import Mathlib.LinearAlgebra.RootSystem.WeylGroup
-import Mathlib.LinearAlgebra.UnitaryGroup
-import Mathlib.NumberTheory.NumberField.Basic
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.RingTheory.Trace.Basic
-import Mathlib.RingTheory.Valuation.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.Topology.Algebra.Group.Basic
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.LinearAlgebra.Matrix.Block
-import Mathlib.LinearAlgebra.Matrix.Symmetric
-import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
-import Mathlib.Algebra.Lie.Basic
-import Mathlib.NumberTheory.Real.Irrational
-import Mathlib.Data.Nat.ModEq
-import Mathlib.Geometry.Manifold.Complex
-import Mathlib.AlgebraicGeometry.Scheme
-import Mathlib.AlgebraicGeometry.Pullbacks
-import Mathlib.Topology.Connected.Clopen
-import TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.Weight
-import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
-import TauCeti.Algebra.Coalgebra.Comodule.Finite.Basic
-import TauCeti.Algebra.Coalgebra.Comodule.Finite.TensorProduct
-import TauCeti.Algebra.Coalgebra.Comodule.Finite.Dual
-import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.BaseChange
-import TauCeti.Algebra.AlgebraicGroup.FunctorOfPoints
-import TauCeti.Algebra.AlgebraicGroup.Torus.Basic
-import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Coordinate.HopfAlgebra
-import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Basic
-import TauCeti.Geometry.Hodge.Polarization
-import Mathlib.LinearAlgebra.TensorProduct.Tower
-import Mathlib.Geometry.Manifold.VectorBundle.Basic
-import Mathlib.Analysis.Complex.Basic
-import Mathlib.Topology.Instances.Matrix
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
-import Mathlib.Analysis.Complex.Trigonometric
-import Mathlib.Analysis.Complex.Exponential
-import Mathlib.LinearAlgebra.Projectivization.Basic
+import Mathlib.RingTheory.TensorProduct.Basic
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
+import Mathlib.NumberTheory.NumberField.CMField
 import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
-import Mathlib.Topology.Algebra.ProperAction.Basic
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.RingTheory.Bialgebra.MonoidAlgebra
+import Mathlib.Algebra.DirectSum.Module
+import Mathlib.RingTheory.Spectrum.Prime.Topology
+import Mathlib.GroupTheory.Coxeter.Length
+import Mathlib.LinearAlgebra.RootSystem.WeylGroup
+import Mathlib.LinearAlgebra.RootSystem.Base
+import Mathlib.LinearAlgebra.UnitaryGroup
+import Mathlib.RingTheory.Valuation.Basic
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.Analysis.Calculus.FDeriv.Basic
+import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.GroupTheory.Coset.Basic
+import Mathlib.LinearAlgebra.Projectivization.Basic
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.AlgebraicTopology.FundamentalGroupoid.Basic
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Coordinate.HopfAlgebra
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Coordinate.BaseChange
+import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Basic
+import TauCeti.Algebra.HopfAlgebra.Kernel
 import TauCeti.AlgebraicTopology.LocalCoefficient
-import TauCeti.Geometry.Hodge.Decomposition
-import TauCeti.Geometry.Hodge.WeilOperator
-import TauCeti.Geometry.Hodge.TensorProduct
-import TauCeti.Geometry.Hodge.Dual
-import TauCeti.Geometry.Hodge.Tate.Twist
+import TauCeti.Geometry.Hodge.Structure
+import TauCeti.Geometry.Hodge.Polarization
 
 /-!
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
-The statements suggest Lean forms so that contributors and reviewers converge on names
-and signatures. These are unproved interfaces, not implementation claims.
+# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4)
 
-The complete hypotheses are in the packet. At the pinned libraries there is no common
-interface for an algebraic S-map, its rational group, real orbit, quotient charts and
-connected adjoint datum. The following sections explicitly omit unavailable conditions,
-using actual linear maps, comodules, local coefficient systems, schemes and group maps.
-They do not replace those conditions with arbitrary proposition fields.
+This file is not the roadmap and is not exhaustive. The roadmap document
+`research/blueprint/readmes/ShimuraData.md` is definitive. The statements suggest Lean forms so that
+contributors and reviewers converge on names and signatures; every proof is `sorry` and nothing
+here claims an implementation.
 
-Supplier sketches in namespace `Supplier` expose the requested algebraic/analytic data
-using pinned carriers. They belong to the owners named in the packet, not to new local
-roadmap targets. Missing comparison hypotheses are identified next to each declaration.
-The local targets retain their stated conclusions: lawful real comodules and a categorical
-equivalence; complex homogeneous manifolds and bounded symmetric domains; a glued flat
-holomorphic bundle with a horizontal filtration; rational torus immersions and compatible
-connected adjoint data; and the actual cocharacters, domains and Cartan group of the examples.
-No statement claims implementation or supplier closure.
+Revision 4 consumes what the open TauCetiRoadmap pull requests state: pure Shimura data, their
+Hermitian components, the representation–Hodge dictionary, the Borel embedding, reflex fields,
+levels and the GL₂/Siegel/torus examples (ShimuraVarieties §§P.1–P.5, PR #933); PEL data and the
+scalar-determinant Hilbert datum (PELModuli §§M0.12, M5.4, PR #966); the Deligne torus
+(ReductiveGroupsPartII §RG2.0a.3, PR #785); adelic points and neatness (AdelicAlgebraicGroups
+§§1.3–1.4, 4.3, PR #792); real points as Lie groups and Cartan involutions
+(ArithmeticLocallySymmetricSpaces §§ALS.F.1, ALS.0.1–0.2, PR #871). None of these is at the pins,
+so nothing below re-defines them.
 
-REV-ShimuraData~3 identifies a separate D0 discrepancy: the five opening bridge
-prototypes still give abstract isomorphism consequences or a scalar identity. They
-do not yet state the S/Hilbert topology and analytic comparisons, or the rational
-algebraic map/local/adelic compatibility specified by their packet nodes. Their
-actual comparison conclusions must be restored on the supplier point carriers;
-missing supplier hypotheses may remain explicitly omitted under PROTOCOL §13.
+Conventions. Type `(p,q)` means the split character `(−p,−q)` of `S_ℂ = G_m × G_m`, so `h_ℂ(z₁,z₂)`
+acts on `V^{p,q}` by `z₁^{-p} z₂^{-q}` and `μ_h(z) = h_ℂ(z,1)` (ShimuraVarieties §P.3). The complexified
+Deligne torus has coordinate algebra `ℂ[ℤ²] = MonoidAlgebra ℂ (Multiplicative (ℤ × ℤ))`.
 
-BP-ShimuraData~3 replaces the nine residual conclusions identified by the independent
-review. Native root pairings and bases, matrix groups and Bruhat-cell membership now
-appear in those comparisons; strong adelic neatness precedes its rational consequence.
-The supplier identifications and analytic/Lie compatibility conditions remain omitted
-openly, as specified in the packet. These interfaces are unproved planning material.
-
-Deligne 1979: type (p,q) means character (-p,-q), μ(z)=h_C(z,1). The diagonal
-restriction acts by t^(-n); inverse diagonal weight acts by t^n. h(i) is inverse to
-the pinned Weil operator. For the limit t→0 convention, filtration stabilizer is P(μ⁻¹).
+What is left out, and why. The pins have no Weil restriction, Deligne torus, pure Shimura datum,
+holomorphic flat bundle, or flag scheme over `ℤ`. Statements needing them are README targets and
+are listed, with their packet names, in the section *README-only targets* at the end. Where a
+retained statement can be made on carriers that exist (GL coordinate Hopf algebras, the split
+torus algebra, matrices, root pairings, Coxeter systems, valuations, finite adeles, local
+coefficient systems, Hodge structures), it is made there, and any condition those carriers cannot
+express is named in a comment rather than replaced by an arbitrary proposition.
 -/
 
 noncomputable section
+
 open scoped TensorProduct
-open CategoryTheory
+
 namespace TauCeti.Shimura
 
-/- D0: supplied identifications, without reconstructing restriction of scalars. -/
-theorem delignePointsTopology {S : Type*} [Group S] [TopologicalSpace S]
-    [IsTopologicalGroup S] (e : S ≃ₜ* ℂˣ) : Continuous e ∧ Continuous e.symm := by sorry
+/-! ## D0. Points of the Hilbert groups -/
 
-theorem deligneLiePoints (x : ℂ) :
-    (x * star (1 : ℂ) + (1 : ℂ) * star x).re = 2 * x.re := by sorry
+section HilbertPoints
 
-theorem hilbertRealPoints {ι A : Type*} [Fintype ι] [Group A]
-    (e : A ≃* (ι → Matrix.GeneralLinearGroup (Fin 2) ℝ)) :
-    Function.Bijective e := by sorry
+variable (F : Type*) [Field F] [NumberField F]
 
-theorem hilbertAdelicPoints {A B : Type*} [Group A] [Group B]
-    (e : A ≃* B) : e.toMonoidHom.ker = ⊥ := by sorry
+/-- **D0/hilbert-real-points.** For totally real `F`, `ℝ ⊗_ℚ F ≅ ℝ^{Hom(F,ℝ)}` by
+`r ⊗ x ↦ (r σ(x))_σ`; on `GL₂` this is `(Res_{F/ℚ} GL₂)(ℝ) ≅ ∏_σ GL₂(ℝ)`, and the scalar-determinant
+subgroup `G*` corresponds to the tuples with one common real determinant (of either sign).
+Left out: the Lie-group structure (ArithmeticLocallySymmetricSpaces §ALS.F.1) and the component
+count, which need the point topology of RG2.0. -/
+theorem hilbertRealPoints [NumberField.IsTotallyReal F] :
+    ∃ e : ℝ ⊗[ℚ] F ≃ₐ[ℝ] ((F →+* ℝ) → ℝ),
+      (∀ (r : ℝ) (x : F) (σ : F →+* ℝ), e (r ⊗ₜ x) σ = r * σ x) ∧
+      ∀ g : GL (Fin 2) (ℝ ⊗[ℚ] F),
+        (∃ t : ℝ, ∀ σ : F →+* ℝ,
+            ((Matrix.GeneralLinearGroup.map
+              ((Pi.evalRingHom (fun _ : F →+* ℝ ↦ ℝ) σ).comp e.toRingHom) g).det : ℝ) = t) ↔
+          (Matrix.GeneralLinearGroup.det g : ℝ ⊗[ℚ] F) ∈ Set.range (algebraMap ℝ (ℝ ⊗[ℚ] F)) := by
+  sorry
 
-theorem datumMapPoints {A B C D : Type*} [Group A] [Group B] [Group C] [Group D]
-    (f : A →* B) (g : C →* D) (e : A ≃* C) (e' : B ≃* D)
-    (h : ∀ a, e' (f a) = g (e a)) : e'.toMonoidHom.comp f = g.comp e.toMonoidHom := by sorry
+/-- **D0/hilbert-adelic-points.** `𝔸_{ℚ,f} ⊗_ℚ F ≅ 𝔸_{F,f}` (AdelicAlgebraicGroups §1.4,
+`base-change-adelic`), so `(Res_{F/ℚ}GL₂)(𝔸_{ℚ,f}) ≅ GL₂(𝔸_{F,f})`; under it `G*(𝔸_{ℚ,f})` is the
+locus with determinant in the image of `𝔸_{ℚ,f}^×`. Left out: the topology on the tensor
+product (AA §1.4 states the isomorphism as topological groups). -/
+theorem hilbertAdelicPoints :
+    ∃ e : IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] F ≃+*
+        IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F,
+      (∀ x : F, e (1 ⊗ₜ x) = algebraMap F _ x) ∧
+      ∀ g : GL (Fin 2) (IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] F),
+        (Matrix.GeneralLinearGroup.det g : IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] F) ∈
+            Set.range (fun a : IsDedekindDomain.FiniteAdeleRing ℤ ℚ ↦
+              (a ⊗ₜ (1 : F) : IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] F)) ↔
+          ((Matrix.GeneralLinearGroup.map e.toRingHom g).det :
+              IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F) ∈
+            Set.range (fun a : IsDedekindDomain.FiniteAdeleRing ℤ ℚ ↦ e (a ⊗ₜ 1)) := by
+  sorry
 
-/- D1: no Deligne-torus construction here; RG2.0a supplies it. -/
--- The Hopf splitting π is supplied by RG2.0a; this is the comodule dictionary it feeds.
-theorem deligneTorus {W C : Type*} [AddCommGroup W] [Module ℂ W]
-    [AddCommGroup C] [Module ℂ C] [Coalgebra ℂ C] [Comodule ℂ C W]
-    (π : C →ₗc[ℂ] MonoidAlgebra ℂ (Multiplicative (ℤ×ℤ))) :
-    DirectSum.IsInternal (DiagonalizableGroup.weightSpace W π) := by sorry
+end HilbertPoints
 
-private def splitCharacter (a b : ℤ) (x : ℂˣ × ℂˣ) : ℂˣ := x.1^a*x.2^b
-theorem deligneTorusPoints (z : ℂˣ) (p q : ℤ) :
-    splitCharacter (-p) (-q) (z,star z) = z^(-p)*star z^(-q) ∧
-    splitCharacter (-p) (-q) (z,1) = z^(-p) := by sorry
+/-! ## D1. Rational weight and Mumford–Tate groups -/
 
-theorem weightNormCocharacters (t : ℝˣ) (p q : ℤ) :
-    t ^ (-p) * t ^ (-q) = t ^ (-(p+q)) := by sorry
+section RationalWeight
 
-section Grading
-variable (V : Type*) [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
+variable {V : Type*} [AddCommGroup V] [Module ℚ V] [FiniteDimensional ℚ V]
 
-/-- The grading is real; pure objects use the pinned canonical conjugation. -/
-structure GradedRealHodge (V : Type*) [AddCommGroup V] [Module ℝ V]
-    [Module.Finite ℝ V] where
-  weight : ℤ → Submodule ℝ V
-  internal : DirectSum.IsInternal weight
-  finiteSupport : {n | weight n ≠ ⊥}.Finite
-  pure : ∀ n, Hodge.HodgeStructureOn (ℂ ⊗[ℝ] weight n)
-    (Hodge.complexificationConjugation (weight n)) n
+/-- The operator acting by `t^n` on the `n`-th summand of an internal real grading of `ℝ ⊗_ℚ V`;
+for the weight grading of a real `S`-representation this is `w_h(t)`. -/
+def weightOperator (W : ℤ → Submodule ℝ (ℝ ⊗[ℚ] V)) (hW : DirectSum.IsInternal W) (t : ℝ) :
+    Module.End ℝ (ℝ ⊗[ℚ] V) :=
+  let e := LinearEquiv.ofBijective (DirectSum.coeLinearMap W) hW
+  (DirectSum.toModule ℝ ℤ (ℝ ⊗[ℚ] V) fun n ↦ (t ^ n) • (W n).subtype) ∘ₗ e.symm.toLinearMap
 
-def gradedRealHodge := GradedRealHodge V
+/-- **D1/rational-weight-criterion.** The weight cocharacter descends to `ℚ` (its rational values
+preserve the rational structure `1 ⊗ V`) iff the real weight grading is the scalar extension of an
+internal `ℚ`-grading. The full `h` need not descend. -/
+theorem rationalWeightCriterion (W : ℤ → Submodule ℝ (ℝ ⊗[ℚ] V)) (hW : DirectSum.IsInternal W) :
+    (∃ WQ : ℤ → Submodule ℚ V, DirectSum.IsInternal WQ ∧
+        ∀ n, W n = Submodule.span ℝ (TensorProduct.mk ℚ ℝ V 1 '' (WQ n))) ↔
+      ∀ (t : ℚ) (v : V), t ≠ 0 →
+        weightOperator W hW (t : ℝ) (1 ⊗ₜ v) ∈ Set.range (TensorProduct.mk ℚ ℝ V 1) := by
+  sorry
 
-def gradedMk (weight : ℤ → Submodule ℝ V)
-    (internal : DirectSum.IsInternal weight)
-    (finiteSupport : {n | weight n ≠ ⊥}.Finite)
-    (pure : ∀ n, Hodge.HodgeStructureOn (ℂ ⊗[ℝ] weight n)
-      (Hodge.complexificationConjugation (weight n)) n) : gradedRealHodge V :=
-  ⟨weight, internal, finiteSupport, pure⟩
+end RationalWeight
 
-lemma gradedExt (H K : gradedRealHodge V) (hweight : H.weight = K.weight)
-    (hpure : ∀ n, HEq (H.pure n) (K.pure n)) : H = K := by sorry
+section MumfordTate
 
-lemma gradedWeight (H : gradedRealHodge V) (m n : ℤ) (h : m ≠ n) :
-    Disjoint (H.weight m) (H.weight n) := by sorry
-lemma gradedPure (H : gradedRealHodge V) (n : ℤ) :
-    ∀ p, IsCompl ((H.pure n).F p)
-      (((H.pure n).F (n+1-p)).map
-        (Hodge.complexificationConjugation (H.weight n)).toEquiv.toLinearMap) := by sorry
-lemma gradedSupport (H : gradedRealHodge V) :
-    {n | H.weight n ≠ ⊥}.Finite ∧ (⨆ n, H.weight n) = ⊤ := by sorry
-end Grading
+/-- The coordinate algebra of the complexified Deligne torus `S_ℂ = G_m × G_m`. -/
+abbrev SplitTorusAlg := MonoidAlgebra ℂ (Multiplicative (ℤ × ℤ))
 
-def tateGrading (m : ℤ) : gradedRealHodge ℝ := sorry
+/-- The carrier of Tau Ceti's coordinate Hopf algebra of `GL_n` over `R`. -/
+abbrev GLCoord (R : Type) [CommRing R] (n : ℕ) : Type :=
+  (GeneralLinear.coordinateHopfAlgebra R n : Type)
 
-def twoWeightGrading : gradedRealHodge (ℝ × ℝ) := sorry
--- TauCeti.Shimura.tests.gradedZero
-example (H : gradedRealHodge (Fin 0 → ℝ)) (n : ℤ) : H.weight n = ⊥ := by sorry
--- TauCeti.Shimura.tests.gradedTwoWeights
-example : Module.finrank ℝ (twoWeightGrading.weight 0) = 1 ∧
-    Module.finrank ℝ (twoWeightGrading.weight (-2)) = 1 := by sorry
--- TauCeti.Shimura.tests.gradedTate
-example : (tateGrading 1).weight (-2) = ⊤ := by sorry
+/-- Scalar extension `O(GL_n)_ℚ → O(GL_n)_ℂ`, `f ↦ 1 ⊗ f` followed by Tau Ceti's base-change
+identification. -/
+def glBaseChange (n : ℕ) : GLCoord ℚ n →+* GLCoord ℂ n :=
+  (GeneralLinear.coordinateRingBaseChangeAlgEquiv ℚ ℂ n).toRingEquiv.toRingHom.comp
+    (Algebra.TensorProduct.includeRight (R := ℚ) (A := ℂ)).toRingHom
 
-/- R1/RG2.0a supplier signatures. `deligneCoordinate` is their descended real Hopf
-algebra. It is not constructed again by D1. `split` includes scalar extension and the
-specified Hopf splitting, with the Galois action conjugating coefficients and swapping
-characters. Its carrier comparison and descent naturality are the explicit R1 leaf. -/
-namespace Supplier
- def deligneCoordinate : CommHopfAlgCat ℝ := sorry
- abbrev SRep := FGComoduleCat ℝ deligneCoordinate
- abbrev SplitCoordinate := MonoidAlgebra ℂ (Multiplicative (ℤ × ℤ))
- def split (M : SRep) : FGComoduleCat ℂ SplitCoordinate := sorry
- def splitCarrier (M : SRep) : (ℂ ⊗[ℝ] M) ≃ₗ[ℂ] split M := sorry
- def splitTensorConjugation {W : Type*} [AddCommGroup W] [Module ℂ W]
-     (ω : Hodge.Conjugation W) :
-     (W ⊗[ℂ] SplitCoordinate) →ₗ[ℝ] (W ⊗[ℂ] SplitCoordinate) := sorry
- lemma splitTensorConjugation_tmul {W : Type*} [AddCommGroup W] [Module ℂ W]
-     (ω : Hodge.Conjugation W) (v : W) (a b : ℤ) (c : ℂ) :
-     splitTensorConjugation ω (v ⊗ₜ[ℂ] MonoidAlgebra.single (Multiplicative.ofAdd (a,b)) c) =
-       ω v ⊗ₜ[ℂ] MonoidAlgebra.single (Multiplicative.ofAdd (b,a)) (star c) := by sorry
- def trivialRep : SRep := sorry
- def normRep (m : ℤ) : SRep := sorry
- -- Underlying real space C; h(z) acts by multiplication by z.
- def standardRep : SRep := sorry
- abbrev repTensor (M N : SRep) : SRep := FGComoduleCat.tensor ℝ deligneCoordinate M N
- abbrev repDual (M : SRep) : SRep := FGComoduleCat.dual ℝ deligneCoordinate M
- def repSum (M N : SRep) : SRep := sorry
-end Supplier
+/-- A rational-coordinate map `φ` comes from an algebraic homomorphism `S_ℂ → GL_{n,ℂ}`: it is the
+restriction to `O(GL_n)_ℚ` of a map of complex bialgebras. (The real structure of `S`, the Galois
+swap, is not at the pins and is left out; the Mumford–Tate ideal does not depend on it.) -/
+def IsAlgebraicSMap (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Prop :=
+  ∃ ψ : GLCoord ℂ n →ₐc[ℂ] SplitTorusAlg, ∀ x, φ x = ψ (glBaseChange n x)
 
-section SplitRepresentation
-variable {W C : Type*} [AddCommGroup W] [Module ℂ W] [Module.Finite ℂ W]
-    [CommRing C] [Algebra ℂ C] [Coalgebra ℂ C] [Comodule ℂ C W]
-    (π : C →ₗc[ℂ] Supplier.SplitCoordinate)
-def hodgePiece (p q : ℤ) : Submodule ℂ W :=
-  DiagonalizableGroup.weightSpace W π (Multiplicative.ofAdd (-p,-q))
-lemma hodgePieceAction (p q : ℤ) (v : W) : v ∈ hodgePiece π p q ↔
-    TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact (R := ℂ) (C := C) (M := W) v) =
-      v ⊗ₜ[ℂ] MonoidAlgebra.single (Multiplicative.ofAdd (-p,-q)) 1 := by sorry
-/- The hypothesis is the Galois equation on the split coaction, not the desired
-weight-space equality. R1 supplies it for the complexification of a real comodule. -/
-lemma conjHodgePiece (ω : Hodge.Conjugation W)
-    (hc : ∀ v, Supplier.splitTensorConjugation ω
-       (TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact v)) =
-       TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact (ω v)))
-    (p q : ℤ) : (hodgePiece π p q).map ω.toEquiv.toLinearMap = hodgePiece π q p := by sorry
-lemma hodgePieceInternal :
-    DirectSum.IsInternal (fun x : ℤ × ℤ => hodgePiece π x.1 x.2) ∧
-    {x : ℤ × ℤ | hodgePiece π x.1 x.2 ≠ ⊥}.Finite := by sorry
-lemma conjugationPieces (ω : Hodge.Conjugation W)
-    (hc : ∀ v, Supplier.splitTensorConjugation ω
-       (TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact v)) =
-       TensorProduct.map LinearMap.id π.toLinearMap (Comodule.coact (ω v)))
-    (p q : ℤ) : (hodgePiece π p q).map ω.toEquiv.toLinearMap = hodgePiece π q p := by sorry
-end SplitRepresentation
+/-- The Mumford–Tate ideal: the kernel of the coordinate map of `h` on `O(GL(V))`. -/
+def mumfordTateIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) : Ideal (GLCoord ℚ n) :=
+  RingHom.ker φ
 
-def representationPiece (M : Supplier.SRep) (p q : ℤ) : Submodule ℂ (Supplier.split M) :=
-  hodgePiece (CoalgHom.id ℂ Supplier.SplitCoordinate) p q
--- TauCeti.Shimura.tests.pieceTrivial
-example : representationPiece Supplier.trivialRep 0 0 = ⊤ ∧
-    representationPiece Supplier.trivialRep 1 0 = ⊥ := by sorry
--- TauCeti.Shimura.tests.pieceNorm
-example : representationPiece (Supplier.normRep 1) (-1) (-1) = ⊤ ∧
-    representationPiece (Supplier.normRep 1) 1 1 = ⊥ := by sorry
--- TauCeti.Shimura.tests.pieceStandard
-example : Module.finrank ℂ (representationPiece Supplier.standardRep (-1) 0) = 1 ∧
-    Module.finrank ℂ (representationPiece Supplier.standardRep 0 (-1)) = 1 ∧
-    representationPiece Supplier.standardRep 0 0 = ⊥ := by sorry
+/-- **D1/mumford-tate-group.** The Mumford–Tate Hopf ideal. Its data is the kernel ideal; the
+three Hopf conditions are the content of `mumfordTateHopf`. -/
+def mumfordTateHopfIdeal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (_hφ : IsAlgebraicSMap n φ) :
+    TauCeti.HopfIdeal ℚ (GLCoord ℚ n) :=
+  TauCeti.HopfIdeal.ofIdeal (mumfordTateIdeal n φ) (fun _ _ ↦ by sorry) (fun _ _ ↦ by sorry)
+    (fun _ _ ↦ by sorry)
 
-section PureComparison
+/-- **D1/mumford-tate-group.** `MT(V) = Spec (O(GL(V)) / I_MT)` as a commutative Hopf algebra. -/
+def mumfordTateGroup (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (hφ : IsAlgebraicSMap n φ) :
+    CommHopfAlgCat ℚ :=
+  CommHopfAlgCat.of ℚ (GLCoord ℚ n ⧸ (mumfordTateHopfIdeal n φ hφ).toIdeal)
+
+theorem mumfordTateMinimal (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
+    (I : TauCeti.HopfIdeal ℚ (GLCoord ℚ n)) (hI : ∀ x ∈ I, φ x = 0) :
+    I.toIdeal ≤ mumfordTateIdeal n φ := by
+  sorry
+
+theorem mumfordTateHopf (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (hφ : IsAlgebraicSMap n φ) :
+    ∃ I : TauCeti.HopfIdeal ℚ (GLCoord ℚ n), I.toIdeal = mumfordTateIdeal n φ := by
+  sorry
+
+/-- The character `(a,b) ↦ −(a+b)` through which the weight `w(r) = (r⁻¹, r⁻¹)` acts. -/
+def weightCharacter : Multiplicative (ℤ × ℤ) →* Multiplicative ℤ :=
+  AddMonoidHom.toMultiplicative (-(AddMonoidHom.fst ℤ ℤ + AddMonoidHom.snd ℤ ℤ))
+
+/-- The coordinate map of the weight `w(r) = (r⁻¹, r⁻¹)` of `S_ℂ`: `(a,b) ↦ −(a+b)`. -/
+def weightCoordinate : SplitTorusAlg →ₐ[ℚ] MonoidAlgebra ℂ (Multiplicative ℤ) :=
+  (MonoidAlgebra.mapDomainAlgHom ℂ ℂ weightCharacter).restrictScalars ℚ
+
+theorem mumfordTateWeight (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) :
+    ∃ χ : (GLCoord ℚ n ⧸ mumfordTateIdeal n φ) →ₐ[ℚ] MonoidAlgebra ℂ (Multiplicative ℤ),
+      χ.comp (Ideal.Quotient.mkₐ ℚ (mumfordTateIdeal n φ)) = weightCoordinate.comp φ := by
+  sorry
+
+theorem mumfordTateIsomorphism (n : ℕ) (φ φ' : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
+    (e : GLCoord ℚ n ≃ₐ[ℚ] GLCoord ℚ n) (he : φ'.comp e.toAlgHom = φ) :
+    (mumfordTateIdeal n φ).map e = mumfordTateIdeal n φ' := by
+  sorry
+
+theorem mumfordTateComplexified (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg)
+    (ψ : GLCoord ℂ n →ₐc[ℂ] SplitTorusAlg) (hψ : ∀ x, φ x = ψ (glBaseChange n x)) :
+    mumfordTateIdeal n φ = (RingHom.ker (ψ : GLCoord ℂ n →+* SplitTorusAlg)).comap (glBaseChange n) := by
+  sorry
+
+/-- **D1/mumford-tate-connected.** `MT(V)` is geometrically connected. -/
+theorem mumfordTateConnected (n : ℕ) (φ : GLCoord ℚ n →ₐ[ℚ] SplitTorusAlg) (hφ : IsAlgebraicSMap n φ)
+    (K : Type) [Field K] [Algebra ℚ K] :
+    ConnectedSpace (PrimeSpectrum ((GLCoord ℚ n ⧸ mumfordTateIdeal n φ) ⊗[ℚ] K)) := by
+  sorry
+
+/-- The similitude ideal of `GSp_{2g} ⊂ GL_{2g}`: the `2 × 2` minors expressing that `X J Xᵀ` is a
+scalar multiple of the standard alternating matrix `J`. -/
+def gspIdeal (g : ℕ) : Ideal (GLCoord ℚ (g + g)) :=
+  let X := GeneralLinear.genericMatrix ℚ (g + g)
+  let J : Matrix (Fin (g + g)) (Fin (g + g)) (GLCoord ℚ (g + g)) := fun i j ↦
+    if (i : ℕ) < g ∧ (j : ℕ) = i + g then 1 else if (j : ℕ) < g ∧ (i : ℕ) = j + g then -1 else 0
+  let Y := X * J * X.transpose
+  Ideal.span {x | ∃ i j k l, x = Y i j * J k l - Y k l * J i j}
+
+/-- **D1/hodge-generic.** A polarized weight-one rational Hodge structure on `ℚ^{2g}` (the
+`H¹(A,ℚ)` of AbelianSchemesAndArithmeticModuli §A5.2, in a symplectic basis) is Hodge generic when
+its Mumford–Tate group is all of `GSp_{2g}`. -/
+def hodgeGeneric (g : ℕ) (φ : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg) : Prop :=
+  mumfordTateIdeal (g + g) φ = gspIdeal g
+
+theorem hodgeGenericBasis (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg)
+    (e : GLCoord ℚ (g + g) ≃ₐ[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgHom = φ)
+    (hJ : (gspIdeal g).map e = gspIdeal g) :
+    hodgeGeneric g φ ↔ hodgeGeneric g φ' := by
+  sorry
+
+theorem hodgeGenericIsogeny (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg)
+    (e : GLCoord ℚ (g + g) ≃ₐ[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgHom = φ)
+    (hJ : (gspIdeal g).map e = gspIdeal g) (hgen : hodgeGeneric g φ) : hodgeGeneric g φ' := by
+  sorry
+
+/-- The coordinate map of the weight-one Hodge structure of `ℂ/(ℤ + ℤτ)` in the basis `(1, τ)`:
+`h(a + bi)` acts on `ℝ²` by multiplication by `a + bi` written in that basis, so with
+`a = (z₁ + z₂)/2` and `b = (z₁ − z₂)/(2i)` its matrix entries are explicit elements of `ℂ[ℤ²]`. -/
+def ellipticEntry (τ : ℂ) (i j : Fin 2) : SplitTorusAlg :=
+  let z₁ : SplitTorusAlg := MonoidAlgebra.of ℂ _ (Multiplicative.ofAdd (1, 0))
+  let z₂ : SplitTorusAlg := MonoidAlgebra.of ℂ _ (Multiplicative.ofAdd (0, 1))
+  let a : SplitTorusAlg := (1 / 2 : ℂ) • (z₁ + z₂)
+  let b : SplitTorusAlg := (1 / (2 * Complex.I)) • (z₁ - z₂)
+  -- multiplication by a + bi on ℝ·1 ⊕ ℝ·τ, with τ = x + iy:
+  -- (a+bi)·1 = (a - b x/y)·1 + (b/y)·τ,  (a+bi)·τ = -(b |τ|²/y)·1 + (a + b x/y)·τ
+  let x : ℂ := τ.re
+  let y : ℂ := τ.im
+  ![![a - (x / y) • b, -((Complex.normSq τ : ℂ) / y) • b], ![(1 / y) • b, a + (x / y) • b]] i j
+
+theorem hodgeGenericElliptic (τ : ℂ) (hτ : 0 < τ.im) (φ : GLCoord ℚ (0 + 1 + 1) →ₐ[ℚ] SplitTorusAlg)
+    (hφ : ∀ i j, φ (GeneralLinear.genericMatrix ℚ (0 + 1 + 1) i j) = ellipticEntry τ i j) :
+    hodgeGeneric 1 φ ↔ ∀ p q r : ℚ, (p : ℂ) * τ ^ 2 + q * τ + r = 0 → p = 0 ∧ q = 0 ∧ r = 0 := by
+  sorry
+
+end MumfordTate
+
+
+/-! ## D3. Variations, the filtration parabolic, compact duals and Kostant combinatorics -/
+
+section LocalModel
+
+variable {E W : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
+  [NormedAddCommGroup W] [NormedSpace ℂ W] [FiniteDimensional ℂ W]
+
+/-- Local model of a holomorphic filtration of a flat bundle in a flat frame: over the open set
+`U ⊆ E` every step `F^p` is locally spanned by finitely many holomorphic sections. -/
+def IsHolomorphicFamily (U : Set E) (F : E → ℤ → Submodule ℂ W) : Prop :=
+  ∀ p, ∀ x ∈ U, ∃ V ∈ nhds x, ∃ (k : ℕ) (s : Fin k → E → W),
+    (∀ i, DifferentiableOn ℂ (s i) V) ∧ ∀ y ∈ V ∩ U, Submodule.span ℂ (Set.range fun i ↦ s i y) = F y p
+
+/-- Griffiths transversality in a flat frame: derivatives of sections of `F^p` lie in `F^{p−1}`. -/
+def IsGriffithsTransversal (U : Set E) (F : E → ℤ → Submodule ℂ W) : Prop :=
+  ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s U → (∀ y ∈ U, s y ∈ F y p) →
+    ∀ y ∈ U, ∀ v : E, fderiv ℂ s y v ∈ F y (p - 1)
+
+/-- **D3/flat-bundle-local.** In a flat frame over a connected open `U`, the flat connection is the
+ordinary derivative, so transversality of a holomorphic family is the condition of
+`IsGriffithsTransversal`; it is unchanged by a constant change of frame. -/
+theorem flatBundleLocal (U : Set E) (hU : IsOpen U) (F : E → ℤ → Submodule ℂ W)
+    (A : W ≃ₗ[ℂ] W) :
+    IsGriffithsTransversal U F ↔ IsGriffithsTransversal U (fun y p ↦ (F y p).map A.toLinearMap) := by
+  sorry
+
+/-- **D3/transversality-tangent.** For a holomorphic family with constant fibre, Griffiths
+transversality holds iff, at every point and in every direction, the derivative of every section of
+`F^p` lies in `F^{p−1}` modulo `F^p`: the differential of the flag map lies in `F^{−1}End/F⁰End`. -/
+theorem transversalityTangent (U : Set E) (hU : IsOpen U) (F : E → ℤ → Submodule ℂ W)
+    (hF : IsHolomorphicFamily U F) :
+    IsGriffithsTransversal U F ↔
+      ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s U → (∀ y ∈ U, s y ∈ F y p) →
+        ∀ y ∈ U, ∀ v : E, Submodule.Quotient.mk (p := F y p) (fderiv ℂ s y v) ∈
+          (F y (p - 1)).map (F y p).mkQ := by
+  sorry
+
+end LocalModel
+
+section Variations
+
+open CategoryTheory
+
+/-- **D3/variation.** A pure real variation of Hodge structure of weight `n` over `B`: a real local
+coefficient system (Tau Ceti's fundamental-groupoid functor) whose complexified fibres carry pure
+Hodge structures of weight `n` for the canonical conjugation. Left out: the holomorphic structure of
+the associated flat bundle and Griffiths transversality, which need holomorphic flat bundles over a
+complex manifold (not at the pins); their local form is `IsHolomorphicFamily` and
+`IsGriffithsTransversal`. -/
+structure Variation (B : TopCat.{0}) (n : ℤ) where
+  /-- The underlying local system. -/
+  L : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℝ B
+  /-- The pure Hodge structure on each complexified fibre. -/
+  fiber : ∀ b : FundamentalGroupoid B,
+    TauCeti.Hodge.HodgeStructureOn (ℂ ⊗[ℝ] (L.obj b)) (TauCeti.Hodge.complexificationConjugation _) n
+
+variable {B : TopCat.{0}} {n : ℤ}
+
+/-- `variationFiber`: evaluation at a point is the fibre's pure Hodge structure. -/
+def variationFiber (v : Variation B n) (b : FundamentalGroupoid B) :
+    TauCeti.Hodge.HodgeStructureOn (ℂ ⊗[ℝ] (v.L.obj b)) (TauCeti.Hodge.complexificationConjugation _) n :=
+  v.fiber b
+
+/-- `variationMk`: assemble a variation from its local system and fibrewise Hodge structures. -/
+def variationMk (L : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℝ B)
+    (fiber : ∀ b : FundamentalGroupoid B,
+      TauCeti.Hodge.HodgeStructureOn (ℂ ⊗[ℝ] (L.obj b)) (TauCeti.Hodge.complexificationConjugation _) n) :
+    Variation B n :=
+  ⟨L, fiber⟩
+
+theorem variationExt (v w : Variation B n) (hL : v.L = w.L) (hF : HEq v.fiber w.fiber) : v = w := by
+  sorry
+
+/-- `variationPullback`: pulling back along a continuous map pulls back the local system along the
+induced functor of fundamental groupoids. -/
+theorem variationPullback {B' : TopCat.{0}} (f : B' ⟶ B) (v : Variation B n) :
+    ∃ v' : Variation B' n, v'.L = FundamentalGroupoid.map f.hom ⋙ v.L := by
+  sorry
+
+/-- **D3/variation-morphism.** A morphism of variations of the same weight: a map of local systems
+whose complexification preserves every `F^p` on every fibre. (Compatibility with the flat
+connection is automatic for a map of local systems.) -/
+structure VariationHom (v w : Variation B n) where
+  /-- The underlying map of local systems. -/
+  hom : v.L ⟶ w.L
+  /-- The complexified fibre maps preserve the Hodge filtrations. -/
+  preserves : ∀ (b : FundamentalGroupoid B) (p : ℤ),
+    ((v.fiber b).F p).map (LinearMap.baseChange ℂ (hom.app b).hom) ≤ (w.fiber b).F p
+
+/-- `variationHomMk`. -/
+def variationHomMk {v w : Variation B n} (θ : v.L ⟶ w.L)
+    (h : ∀ (b : FundamentalGroupoid B) (p : ℤ),
+      ((v.fiber b).F p).map (LinearMap.baseChange ℂ (θ.app b).hom) ≤ (w.fiber b).F p) :
+    VariationHom v w :=
+  ⟨θ, h⟩
+
+theorem variationHomExt {v w : Variation B n} (f g : VariationHom v w) (h : f.hom = g.hom) : f = g := by
+  sorry
+
+/-- `variationHomIdentity`. -/
+def variationHomIdentity (v : Variation B n) : VariationHom v v :=
+  ⟨𝟙 v.L, fun _ _ ↦ by sorry⟩
+
+/-- `variationMorphism`: composition. -/
+def variationMorphism {u v w : Variation B n} (f : VariationHom u v) (g : VariationHom v w) :
+    VariationHom u w :=
+  ⟨f.hom ≫ g.hom, fun _ _ ↦ by sorry⟩
+
+theorem variationHomCompMap {u v w : Variation B n} (f : VariationHom u v) (g : VariationHom v w) :
+    (variationMorphism f g).hom = f.hom ≫ g.hom := rfl
+
+/-- **D3/rational-polarized-variation.** A polarized rational variation: a rational local system
+whose real scalar extension is the local system of a real variation, with a parallel family of
+`ℚ`-bilinear forms of parity `(−1)^n`. Left out: the fibrewise Hodge–Riemann conditions for the
+complexified form (stated in the README; Tau Ceti's `IsPolarization` is phrased for lattices). -/
+structure RationalPolarizedVariation (B : TopCat.{0}) (n : ℤ) where
+  /-- The rational local system. -/
+  LQ : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℚ B
+  /-- The real variation. -/
+  real : Variation B n
+  /-- The scalar-extension comparison. -/
+  comparison : LQ ⋙ ModuleCat.extendScalars (algebraMap ℚ ℝ) ≅ real.L
+  /-- The polarizing form on each fibre. -/
+  Q : ∀ b : FundamentalGroupoid B, LinearMap.BilinForm ℚ (LQ.obj b)
+  /-- The form is parallel. -/
+  parallel : ∀ {b c : FundamentalGroupoid B} (γ : b ⟶ c) (x y : LQ.obj b),
+    Q c ((LQ.map γ).hom x) ((LQ.map γ).hom y) = Q b x y
+  /-- Parity `(−1)^n`. -/
+  parity : ∀ (b : FundamentalGroupoid B) (x y : LQ.obj b), Q b y x = (-1) ^ n.natAbs * Q b x y
+
+/-- `rationalVariationMk`. -/
+def rationalVariationMk (LQ : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℚ B) (real : Variation B n)
+    (comparison : LQ ⋙ ModuleCat.extendScalars (algebraMap ℚ ℝ) ≅ real.L)
+    (Q : ∀ b : FundamentalGroupoid B, LinearMap.BilinForm ℚ (LQ.obj b))
+    (parallel : ∀ {b c : FundamentalGroupoid B} (γ : b ⟶ c) (x y : LQ.obj b),
+      Q c ((LQ.map γ).hom x) ((LQ.map γ).hom y) = Q b x y)
+    (parity : ∀ (b : FundamentalGroupoid B) (x y : LQ.obj b), Q b y x = (-1) ^ n.natAbs * Q b x y) :
+    RationalPolarizedVariation B n :=
+  ⟨LQ, real, comparison, Q, parallel, parity⟩
+
+theorem rationalVariationExt (P P' : RationalPolarizedVariation B n) (h₁ : P.LQ = P'.LQ)
+    (h₂ : P.real = P'.real) (h₃ : HEq P.comparison P'.comparison) (h₄ : HEq P.Q P'.Q) : P = P' := by
+  sorry
+
+theorem rationalVariationParallel (P : RationalPolarizedVariation B n) {b c : FundamentalGroupoid B}
+    (γ : b ⟶ c) (x y : P.LQ.obj b) :
+    P.Q c ((P.LQ.map γ).hom x) ((P.LQ.map γ).hom y) = P.Q b x y :=
+  P.parallel γ x y
+
+/-- **D3/polarized-integral-variation.** A polarized integral variation: a locally constant
+finite free `ℤ`-lattice whose rationalization is a polarized rational variation, with a parallel
+`ℤ`-bilinear form inducing the rational one. The form need not be unimodular. -/
+structure polarizedIntegralVariation (B : TopCat.{0}) (n : ℤ) where
+  /-- The lattice local system. -/
+  LZ : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℤ B
+  /-- Its fibres are finite free. -/
+  free : ∀ b, Module.Free ℤ (LZ.obj b) ∧ Module.Finite ℤ (LZ.obj b)
+  /-- The rational polarized variation. -/
+  rational : RationalPolarizedVariation B n
+  /-- The lattice inclusion into the rational fibre. -/
+  ι : ∀ b : FundamentalGroupoid B, LZ.obj b →ₗ[ℤ] rational.LQ.obj b
+  /-- Each fibre is a lattice: the rational fibre is its scalar extension. -/
+  isLattice : ∀ b, IsBaseChange ℚ (ι b)
+  /-- The inclusion is flat (commutes with transport). -/
+  natural : ∀ {b c : FundamentalGroupoid B} (γ : b ⟶ c) (x : LZ.obj b),
+    (rational.LQ.map γ).hom (ι b x) = ι c ((LZ.map γ).hom x)
+  /-- The integral polarizing form. -/
+  QZ : ∀ b : FundamentalGroupoid B, LinearMap.BilinForm ℤ (LZ.obj b)
+  /-- It induces the rational form. -/
+  compatible : ∀ (b : FundamentalGroupoid B) (x y : LZ.obj b), rational.Q b (ι b x) (ι b y) = QZ b x y
+
+/-- `integralVariationRational`: the rationalization. -/
+def integralVariationRational (P : polarizedIntegralVariation B n) : RationalPolarizedVariation B n :=
+  P.rational
+
+theorem integralVariationPairing (P : polarizedIntegralVariation B n) {b c : FundamentalGroupoid B}
+    (γ : b ⟶ c) (x y : P.LZ.obj b) :
+    P.QZ c ((P.LZ.map γ).hom x) ((P.LZ.map γ).hom y) = P.QZ b x y := by
+  sorry
+
+theorem integralVariationPullback {B' : TopCat.{0}} (f : B' ⟶ B) (P : polarizedIntegralVariation B n) :
+    ∃ P' : polarizedIntegralVariation B' n, P'.LZ = FundamentalGroupoid.map f.hom ⋙ P.LZ := by
+  sorry
+
+/-- `integralVariationMk`. -/
+def integralVariationMk (LZ : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℤ B)
+    (free : ∀ b, Module.Free ℤ (LZ.obj b) ∧ Module.Finite ℤ (LZ.obj b))
+    (rational : RationalPolarizedVariation B n)
+    (ι : ∀ b : FundamentalGroupoid B, LZ.obj b →ₗ[ℤ] rational.LQ.obj b)
+    (isLattice : ∀ b, IsBaseChange ℚ (ι b))
+    (natural : ∀ {b c : FundamentalGroupoid B} (γ : b ⟶ c) (x : LZ.obj b),
+      (rational.LQ.map γ).hom (ι b x) = ι c ((LZ.map γ).hom x))
+    (QZ : ∀ b : FundamentalGroupoid B, LinearMap.BilinForm ℤ (LZ.obj b))
+    (compatible : ∀ (b : FundamentalGroupoid B) (x y : LZ.obj b),
+      rational.Q b (ι b x) (ι b y) = QZ b x y) :
+    polarizedIntegralVariation B n :=
+  ⟨LZ, free, rational, ι, isLattice, natural, QZ, compatible⟩
+
+theorem integralVariationExt (P P' : polarizedIntegralVariation B n) (h₁ : P.LZ = P'.LZ)
+    (h₂ : P.rational = P'.rational) (h₃ : HEq P.ι P'.ι) (h₄ : HEq P.QZ P'.QZ) :
+    P = P' := by
+  sorry
+
+end Variations
+
+section FiltrationParabolic
+
 variable {W : Type*} [AddCommGroup W] [Module ℂ W]
-    (ω : Hodge.Conjugation W) (n : ℤ) (H : ℤ → Submodule ℂ W)
-    (hH : Hodge.IsHodgeDecomposition ω n H)
-def hodgeOfRepresentation : Hodge.HodgeStructureOn W ω n := Hodge.HodgeStructureOn.ofDecomposition hH
-lemma hodgeOfRepresentationPiece (p : ℤ) : (hodgeOfRepresentation ω n H hH).piece p = H p := by sorry
-lemma hodgeOfRepresentationFiltration (p : ℤ) :
-    (hodgeOfRepresentation ω n H hH).F p = ⨆ q, ⨆ (_ : p ≤ q), H q := by sorry
-lemma hodgeOfRepresentationOpposed (p : ℤ) : IsCompl
-    ((hodgeOfRepresentation ω n H hH).F p)
-    (((hodgeOfRepresentation ω n H hH).F (n+1-p)).map ω.toEquiv.toLinearMap) := by sorry
-end PureComparison
--- TauCeti.Shimura.tests.pureTateFiltration
-example : (Hodge.tate 1).F (-1) = ⊤ ∧ (Hodge.tate 1).F 0 = ⊥ := by sorry
--- TauCeti.Shimura.tests.pureZero
-example (ω : Hodge.Conjugation (Fin 0 → ℂ)) (n p : ℤ)
-    (H : Hodge.HodgeStructureOn (Fin 0 → ℂ) ω n) : H.F p = ⊥ := by sorry
--- TauCeti.Shimura.tests.pureElliptic
-example {W : Type*} [AddCommGroup W] [Module ℂ W] (ω : Hodge.Conjugation W)
-    (H : Hodge.HodgeStructureOn W ω (-1)) (h : H.F (-1) = ⊤ ∧ H.F 1 = ⊥) :
-    H.piece 0 = H.F 0 := by sorry
 
-def gradedPiece {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) (p q : ℤ) : Submodule ℂ (ℂ ⊗[ℝ] V) :=
-  ((H.pure (p+q)).piece p).map ((H.weight (p+q)).subtype.baseChange ℂ)
+/-- **D3/filtration-parabolic.** The stabilizer of a filtration (of the Hodge filtration `F_h` in a
+faithful representation) in `GL(W)`. -/
+def filtrationParabolic (F : ℤ → Submodule ℂ W) : Subgroup (W ≃ₗ[ℂ] W) where
+  carrier := {g | ∀ p, (F p).map g.toLinearMap = F p}
+  mul_mem' := fun _ _ ↦ by sorry
+  one_mem' := fun _ ↦ by sorry
+  inv_mem' := fun _ ↦ by sorry
 
-/-- Unlike a bare linear map this result has the actual counit and coassociativity laws.
-R1's effective descent supplies its real coaction; the split formula determines it uniquely. -/
-def representationOfHodge {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) : Comodule ℝ Supplier.deligneCoordinate V := sorry
+/-- The endomorphisms preserving every step: `F⁰ End(W)`, the Lie algebra of the filtration
+parabolic. -/
+def filtrationEndZero (F : ℤ → Submodule ℂ W) : Set (Module.End ℂ W) :=
+  {A | ∀ p, F p ≤ (F p).comap A}
 
-def gradedRepresentation {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) : Supplier.SRep :=
-  letI := representationOfHodge H
-  FGComoduleCat.of (R := ℝ) (C := Supplier.deligneCoordinate) V
-lemma representationOfHodgePiece {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) (p q : ℤ) :
-    (representationPiece (gradedRepresentation H) p q).comap
-      (Supplier.splitCarrier (gradedRepresentation H)).toLinearMap = gradedPiece H p q := by sorry
-lemma representationOfHodgeReal {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) (p q : ℤ) :
-    (gradedPiece H p q).map (Hodge.complexificationConjugation V).toEquiv.toLinearMap =
-      gradedPiece H q p := by sorry
-lemma representationOfHodgeCounit {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) :
-    Coalgebra.counit.lTensor V ∘ₗ (representationOfHodge H).coact =
-      (TensorProduct.mk ℝ V ℝ).flip 1 := by sorry
+theorem filtrationParabolicLie (F : ℤ → Submodule ℂ W) (A : Module.End ℂ W) (hA : A ∈ filtrationEndZero F)
+    (B : Module.End ℂ W) (hB : B ∈ filtrationEndZero F) :
+    ⁅A, B⁆ ∈ filtrationEndZero F ∧ A + B ∈ filtrationEndZero F := by
+  sorry
 
-def gradedOfRepresentation (M : Supplier.SRep) : gradedRealHodge M := sorry
-lemma representationOfHodgePure {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) : gradedOfRepresentation (gradedRepresentation H) = H := by sorry
-lemma comparisonRoundtrip (M : Supplier.SRep) :
-    (representationOfHodge (gradedOfRepresentation M)).coact =
-      Comodule.coact (R := ℝ) (C := Supplier.deligneCoordinate) (M := M) := by sorry
+/-- `filtrationParabolicLevi`: if the filtration is split by a grading `W = ⊕ Wᵖ`,
+`Fᵖ = ⊕_{q ≥ p} W^q` (the weights of `μ_h`), the automorphisms preserving every `Wᵖ` (the centralizer
+of `μ_h`) lie in the filtration parabolic. -/
+theorem filtrationParabolicLevi (Wg : ℤ → Submodule ℂ W) (hW : DirectSum.IsInternal Wg)
+    (F : ℤ → Submodule ℂ W) (hF : ∀ p, F p = ⨆ q ≥ p, Wg q) (g : W ≃ₗ[ℂ] W)
+    (hg : ∀ p, (Wg p).map g.toLinearMap = Wg p) :
+    g ∈ filtrationParabolic F := by
+  sorry
 
-/-- Objects and morphisms of the new graded category, built on the existing pure carriers. -/
-structure GradedHodgeCat where
-  V : ModuleCat ℝ
-  finite : Module.Finite ℝ V
-  H : @GradedRealHodge V inferInstance inferInstance finite
-attribute [instance] GradedHodgeCat.finite
-structure GradedHodgeHom (H K : GradedHodgeCat) where
-  linear : H.V →ₗ[ℝ] K.V
-  preserves : ∀ p q, gradedPiece H.H p q ≤ (gradedPiece K.H p q).comap (linear.baseChange ℂ)
-instance gradedHodgeCategory : Category GradedHodgeCat where
-  Hom := GradedHodgeHom
-  id H := ⟨LinearMap.id, by sorry⟩
-  comp f g := ⟨g.linear.comp f.linear, by sorry⟩
-  id_comp := by sorry
-  comp_id := by sorry
-  assoc := by sorry
+theorem filtrationParabolicConjugate (F : ℤ → Submodule ℂ W) (g : W ≃ₗ[ℂ] W) :
+    filtrationParabolic (fun p ↦ (F p).map g.toLinearMap) =
+      (filtrationParabolic F).map (MulAut.conj g).toMonoidHom := by
+  sorry
 
-def representationHodgeFunctor : Supplier.SRep ⥤ GradedHodgeCat where
-  obj M := ⟨ModuleCat.of ℝ M, inferInstance, gradedOfRepresentation M⟩
-  map f := ⟨f.hom.toLinearMap, by sorry⟩
-  map_id := by sorry
-  map_comp := by sorry
-def hodgeRepresentationFunctor : GradedHodgeCat ⥤ Supplier.SRep where
-  obj H := gradedRepresentation H.H
-  map f := FGComoduleCat.ofHom ⟨f.linear, by sorry⟩
-  map_id := by sorry
-  map_comp := by sorry
-def representationHodgeEquivalence : Supplier.SRep ≌ GradedHodgeCat where
-  functor := representationHodgeFunctor
-  inverse := hodgeRepresentationFunctor
-  unitIso := sorry
-  counitIso := sorry
-  functor_unitIso_comp := by sorry
-lemma comparisonMorphism (M N : Supplier.SRep) (f : M ⟶ N) :
-    (representationHodgeEquivalence.functor.map f).linear =
-      ((forget₂ Supplier.SRep (SemimoduleCat ℝ)).map f).hom := by sorry
-lemma comparisonNaturality (M N : Supplier.SRep) (f : M ⟶ N) :
-    representationHodgeEquivalence.unitIso.hom.app M ≫
-      representationHodgeEquivalence.inverse.map (representationHodgeEquivalence.functor.map f) =
-      f ≫ representationHodgeEquivalence.unitIso.hom.app N := by sorry
+end FiltrationParabolic
 
-def gradedTensor (H K : GradedHodgeCat) : GradedHodgeCat := sorry
-def gradedDual (H : GradedHodgeCat) : GradedHodgeCat := sorry
-def gradedTateTwist (H : GradedHodgeCat) (m : ℤ) : GradedHodgeCat := sorry
-lemma tensorComparison (M N : Supplier.SRep) : Nonempty
-    (representationHodgeEquivalence.functor.obj (Supplier.repTensor M N) ≅
-      gradedTensor (representationHodgeEquivalence.functor.obj M) (representationHodgeEquivalence.functor.obj N)) := by sorry
-lemma dualComparison (M : Supplier.SRep) : Nonempty
-    (representationHodgeEquivalence.functor.obj (Supplier.repDual M) ≅
-      gradedDual (representationHodgeEquivalence.functor.obj M)) := by sorry
-lemma tateComparison (M : Supplier.SRep) (m : ℤ) : Nonempty
-    (representationHodgeEquivalence.functor.obj (Supplier.repTensor M (Supplier.normRep m)) ≅
-      gradedTateTwist (representationHodgeEquivalence.functor.obj M) m) := by sorry
--- TauCeti.Shimura.tests.inverseTrivial
-example : representationPiece (gradedRepresentation (tateGrading 0)) 0 0 = ⊤ := by sorry
--- TauCeti.Shimura.tests.inverseTate
-example : representationPiece (gradedRepresentation (tateGrading 1)) (-1) (-1) = ⊤ := by sorry
--- TauCeti.Shimura.tests.inverseTwoWeights
-example : Module.finrank ℂ (representationPiece (gradedRepresentation twoWeightGrading) 0 0) = 1 ∧
-    Module.finrank ℂ (representationPiece (gradedRepresentation twoWeightGrading) (-1) (-1)) = 1 := by sorry
+section CompactDual
 
-lemma weilOperatorSign {W : Type*} [AddCommGroup W] [Module ℂ W] {ω : Hodge.Conjugation W}
-    {n : ℤ} (H : Hodge.HodgeStructureOn W ω n) (hI : W →ₗ[ℂ] W)
-    (hh : ∀ p v, v ∈ H.piece p → hI v = Complex.I ^ (n-2*p) • v) :
-    hI.comp H.weilOperator = LinearMap.id := by sorry
+/-- **D3/compact-dual.** On points, the compact dual is the homogeneous space `G/P_h`. Left out: its
+structure of projective variety (ReductiveGroups layer 7) and complex manifold (LieGroups layer 8);
+`compactDualTangent` is a README target. -/
+abbrev compactDual (G : Type*) [Group G] (P : Subgroup G) : Type _ := G ⧸ P
 
-namespace Supplier
- abbrev RealSMap (O : CommHopfAlgCat ℚ) :=
-   CommHopfAlgCat.baseChange (K := ℝ) O ⟶ deligneCoordinate
- def gmCoordinate (k : Type*) [Field k] : CommHopfAlgCat k := sorry
- def inverseDiagonal : deligneCoordinate ⟶ gmCoordinate ℝ := sorry
- def weightMap {O : CommHopfAlgCat ℚ} (h : RealSMap O) :
-     CommHopfAlgCat.baseChange (K := ℝ) O ⟶ gmCoordinate ℝ := sorry
- abbrev GL (n : ℕ) := GeneralLinear.coordinateHopfAlgebra ℚ n
- def realCoordinates (n : ℕ) : (ℝ ⊗[ℚ] (Fin n → ℚ)) ≃ₗ[ℝ] (Fin n → ℝ) := sorry
- def rationalWeightPiece {n : ℕ} (h : RealSMap (GL n)) (m : ℤ) :
-     Submodule ℝ (Fin n → ℝ) := sorry
- def ellipticHodgeMap (τ : ℂ) (hτ : 0 < τ.im) : RealSMap (GL 2) := sorry
- def trivialHodgeMap : RealSMap (GL 1) := sorry
- def tateHodgeMap (m : ℤ) : RealSMap (GL 1) := sorry
- def ellipticHomology (τ : ℂ) (hτ : 0 < τ.im) : ModuleCat ℚ := sorry
- def ellipticHomologyHodge (τ : ℂ) (hτ : 0 < τ.im) : Supplier.SRep := sorry
- def mapRepresentation {n : ℕ} (h : RealSMap (GL n)) : Supplier.SRep := sorry
-end Supplier
--- Here real-to-rational descent is the conclusion. Scalar extension of the cocharacter
--- and of each rational subspace is retained; no coverage hypothesis replaces the iff.
-lemma rationalWeightCriterion {n : ℕ} (h : Supplier.RealSMap (Supplier.GL n)) :
-    (∃ w : Supplier.GL n ⟶ Supplier.gmCoordinate ℚ,
-       CommHopfAlgCat.baseChangeMap (K := ℝ) w = Supplier.weightMap h) ↔
-    ∃ W : ℤ → Submodule ℚ (Fin n → ℚ), DirectSum.IsInternal W ∧
-      ∀ m, ((W m).baseChange ℝ).map (Supplier.realCoordinates n).toLinearMap = Supplier.rationalWeightPiece h m := by sorry
-lemma testObjects : (Hodge.tate 0).piece 0 = ⊤ := by sorry
-lemma tateTestObject : (Hodge.tate 1).piece (-1) = ⊤ := by sorry
--- The geometric comparison uses H₁(C/(Z+τZ),Q), supplied by H0. No matrix action is
--- passed off as that homology object. The result is an isomorphism of S-comodules.
-lemma ellipticHomologyObject (τ : ℂ) (hτ : 0 < τ.im) : Nonempty
-    (Supplier.ellipticHomologyHodge τ hτ ≅ Supplier.mapRepresentation (Supplier.ellipticHodgeMap τ hτ)) := by sorry
-private def ellipticMu (z : ℂ) : Matrix (Fin 2) (Fin 2) ℂ := Matrix.diagonal ![z,1]
-lemma adjointGl2Object (z : ℂ) (hz : z ≠ 0) :
-    ellipticMu z * !![0,1;0,0] * ellipticMu z⁻¹ = z • !![0,1;0,0] ∧
-    ellipticMu z * !![0,0;1,0] * ellipticMu z⁻¹ = z⁻¹ • !![0,0;1,0] := by sorry
+theorem compactDualBasepoint {G : Type*} [Group G] (P : Subgroup G) :
+    MulAction.stabilizer G ((1 : G) : compactDual G P) = P := by
+  sorry
 
-/- The Hopf ideal is the ideal of the rational algebraic subgroup, with reverse subgroup
-order. Its quotient is the coordinate algebra of MT. Hopf ideal suprema already exist;
-R0/R3 still owe finite-type subgroup representability and identification with MT(V). -/
-def mumfordTateGroup (O : CommHopfAlgCat ℚ) (h : Supplier.RealSMap O) : HopfIdeal ℚ O :=
-  sSup {I | ∀ a ∈ I, h.hom (1 ⊗ₜ[ℚ] a) = 0}
-lemma mumfordTateMinimal (O : CommHopfAlgCat ℚ) (h : Supplier.RealSMap O)
-    (I : HopfIdeal ℚ O) (hI : ∀ a ∈ I, h.hom (1 ⊗ₜ[ℚ] a) = 0) :
-    I ≤ mumfordTateGroup O h := by sorry
-lemma mumfordTateWeight (O : CommHopfAlgCat ℚ) (h : Supplier.RealSMap O) :
-    ∀ a ∈ mumfordTateGroup O h, (Supplier.weightMap h).hom (1 ⊗ₜ[ℚ] a) = 0 := by sorry
-lemma mumfordTateIsomorphism (O P : CommHopfAlgCat ℚ) (e : O ≅ P) (h : Supplier.RealSMap P)
-    (a : O) : a ∈ mumfordTateGroup O (CommHopfAlgCat.baseChangeMap (K := ℝ) e.hom ≫ h) ↔
-      e.hom a ∈ mumfordTateGroup P h := by sorry
-namespace Supplier
- def mtCoordinate (O : CommHopfAlgCat ℚ) [Algebra.FiniteType ℚ O] (h : RealSMap O) : FiniteTypeCommHopfAlgCat ℚ := sorry
- def identitySubgroupIdeal (O : CommHopfAlgCat ℚ) : HopfIdeal ℚ O := sorry
- def cmEllipticIdeal : HopfIdeal ℚ (GL 2) := sorry
-end Supplier
--- TauCeti.Shimura.tests.mtTrivial
-example : mumfordTateGroup (Supplier.GL 1) Supplier.trivialHodgeMap =
-    Supplier.identitySubgroupIdeal (Supplier.GL 1) := by sorry
--- TauCeti.Shimura.tests.mtTate
-example : mumfordTateGroup (Supplier.GL 1) (Supplier.tateHodgeMap 1) = ⊥ := by sorry
--- TauCeti.Shimura.tests.mtCmElliptic
-example : mumfordTateGroup (Supplier.GL 2) (Supplier.ellipticHodgeMap Complex.I (by sorry)) =
-    Supplier.cmEllipticIdeal ∧ Supplier.cmEllipticIdeal ≠ ⊥ := by sorry
-lemma mumfordTateConnected (O : CommHopfAlgCat ℚ) [Algebra.FiniteType ℚ O] (h : Supplier.RealSMap O) :
-    geometricallyConnectedCommHopfAlgProperty ℚ (Supplier.mtCoordinate O h).obj := by sorry
--- Polarizability/semisimplicity of the rational Hodge representation is a required H1/R6
--- supplier hypothesis omitted here. The conclusion is about this MT, not an arbitrary Hmt.
-lemma mumfordTateReductive (O : CommHopfAlgCat ℚ) [Algebra.FiniteType ℚ O] (h : Supplier.RealSMap O) :
-    reductiveCommHopfAlgProperty ℚ (Supplier.mtCoordinate O h) := by sorry
+theorem compactDualChangePoint {G : Type*} [Group G] (P : Subgroup G) (g : G) :
+    MulAction.stabilizer G ((g : G) : compactDual G P) = P.map (MulAut.conj g).toMonoidHom := by
+  sorry
 
-namespace Supplier
- structure PolarizedH1 where
-   rank : ℕ
-   h : RealSMap (GL rank)
-   psi : LinearMap.BilinForm ℚ (Fin rank → ℚ)
-   alternating : ∀ v, psi v v = 0
-   nondegenerate : psi.Nondegenerate
- -- The weight-one Hodge object, its compatibility with h, and the full Hodge–Riemann
- -- polarization condition on psi are omitted H0/H1 supplier hypotheses, not implied
- -- by alternating/nondegenerate. These suppliers include that geometric input.
- def ellipticH1 (τ : ℂ) (hτ : 0 < τ.im) : PolarizedH1 := sorry
- -- H¹(E_i × E_i,Q) with the product polarization.
- def productEllipticH1 : PolarizedH1 := sorry
- def similitudeIdeal {n : ℕ} (ψ : LinearMap.BilinForm ℚ (Fin n → ℚ)) : HopfIdeal ℚ (GL n) := sorry
- def basisChangeH1 (A : PolarizedH1) (e : (Fin A.rank → ℚ) ≃ₗ[ℚ] (Fin A.rank → ℚ)) : PolarizedH1 := sorry
- def realHodgeComodule {n : ℕ} (h : RealSMap (GL n)) :
-     Comodule ℝ deligneCoordinate (Fin n → ℝ) := sorry
- def realLinearMap {m n : ℕ} (f : (Fin m → ℚ) →ₗ[ℚ] (Fin n → ℚ)) :
-     (Fin m → ℝ) →ₗ[ℝ] (Fin n → ℝ) := sorry
- structure RationalHodgeIsogeny (A B : PolarizedH1) where
-   linear : (Fin A.rank → ℚ) ≃ₗ[ℚ] (Fin B.rank → ℚ)
-   respects : (realHodgeComodule B.h).coact.comp (realLinearMap linear.toLinearMap) =
-     (TensorProduct.map (realLinearMap linear.toLinearMap) LinearMap.id).comp
-       (realHodgeComodule A.h).coact
-end Supplier
+/-- The Lagrangian subspaces of `ℂ^{2g}` for the standard alternating form pairing `i` with `g+i`. -/
+def IsLagrangian (g : ℕ) (L : Submodule ℂ (Fin (g + g) → ℂ)) : Prop :=
+  Module.finrank ℂ L = g ∧
+    ∀ x ∈ L, ∀ y ∈ L, ∑ i : Fin g, (x (Fin.castAdd g i) * y (Fin.natAdd g i) -
+      x (Fin.natAdd g i) * y (Fin.castAdd g i)) = 0
 
-def hodgeGeneric (A : Supplier.PolarizedH1) : Prop :=
-  mumfordTateGroup (Supplier.GL A.rank) A.h = Supplier.similitudeIdeal A.psi
-lemma hodgeGenericBasis (A : Supplier.PolarizedH1)
-    (e : (Fin A.rank → ℚ) ≃ₗ[ℚ] (Fin A.rank → ℚ)) :
-    hodgeGeneric (Supplier.basisChangeH1 A e) ↔ hodgeGeneric A := by sorry
-lemma hodgeGenericIsogeny (A B : Supplier.PolarizedH1) (e : Supplier.RationalHodgeIsogeny A B) :
-    hodgeGeneric A ↔ hodgeGeneric B := by sorry
-lemma hodgeGenericElliptic (τ : ℂ) (hτ : 0 < τ.im) :
-    hodgeGeneric (Supplier.ellipticH1 τ hτ) ↔
-      ¬ ∃ a b c : ℚ, a ≠ 0 ∧ (a : ℂ)*τ^2 + b*τ + c = 0 := by sorry
--- TauCeti.Shimura.tests.genericCmFalse
-example : ¬ hodgeGeneric (Supplier.ellipticH1 Complex.I (by sorry)) := by sorry
--- TauCeti.Shimura.tests.genericNonCmElliptic
-example (τ : ℂ) (hτ : 0 < τ.im) (htrans : ¬ IsAlgebraic ℚ τ) :
-    hodgeGeneric (Supplier.ellipticH1 τ hτ) := by sorry
--- TauCeti.Shimura.tests.genericProductFalse
-example : ¬ hodgeGeneric Supplier.productEllipticH1 := by sorry
+end CompactDual
+
+section Kostant
+
+variable {B W : Type*} [Group W] {M : CoxeterMatrix B} (cs : CoxeterSystem M W)
+
+/-- The standard parabolic subgroup `W_J` generated by the simple reflections in `J`. -/
+def parabolicSubgroup (J : Set B) : Subgroup W := Subgroup.closure (cs.simple '' J)
+
+/-- **D3/kostant-representatives.** `^J W`: the minimal-length representatives of the left cosets
+`W_J \ W`. -/
+def kostantRepresentatives (J : Set B) : Set W :=
+  {w | ∀ u ∈ parabolicSubgroup cs J, cs.length w ≤ cs.length (u * w)}
+
+theorem kostantUnique (J : Set B) (w : W) :
+    ∃! v, v ∈ kostantRepresentatives cs J ∧ ∃ u ∈ parabolicSubgroup cs J, w = u * v := by
+  sorry
+
+/-- `kostantPositive`: in Coxeter terms `w⁻¹ α_s > 0` for the simple roots of the Levi is the absence
+of left descents in `J`. -/
+theorem kostantPositive (J : Set B) (w : W) :
+    w ∈ kostantRepresentatives cs J ↔ ∀ j ∈ J, ¬ cs.IsLeftDescent w j := by
+  sorry
+
+theorem kostantLengthAdd (J : Set B) (u w : W) (hu : u ∈ parabolicSubgroup cs J)
+    (hw : w ∈ kostantRepresentatives cs J) : cs.length (u * w) = cs.length u + cs.length w := by
+  sorry
+
+/-- **D3/kostant-involution.** With `w₀` longest in `W` and `w₀,J` longest in `W_J`,
+`w ↦ w₀,J w w₀` preserves `^J W`, is an involution, and `ℓ(w₀,J w w₀) = ℓ(w₀) − ℓ(w₀,J) − ℓ(w)`. -/
+theorem kostantInvolution (J : Set B) (w₀ w₀J : W) (h₀ : ∀ v, cs.length v ≤ cs.length w₀)
+    (hJ : w₀J ∈ parabolicSubgroup cs J) (h₀J : ∀ v ∈ parabolicSubgroup cs J, cs.length v ≤ cs.length w₀J)
+    (w : W) (hw : w ∈ kostantRepresentatives cs J) :
+    w₀J * w * w₀ ∈ kostantRepresentatives cs J ∧ w₀J * (w₀J * w * w₀) * w₀ = w ∧
+      cs.length (w₀J * w * w₀) + cs.length w + cs.length w₀J = cs.length w₀ := by
+  sorry
+
+end Kostant
+
+section KostantCones
+
+variable {ι R M N : Type*} [Finite ι] [Field R] [LinearOrder R] [IsStrictOrderedRing R]
+  [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+  (P : RootPairing ι R M N) (b : P.Base)
+
+/-- The dominant chamber of `X*(T) ⊗ R`. -/
+def dominantChamber : Set M := {x | ∀ i ∈ b.support, 0 ≤ P.toLinearMap x (P.coroot i)}
+
+/-- The Levi dominant chamber for the simple roots `J ⊆ b.support` of `M`. -/
+def leviChamber (J : Set ι) : Set M := {x | ∀ i ∈ J, 0 ≤ P.toLinearMap x (P.coroot i)}
+
+/-- `kostantKostantIndex` / root form of `^M W`: the Weyl elements `w` with `w⁻¹ α > 0` for every
+simple root `α` of `M`; this is the index set `W^P` of ArithmeticLocallySymmetricSpaces §ALS.4.5. -/
+def kostantKostantIndex [CharZero R] [P.IsCrystallographic] (J : Set ι) : Set P.weylGroup :=
+  {w | ∀ i ∈ J, b.IsPos (P.weylGroupToPerm w⁻¹ i)}
+
+/-- **D3/kostant-cone-criterion.** `w(X⁺) ⊆ X^{+,M}` iff `w⁻¹ Φ_M⁺ ⊆ Φ⁺`. -/
+theorem kostantConeCriterion [CharZero R] [P.IsCrystallographic] (J : Set ι) (hJ : J ⊆ b.support)
+    (w : P.weylGroup) :
+    (∀ x ∈ dominantChamber P b, w • x ∈ leviChamber P J) ↔ w ∈ kostantKostantIndex P b J := by
+  sorry
+
+/-- **D3/kostant-cones.** `X^{+,M} = ⋃_{w ∈ ^M W} w X⁺`, boundary weights included. -/
+theorem kostantCones [CharZero R] [P.IsCrystallographic] (J : Set ι) (hJ : J ⊆ b.support) :
+    leviChamber P J = ⋃ w ∈ kostantKostantIndex P b J, (fun x ↦ w • x) '' dominantChamber P b := by
+  sorry
+
+end KostantCones
 
 
-/- D2 supplier carriers for the geometric conclusions. The topology of X is the real
-homogeneous quotient topology. Real group/Lie comparisons, SV1–SV2 and integration of
-F⁰g are the explicit ALS/LieGroups prerequisites, omitted where no common API exists. -/
-open scoped Manifold
-abbrev ComplexModel (d : ℕ) := EuclideanSpace ℂ (Fin d)
-structure ComplexManifoldOn (X : Type*) [TopologicalSpace X] (d : ℕ) where
-  charts : ChartedSpace (ComplexModel d) X
-  manifold : letI := charts; IsManifold (𝓘(ℂ, ComplexModel d)) 1 X
+/-! ## D5. Hilbert data, Siegel and genus-two coordinates, adelic neatness -/
 
-def Holomorphic {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y] {d e : ℕ}
-    (A : ComplexManifoldOn X d) (B : ComplexManifoldOn Y e) (f : X → Y) : Prop :=
-  letI := A.charts
-  letI := B.charts
-  MDifferentiable (𝓘(ℂ, ComplexModel d)) (𝓘(ℂ, ComplexModel e)) f
+section HilbertData
 
-/-- Bounded-domain realization with actual holomorphic point symmetries. Dimension zero
-uses the open singleton in C⁰. These are outputs, not premises of the domain theorem. -/
-structure BoundedSymmetricDomain (d : ℕ) where
-  domain : Set (ComplexModel d)
-  open_domain : IsOpen domain
-  connected : IsConnected domain
-  bounded : Bornology.IsBounded domain
-  symmetry : ∀ z : domain, domain ≃ₜ domain
-  holomorphic : ∀ z : domain, DifferentiableOn ℂ
-    (fun w => if hw : w ∈ domain then (symmetry z ⟨w,hw⟩).val else 0) domain
-  involutive : ∀ z : domain, Function.Involutive (symmetry z)
-  fixes : ∀ z : domain, symmetry z z = z
-  differential : ∀ z : domain, fderiv ℂ
-    (fun w => if hw : w ∈ domain then (symmetry z ⟨w,hw⟩).val else 0) z.val =
-      -ContinuousLinearMap.id ℂ _
-namespace Supplier
- def complexStructureOperator {X : Type*} [TopologicalSpace X] {d : ℕ}
-     (A : ComplexManifoldOn X d) (x : X) :
-     letI := A.charts
-     Module.End ℝ (TangentSpace (𝓘(ℝ, ComplexModel d)) x) := sorry
- def orbitTangent {X : Type*} [TopologicalSpace X] (x : X) : ModuleCat ℝ := sorry
-end Supplier
+/-- The domain `ℍ^±` of the `GL₂` datum: complex numbers off the real line. -/
+abbrev upperLowerHalfPlanes : Type := {z : ℂ // z.im ≠ 0}
 
-section Tangent
-variable {T : Type*} [AddCommGroup T] [Module ℝ T] [FiniteDimensional ℝ T]
-    (H : Hodge.HodgeStructureOn (ℂ ⊗[ℝ] T) (Hodge.complexificationConjugation T) 0)
-def hodgeTangentOperator : T →ₗ[ℝ] T := sorry
-lemma hodgeTangentSquare (h0 : H.piece 0 = ⊥)
-    (hother : ∀ p : ℤ, p ≠ -1 → p ≠ 1 → H.piece p = ⊥) :
-    (hodgeTangentOperator H).comp (hodgeTangentOperator H) = -LinearMap.id := by sorry
-lemma hodgeTangentPositive (v : ℂ ⊗[ℝ] T) (hv : v ∈ H.piece (-1)) :
-    (hodgeTangentOperator H).baseChange ℂ v = Complex.I • v := by sorry
-lemma hodgeTangentEquivariant (a : T ≃ₗ[ℝ] T)
-    (ha : ∀ p, (H.piece p).map (a.toLinearMap.baseChange ℂ) = H.piece p) :
-    a.toLinearMap.comp (hodgeTangentOperator H) = (hodgeTangentOperator H).comp a.toLinearMap := by sorry
--- TauCeti.Shimura.tests.tangentGl2
-example (e : T ≃ₗ[ℝ] ℂ) (h : ∀ v, e (hodgeTangentOperator H v) = Complex.I * e v) :
-    ∀ v, e ((hodgeTangentOperator H).comp (hodgeTangentOperator H) v) = -e v := by sorry
--- TauCeti.Shimura.tests.tangentTorus
-example [Subsingleton T] : hodgeTangentOperator H = 0 := by sorry
--- TauCeti.Shimura.tests.tangentProduct
-example (J K : T →ₗ[ℝ] T) (hJ : J.comp J = -LinearMap.id)
-    (hK : K.comp K = -LinearMap.id) :
-    (J.prodMap K).comp (J.prodMap K) = -LinearMap.id := by sorry
-end Tangent
+/-- **D5/hilbert-datum.** On points, the domain of the restriction-of-scalars Hilbert datum of a
+totally real field of degree `d`: one copy of `ℍ^±` per real embedding. Left out: the datum
+itself (ShimuraVarieties §P.1), its reflex field and its compact dual (`hilbertReflexDual`). -/
+abbrev hilbertDatum (d : ℕ) : Type := Fin d → upperLowerHalfPlanes
 
-lemma cartanAdjointCriterion {𝔤 : Type*} [AddCommGroup 𝔤] [Module ℝ 𝔤]
-    (B : 𝔤 →ₗ[ℝ] 𝔤 →ₗ[ℝ] ℝ) (θ : 𝔤 ≃ₗ[ℝ] 𝔤) :
-    (∀ x, x ≠ 0 → 0 < -B x (θ x)) ↔ (∀ x, x ≠ 0 → B x (θ x) < 0) := by sorry
-lemma shimuraCartanInvolution {G : Type*} [Group G] (h : ℂˣ →* G)
-    (i : ℂˣ) (hi : i*i = -1) (hz : h (-1) ∈ Subgroup.center G) :
-    ∀ g, h i * (h i * g * (h i)⁻¹) * (h i)⁻¹ = g := by sorry
-lemma stabilizerH {G : Type*} [Group G] (h : ℂˣ →* G) (g : G) :
-    (∀ z, g * h z * g⁻¹ = h z) ↔ g ∈ Subgroup.centralizer (Set.range h) := by sorry
--- δ is the differential of the orbit map, not the quotient projection. Exactness and
--- local quotient chart identifications are L2/AF supplier hypotheses.
-lemma tangentQuotient {𝔤 : Type*} [AddCommGroup 𝔤] [Module ℝ 𝔤]
-    {X : Type*} [TopologicalSpace X] (h : X) (𝔨 : Submodule ℝ 𝔤)
-    (δ : 𝔤 →ₗ[ℝ] Supplier.orbitTangent h)
-    (kerδ : δ.ker = 𝔨) (ontoδ : Function.Surjective δ) :
-    ∃ e : (𝔤 ⧸ 𝔨) ≃ₗ[ℝ] Supplier.orbitTangent h, e.toLinearMap.comp 𝔨.mkQ = δ := by sorry
--- Equivariance is the hypothesis. Scalar eigen-equations characterize the pieces; degree
--- addition follows by bilinearity, not by assuming closure of those same pieces.
-lemma adjointBracket {𝔤 : Type*} [LieRing 𝔤] [LieAlgebra ℂ 𝔤]
-    (ρ : (ℂˣ × ℂˣ) →* (𝔤 ≃ₗ[ℂ] 𝔤))
-    (equivariant : ∀ z x y, ρ z ⁅x,y⁆ = ⁅ρ z x, ρ z y⁆)
-    (p q r s : ℤ) (x y : 𝔤)
-    (hx : ∀ z, ρ z x = (z.1^(-p)*z.2^(-q) : ℂˣ) • x)
-    (hy : ∀ z, ρ z y = (z.1^(-r)*z.2^(-s) : ℂˣ) • y) :
-    ∀ z, ρ z ⁅x,y⁆ = (z.1^(-(p+r))*z.2^(-(q+s)) : ℂˣ) • ⁅x,y⁆ := by sorry
-lemma filtrationLieSubalgebra {𝔤 : Type*} [LieRing 𝔤] [LieAlgebra ℂ 𝔤]
-    (F : ℤ → Submodule ℂ 𝔤)
-    (hF : ∀ p q x y, x ∈ F p → y ∈ F q → ⁅x,y⁆ ∈ F (p+q)) :
-    ∀ x y, x ∈ F 0 → y ∈ F 0 → ⁅x,y⁆ ∈ F 0 := by sorry
+/-- `hilbertDomain`: the domain has `2^d` connected components. -/
+theorem hilbertDomain (d : ℕ) : Nat.card (ConnectedComponents (hilbertDatum d)) = 2 ^ d := by
+  sorry
 
--- Complete geometric conclusion. X is the specified h-orbit, and H is its adjoint
--- quotient Hodge structure. The R0/L2 identification T_hX = g/k and the L4 complex
--- quotient input relating F⁰g to charts are omitted hypotheses, not alternative conclusions.
-lemma hodgeIntegrability {X : Type*} [TopologicalSpace X] (d : ℕ) (h : X)
-    {T : Type*} [AddCommGroup T] [Module ℝ T] [FiniteDimensional ℝ T]
-    (H : Hodge.HodgeStructureOn (ℂ ⊗[ℝ] T) (Hodge.complexificationConjugation T) 0)
-    (h0 : H.piece 0 = ⊥)
-    (hother : ∀ p : ℤ, p ≠ -1 → p ≠ 1 → H.piece p = ⊥) :
-    ∃ A : ComplexManifoldOn X d,
-      letI := A.charts
-      ∃ e : T ≃ₗ[ℝ] TangentSpace (𝓘(ℝ, ComplexModel d)) h,
-        ∀ v, e (hodgeTangentOperator H v) = Supplier.complexStructureOperator A h (e v) := by sorry
--- The orbit has the subspace topology in the function space of real points. The faithful
--- algebraic representation and local quotient-chart comparison are omitted supplier
--- hypotheses. Closed-subgroup separation and second countability are already in Mathlib.
-def realHodgeOrbit {G : Type*} [Group G] [TopologicalSpace G] (h : ℂˣ →* G) :=
-  {φ : ℂˣ → G // ∃ g : G, ∀ z, φ z = g * h z * g⁻¹}
-lemma quotientSeparation {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-    [SecondCountableTopology G] (h : ℂˣ →* G)
-    (hK : IsClosed (Subgroup.centralizer (Set.range h) : Set G)) :
-    T2Space (G ⧸ Subgroup.centralizer (Set.range h)) ∧
-    SecondCountableTopology (G ⧸ Subgroup.centralizer (Set.range h)) ∧
-    ∃ e : (G ⧸ Subgroup.centralizer (Set.range h)) ≃ₜ realHodgeOrbit h,
-      ∀ g z, (e (QuotientGroup.mk g)).val z = g * h z * g⁻¹ := by sorry
-lemma compactRealFactor {T : Type*} [AddCommGroup T] [Module ℝ T]
-    (J : T →ₗ[ℝ] T) (hJ : J.comp J = -LinearMap.id) (htriv : J = 0) :
-    ∀ x : T, x = 0 := by sorry
-lemma hodgeOrbitFiniteComponents {G X : Type*} [TopologicalSpace G]
-    [TopologicalSpace X] [Finite (ConnectedComponents G)] (orbit : G → X)
-    (hcont : Continuous orbit) (hsurj : Function.Surjective orbit) :
-    Finite (ConnectedComponents X) := by sorry
+/-- The standard `GL₂` Hodge map `a + ib ↦ [[a, b], [−b, a]]` on real points. -/
+def gl2HodgeMap (z : ℂ) : Matrix (Fin 2) (Fin 2) ℝ := !![z.re, z.im; -z.im, z.re]
 
-namespace Supplier
- def componentAtlas {X : Type*} [TopologicalSpace X] {d : ℕ}
-     (A : ComplexManifoldOn X d) (x : X) :
-     ComplexManifoldOn {y : X // y ∈ connectedComponent x} d := sorry
- def boundedDomainAtlas {d : ℕ} (D : BoundedSymmetricDomain d) :
-     ComplexManifoldOn D.domain d := sorry
-end Supplier
--- SV1–SV3, Cartan symmetric-space comparisons, the actual orbit dimension and the
--- holomorphic quotient comparison are missing supplier hypotheses. Each component
--- is realized by a bounded symmetric domain, including C⁰ for a point factor.
-lemma hermitianDomainComponents {X : Type*} [TopologicalSpace X] (d : ℕ)
-    (A : ComplexManifoldOn X d) :
-    Finite (ConnectedComponents X) ∧
-    ∀ x : X, ∃ D : BoundedSymmetricDomain d,
-      ∃ e : {y : X // y ∈ connectedComponent x} ≃ₜ D.domain,
-        Holomorphic (Supplier.componentAtlas A x) (Supplier.boundedDomainAtlas D) e ∧
-        Holomorphic (Supplier.boundedDomainAtlas D) (Supplier.componentAtlas A x) e.symm := by sorry
--- The faithful filtration map is the actual period/flag map supplied from its S-action.
--- The tangent faithfulness/tensor-generation conditions are omitted. Compatible atlases,
--- rather than equality of arbitrary chosen chart atlases, express uniqueness.
-lemma uniqueComplexStructure {X F : Type*} [TopologicalSpace X] [TopologicalSpace F]
-    {d e : ℕ} (A K : ComplexManifoldOn X d) (flagAtlas : ComplexManifoldOn F e)
-    (period : X → F) (hA : Holomorphic A flagAtlas period)
-    (hK : Holomorphic K flagAtlas period) :
-    Holomorphic A K id ∧ Holomorphic K A id := by sorry
+/-- `hilbertDeterminantMap`: at each real embedding the determinant of the Hodge map is the norm
+`z z̄`, so `Res(det)` carries the Hilbert datum to the norm torus datum. -/
+theorem hilbertDeterminantMap (d : ℕ) (z : ℂ) :
+    (fun _ : Fin d ↦ (gl2HodgeMap z).det) = fun _ ↦ Complex.normSq z := by
+  sorry
 
-/- D3 analytic supplier sketch. Flat frames are glued by locally constant complex-linear
-transition functions obtained from the real local system. This describes L⊗O_B and its
-connection, rather than just its fibers. The general sheaf/vector-bundle realization and
-comparison with Mathlib VectorBundleCore are the explicitly open analytic supplier leaf. -/
-namespace Supplier
-abbrev RealFiber {B : TopCat} (L : LocalCoefficientSystem ℝ B) (b : B) :=
-  L.obj (FundamentalGroupoid.mk b)
-abbrev ComplexFiber {B : TopCat} (L : LocalCoefficientSystem ℝ B) (b : B) :=
-  ℂ ⊗[ℝ] RealFiber L b
-structure FlatHolomorphicBundle (B : TopCat) {d : ℕ} (A : ComplexManifoldOn B d) where
-  L : LocalCoefficientSystem ℝ B
-  finite : ∀ b, Module.Finite ℝ (RealFiber L b)
-  index : Type
-  cover : index → Set B
-  open_cover : ∀ i, IsOpen (cover i)
-  covers : ∀ b, ∃ i, b ∈ cover i
-  rank : index → ℕ
-  frame : ∀ i b, b ∈ cover i → ComplexFiber L b ≃ₗ[ℂ] (Fin (rank i) → ℂ)
-  flat_transition : ∀ i j, IsLocallyConstant
-    (fun b : cover i ∩ cover j =>
-      (frame j b b.property.2).symm.trans (frame i b b.property.1))
-  transport_frame : ∀ i (b c : B) (hb : b ∈ cover i) (hc : c ∈ cover i)
-    (γ : Path b c) (hγ : Set.range γ ⊆ cover i),
-    (frame i c hc).toLinearMap ∘ₗ
-      (LocalCoefficientSystem.transport L (Path.Homotopic.Quotient.mk γ)).toLinearMap.baseChange ℂ =
-      (frame i b hb).toLinearMap
-attribute [instance] FlatHolomorphicBundle.finite
+/-- **D5/hilbert-star-datum.** The domain of the scalar-determinant datum `G*` (PELModuli §M5.4)
+inside `hilbertDatum d`: the all-upper and all-lower tuples. -/
+def hilbertStarDatum (d : ℕ) : Set (hilbertDatum d) :=
+  {x | (∀ i, 0 < (x i).1.im) ∨ ∀ i, (x i).1.im < 0}
 
-def localCoordinate {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d}
-    (E : FlatHolomorphicBundle B A) (i : E.index) (s : ∀ b, ComplexFiber E.L b)
-    (b : B) : Fin (E.rank i) → ℂ :=
-  if hb : b ∈ E.cover i then E.frame i b hb (s b) else 0
+theorem hilbertStarPoints (d : ℕ) (g : Fin d → GL (Fin 2) ℝ) :
+    (∃ t : ℝ, ∀ i, ((g i).det : ℝ) = t) ↔ ∀ i j, ((g i).det : ℝ) = (g j).det := by
+  sorry
 
-def HolomorphicSectionOn {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d}
-    (E : FlatHolomorphicBundle B A) (U : Set B) (s : ∀ b, ComplexFiber E.L b) : Prop :=
-  letI := A.charts
-  ∀ i, MDifferentiableOn (𝓘(ℂ, ComplexModel d)) (𝓘(ℂ, Fin (E.rank i) → ℂ))
-    (localCoordinate E i s) (U ∩ E.cover i)
--- Defined in flat coordinates by d; cocycle/flatness and sheaf restriction/gluing are
--- analytic supplier results. This is a connection on local holomorphic sections.
-def connection {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d}
-    (E : FlatHolomorphicBundle B A) (s : ∀ b, ComplexFiber E.L b) (b : B) :
-    ComplexModel d →ₗ[ℂ] ComplexFiber E.L b := sorry
+theorem hilbertStarDomain (d : ℕ) (hd : 0 < d) :
+    Nat.card (ConnectedComponents (hilbertStarDatum d)) = 2 := by
+  sorry
 
-def flatBundleOfLocalSystem {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    (L : LocalCoefficientSystem ℝ B) (finite : ∀ b, Module.Finite ℝ (RealFiber L b)) :
-    FlatHolomorphicBundle B A := sorry
-end Supplier
+/-- `hilbertStarInclusion`: on real points the inclusion `G*(ℝ) → G(ℝ)` is injective and lands in
+the tuples of common determinant. -/
+theorem hilbertStarInclusion (d : ℕ) :
+    Function.Injective (fun x : hilbertStarDatum d ↦ (x : hilbertDatum d)) := by
+  sorry
 
-structure FilteredFlatBundle (B : TopCat) {d : ℕ} (A : ComplexManifoldOn B d) (n : ℤ) where
-  flat : Supplier.FlatHolomorphicBundle B A
-  fiber : ∀ b, Hodge.HodgeStructureOn (Supplier.ComplexFiber flat.L b)
-    (Hodge.complexificationConjugation (Supplier.RealFiber flat.L b)) n
-  filtrationRank : flat.index → ℤ → ℕ
-  filtrationFrame : ∀ i p, Fin (filtrationRank i p) → ∀ b, Supplier.ComplexFiber flat.L b
-  holomorphicFrame : ∀ i p k, Supplier.HolomorphicSectionOn flat (flat.cover i) (filtrationFrame i p k)
-  spans : ∀ i p b, b ∈ flat.cover i →
-    Submodule.span ℂ (Set.range (fun k => filtrationFrame i p k b)) = (fiber b).F p
-  independent : ∀ i p b, b ∈ flat.cover i → LinearIndependent ℂ (fun k => filtrationFrame i p k b)
+end HilbertData
 
-def HorizontalBundle {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (F : FilteredFlatBundle B A n) : Prop :=
-  ∀ U, IsOpen U → ∀ p s, Supplier.HolomorphicSectionOn F.flat U s →
-    (∀ b ∈ U, s b ∈ (F.fiber b).F p) →
-    ∀ b ∈ U, ∀ t, Supplier.connection F.flat s b t ∈ (F.fiber b).F (p-1)
-structure Variation (B : TopCat) {d : ℕ} (A : ComplexManifoldOn B d) (n : ℤ) where
-  filtered : FilteredFlatBundle B A n
-  horizontal : HorizontalBundle filtered
-abbrev variation := Variation
+section SiegelCoordinates
 
-def variationMk {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (F : FilteredFlatBundle B A n) (h : HorizontalBundle F) : variation B A n := ⟨F,h⟩
-lemma variationExt {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : variation B A n) (h : H.filtered = K.filtered) : H = K := by sorry
-lemma variationFiber {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : variation B A n) (b : B) (p : ℤ) :
-    IsCompl ((H.filtered.fiber b).F p) (((H.filtered.fiber b).F (n+1-p)).map
-      (Hodge.complexificationConjugation (Supplier.RealFiber H.filtered.flat.L b)).toEquiv.toLinearMap) := by sorry
-structure VariationHom {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : variation B A n) where
-  localMap : H.filtered.flat.L ⟶ K.filtered.flat.L
-  filtration : ∀ b p, (H.filtered.fiber b).F p ≤ ((K.filtered.fiber b).F p).comap
-    ((localMap.app (FundamentalGroupoid.mk b)).hom.baseChange ℂ)
-  connection : ∀ s b t,
-    (localMap.app (FundamentalGroupoid.mk b)).hom.baseChange ℂ
-      (Supplier.connection H.filtered.flat s b t) =
-    Supplier.connection K.filtered.flat
-      (fun c => (localMap.app (FundamentalGroupoid.mk c)).hom.baseChange ℂ (s c)) b t
+/-- **D5/siegel-reflex-dual.** The Siegel cocharacter `z ↦ diag(z I_g, I_g)` is a symplectic
+similitude with multiplier `z` for the form pairing `i` with `g + i`; it is defined over `ℚ`, so its
+filtration parabolic stabilizes the Lagrangian of the first `g` vectors. Left out: the
+identification of the compact dual with `LG(g,2g)` as a variety (README). -/
+theorem siegelReflexDual (g : ℕ) {K : Type*} [Field K] (z : K) :
+    let μ : Matrix (Fin (g + g)) (Fin (g + g)) K :=
+      Matrix.diagonal fun i ↦ if (i : ℕ) < g then z else 1
+    let J : Matrix (Fin (g + g)) (Fin (g + g)) K := fun i j ↦
+      if (i : ℕ) < g ∧ (j : ℕ) = i + g then 1 else if (j : ℕ) < g ∧ (i : ℕ) = j + g then -1 else 0
+    μ.transpose * J * μ = z • J := by
+  sorry
 
-def variationMorphism {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    {H K L : variation B A n} (f : VariationHom H K) (g : VariationHom K L) : VariationHom H L := sorry
+/-- The positive roots of the Siegel Borel in BP coordinates `κ = (k₁,…,k_g)` (central coordinate
+omitted): compact `e_i − e_j` (`i < j`) and noncompact `−e_i − e_j` (`i ≤ j`). -/
+def siegelCompactRoots (g : ℕ) : Finset (Fin g → ℤ) :=
+  ((Finset.univ : Finset (Fin g × Fin g)).filter fun p ↦ p.1 < p.2).image
+    fun p ↦ Pi.single p.1 1 - Pi.single p.2 1
 
-def pullbackVariation {B C : TopCat} {d e : ℕ}
-    (A : ComplexManifoldOn B d) (A' : ComplexManifoldOn C e) (f : C(B,C))
-    (hf : Holomorphic A A' f) {n : ℤ} (H : variation C A' n) : variation B A n := sorry
-lemma variationPullback {B C : TopCat} {d e : ℕ}
-    (A : ComplexManifoldOn B d) (A' : ComplexManifoldOn C e) (f : C(B,C))
-    (hf : Holomorphic A A' f) {n : ℤ} (H : variation C A' n) :
-    (pullbackVariation A A' f hf H).filtered.flat.L =
-      (LocalCoefficientSystem.pullback f).obj H.filtered.flat.L := by sorry
+def siegelNoncompactRoots (g : ℕ) : Finset (Fin g → ℤ) :=
+  ((Finset.univ : Finset (Fin g × Fin g)).filter fun p ↦ p.1 ≤ p.2).image
+    fun p ↦ -Pi.single p.1 1 - Pi.single p.2 1
 
-def constantVariation {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V] {n : ℤ}
-    (H : Hodge.HodgeStructureOn (ℂ ⊗[ℝ] V) (Hodge.complexificationConjugation V) n) :
-    variation B A n := sorry
--- TauCeti.Shimura.tests.variationConstant
-example {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V] {n : ℤ}
-    (H : Hodge.HodgeStructureOn (ℂ ⊗[ℝ] V) (Hodge.complexificationConjugation V) n) :
-    (constantVariation A H).filtered.flat.L =
-      (LocalCoefficientSystem.constantFunctor B).obj (ModuleCat.of ℝ V) := by sorry
-namespace Supplier
- def upperPlane : TopCat := TopCat.of {z : ℂ // 0 < z.im}
- def upperPlaneAtlas : ComplexManifoldOn upperPlane 1 := sorry
- def ellipticVariation : variation upperPlane upperPlaneAtlas 1 := sorry
- def ellipticFiberBasis (τ : upperPlane) : ComplexFiber ellipticVariation.filtered.flat.L τ ≃ₗ[ℂ] (Fin 2 → ℂ) := sorry
- def smallDisk : TopCat := TopCat.of {z : ℂ // ‖z‖ < (1/2 : ℝ)}
- def smallDiskAtlas : ComplexManifoldOn smallDisk 1 := sorry
- -- The real rank-four constant system has conjugation e0↔e3, e1↔e2.
- -- F³(z)=C(e0+ze3), F²(z)=F³(z)+Ce1, F¹(z)=F³(z)^⊥ for the fixed
- -- skew pairing Q(e0,e3)=i,Q(e1,e2)=-i. H1 supplies positivity near 0.
- def nonhorizontalFlag : FilteredFlatBundle smallDisk smallDiskAtlas 3 := sorry
-end Supplier
--- TauCeti.Shimura.tests.variationElliptic
-example (τ : Supplier.upperPlane) :
-    ((Supplier.ellipticVariation.filtered.fiber τ).F 1).map
-      (Supplier.ellipticFiberBasis τ).toLinearMap = Submodule.span ℂ {![τ.val,1]} ∧
-    HorizontalBundle Supplier.ellipticVariation.filtered := by sorry
--- TauCeti.Shimura.tests.variationNonHorizontal
-example : ¬ HorizontalBundle Supplier.nonhorizontalFlag ∧
-    ¬ ∃ H : variation Supplier.smallDisk Supplier.smallDiskAtlas 3,
-      H.filtered = Supplier.nonhorizontalFlag := by sorry
+/-- **D5/siegel-root-convention.** `ρ_i = −i` and `ρ_{nc,i} = −(g+1)/2` (1-indexed), and the
+`G`-dominant cone is `0 ≥ k₁ ≥ ⋯ ≥ k_g`. -/
+theorem siegelRootConvention (g : ℕ) :
+    ((1 / 2 : ℚ) • ∑ α ∈ siegelCompactRoots g ∪ siegelNoncompactRoots g, fun i ↦ (α i : ℚ)) =
+        (fun i : Fin g ↦ -((i : ℚ) + 1)) ∧
+      ((1 / 2 : ℚ) • ∑ α ∈ siegelNoncompactRoots g, fun i ↦ (α i : ℚ)) = fun _ ↦ -((g : ℚ) + 1) / 2 := by
+  sorry
 
-structure IntegralVariationFibers (B : TopCat) {d : ℕ} (A : ComplexManifoldOn B d) (n : ℤ) where
-  lattice : LocalCoefficientSystem ℤ B
-  free : ∀ b, Module.Free ℤ (lattice.obj (FundamentalGroupoid.mk b))
-  finite : ∀ b, Module.Finite ℤ (lattice.obj (FundamentalGroupoid.mk b))
-  realVariation : variation B A n
-  realComparison : ∀ b, Supplier.RealFiber realVariation.filtered.flat.L b ≃ₗ[ℝ]
-    (ℝ ⊗[ℤ] lattice.obj (FundamentalGroupoid.mk b))
-  integralHodge : ∀ b, Hodge.HodgeStructure
-    (Hodge.isBaseChange_complexificationMap (V := lattice.obj (FundamentalGroupoid.mk b))) n
-  pairing : ∀ b, LinearMap.BilinForm ℤ (lattice.obj (FundamentalGroupoid.mk b))
-  polarization : ∀ b, Hodge.IsPolarization Hodge.isBaseChange_complexificationMap (integralHodge b) (pairing b)
-  -- Scalar-extension agreement of integralHodge with realVariation.filtered.fiber,
-  -- and naturality of realComparison, are exact H0 supplier comparison hypotheses
-  -- omitted here; they must be restored before implementation.
-  parallel : ∀ (b c : B) (γ : Path.Homotopic.Quotient b c) x y,
-    pairing c (LocalCoefficientSystem.transport lattice γ x)
-      (LocalCoefficientSystem.transport lattice γ y) = pairing b x y
-abbrev polarizedIntegralVariation := IntegralVariationFibers
+/-- The Siegel Weyl group: permutations of `Fin (2g)` commuting with `i ↦ 2g − 1 − i`. -/
+def siegelWeyl (g : ℕ) : Subgroup (Equiv.Perm (Fin (2 * g))) where
+  carrier := {σ | ∀ i, σ (Fin.rev i) = Fin.rev (σ i)}
+  mul_mem' := fun _ _ ↦ by sorry
+  one_mem' := fun _ ↦ by sorry
+  inv_mem' := fun _ ↦ by sorry
 
-def integralVariationMk {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    := @IntegralVariationFibers.mk B d A n
-lemma integralVariationExt {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : polarizedIntegralVariation B A n) (hL : H.lattice = K.lattice)
-    (hV : H.realVariation = K.realVariation) (hcmp : HEq H.realComparison K.realComparison)
-    (hHS : HEq H.integralHodge K.integralHodge) (hQ : HEq H.pairing K.pairing) : H = K := by sorry
--- Rationalization carries the induced flat filtration/connection and the rationalized form;
--- its bundle comparison is supplied by the analytic/H0 scalar-extension API.
-open scoped ComplexOrder
-namespace Supplier
- def rationalFormOnRealFiber {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-     (L : LocalCoefficientSystem ℚ B) (V : variation B A n)
-     (e : ∀ b, (ℝ ⊗[ℚ] L.obj (FundamentalGroupoid.mk b)) ≃ₗ[ℝ] RealFiber V.filtered.flat.L b)
-     (Q : ∀ b, LinearMap.BilinForm ℚ (L.obj (FundamentalGroupoid.mk b))) (b : B) :
-     LinearMap.BilinForm ℂ (ComplexFiber V.filtered.flat.L b) := sorry
-end Supplier
-structure RationalPolarizedVariation (B : TopCat) {d : ℕ} (A : ComplexManifoldOn B d) (n : ℤ) where
-  localSystem : LocalCoefficientSystem ℚ B
-  finite : ∀ b, Module.Finite ℚ (localSystem.obj (FundamentalGroupoid.mk b))
-  realVariation : variation B A n
-  realComparison : ∀ b, (ℝ ⊗[ℚ] localSystem.obj (FundamentalGroupoid.mk b)) ≃ₗ[ℝ]
-    Supplier.RealFiber realVariation.filtered.flat.L b
-  pairing : ∀ b, LinearMap.BilinForm ℚ (localSystem.obj (FundamentalGroupoid.mk b))
-  symm_weight : ∀ b x y, pairing b y x = (n.negOnePow : ℚ)*pairing b x y
-  nondegenerate : ∀ b, (pairing b).Nondegenerate
-  orthogonal : ∀ b p x, x ∈ (realVariation.filtered.fiber b).F p →
-    ∀ y ∈ (realVariation.filtered.fiber b).F (n+1-p),
-      Supplier.rationalFormOnRealFiber localSystem realVariation realComparison pairing b x y = 0
-  positive : ∀ b p x, x ∈ (realVariation.filtered.fiber b).piece p → x ≠ 0 →
-    0 < Complex.I^(2*p-n)*Supplier.rationalFormOnRealFiber localSystem realVariation realComparison pairing b x
-      (Hodge.complexificationConjugation (Supplier.RealFiber realVariation.filtered.flat.L b) x)
-  parallel : ∀ (b c : B) (γ : Path.Homotopic.Quotient b c) x y,
-    pairing c (LocalCoefficientSystem.transport localSystem γ x)
-      (LocalCoefficientSystem.transport localSystem γ y) = pairing b x y
--- Naturality of realComparison and scalar-extension agreement remain H0 supplier conditions.
-def integralVariationRational {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : polarizedIntegralVariation B A n) : RationalPolarizedVariation B A n := sorry
-lemma integralVariationPairing {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : polarizedIntegralVariation B A n) (b : B) :
-    Hodge.IsPolarization Hodge.isBaseChange_complexificationMap (H.integralHodge b) (H.pairing b) := by sorry
+/-- The cyclic order `g ≺ ⋯ ≺ 2g−1 ≺ 0 ≺ ⋯ ≺ g−1` (0-indexed). -/
+def siegelCyclicKey (g : ℕ) (i : Fin (2 * g)) : ℕ := if g ≤ (i : ℕ) then i - g else i + g
 
-def integralVariationPullback {B C : TopCat} {d e : ℕ}
-    (A : ComplexManifoldOn B d) (A' : ComplexManifoldOn C e) (f : C(B,C))
-    (hf : Holomorphic A A' f) {n : ℤ} (H : polarizedIntegralVariation C A' n) :
-    polarizedIntegralVariation B A n := sorry
-namespace Supplier
- def integralTate {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d) (m : ℤ) :
-     polarizedIntegralVariation B A (-2*m) := sorry
- def scalePolarization {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-     (H : polarizedIntegralVariation B A n) (k : ℕ) (hk : 0 < k) :
-     polarizedIntegralVariation B A n := sorry
- def puncturedDisk : TopCat := sorry
- def puncturedDiskAtlas : ComplexManifoldOn puncturedDisk 1 := sorry
- def integralEllipticCusp : polarizedIntegralVariation puncturedDisk puncturedDiskAtlas 1 := sorry
- def cuspBasepoint : puncturedDisk := sorry
- def cuspLoop : Path.Homotopic.Quotient cuspBasepoint cuspBasepoint := sorry
- def cuspBasis : (integralEllipticCusp.lattice.obj (FundamentalGroupoid.mk (cuspBasepoint))) ≃ₗ[ℤ] (Fin 2 → ℤ) := sorry
-end Supplier
--- TauCeti.Shimura.tests.integralConstantTate
-example {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d) (b : B) :
-    (Supplier.integralTate A 1).pairing b ≠ 0 ∧
-    ((Supplier.integralTate A 1).integralHodge b).F (-1) = ⊤ := by sorry
--- TauCeti.Shimura.tests.integralScaledPairing
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : polarizedIntegralVariation B A n) (b : B) :
-    (Supplier.scalePolarization H 2 (by sorry)).pairing b = 2 • H.pairing b := by sorry
--- TauCeti.Shimura.tests.integralMonodromy
-example (v : Fin 2 → ℤ) :
-    Supplier.cuspBasis (LocalCoefficientSystem.transport Supplier.integralEllipticCusp.lattice
-      Supplier.cuspLoop (Supplier.cuspBasis.symm v)) = (!![1,1;0,1] : Matrix (Fin 2) (Fin 2) ℤ) *ᵥ v := by sorry
+/-- The minimal left representatives: `σ⁻¹(g) ≺ ⋯ ≺ σ⁻¹(2g−1)` in the cyclic order. -/
+def siegelKostant (g : ℕ) : Set (Equiv.Perm (Fin (2 * g))) :=
+  {σ | σ ∈ siegelWeyl g ∧ ∀ i j : Fin (2 * g), g ≤ (i : ℕ) → i < j →
+      siegelCyclicKey g (σ⁻¹ i) < siegelCyclicKey g (σ⁻¹ j)}
 
-lemma flatBundleLocal {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    (L : LocalCoefficientSystem ℝ B) (finite : ∀ b, Module.Finite ℝ (Supplier.RealFiber L b)) :
-    ∃ E : Supplier.FlatHolomorphicBundle B A, E.L = L ∧
-      ∀ i s b (hb : b ∈ E.cover i),
-        letI := A.charts
-        (E.frame i b hb).toLinearMap.comp (Supplier.connection E s b) =
-          (mfderiv (𝓘(ℂ, ComplexModel d)) (𝓘(ℂ, Fin (E.rank i) → ℂ))
-            (Supplier.localCoordinate E i s) b).toLinearMap := by sorry
+/-- **D5/siegel-weyl-permutations.** There are `2^g` minimal representatives. -/
+theorem siegelWeylPermutations (g : ℕ) : (siegelKostant g).ncard = 2 ^ g := by
+  sorry
 
-def Horizontal {T V : Type*} [AddCommGroup T] [Module ℂ T] [AddCommGroup V] [Module ℂ V]
-    (F : ℤ → Submodule ℂ V) (d : T →ₗ[ℂ] Module.End ℂ V) : Prop :=
-  ∀ p t v, v ∈ F p → d t v ∈ F (p-1)
-lemma transversalityTangent {T V : Type*} [AddCommGroup T] [Module ℂ T]
-    [AddCommGroup V] [Module ℂ V] (F : ℤ → Submodule ℂ V)
-    (d : T →ₗ[ℂ] Module.End ℂ V) : Horizontal F d ↔
-      ∀ p t, F p ≤ (F (p-1)).comap (d t) := by sorry
+/-- **D5/kostant-sequence.** `a_i = #{j < i : g + j ∈ σ⁻¹{g, …, 2g−1}}` (0-indexed). -/
+def kostantSequence (g : ℕ) (σ : Equiv.Perm (Fin (2 * g))) (i : Fin (g + 1)) : ℕ :=
+  ((Finset.univ : Finset (Fin (2 * g))).filter fun k : Fin (2 * g) ↦
+    g ≤ (k : ℕ) ∧ (k : ℕ) < g + i ∧ g ≤ (σ k : ℕ)).card
 
-namespace Supplier
- def restrictRepresentation (O : CommHopfAlgCat ℚ)
-     (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O))
-     (h : RealSMap O) : SRep := sorry
- def pureRepresentationHodge (M : SRep) (n : ℤ) :
-     Hodge.HodgeStructureOn (ℂ ⊗[ℝ] M) (Hodge.complexificationConjugation M) n := sorry
- def tensorVariation {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {m n : ℤ}
-     (H : variation B A m) (K : variation B A n) : variation B A (m+n) := sorry
- def tensorGroupRep {O : CommHopfAlgCat ℚ}
-     (ρ σ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O)) :
-     FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O) := sorry
-end Supplier
--- h is the actual algebraic S-map at each orbit point; ρ is a G-comodule. Orbit/SV,
--- holomorphic quotient charts and purity of ρ∘h in weight n are omitted hypotheses.
-def homogeneousVariation {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    (O : CommHopfAlgCat ℚ) (h : B → Supplier.RealSMap O)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O)) (n : ℤ) : variation B A n := sorry
-lemma homogeneousFiber {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    (O : CommHopfAlgCat ℚ) (h : B → Supplier.RealSMap O)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O)) (n : ℤ) (b : B) :
-    HEq ((homogeneousVariation A O h ρ n).filtered.fiber b)
-      (Supplier.pureRepresentationHodge (Supplier.restrictRepresentation O ρ (h b)) n) := by sorry
-lemma homogeneousTensor {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d)
-    (O : CommHopfAlgCat ℚ) (h : B → Supplier.RealSMap O)
-    (ρ σ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) O)) (m n : ℤ) :
-    ∃ f : VariationHom (homogeneousVariation A O h (Supplier.tensorGroupRep ρ σ) (m+n))
-      (Supplier.tensorVariation (homogeneousVariation A O h ρ m) (homogeneousVariation A O h σ n)),
-    ∀ b, Function.Bijective (f.localMap.app (FundamentalGroupoid.mk b)) := by sorry
+theorem kostantSequenceZero (g : ℕ) (σ : Equiv.Perm (Fin (2 * g))) : kostantSequence g σ 0 = 0 := by
+  sorry
 
--- The derivative comparison d(period)=dρ modulo F⁰End is an R2/flag supplier input.
--- The hypotheses below express action equivariance and the adjoint three-type decomposition,
--- and do not assume the desired filtration bound.
-section HorizontalAction
-variable {𝔤 V : Type*} [AddCommGroup 𝔤] [Module ℂ 𝔤] [AddCommGroup V] [Module ℂ V]
-def actionPiece (ρ : (ℂˣ × ℂˣ) →* (V ≃ₗ[ℂ] V)) (p q : ℤ) : Submodule ℂ V where
-  carrier := {v | ∀ z, ρ z v = ((z.1^(-p)*z.2^(-q) : ℂˣ) : ℂ) • v}
+theorem kostantSequenceStep (g : ℕ) (σ : Equiv.Perm (Fin (2 * g))) (i : Fin g) :
+    kostantSequence g σ i.succ = kostantSequence g σ i.castSucc +
+      if g ≤ (σ ⟨g + i, by omega⟩ : ℕ) then 1 else 0 := by
+  sorry
+
+theorem kostantSequenceInjective (g : ℕ) :
+    Set.InjOn (kostantSequence g) (siegelKostant g) := by
+  sorry
+
+end SiegelCoordinates
+
+section GenusTwo
+
+/-- CG coordinates `(a, b; c)` of `X*(T)` for `T = diag(t₁, t₂, ν t₂⁻¹, ν t₁⁻¹)`. -/
+abbrev CGWeight : Type := ℤ × ℤ × ℤ
+
+/-- `χ(diag(t₁,t₂,νt₂⁻¹,νt₁⁻¹)) = t₁^a t₂^b ν^c`. -/
+def cgCharEval {K : Type*} [Field K] (χ : CGWeight) (t₁ t₂ ν : Kˣ) : Kˣ := t₁ ^ χ.1 * t₂ ^ χ.2.1 * ν ^ χ.2.2
+
+/-- The positive roots `(1,−1;0), (0,2;−1), (1,1;−1), (2,0;−1)` and coroots
+`(1,−1;0), (0,1;0), (1,1;0), (1,0;0)`, paired in order. -/
+def cgRoots : Fin 4 → CGWeight := ![(1, -1, 0), (0, 2, -1), (1, 1, -1), (2, 0, -1)]
+def cgCoroots : Fin 4 → CGWeight := ![(1, -1, 0), (0, 1, 0), (1, 1, 0), (1, 0, 0)]
+
+/-- The dot pairing of weights with coweights. -/
+def cgPair (χ μ : CGWeight) : ℤ := χ.1 * μ.1 + χ.2.1 * μ.2.1 + χ.2.2 * μ.2.2
+
+/-- **D5/gsp4-cg-roots.** Each root pairs to `2` with its coroot, the simple Cartan matrix is that
+of type `C₂`, `ρ = (2, 1; −3/2)`, and the parity conversion is `(a,b;c) ↦ (a,b;a+b+2c)`. -/
+theorem gsp4CgRoots :
+    (∀ i, cgPair (cgRoots i) (cgCoroots i) = 2) ∧ cgPair (cgRoots 0) (cgCoroots 1) = -1 ∧
+      cgPair (cgRoots 1) (cgCoroots 0) = -2 ∧ (∑ i, cgRoots i) = (4, 2, -3) := by
+  sorry
+
+/-- The CG-to-Pilloni coordinate change `(a,b;c) ↦ (a,b;a+b+2c)`. -/
+def cgToPilloni (χ : CGWeight) : CGWeight := (χ.1, χ.2.1, χ.1 + χ.2.1 + 2 * χ.2.2)
+
+/-- The four Kostant actions `w̃₀,…,w̃₃` in CG coordinates. -/
+def gsp4KostantAction : Fin 4 → CGWeight → CGWeight :=
+  ![fun χ ↦ χ, fun χ ↦ (χ.1, -χ.2.1, χ.2.1 + χ.2.2), fun χ ↦ (χ.2.1, -χ.1, χ.1 + χ.2.2),
+    fun χ ↦ (-χ.2.1, -χ.1, χ.1 + χ.2.1 + χ.2.2)]
+
+/-- The longest Levi element `(a,b;c) ↦ (b,a;c)` and the longest Weyl element `(−a,−b;a+b+c)`. -/
+def gsp4LeviLongest (χ : CGWeight) : CGWeight := (χ.2.1, χ.1, χ.2.2)
+def gsp4FullLongest (χ : CGWeight) : CGWeight := (-χ.1, -χ.2.1, χ.1 + χ.2.1 + χ.2.2)
+
+/-- **D5/gsp4-kostant.** `w ↦ w₀,M w w₀,G` sends `w̃_i` to `w̃_{3−i}`, and the Levi and full longest
+elements differ. -/
+theorem gsp4Kostant :
+    (∀ i : Fin 4, gsp4LeviLongest ∘ gsp4KostantAction i ∘ gsp4FullLongest = gsp4KostantAction (Fin.rev i)) ∧
+      gsp4LeviLongest ≠ gsp4FullLongest := by
+  sorry
+
+/-- The `G`-dominant cone `a ≥ b ≥ 0` in the real character space. -/
+def gsp4Dominant : Set (ℚ × ℚ × ℚ) := {x | x.2.1 ≤ x.1 ∧ 0 ≤ x.2.1}
+
+/-- The Kostant actions on the rational character space. -/
+def gsp4KostantActionQ : Fin 4 → ℚ × ℚ × ℚ → ℚ × ℚ × ℚ :=
+  ![fun x ↦ x, fun x ↦ (x.1, -x.2.1, x.2.1 + x.2.2), fun x ↦ (x.2.1, -x.1, x.1 + x.2.2),
+    fun x ↦ (-x.2.1, -x.1, x.1 + x.2.1 + x.2.2)]
+
+/-- The chamber `C_i = w̃_i C_G⁺`. -/
+def gsp4Chamber (i : Fin 4) : Set (ℚ × ℚ × ℚ) := gsp4KostantActionQ i '' gsp4Dominant
+
+/-- **D5/gsp4-cone-reversal.** `−w₀,M` sends `C_i` to `C_{3−i}`. -/
+theorem gsp4ConeReversal (i : Fin 4) :
+    (fun x : ℚ × ℚ × ℚ ↦ (-x.2.1, -x.1, -x.2.2)) '' gsp4Chamber i = gsp4Chamber (Fin.rev i) := by
+  sorry
+
+/-- The CG symplectic matrix `J = [[0, S], [−S, 0]]` with `S = [[0,1],[1,0]]`, in block form. -/
+def cgS : Matrix (Fin 2) (Fin 2) ℝ := !![0, 1; 1, 0]
+def cgJ : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℝ := Matrix.fromBlocks 0 cgS (-cgS) 0
+
+/-- **D5/gsp4-centralizer.** For `g` a symplectic similitude, `g` centralizes `J = h(i)` iff
+`gᵀ g = ν(g) I` with `ν(g) > 0`. -/
+theorem gsp4Centralizer (g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℝ) (ν : ℝ)
+    (hg : g.transpose * cgJ * g = ν • cgJ) (hdet : IsUnit g.det) :
+    g * cgJ = cgJ * g ↔ 0 < ν ∧ g.transpose * g = ν • 1 := by
+  sorry
+
+/-- `K_{∞,1} = Sp₄(ℝ) ∩ O(4)`: orthogonal matrices commuting with `J`. -/
+def kInfinityOne : Set (Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℝ) :=
+  {k | k.transpose * k = 1 ∧ k * cgJ = cgJ * k}
+
+/-- **D5/gsp4-unitary.** `k = [[SAS, SB], [−BS, A]] ↦ A + iB` identifies `K_{∞,1}` with `U(2)`. -/
+theorem gsp4Unitary :
+    ∃ e : kInfinityOne ≃ Matrix.unitaryGroup (Fin 2) ℂ,
+      ∀ k : kInfinityOne, (e k : Matrix (Fin 2) (Fin 2) ℂ) =
+        (k.1.toBlocks₂₂).map (algebraMap ℝ ℂ) + Complex.I • (cgS * k.1.toBlocks₁₂).map (algebraMap ℝ ℂ) := by
+  sorry
+
+/-- **D5/gsp4-compact-cartan.** Characters `(a, b; c)` of the compact Cartan in angular/scalar
+coordinates: those with `a + b ≡ c (mod 2)`. -/
+def gsp4CompactCartan : AddSubgroup CGWeight where
+  carrier := {χ | (χ.1 + χ.2.1 + χ.2.2) % 2 = 0}
+  add_mem' := fun _ _ ↦ by sorry
   zero_mem' := by sorry
-  add_mem' := by sorry
-  smul_mem' := by sorry
-def actionFiltration (ρ : (ℂˣ × ℂˣ) →* (V ≃ₗ[ℂ] V)) (p : ℤ) : Submodule ℂ V :=
-  ⨆ a : ℤ, ⨆ b : ℤ, ⨆ (_ : p ≤ a), actionPiece ρ a b
-lemma homogeneousHorizontal (ad : (ℂˣ × ℂˣ) →* (𝔤 ≃ₗ[ℂ] 𝔤))
-    (ρ : (ℂˣ × ℂˣ) →* (V ≃ₗ[ℂ] V)) (dρ : 𝔤 →ₗ[ℂ] Module.End ℂ V)
-    (equivariant : ∀ z x v, ρ z (dρ x v) = dρ (ad z x) (ρ z v))
-    (SV1 : (⨆ p : ℤ, ⨆ (_ : p = -1 ∨ p = 0 ∨ p = 1), actionPiece ad p (-p)) = ⊤) :
-    Horizontal (actionFiltration ρ) dρ := by sorry
-lemma homogeneousTransversality (ad : (ℂˣ × ℂˣ) →* (𝔤 ≃ₗ[ℂ] 𝔤))
-    (ρ : (ℂˣ × ℂˣ) →* (V ≃ₗ[ℂ] V)) (dρ : 𝔤 →ₗ[ℂ] Module.End ℂ V)
-    (equivariant : ∀ z x v, ρ z (dρ x v) = dρ (ad z x) (ρ z v))
-    (SV1 : (⨆ p : ℤ, ⨆ (_ : p = -1 ∨ p = 0 ∨ p = 1), actionPiece ad p (-p)) = ⊤) :
-    ∀ x p, actionFiltration ρ p ≤ (actionFiltration ρ (p-1)).comap (dρ x) := by sorry
-end HorizontalAction
--- Homogeneous concrete tests occur after the datum examples below.
+  neg_mem' := fun _ ↦ by sorry
 
--- Pointwise filtration stabilizer. Algebraicity/parabolic representability is omitted.
-def filtrationParabolic {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (F : ℤ → Submodule ℂ V) : Subgroup (V ≃ₗ[ℂ] V) := sorry
-namespace Supplier
- def parabolicLie {V : Type*} [AddCommGroup V] [Module ℂ V]
-     (F : ℤ → Submodule ℂ V) : LieSubalgebra ℂ (Module.End ℂ V) := sorry
- def filtrationLevi {V : Type*} [AddCommGroup V] [Module ℂ V]
-     (H : ℤ → Submodule ℂ V) : Subgroup (V ≃ₗ[ℂ] V) := sorry
-end Supplier
--- Lie(P_F) is computed by differentiating the filtration stabilizer in its faithful
--- representation; R2/R7 supply that Lie comparison, not an automorphism membership test.
-lemma filtrationParabolicLie {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (F : ℤ → Submodule ℂ V) (a : Module.End ℂ V) : a ∈ Supplier.parabolicLie F ↔
-      ∀ p, F p ≤ (F p).comap a := by sorry
-lemma filtrationParabolicLevi {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (H : ℤ → Submodule ℂ V) (internal : DirectSum.IsInternal H)
-    (μ : ℂˣ →* (V ≃ₗ[ℂ] V))
-    (weights : ∀ p v, v ∈ H p → ∀ z, μ z v = ((z : ℂ)^(-p)) • v) :
-    Supplier.filtrationLevi H = Subgroup.centralizer (Set.range μ) := by sorry
-lemma filtrationParabolicConjugate {V : Type*} [AddCommGroup V] [Module ℂ V]
-    (F : ℤ → Submodule ℂ V) (a b : V ≃ₗ[ℂ] V) :
-    b ∈ filtrationParabolic F ↔ a*b*a⁻¹ ∈ filtrationParabolic (fun p => (F p).map a.toLinearMap) := by sorry
--- TauCeti.Shimura.tests.parabolicGl2
-example (a : (Fin 2 → ℂ) ≃ₗ[ℂ] (Fin 2 → ℂ)) :
-    a ∈ filtrationParabolic (fun p => if p ≤ 0 then ⊤ else if p = 1 then Submodule.span ℂ {![1,0]} else ⊥) ↔
-    ∃ c : ℂ, c ≠ 0 ∧ a ![1,0] = c • ![1,0] := by sorry
--- TauCeti.Shimura.tests.parabolicTorus
-example : filtrationParabolic (fun _ : ℤ => (⊤ : Submodule ℂ ℂ)) = ⊤ := by sorry
--- The Siegel test below uses GSp and an isotropic Lagrangian.
+theorem compactCartanRank :
+    Function.Bijective (fun x : ℤ × ℤ × ℤ ↦ (⟨(x.1, x.2.1, x.1 + x.2.1 + 2 * x.2.2), by sorry⟩ :
+      gsp4CompactCartan)) := by
+  sorry
 
--- Quotient points only; the scheme, projectivity and reflex descent need R7/SF.
-def compactDual (G : Type*) [Group G] (P : Subgroup G) := G ⧸ P
-lemma compactDualBasepoint {G : Type*} [Group G] (P : Subgroup G) (g : G) :
-    (QuotientGroup.mk g : compactDual G P) = QuotientGroup.mk 1 ↔ g ∈ P := by sorry
-lemma compactDualChangePoint {G : Type*} [Group G] (P : Subgroup G) (g : G) :
-    Nonempty (compactDual G P ≃ compactDual G (P.map (MulAut.conj g).toMonoidHom)) := by sorry
--- This is the tangent space of the supplied complex flag manifold at its basepoint.
--- Identification of g and F⁰g with Lie(G) and Lie(P) is an R2/R7 hypothesis omitted here.
-lemma compactDualTangent {G : Type*} [Group G] [TopologicalSpace G]
-    (P : Subgroup G) {e : ℕ} (A : ComplexManifoldOn (compactDual G P) e)
-    {𝔤 : Type*} [AddCommGroup 𝔤] [Module ℂ 𝔤] (F : Submodule ℂ 𝔤) :
-    letI := A.charts
-    Nonempty ((𝔤 ⧸ F) ≃ₗ[ℂ] TangentSpace (𝓘(ℂ, ComplexModel e))
-      (QuotientGroup.mk 1 : compactDual G P)) := by sorry
--- TauCeti.Shimura.tests.dualGl2
-example (P : Subgroup ((Fin 2 → ℂ) ≃ₗ[ℂ] (Fin 2 → ℂ)))
-    (hP : ∀ a, a ∈ P ↔ (Submodule.span ℂ {![1,0]}).map a.toLinearMap = Submodule.span ℂ {![1,0]}) :
-    Nonempty (compactDual _ P ≃ {L : Submodule ℂ (Fin 2 → ℂ) // Module.finrank ℂ L = 1}) := by sorry
--- TauCeti.Shimura.tests.dualTorus
-example {G : Type*} [Group G] : Subsingleton (compactDual G ⊤) := by sorry
--- The Lagrangian compact-dual and Borel-map statements occur below after the datum carrier.
+theorem compactCartanParity (χ : CGWeight) : χ ∈ gsp4CompactCartan ↔ (χ.1 + χ.2.1 - χ.2.2) % 2 = 0 := by
+  sorry
 
--- Supplier G_C action on its actual cocharacter carrier A, not a representative μ field.
-def cocharacterClass {G A : Type*} [Group G] [MulAction G A] (μ : A) : Set A := MulAction.orbit G μ
-lemma cocharacterClassIndependent {G A : Type*} [Group G] [MulAction G A] (μ : A) (g : G) :
-    cocharacterClass (g • μ) = cocharacterClass μ := by sorry
-lemma cocharacterClassGalois {G A : Type*} [Group G] [MulAction G A] (μ : A)
-    (σ : A ≃ A) (τ : G ≃* G) (h : ∀ g a, σ (g • a) = τ g • σ a) :
-    σ '' cocharacterClass μ = cocharacterClass (σ μ) := by sorry
-lemma cocharacterClassMap {G H A B : Type*} [Group G] [Group H]
-    [MulAction G A] [MulAction H B] (f : G →* H) (φ : A → B)
-    (h : ∀ g a, φ (g • a) = f g • φ a) (μ : A) : φ '' cocharacterClass μ ⊆ cocharacterClass (φ μ) := by sorry
--- TauCeti.Shimura.tests.classTorus
-example {A : Type*} (μ : A) : @cocharacterClass PUnit A inferInstance inferInstance μ = {μ} := by sorry
--- TauCeti.Shimura.tests.classProduct
-example {G H A B : Type*} [Group G] [Group H] [MulAction G A] [MulAction H B]
-    (μ : A) (ν : B) : cocharacterClass (G := G×H) (μ,ν) = cocharacterClass μ ×ˢ cocharacterClass ν := by sorry
+theorem compactCartanEmbedding (χ : CGWeight) :
+    (-1 : ℂˣ) ^ χ.1 * (-1) ^ χ.2.1 * (-1) ^ χ.2.2 = 1 ↔ χ ∈ gsp4CompactCartan := by
+  sorry
 
-abbrev Qbar := AlgebraicClosure ℚ
--- A is the supplier conjugacy-class carrier; its Galois action must be the algebraic one.
-def reflexField {A : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A] (c : A) : IntermediateField ℚ Qbar :=
-  IntermediateField.fixedField (MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) c)
--- A class of algebraic cocharacters is defined over a finite field K. This makes its
--- stabilizer closed/open; the equality below concerns automorphisms fixing E, rather
--- than membership of one algebraic number in E.
-lemma reflexStabilizer {A : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A] (c : A)
-    (K : IntermediateField ℚ Qbar) [FiniteDimensional ℚ K]
-    (hK : K.fixingSubgroup ≤ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) c)
-    (σ : Qbar ≃ₐ[ℚ] Qbar) : σ ∈ (reflexField c).fixingSubgroup ↔ σ • c = c := by sorry
-lemma reflexMap {A B : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
-    [MulAction (Qbar ≃ₐ[ℚ] Qbar) B] (f : A → B) (c : A)
-    (hf : ∀ σ a, f (σ • a) = σ • f a) : reflexField (f c) ≤ reflexField c := by sorry
-lemma reflexProduct {A B : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
-    [MulAction (Qbar ≃ₐ[ℚ] Qbar) B] (a : A) (b : B)
-    (Ka Kb : IntermediateField ℚ Qbar)
-    [FiniteDimensional ℚ Ka] [FiniteDimensional ℚ Kb]
-    (ha : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) a = Ka.fixingSubgroup)
-    (hb : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) b = Kb.fixingSubgroup) :
-    reflexField (a,b) = reflexField a ⊔ reflexField b := by sorry
--- Reflex tests below instantiate actual GL₂ and CM cocharacters.
-lemma reflexStabilizerOpen {A : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
-    (c : A) (K : IntermediateField ℚ Qbar) [FiniteDimensional ℚ K]
-    (hK : K.fixingSubgroup ≤ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) c) : reflexField c ≤ K := by sorry
-lemma reflexFinite {A : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
-    (c : A) (K : IntermediateField ℚ Qbar) [FiniteDimensional ℚ K]
-    (hK : K.fixingSubgroup ≤ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) c) :
-    FiniteDimensional ℚ (reflexField c) := by sorry
--- X is the complex compact dual. The effective Galois descent datum and projectivity
--- are unavailable supplier conditions, omitted here. The conclusion retains the actual
--- scalar-extension comparison over ℂ; a scheme already given over E is not a descent proof.
-theorem reflexFlagDescent (X : AlgebraicGeometry.Scheme) (E : IntermediateField ℚ Qbar)
-    (ι : E →+* ℂ)
-    (xToC : X ⟶ AlgebraicGeometry.Spec (CommRingCat.of ℂ)) :
-    ∃ (Y : AlgebraicGeometry.Scheme)
-      (yToE : Y ⟶ AlgebraicGeometry.Spec (CommRingCat.of E)),
-      ∃ e : CategoryTheory.Limits.pullback yToE
-          (AlgebraicGeometry.Spec.map (CommRingCat.ofHom ι)) ≅ X,
-        e.hom ≫ xToC = CategoryTheory.Limits.pullback.snd yToE
-          (AlgebraicGeometry.Spec.map (CommRingCat.ofHom ι)) := by sorry
+/-- **D5/gsp4-exp-kernel.** The kernel of `(t₁, t₂, z) ↦ [(e^{i t₁}, e^{i t₂}, e^{z})]` modulo
+`(−1, −1, −1)`. -/
+theorem gsp4ExpKernel (t₁ t₂ z : ℂ) :
+    ((Complex.exp (t₁ * Complex.I) = 1 ∧ Complex.exp (t₂ * Complex.I) = 1 ∧ Complex.exp z = 1) ∨
+      (Complex.exp (t₁ * Complex.I) = -1 ∧ Complex.exp (t₂ * Complex.I) = -1 ∧ Complex.exp z = -1)) ↔
+    ∃ m n k : ℤ, (t₁ = 2 * Real.pi * m ∧ t₂ = 2 * Real.pi * n ∧ z = 2 * Real.pi * Complex.I * k) ∨
+      (t₁ = Real.pi + 2 * Real.pi * m ∧ t₂ = Real.pi + 2 * Real.pi * n ∧
+        z = Real.pi * Complex.I + 2 * Real.pi * Complex.I * k) := by
+  sorry
 
-/- General Kostant combinatorics with supplier Coxeter data. The Coxeter/parabolic hypotheses
-on `len` and `M` are omitted from these signatures; minimality itself is explicit. -/
-def kostantRepresentatives {W : Type*} [Group W] (M : Subgroup W) (len : W → ℕ) : Set W :=
-  {w | ∀ m ∈ M, len w ≤ len (m*w)}
-lemma kostantUnique {W : Type*} [Group W] (M : Subgroup W) (len : W → ℕ) (w : W) :
-    ∃! u, u ∈ kostantRepresentatives M len ∧ ∃ m ∈ M, w = m*u := by sorry
-lemma kostantPositive {W R : Type*} [Group W] [MulAction W R]
-    (M : Subgroup W) (len : W → ℕ) (positive leviPositive : Set R) (w : W) :
-    w ∈ kostantRepresentatives M len ↔ ∀ α ∈ leviPositive, w⁻¹ • α ∈ positive := by sorry
-lemma kostantLengthAdd {W : Type*} [Group W] (M : Subgroup W) (len : W → ℕ)
-    (u w : W) (hu : u ∈ M) (hw : w ∈ kostantRepresentatives M len) : len (u*w) = len u + len w := by sorry
--- TauCeti.Shimura.tests.kostantBorel
-example {W : Type*} [Group W] (len : W → ℕ) : kostantRepresentatives ⊥ len = Set.univ := by sorry
--- TauCeti.Shimura.tests.kostantWholeGroup
-example {W : Type*} [Group W] (len : W → ℕ) (hzero : ∀ w, len w = 0 ↔ w = 1) :
-    kostantRepresentatives ⊤ len = {1} := by sorry
-private def a2Length (w : Equiv.Perm (Fin 3)) : ℕ :=
-  (Finset.univ.filter (fun p : Fin 3 × Fin 3 => p.1 < p.2 ∧ w p.2 < w p.1)).card
--- TauCeti.Shimura.tests.kostantA2Left
-example : kostantRepresentatives (Subgroup.closure {Equiv.swap (0 : Fin 3) 1}) a2Length =
-    {1, Equiv.swap (1 : Fin 3) 2, Equiv.swap (1 : Fin 3) 2 * Equiv.swap (0 : Fin 3) 1} := by sorry
-lemma kostantConeCriterion {W A : Type*} [Group W] [MulAction W A]
-    (M : Subgroup W) (len : W → ℕ) (C CM : Set A) (w : W) :
-    w ∈ kostantRepresentatives M len ↔ (fun a => w • a) '' C ⊆ CM := by sorry
-lemma kostantCones {W A : Type*} [Group W] [MulAction W A]
-    (M : Subgroup W) (len : W → ℕ) (C CM : Set A) :
-    CM = ⋃ w ∈ kostantRepresentatives M len, (fun a => w • a) '' C := by sorry
-lemma kostantInvolution {W : Type*} [Group W] (M : Subgroup W) (len : W → ℕ)
-    (wM wG w : W) (hM : wM*wM=1) (hG : wG*wG=1)
-    (hw : w ∈ kostantRepresentatives M len) :
-    wM*w*wG ∈ kostantRepresentatives M len ∧ wM*(wM*w*wG)*wG = w := by sorry
--- Scheme cells and their base-change-compatible affine isomorphisms are supplied by RG9.
-lemma bruhatIntegral {W : Type*} (len : W → ℕ) (cells : W → AlgebraicGeometry.Scheme)
-    (affineSpace : ℕ → AlgebraicGeometry.Scheme) (w : W) : Nonempty (cells w ≅ affineSpace (len w)) := by sorry
+/-- **D5/gsp4-cayley-basis.** The Cayley matrix `C = [[I, −iS], [−iS, I]]`. -/
+def gsp4CayleyBasis : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) ℂ :=
+  Matrix.fromBlocks 1 (-Complex.I • cgS.map (algebraMap ℝ ℂ)) (-Complex.I • cgS.map (algebraMap ℝ ℂ)) 1
 
--- Underlying loci; schematic closures/flatness/base change are absent, explicitly requested.
-def schubertFamilies {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (cells oppositeCells : W → Set X) (w : W) : Set X × Set X × Set X :=
-  (closure (cells w), closure (oppositeCells w), ⋃ v, ⋃ (_ : w ≤ v), cells v)
-lemma schubertClosure {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C C' : W → Set X) (w : W) : (schubertFamilies C C' w).1 = ⋃ v, ⋃ (_ : v ≤ w), C v := by sorry
-lemma oppositeSchubertClosure {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C C' : W → Set X) (w : W) : (schubertFamilies C C' w).2.1 = ⋃ v, ⋃ (_ : w ≤ v), C' v := by sorry
-lemma schubertUpperOpen {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C C' : W → Set X) (w : W) : IsOpen (schubertFamilies C C' w).2.2 := by sorry
--- Rank-one locus tests, with C0={∞}, C1=complement and reversed opposite fixed point.
--- TauCeti.Shimura.tests.schubertRankOne
-example {X : Type*} [TopologicalSpace X] [T1Space X] (∞ : X)
-    (C C' : Bool → Set X) (h0 : C false = {∞}) :
-    (schubertFamilies C C' false).1 = {∞} := by sorry
--- TauCeti.Shimura.tests.schubertOppositeRankOne
-example {X : Type*} [TopologicalSpace X] [T1Space X] (∞ z : X) (h : z ≠ ∞)
-    (C C' : Bool → Set X) (h1 : C true = {∞}ᶜ) (h' : C' true = {z}) :
-    (schubertFamilies C C' true).2.1 ⊆ (schubertFamilies C C' true).2.2 := by sorry
--- TauCeti.Shimura.tests.schubertTrivialFlag
-example : schubertFamilies (fun _ : Unit => (Set.univ : Set Unit))
-    (fun _ => Set.univ) () = (Set.univ,Set.univ,Set.univ) := by sorry
-lemma bruhatClosureOrder {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C : W → Set X) (u v : W) : u ≤ v ↔ C u ⊆ closure (C v) := by sorry
-lemma oppositeIntersection {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C C' : W → Set X) (u v : W) :
-    (closure (C' u) ∩ C v).Nonempty ↔ u ≤ v := by sorry
-lemma oppositeInsideUpper {X W : Type*} [TopologicalSpace X] [Preorder W]
-    (C C' : W → Set X) (w : W) (cover : ⋃ v, C v = Set.univ)
-    (incidence : ∀ v, (closure (C' w) ∩ C v).Nonempty → w ≤ v) :
-    (schubertFamilies C C' w).2.1 ⊆ (schubertFamilies C C' w).2.2 := by sorry
+theorem cayleyInverse :
+    gsp4CayleyBasis * ((1 / 2 : ℂ) • Matrix.fromBlocks 1 (Complex.I • cgS.map (algebraMap ℝ ℂ))
+      (Complex.I • cgS.map (algebraMap ℝ ℂ)) 1) = 1 := by
+  sorry
 
-private def mobius (M : Matrix (Fin 2) (Fin 2) ℝ) (z : ℂ) : ℂ :=
-  ((M 0 0 : ℂ)*z + M 0 1) / ((M 1 0 : ℂ)*z + M 1 1)
+theorem cayleyHodgeLines (j : Fin 2) :
+    Matrix.mulVec (cgJ.map (algebraMap ℝ ℂ)) (fun i ↦ gsp4CayleyBasis i (Sum.inl j)) =
+        (-Complex.I) • (fun i ↦ gsp4CayleyBasis i (Sum.inl j)) ∧
+      Matrix.mulVec (cgJ.map (algebraMap ℝ ℂ)) (fun i ↦ gsp4CayleyBasis i (Sum.inr j)) =
+        Complex.I • (fun i ↦ gsp4CayleyBasis i (Sum.inr j)) := by
+  sorry
 
-/- D4 retains rational coordinate Hopf algebras and actual real algebraic S-maps.
-The complete SV axioms are in the packet. SV1–SV3 and analytic point topology are omitted
-hypotheses where the supplier does not yet provide a common interface; rationality of
-special-pair tori and morphisms is retained and is never replaced by abstract point groups. -/
-namespace Supplier
-abbrev Points (O : CommHopfAlgCat ℚ) (k : Type*) [Field k] [Algebra ℚ k] := WithConv (O →ₐ[ℚ] k)
-def pointMap {O P : CommHopfAlgCat ℚ} (f : P ⟶ O) (k : Type*) [Field k] [Algebra ℚ k] :
-    Points O k →* Points P k := sorry
-def realSPoints {O : CommHopfAlgCat ℚ} (h : RealSMap O) : ℂˣ →* Points O ℝ := sorry
-end Supplier
+theorem cayleyConjugation (j : Fin 2) :
+    (fun i ↦ star (gsp4CayleyBasis i (Sum.inl j))) = Complex.I • fun i ↦ gsp4CayleyBasis i (Sum.inr (Fin.rev j)) := by
+  sorry
 
-def conjugateHom {G : Type*} [Group G] (g : G) (h : ℂˣ →* G) : ℂˣ →* G :=
-  (MulAut.conj g).toMonoidHom.comp h
-structure DatumOrbit (G : Type*) [Group G] where
-  X : Set (ℂˣ →* G)
-  nonempty : X.Nonempty
-  full : ∀ h ∈ X, X = {k | ∃ g, k = conjugateHom g h}
-structure PointDatum where
-  coordinate : FiniteTypeCommHopfAlgCat ℚ
-  reductive : reductiveCommHopfAlgProperty ℚ coordinate
-  G : Type
-  [group : Group G]
-  realPoints : G ≃* Supplier.Points coordinate.obj ℝ
-  orbit : @DatumOrbit G group
-  algebraic : ∀ h ∈ orbit.X, ∃ u : Supplier.RealSMap coordinate.obj,
-    h = realPoints.symm.toMonoidHom.comp (Supplier.realSPoints u)
-attribute [instance] PointDatum.group
-abbrev shimuraDatum := PointDatum
+/-- **D5/gsp4-cayley-action.** `C⁻¹ k C = diag(SAS − iSBS, A + iB)` for `k = [[SAS, SB], [−BS, A]]`. -/
+theorem gsp4CayleyAction (A B : Matrix (Fin 2) (Fin 2) ℝ) :
+    let Sc := cgS.map (algebraMap ℝ ℂ)
+    let Ac := A.map (algebraMap ℝ ℂ)
+    let Bc := B.map (algebraMap ℝ ℂ)
+    ((1 / 2 : ℂ) • Matrix.fromBlocks 1 (Complex.I • Sc) (Complex.I • Sc) 1) *
+        (Matrix.fromBlocks (Sc * Ac * Sc) (Sc * Bc) (-(Bc * Sc)) Ac) * gsp4CayleyBasis =
+      Matrix.fromBlocks (Sc * Ac * Sc - Complex.I • (Sc * Bc * Sc)) 0 0 (Ac + Complex.I • Bc) := by
+  sorry
 
-def pointDatumOfHom {G : Type} [Group G] (O : FiniteTypeCommHopfAlgCat ℚ)
-    (reductive : reductiveCommHopfAlgProperty ℚ O)
-    (e : G ≃* Supplier.Points O.obj ℝ) (h : Supplier.RealSMap O.obj) : shimuraDatum :=
-  { coordinate := O
-    reductive := reductive
-    G := G
-    group := inferInstance
-    realPoints := e
-    orbit := { X := {k | ∃ g, k = conjugateHom g (e.symm.toMonoidHom.comp (Supplier.realSPoints h))}
-               nonempty := by sorry
-               full := by sorry }
-    algebraic := by sorry }
-lemma datumConjugate (D : shimuraDatum) (h : ℂˣ →* D.G) (hh : h ∈ D.orbit.X) (g : D.G) :
-    conjugateHom g h ∈ D.orbit.X := by sorry
-lemma datumNoBasepoint (D : shimuraDatum) (h k : ℂˣ →* D.G)
-    (hh : h ∈ D.orbit.X) (hk : k ∈ D.orbit.X) :
-    {l | ∃ g, l = conjugateHom g h} = {l | ∃ g, l = conjugateHom g k} := by sorry
-lemma datumWeightCentral (D : shimuraDatum) (h : ℂˣ →* D.G)
-    (hh : h ∈ D.orbit.X) (d : ℝˣ →* ℂˣ)
-    (central : ∀ t, h (d t) ∈ Subgroup.center D.G) (k : ℂˣ →* D.G) (hk : k ∈ D.orbit.X) :
-    k.comp d = h.comp d := by sorry
--- TauCeti.Shimura.tests.datumTorus
-example (D : shimuraDatum) [CommGroup D.G] (h : ℂˣ →* D.G) (hh : h ∈ D.orbit.X) : D.orbit.X = {h} := by sorry
--- TauCeti.Shimura.tests.datumEmptyFalse
-example : ¬ ∃ D : shimuraDatum, D.orbit.X = ∅ := by sorry
--- SV3 cannot be encoded yet: the forbidden trivial rational-factor projection is retained.
--- TauCeti.Shimura.tests.datumCompactRationalFalse
-example {G : Type*} [Group G] : Set.range (1 : ℂˣ →* G) = {1} := by sorry
-lemma axiomsConjugation (D : shimuraDatum) (h : ℂˣ →* D.G) (hh : h ∈ D.orbit.X) (g : D.G) :
-    conjugateHom g h ∈ D.orbit.X := by sorry
-lemma weightCentral {G : Type*} [Group G] (h : ℂˣ →* G) (d : ℝˣ →* ℂˣ)
-    (hcentral : ∀ t, h (d t) ∈ Subgroup.center G) (g : G) :
-    (conjugateHom g h).comp d = h.comp d := by sorry
+/-- **D5/gsp4-pilloni-convention.** Pilloni's lower-Borel positive roots `e₂−e₁, −2e₁+e₃,
+−e₁−e₂+e₃, −2e₂+e₃` in parity coordinates are the negatives of the CG positive roots after
+`(a,b;c) ↦ (a,b;a+b+2c)`, and `ρ = (−2, −1; 0)`. -/
+theorem gsp4PilloniConvention :
+    (Finset.univ.image fun i ↦ -cgToPilloni (cgRoots i)) =
+        ({(-1, 1, 0), (-2, 0, 0), (-1, -1, 0), (0, -2, 0)} : Finset CGWeight) ∧
+      (∑ i, -cgToPilloni (cgRoots i)) = (-4, -2, 0) := by
+  sorry
 
-def rationalPointMap (D E : shimuraDatum) (f : E.coordinate.obj ⟶ D.coordinate.obj) : D.G →* E.G :=
-  E.realPoints.symm.toMonoidHom.comp ((Supplier.pointMap f ℝ).comp D.realPoints.toMonoidHom)
-structure DatumMorphism (D E : shimuraDatum) where
-  coordinate : E.coordinate.obj ⟶ D.coordinate.obj
-  orbit : ∀ h ∈ D.orbit.X, (rationalPointMap D E coordinate).comp h ∈ E.orbit.X
-abbrev datumMorphism := DatumMorphism
-def DatumMorphism.val {D E : shimuraDatum} (f : datumMorphism D E) : D.G →* E.G :=
-  rationalPointMap D E f.coordinate
-def identityMorphism (D : shimuraDatum) : datumMorphism D D := sorry
-def composeMorphism {D E F : shimuraDatum} (f : datumMorphism D E) (g : datumMorphism E F) : datumMorphism D F := sorry
-lemma datumMorphismIdentity (D : shimuraDatum) : (identityMorphism D).coordinate = 𝟙 D.coordinate.obj := by sorry
-lemma datumMorphismComp {D E F : shimuraDatum} (f : datumMorphism D E) (g : datumMorphism E F) :
-    (composeMorphism f g).coordinate = g.coordinate ≫ f.coordinate := by sorry
-namespace Supplier
- def datumDomain (D : shimuraDatum) : TopCat := sorry
- def datumDomainPoint (D : shimuraDatum) : datumDomain D ≃ {h // h ∈ D.orbit.X} := sorry
- def datumDimension (D : shimuraDatum) : ℕ := sorry
- def datumAtlas (D : shimuraDatum) : ComplexManifoldOn (datumDomain D) (datumDimension D) := sorry
- def datumDomainMap {D E : shimuraDatum} (f : datumMorphism D E) : datumDomain D → datumDomain E := sorry
-end Supplier
-lemma datumMorphismHolomorphic {D E : shimuraDatum} (f : datumMorphism D E) :
-    Holomorphic (Supplier.datumAtlas D) (Supplier.datumAtlas E) (Supplier.datumDomainMap f) := by sorry
--- Morphism concrete tests occur with the actual datum models below.
-def datumCategory : Category shimuraDatum where
-  Hom := datumMorphism
-  id := identityMorphism
-  comp := composeMorphism
-  id_comp := by sorry
-  comp_id := by sorry
-  assoc := by sorry
-attribute [local instance] datumCategory
-lemma datumCategoryExt {D E : shimuraDatum} (f g : datumMorphism D E)
-    (h : f.coordinate = g.coordinate) : f = g := by sorry
-lemma datumCategoryForget {D E F : shimuraDatum} (f : datumMorphism D E) (g : datumMorphism E F) :
-    (composeMorphism f g).val = g.val.comp f.val := by sorry
-lemma datumCategoryIso {D E : shimuraDatum} (e : E.coordinate.obj ≅ D.coordinate.obj)
-    (h : ∀ u, u ∈ D.orbit.X ↔ (rationalPointMap D E e.hom).comp u ∈ E.orbit.X) :
-    Nonempty (D ≅ E) := by sorry
--- TauCeti.Shimura.tests.categoryTorusIdentity
-example (D : shimuraDatum) (h : ℂˣ →* D.G) : (identityMorphism D).val.comp h = h := by sorry
--- TauCeti.Shimura.tests.categoryOrbitSame
-example {G : Type*} [Group G] (h : ℂˣ →* G) (g : G) :
-    {l | ∃ k, l = conjugateHom k (conjugateHom g h)} = {l | ∃ k, l = conjugateHom k h} := by sorry
+end GenusTwo
 
-def productDatum (D E : shimuraDatum) : shimuraDatum := sorry
-lemma productDomain (D E : shimuraDatum) :
-    Nonempty (Supplier.datumDomain (productDatum D E) ≃ₜ (Supplier.datumDomain D × Supplier.datumDomain E)) := by sorry
-lemma productMaps (D E : shimuraDatum) :
-    ∃ f : datumMorphism (productDatum D E) D, ∃ g : datumMorphism (productDatum D E) E,
-      Function.Bijective (fun x => (f.val x,g.val x)) ∧
-      ∀ (F : shimuraDatum) (φ : datumMorphism F D) (ψ : datumMorphism F E),
-        ∃! u : datumMorphism F (productDatum D E),
-          composeMorphism u f = φ ∧ composeMorphism u g = ψ := by sorry
--- TauCeti.Shimura.tests.categoryProductProjection
-example (D E F : shimuraDatum) (φ : datumMorphism F D) (ψ : datumMorphism F E) :
-    ∃ p₁ : datumMorphism (productDatum D E) D, ∃ p₂ : datumMorphism (productDatum D E) E,
-      ∃ u : datumMorphism F (productDatum D E),
-        composeMorphism u p₁ = φ ∧ composeMorphism u p₂ = ψ := by sorry
-lemma productReflex {A B : Type*} [MulAction (Qbar ≃ₐ[ℚ] Qbar) A]
-    [MulAction (Qbar ≃ₐ[ℚ] Qbar) B] (a : A) (b : B)
-    (Ka Kb : IntermediateField ℚ Qbar) [FiniteDimensional ℚ Ka] [FiniteDimensional ℚ Kb]
-    (ha : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) a = Ka.fixingSubgroup)
-    (hb : MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) b = Kb.fixingSubgroup) :
-    reflexField (a,b) = reflexField a ⊔ reflexField b := by sorry
+section LocalNeatness
 
-namespace Supplier
- def adjointCoordinate (D : shimuraDatum) : ReductiveCommHopfAlgCat ℚ := sorry
- def adjointQuotient (D : shimuraDatum) : (adjointCoordinate D).obj.obj ⟶ D.coordinate.obj := sorry
- def derivedCoordinate (D : shimuraDatum) : ReductiveCommHopfAlgCat ℚ := sorry
- def adjointQuotientOfDerived (D : shimuraDatum) :
-     (adjointCoordinate D).obj.obj ⟶ (derivedCoordinate D).obj.obj := sorry
-end Supplier
+variable {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ))
 
-def datumRepresentative (D : shimuraDatum) : Supplier.RealSMap D.coordinate.obj :=
-  Classical.choose (D.algebraic (Classical.choose D.orbit.nonempty) (Classical.choose_spec D.orbit.nonempty))
-def adjointDatum (D : shimuraDatum) : shimuraDatum :=
-  pointDatumOfHom (Supplier.adjointCoordinate D).obj (Supplier.adjointCoordinate D).property
-    (MulEquiv.refl (Supplier.Points (Supplier.adjointCoordinate D).obj.obj ℝ))
-    (CommHopfAlgCat.baseChangeMap (K := ℝ) (Supplier.adjointQuotient D) ≫ datumRepresentative D)
-lemma adjointMorphism (D : shimuraDatum) :
-    ∃ f : datumMorphism D (adjointDatum D), HEq f.coordinate (Supplier.adjointQuotient D) := by sorry
--- R6's joint adjoint/abelian finite kernel, the algebraic S-map continuity, and central
--- weight supply injectivity. No surjectivity on full real orbits is assumed.
-lemma adjointDomainInjective (D : shimuraDatum) :
-    ∃ f : datumMorphism D (adjointDatum D), Function.Injective (Supplier.datumDomainMap f) ∧
-      ∀ x ∈ Set.range (Supplier.datumDomainMap f),
-        connectedComponent x ⊆ Set.range (Supplier.datumDomainMap f) := by sorry
-lemma adjointIdempotent (D : shimuraDatum) : Nonempty (adjointDatum (adjointDatum D) ≅ adjointDatum D) := by sorry
+/-- **D5/local-eigenvalue-bound.** With `v(ℓ) = 1`, a root `λ` of a monic quartic congruent to
+`(X − 1)⁴` modulo `ℓ` (the characteristic polynomial of an element of `Iw₁(v)`, absolutely
+unramified) satisfies `v(λ − 1) ≥ 1/4`. -/
+theorem localEigenvalueBound (ℓ : ℕ) (hℓ : v (ℓ : K) = 1) (f : Polynomial K) (hf : f.Monic)
+    (hdeg : f.natDegree = 4) (hint : ∀ i, 0 ≤ v (f.coeff i))
+    (hcong : ∀ i, 1 ≤ v ((f - (Polynomial.X - 1) ^ 4).coeff i)) (lam : K) (hlam : f.eval lam = 0) :
+    ((1 / 4 : ℚ) : WithTop ℚ) ≤ v (lam - 1) := by
+  sorry
 
-structure CentralIsogenyCoordinates (O P : CommHopfAlgCat ℚ) where
-  coordinate : P ⟶ O
-  onto : Function.Surjective (Supplier.pointMap coordinate Qbar)
-  central : (Supplier.pointMap coordinate Qbar).ker ≤ Subgroup.center (Supplier.Points O Qbar)
-  finite : Finite (Supplier.pointMap coordinate Qbar).ker
-lemma centralIsogenyLift (E : shimuraDatum) (O : FiniteTypeCommHopfAlgCat ℚ)
-    (f : CentralIsogenyCoordinates O.obj E.coordinate.obj)
-    (h₂ : Supplier.RealSMap E.coordinate.obj) (hmem : Supplier.realSPoints h₂ ∈
-      (fun h => E.realPoints.toMonoidHom.comp h) '' E.orbit.X)
-    (h₁ : Supplier.RealSMap O.obj)
-    (hlift : CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ h₁ = h₂) :
-    ∃ D : shimuraDatum, D.coordinate = O ∧
-      Nonempty (datumMorphism D E) ∧ Nonempty (adjointDatum D ≅ adjointDatum E) ∧
-      ∀ k : Supplier.RealSMap O.obj,
-        CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ k = h₂ → k = h₁ := by sorry
+/-- **D5/local-products-bound.** The units within `v(x − 1) ≥ 1/4` form a subgroup. -/
+theorem localProductsBound (S : Set Kˣ) (hS : ∀ u ∈ S, ((1 / 4 : ℚ) : WithTop ℚ) ≤ v ((u : K) - 1)) :
+    ∀ x ∈ Subgroup.closure S, ((1 / 4 : ℚ) : WithTop ℚ) ≤ v ((x : K) - 1) := by
+  sorry
 
-/-- Rational torus, rational closed immersion, and algebraic real factorization. -/
-structure TorusFactorization (D : shimuraDatum) where
-  T : TorusCommHopfAlgCat ℚ
-  coordinate : D.coordinate.obj ⟶ T.obj.obj
-  closed : Function.Surjective coordinate.hom
-  h : Supplier.RealSMap T.obj.obj
-  point_mem : D.realPoints.symm.toMonoidHom.comp
-    (Supplier.realSPoints (CommHopfAlgCat.baseChangeMap (K := ℝ) coordinate ≫ h)) ∈ D.orbit.X
-abbrev specialPair := TorusFactorization
+/-- **D5/iwahori-neat**, local core. If the residue characteristic `ℓ > 5` (`v(ℓ) = 1`, every other
+prime a unit), the group generated by the roots of such quartics is torsion free; with
+AdelicAlgebraicGroups §4.3 and `adelicNeatRational` this gives the adelic and rational neatness of
+every level whose components at all places above `ℓ` lie in `Iw₁`. -/
+theorem iwahoriNeat (ℓ : ℕ) (hℓ5 : 5 < ℓ) (hℓ : v (ℓ : K) = 1)
+    (hprime : ∀ p : ℕ, p.Prime → p ≠ ℓ → v (p : K) = 0) [CharZero K]
+    (S : Set Kˣ) (hS : ∀ u ∈ S, ∃ f : Polynomial K, f.Monic ∧ f.natDegree = 4 ∧ (∀ i, 0 ≤ v (f.coeff i)) ∧
+      (∀ i, 1 ≤ v ((f - (Polynomial.X - 1) ^ 4).coeff i)) ∧ f.eval (u : K) = 0) :
+    ∀ x ∈ Subgroup.closure S, IsOfFinOrder x → x = 1 := by
+  sorry
 
-def specialPairHom {D : shimuraDatum} (p : specialPair D) : ℂˣ →* D.G :=
-  D.realPoints.symm.toMonoidHom.comp
-    (Supplier.realSPoints (CommHopfAlgCat.baseChangeMap (K := ℝ) p.coordinate ≫ p.h))
-lemma specialPairPoint {D : shimuraDatum} (p : specialPair D) : specialPairHom p ∈ D.orbit.X := by sorry
-lemma specialPairSubdatum {D : shimuraDatum} (p : specialPair D) :
-    ∃ T : shimuraDatum, T.coordinate = p.T.obj ∧
-      Subsingleton (Supplier.datumDomain T) ∧ Nonempty (datumMorphism T D) := by sorry
-lemma specialPairEnlarge {D : shimuraDatum} (p : specialPair D) (U : TorusCommHopfAlgCat ℚ)
-    (i : U.obj.obj ⟶ p.T.obj.obj) (f : D.coordinate.obj ⟶ U.obj.obj)
-    (hf : Function.Surjective f.hom) (commutes : f ≫ i = p.coordinate) :
-    ∃ q : specialPair D, q.T = U ∧ specialPairHom q = specialPairHom p := by sorry
--- Special-pair tests occur below with actual rational torus/elliptic models.
-def specialPoint (D : shimuraDatum) (h : ℂˣ →* D.G) : Prop := ∃ p : specialPair D, specialPairHom p = h
-lemma specialPointFactor (D : shimuraDatum) (h : ℂˣ →* D.G) :
-    specialPoint D h ↔ ∃ p : specialPair D, specialPairHom p = h := by sorry
-lemma specialPointMap {D E : shimuraDatum} (f : datumMorphism D E) (h : ℂˣ →* D.G)
-    (hh : specialPoint D h) : specialPoint E (f.val.comp h) := by sorry
-lemma specialPointTorus (D : shimuraDatum) (h : ℂˣ →* D.G) (hh : h ∈ D.orbit.X)
-    (torus : torusCommHopfAlgProperty ℚ D.coordinate) : specialPoint D h := by sorry
-lemma specialImage {D E : shimuraDatum} (f : datumMorphism D E) (p : specialPair D) :
-    ∃ q : specialPair E, specialPairHom q = f.val.comp (specialPairHom p) := by sorry
+/-- The subgroup generated by the eigenvalues of a matrix (the roots of its characteristic
+polynomial). -/
+def eigenvalueGroup {n : Type*} [Fintype n] [DecidableEq n] (g : Matrix n n K) : Subgroup Kˣ :=
+  Subgroup.closure {u | g.charpoly.eval (u : K) = 0}
 
-/-- Connected adjoint witnesses contain actual components of the canonical adjoint datum.
-The map is the rational algebraic adjoint isomorphism; it is not an independent full-orbit map. -/
-structure AdjointComponentIso (H D : shimuraDatum) where
-  coordinate : (adjointDatum D).coordinate.obj ≅ (adjointDatum H).coordinate.obj
-  h₀ : Supplier.datumDomain (adjointDatum H)
-  d₀ : Supplier.datumDomain (adjointDatum D)
-  componentMap : {x : Supplier.datumDomain (adjointDatum H) // x ∈ connectedComponent h₀} ≃ₜ
-    {y : Supplier.datumDomain (adjointDatum D) // y ∈ connectedComponent d₀}
-  algebraic : ∀ x,
-    (Supplier.datumDomainPoint (adjointDatum D) (componentMap x).val).val =
-      (rationalPointMap (adjointDatum H) (adjointDatum D) coordinate.hom).comp
-        (Supplier.datumDomainPoint (adjointDatum H) x.val).val
-  -- The component map is biholomorphic by the D2 algebraic orbit comparison.
-  -- No map of the full real orbits is required by this connected datum witness.
-structure AbelianTypeWitness (H D : shimuraDatum) where
-  derived : CentralIsogenyCoordinates (Supplier.derivedCoordinate H).obj.obj (Supplier.derivedCoordinate D).obj.obj
-  adjoint : AdjointComponentIso H D
-  -- The canonical identifications of adjointDatum.coordinate with adjointCoordinate are
-  -- R6 supplier comparisons. After these identifications this is the commuting square:
-  induced : adjoint.coordinate.hom ≫ Supplier.adjointQuotientOfDerived H =
-    Supplier.adjointQuotientOfDerived D ≫ derived.coordinate
+end LocalNeatness
 
-def hodgeType (S : ℕ → shimuraDatum) (D : shimuraDatum) : Prop :=
-  ∃ g : ℕ, 0 < g ∧ ∃ f : datumMorphism D (S g), Function.Surjective f.coordinate.hom
-lemma hodgeTypeWitness (S : ℕ → shimuraDatum) (D : shimuraDatum) :
-    hodgeType S D ↔ ∃ g : ℕ, 0 < g ∧ ∃ f : datumMorphism D (S g), Function.Surjective f.coordinate.hom := by sorry
-lemma hodgeTypeIsomorphism (S : ℕ → shimuraDatum) (D E : shimuraDatum) (e : D ≅ E) :
-    hodgeType S D ↔ hodgeType S E := by sorry
-namespace Supplier
- def datumWeight (D : shimuraDatum) :
-     CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj ⟶ gmCoordinate ℝ := sorry
-end Supplier
--- S must be the actual Siegel models with their rational scalar weight; this supplier
--- qualification is omitted. The result is rational cocharacter descent, not centrality.
-lemma hodgeTypeRationalWeight (S : ℕ → shimuraDatum) (D : shimuraDatum) (hD : hodgeType S D) :
-    ∃ w : D.coordinate.obj ⟶ Supplier.gmCoordinate ℚ,
-      CommHopfAlgCat.baseChangeMap (K := ℝ) w = Supplier.datumWeight D := by sorry
+section AdelicNeat
 
-def abelianType (S : ℕ → shimuraDatum) (D : shimuraDatum) : Prop :=
-  ∃ H : shimuraDatum, hodgeType S H ∧ Nonempty (AbelianTypeWitness H D)
-lemma hodgeTypeAbelian (S : ℕ → shimuraDatum) (D : shimuraDatum) (h : hodgeType S D) : abelianType S D := by sorry
-lemma abelianTypeIsomorphism (S : ℕ → shimuraDatum) (D E : shimuraDatum) (e : D ≅ E) :
-    abelianType S D ↔ abelianType S E := by sorry
-lemma abelianTypeCentral (S : ℕ → shimuraDatum) (D E : shimuraDatum)
-    (e : AbelianTypeWitness D E) (e' : AbelianTypeWitness E D) :
-    abelianType S D ↔ abelianType S E := by sorry
+variable {n : Type*} [Fintype n] [DecidableEq n]
+  (Kℓ : Nat.Primes → Type) [∀ ℓ, Field (Kℓ ℓ)] (ι : ∀ ℓ, AlgebraicClosure ℚ →+* Kℓ ℓ)
 
-def preabelianType (S : ℕ → shimuraDatum) (D : shimuraDatum) : Prop :=
-  ∃ H : shimuraDatum, hodgeType S H ∧ Nonempty (AdjointComponentIso H D)
-lemma abelianTypePreabelian (S : ℕ → shimuraDatum) (D : shimuraDatum) : abelianType S D → preabelianType S D := by sorry
-lemma preabelianTypeAdjoint (S : ℕ → shimuraDatum) (D E : shimuraDatum) (e : AdjointComponentIso D E) :
-    preabelianType S D ↔ preabelianType S E := by sorry
-lemma preabelianTypeIsomorphism (S : ℕ → shimuraDatum) (D E : shimuraDatum) (e : AdjointComponentIso D E) :
-    preabelianType S D ↔ preabelianType S E := by sorry
-lemma typeImplications (S : ℕ → shimuraDatum) (D : shimuraDatum) :
-    (hodgeType S D → abelianType S D) ∧ (abelianType S D → preabelianType S D) := by sorry
--- Type tests are instantiated on the D5 models below.
+/-- **D5/adelic-neat.** BCGP Definition 3.2.1: a family of local matrices `g_ℓ` (an adele in a
+faithful representation, with algebraic closures `Kℓ` and compatible embeddings `ι`) is adelically
+neat away from a set `Sg` of primes when no nontrivial root of unity of `ℚ̄` lies, for every `ℓ ∉ Sg`,
+in the group generated by the eigenvalues of `g_ℓ`. -/
+def adelicNeat (Sg : Set Nat.Primes) (g : ∀ ℓ, Matrix n n (Kℓ ℓ)) : Prop :=
+  ∀ ζ : (AlgebraicClosure ℚ)ˣ, IsOfFinOrder ζ →
+    (∀ ℓ ∉ Sg, Units.map (ι ℓ).toMonoidHom ζ ∈ eigenvalueGroup (g ℓ)) → ζ = 1
 
-namespace Supplier
-abbrev Cocharacter (O : CommHopfAlgCat ℚ) :=
-  CommHopfAlgCat.baseChange (K := Qbar) O ⟶ gmCoordinate Qbar
--- R4/R7 supply the conjugation and algebraic Galois actions and their compatibility.
-def cocharacterConjugation (O : CommHopfAlgCat ℚ) : MulAction (Points O Qbar) (Cocharacter O) := sorry
-attribute [instance] cocharacterConjugation
-abbrev CocharacterClass (O : CommHopfAlgCat ℚ) := Quotient (MulAction.orbitRel (Points O Qbar) (Cocharacter O))
-def classGaloisAction (O : CommHopfAlgCat ℚ) : MulAction (Qbar ≃ₐ[ℚ] Qbar) (CocharacterClass O) := sorry
-attribute [instance] classGaloisAction
-def muClass {O : CommHopfAlgCat ℚ} (μ : Cocharacter O) : CocharacterClass O := Quotient.mk _ μ
-def classFromS {O : CommHopfAlgCat ℚ} (h : RealSMap O) : CocharacterClass O := sorry
--- The underlying filtration at x is the one of restrictRepresentation O ρ h_x.
--- Native R7/L8 supply the algebraic parabolic, flag manifold and comparison to the
--- homogeneous quotient. The period map here is that constructed map, not arbitrary f.
-def flagParabolic (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj)) :
-    Subgroup (Points D.coordinate.obj ℂ) := sorry
-def complexPointTopology (O : CommHopfAlgCat ℚ) : TopologicalSpace (Points O ℂ) := sorry
-attribute [instance] complexPointTopology
-def flagDimension (D : shimuraDatum) : ℕ := sorry
-def flagAtlas (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj)) :
-    ComplexManifoldOn (compactDual (Points D.coordinate.obj ℂ) (flagParabolic D ρ)) (flagDimension D) := sorry
-def periodMap (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj)) :
-    datumDomain D → compactDual (Points D.coordinate.obj ℂ) (flagParabolic D ρ) := sorry
-def representationPointAction (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj)) :
-    Points D.coordinate.obj ℂ →* ((ℂ ⊗[ℝ] ρ) ≃ₗ[ℂ] (ℂ ⊗[ℝ] ρ)) := sorry
-end Supplier
-lemma borelTangent (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj))
-    (faithful : Function.Injective (Supplier.representationPointAction D ρ))
-    (x : Supplier.datumDomain D) :
-    letI := (Supplier.datumAtlas D).charts
-    letI := (Supplier.flagAtlas D ρ).charts
-    ∃ e : TangentSpace (𝓘(ℂ, ComplexModel (Supplier.datumDimension D))) x ≃ₗ[ℂ]
-        TangentSpace (𝓘(ℂ, ComplexModel (Supplier.flagDimension D))) (Supplier.periodMap D ρ x),
-      e.toLinearMap = (mfderiv (𝓘(ℂ, ComplexModel (Supplier.datumDimension D)))
-        (𝓘(ℂ, ComplexModel (Supplier.flagDimension D))) (Supplier.periodMap D ρ) x).toLinearMap := by sorry
--- SV1 and the central (not necessarily rational) weight are essential omitted conditions.
--- The filtration plus canonical conjugation recovers all types in each constant weight
--- summand; faithfulness recovers the algebraic S-action. No injectivity is assumed here.
-lemma borelInjective (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj))
-    (faithful : Function.Injective (Supplier.representationPointAction D ρ)) :
-    Function.Injective (Supplier.periodMap D ρ) := by sorry
-lemma borelEmbedding (D : shimuraDatum)
-    (ρ : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj))
-    (faithful : Function.Injective (Supplier.representationPointAction D ρ)) :
-    Topology.IsOpenEmbedding (Supplier.periodMap D ρ) ∧
-      Holomorphic (Supplier.datumAtlas D) (Supplier.flagAtlas D ρ) (Supplier.periodMap D ρ) := by sorry
+theorem adelicNeatRational (Sg : Set Nat.Primes) (γ : Matrix n n ℚ)
+    (hγ : adelicNeat Kℓ ι Sg fun ℓ ↦ γ.map ((ι ℓ).comp (algebraMap ℚ (AlgebraicClosure ℚ)))) :
+    ∀ ζ : (AlgebraicClosure ℚ)ˣ, IsOfFinOrder ζ →
+      ζ ∈ eigenvalueGroup (γ.map (algebraMap ℚ (AlgebraicClosure ℚ))) → ζ = 1 := by
+  sorry
 
-/- D5: generated eigenvalue subgroups, not a condition on individual eigenvalues. -/
-def neat (eigenvalues : Set ℂˣ) : Prop :=
-  ∀ u ∈ Subgroup.closure eigenvalues, ∀ n : ℕ, 0 < n → u^n = 1 → u = 1
-lemma neatIdentity : neat {1} := by sorry
-lemma neatSubgroup (A B : Set ℂˣ) (h : A ⊆ Subgroup.closure B) (hB : neat B) : neat A := by sorry
--- Algebraic tensor-generation of representations supplies these two inclusions.
-lemma neatRepresentation (A B : Set ℂˣ)
-    (hAB : A ⊆ Subgroup.closure B) (hBA : B ⊆ Subgroup.closure A) : neat A ↔ neat B := by sorry
--- TauCeti.Shimura.tests.neatOne
-example : neat {(1 : ℂˣ)} := by sorry
--- TauCeti.Shimura.tests.neatMinusOne
-example : ¬ neat {(-1 : ℂˣ)} := by sorry
--- TauCeti.Shimura.tests.neatProductEigenvalues
-example : ¬ neat {(2 : ℂˣ), -(2 : ℂˣ)⁻¹} ∧
-    (∀ n : ℕ, 0 < n → (2 : ℂˣ)^n ≠ 1) ∧
-    (∀ n : ℕ, 0 < n → (-(2 : ℂˣ)⁻¹)^n ≠ 1) := by sorry
-lemma neatRepresentationIndependence (A B : Set ℂˣ)
-    (hAB : A ⊆ Subgroup.closure B) (hBA : B ⊆ Subgroup.closure A) : neat A ↔ neat B := by sorry
+theorem adelicNeatConjugate (Sg : Set Nat.Primes) (g h : ∀ ℓ, Matrix n n (Kℓ ℓ)) (hh : ∀ ℓ, IsUnit (h ℓ)) :
+    adelicNeat Kℓ ι Sg (fun ℓ ↦ h ℓ * g ℓ * (h ℓ)⁻¹) ↔ adelicNeat Kℓ ι Sg g := by
+  sorry
 
--- Rational/adelic point maps and compact openness of K are supplier conditions omitted here.
-def neatLevel {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
-    (eigen : Q → Set ℂˣ) (K : Subgroup A) : Prop :=
-  ∀ a : A, ∀ q : Q, a⁻¹ * ι q * a ∈ K → neat (eigen q)
-lemma neatLevelConjugate {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
-    (eigen : Q → Set ℂˣ) (K : Subgroup A) (a : A) :
-    neatLevel ι eigen (K.map (MulAut.conj a).toMonoidHom) ↔ neatLevel ι eigen K := by sorry
-lemma neatLevelShrink {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
-    (eigen : Q → Set ℂˣ) (K L : Subgroup A) (h : L ≤ K) :
-    neatLevel ι eigen K → neatLevel ι eigen L := by sorry
-lemma neatLevelGamma {Q A : Type*} [Group Q] [Group A] (ι : Q →* A)
-    (eigen : Q → Set ℂˣ) (K : Subgroup A) (h : neatLevel ι eigen K) (a : A) :
-    ∀ q ∈ K.comap ((MulAut.conj a⁻¹).toMonoidHom.comp ι), neat (eigen q) := by sorry
-abbrev RationalFiniteAdeles := IsDedekindDomain.FiniteAdeleRing ℤ ℚ
-abbrev RationalAdelicGl2 := Matrix.GeneralLinearGroup (Fin 2) RationalFiniteAdeles
-def rationalGl2Diagonal : Matrix.GeneralLinearGroup (Fin 2) ℚ →* RationalAdelicGl2 :=
-  Matrix.GeneralLinearGroup.map (algebraMap ℚ RationalFiniteAdeles)
-def rationalGl2Eigenvalues (M : Matrix.GeneralLinearGroup (Fin 2) ℚ) : Set ℂˣ :=
-  {u | ((M : Matrix (Fin 2) (Fin 2) ℚ).map (algebraMap ℚ ℂ)).charpoly.IsRoot (u : ℂ)}
-namespace Supplier
- -- AA.1 supplies GL₂(Ẑ): both a matrix and its inverse are integral at every finite place.
- def gl2IntegralAdelic : Subgroup RationalAdelicGl2 := sorry
- -- AA.1 supplies the reduction kernel GL₂(Ẑ) → GL₂(ℤ/Nℤ), as a subgroup of GL₂(𝔸f).
- -- The integrality/reduction comparison and compact openness are omitted supplier conditions.
- def gl2PrincipalLevel (N : ℕ) : Subgroup RationalAdelicGl2 := sorry
-end Supplier
--- Principal-level congruence uses the D5 calculation and AA.3 rational lattice comparison.
--- V0 is a downstream arithmeticity consumer; the signature retains its N≥3 input.
--- TauCeti.Shimura.tests.levelPrincipal
-example : neatLevel rationalGl2Diagonal rationalGl2Eigenvalues (Supplier.gl2PrincipalLevel 3) := by sorry
--- TauCeti.Shimura.tests.levelFullGl2False
-example : ¬ neatLevel rationalGl2Diagonal rationalGl2Eigenvalues Supplier.gl2IntegralAdelic := by sorry
--- TauCeti.Shimura.tests.levelConjugate
-example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (eigen : Q → Set ℂˣ)
-    (K : Subgroup A) (h : neatLevel ι eigen K) (a : A) :
-    neatLevel ι eigen (K.map (MulAut.conj a).toMonoidHom) := by sorry
+theorem primeToPNeatInsert (p : Nat.Primes) (g : ∀ ℓ, Matrix n n (Kℓ ℓ)) (gp : Matrix n n (Kℓ p))
+    (hg : adelicNeat Kℓ ι {p} g) : adelicNeat Kℓ ι {p} (Function.update g p gp) := by
+  sorry
 
--- Local generated eigenvalue subgroups are pulled back to Qbarˣ by compatible embeddings.
-def adelicNeat {ι : Type*} (localGroups : ι → Subgroup Qbarˣ) : Prop :=
-  ∀ u ∈ ⨅ i, localGroups i, ∀ n : ℕ, 0 < n → u^n = 1 → u = 1
-lemma adelicNeatRational {ι : Type*} [Nonempty ι] (L : ι → Subgroup Qbarˣ)
-    (R : Subgroup Qbarˣ) (h : ∀ i, R ≤ L i) (hL : adelicNeat L) :
-    ∀ u ∈ R, ∀ n : ℕ, 0 < n → u^n = 1 → u = 1 := by sorry
-lemma adelicNeatConjugate {ι : Type*} (L M : ι → Subgroup Qbarˣ)
-    (h : ∀ i, L i = M i) : adelicNeat L ↔ adelicNeat M := by sorry
-lemma primeToPNeatInsert {ι : Type*} (L : ι → Subgroup Qbarˣ) (P : Subgroup Qbarˣ)
-    (h : adelicNeat L) : adelicNeat (fun i : Option ι => i.elim P L) := by sorry
--- TauCeti.Shimura.tests.adelicIdentity
-example : adelicNeat (fun _ : Unit => (⊥ : Subgroup Qbarˣ)) := by sorry
--- TauCeti.Shimura.tests.adelicRationalMinusOne
-example : ¬ adelicNeat (fun _ : Unit => Subgroup.closure {(-1 : Qbarˣ)}) := by sorry
--- TauCeti.Shimura.tests.primeToPInsert
-example (P : Subgroup Qbarˣ) : adelicNeat (fun i : Option Unit => i.elim P (fun _ => ⊥)) := by sorry
+end AdelicNeat
 
--- Stabilizer of the supplied component is an actual subgroup; real-adjoint identification omitted.
-def componentSubgroup {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K : Subgroup A) (a : A) (C : Set X) : Subgroup Q :=
-  (MulAction.stabilizer Q C) ⊓ K.comap ((MulAut.conj a⁻¹).toMonoidHom.comp ι)
-lemma componentGammaMem {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K : Subgroup A) (a : A) (C : Set X) (q : Q) :
-    q ∈ componentSubgroup ι K a C ↔ q • C = C ∧ a⁻¹ * ι q * a ∈ K := by sorry
-lemma componentGammaShrink {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K L : Subgroup A) (a : A) (C : Set X) (h : L ≤ K) :
-    componentSubgroup ι L a C ≤ componentSubgroup ι K a C := by sorry
-lemma componentGammaRepresentative {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K : Subgroup A) (a : A) (C : Set X) (q : Q)
-    (hq : q • C = C) (k : K) :
-    componentSubgroup ι K (ι q * a * k) C =
-      (componentSubgroup ι K a C).map (MulAut.conj q).toMonoidHom := by sorry
--- Determinant positivity is the component condition; principal congruence uses the D5
--- calculation with the AA.3 lattice comparison, before downstream V0 arithmeticity.
--- TauCeti.Shimura.tests.gammaTorus
-example {Q A : Type*} [Group Q] [Group A] (ι : Q →* A) (K : Subgroup A) :
-    componentSubgroup (X := Unit) ι K 1 Set.univ = K.comap ι := by sorry
--- TauCeti.Shimura.tests.gammaConjugate
-example {Q A X : Type*} [Group Q] [Group A] [MulAction Q X]
-    (ι : Q →* A) (K : Subgroup A) (a : A) (C : Set X) (q : Q) (hq : q • C = C) :
-    componentSubgroup ι K (ι q * a) C = (componentSubgroup ι K a C).map (MulAut.conj q).toMonoidHom := by sorry
-lemma effectiveKernel {Γ X : Type*} [Group Γ] [MulAction Γ X] (γ : Γ) :
-    γ ∈ (MulAction.toPermHom Γ X).ker ↔ ∀ x : X, γ • x = x := by sorry
--- The effective image is an algebraic quotient over ℝ, not an arbitrary group homomorphism.
--- R1 supplies algebraic tensor-generation/eigenvalue comparison for subfields of ℂ.
-namespace Supplier
- def rationalEigenvalues (O : FiniteTypeCommHopfAlgCat ℚ)
-     (ρ : FGComoduleCat ℚ O.obj) (q : Points O.obj ℚ) : Set ℂˣ := sorry
- def realEigenvalues (P : FiniteTypeCommHopfAlgCat ℝ)
-     (ρ : FGComoduleCat ℝ P.obj) (q : WithConv (P.obj →ₐ[ℝ] ℝ)) : Set ℂˣ := sorry
- def realPointMap {O P : CommHopfAlgCat ℝ} (f : P ⟶ O) :
-     WithConv (O →ₐ[ℝ] ℝ) →* WithConv (P →ₐ[ℝ] ℝ) := sorry
- def scalarPoints (O : CommHopfAlgCat ℚ) :
-     Points O ℚ →* WithConv ((CommHopfAlgCat.baseChange (K := ℝ) O) →ₐ[ℝ] ℝ) := sorry
- def rationalRepresentationPoints (O : CommHopfAlgCat ℚ) (ρ : FGComoduleCat ℚ O) :
-     Points O ℚ →* (ρ ≃ₗ[ℚ] ρ) := sorry
- def realRepresentationPoints (O : CommHopfAlgCat ℝ) (ρ : FGComoduleCat ℝ O) :
-     WithConv (O →ₐ[ℝ] ℝ) →* (ρ ≃ₗ[ℝ] ρ) := sorry
-end Supplier
--- Discreteness and properness supply finite stabilizers; those analytic leaves remain explicit.
-lemma effectiveFree (O : FiniteTypeCommHopfAlgCat ℚ) (P : FiniteTypeCommHopfAlgCat ℝ)
-    (q : P.obj ⟶ CommHopfAlgCat.baseChange (K := ℝ) O.obj)
-    (ρ : FGComoduleCat ℚ O.obj) (ρ' : FGComoduleCat ℝ P.obj)
-    (faithful : Function.Injective (Supplier.rationalRepresentationPoints O.obj ρ))
-    (faithful' : Function.Injective (Supplier.realRepresentationPoints P.obj ρ'))
-    (Γ : Subgroup (Supplier.Points O.obj ℚ))
-    (hneat : ∀ γ : Γ, neat (Supplier.rationalEigenvalues O ρ γ))
-    (X : Type*) [MulAction (Γ.map ((Supplier.realPointMap q).comp (Supplier.scalarPoints O.obj))) X]
-    (finiteStab : ∀ x : X, Finite (MulAction.stabilizer
-      (Γ.map ((Supplier.realPointMap q).comp (Supplier.scalarPoints O.obj))) x)) :
-    ∀ x : X, MulAction.stabilizer
-      (Γ.map ((Supplier.realPointMap q).comp (Supplier.scalarPoints O.obj))) x = ⊥ := by sorry
 
--- R4 supplies rational torus groups; RG2.0a supplies S and its real points.
-def torusDatum (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) : shimuraDatum :=
-  pointDatumOfHom T.obj (by sorry) (MulEquiv.refl _) h
-lemma torusDomain (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    (torusDatum T h).orbit.X = {Supplier.realSPoints h} ∧
-      Supplier.datumDimension (torusDatum T h) = 0 := by sorry
--- The finite-definition-field and torus trivial-conjugation comparisons are R4 inputs
--- omitted here. The conclusion compares automorphisms with the actual μ class.
-lemma torusReflex (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj)
-    (σ : Qbar ≃ₐ[ℚ] Qbar) :
-    σ ∈ (reflexField (Supplier.classFromS h)).fixingSubgroup ↔
-      σ • Supplier.classFromS h = Supplier.classFromS h := by sorry
-lemma torusMap (T U : TorusCommHopfAlgCat ℚ)
-    (h : Supplier.RealSMap T.obj.obj) (k : Supplier.RealSMap U.obj.obj)
-    (f : U.obj.obj ⟶ T.obj.obj) :
-    (∃ m : datumMorphism (torusDatum T h) (torusDatum U k), m.coordinate = f) ↔
-      CommHopfAlgCat.baseChangeMap (K := ℝ) f ≫ h = k := by sorry
-namespace Supplier
- def trivialTorus : TorusCommHopfAlgCat ℚ := sorry
- def trivialSMap : RealSMap trivialTorus.obj.obj := sorry
- def normTorus : TorusCommHopfAlgCat ℚ := sorry
- def normSMap : RealSMap normTorus.obj.obj := sorry
-end Supplier
--- TauCeti.Shimura.tests.torusTrivial
-example : Subsingleton (Supplier.datumDomain (torusDatum Supplier.trivialTorus Supplier.trivialSMap)) := by sorry
--- TauCeti.Shimura.tests.torusNorm
-example : reflexField (Supplier.classFromS Supplier.normSMap) = ⊥ := by sorry
+/-! Unit tests for D3. -/
+section D3Tests
 
--- CM.0 supplies CM field/type data. These are actual subsets of algebraic embeddings.
--- No CM.0 dependency enters D1 or D4; their elliptic endomorphism calculation is separate.
-namespace Supplier
- -- CM.0 supplies the algebraic closure in C and its canonical complex conjugation.
- def qbarEmbedding : Qbar →ₐ[ℚ] ℂ := sorry
- def qbarConjugation : Qbar ≃ₐ[ℚ] Qbar := sorry
- lemma qbarConjugation_realization (x : Qbar) :
-     qbarEmbedding (qbarConjugation x) = star (qbarEmbedding x) := by sorry
- structure CMType where
-   field : IntermediateField ℚ Qbar
-   finite : FiniteDimensional ℚ field
-   realSubfield : IntermediateField ℚ field
-   quadratic : Module.finrank realSubfield field = 2
-   totallyReal : ∀ e : realSubfield →ₐ[ℚ] ℂ, ∀ x, (e x).im = 0
-   totallyImaginary : ∀ e : field →ₐ[ℚ] ℂ, ∃ x, (e x).im ≠ 0
-   embeddings : Finset (field →ₐ[ℚ] Qbar)
-   choosesPair : ∀ e, (e ∈ embeddings ↔ qbarConjugation.toAlgHom.comp e ∉ embeddings)
- attribute [instance] CMType.finite
- def cmTorusCoordinate (Φ : CMType) : TorusCommHopfAlgCat ℚ := sorry
- def cmSMap (Φ : CMType) : RealSMap (cmTorusCoordinate Φ).obj.obj := sorry
- def cmMu (Φ : CMType) : Cocharacter (cmTorusCoordinate Φ).obj.obj := sorry
- def conjugateCMType (Φ : CMType) : CMType :=
-   { Φ with embeddings := Φ.embeddings.map ⟨fun e => qbarConjugation.toAlgHom.comp e, by sorry⟩
-            choosesPair := by sorry }
- def qbarI : Qbar := sorry
- lemma qbarI_realization : qbarEmbedding qbarI = Complex.I := by sorry
- def imaginaryQuadraticField : IntermediateField ℚ Qbar := IntermediateField.adjoin ℚ {qbarI}
- def imaginaryQuadraticType : CMType :=
-   { field := imaginaryQuadraticField
-     finite := by sorry
-     realSubfield := ⊥
-     quadratic := by sorry
-     totallyReal := by sorry
-     totallyImaginary := by sorry
-     embeddings := sorry
-     choosesPair := by sorry }
- def cmTypeGaloisAction (Φ : CMType) (σ : Qbar ≃ₐ[ℚ] Qbar) :
-     Finset (Φ.field →ₐ[ℚ] Qbar) := Φ.embeddings.map ⟨fun e => σ.toAlgHom.comp e, by sorry⟩
- def cmSplitEvaluation (Φ : CMType) (μ : Cocharacter (cmTorusCoordinate Φ).obj.obj)
-     (e : Φ.field →ₐ[ℚ] Qbar) : ℤ := sorry
-end Supplier
-def cmTorus (Φ : Supplier.CMType) : shimuraDatum :=
-  torusDatum (Supplier.cmTorusCoordinate Φ) (Supplier.cmSMap Φ)
-lemma cmTorusMu (Φ : Supplier.CMType) (e : Φ.field →ₐ[ℚ] Qbar) :
-    Supplier.cmSplitEvaluation Φ (Supplier.cmMu Φ) e = if e ∈ Φ.embeddings then 1 else 0 := by sorry
-lemma cmTorusReflex (Φ : Supplier.CMType) (σ : Qbar ≃ₐ[ℚ] Qbar) :
-    σ ∈ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) (Supplier.classFromS (Supplier.cmSMap Φ)) ↔
-      Supplier.cmTypeGaloisAction Φ σ = Φ.embeddings := by sorry
-lemma cmTorusSpecial (Φ : Supplier.CMType) (D : shimuraDatum)
-    (f : datumMorphism (cmTorus Φ) D) :
-    specialPoint D (f.val.comp (Supplier.realSPoints (Supplier.cmSMap Φ))) := by sorry
--- TauCeti.Shimura.tests.torusCm
-example : reflexField (Supplier.classFromS (Supplier.cmSMap Supplier.imaginaryQuadraticType)) =
-    Supplier.imaginaryQuadraticField ∧ Supplier.imaginaryQuadraticField ≠ ⊥ := by sorry
--- TauCeti.Shimura.tests.cmImaginaryQuadratic
-example : reflexField (Supplier.classFromS (Supplier.cmSMap Supplier.imaginaryQuadraticType)) =
-    Supplier.imaginaryQuadraticField := by sorry
--- TauCeti.Shimura.tests.cmConjugateType
-example : reflexField (Supplier.classFromS (Supplier.cmSMap
-    (Supplier.conjugateCMType Supplier.imaginaryQuadraticType))) = Supplier.imaginaryQuadraticField := by sorry
--- TauCeti.Shimura.tests.cmWeight
-example (Φ : Supplier.CMType) : ∃ w : (Supplier.cmTorusCoordinate Φ).obj.obj ⟶ Supplier.gmCoordinate ℚ,
-    CommHopfAlgCat.baseChangeMap (K := ℝ) w = Supplier.weightMap (Supplier.cmSMap Φ) := by sorry
+open CategoryTheory
 
--- Homology convention: J(x,y)=(y,-x), h(a+bi)=aI+bJ.
-def gl2Matrix (z : ℂ) : Matrix (Fin 2) (Fin 2) ℝ := !![z.re,z.im; -z.im,z.re]
-def gl2Hom : ℂˣ →* Matrix.GeneralLinearGroup (Fin 2) ℝ where
-  toFun z := { val := gl2Matrix (z : ℂ)
-               inv := gl2Matrix ((z⁻¹ : ℂˣ) : ℂ)
-               val_inv := by sorry
-               inv_val := by sorry }
-  map_one' := by sorry
-  map_mul' := by sorry
-namespace Supplier
- abbrev gl2Coordinate := GeneralLinear.finiteTypeCoordinateHopfAlgebra ℚ 2
- def gl2Reductive : reductiveCommHopfAlgProperty ℚ gl2Coordinate := by sorry
- def gl2Points : Matrix.GeneralLinearGroup (Fin 2) ℝ ≃* Points gl2Coordinate.obj ℝ := sorry
- def gl2SMap : RealSMap gl2Coordinate.obj := sorry
- def gl2Mu : Cocharacter gl2Coordinate.obj := sorry
- -- R0/R7's point evaluation of the algebraic cocharacter under the standard GL₂ comparison.
- def gl2CocharacterMatrix (μ : Cocharacter gl2Coordinate.obj) (z : Qbarˣ) :
-     Matrix (Fin 2) (Fin 2) Qbar := sorry
- def gl2AdjointRep : SRep := sorry
- def projectiveTopology : TopologicalSpace (Projectivization ℂ (Fin 2 → ℂ)) := sorry
- def datumDual (D : shimuraDatum) : TopCat := sorry
- def datumDualScheme (D : shimuraDatum) : AlgebraicGeometry.Scheme := sorry
- def datumDualDimension (D : shimuraDatum) : ℕ := sorry
-end Supplier
-attribute [local instance] Supplier.projectiveTopology
--- Supplier compatibility: gl2Coordinate is the pinned coordinate Hopf algebra for n=2,
--- gl2Points (gl2Hom z)=realSPoints gl2SMap z, and gl2Mu(z)=diag(z,1).
-def gl2Datum : shimuraDatum := pointDatumOfHom Supplier.gl2Coordinate
-  Supplier.gl2Reductive Supplier.gl2Points Supplier.gl2SMap
--- TauCeti.Shimura.tests.classGl2
-example (μ : Supplier.Cocharacter Supplier.gl2Coordinate.obj)
-    (hμ : μ ∈ cocharacterClass Supplier.gl2Mu) (z : Qbarˣ) :
-    (Supplier.gl2CocharacterMatrix μ z).charpoly =
-      (Polynomial.X - Polynomial.C (z : Qbar)) * (Polynomial.X - Polynomial.C 1) := by sorry
-abbrev HalfPlanes := {z : ℂ // z.im ≠ 0}
-lemma gl2Domain : Nonempty (Supplier.datumDomain gl2Datum ≃ₜ HalfPlanes) ∧
-    Supplier.datumDimension gl2Datum = 1 ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain gl2Datum)) = 2 := by sorry
-lemma gl2ReflexDual : reflexField (Supplier.classFromS Supplier.gl2SMap) = ⊥ ∧
-    Nonempty (Supplier.datumDual gl2Datum ≃ₜ Projectivization ℂ (Fin 2 → ℂ)) ∧
-    Supplier.datumDualDimension gl2Datum = 1 := by sorry
-lemma gl2DeterminantNorm (z : ℂ) : (gl2Matrix z).det = z.re^2 + z.im^2 := by sorry
-namespace Supplier
- -- Native R0/R4 supply the determinant coordinate map and Gm point identification.
- def gl2DeterminantCoordinate : normTorus.obj.obj ⟶ gl2Coordinate.obj := sorry
- def normTorusPoints : ℝˣ ≃* Points normTorus.obj.obj ℝ := sorry
-end Supplier
--- The coordinate/point evaluation and norm S-map comparison are omitted supplier inputs.
-lemma gl2Determinant :
-    ∃ f : datumMorphism gl2Datum (torusDatum Supplier.normTorus Supplier.normSMap),
-      f.coordinate = Supplier.gl2DeterminantCoordinate ∧
-      CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ Supplier.gl2SMap =
-        Supplier.normSMap ∧
-      (∀ M : Matrix.GeneralLinearGroup (Fin 2) ℝ,
-        Supplier.pointMap f.coordinate ℝ (Supplier.gl2Points M) =
-          Supplier.normTorusPoints M.det) ∧
-      (∀ z : ℂ, (gl2Matrix z).det = z.re^2 + z.im^2) := by sorry
--- TauCeti.Shimura.tests.gl2AtI
-example : gl2Matrix Complex.I = !![0,1; -1,0] ∧
-    Supplier.datumDimension gl2Datum = 1 := by sorry
--- TauCeti.Shimura.tests.gl2Negative
-example : mobius !![1,0; 0,-1] Complex.I = -Complex.I ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain gl2Datum)) = 2 := by sorry
-lemma gl2Types : Module.finrank ℂ (representationPiece Supplier.gl2AdjointRep (-1) 1) = 1 ∧
-    Module.finrank ℂ (representationPiece Supplier.gl2AdjointRep 0 0) = 2 ∧
-    Module.finrank ℂ (representationPiece Supplier.gl2AdjointRep 1 (-1)) = 1 ∧
-    ∀ p q, p+q ≠ 0 ∨ 1 < |p| → representationPiece Supplier.gl2AdjointRep p q = ⊥ := by sorry
-lemma gl2Scalar (t : ℝ) : gl2Matrix (t : ℂ) = t • (1 : Matrix (Fin 2) (Fin 2) ℝ) := by sorry
+/-- `variationConstant`: a constant decreasing filtration is holomorphic and transversal. -/
+example {E W : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E] [NormedAddCommGroup W] [NormedSpace ℂ W]
+    [FiniteDimensional ℂ W] (U : Set E) (hU : IsOpen U) (F₀ : ℤ → Submodule ℂ W) (hF : Antitone F₀) :
+    IsHolomorphicFamily U (fun _ ↦ F₀) ∧ IsGriffithsTransversal U (fun _ ↦ F₀) := by
+  sorry
 
--- Standard symplectic coordinates V=ℝ^g×ℝ^g.
-def standardPsi (g : ℕ) (x y : (Fin g → ℝ) × (Fin g → ℝ)) : ℝ :=
-  ∑ i, (x.1 i * y.2 i - x.2 i * y.1 i)
-def standardJ (g : ℕ) : Module.End ℝ ((Fin g → ℝ) × (Fin g → ℝ)) where
-  toFun x := (x.2,-x.1)
-  map_add' := by sorry
-  map_smul' := by sorry
-def siegelLinearMap (g : ℕ) (a b : ℝ) : Module.End ℝ ((Fin g → ℝ) × (Fin g → ℝ)) :=
-  a • LinearMap.id + b • standardJ g
-def realSiegelGroup (g : ℕ) : Subgroup
-    (((Fin g → ℝ) × (Fin g → ℝ)) ≃ₗ[ℝ] ((Fin g → ℝ) × (Fin g → ℝ))) where
-  carrier := {a | ∃ c : ℝˣ, ∀ x y, standardPsi g (a x) (a y) = (c : ℝ) * standardPsi g x y}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def siegelHom (g : ℕ) : ℂˣ →* realSiegelGroup g where
-  toFun z := ⟨{ toLinearMap := siegelLinearMap g (z : ℂ).re (z : ℂ).im
-                invFun := siegelLinearMap g ((z⁻¹ : ℂˣ) : ℂ).re ((z⁻¹ : ℂˣ) : ℂ).im
-                left_inv := by sorry
-                right_inv := by sorry }, by sorry⟩
-  map_one' := by sorry
-  map_mul' := by sorry
-namespace Supplier
- def gspCoordinate (g : ℕ) : FiniteTypeCommHopfAlgCat ℚ := sorry
- def gspReductive (g : ℕ) : reductiveCommHopfAlgProperty ℚ (gspCoordinate g) := by sorry
- def gspPoints (g : ℕ) : realSiegelGroup g ≃* Points (gspCoordinate g).obj ℝ := sorry
- def siegelSMap (g : ℕ) : RealSMap (gspCoordinate g).obj := sorry
- def siegelMu (g : ℕ) : Cocharacter (gspCoordinate g).obj := sorry
- def siegelAdjointRep (g : ℕ) : SRep := sorry
-end Supplier
-def siegelDatum (g : ℕ) : shimuraDatum := pointDatumOfHom (Supplier.gspCoordinate g)
-  (Supplier.gspReductive g) (Supplier.gspPoints g) (Supplier.siegelSMap g)
-def PositiveImaginary (g : ℕ) (Z : Matrix (Fin g) (Fin g) ℂ) : Prop :=
-  ∀ x : Fin g → ℝ, x ≠ 0 → 0 < ∑ i, ∑ j, x i * (Z i j).im * x j
-abbrev SiegelHalfSpaces (g : ℕ) := {Z : Matrix (Fin g) (Fin g) ℂ //
-  Z.transpose = Z ∧ (PositiveImaginary g Z ∨ PositiveImaginary g (-Z))}
-lemma siegelSimilitude (g : ℕ) (a b : ℝ) (x y : (Fin g → ℝ) × (Fin g → ℝ)) :
-    standardPsi g (siegelLinearMap g a b x) (siegelLinearMap g a b y) = (a^2+b^2)*standardPsi g x y := by sorry
-lemma siegelGeometry (g : ℕ) (hg : 0 < g) :
-    Nonempty (Supplier.datumDomain (siegelDatum g) ≃ₜ SiegelHalfSpaces g) ∧
-      Supplier.datumDimension (siegelDatum g) = g*(g+1)/2 ∧
-      Nat.card (ConnectedComponents (Supplier.datumDomain (siegelDatum g))) = 2 := by sorry
-lemma standardJSquare (g : ℕ) : (standardJ g).comp (standardJ g) = -LinearMap.id := by sorry
-lemma siegelReflex (g : ℕ) : reflexField (Supplier.classFromS (Supplier.siegelSMap g)) = ⊥ := by sorry
--- TauCeti.Shimura.tests.gl2RankOneSiegel
-example : Nonempty (gl2Datum ≅ siegelDatum 1) := by sorry
--- TauCeti.Shimura.tests.siegelGenusOne
-example : Nonempty (Supplier.datumDomain (siegelDatum 1) ≃ₜ HalfPlanes) ∧
-    Supplier.datumDimension (siegelDatum 1) = 1 := by sorry
--- TauCeti.Shimura.tests.siegelGenusTwo
-example : Supplier.datumDimension (siegelDatum 2) = 3 := by sorry
--- TauCeti.Shimura.tests.siegelBothSigns
-example : ∃ Z : SiegelHalfSpaces 2, ∃ W : SiegelHalfSpaces 2,
-    PositiveImaginary 2 Z.val ∧ PositiveImaginary 2 (-W.val) := by sorry
--- The algebraic Lie(GSp) comparison is an R6 leaf; these pieces are its actual adjoint S-coaction.
-lemma siegelLieTypes (g : ℕ) (hg : 0 < g) :
-    Module.finrank ℂ (representationPiece (Supplier.siegelAdjointRep g) (-1) 1) = g*(g+1)/2 ∧
-    Module.finrank ℂ (representationPiece (Supplier.siegelAdjointRep g) 0 0) = g*g+1 ∧
-    Module.finrank ℂ (representationPiece (Supplier.siegelAdjointRep g) 1 (-1)) = g*(g+1)/2 ∧
-    ∀ p q, (p,q) ∉ ({(-1,1),(0,0),(1,-1)} : Set (ℤ×ℤ)) →
-      representationPiece (Supplier.siegelAdjointRep g) p q = ⊥ := by sorry
--- Tangent/flag schemes are supplied by R7. This isotropic carrier distinguishes GSp from GL.
-def complexPsi (g : ℕ) (x y : (Fin g → ℂ) × (Fin g → ℂ)) : ℂ :=
-  ∑ i, (x.1 i*y.2 i-x.2 i*y.1 i)
-abbrev LagrangianGrassmannian (g : ℕ) :=
-  {L : Submodule ℂ ((Fin g → ℂ) × (Fin g → ℂ)) //
-    Module.finrank ℂ L = g ∧ ∀ x ∈ L, ∀ y ∈ L, complexPsi g x y = 0}
-namespace Supplier
- def lagrangianTopology (g : ℕ) : TopologicalSpace (LagrangianGrassmannian g) := sorry
-end Supplier
-attribute [local instance] Supplier.lagrangianTopology
-lemma siegelReflexDual (g : ℕ) (hg : 0 < g) :
-    reflexField (Supplier.classFromS (Supplier.siegelSMap g)) = ⊥ ∧
-    Nonempty (Supplier.datumDual (siegelDatum g) ≃ₜ LagrangianGrassmannian g) ∧
-    Supplier.datumDualDimension (siegelDatum g) = g*(g+1)/2 := by sorry
+/-- The weight-one elliptic family over `ℍ`: `F¹(τ) = ℂ·(τ, 1)`, `F⁰ = ℂ²`, `F² = 0`. -/
+def ellipticFiltration (τ : ℂ) (p : ℤ) : Submodule ℂ (Fin 2 → ℂ) :=
+  if p ≤ 0 then ⊤ else if p = 1 then Submodule.span ℂ {![τ, 1]} else ⊥
 
--- RG2.0a supplies affine restriction of scalars; R7/D3 supply the projective flag variety.
-namespace Supplier
- structure TotallyRealField where
-   field : IntermediateField ℚ Qbar
-   finite : FiniteDimensional ℚ field
-   totallyReal : ∀ e : field →ₐ[ℚ] ℂ, ∀ x, (e x).im = 0
- attribute [instance] TotallyRealField.finite
- abbrev RealEmbeddings (F : TotallyRealField) := F.field →ₐ[ℚ] ℝ
- def embeddingsFintype (F : TotallyRealField) : Fintype (RealEmbeddings F) := by infer_instance
- attribute [local instance] embeddingsFintype
- def hilbertCoordinate (F : TotallyRealField) : FiniteTypeCommHopfAlgCat ℚ := sorry
- def hilbertReductive (F : TotallyRealField) : reductiveCommHopfAlgProperty ℚ (hilbertCoordinate F) := by sorry
- def hilbertSMap (F : TotallyRealField) : RealSMap (hilbertCoordinate F).obj := sorry
- def hilbertPoints (F : TotallyRealField) : (RealEmbeddings F → Matrix.GeneralLinearGroup (Fin 2) ℝ) ≃*
-     Points (hilbertCoordinate F).obj ℝ := sorry
- def rationalField : TotallyRealField :=
-   { field := ⊥
-     finite := by sorry
-     totallyReal := by sorry }
- def qbarSqrtTwo : Qbar := sorry
- lemma qbarSqrtTwo_realization : qbarEmbedding qbarSqrtTwo = (Real.sqrt 2 : ℂ) := by sorry
- def quadraticRealField : TotallyRealField :=
-   { field := IntermediateField.adjoin ℚ {qbarSqrtTwo}
-     finite := by sorry
-     totallyReal := by sorry }
- def rationalBasis (F : TotallyRealField) : Basis (Fin (Module.finrank ℚ F.field)) ℚ F.field := sorry
-end Supplier
-attribute [local instance] Supplier.embeddingsFintype
-abbrev HilbertRealGroup (ι : Type) := ι → Matrix.GeneralLinearGroup (Fin 2) ℝ
-def hilbertHom (ι : Type) : ℂˣ →* HilbertRealGroup ι where
-  toFun z _ := gl2Hom z
-  map_one' := by sorry
-  map_mul' := by sorry
-def hilbertDatum (F : Supplier.TotallyRealField) : shimuraDatum :=
-  pointDatumOfHom (Supplier.hilbertCoordinate F) (Supplier.hilbertReductive F)
-    (Supplier.hilbertPoints F) (Supplier.hilbertSMap F)
-lemma hilbertDomain (F : Supplier.TotallyRealField) :
-    Nonempty (Supplier.datumDomain (hilbertDatum F) ≃ₜ (Supplier.RealEmbeddings F → HalfPlanes)) ∧
-    Supplier.datumDimension (hilbertDatum F) = Module.finrank ℚ F.field ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertDatum F))) = 2^(Module.finrank ℚ F.field) := by sorry
--- The scheme comparison with nonaffine Res(P¹) remains the explicit representability gap.
-lemma hilbertReflexDual (F : Supplier.TotallyRealField) :
-    reflexField (Supplier.classFromS (Supplier.hilbertSMap F)) = ⊥ ∧
-    Nonempty (Supplier.datumDual (hilbertDatum F) ≃ₜ
-      (Supplier.RealEmbeddings F → Projectivization ℂ (Fin 2 → ℂ))) := by sorry
-namespace Supplier
- -- RG2.0a: Res_F/ℚ Gm, its split real points and the determinant on Res GL₂.
- -- This is not the one-dimensional norm torus used in the preceding CM example.
- def hilbertDeterminantTorus (F : TotallyRealField) : TorusCommHopfAlgCat ℚ := sorry
- def hilbertNormSMap (F : TotallyRealField) : RealSMap (hilbertDeterminantTorus F).obj.obj := sorry
- def hilbertTorusPoints (F : TotallyRealField) : (RealEmbeddings F → ℝˣ) ≃*
-     Points (hilbertDeterminantTorus F).obj.obj ℝ := sorry
- def hilbertDeterminantCoordinate (F : TotallyRealField) :
-     (hilbertDeterminantTorus F).obj.obj ⟶ (hilbertCoordinate F).obj := sorry
-end Supplier
--- Omitted supplier conditions: split-point functoriality, Res(det) coordinate
--- identification and the diagonal norm S-map. The conclusion is a rational datum map.
-lemma hilbertDeterminantMap (F : Supplier.TotallyRealField) :
-    ∃ f : datumMorphism (hilbertDatum F)
-        (torusDatum (Supplier.hilbertDeterminantTorus F) (Supplier.hilbertNormSMap F)),
-      f.coordinate = Supplier.hilbertDeterminantCoordinate F ∧
-      CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ Supplier.hilbertSMap F =
-        Supplier.hilbertNormSMap F ∧
-      (∀ M : HilbertRealGroup (Supplier.RealEmbeddings F),
-        Supplier.pointMap f.coordinate ℝ (Supplier.hilbertPoints F M) =
-          Supplier.hilbertTorusPoints F (fun i => (M i).det)) ∧
-      (∀ z : ℂˣ, ∀ i : Supplier.RealEmbeddings F,
-        (Supplier.hilbertTorusPoints F).symm
-          (Supplier.realSPoints (Supplier.hilbertNormSMap F) z) i = (gl2Hom z).det) := by sorry
+/-- `variationElliptic`. -/
+example : IsHolomorphicFamily {τ : ℂ | 0 < τ.im} ellipticFiltration ∧
+    IsGriffithsTransversal {τ : ℂ | 0 < τ.im} ellipticFiltration := by
+  sorry
 
--- TauCeti.Shimura.tests.hilbertRational
-example : Nonempty (hilbertDatum Supplier.rationalField ≅ gl2Datum) := by sorry
--- TauCeti.Shimura.tests.hilbertQuadratic
-example : Supplier.datumDimension (hilbertDatum Supplier.quadraticRealField) = 2 ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertDatum Supplier.quadraticRealField))) = 4 := by sorry
+/-- The non-horizontal weight-three family: `F³(z) = ℂ(e₀ + z e₃)`, `F²(z) = F³(z) + ℂ e₁`,
+`F¹(z) = F³(z)^⊥` for `Q(e₀,e₃) = i`, `Q(e₁,e₂) = −i`. -/
+def nonHorizontalFiltration (z : ℂ) (p : ℤ) : Submodule ℂ (Fin 4 → ℂ) :=
+  if p ≤ 0 then ⊤
+  else if p = 1 then LinearMap.ker
+    ((LinearMap.proj (R := ℂ) (φ := fun _ : Fin 4 ↦ ℂ) 3) - z • LinearMap.proj (R := ℂ) (φ := fun _ : Fin 4 ↦ ℂ) 0)
+  else if p = 2 then Submodule.span ℂ {![1, 0, 0, z], ![0, 1, 0, 0]}
+  else if p = 3 then Submodule.span ℂ {![1, 0, 0, z]} else ⊥
 
-def hilbertStarGroup (ι : Type) [Fintype ι] : Subgroup (HilbertRealGroup ι) :=
-  { carrier := {M | ∃ c : ℝˣ, ∀ i, (M i).det = c}
-    one_mem' := by sorry
-    mul_mem' := by sorry
-    inv_mem' := by sorry }
-def hilbertStarHom (ι : Type) [Fintype ι] : ℂˣ →* hilbertStarGroup ι where
-  toFun z := ⟨hilbertHom ι z, by sorry⟩
-  map_one' := by sorry
-  map_mul' := by sorry
-namespace Supplier
- def hilbertStarCoordinate (F : TotallyRealField) : FiniteTypeCommHopfAlgCat ℚ := sorry
- def hilbertStarReductive (F : TotallyRealField) : reductiveCommHopfAlgProperty ℚ (hilbertStarCoordinate F) := by sorry
- def hilbertStarPoints (F : TotallyRealField) : hilbertStarGroup (RealEmbeddings F) ≃*
-     Points (hilbertStarCoordinate F).obj ℝ := sorry
- def hilbertStarSMap (F : TotallyRealField) : RealSMap (hilbertStarCoordinate F).obj := sorry
-end Supplier
-def hilbertStarDatum (F : Supplier.TotallyRealField) : shimuraDatum :=
-  pointDatumOfHom (Supplier.hilbertStarCoordinate F) (Supplier.hilbertStarReductive F)
-    (Supplier.hilbertStarPoints F) (Supplier.hilbertStarSMap F)
-abbrev SameSignHalfPlanes (F : Supplier.TotallyRealField) :=
-  {z : Supplier.RealEmbeddings F → HalfPlanes //
-    (∀ i, 0 < (z i).val.im) ∨ (∀ i, (z i).val.im < 0)}
-lemma hilbertStarPoints (F : Supplier.TotallyRealField) (M : HilbertRealGroup (Supplier.RealEmbeddings F)) :
-    M ∈ hilbertStarGroup (Supplier.RealEmbeddings F) ↔ ∃ c : ℝˣ, ∀ i, (M i).det = c := by sorry
-lemma hilbertStarDomain (F : Supplier.TotallyRealField) :
-    Nonempty (Supplier.datumDomain (hilbertStarDatum F) ≃ₜ SameSignHalfPlanes F) ∧
-    Supplier.datumDimension (hilbertStarDatum F) = Module.finrank ℚ F.field ∧
-    reflexField (Supplier.classFromS (Supplier.hilbertStarSMap F)) = ⊥ ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertStarDatum F))) = 2 := by sorry
-lemma hilbertStarInclusion (F : Supplier.TotallyRealField) :
-    ∃ f : datumMorphism (hilbertStarDatum F) (hilbertDatum F),
-      Function.Surjective f.coordinate.hom ∧ ∀ M, f.val M = M.val := by sorry
--- TauCeti.Shimura.tests.starRational
-example : Nonempty (hilbertStarDatum Supplier.rationalField ≅ gl2Datum) := by sorry
--- TauCeti.Shimura.tests.starQuadratic
-example : Supplier.datumDimension (hilbertStarDatum Supplier.quadraticRealField) = 2 ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertStarDatum Supplier.quadraticRealField))) = 2 := by sorry
--- TauCeti.Shimura.tests.starMixedSignFalse
-example (M : HilbertRealGroup (Fin 2)) (h0 : ((M 0).det : ℝ) = 1) (h1 : ((M 1).det : ℝ) = -1) :
-    M ∉ hilbertStarGroup (Fin 2) := by sorry
+/-- `variationNonHorizontal`: `dF³(0) = e₃` is not in `F²(0)`, so this is not a variation. -/
+example : ¬ IsGriffithsTransversal (Metric.ball (0 : ℂ) 1) nonHorizontalFiltration := by
+  sorry
 
-section Trace
-variable {F : Type*} [Field F] [Algebra ℚ F] [FiniteDimensional ℚ F]
-def tracePsi (x y : F × F) : ℚ := Algebra.trace ℚ F (x.1*y.2-x.2*y.1)
-lemma hilbertTraceForm (x : F × F) (hx : x ≠ 0) : ∃ y, tracePsi x y ≠ 0 := by sorry
-def traceLinearAction (M : Matrix.GeneralLinearGroup (Fin 2) F) : (F×F) ≃ₗ[ℚ] (F×F) := sorry
-lemma traceLinearSimilitude (M : Matrix.GeneralLinearGroup (Fin 2) F) (c : ℚ)
-    (hc : (M.det : F) = algebraMap ℚ F c) (x y : F×F) :
-    tracePsi (traceLinearAction M x) (traceLinearAction M y) = c * tracePsi x y := by sorry
-lemma traceLinearFormula (M : Matrix.GeneralLinearGroup (Fin 2) F) (x : F×F) :
-    traceLinearAction M x = ((M : Matrix _ _ F) 0 0*x.1+(M : Matrix _ _ F) 0 1*x.2,
-      (M : Matrix _ _ F) 1 0*x.1+(M : Matrix _ _ F) 1 1*x.2) := by sorry
-lemma traceLinearFaithful : Function.Injective (traceLinearAction (F := F)) := by sorry
--- TauCeti.Shimura.tests.hilbertNonHodge
-example (M : Matrix.GeneralLinearGroup (Fin 2) Supplier.quadraticRealField.field)
-    (hn : ∀ c : ℚ, (M.det : Supplier.quadraticRealField.field) ≠ algebraMap ℚ _ c) :
-    ¬ ∃ c : ℚ, ∀ x y : Supplier.quadraticRealField.field × Supplier.quadraticRealField.field,
-      tracePsi (traceLinearAction M x) (traceLinearAction M y) = c*tracePsi x y := by sorry
--- TauCeti.Shimura.tests.traceNonscalarFalse
-example (M : Matrix.GeneralLinearGroup (Fin 2) F)
-    (hn : ∀ c : ℚ, (M.det : F) ≠ algebraMap ℚ F c) :
-    ¬ ∃ c : ℚ, ∀ x y : F×F,
-      tracePsi (traceLinearAction M x) (traceLinearAction M y) = c*tracePsi x y := by sorry
-end Trace
+variable {B : TopCat.{0}} {n : ℤ}
 
-def hilbertTraceEmbedding (F : Supplier.TotallyRealField) :
-    datumMorphism (hilbertStarDatum F) (siegelDatum (Module.finrank ℚ F.field)) := sorry
-lemma traceEmbeddingSimilitude (F : Supplier.TotallyRealField)
-    (M : hilbertStarGroup (Supplier.RealEmbeddings F)) (c : ℝˣ)
-    (hc : ∀ i, (M.val i).det = c) (x y : (Fin (Module.finrank ℚ F.field) → ℝ) × (Fin (Module.finrank ℚ F.field) → ℝ)) :
-    standardPsi _ (((hilbertTraceEmbedding F).val M).val x) (((hilbertTraceEmbedding F).val M).val y) =
-      (c : ℝ)*standardPsi _ x y := by sorry
--- A rational symplectic basis need not take this point to the standard Siegel point.
--- It takes it into that full real conjugacy orbit, with positive trace polarization.
-lemma traceEmbeddingHodge (F : Supplier.TotallyRealField) :
-    ∃ k : realSiegelGroup (Module.finrank ℚ F.field),
-      (hilbertTraceEmbedding F).val.comp (hilbertStarHom (Supplier.RealEmbeddings F)) =
-        conjugateHom k (siegelHom (Module.finrank ℚ F.field)) := by sorry
-lemma traceEmbeddingClosed (F : Supplier.TotallyRealField) :
-    Function.Surjective (hilbertTraceEmbedding F).coordinate.hom ∧
-      Function.Injective (hilbertTraceEmbedding F).val := by sorry
--- TauCeti.Shimura.tests.traceRational
-example : Function.Bijective (hilbertTraceEmbedding Supplier.rationalField).val := by sorry
--- TauCeti.Shimura.tests.traceQuadratic
-example : Supplier.datumDimension (hilbertStarDatum Supplier.quadraticRealField) = 2 ∧
-    Supplier.datumDimension (siegelDatum 2) = 3 ∧
-    Function.Injective (Supplier.datumDomainMap (hilbertTraceEmbedding Supplier.quadraticRealField)) := by sorry
+/-- `variationHomIdentity`. -/
+example (v : Variation B n) : (variationHomIdentity v).hom = 𝟙 v.L := rfl
 
--- Late example tests instantiate the D3/D4 interfaces on the D5 algebraic models.
-namespace Supplier
- def ellipticBasis (τ : ℂ) (hτ : 0 < τ.im) : Matrix.GeneralLinearGroup (Fin 2) ℝ := sorry
- def normCoordinateMap : normTorus.obj.obj ⟶ (cmTorusCoordinate imaginaryQuadraticType).obj.obj := sorry
- def standardGroupRep (D : shimuraDatum) : FGComoduleCat ℝ
-     (CommHopfAlgCat.baseChange (K := ℝ) D.coordinate.obj) := sorry
- def domainSMap (D : shimuraDatum) : datumDomain D → RealSMap D.coordinate.obj := sorry
- def onePoint : TopCat := TopCat.of Unit
- def onePointAtlas : ComplexManifoldOn onePoint 0 := sorry
- def trivialGroupRep : FGComoduleCat ℝ (CommHopfAlgCat.baseChange (K := ℝ) trivialTorus.obj.obj) := sorry
- -- Rational adjoint conjugation by diag(2,1), restricted to the upper component.
- def scalingAdjointComponent : AdjointComponentIso gl2Datum gl2Datum := sorry
- def datumDualAtlas (D : shimuraDatum) : ComplexManifoldOn (datumDual D) (datumDualDimension D) := sorry
- def standardLagrangian (g : ℕ) : LagrangianGrassmannian g :=
-   ⟨LinearMap.range (LinearMap.inl ℂ (Fin g → ℂ) (Fin g → ℂ)), by sorry⟩
- def siegelFlagStabilizer (g : ℕ) : Subgroup (Points (gspCoordinate g).obj ℂ) := sorry
- def standardComplexRep (g : ℕ) : Points (gspCoordinate g).obj ℂ →*
-     (((Fin g → ℂ) × (Fin g → ℂ)) ≃ₗ[ℂ] ((Fin g → ℂ) × (Fin g → ℂ))) := sorry
-end Supplier
--- ellipticBasis τ has matrix [im τ, re τ;0,1], hence sends i to τ.
-def ellipticGl2Point (τ : ℂ) (hτ : 0 < τ.im) : ℂˣ →* gl2Datum.G :=
-  conjugateHom (Supplier.ellipticBasis τ hτ) gl2Hom
--- TauCeti.Shimura.tests.specialPairTorusSelf
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    ∃ p : specialPair (torusDatum T h), p.T = T ∧ specialPairHom p = Supplier.realSPoints h := by sorry
--- TauCeti.Shimura.tests.specialPairCmElliptic
-example : ∃ p : specialPair gl2Datum, specialPairHom p = gl2Hom := by sorry
--- TauCeti.Shimura.tests.specialPairTrivial
-example : ∃ p : specialPair (torusDatum Supplier.trivialTorus Supplier.trivialSMap),
-    p.T = Supplier.trivialTorus := by sorry
--- TauCeti.Shimura.tests.specialTorusAll
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj)
-    (k : ℂˣ →* (torusDatum T h).G) (hk : k ∈ (torusDatum T h).orbit.X) :
-    specialPoint (torusDatum T h) k := by sorry
--- TauCeti.Shimura.tests.specialGl2Cm
-example : specialPoint gl2Datum gl2Hom := by sorry
--- TauCeti.Shimura.tests.specialGl2NonCm
-example : ¬ specialPoint gl2Datum (ellipticGl2Point ((Real.sqrt 2 : ℂ)+Complex.I) (by sorry)) := by sorry
--- TauCeti.Shimura.tests.morphismProjection
-example (D E : shimuraDatum) : ∃ f : datumMorphism (productDatum D E) D,
-    Function.Surjective f.val := by sorry
--- TauCeti.Shimura.tests.morphismTorusNorm
-example : ∃ f : datumMorphism (cmTorus Supplier.imaginaryQuadraticType)
-    (torusDatum Supplier.normTorus Supplier.normSMap), f.coordinate = Supplier.normCoordinateMap := by sorry
--- TauCeti.Shimura.tests.morphismNonAlgebraicFalse
--- z↦exp(log|z|) with irrational exponent is a continuous point homomorphism, not algebraic.
-example (a : ℝ) (ha : Irrational a) :
-    ¬ ∃ f : Supplier.normTorus.obj.obj ⟶ Supplier.normTorus.obj.obj,
-      ∀ t : ℝˣ, 0 < (t : ℝ) →
-        ((Supplier.pointMap f ℝ) (Supplier.realSPoints Supplier.normSMap
-          (Units.map (algebraMap ℝ ℂ).toMonoidHom t))) =
-          Supplier.realSPoints Supplier.normSMap
-            (Units.map (algebraMap ℝ ℂ).toMonoidHom
-              ⟨Real.rpow (t : ℝ) a, Real.rpow (t : ℝ) (-a), by sorry, by sorry⟩) := by sorry
--- TauCeti.Shimura.tests.hodgeTypeSiegel
-example (g : ℕ) (hg : 0 < g) : hodgeType siegelDatum (siegelDatum g) := by sorry
--- TauCeti.Shimura.tests.hodgeTypeGl2
-example : hodgeType siegelDatum gl2Datum := by sorry
--- TauCeti.Shimura.tests.hodgeTypeHilbertStar
-example (F : Supplier.TotallyRealField) : hodgeType siegelDatum (hilbertStarDatum F) := by sorry
--- TauCeti.Shimura.tests.abelianSiegel
-example (g : ℕ) (hg : 0 < g) : abelianType siegelDatum (siegelDatum g) := by sorry
--- TauCeti.Shimura.tests.abelianTorus
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    abelianType siegelDatum (torusDatum T h) := by sorry
--- TauCeti.Shimura.tests.abelianAdjointOnlyCaveat
--- Conjugation by diag(2,1) preserves the upper component of PGL₂, but does not
--- induce the identity on SL₂. A connected adjoint witness alone cannot fill that square.
-example : Supplier.scalingAdjointComponent.coordinate.hom ≫ Supplier.adjointQuotientOfDerived gl2Datum ≠
-    Supplier.adjointQuotientOfDerived gl2Datum := by sorry
--- TauCeti.Shimura.tests.preabelianSiegel
-example (g : ℕ) (hg : 0 < g) : preabelianType siegelDatum (siegelDatum g) := by sorry
--- TauCeti.Shimura.tests.preabelianTorus
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    preabelianType siegelDatum (torusDatum T h) := by sorry
--- TauCeti.Shimura.tests.preabelianComponent
-example : preabelianType siegelDatum (hilbertDatum Supplier.quadraticRealField) ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertDatum Supplier.quadraticRealField))) = 4 ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (hilbertStarDatum Supplier.quadraticRealField))) = 2 := by sorry
--- TauCeti.Shimura.tests.reflexGl2
-example : reflexField (Supplier.classFromS Supplier.gl2SMap) = ⊥ := by sorry
--- TauCeti.Shimura.tests.reflexCm
-example : reflexField (Supplier.classFromS (Supplier.cmSMap Supplier.imaginaryQuadraticType)) =
-    Supplier.imaginaryQuadraticField := by sorry
--- TauCeti.Shimura.tests.reflexProductCm
-example : reflexField (Supplier.classFromS Supplier.gl2SMap,
-    Supplier.classFromS (Supplier.cmSMap Supplier.imaginaryQuadraticType)) =
-      Supplier.imaginaryQuadraticField := by sorry
--- TauCeti.Shimura.tests.homogeneousTrivial
-example : ∀ b : Supplier.onePoint,
-    ((homogeneousVariation Supplier.onePointAtlas Supplier.trivialTorus.obj.obj
-      (fun _ => Supplier.trivialSMap) Supplier.trivialGroupRep 0).filtered.fiber b).F 0 = ⊤ := by sorry
--- TauCeti.Shimura.tests.homogeneousSiegel
-example (g : ℕ) (hg : 0 < g) (b : Supplier.datumDomain (siegelDatum g)) :
-    Module.finrank ℂ (((homogeneousVariation (Supplier.datumAtlas (siegelDatum g))
-      (siegelDatum g).coordinate.obj (Supplier.domainSMap (siegelDatum g))
-      (Supplier.standardGroupRep (siegelDatum g)) (-1)).filtered.fiber b).piece (-1)) = g ∧
-    HorizontalBundle (homogeneousVariation (Supplier.datumAtlas (siegelDatum g))
-      (siegelDatum g).coordinate.obj (Supplier.domainSMap (siegelDatum g))
-      (Supplier.standardGroupRep (siegelDatum g)) (-1)).filtered := by sorry
--- TauCeti.Shimura.tests.homogeneousTorus
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    Supplier.datumDimension (torusDatum T h) = 0 ∧
-    Subsingleton (Supplier.datumDomain (torusDatum T h)) := by sorry
--- TauCeti.Shimura.tests.parabolicSiegel
-example (a : Supplier.Points (Supplier.gspCoordinate 2).obj ℂ) :
-    a ∈ Supplier.siegelFlagStabilizer 2 ↔
-      (Supplier.standardLagrangian 2).val.map (Supplier.standardComplexRep 2 a).toLinearMap =
-        (Supplier.standardLagrangian 2).val := by sorry
--- TauCeti.Shimura.tests.dualSiegel
-example : Supplier.datumDualDimension (siegelDatum 2) = 3 ∧
-    Nonempty (Supplier.datumDual (siegelDatum 2) ≃ LagrangianGrassmannian 2) ∧
-    ∀ L : LagrangianGrassmannian 2, ∀ x ∈ L.val, ∀ y ∈ L.val, complexPsi 2 x y = 0 := by sorry
+/-- `variationHomZero`. -/
+example (v w : Variation B n) : ∃ f : VariationHom v w, f.hom = 0 := by
+  sorry
 
-/- Absolute roots and Weyl actions are R7 objects, represented in the existing
-RootPairing carrier. No absolute root system is constructed by this roadmap.
-Omitted input: these pairings/lattices/bases are the specified GSp torus and
-Borel under R7's algebraic comparison, with its length and Levi inclusion. -/
-abbrev BPWeight (g : ℕ) := (Fin g → ℚ) × ℚ
-def bpBasisWeight {g : ℕ} (i : Fin g) : BPWeight g := (Pi.single i 1, 0)
-def positiveRoots {ι X Y : Type*} [AddCommGroup X] [Module ℚ X]
-    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (b : P.Base) : Set X :=
-  P.root '' {i | b.IsPos i}
-def dominantWeights {ι X Y : Type*} [AddCommGroup X] [Module ℚ X]
-    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (s : Finset ι) : Set X :=
-  {x | ∀ i ∈ s, 0 ≤ P.toLinearMap x (P.coroot i)}
-def halfRootSum {ι X Y : Type*} [Fintype ι] [AddCommGroup X] [Module ℚ X]
-    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (s : Set ι) : X := by
-  classical
-  exact (1/2 : ℚ) • ∑ i ∈ Finset.univ.filter (fun i => i ∈ s), P.root i
-namespace Supplier
- def siegelRootPairing (g : ℕ) : RootPairing (Fin (2*g*g)) ℚ (BPWeight g) (BPWeight g) := sorry
- def bpBase (g : ℕ) : (siegelRootPairing g).Base := sorry
- def bpCompactIndices (g : ℕ) : Set (Fin (2*g*g)) := sorry
- def bpLeviBase (g : ℕ) : Finset (Fin (2*g*g)) := sorry
- def bpCharacters (g : ℕ) : AddSubgroup ((Fin g → ℤ) × ℤ) := sorry
- abbrev BPWeyl (g : ℕ) := (siegelRootPairing g).weylGroup
- def bpLeviWeyl (g : ℕ) : Subgroup (BPWeyl g) := sorry
- def bpLength (g : ℕ) : BPWeyl g → ℕ := sorry
- -- Permutation of the standard representation's torus weights, not a chosen bijection.
- def bpWeylPermutation (g : ℕ) : BPWeyl g →* Equiv.Perm (Fin (2*g)) := sorry
-end Supplier
-lemma siegelRootConvention (g : ℕ) (hg : 0 < g) :
-    (∀ x : (Fin g → ℤ) × ℤ, x ∈ Supplier.bpCharacters g ↔
-      (∑ i, x.1 i) ≡ x.2 [ZMOD 2]) ∧
-    (Supplier.siegelRootPairing g).root ''
-      {i | (Supplier.bpBase g).IsPos i ∧ i ∈ Supplier.bpCompactIndices g} =
-        {x | ∃ i j : Fin g, i < j ∧ x = bpBasisWeight i - bpBasisWeight j} ∧
-    (Supplier.siegelRootPairing g).root ''
-      {i | (Supplier.bpBase g).IsPos i ∧ i ∉ Supplier.bpCompactIndices g} =
-        {x | ∃ i j : Fin g, i ≤ j ∧ x = -bpBasisWeight i - bpBasisWeight j} ∧
-    halfRootSum (Supplier.siegelRootPairing g) {i | (Supplier.bpBase g).IsPos i} =
-      ((fun i : Fin g => -(i.val+1 : ℚ)), 0) ∧
-    halfRootSum (Supplier.siegelRootPairing g)
-      {i | (Supplier.bpBase g).IsPos i ∧ i ∉ Supplier.bpCompactIndices g} =
-      ((fun _ : Fin g => -((g : ℚ)+1)/2), 0) ∧
-    dominantWeights (Supplier.siegelRootPairing g) (Supplier.bpBase g).support =
-      {x | (∀ i, x.1 i ≤ 0) ∧ ∀ i j, i ≤ j → x.1 j ≤ x.1 i} ∧
-    dominantWeights (Supplier.siegelRootPairing g) (Supplier.bpLeviBase g) =
-      {x | ∀ i j, i ≤ j → x.1 j ≤ x.1 i} := by sorry
+/-- `variationHomReject`. -/
+example (v w : Variation B n) (θ : v.L ⟶ w.L) (b : FundamentalGroupoid B) (p : ℤ)
+    (x : ℂ ⊗[ℝ] v.L.obj b) (hx : x ∈ (v.fiber b).F p)
+    (hθ : LinearMap.baseChange ℂ (θ.app b).hom x ∉ (w.fiber b).F p) :
+    ¬ ∃ f : VariationHom v w, f.hom = θ := by
+  sorry
 
--- Zero-based indices: reflection is i↦2g−1−i. The cyclic rank is 0 on g.
-def reflectedSiegelIndex (g : ℕ) (i : Fin (2*g)) : Fin (2*g) := ⟨2*g-1-i.val, by omega⟩
-def reflectedSiegelPermutations (g : ℕ) : Subgroup (Equiv.Perm (Fin (2*g))) where
-  carrier := {w | ∀ i, w (reflectedSiegelIndex g i) = reflectedSiegelIndex g (w i)}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def cyclicSiegelRank (g : ℕ) (i : Fin (2*g)) : ℕ := (i.val+g) % (2*g)
-def siegelLastIndex {g : ℕ} (i : Fin g) : Fin (2*g) := ⟨g+i.val, by omega⟩
-def bpStandardWeight (g : ℕ) (i : Fin (2*g)) : BPWeight g :=
-  if hi : i.val < g then (Pi.single ⟨i.val, hi⟩ 1, 1)
-  else (-(Pi.single ⟨2*g-1-i.val, by omega⟩ 1), 1)
-lemma siegelWeylPermutations (g : ℕ) (hg : 0 < g) :
-    ∃ e : Supplier.BPWeyl g ≃* reflectedSiegelPermutations g,
-      (∀ w, (e w).val = Supplier.bpWeylPermutation g w) ∧
-      (∀ w i, w • bpStandardWeight g i = bpStandardWeight g ((e w).val i)) ∧
-      (∀ w, w ∈ Supplier.bpLeviWeyl g ↔
-        ∀ i : Fin (2*g), i.val < g ↔ ((e w).val i).val < g) ∧
-      (∀ w, w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g) ↔
-        StrictMono (fun i : Fin g => cyclicSiegelRank g ((e w).val.symm (siegelLastIndex i)))) ∧
-      Nat.card {w : Supplier.BPWeyl g //
-        w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g)} = 2^g := by sorry
+/-- `rationalTate`: rationalization keeps the integral form. -/
+example (P : polarizedIntegralVariation B (-2)) (b : FundamentalGroupoid B) (x y : P.LZ.obj b) :
+    (integralVariationRational P).Q b (P.ι b x) (P.ι b y) = P.QZ b x y :=
+  P.compatible b x y
 
-def kostantSequence (g : ℕ) (S : Finset (Fin g)) (i : ℕ) : ℕ :=
-  (S.filter (fun j => j.val < i)).card
-lemma kostantSequenceZero (g : ℕ) (S : Finset (Fin g)) : kostantSequence g S 0 = 0 := by sorry
-lemma kostantSequenceStep (g : ℕ) (S : Finset (Fin g)) (i : Fin g) :
-    kostantSequence g S (i.val+1) = kostantSequence g S i.val + if i ∈ S then 1 else 0 := by sorry
-lemma kostantSequenceInjective (g : ℕ) : Function.Injective (fun S : Finset (Fin g) => kostantSequence g S) := by sorry
--- TauCeti.Shimura.tests.sequenceGenusOne
-example : (kostantSequence 1 ∅ 1, kostantSequence 1 {0} 1) = (0,1) := by sorry
--- TauCeti.Shimura.tests.sequenceGenusTwo
-example : (kostantSequence 2 ∅ 1,kostantSequence 2 ∅ 2) = (0,0) ∧
-    (kostantSequence 2 {1} 1,kostantSequence 2 {1} 2) = (0,1) ∧
-    (kostantSequence 2 {0} 1,kostantSequence 2 {0} 2) = (1,1) ∧
-    (kostantSequence 2 {0,1} 1,kostantSequence 2 {0,1} 2) = (1,2) := by sorry
--- TauCeti.Shimura.tests.sequenceStepFalse
-example : ¬ ∃ S : Finset (Fin 2), kostantSequence 2 S 1 = 0 ∧ kostantSequence 2 S 2 = 2 := by sorry
+/-- `rationalScaled`: twice a polarizing form is again parallel of the same parity. -/
+example (P : RationalPolarizedVariation B n) :
+    ∃ P' : RationalPolarizedVariation B n, P'.LQ = P.LQ ∧ P'.real = P.real ∧ HEq P'.Q (fun b ↦ 2 • P.Q b) := by
+  sorry
 
-namespace Supplier
- -- R9 integral model, evaluated over ANY field, including positive characteristic.
- -- Omitted: P stabilizes the last-half Lagrangian, B⊂P preserves its partial flag,
- -- and this Weyl lift acts on the standard basis by bpWeylPermutation up to units.
- def integralSiegelGroup (g : ℕ) (K : Type*) [Field K] :
-     Subgroup (Matrix.GeneralLinearGroup (Fin (2*g)) K) := sorry
- def bpParabolic (g : ℕ) (K : Type*) [Field K] : Subgroup (integralSiegelGroup g K) := sorry
- def bpBorel (g : ℕ) (K : Type*) [Field K] : Subgroup (integralSiegelGroup g K) := sorry
- def bpWeylLift (g : ℕ) (K : Type*) [Field K] (w : BPWeyl g) : integralSiegelGroup g K := sorry
-end Supplier
-def siegelReferenceFlag (g : ℕ) (K : Type*) [Field K] (i : ℕ) :
-    Submodule K (Fin (2*g) → K) :=
-  Submodule.span K {v | ∃ j : Fin g, j.val < i ∧ v = Pi.single (siegelLastIndex j) 1}
-def siegelRepresentativeLagrangian (g : ℕ) (K : Type*) [Field K]
-    (x : Supplier.integralSiegelGroup g K) : Submodule K (Fin (2*g) → K) :=
-  (siegelReferenceFlag g K g).map
-    (Matrix.GeneralLinearGroup.toLin x.val⁻¹).toLinearEquiv.toLinearMap
-def siegelBruhatCell (g : ℕ) (K : Type*) [Field K] (w : Supplier.BPWeyl g) :
-    Set (Supplier.integralSiegelGroup g K) :=
-  {x | ∃ p ∈ Supplier.bpParabolic g K, ∃ b ∈ Supplier.bpBorel g K,
-    x = p * Supplier.bpWeylLift g K w * b}
-def siegelIncrementSubset (g : ℕ) (w : Supplier.BPWeyl g) : Finset (Fin g) := by
-  classical
-  exact Finset.univ.filter (fun j =>
-    g ≤ (Supplier.bpWeylPermutation g w (siegelLastIndex j)).val)
--- Membership in P w B supplies the rank formula, not a premise asserting that formula.
-theorem kostantSequenceGeometry (g : ℕ) (hg : 0 < g) (K : Type*) [Field K]
-    (w : Supplier.BPWeyl g)
-    (hw : w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g))
-    (x : Supplier.integralSiegelGroup g K) (hx : x ∈ siegelBruhatCell g K w) :
-    (∀ i : Fin (g+1), Module.finrank K
-      ↥(siegelRepresentativeLagrangian g K x ⊓ siegelReferenceFlag g K i.val) =
-        kostantSequence g (siegelIncrementSubset g w) i.val) ∧
-    (∀ p ∈ Supplier.bpParabolic g K,
-      siegelRepresentativeLagrangian g K (p*x) = siegelRepresentativeLagrangian g K x) ∧
-    (∀ y ∈ siegelBruhatCell g K w, ∀ i : Fin (g+1), Module.finrank K
-      ↥(siegelRepresentativeLagrangian g K y ⊓ siegelReferenceFlag g K i.val) =
-      Module.finrank K ↥(siegelRepresentativeLagrangian g K x ⊓ siegelReferenceFlag g K i.val)) := by sorry
+/-- `rationalNegativeFalse`: on a nonzero pure piece the negative of a polarization violates the
+second Hodge–Riemann relation (Tau Ceti's `IsPolarization`). -/
+example {V Vℂ : Type} [AddCommGroup V] [AddCommGroup Vℂ] [Module ℂ Vℂ] {ιℂ : V →ₗ[ℤ] Vℂ}
+    (hℂ : IsBaseChange ℂ ιℂ) {m : ℤ} (hs : TauCeti.Hodge.HodgeStructure hℂ m) (Q : LinearMap.BilinForm ℤ V)
+    (hQ : TauCeti.Hodge.IsPolarization hℂ hs Q) (p : ℤ) (x : Vℂ) (hx : x ∈ hs.piece p) (hx0 : x ≠ 0) :
+    ¬ TauCeti.Hodge.IsPolarization hℂ hs (-Q) := by
+  sorry
 
-abbrev CGWeight := ℚ × ℚ × ℚ
-def cgToParity (x : ℤ × ℤ × ℤ) : ℤ × ℤ × ℤ := (x.1,x.2.1,x.1+x.2.1+2*x.2.2)
-def cgWeyl (i : Fin 4) (x : CGWeight) : CGWeight :=
-  match i.val with
-  | 0 => x
-  | 1 => (x.1,-x.2.1,x.2.1+x.2.2)
-  | 2 => (x.2.1,-x.1,x.1+x.2.2)
-  | _ => (-x.2.1,-x.1,x.1+x.2.1+x.2.2)
-def cgDominant : Set CGWeight := {x | x.2.1 ≤ x.1 ∧ 0 ≤ x.2.1}
-namespace Supplier
- -- R7's GSp₄ torus in CG coordinates. Its pairing is character/cocharacter evaluation.
- def cgRootPairing : RootPairing (Fin 8) ℚ CGWeight CGWeight := sorry
- def cgBase : cgRootPairing.Base := sorry
- def cgLeviBase : Finset (Fin 8) := sorry
- def cgCharacter (x : ℤ×ℤ×ℤ) : (ℂˣ × ℂˣ × ℂˣ) →* ℂˣ := sorry
- abbrev CGWeyl := cgRootPairing.weylGroup
- def cgLeviWeyl : Subgroup CGWeyl := sorry
- def cgLength : CGWeyl → ℕ := sorry
- def cgLongestLevi : CGWeyl := sorry
- def cgLongestFull : CGWeyl := sorry
-end Supplier
--- Full roots, their paired coroots, base, rho and cones on the actual R7 object.
-lemma gsp4CgRoots :
-    {r | ∃ i : Fin 8, Supplier.cgBase.IsPos i ∧
-      r = (Supplier.cgRootPairing.root i, Supplier.cgRootPairing.coroot i)} =
-      ({((1,-1,0),(1,-1,0)), ((0,2,-1),(0,1,0)),
-        ((1,1,-1),(1,1,0)), ((2,0,-1),(1,0,0))} : Set (CGWeight×CGWeight)) ∧
-    Supplier.cgRootPairing.root '' (Supplier.cgBase.support : Set (Fin 8)) =
-      ({(1,-1,0),(0,2,-1)} : Set CGWeight) ∧
-    Supplier.cgRootPairing.root '' (Supplier.cgLeviBase : Set (Fin 8)) =
-      ({(1,-1,0)} : Set CGWeight) ∧
-    (∀ x y : CGWeight, Supplier.cgRootPairing.toLinearMap x y =
-      x.1*y.1 + x.2.1*y.2.1 + x.2.2*y.2.2) ∧
-    halfRootSum Supplier.cgRootPairing {i | Supplier.cgBase.IsPos i} = (2,1,-3/2) ∧
-    dominantWeights Supplier.cgRootPairing Supplier.cgBase.support = cgDominant ∧
-    dominantWeights Supplier.cgRootPairing Supplier.cgLeviBase = {x | x.2.1 ≤ x.1} ∧
-    (∀ x : ℤ×ℤ×ℤ, ∀ t : ℂˣ × ℂˣ × ℂˣ,
-      Supplier.cgCharacter x t = t.1^x.1*t.2.1^x.2.1*t.2.2^x.2.2) ∧
-    (∀ a b c : ℤ, (cgToParity (a,b,c)).1 + (cgToParity (a,b,c)).2.1 ≡
-      (cgToParity (a,b,c)).2.2 [ZMOD 2]) := by sorry
-lemma gsp4Kostant :
-    ∃ r : Fin 4 ≃ {w : Supplier.CGWeyl //
-      w ∈ kostantRepresentatives Supplier.cgLeviWeyl Supplier.cgLength},
-      (∀ i x, (r i).val • x = cgWeyl i x) ∧
-      (∀ i, Supplier.cgLength (r i).val = i.val) ∧
-      Supplier.cgLongestLevi ∈ Supplier.cgLeviWeyl ∧
-      Supplier.cgLength Supplier.cgLongestLevi = 1 ∧
-      Supplier.cgLength Supplier.cgLongestFull = 4 ∧
-      (∀ w ∈ Supplier.cgLeviWeyl, Supplier.cgLength w ≤ Supplier.cgLength Supplier.cgLongestLevi) ∧
-      (∀ w, Supplier.cgLength w ≤ Supplier.cgLength Supplier.cgLongestFull) ∧
-      (∀ x : CGWeight, Supplier.cgLongestLevi • x = (x.2.1,x.1,x.2.2) ∧
-        Supplier.cgLongestFull • x = (-x.1,-x.2.1,x.1+x.2.1+x.2.2)) ∧
-      (∀ i : Fin 4, Supplier.cgLongestLevi * (r i).val * Supplier.cgLongestFull =
-        (r ⟨3-i.val, by omega⟩).val) := by sorry
-lemma gsp4ConeReversal (i : Fin 4) :
-    (fun x : CGWeight => (-x.2.1,-x.1,-x.2.2)) '' (cgWeyl i '' cgDominant) =
-      cgWeyl ⟨3-i.val, by omega⟩ '' cgDominant := by sorry
+/-- `integralConstantTate`: a rank-one polarized integral variation of weight `−2` exists. -/
+example (b : FundamentalGroupoid B) :
+    ∃ P : polarizedIntegralVariation B (-2), Module.finrank ℤ (P.LZ.obj b) = 1 := by
+  sorry
 
-private def cgJ : Matrix (Fin 4) (Fin 4) ℝ :=
-  !![0,0,0,1; 0,0,1,0; 0,-1,0,0; -1,0,0,0]
-lemma gsp4Centralizer (M : Matrix (Fin 4) (Fin 4) ℝ) (ν : ℝ) (hν : ν ≠ 0)
-    (hsp : M.transpose * cgJ * M = ν • cgJ)
-    (hcentral : M*cgJ = cgJ*M) : M.transpose*M = ν • (1 : Matrix _ _ ℝ) ∧ 0 < ν := by sorry
--- K∞,1 consists of orthogonal real matrices commuting with the specified J.
-def gsp4CompactUnit : Subgroup (Matrix.GeneralLinearGroup (Fin 4) ℝ) where
-  carrier := {k | (k : Matrix (Fin 4) (Fin 4) ℝ).transpose * (k : Matrix (Fin 4) (Fin 4) ℝ) = 1 ∧
-    (k : Matrix (Fin 4) (Fin 4) ℝ) * cgJ = cgJ * (k : Matrix (Fin 4) (Fin 4) ℝ)}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def cgSwap : Matrix (Fin 2) (Fin 2) ℝ := !![0,1;1,0]
-def cgUnitaryBlock (A B : Matrix (Fin 2) (Fin 2) ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
-  Matrix.reindex finSumFinEquiv finSumFinEquiv
-    (Matrix.fromBlocks (cgSwap*A*cgSwap) (cgSwap*B) (-B*cgSwap) A)
-def cgCompactA (k : gsp4CompactUnit) : Matrix (Fin 2) (Fin 2) ℝ :=
-  fun i j => (k.val : Matrix (Fin 4) (Fin 4) ℝ) ⟨i.val+2, by omega⟩ ⟨j.val+2, by omega⟩
-def cgCompactB (k : gsp4CompactUnit) : Matrix (Fin 2) (Fin 2) ℝ :=
-  let C : Matrix (Fin 2) (Fin 2) ℝ := fun i j =>
-    (k.val : Matrix (Fin 4) (Fin 4) ℝ)
-      ⟨i.val, by omega⟩ ⟨j.val+2, by omega⟩
-  cgSwap * C
--- Real analytic/Lie compatibility of the matrix realizations is an omitted AF.1/Lie
--- point input. The group isomorphism itself, its map and inverse are all retained.
-theorem gsp4Unitary : ∃ e : gsp4CompactUnit ≃* Matrix.unitaryGroup (Fin 2) ℂ,
-    (∀ k, (e k).val = (cgCompactA k).map (algebraMap ℝ ℂ) +
-      Complex.I • (cgCompactB k).map (algebraMap ℝ ℂ)) ∧
-    (∀ u, ((e.symm u).val : Matrix (Fin 4) (Fin 4) ℝ) =
-      cgUnitaryBlock (u.val.map Complex.re) (u.val.map Complex.im)) ∧
-    (∀ k, (k.val : Matrix (Fin 4) (Fin 4) ℝ) = cgUnitaryBlock (cgCompactA k) (cgCompactB k) ∧
-      (cgCompactA k).transpose * cgCompactA k + (cgCompactB k).transpose * cgCompactB k = 1 ∧
-      (cgCompactA k).transpose * cgCompactB k = (cgCompactB k).transpose * cgCompactA k) := by sorry
+/-- `integralScaledPairing`: doubling the lattice form gives a polarized integral variation. -/
+example (P : polarizedIntegralVariation B n) :
+    ∃ P' : polarizedIntegralVariation B n, P'.LZ = P.LZ ∧ HEq P'.QZ (fun b ↦ 2 • P.QZ b) := by
+  sorry
 
--- The compact Cartan is a real matrix subgroup. Its character lattice is a separate object.
-def cgRotationMatrix (r a b : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
-  !![r*Real.cos a,0,0,r*Real.sin a;
-     0,r*Real.cos b,r*Real.sin b,0;
-     0,-r*Real.sin b,r*Real.cos b,0;
-     -r*Real.sin a,0,0,r*Real.cos a]
-def gsp4CompactCartan : Subgroup (Matrix.GeneralLinearGroup (Fin 4) ℝ) where
-  carrier := {M | ∃ r : ℝ, 0 < r ∧ ∃ a b : ℝ, (M : Matrix _ _ ℝ) = cgRotationMatrix r a b}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def positiveUnits : Subgroup ℝˣ where
-  carrier := {r | 0 < (r : ℝ)}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def unitCircle : Subgroup ℂˣ where
-  carrier := {u | u*star u = 1}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-def compactCartanCharacterLattice : AddSubgroup (ℤ×ℤ×ℤ) where
-  carrier := {x | x.1+x.2.1 ≡ x.2.2 [ZMOD 2]}
-  zero_mem' := by sorry
-  add_mem' := by sorry
-  neg_mem' := by sorry
-lemma compactCartanRank : Nonempty (gsp4CompactCartan ≃* (positiveUnits × unitCircle × unitCircle)) ∧
-    Nonempty (compactCartanCharacterLattice ≃+ (ℤ×ℤ×ℤ)) := by sorry
-lemma compactCartanParity (a b c : ℤ) :
-    (a,b,c) ∈ compactCartanCharacterLattice ↔ a+b ≡ c [ZMOD 2] := by sorry
-namespace Supplier
- -- Complexification of the rotation/scalar map: diagonal after the specified Cayley basis.
- -- Its diagonal entries are r/u,r/v,r*v,r*u; kernel is {(1,1,1),(-1,-1,-1)}.
- def complexCartanMap : (ℂˣ × ℂˣ × ℂˣ) →* Matrix.GeneralLinearGroup (Fin 4) ℂ := sorry
- def compactCartanComplexPoints : gsp4CompactCartan →* complexCartanMap.range := sorry
- def complexCartanExponential (a b u : ℂ) : complexCartanMap.range := sorry
-end Supplier
-lemma compactCartanEmbedding (a b c : ℤ) :
-    (∃ χ : Supplier.complexCartanMap.range →* ℂˣ, ∀ t : ℂˣ × ℂˣ × ℂˣ,
-      χ ⟨Supplier.complexCartanMap t, by sorry⟩ = t.1^a*t.2.1^b*t.2.2^c) ↔
-        (a,b,c) ∈ compactCartanCharacterLattice := by sorry
--- TauCeti.Shimura.tests.cartanParityTrue
-example : (1,0,1) ∈ compactCartanCharacterLattice ∧
-    (0,1,1) ∈ compactCartanCharacterLattice ∧ (0,0,2) ∈ compactCartanCharacterLattice := by sorry
--- TauCeti.Shimura.tests.cartanParityFalse
-example : (1,0,0) ∉ compactCartanCharacterLattice ∧
-    ¬ ∃ χ : Supplier.complexCartanMap.range →* ℂˣ,
-      ∀ t : ℂˣ × ℂˣ × ℂˣ, χ ⟨Supplier.complexCartanMap t, by sorry⟩ = t.1 := by sorry
--- TauCeti.Shimura.tests.cartanRank
-example : Nonempty (gsp4CompactCartan ≃* (positiveUnits × unitCircle × unitCircle)) ∧
-    Function.Bijective (fun x : ℤ×ℤ×ℤ =>
-      (⟨(x.1,x.2.1,x.1+x.2.1+2*x.2.2), by sorry⟩ : compactCartanCharacterLattice)) := by sorry
--- The LieGroups layer7 exponential dictionary is omitted; a,b are angular coordinates
--- and u is the scalar logarithm. All three coordinates are complex after complexification.
-lemma gsp4ExpKernel (a b u : ℂ) : Supplier.complexCartanExponential a b u = 1 ↔
-    ∃ m n k : ℤ, a = Real.pi*m ∧ b = Real.pi*n ∧ u = Real.pi*Complex.I*k ∧
-      m ≡ k [ZMOD 2] ∧ n ≡ k [ZMOD 2] := by sorry
-lemma compactCartanExtraKernel :
-    Supplier.complexCartanExponential Real.pi Real.pi (Real.pi*Complex.I) = 1 ∧
-    Complex.exp (Real.pi*Complex.I) = -1 := by sorry
+/-- `integralMonodromy`: around a cusp (the punctured plane) the elliptic variation has nontrivial
+integral monodromy. -/
+example : ∃ (P : polarizedIntegralVariation (TopCat.of {z : ℂ // z ≠ 0}) 1)
+    (b : FundamentalGroupoid (TopCat.of {z : ℂ // z ≠ 0})) (γ : b ⟶ b), P.LZ.map γ ≠ 𝟙 _ := by
+  sorry
 
-private def cayleyInverseMatrix : Matrix (Fin 4) (Fin 4) ℂ :=
-  (1/2 : ℂ) • !![1,0,0,Complex.I; 0,1,Complex.I,0; 0,Complex.I,1,0; Complex.I,0,0,1]
-def gsp4CayleyBasis : Matrix (Fin 4) (Fin 4) ℂ :=
-  !![1,0,0,-Complex.I; 0,1,-Complex.I,0; 0,-Complex.I,1,0; -Complex.I,0,0,1]
-lemma cayleyInverse : gsp4CayleyBasis * cayleyInverseMatrix = 1 := by sorry
-lemma cayleyHodgeLines : (cgJ.map (algebraMap ℝ ℂ)) * gsp4CayleyBasis =
-    gsp4CayleyBasis * Matrix.diagonal ![-Complex.I,-Complex.I,Complex.I,Complex.I] := by sorry
-lemma cayleyConjugation (i j : Fin 4) : star (gsp4CayleyBasis i j) =
-    Complex.I * gsp4CayleyBasis i ⟨3-j.val, by omega⟩ := by sorry
--- TauCeti.Shimura.tests.cayleyProduct
-example : cayleyInverseMatrix * gsp4CayleyBasis = 1 := by sorry
--- TauCeti.Shimura.tests.cayleyColumn
-example : (fun i => gsp4CayleyBasis i 0) = ![1,0,0,-Complex.I] := by sorry
--- TauCeti.Shimura.tests.cayleyWrongSign
-example : ( !![1,0,0,Complex.I; 0,1,Complex.I,0; 0,-Complex.I,1,0; -Complex.I,0,0,1] : Matrix (Fin 4) (Fin 4) ℂ).det = 0 := by sorry
-lemma gsp4CayleyAction (A B : Matrix (Fin 2) (Fin 2) ℝ)
-    (S : Matrix (Fin 2) (Fin 2) ℝ) (hS : S = !![0,1;1,0]) :
-    cayleyInverseMatrix * (Matrix.reindex finSumFinEquiv finSumFinEquiv
-      (Matrix.fromBlocks (S*A*S) (S*B) (-B*S) A)).map (algebraMap ℝ ℂ) * gsp4CayleyBasis =
-      Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks ((S*A*S).map (algebraMap ℝ ℂ) - Complex.I • (S*B*S).map (algebraMap ℝ ℂ)) 0 0
-        (A.map (algebraMap ℝ ℂ) + Complex.I • B.map (algebraMap ℝ ℂ))) := by sorry
--- These are comparisons with R7's lattices, not a second lattice construction.
-def cgParityLinear : CGWeight ≃ₗ[ℚ] CGWeight where
-  toFun x := (x.1,x.2.1,x.1+x.2.1+2*x.2.2)
-  invFun x := (x.1,x.2.1,(x.2.2-x.1-x.2.1)/2)
-  left_inv := by sorry
-  right_inv := by sorry
-  map_add' := by sorry
-  map_smul' := by sorry
-def cgParityDual (x : CGWeight) : CGWeight := (x.1-x.2.2/2,x.2.1-x.2.2/2,x.2.2/2)
-namespace Supplier
- def pilloniCharacters : AddSubgroup (ℤ×ℤ×ℤ) := sorry
- def pilloniCocharacters : AddSubgroup CGWeight := sorry
- def pilloniSimilitude : pilloniCharacters := sorry
- def pilloniRootPairing : RootPairing (Fin 8) ℚ CGWeight CGWeight := sorry
- def pilloniLowerBase : pilloniRootPairing.Base := sorry
- def pilloniCompactIndices : Set (Fin 8) := sorry
-end Supplier
--- Lower full Borel after E11's correction; BP instead has the other compact order.
--- R7's torus/lattice and RG2.5's dualization compatibility are omitted supplier inputs.
-lemma gsp4PilloniConvention :
-    Supplier.pilloniCharacters = compactCartanCharacterLattice ∧
-    (∀ y : CGWeight, y ∈ Supplier.pilloniCocharacters ↔
-      ∃ m n r : ℤ, y = ((m : ℚ)-r/2,(n : ℚ)-r/2,(r : ℚ)/2)) ∧
-    (∃ e : (ℤ×ℤ×ℤ) ≃+ Supplier.pilloniCharacters,
-      ∀ x, (e x).val = cgToParity x) ∧
-    Supplier.pilloniSimilitude.val = (0,0,2) ∧
-    (∀ x y : CGWeight, Supplier.pilloniRootPairing.toLinearMap x y =
-      x.1*y.1+x.2.1*y.2.1+x.2.2*y.2.2) ∧
-    (∀ i j : Fin 3, Supplier.pilloniRootPairing.toLinearMap
-      (![ (1,0,1), (0,1,1), (0,0,2) ] i)
-      (![ (1,0,0), (0,1,0), (-1/2,-1/2,1/2) ] j) = if i = j then 1 else 0) ∧
-    (∃ e : Fin 8 ≃ Fin 8, ∀ i,
-      Supplier.pilloniRootPairing.root (e i) = cgParityLinear (Supplier.cgRootPairing.root i) ∧
-      Supplier.pilloniRootPairing.coroot (e i) = cgParityDual (Supplier.cgRootPairing.coroot i)) ∧
-    positiveRoots Supplier.pilloniRootPairing Supplier.pilloniLowerBase =
-      ({(-1,1,0),(-2,0,0),(-1,-1,0),(0,-2,0)} : Set CGWeight) ∧
-    {r | ∃ i ∈ Supplier.pilloniLowerBase.support,
-      r = (Supplier.pilloniRootPairing.root i, Supplier.pilloniRootPairing.coroot i)} =
-      ({((-1,1,0),(-1,1,0)), ((0,-2,0),(0,-1,0))} : Set (CGWeight×CGWeight)) ∧
-    Supplier.pilloniRootPairing.root ''
-      {i | Supplier.pilloniLowerBase.IsPos i ∧ i ∈ Supplier.pilloniCompactIndices} =
-      ({(-1,1,0)} : Set CGWeight) ∧
-    halfRootSum Supplier.pilloniRootPairing {i | Supplier.pilloniLowerBase.IsPos i} = (-2,-1,0) ∧
-    halfRootSum (Supplier.siegelRootPairing 2) {i | (Supplier.bpBase 2).IsPos i} = (![-1,-2],0) := by sorry
+/-- The filtration `F⁰ = W ⊇ F¹ = L ⊇ F² = 0` of a weight-one structure. -/
+def lineFiltration {W : Type*} [AddCommGroup W] [Module ℂ W] (L : Submodule ℂ W) (p : ℤ) : Submodule ℂ W :=
+  if p ≤ 0 then ⊤ else if p = 1 then L else ⊥
 
-/- Local valuations use Mathlib's existing AddValuation. The absolutely-unramified
-local field, extended normalized valuation and Iw₁ characteristic-polynomial comparison
-are LF.0/RG2.3 inputs. The polynomial calculation and generated subgroup bound are retained. -/
-lemma localEigenvalueBound {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ))
-    (y : K) (a : Fin 4 → K) (ha : ∀ i, (1 : WithTop ℚ) ≤ v (a i))
-    (hroot : y^4 + ∑ i : Fin 4, a i * y^i.val = 0) :
-    ((1/4 : ℚ) : WithTop ℚ) ≤ v y := by sorry
-lemma localProductsBound {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ))
-    (eigen : Set Kˣ) (heigen : ∀ x ∈ eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1)) :
-    ∀ x ∈ Subgroup.closure eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1) := by sorry
-lemma localTorsionGap {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (l : ℕ) (hl : 5 < l)
-    (ζ : Kˣ) (hζ : ζ ≠ 1) (n : ℕ) (hn : 0 < n) (htors : ζ^n=1)
-    (cyclotomic : v ((ζ : K)-1) ≤ ((1/((l : ℚ)-1) : ℚ) : WithTop ℚ)) :
-    v ((ζ : K)-1) < ((1/4 : ℚ) : WithTop ℚ) := by sorry
--- This auxiliary is the old single-local-group calculation, under an accurate name.
-lemma localGeneratedNeat {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (eigen : Set Kˣ)
-    (hbound : ∀ x ∈ Subgroup.closure eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1))
-    (htors : ∀ x : Kˣ, x ≠ 1 → ∀ n : ℕ, 0 < n → x^n=1 → v ((x : K)-1) < ((1/4 : ℚ) : WithTop ℚ)) :
-    ∀ x ∈ Subgroup.closure eigen, ∀ n : ℕ, 0 < n → x^n=1 → x=1 := by sorry
+/-- `parabolicGl2`: for `GL₂` the filtration parabolic is the stabilizer of the line `F¹`
+(a Borel subgroup). -/
+example (L : Submodule ℂ (Fin 2 → ℂ)) (hL : Module.finrank ℂ L = 1) :
+    (filtrationParabolic (lineFiltration L) : Set ((Fin 2 → ℂ) ≃ₗ[ℂ] (Fin 2 → ℂ))) =
+      {g | L.map g.toLinearMap = L} := by
+  sorry
 
-def cgForm (R : Type*) [CommRing R] : Matrix (Fin 4) (Fin 4) R :=
-  !![0,0,0,1; 0,0,1,0; 0,-1,0,0; -1,0,0,0]
-def gsp4MatrixGroup (R : Type*) [CommRing R] : Subgroup (Matrix.GeneralLinearGroup (Fin 4) R) where
-  carrier := {M | ∃ ν : Rˣ, (M : Matrix _ _ R).transpose * cgForm R * (M : Matrix _ _ R) =
-    (ν : R) • cgForm R}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
-abbrev NumberFieldFinitePlace (F : Type*) [Field F] [NumberField F] :=
-  IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)
-abbrev NumberFieldAdeles (F : Type*) [Field F] [NumberField F] :=
-  IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F
-abbrev AdelicGsp4 (F : Type*) [Field F] [NumberField F] := gsp4MatrixGroup (NumberFieldAdeles F)
-namespace Supplier
- -- AA.1 supplies these point maps and the residue-characteristic dictionary.
- def localGsp4Projection (F : Type*) [Field F] [NumberField F] (v : NumberFieldFinitePlace F) :
-     AdelicGsp4 F →* gsp4MatrixGroup (v.adicCompletion F) := sorry
- def placeResidueCharacteristic (F : Type*) [Field F] [NumberField F]
-     (v : NumberFieldFinitePlace F) : ℕ := sorry
- -- RG2.3: the integral subgroup reducing to the upper unipotent radical, not all Iwahori.
- def iw1 (F : Type*) [Field F] [NumberField F] (v : NumberFieldFinitePlace F) :
-     Subgroup (gsp4MatrixGroup (v.adicCompletion F)) := sorry
- def rationalGsp4Diagonal (F : Type*) [Field F] [NumberField F] :
-     gsp4MatrixGroup F →* AdelicGsp4 F := sorry
- -- AA.1/R1: the faithful Q-representation on the Q-space underlying F⁴.
- def rationalRestrictionMatrix (F : Type*) [Field F] [NumberField F] :
-     gsp4MatrixGroup F →* Matrix.GeneralLinearGroup (Fin (4*Module.finrank ℚ F)) ℚ := sorry
- -- Definition 3.2.1: pull back to Qbarˣ the subgroup generated by ALL eigenvalues
- -- of k_ℓ in that faithful Q_ℓ representation. This includes every F-place above ℓ.
- -- Algebraic products of nonalgebraic local eigenvalues must also be retained.
- def strongLocalEigenvalueGroup (F : Type*) [Field F] [NumberField F]
-     (ℓ : Nat.Primes) (k : AdelicGsp4 F) : Subgroup Qbarˣ := sorry
- -- Faithful matrix topology, using both a matrix and its inverse.
- @[instance_reducible] def adelicGsp4Topology (F : Type*) [Field F] [NumberField F] : TopologicalSpace (AdelicGsp4 F) :=
-   TopologicalSpace.induced (fun M =>
-     ((M.val : Matrix (Fin 4) (Fin 4) (NumberFieldAdeles F)), (M.val⁻¹ : Matrix (Fin 4) (Fin 4) (NumberFieldAdeles F)))) inferInstance
-end Supplier
-attribute [local instance] Supplier.adelicGsp4Topology
-def rationalGsp4Eigenvalues (F : Type*) [Field F] [NumberField F]
-    (q : gsp4MatrixGroup F) : Set ℂˣ :=
-  {u | (((Supplier.rationalRestrictionMatrix F q) : Matrix (Fin (4*Module.finrank ℚ F)) (Fin (4*Module.finrank ℚ F)) ℚ).map
-    (algebraMap ℚ ℂ)).charpoly.IsRoot (u : ℂ)}
--- E17 correction: certify EVERY place over one rational prime, not only one F-place.
--- Omitted LF.0 input: all those completions are absolutely unramified, with the
--- extended valuation normalized by v(ℓ)=1. Omitted AA.1/R1 input: the faithful
--- restriction-of-scalars eigenvalue comparison and its conjugation compatibility.
--- Those are hypotheses on these objects, never a premise asserting neatness.
-theorem iwahoriNeat (F : Type*) [Field F] [NumberField F]
-    (K : Subgroup (AdelicGsp4 F)) (hcompact : IsCompact (K : Set (AdelicGsp4 F)))
-    (hopen : IsOpen (K : Set (AdelicGsp4 F))) (ℓ : Nat.Primes) (hℓ : 5 < ℓ.val)
-    (hlevel : ∀ v : NumberFieldFinitePlace F,
-      Supplier.placeResidueCharacteristic F v = ℓ.val →
-      K ≤ (Supplier.iw1 F v).comap (Supplier.localGsp4Projection F v)) :
-    (∀ k ∈ K, adelicNeat (fun l : Nat.Primes => Supplier.strongLocalEigenvalueGroup F l k)) ∧
-    neatLevel (Supplier.rationalGsp4Diagonal F) (rationalGsp4Eigenvalues F) K ∧
-    (∀ I : Set Nat.Primes, ℓ ∈ I → ∀ k ∈ K,
-      adelicNeat (fun l : I => Supplier.strongLocalEigenvalueGroup F l.val k)) := by sorry
--- For I={l | l≠p}, the last clause is the prime-to-p statement when ℓ≠p.
--- Source E17's quadratic-unit obstruction: norm −1 and a single-place congruence.
-example (α : ℂ) (hα : α^2 = 2) : (7+5*α)*(7-5*α) = -1 := by
-  calc
-    (7+5*α)*(7-5*α) = 49-25*α^2 := by ring
-    _ = -1 := by rw [hα]; norm_num
-example : (7+5*3 : ℤ) ≡ 1 [ZMOD 7] := by decide
+/-- `parabolicTorus`: the trivial filtration of weight zero has stabilizer all of `GL(W)`. -/
+example {W : Type*} [AddCommGroup W] [Module ℂ W] :
+    filtrationParabolic (fun p : ℤ ↦ if p ≤ 0 then (⊤ : Submodule ℂ W) else ⊥) = ⊤ := by
+  sorry
 
--- Rational adelic lattice conjugation and generated eigenvalue identification are omitted.
--- For det M=1 the two eigenvalues are inverses, so this calculation excludes every torsion product.
-lemma gl2IntegralTorsionRoot (N : ℕ) (hN : 3 ≤ N) (M B : Matrix (Fin 2) (Fin 2) ℤ)
-    (hM : M = 1 + (N : ℤ) • B) (hdet : M.det = 1)
-    (λ : ℂ) (hroot : (M.map (algebraMap ℤ ℂ)).charpoly.IsRoot λ)
-    (n : ℕ) (hn : 0 < n) (htors : λ^n = 1) : λ = 1 := by sorry
-lemma gl2CongruenceNeat (N : ℕ) (hN : 3 ≤ N) :
-    neatLevel rationalGl2Diagonal rationalGl2Eigenvalues (Supplier.gl2PrincipalLevel N) := by sorry
+/-- `parabolicSiegel`: for a Lagrangian `F¹ = L` the filtration parabolic is the stabilizer of `L`. -/
+example (g : ℕ) (L : Submodule ℂ (Fin (g + g) → ℂ)) (hL : IsLagrangian g L) :
+    (filtrationParabolic (lineFiltration L) : Set ((Fin (g + g) → ℂ) ≃ₗ[ℂ] (Fin (g + g) → ℂ))) =
+      {k | L.map k.toLinearMap = L} := by
+  sorry
 
-/- Product and adjoint tests use the actual datum constructors, after their models are defined. -/
-namespace Supplier
- -- AA.1 and the GL₂ real-points comparison give the rational Möbius action on both half-planes.
- def rationalGl2Action : MulAction (Matrix.GeneralLinearGroup (Fin 2) ℚ) HalfPlanes := sorry
-end Supplier
--- TauCeti.Shimura.tests.gammaGl2
-example (N : ℕ) (hN : 0 < N) (q : Matrix.GeneralLinearGroup (Fin 2) ℚ) :
-    letI := Supplier.rationalGl2Action
-    q ∈ componentSubgroup rationalGl2Diagonal (Supplier.gl2PrincipalLevel N) 1
-      {z : HalfPlanes | 0 < z.val.im} ↔
-      0 < (q.det : ℚ) ∧ ∃ M : Matrix.GeneralLinearGroup (Fin 2) ℤ,
-        Matrix.GeneralLinearGroup.map (algebraMap ℤ ℚ) M = q ∧
-        ∀ i j, (N : ℤ) ∣ (M : Matrix _ _ ℤ) i j - (1 : Matrix _ _ ℤ) i j := by sorry
--- TauCeti.Shimura.tests.productTorus
-example (T U : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj)
-    (k : Supplier.RealSMap U.obj.obj) :
-    Supplier.datumDimension (productDatum (torusDatum T h) (torusDatum U k)) = 0 ∧
-    Subsingleton (Supplier.datumDomain (productDatum (torusDatum T h) (torusDatum U k))) := by sorry
--- TauCeti.Shimura.tests.productGl2
-example : Supplier.datumDimension (productDatum gl2Datum gl2Datum) = 2 ∧
-    Nat.card (ConnectedComponents (Supplier.datumDomain (productDatum gl2Datum gl2Datum))) = 4 := by sorry
--- TauCeti.Shimura.tests.productUnit
-example (D : shimuraDatum) :
-    Nonempty (productDatum D (torusDatum Supplier.trivialTorus Supplier.trivialSMap) ≅ D) := by sorry
--- TauCeti.Shimura.tests.adjointTorus
-example (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    Nonempty (adjointDatum (torusDatum T h) ≅ torusDatum Supplier.trivialTorus Supplier.trivialSMap) := by sorry
--- TauCeti.Shimura.tests.adjointGl2
-example : Nonempty (Supplier.datumDomain (adjointDatum gl2Datum) ≃ₜ HalfPlanes) := by sorry
--- TauCeti.Shimura.tests.adjointComponentCaveat
-example : Nat.card (ConnectedComponents
-      (Supplier.datumDomain (adjointDatum (hilbertStarDatum Supplier.quadraticRealField)))) = 4 ∧
-    ∃ f : datumMorphism (hilbertStarDatum Supplier.quadraticRealField)
-        (adjointDatum (hilbertStarDatum Supplier.quadraticRealField)),
-      Function.Injective (Supplier.datumDomainMap f) ∧
-      ¬ Function.Surjective (Supplier.datumDomainMap f) := by sorry
+/-- `dualGl2`: `GL₂(ℂ)/B ≅ ℙ¹(ℂ)`. -/
+example (L : Submodule ℂ (Fin 2 → ℂ)) (hL : Module.finrank ℂ L = 1) :
+    Nonempty (compactDual ((Fin 2 → ℂ) ≃ₗ[ℂ] (Fin 2 → ℂ)) (filtrationParabolic (lineFiltration L)) ≃
+      Projectivization ℂ (Fin 2 → ℂ)) := by
+  sorry
 
-/- Additional category and morphism APIs expose the carriers used by the comparisons. -/
-def gradedHodgeCatOf {V : Type*} [AddCommGroup V] [Module ℝ V] [Module.Finite ℝ V]
-    (H : gradedRealHodge V) : GradedHodgeCat := ⟨ModuleCat.of ℝ V, inferInstance, H⟩
-lemma gradedHodgeHomExt {H K : GradedHodgeCat} (f g : GradedHodgeHom H K)
-    (he : f.linear = g.linear) : f = g := by sorry
-lemma gradedHodgeComposition {H K L : GradedHodgeCat} (f : H ⟶ K) (g : K ⟶ L) :
-    (f ≫ g).linear = g.linear.comp f.linear := by sorry
--- TauCeti.Shimura.tests.gradedCategoryIdentity
-example (H : GradedHodgeCat) : (𝟙 H : H ⟶ H).linear = LinearMap.id := by sorry
--- TauCeti.Shimura.tests.gradedCategoryZero
-example : Module.finrank ℝ (gradedHodgeCatOf (tateGrading 0)).V = 1 ∧
-    gradedPiece (tateGrading 0) 0 0 = ⊤ ∧
-    ∀ p q, (p ≠ 0 ∨ q ≠ 0) → gradedPiece (tateGrading 0) p q = ⊥ := by sorry
--- TauCeti.Shimura.tests.gradedCategoryWrongType
-example : ¬ ∃ f : GradedHodgeHom (gradedHodgeCatOf (tateGrading 0))
-    (gradedHodgeCatOf (tateGrading 1)), f.linear = LinearMap.id := by sorry
+/-- `dualTorus`: the compact dual of a torus datum is a point. -/
+example (G : Type*) [Group G] : Subsingleton (compactDual G ⊤) := by
+  sorry
 
-lemma gradedOfRepresentationPiece (M : Supplier.SRep) (p q : ℤ) :
-    gradedPiece (gradedOfRepresentation M) p q =
-      (representationPiece M p q).comap (Supplier.splitCarrier M).toLinearMap := by sorry
-lemma gradedOfRepresentationFinite (M : Supplier.SRep) :
-    {n | (gradedOfRepresentation M).weight n ≠ ⊥}.Finite := by sorry
-lemma gradedOfRepresentationMorphism {M N : Supplier.SRep} (f : M ⟶ N) (p q : ℤ) :
-    gradedPiece (gradedOfRepresentation M) p q ≤
-      (gradedPiece (gradedOfRepresentation N) p q).comap (f.hom.toLinearMap.baseChange ℂ) := by sorry
--- TauCeti.Shimura.tests.forwardTrivial
-example : (gradedOfRepresentation Supplier.trivialRep).weight 0 = ⊤ := by sorry
--- TauCeti.Shimura.tests.forwardTate
-example : (gradedOfRepresentation (Supplier.normRep 1)).weight (-2) = ⊤ ∧
-    (gradedOfRepresentation (Supplier.normRep 1)).weight 2 = ⊥ := by sorry
--- TauCeti.Shimura.tests.forwardTwoWeights
-example : Module.finrank ℝ ((gradedOfRepresentation
-    (Supplier.repSum Supplier.trivialRep (Supplier.normRep 1))).weight 0) = 1 ∧
-    Module.finrank ℝ ((gradedOfRepresentation
-    (Supplier.repSum Supplier.trivialRep (Supplier.normRep 1))).weight (-2)) = 1 := by sorry
+/-- `dualSiegel`: the Siegel compact dual is the space of Lagrangians (in `GL_{2g}(ℂ)`, restricted
+to the symplectic group; its dimension `g(g+1)/2` is a README statement). -/
+example (g : ℕ) (L₀ : Submodule ℂ (Fin (g + g) → ℂ)) (hL₀ : IsLagrangian g L₀)
+    (Sp : Subgroup ((Fin (g + g) → ℂ) ≃ₗ[ℂ] (Fin (g + g) → ℂ)))
+    (hSp : ∀ k ∈ Sp, ∀ L, IsLagrangian g L → IsLagrangian g (L.map k.toLinearMap)) :
+    Nonempty (compactDual Sp ((filtrationParabolic (lineFiltration L₀)).subgroupOf Sp) ≃
+      {L : Submodule ℂ (Fin (g + g) → ℂ) // IsLagrangian g L}) := by
+  sorry
 
-def variationHomMk {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    {H K : variation B A n} := @VariationHom.mk B d A n H K
-lemma variationHomExt {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    {H K : variation B A n} (f g : VariationHom H K) (he : f.localMap = g.localMap) : f = g := by sorry
-def variationHomIdentity {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : variation B A n) : VariationHom H H := ⟨𝟙 _, by sorry, by sorry⟩
-def variationHomZero {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : variation B A n) : VariationHom H K := ⟨0, by sorry, by sorry⟩
-lemma variationHomCompMap {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    {H K L : variation B A n} (f : VariationHom H K) (g : VariationHom K L) :
-    (variationMorphism f g).localMap = f.localMap ≫ g.localMap := by sorry
--- TauCeti.Shimura.tests.variationHomIdentity
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : variation B A n) : (variationHomIdentity H).localMap = 𝟙 _ := by sorry
--- TauCeti.Shimura.tests.variationHomZero
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : variation B A n) : (variationHomZero H K).localMap = 0 := by sorry
--- TauCeti.Shimura.tests.variationHomReject
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : variation B A n) (f : H.filtered.flat.L ⟶ K.filtered.flat.L)
-    (b : B) (p : ℤ) (x : Supplier.ComplexFiber H.filtered.flat.L b)
-    (hx : x ∈ (H.filtered.fiber b).F p)
-    (hbad : (f.app (FundamentalGroupoid.mk b)).hom.baseChange ℂ x ∉ (K.filtered.fiber b).F p) :
-    ¬ ∃ u : VariationHom H K, u.localMap = f := by sorry
+/-- `kostantBorel`: for `J = ∅`, every element is a minimal representative. -/
+example {B W : Type*} [Group W] {M : CoxeterMatrix B} (cs : CoxeterSystem M W) :
+    kostantRepresentatives cs ∅ = Set.univ := by
+  sorry
 
-def rationalVariationMk {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    := @RationalPolarizedVariation.mk B d A n
-lemma rationalVariationExt {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H K : RationalPolarizedVariation B A n) (hL : H.localSystem = K.localSystem)
-    (hV : H.realVariation = K.realVariation) (he : HEq H.realComparison K.realComparison)
-    (hQ : HEq H.pairing K.pairing) : H = K := by sorry
-lemma rationalVariationParallel {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : RationalPolarizedVariation B A n) (b c : B) (γ : Path.Homotopic.Quotient b c) x y :
-    H.pairing c (LocalCoefficientSystem.transport H.localSystem γ x)
-      (LocalCoefficientSystem.transport H.localSystem γ y) = H.pairing b x y := by sorry
--- TauCeti.Shimura.tests.rationalTate
-example {B : TopCat} {d : ℕ} (A : ComplexManifoldOn B d) (b : B) :
-    ((integralVariationRational (Supplier.integralTate A 1)).realVariation.filtered.fiber b).F (-1) = ⊤ ∧
-    (integralVariationRational (Supplier.integralTate A 1)).pairing b ≠ 0 := by sorry
--- TauCeti.Shimura.tests.rationalScaled
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : polarizedIntegralVariation B A n) (b : B) :
-    HEq ((integralVariationRational (Supplier.scalePolarization H 2 (by sorry))).pairing b)
-      (2 • (integralVariationRational H).pairing b) := by sorry
--- TauCeti.Shimura.tests.rationalNegativeFalse
-example {B : TopCat} {d : ℕ} {A : ComplexManifoldOn B d} {n : ℤ}
-    (H : RationalPolarizedVariation B A n) (b : B) (p : ℤ)
-    (x : Supplier.ComplexFiber H.realVariation.filtered.flat.L b)
-    (hx : x ∈ (H.realVariation.filtered.fiber b).piece p) (hne : x ≠ 0) :
-    ¬ 0 < Complex.I^(2*p-n)*(-Supplier.rationalFormOnRealFiber H.localSystem H.realVariation
-      H.realComparison H.pairing b x (Hodge.complexificationConjugation
-        (Supplier.RealFiber H.realVariation.filtered.flat.L b) x)) := by sorry
+/-- `kostantWholeGroup`: if `W_J = W`, only the identity is minimal. -/
+example {B W : Type*} [Group W] {M : CoxeterMatrix B} (cs : CoxeterSystem M W) (J : Set B)
+    (hJ : parabolicSubgroup cs J = ⊤) : kostantRepresentatives cs J = {1} := by
+  sorry
+
+/-- `kostantA2Left`: in type `A₂` with `W_M = ⟨s₁⟩` (Mathlib's index `0`), the minimal left
+representatives are `1, s₂, s₂ s₁`. -/
+example : kostantRepresentatives (CoxeterMatrix.A 2).toCoxeterSystem {0} =
+    {1, (CoxeterMatrix.A 2).toCoxeterSystem.simple 1,
+      (CoxeterMatrix.A 2).toCoxeterSystem.simple 1 * (CoxeterMatrix.A 2).toCoxeterSystem.simple 0} := by
+  sorry
+
+end D3Tests
+
+/-! Unit tests for D5. -/
+section D5Tests
+
+/-- `hilbertRational`: for `F = ℚ` the domain is `ℍ^±`. -/
+example : Nonempty (hilbertDatum 1 ≃ upperLowerHalfPlanes) := ⟨Equiv.funUnique (Fin 1) _⟩
+
+/-- `hilbertQuadratic`: for a real quadratic field the domain has four components. -/
+example : Nat.card (ConnectedComponents (hilbertDatum 2)) = 4 := by
+  sorry
+
+/-- `hilbertNonHodge`: at the two real embeddings of `ℚ(√2)` the image of `diag(√2, 1)` has
+determinants `√2` and `−√2`, so no common similitude factor exists and the standard trace
+representation of `Res_{F/ℚ} GL₂` does not land in a rational `GSp`. -/
+example : (!![Real.sqrt 2, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℝ).det ≠
+    (!![-Real.sqrt 2, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℝ).det := by
+  sorry
+
+/-- `starRational`: for `F = ℚ` the scalar-determinant domain is all of `ℍ^±`. -/
+example : hilbertStarDatum 1 = Set.univ := by
+  sorry
+
+/-- `starQuadratic`: for a real quadratic field the scalar-determinant domain has two components. -/
+example : Nat.card (ConnectedComponents (hilbertStarDatum 2)) = 2 := by
+  sorry
+
+/-- `starMixedSignFalse`: a tuple with determinants of opposite signs is not in `G*(ℝ)`. -/
+example : ¬ ∃ t : ℝ, ∀ i : Fin 2, (![(1 : ℝ), -1] i) = t := by
+  sorry
+
+/-- `sequenceGenusOne`. -/
+example : kostantSequence 1 '' siegelKostant 1 = {![0, 0], ![0, 1]} := by
+  sorry
+
+/-- `sequenceGenusTwo`. -/
+example : kostantSequence 2 '' siegelKostant 2 = {![0, 0, 0], ![0, 0, 1], ![0, 1, 1], ![0, 1, 2]} := by
+  sorry
+
+/-- `sequenceStepFalse`. -/
+example : ![0, 0, 2] ∉ kostantSequence 2 '' siegelKostant 2 := by
+  sorry
+
+/-- `cartanParityTrue`. -/
+example : ((1, 0, 1) : CGWeight) ∈ gsp4CompactCartan ∧ ((0, 1, 1) : CGWeight) ∈ gsp4CompactCartan ∧
+    ((0, 0, 2) : CGWeight) ∈ gsp4CompactCartan := by
+  sorry
+
+/-- `cartanParityFalse`. -/
+example : ((1, 0, 0) : CGWeight) ∉ gsp4CompactCartan := by
+  sorry
+
+/-- `cartanRank`: `(a, b, k) ↦ (a, b; a + b + 2k)` hits every lattice point. -/
+example (χ : CGWeight) (hχ : χ ∈ gsp4CompactCartan) :
+    ∃ x : ℤ × ℤ × ℤ, ((x.1, x.2.1, x.1 + x.2.1 + 2 * x.2.2) : CGWeight) = χ := by
+  sorry
+
+/-- `cayleyProduct`. -/
+example : gsp4CayleyBasis * ((1 / 2 : ℂ) • Matrix.fromBlocks 1 (Complex.I • cgS.map (algebraMap ℝ ℂ))
+    (Complex.I • cgS.map (algebraMap ℝ ℂ)) 1) = 1 := cayleyInverse
+
+/-- `cayleyColumn`: the first column is `e₁ − i e₄`. -/
+example : (fun i ↦ gsp4CayleyBasis i (Sum.inl 0)) =
+    Pi.single (Sum.inl 0) 1 - Complex.I • Pi.single (Sum.inr 1) 1 := by
+  sorry
+
+/-- `cayleyWrongSign`: flipping the sign of one off-diagonal block makes the matrix singular. -/
+example : (Matrix.fromBlocks (1 : Matrix (Fin 2) (Fin 2) ℂ) (-Complex.I • cgS.map (algebraMap ℝ ℂ))
+    (Complex.I • cgS.map (algebraMap ℝ ℂ)) 1).det = 0 := by
+  sorry
+
+variable {n : Type*} [Fintype n] [DecidableEq n]
+  (Kℓ : Nat.Primes → Type) [∀ ℓ, Field (Kℓ ℓ)] (ι : ∀ ℓ, AlgebraicClosure ℚ →+* Kℓ ℓ)
+
+/-- `adelicIdentity`. -/
+example : adelicNeat Kℓ ι ∅ (fun _ ↦ (1 : Matrix n n _)) := by
+  sorry
+
+/-- `adelicRationalMinusOne`: the scalar `−1` (in positive dimension) is not adelically neat. -/
+example [Nonempty n] (hι : ∀ ℓ, Function.Injective (ι ℓ)) :
+    ¬ adelicNeat Kℓ ι ∅ (fun _ ↦ (-1 : Matrix n n _)) := by
+  sorry
+
+/-- `primeToPInsert`. -/
+example (p : Nat.Primes) (g : ∀ ℓ, Matrix n n (Kℓ ℓ)) (hg : adelicNeat Kℓ ι {p} g) (gp : Matrix n n (Kℓ p)) :
+    adelicNeat Kℓ ι {p} (Function.update g p gp) :=
+  primeToPNeatInsert Kℓ ι p g gp hg
+
+end D5Tests
+
+namespace tests
+
+open TauCeti.Shimura
+
+/-- `mtTrivial`: the trivial action on `ℚ`. -/
+example (φ : GLCoord ℚ 1 →ₐ[ℚ] SplitTorusAlg) (hφ : φ (GeneralLinear.genericMatrix ℚ 1 0 0) = 1) :
+    mumfordTateIdeal 1 φ = Ideal.span {GeneralLinear.genericMatrix ℚ 1 0 0 - 1} := by
+  sorry
+
+/-- `mtTate`: `ℚ(1)`, of type `(−1,−1)`, where the coordinate goes to `z₁ z₂`. -/
+example (φ : GLCoord ℚ 1 →ₐ[ℚ] SplitTorusAlg)
+    (hφ : φ (GeneralLinear.genericMatrix ℚ 1 0 0) = MonoidAlgebra.of ℂ _ (Multiplicative.ofAdd (1, 1))) :
+    mumfordTateIdeal 1 φ = ⊥ := by
+  sorry
+
+/-- `mtCmElliptic`: `H₁(ℂ/ℤ[i], ℚ)` in the basis `(1, i)`. -/
+example (φ : GLCoord ℚ 2 →ₐ[ℚ] SplitTorusAlg)
+    (hφ : ∀ i j, φ (GeneralLinear.genericMatrix ℚ 2 i j) = ellipticEntry Complex.I i j) :
+    GeneralLinear.genericMatrix ℚ 2 0 0 - GeneralLinear.genericMatrix ℚ 2 1 1 ∈ mumfordTateIdeal 2 φ ∧
+      GeneralLinear.genericMatrix ℚ 2 0 1 + GeneralLinear.genericMatrix ℚ 2 1 0 ∈ mumfordTateIdeal 2 φ ∧
+      mumfordTateIdeal 2 φ ≠ ⊥ := by
+  sorry
+
+/-- `genericCmFalse`: `τ = i` is not Hodge generic. -/
+example (φ : GLCoord ℚ (1 + 1) →ₐ[ℚ] SplitTorusAlg)
+    (hφ : ∀ i j, φ (GeneralLinear.genericMatrix ℚ (1 + 1) i j) = ellipticEntry Complex.I i j) :
+    ¬ hodgeGeneric 1 φ := by
+  sorry
+
+/-- `genericNonCmElliptic`: a transcendental `τ` in the upper half-plane is Hodge generic. -/
+example (τ : ℂ) (hτ : 0 < τ.im) (htr : Transcendental ℚ τ) (φ : GLCoord ℚ (1 + 1) →ₐ[ℚ] SplitTorusAlg)
+    (hφ : ∀ i j, φ (GeneralLinear.genericMatrix ℚ (1 + 1) i j) = ellipticEntry τ i j) :
+    hodgeGeneric 1 φ := by
+  sorry
+
+/-- `genericProductFalse`: `E_i × E_i` with the product polarization is not Hodge generic in
+genus two. In the symplectic basis `(e₁, e₂, f₁, f₂)` the first factor occupies the indices
+`0, 2` and the second `1, 3`; both carry the `τ = i` matrices. -/
+example (φ : GLCoord ℚ (2 + 2) →ₐ[ℚ] SplitTorusAlg)
+    (hφ : ∀ (k : Fin 2) (i j : Fin 2),
+      φ (GeneralLinear.genericMatrix ℚ (2 + 2) (![![0, 2], ![1, 3]] k i) (![![0, 2], ![1, 3]] k j)) =
+        ellipticEntry Complex.I i j) :
+    ¬ hodgeGeneric 2 φ := by
+  sorry
+
+end tests
+
+
+/-! ## README-only targets
+
+The following packet names have no carrier at the pins (a pure Shimura datum is ShimuraVarieties
+§P.1's `TauCeti.Shimura.PureDatum`, a README target of an open pull request; flag schemes over `ℤ`
+and their Schubert closures, the parabolic-type scheme over the reflex field and holomorphic flat
+bundles are not in Mathlib or Tau Ceti at the pins). They are specified in
+`research/blueprint/readmes/ShimuraData.md`, layer by layer, with these intended Lean forms.
+
+D1.
+* `mumfordTateReductive` — for a polarizable rational Hodge structure, the Hopf algebra
+  `mumfordTateGroup n φ hφ`, bundled as a `FiniteTypeCommHopfAlgCat ℚ` object, satisfies Tau Ceti's
+  `reductiveCommHopfAlgProperty ℚ`. Polarizability needs the real structure of `S`.
+
+D2.
+* `uniqueComplexStructure` — for a pure datum `(G, X)` and two complex-manifold structures on `X`
+  for which the filtration map of one faithful representation is holomorphic, the identity is
+  biholomorphic.
+
+D3.
+* `compactDualTangent` — the tangent space of `G_ℂ/P_h` at the base point is `g_ℂ/F⁰g_ℂ`.
+* `reflexFlagDescent` — the projective `E(G,X)`-scheme `Par_t(G_E)` with complex fibre `X^∨` and
+  `G_L/P` over any `L` with an `L`-rational parabolic of type `t`.
+* `bruhatIntegral` — for a pinned split reductive `ℤ`-group and standard `P`, the cells
+  `C_w = P\PwB ≅ 𝔸^{ℓ(w)}_ℤ`, `w ∈ ^MW`, stratify `P\G` compatibly with base change.
+* `schubertFamilies` — `X_w`, `X^w`, `Y_w` on `P\G`, with API `schubertClosure`,
+  `oppositeSchubertClosure`, `schubertUpperOpen` and tests `schubertRankOne`,
+  `schubertOppositeRankOne`, `schubertTrivialFlag` (rank one: `X₁` a point, `X_s = ℙ¹`, `Y_s` affine;
+  `X^s ⊂ Y_s`; for `P = G` all loci are the point).
+* `bruhatClosureOrder` — `C_v ⊂ X_w` iff `v ≤ w`, fibrewise.
+* `oppositeIntersection` — `X^w ∩ X_v ≠ ∅` iff `w ≤ v` over every algebraically closed field.
+* `oppositeInsideUpper` — `X^w ⊂ Y_w` as a closed subscheme, over `ℤ`, `ℤ_p` and `𝔽_p`.
+
+D4 (all on ShimuraVarieties §P.1's pure datum).
+* `PureDatum.AdditionalAxioms` — the predicates SV2*, SV4, SV5, SV6; API `sv2Star_indep`,
+  `sv2Star_sv2`, `sv4_rationalHodge`, `additionalAxioms_iso`, `additionalAxioms_prod`; tests
+  `additionalGl2`, `additionalHilbertSV5`, `additionalQuaternionWeight`, `additionalTrivialTorus`.
+* `sv5_iff_anisotropic` — `T(ℚ)` discrete in `T(𝔸_f)` iff the largest `ℚ`-anisotropic subtorus has
+  compact real points.
+* `PureDatum.IsPELType` — isomorphic to `RationalPELDatum.toShimuraDatum` of PELModuli §M0.12; API
+  `pelType_iso`, `pelType_hodgeType`, `pelType_sv4`, `pelType_ofDatum`; tests `pelSiegel`,
+  `pelHilbertStar`, `pelQuaternionNot`.
+* `preabelianType` — API `abelianTypePreabelian`, `preabelianTypeAdjoint`,
+  `preabelianTypeIsomorphism`; tests `preabelianSiegel`, `preabelianTorus`, `preabelianComponent`.
+* `typeImplications` — PEL ⇒ Hodge ⇒ abelian ⇒ preabelian.
+* `exists_pureDatum_lift` — every connected datum lifts to a datum with `G^der = H` satisfying SV1,
+  SV2, SV2*, SV3, SV4, SV5, SV6.
+
+D5.
+* `hilbertReflexDual` — the reflex field of the restriction-of-scalars Hilbert datum is `ℚ` and its
+  compact dual is `Res_{F/ℚ} ℙ¹`.
+* `kostantSequenceGeometry` — for `x ∈ C_w ⊂ P\G`, `a_i(w) = dim(L_x ∩ ⟨e_{g+1}, …, e_{g+i}⟩)`.
+-/
 
 end TauCeti.Shimura
