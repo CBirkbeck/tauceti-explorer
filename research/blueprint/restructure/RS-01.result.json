@@ -19,7 +19,7 @@
     },
     "PadicHodgeTheory": {
       "action": "keep",
-      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. R06.1 imports the O_C special elements and the kernel-generator criterion from AI.0:integral and the PD structure from CR.0. P8:local-rational imports the integral pro-étale sheaves from AI.3 and is the early owner of Scholze's primitive comparison theorem. P8 imports the constant-coefficient de Rham comparison from CP.3 and owns its extension to de Rham lisse sheaves and families. All ten stages remain. RT-RS-01/30 remains an external ownership decision for the R07 family. Both overlaps are referred there: (i) Fontaine–Laffaille Theorem 8.4, planned at R07.3/fl-admissibility and R06.4; and (ii) the general Colmez–Fontaine implication, planned at R07.4/semistable-finite-height and the R06.2 interface. For (i), R07.3/fl-lattice-correspondence needs fl-admissibility and R07.3 → R06.4 already holds, so either retain the proof at early R07.3 and make R06.4 an import interface, or split R07.3 and move its dependent suffix after R06.4. For (ii), R07.4 must import the general theorem and retain only its Kisin finite-height construction/comparison; distinguish the R06.2 statement interface from the R06.3 proof placement proposed in the P7 packet. No owner reversal or proof import is installed until those interfaces are settled. This referral records outstanding work, not a resolution of either duplicate."
+      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. R06.1 imports the O_C special elements and the kernel-generator criterion from AI.0:integral and the PD structure from CR.0. P8:local-rational imports the integral pro-étale sheaves from AI.3 and is the early owner of Scholze's primitive comparison theorem. P8 imports the constant-coefficient de Rham comparison from CP.3 and owns its extension to de Rham lisse sheaves and families. All ten stages remain. RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
     },
     "PerfectoidQuotients": {
       "action": "keep",
@@ -131,6 +131,34 @@
     "CohomologyComparisons:CP.1": {
       "action": "keep",
       "reason": "Retain the O_C comparison agreement owned by CP.1. Application of BS22 Theorem 18.2 requires the symmetric monoidal functor and Hodge–Tate structure-map compatibility of Notation 18.1."
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3": {
+      "action": "keep",
+      "reason": "RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594. This stage uses only early R06.2 formalism, not the R06.3 general theorem."
+    },
+    "PadicHodgeTheory:R06.2": {
+      "action": "keep",
+      "reason": "Keep period functors, admissibility, filtered modules, weak admissibility, full faithfulness, the bigness criterion and the CF proposition interface. The phrase “prove weak admissibility versus admissibility” is divided here: the numerical/formal criteria remain, but essential surjectivity is proved at R06.3. Early consumers R07.3 and P7 import only this formalism. The nodes crystalline-equivalence-over-breve-base and fixed-bound-fiber-functor-triviality retain their R06.2-prefixed ids but are placed after the proof in R06.3; the latter still has its independent torsor-proof gap. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
+    },
+    "PadicHodgeTheory:R06.3": {
+      "action": "keep",
+      "reason": "Keep monodromy and the Weil–Deligne construction; also own both actual CF proof routes and the perfect-residue realization consumers moved from R06.2. The general route uses the early R07.3 FL theorem, the specialized fundamental lifting lemma and early R06.1/R06.2 period formalism; it does not use R07.4. The finite-Q_p Berger route retains its P7, PG.2 and RD.2 inputs. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
+    },
+    "PadicHodgeTheory:R06.4": {
+      "action": "narrow",
+      "keeps": "Keep the rational consequences and the import interface for R07.3’s rational FL theorem: its covariance, filtration-to-HT sign and Tate-shift dictionary, comparisons with classified integral objects, and the ordinary/crystalline criteria with their exact endpoint, dyadic and ramification restrictions. Retain existing node ids and acceptance cases as import adapters. Import Theorem 8.4 and the natural rational period-functor comparison from R07.3, instead of rebuilding the FL ring, comparison or rational admissibility proof here.",
+      "suppliedBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3"
+      ],
+      "reason": "RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594."
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4": {
+      "action": "narrow",
+      "keeps": "Keep the power-series and Eisenstein coefficient rings, finite-height Frobenius modules, descent, finite-flat/p-divisible classifications, full faithfulness and the specific Kisin comparison of the G_{K_∞}-realizations Hom_{𝔖,φ}(M,𝔖^ur)⊗Q_p and Hom_{Fil,φ,N}(D,B_st^+), for K/K_0 finite totally ramified with k perfect and the stated nonnegative filtration/height bounds. Preserve contravariance, the dimension/height conclusions and the existing dyadic/local restrictions of each classification theorem. In semistable-finite-height, obtain the general admissibility assertion by importing R06.3/colmez-fontaine-perfect-residue; retain the construction and comparison, without a second general CF proof.",
+      "suppliedBy": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "reason": "The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained."
     }
   },
   "links": [
@@ -288,6 +316,101 @@
       "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
       "target": "CohomologyComparisons:CP.5",
       "reason": "CP.5's retained small-weight target compares its lattices with R07's Fontaine–Laffaille objects, which R07.3 constructs; R07.3 did not reach CP.5."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.3",
+      "reason": "The general CF first proof uses FL Theorem 8.4 to construct an initial admissible filtration on each simple isocrystal (CF Proposition 6.2, author pp. 32–33). It imports R07.3/fl-admissibility without R06.4 or R07.4."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.4",
+      "reason": "R06.4’s two rational FL theorem nodes are import adapters for R07.3/fl-admissibility and fl-period-comparison, with their sign dictionary and applications retained locally. Records the existing stage input explicitly."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PadicHodgeTheory:R06.5",
+      "reason": "Forward the rational FL supplier directly to the recorded consumer of narrowed R06.4; the geometric application continues to use R06.4’s convention and endpoint interfaces."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "reason": "R07.4/semistable-finite-height imports the actual perfect-residue CF theorem, not the R06.2 proposition or a finite-Q_p-only result; Kisin’s finite-height comparison remains local."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "AInfCohomology:AI.7",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "CohomologyComparisons:CP.5",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.3",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.4",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PadicHodgeTheory:R06.4",
+      "reason": "Forward the general CF proof supplier directly to this recorded consumer of narrowed R07.4; it continues importing the integral/finite-height classification and comparison from R07.4."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:L7",
+      "reason": "The R06.2 interface records this essential-surjectivity consumer. Import the actual CF proof from R06.3, retaining R06.2 as the supplier of period-functor/filtered-module formalism."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PotentialModularityAndCompatibleSystems:R24.5:operations",
+      "reason": "The R06.2 interface records this essential-surjectivity consumer. Import the actual CF proof from R06.3, retaining R06.2 as the supplier of period-functor/filtered-module formalism."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.6",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "LocalGaloisDeformationRings:R08.5",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "target": "PotentialModularityAndCompatibleSystems:R23.3",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "HeegnerPointEulerSystems:HE.3",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "LocalGaloisDeformationRings:R08.5",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.3",
+      "target": "PrismaticCohomology:PR.7",
+      "reason": "Forward the proof supplier to this additional consumer of the narrowed layer, as found in the complete read-only assembled atlas rather than only data/atlas.json. Keep the consumer’s original integral/interface import as well."
     }
   ],
   "owners": [
@@ -438,6 +561,21 @@
       "formerly": [
         "PerfectoidQuotients:Q2"
       ]
+    },
+    {
+      "target": "Fontaine–Laffaille Theorem 8.4(i)–(ii): rational admissibility for filtration length < p and the natural contravariant rational period-functor comparison, over K = W(k)[1/p] for perfect k, all primes p. RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594.",
+      "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+      "formerly": [
+        "PadicHodgeTheory:R06.4"
+      ]
+    },
+    {
+      "target": "General Colmez–Fontaine weakly admissible ⇒ admissible, including the semistable/crystalline equivalence for complete discretely valued perfect-residue bases. The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained.",
+      "owner": "PadicHodgeTheory:R06.3",
+      "formerly": [
+        "PadicHodgeTheory:R06.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ]
     }
   ],
   "review": {
@@ -456,43 +594,56 @@
     }
   ],
   "fix": {
-    "job": "FIX-RT-RS-01",
-    "issue": 5705,
-    "agent": "Claude",
-    "session": "claude-jBSCUj",
-    "date": "2026-10-07",
-    "base": "8cb560da44fe48f6a3f02ee08b0755504a83efe8",
+    "job": "FIX-RT-RS-01~2",
+    "issue": 8931,
+    "agent": "Codex",
+    "session": "codex-4EkcIG",
+    "date": "2026-10-17",
     "findings": [
-      "RT-RS-01/1",
-      "RT-RS-01/2",
-      "RT-RS-01/3",
-      "RT-RS-01/4",
-      "RT-RS-01/5",
-      "RT-RS-01/6",
-      "RT-RS-01/7",
-      "RT-RS-01/8",
-      "RT-RS-01/9",
-      "RT-RS-01/10",
-      "RT-RS-01/11",
-      "RT-RS-01/12",
-      "RT-RS-01/13",
-      "RT-RS-01/14",
-      "RT-RS-01/15",
-      "RT-RS-01/16",
-      "RT-RS-01/17",
-      "RT-RS-01/18",
-      "RT-RS-01/19",
-      "RT-RS-01/20",
-      "RT-RS-01/21",
-      "RT-RS-01/22",
-      "RT-RS-01/23",
-      "RT-RS-01/24",
-      "RT-RS-01/27",
-      "RT-RS-01/28",
-      "RT-RS-01/30",
-      "RT-RS-01/31",
-      "RT-RS-01/32"
+      "RT-RS-01/30"
     ],
-    "scope": "Ownership, forwarding links and narrowed-layer contracts. No blueprint closure or implementation is claimed; node-level work is handed to the member blueprint jobs in RT-RS-01.fixes.md."
-  }
+    "scope": "Resolve both remaining supplier choices and forward their consumers, following REV-FIX-RT-RS-01. Prior independent review verdicts are retained; independent review of this round is required. No complete blueprint closure or Lean implementation is claimed."
+  },
+  "fixHistory": [
+    {
+      "job": "FIX-RT-RS-01",
+      "issue": 5705,
+      "agent": "Claude",
+      "session": "claude-jBSCUj",
+      "date": "2026-10-07",
+      "base": "8cb560da44fe48f6a3f02ee08b0755504a83efe8",
+      "findings": [
+        "RT-RS-01/1",
+        "RT-RS-01/2",
+        "RT-RS-01/3",
+        "RT-RS-01/4",
+        "RT-RS-01/5",
+        "RT-RS-01/6",
+        "RT-RS-01/7",
+        "RT-RS-01/8",
+        "RT-RS-01/9",
+        "RT-RS-01/10",
+        "RT-RS-01/11",
+        "RT-RS-01/12",
+        "RT-RS-01/13",
+        "RT-RS-01/14",
+        "RT-RS-01/15",
+        "RT-RS-01/16",
+        "RT-RS-01/17",
+        "RT-RS-01/18",
+        "RT-RS-01/19",
+        "RT-RS-01/20",
+        "RT-RS-01/21",
+        "RT-RS-01/22",
+        "RT-RS-01/23",
+        "RT-RS-01/24",
+        "RT-RS-01/27",
+        "RT-RS-01/28",
+        "RT-RS-01/30",
+        "RT-RS-01/31",
+        "RT-RS-01/32"
+      ],
+      "scope": "Ownership, forwarding links and narrowed-layer contracts. No blueprint closure or implementation is claimed; node-level work is handed to the member blueprint jobs in RT-RS-01.fixes.md."
+    }
+  ]
 }

@@ -1117,6 +1117,24 @@
       "readSections": [
         "Definition 3.4 and Lemma 3.5 with proof, pp. 22–23"
       ]
+    },
+    {
+      "id": "colmez-fontaine-2000-author",
+      "title": "Construction des représentations p-adiques semi-stables",
+      "authors": "P. Colmez and J.-M. Fontaine",
+      "edition": "35-page author copy; published in Inventiones Mathematicae 140 (2000), 1–43; all locators here use author pagination",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/CF.pdf",
+      "sha256": "f0b5c51191831415b39cd363cc9eb5ba759d1ea7e46d9b4c1d15cea0a7aa6490",
+      "accessDate": "2026-10-17",
+      "readSections": [
+        "Introduction, scope and Theorem A, pp. 2–4",
+        "§§1.3–1.6, logarithmic periods and Proposition 1.3, pp. 6–12",
+        "§2, Proposition 2.1 through Corollary 2.6 with proofs, pp. 12–17",
+        "§3, filtration distance and weak admissibility, pp. 17–23",
+        "§4, Theorem 4.3 and Proposition 4.5 with proof, pp. 23–25",
+        "§5.3, Proposition 5.3, pp. 27–28; §5.5, Propositions 5.6–5.8, pp. 29–31",
+        "§6.1, Propositions 6.1–6.2, Corollary 6.3 and first proof of Theorem A, pp. 31–33"
+      ]
     }
   ],
   "nodes": [
@@ -4012,9 +4030,9 @@
       ],
       "title": "Galois invariants of the period rings",
       "kind": "theorem",
-      "statement": "Let K/Q_p be finite, K_0 its maximal unramified subfield. Then: (1) C^{G_K} = K and C(i)^{G_K} = 0 for i ≠ 0 (Tate); (2) B_HT^{G_K} = Frac(B_HT)^{G_K} = K; (3) (B_dR^+)^{G_K} = B_dR^{G_K} = K; (4) (B_cris^+)^{G_K} = B_cris^{G_K} = Frac(B_cris)^{G_K} = K_0 and B_st^{G_K} = Frac(B_st)^{G_K} = K_0; (5) (Fil^0B_cris)^{φ=1} = Q_p. The same holds with K replaced by any finite extension K' ⊆ K̄ (with K'_0) or by K̂^{ur} (with K̂_0^{ur}).",
+      "statement": "Let K be complete discretely valued of characteristic zero with perfect residue field k, K_0 = W(k)[1/p], and K/K_0 finite totally ramified. Then: (1) C^{G_K} = K and C(i)^{G_K} = 0 for i ≠ 0 (Tate); (2) B_HT^{G_K} = Frac(B_HT)^{G_K} = K; (3) (B_dR^+)^{G_K} = B_dR^{G_K} = K; (4) (B_cris^+)^{G_K} = B_cris^{G_K} = Frac(B_cris)^{G_K} = K_0 and B_st^{G_K} = Frac(B_st)^{G_K} = K_0; (5) (Fil^0B_cris)^{φ=1} = Q_p. The same holds with K replaced by any finite extension K' ⊆ K̄ (with K'_0) or by K̂^{ur} (with K̂_0^{ur}).",
       "hypotheses": [
-        "K/Q_p finite; the rings of R06.1."
+        "K/K_0 finite totally ramified with k perfect; use the R06.1 period rings of C = completion of an algebraic closure of K. Finite K/Q_p is a specialization."
       ],
       "proofSteps": [
         "(1): R06.1/tate-sen-theorem. (2): R06.1/hodge-tate-period-ring. (3): R06.1/de-rham-invariants. (4): R06.1/crystalline-semistable-invariants. (5): R06.1/fundamental-exact-sequence.",
@@ -4041,6 +4059,11 @@
           "sourceId": "brinon-conrad",
           "locator": "Example 5.1.3, p. 67",
           "match": "The de Rham invariants, including the fraction field."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "§1.5, author pp. 10–11; Proposition 4.5, pp. 24–25",
+          "match": "The perfect-residue invariant fields used by the general CF argument; the Tate/invariant proofs remain early R06.1 obligations."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12165,9 +12188,9 @@
       ],
       "title": "Filtered (φ, N)-modules MF^{φ,N}_K and filtered φ-modules MF^φ_K",
       "kind": "definition",
-      "statement": "Let K/Q_p be finite with residue field k, K_0 = W(k)[1/p] (Mathlib's K(p, k) = FractionRing (WittVector p k)) with Frobenius σ. A (φ, N)-module is an isocrystal (D, φ) over K_0 — a finite-dimensional K_0-space with a bijective σ-semilinear φ (Mathlib WittVector.Isocrystal) — with a K_0-linear N: D → D such that Nφ = pφN. A filtered (φ, N)-module over K is a (φ, N)-module D together with an exhaustive separated decreasing filtration on D_K = K ⊗_{K_0} D (an object of Fil_K). Morphisms are K_0-linear maps commuting with φ and N whose K-linear extension preserves the filtrations; MF^{φ,N}_K is the category, and MF^φ_K ⊆ MF^{φ,N}_K is the full subcategory with N = 0 (filtered φ-modules). Constructions: subobjects are φ- and N-stable K_0-subspaces D' with the subspace filtration on D'_K; quotients carry the quotient filtration; D ⊗ D' with φ ⊗ φ, N ⊗ 1 + 1 ⊗ N and the tensor filtration; D^∨ with φ_{D^∨}(ℓ) = σ ∘ ℓ ∘ φ^{-1}, N_{D^∨} = −N^t and the dual filtration; the unit K_0[0]; the Tate twist, covariant normalisation: D⟨i⟩ has the same D and N, φ_{D⟨i⟩} = p^{−i}φ_D and Fil^r(D⟨i⟩_K) = Fil^{r+i}(D_K), so that D_st(V(i)) ≅ D_st(V)⟨i⟩ (Brinon–Conrad's Definition 8.3.1 is the contravariant normalisation, with i replaced by −i). For K = K_0 unramified, MF^φ_K consists of triples (D, φ, Fil^•) with Fil on D itself; an isomorphism in MF^φ_K is a φ-equivariant K-linear bijection carrying Fil^i onto Fil^i for all i.",
+      "statement": "Let K be characteristic zero, complete discretely valued with perfect residue field k, K_0 = W(k)[1/p] and K/K_0 finite totally ramified. The field K_0 (Mathlib's K(p, k) = FractionRing (WittVector p k)) carries Frobenius σ. A (φ, N)-module is an isocrystal (D, φ) over K_0 — a finite-dimensional K_0-space with a bijective σ-semilinear φ (Mathlib WittVector.Isocrystal) — with a K_0-linear N: D → D such that Nφ = pφN. A filtered (φ, N)-module over K is a (φ, N)-module D together with an exhaustive separated decreasing filtration on D_K = K ⊗_{K_0} D (an object of Fil_K). Morphisms are K_0-linear maps commuting with φ and N whose K-linear extension preserves the filtrations; MF^{φ,N}_K is the category, and MF^φ_K ⊆ MF^{φ,N}_K is the full subcategory with N = 0 (filtered φ-modules). Constructions: subobjects are φ- and N-stable K_0-subspaces D' with the subspace filtration on D'_K; quotients carry the quotient filtration; D ⊗ D' with φ ⊗ φ, N ⊗ 1 + 1 ⊗ N and the tensor filtration; D^∨ with φ_{D^∨}(ℓ) = σ ∘ ℓ ∘ φ^{-1}, N_{D^∨} = −N^t and the dual filtration; the unit K_0[0]; the Tate twist, covariant normalisation: D⟨i⟩ has the same D and N, φ_{D⟨i⟩} = p^{−i}φ_D and Fil^r(D⟨i⟩_K) = Fil^{r+i}(D_K), so that D_st(V(i)) ≅ D_st(V)⟨i⟩ (Brinon–Conrad's Definition 8.3.1 is the contravariant normalisation, with i replaced by −i). For K = K_0 unramified, MF^φ_K consists of triples (D, φ, Fil^•) with Fil on D itself; an isomorphism in MF^φ_K is a φ-equivariant K-linear bijection carrying Fil^i onto Fil^i for all i.",
       "hypotheses": [
-        "K/Q_p finite; D finite-dimensional over K_0; φ bijective (injectivity suffices, B-C Exercise 7.4.10)."
+        "K/K_0 finite totally ramified, K_0 = W(k)[1/p], k perfect of characteristic p; K/Q_p finite is a specialization. D finite-dimensional and φ bijective."
       ],
       "proofSteps": [
         "Definitions; Nφ = pφN on tensor products and duals is checked directly (B-C Definition 8.2.5 and the formulas following it).",
@@ -12198,6 +12221,11 @@
           "sourceId": "fontaine-ouyang",
           "locator": "Definition 6.36, p. 134",
           "match": "F-O's definition."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "§§3.2–3.4, author pp. 20–23",
+          "match": "The same filtered (φ,N)-module carriers over arbitrary perfect-residue bases; no essential surjectivity is assumed."
         }
       ],
       "uses": [
@@ -12525,7 +12553,8 @@
       "kind": "definition",
       "statement": "D ∈ MF^{φ,N}_K is weakly admissible if t_H(D) = t_N(D) and t_H(D') ≤ t_N(D') for every subobject D' ⊆ D in MF^{φ,N}_K (φ- and N-stable K_0-subspace with the induced filtration on D'_K). Equivalently t_H(D) = t_N(D) and t_H(D'') ≥ t_N(D'') for every quotient D''. MF^{φ,N,wa}_K denotes the full subcategory; MF^{φ,wa}_K = weakly admissible objects with N = 0. Here t_H(D) := t_H(D_K). Equivalent polygon form: for all subobjects D', the Newton polygon of D' lies on or above its Hodge polygon (Fontaine's lemma). Weak admissibility is preserved by duality, Tate twists and scalar extension K_0 → K̂_0^{ur}, and depends on N only through the class of N-stable subobjects.",
       "hypotheses": [
-        "t_H from R06.2/hodge-number-tH, t_N from R06.2/newton-number-tN."
+        "t_H from R06.2/hodge-number-tH, t_N from R06.2/newton-number-tN.",
+        "The base may be any finite totally ramified K/W(k)[1/p] with k perfect; this early formal/numerical result does not use the general CF implication."
       ],
       "proofSteps": [
         "Quotient form: t_H and t_N are additive on 0 → D' → D → D/D' → 0 (B-C Proposition 8.2.2).",
@@ -12558,6 +12587,11 @@
           "sourceId": "berger-2008",
           "locator": "Exemple IV.2.8(2), pp. 19–20",
           "match": "The non-weakly-admissible example (Berger's 'admissible' = weakly admissible)."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "§§3.2–3.4, author pp. 20–23",
+          "match": "Numerical definition over perfect k, with t_N the valuation of the semilinear determinant."
         }
       ],
       "uses": [
@@ -12699,7 +12733,8 @@
       "kind": "theorem",
       "statement": "Every morphism h: D → D' between weakly admissible filtered (φ, N)-modules is strict (coim h → im h is an isomorphism in MF^{φ,N}_K), and ker h, coker h (with subspace and quotient filtrations) and im h are weakly admissible. Hence MF^{φ,N,wa}_K is an abelian category (artinian: simple objects are the nonzero D with t_H(D') < t_N(D') for all proper nonzero subobjects). In particular a morphism of weakly admissible objects that is a K_0-linear isomorphism is an isomorphism in MF^{φ,N}_K.",
       "hypotheses": [
-        "D, D' weakly admissible."
+        "D, D' weakly admissible.",
+        "The base may be any finite totally ramified K/W(k)[1/p] with k perfect; this early formal/numerical result does not use the general CF implication."
       ],
       "proofSteps": [
         "t_N(coim h) ≤ t_H(coim h) (quotient of D) ≤ t_H(im h) (bijective morphism, R06.2/hodge-number-tH) ≤ t_N(im h) (subobject of D'), and the outer terms are equal because coim h ≅ im h as isocrystals; so equality holds and h is strict (B-C Theorem 8.2.11).",
@@ -12723,6 +12758,11 @@
           "sourceId": "fontaine-ouyang",
           "locator": "Proposition 6.50 and Remark 6.51, p. 138",
           "match": "F-O's version and the description of simple objects."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "§3.4, author pp. 21–22",
+          "match": "The perfect-residue weakly admissible category and its subquotients; the numerical strictness proof does not use CF."
         }
       ],
       "implementationStatus": "unchecked"
@@ -12979,7 +13019,8 @@
       "kind": "theorem",
       "statement": "(1) D_st: Rep^{st}_{Q_p}(G_K) → MF^{φ,N}_K is exact (short exact sequences go to short exact sequences in MF^{φ,N}_K, i.e. strict on filtrations) and compatible with ⊗, duals, exterior powers and determinants. (2) For V semistable, V ≅ V_st(D_st(V)) := Fil^0(B_st ⊗_{K_0} D_st(V))^{φ=1, N=0} naturally and G_K-equivariantly. (3) D_st is fully faithful on semistable representations, with quasi-inverse V_st on its essential image; the same holds for D_cris and V_cris on crystalline representations.",
       "hypotheses": [
-        "V, V' semistable (resp. crystalline)."
+        "V, V' semistable (resp. crystalline).",
+        "The base may be any finite totally ramified K/W(k)[1/p] with k perfect; this early formal/numerical result does not use the general CF implication."
       ],
       "proofSteps": [
         "(1) exactness and tensor compatibility in Vec_{K_0} from R06.2/admissible-category-tannakian; filtrations: K ⊗ D_st = D_dR on semistable representations and R06.2/ddr-exact-strict-tensor.",
@@ -13007,6 +13048,11 @@
           "sourceId": "fontaine-ouyang",
           "locator": "§7.2.1, end of the construction of the natural isomorphism, p. 153",
           "match": "Statement (2)."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "Propositions 4.1–4.2, author p. 23",
+          "match": "Perfect-residue full faithfulness on the already-admissible essential image, without assuming all weakly admissible objects are admissible."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13405,7 +13451,8 @@
       "kind": "theorem",
       "statement": "Let D ∈ MF^{φ,N}_K be weakly admissible. Then V := V_st(D) is finite-dimensional over Q_p with dim V ≤ dim_{K_0} D and is a semistable representation; D' := D_st(V) is naturally a weakly admissible subobject of D; D is admissible (≅ D_st of a semistable representation) iff dim_{Q_p} V_st(D) = dim_{K_0} D iff D' = D, and then δ(D): (B_st ⊗ D)^{N=0,φ=1} → (B_dR ⊗_K D_K)/Fil^0 is surjective. If D is a simple object of MF^{φ,N,wa}_K, D is admissible iff V_st(D) ≠ 0. The same holds for MF^φ_K, V_cris and crystalline representations.",
       "hypotheses": [
-        "D weakly admissible; C_st = Frac(B_st) with (C_st)^{G_K} = K_0."
+        "D weakly admissible; C_st = Frac(B_st) with (C_st)^{G_K} = K_0.",
+        "The base may be any finite totally ramified K/W(k)[1/p] with k perfect; this early formal/numerical result does not use the general CF implication."
       ],
       "proofSteps": [
         "The Q_p-span V of V_st(D) spans a G_K-stable C_st-subspace V' ⊆ C_st ⊗ D of dimension r ≤ s = dim D; G_K-invariance and C_st^{G_K} = K_0 (R06.1/period-ring-invariants) descend V' to a K_0-subspace D' ⊆ D (Grassmannian or basis argument), φ- and N-stable, with V ⊆ B_st ⊗ D'.",
@@ -13437,6 +13484,11 @@
           "sourceId": "brinon-conrad",
           "locator": "footnote 2 to Proposition 9.3.9, p. 151",
           "match": "The omitted converse, recorded as a source gap."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "Proposition 4.5 and Corollary 4.7 with proof, author pp. 24–25",
+          "match": "Finite-dimensional semistable V_st and its admissible subobject for general perfect k, independent of Theorem A."
         }
       ],
       "implementationStatus": "unchecked"
@@ -13449,9 +13501,9 @@
       ],
       "title": "The Colmez–Fontaine statement: weakly admissible ⇒ admissible (the proposition, proved in R06.3)",
       "kind": "definition",
-      "statement": "For K/Q_p finite, ColmezFontaine(K) is the proposition: every weakly admissible D ∈ MF^{φ,N}_K is admissible, i.e. D ≅ D_st(V_st(D)); equivalently D_st: Rep^{st}_{Q_p}(G_K) → MF^{φ,N,wa}_K is an equivalence of categories with quasi-inverse V_st (and then D_cris: Rep^{cris} → MF^{φ,wa}_K is an equivalence with quasi-inverse V_cris). The descent-data form ColmezFontainePst(K): for every finite Galois L/K, every weakly admissible filtered (φ, N, Gal(L/K))-module is D_{st,L}(V) for a representation V of G_K semistable on G_L. This node defines these propositions and records their equivalent forms; it does not assert them. Placement: the proof is not available from R06.1–R06.2 material alone. Berger's proof (Berger 2008, Théorème V.2.1) needs the (φ, Γ)-module M(D) over the Robba ring B†_rig,K (PadicHodgeTheory:P7:annulus-foundations), Kedlaya's slope filtration (PadicDifferentialEquationsAndRigidCohomology:RD.1), the p-adic local monodromy theorem for differential equations (RD.2) through Berger's Corollaire III.2.5, the Cherbonnier–Colmez–Fontaine equivalence (PhiGammaModulesAndIwasawaCohomology:PG.1–PG.2), and the identification D_st(V) = (B†_rig,L[ℓ_X, 1/t] ⊗ D†_rig(V))^{Γ_L} of Berger 2002 (Théorème 3.6), which lives in PadicHodgeTheory:P7 / R06.3; so the theorem is proved in R06.3 (restructure entry), where every input is available, and consumers needing it import it from there.",
+      "statement": "For any characteristic-zero complete discretely valued K with perfect residue field k and finite totally ramified K/K_0, K_0 = W(k)[1/p], ColmezFontaine(K) is the proposition that every weakly admissible finite-dimensional filtered (φ,N)-module is admissible, equivalently D_st is an exact tensor equivalence with quasi-inverse V_st; its N = 0 form is the crystalline equivalence. ColmezFontainePst(K) is the corresponding proposition with descent for each finite Galois L/K. This node defines these propositions and their elementary equivalent forms only. The actual general proof is R06.3/colmez-fontaine-perfect-residue, by the original CF first proof with early R07.3 FL input. For finite K/Q_p the existing R06.3/colmez-fontaine-proof-via-robba additionally realizes the Berger modification/slope route using P7, RD.2 and PG.2. Neither later proof is a prerequisite of this interface.",
       "hypotheses": [
-        "K/Q_p finite; weak admissibility as in R06.2/weak-admissibility."
+        "K/K_0 finite totally ramified, K_0 = W(k)[1/p], k perfect of characteristic p. This node asserts no instance of the general proposition."
       ],
       "proofSteps": [
         "Definition of the propositions.",
@@ -13482,12 +13534,17 @@
           "sourceId": "berger-2008",
           "locator": "Théorème V.2.1 and Remarque V.2.2, pp. 21–22",
           "match": "Berger's proof of the descent-data form; its inputs determine the placement."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "Theorem A and base conventions, author p. 2; §4.1, p. 23",
+          "match": "General statement and equivalence, distinguished from the finite-Q_p Berger proof."
         }
       ],
       "uses": [
         {
           "where": "PadicHodgeTheory:R06.3 (part D)",
-          "how": "proves ColmezFontaine and ColmezFontainePst from Berger 2008"
+          "how": "Owns the perfect-residue CF first proof and the finite-Q_p Berger route; the R06.2 node defines their proposition interface."
         },
         {
           "where": "LocalGaloisDeformationRings L7, R08.3",
@@ -13499,7 +13556,7 @@
         },
         {
           "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4",
-          "how": "Kisin's alternative proof via Breuil–Kisin modules (B-C §11.3)"
+          "how": "Imports the actual general R06.3 theorem for the admissibility clause of semistable-finite-height; retains its specific Kisin construction/comparison."
         }
       ],
       "api": [
@@ -17600,26 +17657,25 @@
       "realises": [
         "PadicHodgeTheory:R06.4"
       ],
-      "title": "Fontaine–Laffaille's rational functor is the dual of V_cris on weakly admissible modules with jumps in [0, p−1]",
+      "title": "Import the rational Fontaine–Laffaille period comparison from R07.3",
       "kind": "theorem",
       "statement": "Let K = K_0 = W(k)[1/p] be absolutely unramified (e = 1), σ its Frobenius. A filtered φ-module D over K is weakly admissible in the sense of R06.2/weak-admissibility; its jumps are the i with gr^i D ≠ 0. For Fontaine–Laffaille (FL) objects we use the notation of FL 1982: MF_tor^{f,p} (finite-length W(k)-modules M with M^0 = M, M^p = 0 and φ^i: M^i → M), strongly divisible lattices (FL 7.7), the ring Ŝ and Ŝ_K = K ⊗ Ŝ, and the contravariant functors U_S(M) = Hom_{MF}(M, Ŝ) (lattices), U_S(M) = Ext^1(M, S) (torsion) and U_{S_K}(Δ) = Hom_{MF_K}(Δ, Ŝ_K) (rational), all supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Let MF^{wa,[0,p−1]}_K be the category of weakly admissible filtered φ-modules D over K with Fil^0 D = D and Fil^p D = 0. For D in it there is a natural G_K-equivariant isomorphism U_{S_K}(D) = Hom_{φ,Fil}(D, Ŝ_K) ≅ Hom_{φ,Fil}(D, B_cris) = V_cris(D)^* (FL: U_{S_K} ≅ V_B^* on MF^{f,p}_K). In particular D is admissible, D ≅ D*_cris(U_{S_K}(D)); U_{S_K} is exact and fully faithful on MF^{wa,[0,p−1]}_K, with quasi-inverse on its essential image U ↦ Hom_{Q_p[G_K]}(U, Ŝ_K) = D*_cris(U), and U_{S_K}(D) is crystalline with Hodge–Tate weights the jumps of D (in [0, p−1]).",
       "hypotheses": [
-        "FL's 'B-admissible' refers to the Barsotti–Tate ring B of Fontaine (Annals 1982, [F2]); FL call B-admissible representations 'cristallines'. The identification with B_cris-admissibility (R06.2) and FL's use of [F2] §4 (Ŝ_K ≅ B_a^+) are recorded as a gap; the proof steps below give a replacement argument through A_cris.",
+        "Import R07.3/fl-period-comparison and fl-admissibility, including the identification of FL’s Barsotti–Tate ring with the classical crystalline periods and its exact filtration comparison. That supplier proof obligation is retained as a gap; R06.4 supplies no replacement construction.",
         "K = K_0 (e = 1); p arbitrary (no p ≠ 2 hypothesis in FL 8.4)."
       ],
       "proofSteps": [
-        "FL (proof of 8.4): Ŝ_K is identified, as a filtered Galois ring, with B_a^+ of [F2] §4 (a = {x ∈ R : v_R(x) ≥ p}); Hom_{MF_K}(D, B_a^+) ⊂ Hom_{MF_K}(D, B) = V_B(D) and (V^* ⊗ B_a^+)^G ⊂ D_B(V^*).",
-        "Replacement via A_cris (R06.1/crystalline-period-ring; R07.3 for Ŝ): Ŝ is the p-adic completion of W(R)[ξ^p/p] ⊂ A_cris (ξ^p/p = (p−1)!·γ_p(ξ)), with Fil^iŜ_K = Ŝ_K ∩ Fil^iB_dR (to be checked against FL §2, R07.3); φ(B_max^+) ⊂ Ŝ[1/p] because φ(ξ)/p ≡ ξ^p/p mod W(R).",
-        "Since D = φ(D) and Fil^0 D = D, any φ-compatible f: D → B_cris with f(D) ⊂ Fil^0 B_cris lands in B'_cris = {x : φ^n(x) ∈ Fil^0 ∀ n} and hence in φ(B'_cris) ⊂ B_cris^+ ⊂ B_max^+, so f(D) = φ(f(φ^{−1}D)) ⊂ φ(B_max^+) ⊂ Ŝ_K: Hom_{φ,Fil}(D, Ŝ_K) = Hom_{φ,Fil}(D, B_cris) = V_cris(D)^* (Berger survey II.3.4 for B'_cris).",
-        "Dimension: dim_{Q_p} U_{S_K}(D) = dim_K D (FL Proposition 7.17(i), via a strongly divisible lattice, FL Proposition 7.8; R07.3) and the evaluation map D → Hom(U_{S_K}(D), Ŝ_K) is injective (FL 7.17(ii)); hence dim D*_cris(U_{S_K}(D)) ≥ dim D, U_{S_K}(D) is crystalline and D ≅ D*_cris(U_{S_K}(D)) (R06.2/admissible-representations).",
-        "Full faithfulness and the quasi-inverse: FL Remarques 7.18(a) and 8.5; exactness from exactness of V_cris on admissible modules (R06.2)."
+        "Import the natural contravariant comparison U_{S_K}(D) ≅ V_cris(D)^∨ and admissibility from R07.3/fl-admissibility, using its fl-period-comparison input (FL Theorem 8.4(ii), pp. 595–596). The former local A_cris reconstruction is removed from this consumer.",
+        "Transport this imported isomorphism to R06.2’s covariant D_cris/V_cris notation: D*_cris(U) = D_cris(U^∨). Exactness, full faithfulness and the essential-image quasi-inverse are imported with the rational theorem (FL Remark 8.5, p. 596).",
+        "Compute the sign of the HT weights from the filtered D_dR identification. This convention adapter does not claim the torsion endpoint or essential surjectivity onto all stable lattices."
       ],
       "acceptance": [
         "D = K·e, φ(e) = p^n e, jump at n (0 ≤ n ≤ p − 1): U_{S_K}(D) = Q_p(n).",
         "D with jumps {0, p−1} (modular weight p) is covered; D with jumps {0, p} (modular weight p + 1) is not (Fil^p D ≠ 0)."
       ],
       "prerequisites": [
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-period-comparison",
         "PadicHodgeTheory:R06.1/crystalline-period-ring",
         "PadicHodgeTheory:R06.1/de-rham-period-ring",
         "PadicHodgeTheory:R06.2/period-functors",
@@ -17630,18 +17686,13 @@
       "sources": [
         {
           "sourceId": "fontaine-laffaille",
-          "locator": "8.4 Théorème (ii) and its proof, pp. 595–596 (checked on the page images)",
-          "match": "FL's proof via [F2] (not read)."
+          "locator": "Theorem 8.4(ii) and proof, pp. 595–596; Remark 8.5, p. 596",
+          "match": "R07.3-owned natural comparison and quasi-inverse, imported here."
         },
         {
           "sourceId": "fontaine-laffaille",
-          "locator": "7.18 Remarques (a), p. 594 (checked on the page image)",
-          "match": "Full faithfulness of the rational functor."
-        },
-        {
-          "sourceId": "berger-intro",
-          "locator": "II.3.4, p. 15",
-          "match": "φ(B'_cris) ⊂ B_cris^+, used in the replacement argument."
+          "locator": "Proposition 7.17 and Remark 7.18(a), p. 594",
+          "match": "Dimension and evaluation inputs stay with R07.3’s proof."
         }
       ],
       "implementationStatus": "unchecked"
@@ -17656,11 +17707,12 @@
       "kind": "lemma",
       "statement": "Let K = K_0 = W(k)[1/p] be absolutely unramified (e = 1), σ its Frobenius. A filtered φ-module D over K is weakly admissible in the sense of R06.2/weak-admissibility; its jumps are the i with gr^i D ≠ 0. For Fontaine–Laffaille (FL) objects we use the notation of FL 1982: MF_tor^{f,p} (finite-length W(k)-modules M with M^0 = M, M^p = 0 and φ^i: M^i → M), strongly divisible lattices (FL 7.7), the ring Ŝ and Ŝ_K = K ⊗ Ŝ, and the contravariant functors U_S(M) = Hom_{MF}(M, Ŝ) (lattices), U_S(M) = Ext^1(M, S) (torsion) and U_{S_K}(Δ) = Hom_{MF_K}(Δ, Ŝ_K) (rational), all supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Let D be a weakly admissible filtered φ-module over K with jumps in [a, b], and V := V_cris(D) the crystalline representation with D_cris(V) = D (covariant; R06.2). Then: (1) HT(V) = {−i : gr^iD ≠ 0} ⊂ [−b, −a]; (2) FL's contravariant U_{S_K}(D) ≅ V^* has HT(U_{S_K}(D)) = {i : gr^iD ≠ 0} ⊂ [a, b], with multiplicities dim gr^i D; (3) for a strongly divisible lattice M with jumps in [0, p−2], the contravariant lattice U_S(M) has HT weights in [0, p−2] (FL index i ↔ weight +i), and the covariant lattice U_S(M)^∨ = Hom_{Z_p}(U_S(M), Z_p) ⊂ V_cris(M[1/p]) has HT weights in [−(p−2), 0] (index i ↔ weight −i); (4) common Tate shift: if V has HT weights in [c, c + p − 2], then V(−c) has HT weights in [0, p − 2] and its contravariant module D*_cris(V(−c)) = D_cris(V(−c))^∨ has FL indices in [0, p − 2]; so every statement for the interval [0, p − 2] applies to [c, c + p − 2] after the twist T ↦ T(−c), which lowers every FL index of the contravariant module by c; (5) on rank one: U_S(M(1; n)) ≅ F_p(ω^n) (ω the mod p cyclotomic character) for 0 ≤ n ≤ p − 1, consistent with (2): Hodge–Tate weight n ↔ ω^n.",
       "hypotheses": [
-        "FL work with contravariant functors throughout (U_S, U_{S_K}, V_B^*); this node fixes the translation used by every R06.4 statement."
+        "FL work with contravariant functors throughout (U_S, U_{S_K}, V_B^*); this node fixes the translation used by every R06.4 statement.",
+        "For (1), D is already known admissible; inside filtration span <p this is supplied by R07.3, and outside that range it is an explicit assumption. The U_{S_K} comparison in (2) is used only in the rational FL range, after a common Tate shift to [0,p−1]; (3)–(4) use the lattice range [0,p−2]. No U_{S_K} comparison outside the shifted FL range is asserted."
       ],
       "proofSteps": [
         "(1): D_dR(V) = D_K (K = K_0) with its filtration, and HT weights are the negatives of the jumps (PadicHodgeTheory:R06.2/hodge-tate-weight-convention).",
-        "(2): U_{S_K}(D) ≅ V_B(D)^* = V^* (PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison) and HT(V^*) = −HT(V).",
+        "(2) in the shifted rational FL range: U_{S_K}(D) ≅ V_B(D)^* = V^* (PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison), and HT(V^*) = −HT(V). Twists translate the normalized interval. Outside this range only (1) is used, with admissibility assumed.",
         "(3): U_S(M)[1/p] = U_{S_K}(M[1/p]) (FL 7.14–7.17, R07.3) and (2); duals negate weights.",
         "(4): D_cris(V(−c)) = D_cris(V) ⊗ D_cris(Q_p(−c)) and D_cris(Q_p(−c)) has its jump at c, so the jumps of D_cris move from [−c−p+2, −c] to [−(p−2), 0]; dualising gives FL indices in [0, p−2].",
         "(5): FL Théorème 5.3(iii) with h = 1 (R07.3): G acts on U_S(M(1; i_0)) by χ_1^{i_0}, χ_1 = ω for E = Q_p."
@@ -17671,11 +17723,11 @@
       ],
       "prerequisites": [
         "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules",
         "PadicHodgeTheory:R06.2/period-functors",
-        "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
-        "PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-functor",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-tame-inertia"
       ],
       "sources": [
         {
@@ -17702,18 +17754,16 @@
       "realises": [
         "PadicHodgeTheory:R06.4"
       ],
-      "title": "Fontaine–Laffaille: weakly admissible filtered φ-modules of filtration length < p over K_0 are admissible",
+      "title": "Import Fontaine–Laffaille rational admissibility and translate the weight interval",
       "kind": "theorem",
       "statement": "Let K = K_0 = W(k)[1/p] be absolutely unramified (e = 1), σ its Frobenius. A filtered φ-module D over K is weakly admissible in the sense of R06.2/weak-admissibility; its jumps are the i with gr^i D ≠ 0. For Fontaine–Laffaille (FL) objects we use the notation of FL 1982: MF_tor^{f,p} (finite-length W(k)-modules M with M^0 = M, M^p = 0 and φ^i: M^i → M), strongly divisible lattices (FL 7.7), the ring Ŝ and Ŝ_K = K ⊗ Ŝ, and the contravariant functors U_S(M) = Hom_{MF}(M, Ŝ) (lattices), U_S(M) = Ext^1(M, S) (torsion) and U_{S_K}(Δ) = Hom_{MF_K}(Δ, Ŝ_K) (rational), all supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. If D is a weakly admissible filtered φ-module over K = K_0 and there is j ∈ Z with Fil^j D = D and Fil^{j+p} D = 0 (filtration length < p), then D is admissible: D ≅ D_cris(V) for the crystalline representation V = V_cris(D), whose Hodge–Tate weights lie in [−j−p+1, −j] (convention HT(χ_p) = +1). In particular every crystalline representation of G_{K_0} whose Hodge–Tate weights lie in an interval of length ≤ p − 1 corresponds to such D, and conversely.",
       "hypotheses": [
         "e = 1 (K = K_0); no restriction on p.",
-        "This is a special case of the Colmez–Fontaine theorem (R06.2/colmez-fontaine-theorem) but FL's proof is independent of it and predates it."
+        "Import FL Theorem 8.4(i) from R07.3/fl-admissibility for all perfect k and all p, independently of general CF. No proof of rational admissibility is repeated in R06.4."
       ],
       "proofSteps": [
-        "Twist: choose a rank-one weakly admissible D_2 with its jump at j (e.g. D_cris(Q_p(−j))) and write D = D_1 ⊗ D_2 with D_1 weakly admissible, Fil^0 D_1 = D_1, Fil^p D_1 = 0 (FL proof of 8.4; weak admissibility is stable under ⊗ with rank one objects, R06.2/weak-admissibility).",
-        "D_1 is admissible by PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison (U_{S_K}(D_1) crystalline of dimension dim D_1 with D*_cris = D_1).",
-        "Rank-one weakly admissible objects are admissible (Fontaine [F1] 4.4.1 via FL; R06.2), and admissible objects are stable under ⊗ (R06.2/admissible-representations), so D = D_1 ⊗ D_2 is admissible.",
-        "Weights: PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary (1)."
+        "Apply R07.3/fl-admissibility to the stated Fil^j/Fil^{j+p} bounds. The rank-one twisting proof and the normalized period comparison belong to that supplier, not to this adapter.",
+        "Use the R06.4 sign dictionary to translate jumps [j,j+p−1] into covariant HT weights [−j−p+1,−j]. Retain Tate-shift compatibility and endpoint acceptance cases."
       ],
       "acceptance": [
         "D_cris(Q_p(n)) for every n (length 0).",
@@ -17725,9 +17775,7 @@
         "PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary",
         "PadicHodgeTheory:R06.2/weak-admissibility",
         "PadicHodgeTheory:R06.2/admissible-representations",
-        "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
-        "PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility"
       ],
       "sources": [
         {
@@ -19192,20 +19240,20 @@
     },
     {
       "id": "PadicHodgeTheory:R06.2/crystalline-equivalence-over-breve-base",
-      "parentStageId": "PadicHodgeTheory:R06.2",
+      "parentStageId": "PadicHodgeTheory:R06.3",
       "realises": [
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.3"
       ],
       "title": "Crystalline equivalence over a finite extension of Q̆_p",
       "kind": "theorem",
       "statement": "For K finite over Q̆_p, Fontaine’s D_cris and V_cris give inverse exact tensor equivalences between crystalline finite-dimensional Q_p-representations of G_K and weakly admissible filtered isocrystals over K with base K_0=Q̆_p. Invariants, continuity and Frobenius are taken for this complete discretely valued field with algebraically closed residue field.",
       "hypotheses": [
-        "This is the perfect-residue generality of Colmez–Fontaine, not a substitution into a theorem whose hypothesis is K/Q_p finite."
+        "This is the perfect-residue generality of Colmez–Fontaine, not a substitution into a theorem whose hypothesis is K/Q_p finite.",
+        "Placed in R06.3 after the general CF proof; the R06.2-prefixed node id is retained for incoming references. This is not an early R06.2 theorem."
       ],
       "proofSteps": [
-        "Construct periods and the comparison maps for the complete discretely valued base with perfect residue field.",
-        "Prove full faithfulness as in the regular period-ring formalism.",
-        "Supply the perfect-residue weak-admissibility-implies-admissibility theorem; the finite-Q_p Berger proof below alone does not discharge it."
+        "Apply R06.3/colmez-fontaine-perfect-residue to K finite over Q̆_p, and restrict to N=0.",
+        "Combine with the early R06.2 exact tensor/full-faithfulness theorem; the comparison is the existing period-functor comparison, not a choice of basis."
       ],
       "acceptance": [
         "No finiteness assumption [K:Q_p]<∞ can appear in the implementation of this target."
@@ -19213,28 +19261,35 @@
       "prerequisites": [
         "PadicHodgeTheory:R06.2/period-functors",
         "PadicHodgeTheory:R06.2/weak-admissibility",
-        "PadicHodgeTheory:R06.2/colmez-fontaine-theorem"
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+        "PadicHodgeTheory:R06.3/colmez-fontaine-perfect-residue"
       ],
       "sources": [
         {
           "sourceId": "glx",
           "locator": "§5.1, pp. 835–836, first paragraph; arXiv:2208.07195, §5.1, pp. 31–32 (equation (5.1) and the paragraph before Definition 5.1 on p. 32)",
           "match": "States the equivalence for K/Q̆_p finite, citing Colmez–Fontaine."
+        },
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "Theorem A, author p. 2; §6.1, pp. 31–33",
+          "match": "Actual perfect-residue proof supplying the crystalline specialization."
         }
       ],
       "implementationStatus": "unchecked"
     },
     {
       "id": "PadicHodgeTheory:R06.2/fixed-bound-fiber-functor-triviality",
-      "parentStageId": "PadicHodgeTheory:R06.2",
+      "parentStageId": "PadicHodgeTheory:R06.3",
       "realises": [
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.3"
       ],
       "title": "Fixed-bound crystalline fiber-functor triviality",
       "kind": "theorem",
       "statement": "Let (b,μ_η) be an admissible pair for connected reductive G/Q_p, with μ_η in the prescribed geometric conjugacy class {μ} and [b]∈B(G,{μ}). Then ω∘V_cris∘𝒢_(b,μ) is isomorphic to the standard Q_p-valued fiber functor on Rep(G). Choosing such a tensor isomorphism gives a continuous crystalline ξ:G_K→G(Q_p), and its G(Q_p)-conjugacy class is independent of the choice.",
       "hypotheses": [
-        "K/Q̆_p finite; the acceptable fixed-bound condition [b]∈B(G,{μ}) is required. B(G,{μ}) and its Kottwitz invariant are imported."
+        "K/Q̆_p finite; the acceptable fixed-bound condition [b]∈B(G,{μ}) is required. B(G,{μ}) and its Kottwitz invariant are imported.",
+        "Placed in R06.3 after the general CF proof; the R06.2-prefixed node id is retained for incoming references. This is not an early R06.2 theorem."
       ],
       "proofSteps": [
         "The crystalline equivalence makes ωV_cris𝒢 a fiber functor.",
@@ -19854,7 +19909,7 @@
       "kind": "theorem",
       "statement": "For K/Q_p finite and L/K finite Galois, every weakly admissible filtered (φ,N,Gal(L/K))-module D is D_st,L(V) for a finite-dimensional continuous Q_p-representation V of G_K which is semistable over L. The isomorphism preserves the filtration as well as φ,N and descent. Combined with full faithfulness this proves the Colmez–Fontaine equivalence stated in R06.2 for this finite-Q_p base.",
       "hypotheses": [
-        "The R06.2 proposition is a declaration of the goal, not an antecedent theorem of this proof. The extension to arbitrary complete discretely valued perfect-residue bases is a distinct remaining input."
+        "K/Q_p finite is essential to this Berger route. R06.2 supplies only the proposition interface; the separate R06.3/colmez-fontaine-perfect-residue target supplies arbitrary perfect-residue bases. Both routes have one proof-owning stage R06.3."
       ],
       "proofSteps": [
         "Construct M(D); the slope-zero theorem makes it étale.",
@@ -21108,6 +21163,93 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.3/colmez-fontaine-fundamental-lifting",
+      "parentStageId": "PadicHodgeTheory:R06.3",
+      "realises": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "title": "The specialized Colmez–Fontaine fundamental lifting lemma",
+      "kind": "theorem",
+      "statement": "Let C be the completed algebraic closure of K, B_2 = B_dR^+/t², and write U = t·Fil^{−1}(B_cris^{φ=1}), viewed in B_2 via the period embedding. The truncated fundamental sequence gives 0 → Q_p(1) → U → C → 0 and injects U into B_2. For h ≥ 2, a Q_p-space V of dimension h, a finite-length B_2-module M with length h and dim_C(tM) = 1, and a Q_p-linear ξ: V → M, suppose the induced ξ_C: C⊗V → M/tM is surjective. If ker(ξ_U) is finite-dimensional over Q_p, where ξ_U(u⊗v) = u·ξ(v), then ξ_U: U⊗V → M is surjective.",
+      "hypotheses": [
+        "K/K_0 finite totally ramified, K_0 = W(k)[1/p], k perfect; no finiteness of k or K/Q_p. U is local notation for the existing filtered Frobenius eigenspace, not a new general Banach–Colmez-space theory."
+      ],
+      "proofSteps": [
+        "Identify U with the logarithmic image of compatible p-power roots of principal units (CF §1.4) using Proposition 1.3(ii). The R06.1 truncated fundamental sequence gives its exact sequence and the injection into B_2.",
+        "Prove the weak fundamental lemma in this specialized form: for α_i ∈ C not all zero and v_i ∈ B_2 with Σα_iθ(v_i)=0, put Y = {u ∈ U^h : θ(u_i)=cα_i for some c ∈ C}. The image of ρ(u)=Σu_iv_i in C(1) is either ρ(Q_p(1)^h), of Q_p-dimension at most h, or all C(1). CF Proposition 2.1, pp. 12–17, proves the dichotomy by adjoining one analytic variable, taking the completed integral closure of C⟨T⟩, and approximating evaluations with Hensel lifting and open images (Lemmas 2.2–2.5). These are specialized analytic proof steps, not an import from a later period-domain theorem.",
+        "Choose a basis of V and a generator of ker(ξ_C), a C-line since dim_C(M/tM)=h−1. Split M as B_2·d ⊕ C^{h−2}; the induced map on the kernel of U⊗V → M/tM has the preceding ρ form with target tM ≅ C(1).",
+        "The finite-image alternative would make this kernel map have an infinite-dimensional kernel, since Y surjects onto C with finite-dimensional kernel. Exclude it using the finite-dimensional ker(ξ_U) hypothesis. The other alternative surjects onto tM, and ξ_C already gives surjectivity modulo tM. This is Corollary 2.6, p. 17."
+      ],
+      "acceptance": [
+        "Check h=2 and M=B_2; dim_C(M/tM)=1, not 2.",
+        "Removing finite-dimensionality of ker(ξ_U) must not force surjectivity; the finite-image alternative is a real branch of Proposition 2.1.",
+        "The construction and proof must work for C over K = Q̆_p, as well as for K/Q_p finite."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.1/fundamental-exact-sequence",
+        "PadicHodgeTheory:R06.1/bdr-filtration-and-graded",
+        "PadicHodgeTheory:R06.1/bst-embedding-into-bdr"
+      ],
+      "sources": [
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "§1.4 and Proposition 1.3(ii), author pp. 8–12; Proposition 2.1, Lemmas 2.2–2.5 and Corollary 2.6, pp. 12–17",
+          "match": "Exact specialized lifting theorem used in the general CF first proof; its elementary analytic proof route is retained."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeTheory:R06.3/colmez-fontaine-perfect-residue",
+      "parentStageId": "PadicHodgeTheory:R06.3",
+      "realises": [
+        "PadicHodgeTheory:R06.3"
+      ],
+      "title": "General Colmez–Fontaine over a complete discretely valued perfect-residue base",
+      "kind": "theorem",
+      "statement": "Let K be characteristic zero, complete discretely valued with perfect residue field k of characteristic p, K_0 = W(k)[1/p] and K/K_0 finite totally ramified. For every weakly admissible finite-dimensional filtered (φ,N)-module D over K, V = V_st(D) is a continuous semistable Q_p-representation of G_K of dimension dim_{K_0}D, and D_st(V) ≅ D naturally as a filtered (φ,N)-module. With early full faithfulness, D_st and V_st are inverse exact tensor equivalences. For N = 0 this is the crystalline equivalence. No hypothesis [K:Q_p]<∞ or finite k is imposed.",
+      "hypotheses": [
+        "Weak admissibility means t_H(D)=t_N(D) and t_H(D′)≤t_N(D′) for every φ,N-stable subobject with its induced filtration.",
+        "The R07.3 input is the independent FL rational theorem for e=1 and filtration span <p, not an R06.4 application or the R07.4 general CF assertion."
+      ],
+      "proofSteps": [
+        "Use the early R06.1/R06.2 period and numerical formalism at the stated perfect-residue generality. For X_st(D)=(B_st⊗D)^{φ=1,N=0} and X_dR(D)=(B_dR⊗D_K)/Fil⁰, let δ be the period map. CF Propositions 5.1–5.3 make the two terms exact functors for strict short exact sequences and give surjectivity when D is already admissible. Proposition 4.5 gives finite-dimensional semistable V_st(D), its admissible subobject D_st(V_st(D))⊂D, and the rank bound without using Theorem A.",
+        "For weakly admissible D, δ surjective implies admissibility: divide by that admissible subobject; exactness would make δ on the quotient an isomorphism. CF Proposition 5.6 rules out such an isomorphism for a nonzero module by passing to a nontrivial finite totally ramified extension and comparing invariant dimensions after a large Tate twist. Thus the quotient vanishes (Proposition 5.7). It follows that strict extensions of admissible modules are admissible (Proposition 5.8).",
+        "If two filtrations on a rank-h module are neighbors (in a simultaneous adapted basis, one jump rises by 1 and another falls by 1), and the first is admissible while the second is weakly admissible, reduce δ-surjectivity for the second to ξ_U: U⊗V_1(−1) → M, where M has B_2-length h, dim_C(tM)=1, and ξ_C is onto. Its kernel is V_st for the second filtration, finite-dimensional by the bigness criterion. Apply colmez-fontaine-fundamental-lifting. This proves CF Proposition 6.1; the rank-one case needs no neighboring pair.",
+        "Construct one admissible filtration on every underlying (φ,N)-module: a simple one has N=0 and one slope a+d/h with 0<d≤h. Choose a d-dimensional K_0-subspace L, with filtration D through a, L at a+1 and 0 above a+1. Simplicity makes this filtration weakly admissible; its span is at most 1≤p−1, so import R07.3/fl-admissibility over K_0 and then base-change to K (CF Proposition 6.2). Induct on length and use extension closure to obtain Corollary 6.3.",
+        "Filtrations with the same total Hodge number are connected by finitely many neighboring moves (CF Proposition 3.2). Induct on the lexicographic pair (underlying φ,N-length, distance to a chosen admissible filtration): a nonsimple weakly admissible object reduces to strict subobject/quotient; for a simple weakly admissible object a neighboring filtration toward the chosen one is still weakly admissible (Proposition 3.5). The induction and Proposition 6.1 prove Theorem A. Apply early full faithfulness to obtain the comparison, rank equality and exact tensor equivalence."
+      ],
+      "acceptance": [
+        "K = Q̆_p, or a finite totally ramified extension of it, is covered; substituting only into the finite-Q_p Berger theorem fails this check.",
+        "At p=2 the initial simple-object filtration has span ≤1<p, so the proof does not import an odd-prime-only theorem.",
+        "For D_cris(Q_p(n)), φ=p^{−n}σ and the jump is −n; the covariant output is Q_p(n), consistently with the FL dual convention.",
+        "A rank-one object φ=σ with sole jump 1 is not weakly admissible (t_H=1>t_N=0) and must not receive an admissible realization by this theorem."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.3/colmez-fontaine-fundamental-lifting",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility",
+        "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
+        "PadicHodgeTheory:R06.2/weakly-admissible-category-abelian",
+        "PadicHodgeTheory:R06.2/colmez-fontaine-bigness-criterion",
+        "PadicHodgeTheory:R06.2/slope-decomposition",
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+        "PadicHodgeTheory:R06.1/period-ring-invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "colmez-fontaine-2000-author",
+          "locator": "Theorem A, author p. 2; Theorem 4.3 and Proposition 4.5, pp. 23–25; Propositions 5.1–5.3 and 5.6–5.8, pp. 26–31; §6.1, Propositions 6.1–6.2, Corollary 6.3 and first proof of Theorem A, pp. 31–33",
+          "match": "Perfect-residue theorem and noncircular first proof, with the independent FL input explicit."
+        },
+        {
+          "sourceId": "fontaine-laffaille",
+          "locator": "Theorem 8.4(i), pp. 595–596",
+          "match": "Early R07.3 supplier for the initial filtration; no R06.4 or R07.4 return import."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
@@ -21170,28 +21312,28 @@
     {
       "stageId": "PadicHodgeTheory:R06.2",
       "status": "planned",
-      "note": "Period functors, admissibility and filtered modules, numerical degrees and weak admissibility, the CF proposition, labelled ordinary flags and crystalline characters, reductive-group filtered functors and the classical fundamental complex are planned. Actual finite-Q_p CF is the R06.3 proof, used explicitly by the new ordinary criteria; global consumer-stage reordering and the perfect-residue extension remain open.",
+      "note": "Keep early period-functor/filtered-module formalism, numerical criteria, ordinary flags and the CF proposition interface. Actual general and finite-Q_p CF proofs are owned by R06.3. Two proof-dependent perfect-residue consumers retain their node ids but now have parent R06.3; no R06.3 → R06.2 return dependency is introduced.",
       "remaining": [
-        "Colmez–Fontaine global ordering and perfect-residue extension: The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers outside R06.2 cite that proof directly. Inside this packet no R06.2 node depends on it: the two R06.2 ordinarity criteria need only the admissible-subobject lemma, which follows from R06.2/colmez-fontaine-bigness-criterion (corrected in review REV-PadicHodgeTheory--P7), so the node graph induces no R06.3 → R06.2 stage edge. The atlas still places the R06.2 proposition before P7; a stage edge from R06.3 back to R06.2 would create a cycle. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made.",
-        "Proof of the labelled crystalline-character classification: Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Proposition B.4 (Lifting global representations with local properties, Appendix B). Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification.",
-        "General perfect-residue Colmez–Fontaine and the fixed-bound G-torsor: GLX §5.1, pp. 835–836 invokes CF for K/Q̆_p finite and Dat–Orlik–Rapoport Proposition 11.4.3 for the neutral fiber functor under [b]∈B(G,{μ}). The finite-Q_p proof planned here is insufficient for the former, and a basis does not trivialize the latter torsor. Those proofs were not read. The DOR book is not in the cleared library; use a permitted public proof or obtain maintainer clearance. BG1 supplies B(G,{μ}), not this torsor theorem."
+        "Proof of the labelled crystalline-character classification: Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Proposition B.4 (Lifting global representations with local properties, Appendix B). Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification."
       ]
     },
     {
       "stageId": "PadicHodgeTheory:R06.3",
       "status": "planned",
-      "note": "Monodromy via the P7/PG.2 Robba bridge and RD.2, Fontaine’s WD recipe with R01.2 conventions, and the actual finite-Q_p CF proof via Berger modifications/slopes are planned. Weight-zero finite inertia, purity and rank-two Drinfeld coefficient types are included; proof inputs and normalization requests remain explicit.",
+      "note": "Monodromy via the P7/PG.2 Robba bridge and RD.2, Fontaine’s WD recipe with R01.2 conventions, and the actual finite-Q_p CF proof via Berger modifications/slopes are planned. Weight-zero finite inertia, purity and rank-two Drinfeld coefficient types are included; proof inputs and normalization requests remain explicit. General CF is now a distinct perfect-residue theorem target using R07.3 and the specialized fundamental lifting lemma; the two moved R06.2-prefixed realization targets are placed here after it.",
       "remaining": [
         "Independence of the embedding and of L in Fontaine's recipe: Breuil–Mézard §2.2.1 not read: The nodes give the change-of-embedding proof using φ and the R01.2 rescaling isomorphism (r,N)≅(r,aN). Breuil–Mézard §2.2.1 and Lemma 2.2.1.2, cited by the public sources, were not read. Check the packet argument independently and compare with that proof when a permitted copy is available. The statements are planned, with the rescaling lemma explicitly requested.",
-        "RD.2 export states the solution-space dimension over L ∩ F^nr instead of the constant field F'_L: PadicDifferentialEquationsAndRigidCohomology:RD.2/berger-form-of-local-monodromy (K/Q_p finite) says (M ⊗ B†_log,L)^{∂=0} has dimension rank M over L ∩ F^nr; the constants of B†_log,L are F'_L = L_∞ ∩ K_0^nr, which can be larger (K = Q_3(√−6): K(ζ_3) ∋ √2, checked in PARI/GP). Berger's p. 58 statement assumes k algebraically closed, where both agree. The monodromy node reads the export as 'dimension rank M over F'_L' and enlarges L so that F'_L = L_0. NEXT ACTION: the lead reconciles the wording with the RD packet (statement change: 'over F'_L = L_∞ ∩ F^nr')."
+        "RD.2 export states the solution-space dimension over L ∩ F^nr instead of the constant field F'_L: PadicDifferentialEquationsAndRigidCohomology:RD.2/berger-form-of-local-monodromy (K/Q_p finite) says (M ⊗ B†_log,L)^{∂=0} has dimension rank M over L ∩ F^nr; the constants of B†_log,L are F'_L = L_∞ ∩ K_0^nr, which can be larger (K = Q_3(√−6): K(ζ_3) ∋ √2, checked in PARI/GP). Berger's p. 58 statement assumes k algebraically closed, where both agree. The monodromy node reads the export as 'dimension rank M over F'_L' and enlarges L so that F'_L = L_0. NEXT ACTION: the lead reconciles the wording with the RD packet (statement change: 'over F'_L = L_∞ ∩ F^nr').",
+        "General Colmez–Fontaine proof inputs and downstream synchronization: Ownership and the perfect-residue proof route are settled at R06.3, with two added theorem targets from the original CF author copy. The specialized lifting proof must develop the elementary Hensel/open-image argument of Proposition 2.1, pp. 12–17, on the existing analytic/period carriers; the early R06.1 invariant-field and R06.2 full-faithfulness proofs must be checked at the stated arbitrary-perfect-k scope. These are explicit proof-closure obligations, not an unresolved owner or an application of the finite-Q_p Berger theorem. R07.4/semistable-finite-height and the reader/suggested documents lie outside this fix’s deliverables and must be synchronized with the exact import and retained finite-height comparison in RS-01. No complete P7 proof closure is asserted.",
+        "Fixed-bound G-torsor triviality after general Colmez–Fontaine: The perfect-residue CF input is now the R06.3/colmez-fontaine-perfect-residue target, with its early source/proof obligations recorded separately; crystalline-equivalence-over-breve-base and fixed-bound-fiber-functor-triviality now have parent R06.3 while retaining their R06.2-prefixed ids. GLX §5.1, pp. 835–836 also needs Dat–Orlik–Rapoport Proposition 11.4.3 for the neutral fiber functor under [b]∈B(G,{μ}). That torsor proof was not read; a basis does not trivialize it. The DOR book is not in the cleared library; use a permitted public proof or obtain maintainer clearance. BG1 supplies B(G,{μ}), not this torsor theorem."
       ]
     },
     {
       "stageId": "PadicHodgeTheory:R06.4",
       "status": "planned",
-      "note": "Rational Fontaine–Laffaille consequences and endpoint/sign interfaces, rank-two rational ordinary criteria and all KW-II Lemma 3.5 local ordinary-lifting branches are targets. Integral FL/Wach/Kisin theory stays in R07/PG.6. Their supplier proofs and the latest RS-01 ownership decision remain unresolved.",
+      "note": "Rational FL nodes are import adapters for R07.3’s settled Theorem 8.4 ownership. The sign/twist/endpoint interfaces and ordinary/crystalline applications remain here. Integral FL/Wach/Kisin theory stays in R07/PG.6; supplier proof gaps remain explicit and are not ownership questions.",
       "remaining": [
-        "Fontaine–Laffaille Theorem 8.4 rests on Fontaine's Barsotti–Tate ring [F2] (Annals 1982), not read: FL Theorem 8.4 uses Fontaine’s Barsotti–Tate period ring and a filtration comparison. The source identification is not a proved consequence of the rational period formalism. R07.3 is requested for the integral construction and exact comparison Fil^i Ŝ_K=Ŝ_K∩Fil^i B_dR. The independent RS-01 review still requires a decision on proof ownership between R07.3 and R06.4 and on the general CF input for R07.4; this packet does not certify those decisions.",
+        "Fontaine–Laffaille Theorem 8.4 rests on Fontaine's Barsotti–Tate ring [F2] (Annals 1982), not read: R07.3 is the proof supplier of FL Theorem 8.4 and fl-period-comparison; R06.4’s nodes are import adapters. FL pp. 595–596 use the Barsotti–Tate ring of Fontaine [F2] §4 and its filtered identification with Ŝ_K. The independent source proof and the exact comparison with the R06.1 B_cris normalization remain supplier obligations; [F2] was not read in this run. Assigning that obligation to R07.3 does not prove it or authorize the removed local A_cris replacement argument. Preserve this gap and the separate all-stable-lattice essential-image gap.",
         "Essential image of the Fontaine–Laffaille lattice functor: FL do not prove that every G_K-stable lattice in a crystalline representation with Hodge–Tate weights in [0, p−2] is U_S of a strongly divisible lattice (FL Remarque 6.13(a) says the essential image is hard to characterise). Brinon–Conrad Theorem 12.4.8 states a version for weights {0,…,p−1} but its proof is marked incomplete in the notes. The packet does not assert it. NEXT ACTION: requested from R07.3/R07.4 with exact hypotheses.",
         "KW-II residual-ordinary endpoint and potentially crystalline branch: KW-II Lemma 3.5, pp. 22–23 proves the small crystalline branch using FL, cites Berger–Li–Zhu for F=Q_p,k=p+1 and Breuil–Conrad–Diamond–Taylor Lemma 2.1.2 for the weight-2 Q_p^nr(μ_p)-crystalline branch. Read those supplier proofs and close the R07.3/PG.6 requests. The rational unit-root criterion does not prove a residual lifting result."
       ]
@@ -21282,11 +21424,12 @@
       "detail": "Fontaine–Ouyang Lemma 6.12 uses p-adic separatedness of the ring generated by formal ξ/p-series without supplying the argument. The proposed repair uses a theta section, recursive expansion and the separatedness of O_C[[X]]. Check that the recursion preserves the chosen ring and is Q_p-linear with the required p-power compatibility. This is a proof sketch written for this packet, awaiting independent review, not an established lemma from Colmez."
     },
     {
-      "title": "Colmez–Fontaine global ordering and perfect-residue extension",
+      "title": "General Colmez–Fontaine proof inputs and downstream synchronization",
       "neededBy": [
-        "PadicHodgeTheory:R06.2/colmez-fontaine-theorem"
+        "PadicHodgeTheory:R06.3/colmez-fontaine-perfect-residue",
+        "PadicHodgeTheory:R06.3/colmez-fontaine-fundamental-lifting"
       ],
-      "detail": "The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers outside R06.2 cite that proof directly. Inside this packet no R06.2 node depends on it: the two R06.2 ordinarity criteria need only the admissible-subobject lemma, which follows from R06.2/colmez-fontaine-bigness-criterion (corrected in review REV-PadicHodgeTheory--P7), so the node graph induces no R06.3 → R06.2 stage edge. The atlas still places the R06.2 proposition before P7; a stage edge from R06.3 back to R06.2 would create a cycle. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made."
+      "detail": "Ownership and the perfect-residue proof route are settled at R06.3, with two added theorem targets from the original CF author copy. The specialized lifting proof must develop the elementary Hensel/open-image argument of Proposition 2.1, pp. 12–17, on the existing analytic/period carriers; the early R06.1 invariant-field and R06.2 full-faithfulness proofs must be checked at the stated arbitrary-perfect-k scope. These are explicit proof-closure obligations, not an unresolved owner or an application of the finite-Q_p Berger theorem. R07.4/semistable-finite-height and the reader/suggested documents lie outside this fix’s deliverables and must be synchronized with the exact import and retained finite-height comparison in RS-01. No complete P7 proof closure is asserted."
     },
     {
       "title": "Fontaine–Laffaille Theorem 8.4 rests on Fontaine's Barsotti–Tate ring [F2] (Annals 1982), not read",
@@ -21294,7 +21437,7 @@
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
         "PadicHodgeTheory:R06.4/small-weight-admissibility"
       ],
-      "detail": "FL Theorem 8.4 uses Fontaine’s Barsotti–Tate period ring and a filtration comparison. The source identification is not a proved consequence of the rational period formalism. R07.3 is requested for the integral construction and exact comparison Fil^i Ŝ_K=Ŝ_K∩Fil^i B_dR. The independent RS-01 review still requires a decision on proof ownership between R07.3 and R06.4 and on the general CF input for R07.4; this packet does not certify those decisions."
+      "detail": "R07.3 is the proof supplier of FL Theorem 8.4 and fl-period-comparison; R06.4’s nodes are import adapters. FL pp. 595–596 use the Barsotti–Tate ring of Fontaine [F2] §4 and its filtered identification with Ŝ_K. The independent source proof and the exact comparison with the R06.1 B_cris normalization remain supplier obligations; [F2] was not read in this run. Assigning that obligation to R07.3 does not prove it or authorize the removed local A_cris replacement argument. Preserve this gap and the separate all-stable-lattice essential-image gap."
     },
     {
       "title": "Independence of the embedding and of L in Fontaine's recipe: Breuil–Mézard §2.2.1 not read",
@@ -21336,12 +21479,12 @@
       "detail": "Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Proposition B.4 (Lifting global representations with local properties, Appendix B). Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification."
     },
     {
-      "title": "General perfect-residue Colmez–Fontaine and the fixed-bound G-torsor",
+      "title": "Fixed-bound G-torsor triviality after general Colmez–Fontaine",
       "neededBy": [
         "PadicHodgeTheory:R06.2/crystalline-equivalence-over-breve-base",
         "PadicHodgeTheory:R06.2/fixed-bound-fiber-functor-triviality"
       ],
-      "detail": "GLX §5.1, pp. 835–836 invokes CF for K/Q̆_p finite and Dat–Orlik–Rapoport Proposition 11.4.3 for the neutral fiber functor under [b]∈B(G,{μ}). The finite-Q_p proof planned here is insufficient for the former, and a basis does not trivialize the latter torsor. Those proofs were not read. The DOR book is not in the cleared library; use a permitted public proof or obtain maintainer clearance. BG1 supplies B(G,{μ}), not this torsor theorem."
+      "detail": "The perfect-residue CF input is now the R06.3/colmez-fontaine-perfect-residue target, with its early source/proof obligations recorded separately; crystalline-equivalence-over-breve-base and fixed-bound-fiber-functor-triviality now have parent R06.3 while retaining their R06.2-prefixed ids. GLX §5.1, pp. 835–836 also needs Dat–Orlik–Rapoport Proposition 11.4.3 for the neutral fiber functor under [b]∈B(G,{μ}). That torsor proof was not read; a basis does not trivialize it. The DOR book is not in the cleared library; use a permitted public proof or obtain maintainer clearance. BG1 supplies B(G,{μ}), not this torsor theorem."
     },
     {
       "title": "Fontaine simple Sen blocks and the division endomorphism algebra",
@@ -21475,7 +21618,7 @@
     },
     {
       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
-      "need": "For K = K_0 unramified: strongly divisible lattices M of filtered phi-modules (sum_i p^{-i} phi(Fil^i M) = M, Fontaine–Laffaille 1982 Section 7.7-7.8) and the Fontaine–Laffaille correspondence between G_F-stable lattices of crystalline V with weights in an interval of length <= p - 2 and strongly divisible lattices of D_cris(V) (Fontaine–Laffaille 1982 Proposition 7.17), with its covariance and HT(chi) = +1 translation stated explicitly. KW-II Lemma 3.5(i) additionally needs the FL ordinary-filtration lifting and its k=p endpoint with the restricted subcategory. Resolve proof ownership against R06.4 under the independent RS-01 review.",
+      "need": "For K = K_0 unramified: strongly divisible lattices M of filtered phi-modules (sum_i p^{-i} phi(Fil^i M) = M, Fontaine–Laffaille 1982 Section 7.7-7.8) and the Fontaine–Laffaille correspondence between G_F-stable lattices of crystalline V with weights in an interval of length <= p - 2 and strongly divisible lattices of D_cris(V) (dimension/evaluation: Fontaine–Laffaille Proposition 7.17; the claimed all-stable-lattice essential image remains the separate recorded gap), with its covariance and HT(chi) = +1 translation stated explicitly. KW-II Lemma 3.5(i) additionally needs the FL ordinary-filtration lifting and its k=p endpoint with the restricted subcategory. Under FIX-RT-RS-01~2, R07.3 is the settled proof owner of FL Theorem 8.4(i)–(ii), including rational admissibility at Fil^j=D, Fil^{j+p}=0 and the natural U_{S_K}(D) ≅ V_cris(D)^∨ comparison, for all perfect k, e=1 and all p; R06.4 imports it. Proposition 7.17 gives dimension/evaluation, not essential surjectivity for all stable lattices. Retain fl-admissibility and fl-period-comparison as early suppliers; R06.3/colmez-fontaine-perfect-residue needs the rational theorem to construct its initial admissible filtration. Do not import general CF from R06.3 or any R06.4 result into R07.3.",
       "neededBy": [
         "PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison",
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
@@ -21485,7 +21628,8 @@
         "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
         "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
         "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
-        "PadicHodgeTheory:R06.4/weight-p-endpoint-branch"
+        "PadicHodgeTheory:R06.4/weight-p-endpoint-branch",
+        "PadicHodgeTheory:R06.3/colmez-fontaine-perfect-residue"
       ]
     },
     {
@@ -21763,7 +21907,7 @@
     },
     {
       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
-      "need": "Fontaine–Laffaille integral theory at e = 1 (Fontaine–Laffaille 1982): the categories MF, MF_tor^{f,p} (abelian, artinian) and strongly divisible lattices MF^{fd,p} (FL 7.7, 7.12); the ring S, its completion Ŝ with filtration and divided Frobenii (FL §2) and the inclusion Ŝ ⊂ A_cris with Fil^iŜ_K = Ŝ_K ∩ Fil^iB_dR; the functors U_S (torsion: Ext^1(M, S); lattices: Hom(M, Ŝ)) and U_{S_K}; Théorème 3.3 (exact, faithful, length-preserving on MF_tor^{f,p}); the simple objects M(h; i) and Théorème 5.3 (tame inertia χ_h^{i_0 + p i_1 + …}); Théorème 6.1 (MF_tor^{f,p'} and MF_tor^{f,p''} stable under extensions and subquotients, U_S fully faithful on each) and the lemma that objects with M^{p−1} = 0 lie in MF_tor^{f,p'}; Propositions 7.8 (strongly divisible lattices exist iff weakly admissible), 7.14, 7.15 and 7.17; §9 (finite flat groups over W(k), p odd or unipotent, ↔ MF_tor^{f,2}, J(Ā) = U_S). If provable there: essential surjectivity of U_S onto all G_K-stable lattices of crystalline representations with Hodge–Tate weights in [0, p−2].",
+      "need": "Fontaine–Laffaille integral theory at e = 1 (Fontaine–Laffaille 1982): the categories MF, MF_tor^{f,p} (abelian, artinian) and strongly divisible lattices MF^{fd,p} (FL 7.7, 7.12); the ring S, its completion Ŝ with filtration and divided Frobenii (FL §2) and the inclusion Ŝ ⊂ A_cris with Fil^iŜ_K = Ŝ_K ∩ Fil^iB_dR; the functors U_S (torsion: Ext^1(M, S); lattices: Hom(M, Ŝ)) and U_{S_K}; Théorème 3.3 (exact, faithful, length-preserving on MF_tor^{f,p}); the simple objects M(h; i) and Théorème 5.3 (tame inertia χ_h^{i_0 + p i_1 + …}); Théorème 6.1 (MF_tor^{f,p'} and MF_tor^{f,p''} stable under extensions and subquotients, U_S fully faithful on each) and the lemma that objects with M^{p−1} = 0 lie in MF_tor^{f,p'}; Propositions 7.8 (strongly divisible lattices exist iff weakly admissible), 7.14, 7.15 and 7.17; §9 (finite flat groups over W(k), p odd or unipotent, ↔ MF_tor^{f,2}, J(Ā) = U_S). If provable there: essential surjectivity of U_S onto all G_K-stable lattices of crystalline representations with Hodge–Tate weights in [0, p−2]. Retain fl-admissibility and fl-period-comparison as early suppliers; R06.3/colmez-fontaine-perfect-residue needs the rational theorem to construct its initial admissible filtration. Do not import general CF from R06.3 or any R06.4 result into R07.3.",
       "neededBy": [
         "PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary",
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
@@ -21773,7 +21917,8 @@
         "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
         "PadicHodgeTheory:R06.4/weight-p-endpoint-branch",
         "PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison",
-        "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion"
+        "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
+        "PadicHodgeTheory:R06.3/colmez-fontaine-perfect-residue"
       ]
     },
     {
@@ -22028,11 +22173,12 @@
       "kind": "proof-placement",
       "action": "rescope",
       "roadmaps": [
-        "PadicHodgeTheory"
+        "PadicHodgeTheory",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
       ],
-      "title": "Prove the Colmez–Fontaine theorem in R06.3 (or a sub-stage after P7), keeping its statement in R06.2",
-      "detail": "The finite-Q_p proof is planned in R06.3 through Berger’s modification, RD.2 cyclotomic slopes and filtered subobjects, and PG.2. R06.2 keeps only the proposition and its elementary equivalent forms; finite-Q_p consumers cite the actual proof node. The perfect-residue extension and R07.4 supplier remain open.",
-      "proposal": "Split R06.2 into period-functor/filtered definitions and the consumers of essential surjectivity; place the latter after the R06.3 proof. Add P7, RD.2 and PG.2 prerequisites to that proof cut without adding a cyclic edge back to the whole R06.2 stage. Resolve R07.3/R06.4 FL proof ownership and R07.4’s general CF input with the family lead. Review REV-PadicHodgeTheory--P7: inside this packet the split is no longer forced. The two R06.2 ordinarity criteria now use only the admissible-subobject lemma derived from the bigness criterion, so no R06.2 node cites the R06.3 proof. The remaining consumers of essential surjectivity are outside R06.2, or are the perfect-residue targets of R06.2 recorded as gaps."
+      "title": "R06.3 owns general Colmez–Fontaine; R06.2 keeps its statement interface",
+      "detail": "The unique proof-owning stage for general Colmez–Fontaine is PadicHodgeTheory:R06.3, at colmez-fontaine-perfect-residue. R06.2/colmez-fontaine-theorem defines the proposition and its elementary equivalent forms; it is not a proof supplier. The R06.3 contract allows any characteristic-zero complete discretely valued K with perfect residue field k, K_0 = W(k)[1/p] and finite totally ramified K/K_0: every finite-dimensional weakly admissible filtered (φ,N)-module D is D_st(V_st(D)), naturally with filtration, φ and N, and dim_Qp V_st(D) = dim_K0 D. The N = 0 restriction is crystalline. Use the original Colmez–Fontaine first proof, Theorem A, author p. 2, Proposition 2.1/Corollary 2.6, pp. 12–17, and §6.1, pp. 31–33, with the early R07.3 Fontaine–Laffaille input of Proposition 6.2. The existing R06.3 Berger proof remains the finite-K/Q_p route, not a justification for arbitrary perfect k. R07.4/semistable-finite-height imports the general theorem and keeps Kisin’s finite-height construction and its G_{K_∞}-equivariant period comparison, with its original height, filtration and ramification hypotheses. Its general weakly-admissible-implies-admissible clause becomes an import, not a second proof. The order is R06.2 → R07.3 → R06.3 → R07.4 → R06.4. No R06.3 → R06.2 return edge is installed; proof-dependent perfect-residue consumers are placed in R06.3 while their old node ids are retained.",
+      "proposal": "Install R07.3 → R06.3 → R07.4, with R07.4 importing colmez-fontaine-perfect-residue and retaining its Kisin comparison. General CF now has a target and a specialized fundamental-lifting target in this packet; the finite-Q_p Berger proof is unchanged in scope. Preserve R06.2’s early formalism and proposition, and move its crystalline-equivalence-over-breve-base and fixed-bound-fiber-functor-triviality targets to parent R06.3, retaining their node ids. The fixed-bound torsor proof remains a separate gap. Other R06.2 ordinary criteria still use only the early admissible-subobject lemma, so no R06.3 → R06.2 edge is needed. Forward explicit essential-surjectivity consumers L7 and R24.5:operations and the consumers of narrowed R07.4 to R06.3 as recorded in RS-01.result.json."
     },
     {
       "kind": "request-redirect",
@@ -22076,9 +22222,9 @@
         "PadicHodgeTheory",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
       ],
-      "title": "Unresolved Fontaine–Laffaille ownership across R07.3 and R06.4",
-      "detail": "R06.4's stage text names 'rational admissibility at filtration length < p' as its content, while R07.3's asks only to 'distinguish' it from the torsion theory; the unreviewed EXT-07 draft nevertheless plans Theorem 8.4(i) and 8.4(ii) as R07.3 nodes. Since the stage edge runs R07.3 → R06.4, R07.3 cannot import R06.4.",
-      "proposal": "RT-RS-01/30 remains an external ownership decision for the R07 family. Both overlaps are referred there: (i) Fontaine–Laffaille Theorem 8.4, planned at R07.3/fl-admissibility and R06.4; and (ii) the general Colmez–Fontaine implication, planned at R07.4/semistable-finite-height and the R06.2 interface. For (i), R07.3/fl-lattice-correspondence needs fl-admissibility and R07.3 → R06.4 already holds, so either retain the proof at early R07.3 and make R06.4 an import interface, or split R07.3 and move its dependent suffix after R06.4. For (ii), R07.4 must import the general theorem and retain only its Kisin finite-height construction/comparison; distinguish the R06.2 statement interface from the R06.3 proof placement proposed in the P7 packet. No owner reversal or proof import is installed until those interfaces are settled. This referral records outstanding work, not a resolution of either duplicate."
+      "title": "R07.3 owns Fontaine–Laffaille rational admissibility; R06.4 imports it",
+      "detail": "RT-RS-01/30 is resolved by retaining Fontaine–Laffaille Theorem 8.4(i)–(ii) at FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility, with R07.3/fl-period-comparison as its period-ring input. For every perfect residue field k, K_0 = W(k)[1/p], K = K_0 (e = 1), and every prime p, a weakly admissible filtered φ-module with Fil^j D = D and Fil^{j+p} D = 0 is crystalline-admissible. On Fil^0 D = D, Fil^p D = 0, the contravariant FL functor U_{S_K}(D) is naturally V_cris(D)^∨; the covariant V_cris has weights equal to the negatives of the filtration jumps under HT(χ_p) = +1. R07.3/fl-lattice-correspondence keeps its local import of fl-admissibility. R06.4/fontaine-laffaille-crystalline-comparison and R06.4/small-weight-admissibility become import adapters; R06.4 retains the sign/twist dictionary, endpoint distinctions and applications. There is no R06.4 → R07.3 edge and no R07.3 split. This rational length-<p theorem does not enlarge the unrestricted torsion full-faithfulness range [0,p−2], remove endpoint restrictions, or establish essential surjectivity for all stable lattices. FL, Theorem 8.4 and proof, pp. 595–596; Proposition 7.17 and Remark 7.18, p. 594.",
+      "proposal": "Retain R07.3/fl-admissibility and its period-comparison input; retain the R07.3/fl-lattice-correspondence prerequisite. R06.4/fontaine-laffaille-crystalline-comparison and small-weight-admissibility keep their ids, statements and acceptance cases as imported consequences, with their local reconstruction/proof removed. R06.4 keeps its covariance/sign/twist dictionary and endpoint applications. R07.3 supplies R06.3’s general CF initial-filtration argument and R06.4/R06.5’s rational applications. No R06.4 → R07.3 edge or split is introduced. The independent general CF ownership is R06.3, not R06.2’s proposition; see entry 8."
     },
     {
       "kind": "ownership",
@@ -23283,6 +23429,13 @@
       "url": "https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf",
       "read": "2026-10-14",
       "sha256": "bb42b4f8d684882625adb4b0994cbaeb214141522d4f7ac27237e69317e92f5d"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/CF.pdf",
+      "citation": "Colmez–Fontaine, 35-page author copy; not the 43-page journal pagination",
+      "read": "2026-10-17",
+      "sha256": "f0b5c51191831415b39cd363cc9eb5ba759d1ea7e46d9b4c1d15cea0a7aa6490"
     }
   ],
   "review": {
