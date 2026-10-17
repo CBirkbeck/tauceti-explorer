@@ -101,6 +101,8 @@ Consume [GlobalNumberFields 4][R22]. Import the current finite-adèle arithmetic
 
 ### From AutomorphicLFunctionsAndLocalFactors
 
+Consume its AL.0 **Bessel transforms** contract at [PR924, head ab4ea5c][AL-Bessel]: for complex ν and positive real x, K_ν(x)=(1/2)∫_0^∞exp(−x(u+u⁻¹)/2)exp(νlog u)du/u, absolutely convergent, equal to its cosh-kernel presentation, entire in ν, even in ν, and K_(1/2)(x)=√(π/(2x))e^(−x). This is a lower-tier planned supplier, not an import from the historical pins. The positive-axis asymptotic remainders and the divisor transform below extend that supplied function; they do not define K again.
+
 Consume [AutomorphicLFunctionsAndLocalFactors AL.0, Vector-space Poisson comparison and compact-uniform estimates][R23], read at the head of upstream PR924. Its admissible class 𝔷 already includes continuity/integrability of f and f̂, joint compact-uniform absolute translated/dilated sums for both, and weighted idele integrability for every σ>1. Consume `SchwartzBruhat.AdelicSpace.tateClass` and the completed archimedean tensor carrier; this extension is not new work here.
 
 Consume AutomorphicLFunctionsAndLocalFactors AL.1. Local and global Tate zeta integrals on the imported admissible class, Euler factorization with different and measure factors, meromorphic continuation, local gamma factors and global functional equation retaining the trivial-character residues. This does not by itself assert nonvanishing on Re(s)=1. Consume its global zeta integral, completed Hecke function, Tate functional equation, idele-class volume and global epsilon factor.
@@ -143,6 +145,8 @@ Consume [RepresentationTheory/InductionRestriction 3][R31]. Use the existing rep
 
 
 ### From AutomorphicSpectralTheory
+
+Consume §0.25 at [PR925, head d2a1dbd][AS-Bessel]: J_ν is the principal-power first-kind Bessel function, with its absolutely convergent reciprocal-Gamma series, positive-axis differential equation and recurrences, half-order formula and integral-order reflection. Current Mathlib `Analysis/SpecialFunctions/Bessel.lean` supplies `Complex.besselJ` and `Complex.besselJ_neg_int`; they are absent from the historical Mathlib pin. The supplier adds the analytic API. No first-kind carrier is planned here or introduced into the pinned Suggested file. The second-kind integral/connection and its error estimates are the local extension in §3.23b.
 
 Consume AutomorphicSpectralTheory AS.2. The normalized level-one Eisenstein theory supplies the exact level-one half-sum, completion, Fourier expansion, meromorphic continuation and functional equation. Supply only the differentiated cusp bounds and critical-line boundary limit used in DIT (7.10), matching the oriented geodesic/core conventions. This refinement is required for Stokes; no second Eisenstein continuation is planned.
 
@@ -2630,13 +2634,356 @@ See [49][R49], Hyperbola discussion, printed pp.37–39, (3.4)–(3.5) and Theor
 
 As T→∞, ∫_0^T|ζ(1/2+it)|²dt=T log(T/(2π))+(2γ−1)T+O(√T log T), with an absolute constant.
 
-Write E(T) for the difference from the two displayed main terms. The sufficient quantitative target is `zetaSecondMoment.atkinson_bound`: |E(T)|≤110√T log T for T≥10^30 ([87][R87], §7 (109), p.35). It uses that source's Theorem2 with N=floor T and Lemmas7–8, (101)–(102); it does not require Corollary1's stronger error.
+Define `zetaSecondMoment.error` by E(T)=∫_0^T|ζ(1/2+it)|²dt−T log(T/(2π))−(2γ−1)T, using the existing `riemannZeta` and Euler constant. The sufficient quantitative target is `zetaSecondMoment.atkinson_bound`: |E(T)|≤110√T log T for T≥10^30. The proof uses the endpoint divisor remainder, the Voronoi transform and the two saddle families below, followed by Atkinson's finite sums. It requires no smoothed second-moment theorem.
 
-**Gap in prerequisites.** This route requires the exact divisor Voronoi identity expressing the endpoint-weighted divisor remainder through K₁ and Y₁, together with its convergence and uniform remainder bounds ([87][R87], (25), p.8 and Lemma1, pp.8–9). No supplier above constructs those Bessel functions or proves that transform. The subsequent moving-cutoff saddle-point estimates also need exact hypotheses and endpoint errors, rather than an unspecified appeal to Dirichlet-polynomial mean values. These inputs remain to be planned from the earlier contour/Gamma theory, or the proof must be replaced by a route using the stated suppliers. The second-moment target is therefore not yet closed.
+- `zetaSecondMoment.error_zero`: E(0)=0 with the native interval-integral and real-log conventions.
+- `zetaSecondMoment.error_continuous`: E is continuous on [0,∞); the factor T log T has its continuous value zero at0.
+- `zetaSecondMoment.error_increment`: for 0<S≤T, E(T)−E(S)=∫_S^T|ζ(1/2+it)|²dt−[T log(T/(2π))−S log(S/(2π))]−(2γ−1)(T−S).
+- `zetaSecondMoment.mean_square`: the displayed absolute-constant asymptotic follows from `atkinson_bound`, absorbing the compact initial interval.
 
-See [87][R87], (1) p.1 for normalization, Theorem2 p.4, and §7 (109) p.35. [88][R88] is the historical attribution.
+**Checks.**
 
-*Needs:* [§1.5](#s1-5); imported zeta functional equation/Stirling estimates; contour adapters of Layer1; [§3.22](#s3-22); `riemannZeta`; the unresolved Voronoi and moving-cutoff estimates above.
+- E(0)=0. This tests the endpoint extension, without applying an asymptotic at0.
+- If the main term is instead written T log T+cT, its linear coefficient is c=2γ−1−log(2π), not 2γ−1. At T=2π the first logarithmic term is zero.
+- On [S,S] the increment identity gives0. On [S,T] and [T,U], its two integral and main-term increments add to the [S,U] increment; reversing an endpoint changes the sign.
+
+See [87][R87], (1) p.1, Theorem2 p.4 and §7 (109) p.35; [88][R88] gives the historical attribution.
+
+*Needs:* [§3.23a](#s3-23a)–[§3.23g](#s3-23g); Layer1 zeta functional equation, Stirling and contour adapters; `riemannZeta`; `Real.eulerMascheroniConstant`; `intervalIntegral`.
+
+<a id="s3-23a"></a>
+
+**§3.23a Endpoint divisor remainder and explicit summation estimates.** Put d(n)=#n.divisors for positive integers. Give the inclusive sum of §3.22 the light name `divisorSummatory`, D(x)=Σ_(1≤n≤x)d(n), and define `divisorError`, Δ(x)=D(x)−x(log x+2γ−1). The real cutoff is inclusive. Define
+
+Δ*(x)=D(x)−(if x is a positive integer m then d(m)/2 else0)−x(log x+2γ−1)−1/4.
+
+Call this function `divisorErrorStar`. The half-weight at an integer is part of the definition. For x>0 it is the average of the left and right limits of D, minus the smooth main term and1/4. At x=0 use the displayed totalized formula, so Δ*(0)=−1/4; no Voronoi identity is asserted there.
+
+- `divisorSummatory.floor`, `divisorSummatory.jump`: D(x)=D(floor x) for x≥0; D=0 on [0,1), and its jump at m≥1 is d(m). The hyperbola identity is §3.22b.
+- `divisorRemainder.midpoint`: Δ*(m)=(Δ*(m−)+Δ*(m+))/2 for m≥1; its right minus left jump is d(m).
+- `divisorRemainder.off_integer`: Δ*(x)=Δ(x)−1/4 off positive integers; at m≥1, Δ*(m)=Δ(m)−d(m)/2−1/4.
+- `divisorRemainder.sqrt_bound`: |Δ(x)|≤√x for x≥1. Strengthen the qualitative hyperbola estimate of §3.22 quantitatively; [BBR], Theorem1.1 p.1025 proves the stronger coefficient0.961.
+- `divisorRemainder.cubic_bound`: |Δ(x)|≤0.764 x^(1/3)log x for x≥9995 ([BBR], Theorem1.2 p.1026, inequality(10.2) and Lemma10.7 p.1043). Consequently |Δ*(x)|≤x^(1/3)log(ex) for x≥9995, using one-sided limits and their average at integers. For 1≤x<9995 boundedness follows from the finite hyperbola formula; the analytic continuation argument needs only the eventual bound. All later numerical uses have x≥0.9·10^30.
+- `divisorRemainder.weighted_sums`: for Y≥5, Σ_(n≤Y)d(n)/√n≤2√Y log Y; for Y≥2, Σ_(n≤Y)d(n)n^(−3/4)≤4Y^(1/4)log Y; for X≥1, Σ_(n>X)d(n)n^(−5/4)≤X^(−1/4)(4log X+8(γ+2))+(8/3)X^(−3/4). These include exactly the stated endpoints ([87][R87], Lemmas7–9 pp.30–31).
+- `divisorRemainder.transition_sum`: define c(u)=1/max(1,|u|), including c(0)=1. For Z≥5,
+
+  Σ_(n≥1)d(n)n^(−3/4)c(2√n−2√Z) ≤ Z^(−1/4)(1.445log²Z+15.35log Z+50.276)+2.71Z^(−3/4).
+
+  The series here is absolutely convergent. Split it at Z/2, Z−√Z, Z+√Z,2Z. Abel summation gives the two gap sums bounded respectively by (1/2)log²Z−(log2−γ)log Z+2.365 and (1/2)log²Z+γlog Z+3.721 for Z>4; the central band is bounded by Z^(−1/4)(2^(7/4)log Z+12.21). The weighted-sum bounds handle the two tails ([87][R87], Lemma6 pp.29–30, (96)–(98) pp.30–31 and pp.33–34). The cap prevents any singularity when Z is an integer.
+
+The explicit cubic estimate is new work, not a consequence of the O(√x) estimate. Its proof uses finite hyperbola arithmetic and the elementary triangular subdivision estimate of [BBR], Lemma5.1 p.1031. For a positive integer D₀ the latter uses the finite coefficient Σ_(uv=n,gcd(u,v,D₀)=1)1. Möbius inversion expresses its summatory error as Σ_(δ|D₀)μ(δ)Δ(t/δ²), so there is no new divisor carrier. Abel summation (4.1), (4.6)–(4.7) pp.1029–1030 reduces the weighted sums in that estimate to this error and its integrals with weights t^(−3/2), t^(−7/4). Prove the integrated-error estimates in [BBR], §§8–10 pp.1037–1043 by Mellin continuation of ζ(s)², the hyperbola remainder and finite interval certificates; use D₀=1 for the first bound, then D₀=6 for (10.2). Every finite certificate uses the exact integer hyperbola sum and rational enclosures of log and γ, checking both one-sided endpoints and enclosing the smooth terms throughout each subdivided unit interval; a floating-point scan is not a proof. This is the proof of the two named explicit remainder targets, rather than an extra imported divisor estimate.
+
+The cap API is `endpointCap.nonneg`, `endpointCap.le_one`, `endpointCap.even`, and `endpointCap.eq_inv_abs` for |u|≥1; it is continuous everywhere. Real reciprocal totalization must not replace its value at zero.
+
+**Checks of the divisor remainders.**
+
+- At x=0, D=Δ=0 and Δ*=−1/4; the positive-argument transform is inapplicable.
+- At x=1, D=1, Δ=2−2γ and Δ*=5/4−2γ. The integer midpoint differs from the inclusive remainder by3/4.
+- At x=4, D=8, Δ=12−4log4−8γ and Δ*=41/4−4log4−8γ. The right and left values differ by d(4)=3 and are each3/2 from the midpoint. At x=3/2, Δ*=9/4−(3/2)log(3/2)−3γ, with no endpoint half-weight.
+
+**Checks of the endpoint cap.**
+
+- c(0)=1, whereas `min 1 |0|⁻¹` in a totalized field is0.
+- c(1/2)=c(−1/2)=1.
+- c(2)=c(−2)=1/2; replacing the cap by the constant1 would lose the summable tail.
+
+*Needs:* [§3.22](#s3-22), its harmonic remainder and exact hyperbola identity; finite Möbius inversion and Abel summation; Layer1 Mellin/contour adapters and ζ²; [BBR], Lemma5.1 and §§8–10 as the proof route of the named explicit bounds.
+
+<a id="s3-23b"></a>
+
+**§3.23b Second-kind Bessel function and positive-axis remainders.** Use the supplied K_ν and J_ν from the exact supplier contracts. Define `besselY : ℂ → ℂ → ℂ` for arbitrary complex order ν and Re z>0 by
+
+Y_ν(z)=π⁻¹∫_0^π sin(z sinθ−νθ)dθ−π⁻¹∫_0^∞[exp(νt)+cos(πν)exp(−νt)]exp(−z sinh t)dt.
+
+Both integrals are absolutely convergent on this domain, locally uniformly in (ν,z). Outside it the native totalized integral is only a value, with no asserted analytic identity. This representation avoids division by sin(πν) at integral orders.
+
+- `besselY.integrable`, `besselY.holomorphic`: prove the stated convergence, entire dependence on ν, and holomorphy in z on Re z>0, by super-exponential domination at∞ and differentiation under the integral.
+- `besselY.connection`: if sin(πν)≠0 and Re z>0, Y_ν(z)=[cos(πν)J_ν(z)−J_(−ν)(z)]/sin(πν). The limits at integral orders agree with the integral definition. Derive the identity using the supplied J series and its Schläfli integral comparison, or its equivalent Hankel contour obtained by deforming the same convergent integral.
+- `besselY.ode`, `besselY.recurrence`: on Re z>0, z²Y″+zY′+(z²−ν²)Y=0 and Y_(ν−1)+Y_(ν+1)=(2ν/z)Y_ν. In particular Y_(−m)=(−1)^mY_m for integers m. Integration by parts includes the boundary contributions from both integrals.
+- `besselY.half`: for real x>0, Y_(1/2)(x)=−√(2/(πx))cos x and Y_(−1/2)(x)=√(2/(πx))sin x; values are real for real ν and x>0.
+
+See [DLMF-Bessel], 10.9.7 (integral), 10.2.3, 10.4.1, 10.6.1 and10.16.1. The integral/series comparison is local work; the first-kind function is not constructed again.
+
+For real ν define `besselAsymptoticCoeff(ν,j)` by a_j(ν)=∏_(1≤r≤j)(4ν²−(2r−1)²)/(8^j j!), with empty product1. The API is the empty value, the recurrence a_(j+1)=a_j(4ν²−(2j+1)²)/(8(j+1)), and the following actual remainder estimates. For x>0 and integer m≥1 with |ν|<m+1/2,
+
+K_ν(x)=√(π/(2x))e^(−x)[Σ_(j<m)a_j(ν)x^(−j)+R_m],  |R_m|≤|a_m(ν)|x^(−m).
+
+For integers r,s≥1 with |ν|<min(2r+1/2,2s+3/2), set ω=x−πν/2−π/4. Then
+
+Y_ν(x)=√(2/(πx)){sinω[Σ_(j<r)(−1)^j a_(2j)(ν)x^(−2j)+U]+cosω[Σ_(j<s)(−1)^j a_(2j+1)(ν)x^(−2j−1)+V]},
+
+where |U|≤|a_(2r)(ν)|x^(−2r) and |V|≤|a_(2s+1)(ν)|x^(−2s−1). At half-integral orders use the exact terminating expressions: a remainder is zero once its cutoff is beyond the last nonzero coefficient. This does not assert a first-omitted-term bound for a truncation outside the displayed order restrictions. Prove `besselKY.positive_axis_remainders` from the convergent integral definitions, contour deformation and integration by parts, retaining the integral remainders; no merely formal asymptotic series is used. [Nemes], (1.9), (1.14) pp.2–3, (1.22)–(1.23) p.5, Theorem1.5 and (1.30) p.6, AppendixA (A.3) p.25 supply this route. The positive-axis specialization needs no incomplete-Gamma or terminant carrier.
+
+The proof of these positive-axis bounds can stay entirely with positive-axis K values. For integer N≥1 and real |ν|<N+1/2, prove `besselKY.remainder_integrals`: with C_ν=√(2/π)cos(πν)/π,
+
+R_N^K(x)=(−1)^N C_ν x^(−N)∫_0^∞t^(N−1/2)e^(−t)K_ν(t)/(1+t/x)dt,
+R_N^J(x)=(−1)^floor(N/2) C_ν x^(−N)∫_0^∞t^(N−1/2)e^(−t)K_ν(t)/(1+(t/x)²)dt,
+a_N(ν)=(−1)^N C_ν∫_0^∞t^(N−1/2)e^(−t)K_ν(t)dt.
+
+Here R_N^J is the scalar remainder appearing in the even/odd expansion, not a new first-kind function: U=R_(2r)^J and V=−R_(2s+1)^J. Each displayed integral is absolutely convergent in this domain. Obtain the comparisons by finite geometric expansion of the transformed K and Y integrals, and evaluate the coefficient moment using the supplied cosh integral, Gamma/Beta integration and reflection. For real ν the cosh integral makes K_ν(t)>0; each rational denominator is at least1. The moment identity therefore gives both first-omitted-term bounds directly. This is the positive-axis content of [Nemes], (1.22)–(1.23), p.5, and (A.3), p.25; it introduces neither a general terminant nor a hypergeometric-function supplier.
+
+In particular, for u>0, `besselKY.order_one` gives
+
+K₁(u)=√(π/(2u))e^(−u)R₁(u),  |R₁(u)|≤1+3/(8u),
+
+Y₁(u)=−√(2/(πu))[cos(u−π/4)−(3/(8u))sin(u−π/4)]+R₂(u),
+
+|R₂(u)|≤(15/128)√(2/π)(1+7/(8u))u^(−5/2).
+
+These are the one-order adapters of [87][R87], proof of Lemma1 p.8; u=0 is excluded from every displayed estimate.
+
+**Checks of Y.**
+
+- Y_(1/2)(π/2)=0 and Y_(−1/2)(π/2)=2/π.
+- Y_(1/2)(π)=√2/π. The first two values alone would not detect the wrong overall cosine sign.
+- For x>0, Y_(−1)(x)=−Y₁(x), whereas the supplied K has K_(−1)=K₁. A naive quotient at integral order has denominator zero and fails this check.
+
+**Checks of the coefficients and remainders.**
+
+- a₀(1)=1 and a₁(1)=3/8.
+- a₂(1)=−15/128 and a₃(1)=105/1024; these fix the sign and the ratio7/8 in the order-one error.
+- At ν=±1/2 all a_j with j≥1 vanish and the K expansion is exact. In the Y₁ bracket, the phase u−π/4=π/2 gives the positive correction +√(2/(πu))3/(8u); the leading cosine alone is zero there.
+
+*Needs:* supplied K integral and J API; `Complex.exp`, `Complex.sin`, `Complex.cos`, `Complex.Gamma`; complex Cauchy/contour theory of Layer1; differentiation under a dominated integral and the native real/complex Gaussian integrals.
+
+<a id="s3-23c"></a>
+
+**§3.23c Quantitative saddle deformation with endpoint terms.** Prove `saddlePoint.quantitative` for real a<b,k and complex functions f,φ holomorphic on a neighborhood of the closed discs |z−x|≤μ(x), a≤x≤b. Here μ is positive C¹, Φ,F are positive continuous functions, f is real on [a,b], f″(x)>0 there, f″(z)≠0 throughout these discs, and A₁,A₂,A₃>0 satisfy, throughout each closed disc,
+
+|φ(z)|≤A₁Φ(x),  |f′(z)|≤A₂F(x)/μ(x),  1/|f″(z)|≤A₃μ(x)²/F(x).
+
+For 0<η<min{1/((1+2A₂A₃/3)√2), A₃(1+2A₂)/2, (48A₃³/π³)^(1/6)}, put β=2η√2 A₂A₃/[3(1−η√2)]<1 and
+
+B₁=(1−β)⁻¹+π⁻¹exp(−π/(2(1−β))),
+B₂=2πη²(1−β)/(A₃(1+2A₂)),
+B₃=48√2(1+(1−β)^(−4))/(π⁴η⁷).
+
+For the last constant put
+
+w₁=πη³A₂[4√2/3+27η/(128(1−η√2))],
+w₂=exp(w₁)(4πA₂/3)²[1+3η/(√2−2η)(1+3√2η/(8(1−η√2)))],
+w₃=4π√2 A₂/3+2πηA₂/(1−η√2)+η³w₂,
+
+B₄=(1+η³w₃)/[(2π/A₃)(1−η√2)]+3[(2πA₂)/(1−η√2)+√2w₃]/(4π/A₃)²+15w₂/(4π/A₃)³.
+
+The light tuple `saddleConstants(A₂,A₃,η)` consists of (β,B₁,B₂,B₃,B₄). These are explicit numerical functions, not unspecified constants. Their API is positivity, continuity on the displayed open parameter domain, β<1 and the following error inequalities. If f′(x₀)+k=0 for x₀∈[a,b], this zero is unique and
+
+∫_a^b φ(x)e^(2πi(f(x)+kx))dx=φ(x₀)e^(2πi(f(x₀)+kx₀+1/8))/√f″(x₀)+R_end+R_far+R_loc,
+
+|R_end|≤A₁B₁[Φ(a)/(|f′(a)+k|+√f″(a))+Φ(b)/(|f′(b)+k|+√f″(b))],
+
+|R_far|≤A₁∫_a^b Φ(x)exp(−B₂(|k|μ(x)+F(x)))(1+η√2|μ′(x)|)dx,
+
+|R_loc|≤A₁(A₃⁴B₃+√A₃B₄)Φ(x₀)μ(x₀)F(x₀)^(−3/2).
+
+If there is no such zero, omit both the main term and R_loc. A saddle at a or b is allowed with these endpoint errors; there is no claim that its full Gaussian main term is an asymptotic without a boundary correction. For the less restrictive domain holomorphic on the open union of discs, first shrink the discs and pass to the limit while retaining the same bounds.
+
+Deform the real segment along x±η(1+i)μ(x), choose the sign away from the saddle, and retain both connecting endpoint segments. Cauchy estimates through order4 control the local Taylor remainder; the odd terms cancel on the symmetric central segment. Integrate the remaining quadratic Gaussian exactly and bound its tails. This proves all three estimates, including the no-saddle case, from existing contour and Gaussian theory. See [87][R87], Proposition1 pp.9–10, (27)–(36), Lemmas2–3 p.10–11 and proof pp.11–15, particularly (41), (43), (45) for w₁,w₂,w₃. No qualitative stationary-phase theorem is used in place of these quantitative bounds.
+
+**Checks.**
+
+- For f(x)=λx²/2, φ=1, k=0 and λ>0, the full-line improper Gaussian main term is exp(πi/4)/√λ; λ=1 and4 give the ratio2. Reversing the contour phase conjugates it. A Bochner integral of the undamped full-line phase is not asserted.
+- On [−1,1] the same phase with k=3λ has no saddle, so there is no Gaussian main term. With k=λ the saddle is the left endpoint and R_end cannot be discarded.
+- With A₂=1/π,A₃=27π, η=129/(3800√2), β=2322/3671<1, 2.72570<B₁<2.72571, 9.58·10^(−6)<B₂<9.59·10^(−6), 8.47·10^12<B₃<8.48·10^12 and 9310<B₄<9311. All strict parameter conditions hold. This pins the denominator inside B₁'s exponential as well as the large local-error constant.
+- With A₂=1/π,A₃=80/9+9π, η=1/20, 2.50674<B₁<2.50675, 0.00010328<B₂<0.00010329, 3.576·10^10<B₃<3.577·10^10 and 907<B₄<908. These are the final moving-saddle constants used below.
+- With A₂=1/π,A₃=1, η=1/100, 1.06890<B₁<1.06891, 0.00038274<B₂<0.00038275, 1.4023·10^14<B₃<1.4024·10^14 and 0.26491<B₄<0.26492. This third admissible parameter set tests the formulas independently of the two applications. Setting η=0 makes the quantitative theorem inapplicable.
+
+*Needs:* Layer1 contour/Cauchy estimates; real and complex Gaussian integration (including `integral_gaussian_complex`); finite-segment integration by parts; positive real powers and elementary exponential bounds. The parameter functions are numerical formulas, not extra analytic carriers.
+
+<a id="s3-23d"></a>
+
+**§3.23d Logarithmic saddle family.** For positive α,β,γ with α≠1, T≥T₀≥1, k≥1, 0<a≤min(1,T/(8πk)) and b≥T, put `atkinson.logRatio(y)=L(y)=log((1+y)/y)` for y>0 and `atkinson.logarithmicWeight(α,β,γ,y)=y^(−α)(1+y)^(−β)L(y)^(−γ)`. Their API is positivity and smoothness on y>0, L′(y)=−1/(y(1+y)), and the weight comparison Φ and derivative estimates below. Prove `atkinson.logarithmic_saddle` for
+
+I_±=∫_a^b y^(−α)(1+y)^(−β)L(y)^(−γ)exp(i[TL(y)±2πky])dy.
+
+For the plus sign the unique saddle is y₀=√(T/(2πk)+1/4)−1/2∈[a,b], and the main term is
+
+y₀^(−α)(1+y₀)^(−β)L(y₀)^(−γ)√(2π/ψ″(y₀))exp(i[ψ(y₀)+π/4]),  ψ(y)=TL(y)+2πky.
+
+For the minus sign there is no saddle and no main term. Both remainders are bounded by the three quantities R_end,R_far,R_loc of §3.23c, with R_loc omitted for minus, using
+
+f(z)=T log((1+z)/z)/(2π), φ(z)=z^(−α)(1+z)^(−β)(log((1+z)/z))^(−γ),
+μ(x)=x/2, F(x)=T/(1+x), Φ(x)=x^(−α)(1+x)^(γ−β),
+A₁=2^(α+β−γ)3^γ, A₂=1/π, A₃=27π, η=129/(3800√2).
+
+All complex logarithms and powers are principal on these discs, which avoid the cut. `atkinson.logarithmic_saddle_uniform` bounds these explicit remainder expressions uniformly in either range 1≤k≤A″T or k≥A′T, for fixed positive A′,A″. The respective local-error scales are
+
+T^((γ−α−β)/2−1/4)k^(−(γ−α−β)/2−5/4),  and  T^(−1/2−α)k^(α−1).
+
+The endpoint scales are a^(1−α)/T and b^(γ−α−β)/k. The far error retains its exponentially decreasing integral, not an O-constant depending on k or T. Bounding that integral after splitting at1,√(T/k),T gives the explicit refinement of [87][R87], Proposition2 (47)–(55) pp.15–17, with proof pp.17–20. These refinements are targets of the same theorem and supply the numerical budgets of §3.23g. For β=1/2,γ=1, the individual complex integrals converge conditionally at∞ when α>1/2, but generally have no ordinary improper limit at α=1/2 because their amplitudes tend to1. In the E₁ application first pair their imaginary parts, obtaining 2sin(TL(y))cos(2πky). Its extra O(T/y) factor permits a uniform integration-by-parts tail estimate for α in [1/2,3/4]. Take a↓0 and b→∞ while α>1/2, then α↓1/2 only in that paired expression. This proves the boundary formula without asserting convergence of either unpaired complex integral there.
+
+**Checks.**
+
+- With T=4π,k=1, y₀=1 and ψ′(1)=0; the minus-phase derivative there is−4π, so it must have no main term.
+- Here ψ(1)=4πlog2+2π and ψ″(1)=3π. The Gaussian phase has +π/4 and scale√(2/3), fixing both the 2π convention and orientation.
+- For the first moment-sum parameters α=β=1/2,γ=1, the amplitude behaves like1 at∞. Each unpaired complex improper integral fails to converge at this boundary. In the paired imaginary parts the sine supplies decay; with α>1/2 the endpoint b^(1/2−α) first vanishes in the required order of limits.
+
+**Checks of the log ratio and weight.**
+
+- At y=1, L=log2 and the weight with α=β=1/2,γ=1 is 1/(√2 log2).
+- At y=1/2, L=log3 and that weight is 2/(√3 log3).
+- At y=2, L=log(3/2) and that weight is 1/(√6 log(3/2)). The analytic domain excludes y=0 even though the light Lean formulas totalize there.
+
+*Needs:* §3.23c, elementary log/arcsinh identities, dominated convergence on finite intervals, and integration-by-parts control of the oscillatory tails.
+
+<a id="s3-23e"></a>
+
+**§3.23e Moving-cutoff saddle family.** For α,A,A′>0,T≥1,n≥1 and A√T≤a≤A′√T, put
+
+`atkinson.movingWeight(T,x)=Q_T(x)={asinh(x√(π/(2T)))[√(T/(2πx²)+1/4)+1/2](T/(2πx²)+1/4)^(1/4)}⁻¹`,
+
+`atkinson.movingPhase(T,x)=h_T(x)=−2T asinh(x√(π/(2T)))−√(2πx²T+π²x⁴)+πx²`.
+
+Their API is positivity of Q for T,x>0, smoothness in both positive parameters, Q_(c²T)(cx)=Q_T(x) and h_(c²T)(cx)=c²h_T(x) for c>0, and h′_T(x)=2πx−2√(π²x²+2πT). Every denominator in Q is strictly positive on this domain.
+
+Prove `atkinson.moving_saddle` for the improper integral ∫_a^∞x^(−α)Q_T(x)exp(i[4πx√n+h_T(x)])dx. There is a saddle in [a,∞) exactly when n<T/(2π) and (T/(2π)−n)²/n≥a². Its position is x₀=(T/(2π)−n)/√n and its main term is
+
+(4π/T)n^((α−1)/2)(log(T/(2πn)))⁻¹(T/(2π)−n)^(3/2−α)exp(i[T−Tlog(T/(2πn))−2πn+π/4]).
+
+With c from §3.23a, the remainder satisfies
+
+|R|≤V₁T^(−α/2)c(2√n+a−√(a²+2T/π))
++V₂T^(−3/2)n^((α−1)/2)(T/(2π)−n)^(1−α)
++V₃T^(−α/2)n^(−1/2)exp(−B₂(T+A√T)).
+
+For η satisfying §3.23c with A₂=1/π,A₃=8/A²+9π, use its B_j and put
+
+A₁=2^(α+1/2)/asinh((A/2)√(π/2)),
+V₁=A₁B₁A^(−α)[1−(1+1/(2π(A′)²))^(−1/2)]^(−1/2),
+V₂=(1/2)A₁(A₃⁴B₃+√A₃B₄),
+V₃=(A₁/B₂)A^(−α)(1+η/√2).
+
+If the saddle condition fails, omit the main term and the entire second error term, so its possibly nonpositive base is never used. Replacing √n by−√n gives the no-saddle version; its first endpoint cap has argument −2√n+a−√(a²+2T/π). The exponential tail is unchanged. These statements hold for every α>0; the Voronoi application uses3/2 and5/2.
+
+Apply §3.23c to f=h_T/(2π), k=2√n, μ=x/2,F=T,Φ=x^(−α). Its real second derivative is 1−(1+2T/(πx²))^(−1/2)>0. Verify the complex disc bounds with the displayed A_j, then let the finite upper endpoint tend to∞; its connecting endpoint contribution tends to zero. This proves the explicit V_j without concealing the distance from the lower endpoint. See [87][R87], Proposition3 (67)–(78), Lemma5 and proof pp.21–23.
+
+Define `atkinson.cutoff(T,b)=(√(b+2T/π)−√b)²/4` for T,b>0. Its API is positivity, strict inequality cutoff<T/(2π), continuity, strict decrease in b and the equivalence
+
+n≤cutoff(T,b) ↔ n<T/(2π) and (T/(2π)−n)²/n≥b,  n>0.
+
+Thus for b=N+1/2, a=√b, the finite main-sum cutoff includes n exactly at the saddle endpoint. Also 2√cutoff=√(b+2T/π)−√b, so its endpoint error is precisely c(2√n−2√cutoff). For proportional b/T these formulas give compact positive lower and upper multiples of T for cutoff and for T/(2π)−cutoff; the explicit inequalities are [87][R87], (100)–(102) p.32.
+
+**Checks of the saddle family.**
+
+- T=4π,n=1,a=1 gives x₀=1, an endpoint saddle. Its capped endpoint factor is1, not the totalized value of1/0.
+- For the same T,n with a=2 the saddle lies outside the interval and the main term and V₂ term disappear. Replacing √n by−√n also removes them even at a=1.
+- At T=4π,n=1, the main phase is4π−4πlog2−2π+π/4, with positive Gaussian shiftπ/4. At n=T/(2π) the logarithmic denominator is zero; that n is excluded from the saddle branch.
+
+**Checks of the moving weight and phase.**
+
+- At T=4π,x=1, Q=√(2/3)/log2 and h=−4πlog2−2π. Adding 4πx makes the phase at the n=1 endpoint saddle equal2π−4πlog2, before the positive Gaussian shift.
+- At T=16π,x=2, Q has the same value while h=−16πlog2−8π. This distinguishes the quadratic scaling of h from a linear scaling.
+- At x=0, the native totalized real formulas give Q=h=0. The analytic statements exclude this input: Q's arcsinh denominator is zero there.
+
+**Checks of the cutoff.**
+
+- cutoff(4π,1)=1 and T/(2π)=2, so n=1 is included and n=2 is excluded.
+- cutoff(12π,1)=4; doubling both T and b doubles cutoff, giving cutoff(8π,2)=2.
+- At T=0 the displayed algebraic expression is0, but none of its positive-domain denominator or saddle consequences applies. Increasing b strictly decreases cutoff when T>0.
+
+*Needs:* §§3.23a,c; log/arcsinh differentiation; integration by parts at∞; real square-root algebra. §3.23f's integrated exchange uses these estimates after this theorem has been proved, so the two theorems do not depend circularly on one another.
+
+<a id="s3-23f"></a>
+
+**§3.23f Divisor Voronoi identity, convergence and integrated exchange.** For every x>0, prove `divisorVoronoi.endpoint_identity` as the limit of partial sums in increasing positive integer n:
+
+Δ*(x)=−(2√x/π) Σ_(n≥1)d(n)n^(−1/2)[K₁(4π√(nx))+(π/2)Y₁(4π√(nx))].
+
+The partial sums are uniformly bounded on every compact interval in (0,∞), and converge uniformly on every compact interval avoiding the positive integers. At an integer the limit is the midpoint value in §3.23a. The oscillatory series is conditional; it is not a `tsum` justified by absolute summability, and it does not converge uniformly across a divisor jump.
+
+A proof from earlier inputs is the damped Poisson argument of [Meurman], theorem p.265 and §§2–8 pp.266–274. Insert exp(−v(u+nx/u)), v>0, into ∫_0^∞cos(2πu)sin(2πnx/u)du; finite truncation, Poisson summation and Abel summation identify the v↓0 limit with the half-endpoint divisor sum. The undamped integral is an improper limit, not an absolutely integrable Bochner integral. The identity
+
+∫_0^∞cos(2πu)sin(2πt/u)du=−√t[K₁(4π√t)+(π/2)Y₁(4π√t)],  t>0,
+
+is `divisorVoronoi.kernel_comparison`. Obtain it by substituting u=√t exp v in the damped integral, separating its two exponential phases and deforming to the supplied K integral and the Y integral of §3.23b; take the damping limit only after the integration-by-parts tail estimate. This also fixes the factor4π and the minus sign. Prove `divisorVoronoi.bounded_convergence` using the same finite Poisson formula and the uniformly summable damped remainder. Meurman's p.266 records the comparison, while pp.267–274 give the damping, stationary-phase and convergence arguments (convergence is §8, (8.1)–(8.3), pp.272–274); the estimate needed in his proof follows from §3.23c's Gaussian deformation, not an extra Bessel supplier.
+
+From §3.23b derive `divisorVoronoi.two_term`: for x≥x₀≥1,
+
+Δ*(x)=x^(1/4)/(π√2) Σ_(n≥1)d(n)n^(−3/4)[cos(4π√(nx)−π/4)−3/(32π√(nx))sin(4π√(nx)−π/4)]+x^(−3/4)V(x),
+
+|V(x)|≤15ζ(7/4)²/(2^11π³√2)+105ζ(9/4)²x₀^(−1/2)/(2^16π⁴√2)+ζ(11/4)²(1+3/(32π√x₀))x₀^(−1)/(π√2).
+
+The leading series has the same ordered convergence convention; the correction series and both discarded Bessel tails are absolutely summable. Use Σd(n)n^(−s)=ζ(s)² for real s>1 and e^(−4πu)≤u^(−4) for u≥1. This is [87][R87], Lemma1 and proof pp.8–9, including its uniform dependence on x₀.
+
+`divisorVoronoi.integrated_exchange` permits this expansion in the two x-integrals of §3.23e with α=3/2,5/2 and weight d(n)n^(−3/4) or d(n)n^(−5/4), respectively. First integrate on a compact [a,b], splitting at the finitely many divisor jumps and using bounded convergence. Then take b→∞: beyond b>T+1 the phase derivative has absolute value bounded below by a fixed multiple of √n, so integration by parts bounds the nth integrated tail by C(T,a)b^(−α)n^(−1/2). The resulting divisor series is summable, starting with n^(−5/4). The finite saddle range n≤Z and the capped endpoint error are controlled by §3.23e and the transition sum of §3.23a. This proves the exchange; applying Fubini directly to the conditional leading series is not a valid substitute.
+
+**Checks.**
+
+- The transform at x=1 equals5/4−2γ, not the inclusive value2−2γ or the right-limit value7/4−2γ.
+- At x=4 the transform equals41/4−4log4−8γ and averages a jump of3. Uniform convergence across4 would force a continuous limit and is false.
+- For the n=1 and n=2 terms the arguments are4π√x and4π√(2x); the coefficients in the leading series are1 and2^(1/4), both positive. The next terms have the negative sine coefficient3/(32π√(nx)). In contrast, the first two Atkinson coefficients in §3.23g have opposite signs.
+
+*Needs:* §§3.23a–b and §3.23c; supplied Poisson summation with its actual decay hypotheses (apply it while v>0); finite hyperbola/Abel summation; real s>1 divisor Dirichlet series; dominated convergence on compact intervals; §3.23e for the unbounded integrated exchange.
+
+<a id="s3-23g"></a>
+
+**§3.23g Atkinson sums, error budget and the quantitative endpoint.** For T>0,n>0 put
+
+e(T,n)=(1+πn/(2T))^(−1/4)√(πn/(2T))/asinh√(πn/(2T)),
+f(T,n)=2T asinh√(πn/(2T))+√((πn)²+2πnT)−π/4,
+g(T,n)=Tlog(T/(2πn))−T+π/4.
+
+Extend e(T,0)=1 for T>0 by its continuous right limit; f(T,0)=−π/4. Define the finite sums
+
+S₁(T,N)=√2(T/(2π))^(1/4)Σ_(1≤n≤N)(−1)^n d(n)n^(−3/4)e(T,n)cos f(T,n),
+S₂(T,Z)=−2Σ_(1≤n≤Z)d(n)n^(−1/2)(log(T/(2πn)))⁻¹cos g(T,n).
+
+The light Lean names for e,f,g,S₁,S₂ are respectively `atkinson.amplitude`, `atkinson.phase₁`, `atkinson.phase₂`, `atkinson.firstSum`, `atkinson.secondSum`. Here N is a natural number, Z is a real cutoff, and the analytic domain of S₂ is 0≤Z<T/(2π); it is not defined analytically by a sum containing a zero logarithmic denominator. The light totalized Lean formula outside this domain asserts no analytic identity. The API is continuous extension of e at0, 0<e(T,n)<1 for 0<πn/(2T)≤50, homogeneous scaling e(cT,cn)=e(T,n) for c>0, finite-sum cutoff and jump identities, and the phase evaluations below. See [87][R87], (5)–(10) p.2 and the beginning of §7 p.35.
+
+`atkinson.formula`: for any fixed 0<A′≤A″, uniformly for positive integers N with A′T≤N≤A″T as T→∞,
+
+E(T)=S₁(T,N)+S₂(T,cutoff(T,N+1/2))+O_(A′,A″)(log²T).
+
+For the explicit specialization T≥10^30, (9/10)T≤N≤(11/10)T, prove `atkinson.remainder_budget` with the actual remainder ℛ=E−S₁−S₂:
+
+|ℛ|≤95log²T+275log T+7.3·10^18.
+
+Here is the proof chain and the quantitative accounting. For b=N+1/2, apply the zeta functional equation to the two-variable off-diagonal Dirichlet series, subtract the Gamma main term, and use finite Poisson/Stieltjes summation. Continue the divisor tail from Re u<1/2 to Re u<2/3 using §3.23a's cubic estimate. It yields the contour decomposition `atkinson.contour_decomposition`, E=E₁−E₂+E₃−E₄+R, with
+
+E₁=4Σ_(n≤N)d(n)∫_0^∞sin(TL(y))cos(2πny)/[√(y(1+y))L(y)]dy,
+E₂=4Δ*(b)∫_0^∞sin(TL(y))cos(2πby)/[√(y(1+y))L(y)]dy,
+E₃=−(2/π)(log b+2γ)∫_0^∞sin(TL(y))sin(2πby)/[y√(y(1+y))L(y)]dy
++1/(πi)∫_0^∞[sin(2πby)/y]∫_(1/2−iT)^(1/2+iT)((1+y)/y)^u du/u dy,
+E₄=4∫_b^∞[Δ*(x)/x]∫_0^∞{cos(2πxy)/[(1+y)√(y(1+y))L(y)]}{Tcos(TL(y))−(1/2+1/L(y))sin(TL(y))}dy dx,
+
+|R|≤(T/2)log(1+1/(4T²))+1/(12T)+1/(90T³).
+
+Integrals over an unbounded interval are successive improper limits in the displayed order. First perform the finite truncations and avoid poles, then prove convergence by the saddle/tail estimates before passing to these limits. The derivation is [87][R87], §2 (16)–(21) pp.5–7; the exact b=N+1/2 removes the divisor endpoint from the Stieltjes cutoff. The residue at u=0 and the Gamma remainder give the displayed E₃ and R; they are not suppressed in an O-term.
+
+The named budget milestones are `atkinson.E1_budget` (E₁−S₁ via §3.23d, α↓1/2), `atkinson.E2_budget` (E₂ via the cubic divisor bound), `atkinson.E3_budget` (split at y=1/(2N+1) and1, residue u=0, then §3.23d with α=3/2), and `atkinson.E4_budget`. For the last, split its bracket into Tcos, −sin/2 and −sin/L. Apply §3.23d to the inner integrals; apply §3.23f's two-term expansion and integrated exchange only to the first resulting outer integral. The α=3/2 saddle of §3.23e gives E₄'s main term −S₂, its α=5/2 version controls the correction, and §3.23a's capped transition sum controls the near-endpoint errors. The absolute Voronoi remainder and the cubic divisor bound control all other outer tails. Thus the sign in E=E₁−E₂+E₃−E₄+R produces +S₂.
+
+Quantitatively retain the explicit R_end,R_far,R_loc of §3.23c and V_j of §3.23e throughout. The error inequalities for these four milestones are [87][R87], (81), (86), (93), (94)–(95), (104) and (106), pp.24–35. Collect the log²T, log T and remaining terms separately, with A′=9/10,A″=11/10,T₀=10^30 and final saddle η=1/20 (A=√(9/10), A′ in §3.23e=√(11/10+1/(2T₀))). The resulting coefficients b₁,b₂,b₃ satisfy b₁≤95, b₂≤275, b₃(T)≤7.3·10^18. In fact 94.38860<b₁<94.38861 and 274.80674<b₂<274.80675; the smaller margin for b₂ must survive outward rounding. These inequalities, including the monotonicity of the exponentially decreasing terms on T≥T₀, are `atkinson.budget_certificate`; prove them by rational outward bounds for π,γ, log, exp, square roots, arcsinh and ζ(s), s>1. For the latter, sum finitely and bound the tail by the integral test. This numerical certificate is a target to prove, not a reliance on the source's Mathematica computation (Theorem2/Table1 p.4, end of §6 pp.34–35). The preceding displayed identities, cap and error formulas specify all analytic inputs to it.
+
+For explicit statements of the four budget milestones at these fixed parameters, set u=1+√(1+20/(9π)), v=1+√(1+20/(11π)), H=V₁(3/2)/√π·(11/10+1/(2T₀))^(1/4)√v, with V₁ evaluated at the preceding A,A′,η. Then b₁=1.445H and b₂=H[15.35−2.89log((9/10)π²u²)]. For every T≥T₀=10^30 and integer (9/10)T≤N≤(11/10)T, the named contracts are
+
+- `atkinson.E1_budget`: |E₁−S₁(T,N)|≤4.3·10^15.
+- `atkinson.E2_budget`: |E₂|≤10^(−3).
+- `atkinson.E3_budget`: |E₃|≤4.
+- `atkinson.E4_budget`: |E₄+S₂(T,cutoff(T,N+1/2))|≤b₁log²T+b₂log T+3.1·10^17.
+
+These deliberately loose residual constants suffice: together with |R|≤1 their sum is below7.3·10^18. The first three follow from (81)–(84), (86), (88)–(93); the fourth combines (94)–(95), (104), (106)–(108). Their proof keeps the already displayed quantitative saddle errors, bounds the positive elementary coefficients in those inequalities by outward intervals, and then uses their decreasing dependence on T≥T₀. Thus each milestone has an actual inequality rather than an unspecified estimate. The numerical certificate also proves the displayed b₁,b₂ bounds; it is not an extra analytic assumption.
+
+Finally set N=floor T. Then 0.9T≤N≤1.1T and Z=cutoff(T,N+1/2) is between positive fixed multiples of T and strictly below T/(2π). Use e≤1 and §3.23a's weighted sums to prove `atkinson.main_sum_bound`, |S₁|+|S₂|≤3.87√T log T−1.1√T for T≥10^30; (100)–(102) keep S₂'s logarithmic denominator uniformly positive. For an elementary certificate, set z₊=(√(0.9+2/π)−√0.9)²/4, C₁=4√2/(2π)^(1/4), C₂=4√z₊/log(1/(2πz₊)). Then Z≤z₊T, C₁+C₂<3.862 and C₂log z₊<−1.111. Monotonicity in Z of √Z log Z/log(T/(2πZ)) gives the stated bound. Combining it with the remainder budget gives |E(T)|≤110√T log T, as in [87][R87], §7 (109) p.35. For this last deduction discard the negative term −1.1√T. The resulting normalized bound is 3.87+95log T/√T+275/√T+7.3·10^18/(√T log T), less than109.55 at T₀; every nonconstant term decreases thereafter. Thus the numerical endpoint is part of the proof, not only an eventual asymptotic.
+
+**Checks of e.**
+
+- e(T,0)=1 for T>0; the unextended quotient would give0/0 in Lean.
+- e(π/2,1)=2^(−1/4)/asinh1.
+- e(π/2,4)=2·5^(−1/4)/asinh2. These values distinguish the factor2T and the fourth-root amplitude.
+
+**Checks of the phases.**
+
+- f(T,0)=−π/4, whereas g(2π,1)=−7π/4.
+- f(π/2,1)=π asinh1+π√2−π/4; f(π/2,4)=π asinh2+2π√5−π/4.
+- g(4π,1)=4πlog2−15π/4 and g(4π,2)=−15π/4. Thus the two logarithmic frequencies cannot be identified.
+
+**Checks of the finite sums.**
+
+- S₁(T,0)=0 and S₂(T,0)=0. They have no n=0 term.
+- S₁(T,1)=−√2(T/(2π))^(1/4)e(T,1)cos f(T,1); its next term at N=2 has positive coefficient2·2^(−3/4). This pins the alternating sign and the divisor multiplicity.
+- For T>4π, S₂(T,1)=−2cos g(T,1)/log(T/(2π)); increasing Z from1 to2 adds −2√2 cos g(T,2)/log(T/(4π)). Its integer endpoint is included in full. The divisor transform's midpoint convention does not halve these finite sums.
+
+*Needs:* §§3.23a,b,c; §3.23f’s transform and §§3.23d,e; §3.23f’s integrated exchange after §3.23e; Layer1 zeta functional equation, Gamma/Stirling remainder, finite contour and Poisson adapters; real s>1 Euler products; exact finite arithmetic and certified elementary real inequalities. All quantitative constants refer to these explicit targets, rather than to an unnamed mean-value or stationary-phase supplier.
 
 <a id="s3-24"></a>
 
@@ -3123,7 +3470,7 @@ See [85][R85], §2.3 Lemma2.6 and its complete proof, p.11.
 
 - §3.33 deduces Halász's distance form through complete Euler products, height splitting and prime-power convolution from the GHS integral theorem. [§3.36b](#s3-36b) supplies Shiu's finite-remainder sieve, including q=1. Keep generalized-binomial/divisor domination, exact double-integral Perron, weighted Plancherel and the rough-number C(1) witness. The Fourier window has angular support[−2,2] and all prime powers ([§3.19][R287], [§3.45](#s3-45), [§3.33](#s3-33), [§3.37](#s3-37), [§3.43](#s3-43)).
 - Dickman construction glues consecutive intervals with the negative-argument convention. Its fixed-u limit needs quantitative prime partial summation in the largest-prime recursion, terminal control and compact-u convergence; it gives no growing-u asymptotic ([§3.21](#s3-21), [§3.34](#s3-34), [§3.35](#s3-35)).
-- §3.22 uses the finite divisor-pair bijection and Euler harmonic bounds, without PNT. The quantitative second-moment route still lacks its Voronoi/Bessel and moving-cutoff contracts (§3.23). The fourth moment uses the four explicit auxiliary estimates and diagonal/off-diagonal decomposition of §3.24; no Heath-Brown error estimate is assumed.
+- §3.22 uses the finite divisor-pair bijection and Euler harmonic bounds, without PNT. The quantitative second moment uses the half-endpoint divisor remainder, positive-axis Bessel remainders, conditional Voronoi convergence, both quantitative saddle families and the explicit Atkinson budget (§§3.23a–g). Their build order is a,b,c,d,e,f,g; in particular the moving-saddle estimates precede the Voronoi integrated exchange. The fourth moment uses the four explicit auxiliary estimates and diagonal/off-diagonal decomposition of §3.24; no Heath-Brown error estimate is assumed.
 - [§3.42a](#s3-42a) requires Laplace–Stieltjes integration by parts, tempered Fourier boundary, one-sided bump and β_n/n→0 optimization. Conversely retain all-derivative Abelian bounds, o(log|t|), weak-boundary upgrade,3–4–1 reciprocal bounds and smooth pole division. Ordinary Wiener–Ikehara cannot replace these measure adapters ([§3.42](#s3-42)).
 - §3.6 needs a complete inverse-totient O(x) proof; Smati's stronger statement and finite computation alone are insufficient.
 - [§3.12a][R163] retains every truncation order, divisor bound, branch, residual derivatives and compact-parameter constants. [§3.12b](#s3-12b) and §3.14 give positivity; [§3.31a](#s3-31a)'s O(K/log K) intersection suffices for C_L+C_E. Retain residue-character expansion, maximal exponent, positive residual and outside-subgroup zero counts, without varying-modulus uniformity ([§3.13](#s3-13), [§3.14](#s3-14), [§3.31](#s3-31), [§3.16](#s3-16)).
@@ -3135,7 +3482,7 @@ The divisor bounds include n=1, where τ(1)=1, and exclude n=0. With the inclusi
 
 ### Dependencies
 
-Mathlib prime factorization, divisors, convolution, Möbius and von Mangoldt functions; ArithmeticDirichletSeries Euler products, Abel and Perron summation; Layer 0 prime estimates; Layer 1 Dirichlet-polynomial means and Fourier estimates. The short-interval and Mangoldt-window estimates are owned here, so no later sieve or circle-method roadmap is a prerequisite.
+Mathlib prime factorization, divisors, convolution, Möbius and von Mangoldt functions; ArithmeticDirichletSeries Euler products, Abel and Perron summation; Layer 0 prime estimates; Layer 1 Dirichlet-polynomial means and Fourier estimates. The second moment also consumes the lower-tier K and J supplier contracts above; its Y function, divisor transform and quantitative saddle adapters are local. The short-interval and Mangoldt-window estimates are owned here, so no later sieve or circle-method roadmap is a prerequisite.
 
 ## Downstream consumers
 
@@ -3184,6 +3531,11 @@ Quantitative arithmetic consumers import the prime-error, Hecke/Artin, class-num
 - [94][R94] TauCetiRoadmap, *Arithmetic Galois Representations*, Layer3 §§3.2–3.5 (planned supplier).
 - [95][R95] A. Kupers, *Lectures on complex analysis*, 30 April 2020, §14.1 pp.89–93.
 - [96][R96] H. Kösters, *The Riemann Zeta-Function and the Sine Kernel*, arXiv:0803.1141v1, §3 pp.9–15 and AppendixA p.20.
+
+- **Bessel functions.** [NIST Digital Library of Mathematical Functions, Chapter10][DLMF-Bessel], particularly §§10.2,10.4,10.6,10.9,10.16; equation numbers are the locators in this unpaginated reference.
+- **Nemes.** [Gergő Nemes — Error bounds for the large-argument asymptotic expansions of the Hankel and Bessel functions][Nemes], arXiv:1606.07961v2, 2017; positive-axis remainder theory and AppendixA.
+- **Meurman.** [Tom Meurman — A simple proof of Voronoi’s identity][Meurman], Astérisque209 (1992), pp.265–274; endpoint identity, damping and convergence.
+- **BBR.** [Djamel Berkane, Olivier Bordellès and Olivier Ramaré — Explicit upper bounds for the remainder term in the divisor problem][BBR], Mathematics of Computation81 (2012), pp.1025–1051; explicit divisor inputs and their proofs.
 
 [R1]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation
 [R2]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products
@@ -3306,3 +3658,10 @@ Quantitative arithmetic consumers import the prime-error, Hecke/Artin, class-num
 
 [R95]: https://www.utsc.utoronto.ca/people/kupers/wp-content/uploads/sites/50/2020/12/complex-analysis-2019.pdf
 [R96]: https://arxiv.org/pdf/0803.1141v1
+
+[AL-Bessel]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/ab4ea5c9ff2c4053af6e0d50fef0c8d19fed2ed0/TauCetiRoadmap/AutomorphicLFunctionsAndLocalFactors/README.md#bessel-transforms
+[AS-Bessel]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/d2a1dbdbd97ef6fa88cfae28aa574a1a116f62f9/TauCetiRoadmap/AutomorphicSpectralTheory/README.md#025-bessel-functions-j_ν-and-i_ν
+[DLMF-Bessel]: https://dlmf.nist.gov/10
+[Nemes]: https://arxiv.org/pdf/1606.07961v2
+[Meurman]: https://numdam.org/item/AST_1992__209__265_0.pdf
+[BBR]: https://ramare-olivier.github.io/Maths/Divisors-mcom2535.pdf
