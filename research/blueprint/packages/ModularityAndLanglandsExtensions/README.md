@@ -165,21 +165,21 @@ For unitary cuspidal π, π′ on GL_n, GL_{n′}, L^S(π×π′^∨,s) is merom
 
 The Langlands–Shahidi L-functions L^S(s, π, Sym²), L^S(s, π, ∧²) and twisted L^S(s, Π, ∧²⊗ω), with Π unitary cuspidal and ω unitary: meromorphic continuation and the source-supported alternative at s=1 of a simple pole or a nonzero finite limit, including its exact symplectic-type criterion. Supply separately the precise analytic hypotheses for GL₂×GL₃ and GL₂×GL₄ converse-theorem inputs used by Kim–Shahidi and Kim; no full boundary-line theorem is inferred from the s=1 statement. Require these analytic continuation and nonvanishing theorems as the analytic Part II extension of unramified L-group factors and their convergence.
 
-#### From EndoscopicTransferAndUnitaryTraceComparison, Layer ET.3
+#### From EndoscopicTransferAndUnitaryTraceComparison, Layer 4 (legacy ET.3)
 
 The fundamental lemma (Ngô), its twisted and weighted variants where proved (Chaudouard–Laumon for split groups), and Waldspurger's transfer of orbital integrals, as inputs of the stabilisation behind Arthur's classification; carry TWFL as the named hypothesis above, with its non-split weighted and non-standard weighted inputs. Require the full twisted and weighted transfer extension beyond ordinary orbital-integral transfer.
 
 Use the [C-ARTHUR contract](#contract-c-arthur) above.
 
-#### From EndoscopicTransferAndUnitaryTraceComparison, Layer ET.4
+#### From EndoscopicTransferAndUnitaryTraceComparison, Layer 6 (legacy ET.4)
 
-The simple stable and twisted trace formulas for unitary groups and twisted GL_n (the restricted form ET.4 plans), together with the full twisted stabilization of Mœglin–Waldspurger required for Layer 3.
+The stable and twisted unitary trace comparisons of §§6.18–6.25, with their test-function, central-character and local-transfer restrictions, together with the full twisted stabilization of Mœglin–Waldspurger required for Layer 3. The latter is an additional export; the unitary comparison does not assert it for arbitrary classical groups.
 
-#### From EndoscopicTransferAndUnitaryTraceComparison, Layer ET.6
+#### From EndoscopicTransferAndUnitaryTraceComparison, Layer 10 (legacy ET.6)
 
 The local Langlands correspondence for GL_n over p-adic fields (Harris–Taylor, Henniart, Scholze), rec_K, with its compatibility with twists, duals, central characters and L/ε-factors of pairs, used to define local parameters of automorphic representations and functorial lifts.
 
-#### From EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a
+#### From EndoscopicTransferAndUnitaryTraceComparison, §§6.24, 6.26–6.27 (legacy ET.7a)
 
 Arthur–Clozel cyclic base change and descent for GL_n (Theorems 3.4.2, 3.5.1 of AC89) with Harris–Taylor Lemma VII.2.6, and automorphic induction from a cyclic CM extension, with the cuspidality criteria; used in BLGGT Lemmas 2.2.2, 2.2.4 and Proposition 4.1.1. Also: Arthur–Clozel cyclic base change and descent for GL_n of prime degree with soluble iteration, in the form quoted by Newton–Thorne 2026 §1.2 and used by BCGNT Proposition 6.2.3, and Labesse's base change between unitary groups and GL_n used for the Steinberg-at-q forms of Newton–Thorne I and the unitary descent in Calegari–Geraghty Lemma 6.9.
 
@@ -193,7 +193,7 @@ Automorphic induction of Hecke characters of quadratic fields to GL₂ and the s
 
 #### From GL2ModularityLifting, Layer R22.5
 
-Request the exact odd-prime potentially Barsotti–Tate modularity lifting theorem over the totally real field used in BCGP Proposition10.1.3, with residual modularity, cyclotomic irreducibility, determinant and local types. R22.1 only builds the deformation-to-Hecke map. R22.5 is the lifting direction; its precise Hilbert-field export still needs verification.
+Use §5.7, Kisin's potentially Barsotti–Tate lifting theorem over a totally real field: p>2, strong residual modularity, absolute irreducibility after restriction to F(ζ_p), and residue field 𝔽_p at each nonordinary v|p. At p=5 with projective image PGL₂(𝔽₅), keep the extra condition on its kernel and F(ζ₅). Match the ordinary quotient character or the source's indecomposable/trivial residual condition, in addition to the local type and determinant. R22.1 only builds the deformation-to-Hecke map. Applying the lifting theorem in BCGP Proposition 10.1.3 requires a modular witness satisfying these local conditions, or a separately stated theorem removing them; a generic rank-two lifting label does not supply that witness.
 
 #### From GlobalGaloisDeformations, Layer R04.2 (universal deformation ring)
 
@@ -201,7 +201,7 @@ Under Φ_p and Schur residual representation (here absolutely irreducible), the 
 
 #### From MetaplecticAutomorphicForms, Layer MP.3
 
-Local theta correspondences for (GSp₄, GO(V)) with dim V = 4, 6 and for (Mp_{2n}, SO_{2n+1}) (Gan–Takeda; Gan–Savin), used to construct the LLC for GSp₄ and the local descent to Mp_{2n}. Require full all-residual-characteristic Howe duality and the exact GRS local descent extension in addition to elementary theta modules.
+Local theta correspondences for (GSp₄, GO(V)) with dim V = 4, 6 and for (Mp_{2n}, SO_{2n+1}) (Gan–Takeda; Gan–Savin), used to construct the LLC for GSp₄ and the local descent to Mp_{2n}. The current §3.7 states nonarchimedean orthogonal–symplectic and unitary Howe duality in characteristic ≠2, including dyadic residue fields; §3.31 treats the similitude extension. Its archimedean Howe comparison still requires the original theorem and the Harish-Chandra/globalization categories. Require that real comparison for scalar packets, and the exact GRS local descent extension, rather than infer either from nonarchimedean duality.
 
 #### From PadicFamilies, Layer L2
 
@@ -277,7 +277,7 @@ Reuse the completed L-function definition, strict/pure/regular and real-sign hyp
 
 #### From EllipticCurveModularity, Layer R29.6
 
-Modularity of every elliptic curve over ℚ with full local-factor comparison, to apply NT non-CM symmetric powers in the Sato–Tate criterion; exact statement read here R29.6 description.
+Modularity of every elliptic curve over ℚ with full local-factor comparison, to apply NT non-CM symmetric powers in the Sato–Tate criterion.
 
 #### From PotentialModularityAndCompatibleSystems, Layer R24.5
 
@@ -307,7 +307,7 @@ For a definite unitary group G_d over F⁺ and an automorphic π of G_d(𝔸_{F�
 
 BCGP25 Lemma 10.4.1: the regular-weight residual Serre hypothesis implies modularity of abelian surfaces only after the surface classification, residual split/irreducible alternatives, ordinary prime density and weight-changing/Hida arguments. Export the full application with its explicit Arthur-classification dependence.
 
-#### From AutomorphicFormsOnReductiveGroups, Layer AF.1
+#### From AutomorphicFormsOnReductiveGroups, Layers 2 and 6 (legacy AF.1)
 
 Use the [C-AUTOMORPHIC contract](#contract-c-automorphic) above.
 
@@ -640,7 +640,7 @@ Newton–Thorne 2026 use it in the proofs of Lemma 3.1, Theorem 3.2 and Proposit
 
 Import cyclic automorphic induction from EndoscopicTransferAndUnitaryTraceComparison ET.7a: for L/F cyclic of degree d, AI_{L/F} sends GL_m(𝔸_L) to GL_{md}(𝔸_F), has the induced Weil parameter at every place, and is cuspidal precisely when the inducing cuspidal representation has orbit of size d under Gal(L/F). In particular it must not be fixed by any nonidentity element. GL2AutomorphicRepresentationsAndTransfer R17.5 supplies the quadratic monomial case and soluble Artin modularity; R17.4 supplies GL₂ cyclic and soluble base change. These transfers supply only their stated cases of functoriality.
 
-**Source boundary.** Arthur’s §4, p. 45 states the Artin conjectural specialization, not this cyclic induction theorem or its cuspidality criterion. The exact theorem must be supplied with a primary locator by ET.7a from Arthur–Clozel; BCGNT, proof of Proposition 6.2.3, arXiv v3 p. 63, uses Arthur–Clozel Chapter 3, Theorem 4.2 for the untensoring step. The all-place induction and orbit criterion remain an explicit source gap.
+**Source boundary.** [Arthur–Clozel](#ref-arthur-clozel-1989), Chapter III, Definition 6.1 and Theorem 6.2, p. 215, construct the unique induction in the class induced from unitary cuspidal representations by its almost-everywhere unramified parameters. Lemma 6.4, pp. 217–218, gives cuspidality for a full Galois orbit; Corollary 6.5, p. 218, gives the stabilizer decomposition when the orbit is smaller. These are the existence and orbit inputs of the current supplier's §6.26. The all-place induced Weil-parameter comparison, including ramified and archimedean places, remains a separate required export: it is not contained in the almost-everywhere definition or implied by uniqueness. BCGNT, proof of Proposition 6.2.3, arXiv v3 p. 63, uses Chapter III, Theorem 4.2 for its base-change step.
 
 *Needs:* EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a; GL2AutomorphicRepresentationsAndTransfer, Layer R17.5; GL2AutomorphicRepresentationsAndTransfer, Layer R17.4 (solvable base change); GL2AutomorphicRepresentationsAndTransfer, Layer R17.4 (solvable descent); [Cyclic base change and soluble descent](#cyclic-base-change-gln); [Assertions with explicit hypotheses](#endpoint-status-register); [C-AUTOMORPHIC](#contract-c-automorphic); [C-GALOIS](#contract-c-galois).
 
@@ -932,7 +932,7 @@ The interface should expose the following operations and comparisons.
 - `TauCeti.Functoriality.IsFunctorialLift.id`: π is its own lift along the identity.
 - `TauCeti.Functoriality.IsFunctorialLift.lFunction`: L(s, R(π)) = L(s, π, R), the Langlands L-function of π along R.
 
-Local parameters: SUPP LLC for GL_n (EndoscopicTransferAndUnitaryTraceComparison ET.6) and archimedean Layer 0. Uniqueness: Jacquet–Shalika strong multiplicity one for isobaric sums (AutomorphicLFunctionsAndLocalFactors AL.3).
+Local parameters: the local Langlands correspondence for GL_n (EndoscopicTransferAndUnitaryTraceComparison ET.6) and archimedean Layer 0. Uniqueness: Jacquet–Shalika strong multiplicity one for isobaric sums (AutomorphicLFunctionsAndLocalFactors AL.3).
 
 **Checks.**
 
@@ -1010,6 +1010,7 @@ Definition through [Functorial lift of a GL_n representation along an algebraic 
 
 - n = 3: Sym²π exists for every cuspidal π (Gelbart–Jacquet), cuspidal iff π is not dihedral.
 - For π = AI(θ) dihedral, Sym²π exists but is not cuspidal; existence does not mean cuspidality.
+- n = 1 gives the trivial GL₁ character at every place, including ramified places of π; n = 2 gives π itself with its original ramified local parameters.
 - For F = ℚ it agrees with [The symmetric power lifting Sym^{n−1}π](#symmetric-power-lifting).
 
 Over ℚ it is [The symmetric power lifting Sym^{n−1}π](#symmetric-power-lifting).
@@ -1492,7 +1493,7 @@ State the resulting comparison as `TauCeti.PotentialAutomorphy.cg18_potentialMod
 
 Odd symmetric powers Sym^{2n−1} of E are potentially modular ([Conditional potential modularity of odd symmetric powers of elliptic curves (Calegari–Geraghty §10)](#cg18-odd-symmetric-powers)), using CG's minimal modularity lifting beyond Taylor–Wiles (their Theorem 5.16, which assumes Conjecture B). Harris–Shepherd-Barron–Taylor's reduction from odd symmetric powers to E itself (tensor product trick).
 
-The acceptance criterion of Layer 1: this is the only statement about elliptic curves over arbitrary number fields, and it is conditional.
+This potential-modularity statement for elliptic curves over arbitrary number fields is conditional on Conjecture B.
 
 ([Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429; [Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429.)
 
@@ -1694,7 +1695,7 @@ State the resulting comparison as `TauCeti.PotentialAutomorphy.qian_residual`.
 
 Choose the auxiliary data E, N, F^avoid and an ordinary auxiliary prime l′ ([Choice of the auxiliary elliptic curve, N, F^avoid and an ordinary auxiliary prime l′ (Qian §4, Proposition 4.1)](#qian-auxiliary-prime)). Automorphy of Sym^{n−1} of the elliptic curve at l′ over a totally real F^suff ([An automorphic symmetric-power seed for the auxiliary elliptic curve (Qian Proposition 4.1; ACC+ Corollary 7.2.4)](#elliptic-symmetric-power-seed)). Moret-Bailly gives a point t of the Dwork family over F′ with the l-adic fibre lifting r̄ ⊗ (twist) and the l′-adic fibre congruent to Sym^{n−1} of E (PotentialAutomorphyInfrastructurePartII PL.5; PotentialModularityAndCompatibleSystems R23.1). Apply ACC+ Theorem 6.1.2 at l′ and compare common good-place Frobenius polynomials with matched coefficient embeddings to obtain V_{λ,t}^{ss}≅r_{l,ι}(π). At the l-adic places v(t)<0, Qian Lemma 3.10(4) and the semistable maximal-monodromy calculation of thesis Remark 3.0.13 give potential semistability and an ordinary regular filtration of V_{λ,t} geometrically. These properties pass to G_{F′_v}-stable subquotients and hence to the global semisimplification; retain the union of the distinct Hodge weights. Separately, auxiliary-prime semisimplicity and the Steinberg slope argument prove that π is ι-ordinary. A graded stable lattice reduces to the original semisimple r̄. ACC+ Corollary 5.5.2’s irreducible-residual converse is used only in Theorem 1.4, never to obtain Galois ordinarity in the general Theorem 1.1 branch.
 
-The output is automorphy over the extension F′ only (acceptance of Layer 2); no descent to F is claimed.
+The conclusion is automorphy over the extension F′. Descent to F requires an additional theorem.
 
 ([Potential automorphy for GL_n](#ref-qian-2023), Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1); [Potential automorphy for GL_n](#ref-qian-2023), Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4; [Potential automorphy for general linear groups (PhD dissertation, Stanford University)](#ref-qian-thesis-2023), Remark 3.0.13, printed p. 55 (PDF p. 62).)
 
@@ -2129,21 +2130,27 @@ Chenevier–Taïbi (5.2.1): for Sp_{2g} and holomorphic discrete series ρ_k (k_
 *Needs:* [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets); [Endoscopic classification for quasi-split unitary groups (Mok)](#mok-unitary-classification); AutomorphicFormsOnReductiveGroups, Layer AF.1 (discrete series); [The twisted weighted fundamental lemma](#arthur-dependency-gate); [C-ARTHUR](#contract-c-arthur); [C-AUTOMORPHIC](#contract-c-automorphic).
 
 <a id="moeglin-renard-packets"></a>
-### 3.18 Arthur packets of Sp_{2g}(ℝ) containing scalar unitary lowest weight modules (Mœglin–Renard)
+### 3.18 Arthur packets of Sp_{2g}(ℝ) containing scalar unitary highest weight modules (Mœglin–Renard)
 
 Let ψ=ψ_u⊕⊕_j(δ_{t_j}⊠R[a_j]) be an Arthur parameter of Sp_{2g}(ℝ), with ψ_u=⊕_i χ_i⊠R[a′_i], χ_i∈{1,sgn}, a′_i odd, one or three unipotent summands, t_j>0 and t_j+a_j odd. Put a(ψ_u)=max_i a′_i. For 0≤k≤g assume that the infinitesimal character is {k−1,…,k−g,−(k−1),…,−(k−g),0}. The scalar highest-weight module π_g(k) belongs to Π_ψ exactly in either of these cases: (i) dim ψ_u=1, 2k>g+1, and the closed intervals [(t_i−a_i+1)/2,(t_i+a_i−1)/2] are pairwise disjoint; (ii) ψ=(sgn^{(2g+1−a(ψ_u))/2}⊠R[a(ψ_u)])⊕ψ′, where ψ′ is a parameter for the compact even orthogonal group O(0,2g+1−a(ψ_u)), its packet contains a finite-dimensional E_{ψ′}, and the Howe lift of E_{ψ′} is π_g(k). In either case π_g(k) has multiplicity one. The refinement for k≥1 has a(ψ_u)=2(g−k)+1 or 2(g−k)+3 in the theta branch; the latter requires 2k≥g+2. The packet character is a separate assertion of Proposition 18.3, whose formula remains a requested export.
 
-The parameter decomposition and infinitesimal-character condition in the statement. Global uses carry the explicit external classification assumptions; use its actual parameter decomposition and membership inequalities.
+Here π_g(k) uses Mœglin–Renard's highest-weight convention: its generating K-type has highest weight (−k,…,−k). A scalar holomorphic Siegel form with positive lowest K-type (k,…,k) gives the contragredient representation; transport the parameter and packet by contragredience when making that comparison. The local criterion has the parameter decomposition and infinitesimal-character condition above as hypotheses. Global uses also carry the explicit external classification assumptions.
 
 Assume TWFL together with the [trace formula and intertwining inputs](#trace-formula-inputs-register) in the group and parameter scope of this assertion.
 
 State the resulting comparison as `TauCeti.Arthur.moeglinRenard_packet`.
 
-Import the real scalar packet membership criterion and cohomological/theta constructions from the requested real-packet extension of AF.1. Mœglin–Renard Apply Theorem 7.1 with its universal RAESDC premise. Its theta branch requires the compact orthogonal correspondence, which elementary MP.3 does not supply.
+Import the real scalar packet membership criterion and cohomological/theta constructions from the requested real-packet extension of AF.1. Apply Mœglin–Renard Theorems 7.1–7.2 to the local parameter ψ and integer k; these theorems have no global RAESDC hypothesis. The theta branch requires the real compact orthogonal correspondence. MP §3.7's nonarchimedean Howe theorem does not supply this real comparison.
+
+**Checks.**
+
+- For g=1 and k=0, ψ=1⊠R[3] contains the trivial representation π₁(0): the theta branch uses O(0,0), while the first branch fails 2k>g+1.
+- For g=2 and k=2, ψ=1⊕(δ₁⊠R[2]) has infinitesimal character {1,0,0,0,−1}; dim ψ_u=1, 2k=4>3 and the sole interval is [0,1], so the first branch contains π₂(2) with multiplicity one. Here δ₁ is the two-dimensional Weil representation in the source's notation.
+- The same ψ has the infinitesimal character of π₂(1), but does not contain it: 2k=2≤3 excludes the first branch, and a(ψ_u)=1 is neither 2(g−k)+1=3 nor 2(g−k)+3=5. Matching infinitesimal character alone is insufficient.
 
 Used by Chenevier–Taïbi to count level-one Siegel modular forms of small weight.
 
-([Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.2, pp. 303–305 (published); [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.2, case (H), p. 305 (published); [Sur les paquets d’Arthur de Sp(2n,R) contenant des modules unitaires de plus haut poids, scalaires](#ref-moeglin-renard-2018), Theorem 7.1, §7, pp. 18–19; notation §1, pp. 1–3.)
+([Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.2, pp. 303–305 (published); [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.2, case (H), p. 305 (published); [Sur les paquets d’Arthur de Sp(2n,R) contenant des modules unitaires de plus haut poids, scalaires](#ref-moeglin-renard-2018), Theorems 7.1–7.2, §7, p. 19; notation and contragredient convention §1, pp. 1–6.)
 
 *Needs:* [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets); AutomorphicFormsOnReductiveGroups, Layer AF.1 (discrete series); [The twisted weighted fundamental lemma](#arthur-dependency-gate); [C-ARTHUR](#contract-c-arthur).
 
@@ -2403,7 +2410,7 @@ Check the CM decomposition for n = 2 (symmetric-power-lifting test cm_not_cuspid
 <a id="l-function-equidistribution-criterion"></a>
 ### 4.3 Equidistribution from L-functions (Kedlaya Theorem 24.2 and the Weyl criterion)
 
-Let K be a compact group with conjugacy-class space X, x_i ∈ X with norms N(x_i) ≥ 2, such that ∏(1 − N(x_i)^{−s})^{−1} converges for Re s > 1 and continues to a neighbourhood of Re s ≥ 1 with no zeros or poles except a simple pole at 1, and for each irreducible ρ, L(s, ρ) = ∏ det(1 − ρ(x_i)N(x_i)^{−s})^{−1} continues likewise with no zeros or poles on Re s ≥ 1 except possibly at 1. Then #{i : N(x_i) ≤ n} ~ n/log n, Σ_{N(x_i)≤n}χ(x_i) = c(χ)n/log n + o(n/log n) with −c(χ) the order of vanishing of L(s, ρ) at 1; if at most boundedly many x_i share a norm, the x_i are Haar-equidistributed iff c(χ) = 0 for every nontrivial irreducible χ (Peter–Weyl/Weyl criterion).
+Let K be a compact group with conjugacy-class space X, and let x_i ∈ X have integer norms N(x_i) ≥ 2. Assume ∏(1 − N(x_i)^{−s})^{−1} converges absolutely for Re s > 1 and continues to a neighbourhood of Re s ≥ 1 with no zeros or poles except a simple pole at 1, and for each irreducible ρ, L(s, ρ) = ∏ det(1 − ρ(x_i)N(x_i)^{−s})^{−1} converges absolutely for Re s > 1 and continues likewise with no zeros or poles on Re s ≥ 1 except possibly at 1. Then #{i : N(x_i) ≤ n} ~ n/log n and Σ_{N(x_i)≤n}χ(x_i) = c(χ)n/log n + o(n/log n), with −c(χ) the order of vanishing of L(s, ρ) at 1. If at most boundedly many x_i share a norm, enumerate them in nondecreasing order of norm. This ordered sequence is Haar-equidistributed iff c(χ) = 0 for every nontrivial irreducible χ (Peter–Weyl/Weyl criterion). The norm-cutoff asymptotic does not assert equidistribution of every reordering.
 
 K a compact group (a compact Lie group in the application); ρ irreducible continuous representations.
 
@@ -2411,7 +2418,11 @@ State the resulting comparison as `TauCeti.SymmetricPower.equidistributed_of_lFu
 
 Prime-number-theorem argument for each L(s, ρ): logarithmic derivative, Wiener–Ikehara (AnalyticNumberTheory AN.2), Kedlaya Theorem 24.2. Peter–Weyl: finite linear combinations of irreducible characters are dense in the continuous class functions; orthogonality gives the integrals.
 
-Check the Chebotarev instance: K finite, ρ irreducible, recovering Kedlaya §22.5.
+**Checks.**
+
+- For the trivial character, the simple pole has c(1)=1 and recovers the counting asymptotic n/log n, rather than zero.
+- For K=C₂, the nontrivial character takes values +1 and −1. Its c(χ)=0 forces each class to have asymptotic proportion 1/2, recovering the Chebotarev instance of Kedlaya §22.5.
+- If at most M terms share a norm, cutting a norm-ordered sequence partway through a tie changes a character sum by at most M·dim ρ. After division by the number of terms this tends to zero. An arbitrary reordering has no such bound, so the norm-order hypothesis is essential for this deduction.
 
 ([Notes on analytic number theory](#ref-kedlaya-ant-2025), §§24.1–24.3, Theorem 24.1, Theorem 24.2 and Conjecture 24.3, printed pp. 133–134.)
 
@@ -2652,7 +2663,7 @@ State the resulting comparison as `TauCeti.SymmetricPower.cg18_satoTate`.
 
 Potential automorphy of all symmetric powers ([Conditional potential modularity of odd symmetric powers of elliptic curves (Calegari–Geraghty §10)](#cg18-odd-symmetric-powers) with the tensor product trick and [Conditional potential modularity of elliptic curves over arbitrary number fields (Calegari–Geraghty, Theorem 1.1(1))](#cg18-conditional-potential-modularity)) and the equidistribution criterion ([Equidistribution from L-functions (Kedlaya Theorem 24.2 and the Weyl criterion)](#l-function-equidistribution-criterion)) with Brauer induction.
 
-Not unconditional: potential automorphy alone does not prove equidistribution without the analytic step (acceptance of Layer 4).
+The conclusion requires Conjecture B and the analytic continuation and nonvanishing used by the equidistribution criterion.
 
 ([Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), Theorem 1.1(2), §1, p. 3 (arXiv v2) = Invent. p. 300; reduction in §10, p. 97 (arXiv v2) = Invent. p. 428.)
 
@@ -2663,7 +2674,7 @@ Not unconditional: potential automorphy alone does not prove equidistribution wi
 
 Let π be a regular algebraic, cuspidal, non-CM automorphic representation of GL₂(𝔸_ℚ). Then for every n ≥ 1, Sym^nπ exists as a regular algebraic cuspidal automorphic representation of GL_{n+1}(𝔸_ℚ). In particular (Corollary B), for every elliptic curve E/ℚ without CM and n ≥ 2, Λ(Sym^nE, s) is entire.
 
-π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.
+π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 1. The n=1 case is π itself; Corollary B is quoted in its stated range n ≥ 2.
 
 State the resulting comparison as `TauCeti.SymmetricPower.symPower_nonCM`.
 
@@ -3145,6 +3156,9 @@ Siegel modularity and abelian-surface modularity consume the classical packet, d
 
 <a id="ref-arthur-2013"></a>
 - James Arthur. [The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf). Book manuscript (pdfTeX, dated 30 May 2011, 535 pp.) formerly posted at claymath.org/cw/arthur/pdf/Book.pdf; published as AMS Colloquium Publications 61 (2013). Wayback Machine snapshot of 11 May 2012.
+
+<a id="ref-arthur-clozel-1989"></a>
+- James Arthur and Laurent Clozel. [Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf). Annals of Mathematics Studies 120 (1989). Author archive at Clay; Chapter III, §6, pp. 214–219, supplies cyclic automorphic induction and its cuspidality criterion.
 
 <a id="ref-bcg-2025"></a>
 - George Boxer, Frank Calegari, Toby Gee. [Cuspidal cohomology classes for GL_n(Z)](https://arxiv.org/pdf/2309.15944v3). arXiv:2309.15944v3 (12 Sep 2024); published J. Amer. Math. Soc. 38 (2025)
