@@ -1,8 +1,8 @@
 # Explicit K₂: symbols, residues and reciprocity — blueprint (part from T.3)
 
-Blueprint packet for the roadmap `K2SymbolsBrauer`, stages T.3 to T.7 with their sub-stages (`research/blueprint/packets/K2SymbolsBrauer--T.3.json`). Written for job `BP-K2SymbolsBrauer--T.3`, issue #762, by Claude Code, session `cc-7b31c4`, 24 September 2026, and revised by its independent review (`REV-K2SymbolsBrauer--T.3`, session `cc-38267a`). Revised again for `FIX-RT-AREA-ktheory-1` (issue #3979) by Claude Code, session `cc-c2c06b`, 30 September 2026, applying findings 8, 9 (the T.5 part), 12, 26, 27, 28 and 32 of RT-AREA-ktheory-1; the section *Revision for FIX-RT-AREA-ktheory-1* lists what changed. Revised for FIX-RT-BP-K2SymbolsBrauer--T.3 (#5557) by Codex, session codex-a71f92, 1 October 2026. The eight affected node sections and the already-corrected Weil/coordinate comparisons are synchronised with the current packet; the prior area fixes are retained. Revised for FIX-RT-BP-K2SymbolsBrauer--T.3~2 (#5721) by Codex, session codex-DWTl3R, 6 October 2026. The five earlier repairs are retained, and the older review’s five proof/supplier obligations are decomposed below. Nothing here is formalised: every node carries `implementationStatus: "unchecked"`, and the suggested Lean file is signatures only.
+Blueprint packet for the roadmap `K2SymbolsBrauer`, stages T.3 to T.7 with their sub-stages (`research/blueprint/packets/K2SymbolsBrauer--T.3.json`). Written for job `BP-K2SymbolsBrauer--T.3`, issue #762, by Claude Code, session `cc-7b31c4`, 24 September 2026, and revised by its independent review (`REV-K2SymbolsBrauer--T.3`, session `cc-38267a`). Revised again for `FIX-RT-AREA-ktheory-1` (issue #3979) by Claude Code, session `cc-c2c06b`, 30 September 2026, applying findings 8, 9 (the T.5 part), 12, 26, 27, 28 and 32 of RT-AREA-ktheory-1; the section *Revision for FIX-RT-AREA-ktheory-1* lists what changed. Revised for FIX-RT-BP-K2SymbolsBrauer--T.3 (#5557) by Codex, session codex-a71f92, 1 October 2026. The eight affected node sections and the already-corrected Weil/coordinate comparisons are synchronised with the current packet; the prior area fixes are retained. Revised for FIX-RT-BP-K2SymbolsBrauer--T.3~2 (#5721) by Codex, session codex-DWTl3R, 6 October 2026. The five earlier repairs are retained, and the older review’s five proof/supplier obligations are decomposed below. Revised for FIX-RT-BP-K2SymbolsBrauer--T.3~3 (#6981) by Codex, session codex-HMufFk, 17 October 2026: the remaining generic complete-DVR supplier gap is routed through the concrete Part II brief below. Nothing here is formalised: every node carries `implementationStatus: "unchecked"`, and the suggested Lean file contains native statements and light definitions, with unavailable K-theory interfaces recorded as README targets.
 
-**Sources.** Weibel’s author-hosted *K-book* (29 August 2013) and the previously recorded chapter files and errata are retained. Revision 2 reads Gille–Szamuely’s *Central Simple Algebras and Galois Cohomology* (first edition 2006), Milnor’s *Introduction to Algebraic K-Theory* (1971, institutional DjVu scan), Milne’s *Class Field Theory* (v4.03), Soulé’s author-hosted typed June 1978 thesis, and Stacks tags 032N/032O/032L. URLs, hashes and exact sections appear in the packet and the revision report. The thesis numbering is not attributed to the 1979 article, which was not read. The local normalization is proved directly from Milne’s cup/Artin calculation; no unread Serre citation supplies it. The remaining Dennis–Stein completeness and Keune–Loday comparison proofs were not obtained.
+**Sources.** Weibel’s author-hosted *K-book* (29 August 2013) and the previously recorded chapter files and errata are retained. Revision 2 reads Gille–Szamuely’s *Central Simple Algebras and Galois Cohomology* (first edition 2006), Milnor’s *Introduction to Algebraic K-Theory* (1971, institutional DjVu scan), Milne’s *Class Field Theory* (v4.03), Soulé’s author-hosted typed June 1978 thesis, and Stacks tags 032N/032O/032L. URLs, hashes and exact sections appear in the packet and the revision report. The thesis numbering is not attributed to the 1979 article, which was not read. The local normalization is proved directly from Milne’s cup/Artin calculation; no unread Serre citation supplies it. Revision 3 also reads Stacks Algebra 10.119.7, 10.121.8, 10.153.4, 10.162.8 and More on Algebra 15.113.1, 15.113.6, 15.116.1, with stable tags and chapter-PDF pages in the Part II brief. All source descriptions are in our own words. The remaining Dennis–Stein completeness and Keune–Loday comparison proofs were not obtained.
 
 **Library baseline.** Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; 82 pinned declarations: the previous 81 and `PresentedGroup`, whose quotient definition and universal property were read at the Mathlib pin. The additional supply is the first-root triviality, actual dual-number carrier and epsilon, the local-hom residue-field map, and ideal multiplication closure. The residue input to the tame symbol is pinned (unit parts for a surjective discrete valuation, residues of units, places of `F(t)` including ∞, finiteness of supports); the symbol of a pair, Milnor K-theory and Quillen's localisation sequence are not. For T.4 the function-field divisor apparatus is pinned (`TauCeti.Divisor.eval`, `principal`, `isUnitAtSupport_iff_disjoint`, `WeierstrassCurve.Affine.isFunctionField`), and the separable and purely inseparable finiteness statements are pinned. AlgebraicCurves Layer 2 owns their mixed-extension assembly; the pure-first normal-hull proof is included in its exact request. For T.7 the Kummer map and the (1,1) cup product are pinned and the twice-twisted coefficient module is not.
 
@@ -16,7 +16,7 @@ Blueprint packet for the roadmap `K2SymbolsBrauer`, stages T.3 to T.7 with their
 | `K2SymbolsBrauer:T.7` | 8 | 1 | partial |
 | `K2SymbolsBrauer:T.3` (umbrella) | 0 | 0 | partial |
 
-In total: 68 nodes (1 application, 6 comparison, 9 construction, 5 definition, 25 lemma, 22 theorem), 124 API items, 77 unit tests, 15 planets, 32 requests and 4 gaps. A node’s layer is its parent stage; where a node realises a different stage, its section says so.
+In total: 68 nodes (1 application, 6 comparison, 9 construction, 5 definition, 25 lemma, 22 theorem), 124 API items, 80 unit tests, 15 planets, 32 requests and 6 gaps. A node’s layer is its parent stage; where a node realises a different stage, its section says so.
 
 ## T.3:symbols — The tame symbol, and the Milnor residue theory
 
@@ -46,23 +46,26 @@ Let v be a discrete valuation on the field F, taken as a surjective valuation v 
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `tameSymbol` | constructor | For a surjective v : F → ℤᵐ⁰ and f, g ∈ F^×, tameSymbol v f g := (−1)^{ord f·ord g}·res(u_f)^{ord g}·res(u_g)^{−ord f} ∈ k_v^×, with unit parts taken against a uniformiser fixed by choice. |
-| `tameSymbol_eq_residue` | characterisation | tameSymbol v f g = (−1)^{ord f·ord g}·res(f^{ord g}·g^{−ord f}), the element f^{ord g}g^{−ord f} lying in R^× (node T.3/tame-symbol-uniformizer-independence). |
-| `tameSymbol_unit_uniformizer` | simp | If ord u = 0 and ord t = 1 then tameSymbol v u t = res u. |
-| `tameSymbol_uniformizer_unit` | simp | If ord u = 0 and ord t = 1 then tameSymbol v t u = (res u)^{−1}. |
-| `tameSymbol_of_ord_eq_zero` | simp | If ord f = ord g = 0 then tameSymbol v f g = 1. |
-| `tameSymbol_swap` | relation | tameSymbol v g f = (tameSymbol v f g)^{−1}. |
-| `tameSymbol_self` | relation | tameSymbol v f f = (−1)^{ord f}. |
-| `tameSymbol_neg_self` | relation | tameSymbol v f (−f) = 1. |
-| `tameSymbol_kbook` | compatibility | The K-book's ∂_v({r,s}) of Lemma III.6.3 is tameSymbol v s r = (tameSymbol v r s)^{−1}. |
-| `tameSymbol_dvr` | compatibility | For a DVR R with fraction field F and irreducible ϖ, writing f = u_f·ϖ^{n_f}, tameSymbol (the valuation of R) f g = (−1)^{n_f n_g}·ū_f^{n_g}·ū_g^{−n_f}. |
-| `tameSymbol_place` | compatibility | For a place P of a function field, a uniformiser t at P and f with P.ord f = 0: tameSymbol P f t = Place.residueUnit P f. |
-| `TauCeti.TameSymbol.valuationSubringMap` | functoriality | For a field embedding F → E and discrete valuations with ord_w(f(r)) = e·ord_v(r), e ∈ ℕ, the restricted ring map 𝒪_v →+* 𝒪_w is defined without a finiteness assumption. |
-| `TauCeti.TameSymbol.residueFieldMap` | functoriality | For the same embedding, require he : 0 < e. The valuation-ring map is local, since ord_w(f(r)) > 0 iff ord_v(r) > 0 for r ≠ 0, and IsLocalRing.ResidueField.map yields k_v →+* k_w. No finite-dimensionality assumption is used. |
+- `tameSymbol` (constructor) — For a surjective v : F → ℤᵐ⁰ and f, g ∈ F^×, tameSymbol v f g := (−1)^{ord f·ord g}·res(u_f)^{ord g}·res(u_g)^{−ord f} ∈ k_v^×, with unit parts taken against a uniformiser fixed by choice.
+- `tameSymbol_eq_residue` (characterisation) — tameSymbol v f g = (−1)^{ord f·ord g}·res(f^{ord g}·g^{−ord f}), the element f^{ord g}g^{−ord f} lying in R^× (node T.3/tame-symbol-uniformizer-independence).
+- `tameSymbol_unit_uniformizer` (simp) — If ord u = 0 and ord t = 1 then tameSymbol v u t = res u.
+- `tameSymbol_uniformizer_unit` (simp) — If ord u = 0 and ord t = 1 then tameSymbol v t u = (res u)^{−1}.
+- `tameSymbol_of_ord_eq_zero` (simp) — If ord f = ord g = 0 then tameSymbol v f g = 1.
+- `tameSymbol_swap` (relation) — tameSymbol v g f = (tameSymbol v f g)^{−1}.
+- `tameSymbol_self` (relation) — tameSymbol v f f = (−1)^{ord f}.
+- `tameSymbol_neg_self` (relation) — tameSymbol v f (−f) = 1.
+- `tameSymbol_kbook` (compatibility) — The K-book's ∂_v({r,s}) of Lemma III.6.3 is tameSymbol v s r = (tameSymbol v r s)^{−1}.
+- `tameSymbol_dvr` (compatibility) — For a DVR R with fraction field F and irreducible ϖ, writing f = u_f·ϖ^{n_f}, tameSymbol (the valuation of R) f g = (−1)^{n_f n_g}·ū_f^{n_g}·ū_g^{−n_f}.
+- `tameSymbol_place` (compatibility) — For a place P of a function field, a uniformiser t at P and f with P.ord f = 0: tameSymbol P f t = Place.residueUnit P f.
+- `TauCeti.TameSymbol.valuationSubringMap` (functoriality) — For a field embedding F → E and discrete valuations with ord_w(f(r)) = e·ord_v(r), e ∈ ℕ, the restricted ring map 𝒪_v →+* 𝒪_w is defined without a finiteness assumption.
+- `TauCeti.TameSymbol.residueFieldMap` (functoriality) — For the same embedding, require he : 0 < e. The valuation-ring map is local, since ord_w(f(r)) > 0 iff ord_v(r) > 0 for r ≠ 0, and IsLocalRing.ResidueField.map yields k_v →+* k_w. No finite-dimensionality assumption is used.
 
-**Used by.** *T.3/tame-symbol-hom*: the homomorphism out of K^M_2(F) and K_2(F) is induced by this pairing *T.4's reciprocity*: the reciprocity product is over the tame symbols at the closed points *T.5's tame kernel*: the unramified subgroup is cut out by the vanishing of these symbols *T.3/localization-boundary*: the localisation boundary is this symbol with its arguments swapped, i.e. its inverse
+**Used by.**
+
+- T.3/tame-symbol-hom — the homomorphism out of K^M_2(F) and K_2(F) is induced by this pairing
+- T.4's reciprocity — the reciprocity product is over the tame symbols at the closed points
+- T.5's tame kernel — the unramified subgroup is cut out by the vanishing of these symbols
+- T.3/localization-boundary — the localisation boundary is this symbol with its arguments swapped, i.e. its inverse
 
 **Unit tests.**
 
@@ -80,9 +83,9 @@ Let v be a discrete valuation on the field F, taken as a surjective valuation v 
 - On ℚ with the 5-adic valuation and t = 5: ∂{2,5} = 2, ∂{5,2} = 3, ∂{5,5} = −1 = 4 and ∂{10,5} = 3 in F_5^×. Lemma III.6.3's formula gives ∂_5(5,2) = 2, so the two conventions differ at (5,2).
 - The residue map is applied only to the unit parts u_f, u_g ∈ R^×, never to f^{v(g)}/g^{v(f)} regarded as an element of F.
 
-**Depends on.** **baseline** `tauceti:Valuation.ord`, `tauceti:Valuation.exists_isUniformizer_of_surjective`, `tauceti:Valuation.exists_eq_zpow_mul_unit_of_surjective`, `mathlib:ValuationSubring.unitGroupToResidueFieldUnits`, `mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible`, `tauceti:TauCeti.Place.residueUnit`, `mathlib:Units`, `mathlib:IsLocalRing.ResidueField.map`.
+**Depends on.** `tauceti:Valuation.ord`, `tauceti:Valuation.exists_isUniformizer_of_surjective`, `tauceti:Valuation.exists_eq_zpow_mul_unit_of_surjective`, `mathlib:ValuationSubring.unitGroupToResidueFieldUnits`, `mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible`, `tauceti:TauCeti.Place.residueUnit`, `mathlib:Units`, `mathlib:IsLocalRing.ResidueField.map`.
 
-**Source.** Kbook.2013, Lemma III.6.3 (PDF p. 242): “Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} \overline{(s^{v(r)}/r^{v(s)})}. This symbol is called the tame symbol of the valuation v. The tame symbol is onto, because if u ∈ R× then v(u) = 0 and ∂v(π, u) = ū.” — The source's tame symbol, with r, s in the roles of f, g. Its formula is the inverse of the roadmap's (it has s^{v(r)}/r^{v(s)} where the roadmap has f^{v(g)}/g^{v(f)}); this node defines the roadmap's and records the inversion. Surjectivity is proved in T.3/tame-symbol-hom.
+**Source.** `Kbook.2013`, Lemma III.6.3 (PDF p. 242). The source's tame symbol, with r, s in the roles of f, g. Its formula is the inverse of the roadmap's (it has s^{v(r)}/r^{v(s)} where the roadmap has f^{v(g)}/g^{v(f)}); this node defines the roadmap's and records the inversion. Surjectivity is proved in T.3/tame-symbol-hom.
 
 ### `tame-symbol-uniformizer-independence` — Independence from the uniformiser
 
@@ -108,9 +111,9 @@ For f, g ∈ F^× the element f^{ord_v g}·g^{−ord_v f} has order zero, hence 
 - The sign (−1)^{ord f·ord g} depends only on the orders.
 - The residue is taken of a unit of R, as the stage requires.
 
-**Depends on.** **inside this packet** `tame-symbol`; **baseline** `tauceti:Valuation.ord_mul`, `tauceti:Valuation.ord_zpow`, `tauceti:Valuation.isUnit_iff_ord_eq_zero`, `mathlib:ValuationSubring.unitGroupToResidueFieldUnits`.
+**Depends on.** `K2SymbolsBrauer:T.3/tame-symbol`, `tauceti:Valuation.ord_mul`, `tauceti:Valuation.ord_zpow`, `tauceti:Valuation.isUnit_iff_ord_eq_zero`, `mathlib:ValuationSubring.unitGroupToResidueFieldUnits`.
 
-**Source.** Kbook.2013, Lemma III.6.3, proof (PDF p. 242): “Proof. Writing r = u1π^{v1} and s = u2π^{v2} with u1, u2 ∈ R×, we must show that ∂v(r, s) = (−1)^{v1v2} ū2^{v1}/ū1^{v2} is a Steinberg symbol. By inspection, ∂v(r, s) is an element of k×v, and ∂v is bilinear.” — The source computes the symbol through unit parts against one parameter π and never discusses another; the uniformiser-free form of this node is what makes the choice irrelevant. The source's ū2^{v1}/ū1^{v2} is the inverse of the roadmap's ū_f^{ord g}ū_g^{−ord f}.
+**Source.** `Kbook.2013`, Lemma III.6.3, proof (PDF p. 242). The source computes the symbol through unit parts against one parameter π and never discusses another; the uniformiser-free form of this node is what makes the choice irrelevant. The source's ū2^{v1}/ū1^{v2} is the inverse of the roadmap's ū_f^{ord g}ū_g^{−ord f}.
 
 ### `tame-symbol-steinberg` — The tame symbol is bilinear and satisfies the Steinberg relation ★
 
@@ -138,11 +141,11 @@ The pairing ∂_v is bimultiplicative, ∂_v{ff′,g} = ∂_v{f,g}·∂_v{f′,g
 - On ℚ at 5, with r = 1/5 and 1 − r = 4/5 (both of order −1): ∂{1/5, 4/5} = (−1)^{1}·res((1/5)^{−1}·(4/5)^{1}) = −4 = 1 in F_5^×; the formula without the sign factor would give 4.
 - The relation holds in both normalisations, each being the other's inverse.
 
-**Depends on.** **inside this packet** `tame-symbol`, `tame-symbol-uniformizer-independence`; **baseline** `tauceti:Valuation.ord_mul`, `tauceti:Valuation.mem_maximalIdeal_iff_ord_pos`, `tauceti:Valuation.ord_add_eq_min_of_ord_ne`.
+**Depends on.** `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence`, `tauceti:Valuation.ord_mul`, `tauceti:Valuation.mem_maximalIdeal_iff_ord_pos`, `tauceti:Valuation.ord_add_eq_min_of_ord_ne`.
 
-**Source.** Kbook.2013, Lemma III.6.3, proof (PDF p. 242): “To see that ∂v(r, s) = 1 when r + s = 1 we consider several cases. If v1 > 0 then r is in the maximal ideal, so s = 1 − r is a unit and ∂v(r, s) = s̄^{v1} = 1. The proof when v2 > 0 is the same, and the case v1 = v2 = 0 is trivial.” — The first three cases. In the roadmap's normalisation the value in the case v1 > 0 is s̄^{−v1}, the inverse of the source's.
+**Source.** `Kbook.2013`, Lemma III.6.3, proof (PDF p. 242). The first three cases. In the roadmap's normalisation the value in the case v1 > 0 is s̄^{−v1}, the inverse of the source's.
 
-**Source.** Kbook.2013, Lemma III.6.3, proof (PDF p. 242): “If v1 < 0 then v(1/r) > 0 and (1−r)/r = −1 + 1/r is congruent to −1 (mod π). Since v(r) = v(1 − r), we have ∂v(r, 1 − r) = (−1)^{v1} ((1 − r)/r)^{v1} = (−1)^{v1}(−1)^{v1} = 1.” — The case of negative valuation, where the two orders agree and the sign cancels the residue −1.
+**Source.** `Kbook.2013`, Lemma III.6.3, proof (PDF p. 242). The case of negative valuation, where the two orders agree and the sign cancels the residue −1.
 
 ### `ramification-formula` — Behaviour under a valued field embedding: the ramification formula
 
@@ -170,21 +173,21 @@ Let F → E be any field embedding, v and w normalised surjective discrete valua
 - The formula concerns classes from F; for classes of E the relevant statement is the norm–residue formula (T.3/transfer-and-norm-residue).
 - Infinite example: ℚ → ℚ(u), v the 5-adic valuation and w its Gauss extension (minimum coefficient order), e = 1, k_w = F_5(u): ∂_w{2,5} = 2. The map with w the u-adic valuation instead has trivial restriction and is not this positive-e case.
 
-**Depends on.** **inside this packet** `tame-symbol-uniformizer-independence`, `tame-symbol-hom`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `tauceti:Valuation.ord`.
+**Depends on.** `K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence`, `K2SymbolsBrauer:T.3/tame-symbol-hom`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `tauceti:Valuation.ord`.
 
-**Source.** Kbook.2013, Remark III.6.3.1 (PDF p. 242): “Remark 6.3.1 (Ramification). Suppose that E is a finite extension of F, and that w is a valuation on E over the valuation v on F. Then there is an integer e, called the ramification index, such that w(r) = e · v(r) for every r ∈ F.” — The ramification index. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source.
+**Source.** `Kbook.2013`, Remark III.6.3.1 (PDF p. 242). The ramification index. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source.
 
-**Source.** Kbook.2013, Remark III.6.3.1 (PDF p. 242): “The natural map K2(F) → K2(E) is compatible with the tame symbols in the sense that for every r1, r2 ∈ F× we have ∂w(r1, r2) = ∂v(r1, r2)^e in k×w.” — The formula, stated in the source's normalisation; inverting both sides gives it in the roadmap's. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source.
+**Source.** `Kbook.2013`, Remark III.6.3.1 (PDF p. 242). The formula, stated in the source's normalisation; inverting both sides gives it in the roadmap's. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source.
 
-**Source.** Kbook.2013, Remark III.6.3.1, continued (PDF p. 243): “We say that S is unramified over R if the ramification indices e1, ..., en are all 1; in this case the diagonal inclusion ∆: k×v ↪ ∏i k×wi is compatible with the tame symbols in the sense that ∆∂v(r1, r2) is the product of the ∂wi(r1, r2).” — The unramified refinement.
+**Source.** `Kbook.2013`, Remark III.6.3.1, continued (PDF p. 243). The unramified refinement.
 
 ### `finite-support` — Finite support of the residues
 
 *lemma*
 
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
-
 Let V be a set of discrete valuations on F such that every f ∈ F^× has ord_v f ≠ 0 for only finitely many v ∈ V — for instance the places of a function field, or the height-one primes of a Dedekind domain with fraction field F. Then for x ∈ K^M_n(F) (n ≥ 1) written as a finite sum of symbols {f_{j,1}, …, f_{j,n}}, ∂_v(x) = 0 for every v ∈ V outside the finite union of the sets {v : ord_v f_{j,i} ≠ 0}. In degree two this is the statement for tameSymbolHom; in particular tameSymbol v f g = 1 whenever ord_v f = ord_v g = 0.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -204,19 +207,19 @@ Let V be a set of discrete valuations on F such that every f ∈ F^× has ord_v 
 - For units of a Dedekind domain R (order zero everywhere) the symbols are trivial at every height-one prime.
 - This is what makes the maps into the direct sums of Theorem III.6.5 and Theorem III.7.4 well defined.
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `tame-symbol-hom`; **baseline** `tauceti:TauCeti.Place.finite_setOf_ord_ne_zero`, `mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/tame-symbol-hom`, `tauceti:TauCeti.Place.finite_setOf_ord_ne_zero`, `mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite`.
 
-**Source.** Kbook.2013, Localization Theorem III.6.5 (PDF p. 244): “Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1” — The sum of the tame symbols lands in the coproduct over the primes; that presupposes the finite support this node proves.
+**Source.** `Kbook.2013`, Localization Theorem III.6.5 (PDF p. 244). The sum of the tame symbols lands in the coproduct over the primes; that presupposes the finite support this node proves.
 
-**Source.** Kbook.2013, Theorem III.7.4 (PDF p. 255): “Theorem 7.4. (Milnor) There is a split exact sequence for each n, natural in the field F, and split by the map λ: 0 → KMn(F) → KMn F(t) −∂=∐∂p→ ∐p KMn−1(F[t]/p) → 0.” — The same presupposition for the higher residues, in every degree.
+**Source.** `Kbook.2013`, Theorem III.7.4 (PDF p. 255). The same presupposition for the higher residues, in every degree.
 
 ### `higher-milnor-residues` — Higher tame symbols and specialisation maps ★
 
 *construction* · planet **Higher tame symbols and specialisation maps**
 
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
-
 For a surjective discrete valuation v on F with uniformiser t and residue field k, the homomorphism d_t of T.3/serre-map-steinberg extends uniquely to a graded ring homomorphism d_t : K^M_*(F) → L(k). Writing d_t(x) = λ_t(x) + ∂_v(x)·Π with Π on the right defines the specialisation λ_t : K^M_n(F) → K^M_n(k), a graded ring homomorphism depending on t, and the higher residue ∂_v : K^M_n(F) → K^M_{n−1}(k). On symbols, λ_t{u_1t^{i_1}, …, u_nt^{i_n}} = {ū_1, …, ū_n}, ∂_v{u_1, …, u_{n−1}, t} = {ū_1, …, ū_{n−1}} and ∂_v{u_1, …, u_n} = 0; in degree one ∂_v{f} = ord_v f, and in degree two ∂_v = tameSymbolHom of T.3/tame-symbol-hom, with no inversion. Both maps are surjective. Theorem III.7.3 reads off the coefficient with Π on the left, ∂^{Wb}{t, u_2, …, u_n} = {ū_2, …, ū_n}; since Π·y = (−1)^{n−1}y·Π for y ∈ K^M_{n−1}(k), ∂^{Wb} = (−1)^{n−1}·∂_v on K^M_n(F): the two agree in odd degree and differ by a sign in even degree, and in degree two ∂^{Wb} is the K-book's tame symbol, the inverse of T.3's.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -233,24 +236,27 @@ For a surjective discrete valuation v on F with uniformiser t and residue field 
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `serreMap` | constructor | The graded ring homomorphism d_t : K^M_*(F) → L(k) with d_t{f} = {ū_f} + ord(f)·Π. |
-| `milnorResidue` | constructor | ∂_v : K^M_n(F) → K^M_{n−1}(k), the Π-coefficient of d_t with Π on the right. |
-| `milnorSpecialisation` | constructor | λ_t : K^M_n(F) → K^M_n(k), the Π-free part of d_t. |
-| `milnorResidue_symbol_units_uniformizer` | simp | ∂_v{u_1, …, u_{n−1}, t} = {ū_1, …, ū_{n−1}}. |
-| `milnorResidue_symbol_units` | simp | ∂_v{u_1, …, u_n} = 0 for units u_i. |
-| `milnorSpecialisation_symbol` | simp | λ_t{u_1t^{i_1}, …, u_nt^{i_n}} = {ū_1, …, ū_n}. |
-| `milnorSpecialisation_mul` | structure | λ_t is a graded ring homomorphism. |
-| `milnorResidue_one` | compatibility | In degree one ∂_v{f} = ord_v f. |
-| `milnorResidue_two` | compatibility | In degree two ∂_v = tameSymbolHom v. |
-| `milnorResidue_kbook` | compatibility | Theorem III.7.3's residue equals (−1)^{n−1}·∂_v on K^M_n(F). |
-| `milnorResidue_surjective` | characterisation | ∂_v is onto. |
-| `milnorSpecialisation_surjective` | characterisation | λ_t is onto. |
-| `milnorResidue_indep` | characterisation | ∂_v does not depend on t (T.3/specialisation-change-of-uniformiser). |
-| `milnorResidue_mul` | relation | The product formula (T.3/milnor-residue-product-formula). |
+- `serreMap` (constructor) — The graded ring homomorphism d_t : K^M_*(F) → L(k) with d_t{f} = {ū_f} + ord(f)·Π.
+- `milnorResidue` (constructor) — ∂_v : K^M_n(F) → K^M_{n−1}(k), the Π-coefficient of d_t with Π on the right.
+- `milnorSpecialisation` (constructor) — λ_t : K^M_n(F) → K^M_n(k), the Π-free part of d_t.
+- `milnorResidue_symbol_units_uniformizer` (simp) — ∂_v{u_1, …, u_{n−1}, t} = {ū_1, …, ū_{n−1}}.
+- `milnorResidue_symbol_units` (simp) — ∂_v{u_1, …, u_n} = 0 for units u_i.
+- `milnorSpecialisation_symbol` (simp) — λ_t{u_1t^{i_1}, …, u_nt^{i_n}} = {ū_1, …, ū_n}.
+- `milnorSpecialisation_mul` (structure) — λ_t is a graded ring homomorphism.
+- `milnorResidue_one` (compatibility) — In degree one ∂_v{f} = ord_v f.
+- `milnorResidue_two` (compatibility) — In degree two ∂_v = tameSymbolHom v.
+- `milnorResidue_kbook` (compatibility) — Theorem III.7.3's residue equals (−1)^{n−1}·∂_v on K^M_n(F).
+- `milnorResidue_surjective` (characterisation) — ∂_v is onto.
+- `milnorSpecialisation_surjective` (characterisation) — λ_t is onto.
+- `milnorResidue_indep` (characterisation) — ∂_v does not depend on t (T.3/specialisation-change-of-uniformiser).
+- `milnorResidue_mul` (relation) — The product formula (T.3/milnor-residue-product-formula).
 
-**Used by.** *T.4/bass-tate-sequence*: the sequence is assembled from the residues at the places of the rational function field. *T.4/simple-transfer*: the transfer is defined by −∂_∞ = Σ_p N_p ∂_p. *HigherLocalFieldsAndHigherClassFieldTheory HL.1*: the iterated residues along a residue tower are built from these, with the sign of the position of the parameter recorded. *Polylogarithms P.3*: the residues of the weight-three polylogarithmic complex use the degree-three case.
+**Used by.**
+
+- T.4/bass-tate-sequence — the sequence is assembled from the residues at the places of the rational function field
+- T.4/simple-transfer — the transfer is defined by −∂_∞ = Σ_p N_p ∂_p
+- HigherLocalFieldsAndHigherClassFieldTheory HL.1 — the iterated residues along a residue tower are built from these, with the sign of the position of the parameter recorded
+- Polylogarithms P.3 — the residues of the weight-three polylogarithmic complex use the degree-three case
 
 **Unit tests.**
 
@@ -268,21 +274,21 @@ For a surjective discrete valuation v on F with uniformiser t and residue field 
 - Both maps are onto.
 - For v_∞ on F(t) with uniformiser t^{−1}, λ is the leading-coefficient map of Example III.7.3.2.
 
-**Depends on.** **inside this packet** `serre-residue-algebra`, `serre-map-steinberg`, `tame-symbol-hom`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits`.
+**Depends on.** `K2SymbolsBrauer:T.3/serre-residue-algebra`, `K2SymbolsBrauer:T.3/serre-map-steinberg`, `K2SymbolsBrauer:T.3/tame-symbol-hom`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits`.
 
-**Source.** Kbook.2013, Theorem III.7.3 (PDF p. 254): “Theorem 7.3 (Specialization maps and higher tame symbols). For every discrete valuation v on F, there are two surjections KMn(F) −∂v→ KMn−1(kv) and KMn(F) −λ→ KMn(kv) satisfying the following conditions.” — The two surjections.
+**Source.** `Kbook.2013`, Theorem III.7.3 (PDF p. 254). The two surjections.
 
-**Source.** Kbook.2013, Theorem III.7.3 (PDF p. 254): “If ui ∈ R×, and ūi denotes the image of ui in kv = R/(π) then λ{u1π^{i1}, . . . , unπ^{in}} = {ū1, . . . , ūn}, ∂v{π, u2, . . . , un} = {ū2, . . . , ūn}. In particular, ∂v : KM2(F) → k×v is the tame symbol of Lemma 6.3” — The formulas on symbols in the source's normalisation (Π on the left); the roadmap's residue is (−1)^{n−1} times it, and equals T.3's tame symbol in degree two.
+**Source.** `Kbook.2013`, Theorem III.7.3 (PDF p. 254). The formulas on symbols in the source's normalisation (Π on the left); the roadmap's residue is (−1)^{n−1} times it, and equals T.3's tame symbol in degree two.
 
-**Source.** Kbook.2013, Theorem III.7.3, proof (PDF p. 254): “If so, the presentation of KM∗(F) shows that d extends to a graded ring homomorphism d: KM∗(F) → L. Since Ln is the direct sum of KMn(kv) and KMn−1(kv), we get two maps: λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv).” — The extension of d to K^M_*(F) and the splitting into λ and ∂_v.
+**Source.** `Kbook.2013`, Theorem III.7.3, proof (PDF p. 254). The extension of d to K^M_*(F) and the splitting into λ and ∂_v.
 
 ### `rigidity` — Rigidity for a complete discretely valued field ★
 
 *theorem* · planet **Rigidity**
 
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
-
 Let v be a discrete valuation on F with valuation ring R, uniformiser t and residue field k, and suppose F is complete with respect to v (R is 𝔪-adically complete). For every integer q ≥ 1 prime to char(k) (any q ≥ 1 if char k = 0) and every n ≥ 0, (λ_t, ∂_v) : K^M_n(F)/q → K^M_n(k)/q ⊕ K^M_{n−1}(k)/q is an isomorphism.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -303,15 +309,15 @@ Let v be a discrete valuation on F with valuation ring R, uniformiser t and resi
 - The hypothesis on q is needed: for F = ℚ_p (p odd), n = 1 and q = p, F^×/p ≅ (ℤ/p)² while F_p^×/p ⊕ ℤ/p ≅ ℤ/p.
 - The proof uses only that R is Henselian; the node keeps the source's completeness hypothesis.
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `serre-map-kernel`, `serre-residue-algebra`; **baseline** `tauceti:TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem`, `mathlib:HenselianRing`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/serre-map-kernel`, `K2SymbolsBrauer:T.3/serre-residue-algebra`, `tauceti:TauCeti.HenselianRing.exists_pow_eq_and_sub_one_mem_of_sub_one_mem`, `mathlib:HenselianRing`.
 
-**Source.** Kbook.2013, Corollary III.7.3.1 (PDF p. 254): “Corollary 7.3.1 (Rigidity). Suppose that F is complete with respect to the valuation v, with residue field k = kv. For every integer q prime to char(k), the maps λ ⊕ ∂v : KMn(F)/q → KMn(k)/q ⊕ KMn−1(k)/q are isomorphisms for all n.” — The corollary, with the source's hypotheses.
+**Source.** `Kbook.2013`, Corollary III.7.3.1 (PDF p. 254). The corollary, with the source's hypotheses.
 
-**Source.** Kbook.2013, Corollary III.7.3.1, proof (PDF p. 255): “Proof. Since the valuation ring R is complete, Hensel’s Lemma implies that the group 1 + πR is q-divisible. It follows that l(1 + πR) · KMn−1(F) is also q-divisible. But by Ex. 7.2 this is the kernel of the map d: KMn(F) → Ln ≅ KMn(kv) ⊕ KMn−1(kv).” — The proof: Hensel's lemma and the kernel of d (Ex. III.7.2, node T.3/serre-map-kernel).
+**Source.** `Kbook.2013`, Corollary III.7.3.1, proof (PDF p. 255). The proof: Hensel's lemma and the kernel of d (Ex. III.7.2, node T.3/serre-map-kernel).
 
 ### `tame-symbol-hom` — The tame symbol as a homomorphism out of K₂
 
-*construction* · added by `REV-K2SymbolsBrauer--T.3`
+*construction*
 
 The pairing ∂_v of T.3/tame-symbol-steinberg induces a group homomorphism ∂_v : K^M_2(F) → k^× (source written additively) with ∂_v{f,g} = tameSymbol v f g, and, through Matsumoto's isomorphism K^M_2(F) ≅ K_2(F), a homomorphism K_2(F) → k^× with the same value on Steinberg symbols. It is surjective: ∂_v{ũ, t} = u for any lift ũ ∈ R^× of u ∈ k^×.
 
@@ -327,16 +333,18 @@ The pairing ∂_v of T.3/tame-symbol-steinberg induces a group homomorphism ∂_
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `tameSymbolHom` | constructor | The homomorphism K^M_2(F) →+ Additive k^× induced by tameSymbol v. |
-| `tameSymbolHom_symbol` | simp | tameSymbolHom v {f, g} = tameSymbol v f g. |
-| `tameSymbolHom_surjective` | characterisation | tameSymbolHom v is surjective. |
-| `tameSymbolHomK2` | compatibility | The homomorphism K_2(F) → k^× obtained through Matsumoto's isomorphism, with the same value on Steinberg symbols. |
-| `tameSymbolHom_symbol_units` | simp | tameSymbolHom v {u, w} = 0 (the trivial unit) for u, w ∈ R^×. |
-| `tameSymbolHom_kbook` | compatibility | The K-book's ∂_v on K_2(F) equals −tameSymbolHom v (additively). |
+- `tameSymbolHom` (constructor) — The homomorphism K^M_2(F) →+ Additive k^× induced by tameSymbol v.
+- `tameSymbolHom_symbol` (simp) — tameSymbolHom v {f, g} = tameSymbol v f g.
+- `tameSymbolHom_surjective` (characterisation) — tameSymbolHom v is surjective.
+- `tameSymbolHomK2` (compatibility) — The homomorphism K_2(F) → k^× obtained through Matsumoto's isomorphism, with the same value on Steinberg symbols.
+- `tameSymbolHom_symbol_units` (simp) — tameSymbolHom v {u, w} = 0 (the trivial unit) for u, w ∈ R^×.
+- `tameSymbolHom_kbook` (compatibility) — The K-book's ∂_v on K_2(F) equals −tameSymbolHom v (additively).
 
-**Used by.** *T.5/unramified-subgroup*: the unramified subgroup of K_2(F) is the intersection of the kernels of these homomorphisms at the finite places. *T.3/localization-boundary*: the localisation boundary is compared with this homomorphism. *T.3/higher-milnor-residues*: in degree two the higher residue equals this homomorphism.
+**Used by.**
+
+- T.5/unramified-subgroup — the unramified subgroup of K_2(F) is the intersection of the kernels of these homomorphisms at the finite places
+- T.3/localization-boundary — the localisation boundary is compared with this homomorphism
+- T.3/higher-milnor-residues — in degree two the higher residue equals this homomorphism
 
 **Unit tests.**
 
@@ -352,19 +360,19 @@ The pairing ∂_v of T.3/tame-symbol-steinberg induces a group homomorphism ∂_
 - It vanishes on symbols of two units, so on the image of symbols from R^× ⊗ R^×.
 - The K-book's tame symbol on K_2(F) is ∂_v composed with the swap {f,g} ↦ {g,f}, i.e. −∂_v in additive notation.
 
-**Depends on.** **inside this packet** `tame-symbol-steinberg`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/matsumoto`; **baseline** `mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits`.
+**Depends on.** `K2SymbolsBrauer:T.3/tame-symbol-steinberg`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/matsumoto`, `mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits`.
 
-**Source.** Kbook.2013, Lemma III.6.3 (PDF p. 242): “Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} \overline{(s^{v(r)}/r^{v(s)})}. This symbol is called the tame symbol of the valuation v. The tame symbol is onto, because if u ∈ R× then v(u) = 0 and ∂v(π, u) = ū.” — The source's Steinberg symbol K_2(F) → k_v^× and its surjectivity; the value ∂_v(π, u) = ū is the source's normalisation, whose roadmap counterpart is ∂_v{ũ, t} = u.
+**Source.** `Kbook.2013`, Lemma III.6.3 (PDF p. 242). The source's Steinberg symbol K_2(F) → k_v^× and its surjectivity; the value ∂_v(π, u) = ū is the source's normalisation, whose roadmap counterpart is ∂_v{ũ, t} = u.
 
-**Source.** Kbook.2013, III.7.1 (PDF p. 253): “By Matsumoto’s Theorem 6.1 we also have KM2(F) = K2(F), the elements {x, y} being the usual Steinberg symbols, except that the group operation in KM2(F) is written additively.” — The identification K^M_2(F) = K_2(F) through which the homomorphism is transported.
+**Source.** `Kbook.2013`, III.7.1 (PDF p. 253). The identification K^M_2(F) = K_2(F) through which the homomorphism is transported.
 
 ### `serre-residue-algebra` — Serre's algebra L(k) with the indeterminate Π
 
-*construction* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
+*construction*
 
 For a field k let L(k) be the graded abelian group with L(k)_n = K^M_n(k) ⊕ K^M_{n−1}(k), the second summand written b·Π, with multiplication (a + bΠ)(c + dΠ) = ac + (ad + (−1)^{|c|}bc + (−1)^{|d|}bd·{−1})Π for homogeneous a, b, c, d. It is an associative, unital, graded-commutative ring (xy = (−1)^{|x||y|}yx), containing K^M_*(k) as the subring b = 0, and Π = (0, 1) ∈ L(k)_1 satisfies Π·Π = {−1}·Π and Π·{c} = −{c}·Π. The maps a + bΠ ↦ a (the λ-part) and a + bΠ ↦ a + b{−1} (the ρ-part) are graded ring homomorphisms L(k) → K^M_*(k), and for c ∈ k^× the assignment Π ↦ Π − {c} extends to a graded ring automorphism σ_c of L(k) over K^M_*(k). This is the 'graded K^M_*(k_v)-algebra generated by an indeterminate Π in L1, with the relation {Π, Π} = {−1, Π}' of the source, made explicit.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -379,22 +387,25 @@ For a field k let L(k) be the graded abelian group with L(k)_n = K^M_n(k) ⊕ K^
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `serreAlgebra` | data | The graded ring L(k) with L(k)_n = K^M_n(k) × K^M_{n−1}(k). |
-| `serreAlgebra.Π` | constructor | The element Π = (0, 1) of degree one. |
-| `serreAlgebra.of` | constructor | The graded ring embedding K^M_*(k) → L(k), a ↦ (a, 0). |
-| `serreAlgebra.mul_def` | simp | (a + bΠ)(c + dΠ) = ac + (ad + (−1)^{\|c\|}bc + (−1)^{\|d\|}bd{−1})Π. |
-| `serreAlgebra.Π_mul_Π` | simp | Π·Π = {−1}·Π. |
-| `serreAlgebra.Π_mul` | relation | Π·x = (−1)^{\|x\|}·x·Π for x ∈ K^M_*(k). |
-| `serreAlgebra.gradedComm` | structure | L(k) is graded-commutative. |
-| `serreAlgebra.decompose` | equivalence | L(k)_{n+1} ≃ K^M_{n+1}(k) ⊕ K^M_n(k) for n ≥ 0, and L(k)_0 = K^M_0(k). |
-| `serreAlgebra.lambdaHom` | projection | The graded ring homomorphism L(k) → K^M_*(k), a + bΠ ↦ a. |
-| `serreAlgebra.rhoHom` | projection | The graded ring homomorphism L(k) → K^M_*(k), a + bΠ ↦ a + b·{−1}. |
-| `serreAlgebra.shift` | functoriality | For c ∈ k^×, the graded ring automorphism with Π ↦ Π − {c}; shift c ∘ shift c′ = shift (cc′). |
-| `serreAlgebra.map` | functoriality | A field homomorphism k → k′ induces L(k) → L(k′) fixing Π, with map_id and map_comp. |
+- `serreAlgebra` (data) — The graded ring L(k) with L(k)_n = K^M_n(k) × K^M_{n−1}(k).
+- `serreAlgebra.Π` (constructor) — The element Π = (0, 1) of degree one.
+- `serreAlgebra.of` (constructor) — The graded ring embedding K^M_*(k) → L(k), a ↦ (a, 0).
+- `serreAlgebra.mul_def` (simp) — (a + bΠ)(c + dΠ) = ac + (ad + (−1)^{|c|}bc + (−1)^{|d|}bd{−1})Π.
+- `serreAlgebra.Π_mul_Π` (simp) — Π·Π = {−1}·Π.
+- `serreAlgebra.Π_mul` (relation) — Π·x = (−1)^{|x|}·x·Π for x ∈ K^M_*(k).
+- `serreAlgebra.gradedComm` (structure) — L(k) is graded-commutative.
+- `serreAlgebra.decompose` (equivalence) — L(k)_{n+1} ≃ K^M_{n+1}(k) ⊕ K^M_n(k) for n ≥ 0, and L(k)_0 = K^M_0(k).
+- `serreAlgebra.lambdaHom` (projection) — The graded ring homomorphism L(k) → K^M_*(k), a + bΠ ↦ a.
+- `serreAlgebra.rhoHom` (projection) — The graded ring homomorphism L(k) → K^M_*(k), a + bΠ ↦ a + b·{−1}.
+- `serreAlgebra.shift` (functoriality) — For c ∈ k^×, the graded ring automorphism with Π ↦ Π − {c}; shift c ∘ shift c′ = shift (cc′).
+- `serreAlgebra.map` (functoriality) — A field homomorphism k → k′ induces L(k) → L(k′) fixing Π, with map_id and map_comp.
 
-**Used by.** *T.3/serre-map-steinberg*: the target of the map d. *T.3/higher-milnor-residues*: the residue and specialisation are the two components of d. *T.3/specialisation-change-of-uniformiser*: changing the uniformiser is the automorphism shift. *T.3/milnor-residue-product-formula*: the product formula is the multiplication rule of L(k).
+**Used by.**
+
+- T.3/serre-map-steinberg — the target of the map d
+- T.3/higher-milnor-residues — the residue and specialisation are the two components of d
+- T.3/specialisation-change-of-uniformiser — changing the uniformiser is the automorphism shift
+- T.3/milnor-residue-product-formula — the product formula is the multiplication rule of L(k)
 
 **Unit tests.**
 
@@ -410,19 +421,19 @@ For a field k let L(k) be the graded abelian group with L(k)_n = K^M_n(k) ⊕ K^
 - L(k)_n ≅ K^M_n(k) ⊕ K^M_{n−1}(k) as groups: the source's 'direct sum' is part of the construction, not an assumption.
 - Π·{c} = −{c}·Π, so L(k) is not commutative in the ungraded sense.
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`.
+**Depends on.** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`.
 
-**Source.** Kbook.2013, Theorem III.7.3, proof (PDF p. 254): “Proof. (Serre) Let L denote the graded KM∗(kv)-algebra generated by an indeterminate Π in L1, with the relation {Π, Π} = {−1, Π}. We claim that the group homomorphism d: F× → L1 = l(k×v) ⊕ Z · Π, d(uπ^i) = l(ū) + iΠ satisfies the relation: for r ≠ 0, 1, d(r)d(1 − r) = 0 in L2.” — The algebra L and the map d; this node constructs L explicitly.
+**Source.** `Kbook.2013`, Theorem III.7.3, proof (PDF p. 254). The algebra L and the map d; this node constructs L explicitly.
 
-**Source.** Kbook.2013, Theorem III.7.3, proof (PDF p. 254): “If so, the presentation of KM∗(F) shows that d extends to a graded ring homomorphism d: KM∗(F) → L. Since Ln is the direct sum of KMn(kv) and KMn−1(kv), we get two maps: λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv).” — The direct-sum decomposition of L_n that the construction provides.
+**Source.** `Kbook.2013`, Theorem III.7.3, proof (PDF p. 254). The direct-sum decomposition of L_n that the construction provides.
 
 ### `serre-map-steinberg` — Serre's map kills the Steinberg elements
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
+*lemma*
 
 For a surjective discrete valuation v on F with uniformiser t, the map d_t : F^× → L(k)_1, d_t(u·t^i) = {ū} + i·Π (u ∈ R^×, i ∈ ℤ), is a group homomorphism with d_t(r)·d_t(1 − r) = 0 in L(k)_2 for every r ∈ F \ {0, 1}.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -441,19 +452,19 @@ For a surjective discrete valuation v on F with uniformiser t, the map d_t : F^�
 - The case analysis covers r ∈ R^×, ord r > 0 and r ∉ R, and reduces the last to d(x)d(−x) = 0.
 - With Π² = 0 the last step fails: over F_5, d(5)d(−5) = {−1}Π ≠ 0 (T.3/serre-residue-algebra, non-example).
 
-**Depends on.** **inside this packet** `serre-residue-algebra`, `tame-symbol`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`; **baseline** `tauceti:Valuation.ord_mul`, `tauceti:Valuation.mem_maximalIdeal_iff_ord_pos`.
+**Depends on.** `K2SymbolsBrauer:T.3/serre-residue-algebra`, `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`, `tauceti:Valuation.ord_mul`, `tauceti:Valuation.mem_maximalIdeal_iff_ord_pos`.
 
-**Source.** Kbook.2013, Theorem III.7.3, proof (PDF p. 254): “If 1 ≠ r ∈ R×, then either 1 − r ∈ R× and d(r)d(1 − r) = {r̄, 1 − r̄} = 0, or else v(1 − r) = i > 0 and d(r) = l(1) + 0 · Π = 0 so d(r)d(1 − r) = 0 · d(1 − r) = 0. If v(r) > 0 then 1 − r ∈ R× and the previous argument implies that d(1 − r)d(r) = 0.” — The cases r ∈ R^× and v(r) > 0.
+**Source.** `Kbook.2013`, Theorem III.7.3, proof (PDF p. 254). The cases r ∈ R^× and v(r) > 0.
 
-**Source.** Kbook.2013, Theorem III.7.3, proof (PDF p. 254): “If r ∉ R then 1/r ∈ R, and we see from (5.10.3) and the above that d(r)d(1 − r) = d(1/r)d(−1/r). Therefore it suffices to show that d(r)d(−r) = 0 for every r ∈ R. If r = π this is the given relation upon L, and if r ∈ R× then d(r)d(−r) = {r, −r} = 0 by (5.10.3).” — The reduction of r ∉ R to d(x)d(−x) = 0 and the use of the relation on Π; the source's '{r, −r}' is {r̄, −r̄} in K^M_2(k_v).
+**Source.** `Kbook.2013`, Theorem III.7.3, proof (PDF p. 254). The reduction of r ∉ R to d(x)d(−x) = 0 and the use of the relation on Π; the source's '{r, −r}' is {r̄, −r̄} in K^M_2(k_v).
 
 ### `serre-map-kernel` — The kernel of Serre's map
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
+*lemma*
 
 For every n ≥ 1 the kernel of d_t : K^M_n(F) → L(k)_n is U¹·K^M_{n−1}(F), the subgroup generated by the products {a}·y with a ∈ U¹ = 1 + 𝔪 (the principal units) and y ∈ K^M_{n−1}(F).
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -472,17 +483,17 @@ For every n ≥ 1 the kernel of d_t : K^M_n(F) → L(k)_n is U¹·K^M_{n−1}(F)
 - The kernel does not depend on t, since U¹ does not.
 - Consequently ker λ_t = U¹K^M_{n−1}(F) + {t}·K^M_{n−1}(F), the second statement of Ex. III.7.2.
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `serre-residue-algebra`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`; **baseline** `mathlib:ValuationSubring.ker_unitGroupToResidueFieldUnits`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/serre-residue-algebra`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`, `mathlib:ValuationSubring.ker_unitGroupToResidueFieldUnits`.
 
-**Source.** Kbook.2013, Ex. III.7.2 (PDF p. 265): “7.2. Continuing Exercise 7.1, show that the kernel of the map d: KMn(F) → Ln of Theorem 7.3 is exactly l(1 + πR) · KMn−1(F). Conclude that the kernel of the map λ is exactly l(1 + πR) · KMn−1(F) + l(π) · KMn−1(F).” — The source leaves this as an exercise and uses it in the proof of Corollary III.7.3.1; this node supplies the proof.
+**Source.** `Kbook.2013`, Ex. III.7.2 (PDF p. 265). The source leaves this as an exercise and uses it in the proof of Corollary III.7.3.1; this node supplies the proof.
 
 ### `milnor-residue-product-formula` — The product formula for the higher residue
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
+*lemma*
 
 For x ∈ K^M_i(F) and y ∈ K^M_j(F): ∂_v(x·y) = λ_t(x)·∂_v(y) + (−1)^j·∂_v(x)·ρ_t(y), where ρ_t : K^M_*(F) → K^M_*(k) is the graded ring homomorphism rhoHom ∘ d_t, characterised by ρ_t{u·t^m} = {(−1)^m ū}. In particular ∂_v(x·y) = x̄·∂_v(y) when x is a product of symbols of units, so ∂_v is a homomorphism of left modules over the image of K^M_*(R^×). This is Ex. III.7.10 as printed, which holds for the roadmap's normalisation; for Theorem III.7.3's normalisation the formula is ∂^{Wb}(x·y) = (−1)^i λ_t(x)·∂^{Wb}(y) + ∂^{Wb}(x)·ρ_t(y) (recorded as a source issue).
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -501,17 +512,17 @@ For x ∈ K^M_i(F) and y ∈ K^M_j(F): ∂_v(x·y) = λ_t(x)·∂_v(y) + (−1)^
 - x = {2}, y = {5}: ∂{2, 5} = {2}·1 − 0 = {2}, i.e. 2.
 - Read with Theorem III.7.3's normalisation, the printed formula would give ∂^{Wb}{5, 2} = 3, contradicting ∂^{Wb}{5, 2} = 2 from Theorem III.7.3.
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `serre-residue-algebra`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/serre-residue-algebra`.
 
-**Source.** Kbook.2013, Ex. III.7.10 (PDF p. 266): “7.10. If v is a valuation on F, and x ∈ KMi(F), y ∈ KMj(F), show that ∂v(xy) = λ(x)∂v(y) + (−1)^j ∂v(x)ρ(y) where ρ: KM∗(F) → KM∗(kv) is a ring homomorphism characterized by the formula ρ(l(uπ^i)) = l((−1)^i ū).” — The product formula; it holds as printed for the roadmap's normalisation and needs the sign (−1)^i on the first term for Theorem III.7.3's (source issue).
+**Source.** `Kbook.2013`, Ex. III.7.10 (PDF p. 266). The product formula; it holds as printed for the roadmap's normalisation and needs the sign (−1)^i on the first term for Theorem III.7.3's (source issue).
 
 ### `specialisation-change-of-uniformiser` — The residue is independent of the uniformiser; the specialisation is not
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.3:symbols`; realises `T.3:localization-comparison`.*
+*lemma*
 
 Let t′ = c·t be a second uniformiser (c ∈ R^×). Then ∂_v computed with t′ equals ∂_v computed with t, and λ_{t′}(x) = λ_t(x) − ∂_v(x)·{c̄} for x ∈ K^M_n(F) (product in K^M_*(k)). In particular λ depends on the uniformiser: in degree one λ_{t′}{t} = −{c̄}, i.e. c̄^{−1}. This corrects Ex. III.7.1, which asserts that λ is independent of π; Weibel's errata make the same correction.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -530,9 +541,9 @@ Let t′ = c·t be a second uniformiser (c ∈ R^×). Then ∂_v computed with t
 - ∂_v is independent of the uniformiser, confirming the first half of Ex. III.7.1.
 - λ_t is unchanged when c̄ = 1, i.e. when t′ ≡ t modulo 𝔪².
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `serre-residue-algebra`; **baseline** `tauceti:Valuation.isUnit_iff_ord_eq_zero`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/serre-residue-algebra`, `tauceti:Valuation.isUnit_iff_ord_eq_zero`.
 
-**Source.** Kbook.2013, Ex. III.7.1 (PDF p. 265): “7.1. Let v be a discrete valuation on a field F. Show that the maps λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv) of Theorem 7.3 are independent of the choice of parameter π, and that they vanish on l(u) · KMn−1(F) whenever u ∈ (1 + πR).” — The exercise's claim for ∂_v is right; its claim for λ is false (the example above), and Weibel's errata to GSM 145 (p. 280, Ex. 7.1) state that λ depends on the choice. Recorded as a source issue with that erratum as known.
+**Source.** `Kbook.2013`, Ex. III.7.1 (PDF p. 265). The exercise's claim for ∂_v is right; its claim for λ is false (the example above), and Weibel's errata to GSM 145 (p. 280, Ex. 7.1) state that λ depends on the choice. Recorded as a source issue with that erratum as known.
 
 ## T.4 — Rational function fields, Milnor norms and reciprocity
 
@@ -551,6 +562,8 @@ The Bass–Tate (Milnor) sequence for `F(t)`, with the place at infinity **outsi
 
 Let E/F be a finite extension, v a discrete valuation on F with valuation ring R, and suppose the integral closure S of R in E is a finite R-module (equivalently Σ_{w|v} e_w f_w = [E : F]; automatic if E/F is separable or F is complete; for arbitrary K/F(t) it follows from AlgebraicCurves Layer 2’s finite-normalization milestone). Let w run over the valuations of E over v, with residue fields k_w ⊇ k_v (possibly inseparable over k_v). Then ∂_v ∘ N_{E/F} = Σ_{w|v} N_{k_w/k_v} ∘ ∂_w on K^M_n(E), with N_{E/F} and N_{k_w/k_v} the Milnor norms of T.4/milnor-transfer-transitivity (Kato's norms, defined for every finite extension, separable or not). In degree one this is ord_v(N_{E/F} x) = Σ_w f_w·ord_w(x); residue degrees enter through N_{k_w/k_v}, and the ramification indices do not appear (they enter only the restriction formula T.3/higher-ramification-formula). This is the general Milnor norm/residue square that RS-28 assigns to T.3:localization-comparison, stated for T.4's norms and parented in T.4 because T.4/weil-reciprocity uses it; its comparison with Quillen's transfer and the localisation boundary is T.3/milnor-quillen-transfer-comparison.
 
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
+
 **Hypotheses.**
 
 - E/F is a finite field extension and v a discrete valuation on F.
@@ -558,6 +571,7 @@ Let E/F be a finite extension, v a discrete valuation on F with valuation ring R
 
 **Proof.**
 
+1. Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.
 1. Let R be the DVR and S its finite integral closure. Complete R and the finite module S. The semilocal completion splits by Chinese remaindering into the completions of S_w; inverting a uniformizer gives E⊗_F F̂≅∏_w Ê_w. Finite normalization is essential to this argument. Import the completion-decomposition contract (GS Appendix A.6.4 and Corollary 7.4.3), whose exact owner request is recorded; do not treat a name search for tensor-product completion as the splitting theorem.
 1. Apply transfer-base-change to F̂/F: the algebra is a product of fields, so every Artinian multiplicity is 1. This gives res_F̂/F N_E/F=Σ_w N_Ê_w/F̂ res_Ê_w/E. Completion has ramification index 1 and identical residue field, so higher residues commute with these restriction maps.
 1. Apply complete-norm-residue to each Ê_w/F̂ and add. The residue fields are the original k_w and k_v, and their transfer maps are Kato’s norms even when inseparable. This proves the whole all-degree square (GS Corollary 7.4.3, using the completion diagram of Corollary 7.3.11).
@@ -565,11 +579,11 @@ Let E/F be a finite extension, v a discrete valuation on F with valuation ring R
 
 **Used by.**
 
-- *T.4/weil-reciprocity*: the reduction of reciprocity on a curve to the projective line pushes residues forward along k(X)/k(t)
-- *HigherLocalFieldsAndHigherClassFieldTheory HL.1*: norm–residue compatibility along a residue tower of complete fields
-- *T.5/unramified-subgroup*: the transfer of a finite extension of number fields maps unramified classes to unramified classes
-- *T.3/milnor-quillen-transfer-comparison*: in degree two it is compared with the norm–residue square of Quillen's transfer
-- *MotivicEtaleKTheory M.4*: Suslin's reciprocity law (T.4/weil-reciprocity), which the Nesterenko–Suslin/Totaro diagonal comparison uses, rests on it
+- T.4/weil-reciprocity — the reduction of reciprocity on a curve to the projective line pushes residues forward along k(X)/k(t)
+- HigherLocalFieldsAndHigherClassFieldTheory HL.1 — norm–residue compatibility along a residue tower of complete fields
+- T.5/unramified-subgroup — the transfer of a finite extension of number fields maps unramified classes to unramified classes
+- T.3/milnor-quillen-transfer-comparison — in degree two it is compared with the norm–residue square of Quillen's transfer
+- MotivicEtaleKTheory M.4 — Suslin's reciprocity law (T.4/weil-reciprocity), which the Nesterenko–Suslin/Totaro diagonal comparison uses, rests on it
 
 **Acceptance.**
 
@@ -577,21 +591,21 @@ Let E/F be a finite extension, v a discrete valuation on F with valuation ring R
 - For classes from F the formula combines with T.3/higher-ramification-formula and T.4/restriction-transfer-degree into [E : F] = Σ e_w f_w, the finiteness hypothesis.
 - The formula is the same in both normalisations of the residue (each side changes by (−1)^{n−1}).
 
-**Depends on.** `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `mathlib:Ideal.sum_ramification_inertia_eq_finrank`, `mathlib:Ideal.relNorm_singleton`, `mathlib:Algebra.norm`, `K2SymbolsBrauer:T.4/complete-norm-residue`.
+**Depends on.** `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `mathlib:Ideal.sum_ramification_inertia_eq_finrank`, `mathlib:Ideal.relNorm_singleton`, `mathlib:Algebra.norm`, `K2SymbolsBrauer:T.4/complete-norm-residue`, `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge`.
 
-**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
+**Source.** `Kbook.2013`, Ex. III.7.9 (PDF p. 266). The constant normal-prime-degree special case, a regression of the general GS theorem.
 
-**Source.** Kbook.2013, Ex. III.7.9 (PDF p. 266): “7.9. If E/F is a normal extension of prime degree p, and v is a valuation on F(t) trivial on F, show that ∂v NE(t)/F(t) = ∑w NE(w)/F(v) ∂w, where the sum is over all the valuations w of E(t) over v.” — The constant normal-prime-degree special case, a regression of the general GS theorem.
+**Source.** `Kbook.2013`, Corollary III.7.6.3 (PDF p. 257). The complete case for a normal extension of prime degree (node T.4/kato-complete-residue).
 
-**Source.** Kbook.2013, Corollary III.7.6.3 (PDF p. 257): “Corollary 7.6.3. If in addition F is a complete discrete valuation field with residue field kv, and the residue field of E is kw, the following diagram commutes.” — The complete case for a normal extension of prime degree (node T.4/kato-complete-residue).
-
-**Source.** GilleSzamuely.2006, Corollary 7.4.3, p. 205; Corollary 7.3.11, p. 202; Appendix A.6.4: “commutes” — General finite-integral-closure formula in every degree and its completion/base-change proof. The earlier K-book special cases are retained as checks, not cited as the full theorem.
+**Source.** `GilleSzamuely.2006`, Corollary 7.4.3, p. 205; Corollary 7.3.11, p. 202; Appendix A.6.4. General finite-integral-closure formula in every degree and its completion/base-change proof. The earlier K-book special cases are retained as checks, not cited as the full theorem.
 
 ### `higher-ramification-formula` — Ramification and the higher residue
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let F → E be any field embedding and v, w normalised surjective discrete valuations satisfying ord_w(f(r)) = e·ord_v(r), e ≥ 1, with the induced residue-field embedding k_v → k_w. No finite-dimensionality hypothesis is imposed. For x ∈ K^M_n(F): ∂_w(res_{E/F} x) = e·res_{k_w/k_v}(∂_v x) in K^M_{n−1}(k_w). In degree two this is T.3/ramification-formula. The statement reads the same in both normalisations, each side changing by (−1)^{n−1}. The finite-extension special case is Exercise III.7.8; the same elementary uniformiser/unit proof gives the stated embedding generalisation, one of the elementary Milnor residue identities Kato's proof uses (with Exercises III.7.7 and III.7.9 and Corollary III.7.6.3); it is parented in T.4, before T.4/milnor-transfer-transitivity, and realises the ramification clause of T.3:localization-comparison.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -606,7 +620,7 @@ Let F → E be any field embedding and v, w normalised surjective discrete valua
 
 **Unit tests.**
 
-- `TauCeti.MilnorK.higher_ramification_infinite` (compatibility) — Instantiate higher_ramification_formula at ℚ → ℚ(u), the 5-adic valuation and its e = 1 Gauss extension: the residues commute in every degree, with k_w = F_5(u). The suggested instance has the actual RatFunc ℚ carrier and no FiniteDimensional hypothesis.
+- `TauCeti.MilnorK.higher_ramification_infinite` (compatibility) — Instantiate higher_ramification_formula at ℚ → ℚ(u), the 5-adic valuation and its e = 1 Gauss extension: the residues commute in every degree, with k_w = F_5(u). The degree-two suggested instance uses the actual RatFunc ℚ carrier and no FiniteDimensional hypothesis; the all-degree statement is a README target until the Milnor carriers exist at the pins.
 - `TauCeti.MilnorK.higher_residue_trivial_restriction` (degenerate) — For any field embedding F → E and surjective discrete w trivial on F^×, the residue of every imported symbol {a_1,…,a_{n+1}} is 0. In particular this applies to F(t) → F(u)(t) at t−u, which has no positive ramification index over a nontrivial place of F(t).
 
 **Acceptance.**
@@ -618,9 +632,9 @@ Let F → E be any field embedding and v, w normalised surjective discrete valua
 - Completion F → F̂_v has e = 1 and the same residue field, so the formula gives ∂_{v̂} ∘ res = ∂_v without requiring the completion to be finite over F.
 - Trivial-restriction case: the place t−u of F(u)(t) is trivial on F(t), because every nonzero polynomial p(t) ∈ F[t] has p(u) ≠ 0. Every imported Milnor symbol therefore has zero residue there.
 
-**Depends on.** **inside this packet** `higher-milnor-residues`, `serre-map-kernel`, `ramification-formula`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/serre-map-kernel`, `K2SymbolsBrauer:T.3/ramification-formula`, `K2SymbolsBrauer:T.2/milnor-k-theory`.
 
-**Source.** Kbook.2013, Ex. III.7.8 (PDF p. 265): “7.8. Ramification and ∂v. Suppose that E is a finite extension of F, and that w is a valuation on E over the valuation v on F, with ramification index e. (See 6.3.1.) Use the formulas for ∂v and ∂w in Theorem 7.3 to show that for every x ∈ KMn(F) we have ∂w(x) = e · ∂v(x) in KMn−1(kw).” — The statement, left as an exercise in the source. The arbitrary-embedding extension is derived by the displayed uniformiser/unit calculation; the printed exercise only assumes a finite extension.
+**Source.** `Kbook.2013`, Ex. III.7.8 (PDF p. 265). The statement, left as an exercise in the source. The arbitrary-embedding extension is derived by the displayed uniformiser/unit calculation; the printed exercise only assumes a finite extension.
 
 ### `bass-tate-sequence` — The Bass–Tate (Milnor) exact sequence for a rational function field ★
 
@@ -649,13 +663,13 @@ For a field F and n ≥ 1 the sequence 0 → K^M_n(F) → K^M_n F(t) −∂→ �
 - In degree two it is the split exact sequence of Application III.6.5.2.
 - Non-example: with ∂_∞ added the map is not onto; in degree one its image is the kernel of the degree map on divisors of ℙ¹, so the divisor of the single point ∞ is not in the image.
 
-**Depends on.** **inside this packet** `leading-coefficient-splitting`, `filtration-quotients`, `degree-reduction`, `higher-milnor-residues`, `finite-support`, `higher-ramification-formula`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv`, `tauceti:TauCeti.Place.finite_setOf_ord_ne_zero`.
+**Depends on.** `K2SymbolsBrauer:T.4/leading-coefficient-splitting`, `K2SymbolsBrauer:T.4/filtration-quotients`, `K2SymbolsBrauer:T.4/degree-reduction`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.3/higher-ramification-formula`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv`, `tauceti:TauCeti.Place.finite_setOf_ord_ne_zero`.
 
-**Source.** Kbook.2013, III.7.4, Theorem 7.4 (PDF p. 255; book p. 247): “Theorem 7.4. (Milnor) There is a split exact sequence for each n, natural in the field F, and split by the map λ: 0 → K^M_n(F) → K^M_n F(t) −∂=∐∂p→ ∐p K^M_{n−1}(F[t]/p) → 0.” — The theorem, attributed by the source to Milnor.
+**Source.** `Kbook.2013`, III.7.4, Theorem 7.4 (PDF p. 255; book p. 247). The theorem, attributed by the source to Milnor.
 
-**Source.** Kbook.2013, III.7.4, proof of Theorem 7.4 (PDF p. 255; book p. 247): “Let Ld denote the subgroup of K^M_n F(t) generated by those symbols {f1, . . . , fr} such that all the polynomials fi have degree ≤ d. By Example 7.3.2, L0 is a summand isomorphic to K^M_n(F). Since K^M_n F(t) is the union of the subgroups Ld, the theorem will follow from Lemma 7.4.2” — The proof by the degree filtration, whose steps are the lemmas above; 'fr' is a misprint for 'fn'.
+**Source.** `Kbook.2013`, III.7.4, proof of Theorem 7.4 (PDF p. 255; book p. 247). The proof by the degree filtration, whose steps are the lemmas above; 'fr' is a misprint for 'fn'.
 
-**Source.** Kbook.2013, III.6.5.2, Application 6.5.2 (PDF p. 244; book p. 236): “Application 6.5.2 (Function fields). If R is the polynomial ring F[t] for some field F, we know that K2(F[t]) = K2(F) (see 5.2.3). Moreover, the natural map K2(F) → K2F(t) is split by the leading coefficient symbol λ of Example 6.1.2. Therefore we have a split exact sequence” — The degree-two case (the display 1 → K2(F) → K2F(t) → ∐(F[t]/p)× → 1 follows it).
+**Source.** `Kbook.2013`, III.6.5.2, Application 6.5.2 (PDF p. 244; book p. 236). The degree-two case (the display 1 → K2(F) → K2F(t) → ∐(F[t]/p)× → 1 follows it).
 
 ### `milnor-transfer-transitivity` — Milnor norms of finite extensions and Kato's transitivity theorem ★
 
@@ -683,13 +697,13 @@ For a finite extension E = F(a_1, …, a_r), the composite N_{a_1/F} ∘ N_{a_2/
 - Independence is a theorem: the reduction to towers of prime degree and the comparison of two towers are its substance.
 - Kato's independence of the chain of generators is stated here, not assumed; MotivicEtaleKTheory M.4 imports the norm with this independence (edge T.4 → M.4).
 
-**Depends on.** **inside this packet** `simple-transfer`, `prime-to-p-closure`, `kato-prime-degree`, `kato-commuting-square`, `transfer-base-change`, `transfer-low-degrees`; **baseline** `mathlib:Algebra.norm_norm`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/kato-prime-degree`, `K2SymbolsBrauer:T.4/kato-commuting-square`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `mathlib:Algebra.norm_norm`.
 
-**Source.** Kbook.2013, III.7.6, Definition 7.6 (PDF p. 257; book p. 249): “Definition 7.6. Let E = F(a1, . . . , ar) be a finite field extension of F. The transfer map NE/F : K^M_∗(E) → K^M_∗(F) is defined to be the composition of the transfer maps defined in 7.5” — The definition by composition along generators.
+**Source.** `Kbook.2013`, III.7.6, Definition 7.6 (PDF p. 257; book p. 249). The definition by composition along generators.
 
-**Source.** Kbook.2013, III.7.6.1, Theorem 7.6.1 (PDF p. 257; book p. 249): “Theorem 7.6.1. (Kato) The transfer map NE/F is independent of the choice of elements a1, . . . , ar such that E = F(a1, . . . , ar). In particular, if F ⊂ F′ ⊂ E then NE/F = NF′/F NE/F′.” — Kato's theorem.
+**Source.** `Kbook.2013`, III.7.6.1, Theorem 7.6.1 (PDF p. 257; book p. 249). Kato's theorem.
 
-**Source.** Kbook.2013, III.7.6.1, proof of Theorem 7.6.1 (PDF p. 258; book p. 250): “Using the key trick of passing to a larger field, we may assume that the degree of every finite extension of F is a power of a fixed prime p. Let us call a tower of intermediate fields F = F0 ⊂ F1 ⊂ · · · ⊂ Fr = E maximal if [Fi : Fi−1] = p for all i.” — The reduction to towers of degree-p steps.
+**Source.** `Kbook.2013`, III.7.6.1, proof of Theorem 7.6.1 (PDF p. 258; book p. 250). The reduction to towers of degree-p steps.
 
 ### `weil-reciprocity` — Suslin's reciprocity law: Weil reciprocity in every degree for a proper curve over any field ★
 
@@ -722,17 +736,17 @@ Let F be any field and K a function field of one variable over F (IsFunctionFiel
 
 **Depends on.** `K2SymbolsBrauer:T.4/projective-line-reciprocity`, `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.3/transfer-and-norm-residue`, `K2SymbolsBrauer:T.4/valuation-comparison`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `tauceti:TauCeti.Place.restrict`, `tauceti:TauCeti.Place.finite_setOf_restrict_eq`, `tauceti:TauCeti.Place.finite_setOf_ord_ne_zero`, `tauceti:TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable`, `tauceti:TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable`, `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge`.
 
-**Source.** Kbook.2013, V.6.12.1, Weil Reciprocity Formula 6.12.1 (PDF p. 424; book p. 416), proof on PDF p. 425: “Weil Reciprocity Formula 6.12.1. Let X be a projective curve over a field k, with function field F. For every a ∈ Kn+1(F) we have the following formula in Kn(k): Σx∈X Nk(x)/k ∂x(a) = 0.” — The curve formula in Quillen K-theory, proved by Gillet's argument; for n + 1 = 2 it is this node's statement, and in higher degrees the Milnor form is proved by the transfer argument of the proof steps.
+**Source.** `Kbook.2013`, V.6.12.1, Weil Reciprocity Formula 6.12.1 (PDF p. 424; book p. 416), proof on PDF p. 425. The curve formula in Quillen K-theory, proved by Gillet's argument; for n + 1 = 2 it is this node's statement, and in higher degrees the Milnor form is proved by the transfer argument of the proof steps.
 
-**Source.** Kbook.2013, V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416): “The following result, due to Gillet, generalizes the Weil Reciprocity of III.6.5.3 for symbols {f, g} ∈ K2(F). We write ∂x for the component Kn+1(F) → Kn(x) of the map ∂ in 6.12.” — The source presents it as the generalisation of III.6.5.3.
+**Source.** `Kbook.2013`, V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416). The source presents it as the generalisation of III.6.5.3.
 
-**Source.** Kbook.2013, III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248): “If we let N∞ denote the identity map on K^M_n(F), and sum over the set of all discrete valuations on F(t) which are trivial on F, the definition of the Nv yields the: Weil Reciprocity Formula 7.5.1. Σv Nv∂v(x) = 0 for all x ∈ K^M_n F(t).” — The projective-line case in Milnor K-theory.
+**Source.** `Kbook.2013`, III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248). The projective-line case in Milnor K-theory.
 
-**Source.** Weibel.KBook.III, III.7.6.1, Theorem 7.6.1 (p. 64): “Theorem 7.6.1 (Kato). The transfer map NE/F is independent of the choice of elements a1 , . . . , ar such that E = F (a1 , . . . , ar ). In particular, if F ⊂ F ′ ⊂ E then NE/F = NF ′ /F NE/F ′ .” — Kato's norm is defined for every finite extension E/F, with no separability hypothesis; the residue-field norms of the reciprocity law are these.
+**Source.** `Weibel.KBook.III`, III.7.6.1, Theorem 7.6.1 (p. 64). Kato's norm is defined for every finite extension E/F, with no separability hypothesis; the residue-field norms of the reciprocity law are these.
 
-**Source.** GilleSzamuely.2006, Corollary 7.4.3 and Proposition 7.4.4, pp. 205–206: “commutes” — Valuation-level proof and its smooth-projective special case; regular/imperfect extension follows by the explicit imported normalization argument.
+**Source.** `GilleSzamuely.2006`, Corollary 7.4.3 and Proposition 7.4.4, pp. 205–206. Valuation-level proof and its smooth-projective special case; regular/imperfect extension follows by the explicit imported normalization argument.
 
-**Source.** Stacks.Japanese, Tags 032N, 032L and 032O: “finite” — Normal-hull pure-first reduction and finite normalization over a polynomial ring.
+**Source.** `Stacks.Japanese`, Tags 032N, 032L and 032O. Normal-hull pure-first reduction and finite normalization over a polynomial ring.
 
 ### `valuation-comparison` — Closed points of the regular proper model against places: AlgebraicCurves Layer 12 imported, tame symbols transported
 
@@ -759,21 +773,19 @@ Let K be a function field of one variable over F and X the proper regular integr
 - The comparison is of discrete valuations together with their residue maps: equality of orders alone would not identify the residues of the tame symbols.
 - Regular, not smooth: over F = 𝔽_p(s), p odd, the curve y² = x^p − s is regular at the closed point y = 0, x^p = s (its maximal ideal is generated by y) but not smooth there (both partial derivatives vanish), and its residue field F(s^{1/p}) is purely inseparable over F.
 
-**Depends on.** **inside this packet** `tame-symbol`, `tame-symbol-uniformizer-independence`; **baseline** `mathlib:AlgebraicGeometry.Scheme.ord`, `tauceti:TauCeti.Place.heightOneSpectrumEquiv`, `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Divisor.principal`.
+**Depends on.** `mathlib:AlgebraicGeometry.Scheme.ord`, `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence`, `tauceti:TauCeti.Place.heightOneSpectrumEquiv`, `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Divisor.principal`, `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts`.
 
-**Requested from other roadmaps.** `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts`.
+**Source.** `Kbook.2013`, V.6.12, Smooth Curves 6.12 (PDF p. 424; book p. 416). The closed points and their residue fields, as the source uses them for Weil reciprocity.
 
-**Source.** Kbook.2013, V.6.12, Smooth Curves 6.12 (PDF p. 424; book p. 416): “Smooth Curves 6.12. Suppose that X is an irreducible curve over a field k, with function field F. For each closed point x ∈ X, the field k(x) is a finite field extension of k.” — The closed points and their residue fields, as the source uses them for Weil reciprocity.
-
-**Source.** Kbook.2013, III.6.3 (PDF p. 242; book p. 234): “By convention, v(0) = ∞, so that the ring R of all r with v(r) ≥ 0 is a discrete valuation ring (DVR).” — The valuation-theoretic side: the tame symbol is attached to a discrete valuation ring.
+**Source.** `Kbook.2013`, III.6.3 (PDF p. 242; book p. 234). The valuation-theoretic side: the tame symbol is attached to a discrete valuation ring.
 
 ### `milnor-projection-formula` — The projection formula for the transfer
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.4`; realises `T.3:localization-comparison`.*
+*lemma*
 
 For E = F(a), x ∈ K^M_*(F) and y ∈ K^M_*(E): N_{a/F}(res_{E/F}(x)·y) = x·N_{a/F}(y). By Definition III.7.6 and Kato's theorem the same holds for N_{E/F} for every finite E/F.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -790,19 +802,19 @@ For E = F(a), x ∈ K^M_*(F) and y ∈ K^M_*(E): N_{a/F}(res_{E/F}(x)·y) = x·N
 - Degree one with y = 1: N_{E/F}(x) = x^{[E:F]} for x ∈ F^×, the field-norm identity.
 - The formula holds in both normalisations of the residue.
 
-**Depends on.** **inside this packet** `simple-transfer`, `milnor-residue-product-formula`, `bass-tate-sequence`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.3/milnor-residue-product-formula`, `K2SymbolsBrauer:T.4/bass-tate-sequence`.
 
-**Source.** Kbook.2013, Projection Formula III.7.5.2 (PDF p. 256): “Projection Formula 7.5.2. Let E = F(a). Then for x ∈ KM∗(F) and y ∈ KM∗(E) the map N = Na/F satisfies N{x, y} = {x, N(y)}.” — The statement.
+**Source.** `Kbook.2013`, Projection Formula III.7.5.2 (PDF p. 256). The statement.
 
-**Source.** Kbook.2013, Projection Formula III.7.5.2, proof (PDF p. 256): “It follows from Theorem 7.4 that each ∂p is a graded module homomorphism of degree −1. This remark also applies to v∞ and ∂∞, because F(t) = F(t−1). Therefore each Np is a graded module homomorphism of degree 0.” — The source's proof; the module property of ∂_p is the product formula with a unit factor (T.3/milnor-residue-product-formula), not Theorem III.7.4 itself.
+**Source.** `Kbook.2013`, Projection Formula III.7.5.2, proof (PDF p. 256). The source's proof; the module property of ∂_p is the product formula with a unit factor (T.3/milnor-residue-product-formula), not Theorem III.7.4 itself.
 
 ### `restriction-transfer-degree` — Restriction followed by transfer is multiplication by the degree
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
-
-*Parented in `T.4`; realises `T.3:localization-comparison`.*
+*lemma*
 
 For E = F(a) of degree d, N_{a/F} ∘ res_{E/F} = d·id on K^M_*(F); hence the kernel of res_{E/F} : K^M_*(F) → K^M_*(E) is killed by d. By composition along a generating tower the same holds for N_{E/F} and every finite E/F, degrees multiplying.
+
+**Realises.** `K2SymbolsBrauer:T.3:localization-comparison`.
 
 **Hypotheses.**
 
@@ -818,13 +830,13 @@ For E = F(a) of degree d, N_{a/F} ∘ res_{E/F} = d·id on K^M_*(F); hence the k
 - Degree one: N_{E/F}(x) = x^d for x ∈ F^×.
 - Degree zero: the composite ℤ → ℤ → ℤ is multiplication by d.
 
-**Depends on.** **inside this packet** `milnor-projection-formula`, `simple-transfer`.
+**Depends on.** `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/simple-transfer`.
 
-**Source.** Kbook.2013, Corollary III.7.5.3 (PDF p. 256): “Corollary 7.5.3. If the extension E/F has degree d, then the composition KM∗(F) → KM∗(E) −N→ KM∗(F) is multiplication by d. In particular, the kernel of KM∗(F) → KM∗(E) is annihilated by d.” — The statement.
+**Source.** `Kbook.2013`, Corollary III.7.5.3 (PDF p. 256). The statement.
 
 ### `leading-coefficient-splitting` — Leading coefficients split K^M_n(F) off K^M_n F(t) (Example III.7.3.2)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let F be a field and, for nonzero f ∈ F(t), let lead(f) be the quotient of the leading coefficients of its numerator and denominator. Let λ: K^M_n F(t) → K^M_n(F) be the specialisation map of T.3/higher-milnor-residues at the place at infinity (order −deg, residue field F) with respect to the uniformiser t^{−1}. Then λ{f_1, …, f_n} = {lead(f_1), …, lead(f_n)}, λ is the identity on the image of K^M_n(F), so K^M_n(F) → K^M_n F(t) is a split injection in every degree, and the residue ∂_∞ vanishes on that image.
 
@@ -846,15 +858,15 @@ Let F be a field and, for nonzero f ∈ F(t), let lead(f) be the quotient of the
 - In degree two λ is the leading-coefficient map of Example III.6.1.2, which the companion node K2SymbolsBrauer:T.2/rational-function-field plans for K_2; the author's errata list corrects that example's three-case check when lead(f) = 1, a case this route does not need.
 - Non-example: over ℚ, with the uniformiser 2t^{−1} instead of t^{−1}, the specialisation sends {t} ∈ K^M_1 to 2 rather than 1, so the formula is tied to t^{−1} (compare the author's erratum to Exercise III.7.1: λ depends on the uniformiser).
 
-**Depends on.** **inside this packet** `higher-milnor-residues`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `tauceti:TauCeti.Place.ord_infty`, `tauceti:TauCeti.Place.isUniformizer_infty`, `tauceti:TauCeti.Place.inftyResidueFieldEquiv`.
+**Depends on.** `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `tauceti:TauCeti.Place.ord_infty`, `tauceti:TauCeti.Place.isUniformizer_infty`, `tauceti:TauCeti.Place.inftyResidueFieldEquiv`.
 
-**Source.** Kbook.2013, III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247): “Example 7.3.2 (Leading Coefficients). As in Example 6.1.2, K^M_n(F) is a direct summand of K^M_n F(t). To see this, we consider the valuation v∞(f) = −deg(f) on F(t) of Example 6.5.3. Since t^{−1} is a parameter, each polynomial f = ut^{−i} has lead(f) = ū.” — The statement, with the place at infinity and its parameter t^{−1}; here f = u·t^{−i} with i = v∞(f) = −deg f.
+**Source.** `Kbook.2013`, III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247). The statement, with the place at infinity and its parameter t^{−1}; here f = u·t^{−i} with i = v∞(f) = −deg f.
 
-**Source.** Kbook.2013, III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247): “The map λ: K^M_n F(t) → K^M_n(F), given by λ{f1, . . . , fn} = {lead(f1), . . . , lead(fn)}, is clearly inverse to the natural map K^M_n(F) → K^M_n F(t).” — The formula for λ and the splitting.
+**Source.** `Kbook.2013`, III.7.3.2, Example 7.3.2 (PDF p. 255; book p. 247). The formula for λ and the splitting.
 
 ### `degree-reduction` — Degree reduction for symbols of polynomials (Exercise III.6.2, corrected)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let F be a field, d ≥ 1, and L_d ⊂ K^M_n F(t) the subgroup generated by the symbols {f_1, …, f_n} whose entries are nonzero polynomials of degree at most d. (i) If e_1 ≠ e_2 are monic polynomials of degree d and h = e_1 − e_2 (nonzero, of degree < d), then {e_1, e_2} = {h, e_2} − {h, e_1} + {e_1, −1} in K^M_2 F(t). (ii) Consequently L_d is generated by L_{d−1} together with the symbols {π, a_2, …, a_n} with π monic irreducible of degree d and each a_i a nonzero polynomial of degree < d. The source's Exercise III.6.2, which allows only e_1 as an entry of degree d, is false as printed; (i) is what the source's proof of Lemma III.7.4.2 uses.
 
@@ -875,19 +887,19 @@ Let F be a field, d ≥ 1, and L_d ⊂ K^M_n F(t) the subgroup generated by the 
 - For d = 1, (i) is Lemma III.6.1.4.
 - (ii) is exactly the generation statement that the proof of Lemma III.7.4.2 cites from Exercise III.6.2.
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`, `K2SymbolsBrauer:T.2/symbol-consequences`.
+**Depends on.** `K2SymbolsBrauer:T.2/milnor-k-theory`, `K2SymbolsBrauer:T.2/milnor-alternating`, `K2SymbolsBrauer:T.2/symbol-consequences`.
 
-**Source.** Kbook.2013, III, Exercise 6.2 (PDF p. 251; book p. 243): “6.2. (Bass-Tate) If E = F(u) is a field extension of F, and e1, e2 ∈ E are monic polynomials in u of some fixed degree d > 0, show that {e1, e2} is a product of symbols {e1, e′2} and {e, e′′2} with e, e′2, e′′2 polynomials of degree < d. This generalizes Lemma 6.1.4.” — The exercise the proof of Lemma III.7.4.2 cites. As printed it is false (see the source issue recorded by this review); the node states the corrected form.
+**Source.** `Kbook.2013`, III, Exercise 6.2 (PDF p. 251; book p. 243). The exercise the proof of Lemma III.7.4.2 cites. As printed it is false (see the source issue recorded by this review); the node states the corrected form.
 
-**Source.** Kbook.2013, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232): “Lemma 6.1.4. (Bass-Tate) If E = F(u) is a field extension of F, then every symbol of the form {b1u − a1, b2u − a2} (ai, bi ∈ F) is a product of symbols {ci, di} and {ci, u − di} with ci, di ∈ F.” — The case d = 1, which is correct as printed.
+**Source.** `Kbook.2013`, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232). The case d = 1, which is correct as printed.
 
-**Source.** Kbook.2013, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232): “Set x = u − a1, y = u − a2 and a = a2 − a1, so x = a + y. Then 1 = a/x + y/x yields the relation 1 = {a/x, y/x}. Using {x, x} = {−1, x}, this expands to the desired expression: {x, y} = {a, y}{−1, x}{a^{−1}, x}.” — The computation that (i) generalises.
+**Source.** `Kbook.2013`, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232). The computation that (i) generalises.
 
-**Source.** Kbook.2013, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248): “By Ex. 6.2, Ld is generated by Ld−1 and symbols {π, a2, . . . , an} where π has degree d and the ai have degree < d. But each such symbol is hπ of an element of K^M_{n−1}(kπ), so ⊕hπ is onto.” — How the source uses the exercise: only the generation statement (ii) is needed.
+**Source.** `Kbook.2013`, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248). How the source uses the exercise: only the generation statement (ii) is needed.
 
 ### `residue-section` — The section h_π on the degree filtration (Lemma III.7.4.1)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let π ∈ F[t] be monic irreducible of degree d ≥ 1, k_π = F[t]/(π), and L_d as in T.4/degree-reduction. There is a unique homomorphism h_π : K^M_{n−1}(k_π) → L_d/L_{d−1} sending {ā_1, …, ā_{n−1}} to the class of {a_1, …, a_{n−1}, π}, where a_i ∈ F[t] is the unique representative of ā_i of degree < d. The source's h_π puts π first; the two differ by the sign (−1)^{n−1}, the same sign by which Theorem III.7.3's residue ∂^{Wb} differs from the residue ∂ of T.3/higher-milnor-residues, so each is a section of its own residue.
 
@@ -909,15 +921,15 @@ Let π ∈ F[t] be monic irreducible of degree d ≥ 1, k_π = F[t]/(π), and L_
 - For d = 1, π = t − b and k_π = F, h_π{c_2, …, c_n} is the class of {c_1, …, c_{n−1}, t − b}.
 - Followed by the residue ∂_π it is the identity (T.4/filtration-quotients), which pins its normalisation.
 
-**Depends on.** **inside this packet** `degree-reduction`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `mathlib:Polynomial.modByMonic`, `mathlib:Polynomial.degree_modByMonic_lt`.
+**Depends on.** `K2SymbolsBrauer:T.4/degree-reduction`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `mathlib:Polynomial.modByMonic`, `mathlib:Polynomial.degree_modByMonic_lt`.
 
-**Source.** Kbook.2013, III.7.4.1, Lemma 7.4.1 and the paragraph before it (PDF p. 255; book p. 247): “Then each element ā of k is represented by a unique polynomial a ∈ F[t] of degree < d. Lemma 7.4.1. There is a unique homomorphism h = hπ : K^M_{n−1}(k) → Ld/Ld−1 carrying {ā2, . . . , ān} to the class of {π, a2, . . . , an} modulo Ld−1.” — The statement, with the choice of representatives of degree < d.
+**Source.** `Kbook.2013`, III.7.4.1, Lemma 7.4.1 and the paragraph before it (PDF p. 255; book p. 247). The statement, with the choice of representatives of degree < d.
 
-**Source.** Kbook.2013, III.7.4.1, proof of Lemma 7.4.1 (PDF p. 255; book p. 247): “If a2 ≠ a′2a′′2 then there is a nonzero polynomial f of degree < d with a2 = a′2a′′2 + fπ. Since fπ/a2 = 1 − a′2a′′2/a2 we have {fπ/a2, a′2a′′2/a2} = 0. Multiplying by {a3, . . . , an} gives {π, a′2a′′2/a2, a3, . . . , an} ≡ 0 modulo Ld−1.” — The linearity argument; its last step 'ai + ai+1 = 1 in F' should read 'in F[t]' (see the source issue).
+**Source.** `Kbook.2013`, III.7.4.1, proof of Lemma 7.4.1 (PDF p. 255; book p. 247). The linearity argument; its last step 'ai + ai+1 = 1 in F' should read 'in F[t]' (see the source issue).
 
 ### `filtration-quotients` — The graded pieces of the degree filtration (Lemma III.7.4.2)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 For d ≥ 1 the maps h_π of T.4/residue-section, over the monic irreducible π of degree d, induce an isomorphism ⊕_{deg π = d} K^M_{n−1}(k_π) ≅ L_d/L_{d−1} whose inverse is induced by the residues ∂_π: each ∂_π with deg π = d vanishes on L_{d−1}, ∂_π ∘ h_π is the identity, and ∂_{π′} ∘ h_π = 0 for π′ ≠ π of degree d. Residues are those of T.3/higher-milnor-residues, ∂_π{u_1, …, u_{n−1}, π} = {ū_1, …, ū_{n−1}}, which in degree two is the roadmap's tame symbol; with Theorem III.7.3's ∂^{Wb} and the source's h_π (π first) the statement is the same.
 
@@ -937,17 +949,17 @@ For d ≥ 1 the maps h_π of T.4/residue-section, over the monic irreducible π 
 - In degree one (n = 1) it says that the monic irreducible polynomials of degree d form a basis of the free abelian group L_d/L_{d−1}.
 - ∂_π vanishes on L_{d−1} but not on L_d, which is what drives the induction on d.
 
-**Depends on.** **inside this packet** `residue-section`, `degree-reduction`, `higher-milnor-residues`; **baseline** `tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv`, `tauceti:TauCeti.Place.isUniformizer_adicOfIrreducible`.
+**Depends on.** `K2SymbolsBrauer:T.4/residue-section`, `K2SymbolsBrauer:T.4/degree-reduction`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv`, `tauceti:TauCeti.Place.isUniformizer_adicOfIrreducible`.
 
-**Source.** Kbook.2013, III.7.4.2, Lemma 7.4.2 (PDF p. 255; book p. 247): “Lemma 7.4.2. The homomorphisms ∂(π) and hπ induce an isomorphism between Ld/Ld−1 and the direct sum ⊕π K^M_{n−1}(kπ) as π ranges over all monic irreducible polynomials of degree d in F[t].” — The statement.
+**Source.** `Kbook.2013`, III.7.4.2, Lemma 7.4.2 (PDF p. 255; book p. 247). The statement.
 
-**Source.** Kbook.2013, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248): “Proof. Since π cannot divide any polynomial of degree < d, the maps ∂(π) vanish on Ld−1 and induce maps ∂̄(π) : Ld/Ld−1 → K^M_{n−1}(kπ). By inspection, the composition of ⊕hπ with the direct sum of the ∂̄(π) is the identity on ⊕π K^M_{n−1}(kπ).” — The proof, first half.
+**Source.** `Kbook.2013`, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248). The proof, first half.
 
-**Source.** Kbook.2013, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248): “By Ex. 6.2, Ld is generated by Ld−1 and symbols {π, a2, . . . , an} where π has degree d and the ai have degree < d. But each such symbol is hπ of an element of K^M_{n−1}(kπ), so ⊕hπ is onto.” — The proof, second half: surjectivity through Exercise 6.2, here T.4/degree-reduction.
+**Source.** `Kbook.2013`, III.7.4.2, proof of Lemma 7.4.2 (PDF p. 256; book p. 248). The proof, second half: surjectivity through Exercise 6.2, here T.4/degree-reduction.
 
 ### `simple-transfer` — The Milnor transfer of a simple extension (Definition III.7.5) ★
 
-*construction* · planet **Milnor transfer** · added by `REV-K2SymbolsBrauer--T.3`
+*construction* · planet **Milnor transfer**
 
 Let E = F(a) be a finite extension, π the minimal polynomial of a, and E ≅ F[t]/(π) by t ↦ a. Since ∂_∞ vanishes on K^M_{n+1}(F) and the residue sum is surjective with kernel K^M_{n+1}(F) (T.4/bass-tate-sequence), there are unique homomorphisms N_p : K^M_n(F[t]/p) → K^M_n(F), p over the monic irreducible polynomials, with −∂_∞ = Σ_p N_p ∘ ∂_p on K^M_{n+1}F(t). The transfer N_{a/F} : K^M_n(E) → K^M_n(F) is N_π transported to E; equivalently N_{a/F}(x) = −∂_∞(y) for any y with ∂_π(y) = x and ∂_p(y) = 0 for p ≠ π. In degree zero it is multiplication by [E : F]. The projection formula and the degree formula N_{a/F} ∘ res = [E : F] are T.4/milnor-projection-formula and T.4/restriction-transfer-degree. Between the roadmap's normalisation of the residues and Theorem III.7.3's, every residue on K^M_{n+1}F(t) changes by the same sign (−1)^n, so N_{a/F} is the same in both. Independence of the generator a is Kato's theorem (T.4/milnor-transfer-transitivity), not part of this definition.
 
@@ -964,19 +976,24 @@ Let E = F(a) be a finite extension, π the minimal polynomial of a, and E ≅ F[
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `milnorTransferSimple` | constructor | For a integral over F: N_{a/F} : K^M_n(F⟮a⟯) →+ K^M_n(F), defined through the residue at infinity. |
-| `milnorTransferSimple_eq_neg_residueInfty` | characterisation | If ∂_π(y) = x and ∂_p(y) = 0 for every monic irreducible p ≠ π, then N_{a/F}(x) = −∂_∞(y). |
-| `residueInfty_eq_neg_sum_transfer` | relation | For y ∈ K^M_{n+1}F(t), −∂_∞(y) = Σ_p N_p(∂_p y), a finite sum (Weil's formula III.7.5.1). |
-| `milnorTransferSimple_degree_zero` | simp | In degree zero N_{a/F}(m) = [F⟮a⟯ : F]·m. |
-| `milnorTransferSimple_of_mem` | simp | If a ∈ F then N_{a/F} is the identity of K^M_n(F). |
-| `milnorTransferSimple_mul_restrict` | relation | Projection formula: N_{a/F}(res(x)·y) = x·N_{a/F}(y) for x ∈ K^M_*(F) and y ∈ K^M_*(F⟮a⟯). (T.4/milnor-projection-formula) |
-| `milnorTransferSimple_restrict` | relation | N_{a/F}(res x) = [F⟮a⟯ : F]·x for x ∈ K^M_n(F). (T.4/restriction-transfer-degree) |
-| `milnorTransferSimple_one_eq_norm` | compatibility | In degree one N_{a/F} is Algebra.norm F on F⟮a⟯ˣ (proved in T.4/transfer-low-degrees). |
-| `milnorTransferSimple_kbook` | compatibility | N_{a/F} is the same whether the residues are normalised as in the roadmap or as in Theorem III.7.3. |
+- `milnorTransferSimple` (constructor) — For a integral over F: N_{a/F} : K^M_n(F⟮a⟯) →+ K^M_n(F), defined through the residue at infinity.
+- `milnorTransferSimple_eq_neg_residueInfty` (characterisation) — If ∂_π(y) = x and ∂_p(y) = 0 for every monic irreducible p ≠ π, then N_{a/F}(x) = −∂_∞(y).
+- `residueInfty_eq_neg_sum_transfer` (relation) — For y ∈ K^M_{n+1}F(t), −∂_∞(y) = Σ_p N_p(∂_p y), a finite sum (Weil's formula III.7.5.1).
+- `milnorTransferSimple_degree_zero` (simp) — In degree zero N_{a/F}(m) = [F⟮a⟯ : F]·m.
+- `milnorTransferSimple_of_mem` (simp) — If a ∈ F then N_{a/F} is the identity of K^M_n(F).
+- `milnorTransferSimple_mul_restrict` (relation) — Projection formula: N_{a/F}(res(x)·y) = x·N_{a/F}(y) for x ∈ K^M_*(F) and y ∈ K^M_*(F⟮a⟯). (T.4/milnor-projection-formula)
+- `milnorTransferSimple_restrict` (relation) — N_{a/F}(res x) = [F⟮a⟯ : F]·x for x ∈ K^M_n(F). (T.4/restriction-transfer-degree)
+- `milnorTransferSimple_one_eq_norm` (compatibility) — In degree one N_{a/F} is Algebra.norm F on F⟮a⟯ˣ (proved in T.4/transfer-low-degrees).
+- `milnorTransferSimple_kbook` (compatibility) — N_{a/F} is the same whether the residues are normalised as in the roadmap or as in Theorem III.7.3.
 
-**Used by.** *T.4/milnor-transfer-transitivity*: the transfer of any finite extension is the composite of these along a chain of generators, and Kato's theorem makes it independent of the chain. *T.4/milnor-projection-formula and T.4/restriction-transfer-degree*: the projection formula and the degree formula are proved for N_{a/F}. *T.4/projective-line-reciprocity*: the defining identity −∂_∞ = Σ N_p ∂_p is Weil's formula for the projective line. *T.3/transfer-and-norm-residue*: the norm-residue, projection and degree formulas for the general transfer start from the simple case. *HigherLocalFieldsAndHigherClassFieldTheory HL.1*: Milnor norms of extensions of higher local fields are these transfers. *MotivicEtaleKTheory M.4*: the norms N_{k(x)/F} in the inverse of the diagonal cycle map CH^n(F, n) → K^M_n(F) are Kato's norms built from these transfers.
+**Used by.**
+
+- T.4/milnor-transfer-transitivity — the transfer of any finite extension is the composite of these along a chain of generators, and Kato's theorem makes it independent of the chain
+- T.4/milnor-projection-formula and T.4/restriction-transfer-degree — the projection formula and the degree formula are proved for N_{a/F}
+- T.4/projective-line-reciprocity — the defining identity −∂_∞ = Σ N_p ∂_p is Weil's formula for the projective line
+- T.3/transfer-and-norm-residue — the norm-residue, projection and degree formulas for the general transfer start from the simple case
+- HigherLocalFieldsAndHigherClassFieldTheory HL.1 — Milnor norms of extensions of higher local fields are these transfers
+- MotivicEtaleKTheory M.4 — the norms N_{k(x)/F} in the inverse of the diagonal cycle map CH^n(F, n) → K^M_n(F) are Kato's norms built from these transfers
 
 **Unit tests.**
 
@@ -992,21 +1009,21 @@ Let E = F(a) be a finite extension, π the minimal polynomial of a, and E ≅ F[
 - If a ∈ F it is the identity.
 - In degree one it is the field norm (T.4/transfer-low-degrees).
 
-**Depends on.** **inside this packet** `bass-tate-sequence`, `leading-coefficient-splitting`, `higher-milnor-residues`; **baseline** `tauceti:TauCeti.Place.ratFuncEquiv`, `mathlib:IntermediateField.adjoinRootEquivAdjoin`.
+**Depends on.** `K2SymbolsBrauer:T.4/bass-tate-sequence`, `K2SymbolsBrauer:T.4/leading-coefficient-splitting`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `tauceti:TauCeti.Place.ratFuncEquiv`, `mathlib:IntermediateField.adjoinRootEquivAdjoin`.
 
-**Source.** Kbook.2013, III.7.5, paragraph before Definition 7.5 (PDF p. 256; book p. 248): “Let v∞ be the valuation on F(t) with parameter t^{−1}. The formulas in Theorem 7.3 defining ∂∞ show that it vanishes on K^M_∗(F). By Theorem 7.4, there are unique homomorphisms Np : K^M_n(F[t]/p) → K^M_n(F) so that −∂∞ = Σp Np∂p.” — The unique N_p through −∂∞ = Σ Np∂p.
+**Source.** `Kbook.2013`, III.7.5, paragraph before Definition 7.5 (PDF p. 256; book p. 248). The unique N_p through −∂∞ = Σ Np∂p.
 
-**Source.** Kbook.2013, III.7.5, Definition 7.5 (PDF p. 256; book p. 248): “Definition 7.5. Let E be a finite field extension of F generated by an element a. Then the transfer map, or norm map N = Na/F : K^M_∗(E) → K^M_∗(F), is the unique map Np defined above, associated to the kernel p of the map F[t] → E sending t to a.” — The definition.
+**Source.** `Kbook.2013`, III.7.5, Definition 7.5 (PDF p. 256; book p. 248). The definition.
 
-**Source.** Kbook.2013, III.7.5, after Definition 7.5 (PDF p. 256; book p. 248): “We can calculate the norm of an element x ∈ K^M_n(E) as Np(x) = −∂v∞(y), where y ∈ K^M_{n+1}F(t) is such that ∂p(y) = x and ∂p′(y) = 0 for all p′ ≠ p. If n = 0, the transfer map N : Z → Z is multiplication by the degree [E : F] of the field extension” — The computation formula and the degree-zero case.
+**Source.** `Kbook.2013`, III.7.5, after Definition 7.5 (PDF p. 256; book p. 248). The computation formula and the degree-zero case.
 
-**Source.** Kbook.2013, III.7.5.2, Projection Formula 7.5.2 (PDF p. 256; book p. 248): “Projection Formula 7.5.2. Let E = F(a). Then for x ∈ K^M_∗(F) and y ∈ K^M_∗(E) the map N = Na/F satisfies N{x, y} = {x, N(y)}.” — The projection formula for N_{a/F}.
+**Source.** `Kbook.2013`, III.7.5.2, Projection Formula 7.5.2 (PDF p. 256; book p. 248). The projection formula for N_{a/F}.
 
-**Source.** Kbook.2013, III.7.5.3, Corollary 7.5.3 (PDF p. 256; book p. 248): “Corollary 7.5.3. If the extension E/F has degree d, then the composition K^M_∗(F) → K^M_∗(E) −N→ K^M_∗(F) is multiplication by d. In particular, the kernel of K^M_∗(F) → K^M_∗(E) is annihilated by d.” — Restriction followed by transfer.
+**Source.** `Kbook.2013`, III.7.5.3, Corollary 7.5.3 (PDF p. 256; book p. 248). Restriction followed by transfer.
 
 ### `transfer-low-degrees` — The simple transfer in degree one is the field norm (Exercise III.7.5)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 For a finite extension E = F(a), the transfer N_{a/F} : K^M_1(E) = E^× → K^M_1(F) = F^× of T.4/simple-transfer is the field norm Algebra.norm F. (The degree-zero case, multiplication by [E : F], is part of T.4/simple-transfer.)
 
@@ -1027,15 +1044,15 @@ For a finite extension E = F(a), the transfer N_{a/F} : K^M_1(E) = E^× → K^M_
 - For ℚ(∛2)/ℚ and b = ∛2 (g = t, d = 3, e = 1), the factor at q = t is π(0) = −2 and the sign (−1)^{de} = −1 gives the norm 2; without the sign the answer would be wrong.
 - For a constant c ∈ F^×, N_{a/F}(c) = c^{[E:F]}, which is also the projection formula applied to c and 1.
 
-**Depends on.** **inside this packet** `simple-transfer`, `higher-milnor-residues`; **baseline** `mathlib:Algebra.norm`, `mathlib:Algebra.norm_eq_prod_roots`, `mathlib:Polynomial.resultant_eq_prod_eval`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `mathlib:Algebra.norm`, `mathlib:Algebra.norm_eq_prod_roots`, `mathlib:Polynomial.resultant_eq_prod_eval`.
 
-**Source.** Kbook.2013, III, Exercise 7.5 (PDF p. 265; book p. 257): “7.5. Let E = F(a) be a finite extension of F, and consider the transfer map N = Na/F in Definition 7.5. Use Weil’s Formula (7.5.1) to show that when n = 0 the transfer map N : Z → Z is multiplication by [E : F], and that when n = 1 the transfer map N : E× → F× is the usual norm map.” — The exercise; the source leaves the proof to the reader, and the node's steps supply it.
+**Source.** `Kbook.2013`, III, Exercise 7.5 (PDF p. 265; book p. 257). The exercise; the source leaves the proof to the reader, and the node's steps supply it.
 
-**Source.** Kbook.2013, III.7.5, after Definition 7.5 (PDF p. 256; book p. 248): “We can calculate the norm of an element x ∈ K^M_n(E) as Np(x) = −∂v∞(y), where y ∈ K^M_{n+1}F(t) is such that ∂p(y) = x and ∂p′(y) = 0 for all p′ ≠ p. If n = 0, the transfer map N : Z → Z is multiplication by the degree [E : F] of the field extension” — The degree-zero case, stated after Definition 7.5.
+**Source.** `Kbook.2013`, III.7.5, after Definition 7.5 (PDF p. 256; book p. 248). The degree-zero case, stated after Definition 7.5.
 
 ### `projective-line-reciprocity` — Weil reciprocity on the projective line (III.7.5.1 and III.6.5.3)
 
-*theorem* · added by `REV-K2SymbolsBrauer--T.3`
+*theorem*
 
 For a field F and x ∈ K^M_{n+1}F(t): Σ_v N_v ∂_v(x) = 0 in K^M_n(F), the sum over all places v of F(t) trivial on F, where N_π = N_{t̄/F} is the simple transfer of F[t]/(π) = F(t̄) and N_∞ is the identity; only finitely many terms are nonzero. In degree two, for f, g ∈ F(t)^× and the roadmap's tame symbol, ∏_v N_{k(v)/F}(∂_v{f, g}) = 1 in F^× with N the field norm.
 
@@ -1057,17 +1074,17 @@ For a field F and x ∈ K^M_{n+1}F(t): Σ_v N_v ∂_v(x) = 0 in K^M_n(F), the su
 - In degree one (n = 0) it says that a principal divisor on the projective line has degree zero, Σ_v deg(v)·ord_v(f) = 0.
 - Roadmap convention check at 5 over ℚ: both the degree-two higher residue and tameSymbol send {2,5} to 2 in F_5^×; its inverse is 3. Only the separately named K-book residue is inverse.
 
-**Depends on.** **inside this packet** `simple-transfer`, `transfer-low-degrees`, `bass-tate-sequence`, `finite-support`, `higher-milnor-residues`; **baseline** `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Place.normResidue`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.4/bass-tate-sequence`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `tauceti:TauCeti.Place.ratFuncEquiv`, `tauceti:TauCeti.Place.normResidue`.
 
-**Source.** Kbook.2013, III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248): “If we let N∞ denote the identity map on K^M_n(F), and sum over the set of all discrete valuations on F(t) which are trivial on F, the definition of the Nv yields the: Weil Reciprocity Formula 7.5.1. Σv Nv∂v(x) = 0 for all x ∈ K^M_n F(t).” — The statement in all degrees, as a consequence of Definition 7.5.
+**Source.** `Kbook.2013`, III.7.5.1, Weil Reciprocity Formula 7.5.1 (PDF p. 256; book p. 248). The statement in all degrees, as a consequence of Definition 7.5.
 
-**Source.** Kbook.2013, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236): “The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.” — The degree-two form with field norms.
+**Source.** `Kbook.2013`, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236). The degree-two form with field norms.
 
-**Source.** Kbook.2013, III.6.5.3, proof of the Weil Reciprocity Formula (PDF p. 244; book p. 236): “Thus we may assume that F is algebraically closed. By Example 6.1.7, K2F(t) is generated by linear symbols of the form {a, t−b}. But (a, t−b)∞ = a and ∂t−b(a, t−b) = a^{−1}, so the formula is clear.” — The source's proof of the degree-two form.
+**Source.** `Kbook.2013`, III.6.5.3, proof of the Weil Reciprocity Formula (PDF p. 244; book p. 236). The source's proof of the degree-two form.
 
 ### `weil-reciprocity-symbol-form` — Weil reciprocity for the tame symbol on a proper regular curve
 
-*theorem* · added by `REV-K2SymbolsBrauer--T.3`
+*theorem*
 
 Let X be a proper regular integral curve over F with function field K, and f, g ∈ K^×. Then ∂_x{f, g} = 1 for all but finitely many closed points x, and ∏_{x ∈ X^{(1)}} N_{k(x)/F}(∂_x{f, g}) = 1 in F^×, where ∂_x is the roadmap's tame symbol (T.3/tame-symbol) at the discrete valuation of the local ring at x and N is the field norm. Equivalently, over the places P of K/F: ∏_P N_{k(P)/F}(∂_P{f, g}) = 1. The disjoint-support case f(div g) = g(div f), and its agreement with EllipticCurves Layer 2's milestone, is T.4/disjoint-support-reciprocity.
 
@@ -1088,15 +1105,15 @@ Let X be a proper regular integral curve over F with function field K, and f, g 
 - Only finitely many factors differ from 1.
 - Convention test over ℚ at 5: ∂{2,5} = 2 in 𝔽₅ˣ. Its inverse 3 is the K-book convention, not this node’s residue.
 
-**Depends on.** **inside this packet** `weil-reciprocity`, `valuation-comparison`, `transfer-low-degrees`, `milnor-transfer-transitivity`, `tame-symbol`, `higher-milnor-residues`; **baseline** `mathlib:Algebra.norm_norm`, `tauceti:TauCeti.Place.normResidue`.
+**Depends on.** `K2SymbolsBrauer:T.4/weil-reciprocity`, `K2SymbolsBrauer:T.4/valuation-comparison`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.3/tame-symbol`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `mathlib:Algebra.norm_norm`, `tauceti:TauCeti.Place.normResidue`.
 
-**Source.** Kbook.2013, V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416): “The following result, due to Gillet, generalizes the Weil Reciprocity of III.6.5.3 for symbols {f, g} ∈ K2(F). We write ∂x for the component Kn+1(F) → Kn(x) of the map ∂ in 6.12.” — The source states the curve formula as the generalisation of III.6.5.3 for symbols {f, g} ∈ K_2(F): n = 1 in V.6.12.1.
+**Source.** `Kbook.2013`, V.6.12, the paragraph before 6.12.1 (PDF p. 424; book p. 416). The source states the curve formula as the generalisation of III.6.5.3 for symbols {f, g} ∈ K_2(F): n = 1 in V.6.12.1.
 
-**Source.** Kbook.2013, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236): “The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.” — The projective-line case with field norms.
+**Source.** `Kbook.2013`, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236). The projective-line case with field norms.
 
 ### `disjoint-support-reciprocity` — Disjoint supports: f(div g) = g(div f), and EllipticCurves Layer 2's Weil reciprocity
 
-*theorem* · added by `FIX-RT-AREA-ktheory-1`
+*theorem*
 
 Let K be a function field of one variable over F and f, g ∈ K^× whose principal divisors (Tau Ceti's Divisor.principal) have disjoint supports. At a place P in the support of div g one has ord_P f = 0 and the roadmap's tame symbol is ∂_P{f, g} = f(P)^{ord_P g}; at a place P in the support of div f it is ∂_P{f, g} = g(P)^{−ord_P f}; elsewhere it is 1 (T.3/tame-symbol; the sign (−1)^{ord_P f · ord_P g} is 1 on both supports). Applying the residue-field norms N_{k(P)/F} and taking the product, T.4/weil-reciprocity-symbol-form becomes f(div g)·g(div f)^{−1} = 1, that is f(div g) = g(div f) for Tau Ceti's evaluation Divisor.eval, whose local factors are the norms N_{k(P)/F}(f(P)). In particular, for an elliptic curve — a Weierstrass curve W over F with W.IsElliptic, K = W.FunctionField, a function field of one variable by WeierstrassCurve.Affine.isFunctionField — this is the milestone 'Weil reciprocity f(div g) = g(div f)' of EllipticCurves Layer 2, a prerequisite of its divisor construction of the Weil pairing: that milestone is the disjoint-support, degree-two special case of T.4's theorem, stated with the same evaluation and the same principal divisors, and the two must be stated compatibly. The general theorem, in every degree and for every function field of one variable, stays T.4's (T.4/weil-reciprocity); the elliptic statement is a special case, not a proof of reciprocity for other curves. In the K-book's normalisation every local factor is inverted (∂^{Wb}_P{f, g} = f(P)^{−ord_P g} on the support of div g) and the identity is unchanged.
 
@@ -1120,15 +1137,13 @@ Let K be a function field of one variable over F and f, g ∈ K^× whose princip
 - In the K-book's normalisation each local factor is inverted and the identity still holds.
 - A special case, not the theorem: T.4/weil-reciprocity is the statement in every degree for every function field of one variable, and this node does not replace it.
 
-**Depends on.** **inside this packet** `weil-reciprocity-symbol-form`, `tame-symbol`; **baseline** `tauceti:TauCeti.Divisor.eval`, `tauceti:TauCeti.Divisor.eval_eq_prod_normResidue`, `tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint`, `tauceti:TauCeti.Divisor.principal`, `tauceti:TauCeti.Place.normResidue`, `tauceti:WeierstrassCurve.Affine.isFunctionField`.
+**Depends on.** `K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form`, `K2SymbolsBrauer:T.3/tame-symbol`, `tauceti:TauCeti.Divisor.eval`, `tauceti:TauCeti.Divisor.eval_eq_prod_normResidue`, `tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint`, `tauceti:TauCeti.Divisor.principal`, `tauceti:TauCeti.Place.normResidue`, `tauceti:WeierstrassCurve.Affine.isFunctionField`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`.
 
-**Requested from other roadmaps.** `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`.
-
-**Source.** Kbook.2013, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236): “The appropriate reciprocity formula first appeared in Weil’s 1940 paper on the Riemann Hypothesis for curves: (f, g)∞ · ∏p Np(f, g)p = 1 in F×. In Weil’s formula, ‘Np’ denotes the usual norm map (F[t]/p)× → F×.” — The degree-two reciprocity with residue-field norms, of which this node is the disjoint-support case; EllipticCurves Layer 2's milestone is read in the atlas's stage text, not in this source.
+**Source.** `Kbook.2013`, III.6.5.3, Weil Reciprocity Formula 6.5.3 (PDF p. 244; book p. 236). The degree-two reciprocity with residue-field norms, of which this node is the disjoint-support case; EllipticCurves Layer 2's milestone is read in the atlas's stage text, not in this source.
 
 ### `prime-to-p-closure` — Passing to a prime-to-p closure (Kato's key trick)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 For a field F and a prime p there is an algebraic extension F′/F that is the union of its finite subextensions of degree prime to p and such that every finite extension of F′ has p-power degree. For such F′ and every n, every element of the kernel of K^M_n(F) → K^M_n(F′) is killed by an integer prime to p; in particular the kernel has no p-torsion.
 
@@ -1148,13 +1163,13 @@ For a field F and a prime p there is an algebraic extension F′/F that is the u
 - For F = 𝔽_q, F′ is the union of the 𝔽_{q^m} with m prime to p.
 - The kernel need not vanish: for p odd the prime-to-p closure of ℝ is ℂ, and {−1, −1} ∈ K^M_2(ℝ) dies in K^M_2(ℂ); it is killed by 2, which is prime to p.
 
-**Depends on.** **inside this packet** `simple-transfer`, `restriction-transfer-degree`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-k-theory`; **baseline** `mathlib:Sylow`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.2/milnor-k-theory`, `mathlib:Sylow`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`.
 
-**Source.** Kbook.2013, III.7.6.1, the paragraph after Theorem 7.6.1 (PDF p. 257; book p. 249): “The key trick used in the proof of this theorem is to fix a prime p and pass from F to a union F′ of finite extensions of F of degree prime to p such that the degree of every finite extension of F′ is a power of p. By Corollary 7.5.3 the kernel of K^M_n(F) → K^M_n(F′) has no p-torsion.” — The trick, as the source states it.
+**Source.** `Kbook.2013`, III.7.6.1, the paragraph after Theorem 7.6.1 (PDF p. 257; book p. 249). The trick, as the source states it.
 
 ### `transfer-base-change` — Base change of the simple transfer (Exercise III.7.7)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let E = F(a) be finite with minimal polynomial π, F′/F any field extension, π = ∏_i π_i^{e_i} in F′[t] with distinct monic irreducible π_i, and E_i = F′(a_i) with a_i a root of π_i. Then res_{F′/F} ∘ N_{a/F} = Σ_i e_i · N_{a_i/F′} ∘ res_i on K^M_n(E), where res_i is induced by the F-embedding E → E_i sending a to a_i.
 
@@ -1176,13 +1191,13 @@ Let E = F(a) be finite with minimal polynomial π, F′/F any field extension, �
 - For F′ = F(u) transcendental and π = t²−2 over F = ℚ, π remains irreducible and the residue/transfer comparison is available without finite-dimensionality of F′(t)/F(t). The extra place t−u has trivial restriction and zero residue on imported classes.
 - For F′ = F̂_v, use the e = 1 residue comparison for completion; F̂_v/F need not be finite. This preserves the completion input required by Exercise III.7.9 and sourceIssue E10.
 
-**Depends on.** **inside this packet** `simple-transfer`, `bass-tate-sequence`, `higher-ramification-formula`, `higher-milnor-residues`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.4/bass-tate-sequence`, `K2SymbolsBrauer:T.3/higher-ramification-formula`, `K2SymbolsBrauer:T.3/higher-milnor-residues`.
 
-**Source.** Kbook.2013, III, Exercise 7.7 (PDF p. 265; book p. 257): “7.7. Ramification and the transfer. Let F′ and E = F(a) be finite field extensions of F, and suppose that the irreducible polynomial π ∈ F[t] of a has a decomposition π = ∏ πi^ei in F′[t]. Let Ei denote F′(ai), where each ai has minimal polynomial πi. Show that the following diagram commutes.” — The exercise, for finite F′; the argument uses only the naturality of Theorem III.7.4 and the ramification formula, so the node states it for any F′, which Exercise III.7.9 needs for completions.
+**Source.** `Kbook.2013`, III, Exercise 7.7 (PDF p. 265; book p. 257). The exercise, for finite F′; the argument uses only the naturality of Theorem III.7.4 and the ramification formula, so the node states it for any F′, which Exercise III.7.9 needs for completions.
 
 ### `p-closed-generation` — Generation by symbols with one entry outside the base (Exercise III.7.6)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 If every finite extension of F has p-power degree and E/F has degree p, then for n ≥ 1 the group K^M_n(E) is generated by the symbols {y, x_2, …, x_n} with y ∈ E^× and x_2, …, x_n ∈ F^×.
 
@@ -1202,15 +1217,15 @@ If every finite extension of F has p-power degree and E/F has degree p, then for
 - In degree one the statement is trivial.
 - The hypothesis on F is used in the first step: over ℚ, with E = ℚ(∛2), the element 1 + ∛2 + ∛4 is a quadratic polynomial in ∛2 that does not split over ℚ, so the argument does not apply.
 
-**Depends on.** **inside this packet** `degree-reduction`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/milnor-alternating`.
+**Depends on.** `K2SymbolsBrauer:T.4/degree-reduction`, `K2SymbolsBrauer:T.2/milnor-alternating`.
 
-**Source.** Kbook.2013, III, Exercise 7.6 (PDF p. 265; book p. 257): “7.6. Suppose that the degree of every finite extension of a field F is a power of some fixed prime p. If E is an extension of degree p and n > 0, use Ex. 6.2 to show that K^M_n(E) is generated by elements of the form {y, x2, . . . , xn}, where y ∈ E× and the xi are in F×.” — The exercise; it cites Exercise 6.2, whose correct case d = 1 (Lemma III.6.1.4) is what is used.
+**Source.** `Kbook.2013`, III, Exercise 7.6 (PDF p. 265; book p. 257). The exercise; it cites Exercise 6.2, whose correct case d = 1 (Lemma III.6.1.4) is what is used.
 
-**Source.** Kbook.2013, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232): “Lemma 6.1.4. (Bass-Tate) If E = F(u) is a field extension of F, then every symbol of the form {b1u − a1, b2u − a2} (ai, bi ∈ F) is a product of symbols {ci, di} and {ci, u − di} with ci, di ∈ F.” — The linear case.
+**Source.** `Kbook.2013`, III.6.1.4, Lemma 6.1.4 and its proof (PDF p. 240; book p. 232). The linear case.
 
 ### `kato-prime-degree` — Independence of the generator for a normal extension of prime degree (Lemma III.7.6.2)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 If E/F is normal of prime degree p and E = F(a) = F(b), then N_{a/F} = N_{b/F} : K^M_*(E) → K^M_*(F).
 
@@ -1230,11 +1245,11 @@ If E/F is normal of prime degree p and E = F(a) = F(b), then N_{a/F} = N_{b/F} :
 - In degree zero both transfers are multiplication by p.
 - It is the base case of Kato's induction over maximal towers.
 
-**Depends on.** **inside this packet** `simple-transfer`, `transfer-low-degrees`, `transfer-base-change`, `prime-to-p-closure`, `p-closed-generation`, `milnor-projection-formula`, `restriction-transfer-degree`.
+**Depends on.** `K2SymbolsBrauer:T.4/simple-transfer`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/p-closed-generation`, `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`.
 
-**Source.** Kbook.2013, III.7.6.2, Lemma 7.6.2 (PDF p. 257; book p. 249): “Lemma 7.6.2. (Kato) If E is a normal extension of F, and [E : F] is a prime number p, then the map NE/F = Na/F : K^M_∗(E) → K^M_∗(F) does not depend upon the choice of a such that E = F(a).” — The statement.
+**Source.** `Kbook.2013`, III.7.6.2, Lemma 7.6.2 (PDF p. 257; book p. 249). The statement.
 
-**Source.** Kbook.2013, III.7.6.2, proof of Lemma 7.6.2 (PDF p. 257; book p. 249): “Proof. If also E = F(b), then from Corollary 7.5.3 and Ex. 7.7 with F′ = E we see that δ(x) = Na/F(x) − Nb/F(x) is annihilated by p.” — The first step of the proof.
+**Source.** `Kbook.2013`, III.7.6.2, proof of Lemma 7.6.2 (PDF p. 257; book p. 249). The first step of the proof.
 
 ### `prime-degree-residue-on-generated-symbols` — The four residue cases on a symbol with base-field entries
 
@@ -1253,16 +1268,16 @@ For complete discretely valued F, normal E/F of prime degree p and α={a′,a₂
 1. Both units: both residues are zero, since the norm of a unit is a unit. First uniformizer and a₂ unit: ord_F N(π′)=f and restriction fixes the base-unit residues, so both outputs are f{ā₂,…,ā_n}.
 1. First unit and a₂=π: write π=u′(π′)^e. The upper residue is −e{ā′,ā₃,…}, its residue norm is −e{N_l/k(ā′),ā₃,…}; the lower residue is −{res N(a′),ā₃,…}. The determinant filtration identity res N(a′)=N_l/k(ā′)^e identifies them.
 1. Both uniformizers: π=u′(π′)^e and N(π′)=uπ^f. The upper residue followed by norm is {(−1)^(ef)N_l/k(ū′),ā₃,…}; the lower is {(−1)^f ū⁻¹,ā₃,…}. Since ef=p, either e=1,f=p, where choose π′=π and u′=u=1, or e=p,f=1. In the latter choose π as the constant term of the Eisenstein minimal polynomial of π′, so u=(−1)^p and ū′=−1. The two expressions agree in both cases.
-1. The norm identities have explicit source-backed supplier contracts: length_R(S/yS)=f ord_E y for the valuation, and the e-step π′-adic filtration of S/πS for the residue of a unit. They apply without finite residue fields; the requested upstream extension is stated honestly.
+1. Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice, LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.
 
 **Acceptance.**
 
 - The both-uniformizers case retains the sign and unit correction; it is not covered by the units-only calculation.
 - At n=2 the final residue is the roadmap tame symbol, obtained by negating the GS residue.
 
-**Depends on.** `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.3/milnor-residue-product-formula`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`.
+**Depends on.** `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.3/milnor-residue-product-formula`.
 
-**Source.** GilleSzamuely.2006, Lemma 7.3.10, pp. 200–201; Appendix A.6.8(2), p. 313: “The compatibility of the proposition holds for symbols” — The four cases, including both uniformizers and the Eisenstein constant-term normalization.
+**Source.** `GilleSzamuely.2006`, Lemma 7.3.10, pp. 200–201; Appendix A.6.8(2), p. 313. The four cases, including both uniformizers and the Eisenstein constant-term normalization.
 
 ### `complete-norm-residue` — The all-degree norm–residue square for a complete discretely valued field
 
@@ -1276,20 +1291,27 @@ For a complete discretely valued field F and any finite E/F, with residue fields
 
 **Proof.**
 
+1. Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice, LocalFieldsRamificationPartII:DVR.3/base-change-component-length. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.
 1. Factor E/F through the maximal separable subextension. The purely inseparable branch is a finite tower of radical extensions of prime degree equal to char F; kato-complete-residue and norm transitivity handle every step.
 1. For the separable branch fix a prime p. Over F^(p), E⊗_F F^(p) splits as a product of finite fields L_i of p-power degree, each admitting a tower of normal degree-p extensions (GS Lemma 7.3.7). Descend the finite list of polynomial coefficients, idempotents, generators and normality witnesses to finite F′/F inside F^(p). Irreducibility over F^(p) implies irreducibility at the finite stage; normality witnesses can be included there. Thus E⊗_F F′ is a product of fields E_i, each with a normal degree-p tower over F′. The degree d=[F′:F] is prime to p.
 1. Every field at this finite stage is complete for a discrete valuation. Apply kato-complete-residue along each normal-prime-degree tower and use transitivity to prove the square for each E_i/F′. Infinite F^(p) is used only to find the finite algebraic data, never as a discrete or complete valuation field.
 1. For δ=∂_F N(α)−N_l/k ∂_E α, transfer-base-change plus higher-ramification-formula gives r·res_k′/k δ=0, with r=e(F′/F). Transfer back on residue fields gives r[k′:k]δ=dδ=0. Both sides of the base-change identity are sums over the E_i, including their residue base-change multiplicities; equality is obtained componentwise from the preceding step (GS Proposition 7.4.1, using the diagrams of Proposition 7.3.9). For finite complete-DVR base change F′/F, put r=e(F′/F), k′ its residue field, e=e(E/F), and E⊗F F′=∏ E_i with residue l_i. Write l⊗k k′=∏ A_j with residue L_j and length t_j. Let e_i=e(E_i/F′), e′_i=e(E_i/E), with i assigned to its residue component j. Then Σ_(i over j) e′_i [l_i:L_j]=r t_j. Proof: B=S⊗R R′ and its finite normalization C=∏S_i are full R′-lattices in the same algebra, with torsion quotient D. Reduction modulo π′ has equal composition multiplicities for B and C, since the finite-length kernel and cokernel of multiplication by π′ on D have equal multiplicities by length additivity. This is an elementary module-length argument, not a new Quillen G-theory construction. The e-step filtration of S/πS gives e t_j on B, while C gives Σ e_i [l_i:L_j]. Thus Σ e_i [l_i:L_j]=e t_j. Multiply by r and use r e_i=e e′_i; cancel the positive integer e in the LENGTH identity, not in a Milnor K-group. This establishes the displayed multiplicities. Combined with restriction-transfer degree in the residue fields, it proves the r·residue-base-change square used in complete-norm-residue without assuming that composita of residue fields exhaust l_i.
 1. For every prime p an integer d prime to p annihilates δ. One such d shows δ has finite order; applying the detection to its prime divisors, or Bézout to finitely many d, gives δ=0. Switching from GS’s uniformizer-first residue to the packet’s uniformizer-last residue multiplies both sides by (−1)^(n−1).
 
+**Unit tests.**
+
+- `complete_norm_residue_infinite_ramified` (computation) — For ℚ((s))/ℚ((t)), t=s², in degree one: N(s)=−t and ∂_F N(s)=1=N_ℚ/ℚ(∂_E s). An extra transfer ramification coefficient would give 2.
+- `complete_norm_residue_constant_quadratic` (computation) — For ℚ(i)((t))/ℚ((t)), e=1,f=2: ∂_F N(t)=2=N_ℚ(i)/ℚ(1) in K₀^M(ℚ)=ℤ. The right factor is the residue degree.
+- `complete_norm_residue_inseparable_residue` (non-example) — For k=F₂(a), E=k((t))(α), α²+tα+a=0, one has e=1, f=2 and ∂_F N(t)=2. This finite separable complete extension has inseparable residue; a separable-residue or finite-residue hypothesis would exclude a required case.
+
 **Acceptance.**
 
 - n=1 gives ord_F N(y)=[l:k] ord_E(y).
 - Purely inseparable residue extensions use Kato’s finite-extension norm, not a separable trace.
 
-**Depends on.** `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.3/higher-ramification-formula`.
+**Depends on.** `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.3/higher-ramification-formula`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`.
 
-**Source.** GilleSzamuely.2006, Proposition 7.4.1, p. 204; Proposition 7.3.9, pp. 200–202: “commutes” — Complete arbitrary-extension square, with inseparable steps and prime-to-p descent. The henselian stages in the source reduction are explicitly distinguished from complete base fields.
+**Source.** `GilleSzamuely.2006`, Proposition 7.4.1, p. 204; Proposition 7.3.9, pp. 200–202. Complete arbitrary-extension square, with inseparable steps and prime-to-p descent. The henselian stages in the source reduction are explicitly distinguished from complete base fields.
 
 ### `kato-complete-residue` — Residues commute with the transfer over a complete field (Corollary III.7.6.3)
 
@@ -1303,6 +1325,7 @@ Let F be complete for a discrete valuation v with residue field k_v, E/F normal 
 
 **Proof.**
 
+1. Generic complete-DVR support is routed to the proposed LocalFieldsRamification Part II contracts LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation, LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice. They are specified in restructure.supportPlan, not supplied by existing finite-residue Layer 3. This proof remains conditional on the explicitly recorded unregistered-supplier gap; it does not acquire an IsNonarchimedeanLocalField hypothesis.
 1. Set δ=∂_F N(α)−N_l/k ∂_E α in K_(n−1)^M(k). Base-change to E: for a separable normal degree-p extension E⊗_F E is p copies of E; for a purely inseparable extension it is a local algebra of length p with residue E. Transfer-base-change and residue ramification show pδ=0 in the unramified case and p²δ=0 in the ramified or purely inseparable case (GS Proposition 7.3.9). The length p is retained in the inseparable case.
 1. Use p-closed-generation over F^(p) to express the restriction of α as a finite sum of symbols with all but one entry in F^(p). The expressions, Steinberg relations and tower data involve finitely many elements, so descend to finite F′/F of degree d prime to p. E′=EF′ still has degree p and is normal over F′. F′ and E′ are complete DISCRETE valuation fields. Apply prime-degree-residue-on-generated-symbols termwise at this finite stage; do not put a normalized discrete valuation on the infinite F^(p).
 1. If r=e(F′/F), k′ is its residue field and f′=[k′:k], the base-change/ramification squares give r·res_k′/k δ=0 (the relative indices for E′/E and F′/F agree, since the prime-degree extension is disjoint from F′). Apply the residue transfer: r f′ δ=dδ=0. Both r and f′ divide d and are prime to p; no ramification factor is canceled in a torsion group. Combine dδ=0 and p²δ=0 by Bézout to get δ=0.
@@ -1313,17 +1336,17 @@ Let F be complete for a discrete valuation v with residue field k_v, E/F normal 
 - For E/F unramified and n = 2 it says that the tame symbol of a norm is the norm of the tame symbol.
 - Completeness is used: for a field that is not complete there may be several places above v, and the formula becomes the sum of T.4/constant-extension-residue or of T.3/transfer-and-norm-residue.
 
-**Depends on.** `K2SymbolsBrauer:T.4/kato-prime-degree`, `K2SymbolsBrauer:T.4/p-closed-generation`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.3/higher-ramification-formula`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.3/milnor-residue-product-formula`, `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`.
+**Depends on.** `K2SymbolsBrauer:T.4/kato-prime-degree`, `K2SymbolsBrauer:T.4/p-closed-generation`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/transfer-low-degrees`, `K2SymbolsBrauer:T.3/higher-ramification-formula`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.3/milnor-residue-product-formula`, `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`.
 
-**Source.** Kbook.2013, III.7.6.3, Corollary 7.6.3 (PDF p. 257; book p. 249): “Corollary 7.6.3. If in addition F is a complete discrete valuation field with residue field kv, and the residue field of E is kw, the following diagram commutes.” — The statement (the diagram ∂_v ∘ N = N ∘ ∂_w).
+**Source.** `Kbook.2013`, III.7.6.3, Corollary 7.6.3 (PDF p. 257; book p. 249). The statement (the diagram ∂_v ∘ N = N ∘ ∂_w).
 
-**Source.** Kbook.2013, III.7.6.3, proof of Corollary 7.6.3 (PDF p. 257; book p. 249): “By Ex. 7.7 and Ex. 7.8 it suffices to prove that Nkw/kv∂w(u) = ∂v(NEF′/F′u) for every element u of this form. But this is an easy computation.” — The reduction and the computation, as the source gives them.
+**Source.** `Kbook.2013`, III.7.6.3, proof of Corollary 7.6.3 (PDF p. 257; book p. 249). The reduction and the computation, as the source gives them.
 
-**Source.** GilleSzamuely.2006, Proposition 7.3.9, pp. 199–202: “commutes” — Finite descent of the generated-symbol expression, p/p² annihilation and prime-to-p detection. Ramification factors are displayed rather than treating the infinite algebraic closure as discrete.
+**Source.** `GilleSzamuely.2006`, Proposition 7.3.9, pp. 199–202. Finite descent of the generated-symbol expression, p/p² annihilation and prime-to-p detection. Ramification factors are displayed rather than treating the infinite algebraic closure as discrete.
 
 ### `constant-extension-residue` — The norm-residue formula for a constant extension of prime degree (Exercise III.7.9)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let E/F be normal of prime degree p and v a place of F(t) trivial on F. Then ∂_v ∘ N_{E(t)/F(t)} = Σ_{w|v} N_{E(w)/F(v)} ∘ ∂_w on K^M_{n+1}E(t), the sum over the places w of E(t) above v; N_{E(t)/F(t)} and the residue-field transfers are well defined by T.4/kato-prime-degree, each extension involved being normal of degree 1 or p.
 
@@ -1344,13 +1367,13 @@ Let E/F be normal of prime degree p and v a place of F(t) trivial on F. Then ∂
 - If v is inert (a single w with [E(w) : F(v)] = p) it is the complete formula without completion.
 - For v = ∞ it gives ∂_∞ ∘ N_{E(t)/F(t)} = N_{E/F} ∘ ∂_∞, the identity used in Proposition III.7.6.4.
 
-**Depends on.** **inside this packet** `transfer-base-change`, `kato-complete-residue`, `kato-prime-degree`, `higher-milnor-residues`; **baseline** `tauceti:TauCeti.Place.restrict`, `tauceti:TauCeti.Place.finite_setOf_restrict_eq`.
+**Depends on.** `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/kato-prime-degree`, `K2SymbolsBrauer:T.3/higher-milnor-residues`, `tauceti:TauCeti.Place.restrict`, `tauceti:TauCeti.Place.finite_setOf_restrict_eq`.
 
-**Source.** Kbook.2013, III, Exercise 7.9 (PDF p. 266; book p. 258): “7.9. If E/F is a normal extension of prime degree p, and v is a valuation on F(t) trivial on F, show that ∂vNE(t)/F(t) = Σw NE(w)/F(v)∂w, where the sum is over all the valuations w of E(t) over v. Hint: If F(t)v and E(t)w denote the completions of F(t) and E(t) at v and w, respectively, use Ex. 7.7” — The exercise and its hint, which the node follows.
+**Source.** `Kbook.2013`, III, Exercise 7.9 (PDF p. 266; book p. 258). The exercise and its hint, which the node follows.
 
 ### `kato-commuting-square` — Kato's commuting square (Proposition III.7.6.4)
 
-*lemma* · added by `REV-K2SymbolsBrauer--T.3`
+*lemma*
 
 Let E/F be normal of prime degree p, F′ = F(a) finite and E′ = E(a). Then N_{E/F} ∘ N_{a/E} = N_{a/F} ∘ N_{E′/F′} on K^M_*(E′), the norms N_{E/F} and N_{E′/F′} being well defined by T.4/kato-prime-degree.
 
@@ -1370,11 +1393,11 @@ Let E/F be normal of prime degree p, F′ = F(a) finite and E′ = E(a). Then N_
 - If a ∈ F both sides reduce to N_{E/F}.
 - In degree zero both sides are multiplication by [E′ : F].
 
-**Depends on.** **inside this packet** `kato-prime-degree`, `constant-extension-residue`, `simple-transfer`.
+**Depends on.** `K2SymbolsBrauer:T.4/kato-prime-degree`, `K2SymbolsBrauer:T.4/constant-extension-residue`, `K2SymbolsBrauer:T.4/simple-transfer`.
 
-**Source.** Kbook.2013, III.7.6.4, Proposition 7.6.4 (PDF p. 258; book p. 250): “Proposition 7.6.4. (Kato) Let E and F′ = F(a) be extensions of F with E/F normal of prime degree p. If E′ = E(a) denotes the composite field, the following diagram commutes.” — The statement.
+**Source.** `Kbook.2013`, III.7.6.4, Proposition 7.6.4 (PDF p. 258; book p. 250). The statement.
 
-**Source.** Kbook.2013, III.7.6.4, proof of Proposition 7.6.4 (PDF p. 258; book p. 250): “Two applications of Definition 7.5 give the desired calculation: Na/F(NE′/F′x) = −∂∞(NE(t)/F(t)y) = −NE/F(∂∞y) = NE/F(Na/F x).” — The final computation, whose last term is corrected in the author's errata list (p. 272 of the published edition).
+**Source.** `Kbook.2013`, III.7.6.4, proof of Proposition 7.6.4 (PDF p. 258; book p. 250). The final computation, whose last term is corrected in the author's errata list (p. 272 of the published edition).
 
 ## T.3:localization-comparison — The comparison with Quillen K-theory
 
@@ -1415,15 +1438,15 @@ Let R be a discrete valuation ring with fraction field F, residue field k and un
 
 **Depends on.** `K2SymbolsBrauer:T.3/tame-symbol-hom`, `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.2/graded-map`, `GeneralAlgebraicKTheory:K.3/dvr-degree-one-boundary`, `GeneralAlgebraicKTheory:K.3/localization-degree-one-index`, `GeneralAlgebraicKTheory:K.3/localization-product-boundary`, `GeneralAlgebraicKTheory:K.7`.
 
-**Source.** Kbook.2013, V.6.6.1 (PDF p. 417): “We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5.” — The source's claim that the localisation boundary is its tame symbol.
+**Source.** `Kbook.2013`, V.6.6.1 (PDF p. 417). The source's claim that the localisation boundary is its tame symbol.
 
-**Source.** Kbook.2013, V.6.6.1, proof (PDF p. 417): “In this case, we know that ∂ in K∗(R)-linear, so if u ∈ R× has image ū ∈ R/p then ∂{π, u} = [ū] in R/p×. Similarly, ∂ sends {π, π} = {π, −1} to {∂π, −1} = [R/π] · [−1], which is the class of the unit −1.” — The computation: with the K_*(R)-linearity the source uses (on the right, since ∂{π, u} = ∂(π)·[u]), the boundary is the K-book's tame symbol, the inverse of the roadmap's. ('∂ in K∗(R)-linear' is the source's 'is'.)
+**Source.** `Kbook.2013`, V.6.6.1, proof (PDF p. 417). The computation: with the K_*(R)-linearity the source uses (on the right, since ∂{π, u} = ∂(π)·[u]), the boundary is the K-book's tame symbol, the inverse of the roadmap's. ('∂ in K∗(R)-linear' is the source's 'is'.)
 
-**Source.** Kbook.2013, Example V.6.1.2 (PDF p. 414): “Example 6.1.2. It is useful to observe that any s ∈ S determines an element [s] of K1(R[1/s]) and hence G1(R[1/s]), and that ∂(s) ∈ G0(R/sR) is [R/sR] − [I], where I = {r ∈ R : sr = 0}. This formula is immediate from Ex. 5.1. In particular, when R is a domain we have ∂(s) = [R/sR].” — The degree-one normalisation ∂[π] = [R/πR] used in the computation.
+**Source.** `Kbook.2013`, Example V.6.1.2 (PDF p. 414). The degree-one normalisation ∂[π] = [R/πR] used in the computation.
 
 ### `dedekind-localization-boundary` — The localisation theorem for K₂ of a Dedekind domain: the boundary is the tame symbol at each prime ★
 
-*theorem* · planet **Localisation theorem for K₂** · added by `FIX-RT-AREA-ktheory-1`
+*theorem* · planet **Localisation theorem for K₂**
 
 Let R be a Dedekind domain with fraction field F and, for each nonzero prime 𝔭, residue field k(𝔭) = R/𝔭 and valuation v_𝔭. The finitely generated torsion R-modules form a Serre subcategory of the finitely generated R-modules with quotient the finite-dimensional F-vector spaces; Quillen's localisation theorem, dévissage (K_*(torsion modules) ≅ ⊕_𝔭 K_*(k(𝔭))) and resolution (R and F are regular) give the exact sequence ⊕_𝔭 K_2(k(𝔭)) → K_2(R) → K_2(F) −∂→ ⊕_𝔭 K_1(k(𝔭)) → K_1(R) → K_1(F), whose maps out of the residue-field terms are the transfers along R → k(𝔭). The 𝔭-component of ∂ is the boundary of the discrete valuation ring R_𝔭, so on symbols (Steinberg K_2(F) = Quillen K_2(F) by K2SymbolsBrauer:T.1/k2-pi2) ∂{f, g} = (tameSymbol v_𝔭 g f)_𝔭 = ((tameSymbol v_𝔭 f g)^{−1})_𝔭 in the K-book's right K_*(R)-linear normalisation, and (tameSymbol v_𝔭 f g)_𝔭 in the left-linear one (T.3/localization-boundary); the values lie in the direct sum by T.3/finite-support. Hence ker ∂ is the image of K_2(R) and coker ∂ ≅ ker(K_1(R) → K_1(F)). This is the K-book's Localization Theorem III.6.5, proved in V.6.6: the degree-two boundary comparison the stage text asks of this layer, which T.5 imports. It builds no sequence beyond GeneralAlgebraicKTheory K.3's.
 
@@ -1449,21 +1472,19 @@ Let R be a Dedekind domain with fraction field F and, for each nonzero prime �
 - coker ∂ is not zero in general: for the Dedekind domain ℝ[x, y]/(x² + y² − 1) it is the nonzero SK_1 of K-book Example III.1.5.4, although every tame symbol is onto.
 - No second localisation sequence is built: ArithmeticKTheory N.2's all-degree Dedekind sequence restricts in degrees at most two to this one.
 
-**Depends on.** **inside this packet** `localization-boundary`, `finite-support`; **other parts and roadmaps** `K2SymbolsBrauer:T.1/k2-pi2`, `GeneralAlgebraicKTheory:K.3/abelian-localization-theorem`, `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula`, `GeneralAlgebraicKTheory:K.3` (requested: the torsion Serre quotient); **baseline** `mathlib:IsDedekindDomain.HeightOneSpectrum`.
+**Depends on.** `K2SymbolsBrauer:T.3/localization-boundary`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.1/k2-pi2`, `GeneralAlgebraicKTheory:K.3/abelian-localization-theorem`, `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula`, `mathlib:IsDedekindDomain.HeightOneSpectrum`, `GeneralAlgebraicKTheory:K.3`.
 
-**Requested from other roadmaps.** `GeneralAlgebraicKTheory:K.3`.
+**Source.** `Weibel.KBook.III`, III.6.5, Localization Theorem 6.5 (p. 52). The statement is quoted in chapter III and proved in chapter V; the local rings R_𝔭 give the tame symbols.
 
-**Source.** Weibel.KBook.III, III.6.5, Localization Theorem 6.5 (p. 52): “The following result will be proven in chapter V, but we find it useful to quote this result now. If p is a nonzero prime ideal of a Dedekind domain R, the local ring Rp is a discrete valuation ring, and hence determines a tame symbol.” — The statement is quoted in chapter III and proved in chapter V; the local rings R_𝔭 give the tame symbols.
+**Source.** `Weibel.KBook.V`, V.6.6 (p. 41). The Dedekind sequence as the localisation sequence of V.6.1 with S = R ∖ {0}, after resolution.
 
-**Source.** Weibel.KBook.V, V.6.6 (p. 41): “Hence the localization sequence of 6.1 with S = R − {0} becomes the long exact sequence:” — The Dedekind sequence as the localisation sequence of V.6.1 with S = R ∖ {0}, after resolution.
+**Source.** `Weibel.KBook.V`, V.6.6.1 and the claim after it (p. 41). The reduction to the discrete valuation ring R_𝔭; the source's 'K2(R) → K2(Rp)' is read as the morphism of localisation sequences induced by R → R_𝔭, which is how the proof uses it.
 
-**Source.** Weibel.KBook.V, V.6.6.1 and the claim after it (p. 41): “We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5. Since the p-component of ∂ factors through the localization K2 (R) → K2 (Rp ) and the localization sequence for Rp , we may suppose that R is a DVR with parameter π.” — The reduction to the discrete valuation ring R_𝔭; the source's 'K2(R) → K2(Rp)' is read as the morphism of localisation sequences induced by R → R_𝔭, which is how the proof uses it.
-
-**Source.** Weibel.KBook.V, V.6.1 (p. 38): “We saw in II.6.4.1 that the category MS (R) of finitely generated S-torsion modules is a Serre subcategory of M(R) with quotient category M(S −1 R).” — The Serre quotient identification used in the first step.
+**Source.** `Weibel.KBook.V`, V.6.1 (p. 38). The Serre quotient identification used in the first step.
 
 ### `quillen-transfer-norm-residue` — Quillen transfers and the localisation boundary: the norm–residue square
 
-*theorem* · added by `FIX-RT-AREA-ktheory-1`
+*theorem*
 
 Let R ⊆ R′ be Dedekind domains with R′ finitely generated as an R-module, F ⊆ F′ their fraction fields (so F′/F is finite), and for a nonzero prime 𝔭 of R let 𝔭′ run over the primes of R′ above 𝔭. The transfers of GeneralAlgebraicKTheory K.3 along R → R′, F → F′ and k(𝔭) → k(𝔭′) (restriction of scalars; R′ is finitely generated and torsion-free, hence projective, over R) form a morphism from the localisation sequence of T.3/dedekind-localization-boundary for R′ to that for R. In particular ∂_𝔭 ∘ N_{F′/F} = Σ_{𝔭′|𝔭} N_{k(𝔭′)/k(𝔭)} ∘ ∂_{𝔭′} on K_n(F′): residue degrees enter through the transfers of the residue extensions and no ramification index appears (ramification enters restriction, T.3/ramification-formula). In degree two, the boundaries being the inverse tame symbols and the K_1-transfer of a finite field extension the field norm, tameSymbol_{v_𝔭}(N_{F′/F} x) = ∏_{𝔭′|𝔭} N_{k(𝔭′)/k(𝔭)}(tameSymbol_{v_𝔭′} x) for x ∈ K_2(F′), with N_{F′/F} Quillen's transfer; the identity holds in both normalisations. Moreover, for a finite field extension E/F restriction followed by transfer is multiplication by [E : F] on K_n(F), the projection formula applied to the class [E] = [E : F] of K_0(F) = ℤ. The Milnor-side statements are T.4's (T.3/transfer-and-norm-residue, T.4/restriction-transfer-degree, T.4/milnor-projection-formula); their agreement with these is T.3/milnor-quillen-transfer-comparison.
 
@@ -1486,13 +1507,13 @@ Let R ⊆ R′ be Dedekind domains with R′ finitely generated as an R-module, 
 - For fields, restriction followed by transfer on K_2 is multiplication by [E : F] (K-book III.5.6.3).
 - The theorem concerns Quillen's transfer; T.4's Milnor norm is compared with it in T.3/milnor-quillen-transfer-comparison, not identified with it by definition.
 
-**Depends on.** **inside this packet** `dedekind-localization-boundary`; **other parts and roadmaps** `GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula`, `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/abelian-localization-theorem`; **baseline** `mathlib:Algebra.norm`.
+**Depends on.** `K2SymbolsBrauer:T.3/dedekind-localization-boundary`, `GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula`, `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/abelian-localization-theorem`, `mathlib:Algebra.norm`.
 
-**Source.** Weibel.KBook.V, V.(6.6.3)-(6.6.4) (p. 42): “Suppose that R ⊂ R′ is an inclusion of Dedekind domains, with R′ finitely generated as an R-module. Then the fraction field F ′ of R′ is finite over F , so the exact functors M(R′ ) → M(R) and M(F ′ ) → M(F ) inducing the transfer maps (IV.6.3.3) are compatible.” — The compatibility of the transfers with the localisation sequences; the diagram (6.6.4) has the residue transfers N_{p′/p} as its third column.
+**Source.** `Weibel.KBook.V`, V.(6.6.3)-(6.6.4) (p. 42). The compatibility of the transfers with the localisation sequences; the diagram (6.6.4) has the residue transfers N_{p′/p} as its third column.
 
-**Source.** Weibel.KBook.III, III.1.7.1 and the paragraph after it (p. 9): “When j : F → E is a finite field extension, it is easy to see from 1.1.2 that the transfer map j∗ : E × → F × is the classical norm map.” — The K_1-transfer of a finite field extension is the field norm.
+**Source.** `Weibel.KBook.III`, III.1.7.1 and the paragraph after it (p. 9). The K_1-transfer of a finite field extension is the field norm.
 
-**Source.** Weibel.KBook.III, III.5.6.3 (p. 39): “If R is commutative, so that K2 (R) is a K0 (R)-module by Ex. 5.4, the composition f∗ f ∗ : K2 (R) → K2 (S) → K2 (R) is multiplication by [S] ∈ K0 (R). In particular, if S is free of rank n, then f∗ f ∗ is multiplication by n.” — Restriction followed by transfer in degree two.
+**Source.** `Weibel.KBook.III`, III.5.6.3 (p. 39). Restriction followed by transfer in degree two.
 
 ### `milnor-quillen-transfer-comparison` — T.4's Milnor norm is Quillen's transfer on K₂
 
@@ -1523,15 +1544,15 @@ For a finite field extension E/F, under Matsumoto's isomorphisms K^M_2(E) ≅ K_
 
 **Depends on.** `K2SymbolsBrauer:T.4/milnor-transfer-transitivity`, `K2SymbolsBrauer:T.4/milnor-projection-formula`, `K2SymbolsBrauer:T.4/prime-to-p-closure`, `K2SymbolsBrauer:T.4/p-closed-generation`, `K2SymbolsBrauer:T.4/degree-reduction`, `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.1/k2-pi2`, `GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula`, `K2SymbolsBrauer:T.4/transfer-base-change`, `K2SymbolsBrauer:T.4/restriction-transfer-degree`, `GeneralAlgebraicKTheory:K.3/finite-field-transfer-base-change`.
 
-**Source.** Weibel.KBook.III, III.6.1.5, Corollary 6.1.5 (p. 49): “Corollary 6.1.5. If E = F (u) is a quadratic field extension of F , then K2 (E) is generated by elements coming from K2 (F ), together with elements of the form {c, u − d}. Thus the transfer map NE/F : K2 (E) → K2 (F ) is completely determined by the formulas” — The quadratic case: the K_2 transfer is determined by the projection formula and the norm.
+**Source.** `Weibel.KBook.III`, III.6.1.5, Corollary 6.1.5 (p. 49). The quadratic case: the K_2 transfer is determined by the projection formula and the norm.
 
-**Source.** Weibel.KBook.III, III, Exercise 5.6 (p. 46): “the case i = 1 yields the useful formula f∗ {r, s} = {r, N s} for Steinberg symbols in K2 (R), where r ∈ R× , s ∈ S × and N s = f∗ (s) ∈ R× is the norm of s.” — The projection formula for the finite K_2 transfer.
+**Source.** `Weibel.KBook.III`, III, Exercise 5.6 (p. 46). The projection formula for the finite K_2 transfer.
 
-**Source.** Weibel.KBook.III, III.7.6, Definition 7.6 and Theorem 7.6.1 (p. 64): “The transfer map is well-defined by the following result of K. Kato.” — The Milnor norm compared here is the Bass–Tate/Kato one, defined in chapter III without reference to Quillen's transfer.
+**Source.** `Weibel.KBook.III`, III.7.6, Definition 7.6 and Theorem 7.6.1 (p. 64). The Milnor norm compared here is the Bass–Tate/Kato one, defined in chapter III without reference to Quillen's transfer.
 
-**Source.** GilleSzamuely.2006, Lemma 7.3.6–7.3.7 and proof of Theorem 7.3.2, pp. 198–203: “commutes” — Prime-to-p descent, arbitrary-base-change multiplicities and degree-p towers; the comparison of two transfers is derived here from these and the K.3 exact-functor contract, not quoted as a GS theorem.
+**Source.** `GilleSzamuely.2006`, Lemma 7.3.6–7.3.7 and proof of Theorem 7.3.2, pp. 198–203. Prime-to-p descent, arbitrary-base-change multiplicities and degree-p towers; the comparison of two transfers is derived here from these and the K.3 exact-functor contract, not quoted as a GS theorem.
 
-**Source.** Kbook.2013, V.1.2/1.2.1; V.3.7.2 and Exercise V.3.11: “Additivity Theorem” — Additivity and base-change functoriality supporting the requested Quillen field-transfer contract.
+**Source.** `Kbook.2013`, V.1.2/1.2.1; V.3.7.2 and Exercise V.3.11. Additivity and base-change functoriality supporting the requested Quillen field-transfer contract.
 
 ## T.5 — Tame kernels and explicit arithmetic
 
@@ -1564,19 +1585,23 @@ Let F be a field with a family (v_i)_{i∈I} of discrete valuations — in the a
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `unramifiedSubgroup` | data | For a family v : I → discrete valuations of F, ⨅ i, ker(∂_{v i}) as a subgroup of K_2(F). |
-| `mem_unramifiedSubgroup_iff` | characterisation | x ∈ U ↔ ∀ i, ∂_{v i} x = 1. |
-| `unramifiedOutside` | data | For S ⊆ I, ⨅ i ∉ S, ker(∂_{v i}); unramifiedOutside ∅ = unramifiedSubgroup, and it is monotone in S. |
-| `unramifiedSubgroup_eq_ker_residueSum` | characterisation | Under finite support, U = ker(K_2(F) → ⨁ i, k(v i)ˣ). |
-| `symbol_mem_unramifiedSubgroup` | simp | If u and w are units at every v_i then {u, w} ∈ U. |
-| `range_K2_le_unramifiedSubgroup` | compatibility | For a Dedekind domain R with fraction field F and I = HeightOneSpectrum R, the image of K_2(R) → K_2(F) lies in U. |
-| `unramifiedSubgroup_map_le` | functoriality | Restriction along a finite extension carrying the family into the family maps U into U. |
-| `transfer_mem_unramifiedSubgroup` | relation | The transfer of a finite extension of number fields maps the unramified subgroup of the larger field into that of the smaller. |
-| `unramifiedSubgroup_heightOneSpectrum` | compatibility | For I = HeightOneSpectrum R, v_𝔭 is Mathlib's HeightOneSpectrum.valuation F and k(v_𝔭) is identified with R ⧸ 𝔭. |
+- `unramifiedSubgroup` (data) — For a family v : I → discrete valuations of F, ⨅ i, ker(∂_{v i}) as a subgroup of K_2(F).
+- `mem_unramifiedSubgroup_iff` (characterisation) — x ∈ U ↔ ∀ i, ∂_{v i} x = 1.
+- `unramifiedOutside` (data) — For S ⊆ I, ⨅ i ∉ S, ker(∂_{v i}); unramifiedOutside ∅ = unramifiedSubgroup, and it is monotone in S.
+- `unramifiedSubgroup_eq_ker_residueSum` (characterisation) — Under finite support, U = ker(K_2(F) → ⨁ i, k(v i)ˣ).
+- `symbol_mem_unramifiedSubgroup` (simp) — If u and w are units at every v_i then {u, w} ∈ U.
+- `range_K2_le_unramifiedSubgroup` (compatibility) — For a Dedekind domain R with fraction field F and I = HeightOneSpectrum R, the image of K_2(R) → K_2(F) lies in U.
+- `unramifiedSubgroup_map_le` (functoriality) — Restriction along a finite extension carrying the family into the family maps U into U.
+- `transfer_mem_unramifiedSubgroup` (relation) — The transfer of a finite extension of number fields maps the unramified subgroup of the larger field into that of the smaller.
+- `unramifiedSubgroup_heightOneSpectrum` (compatibility) — For I = HeightOneSpectrum R, v_𝔭 is Mathlib's HeightOneSpectrum.valuation F and k(v_𝔭) is identified with R ⧸ 𝔭.
 
-**Used by.** *T.5/s-integer-tame-kernel-sequence and T.5/tame-kernel-sequence*: the image of K_2(O_{F,S}) in K_2(F) is the subgroup unramified outside S, and that of K_2(O_F) is this subgroup. *ArithmeticKTheory N.2*: N.2 specialises its all-degree localisation sequence to T.5's degree-two rows, which identify this subgroup with K_2(O_F). *SpecialValuesBirchTate B.1 and B.7*: the orders #K_2(O_F) and #K_2(O_{F,S}) are those of this subgroup and of its outside-S variant, through T.5/tame-kernel-sequence and T.5/relative-s-integer-sequence. *ArithmeticKTheory N.6*: N.6's certificate engine presents the tame kernel, which is this subgroup; the certificate format is N.6's. *T.7's Hilbert-symbol comparison*: the local symbols are evaluated on classes whose ramification is controlled.
+**Used by.**
+
+- T.5/s-integer-tame-kernel-sequence and T.5/tame-kernel-sequence — the image of K_2(O_{F,S}) in K_2(F) is the subgroup unramified outside S, and that of K_2(O_F) is this subgroup
+- ArithmeticKTheory N.2 — N.2 specialises its all-degree localisation sequence to T.5's degree-two rows, which identify this subgroup with K_2(O_F)
+- SpecialValuesBirchTate B.1 and B.7 — the orders #K_2(O_F) and #K_2(O_{F,S}) are those of this subgroup and of its outside-S variant, through T.5/tame-kernel-sequence and T.5/relative-s-integer-sequence
+- ArithmeticKTheory N.6 — N.6's certificate engine presents the tame kernel, which is this subgroup; the certificate format is N.6's
+- T.7's Hilbert-symbol comparison — the local symbols are evaluated on classes whose ramification is controlled
 
 **Unit tests.**
 
@@ -1594,15 +1619,15 @@ Let F be a field with a family (v_i)_{i∈I} of discrete valuations — in the a
 - The symbol of two units of O_F is unramified everywhere.
 - The definition does not presuppose the localisation theorem.
 
-**Depends on.** **inside this packet** `tame-symbol-steinberg`, `finite-support`, `ramification-formula`, `transfer-and-norm-residue`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/symbols-generate`, `K2SymbolsBrauer:T.1/k2-definition`; **baseline** `mathlib:IsDedekindDomain.HeightOneSpectrum`, `mathlib:IsDedekindDomain.HeightOneSpectrum.valuation`.
+**Depends on.** `K2SymbolsBrauer:T.3/tame-symbol-steinberg`, `K2SymbolsBrauer:T.3/finite-support`, `K2SymbolsBrauer:T.3/ramification-formula`, `K2SymbolsBrauer:T.3/transfer-and-norm-residue`, `K2SymbolsBrauer:T.2/symbols-generate`, `K2SymbolsBrauer:T.1/k2-definition`, `mathlib:IsDedekindDomain.HeightOneSpectrum`, `mathlib:IsDedekindDomain.HeightOneSpectrum.valuation`.
 
-**Source.** Kbook.2013, III.6.3, Lemma 6.3 (PDF p. 242; book p. 234): “Lemma 6.3. For every discrete valuation v on F there is a Steinberg symbol K2(F) −∂v→ k×v, defined by ∂v({r, s}) = (−1)^{v(r)v(s)} overline(s^{v(r)}/r^{v(s)}). This symbol is called the tame symbol of the valuation v.” — The symbols whose simultaneous vanishing defines the subgroup.
+**Source.** `Kbook.2013`, III.6.3, Lemma 6.3 (PDF p. 242; book p. 234). The symbols whose simultaneous vanishing defines the subgroup.
 
-**Source.** Kbook.2013, III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236): “Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1” — The kernel of the residue sum, which the localisation theorem identifies with the image of K_2(R) modulo the image of ∐ K_2(R/p).
+**Source.** `Kbook.2013`, III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236). The kernel of the residue sum, which the localisation theorem identifies with the image of K_2(R) modulo the image of ∐ K_2(R/p).
 
 ### `s-integer-tame-kernel-sequence` — The tame-kernel sequence of the S-integers: residues at the primes outside S
 
-*theorem* · added by `REV-K2SymbolsBrauer--T.3`
+*theorem*
 
 Let F be a number field, S a finite set of nonzero primes of O_F (S = ∅ allowed) and O_{F,S} = Set.integer S F. The nonzero primes of O_{F,S} are the 𝔭O_{F,S} with 𝔭 ∉ S, with residue fields k(𝔭) = O_F/𝔭 (Tau Ceti's IsDedekindDomain.integerHeightOneSpectrumEquiv). Then 0 → K_2(O_{F,S}) → K_2(F) −(∂_𝔭)_{𝔭∉S}→ ⊕_{𝔭∉S} k(𝔭)^× → 0 is exact: the sum is over the finite primes OUTSIDE S. Equivalently K_2(O_{F,S}) → K_2(F) is injective with image the subgroup unramified outside S (T.5/unramified-subgroup), and the residue sum over the primes outside S is onto. The sequence is derived through the actual maps of the Dedekind localisation sequence, whose boundary is the tame symbol at each prime (T.3/dedekind-localization-boundary, from T.3:localization-comparison): injectivity because K_2 of each finite residue field vanishes, surjectivity because the cokernel of the residue sum is ker(K_1(O_{F,S}) → K_1(F)), which is zero by the Bass–Milnor–Serre theorem SK_1(O_{F,S}) = 0 (KTheoryLowDegrees U.4). The relative sequence comparing O_F with O_{F,S}, whose residues are at the primes IN S, is T.5/relative-s-integer-sequence.
 
@@ -1625,15 +1650,13 @@ Let F be a number field, S a finite set of nonzero primes of O_F (S = ∅ allowe
 - For S = ∅ it is T.5/tame-kernel-sequence.
 - Indexing test: {5, 2} ∈ K_2(ℚ) has nonzero tame symbol only at 5 (value 3 with T.3's normalisation), so it lies in the image of K_2(ℤ[1/5]) and not in that of K_2(ℤ[1/2]).
 
-**Depends on.** **inside this packet** `dedekind-localization-boundary`, `localization-boundary`, `unramified-subgroup`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/k2-finite-field`, `K2SymbolsBrauer:T.1/k2-pi2`, `KTheoryLowDegrees:U.4`; **baseline** `mathlib:Set.integer`, `tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv`.
+**Depends on.** `K2SymbolsBrauer:T.3/dedekind-localization-boundary`, `K2SymbolsBrauer:T.3/localization-boundary`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.2/k2-finite-field`, `K2SymbolsBrauer:T.1/k2-pi2`, `KTheoryLowDegrees:U.4`, `mathlib:Set.integer`, `tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv`.
 
-**Requested from other roadmaps.** `KTheoryLowDegrees:U.4`.
+**Source.** `Weibel.KBook.III`, III.6.5, Localization Theorem 6.5 (p. 52). The localisation theorem for any Dedekind domain, applied to O_{F,S}, whose primes are those of O_F outside S.
 
-**Source.** Weibel.KBook.III, III.6.5, Localization Theorem 6.5 (p. 52): “Localization Theorem 6.5. Let R be a Dedekind domain with field of fractions F . Then the tame symbols K2 (F ) −→ (R/p)× associated to the prime ideals of R fit into a long exact sequence” — The localisation theorem for any Dedekind domain, applied to O_{F,S}, whose primes are those of O_F outside S.
+**Source.** `Kbook.2013`, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412). Soulé's theorem for n = 2 applies to every Dedekind domain with global fraction field, in particular to O_{F,S} as well as O_F.
 
-**Source.** Kbook.2013, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412): “Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.” — Soulé's theorem for n = 2 applies to every Dedekind domain with global fraction field, in particular to O_{F,S} as well as O_F.
-
-**Source.** Kbook.2013, V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412): “Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).” — Where Bass–Milnor–Serre enters.
+**Source.** `Kbook.2013`, V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412). Where Bass–Milnor–Serre enters.
 
 ### `tame-kernel-sequence` — The tame-kernel exact sequence for the ring of integers
 
@@ -1658,21 +1681,19 @@ For a number field F with ring of integers O_F the sequence 0 → K_2(O_F) → K
 - The third map is onto, but not because each tame symbol is: Example III.1.5.4 gives surjective tame symbols with a nonzero cokernel.
 - The same sequence holds for every Dedekind domain whose fraction field is a global field (Soulé's Theorem V.6.8, n = 2).
 
-**Depends on.** **inside this packet** `s-integer-tame-kernel-sequence`, `unramified-subgroup`, `dedekind-localization-boundary`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/k2-finite-field`, `KTheoryLowDegrees:U.4`; **baseline** `mathlib:NumberField.RingOfIntegers`, `mathlib:Set.integer`.
+**Depends on.** `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.3/dedekind-localization-boundary`, `K2SymbolsBrauer:T.2/k2-finite-field`, `KTheoryLowDegrees:U.4`, `mathlib:NumberField.RingOfIntegers`, `mathlib:Set.integer`.
 
-**Requested from other roadmaps.** `KTheoryLowDegrees:U.4`.
+**Source.** `Kbook.2013`, III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236). The localisation sequence for a Dedekind domain: the cokernel of the residue sum is SK_1(R).
 
-**Source.** Kbook.2013, III.6.5, Localization Theorem 6.5 (PDF p. 244; book p. 236): “Localization Theorem 6.5. Let R be a Dedekind domain, with field of fractions F. Then the tame symbols K2(F) −∂p→ (R/p)× associated to the prime ideals of R fit into a long exact sequence ∐p K2(R/p) → K2(R) → K2(F) −∂=∐∂p→ ∐p (R/p)× → SK1(R) → 1” — The localisation sequence for a Dedekind domain: the cokernel of the residue sum is SK_1(R).
+**Source.** `Kbook.2013`, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412). The case of a global field.
 
-**Source.** Kbook.2013, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412): “Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.” — The case of a global field.
+**Source.** `Kbook.2013`, V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412). Where Bass–Milnor–Serre enters.
 
-**Source.** Kbook.2013, V.6.8, proof of Theorem 6.8 (PDF p. 420; book p. 412): “Let SKn(R) denote the kernel of Kn(R) → Kn(F); from (6.6), it suffices to prove that SKn(R) = 0 for n ≥ 1. For n = 1 this is the Bass-Milnor-Serre Theorem III.2.5 (and III.2.5.1).” — Where Bass–Milnor–Serre enters.
-
-**Source.** Kbook.2013, III.1.5.4, Example 1.5.4 (PDF p. 193; book p. 185): “The ring R = ℝ[x, y]/(x2 + y2 − 1) may be embedded in the ring ℝ^{S1} by x ↦ cos(θ), y ↦ sin(θ). Since the matrix (x −y; y x) maps to A, it represents a nontrivial element of SK1(R).” — A Dedekind domain with nonzero SK_1: per-prime surjectivity does not give surjectivity of the sum.
+**Source.** `Kbook.2013`, III.1.5.4, Example 1.5.4 (PDF p. 193; book p. 185). A Dedekind domain with nonzero SK_1: per-prime surjectivity does not give surjectivity of the sum.
 
 ### `relative-s-integer-sequence` — The relative sequence comparing K₂(O_F) with K₂(O_{F,S}): residues at the primes in S
 
-*theorem* · added by `FIX-RT-AREA-ktheory-1`
+*theorem*
 
 Let F be a number field and S a finite set of nonzero primes of O_F. Then 0 → K_2(O_F) → K_2(O_{F,S}) −(∂_𝔭)_{𝔭∈S}→ ⊕_{𝔭∈S} k(𝔭)^× → 0 is exact, the first map induced by O_F ⊆ O_{F,S} and the residues taken at the primes IN S (read on the image of K_2(O_{F,S}) in K_2(F)). The tame-kernel sequence of O_{F,S} itself, T.5/s-integer-tame-kernel-sequence, has its residues at the primes OUTSIDE S; the two are distinct statements. Consequently #K_2(O_{F,S}) = #K_2(O_F)·∏_{𝔭∈S}(N𝔭 − 1) whenever K_2(O_F) is finite. This is the stage text's 'exact sequence comparing their tame kernel with the integral one'.
 
@@ -1692,13 +1713,13 @@ Let F be a number field and S a finite set of nonzero primes of O_F. Then 0 → 
 - Indexing: the residues are at the primes in S; for S = ∅ the sequence is the identity of K_2(O_F).
 - The order formula #K_2(O_{F,S}) = #K_2(O_F)·∏_{v∈S}(Nv − 1) that SpecialValuesBirchTate B.7 consumes follows because #k(𝔭)^× = N𝔭 − 1.
 
-**Depends on.** **inside this packet** `tame-kernel-sequence`, `s-integer-tame-kernel-sequence`, `unramified-subgroup`; **baseline** `mathlib:Set.integer`.
+**Depends on.** `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `mathlib:Set.integer`.
 
-**Source.** Kbook.2013, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412): “Theorem 6.8. (Soulé [171]) Let R be a Dedekind domain whose field of fractions F is a global field. Then Kn(R) ≅ Kn(F) for all odd n ≥ 3; for even n ≥ 2 the localization sequence breaks up into exact sequences: 0 → Kn(R) → Kn(F) → ⊕p Kn−1(R/p) → 0.” — The case of a global field.
+**Source.** `Kbook.2013`, V.6.8, Theorem 6.8 (PDF p. 420; book p. 412). The case of a global field.
 
 ### `real-sign-symbol` — The real sign symbol (Example III.6.2.1)
 
-*construction* · added by `REV-K2SymbolsBrauer--T.3`
+*construction*
 
 For x, y ∈ ℝ^× put (x, y)_∞ = −1 if x < 0 and y < 0, and +1 otherwise. It is bilinear and (x, 1 − x)_∞ = 1 for x ≠ 0, 1, so by Matsumoto's theorem it defines a homomorphism K_2(ℝ) → {±1}, onto because (−1, −1)_∞ = −1. For a field F with an embedding σ : F → ℝ (a real place of a number field) the composite K_2(F) → K_2(ℝ) → {±1} is the sign symbol at σ.
 
@@ -1715,16 +1736,19 @@ For x, y ∈ ℝ^× put (x, y)_∞ = −1 if x < 0 and y < 0, and +1 otherwise. 
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `realSignSymbol` | constructor | The homomorphism K_2(ℝ) →* ℤˣ with {x, y} ↦ −1 if x < 0 and y < 0, and 1 otherwise. |
-| `realSignSymbol_symbol` | simp | Its value on a symbol {x, y}. |
-| `realSignSymbol_neg_one_neg_one` | simp | realSignSymbol {−1, −1} = −1. |
-| `realSignSymbol_surjective` | characterisation | It is onto ℤˣ. |
-| `signSymbolAt` | functoriality | For σ : F →+* ℝ, the composite of K_2(σ) with realSignSymbol; for a number field one for each real place. |
-| `realSignSymbol_eq_milnorExamples` | compatibility | Through Matsumoto's theorem, on K^M_2(ℝ): {x, y} ↦ −1 exactly when x < 0 and y < 0, which is the degree-two part of the graded map K^M_*(ℝ) → (ℤ/2)[t] of K2SymbolsBrauer:T.2/milnor-examples (a lemma with no API name to compare with). |
+- `realSignSymbol` (constructor) — The homomorphism K_2(ℝ) →* ℤˣ with {x, y} ↦ −1 if x < 0 and y < 0, and 1 otherwise.
+- `realSignSymbol_symbol` (simp) — Its value on a symbol {x, y}.
+- `realSignSymbol_neg_one_neg_one` (simp) — realSignSymbol {−1, −1} = −1.
+- `realSignSymbol_surjective` (characterisation) — It is onto ℤˣ.
+- `signSymbolAt` (functoriality) — For σ : F →+* ℝ, the composite of K_2(σ) with realSignSymbol; for a number field one for each real place.
+- `realSignSymbol_eq_milnorExamples` (compatibility) — Through Matsumoto's theorem, on K^M_2(ℝ): {x, y} ↦ −1 exactly when x < 0 and y < 0, which is the degree-two part of the graded map K^M_*(ℝ) → (ℤ/2)[t] of K2SymbolsBrauer:T.2/milnor-examples (a lemma with no API name to compare with).
 
-**Used by.** *T.5/k2-of-the-integers*: it shows that {−1, −1} is nonzero, the lower bound of the order-two statement. *T.5/k2-of-the-rationals*: it splits the tame-kernel sequence of ℚ. *ArithmeticKTheory N.6*: the model lower bound of an order certificate, a surjection onto a group of known order; the certificate format is N.6's. *T.7/classical-local-symbols*: the Hilbert symbol of ℝ is this symbol.
+**Used by.**
+
+- T.5/k2-of-the-integers — it shows that {−1, −1} is nonzero, the lower bound of the order-two statement
+- T.5/k2-of-the-rationals — it splits the tame-kernel sequence of ℚ
+- ArithmeticKTheory N.6 — the model lower bound of an order certificate, a surjection onto a group of known order; the certificate format is N.6's
+- T.7/classical-local-symbols — the Hilbert symbol of ℝ is this symbol
 
 **Unit tests.**
 
@@ -1740,13 +1764,13 @@ For x, y ∈ ℝ^× put (x, y)_∞ = −1 if x < 0 and y < 0, and +1 otherwise. 
 - For a number field with r_1 real places the r_1 sign symbols give a surjection K_2(F) → {±1}^{r_1} (Exercise III.6.4).
 - It is the degree-two part of the graded map K^M_*(ℝ) → (ℤ/2)[t] of Examples III.7.2(c) (K2SymbolsBrauer:T.2/milnor-examples), and it equals the Hilbert symbol of ℝ (Example III.6.2.2; T.7/classical-local-symbols proves that comparison).
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.2/milnor-examples`; **baseline** `mathlib:NumberField.InfinitePlace.IsReal`.
+**Depends on.** `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.2/milnor-examples`, `mathlib:NumberField.InfinitePlace.IsReal`.
 
-**Source.** Kbook.2013, III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232): “Example 6.2.1. There is a Steinberg symbol (x, y)∞ on the field R with values in the group {±1}. Define (x, y)∞ to be: −1 if both x and y are negative, and +1 otherwise. The Steinberg identity (x, 1 − x)∞ = +1 holds because x and 1 − x cannot be negative at the same time.” — The definition and the Steinberg identity.
+**Source.** `Kbook.2013`, III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232). The definition and the Steinberg identity.
 
-**Source.** Kbook.2013, III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232): “The resulting map K2(R) → {±1} is onto because (−1, −1)∞ = −1. This shows that the symbol {−1, −1} in K2(Z) is nontrivial, as promised in 5.2.2, and even shows that K2(Z) is a direct summand in K2(R).” — Surjectivity and the consequence for K_2(ℤ).
+**Source.** `Kbook.2013`, III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232). Surjectivity and the consequence for K_2(ℤ).
 
-**Source.** Kbook.2013, III, Exercise 6.4 (PDF p. 251; book p. 243): “6.4. If F is a number field with r1 distinct embeddings F ↪ R, show that the r1 symbols ( , )∞ on F define a surjection K2(F) → {±1}^{r1}.” — The sign symbols at the real places of a number field.
+**Source.** `Kbook.2013`, III, Exercise 6.4 (PDF p. 251; book p. 243). The sign symbols at the real places of a number field.
 
 ### `integer-steinberg-word-model` — Finite-rank integer word models for Silvester’s induction
 
@@ -1758,7 +1782,7 @@ Define an auxiliary family S_n over ℤ: S₀=S₁=1; S₂ is Milnor’s rank-tw
 
 - n∈ℕ; the integer ring and row-vector action are fixed; finite St(n,ℤ) is imported for n≥3.
 
-**Proof.**
+**Construction and proof.**
 
 1. Use PresentedGroup for the rank-two generators/relations; the elementary matrices satisfy both relation families. The rank-two relation holds in St(3,ℤ) by the conjugation calculation of diagonal-lift-words, so stabilization is well defined. Higher-rank maps are T.1’s stabilization maps.
 1. Compute b·x_ij(a) by adding a b_i to coordinate j. Then w_ij(1) swaps b_i,b_j with one sign, so W_n preserves |b|₁. Over ℤ the only units are ±1 and w_ij(−1)=w_ij(1)⁻¹.
@@ -1766,17 +1790,15 @@ Define an auxiliary family S_n over ℤ: S₀=S₁=1; S₂ is Milnor’s rank-tw
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `IntegerSteinbergModel` | constructor | The auxiliary S_n with the explicit rank-two relation and the standard higher-rank carrier. |
-| `IntegerSteinbergModel.toElementary` | functoriality | φ_n:S_n→E(n,ℤ), satisfying φ_n(x_ij(a))=e_ij(a). |
-| `IntegerSteinbergModel.stabilize` | functoriality | S_n→S_(n+1) and compatible maps into stable St(ℤ); no low-rank injectivity is asserted. |
-| `IntegerSteinbergModel.monomialSubgroup` | constructor | W_n=⟨w_ij(1)⟩; its row-vector action preserves the integer ℓ¹ norm. |
-| `IntegerSteinbergModel.unitWord` | characterisation | Every element is represented by signed unit generators followed by a W_n element; a norm-monotone representation is the next lemma, not part of this definition. |
+- `IntegerSteinbergModel` (constructor) — The auxiliary S_n with the explicit rank-two relation and the standard higher-rank carrier.
+- `IntegerSteinbergModel.toElementary` (functoriality) — φ_n:S_n→E(n,ℤ), satisfying φ_n(x_ij(a))=e_ij(a).
+- `IntegerSteinbergModel.stabilize` (functoriality) — S_n→S_(n+1) and compatible maps into stable St(ℤ); no low-rank injectivity is asserted.
+- `IntegerSteinbergModel.monomialSubgroup` (constructor) — W_n=⟨w_ij(1)⟩; its row-vector action preserves the integer ℓ¹ norm.
+- `IntegerSteinbergModel.unitWord` (characterisation) — Every element is represented by signed unit generators followed by a W_n element; a norm-monotone representation is the next lemma, not part of this definition.
 
 **Used by.**
 
-- *T.5/silvester-word-reduction and integer-kernel-in-monomial-subgroup*: supplies the finite-rank induction, including its rank-one and rank-two bases
+- T.5/silvester-word-reduction and integer-kernel-in-monomial-subgroup — supplies the finite-rank induction, including its rank-one and rank-two bases
 
 **Unit tests.**
 
@@ -1791,7 +1813,7 @@ Define an auxiliary family S_n over ℤ: S₀=S₁=1; S₂ is Milnor’s rank-tw
 
 **Depends on.** `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.2:symbols/diagonal-lift-words`, `mathlib:PresentedGroup`.
 
-**Source.** Milnor.1971, Definition 10.4, p. 82; setup for Lemma 10.6, p. 85; Lemmas 9.2–9.4, pp. 71–72: “standard basis vectors” — Rank-two presentation, row-vector norm, signed permutation action and conjugation.
+**Source.** `Milnor.1971`, Definition 10.4, p. 82; setup for Lemma 10.6, p. 85; Lemmas 9.2–9.4, pp. 71–72. Rank-two presentation, row-vector norm, signed permutation action and conjugation.
 
 ### `silvester-word-reduction` — Silvester’s monotone integer word lemma
 
@@ -1821,7 +1843,7 @@ For n≥2, a signed standard basis vector β∈ℤ^n and z∈S_n, there exist si
 
 **Depends on.** `K2SymbolsBrauer:T.5/integer-steinberg-word-model`.
 
-**Source.** Milnor.1971, Lemma 10.6 and its seven-case proof, pp. 85–90: “Steinberg generators” — Silvester word reduction, with a well-founded peak pair and actual Steinberg-word rewrites.
+**Source.** `Milnor.1971`, Lemma 10.6 and its seven-case proof, pp. 85–90. Silvester word reduction, with a well-founded peak pair and actual Steinberg-word rewrites.
 
 ### `integer-kernel-in-monomial-subgroup` — The integer Steinberg kernel is contained in the monomial subgroup
 
@@ -1847,7 +1869,7 @@ For every n≥1, ker(φ_n:S_n→E(n,ℤ))⊆W_n in the auxiliary finite-rank int
 
 **Depends on.** `K2SymbolsBrauer:T.5/silvester-word-reduction`, `K2SymbolsBrauer:T.5/integer-steinberg-word-model`.
 
-**Source.** Milnor.1971, Lemma 10.7, pp. 90–92; Lemma 9.1, p. 71: “kernel of the natural homomorphism” — Norm-one prefix argument, last-column rearrangement and induction; it does not assert the false two-torsion bound for S₂.
+**Source.** `Milnor.1971`, Lemma 10.7, pp. 90–92; Lemma 9.1, p. 71. Norm-one prefix argument, last-column rearrangement and induction; it does not assert the false two-torsion bound for S₂.
 
 ### `integer-kernel-upper-generation` — The upper generation bound for K₂ of the integers
 
@@ -1873,7 +1895,7 @@ Every element of classical K₂(ℤ) is 1 or c={−1,−1}; this is the upper bo
 
 **Depends on.** `K2SymbolsBrauer:T.5/integer-kernel-in-monomial-subgroup`, `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.2:symbols`.
 
-**Source.** Milnor.1971, Theorem 10.1 and Corollary 10.2, p. 81; final proof, p. 92; Theorem 9.11, pp. 77–78: “cyclic group of order 2” — Stable upper generation from finite-rank kernel containment and the monomial-kernel theorem.
+**Source.** `Milnor.1971`, Theorem 10.1 and Corollary 10.2, p. 81; final proof, p. 92; Theorem 9.11, pp. 77–78. Stable upper generation from finite-rank kernel containment and the monomial-kernel theorem.
 
 ### `k2-of-the-integers` — K_2 of the integers is cyclic of order two, generated by {−1, −1} ★
 
@@ -1900,17 +1922,17 @@ K₂(ℤ) is cyclic of order two generated by c={−1,−1}. The upper generatio
 
 **Depends on.** `K2SymbolsBrauer:T.5/real-sign-symbol`, `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`.
 
-**Source.** Kbook.2013, III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218): “Example 5.2.2. The group K2(Z) is cyclic of order 2. This calculation uses the Euclidean algorithm to rewrite elements of St(Z), and is given in §10 of Milnor [131]. ... We will see in Example 6.2.1 below that {−1, −1} is still nonzero in K2(R).” — The statement and its cited proof; the source does not prove the upper bound.
+**Source.** `Kbook.2013`, III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218). The statement and its cited proof; the source does not prove the upper bound.
 
-**Source.** Kbook.2013, III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232): “The resulting map K2(R) → {±1} is onto because (−1, −1)∞ = −1. This shows that the symbol {−1, −1} in K2(Z) is nontrivial, as promised in 5.2.2, and even shows that K2(Z) is a direct summand in K2(R).” — The non-triviality and the splitting.
+**Source.** `Kbook.2013`, III.6.2.1, Example 6.2.1, continued (PDF p. 240; book p. 232). The non-triviality and the splitting.
 
-**Source.** Kbook.2013, III.5.2.2, Example 5.2.2, second paragraph (PDF p. 226; book p. 218): “Tate has used the same Euclidean algorithm type techniques to show that K2(Z[√−7]) and K2(Z[√−15]) are also cyclic of order 2, generated by the symbol {−1, −1}, while K2(R) = 1 for the imaginary quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].” — The imaginary quadratic examples used in the acceptance.
+**Source.** `Kbook.2013`, III.5.2.2, Example 5.2.2, second paragraph (PDF p. 226; book p. 218). The imaginary quadratic examples used in the acceptance.
 
-**Source.** Milnor.1971, Corollary 10.2, p. 81, derived from Theorem 10.1 proved on p. 92: “cyclic of order 2” — Actual upper-bound proof, separately from the real sign lower bound.
+**Source.** `Milnor.1971`, Corollary 10.2, p. 81, derived from Theorem 10.1 proved on p. 92. Actual upper-bound proof, separately from the real sign lower bound.
 
 ### `k2-of-the-rationals` — K_2 of the rationals (Application III.6.5.1) ★
 
-*theorem* · planet **K₂ of the rationals** · added by `REV-K2SymbolsBrauer--T.3`
+*theorem* · planet **K₂ of the rationals**
 
 The residue sum of the tame symbols gives a split exact sequence 1 → K_2(ℤ) → K_2(ℚ) → ⊕_p 𝔽_p^× → 1, split by the real sign symbol through the isomorphism K_2(ℤ) ≅ {±1} of T.5/k2-of-the-integers; hence K_2(ℚ) ≅ K_2(ℤ) ⊕ ⊕_p 𝔽_p^× ≅ ℤ/2 ⊕ ⊕_{p odd} 𝔽_p^× (𝔽_2^× being trivial), and K_2(ℚ) is infinite. ArithmeticKTheory N.8 imports this computation rather than repeating it.
 
@@ -1930,11 +1952,9 @@ The residue sum of the tame symbols gives a split exact sequence 1 → K_2(ℤ) 
 - For an odd prime p, {−1, p} maps to the element −1 of 𝔽_p^× in the p-component and to 1 elsewhere.
 - K_2(ℚ) is infinite while K_2(ℤ) has order two, the check ArithmeticKTheory N.8 asks for; the splitting uses the real place, and (p, q)_∞ = 1 for positive p, q.
 
-**Depends on.** **inside this packet** `tame-kernel-sequence`, `k2-of-the-integers`, `real-sign-symbol`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/k2-finite-field`, `KTheoryLowDegrees:U.4`, `K2SymbolsBrauer:T.1/k2-definition`.
+**Depends on.** `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/k2-of-the-integers`, `K2SymbolsBrauer:T.5/real-sign-symbol`, `K2SymbolsBrauer:T.2/k2-finite-field`, `KTheoryLowDegrees:U.4`, `K2SymbolsBrauer:T.1/k2-definition`.
 
-**Requested from other roadmaps.** `KTheoryLowDegrees:U.4`.
-
-**Source.** Kbook.2013, III.6.5.1, Application 6.5.1 (PDF p. 244; book p. 236): “Application 6.5.1 (K2Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact sequence 1 → K2(Z) → K2(Q) −∂→ ∐ F×p → 1. As noted in Example 6.2.1, this sequence is split by the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ∐ F×p.” — The computation with its splitting.
+**Source.** `Kbook.2013`, III.6.5.1, Application 6.5.1 (PDF p. 244; book p. 236). The computation with its splitting.
 
 ## T.6 — Rings with symbols and relative groups
 
@@ -1972,20 +1992,23 @@ For an associative unital ring R and commuting elements r, s of R with 1 − rs 
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.K2.dennisStein` | constructor | For commuting r, s : R and a proof that 1 − r s is a unit, the element ⟨r, s⟩ : K₂(R). |
-| `TauCeti.K2.coe_dennisStein` | characterisation | (⟨r, s⟩ : St(R)) = x_ji(−s u⁻¹) x_ij(−r) x_ji(s) x_ij(u⁻¹ r) h_ij(u)⁻¹ with u = 1 − r s, for any i ≠ j. |
-| `TauCeti.K2.dennisStein_index_indep` | characterisation | The words for (i, j) and for (k, l) are equal in St(R). |
-| `TauCeti.K2.phi_dennisSteinWord` | characterisation | The image in E(R) of x_ji(−s u⁻¹) x_ij(−r) x_ji(s) x_ij(u⁻¹ r) is diag(u, u⁻¹) at (i, j). |
-| `TauCeti.K2.dennisStein_zero_left` | simp | ⟨0, s⟩ = 1. |
-| `TauCeti.K2.dennisStein_zero_right` | simp | ⟨r, 0⟩ = 1. |
-| `TauCeti.K2.dennisStein_eq_steinbergSymbol` | compatibility | For a unit r, ⟨r, s⟩ = {r, 1 − r s}. |
-| `TauCeti.K2.steinbergSymbol_eq_dennisStein` | compatibility | For commuting units u, v, {u, v} = ⟨u, u⁻¹ (1 − v)⟩. |
-| `TauCeti.K2.map_dennisStein` | functoriality | For a ring homomorphism f : R → R', K₂(f) ⟨r, s⟩ = ⟨f r, f s⟩. |
-| `TauCeti.K2.dennisStein_neg_inv` | relation | The translation of the pre-1980 hypothesis: if 1 + ab is a unit then so is 1 − (−a)b, so the old symbol of (a, b) is ⟨−a, b⟩⁻¹. No second symbol is defined, so this is a statement about hypotheses, not an identity. |
+- `TauCeti.K2.dennisStein` (constructor) — For commuting r, s : R and a proof that 1 − r s is a unit, the element ⟨r, s⟩ : K₂(R).
+- `TauCeti.K2.coe_dennisStein` (characterisation) — (⟨r, s⟩ : St(R)) = x_ji(−s u⁻¹) x_ij(−r) x_ji(s) x_ij(u⁻¹ r) h_ij(u)⁻¹ with u = 1 − r s, for any i ≠ j.
+- `TauCeti.K2.dennisStein_index_indep` (characterisation) — The words for (i, j) and for (k, l) are equal in St(R).
+- `TauCeti.K2.phi_dennisSteinWord` (characterisation) — The image in E(R) of x_ji(−s u⁻¹) x_ij(−r) x_ji(s) x_ij(u⁻¹ r) is diag(u, u⁻¹) at (i, j).
+- `TauCeti.K2.dennisStein_zero_left` (simp) — ⟨0, s⟩ = 1.
+- `TauCeti.K2.dennisStein_zero_right` (simp) — ⟨r, 0⟩ = 1.
+- `TauCeti.K2.dennisStein_eq_steinbergSymbol` (compatibility) — For a unit r, ⟨r, s⟩ = {r, 1 − r s}.
+- `TauCeti.K2.steinbergSymbol_eq_dennisStein` (compatibility) — For commuting units u, v, {u, v} = ⟨u, u⁻¹ (1 − v)⟩.
+- `TauCeti.K2.map_dennisStein` (functoriality) — For a ring homomorphism f : R → R', K₂(f) ⟨r, s⟩ = ⟨f r, f s⟩.
+- `TauCeti.K2.dennisStein_neg_inv` (relation) — The translation of the pre-1980 hypothesis: if 1 + ab is a unit then so is 1 − (−a)b, so the old symbol of (a, b) is ⟨−a, b⟩⁻¹. No second symbol is defined, so this is a statement about hypotheses, not an identity.
 
-**Used by.** *T.6, the presentation theorem*: K₂ of a field or a commutative local ring is presented by these symbols and (D1)–(D3). *T.6, relative-steinberg-group and the square-zero tests*: the relative symbol ⟨r, s⟩ ∈ K₂(R, I), s ∈ I, is this word read in the relative Steinberg group. *K-book Ex. III.5.13*: K₂(ℤ/4) ≅ {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩. *RefinedTraceMethods RT.3*: RT.3 compares its square-zero boundary maps with the low-degree K₂ symbol calculations: it consumes T.6 and is not a prerequisite of it.
+**Used by.**
+
+- T.6, the presentation theorem — K₂ of a field or a commutative local ring is presented by these symbols and (D1)–(D3)
+- T.6, relative-steinberg-group and the square-zero tests — the relative symbol ⟨r, s⟩ ∈ K₂(R, I), s ∈ I, is this word read in the relative Steinberg group
+- K-book Ex. III.5.13 — K₂(ℤ/4) ≅ {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩
+- RefinedTraceMethods RT.3 — RT.3 compares its square-zero boundary maps with the low-degree K₂ symbol calculations: it consumes T.6 and is not a prerequisite of it
 
 **Unit tests.**
 
@@ -2002,13 +2025,11 @@ For an associative unital ring R and commuting elements r, s of R with 1 − rs 
 - For a unit r, ⟨r, s⟩ = {r, 1 − rs}; for commuting units, {u, v} = ⟨u, u⁻¹(1 − v)⟩.
 - In K_2(ℤ), ⟨−1, −2⟩ = {−1, −1} ≠ 1, while the pre-1980 symbol at the same pair is trivial in K_2(ℚ).
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.1/k2-is-centre`, `K2SymbolsBrauer:T.2/steinberg-symbol`.
+**Depends on.** `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.1/k2-is-centre`, `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.2:symbols`, `K2SymbolsBrauer:T.2:symbols/diagonal-lift-words`, `K2SymbolsBrauer:T.2:symbols/diagonal-lift`.
 
-**Requested from other roadmaps.** `K2SymbolsBrauer:T.2:symbols`.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The definition, membership in K2, independence of the indices and the unit case; the displayed word is written out in the statement.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “Definition 5.11 (Dennis-Stein symbols). If r, s ∈ R commute and 1 − rs is a unit then the element ... of St(R) belongs to K2(R), because φ⟨r, s⟩ = 1. By Ex. 5.11, it is independent of the choice of i ≠ j, and if r is a unit of R then ⟨r, s⟩ = {r, 1 − rs}.” — The definition, membership in K2, independence of the indices and the unit case; the displayed word is written out in the statement.
-
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “We warn the reader that the meaning of the symbol ⟨r, s⟩ changed circa 1980. We use the modern definition of this symbol, which equals ⟨−r, s⟩−1 in the old literature, including that of loc. cit.” — The modern convention and its translation from the pre-1980 one, which the stage text's 1 + ab hypothesis belongs to.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The modern convention and its translation from the pre-1980 one, which the stage text's 1 + ab hypothesis belongs to.
 
 ### `dennis-stein-presentation` — Presentation of K_2 of a field or a commutative local ring by Dennis-Stein symbols
 
@@ -2034,11 +2055,11 @@ Theorem III.5.11.1(a). Let R be a commutative local ring, or a field. Then the h
 - For a local ring that is not a field the statement is cited, with the reference the source names.
 - No presentation is asserted outside the stated hypotheses.
 
-**Depends on.** **inside this packet** `dennis-stein-symbol`, `dennis-stein-relations`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/matsumoto`.
+**Depends on.** `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.6/dennis-stein-relations`, `K2SymbolsBrauer:T.2/matsumoto`.
 
-**Source.** Kbook.2013, III.5.11.1(a) (PDF p. 234): “Theorem 5.11.1. (a) Let R be a commutative local ring, or a field. Then K2(R) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with r, s ∈ R such that 1 − rs is a unit, subject only to the relations (D1), (D2) and (D3).” — The theorem with its hypotheses, verbatim.
+**Source.** `Kbook.2013`, III.5.11.1(a) (PDF p. 234). The theorem with its hypotheses.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “The following result is essentially due to Maazen, Stienstra and van der Kallen. However, their work preceded the correct definition of K2(R, I) so the correct historical reference is [103].” — The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177.
 
 ### `relative-square-zero` — Square-zero ideals: the simplified relations and the source's test values
 
@@ -2067,21 +2088,19 @@ Let A be a commutative ring and I an ideal with I² = 0; the test instance is A 
 - For the dual numbers, K₂(ℚ[ε], ε) ≅ Ω¹ of ℚ = 0, while K₂(ℚ(t)[ε], ε) ≅ Ω¹ of ℚ(t) ≠ 0 (⟨ε, t⟩ ↦ dt), by the van der Kallen isomorphism of Ex. III.5.14(c) as cited.
 - No presentation of K₂ of a general ring is claimed.
 
-**Depends on.** **inside this packet** `relative-steinberg-group`, `relative-presentation`, `dennis-stein-relations`; **other parts and roadmaps** `GeneralAlgebraicKTheory:K.5`; **baseline** `mathlib:TrivSqZeroExt`, `mathlib:TrivSqZeroExt.commRing`, `mathlib:TrivSqZeroExt.kerIdeal`, `mathlib:TrivSqZeroExt.kerIdeal_sq`, `mathlib:TrivSqZeroExt.isUnit_iff_isUnit_fst`.
+**Depends on.** `K2SymbolsBrauer:T.6/relative-steinberg-group`, `K2SymbolsBrauer:T.6/relative-presentation`, `K2SymbolsBrauer:T.6/dennis-stein-relations`, `mathlib:TrivSqZeroExt`, `mathlib:TrivSqZeroExt.commRing`, `mathlib:TrivSqZeroExt.kerIdeal`, `mathlib:TrivSqZeroExt.kerIdeal_sq`, `mathlib:TrivSqZeroExt.isUnit_iff_isUnit_fst`, `GeneralAlgebraicKTheory:K.5`.
 
-**Requested from other roadmaps.** `GeneralAlgebraicKTheory:K.5`.
+**Source.** `Kbook.2013`, III.5.11.1(b) (PDF p. 235). Part (b) of the theorem with its hypotheses; stated, not proved.
 
-**Source.** Kbook.2013, III.5.11.1(b) (PDF p. 235): “Let I be a radical ideal, contained in a commutative ring R. Then K2(R, I) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with either r ∈ R and s ∈ I, or else r ∈ I and s ∈ R. ... subject only to the relations (D1), (D2), and the relation (D3) whenever r, s, or t is in I.” — Part (b) of the theorem with its hypotheses; stated, not proved.
+**Source.** `Kbook.2013`, Ex. III.5.14(a) (PDF p. 237). The Kähler-differential lower bound, stated as an exercise.
 
-**Source.** Kbook.2013, Ex. III.5.14(a) (PDF p. 237): “(a) If I is a radical ideal of R, show that there is a surjection from K2(R, I) onto I ⊗R Ω1 R/I, sending ⟨x, r⟩ to x ⊗ dr (r ∈ R, x ∈ I).” — The Kähler-differential lower bound, stated as an exercise.
+**Source.** `Kbook.2013`, Ex. III.5.14(b),(c) (PDF p. 238). The square-zero and dual-number test values, stated as exercises ('1 2' is the printed fraction 1/2).
 
-**Source.** Kbook.2013, Ex. III.5.14(b),(c) (PDF p. 238): “(b) If I2 = 0, show that the kernel of the map in (a) is generated by the Dennis-Stein symbols ⟨x, y⟩ with x, y ∈ I. (c) (Van der Kallen) The dual numbers over R is the ring R[ε] with ε2 = 0. If 1 2 ∈ R, show that the map K2(R[ε], ε) → Ω1 R of part (a) is an isomorphism.” — The square-zero and dual-number test values, stated as exercises ('1 2' is the printed fraction 1/2).
-
-**Source.** Kbook.2013, Ex. III.5.13 (PDF p. 237): “If n ≥ 2, show that K2(Z/2n) ∼= K2(Z/4) ∼= {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩.” — The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations.
+**Source.** `Kbook.2013`, Ex. III.5.13 (PDF p. 237). The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations.
 
 ### `dennis-stein-relations` — The Dennis-Stein relations (D1)–(D3)
 
-*theorem* · added by `REV-K2SymbolsBrauer--T.3`
+*theorem*
 
 For a commutative ring R the Dennis-Stein symbols satisfy (D1) ⟨r, s⟩⟨s, r⟩ = 1 when 1 − rs is a unit; (D2) ⟨r, s⟩⟨r, t⟩ = ⟨r, s + t − rst⟩ when 1 − rs and 1 − rt are units, the right side being defined because 1 − r(s + t − rst) = (1 − rs)(1 − rt); and (D3) ⟨r, st⟩ = ⟨rs, t⟩⟨tr, s⟩ when 1 − rst is a unit. Consequently ⟨r, 1⟩ = 1 whenever 1 − r is a unit (D3 with s = t = 1), which the source prints as ⟨r, 1⟩ = 0. When every entry involved is a unit or zero — in particular over a field — the relations follow from the unit case of the definition together with bilinearity and the Steinberg identity of Steinberg symbols. For a general commutative ring they are the identities of Dennis and Stein, which the source cites and does not prove.
 
@@ -2102,17 +2121,17 @@ For a commutative ring R the Dennis-Stein symbols satisfy (D1) ⟨r, s⟩⟨s, r
 - ⟨r, 1⟩ = 1 when 1 − r is a unit; it is not a separate generator and not '0'.
 - Over a field the relations are consequences of the Steinberg relations; no relation beyond (D1)–(D3) is claimed.
 
-**Depends on.** **inside this packet** `dennis-stein-symbol`; **other parts and roadmaps** `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.2/steinberg-identity`.
+**Depends on.** `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.2/steinberg-identity`.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “These elements are called Dennis-Stein symbols because they were first studied in [48], where the following identities were established. (D1) ⟨r, s⟩⟨s, r⟩= 1 (D2) ⟨r, s⟩⟨r, t⟩= ⟨r, s + t −rst⟩ (D3) ⟨r, st⟩= ⟨rs, t⟩⟨tr, s⟩(this holds in K2(R, I) if any of r, s, or t are in I.)” — The three relations, which the source cites to Dennis and Stein without proof.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The three relations, which the source cites to Dennis and Stein without proof.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “By (D3) of our definition, ⟨r, 1⟩=0 for all r.” — The consequence of (D3); the printed '=0' is a misprint for '= 1' (source issue), valid when 1 − r is a unit.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The consequence of (D3); the printed '=0' is a misprint for '= 1' (source issue), valid when 1 − r is a unit.
 
-**Source.** Kbook.2013, Ex. III.5.13 (PDF p. 237): “If n ≥ 2, show that K2(Z/2n) ∼= K2(Z/4) ∼= {±1} on {−1, −1} = ⟨−1, −2⟩ = ⟨2, 2⟩.” — The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations.
+**Source.** `Kbook.2013`, Ex. III.5.13 (PDF p. 237). The nilpotent relative example; the identity of the three elements is derived in dennis-stein-relations.
 
 ### `relative-steinberg-group` — The relative Steinberg group and relative K_2 of an ideal ★
 
-*definition* · planet **Relative Steinberg group** · added by `REV-K2SymbolsBrauer--T.3`
+*definition* · planet **Relative Steinberg group**
 
 For a ring R and a two-sided ideal I, let R ⊕ I be the double ring with multiplication (r, x)(s, y) = (rs, ry + xs + xy), with pr(r, x) = r and add(r, x) = r + x. St′(R, I) is the normal subgroup of St(R ⊕ I) generated by the x_ij(0, v), v ∈ I; it is the kernel of St(pr). The relative Steinberg group St(R, I) is the quotient of St′(R, I) by the normal subgroup generated by the cross-commutators [x_ij(0, u), x_kl(v, −v)], u, v ∈ I (Keune and Loday's definition). St(add) induces St(R, I) → St(R), whose image is the normal subgroup generated by the x_ij(v), v ∈ I, and whose composite with St(R) → E(R) lands in E(R, I). K₂(R, I) is the kernel of St(R, I) → E(R, I). For s ∈ I and r commuting with s with 1 − rs a unit, the relative Dennis-Stein symbol ⟨r, s⟩ ∈ K₂(R, I) is the class of the Dennis-Stein word of ((r, 0), (0, s)) in St(R ⊕ I); it lies in St′(R, I) because pr sends it to ⟨r, 0⟩ = 1, and add sends it to ⟨r, s⟩ ∈ K₂(R). K₂(R, I) fits into the exact sequence K₂(R, I) → K₂(R) → K₂(R/I) → K₁(R, I) → K₁(R) → K₁(R/I) of Theorem III.5.7.1. Its identification with π₂ of the homotopy fibre of K(R) → K(R/I) (GeneralAlgebraicKTheory K.5) is due to Keune and Loday, cited in the source, and is a gap here.
 
@@ -2131,20 +2150,22 @@ For a ring R and a two-sided ideal I, let R ⊕ I be the double ring with multip
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.K2.RelSteinberg` | data | St(R, I): the normal closure of the x_ij(0, v) in St(R ⊕ I), modulo the cross-commutators [x_ij(0, u), x_kl(v, −v)]. |
-| `TauCeti.K2.RelSteinberg.add` | projection | The homomorphism St(R, I) → St(R) induced by add. |
-| `TauCeti.K2.RelSteinberg.range_add` | characterisation | Its range is the normal subgroup of St(R) generated by the x_ij(v), v ∈ I. |
-| `TauCeti.K2.relK2` | data | K₂(R, I), the kernel of St(R, I) → E(R, I). |
-| `TauCeti.K2.relK2.toK2` | projection | The map K₂(R, I) → K₂(R). |
-| `TauCeti.K2.relK2.exact` | structure | Exactness of K₂(R, I) → K₂(R) → K₂(R/I) → K₁(R, I) → K₁(R) → K₁(R/I) (Theorem III.5.7.1). |
-| `TauCeti.K2.relK2.map` | functoriality | A ring homomorphism f : R → R' with f(I) ⊆ I' induces K₂(R, I) → K₂(R', I'), with map_id and map_comp. |
-| `TauCeti.K2.relK2_bot` | simp | K₂(R, ⊥) is trivial. |
-| `TauCeti.K2.relDennisStein` | constructor | For s ∈ I, r commuting with s and 1 − r s a unit, the relative symbol ⟨r, s⟩ ∈ K₂(R, I). |
-| `TauCeti.K2.toK2_relDennisStein` | compatibility | relK2.toK2 ⟨r, s⟩ = ⟨r, s⟩. |
+- `TauCeti.K2.RelSteinberg` (data) — St(R, I): the normal closure of the x_ij(0, v) in St(R ⊕ I), modulo the cross-commutators [x_ij(0, u), x_kl(v, −v)].
+- `TauCeti.K2.RelSteinberg.add` (projection) — The homomorphism St(R, I) → St(R) induced by add.
+- `TauCeti.K2.RelSteinberg.range_add` (characterisation) — Its range is the normal subgroup of St(R) generated by the x_ij(v), v ∈ I.
+- `TauCeti.K2.relK2` (data) — K₂(R, I), the kernel of St(R, I) → E(R, I).
+- `TauCeti.K2.relK2.toK2` (projection) — The map K₂(R, I) → K₂(R).
+- `TauCeti.K2.relK2.exact` (structure) — Exactness of K₂(R, I) → K₂(R) → K₂(R/I) → K₁(R, I) → K₁(R) → K₁(R/I) (Theorem III.5.7.1).
+- `TauCeti.K2.relK2.map` (functoriality) — A ring homomorphism f : R → R' with f(I) ⊆ I' induces K₂(R, I) → K₂(R', I'), with map_id and map_comp.
+- `TauCeti.K2.relK2_bot` (simp) — K₂(R, ⊥) is trivial.
+- `TauCeti.K2.relDennisStein` (constructor) — For s ∈ I, r commuting with s and 1 − r s a unit, the relative symbol ⟨r, s⟩ ∈ K₂(R, I).
+- `TauCeti.K2.toK2_relDennisStein` (compatibility) — relK2.toK2 ⟨r, s⟩ = ⟨r, s⟩.
 
-**Used by.** *T.6, relative-presentation*: Theorem III.5.11.1(b) presents this group for a radical ideal. *T.6, relative-square-zero*: the square-zero test values are computations of K₂(A, I) for I² = 0. *GeneralAlgebraicKTheory K.5*: the homotopy-fibre relative K₂ of the pair is compared with this group (Keune–Loday), which is what makes the T.6 examples tests of K.5.
+**Used by.**
+
+- T.6, relative-presentation — Theorem III.5.11.1(b) presents this group for a radical ideal
+- T.6, relative-square-zero — the square-zero test values are computations of K₂(A, I) for I² = 0
+- GeneralAlgebraicKTheory K.5 — the homotopy-fibre relative K₂ of the pair is compared with this group (Keune–Loday), which is what makes the T.6 examples tests of K.5
 
 **Unit tests.**
 
@@ -2158,25 +2179,23 @@ For a ring R and a two-sided ideal I, let R ⊕ I be the double ring with multip
 - The image of K₂(R, I) → K₂(R) is the kernel of K₂(R) → K₂(R/I).
 - For s ∈ I the relative symbol maps to the absolute Dennis-Stein symbol ⟨r, s⟩.
 
-**Depends on.** **inside this packet** `dennis-stein-symbol`; **other parts and roadmaps** `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.1/k2-definition`, `KTheoryLowDegrees:U.5`.
+**Depends on.** `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.1/k2-definition`, `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `KTheoryLowDegrees:U.5`, `GeneralAlgebraicKTheory:K.5`.
 
-**Requested from other roadmaps.** `GeneralAlgebraicKTheory:K.5`, `KTheoryLowDegrees:U.5`.
+**Source.** `Kbook.2013`, III.5.7 (PDF p. 230). The subgroup St′(R, I) of the double ring's Steinberg group.
 
-**Source.** Kbook.2013, III.5.7 (PDF p. 230): “Let St′(R, I) denote the normal subgroup of St(R ⊕ I) generated by all xij(0, v) with v ∈ I.” — The subgroup St′(R, I) of the double ring's Steinberg group.
+**Source.** `Kbook.2013`, III.5.7 (PDF p. 230). The definition.
 
-**Source.** Kbook.2013, III.5.7 (PDF p. 230): “Definition 5.7. The relative Steinberg group St(R, I) is defined to be the quotient of St′(R, I) by the normal subgroup generated by all “cross-commutators” [xij(0, u), xkl(v, −v)] with u, v ∈ I.” — The definition, verbatim (Keune and Loday's, modifying Milnor's).
+**Source.** `Kbook.2013`, III.5.7 (PDF p. 230). The relative K2.
 
-**Source.** Kbook.2013, III.5.7 (PDF p. 230): “We define K2(R, I) to be the kernel of the map St(R, I) → E(R, I).” — The relative K2.
+**Source.** `Kbook.2013`, III.5.7.1 (PDF p. 231). The exact sequence, proved in the source by the Snake Lemma.
 
-**Source.** Kbook.2013, III.5.7.1 (PDF p. 231): “Theorem 5.7.1. If I is an ideal of a ring R, then the exact sequence of Proposition 2.3 extends to an exact sequence K2(R, I) → K2(R) → K2(R/I) → K1(R, I) → K1(R) → K1(R/I) → K0(I) · · ·” — The exact sequence, proved in the source by the Snake Lemma.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The relative Dennis-Stein symbol.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “If I is an ideal of R and s ∈ I then we can even consider ⟨r, s⟩ as an element of K2(R, I); see 5.7.” — The relative Dennis-Stein symbol.
-
-**Source.** Kbook.2013, IV.1.11 (PDF p. 276): “Keune and Loday have shown that K2(R, I) agrees with the relative group defined in III. 5.7.” — The comparison of the homotopy-fibre relative K2 with Definition III.5.7, cited, not proved.
+**Source.** `Kbook.2013`, IV.1.11 (PDF p. 276). The comparison of the homotopy-fibre relative K2 with Definition III.5.7, cited, not proved.
 
 ### `relative-presentation` — Presentation of relative K_2 of a radical ideal
 
-*theorem* · added by `REV-K2SymbolsBrauer--T.3`
+*theorem*
 
 Theorem III.5.11.1(b). Let I be a radical ideal (contained in the Jacobson radical) of a commutative ring R. Then K₂(R, I) is the abelian group generated by the relative Dennis-Stein symbols ⟨r, s⟩ with r ∈ R and s ∈ I, or r ∈ I and s ∈ R, subject only to (D1), (D2), and (D3) whenever r, s or t lies in I. For such pairs 1 − rs is automatically a unit, since rs lies in I and so in the Jacobson radical. The source states this theorem with part (a), attributes it as there, and does not prove it.
 
@@ -2192,12 +2211,10 @@ Theorem III.5.11.1(b). Let I be a radical ideal (contained in the Jacobson radic
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.K2.RelDSGen` | data | The subtype of R × R with at least one entry in I. |
-| `TauCeti.K2.relDSRel` | relation | D1 and D2 on relative generators and D3 only for r ∈ I ∨ s ∈ I ∨ t ∈ I. The three generator witnesses for D3 are derived from that entry condition, never used as a weaker substitute. |
-| `TauCeti.K2.relDennisSteinGroup` | data | FreeAbelianGroup (RelDSGen I) modulo AddSubgroup.closure (relDSRel I), with the guarded D3 set. |
-| `TauCeti.K2.relDennisSteinGroup.toRelK2` | compatibility | For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained. |
+- `TauCeti.K2.RelDSGen` (data) — The subtype of R × R with at least one entry in I.
+- `TauCeti.K2.relDSRel` (relation) — D1 and D2 on relative generators and D3 only for r ∈ I ∨ s ∈ I ∨ t ∈ I. The three generator witnesses for D3 are derived from that entry condition, never used as a weaker substitute.
+- `TauCeti.K2.relDennisSteinGroup` (data) — FreeAbelianGroup (RelDSGen I) modulo AddSubgroup.closure (relDSRel I), with the guarded D3 set.
+- `TauCeti.K2.relDennisSteinGroup.toRelK2` (compatibility) — For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained.
 
 **Unit tests.**
 
@@ -2212,13 +2229,13 @@ Theorem III.5.11.1(b). Let I be a radical ideal (contained in the Jacobson radic
 - It is asserted only for a radical ideal of a commutative ring.
 - Non-example: R = F_3[x,y]/(x²,y²), z = xy, I = (z), r = x, s = y, t = x+y. Here I² = 0 and I lies in the Jacobson radical; rs = st = tr = z but no entry is in I, so this triple is not admitted as relative D3. In the differential detector I ⊗_R Ω¹_{(R/I)/ℤ} ≅ F_3², ⟨x,z⟩−⟨z,x+y⟩−⟨z,y⟩ has image (1,1), not 0.
 
-**Depends on.** **inside this packet** `relative-steinberg-group`, `dennis-stein-relations`; **baseline** `mathlib:DualNumber`, `mathlib:DualNumber.eps`, `mathlib:Ideal.mul_mem_left`, `mathlib:Ideal.mul_mem_right`.
+**Depends on.** `K2SymbolsBrauer:T.6/relative-steinberg-group`, `K2SymbolsBrauer:T.6/dennis-stein-relations`, `mathlib:DualNumber`, `mathlib:DualNumber.eps`, `mathlib:Ideal.mul_mem_left`, `mathlib:Ideal.mul_mem_right`.
 
-**Source.** Kbook.2013, III.5.11.1(b) (PDF p. 235): “Let I be a radical ideal, contained in a commutative ring R. Then K2(R, I) may be presented as the abelian group generated by the symbols ⟨r, s⟩ with either r ∈ R and s ∈ I, or else r ∈ I and s ∈ R. ... subject only to the relations (D1), (D2), and the relation (D3) whenever r, s, or t is in I.” — Part (b) of the theorem with its hypotheses; stated, not proved.
+**Source.** `Kbook.2013`, III.5.11.1(b) (PDF p. 235). Part (b) of the theorem with its hypotheses; stated, not proved.
 
-**Source.** Kbook.2013, III.5.11 (PDF p. 234): “The following result is essentially due to Maazen, Stienstra and van der Kallen. However, their work preceded the correct definition of K2(R, I) so the correct historical reference is [103].” — The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177.
+**Source.** `Kbook.2013`, III.5.11 (PDF p. 234). The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177.
 
-**Source.** Kbook.2013, Exercise III.5.14(a), PDF p. 237 (printed p. 229). Primary-source differential detector δ⟨i,a⟩ = i⊗dā for the relative-D3 non-example; the F_3² tensor calculation and exhaustive finite-ring checks are derived here, not quoted as a worked example from the source.
+**Source.** `Kbook.2013`, Exercise III.5.14(a), PDF p. 237 (printed p. 229). Primary-source differential detector δ⟨i,a⟩ = i⊗dā for the relative-D3 non-example; the F_3² tensor calculation and exhaustive finite-ring checks are derived here, not quoted as a worked example from the source.
 
 ## T.7 — Tate's comparison and Hilbert symbols
 
@@ -2256,13 +2273,11 @@ For a field F and an integer m invertible in F, the Galois symbol h_F : K₂(F)/
 - h_F{a, 1 − a} = 0, imported from M.3.
 - h_F{a, b} = 0 when b ∈ (F^×)^m, because κ(b) = 0 (ker_kummerMap).
 
-**Depends on.** **other parts and roadmaps** `MotivicEtaleKTheory:M.3`, `MotivicEtaleKTheory:M.1`, `K2SymbolsBrauer:T.2/matsumoto`; **baseline** `tauceti:TauCeti.kummerMap`, `tauceti:TauCeti.ker_kummerMap`, `tauceti:TauCeti.KummerCoeff`, `tauceti:TauCeti.ContCohomology.explicitCup11`, `tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip`.
+**Depends on.** `MotivicEtaleKTheory:M.3`, `MotivicEtaleKTheory:M.1`, `K2SymbolsBrauer:T.2/matsumoto`, `tauceti:TauCeti.kummerMap`, `tauceti:TauCeti.ker_kummerMap`, `tauceti:TauCeti.KummerCoeff`, `tauceti:TauCeti.ContCohomology.explicitCup11`, `tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip`.
 
-**Requested from other roadmaps.** `MotivicEtaleKTheory:M.3`, `MotivicEtaleKTheory:M.1`.
+**Source.** `Kbook.2013`, III.6.10.2 (PDF p. 250). The cup product of two Kummer classes into the twice-twisted module.
 
-**Source.** Kbook.2013, III.6.10.2 (PDF p. 250): “There are also natural cup products in cohomology, such as the product F× ⊗ F× → H1 et(F; µm) ⊗ H1 et(F; µm) ∪ −→ H2 et(F; µ⊗2 m ) (6.10.2)” — The cup product of two Kummer classes into the twice-twisted module.
-
-**Source.** Kbook.2013, III.6.10.3 (PDF p. 250): “Proposition 6.10.3 (Galois symbol). The bilinear pairing (6.10.2) induces a Steinberg symbol K2(F)/mK2(F) → H2 et(F; µ⊗2 m ) for every m prime to char(F).” — The symbol formula and its Steinberg property; the proof (factor t^m − a, projection formula) follows on pp. 250-251.
+**Source.** `Kbook.2013`, III.6.10.3 (PDF p. 250). The symbol formula and its Steinberg property; the proof (factor t^m − a, projection formula) follows on pp. 250-251.
 
 ### `classical-local-symbols` — The m-th power norm residue symbol of a local field ★
 
@@ -2286,19 +2301,21 @@ Let F be a nonarchimedean local field whose group of roots of unity is μ_m, wit
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.NormResidueSymbol.normResidueSymbol` | constructor | (x, y)_F ∈ μ_m for x, y ∈ F^×, F a nonarchimedean local field with μ_m ⊆ F and m invertible in F. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_apply` | characterisation | (x, y)_F = σ_x(η)/η for any η in the separable closure with η^m = y, where σ_x is the image of x under local reciprocity. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_mul_left` | relation | (x x', y)_F = (x, y)_F (x', y)_F. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_mul_right` | relation | (x, y y')_F = (x, y)_F (x, y')_F. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_pow_right` | simp | (x, y^m)_F = 1. |
-| `TauCeti.NormResidueSymbol.forall_normResidueSymbol_eq_one_iff` | characterisation | (∀ y, (x, y)_F = 1) ↔ x ∈ (F^×)^m. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_one_sub` | relation | (a, 1 − a)_F = 1 for a ≠ 0, 1. |
-| `TauCeti.NormResidueSymbol.normResidueK2` | constructor | The homomorphism K₂(F) → μ_m, {x, y} ↦ (x, y)_F. |
-| `TauCeti.NormResidueSymbol.normResidueSymbol_two` | compatibility | For m = 2, (a, b)_F = hilbertSymbol a b of QuadraticFormInvariants 6C. |
+- `TauCeti.NormResidueSymbol.normResidueSymbol` (constructor) — (x, y)_F ∈ μ_m for x, y ∈ F^×, F a nonarchimedean local field with μ_m ⊆ F and m invertible in F.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_apply` (characterisation) — (x, y)_F = σ_x(η)/η for any η in the separable closure with η^m = y, where σ_x is the image of x under local reciprocity.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_mul_left` (relation) — (x x', y)_F = (x, y)_F (x', y)_F.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_mul_right` (relation) — (x, y y')_F = (x, y)_F (x, y')_F.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_pow_right` (simp) — (x, y^m)_F = 1.
+- `TauCeti.NormResidueSymbol.forall_normResidueSymbol_eq_one_iff` (characterisation) — (∀ y, (x, y)_F = 1) ↔ x ∈ (F^×)^m.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_one_sub` (relation) — (a, 1 − a)_F = 1 for a ≠ 0, 1.
+- `TauCeti.NormResidueSymbol.normResidueK2` (constructor) — The homomorphism K₂(F) → μ_m, {x, y} ↦ (x, y)_F.
+- `TauCeti.NormResidueSymbol.normResidueSymbol_two` (compatibility) — For m = 2, (a, b)_F = hilbertSymbol a b of QuadraticFormInvariants 6C.
 
-**Used by.** *KTheoryFiniteLocalFields L.3*: L.3 builds the map K₂(F) → μ(F) from these local symbols and proves the split surjection and Moore's structure theorem; L.3 requires T.7. *T.7, local-comparison*: compared with the Kummer cup product followed by the local invariant, under a named primitive root. *T.7, global-reciprocity*: the product over all places of these symbols is 1.
+**Used by.**
+
+- KTheoryFiniteLocalFields L.3 — L.3 builds the map K₂(F) → μ(F) from these local symbols and proves the split surjection and Moore's structure theorem; L.3 requires T.7
+- T.7, local-comparison — compared with the Kummer cup product followed by the local invariant, under a named primitive root
+- T.7, global-reciprocity — the product over all places of these symbols is 1
 
 **Unit tests.**
 
@@ -2315,15 +2332,13 @@ Let F be a nonarchimedean local field whose group of roots of unity is μ_m, wit
 - For m = 2 the symbol is the Hilbert symbol of hilbert-symbol-steinberg.
 - Split surjectivity onto μ_m and Moore's theorem are not claimed here: they are KTheoryFiniteLocalFields L.3's (which requires T.7).
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.2/matsumoto`; **baseline** `tauceti:TauCeti.kummerMap`, `tauceti:TauCeti.KummerCoeff`, `mathlib:rootsOfUnity`.
+**Depends on.** `K2SymbolsBrauer:T.2/matsumoto`, `tauceti:TauCeti.kummerMap`, `tauceti:TauCeti.KummerCoeff`, `mathlib:rootsOfUnity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group`.
 
-**Requested from other roadmaps.** `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group`.
+**Source.** `Kbook.2013`, III.6.2.3 (PDF p. 241). The Kummer half of the construction.
 
-**Source.** Kbook.2013, III.6.2.3 (PDF p. 241): “Because F ×m has finite index in F ×, there is a finite “Kummer” extension K containing the mth roots of every element of F. The Galois group GF = Gal(K/F) is canonically isomorphic to Hom(F ×, µm)” — The Kummer half of the construction.
+**Source.** `Kbook.2013`, III.6.2.3 (PDF p. 241). The definition of the pairing through local reciprocity, with its variable order.
 
-**Source.** Kbook.2013, III.6.2.3 (PDF p. 241): “The composite F × −→F ×/NK× ∼= GF ∼= Hom(F ×, µm), written as x 7→(x, −)F , is adjoint to a nondegenerate bilinear map ( , )F : F × ⊗ F × →µm.” — The definition of the pairing through local reciprocity, with its variable order.
-
-**Source.** Kbook.2013, III.6.2.3 (PDF p. 241): “The Steinberg identity (a, 1 −a)F = 1 is proven by noting that (1 −a) is a norm from the intermediate field E = F(x), xm = a.” — The Steinberg identity and the norm argument.
+**Source.** `Kbook.2013`, III.6.2.3 (PDF p. 241). The Steinberg identity and the norm argument.
 
 ### `twisted-roots-of-unity` — Trivialising a twist by a primitive root, and the change-of-root rule
 
@@ -2346,17 +2361,19 @@ Let F be a field, m ≥ 1 invertible in F, and μ_m^{⊗j} (j ∈ ℤ) the finit
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.Twist.trivialisation` | constructor | For ζ ∈ F primitive of order m and j ∈ ℤ, τ_ζ^{(j)} : ZMod m ≃+ μ_m^{⊗j}, 1 ↦ ζ^{⊗j}. |
-| `TauCeti.Twist.trivialisation_one` | simp | τ_ζ^{(j)} 1 = ζ^{⊗j}. |
-| `TauCeti.Twist.trivialisation_zero` | simp | τ_ζ^{(0)} is the identity of ZMod m. |
-| `TauCeti.Twist.trivialisation_equivariant` | characterisation | τ_ζ^{(j)} is G_F-equivariant, ζ being in F. |
-| `TauCeti.Twist.trivialisation_pow` | relation | τ_{ζ^u}^{(j)} = τ_ζ^{(j)} ∘ (u^j ·) for u ∈ (ZMod m)ˣ. |
-| `TauCeti.Twist.trivialisation_tensor` | compatibility | τ_ζ^{(i)} ⊗ τ_ζ^{(j)} = τ_ζ^{(i+j)} under ZMod m ⊗ ZMod m ≅ ZMod m and μ_m^{⊗i} ⊗ μ_m^{⊗j} ≅ μ_m^{⊗(i+j)}. |
-| `TauCeti.Twist.trivialisation_one_eq` | compatibility | τ_ζ^{(1)} is IsPrimitiveRoot.zmodEquivZPowers followed by IsPrimitiveRoot.zpowers_eq, read in KummerCoeff F m. |
+- `TauCeti.Twist.trivialisation` (constructor) — For ζ ∈ F primitive of order m and j ∈ ℤ, τ_ζ^{(j)} : ZMod m ≃+ μ_m^{⊗j}, 1 ↦ ζ^{⊗j}.
+- `TauCeti.Twist.trivialisation_one` (simp) — τ_ζ^{(j)} 1 = ζ^{⊗j}.
+- `TauCeti.Twist.trivialisation_zero` (simp) — τ_ζ^{(0)} is the identity of ZMod m.
+- `TauCeti.Twist.trivialisation_equivariant` (characterisation) — τ_ζ^{(j)} is G_F-equivariant, ζ being in F.
+- `TauCeti.Twist.trivialisation_pow` (relation) — τ_{ζ^u}^{(j)} = τ_ζ^{(j)} ∘ (u^j ·) for u ∈ (ZMod m)ˣ.
+- `TauCeti.Twist.trivialisation_tensor` (compatibility) — τ_ζ^{(i)} ⊗ τ_ζ^{(j)} = τ_ζ^{(i+j)} under ZMod m ⊗ ZMod m ≅ ZMod m and μ_m^{⊗i} ⊗ μ_m^{⊗j} ≅ μ_m^{⊗(i+j)}.
+- `TauCeti.Twist.trivialisation_one_eq` (compatibility) — τ_ζ^{(1)} is IsPrimitiveRoot.zmodEquivZPowers followed by IsPrimitiveRoot.zpowers_eq, read in KummerCoeff F m.
 
-**Used by.** *T.7, brauer-valued-symbol*: H²(F, μ_m^{⊗2}) is identified with H²(F, μ_m) through τ_ζ^{(1)} on one factor. *T.7, local-comparison*: the comparison with the norm residue symbol is made under a named ζ and shown independent of it by this rule. *ClassFieldTheory Layer 5*: kummerCupPairing ζ is the pairing μ_m × μ_m → μ_m obtained from τ_ζ^{(1)}; the rule relates the pairings for different ζ.
+**Used by.**
+
+- T.7, brauer-valued-symbol — H²(F, μ_m^{⊗2}) is identified with H²(F, μ_m) through τ_ζ^{(1)} on one factor
+- T.7, local-comparison — the comparison with the norm residue symbol is made under a named ζ and shown independent of it by this rule
+- ClassFieldTheory Layer 5 — kummerCupPairing ζ is the pairing μ_m × μ_m → μ_m obtained from τ_ζ^{(1)}; the rule relates the pairings for different ζ
 
 **Unit tests.**
 
@@ -2371,17 +2388,15 @@ Let F be a field, m ≥ 1 invertible in F, and μ_m^{⊗j} (j ∈ ℤ) the finit
 - A change of root by u changes the degree-two trivialisation by u², and the degree-one trivialisation by u.
 - No statement identifies a twist with ℤ/m without naming ζ.
 
-**Depends on.** **other parts and roadmaps** `MotivicEtaleKTheory:M.1`; **baseline** `tauceti:TauCeti.KummerCoeff`, `mathlib:ZMod`, `mathlib:modularCyclotomicCharacter`, `mathlib:IsPrimitiveRoot.zmodEquivZPowers`, `mathlib:IsPrimitiveRoot.zpowers_eq`.
+**Depends on.** `MotivicEtaleKTheory:M.1`, `tauceti:TauCeti.KummerCoeff`, `mathlib:ZMod`, `mathlib:modularCyclotomicCharacter`, `mathlib:IsPrimitiveRoot.zmodEquivZPowers`, `mathlib:IsPrimitiveRoot.zpowers_eq`.
 
-**Requested from other roadmaps.** `MotivicEtaleKTheory:M.1`.
+**Source.** `Kbook.2013`, III.6.10 (PDF p. 250). The twisted module with the diagonal action and the reason a trivialisation needs a root of unity in F.
 
-**Source.** Kbook.2013, III.6.10 (PDF p. 250): “the tensor product µ⊗2 m = µm ⊗ µm is also a G-discrete module. Note that the three G-modules Z/m, µm and µ⊗2 m have the same underlying abelian group, but are isomorphic GF-modules only when µm ⊂ F.” — The twisted module with the diagonal action and the reason a trivialisation needs a root of unity in F.
-
-**Source.** Kbook.2013, III.6.10.4 (PDF p. 251): “If we identify Z/m with µm via 1 ↦ ζ, we have a natural isomorphism mBr(F) ∼= mBr(F) ⊗ Z/m ∼= mBr(F) ⊗ µm ∼= H2 et(F; µ⊗2 m ). Tate showed in [198] that this isomorphism identifies the Galois symbol of Proposition 6.10.3 with the mth power norm residue symbol of Proposition 6.9.2.” — The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976).
+**Source.** `Kbook.2013`, III.6.10.4 (PDF p. 251). The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976).
 
 ### `hilbert-symbol-steinberg` — The Hilbert symbol as a Steinberg symbol
 
-*construction* · added by `REV-K2SymbolsBrauer--T.3`
+*construction*
 
 For unit arguments r, s ∈ F^× and a nonarchimedean local field F in which 2 is invertible, the source's Hilbert symbol c_F(r, s) ∈ {±1}, which is +1 exactly when rx² + sy² = 1 has a solution in F, equals the Hilbert symbol hilbertSymbol r s of QuadraticFormInvariants Layer 6C (+1 exactly when s = x² − ry² is solvable), which that layer defines and proves bimultiplicative and symmetric. It satisfies c_F(r, 1 − r) = 1 (x = y = 1), so by Matsumoto's theorem it defines a Steinberg symbol K₂(F) → {±1}. For F = ℝ and r, s ∈ ℝ^×, c_ℝ is the sign symbol. The total auxiliary conicSymbol allows all field elements, but its value at (0,0) is −1 and is not governed by the strict-negative Hilbert criterion. The definition makes sense over any field of characteristic different from 2 but is not bilinear there, and no Steinberg symbol is claimed.
 
@@ -2399,15 +2414,16 @@ For unit arguments r, s ∈ F^× and a nonarchimedean local field F in which 2 i
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.NormResidueSymbol.hilbertSymbol_eq_one_iff_conic` | characterisation | For r, s ∈ F^×, hilbertSymbol r s = 1 ↔ ∃ x y : F, r x² + s y² = 1. |
-| `TauCeti.NormResidueSymbol.hilbertK2` | constructor | The Steinberg symbol K₂(F) → ℤˣ, {r, s} ↦ hilbertSymbol r s. |
-| `TauCeti.NormResidueSymbol.hilbertK2_symbol` | simp | hilbertK2 {r, s} = hilbertSymbol r s. |
-| `TauCeti.NormResidueSymbol.hilbertK2_real` | compatibility | For r, s ∈ ℝ^×, outside the nonarchimedean local-field hypotheses of hilbertK2, the conic symbol agrees with the real Steinberg sign: value −1 exactly when both unit entries are negative. |
-| `TauCeti.NormResidueSymbol.hilbertK2_eq_normResidueK2` | compatibility | For m = 2 it equals normResidueK2. |
+- `TauCeti.NormResidueSymbol.hilbertSymbol_eq_one_iff_conic` (characterisation) — For r, s ∈ F^×, hilbertSymbol r s = 1 ↔ ∃ x y : F, r x² + s y² = 1.
+- `TauCeti.NormResidueSymbol.hilbertK2` (constructor) — The Steinberg symbol K₂(F) → ℤˣ, {r, s} ↦ hilbertSymbol r s.
+- `TauCeti.NormResidueSymbol.hilbertK2_symbol` (simp) — hilbertK2 {r, s} = hilbertSymbol r s.
+- `TauCeti.NormResidueSymbol.hilbertK2_real` (compatibility) — For r, s ∈ ℝ^×, outside the nonarchimedean local-field hypotheses of hilbertK2, the conic symbol agrees with the real Steinberg sign: value −1 exactly when both unit entries are negative.
+- `TauCeti.NormResidueSymbol.hilbertK2_eq_normResidueK2` (compatibility) — For m = 2 it equals normResidueK2.
 
-**Used by.** *KTheoryFiniteLocalFields L.3*: the Hilbert-symbol components of the map out of K₂ of a local field *K-book Ex. III.6.8*: quadratic reciprocity over ℚ is the product formula for these symbols with the real and 2-adic ones
+**Used by.**
+
+- KTheoryFiniteLocalFields L.3 — the Hilbert-symbol components of the map out of K₂ of a local field
+- K-book Ex. III.6.8 — quadratic reciprocity over ℚ is the product formula for these symbols with the real and 2-adic ones
 
 **Unit tests.**
 
@@ -2424,15 +2440,13 @@ For unit arguments r, s ∈ F^× and a nonarchimedean local field F in which 2 i
 - On ℝ^× × ℝ^×, c_ℝ is the sign symbol; the zero-input total helper is a separate non-example.
 - Over ℚ the conic definition is not bilinear.
 
-**Depends on.** **other parts and roadmaps** `K2SymbolsBrauer:T.2/matsumoto`.
+**Depends on.** `K2SymbolsBrauer:T.2/matsumoto`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant`.
 
-**Requested from other roadmaps.** `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant`.
+**Source.** `Kbook.2013`, III.6.2.2 (PDF p. 241). The definition by the conic; bilinearity is cited to O'Meara.
 
-**Source.** Kbook.2013, III.6.2.2 (PDF p. 241): “Let F be a local field containing 1 2. The Hilbert (quadratic residue) symbol on F is defined by setting cF (r, s) ∈ {±1} equal to +1 or −1, depending on whether or not the equation rx2 + sy2 = 1 has a solution in F. Bilinearity is classical when F is local; see [147, p. 164].” — The definition by the conic, verbatim ('1 2' is the printed 1/2); bilinearity is cited to O'Meara.
+**Source.** `Kbook.2013`, III.6.2.2 (PDF p. 241). The general-field caveat and the real case.
 
-**Source.** Kbook.2013, III.6.2.2 (PDF p. 241): “Of course, the definition of cF (r, s) makes sense for any field of characteristic ≠ 2, but it will not always be a Steinberg symbol because it can fail to be bilinear in r. It is a Steinberg symbol when F = R, because the Hilbert symbol cR(r, s) is the same as the symbol (r, s)∞” — The general-field caveat and the real case.
-
-**Source.** Kbook.2013, III.6.2.5 (PDF p. 242): “Since x2 + y2 = −1 has no solution in F = ˆQ2 we see from definition (6.2.2) that the Hilbert symbol cF (−1, −1) = −1.” — The 2-adic worked example.
+**Source.** `Kbook.2013`, III.6.2.5 (PDF p. 242). The 2-adic worked example.
 
 ### `brauer-valued-symbol` — The Brauer-valued symbol attached to a primitive root
 
@@ -2444,7 +2458,7 @@ For a field F with m invertible and a primitive m-th root of unity ζ ∈ F, the
 
 - F is a field, m ≥ 1 invertible in F, and ζ ∈ F a primitive m-th root of unity.
 
-**Proof.**
+**Construction and proof.**
 
 1. Compose h_F (K2SymbolsBrauer:T.7/symbol-formula) with the coefficient map id ⊗ (τ_ζ^{(1)})⁻¹ : μ_m ⊗ μ_m → μ_m (K2SymbolsBrauer:T.7/twisted-roots-of-unity), which is equivariant, on H².
 1. Compose with H²(G_F, μ_m) → Br(F), injective with image the m-torsion by the Kummer sequence and Hilbert 90 (ProfiniteCohomology Layer 9, h2KummerToUnits).
@@ -2453,19 +2467,17 @@ For a field F with m invertible and a primitive m-th root of unity ζ ∈ F, the
 
 **API.**
 
-| name | role | statement |
-| --- | --- | --- |
-| `TauCeti.NormResidueSymbol.brauerSymbol` | constructor | For ζ ∈ F primitive of order m, β_ζ : K₂(F) →* Multiplicative (Br F), Br F written additively, with values of order dividing m. |
-| `TauCeti.NormResidueSymbol.brauerSymbol_symbol` | simp | β_ζ {a, b} = the image of (id ⊗ τ_ζ⁻¹)_*(κ a ∪ κ b) in Br(F). |
-| `TauCeti.NormResidueSymbol.brauerSymbol_pow_root` | relation | β_{ζ^u} = u⁻¹ • β_ζ for u ∈ (ZMod m)ˣ. |
-| `TauCeti.NormResidueSymbol.nsmul_brauerSymbol` | simp | m • β_ζ x = 0. |
-| `TauCeti.NormResidueSymbol.brauerSymbol_algebraic` | compatibility | Under QuadraticFormInvariants 7B's isomorphism between BrauerGroup F and H²(G_F, (F^s)^×), β_ζ lands in the m-torsion of BrauerGroup F; for m = 2 and ζ = −1, β_{−1}{a, b} is the quaternion class (a, b). |
+- `TauCeti.NormResidueSymbol.brauerSymbol` (constructor) — For ζ ∈ F primitive of order m, β_ζ : K₂(F) →* Multiplicative (Br F), Br F written additively, with values of order dividing m.
+- `TauCeti.NormResidueSymbol.brauerSymbol_symbol` (simp) — β_ζ {a, b} = the image of (id ⊗ τ_ζ⁻¹)_*(κ a ∪ κ b) in Br(F).
+- `TauCeti.NormResidueSymbol.brauerSymbol_pow_root` (relation) — β_{ζ^u} = u⁻¹ • β_ζ for u ∈ (ZMod m)ˣ.
+- `TauCeti.NormResidueSymbol.nsmul_brauerSymbol` (simp) — m • β_ζ x = 0.
+- `TauCeti.NormResidueSymbol.brauerSymbol_algebraic` (compatibility) — Under QuadraticFormInvariants 7B's isomorphism between BrauerGroup F and H²(G_F, (F^s)^×), β_ζ lands in the m-torsion of BrauerGroup F; for m = 2 and ζ = −1, β_{−1}{a, b} is the quaternion class (a, b).
 
 **Used by.**
 
-- *T.7, local-comparison*: the local invariant of β_ζ is compared with the norm residue symbol
-- *T.7, global-reciprocity*: the sum of the local invariants of the global β_ζ is zero
-- *QuadraticFormInvariants Layer 7B*: the comparison of the algebraic Brauer group with H² exports β_ζ as a class of central simple algebras, and identifies β_{−1}{a, b} with the quaternion class
+- T.7, local-comparison — the local invariant of β_ζ is compared with the norm residue symbol
+- T.7, global-reciprocity — the sum of the local invariants of the global β_ζ is zero
+- QuadraticFormInvariants Layer 7B — the comparison of the algebraic Brauer group with H² exports β_ζ as a class of central simple algebras, and identifies β_{−1}{a, b} with the quaternion class
 
 **Unit tests.**
 
@@ -2480,13 +2492,13 @@ For a field F with m invertible and a primitive m-th root of unity ζ ∈ F, the
 - β_{ζ^u} = u⁻¹ β_ζ.
 - For m = 2 and ζ = −1, β_{−1}{a, b} is the class of the quaternion algebra (a, b) under QuadraticFormInvariants' comparison; in particular β_{−1}{a, 1 − a} = 0 matches Tau Ceti's splitting of (a, 1 − a) (TauCeti.QuaternionAlgebra.steinbergEquivMatrix).
 
-**Depends on.** `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/twisted-roots-of-unity`.
+**Depends on.** `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`, `MotivicEtaleKTheory:M.1`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
 
-**Source.** Kbook.2013, III.6.10.1 (PDF p. 250): “1 →µm(F) →F × m −→F × →H1 et(F; µm) →1 1 →H2 et(F; µm) →Br(F) m −→Br(F) This yields isomorphisms H1 et(F; µm) ∼= F ×/F ×m and H2 et(F; µm) ∼= mBr(F).” — The Kummer sequences identifying H2(F, µm) with the m-torsion of the Brauer group.
+**Source.** `Kbook.2013`, III.6.10.1 (PDF p. 250). The Kummer sequences identifying H2(F, µm) with the m-torsion of the Brauer group.
 
-**Source.** Kbook.2013, III.6.10.4 (PDF p. 251): “If we identify Z/m with µm via 1 ↦ ζ, we have a natural isomorphism mBr(F) ∼= mBr(F) ⊗ Z/m ∼= mBr(F) ⊗ µm ∼= H2 et(F; µ⊗2 m ). Tate showed in [198] that this isomorphism identifies the Galois symbol of Proposition 6.10.3 with the mth power norm residue symbol of Proposition 6.9.2.” — The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976).
+**Source.** `Kbook.2013`, III.6.10.4 (PDF p. 251). The trivialisation by a chosen root and the comparison with the cyclic-algebra symbol, cited to Tate [198] (On the torsion in K2 of fields, Kyoto 1976).
 
-**Source.** Kbook.2013, III.6.9.2 (PDF p. 249): “Proposition 6.9.2 (nth power norm residue symbol). If F contains ζ, a primitive nth root of unity, there is a homomorphism K2(F) → Br(F) sending {α, β} to the class of the cyclic algebra Aζ(α, β).” — The Brauer-valued symbol in its cyclic-algebra form.
+**Source.** `Kbook.2013`, III.6.9.2 (PDF p. 249). The Brauer-valued symbol in its cyclic-algebra form.
 
 ### `local-comparison` — The norm residue symbol against the local invariant of the Kummer cup product
 
@@ -2513,13 +2525,11 @@ For a nonarchimedean local field F with m invertible, μ_m⊆F and a primitive r
 - The Q₇ cubic test gives inv_F(β_ζ{3,7})=1/3 and (3,7)=ζ⁻¹; m=2 alone is insufficient.
 - Root change cancels in the formula; m=1 and m=2 retain their earlier regressions.
 
-**Depends on.** `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`, `K2SymbolsBrauer:T.7/twisted-roots-of-unity`.
+**Depends on.** `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`, `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map`.
 
-**Source.** Milne.CFT.4.03, III Proposition 3.6(a), pp. 108–109; III.4 Steps 2–4 and Remark 4.5, pp. 112–114: “skew-symmetric” — The arithmetic Artin/invariant evaluation, ordered cup-product definition and Artin(b) acting on a root of a; inversion is the derived conversion to this packet’s opposite argument order.
+**Source.** `Milne.CFT.4.03`, III Proposition 3.6(a), pp. 108–109; III.4 Steps 2–4 and Remark 4.5, pp. 112–114. The arithmetic Artin/invariant evaluation, ordered cup-product definition and Artin(b) acting on a root of a; inversion is the derived conversion to this packet’s opposite argument order.
 
-**Source.** Milne.CFT.4.03, III Proposition 3.6 and its proof, p. 109: “PROPOSITION 3.6 For every χ ∈ Hom_cts(G, Q/Z) and a ∈ K^×, χ(φ_{L/K}(a)) = inv_K(a ∪ δχ). PROOF. See Serre 1962, “Annexe” to Chapter XI, and Serre 1967a, p. 140.” — The character-evaluation identity of proof step 2, verbatim (formula transcribed from the text layer); Milne gives no proof of his own, so the identity is an import, not a decomposed step.
-
-**Upstream note (ClassFieldTheory Layer 6).** T.7/local-comparison needs the character-evaluation identity χ(Artin_{L/K}(a)) = inv_K(a ∪ δχ) for every χ ∈ Hom(Gal(L/K), ℚ/ℤ) and a ∈ K^×, at the arithmetic-Frobenius normalisation of Layers 5–6. Milne, CFT v4.03, III Proposition 3.6 states it with no proof ('See Serre 1962, "Annexe" to Chapter XI, and Serre 1967a, p. 140'), so the layer that defines the local Artin map through the fundamental class should export it with its proof. A quadratic check cannot fix the sign; the cubic test over ℚ₇ in T.7/local-comparison does. First recorded by FIX-RT-AREA-ktheory-1~2 (Codex codex-5ebb6f); re-read in Milne by claude-HJaFqR on 6 October 2026.
+**Source.** `Milne.CFT.4.03`, III Proposition 3.6 and its proof, p. 109. The character-evaluation identity of proof step 2; Milne gives no proof of his own, so the identity is an import, not a decomposed step.
 
 ### `global-reciprocity` — Global reciprocity for symbols in K₂ of a number field: an adapter over the imported laws
 
@@ -2554,9 +2564,9 @@ Let F be a number field containing μ_m, ζ ∈ F a primitive m-th root of unity
 - m = 1, F = ℚ, x = {−1, −1}: every factor is 1, including the real place. An unconditional quadratic real factor would incorrectly make the product −1.
 - m = 2, F = ℚ, x = {−1,−1}: the real factor and the dyadic factor are each −1 and cancel; each odd-prime factor is 1. This is not the m = 1 law.
 
-**Depends on.** `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`, `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.2/matsumoto`, `ClassicalArithmeticCompletion:CA.1`, `mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite`, `mathlib:rootsOfUnity_one`.
+**Depends on.** `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`, `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.2/matsumoto`, `ClassicalArithmeticCompletion:CA.1`, `mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite`, `mathlib:rootsOfUnity_one`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map`.
 
-**Source.** Kbook.2013, Ex. III.6.8 (PDF p. 252): “Quadratic Reciprocity. If r, s ∈ Q×, and (r, s)2 is the 2-adic symbol of Ex. 6.6, show that (r, s)∞(r, s)2 ∏ p≠2((r, s))p = +1.” — The only reciprocity law the source states: the quadratic case over Q, as an exercise.
+**Source.** `Kbook.2013`, Ex. III.6.8 (PDF p. 252). The only reciprocity law the source states: the quadratic case over Q, as an exercise.
 
 ### `chern-class-agreement` — Compatibility of the imported Galois symbol with the imported degree-two Chern class
 
@@ -2585,91 +2595,167 @@ For every field F and integer m≥1 invertible in F, the imported degree-two ét
 
 **Depends on.** `K2SymbolsBrauer:T.7/symbol-formula`, `MotivicEtaleKTheory:M.3`, `K2SymbolsBrauer:T.1/k2-pi2`, `K2SymbolsBrauer:T.2/matsumoto`, `tauceti:TauCeti.kummerMap`, `GeneralAlgebraicKTheory:K.7`.
 
-**Source.** Kbook.2013, V.11.10 (PDF p. 464): “This yields a theory of ´etale Chern classes and hence (by 11.8) Chern class maps ci,n : Kn(X; Z/m) → H2i−n(X, Rπ∗µ⊗i m ) = H2i−n et (X, µ⊗i m ).” — Grothendieck's étale Chern classes on K-theory with finite coefficients.
+**Source.** `Kbook.2013`, V.11.10 (PDF p. 464). Grothendieck's étale Chern classes on K-theory with finite coefficients.
 
-**Source.** Kbook.2013, V.11.10 (PDF p. 464): “Therefore the Chern class c1,1 : K1(R) → H1 et(Spec(R), µm) is the determinant K1(R) → R× followed by the Kummer map.” — The degree-one Chern class is the Kummer map.
+**Source.** `Kbook.2013`, V.11.10 (PDF p. 464). The degree-one Chern class is the Kummer map.
 
-**Source.** Soule.Thesis.1978, Proposition 2.2.2.3 (Structure multiplicative), pp. 42–44: “Structure multiplicative” — Actual étale Chern product rule with hypothesis (M); i=j=1 gives −1. This is the thesis source, not an unverified locator in the 1979 article.
+**Source.** `Soule.Thesis.1978`, Proposition 2.2.2.3 (Structure multiplicative), pp. 42–44. Actual étale Chern product rule with hypothesis (M); i=j=1 gives −1. This is the thesis source, not an unverified locator in the 1979 article.
 
 ## Requests to other roadmaps
 
-These are explicit supply contracts or labelled downstream consumer notes, not claims of pinned implementation.
+**`K2SymbolsBrauer:T.2:symbols`.** From the companion packet K2SymbolsBrauer--T.1: expose w_ij(u) = x_ij(u) x_ji(−u⁻¹) x_ij(u) and h_ij(u) = w_ij(u) w_ij(−1) as API items of K2SymbolsBrauer:T.2/steinberg-symbol, with φ(h_ij(u)) = diag(u, u⁻¹) at (i, j) and h_ij(1) = 1; the Dennis-Stein word uses h_ij(1 − rs)⁻¹. Every other input from the companion part is cited by node id. For the integer upper bound, also supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78). Proof: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ.
 
-- `K2SymbolsBrauer:T.2:symbols` — From the companion packet K2SymbolsBrauer--T.1: expose w_ij(u) = x_ij(u) x_ji(−u⁻¹) x_ij(u) and h_ij(u) = w_ij(u) w_ij(−1) as API items of K2SymbolsBrauer:T.2/steinberg-symbol, with φ(h_ij(u)) = diag(u, u⁻¹) at (i, j) and h_ij(1) = 1; the Dennis-Stein word uses h_ij(1 − rs)⁻¹. Every other input from the companion part is cited by node id. For the integer upper bound, also supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78). Proof: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ. *Needed by:* `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`.
+*Needed by:* `K2SymbolsBrauer:T.6/dennis-stein-symbol`, `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`.
 
-- `ArithmeticKTheory:N.2` — Consumer note, not a supply (RT-AREA-ktheory-1/9 and /26): T.5 derives its degree-two rows itself — T.5/s-integer-tame-kernel-sequence (residues at the primes outside S), T.5/tame-kernel-sequence (S = ∅) and T.5/relative-s-integer-sequence (residues at the primes in S) — from GeneralAlgebraicKTheory K.3 through T.3/dedekind-localization-boundary and KTheoryLowDegrees U.4, and imports nothing from N.2; the earlier request for N.2's localisation sequence is withdrawn. N.2 imports these rows (edge T.5 → N.2) and specialises its all-degree Dedekind sequence to them: in degrees at most two N.2/localisation-sequence-for-a-dedekind-domain should restrict to T.3/dedekind-localization-boundary, and N.2/the-three-classical-rows (b) should cite the T.5 nodes instead of being cited by them. *Needed by:* .
+**`ArithmeticKTheory:N.2`.** Consumer note, not a supply (RT-AREA-ktheory-1/9 and /26): T.5 derives its degree-two rows itself — T.5/s-integer-tame-kernel-sequence (residues at the primes outside S), T.5/tame-kernel-sequence (S = ∅) and T.5/relative-s-integer-sequence (residues at the primes in S) — from GeneralAlgebraicKTheory K.3 through T.3/dedekind-localization-boundary and KTheoryLowDegrees U.4, and imports nothing from N.2; the earlier request for N.2's localisation sequence is withdrawn. N.2 imports these rows (edge T.5 → N.2) and specialises its all-degree Dedekind sequence to them: in degrees at most two N.2/localisation-sequence-for-a-dedekind-domain should restrict to T.3/dedekind-localization-boundary, and N.2/the-three-classical-rows (b) should cite the T.5 nodes instead of being cited by them.
 
-- `ArithmeticKTheory:N.6` — Consumer note, not a supply (RT-AREA-ktheory-1/9): the certificate engine — the order-certificate format on Mathlib's Module.Relations and Module.Presentation with independent upper and lower bounds, and the rule that an upper bound with a surjective presentation is not an isomorphism — is N.6's. The former node T.5/certified-presentation is deleted from this packet and its statement, API and tests are for N.6 to own; N.6/certificate-driven-computation, which lists T.5/certified-presentation as a prerequisite, must cite N.6's own format instead. T.5 supplies N.6 (edge T.5 → N.6) with groups and sequences only: T.5/unramified-subgroup, T.5/tame-kernel-sequence, T.5/s-integer-tame-kernel-sequence, T.5/relative-s-integer-sequence and the lower-bound symbol T.5/real-sign-symbol. No T.5 node depends on N.6, and T.5 needs no finite-generation theorem. *Needed by:* .
+*Needed by:* .
 
-- `ArithmeticKTheory:N.8` — Consumer note, not a supply (RT-AREA-ktheory-1/9): N.8 imports rather than recomputes K_2(ℤ) ≅ ℤ/2 with generator {−1, −1} (T.5/k2-of-the-integers), K_2(ℚ) ≅ K_2(ℤ) ⊕ ⊕_{p odd} 𝔽_p^× with K_2(ℚ) infinite (T.5/k2-of-the-rationals), K_2(𝔽_q) = 0 (K2SymbolsBrauer:T.2/k2-finite-field, this roadmap's owner of that calculation) and, for its ℤ[1/p] example, 0 → K_2(ℤ) → K_2(ℤ[1/p]) → 𝔽_p^× → 0 (T.5/relative-s-integer-sequence, residues at p ∈ S) together with T.5/s-integer-tame-kernel-sequence (residues outside S). N.8's certificate for K_2(ℤ) instantiates N.6's format with the bounds of T.5/k2-of-the-integers; K_1(ℤ) and K_0(ℤ) are KTheoryLowDegrees U.6's and Z.6's. *Needed by:* .
+**`ArithmeticKTheory:N.6`.** Consumer note, not a supply (RT-AREA-ktheory-1/9): the certificate engine — the order-certificate format on Mathlib's Module.Relations and Module.Presentation with independent upper and lower bounds, and the rule that an upper bound with a surjective presentation is not an isomorphism — is N.6's. The former node T.5/certified-presentation is deleted from this packet and its statement, API and tests are for N.6 to own; N.6/certificate-driven-computation, which lists T.5/certified-presentation as a prerequisite, must cite N.6's own format instead. T.5 supplies N.6 (edge T.5 → N.6) with groups and sequences only: T.5/unramified-subgroup, T.5/tame-kernel-sequence, T.5/s-integer-tame-kernel-sequence, T.5/relative-s-integer-sequence and the lower-bound symbol T.5/real-sign-symbol. No T.5 node depends on N.6, and T.5 needs no finite-generation theorem.
 
-- `SpecialValuesBirchTate:B.7` — Consumer note, not a supply: B.7 derives #K_2(O_{F,S}) = #K_2(O_F)·∏_{v∈S}(Nv − 1) ('prove from localisation') from T.5/relative-s-integer-sequence, whose residues are at the primes in S (the tame-kernel sequence of O_{F,S}, with residues outside S, is T.5/s-integer-tame-kernel-sequence). B.7 lies downstream of T.5 (B.7 requires B.6, …, B.2, B.1, and B.1 requires K2SymbolsBrauer:T.5), so no T.5 node may list it as a prerequisite. *Needed by:* .
+*Needed by:* .
 
-- `KTheoryFiniteLocalFields:L.1` — Compatibility note: L.1's 'field-symbol calculation in degree two' must agree with K2SymbolsBrauer:T.2/k2-finite-field (Matsumoto's presentation) under the comparison of T.1:plus. No T.5 node needs L.1: K_2(𝔽_q) = 0 is K2SymbolsBrauer:T.2/k2-finite-field. *Needed by:* .
+**`ArithmeticKTheory:N.8`.** Consumer note, not a supply (RT-AREA-ktheory-1/9): N.8 imports rather than recomputes K_2(ℤ) ≅ ℤ/2 with generator {−1, −1} (T.5/k2-of-the-integers), K_2(ℚ) ≅ K_2(ℤ) ⊕ ⊕_{p odd} 𝔽_p^× with K_2(ℚ) infinite (T.5/k2-of-the-rationals), K_2(𝔽_q) = 0 (K2SymbolsBrauer:T.2/k2-finite-field, this roadmap's owner of that calculation) and, for its ℤ[1/p] example, 0 → K_2(ℤ) → K_2(ℤ[1/p]) → 𝔽_p^× → 0 (T.5/relative-s-integer-sequence, residues at p ∈ S) together with T.5/s-integer-tame-kernel-sequence (residues outside S). N.8's certificate for K_2(ℤ) instantiates N.6's format with the bounds of T.5/k2-of-the-integers; K_1(ℤ) and K_0(ℤ) are KTheoryLowDegrees U.6's and Z.6's.
 
-- `MotivicEtaleKTheory:M.3` — M.3 is the single owner (RT-AREA-ktheory-1/8) of: (i) the Galois symbol h_F : K₂(F)/m → H²(F, μ_m^{⊗2}) for any field F with m invertible, with the symbol formula {a, b} ↦ κ(a) ∪ κ(b) and the cohomological Steinberg relation κ(a) ∪ κ(1 − a) = 0 (K-book Proposition III.6.10.3), exported for a general field as its own declaration before the arithmetic specialisation (the verifier of RT-AREA-ktheory-1/8; RT-AREA-ktheory-1/14 decides where in MotivicEtaleKTheory the general-field symbol sits); (ii) its norm-residue/Chern description, the degree-two étale Chern class c_{2,2} on π₂ K(F) with its value on a product of two K₁-classes and its sign; (iii) Tate's theorems, as separate declarations with their hypotheses: the local-field theorem, the global-field theorem, and the S-integer comparison K₂(O_{F,S})/ℓ^r ≅ H²_ét(O_{F,S}, μ_{ℓ^r}^{⊗2}) with the primes above ℓ in S, proved through the étale localisation sequence. T.7 constructs none of these and proves no Tate theorem; it keeps only the comparison with the Kummer map and cup product, the Hilbert/local-invariant normalisation, the change-of-root rule, the reciprocity adapter and the Chern compatibility. The 'global reciprocity' M.3's text uses must come from ClassFieldTheory Layer 10, not from K2SymbolsBrauer:T.7/global-reciprocity, which would close a cycle M.3 → T.7 → M.3. Exact normalization contract: c_{1,1}=Kummer and c_{2,2}(a·b)=−κ(a)∪κ(b) for prime-power coefficients (Soulé thesis 2.2.2.3, with (M) checked in the T.7 adapter), with coefficient-reduction naturality and the CRT decomposition for arbitrary invertible m. The Galois symbol h_F remains the positive ordered cup, so c_{2,2}=−h_F. *Needed by:* `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/chern-class-agreement`.
+*Needed by:* .
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality` — invMap on Br F with its arithmetic-Frobenius normalisation, h2MuEquivZMod_mixed, kummerCupPairing ζ and localSymbol, for the comparison of the norm residue symbol with the Kummer cup product followed by the local invariant. Layer 5 does not build μ_n ⊗ μ_n (its text: 'Two Kummer classes naturally cup into μ_n ⊗ μ_n, not μ_n … A primitive root supplies the additional pairing'), so the twisted module is requested from MotivicEtaleKTheory M.1 instead. This import is the promoted link CFT-L68 (ClassFieldTheory Layer 5 → T.7), which is kept; the node now lists the stage as a prerequisite. *Needed by:* `K2SymbolsBrauer:T.7/local-comparison`.
+**`SpecialValuesBirchTate:B.7`.** Consumer note, not a supply: B.7 derives #K_2(O_{F,S}) = #K_2(O_F)·∏_{v∈S}(Nv − 1) ('prove from localisation') from T.5/relative-s-integer-sequence, whose residues are at the primes in S (the tame-kernel sequence of O_{F,S}, with residues outside S, is T.5/s-integer-tame-kernel-sequence). B.7 lies downstream of T.5 (B.7 requires B.6, …, B.2, B.1, and B.1 requires K2SymbolsBrauer:T.5), so no T.5 node may list it as a prerequisite.
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity` — hilbertProductFormula in its additive cohomological form (the local ZMod 2 invariants of the quaternion symbol sum to zero) and its multiplicative form ∏_v (a, b)_v = 1, with quadratic reciprocity for ℚ: the m = 2 case of T.7's reciprocity adapter, read through QuadraticFormInvariants 6E's sign dictionary. Layer 14 owns only the quadratic law ('higher power reciprocity laws (Artin–Tate XII) are follow-on work using the same symbols'); the m-th power law is requested from ClassicalArithmeticCompletion CA.1. *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+*Needed by:* .
 
-- `GeneralAlgebraicKTheory:K.3` — The ring case of K.3's abelian localization: for a Dedekind domain R with fraction field F (and for a DVR), the finitely generated S-torsion R-modules, S = R ∖ {0}, form a Serre subcategory of the finitely generated R-modules whose quotient is the category of finite-dimensional F-vector spaces (K-book V.6.1, citing II.6.4.1), so that K.3/abelian-localization-theorem applies to it. The two other ring contracts this packet needs are nodes of the GeneralAlgebraicKTheory K.1 packet and are cited directly: the degree-one boundary ∂₁[s]=[R/sR] for a non-zero-divisor s and its DVR case ∂₁[π]=1 (K.3/localization-degree-one-index, K.3/dvr-degree-one-boundary), and the base change of transfers along any field extension F′/F, with the local lengths of E⊗_F F′ as multiplicities (K.3/finite-field-transfer-base-change). No transfer or localization sequence is constructed in T.3. *Needed by:* `K2SymbolsBrauer:T.3/dedekind-localization-boundary`.
+**`KTheoryFiniteLocalFields:L.1`.** Compatibility note: L.1's 'field-symbol calculation in degree two' must agree with K2SymbolsBrauer:T.2/k2-finite-field (Matsumoto's presentation) under the comparison of T.1:plus. No T.5 node needs L.1: K_2(𝔽_q) = 0 is K2SymbolsBrauer:T.2/k2-finite-field.
 
-- `GeneralAlgebraicKTheory:K.7` — The unit-product contract: the product K₁(F) × K₁(F) → K₂(F) of unit classes, in the order (a,b), equals the Steinberg symbol {a,b} on Quillen K₂ through T.1/k2-pi2 (K-book V.6.6.1 for the calculation). The right K_*(R)-module structure of ring localization, ∂(x·j*(y))=∂(x)·i*(y), is GeneralAlgebraicKTheory:K.3/localization-product-boundary of the K.1 packet, built on K.7's biexact pairing, and is cited directly. The left module convention introduces the Koszul sign and is not silently substituted. No tame-symbol comparison is imported from K.7. *Needed by:* `K2SymbolsBrauer:T.3/localization-boundary`, `K2SymbolsBrauer:T.7/chern-class-agreement`.
+*Needed by:* .
 
-- `KTheoryLowDegrees:U.4` — SK_1(O_{F,S}) = 0 for a number field F and a finite set S of nonzero primes (S = ∅ included, so SK_1(ℤ) = 0) — the Bass–Milnor–Serre theorem — in the form T.5 uses: the map K_1(O_{F,S}) → K_1(F) induced by the inclusion is injective (determinant identifications K_1(O_{F,S}) ≅ O_{F,S}^× ⊆ F^× ≅ K_1(F)). U.4's text: 'Prove the Bass–Milnor–Serre result needed for SK₁(O_{F,S})=0, with F a number field and S finite.' Through the exact segment ⊕_𝔭 k(𝔭)^× → K_1(O_{F,S}) → K_1(F) of T.3/dedekind-localization-boundary it is what makes the residue sums of T.5 onto (RT-AREA-ktheory-1/26). The KTheoryLowDegrees--U.1 blueprint, not yet accepted, plans these statements as U.4/bass-milnor-serre and U.4/K1-S-integers-into-field; the prerequisite can be narrowed to them once it is. *Needed by:* `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`.
+**`MotivicEtaleKTheory:M.3`.** M.3 is the single owner (RT-AREA-ktheory-1/8) of: (i) the Galois symbol h_F : K₂(F)/m → H²(F, μ_m^{⊗2}) for any field F with m invertible, with the symbol formula {a, b} ↦ κ(a) ∪ κ(b) and the cohomological Steinberg relation κ(a) ∪ κ(1 − a) = 0 (K-book Proposition III.6.10.3), exported for a general field as its own declaration before the arithmetic specialisation (the verifier of RT-AREA-ktheory-1/8; RT-AREA-ktheory-1/14 decides where in MotivicEtaleKTheory the general-field symbol sits); (ii) its norm-residue/Chern description, the degree-two étale Chern class c_{2,2} on π₂ K(F) with its value on a product of two K₁-classes and its sign; (iii) Tate's theorems, as separate declarations with their hypotheses: the local-field theorem, the global-field theorem, and the S-integer comparison K₂(O_{F,S})/ℓ^r ≅ H²_ét(O_{F,S}, μ_{ℓ^r}^{⊗2}) with the primes above ℓ in S, proved through the étale localisation sequence. T.7 constructs none of these and proves no Tate theorem; it keeps only the comparison with the Kummer map and cup product, the Hilbert/local-invariant normalisation, the change-of-root rule, the reciprocity adapter and the Chern compatibility. The 'global reciprocity' M.3's text uses must come from ClassFieldTheory Layer 10, not from K2SymbolsBrauer:T.7/global-reciprocity, which would close a cycle M.3 → T.7 → M.3. Exact normalization contract: c_{1,1}=Kummer and c_{2,2}(a·b)=−κ(a)∪κ(b) for prime-power coefficients (Soulé thesis 2.2.2.3, with (M) checked in the T.7 adapter), with coefficient-reduction naturality and the CRT decomposition for arbitrary invertible m. The Galois symbol h_F remains the positive ordered cup, so c_{2,2}=−h_F.
 
-- `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts` — The Layer 12 dictionary, imported explicitly rather than re-proved (RT-AREA-ktheory-1/32; the link AC-L40 already exists): 12A, ord_x : k(X)^× → ℤ at a regular closed point through the discrete valuation ring O_{X,x}, and closed points ↔ places with matching residue fields and degrees; 12B, the proper regular model as the normalisation of ℙ¹_F in K, projective, with k(X_F) ≃ₐ[F] K; 12D, Weil divisors on the regular model ≅ Divisor F K with principal divisors and degrees matching. Layer 12's 'regular, not smooth' convention is kept: over an imperfect F the model need not be smooth. Already pinned and reused: Mathlib's Ring.ordFrac_eq_valuation_inv (Mathlib/RingTheory/OrderOfVanishing/Noetherian.lean:183) and Tau Ceti's Place.heightOneSpectrumEquiv (TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean:140); no pinned declaration mentions both Scheme.ord and Place. *Needed by:* `K2SymbolsBrauer:T.4/valuation-comparison`.
+*Needed by:* `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/chern-class-agreement`.
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity` — localArtinEquiv with its normResidue form K^×/N L^× ≅ Gal(L/K) for a finite abelian extension of a nonarchimedean local field, the unramified case in which units are norms, and localArtinMap_quadratic_eq_hilbertSymbol as the m = 2 check. *Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/global-reciprocity`.
+**`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`.** invMap on Br F with its arithmetic-Frobenius normalisation, h2MuEquivZMod_mixed, kummerCupPairing ζ and localSymbol, for the comparison of the norm residue symbol with the Kummer cup product followed by the local invariant. Layer 5 does not build μ_n ⊗ μ_n (its text: 'Two Kummer classes naturally cup into μ_n ⊗ μ_n, not μ_n … A primitive root supplies the additional pairing'), so the twisted module is requested from MotivicEtaleKTheory M.1 instead. This import is the promoted link CFT-L68 (ClassFieldTheory Layer 5 → T.7), which is kept; the node now lists the stage as a prerequisite.
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map` — artinMap_groundNorm, the compatibility of the Artin map with the norm of a finite extension, used in the Steinberg identity of the norm residue symbol. *Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`.
+*Needed by:* `K2SymbolsBrauer:T.7/local-comparison`.
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants` — sumLocalInv_eq_zero (exactness in the middle of Br K → ⊕_v Br K_v → ℚ/ℤ, with the real-place invariants) and the localisation maps Br K → Br K_v. This import is the promoted link CFT-L69 (ClassFieldTheory Layer 10 → T.7), which is kept; the node now lists the stage as a prerequisite. *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+**`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity`.** hilbertProductFormula in its additive cohomological form (the local ZMod 2 invariants of the quaternion symbol sum to zero) and its multiplicative form ∏_v (a, b)_v = 1, with quadratic reciprocity for ℚ: the m = 2 case of T.7's reciprocity adapter, read through QuadraticFormInvariants 6E's sign dictionary. Layer 14 owns only the quadratic law ('higher power reciprocity laws (Artin–Tate XII) are follow-on work using the same symbols'); the m-th power law is requested from ClassicalArithmeticCompletion CA.1.
 
-- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant` — hilbertSymbol with symmetry and bimultiplicativity (6C's milestones), for the Steinberg symbol K₂(F) → {±1} of hilbert-symbol-steinberg. 6C freezes the comparison hilbertSymbol_eq_cohomological, which 6E proves and which is requested from 6E. *Needed by:* `K2SymbolsBrauer:T.7/hilbert-symbol-steinberg`.
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
 
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory` — hilbert90, the Kummer isomorphism kummerIso : Kˣ/(Kˣ)ⁿ ≅ H¹(G_K, μₙ), and h2KummerToUnits : H²(G_K, μₙ) ↪ H²(G_K, (Kˢ)ˣ) with image the n-torsion. *Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+**`GeneralAlgebraicKTheory:K.3`.** The ring case of K.3's abelian localization: for a Dedekind domain R with fraction field F (and for a DVR), the finitely generated S-torsion R-modules, S = R ∖ {0}, form a Serre subcategory of the finitely generated R-modules whose quotient is the category of finite-dimensional F-vector spaces (K-book V.6.1, citing II.6.4.1), so that K.3/abelian-localization-theorem applies to it. The two other ring contracts this packet needs are nodes of the GeneralAlgebraicKTheory K.1 packet and are cited directly: the degree-one boundary ∂₁[s]=[R/sR] for a non-zero-divisor s and its DVR case ∂₁[π]=1 (K.3/localization-degree-one-index, K.3/dvr-degree-one-boundary), and the base change of transfers along any field extension F′/F, with the local lengths of E⊗_F F′ as multiplicities (K.3/finite-field-transfer-base-change). No transfer or localization sequence is constructed in T.3.
 
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups` — Restriction of continuous cohomology to the decomposition groups (the completions F_v), compatible with the Kummer map. *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+*Needed by:* `K2SymbolsBrauer:T.3/dedekind-localization-boundary`.
 
-- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees` — Compatibility of the (1,1) cup product with restriction. *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+**`GeneralAlgebraicKTheory:K.7`.** The unit-product contract: the product K₁(F) × K₁(F) → K₂(F) of unit classes, in the order (a,b), equals the Steinberg symbol {a,b} on Quillen K₂ through T.1/k2-pi2 (K-book V.6.6.1 for the calculation). The right K_*(R)-module structure of ring localization, ∂(x·j*(y))=∂(x)·i*(y), is GeneralAlgebraicKTheory:K.3/localization-product-boundary of the K.1 packet, built on K.7's biexact pairing, and is cited directly. The left module convention introduces the Koszul sign and is not silently substituted. No tame-symbol comparison is imported from K.7.
 
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group` — The power-class count #(K^×/K^×n) = n · #μ_n(K) · q^(natCastValuation K n) for a nonarchimedean local field, giving finiteness of F^×/F^×m. *Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`.
+*Needed by:* `K2SymbolsBrauer:T.3/localization-boundary`, `K2SymbolsBrauer:T.7/chern-class-agreement`.
 
-- `MotivicEtaleKTheory:M.1` — The finite Tate twists μ_m^{⊗j} (j ∈ ℤ) of a field F with m invertible, as discrete G_F-modules built on Tau Ceti's KummerCoeff F m, with the equivariant tensor pairings μ_m^{⊗i} × μ_m^{⊗j} → μ_m^{⊗(i+j)}, so that explicitCup11 of two Kummer classes lands in H²(F, μ_m^{⊗2}). *Needed by:* `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+**`KTheoryLowDegrees:U.4`.** SK_1(O_{F,S}) = 0 for a number field F and a finite set S of nonzero primes (S = ∅ included, so SK_1(ℤ) = 0) — the Bass–Milnor–Serre theorem — in the form T.5 uses: the map K_1(O_{F,S}) → K_1(F) induced by the inclusion is injective (determinant identifications K_1(O_{F,S}) ≅ O_{F,S}^× ⊆ F^× ≅ K_1(F)). U.4's text: 'Prove the Bass–Milnor–Serre result needed for SK₁(O_{F,S})=0, with F a number field and S finite.' Through the exact segment ⊕_𝔭 k(𝔭)^× → K_1(O_{F,S}) → K_1(F) of T.3/dedekind-localization-boundary it is what makes the residue sums of T.5 onto (RT-AREA-ktheory-1/26). The KTheoryLowDegrees--U.1 blueprint, not yet accepted, plans these statements as U.4/bass-milnor-serre and U.4/K1-S-integers-into-field; the prerequisite can be narrowed to them once it is.
 
-- `GeneralAlgebraicKTheory:K.5` — Relative K-theory of a pair (A, I) as the homotopy fibre of K(A) → K(A/I), with its long exact sequence and π₂ K(A, I); and, if K.5 accepts it, the Keune–Loday identification of π₂ K(A, I) with the relative group of K-book III.5.7 (cited in K-book IV.1.11), against which the T.6 square-zero examples are tests. *Needed by:* `K2SymbolsBrauer:T.6/relative-square-zero`, `K2SymbolsBrauer:T.6/relative-steinberg-group`.
+*Needed by:* `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`.
 
-- `KTheoryLowDegrees:U.5` — The relative elementary group E(A, I), the congruence subgroup GL(I) and K₁(A, I), with the start of the relative exact sequence, used to define K₂(R, I) = ker(St(R, I) → E(R, I)). *Needed by:* `K2SymbolsBrauer:T.6/relative-steinberg-group`.
+**`tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts`.** The Layer 12 dictionary, imported explicitly rather than re-proved (RT-AREA-ktheory-1/32; the link AC-L40 already exists): 12A, ord_x : k(X)^× → ℤ at a regular closed point through the discrete valuation ring O_{X,x}, and closed points ↔ places with matching residue fields and degrees; 12B, the proper regular model as the normalisation of ℙ¹_F in K, projective, with k(X_F) ≃ₐ[F] K; 12D, Weil divisors on the regular model ≅ Divisor F K with principal divisors and degrees matching. Layer 12's 'regular, not smooth' convention is kept: over an imperfect F the model need not be smooth. Already pinned and reused: Mathlib's Ring.ordFrac_eq_valuation_inv (Mathlib/RingTheory/OrderOfVanishing/Noetherian.lean:183) and Tau Ceti's Place.heightOneSpectrumEquiv (TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean:140); no pinned declaration mentions both Scheme.ord and Place.
 
-- `MotivicEtaleKTheory:M.4` — Consumer note, not a supply (RT-AREA-ktheory-1/12): M.4's Nesterenko–Suslin/Totaro comparison of field Milnor K-theory with the diagonal higher Chow groups imports from T.4 the all-degree Milnor norms with Kato's independence of the chain of generators (T.4/milnor-transfer-transitivity) and Suslin's reciprocity law Σ_w N_{κ(w)/F} ∂_w(x) = 0 for x ∈ K^M_{n+1}(F(C)), C a proper curve over any field (T.4/weil-reciprocity), stated over the closed points of the regular proper model (the normalisation), with possibly inseparable residue extensions and without smoothness. M.4 owns the two inverse maps and the boundary calculation. The needed stage edge is T.4 → M.4; M.4 is downstream, so no T.4 node lists it. *Needed by:* .
+*Needed by:* `K2SymbolsBrauer:T.4/valuation-comparison`.
 
-- `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68` — The milestone 'Weil reciprocity f(div g) = g(div f)' of Layer 2's divisor construction of the Weil pairing, with Layer 0's places, principal divisors and evaluation of a function on a divisor of disjoint support (Tau Ceti's Divisor.principal and Divisor.eval, whose local factors are residue-field norms). T.4/disjoint-support-reciprocity proves that T.4's symbol-form reciprocity specialises to this statement for W.FunctionField (RT-AREA-ktheory-1/32), so the elliptic milestone and T.4's theorem must be stated compatibly; T.4 keeps the general theorem. Needed stage edge: EllipticCurves Layer 2 → T.4 (acyclic: no EllipticCurves layer depends on T.4). *Needed by:* `K2SymbolsBrauer:T.4/disjoint-support-reciprocity`.
+**`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`.** localArtinEquiv with its normResidue form K^×/N L^× ≅ Gal(L/K) for a finite abelian extension of a nonarchimedean local field, the unramified case in which units are norms, and localArtinMap_quadratic_eq_hilbertSymbol as the m = 2 check. Export the character-evaluation identity χ(Artin(a))=inv(a∪δχ), transported from Layer 4’s ClassFormation.character_artinMap using Layer 6’s localClassFormation_inv and the arithmetic-Frobenius normalization. This is already an abstract owner milestone; the request is for its local specialization, not a new T.7 construction.
 
-- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map` — hilbertSymbol_eq_cohomological, 6E's Milestone 2: (a, b)_K = hilbertSign(localSymbol (a) (b)) at ClassFieldTheory's arithmetic-Frobenius normalisation, with hilbertSign 0 ↦ +1, 1 ↦ −1, and ε([D]) = localHasse for the quaternion division algebra D — the exponent-2 comparison of T.7's norm residue symbol (m = 2, ζ = −1, where kummerCupPairing (−1) is canonical) with ClassFieldTheory's localSymbol and with the quaternion/norm-equation symbol (RT-AREA-ktheory-1/27). *Needed by:* `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/global-reciprocity`.
+*Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/global-reciprocity`.
 
-- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²` — The comparison of the algebraic Brauer group with H²(G_K, (K^s)^×) (7B's crossed-product package, milestone 3) and the symbol as a cup product ι[(a, b)] = (a) ∪ (b) (milestone 6, brauerCohomologyEquiv_quaternionClass): T.7's Brauer-valued symbol β_ζ is built in the cohomological Brauer group, and exporting it as a class of central simple algebras, with β_{−1}{a, b} the quaternion class (a, b), uses this comparison (RT-AREA-ktheory-1/27; Layer 7 owns the comparison of the algebraic Brauer group with H²). *Needed by:* `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+**`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map`.** artinMap_groundNorm, the compatibility of the Artin map with the norm of a finite extension, used in the Steinberg identity of the norm residue symbol.
 
-- `ClassicalArithmeticCompletion:CA.1` — The m-th power Hilbert reciprocity law for a number field F containing μ_m: for a, b ∈ F^×, (a, b)_v = 1 for almost all places v and ∏_v (a, b)_v = 1, including the places above m and the real places (m ≤ 2) — CA.1's 'source-scoped higher reciprocity through class field theory', which RS-03 keeps in CA.1 ('Higher reciprocity and power-residue/Hilbert-symbol extensions, including the place 2, infinite places and ramification conventions'). ClassFieldTheory Layer 14 owns only the quadratic law. T.7/global-reciprocity reads the law in the normalisation of T.7/classical-local-symbols (local reciprocity of ClassFieldTheory Layer 6 with the arithmetic Frobenius, variable order x ↦ (x, −)_v); CA.1 should state its local symbol by the same construction, or record the conversion. CA.1 cannot import T.7's symbol (T.7 now imports CA.1), so which of the two owns the local m-th power Hilbert symbol is left to the maintainer (RT-AREA-ktheory-1/27). *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+*Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`.
 
-- `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge` — Import Layer 2’s explicit finite-normalization milestone: for any field k, any finite K/k(t), the integral closure of k[t] in K is a finite k[t]-module, WITHOUT separability; localizations at all finite places and the t⁻¹ chart are finite as well. For finite K/k(t), embed K in a finite normal hull M/k(t). In characteristic p, the maximal purely inseparable subextension P/k(t) has M/P separable (Stacks 032N, Fields 9.27.3); this is the pure-FIRST tower in the normal hull, not the generally unhelpful separable-first tower inside K. The pinned purely inseparable polynomial theorem makes the integral closure A′ of k[t] in P finite. It is normal Noetherian, and the separable trace/dual-basis argument (Stacks 032L, pinned IsIntegralClosure.finite) makes its integral closure B in M finite over A′. Integrality transitivity makes B the k[t]-normalization in M. The normalization in K is a k[t]-submodule of B, hence finite by Noetherianity. In characteristic zero use the separable theorem directly. Repeat for t⁻¹ and localize. This uses no perfection, smoothness, or false finiteness conclusion from Krull–Akizuki. *Needed by:* `K2SymbolsBrauer:T.4/weil-reciprocity`.
+**`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`.** sumLocalInv_eq_zero (exactness in the middle of Br K → ⊕_v Br K_v → ℚ/ℤ, with the real-place invariants) and the localisation maps Br K → Br K_v. This import is the promoted link CFT-L69 (ClassFieldTheory Layer 10 → T.7), which is kept; the node now lists the stage as a prerequisite.
 
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration` — The existing norm-on-valuations milestone gives ord_F N(y)=f ord_E(y) for local fields. T.4 also needs its complete/henselian DISCRETE-VALUATION-field form without finite residue fields, and res N(u)=N_l/k(res u)^e for a unit u, including inseparable residue extensions. Determinant proof: the finite free valuation-ring lattice S has rank ef; the determinant of multiplication by y has valuation length_R(S/yS)=f ord_E(y) for integral nonzero y, and extend to fractions. For a unit u, filter S/π_F S by powers of π_E; there are e successive copies of l as k-vector spaces, and multiplication on each has determinant N_l/k(ū). Multiply the e determinants. GS Lemma 7.3.10, pp. 200–201 uses these identities. This extends the standing local-field scope and is flagged in upstreamNotes; no generic norm theory is rebuilt in T.4. Also supply the generic complete-DVR base-change length identity: For finite complete-DVR base change F′/F, put r=e(F′/F), k′ its residue field, e=e(E/F), and E⊗F F′=∏ E_i with residue l_i. Write l⊗k k′=∏ A_j with residue L_j and length t_j. Let e_i=e(E_i/F′), e′_i=e(E_i/E), with i assigned to its residue component j. Then Σ_(i over j) e′_i [l_i:L_j]=r t_j. Proof: B=S⊗R R′ and its finite normalization C=∏S_i are full R′-lattices in the same algebra, with torsion quotient D. Reduction modulo π′ has equal composition multiplicities for B and C, since the finite-length kernel and cokernel of multiplication by π′ on D have equal multiplicities by length additivity. This is an elementary module-length argument, not a new Quillen G-theory construction. The e-step filtration of S/πS gives e t_j on B, while C gives Σ e_i [l_i:L_j]. Thus Σ e_i [l_i:L_j]=e t_j. Multiply by r and use r e_i=e e′_i; cancel the positive integer e in the LENGTH identity, not in a Milnor K-group. This establishes the displayed multiplicities. Combined with restriction-transfer degree in the residue fields, it proves the r·residue-base-change square used in complete-norm-residue without assuming that composita of residue fields exhaust l_i. *Needed by:* `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/complete-norm-residue`.
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
 
-- `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge` — Finite normalization completion contract used by T.4: for a DVR R with fraction F, finite E/F and finite integral closure S/R, the semilocal completion is ∏_w completed S_w and E⊗_F F̂≅∏_w Ê_w, with identical residue fields and ramification index 1 for E→Ê_w. Prove via finite-module tensor completion, Chinese remaindering S/π^nS, and inverting π; source GS Appendix A.6.4 and Corollary 7.4.3. Request the generic DVR form from the normalization owner, rather than applying number-field-only completions to imperfect function fields. *Needed by:* `K2SymbolsBrauer:T.3/transfer-and-norm-residue`.
+**`tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant`.** hilbertSymbol with symmetry and bimultiplicativity (6C's milestones), for the Steinberg symbol K₂(F) → {±1} of hilbert-symbol-steinberg. 6C freezes the comparison hilbertSymbol_eq_cohomological, which 6E proves and which is requested from 6E.
+
+*Needed by:* `K2SymbolsBrauer:T.7/hilbert-symbol-steinberg`.
+
+**`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`.** hilbert90, the Kummer isomorphism kummerIso : Kˣ/(Kˣ)ⁿ ≅ H¹(G_K, μₙ), and h2KummerToUnits : H²(G_K, μₙ) ↪ H²(G_K, (Kˢ)ˣ) with image the n-torsion.
+
+*Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+
+**`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups`.** Restriction of continuous cohomology to the decomposition groups (the completions F_v), compatible with the Kummer map.
+
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees`.** Compatibility of the (1,1) cup product with restriction.
+
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group`.** The power-class count #(K^×/K^×n) = n · #μ_n(K) · q^(natCastValuation K n) for a nonarchimedean local field, giving finiteness of F^×/F^×m.
+
+*Needed by:* `K2SymbolsBrauer:T.7/classical-local-symbols`.
+
+**`MotivicEtaleKTheory:M.1`.** The finite Tate twists μ_m^{⊗j} (j ∈ ℤ) of a field F with m invertible, as discrete G_F-modules built on Tau Ceti's KummerCoeff F m, with the equivariant tensor pairings μ_m^{⊗i} × μ_m^{⊗j} → μ_m^{⊗(i+j)}, so that explicitCup11 of two Kummer classes lands in H²(F, μ_m^{⊗2}).
+
+*Needed by:* `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+
+**`GeneralAlgebraicKTheory:K.5`.** Relative K-theory of a pair (A, I) as the homotopy fibre of K(A) → K(A/I), with its long exact sequence and π₂ K(A, I); and, if K.5 accepts it, the Keune–Loday identification of π₂ K(A, I) with the relative group of K-book III.5.7 (cited in K-book IV.1.11), against which the T.6 square-zero examples are tests.
+
+*Needed by:* `K2SymbolsBrauer:T.6/relative-square-zero`, `K2SymbolsBrauer:T.6/relative-steinberg-group`.
+
+**`KTheoryLowDegrees:U.5`.** The relative elementary group E(A, I), the congruence subgroup GL(I) and K₁(A, I), with the start of the relative exact sequence, used to define K₂(R, I) = ker(St(R, I) → E(R, I)).
+
+*Needed by:* `K2SymbolsBrauer:T.6/relative-steinberg-group`.
+
+**`MotivicEtaleKTheory:M.4`.** Consumer note, not a supply (RT-AREA-ktheory-1/12): M.4's Nesterenko–Suslin/Totaro comparison of field Milnor K-theory with the diagonal higher Chow groups imports from T.4 the all-degree Milnor norms with Kato's independence of the chain of generators (T.4/milnor-transfer-transitivity) and Suslin's reciprocity law Σ_w N_{κ(w)/F} ∂_w(x) = 0 for x ∈ K^M_{n+1}(F(C)), C a proper curve over any field (T.4/weil-reciprocity), stated over the closed points of the regular proper model (the normalisation), with possibly inseparable residue extensions and without smoothness. M.4 owns the two inverse maps and the boundary calculation. The needed stage edge is T.4 → M.4; M.4 is downstream, so no T.4 node lists it.
+
+*Needed by:* .
+
+**`tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`.** The milestone 'Weil reciprocity f(div g) = g(div f)' of Layer 2's divisor construction of the Weil pairing, with Layer 0's places, principal divisors and evaluation of a function on a divisor of disjoint support (Tau Ceti's Divisor.principal and Divisor.eval, whose local factors are residue-field norms). T.4/disjoint-support-reciprocity proves that T.4's symbol-form reciprocity specialises to this statement for W.FunctionField (RT-AREA-ktheory-1/32), so the elliptic milestone and T.4's theorem must be stated compatibly; T.4 keeps the general theorem. Needed stage edge: EllipticCurves Layer 2 → T.4 (acyclic: no EllipticCurves layer depends on T.4).
+
+*Needed by:* `K2SymbolsBrauer:T.4/disjoint-support-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map`.** hilbertSymbol_eq_cohomological, 6E's Milestone 2: (a, b)_K = hilbertSign(localSymbol (a) (b)) at ClassFieldTheory's arithmetic-Frobenius normalisation, with hilbertSign 0 ↦ +1, 1 ↦ −1, and ε([D]) = localHasse for the quaternion division algebra D — the exponent-2 comparison of T.7's norm residue symbol (m = 2, ζ = −1, where kummerCupPairing (−1) is canonical) with ClassFieldTheory's localSymbol and with the quaternion/norm-equation symbol (RT-AREA-ktheory-1/27).
+
+*Needed by:* `K2SymbolsBrauer:T.7/local-comparison`, `K2SymbolsBrauer:T.7/global-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.** The comparison of the algebraic Brauer group with H²(G_K, (K^s)^×) (7B's crossed-product package, milestone 3) and the symbol as a cup product ι[(a, b)] = (a) ∪ (b) (milestone 6, brauerCohomologyEquiv_quaternionClass): T.7's Brauer-valued symbol β_ζ is built in the cohomological Brauer group, and exporting it as a class of central simple algebras, with β_{−1}{a, b} the quaternion class (a, b), uses this comparison (RT-AREA-ktheory-1/27; Layer 7 owns the comparison of the algebraic Brauer group with H²).
+
+*Needed by:* `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+
+**`ClassicalArithmeticCompletion:CA.1`.** The m-th power Hilbert reciprocity law for a number field F containing μ_m: for a, b ∈ F^×, (a, b)_v = 1 for almost all places v and ∏_v (a, b)_v = 1, including the places above m and the real places (m ≤ 2) — CA.1's 'source-scoped higher reciprocity through class field theory', which RS-03 keeps in CA.1 ('Higher reciprocity and power-residue/Hilbert-symbol extensions, including the place 2, infinite places and ramification conventions'). ClassFieldTheory Layer 14 owns only the quadratic law. T.7/global-reciprocity reads the law in the normalisation of T.7/classical-local-symbols (local reciprocity of ClassFieldTheory Layer 6 with the arithmetic Frobenius, variable order x ↦ (x, −)_v); CA.1 should state its local symbol by the same construction, or record the conversion. CA.1 cannot import T.7's symbol (T.7 now imports CA.1), so which of the two owns the local m-th power Hilbert symbol is left to the maintainer (RT-AREA-ktheory-1/27).
+
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge`.** Import Layer 2’s explicit finite-normalization milestone: for any field k, any finite K/k(t), the integral closure of k[t] in K is a finite k[t]-module, WITHOUT separability; localizations at all finite places and the t⁻¹ chart are finite as well. For finite K/k(t), embed K in a finite normal hull M/k(t). In characteristic p, the maximal purely inseparable subextension P/k(t) has M/P separable (Stacks 032N, Fields 9.27.3); this is the pure-FIRST tower in the normal hull, not the generally unhelpful separable-first tower inside K. The pinned purely inseparable polynomial theorem makes the integral closure A′ of k[t] in P finite. It is normal Noetherian, and the separable trace/dual-basis argument (Stacks 032L, pinned IsIntegralClosure.finite) makes its integral closure B in M finite over A′. Integrality transitivity makes B the k[t]-normalization in M. The normalization in K is a k[t]-submodule of B, hence finite by Noetherianity. In characteristic zero use the separable theorem directly. Repeat for t⁻¹ and localize. This uses no perfection, smoothness, or false finiteness conclusion from Krull–Akizuki.
+
+*Needed by:* `K2SymbolsBrauer:T.4/weil-reciprocity`.
+
+**`tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge`.** Finite normalization completion contract used by T.4: for a DVR R with fraction F, finite E/F and finite integral closure S/R, the semilocal completion is ∏_w completed S_w and E⊗_F F̂≅∏_w Ê_w, with identical residue fields and ramification index 1 for E→Ê_w. Prove via finite-module tensor completion, Chinese remaindering S/π^nS, and inverting π; source GS Appendix A.6.4 and Corollary 7.4.3. Request the generic DVR form from the normalization owner, rather than applying number-field-only completions to imperfect function fields.
+
+*Needed by:* `K2SymbolsBrauer:T.3/transfer-and-norm-residue`.
+
+**`K2SymbolsBrauer:T.2:symbols`.** Supply the monomial-kernel theorem of Milnor §9: for n≥3 and commutative A, C_n=ker(St(n,A)→E(n,A))∩W_n is central and generated by unit symbols {u,v} (Corollary 9.3, Theorem 9.11, pp. 71–78), with compatibility under stabilization. The proof contract is: diagonal lifts generate a normal subgroup H of W; modulo H, signed permutation relations eliminate a kernel word, so C_n⊆H. Modulo the central subgroup generated by unit symbols, diagonal lifts multiply and commute; write a kernel element as h₁₂(u₂)⋯h₁n(u_n). Its diagonal matrix forces every u_j=1, so the element is trivial in that quotient. T.2 owns this field-independent unit-symbol lemma; T.5 applies it only with A=ℤ. The existing nodes K2SymbolsBrauer:T.2:symbols/diagonal-lift-words and K2SymbolsBrauer:T.2:symbols/diagonal-lift already supply w_ij, h_ij and their elementary images; they are exact prerequisites of T.6/dennis-stein-symbol.
+
+*Needed by:* `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`.
 
 ## Gaps
 
-The four remaining entries are outside this fix’s resolved proof obligations. Planned upstream contracts remain requests; all declarations are unchecked.
+**The twisted coefficient module is missing from both libraries.** Checked at the pinned commits: neither library has μ_m^{⊗j} for j ≠ 0, 1. Tau Ceti has the weight-one module TauCeti.KummerCoeff (Coefficients.lean:107) with its discrete G_K-action, and Mathlib has modularCyclotomicCharacter (CyclotomicCharacter.lean:212). The tensor-power twists are MotivicEtaleKTheory M.1's target ('Import finite/continuous Tate twists…'; the reviewed audit AUDIT-30 lists 'Finite and continuous Tate-twist coefficient modules mu_(l^r)^(x)j' under M.1), and M.1 is upstream of T.7 through M.3. They are therefore requested from M.1, not constructed in T.7. This entry is superseded by that request and should be deleted when the request is answered; ClassFieldTheory Layer 5 does not supply the module (it pairs μ_n × μ_n → μ_n through kummerCupPairing ζ).
 
-**The twisted coefficient module is missing from both libraries.** Checked at the pinned commits: neither library has μ_m^{⊗j} for j ≠ 0, 1. Tau Ceti has the weight-one module TauCeti.KummerCoeff (Coefficients.lean:107) with its discrete G_K-action, and Mathlib has modularCyclotomicCharacter (CyclotomicCharacter.lean:212). The tensor-power twists are MotivicEtaleKTheory M.1's target ('Import finite/continuous Tate twists…'; the reviewed audit AUDIT-30 lists 'Finite and continuous Tate-twist coefficient modules mu_(l^r)^(x)j' under M.1), and M.1 is upstream of T.7 through M.3. They are therefore requested from M.1, not constructed in T.7. This entry is superseded by that request and should be deleted when the request is answered; ClassFieldTheory Layer 5 does not supply the module (it pairs μ_n × μ_n → μ_n through kummerCupPairing ζ). *Needed by:* `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
+*Needed by:* `K2SymbolsBrauer:T.7/twisted-roots-of-unity`, `K2SymbolsBrauer:T.7/symbol-formula`, `K2SymbolsBrauer:T.7/brauer-valued-symbol`.
 
-**Imported arithmetic Tate theorems and higher reciprocity still await their owner packets.** The local Artin/cup normalization is now proved from Milne III.3–4, and the étale Chern sign is proved from Soulé thesis 2.2.2.3. The remaining arithmetic Tate local/global/S-integer isomorphisms belong to M.3 and higher Hilbert reciprocity to ClassicalArithmeticCompletion CA.1; the exact existing requests are retained. T.7 proves adapters and no arithmetic Tate theorem. This entry records unfulfilled supplies, not a missing proof of the two normalization adapters. *Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`, `K2SymbolsBrauer:T.7/symbol-formula`.
+**Imported arithmetic Tate theorems and higher reciprocity still await their owner packets.** The local Artin/cup normalization is now proved from Milne III.3–4, and the étale Chern sign is proved from Soulé thesis 2.2.2.3. The remaining arithmetic Tate local/global/S-integer isomorphisms belong to M.3 and higher Hilbert reciprocity to ClassicalArithmeticCompletion CA.1; the exact existing requests are retained. T.7 proves adapters and no arithmetic Tate theorem. This entry records unfulfilled supplies, not a missing proof of the two normalization adapters.
 
-**The Dennis-Stein relations and the presentation theorems are cited, not proved.** K-book III.5.11 (PDF p. 234) cites (D1)–(D3) to Dennis–Stein ([48], K2 of radical ideals and semilocal rings revisited, LNM 342, 1973) and attributes Theorem III.5.11.1 to Maazen, Stienstra and van der Kallen with Keune ([103], The relativization of K2, J. Algebra 54 (1978), 159–177) as the reference; neither proof is in the source. The nodes derive the field cases from Matsumoto's theorem; the relations for a general commutative ring, part (a) for local rings that are not fields, and part (b) remain open. NEXT SOURCE ACTION: obtain Keune 1978 and Dennis–Stein 1973. *Needed by:* `K2SymbolsBrauer:T.6/dennis-stein-relations`, `K2SymbolsBrauer:T.6/dennis-stein-presentation`, `K2SymbolsBrauer:T.6/relative-presentation`.
+*Needed by:* `K2SymbolsBrauer:T.7/global-reciprocity`, `K2SymbolsBrauer:T.7/symbol-formula`.
 
-**The Keune-Loday comparison with the homotopy-fibre relative group is cited, not proved.** The stage text makes the square-zero examples 'tests of K.5', whose relative K-theory is the homotopy fibre of K(A) → K(A/I). The comparison of its π₂ with the relative group K₂(R, I) of K-book Definition III.5.7 is attributed to Keune and Loday in K-book IV.1.11 (PDF p. 276) and not proved there, and neither GeneralAlgebraicKTheory K.5's text nor this packet owns it. Until it is supplied the T.6 computations test the classical relative group only. *Needed by:* `K2SymbolsBrauer:T.6/relative-steinberg-group`, `K2SymbolsBrauer:T.6/relative-square-zero`.
+**The Dennis-Stein relations and the presentation theorems are cited, not proved.** K-book III.5.11 (PDF p. 234) cites (D1)–(D3) to Dennis–Stein ([48], K2 of radical ideals and semilocal rings revisited, LNM 342, 1973) and attributes Theorem III.5.11.1 to Maazen, Stienstra and van der Kallen with Keune ([103], The relativization of K2, J. Algebra 54 (1978), 159–177) as the reference; neither proof is in the source. The nodes derive the field cases from Matsumoto's theorem; the relations for a general commutative ring, part (a) for local rings that are not fields, and part (b) remain open. NEXT SOURCE ACTION: obtain Keune 1978 and Dennis–Stein 1973.
+
+*Needed by:* `K2SymbolsBrauer:T.6/dennis-stein-relations`, `K2SymbolsBrauer:T.6/dennis-stein-presentation`, `K2SymbolsBrauer:T.6/relative-presentation`.
+
+**The Keune-Loday comparison with the homotopy-fibre relative group is cited, not proved.** The stage text makes the square-zero examples 'tests of K.5', whose relative K-theory is the homotopy fibre of K(A) → K(A/I). The comparison of its π₂ with the relative group K₂(R, I) of K-book Definition III.5.7 is attributed to Keune and Loday in K-book IV.1.11 (PDF p. 276) and not proved there, and neither GeneralAlgebraicKTheory K.5's text nor this packet owns it. Until it is supplied the T.6 computations test the classical relative group only.
+
+*Needed by:* `K2SymbolsBrauer:T.6/relative-steinberg-group`, `K2SymbolsBrauer:T.6/relative-square-zero`.
+
+**Generic complete-DVR support is routed to an unregistered LocalFieldsRamification Part II.** The missing substrate and exports are specified, source-backed and assigned once in restructure.supportPlan: LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation; LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice; LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue; LocalFieldsRamificationPartII:DVR.3/base-change-component-length. The plan includes normalized valuations and completeness, finite free integral closure with rank ef=[E:F], the valuation and residue norm identities (also for inseparable residues), and separable generic base change with Artinian residue component lengths. Existing LocalFieldsRamification Layer 3 is not an in-scope supplier and has been removed from the affected node prerequisites and requests. The maintainer must register/design/review the proposed Part II, then install its precise owner requests and links. This is an ownership-routing gap, not an unproved assertion that the current stage has broader scope; no generic valuation theory is owned by K2. T.4 retains arbitrary-residue complete fields, and the existing proof decompositions are conditional on this routed supply.
+
+*Needed by:* `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`, `K2SymbolsBrauer:T.4/kato-complete-residue`, `K2SymbolsBrauer:T.4/complete-norm-residue`, `K2SymbolsBrauer:T.3/transfer-and-norm-residue`.
+
+**G-monomial-kernel: the finite-rank unit-symbol import has no owning node.** The upper generation bound uses the finite-rank monomial-kernel theorem for every commutative ring A and n≥3: ker(St_n(A)→E_n(A))∩W_n is central and generated by unit symbols, compatibly with stabilization (Milnor Corollary 9.3 and Theorem 9.11). The companion T.2:symbols packet has diagonal words and commuting-unit symbols, but no declaration with this conclusion. Its symbols-generate theorem covers fields/division rings or commutative semilocal rings, which does not apply to ℤ. Keep the stage prerequisite K2SymbolsBrauer:T.2:symbols until its owner supplies an exact node and the central monomial-word reduction proof; do not substitute Matsumoto or the semilocal theorem. The upper bound, and hence the integer and rational calculations that consume it, remain conditional on this import.
+
+*Needed by:* `K2SymbolsBrauer:T.5/integer-kernel-upper-generation`.
 
 ## Structure
 
@@ -2679,7 +2765,7 @@ The four remaining entries are outside this fix’s resolved proof obligations. 
 
 **Milnor residues in T.3:symbols, Milnor norms and their identities in T.4, the Quillen comparison in T.3:localization-comparison.** RT-AREA-ktheory-1/28 (confirmed) requires the elementary all-degree Milnor norm/residue identities inside T.4, before Kato's transitivity theorem, and the edge T.4 → T.3:localization-comparison, so that the localisation comparison imports Milnor norms from T.4 and K-theory transfers from GeneralAlgebraicKTheory K.3 instead of constructing a transfer. T.4's Bass–Tate sequence is built from the higher Milnor residues, which the stage text lists under T.3:localization-comparison; with that placement the new edge closes the cycle T.3:localization-comparison → T.4 → T.3:localization-comparison that an earlier revision of this packet avoided by proposing the opposite edge. Applied here: the residue theory (Serre's algebra and map, the higher residues and specialisations, the product formula, the change of uniformiser, the kernel of Serre's map, finite support and rigidity) is parented in T.3:symbols and still realises T.3:localization-comparison; the ramification formula for higher residues (Ex. III.7.8) joins Ex. III.7.7, III.7.9 and Corollary III.7.6.3 in T.4; the general Milnor norm–residue formula stays parented in T.4 (T.4/weil-reciprocity uses it); T.3:localization-comparison keeps the discrete-valuation-ring and Dedekind boundary comparisons, the Quillen norm–residue square and the comparison of the Milnor norm with Quillen's transfer. Stage changes: add T.4 → T.3:localization-comparison, withdraw the proposed T.3:localization-comparison → T.4, and move the sentences on higher Milnor residues and finite support to T.3:symbols' text. RS-28's owner line 'Higher algebraic residue maps and norm/residue projection comparisons → T.3:localization-comparison' is refined accordingly: residue maps in T.3:symbols' nodes, Milnor norm/residue identities in T.4, comparisons with Quillen K-theory in T.3:localization-comparison.
 
-**K_2 of a finite field is owned by T.2.** K2SymbolsBrauer:T.2/k2-finite-field (companion packet) plans K_2(𝔽_q) = 1 with the source's counting proof, and T.2/rational-function-field and T.2/milnor-examples build on it, so it cannot move to T.5 without a stage cycle. T.5's target 'K₂(F_q)=0' is realised by that node; T.5/k2-of-a-finite-field is removed as a duplicate, and its verbatim excerpts (Corollary III.6.1.1, PDF p. 239) should replace the companion node's one-line excerpt. KTheoryFiniteLocalFields L.1 recovers the same statement in its own model and is a compatibility check, not a second owner.
+**K_2 of a finite field is owned by T.2.** K2SymbolsBrauer:T.2/k2-finite-field (companion packet) plans K_2(𝔽_q) = 1 with the source's counting proof, and T.2/rational-function-field and T.2/milnor-examples build on it, so it cannot move to T.5 without a stage cycle. T.5's target 'K₂(F_q)=0' is realised by that node; T.5/k2-of-a-finite-field is removed as a duplicate, and its source-backed proof outline and locator (Corollary III.6.1.1, PDF p. 239) should inform the companion node's account in the worker's own words. KTheoryFiniteLocalFields L.1 recovers the same statement in its own model and is a compatibility check, not a second owner.
 
 **The degree-two tame-kernel rows, K_2(ℤ) and K_2(ℚ) are owned by T.5.** T.5's text asks to prove the tame-kernel sequence, its S-integer comparison, K₂(ℤ) ≅ ℤ/2 and the calculation of K₂(ℚ). RT-AREA-ktheory-1/9 and /26 (confirmed) make T.5 their single owner and require T.5 to derive the rows itself: T.5 imports T.3:localization-comparison's Dedekind boundary comparison and KTheoryLowDegrees U.4's SK_1(O_{F,S}) = 0, and no longer imports ArithmeticKTheory N.2's localisation sequence; N.2 imports T.5's rows (T.5 → N.2) and specialises its all-degree sequence to them, and N.8 imports K₂(ℤ), K₂(ℚ), K₂(𝔽_q) and the ℤ[1/p] sequence (T.5 → N.8). The verifier's indexing is applied: the tame-kernel sequence of O_{F,S} sums over the primes outside S (T.5/s-integer-tame-kernel-sequence), the relative sequence comparing O_F with O_{F,S} has its residues at the primes in S (T.5/relative-s-integer-sequence), and both are stated. SpecialValuesBirchTate B.7 consumes the relative sequence; B.7 lies downstream of T.5 (B.7 → B.6 → … → B.1 → T.5), so the packet's former import of the S-integer sequence from B.7 was a stage cycle. K₂(𝔽_q) = 0 stays with T.2/k2-finite-field (restructure entry above).
 
@@ -2693,22 +2779,432 @@ The four remaining entries are outside this fix’s resolved proof obligations. 
 
 **Milnor norms and Suslin reciprocity are exported to MotivicEtaleKTheory M.4.** RT-AREA-ktheory-1/12 (confirmed, with a field-scope obligation): T.4 owns the all-degree Milnor norms with Kato's independence of the chain of generators and Suslin's reciprocity law for K^M_{n+1} of the function field of a proper curve over any field, which M.4's Nesterenko–Suslin/Totaro comparison imports (edge T.4 → M.4). T.4/weil-reciprocity is that law, stated over the places of the regular proper model (the normalisation) with Kato's norms for possibly inseparable residue extensions, never under a smoothness hypothesis; the finiteness it needs over an imperfect field is supplied by the explicit AlgebraicCurves Layer 2 normal-hull request, proved for mixed extensions.
 
+## Proposed Part II: arbitrary-residue complete-DVR support
+
+This is the concrete registration brief for the maintainer, under PROTOCOL §15. The proposed owner is `LocalFieldsRamificationPartII`, extending `tauceti:TauCetiRoadmap/LocalFieldsRamification`. It is **unregistered**. These four proposed target IDs are not satisfied imports, new K₂ nodes, or executable stage prerequisites. The generic-support gap remains open until its owner is registered and supplied.
+
+**Title.** Local Fields and Ramification, Part II: complete discrete valuation fields with arbitrary residue
+
+**Boundary.** Extend the existing finite-residue local-field theory to arbitrary-residue complete DVRs. Reuse native Valuation, valuationSubring, IsAdicComplete, integralClosure, IsLocalRing.ResidueField, Algebra.norm and module-length APIs. Compare the general constructions with the existing local-field structures by uniqueness and restriction of scalars. Do not reconstruct finite-residue local fields, add local compactness, assume perfect residues, or import Milnor/Quillen K-theory. AlgebraicCurves keeps completion of a place and the regular-model dictionary; K2SymbolsBrauer keeps Milnor norms, residues and the norm/residue square.
+
+**Existing direction.** `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`. Layer 3 is a finite-residue comparison target, not a supplier of the generic contracts.
+
+**Library starting points (pins and current main).**
+
+- `mathlib:spectralNorm.normedField` at `082e2d37e8b0463410cdb532e111cd43d5a66174`, `Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean` (lines 690–700, 798–828, 910–917). The base is a complete nontrivially normed ultrametric field; the extension is algebraic. spectralNorm_unique gives uniqueness of power-multiplicative algebra norms; spectralNorm.completeSpace supplies completeness for a finite-dimensional extension. No residue-field finiteness is assumed. These do not by themselves export a normalized integer-valued valuation or its finite integral-closure lattice.
+- `tauceti:Valuation.ord` at `f790474821cf4256814db967cb154e7af3d0c369`, `TauCeti/RingTheory/Valuation/Discrete/Order.lean`. Reuse the existing additive order and uniformizer/unit decomposition, rather than a second order function.
+- `tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer` at `f790474821cf4256814db967cb154e7af3d0c369`, `TauCeti/RingTheory/DiscreteValuationRing/Uniformizer.lean` (lines 47–49, 185–205). For any DVR R and irreducible uniformizer π, this existing R-linear equivalence identifies its residue field with the mth maximal-ideal graded piece. No completeness or finite residue field is required. DVR.1 reuses it, then restricts scalars along k→l; no new graded-piece construction.
+- `mathlib:Ideal.sum_ramification_inertia_eq_finrank` at `082e2d37e8b0463410cdb532e111cd43d5a66174`, `Mathlib/RingTheory/RamificationInertia/Basic.lean` (lines 67–75). Existing finite-flat rank formula, already in the packet baseline. After DVR.1 supplies a finite free integral closure and identifies the unique prime, reuse this formula and compare module rank with [E:F]; do not reprove finite-flat ramification algebra.
+- `tauceti:TauCeti.Algebra.norm_quotient_mk` at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 (current read-only Tau Ceti, after the atlas pin)`, `TauCeti/RingTheory/Norm/Quotient.lean` (lines 29–48). For a finite free commutative R-algebra S, the determinant norm commutes with reduction modulo any ideal. Read at current main; not available in the pinned build and not added to its baseline. The future Part II must reuse this current export for DVR.2 rather than plan the reduction theorem again. Its remaining work is the e-step residue filtration and comparison with field norms.
+
+### DVR.0/finite-extension-valuation
+
+*construction*
+
+For a field F with a surjective v:F→ℤᵐ⁰ and v-adically complete valuation ring R, and any finite E/F, construct the unique normalized discrete valuation w on E extending the valuation class of v. E is complete for w, and ord_w(x)=e ord_v(x) on F× for a positive integer e. No separability or residue-field finiteness hypothesis.
+
+**Prerequisites proposed for this owner.** `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`, `mathlib:spectralNorm.normedField`, `mathlib:spectralNorm_unique`, `mathlib:spectralNorm.completeSpace`.
+
+**Proof.**
+
+1. Transport the π-adic completeness of R to the nontrivial real norm |x|=2^(−ord_v x) on F, with |0|=0. The valuation and norm topologies have the same powers-of-π neighborhood basis. Apply Mathlib’s existing spectral norm on E/F and its finite-dimensional completeness; no local compactness is used.
+1. Distinct cosets of the value group of F in that of E give F-linearly independent elements: a linear relation would have a unique term of greatest norm, impossible by the ultrametric inequality. The index is therefore finite, at most [E:F]. A subgroup of ℝ containing ℤ with finite index is (1/e)ℤ for a unique e>0; normalize this group to ℤ and extend by the zero value.
+1. An alternative normalized valuation with positive restriction index gives a real algebra norm extending |·| on F; spectralNorm_unique makes it the same norm. Surjectivity then identifies the normalized valuations and their ramification indices. Transport this uniqueness through field embeddings, isomorphisms and towers.
+
+**API.**
+
+- `finiteExtensionValuation` — The normalized Valuation E ℤᵐ⁰, with surjectivity, positive restriction index and no preinstalled valuation on E.
+- `adicComplete_iff_complete_norm` — The native π-adic completeness and completeness for 2^(−ord) agree; the norm and valuation topologies agree.
+- `finiteExtensionValuation_unique` — Any surjective discrete valuation on E with positive restriction index is this valuation; compatibility is a named equality, not a second global instance.
+- `finiteExtensionValuation_tower` — Restriction indices multiply in a finite tower; compatible embeddings preserve units and induce the native local residue map.
+- `finiteExtensionValuation_localField` — Under IsNonarchimedeanLocalField F, identify this construction with the existing Layer 0 valuation class and normalized valuation.
+
+**Unit tests.**
+
+- `identity_extension` — E=F gives e=1, the original valuation and residue map, and the original topology.
+- `infinite_residue_ramification` — F=ℚ((t)), E=ℚ((s)), t=s²: ord_E(s)=1, ord_E(t)=2 and e=2. No IsNonarchimedeanLocalField instance is assumed.
+- `inseparable_residue_separable_field` — k=F₂(a), F=k((t)), E=F(α), α²+tα+a=0: E/F is separable, e=1, residue l=k(√a) has inseparable degree 2. Reject a separable-residue requirement.
+
+**Source.** `GilleSzamuely.2006`, Proposition A.6.8(1), printed p. 313, PDF p. 327. Statement of existence, uniqueness, completeness and integral closure; its references are not used as proofs read here.
+
+**Source.** `Stacks.MoreAlgebra.20261017`, Definition 15.113.1 (09E4), PDF p. 333; Remark 15.116.1 (09EM), PDF pp. 342–343. Positive restriction index and the finite-base-change valuation-ring diagram. The spectral-norm/value-coset argument above supplies the proposed construction.
+
+### DVR.1/integral-closure-lattice
+
+*theorem*
+
+For the preceding finite E/F, S=integralClosure R E is the valuation ring of w, a complete DVR and a finite free R-module of rank [E:F]=e[l:k], with l and k the native residue fields. Identify π_F S=𝔪_S^e, and the e successive quotients with l as k-vector spaces. Residue extensions may be inseparable.
+
+**Prerequisites proposed for this owner.** `LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation`, `tauceti:TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer`, `mathlib:Ideal.sum_ramification_inertia_eq_finrank`.
+
+**Proof.**
+
+1. Fix an F-basis of E. Continuity of its coordinate maps in the finite-dimensional spectral norm bounds the closed unit ball S₀ inside π_F^(−N)R^d for one N. The ball is an R-submodule; R is a Noetherian PID, so S₀ is finite and torsion free, hence free. Scaling the chosen basis into S₀ shows that its rank is d=[E:F]. This bounded-lattice argument uses neither compactness nor a finite residue field.
+1. The ball is a subring. Since it is a finite R-algebra, each of its elements is integral. Conversely the ultrametric monic-polynomial argument bounds every integral element by 1. Thus S₀=integralClosure R E. The normalized discrete valuation identifies its maximal ideal and makes it a DVR; the spectral norm gives completeness.
+1. Write π_F=uπ_E^e. The quotient S/π_F S has dimension d over k by freeness, and its π_E-adic filtration has e quotients isomorphic to l as k-vector spaces. Therefore d=e[l:k]; this also proves finite residue degree without a perfectness assumption. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for the graded pieces and restrict scalars from l to k. The existing finite-flat Ideal.sum_ramification_inertia_eq_finrank supplies the rank formula once this finite free local lattice is constructed; the filtration identifies its terms with these native e and f.
+1. If l=k and [E:F]=e, a uniformizer of E generates E/F: its value group forces degree at least e. Uniqueness of the extended valuation bounds the nonleading coefficients of its minimal polynomial, and the constant coefficient has F-order one. Export the resulting Eisenstein polynomial for the two-uniformizer computation.
+
+**API.**
+
+- `valuationSubring_equiv_integralClosure` — A named R-algebra equivalence identifying the ring, its maximal ideal, residue field and units.
+- `integralClosure_finite_free` — Module.Finite R S and Module.Free R S; finrank F E equals the R-module rank of S.
+- `ramification_mul_residueDegree` — e>0, [l:k]>0 and [E:F]=e[l:k], including purely inseparable E/F.
+- `extension_uniformizer_filtration` — Identify π_F S=𝔪_S^e and the e-step quotient S/π_F S. Reuse TauCeti.residueFieldEquivMaximalIdealGradedOfUniformizer for each piece; export the compatibility with the k-vector-space filtration, not a second graded-piece construction.
+- `uniformizer_minpoly_eisenstein` — If e=[E:F] and l=k, every uniformizer π_E generates E/F and its minimal polynomial over F is Eisenstein over R.
+
+**Unit tests.**
+
+- `tame_lattice` — For t=s² over ℚ, S=ℚ[[s]] is R-free on 1,s; S/tS has two residue layers, each ℚ.
+- `constant_lattice` — E=ℚ(i)((t)) over ℚ((t)) has e=1, [l:k]=2, basis 1,i; t remains a uniformizer.
+- `fierce_lattice` — For α²+tα+a in characteristic 2, R[α] is free on 1,α, local with maximal ideal (t) and residue k(√a), hence a DVR and already the integral closure. It has e=1,f=2, not e=2,f=1.
+
+**Source.** `Stacks.Algebra.20261017`, Lemma 10.119.7 (00PD), PDF pp. 285–286; Lemma 10.153.4 (04GH), PDF p. 414; Lemma 10.162.8 (032W), PDF pp. 446–447. DVR recognition and an independent finite-normalization route: a complete Noetherian DVR is Nagata, finite normalization is local by henselianity. The bounded-lattice proof above avoids requiring a new generic Nagata theory as a dependency.
+
+**Source.** `GilleSzamuely.2006`, Propositions A.6.7–A.6.8, printed p. 313, PDF p. 327; Lemma 7.3.10, printed pp. 200–201. Degree and complete-DVR scope, and the totally ramified Eisenstein specialization used by K2.
+
+### DVR.2/norm-valuation-and-residue
+
+*theorem*
+
+For every finite extension E/F in DVR.0, ord_F(N_E/F y)=[l:k]ord_E(y) for y≠0. For u∈S×, N_E/F(u)∈R× and res_k(N_E/F u)=N_l/k(res_l u)^e. Here norms are the existing determinant norms, also for inseparable residue extensions.
+
+**Prerequisites proposed for this owner.** `LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice`, `mathlib:Algebra.norm`.
+
+**Proof.**
+
+1. For integral nonzero y, the determinant of multiplication on the finite free R-lattice S has order length_R(S/yS). The π_E-filtration gives [l:k]ord_E(y). Write a general y as a quotient to extend the equality to E×.
+1. For a unit u, reduce its multiplication matrix modulo π_F and filter S/π_F S by the e powers of π_E. On each quotient multiplication is by res_l u on l, with k-determinant N_l/k(res_l u). Multiplication of the e diagonal-block determinants gives the residue formula. This uses no embeddings or separability of l/k. The matrix-reduction step is already TauCeti.Algebra.norm_quotient_mk on current main (after the atlas pin); use it in the future supplier. Algebra.algebraMap_intNorm and Algebra.norm_norm are the existing integral/field and tower comparisons.
+
+**API.**
+
+- `ord_norm` — The valuation-of-norm identity for all nonzero elements, not just units.
+- `residue_norm_unit` — The displayed exponent-e residue identity for S×→R×.
+- `norm_integral_norm_unit` — Use the existing integral norm and Algebra.algebraMap_intNorm to restrict S→R, and restrict the homomorphism to units; do not define a second determinant norm.
+- `norm_tower_and_localField` — Reuse Algebra.norm_norm for tower maps. Compare the new identities with existing LocalFieldsRamification Layer 3 norms through the DVR.0 uniqueness comparisons.
+
+**Unit tests.**
+
+- `ramified_norm_sign` — For t=s² over ℚ, N(s)=−t and N(2)=4. Hence ord_F N(s)=1, and residue N(2)=2²: both the sign and exponent e=2 are visible.
+- `constant_norm_degree` — For ℚ(i)((t))/ℚ((t)), N(t)=t² and N(1+i)=2; the valuation factor is f=2, not e=1.
+- `inseparable_residue_norm` — For α²+tα+a, N(α)=a=N_l/k(√a), N(t)=t², e=1 and f=2. A norm defined as a product of distinct residue embeddings gives the wrong answer.
+
+**Source.** `Stacks.Algebra.20261017`, Lemma 10.121.8 (02MJ), PDF p. 295. The determinant/module-length proof of the valuation of a norm, under finite normalization.
+
+**Source.** `GilleSzamuely.2006`, Lemma 7.3.10, printed pp. 200–201; Proposition A.6.8(2), printed p. 313. Norm identities used in the generated-symbol residue calculation; the residue determinant-filtration proof is specified above.
+
+### DVR.3/base-change-component-length
+
+*theorem*
+
+Let E/F be finite SEPARABLE and F′/F any finite extension of complete discretely valued fields. Let R,S,R′ be their valuation rings, k,l,k′ their residues, e=e(E/F), r=e(F′/F), E⊗F F′=∏E_i with valuation rings S_i and residues l_i. Write l⊗k k′=∏A_j, with L_j the residue of A_j and t_j=length_(A_j)(A_j). Put e_i=e(E_i/F′), e′_i=e(E_i/E). The natural residue maps assign each i to j and inject L_j into l_i. Then Σ_(i over j) e_i[l_i:L_j]=e t_j and Σ_(i over j) e′_i[l_i:L_j]=r t_j. No separability of l/k or equality l_i=L_j is assumed.
+
+**Prerequisites proposed for this owner.** `LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice`.
+
+**Proof.**
+
+1. Separability of E/F makes its tensor with F′ a product of fields. B=S⊗R R′ injects into that algebra by R-flatness of R′; C=∏S_i is its finite normalization and B⊂C are full R′-lattices. Their quotient D is finite torsion. The R′- and B-actions are retained in the following length computation.
+1. For multiplication by π′ on D, length additivity gives equal composition multiplicities of its kernel and cokernel, component by component. The snake exact sequence therefore gives equal B-module composition multiplicities of B/π′B and C/π′C. The simple factors are the L_j; this is elementary finite-length module additivity, not K(B)=G(B).
+1. Filter B/π′B=(S/π_F S)⊗k k′ into e copies of l⊗k k′: the j multiplicity is e t_j. The i component of C/π′C has e_i copies of l_i, hence j multiplicity e_i[l_i:L_j]. This proves the first identity. Tower compatibility gives r e_i=e e′_i. Multiply the first identity by r and cancel positive e in ℕ to get the second. No torsion K-group cancellation occurs.
+
+**API.**
+
+- `tensor_normalization_lattice` — The canonical inclusion B⊂∏S_i is finite, has the stated common fraction algebra, and has finite-length cokernel over R′.
+- `residue_component_map` — The canonical A_j→l_i factors through an injective L_j→l_i, with complete assignment of factors and invariance under relabeling.
+- `baseChange_component_length` — Both displayed componentwise identities, natural in finite towers and compatible with e e′_i=r e_i.
+- `separable_scope` — Do not assert E⊗F F′ is reduced for inseparable E/F. Such E/F is handled by normal prime-degree towers in the K2 consumer; Artinian transfer lengths remain in the arbitrary-field base-change theorem.
+
+**Unit tests.**
+
+- `ramified_self_base_change` — E=ℚ((s)), s²=t, F′=E: r=e=2; two E_i=E, each e_i=e′_i=1; l⊗k k′=ℚ has t_j=1, so the sum is 2.
+- `larger_residue_than_compositum` — E=ℚ((s)), s²=t and F′=ℚ((u)), u²=2t: one E_i=ℚ(√2)((u)), e_i=e′_i=1 and [l_i:L_j]=2 with L_j=ℚ, t_j=1. The length sum is 2; replacing l_i by the residue compositum gives 1 and fails.
+- `nonreduced_residue_tensor` — For α²+tα+a over F₂(a)((t)) and F′=E, the separable generic tensor is E×E but l⊗k l≅l[ε]/ε² has t_j=2. Here e=r=e_i=e′_i=1 and the two residue-degree terms are 1, giving 2=1·2. Using reduced residue factors with multiplicity 1 fails.
+
+**Source.** `Stacks.MoreAlgebra.20261017`, Remark 15.116.1 (09EM), PDF pp. 342–343. The normalization/base-change diagram and the separable versus reduced-tensor distinction. The componentwise multiplicity identity is derived by the lattice argument above; it is not claimed as the statement of 09EM.
+
+**Source.** `GilleSzamuely.2006`, Proposition 7.4.1, printed p. 204, PDF p. 218; Lemma 7.3.6, printed p. 197, PDF p. 211. The K2 use of complete-field base change. Use composition lengths, with the first-edition issue E13 retained; do not assume residual composita exhaust l_i.
+
+### Consumer links and registration
+
+- `LocalFieldsRamificationPartII:DVR.0/finite-extension-valuation` → `K2SymbolsBrauer:T.4/kato-complete-residue`: Valuations and completeness at the finite prime-to-p descent stage.
+- `LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice` → `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`: Degree ef and totally ramified Eisenstein uniformizer.
+- `LocalFieldsRamificationPartII:DVR.2/norm-valuation-and-residue` → `K2SymbolsBrauer:T.4/prime-degree-residue-on-generated-symbols`: Degree-one valuation and unit residue norm; the two mixed generated-symbol cases.
+- `LocalFieldsRamificationPartII:DVR.3/base-change-component-length` → `K2SymbolsBrauer:T.4/complete-norm-residue`: Component multiplicities in the separable complete-extension descent; retain r before transfer back.
+- `LocalFieldsRamificationPartII:DVR.1/integral-closure-lattice` → `K2SymbolsBrauer:T.3/transfer-and-norm-residue`: Automatic finite normalization for the complete base, distinct from AlgebraicCurves’ normalization/completion contracts.
+
+HigherLocalFields HL.0/HL.1 use finite extensions of residue towers, including infinite first residue fields. They should import this support after their own scope is checked; this is a maintainer lead, not a new edge or a modification of that packet. AlgebraicCurves Layer 5 keeps its arbitrary-residue completion comparisons. The new roadmap has no dependency on K2SymbolsBrauer, HigherLocalFields, ClassFieldTheory or AlgebraicCurves.
+
+Maintainer: register/design/review LocalFieldsRamificationPartII with the four stable proposed contracts and links above, extending the existing roadmap first. Once registered, replace the generic-support gap by requests and stage prerequisites; once finer owner nodes exist, use their exact IDs. Until then these names occur only in this routing brief, prose and the explicit gap, never in prerequisites or requests.
+
 ## Mistakes found in the sources
 
-- **K2SymbolsBrauer/E1** (misprint, affects nothing; confirmed). III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013. Printed: “By (D3) of our definition, ⟨r, 1⟩=0 for all r.” Correction: By (D3), ⟨r, 1⟩ = 1 for every r with 1 − r a unit.
-- **K2SymbolsBrauer/E2** (misprint, affects nothing; confirmed). III.6.2.3 (Example 6.2.3, norm residue symbols), PDF p. 241 (draft p. 233). Printed: “The name “norm residue” comes from the fact that for each x, the map y ↦ {x, y} is trivial if and only if x ∈ NK×.” Correction: … the map y ↦ (x, y)_F is trivial if and only if x ∈ NK×.
-- **K2SymbolsBrauer/E3** (gap, affects the proof; confirmed). III.6.2.3 (Example 6.2.3), last two sentences before Moore's Theorem 6.2.4, PDF p. 241 (draft p. 233). Printed: “Since a primitive mth root of unity ζ is not a norm from K, it follows that there is an x ∈ F such that (ζ, x)F ≠ 1. Therefore the norm residue symbol is a split surjection with inverse ζi ↦ {ζi, x}.” Correction: Since μ_m is the whole group of roots of unity of F, ζ has order exactly m in F^×/F^×m = F^×/NK^× (if ζ^{m/p} = y^m for a prime p | m, then y would be a root of unity in F of order mp). By nondegeneracy the homomorphism (ζ, −)_F : F^× → μ_m therefore has order m and is onto, so there is x ∈ F^× with (ζ, x)_F = ζ; for such x, ζ^i ↦ {ζ^i, x} is a section (a right inverse) of the norm residue symbol.
-- **K2SymbolsBrauer/E4** (gap, affects the proof; confirmed). III.6.2.3 (Example 6.2.3), proof of the Steinberg identity, PDF p. 241 (draft p. 233). Printed: “the element g of GF = Gal(K/F) corresponding to the map ζ(a) = (a, 1 −a)F from F× to µm must belong to GE, i.e., ζ must extend to a map E× →µm. But then (a, 1 −a)F = ζ(a) = ζ(x)m = 1.” Correction: The element g of Gal(K/F) attached to 1 − a — whose homomorphism is (1 − a, −)_F under the stated adjunction x ↦ (x, −)_F — lies in Gal(K/E) because 1 − a is a norm from E; so g fixes x, and (1 − a, a)_F = g(x)/x = 1. Replacing a by 1 − a gives (a, 1 − a)_F = 1.
-- **K2SymbolsBrauer/E5** (error, affects the proof; confirmed). Chapter III, Exercise 6.2, PDF p. 251 (book p. 243) of the author-hosted draft of 29 August 2013. Printed: “show that {e1, e2} is a product of symbols {e1, e′2} and {e, e′′2} with e, e′2, e′′2 polynomials of degree < d” Correction: {e1, e2} = {h, e2}{h, e1}^{−1}{e1, −1} with h = e1 − e2 of degree < d, so {e1, e2} is a product of symbols each having at most one entry of degree d (that entry being e1 or e2); consequently the subgroup L_d of K_2 F(t) generated by symbols of polynomials of degree ≤ d is generated by L_{d−1} and the symbols {π, a} with π irreducible of degree d and deg a < d.
-- **K2SymbolsBrauer/E6** (misprint, affects nothing; confirmed). III.7.4, proof of Theorem 7.4, PDF p. 255 (book p. 247). Printed: “generated by those symbols {f1, . . . , fr}” Correction: {f1, . . . , fn}: the symbols lie in K^M_n F(t).
-- **K2SymbolsBrauer/E7** (misprint, affects nothing; confirmed). III.7.4.1, proof of Lemma 7.4.1, PDF p. 255 (book p. 247). Printed: “we observe that if āi + āi+1 = 1 in k then ai + ai+1 = 1 in F.” Correction: then ai + ai+1 = 1 in F[t].
-- **K2SymbolsBrauer/E8** (misprint, affects nothing; confirmed). III.7.6.4, proof of Proposition 7.6.4, last display, PDF p. 258 (book p. 250 of the draft; p. 272 of the published edition). Printed: “Na/F (NE′/F′x) = −∂∞(NE(t)/F(t)y) = −NE/F (∂∞y) = NE/F (Na/F x).” Correction: The last term is NE/F(Na/E x).
-- **K2SymbolsBrauer/E9** (error, affects a stated result; confirmed). Exercise III.7.1 (PDF p. 265; GSM 145 p. 280 per the errata). Printed: “7.1. Let v be a discrete valuation on a field F. Show that the maps λ: KMn(F) → KMn(kv) and ∂v : KMn(F) → KMn−1(kv) of Theorem 7.3 are independent of the choice of parameter π, and that they vanish on l(u) · KMn−1(F) whenever u ∈ (1 + πR).” Correction: ∂v is independent of π; λ is not. For π′ = cπ, λ_{π′}(x) = λ_π(x) − ∂v(x)·{c̄} in the roadmap's normalisation ({c̄}·∂v(x) with a sign in Theorem III.7.3's); in degree one λ_π(π) = 1 but λ_{π′}(π) = c̄^{−1}.
-- **K2SymbolsBrauer/E10** (gap, affects the proof; confirmed). Exercises III.7.7 and III.7.9 (PDF pp. 265–266). Printed: “Hint: If F(t)v and E(t)w denote the completions of F(t) and E(t) at v and w, respectively, use Ex. 7.7 and Lemma 7.6.3 to show that the following diagram commutes.” Correction: Ex. III.7.7 is stated for 'finite field extensions' F′ of F, but the hint of Ex. III.7.9 applies it with F′ = F(t)_v, a completion, which is not finite over F(t). The statement holds for every field extension F′/F (the argument through Milnor's sequence for F′(t), node T.4/transfer-base-change, does not use finiteness), and that is the form the hint needs. 'Lemma 7.6.3' in the hint is Corollary 7.6.3.
-- **K2SymbolsBrauer/E11** (error, affects a stated result; confirmed). Exercise III.7.10 (PDF p. 266; p. 258 in the draft's own page numbering). Printed: “7.10. If v is a valuation on F, and x ∈ KMi(F), y ∈ KMj(F), show that ∂v(xy) = λ(x)∂v(y) + (−1)^j ∂v(x)ρ(y) where ρ: KM∗(F) → KM∗(kv) is a ring homomorphism characterized by the formula ρ(l(uπ^i)) = l((−1)^i ū).” Correction: With Theorem III.7.3's normalisation ∂v{π, u2, …, un} = {ū2, …, ūn}, the formula is ∂v(xy) = (−1)^i λ(x)∂v(y) + ∂v(x)ρ(y) for x ∈ KM_i(F), y ∈ KM_j(F). The printed formula holds for the opposite normalisation ∂v{u1, …, u_{n−1}, π} = {ū1, …, ū_{n−1}}, which is (−1)^{n−1} times Theorem III.7.3's ∂v on KM_n(F) and is the one this roadmap uses.
+The descriptions below are paraphrases, with the original edition and locator retained. Existing confirmation records and version limits are unchanged.
 
-- **K2SymbolsBrauer/E12** (suspected-author-copy-error; Author-hosted typed thesis only; the original dissertation scan and the 1979 article were not compared. No assertion that the published article contains this wording.) 2.2.1.1, p. 34: The author-hosted typed thesis says the symbol-algebra class has order q for arbitrary a,b. Even for nonzero a=b=1 it is split, so only annihilation by q is unconditional. The same paragraph initially permits a,b∈F, while the central-simple symbol algebra requires a,b nonzero. These surrounding claims are not used for the Chern product rule. Counterexample: F=ℂ, q=3, a=b=1: the symbol algebra is a matrix algebra and its Brauer class has order 1. Correction: Require a,b∈F× and say the class is killed by q, with exact order requiring additional hypotheses.
-- **K2SymbolsBrauer/E13** (error, affects the proof; new, awaiting review; First edition (2006), author-hosted copy; the second edition (2017) was not read. First recorded by FIX-RT-AREA-ktheory-1~2 (Codex codex-5ebb6f, 2 October 2026) and re-read at the locator by claude-HJaFqR on 6 October 2026.) Gille–Szamuely, First edition (2006), p. 197, the paragraph before Lemma 7.3.6 and the lemma itself (PDF p. 211 of the author-hosted copy, SHA-256 3697582f…1e63). Printed: “Let e_j be the smallest positive integer with M_j^{e_j} = 0.” Take k = F_p(s, t), K = k(s^{1/p}, t^{1/p}) = k(a_1, a_2) and L = K. Then K ⊗_k K ≅ K[X, Y]/((X − a_1)^p, (Y − a_2)^p) is local with residue field K, length p² and nilpotence index 2p − 1. In degree zero the norm is multiplication by the degree (Remark 7.3.1), so the upper route of the diagram sends 1 ∈ K_0^M(K) = ℤ to [K : k] = p², while the lower route with the printed e_1 gives 2p − 1: 4 against 3 for p = 2, 9 against 5 for p = 3. With the length the lower route gives p². Correction: For a general finite extension K = k(a_1, …, a_r), the multiplicity in the diagram of Lemma 7.3.6 is the composition length of the local Artinian L-algebra R_j as a module over itself, not the nilpotence index of its maximal ideal. For a simple extension K = k(a) the two coincide (R_j ≅ L[t]/(g_j^{e_j})), so the case r = 1, Lemma 7.2.6, and Kato's theorem are unaffected; the induction in the proof of Lemma 7.3.6 multiplies lengths in towers, which nilpotence indices do not satisfy. Searched: Authors' errata for the first edition, https://pagine.dm.unipi.it/tamas/erratams.pdf (dated 4 December 2020, SHA-256 db7cea50…3d04), read in full on 6 October 2026: its entries pass from p. 187 to p. 224, with nothing on pp. 196–198. Authors' errata for the second edition, https://pagine.dm.unipi.it/tamas/erratams2nd.pdf (dated 4 December 2020, SHA-256 1f117717…2deb), read in full on 6 October 2026: three entries (pp. 78, 81, 116), none on the norm map. The second edition itself was not read, so the finding is scoped to the first edition.
+### E1 — misprint
+
+**Source.** `Kbook.2013`, III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013.
+
+**Issue.** The source invokes (D3) to obtain ⟨r, 1⟩=0 for every r.
+
+**Correction.** By (D3), ⟨r, 1⟩ = 1 for every r with 1 − r a unit.
+
+**Reason.** (D1)–(D3) are written multiplicatively ((D1) reads ⟨r, s⟩⟨s, r⟩ = 1), and (D3) with s = t = 1 gives ⟨r, 1⟩ = ⟨r, 1⟩⟨r, 1⟩, so ⟨r, 1⟩ is the identity 1, not 0; for a unit r this agrees with ⟨r, 1⟩ = {r, 1 − r} = 1 (Lemma III.5.10.2). The symbol ⟨r, 1⟩ is defined only when 1 − r is a unit, so 'for all r' must be restricted.
+
+**Affects.** nothing
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata list for the K-book (Wayback copy of the author's Kbook.errata.pdf): no entry for III.5.11
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C3) and checked at the locator in the draft read.
+
+### E2 — misprint
+
+**Source.** `Kbook.2013`, III.6.2.3 (Example 6.2.3, norm residue symbols), PDF p. 241 (draft p. 233).
+
+**Issue.** The source explains the term “norm residue” through this equivalence for each x: triviality of y ↦ {x, y} occurs precisely when x ∈ NK×.
+
+**Correction.** … the map y ↦ (x, y)_F is trivial if and only if x ∈ NK×.
+
+**Reason.** With the Steinberg symbol {x, y} ∈ K₂(F) the 'if' direction is false. Here NK^× = F^×m (local reciprocity, as Gal(K/F) has exponent m and order #(F^×/F^×m)). If {a^m, y} = {a, y}^m were 1 for all a, y, then K₂(F), generated by symbols, would be m-torsion, forcing the uniquely divisible summand U of Moore's Theorem 6.2.4 to vanish; but K₂(F) is uncountable (Corollary III.6.3.2, since a local field contains ℚ(t) or 𝔽_p(t₁, t₂)) while μ_m is finite. With (x, y)_F the statement is the nondegeneracy of the pairing, which is how the next sentence uses it ('(ζ, x)_F ≠ 1').
+
+**Affects.** nothing
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata list for the K-book (Wayback copy of the author's Kbook.errata.pdf): no entry for III.6.2.3
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C3) and checked at the locator in the draft read.
+
+### E3 — gap
+
+**Source.** `Kbook.2013`, III.6.2.3 (Example 6.2.3), last two sentences before Moore's Theorem 6.2.4, PDF p. 241 (draft p. 233).
+
+**Issue.** The source uses the failure of a primitive mth root ζ to be a norm from K to obtain x ∈ F with (ζ, x)F ≠ 1. It then claims a splitting of the surjective norm residue symbol, calling ζi ↦ {ζi, x} its inverse.
+
+**Correction.** Since μ_m is the whole group of roots of unity of F, ζ has order exactly m in F^×/F^×m = F^×/NK^× (if ζ^{m/p} = y^m for a prime p | m, then y would be a root of unity in F of order mp). By nondegeneracy the homomorphism (ζ, −)_F : F^× → μ_m therefore has order m and is onto, so there is x ∈ F^× with (ζ, x)_F = ζ; for such x, ζ^i ↦ {ζ^i, x} is a section (a right inverse) of the norm residue symbol.
+
+**Reason.** (ζ, x)_F ≠ 1 only says that (ζ, x)_F is a non-trivial root of unity, which for composite m need not generate μ_m: for F = ℚ₅ (μ(F) = μ₄) and ζ = i, if (i, x₀)_F = i then x = x₀² has (i, x)_F = −1 ≠ 1, and ζ^i ↦ {ζ^i, x₀²} is not a section. The map is a section, not an inverse, since its kernel U is non-zero.
+
+**Affects.** the proof
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata list for the K-book (Wayback copy of the author's Kbook.errata.pdf): no entry for III.6.2.3
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C3) and checked at the locator in the draft read.
+
+### E4 — gap
+
+**Source.** `Kbook.2013`, III.6.2.3 (Example 6.2.3), proof of the Steinberg identity, PDF p. 241 (draft p. 233).
+
+**Issue.** The source associates g in GF = Gal(K/F) with ζ(a) = (a, 1 −a)F, a map from F× to µm, and claims g lies in GE. It interprets this as extendability of ζ to E× →µm, then concludes (a, 1 −a)F = ζ(a) = ζ(x)m = 1.
+
+**Correction.** The element g of Gal(K/F) attached to 1 − a — whose homomorphism is (1 − a, −)_F under the stated adjunction x ↦ (x, −)_F — lies in Gal(K/E) because 1 − a is a norm from E; so g fixes x, and (1 − a, a)_F = g(x)/x = 1. Replacing a by 1 − a gives (a, 1 − a)_F = 1.
+
+**Reason.** Under the adjunction the source fixes one line earlier, x ↦ (x, −)_F, the element attached to 1 − a gives the homomorphism (1 − a, −)_F, not y ↦ (y, 1 − a)_F, so the variables are in the wrong order; and 'ζ(x)^m' evaluates an extension of ζ at x ∈ E, which the Kummer description over F does not provide, since x need not have an m-th root in K. The conclusion is right and the corrected argument is one line.
+
+**Affects.** the proof
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata list for the K-book (Wayback copy of the author's Kbook.errata.pdf): no entry for III.6.2.3
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C3) and checked at the locator in the draft read.
+
+### E5 — error
+
+**Source.** `Kbook.2013`, Chapter III, Exercise 6.2, PDF p. 251 (book p. 243) of the author-hosted draft of 29 August 2013.
+
+**Issue.** The exercise requests a factorization of {e1, e2} using symbols of the forms {e1, e′2} and {e, e′′2}; the polynomials e, e′2, e′′2 must each have degree < d.
+
+**Correction.** {e1, e2} = {h, e2}{h, e1}^{−1}{e1, −1} with h = e1 − e2 of degree < d, so {e1, e2} is a product of symbols each having at most one entry of degree d (that entry being e1 or e2); consequently the subgroup L_d of K_2 F(t) generated by symbols of polynomials of degree ≤ d is generated by L_{d−1} and the symbols {π, a} with π irreducible of degree d and deg a < d.
+
+**Reason.** Counterexample with E = ℚ(t), u = t, d = 1, e1 = t, e2 = t − 2: the tame symbol of {t, t − 2} at the place t = 2 is 1/2 (Lemma III.6.3), while every symbol {t, c} and {c, c′} with c, c′ ∈ ℚ^× is a unit at that place and has trivial tame symbol there, so {t, t − 2} is not such a product. The book's own Lemma III.6.1.4, which the exercise claims to generalise, produces a factor {a, y} with y = u − a2 of degree d. The corrected identity follows from the Steinberg relation for h/e1 + e2/e1 = 1.
+
+**Affects.** the proof
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- The author's errata list for the published edition (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e), which has no entry for Exercise III.6.2
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C2) and checked at the locator in the draft read; the counterexample was recomputed by the coordinator.
+
+### E6 — misprint
+
+**Source.** `Kbook.2013`, III.7.4, proof of Theorem 7.4, PDF p. 255 (book p. 247).
+
+**Issue.** The source specifies {f1, . . . , fr} as the generating symbols.
+
+**Correction.** {f1, . . . , fn}: the symbols lie in K^M_n F(t).
+
+**Reason.** L_d is defined inside K^M_n F(t), whose symbols have n entries; r is not otherwise defined.
+
+**Affects.** nothing
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- The author's errata list (Wayback copy of Kbook.errata.pdf), no entry for this line
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C2) and checked at the locator in the draft read.
+
+### E7 — misprint
+
+**Source.** `Kbook.2013`, III.7.4.1, proof of Lemma 7.4.1, PDF p. 255 (book p. 247).
+
+**Issue.** The source claims that, in k, āi + āi+1 = 1 implies that, in F, ai + ai+1 = 1.
+
+**Correction.** then ai + ai+1 = 1 in F[t].
+
+**Reason.** The a_i are the representatives in F[t] of degree < d; a_i + a_{i+1} − 1 has degree < d and is divisible by π, so it vanishes in F[t]. The a_i need not be constants.
+
+**Affects.** nothing
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- The author's errata list (Wayback copy of Kbook.errata.pdf), no entry for this line
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C2) and checked at the locator in the draft read.
+
+### E8 — misprint
+
+**Source.** `Kbook.2013`, III.7.6.4, proof of Proposition 7.6.4, last display, PDF p. 258 (book p. 250 of the draft; p. 272 of the published edition).
+
+**Issue.** Na/F (NE′/F′x) = −∂∞(NE(t)/F(t)y) = −NE/F (∂∞y) = NE/F (Na/F x).
+
+**Correction.** The last term is NE/F(Na/E x).
+
+**Reason.** x lies in K^M_n(E′) and N_{a/E} : K^M_n(E′) → K^M_n(E) is the map in the top row of the square being proved; N_{a/F} x is not defined.
+
+**Affects.** nothing
+
+**Prior notice.** The author's errata list for the published edition: 'p.272 l.-1: Na/F x should be Na/E x'
+
+**Searches recorded.**
+
+- The author's errata list (Wayback copy of Kbook.errata.pdf, SHA-256 ef7ed6d0…)
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C2) and checked at the locator in the draft read.
+
+### E9 — error
+
+**Source.** `Kbook.2013`, Exercise III.7.1 (PDF p. 265; GSM 145 p. 280 per the errata).
+
+**Issue.** Exercise 7.1 takes a discrete valuation v on F. For the Theorem 7.3 maps λ: KMn(F) → KMn(kv) together with ∂v : KMn(F) → KMn−1(kv), it requests independence from the parameter π. It also asks that both maps be zero on l(u) · KMn−1(F) for u ∈ (1 + πR).
+
+**Correction.** ∂v is independent of π; λ is not. For π′ = cπ, λ_{π′}(x) = λ_π(x) − ∂v(x)·{c̄} in the roadmap's normalisation ({c̄}·∂v(x) with a sign in Theorem III.7.3's); in degree one λ_π(π) = 1 but λ_{π′}(π) = c̄^{−1}.
+
+**Reason.** On ℚ with the 5-adic valuation, λ_5{5} = 1 while λ_{10}{5} = res(5/10) = 3 in F_5^×.
+
+**Affects.** a stated result
+
+**Prior notice.** Weibel's errata to GSM 145: 'p.280 Ex.7.1: The map ∂ is independent of the choice of π, but the specialization map λ does depend on this choice.' (Wayback Machine copy, SHA-256 ef7ed6d0…)
+
+**Searches recorded.**
+
+- Weibel's errata to GSM 145 (Wayback Machine copy)
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C1) and checked at the locator in the draft read; the counterexample was recomputed by the coordinator.
+
+### E10 — gap
+
+**Source.** `Kbook.2013`, Exercises III.7.7 and III.7.9 (PDF pp. 265–266).
+
+**Issue.** The hint names the completions at v and w as F(t)v and E(t)w, for F(t) and E(t) respectively. It directs the reader to combine Ex. 7.7 with Lemma 7.6.3 to establish commutativity of the displayed diagram.
+
+**Correction.** Ex. III.7.7 is stated for 'finite field extensions' F′ of F, but the hint of Ex. III.7.9 applies it with F′ = F(t)_v, a completion, which is not finite over F(t). The statement holds for every field extension F′/F (the argument through Milnor's sequence for F′(t), node T.4/transfer-base-change, does not use finiteness), and that is the form the hint needs. 'Lemma 7.6.3' in the hint is Corollary 7.6.3.
+
+**Reason.** The completion F(t)_v has infinite degree over F(t), so the left square of the hinted diagram is not an instance of Ex. III.7.7 as stated.
+
+**Affects.** the proof
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata to GSM 145 (Wayback Machine copy): its entry 'p.281 l.-5' corrects the degrees in the diagram of Ex. 7.9 (the draft already prints n+1), not the hypothesis of Ex. 7.7
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C1) and checked at the locator in the draft read.
+
+### E11 — error
+
+**Source.** `Kbook.2013`, Exercise III.7.10 (PDF p. 266; p. 258 in the draft's own page numbering).
+
+**Issue.** Exercise 7.10 takes a valuation v on F and elements x ∈ KMi(F), y ∈ KMj(F), then asks for ∂v(xy) = λ(x)∂v(y) + (−1)^j ∂v(x)ρ(y). It specifies a ring homomorphism ρ: KM∗(F) → KM∗(kv) through the rule ρ(l(uπ^i)) = l((−1)^i ū).
+
+**Correction.** With Theorem III.7.3's normalisation ∂v{π, u2, …, un} = {ū2, …, ūn}, the formula is ∂v(xy) = (−1)^i λ(x)∂v(y) + ∂v(x)ρ(y) for x ∈ KM_i(F), y ∈ KM_j(F). The printed formula holds for the opposite normalisation ∂v{u1, …, u_{n−1}, π} = {ū1, …, ū_{n−1}}, which is (−1)^{n−1} times Theorem III.7.3's ∂v on KM_n(F) and is the one this roadmap uses.
+
+**Reason.** Take F = ℚ, v the 5-adic valuation, π = 5, x = {5}, y = {2} (i = j = 1). Theorem III.7.3 gives ∂v{5, 2} = {2̄}, i.e. 2 in F_5^×. The printed formula gives λ{5}∂v{2} − ∂v{5}ρ{2} = 0 − {2̄}, i.e. 2^{−1} = 3 in F_5^×. In the algebra L of the proof of Theorem III.7.3, d(x) = λ(x) + Π·∂v(x) with Π on the left (as ∂v{π, u2, …} = {ū2, …} requires); expanding d(x)d(y) with Π·a = (−1)^{|a|}a·Π and Π² = {−1}Π gives the corrected formula, while reading the coefficient of Π on the right gives the printed one.
+
+**Affects.** a stated result
+
+**Prior notice.** new
+
+**Searches recorded.**
+
+- Weibel's errata to the published GSM 145 printing (Wayback Machine copy of https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf, SHA-256 ef7ed6d08a5f99d0f0a0b08aff0284bc6670ee76def317804706d89474a0ca5e): it corrects Ex. 7.1 and the diagram of Ex. 7.9 but has no entry for Ex. 7.10
+- the author-hosted draft of 29 August 2013 itself
+
+**Existing review.** confirmed by `REV-K2SymbolsBrauer--T.3`: Found by the review (checker C1) and checked at the locator in the draft read; the counterexample was recomputed by the coordinator.
+
+### E12 — error
+
+**Source.** `Soule.Thesis.1978`, 2.2.1.1, p. 34.
+
+**Issue.** The source gives the class exact order q.
+
+**Correction.** Require a,b∈F× and say the class is killed by q, with exact order requiring additional hypotheses.
+
+**Reason.** The author-hosted typed thesis says the symbol-algebra class has order q for arbitrary a,b. Even for nonzero a=b=1 it is split, so only annihilation by q is unconditional. The same paragraph initially permits a,b∈F, while the central-simple symbol algebra requires a,b nonzero. These surrounding claims are not used for the Chern product rule.
+
+**Counterexample.** F=ℂ, q=3, a=b=1: the symbol algebra is a matrix algebra and its Brauer class has order 1.
+
+**Affects.** a stated result
+
+**Prior notice.** new
+
+**Version scope.** Author-hosted typed thesis only; the original dissertation scan and the 1979 article were not compared. No assertion that the published article contains this wording.
+
+**Status.** suspected-author-copy-error
+
+**Searches recorded.**
+
+- The author-hosted typed thesis; original scan and 1979 article not obtained for comparison
+
+### E13 — error
+
+**Source.** `GilleSzamuely.2006`, First edition (2006), p. 197, the paragraph before Lemma 7.3.6 and the lemma itself (PDF p. 211 of the author-hosted copy, SHA-256 3697582f…1e63).
+
+**Issue.** The source defines e_j as the least integer greater than zero satisfying M_j^{e_j} = 0.
+
+**Correction.** For a general finite extension K = k(a_1, …, a_r), the multiplicity in the diagram of Lemma 7.3.6 is the composition length of the local Artinian L-algebra R_j as a module over itself, not the nilpotence index of its maximal ideal. For a simple extension K = k(a) the two coincide (R_j ≅ L[t]/(g_j^{e_j})), so the case r = 1, Lemma 7.2.6, and Kato's theorem are unaffected; the induction in the proof of Lemma 7.3.6 multiplies lengths in towers, which nilpotence indices do not satisfy.
+
+**Reason.** Take k = F_p(s, t), K = k(s^{1/p}, t^{1/p}) = k(a_1, a_2) and L = K. Then K ⊗_k K ≅ K[X, Y]/((X − a_1)^p, (Y − a_2)^p) is local with residue field K, length p² and nilpotence index 2p − 1. In degree zero the norm is multiplication by the degree (Remark 7.3.1), so the upper route of the diagram sends 1 ∈ K_0^M(K) = ℤ to [K : k] = p², while the lower route with the printed e_1 gives 2p − 1: 4 against 3 for p = 2, 9 against 5 for p = 3. With the length the lower route gives p².
+
+**Affects.** the proof
+
+**Prior notice.** new
+
+**Version scope.** First edition (2006), author-hosted copy; the second edition (2017) was not read. First recorded by FIX-RT-AREA-ktheory-1~2 (Codex codex-5ebb6f, 2 October 2026) and re-read at the locator by claude-HJaFqR on 6 October 2026.
+
+**Searches recorded.**
+
+- Authors' errata for the first edition, https://pagine.dm.unipi.it/tamas/erratams.pdf (dated 4 December 2020, SHA-256 db7cea50…3d04), read in full on 6 October 2026: its entries pass from p. 187 to p. 224, with nothing on pp. 196–198.
+- Authors' errata for the second edition, https://pagine.dm.unipi.it/tamas/erratams2nd.pdf (dated 4 December 2020, SHA-256 1f117717…2deb), read in full on 6 October 2026: three entries (pp. 78, 81, 116), none on the norm map.
+- The second edition itself was not read, so the finding is scoped to the first edition.
 
 ## Revision for FIX-RT-AREA-ktheory-1
 
@@ -2773,8 +3269,14 @@ The prior five targeted repairs remain in force. This revision resolves the olde
 
 This completes the requested fix, not the implementation or an independent acceptance. The packet remains partial with four unrelated gaps and explicit unfulfilled requests. `review` and `reviewHistory` are preserved verbatim. Historical revision sections above describe the state at their dates.
 
+## Revision for FIX-RT-BP-K2SymbolsBrauer--T.3~3
+
+The independent review of revision 2 accepted the other proof/ownership repairs and found one remaining generic complete-DVR supplier mismatch. LocalFieldsRamification Layers 0–3 and Tau Ceti’s local-field norm theorems require finite residue fields. AlgebraicCurves Layer 5 provides arbitrary-residue completion comparisons, not the finite-extension lattice/norm/component-length results. Neither is asserted to supply those missing contracts.
+
+The Part II brief above specifies four targets with statements, source locators, proof outlines, APIs, distinguishing tests and consumer links. The invalid generic Layer 3 request and three node prerequisites are removed. Four consuming proof outlines explicitly name their conditional imports; registration remains a gap and a maintainer action. No existing roadmap is widened, and T.4 retains its arbitrary-residue scope.
+
+The five original red-team repairs, Milnor/Quillen transfer comparison with Artinian lengths, K.3/K.7 boundary normalization, AlgebraicCurves mixed normalization, integer-word proof and higher-power local/Chern signs are retained as full target contracts. The suggested file follows WORKERS.md’s current shape: its earlier Milnor/Steinberg/relative-K₂ constructions and all 25 sorry data bodies are removed; their full statements remain here. Only native statements and light definitions are declared, including the guarded relation set, signed tame-symbol formula and arbitrary-embedding comparison, corrected real conic domain and trivial-root product. Higher K-theory and cohomological interfaces are indexed README targets until their carriers are at the pins. The reader’s targets, prerequisites, requests and six gaps are synchronized with the packet, including the independent area review’s monomial-kernel gap. All 68 implementation statuses remain unchecked; the prior independent review and review history are unchanged. This revision requires independent review.
+
 ## Checks
 
-`python3 scripts/check_blueprint.py research/blueprint/packets/K2SymbolsBrauer--T.3.json` reports 0 errors and 0 warnings. Targeted regression computations and dependency checks are documented in `research/blueprint/redteam/RT-BP-K2SymbolsBrauer--T.3.fixes-2.md`.
-
-The isolated new integer-model prototype elaborates with `lean-check` at pinned Mathlib with only `sorry` warnings. The complete suggested file does **not** elaborate in the shared build: its first Tau Ceti import needs an absent `TauCeti/FieldTheory/FunctionField/Divisor/Eval.olean`, so Lean stops before checking any declaration. No library build was attempted. Historical compilation does not certify the current file.
+`python3 scripts/check_blueprint.py research/blueprint/packets/K2SymbolsBrauer--T.3.json` reports 0 errors and 0 warnings. The fix report `research/blueprint/redteam/RT-BP-K2SymbolsBrauer--T.3.fixes-3.md` records the regression computations, source/scope audit and full-file Lean validation. The complete 605-line suggested file elaborates with `lean-check` at the pins: exit 0, with 30 warnings, all `declaration uses sorry`. `scripts/check_sorry_data.py` passes. Three native determinant controls, the zero-input conic non-example and the trivial-root product have proved bodies. Elaboration checks the actual declarations, not the README-only interfaces, and does not discharge the remaining `sorry` proofs. The suggested file states only forms expressible at the pins; the Part II support contracts remain README targets and conditional comments.
