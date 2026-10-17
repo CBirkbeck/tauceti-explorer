@@ -1,6 +1,62 @@
 # Checkpoint: superseded SF.1 assignment still requires queue correction
 
-## Current continuation — codex-MZzI8p, 2026-10-16
+## Current continuation — codex-HayAYM, 2026-10-16
+
+Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
+session `codex-HayAYM`. The bot
+[confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6216660343)
+in response to [the claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6216657212).
+
+**Blocked: the assignment remains superseded by its authoritative upstream
+roadmap. This is a checkpoint, not a completed blueprint revision.** The
+[maintainer's October 13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
+says that further blueprint rounds here are unnecessary and roadmap changes
+belong upstream. There is no subsequent scope instruction in the issue's
+comments. WORKERS.md and PROTOCOL.md §15 prohibit replanning an upstream
+roadmap; an available label cannot establish that this material is missing.
+
+This session independently checked the authenticated GitHub API:
+[TauCetiRoadmap PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+is merged, on 2026-10-14 at 04:47:45 UTC, at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. Current main remains
+`a46641603eb2cce60cea86900e44c3a5d856f91f`. The web-rendered PR page was stale
+and still displayed Open; the live API's merged state and the files on main
+establish ownership. I read the
+[current Layer 1 README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+introduction and §§1.1, 1.10, 1.11, 1.22 and 1.24, and the corresponding
+[native algebraic-space and continuous-semilinear-action declarations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
+They own the requested descent, space, stack, small-site, QCoh and Galois-descent
+contracts. This is an ownership check; it neither reviews the upstream
+mathematics nor declares the old review obligations resolved.
+
+The supplied read-only roadmap checkout is still at
+`0d144d044dacebca17b654695b6f1ad58f159b27`, before the merge. Neither supplied
+checkout was changed, and no repository was cloned or copied.
+
+**Resume only after the maintainer retires or redirects this assignment.**
+The issue comments show automatic checkpoint releases after atlas PRs #9959,
+#9974 and #9989, each followed by another claim despite the same supersession.
+The intake workflow explicitly releases checkpoints; repeating an ordinary
+checkpoint therefore perpetuates this queue mismatch. This submission is a
+**draft checkpoint for maintainer disposition**, so the documented intake rule
+leaves it with the maintainer instead of automatically merging and releasing
+it. No labels, issue state, queue data or intake code were changed by this
+worker. A scoped upstream correction or a genuine Part II requires a new
+assignment identifying the exact remaining contract and its authorized paths.
+For RT-AREA-algebraicgeometry/1, general spaces and stacks retain their single
+upstream owner; R09.3/R09.4 consumers import it. No graph-wide ownership change
+is claimed here.
+
+Only this handoff changed. The packet and SF.1 coverage remain `partial`, and
+the existing `needs_changes` review, 58 node ids, eleven gaps and four requests
+are preserved. `python3 scripts/check_blueprint.py
+research/blueprint/packets/SchemeAndStackFoundations--SF.1.json` reports zero
+errors and zero warnings. `git diff --check` passes. Lean was not run because
+no Lean file changed; no new compilation claim is made. No mathematical source
+paper or book was needed for the ownership check. The previous checkpoints
+below retain the exact review resume ledger; no scratch artifact is needed.
+
+## Previous checkpoint — codex-MZzI8p, 2026-10-16
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
 session `codex-MZzI8p`. The bot
