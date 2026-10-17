@@ -1,4 +1,5 @@
 import Mathlib
+import TauCeti.Algebra.Polynomial.Laurent
 import TauCeti.Analysis.Normed.Algebra.LogOneAdd.Basic
 
 /-!
@@ -11,9 +12,11 @@ their APIs and Checks. Definitions here have real bodies; theorem proofs are lef
 
 The formal primitive has zero constant coefficient. Whole-disc analyticity requires positive
 radius. Logarithm branches are specified by their principal-unit series and their value at `p`;
-existence is a theorem, with no chosen branch constructed here. The complex polylogarithm uses
-its scalar series, with a principal logarithm at weight one. Cross-ratios use homogeneous determinants in the displayed order. The Amice
-operator is `(1 + T) d/dT`, and smoothing cancels poles before formal inversion.
+existence is a theorem, with no chosen branch constructed here. Laurent series on an annulus are
+two-sided coefficient families `ℤ → K` with a decay predicate, not Mathlib's `LaurentSeries`,
+whose supports are bounded below. The complex polylogarithm uses its scalar series, with a
+principal logarithm at weight one. Cross-ratios use homogeneous determinants in the displayed
+order. The Amice operator is `(1 + T) d/dT`, and smoothing cancels poles before formal inversion.
 -/
 
 open Filter Topology
@@ -202,6 +205,176 @@ theorem logOneAdd_add_mul_of_ultrametric [CompleteSpace K] {u v : K} (hu : ‖u�
 
 end LogSeries
 
+/-! ### L0.A1–L0.A2: Laurent carriers of annuli -/
+
+section LaurentCarrier
+
+variable {K : Type*} [NontriviallyNormedField K]
+
+/-- L0.A1: the coefficient families `a : ℤ → K` of Laurent series `∑ aₙ Tⁿ` converging on the
+annulus `‖T‖ ∈ I`: `‖aₙ‖ ρⁿ → 0` as `|n| → ∞` for every radius `ρ ∈ I`. The open annulus
+`r < ‖z - e‖ < s` is `I = Set.Ioo r s` in the coordinate `T = z - e`, and the punctured unit
+disc is `Set.Ioo 0 1`. -/
+def IsLaurentOn (I : Set ℝ) (a : ℤ → K) : Prop :=
+  ∀ ρ ∈ I, Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)
+
+/-- The `ρ`-Gauss norm `sup_n ‖aₙ‖ ρⁿ` of a two-sided coefficient family. -/
+def laurentGaussNorm (a : ℤ → K) (ρ : ℝ) : ℝ :=
+  ⨆ n : ℤ, ‖a n‖ * ρ ^ n
+
+/-- The two-sided Cauchy product `cₙ = ∑ₘ aₘ b_{n - m}`. -/
+def laurentMul (a b : ℤ → K) : ℤ → K :=
+  fun n => ∑' m : ℤ, a m * b (n - m)
+
+/-- The value of the Laurent series with coefficients `a` at the coordinate value `w = z - e`. -/
+def laurentSeriesEval (a : ℤ → K) (w : K) : K :=
+  ∑' n : ℤ, a n * w ^ n
+
+/-- Restriction to a smaller set of radii is the identity on coefficients. -/
+theorem IsLaurentOn.mono {I J : Set ℝ} {a : ℤ → K} (ha : IsLaurentOn I a) (hJI : J ⊆ I) :
+    IsLaurentOn J a :=
+  fun ρ hρ => ha ρ (hJI hρ)
+
+variable [IsUltrametricDist K] [CompleteSpace K]
+
+/-- L0.A1: on a nonempty set of positive radii the Cauchy product of two members converges
+coefficientwise and is a member. -/
+theorem IsLaurentOn.laurentMul {I : Set ℝ} (hI : I ⊆ Set.Ioi 0) (hne : I.Nonempty)
+    {a b : ℤ → K} (ha : IsLaurentOn I a) (hb : IsLaurentOn I b) :
+    (∀ n : ℤ, Summable fun m : ℤ => a m * b (n - m)) ∧ IsLaurentOn I (laurentMul a b) := by
+  sorry
+
+/-- L0.A1: every Gauss norm at a positive radius of the carrier is multiplicative. -/
+theorem laurentGaussNorm_laurentMul {I : Set ℝ} {a b : ℤ → K} (ha : IsLaurentOn I a)
+    (hb : IsLaurentOn I b) {ρ : ℝ} (hρ : ρ ∈ I) (hρ0 : 0 < ρ) :
+    laurentGaussNorm (laurentMul a b) ρ = laurentGaussNorm a ρ * laurentGaussNorm b ρ := by
+  sorry
+
+/-- L0.A1: a member is a unit of the carrier exactly when one index dominates at every radius. -/
+theorem isUnit_laurentOn_iff {I : Set ℝ} (hI : I ⊆ Set.Ioi 0) (hne : I.Nonempty) {a : ℤ → K}
+    (ha : IsLaurentOn I a) :
+    (∃ b : ℤ → K, IsLaurentOn I b ∧ laurentMul a b = Pi.single 0 1) ↔
+      ∃ j : ℤ, ∀ ρ ∈ I, ∀ n ≠ j, ‖a n‖ * ρ ^ n < ‖a j‖ * ρ ^ j := by
+  sorry
+
+/-- L0.A1: a nonzero member has a single dominant index on some open interval of radii. -/
+theorem exists_subinterval_single_dominant {I : Set ℝ} (hI : I ⊆ Set.Ioi 0)
+    (hint : (interior I).Nonempty) {a : ℤ → K} (ha : IsLaurentOn I a) (ha0 : a ≠ 0) :
+    ∃ (ρ₁ ρ₂ : ℝ) (j : ℤ), ρ₁ < ρ₂ ∧ Set.Ioo ρ₁ ρ₂ ⊆ I ∧
+      ∀ ρ ∈ Set.Ioo ρ₁ ρ₂, ∀ n ≠ j, ‖a n‖ * ρ ^ n < ‖a j‖ * ρ ^ j := by
+  sorry
+
+end LaurentCarrier
+
+section LaurentExamples
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The radius condition is not vacuous: `∑ p^|n| Tⁿ` converges on `1/p < |T| < p` only. -/
+example : IsLaurentOn (Set.Ioo (p : ℝ)⁻¹ p) (fun n : ℤ => (p : ℚ_[p]) ^ n.natAbs) ∧
+    ¬ IsLaurentOn (Set.Ioo (p : ℝ)⁻¹ ((p : ℝ) ^ 2)) (fun n : ℤ => (p : ℚ_[p]) ^ n.natAbs) := by
+  sorry
+
+/-- A member with infinitely many negative terms: no formal `LaurentSeries` has this family. -/
+example : IsLaurentOn (Set.Ioi 0)
+      (fun n : ℤ => if n ≤ 0 then (p : ℚ_[p]) ^ (n.natAbs ^ 2) else 0) ∧
+    ¬ BddBelow (Function.support
+      (fun n : ℤ => if n ≤ 0 then (p : ℚ_[p]) ^ (n.natAbs ^ 2) else 0)) := by
+  sorry
+
+/-- The Gauss norm is a maximum, not a weighted `ℓ¹` sum: `|T + p|₁ = 1`, not `1 + 1/p`. -/
+example :
+    laurentGaussNorm
+      ((Pi.single 1 1 : ℤ → ℚ_[p]) + (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p])) 1 = 1 := by
+  sorry
+
+/-- Multiplicativity witnesses for `(T + p)(T⁻¹ + p)`: Gauss norm `1 · 1` at `ρ = 1` and
+`p⁻¹ · p² = p` at `ρ = p⁻²`. -/
+example :
+    laurentGaussNorm
+        (laurentMul ((Pi.single 1 1 : ℤ → ℚ_[p]) + (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p]))
+          ((Pi.single (-1) 1 : ℤ → ℚ_[p]) + (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p]))) 1 = 1 ∧
+      laurentGaussNorm
+        (laurentMul ((Pi.single 1 1 : ℤ → ℚ_[p]) + (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p]))
+          ((Pi.single (-1) 1 : ℤ → ℚ_[p]) + (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p])))
+        ((p : ℝ) ^ (-2 : ℤ)) = p := by
+  sorry
+
+/-- `T - p` is a unit for the radii `(1/p, 1)`, where index `1` dominates, but not for
+`(1/p², 1)`, which contains the tie at `1/p`. -/
+example :
+    (∃ b : ℤ → ℚ_[p], IsLaurentOn (Set.Ioo (p : ℝ)⁻¹ 1) b ∧
+      laurentMul ((Pi.single 1 1 : ℤ → ℚ_[p]) - (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p])) b =
+        Pi.single 0 1) ∧
+    ¬ ∃ b : ℤ → ℚ_[p], IsLaurentOn (Set.Ioo ((p : ℝ) ^ (-2 : ℤ)) 1) b ∧
+      laurentMul ((Pi.single 1 1 : ℤ → ℚ_[p]) - (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p])) b =
+        Pi.single 0 1 := by
+  sorry
+
+/-- `T - p` vanishes at `p`, on the circle `|T| = 1/p` where its two coefficients tie, so it is
+not a unit for any set of radii containing `1/p`. -/
+example :
+    laurentSeriesEval ((Pi.single 1 1 : ℤ → ℚ_[p]) - (Pi.single 0 (p : ℚ_[p]) : ℤ → ℚ_[p])) p = 0 ∧
+      ‖(1 : ℚ_[p])‖ * (p : ℝ)⁻¹ ^ (1 : ℤ) = ‖(p : ℚ_[p])‖ * (p : ℝ)⁻¹ ^ (0 : ℤ) := by
+  sorry
+
+/-- A Laurent polynomial lies in the carrier of the punctured plane, and its value at a unit is
+Tau Ceti's evaluation of Laurent polynomials. -/
+example (P : LaurentPolynomial ℚ_[p]) (u : ℚ_[p]ˣ) :
+    IsLaurentOn (Set.Ioi 0) (fun n => P.coeff n) ∧
+      laurentSeriesEval (fun n => P.coeff n) (u : ℚ_[p]) = TauCeti.laurentEval u P := by
+  sorry
+
+/-- The annulus `1/p < |z| < 1` has no `ℚ_p`-points: evaluation must use points of `ℂ_p`. -/
+example (z : ℚ_[p]) : ¬ ((p : ℝ)⁻¹ < ‖z‖ ∧ ‖z‖ < 1) := by
+  sorry
+
+/-- At `ℚ_p`-points of the unit circle `|z^p - z| < 1`, although `T^p - T` has Gauss norm `1`. -/
+example (z : ℚ_[p]) (hz : ‖z‖ = 1) :
+    ‖z ^ p - z‖ < 1 ∧
+      laurentGaussNorm ((Pi.single (p : ℤ) 1 : ℤ → ℚ_[p]) - (Pi.single 1 1 : ℤ → ℚ_[p])) 1 = 1 := by
+  sorry
+
+/-- Over `ℂ_p`, the only zero of `T - p` on the circle `|T| = 1/p` is `p`. -/
+example :
+    {w : ℂ_[p] | ‖w‖ = (p : ℝ)⁻¹ ∧
+      laurentSeriesEval ((Pi.single 1 1 : ℤ → ℂ_[p]) - (Pi.single 0 (p : ℂ_[p]) : ℤ → ℂ_[p]))
+        w = 0} = {(p : ℂ_[p])} := by
+  sorry
+
+/-- No point of `ℂ_p` has norm `p^√2`: circles of radius outside `p^ℚ` have no points. -/
+example (z : ℂ_[p]) : ‖z‖ ≠ (p : ℝ) ^ Real.sqrt 2 := by
+  sorry
+
+end LaurentExamples
+
+section LaurentPoints
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- L0.A2 (b), (c): on a circle whose radius is a norm of `ℂ_p`, the Gauss norm bounds `|f|` and
+is attained. -/
+theorem laurentGaussNorm_eq_max_on_circle {I : Set ℝ} {a : ℤ → ℂ_[p]} (ha : IsLaurentOn I a)
+    {c : ℂ_[p]} (hc0 : c ≠ 0) (hc : ‖c‖ ∈ I) :
+    (∀ w : ℂ_[p], ‖w‖ = ‖c‖ → ‖laurentSeriesEval a w‖ ≤ laurentGaussNorm a ‖c‖) ∧
+      ∃ w : ℂ_[p], ‖w‖ = ‖c‖ ∧ ‖laurentSeriesEval a w‖ = laurentGaussNorm a ‖c‖ := by
+  sorry
+
+/-- L0.A2 (d): a nonzero member has finitely many zeros on each closed sub-annulus. -/
+theorem finite_zeros_closedSubannulus {I : Set ℝ} {a : ℤ → ℂ_[p]} (ha : IsLaurentOn I a)
+    (ha0 : a ≠ 0) {ρ₁ ρ₂ : ℝ} (h₁ : ρ₁ ∈ I) (h₂ : ρ₂ ∈ I) (hρ₁ : 0 < ρ₁) :
+    {w : ℂ_[p] | ρ₁ ≤ ‖w‖ ∧ ‖w‖ ≤ ρ₂ ∧ laurentSeriesEval a w = 0}.Finite := by
+  sorry
+
+/-- L0.A2 (e), the identity principle: vanishing on a nonempty open subset of the annulus
+`‖z - e‖ ∈ I` in `ℂ_p` forces every coefficient to vanish. -/
+theorem eq_zero_of_eval_eq_zero_on_open {I : Set ℝ} (hI : I ⊆ Set.Ioi 0) {a : ℤ → ℂ_[p]}
+    (ha : IsLaurentOn I a) {e : ℂ_[p]} {U : Set ℂ_[p]} (hU : IsOpen U) (hne : U.Nonempty)
+    (hUI : ∀ z ∈ U, ‖z - e‖ ∈ I) (h0 : ∀ z ∈ U, laurentSeriesEval a (z - e) = 0) : a = 0 := by
+  sorry
+
+end LaurentPoints
+
 /-! ### Logarithm branches on `ℂ_p` -/
 
 section Branch
@@ -277,6 +450,49 @@ example (a : ℂ_[p]) : ¬ IsLogBranch p a (fun _ => 0) := by
   sorry
 
 end Branch
+
+/-! ### L0.20: logarithmic Laurent expansions at a puncture -/
+
+section LogLaurent
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- On `0 < ‖z - c‖ < 1`, `f` is a polynomial in `L (z - c)` whose coefficients are values of
+members of the Laurent carrier of the punctured unit disc around `c` (L0.A1). -/
+def IsLogLaurentNear (L f : ℂ_[p] → ℂ_[p]) (c : ℂ_[p]) : Prop :=
+  ∃ (N : ℕ) (g : ℕ → ℤ → ℂ_[p]), (∀ k, IsLaurentOn (Set.Ioo 0 1) (g k)) ∧
+    ∀ z : ℂ_[p], 0 < ‖z - c‖ → ‖z - c‖ < 1 →
+      f z = ∑ k ∈ Finset.range (N + 1), laurentSeriesEval (g k) (z - c) * L (z - c) ^ k
+
+/-- The same shape at `∞`, in the parameter `1/z`, on `‖z‖ > 1`. -/
+def IsLogLaurentAtInfty (L f : ℂ_[p] → ℂ_[p]) : Prop :=
+  ∃ (N : ℕ) (g : ℕ → ℤ → ℂ_[p]), (∀ k, IsLaurentOn (Set.Ioo 0 1) (g k)) ∧
+    ∀ z : ℂ_[p], 1 < ‖z‖ →
+      f z = ∑ k ∈ Finset.range (N + 1), laurentSeriesEval (g k) z⁻¹ * L z⁻¹ ^ k
+
+/-- L2.63: a logarithmic Laurent expansion is determined by its values on an outer annulus
+`r < ‖z - c‖ < 1`. -/
+theorem IsLogLaurentNear.eqOn_punctured {a : ℂ_[p]} {L f g : ℂ_[p] → ℂ_[p]}
+    (hL : IsLogBranch p a L) {c : ℂ_[p]} (hf : IsLogLaurentNear p L f c)
+    (hg : IsLogLaurentNear p L g c) {r : ℝ} (hr0 : 0 ≤ r) (hr : r < 1)
+    (hfg : ∀ z, r < ‖z - c‖ → ‖z - c‖ < 1 → f z = g z) :
+    ∀ z, 0 < ‖z - c‖ → ‖z - c‖ < 1 → f z = g z := by
+  sorry
+
+/-- The indicator of `|z| < 1/p` is locally constant and vanishes on the outer end, but has no
+logarithmic Laurent expansion at `0` for a logarithm branch (L2.63). -/
+example {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]} (hL : IsLogBranch p a L) :
+    ¬ IsLogLaurentNear p L (Set.indicator (Metric.ball (0 : ℂ_[p]) (p : ℝ)⁻¹) fun _ => 1) 0 := by
+  sorry
+
+open Classical in
+/-- The values of a logarithmic Laurent expansion are only constrained off the puncture: the
+expansion near `c` says nothing about `f c`. -/
+example {L f : ℂ_[p] → ℂ_[p]} {c : ℂ_[p]} (hf : IsLogLaurentNear p L f c) (v : ℂ_[p]) :
+    IsLogLaurentNear p L (Function.update f c v) c := by
+  sorry
+
+end LogLaurent
 
 /-! ## Layer L1: Frobenius continuation and Coleman functions -/
 
