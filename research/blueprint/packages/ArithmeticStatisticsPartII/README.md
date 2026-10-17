@@ -9,9 +9,10 @@ This part owns integral orbit dictionaries. Its numbered subsections retain the 
 The following boundaries fix the carriers and prevent parallel versions of existing mathematics.
 
 - TauCetiRoadmap.EllipticCurves Layers 1, 4–8 supply isogenies, local point groups, quadratic twists, Mordell–Weil, finite Selmer groups and their exact sequence, and the unique integral minimal short pair over Q. Here the new elliptic-family adapter sends that pair `(A,B)` to `(-3A,-27B)` and tracks the resulting height and local-density factors. Mathlib's pointwise `WeierstrassCurve.naiveHeight` is a height on points and is not this curve-family height.
-- TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own permutation actions on roots, conjugacy of their images, and the transitive-group predicates. The field-counting predicate here specializes that interface to embeddings of an extension; it does not define another permutation Galois group.
+- TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own permutation actions on roots, conjugacy of their images, and the transitive-group predicates. The field-counting predicate here specializes that interface to embeddings of an extension; it does not define another permutation Galois group. Its Layer 4 owns generic quartic and quintic orbit resolvents. The current library already supplies `TauCeti.quarticD4Invariant`, `quarticD4Spec`, `quarticD4Spec_specialize` and `resolventCubic` in `TauCeti.FieldTheory.GaloisGroups.Resolvent.Quartic.Basic`, and `discr_quarticD4Spec_specialize`, `discr_resolventCubic` and `separable_resolventCubic_iff` in `.Quartic.Discriminant`. Reuse that three-element Galois-set construction and its polynomial discriminant identity. Here the retained comparison identifies an integral cubic resolvent order with that rational algebra; the sextic construction additionally retains its integral lattice and the factor 16 in the order discriminant.
 - TauCetiRoadmap.GlobalNumberFields Layers 9–11 own discriminants, orders, Picard groups and the number-field lattice dictionary. Its lattice/coset estimates and GeometryOfNumbersAndQuadraticArithmetic:GN.4 supply the bounded semialgebraic count. What is added here is its use on skew, truncated and averaged arithmetic fundamental regions, with the cusp error retained. TauCetiRoadmap.OrthogonalSpinGroups Layer 0 supplies the generic orthogonal group; the one-matrix slice here fixes an arithmetic quadratic matrix and integral lattice. TauCetiRoadmap.IntegralLattices §2G supplies Minkowski reduction and bounded Gram entries for integral symmetric lattices. The polynomial-order Gram target here uses a real embedding metric, with one embedding per complex pair, which need not be integral; only that metric adapter and its restricted change-of-basis groups are new. Alternating lattices used in symplectic monodromy are separate objects.
 - TauCetiRoadmap.NumberFieldArithmetic Layers 1, 4 and 6 and TauCetiRoadmap.LocalFieldsRamification Layer 3 supply splitting, relative discriminants, towers and local ramification. TauCetiRoadmap.ClassFieldTheory supplies Artin reciprocity, unramified class fields and conductor characters. Generic norm and ideal-extension maps are reused; the added narrow-class-group and base-character filters keep total positivity and the relative statistical numerator explicit.
+- `TauCeti.NumberField.IsMonogenic`, `isMonogenic_iff_exists_index_eq_one` and the cyclotomic/quadratic examples in `TauCeti.NumberTheory.NumberField.Monogenic` supply ordinary monogenicity of maximal number-field orders. The cubic-resolvent marking here retains a chosen generator modulo integer translation, including nonmaximal and nonétale cubic rings; it does not reconstruct ordinary monogenicity.
 - `TauCeti.FiniteQuadraticModule.IsIsotropic`, `IsLagrangian` and `orthogonalQuotient` already provide finite quadratic isotropy, self-orthogonality and the induced quadratic quotient. Their `orthogonalQuotientMk`, quadratic-value, pairing, surjectivity, equality and nondegeneracy theorems are the finite-module interface consumed here. The new targets are the maximal-isotropic *parameter space*, its uniform probability, reduction of a varying maximal isotropic, and the fibre/intersection counts. Over F_p, identify the values with `(1/p)Z/Z`; over other fields use Mathlib's `QuadraticForm` and submodule quotients. Quadratic vanishing is retained at p=2.
 - Scalar finite-measure moment determinacy with an exponential moment is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`, together with `ext_of_mgf`. Here surjection moments on finite group classes and exponential rank-grid moments have different growth assumptions and need the discrete separator and tightness arguments below.
 - Restricted-product groups and independent infinite product measures use Tau Ceti's completed RestrictedProducts roadmap and Mathlib's `MeasureTheory.Measure.infinitePi` and projective-measure interfaces. The added structure is the quadratic form, self-duality, finite reductions and canonical maximal-isotropic probability, not another restricted product or product measure.
@@ -28,7 +29,7 @@ All finite-field cardinalities `q` are prime powers greater than one. A letter `
 
 A height includes its carrier and equivalence relation. Inclusive Northcott sublevels use `H≤X`; strict source counts use `H<X`. Passing between them requires the stated boundary estimate. A field is counted up to base-field isomorphism unless an embedded or rigid family is named. An orbit count is unweighted unless its reciprocal stabilizer or rational-orbit weight is displayed. A natural cardinal is used only after finiteness; the value zero of `Nat.card` on an infinite type never licenses division. The average of an empty finite sublevel is zero, but any limiting ratio theorem assumes the specified positive denominator.
 
-Binary coefficients descend in x-degree, and changes of variables use row vectors. Cubics use the determinant-twisted GL2 action; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
+Binary coefficients descend in x-degree, and changes of variables use row vectors. Cubics use the determinant-twisted GL2 action; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. Cremona–Fisher [11] instead writes `Δ_CF=4I³-J²=27Δ`. In the present normalization its fixed-degree homogeneous resultant identities are `Res(g,g₄)=81Δ²` and `Res(g,g₆)=Δ³`; the cubic `X³-3IX+J` has discriminant `729Δ`. These factors are retained even when the quartic leading coefficient is zero ([11], §2, Lemma 3, pp.2–3). With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
 
 Coefficient lattices have additive Haar mass one locally. An algebraic-group Haar measure comes from the stated invariant differential; it is not independently renormalized during a product formula. The p-adic absolute value has `|p|_p=p⁻¹`. Archimedean coefficient regions use the displayed Euclidean or Lebesgue measure. Actual CRT residue proportions are used for coupled finite conditions; a product of marginal densities is valid only for independently imposed prime-power conditions.
 
@@ -58,7 +59,7 @@ From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embe
 
 From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
 
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheoryPartII/README.md#s5-4) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheoryPartII/README.md#s5-5) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheoryPartII/README.md#s5-6) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheoryPartII/README.md#s5-7) (§5.7), [cubic continuation and residues](../AnalyticNumberTheoryPartII/README.md#s5-21) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheoryPartII/README.md#s5-28) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheoryPartII/README.md#s5-29) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
 
 ### From earlier arithmetic-statistics parts
 
@@ -96,7 +97,7 @@ For the proof, Injectivity: if r.1 = 0 then r annihilates the nonzero free modul
 
 **Index form of a based cubic ring.** Let A be an R-algebra with an R-basis b = <1, b_1, b_2>. For u, v in A let D_b(u, v) be the determinant of the coordinate vectors of 1, u, v in b. The index form of b is the binary cubic form I_b(x, y) = D_b(xi, xi^2) for xi = x b_1 + y b_2, i.e. 1 ^ xi ^ xi^2 = I_b(x,y) (1 ^ b_1 ^ b_2) in the top exterior power; its coefficients are (D(b_1, b_1^2), D(b_2, b_1^2) + 2 D(b_1, b_1 b_2), 2 D(b_2, b_1 b_2) + D(b_1, b_2^2), D(b_2, b_2^2)). It depends only on the images of b_1, b_2 in A/R.1; a change of basis of A/R.1 by gamma in GL2(R) replaces I_b by gamma . I_b (twisted action); the normal basis <1, omega, theta> of R(f) has index form f; and over Z, |I_b(m, n)| is the index of Z[m b_1 + n b_2] in A when it is nonzero.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the inverse index-form construction; the chosen based formula below is the required sign adapter. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the inverse index-form construction; the chosen based formula below is the required sign adapter. The detailed contract and Checks are retained below for the specialization.
 
 The determinant is taken in the coordinates of the same basis b, which is what produces the twist (det gamma)^{-1}. Orientation convention: with Bhargava-Shankar-Tsimerman's table the normal basis has index form +f; with Gross-Lucianovic's basis <1, i, j> = <1, -omega, -theta> the index form is -f.
 
@@ -138,7 +139,7 @@ For the proof, Polarization of the trilinear expression D(xi, xi^2) gives the fo
 
 **Normal bases of a cubic ring.** Let A be an R-algebra with basis <1, b_1, b_2>. There are unique r, s in R such that b'_1 = b_1 + r, b'_2 = b_2 + s satisfy b'_1 b'_2 in R (a normal, or good, basis). For a normal basis <1, omega, theta> with index form f = (a, b, c, d) the multiplication table is omega theta = -ad, omega^2 = -ac - b omega + a theta, theta^2 = -bd - d omega + c theta; in particular A is isomorphic to R(f) by omega |-> omega, theta |-> theta.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies local normal-basis normalization; the scalar shifts below pin the free-basis specialization. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies local normal-basis normalization; the scalar shifts below pin the free-basis specialization. The detailed contract and Checks are retained below for the specialization.
 
 A is associative and commutative; the basis contains 1.
 
@@ -152,11 +153,15 @@ For the proof, Write b_1 b_2 = n + s b_1 + t b_2 with n, s, t in R; then (b_1 - 
 
 - Z[x]/(x^3 - 2) with basis <1, x, x^2> is already normal (x . x^2 = 2); its index form is x^3 - 2y^3 in the pinned determinant convention.
 
+- In the same ring, b₁=x+1 and b₂=x²+2 satisfy b₁b₂=−2+2b₁+b₂. The unique shifts are −1 and −2, yielding the original normal basis; interchanging the two shift coefficients fails this computation.
+
+- In Z[ε,η]/(ε²,εη,η²), the basis (1,ε,η) is normal. The translated basis (1,ε+1,η) has product η and normalizes by shifts (−1,0). Returning zero shifts for every basis fails this degenerate example.
+
 <a id="delone-faddeev-parametrization-of-cubic-rings"></a>
 
 **Delone faddeev parametrization of cubic rings.** Let R be a principal ideal domain or a local ring (e.g. Z, Z_p, Q, Q_p, R, F_p). The map f |-> R(f) induces a bijection between the GL2(R)-orbits (twisted action) on binary cubic forms over R and the isomorphism classes of cubic R-algebras. The inverse sends A to the index form of any basis <1, b_1, b_2> (which exists by quotient-by-scalars-is-free); disc(R(f)) = disc(f), so the discriminant (in R/(R^x)^2; in Z for R = Z) is preserved. Concretely: every cubic R-algebra A is isomorphic to R(f) for some f; and R(f) is isomorphic to R(g) if and only if g = gamma . f for some gamma in GL2(R).
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the more general projective equivalence; the PID/local statement below is its free-lattice specialization. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the more general projective equivalence; the PID/local statement below is its free-lattice specialization. The detailed contract and Checks are retained below for the specialization.
 
 R a PID or a local ring (Gross-Lucianovic's hypothesis); over Z this is Delone-Faddeev (for nonzero discriminant) and Gan-Gross-Savin (in general). The action is the twisted action; with the untwisted action the statement is false (the scalar u would act by u^3).
 
@@ -178,7 +183,7 @@ For the proof, Existence: choose a basis <1, b_1, b_2> (quotient-by-scalars-is-f
 
 **Automorphisms of cubic rings are stabilizers.** For a binary cubic form f over a PID or local ring R, the group of R-algebra automorphisms of R(f) is isomorphic to the stabilizer of f in GL2(R) under the twisted row-variable action. If T_sigma is the usual column-coordinate matrix of sigma on R(f)/R in the basis <omega, theta>, the group homomorphism sends sigma to (T_sigma inverse) transposed. Conversely each stabilizer element determines a unique automorphism.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies stabilizer/automorphism compatibility; this statement fixes the arithmetic weight used by later counts. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies stabilizer/automorphism compatibility; this statement fixes the arithmetic weight used by later counts. The detailed contract and Checks are retained below for the specialization.
 
 Twisted action; R a PID or local ring.
 
@@ -216,7 +221,7 @@ For the proof, Over a field K, a projective zero can be moved to (1:0) by GL2(K)
 
 **Nondegenerate forms and etale cubic algebras.** For a binary cubic form f over a field K, R(f) is an etale K-algebra if and only if disc(f) != 0. Over Z, disc(f) != 0 if and only if R(f) tensor Q is a product of number fields (an order in an etale cubic Q-algebra); forms of discriminant 0 are the degenerate locus.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the nonzero-discriminant étale comparison; the field and integral statements below specify its statistical domain. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the nonzero-discriminant étale comparison; the field and integral statements below specify its statistical domain. The detailed contract and Checks are retained below for the specialization.
 
 K any field.
 
@@ -340,9 +345,9 @@ For the proof, If R subset R' with index p, write R = Z + pR' + Z theta and norm
 
 <a id="pairs-of-ternary-quadratic-forms"></a>
 
-**Pairs of ternary quadratic forms.** For a commutative ring R, an (integer-valued) ternary quadratic form is Q(x) = sum_{i<=j} a_ij x_i x_j with a_ij in R (Gram matrix with a_ii on the diagonal and a_ij/2 off it), and W(R) = (Sym^2 R^3 tensor R^2)* is the module of pairs (A, B). The group GL3(R) x GL2(R) acts by (g_3, g_2) . (A, B) = (r A' + s B', t A' + u B') with A' = g_3 A g_3^T, B' = g_3 B g_3^T and g_2 = (r s; t u). Attached invariants: 4 Det(Q) = 4 a_11 a_22 a_33 + a_12 a_13 a_23 - a_11 a_23^2 - a_22 a_13^2 - a_33 a_12^2; the cubic resolvent form f_{(A,B)}(x, y) = 4 Det(A x - B y), a binary cubic form over R; the discriminant Disc(A, B) = disc(f_{(A,B)}); the fifteen SL2-invariants lambda^{ij}_{kl} = a_ij b_kl - a_kl b_ij; and, over Z, the content ct(A, B) = gcd of the lambda^{ij}_{kl}. One has f_{(g . (A,B))} = (det g_3)^2 (f_{(A,B)} composed with the substitution by (r -s; -t u)), hence Disc(g . (A,B)) = (det g_3)^8 (det g_2)^6 Disc(A, B).
+**Pairs of ternary quadratic forms.** For a commutative ring R, an (integer-valued) ternary quadratic form is Q(x) = sum_{i<=j} a_ij x_i x_j with a_ij in R (with Gram matrix having a_ii on the diagonal and a_ij/2 off it when 2 is invertible), and W(R) = (Sym^2 R^3 tensor R^2)* is the module of pairs (A, B). The group GL3(R) x GL2(R) acts by (g_3, g_2) . (A, B) = (r A' + s B', t A' + u B') with A' = g_3 A g_3^T, B' = g_3 B g_3^T and g_2 = (r s; t u). Attached invariants: 4 Det(Q) = 4 a_11 a_22 a_33 + a_12 a_13 a_23 - a_11 a_23^2 - a_22 a_13^2 - a_33 a_12^2; the cubic resolvent form f_{(A,B)}(x, y) = 4 Det(A x - B y), a binary cubic form over R; the discriminant Disc(A, B) = disc(f_{(A,B)}); the fifteen SL2-invariants lambda^{ij}_{kl} = a_ij b_kl - a_kl b_ij; and, over Z, the content ct(A, B) = gcd of the lambda^{ij}_{kl}. One has f_{(g . (A,B))} = (det g_3)^2 (f_{(A,B)} composed with the substitution by (r -s; -t u)), hence Disc(g . (A,B)) = (det g_3)^8 (det g_2)^6 Disc(A, B).
 
-Integer-valued convention (Bhargava HCL III (11), (19)): diagonal coefficients integral, off-diagonal Gram entries half-integral; 4 Det has integer coefficients. Sign convention pinned: the resolvent form is 4 Det(Ax - By) (Bhargava-Shankar); HCL III writes 4 Det(Ax + By), which differs by (x, y) |-> (x, -y) and is inconsistent with its own multiplication table. Over Z, GL3(Z) = {+-1} x SL3(Z) and -1 acts trivially on pairs, so GL3(Z) x GL2(Z)-orbits are the GL2(Z) x SL3(Z)-orbits of Bhargava-Shankar.
+Integer-valued convention (Bhargava HCL III (11), (19)): diagonal coefficients integral, off-diagonal Gram entries half-integral; 4 Det has integer coefficients. Over a general coefficient ring, define det4 by the displayed integral coefficient polynomial; neither half-Gram entries nor division by four is performed in R. Congruence acts by substitution on the polynomial coefficients, and specializes to Gram congruence when 2 is invertible. Sign convention pinned: the resolvent form is 4 Det(Ax - By) (Bhargava-Shankar); HCL III writes 4 Det(Ax + By), which differs by (x, y) |-> (x, -y) and is inconsistent with its own multiplication table. Over Z, GL3(Z) = {+-1} x SL3(Z) and -1 acts trivially on pairs, so GL3(Z) x GL2(Z)-orbits are the GL2(Z) x SL3(Z)-orbits of Bhargava-Shankar.
 
 The required API is:
 
@@ -405,6 +410,8 @@ For the proof, Define the six-coefficient ternary forms with evaluation, linear 
 - 4 Det(x_1^2 + x_2^2 + x_3^2) = 4.
 
 - Proportional pairs (Q, Q) have all lambda = 0 and discriminant 0.
+
+- Over F₂, Q=xy+xz+yz has det4=1 by the integral polynomial. Its polar bilinear form has determinant zero in odd dimension. Defining det4 as that polar determinant would therefore fail.
 
 <a id="quartic-ring-and-cubic-resolvent"></a>
 
@@ -614,6 +621,10 @@ For the proof, Define the entries, the matrices, the action and the sub-Pfaffian
 
 - The diagonal of each A_r is zero.
 
+- Over F₂ the alternating matrix with entries (0,1)=(1,0)=1 and all others zero is nonzero and has zero diagonal. A definition using only skew symmetry would also admit the identity matrix, which is not alternating.
+
+- For the preceding integer matrix with sub-Pfaffian vector (1,0,0,0,0), scaling by 2 gives vector (4,0,0,0,0), not (2,0,0,0,0).
+
 <a id="bhargava-parametrization-of-quintic-rings"></a>
 
 **Bhargava parametrization of quintic rings.** (a) There is a canonical bijection between GL4(Z) x SL5(Z)-orbits on V(Z) = Z^4 tensor wedge^2 Z^5 and isomorphism classes of pairs (R, S) with R a quintic ring and S a sextic resolvent ring of R (HCL IV Theorems 1 and 8; for nondegenerate pairs Disc(A) = Disc(R) = (1/16) Disc(S)^{1/3}); the sextic resolvent is defined by HCL IV Definitions 10-11 (a sextic ring S with a Z-linear map phi : R/Z -> wedge^2(S/Z) such that R(phi) = R and S(phi) = S). (b) Every quintic ring is R(A) for some A, so every quintic ring has a sextic resolvent (Theorem 17, Corollary 18). (c) If R is maximal, A is unique up to GL4(Z) x SL5(Z), so a maximal quintic ring has a unique sextic resolvent (Theorem 17, Corollary 19). (d) The classical resolvent map of Cayley is 4 times the sub-Pfaffian covariant (Theorem 9).
@@ -654,7 +665,7 @@ For the proof, For a proper finite p-primary overring R′, choose m ≥ 1 minim
 
 **Pgl2 orbits and stabilizers of binary quartic forms.** Let R be a commutative ring and V(R) the binary quartic forms over R (Layer 0), with the twisted action gamma * f = (det gamma)^{-2} f((x,y) gamma) of GL2(R) (Layer 0), on which the centre acts trivially. It therefore induces an action of PGL2(R) = GL2(R)/centre (Mathlib's Matrix.ProjGenLinGroup). The invariants I and J are PGL2(R)-invariant, so the orbit space PGL2(R)\V(R) maps to R x R; its fibre over (I, J) is the set of orbits of forms with invariants I, J. The stabilizer of f is Stab_{PGL2(R)}(f). Over Z (and any ring whose units have square 1) the PGL2-orbits are the orbits of GL2 under plain substitution.
 
-The twist exponent is -2, so that I and J are invariant (Layer 0 records the untwisted weights (det gamma)^4, (det gamma)^6). PGL2 is the quotient by the full centre (scalar matrices), not PSL2.
+The twist exponent is -2, so that I and J are invariant (Layer 0 records the untwisted weights (det gamma)^4, (det gamma)^6). PGL2 here means Mathlib’s quotient by the full centre of GL2(R). Agreement with the R-points of the projective general linear group scheme is used only over fields, PIDs or local rings, where Pic(R)=0; over a general ring these two meanings need not agree. This convention does not identify the points of the central SL_n/μ₂ quotient with a naive pointwise quotient.
 
 The required API is:
 
@@ -832,7 +843,7 @@ The required API is:
 
 - `BinaryQuartic.cubicInvariant_map`: z commutes with restriction along field homomorphisms.
 
-For the proof, N(G) = g_6^2: the norm of a linear element u + v phi is u^3 - 3 I u v^2 - J v^3; substituting and using the syzygy gives g_6^2 (checked symbolically: Res(3G, X^3 - 3IX + J) = 27 g_6^2). Independence: Cremona-Fisher Lemma 1, G(x_1, y_1) G(x_2, y_2) = F(x_1, y_1, x_2, y_2)^2 with F in A[x_1, y_1, x_2, y_2] explicit; hence the classes at two admissible points agree. Existence of an admissible point for #K != 5: g_6 has at most 6 zeros in P^1(K) (it is nonzero when the discriminant is nonzero: Res(g, g_6) = Delta^3/3^9 up to the normalization). Base change: the formula is polynomial in the coefficients.
+For the proof, N(G) = g_6^2: the norm of a linear element u + v phi is u^3 - 3 I u v^2 - J v^3; substituting and using the syzygy gives g_6^2 (checked symbolically: Res(3G, X^3 - 3IX + J) = 27 g_6^2). Independence: Cremona-Fisher Lemma 1, G(x_1, y_1) G(x_2, y_2) = F(x_1, y_1, x_2, y_2)^2 with F in A[x_1, y_1, x_2, y_2] explicit; hence the classes at two admissible points agree. Existence of an admissible point for #K != 5: g_6 has at most 6 zeros in P^1(K) (it is nonzero when the discriminant is nonzero: Res(g, g_6) = Delta^3 in the ordinary binary-discriminant normalization). Base change: the formula is polynomial in the coefficients.
 
 *Needs:* [covariants of a binary quartic](#covariants-of-a-binary-quartic), [syzygy of binary quartic covariants](#syzygy-of-binary-quartic-covariants), [binary quartic invariants](../ArithmeticStatisticsPartI/README.md#binary-quartic-invariants), `AdjoinRoot` (Mathlib), `powMonoidHom` (Mathlib), `Algebra.norm` (Mathlib), `AdjoinRoot.map` (Mathlib), `WeierstrassCurve.Affine.A` (Tau Ceti), `WeierstrassCurve.Affine.M` (Tau Ceti), `WeierstrassCurve.Affine.localRes` (Tau Ceti).
 
@@ -851,6 +862,10 @@ For the proof, N(G) = g_6^2: the norm of a linear element u + v phi is u^3 - 3 I
 - At (1, 0), G = (4 a phi + 3b^2 - 8ac)/3.
 
 - N(G) is always a square.
+
+- For g=x⁴−y⁴, g₄=48x²y² and g₆=−32xy(x⁴+y⁴). Their resultants with g are 5308416=81·(−256)² and −16777216=(−256)³; inserting Δ into the source formulas without converting Δ_CF fails both values.
+
+- For g=x³y−xy³ the fixed-degree quartic discriminant is 4, although g(X,1) has degree three. The homogeneous resultants are 1296 and 64; leading-zero coefficients must not change the prescribed degrees.
 
 <a id="cubic-invariant-is-an-orbit-invariant"></a>
 
@@ -874,7 +889,7 @@ For the proof, G(gamma * g)(x, y) = (det gamma)^{-2} G(g)((x, y) gamma) by the e
 
 char K not 2,3, and #K ≠ 5 for the chosen admissible-evaluation construction of z.
 
-For the proof, (a, linear factor implies z = 1) At a zero (x, y) of g, g_4(x, y) != 0 and g_6(x,y) != 0 (resultants Delta^2/3^2, Delta^3/3^9), and the syzygy gives G(x, y) = g_4(x,y)/3 = (3 g_6/g_4)^2, a square (Cremona-Fisher Lemma 3). (a, z = 1 implies linear factor) If a = 0 the factor Y already gives the conclusion; otherwise, with r = g_6(1, 0) != 0 after a proper change, z = G(1,0) has characteristic polynomial Z^3 - pZ^2 + qZ - r^2; if z = z_1^2 then h(Z^2) = -h_1(Z) h_1(-Z) and -(u + b)/(4a) is a root of g (Cremona-Fisher Proposition 8). (b) Move the linear factor to Y, translate X to kill c, and rescale with (M, lambda) of determinant 1 (Cremona-Fisher Proposition 7).
+For the proof, (a, linear factor implies z = 1) At a zero (x, y) of g, g_4(x, y) != 0 and g_6(x,y) != 0 (fixed-degree homogeneous resultants 81 Delta^2 and Delta^3), and the syzygy gives G(x, y) = g_4(x,y)/3 = (3 g_6/g_4)^2, a square (Cremona-Fisher Lemma 3). (a, z = 1 implies linear factor) If a = 0 the factor Y already gives the conclusion; otherwise, with r = g_6(1, 0) != 0 after a proper change, z = G(1,0) has characteristic polynomial Z^3 - pZ^2 + qZ - r^2; if z = z_1^2 then h(Z^2) = -h_1(Z) h_1(-Z) and -(u + b)/(4a) is a root of g (Cremona-Fisher Proposition 8). (b) Move the linear factor to Y, translate X to kill c, and rescale with (M, lambda) of determinant 1 (Cremona-Fisher Proposition 7).
 
 *Needs:* [cubic invariant of a binary quartic](#cubic-invariant-of-a-binary-quartic), [syzygy of binary quartic covariants](#syzygy-of-binary-quartic-covariants), [pgl2 orbits and stabilizers of binary quartic forms](#pgl2-orbits-and-stabilizers-of-binary-quartic-forms).
 
@@ -1038,7 +1053,7 @@ For the proof, If g_2 = det(M)^{-2} g_1^M then F_{g_1,g_2} = det(M)^{-2} F_{g_1,
 
 char K not 2, 3; the discriminant is nonzero.
 
-For the proof, Order: stabilizer elements are the proper self-equivalences; by bilinear-factor-criterion-for-proper-equivalence they correspond to the K-rational bilinear factors of F_{f,f}: the trivial one and one for each K-rational root of the resolvent. Exponent 2: a self-equivalence is given by M = (-alpha_2 alpha_1; -alpha_3 alpha_2) (Cremona-Fisher Section 6), of trace 0, so M^2 = -det(M) I is scalar. E(K)[2]: its order is 1 + #{roots of x^3 - 27Ix - 27J in K} (Tau Ceti card_ker_nsmul_two), and the roots correspond to those of X^3 - 3IX + J under T = -3 phi. Elementary abelian 2-groups of equal order 1, 2 or 4 are isomorphic. Over R: the resolvent has three real roots iff its discriminant 27 Delta is positive.
+For the proof, Order: stabilizer elements are the proper self-equivalences; by bilinear-factor-criterion-for-proper-equivalence they correspond to the K-rational bilinear factors of F_{f,f}: the trivial one and one for each K-rational root of the resolvent. Exponent 2: a self-equivalence is given by M = (-alpha_2 alpha_1; -alpha_3 alpha_2) (Cremona-Fisher Section 6), of trace 0, so M^2 = -det(M) I is scalar. E(K)[2]: its order is 1 + #{roots of x^3 - 27Ix - 27J in K} (Tau Ceti card_ker_nsmul_two), and the roots correspond to those of X^3 - 3IX + J under T = -3 phi. Elementary abelian 2-groups of equal order 1, 2 or 4 are isomorphic. Over R: the resolvent has three real roots iff its discriminant 729 Delta is positive.
 
 *Needs:* [bilinear factor criterion for proper equivalence](#bilinear-factor-criterion-for-proper-equivalence), [pgl2 orbits and stabilizers of binary quartic forms](#pgl2-orbits-and-stabilizers-of-binary-quartic-forms), `WeierstrassCurve.Affine.card_ker_nsmul_two` (Tau Ceti).
 
@@ -1064,9 +1079,11 @@ For the proof, (a) => (b): z(g) is represented by G(x, y), which is linear in ph
 
 **Checks.**
 
-- For m = 1 the conic has the zero t = (1, 0, 0).
+- For m = 1, Q_m=t₁²+2t₀t₂+27I t₂² has determinant −1 and the nontrivial zero t=(1,0,0).
 
-- For I = 3, J = 0 and m = u + v phi linear, Simon's quartic has invariants (3, 0).
+- For I=3, J=0 and m=u+v phi of square norm r² with v≠0, Simon's quartic has invariants (3,0). Explicitly m=28+7phi has norm 9604=98²; its quartic has coefficients (1/84,0,−2,28/3,−7), with I=3, J=0 and Δ=4.
+
+- Over Q, m=2 has norm 8, which is not a square. Its conic is still isotropic, but m is outside the theorem’s square-norm domain; conic isotropy alone must not produce an orbit with the prescribed invariants.
 
 <a id="locally-soluble-quartics-and-the-two-selmer-group"></a>
 
@@ -1114,7 +1131,7 @@ For the proof, O^3/Ov is finitely generated and torsion-free (v primitive), henc
 
 **Ternary cubic forms and their invariants.** A ternary cubic over a commutative ring R is U = a x^3 + b y^3 + c z^3 + a_2 x^2 y + a_3 x^2 z + b_1 x y^2 + b_3 y^2 z + c_1 x z^2 + c_2 y z^2 + m x y z. Its invariants c_4(U) (25 terms, degree 4) and c_6(U) (103 terms, degree 6) are the integer polynomials in the coefficients determined by Fisher's normalization H(lambda U + mu H) = 3(c_4 lambda^2 mu + 2 c_6 lambda mu^2 + c_4^2 mu^3) U + (lambda^3 - 3 c_4 lambda mu^2 - 2 c_6 mu^3) H, where H(U) = -(1/2) det(Hessian of U); c_4 = -216 abcm + 144 abc_1c_2 + ... + m^4 and c_6 = 5832 a^2b^2c^2 - 3888 a^2 b b_3 c c_2 + ... - m^6. For the Weierstrass cubic y^2 z - x^3 - A x z^2 - B z^3 they are c_4 = -48A and c_6 = -864B, the usual invariants of y^2 = x^3 + Ax + B; and c_4^3 - c_6^2 = 1728 Delta. Substitution: (U o M)(x, y, z) = U(M^T (x, y, z)).
 
-The polynomials are written out explicitly (derived from the Hessian identity and checked on the Weierstrass family); their leading terms agree with Fisher's printed partial expansions.
+Construct these as universal polynomials over Z, then evaluate their coefficients in R. The Hessian identity determines them over characteristic zero; neither division by 2 or 1728 nor uniqueness from that identity is asserted after specialization to characteristic two or three. Their leading terms agree with Fisher's printed partial expansions.
 
 The required API is:
 
@@ -1155,6 +1172,8 @@ For the proof, Compute H(U), the first and second directional derivatives of H a
 - Fermat cubic x^3 + y^3 + z^3: c_4 = 0, c_6 = 5832.
 
 - y^2 z = x^3 - x z^2: c_4 = 48.
+
+- The zero cubic has c₄=c₆=Δ=0. The singular cubic xyz instead has c₄=1, c₆=−1 and Δ=0. Thus vanishing discriminant does not force both invariants to vanish; the integral coefficient polynomials remain defined in characteristic two and three even though division by 1728 is unavailable there.
 
 <a id="invariance-of-ternary-cubic-invariants"></a>
 
@@ -1250,7 +1269,7 @@ For the proof, For almost all p, f is already Z_p-integral (finitely many denomi
 
 *Needs:* [pgl2 orbits and stabilizers of binary quartic forms](#pgl2-orbits-and-stabilizers-of-binary-quartic-forms), `Module.free_of_finite_type_torsion_free'` (Mathlib), `PadicInt` (Mathlib), `Padic` (Mathlib).
 
-([[1]](#ref-1), Section 3.1, printed p. 23.)
+([[1]](#ref-1), Proposition3.6 and proof, §3.2, pp.24–25, for the local-to-global transporter argument; the CRT lattice argument above also covers degenerate quartics.)
 
 **Checks.**
 
@@ -1660,11 +1679,11 @@ For the proof, Translate the lift and compare the three power-basis columns by a
 
 <a id="refinement-wood-ring-interpretation"></a>
 
-**Wood ring interpretation.** The PGL₂(Z)-orbit embedding into pairs of ternary integral quadratic forms has the following ring interpretation: its image parametrizes quartic rings equipped with a monogenized cubic resolvent. For Wood’s ordinary GL₂(Z) action the determinant-square twist is trivial on integral unimodular matrices, and scalar −1 acts trivially on quartics. Thus Wood’s GL₂(Z)-orbit set is the PGL₂(Z)-orbit set. The generator, the cubic-resolvent map and the ring discriminant are preserved.
+**Wood ring interpretation.** The PGL₂(Z)-orbit embedding into pairs of ternary integral quadratic forms has the following ring interpretation: its image parametrizes quartic rings equipped with a monogenized cubic resolvent. For Wood’s ordinary GL₂(Z) action the determinant-square twist is trivial on integral unimodular matrices, and scalar −1 acts trivially on quartics. Thus Wood’s GL₂(Z)-orbit set is the PGL₂(Z)-orbit set. Transport the generator class and cubic-resolvent map through the induced cubic basis change; the ring discriminant is preserved.
 
 Integral unimodular groups; this equivalence of action conventions is not asserted over arbitrary fields.
 
-For the proof, In Wood’s coordinates A₀ has 4det A₀=−1. The associated cubic multiplication makes 1,w,w² a basis. Conversely monogenization gives a ternary quadratic form with 4det=−1; its integral equivalence to the Veronese form supplies the inverse. The stabilizer calculation in the turns equivalence of based pairs into GL₂ equivalence of quartics. Respect the corrected quartic multiplication and the minus sign in 4det(Ax−By).
+For the proof, Wood uses A₀=z²−xy, with 4det A₀=−1, and B=e x²+a y²+c z²+d xz+b yz. Substitute (x,y,z)=(z′,x′,y′), a determinant-one cyclic permutation: A₀ becomes y′²−x′z′=−A₁ and B becomes a x′²+b x′y′+c y′²+d y′z′+e z′². Then apply diag(−1,1) to the pair of forms to obtain (A₁,B). This is a GL₂×SL₃ adapter, not a congruence of A₀ to A₁: 4det A₁=+1. The induced cubic-ring basis change must also transport the chosen resolvent generator. Independently, Wood’s cubic multiplication convention is converted to the one here by negating both nonconstant basis vectors. Monogenization first gives a form integrally congruent to Wood’s A₀; apply the full pair adapter only after that normalization. The stabilizer calculation then identifies the two orbit problems, retaining the corrected quartic multiplication and the minus sign in 4det(Ax−By).
 
 *Needs:* [monogenized resolvent](#refinement-monogenized-resolvent), [embedding into pairs of ternary quadratic forms](#embedding-into-pairs-of-ternary-quadratic-forms), [orbit bijection for the embedding](#orbit-bijection-for-the-embedding), GeometryOfNumbersAndQuadraticArithmetic:GN.2.
 
@@ -1674,13 +1693,15 @@ For the proof, In Wood’s coordinates A₀ has 4det A₀=−1. The associated c
 
 - Dropping the generator class loses information and changes the orbit problem.
 
-- Wood’s A₀ and the Veronese A₁ are equivalent coordinate conventions, not equal matrices.
+- Wood’s A₀ and the Veronese A₁ are related by the cyclic permutation and first-form negation above. The two determinants −1 and +1 forbid an integral unimodular congruence of the first forms alone.
+
+- At f=0 the resolvent is Z[t]/(t³), with its monogenizing class. This degenerate quartic remains in the ring dictionary; a separability restriction would incorrectly delete it.
 
 ### 1.12 Symmetric pencils and Jacobian torsors
 
 <a id="refinement-common-isotropic"></a>
 
-**Common isotropic.** For a field K of characteristic not2, symmetric n×n matrices A,B and r≥0, define F_r(K) to be the set of dimension-r K-submodules U⊂Kⁿ on which both bilinear forms vanish identically. This coordinate definition includes degenerate pencils. If the invariant binary form has nonzero discriminant, for n=2g+1 and r=g it is the K-point set of a finite torsor scheme under the norm-one restriction of scalars of μ₂; the K-point set may be empty. Under the same nonzero-discriminant hypothesis, for n=2g+2 and r=g it is the K-point set of the smooth Fano variety F. The vector-space dimension is g and the projective-plane dimension is g−1.
+**Common isotropic.** For any field K, n×n matrices A,B and r≥0, define F_r(K) to be the set of dimension-r K-submodules U⊂Kⁿ on which both bilinear forms vanish identically. This coordinate definition includes degenerate pencils and nonsymmetric matrices. The following geometric comparisons require symmetric A,B and char K≠2. If the invariant binary form has nonzero discriminant, for n=2g+1 and r=g it is the K-point set of a finite torsor scheme under the norm-one restriction of scalars of μ₂; the K-point set may be empty. Under the same nonzero-discriminant hypothesis, for n=2g+2 and r=g it is the K-point set of the smooth Fano variety F. The vector-space dimension is g and the projective-plane dimension is g−1.
 
 Use full bilinear restriction, not merely a test on coordinate basis vectors. The finite-torsor and smooth-Fano assertions require Δ(f_{A,B})≠0; they do not apply to the zero pencil.
 
@@ -1705,6 +1726,10 @@ For the proof, The native rational-point predicate is finite rank and ∀u,v∈U
 - For (I₃,0) over R there is no common isotropic line.
 
 - If the first g×g blocks of both matrices vanish, the span of the first g coordinate vectors is common isotropic.
+
+- In characteristic two, A=[[0,1],[1,0]] has uᵀAu=0 for every u, but e₀ᵀAe₁=1. The whole two-dimensional space is therefore not common bilinear-isotropic for (A,0).
+
+- At n=r=0 the set contains the unique zero submodule; for r>n it is empty. The finite-torsor conclusion does not apply to the zero pencil in positive dimension.
 
 <a id="refinement-oriented-ideal-triples"></a>
 
@@ -1814,15 +1839,19 @@ For the proof, Corollaries19–20 give the orbit correspondence. A square-one un
 
 **Pencil existence.** For n=2g+2≥4, char K≠2 and f₀Δ≠0, the following eight conditions are equivalent: (a) a generic pencil with invariant f exists; (b) a regular augmented pencil with invariant fy² exists; (c) f₀∈K×²N(L×); (d) the degree-one generalized Picard torsor J_m¹ is 2-divisible in H¹(K,J_m); (e) the generalized Weierstrass class W_m[2] lifts under doubling from H¹(K,J_m[4]); (f) a two-cover F_m→J_m¹ of homogeneous spaces exists; (g) the maximal unramified abelian exponent-two cover of C minus its two points at infinity descends from Kˢ to K; (h) the maximal abelian exponent-two cover of C, ramified only at those two points, descends from Kˢ to K. Both covers have degree 2^{2g+1}. The smooth J¹ being 2-divisible alone does not replace these conditions. Theorem25 identifies their common obstruction in H²(K,J_m[2]), obtained from the connecting image of f₀ in K×/(K×²N(L×)).
 
-m is the two-point divisor above infinity, with its quadratic splitting field; generalized Jacobian data is retained.
+m is the two-point divisor above infinity, with its quadratic splitting field; generalized Jacobian data is retained. Apply SF.3 to the nodal curve C_m:z²=f(x,y)y² and its normalization C. The local supporting target `ArithmeticOrbitRefinement.generalizedPicardComparison` constructs J_m=Pic⁰(C_m), J_m¹=Pic¹(C_m), their normalization maps to J and J¹, and the exact sequence 0→T→J_m→J→0 with T=ker(N:Res_{K∞/K}G_m→G_m), K∞=K[t]/(t²−f₀). Its API includes base change, the degree-one torsor action and the Picard–Brauer connecting map. This modulus comparison, rather than a second general Picard representability theorem, is the input here ([73], §3, (4)–(5), pp.10–11).
 
 For the proof, The norm criterion follows from oriented norm pairs. On V⊕K² augment A by the block diag(1,0), and B by the block with entries B₁₂=B₂₁=1 and zero diagonal. The signed determinant becomes f·y². Use the regular augmented-pencil Fano torsor and generalized Picard doubling obstruction; BGW Theorem25 identifies the common H² obstruction. Construct the regular augmented-pencil Fano torsor and prove its generalized-Picard obstruction comparison.
 
-*Needs:* [field pencil stabilizers](#refinement-field-pencil-stabilizers), [common isotropic](#refinement-common-isotropic), TauCetiRoadmap.JacobianChallenge Layer d.
+*Needs:* [field pencil stabilizers](#refinement-field-pencil-stabilizers), [common isotropic](#refinement-common-isotropic), SchemeAndStackFoundations:SF.3 (unpointed Picard degree torsors), TauCetiRoadmap.JacobianChallenge Layer D (pointed comparison).
 
 ([[73]](#ref-73), Theorems24–25, pp.14–16.)
 
 **Checks.**
+
+- If f₀ is a square then K∞ is split quadratic étale and T≃G_m. Replacing K∞ by the field K would incorrectly give trivial T.
+- For f₀=−1 over R, T(R) is the norm-one circle in C×, whereas for f₀=1 it is R×. The modulus torus cannot always be split.
+- Over a separable closure J_m has dimension g+1 and J has dimension g. Their degree-one torsors retain this dimension difference; replacing J_m¹ by J¹ loses the modulus obstruction.
 
 - For a negative definite real even-degree f, L is a product of C and the negative leading coefficient is not a norm times a square; there is no rational pencil.
 
@@ -1834,7 +1863,7 @@ f₀Δ≠0, characteristic not2; rational divisor, not merely a rational geometr
 
 For the proof, Use Theorem23’s Fano group law. The regular augmentation realizes generalized doubling. The x−T Kummer map associates oriented norm pairs to actual divisors; the Brauer obstruction must vanish to pass from a rational Picard class to a divisor. The two group actions give the two distinct coset sets.
 
-*Needs:* [common isotropic](#refinement-common-isotropic), [pencil existence](#refinement-pencil-existence), TauCetiRoadmap.JacobianChallenge Layer d, TauCetiRoadmap.JacobianChallenge Layer a.
+*Needs:* [common isotropic](#refinement-common-isotropic), [pencil existence](#refinement-pencil-existence), SchemeAndStackFoundations:SF.3 (unpointed Picard degree torsors), TauCetiRoadmap.JacobianChallenge Layer D (pointed comparison), TauCetiRoadmap.JacobianChallenge Layer A.
 
 ([[73]](#ref-73), Theorem23, pp.12–13; Theorems28–29, pp.18–20; Proposition21, pp.10–11.)
 
@@ -1852,7 +1881,7 @@ Local solubility includes every archimedean and nonarchimedean place. F(K_v)≠�
 
 For the proof, The norm/generalized-Picard existence criterion gives a rational orbit after the Selmer lift. Twisting by H¹(K,J[2]) changes its Fano torsor class. The obstruction is cup product with W[2]; local Kummer classes and the Hasse principle put Sel₂(J) in its kernel. Thus twisting gives the simply transitive Selmer action and identifies the two-cover set.
 
-*Needs:* [pencil fano torsor](#refinement-pencil-fano-torsor), [field pencil stabilizers](#refinement-field-pencil-stabilizers), TauCetiRoadmap.JacobianChallenge Layer d, TauCetiRoadmap.EllipticCurves Layer 7.
+*Needs:* [pencil fano torsor](#refinement-pencil-fano-torsor), [field pencil stabilizers](#refinement-field-pencil-stabilizers), SchemeAndStackFoundations:SF.3 (unpointed Picard degree torsors), TauCetiRoadmap.JacobianChallenge Layer D (pointed comparison), TauCetiRoadmap.EllipticCurves Layer 7.
 
 ([[73]](#ref-73), Theorems14,30–31, pp.5,21–24.)
 
@@ -2020,7 +2049,9 @@ For the proof, Primitivity permits unimodular completion. Any two completions di
 
 - In dimension3, top blocks U=(1,0),V=(0,1) give markedQ=1 for the standard coordinate line.
 
-- An integral parabolic completion with determinant−1 on its first block changes Q’s sign and leaves markedQ unchanged.
+- For the preceding g=1 blocks, Q=−1. The determinant-one completion diag(−1,−1,1) gives blocks (1,0),(0,−1), hence Q=+1 and markedQ=1.
+
+- The completion diag(−1,1,1) has first-block determinant −1 but total determinant −1. It negates both top blocks and leaves Q=−1, so first-block determinant alone does not determine the sign. Both completions preserve absolute Q.
 
 - In dimension3 the rational determinant-one congruence diag(2,1,1/2) changes the preceding top blocks to (2,0),(0,1), giving |Q|=2. Rational adapted bases therefore do not define the integral marked invariant.
 
@@ -2082,13 +2113,13 @@ For the proof, Use Δ(xf)=Δ(f)f(0,1)² to preserve weak divisibility. Define W�
 
 <a id="refinement-genus-one-stabilizer-schemes"></a>
 
-**Genus one stabilizer schemes.** Over a field of characteristic different from2,3,5, the nondegenerate binary quartic, ternary cubic, pair of quaternary quadrics and quintuple of quinary alternating matrices give the degree d=2,3,4,5 line-bundle presentations of smooth genus-one curves. Their full linear-group stabilizers are extensions of Aut(Jac(C)) (automorphisms fixing its elliptic origin) by the theta group Θ_{Jac(C),d}, which extends Jac(C)[d] by G_m. For rational-divisor formulations quotient the ineffective central scalars; the stabilizer becomes the corresponding extension by Jac(C)[d]. For fixed invariants and the differential-preserving degree2 PGL₂ action, recover the E[2] stabilizer with Galois action. These are different acting groups and must not be conflated. The acting groups are GL₂ twisted by det⁻² times the weight-two scalar G_m for degree2; GL₃ twisted by det⁻¹ times G_m for degree3; GL₂×GL₄ for degree4; and GL₅×GL₅ for degree5. The last two act naturally on 2⊗Sym²(4) and 5⊗∧²(5); their ineffective scalar kernel is (a,b) with ab²=1.
+**Genus one stabilizer schemes.** Over a field of characteristic different from2,3,5, the nondegenerate binary quartic, ternary cubic, pair of quaternary quadrics and quintuple of quinary alternating matrices give the degree d=2,3,4,5 line-bundle presentations of smooth genus-one curves. Their full linear-group stabilizers are extensions of Aut(Jac(C)) (automorphisms fixing its elliptic origin) by the theta group Θ_{Jac(C),d}, which extends Jac(C)[d] by G_m. For rational-divisor formulations quotient the central G_m of line-bundle scalings; the stabilizer becomes the corresponding extension by Jac(C)[d]. In degree two this means PGL₂×2G_m, retaining the μ₂ kernel of the square-scaling action: dividing out every ineffective element would also lose the hyperelliptic involution. In degree three use PGL₃×G_m, and in degrees four and five use the displayed one-dimensional central quotient. For fixed invariants and the differential-preserving degree2 PGL₂ action, recover the E[2] stabilizer with Galois action. These are different acting groups and must not be conflated. The acting groups are GL₂ twisted by det⁻² times the weight-two scalar G_m for degree2; GL₃ twisted by det⁻¹ times G_m for degree3; GL₂×GL₄ for degree4; and GL₅×GL₅ for degree5. The last two act naturally on 2⊗Sym²(4) and 5⊗∧²(5); their ineffective scalar kernel is (a,b) with ab²=1.
 
 The conservative common characteristic restriction is stronger than each degree2–4 source theorem and avoids the degree5 exceptional characteristic. Degree d line bundles and rational divisor classes are distinguished where the Brauer obstruction matters.
 
 For the proof, Use the complete linear system of the degree-d line bundle for the geometric inverse. For d=3 this is the plane cubic; for d=4 the two-dimensional space of quadrics cuts out the curve; for d=5 the alternating presentation comes from its codimension-three resolution. Identify the automorphism group of the framed geometric data and then remove frames. Track the scalar kernel and differential to compare to the stabilizer. Use the group-scheme and differential comparison stated in this layer.
 
-*Needs:* [symmetric pencil](../ArithmeticStatisticsPartI/README.md#refinement-symmetric-pencil), [common isotropic](#refinement-common-isotropic), [ternary cubic forms and their invariants](#ternary-cubic-forms-and-their-invariants), [stabilizer of a binary quartic is two torsion](#stabilizer-of-a-binary-quartic-is-two-torsion), TauCetiRoadmap.JacobianChallenge Layer d, TauCetiRoadmap.JacobianChallenge Layer a, TauCetiRoadmap.EllipticCurves Layer 7.
+*Needs:* [symmetric pencil](../ArithmeticStatisticsPartI/README.md#refinement-symmetric-pencil), [common isotropic](#refinement-common-isotropic), [ternary cubic forms and their invariants](#ternary-cubic-forms-and-their-invariants), [stabilizer of a binary quartic is two torsion](#stabilizer-of-a-binary-quartic-is-two-torsion), SchemeAndStackFoundations:SF.3 (unpointed Picard degree torsors), TauCetiRoadmap.JacobianChallenge Layer D (pointed comparison), TauCetiRoadmap.JacobianChallenge Layer A, TauCetiRoadmap.EllipticCurves Layer 7.
 
 ([[76]](#ref-76), Theorems4.1,4.5,4.11,4.14 and Remarks4.3,4.13,4.15, §§4.1–4.4, preprint pp.24–31.)
 
@@ -2097,6 +2128,10 @@ For the proof, Use the complete linear system of the degree-d line bundle for th
 - For degree5 there are five alternating matrices, while the quintic-ring representation has four.
 
 - The extension need not split, particularly at special j-invariants.
+
+- In degrees four and five, the central pair (t⁻²I,tI) acts trivially: its scalar on each tensor is t⁻²t²=1. Counting this full stabilizer as a finite group would retain a spurious G_m.
+
+- Over an algebraically closed characteristic-zero field at j≠0,1728, the rational-divisor groups just specified have stabilizer order 2d², whereas the differential-preserving subgroup has order d². In degree two PGL₂×2G_m has stabilizer order 8 and fixed-invariant PGL₂ has order 4. The element (1,−1) acts trivially on quartic coefficients but remains in the former stabilizer; quotienting this μ₂ away would give a different group.
 
 ### 1.15 Quartic invariant index and étale resolvents
 
@@ -2120,11 +2155,11 @@ For the proof, The gcd of coefficient minors equals content. In the primitive ca
 
 <a id="refinement-quartic-etale-resolvent"></a>
 
-**Quartic etale resolvent.** Let Q be a quartic étale algebra over a characteristic-zero field K. The three partitions of its four geometric embeddings into two unordered pairs form a Galois set of size three. The associated cubic étale algebra is the rationalization of any cubic resolvent order of Q when such an order is given. A quartic field does not force its cubic resolvent algebra to be a field: a cyclic quartic extension has a fixed partition and yields K times a quadratic algebra. The discriminants of an integral quartic order and its cubic resolvent order agree; this is an equality of order discriminants, not a claim that both orders are maximal.
+**Quartic etale resolvent.** Given a quartic Z-order Q of nonzero discriminant and a specified cubic resolvent order R, identify R⊗ℚ with the existing cubic étale resolvent algebra of Q⊗ℚ specified in Scope and ownership. Tensor products here are over Z. The new assertion is this comparison with the integral quadratic resolvent map and its lattice: Disc(Q)=Disc(R), without assuming either order maximal. A quartic field may have a reducible rational resolvent, so no field hypothesis is imposed on R⊗ℚ.
 
-Characteristic zero; four distinct geometric embeddings. An integral order/resolvent is specified for the discriminant comparison.
+Both orders are free Z-algebras of their prescribed ranks; their rationalizations are étale. An integral resolvent map is specified for the discriminant comparison.
 
-For the proof, The S4 action on pair partitions factors through S3 with kernel the Klein four group. The quadratic resolvent expression xx′+x″x‴ takes one value for each partition. Descent identifies the resulting rank-three algebra with the invariant subalgebra in the rational S4-closure. Use the discriminant-preserving map to compare integral orders.
+For the proof, identify the source’s resolvent-map conjugates with the values of the imported quartic resolvent specification. Descend this identification to K, retaining the lattice given by R. Compare the integral discriminant forms through the orientation in the quartic/cubic resolvent data; the polynomial discriminant identity alone would not identify the order lattice.
 
 *Needs:* [quartic ring and cubic resolvent](#quartic-ring-and-cubic-resolvent), [nondegenerate forms and etale cubic algebras](#nondegenerate-forms-and-etale-cubic-algebras).
 
@@ -2132,9 +2167,9 @@ For the proof, The S4 action on pair partitions factors through S3 with kernel t
 
 **Checks.**
 
-- Split K⁴ has split cubic resolvent K³.
+- For the split quartic order Z⁴, its cubic resolvent order Z³ rationalizes to the imported split algebra Q³.
 
-- A cyclic quartic field gives a reducible cubic étale resolvent.
+- A cubic resolvent order attached to an order in a cyclic quartic number field rationalizes to Q times a quadratic algebra, agreeing with the imported resolvent and not a cubic field.
 
 ### 1.16 Good-prime integral pencils
 
@@ -2158,11 +2193,43 @@ For the proof, The discriminant restriction makes R_f maximal and the projective
 
 ### Supporting descent and integral realization
 
-For degree three, four and five genus-one models prove the locally soluble rational-orbit dictionary with the actual `E[n]`-coverings, the identity covering, isogeny-compatible localization and the quotient group scheme. Over Q, an everywhere locally soluble class at the indicated integral invariants has an integral representative; local representatives patch with exactly the stated lattice, scalar and discriminant scaling. For degree three use the determinant-twisted PGL3 action, for degree four the determinant-constrained GL2×GL4 central quotient, and for degree five the determinant-constrained GL5×GL5 central quotient on `5⊗Λ²5`. The 40-dimensional quintic-ring representation is unrelated to the last carrier. Retain the rational versus integral stabilizer quotient in each fibre. Sources: Bhargava–Shankar, cubic Theorems 9–14, §§2–3; quaternary Theorems 7–10, §2; quinary Theorems 7–10, §2, with the numbered local orbit and integrality results cited in those sections. These assertions supply the exact descent-to-count bridge for the Layer 4 averages.
+**Degree-three, four and five descent.** Let K have characteristic different from 2,3 for degree three or four, and from 2,3,5 for degree five. Fix nonsingular E:y²=x³−(I/3)x−J/27. Construct the K-soluble orbit bijection with E(K)/nE(K), the stabilizer scheme E[n] for the differential-preserving effective group, and localization of the corresponding E[n]-coverings. Over Q, locally soluble rational orbits identify with Sel_n(E); every such orbit at the invariants I(E)=−3A, J(E)=−27B of an integral short model has an integral representative. Integral representatives are still identified by the rational group, so this asserts neither one integral orbit per Selmer element nor equality of integral and rational stabilizers without further hypotheses.
+
+For n=3 use determinant-twisted PGL₃ on ternary cubics, with I=c₄/16 and J=c₆/32 in the normalization above ([77], §1, p.2). For n=4 use integer-valued quaternary quadrics, including their half-integral Gram matrices. The acting group scheme is `{(g₂,g₄):det(g₂)det(g₄)=1}/G_m`, with scalar embedding t↦(t⁻²I₂,tI₄), and the binary resolvent is 16det(xA+yB). For n=5 take the ordered group factors as (h,g), with h mixing the five matrices and g acting by congruence. The group scheme is `{(h,g):det(h)det(g)²=1}/G_m`, with t↦(t⁻²I₅,tI₅), on `5⊗Λ²5`. Use exactly the invariant normalization in [79], §2, (1)–(3), p.5, which sends an integral short model to (−3A,−27B). The 40-dimensional quintic-ring representation has four matrices and is a different carrier. Evaluate quotient group schemes on K, rather than silently quotienting K-points.
+
+The required API is `GenusOneModel.solubleOrbitEquiv`, `GenusOneModel.stabilizerEquiv`, `GenusOneModel.localizeCovering`, `GenusOneModel.selmerOrbitEquiv`, and `GenusOneModel.exists_integral`. The identity corresponds to a rational flex for n=3, a linear factor of the quartic resolvent for a class of order at most two when n=4, and the identity Kummer covering in all degrees. The n=4 linear-factor test detects classes of order at most two, not just the identity. Keep all invariant, discriminant and coefficient-lattice scale factors in these maps ([77], Propositions28–30, §3.1, pp.15–16; [78], Propositions7–9, §2, pp.4–5; [79], Theorems7–10, §2, pp.5–6). *Needs:* the ternary invariants above; SF.0–SF.3, A2–A3 and EllipticCurves Layers1,7 for the covering and Selmer carriers.
+
+**Checks.**
+
+- For E:y²=x³−x, the identity degree-three model y²z−x³+xz² has c₄=48,c₆=0 and hence I=3,J=0, with its rational flex at infinity. Forgetting the factors 16 and 32 changes the elliptic curve.
+- The degree-four scalar pair (t⁻²I₂,tI₄) and degree-five pair (t⁻²I₅,tI₅) act trivially and satisfy the displayed determinant constraints. A quotient by a finite scalar subgroup leaves the wrong stabilizer.
+- Over R, E:y²=x³−x has two connected components and E(R)/4E(R) has order two. Its nonidentity class, represented by (0,0) on the bounded component, also has a linear-factor quartic resolvent. Thus the linear-factor condition cannot identify only the identity degree-four covering.
+- An integral representative belongs to a rational equivalence class in the integral lattice. Counting integral equivalence classes directly can give multiple representatives of one Selmer element.
 
 The BSS marked genus-one statistic requires an *even-degree monicization* adapter: from a locally soluble irreducible binary quartic and a two-covering of its Jacobian, construct the associated monic invariant and the integral self-adjoint/symmetric data with their leading-coefficient scaling. Prove injectivity at the required orbit level, describe every integral multiplicity and stabilizer, and identify the increasingly sparse congruence support as the leading coefficient grows. This is BSS, §§3–4 and the monicization steps in §§6–7, pp. 13–47. The odd-degree symmetric-pencil dictionary does not supply this even-degree map. Its local support is the input to the sparse quaternary count in Layer 2.
 
-For a degree-three isogeny `φ:A→A′` over a number field, construct the mirror étale quadratic algebra and normalized binary-cubic discriminant, identify rational SL2 orbits with the appropriate `H¹(F,A[φ])` classes and identify soluble orbits with the local Kummer image. The ordinary binary-cubic discriminant is minus 27 times the normalized invariant. Prove the integral orbit multiplicity and local mass identities for that algebra, including the primes above two and three. This is the isogeny-specific dictionary of BKLOS §§3–7 and Theorem 7.2; cubic-field discriminant parametrization is not its substitute. The extension from elliptic to general abelian degree-three kernels uses the same finite kernel and its Galois action, with the actual isogeny Kummer maps.
+**Divided-coefficient cubic discriminant.** Over any commutative ring R, the coordinate vector (a,b,c,d) denotes ax³+3bx²y+3cxy²+dy³. Define `Cubic.normalizedDisc` by D=a²d²−6abcd−3b²c²+4ac³+4b³d. Its API is `normalizedDisc_smul` (coefficient scaling by u multiplies D by u⁴), invariance under SL₂, determinant-six covariance under the ordinary GL₂ action, and `ordinaryDisc_eq`: the fixed-degree ordinary binary discriminant is −27D. For the affine Mathlib `Polynomial.discr` comparison in `Suggested.lean`, assume a≠0; otherwise degree can fall. These are integral polynomial identities, so require no division by 3, even in small characteristic ([3], §3, pp.5–6). *Needs:* `Fin 4 → R`, `Polynomial.discr` and the coefficient action of Part I.
+
+**Checks.**
+
+- Over Q, (0,1,0,s/4) has normalized discriminant s, while (1,0,0,1) has D=1 and ordinary cubic discriminant −27.
+- The vector (1,0,0,0) has D=0. For (0,1,0,1), D=4, but its affine polynomial 3X²+1 has discriminant −12, rather than −108. This is the negative control for the leading-coefficient hypothesis.
+- Modulo 3, (1,0,0,1) still has D=1, although the ordinary discriminant is zero. Modulo 2 its normalized and ordinary discriminants both equal 1. Multiplying (1,0,0,1) by 2 over Z gives D=16, not 4.
+
+**Three-isogeny mirror dictionary.** Let F be a field of characteristic different from 2,3 and φ:A→A′ a degree-three isogeny of abelian varieties. Write K₀=F[t]/(t²−D) for the quadratic étale algebra describing the action on A[φ], taking the split algebra for the constant kernel. Define its mirror K=F[t]/(t²−Dhat), Dhat=−3D. Require the API `ThreeIsogeny.mirrorKernelEquiv`: A[φ]≃ker(N:Res_{K/F}μ₃→μ₃); `ThreeIsogeny.cubicOrbitEquiv`: H¹(F,A[φ])≃SL₂(F)\{f:D(f)=4Dhat}; and `ThreeIsogeny.solubleOrbitEquiv`: the φ-soluble subset identifies with A′(F)/φA(F), with localization commuting. Here φ-soluble means that the cohomology class lies in the actual isogeny Kummer image; it is not the reducibility or field-discriminant predicate. The neutral orbit is 3x²y+Dhat y³. Quadratic twist by s changes Dhat to Dhat·s ([3], Proposition4.1, Theorem4.2, pp.6–7; Definition5.1 and Theorem5.3, pp.8–9).
+
+For integral orbits over a Dedekind domain R with fraction field F of characteristic different from 2,3 and nonzero integral Dhat, retain ideal triples (I,δ,α), with I³⊂δS, N(I)=αR and N(δ)=α³ for S=R[t]/(t²−Dhat). Rescaling by κ sends (I,δ,α) to (κI,κ³δ,N(κ)α). Stabilizers are norm-one cube-torsion units in End_S(I), not an assumed constant group of order three. For a DVR and maximal S, unit norm-one cubeclasses give exactly the integral orbits ([3], Theorem3.1, Proposition3.5, p.6). For R=O_v in a finite extension F_v/Q_p, define `ThreeIsogeny.integralMultiplicity(f)` as Σᵢ |Stab_{SL₂(F_v)}(f)|/|Stab_{SL₂(O_v)}(fᵢ)| over the finitely many integral orbits in the rational orbit of f. Its API includes invariance on a rational orbit, finiteness of this integral fibre, and the mass identity Σᵢ 1/(m(f)·|Stab(fᵢ)|)=1/|Stab(f)| when that fibre is nonempty. This is the binary-cubic specialization of the rational/integral orbit weight in [1], §3.2, definitions of m and m_p on p.24 and Proposition3.6, pp.24–25, using [3], Theorem3.1 for its fibre. The soluble rational mass is Σ over φ-soluble SL₂(F_v)-orbits of 1/|Stab(f)|=|A′(F_v)/φA(F_v)|/|A(F_v)[φ]| by [3], Theorems4.2,5.3, pp.7,9; this is the local factor used in [3], Theorem8.1, pp.12–13. It is not the multiplicity of a single integral orbit.
+
+At p>3, the local integral-representative theorem assumes a twist of good reduction and v(Dhat)<2 ([3], Theorem6.2, pp.9–10). For arbitrary finite places, including those above 2 and 3, one may choose a single integral representative of the squareclass Dhat, depending on φ, so that every soluble local orbit for integral s with v(s)<2 has an integral representative ([3], Theorem7.2, p.11). The global integral assertion is made over Q for squarefree s in a fixed finite-congruence family, after one uniform choice of Dhat, and extends to class-number-one fields; no unrestricted principal-basis assertion over every number field is made ([3], Theorem7.3, Corollary7.4 and Remark7.5, p.11). The Selmer/rational-orbit dictionary itself holds over every number field ([3], Theorem7.1, p.10). *Needs:* A2–A3 isogenies, SelmerIwasawaCohomology:L0–L4 Kummer maps, and GlobalNumberFields' fractional ideals and norms.
+
+**Checks.**
+
+- A constant kernel has D=1 and mirror F(√−3), not the split algebra over Q. Conversely D=−3 gives a split mirror. This distinguishes the kernel algebra from its mirror.
+- The neutral form 3x²y+Dhat y³ has coordinate vector (0,1,0,Dhat) and normalized discriminant 4Dhat; its ordinary discriminant is −108Dhat.
+- In a split mirror, δ=(u,u⁻¹) has norm one; δ=(2,1) over Q has norm 2, which is not a rational cube, and is excluded from the norm-one cubeclass kernel.
+- A nonprincipal ideal cannot be replaced by a chosen generator. Integral local representatives over a number field with nontrivial class group do not by themselves supply a global free-basis representative.
+- A single integral orbit with the same stabilizer as its rational orbit has m=1 and unchanged mass. Two integral orbits with that same stabilizer have m=2, so their two half-weights sum to one rational-orbit weight.
+- If one integral orbit has trivial stabilizer and its rational stabilizer has order three, m=3 and its weighted mass is 1/3. Thus both the orbit number and the stabilizer ratio are needed in the definition.
 
 Quintic integral realization also includes rational *nonétale* algebras. Prove the polynomial multiplication construction is associative and unital over every coefficient ring, not merely after checking the generic S5 closure. Compare the nonzero-discriminant locus with the trace-dual resolvent construction and then extend the universal identities by polynomial density. The based sextic discriminant is `(16 disc R)³`. Sources are HCL IV, §§2–4, including its multiplication and resolvent formulas. When checking the quartic structure formula, the summed index condition is `k≠i`; swapping it to `k≠j` fails the ring identities.
 
@@ -2279,3 +2346,20 @@ The later arithmetic-statistics parts use the exact targets supplied here. Field
 <a id="ref-76"></a>
 
 [76] Manjul Bhargava, Wei Ho. [Coregular spaces and genus one curves](https://arxiv.org/pdf/1306.4424v1). arXiv:1306.4424v1, 19 June 2013, 82 pages; published text.
+
+
+<a id="ref-3"></a>
+
+[3] Manjul Bhargava, Zev Klagsbrun, Robert J. Lemke Oliver and Ari Shnidman. [Three-isogeny Selmer groups and ranks of abelian varieties in quadratic twist families over a number field](https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf). Author version, 25 pp.; Duke Mathematical Journal 168 (2019), 2951–2989.
+
+<a id="ref-77"></a>
+
+[77] Manjul Bhargava and Arul Shankar. [Ternary cubic forms having bounded invariants, and the existence of a positive proportion of elliptic curves having rank 0](https://arxiv.org/pdf/1007.0052v2). arXiv:1007.0052v2, 24 December 2013.
+
+<a id="ref-78"></a>
+
+[78] Manjul Bhargava and Arul Shankar. [The average number of elements in the 4-Selmer groups of elliptic curves is 7](https://arxiv.org/pdf/1312.7333v1). arXiv:1312.7333v1, 27 December 2013.
+
+<a id="ref-79"></a>
+
+[79] Manjul Bhargava and Arul Shankar. [The average size of the 5-Selmer group of elliptic curves is 6, and the average rank is less than 1](https://arxiv.org/pdf/1312.7859v1). arXiv:1312.7859v1, 29 December 2013.
