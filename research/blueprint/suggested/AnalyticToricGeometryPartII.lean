@@ -68,10 +68,12 @@ theorem invariantDivisor_injective {r : ℕ} {X : AlgebraicGeometry.Scheme}
   sorry
 
 -- The character t has opposite orders at zero and infinity.
+-- Packet test: invariantDivisor_p1 (the character-divisor coefficients).
 example (u : ℤ) : pairing (fun _ => u) (p1Rays 0) = u ∧
     pairing (fun _ => u) (p1Rays 1) = -u := by sorry
 
 -- An invariant divisor records multiplicity, rather than only its reduced support.
+-- Packet test: invariantDivisor_multiplicity.
 example {X : AlgebraicGeometry.Scheme}
     (rayPoints : Fin 1 → TauCeti.AlgebraicGeometry.CodimensionOnePoint X) :
     invariantDivisor rayPoints (Finsupp.single 0 2) ≠
@@ -87,9 +89,11 @@ theorem sectionWeights_principalShift {n r : ℕ} (v : Fin r → Lattice n)
     u ∈ sectionWeights v (fun i => a i + pairing m (v i)) ↔
       u + m ∈ sectionWeights v a := by sorry
 
+-- Packet test: sectionWeights_p1.
 example (d u : ℤ) : (fun _ => u) ∈ sectionWeights p1Rays (p1Divisor d) ↔
     0 ≤ u ∧ u ≤ d := by sorry
 
+-- Packet test: sectionWeights_negative.
 example : sectionWeights p1Rays (p1Divisor (-1)) = ∅ := by sorry
 
 /-- The coefficient submodule of finite monomial sections. Its global sheaf identification is
@@ -107,11 +111,13 @@ theorem divisorSections_mul {A : Type*} [CommRing A] {n r : ℕ}
     (f : divisorSections A v a) (g : divisorSections A v b) :
     f.val * g.val ∈ divisorSections A v (a + b) := by sorry
 
+-- Packet test: divisorSections_p1 (monomial membership).
 example {A : Type*} [CommRing A] [Nontrivial A] (d : ℕ) (u : ℤ) :
     AddMonoidAlgebra.ofCoeff (Finsupp.single (fun _ : Fin 1 => u) (1 : A)) ∈
       divisorSections A p1Rays (p1Divisor d) ↔ 0 ≤ u ∧ u ≤ d := by sorry
 
 -- Nilpotent coefficients survive; the coefficient ring need not be reduced.
+-- Packet test: divisorSections_nilpotents.
 example {A : Type*} [CommRing A] (ε : A) (hε : ε ≠ 0) (hnil : ε * ε = 0) :
     AddMonoidAlgebra.ofCoeff (Finsupp.single (0 : Lattice 1) ε) ∈
       divisorSections A p1Rays 0 := by sorry
@@ -129,8 +135,10 @@ theorem toricPowerMap_monomial {A : Type*} [CommRing A] (n q : ℕ) (u : Lattice
     toricPowerMap A n q (AddMonoidAlgebra.ofCoeff (Finsupp.single u a)) =
       AddMonoidAlgebra.ofCoeff (Finsupp.single (q • u) a) := by sorry
 
+-- Packet test: toricPowerMap_identity.
 example {A : Type*} [CommRing A] (n : ℕ) : toricPowerMap A n 1 = AlgHom.id A _ := by sorry
 
+-- Packet test: toricPowerMap_coefficients.
 example {A : Type*} [CommRing A] (n p : ℕ) (a : A) :
     toricPowerMap A n p (AddMonoidAlgebra.ofCoeff (Finsupp.single 0 a)) =
       AddMonoidAlgebra.ofCoeff (Finsupp.single 0 a) := by sorry
@@ -158,14 +166,17 @@ abbrev perfectedDivisorSections (F : Type*) [NormedField F] {n r : ℕ}
     (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℚ) := C₀(perfectedWeights p v a, F)
 
 -- The complete projective-line fan has only the zero weight in degree zero.
+-- Packet test: perfectedDivisorSections_zero (the weight set).
 example (p : ℕ) (u : perfectedWeights p p1Rays 0) : u.val = 0 := by sorry
 
 -- An infinite family of coefficient ones is not a c₀ section.
+-- Packet test: perfectedDivisorSections_constantFamily.
 example (p : ℕ) (hp : Nat.Prime p) (F : Type*) [NormedField F]
     (f : perfectedDivisorSections F p p1Rays ![0, 1]) : ¬ (∀ u, f u = 1) := by sorry
 
 -- The finite-monomial control for the completed convolution API: disjoint supports multiply
 -- to weight one. Their pointwise coefficient product at that weight would be zero.
+-- Packet test: perfectedDivisorSections_convolution (finite-monomial control).
 example {F : Type*} [Field F] :
     ((AddMonoidAlgebra.ofCoeff (Finsupp.single (0 : Lattice 1) (1 : F))) *
       AddMonoidAlgebra.ofCoeff (Finsupp.single (fun _ : Fin 1 => 1) 1)).coeff
@@ -174,6 +185,7 @@ example {F : Type*} [Field F] :
       (Finsupp.single (fun _ : Fin 1 => 1) (1 : F) (fun _ => 1)) = 0 := by sorry
 
 -- The grading control: degrees one and minus one multiply to degree zero.
+-- Packet test: gradedDivisorAlgebra_convolution (finite-monomial control).
 example {F : Type*} [Field F] :
     ((AddMonoidAlgebra.ofCoeff (Finsupp.single (1 : ℤ) (1 : F))) *
       AddMonoidAlgebra.ofCoeff (Finsupp.single (-1 : ℤ) 1)).coeff 0 = 1 := by sorry
@@ -182,9 +194,11 @@ example {F : Type*} [Field F] :
 def divisorCone {n r : ℕ} (v : Fin r → Lattice n) (a : Fin r → ℤ) :
     Set ((Fin n → ℝ) × ℝ) := {z | ∀ i, 0 ≤ (∑ k, z.1 k * (v i k : ℝ)) + z.2 * a i}
 
+-- Packet test: divisorCone_p1 (real cone).
 example (u j : ℝ) : ((fun _ => u), j) ∈ divisorCone p1Rays (p1Divisor 1) ↔
     0 ≤ u ∧ u ≤ j := by sorry
 
+-- Packet test: divisorCone_zeroDivisor (real cone).
 example (u j : ℝ) : ((fun _ => u), j) ∈ divisorCone p1Rays 0 ↔ u = 0 := by sorry
 
 /-! ## Layer NT.3: projection from the topological power tower -/
@@ -204,16 +218,19 @@ theorem toricProjection_powerTower {X Xb : TopCat} {φ : X ⟶ X}
     toricProjection e x ∈ S ↔ ∀ n, (e x).val n ∈ {y | (φ^[n]) y ∈ S} := by sorry
 
 -- Multiplicative sharp makes homogeneous coordinate scaling compatible.
+-- Packet test: toricProjection_scaling.
 example {F Fb : Type*} [Monoid F] [Monoid Fb] (sharp : Fb →* F) (scale x : Fb) :
     sharp (scale * x) = sharp scale * sharp x := by sorry
 
 -- In mixed characteristic with residue two, [1:1:0] satisfies the tilted line equation
 -- but its sharp coordinates do not satisfy the original one.
+-- Packet test: toricProjection_line (coordinate check).
 example {F Fb : Type*} [Field F] [CharZero F] [Field Fb] [CharP Fb 2]
     (sharp : Fb →*₀ F) :
     (1 : Fb) + 1 + 0 = 0 ∧ sharp 1 + sharp 1 + sharp 0 ≠ 0 := by sorry
 
 -- Under the equal-characteristic ring identification, the additive line test agrees.
+-- Packet test: toricProjection_line_equalCharacteristic (coordinate check).
 example {F Fb : Type*} [Field F] [Field Fb] (sharp : Fb ≃+* F) (x y z : Fb) :
     sharp x + sharp y + sharp z = 0 ↔ x + y + z = 0 := by sorry
 
@@ -221,6 +238,7 @@ example {F Fb : Type*} [Field F] [Field Fb] (sharp : Fb ≃+* F) (x y z : Fb) :
 
 -- On the projective-line top cohomology, multiplication by p is invertible for ℓ ≠ p;
 -- it need not be the identity. Here p=2 and ℓ=3 give an explicit coordinate check.
+-- Packet acceptance check of toricPowerCohomology: the P¹ top-degree action.
 example : Function.Bijective (fun x : ZMod 3 => (2 : ZMod 3) * x) ∧
     (2 : ZMod 3) * 1 ≠ 1 := by sorry
 
@@ -258,15 +276,18 @@ def toricIntersectionWeights {rows cols : ℕ} (A : Fin rows → Fin cols → �
   smul_mem' := by sorry
 
 -- Maximal-cone degree-zero weights on the projective line agree across its wall.
+-- Packet test: toricIntersectionWeights_p1.
 example (c : Fin 2 → ℤ) : c ∈ toricIntersectionWeights ![![1, -1]] ↔ c 0 = c 1 := by
   sorry
 
 -- The product fan requires both pairs of opposite-ray values to agree.
+-- Packet test: toricIntersectionWeights_product.
 example (c : Fin 4 → ℤ) :
     c ∈ toricIntersectionWeights ![![1, 0, -1, 0], ![0, 1, 0, -1]] ↔
       c 0 = c 2 ∧ c 1 = c 3 := by sorry
 
 -- A single nonzero ray value violates balancing.
+-- Packet test: toricIntersectionWeights_unbalanced.
 example : ![1, 0, 0, 0] ∉
     toricIntersectionWeights ![![1, 0, -1, 0], ![0, 1, 0, -1]] := by sorry
 
