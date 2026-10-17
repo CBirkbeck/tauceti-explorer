@@ -14427,8 +14427,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ArithmeticStatisticsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3429"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3429",
+   "finishedAt": "2026-10-17T23:05:40Z"
   },
   {
    "id": "REV-DESIGN-ArithmeticStatisticsPartII",
@@ -132703,9 +132704,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartI~adv.md",
-   "note": "claimed on GitHub issue #10271"
+   "note": "deliverables arrived from an external worker on issue #10271",
+   "finishedAt": "2026-10-17T23:06:02Z"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheoryPartII~adv",
@@ -132746,9 +132748,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartI~adv.md",
-   "note": "claimed on GitHub issue #10273"
+   "note": "deliverables arrived from an external worker on issue #10273",
+   "finishedAt": "2026-10-17T23:06:06Z"
   },
   {
    "id": "REV-PKG-ArithmeticStatisticsPartII~adv",
@@ -132833,9 +132836,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartV~adv.md",
-   "note": "claimed on GitHub issue #10278"
+   "note": "deliverables arrived from an external worker on issue #10278",
+   "finishedAt": "2026-10-17T23:06:15Z"
   },
   {
    "id": "REV-PKG-ArithmeticStatisticsPartVI~adv",
@@ -132854,9 +132858,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartVI~adv.md",
-   "note": "claimed on GitHub issue #10279"
+   "note": "deliverables arrived from an external worker on issue #10279",
+   "finishedAt": "2026-10-17T23:06:18Z"
   },
   {
    "id": "REV-PKG-ArithmeticStatisticsPartVII~adv",
@@ -132897,9 +132902,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartVIII~adv.md",
-   "note": "claimed on GitHub issue #10281"
+   "note": "deliverables arrived from an external worker on issue #10281",
+   "finishedAt": "2026-10-17T23:06:23Z"
   },
   {
    "id": "FIX-PKG-AnalyticNumberTheoryPartII~adv",
@@ -132917,8 +132923,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartII~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartII~adv.md",
+   "note": "claimed on GitHub issue #10301"
   }
  ]
 }
