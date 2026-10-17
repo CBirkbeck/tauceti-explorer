@@ -205998,6 +205998,139 @@
    "reviewReason": "The matrices give the asserted normal subgroup explicitly. The H-eigenline argument repairs the torus-normaliser case without changing the lemma's conclusion."
   },
   {
+   "id": "GL2ModularityLifting/E12",
+   "kind": "error",
+   "locator": "CDT §6.2, published pp. 546–547; BCDT §10, author pp. 77–78",
+   "printed": "The residual-support argument uses the original U_S and a congruence subgroup that lacks the hypotheses of the invoked cohomology theorem.",
+   "correction": "Use U′_S=V′_S=U_1(q^{c_q}) at T(ρ̄), the replacement L′_S with M_ℓ, and the dual coefficient local system. The Serre coefficient is L_n⊗k.",
+   "reason": "The changed level repairs the subgroup hypotheses; changing the coefficient dual changes the Galois character in the reduction argument.",
+   "affects": "the proof",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; the corresponding CDT author passages were collated."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E13",
+   "kind": "error",
+   "locator": "CDT Lemma 6.1.2(4), published p. 545; BCDT §10, author p. 77",
+   "printed": "The descent assertion is made for V′⊂V without requiring normality.",
+   "correction": "Require V′ normal in V before applying this invariants/descent statement.",
+   "reason": "The quotient action in the descent argument is defined only under that condition.",
+   "affects": "the proof",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; the corresponding CDT author passages were collated."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E14",
+   "kind": "error",
+   "locator": "CDT §6.1, published p. 544; BCDT §10, author p. 77",
+   "printed": "The continuity argument treats the coefficient representation with a discrete topology.",
+   "correction": "Use the ℓ-adic topology on M_p throughout the corresponding cohomology construction.",
+   "reason": "The coefficient action used in the proof is continuous for the ℓ-adic topology; the discrete version need not be.",
+   "affects": "the proof",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; the corresponding CDT author passages were collated."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E15",
+   "kind": "error",
+   "locator": "CDT §6.4, published p. 549; BCDT §10, author p. 78",
+   "printed": "The level-change argument has mismatched levels and finite quotient labels.",
+   "correction": "Use the indicated U_r level at p and the V_0/V_1 quotient in the coefficient/degeneracy calculation.",
+   "reason": "The action and comparison maps must have the same level and quotient on source and target.",
+   "affects": "the proof",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; the corresponding CDT author passages were collated."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E16",
+   "kind": "error",
+   "locator": "CDT published p. 532, near end of §2; BCDT §10, author p. 77",
+   "printed": "The source infers semisimplicity of σ_n from semisimplicity of σ_1.",
+   "correction": "Delete this assertion. It is unused in the remaining argument, so no replacement lemma is required for the lifting route.",
+   "reason": "Semisimplicity at one quotient level does not imply semisimplicity of higher-level lifts.",
+   "affects": "nothing",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; no claim of a fresh full audit of CDT’s elliptic-curve application section."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E17",
+   "kind": "misprint",
+   "locator": "CDT published pp. 537–541; BCDT §10, author p. 77",
+   "printed": "The type/numerical argument has incorrect real-group, local-type, character and patched-algebra labels.",
+   "correction": "Use GL₂(R) at p. 537; retain both the local ℓ-type condition and the global (S,τ) condition at p. 538; use the η_1,η_2 character labels at p. 539; use the patched algebra A∞ in all three occurrences at p. 541.",
+   "reason": "These corrections identify the actual real group, prevent loss of a local hypothesis, and keep the character and patched-module maps over the correct objects.",
+   "affects": "the proof",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; no claim of a fresh full audit of CDT’s elliptic-curve application section."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2ModularityLifting/E18",
+   "kind": "error",
+   "locator": "CDT published pp. 552–554, elliptic-curve applications; BCDT §10, author p. 78",
+   "printed": "Some elliptic-curve consequences omit an exceptional j-invariant condition and misstate the isogeny and numerical j-invariant data.",
+   "correction": "At ℓ≥5 require j(E) not congruent to 1728 modulo ℓ in the indicated assertion; potentially supersingular reduction with ℓ≡1 modulo 4 is a sufficient special case. State the p. 554 j-invariant assertions up to isogeny, with value −5·29³/2⁵, and interchange the indicated p,q labels. These are routed to the existing elliptic-curve roadmap, not used as new GL2 lifting targets.",
+   "reason": "Without the extra condition the elliptic-curve assertion is false for ℓ≥5; an isogeny-class representative cannot be identified with the original curve.",
+   "affects": "a stated result",
+   "known": "BCDT §10, author pp. 77–78, published corrigenda",
+   "searched": [
+    "BCDT author copy §10 read 2026-10-17; no claim of a fresh full audit of CDT’s elliptic-curve application section."
+   ],
+   "owner": "GL2ModularityLifting",
+   "file": "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+   "citation": "Brian Conrad, Fred Diamond and Richard Taylor, Modularity of certain potentially Barsotti–Tate Galois representations, Author copy, 47 pages; JAMS 12 (1999), 521–567. Locators use author pagination unless explicitly marked published.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E10",
    "kind": "gap",
    "locator": "Theorem 1.7, fourth hypothesis, published p.5; arXiv v2 p.4",
