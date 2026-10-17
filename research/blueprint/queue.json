@@ -132159,6 +132159,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-PrismaticCohomology~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PrismaticCohomology~adv.md",
+    "research/blueprint/packages/PrismaticCohomology/review.json",
+    "research/blueprint/packages/PrismaticCohomology/README.md",
+    "research/blueprint/packages/PrismaticCohomology/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv.md"
   }
  ]
 }
