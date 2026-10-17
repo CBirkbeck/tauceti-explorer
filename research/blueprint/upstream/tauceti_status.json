@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T14:20Z",
+ "updated": "2026-10-17T14:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -865,11 +865,11 @@
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "c4faad3",
+   "head": "1637b2d",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -937,11 +937,11 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "7aac92d",
+   "head": "d755bab",
    "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -973,11 +973,11 @@
   "PadicFamilies": {
    "stage": "pr",
    "pr": 1019,
-   "head": "aed6b48",
+   "head": "fa9dd1d",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -985,7 +985,7 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "f20b55f",
+   "head": "252be03",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": null,

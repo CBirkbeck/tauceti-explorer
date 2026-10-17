@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T14:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T14:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -20,6 +20,7 @@ Generated 2026-10-17T14:20Z from the README supplier graph of every open pull re
 - #947 BordismFormalGroups (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
+- #1033 SubspaceTheorem (rwst, other author)
 
 ## Wave 2
 - #813 AdicSpacesPartIII — draft; waits on #944
@@ -132,11 +133,11 @@ Generated 2026-10-17T14:20Z from the README supplier graph of every open pull re
 - #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1000, #1001, #1002, #792, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
 - #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1002, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #938, #940, #964, #966, #999
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #785, #852, #856, #858, #879, #913, #920, #923, #928, #931
-- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938
-- #1019 PadicFamilies — draft; waits on #1005, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968
+- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
 
 ## Wave 27
 - #1007 AutomorphicGaloisRepresentations — draft; waits on #1001, #1005, #1006, #1013, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #938, #940, #966, #999, #934
+- #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968, #934
 - #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1002, #1017, #785, #848, #849, #850, #852, #853, #857, #858, #869, #879, #924, #938, #940, #944, #966
 
 ## Wave 28
