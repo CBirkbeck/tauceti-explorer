@@ -238,7 +238,7 @@ Hodge–Tate objects are kept distinct in the README. -/
 
 /-! ## Layer 5: q-crystalline and q-de Rham comparison -/
 
-namespace QCrys
+namespace Prismatic.QCrys
 
 variable {R : Type*} [CommRing R]
 
@@ -289,7 +289,7 @@ example (t x e : R) (he : e ^ 2 = t * x * e) :
     (x + e) ^ 2 = x ^ 2 + 2 * x * e + e ^ 2 := by ring
     _ = x ^ 2 + (2 + t) * x * e := by rw [he]; ring
 
-end QCrys
+end Prismatic.QCrys
 
 /-! ## Layer 6: Étale comparisons and syntomic complexes -/
 /-! Frobenius fixed points are derived fibres after restriction to the coefficient ring.
@@ -301,13 +301,11 @@ require the sites and period rings specified in the README. -/
 
 /-! ## Layer 8: Logarithmic prismatic cohomology -/
 
-namespace Log
-
 variable {R M : Type*} [CommRing R] [CommMonoid M]
 
 /-- Elementary logarithmic delta data on a prelog ring. The logarithmic geometric theory
 uses these polynomial axioms on p-local rings with the completeness hypotheses in README.md. -/
-structure DeltaLogStructure (p : ℕ) (R M : Type*) [CommRing R] [CommMonoid M]
+structure DeltaLogRing (p : ℕ) (R M : Type*) [CommRing R] [CommMonoid M]
     (alpha : M →* R) where
   ringDelta : Delta.Structure p R
   logDelta : M → R
@@ -316,43 +314,45 @@ structure DeltaLogStructure (p : ℕ) (R M : Type*) [CommRing R] [CommMonoid M]
   logDelta_mul : ∀ m n,
     logDelta (m * n) = logDelta m + logDelta n + (p : R) * logDelta m * logDelta n
 
+namespace DeltaLogRing
+
 /-- The multiplicative logarithmic unit factor; it is a unit only under the stated
 Jacobson-radical hypothesis in the geometric theory. -/
-def unitFactor {p : ℕ} {alpha : M →* R} (d : DeltaLogStructure p R M alpha) (m : M) : R :=
+def unitFactor {p : ℕ} {alpha : M →* R} (d : DeltaLogRing p R M alpha) (m : M) : R :=
   1 + (p : R) * d.logDelta m
 
 /-- The log Frobenius correction is multiplicative, with its p cross term. -/
-theorem unitFactor_mul (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha)
+theorem unitFactor_mul (p : ℕ) (alpha : M →* R) (d : DeltaLogRing p R M alpha)
     (m n : M) : unitFactor d (m * n) = unitFactor d m * unitFactor d n := by
   sorry
 
 /-- The ring Frobenius acts on a chart section with the logarithmic correction. -/
-theorem frobenius_chart (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha)
+theorem frobenius_alpha (p : ℕ) (alpha : M →* R) (d : DeltaLogRing p R M alpha)
     (m : M) : Delta.associatedFrobenius d.ringDelta (alpha m) =
       alpha m ^ p * unitFactor d m := by
   sorry
 
 /-- The unit section has zero logarithmic delta, rather than delta(1)=1. -/
-example (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha) :
+example (p : ℕ) (alpha : M →* R) (d : DeltaLogRing p R M alpha) :
     d.logDelta 1 = 0 := d.logDelta_one
 
 /-- The correction factor at the unit section is exactly one. -/
-example (p : ℕ) (alpha : M →* R) (d : DeltaLogStructure p R M alpha) :
+example (p : ℕ) (alpha : M →* R) (d : DeltaLogRing p R M alpha) :
     unitFactor d 1 = 1 := by simp [unitFactor, d.logDelta_one]
 
 /-- The dyadic product has the cross term; an additive log operation would give two. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
+example (alpha : M →* ℤ) (d : DeltaLogRing 2 ℤ M alpha) (m : M)
     (hm : d.logDelta m = 1) : d.logDelta (m * m) = 4 := by
   rw [d.logDelta_mul, hm]
   norm_num
 
 /-- The multiplicative factor squares to nine on that same logarithmic section. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
+example (alpha : M →* ℤ) (d : DeltaLogRing 2 ℤ M alpha) (m : M)
     (hm : d.logDelta m = 1) : unitFactor d m = 3 := by
   simp [unitFactor, hm]
 
 /-- The product correction is nine, fixing the multiplicative rather than additive law. -/
-example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
+example (alpha : M →* ℤ) (d : DeltaLogRing 2 ℤ M alpha) (m : M)
     (hm : d.logDelta m = 1) : unitFactor d (m * m) = 9 := by
   rw [unitFactor_mul]
   norm_num [unitFactor, hm]
@@ -363,11 +363,11 @@ example : 2 ∣ Nat.factorial 2 ∧ ¬ 4 ∣ Nat.factorial 2 ∧
     8 ∣ Nat.factorial 4 ∧ ¬ 16 ∣ Nat.factorial 4 := by
   decide
 
-end Log
+end DeltaLogRing
 
 /-!
-Full definitions retained in README.md also include the following geometric or derived
-objects. Their carriers are not introduced in this signature file.
+The README specifies the following geometric or derived notions, including imported
+carriers. Their constructions are not introduced in this signature file.
 
 Layer 0: Delta structures on a square-zero extension; Delta structures as Witt-vector
 sections; Coefficient map on length-two Witt vectors; Localization of a delta structure; Shifted
@@ -444,8 +444,8 @@ smooth and étale formal logarithmic geometry, completed logarithmic cotangent s
 completed log PD envelopes and the big formal log crystalline site.
 The pointwise categories QCohPrestack, PerfPrestack and PicPrestack; the finite free
 delta derivative thickening and its q-PD ideal; the absolute trace comparison, TC, HH, HC,
-HCMinus and HP with their filtrations; the schematic Fargues–Fontaine curve, its Robba
-ring and Frobenius modules, and filtered-isocrystal modifications are README constructions.
+HCMinus and HP with their filtrations; the schematic Fargues–Fontaine curve and GAGA;
+and filtered-isocrystal modifications are README targets. Robba theory is imported.
 The completed-localisation prism with nonzero p-torsion, the augmented monoid log PD
 deformation base, and its proper Cartier-type log crystalline complex are also README
 constructions; the Frobenius rigidity and nonzero-parameter scalar comparison use them.
