@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T17:18Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T17:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -94,7 +94,7 @@ Generated 2026-10-17T17:18Z from the README supplier graph of every open pull re
 ## Wave 18
 - #875 ClassicalAdicEtaleCohomology — draft; waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
 - #913 ModularCurvesPartII — draft; waits on #785, #792, #813, #848, #849, #852, #853, #871, #873, #908, #938, #944
-- #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #785, #792, #813, #853, #856, #858, #869, #879
+- #923 LocalGaloisDeformationRings — ready; waits on #785, #792, #813, #853, #856, #858, #869, #879
 
 ## Wave 19
 - #920 GlobalGaloisDeformations — ready; waits on #856, #858, #869, #923
@@ -134,7 +134,7 @@ Generated 2026-10-17T17:18Z from the README supplier graph of every open pull re
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
 - #1005 HilbertModularVarietiesAndShimuraCurves — ready; waits on #1001, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #929, #931, #933, #938, #966, #934
-- #1038 ShimuraData — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
+- #1038 ShimuraData — ready; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
 
 ## Wave 26
 - #1004 FaltingsFinitenessAndIsogenyTheorems — draft; waits on #1000, #1001, #1002, #792, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
@@ -149,6 +149,7 @@ Generated 2026-10-17T17:18Z from the README supplier graph of every open pull re
 
 ## Wave 28
 - #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #856, #879, #920, #923, #928, #931, #970
+- #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #851, #852, #879, #913, #929
 
 ## Wave 29
 - #1018 EllipticCurveModularity — draft; waits on #1004, #1007, #1013, #1020, #849, #852, #856, #879, #913, #928
