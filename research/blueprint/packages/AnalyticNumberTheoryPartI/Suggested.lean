@@ -6,9 +6,9 @@ import Mathlib
 The roadmap is README.md. This file records light definitions and representative theorem
 signatures statable against the pinned APIs; it is not exhaustive. The choices made explicit
 are inclusive arithmetic cutoffs, analytic pole cancellation, conductor-aware conditional
-hypotheses, actual ideal counts, indexed Beurling primes, principal-branch convergent series,
-and the product normalization of Barnes G. Heavy continuation, arithmetic-geometric and
-operator-algebra constructions remain mathematical targets in README.md.
+hypotheses, actual ideal counts, weighted Hilbert spacing, unit-disc prime data, and indexed
+Beurling primes. The remaining definitions and arithmetic-geometric constructions are
+mathematical targets in README.md.
 -/
 
 noncomputable section
@@ -152,6 +152,12 @@ theorem rosser_schoenfeld_primeCounting {x : ℝ} (hx : 59 ≤ x) :
 theorem theta_lt {x : ℝ} (hx : 0 < x) : Chebyshev.theta x < 1.000081 * x := by
   sorry
 
+/-- Exact margin left after the prime-power error at the threshold in README §0.4. -/
+example :
+    (1000081 : ℚ) / 1000000 * (1 / 140000 + 35 / 7290000) <
+      (1 - 3 * (2811 / 1000000)) / 8 - 1239 / 10000 := by
+  norm_num
+
 end AN2
 
 /-! ## Layer 1: Explicit formulas, mean values and conditional prime estimates -/
@@ -291,6 +297,10 @@ example :
           (Real.sqrt Real.pi : ℂ) / 2 := by
   sorry
 
+/-- Rational endpoint controls for the non-imaginary-quadratic Louboutin signatures. -/
+example : (6 : ℚ) * (329 / 1000) ^ 2 < 1 ∧ (318 : ℚ) / 1000 < 329 / 1000 := by
+  norm_num
+
 end AN4
 
 /-! ## Layer 3: Multiplicative means, smooth numbers and moments -/
@@ -311,9 +321,14 @@ example (x : ℝ) :
       2 * ∑ p ∈ (Finset.Iic ⌊x⌋₊).filter Nat.Prime, (1 : ℝ) / p := by
   sorry
 
+/-- Disk-valued prime data need not have zero distance from themselves. -/
+example : pretentiousDist 0 0 2 ^ 2 = (1 : ℝ) / 2 := by
+  sorry
+
 /-- The prime-data distance satisfies the multiplicative triangle inequality for disk-valued functions. -/
 theorem pretentiousDist_mul_le (f₁ f₂ g₁ g₂ : ℕ → ℂ) (x : ℝ)
-    (hf₁ : ∀ p, ‖f₁ p‖ ≤ 1) (hf₂ : ∀ p, ‖f₂ p‖ ≤ 1) (hg₁ : ∀ p, ‖g₁ p‖ ≤ 1) (hg₂ : ∀ p, ‖g₂ p‖ ≤ 1) :
+    (hf₁ : ∀ p, p.Prime → ‖f₁ p‖ ≤ 1) (hf₂ : ∀ p, p.Prime → ‖f₂ p‖ ≤ 1)
+    (hg₁ : ∀ p, p.Prime → ‖g₁ p‖ ≤ 1) (hg₂ : ∀ p, p.Prime → ‖g₂ p‖ ≤ 1) :
     pretentiousDist (f₁ * f₂) (g₁ * g₂) x ≤ pretentiousDist f₁ g₁ x + pretentiousDist f₂ g₂ x := by
   sorry
 
@@ -360,10 +375,25 @@ theorem exists_beurlingPrimeSystem_nth_prime :
 example (P : BeurlingPrimeSystem) {x : ℝ} (hx : x ≤ 1) : P.primeCount x = 0 := by
   sorry
 
-/-- Rational endpoint controls for the non-imaginary-quadratic Louboutin signatures. -/
-example : (6 : ℚ) * (329 / 1000) ^ 2 < 1 ∧ (318 : ℚ) / 1000 < 329 / 1000 := by
-  norm_num
+/-- The smooth-count extension excludes zero even below the analytic cutoff range. -/
+example : smoothCount 0 2 = 0 := by
+  sorry
 
 end AN5
+
+/-!
+Definitions specified in README.md beyond these representative signatures include exceptional
+squareclasses (§0.13), elementary canonical factors (§0.15), the origin-zero adapter (§0.22),
+paired canonical products (§0.29), the Weil test class (§1.3), ray-character and quadratic-period
+dictionaries (§§0.30, 2.1, 2.10), analytic
+Artin conductors and inertia-fixed local polynomials (§§2.2, 2.11), canonical continued Hecke
+and Dedekind functions (§§2.3–2.5, 2.13), Artin Euler series (§2.19), ArtinHolomorphy and
+field/Hecke zero hypotheses (§§2.42–2.43), medium-prime products (§3.5), even Mangoldt (§3.8),
+Gamma Euler factors (§3.10), residue-supported counts (§3.16), the logarithmic-derivative
+coefficient class (§3.19), Dickman's
+function (§3.21), generalized-integer norms and counts (§3.25), truncated Mangoldt functions
+and errors (§§3.29, 3.39), restricted squarefree counts (§3.32), Beurling zeta functions (§3.36),
+Selberg weights (§§3.31a, 3.36b), and regularized Beurling boundary logarithms (§3.42).
+-/
 
 end TauCetiRoadmap.AnalyticNumberTheoryPartI
