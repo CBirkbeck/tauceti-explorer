@@ -132490,6 +132490,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-MetaplecticAutomorphicForms~adv.md",
    "note": "claimed on GitHub issue #10224"
+  },
+  {
+   "id": "FIX-PKG-AnalyticNumberTheory~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AnalyticNumberTheory~adv2.md",
+    "research/blueprint/packages/AnalyticNumberTheory/review.json",
+    "research/blueprint/packages/AnalyticNumberTheory/README.md",
+    "research/blueprint/packages/AnalyticNumberTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv2.md"
   }
  ]
 }
