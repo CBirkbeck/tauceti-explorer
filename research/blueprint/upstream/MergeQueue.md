@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T20:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -13,7 +13,6 @@ Generated 2026-10-17T20:30Z from the README supplier graph of every open pull re
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #947 BordismFormalGroups (kim-em, other author)
@@ -35,6 +34,7 @@ Generated 2026-10-17T20:30Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814, #944
+- #896 CharacteristicClasses (kim-em, other author)
 
 ## Wave 5
 - #815 AdicSpacesPartIV — ready (approved at an earlier head); waits on #813, #814, #818, #944
@@ -154,7 +154,7 @@ Generated 2026-10-17T20:30Z from the README supplier graph of every open pull re
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #938, #940, #966, #970, #999, #934
 - #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #1039, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968, #934
 - #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1001, #1002, #1017, #1043, #785, #848, #849, #850, #852, #853, #857, #858, #869, #879, #924, #929, #938, #940, #944, #966
-- #1069 AutomorphicBundles — draft; waits on #1005, #1038, #1040, #1053, #1062, #1064, #785, #792, #813, #814, #816, #818, #848, #849, #853, #868, #875, #879, #908, #928, #933, #938, #940, #944, #965, #966
+- #1069 AutomorphicBundles — draft; waits on #1005, #1038, #1040, #1053, #1062, #1064, #785, #792, #813, #814, #816, #818, #848, #849, #853, #868, #871, #875, #879, #908, #928, #933, #938, #940, #944, #965, #966
 
 ## Wave 28
 - #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #856, #879, #920, #923, #928, #931, #970
@@ -169,5 +169,8 @@ Generated 2026-10-17T20:30Z from the README supplier graph of every open pull re
 - #1071 GL2ModularityLifting — draft; waits on #1005, #1007, #1013, #1020, #1034, #1062, #1066, #785, #856, #858, #879, #913, #920, #923, #928, #931
 
 ## Wave 31
-- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1004, #1006, #1007, #1018, #1034, #1036, #1046, #850, #856, #871, #879, #913, #920, #923, #931, #933
 - #1075 PotentialModularityAndCompatibleSystems — draft; waits on #1001, #1005, #1006, #1007, #1013, #1019, #1034, #1037, #1062, #1066, #1071, #785, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #970, #999
+
+## Wave 32
+- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1006, #1007, #1018, #1020, #1034, #1071, #1075, #848, #850, #856, #871, #873, #913, #920, #923, #931, #933
+- #1081 PotentialAutomorphyInfrastructure — draft; waits on #1006, #1019, #1034, #1075, #785, #856, #871, #924, #925, #999
