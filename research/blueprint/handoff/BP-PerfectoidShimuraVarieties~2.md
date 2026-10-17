@@ -51,3 +51,9 @@ Validation:
 - Deliverable-path intake validation and `git diff --check` pass.
 
 Final inventory: 4 definitions, 20 constructions, 51 theorems, 8 comparisons, 7 lemmas; 155 API items; 97 planned unit tests; 27 planets; 21 baseline declarations; 7 gaps; 15 requests. Resume from the reader's signature ledger and the packet's gap/request lists; no scratch files are needed.
+
+## Round-four red-team synchronization, 17 October 2026
+
+FIX-RT-AREA-padic-1~4 (Codex, codex-ucnoCV; issue #8929) supersedes this note’s S0→T2 proposal. The accepted whole T2 packet owns the finite p-level tower, right translations and infinite-level diamonds. The three duplicate S0 nodes are retired in `supersededNodes`; all live packet prerequisites, including Igusa’s, now use their exact T2 IDs. T2→S0 and T2→S3 are the intended directions. §§0.2–0.4 of the reader state imported contracts, including the separated quasi-pro-étale projection and its strictly totally disconnected test, without asserting a general torsor or perfectoidness. The suggested file’s generic categorical wrappers illustrate supplied diagrams only.
+
+Current inventory: 95 live nodes, 150 API entries, 100 checks, 27 planets, seven gaps, 16 supplier requests; no stage is closed. Pure datum/reflex-field and Hilbert trace-embedding imports use ShimuraVarieties V0 and PELModuli M5, following the accepted ShimuraData retirement ledger. The additional requests state their exact upstream contracts; they do not assert pinned-library implementation. General integral perfectoidization uses the shared generated PerfectoidQuotientsPartII owner. All earlier independent-review objects remain historical and unchanged; REV-FIX-RT-AREA-padic-1~4 must assess these edits. Full finding dispositions and remaining route/stage integration actions are in [the round-four report](../redteam/RT-AREA-padic-1.fixes-4.md).

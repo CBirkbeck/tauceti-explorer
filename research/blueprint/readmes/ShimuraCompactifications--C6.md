@@ -218,17 +218,31 @@ Source: DIMITROV-AUTHOR, §3, Definition 3.2 and Proposition 3.3(iv), printed pp
 
 #### Admissible Hilbert cusp fans
 
-`admissible-fan-specialization` — **hilbert_admissible_fan_compare** (comparison). C0’s arithmetic fan at a cusp identifies with a complete rational polyhedral decomposition of the open positive cone in X*⊗R, together with zero, locally finite away from zero, stable under the effective cusp-unit action, with finitely many cone orbits and compatibility with cusp isomorphisms.
+Identifier: `ShimuraCompactifications:C6/admissible-fan-specialization`. Kind: **comparison**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+C0’s arithmetic fan at a cusp identifies with a complete rational polyhedral decomposition of the open positive cone in X*⊗R, together with zero, locally finite away from zero, stable under the effective cusp-unit action, with finitely many cone orbits and compatibility with cusp isomorphisms.
 
-Proof route: Use the lattice comparison and transport the signed positive cone. Match the C0 arithmetic admissibility conditions with Definition 7.1; retain finite orbit data, not a finite fan in the whole cone.
+Proposed declaration: `hilbert_admissible_fan_compare`.
 
-Direct inputs: `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C0`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+Hypotheses and conventions:
 
-Acceptance: In degree >1 finitely many unit orbits need not mean finitely many cones. A fan regular for (cb²)* need not be regular for (cbb′)* at a level-ramified cusp (Remark 7.3).
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Definition 7.1 and proof of Theorem 7.2, printed pp. 541–542.
+Construction and proof:
+
+1. Use the lattice comparison and transport the signed positive cone.
+2. Match the C0 arithmetic admissibility conditions with Definition 7.1; retain finite orbit data, not a finite fan in the whole cone.
+
+Acceptance:
+
+- In degree >1 finitely many unit orbits need not mean finitely many cones.
+- A fan regular for (cb²)* need not be regular for (cbb′)* at a level-ramified cusp (Remark 7.3).
+
+Direct prerequisites: `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C0/arithmetic-admissible-fan`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Definition 7.1 and proof of Theorem 7.2, printed pp. 541–542.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Integral uniformization exponents
 
@@ -327,17 +341,31 @@ The phase construction takes actual native submodules and units. Its tests in th
 
 #### The universal family on a Hilbert cusp chart
 
-`uniformized-level-chart` — **hilbert_uniformized_level_chart** (comparison). Over B[ζ_e], where e is the exponent of b′/b, the C4 Mumford family on the C0 toric chart carries the H1 c-polarization and µ_n level structure; on the open abelian locus it is the pullback of the universal fine HBAV. Changing uniformization x∈(ab)*/(ab′)* acts by q^ξ↦ζ_e^{eTr(ξx)}q^ξ.
+Identifier: `ShimuraCompactifications:C6/uniformized-level-chart`. Kind: **comparison**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+Over B[ζ_e], where e is the exponent of b′/b, the C4 Mumford family on the C0 toric chart carries the H1 c-polarization and µ_n level structure; on the open abelian locus it is the pullback of the universal fine HBAV. Changing uniformization x∈(ab)*/(ab′)* acts by q^ξ↦ζ_e^{eTr(ξx)}q^ξ.
 
-Proof route: Import C4’s family and its level exact sequence; use the H1 chosen lift of the projected level data. Identify the phase with tracePhase; verify faces and cusp-unit/cyclotomic changes by Proposition 4.1(iii).
+Proposed declaration: `hilbert_uniformized_level_chart`.
 
-Direct inputs: `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/uniformization-phase-character`, `ShimuraCompactifications:C4`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+Hypotheses and conventions:
 
-Acceptance: At b′=b, e=1 and the cyclotomic phase is trivial. A ramified level cusp is a property of b′/b; it does not mean that the residue prime ramifies in F.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Proposition 4.1(i)–(iii), printed pp. 536–537.
+Construction and proof:
+
+1. Import C4’s family and its level exact sequence; use the H1 chosen lift of the projected level data.
+2. Identify the phase with tracePhase; verify faces and cusp-unit/cyclotomic changes by Proposition 4.1(iii).
+
+Acceptance:
+
+- At b′=b, e=1 and the cyclotomic phase is trivial.
+- A ramified level cusp is a property of b′/b; it does not mean that the residue prime ramifies in F.
+
+Direct prerequisites: `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/uniformization-phase-character`, `ShimuraCompactifications:C4/formal-universal-degeneration`, `ShimuraCompactifications:C4/endomorphism-extension`, `ShimuraCompactifications:C4/boundary-level-comparison`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Proposition 4.1(i)–(iii), printed pp. 536–537.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 ### Toroidal geometry
 
@@ -371,87 +399,171 @@ Source: DIMITROV-AUTHOR, Theorem 7.2(ii), printed pp. 542–543; BHW Proposition
 
 #### Formal Hilbert cusp neighbourhoods
 
-`hilbert-boundary-formal-comparison` — **hilbert_boundary_formal_compare** (comparison). The boundary completion of Mbar_Σ is the disjoint union over cusp components of the C0 completed toric union divided by the effective cusp units, with coefficient algebra B[ζ_e]^{H_C}. On the fine model use U_C,1 and H_C,1. The root action and weight line are transported together.
+Identifier: `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`. Kind: **comparison**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+The boundary completion of Mbar_Σ is the disjoint union over cusp components of the C0 completed toric union divided by the effective cusp units, with coefficient algebra B[ζ_e]^{H_C}. On the fine model use U_C,1 and H_C,1. The root action and weight line are transported together.
 
-Proof route: Read the completed presentation in Theorem 7.2 on the actual descended chart relation. Apply toroidal-polarization-quotient and identify the cusp lattice and cyclotomic phase.
+Proposed declaration: `hilbert_boundary_formal_compare`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C0`, `HilbertModularVarietiesAndShimuraCurves:H3`, `AdicSpacesPartII:F0`.
+Hypotheses and conventions:
 
-Acceptance: The infinite arithmetic unit quotient is not a finite-group quotient of one affine chart. Keep formal completions and arbitrary coefficient tensor products distinct.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Theorem 7.2(i),(ii), printed pp. 541–543.
+Construction and proof:
+
+1. Read the completed presentation in Theorem 7.2 on the actual descended chart relation.
+2. Apply toroidal-polarization-quotient and identify the cusp lattice and cyclotomic phase.
+
+Acceptance:
+
+- The infinite arithmetic unit quotient is not a finite-group quotient of one affine chart.
+- Keep formal completions and arbitrary coefficient tensor products distinct.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C0/relative-torus-embedding`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `HilbertModularVarietiesAndShimuraCurves:H3`, `AdicSpacesPartII:F0`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Theorem 7.2(i),(ii), printed pp. 541–543.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Étale toric charts at Hilbert boundary
 
-`hilbert-boundary-etale-charts` — **hilbert_boundary_etale_toric** (theorem). Near the boundary the open immersion M→Mbar is étale locally the C0 relative torus embedding S_C→S_σ for its actual lattice X. Nonopen strata have the toric description after an algebraically closed field base change of characteristic prime to N(n).
+Identifier: `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`. Kind: **theorem**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+Near the boundary the open immersion M→Mbar is étale locally the C0 relative torus embedding S_C→S_σ for its actual lattice X. Nonopen strata have the toric description after an algebraically closed field base change of characteristic prime to N(n).
 
-Proof route: The effective arithmetic cusp units act freely on nonopen strata. Use the formal identification and the requested algebraization of boundary-local étale charts.
+Proposed declaration: `hilbert_boundary_etale_toric`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C0`, `AdicSpacesPartII:F0`.
+Hypotheses and conventions:
 
-Acceptance: Freeness on toroidal strata does not imply freeness on a contracted minimal cusp.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Corollary 7.4, printed p. 544.
+Construction and proof:
+
+1. The effective arithmetic cusp units act freely on nonopen strata.
+2. Use the formal identification and the requested algebraization of boundary-local étale charts.
+
+Acceptance:
+
+- Freeness on toroidal strata does not imply freeness on a contracted minimal cusp.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C0/relative-torus-embedding`, `ShimuraCompactifications:C0/relative-face-open`, `AdicSpacesPartII:F0`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Corollary 7.4, printed p. 544.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Smooth Hilbert refinements on the good base
 
-`hilbert-regular-refinement` — **hilbert_regular_refinement_smooth** (theorem). An admissible regular refinement with respect to each actual X* makes Mbar_Σ smooth over Z[1/Δ]. Refinement maps agree with C3 on the open and on completed cusp charts.
+Identifier: `ShimuraCompactifications:C6/hilbert-regular-refinement`. Kind: **theorem**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+An admissible regular refinement with respect to each actual X* makes Mbar_Σ smooth over Z[1/Δ]. Refinement maps agree with C3 on the open and on completed cusp charts.
 
-Proof route: Use C0’s regular coordinates and invariant locally finite refinement. Combine the smooth H1 open model on the Δ-inverted base with the étale boundary charts; C3 supplies refinement morphisms.
+Proposed declaration: `hilbert_regular_refinement_smooth`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C0`, `ShimuraCompactifications:C3`, `HilbertModularVarietiesAndShimuraCurves:H1`.
+Hypotheses and conventions:
 
-Acceptance: Smoothness over Z[1/N(n)] is not asserted when a remaining prime divides Δ_F.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Corollary 7.5 and Remark 7.3, printed pp. 543–544.
+Construction and proof:
+
+1. Use C0’s regular coordinates and invariant locally finite refinement.
+2. Combine the smooth H1 open model on the Δ-inverted base with the étale boundary charts; C3 supplies refinement morphisms.
+
+Acceptance:
+
+- Smoothness over Z[1/N(n)] is not asserted when a remaining prime divides Δ_F.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C0/smooth-projective-refinement`, `ShimuraCompactifications:C3/refinement-map`, `HilbertModularVarietiesAndShimuraCurves:H1`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Corollary 7.5 and Remark 7.3, printed pp. 543–544.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Universal Hilbert semiabelian extension
 
-`hilbert-semiabelian-extension` — **hilbert_semiabelian_extension** (theorem). The universal fine HBAV on M¹ has a unique semiabelian group scheme extension G over Mbar¹_Σ with O-action. It is a torus over the boundary, and its chart pullbacks are the C4 Mumford families.
+Identifier: `ShimuraCompactifications:C6/hilbert-semiabelian-extension`. Kind: **theorem**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+The universal fine HBAV on M¹ has a unique semiabelian group scheme extension G over Mbar¹_Σ with O-action. It is a torus over the boundary, and its chart pullbacks are the C4 Mumford families.
 
-Proof route: Descend C4’s semiabelian chart families by their face and cusp equivariance. Glue with the universal abelian family on the open. Apply the requested uniqueness theorem for semiabelian extensions over the normal dense model.
+Proposed declaration: `hilbert_semiabelian_extension`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C4`, `SchemeAndStackFoundations:SF.1`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation`.
+Hypotheses and conventions:
 
-Acceptance: The fine family has O-action; the coarse polarization quotient is not asserted to carry a universal polarized HBAV. Boundary torus rank is g; its p-power torsion has multiplicative rank p^(ng), not constant abelian height 2g.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Proposition 7.6, printed p. 544.
+Construction and proof:
+
+1. Descend C4’s semiabelian chart families by their face and cusp equivariance.
+2. Glue with the universal abelian family on the open. Apply the requested uniqueness theorem for semiabelian extensions over the normal dense model.
+
+Acceptance:
+
+- The fine family has O-action; the coarse polarization quotient is not asserted to carry a universal polarized HBAV.
+- Boundary torus rank is g; its p-power torsion has multiplicative rank p^(ng), not constant abelian height 2g.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C4/degeneration-effectivity`, `ShimuraCompactifications:C4/homomorphism-extension`, `ShimuraCompactifications:C4/endomorphism-extension`, `SchemeAndStackFoundations:SF.1`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Proposition 7.6, printed p. 544.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
+
+Atlas planet: **Universal semiabelian extension**.
 
 #### Hilbert differentials on degeneration charts
 
-`hilbert-conormal-comparison` — **hilbert_conormal_compare** (comparison). The invariant differential sheaf e*Ω¹_G/Mbar equals the C4 chart differential module and restricts to the HBAV Hodge bundle on M¹. It has Z-rank g everywhere, O⊗O_Mbar-rank one on the Rapoport locus and at split toric boundary charts; after Δ inversion its character-weight lines are the H3 character-weight lines obtained from these differentials. This comparison is exported to B3 for its canonical-extension construction and to H5 for its classical tests.
+Identifier: `ShimuraCompactifications:C6/hilbert-conormal-comparison`. Kind: **comparison**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+The invariant differential sheaf e*Ω¹_G/Mbar equals the C4 chart differential module and restricts to the HBAV Hodge bundle on M¹. It has Z-rank g everywhere, O⊗O_Mbar-rank one on the Rapoport locus and at split toric boundary charts; after Δ inversion its character-weight lines are the H3 character-weight lines obtained from these differentials. This comparison is exported to B3 for its canonical-extension construction and to H5 for its classical tests.
 
-Proof route: Identify differentials of the torus through its character lattice, and glue by semiabelian-extension uniqueness. Compare to the H1/H2 Hodge module on the open and to the H3 weight descent on the Δ-inverted base.
+Proposed declaration: `hilbert_conormal_compare`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C4`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H2`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+Hypotheses and conventions:
 
-Acceptance: At ramified primes away from the Rapoport locus O-rank-one local freeness of the natural lattice is not automatic. T5’s modified ω^int is not identified with this natural integral lattice.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Proposition 7.6 and beginning of §8, printed pp. 544–546; BHW §7.1, pp. 1759–1760.
+Construction and proof:
+
+1. Identify differentials of the torus through its character lattice, and glue by semiabelian-extension uniqueness.
+2. Compare to the H1/H2 Hodge module on the open and to the H3 weight descent on the Δ-inverted base.
+
+Acceptance:
+
+- At ramified primes away from the Rapoport locus O-rank-one local freeness of the natural lattice is not automatic.
+- T5’s modified ω^int is not identified with this natural integral lattice.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C4/formal-universal-degeneration`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H2`, `HilbertModularVarietiesAndShimuraCurves:H3`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Proposition 7.6 and opening of section 8, author copy printed pp. 544–546; [BHW-2023](https://www.numdam.org/item/10.5802/aif.3560.pdf), Section 7.1, printed pp. 1759–1760.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Proper Hilbert toroidal models
 
-`hilbert-toroidal-proper` — **hilbert_toroidal_proper** (theorem). Mbar¹_Σ and Mbar_Σ are proper over B for a complete admissible fan system.
+Identifier: `ShimuraCompactifications:C6/hilbert-toroidal-proper`. Kind: **theorem**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+Mbar¹_Σ and Mbar_Σ are proper over B for a complete admissible fan system.
 
-Proof route: Apply semistable reduction after a finite extension of the valuation field. Use Raynaud’s polarized period lattice to obtain a positive valuation vector and an appropriate cone modulo units. The C4 chart extends the map over the valuation ring; use the requested valuative descent to conclude properness.
+Proposed declaration: `hilbert_toroidal_proper`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension`.
+Hypotheses and conventions:
 
-Acceptance: Properness does not assert projectivity of every toroidal fan.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
-Source: DIMITROV-AUTHOR, Theorem 7.7, printed pp. 544–545.
+Construction and proof:
+
+1. Apply semistable reduction after a finite extension of the valuation field.
+2. Use Raynaud’s polarized period lattice to obtain a positive valuation vector and an appropriate cone modulo units.
+3. The C4 chart extends the map over the valuation ring; use the requested valuative descent to conclude properness.
+
+Acceptance:
+
+- Properness does not assert projectivity of every toroidal fan.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C4/degeneration-effectivity`, `ShimuraCompactifications:C5`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Theorem 7.7, printed pp. 544–545.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 ### Koecher and boundary coefficients
 
@@ -569,45 +681,102 @@ Source: DIMITROV-AUTHOR, Proposition 8.5(iii), p. 24; author copy printed pp. 54
 
 #### A pole bound on a Hilbert cusp chart
 
-`meromorphic-cusp-support-bound` — **meromorphic_cusp_support_bound** (lemma). Under the stated Hilbert geometric hypotheses, a section of ω^κ over the open part of a completed regular cusp chart, which has finite pole order along its boundary, has Fourier support bounded below under every y in that cone. More explicitly, after a character-compatible local trivialization, write it as t^(−m)g, where t=x₁⋯x_r, m≥0, and g lies in the t-adic completed chart ring. Then a(ξ)≠0 implies ⟨ξ,y⟩≥−mΣ_i⟨m_i,y⟩, with m_i the r polynomial coordinate characters.
+Identifier: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`. Kind: **lemma**.
 
-Hypotheses: Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here. The completion and localization are formed over R; an unproved interchange of completion with arbitrary tensor products is not used. The coefficient description of this completion and the meromorphic representation are requested generic inputs.
+Under the stated Hilbert geometric hypotheses, a section of ω^κ over the open part of a completed regular cusp chart, which has finite pole order along its boundary, has Fourier support bounded below under every y in that cone. More explicitly, after a character-compatible local trivialization, write it as t^(−m)g, where t=x₁⋯x_r, m≥0, and g lies in the t-adic completed chart ring. Then a(ξ)≠0 implies ⟨ξ,y⟩≥−mΣ_i⟨m_i,y⟩, with m_i the r polynomial coordinate characters.
 
-Proof route: Import the C0 regular coordinate identification and the boundary-union ideal (t). Complete that R-algebra and use its proven admissible coefficient expansion. Every exponent of g has nonnegative pairing with y in the cone; the Laurent coordinates pair to zero. Multiplication by t^(−m) translates the support by −mΣ_i m_i. Coefficient injectivity yields the stated lower bound.
+Proposed declaration: `meromorphic_cusp_support_bound`.
 
-Direct inputs: `ShimuraCompactifications:C0/relative-regular-coordinates`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `ShimuraCompactifications:C4`, `AdicSpacesPartII:F0`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`.
+Hypotheses and conventions:
 
-Acceptance: For r=1 this is the usual lower bound on Laurent-series exponents. The union of coordinate boundary divisors is cut out by their product, whereas the sum ideal defines their intersection. The empty boundary chart r=0 is excluded from boundary-completion detection.
+- Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.
+- The completion and localization are formed over R; an unproved interchange of completion with arbitrary tensor products is not used. The coefficient description of this completion and the meromorphic representation are requested generic inputs.
 
-Source: DIMITROV-AUTHOR, §2, p. 5, and Theorem 8.3 proof, pp. 23–24; author copy printed pp. 546–548, §8.
+Construction and proof:
+
+1. Import the C0 regular coordinate identification and the boundary-union ideal (t). Complete that R-algebra and use its proven admissible coefficient expansion.
+2. Every exponent of g has nonnegative pairing with y in the cone; the Laurent coordinates pair to zero.
+3. Multiplication by t^(−m) translates the support by −mΣ_i m_i. Coefficient injectivity yields the stated lower bound.
+
+Acceptance:
+
+- For r=1 this is the usual lower bound on Laurent-series exponents.
+- The union of coordinate boundary divisors is cut out by their product, whereas the sum ideal defines their intersection.
+- The empty boundary chart r=0 is excluded from boundary-completion detection.
+
+Direct prerequisites: `ShimuraCompactifications:C0/relative-regular-coordinates`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `ShimuraCompactifications:C4/formal-universal-degeneration`, `AdicSpacesPartII:F0`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Section 2 completed toric coordinates, author copy printed pp. 529–530; Theorem 8.3 proof, printed p. 547.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Koecher`, namespace `TauCeti.HilbertCusp`.
 
 #### Positive support of meromorphic Hilbert expansions
 
-`hilbert-cusp-positive-support` — **hilbert_cusp_support_positive** (theorem). Under the Hilbert geometric hypotheses, every unit-equivariant meromorphic cusp expansion of an open Hilbert modular form has support contained in X_+∪{0}, where X=cbb′ is the actual character lattice at that cusp.
+Identifier: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`. Kind: **theorem**.
 
-Hypotheses: Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here. The finite-index subgroup U consists of the stabilizer pairs (u,1); its action preserves X. Its weight and cyclotomic multipliers are units. The coefficient family on X is extended by zero to F.
+Under the Hilbert geometric hypotheses, every unit-equivariant meromorphic cusp expansion of an open Hilbert modular form has support contained in X_+∪{0}, where X=cbb′ is the actual character lattice at that cusp.
 
-Proof route: Use H3’s exact stabilizer congruences and finite-index assertion; use H1’s lattice and trace dictionary, including the distinction between b and b′. Choose an open positive dual vector y. Completeness of the admissible fan puts y in a cone, without asserting that the whole fan is finite. Apply meromorphic-cusp-support-bound on that cone. In a local trivialization of the coefficient line, apply bounded-cusp-support. The result is independent of the trivialization because its transition scalars are units.
+Proposed declaration: `hilbert_cusp_support_positive`.
 
-Direct inputs: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/bounded-cusp-support`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `ShimuraCompactifications:C0`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`.
+Hypotheses and conventions:
 
-Acceptance: Both unramified level cusps (b′=b) and ramified level cusps (b′≠b) retain their actual exponent lattice. Ramification of a level cusp does not mean a base prime dividing the field discriminant. No finite flatness of a full p-adic tower is inferred from the finite cusp cyclotomic cover.
+- Use the actual Hilbert moduli and toroidal model supplied by H1–H4 and C4–C5, not an arbitrary scheme record with the conclusions as fields. F is totally real of degree greater than one; n is prime to the discriminant and divides neither (2) nor (3); c is prime to n. Use a regular admissible cusp fan, finite modulo its unit group, and a Noetherian algebra R over o′[1/Δ], Δ=N(d n), containing the weight values and the required square roots for polarization descent. Adjoin the finite cyclotomic cusp coefficients by an étale cover when needed. ω^κ is the actual descended invariant-differential line; no general automorphic-bundle construction is duplicated here.
+- The finite-index subgroup U consists of the stabilizer pairs (u,1); its action preserves X. Its weight and cyclotomic multipliers are units. The coefficient family on X is extended by zero to F.
 
-Source: DIMITROV-AUTHOR, Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8.
+Construction and proof:
+
+1. Use H3’s exact stabilizer congruences and finite-index assertion; use H1’s lattice and trace dictionary, including the distinction between b and b′.
+2. Choose an open positive dual vector y. Completeness of the admissible fan puts y in a cone, without asserting that the whole fan is finite.
+3. Apply meromorphic-cusp-support-bound on that cone.
+4. In a local trivialization of the coefficient line, apply bounded-cusp-support. The result is independent of the trivialization because its transition scalars are units.
+
+Acceptance:
+
+- Both unramified level cusps (b′=b) and ramified level cusps (b′≠b) retain their actual exponent lattice.
+- Ramification of a level cusp does not mean a base prime dividing the field discriminant.
+- No finite flatness of a full p-adic tower is inferred from the finite cusp cyclotomic cover.
+
+Direct prerequisites: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/bounded-cusp-support`, `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `ShimuraCompactifications:C0/relative-regular-coordinates`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `ShimuraCompactifications:C4/formal-universal-degeneration`, `ShimuraCompactifications:C5`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Theorem 8.3 proof, author copy printed p. 547.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Koecher`, namespace `TauCeti.HilbertCusp`.
 
 #### Arithmetic Koecher extension
 
-`arithmetic-koecher` — **arithmetic_koecher** (theorem). For g=[F:Q]>1, every coefficient algebra R over the discriminant-inverted weight base O′[1/Δ], and the actual Hilbert toroidal model, restriction Γ(Mbar_R,ωκ)→Γ(M_R,ωκ) is an isomorphism. No cusp vanishing is included.
+Identifier: `ShimuraCompactifications:C6/arithmetic-koecher`. Kind: **theorem**.
 
-Hypotheses: Dimitrov’s torsion-free tame level and admissible fan; Δ=N(d n). The weight κ is integral, the coefficient base contains its values and the square roots needed for polarization descent. The Noetherian case uses coherent completion detection. The general R case uses finite presentation and the requested qcqs filtered-colimit theorem; completion is not asserted to commute with arbitrary tensor products.
+For g=[F:Q]>1, every coefficient algebra R over the discriminant-inverted weight base O′[1/Δ], and the actual Hilbert toroidal model, restriction Γ(Mbar_R,ωκ)→Γ(M_R,ωκ) is an isomorphism. No cusp vanishing is included.
 
-Proof route: Use schematic density of the open immersion and invertibility of the line to obtain injectivity. For an open section, use the requested finite-pole and formal-detection theorem to examine it on every completed cusp chart. Apply hilbert-cusp-positive-support. Its exponents lie in every positive dual monoid, so the existing meromorphic expansion has no negative coordinate exponents and belongs to the completed regular ring. Use the actual equivariant chart relation to glue these regular formal sections, then coherent formal detection to extend across the boundary. Uniqueness follows from injectivity. Descend the finite-presentation model, line and section data to finitely generated subalgebras of R over O′[1/Δ]. Apply the Noetherian result there and use the requested qcqs H0/filtered-colimit comparison for both open and compactified schemes. This is the explicit supplier input for arbitrary coefficients.
+Proposed declaration: `arithmetic_koecher`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `AdicSpacesPartII:F0`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`, `HilbertModularVarietiesAndShimuraCurves:H3`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.0`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`.
+Hypotheses and conventions:
 
-Acceptance: For degree one the weakly holomorphic q^(−1) behavior is not eliminated by units; the theorem is not claimed for F=Q. The constant coefficient need not vanish. No ramified-base Hasse-ideal conclusion follows from a theorem over o′[1/Δ]. Changing an admissible fan uses common-refinement comparison maps from C3, not equality of the chosen toroidal schemes.
+- Dimitrov’s torsion-free tame level and admissible fan; Δ=N(d n). The weight κ is integral, the coefficient base contains its values and the square roots needed for polarization descent.
+- The Noetherian case uses coherent completion detection. The general R case uses finite presentation and the requested qcqs filtered-colimit theorem; completion is not asserted to commute with arbitrary tensor products.
 
-Source: DIMITROV-AUTHOR, Theorem 8.3, pp. 23–24 (author copy printed p. 547); author copy printed pp. 546–548, §8.
+Construction and proof:
+
+1. Use schematic density of the open immersion and invertibility of the line to obtain injectivity.
+2. For an open section, use the requested finite-pole and formal-detection theorem to examine it on every completed cusp chart.
+3. Apply hilbert-cusp-positive-support. Its exponents lie in every positive dual monoid, so the existing meromorphic expansion has no negative coordinate exponents and belongs to the completed regular ring.
+4. Use the actual equivariant chart relation to glue these regular formal sections, then coherent formal detection to extend across the boundary. Uniqueness follows from injectivity.
+5. Descend the finite-presentation model, line and section data to finitely generated subalgebras of R over O′[1/Δ]. Apply the Noetherian result there and use the requested qcqs H0/filtered-colimit comparison for both open and compactified schemes. This is the explicit supplier input for arbitrary coefficients.
+
+Acceptance:
+
+- For degree one the weakly holomorphic q^(−1) behavior is not eliminated by units; the theorem is not claimed for F=Q.
+- The constant coefficient need not vanish.
+- No ramified-base Hasse-ideal conclusion follows from a theorem over o′[1/Δ].
+- Changing an admissible fan uses common-refinement comparison maps from C3, not equality of the chosen toroidal schemes.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `AdicSpacesPartII:F0`, `ShimuraCompactifications:C0/relative-boundary-coordinates`, `ShimuraCompactifications:C4/formal-universal-degeneration`, `ShimuraCompactifications:C5`, `HilbertModularVarietiesAndShimuraCurves:H3`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.0`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Theorem 8.3, author copy printed p. 547.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Koecher`, namespace `TauCeti.HilbertCusp`.
+
+Atlas planet: **Arithmetic Koecher principle**.
 
 #### Hilbert cusp forms and the boundary ideal
 
@@ -809,17 +978,36 @@ Source: DIMITROV-AUTHOR, Proposition 8.5(ii), printed p. 547 (proof delegated to
 
 #### Hilbert minimal and toroidal cusp ideals
 
-`hilbert-boundary-ideal-pushforward` — **hilbert_boundary_ideal_pushforward** (theorem). For g>1, on the stated normal Hilbert models π_*I_D=I_cusp, where D is the toroidal boundary and I_cusp is the ideal of the finite étale minimal cusp subscheme. For a parallel weight line Lmin, π_*(π*Lmin⊗I_D)=Lmin⊗I_cusp.
+Identifier: `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`. Kind: **theorem**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level. First over the source arithmetic base; any coefficient extension requires the requested coherent pushforward/base-change comparison, not an automatic equality of pulled-back ideals.
+For g>1, on the stated normal Hilbert models π_*I_D=I_cusp, where D is the toroidal boundary and I_cusp is the ideal of the finite étale minimal cusp subscheme. For a parallel weight line Lmin, π_*(π*Lmin⊗I_D)=Lmin⊗I_cusp.
 
-Proof route: Use π_*O=O and the formal q-expansion identification. A function has zero boundary restriction exactly when its constant coefficients vanish, hence exactly when it lies in I_cusp on the minimal model. Glue by completion detection and apply the projection formula for an invertible Lmin.
+Proposed declaration: `hilbert_boundary_ideal_pushforward`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-boundary-constant`, `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `ShimuraCompactifications:C5`, `AdicSpacesPartII:F0`, `SchemeAndStackFoundations:SF.0`, `AdicSpacesPartII:F0/formal-direct-image-comparison`.
+Hypotheses and conventions:
 
-Acceptance: No equality π*I_cusp=I_D is claimed; orders of vanishing can change under refinements. Boundary ideals retain nilpotent coefficients.
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+- First over the source arithmetic base; any coefficient extension requires the requested coherent pushforward/base-change comparison, not an automatic equality of pulled-back ideals.
 
-Source: DIMITROV-AUTHOR, Theorem 8.6(iv),(v), equation (5) and Theorem 8.3, printed pp. 546–549.
+Construction and proof:
+
+1. Use the C5 normal proper contraction theorem to obtain π_*O_Mbar=O_Mmin over B=Z[1/N(n)]. Let C be the finite étale minimal cusp subscheme and f:D→C the induced boundary map.
+2. Use hilbert-boundary-etale-charts and C0: the scheme-theoretic toric boundary has a monomial quotient basis over its cusp coefficient ring, so it is flat and has geometrically reduced fibres. Descend along the actual cusp étale covers. Hilbert-minimal-boundary-fibres identifies the geometrically connected fibres over C; properness follows from the contraction.
+3. Apply the requested SF.0/C5 theorem for a proper flat finitely presented morphism with geometrically reduced and geometrically connected fibres: O_C≅f_*O_D, with its coherent base-change statement. This is an integral global-function argument, not a reduced-point detection argument.
+4. Push forward 0→I_D→O_Mbar→O_D. Left exactness identifies π_*I_D with the kernel of O_Mmin→O_C, namely I_cusp. Apply the projection formula for the invertible parallel line Lmin.
+5. Any coefficient extension uses the explicitly permitted coherent base changes; do not interchange a completed series ring with arbitrary tensor product.
+
+Acceptance:
+
+- No equality π*I_cusp=I_D is claimed; orders of vanishing can change under refinements.
+- Boundary ideals retain nilpotent coefficients.
+- The integral base B does not invert the discriminant. The weight-line boundary criterion over o′[1/Δ] is not used to prove this base-B assertion.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `ShimuraCompactifications:C5`, `AdicSpacesPartII:F0`, `SchemeAndStackFoundations:SF.0`, `AdicSpacesPartII:F0/formal-direct-image-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres`, `ShimuraCompactifications:C0/relative-boundary-coordinates`.
+
+Sources: [DIMITROV-AUTHOR](https://gitlabpages.univ-lille.fr/dimitrov/articles/Pad15-Di.pdf), Theorem 8.6(iv),(v) and its proof, author copy printed pp. 548–549; Corollary 7.4, printed p. 544.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 ### Ordinary models and finite levels
 
@@ -895,17 +1083,36 @@ Source: BHW-2023, BHW Proposition 8.4 and Lemma 8.5, pp. 1766–1767.
 
 #### Finite-level Hilbert boundary maps
 
-`hilbert-p-level-boundary-comparison` — **hilbert_pLevel_boundary_compare** (comparison). The forgetful and finite effective H4 level/polarization maps between Hilbert generic-fibre normal compactifications extend their open moduli maps and agree on completed cusp data, including the induced lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units.
+Identifier: `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`. Kind: **comparison**.
 
-Hypotheses: F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level. Integral models at wild p-level are only those explicitly supplied by H2/H4 and the applicable C5 extension theorem; the BHW generic-fibre tower alone supplies no all-level smooth integral model.
+The forgetful and finite effective H4 level/polarization maps extend between the canonical Hilbert generic-fibre minimal compactifications (or the specified finite normalizations). For toroidal compactifications they extend after choosing fans compatible with the induced cusp lattice maps; a finite toroidal extension uses the pullback fan/finite normalization, while further refinements may give proper nonfinite maps. These maps agree on completed cusp data, including lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units.
 
-Proof route: Use H4’s actual finite-level action (precomposition by γ∨=det(γ)γ⁻¹) and effective centers. Apply C5’s finite normal compactification extension to the finite open maps. Use C4’s level period maps and H3’s phase compatibility to identify the formal boundary maps.
+Proposed declaration: `hilbert_pLevel_boundary_compare`.
 
-Direct inputs: `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `HilbertModularVarietiesAndShimuraCurves:H2`, `HilbertModularVarietiesAndShimuraCurves:H3`, `HilbertModularVarietiesAndShimuraCurves:H4`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`.
+Hypotheses and conventions:
 
-Acceptance: The map from full G* to full G level is not generally surjective (BHW §8.2). Finite effective groups at fixed n are not the profinite group Δ(p∞N).
+- F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
+- Integral models at wild p-level are only those explicitly supplied by H2/H4 and the applicable C5 extension theorem; the BHW generic-fibre tower alone supplies no all-level smooth integral model.
+- For every toroidal map choose source and target admissible fans compatible under the actual cusp lattice map, using C0/C3 equivariant refinements. A finiteness assertion requires the source to be the finite normalization of the target, equivalently the pullback fan in the finite toric lattice case; compatibility alone does not imply finiteness.
 
-Source: BHW-2023, BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779.
+Construction and proof:
+
+1. Use H4’s actual finite-level action (precomposition by γ∨=det(γ)γ⁻¹) and effective centers.
+2. Apply C5’s canonical minimal compactification/finite normalization extension theorem to finite open maps, with its stated normality and density hypotheses.
+3. For toroidal maps use C0’s lattice-map criterion and C3’s compatible equivariant refinements, with C4’s period data. Identify the finite normalization with the pullback fan when claiming finiteness; additional subdivisions only supply proper comparison maps.
+4. Use H3’s phase compatibility to identify the formal boundary maps, and schematic density to compare them with the extended open maps.
+
+Acceptance:
+
+- The map from full G* to full G level is not generally surjective (BHW §8.2).
+- Finite effective groups at fixed n are not the profinite group Δ(p∞N).
+- Unrelated fixed fans need not admit the level map. A proper subdivision of a compatible fan can give a nonfinite toroidal map, even though the open level map is finite.
+
+Direct prerequisites: `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `HilbertModularVarietiesAndShimuraCurves:H2`, `HilbertModularVarietiesAndShimuraCurves:H3`, `HilbertModularVarietiesAndShimuraCurves:H4`, `ShimuraCompactifications:C4/boundary-level-comparison`, `ShimuraCompactifications:C5`, `ShimuraCompactifications:C0/compatible-common-refinement`, `ShimuraCompactifications:C0/relative-torus-embedding`, `ShimuraCompactifications:C3/level-datum-functoriality`, `ShimuraCompactifications:C3/choice-comparison`.
+
+Sources: [BHW-2023](https://www.numdam.org/item/10.5802/aif.3560.pdf), BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779.
+
+Proposed library: module `TauCeti/Geometry/Shimura/Hilbert/Compactification`, namespace `TauCeti.HilbertCusp`.
 
 #### Natural integral Hilbert differential lattice
 
@@ -925,31 +1132,63 @@ Source: BHW-2023, BHW §7.1, Definition 7.3 and Proposition 7.4, pp. 1759–1760
 
 #### Degree-one compactification comparison
 
-`modular-toroidal-minimal-comparison` — **modular_toroidal_minimal_compare** (comparison). For F=Q, after identifying principal polarizations and the same tame and finite p-level moduli data and bases, the generic-fibre normal Hilbert toroidal and minimal curves are canonically isomorphic to the compactified coarse modular curves of R13.4a. The isomorphism restricts to the moduli identification on the open and identifies the cusp subschemes.
+Identifier: `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`. Kind: **comparison**.
 
-Hypotheses: Work in characteristic zero, component by component, with the precise full/fixed-pairing/Γ1/Γ0 level and coefficient field supplied by R13.4a. For full level retain the Weil-pairing/cyclotomic component field; do not collapse it to the tame Γ1 curve.
+For F=Q, after identifying principal polarizations and the same tame and finite p-level moduli data and bases, the generic-fibre normal Hilbert toroidal and minimal curves are canonically isomorphic to the compactified coarse modular curves of R13.4a. The isomorphism restricts to the moduli identification on the open and identifies the cusp subschemes.
 
-Proof route: The H1 HBAV moduli problem at F=Q is the elliptic one with the specified level. Use the R13.4a normal proper coarse construction. Normal proper curve completions of the common dense open are uniquely isomorphic. A proper birational contraction of normal curves is an isomorphism, so toroidal and minimal generic curves coincide.
+Proposed declaration: `modular_toroidal_minimal_compare`.
 
-Direct inputs: `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H4`, `ShimuraCompactifications:C4`, `ShimuraCompactifications:C5`, `ModularCurvesPartII:R13.4a`, `SchemeAndStackFoundations:SF.0`.
+Hypotheses and conventions:
 
-Acceptance: g=1 does not satisfy arithmetic Koecher; a pole at a cusp can exist. Composite and full levels use R13.4a.
+- Work in characteristic zero, component by component, with the precise full/fixed-pairing/Γ1/Γ0 level and coefficient field supplied by R13.4a.
+- For full level retain the Weil-pairing/cyclotomic component field; do not collapse it to the tame Γ1 curve.
 
-Source: MODULAR-CURVES-II, R13.4a; BHW §2.1 and §5.1.2.
+Construction and proof:
+
+1. The H1 HBAV moduli problem at F=Q is the elliptic one with the specified level.
+2. Use the R13.4a normal proper coarse construction. Normal proper curve completions of the common dense open are uniquely isomorphic.
+3. A proper birational contraction of normal curves is an isomorphism, so toroidal and minimal generic curves coincide.
+
+Acceptance:
+
+- g=1 does not satisfy arithmetic Koecher; a pole at a cusp can exist.
+- Composite and full levels use R13.4a.
+
+Direct prerequisites: `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H4`, `ShimuraCompactifications:C4/tate-degeneration-comparison`, `ShimuraCompactifications:C5`, `ModularCurvesPartII:R13.4a`, `SchemeAndStackFoundations:SF.0`.
+
+Sources: [MODULAR-CURVES-II](https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/campaign/ModularCurvesPartII/README.md), R13.4a; [BHW-2023](https://www.numdam.org/item/10.5802/aif.3560.pdf), Section 2.1, printed pp. 1720–1721.
+
+Proposed library: module `TauCeti/Geometry/Shimura/ModularComparison`, namespace `TauCeti.HilbertCusp`.
 
 #### Modular cusp parameters and analytification
 
-`modular-formal-cusp-comparison` — **modular_formal_cusp_compare** (comparison). Under the degree-one comparison, the C4 Tate/Mumford family, cusp fields and the formal q parameter agree with R13.4a/R13.4b. For a cusp of width w, j=q_Tate⁻¹+744+… and q_Tate=t^w in its level cusp parameter t. Analytification and the permitted level/degeneracy correspondences commute with this identification.
+Identifier: `ShimuraCompactifications:C6/modular-formal-cusp-comparison`. Kind: **comparison**.
 
-Hypotheses: Use R13.4b’s component and correspondence descent hypotheses; at stack level keep inertia, and at coarse level keep cusp width. Generic fibre and completed cusp comparisons use the formal/adic comparison F0/R2/R3.
+Under the degree-one comparison, the C4 Tate/Mumford family, cusp fields and the formal q parameter agree with R13.4a/R13.4b. For a cusp of width w, j=q_Tate⁻¹+744+… and q_Tate=t^w in its level cusp parameter t. Analytification and the permitted level/degeneracy correspondences commute with this identification.
 
-Proof route: Identify the universal Tate object on the common punctured cusp using C4’s uniqueness. Transport the character inclusion at the cusp; its index is the width, giving q_Tate=t^w. Use R13.4b’s analytic and correspondence comparison rather than proving analytic uniformization here.
+Proposed declaration: `modular_formal_cusp_compare`.
 
-Direct inputs: `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C4`, `ModularCurvesPartII:R13.4a`, `ModularCurvesPartII:R13.4b`, `AdicSpacesPartII:F0`, `AdicSpacesPartII:R2`, `AdicSpacesPartII:R3`.
+Hypotheses and conventions:
 
-Acceptance: At width w>1 the coarse parameter t is not the Tate q itself. A coarse-space map is not a substitute for a stack correspondence.
+- Use R13.4b’s component and correspondence descent hypotheses; at stack level keep inertia, and at coarse level keep cusp width.
+- Generic fibre and completed cusp comparisons use the formal/adic comparison F0/R2/R3.
 
-Source: MODULAR-CURVES-II, R13.4a and R13.4b; BHW §2.1.
+Construction and proof:
+
+1. Identify the universal Tate object on the common punctured cusp using C4’s uniqueness.
+2. Transport the character inclusion at the cusp; its index is the width, giving q_Tate=t^w.
+3. Use R13.4b’s analytic and correspondence comparison rather than proving analytic uniformization here.
+
+Acceptance:
+
+- At width w>1 the coarse parameter t is not the Tate q itself.
+- A coarse-space map is not a substitute for a stack correspondence.
+
+Direct prerequisites: `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C4/tate-degeneration-comparison`, `ShimuraCompactifications:C4/boundary-level-comparison`, `ModularCurvesPartII:R13.4a`, `ModularCurvesPartII:R13.4b`, `AdicSpacesPartII:F0`, `AdicSpacesPartII:R2`, `AdicSpacesPartII:R3`.
+
+Sources: [MODULAR-CURVES-II](https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/campaign/ModularCurvesPartII/README.md), R13.4a and R13.4b; [BHW-2023](https://www.numdam.org/item/10.5802/aif.3560.pdf), Section 2.1, printed pp. 1720–1721.
+
+Proposed library: module `TauCeti/Geometry/Shimura/ModularComparison`, namespace `TauCeti.HilbertCusp`.
 
 #### PR81 prime diamond quotient comparison
 
@@ -967,130 +1206,163 @@ Source: MODULAR-CURVES-II, R13.4a; reviewed Modular Curves → C6 link.
 
 ## Supplier contracts and closure
 
-The supplier stages without matching declaration-level nodes have the following exact requests. Existing C0 coordinate/boundary node IDs are used directly where their statements match. Their arithmetic completion extensions remain requested.
-
 ### ShimuraCompactifications:C0
 
-Arithmetic Hilbert admissible fans: complete positive cone, locally finite away from zero, finite modulo effective units, regular equivariant refinements; completed t-adic toric charts, coefficient/support description, localization shifts and boundary-union ideal (t), retaining nilpotents. Existing relative regular-coordinate nodes are reused; this request is for their missing completion and arithmetic admissibility interfaces.
+Arithmetic Hilbert admissible fans: complete positive cone, locally finite away from zero, finite modulo effective units, regular equivariant refinements; completed t-adic toric charts, coefficient/support description, localization shifts and boundary-union ideal (t), retaining nilpotents. Existing relative regular-coordinate nodes are reused; this request is for their missing completion and arithmetic admissibility interfaces. Supply the toric boundary monomial quotient basis, flatness and geometric reducedness, and the morphism criterion for an actual cusp lattice map with compatible fans; finite lattice maps with pullback fans give the finite normalization.
 
-Consumed by `hilbert-cusp-positive-support`, `admissible-fan-specialization`, `hilbert-boundary-formal-comparison`, `hilbert-boundary-etale-charts`, `hilbert-regular-refinement`.
+Consumers: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`.
 
 ### ShimuraCompactifications:C4
 
 Relative polarized Mumford chart and its actual semiabelian family, compatible with R11.3 Raynaud uniformization, level exact sequence, face changes, cusp-unit/cyclotomic changes and invariant differentials. For F=Q supply the Tate comparison and character inclusions determining cusp widths. Generic degeneration and Raynaud carriers stay here/R11.3.
 
-Consumed by `meromorphic-cusp-support-bound`, `hilbert-cusp-positive-support`, `arithmetic-koecher`, `uniformized-level-chart`, `hilbert-semiabelian-extension`, `hilbert-conormal-comparison`, `hilbert-toroidal-proper`, `hilbert-p-level-boundary-comparison`, `modular-toroidal-minimal-comparison`, `modular-formal-cusp-comparison`.
+Consumers: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`, `ShimuraCompactifications:C6/hilbert-toroidal-proper`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`.
 
 ### ShimuraCompactifications:C5
 
-Specialize the generic integral compactification effectivity to the Hilbert boundary presentation on B=Z[1/N(n)] with H2 local models at discriminant primes; supply finite normal compactification of finite generic level maps. Supply determinant Hodge semi-ampleness, normalized section-ring/Veronese comparison, finite generation including finiteness over the Veronese, projectivity, normality, connected fibres, constancy of abelian parts, coherent pushforward/projection formula and the allowed base changes. Good-prime smoothness is not imported at a discriminant prime.
+Specialize the generic integral compactification effectivity to the Hilbert boundary presentation on B=Z[1/N(n)] with H2 local models at discriminant primes; supply extension to canonical minimal compactifications and specified finite normalizations of finite generic level maps, without claiming extension to unrelated toroidal fans. Supply determinant Hodge semi-ampleness, normalized section-ring/Veronese comparison, finite generation including finiteness over the Veronese, projectivity, normality, connected fibres, constancy of abelian parts, coherent pushforward/projection formula and the allowed base changes. Good-prime smoothness is not imported at a discriminant prime. Over B, compare the toroidal boundary with its finite étale cusp base: the map is proper flat with geometrically connected and geometrically reduced fibres, and its pushforward of O is O, with precisely permitted coherent base changes.
 
-Consumed by `hilbert-cusp-positive-support`, `arithmetic-koecher`, `hilbert-toroidal-model`, `hilbert-toroidal-proper`, `hilbert-hodge-semiampleness`, `hilbert-minimal-contraction`, `hilbert-minimal-finite-generation`, `hilbert-minimal-normal-projective`, `minimal-polarization-quotient`, `hilbert-minimal-cusps`, `hilbert-minimal-boundary-fibres`, `hilbert-minimal-weight-extension`, `hilbert-boundary-ideal-pushforward`, `hilbert-p-level-boundary-comparison`, `modular-toroidal-minimal-comparison`.
+Consumers: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-toroidal-proper`, `ShimuraCompactifications:C6/hilbert-hodge-semiampleness`, `ShimuraCompactifications:C6/hilbert-minimal-contraction`, `ShimuraCompactifications:C6/hilbert-minimal-finite-generation`, `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/minimal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres`, `ShimuraCompactifications:C6/hilbert-minimal-weight-extension`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`.
 
 ### ShimuraCompactifications:C3
 
-Cusp-equivariant regular refinements and comparison morphisms on actual arithmetic locally finite fans. The C6 specialization only identifies the Hilbert charts; generic refinement geometry remains C3.
+Cusp-equivariant regular refinements and comparison morphisms on actual arithmetic locally finite fans. The C6 specialization only identifies the Hilbert charts; generic refinement geometry remains C3. For level comparisons choose compatible source/target fans under the actual cusp lattice map and distinguish a pullback fan (finite normalization) from further subdivisions (proper, possibly nonfinite).
 
-Consumed by `hilbert-regular-refinement`.
+Consumers: `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`.
 
 ### HilbertModularVarietiesAndShimuraCurves:H1
 
 The actual fine HBAV moduli scheme at the stated torsion-free tame level, its universal family, polarization module and trace/different convention f*=f⁻¹d⁻¹. Supply (R,n)-cusp data a,b,L,β, c=ab⁻¹, b′/b and X=cbb′; the latter is the level-image lattice, not cb² at every cusp. Identify the signed real trace pairing and elliptic moduli specialization at F=Q. Supply smoothness and geometric connectedness/irreducibility of the fixed c-component on the Δ-inverted weight base, as used by Dimitrov–Tilouine §7.
 
-Consumed by `positive-exponents-on-charts`, `meromorphic-cusp-support-bound`, `hilbert-cusp-positive-support`, `cusp-lattice-comparison`, `uniformized-level-chart`, `hilbert-regular-refinement`, `hilbert-conormal-comparison`, `hilbert-ordinary-model-comparison`, `modular-toroidal-minimal-comparison`, `hilbert-q-expansion-module-injective`.
+Consumers: `ShimuraCompactifications:C6/positive-exponents-on-charts`, `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`, `ShimuraCompactifications:C6/hilbert-ordinary-model-comparison`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C6/hilbert-q-expansion-module-injective`.
 
 ### HilbertModularVarietiesAndShimuraCurves:H2
 
 Deligne–Pappas model and Rapoport/ordinary local model at all p prime to tame level, including ramification and p=2; intrinsic total Hasse ideal imported from R07.2 det(V*), compatible with conormal and polarization. Supply finite-presentation ordinary neighbourhoods, normalized admissible blowup with p-torsion removal, lift independence for ε<1, and exact permitted integral compactification comparisons. T3/T5 quantitative canonical subgroup and modified lattice results are not assumed here.
 
-Consumed by `hilbert-conormal-comparison`, `hilbert-ordinary-model-comparison`, `hilbert-hasse-boundary-comparison`, `hilbert-boundary-ordinary`, `hilbert-near-ordinary-model`, `hilbert-p-level-boundary-comparison`, `hilbert-integral-differential-interface`.
+Consumers: `ShimuraCompactifications:C6/hilbert-conormal-comparison`, `ShimuraCompactifications:C6/hilbert-ordinary-model-comparison`, `ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-ordinary`, `ShimuraCompactifications:C6/hilbert-near-ordinary-model`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`.
 
 ### HilbertModularVarietiesAndShimuraCurves:H3
 
 Full cusp stabilizer: 0→X*→stabilizer→U_C→1 with effective action u²ε; congruences u−1∈n b′b⁻¹ and uε−1∈bb′⁻¹, as verified in Proposition 3.3(iv). Supply enlarged component stabilizers, finite cyclotomic H_C and H_C,1, finite-index U_C,1⊂O×, weight/root covariance and line descent. Supply finite tame Δ(N), free toroidal action at torsion-free tame level and possibly stabilizing minimal action. Do not identify the full stabilizer with its finite cyclotomic image.
 
-Consumed by `meromorphic-cusp-support-bound`, `hilbert-cusp-positive-support`, `arithmetic-koecher`, `cusp-lattice-comparison`, `admissible-fan-specialization`, `uniformized-level-chart`, `toroidal-polarization-quotient`, `hilbert-boundary-formal-comparison`, `hilbert-conormal-comparison`, `minimal-polarization-quotient`, `hilbert-minimal-cusps`, `hilbert-minimal-formal-comparison`, `hilbert-minimal-weight-extension`, `hilbert-q-expansion-comparison`, `hilbert-hasse-boundary-comparison`, `hilbert-ordinary-polarization-quotient`, `hilbert-p-level-boundary-comparison`.
+Consumers: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`, `ShimuraCompactifications:C6/minimal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `ShimuraCompactifications:C6/hilbert-minimal-weight-extension`, `ShimuraCompactifications:C6/hilbert-q-expansion-comparison`, `ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`.
 
 ### HilbertModularVarietiesAndShimuraCurves:H4
 
 Actual finite full/fixed-pairing/Γ1/Γ0 levels and mixed G-level problem; γ∨=det(γ)γ⁻¹ precomposition on dual level data, pairing components, effective finite groups and componentwise quotients. Supply finite period/character maps at cusps, and exactly the permitted integral models at wild levels; distinguish them from generic-fibre models and from the profinite infinite tower.
 
-Consumed by `hilbert-ordinary-polarization-quotient`, `hilbert-p-level-boundary-comparison`, `hilbert-integral-differential-interface`, `modular-toroidal-minimal-comparison`.
+Consumers: `ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`.
 
 ### AdicSpacesPartII:F0
 
 Formal completion, algebraization of the prescribed cusp étale relation and uniqueness from schematic density. On Noetherian models supply finite-pole presentation off an effective Cartier divisor, injectivity of completed coefficient description, detection of regularity/ideal membership, and formal functions for the proper contraction. Specify exactly when these commute with coefficient change; arbitrary completion/tensor interchange is not assumed. Supply the module-valued coefficient description and detection on the specified arithmetic thickenings, retaining torsion; no reduced-point test substitutes for this.
 
-Consumed by `meromorphic-cusp-support-bound`, `arithmetic-koecher`, `hilbert-boundary-constant`, `hilbert-toroidal-model`, `hilbert-boundary-formal-comparison`, `hilbert-boundary-etale-charts`, `hilbert-minimal-cusps`, `hilbert-minimal-formal-comparison`, `hilbert-q-expansion-injective`, `hilbert-boundary-ideal-pushforward`, `hilbert-ordinary-model-comparison`, `hilbert-near-ordinary-model`, `hilbert-integral-differential-interface`, `modular-formal-cusp-comparison`, `hilbert-q-expansion-module-injective`, `hilbert-q-expansion-comparison`.
+Consumers: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-boundary-constant`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `ShimuraCompactifications:C6/hilbert-q-expansion-injective`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-ordinary-model-comparison`, `ShimuraCompactifications:C6/hilbert-near-ordinary-model`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`, `ShimuraCompactifications:C6/hilbert-q-expansion-module-injective`, `ShimuraCompactifications:C6/hilbert-q-expansion-comparison`.
 
 ### AdicSpacesPartII:R2
 
 P-adic completion and generic-fibre comparison for the specified formal ordinary neighbourhoods; normality and codimension conditions for any formal Hartogs use remain explicit.
 
-Consumed by `hilbert-near-ordinary-model`, `modular-formal-cusp-comparison`.
+Consumers: `ShimuraCompactifications:C6/hilbert-near-ordinary-model`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`.
 
 ### AdicSpacesPartII:R3
 
 Adic analytification of the finite-type generic models, its agreement with the p-adic completion generic fibre, coherent conormal pullback, and compatibility of the supplied level/cusp maps and Hasse rational domains.
 
-Consumed by `hilbert-near-ordinary-model`, `hilbert-integral-differential-interface`, `modular-formal-cusp-comparison`.
+Consumers: `ShimuraCompactifications:C6/hilbert-near-ordinary-model`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`.
 
 ### SchemeAndStackFoundations:SF.0
 
-Semiabelian/conormal and invertible-line boundary exact sequences, normal proper curve uniqueness, proper coherent pushforward and projection formula. For arbitrary coefficients supply H0 on qcqs finite-presentation models/lines commuting with filtered colimits of coefficient algebras; descend line, open immersion and section data to finitely generated subalgebras. This replaces invalid tensor/completion interchange. For q-expansion detection supply schematic density on prime-power thickenings of a smooth geometrically irreducible fibre, flat-line coefficient exactness and H0 on qcqs models commuting with filtered colimits of coefficient modules. Use directed unions of finitely generated submodules and the injective coefficient maps induced by an invertible line; full formal series need not commute with colimits.
+Semiabelian/conormal and invertible-line boundary exact sequences, normal proper curve uniqueness, proper coherent pushforward and projection formula. For arbitrary coefficients supply H0 on qcqs finite-presentation models/lines commuting with filtered colimits of coefficient algebras; descend line, open immersion and section data to finitely generated subalgebras. This replaces invalid tensor/completion interchange. For q-expansion detection supply schematic density on prime-power thickenings of a smooth geometrically irreducible fibre, flat-line coefficient exactness and H0 on qcqs models commuting with filtered colimits of coefficient modules. Use directed unions of finitely generated submodules and the injective coefficient maps induced by an invertible line; full formal series need not commute with colimits. For the integral boundary-ideal comparison, supply O_C≅f_*O_D and coherent base change for proper flat finitely presented f:D→C with geometrically connected and geometrically reduced fibres; apply left exact pushforward to the boundary ideal sequence over B without inverting the discriminant.
 
-Consumed by `arithmetic-koecher`, `hilbert-boundary-constant`, `hilbert-minimal-normal-projective`, `hilbert-minimal-weight-extension`, `hilbert-q-expansion-injective`, `hilbert-boundary-ideal-pushforward`, `modular-toroidal-minimal-comparison`, `hilbert-q-expansion-module-injective`, `hilbert-q-expansion-coefficient-descent`.
+Consumers: `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-boundary-constant`, `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/hilbert-minimal-weight-extension`, `ShimuraCompactifications:C6/hilbert-q-expansion-injective`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C6/hilbert-q-expansion-module-injective`, `ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent`.
 
 ### SchemeAndStackFoundations:SF.1
 
 Effective étale and faithful-flat descent of the actual families, weight lines, ideals and sections; finite tame invariant quotients, including finite cyclotomic coefficient covers and normal projective coarse quotients. No exactness by division by a group order in a noninvertible integral coefficient ring.
 
-Consumed by `arithmetic-koecher`, `hilbert-boundary-constant`, `hilbert-toroidal-model`, `toroidal-polarization-quotient`, `hilbert-semiabelian-extension`, `minimal-polarization-quotient`, `hilbert-boundary-ordinary`, `hilbert-ordinary-polarization-quotient`.
+Consumers: `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-boundary-constant`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C6/minimal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-boundary-ordinary`, `ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient`.
 
 ### NeronModelsAndSemistableAbelianVarieties:R11.3
 
 Use the existing finite-separable-semistable-extension and positive-residue-characteristic rigid-uniformisation nodes. Additionally specify the split polarized period description needed for complete arithmetic valuation rings in the valuative proof, including equal/residue characteristic zero where the current rigid node does not apply; compatibility with C4 charts and uniqueness of the semiabelian extension remain explicit requests.
 
-Consumed by `hilbert-toroidal-model`, `hilbert-semiabelian-extension`, `hilbert-toroidal-proper`.
+Consumers: `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C6/hilbert-toroidal-proper`.
 
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
 
 As required by confirmed RT-AREA-padic-1/26, own the generic BT₁ invariant Ha(G)=det(V*) over F_p-schemes, LF and the BT₁ Hodge–Tate sequence; supply its abelian compatibility to H2. This is an additional requested interface to R07.2, not a claim that its current perfect-field Dieudonné description already proves it.
 
-Consumed by `hilbert-hasse-boundary-comparison`.
+Consumers: `ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison`.
 
 ### HodgeTateAndCanonicalSubgroups:T0
 
 Keep only the extension of the R07.2 differential/Hasse API to semiabelian degeneration charts, with the toric/abelian pieces and varying boundary height explicit. Supply split-torus Verschiebung determinant a unit and compatibility on overlaps; C6 consumes it to compare the actual Hilbert boundary, without moving generic Ha/LF ownership here.
 
-Consumed by `hilbert-hasse-boundary-comparison`, `hilbert-boundary-ordinary`.
+Consumers: `ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-ordinary`.
 
 ### ModularCurvesPartII:R13.4a
 
 Compactified coarse modular curves for full, fixed-pairing, Γ1 and refined Γ0 levels, with bases, normality/properness, cusps and moduli identification. Supply agreement with PR81 Layer 10 only for prime N≥5 diamond H≤(Z/N)×/{±1}, including finite normal j-line and schematic-density conditions.
 
-Consumed by `modular-toroidal-minimal-comparison`, `modular-formal-cusp-comparison`, `prime-diamond-pr81-comparison`.
+Consumers: `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`, `ShimuraCompactifications:C6/prime-diamond-pr81-comparison`.
 
 ### ModularCurvesPartII:R13.4b
 
 Generic-fibre analytic comparison for R13.4a curves with component, determinant and cusp fields and the Tate cusp width parameter. Supply degeneracy/correspondence compatibility with its Hecke normalization and applicable stack-to-coarse descent.
 
-Consumed by `modular-formal-cusp-comparison`.
+Consumers: `ShimuraCompactifications:C6/modular-formal-cusp-comparison`.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering
 
 Use the existing prime N≥5 diamond quotient construction, its cusp subscheme and normalization over the j-line, only through the agreement supplied by R13.4a. No upstream construction is re-planned.
 
-Consumed by `prime-diamond-pr81-comparison`.
+Consumers: `ShimuraCompactifications:C6/prime-diamond-pr81-comparison`.
 
 ## Remaining gaps
 
-- **Geometric supplier interfaces and suggested signatures.** The target-level mathematical statements are specified, but the current baseline has no HBAV cusp, arithmetic completed toric fan, Hilbert moduli, relative semiabelian or Hasse-neighbourhood carrier. Exact interfaces are requested from their unique owners. Consequently these named geometric signatures are omitted from the suggested file, with a per-node omission ledger; there are no substitute propositions or axiomatized opaque geometry. Populate genuine signatures once the supplier objects exist.
-- **Noninjective maps in the printed coefficient-descent statement.** Dimitrov Proposition 8.5(ii) prints any R-algebra R′ but writes an inclusion of coefficient modules. The cited companion, Dimitrov–Tilouine Proposition 7.3(2), explicitly uses an inclusion R⊂R′ and its proof uses quotient coefficient modules. The inclusion theorem, without a flatness hypothesis, is now planned. A separate image/existence formulation for noninjective maps remains unspecified and is not needed for this target; uniqueness under R→0 is false for nonzero R.
-- **Integral wild-level compactification comparison.** BHW §5.1.2 constructs the added p-level models over Q and completes tame level over O_L. It does not by itself identify an integral compactification at every wild full level and ramified residue prime. The H2/H4/C5 requests specify the exact additional local-model and normalization/base-change theorem needed. This remains a supplier gap, not a claim of smooth all-level models.
-- **Version-of-record collation and independent source-issue review.** The entire author-hosted typeset copy was read in this run. Its printed pagination differs from the published citation. The publisher version and errata remain unverified; E-C6-1 and E-C6-2 are scoped to the accessed preprint/author copy and require independent review. No result relies on an asserted publisher correction. The companion explains E-C6-2’s intended zero-module interpretation; the earlier proposed replacement R=C is not retained. E-C6-3 records the invalid full-series colimit step in the companion author copy; the node uses a directed-union repair. This new finding also needs version-of-record collation and independent review.
+### Geometric supplier interfaces and suggested signatures
 
-These gaps prevent closure, not target-level coverage. A follow-up closes the supplied interfaces and fills genuine geometric signatures, specifies any separate noninjective-map q-expansion formulation and permitted integral wild-level comparison, and collates the source issues. It does not construct a second HBAV, fan, Raynaud quotient, Hasse invariant or modular-curve carrier.
+The target-level mathematical statements are specified, but the current baseline has no HBAV cusp, arithmetic completed toric fan, Hilbert moduli, relative semiabelian or Hasse-neighbourhood carrier. Exact interfaces are requested from their unique owners. Consequently these named geometric signatures are omitted from the suggested file, with a per-node omission ledger; there are no substitute propositions or axiomatized opaque geometry. Populate genuine signatures once the supplier objects exist. The independent review additionally makes the base-B boundary global-function comparison and the compatible-fan finite-level distinction explicit in the C0/C3/C5/SF.0 requests.
+
+Needed by: `ShimuraCompactifications:C6/meromorphic-cusp-support-bound`, `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-boundary-constant`, `ShimuraCompactifications:C6/cusp-lattice-comparison`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C6/uniformized-level-chart`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/toroidal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-semiabelian-extension`, `ShimuraCompactifications:C6/hilbert-conormal-comparison`, `ShimuraCompactifications:C6/hilbert-toroidal-proper`, `ShimuraCompactifications:C6/hilbert-hodge-semiampleness`, `ShimuraCompactifications:C6/hilbert-minimal-contraction`, `ShimuraCompactifications:C6/hilbert-minimal-finite-generation`, `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/minimal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres`, `ShimuraCompactifications:C6/hilbert-minimal-formal-comparison`, `ShimuraCompactifications:C6/hilbert-minimal-weight-extension`, `ShimuraCompactifications:C6/hilbert-q-expansion-comparison`, `ShimuraCompactifications:C6/hilbert-q-expansion-module-injective`, `ShimuraCompactifications:C6/hilbert-q-expansion-injective`, `ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-ordinary-model-comparison`, `ShimuraCompactifications:C6/hilbert-hasse-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-ordinary`, `ShimuraCompactifications:C6/hilbert-near-ordinary-model`, `ShimuraCompactifications:C6/hilbert-ordinary-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`, `ShimuraCompactifications:C6/prime-diamond-pr81-comparison`.
+
+### Noninjective maps in the printed coefficient-descent statement
+
+Dimitrov Proposition 8.5(ii) prints any R-algebra R′ but writes an inclusion of coefficient modules. The cited companion, Dimitrov–Tilouine Proposition 7.3(2), explicitly uses an inclusion R⊂R′ and its proof uses quotient coefficient modules. The inclusion theorem, without a flatness hypothesis, is now planned. A separate image/existence formulation for noninjective maps remains unspecified and is not needed for this target; uniqueness under R→0 is false for nonzero R.
+
+Needed by: `ShimuraCompactifications:C6/hilbert-q-expansion-coefficient-descent`.
+
+### Integral wild-level compactification comparison
+
+BHW §5.1.2 constructs the added p-level models over Q and completes tame level over O_L. It does not by itself identify an integral compactification at every wild full level and ramified residue prime. The H2/H4/C5 requests specify the exact additional local-model and normalization/base-change theorem needed. This remains a supplier gap, not a claim of smooth all-level models. Toroidal level-map extension also requires compatible cusp fans; finiteness requires a pullback fan or finite normalization, not an arbitrary refinement.
+
+Needed by: `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/hilbert-integral-differential-interface`.
+
+### Version-of-record collation
+
+Independent review confirms E-C6-1, E-C6-2 and E-C6-3 in the accessed preprint/author copies, with the narrowed zero-module interpretation of E-C6-2 and directed-union repair for E-C6-3. The main author copy has printed pagination differing from the published citation; publisher DOI access failed again. Version-of-record collation remains outstanding, and no result relies on an asserted publisher correction. Fresh public errata searches found no correction, which does not establish that none exists.
+
+Needed by: `ShimuraCompactifications:C6/negative-cusp-exponent`, `ShimuraCompactifications:C6/constant-term-vanishing`, `ShimuraCompactifications:C6/hilbert-q-expansion-module-injective`.
+
+### Completed Hilbert charts and finite changed-lattice maps beyond ordinary C0 nodes
+
+Assembly identifies ordinary ingredients by C0/relative-torus-embedding, relative-face-open, relative-regular-coordinates, relative-boundary-coordinates, arithmetic-admissible-fan, compatible-common-refinement and smooth-projective-refinement. These statements do not construct the completed arithmetic unit quotient, its module-valued support/localization description, or the finite normalization induced by a finite lattice map with its pullback fan. Apply the existing F0 completion/detection requests to the actual Hilbert cusp lattices and prove the residual C0 request. In regular local coordinates the boundary UNION ideal is (x_1 ... x_r), whereas the C0 intersection node has ideal (x_j : j in J). Derive the union formula from the monomial basis; do not identify these two ideals. Its quotient-basis/flat geometric-reducedness argument over the integral cusp base and the compatible changed-lattice finite map are explicit missing comparisons, not consequences of face-open or refinement properness alone.
+
+Needed by: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/admissible-fan-specialization`, `ShimuraCompactifications:C6/hilbert-boundary-formal-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-etale-charts`, `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-q-expansion-comparison`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`.
+
+### Hilbert integral effectivity and minimal geometry outside the good-prime C5 scope
+
+No C5 node supplies the full existing C6-to-C5 request over B=Z[1/N(n)] when the discriminant is not inverted. C5/integral-toroidal-space, formal-completion, valuative-properness and hodge-semiampleness require the good-prime PEL model (the first also a smooth compatible fan); C5/graded-section-finite-generation and integral-minimal-space build on that same model. They cannot be substituted for Hilbert toroidal/minimal existence, Hodge positivity, integral connected/reduced boundary fibres or their structure-sheaf comparison at discriminant primes. C5/projective-normalized-blowup supplies a different projective normalized model conditional on an M4 ramified interior/minimal/lattice-collection interface, not an identification with the H2 Deligne–Pappas model or a proof of its global B-model. Retain the exact C5 stage request, with H1/H2 moduli and local-model inputs. Establish its Hilbert specialization by the Dimitrov construction and the stated formal effectivity/descent, then export the precise determinant-section-ring, Veronese, cusp-fibre and coherent-base-change statements. Degree-one generic comparisons may use the characteristic-zero restriction, but this does not fill the integral all-prime request. No new compactification carrier or broader good-prime theorem is asserted.
+
+Needed by: `ShimuraCompactifications:C6/hilbert-cusp-positive-support`, `ShimuraCompactifications:C6/arithmetic-koecher`, `ShimuraCompactifications:C6/hilbert-toroidal-model`, `ShimuraCompactifications:C6/hilbert-toroidal-proper`, `ShimuraCompactifications:C6/hilbert-hodge-semiampleness`, `ShimuraCompactifications:C6/hilbert-minimal-contraction`, `ShimuraCompactifications:C6/hilbert-minimal-finite-generation`, `ShimuraCompactifications:C6/hilbert-minimal-normal-projective`, `ShimuraCompactifications:C6/minimal-polarization-quotient`, `ShimuraCompactifications:C6/hilbert-minimal-cusps`, `ShimuraCompactifications:C6/hilbert-minimal-boundary-fibres`, `ShimuraCompactifications:C6/hilbert-minimal-weight-extension`, `ShimuraCompactifications:C6/hilbert-boundary-ideal-pushforward`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/modular-toroidal-minimal-comparison`.
+
+### Hilbert instantiation of generic C3 and C4 boundary morphisms
+
+C3/refinement-map and level-datum-functoriality specify the generic characteristic-zero map contract and its separate C5 integral instantiation. C4/boundary-level-comparison supplies degeneration-level and Tate comparisons with M4 normalization inputs. After C6 identifies its actual Hilbert models, transport these map contracts to H1/H2/H4 cusp data: choose compatible fans for each lattice map, prove identity/composition on the completed models, and distinguish a finite pullback-fan normalization from a further proper nonfinite refinement. The discriminant-prime integral model identification and wild-level extension remain the existing H2/H4/C5 request. The referenced generic node does not establish that identification by itself.
+
+Needed by: `ShimuraCompactifications:C6/hilbert-regular-refinement`, `ShimuraCompactifications:C6/hilbert-p-level-boundary-comparison`, `ShimuraCompactifications:C6/modular-formal-cusp-comparison`.
 
 ## Baseline and sources
 

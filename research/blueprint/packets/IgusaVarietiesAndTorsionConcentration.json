@@ -4818,7 +4818,7 @@
       ],
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.0/integral-model",
-        "PerfectoidShimuraVarieties:S0/infinite-level-diamond",
+        "HodgeTateAndCanonicalSubgroups:T2/infinite-level-diamond",
         "PerfectoidShimuraVarieties:S2/hodge-genuine-minimal-perfectoid-tower",
         "PerfectoidShimuraVarieties:S4/preabelian-minimal-perfectoid",
         "PerfectoidShimuraVarieties:S1/perfectoid-toroidal-siegel-tower",
@@ -4937,7 +4937,7 @@
         "p unramified in F, N ≥ 3 prime to p, Σ as in CSnc Remark 2.5.6; C a complete algebraically closed nonarchimedean extension of ℚ_p with ring of integers O_C, residue field k and a fixed section k → O_C/p."
       ],
       "proofSteps": [
-        "Scholze–Weinstein [SW13, Thm B]: p-divisible groups over O_C are equivalent to pairs (T, W) with T finite free over ℤ_p and W ⊂ T ⊗ C(−1) a C-subspace (requested from HodgeTateAndCanonicalSubgroups T2, the owner of the Hodge–Tate period of p-divisible groups).",
+        "Use the local Scholze–Weinstein classification requested from PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b (Berkeley Definition 12.1.4 and Theorem 12.1.5, p. 99): G ↦ (T_pG, Lie G⊗C(1)) with the latter subspace inside T_pG⊗C. The existing supplier draft has not yet received independent acceptance; the structured PEL adapter is additional.",
         "PEL adapter: O_F-actions and principal polarizations on 𝒳 correspond to O_F-actions and perfect alternating forms on T preserving W with W totally isotropic of the right rank (Lie condition); with α : T ≅ L ⊗ ℤ_p this is a point of Fℓ(C).",
         "b(x): the isocrystal of X_k with G-structure (IG.0/newton-map) lies in B(G_{ℚ_p}, μ^{−1})."
       ],
@@ -4947,7 +4947,7 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.0/g-structure",
         "IgusaVarietiesAndTorsionConcentration:IG.0/newton-map",
-        "HodgeTateAndCanonicalSubgroups:T2",
+        "PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b",
         "PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety"
       ],
       "sources": [
@@ -5000,7 +5000,6 @@
         "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
         "DiamondEtaleCohomology:C8/partially-proper-dimension",
         "PerfectoidShimuraVarieties:S1/rational-flags-preimage",
-        "DiamondEtaleCohomology:C8/partially-proper-dimension",
         "DiamondEtaleCohomology:C8/partially-proper-fibre-dimension"
       ],
       "sources": [
@@ -5167,7 +5166,7 @@
         "IgusaVarietiesAndTorsionConcentration:IG.3/local-hodge-tate-period-map",
         "IgusaVarietiesAndTorsionConcentration:IG.0/automorphism-group-of-universal-cover",
         "IgusaVarietiesAndTorsionConcentration:IG.3/integral-extension-lemma",
-        "HodgeTateAndCanonicalSubgroups:T2",
+        "PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b",
         "PerfectoidSpaces:P2/perfectoid-space",
         "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
         "PerfectoidSpaces:P7/perfectoid-tilde-limit"
@@ -5269,7 +5268,6 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.0/structure-of-automorphism-group",
         "IgusaVarietiesAndTorsionConcentration:IG.3/integral-extension-lemma",
-        "DiamondEtaleCohomology:C8/partially-proper-dimension",
         "DiamondEtaleCohomology:C8/partially-proper-dimension",
         "DiamondEtaleCohomology:C8/partially-proper-fibre-dimension"
       ],
@@ -5509,7 +5507,7 @@
         "IgusaVarietiesAndTorsionConcentration:IG.3/infinite-level-newton-space",
         "IgusaVarietiesAndTorsionConcentration:IG.3/local-hodge-tate-period-map",
         "IgusaVarietiesAndTorsionConcentration:IG.3/integral-extension-lemma",
-        "HodgeTateAndCanonicalSubgroups:T2",
+        "PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b",
         "HodgeTateAndCanonicalSubgroups:T1",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
         "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps"
@@ -6019,7 +6017,7 @@
         "AdicEtaleGeometry:A1/pro-etale-site-corrected",
         "AdicEtaleGeometry:A1/finite-etale-tower",
         "PerfectoidSpaces:P0/almost-basic-setup",
-        "PerfectoidShimuraVarieties:S0/infinite-level-diamond",
+        "HodgeTateAndCanonicalSubgroups:T2/infinite-level-diamond",
         "PerfectoidShimuraVarieties:S2/hodge-genuine-minimal-perfectoid-tower",
         "PerfectoidShimuraVarieties:S4/preabelian-minimal-perfectoid",
         "PerfectoidShimuraVarieties:S1/perfectoid-toroidal-siegel-tower",
@@ -6142,7 +6140,7 @@
       "prerequisites": [
         "IgusaVarietiesAndTorsionConcentration:IG.0/pel-rapoport-zink-space",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
-        "HodgeTateAndCanonicalSubgroups:T2",
+        "PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b",
         "PerfectoidSpaces:P2/perfectoid-space",
         "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
         "PerfectoidSpaces:P7/perfectoid-tilde-limit",
@@ -6515,9 +6513,9 @@
         "LefschetzPencilsAndVanishingCycles:LPV.6",
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycles-comparison",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
-        "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
-        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
+        "EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure",
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing",
+        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors",
         "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
         "PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps",
         "EtaleDualityAndPerverseSheaves:EDC.5"
@@ -6556,9 +6554,9 @@
         "IgusaVarietiesAndTorsionConcentration:IG.3/compact-fibre-theorem",
         "IgusaVarietiesAndTorsionConcentration:IG.3/flag-newton-strata-dimension",
         "IgusaVarietiesAndTorsionConcentration:IG.1/igusa-cohomology",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
-        "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
-        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor"
+        "EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure",
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing",
+        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors"
       ],
       "sources": [
         {
@@ -6654,9 +6652,9 @@
         "LefschetzPencilsAndVanishingCycles:LPV.6/filtered-colimit-support-criterion",
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/scheme-completion-comparison-3-5-13",
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/formal-nearby-cycles-comparison",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
-        "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
-        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
+        "EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure",
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing",
+        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors",
         "EtaleDualityAndPerverseSheaves:EDC.5",
         "SchemeAndStackFoundations:SF.2",
         "SmoothRepresentationsOfLocalGroups:SR.0",
@@ -6859,9 +6857,9 @@
         "BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy",
         "ClassicalAdicEtaleCohomology:H0/overconvergent-etale-sheaves",
         "ClassicalAdicEtaleCohomology:H0/overconvergent-morphisms-maximal-stalks",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
-        "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
-        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor"
+        "EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure",
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing",
+        "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors"
       ],
       "sources": [
         {
@@ -8517,8 +8515,8 @@
       ]
     },
     {
-      "supplier": "HodgeTateAndCanonicalSubgroups:T2",
-      "need": "Scholze–Weinstein Theorem B: p-divisible groups over O_C are equivalent to pairs (T, W) with T a finite free ℤ_p-module and W ⊂ T ⊗ C(−1) a C-subspace, via G ↦ (T_pG, Lie G ⊗ C); IG.3 adds the O_F-action and polarization (PEL) adapter.",
+      "supplier": "PrismaticCohomologyPartII:PD.3",
+      "need": "Import the local Scholze–Weinstein Theorem B contract from PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b: for complete algebraically closed C/ℚ_p, p-divisible groups G over O_C correspond to finite free ℤ_p-modules T with a C-subspace W ⊂ T⊗C, with W = Lie G⊗C(1). Equivalently untwist both sides to W(−1) ⊂ T⊗C(−1). IG.3 adds the O_F-action and principal-polarization (PEL) adapter. Berkeley Definition 12.1.4 and Theorem 12.1.5, p. 99, give this normalization; Remark 12.4.7, p. 106, relates it to minuscule lattices. The current supplier packet is a draft without an independent acceptance: this is an explicit requested contract, not a discharged input. T2 supplies Hodge–Tate maps/sequences only and does not own the classification.",
       "neededBy": [
         "IgusaVarietiesAndTorsionConcentration:IG.3/flag-points-and-p-divisible-groups",
         "IgusaVarietiesAndTorsionConcentration:IG.3/local-period-fibres",
@@ -8906,7 +8904,7 @@
         "IgusaVarietiesAndTorsionConcentration:IG.3/pdiv-constant-mod-p-epsilon",
         "IgusaVarietiesAndTorsionConcentration:IG.3/local-period-surjective-on-stratum"
       ],
-      "detail": "Both are requested (HodgeTateAndCanonicalSubgroups T2, which has no packet; VectorBundlesAndIsocrystals VB2, whose node classifies vector bundles, not G-bundles or G-Dieudonné modules over B⁺_cris). RT-AREA-padic-1/25 proposes a FiniteFlatGroupsAndIntegralPadicHodgeTheory stage for the Scholze–Weinstein results; not live."
+      "detail": "Request the local classification from PrismaticCohomologyPartII:PD.3/scholze-weinstein-theorem-b rather than global T2. Its current draft has no independent acceptance, so the classification remains an input obligation. The O_F-action/principal-polarization adapter and Fargues G-bundle/G-Dieudonné equivalence over B⁺_cris remain separately needed: the VB2 vector-bundle classification does not supply them. RT-AREA-padic-1/25 joins the shared PrismaticCohomologyPartII owner instead of proposing a second FiniteFlat stage. Keep the full-faithfulness-over-f-semiperfect-rings request to R07.2 separate pending reconciliation with the Prismatic Part II."
     },
     {
       "title": "Torsion nearby-cycle exactness over O_C",
@@ -9075,6 +9073,16 @@
       ],
       "detail": "The maintainer's source list routes Li–Liu Lemma 7.3 (and its generalization Li–Liu II Theorem 4.21), LTXZZ Appendix D.1 and BCGP Lemma 4.9.6 to IG.5/IG.7. RT-PAPER-LI-LIU-21/1 (confirmed) shows that Lemma 7.3 is an application in Li–Liu's own setting (𝔪^R_π, Hypothesis 6.6, Proposition 6.9, Corollary B.15) and that planning it in IG reverses a dependency; the same holds for Li–Liu II Theorem 4.21 and Proposition 4.25 (situation of Proposition 4.20). LTXZZ D.1.3–D.1.4 are compact-case theorems resting on CS17 Theorem 5.5.7, owned by the compact-unitary Part II. BCGP Lemma 4.9.6 is a GSp₄ higher-Hida statement.",
       "proposal": "Plan Li–Liu Lemma 7.3, Remark 7.4 and Li–Liu II Lemmas 4.22–4.24, Proposition 4.25, Theorem 4.21 in UnitaryArithmeticInnerProductFormula (Part II of GrossZagierAndArithmeticHeights), importing IG.0/drinfeld-level-newton-strata, IG.0/refined-drinfeld-strata, IG.1/refined-strata-closures-smooth, IG.1/harris-taylor-igusa-varieties and IG.4/compact-minimal-stratum-concentration; plan LTXZZ Proposition D.1.3 and Corollary D.1.4 in IgusaVarietiesAndTorsionConcentrationPartIICompactUnitary, importing IG.7/cohomologically-generic; plan BCGP Lemma 4.9.6 in AbelianSurfacesModularity, importing IG.7/cs-generic-maximal-ideal for the distinction between decomposed genericity and irreducible localization."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "IgusaVarietiesAndTorsionConcentration",
+        "PrismaticCohomologyPartII",
+        "HodgeTateAndCanonicalSubgroups"
+      ],
+      "detail": "RT-AREA-padic-1/25: local O_C classification is a shared Prismatic Dieudonné input, not a T2 theorem. The generated owner id is PrismaticCohomologyPartII; the older paper-route suffix PrismaticDieudonneTheory is not a second roadmap.",
+      "proposal": "Reconcile CS17 route 6 with SW20 route 1 in the shared PrismaticCohomologyPartII design. Import its PD.3/scholze-weinstein-theorem-b contract into the four named IG.3 consumers, retaining the independent-review and structured PEL/G-bundle gaps. Forward the local O_C/p classification/modification contract to ET.6a; do not add a classification-to-T0/T2 backedge or a new FiniteFlat owner. The R07.1 universal-cover and R07.2 f-semiperfect full-faithfulness overlap still requires supplier reconciliation."
     }
   ],
   "sourceIssues": [

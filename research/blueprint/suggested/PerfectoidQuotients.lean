@@ -733,7 +733,7 @@ TauCeti.PerfectoidQuotients.frobenius_flat_prism_perfection_cover: If (A,I) is a
 The relatively regular reduction Frobenius-flatness criterion and actual completed prism perfection carrier must be supplied by PR.0/DD.1.
 
 PerfectoidQuotients:Q3/andre-ind-syntomic-mod-p [omitted]
-TauCeti.PerfectoidQuotients.andre_ind_syntomic_mod_p: The map R → S in André’s flatness lemma can be chosen so R/p → S/p is an ind-syntomic faithfully flat cover. This is a modulo-p refinement of the general integral theorem. It is distinct from the ordinary ind-syntomic theorem of ČS24 Proposition 2.3.4, which remains owned by IntegralPerfectoidPartII.
+TauCeti.PerfectoidQuotients.andre_ind_syntomic_mod_p: The map R → S in André’s flatness lemma can be chosen so R/p → S/p is an ind-syntomic faithfully flat cover. This is a modulo-p refinement of the general integral theorem. It is distinct from the ordinary ind-syntomic theorem of ČS24 Proposition 2.3.4, which remains owned by the shared PerfectoidQuotientsPartII (the queue-generated owner of the integral extension).
 The ind-syntomic predicate and divided-power envelope/finite stages need the owning suppliers. The stronger ordinary ind-syntomic theorem of ČS24 is not substituted for the modulo-p statement.
 
 PerfectoidQuotients:Q0:integral-algebra/bhatt-field-integral-model-comparison [omitted]

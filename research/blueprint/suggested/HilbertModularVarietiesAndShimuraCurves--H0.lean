@@ -556,7 +556,7 @@ Suggested declaration: TauCeti.HilbertModular.domain_comparison [OMITTED geometr
 Polarization lattice [definition]
 Contract: For a nonzero invertible fractional ideal c of O, let D=Fractional Ideal.dual ℤ ℚ O=d⁻¹ and L_c=O⊕c⁻¹D⊂F², with row-vector convention. This is the integral lattice refining D5’s rational representation. For an integral ideal c, K_c is its finite adelic stabilizer; a column convention uses the transpose-conjugate lattice.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: mathlib:FractionalIdeal.dual, mathlib:FractionalIdeal.dual_eq_mul_inv, ShimuraData:D5/hilbert-trace-embedding
+Suppliers: mathlib:FractionalIdeal.dual, mathlib:FractionalIdeal.dual_eq_mul_inv, PELModuli:M5
 API TauCeti.HilbertModular.polarizationLattice [constructor; NATIVE core above]: Construct L_c as the O-submodule O×c⁻¹d⁻¹ of F×F.
 API TauCeti.HilbertModular.mem_polarizationLattice [characterisation; NATIVE core above]: (x,y)∈L_c iff x∈O and y∈c⁻¹d⁻¹.
 API TauCeti.HilbertModular.polarizationLattice_rank [structure; NATIVE core above]: L_c is projective of rank 2 over O and free of rank 2g over ℤ.
@@ -567,13 +567,14 @@ Test TauCeti.HilbertModular.lattice_different [compatibility; NATIVE example abo
 
 ## HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family
 Integral trace polarization family [definition]
-Contract: For a∈c and x,y∈L_c set ψ_{c,a}(x,y)=Tr_{F/ℚ}(a(x₁y₂−x₂y₁))∈ℤ. This is a family parametrized O-linearly by c, rather than a canonical principal symplectic form. Nonzero a gives a nondegenerate rational alternating form; totally positive a has the polarization sign prescribed by D5 (negate the form if the positive h(i) convention is used).
+Contract: For a∈c and x,y∈L_c set ψ_{c,a}(x,y)=Tr_{F/ℚ}(a(x₁y₂−x₂y₁))∈ℤ. This is a family parametrized O-linearly by c, rather than a canonical principal symplectic form. Nonzero a gives a nondegenerate rational alternating form. After rational extension to F², with PELModuli §M5.4’s convention h(i)(x₁,x₂)=(−x₂,x₁), totally positive a gives ψ_{c,a}(x,h(i)x)=Tr_{F/ℚ}(a(x₁²+x₂²))>0 for x≠0; retain this form without negation.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:H0/polarization-lattice, mathlib:Submodule.mem_traceDual, mathlib:Algebra.trace, ShimuraData:D5/hilbert-trace-form
+Suppliers: HilbertModularVarietiesAndShimuraCurves:H0/polarization-lattice, mathlib:Submodule.mem_traceDual, mathlib:Algebra.trace, PELModuli:M5
 API TauCeti.HilbertModular.integralTraceFamily [constructor; NATIVE core above]: Map c to the alternating ℤ-bilinear forms on L_c by a↦ψ_{c,a}.
 API TauCeti.HilbertModular.integralTraceFamily_apply [simp; NATIVE core above]: Evaluation is Tr(a(x₁y₂−x₂y₁)).
 API TauCeti.HilbertModular.integralTraceFamily_parameter_add [functoriality; NATIVE core above]: ψ_{a+b}=ψ_a+ψ_b and ψ_0=0.
-API TauCeti.HilbertModular.integralTraceFamily_integral [compatibility; NATIVE core above]: Its rational image agrees with D5’s trace representation multiplied by a.
+API TauCeti.HilbertModular.integralTraceFamily_integral [compatibility; NATIVE core above]: Its rational image agrees with PELModuli §M5.4’s trace representation multiplied by a.
+Check TauCeti.HilbertModular.traceFamily_positive_h: On the rational extension F², for totally positive a and x≠0 the convention h(i)(x₁,x₂)=(−x₂,x₁) gives ψ_{c,a}(x,h(i)x)>0. Negating ψ_{c,a} fails this positivity check.
 API TauCeti.HilbertModular.integralTraceFamily_balance [relation; NATIVE core above]: For b∈O, ψ_{ba}(x,y)=ψ_a(bx,y)=ψ_a(x,by). This specifies the O-action on the family of Z-bilinear forms; it is not scalar multiplication of their Z-valued outputs.
 Test TauCeti.HilbertModular.traceFamily_Q [computation; NATIVE example above]: Over ℚ,c=ℤ,a=1 its value on the two standard basis vectors is 1.
 Test TauCeti.HilbertModular.traceFamily_zero [degenerate; NATIVE example above]: The a=0 form is zero, hence is not declared nondegenerate.
@@ -588,9 +589,9 @@ Suggested declaration: TauCeti.HilbertModular.lattice_duality [NATIVE core above
 
 ## HilbertModularVarietiesAndShimuraCurves:H0/type-witnesses
 Hodge and abelian type witnesses [theorem]
-Contract: D5’s actual trace embedding of (G*,X*) into the Siegel datum, with the sign fixed by integral Trace Family, is a D4 Hodge-type witness. The identity Res SL₂→Res SL₂ on the derived groups induces the common connected adjoint datum, and is a D4 abelian-type witness for (G,X). It does not assert a Hodge-type embedding of the exact group G.
+Contract: PELModuli §M5.4’s actual trace embedding of (G*,X*) into the Siegel datum, with the sign fixed by integral Trace Family, is a ShimuraVarieties §P.1 Hodge-type witness. The identity Res SL₂→Res SL₂ on the derived groups induces the common connected adjoint datum, and is a ShimuraVarieties §P.1 abelian-type witness for (G,X). It does not assert a Hodge-type embedding of the exact group G.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:H0/derived-centres, HilbertModularVarietiesAndShimuraCurves:H0/domain-comparison, HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family, ShimuraData:D5/hilbert-trace-embedding, ShimuraData:D4/hodge-type, ShimuraData:D4/abelian-type
+Suppliers: HilbertModularVarietiesAndShimuraCurves:H0/derived-centres, HilbertModularVarietiesAndShimuraCurves:H0/domain-comparison, HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family, PELModuli:M5, ShimuraVarieties:V0, ShimuraVarieties:V0
 Suggested declaration: TauCeti.HilbertModular.type_witnesses [OMITTED geometric/supplier signature]
 
 ## HilbertModularVarietiesAndShimuraCurves:H1/ordered-polarization-module
@@ -1194,7 +1195,7 @@ Suggested declaration: TauCeti.HilbertModular.moret_bailly_input_export [OMITTED
 One-real-split quaternionic datum [construction]
 Contract: Given a quaternion F-algebra B split at the specified real embedding τ and ramified at all other real embeddings, form G_B=Res_{F/ℚ}B× on the existing quaternion and restriction-of-scalars carriers. Set h_B(z)=([[x,y],[−y,x]]⁻¹,1,…,1) forz=x+iy under B_τ≅M₂(ℝ). Its full conjugacy class is H^±. Verify D4’s SV1–SV3; its real central weight need not be ℚ-rational when[F:ℚ]>1, which D4 treats as a separate predicate. A totally definite B yields a finite class set in R18.3 instead.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: ShimuraData:D4/shimura-datum, ShimuraData:D2/cartan-adjoint-criterion, ReductiveGroupsPartII:RG2.0a, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion, mathlib:AlgebraicGeometry.Scheme
+Suppliers: ShimuraVarieties:V0, ArithmeticLocallySymmetricSpaces:ALS.0, ReductiveGroupsPartII:RG2.0a, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion, mathlib:AlgebraicGeometry.Scheme
 API TauCeti.HilbertModular.QuaternionicShimuraDatum [constructor; OMITTED supplier signature]: The D4 datum with one specified real split factor and the displayedh.
 API TauCeti.HilbertModular.quaternionicDatum_domain [data; OMITTED supplier signature]: Its conjugacy domain is H^± and its connected domain is H.
 API TauCeti.HilbertModular.quaternionicDatum_splittingChange [equivalence; OMITTED supplier signature]: Changing the real matrix splitting conjugatesh and yields the same datum class.
@@ -1207,7 +1208,7 @@ Test TauCeti.HilbertModular.quaternion_dimension [computation; OMITTED supplier 
 Quaternionic reflex field and dimension [theorem]
 Contract: For the one-real-split quaternionic datum, the reflex field is τ(F)⊂ℂ and the Shimura variety has complex dimension 1. The cocharacter type is nontrivial only at τ, so its Galois stabilizer fixes that embedding. This differs from the Hilbert datum’s reflex field ℚ and from the auxiliary PEL bridge field F′, which generally only contains τ(F).
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum, ShimuraData:D3/cocharacter-class, ShimuraData:D3/reflex-field
+Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum, ShimuraVarieties:V0, ShimuraVarieties:V0
 Suggested declaration: TauCeti.HilbertModular.quaternionic_reflex_dimension [OMITTED geometric/supplier signature]
 
 ## HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve
@@ -1234,7 +1235,7 @@ Suggested declaration: TauCeti.HilbertModular.quaternionic_effective_stabilizers
 Yuan–Zhang PEL bridge groups [definition]
 Contract: Choose a quadratic CM extension E/F and nearby CM types Φ₁,Φ₂ differing at τ. Define G″=Res_{F/ℚ}(B××_{F×}E×), quotienting by(a⁻¹,a). Its derived group is Res B¹;ν(b,e)=(Nrd(b)eē,e/ē) identifies its derived quotient with Res F××Res E¹. Define G′ by ν₁ lying in diagonal G_m. Lift the datum withh_E(z)=(1,z⁻¹,…,z⁻¹). The bridge is auxiliary; it does not redefine the quaternionic datum.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum, ShimuraData:D4/datum-morphism, ReductiveGroupsPartII:RG2.0a
+Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum, ShimuraVarieties:V0, ReductiveGroupsPartII:RG2.0a
 API TauCeti.HilbertModular.YuanZhangBridgeGroups [constructor; OMITTED supplier signature]: The central quotient G″ and scalar ν₁ subgroup G′ on imported group carriers.
 API TauCeti.HilbertModular.yzBridge_norm [data; OMITTED supplier signature]: ν₁=Nrd(b)eē and ν₂=e/ē.
 API TauCeti.HilbertModular.yzBridge_derived [compatibility; OMITTED supplier signature]: Both bridge groups have derived group Res B¹.
@@ -1247,7 +1248,7 @@ Test TauCeti.HilbertModular.bridge_active [compatibility; OMITTED supplier examp
 Weighted CM reflex field of the bridge [theorem]
 Contract: The reflex field F′ of(G′,h′), and likewise(G″,h″), is the field fixing the weighted CM type Φ₁+Φ₂=2(Φ₁∩Φ₂)+τ₁+τ₂. It contains τ(F), because a stabilizer fixes the unique weight-one pair and hence its restriction to F. Equality F′=F is not asserted. In Carayol’s special E=F(√λ), λ∈ℚ<0, with the displayed nearby types,F′=E in the chosen embedding.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups, ShimuraData:D3/reflex-field, HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension
+Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups, ShimuraVarieties:V0, HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension
 Suggested declaration: TauCeti.HilbertModular.yz_bridge_reflex [OMITTED geometric/supplier signature]
 
 ## HilbertModularVarietiesAndShimuraCurves:R18.1/yz-pel-instance
@@ -1274,7 +1275,7 @@ Suggested declaration: TauCeti.HilbertModular.yz_component_comparison [OMITTED g
 Torus bridge for quaternionic towers [comparison]
 Contract: Let Ψ=Φ₁∩Φ₂ and Y/F′ be the zero-dimensional CM torus Shimura tower for Res_{E/ℚ}G_m withh_Ψ(z)=(1,z⁻¹,…,z⁻¹). The product datum map induces X×_FY→X″ over F′, and the tower comparison(X×_FY)/Δ(A_{F,f}×)≅X″ uses the twisted diagonalz↦(z,z⁻¹). At finite levels use the image U″ of U×J and the induced surjective map; an identical finite quotient description at all levels is not automatic. The Tate-module tensor and integral extensions belong to R18.2.
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
-Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups, HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-reflex, HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve, ShimuraData:D4/product-datum, ShimuraVarieties:V8/datum-functoriality
+Suppliers: HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups, HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-reflex, HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve, ShimuraVarieties:V0, ShimuraVarieties:V8/datum-functoriality
 Suggested declaration: TauCeti.HilbertModular.yz_torus_bridge [OMITTED geometric/supplier signature]
 
 ## Exact outstanding gaps
