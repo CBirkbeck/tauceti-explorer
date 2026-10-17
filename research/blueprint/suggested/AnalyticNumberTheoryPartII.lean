@@ -1,8 +1,6 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is
-definitive once synchronized with the corrected packet. The draft reader
-research/blueprint/readmes/AnalyticNumberTheoryPartII.md still needs the corrections
-listed in research/blueprint/reviews/REV-DESIGN-AnalyticNumberTheoryPartII.md.
+definitive: research/blueprint/readmes/AnalyticNumberTheoryPartII.md.
 These suggested Lean forms help contributors and reviewers converge on names
 and signatures. Every proof below is a planning placeholder; no implementation
 is claimed. Future supplier objects are not replaced by empty proposition fields.
@@ -41,7 +39,9 @@ noncomputable section
 
 /- AnalyticNumberTheoryPartII:ECN.0/ramified-weight -/
 /-- Product over distinct discriminant primes with the largest erased. -/
-noncomputable def ramifiedWeight (d : ℕ) : ℝ := by sorry
+noncomputable def ramifiedWeight (d : ℕ) : ℝ :=
+  ∏ p ∈ d.primeFactors.erase (d.primeFactors.sup id),
+    (1 - (⌊2 * Real.sqrt p⌋₊ : ℝ) / (p + 1))
 
 theorem ramifiedWeight_pos (d : ℕ) : 0 < ramifiedWeight d := by sorry
 theorem ramifiedWeight_le_one (d : ℕ) : ramifiedWeight d ≤ 1 := by sorry
@@ -65,7 +65,8 @@ example : ramifiedWeight 84 = 1 / 12 := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.1/degree-four-completion -/
 /-- d^(s-1) M^s Γ(s)^2 Ψ(s) G(s), center 1. -/
-noncomputable def goldfeldCompletion (d : ℕ) (M : ℝ) (Ψ G : ℂ → ℂ) : ℂ → ℂ := by sorry
+noncomputable def goldfeldCompletion (d : ℕ) (M : ℝ) (Ψ G : ℂ → ℂ) : ℂ → ℂ :=
+  fun s ↦ (d : ℂ) ^ (s - 1) * (M : ℂ) ^ s * Complex.Gamma s ^ 2 * Ψ s * G s
 
 theorem goldfeldCompletion_one (d : ℕ) (hd : 0 < d) (M : ℝ) (Ψ G : ℂ → ℂ) :
     goldfeldCompletion d M Ψ G 1 = (M : ℂ) * Ψ 1 * G 1 := by sorry
@@ -97,7 +98,9 @@ example (d : ℕ) (M : ℝ) (G : ℂ → ℂ) :
 
 /- AnalyticNumberTheoryPartII:ECN.1/inverse-mellin-kernel -/
 /-- The positive inverse transform of (s-a)^(-m), zero off (0,1]. -/
-noncomputable def inverseMellinKernel (a : ℝ) (m : ℕ) : ℝ → ℝ := by sorry
+noncomputable def inverseMellinKernel (a : ℝ) (m : ℕ) : ℝ → ℝ :=
+  fun x ↦ if 0 < x ∧ x ≤ 1 then
+    x ^ (-a) * Real.log (1 / x) ^ (m - 1) / ((m - 1).factorial : ℝ) else 0
 
 theorem inverseMellinKernel_of_pos_le_one (a x : ℝ) (m : ℕ) (hm : 2 ≤ m)
     (hx : 0 < x) (hx1 : x ≤ 1) :
@@ -127,7 +130,8 @@ example : inverseMellinKernel 1 2 (1 / 2) = 2 * Real.log 2 := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.2/curve-139 -/
 /-- Y²+Y=X³-X²-64403X-6220110, isomorphic to GZ86 I (7.4). -/
-noncomputable def curve139 : WeierstrassCurve ℚ := by sorry
+def curve139 : WeierstrassCurve ℚ :=
+  ⟨0, -1, 1, -64403, -6220110⟩
 
 theorem curve139_coefficients :
     curve139.a₁ = 0 ∧ curve139.a₂ = -1 ∧ curve139.a₃ = 1 ∧
@@ -155,7 +159,7 @@ example : ¬ curve139.toAffine.Equation 0 0 := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.2/curve-5077 -/
 /-- y²+y=x³-7x+6; y↦-y gives GZ86's minus-y model. -/
-noncomputable def curve5077 : WeierstrassCurve ℚ := by sorry
+def curve5077 : WeierstrassCurve ℚ := ⟨0, 0, 1, -7, 6⟩
 
 theorem curve5077_coefficients :
     curve5077.a₁ = 0 ∧ curve5077.a₂ = 0 ∧ curve5077.a₃ = 1 ∧
@@ -181,7 +185,10 @@ example : ¬ curve5077.toAffine.Equation 0 (-2) := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.2/bgz-kernel -/
 /-- G₀=exp(-x), Gᵣ(x)=(r-1)!⁻¹∫₁∞exp(-xy)(log y)^(r-1)dy/y for x>0. -/
-noncomputable def bgzKernel (r : ℕ) : ℝ → ℝ := by sorry
+noncomputable def bgzKernel (r : ℕ) : ℝ → ℝ :=
+  fun x ↦ if x ≤ 0 then 0 else if r = 0 then Real.exp (-x) else
+    (∫ y in Set.Ioi (1 : ℝ), Real.exp (-x * y) * Real.log y ^ (r - 1) / y) /
+      ((r - 1).factorial : ℝ)
 
 theorem bgzKernel_zero (x : ℝ) (hx : 0 < x) :
     bgzKernel 0 x = Real.exp (-x) := by sorry
@@ -206,7 +213,10 @@ example : bgzKernel 3 2 ≤ Real.exp (-2) / 8 := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.4/prime-majorant -/
 /-- c times the smooth reciprocal Hasse factors for the first t-1 primes. -/
-noncomputable def primeMajorant (c : ℝ) (t : ℕ) : ℝ := by sorry
+noncomputable def primeMajorant (c : ℝ) (t : ℕ) : ℝ :=
+  c * ∏ j ∈ Finset.range (t - 1),
+    ((Nat.nth Nat.Prime j : ℝ) + 1) /
+      ((Nat.nth Nat.Prime j : ℝ) + 1 - 2 * Real.sqrt (Nat.nth Nat.Prime j))
 
 theorem primeMajorant_zero (c : ℝ) : primeMajorant c 0 = c := by sorry
 theorem primeMajorant_one (c : ℝ) : primeMajorant c 1 = c := by sorry
@@ -232,7 +242,9 @@ example : primeMajorant 55 3 = 660 / ((3 - 2 * Real.sqrt 2) * (4 - 2 * Real.sqrt
 
 /- AnalyticNumberTheoryPartII:ECN.4/effective-kappa -/
 /-- Exact rational witness: 0, 1/2, or 2^(-(46+ceil(256(1-q)/q))). -/
-def effectiveKappa (q : ℚ) : ℚ := by sorry
+def effectiveKappa (q : ℚ) : ℚ :=
+  if q ≤ 0 then 0 else if 1 ≤ q then 1 / 2
+  else 1 / (2 : ℚ) ^ (46 + (Int.ceil (256 * (1 - q) / q)).toNat)
 
 theorem effectiveKappa_nonpositive (q : ℚ) (hq : q ≤ 0) : effectiveKappa q = 0 := by sorry
 theorem effectiveKappa_ge_one (q : ℚ) (hq : 1 ≤ q) : effectiveKappa q = 1 / 2 := by sorry

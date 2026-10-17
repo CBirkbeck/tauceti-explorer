@@ -10,7 +10,7 @@ Throughout, K is a number field of degree two over ℚ, with negative **field** 
 
 The pinned native fundamental-discriminant predicate includes positive 1. Every use here retains the negative hypothesis. The pinned genus theorem is also narrower than the informal assertion that the number of ramified primes controls the class group: its statement assumes a squarefree radicand less than −1, an integral generator whose minimal polynomial is X² minus that radicand, and generation of K over ℚ. The GN.3 request supplies this bridge from a general imaginary quadratic field; the exceptional radicand −1 is checked directly. The existing divisibility theorem then gives 2^(t−1)|h, where t counts **distinct** primes dividing d. This result is imported, not planned as a fresh genus-theory proof.
 
-The quadratic-form interface requested from `GeometryOfNumbersAndQuadraticArithmetic:GN.3` is the proper ideal-class correspondence for oriented primitive positive-definite binary forms. A unique reduced representative satisfies |b|≤a≤c, with b≥0 on the boundary |b|=a or a=c. Its discriminant is b²−4ac=−d, and a≤√(d/3). Both completeness and the boundary convention matter for counting classes. The same owner supplies the integrated nonaxial lattice-count estimate; `AnalyticNumberTheory:AN.4` supplies the normalized partial-zeta identity and primitive character. These exact exports are requests, because the audited stage descriptions alone do not prove them.
+The current `IntegralLattices` roadmap already owns the binary-form/ideal-class dictionary and finite form-side reduction in Layer B, milestones B1, B2 and B5. Its number-field orders and Picard groups are imported from `GlobalNumberFields`, rather than constructed a second time. `GeometryOfNumbersAndQuadraticArithmetic:GN.3` imports that work and supplies the maximal-order Picard-to-native-ClassGroup bridge and the explicit counting adapters required here. A unique reduced representative satisfies |b|≤a≤c, with b≥0 on the boundary |b|=a or a=c. Its discriminant is b²−4ac=−d, and a≤√(d/3). Both completeness and the boundary convention matter for counting classes. The same owner supplies the integrated nonaxial lattice-count estimate; `AnalyticNumberTheory:AN.4` supplies the normalized partial-zeta identity and primitive character. These exact exports are requests, because the audited stage descriptions alone do not prove them.
 
 Elliptic curves use the native generalized Weierstrass carrier and its affine point group. Arithmetic rank is the ℤ-finrank of `WeierstrassCurve.Affine.PointModTorsion`. Analytic rank is the finite analytic order at s=1 of the unique entire continuation of the curve’s **intrinsic** Euler coefficients. `WeierstrassCurve.LSeries` is a raw sum; evaluating that sum at s=1 does not construct an analytic continuation. The BSD.0 actual-L-function and uniqueness interface is used throughout. General explicit two-descent already belongs to Tau Ceti’s elliptic Layer 6; ED.3 owns the finite local-image and saturation refinements, integrated by CN.3. These foundations are imported. The natural-valued analytic order sends an infinite order to zero, so the finite-order assertion is retained explicitly.
 
@@ -120,7 +120,7 @@ The first contour integral is zero: division of F by (s−1)³ leaves an entire 
 
 For the truncated Euler product G_U, the remaining central pole is second order. Set H to the analytic removable extension of M^sΓ(s)²Ψ(s)/(s−1). Its first Taylor coefficient gives the residue displayed in the target below. The value H(1) is not obtained by evaluating the raw totalized quotient at 1. Indent the contour into the C4 neighborhood, avoiding every local denominator zero. The indented contribution is bounded by an integral depending only on Ψ,M times the supremum of |G_U| there.
 
-The Mellin kernel is nonnegative, decreasing and convex when a≥0 and m≥2. For measures the relevant transform is μ̂(s)=∫t^−s dμ(t); multiplicative convolution gives the kernel integral ∫I_{a,m}(x∏t_j)∏dμ_j(t_j). Cumulative mass domination therefore controls the inverse transform one measure at a time. The measure is positive and locally finite, supported on positive reals; all inversion and Fubini integrals need their stated convergence hypotheses. This is Oesterlé’s §3.3, pp. 315–316, expressed as a reusable comparison.
+The Mellin kernel is nonnegative, decreasing and convex when a≥0 and m≥2. For measures the relevant transform is μ̂(s)=∫t^−s dμ(t); multiplicative convolution gives the kernel integral ∫I_{a,m}(x∏t_j)∏dμ_j(t_j). Oesterlé’s Lemma 3 assumes integrated cumulative domination ∫₀ᵀμ_j((0,t])dt≤∫₀ᵀν_j((0,t])dt for every T≥0. Representing the convex kernel by positive hinges proves the comparison one measure at a time; pointwise cumulative domination is a sufficient special case. Each measure is supported on positive reals and has finite mass on every (0,t]. Mellin transforms converge on the common line; absolute line integrability is imposed on the completed products (s−a)^−m∏μ̂_j, rather than each individual transform. Inversion and Fubini retain their stated hypotheses. These are the conditions used in Oesterlé’s §3.3, pp. 315–316.
 
 The three tails come from the axial/axial, axial/nonaxial and nonaxial/nonaxial parts of the primitive form decomposition. Their exact bounds are listed below. Keep the absolute value in |log(dM/U)| and the factor 2π⁴/3 in the middle bound. Substituting M=N/(4π²) converts the latter coefficient to πN^(3/2)/12, a useful normalization check.
 
@@ -196,21 +196,22 @@ Acceptance: For a=0,m=2 it equals −log x on (0,1), and is zero at and above 1.
 
 Target `AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison` (theorem).
 
-Let a≥0,m≥2 and let μ_j,ν_j be positive locally finite measures on (0,∞), with their Mellin transforms absolutely integrable on the common line Re(s)=σ>a. If μ_j((0,t])≤ν_j((0,t]) for all t>0 and each j, then the inverse Mellin transforms of (s−a)^−m∏_j μ̂_j(s) and (s−a)^−m∏_j ν̂_j(s) are nonnegative and ordered in the same direction. All multiplicative-convolution/Fubini integrals must be absolutely integrable; the assertion includes the single-measure comparison.
+Let a≥0,m≥2 and let μ_j,ν_j be positive measures supported on (0,∞), with finite mass on every (0,t]. Their Mellin transforms converge on a common line Re(s)=σ>a, and each product (s−a)^−m∏_j μ̂_j(s), respectively (s−a)^−m∏_j ν̂_j(s), is absolutely integrable on that line. Suppose ∫₀ᵀ μ_j((0,t])dt≤∫₀ᵀ ν_j((0,t])dt for every T≥0 and each j. Then the inverse Mellin transforms of (s−a)^−m∏_j μ̂_j(s) and (s−a)^−m∏_j ν̂_j(s) are nonnegative and ordered in the same direction. All multiplicative-convolution/Fubini integrals must be absolutely integrable. The assertion includes the single-measure comparison; pointwise cumulative-mass domination is a sufficient special case.
 
-Hypotheses and conventions: Finite number of positive measures; local finiteness and the displayed Mellin-line integrability. a≥0 for the decreasing convex comparison; m≥2; x>0.
+Hypotheses and conventions: Finite number of positive measures; finite mass on every (0,t], integrated cumulative-mass domination, Mellin-transform convergence and absolute integrability of the completed products on the displayed line, and multiplicative-convolution/Fubini integrability. a≥0 for the decreasing convex comparison; m≥2; x>0.
 
 Proof route:
 
 1. Express the inverse transform as the integral of I_{a,m}(x∏t_j) against the product of the measures. Justify Fubini from the stated absolute-integrability bounds.
-2. Use the decreasing nonnegative kernel and the cumulative-mass inequality one factor at a time, by Stieltjes integration or layer-cake.
-3. Apply this to gamma measures, discrete coefficient measures and the nonaxial form-counting measures; retain their normalization factors.
+2. For fixed positive x, the kernel is nonnegative, decreasing and convex on (0,∞), with compact support towards infinity. Its distributional second derivative is a positive measure; include the boundary atom when m=2. Represent the kernel by positive hinge functions (u−t)₊. Tonelli identifies each hinge integral against μ with ∫₀ᵘ μ((0,t])dt and gives the single-factor inequality from the integrated hypothesis.
+3. Apply that comparison one factor at a time in a finite multiplicative convolution. Integrating a pointwise cumulative inequality first gives its corollary.
+4. Apply the integrated form to the nonaxial lattice-counting measure and its area majorant; do not assume a pointwise lattice-counting estimate. Gamma and discrete coefficient comparisons retain all normalization factors.
 
 Prerequisite chain: `AnalyticNumberTheoryPartII:ECN.1/inverse-mellin-kernel`, `mathlib:mellinInv_mellin_eq`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`.
 
-Source: O85, §3.3, Lemmas 1–3 and Examples 1–2, pp. 315–316. Cumulative measure domination controls the positive convolution kernels used in the tail estimate.
+Source: O85, §3.3, Lemmas 1–3 and Examples 1–2, pp. 315–316. O85 Lemma 3 uses integrated cumulative-mass domination and convex positive kernels; this is the hypothesis supplied by the nonaxial area estimate.
 
-Acceptance: A nonpositive signed coefficient measure cannot be substituted; the ζ(2s) discrete measure comparison uses the square-map pushforward.
+Acceptance: A nonpositive signed coefficient measure cannot be substituted; the ζ(2s) discrete measure comparison uses the square-map pushforward. The example μ=δ₁ and ν=(δ₁/₂+δ₃/₂)/2 satisfies integrated domination for every T but fails pointwise cumulative domination at t=1. For a=0,m=2,x=1 its kernel integrals are 0 and (log 2)/2; the general statement must cover this example.
 
 ### Goldfeld reflection contour identity
 
@@ -263,8 +264,9 @@ Hypotheses and conventions: C1 means coefficient-wise absolute domination, with 
 Proof route:
 
 1. Shift s by 1/2 and dominate the remaining Euler coefficients by the square of ζ_K(s)/ζ(2s), discarding the pairs a(q)a(q′)<U removed by the truncation.
-2. Use positive Mellin comparison to replace nonaxial lattice measures by their integrated area majorant and ζ(2s) by its square-pushforward comparison. This produces exactly the three terms.
+2. Use the integrated positive Mellin comparison to replace nonaxial lattice measures by their area majorant and ζ(2s) by its square-pushforward comparison. This produces exactly the three terms.
 3. Evaluate the gamma kernel/residue for J₁; use the elementary vertical integrals (3.4.8) and (3.4.9) for J₂ and J₃. The absolute value around log(dM/U) is required.
+4. For the nonaxial measure use support t≥A₀=√d/2 and ν=(π/2)δ_A₀+(π/√d)·volume restricted to [A₀,∞). Its cumulative mass is (πt/√d)1_[A₀,∞)(t), so the imported integrated area bound is precisely the comparison hypothesis; its Mellin transform is (π/2)·s/(s−1)·A₀^−s for Re(s)>1.
 
 Prerequisite chain: `AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison`, `AnalyticNumberTheoryPartII:ECN.1/truncated-residue`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `AnalyticNumberTheory:AN.4`.
 
@@ -307,7 +309,7 @@ For the analytic certificate, BGZ §4, equations (12)–(14), printed pp. 478–
 
 A tiny first-derivative enclosure does not prove an exact zero. The height-gap target applies the imported Gross–Zagier equality with a specified admissible twist whose central L-value has a certificate excluding zero. Every non-torsion rational Heegner trace has a proved positive lower height δ, and an enclosure strictly below cδ forces its height to vanish. The twisted central value then forces L′=0. Root-number parity raises the order to at least three. For E₅₀₇₇ choose χ_{−7}. Since 5077≡2 mod7 and 2 is a square mod7, χ_{−7}(5077)=1; the primitive twist has conductor 5077·7²=248773 and root number +1. Certify 4<L(E^χ,1)<5 by the exponential central-value sum 2Σ(a_nχ(n)/n)e^(−2πn/√248773) through n=2048. The divisor bound gives a tail at most 4e^(−α·2049)/(1−e^−α)<10^−8, using α>1/80. Outward finite-sum evaluation can use the interval (4.47,4.49). These are reproducible certificate targets, not a claim that the floating sum is a proof. BGZ’s complete height-below-one enumeration and certified generator heights greater than 1/2 in its 2(O) normalization give the native gap δ=1/4. The Gross–Zagier constant and exact local conditions must still be validated through GZ.8 and CN.4.
 
-For the conductor-37 route to E₁₃₉, Gross–Zagier’s 1983 Corollary 6, p. 87, uses u=η²/η(37z)² with divisor 3(0)−3(∞). The field of discriminant −139 has class number three and 37 splits. Exact CM-value integrality, Galois compatibility and unit-group calculations identify the three values and turn the trace divisor into a principal divisor. The relevant f-isotypic trace therefore vanishes. This is projected through the normalized modular parametrisation and combined with a certified nonzero L(f,1). The modular-unit and CM computations are supplier requests, not numerical coincidences between approximate CM values.
+For the conductor-37 route to E₁₃₉, Gross–Zagier’s 1983 Corollary 6, p. 87, uses u=η²/η(37z)² with divisor 3(0)−3(∞). The field of discriminant −139 has class number three and 37 splits. The exact CM relation places u(x) in the Hilbert class field H and gives u(x)^12=λ^12, where λ=(3+√−139)/2 has norm 37. Since [H:K]=3, neither of the quadratic extensions K(i) and K(ζ₃) can lie in H. Its twelfth roots of unity are therefore ±1, so u(x)=±λ belongs to K. Galois equivariance makes the three CM values equal, and the exact divisor multiplicities make the trace divisor principal. The relevant f-isotypic trace therefore vanishes. This is projected through the normalized modular parametrisation and combined with a certified nonzero L(f,1). The modular-unit and CM computations are supplier requests, not numerical coincidences between approximate CM values.
 
 A third-derivative interval excluding zero gives exact analytic order three, with finite order verified independently on the convergence half-plane. For 5077, BGZ’s leading-coefficient interval is 1.73<L‴(1)/3!<1.74, so 10.38<L‴(1)<10.44. The equality of the two ranks here does not assert the full rank-three BSD leading-term formula or a conjectural order of the Tate–Shafarevich group.
 
@@ -498,19 +500,19 @@ Target `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139` (theorem).
 
 For the unique weight-two newform f in the relevant conductor-37 negative-Fricke eigenspace (root number +1), K=ℚ(√−139), and the normalized Heegner divisor on X₀(37), its f-isotypic trace is zero. The η quotient u(z)=η(z)^2/η(37z)^2 has divisor 3(0)−3(∞); the principal divisor of u−u(x) is the sum of the three Heegner points minus 3(∞). Consequently Gross–Zagier gives L′(1,f⊗χ_{−139})=0 after a certified L(f,1)≠0.
 
-Hypotheses and conventions: The Heegner field has discriminant −139 and class number 3; 37 splits in K. CM value integrality, unit-group, Galois-equivariance and divisor multiplicities are proved in the modular-unit/CM supplier; no unexplained equality of three numerical CM values.
+Hypotheses and conventions: The Heegner field has discriminant −139 and class number 3; 37 splits in K. The modular-unit/CM supplier proves u(x)∈H, u(x)^12=λ^12 for λ=(3+√−139)/2∈K of norm 37, Galois equivariance and exact divisor multiplicities. Here H is the Hilbert class field, [H:K]=3; control roots of unity in H rather than only units of K.
 
 Proof route:
 
-1. Import the modular η quotient and its cusp divisor, then evaluate its three CM conjugates. The source unit relation forces the same value in K, since its units are ±1.
+1. Import the modular η quotient, its cusp divisor and the CM twelfth-power relation. Since K=ℚ(√−139) contains neither i nor a primitive cube root of unity, adjoining either has degree 2 over K and cannot lie in the degree-3 extension H/K. Thus the twelfth roots of unity in H are ±1 and every CM value lies in {λ,−λ}. Galois equivariance and the orbit of size 3 force a single common value fixed by Gal(H/K), hence in K.
 2. Subtract that common value and prove the divisor has exactly the three CM points and the order-three pole at infinity, including multiplicities. This makes the trace divisor principal in J₀(37).
 3. Apply the classical Gross–Zagier formula to the trivial trace and divide by the nonzero conductor-37 value; transfer to the −139 twist.
 
 Prerequisite chain: `AnalyticNumberTheoryPartII:ECN.2/curve-local-data`, `GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula`, `ComputationalNumberTheory:CN.3`, `ComputationalNumberTheory:CN.4`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `EllipticCurveModularity:R29.5`.
 
-Source: GZ83, Corollary 6 and its proof, p. 87. The modular-unit divisor makes the Heegner trace exactly zero.; GZ86, I Proposition (7.4), p. 231. This is the referenced proof of the first curve’s vanishing Heegner point.
+Source: GZ83, Corollary 6 and its proof, p. 87. The modular-unit divisor makes the Heegner trace exactly zero; GZ86, I Proposition (7.4), p. 231. This is the referenced proof of the first curve’s vanishing Heegner point.
 
-Acceptance: Class number 3 for −139 is certified directly by reduced forms in this layer’s inputs, not imported from the final enumeration.
+Acceptance: Class number 3 for −139 is certified directly by reduced forms in this layer’s inputs, not imported from the final enumeration. The unit group of K alone does not bound the quotient u(x)/λ, which initially belongs to H; the degree argument in H is required.
 
 ### Gross–Zagier’s rank three example
 
@@ -568,7 +570,7 @@ The sign branch χ_D(37)=1 is handled by the split-prime estimate log(d/4)≤h l
 
 Oesterlé’s Bourbaki §5.1, printed p. 321, reports 7000 and 55; his 1988 §9, pp. 66–67, states their consequences. Neither inspected passage prints a complete rational enclosure dataset at these exact constants. The plan specifies the residue/tail comparison and all local cases, but reconstruction of that dataset is the second recorded gap. It must certify c₁,c₂,c₃, the Petersson and scale factors, λ inequalities and the small-discriminant cutoffs. A reported decimal or integer is not an interval certificate.
 
-The prime 5077 is outside the coprime theorem. In a class-number-three application it is excluded independently: −5077≡1 mod8 makes 2 split, while 2³<5077/4 contradicts ECN.0. The improved constant is consequently available in every remaining prime class-three case.
+The coprime theorem excludes divisibility of d by 5077. In the prime-discriminant class-number-three application, the only possible failure is d=5077, which is impossible: −5077≡3 mod4 and is odd, hence not fundamental. This argument excludes that absolute field discriminant for every imaginary quadratic field, independently of its class number. The improved constant therefore applies to every prime class-three discriminant.
 
 Dependencies: `AnalyticNumberTheoryPartII:ECN.1`, `AnalyticNumberTheoryPartII:ECN.2`, `AutomorphicLFunctionsAndLocalFactors:AL.3`, `ComputationalNumberTheory:CN.4`.
 
@@ -656,20 +658,20 @@ Acceptance: At h=3 and prime d≠5077, log d≤165. The coprimality restriction 
 
 Target `AnalyticNumberTheoryPartII:ECN.3/exceptional-5077` (theorem).
 
-If K is imaginary quadratic with h(K)=3, then |discr K|≠5077. Indeed, if discr K=−5077, the prime 2 splits, but the split-prime size bound would require 2³≥5077/4.
+For every imaginary quadratic field K, |discr K|≠5077. Negativity would give discr K=−5077, but −5077≡3 modulo 4 and is odd, so it is not a fundamental discriminant. No class-number hypothesis is required.
 
-Hypotheses and conventions: The character of the fundamental discriminant −5077 has χ(2)=1 because −5077≡1 mod8.
+Hypotheses and conventions: K is a number field of degree two over ℚ with negative field discriminant; import the bridge to the native fundamental-discriminant predicate.
 
 Proof route:
 
-1. Compute the quadratic character at 2 from the discriminant congruence, using the quadratic-character supplier.
-2. Apply split-prime-size with h=3 and p=2 to obtain the explicit contradiction 8≥1269.25.
+1. Use the quadratic field/fundamental-discriminant bridge to obtain IsFundamentalDiscriminant(discr K).
+2. If |discr K|=5077, negativity gives discr K=−5077. Compute (−5077)%4=3 and 4∤−5077. Neither branch of the native fundamental-discriminant predicate holds.
 
-Prerequisite chain: `AnalyticNumberTheoryPartII:ECN.0/split-prime-size`, `AnalyticNumberTheory:AN.4`.
+Prerequisite chain: `tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`.
 
-Source: O85, §1.4(a), p. 312. The split-prime bound handles the excluded conductor case by exact arithmetic.
+Source: O85, §1.1, p. 311; §5.1, p. 321. The fundamental-discriminant classification excludes −5077; the resulting coprimality is used in the class-number-three application of the improved constant.
 
-Acceptance: This avoids assuming the coprime 55 theorem at the excluded discriminant.
+Acceptance: This excludes 5077 before applying the coprime 55 theorem. The arithmetic is (−5077)%4=3 and (−5077)%8=3; a splitting argument at 2 cannot apply to this nonfundamental integer.
 
 Layer status: **planned**. Reconstruct the recorded numerical comparison certificates for 7000 and 55 in every local-conductor case; discharge the symmetric-square and interval requests.
 
@@ -677,7 +679,7 @@ Layer status: **planned**. Reconstruct the recorded numerical comparison certifi
 
 The explicit majorant is C_c(t)=c∏_{j<t−1}(p_j+1)/(p_j+1−2√p_j), with p₀=2 and empty product for t=0 or 1. The smooth reciprocal factor decreases with p>1, allowing an ordered prime list to be compared to the first primes. The floor-based factor is not monotone across primes: floor(2√2)/3=2/3, whereas floor(2√3)/4=3/4. Its monotonicity must not be used. Instead bound it by the smooth factor first. This gives θ(d)C_c(t)≥c and converts the two weighted inequalities into C_7000(t)h≥log d and, on the coprime family, C_55(t)h≥log d.
 
-For the asymptotic, the logarithm of each smooth factor is 2/√p+O(1/p), and the prime number theorem with partial summation gives Σ_{j<t}p_j^−1/2∼2√(t/log t). The logarithmic error is lower order. Thus log C_c(t)∼4√(t/log t) for any fixed c>0. The parent AN.2 export must handle zero-based indexing and the weighted prime sum; neither a mere assertion that primes have density 1/log x nor an unquantified numerical extrapolation suffices.
+For the asymptotic, the logarithm of each smooth factor is 2/√p+O(1/p), and the prime number theorem with partial summation gives Σ_{j<t}p_j^−1/2∼2√(t/log t). The logarithmic error is lower order. Thus log C_c(t)∼4√(t/log t) for any fixed c>0. Current Tau Ceti already provides `TauCeti.primeNumberTheoremTransfer` (prime-boundary data to ψ, θ and π asymptotics) and `TauCeti.LSeries.wienerIkehara` (nonnegative coefficients and continuous boundary remainder to partial-sum asymptotics). AN.2 consumes those analytic inputs and supplies the nth-prime and weighted-sum consequences. The parent AN.2 export must handle zero-based indexing and the weighted prime sum; neither a mere assertion that primes have density 1/log x nor an unquantified numerical extrapolation suffices.
 
 Effectivity can be established without waiting for an explicit PNT error term. The generous elementary estimates p_j≥j+2 and log((p+1)/(p+1−2√p))≤8/√p yield log C_7000(t)≤log7000+16√t. Genus theory bounds t≤1+log h/log2. Writing u=log h and δ=q/(1−q), for 0<q<1 the inequality 16√(u/log2)≤δu+64/(δlog2)≤δu+128/δ gives C_7000(t)<2^(45+ceil(256/δ))h^δ. Combining with log d≤C_7000(t)h gives h greater than the deliberately smaller κ(q)(log d)^(1−q), where κ(q)=2^−(46+ceil(256(1−q)/q)). The extra factor two keeps the final inequality strict. For q≥1 take κ=1/2 and use h≥1 and log d>1.
 
@@ -881,11 +883,11 @@ Odd class number and genus divisibility first force one distinct discriminant pr
 
 The historical exclusion has two ranges, and the formal plan keeps them separate. Montgomery–Weinberger’s actual theorem, printed p. 530, excludes 10^12≤d≤10^2500. Their introduction cites the earlier smaller-range computation. Oesterlé’s compressed account in Bourbaki §5.1, p. 321, discusses the full range above 907 while attributing the exclusion to Montgomery–Weinberger; this must not replace the two underlying proofs. The interval 907<d<10^12 is supplied by the Lehmer–Lehmer–Shanks character sieve and exact finite enumeration.
 
-For the large range, use primitive even real characters of positive discriminants 17923, 115147 and 123204. Their factorizations and primitivity are certified. Rational outward signs for the real Hardy function bracket a critical-line zero for each character; continuity and the intermediate value theorem give existence. Neither GRH nor a claim that the zero is the least positive one is needed. Table I, p. 537, supplies starting approximations only. The broad brackets below must be refined enough to validate every phase inequality.
+For the large range, use primitive real odd characters χ_{−17923}, χ_{−115147} and χ_{−123204}, with positive conductors k=17923,115147,123204. Certify the negative fundamental discriminants, their factorizations and primitivity. Character values use the signed discriminant D=−k, including the 2-adic values −1,−1,0; the completion has gamma factor Γ((s+1)/2). Rational outward signs for the real Hardy function bracket a critical-line zero for each character; continuity and the intermediate value theorem give existence. Neither GRH nor a claim that the zero is the least positive one is needed. Table I, p. 537, supplies starting approximations only. The broad brackets below must be refined enough to validate every phase inequality.
 
 MW’s reduced-form decomposition gives a positive amplitude, a phase and an error bound at each chosen zero. Retain its log-gamma terms and use its Lemmas 1–9, printed pp. 532–539, and §5’s numerical error control, pp. 539–542. The character 17923 excludes 10^12 through 10^52. The character 115147 covers the larger interval through 10^2500 except the windows 10^850–10^860 and 10^1705–10^1735. The 123204 phase excludes both windows. Endpoint overlap and monotonicity must be certified; point samples cannot establish a phase bound over an interval.
 
-For the smaller range, primitive reduced forms enumerate every negative fundamental discriminant up to 318028. Above that threshold, h=3 forces every prime q≤43 to be inert because d>4·43³. A complete residue/primality sieve gives the least allowed prime at least 1333963. Since 4·67³<1333963, the 67-pattern is required and its certified least bound is 41599563. Since 4·163³<41599563, the 163-pattern is required and its bound is 1432817816347>10^12. Lehmer–Lehmer–Shanks, pp. 445–447, provides these thresholds. Every residue segment must be covered. Historical approximate L-values and a list of candidates alone do not certify exclusion. The more extensive 7079-pattern iteration is unnecessary for this interval.
+For the smaller range, primitive reduced forms enumerate every negative fundamental discriminant up to 318028. Above that threshold, h=3 forces every prime q≤43 to be inert because d>4·43³. A complete residue/primality sieve gives the least allowed prime at least 1333963. Since 4·67³<1333963, the 67-pattern is required and its certified least bound is 51599563. Since 4·163³<51599563, the 163-pattern is required and its bound is 1432817816347>10^12. Lehmer–Lehmer–Shanks, Table III, p. 440, gives these least-prime thresholds; pp. 445–447 apply the patterns to class number three. Every residue segment must be covered. Historical approximate L-values and a list of candidates alone do not certify exclusion. The more extensive 7079-pattern iteration is unnecessary for this interval.
 
 For h=3, exclude d=5077 first and apply the prime-discriminant 55 bound, obtaining log d≤165. A certified elementary log inequality gives d<10^72<10^2500. Split all d>907 at 10^12 and apply the two exclusions. The resulting d≤907 makes the final enumeration tiny. Enumerate every primitive reduced form, including the sign convention on its boundary, and filter to field discriminants. Exactly sixteen fields have three classes. The three representatives for −907 are (1,1,227),(13,9,19),(13,−9,19). The discriminant −243 is a quadratic-order discriminant and must fail the fundamental-discriminant filter.
 
@@ -917,21 +919,21 @@ Acceptance: −3 is fundamental but has h=1; −243 is a nonmaximal order discri
 
 Target `AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets` (theorem).
 
-For the primitive real even quadratic characters of positive discriminants k=17923,115147,123204, certify the existence of a critical-line zero 1/2+iγ in the rational brackets [30985/10^6,30987/10^6], [3157/10^6,3159/10^6], [10649/10^6,10651/10^6] respectively, after validating outward endpoint signs of the real completed Hardy function. The broader brackets may be tightened to recover every source phase inequality. The theorem asserts an existing zero, not that it is the first zero.
+For the primitive real odd quadratic characters χ_D of negative fundamental discriminants D=−k, k=17923,115147,123204, certify the existence of a critical-line zero 1/2+iγ in the rational brackets [30985/10^6,30987/10^6], [3157/10^6,3159/10^6], [10649/10^6,10651/10^6] respectively, after validating outward endpoint signs of the real completed Hardy function. The broader brackets may be tightened to recover every source phase inequality. The theorem asserts an existing zero, not that it is the first zero.
 
-Hypotheses and conventions: 17923 is prime, 115147=113·1019, and 123204=4·3·10267; prove fundamental discriminant and character primitivity. The zero bracket is obtained from a real Hardy-function sign change; no assertion of GRH or simplicity is needed.
+Hypotheses and conventions: 17923 is prime, 115147=113·1019, and 123204=4·3·10267. Prove that −17923, −115147 and −123204 are fundamental discriminants; their primitive characters have conductor k and χ_D(−1)=−1. At odd primes p use (D/p), and at 2 use χ₈(D mod8), including the value 0 for even D. The zero bracket is obtained from a real Hardy-function sign change; no assertion of GRH or simplicity is needed.
 
 Proof route:
 
-1. Use the source Lavrik approximate functional equation, or the exact imported primitive-character L evaluator plus certified gamma and phase factors, to enclose the Hardy function at rational endpoints.
+1. Use the source Lavrik approximate functional equation, or the exact imported primitive-character L evaluator plus certified gamma and phase factors, to enclose the real completed Hardy function at rational endpoints. Use the odd-character gamma factor Γ((s+1)/2) and conductor k=|D|, with D=−k throughout the character evaluations.
 2. Refine endpoint intervals until their signs are strictly opposite; prove continuity and apply the intermediate value theorem.
 3. Re-evaluate every phase bound with the resulting rational γ enclosure, rather than copying a six-digit zero as an exact real constant.
 
 Prerequisite chain: `ComputationalNumberTheory:CN.4/dirichlet-l-value-enclosure`, `ComputationalNumberTheory:CN.4`, `ComputationalNumberTheory:CN.1`, `AnalyticNumberTheory:AN.4`, `mathlib:DirichletCharacter.LFunction`, `mathlib:legendreSym`, `mathlib:ZMod.χ₈`.
 
-Source: MW74, Table I, p. 537; §5, pp. 539–542. The three auxiliary characters and small-height zeros drive the class number three exclusion.
+Source: MW74, Table I, p. 537; §5, pp. 539–542, especially odd parity and gamma factor on p. 540. The three primitive real odd characters with conductors k and their small-height zeros drive the class-number-three exclusion.
 
-Acceptance: A sign certificate must exclude 0 at each endpoint; an enclosure containing 0 alone does not certify a zero.
+Acceptance: A sign certificate must exclude 0 at each endpoint; an enclosure containing 0 alone does not certify a zero. χ_{−17923}(−1)=−1 and χ_{−17923}(3)=−1. Replacing −k by +k would give (17923/3)=+1 and fails this normalization check. The 2-adic values for the three signed discriminants are −1,−1,0.
 
 ### The Montgomery–Weinberger exclusion interval
 
@@ -939,7 +941,7 @@ Target `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion` (theorem).
 
 No imaginary quadratic field of fundamental discriminant −d with 10^12≤d≤10^2500 has class number 3. For a prime class-three discriminant, MW’s phase identity at the three certified critical-line zeros yields incompatible phase intervals on the complete stated range.
 
-Hypotheses and conventions: Use class-three-prime to reduce to odd prime d; then gcd(d,k)=1 for all three auxiliary k. Only the existence of the three certified critical-line zeros is used; no GRH or unproved least-zero statement is imported.
+Hypotheses and conventions: Use class-three-prime to reduce to odd prime d; then gcd(d,k)=1 for all three auxiliary k. Only the existence of the three certified critical-line zeros is used; no GRH or unproved least-zero statement is imported. Every auxiliary character is χ_{−k} for k=17923,115147,123204, primitive and odd; retain the odd-character gamma phase.
 
 Proof route:
 
@@ -957,7 +959,7 @@ Acceptance: All interval boundaries are covered by closed intervals; no conclusi
 
 Target `AnalyticNumberTheoryPartII:ECN.5/small-range-sieve` (theorem).
 
-No negative fundamental discriminant −d with 907<d<10^12 has class number 3. Prove this by exact reduced-form enumeration up to 318028 and complete quadratic-character pattern certificates beyond that point. For a hypothetical prime d of class number 3, the split-prime bound forces χ_{−d}(q)=−1 for all primes q≤43 when d>4·43³=318028. The least prime with the required all-inert pattern is at least 1333963; successively the 67 and 163 patterns force d≥41599563 and d≥1432817816347>10^12.
+No negative fundamental discriminant −d with 907<d<10^12 has class number 3. Prove this by exact reduced-form enumeration up to 318028 and complete quadratic-character pattern certificates beyond that point. For a hypothetical prime d of class number 3, the split-prime bound forces χ_{−d}(q)=−1 for all primes q≤43 when d>4·43³=318028. The least prime with the required all-inert pattern is at least 1333963; successively the 67 and 163 patterns force d≥51599563 and d≥1432817816347>10^12.
 
 Hypotheses and conventions: Character-pattern sieves cover all integers in the stated bounded search range, not only a list of found candidates. Use exact prime/modular residue certificates; historical approximate L-values and unproved class-group tables are not stopping criteria.
 
@@ -965,13 +967,13 @@ Proof route:
 
 1. Certify every negative fundamental discriminant with 907<d≤318028 by the finite reduced-form completeness theorem. For p≡7 mod8, 2 splits and 4·2³≥p rules out p>32.
 2. Construct a complete segmented CRT/residue sieve for primes p≡3 mod8 whose characters at every prime q≤43 are −1, and prove its least candidate is ≥1333963.
-3. Because 4·67³<1333963, require the 67 pattern and certify no candidate below 41599563; because 4·163³<41599563 require the 163 pattern and certify no candidate below 1432817816347. This final bound contradicts d<10^12. The stronger 7079 iteration mentioned by LLS is not required.
+3. Because 4·67³<1333963, require the 67 pattern and certify no candidate below 51599563; because 4·163³<51599563 require the 163 pattern and certify no candidate below 1432817816347. This final bound contradicts d<10^12. The stronger 7079 iteration mentioned by LLS is not required.
 
 Prerequisite chain: `AnalyticNumberTheoryPartII:ECN.5/class-three-prime`, `AnalyticNumberTheoryPartII:ECN.0/split-prime-size`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `ComputationalNumberTheory:CN.1`, `ComputationalNumberTheory:CN.2`, `AnalyticNumberTheory:AN.4`.
 
-Source: LLS70, Class number three application, pp. 445–447; Table I, pp. 438–444,448–451. Successive complete least-pattern bounds rule out the small range; the finite certificates must be regenerated.
+Source: LLS70, Class number three application, pp. 445–447; Table III, p. 440; sieve construction and tables, pp. 438–444,448–451. Successive complete least-pattern bounds rule out the small range; the finite certificates must be regenerated.
 
-Acceptance: The numeric equalities 4·43³=318028 and 1432817816347>10^12 are exact; the sieve covers every residue segment.
+Acceptance: The numeric equalities 4·43³=318028 and 1432817816347>10^12 are exact; the sieve covers every residue segment. Table III’s least prime solutions for the 43,67,163 patterns are 1333963,51599563,1432817816347. Preserve the distinction between least integer and least prime solutions; candidate sign checks alone do not certify minimality.
 
 ### The complete class number three cutoff
 
@@ -1043,15 +1045,15 @@ Consumers: `AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates`.
 
 ### Request to `GeometryOfNumbersAndQuadraticArithmetic:GN.3`
 
-For negative fundamental D, supply the proper ideal-class/oriented primitive positive-definite binary-form equivalence, unique reduced representative with |b|≤a≤c and b≥0 on boundary, cardinality h(D), exact finite enumeration a≤√(|D|/3), the squarefree-radicand/integral-generator bridge used by the pinned genus theorem, and the nonaxial measure estimate ∫₀ᴬN_q(t)dt≤∫_{√d/2}ᴬπt/√d dt for reduced forms as in O85 §1.3.
+For negative fundamental D, consume the current TauCetiRoadmap IntegralLattices Layer B, B1/B2/B5: quadratic orders, the proper primitive positive-definite binary-form/Picard-class dictionary and finite reduced-form enumeration are already owned there, not new GN.3 targets. Supply only the maximal-order Picard-to-native-ClassGroup bridge, the boundary convention |b|≤a≤c with b≥0 on boundary, cardinality h(D) and the explicit a≤√(|D|/3) enumeration adapter, the bridge from degree-two field discriminants to the native fundamental-discriminant predicate and the squarefree-radicand/integral-generator bridge used by the pinned genus theorem, and the nonaxial measure estimate ∫₀ᴬN_q(t)dt≤∫₀ᴬ(πt/√d)·1_[√d/2,∞)(t)dt for every A≥0, with nonaxial support t≥√d/2 for reduced forms as in O85 §1.3. Existing upstream owner: tauceti:TauCetiRoadmap/IntegralLattices#layer-b-binary-lattices-and-quadratic-orders.
 
-Consumers: `AnalyticNumberTheoryPartII:ECN.0/split-prime-size`, `AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison`, `AnalyticNumberTheoryPartII:ECN.1/tail-three-pieces`, `AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates`, `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139`, `AnalyticNumberTheoryPartII:ECN.4/effective-cutoff`, `AnalyticNumberTheoryPartII:ECN.5/class-three-prime`, `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion`, `AnalyticNumberTheoryPartII:ECN.5/small-range-sieve`, `AnalyticNumberTheoryPartII:ECN.5/class-three-enumeration`.
+Consumers: `AnalyticNumberTheoryPartII:ECN.0/split-prime-size`, `AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison`, `AnalyticNumberTheoryPartII:ECN.1/tail-three-pieces`, `AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates`, `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139`, `AnalyticNumberTheoryPartII:ECN.4/effective-cutoff`, `AnalyticNumberTheoryPartII:ECN.5/class-three-prime`, `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion`, `AnalyticNumberTheoryPartII:ECN.5/small-range-sieve`, `AnalyticNumberTheoryPartII:ECN.5/class-three-enumeration`, `AnalyticNumberTheoryPartII:ECN.3/exceptional-5077`.
 
 ### Request to `AnalyticNumberTheory:AN.4`
 
 Export the primitive quadratic Dirichlet character χ_D with all ramified and 2-adic evaluations; the normalized partial-zeta identities O85 (1.3.1)–(1.3.2), especially ζ_K(s)/ζ(2s)=Σ_q(a(q)^−s+Σ_{m∈ℤ,n>0,gcd(m,n)=1}q(m,n)^−s), and its nonnegative coefficients. Supply Siegel’s ineffective h(D)≥c_η|D|^(1/2−η) as a parent comparison theorem. The pinned real residue theorem is already imported and is not a new target here.
 
-Consumers: `AnalyticNumberTheoryPartII:ECN.0/liouville-agreement`, `AnalyticNumberTheoryPartII:ECN.1/tail-three-pieces`, `AnalyticNumberTheoryPartII:ECN.3/exceptional-5077`, `AnalyticNumberTheoryPartII:ECN.4/siegel-comparison`, `AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets`, `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion`, `AnalyticNumberTheoryPartII:ECN.5/small-range-sieve`.
+Consumers: `AnalyticNumberTheoryPartII:ECN.0/liouville-agreement`, `AnalyticNumberTheoryPartII:ECN.1/tail-three-pieces`, `AnalyticNumberTheoryPartII:ECN.4/siegel-comparison`, `AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets`, `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion`, `AnalyticNumberTheoryPartII:ECN.5/small-range-sieve`.
 
 ### Request to `AutomorphicLFunctionsAndLocalFactors:AL.3`
 
@@ -1061,13 +1063,13 @@ Consumers: `AnalyticNumberTheoryPartII:ECN.3/liouville-system`, `AnalyticNumberT
 
 ### Request to `ComputationalNumberTheory:CN.3`
 
-Supply verification adapters for the two explicit curves’ intrinsic local reduction/conductor/root-number computations, importing EllipticCurves Layer 4 and R29.4, and integrate EllipticCurves Layer 6/ED.3 descent and point verification certificates. Do not re-plan general two-descent or saturation, which already have those owners. Export modular η-quotient divisor and exact CM-value/Galois comparisons for GZ83 Corollary 6 on X₀(37), through the modular-form and modular-curve owners. Exact curve-specific witnesses and computations remain in this roadmap.
+Supply verification adapters for the two explicit curves’ intrinsic local reduction/conductor/root-number computations, importing EllipticCurves Layer 4 and R29.4, and integrate EllipticCurves Layer 6/ED.3 descent and point verification certificates. Do not re-plan general two-descent or saturation, which already have those owners. Export modular η-quotient divisor and exact CM-value/Galois comparisons for GZ83 Corollary 6 on X₀(37), through the modular-form and modular-curve owners. For K=ℚ(√−139) and its degree-3 Hilbert class field H, the CM comparison must export u(x)∈H and u(x)^12=((3+√−139)/2)^12, with Galois equivariance and exact divisor multiplicities. The exclusion of order-3/4 roots of unity inside H and the common-value argument are proved in this roadmap. Exact curve-specific witnesses and computations remain in this roadmap.
 
 Consumers: `AnalyticNumberTheoryPartII:ECN.2/curve-local-data`, `AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates`, `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139`, `AnalyticNumberTheoryPartII:ECN.3/ramified-twist-systems`.
 
 ### Request to `ComputationalNumberTheory:CN.4`
 
-Extend the accepted level-one cuspLBox export to arbitrary-level normalized weight-two newforms with Fricke sign and all bad factors, supporting first/third derivatives of their actual entire L-functions. Supply rational enclosures for exp, log, π, Γ/logΓ and the positive BGZ integral kernels, with rigorous truncation and rounding bounds, and certified canonical-height/Petersson/local-scale enclosures. For MW supply real Hardy-function endpoint signs for primitive even quadratic characters via continued L-values and gamma phase. The existing Dirichlet-L boxes and interval soundness nodes are imported; general interval arithmetic is not replanned here.
+Extend the accepted level-one cuspLBox export to arbitrary-level normalized weight-two newforms with Fricke sign and all bad factors, supporting first/third derivatives of their actual entire L-functions. Supply rational enclosures for exp, log, π, Γ/logΓ and the positive BGZ integral kernels, with rigorous truncation and rounding bounds, and certified canonical-height/Petersson/local-scale enclosures. For MW supply real Hardy-function endpoint signs for primitive odd quadratic characters χ_{−k}, k=17923,115147,123204, via continued L-values and the Γ((s+1)/2) gamma phase. The existing Dirichlet-L boxes and interval soundness nodes are imported; general interval arithmetic is not replanned here.
 
 Consumers: `AnalyticNumberTheoryPartII:ECN.1/oesterle-technical-bound`, `AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates`, `AnalyticNumberTheoryPartII:ECN.2/central-derivative-enclosures`, `AnalyticNumberTheoryPartII:ECN.2/heegner-height-gap`, `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139`, `AnalyticNumberTheoryPartII:ECN.3/global-7000`, `AnalyticNumberTheoryPartII:ECN.3/coprime-55`, `AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets`, `AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion`, `AnalyticNumberTheoryPartII:ECN.5/class-three-cutoff`.
 
@@ -1104,12 +1106,12 @@ Consumers: `AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139`.
 ## Sources and versions read
 
 - **GZ86**: Benedict H. Gross and Don B. Zagier, [Heegner points and derivatives of L-series](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf). Inventiones mathematicae 84 (1986), 225–320. Read I §§7–8, pp. 230–232. Accessed 2026-10-11. File SHA-256: `a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5`.
-- **GZ83**: Benedict H. Gross and Don B. Zagier, [Points de Heegner et dérivées de fonctions L](https://people.mpim-bonn.mpg.de/zagier/files/scanned/PointsHeegner/fulltext.pdf). C. R. Acad. Sci. Paris, Série I 297 (1983), 85–87. Read Theorem 1 and Corollaries 2–6, pp. 85–87. Accessed 2026-10-11. File SHA-256: `a0d495baef3f708204bdcb2b20818793096f348be7a09635ef8062ebb57d83de`.
-- **O85**: Joseph Oesterlé, [Nombres de classes des corps quadratiques imaginaires](https://numdam.org/item/SB_1983-1984__26__309_0.pdf). Séminaire Bourbaki, exposé 631 (1983–1984); Astérisque 121–122 (1985), 309–323. Read Introduction and Theorem 1, pp. 309–311; §§1–2, pp. 311–314; §3, conditions C1–C4 and Theorem 2, pp. 314–319; §§4–5, pp. 319–323. Accessed 2026-10-11. File SHA-256: `556a398ca414d73eebee2e2d5320e5a1aebf53b9b9497985e48ab8ecf2bd1e0b`.
-- **O88**: Joseph Oesterlé, [Le problème de Gauss sur le nombre de classes](https://doi.org/10.5169/seals-56588). L’Enseignement Mathématique 34 (1988), 43–67. Read §§6–9, pp. 56–67, publisher page images; §9, pp. 66–67, reported constants and class-number-three consequence. Accessed 2026-10-11. Read the publisher’s page images through the DOI viewer; no successful PDF download. The article reports the improved constants and refers back to the Bourbaki argument.
+- **GZ83**: Benedict H. Gross and Don B. Zagier, [Points de Heegner et dérivées de fonctions L](https://people.mpim-bonn.mpg.de/zagier/files/scanned/PointsHeegner/fulltext.pdf). C. R. Acad. Sci. Paris, Série I 297 (1983), 85–87. Read Theorem 1 and Corollaries 2–6, pp. 85–87. Accessed 2026-10-17. File SHA-256: `a0d495baef3f708204bdcb2b20818793096f348be7a09635ef8062ebb57d83de`.
+- **O85**: Joseph Oesterlé, [Nombres de classes des corps quadratiques imaginaires](https://numdam.org/item/SB_1983-1984__26__309_0.pdf). Séminaire Bourbaki, exposé 631 (1983–1984); Astérisque 121–122 (1985), 309–323. Read Introduction and Theorem 1, pp. 309–311; §§1–2, pp. 311–314; §3, conditions C1–C4 and Theorem 2, pp. 314–319; §§4–5, pp. 319–323. Accessed 2026-10-17. File SHA-256: `556a398ca414d73eebee2e2d5320e5a1aebf53b9b9497985e48ab8ecf2bd1e0b`.
+- **O88**: Joseph Oesterlé, [Le problème de Gauss sur le nombre de classes](https://doi.org/10.5169/seals-56588). L’Enseignement Mathématique 34 (1988), 43–67. Read II §§3–9, pp. 56–67, publisher page images; §9, pp. 66–67, reported constants and class-number-three consequence. Accessed 2026-10-11. Read the publisher’s page images through the DOI viewer; no successful PDF download. The article reports the improved constants and refers back to the Bourbaki argument.
 - **BGZ85**: Joe P. Buhler, Benedict H. Gross and Don B. Zagier, [On the conjecture of Birch and Swinnerton-Dyer for an elliptic curve of rank 3](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.2307/2007967/fulltext.pdf). Mathematics of Computation 44 (1985), 473–481. Read §§1–2, pp. 473–476; §§3–4, pp. 477–480, formulas (10)–(14); §5 and note added in proof, pp. 480–481. Accessed 2026-10-11. File SHA-256: `27a48bdef3824f0d225793ec19575f59fc0617d2800f761639e67b0df807c628`.
-- **MW74**: Hugh L. Montgomery and Peter J. Weinberger, [Notes on small class numbers](https://www.impan.pl/shop/en/publication/transaction/download/product/100121?download.pdf). Acta Arithmetica 24 (1974), 529–542. Read Theorem, p. 530; §§2–4, Lemmas 1–9 and Table I, pp. 530–539; §5, approximate functional equation and numerical error bounds, pp. 539–542. Accessed 2026-10-11. File SHA-256: `9deaeda1c1ee6e668ad6393996dc363ff684b94269abf6b808d5ba9b4bf71eda`.
-- **LLS70**: D. H. Lehmer, Emma Lehmer and Daniel Shanks, [Integer sequences having prescribed quadratic character](https://oeis.org/A002189/a002189.pdf). Mathematics of Computation 24 (1970), 433–451. Read Introduction, pp. 433–434; Sieve construction and tables, pp. 438–444; Class number three application, pp. 445–447; Table I continuation, pp. 448–451. Accessed 2026-10-11. File SHA-256: `2e35401eecf25293190f7a62f1225fc2e098dbbf76f48a97c2d064ca333f2c83`.
+- **MW74**: Hugh L. Montgomery and Peter J. Weinberger, [Notes on small class numbers](https://www.impan.pl/shop/en/publication/transaction/download/product/100121?download.pdf). Acta Arithmetica 24 (1974), 529–542. Read Theorem, p. 530; §§2–4, Lemmas 1–9 and Table I, pp. 530–539; §5, approximate functional equation and numerical error bounds, pp. 539–542. Accessed 2026-10-17. File SHA-256: `9deaeda1c1ee6e668ad6393996dc363ff684b94269abf6b808d5ba9b4bf71eda`.
+- **LLS70**: D. H. Lehmer, Emma Lehmer and Daniel Shanks, [Integer sequences having prescribed quadratic character](https://oeis.org/A002189/a002189.pdf). Mathematics of Computation 24 (1970), 433–451. Read Introduction, pp. 433–434; Sieve construction and tables, pp. 438–444; Class number three application, pp. 445–447; Table I continuation, pp. 448–451. Accessed 2026-10-17. File SHA-256: `2e35401eecf25293190f7a62f1225fc2e098dbbf76f48a97c2d064ca333f2c83`.
 - **G77**: Dorian M. Goldfeld, [The conjectures of Birch and Swinnerton-Dyer and the class numbers of quadratic fields](https://www.numdam.org/item/AST_1977__41-42__219_0.pdf). Astérisque 41–42 (1977), 219–227. Read §§1–5, Theorems 1–3, pp. 219–225. Accessed 2026-10-11. File SHA-256: `111ed5640155028e6fc09c058945b0c1d4bef3a939f88f456950469f0ddc357d`.
 
 No verbatim source passage is included. No source erratum is asserted: the distinct isogenous 139 models and the compressed historical range attribution are treated through explicit model and proof comparisons. The two recorded certificate gaps concern what this pass could not independently establish.
