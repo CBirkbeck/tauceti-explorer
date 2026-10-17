@@ -62,6 +62,9 @@ example : iteratedDeriv 3 (smoothedMellinKernel 2) 0 = 1 / 8 := by
   sorry
 example : (259 / 24 : ℚ) = 1 / 8 + 16 * (2 / 3) := by norm_num
 
+/-- A quartic finite-unit character detects the inverse in the GL₁ Euler convention. -/
+example : (Complex.I)⁻¹ = -Complex.I := by simp
+
 /-! ## Layer 1: integral smoothing -/
 
 /-- Dividing the binomial polynomial by its zero at the origin shifts coefficients once. -/
@@ -266,9 +269,11 @@ example {K : Type*} [NormedField K] (L s : K) :
       1 - NormedSpace.exp ((1 - s) * L) := by
   sorry
 example : -(1 - (3 : ℚ)⁻¹) * (-1) = 2 / 3 := by norm_num
-example : (-(Complex.I * Real.pi / 3) : ℂ) / (Complex.I * Real.sqrt 3) =
+example : (-(-(Complex.I * Real.pi / 3)) : ℂ) / (Complex.I * Real.sqrt 3) =
     Real.pi / (3 * Real.sqrt 3) := by
-  sorry
+  have h : (Real.sqrt 3 : ℂ) ≠ 0 := by
+    exact_mod_cast (show Real.sqrt 3 ≠ 0 by positivity)
+  field_simp [Complex.I_ne_zero, h]
 example (p : ℕ) [Fact p.Prime] : ‖((1 : (ℤ_[p])ˣ) : ℤ_[p])‖ = 1 := by
   simp
 
@@ -375,6 +380,11 @@ example : divisionRelator 2 0 (0 : ZMod 2) = FreeAbelianGroup.of (1 : ZMod 2) :=
   sorry
 example : divisionRelator 2 2 (0 : ZMod 1) = 3 • FreeAbelianGroup.of (0 : ZMod 1) := by
   sorry
+example : divisionRelator 2 1 (0 : ZMod 1) = FreeAbelianGroup.of (0 : ZMod 1) := by
+  sorry
+example : divisionRelator 3 2 (0 : ZMod 1) = 8 • FreeAbelianGroup.of (0 : ZMod 1) := by
+  sorry
+example : (3 : ℤ) * 3 - 8 = 1 := by norm_num
 example : ((1 : ℤ) + 1) = 2 ∧ ((-1 : ℤ) + 1) = 0 := by norm_num
 example : (1 : ℚ) / 2 + (-1 / 2) = 0 := by norm_num
 example : (-1 : ℤ) ^ (1 + 1) = 1 ∧ (-1 : ℤ) ^ (1 + 0) = -1 := by norm_num
@@ -428,6 +438,12 @@ theorem eisensteinPositiveMoment_euler (p : ℕ) (hp : p.Prime) (n e : ℕ)
         (p : ℤ) ^ e * ∑ d ∈ (n / p).divisors, (d : ℤ) ^ e := by
   sorry
 
+/-- Odd weight five cannot have the asserted normalized positive Eisenstein coefficient. -/
+example : bernoulli 5 = 0 ∧ eisensteinPositiveMoment 2 1 4 = 1 := by
+  constructor
+  · exact bernoulli_eq_zero_of_odd (by decide) (by decide)
+  · decide
+
 example : unitPowerTest 2 0 (-1) = 1 := by simp [unitPowerTest]
 example : unitPowerTest 2 1 (-1) = -1 := by simp [unitPowerTest]
 example : unitPowerTest 2 2 (-1) = 1 := by simp [unitPowerTest]
@@ -479,7 +495,8 @@ cartanFullNorm, cartanNormLimit, finiteCartanValue, globalCartanValue,
 periodicBernoulliDistribution, positiveFourierDistribution, rationalCartanValue,
 its primitive sums, cosets, correction factors and integral lattices;
 distributionNegation, distributionParityOperator, distributionSignRepresentation,
-distributionTateZeroEquiv, distributionTateNegOneEquiv, distributionHOneEquiv,
+distributionTateZeroParityEmbedding, distributionTateNegOneParityEmbedding,
+distributionHOneParityTorsionEquiv,
 distributionParityTorsionEquiv, gammaContinuousUnitCount, unitLogAntidifference,
 ferreroGreenbergGammaSum; eisensteinPositiveMeasure and finite coordinates,
 positiveEisensteinSeriesMeasure, arithmeticEisensteinForm, stabilizedArithmeticEisensteinForm,
