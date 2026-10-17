@@ -49699,7 +49699,9 @@
     "PKG-EffectiveDiophantineMethods"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EffectiveDiophantineMethods.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10087",
+   "finishedAt": "2026-10-17T00:15:54Z"
   },
   {
    "id": "PKG-EllipticCurveModularity",
@@ -130953,9 +130955,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-HigherHidaAndColemanTheory.md",
-   "note": "claimed on GitHub issue #10100"
+   "note": "deliverables arrived from an external worker on issue #10100",
+   "finishedAt": "2026-10-17T00:15:57Z"
   }
  ]
 }
