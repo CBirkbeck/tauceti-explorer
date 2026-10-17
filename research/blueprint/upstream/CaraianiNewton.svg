@@ -25,7 +25,7 @@
 <text x="1538.2000000000003" y="124" font-size="12" fill="#0b0b0b">merged into TauCetiRoadmap</text>
 <rect x="70" y="129" width="34" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"/>
 <text x="110" y="139" font-size="12" fill="#0b0b0b">dashed chip inside a box: an open pull request that this roadmap cites and that must merge before it — another author&apos;s roadmap, or one of ours outside the Caraiani–Newton closure (marked &quot;ours&quot;); chips are listed in their own merge order and &quot;after #n&quot; marks a chip that needs another chip</text>
-<text x="70" y="156" font-size="12" fill="#52514e">Badge &quot;PR A/B&quot;: the roadmaps sharing a letter go up in one pull request (A = RG II + adelic groups + smooth representations; A′ stacked on A; B = the adic package). Updated 2026-10-17T17:30Z.</text>
+<text x="70" y="156" font-size="12" fill="#52514e">Badge &quot;PR A/B&quot;: the roadmaps sharing a letter go up in one pull request (A = RG II + adelic groups + smooth representations; A′ stacked on A; B = the adic package). Updated 2026-10-17T17:40Z.</text>
 <rect x="0" y="6201" width="988" height="96" fill="#e6f2ea"/>
 <text x="14" y="6254" font-size="13" font-weight="600" fill="#52514e">main</text>
 <text x="14" y="6101" font-size="13" font-weight="600" fill="#52514e">W1</text>
@@ -42,22 +42,22 @@
 <text x="14" y="4348" font-size="13" font-weight="600" fill="#52514e">W12</text>
 <text x="14" y="4216" font-size="13" font-weight="600" fill="#52514e">W13</text>
 <text x="14" y="4049" font-size="13" font-weight="600" fill="#52514e">W14</text>
-<text x="14" y="3889" font-size="13" font-weight="600" fill="#52514e">W15</text>
-<text x="14" y="3687" font-size="13" font-weight="600" fill="#52514e">W16</text>
-<text x="14" y="3478" font-size="13" font-weight="600" fill="#52514e">W17</text>
-<text x="14" y="3353" font-size="13" font-weight="600" fill="#52514e">W18</text>
-<text x="14" y="3221" font-size="13" font-weight="600" fill="#52514e">W19</text>
-<text x="14" y="3089" font-size="13" font-weight="600" fill="#52514e">W20</text>
-<text x="14" y="2943" font-size="13" font-weight="600" fill="#52514e">W21</text>
-<text x="14" y="2783" font-size="13" font-weight="600" fill="#52514e">W22</text>
-<text x="14" y="2616" font-size="13" font-weight="600" fill="#52514e">W23</text>
-<text x="14" y="2435" font-size="13" font-weight="600" fill="#52514e">W24</text>
-<text x="14" y="2296" font-size="13" font-weight="600" fill="#52514e">W25</text>
-<text x="14" y="2171" font-size="13" font-weight="600" fill="#52514e">W26</text>
-<text x="14" y="2053" font-size="13" font-weight="600" fill="#52514e">W27</text>
-<text x="14" y="1949" font-size="13" font-weight="600" fill="#52514e">W28</text>
-<text x="14" y="1824" font-size="13" font-weight="600" fill="#52514e">W29</text>
-<text x="14" y="1692" font-size="13" font-weight="600" fill="#52514e">W30</text>
+<text x="14" y="3896" font-size="13" font-weight="600" fill="#52514e">W15</text>
+<text x="14" y="3701" font-size="13" font-weight="600" fill="#52514e">W16</text>
+<text x="14" y="3492" font-size="13" font-weight="600" fill="#52514e">W17</text>
+<text x="14" y="3367" font-size="13" font-weight="600" fill="#52514e">W18</text>
+<text x="14" y="3235" font-size="13" font-weight="600" fill="#52514e">W19</text>
+<text x="14" y="3103" font-size="13" font-weight="600" fill="#52514e">W20</text>
+<text x="14" y="2957" font-size="13" font-weight="600" fill="#52514e">W21</text>
+<text x="14" y="2797" font-size="13" font-weight="600" fill="#52514e">W22</text>
+<text x="14" y="2630" font-size="13" font-weight="600" fill="#52514e">W23</text>
+<text x="14" y="2449" font-size="13" font-weight="600" fill="#52514e">W24</text>
+<text x="14" y="2303" font-size="13" font-weight="600" fill="#52514e">W25</text>
+<text x="14" y="2178" font-size="13" font-weight="600" fill="#52514e">W26</text>
+<text x="14" y="2046" font-size="13" font-weight="600" fill="#52514e">W27</text>
+<text x="14" y="1921" font-size="13" font-weight="600" fill="#52514e">W28</text>
+<text x="14" y="1789" font-size="13" font-weight="600" fill="#52514e">W29</text>
+<text x="14" y="1671" font-size="13" font-weight="600" fill="#52514e">W30</text>
 <text x="14" y="1553" font-size="13" font-weight="600" fill="#52514e">W31</text>
 <text x="14" y="1407" font-size="13" font-weight="600" fill="#52514e">W32</text>
 <text x="14" y="1261" font-size="13" font-weight="600" fill="#52514e">W33</text>
@@ -74,19 +74,19 @@
 <g fill="none" stroke="#52514e" stroke-opacity="0.32" stroke-width="1.2">
 <path d="M625.0,4314.0 C625.0,4284.0 403.0,4284.0 403.0,4254.0"><title>AdelicAlgebraicGroups uses SmoothRepresentationsOfLocalGroups</title></path>
 <path d="M514.0,4432.0 C514.0,4402.0 625.0,4402.0 625.0,4372.0"><title>SmoothRepresentationsOfLocalGroups uses CrystallineCohomology + DerivedDeRhamCohomology</title></path>
-<path d="M292.0,6220.0 C292.0,6096.0 403.0,6096.0 403.0,5972.0"><title>IntegralHeckeAndGaloisDeterminants uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M736.0,6227.0 C736.0,6099.5 403.0,6099.5 403.0,5972.0"><title>IntegralHeckeAndGaloisDeterminants uses SchemeAndStackFoundations</title></path>
 <path d="M403.0,6060.0 C403.0,6016.0 403.0,6016.0 403.0,5972.0"><title>IntegralHeckeAndGaloisDeterminants uses ReductiveGroupsPartII</title></path>
+<path d="M292.0,6220.0 C292.0,6096.0 403.0,6096.0 403.0,5972.0"><title>IntegralHeckeAndGaloisDeterminants uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M403.0,4168.0 C403.0,4145.0 292.0,4145.0 292.0,4122.0"><title>GeometryOfNumbersAndQuadraticArithmetic uses AdelicAlgebraicGroups</title></path>
 <path d="M736.0,6227.0 C736.0,6200.5 625.0,6200.5 625.0,6174.0"><title>AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces uses SchemeAndStackFoundations</title></path>
 <path d="M625.0,6018.0 C625.0,5995.0 625.0,5995.0 625.0,5972.0"><title>EnhancedDerivedSheaves uses AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces</title></path>
-<path d="M625.0,5900.0 C625.0,5877.0 514.0,5877.0 514.0,5854.0"><title>AlgebraicModuliForArithmeticGeometry uses EnhancedDerivedSheaves</title></path>
 <path d="M403.0,6060.0 C403.0,5957.0 514.0,5957.0 514.0,5854.0"><title>AlgebraicModuliForArithmeticGeometry uses ReductiveGroupsPartII</title></path>
+<path d="M625.0,5900.0 C625.0,5877.0 514.0,5877.0 514.0,5854.0"><title>AlgebraicModuliForArithmeticGeometry uses EnhancedDerivedSheaves</title></path>
 <path d="M514.0,5754.0 C514.0,5731.0 514.0,5731.0 514.0,5708.0"><title>ComplexComparisonPartII uses AlgebraicModuliForArithmeticGeometry</title></path>
 <path d="M514.0,4432.0 C514.0,4409.0 403.0,4409.0 403.0,4386.0"><title>LocallyAnalyticDistributions uses CrystallineCohomology + DerivedDeRhamCohomology</title></path>
-<path d="M514.0,3166.0 C514.0,3139.5 403.0,3139.5 403.0,3113.0"><title>ClassicalArithmeticCompletion uses AutomorphicLFunctionsAndLocalFactors</title></path>
-<path d="M292.0,3966.0 C292.0,3539.5 403.0,3539.5 403.0,3113.0"><title>ClassicalArithmeticCompletion uses GeometryOfNumbersAndQuadraticArithmetic</title></path>
-<path d="M514.0,6220.0 C514.0,4666.5 403.0,4666.5 403.0,3113.0"><title>ClassicalArithmeticCompletion uses DiophantineApproximationAndTranscendence</title></path>
+<path d="M514.0,6220.0 C514.0,4673.5 403.0,4673.5 403.0,3127.0"><title>ClassicalArithmeticCompletion uses DiophantineApproximationAndTranscendence</title></path>
+<path d="M292.0,3966.0 C292.0,3546.5 403.0,3546.5 403.0,3127.0"><title>ClassicalArithmeticCompletion uses GeometryOfNumbersAndQuadraticArithmetic</title></path>
+<path d="M514.0,3180.0 C514.0,3153.5 403.0,3153.5 403.0,3127.0"><title>ClassicalArithmeticCompletion uses AutomorphicLFunctionsAndLocalFactors</title></path>
 <path d="M514.0,5406.0 C514.0,5383.0 514.0,5383.0 514.0,5360.0"><title>InverseGaloisAndArithmeticFundamentalGroups uses AbelianSchemesAndArithmeticModuli</title></path>
 <path d="M514.0,5538.0 C514.0,5515.0 514.0,5515.0 514.0,5492.0"><title>AbelianSchemesAndArithmeticModuli uses ComplexComparisonPartII</title></path>
 <path d="M514.0,5274.0 C514.0,5251.0 514.0,5251.0 514.0,5228.0"><title>ArithmeticGaloisRepresentations uses InverseGaloisAndArithmeticFundamentalGroups</title></path>
@@ -97,50 +97,51 @@
 <path d="M292.0,1519.0 C292.0,1482.0 181.0,1482.0 181.0,1445.0"><title>HeightsRationalPointsAndObstructions uses ArakelovGeometryAndAbelianHeights</title></path>
 <path d="M403.0,4168.0 C403.0,4138.0 514.0,4138.0 514.0,4108.0"><title>ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups uses AdelicAlgebraicGroups</title></path>
 <path d="M625.0,4168.0 C625.0,4138.0 514.0,4138.0 514.0,4108.0"><title>ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups uses DeformationAndDerivedPatchingAlgebra</title></path>
-<path d="M625.0,3319.0 C625.0,3292.5 514.0,3292.5 514.0,3266.0"><title>AutomorphicLFunctionsAndLocalFactors uses DeligneWeightsAndPurity</title></path>
-<path d="M514.0,3980.0 C514.0,3950.0 403.0,3950.0 403.0,3920.0"><title>ShimuraData uses ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups</title></path>
+<path d="M625.0,3333.0 C625.0,3306.5 514.0,3306.5 514.0,3280.0"><title>AutomorphicLFunctionsAndLocalFactors uses DeligneWeightsAndPurity</title></path>
+<path d="M514.0,1998.0 C514.0,1975.0 625.0,1975.0 625.0,1952.0"><title>ShimuraData uses PELModuli + ShimuraVarieties</title></path>
 <path d="M514.0,5114.0 C514.0,5091.0 514.0,5091.0 514.0,5068.0"><title>FiniteFlatGroupsAndIntegralPadicHodgeTheory uses ArithmeticGaloisRepresentations</title></path>
-<path d="M514.0,3166.0 C514.0,3143.0 625.0,3143.0 625.0,3120.0"><title>AutomorphicSpectralTheory uses AutomorphicLFunctionsAndLocalFactors</title></path>
+<path d="M514.0,3180.0 C514.0,3157.0 625.0,3157.0 625.0,3134.0"><title>AutomorphicSpectralTheory uses AutomorphicLFunctionsAndLocalFactors</title></path>
 <path d="M514.0,4954.0 C514.0,4931.0 514.0,4931.0 514.0,4908.0"><title>NeronModelsAndSemistableAbelianVarieties uses FiniteFlatGroupsAndIntegralPadicHodgeTheory</title></path>
-<path d="M514.0,3562.0 C514.0,3539.0 514.0,3539.0 514.0,3516.0"><title>ModularCurvesPartII uses AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles</title></path>
-<path d="M514.0,3980.0 C514.0,3748.0 514.0,3748.0 514.0,3516.0"><title>ModularCurvesPartII uses ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups</title></path>
-<path d="M514.0,3430.0 C514.0,3407.0 403.0,3407.0 403.0,3384.0"><title>AlgebraicModularFormsAndSerreWeights uses ModularCurvesPartII</title></path>
-<path d="M403.0,2415.0 C403.0,2367.5 514.0,2367.5 514.0,2320.0"><title>CompletedCohomologyPartII uses CohomologyComparisons</title></path>
-<path d="M625.0,3855.0 C625.0,3828.5 514.0,3828.5 514.0,3802.0"><title>AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles uses DiamondSixOperations</title></path>
-<path d="M403.0,4168.0 C403.0,3985.0 514.0,3985.0 514.0,3802.0"><title>AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles uses AdelicAlgebraicGroups</title></path>
+<path d="M514.0,3576.0 C514.0,3553.0 514.0,3553.0 514.0,3530.0"><title>ModularCurvesPartII uses AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles</title></path>
+<path d="M514.0,3980.0 C514.0,3755.0 514.0,3755.0 514.0,3530.0"><title>ModularCurvesPartII uses ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups</title></path>
+<path d="M514.0,3444.0 C514.0,3421.0 403.0,3421.0 403.0,3398.0"><title>AlgebraicModularFormsAndSerreWeights uses ModularCurvesPartII</title></path>
+<path d="M514.0,1998.0 C514.0,1971.5 403.0,1971.5 403.0,1945.0"><title>CompletedCohomologyPartII uses PELModuli + ShimuraVarieties</title></path>
+<path d="M181.0,2429.0 C181.0,2187.0 403.0,2187.0 403.0,1945.0"><title>CompletedCohomologyPartII uses CohomologyComparisons</title></path>
+<path d="M403.0,4168.0 C403.0,3992.0 514.0,3992.0 514.0,3816.0"><title>AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles uses AdelicAlgebraicGroups</title></path>
+<path d="M514.0,3862.0 C514.0,3839.0 514.0,3839.0 514.0,3816.0"><title>AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles uses DiamondSixOperations</title></path>
 <path d="M625.0,4168.0 C625.0,4120.5 736.0,4120.5 736.0,4073.0"><title>DiamondEtaleCohomology uses DeformationAndDerivedPatchingAlgebra</title></path>
-<path d="M514.0,3430.0 C514.0,3403.5 625.0,3403.5 625.0,3377.0"><title>DeligneWeightsAndPurity uses ModularCurvesPartII</title></path>
-<path d="M403.0,2874.0 C403.0,2851.0 514.0,2851.0 514.0,2828.0"><title>WeightsInEtaleCohomology uses PadicDifferentialEquationsAndRigidCohomology</title></path>
-<path d="M403.0,3312.0 C403.0,3070.0 514.0,3070.0 514.0,2828.0"><title>WeightsInEtaleCohomology uses AlgebraicModularFormsAndSerreWeights</title></path>
-<path d="M403.0,4300.0 C403.0,3651.0 403.0,3651.0 403.0,3002.0"><title>PadicDifferentialEquationsAndRigidCohomology uses LocallyAnalyticDistributions</title></path>
-<path d="M403.0,3055.0 C403.0,3028.5 403.0,3028.5 403.0,3002.0"><title>PadicDifferentialEquationsAndRigidCohomology uses ClassicalArithmeticCompletion</title></path>
-<path d="M514.0,2728.0 C514.0,2705.0 514.0,2705.0 514.0,2682.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses WeightsInEtaleCohomology</title></path>
-<path d="M514.0,2540.0 C514.0,2492.5 403.0,2492.5 403.0,2445.0"><title>CohomologyComparisons uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
-<path d="M625.0,3048.0 C625.0,3004.0 625.0,3004.0 625.0,2960.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses AutomorphicSpectralTheory</title></path>
-<path d="M403.0,3055.0 C403.0,3007.5 625.0,3007.5 625.0,2960.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses ClassicalArithmeticCompletion</title></path>
-<path d="M514.0,2540.0 C514.0,2517.0 181.0,2517.0 181.0,2494.0"><title>ColemanIntegration + DirichletPadicLFunctions uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
-<path d="M514.0,1776.0 C514.0,1753.0 514.0,1753.0 514.0,1730.0"><title>PELModuli + ShimuraVarieties uses GL2AutomorphicRepresentationsAndTransfer</title></path>
-<path d="M847.0,2380.0 C847.0,2298.0 514.0,2298.0 514.0,2216.0"><title>HilbertModularVarietiesAndShimuraCurves uses GlobalGaloisDeformations + LocalGaloisDeformationRings</title></path>
-<path d="M403.0,3848.0 C403.0,3032.0 514.0,3032.0 514.0,2216.0"><title>HilbertModularVarietiesAndShimuraCurves uses ShimuraData</title></path>
-<path d="M514.0,2262.0 C514.0,2239.0 514.0,2239.0 514.0,2216.0"><title>HilbertModularVarietiesAndShimuraCurves uses CompletedCohomologyPartII</title></path>
-<path d="M625.0,2916.0 C625.0,2698.0 847.0,2698.0 847.0,2480.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AnalyticNumberTheory + ArithmeticStatistics</title></path>
-<path d="M514.0,2540.0 C514.0,2510.0 847.0,2510.0 847.0,2480.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
-<path d="M181.0,2366.0 C181.0,1763.0 514.0,1763.0 514.0,1160.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses ColemanIntegration + DirichletPadicLFunctions</title></path>
+<path d="M514.0,3444.0 C514.0,3417.5 625.0,3417.5 625.0,3391.0"><title>DeligneWeightsAndPurity uses ModularCurvesPartII</title></path>
+<path d="M403.0,3326.0 C403.0,3084.0 514.0,3084.0 514.0,2842.0"><title>WeightsInEtaleCohomology uses AlgebraicModularFormsAndSerreWeights</title></path>
+<path d="M403.0,2888.0 C403.0,2865.0 514.0,2865.0 514.0,2842.0"><title>WeightsInEtaleCohomology uses PadicDifferentialEquationsAndRigidCohomology</title></path>
+<path d="M403.0,4300.0 C403.0,3658.0 403.0,3658.0 403.0,3016.0"><title>PadicDifferentialEquationsAndRigidCohomology uses LocallyAnalyticDistributions</title></path>
+<path d="M403.0,3069.0 C403.0,3042.5 403.0,3042.5 403.0,3016.0"><title>PadicDifferentialEquationsAndRigidCohomology uses ClassicalArithmeticCompletion</title></path>
+<path d="M514.0,2742.0 C514.0,2719.0 514.0,2719.0 514.0,2696.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses WeightsInEtaleCohomology</title></path>
+<path d="M514.0,2554.0 C514.0,2506.5 181.0,2506.5 181.0,2459.0"><title>CohomologyComparisons uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M403.0,3069.0 C403.0,3021.5 625.0,3021.5 625.0,2974.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses ClassicalArithmeticCompletion</title></path>
+<path d="M625.0,3062.0 C625.0,3018.0 625.0,3018.0 625.0,2974.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses AutomorphicSpectralTheory</title></path>
+<path d="M514.0,2554.0 C514.0,2531.0 403.0,2531.0 403.0,2508.0"><title>ColemanIntegration + DirichletPadicLFunctions uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M514.0,2130.0 C514.0,2107.0 514.0,2107.0 514.0,2084.0"><title>PELModuli + ShimuraVarieties uses GL2AutomorphicRepresentationsAndTransfer</title></path>
+<path d="M403.0,1887.0 C403.0,1860.5 514.0,1860.5 514.0,1834.0"><title>HilbertModularVarietiesAndShimuraCurves uses CompletedCohomologyPartII</title></path>
+<path d="M625.0,1880.0 C625.0,1857.0 514.0,1857.0 514.0,1834.0"><title>HilbertModularVarietiesAndShimuraCurves uses ShimuraData</title></path>
+<path d="M625.0,2930.0 C625.0,2712.0 847.0,2712.0 847.0,2494.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AnalyticNumberTheory + ArithmeticStatistics</title></path>
+<path d="M514.0,2554.0 C514.0,2524.0 847.0,2524.0 847.0,2494.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M403.0,2380.0 C403.0,1770.0 514.0,1770.0 514.0,1160.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses ColemanIntegration + DirichletPadicLFunctions</title></path>
 <path d="M514.0,1227.0 C514.0,1193.5 514.0,1193.5 514.0,1160.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses SerreWeightAndLevelOptimisation</title></path>
-<path d="M514.0,2116.0 C514.0,2093.0 514.0,2093.0 514.0,2070.0"><title>AutomorphicBundles + ShimuraCompactifications uses HilbertModularVarietiesAndShimuraCurves</title></path>
-<path d="M514.0,1644.0 C514.0,1610.5 292.0,1610.5 292.0,1577.0"><title>ArakelovGeometryAndAbelianHeights uses PELModuli + ShimuraVarieties</title></path>
-<path d="M514.0,2540.0 C514.0,2499.5 625.0,2499.5 625.0,2459.0"><title>FarguesFontaineDiamonds uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
-<path d="M736.0,4015.0 C736.0,3964.0 625.0,3964.0 625.0,3913.0"><title>DiamondSixOperations uses DiamondEtaleCohomology</title></path>
-<path d="M181.0,2366.0 C181.0,1836.0 292.0,1836.0 292.0,1306.0"><title>AnabelianGeometryAndNonabelianChabauty uses ColemanIntegration + DirichletPadicLFunctions</title></path>
+<path d="M514.0,1734.0 C514.0,1711.0 514.0,1711.0 514.0,1688.0"><title>AutomorphicBundles + ShimuraCompactifications uses HilbertModularVarietiesAndShimuraCurves</title></path>
+<path d="M514.0,1644.0 C514.0,1610.5 292.0,1610.5 292.0,1577.0"><title>ArakelovGeometryAndAbelianHeights uses AutomorphicBundles + ShimuraCompactifications</title></path>
+<path d="M514.0,2554.0 C514.0,2513.5 625.0,2513.5 625.0,2473.0"><title>FarguesFontaineDiamonds uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M736.0,4015.0 C736.0,3967.5 514.0,3967.5 514.0,3920.0"><title>DiamondSixOperations uses DiamondEtaleCohomology</title></path>
 <path d="M181.0,1359.0 C181.0,1332.5 292.0,1332.5 292.0,1306.0"><title>AnabelianGeometryAndNonabelianChabauty uses HeightsRationalPointsAndObstructions</title></path>
+<path d="M403.0,2380.0 C403.0,1843.0 292.0,1843.0 292.0,1306.0"><title>AnabelianGeometryAndNonabelianChabauty uses ColemanIntegration + DirichletPadicLFunctions</title></path>
 <path d="M292.0,1206.0 C292.0,1162.0 292.0,1162.0 292.0,1118.0"><title>EffectiveDiophantineMethods uses AnabelianGeometryAndNonabelianChabauty</title></path>
-<path d="M514.0,1644.0 C514.0,1607.0 736.0,1607.0 736.0,1570.0"><title>HodgeTateAndCanonicalSubgroups uses PELModuli + ShimuraVarieties</title></path>
-<path d="M625.0,2401.0 C625.0,2190.5 514.0,2190.5 514.0,1980.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses FarguesFontaineDiamonds</title></path>
-<path d="M514.0,2026.0 C514.0,2003.0 514.0,2003.0 514.0,1980.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses AutomorphicBundles + ShimuraCompactifications</title></path>
+<path d="M514.0,1644.0 C514.0,1607.0 736.0,1607.0 736.0,1570.0"><title>HodgeTateAndCanonicalSubgroups uses AutomorphicBundles + ShimuraCompactifications</title></path>
+<path d="M625.0,2415.0 C625.0,2374.5 514.0,2374.5 514.0,2334.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses FarguesFontaineDiamonds</title></path>
+<path d="M625.0,3062.0 C625.0,2698.0 514.0,2698.0 514.0,2334.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses AutomorphicSpectralTheory</title></path>
 <path d="M736.0,1526.0 C736.0,1475.0 847.0,1475.0 847.0,1424.0"><title>PerfectoidShimuraVarieties uses HodgeTateAndCanonicalSubgroups</title></path>
 <path d="M292.0,1519.0 C292.0,1478.5 403.0,1478.5 403.0,1438.0"><title>FaltingsFinitenessAndIsogenyTheorems uses ArakelovGeometryAndAbelianHeights</title></path>
-<path d="M514.0,1908.0 C514.0,1885.0 514.0,1885.0 514.0,1862.0"><title>GL2AutomorphicRepresentationsAndTransfer uses EndoscopicTransferAndUnitaryTraceComparison</title></path>
-<path d="M514.0,1644.0 C514.0,1621.0 514.0,1621.0 514.0,1598.0"><title>AutomorphicGaloisRepresentationsPartII uses PELModuli + ShimuraVarieties</title></path>
+<path d="M514.0,2262.0 C514.0,2239.0 514.0,2239.0 514.0,2216.0"><title>GL2AutomorphicRepresentationsAndTransfer uses EndoscopicTransferAndUnitaryTraceComparison</title></path>
+<path d="M847.0,2394.0 C847.0,2305.0 514.0,2305.0 514.0,2216.0"><title>GL2AutomorphicRepresentationsAndTransfer uses GlobalGaloisDeformations + LocalGaloisDeformationRings</title></path>
+<path d="M514.0,1644.0 C514.0,1621.0 514.0,1621.0 514.0,1598.0"><title>AutomorphicGaloisRepresentationsPartII uses AutomorphicBundles + ShimuraCompactifications</title></path>
 <path d="M514.0,1498.0 C514.0,1388.0 736.0,1388.0 736.0,1278.0"><title>TorsionCohomologyInfrastructure uses AutomorphicGaloisRepresentationsPartII</title></path>
 <path d="M847.0,1380.0 C847.0,1329.0 736.0,1329.0 736.0,1278.0"><title>TorsionCohomologyInfrastructure uses PerfectoidShimuraVarieties</title></path>
 <path d="M736.0,1234.0 C736.0,1172.5 736.0,1172.5 736.0,1111.0"><title>IgusaVarietiesAndTorsionConcentration uses TorsionCohomologyInfrastructure</title></path>
@@ -335,12 +336,12 @@
 <text x="442.0" y="6266.0" font-size="10.5" font-weight="600" fill="#ffffff">on main</text>
 </g>
 <g><title>wave 20 · ClassicalArithmeticCompletion: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="303.0" y="3055.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="316.0" cy="3070.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="327.0" y="3074.0" font-size="11.5" fill="#0b0b0b">Classical Arithmetic</text>
-<text x="327.0" y="3088.0" font-size="11.5" fill="#0b0b0b">Completion</text>
-<rect x="327.0" y="3091.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="331.0" y="3101.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #921 draft</text>
+<rect x="303.0" y="3069.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="316.0" cy="3084.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="327.0" y="3088.0" font-size="11.5" fill="#0b0b0b">Classical Arithmetic</text>
+<text x="327.0" y="3102.0" font-size="11.5" fill="#0b0b0b">Completion</text>
+<rect x="327.0" y="3105.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="3115.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #921 draft</text>
 </g>
 <g><title>wave 6 · InverseGaloisAndArithmeticFundamentalGroups: plan accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="5274.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -353,13 +354,13 @@
 <rect x="422.0" y="5339.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="427.0" y="5348.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
-<g><title>wave 5 · AbelianSchemesAndArithmeticModuli: plan accepted · draft pull request (latest deep review: changes needed)</title>
+<g><title>wave 5 · AbelianSchemesAndArithmeticModuli: plan accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="5406.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
 <circle cx="427.0" cy="5421.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
 <text x="438.0" y="5425.0" font-size="11.5" fill="#0b0b0b">Abelian Schemes &amp;</text>
 <text x="438.0" y="5439.0" font-size="11.5" fill="#0b0b0b">Arithmetic Moduli</text>
-<rect x="438.0" y="5442.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="5452.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #849 draft</text>
+<rect x="438.0" y="5442.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="5452.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #849 ✓</text>
 <rect x="422.0" y="5457.0" width="169" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#280 ComplexTori (Paul-Lez): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="427.0" y="5466.0" font-size="9.5" fill="#3b2f7a">#280 ComplexTori (Paul-Lez)</text>
 <rect x="422.0" y="5471.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
@@ -381,17 +382,17 @@
 <rect x="422.0" y="5207.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="427.0" y="5216.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
-<g><title>wave 10 · ArithmeticGaloisDuality: plan accepted · draft pull request (latest deep review: changes needed); SelmerIwasawaCohomology: plan accepted · draft pull request (latest deep review: changes needed)</title>
+<g><title>wave 10 · ArithmeticGaloisDuality: plan accepted · ready: latest deep review approves this head; SelmerIwasawaCohomology: plan accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="4606.0" width="200" height="142" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
 <rect x="417.0" y="4609.0" width="194" height="136" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
 <circle cx="427.0" cy="4621.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
 <text x="438.0" y="4625.0" font-size="11.5" fill="#0b0b0b">Arithmetic Galois Duality</text>
-<rect x="438.0" y="4628.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="4638.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #858 draft</text>
+<rect x="438.0" y="4628.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="4638.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #858 ✓</text>
 <circle cx="427.0" cy="4649.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
 <text x="438.0" y="4653.0" font-size="11.5" fill="#0b0b0b">Selmer Iwasawa Cohomology</text>
-<rect x="438.0" y="4656.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="4666.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #869 draft</text>
+<rect x="438.0" y="4656.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="4666.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #869 ✓</text>
 <rect x="422.0" y="4671.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="427.0" y="4680.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
 <rect x="422.0" y="4685.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#248 LFunctions (roed-math)  ← after #286: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
@@ -466,29 +467,29 @@
 <text x="427.0" y="4096.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 19 · AutomorphicLFunctionsAndLocalFactors: plan accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="3166.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="3181.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="3185.0" font-size="11.5" fill="#0b0b0b">Automorphic L Functions &amp;</text>
-<text x="438.0" y="3199.0" font-size="11.5" fill="#0b0b0b">Local Factors</text>
-<rect x="438.0" y="3202.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3212.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #924 ✓</text>
-<rect x="422.0" y="3217.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#253 ZerosOfLFunctions (roed-math): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3226.0" font-size="9.5" fill="#3b2f7a">#253 ZerosOfLFunctions (roed-m</text>
-<rect x="422.0" y="3231.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#248 LFunctions (roed-math)  ← after #286: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3240.0" font-size="9.5" fill="#3b2f7a">#248 LFunctions (roed-math)  ←</text>
-<rect x="422.0" y="3245.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3254.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="414.0" y="3180.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="3195.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3199.0" font-size="11.5" fill="#0b0b0b">Automorphic L Functions &amp;</text>
+<text x="438.0" y="3213.0" font-size="11.5" fill="#0b0b0b">Local Factors</text>
+<rect x="438.0" y="3216.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3226.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #924 ✓</text>
+<rect x="422.0" y="3231.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#253 ZerosOfLFunctions (roed-math): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3240.0" font-size="9.5" fill="#3b2f7a">#253 ZerosOfLFunctions (roed-m</text>
+<rect x="422.0" y="3245.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#248 LFunctions (roed-math)  ← after #286: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3254.0" font-size="9.5" fill="#3b2f7a">#248 LFunctions (roed-math)  ←</text>
+<rect x="422.0" y="3259.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3268.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
-<g><title>wave 15 · ShimuraData: plan accepted · ready: latest deep review approves this head</title>
-<rect x="303.0" y="3848.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="316.0" cy="3863.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="327.0" y="3867.0" font-size="11.5" fill="#0b0b0b">Shimura Data</text>
-<rect x="327.0" y="3870.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="331.0" y="3880.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1038 ✓</text>
-<rect x="311.0" y="3885.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#279 ComplexManifolds (Paul-Lez): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="3894.0" font-size="9.5" fill="#3b2f7a">#279 ComplexManifolds (Paul-Le</text>
-<rect x="311.0" y="3899.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#953 ComplexKahlerGeometry (kim-em)  ← after #887: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="3908.0" font-size="9.5" fill="#3b2f7a">#953 ComplexKahlerGeometry (ki</text>
+<g><title>wave 28 · ShimuraData: plan accepted · ready: latest deep review approves this head</title>
+<rect x="525.0" y="1880.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="538.0" cy="1895.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="549.0" y="1899.0" font-size="11.5" fill="#0b0b0b">Shimura Data</text>
+<rect x="549.0" y="1902.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="553.0" y="1912.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1038 ✓</text>
+<rect x="533.0" y="1917.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#279 ComplexManifolds (Paul-Lez): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="538.0" y="1926.0" font-size="9.5" fill="#3b2f7a">#279 ComplexManifolds (Paul-Le</text>
+<rect x="533.0" y="1931.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#953 ComplexKahlerGeometry (kim-em)  ← after #887: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="538.0" y="1940.0" font-size="9.5" fill="#3b2f7a">#953 ComplexKahlerGeometry (ki</text>
 </g>
 <g><title>wave 8 · FiniteFlatGroupsAndIntegralPadicHodgeTheory: plan accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="4954.0" width="200" height="114" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -506,14 +507,14 @@
 <text x="427.0" y="5056.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
 <g><title>wave 20 · AutomorphicSpectralTheory: plan accepted · ready: latest deep review approves this head</title>
-<rect x="525.0" y="3048.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="538.0" cy="3063.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="549.0" y="3067.0" font-size="11.5" fill="#0b0b0b">Automorphic Spectral</text>
-<text x="549.0" y="3081.0" font-size="11.5" fill="#0b0b0b">Theory</text>
-<rect x="549.0" y="3084.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="553.0" y="3094.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #925 ✓</text>
-<rect x="533.0" y="3099.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#1041 VonNeumannAlgebras (kim-em): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="538.0" y="3108.0" font-size="9.5" fill="#3b2f7a">#1041 VonNeumannAlgebras (kim-</text>
+<rect x="525.0" y="3062.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="538.0" cy="3077.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="549.0" y="3081.0" font-size="11.5" fill="#0b0b0b">Automorphic Spectral</text>
+<text x="549.0" y="3095.0" font-size="11.5" fill="#0b0b0b">Theory</text>
+<rect x="549.0" y="3098.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="553.0" y="3108.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #925 ✓</text>
+<rect x="533.0" y="3113.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#1041 VonNeumannAlgebras (kim-em): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="538.0" y="3122.0" font-size="9.5" fill="#3b2f7a">#1041 VonNeumannAlgebras (kim-</text>
 </g>
 <g><title>wave 9 · NeronModelsAndSemistableAbelianVarieties: plan accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="4794.0" width="200" height="114" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -532,68 +533,68 @@
 <text x="427.0" y="4896.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
 <g><title>wave 17 · ModularCurvesPartII: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="414.0" y="3430.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="3445.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="3449.0" font-size="11.5" fill="#0b0b0b">Modular Curves II</text>
-<rect x="438.0" y="3452.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3462.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #913 draft</text>
-<rect x="422.0" y="3467.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3476.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
-<rect x="422.0" y="3481.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3490.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="422.0" y="3495.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3504.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="414.0" y="3444.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="3459.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3463.0" font-size="11.5" fill="#0b0b0b">Modular Curves II</text>
+<rect x="438.0" y="3466.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3476.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #913 draft</text>
+<rect x="422.0" y="3481.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3490.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<rect x="422.0" y="3495.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3504.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="422.0" y="3509.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3518.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 18 · AlgebraicModularFormsAndSerreWeights: package accepted · ready: latest deep review approves this head</title>
-<rect x="303.0" y="3312.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="316.0" cy="3327.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
-<text x="327.0" y="3331.0" font-size="11.5" fill="#0b0b0b">Algebraic Modular Forms &amp;</text>
-<text x="327.0" y="3345.0" font-size="11.5" fill="#0b0b0b">Serre Weights</text>
-<rect x="327.0" y="3348.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="331.0" y="3358.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #928 ✓</text>
-<rect x="311.0" y="3363.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="3372.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="303.0" y="3326.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="316.0" cy="3341.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
+<text x="327.0" y="3345.0" font-size="11.5" fill="#0b0b0b">Algebraic Modular Forms &amp;</text>
+<text x="327.0" y="3359.0" font-size="11.5" fill="#0b0b0b">Serre Weights</text>
+<rect x="327.0" y="3362.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="3372.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #928 ✓</text>
+<rect x="311.0" y="3377.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="3386.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
-<g><title>wave 25 · CompletedCohomologyPartII: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="414.0" y="2262.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="2277.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2281.0" font-size="11.5" fill="#0b0b0b">Completed Cohomology II</text>
-<rect x="438.0" y="2284.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="2294.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1035 draft</text>
-<rect x="422.0" y="2299.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2308.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<g><title>wave 28 · CompletedCohomologyPartII: plan accepted · ready: latest deep review approves this head</title>
+<rect x="303.0" y="1887.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="316.0" cy="1902.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="327.0" y="1906.0" font-size="11.5" fill="#0b0b0b">Completed Cohomology II</text>
+<rect x="327.0" y="1909.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="1919.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1035 ✓</text>
+<rect x="311.0" y="1924.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="1933.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
 </g>
 <g><title>wave 16 · AdicCoefficientsAndComparisons: package accepted · ready: latest deep review approves this head; ClassicalAdicEtaleCohomology: plan accepted · draft pull request (latest deep review: changes needed); EtaleDualityAndPerverseSheaves: plan accepted · draft pull request (latest deep review: changes needed); LefschetzPencilsAndVanishingCycles: plan accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="3562.0" width="200" height="240" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="417.0" y="3565.0" width="194" height="234" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="427.0" cy="3577.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
-<text x="438.0" y="3581.0" font-size="11.5" fill="#0b0b0b">Adic Coefficients &amp;</text>
-<text x="438.0" y="3595.0" font-size="11.5" fill="#0b0b0b">Comparisons</text>
-<rect x="438.0" y="3598.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3608.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #965 ✓</text>
-<circle cx="427.0" cy="3619.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="3623.0" font-size="11.5" fill="#0b0b0b">Classical Adic Étale</text>
-<text x="438.0" y="3637.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
-<rect x="438.0" y="3640.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3650.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #875 draft</text>
-<circle cx="427.0" cy="3661.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="3665.0" font-size="11.5" fill="#0b0b0b">Étale Duality &amp; Perverse</text>
-<text x="438.0" y="3679.0" font-size="11.5" fill="#0b0b0b">Sheaves</text>
-<rect x="438.0" y="3682.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3692.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1040 draft</text>
-<circle cx="427.0" cy="3703.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="3707.0" font-size="11.5" fill="#0b0b0b">Lefschetz Pencils &amp;</text>
-<text x="438.0" y="3721.0" font-size="11.5" fill="#0b0b0b">Vanishing Cycles</text>
-<rect x="438.0" y="3724.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="3734.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #873 ✓</text>
-<rect x="422.0" y="3739.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3748.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
-<rect x="422.0" y="3753.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3762.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="422.0" y="3767.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3776.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
-<rect x="422.0" y="3781.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="3790.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="414.0" y="3576.0" width="200" height="240" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="417.0" y="3579.0" width="194" height="234" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="427.0" cy="3591.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
+<text x="438.0" y="3595.0" font-size="11.5" fill="#0b0b0b">Adic Coefficients &amp;</text>
+<text x="438.0" y="3609.0" font-size="11.5" fill="#0b0b0b">Comparisons</text>
+<rect x="438.0" y="3612.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3622.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #965 ✓</text>
+<circle cx="427.0" cy="3633.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3637.0" font-size="11.5" fill="#0b0b0b">Classical Adic Étale</text>
+<text x="438.0" y="3651.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
+<rect x="438.0" y="3654.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3664.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #875 draft</text>
+<circle cx="427.0" cy="3675.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3679.0" font-size="11.5" fill="#0b0b0b">Étale Duality &amp; Perverse</text>
+<text x="438.0" y="3693.0" font-size="11.5" fill="#0b0b0b">Sheaves</text>
+<rect x="438.0" y="3696.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3706.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1040 draft</text>
+<circle cx="427.0" cy="3717.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3721.0" font-size="11.5" fill="#0b0b0b">Lefschetz Pencils &amp;</text>
+<text x="438.0" y="3735.0" font-size="11.5" fill="#0b0b0b">Vanishing Cycles</text>
+<rect x="438.0" y="3738.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3748.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #873 ✓</text>
+<rect x="422.0" y="3753.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3762.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<rect x="422.0" y="3767.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3776.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="422.0" y="3781.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3790.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
+<rect x="422.0" y="3795.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3804.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 14 · DiamondEtaleCohomology: package accepted · ready: latest deep review approves this head</title>
 <rect x="636.0" y="4015.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -605,141 +606,141 @@
 <text x="649.0" y="4061.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 18 · DeligneWeightsAndPurity: plan accepted · ready: latest deep review approves this head</title>
-<rect x="525.0" y="3319.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="538.0" cy="3334.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="549.0" y="3338.0" font-size="11.5" fill="#0b0b0b">Deligne Weights &amp; Purity</text>
-<rect x="549.0" y="3341.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="553.0" y="3351.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #929 ✓</text>
-<rect x="533.0" y="3356.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="538.0" y="3365.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="525.0" y="3333.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="538.0" cy="3348.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="549.0" y="3352.0" font-size="11.5" fill="#0b0b0b">Deligne Weights &amp; Purity</text>
+<rect x="549.0" y="3355.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="553.0" y="3365.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #929 ✓</text>
+<rect x="533.0" y="3370.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="538.0" y="3379.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 22 · WeightsInEtaleCohomology: package accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="2728.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="2743.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
-<text x="438.0" y="2747.0" font-size="11.5" fill="#0b0b0b">Weights In Étale</text>
-<text x="438.0" y="2761.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
-<rect x="438.0" y="2764.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="2774.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1001 ✓</text>
-<rect x="422.0" y="2779.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2788.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
-<rect x="422.0" y="2793.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2802.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
-<rect x="422.0" y="2807.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2816.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
+<rect x="414.0" y="2742.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="2757.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
+<text x="438.0" y="2761.0" font-size="11.5" fill="#0b0b0b">Weights In Étale</text>
+<text x="438.0" y="2775.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
+<rect x="438.0" y="2778.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2788.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1001 ✓</text>
+<rect x="422.0" y="2793.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2802.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<rect x="422.0" y="2807.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2816.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="422.0" y="2821.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2830.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
 <g><title>wave 21 · PadicDifferentialEquationsAndRigidCohomology: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="303.0" y="2874.0" width="200" height="128" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="316.0" cy="2889.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="327.0" y="2893.0" font-size="11.5" fill="#0b0b0b">p-adic Differential</text>
-<text x="327.0" y="2907.0" font-size="11.5" fill="#0b0b0b">Equations &amp; Rigid</text>
-<text x="327.0" y="2921.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
-<rect x="327.0" y="2924.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="331.0" y="2934.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1002 draft</text>
-<rect x="311.0" y="2939.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="2948.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="311.0" y="2953.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="2962.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
-<rect x="311.0" y="2967.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="2976.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
-<rect x="311.0" y="2981.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="316.0" y="2990.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
+<rect x="303.0" y="2888.0" width="200" height="128" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="316.0" cy="2903.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="327.0" y="2907.0" font-size="11.5" fill="#0b0b0b">p-adic Differential</text>
+<text x="327.0" y="2921.0" font-size="11.5" fill="#0b0b0b">Equations &amp; Rigid</text>
+<text x="327.0" y="2935.0" font-size="11.5" fill="#0b0b0b">Cohomology</text>
+<rect x="327.0" y="2938.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="2948.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1002 draft</text>
+<rect x="311.0" y="2953.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2962.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="311.0" y="2967.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2976.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
+<rect x="311.0" y="2981.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2990.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<rect x="311.0" y="2995.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="3004.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
 <g><title>wave 23 · AInfCohomology: plan accepted · draft pull request (latest deep review: changes needed); PadicHodgeTheory: plan accepted; PerfectoidQuotients: package accepted · ready: latest deep review approves this head; PrismaticCohomology: plan accepted</title>
-<rect x="414.0" y="2540.0" width="200" height="142" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="417.0" y="2543.0" width="194" height="136" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="427.0" cy="2555.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2559.0" font-size="11.5" fill="#0b0b0b">A_inf Cohomology</text>
-<rect x="438.0" y="2562.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="2572.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1044 draft</text>
-<circle cx="427.0" cy="2583.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2587.0" font-size="11.5" fill="#0b0b0b">p-adic Hodge Theory</text>
-<circle cx="427.0" cy="2597.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
-<text x="438.0" y="2601.0" font-size="11.5" fill="#0b0b0b">Perfectoid Quotients</text>
-<rect x="438.0" y="2604.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="2614.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1042 ✓</text>
-<circle cx="427.0" cy="2625.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2629.0" font-size="11.5" fill="#0b0b0b">Prismatic Cohomology</text>
-<rect x="422.0" y="2633.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2642.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
-<rect x="422.0" y="2647.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2656.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="422.0" y="2661.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2670.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
+<rect x="414.0" y="2554.0" width="200" height="142" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="417.0" y="2557.0" width="194" height="136" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="427.0" cy="2569.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2573.0" font-size="11.5" fill="#0b0b0b">A_inf Cohomology</text>
+<rect x="438.0" y="2576.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2586.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1044 draft</text>
+<circle cx="427.0" cy="2597.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2601.0" font-size="11.5" fill="#0b0b0b">p-adic Hodge Theory</text>
+<circle cx="427.0" cy="2611.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
+<text x="438.0" y="2615.0" font-size="11.5" fill="#0b0b0b">Perfectoid Quotients</text>
+<rect x="438.0" y="2618.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2628.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1042 ✓</text>
+<circle cx="427.0" cy="2639.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2643.0" font-size="11.5" fill="#0b0b0b">Prismatic Cohomology</text>
+<rect x="422.0" y="2647.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2656.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<rect x="422.0" y="2661.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2670.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="422.0" y="2675.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2684.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
 <g><title>wave 24 · CohomologyComparisons: plan accepted</title>
-<rect x="303.0" y="2415.0" width="200" height="30" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="316.0" cy="2430.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="327.0" y="2434.0" font-size="11.5" fill="#0b0b0b">Cohomology Comparisons</text>
+<rect x="81.0" y="2429.0" width="200" height="30" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="94.0" cy="2444.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="105.0" y="2448.0" font-size="11.5" fill="#0b0b0b">Cohomology Comparisons</text>
 </g>
 <g><title>wave 21 · AnalyticNumberTheory: plan accepted; ArithmeticStatistics: plan accepted</title>
-<rect x="525.0" y="2916.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="528.0" y="2919.0" width="194" height="38" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="538.0" cy="2931.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="549.0" y="2935.0" font-size="11.5" fill="#0b0b0b">Analytic Number Theory</text>
+<rect x="525.0" y="2930.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="528.0" y="2933.0" width="194" height="38" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
 <circle cx="538.0" cy="2945.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="549.0" y="2949.0" font-size="11.5" fill="#0b0b0b">Arithmetic Statistics</text>
+<text x="549.0" y="2949.0" font-size="11.5" fill="#0b0b0b">Analytic Number Theory</text>
+<circle cx="538.0" cy="2959.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="549.0" y="2963.0" font-size="11.5" fill="#0b0b0b">Arithmetic Statistics</text>
 </g>
 <g><title>wave 24 · ColemanIntegration: plan accepted · draft pull request (latest deep review: changes needed); DirichletPadicLFunctions: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="81.0" y="2366.0" width="200" height="128" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="84.0" y="2369.0" width="194" height="122" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="94.0" cy="2381.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="105.0" y="2385.0" font-size="11.5" fill="#0b0b0b">Coleman Integration</text>
-<rect x="105.0" y="2388.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="109.0" y="2398.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1043 draft</text>
-<circle cx="94.0" cy="2409.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="105.0" y="2413.0" font-size="11.5" fill="#0b0b0b">Dirichlet p-adic L</text>
-<text x="105.0" y="2427.0" font-size="11.5" fill="#0b0b0b">Functions</text>
-<rect x="105.0" y="2430.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="109.0" y="2440.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1039 draft</text>
-<rect x="89.0" y="2445.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="94.0" y="2454.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
-<rect x="89.0" y="2459.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="94.0" y="2468.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="89.0" y="2473.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="94.0" y="2482.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
+<rect x="303.0" y="2380.0" width="200" height="128" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="306.0" y="2383.0" width="194" height="122" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="316.0" cy="2395.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="327.0" y="2399.0" font-size="11.5" fill="#0b0b0b">Coleman Integration</text>
+<rect x="327.0" y="2402.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="2412.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1043 draft</text>
+<circle cx="316.0" cy="2423.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="327.0" y="2427.0" font-size="11.5" fill="#0b0b0b">Dirichlet p-adic L</text>
+<text x="327.0" y="2441.0" font-size="11.5" fill="#0b0b0b">Functions</text>
+<rect x="327.0" y="2444.5" width="95" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="331.0" y="2454.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #1039 draft</text>
+<rect x="311.0" y="2459.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#944 DerivedModuleAlgebra (ours, outside the closure): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2468.0" font-size="9.5" fill="#3b2f7a">#944 DerivedModuleAlgebra (our</text>
+<rect x="311.0" y="2473.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2482.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="311.0" y="2487.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#815 AdicSpacesPartIV (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="316.0" y="2496.0" font-size="9.5" fill="#3b2f7a">#815 AdicSpacesPartIV (ours, o</text>
 </g>
-<g><title>wave 30 · PELModuli: plan accepted · draft pull request (latest deep review: changes needed); ShimuraVarieties: plan accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="1644.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="417.0" y="1647.0" width="194" height="80" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="427.0" cy="1659.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="1663.0" font-size="11.5" fill="#0b0b0b">PEL Moduli</text>
-<rect x="438.0" y="1666.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="1676.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #966 draft</text>
-<circle cx="427.0" cy="1687.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="1691.0" font-size="11.5" fill="#0b0b0b">Shimura Varieties</text>
-<rect x="438.0" y="1694.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="1704.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #933 ✓</text>
-<rect x="422.0" y="1709.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="1718.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<g><title>wave 27 · PELModuli: plan accepted · ready: latest deep review approves this head; ShimuraVarieties: plan accepted · ready: latest deep review approves this head</title>
+<rect x="414.0" y="1998.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="417.0" y="2001.0" width="194" height="80" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="427.0" cy="2013.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2017.0" font-size="11.5" fill="#0b0b0b">PEL Moduli</text>
+<rect x="438.0" y="2020.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2030.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #966 ✓</text>
+<circle cx="427.0" cy="2041.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2045.0" font-size="11.5" fill="#0b0b0b">Shimura Varieties</text>
+<rect x="438.0" y="2048.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2058.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #933 ✓</text>
+<rect x="422.0" y="2063.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2072.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
-<g><title>wave 26 · HilbertModularVarietiesAndShimuraCurves: plan accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="2116.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="2131.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2135.0" font-size="11.5" fill="#0b0b0b">Hilbert Modular Varieties</text>
-<text x="438.0" y="2149.0" font-size="11.5" fill="#0b0b0b">&amp; Shimura Curves</text>
-<rect x="438.0" y="2152.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="2162.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1005 ✓</text>
-<rect x="422.0" y="2167.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#934 QuaternionicModularForms (WilliamCoram): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2176.0" font-size="9.5" fill="#3b2f7a">#934 QuaternionicModularForms </text>
-<rect x="422.0" y="2181.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2190.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
-<rect x="422.0" y="2195.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="2204.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<g><title>wave 29 · HilbertModularVarietiesAndShimuraCurves: plan accepted · ready: latest deep review approves this head</title>
+<rect x="414.0" y="1734.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="1749.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="1753.0" font-size="11.5" fill="#0b0b0b">Hilbert Modular Varieties</text>
+<text x="438.0" y="1767.0" font-size="11.5" fill="#0b0b0b">&amp; Shimura Curves</text>
+<rect x="438.0" y="1770.5" width="70" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="1780.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1005 ✓</text>
+<rect x="422.0" y="1785.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#934 QuaternionicModularForms (WilliamCoram): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="1794.0" font-size="9.5" fill="#3b2f7a">#934 QuaternionicModularForms </text>
+<rect x="422.0" y="1799.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="1808.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="422.0" y="1813.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="1822.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 24 · GlobalGaloisDeformations: plan accepted · ready: latest deep review approves this head; LocalGaloisDeformationRings: plan accepted · ready: latest deep review approves this head</title>
-<rect x="747.0" y="2380.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="750.0" y="2383.0" width="194" height="94" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="760.0" cy="2395.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="771.0" y="2399.0" font-size="11.5" fill="#0b0b0b">Global Galois Deformations</text>
-<rect x="771.0" y="2402.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="775.0" y="2412.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #920 ✓</text>
-<circle cx="760.0" cy="2423.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="771.0" y="2427.0" font-size="11.5" fill="#0b0b0b">Local Galois Deformation</text>
-<text x="771.0" y="2441.0" font-size="11.5" fill="#0b0b0b">Rings</text>
-<rect x="771.0" y="2444.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="775.0" y="2454.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #923 ✓</text>
-<rect x="755.0" y="2459.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="760.0" y="2468.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="747.0" y="2394.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="750.0" y="2397.0" width="194" height="94" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="760.0" cy="2409.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="771.0" y="2413.0" font-size="11.5" fill="#0b0b0b">Global Galois Deformations</text>
+<rect x="771.0" y="2416.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="775.0" y="2426.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #920 ✓</text>
+<circle cx="760.0" cy="2437.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="771.0" y="2441.0" font-size="11.5" fill="#0b0b0b">Local Galois Deformation</text>
+<text x="771.0" y="2455.0" font-size="11.5" fill="#0b0b0b">Rings</text>
+<rect x="771.0" y="2458.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="775.0" y="2468.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #923 ✓</text>
+<rect x="755.0" y="2473.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="760.0" y="2482.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
 </g>
 <g><title>wave 34 · ModularSymbolsPadicLFunctions: plan accepted · ready: latest deep review approves this head; PadicFamilies: plan accepted · draft pull request (latest deep review: changes needed)</title>
 <rect x="414.0" y="1018.0" width="200" height="142" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -762,13 +763,13 @@
 <rect x="422.0" y="1139.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="427.0" y="1148.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
-<g><title>wave 27 · AutomorphicBundles: plan accepted; ShimuraCompactifications: plan in progress</title>
-<rect x="414.0" y="2026.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<rect x="417.0" y="2029.0" width="194" height="38" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
-<circle cx="427.0" cy="2041.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="2045.0" font-size="11.5" fill="#0b0b0b">Automorphic Bundles</text>
-<circle cx="427.0" cy="2055.0" r="5" fill="#86b6ef" stroke="#5598e7" stroke-width="1"/>
-<text x="438.0" y="2059.0" font-size="11.5" fill="#0b0b0b">Shimura Compactifications</text>
+<g><title>wave 30 · AutomorphicBundles: plan accepted; ShimuraCompactifications: plan in progress</title>
+<rect x="414.0" y="1644.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<rect x="417.0" y="1647.0" width="194" height="38" rx="5" fill="none" stroke="#c3c2b7" stroke-dasharray="3 2"/>
+<circle cx="427.0" cy="1659.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="1663.0" font-size="11.5" fill="#0b0b0b">Automorphic Bundles</text>
+<circle cx="427.0" cy="1673.0" r="5" fill="#86b6ef" stroke="#5598e7" stroke-width="1"/>
+<text x="438.0" y="1677.0" font-size="11.5" fill="#0b0b0b">Shimura Compactifications</text>
 </g>
 <g><title>wave 31 · ArakelovGeometryAndAbelianHeights: plan accepted · ready: latest deep review approves this head</title>
 <rect x="192.0" y="1519.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -779,22 +780,22 @@
 <text x="220.0" y="1565.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #1000 ✓</text>
 </g>
 <g><title>wave 24 · FarguesFontaineDiamonds: package accepted · ready: latest deep review approves this head</title>
-<rect x="525.0" y="2401.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="538.0" cy="2416.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
-<text x="549.0" y="2420.0" font-size="11.5" fill="#0b0b0b">Fargues–Fontaine Diamonds</text>
-<rect x="549.0" y="2423.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="553.0" y="2433.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #964 ✓</text>
-<rect x="533.0" y="2438.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="538.0" y="2447.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
+<rect x="525.0" y="2415.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="538.0" cy="2430.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
+<text x="549.0" y="2434.0" font-size="11.5" fill="#0b0b0b">Fargues–Fontaine Diamonds</text>
+<rect x="549.0" y="2437.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="553.0" y="2447.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #964 ✓</text>
+<rect x="533.0" y="2452.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#813 AdicSpacesPartIII (ours, outside the closure)  ← after #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="538.0" y="2461.0" font-size="9.5" fill="#3b2f7a">#813 AdicSpacesPartIII (ours, </text>
 </g>
 <g><title>wave 15 · DiamondSixOperations: plan accepted · ready: latest deep review approves this head</title>
-<rect x="525.0" y="3855.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="538.0" cy="3870.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="549.0" y="3874.0" font-size="11.5" fill="#0b0b0b">Diamond Six Operations</text>
-<rect x="549.0" y="3877.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="553.0" y="3887.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #927 ✓</text>
-<rect x="533.0" y="3892.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#816 PerfectoidTowers (ours, outside the closure)  ← after #813, #815: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="538.0" y="3901.0" font-size="9.5" fill="#3b2f7a">#816 PerfectoidTowers (ours, o</text>
+<rect x="414.0" y="3862.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="3877.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="3881.0" font-size="11.5" fill="#0b0b0b">Diamond Six Operations</text>
+<rect x="438.0" y="3884.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="3894.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #927 ✓</text>
+<rect x="422.0" y="3899.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#816 PerfectoidTowers (ours, outside the closure)  ← after #813, #815: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="3908.0" font-size="9.5" fill="#3b2f7a">#816 PerfectoidTowers (ours, o</text>
 </g>
 <g><title>wave 33 · AnabelianGeometryAndNonabelianChabauty: plan accepted · draft pull request (latest deep review: changes needed)</title>
 <rect x="192.0" y="1206.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -824,15 +825,15 @@
 <text x="660.0" y="1545.0" font-size="11.5" fill="#0b0b0b">Hodge–Tate &amp; Canonical</text>
 <text x="660.0" y="1559.0" font-size="11.5" fill="#0b0b0b">Subgroups</text>
 </g>
-<g><title>wave 28 · EndoscopicTransferAndUnitaryTraceComparison: plan accepted · draft pull request (latest deep review: changes needed)</title>
-<rect x="414.0" y="1908.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="1923.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="1927.0" font-size="11.5" fill="#0b0b0b">Endoscopic Transfer &amp;</text>
-<text x="438.0" y="1941.0" font-size="11.5" fill="#0b0b0b">Unitary Trace Comparison</text>
-<rect x="438.0" y="1944.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="1954.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #999 draft</text>
-<rect x="422.0" y="1959.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="1968.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<g><title>wave 25 · EndoscopicTransferAndUnitaryTraceComparison: plan accepted · draft pull request (latest deep review: changes needed)</title>
+<rect x="414.0" y="2262.0" width="200" height="72" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="2277.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2281.0" font-size="11.5" fill="#0b0b0b">Endoscopic Transfer &amp;</text>
+<text x="438.0" y="2295.0" font-size="11.5" fill="#0b0b0b">Unitary Trace Comparison</text>
+<rect x="438.0" y="2298.5" width="89" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2308.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #999 draft</text>
+<rect x="422.0" y="2313.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2322.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 32 · PerfectoidShimuraVarieties: plan accepted</title>
 <rect x="747.0" y="1380.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
@@ -850,17 +851,17 @@
 <rect x="311.0" y="1417.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#940 PadicPeriodRings (ours, outside the closure)  ← after #816, #938, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
 <text x="316.0" y="1426.0" font-size="9.5" fill="#3b2f7a">#940 PadicPeriodRings (ours, o</text>
 </g>
-<g><title>wave 29 · GL2AutomorphicRepresentationsAndTransfer: plan accepted · ready: latest deep review approves this head</title>
-<rect x="414.0" y="1776.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
-<circle cx="427.0" cy="1791.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
-<text x="438.0" y="1795.0" font-size="11.5" fill="#0b0b0b">GL2 Automorphic</text>
-<text x="438.0" y="1809.0" font-size="11.5" fill="#0b0b0b">Representations &amp; Transfer</text>
-<rect x="438.0" y="1812.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
-<text x="442.0" y="1822.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #931 ✓</text>
-<rect x="422.0" y="1827.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#934 QuaternionicModularForms (WilliamCoram): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="1836.0" font-size="9.5" fill="#3b2f7a">#934 QuaternionicModularForms </text>
-<rect x="422.0" y="1841.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
-<text x="427.0" y="1850.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
+<g><title>wave 26 · GL2AutomorphicRepresentationsAndTransfer: plan accepted · ready: latest deep review approves this head</title>
+<rect x="414.0" y="2130.0" width="200" height="86" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>
+<circle cx="427.0" cy="2145.0" r="5" fill="#3987e5" stroke="#256abf" stroke-width="1"/>
+<text x="438.0" y="2149.0" font-size="11.5" fill="#0b0b0b">GL2 Automorphic</text>
+<text x="438.0" y="2163.0" font-size="11.5" fill="#0b0b0b">Representations &amp; Transfer</text>
+<rect x="438.0" y="2166.5" width="64" height="13" rx="3" fill="#b7e4c7" stroke="#9a9993" stroke-width="0.8"/>
+<text x="442.0" y="2176.0" font-size="10.5" font-weight="600" fill="#1b4332">PR #931 ✓</text>
+<rect x="422.0" y="2181.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#934 QuaternionicModularForms (WilliamCoram): another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2190.0" font-size="9.5" fill="#3b2f7a">#934 QuaternionicModularForms </text>
+<rect x="422.0" y="2195.0" width="184" height="12" rx="6" fill="#faf8ff" stroke="#6b5bb3" stroke-width="1" stroke-dasharray="3 2"><title>#938 EtaleCohomologyFoundations (ours, outside the closure)  ← after #813, #944: another author&apos;s open pull request that this roadmap cites; it must merge first</title></rect>
+<text x="427.0" y="2204.0" font-size="9.5" fill="#3b2f7a">#938 EtaleCohomologyFoundation</text>
 </g>
 <g><title>wave 31 · AutomorphicGaloisRepresentationsPartII: package accepted · ready: latest deep review approves this head</title>
 <rect x="414.0" y="1498.0" width="200" height="100" rx="7" fill="#ffffff" stroke="#9a9993" stroke-width="1"/>

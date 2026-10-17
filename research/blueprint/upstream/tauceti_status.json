@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T17:30Z",
+ "updated": "2026-10-17T17:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -106,10 +106,10 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "b7ed078",
+   "head": "9d20803",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "APPROVED"
    }
@@ -181,9 +181,9 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
    "head": "cf31c19",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": ""
    }
   },
@@ -229,9 +229,9 @@
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -280,7 +280,7 @@
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -391,9 +391,9 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -427,9 +427,9 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -586,7 +586,7 @@
    "note": "maintainer-ordered: no dependency on #271 (§§2.2–2.2a, 6.0a–6.1a) 10-16; N3 fix running; draft",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    },
@@ -645,7 +645,7 @@
   "AutomorphicLFunctionsAndLocalFactors": {
    "stage": "pr",
    "pr": 924,
-   "head": "9c50e6c",
+   "head": "ab4ea5c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
@@ -796,9 +796,9 @@
    "head": "2d7f7ef",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1000,8 +1000,8 @@
    "head": "6c8afa9",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1012,9 +1012,9 @@
    "head": "e816649",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 30); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1024,9 +1024,9 @@
    "head": "e4d410e",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
