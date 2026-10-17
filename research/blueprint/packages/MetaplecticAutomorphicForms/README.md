@@ -178,6 +178,20 @@ R is a commutative ring and W,W′,W″ are R-modules with additive commutative 
 
 (Weil64, I.§3 equation(3), printed148, PDF6). *Needs:* 0.1.
 
+### 0.9a Symplectic bases and Lagrangian complements
+
+Prove `exists_symplecticBasis` and `exists_lagrangianComplement`. Let F be a field and ω a nondegenerate alternating form on a finite-dimensional F-space W. Then dim W=2n is even and W has a basis e₁,…,eₙ,f₁,…,fₙ with ω(eᵢ,eⱼ)=ω(fᵢ,fⱼ)=0 and ω(eᵢ,fⱼ)=δᵢⱼ. Every Lagrangian X (an isotropic subspace of dimension n, equivalently X^⊥=X) extends to such a basis with X=span(eᵢ), so Y=span(fᵢ) is a Lagrangian complement and y↦ω(·,y)|_X is an isomorphism Y≅X^∨; any two Lagrangians are exchanged by an element of Sp(W). When char F≠2 the complement can be chosen canonically from any vector-space complement V of X, as the graph {v+Av} of the linear map A:V→X with ω(·,Av)|_X = −½ω(·,v)|_X under X≅V^∨.
+
+The symplectic-basis statement holds over every field, because ω is alternating, not merely skew; the canonical complement needs ½. Tau Ceti's `TauCeti.SymplecticForm.IsLagrangian` and `TauCeti.SymplecticForm.IsLagrangian.two_mul_finrank` treat the real case only; this target is the field version used by the polarizations of 0.10, 0.15–0.16 and 2.3.
+
+(Cannas da Silva, *Lectures on Symplectic Geometry*, §1.1 Theorem 1.1, p.3, standard form of a skew-symmetric bilinear map, and §8.2 Proposition 8.2, pp.46–47, Lagrangian complements; both arguments are stated over ℝ and use only linear algebra, with the ½ of Proposition 8.2 as the one characteristic restriction. Kudla96, I.1, complete polarizations.) *Needs:* Mathlib `LinearMap.BilinForm.IsAlt`, `LinearMap.BilinForm.Nondegenerate`, `LinearMap.BilinForm.orthogonal`.
+
+**Checks.**
+
+- On F² with ω((a,b),(c,d))=ad−bc, e₁=(1,0), f₁=(0,1) is a symplectic basis and X=F·e₁ has complement Y=F·f₁.
+- A one-dimensional space carries no nondegenerate alternating form, since ω(v,v)=0 forces ω=0; odd dimension is excluded.
+- Over 𝔽₂, ad+bc on 𝔽₂² is alternating and nondegenerate and has the same basis; the symmetric form ac+bd on 𝔽₂² is not alternating (ω(e₁,e₁)=1) and has no symplectic basis.
+
 ### 0.10 Polarized Heisenberg coordinates
 
 Define `polarizationEquiv` as follows. For scalar B and invertible 2, construct E_{½(B−Bᵀ)}≃E_B by (t,x)↦(t+½B(x,x),x), with inverse (t,x)↦(t−½B(x,x),x). This is a specialization of the native equivalence of rescaled extensions.
@@ -249,7 +263,7 @@ Prove `heisenberg_haar`: For C=F, W=F^{2n}, B continuous bilinear, the product o
 
 F is a nondiscrete local field; for symplectic invariance ω is nondegenerate.
 
-(Kudla96, I.2 pp.6–10). *Needs:* 0.13, `AL.0/local-fourier-inversion`, `AL.0`.
+(Kudla96, I.2 pp.6–10). *Needs:* 0.13; AutomorphicLFunctionsAndLocalFactors AL.0 (self-dual Haar measure, local Fourier inversion); AutomorphicLFunctionsAndLocalFactors AL.0 (self-dual Haar measures).
 
 ### 0.15 Schrödinger representation
 
@@ -257,7 +271,7 @@ Define `schroedinger` as follows. For W=X⊕Y with X,Y Lagrangian, define on S(X
 
 F is a nondiscrete local field of characteristic different from two; ψ is nontrivial continuous unitary; the polarization identifies Y with the algebraic dual of X by ω.
 
-(Kudla96, I.2 Lemma2.2, PDF7, translation and phase action). *Needs:* 0.13, 0.5, `LV.3/lagrangian-symplectic-basis`, `AL.0/local-schwartz-bruhat-space`, `AL.0`.
+(Kudla96, I.2 Lemma2.2, PDF7, translation and phase action). *Needs:* 0.13, 0.5, 0.9a; AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space, self-dual measures).
 
 - `schroedinger_apply`: Evaluation is the displayed translation and modulation formula.
 - `schroedinger_center`: ρψ(0,t)φ=ψ(t)φ.
@@ -277,7 +291,7 @@ Define `inducedSchroedingerEquiv` as follows. Identify S(X) with the smooth func
 
 F is nonarchimedean; ψ is continuous nontrivial unitary; Y is an isotropic F-subspace, not merely a character-self-dual lattice.
 
-(Kudla96, I.2 Lemma2.2, PDF7, polarization realization). *Needs:* 0.15, `SR.2`.
+(Kudla96, I.2 Lemma2.2, PDF7, polarization realization). *Needs:* 0.15; SmoothRepresentationsOfLocalGroups §SR.2.1.
 
 - `inducedSchroedingerEquiv_apply`: The coordinate map is f↦(u↦f(u,0)).
 - `inducedSchroedingerEquiv_covariance`: The inverse section-evaluation map satisfies f(t,u)=ψ(t)φ(u); smoothness and compact support are additional source obligations.
@@ -295,7 +309,7 @@ Define `hilbertSchroedinger` as follows. Extend translation and modulation to un
 
 F is a local field of characteristic different from two; X is finite dimensional; ψ is continuous unitary.
 
-(Weil64, I.§4, printed149, PDF7; I.§10 Théorème1, printed157, PDF15). *Needs:* 0.15, 0.14, `AL.0/local-schwartz-bruhat-space`, `AL.0`.
+(Weil64, I.§4, printed149, PDF7; I.§10 Théorème1, printed157, PDF15). *Needs:* 0.15, 0.14; AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space); AutomorphicLFunctionsAndLocalFactors AL.0.
 
 - `hilbertSchroedinger_norm`: Every ρψ(h) preserves the L² norm.
 - `hilbertSchroedinger_schwartz`: The Schwartz-to-L² dense inclusion intertwines the two actions.
@@ -318,7 +332,7 @@ Prove `oscillator_smoothVectors`: At nonarchimedean places the smooth vectors of
 
 The local unitary model has nontrivial central character. Archimedean smoothness means all orbit derivatives for the full Heisenberg group, not just smooth pointwise representatives.
 
-(Kudla96, I.2 p.10). *Needs:* 0.17, 0.15, `AF.1`, `SR.0:abelian-category`.
+(Kudla96, I.2 p.10). *Needs:* 0.17, 0.15; AutomorphicFormsOnReductiveGroups §2.7; SmoothRepresentationsOfLocalGroups §SR.0.2.
 
 ### Examples
 
@@ -326,9 +340,9 @@ For the integer bilinear form B(x,y)=x₀y₁, the two orders give B(e₀,e₁)=
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AF.1`, `AL.0`, `AL.0/local-fourier-inversion`, `AL.0/local-schwartz-bruhat-space`, `LV.3/lagrangian-symplectic-basis`, `SR.0:abelian-category`, `SR.2`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicFormsOnReductiveGroups §2.7, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), 0.0, SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §SR.2.1. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
-## Layer 1: Stone–von Neumann and the metaplectic extension
+## Layer 1: Stone–von Neumann and the oscillator normalizer
 
 ### 1.1 Smooth Stone–von Neumann theorem
 
@@ -336,7 +350,7 @@ Prove `smooth_stoneVonNeumann`: For a finite-dimensional symplectic space over a
 
 No odd-residue-characteristic assumption is imposed. For the use of Sun–Zhu’s formulation restrict to characteristic zero; Kudla’s statement allows characteristic different from two.
 
-(Kudla96, I.1 Theorem1.1 p.3). *Needs:* 0.16, `SR.0:abelian-category`, `SR.3`.
+(Kudla96, I.1 Theorem1.1 p.3). *Needs:* 0.16; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.3a.1 (Schur’s lemma).
 
 Source gap. Kudla and Sun–Zhu both refer this proof to MVW 2.I.2; that book proof requires verification in its original source. The smooth uniqueness and scalar Schur step remain explicit proof gaps until a matching source is checked.
 
@@ -376,71 +390,15 @@ Nontrivial ψ; the exact smooth or strongly continuous unitary category is fixed
 
 (Kudla96, I.1, PDF3–5, irreducibility and intertwiners). *Needs:* 1.3, 1.1, 1.2.
 
-### 1.5 Rao factor set
-
-Define `raoFactorSet` as follows. Relative to Y, write j(g)=rank(c_g) and x(g)∈F×/(F×)² for the Bruhat square class. For q=L(Y,Yg₂⁻¹,Yg₁), let t=(j(g₁)+j(g₂)−j(g₁g₂)−dim q)/2. Define the μ₂-valued Rao factor set by (x₁,x₂)(−x₁x₂,x₁₂)(−1,det(2q))^t(−1,−1)^{t(t−1)/2}Hasse(2q). Its normalization and cocycle equation make a native FactorSet with trivial μ₂ action.
-
-F is nonarchimedean of characteristic different from two; the Bruhat representatives, j,x and the nonsingular Leray quotient use Kudla I.4’s normalization. Rank-zero determinants equal one.
-
-(Kudla96, I.4 pp.19–22 Proposition4.3 and Theorem4.5). *Needs:* 2.4, 2.2, `TC58`.
-
-- `raoFactorSet_values`: Its values lie in μ₂.
-- `raoFactorSet_cocycle`: c(g,h)c(gh,k)=c(g,hk)c(h,k).
-- `raoFactorSet_beta`: The displayed β cochain converts it to the integral-operator cocycle.
-
-**Checks.**
-
-- c(1,g)=c(g,1)=1.
-- In SL₂, x(g)=c when c≠0, otherwise d; c(g₁,g₂)=(x₁,x₂)(−x₁x₂,x₁₂).
-- On rank-one diagonal matrices the factor is (a,b)_F, so the full Levi need not split.
-
-### 1.6 Metaplectic double cover
-
-Define `metaplecticCover` as follows. For nonarchimedean F take the native extension E_{c_Rao} and identify (g,ε) with (T_g,εβ(g)r_Y(g)) in Sψ, where T_g(w)=wg⁻¹ converts Kudla’s right matrix action to the native left action. Give it the topology of ker λ₂⊂Sψ, where λ₂ is the continuous character restricting to z↦z² on the scalar circle. Over R use the same kernel construction. Over C Sψ≃Sp(W)×U(1), and the double cover is Sp(W)×μ₂. It is a topological central extension by μ₂, nonsplit when W≠0 and F≠C.
-
-Local field characteristic different from two, finite-dimensional symplectic W. The zero-dimensional cover is μ₂. The discontinuous global Bruhat section does not define a product topology on Sp×μ₂.
-
-(Weil64, IV.§§42–44, printed194–199, PDF52–57). *Needs:* 1.3, 1.5, 2.4.
-
-Signature gap. Construct the normalized character λ₂ on the actual scalar oscillator normalizer and identify its μ₂ kernel over Sp before stating this cover theorem. Generic character kernels are supplied by Mathlib.
-
-- `MonoidHom.mem_ker`: Membership in the native kernel subgroup is equivalent to lambda2(s)=1; its identification as the μ₂ cover of Sp is a source obligation.
-- `Subgroup.subtype`: The native subgroup inclusion maps ker lambda2 into the supplied normalizer carrier.
-- `metaplecticCover_normalizationTransport`: A group equivalence carrying one character to the other induces an equivalence of their kernel subgroups. Source cochain and topological comparisons remain separate.
-
-**Checks.**
-
-- The square-character kernel on Cˣ is {z:z²=1}.
-- That kernel equals native rootsOfUnity 2 C.
-- −1 belongs to the kernel; real Sp nonsplitting concerns the actual normalized cover.
-
-### 1.7 Genuine Weil representation
-
-Define `weilRepresentation` as follows. Restrict the normalizer’s second projection to Mp(W)=ker λ₂. This gives the unitary Weil representation ωψ on L²(X) and its smooth/Schwartz subrepresentation; the nontrivial central element acts as −id. With the Rao coordinates ωψ(g,ε)=εβ(g)r_Y(g).
-
-The local-field cover and actual Schrödinger model are fixed.
-
-(Kudla96, I.5 pp.23–24; II.4 pp.37–39). *Needs:* 1.6, 1.3, 0.18.
-
-- `MonoidHom.comp_apply`: The action on ker lambda2 is the restriction of the supplied normalizer oscillator; identification with εβ(g)rY(g) is separate.
-- `weilRepresentation_central`: ωψ(1,−1)=−id.
-- `weilRepresentation_modelChange`: A unitary Heisenberg model intertwiner conjugates the intrinsic cover action; changing its scalar leaves this equivalence unchanged.
-
-**Checks.**
-
-- At W=0, μ₂ acts on C by sign.
-- The two lifts of g give opposite operators in a nonzero model.
-- The identity lift acts as the identity linear isometry.
-
 ### Examples
 
 For the scalar square character on Cˣ, its kernel contains −1 and consists of the second roots of unity. These checks distinguish the kernel calculation from the additional oscillator-normalization and topological double-cover theorem.
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `SR.0:abelian-category`, `SR.3`, `TC58`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §SR.3a.1 (Schur’s lemma), QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
-## Layer 2: Weil index and explicit operators
+## Layer 2: Weil index, Rao cocycle, metaplectic cover and explicit operators
 
 ### 2.1 Weil index
 
@@ -448,7 +406,7 @@ Define `weilIndex` as follows. For a nondegenerate quadratic form q on F^d, defi
 
 F is a nondiscrete local field of characteristic different from two, ψ continuous nontrivial unitary, q nondegenerate, Bq its full polar form.
 
-(Weil64, I.§14 Théorème2, printed161–162, PDF19–20; II.§§24–28). *Needs:* `AL.0/local-fourier-inversion`, `AL.0`.
+(Weil64, I.§14 Théorème2, printed161–162, PDF19–20; II.§§24–28). *Needs:* AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion); AutomorphicLFunctionsAndLocalFactors AL.0.
 
 - `weilIndex_distribution`: The Fourier transform identity above characterizes γψ(q).
 - `weilIndex_norm`: |γψ(q)|=1.
@@ -468,7 +426,7 @@ Prove `weilIndex_hilbertSymbol`: The index is multiplicative under orthogonal su
 
 F is a local field of characteristic different from two, including Q₂ and R; all a_i and a,b are nonzero. At nonarchimedean F, dyadic fields included, the Hilbert symbol and local Hasse invariant are those of QuadraticFormInvariants 6C. At F=ℝ the same norm-equation symbol is used with the archimedean computation of GlobalQuadraticForms Layer 4.4 ((a,b)_ℝ=−1 exactly when a<0 and b<0), from which the real symmetry, bimultiplicativity and Hasse product are read off; 6C's theorems, which assume a nonarchimedean local field, are not applied at ℝ.
 
-(Kudla96, I.4 pp.17–18 Lemmas4.1–4.2). *Needs:* 2.1, `TC58`, `TC50`.
+(Kudla96, I.4 pp.17–18 Lemmas4.1–4.2). *Needs:* 2.1; QuadraticFormInvariants §6C; GlobalQuadraticForms Layer 4.
 
 ### 2.3 Leray quadratic form
 
@@ -476,7 +434,7 @@ Define `lerayForm` as follows. For Lagrangians L₀,L₁,L₂ in a symplectic W,
 
 Characteristic different from two; use the symplectic quotient by the isotropic R and quotient out the radical of the resulting quadratic form if needed.
 
-(Kudla96, I.3 pp.11–13). *Needs:* `LV.3/lagrangian-symplectic-basis`, 2.1.
+(Kudla96, I.3 pp.11–13). *Needs:* 0.9a, 2.1.
 
 - `lerayForm_graph`: On the transverse graph model its quadratic value is ½ω(y,Ty).
 - `lerayForm_isometry`: A common symplectic isometry induces an isometry of Leray forms.
@@ -498,13 +456,72 @@ Use Kudla’s right action on W and the same q-versus-polar-form convention as t
 
 (Kudla96, I.3 Theorem3.1 p.13). *Needs:* 0.15, 1.3, 2.1, 2.3.
 
+### 2.4a Rao factor set
+
+Define `raoFactorSet` as follows. Relative to Y, write j(g)=rank(c_g) and x(g)∈F×/(F×)² for the Bruhat square class. For q=L(Y,Yg₂⁻¹,Yg₁), let t=(j(g₁)+j(g₂)−j(g₁g₂)−dim q)/2. Define the μ₂-valued Rao factor set by (x₁,x₂)(−x₁x₂,x₁₂)(−1,det(2q))^t(−1,−1)^{t(t−1)/2}Hasse(2q). Its normalization and cocycle equation make a native FactorSet with trivial μ₂ action.
+
+F is nonarchimedean of characteristic different from two; the Bruhat representatives, j,x and the nonsingular Leray quotient use Kudla I.4’s normalization. Rank-zero determinants equal one.
+
+(Kudla96, I.4 pp.19–22 Proposition4.3 and Theorem4.5). *Needs:* 2.4, 2.2; QuadraticFormInvariants §6C.
+
+- `raoFactorSet_values`: Its values lie in μ₂.
+- `raoFactorSet_cocycle`: c(g,h)c(gh,k)=c(g,hk)c(h,k).
+- `raoFactorSet_beta`: The displayed β cochain converts it to the integral-operator cocycle.
+
+**Checks.**
+
+- c(1,g)=c(g,1)=1.
+- In SL₂, x(g)=c when c≠0, otherwise d; c(g₁,g₂)=(x₁,x₂)(−x₁x₂,x₁₂).
+- On rank-one diagonal matrices the factor is (a,b)_F, so the full Levi need not split.
+
+### 2.4b Metaplectic double cover
+
+Define `metaplecticCover` as follows. For nonarchimedean F take the native extension E_{c_Rao} and identify (g,ε) with (T_g,εβ(g)r_Y(g)) in Sψ, where T_g(w)=wg⁻¹ converts Kudla’s right matrix action to the native left action. Give it the topology of ker λ₂⊂Sψ, where λ₂ is the continuous character restricting to z↦z² on the scalar circle. Over R use the same kernel construction. Over C Sψ≃Sp(W)×U(1), and the double cover is Sp(W)×μ₂. It is a topological central extension by μ₂, nonsplit when W≠0 and F≠C.
+
+Local field characteristic different from two, finite-dimensional symplectic W. The zero-dimensional cover is μ₂. The discontinuous global Bruhat section does not define a product topology on Sp×μ₂.
+
+(Weil64, IV.§§42–44, printed194–199, PDF52–57). *Needs:* 1.3, 2.4a, 2.4.
+
+*Construction of λ₂.* By 2.4a, (z,g)↦z·β(g)r_Y(g)T_g identifies the extension of Sp(W) by U(1) attached to the normalized Rao factor set c_Rao with the oscillator normalizer S_ψ of 1.3. Since c_Rao takes values in μ₂, λ₂(z,g)=z² is a continuous homomorphism S_ψ→U(1), and its kernel is the μ₂-extension E_{c_Rao}. Because Sp(W) is perfect for every local field F, λ₂ is the only continuous character of S_ψ restricting to z↦z² on the central U(1).
+
+- `lambdaTwo`: the continuous character λ₂:S_ψ→U(1) above.
+- `lambdaTwo_center`: λ₂(z)=z² on the central circle.
+- `lambdaTwo_unique`: a continuous character of S_ψ that is z↦z² on the center equals λ₂.
+- `metaplecticCover_center`: the kernel of Mp(W)→Sp(W) is {±1}, central, and acts by ±id in 2.4c.
+- `metaplecticCover_nonsplit`: for W≠0 and F≠ℂ there is no continuous splitting Sp(W)→Mp(W).
+- `metaplecticCover_complex`: over ℂ, Mp(W)≃Sp(W)×μ₂.
+
+**Checks.**
+
+- For W=0 the normalizer is U(1) and Mp(W)=μ₂, the kernel of z↦z².
+- For W=ℝ², the preimage of the rotation group SO(2) in Mp(W) is connected (the double cover of the circle), so no continuous section exists; an extension by the trivial cocycle would split.
+- Replacing λ₂ by z↦z⁴ gives a kernel with fibre μ₄ over Sp(W): the normalization of 2.4a is what cuts the circle extension down to μ₂.
+
+### 2.4c Genuine Weil representation
+
+Define `weilRepresentation` as follows. Restrict the normalizer’s second projection to Mp(W)=ker λ₂. This gives the unitary Weil representation ωψ on L²(X) and its smooth/Schwartz subrepresentation; the nontrivial central element acts as −id. With the Rao coordinates ωψ(g,ε)=εβ(g)r_Y(g).
+
+The local-field cover and actual Schrödinger model are fixed.
+
+(Kudla96, I.5 pp.23–24; II.4 pp.37–39). *Needs:* 2.4b, 1.3, 0.18.
+
+- `MonoidHom.comp_apply`: The action on ker lambda2 is the restriction of the supplied normalizer oscillator; identification with εβ(g)rY(g) is separate.
+- `weilRepresentation_central`: ωψ(1,−1)=−id.
+- `weilRepresentation_modelChange`: A unitary Heisenberg model intertwiner conjugates the intrinsic cover action; changing its scalar leaves this equivalence unchanged.
+
+**Checks.**
+
+- At W=0, μ₂ acts on C by sign.
+- The two lifts of g give opposite operators in a nonzero model.
+- The identity lift acts as the identity linear isometry.
+
 ### 2.5 Weil operators on generators
 
 Prove `weil_generators`: In the polarized nonarchimedean model, the scalar-normalized integral operators satisfy r(m(a))φ(x)=|det a|^{1/2}φ(xa), r(n(b))φ(x)=ψ(½x bᵗx)φ(x), and r(w) is the self-dual Fourier operator for the explicitly chosen w. The double-cover action is εβ(g)r(g), hence the Levi acquires the Weil-index character and Fourier the corresponding Weil factor. For an orthogonal space V of dimension m, ω(m(a),ε)φ(x)=χV,ψ(det a,ε)|det a|^{m/2}φ(xa), ω(n(b))φ(x)=ψ(½tr(b·Gram(x)))φ(x), and ω(w)φ=γ(ψ∘V)^{−n} times the negative-kernel Fourier transform for Kudla’s w.
 
 F is nonarchimedean, char≠2, b symmetric; the self-dual measure is fixed. χV,ψ depends on m parity and the signed discriminant. Source right-action matrices are used consistently.
 
-(Kudla96, I.2 pp.8–10; II.4 pp.35–39). *Needs:* 1.7, 2.1, 2.2, `AL.0/local-fourier-inversion`.
+(Kudla96, I.2 pp.8–10; II.4 pp.35–39). *Needs:* 2.4c, 2.1, 2.2; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion).
 
 ### 2.6 Generator relations and intrinsic comparison
 
@@ -512,7 +529,7 @@ Prove `weil_generatorRelations`: The unipotent, Levi and Fourier operators satis
 
 Use the same Weyl element, Haar measure, q and character as the generator theorem; the cover lift is part of the data.
 
-(Weil64, I.§13, printed160, PDF18; I.§14 relation(9), PDF19). *Needs:* 2.5, 1.6, 2.2, 1.4.
+(Weil64, I.§13, printed160, PDF18; I.§14 relation(9), PDF19). *Needs:* 2.5, 2.4b, 2.2, 1.4.
 
 ### 2.7 Character change and dual Weil models
 
@@ -520,7 +537,7 @@ Prove `weil_characterChange`: For ψa(t)=ψ(at), compare the oscillator model wi
 
 a∈F×; for unitary models use continuous ψ and Hilbert dual/conjugate. The μ₂ cover and scalar-circle cover are distinguished.
 
-(Kudla96, I.1 p.5; II.4 Remark4.1 p.37). *Needs:* 1.7, 2.5, 2.2.
+(Kudla96, I.1 p.5; II.4 Remark4.1 p.37). *Needs:* 2.4c, 2.5, 2.2.
 
 ### 2.8 Quadratic uncertainty principle
 
@@ -528,23 +545,7 @@ Prove `weil_quadraticUncertainty`: Let (V,q) be a positive-dimensional nondegene
 
 dim_F V>0. Let q(x)=(x,x)/2, V^int={x | val_F(q(x))≥0} and V^int_+={x | val_F(q(x))>0}, with val_F(0)=∞. F is nonarchimedean of characteristic ≠2 (residue characteristic 2 is allowed); ψ has conductor O_F and the Fourier kernel is ψ((x,y)) with self-dual measure. φ is locally constant and compactly supported, supp φ⊆V^int_+, supp φ̂⊆V^int. Positive dimension is necessary for the null cone to have empty interior; the zero space is excluded.
 
-(LZ22, Proposition8.1.2, Corollary8.1.4 PDF56–57). *Needs:* 2.5, 2.6, `AL.0/local-fourier-inversion`.
-
-### 2.9 Hermitian uncertainty principle
-
-Prove `weil_hermitianUncertainty`: For a positive-dimensional nondegenerate Hermitian space V over E/F with conjugation c, set q(x)=½Tr_E/F⟨x,x⟩=⟨x,x⟩∈F. Use the Fourier kernel ψ(Tr_E/F⟨x,y⟩) and its self-dual measure. If supp φ⊆{x | val_F⟨x,x⟩>0} and supp φ̂⊆{x | val_F⟨x,x⟩≥0}, then φ=0 by the quadratic uncertainty principle. The half-trace form is the Hermitian norm, not its unscaled trace 2⟨x,x⟩.
-
-dim_E V>0; nonarchimedean F of characteristic ≠2 and the quadratic Hermitian extension/datum of Li–Zhang §8.1. Conductor-zero ψ, locally constant compactly supported φ, val_F(0)=∞ and exactly the strict/non-strict support cones above.
-
-(LZ22, Proposition8.1.6 PDF57–58). *Needs:* 2.8, 3.3, `AL.0/local-fourier-inversion`.
-
-### 2.10 Hermitian oscillator normalizations
-
-Prove `weil_hermitianNormalizations`: Compare the Hermitian Weil operators in Li–Liu22, Li–Zhang22B, Disegni–Liu24 and Zhang21 with MP.2: m(a) has the specified character and |det a|_E^{dim_E V/2}, n(b) has ψ(tr bT(x)), and w has γ_V^{rank} times the positive Fourier transform for the source’s chosen trace pairing. Zhang’s even quadratic formula uses χV(a)=(a,(−1)^{dim V/2}det q)_F. His AppendixA gives γ_V=η(det Hermitian V)ε(η,1/2,ψ)^{dim_E V} and the hyperbolic constant1.
-
-Even dimension where descent is asserted; exact quadratic determinant versus polar determinant; each source’s w and group action converted before comparing signs.
-
-(LL22, §§2.1,3.1 PDF11,43–44; LZ22, §§1.7,8.1,12.3 PDF8–9,56,78–79; DL24, §4.1 H7. PDF40–41; Z21, §11.1 PDF70–71 and AppendixA PDF108–109). *Needs:* 2.5, 2.2, 3.3, `AL.0/local-fourier-inversion`, `AL.2`.
+(LZ22, Proposition8.1.2, Corollary8.1.4 PDF56–57). *Needs:* 2.5, 2.6; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion).
 
 ### Examples
 
@@ -552,7 +553,7 @@ Changing ψ to ψ⁻¹ conjugates the Fourier phase. On a rank-one graph with pa
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AL.0`, `AL.0/local-fourier-inversion`, `AL.2`, `LV.3/lagrangian-symplectic-basis`, `TC50`, `TC58`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.1 (local epsilon factors and Gauss sums), 0.0, GlobalQuadraticForms Layer 4, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 3: Dual pairs and local theta modules
 
@@ -562,7 +563,7 @@ Define `orthogonalSymplecticEmbedding` as follows. Equip V⊗_F W with b⊗ω an
 
 char F≠2; finite-dimensional spaces; b and ω nondegenerate. The tensor-product map can have diagonal scalar kernel, so injectivity of the product map is not asserted.
 
-(Kudla96, II.1, PDF29–30, tensor orthogonal–symplectic pair). *Needs:* 0.8, `TC59`.
+(Kudla96, II.1, PDF29–30, tensor orthogonal–symplectic pair). *Needs:* 0.8; RepresentationTheory/ClassicalGroups Layer 0.
 
 - `tensorSymplecticForm`: The form evaluates on pure tensors as b(v,v′)ω(w,w′).
 - `dualPair_commute`: The O(V) and Sp(W) actions commute on V⊗W.
@@ -580,7 +581,7 @@ Prove `orthogonalCover_parity`: The scalar cover pulls back to O(V)×Sp(W). O(V)
 
 F is a characteristic-not-two local field; a nontrivial continuous ψ and compatible Haar measures are fixed. The orthogonal action is the specified splitting, not a uniqueness claim.
 
-(Kudla96, II.3 Corollary3.3, PDF36; cocycle comparison Proposition3.2 PDF35). *Needs:* 3.1, 1.7, 2.2.
+(Kudla96, II.3 Corollary3.3, PDF36; cocycle comparison Proposition3.2 PDF35). *Needs:* 3.1, 2.4c, 2.2.
 
 ### 3.3 Unitary dual-pair splittings
 
@@ -588,7 +589,7 @@ Define `unitaryWeilRepresentation` as follows. On the trace-symplectic tensor of
 
 Characteristic zero local F; E/F quadratic field or split étale algebra. Hermitian forms nondegenerate. Each splitting uses the matching dimension and character restriction.
 
-(GanIchino16, §4 local theta setup, arXiv-v2 PDF11–12; GQT, §2.9, equation(2.2), PDF13). *Needs:* 1.3, 2.2, `TC59`.
+(GanIchino16, §4 local theta setup, arXiv-v2 PDF11–12; GQT, §2.9, equation(2.2), PDF13). *Needs:* 1.3, 2.2; RepresentationTheory/ClassicalGroups Layer 0.
 
 - `unitarySplitting_cocycle`: Each splitting cochain cancels the pulled-back scalar cocycle.
 - `unitarySplitting_character_change`: If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.
@@ -600,13 +601,29 @@ Characteristic zero local F; E/F quadratic field or split étale algebra. Hermit
 - Reject χV unless χV|F×=ωE/F^dimV.
 - Changing valid splitting characters by η|F×=1 twists by η̃∘det, with η̃(x/xᶜ)=η(x).
 
+### 3.3a Hermitian uncertainty principle
+
+Prove `weil_hermitianUncertainty`: For a positive-dimensional nondegenerate Hermitian space V over E/F with conjugation c, set q(x)=½Tr_E/F⟨x,x⟩=⟨x,x⟩∈F. Use the Fourier kernel ψ(Tr_E/F⟨x,y⟩) and its self-dual measure. If supp φ⊆{x | val_F⟨x,x⟩>0} and supp φ̂⊆{x | val_F⟨x,x⟩≥0}, then φ=0 by the quadratic uncertainty principle. The half-trace form is the Hermitian norm, not its unscaled trace 2⟨x,x⟩.
+
+dim_E V>0; nonarchimedean F of characteristic ≠2 and the quadratic Hermitian extension/datum of Li–Zhang §8.1. Conductor-zero ψ, locally constant compactly supported φ, val_F(0)=∞ and exactly the strict/non-strict support cones above.
+
+(LZ22, Proposition8.1.6 PDF57–58). *Needs:* 2.8, 3.3; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion).
+
+### 3.3b Hermitian oscillator normalizations
+
+Prove `weil_hermitianNormalizations`: Compare the Hermitian Weil operators in Li–Liu22, Li–Zhang22B, Disegni–Liu24 and Zhang21 with Layer 2: m(a) has the specified character and |det a|_E^{dim_E V/2}, n(b) has ψ(tr bT(x)), and w has γ_V^{rank} times the positive Fourier transform for the source’s chosen trace pairing. Zhang’s even quadratic formula uses χV(a)=(a,(−1)^{dim V/2}det q)_F. His AppendixA gives γ_V=η(det Hermitian V)ε(η,1/2,ψ)^{dim_E V} and the hyperbolic constant1.
+
+Even dimension where descent is asserted; exact quadratic determinant versus polar determinant; each source’s w and group action converted before comparing signs.
+
+(LL22, §§2.1,3.1 PDF11,43–44; LZ22, §§1.7,8.1,12.3 PDF8–9,56,78–79; DL24, §4.1 H7. PDF40–41; Z21, §11.1 PDF70–71 and AppendixA PDF108–109). *Needs:* 2.5, 2.2, 3.3; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion); AutomorphicLFunctionsAndLocalFactors AL.1 (local epsilon factors and Gauss sums).
+
 ### 3.4 Big theta module
 
 Define `bigTheta` as follows. For commuting oscillator actions of G×H, define Θ(π)=(S⊗π∨)_G using smooth algebraic coinvariants. Admissibility and Schur’s lemma identify the maximal π-isotypic quotient with π⊗Θ(π). The commuting H action descends; π∨ is the smooth contragredient and central characters must match.
 
 Nonarchimedean local field and the specified dual pair/splittings. π∨ is the smooth contragredient, not the full algebraic dual. The maximal-isotypic comparison uses admissibility and Schur’s lemma.
 
-(Kudla96, II.2, PDF32–33, maximal isotypic quotient and its theta factor). *Needs:* 3.2, 3.3, `SR.0:abelian-category`, `SR.2`.
+(Kudla96, II.2, PDF32–33, maximal isotypic quotient and its theta factor). *Needs:* 3.2, 3.3; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2.
 
 - `bigTheta_hom`: For the supplied smooth dual and admissible irreducible π, identify the smooth G×H Hom space with the H-Hom space from Θ(π); retain the matching central character and maximal-isotypic comparison.
 - `bigTheta_equivariant`: If the H action commutes with the G tensor action, it sends each coinvariant relation into the coinvariant kernel.
@@ -626,7 +643,7 @@ Define `smallTheta` as follows. Define θ(π) as the maximal semisimple quotient
 
 The big theta module is finite length. The semisimple quotient and radical are imported from SR.0/SR.3; archimedean variants use AF.1.
 
-(GanTakeda16, §1 PDF1–2). *Needs:* 3.4, `SR.0:abelian-category`, `SR.3`.
+(GanTakeda16, §1 PDF1–2). *Needs:* 3.4; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 - `Submodule.mkQ_surjective`: The natural Θ(π)→θ(π) is surjective.
 - `smallTheta_semisimple`: θ(π) is semisimple in the supplied smooth category.
@@ -644,7 +661,7 @@ Prove `bigTheta_finiteLength`: For a nonarchimedean characteristic-zero type-I p
 
 The matched central character and source splittings are fixed. Generic admissibility, Jacquet exactness and finite-length criteria belong to SR.2/SR.3; Harish-Chandra modules belong to AF.1.
 
-(Kudla96, II.2 pp31–33, isotypic quotient and admissibility). *Needs:* 3.4, `SR.0:abelian-category`, `SR.2`, `SR.3`, `AF.1`.
+(Kudla96, II.2 pp31–33, isotypic quotient and admissibility). *Needs:* 3.4; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 ### 3.7 Howe duality
 
@@ -652,7 +669,7 @@ Prove `howeDuality`: For a nonarchimedean orthogonal–symplectic or unitary typ
 
 The smooth representations are irreducible admissible and genuine where required. Gan–Takeda Theorem1.2 is the full orthogonal/symplectic/unitary theorem; its Theorem1.3 only gives scoped quaternionic conclusions. Archimedean Harish-Chandra modules/globalizations and Howe’s original theorem require AutomorphicFormsOnReductiveGroups:AF.1 and the original archimedean Howe theorem; no extension to arbitrary algebraic representations is asserted.
 
-(GanTakeda16, Theorem1.2 and(HD), PDF2; proof §§4–6 PDF9 onward; GI18, §2.2, arXiv-v3 PDF8; GS23a, §14.1–14.3, arXiv-v1 PDF50–51). *Needs:* 3.5, 3.6, `SR.2`, `SR.3`, `AF.1`.
+(GanTakeda16, Theorem1.2 and(HD), PDF2; proof §§4–6 PDF9 onward; GI18, §2.2, arXiv-v3 PDF8; GS23a, §14.1–14.3, arXiv-v1 PDF50–51). *Needs:* 3.5, 3.6; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 Source gap. Gan–Takeda proof continuation PDF11–21 and its type-II/MVW inputs need complete proof closure; the full quaternionic Gan–Sun theorem and archimedean Howe/automatic-continuity sources remain requested.; Gan–Ichino18 and Gan–Savin23 invoke classical Howe duality. Their invocation is read; Howe’s archimedean original proof and its Harish-Chandra/globalization comparison require verification in their original sources here. Supply the full real/complex theorem with exact categories before closing this node.
 
@@ -662,7 +679,7 @@ Prove `localSeeSaw`: For a see-saw with compatible restrictions of one oscillato
 
 Smooth admissible modules; compatible restrictions of the same oscillator representation; archimedean version in AF.1.
 
-(Kudla96, IV.1 pp59–66, see-saw examples and oscillator Hom route). *Needs:* 3.4, `SR.0:abelian-category`, `SR.2`, `AF.1`, 2.7.
+(Kudla96, IV.1 pp59–66, see-saw examples and oscillator Hom route). *Needs:* 3.4, 2.7; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 ### 3.9 Persistence and stable range
 
@@ -670,7 +687,7 @@ Prove `theta_persistence_stableRange`: In a fixed orthogonal Witt tower V_r=V_0�
 
 Nonarchimedean local F in Kudla’s stated odd-residue range; broader fields use the separately qualified nonvanishing sources.
 
-(Kudla96, III.4 Propositions4.1,4.3–4.5, PDF44–49). *Needs:* 3.4, 3.6, `SR.2`, `SR.3`.
+(Kudla96, III.4 Propositions4.1,4.3–4.5, PDF44–49). *Needs:* 3.4, 3.6; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.10 First occurrence in a Witt tower
 
@@ -678,7 +695,7 @@ Define `firstOccurrence` as follows. For a supplied tower V_r and π define the 
 
 Tower supplied by QuadraticFormInvariants and classical groups; nonvanishing at a finite rank is a theorem input, not part of the definition.
 
-(SunZhu15, §1.5 PDF5–8). *Needs:* 3.4, 3.9, `TC58`.
+(SunZhu15, §1.5 PDF5–8). *Needs:* 3.4, 3.9; QuadraticFormInvariants §6C.
 
 - `firstOccurrence_nonzero`: For finite first occurrence r₀, ΘV_r₀(π) is nonzero.
 - `firstOccurrence_vanishing`: For r<r₀ the big lift is zero.
@@ -696,7 +713,7 @@ Prove `supercuspidal_firstOccurrence`: For supercuspidal π, at first occurrence
 
 Nonarchimedean odd residue characteristic as in Kudla III; π irreducible supercuspidal, fixed tower and splittings.
 
-(Kudla96, III.6 Theorems6.1–6.2 pp52–53; proof sketch IV.3 pp70–74). *Needs:* 3.10, 3.7, `SR.2`, `SR.3`.
+(Kudla96, III.6 Theorems6.1–6.2 pp52–53; proof sketch IV.3 pp70–74). *Needs:* 3.10, 3.7; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.12 Kudla’s Jacquet filtration
 
@@ -704,7 +721,7 @@ Prove `oscillator_jacquetFiltration`: For Q(X_a)⊂G(W_n), the normalized Jacque
 
 (Gan–Takeda §2 conventions; normalized induction/Jacquet functor and modulus characters; the metaplectic Levi has its genuine χψ factor. Unipotent radicals split canonically).
 
-(GanTakeda16, Lemma3.1 PDF7–8). *Needs:* 3.4, `SR.0:abelian-category`, `SR.2`, `SR.3`, 3.2, 3.3.
+(GanTakeda16, Lemma3.1 PDF7–8). *Needs:* 3.4, 3.2, 3.3; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.13 Doubling principal-series filtration
 
@@ -712,7 +729,7 @@ Prove `doubling_rankFiltration`: For I(s)=normalized Ind_{Siegel}^{G(W⊕W⁻)}�
 
 (Gan–Takeda normalized induction conventions; actual group dimensions and ε-Hermitian type fixed).
 
-(GanTakeda16, Lemma3.2, PDF7–8, filtration of degenerate principal series). *Needs:* `SR.2`, `SR.3`, 3.3, 3.2.
+(GanTakeda16, Lemma3.2, PDF7–8, filtration of degenerate principal series). *Needs:* 3.3, 3.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.14 Type-II theta input
 
@@ -720,7 +737,7 @@ Prove `typeII_theta`: For the oriented split pair GL_m×GL_n, prove small theta 
 
 Smooth irreducible representations; the pair orientation and normalized action are those of Gan–Takeda’s cited Mínguez theorem.
 
-(GanTakeda16, §3 proof strategy, PDF9, cited general-linear Howe input; original Mínguez theorem required). *Needs:* `SR.2`, `SR.3`.
+(GanTakeda16, §3 proof strategy, PDF9, cited general-linear Howe input; original Mínguez theorem required). *Needs:* SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 Source gap. Gan–Takeda §3 cites the general-linear Howe input. The original Mínguez theorem and the unequal-rank parameter formula are required for closure.
 
@@ -730,7 +747,7 @@ Prove `mvw_coverInduction`: Transport smooth duals and normalized induction thro
 
 Nonarchimedean characteristic-zero F for the smooth comparison; real Lie-group variants use AF.1 and their own proof. χψ is the Weil-index genuine character on the covered GL factor.
 
-(GI18, §5.2–5.3 PDF18–20, Lemma5.2). *Needs:* 3.2, 2.2, `SR.0:abelian-category`, `SR.2`, `SR.3`, `AF.1`.
+(GI18, §5.2–5.3 PDF18–20, Lemma5.2). *Needs:* 3.2, 2.2; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 ### 3.16 Nonarchimedean conservation relations
 
@@ -738,7 +755,7 @@ Prove `theta_conservation`: For the two enhanced Witt towers differing by the an
 
 Characteristic-zero nonarchimedean F, including residue characteristic two; towers enhanced by their oscillator character; genuine π as in Theorem1.10.
 
-(SunZhu15, Theorem1.10 PDF8–10; §§5–6). *Needs:* 3.10, 3.12, 3.13, 3.15, `TC58`, `SR.3`.
+(SunZhu15, Theorem1.10 PDF8–10; §§5–6). *Needs:* 3.10, 3.12, 3.13, 3.15; QuadraticFormInvariants §6C; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.17 Archimedean first-occurrence cases
 
@@ -746,15 +763,15 @@ Prove `theta_archimedeanFirstOccurrence`: For real/complex orthogonal U, the sig
 
 Irreducible admissible genuine Harish-Chandra/smooth representations with the enhancement of Sun–Zhu §7; no claim across inequivalent oscillator cosets.
 
-(SunZhu15, §7.2 Theorems7.1,7.3,7.6 PDF43–46). *Needs:* 3.10, `AF.1`, 3.15.
+(SunZhu15, §7.2 Theorems7.1,7.3,7.6 PDF43–46). *Needs:* 3.10, 3.15; AutomorphicFormsOnReductiveGroups §2.4.
 
 ### 3.18 Unitary equal and almost equal rank
 
 Prove `unitaryTheta_equalAlmostEqualRank`: For tempered π of U(W_n) over a nonarchimedean characteristic-zero F, equal-rank theta to U(V_n^ε) is nonzero in exactly one sign, determined by ε(1/2,φπχV⁻¹,ψ₂^E)=εε′, and its parameter is φπχV⁻¹χW. For rank n+1, if χV is absent from φπ both signs are nonzero, while if χV occurs exactly one sign is nonzero; the lifted parameter is (φπχV⁻¹χW)⊕χW. In these stated tempered ranges the big nonzero lift is irreducible.
 
-Auxiliary χ restrictions and ψ₂^E as in Gan–Ichino; LLC, component groups and epsilon factors are imported, supplied by the local Langlands theory.
+Hypotheses: F nonarchimedean of characteristic zero; auxiliary characters χ_V, χ_W and ψ₂^E as in Gan–Ichino; the tempered local Langlands correspondence for U(W_n) and U(V) with its component-group characters and the root-number description of Vogan packets. EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3 supplies these tempered unitary packets and pairings, conditional on its own classification inputs; this target inherits that condition and states it as a hypothesis.
 
-(GanIchino16, Theorems4.1 and4.4 PDF11–15). *Needs:* 3.3, 3.7, 3.12, 3.16, `SR.3`, `ML.4`.
+(GanIchino16, Theorems4.1 and4.4 PDF11–15). *Needs:* 3.3, 3.7, 3.12, 3.16; SmoothRepresentationsOfLocalGroups §SR.3.3; EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3.
 
 ### 3.19 Unitary doubling multiplicity and dichotomy
 
@@ -762,7 +779,7 @@ Prove `unitaryTheta_doublingDichotomy`: For Li–Liu Assumption 3.1’s rank-2r 
 
 Characteristic zero local fields, the exact relevant tempered representation and splitting data of Li–Liu; archimedean case uses AF.1.
 
-(LL21, Proposition3.6 PDF15–17). *Needs:* 3.13, 3.7, 3.3, `AF.1`.
+(LL21, Proposition3.6 PDF15–17). *Needs:* 3.13, 3.7, 3.3; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 ### 3.20 Unramified metaplectic theta and induction
 
@@ -770,7 +787,7 @@ Prove `mpTheta_unramifiedInduction`: For odd-residue F and conductor-zero ψ, us
 
 For almost tempered induction require |Re s_i|<1/2. The smaller-tower statements retain the exact lemma hypotheses; ψ changes act through its square class and the associated orthogonal-space scaling.
 
-(GI18, Remark5.3 PDF19–20; Lemmas6.3,6.8,6.10 PDF21,24–27). *Needs:* 3.7, 3.12, 3.10, 3.16, 3.15, 2.7, `SR.3`.
+(GI18, Remark5.3 PDF19–20; Lemmas6.3,6.8,6.10 PDF21,24–27). *Needs:* 3.7, 3.12, 3.10, 3.16, 3.15, 2.7; SmoothRepresentationsOfLocalGroups §§SR.4.1–SR.4.2.
 
 ### 3.21 Rallis unramified theta parameters
 
@@ -778,7 +795,7 @@ Prove `theta_unramifiedSatake`: Relate the spherical Hecke parameters of a nonze
 
 Unramified local datum, compatible integral lattices, ψ conductor zero, compact splitting and the exact source dimension/parity.
 
-(CT20, §5.3.2 PDF50; §5.4 PDF54–55). *Needs:* 3.2, 2.5, `SR.3`, `AA.2`.
+(CT20, §5.3.2 PDF50; §5.4 PDF54–55). *Needs:* 3.2, 2.5; SmoothRepresentationsOfLocalGroups §§SR.4.1–SR.4.4; AdelicAlgebraicGroups §§1.1, 1.5.
 
 ### 3.22 Unitary theta Hecke compatibility
 
@@ -786,7 +803,7 @@ Prove `unitaryTheta_hecke`: Construct Li–Liu’s surjective spherical Hecke ma
 
 Exact Assumption3.1 and compact subgroups; rank2r Hermitian target. Ramified E/F has odd residue characteristic, ψ conductor O_F and the source’s trivial splitting characters.
 
-(LL21, Definition6.8, Proposition6.10 PDF31–32; Lemma11.1 PDF49–50; LL22, Definition3.2, Lemma3.3, Proposition3.4 PDF43–45). *Needs:* 3.3, 3.4, `SR.3`, `AA.2`.
+(LL21, Definition6.8, Proposition6.10 PDF31–32; Lemma11.1 PDF49–50; LL22, Definition3.2, Lemma3.3, Proposition3.4 PDF43–45). *Needs:* 3.3, 3.4; SmoothRepresentationsOfLocalGroups §§SR.4.1–SR.4.4; AdelicAlgebraicGroups §§1.1, 1.5.
 
 ### 3.23 Quaternionic similitude dual pair
 
@@ -794,7 +811,7 @@ Define `quaternionSimilitudeEmbedding` as follows. For B=E⊕Ej, i²=u,j²=J, ta
 
 Characteristic-zero local or global F; E embedded in B; nondegenerate forms; connected similitude factor and norm-image condition retained.
 
-(IP23, AppendixA.1, (A.1)–(A.2), arXiv-v2 PDF87–89). *Needs:* 3.1, `TC58`, `TC59`.
+(IP23, AppendixA.1, (A.1)–(A.2), arXiv-v2 PDF87–89). *Needs:* 3.1; QuadraticFormInvariants §6C; RepresentationTheory/ClassicalGroups Layer 0.
 
 - `quaternionTensor_pairing`: The pairing is half the reduced trace.
 - `quaternionSimilitude_invariant`: Matched multipliers preserve the tensor pairing.
@@ -812,7 +829,7 @@ Define `quaternionSplitting` as follows. Construct s_v:G_v→C¹ with z_Y(g₁,g
 
 AppendixA.1 datum; global ψ trivial on F for the product assertion; compatible local measures.
 
-(IP23, PropositionA.1, PDF88; §§A.2–A.7, PDF88–96). *Needs:* 3.23, 1.3, 2.2, `TC58`.
+(IP23, PropositionA.1, PDF88; §§A.2–A.7, PDF88–96). *Needs:* 3.23, 1.3, 2.2; QuadraticFormInvariants §6C.
 
 - `quaternionSplitting_cocycle`: The cochain cancels z_Y in the stated quotient direction.
 - `quaternionSplitting_central`: Central scalars give ξE(z)^m.
@@ -830,7 +847,7 @@ Prove `quaternionSplitting_firstDoubled`: On U(V⊕V⁻), ŝ₁ is1 for split B 
 
 AppendixA.2–A.3 bases and Bruhat index; α∈E¹.
 
-(IP23, AppendixA LemmasA.3–A.4, PDF90). *Needs:* 3.23, 2.4, `TC58`.
+(IP23, AppendixA LemmasA.3–A.4, PDF90). *Needs:* 3.23, 2.4; QuadraticFormInvariants §6C.
 
 ### 3.26 Second doubled quaternionic splitting
 
@@ -862,7 +879,7 @@ Prove `quaternionSplitting_periodsI`: For m=2, V=B₁⊗E B₂, J₁J₂=J, κ�
 
 All global hypotheses of A.14, including the common split real place.
 
-(IP23, AppendixA PropositionA.14, equations(A.9)–(A.11), PDF98–99). *Needs:* 3.24, 3.25, 3.26, `TC58`, 3.30, 3.31, 3.32.
+(IP23, AppendixA PropositionA.14, equations(A.9)–(A.11), PDF98–99). *Needs:* 3.24, 3.25, 3.26, 3.30, 3.31, 3.32; QuadraticFormInvariants §6C.
 
 ### 3.30 First scalar splitting calculation
 
@@ -902,7 +919,7 @@ Prove `similitudeTheta_howe`: For the matched multiplier subgroup R⊂G×H⁺, c
 
 Characteristic-zero local F; isometry-group Howe, Clifford and compact-induction inputs; AF.1 at infinity.
 
-(IP23, §7.2 and Lemma9.3 arXiv PDF41–42,50–52). *Needs:* 3.7, 3.16, `SR.2`, `SR.3`, `AF.1`, 3.24.
+(IP23, §7.2 and Lemma9.3 arXiv PDF41–42,50–52). *Needs:* 3.7, 3.16, 3.24; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 ### 3.35 Real discrete-series theta lifts
 
@@ -910,7 +927,7 @@ Prove `theta_realDiscreteSeries`: For ψ_R(t)=exp(2πit), k≥2 and holomorphic 
 
 Positive ψ; exact root basis, components and cohomological induction conventions of the source.
 
-(IP23, §7.2.1–7.2.2 arXiv PDF41–42). *Needs:* 3.7, 3.10, `AF.1`, 2.7.
+(IP23, §7.2.1–7.2.2 arXiv PDF41–42). *Needs:* 2.7, 3.7, 3.10; AutomorphicFormsOnReductiveGroups §§2.4, 5.4, 6.8.
 
 ### 3.36 Quaternionic unramified theta lift
 
@@ -918,7 +935,7 @@ Prove `theta_quaternionUnramified`: In Lemma9.4’s odd-residue unramified E/F, 
 
 Norm-image subgroup, exact Borel and integral splitting.
 
-(IP23, Lemma9.4 arXiv PDF53). *Needs:* 3.33, `SR.3`, `AA.2`.
+(IP23, Lemma9.4 arXiv PDF53). *Needs:* 3.33; SmoothRepresentationsOfLocalGroups §§SR.4.1–SR.4.3; AdelicAlgebraicGroups §§1.1, 1.5.
 
 ### 3.37 Rank-one oscillator constituents
 
@@ -934,7 +951,7 @@ Prove `theta_gl2Gso4`: For irreducible generic π of GL₂(F), the similitude th
 
 Characteristic-zero nonarchimedean F, generic irreducible π and compatible similitude oscillator action.
 
-(GS23a, Lemma13.2 PDF40–41). *Needs:* 3.7, 3.12, `SR.3`, 3.34.
+(GS23a, Lemma13.2 PDF40–41). *Needs:* 3.7, 3.12, 3.34; SmoothRepresentationsOfLocalGroups §§SR.2.3, SR.3.1.
 
 ### 3.39 Minimal orthogonal theta lift
 
@@ -942,7 +959,7 @@ Prove `theta_minimalOrthogonal`: For split SO₂n, n=5,6, the trivial SL₂ big 
 
 Characteristic-zero nonarchimedean F, split forms n=5,6 and the exact minimal-representation realization. π is tempered where Proposition14.2 requires it; σ is the stated irreducible Sp(V₆) representation. Exceptional representations are supplied by their owner.
 
-(GS23a, §14.2 Proposition14.2 and §14.3, arXiv-v1 PDF50–51). *Needs:* 3.6, 3.8, `SR.3`.
+(GS23a, §14.2 Proposition14.2 and §14.3, arXiv-v1 PDF50–51). *Needs:* 3.6, 3.8; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 ### 3.40 Division ternary theta lift
 
@@ -950,15 +967,15 @@ Prove `theta_divisionTernary`: For supercuspidal ρ of PGL₂(F) and division B,
 
 ρ is supercuspidal on PGL₂, and the exact ψ and splitting normalization in §15.1 is used. No claim is made for all irreducible representations of PB×.
 
-(GS23a, §15.1 preceding Lemma15.4, arXiv-v1 PDF54). *Needs:* 3.7, 3.10, `TC58`, `ML.4`.
+(GS23a, §15.1 preceding Lemma15.4, arXiv-v1 PDF54). *Needs:* 3.7, 3.10; QuadraticFormInvariants §6C; GL2AutomorphicRepresentationsAndTransfer R17.1.1 (quaternionic local Jacquet–Langlands).
 
 ### 3.41 PGSp₆–PGSO₈ similitude theta
 
 Prove `theta_pgsp6Pgso8`: For generic irreducible σ of PGSp₆, prove its PGSO₈ similitude lift nonzero. If σ_b occurs on Sp₆, its SO₈ lift occurs in the restriction with standard parameter φ_b⊕1. Unramified Satake uses Spin₇→Spin₈ and std₈|Spin₇=1⊕std₇, together with the spin restrictions.
 
-Characteristic-zero nonarchimedean F; generic σ; exact LLC/Satake conventions and multiplier subgroup.
+Characteristic-zero nonarchimedean F; generic σ; the multiplier subgroup of GS23b §4.2. The second sentence assumes a local Langlands parametrization of generic representations of Sp₆(F) by standard parameters into SO₇(ℂ) with the properties GS23b §4.2 uses (Arthur's parametrization). No TauCetiRoadmap roadmap constructs it, so it is a hypothesis of this target, and a roadmap that constructs it instantiates the statement; the first sentence and the unramified Satake statement need no such input.
 
-(GS23b, §4.2 PDF17–18). *Needs:* 3.7, 3.21, 3.34, `SR.3`, `ML.4`.
+(GS23b, §4.2 PDF17–18). *Needs:* 3.7, 3.21, 3.34; SmoothRepresentationsOfLocalGroups §§SR.3.1, SR.4.1–SR.4.2.
 
 ### 3.42 PGSp₆ theta dichotomy
 
@@ -982,7 +999,7 @@ Prove `theta_coefficientRationality`: For relevant π, let U_π be the finite se
 
 Exact coefficient field L and embeddings; finite nonsymmetric set so the subgroup is open; class-field construction is imported.
 
-(DL24, Lemma4.5 and (4.2) arXiv PDF42). *Needs:* 3.43, 2.7, `AL.0`.
+(DL24, Lemma4.5 and (4.2) arXiv PDF42). *Needs:* 3.43, 2.7; AutomorphicLFunctionsAndLocalFactors AL.0 (change of additive character).
 
 ### Examples
 
@@ -990,7 +1007,7 @@ A zero tensor factor enlarges the dual-pair kernel, so both factors are nonzero 
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AA.2`, `AF.1`, `AL.0`, `ML.4`, `SR.0:abelian-category`, `SR.2`, `SR.3`, `TC58`, `TC59`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §§1.1, 1.5, AutomorphicFormsOnReductiveGroups §§2.1, 2.4, 2.7, 5.4, 6.8, AutomorphicLFunctionsAndLocalFactors AL.0, `ML.4`, SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §§SR.2.1–SR.2.3, SmoothRepresentationsOfLocalGroups §§SR.3.1, SR.3.3, SR.4.1–SR.4.4, QuadraticFormInvariants §6C, RepresentationTheory/ClassicalGroups Layer 0. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 4: Adelic metaplectic covers and finite Weil representations
 
@@ -1000,7 +1017,7 @@ Prove `metaplectic_compactSplitting`: For a nonarchimedean odd-residue local fie
 
 The lattice is integral self-dual for the specified ψ-pairing; no assertion of this splitting over every dyadic maximal compact.
 
-(Weil64, III.§36, printed186–187, PDF44–45). *Needs:* 1.6, 2.5, `AL.0/local-fourier-inversion`.
+(Weil64, III.§36, printed186–187, PDF44–45). *Needs:* 2.4b, 2.5; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion).
 
 ### 4.2 Adelic metaplectic cover
 
@@ -1008,7 +1025,7 @@ Define `adelicMetaplectic` as follows. Take the restricted product ∏′_v Mp(W
 
 Global field char≠2 with the characteristic-zero source used for number-field assertions; finitely many bad places retained; topological restricted-product input from AA.1.
 
-(Weil64, III.§§37–38, printed187–189, PDF45–47; IV.§42 for the twofold reduction). *Needs:* 4.1, 1.6, `AA.1`.
+(Weil64, III.§§37–38, printed187–189, PDF45–47; IV.§42 for the twofold reduction). *Needs:* 4.1, 2.4b; AdelicAlgebraicGroups §1.2.
 
 - `QuotientGroup.lift`: A supplied group projection descends through the native quotient when the quotient subgroup lies in its kernel. The restricted-product topology and μ₂ kernel require source data.
 - `QuotientGroup.mk'`: A specified homomorphism into the group followed by the native quotient map gives the local-to-global adapter.
@@ -1026,7 +1043,7 @@ Prove `weilIndex_productFormula`: For a nondegenerate quadratic form q over a gl
 
 F has char≠2; every dyadic and archimedean factor included. Character is trivial on F and Haar measures are globally compatible.
 
-(Weil64, II.§30 Proposition5, printed179–180). *Needs:* 2.1, `AL.0/adelic-poisson-summation`, `TC58`.
+(Weil64, II.§30 Proposition5, printed179–180). *Needs:* 2.1; AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation); QuadraticFormInvariants §6C.
 
 ### 4.4 Rational symplectic splitting
 
@@ -1034,7 +1051,7 @@ Define `rationalMetaplecticSplitting` as follows. The product formula gives a ca
 
 Global ψ trivial on F; rational symplectic space and a compatible adelic Schrödinger realization.
 
-(Weil64, III.§40, printed190–193, PDF48–51; §41 rational invariance). *Needs:* 4.2, 4.3, 2.4, `AL.0/adelic-poisson-summation`.
+(Weil64, III.§40, printed190–193, PDF48–51; §41 rational invariance). *Needs:* 4.2, 4.3, 2.4; AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation).
 
 - `rationalSplitting_projection`: Projection of the rational lift is the diagonal adelic symplectic element.
 - `rationalSplitting_mul`: The rational lift is a group homomorphism.
@@ -1052,7 +1069,7 @@ Define `adelicWeil` as follows. Construct the global oscillator action on S(X(A)
 
 Number field, global ψ, finite-dimensional rational X and compatible polarizations/measures. The archimedean space is the joint Schwartz space, not merely the span of products over individual real/complex places.
 
-(Weil64, III.§§38–39, printed188–190, PDF46–48). *Needs:* 4.2, 4.4, 1.7, `AL.0/adelic-schwartz-bruhat-space`, `AL.0/local-schwartz-bruhat-space`.
+(Weil64, III.§§38–39, printed188–190, PDF46–48). *Needs:* 4.2, 4.4, 2.4c; AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space); AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space).
 
 - `adelicWeil_pureTensor`: On a factorizable vector, each local operator acts on its own factor.
 - `adelicWeil_central`: The single adelic central −1 acts as scalar −1.
@@ -1078,7 +1095,7 @@ Define `finiteWeil` as follows. For an even integral lattice L with discriminant
 
 Nondegenerate even lattice, ψ_Q with positive real exponential and globally compatible finite character; discriminant form and signature imported from IntegralLattices.
 
-(AGHMP18, §4.7 published452–453, PDF62–63). *Needs:* 4.5, 4.4, 2.5, `TC47`.
+(AGHMP18, §4.7 published452–453, PDF62–63). *Needs:* 4.5, 4.4, 2.5; IntegralLattices Layer 1.
 
 - `finiteWeil_T`: T e_μ=exp(−2πiq(μ))e_μ in ω_L; ρ_L has the positive exponent.
 - `finiteWeil_S`: In ω_L, S uses exp(2πi(μ,ν))/sqrt(|D|), multiplied by its specified Weil phase. Conjugation gives the negative pairing exponential and conjugate phase in ρ_L.
@@ -1094,11 +1111,17 @@ Nondegenerate even lattice, ψ_Q with positive real exponential and globally com
 
 ### 4.8 Function-field metaplectic programme
 
-Prove `metaplectic_functionFieldProgramme`: (Lafforgue §14 sketches a conditional extension of shtuka excursion constructions to metaplectic groups: replace ordinary geometric Satake by its metaplectic version and use the modified dual group and gerbe/twisting data of (14.1)–(14.5). Record this as a programme with explicit missing hypotheses and constructions, not as a proved metaplectic global Langlands theorem).
+State `metaplectic_functionFieldProgramme` as a conditional statement. Let F be a global function field over 𝔽_q, G a split reductive group over F and N an integer with N | q−1. Assume as hypotheses (i) a μ_N-gerbe on Bun_G that is a factorization gerbe and is defined over 𝔽_q (Laf18 Remarque 14.1); (ii) a metaplectic geometric Satake equivalence for it with its fusion and commutativity constraints, with dual group Ĝ_N (Lysenko's construction, which Laf18 §14 invokes in place of its Théorème 1.17); (iii) the resulting Hecke and excursion operators on cuspidal genuine automorphic functions of the cover. Then the excursion algebra acts on genuine cuspidal functions, and they decompose according to Ĝ_N-valued global parameters, as for ordinary groups in Laf18. This target records the programme: Laf18 §14 is titled “Indications”, sketches these steps without proofs, and by Remarque 14.2 only hopes that the 𝔽_ℓ-coefficient results extend.
 
-Function field, a covering/gerbe datum and the required metaplectic Satake equivalences, fusion and shtuka sheaves supplied. The section’s indications and remarks are not a full proof.
+The adelic cover of 4.2 is the number-field analogue for N=2; nothing in Layers 0–3 depends on this target. No TauCetiRoadmap roadmap supplies (i)–(iii); SmoothRepresentationsOfLocalGroups §SR.6.3 has only the local excursion algebra of the Weil group.
 
-(Laf18, §14, Remarks14.1–14.2, (14.1)–(14.5), arXiv-v10 PDF169–173). *Needs:* `GS3`, `GS.5`, 4.2, `GS3:fusion/fusion-product-and-sign-rule`, `GS.5/excursion-operator`, `GS.5/the-excursion-algebra`.
+(Laf18, §14, Remarques 14.1–14.2, (14.1)–(14.5), arXiv-v10 PDF169–173). *Needs:* 4.2.
+
+**Checks.**
+
+- For N=1 the gerbe is trivial, Ĝ_N=Ĝ, and the statement is the ordinary decomposition of Laf18 Théorème 0.1.
+- For N not dividing q−1 hypothesis (i) cannot hold over 𝔽_q, since μ_N is then not constant; the statement is empty.
+- The excursion operators of (iii) are global, indexed by finite sets of places and Ĝ_N-invariant functions; the local excursion algebra of SR.6.3 does not supply them.
 
 ### Examples
 
@@ -1106,7 +1129,7 @@ Two local central signs multiply to +1 in the product-one quotient, whereas a si
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AA.1`, `AL.0/adelic-poisson-summation`, `AL.0/adelic-schwartz-bruhat-space`, `AL.0/local-fourier-inversion`, `AL.0/local-schwartz-bruhat-space`, `GS.5`, `GS.5/excursion-operator`, `GS.5/the-excursion-algebra`, `GS3`, `GS3:fusion/fusion-product-and-sign-rule`, `TC47`, `TC58`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §1.2, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), `GS.5`, `GS.5/excursion-operator`, `GS.5/the-excursion-algebra`, `GS3`, `GS3:fusion/fusion-product-and-sign-rule`, IntegralLattices Layer 1, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 5: Global theta kernels and genuine automorphic forms
 
@@ -1116,7 +1139,7 @@ Define `thetaKernel` as follows. For a rational polarized symplectic space W wit
 
 Number field, characteristic-zero source, compatible ψ and self-dual measures; actual joint archimedean Schwartz functions. For a dual pair its splitting characters are fixed.
 
-(Weil64, III.§41 Théorème6, printed193–194, PDF51–52). *Needs:* 4.5, 4.4, `AL.0/adelic-poisson-summation`.
+(Weil64, III.§41 Théorème6, printed193–194, PDF51–52). *Needs:* 4.5, 4.4; AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation).
 
 - `thetaKernel_apply`: The kernel is the rational sum of the transformed Schwartz function.
 - `thetaKernel_rational`: The sum is invariant under an element whose action on the same function representation reindexes by an explicit bijection; the canonical rational lift must be identified with this action.
@@ -1134,7 +1157,7 @@ Prove `theta_uniformModerateGrowth`: The theta kernel is smooth at infinity, loc
 
 Number field; finite-dimensional quadratic/symplectic datum; fixed finite-level vector and K-type where an automorphic-form space requires them. The height, central-character restriction and Schwartz seminorms must be matched to the supplier.
 
-(Weil64, III.§41 Lemmas4–5 and compact normal convergence, printed193–194, PDF51–52). *Needs:* 5.1, `AA.3/adelic-siegel-set`, `AA.3/siegel-covering-adelic`, `AA.3/height-siegel-estimate`, `AF.2/automorphic-forms-uniform-growth`.
+(Weil64, III.§41 Lemmas4–5 and compact normal convergence, printed193–194, PDF51–52). *Needs:* 5.1; AdelicAlgebraicGroups §3.4 (adelic Siegel sets); AdelicAlgebraicGroups §3.4 (Siegel covering); AdelicAlgebraicGroups §3.5 (heights on Siegel sets); AutomorphicFormsOnReductiveGroups §0.4.
 
 Source gap. Weil’s stated lemmas give continuity and compact normal convergence. The derivative and uniform polynomial height estimates require a separate proof against the precise AF.2 seminorm and AA.3 height contracts; they do not follow from compact convergence alone.
 
@@ -1144,7 +1167,7 @@ Define `genuineAutomorphic` as follows. Inside smooth finite-level functions on 
 
 Use the actual adelic cover, rational splitting and AF.1–3 analytic conventions; require the same split-center/central-character normalization as the base automorphic space.
 
-(Weil64, III.§41 Théorème6, printed193, PDF51; AF.2/3 supplies finiteness and growth conditions; GQT, §2.10, arXiv-v3 PDF13). *Needs:* 4.2, 4.4, 5.2, `AF.1`, `AF.2`, `AF.3`.
+(Weil64, III.§41 Théorème6, printed193, PDF51; AF.2/3 supplies finiteness and growth conditions; GQT, §2.10, arXiv-v3 PDF13). *Needs:* 4.2, 4.4, 5.2; AutomorphicFormsOnReductiveGroups §0.1; AutomorphicFormsOnReductiveGroups §§3.1–3.2; AutomorphicFormsOnReductiveGroups §§4.1–4.2.
 
 - `genuineAutomorphic_eval`: Elements evaluate as functions on the actual cover quotient.
 - `genuineAutomorphic_right`: Right translation preserves the smooth genuine automorphic and cusp subspaces. The K-finite part is stable under its (g,K) and finite-adelic actions.
@@ -1164,7 +1187,7 @@ Prove `metaplectic_unipotentSplitting`: Each rational unipotent subgroup U of Sp
 
 Characteristic zero; the unipotent subgroup and cover topology are fixed.
 
-(Kudla96, I.6 Lemma6.3, PDF25–26 (unique unipotent lift); compare I.6 formulas PDF26–27). *Needs:* 1.6, 2.5, 4.4.
+(Kudla96, I.6 Lemma6.3, PDF25–26 (unique unipotent lift); compare I.6 formulas PDF26–27). *Needs:* 2.4b, 2.5, 4.4.
 
 ### 5.5 Metaplectic constant terms and Whittaker coefficients
 
@@ -1172,7 +1195,7 @@ Define `metaplecticWhittaker` as follows. For a continuous genuine automorphic f
 
 U(F)\U(A) compact; η trivial on rational points; f smooth for derivative assertions. Fourier expansion requires the appropriate abelian U and the supplier’s convergence topology.
 
-(Weil64, III.§41 Théorème6, printed193, PDF51 (theta realization); AA.1 and AF.3 supply the quotient-integral API). *Needs:* 5.3, 5.4, `AF.3/constant-term`, `AA.1`, `AL.0`.
+(Weil64, III.§41 Théorème6, printed193, PDF51 (theta realization); AA.1 and AF.3 supply the quotient-integral API). *Needs:* 5.3, 5.4; AutomorphicFormsOnReductiveGroups §4.1; AdelicAlgebraicGroups §§2.2–2.3; AutomorphicLFunctionsAndLocalFactors AL.0 (standard additive character).
 
 - `metaplecticWhittaker_trivial`: The trivial-character coefficient equals the constant term.
 - `metaplecticWhittaker_right`: Coefficient extraction commutes with right translation.
@@ -1190,7 +1213,7 @@ Define `globalThetaLift` as follows. For a dual pair G,H, define θφ(f)(g)=∫[
 
 Quotient and measure normalized as in GQT; use either anisotropic H, the convergent range, or a cusp/decay bound proved sufficient. No arbitrary regularized value is substituted for a divergent integral.
 
-(GQT, §11.1, PDF52, cuspidal theta lift; §2.11 PDF13 gives the kernel). *Needs:* 5.1, 5.2, 5.3, `AF.3/cusp-form-rapid-decay`, `AA.3`.
+(GQT, §11.1, PDF52, cuspidal theta lift; §2.11 PDF13 gives the kernel). *Needs:* 5.1, 5.2, 5.3; AutomorphicFormsOnReductiveGroups §4.2; AdelicAlgebraicGroups §3.4.
 
 - `globalThetaLift_apply`: The lift evaluates by the integrable theta pairing.
 - `globalThetaLift_equivariant`: Right translation acts through the kernel’s two commuting actions.
@@ -1208,7 +1231,7 @@ Prove `thetaIntegral_converges`: For the GQT type-I datum with dim_E V=m=m₀+2r
 
 Number field; GQT §2 groups, splitting characters and Tamagawa measure; the exceptional split O(1,1) normalization is retained.
 
-(GQT, §3.1, PDF14, Weil convergent range). *Needs:* 5.1, 5.2, `AA.3`, `AA.1`.
+(GQT, §3.1, PDF14, Weil convergent range). *Needs:* 5.1, 5.2; AdelicAlgebraicGroups §3.4; AdelicAlgebraicGroups §§2.3–2.4.
 
 ### 5.8 Regularized theta integral
 
@@ -1216,7 +1239,7 @@ Define `regularizedTheta` as follows. In the GQT nonconvergent range r>0, m−r�
 
 (GQT datum; E_H normalized from the parabolic |det|^s; κ_r its residue/constant normalization. For split O(1,1), κ_r=2 and ρ_H=0).
 
-(GQT, §§3.2–3.7, PDF14–18; definition §3.5 and functional equation(3.7)). *Needs:* 5.7, 5.1, `AS.1`, `AS.2`, `AA.1`.
+(GQT, §§3.2–3.7, PDF14–18; definition §3.5 and functional equation(3.7)). *Needs:* 5.7, 5.1; AutomorphicSpectralTheory §§1.1–1.3; AutomorphicSpectralTheory §§2.4, 2.6; AdelicAlgebraicGroups §2.4.
 
 - `regularizedTheta_regularizer`: The meromorphic family is independent of the admissible z.
 - `regularizedTheta_convergent`: In a matched convergent case its specified coefficient equals the ordinary theta integral.
@@ -1234,7 +1257,7 @@ Define `extendedSchwartzWeil` as follows. For a totally real F and even-dimensio
 
 (YZ published §6.1 exact extended real test class P₁,P₂∈C[t], evaluated at uq(x); u≠0; GL₂/GO matched action and quadratic character conventions).
 
-(YZ18, Published §6.1, printed578–579, PDF46–47; recalled definitions originate in YZZ13 §§2.1.3,4.1). *Needs:* 4.5, 3.2, `AL.0/local-schwartz-bruhat-space`, `AL.0/adelic-schwartz-bruhat-space`.
+(YZ18, Published §6.1, printed578–579, PDF46–47; recalled definitions originate in YZZ13 §§2.1.3,4.1). *Needs:* 4.5, 3.2; AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space); AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space).
 
 - `extendedSchwartzWeil_similitude`: A similitude transports the u parameter with the source’s multiplier convention.
 - `extendedSchwartzWeil_restrict`: At u=1 and in the isometry subgroup the usual even oscillator action is recovered.
@@ -1252,7 +1275,7 @@ Define `unitTheta` as follows. For extended φ invariant under a finite-index un
 
 (YZ totally real positive-definite even V; finite-index unit subgroup preserving φ; compact level K; retain u-orbits and w_K).
 
-(YZ18, Published §6.1, printed578–579, PDF46–47). *Needs:* 5.9, 5.1, `AA.3`.
+(YZ18, Published §6.1, printed578–579, PDF46–47). *Needs:* 5.9, 5.1; AdelicAlgebraicGroups §§3.4, 4.4.
 
 - `unitTheta_representative`: The term is independent of the μ²-orbit representative after the simultaneous x substitution.
 - `unitTheta_rational`: The series satisfies the stated GL₂(F) transformation.
@@ -1276,9 +1299,9 @@ Prove `extendedWeil_restriction`: For V₁⊂V nondegenerate even-dimensional sp
 
 Define `idealClassTheta` as follows. For K=Q(√D), negative fundamental discriminant D, ideal class A and w=|O_K×|, define θ_A(z)=1/w+Σn≥1 r_A(n)exp(2πinz). Equivalently, for an integral ideal a∈A, θ_A(z)=(1/w)Σλ∈a exp(2πiN(λ)z/N(a)); the latter first counts A⁻¹, and conjugation identifies its coefficients with A. The series is independent of a and normally convergent on the upper half plane.
 
-D<0 fundamental; actual ideal-class/norm arithmetic supplied by GN.3; z in the native upper half plane.
+D<0 fundamental; z in the upper half plane. Ideal classes, norms and the dictionary between binary quadratic forms and ideal classes come from IntegralLattices Layer B (B2, forms and ideal classes) and GlobalNumberFields.
 
-(GZ86, I.§5(5.2), printed229, PDF6; IV.§1(1.1), printed270, PDF47). *Needs:* 5.1, `TC47`.
+(GZ86, I.§5(5.2), printed229, PDF6; IV.§1(1.1), printed270, PDF47). *Needs:* 5.1; IntegralLattices Layer 1.
 
 - `idealClassTheta_coeff`: The positive n coefficient is r_A(n).
 - `idealClassTheta_constant`: The constant coefficient is1/w.
@@ -1297,7 +1320,7 @@ Prove `idealClassTheta_modular`: θ_A is holomorphic of weight1 on Γ₀(|D|) wi
 
 Negative fundamental D; γ∈Γ₀(|D|); source lattice and character conventions.
 
-(GZ86, IV.§1 after(1.1), printed270, PDF47). *Needs:* 5.12, 2.5, 4.4, `TC53`.
+(GZ86, IV.§1 after(1.1), printed270, PDF47). *Needs:* 5.12, 2.5, 4.4; ModularForms Layer 0.
 
 ### 5.14 Ideal-class theta conjugation
 
@@ -1307,13 +1330,21 @@ Imaginary quadratic K; the ramified ideal is the one in GZ Lemma2.3.
 
 (GZ86, IV.§2 proof of Lemma(2.3), printed275, PDF52). *Needs:* 5.12.
 
+### 5.14a Ideal-lattice Poisson comparison
+
+Prove `idealLattice_poisson`: For an imaginary quadratic K, fractional ideal b, λ∈C and z∈H, Σμ∈b exp(2πiN(λ+μ)z)=i/(sqrt(|D|)N(b)z) Σν∈b⁻¹d⁻¹ exp(−2πiN(ν)/z)exp(2πiTr(λν)). The trace-dual ideal is b⁻¹d⁻¹, and the additive measure is matched to its discriminant covolume. This is an adapter of the supplied finite-dimensional Poisson theorem.
+
+D<0 fundamental; d the different, N(d)=|D|; the complex norm and trace conventions fixed.
+
+(GZ86, IV.§2 proof of Lemma(2.3), printed274–275, PDF51–52). *Needs:* 5.12; AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation); AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion).
+
 ### 5.15 Ideal-class theta transformation
 
 Prove `idealClassTheta_transform`: For odd negative fundamental D=D₁D₂, δ_i=|D_i|, γ=[[a,b],[c,d]]∈SL₂(Z) with gcd(c,|D|)=δ₂, and c* inverse to c modulo δ₁ chosen0 modulo δ₂, (θ_A|₁γ)(z)=ε_{D₁}(c/δ₂)ε_{D₂}(d)κ(D₁)⁻¹δ₁⁻¹/²χ_{D₁,D₂}(A)θ_{A D₁}((z+c*d)/δ₁). Here κ(D₁)=1 or i by its sign, and D₁ also denotes the class of the ideal of normδ₁ only in the last subscript. Use SL₂, correcting the printed PSL₂ because weight1 detects −I.
 
 D odd squarefree, D≡1 mod4; D_i fundamental with1 allowed; c* convention and exact genus character; no even-discriminant extension asserted.
 
-(GZ86, IV.§2 Lemma(2.3), printed274, PDF51; proof275, PDF52). *Needs:* 5.12, 5.14, 6.21, `TC58`.
+(GZ86, IV.§2 Lemma(2.3), printed274, PDF51; proof275, PDF52). *Needs:* 5.12, 5.14, 5.14a; QuadraticFormInvariants §6C.
 
 ### 5.16 Genuine Eisenstein families
 
@@ -1321,7 +1352,7 @@ Define `genuineEisenstein` as follows. For a rational parabolic of Mp(W), an act
 
 Specified covered parabolic, genuine Levi representation, actual section and source-qualified convergence chamber; no automatic linear reductive-group continuation theorem.
 
-(GQT, §§5.3,6.1–6.2, PDF25,28; pole statement Proposition6.1 excludes O(1,1)). *Needs:* 5.3, 5.4, 3.15, 4.4, `AS.1`, `AS.2`.
+(GQT, §§5.3,6.1–6.2, PDF25,28; pole statement Proposition6.1 excludes O(1,1)). *Needs:* 5.3, 5.4, 3.15, 4.4; AutomorphicSpectralTheory §§1.1–1.3; AutomorphicSpectralTheory §§2.4, 2.6.
 
 - `genuineEisenstein_sum`: In the verified chamber the value is the rational coset sum.
 - `genuineEisenstein_central`: The inducing central sign is retained in E.
@@ -1339,7 +1370,7 @@ The rational theta sum on a zero-dimensional configuration has one term. If a lo
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AA.1`, `AA.3`, `AA.3/adelic-siegel-set`, `AA.3/height-siegel-estimate`, `AA.3/siegel-covering-adelic`, `AF.1`, `AF.2`, `AF.2/automorphic-forms-uniform-growth`, `AF.3`, `AF.3/constant-term`, `AF.3/cusp-form-rapid-decay`, `AL.0`, `AL.0/adelic-poisson-summation`, `AL.0/adelic-schwartz-bruhat-space`, `AL.0/local-schwartz-bruhat-space`, `AS.1`, `AS.2`, `TC47`, `TC53`, `TC58`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §§2.2–2.4, AdelicAlgebraicGroups §3.4, AdelicAlgebraicGroups §3.4 (adelic Siegel sets), AdelicAlgebraicGroups §3.5 (heights on Siegel sets), AdelicAlgebraicGroups §3.4 (Siegel covering), AutomorphicFormsOnReductiveGroups §0.1, AutomorphicFormsOnReductiveGroups §§3.1–3.2, AutomorphicFormsOnReductiveGroups §0.4, AutomorphicFormsOnReductiveGroups §§4.1–4.2, AutomorphicFormsOnReductiveGroups §4.1, AutomorphicFormsOnReductiveGroups §4.2, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), AutomorphicSpectralTheory §§1.1–1.3, AutomorphicSpectralTheory §§2.4, 2.6, IntegralLattices Layer 1, ModularForms Layer 0, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 6: Siegel–Weil, Rallis, see-saw and Jacobi interfaces
 
@@ -1349,7 +1380,7 @@ Prove `theta_measureComparison`: Match self-dual additive, restricted-product an
 
 (GQT §2 exact groups and quotient conventions; GL/GO central quotient data where used).
 
-(GQT, §2.5, PDF11, cover pushforward measure and orthogonal exceptions). *Needs:* 0.14, `AA.1`, `AA.0/restricted-haar-factorizable-integral`, `AA.2/tamagawa-measure`, `AA.2/tamagawa-number`.
+(GQT, §2.5, PDF11, cover pushforward measure and orthogonal exceptions). *Needs:* 0.14; AdelicAlgebraicGroups §§0.2, 2.3; AdelicAlgebraicGroups §§0.2–0.4; AdelicAlgebraicGroups §2.4 (Tamagawa measure); AdelicAlgebraicGroups §§2.4, 3.4 (Tamagawa number).
 
 ### 6.2 Siegel–Weil section
 
@@ -1357,7 +1388,7 @@ Define `siegelWeilSection` as follows. For a type-I dual pair, send φ to Φφ(g
 
 Number field GQT datum; normalized induction δ_P^{1/2}|det|^s, compatible measures and oscillator convention.
 
-(GQT, §§5.3–5.4, PDF25; global §6.2 PDF28). *Needs:* 2.5, 4.5, `AS.1`, `AS.2`, 6.1.
+(GQT, §§5.3–5.4, PDF25; global §6.2 PDF28). *Needs:* 2.5, 4.5, 6.1; AutomorphicSpectralTheory §§1.1–1.3; AutomorphicSpectralTheory §§2.4, 2.6.
 
 - `siegelWeilSection_apply`: Φφ(g)=ω(g)φ(0).
 - `siegelWeilSection_covariance`: Its Levi covariance has the normalized parameter s₀.
@@ -1375,7 +1406,7 @@ Define `ikedaMap` as follows. For V=H^{r−r′}⊕V′ in the same Witt tower, 
 
 0≤r″≤r′≤r; fixed isotropic splitting and source measures.
 
-(GQT, §2.7 equation(2.1), PDF12; equivariance PDF13). *Needs:* 4.5, `AL.0/local-fourier-inversion`, `AL.0/adelic-schwartz-bruhat-space`, 6.2.
+(GQT, §2.7 equation(2.1), PDF12; equivariance PDF13). *Needs:* 4.5, 6.2; AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion); AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space).
 
 - `ikedaMap_apply`: The map integrates φ(x,a,0) in x.
 - `ikedaMap_comp`: Fubini identifies successive integrals with the product-measure integral under SFinite and joint Integrable hypotheses for the displayed function.
@@ -1409,7 +1440,7 @@ Prove `siegelWeil_secondTerm`: In d(n)<m≤d(n)+r with r≤n, let m+m′=2d(n), 
 
 (GQT Theorems1.2/8.1 exact range, compact averaging π_KH and coefficient/measure normalizations).
 
-(GQT, Theorem1.2, PDF5–6, quotient-valued second-term identity; including its quotient-valued correction term). *Needs:* 5.8, 6.2, 6.3, 6.1, `AS.2`.
+(GQT, Theorem1.2, PDF5–6, quotient-valued second-term identity; including its quotient-valued correction term). *Needs:* 5.8, 6.2, 6.3, 6.1; AutomorphicSpectralTheory §§2.4, 2.6.
 
 ### 6.7 Coherent and incoherent sections
 
@@ -1417,7 +1448,7 @@ Define `thetaSectionCollection` as follows. A local quadratic/Hermitian collecti
 
 Number-field local collection, common inducing character, matching archimedean data. For quadratic spaces, admissible invariant systems, global existence and classification come from GlobalQuadraticForms Layers3,7,8; QFI6C supplies only local Hilbert/Hasse invariants and its cohomological comparison. The global Hermitian analogue requires a separate source-qualified extension, not an assumed consequence of local theta nonvanishing.
 
-(AGHMP18, Published §6.1 equations(6.1.1)–(6.1.2), printed466–467, PDF76–77). *Needs:* 6.2, 4.3, `TC58`, `AS.2`, `TC49`, `TC51`, `TC52`.
+(AGHMP18, Published §6.1 equations(6.1.1)–(6.1.2), printed466–467, PDF76–77). *Needs:* 6.2, 4.3; QuadraticFormInvariants §6C; AutomorphicSpectralTheory §§2.4, 2.6; GlobalQuadraticForms Layer 3; GlobalQuadraticForms Layer 7; GlobalQuadraticForms Layer 8.
 
 - `thetaSectionCollection_tensor`: Almost-everywhere standard local sections give the restricted tensor section.
 - `thetaSectionCollection_global`: For a coherent datum the section equals that of the global Schwartz vector.
@@ -1435,7 +1466,7 @@ Prove `unitary_siegelWeilMeasure`: For DL’s rank n=2r unitary local datum and 
 
 (DL §4.1(H1.)–(H9.); the local Fourier character and the source’s b_{2r,v} factor; nonsingular T in the indicated orbit).
 
-(DL24, §4.1(H9), PDF41–42). *Needs:* 6.2, 6.1, 2.10, `AA.1`.
+(DL24, §4.1(H9), PDF41–42). *Needs:* 6.2, 6.1, 3.3b; AdelicAlgebraicGroups §§0.2, 1.5.
 
 ### 6.9 Unitary theta coherence parity
 
@@ -1443,7 +1474,7 @@ Prove `unitaryTheta_coherenceParity`: For DL’s tempered relevant π with rank 
 
 (DL Assumption3.2 and §4.1, F totally real, E/F CM; relevant tempered local representations and the stated archimedean signatures).
 
-(DL24, Definition4.2 and Remark4.3, PDF41–42). *Needs:* 3.43, 6.7, `TC58`.
+(DL24, Definition4.2 and Remark4.3, PDF41–42). *Needs:* 3.43, 6.7; QuadraticFormInvariants §6C.
 
 ### 6.10 Doubling Schwartz map
 
@@ -1451,7 +1482,7 @@ Define `doublingSchwartz` as follows. Identify the doubled oscillator space for 
 
 Compatible self-dual measures, doubled polarization and GQT §11.3 splitting convention.
 
-(GQT, §11.3, unnumbered doubled-space and δ displays, PDF52). *Needs:* 4.5, 2.7, 6.2, `AL.0/local-fourier-inversion`.
+(GQT, §11.3, unnumbered doubled-space and δ displays, PDF52). *Needs:* 4.5, 2.7, 6.2; AutomorphicLFunctionsAndLocalFactors AL.0 (partial Fourier transform).
 
 - `doublingSchwartz_eval_zero`: δ(φ₁⊗conjugate φ₂)(0)=⟨φ₁,φ₂⟩.
 - `doublingSchwartz_equivariant`: δ intertwines the doubled action with the stipulated χV determinant twist.
@@ -1469,7 +1500,7 @@ Define `localDoublingZeta` as follows. For local π and a section Φ_s of the do
 
 Generic good section in the source’s normalized induction, compatible Haar and matrix-coefficient pairing; L/d convention fixed.
 
-(GQT, §11.6, local integral and normalized unramified displays, PDF54; global factorization (11.3), PDF53). *Needs:* 6.10, 6.2, `AL.0`, `SR.2`, 6.1.
+(GQT, §11.6, local integral and normalized unramified displays, PDF54; global factorization (11.3), PDF53). *Needs:* 6.10, 6.2, 6.1; AutomorphicLFunctionsAndLocalFactors AL.1–AL.2 (local factors); SmoothRepresentationsOfLocalGroups §SR.2.2.
 
 - `localDoublingZeta_integral`: In absolute convergence Z is the displayed group integral.
 - `localDoublingZeta_unramified`: The designated spherical data give L_v/d_v.
@@ -1487,7 +1518,7 @@ Prove `thetaPairing_factorization`: In a proved convergence chamber, unfold a pu
 
 Pure-tensor input; all integrability/unfolding hypotheses proved; compatible local measures and good-place reference vectors.
 
-(GQT, Proposition11.1 and §11.3, PDF52–54). *Needs:* 5.6, 6.10, 6.11, `AA.0/restricted-haar-factorizable-integral`, `AL.0`.
+(GQT, Proposition11.1 and §11.3, PDF52–54). *Needs:* 5.6, 6.10, 6.11; AdelicAlgebraicGroups §0.3; AutomorphicLFunctionsAndLocalFactors AL.0 (pure tensors in the adelic Schwartz–Bruhat space).
 
 ### 6.13 Rallis inner product formula
 
@@ -1495,7 +1526,7 @@ Prove `rallis_innerProduct`: In d(n)<m≤2d(n), r≤n, for cuspidal π with vani
 
 (GQT Theorem11.4 hypotheses; first-occurrence theta lift; s_{m,n}=(m−d(n))/2>0; good sections and local/global normalization).
 
-(GQT, Theorem11.4, PDF54). *Needs:* 6.6, 6.10, 6.11, 6.12, 5.6, `AL.0`.
+(GQT, Theorem11.4, PDF54). *Needs:* 6.6, 6.10, 6.11, 6.12, 5.6; AutomorphicLFunctionsAndLocalFactors AL.1–AL.2 (completed L-functions).
 
 ### 6.14 Global theta nonvanishing criterion
 
@@ -1511,7 +1542,7 @@ Prove `globalTheta_seeSaw`: For a compatible global see-saw, equate the iterated
 
 Compatible see-saw characters; cusp/decay or compact-source estimates sufficient for Fubini; actual closed Hilbert subspace for projection.
 
-(IP23, §§7–9, PDF41–42,50–53). *Needs:* 3.8, 5.6, 6.12, 5.8, `AS.0`, `AF.3`.
+(IP23, §§7–9, PDF41–42,50–53). *Needs:* 3.8, 5.6, 6.12, 5.8; AutomorphicSpectralTheory §§0.6–0.7; AutomorphicFormsOnReductiveGroups §4.2.
 
 ### 6.16 Norm-form theta integrals
 
@@ -1519,7 +1550,7 @@ Prove `normTheta_integralRange`: Export to GZ.5 the rank-one theta kernel for th
 
 Orthogonal ε₀=1,d(1)=2; nondegenerate norm/trace-zero forms; exact GQT convention and source’s quaternion split/division cases.
 
-(GQT, §3.1, PDF14; anisotropic Theorem7.1 PDF33; exceptional boundary Theorem7.3(ii) PDF34; second-term Theorem1.2 PDF5–6 and Theorem8.1 PDF35). *Needs:* 5.7, 6.4, 6.5, 6.6, 6.1, `TC58`.
+(GQT, §3.1, PDF14; anisotropic Theorem7.1 PDF33; exceptional boundary Theorem7.3(ii) PDF34; second-term Theorem1.2 PDF5–6 and Theorem8.1 PDF35). *Needs:* 5.7, 6.4, 6.5, 6.6, 6.1; QuadraticFormInvariants §6C.
 
 ### 6.17 Jacobi group
 
@@ -1527,7 +1558,7 @@ Define `jacobiGroup` as follows. Construct J(W)=H(W)⋊Mp(W) using the native ce
 
 Characteristic-zero local/adelic symplectic datum; chosen genuine oscillator model and its covariance.
 
-(BFH90, §1 equations(1.1)–(1.5), printed547, PDF6). *Needs:* 0.13, 1.7, 1.3, 0.8.
+(BFH90, §1 equations(1.1)–(1.5), printed547, PDF6). *Needs:* 0.13, 2.4c, 1.3, 0.8.
 
 - `jacobiGroup_mul`: Multiplication uses h(g·h′),gg′.
 - `schroedingerWeil_apply`: The action is ρψ(h)ωψ(g).
@@ -1545,11 +1576,11 @@ The covariance hypothesis is ω(g)ρ(h)=ρ(g·h)ω(g). With it, `schroedingerWei
 
 ### 6.18 Jacobi spaces
 
-Define `jacobiSpace` as follows. For a Jacobi arithmetic lattice, integral central index m and finite-dimensional weight/multiplier, define smooth automorphic sections of central character ψ_m, holomorphic in the complex Heisenberg variable, with the specified symplectic and elliptic covariance. Impose the appropriate Fourier growth and cusp holomorphy for the holomorphic/cuspidal subspaces. MP.8 supplies the BFH coordinate specialization.
+Define `jacobiSpace` as follows. For a Jacobi arithmetic lattice, integral central index m and finite-dimensional weight/multiplier, define smooth automorphic sections of central character ψ_m, holomorphic in the complex Heisenberg variable, with the specified symplectic and elliptic covariance. Impose the appropriate Fourier growth and cusp holomorphy for the holomorphic/cuspidal subspaces. Layer 8 supplies the BFH coordinate specialization.
 
 A fixed Jacobi lattice and compatible central index; exact weight and multiplier, not inferred from the lattice equations alone.
 
-(BFH90, §1 equations(1.6)–(1.9), printed547, PDF6). *Needs:* 6.17, 5.3, `AF.1`.
+(BFH90, §1 equations(1.6)–(1.9), printed547, PDF6). *Needs:* 6.17, 5.3; AutomorphicFormsOnReductiveGroups §3.1.
 
 - `jacobiSpace_central`: The additive center acts by ψ_m.
 - `jacobiSpace_elliptic`: The coordinate elliptic law has the prescribed quadratic phase.
@@ -1567,7 +1598,7 @@ Define `fourierJacobi` as follows. Extract a Fourier–Jacobi coefficient of a s
 
 Compact central quotient; actual unipotent splitting; smoothness and normal convergence for termwise extraction.
 
-(BFH90, §2 equations(2.2)–(2.3), printed551–552, PDF10–11). *Needs:* 5.5, 6.17, 6.18, `AF.3/constant-term`.
+(BFH90, §2 equations(2.2)–(2.3), printed551–552, PDF10–11). *Needs:* 5.5, 6.17, 6.18; AutomorphicFormsOnReductiveGroups §4.1.
 
 - `fourierJacobi_index`: The coefficient has ψ_m central character.
 - `fourierJacobi_equivariant`: It transforms under the common Jacobi action.
@@ -1581,19 +1612,11 @@ Compact central quotient; actual unipotent splitting; smoothness and normal conv
 
 ### 6.20 Jacobi theta decomposition interface
 
-Prove `jacobi_thetaDecomposition`: For positive index and a normally convergent Jacobi section, prove elliptic invariance gives finitely many discriminant residues and unique theta components transforming through the finite Weil module. Use compact-torus orthogonality and supplied Poisson summation. MP.8 specializes this interface to BFH, including its positive-on-iY root; the general proof does not depend on that specialization.
+Prove `jacobi_thetaDecomposition`: For positive index and a normally convergent Jacobi section, prove elliptic invariance gives finitely many discriminant residues and unique theta components transforming through the finite Weil module. Use compact-torus orthogonality and supplied Poisson summation. Layer 8 specializes this interface to BFH, including its positive-on-iY root; the general proof does not depend on that specialization.
 
 Positive index; compatible integral lattice; normal Fourier convergence and all weight/multiplier data fixed. The generic lattice/discriminant carrier is imported from IntegralLattices.
 
-(BFH90, §2 Proposition2.2, equations(2.4)–(2.10), printed552–553, PDF11–12). *Needs:* 6.19, 6.18, 4.7, `AL.0/adelic-poisson-summation`, `TC47`.
-
-### 6.21 Ideal-lattice Poisson comparison
-
-Prove `idealLattice_poisson`: For an imaginary quadratic K, fractional ideal b, λ∈C and z∈H, Σμ∈b exp(2πiN(λ+μ)z)=i/(sqrt(|D|)N(b)z) Σν∈b⁻¹d⁻¹ exp(−2πiN(ν)/z)exp(2πiTr(λν)). The trace-dual ideal is b⁻¹d⁻¹, and the additive measure is matched to its discriminant covolume. This is an adapter of the supplied finite-dimensional Poisson theorem.
-
-D<0 fundamental; d the different, N(d)=|D|; the complex norm and trace conventions fixed.
-
-(GZ86, IV.§2 proof of Lemma(2.3), printed274–275, PDF51–52). *Needs:* `AL.0/adelic-poisson-summation`, `AL.0/local-fourier-inversion`, 5.12.
+(BFH90, §2 Proposition2.2, equations(2.4)–(2.10), printed552–553, PDF11–12). *Needs:* 6.19, 6.18, 4.7; AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation); IntegralLattices Layer 1.
 
 ### 6.22 Toric theta pairing interface
 
@@ -1601,7 +1624,7 @@ Prove `toricTheta_pairingComparison`: For an anisotropic norm torus T, unfold it
 
 Actual anisotropic torus and unitary character trivial on T(F); cusp or compactness/decay bound; ramified test functions and source parity fixed. For a quadratic field K/F its binary norm remains anisotropic even if the containing quaternion algebra is split. A split-quaternion Shimizu/Petersson comparison requires the separate source-qualified factorization with the exact toric normalization; a GQT residual-image identity alone is insufficient.
 
-(GZ86, I.§5(5.2), printed229, PDF6; IV.§2 printed273–275, PDF50–52; YZZ11, 6 November 2011 draft, §2.2.1 Proposition2.2.1 and proof pp.48–50; §§2.3–2.4 pp.51–55). *Needs:* 6.16, 6.15, 6.1, 6.12, `AA.1`.
+(GZ86, I.§5(5.2), printed229, PDF6; IV.§2 printed273–275, PDF50–52; YZZ11, 6 November 2011 draft, §2.2.1 Proposition2.2.1 and proof pp.48–50; §§2.3–2.4 pp.51–55). *Needs:* 6.16, 6.15, 6.1, 6.12; AdelicAlgebraicGroups §§2.3, 3.4.
 
 Source gap. The linked 2011 YZZ draft is unavailable at its cited public URL. Its Propositions 2.2.1 and 2.3–2.4 and their normalization must be checked in that exact version. The GZ86 theta and Rankin identities do not alone supply the toric Shimizu comparison; a quaternionic toric-pairing construction is required.
 
@@ -1611,17 +1634,17 @@ The GQT second-term equality holds modulo the image of A₋₁; at r′=0 its co
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AA.0/restricted-haar-factorizable-integral`, `AA.1`, `AA.2/tamagawa-measure`, `AA.2/tamagawa-number`, `AF.1`, `AF.3`, `AF.3/constant-term`, `AL.0`, `AL.0/adelic-poisson-summation`, `AL.0/adelic-schwartz-bruhat-space`, `AL.0/local-fourier-inversion`, `AS.0`, `AS.1`, `AS.2`, `SR.2`, `TC47`, `TC49`, `TC51`, `TC52`, `TC58`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §0.3, AdelicAlgebraicGroups §§0.2, 1.5, 2.3, AdelicAlgebraicGroups §2.4 (Tamagawa measure), AdelicAlgebraicGroups §§2.4, 3.4 (Tamagawa number), AutomorphicFormsOnReductiveGroups §3.1, AutomorphicFormsOnReductiveGroups §4.2, AutomorphicFormsOnReductiveGroups §4.1, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicSpectralTheory §§0.6–0.7, AutomorphicSpectralTheory §§1.1–1.3, AutomorphicSpectralTheory §§2.4, 2.6, SmoothRepresentationsOfLocalGroups §SR.2.2, IntegralLattices Layer 1, GlobalQuadraticForms Layer 3, GlobalQuadraticForms Layer 7, GlobalQuadraticForms Layer 8, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 7: Half-integral weight, plus spaces and Shimura lifting
 
+Standing hypotheses for this layer: functions live on the upper half-plane and transform under Γ₀(4) by the unitary theta multiplier J of 7.1; the normalizations are those of DIT16 and DIT11, with every numerical range stated in a target; spectral residue formulas take r>0 and an orthonormal Petersson basis; and boundary conditions are imposed at all three cusps ∞, 0 and 1/2 of Γ₀(4).
+
 ### 7.1 Theta multiplier
 
-Define `thetaMultiplier` as follows. For γ∈Γ₀(4), J(γ,z)=θ(γz)/θ(z), where θ=y^(1/4)Σ_ne(n²z). Prove θ(z)≠0, |J|=1 and the cocycle law, using the exact principal square-root branch and Kronecker multiplier.
+Define `thetaMultiplier` as follows. GeometryOfNumbersAndQuadraticArithmetic §4.3 supplies the holomorphic theta multiplier j(γ,z)=θ₀(γz)/θ₀(z) on Γ₀(4), θ₀(z)=Σ_ne(n²z), the nonvanishing of θ₀ and its identification with the square-root and Kronecker-symbol multiplier. Here use the unitary normalization θ=y^(1/4)θ₀ and put J(γ,z)=θ(γz)/θ(z)=j(γ,z)|cz+d|^(−1/2) for γ=[[a,b],[c,d]]. Prove |J|=1 and the cocycle law.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §5, (5.14) and the next display, p964). *Needs:* `QM.1/jacobi-theta-nonvanishing`, 5.5.
+(DIT16, §5, (5.14) and the next display, p964). *Needs:* 5.5; GeometryOfNumbersAndQuadraticArithmetic §4.3 (theta multiplier, nonvanishing of θ).
 
 - `thetaMultiplier_thetaRatio`: Form J from the nonvanishing theta seed.
 - `thetaMultiplier_cocycle`: J(γδ, z)=J(γ,δz)J(δ, z).
@@ -1637,9 +1660,7 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Define `halfWeightMaass` as follows. For Δ₁/₂=−y²(∂ₓ²+∂ᵧ²)+(i/2)y∂ₓ, prove covariance under J. Define V_r as the smooth weight-one-half eigenfunctions with eigenvalue 1/4+(r/2)², square-integrable on Γ₀(4)\H and with zero constant term at all three cusps. Their Fourier expansion is the Whittaker expansion in 7.3.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §8, printed975, PDF27). *Needs:* 7.1, `QM.3/weight-k-hyperbolic-laplacian`, 5.5.
+(DIT16, §8, printed975, PDF27). *Needs:* 7.1, 5.5; AutomorphicSpectralTheory §1.16 (weight-k Laplacian).
 
 - `halfWeightMaass_automorphy`: F(γz)=J(γ, z)F(z).
 - `halfWeightMaass_allCusps`: Cuspidality means zero constant term at each of ∞,0,1/2, in normalized cusp coordinates.
@@ -1657,17 +1678,13 @@ The auxiliary `halfWeightEigenfunctions` signature records multiplier covariance
 
 Prove `halfWeight_fourierExpansion`: A cuspidal weight-one-half eigenform has F(z)=Σ_{n≠0}b(n)W_{sgn(n)/4,ir/2}(4π|n|y)e(nx), with convergence and coefficient recovery. The spectral parameter is r/2 here, versus r in weight zero.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, Theorem 4, p965 (display before (5.16)); (8.8), p976; (10.1), p981). *Needs:* 7.2, 5.5, `AS.0/dit-112`.
+(DIT16, Theorem 4, p965 (display before (5.16)); (8.8), p976; (10.1), p981). *Needs:* 7.2, 5.5; AutomorphicSpectralTheory §§0.26, 0.28 (Whittaker functions).
 
 ### 7.4 Completed half-weight Eisenstein family
 
 Define `halfWeightEisenstein` as follows. Construct E*_{1/2}(z,s) with constant term Λ(2s)2^s y^(s/2+1/4)+Λ(2−2s)2^(1−s)y^(3/4−s/2) and Whittaker parameter s/2−1/4. Prove automorphy and meromorphic continuation; its parameter differs from that in F_{1/2,n}(z,w).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §5, unnumbered display after (5.14) and the Shimura relation, p964, quoting [16, Prop. 2 p. 959] (coefficient evaluation from [16, Lemma 4, (2.23)–(2.25), pp. 961–962]); PDF p.16). *Needs:* `AS.1`, 7.1, 7.3, 5.5.
+(DIT16, §5, unnumbered display after (5.14) and the Shimura relation, p964, quoting [16, Prop. 2 p. 959] (coefficient evaluation from [16, Lemma 4, (2.23)–(2.25), pp. 961–962]); PDF p.16). *Needs:* 7.1, 7.3, 5.5; AutomorphicSpectralTheory §§1.1–1.3.
 
 - `halfWeightEisenstein_initialSeries`: Construct the Eisenstein family on Γ₀(4) with the theta multiplier and its prescribed cusp data.
 - `halfWeightEisenstein_constantTerms`: Expose both powers y^(s/2+1/4) and y^(3/4−s/2), with 2^s and 2^(1−s).
@@ -1683,9 +1700,7 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Define `fundamentalEisensteinCoefficient` as follows. For fundamental d, b(d,s)=(4π)^(−1/4)|d|^(−3/4)Λ(s,χ_d), where Λ(s,χ_d)=π^(−s/2)Γ((s+α)/2)|d|^(s/2)L(s,χ_d), α=(1−sgn d)/2. Compare with Mathlib’s gamma normalization, including its π^(−α/2) difference.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §5, (5.13) (Λ(s,χ_d)) and the unnumbered definition of b(d,s), p964). *Needs:* `AL.0`, 5.5.
+(DIT16, §5, (5.13) (Λ(s,χ_d)) and the unnumbered definition of b(d,s), p964). *Needs:* 5.5; AutomorphicLFunctionsAndLocalFactors AL.1 (archimedean factors, completed Hecke L-functions).
 
 - `fundamentalEisensteinCoefficient_fundamentalValue`: b(d, s)=(4π)^(−1/4)|d|^(−3/4)Λ(s,χ_d).
 - `fundamentalEisensteinCoefficient_parityFactor`: The paper completion is |d|^(s/2)π^(α/2) times Mathlib completed L.
@@ -1701,15 +1716,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `halfWeightEisenstein_coefficients`: The nonconstant coefficients of E*_{1/2} are b(n,s), supported on n≡0,1 mod4. For fundamental d and m>0, mΣ_{n|m}n^(−3/2)(d/n)b(m²d/n²,s)=m^(s−1/2)σ_{1−2s}(m)b(d,s).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §5, the two unnumbered displays after (5.14) (Shimura relation for b(dm²,s) and E*_{1/2}), p964). *Needs:* 7.4, 7.5, 5.5.
 
 ### 7.7 Eisenstein product normalization
 
 Prove `halfWeightEisenstein_product`: For coprime fundamental d,d′ and D=d′d, Λ(s,χ_{d′})Λ(s,χ_d)=2√π|D|^(3/4)b(d′,s)b(d,s). This is a bilinear product without complex conjugation, unlike Theorem4.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §5 (5.15), p964). *Needs:* 7.5, 5.5.
 
@@ -1717,15 +1728,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `halfWeightEisenstein_thetaResidue`: Resₛ₌₁ E*₁/₂=θ/2. For the unnormalized hyperbolic Petersson product, ||θ||²=2π=area(Γ₀(4)\H), so ||θ/2||²=π/2. The number 6 instead equals (3/π)||θ||², the norm after normalization by area(PSL₂(Z)\H)=π/3. Rescaling a vector from norm squared 1 to 6 changes the coefficient 12 in the bilinear formula to 2; this normalization remark supplies no proof of that formula.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, Remarks after Theorem4, p965). *Needs:* `AA.1`, `QM.1/jacobi-theta-nonvanishing`, 7.4, 5.5.
+(DIT16, Remarks after Theorem4, p965). *Needs:* 7.4, 5.5; AdelicAlgebraicGroups §4.5; GeometryOfNumbersAndQuadraticArithmetic §4.3 (theta multiplier, nonvanishing of θ).
 
 ### 7.9 Kohnen plus subspace
 
 Define `kohnenPlus` as follows. V_r^+ is the subspace of the weight-one-half cuspidal eigenspace V_r whose Fourier coefficients vanish outside n≡0,1 mod4. It is a linear subspace defined by coefficient kernels, not by a chosen basis.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §8, p976). *Needs:* 7.2, 7.3, 5.5.
 
@@ -1743,8 +1750,6 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Define `plusOperators` as follows. On the unitary-weight space set UF(z)=(√2/4)Σ_{ν=0}^3F((z+ν)/4), WF(z)=exp(iπ/4)(z/|z|)^(−1/2)F(−1/(4z)), and pr⁺=(2/3)WU+1/3. Record operator composition order and the factor √2 caused by y^(1/4).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8, printed976, PDF28, U,W and footnote6). *Needs:* 7.1, 7.2, 7.9, 5.5.
 
 - `plusOperators_uFormula`: U=(√2/4)Σ_{ν mod 4}F((z+ν)/4) in the unitary normalization.
@@ -1761,17 +1766,13 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `kohnenPlus_projection`: Prove pr⁺ is the orthogonal projection onto V_r⁺ and extends to the relevant Poincaré families. The DIT11 family satisfies P_d⁺=(3/2)pr⁺P_d, as corrected by DIT16 footnote 7. Thus pr⁺F₁/₂,d has principal-term factor 2/3.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8 equation(8.10) and footnote7, printed977, PDF29; projection definition printed976 PDF28). *Needs:* 7.10, 5.5.
 
 Source gap. DIT16 footnote 7 identifies the old projector normalization, but the operator identity on the full cusp domain still needs the original proof.
 
 ### 7.12 Half-weight Kloosterman sum
 
-Define `halfWeightKloosterman` as follows. For c>0 divisible by4, K_{1/2}(m,n;c)=Σ_{a mod c,(a,c)=1}(c/a)ε_a e((m a+n ā)/c), where aā≡1 modc and ε_a=1 or i according as a≡1 or3 mod4. The extended Kronecker symbol convention is part of the data.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
+Define `halfWeightKloosterman` as follows. For c>0 divisible by4, K_{1/2}(m,n;c)=Σ_{a mod c,(a,c)=1}(c/a)ε_a e((m a+n ā)/c), where aā≡1 modc and ε_a=1 or i according as a≡1 or3 mod4. This is GeometryOfNumbersAndQuadraticArithmetic §4.3's `halfIntegralKloosterman ℓ m n c` for odd ℓ. There the sum is Σ_dε_d^(−(2ℓ+1))(c/d)e((m d̄+n d)/c), and ε_d^(−(2ℓ+1))=ε_d for odd ℓ; the substitution d↦d̄ preserves ε_d and (c/d), because d̄≡d mod 4 and (c/·) is a quadratic character mod c when 4|c, so the two index orders agree. Prove `halfWeightKloosterman_eq_halfIntegral`: K_{1/2}(m,n;c)=`halfIntegralKloosterman 1 m n c`; for even ℓ GN's sum is instead the complex conjugate of K_{1/2}(−m,−n;c).
 
 (DIT16, §8, p.976; DIT11 p.964 (unnumbered display just before (3.4)); DIT11 (3.4), p.965, is K⁺).
 
@@ -1784,12 +1785,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 - K_{1/2}(0,0;4)=1+i.
 - Adding c to either index leaves K unchanged.
 - Omitting ε_a gives 2 instead of 1+i at zero indices,c=4.
+- K_{1/2}(m,n;c)=K_{1/2}(n,m;c) by a↦ā; for example K_{1/2}(1,0;4)=K_{1/2}(0,1;4)=e(1/4)+i·e(3/4)=i+1.
 
 ### 7.13 Modified plus Kloosterman sum
 
 Define `plusKloosterman` as follows. K⁺(m,n;c)=(1−i)K_{1/2}(m,n;c) times1 if8|c, and times2 ifc≡4 mod8. Only the discriminant-indexed symmetry statement is used.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §8, p976). *Needs:* 7.12.
 
@@ -1807,17 +1807,13 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `plusKloosterman_symmetry`: For c>0 with 4|c and all m,n∈ℤ, K⁺(m,n;c)=K⁺(n,m;c)=conj(K⁺(n,m;c)). This is (8.9), stated without any congruence condition on m,n, as in DIT11 (3.5).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8 (8.9), p976). *Needs:* 7.13.
 
 ### 7.15 Half-weight resolvent kernel
 
 Define `halfWeightResolvent` as follows. Construct the resolvent G_{1/2}(z,z′;s) on the Γ₀(4) unitary-multiplier L² space, with its three-cusp domain, hermitian kernel symmetry and discrete polar projectors. This is a cover-specific adaptation of AS.0, not an ordinary scalar kernel on Γ\H.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §8 (8.5), p975). *Needs:* 7.2, `AS.0`, 5.5.
+(DIT16, §8 (8.5), p975). *Needs:* 7.2, 5.5; AutomorphicSpectralTheory §§1.16a, 2.19.
 
 Source gap. The full multiplier resolvent and its self-adjoint three-cusp domain need Fay’s Theorem 3.1 and Corollary 3.6, p.178, in the original source. The DIT16 citation verifies the formula used here, not that analytic construction.
 
@@ -1835,9 +1831,7 @@ Source gap. The full multiplier resolvent and its self-adjoint three-cusp domain
 
 Define `halfWeightPoincare` as follows. For n≠0, Re(s)>1, F_{1/2,n}(z,s)=Γ(s−sgn(n)/4)/(4π|n|Γ(2s)) times Σ_{Γ∞\Γ₀(4)}J(γ,z)⁻¹ M_{sgn(n)/4,s−1/2}(4π|n|Imγz)e(n Reγz).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §8 (8.6), p975). *Needs:* 7.1, 5.5, `AS.0/dit-112`.
+(DIT16, §8 (8.6), p975). *Needs:* 7.1, 5.5; AutomorphicSpectralTheory §§0.26, 0.28 (Whittaker functions).
 
 - `halfWeightPoincare_seedNormalization`: The prefactor is Γ(s−sgn n/4)/(4π|n|Γ(2 s)).
 - `halfWeightPoincare_multiplierInverse`: J(γ, z)⁻¹ in the coset sum gives the correct automorphy.
@@ -1853,8 +1847,6 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `halfWeightPoincare_residue`: At s₀=1/2+ir/2, r>0, Res[(2s−1)F_{1/2,n}(z,s)]=Σ_ψ conj(b_ψ(n))ψ(z) over an orthonormal cuspidal eigenbasis, in the kernel convention verified from Fay. Preserve conjugation; raw PDF text drops bars.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8 equation(8.7), printed976, PDF28). *Needs:* 7.3, 7.15, 7.16, 5.5.
 
 Source gap. The Poincaré-resolvent residue comparison needs the original Fay construction and its cusp-domain hypotheses; the displayed DIT16 residue formula has been checked.
@@ -1863,9 +1855,7 @@ Source gap. The Poincaré-resolvent residue comparison needs the original Fay co
 
 Define `plusBesselCoefficient` as follows. For nonzero discriminant indices n,d and Re(s)>1, Φ⁺(n,d;s) equals [Γ(s−sgn n/4)Γ(s−sgn d/4)/(3√π·2^(2−2s)Γ(2s−1/2)√|nd|)] Σ_{c>0,4|c}K⁺(n,d;c)c⁻¹ B_{2s−1}(4π√|nd|/c), with I for nd<0, J for nd>0.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §8 equation(8.11), printed977, PDF29). *Needs:* 7.13, 5.5, `QM.2/modified-bessel-function-i`, `QM.2/bessel-function-j`.
+(DIT16, §8 equation(8.11), printed977, PDF29). *Needs:* 7.13, 5.5; AutomorphicSpectralTheory §0.25 (Bessel I); AutomorphicSpectralTheory §0.25 (Bessel J).
 
 - `plusBesselCoefficient_besselSeries`: Use the explicit prefactor and K⁺ series displayed in 7.18 in Re(s)>1.
 - `plusBesselCoefficient_signs`: Each gamma factor uses its own index sign; the Bessel function depends on the product sign.
@@ -1881,15 +1871,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `plusPoincare_expansion`: For Re s>1 and nonzero d≡0,1 mod4, pr⁺F₁/₂,d equals (2/3)Γ(s−sgn d/4)M_{sgn d/4,s−1/2}(4π|d|y)e(dx)/(4π|d|Γ(2s)), plus Σ_{n≠0,n≡0,1(4)} Φ⁺(n,d;s)W_{sgn n/4,s−1/2}(4π|n|y)e(nx), plus a separate constant term. Use Φ⁺ from 7.18; the Whittaker expression cannot be evaluated at n=0.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8 equations(8.10)–(8.11), printed977, PDF29). *Needs:* 7.11, 7.16, 7.18, 5.5.
 
 ### 7.20 Plus coefficient residue theorem
 
 Prove `plusBesselCoefficient_residue`: Φ⁺(d′,d;s) continues meromorphically to Re(s)>0 and Res_{s=1/2+ir/2}[(2s−1)Φ⁺(d′,d;s)]=Σ_ψ b_ψ(d′)conj(b_ψ(d)), for an orthonormal basis of V_r^+.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, Proposition4, p977). *Needs:* 7.9, 7.17, 7.19, 5.5.
 
@@ -1898,8 +1884,6 @@ Source gap. The full meromorphic coefficient family needs the source resolvent a
 ### 7.21 Quadratic-root Weyl sum
 
 Define `quadraticRootWeylSum` as follows. For c>0 divisible by4, S_m(d′,d;c)=Σ_{b mod c,b²≡D modc}χ_d([c/4,b,(b²−D)/c])e(2mb/c). Prove representative independence, reality and S_{−m}=S_m using the exact factor2 in the exponential.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §9 (9.1), p978).
 
@@ -1917,8 +1901,6 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `kohnenSalie_identity`: For c>0 divisible by4, d fundamental, d′≡0,1 mod4 and integer m, S_m(d′,d;c)=Σ_{n|gcd(m,c/4),n>0}(d/n)√(n/c)K⁺(d′,m²d/n²;c/n). Include even-prime factors and the c≡4 mod8 multiplier.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, Lemma 8, p.980; the same as DIT11 Proposition 3, p.965, with DIT11's (d,D) renamed (d′,d)). *Needs:* 7.13, 7.21.
 
 Source gap. DIT11 Proposition 3, p.965, verifies the finite-sum statement, but its proof cites Kohnen Proposition 5, p.259. The original Kohnen calculation has not been checked.
@@ -1927,47 +1909,35 @@ Source gap. DIT11 Proposition 3, p.965, verifies the finite-sum statement, but i
 
 Prove `halfWeight_cycleUnfolding`: Let d be fundamental, d,d′<0 and D=dd′ nonsquare. For the supplied weight-two Poincaré seed φ, put Φ_m(t)=−it∫₀^π e(mt cosθ)φ(t sinθ)e^{iθ}dθ. In a proved convergence range, Σ_Qχ(Q)∫_{C_Q}P_m(τ,φ)dτ=εΣ_{c>0,4|c}S_m(d′,d;c)Φ_m(2√D/c), for every integer m. Here ε=1 for z→γ_Qz, clockwise when a>0, and ε=−1 for z→γ_Q⁻¹z. This uses the negative kernel sign; the printed positive sign requires the opposite overall sign. Supply the actual decay estimate, possibly O(y^ε), rather than inferring a stronger bound from Re s>1.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §9 Lemma6, (9.3), pp979–980; DIT11 §4 Lemmas6–8, pp966–969). *Needs:* 7.21, `AS.0`, 5.5.
+(DIT16, §9 Lemma6, (9.3), pp979–980; DIT11 §4 Lemmas6–8, pp966–969). *Needs:* 7.21, 5.5; AutomorphicSpectralTheory §§1.20–1.21.
 
 ### 7.24 CM Poincaré sum
 
 Prove `poincare_cmSum`: For m≠0, Re(s)>1 and d′d=D<0, Σ_Qχ(Q)ω_Q⁻¹F_m(z_Q,s)=2^(−1/2)|D|^(1/4)Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)I_{s−1/2}(4π|m|√|D|/c). The square root is of |D|.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, Lemma3, p978; DIT11 Proposition4). *Needs:* `AS.0`, 7.21, 5.5.
+(DIT16, Lemma3, p978; DIT11 Proposition4). *Needs:* 7.21, 5.5; AutomorphicSpectralTheory §§1.20–1.21.
 
 ### 7.25 Positive cycle Poincaré sum
 
 Prove `poincare_positiveCycle`: For m≠0, Re(s)>1 and d,d′>0, D nonsquare, Σ_Qχ(Q)∫_{C_Q}F_m ds=2^(s−1/2)Γ(s/2)²D^(1/4)/Γ(s) times Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)J_{s−1/2}(4π|m|√D/c).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, Lemma4, p979). *Needs:* `AS.0`, 7.21, 5.5.
+(DIT16, Lemma4, p979). *Needs:* 7.21, 5.5; AutomorphicSpectralTheory §§1.20–1.21.
 
 ### 7.26 Negative-factor cycle Poincaré sum
 
 Prove `poincare_negativeCycle`: Let m≠0, Re(s)>1, d fundamental, d′,d<0 and D=d′d nonsquare. Orient C_Q from z to γ_Qz, with γ_Q from (2.11); this is clockwise on S_Q when a>0 and is the orientation of C_A in §2. Then Σ_{Q∈Γ\Q_D}χ(Q)∫_{C_Q}i∂_zF_m(z,s)dz=2^{s−1/2}Γ((s+1)/2)²Γ(s)⁻¹D^{1/4}Σ_{0<c≡0(4)}S_m(d′,d;c)c^{−1/2}J_{s−1/2}(4π|m|√D/c). With DIT11's orientation (z to γ_Q⁻¹z) the right side changes sign.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, Lemma5, p979). *Needs:* 7.23, 5.5, `QM.2/bessel-function-j`.
+(DIT16, Lemma5, p979). *Needs:* 7.23, 5.5; AutomorphicSpectralTheory §0.25 (Bessel J).
 
 ### 7.27 Exact three-case Poincaré identity
 
 Prove `halfWeight_threeCasePoincare`: Let m≠0 and Re(s)>1, let d be a fundamental discriminant and d′ a discriminant with D=d′d nonsquare. Then 6π^{1/2}|D|^{3/4}|m|Σ_{n|m,n>0}n^{−3/2}(d/n)Φ⁺(d′,m²d/n²;s/2+1/4)=Σ_{Q∈Γ\Q_D}χ(Q)·X_Q, where X_Q=2√πω_Q⁻¹F_m(z_Q,s) if d′d<0, X_Q=∫_{C_Q}F_m(z,s)y⁻¹|dz| if d′,d>0, and X_Q=∫_{C_Q}i∂_zF_m(z,s)dz if d′,d<0. In the third case C_Q runs from z to γ_Qz, with the orientation fixed above.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, Proposition5, p978). *Needs:* 7.18, 7.22, 7.24, 7.25, 7.26, 5.5.
 
 ### 7.28 Plus Hecke eigenbasis
 
 Prove `kohnenPlus_heckeBasis`: Construct an orthonormal simultaneous Hecke eigenbasis B_r of V_r⁺. Include the specified plus-space T₄ operator together with T_{p²} for odd p; diagonalization away from 2 alone supplies no all-prime Euler product.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §10, pp980–981; Katok–Sarnak[34]). *Needs:* 7.9, 7.10, 5.5.
 
@@ -1977,9 +1947,7 @@ Source gap. The full Hecke spectral domain and the p=2 plus-space operator need 
 
 Define `shimuraEigenlineLift` as follows. For ψ∈B_r, choose a fundamental d with b_ψ(d)≠0, define a_ψ(n) from the Hecke Euler factors, and form Shim(ψ)(z)=2√yΣ_{n≠0}a_ψ(|n|)K_ir(2π|n|y)e(nx). Prove independence from the selected d and from scaling ψ; define it first on the eigenline.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §10 (10.1)–(10.3), p981). *Needs:* `AF.2`, 7.3, 7.28, 5.5, 7.30.
+(DIT16, §10 (10.1)–(10.3), p981). *Needs:* 7.3, 7.28, 5.5, 7.30; AutomorphicFormsOnReductiveGroups §4.5.
 
 - `shimuraEigenlineLift_heckeSeries`: Form the even K-Bessel series from the Hecke eigenvalues.
 - `shimuraEigenlineLift_scaleIndependence`: Multiplying ψ by a nonzero scalar leaves all a_ψ(n) and Shim(ψ) unchanged.
@@ -1995,15 +1963,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `shimura_coefficientRelation`: For m>0 and fundamental d, mΣ_{n|m}n^(−3/2)(d/n)b_ψ(m²d/n²)=a_ψ(m)b_ψ(d). Prove that some fundamental coefficient is nonzero, so these relations determine the lift and all coefficients from fundamental ones.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, Theorem4; §10, pp981–982). *Needs:* 7.3, 7.28, 5.5.
 
 ### 7.31 Spectral substitution residue factor four
 
 Prove `spectralResidue_substitution`: Set w=s/2+1/4, s₀=1/2+ir and w₀=1/2+ir/2, r>0. Then Res_{s=s₀}[(2s−1)H(s/2+1/4)]=4 Res_{w=w₀}[(2w−1)H(w)] for H with a simple pole at w₀. One factor2 is the derivative of the coordinate change, the other the linear spectral factor.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §10, p982).
 
@@ -2011,23 +1975,17 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `halfWeight_spectralTrace`: Taking residues of the three-case identity and using the Fourier residues, Shimura coefficient relation and factor-four change of variable gives 12√π|D|³/⁴Σ_ψ b_ψ(d′)conj(b_ψ(d))a_ψ(m)=Σ_φ a_φ(m)T(φ,χ). Here T is the norm-divided three-case geometric trace of 7.47. Retain both finite eigenspace sums until the Shimura bijection is proved.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §10 (10.4)–(10.6), pp981–982). *Needs:* `AS.0`, 7.20, 7.27, 7.30, 7.31, 5.5, 7.47.
+(DIT16, §10 (10.4)–(10.6), pp981–982). *Needs:* 7.20, 7.27, 7.30, 7.31, 5.5, 7.47; AutomorphicSpectralTheory §4.17a.
 
 ### 7.33 Automorphy of the Shimura series
 
 Prove `shimura_automorphy`: Use the family of trace identities and the Biró linear-independence argument to prove Shim(ψ) is an even level-one Hecke–Maass cusp form with eigenvalue1/4+r². Formal Fourier series with the right Euler factors alone do not imply automorphy.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §10, p982, citing Biró[3]p129). *Needs:* 7.29, 7.32, 7.43, 5.5.
 
 ### 7.34 Shimura bijection of eigenlines
 
 Prove `shimura_eigenlineBijection`: The weight-one-half Kohnen-plus Hecke eigenlines at parameter r/2 correspond bijectively to normalized even level-one Hecke–Maass forms at parameter r. On a previously chosen orthonormal basis B_r this gives one selected vector for each line; it does not produce a phase-independent unit vector.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §10 Proposition6 proof, pp981–982, [1]Theorem1.2). *Needs:* 7.28, 7.33, 5.5.
 
@@ -2037,23 +1995,17 @@ Source gap. DIT16’s Proposition 6 proof cites the original Baruch–Mao Theore
 
 Prove `shimura_extendedTrace`: For a normalized even φ and a unit ψ on its corresponding plus eigenline, T(φ,χ)=12√π|D|^(3/4)b_ψ(d′)conj(b_ψ(d)) for fundamental d, discriminant d′, D=d′d nonsquare. General negative D requires |D|^(3/4).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, Proposition6, pp981–982). *Needs:* 7.32, 7.34, 5.5, 7.47.
 
 ### 7.36 Theorem4 negative factors
 
 Prove `shimura_negativeTrace`: Let φ be the even level-one form of 7.29 with a(1)=1, λ=1/4+r², and let F be the corresponding half-weight eigenline vector with unnormalized Petersson norm 1 and the coefficient relation of 7.30. For coprime negative fundamental d,d′, D=dd′>0, prove 12√πD³/⁴ b(d′)conj(b(d))=||φ||⁻²(λ/2)Σ_{A∈Cl⁺(K)}χ(A)∫_{F_A}φdμ. F remains determined only up to unit phase.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
-(DIT16, §5 Theorem4, (5.16) first branch, p965). *Needs:* 7.35, `TC48`, 5.5, 7.47.
+(DIT16, §5 Theorem4, (5.16) first branch, p965). *Needs:* 7.35, 5.5, 7.47; FuchsianOrbifolds Layer 6.
 
 ### 7.37 Theorem4 positive factors
 
 Prove `shimura_positiveTrace`: For coprime positive fundamental d,d′, 12√πD^(3/4)b(d′)conj(b(d))=||φ||⁻²Σ_Aχ(A)∫_{C_A}φds, with the same normalized φ and unit half-weight eigenline.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §5 Theorem4, (5.16) second branch, p965). *Needs:* 7.35, 5.5, 7.47.
 
@@ -2061,15 +2013,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `shimura_cmTrace`: For coprime fundamental d,d′ of opposite sign, 12√π|D|^(3/4)b(d′)conj(b(d))=||φ||⁻²(2√π/ω_D)Σ_Aχ(A)φ(z_A). Keep both 2√π and ω_D; the paper explicitly corrects the earlier CM constant.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §5 Theorem4, (5.16) third branch and footnote4, p965). *Needs:* 7.35, 5.5, 7.47.
 
 ### 7.39 Duke coefficient estimate with spectral factor
 
 Prove `halfWeight_dukeBound`: For an L²-unit weight-one-half cusp form on Γ₀(4) with eigenvalue 1/4+t² for real t, and nonzero fundamental n, prove |b(n)|≪_ε(1+|t|)^C cosh(πt/2)|n|^(−2/7+ε). For the paired lift t=r/2. Conversion to the a(1)=1 weight-zero form retains its Petersson norm and the spectral factor; it requires no unproved symmetric-square r^ε estimate.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §6, (6.6), printed968–969/PDF20–21; Duke88, §2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF16–17). *Needs:* 7.3, 7.12, 7.28, 5.5.
 
@@ -2079,15 +2027,11 @@ The Duke88 Theorem 5 statement, its spectral normalization and its proof on prin
 
 Prove `plusOperators_conjugation`: On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, §8, printed976, PDF28, U,W and footnote6; DIT11 §2, printed959, PDF13).
 
 ### 7.41 Positive Fourier kernel and orthogonal complement
 
 Define `positiveFourierKernel` as follows. In the finite-dimensional fixed-eigenvalue plus cusp space W, let W₀=⋂_{n>0,n≡0,1(4)}ker(b_n) and W₁=W₀⊥. Use W=W₀⊕W₁ with the inherited Petersson inner product. No hypothesis or conclusion W₀=0 is imposed.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.3, 7.9.
 
@@ -2105,8 +2049,6 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `positiveFourier_finiteCertificate`: For an orthonormal basis f₁,…,f_m of W₁, there exist m positive admissible indices n_i for which the matrix (conj(b_{f_j}(n_i))) is invertible. This uses all positive admissible coefficients, not only fundamental indices.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.41.
 
 ### 7.43 Automorphy from finite Fourier separation
@@ -2121,15 +2063,11 @@ Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 no
 
 Prove `halfWeightEisenstein_dit11`: For positive m and fundamental D, prove Σ_{n|m}(D/n)b₀(Dm²/n²,s)=2^(2−4s)π^(s+1/4)m^(3/2−2s)|D|^(s−1/4)σ_{4s−2}(m)L_D(2s−1/2)/ζ(4s−1), and b₀(0,s)=√π2^(5/2−6s)Γ(2s)ζ(4s−2)/ζ(4s−1), for the DIT11 P₀⁺ coefficients. Consequently E*₁/₂(z,s)=2^sΛ(2s)y¹/⁴P₀⁺(z,s/2+1/4), recovering the constant term, fundamental coefficients and Shimura relation above.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
-
 (DIT16, DIT11 Lemma 4, (2.23)–(2.25), pp961–962; used for the E*_{1/2} display, DIT16 p964, which cites only [16, Prop. 2 p. 959]). *Needs:* 5.5, 7.4, 7.3, 7.40.
 
 ### 7.45 Fourier expansion and residues of the weight-1/2 resolvent
 
 Prove `halfWeightResolvent_fourier`: For Re s>1, reduced z and Im z′>Im z, expand G₁/₂(z′,z;s) as Σ_{n≠0}F₁/₂,n(z,s)W_{sgn n/4,s−1/2}(4π|n|y′)e(−nx′) plus its separate Eisenstein term. Continue meromorphically and prove Resₛ₌₁/₂₊ᵢᵣ/₂(2s−1)G₁/₂=Σ_ψ conj(ψ(z′))ψ(z), using an orthonormal basis of V_r. Fay’s resolvent input also gives meromorphic continuation of Φ⁺ to all s.
-
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained.
 
 (DIT16, §8, pp.975–977, citing Fay [20, Thm 3.1] and footnote 5; Fay Cor. 3.6 p.178). *Needs:* 5.5, 7.15, 7.16, 7.17.
 
@@ -2149,7 +2087,7 @@ Define `geometricTrace` as follows. For an even Hecke–Maass cusp form φ, fund
 
 Nonzero actual cusp eigenform so ||φ||²>0; the genus character on possibly imprimitive forms; invariant cycle/stabilizer conventions.
 
-(DIT16, §10 geometric trace display preceding Proposition6, printed981, PDF33). *Needs:* 7.27, `AS.0`.
+(DIT16, §10 geometric trace display preceding Proposition6, printed981, PDF33). *Needs:* 7.27; AutomorphicSpectralTheory §4.17a.
 
 - `geometricTrace_cm`: The negative-D branch is the inverse-stabilizer weighted CM value sum.
 - `geometricTrace_cycle`: The two positive-D branches use scalar length integration or the oriented weight-two differential.
@@ -2167,7 +2105,7 @@ Define `biroLift` as follows. For N>0, positive fundamental D and f∈V*₁/₂(
 
 N>0, D>0 fundamental, f∈V*_{1/2}(4N), λ<−3/16. Use Biró’s own Whittaker W_s(kz) normalization, with its |k|^{1/2} factor when compared to a 2sqrt(y)K series. The general-level coefficient and trace spaces must be instantiated, not identified with the N=1 space. λ is real and t²=−λ−1/4; t may be real or purely imaginary. The complex parameter retains the source complementary range −1/4<λ<−3/16, rather than silently restricting Theorem1 to real t.
 
-(Biro00, §1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27). *Needs:* 7.41, 7.42, 7.43, `AS.0`, `AF.3`, `AL.0`.
+(Biro00, §1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27). *Needs:* 7.41, 7.42, 7.43; AutomorphicSpectralTheory §§0.26–0.27; AutomorphicFormsOnReductiveGroups §4.5; AutomorphicLFunctionsAndLocalFactors AL.0 (K-Bessel kernel).
 
 - `biroLift_coeff`: The source-normalized divisor expression is used in the series over all k≠0, with positive-D inputs b_f(DQ²); actual Fourier coefficient extraction requires the analytic carrier.
 - `biroLift_spectral`: Half-weight parameter t gives weight-zero parameter2t in the negative Laplacian convention.
@@ -2186,23 +2124,7 @@ Prove `halfWeight_adelicClassical`: For the actual rank-one adelic cover and a s
 
 Rank-one genuine central sign, specified K-weight and finite-level splitting; exact classical multiplier/character; archimedean and all-cusp growth conditions.
 
-(DIT16, §5(5.14)–(5.16), PDF16–17; §8, PDF27–29). *Needs:* 5.3, 5.5, 7.1, 7.2, `AF.1`, `AF.2`, `QM.3/weight-k-hyperbolic-laplacian`, `TC53`.
-
-### 7.50 BFH metaplectic kernel interface
-
-Prove `bfh_halfWeightKernelComparison`: Import the genuine genus-two BFH kernel, its theta components, two-cusp Whittaker expansions, actual local test vectors and unramified Euler-factor ratio from MP.8. Its normalized Siegel parameter is s−2 and its original newform conductor is M, while the auxiliary arithmetic level is N. MP.7 supplies the common multiplier/Fourier conventions and compares their restriction with the rank-one half-weight theory; BSD.2 consumes MP.8/bsd2-export and owns the final twist nonvanishing argument.
-
-MP.8 exact arithmetic datum: even weightk≥2, trivial character,8M|N,N|m,4m|N²; vector-valued K-type and specified two-cusp transforms.
-
-(BFH90, §1 construction printed549, PDF8; §2 Proposition2.2 printed552, PDF11). *Needs:* 7.49, 6.20, 8.31, 8.23, 8.76, 8.73, 8.85.
-
-### 7.51 Ramified quadratic-twist kernel inputs
-
-Prove `quadraticTwist_kernelInputs`: For the BFH route, export the supplier’s actual ramified local character/test-vector integrals and nonzero finite K-type tests together with its normalized Euler factors. For the separate Friedberg–Hoffstein route, require the original kernel, its exact level/character restrictions, each ramified and dyadic integral, and its Fourier coefficient comparison before an identification with this common interface is asserted. The Friedberg–Hoffstein comparison requires that original kernel formula, not an identification through a formal half-weight symbol.
-
-A specified original paper route and actual newform/local vectors; original character and conductor hypotheses must be collated. No all-local-condition nonvanishing theorem is concluded here.
-
-(BFH90, §1 quadratic-twist completion, printed551, PDF10). *Needs:* 8.85, 8.48, 8.49, 8.50, 7.49, `AL.0`.
+(DIT16, §5(5.14)–(5.16), PDF16–17; §8, PDF27–29). *Needs:* 5.3, 5.5, 7.1, 7.2; AutomorphicFormsOnReductiveGroups §7.2; AutomorphicFormsOnReductiveGroups §7.3; AutomorphicSpectralTheory §1.16 (weight-k Laplacian); ModularForms Layer 0.
 
 ### Examples
 
@@ -2210,7 +2132,7 @@ The half-weight spectral eigenvalue is 1/4+(r/2)², while the corresponding weig
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AA.1`, `AF.1`, `AF.2`, `AF.3`, `AL.0`, `AS.0`, `AS.0/dit-112`, `AS.1`, `QM.1/jacobi-theta-nonvanishing`, `QM.2/bessel-function-j`, `QM.2/modified-bessel-function-i`, `QM.3/weight-k-hyperbolic-laplacian`, `TC48`, `TC53`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §4.5, AutomorphicFormsOnReductiveGroups §7.2, AutomorphicFormsOnReductiveGroups §4.5, AutomorphicFormsOnReductiveGroups §4.5, AutomorphicLFunctionsAndLocalFactors AL.0–AL.1, AutomorphicSpectralTheory §§0.6–0.7, 1.20–1.21, 2.19, 4.17a, AutomorphicSpectralTheory §§0.26, 0.28 (Whittaker functions), AutomorphicSpectralTheory §§1.1–1.3, GeometryOfNumbersAndQuadraticArithmetic §4.3 (theta multiplier, nonvanishing of θ), AutomorphicSpectralTheory §0.25 (Bessel J), AutomorphicSpectralTheory §0.25 (Bessel I), AutomorphicSpectralTheory §1.16 (weight-k Laplacian), FuchsianOrbifolds Layer 6, ModularForms Layer 0. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Layer 8: Genus-two Jacobi and Eisenstein analysis
 
@@ -2326,9 +2248,9 @@ Define `SiegelSpace` as follows. H₂ is the subtype of complex symmetric 2×2 m
 
 ### 8.11 Positive genus-two symplectic similitudes
 
-Define `positiveSimilitudes` as follows. (GSp₄⁺(R) consists of pairs (g,μ), g∈GL₄(R), μ∈Rˣ positive, satisfying gᵀJg=μJ for native J=[[0,−I],[I,0]]. Multiplication multiplies both components. μ is uniquely determined by g. On H₂, gZ=(AZ+B)(CZ+D)⁻¹; CZ+D is invertible and Im(gZ)=μ(C conjugate(Z)+D)⁻ᵀ Im(Z)(CZ+D)⁻¹).
+Define `positiveSimilitudes` as follows. AutomorphicFormsOnReductiveGroups §6.4 supplies GSp₄⁺(ℝ)={g:ν(g)>0} (`positiveSimilitude`). Here record it in BFH's coordinates: pairs (g,μ), g∈GL₄(ℝ), μ>0, with gᵀJg=μJ for J=[[0,−I],[I,0]]; multiplication multiplies both components and μ=ν(g) is determined by g. On H₂, gZ=(AZ+B)(CZ+D)⁻¹, CZ+D is invertible and Im(gZ)=μ(C conjugate(Z)+D)⁻ᵀ Im(Z)(CZ+D)⁻¹.
 
-(BFH90, §1, pp.545–546, unnumbered GSp⁺ definition and fractional-linear action). *Needs:* 8.10.
+(BFH90, §1, pp.545–546, unnumbered GSp⁺ definition and fractional-linear action). *Needs:* 8.10; AutomorphicFormsOnReductiveGroups §6.4.
 
 - `positiveSimilitudes_mem`: (g,μ) is a member exactly when μ>0 and gᵀJg=μJ.
 - `positiveSimilitudes_multiplier_mul`: The multiplier of gh is μ(g)μ(h).
@@ -2359,9 +2281,9 @@ Define `siegelAction` as follows. Define the continuous left action of GSp₄⁺
 
 ### 8.13 Genus-two square-root double cover
 
-Define `similitudeCover` as follows. The positive real cover consists of (g,h), g∈GSp₄⁺(R), h:H₂→C continuous with h(Z)²=d(g,Z). Multiplication is (g,h)(g',h')=(gg',Z↦h(g'Z)h'(Z)). Its projection is a continuous surjective homomorphism with kernel {(1,1),(1,−1)}. On μ=1 compare it with MP.1's intrinsic metaplectic double cover, preserving the central sign; positive scalars split by h=1.
+Define `similitudeCover` as follows. The positive real cover consists of (g,h), g∈GSp₄⁺(R), h:H₂→C continuous with h(Z)²=d(g,Z). Multiplication is (g,h)(g',h')=(gg',Z↦h(g'Z)h'(Z)). Its projection is a continuous surjective homomorphism with kernel {(1,1),(1,−1)}. On μ=1 compare it with the 2.4b intrinsic metaplectic double cover, preserving the central sign; positive scalars split by h=1.
 
-(BFH90, §2, pp.552–554, (2.7)–(2.14); §8, p.601). *Needs:* 8.12, `MP.1`.
+(BFH90, §2, pp.552–554, (2.7)–(2.14); §8, p.601). *Needs:* 8.12; 2.4b.
 
 - `similitudeCover_square`: h(Z)²=d(g,Z).
 - `similitudeCover_mul_root`: The root of the product at Z is h(g'Z)h'(Z).
@@ -2383,7 +2305,7 @@ Prove `compact_stabilizer`: Let K=Sp₄(R)∩O₄(R). The stabilizer of iI₂ in
 
 Define `arithmeticGamma` as follows. For N>0, Γ_N is the subgroup of Sp₄(Z) with C≡0 mod N, A₂₁≡D₁₂≡0 mod N. Conjugate by J to obtain the second cusp group. The elliptic lattices are (λ,ρ)∈Z²×N⁻¹Z² at cusp zero and N⁻¹Z²×Z² at cusp one; the center is fixed by ψ_m(t)=e(mt).
 
-(BFH90, §1, p.547, (1.6)–(1.9)). *Needs:* `MP.6`.
+(BFH90, §1, p.547, (1.6)–(1.9)). *Needs:* Layer 6.
 
 - `arithmeticGamma_mem`: Membership has exactly the three printed block congruences.
 - `arithmeticGamma_one`: Identity is a member for every N.
@@ -2397,9 +2319,9 @@ Define `arithmeticGamma` as follows. For N>0, Γ_N is the subgroup of Sp₄(Z) w
 
 ### 8.16 BFH symplectic Jacobi slash operator
 
-Define `bfhSlash` as follows. For m∈Z and γ∈Sp₄(R), on functions Φ(g,W) define (Φ|γ)(g,W)=e(−m Wᵀ(CZ_g+D)⁻¹CW) Φ(γg,(CZ_g+D)⁻ᵀW). This is the coordinate realization of the imported MP.6 Jacobi action with central character ψ_m. The operator is restricted to the symplectic factor; extending it to similitudes requires scaling the central character.
+Define `bfhSlash` as follows. For m∈Z and γ∈Sp₄(R), on functions Φ(g,W) define (Φ|γ)(g,W)=e(−m Wᵀ(CZ_g+D)⁻¹CW) Φ(γg,(CZ_g+D)⁻ᵀW). This is the coordinate realization of the imported Layer 6 Jacobi action with central character ψ_m. The operator is restricted to the symplectic factor; extending it to similitudes requires scaling the central character.
 
-(BFH90, §1, p.547, (1.1)). *Needs:* 8.12, `MP.6`.
+(BFH90, §1, p.547, (1.1)). *Needs:* 8.12; Layer 6.
 
 - `bfhSlash_one`: Φ|1=Φ on positive-similitude arguments.
 - `bfhSlash_mul`: (Φ|γ)|γ'=Φ|(γγ').
@@ -2413,9 +2335,9 @@ Define `bfhSlash` as follows. For m∈Z and γ∈Sp₄(R), on functions Φ(g,W) 
 
 ### 8.17 BFH elliptic translation operator
 
-Define `bfhTranslate` as follows. Define (Φ||[λ;ρ])(g,W)=e(m Z_g[λ]+2m Wᵀλ) Φ(g,W+Z_gλ+ρ), for real λ,ρ. For the order (Φ||[λ;ρ])||[κ;ν], the operator at [λ+κ;ρ+ν] is multiplied by e(2mνᵀλ). The lattice used by BFH kills this scalar because N|m. This is an explicit specialization of the MP.6 Heisenberg central character, not a commutative translation action over arbitrary reals.
+Define `bfhTranslate` as follows. Define (Φ||[λ;ρ])(g,W)=e(m Z_g[λ]+2m Wᵀλ) Φ(g,W+Z_gλ+ρ), for real λ,ρ. For the order (Φ||[λ;ρ])||[κ;ν], the operator at [λ+κ;ρ+ν] is multiplied by e(2mνᵀλ). The lattice used by BFH kills this scalar because N|m. This is an explicit specialization of the Layer 6 Heisenberg central character, not a commutative translation action over arbitrary reals.
 
-(BFH90, §1, p.547, (1.2)–(1.5)). *Needs:* 8.16, `MP.6`.
+(BFH90, §1, p.547, (1.2)–(1.5)). *Needs:* 8.16; Layer 6.
 
 - `bfhTranslate_zero`: Translation by [0;0] is identity.
 - `bfhTranslate_comp`: The order (Φ||[λ;ρ])||[κ;ν] has central phase e(2mνᵀλ).
@@ -2429,9 +2351,9 @@ Define `bfhTranslate` as follows. Define (Φ||[λ;ρ])(g,W)=e(m Z_g[λ]+2m Wᵀ�
 
 ### 8.18 BFH genus-two theta series
 
-Define `genusTwoTheta` as follows. For positive integer a and ν∈Z², specialize the MP.6 theta kernel to θᵃ_ν(Z,W)=Σ_{R∈Z², R≡ν mod 2a} e(Z[R]/(4a)+RᵀW). The series is normally convergent on H₂×C². Its finite residue set is (Z/(2a)Z)², of size (2a)². No rank-one Jacobi-form definition is introduced here.
+Define `genusTwoTheta` as follows. For positive integer a and ν∈Z², specialize the Layer 6 theta kernel to θᵃ_ν(Z,W)=Σ_{R∈Z², R≡ν mod 2a} e(Z[R]/(4a)+RᵀW). The series is normally convergent on H₂×C². Its finite residue set is (Z/(2a)Z)², of size (2a)². No rank-one Jacobi-form definition is introduced here.
 
-(BFH90, §2, p.551, (2.1)). *Needs:* 8.10, `MP.6`.
+(BFH90, §2, p.551, (2.1)). *Needs:* 8.10; Layer 6.
 
 - `genusTwoTheta_residue`: θᵃ_{ν+2aℓ}=θᵃ_ν.
 - `genusTwoTheta_elliptic`: θ(Z,W)=e(aZ[λ]+2aWᵀλ)θ(Z,W+Zλ+ρ) for integral λ,ρ.
@@ -2499,13 +2421,13 @@ Prove `coefficient_shift_analytic`: If Φ_j is continuous, smooth in g, holomorp
 
 Prove `theta_decomposition`: Under the Jacobi regularity and lattice hypotheses above, there are unique components E_j(g;ν), ν mod 2a, satisfying Φ_j(g,W)=Σν E_j(g;ν) θᵃ_ν(N^(1−2j)Z_g,N^(1−j)W). Put C_j(g;U,ν)=B_j(g;T,ν) if T=(U+N^(2−j)ννᵀ)/(4m) is half-integral, and 0 otherwise. Then E_j(g;ν)=Σ_{U integral symmetric} C_j(g;U,ν)e(tr(UZ_g)/(4mN^j)), with the convergence inherited from the Fourier expansion.
 
-(BFH90, Proposition 2.2, pp.552–554, (2.4)–(2.6)). *Needs:* 8.21, 8.22, 8.7, 8.8, `MP.6`, 8.27, 8.28, 8.26, 8.75.
+(BFH90, Proposition 2.2, pp.552–554, (2.4)–(2.6)). *Needs:* 8.21, 8.22, 8.7, 8.8, 8.27, 8.28, 8.26, 8.75; Layer 6.
 
 ### 8.24 Genus-two theta Fourier transform
 
 Prove `theta_fourier_transform`: For a>0 and Z∈H₂, θᵃ_ν(−Z⁻¹,Z⁻¹W)=e(aZ⁻¹[W]) √(−det Z)/(2a) Σ_{μ mod2a} e(−νᵀμ/(2a))θᵃ_μ(Z,W). The holomorphic branch √(−det Z) is positive when Z=iY. The finite Fourier matrix has square equal to residue negation after normalization by 1/(2a).
 
-(BFH90, §2, p.554, (2.12)–(2.13)). *Needs:* 8.18, `MP.2`, `MP.6`.
+(BFH90, §2, p.554, (2.12)–(2.13)). *Needs:* 8.18; Layer 2; Layer 6.
 
 ### 8.25 Fourier law for BFH theta components
 
@@ -2515,9 +2437,9 @@ Prove `theta_component_fourier_law`: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√
 
 ### 8.26 BFH Jacobi coordinate space
 
-Define `bfhJacobiFunctions` as follows. Specialize the MP.6 Jacobi space to smooth Φ_j:GSp₄⁺(R)×C²→C, holomorphic in W, invariant under Γ_N for j=0 or J⁻¹Γ_NJ for j=1, and under ||[N^−jℓ;N^(j−1)r] for integral ℓ,r. For vector values impose these conditions after every continuous linear functional. Supply the MP.6 weight and multiplier separately; lattice invariance does not determine them.
+Define `bfhJacobiFunctions` as follows. Specialize the Layer 6 Jacobi space to smooth Φ_j:GSp₄⁺(R)×C²→C, holomorphic in W, invariant under Γ_N for j=0 or J⁻¹Γ_NJ for j=1, and under ||[N^−jℓ;N^(j−1)r] for integral ℓ,r. For vector values impose these conditions after every continuous linear functional. Supply the Layer 6 weight and multiplier separately; lattice invariance does not determine them.
 
-(BFH90, §1, p.547, (1.6)–(1.9)). *Needs:* 8.15, 8.16, 8.17, `MP.6`.
+(BFH90, §1, p.547, (1.6)–(1.9)). *Needs:* 8.15, 8.16, 8.17; Layer 6.
 
 - `bfhJacobiFunctions_zero`: The zero coordinate function belongs.
 - `bfhJacobiFunctions_translation`: Every member satisfies its scaled elliptic lattice law.
@@ -2561,11 +2483,27 @@ Define `thetaCoefficient` as follows. C_j(g;U,ν) is the Fourier coefficient B_j
 - For N=8,m=16,j=1,U=I,ν=0 the coefficient is zero for any coordinate function.
 - At N=8,m=16,j=1,U=diag(0,56),ν=(0,1), the recovered index is T=diag(0,1).
 
+### 8.28a BFH arithmetic datum
+
+Define `BFHDatum` as the structure bundling: positive integers N, m, M and an even integer k≥2 with 8M∣N, N∣m and 4m∣N²; a normalized holomorphic newform f of weight k, trivial character and conductor M, with Fourier coefficients a(n); its Fricke transform f̂(τ)=τ^(−k)f(−1/(Nτ)) at the auxiliary level N; a continuous finite-dimensional representation σ of K=U(2), trivial on −I, with a vector v satisfying vσ(κ)=ρ_k(κ)v for κ∈SO(2); and, for scalar statements, a continuous linear functional T on the space of σ. The seed (8.29), the section family (8.30), the Jacobi Eisenstein series (8.31), its Fourier coefficients (8.20, 8.28) and theta components (8.27), the Dirichlet series (8.66–8.67) and the Whittaker expansions (8.68–8.69) are all built from one BFH datum, and the theorems of 8.63–8.87 are statements about those objects, not about independent functions of the displayed variables. The newform's own completion uses its conductor M; the Fricke transform uses N.
+
+(BFH90, §1, pp.547–550, (1.11)–(1.16), and the standing assumptions of §§5–7). *Needs:* 8.14; ModularForms Layer 4; ModularForms Layer 6; AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors).
+
+- `BFHDatum.level_dvd`: 8M∣N, N∣m and 4m∣N².
+- `BFHDatum.newform`: f is a normalized newform of weight k, trivial character and conductor M.
+- `BFHDatum.ktype`: v transforms under SO(2) by ρ_k, and σ is trivial on −I.
+
+**Checks.**
+
+- M=1, N=8, m=16, k=12 with f=Δ is a datum: 8∣8, 8∣16 and 64∣64.
+- N=8, m=24 is not: N∣m holds but 4m=96 does not divide N²=64.
+- k=3 admits no datum: on Γ₀(M) with trivial character, −I acts on weight-k forms by (−1)^k, so every odd-weight form is zero and no normalized newform exists.
+
 ### 8.29 Elliptic-newform section on genus-two similitudes
 
 Define `bfhSeed` as follows. For the normalized even-weight k≥2 newform f of level M, 8M|N, put f̂(τ)=τ^−k f(−1/(Nτ)) and F(Q)=f̂(Qi)(ci+d)^−k det(Q)^(k/2). Given continuous finite-dimensional right K-type σ trivial on −I and vσ(κ)=ρ_k(κ)v on SO(2), define I(t n(X)diag(Q,Q^−ᵀ)κ)=F(Q)vσ(κ). Iwasawa uniqueness makes this well defined; positive scalars act trivially. The original newform’s completion uses conductor M.
 
-(BFH90, §1, pp.547–550, (1.11)–(1.16)). *Needs:* 8.14, `AF.5`, `TC55`, `TC56`, `R16.2`.
+(BFH90, §1, pp.547–550, (1.11)–(1.16)). *Needs:* 8.14; AutomorphicFormsOnReductiveGroups §§7.2–7.3; ModularForms Layer 4; ModularForms Layer 6; AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors).
 
 - `bfhSeed_identity`: I(I₄)=F(I₂)v.
 - `bfhSeed_zero`: F=0 gives I=0.
@@ -2597,9 +2535,9 @@ Define `inducedSeedFamily` as follows. For the seed I, set I_s(g)=det(Im Z_g)^(s
 
 Define `jacobiEisenstein` as follows. For the genuine elliptic-newform seed, define E_s(g,W)=Σ_{γ∈(P∩Γ_N)\Γ_N} Σ_{λ∈Z²} (I_s||[λ;0])|γ(g,W), where P consists of n(X)diag(Q,Q⁻ᵀ) with detQ>0. The sum is initially defined in a right half-plane of s. For finite-dimensional vector values use the original seed, not a scalar replacement; continuous linear functionals commute with convergent sums. Its theta components are genuine half-integral-weight automorphic forms on the double cover.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §1, p.549, definition of E_s). *Needs:* 8.30, 8.15, 8.16, 8.17, `MP.6`.
+(BFH90, §1, p.549, definition of E_s). *Needs:* 8.30, 8.15, 8.16, 8.17, 8.28a; Layer 6.
 
 - `jacobiEisenstein_zero`: Zero seed gives zero series.
 - `jacobiEisenstein_scalar`: Scaling the seed scales the series.
@@ -2683,7 +2621,7 @@ Prove `whittaker_continuation`: For the BFH weight-k matrix coefficients and eit
 
 Prove `whittaker_rapid_decay`: On compact parameter sets in Re s>3/2, for ε=±1 there are C and a Schwartz function ξ on R² with ||W^ε(y₁,y₂;s)||≤(y₁y₂)^−C ξ(y₁,y₂), y₁,y₂>0; the corresponding differentiated estimates hold where the convolution argument applies. The degenerate W⁰ does not have this two-variable decay conclusion.
 
-(BFH90, §3, pp.566–567, Proposition 3.6). *Needs:* 8.38, `AS.1`, `AF.1`.
+(BFH90, §3, pp.566–567, Proposition 3.6). *Needs:* 8.38; AutomorphicSpectralTheory §1.3; AutomorphicFormsOnReductiveGroups §§0.3–0.4.
 
 Source gap. The differentiated rapid-decay argument requires the exact JPSS Whittaker estimate and its specialization to the stated genuine archimedean K-type.
 
@@ -2697,7 +2635,7 @@ Prove `degenerate_whittaker_continuation`: W⁰ continues holomorphically to Re 
 
 Define `testCoefficientAlgebra` as follows. Let R_k span the finite U(2) matrix coefficients of SO(2) weight k and trivial −I action, with uniform-topology closure. The weight-zero coefficients φ₁=detB=|det(X+iI)|⁻¹, φ₂=(det(X)²−1)x₁/|det(X+iI)|⁴, φ₃=x₃(1−detX)/|det(X+iI)|² preserve R_k by multiplication. They extend globally as compact-group coefficients. In the U(2) model φ₁(q)=det(Im q) can change sign; φ=φ₁ψ must hold on all K, including the chart boundary.
 
-(BFH90, §3, pp.567–569, Propositions 3.7–3.8). *Needs:* 8.32, `TC60`.
+(BFH90, §3, pp.567–569, Propositions 3.7–3.8). *Needs:* 8.32; RepresentationTheory/CompactGroups Layer 5.
 
 - `testCoefficientAlgebra_mul`: R₀R_k⊆R_k via tensor product of K-types.
 - `testCoefficientAlgebra_dense`: R_k is dense in continuous weight-k compact-group functions.
@@ -2804,13 +2742,13 @@ Source gap. BFH Proposition 3.15 gives no proof. Its explicit Bessel transform a
 
 Prove `similitude_heisenberg_comparison`: On H(W)=W×R with central term ω(w,w′)/2, define the GSp₄ action (w,t)↦(gw,μ(g)t). Pull back to the double cover and form H(W)⋊G̃Sp₄. The character e(mt) is fixed only when μ=1; a positive similitude transports m to μm. Specialize to the BFH slash lattices with their central phases and index m/N.
 
-(BFH90, §1, pp.546–549, (1.4)–(1.9)). *Needs:* 8.11, 8.13, 8.16, 8.17, `MP.6`.
+(BFH90, §1, pp.546–549, (1.4)–(1.9)). *Needs:* 8.11, 8.13, 8.16, 8.17; Layer 6.
 
 ### 8.52 Full real similitude extension
 
 Define `fullRealCover` as follows. With r=diag(I₂,−I₂), each negative similitude is uniquely g₊r. Set c(Z)=−conj Z. The involution (g,ρ)↦(rgr,conj(ρ∘c)) of the positive cover follows from d(rgr,Z)=conj d(g,c(Z)). Form G̃Sp₄(R)=G̃Sp₄⁺(R)⋊C₂; its projection has kernel {±1} and r has an order-two lift. Comparison with a specified adelic extension requires an additional input; BFH uses the positive component.
 
-(BFH90, §1, pp.545–546, definition of GSp⁺(4,R)). *Needs:* 8.13, `MP.4`.
+(BFH90, §1, pp.545–546, definition of GSp⁺(4,R)). *Needs:* 8.13; Layer 4.
 
 - `fullRealCover_positive`: The positive cover embeds as the identity-component subgroup.
 - `fullRealCover_kernel`: The projection kernel is exactly {±1}.
@@ -2824,9 +2762,9 @@ Define `fullRealCover` as follows. With r=diag(I₂,−I₂), each negative simi
 
 ### 8.53 Arithmetic and adelic cover compatibility
 
-Prove `arithmetic_adelic_comparison`: From MP.4’s normalized rank-two restricted-product cover and rational Sp₄(Q) splitting, construct the BFH real arithmetic lift into the adelic quotient with its Schrödinger lattice vector fixed at finite level. Match the real theta multiplier and the J change of cusp. Explicitly specify the finite multiplier, dyadic splitting for 8M|N and the extension to Qˣ similitudes before using the comparison.
+Prove `arithmetic_adelic_comparison`: From Layer 4’s normalized rank-two restricted-product cover and rational Sp₄(Q) splitting, construct the BFH real arithmetic lift into the adelic quotient with its Schrödinger lattice vector fixed at finite level. Match the real theta multiplier and the J change of cusp. Explicitly specify the finite multiplier, dyadic splitting for 8M|N and the extension to Qˣ similitudes before using the comparison.
 
-(BFH90, §1, pp.545–549; §2, p.553, (2.6)). *Needs:* 8.52, 8.15, 8.24, `MP.1`, `MP.2`, `MP.4`.
+(BFH90, §1, pp.545–549; §2, p.553, (2.6)). *Needs:* 8.52, 8.15, 8.24; 2.4b; Layer 2; Layer 4.
 
 Source gap. Specify the rank-two adelic similitude extension, dyadic lattice splitting and its real positive-component identification before using the comparison.
 
@@ -2915,28 +2853,31 @@ Define `fourierUnfoldingKernel` as follows. For Y=QQᵀ positive definite, Z=X+i
 - H of zero is zero.
 - At X=0,Y=I₂ the root factor is 1.
 - N=8,m=16,j=1,R=(0,1),U=0 gives T=diag(0,1/8); its two exponent terms cancel.
+- At Z=iI₂, R=0 the Gaussian integral is 1/2 for m=1 and 1/4 for m=2; a prefactor 1/m would give 1 and 1/2, and the theta-pairing denominator 4a has no role here.
 
-Normalization gap. The formal kernel has the source prefactor 1/(2mN³). Its identification with Fourier coefficients must be rederived using the explicit Lebesgue theta pairing in 8.21 and the reciprocal projection in 8.27; the printed Gaussian factor alone does not certify this unfolding normalization.
+*Where the prefactor comes from.* Unfolding B₁ (8.20, with its factor N⁻³) along the coset sum of 8.31 replaces the W-integral over [0,1)² by an integral over ℝ², and translating X by −C⁻¹D turns the X-integral into one over ℝ³ (BFH90 pp.580–582). The only W-integral is the real Gaussian Fourier transform
+
+```text
+∫_{ℝ²} e(−m Z⁻¹[W] − RᵀW) dW = √(−det Z)/(2m) · e(Z[R]/(4m)),
+```
+
+for Z∈H₂ and m>0, with the principal root (positive at Z=iY; det(Z/i) never meets (−∞,0] on H₂ in degree two), which is a Gaussian integral with matrix 2πimZ⁻¹ (BFH90 p.581). Hence (2mN³)⁻¹=N⁻³·(2m)⁻¹. The theta pairing of 8.21 and the projection of 8.27 do not enter this kernel or 8.63–8.69; they enter only through the theta components, whose expansion 8.23 is read off from Fourier coefficients and does not depend on the pairing's norm. Prove `gaussianFourier_genusTwo` (the display).
 
 ### 8.63 Cusp-one full-rank Fourier unfolding
 
 Prove `cusp_one_unfolding`: For Re s large and g=[[Q,XQ⁻ᵀ],[0,Q⁻ᵀ]], B₁(g;T,R)=Σ_{detC≠0,C₁₂≡0(N)/left Γ⁰(N)}S₁(C;T,R)|detC|^−sH(Q,s;C,T,R). Primitivity and D≡0 modN force full rank in this cusp. The condition is C₁₂≡0 modN.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §5, pp.580–582, Proposition 5.1). *Needs:* 8.20, 8.61, 8.62, 8.31.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §5, pp.580–582, Proposition 5.1). *Needs:* 8.20, 8.61, 8.62, 8.31, 8.28a.
 
 ### 8.64 Cusp-zero Fourier rank expansion
 
 Prove `cusp_zero_rank_expansion`: For Re s sufficiently large, B₀ is the full-rank sum Σ_{C nonsingular,C≡0N / left Γ₀(N)}S₀(C;T,R)|detC|^−s N³H(Q,s;C,NT,NR), plus the rank-one coset contribution, plus δ_{NR/(2m)∈Z²}detY^(s/2)∫_{X mod integral symmetric} [I(g)+I(m(η)g)]e(N²Z[R]/(4m)−tr(TZ))dX. The rank-one term is the original coset sum with rank C=1, before its cuspidal Whittaker cancellation.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §5, pp.582–583, Proposition 5.2). *Needs:* 8.63, 8.58.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §5, pp.582–583, Proposition 5.2). *Needs:* 8.63, 8.58, 8.28a.
 
 ### 8.65 Genus-two Whittaker coefficient extraction
 
@@ -2958,9 +2899,9 @@ Define `whittakerCoefficientExtraction` as follows. For ν=(0,r), D∈Z, n₂=q/
 
 Define `bfhLDirichletSeries` as follows. For the preceding parameters and the original normalized newform f with Fourier coefficients a(n), set L(s,D,n₂)=Σ_{α,δ>0; β mod Nδ;N|β;α|Nn₂δ} S₁([[α,β],[0,δ]];U₁(n₁),ν)(αδ)^−s(α/δ)^(k/2)a(Nn₂δ/α)e(n₂β/α). Put L(s,D)=L(s,D,N⁻¹). Positive real powers use the real logarithm. The congruence and divisibility constraints are part of the actual summation set.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §6, pp.583–584; §7, p.589, (7.1)). *Needs:* 8.61, 8.65, `TC54`, `TC55`.
+(BFH90, §6, pp.583–584; §7, p.589, (7.1)). *Needs:* 8.61, 8.65, 8.28a; ModularForms Layer 2; ModularForms Layer 4.
 
 - `bfhLDirichletSeries_scalar`: Scaling a scales L.
 - `bfhLDirichletSeries_identity_term`: The α=δ=1,β=0 term is a(q) when n₂=q/N.
@@ -2976,9 +2917,9 @@ The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥
 
 Define `bfhPDirichletSeries` as follows. For 4m|D, set P(s,D,n₂,r)=Σ_{μ mod 2m/N}e(−Nν·μ/(2m))Σ_{γ∈Γ₀(N)\SL₂(Z)}Σ_{αδ>0;β mod δ;α|Nn₂δ} S₀(Nγ⁻ᵀCw;T,μ)(N²αδ)^−s(α/δ)^(k/2)a_γ(Nn₂δ/α)e(n₂β/α), C=[[α,β],[0,δ]], T=(U₀(−D)+N²μμᵀ)/(4m), and omit a term when T is not half integral. The a_γ are the Fourier coefficients of the actual transformed elliptic seed at the indicated cusp; w=[[0,−1],[1,0]]. Put P(s,D,r)=P(s,D,N⁻¹,r). Extend P by zero outside its allowed condition 4m|D; this convention makes the non-integral-index tests unambiguous.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §6, pp.585–586, definition of P). *Needs:* 8.61, 8.66, `TC56`.
+(BFH90, §6, pp.585–586, definition of P). *Needs:* 8.61, 8.66, 8.28a; ModularForms Layer 6.
 
 - `bfhPDirichletSeries_scalar`: P is linear in all the transformed cusp coefficient sequences.
 - `bfhPDirichletSeries_residue`: P is periodic in r modulo 2m/N.
@@ -2994,21 +2935,17 @@ The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥
 
 Prove `first_cusp_whittaker_expansion`: In the common initial convergence chamber, for D≠0 the extracted coefficient is (n₂|D|/(4m))^(s−4)n₂^−k/2 e(iy₁D/(4m)) L(s,D,n₂) W^{sgn D}(|D|y₁/(4m),n₂y₂;s). For D=0 it is n₂^(s−4−k/2)L(s,0,n₂)W⁰(y₁,n₂y₂;s). These are vector identities, and applying T preserves them under convergence.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §6, pp.584–585, Proposition 6.1). *Needs:* 8.63, 8.66, 8.32.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §6, pp.584–585, Proposition 6.1). *Needs:* 8.63, 8.66, 8.32, 8.28a.
 
 ### 8.69 Opposite-cusp Whittaker rank expansion
 
 Prove `opposite_cusp_whittaker_expansion`: For D≠0, C₀=N³(n₂|D|/(4m))^(s−4)n₂^−k/2 e(iy₁D/(4m))P(s,D,n₂,r)W^{sgn D}(|D|y₁/(4m),n₂y₂;s)σ(w). For D=0, C₀=N³n₂^(s−k/2−4)P(s,0,n₂,r)W⁰(y₁,n₂y₂;s)σ(w)+(y₁y₂)^s y₂^(k/2)a(Nn₂)e(in₂y₂)vσ(η). The rank-one contribution to this extracted Whittaker coefficient is zero by cuspidality.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §6, pp.586–588, Proposition 6.2). *Needs:* 8.64, 8.67, 8.68.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §6, pp.586–588, Proposition 6.2). *Needs:* 8.64, 8.67, 8.68, 8.28a.
 
 ### 8.70 Prime-power congruence counts
 
@@ -3043,11 +2980,9 @@ Prove `local_mobius_factors`: For upper triangular C=[[p^a,p^b],[0,p^d]], d≥1,
 
 Prove `unramified_euler_factors`: For n₂=N⁻¹ and p∤N, the factor is L_p(s,D)=1+Σ_{d≥1,0≤a≤d}p^(d−a)[S_p([[p^a,p^a],[0,p^d]],D)−S_p([[p^a,p^(a−1)],[0,p^d]],D)]p^(−(a+d)s−(d−a)k/2)a(p^(d−a)), with the second S_p term absent when a=0. At fundamental D₀, let a(p)=σ_p+σ_p' and σ_pσ_p'=p^(k−1). Then L_p=(1−σ_p²p^(4−k−2s))(1−σ_p'²p^(4−k−2s))(1−p^(3−2s))/[(1−χ_{D₀}(p)σ_pp^(2−k/2−s))(1−χ_{D₀}(p)σ_p'p^(2−k/2−s))]. At D=0 it is [(1−σ_p²p^(4−k−2s))(1−σ_p'²p^(4−k−2s))(1−p^(3−2s))]/[(1−σ_p²p^(5−k−2s))(1−σ_p'²p^(5−k−2s))(1−p^(4−2s))]. These are meromorphic identities, first proved in absolute convergence.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §7, pp.594–599, (7.20),(7.33)–(7.34), and the unnumbered D=0 formulas on p.599). *Needs:* 8.72, `AL.3`, `TC54`, `TC57`.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §7, pp.594–599, (7.20),(7.33)–(7.34), and the unnumbered D=0 formulas on p.599). *Needs:* 8.72, 8.28a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors); ModularForms Layer 2; ModularForms Layer 7.
 
 **Checks.**
 
@@ -3058,11 +2993,9 @@ Signature gap. This target uses the actual BFH arithmetic datum, newform-derived
 
 Prove `squarefactor_polynomial_bound`: For D=D₀D₁², D₀ fundamental, L(s,D)=L(s,D₀)b(s,D₁), with b a finite Dirichlet polynomial supported on p|D₁, obtained by summing the same explicit (7.20) local counts. Equivalently factor out the unramified L_p for p∤ND₁, leaving the polynomial d(s,D₁) of (7.35). For real s≥2 its coefficients have |b(s,D₁)|≪_{f,N,ε}D₁^(1/2+ε), using the weak normalized bound p^(−j(k−1)/2)|a(p^j)|≤p^(j/4+ε). Thus Σ_{D₁≥1}L(s,D₀D₁²)D₁^−2u converges for Re u>3/4; if L(2,D₀)=0 the analogous series of s-derivatives at 2 has the same convergence.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §7, pp.588–589, Proposition 7.1; pp.599–600, (7.35)). *Needs:* 8.73, `TC54`, `TC57`.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §7, pp.588–589, Proposition 7.1; pp.599–600, (7.35)). *Needs:* 8.73, 8.28a; ModularForms Layer 2; ModularForms Layer 7.
 
 **Check.** Taking an independent coefficient b(s,1)=s makes its norm unbounded on real s≥2. The finite polynomial and its newform bound are construction hypotheses, not consequences for arbitrary coefficient functions.
 
@@ -3070,15 +3003,15 @@ Signature gap. This target uses the actual BFH arithmetic datum, newform-derived
 
 Prove `theta_normal_convergence`: For a>0, on every compact subset of H₂×C² the θ_{a,ν} series and all coordinate derivatives converge absolutely and uniformly. Hence θ is jointly holomorphic and termwise differentiation, residue-class regrouping and compact-torus integration are valid. The bound uses the least eigenvalue of Im Z uniformly bounded below and bounded Im W.
 
-(BFH90, §2, pp.551–553, definition of θ and Proposition 2.1). *Needs:* 8.18, 8.10, `MP.2`.
+(BFH90, §2, pp.551–553, definition of θ and Proposition 2.1). *Needs:* 8.18, 8.10; Layer 2.
 
 ### 8.76 Genuine normalized induced-section comparison
 
 Prove `genuine_induced_comparison`: Lift the actual theta-component vector by ℰ_j(g,h)=h(iI₂)E_j(g), making the central sign genuine. On the positive Siegel Levi the root magnitude |detQ|⁻¹/² changes the I_s exponent to s−1/2; dividing by δ_P¹/²=|detQ|³/² gives normalized parameter ν=s−2. Prove an equivariant identification with Ind_{P̃}^{G̃}(π̃_f⊗|det|^(s−2)), where π̃_f is π_f twisted by the Weil determinant phase, retaining finite vectors and Haar measures.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §1, p.549, I_s; §2, pp.553–554; §8, pp.601–602). *Needs:* 8.31, 8.23, 8.13, 8.53, `AS.1`, `TC55`, `TC56`, `R16.2`.
+(BFH90, §1, p.549, I_s; §2, pp.553–554; §8, pp.601–602). *Needs:* 8.31, 8.23, 8.13, 8.53, 8.28a; AutomorphicSpectralTheory §§1.12–1.13; ModularForms Layer 4; ModularForms Layer 6; AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors).
 
 The signature `genuineThetaLift_central` proves only the central sign of a lifted function. The full `genuine_induced_comparison` needs the stated BFH newform, finite K-type and normalized induced carrier; central sign alone does not imply induced covariance.
 
@@ -3086,21 +3019,17 @@ The signature `genuineThetaLift_central` proves only the central sign of a lifte
 
 Prove `genuine_eisenstein_initial_convergence`: For the specified BFH K-type, newform, finite vector and cover measures, prove E_s and its theta-component sums converge absolutely and locally uniformly with all required derivatives for Re s>S₀, for some real S₀. Compare their absolute-value and Sobolev bounds with AS.1 Siegel-section estimates at ν=s−2 after Gaussian λ summation. The finite-cover identification must establish this comparison.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §1, p.549, definition of E_s; §5, p.580, Proposition 5.1). *Needs:* 8.76, 8.75, `AS.1`.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §1, p.549, definition of E_s; §5, p.580, Proposition 5.1). *Needs:* 8.76, 8.75, 8.28a; AutomorphicSpectralTheory §1.3.
 
 ### 8.78 Genuine Siegel intertwining operators
 
 Define `genuineIntertwiner` as follows. Define the raw Siegel intertwiner M(w,s)F(g)=∫_{N_w(A)}F(w⁻¹ng)dn in its convergence chamber, with fixed Weyl lift and self-dual root measures. It maps to Ind(π̃_f∨⊗|det|^(2−s)), hence BFH parameter 4−s. Continue between these genuine smooth spaces and compute all scalar normalizers and ramified pole divisors. Keep M in the constant term and unnormalized Eisenstein equation; replacing it by R=c(s)⁻¹M also requires renormalizing the Eisenstein family.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §8, pp.601–602, continuation and constant-term discussion). *Needs:* 8.76, 8.77, `AS.2`.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §8, pp.601–602, continuation and constant-term discussion). *Needs:* 8.76, 8.77, 8.28a; AutomorphicSpectralTheory §§2.1–2.5.
 
 - `genuineIntertwiner_equivariant`: M is G̃-equivariant between the stated induced spaces.
 - `genuineIntertwiner_integral`: In the convergence chamber M is exactly the root-group integral with the chosen Weyl lift.
@@ -3116,11 +3045,9 @@ Signature gap. This target uses the actual BFH arithmetic datum, newform-derived
 
 Prove `genuine_constant_term`: Along the Siegel unipotent radical, the genuine Eisenstein constant term is the identity section plus M(w,s) applied to the inducing section, initially in the common convergence chamber and then meromorphically. The intermediate rank-one Bruhat contribution vanishes by elliptic cuspidality. The theta/Fourier specialization recovers exactly the three boundary contributions L(s,0)M, P(s,0,r)M̃ and τ in Proposition 8.1, with their specified N and y₂ factors.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §8, pp.601–602; pp.611–614, (8.10)–(8.16)). *Needs:* 8.78, 8.64, 8.69.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §8, pp.601–602; pp.611–614, (8.10)–(8.16)). *Needs:* 8.78, 8.64, 8.69, 8.28a.
 
 **Checks.**
 
@@ -3131,21 +3058,19 @@ Signature gap. This target uses the actual BFH arithmetic datum, newform-derived
 
 Prove `genuine_eisenstein_continuation`: Prove meromorphic continuation of the genuine BFH family and E(s,F)=E(4−s,M(w,s)F), with the raw intertwiner and contragredient cusp identification. Poles come from the proved genuine constant terms. Near s=2, regularity is equivalent to regularity of those coefficients; intertwiner residues give genuine automorphic residues. Supply the cover-specific AS.2 adaptation and the original Fricke conductor M.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550–551, newform L-functions). *Needs:* 8.79, `AS.2`, `AL.3`, 8.81.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550–551, newform L-functions). *Needs:* 8.79, 8.81, 8.28a; AutomorphicSpectralTheory §§2.4–2.4a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors).
 
 ### 8.81 Opposite-cusp zero coefficient regularity
 
 Prove `opposite_cusp_zero_regularity`: For the fixed BFH arithmetic data and r, prove P(s,0,r) holomorphic near s=2 and polynomial D-growth of P(s,D,r), uniformly on compact pole-free parameter sets. Compute ramified cusp factors as L(s,0) times rational functions of p^−s, p|N, with denominators nonzero at 2. Obtain growth from the actual cover-compatible Whittaker estimates. Establish this arithmetic result independently of Eisenstein continuation.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §7, p.589, Remark following Proposition 7.1). *Needs:* 8.67, 8.60, `AL.3`, `AS.1`.
+(BFH90, §7, p.589, Remark following Proposition 7.1). *Needs:* 8.67, 8.60, 8.28a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors); AutomorphicSpectralTheory §§1.3, 2.17.
 
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem. Source gap. BFH p.589 omits the ramified-factor calculation; compute every denominator at s=2 before inferring regularity.
+*Proof route.* BFH p.589 states the regularity without the ramified calculation, and this target includes it: for each p|N express the p-part of P(s,0,r) through the local sums of 8.70–8.72 at p, as L(s,0)'s p-factor times a rational function of p^(−s), and check that each denominator is nonzero at s=2; the polynomial D-growth then follows from 8.39–8.40 uniformly on compact pole-free sets.
 
 ### 8.82 Fourier and residue interchange for genuine families
 
@@ -3175,19 +3100,33 @@ Define `twoVariableTwistSeries` as follows. Define Z^±(u,s;r)=Σ_{D∈Z,±D>0,D
 
 Prove `two_variable_polar_combination`: Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z⁺ TF⁺(u,s;N⁻¹y₂)+Z⁻ TF⁻(u,s;N⁻¹y₂)]. It continues meromorphically to Re s>3/2, Re u>0 and Re u>Re s−5/2. Near (u,s)=(1/2,2), A minus the following sum is jointly holomorphic: −N^(−s+4+k/2)L(s,0)TM(s,N⁻¹y₂)/(u−s+5/2) + N^(7−s−k/2)P(s,0,r)y₂^(2s−5)TM̃(s,N⁻¹y₂)/(u+s−5/2) + N^−s y₂^(3−s+k/2)Tτ(s,N⁻¹y₂)/(u−s+3/2). Every term uses the continued scalar transforms and fixed BFH test vector. This is joint holomorphy in two complex variables, not a collection of separate one-variable statements.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family. Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
+All objects here are built from one BFH datum (8.28a). Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
-(BFH90, §8, pp.601–614, Proposition 8.1). *Needs:* 8.83, 8.68, 8.69, 8.47, 8.46, 8.82, 8.81, 8.41, 8.45.
-
-Signature gap. This target uses the actual BFH arithmetic datum, newform-derived cusp coefficients and induced or theta-component family. An independent function of the displayed variables does not satisfy it. Construct those native carriers and their covariance/convergence interfaces before emitting the full theorem.
+(BFH90, §8, pp.601–614, Proposition 8.1). *Needs:* 8.83, 8.68, 8.69, 8.47, 8.46, 8.82, 8.81, 8.41, 8.45, 8.28a.
 
 ### 8.85 Genus-two coefficient and local-test export
 
 Prove `bsd2_export`: Export the first-cusp coefficients, unramified factor ratio, squarefactor bound, joint polar continuation, valid residue/derivative interchanges and three finite K-type existence tests. AL.3 identifies L(s,D₀)=L_N(s+k/2−2,f⊗χ_{D₀})/L_N(2s+k−4,Sym²f) for fundamental D₀ and L(s,0)=L_N(2s+k−5,Sym²f)/L_N(2s+k−4,Sym²f). At m=N rad(N),r=1 these supply RankZeroOneBSD:BSD.2. That roadmap owns twist residues, positivity, noncancellation, simultaneous local conditions and infinitude.
 
-The arithmetic BFH datum has a normalized elliptic newform f of even weight k≥2, trivial character and conductor M; 8M|N, N|m, 4m|N², with N,m>0. The auxiliary Fricke transform uses N; the original newform completion uses M. The seed is built from the specified finite-dimensional continuous K=U(2) representation σ, its SO(2) weight-k vector v, and the stated cusp covariance. Scalar formulas apply a continuous linear functional T to that vector family.
+All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §7, pp.588–589, Proposition 7.1; §9, pp.614–617). *Needs:* 8.73, 8.74, 8.84, 8.48, 8.49, 8.50, `AL.3`.
+(BFH90, §7, pp.588–589, Proposition 7.1; §9, pp.614–617). *Needs:* 8.73, 8.74, 8.84, 8.48, 8.49, 8.50, 8.28a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors).
+
+### 8.86 BFH metaplectic kernel interface
+
+Prove `bfh_halfWeightKernelComparison`: Import the genuine genus-two BFH kernel, its theta components, two-cusp Whittaker expansions, actual local test vectors and unramified Euler-factor ratio from Layer 8. Its normalized Siegel parameter is s−2 and its original newform conductor is M, while the auxiliary arithmetic level is N. Layer 7 supplies the common multiplier/Fourier conventions and compares their restriction with the rank-one half-weight theory; BSD.2 consumes Layer 8/bsd2-export and owns the final twist nonvanishing argument.
+
+Layer 8 exact arithmetic datum: even weightk≥2, trivial character,8M|N,N|m,4m|N²; vector-valued K-type and specified two-cusp transforms.
+
+(BFH90, §1 construction printed549, PDF8; §2 Proposition2.2 printed552, PDF11). *Needs:* 7.49, 6.20, 8.31, 8.23, 8.76, 8.73, 8.85.
+
+### 8.87 Ramified quadratic-twist kernel inputs
+
+Prove `quadraticTwist_kernelInputs`: For the BFH route, export the supplier’s actual ramified local character/test-vector integrals and nonzero finite K-type tests together with its normalized Euler factors. For the separate Friedberg–Hoffstein route, require the original kernel, its exact level/character restrictions, each ramified and dyadic integral, and its Fourier coefficient comparison before an identification with this common interface is asserted. The Friedberg–Hoffstein comparison requires that original kernel formula, not an identification through a formal half-weight symbol.
+
+A specified original paper route and actual newform/local vectors; original character and conductor hypotheses must be collated. No all-local-condition nonvanishing theorem is concluded here.
+
+(BFH90, §1 quadratic-twist completion, printed551, PDF10). *Needs:* 8.85, 8.48, 8.49, 8.50, 7.49; AutomorphicLFunctionsAndLocalFactors AL.1–AL.2 (ramified local theory, test vectors).
 
 ### Examples
 
@@ -3195,7 +3134,7 @@ At a=1 and Z=iI₂ the diagonal theta pairing is 1/4, and at a=2 it is 1/8; diff
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are `AF.1`, `AF.5`, `AL.3`, `AS.1`, `AS.2`, `MP.1`, `MP.2`, `MP.4`, `MP.6`, `R16.2`, `TC54`, `TC55`, `TC56`, `TC57`, `TC60`. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicFormsOnReductiveGroups §§0.3–0.4, AutomorphicFormsOnReductiveGroups §§7.2–7.3, GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors), AutomorphicSpectralTheory §§1.3, 1.12–1.13, AutomorphicSpectralTheory §§2.1–2.6, 2.4b, Layer 2, Layer 4, Layer 6, AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors), ModularForms Layer 2, ModularForms Layer 4, ModularForms Layer 6, ModularForms Layer 7, RepresentationTheory/CompactGroups Layer 5. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
 
 ## Downstream consumers
 
