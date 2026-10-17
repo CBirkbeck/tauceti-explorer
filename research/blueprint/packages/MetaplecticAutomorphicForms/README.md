@@ -553,7 +553,7 @@ Define `orthogonalSymplecticEmbedding` as follows. Equip V⊗_F W with b⊗ω an
 
 char F≠2; finite-dimensional spaces; b and ω nondegenerate. The tensor-product map can have diagonal scalar kernel, so injectivity of the product map is not asserted.
 
-(Kudla96, II.1, PDF29–30, tensor orthogonal–symplectic pair). *Needs:* 0.8; RepresentationTheory/ClassicalGroups Layer 0.
+(Kudla96, II.1, PDF29–30, tensor orthogonal–symplectic pair). *Needs:* 0.8; Tau Ceti `TauCeti.BilinForm.isometryGroup`; Mathlib `LinearMap.BilinForm.tmul`; RepresentationTheory/ClassicalGroups Layer 0 (the complex groups, for comparison).
 
 - `tensorSymplecticForm`: The form evaluates on pure tensors as b(v,v′)ω(w,w′).
 - `tensorSymplecticForm_isAlt`: For symmetric b and alternating ω, b⊗ω is alternating; this holds in every characteristic.
@@ -580,9 +580,9 @@ F is a characteristic-not-two local field; a nontrivial continuous ψ and compat
 
 Define `unitaryWeilRepresentation` as follows. On the trace-symplectic tensor of ε-Hermitian V and −ε-Hermitian W over E/F, construct compatible scalar-cover splittings from χV|F×=ωE/F^dimV and χW|F×=ωE/F^dimW. Obtain ωψ,χV,χW, track character and ψ dependence, and prove independence of the auxiliary trace-zero δ for the fixed trace pairing.
 
-Characteristic zero local F; E/F quadratic field or split étale algebra. Hermitian forms nondegenerate. Each splitting uses the matching dimension and character restriction.
+Characteristic zero local F; E/F quadratic field or split étale algebra. Hermitian forms nondegenerate. Each splitting uses the matching dimension and character restriction. The ε-Hermitian spaces are GeometryOfNumbersAndQuadraticArithmetic §2.9's `SignedHermitianSpace E V ε`, which that roadmap states for any commutative field with involution; U(V) is the group of isometries for its adjoint, and the symplectic F-space is the transfer (`signedHermitianTransfer`) of the skew-Hermitian space V⊗_E W along the trace, normalized as in GanIchino16 §4.
 
-(GanIchino16, §4 local theta setup, arXiv-v2 PDF11–12; GQT, §2.9, equation(2.2), PDF13). *Needs:* 1.3, 2.2; RepresentationTheory/ClassicalGroups Layer 0.
+(GanIchino16, §4 local theta setup, arXiv-v2 PDF11–12; GQT, §2.9, equation(2.2), PDF13). *Needs:* 1.3, 2.2; GeometryOfNumbersAndQuadraticArithmetic §2.9 (`SignedHermitianSpace`, `signedHermitianAdjoint`, `signedHermitianTransfer`).
 
 - `unitarySplitting_cocycle`: Each splitting cochain cancels the pulled-back scalar cocycle.
 - `unitarySplitting_character_change`: If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.
@@ -805,7 +805,7 @@ Define `quaternionSimilitudeEmbedding` as follows. For B=E⊕Ej, i²=u,j²=J, ta
 
 Characteristic-zero local or global F; E embedded in B; nondegenerate forms; connected similitude factor and norm-image condition retained.
 
-(IP23, AppendixA.1, (A.1)–(A.2), arXiv-v2 PDF87–89). *Needs:* 3.1; QuadraticFormInvariants §6C; RepresentationTheory/ClassicalGroups Layer 0.
+(IP23, AppendixA.1, (A.1)–(A.2), arXiv-v2 PDF87–89). *Needs:* 3.1; QuadraticFormInvariants §6C; Mathlib `QuaternionAlgebra`. The skew-Hermitian B-space V, its similitude group GU(V) and the half-trace pairing are defined in this target.
 
 - `quaternionTensor_pairing`: The pairing is half the reduced trace.
 - `quaternionSimilitude_invariant`: Matched multipliers preserve the tensor pairing.
