@@ -193,7 +193,9 @@ Automorphic induction of Hecke characters of quadratic fields to GL₂ and the s
 
 #### From GL2ModularityLifting, Layer R22.5
 
-Use §5.7, Kisin's potentially Barsotti–Tate lifting theorem over a totally real field: p>2, strong residual modularity, absolute irreducibility after restriction to F(ζ_p), and residue field 𝔽_p at each nonordinary v|p. At p=5 with projective image PGL₂(𝔽₅), keep the extra condition on its kernel and F(ζ₅). Match the ordinary quotient character or the source's indecomposable/trivial residual condition, in addition to the local type and determinant. R22.1 only builds the deformation-to-Hecke map. Applying the lifting theorem in BCGP Proposition 10.1.3 requires a modular witness satisfying these local conditions, or a separately stated theorem removing them; a generic rank-two lifting label does not supply that witness.
+Use §5.7, Kisin's potentially Barsotti–Tate lifting theorem over a totally real field: p>2, strong residual modularity, absolute irreducibility after restriction to F(ζ_p), and residue field 𝔽_p at each nonordinary v|p. At p=5 with projective image PGL₂(𝔽₅), require that the kernel of the projective residual representation does not fix F(ζ₅). Strong residual modularity includes a parallel-weight-two witness with the same residual representation, no special local component above p, and matching potential ordinarity, as well as potential Barsotti–Tate type and cyclotomic-times-finite determinant for the lift. Match the ordinary quotient character or the source's indecomposable/trivial residual condition, in addition to the local type and determinant. R22.1 only builds the deformation-to-Hecke map. These are [Kisin](#ref-kisin-2009), (3.5.4) and Theorem (3.5.5), pp. 1169–1172; a generic rank-two lifting label does not supply that witness.
+
+For BCGP's small-prime ordinary witness, import OrdinaryAutomorphicFormsAndModularityLifting, Layer R21.6, §§6.10–6.11. Its §6.11 gives a parallel-weight-two ordinary Hilbert form of trivial nebentypus from modular residual data, p∈{3,5} unramified in the totally real field, absolute irreducibility on the cyclotomic subgroup, and the specified inertia extension 0→1→ϱ̄→ε̄⁻¹→0. In the p=5 application the representation is already GL₂(𝔽₅)-valued, so the exceptional realizability hypothesis of §6.10 holds over the original field. The underlying [BLGG13](#ref-blgg-2013) Theorem A is the revised author text; arXiv:1205.4491v1 excludes this exceptional image and cannot substitute for it. Weight, determinant and the chosen local component come from the refined §6.11 export, beyond Theorem A's ordinary-lift conclusion. For the Kisin application retain the potentially crystalline weight-zero realization constructed in BLGG13 §3.2 and its descent through the chosen local lifting rings: its automorphic local component is not special. An ordinary weight-two form alone does not certify that last requirement.
 
 #### From GlobalGaloisDeformations, Layer R04.2 (universal deformation ring)
 
@@ -875,11 +877,17 @@ State the resulting comparison as `TauCeti.WeightOne.mod5_nonsolvable_modular`.
 
 Residual modularity: SBT/Taylor's moduli of elliptic curves with ϱ̄ ≅ E[5] and Moret-Bailly over a solvable extension, then solvable descent of modularity (BCGP cite Pilloni–Stroh Proposition 2.1.3). Lifts: Snowden Theorem 7.2.1; modularity of lifts: Kisin's theorem (GL2ModularityLifting).
 
+For BCGP's ordinary subcase, also assume that at each w|5 the inertia representation has its specified extension 0→1→ϱ̄→ε̄⁻¹→0. Unramifiedness of 5 makes these two inertia characters distinct, so the inertia-fixed line is stable under the decomposition group and gives local reducibility. The nonsolvable GL₂(𝔽₅) image with surjective cyclotomic determinant contains SL₂(𝔽₅); restriction to G_{E(ζ₅)} retains that subgroup and is absolutely irreducible. First obtain residual modularity by the preceding construction; then apply OrdinaryAutomorphicFormsAndModularityLifting R21.6, §6.11 to get the ordinary parallel-weight-two, trivial-nebentypus witness. Its p-adic determinant is ε⁻¹ in the present dual convention. BLGG13 Theorem A, PDF p. 1, and Theorem 3.2.1 with proof, PDF pp. 4–5, cover the exceptional image because the required GL₂(𝔽₅) model is already given. This use does not require that the cyclotomic image be adequate.
+
+When applying R22.5 to a chosen ordinary potentially Barsotti–Tate lift, dualize both the lift and this witness to the determinant-ε convention and match the ordinary quotient character and fixed determinant on each local component. The nonordinary residue-field condition is vacuous for an everywhere-ordinary lift. In the surjective mod-5 case, the scalar matrix 2I lies in the projective kernel but has determinant 4≠1; since detϱ̄=ε̄⁻¹, that kernel does not fix E(ζ₅). This verifies Kisin's additional PGL₂(𝔽₅) condition. These checks apply to the indicated ordinary components, not to arbitrary local solutions of Snowden's lifting problem.
+
+**Checks.** The full projective image is PGL₂(𝔽₅) while its cyclotomic restriction has image PSL₂(𝔽₅); the latter is exceptional for adequacy but is covered by the GL₂(𝔽₅) realization in the revised BLGG theorem. An ordinary dual filtration 0→1→V→ε⁻¹→0 becomes 0→ε→V∨→1→0, so the selected line and quotient must be transported together. A local lifting problem specifying a nonordinary component does not acquire an ordinary modular witness from this argument. An ordinary special weight-two local representation has nonzero monodromy and fails Kisin's non-special witness condition.
+
 The p = 5 case of BCGP Proposition 10.1.3.
 
-([BCGP, potential modularity](#ref-bcgp-2021), Proof of Proposition 10.1.3, p. 266 (arXiv v3); [BCGP, potential modularity](#ref-bcgp-2021), Proof of Proposition 10.1.3, p. 266 (arXiv v3); [Surconvergence, ramification et modularité](#ref-pilloni-stroh-2016), §2.1, Lemmas 2.1.1–2.1.2 and Proposition 2.1.3, pp. 9–10; [On two dimensional weight two odd representations of totally real fields](#ref-snowden-2009), §7.2, Theorem 7.2.1 and definition of a lifting problem, pp. 20–21; §3.1, (A1)–(A2), p. 6.)
+([BCGP, potential modularity](#ref-bcgp-2021), Proof of Proposition 10.1.3, p. 266 (arXiv v3); [BLGG13](#ref-blgg-2013), Theorem A, PDF p. 1, Theorem 3.2.1 and proof, PDF pp. 4–5; [Kisin](#ref-kisin-2009), (3.5.4) and Theorem (3.5.5) with proof, pp. 1169–1172; [Surconvergence, ramification et modularité](#ref-pilloni-stroh-2016), §2.1, Lemmas 2.1.1–2.1.2 and Proposition 2.1.3, pp. 9–10; [On two dimensional weight two odd representations of totally real fields](#ref-snowden-2009), §7.2, Theorem 7.2.1 and definition of a lifting problem, pp. 20–21; §3.1, (A1)–(A2), p. 6.)
 
-*Needs:* PotentialModularityAndCompatibleSystems, Layer R23.1; AutomorphicGaloisRepresentations, Layer R19.2; GL2ModularityLifting, Layer R22.5; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-ARTIN](#contract-c-artin).
+*Needs:* PotentialModularityAndCompatibleSystems, Layer R23.1; AutomorphicGaloisRepresentations, Layer R19.2; OrdinaryAutomorphicFormsAndModularityLifting, Layer R21.6, §§6.10–6.11; GL2ModularityLifting, Layer R22.5, §5.7; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-ARTIN](#contract-c-artin).
 
 <a id="buzzard-taylor-hypotheses"></a>
 ### 1.4 Finitely many points with finite image make R[1/p] reduced (Calegari–Geraghty Lemma 4.14 and the Buzzard–Taylor remark)
@@ -1109,6 +1117,10 @@ F a number field.
 State the resulting comparison as `TauCeti.Functoriality.kim_exteriorSquare`.
 
 Kim: Langlands–Shahidi method for the Levi GL₂ × GL₄ (and GL₃ × GL₄) in Spin groups and the converse theorem, giving ∧² for GL₄; Sym⁴ is extracted from ∧²(Sym³π). **Source boundary.** Henniart 2009 completes the finite-place exterior-square comparison; its primary proof and the separate archimedean comparison require exact source locators. They are required for the all-place lift, beyond Kim’s weak transfer. Gee–Taïbi use (a) in their proof of the multiplicity formula for GSp₄; BCGP Theorem 9.3.1 uses (a) with Theorem 2.9.3.
+
+The cuspidality assertion has the separate primary proof [Kim–Shahidi, Cuspidality](#ref-kim-shahidi-cuspidality-2002), §3.3, Proposition 3.3.6 and Theorem 3.3.7 with proofs, pp. 183–185; Proposition 3.3.8, p. 186, identifies the tetrahedral and octahedral cases. Their normalization is A₃=Sym³π⊗ω_π⁻¹ and A₄=Sym⁴π⊗ω_π⁻¹; character twisting preserves cuspidality. For nonmonomial π, failure of cuspidality of A₃ is detected by a nontrivial character self-twist of Adπ. If A₃ is cuspidal, failure for A₄ is detected instead by a nontrivial quadratic self-twist of A₃, and A₄ has cuspidal summands of ranks two and three. The proof uses pole detection, the generic GSp₄ lift and the GL₂×Sp₄ analytic comparison, so the theta and analytic suppliers retain these obligations. This criterion presupposes existence of the transfers; it does not supply Kim's existence proof or Henniart's local comparison.
+
+**Checks.** A tetrahedral input has noncuspidal A₃. An octahedral input has cuspidal A₃ and noncuspidal A₄ of ranks 2+3, so cuspidality of the cube alone is insufficient. Twisting either transfer by ω_π⁻¹ changes its central character but not its cuspidality.
 
 For π attached to a non-CM elliptic curve over ℚ, Sym⁴π is cuspidal on GL₅.
 
@@ -3222,6 +3234,15 @@ Siegel modularity and abelian-surface modularity consume the classical packet, d
 
 <a id="ref-kim-shahidi-2002"></a>
 - Henry H. Kim, Freydoon Shahidi. [Functorial products for GL2 × GL3 and the symmetric cube for GL2](https://arxiv.org/pdf/math/0409607v1). Ann. of Math. 155 (2002) 837–893; arXiv:math/0409607v1 (30 Sep 2004) = the published text with journal pagination
+
+<a id="ref-kim-shahidi-cuspidality-2002"></a>
+- Henry H. Kim, Freydoon Shahidi. [Cuspidality of symmetric powers with applications](https://www.math.purdue.edu/~shahidi/articles/Kim%20%26%20Shahidi%20%5B2002%2C%2021pp%5D---Cuspidality%20of%20symmetric%20powers%20with%20applications.pdf). Duke Math. J. 112 (2002), no. 1, 177–197; author's public copy with journal pagination.
+
+<a id="ref-blgg-2013"></a>
+- Thomas Barnet-Lamb, Toby Gee, David Geraghty. [Congruences between Hilbert modular forms: constructing ordinary lifts, II](https://www.ma.imperial.ac.uk/~tsg/Index_files/ordinaryHMFpostBLGGTversion.pdf). Math. Res. Lett. 20 (2013), no. 1, 67–72; revised six-page author text with provisional running pagination 10001–10006. Locators use PDF pages; arXiv:1205.4491v1 has a more restrictive exceptional-image hypothesis.
+
+<a id="ref-kisin-2009"></a>
+- Mark Kisin. [Moduli of finite flat group schemes, and modularity](https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf). Ann. of Math. (2) 170 (2009), no. 3, 1085–1180; public published text. Definition (3.5.4) and Theorem (3.5.5) use pp. 1169–1172, rather than the preprint's pp. 72–73.
 
 <a id="ref-kmsw-2014"></a>
 - Tasho Kaletha, Alberto Minguez, Sug Woo Shin, Paul-James White. [Endoscopic Classification of Representations: Inner Forms of Unitary Groups](https://arxiv.org/pdf/1409.3731v3). arXiv:1409.3731v3 (3 December 2014); not published in a journal
