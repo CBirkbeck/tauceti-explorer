@@ -32,7 +32,9 @@
       "description": "Construct the formal generic fibre AΣ,K using completed monoid charts and rational unit face overlaps. Identify its image in analytification and prove equality for complete fans, including nonprojective examples. Construct coefficient-linear power morphisms, compatible with all integral models and toric strata.",
       "requires": [
         "AnalyticToricGeometryPartII:NT.0",
-        "AdicSpacesPartII:R2"
+        "AdicSpacesPartII:R2",
+        "ShimuraCompactifications:C0",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier"
       ]
     },
     {
@@ -42,7 +44,8 @@
       "requires": [
         "AnalyticToricGeometryPartII:NT.0",
         "AnalyticToricGeometryPartII:NT.1",
-        "PerfectoidSpaces:P2"
+        "PerfectoidSpaces:P2",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier"
       ]
     },
     {
@@ -54,7 +57,8 @@
         "AnalyticToricGeometryPartII:NT.2",
         "PerfectoidSpaces:P3",
         "PerfectoidSpaces:P7",
-        "AdicEtaleGeometry:A1"
+        "AdicEtaleGeometry:A1",
+        "PerfectoidSpaces:P2"
       ]
     },
     {
@@ -65,7 +69,11 @@
         "AnalyticToricGeometryPartII:NT.3",
         "ClassicalAdicEtaleCohomology:H0",
         "ClassicalAdicEtaleCohomology:H5",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "AnalyticToricGeometryPartII:NT.1",
+        "PerfectoidSpaces:P7",
+        "ShimuraCompactifications:C0",
+        "SchemeAndStackFoundations:SF.0"
       ]
     },
     {
@@ -76,7 +84,9 @@
         "AnalyticToricGeometryPartII:NT.0",
         "AnalyticToricGeometryPartII:NT.2",
         "AnalyticToricGeometryPartII:NT.3",
-        "PerfectoidSpaces:P2"
+        "PerfectoidSpaces:P2",
+        "AnalyticToricGeometryPartII:NT.1",
+        "AdicSpacesPartII:R2"
       ]
     },
     {
@@ -86,7 +96,9 @@
       "requires": [
         "AnalyticToricGeometryPartII:NT.5",
         "SchemeAndStackFoundations:SF.5",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "AnalyticToricGeometryPartII:NT.0",
+        "ShimuraCompactifications:C0"
       ]
     }
   ],
