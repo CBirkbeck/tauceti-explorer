@@ -1,11 +1,4 @@
 /-
-Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
-The actual declarations elaborate with lean-check at the recorded pinned libraries.
-The only warnings are uses of sorry. Future signatures and tests left in comments were not
-elaborated. This is a prototype, not a formalization. The review report records its
-scope and unresolved work. Earlier compilation records apply to their earlier text.
--/
-/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ArithmeticKTheory--N.7.md` is definitive. These
 statements suggest Lean forms so that contributors and reviewers can converge on
@@ -15,11 +8,14 @@ BP-ArithmeticKTheory--N.7 (stages N.7 and N.8): prototype,
 implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The file imports Mathlib only. The round-two independent review (7 October 2026)
-corrects the expressible API signatures and tests. Its final elaboration result is
-recorded in REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md. The Gaussian span is verified;
-the cyclotomic representative-generation obligation supporting the real-quadratic
-upper bound remains a recorded gap. No certificate completion is asserted here.
+The file imports Mathlib only. Round three replaces the auxiliary cyclotomic
+route by direct Tate descent for ℚ(√5), with a norm-thirty-three cutoff and
+eleven exact finite residue-step certificates in the packet. These are planned
+proofs; no implementation or independent acceptance is claimed. The current
+negative review and its history are preserved pending independent review.
+Unavailable imports, heavy constructions and their APIs/tests are mathematical
+comments with exact suppliers. In particular no data definition is supplied by
+`sorry` in place of N.4's unavailable w-invariant.
 
 The reviewed audit AUDIT-27 records both layers as NOT BUILT. What the pinned
 libraries DO have is imported and never redefined:
@@ -40,7 +36,7 @@ libraries DO have is imported and never redefined:
 What is ABSENT from both libraries, and is therefore written out below: the word
 "regular" (a grep for "regular prime" over both trees returns nothing, and so
 does one for "Vandiver"), the Bernoulli API for N.4’s invariant w_i, Kummer's criterion, the eigenspace
-decomposition, and every K-group above the zeroth.
+decomposition, and the higher K-groups used below.
 
 Imported and never re-planned: the tame kernel and the computations of K₂ (from
 K2SymbolsBrauer T.5), the twisted coefficient modules (T.7), K₃ of the integers
@@ -81,7 +77,7 @@ namespace TauCeti.ArithKTheory
 
 /-! ## N.7 Regular primes and Bernoulli numbers -/
 
-/-- N.7/bernoulli-conventions: this roadmap's convention is Mathlib's `bernoulli`
+/-- ArithmeticKTheory:N.7/bernoulli-conventions: this roadmap's convention is Mathlib's `bernoulli`
 (`B₁ = -1/2`). The SOURCE (Weibel) uses the topologists' numbers `B_k^top = |B_{2k}|`,
 which are NOT Mathlib's `bernoulli'` (that one differs from `bernoulli` only at index one).
 Reviewer's correction (REV-ArithmeticKTheory--N.7): every formula quoted from the source is
@@ -128,44 +124,26 @@ example : bernoulliTop 1 = 1 / 6 ∧ bernoulli' 1 = 1 / 2 := by sorry
 example : bernoulliTop 5 = 5 / 66 ∧ bernoulli 5 = 0 ∧
     (5 : ℤ) ∣ (bernoulli 10).num ∧ ¬ (5 : ℤ) ∣ (bernoulli 10 / 5).num := by sorry
 
-/-- N.7/w-invariant imports ArithmeticKTheory N.4/the-w-invariant and its
-finiteness, whose twist supplier is MotivicEtaleKTheory M.1. The local prototype
-below stands for that unavailable imported declaration; it is not a second
-planned definition. For positive i, `w_i(F)` is the largest `m` on whose
-`i`-th twist of the roots of unity the Galois group acts trivially. The N.7 API
-adds the Bernoulli-denominator comparison. -/
-def wInvariant (F : Type*) [Field F] [NumberField F] (i : ℕ) : ℕ := by sorry
+/- ArithmeticKTheory:N.7/w-invariant — README target: import N.4/the-w-invariant and its finiteness; twist supplier MotivicEtaleKTheory M.1. No substitute data declaration.
+For a number field F and a positive integer i, import N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant: w_i(F) is the largest integer m such that the absolute Galois group acts trivially on the i-th Tate twist of the m-th roots of unity; equivalently, w_i(F)=#H⁰(F,ℚ/ℤ(i)), using N.4’s compatible system of finite Tate twists. Over the rationals it is 2 for odd i, and for i = 2k it is the DENOMINATOR of B_{2k}/4k in the arithmetic convention (the source's 'B_k/4k' with its topologists' B_k); so w_2(Q) = 24 and w_4(Q) = 240; a prime divides w_i(Q) exactly when it is one more than a divisor of i. The invariant is what the torsion of the odd K-groups of a ring of integers is measured by, so it is the arithmetic half of the connection between Bernoulli numbers and K-theory that this layer exists to make precise.
 
-theorem wInvariant_even (F : Type*) [Field F] [NumberField F] (i : ℕ) (hi : 0 < i) :
-    Even (wInvariant F i) := by sorry
+Planning API:
+wInvariant: Reuse TauCeti.wInvariant from N.4/the-w-invariant; no new data declaration.
+wInvariant_even: For a number field F and positive weight i, 2 divides N.4’s w_i(F).
+wInvariant_odd_rat: Over the rationals it is two for odd i.
+wInvariant_even_rat: Over the rationals, for k ≥ 1, w_{2k}(Q) = the denominator of bernoulli (2k) / 4k.
+wInvariant_prime_divides: For every positive i and prime l, l divides w_i(ℚ) if and only if l−1 divides i.
+wInvariant_two_rat: Its value at i = 2 over the rationals is 24.
 
-theorem wInvariant_odd_rat (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by sorry
+Planning tests:
+w_two_rat: w_2(Q) = 24 = denominator of (1/6)/4.
+w_odd: For odd i, w_i(Q) = 2.
+w_gaussian: w_2(Q(i)) = 24.
+prime_divisibility: 7 divides w_6(Q) = 504, since 6 is divisible by 6.
+w_four_rat: w_4(Q) = 240 = denominator of bernoulli 4 / 8 = −1/240; the unconverted formula with bernoulli 2 = 1/6 would give 48.
+-/
 
-/-- Over `ℚ`, `w_{2k}` is the denominator of `B_{2k}/4k` (the source's `B_k/4k`). -/
-theorem wInvariant_even_rat (k : ℕ) (hk : 1 ≤ k) :
-    wInvariant ℚ (2 * k) = (bernoulli (2 * k) / (4 * k)).den := by sorry
-
-theorem wInvariant_prime_divides (i : ℕ) (hi0 : 0 < i) (l : ℕ) (hl : l.Prime) :
-    l ∣ wInvariant ℚ i ↔ (l - 1) ∣ i := by sorry
-
-theorem wInvariant_two_rat : wInvariant ℚ 2 = 24 := by sorry
-
-/-- w_two_rat -/
-example : wInvariant ℚ 2 = 24 ∧ (bernoulli 2 / 4).den = 24 := by sorry
-
-/-- w_odd -/
-example (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by sorry
-
-/-- w_gaussian: the twisted invariant, not the four ordinary roots of unity. -/
-example : wInvariant (CyclotomicField 4 ℚ) 2 = 24 := by sorry
-
-/-- prime_divisibility -/
-example : wInvariant ℚ 6 = 504 ∧ 7 ∣ wInvariant ℚ 6 := by sorry
-
-/-- w_four_rat: `240`, where the unconverted formula would give `48`. -/
-example : wInvariant ℚ 4 = 240 := by sorry
-
-/-- N.7/regular-prime: `p` is irregular when it divides the class number of the
+/-- ArithmeticKTheory:N.7/regular-prime: `p` is irregular when it divides the class number of the
 `p`-th cyclotomic field. Neither pinned library defines this. -/
 def IsRegularPrime (p : ℕ) : Prop :=
   ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ)
@@ -202,7 +180,7 @@ example : ¬ IsRegularPrime 37 ∧
 /-- decidable_instance -/
 example (p : ℕ) : Decidable (IsRegularPrime p) := inferInstance
 
-/-- N.7/kummer-criterion: an odd prime `p` is irregular exactly when it divides the
+/-- ArithmeticKTheory:N.7/kummer-criterion: an odd prime `p` is irregular exactly when it divides the
 numerator of one of `B_2, B_4, …, B_{p-3}` (the source's `B_k`, `k ≤ (p-3)/2`).
 Quoted from the source, which cites Washington. -/
 theorem kummer_criterion (p : ℕ) (hp : p.Prime) (hodd : Odd p) :
@@ -313,54 +291,51 @@ the certificates K₂(ℤ[i]) = 0 and K₂(𝓞_{ℚ(√5)}) ≅ (ℤ/2)², the 
 B.3, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree. Statements that need a K-group above
 degree zero are `not stated here` comments, the convention of the N.1–N.6 file.
 
-Revision for FIX-RT-BP-ArithmeticKTheory--N.7~2 (6 October 2026): the span proofs of both certificates.
-Tate's method (`N.8/tate-norm-filtration`, `N.8/tate-criterion`) proves K₂(ℤ[i]) = 0
-(`N.8/gaussian-tame-kernel-vanishes`); restriction to ℚ(ζ₅), where the tame kernel vanishes
-(Zhang–Xu, `N.8/tame-kernel-of-q-zeta-five`), transfer, and Tate's description of two-torsion prove
-that {−1, −1} and {−1, ε} generate K₂(𝓞_{ℚ(√5)}) (`N.8/real-quadratic-upper-generation`)
-once the recorded cyclotomic generation obligation is supplied. The
-arithmetic inputs of those proofs are stated below as genuine signatures; the K₂ statements are
-comments. -/
+Round-three span proofs: Tate's norm filtration and criterion give the Gaussian
+vanishing. For ℚ(√5), golden-congruence-lattices and golden-residue-section
+construct small fractions of earlier S-units; golden-large-prime-cutoff proves
+bijectivity for norm>33, and golden-finite-prime-certificates supplies all eleven
+remaining steps. Descent gives generation by ordinary unit symbols. The
+arithmetic of the field is imported from NumberFieldArithmetic and current
+Tau Ceti, never re-planned here. -/
 
 /-! ### `ArithmeticKTheory:N.8/certified-example-format` (definition) -/
 
-/-- ArithmeticData: concrete invariant values with equality proofs, without a K-group carrier.
-The equalities are actual proof obligations, not unnamed proposition fields. -/
-structure ArithmeticData (F : Type*) [Field F] [NumberField F] where
-  degree : ℕ
-  nrReal : ℕ
-  nrComplex : ℕ
-  classNumber : ℕ
-  unitRank : ℕ
-  w : ℕ → ℕ
-  degree_eq : degree = Module.finrank ℚ F
-  nrReal_eq : nrReal = NumberField.InfinitePlace.nrRealPlaces F
-  nrComplex_eq : nrComplex = NumberField.InfinitePlace.nrComplexPlaces F
-  classNumber_eq : classNumber = NumberField.classNumber F
-  unitRank_eq : unitRank = NumberField.Units.rank F
-  w_eq : ∀ i : ℕ, 0 < i → w i = wInvariant F i
+/- ArithmeticKTheory:N.8/certified-example-format — README target: needs N.4’s genuine w-values, N.6/order-certificate and K₂ from K2SymbolsBrauer T.1/T.5. No substitute data declaration.
+A certified example of this roadmap consists of three things: the ARITHMETIC DATA of the field, namely its degree, its signature, its class number, its unit rank and the invariants w_i, each with a proof or with the pinned declaration that computes it; a TAME-KERNEL CERTIFICATE (or, for an even K-group, an order certificate) in the format of ArithmeticKTheory N.6/order-certificate, that is a finite presentation with a proof that its generators span (the upper bound) and an independent lower bound — a surjection onto a group of the presented order, from symbols (the real sign, tame or Hilbert symbols), from cohomology (N.6/certificate-driven-computation) or from a complete kernel argument — so that an upper bound and a surjection are never reported as an isomorphism; and an explicit LABELLING of every number that is deduced rather than computed. The last is the rule the layer's text insists on: an order obtained from the Birch-Tate formula is a valid corollary of that formula and is labelled as one, it may not then be used as the independent test of the formula, and it may not supply either bound of a certificate that SpecialValuesBirchTate B.3 uses as that test (RT-AREA-ktheory-1/11).
 
-/-- data_from_libraries: the stored arithmetic values agree with their actual suppliers.
-This checks the arithmetic-data half; the certificate tests below still need K₂. -/
-example (F : Type*) [Field F] [NumberField F] (d : ArithmeticData F) :
-    d.degree = Module.finrank ℚ F ∧
-      d.classNumber = NumberField.classNumber F ∧ d.unitRank = NumberField.Units.rank F := by
-  sorry
--- CertifiedExample: not stated here; needs ArithmeticData, an `OrderCertificate` (ArithmeticKTheory
---   N.6/order-certificate) for the tame kernel K₂(𝓞_F) and the labelling (supplier: K2SymbolsBrauer T.1
---   for K₂; ArithmeticKTheory N.6)
--- CertifiedExample.tag: not stated here; needs CertifiedExample (the tag is computed | imported |
---   deduced, with its origin)
--- CertifiedExample.no_circularity: not stated here; needs CertifiedExample
--- CertifiedExample.admissible: not stated here; needs CertifiedExample
--- test deduced_not_evidence (non-example): not stated here; needs CertifiedExample
--- test upper_bound_only (degenerate): not stated here; needs OrderCertificate without its lower bound
--- test rationals_admissible (computation): not stated here; needs K₂(ℤ) (K2SymbolsBrauer T.5)
--- test gaussian_certified (computation): not stated here; needs CertifiedExample and K₂(ℤ[i]): no
---   generators, span by `N.8/gaussian-tame-kernel-vanishes`, lower bound onto the trivial group
--- test sqrt_five_certified (computation): not stated here; needs CertifiedExample and K₂(𝓞_{ℚ(√5)}):
---   generators {−1, −1}, {−1, ε} with relations 2g = 0, span by `N.8/real-quadratic-upper-generation`,
---   lower bound the two real sign symbols onto (ℤˣ)²; the identity 1/30 = 4/120 is tagged as B.3's test
+Planning API:
+ArithmeticData: For a number field F: natural-number fields degree, realPlaceCount, complexPlaceCount, classNumber and unitRank, and a natural-number wValue(i) for each positive i. Each field has an equality proof to its actual Mathlib invariant or the imported N.4 w_i(F); require realPlaceCount+2·complexPlaceCount=degree and unitRank=realPlaceCount+complexPlaceCount−1.
+CertifiedExample: A number field F, its ArithmeticData, N.6’s order certificate for its actual tame kernel, tags for every numerical claim, and a provenance graph naming the suppliers of both certificate bounds. The certificate contains a finite presentation, relations verified in K₂(O_F), a surjective generator map (span), and an independent finite quotient of the same order (lower bound).
+CertifiedExample.tag: The tag of a numerical claim: computed, imported or deduced.
+CertifiedExample.no_circularity: Neither certificate bound has a provenance path from the Birch–Tate formula. A claim tagged as deduced from that formula cannot be evidence for that formula.
+CertifiedExample.admissible: The arithmetic data, explicit upper bound and numerical provenance make an example admissible as an upper-bound report; it is certified only when the independent lower bound has matching order.
+
+Planning tests:
+deduced_not_evidence: An order deduced from Birch-Tate cannot be listed as a test of Birch-Tate.
+upper_bound_only: Without the lower bound (or a complete kernel argument) the example reports an upper bound, not an order.
+rationals_admissible: The rational example is admissible: its three numbers are known independently.
+data_from_libraries: Each arithmetic-data field must equal its named Mathlib or N.4 supplier; replacing the golden-field degree2 by degree3 fails its equality proof. Current NumberFieldArithmetic supplies that field’s completed arithmetic, rather than a new local development.
+gaussian_certified: The Gaussian example is certified: no generators, span by N.8/gaussian-tame-kernel-vanishes, lower bound onto the trivial group; its tame-kernel order 1 is tagged computed.
+sqrt_five_certified: The ℚ(√5) example is certified: generators {−1, −1}, {−1, ε} with relations 2g = 0, span by N.8/real-quadratic-upper-generation, lower bound the two sign symbols onto (ℤˣ)²; its order 4 is tagged computed, and the Birch–Tate identity 1/30 = 4/120 is tagged as B.3's test of it.
+-/
+
+/- ArithmeticData fields: degree, realPlaceCount, complexPlaceCount, classNumber,
+unitRank, and positive-index w-values, each accompanied by equality to the actual
+Mathlib arithmetic invariant or imported N.4 invariant. No arbitrary proposition
+or unexplained value can certify them.
+CertifiedExample fields: a number field and its certified ArithmeticData; an
+N.6/order-certificate for its actual tame kernel (finite presentation, relations,
+span proof, and independent finite lower-bound quotient with equal cardinality);
+a computed/imported/deduced tag for each result; and a provenance graph with
+source/owner information for its two bounds. Admissibility allows a labelled upper-bound report. Certification requires both
+bounds independently supplied, with matching cardinality and neither depending on Birch–Tate. Its
+no_circularity API rejects a path from Birch–Tate to either certificate bound.
+The Gaussian presentation has no generators, with span from
+gaussian-tame-kernel-vanishes. The golden presentation has generators {−1,−1}
+and {−1,ε}, exponent-two relations and span from real-quadratic-upper-generation;
+its independent sign quotient sends them to (−1,−1) and (1,−1).
+-/
 
 /- `ArithmeticKTheory:N.8/k-groups-of-the-integers`: `K₀(ℤ) = ℤ`, `K₁(ℤ) = ℤ/2`, `K₂(ℤ) = ℤ/2`,
 `K₃(ℤ) = ℤ/48`, `K₄(ℤ) = 0`, each imported: not stated here; needs `K_n` (supplier: KTheoryLowDegrees
@@ -420,8 +395,10 @@ W ⊆ C·U₁ and ⟨W⟩ = U, C·G ⊆ C·U₁ and ⟨β(G)⟩ = k(v)ˣ, 1 ∈ 
 residue at v is bijective. (b) If a, b ∈ 𝓞_F ∩ U, a ≡ b mod v and |N(a − b)| < (N v)², then
 a/b ∈ U₁ (for imaginary quadratic F: |a| + |b| < N v). (c) If the graded residue is bijective at
 every v_j with j > m₀, the tame kernel K₂(𝓞_F) lies in K₂^{S_{m₀}}(F); with m₀ = 0 it is the
-subgroup generated by the symbols of units. Sources: Browkin (2000), Theorem 1 and Lemma 4;
-Zhang–Xu (2016), Lemmas 2.1–2.2. -/
+subgroup generated by the symbols of units. Sources: Bass–Tate (1973), Appendix Proposition 1, pp. 430–431
+(volume PDF 440–441); II §3, Lemma 3.4, Claim 2, pp. 410–411
+(volume PDF 420–421). In (b), J=(a−b)v⁻¹ is integral with norm<Nv;
+this gives (a−b)/π∈U even when the localized generator π is not globally integral. -/
 
 /-! ### `ArithmeticKTheory:N.8/gaussian-tame-kernel-vanishes` (theorem)
 
@@ -471,75 +448,88 @@ T.5/relative-s-integer-sequence; KTheoryLowDegrees U.6). -/
 kernel `K₂(ℤ)` has order two: not stated here; needs `K₂` (supplier: K2SymbolsBrauer
 T.5/k2-of-the-integers, T.5/k2-of-the-rationals). -/
 
-/-! ### `ArithmeticKTheory:N.8/tame-kernel-of-q-zeta-five` (theorem)
+/- ArithmeticKTheory:N.8/golden-congruence-lattices — planning target; the heavy construction and K₂ quotient are not declared here. Suppliers: tate-norm-filtration, tate-criterion, NumberFieldArithmetic Layers 3/7 and K2SymbolsBrauer T.2/T.3/T.5. See the reader for the proof and sources.
+Let F = ℚ(√5), O = ℤ[ε], ε = (1+√5)/2, and σ₁,σ₂ its real embeddings. Put d = 2√5/π and B_t = {(z₁,z₂) ∈ ℝ² : (z₁²+z₂²)/2 ≤ t}. For a prime v of norm q, s ∈ {2,3}, and a₁,…,a_{s−1} ∈ k(v)×, define L(a) ⊆ O^s by x_j mod v = a_j (x_s mod v). Its real-embedding covolume is 5^(s/2) q^(s−1). If t > 0 and t^s ≥ d^s q^(s−1), then for every positive diagonal stretch ξ with determinant one there is a nonzero tuple of L(a) with all coordinates in ξB_t. If also t < q, every coordinate is nonzero and belongs to the preceding S-unit group U.
 
-Zhang–Xu: `K₂(ℤ[ζ₅]) = 0`: not stated here; needs K₂ of a ring (supplier: K2SymbolsBrauer T.1,
-T.5/tame-kernel-sequence). Tate's criterion holds at every place (their Theorems 3.3–3.6, with
-Skalba's generalised Thue theorem and the U_m-compatible representative selection recorded
-as gaps). This generation step remains unverified by the independent review; once supplied,
-K₂(ℤ[ζ₅]) is generated by the six symbols
-of −1, ζ and ξ = 1 + ζ + ζ²; Tate's Theorem (6.2) (MotivicEtaleKTheory M.3) leaves no element of
-order 2, and {ζ, ξ} = {ζ³, 1 − ζ³}² = 1. Arithmetic inputs: -/
+Planning API:
+GoldenCongruenceLattice: For s=2 or 3 and specified nonzero residues, the kernel L(a) of the displayed congruence map, embedded in (ℝ²)^s.
+GoldenCongruenceLattice.covolume: covolume L(a) = 5^(s/2) q^(s−1).
+GoldenCongruenceLattice.smallTuple: For t>0, t^s ≥ d^s q^(s−1), and a positive determinant-one stretch, a nonzero tuple in the product of stretched B_t.
+GoldenCongruenceLattice.oldUnits: When t<q every coordinate of the small tuple is a nonzero preceding S-unit.
 
-/-- Class number one of `ℚ(ζ₅)`, pinned in Mathlib. -/
-example (E : Type*) [Field E] [NumberField E] [IsCyclotomicExtension {5} ℚ E] :
-    IsPrincipalIdealRing (NumberField.RingOfIntegers E) :=
-  IsCyclotomicExtension.Rat.five_pid E
+Planning tests:
+golden_lattice_two: For s=2, covolume is 5q and the volume condition is t² ≥ d²q.
+golden_lattice_three: For s=3, covolume is 5√5 q² and the volume condition is t³ ≥ d³q²; replacing q² by q would fail the kernel-index calculation.
+golden_lattice_stretch: The stretch diag(2,1/2) preserves covolume and |z₁z₂|; smallTuple still gives |N(x_j)|≤t.
+golden_lattice_boundary: At v=(2), q=4, s=2 and t=q, the tuple (2,2) lies in L(1) and in B_4² but its coordinates have zero residue and are not preceding S-units. The strict inequality t<q is essential.
+-/
 
-/-- `[ℚ(ζ₅) : ℚ] = 4`, from `IsCyclotomicExtension.finrank`. -/
-example (E : Type*) [Field E] [NumberField E] [IsCyclotomicExtension {5} ℚ E] :
-    Module.finrank ℚ E = 4 := by sorry
+/- ArithmeticKTheory:N.8/golden-residue-section — planning target; the heavy construction and K₂ quotient are not declared here. Suppliers: tate-norm-filtration, tate-criterion, NumberFieldArithmetic Layers 3/7 and K2SymbolsBrauer T.2/T.3/T.5. See the reader for the proof and sources.
+For a prime v of F=ℚ(√5) with q=Nv > 4d², let U be the preceding S-units, choose a global generator π_v of v, and put U₁=⟨(1+π_v U)∩U⟩. Reduction induces β̄:U/U₁→k(v)×. For a∈k(v)× choose integral x,y∈U with residue x/y=a and x,y∈B_t, t=d√q. Define γ(a)=[x/y]∈U/U₁. This is independent of the choice and remains the same if the same determinant-one stretch is applied to x and y. Moreover β̄γ=id. More generally small fractions in ξB_t and ξ′B_t′ of equal residue represent the same class whenever 4tt′<q².
 
-/-- `2` is inert in `ℚ(ζ₅)`: it has order 4 modulo 5, and the residue field is `𝔽₁₆`. -/
-theorem cyclotomicFive_two_isPrime (E : Type*) [Field E] [NumberField E]
-    [IsCyclotomicExtension {5} ℚ E] :
-    (Ideal.span {(2 : NumberField.RingOfIntegers E)}).IsPrime := by
+Planning API:
+GoldenResidueSection: The map a↦[x/y] defined by a small integral old-unit fraction in B_(d√q).
+GoldenResidueSection.independent: Any two such choices, with arbitrary common determinant-one stretches on the two entries of each fraction, give the same class.
+GoldenResidueSection.compare: Equal-residue fractions with parameters t,t′ and 4tt′<q² give the same class in U/U₁.
+GoldenResidueSection.reduction: β̄∘γ=id on k(v)×.
+GoldenResidueSection.one: γ(1)=1.
+
+Planning tests:
+golden_section_one: For every q>4d², the witness x=y=1 gives γ(1)=1.
+golden_section_zero_difference: Comparing x/y with itself gives determinant xy−xy=0 and equality of classes without dividing by that zero difference.
+golden_section_stretched: For q>4d², the fractions obtained with ξ=diag(2,1/2) and ξ′=id for the same residue have equal classes.
+golden_section_not_representative: At v=(2), the integral old unit ε has residue of order 3; choosing its residue representative supplies neither the other residues nor multiplicativity. Those require smallTuple and the separate denominator-triple argument.
+-/
+
+/- ArithmeticKTheory:N.8/golden-large-prime-cutoff — planning target; the heavy construction and K₂ quotient are not declared here. Suppliers: tate-norm-filtration, tate-criterion, NumberFieldArithmetic Layers 3/7 and K2SymbolsBrauer T.2/T.3/T.5. See the reader for the proof and sources.
+For every prime v of ℚ(√5) with q=Nv>33, β̄:U/U₁→k(v)× is an isomorphism, with inverse γ. Consequently the graded tame residue is an isomorphism at v, and every unramified element of K₂(F) lies in the symbol subgroup generated by S-units for primes of norm at most 33.
+-/
+
+/- ArithmeticKTheory:N.8/golden-finite-prime-certificates — planning target; the heavy construction and K₂ quotient are not declared here. Suppliers: tate-norm-filtration, tate-criterion, NumberFieldArithmetic Layers 3/7 and K2SymbolsBrauer T.2/T.3/T.5. See the reader for the proof and sources.
+The certificateData of this node specifies the eleven primes of O=ℤ[ε] of norm≤33, in this order: (2) of norm4, (−1+2ε) of norm5, (3) of norm9; then (3+ε),(4−ε) of norm11, (4+ε),(5−ε) of norm19, (5+ε),(6−ε) of norm29 and (5+2ε),(7−2ε) of norm31. For each step its oldUnitGenerators are −1,ε and exactly the preceding listed prime generators. The data gives residues generating k(v)×, unit-kernel witnesses, selected maximal minors and their gcd q−1. They certify β̄:U/U₁≅k(v)× at each of these eleven steps.
+
+Planning API:
+GoldenFinitePrimeCertificate: At a named listed prime: its earlier generator list, residue images, relation vectors with exact factorizations a,b,(a−b)/π_v, and selected maximal minors.
+GoldenFinitePrimeCertificate.verify: All exact factorization equalities, earlier support, residue generation, selected determinants and gcd=q−1 hold.
+GoldenFinitePrimeCertificate.sound: A verified certificate gives U/U₁≅k(v)× and a bijective graded tame residue through α.
+goldenFinitePrimeCertificates: The eleven data items stored here, with the specified order and cutoff 33.
+
+Planning tests:
+golden_finite_four: At (2), the residue of ε has order3; selected determinants 6 and −3 have gcd3=q−1, so the quotient has order3.
+golden_finite_nine: At (3), the residue polynomial is irreducible and the certified quotient has order8, not the rational-prime unit order2.
+golden_finite_tie: At the first norm11 prime, oldUnitGenerators contains no norm11 generator. At the second it contains exactly [3,1]. Supplying the second generator at the first step fails verify.
+golden_finite_bad_minor: Changing the first certificate’s selected determinant −3 to −6 fails exact determinant recomputation; a larger common divisor alone would not prove the required index3.
+-/
+
+/- ArithmeticKTheory:N.8/real-quadratic-upper-generation — planning target; the heavy construction and K₂ quotient are not declared here. Suppliers: tate-norm-filtration, tate-criterion, NumberFieldArithmetic Layers 3/7 and K2SymbolsBrauer T.2/T.3/T.5. See the reader for the proof and sources.
+For F=ℚ(√5) and ε=(1+√5)/2, the tame kernel K₂(O_F) is generated by {−1,−1} and {−1,ε}. Both generators have order dividing two, so its order is at most four. This follows from direct descent through every prime: the geometric cutoff for norm>33 and eleven exact finite unit-quotient certificates. No restriction to a cyclotomic extension, general two-torsion classification, ζ-value or Birch–Tate formula is used.
+-/
+
+/-- Arithmetic bound used by the direct norm-thirty-three cutoff. This is a
+signature over actual pinned real numbers, not a K₂ stand-in. -/
+theorem golden_cutoff_main_bound :
+    16 * (2 * Real.sqrt 5 / Real.pi) ^ 2 < 33 := by
   sorry
 
-/-- The quadratic Gauss sum: `√5 = ζ − ζ² − ζ³ + ζ⁴`, so `ℚ(√5) ⊆ ℚ(ζ₅)`. -/
-theorem sqrt_five_eq_gauss_sum (E : Type*) [Field E] (ζ : E) (hζ : IsPrimitiveRoot ζ 5) :
-    (ζ - ζ ^ 2 - ζ ^ 3 + ζ ^ 4) ^ 2 = 5 := by
+/-- The common-denominator and inverse-generator comparisons have the strict
+norm bounds needed to force earlier prime support. -/
+example (q : ℝ) (hq : 33 < q) :
+    let d := 2 * Real.sqrt 5 / Real.pi
+    d * Real.sqrt q < q ∧
+      d * q ^ ((2 : ℝ) / 3) < q ∧
+      4 * (d * Real.sqrt q) * (d * q ^ ((2 : ℝ) / 3)) < q ^ 2 ∧
+      4 * d * Real.sqrt q * q < q ^ 2 ∧ 20 * d * Real.sqrt q < q ^ 2 := by
   sorry
 
-/-! ### `ArithmeticKTheory:N.8/real-quadratic-upper-generation` (theorem)
-
-`K₂(𝓞_{ℚ(√5)}) ⊆ ⟨{−1, −1}, {−1, ε}⟩`, `ε = (1 + √5)/2`: not stated here; needs K₂ (supplier:
-K2SymbolsBrauer T.1, T.5/tame-kernel-sequence). Proof: restriction to ℚ(ζ₅) lands in
-K₂(ℤ[ζ₅]) = 0 and transfer after restriction is multiplication by 2 (K2SymbolsBrauer
-T.4/restriction-transfer-degree), so K₂(𝓞_F) is killed by 2; an element of order 2 is {−1, b}
-(Tate's Theorem (6.1), MotivicEtaleKTheory M.3); unramifiedness at the odd primes, class number one
-and the units ±εⁿ reduce b to ±εⁿ, and {−1, 2} = 1. The arithmetic inputs, for any number field
-`F` of degree 2 containing a square root `s` of 5: -/
-
-section SqrtFive
-
-variable (F : Type*) [Field F] [NumberField F] (hF : Module.finrank ℚ F = 2) (s : F)
-  (hs : s ^ 2 = 5)
-include hF hs
-
-/-- Class number one, from `RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt`
-(`|d_F| = 5 < 16`). -/
-theorem sqrtFive_isPrincipalIdealRing : IsPrincipalIdealRing (NumberField.RingOfIntegers F) := by
-  sorry
-
-/-- `2` is inert: `X² − X − 1` has no root modulo 2. -/
-theorem sqrtFive_two_isPrime : (Ideal.span {(2 : NumberField.RingOfIntegers F)}).IsPrime := by
-  sorry
-
-/-- The units are `±εⁿ`, with `ε = (1 + s)/2` the least unit greater than 1. -/
-theorem sqrtFive_units (u : (NumberField.RingOfIntegers F)ˣ) :
-    ∃ n : ℤ, ((u : NumberField.RingOfIntegers F) : F) = ((1 + s) / 2) ^ n ∨
-      ((u : NumberField.RingOfIntegers F) : F) = -((1 + s) / 2) ^ n := by
-  sorry
-
-/-- Two real places, the source of the two sign symbols of the lower bound. -/
-theorem sqrtFive_nrRealPlaces : NumberField.InfinitePlace.nrRealPlaces F = 2 := by
-  sorry
-
-end SqrtFive
-
-/-- Minkowski's bound for a real quadratic field: `|d_F| = 5 < (2 · (π/4)⁰ · 2²/2!)² = 16`. -/
-example : (5 : ℝ) < (2 * (Real.pi / 4) ^ 0 * ((2 : ℝ) ^ 2 / 2)) ^ 2 := by sorry
+/- Imported field arithmetic (not new declarations): NumberFieldArithmetic's
+ℚ(√5) example provides O=ℤ[ε], discr=5, signature(2,0), class number1,
+units ±ε^n, and the splitting laws. Current Tau Ceti has these in namespace
+TauCeti.NumberField.Sqrt5: adjoin_eq_top, discr_eq_five, nrRealPlaces_eq_two,
+isPrincipalIdealRing, classNumber_eq_one, isPrime_map_span_two and
+closure_sup_torsion_eq_top (Invariants.lean and Units.lean in
+NumberTheory/NumberField/WorkedExamples/Sqrt5). Those current files postdate
+the frozen build, so no nonexistent pinned module is imported here.
+-/
 
 /- `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`: the tame-kernel certificate
 `K₂(𝓞_{ℚ(√5)}) ≅ (ℤ/2)²`, generated by `{-1, -1}` and `{-1, ε}`, `ε = (1 + √5)/2`, with the two
@@ -554,10 +544,7 @@ of `N.8/certified-example-format`. -/
 
 end TauCeti.ArithKTheory
 
-/- Review REV-FIX-RT-AREA-ktheory-1 found that neither example supplied its span proof, and
-REV-FIX-RT-BP-ArithmeticKTheory--N.7 kept the packet open for that reason. FIX-RT-BP-
-ArithmeticKTheory--N.7~2 proposes both span proofs independently of the Birch–Tate formula.
-REV-FIX-RT-BP-ArithmeticKTheory--N.7~2 verifies the Gaussian proof and the real-quadratic
-transfer/reduction, but the latter still needs the recorded cyclotomic representative-generation
-obligation. The
-lower bound 4 for ℚ(√5) is the pair of real sign characters, as before. -/
+/- Round-three correction: the earlier cyclotomic representative-generation gap
+is bypassed by direct descent in ℚ(√5), not declared solved in Zhang–Xu's proof.
+The finite data checks and the geometric proof are distinct obligations. Neither
+certificate is inferred from a sign lower bound or a special value. -/
