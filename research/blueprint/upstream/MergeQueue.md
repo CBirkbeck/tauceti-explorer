@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T14:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T14:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -98,6 +98,7 @@ Generated 2026-10-17T14:00Z from the README supplier graph of every open pull re
 - #922 DiamondEtaleCohomology — ready; waits on #814, #818, #820, #858, #875, #908, #938
 - #928 AlgebraicModularFormsAndSerreWeights — ready; waits on #848, #849, #856, #879, #913, #938
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
+- #1035 CompletedCohomologyPartII — draft; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #944
 
 ## Wave 20
 - #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
@@ -143,3 +144,6 @@ Generated 2026-10-17T14:00Z from the README supplier graph of every open pull re
 
 ## Wave 29
 - #1018 EllipticCurveModularity — draft; waits on #1004, #1007, #1013, #1020, #849, #852, #856, #879, #913, #928
+
+## Wave 30
+- #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — draft; waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970

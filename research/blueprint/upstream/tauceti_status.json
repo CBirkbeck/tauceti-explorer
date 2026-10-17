@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T14:11Z",
+ "updated": "2026-10-17T14:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -59,7 +59,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "476cb18",
+   "head": "cf3e93e",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -418,7 +418,7 @@
   "SelmerIwasawaCohomology": {
    "stage": "pr",
    "pr": 869,
-   "head": "9b34cbb",
+   "head": "63996c4",
    "depends_on": [
     858,
     779,
@@ -428,7 +428,7 @@
    "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -570,11 +570,11 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "0cfa5c5",
+   "head": "372b6e6",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -633,11 +633,11 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "4ccbfb8",
+   "head": "ab1508e",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -793,11 +793,11 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "7577fe7",
+   "head": "2d7f7ef",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1022,7 +1022,13 @@
    "stage": "pr",
    "pr": 1036,
    "head": "82969d0",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
