@@ -11556,8 +11556,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3365",
-   "finishedAt": "2026-10-17T17:58:58Z"
+   "finishedAt": "2026-10-17T17:58:58Z",
+   "note": "deliverables arrived from an external worker on issue #3365"
   },
   {
    "id": "REV-DESIGN-PrismaticCohomologyPartII",
@@ -53429,8 +53429,56 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularityAndLanglandsExtensions~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9885",
-   "finishedAt": "2026-10-17T16:45:46Z"
+   "finishedAt": "2026-10-17T16:45:46Z",
+   "note": "deliverables arrived from an external worker on issue #9885"
+  },
+  {
+   "id": "PKG-ModularityAndLanglandsExtensions~3",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ModularityAndLanglandsExtensions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/README.md",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/Suggested.lean",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/metadata.toml",
+    "research/blueprint/handoff/PKG-ModularityAndLanglandsExtensions~3.md"
+   ],
+   "after": [
+    "REV-PKG-ModularityAndLanglandsExtensions~2"
+   ],
+   "revisionOf": "PKG-ModularityAndLanglandsExtensions",
+   "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-ModularityAndLanglandsExtensions~3",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ModularityAndLanglandsExtensions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ModularityAndLanglandsExtensions~3.md",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/review.json",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/README.md",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/Suggested.lean",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/metadata.toml"
+   ],
+   "after": [
+    "PKG-ModularityAndLanglandsExtensions~3"
+   ],
+   "avoidAccountOf": "PKG-ModularityAndLanglandsExtensions~3",
+   "independentOf": [
+    "PKG-ModularityAndLanglandsExtensions",
+    "PKG-ModularityAndLanglandsExtensions~2",
+    "PKG-ModularityAndLanglandsExtensions~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-ModularityAndLanglandsExtensions~3.md",
+   "state": "pending"
   },
   {
    "id": "PKG-MordellLawrenceVenkatesh",
@@ -54385,8 +54433,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10010",
-   "finishedAt": "2026-10-17T16:45:49Z"
+   "finishedAt": "2026-10-17T16:45:49Z",
+   "note": "deliverables arrived from an external worker on issue #10010"
   },
   {
    "id": "PKG-PrismaticCohomology",
@@ -54482,8 +54530,56 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9879",
-   "finishedAt": "2026-10-17T16:45:53Z"
+   "finishedAt": "2026-10-17T16:45:53Z",
+   "note": "deliverables arrived from an external worker on issue #9879"
+  },
+  {
+   "id": "PKG-PrismaticCohomology~3",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/packages/PrismaticCohomology/README.md",
+    "research/blueprint/packages/PrismaticCohomology/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomology/metadata.toml",
+    "research/blueprint/handoff/PKG-PrismaticCohomology~3.md"
+   ],
+   "after": [
+    "REV-PKG-PrismaticCohomology~2"
+   ],
+   "revisionOf": "PKG-PrismaticCohomology",
+   "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-PrismaticCohomology~3",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PrismaticCohomology~3.md",
+    "research/blueprint/packages/PrismaticCohomology/review.json",
+    "research/blueprint/packages/PrismaticCohomology/README.md",
+    "research/blueprint/packages/PrismaticCohomology/Suggested.lean",
+    "research/blueprint/packages/PrismaticCohomology/metadata.toml"
+   ],
+   "after": [
+    "PKG-PrismaticCohomology~3"
+   ],
+   "avoidAccountOf": "PKG-PrismaticCohomology~3",
+   "independentOf": [
+    "PKG-PrismaticCohomology",
+    "PKG-PrismaticCohomology~2",
+    "PKG-PrismaticCohomology~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~3.md",
+   "state": "pending"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
