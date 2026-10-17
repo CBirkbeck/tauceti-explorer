@@ -240,8 +240,9 @@ open _root_.NumberField
 
 variable (K : Type*) [Field K] [NumberField K]
 
-/-- The partial zeta series of an ideal class, an `LSeries` over the
-norm-indexed count of nonzero integral ideals in the class. -/
+/-- The partial zeta series of an ordinary ideal class, an `LSeries` over the
+norm-indexed count of nonzero integral ideals in the class. The narrow-class series of the README
+is the same construction over the narrow class group. -/
 def partialIdealZeta (A : ClassGroup (𝓞 K)) (s : ℂ) : ℂ :=
   LSeries (fun n => (Nat.card {I : (Ideal (𝓞 K))⁰ //
     Ideal.absNorm (I : Ideal (𝓞 K)) = n ∧ ClassGroup.mk0 I = A} : ℂ)) s
@@ -268,7 +269,7 @@ theorem rootNumber_eq_one_of_isPrimitive_of_sq_eq_one {N : ℕ} [NeZero N]
     DirichletCharacter.rootNumber χ = 1 := by
   sorry
 
-/-- Check of `quadratic-gauss-sum-sign` at `D = -4`: the root number of `χ₋₄` is `1`, i.e. its Gauss
+/-- The quadratic Gauss-sum sign at `D = -4`: the root number of `χ₋₄` is `1`, i.e. its Gauss
 sum is `2i`. -/
 example : DirichletCharacter.rootNumber (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) = 1 := by
   sorry
