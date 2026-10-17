@@ -42,7 +42,7 @@ The real reductive Harish-Chandra/globalization statements use their stated real
 
 ## Target status and Suggested file
 
-All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items and 30 planets, now with 212 specified definition/construction Checks. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records dependencies and the prior independent review; a revision does not replace that verdict with its own acceptance.
+All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items and 30 planets, now with 213 specified definition/construction Checks. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records dependencies and the accepted fourth independent target-level review, [REV-AutomorphicFormsOnReductiveGroups~4](../reviews/REV-AutomorphicFormsOnReductiveGroups~4.md). Acceptance covers the plan with its recorded remaining work; it does not close a stage or implement a target.
 
 The [Suggested file](../suggested/AutomorphicFormsOnReductiveGroups.lean) follows the current worker shape: only real-bodied light definitions and representative theorem signatures on carriers available at the pins. Full intended mathematical interfaces, including all three conclusions of `AF.4/bhr-large-weight`, remain in this reader when their carriers are not at the pins. No theorem is represented by an admitted data definition, an arbitrary proposition standing for its conclusion, or a numerical weight check.
 
@@ -324,7 +324,7 @@ Let [G] = G(F)\G(𝔸). T_N([G]) is the space of smooth left G(F)-invariant φ w
 | `Automorphic.UniformModerateGrowth.mono` | structure | T_N ⊆ T_{N'} continuously for N ≤ N'. |
 | `Automorphic.UniformModerateGrowth.hasModerateGrowth` | compatibility | Every φ ∈ T([G]) has moderate growth. |
 | `Automorphic.UniformModerateGrowth.ofParabolic` | functoriality | Constant terms give continuous maps T([G]) → T([G]_P) with a growth exponent allowed to change. Left G(F)-invariance by itself does not imply left N_P(𝔸)-invariance. |
-| `Automorphic.UniformModerateGrowth.rightTranslate` | functoriality | For a normalized continuous submultiplicative height, N≥0 and y∈G(𝔸), right translation is a linear endomorphism of T_N([G]); its level changes from J to y_f^{-1}Jy_f. |
+| `Automorphic.UniformModerateGrowth.rightTranslate` | functoriality | For a normalized continuous submultiplicative height, N≥0 and y∈G(𝔸), right translation is a linear endomorphism of T_N([G]); its level changes from J to y_fJy_f^{-1}. |
 | `Automorphic.UniformModerateGrowth.rightTranslate_seminorm` | relation | p_{N,u}(R(y)f)≤height(y)^N p_{N,Ad(y_∞^{-1})u}(f). |
 | `Automorphic.UniformModerateGrowth.derivative` | structure | Right differentiation by u∈U(𝔤_∞,ℂ) is a linear endomorphism of T_N([G]). |
 | `Automorphic.UniformModerateGrowth.derivative_val` | simp | The underlying function of the derivative operator is the actual derived right-regular action R(u)f. |
@@ -337,6 +337,7 @@ Let [G] = G(F)\G(𝔸). T_N([G]) is the space of smooth left G(F)-invariant φ w
 | `uniformModerateGrowth_const` | degenerate | 1 lies in T_0([G]); derivatives by elements of the augmentation ideal of U(𝔤) vanish. The element 1+X has positive filtered degree but sends 1 to 1, so filtered positive degree is insufficient. |
 | `uniformModerateGrowth_gl1_character` | computation | For a Hecke character χ of GL_1/ℚ, χ ∈ T_N([GL_1]) for N ≥ \|Re(shift χ)\|, and R(X)χ = ds·χ for X the generator of Lie(ℝ_{>0}). |
 | `uniformModerateGrowth_not_of_moderate` | non-example | On the positive GL₁ norm coordinate t, φ(t)=sin(exp(t²)) is bounded but its Euler derivative is not polynomially height-bounded. Equivalently, in x=log(t), use height exp(\|x\|), φ(x)=sin(exp(exp(2x))) and derivative 2exp(2x)exp(exp(2x))cos(exp(exp(2x))). The native example tests these logarithmic-coordinate bounds; AA identifies the adelic norm quotient. |
+| `uniformModerateGrowth_translation_level` | non-example | For R(y)f(g)=f(gy), a J-invariant f becomes yJy⁻¹-invariant. On S₃ acting on {0,1,2}, take J the stabilizer of 2, y=(0 1 2), j=(0 1) and f(g)=g(2) viewed in ℂ. Then R(y)f(1)=R(y)f(yjy⁻¹)=0, whereas R(y)f(y⁻¹jy)=2. The opposite conjugation fails. |
 | `uniformModerateGrowth_arthur_compat` | compatibility | On G(ℚ)\G(𝔸)^1, membership in T([G]) is Arthur's 'uniformly tempered'. |
 
 **Acceptance.**
@@ -2990,14 +2991,14 @@ Let G be connected reductive over a number field F, E ⊆ ℂ a number field spl
 
 | Name | Kind | Discriminating statement |
 |---|---|---|
-| `algWeight_gl2_dim` | computation | For GL_2/ℚ and λ = (k−2, 0), dim V_λ = k − 1. |
+| `algWeight_gl2_dim` | computation | For GL_2/ℚ, k≥2 and λ = (k−2, 0), dim V_λ = k − 1. |
 | `algWeight_zero` | degenerate | λ = 0 gives the trivial representation. |
 | `algWeight_dual_gl3` | computation | For GL_3, the dual of V_{(2,1,0)} is V_{(0,−1,−2)}. |
 | `algWeight_not_nondominant` | non-example | λ = (0, 1) for GL_2 is not dominant; there is no irreducible representation with highest weight (0,1) for the upper-triangular Borel. |
 
 **Acceptance.**
 
-- GL_2 over ℚ: λ = (k−2, 0) gives V_λ = Sym^{k−2}(std), of dimension k−1.
+- GL_2 over ℚ, k≥2: λ = (k−2, 0) gives V_λ = Sym^{k−2}(std), of dimension k−1.
 - GL_1 over a number field F: λ = (n_σ)_σ ∈ ℤ^{Hom(F,ℂ)} with V_λ the character x ↦ ∏_σ σ(x)^{n_σ}.
 
 **Intended interface scope.** README interface contract; not a claim of a declaration in Suggested. Integral split-torus characters of the native algebraic reductive group, dominance/regularity via actual roots, highest-weight comodule integration and differentiated coefficient. Duality and GL₂/GL₃ dimensions specify its normalization; the general integration supplier remains explicit.
@@ -3596,7 +3597,7 @@ Let G be Hermitian and π_∞ an irreducible essentially tempered (𝔤, K)-modu
 **Intended declarations (README targets).**
 
 - `TauCeti.Automorphic.GSp4.essentiallyTempered_of_automorphic_coherent_regular`: Part (i): ∃R>2, ∀κ, ∀π in AS discrete occurrences, ∀q, nonzero H^q and every-place Sep_R of its coefficient-determined infinitesimal character imply essentially tempered π_∞.
-- `TauCeti.Automorphic.GSp4.coherent_classification_largeWeight`: Part (ii): ∃R>0, ∀a,c satisfying the fixed-central/parity/large-negative hypotheses, ∀irreducible essentially unitary π, the H⁰/H¹ implications select the holomorphic/generic limit classes.
+- `TauCeti.Automorphic.GSp4.coherent_classification_largeWeight`: Part (ii): For fixed c, ∃R>0, ∀a satisfying the parity/large-negative hypotheses, ∀irreducible essentially unitary π, the H⁰/H¹ implications select the holomorphic/generic limit classes.
 - `TauCeti.Automorphic.GSp4.holomorphic_of_coherentH0`: Part (iii), first clause: ∀irreducible admissible Π and k≥l≥2 with matching Hodge coefficient, nonzero H⁰ gives the corresponding holomorphic discrete/limit class.
 - `TauCeti.Automorphic.GSp4.tempered_coherent_nonvanishing_iff`: Part (iii), second clause: ∀irreducible essentially tempered Π, ∀j, fixed-coefficient H^j≠0 iff one of the three listed class/degree cases; in each case finrank_ℂ H^j=1, and otherwise H^j=0.
 
@@ -4197,7 +4198,7 @@ With G compact at infinity as in AF.5/algebraic-modular-forms: (i) G(F)\G(𝔸_f
 
 **Construction or proof.**
 
-1. (i) Finiteness of class numbers (AdelicAlgebraicGroups:AA.3/class-number-finite) and discreteness of G(F) in G(𝔸_f) (compactness at infinity), so Γ_i is discrete in the compact t_iJ_ft_i⁻¹, hence finite.
+1. (i) Class-set finiteness comes from AdelicAlgebraicGroups:AA.3/class-number-finite. For stabilizers, combine arithmetic finiteness of bounded rational elements modulo the centre with the stated compact-mod-A_∞ and discrete-rational-centre hypotheses to obtain discreteness of G(F) in G(𝔸_f). Its intersection with the compact t_iJ_ft_i⁻¹ is then finite. Compactness modulo the real centre alone is insufficient; positive-unit-rank tori explain the separate central-quotient branch.
 2. (ii) A sufficiently small J_f has torsion-free projection at some v, and Γ_i embeds in it.
 3. (iii) In the prescribed A_∞-central character matching V_λ^∨, the quotient G(F_∞)/A_∞ is compact. Its finite-dimensional isotypic decomposition, followed by evaluation at g_∞=1, gives the rational-coefficient Gross dictionary. Actual compactness of G(F_∞) is not assumed; the split-central action must first be matched.
 
@@ -4249,14 +4250,14 @@ With G compact at infinity as in AF.5/algebraic-modular-forms: (i) G(F)\G(𝔸_f
 
 **Construction** `AF.5/central-character-algebraic-modular-forms`. Proposed declaration: `TauCeti.Automorphic.CentralCharacterAlgebraicModularForm`. Module: `TauCeti/Automorphic/Foundations`. Realises `AF.5`.
 
-Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. Class-number finiteness and finiteness of effective stabilizers require the stated compact-mod-centre arithmetic supplier theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.
+Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. The central-quotient class set is finite as a quotient of the ordinary finite class set from AA.3/class-number-finite. Finiteness of effective stabilizers and descent of the coefficient action require the separately stated arithmetic/central compatibility theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.
 
 **Hypotheses.** G(F_∞)/Z_G(F_∞) is compact; supply finiteness of the central-quotient class set and effective stabilizers from AA.3 under its precise arithmetic hypotheses. The central character is compatible with rational centre and the coefficient action on Z_f∩J.; Use the central quotient class set and effective stabilizer action. Do not retain the unmodified G(F)\G(𝔸_f)/J finiteness or claim its infinite rational-central stabilizers are finite.; Hecke coefficient action must extend to the chosen semigroup and commute with ψ; integral base change is asserted when the effective stabilizer orders are invertible or they act trivially at small level.
 
 **Construction or proof route.**
 
 1. The compatibility conditions make the displayed transformation law independent of central/level overlap. It defines a coefficient submodule.
-2. Use the requested central-quotient class-number theorem from AA.3. Evaluation on representatives identifies the carrier with effective-stabilizer invariants; central pairs act trivially by compatibility.
+2. The central-quotient class set is the image of the ordinary finite class set from AA.3/class-number-finite. Use the separately requested effective-stabilizer finiteness and central-character descent theorem. Evaluation on representatives then identifies the carrier with effective-stabilizer invariants; central pairs act trivially by compatibility.
 3. Extend the coefficient action to the Hecke semigroup to obtain the weighted coset sum; restriction and trace preserve ψ. Averaging finite effective stabilizers gives base change when their orders are invertible.
 
 **Direct prerequisites.** `AF.5/algebraic-modular-forms`, `AdelicAlgebraicGroups:AA.3/class-number-finite`, `AdelicAlgebraicGroups:AA.4/hecke-correspondence`
@@ -4565,6 +4566,8 @@ Consumers: `AF.5/central-character-algebraic-modular-forms`.
 Consumers: `AF.5/central-character-algebraic-modular-forms`.
 
 ## Source ledger and reading provenance
+
+The fourth independent review (17 October 2026) directly checked BCGP21 §3.10 pp.70,72–73; Pilloni pp.107–108, Theorem 15.2.2.1 and its following specialization; Pitale–Schmidt §§2.1–2.4 pp.3–7; Calegari–Geraghty §§2.0.1–2.0.2 pp.6–9 and §5.3 pp.21–23; Borel–Jacquet §§1.1–1.5 pp.189–191; and Flath pp.179–182. The cleared Corvallis and Pilloni copies were read in place. Other original-source readings and the nineteen source-finding verdicts below remain attributed to their preceding workers. This review checked their use in the contracts, without claiming a fresh audit of every cited original proof.
 
 The revision-3 review (10 October 2026) rechecked the cited target and source-issue passages in these recorded versions. Earlier broad reading ranges below remain provenance from preceding runs; this review does not assert that every original proof or every page in those ranges was read. Borel–Jacquet and Flath were read in the cleared volume in place, and no passages or files were copied.
 
@@ -5058,6 +5061,6 @@ Keep RS-04's direction AA.3 → AF.1: AA.3 proves the comparison ‖g‖_ι' ≤
 
 Export an early AF.4:local-weights prefix with algebraic-weight, coefficient-lattices, cohomological-representation, wigner-lemma and vogan-zuckerman. Its current fine-node inputs are AF.1/AF.1a, AA.1 integral models and the existing highest-weight/root suppliers; it imports no ALS or AS.5 result. Keep torsion-hecke-eigenclasses after ALS.1/ALS.3, and clozel-rationality after the actual ALS.5 comparison and AS.5 inputs, retaining its GL_n and explicitly conditional general-group scopes. ALS.5 and AS.5 comparison proofs may use the local prefix, never this rationality suffix. Coordinate with the existing ALS.5 comparison versus automorphic-applications split; preserve node ids until maintainer integration.
 
-The target catalogue has completed its independent review; its BHR large-weight signature still needs the missing parts (i) and (iii). Closure work constructs the specified supplier exports, proves the analytic/classification/arithmetic comparisons and integrates the recorded prefix splits before asserting combined stage-graph acyclicity. All seven stages retain these exact planned obligations.
+The target catalogue has completed its fourth independent review. All three BHR theorem contracts are specified, with original-proof refinements retained. Closure work constructs the specified supplier exports, proves the analytic/classification/arithmetic comparisons and integrates the recorded prefix splits before asserting combined stage-graph acyclicity. All seven stages retain these exact planned obligations.
 
 Current upstream component-finiteness input: RealAlgebraicGeometry Layer 6 provides finite connected-cell CAD over ℝ. AF’s real-points node imports it and supplies only the algebraic-group embedding/manifold compatibility. This is a roadmap input, not a declaration asserted to exist at the pin.
