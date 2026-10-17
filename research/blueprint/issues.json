@@ -4987,5 +4987,6 @@
  "FIX-PKG-AnalyticNumberTheory~adv2": 10234,
  "REV-PKG-PrismaticCohomologyPartIII~adv": 10236,
  "REV-PKG-PrismaticCohomologyPartII~adv": 10237,
- "REV-PKG-PrismaticCohomologyPartIV~adv": 10238
+ "REV-PKG-PrismaticCohomologyPartIV~adv": 10238,
+ "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2": 10242
 }
