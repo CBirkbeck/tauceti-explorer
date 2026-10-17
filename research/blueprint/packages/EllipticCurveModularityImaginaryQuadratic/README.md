@@ -1,10 +1,14 @@
 # Roadmap: modularity of elliptic curves over imaginary quadratic fields
 
-**Summary.** The goal is modularity of every elliptic curve over an imaginary quadratic field
-F for which X₀(15)(F) is finite. The condition is equivalent to rank zero for
+**Summary.** Assuming `LevelFifteenModels`, `QuadraticLevelFifteenTorsion`,
+`GenusOneModel`, `GenusOneJacobian`, `GenusOneRationalPicard`,
+`GenusOneQuadraticPoints` and `GaussianComparisonData`, prove modularity of every
+elliptic curve over an imaginary quadratic field F for which X₀(15)(F) is finite. The condition is equivalent to rank zero for
 the elliptic modular curve X₀(15) over F. It holds for ℚ(i), ℚ(√−2), ℚ(√−3)
-and ℚ(√−5), giving unconditional modularity over each of these fields. The
-theorem is Caraiani–Newton, Theorem 1.1, p.2, and Corollary 7.1.2, p.93, in
+and ℚ(√−5). The roadmap proves these conclusions under the explicit
+arithmetic hypotheses below; the four small-field rank computations remain
+targets. The source establishes the corresponding unconditional results:
+Caraiani–Newton, Theorem 1.1, p.2, and Corollary 7.1.2, p.93, in
 the version specified in the references below. The field ℚ(√−10), where
 X₀(15) has a nontorsion point, is a test that the finite-point condition has
 real mathematical content.
@@ -13,8 +17,9 @@ This roadmap starts with modularity over ℚ from
 `EllipticCurveModularity:R29.6/modularity-theorem`. It builds the applications
 of Caraiani–Newton's CM lifting theorem: modular auxiliary curves with prescribed
 reduction at 3 or 5; modularity from cyclotomic residual irreducibility; a density
-theorem for integral equations; and an analysis of quadratic points on four
-exceptional modular curves. These curves have genus one, two and three. Their
+theorem for integral equations; and the modularity consequences of quadratic-point classifications on four
+exceptional modular curves. The genus-one classification is an explicit input;
+the genus-two and bielliptic-quartic classifications remain targets. These curves have genus one, two and three. Their
 divisor arguments form reusable applications of the Picard, Jacobian and
 effective Diophantine theories supplied by the surrounding roadmaps.
 
@@ -43,7 +48,8 @@ mathematical constructions, comparisons and endpoints.
 
 This roadmap owns the Caraiani–Newton applications of CM lifting, the auxiliary
 elliptic curves with prescribed reduction, the density theorem for coefficient
-pairs, and the explicit arithmetic of the four exceptional mixed-level curves.
+pairs, the modularity arguments from the stated genus-one and level-fifteen
+arithmetic inputs, and the genus-two and bielliptic-quartic computations.
 It connects these results to modularity over fields satisfying the finite
 X₀(15)-point hypothesis. General elliptic-curve, local Galois, p-adic Hodge,
 automorphic, Picard and sieve theory belongs to the suppliers below.
@@ -81,7 +87,11 @@ invertible sheaf. Rigidification requires a section. Those constructions are
 consumed, not reconstructed.
 Their existence does not identify a rational divisor class with every rational
 Jacobian point, nor supply a Jacobian variety for a pointless curve. The
-source-specific computations below retain that distinction.
+source-specific arithmetic hypotheses and the derived comparisons retain that
+distinction. The model, torsion, genus-one Jacobian, rational-divisor descent and
+quadratic-point computations named below are supplied as mathematical hypotheses;
+proving those input facts is outside this roadmap. Their exact statements and
+sources are part of the theorem interface.
 
 Torsion and Tate-module carriers belong to `TauCetiRoadmap.EllipticCurves`,
 Layer 2, and the current library's EllipticCurve/TateModule modules, including
@@ -151,7 +161,7 @@ closed point gives its rational conjugate degree-two divisor; Sym² also contain
 sums of rational points. Use the actual divisor and Picard interfaces throughout,
 including the canonical class and infinity charts.
 
-Arithmetic outputs must have exact certificates: birational maps with inverse
+Arithmetic computations retained as targets must have exact certificates: birational maps with inverse
 identities, divisor and principal-function witnesses, algebraic rank bounds,
 saturated generators, good-reduction group calculations, residual image checks,
 and finite sieve sets with an empty bad-coset intersection. A database label,
@@ -183,7 +193,6 @@ extensions, rather than a stronger theorem inferred from a title.
 | `ModularCurvesPartII:R14.2` | Chen/de Smit–Edixhoven Jacobian correspondences and new/old projectors, plus the weak rank-equal bielliptic pullback inclusion. |
 | `EffectiveDiophantineMethods:ED.3`, `ED.6` | Certified descent, saturation, torsion, explicit models and arithmetic-output checking. |
 | `EffectiveDiophantineMethods:ED.4/relative-symmetric-chabauty`, `ED.4/symmetric-chabauty`, `ED.5/relative-symmetric-sieve` | General local differential criteria and the relative symmetric Mordell–Weil sieve; Layer 7 supplies its concrete curves, groups and finite sets. |
-| `ComputationalNumberTheory:CN.5` | Schemas for the Gaussian equation, eigenvalues, residual comparison fields and the exact Faltings–Serre test table. |
 | `ModularityAndLanglandsExtensions:ML.1` | The real-quadratic FLHS endpoint used in the all-quadratic genus-one and genus-two corollaries. |
 | `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6` | A non-CM Q-curve over a quadratic number field is modular in the Caraiani–Newton sense. The isogeny to its conjugate may be geometric; it need not be defined over that quadratic field. |
 
@@ -229,6 +238,91 @@ not new constructions requested by this roadmap.
 | `Polynomial.X`, `Polynomial.eval` | Literal quartic/sextic expressions and their evaluations; [Mathlib/Algebra/Polynomial/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Basic.lean), [Mathlib/Algebra/Polynomial/Eval/Defs.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Eval/Defs.lean). |
 | `MvPolynomial.X`, `MvPolynomial.eval₂` | Homogeneous ternary expressions and coefficient-compatible evaluation; [Mathlib/Algebra/MvPolynomial/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Basic.lean), [Mathlib/Algebra/MvPolynomial/Eval.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean). |
 | `AlgebraicGeometry.Scheme.Hom.normalization` | Relative integral-closure normalization of a quasi-compact, quasi-separated morphism; [Mathlib/AlgebraicGeometry/Normalization.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Normalization.lean). It is an ingredient of the compactification comparison. |
+
+### Explicit arithmetic hypotheses
+
+The final modularity theorem quantifies over the following named arithmetic
+inputs. They are assumptions on the specified curves, maps and divisor classes,
+with the exact source statements below; they are not construction or computation
+targets. General moduli, Picard and Galois-representation theory still comes from
+the supplier contracts above. Every theorem using these inputs carries them in
+its hypotheses, including the propagated hypotheses listed in Layer 8.
+`Suggested.lean` bundles the torsion input on actual Mathlib point groups;
+the other inputs are stated on the geometric supplier contracts.
+
+#### LevelFifteenModels
+
+**Hypothesis `LevelFifteenModels`.** There are ℚ-isomorphisms X(b3,b5)=X₀(15)≅E15 and X(s3,b5)≅Es35, with Cremona labels 15A1 and 15A3 respectively. Both have ℚ-points ℤ/2⊕ℤ/4 and rank zero, and they are ℚ-isogenous. The maps must carry j and the cusp divisors, not just identify the abstract elliptic curves. (CN, Corollary 7.1.2 proof, p.93; FLHS arXiv v4 Lemmas 15.3–15.4, p.29 (published locators cited by CN are Lemmas 5.6–5.7).)
+
+#### QuadraticLevelFifteenTorsion
+
+**Hypothesis `QuadraticLevelFifteenTorsion`.** Among quadratic number fields F, E15(F)tors strictly contains E15(ℚ) precisely for F=ℚ(i) or ℚ(√5); Es35(F)tors strictly contains Es35(ℚ) precisely for F=ℚ(√5). For the imaginary exception E15(ℚ(i)) has eight new torsion points beyond its eight rational points. No assertion of rank zero over an arbitrary F is part of this hypothesis. (CN, Corollary 7.1.2 proof, p.93; Kwon, Theorem 1(iii), pp.144–145.)
+
+#### GenusOneModel
+
+**Hypothesis `GenusOneModel`.** The smooth weighted quartic C with Y²=ns3b5Quartic(X,Z) is ℚ-isomorphic to X(ns3°,b5) and has genus 1. Its map to X(ns3,b5)≅ℙ¹ has degree 2 and coordinate x; the latter j-function is (x⁶+250x³+3125)³/x¹⁵. The Fricke w5 sends x to 5/x. The double cover is ramified at the four simple roots of X⁴+2X³−X²+10X+25, and its cusp field is ℚ(√−3), fixing the scalar −3. (CN, Proposition 7.2.1(1)–(2) and proof, pp.94–95.)
+
+#### GenusOneJacobian
+
+**Hypothesis `GenusOneJacobian`.** For C as above, JacC is ℚ-isomorphic to the elliptic curve y²=x³+3x²−720x−8100 (45A2), and JacC(ℚ)≅ℤ/2⊕ℤ/2. C(ℚ₃)=∅. Under the ℚ(√−3) identification P↦[P]−[∞−], its three nonzero rational classes are D₀=[0+]−[∞−], D₁=[P₁]−[∞−], D₂=[P₂]−[∞−], using genusOneSpecialPoints over ℚ(√−3); each has order 2 and D₀+D₁=D₂. This identifies the Jacobian over ℚ without identifying the pointless genus-one curve C with it over ℚ. (CN, Proposition 7.2.1(3) and points discussion, p.95; ns3ob5.m.)
+
+#### GenusOneRationalPicard
+
+**Hypothesis `GenusOneRationalPicard`.** Let Pic⁰(C) denote degree-zero ℚ-rational divisors modulo ℚ-rational linear equivalence, mapped injectively into JacC(ℚ). Its image is {0,D₀}≅ℤ/2, and D₁,D₂ are rational Jacobian points not represented by rational divisors. Writing s=√−3 and Ei=Di+∞++∞−, the ℚ(√−3) Riemann–Roch bases are {1,fi} with f₀=(y+s x²+5s)/x, f₁=(y+s x²−5s)/(x+2), f₂=(y+s x²−5s)/(x+5/2). These are additive numerators y+s x²±5s, as in the corresponding quadratic fiber equations. The associated rational descent conics for E₁,E₂ are u²+3v²+6v+15=0 and u²+3v²+6v+12=0, both empty over ℚ; E₀’s conic u²+3v²+6v−33=0 has the rational point (3,2). (CN, Proposition 7.2.2 and Remark 7.2.3, pp.95–96; BF §2, author PDF pp.2–4; ns3ob5.m.)
+
+#### GenusOneQuadraticPoints
+
+**Hypothesis `GenusOneQuadraticPoints`.** For any quadratic number field F, P∈C(F) other than the two points at infinity satisfies x(P)∈ℚ or x(P)x(σP)=5, where σ is the nontrivial automorphism of F/ℚ. The proof uses that P+σP is a rational effective divisor of degree 2 and its difference from ∞++∞− is either 0 or D₀ in the rational Picard image. In the nontrivial case the fiber equation (6−2sα)x²+(α²−33)x+(30−10sα)=0 has product of roots 5, with the degenerate leading-coefficient case handled separately. (CN, Proposition 7.2.4, p.96.)
+
+The coordinate labels C, D₀, D₁, D₂, ∞±, 0+, P₁ and P₂ in these
+hypotheses have exactly the meanings in §§5.3–5.4. In
+`GenusOneRationalPicard`, “rational divisors” means divisors defined over ℚ,
+modulo linear equivalence by ℚ-rational functions; it does not mean all
+Galois-fixed geometric classes. `GenusOneQuadraticPoints` is an assumed
+classification with all quadratic fields in its quantifier and both infinity
+points excluded. Its modularity consequences remain targets.
+
+**Hypothesis `GaussianComparisonData`.** For the eight extra Gaussian torsion
+points specified by `QuadraticLevelFifteenTorsion`, supply the complete
+noncuspidal j-value matching to `gaussianExceptional` by ℚ(i)-isogeny,
+conjugation and quadratic twist. Also supply a prime ℓ, an isomorphism
+ι:Q̄ℓ≅ℂ, a common ℓ-adic coefficient field with the embeddings defining
+rπ,ι, a weight-zero cuspidal automorphic representation π over ℚ(i), invariant lattices for rπ,ι and the dual Tate representation of
+`gaussianExceptional`, and the finite comparison data meeting the
+`R01.5` Faltings–Serre criterion. In particular the two continuous semisimple
+representations have the required common determinant and residual comparison,
+are unramified outside the specified finite set S, and have equal Frobenius
+characteristic polynomials at every prime of the criterion's exhaustive test
+set T disjoint from S. Exhaustiveness is the criterion's condition on T;
+an arbitrary finite matching list does not meet this hypothesis. The input
+contains finite arithmetic equalities and their admissibility data, not an
+isomorphism of the two representations or a modularity assertion. Applying
+`R01.5` and transporting along the matching table is the target
+`gaussian_exceptional_modular`. (CN, proof of Corollary 7.1.2, p.93,
+with its DGP10 reference and LMF-GAUSS curve 4050.1-c3.)
+
+**Checks of the input boundary.**
+
+- `LevelFifteenModels` includes the transported j-maps and cusp divisors;
+  an isomorphism of elliptic point groups alone cannot identify noncuspidal
+  modular points. Its isogeny gives equal ranks after every number-field
+  extension, not equality of the two rational torsion subgroups.
+- `QuadraticLevelFifteenTorsion` gives growth for E15 over ℚ(i) but none
+  for Es35 there; over the real field ℚ(√5) both grow. Over ℚ(√−10)
+  neither grows, even though the E15 point (−1,6√−10) is nontorsion.
+  The input asserts no rank-zero condition for an arbitrary quadratic field.
+- `GenusOneModel` uses Y of weight two and the scalar −3; changing the
+  scalar to 1 introduces a rational infinity point and fails the stated
+  model and local obstruction.
+- `GenusOneJacobian` and `GenusOneRationalPicard` give groups of orders four
+  and two respectively. Identifying them would make D₁ and D₂ descend as
+  rational divisors and contradict the two insoluble conics.
+- `GenusOneQuadraticPoints` allows x=1+2i with norm five. It does not assert
+  x∈ℚ for every quadratic point or σP=w₅P for a chosen lift to C.
+- `GaussianComparisonData` requires the exhaustive set T and matching of
+  all eight new points. A conductor label or one matching Euler factor does
+  not imply the comparison. The small-field rank targets are confined to
+  d∈{1,2,3,5}; the d=10 negative control rules out extending rank zero to all d.
 
 ### CM lifting and discriminant contracts
 
@@ -304,7 +398,8 @@ residual-image theory, rather than to the coefficient counting argument.
 
 Layers 1–3 assemble modularity, the independent switching construction and CM
 lifting. Layer 4 fixes the source coordinates and moduli comparisons. Layers
-5–7 analyze the exceptional curves through exact divisor arithmetic. Layer 8
+5–7 derive modularity from the stated genus-one inputs and analyze the other
+exceptional curves through exact divisor arithmetic. Layer 8
 combines the residual-image cases and the finite-level-fifteen condition. Each
 local arithmetic calculation feeds a geometric comparison before a modularity
 conclusion is drawn.
@@ -315,7 +410,7 @@ conclusion is drawn.
 | Layer 2 | Number-field prescribed-pairing specialization, independent seed and local selection, prescribed-type mod-5/mod-3 switching. |
 | Layer 3 | Elliptic CM lifting application, quadratic irreducibility criterion and density of integral equations. |
 | Layer 4 | Source-normalized Cartan models, five j-functions, the actual nonsplit conic and the common rank-one elliptic quotient. |
-| Layer 5 | Conductor-fifteen torsion and Gaussian comparison; genus-one model, rational Picard obstruction and quadratic points. |
+| Layer 5 | Finiteness transfer and Gaussian modularity from the level-fifteen inputs; genus-one modularity from the model, Picard and point-classification inputs. |
 | Layer 6 | Genus-two model, finite Jacobian, quadratic divisor classification and the √−11 exception. |
 | Layer 7 | Two bielliptic plane quartics, rank/torsion/index calculations and complete symmetric-square sieves. |
 | Layer 8 | Residual-image theorem and unrestricted modularity when X₀(15)(F) is finite, with examples. |
@@ -693,25 +788,54 @@ Layer 1 fixes the modularity vocabulary. Cartan image classification, affine coa
 
 ### 5.1 The two conductor-fifteen curves and torsion growth
 
-Identify the models together with their j-maps and cusp divisors. The rational isogeny transfers finiteness over a number field. Quadratic torsion growth is a separate theorem from quadratic rank: only the rank-zero hypothesis allows replacing all field-valued points by the listed torsion points. The eight new Gaussian points require their own orbit table.
+Use `LevelFifteenModels` with its j-maps and cusp divisors and the distinct input `QuadraticLevelFifteenTorsion`. Derive finiteness transfer by the rational isogeny. Only rank zero allows replacing all field-valued points by the listed torsion points. The eight new Gaussian points use the matching table in `GaussianComparisonData`.
 
-**`E15`** — Define E15/ℚ as WeierstrassCurve with coefficients (0,41,0,400,0), whose equation is y²=x(x+16)(x+25). Its discriminant is 207360000≠0. Identification with the modular curve and the rational group are separate theorems. (CN, Proof of Corollary 7.1.2, p.93.)
-
-*Needs:* Mathlib `WeierstrassCurve`, Mathlib `WeierstrassCurve.Δ`, Mathlib `WeierstrassCurve.IsElliptic`, Mathlib `WeierstrassCurve.baseChange`, Mathlib `WeierstrassCurve.Affine.Equation`, Mathlib `WeierstrassCurve.Affine.Point.mk`.
-
-**`Es35`** — Define Es35/ℚ as WeierstrassCurve with coefficients (0,17,0,16,0), whose equation is y²=x(x+1)(x+16). Its discriminant is 921600≠0. Identification with the modular curve and the rational group are separate theorems. (CN, Proof of Corollary 7.1.2, p.93.)
+**`E15`** — Define E15/ℚ as WeierstrassCurve with coefficients (0,41,0,400,0), whose equation is y²=x(x+16)(x+25). Its discriminant is 207360000≠0. Its identification with the modular curve and rational group is the input `LevelFifteenModels`. (CN, Proof of Corollary 7.1.2, p.93.)
 
 *Needs:* Mathlib `WeierstrassCurve`, Mathlib `WeierstrassCurve.Δ`, Mathlib `WeierstrassCurve.IsElliptic`, Mathlib `WeierstrassCurve.baseChange`, Mathlib `WeierstrassCurve.Affine.Equation`, Mathlib `WeierstrassCurve.Affine.Point.mk`.
 
-**`level_fifteen_models`** — There are ℚ-isomorphisms X(b3,b5)=X₀(15)≅E15 and X(s3,b5)≅Es35, with Cremona labels 15A1 and 15A3 respectively. Both have ℚ-points ℤ/2⊕ℤ/4 and rank zero, and they are ℚ-isogenous. In particular X₀(15)(F) is finite iff X(s3,b5)(F) is finite for any number field F. The maps must carry j and the cusp divisors, not just identify the abstract elliptic curves. (CN, Corollary 7.1.2 proof, p.93; FLHS arXiv v4 Lemmas 15.3–15.4, p.29 (published locators cited by CN are Lemmas 5.6–5.7).)
+**`Es35`** — Define Es35/ℚ as WeierstrassCurve with coefficients (0,17,0,16,0), whose equation is y²=x(x+1)(x+16). Its discriminant is 921600≠0. Its identification with the modular curve and rational group is the input `LevelFifteenModels`. (CN, Proof of Corollary 7.1.2, p.93.)
 
-*Needs:* Layer 4 `cartanCurve`, Layer 5 `E15`, Layer 5 `Es35`, EC isogenies, EC Mordell–Weil, `ED.3`.
+*Needs:* Mathlib `WeierstrassCurve`, Mathlib `WeierstrassCurve.Δ`, Mathlib `WeierstrassCurve.IsElliptic`, Mathlib `WeierstrassCurve.baseChange`, Mathlib `WeierstrassCurve.Affine.Equation`, Mathlib `WeierstrassCurve.Affine.Point.mk`.
 
-The j-map and cusp divisor are transported along the coordinate changes; the Legendre equation alone does not supply them.
+**`level_fifteen_finiteness_transfer`** — Assume `LevelFifteenModels`.
+For every number field F, X₀(15)(F) is finite iff X(s3,b5)(F) is finite,
+equivalently iff E15(F) has rank zero. Apply finite generation and invariance
+of rank under the supplied ℚ-isogeny after base change. The j-map and cusp
+divisor are transported by the assumed model maps. (CN, proof of
+Corollary 7.1.2, p.93.)
 
-**`quadratic_level_fifteen_torsion`** — Among quadratic number fields F, E15(F)tors strictly contains E15(ℚ) precisely for F=ℚ(i) or ℚ(√5); Es35(F)tors strictly contains Es35(ℚ) precisely for F=ℚ(√5). For the imaginary exception E15(ℚ(i)) has eight new torsion points beyond its eight rational points. Thus, under the rank-zero input for an imaginary F, Es35(F)=Es35(ℚ) and E15(F)=E15(ℚ) unless F=ℚ(i). No assertion of rank zero over an arbitrary F is part of this theorem. (CN, Corollary 7.1.2 proof, p.93; Kwon, Theorem 1(iii), pp.144–145.)
+*Needs:* `LevelFifteenModels`, EC isogenies, EC Mordell–Weil.
 
-*Needs:* Layer 5 `level_fifteen_models`, EC torsion, `ED.3`, `ED.6`.
+**`quadratic_level_fifteen_points`** — Assume `LevelFifteenModels` and
+`QuadraticLevelFifteenTorsion F`. If F is imaginary quadratic and X₀(15)(F)
+is finite, every Es35(F)-point comes from Es35(ℚ), and every E15(F)-point
+comes from E15(ℚ) unless F=ℚ(i). In that exceptional field exactly eight
+points lie outside the rational image. First use finiteness transfer to
+make all points torsion, then apply the assumed torsion table; it alone
+does not imply finiteness. (CN, proof of Corollary 7.1.2, p.93.)
+
+*Needs:* Layer 5 `level_fifteen_finiteness_transfer`,
+`QuadraticLevelFifteenTorsion`, EC torsion.
+
+The Lean proposition structure `QuadraticLevelFifteenTorsion F` records
+`quadratic_degree`, the growth equivalences `e15_no_growth_iff` and
+`es35_no_growth_iff`, the rational cardinalities `e15_rational_card` and
+`es35_rational_card` (both eight), and `gaussian_new_card` (eight torsion
+points outside the rational image when i²=−1 has a solution). Each is a
+proof of the explicit condition on actual point groups, rather than an
+unspecified proposition. These projections are its complete input API;
+there is no constructor theorem claiming the computed facts unconditionally.
+
+**Checks.**
+
+- Over a quadratic F with i²=−1 and no square root of 5, the input forces
+  E15 torsion growth, no Es35 torsion growth, and eight new E15 torsion points.
+- Over a quadratic F with s²=5, it forces growth for both point groups;
+  a test limited to imaginary fields would miss this second exception.
+- When F has neither square root, it forces both torsion subgroups to be
+  the images of the rational point groups. The rank-zero condition is
+  still needed for the statement about all points.
 
 ℚ(√5) is real and therefore is excluded by the final imaginary-field hypothesis. The Es35 imaginary exception is empty, not ℚ(i).
 
@@ -735,15 +859,15 @@ The defining interface consists of these named statements.
 
 ### 5.2 The Gaussian exceptional orbit
 
-Compute the long Weierstrass invariants in the existing carrier, then use a Faltings–Serre certificate for modularity. The output also matches all eight new noncuspidal E15 torsion j-values to this curve by isogeny, conjugation and quadratic twisting. The database record provides the equation and matching data, while the comparison criterion and test-set completeness come from R01.5 and CN.5.
+Compute the long Weierstrass invariants in the existing carrier. Apply the `R01.5` Faltings–Serre criterion to the finite arithmetic input `GaussianComparisonData`, then transport modularity to all eight new noncuspidal E15 torsion j-values by its isogeny, conjugation and twisting table.
 
 **`gaussianExceptional`** — For a characteristic-zero field K and i∈K with i²=−1, define gaussianExceptional(K,i) as WeierstrassCurve with coefficients (i,1,1,6+i,10−15i). Over ℚ(i) this is the LMFDB curve 4050.1-c3. Its discriminant is 58752+107136i and its j-invariant is (−47709+15363i)/256. These coefficient identities do not certify modularity. (LMF-GAUSS, LMFDB 4050.1-c3, curve data; CN Corollary 7.1.2 proof, p.93.)
 
 *Needs:* Mathlib `WeierstrassCurve`, Mathlib `WeierstrassCurve.Δ`, Mathlib `WeierstrassCurve.IsElliptic`, Mathlib `WeierstrassCurve.j`, Mathlib `WeierstrassCurve.baseChange`.
 
-**`gaussian_exceptional_modular`** — The curve gaussianExceptional over ℚ(i) is modular. Every noncuspidal j-value at the eight new E15(ℚ(i))-torsion points is the j-value of an elliptic curve obtained from gaussianExceptional by an ℚ(i)-isogeny, coefficient-field conjugation or quadratic twisting, and consequently is modular. Provide the explicit orbit/matching table and a Faltings–Serre comparison certificate for the one exceptional curve. (CN, Proof of Corollary 7.1.2, p.93, citing DGP10 and LMFDB 4050.1-c3.)
+**`gaussian_exceptional_modular`** — Assume `GaussianComparisonData` and `QuadraticLevelFifteenTorsion ℚ(i)`. The curve gaussianExceptional over ℚ(i) is modular. Every noncuspidal j-value at the eight new E15(ℚ(i))-torsion points is the j-value of an elliptic curve obtained from gaussianExceptional by an ℚ(i)-isogeny, coefficient-field conjugation or quadratic twisting, and consequently is modular. Use the assumed complete matching table and admissible finite equalities to obtain the representation isomorphism from `R01.5`; then apply Layer 1 transport. (CN, Proof of Corollary 7.1.2, p.93, citing DGP10 and LMFDB 4050.1-c3.)
 
-*Needs:* Layer 5 `gaussianExceptional`, Layer 5 `quadratic_level_fifteen_torsion`, Layer 1 `modularity_transport`, `ED.6`, `R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`, `R01.5`, `CN.5`.
+*Needs:* Layer 5 `gaussianExceptional`, `QuadraticLevelFifteenTorsion`, Layer 1 `modularity_transport`, `GaussianComparisonData`, `R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`, `R01.5`.
 
 A database flag or conductor match is not a proof of modularity. The mod-3 and mod-5 images are Borel in the database example, so quadratic_modularity cannot be invoked to bypass this certificate.
 
@@ -761,21 +885,17 @@ The defining interface consists of these named statements.
 
 ### 5.3 The weighted quartic, its quotient and special points
 
-The scalar −3 is fixed by the cusp field and determines a genuine twist. Use weighted projective coordinates at both infinity points. The double-cover quotient has coordinate x and j=b5J(x³); the Fricke relation needed for modularity is on this quotient. No choice of a lift of the involution is silently imposed on the double cover.
+Use `GenusOneModel` for the modular interpretation, quotient maps and Fricke coordinate. Its scalar −3 is fixed by the cusp field and determines a genuine twist. Retain weighted projective coordinates at both infinity points. The double-cover quotient has coordinate x and j=b5J(x³); the Fricke relation needed for modularity is on this quotient. No choice of a lift of the involution is silently imposed on the double cover.
 
 **`ns3b5Quartic`** — Define ns3b5Quartic=−3(X⁴+2X³−X²+10X+25)∈ℚ[X]. Its geometric model is the weighted projective equation Y²=−3(X⁴+2X³Z−X²Z²+10XZ³+25Z⁴) in ℙ(1,2,1); Y has weight 2, so ordinary projective homogenization is incorrect. The scalar −3 is a genuine quadratic twist fixed by the cusp field, not a removable normalization. (CN, Proposition 7.2.1(1) and proof, pp.94–95.)
 
 *Needs:* Mathlib `Polynomial.X`, Mathlib `Polynomial.eval`.
 
-**`genus_one_model`** — The smooth weighted quartic C with Y²=ns3b5Quartic(X,Z) is ℚ-isomorphic to X(ns3°,b5) and has genus 1. Its map to X(ns3,b5)≅ℙ¹ has degree 2 and coordinate x; the latter j-function is (x⁶+250x³+3125)³/x¹⁵. The Fricke w5 sends x to 5/x. The double cover is ramified at the four simple roots of X⁴+2X³−X²+10X+25, and its cusp field is ℚ(√−3), fixing the scalar −3. (CN, Proposition 7.2.1(1)–(2) and proof, pp.94–95.)
-
-*Needs:* Layer 4 `cartanCurve`, Layer 4 `small_curve_models`, Layer 5 `ns3b5Quartic`, `R13.4a`, `R01.4`, Layer 4 `nonsplit_cartan_conic`.
-
 The j-function is b5J(x³), not b5J(x); the denominator is x¹⁵.
 
-**`genusOneSpecialPoints`** — For a characteristic-zero field K and s∈K with s²=−3, define the list of weighted homogeneous coordinates ∞+=(1:s:0), ∞−=(1:−s:0), 0+=(0:5s:1), P₁=(−2:−s:1), P₂=(−5/2:5s/4:1). The construction consists of literal triples together with their lifts to C(K) via genus_one_model. Over K=ℚ(√−3) they are the points used to describe rational Jacobian classes. (CN, Points displayed before Proposition 7.2.2, p.95.)
+**`genusOneSpecialPoints`** — For a characteristic-zero field K and s∈K with s²=−3, define the list of weighted homogeneous coordinates ∞+=(1:s:0), ∞−=(1:−s:0), 0+=(0:5s:1), P₁=(−2:−s:1), P₂=(−5/2:5s/4:1). The construction consists of literal triples together with their lifts to C(K) via GenusOneModel. Over K=ℚ(√−3) they are the points used to describe rational Jacobian classes. (CN, Points displayed before Proposition 7.2.2, p.95.)
 
-*Needs:* Layer 5 `ns3b5Quartic`, Layer 5 `genus_one_model`, Jacobian A.
+*Needs:* Layer 5 `ns3b5Quartic`, `GenusOneModel`, Jacobian A.
 
 The defining interface consists of these named statements.
 
@@ -783,7 +903,7 @@ The defining interface consists of these named statements.
 - `ns3b5Quartic_degree`: Its degree is 4 and its leading coefficient is −3; the two points over infinity require a square root of −3.
 - `ns3b5Quartic_fricke`: For x≠0, x⁴·ns3b5Quartic(5/x)=25·ns3b5Quartic(x), giving the coordinate part of the Fricke involution.
 - `genusOneSpecialPoints_coordinates`: The five triples have exactly the coordinates displayed in the definition, in that order.
-- `genusOneSpecialPoints_on_curve`: All five triples satisfy the weighted quartic equation and define points on C under genus_one_model.
+- `genusOneSpecialPoints_on_curve`: All five triples satisfy the weighted quartic equation and define points on C under GenusOneModel.
 - `genusOneSpecialPoints_conjugate`: Changing s to −s exchanges ∞+ with ∞− and gives the coefficientwise conjugates of the three affine points; the construction commutes with field embeddings.
 
 **Checks.**
@@ -791,39 +911,50 @@ The defining interface consists of these named statements.
 - `ns3b5Quartic_test_zero`: ns3b5Quartic(0)=−75.
 - `ns3b5Quartic_test_minus_two`: ns3b5Quartic(−2)=−3.
 - `ns3b5Quartic_test_minus_five_half`: ns3b5Quartic(−5/2)=−75/16, agreeing with y=5√−3/4.
+- `ns3b5Quartic_test_fricke_sign`: For x=1+2i and y=3+6i, i²=−1,
+  y²=h(x), xσ(x)=5, and (5/x,5y/x²)=(1−2i,3−6i)=σP.
+  The minus lift has y=−3+6i≠3−6i while keeping that same x-coordinate.
+- `ns3b5Quartic_test_twist`: Removing −3 makes the infinity triple (1:1:0)
+  rational; with −3 its Y-coordinate would have to square to −3.
 - `genusOneSpecialPoints_test_infinity`: The first two triples have Z=0 and opposite nonzero Y=±s; the weighted equation is Y²=−3X⁴, not the ordinary cubic equation.
 - `genusOneSpecialPoints_test_zero`: For 0+, (5s)²=−75=ns3b5Quartic(0).
 - `genusOneSpecialPoints_test_p2`: For P₂, (5s/4)²=−75/16=ns3b5Quartic(−5/2).
 
 ### 5.4 Jacobian points versus rational divisor classes
 
-Construct the Jacobian using the relative Picard interface without a rational basepoint on C. Over ℚ(√−3), translate by ∞− to write the three rational two-torsion classes explicitly. The descent of complete linear systems determines which classes contain rational divisors: the two insoluble conics leave only the subgroup generated by D₀.
+Assume `GenusOneJacobian` and `GenusOneRationalPicard` with the stated relative Picard meanings. Their input data gives the actual Jacobian, the three classes over ℚ(√−3), and the descent of complete linear systems. Derive the distinction between rational divisors and rational Jacobian points without choosing a rational basepoint on C.
 
-**`genus_one_jacobian`** — For C as above, JacC is ℚ-isomorphic to the elliptic curve y²=x³+3x²−720x−8100 (45A2), and JacC(ℚ)≅ℤ/2⊕ℤ/2. C(ℚ3)=∅, hence C(ℚ)=∅. Under the ℚ(√−3) identification P↦[P]−[∞−], its three nonzero rational classes are D₀=[0+]−[∞−], D₁=[P₁]−[∞−], D₂=[P₂]−[∞−], using genusOneSpecialPoints over ℚ(√−3); each has order 2 and D₀+D₁=D₂. This identifies the Jacobian over ℚ without identifying the pointless genus-one curve C with it over ℚ. (CN, Proposition 7.2.1(3) and points discussion, p.95; ns3ob5.m.)
+**`genus_one_no_rational_point`** — Under `GenusOneModel` and
+`GenusOneJacobian`, C has no ℚ-point: a ℚ-point would base change to a
+ℚ₃-point, contrary to the assumed local obstruction. This conclusion does
+not follow from genus one or rank zero alone. (CN, point discussion after
+Proposition 7.2.1, p.95.)
 
-*Needs:* Layer 5 `genus_one_model`, Layer 5 `genusOneSpecialPoints`, Jacobian D, `ED.3`, `ED.6`.
+*Needs:* `GenusOneModel`, `GenusOneJacobian`, base change of points.
 
-The Abel–Jacobi point ∞− is only defined over ℚ(√−3); JacC/ℚ still exists by the imported relative Picard construction.
+**`genus_one_picard_comparison`** — Under `GenusOneJacobian` and
+`GenusOneRationalPicard`, the map from degree-zero rational divisors modulo
+rational linear equivalence to JacC(ℚ) has image of index two; the two
+excluded classes are D₁ and D₂. In particular this map is not surjective,
+although all three nonzero Dᵢ are rational Jacobian points. Use the given
+injective map and its image {0,D₀} inside the four-element group. (CN,
+Proposition 7.2.2 and Remark 7.2.3, pp.95–96.)
 
-**`genus_one_rational_picard`** — Let Pic⁰(C) denote degree-zero ℚ-rational divisors modulo ℚ-rational linear equivalence, mapped injectively into JacC(ℚ). Its image is {0,D₀}≅ℤ/2, and D₁,D₂ are rational Jacobian points not represented by rational divisors. For Ei=Di+∞++∞−, ℚ(√−3) Riemann–Roch bases are {1,fi} with f₀=(y+s x²+5s)/x, f₁=(y+s x²−5s)/(x+2), f₂=(y+s x²−5s)/(x+5/2). These are additive numerators y+s x²±5s, as in the corresponding quadratic fiber equations. The associated rational descent conics for E₁,E₂ are u²+3v²+6v+15=0 and u²+3v²+6v+12=0, both empty over ℚ; E₀’s conic u²+3v²+6v−33=0 has the rational point (3,2). (CN, Proposition 7.2.2 and Remark 7.2.3, pp.95–96; BF §2, author PDF pp.2–4; ns3ob5.m.)
+*Needs:* `GenusOneJacobian`, `GenusOneRationalPicard`, Jacobian A, Jacobian D.
 
-*Needs:* Layer 5 `genus_one_jacobian`, Jacobian A, Jacobian B, Jacobian D, `ED.6`.
-
-The rational Picard image has order 2 while JacC(ℚ) has order 4. The quotient by the base divisor gives degree-zero classes; no rational base point of C is assumed.
+The Abel–Jacobi point ∞− is only defined over ℚ(√−3); the assumed
+JacC/ℚ uses the imported relative Picard construction. The rational Picard
+image has order 2 while JacC(ℚ) has order 4. The quotient by the base divisor gives degree-zero classes; no rational base point of C is assumed.
 
 ### 5.5 Quadratic points and modularity
 
-The rational conjugate divisor has one of two rational Picard classes. Riemann–Roch gives rational x or norm-five x, treating the degenerate leading coefficient and the infinity points separately. Rational x gives rational j; norm-five x gives a Fricke relation between quotient images and a geometric degree-5 Q-curve. Import the Q-curve endpoint for imaginary fields and FLHS for real quadratic fields.
-
-**`genus_one_quadratic_points`** — For any quadratic number field F, P∈C(F) other than the two points at infinity satisfies x(P)∈ℚ or x(P)x(σP)=5, where σ is the nontrivial automorphism of F/ℚ. The proof uses that P+σP is a rational effective divisor of degree 2 and its difference from ∞++∞− is either 0 or D₀ in the rational Picard image. In the nontrivial case the fiber equation (6−2sα)x²+(α²−33)x+(30−10sα)=0 has product of roots 5, with the degenerate leading-coefficient case handled separately. (CN, Proposition 7.2.4, p.96.)
-
-*Needs:* Layer 5 `genus_one_rational_picard`, Layer 5 `genus_one_model`, Jacobian B, Jacobian C.
+Use `GenusOneQuadraticPoints`, whose rational-x or norm-five classification excludes the infinity points. Its source proof uses the two classes of `GenusOneRationalPicard` and treats a degenerate leading coefficient separately; that classification is an input here. Rational x gives rational j; norm-five x gives a Fricke relation between quotient images and a geometric degree-5 Q-curve. Import the Q-curve endpoint for imaginary fields and FLHS for real quadratic fields.
 
 P=(1+2i,3+6i) on C/ℚ(i) is the nonrational-x case with xσ(x)=5.
 
-**`genus_one_points_modular`** — For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(ns3°,b5) is modular. In the imaginary case rational x gives rational j through the degree-two quotient. For a nonrational affine x the classification gives x(P)x(σP)=5, so the images of P and σP in X(ns3,b5) are related by its specified Fricke w5. The quotient moduli dictionary gives a geometric degree-5 isogeny between E and its conjugate and hence a Q-curve; the Q-curve modularity supplier applies. This does not assert σP=w5P for a chosen lift on the genus-one double cover. Infinite-coordinate points use the quotient/cusp dictionary. For real quadratic F use the imported FLHS modularity theorem. (CN, Corollary 7.2.5, p.97.)
+**`genus_one_points_modular`** — Assume `GenusOneModel` and `GenusOneQuadraticPoints`. For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(ns3°,b5) is modular. In the imaginary case rational x gives rational j through the degree-two quotient. For a nonrational affine x the classification gives x(P)x(σP)=5, so the images of P and σP in X(ns3,b5) are related by its specified Fricke w5. The quotient moduli dictionary gives a geometric degree-5 isogeny between E and its conjugate and hence a Q-curve; the Q-curve modularity supplier applies. This does not assert σP=w5P for a chosen lift on the genus-one double cover. Infinite-coordinate points use the quotient/cusp dictionary. For real quadratic F use the imported FLHS modularity theorem. (CN, Corollary 7.2.5, p.97.)
 
-*Needs:* Layer 5 `genus_one_quadratic_points`, Layer 5 `genus_one_model`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6`, `ML.1`.
+*Needs:* `GenusOneQuadraticPoints`, `GenusOneModel`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6`, `ML.1`.
 
 On the quartic h(x)=−3(x⁴+2x³−x²+10x+25), both (x,y)↦(5/x,±5y/x²) induce the same quotient action. The norm-five equation alone does not choose a sign. For P=(1+2i,3+6i), σP equals the plus lift and differs from the minus lift; this is a regression against an inference from x alone, not identification of the actual modular lift.
 
@@ -833,7 +964,7 @@ On the weighted quartic over ℚ(i), P=(1+2i,3+6i) satisfies x(P)x(σP)=5. Both 
 
 ### Dependencies
 
-Layers 1, 3 and 4 supply modularity transport, quadratic lifting and the modular curves. The divisor/Picard, Riemann–Roch and Jacobian contracts supply the geometric arithmetic, certified descent supplies rational groups and torsion growth, and the Q-curve and FLHS endpoints supply the two quadratic branches.
+Layers 1, 3 and 4 supply modularity transport, quadratic lifting and the modular curves. The divisor/Picard, Riemann–Roch and Jacobian contracts supply the geometric arithmetic, the explicit arithmetic hypotheses supply the level-fifteen and genus-one data, and the Q-curve and FLHS endpoints supply the two quadratic branches.
 
 ## Layer 6: Genus-two curves and exceptional points
 
@@ -927,6 +1058,11 @@ Layers 1, 3 and 4 supply transport, quadratic lifting and modular identification
 
 ## Layer 7: Bielliptic quartics and quadratic divisors
 
+Every geometric target in this layer assumes `GenusOneModel` through the
+branch-locus comparison in `quartic_models`; the literal polynomial and linear
+coordinate identities need no such assumption. The remaining rank, torsion,
+index and sieve calculations are targets, not arithmetic inputs.
+
 ### 7.1 Homogeneous models and projective involutions
 
 Use variables X,Y,Z with indices 0,1,2. Check homogeneous coordinate transformations before passing to projective automorphisms. The second transformation squares to 25 times the identity and scales its quartic by 625; its induced projective action nevertheless has order two in characteristic zero. Smoothness, the modular identifications, j-maps and both quotient morphisms to B are further geometric comparisons.
@@ -947,9 +1083,9 @@ Use variables X,Y,Z with indices 0,1,2. Check homogeneous coordinate transformat
 
 *Needs:* Layer 7 `quartic2`, Mathlib `MvPolynomial.eval₂`.
 
-**`quartic_models`** — C1=V(quartic1) and C2=V(quartic2) are smooth nonhyperelliptic projective curves of genus 3 over ℚ, ℚ-isomorphic respectively to X(ns3°,ns5) and X(s3,ns5). Their displayed involutions are the unique nonidentity ℚ-automorphisms, and their degree-two quotient morphisms πi:Ci→B agree with the modular maps through X(ns3,ns5) under mixed_elliptic_model. All j-maps, normalization maps, quotient maps and rational base divisors are exported together. (CN, Proposition 7.4.3(1)–(2) and proof, p.100; ns3ons5.m and s3ns5.m.)
+**`quartic_models`** — Assuming `GenusOneModel` for the branch comparison, C1=V(quartic1) and C2=V(quartic2) are smooth nonhyperelliptic projective curves of genus 3 over ℚ, ℚ-isomorphic respectively to X(ns3°,ns5) and X(s3,ns5). Their displayed involutions are the unique nonidentity ℚ-automorphisms, and their degree-two quotient morphisms πi:Ci→B agree with the modular maps through X(ns3,ns5) under mixed_elliptic_model. All j-maps, normalization maps, quotient maps and rational base divisors are exported together. (CN, Proposition 7.4.3(1)–(2) and proof, p.100; ns3ons5.m and s3ns5.m.)
 
-*Needs:* Layer 4 `cartanCurve`, Layer 4 `small_curve_models`, Layer 4 `mixed_elliptic_model`, Layer 7 `quartic1`, Layer 7 `quartic2`, Layer 7 `quartic1Coordinates`, Layer 7 `quartic2Coordinates`, `R13.4a`, Layer 5 `genus_one_model`, Layer 4 `nonsplit_cartan_conic`.
+*Needs:* Layer 4 `cartanCurve`, Layer 4 `small_curve_models`, Layer 4 `mixed_elliptic_model`, Layer 7 `quartic1`, Layer 7 `quartic2`, Layer 7 `quartic1Coordinates`, Layer 7 `quartic2Coordinates`, `R13.4a`, `GenusOneModel`, Layer 4 `nonsplit_cartan_conic`.
 
 The representative milestone `quartic_involutions` collects the two square
 identities and the two polynomial-preservation identities over a commutative
@@ -1081,7 +1217,7 @@ Layers 1, 4 and 5 supply transport, the common quotient and auxiliary models. Ch
 
 If the cyclotomic restriction is absolutely irreducible, apply Layer 3. Otherwise use the exact Cartan classification from R01.4 and route the combined 3/5 level to one of the four exceptional curves handled in Layer 5–Layer 7. Ordinary irreducibility over 𝔽p is weaker than absolute irreducibility; the mod-3 exclusion is equality with the full split normalizer, not containment.
 
-**`imaginary_quadratic_residual_modularity`** — Let F be an imaginary quadratic number field and E/F an elliptic curve. If GF acts irreducibly on E[5] over 𝔽5 (absolute irreducibility is not required), or GF acts irreducibly on E[3] over 𝔽3 and its image is not conjugate to the whole normalizer of a split Cartan, then E is modular. The mod-3 exclusion is equality up to conjugacy with the whole normalizer, not containment in some split normalizer. (CN, Theorem 7.1, p.91; Lemma 7.1.1, pp.92–93; conclusion p.102.)
+**`imaginary_quadratic_residual_modularity`** — Assume `GenusOneModel` and `GenusOneQuadraticPoints` for the exceptional genus-one case and the quartic model comparison. Let F be an imaginary quadratic number field and E/F an elliptic curve. If GF acts irreducibly on E[5] over 𝔽5 (absolute irreducibility is not required), or GF acts irreducibly on E[3] over 𝔽3 and its image is not conjugate to the whole normalizer of a split Cartan, then E is modular. The mod-3 exclusion is equality up to conjugacy with the whole normalizer, not containment in some split normalizer. (CN, Theorem 7.1, p.91; Lemma 7.1.1, pp.92–93; conclusion p.102.)
 
 *Needs:* Layer 3 `quadratic_modularity`, Layer 4 `cartanCurve`, Layer 5 `genus_one_points_modular`, Layer 6 `genus_two_points_modular`, Layer 7 `first_quartic_points_modular`, Layer 7 `second_quartic_points_modular`, `R01.4/restriction-to-the-cyclotomic-field`.
 
@@ -1091,43 +1227,43 @@ Ordinary irreducibility over 𝔽p is distinguished from absolute irreducibility
 
 The residual-image theorem leaves X(b3,b5) and X(s3,b5). Their rational isogeny transfers rank zero; quadratic torsion growth handles all noncuspidal points, including the eight Gaussian j-values. For each small field certify rank zero of the rational model and its indicated twist. The √−10 point verifies that the finite-point theorem is not a theorem for every imaginary quadratic field.
 
-**`finite_level_fifteen_modularity`** — For an imaginary quadratic number field F with finite X₀(15)(F), every elliptic curve E/F is modular. Finite here means the full set of F-rational points of the compactified curve; since it is an elliptic curve over ℚ with a rational origin, this is equivalent to Mordell–Weil rank zero over F. The statement imposes no restriction on the residual images of E. It is CN Theorem 1.1 and Corollary 7.1.2, not unconditional modularity over every imaginary quadratic field. (CN, Theorem 1.1, p.2; Corollary 7.1.2 and proof, p.93.)
+**`finite_level_fifteen_modularity`** — Assume `LevelFifteenModels`, the family `QuadraticLevelFifteenTorsion F` for quadratic F, `GenusOneModel`, `GenusOneJacobian`, `GenusOneRationalPicard`, `GenusOneQuadraticPoints` and `GaussianComparisonData` with the exact meanings in the arithmetic-hypotheses section. For an imaginary quadratic number field F with finite X₀(15)(F), every elliptic curve E/F is modular. Finite here means the full set of F-rational points of the compactified curve; since it is an elliptic curve over ℚ with a rational origin, this is equivalent to Mordell–Weil rank zero over F. The statement imposes no restriction on the residual images of E. It is CN Theorem 1.1 and Corollary 7.1.2, not unconditional modularity over every imaginary quadratic field. (CN, Theorem 1.1, p.2; Corollary 7.1.2 and proof, p.93.)
 
-*Needs:* Layer 8 `imaginary_quadratic_residual_modularity`, Layer 5 `level_fifteen_models`, Layer 5 `quadratic_level_fifteen_torsion`, Layer 5 `gaussian_exceptional_modular`, Layer 1 `Modular`, Layer 1 `modularity_transport`, EC Mordell–Weil.
+*Needs:* The seven named arithmetic hypotheses in this statement; Layer 8 `imaginary_quadratic_residual_modularity`, Layer 5 `level_fifteen_finiteness_transfer`, Layer 5 `quadratic_level_fifteen_points`, Layer 5 `gaussian_exceptional_modular`, Layer 1 `Modular`, Layer 1 `modularity_transport`, EC Mordell–Weil.
 
 Cusps are discarded when associating an elliptic curve but remain in the finite point set. The Gaussian exception is tied to the full eight-point orbit certificate and Faltings–Serre comparison, not an unsupported database label.
 
-**`small_imaginary_quadratic_modularity`** — For F=ℚ(√−d) with d∈{1,2,3,5}, X₀(15)(F) is finite and hence every elliptic curve over F is modular. Each application includes a certified rank-zero calculation for the rational elliptic model E15 and its quadratic twist by −d: rk E15(F)=rk E15(ℚ)+rk E15^(−d)(ℚ)=0. The Gaussian field retains its extra torsion without acquiring positive rank. The representative
+**`small_imaginary_quadratic_modularity`** — Assume the seven arithmetic hypotheses of `finite_level_fifteen_modularity`. For F=ℚ(√−d) with d∈{1,2,3,5}, X₀(15)(F) is finite and hence every elliptic curve over F is modular. Each application includes a certified rank-zero calculation for the rational elliptic model E15 and its quadratic twist by −d: rk E15(F)=rk E15(ℚ)+rk E15^(−d)(ℚ)=0. The Gaussian field retains its extra torsion without acquiring positive rank. The representative
 `small_imaginary_quadratic_level_fifteen_finite` states this finiteness on the
 actual Mathlib point group of E15 after base change; it quantifies over a
 number field of ℚ-dimension 2, d∈{1,2,3,5}, and s with s²=−d. The modular-curve
-comparison is supplied by `level_fifteen_models`. (CN, §1 after Theorem 1.1, p.2.)
+comparison is supplied by `LevelFifteenModels`. (CN, §1 after Theorem 1.1, p.2.)
 
-*Needs:* Layer 8 `finite_level_fifteen_modularity`, Layer 5 `level_fifteen_models`, Layer 5 `quadratic_level_fifteen_torsion`, `ED.3`, `ED.6`.
+*Needs:* Layer 8 `finite_level_fifteen_modularity`, `LevelFifteenModels`, `QuadraticLevelFifteenTorsion`, EC Mordell–Weil, `ED.3`, `ED.6`.
 
 Rank computations use algebraic rank bounds; a finite search or numerical L-value is insufficient.
 
-**`sqrt_minus_ten_infinite_level_fifteen`** — Let F=ℚ(√−10) and s²=−10. The point (x,y)=(-1,6s) on E15:y²=x(x+16)(x+25) is nontorsion. It is not rational, and quadratic_level_fifteen_torsion shows that E15(F)tors=E15(ℚ) because F is neither ℚ(i) nor ℚ(√5). Hence X₀(15)(F) is infinite. This gives a concrete field to which finite_level_fifteen_modularity does not apply; it says nothing against modularity of particular curves over that field. (CN, Corollary 7.1.2 torsion-growth proof, p.93; explicit substitution in its E15 equation.)
+**`sqrt_minus_ten_infinite_level_fifteen`** — Assume `LevelFifteenModels` for the modular interpretation and `QuadraticLevelFifteenTorsion F` for torsion comparison. Let F=ℚ(√−10) and s²=−10. The point (x,y)=(-1,6s) on E15:y²=x(x+16)(x+25) is nontorsion. It is not rational, and QuadraticLevelFifteenTorsion shows that E15(F)tors=E15(ℚ) because F is neither ℚ(i) nor ℚ(√5). Hence X₀(15)(F) is infinite. This gives a concrete field to which finite_level_fifteen_modularity does not apply; it says nothing against modularity of particular curves over that field. (CN, Corollary 7.1.2 torsion-growth proof, p.93; explicit substitution in its E15 equation.)
 
-*Needs:* Layer 5 `level_fifteen_models`, Layer 5 `quadratic_level_fifteen_torsion`.
+*Needs:* `LevelFifteenModels`, `QuadraticLevelFifteenTorsion`.
 
 Changing y to 6 or dropping the factor √−10 fails the curve equation. The finite-point hypothesis is not asserted for all imaginary quadratic fields.
 
 ### Examples
 
-For d=1,2,3,5, rank-zero certificates for E15 and its −d twist prove finiteness over ℚ(√−d). At d=10, the point (−1,6√−10) instead has y²=−360=(−1)·15·24 and is nontorsion. This example fails the finite-point hypothesis without contradicting modularity over that field (CN §1, p.2, and Corollary 7.1.2 proof, p.93; explicit substitution).
+For d=1,2,3,5, rank-zero certificates for E15 and its −d twist and Mordell–Weil rank decomposition prove finiteness over ℚ(√−d). At d=10, the point (−1,6√−10) instead has y²=−360=(−1)·15·24 and is nontorsion. This example fails the finite-point hypothesis without contradicting modularity over that field (CN §1, p.2, and Corollary 7.1.2 proof, p.93; explicit substitution).
 
 ### Dependencies
 
-Layer 3 supplies the cyclotomic irreducibility criterion; Layers 4–7 handle the exceptional residual-image curves. The level-fifteen model, torsion and Gaussian orbit certificates of Layer 5 close the remaining cases; certified quadratic rank decomposition gives the four small fields.
+Layer 3 supplies the cyclotomic irreducibility criterion; Layers 4–7 handle the exceptional residual-image curves. The hypotheses `LevelFifteenModels`, `QuadraticLevelFifteenTorsion` and `GaussianComparisonData`, through Layer 5, close the remaining cases; certified quadratic rank decomposition gives the four small fields.
 
 ## Downstream consumers
 
-The finite-level-fifteen endpoint supplies modularity of arbitrary elliptic curves over the indicated imaginary quadratic fields. The genus-one, genus-two and bielliptic quartic arithmetic also gives concrete applications of the Jacobian and effective Diophantine interfaces. The common Cartan compactification and comparison contracts support the separate effective modularity roadmap.
+The finite-level-fifteen endpoint supplies modularity of arbitrary elliptic curves over the indicated imaginary quadratic fields, under its seven named arithmetic hypotheses. The genus-one, genus-two and bielliptic quartic arithmetic also gives concrete applications of the Jacobian and effective Diophantine interfaces. The common Cartan compactification and comparison contracts support the separate effective modularity roadmap.
 
 ## References
 
-Page locators for CN, AKT, FLHS, BOX and ZYW refer to the fixed PDFs linked here. BF uses PDF page positions, since its author file has no printed page numbers. The published BF article occupies pp.132–139. Code references use file and block names at the specified commit. These references supply mathematical results and computational input; the arithmetic certificates specified above are their exact verification interfaces.
+Page locators for CN, AKT, FLHS, BOX and ZYW refer to the fixed PDFs linked here. BF uses PDF page positions, since its author file has no printed page numbers. The published BF article occupies pp.132–139. Code references use file and block names at the specified commit. These references identify the sources of the explicit arithmetic hypotheses and of the retained targets. The named hypotheses record exactly which source computations are assumed; the certificates of retained computation targets remain their verification interfaces.
 
 - **CN**: Ana Caraiani and James Newton, [On the modularity of elliptic curves over imaginary quadratic fields](https://arxiv.org/pdf/2301.10509v3). arXiv:2301.10509v3, 27 March 2025.
 
