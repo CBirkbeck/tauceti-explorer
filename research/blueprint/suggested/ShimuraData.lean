@@ -29,7 +29,7 @@ import TauCeti.Geometry.Hodge.Polarization
 import TauCeti.Geometry.Hodge.Substructure
 
 /-!
-# Shimura data, Part II: suggested Lean statements (BP-ShimuraData~4, reviewed in REV-ShimuraData~4; revision 5, BP-ShimuraData~5)
+# Shimura data, Part II: suggested Lean statements (revision 5, BP-ShimuraData~5; reviewed in REV-ShimuraData~5)
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ShimuraData.md` is definitive. The statements suggest Lean forms so that
@@ -235,14 +235,18 @@ theorem hodgeGenericBasis (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] Sp
     hodgeGeneric g φ ↔ hodgeGeneric g φ' := by
   sorry
 
+/-- Polarization-compatible specialization of isogeny invariance: `hJ` requires the induced
+Hopf automorphism to preserve the chosen similitude group. The README gives the full-GSp
+argument that supplies this compatibility for arbitrary polarizations. -/
 theorem hodgeGenericIsogeny (g : ℕ) (φ φ' : GLCoord ℚ (g + g) →ₐ[ℚ] SplitTorusAlg)
     (e : GLCoord ℚ (g + g) ≃ₐc[ℚ] GLCoord ℚ (g + g)) (he : φ'.comp e.toAlgEquiv.toAlgHom = φ)
     (hJ : (gspIdeal g).map e = gspIdeal g) (hgen : hodgeGeneric g φ) : hodgeGeneric g φ' := by
   sorry
 
-/-- The coordinate map of the weight-one Hodge structure of `ℂ/(ℤ + ℤτ)` in the basis `(1, τ)`:
+/-- The coordinate map on the homology of `ℂ/(ℤ + ℤτ)` in the basis `(1, τ)`:
 `h(a + bi)` acts on `ℝ²` by multiplication by `a + bi` written in that basis, so with
-`a = (z₁ + z₂)/2` and `b = (z₁ − z₂)/(2i)` its matrix entries are explicit elements of `ℂ[ℤ²]`. -/
+`a = (z₁ + z₂)/2` and `b = (z₁ − z₂)/(2i)` its matrix entries are explicit elements of `ℂ[ℤ²]`.
+This is the weight-minus-one homology convention; dual cohomology has the same MT group. -/
 def ellipticEntry (τ : ℂ) (i j : Fin 2) : SplitTorusAlg :=
   let z₁ : SplitTorusAlg := MonoidAlgebra.of ℂ _ (Multiplicative.ofAdd (1, 0))
   let z₂ : SplitTorusAlg := MonoidAlgebra.of ℂ _ (Multiplicative.ofAdd (0, 1))
@@ -269,16 +273,19 @@ section LocalModel
 variable {E W : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
   [NormedAddCommGroup W] [NormedSpace ℂ W] [FiniteDimensional ℂ W]
 
-/-- Local model of a holomorphic filtration of a flat bundle in a flat frame: over the open set
-`U ⊆ E` every step `F^p` is locally spanned by finitely many holomorphic sections. -/
+/-- Local model of holomorphic subbundles in a flat frame: every step has a local holomorphic
+basis, so its rank is locally constant. Decreasingness is a separate hypothesis below. -/
 def IsHolomorphicFamily (U : Set E) (F : E → ℤ → Submodule ℂ W) : Prop :=
   ∀ p, ∀ x ∈ U, ∃ V ∈ nhds x, ∃ (k : ℕ) (s : Fin k → E → W),
-    (∀ i, DifferentiableOn ℂ (s i) V) ∧ ∀ y ∈ V ∩ U, Submodule.span ℂ (Set.range fun i ↦ s i y) = F y p
+    (∀ i, DifferentiableOn ℂ (s i) V) ∧ ∀ y ∈ V ∩ U,
+      LinearIndependent ℂ (fun i ↦ s i y) ∧
+        Submodule.span ℂ (Set.range fun i ↦ s i y) = F y p
 
 /-- Griffiths transversality in a flat frame: derivatives of sections of `F^p` lie in `F^{p−1}`. -/
 def IsGriffithsTransversal (U : Set E) (F : E → ℤ → Submodule ℂ W) : Prop :=
-  ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s U → (∀ y ∈ U, s y ∈ F y p) →
-    ∀ y ∈ U, ∀ v : E, fderiv ℂ s y v ∈ F y (p - 1)
+  ∀ V : Set E, IsOpen V → V ⊆ U →
+    ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s V → (∀ y ∈ V, s y ∈ F y p) →
+      ∀ y ∈ V, ∀ v : E, fderiv ℂ s y v ∈ F y (p - 1)
 
 /-- **D3/flat-bundle-local.** In a flat frame over a connected open `U`, the flat connection is the
 ordinary derivative, so transversality of a holomorphic family is the condition of
@@ -292,11 +299,12 @@ theorem flatBundleLocal (U : Set E) (hU : IsOpen U) (F : E → ℤ → Submodule
 transversality holds iff, at every point and in every direction, the derivative of every section of
 `F^p` lies in `F^{p−1}` modulo `F^p`: the differential of the flag map lies in `F^{−1}End/F⁰End`. -/
 theorem transversalityTangent (U : Set E) (hU : IsOpen U) (F : E → ℤ → Submodule ℂ W)
-    (hF : IsHolomorphicFamily U F) :
+    (hF : IsHolomorphicFamily U F) (hanti : ∀ y ∈ U, Antitone (F y)) :
     IsGriffithsTransversal U F ↔
-      ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s U → (∀ y ∈ U, s y ∈ F y p) →
-        ∀ y ∈ U, ∀ v : E, Submodule.Quotient.mk (p := F y p) (fderiv ℂ s y v) ∈
-          (F y (p - 1)).map (F y p).mkQ := by
+      ∀ V : Set E, IsOpen V → V ⊆ U →
+        ∀ (p : ℤ) (s : E → W), DifferentiableOn ℂ s V → (∀ y ∈ V, s y ∈ F y p) →
+          ∀ y ∈ V, ∀ v : E, Submodule.Quotient.mk (p := F y p) (fderiv ℂ s y v) ∈
+            (F y (p - 1)).map (F y p).mkQ := by
   sorry
 
 end LocalModel
@@ -314,6 +322,8 @@ complex manifold (not at the pins); their local form is `IsHolomorphicFamily` an
 structure Variation (B : TopCat.{0}) (n : ℤ) where
   /-- The underlying local system. -/
   L : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℝ B
+  /-- Finite rank is required even for this fibrewise partial signature. -/
+  finite : ∀ b, Module.Finite ℝ (L.obj b)
   /-- The pure Hodge structure on each complexified fibre. -/
   fiber : ∀ b : FundamentalGroupoid B,
     TauCeti.Hodge.HodgeStructureOn (ℂ ⊗[ℝ] (L.obj b)) (TauCeti.Hodge.complexificationConjugation _) n
@@ -327,10 +337,11 @@ def variationFiber (v : Variation B n) (b : FundamentalGroupoid B) :
 
 /-- `variationMk`: assemble a variation from its local system and fibrewise Hodge structures. -/
 def variationMk (L : TauCeti.LocalCoefficientSystem.{0, 0, 0} ℝ B)
+    (finite : ∀ b, Module.Finite ℝ (L.obj b))
     (fiber : ∀ b : FundamentalGroupoid B,
       TauCeti.Hodge.HodgeStructureOn (ℂ ⊗[ℝ] (L.obj b)) (TauCeti.Hodge.complexificationConjugation _) n) :
     Variation B n :=
-  ⟨L, fiber⟩
+  ⟨L, finite, fiber⟩
 
 theorem variationExt (v w : Variation B n) (hL : v.L = w.L) (hF : HEq v.fiber w.fiber) : v = w := by
   sorry
@@ -985,6 +996,22 @@ def nonHorizontalFiltration (z : ℂ) (p : ℤ) : Submodule ℂ (Fin 4 → ℂ) 
 example : ¬ IsGriffithsTransversal (Metric.ball (0 : ℂ) 1) nonHorizontalFiltration := by
   sorry
 
+/-- A pure weight-one filtration of types `(2,−1),(−1,2)` near zero, with conjugation exchanging
+the two basis vectors. Weight one alone does not make a holomorphic family horizontal. -/
+def nonEffectiveWeightOneFiltration (z : ℂ) (p : ℤ) : Submodule ℂ (Fin 2 → ℂ) :=
+  if p ≤ -1 then ⊤ else if p ≤ 2 then Submodule.span ℂ {![1, z]} else ⊥
+
+/-- `variationNonEffectiveWeightOne`: the derivative of the `F²` section at zero is outside `F¹`.
+The README supplies the opposedness and Hodge-type calculation. -/
+example : IsHolomorphicFamily (Metric.ball (0 : ℂ) 1) nonEffectiveWeightOneFiltration ∧
+    ¬ IsGriffithsTransversal (Metric.ball (0 : ℂ) 1) nonEffectiveWeightOneFiltration := by
+  sorry
+
+/-- Spanning sections without independence can have a rank jump and do not define a subbundle. -/
+example : ¬ IsHolomorphicFamily (Metric.ball (0 : ℂ) 1)
+    (fun z _ ↦ Submodule.span ℂ {(![z, 0] : Fin 2 → ℂ)}) := by
+  sorry
+
 variable {B : TopCat.{0}} {n : ℤ}
 
 /-- `variationHomIdentity`. -/
@@ -1029,10 +1056,10 @@ example (P : polarizedIntegralVariation B n) :
     ∃ P' : polarizedIntegralVariation B n, P'.LZ = P.LZ ∧ HEq P'.QZ (fun b ↦ 2 • P.QZ b) := by
   sorry
 
-/-- `integralMonodromy`: around a cusp (the punctured plane) the elliptic variation has nontrivial
+/-- `integralMonodromy`: around a cusp (a punctured disk) the elliptic variation has nontrivial
 integral monodromy. -/
-example : ∃ (P : polarizedIntegralVariation (TopCat.of {z : ℂ // z ≠ 0}) 1)
-    (b : FundamentalGroupoid (TopCat.of {z : ℂ // z ≠ 0})) (γ : b ⟶ b), P.LZ.map γ ≠ 𝟙 _ := by
+example : ∃ (P : polarizedIntegralVariation (TopCat.of {z : ℂ // z ≠ 0 ∧ ‖z‖ < 1}) 1)
+    (b : FundamentalGroupoid (TopCat.of {z : ℂ // z ≠ 0 ∧ ‖z‖ < 1})) (γ : b ⟶ b), P.LZ.map γ ≠ 𝟙 _ := by
   sorry
 
 /-- The filtration `F⁰ = W ⊇ F¹ = L ⊇ F² = 0` of a weight-one structure. -/
@@ -1079,11 +1106,13 @@ example {B : TopCat.{0}} {n : ℤ} (v : Variation B n) (b : FundamentalGroupoid 
 example (G : Type*) [Group G] : Subsingleton (compactDual G ⊤) := by
   sorry
 
-/-- `dualSiegel`: the Siegel compact dual is the space of Lagrangians (in `GL_{2g}(ℂ)`, restricted
-to the symplectic group; its dimension `g(g+1)/2` is a README statement). -/
+/-- `dualSiegel`: the quotient by a Lagrangian stabilizer is the space of Lagrangians when the
+acting subgroup preserves them and acts transitively. For the symplectic group these are the
+orbit hypotheses; its dimension `g(g+1)/2` is a README statement. -/
 example (g : ℕ) (L₀ : Submodule ℂ (Fin (g + g) → ℂ)) (hL₀ : IsLagrangian g L₀)
     (Sp : Subgroup ((Fin (g + g) → ℂ) ≃ₗ[ℂ] (Fin (g + g) → ℂ)))
-    (hSp : ∀ k ∈ Sp, ∀ L, IsLagrangian g L → IsLagrangian g (L.map k.toLinearMap)) :
+    (hSp : ∀ k ∈ Sp, ∀ L, IsLagrangian g L → IsLagrangian g (L.map k.toLinearMap))
+    (htrans : ∀ L, IsLagrangian g L → ∃ k : Sp, L₀.map k.val.toLinearMap = L) :
     Nonempty (compactDual Sp ((filtrationParabolic (lineFiltration L₀)).subgroupOf Sp) ≃
       {L : Submodule ℂ (Fin (g + g) → ℂ) // IsLagrangian g L}) := by
   sorry
