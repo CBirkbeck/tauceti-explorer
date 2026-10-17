@@ -26793,8 +26793,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #10223"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms",
@@ -47477,8 +47478,9 @@
     "PKG-AnalyticNumberTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10162"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10162",
+   "finishedAt": "2026-10-17T18:29:09Z"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -47906,8 +47908,9 @@
     "PKG-ArithmeticStatistics~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatistics~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10163"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10163",
+   "finishedAt": "2026-10-17T18:29:11Z"
   },
   {
    "id": "PKG-AutomorphicBundles",
@@ -132401,9 +132404,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv.md",
-   "note": "claimed on GitHub issue #10210"
+   "note": "deliverables arrived from an external worker on issue #10210",
+   "finishedAt": "2026-10-17T18:29:14Z"
   },
   {
    "id": "FIX-PKG-PrismaticCohomology~adv2",
@@ -132483,8 +132487,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-MetaplecticAutomorphicForms~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MetaplecticAutomorphicForms~adv.md",
+   "note": "claimed on GitHub issue #10224"
   }
  ]
 }
