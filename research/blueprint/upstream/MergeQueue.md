@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T13:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T13:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -80,6 +80,7 @@ Generated 2026-10-17T13:40Z from the README supplier graph of every open pull re
 
 ## Wave 16
 - #852 NeronModelsAndSemistableAbelianVarieties — ready (approved at an earlier head); waits on #785, #813, #848, #849, #850, #853, #856, #857, #879, #938, #940, #444
+- #1034 DeformationAndDerivedPatchingAlgebra — draft; waits on #785, #858, #872, #908, #944
 
 ## Wave 17
 - #869 SelmerIwasawaCohomology — draft; waits on #816, #849, #852, #858, #879, #940, #944, #248
