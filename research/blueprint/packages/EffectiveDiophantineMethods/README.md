@@ -355,6 +355,18 @@ to Q. These hypotheses are not inferred from a theorem giving rank only over the
 The conditional rank-over-Q application is a separate theorem here; no Gross–Zagier or Euler-system
 roadmap is a prerequisite of this build.
 
+The CM inputs shared by §§6.29–6.33 are explicit application hypotheses. Every CM j-invariant is
+an algebraic integer. For an imaginary quadratic order O of class number one, its CM invariant is
+rational and is realised by an elliptic curve over Q with geometric endomorphism ring O. At a prime
+ℓ unramified in O, its residual image is contained in a split Cartan normaliser when ℓ splits in O,
+and in a non-split Cartan normaliser when ℓ is inert in O.
+For ℓ=13 the seven distinct j-values displayed in §6.32 correspond to exactly the seven indicated
+orders, under the actual modular j-map; this identification is independent of Baran's coordinate
+isomorphism. Conversely, the identified CM fibres in §6.29 have precisely their displayed geometric
+endomorphism orders. Small class numbers and their order/discriminant identifications are exact
+supplied arithmetic data. These are assumptions of the conditional applications, rather than
+prerequisites from a CM roadmap outside this build (BDMTV 2019, Corollary 1.3 and Remark 1.4, p.888).
+
 For genus-two height searches supply a positive-definite free Mordell–Weil height lattice, finite
 torsion representatives, its Gram matrix and comparison constants. Semidefiniteness on an arbitrary
 abelian group does not imply finite enumeration. For Kummer calculations supply the actual
@@ -438,6 +450,7 @@ examples alone do not test either record constructor.
 
 **Checks.**
 
+- `complexBoxContains 0 0 1 1 I` holds with zero width; `complexBoxContains 1 1 0 0 I` fails, detecting swapped real and imaginary coordinates. The origin is excluded from the first box.
 - `realEnclosure_sqrt_two`. [141/100, 142/100] is a RealEnclosure of √2 with width 1/100; since 1/100 ≤ 2^(−6) it has absolute precision 6 but not 7.
 - `realEnclosure_ofRat_width`. RealEnclosure.ofRat q has width 0 for every rational q.
 - `complexEnclosure_I`. ([0, 0], [1, 1]) is a ComplexEnclosure of Complex.I.
@@ -775,7 +788,7 @@ of β, with v = v_p(c) and v′ = v_p(c′), give the certificate (cc′, min(v 
 valuation v + v′.
 
 Work under the following conditions. a is an §0.6; α ≠ 0. Only primes 𝔭 arising from embeddings K →
-ℚ_p (degree-one primes) are covered; their valuations are read from σ_a.
+ℚ_p (local degree one, e = f = 1) are covered; residue degree one alone is insufficient at a ramified prime. Their valuations are read from σ_a.
 
 The interface includes these statements.
 
@@ -798,6 +811,9 @@ uniformiser is WithZero.exp(−1). Product rule: σ(αβ) − cc′ = σ(α)(σ(
 + v′).
 
 **Checks.**
+
+- In Q(√3), the prime above 3 has residue degree 1 and ramification index 2. It admits no embedding into Q_3, since an element squaring to 3 would have valuation 1/2. A residue-degree-one test alone cannot supply this certificate.
+
 
 - `valuation_rat_eighteen`. For K = ℚ (minpoly X − 1, a = 1), p = 3 and α = 18, the enclosure (18, 3) certifies valuation 2 = padicValRat 3 18.
 - `valuation_sqrt_two_seven`. For X² − 2 at p = 7 with a = 3, the enclosure (7, 2) of σ_a(θ − 3) certifies v_7(σ_a(θ − 3)) = 1.
@@ -877,7 +893,7 @@ x = a_x · ∏_{i=1}^{d} max(1, |σ_i(x)|): the archimedean factors come from th
 whole non-archimedean part of the height is the integer a_x. The construction heightEnclosure x n
 returns a RealEnclosure of mulHeight₁ x of absolute precision n: compute a_x exactly (rational
 linear algebra and a gcd of numerators), take ComplexEnclosures of the σ_i(x) (§0.4), bound each
-|σ_i(x)|² in a rational interval from the box corners, apply max(1, ·), multiply the nonnegative
+|σ_i(x)|² in a rational interval: its upper bound is attained at a box corner, while its lower bound is the sum of the squared distances of the two coordinate intervals from zero (zero for an interval containing zero). Apply max(1, ·), multiply the nonnegative
 intervals endpoint by endpoint, multiply by a_x², and take rational square-root brackets of the
 endpoints; the precision of the σ_i(x)-enclosures is increased until the final width is at most
 2^(−n).
@@ -919,6 +935,7 @@ endpoint products enclose mulHeight₁(x)², and the widths tend to 0 as the pre
 - `height_sqrt_two`. For θ = √2 in ℚ(√2), P = X² − 2 and mulHeight₁ θ = 2 (both archimedean factors equal √2).
 - `height_zero`. mulHeight₁ 0 = 1 and every enclosure of it contains 1.
 - `height_golden`. For the golden ratio φ in ℚ(√5), P = X² − X − 1 and mulHeight₁ φ = φ = (1 + √5)/2.
+- `height_box_crossing_zero`. For the box [−1,1] × [−1,1], the squared norm lies in [0,2]; all four corners have squared norm 2, so taking the smallest corner value as a lower bound is invalid.
 - `height_relative_not_absolute`. For √2 ∈ ℚ(√2) the relative height is 2 while absMulHeight₁ √2 = √2: the enclosure is of the relative height.
 - For K = ℚ every enclosure contains max(|num x|, den x) (Mathlib's Rat.mulHeight₁_eq_max).
 - For the golden ratio φ ∈ ℚ(√5) the enclosure at precision 10 is contained in [1.617, 1.620].
@@ -1414,7 +1431,7 @@ The interface includes these statements.
 - `ED1.RealExclusionCertificate`: Lattice data, box, margin μ, distance witness and the inequality (iv) for a real linear form.
 - `ED1.PadicExclusionCertificate`: p-adic lattice data, box, distance witness and L² > Σ W_j²X_j².
 - `ED1.RealExclusionCertificate.check`: Supporting Boolean evaluation on an already validated semantic record; the raw all-fields verifier is RawRealExclusionCertificate.check.
-- `ED1.DistanceWitness.ofLLL`: Build an LLL witness from the output of GN.5's exactLLL applied to the columns of A. Requires A.det ≠ 0 so the rational target coordinates in AU exist.
+- `ED1.DistanceWitness.ofLLL`: For A.det ≠ 0, apply GN.5's exactLLL to the columns of A and return an optional LLL witness. Return some in the homogeneous branch y = 0 or when y ∉ Aℤ^n; return none when y ≠ 0 lies in Aℤ^n, since then all coordinates of (AU)^(−1)y are integral and there is no nonintegral pivot. Nonsingularity alone does not guarantee a positive affine distance.
 - `ED1.RawDistanceCertificate`: Raw A,y, rational inverse, radius B, squared lower bound and integer coordinate cap D; no proof fields.
 - `ED1.RawDistanceCertificate.box`: The product finite set [-D,D]^n over integer coordinates.
 - `ED1.RawDistanceCertificate.normSq`: The exact rational sum Σ_i((Ax-y)_i)^2.
@@ -1454,6 +1471,8 @@ PadicInt.appr_spec and the integer-cast divisibility comparison identify the con
 dividing the actual p-adic linear form; no semantic distance witness is supplied.
 
 **Checks.**
+
+- `exclusion_ofLLL_integral_target`. For A = [2], y = 2, exactLLL returns the same lattice and s = 1. The affine distance is zero and ofLLL returns none; A.det ≠ 0 alone must not produce an LLL witness. With y = 0 the homogeneous witness is available, and with y = 1 the nonintegral-pivot branch is available.
 
 - `exclusion_log23`. θ = (log 2, log 3), C = 10^8, φ = (69314718, 109861229), U with AU = [c_0 c_1], c_0 = (−1054, 4513), y = 0, X = (1000, 1000), μ = 1000: L² = 21478085/2 ≥ 10^7, so the data form a homogeneous real certificate.
 - `exclusion_trivial_box`. X_i = 0 for all i: the homogeneous region is empty and any witness with L² ≥ μ² certifies it.
@@ -1616,6 +1635,7 @@ error inequality).
 - `arg_i`. For the degenerate box [0, 0] × [1, 1] the argument enclosure contains Complex.arg I = π/2, agreeing with Mathlib's Complex.arg_I.
 - `log_series_two_first_term`. At x=2,N=1, u=1/3, L_1=2/3 and E_1=1/36. Thus log2∈[23/36,25/36]; omitting the factor2 gives an interval below log2.
 - `atan_endpoint_tail`. At t=1,N=1, A_1=1 and error≤1/3; at t=−1 the partial sum is−1. A remainder formula requiring |t|<1 would fail to provide π precision here.
+- `atan_zero_and_empty`. A_N(0)=0 for every N, and A_0(t)=0 for every rational t. At t=1,N=2 the sum is 2/3; reversing the alternating sign would instead give 4/3.
 - `log_series_zero_rejected`. x=0 is rejected: u=−1 makes 1−r²=0, and Real.log0=0 by totalization is not a sound positive-log certificate.
 - For the box of the real root ∛2 of X³ − 2 refined to width 10^{−12}, logAbsEnclosure at P = 40 has width below 10^{−11} and contains Real.log 2/3.
 - No enclosure is returned for a box containing 0, so a nonvanishing claim never rests on an interval around 0.
@@ -1854,6 +1874,7 @@ The representative `exists_padic_log_truncation` expresses positivity of the tai
 **Checks.**
 
 - `padic_log_three_four`. In Q_3, z=4, d=1,N=4: S_4=3-9/2+27/3-81/4=-51/4 and the tail has valuation≥ceil(1+4/2)=3.
+- `padic_log_partial_sum_boundary`. S_0(z)=0 for every z, S_N(1)=0 for every N, and S_1(4)=3 in Q_3. These distinguish the empty sum, exact unit and first-term indexing before any convergence assertion.
 - `padic_log_two_five`. In Q_2, z=5,d=2,N=4: the tail valuation is≥6. For u=-5 use M=2,z=25,d=3 and subtract1 digit after division by2.
 - `padic_log_torsion`. log_3(-1)=0 via M=2, and log_2(-1)=0 via M=2; the exact power1 branch has zero tail.
 - `padic_log_shallow_rejected`. At p=2,e=1,z=3 one has depth1; d=1 fails the strict deep-unit hypothesis, so the displayed linear tail budget cannot be used directly. Squaring gives9 of depth3.
@@ -1871,9 +1892,9 @@ Let p be a prime and 𝒪 either ℤ_p or the ring of integers of a finite exten
 maximal ideal 𝔓 and a fixed exact presentation of the finite rings 𝒪/𝔓^t (for L given by a defining
 polynomial over ℚ_p, using §0.6 in the degree-one case and the actual completion/valuation data of §0.9 in general).
 Let γ_0, γ_1, …, γ_n ∈ 𝒪^× be units, known modulo 𝔓^t. A discrete-logarithm certificate at level t
-consists of an exponent e ≥ 1, an element g ∈ 𝒪 with g ≡ 1 (mod 𝔓), an integer M ≥ 1, and integers
+consists of an exponent e ≥ 1, an element g ∈ 𝒪 with g ≡ 1 (mod 𝔓), an integer M ≥ 0, and integers
 ℓ_0, …, ℓ_n ∈ [0, p^M), such that the following exact congruences hold in 𝒪/𝔓^t: g^{p^M} ≡ 1,
-g^{p^{M−1}} ≢ 1, and γ_i^e ≡ g^{ℓ_i} for i = 0, …, n. Its congruence lattice is Γ := {b ∈ ℤ^n :
+g^{p^{M−1}} ≢ 1 when M ≥ 1, and γ_i^e ≡ g^{ℓ_i} for i = 0, …, n. Its congruence lattice is Γ := {b ∈ ℤ^n :
 Σ_{i≥1} b_iℓ_i ≡ 0 (mod p^M)} and its target coset is Γ_0 := {b ∈ ℤ^n : ℓ_0 + Σ_{i≥1} b_iℓ_i ≡ 0
 (mod p^M)}; both are presented by §1.5 after normalisation: let κ := min_{i≥1, ℓ_i ≠ 0} v_p(ℓ_i) <
 M, attained at a nonzero ℓ_k; if ℓ_0 ≠ 0 and v_p(ℓ_0) < κ then Γ_0 = ∅; otherwise b ∈ Γ_0 exactly
@@ -1885,7 +1906,7 @@ empty pivot minimum. Soundness: for b ∈ ℤ^n and ζ ∈ 𝒪^× with ζ^e = 1
 even), if ζγ_0∏_{i≥1}γ_i^{b_i} ≡ 1 (mod 𝔓^t), equivalently ord_𝔓(ζγ_0∏γ_i^{b_i} − 1) ≥ t, then b ∈
 Γ_0. Standard data over ℚ_p: for odd p, g = 1 + p, t = M + 1, e = p − 1; for p = 2, g = 5, t = M +
 2, e = 2; the order conditions then hold by lifting the exponent, and ℓ_i exists for every rational
-p-adic unit γ_i. In a finite extension the certificate exists whenever the γ_i^e generate a cyclic
+p-adic unit γ_i. The trivial generated subgroup uses M = 0, g = 1 and all ℓ_i = 0; its order check is just g = 1 and has no predecessor exponent. In a finite extension the certificate exists whenever the γ_i^e generate a cyclic
 subgroup of (𝒪/𝔓^t)^× of p-power order, as for the norm-one elements of a quadratic extension that
 occur in the Thue–Mahler reduction. No p-adic logarithm and no approximation enters: every check is
 modular exponentiation in a finite ring. Zero coefficients are omitted when choosing κ, and ℓ_0 = 0
@@ -1902,12 +1923,12 @@ The interface includes these statements.
 - `PadicDiscreteLogCertificate`: Data p, t, e, g, M, ℓ : Fin (n+1) → ℤ with the exact congruences of the statement as fields (in ZMod (p^t) for 𝒪 = ℤ_p). The prime hypothesis p.Prime and the ranges 0 ≤ ℓ_i < p^M are fields.
 - `PadicDiscreteLogCertificate.lattice`: The congruence lattice Γ = {b : Σ b_iℓ_i ≡ 0 (mod p^M)} as an AddSubgroup of ℤ^n.
 - `PadicDiscreteLogCertificate.mem_coset_of_congr`: If ζ^e = 1 and ζγ_0∏γ_i^{b_i} ≡ 1 (mod 𝔓^t) then ℓ_0 + Σ b_iℓ_i ≡ 0 (mod p^M).
-- `PadicDiscreteLogCertificate.mem_of_padicValRat_le`: For rationals γ_i with padicValRat p γ_i = 0: if t ≤ padicValRat p (±γ_0∏γ_i^{b_i} − 1) then ℓ_0 + Σ b_iℓ_i ≡ 0 (mod p^M).
+- `PadicDiscreteLogCertificate.mem_of_padicValRat_le`: For nonzero rational p-adic units γ_i and a sign ζ ∈ {−1,1} satisfying ζ^e = 1, put z = ζγ_0∏γ_i^{b_i} − 1. If z = 0 or t ≤ padicValRat p z, then ℓ_0 + Σ b_iℓ_i ≡ 0 (mod p^M). An even e permits both signs; an arbitrary e does not. The exact-zero branch precedes Mathlib’s totalized valuation.
 - `PadicDiscreteLogCertificate.standard`: For odd p, rational p-adic units γ_i and M ≥ 1: the certificate with g = 1 + p, t = M + 1, e = p − 1 and ℓ_i the discrete logarithms; for p = 2 the analogue with g = 5, t = M + 2, e = 2.
 - `PadicDiscreteLogCertificate.orderOf_one_add_prime`: For odd p: orderOf ((1 + p : ZMod (p^(M+1)))) = p^M; for p = 2: orderOf ((5 : ZMod (2^(M+2)))) = 2^M.
 
 For the proof, Since g ≡ 1 (mod 𝔓), the image of g in the finite group (𝒪/𝔓^t)^× lies in the p-group
-(1 + 𝔓)/(1 + 𝔓^t); its order is a power of p, and the two congruences make it exactly p^M. If x :=
+(1 + 𝔓)/(1 + 𝔓^t); its order is a power of p, and for M ≥ 1 the two congruences make it exactly p^M. For M = 0 the first congruence gives g = 1, all allowed ℓ_i are zero, and the coset is all of ℤ^n. If x :=
 ζγ_0∏γ_i^{b_i} ≡ 1 then x^e ≡ 1, and x^e = ζ^e·γ_0^e∏(γ_i^e)^{b_i} ≡ g^{ℓ_0 + Σ b_iℓ_i}; hence p^M
 divides ℓ_0 + Σ b_iℓ_i. Standard data:
 DiophantineApproximationAndTranscendence:DT.3/p-adic-valuation-of-power-minus-one gives v_p((1 +
@@ -1927,6 +1948,9 @@ discrete logarithms.
 - `discreteLog_trivial`. If every γ_i ≡ 1 (mod p^t) then all ℓ_i ≡ 0 and Γ = ℤ^n: the certificate gives no information, and a reduction step based on it cannot lower a bound.
 - `discreteLog_compat_two`. p = 2, M = 3, t = 5: 5 has order 8 modulo 32 (5⁴ = 625 ≡ 17, 5⁸ ≡ 1), agreeing with Mathlib's orderOf in ZMod 32.
 - `discreteLog_composite_nonexample`. At the composite modulus parameter p = 6, g = 19 ≡ 1 mod 6 has order 2 modulo 36, so g^6 = 1 and g ≠ 1 do not imply order 6. No PadicDiscreteLogCertificate with p = 6 exists: p must be prime.
+- `discreteLog_trivial_level`. At t = 1 over ℤ_p, the trivial powered subgroup has the certificate M = 0, g = 1, all ℓ_i = 0. Requiring M ≥ 1 would falsely promise a nontrivial principal-unit generator modulo p.
+- `discreteLog_sign_requires_power`. At p = 2, t = 2, e = 1, g = 3, M = 1 and γ_0 = 3, the valid exponent is ℓ_0 = 1. The negative sign gives −γ_0−1 = −4 of valuation 2, yet ℓ_0 is not zero modulo 2. The sign adapter rejects ζ = −1 because ζ^e ≠ 1.
+- `discreteLog_exact_zero`. In the standard p = 5 certificate with γ_0 = 1 and b = 0, z = 0 satisfies the congruence branch even though padicValRat 5 0 = 0 < t.
 - `discreteLog_zero_coefficient`. At p = 5 and M = 2, ℓ = (0, 5, 0): κ = 1 with pivot ℓ_1 = 5 and the coset is {b : 5 ∣ b_1}, including b = 0. The zero coefficient is not a pivot and the zero constant does not make the coset empty.
 - For p = 5, M = 2: the certificate for γ = (2, 3) has (ℓ_2, ℓ_3) with 6^{ℓ_2} ≡ 16 and 6^{ℓ_3} ≡ 81 (mod 125), and its lattice {b : b_2ℓ_2 + b_3ℓ_3 ≡ 0 (mod 25)} contains every b with 2^{b_2}3^{b_3} ≡ ±1 (mod 125).
 
@@ -3312,6 +3336,14 @@ every prime divisor of each entry lies in S, u+v=w, gcd(u,v)=1 and u≤v.
 In particular support is imposed on S, and 1 is supported on every S; 0 is excluded
 by positivity. The rational solution set above retains its signed sixfold symmetry.
 
+The light predicates have the following additional checks.
+
+- `supportedOn {2,3} 12` holds, whereas `supportedOn {2,3} 5` fails at the prime 5.
+- `supportedOn ∅ 1` holds. For every finite S, `supportedOn S 0` fails: choose a prime outside S, which divides 0. The triple predicate also records positivity explicitly.
+- `coprimeSUnitTriple {2,3} (1,2,3)` holds; `(2,2,4)` fails the coprimality condition.
+- `(2,1,3)` fails the ordering condition, and `(0,1,1)` fails positivity even though the additive equation holds.
+- `sUnitExponentHeight ∅ (x,y)=0`; for S={2,3}, the solutions `(3,-2)`, `(1/2,1/2)` and `(9/8,-1/8)` have heights 1, 1 and 3 respectively. In the last case the 2-adic valuations are -3 and -3 and the 3-adic valuations are 2 and 0.
+
 ### 2.30 Initial exponent bound for the S-unit equation from certified Yu constants
 
 Let S be a finite set of primes with |S| ≥ 2. For each p ∈ S let Φ⁺_p be the value of a
@@ -4193,7 +4225,9 @@ endpoint of a canonical-height-enclosure of P. If L contains no non-torsion poin
 0, then ĥ(Q) ≥ λ for every non-torsion Q ∈ E(ℚ).
 
 Work under the following conditions. W, c⁻ and B as stated; torsion of the points of L decided
-exactly (Q = O at a multiple bounded by 12, Mazur, or by the torsion certificate).
+exactly using the torsion certificate of §3.20: choose a good odd reduction prime q,
+put M = #E(𝔽_q), and test [M]Q = O. Injectivity on rational torsion makes this
+equivalent to Q being torsion; no classification of rational torsion is needed.
 
 The interface includes these statements.
 
@@ -4221,7 +4255,7 @@ coercive.
 ([Siksek (1995 author preprint)](https://samirsiksek.github.io/siksek.github.io/papers/infart2.pdf),
 Author preprint, §5 Example5.1, p.19; §1 Theorem1.2, p.2.)
 
-*Needs:* §3.12; §3.13; §0.11.
+*Needs:* §3.12; §3.13; §3.20; §0.11.
 
 ### 3.16 Index bound from a height lower bound and Minkowski's theorem
 
@@ -4367,14 +4401,18 @@ torsion subgroup. (b) W over ℚ elliptic, coefficients integral.
 For the proof, (a) The ℓ-primary part of A_tors embeds into B_i whenever q_i ≠ ℓ
 (Subgroup.card_dvd_of_injective). (b) Lutz–Nagell (Cremona Prop. 3.3.1) and Prop. 3.3.2: if 2P = O
 then y = 0; otherwise P and 2P are integral and the tangent slope is integral, so y | f′(x) and y² |
-Δ₀ by the displayed identity; orders by repeated addition until O or a non-integral point (at most
-12 steps by Mazur).
+Δ₀ by the displayed identity. Choose a good odd prime q and a complete finite reduction group of
+order M. Its torsion injectivity shows that every rational torsion point is killed by M. Evaluate
+[M]P exactly for every integral candidate: accept precisely those with [M]P=O, and compute an
+accepted point's order among the divisors of M. This finite cutoff uses the stated reduction
+contract; no rational torsion classification is required.
 
 **Checks.**
 
 - Flynn–Poonen–Schaefer Prop. 6: #J(𝔽₃) = 9, #J(𝔽₅) = 41, so J(ℚ)_tors = 0.
 - Stoll Lemma 4(1): #J(𝔽₇) = 2·7·11·47, #J(𝔽₁₃) = 3·17·23·43, so J(ℚ)_tors = 0.
 - E11 : y² + y = x³ − x²: the algorithm on y² = x³ − 4x² + 16 finds exactly four nonzero torsion points, all of order 5, so E(ℚ)_tors ≅ ℤ/5.
+- For y²=x³−4x+1, the good reduction groups at 3 and 5 have orders 7 and 9, so rational torsion is trivial. The integral point (0,1) satisfies the candidate divisibility test but is rejected: its reduction modulo 5 has order 9 and [7](0,1)=(4,3) there. Candidate integrality alone cannot certify torsion.
 
 ([Cremona (1997)](https://johncremona.github.io/book/fulltext/index.html), Ch. III, §3.3,
 Propositions 3.3.1–3.3.2, pp. 69–70; [Flynn–Poonen–Schaefer (arXiv
@@ -8567,7 +8605,9 @@ multiplicity, admit a matching within radius p^(−(n−k)/d). Transport these b
 class solving a congruence is not itself a polynomial root and carries no multiplicity or lift
 guarantee. With d = 1 after recentring and rescaling (BDMTV 2021 Remark 4.8), each simple root is
 isolated in a ball containing no other root, which is the (unique) condition of qc-disc-certificate;
-the number d itself is bounded by the residue-disc zero bound of ED.4 (Strassmann).
+the bound d must count geometric roots with multiplicity. Obtain it from the Weierstrass degree
+of G (the last index attaining its Gauss norm), through the root-counting adapter below. The distinct
+Q_p-root bound of §4.26 alone does not supply this multiplicity bound.
 
 Work under the following conditions. F converges on the closed disc ord_p(x) ≥ 1 (ensured by
 height-series-valuation-bound). The hypotheses on k, m, n are checked from certified coefficient
@@ -8575,6 +8615,8 @@ valuations (ED.0).
 
 The interface includes these statements.
 
+- `ED6.geometricRootCount_eq_weierstrassDegree`: For a nonzero restricted series G over Q_p with last dominant index D, extend coefficients to completed C_p and evaluate on its closed unit disc. Its zero multiset has cardinality D, using analytic vanishing multiplicity; in particular D≤d supplies the hypothesis above. The unit factor in the reused preparation has constant absolute value equal to the Gauss norm of G and contributes no zeros.
+- `ED6.roots_determined_of_truncation`: Under the displayed restriction, tail, coefficient-error, n>k and geometric multiplicity hypotheses, provide the matching of geometric root multisets and a complete finite ball cover. Isolation additionally requires a local count of one; repeated roots remain clusters.
 - `ED6.root_satisfies_truncation_congruence`: Supporting necessary congruence for an existing Q_p root, using the supplied tail valuation. No cluster existence, multiplicity or isolation conclusion.
 
 For the proof, normalize to G(T)=p^(−k)F(pT), of Gauss norm one. The tail and coefficient-error hypotheses give ||G−H||≤ε=p^(−(n−k))<1. Thus G and H have the same last coefficient of norm one, of index D≤d. If D=0 both are units and have no closed-disc roots. Otherwise use the current `TauCeti.PowerSeries.IsDistinguished.exists_isUnit_isMonicOfDegree_mul_eq` and its uniqueness theorem to factor each as a unit of norm one times a monic degree-D polynomial whose roots lie in the closed unit disc. The new analytic adapter must show that these unit factors have absolute value one throughout that disc. Partition the union of the two finite root multisets into closed balls of radius ε^(1/d). Enlarge a cluster ball slightly to a radius ε^(1/d)<r<1 that crosses no other root distance. On its boundary every factor in the polynomial for G has absolute value at least r, so |G|≥r^D≥r^d>ε. The nonarchimedean Rouché/Newton-polygon comparison gives equal numbers of G- and H-roots inside, with multiplicity. Taking the radii down to ε^(1/d) gives the matching. This comparison, including multiplicity and stability, is the new root-counting adapter; preparation itself is reused. Translate the matched balls by x=pT. A further local count equal to one proves isolation; solving a bare congruence supplies neither existence nor that count.
@@ -8589,6 +8631,7 @@ valuation∞; a zero dominant coefficient is rejected.
 **Checks.**
 
 - A simple root (d = 1) of F in the closed disc ord_p(x) ≥ 1 is determined to precision n − k from F_0, …, F_{m−1} modulo p^n, and its ball contains no other root.
+- F(x) = x² has one distinct Q_p-root but multiplicity two; d = 1 is invalid. For odd p, F(x) = x² − p³ has no Q_p-root but two C_p-roots in the disc, so a zero count over Q_p cannot replace the geometric multiplicity bound.
 - F(x) = x² − p^(2N) (N ≥ 1) has the two roots ±p^N in the disc, so d = 2 and k = 2; the lemma determines them only to precision (n − 2)/2, which illustrates the loss for clustered roots and why simple, separated roots are required for isolation.
 
 ([BDMTV (arXiv v4, 2023)](https://arxiv.org/abs/2101.01862v4), Lemma 4.7, p.25 (arXiv v4); [BDMTV
@@ -9237,8 +9280,8 @@ xs13-second-chart-points and xs13-p0-disc give X(Q) ∩ (each disc) ⊆ {P0, …
 own disc; the P_i are rational (xs13-plane-model (iv)). padic-candidate-comparison (all balls
 matched or excluded) gives X(Q) = {P0, …, P6} conditional on the stated finite arithmetic inputs.
 Moduli identification: X_s(13) has a rational cusp (R13.4a); for each of the six discriminants D, a
-CM curve E/Q with End(E_Q̄) ≅ O_D has ρ_{E,13}(G_Q) in a split Cartan normaliser (the CM
-residual-Cartan hypothesis of §6.33, 13 split and prime to D), giving a rational point above j(O_D)
+CM curve E/Q with End(E_Q̄) ≅ O_D has ρ_{E,13}(G_Q) in a split Cartan normaliser (the shared CM
+residual-Cartan application hypothesis, 13 split and prime to D), giving a rational point above j(O_D)
 (R13.4a criterion for j ≠ 0, 1728; the fibres above j = 0, 1728 are supplied by R13.4a); these seven
 points have distinct j-values, so they are the seven points of X(Q).
 
@@ -9265,7 +9308,7 @@ Theorem 1.1, p.888; [BDMTV
 (2019)](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf), §1.1,
 p.888.)
 
-*Needs:* §6.26; §6.27; §6.28; §6.18; §6.21; §6.2; §6.1; `ModularCurvesPartII:R13.4a`; `ModularCurvesPartII:R13.5`; the explicit CM correspondence hypothesis of §6.33; `ModularCurvesPartII:R13.4b`.
+*Needs:* §6.26; §6.27; §6.28; §6.18; §6.21; §6.2; §6.1; `ModularCurvesPartII:R13.4a`; `ModularCurvesPartII:R13.5`; the shared CM application hypotheses under Exact supplier contracts; `ModularCurvesPartII:R13.4b`.
 
 ### 6.30 Existence of non-CM split-Cartan images for ℓ = 2, 3, 5, 7
 
@@ -9285,7 +9328,7 @@ image is a rational point of X_s(ℓ); a genus-zero curve with a rational point 
 The j-map X_s(ℓ) → X(1) is a nonconstant morphism over Q with a pole at that cusp; for a prime q,
 rational points t q-adically close to the cusp satisfy v_q(j(t)) < 0, and there are infinitely many
 such t with pairwise distinct j(t) (the fibres are finite). CM j-invariants are algebraic integers
-(CM.3/integrality), so a non-integral rational j is not CM and is ≠ 0, 1728; the rational-point
+(the shared CM application hypothesis), so a non-integral rational j is not CM and is ≠ 0, 1728; the rational-point
 criterion (R13.4a) gives E/Q with j(E) = j(t) and image in C_s^+(ℓ) (no twist is needed since −I ∈
 C_s^+(ℓ)).
 
@@ -9298,7 +9341,7 @@ C_s^+(ℓ)).
 Theorem 1.2, p.888; [BDMTV
 (2019)](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf), §6, p.926.)
 
-*Needs:* `ModularCurvesPartII:R13.4a`; `ComplexMultiplicationAndExplicitReciprocity:CM.3/integrality`.
+*Needs:* `ModularCurvesPartII:R13.4a`; the shared CM application hypotheses under Exact supplier contracts.
 
 ### 6.31 The split Cartan case of Serre's uniformity question (BDMTV Theorem 1.2)
 
@@ -9343,7 +9386,7 @@ to this application.
 
 For the proof, Baran's isomorphism transports xs13-rational-points: #X_ns(13)(Q) = 7. For each of
 the seven discriminants, 13 is inert in O_D and prime to D, so a CM curve E/Q with End(E_Q̄) ≅ O_D
-has ρ_{E,13}(G_Q) in a non-split Cartan normaliser (the CM residual-Cartan hypothesis of §6.33);
+has ρ_{E,13}(G_Q) in a non-split Cartan normaliser (the shared CM residual-Cartan application hypothesis);
 j(O_D) ∉ {0, 1728}, so the criterion (R13.4a) gives a rational point of X_ns(13) above j(O_D). The
 seven j-values are distinct, so these seven points are all of X_ns(13)(Q).
 
@@ -9367,7 +9410,7 @@ Corollary 1.3, p.888; [BDMTV
 (2019)](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf), §1.1, (1),
 p.888.)
 
-*Needs:* §6.29; `ModularCurvesPartII:R13.4a`; the explicit CM correspondence hypothesis of §6.33; `ModularCurvesPartII:R13.4b`.
+*Needs:* §6.29; `ModularCurvesPartII:R13.4a`; the shared CM application hypotheses under Exact supplier contracts; `ModularCurvesPartII:R13.4b`.
 
 ### 6.33 Class number one from X_ns(13) (BDMTV Remark 1.4)
 
@@ -9385,7 +9428,7 @@ For the proof, Let K have discriminant D with h(K) = 1 and |D| > 52. Every ratio
 is inert in K: a split or ramified ℓ would give a principal ideal of norm ℓ, generated by (a +
 b√D)/2 with (a² + |D|b²)/4 = ℓ, forcing b = 0 and then a² = 4ℓ, impossible. In particular 13 is
 inert. j(O_K) ∈ Q (class number one) and a CM curve E/Q with End(E_Q̄) ≅ O_K has image in a
-non-split Cartan normaliser at 13 (the CM residual-Cartan hypothesis of §6.33), with j ≠ 0, 1728; it
+non-split Cartan normaliser at 13 (the shared CM residual-Cartan application hypothesis), with j ≠ 0, 1728; it
 gives a rational point of X_ns(13) (R13.4a), so by nonsplit-cartan-13, D ∈ {−7, −8, −11, −19, −28,
 −67, −163}; with |D| > 52 and D fundamental this leaves −67 and −163. For |D| ≤ 52 a finite
 certified class-number computation gives −3, −4, −7, −8, −11, −19, −43, and the same computation
@@ -9398,7 +9441,7 @@ certifies h(−67) = h(−163) = 1 (explicit supplied class/unit/factorization d
 ([BDMTV (2019)](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf),
 Remark 1.4, p.888.)
 
-*Needs:* §6.32; the explicit CM correspondence hypothesis of §6.33; `ModularCurvesPartII:R13.4a`.
+*Needs:* §6.32; the shared CM application hypotheses under Exact supplier contracts; `ModularCurvesPartII:R13.4a`.
 
 ### 6.34 The rational points of the exceptional curve X_S4(13) (BDMTV 2021 Theorem 1.1)
 
@@ -9508,7 +9551,7 @@ multiplication, and the R13.5 geometric model hypotheses for trivial h_N. No L-v
 table is produced here. Run qc-modular-algorithm at the stated p; it returns exactly the known
 points. padic-candidate-comparison gives the certified solution set; the CM discriminants are
 identified through the modular interpretation as unordered N-isogenous elliptic pairs and CM data
-(R13.4a, the CM hypotheses of §6.33); the j-map on X0(N) does not generally descend to X0+(N).
+(R13.4a, the shared CM application hypotheses); the j-map on X0(N) does not generally descend to X0+(N).
 
 Require the following additional contract for `ED6.x0plus_genusThree_rationalPoints`. For each
 N∈{97,109,113,127,139,149,151,179,239}, let X=X0(N)/⟨w_N⟩ be the actual coarse smooth projective

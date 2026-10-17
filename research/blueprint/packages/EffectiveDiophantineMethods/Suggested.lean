@@ -56,6 +56,15 @@ example : complexBoxContains 0 0 1 1 Complex.I := by
 example : ¬ complexBoxContains 0 0 0 0 Complex.I := by
   sorry
 
+/-- Real and imaginary interval coordinates cannot be interchanged. -/
+example : ¬ complexBoxContains 1 1 0 0 Complex.I := by
+  sorry
+
+/-- Corner norms bound a box from above; they need not give its minimum. -/
+example : complexBoxContains (-1) 1 (-1) 1 0 ∧
+    Complex.normSq (0 : ℂ) = 0 ∧ Complex.normSq (1 + Complex.I) = 2 := by
+  sorry
+
 example : padicBallContains 3 0 2 (9 : ℚ_[3]) := by
   sorry
 
@@ -104,6 +113,10 @@ theorem exists_padic_ball {p : ℕ} [Fact p.Prime] (x : ℚ_[p]) (N : ℤ) :
     ∃ c : ℚ, padicBallContains p c N x := by
   sorry
 
+/-- Residue degree one does not put a ramified quadratic root in Q_p. -/
+example : ¬ ∃ x : ℚ_[3], x ^ 2 = 3 := by
+  sorry
+
 end ED0
 
 /-! ## Layer 1: Lattice exclusion and finite short-vector searches -/
@@ -119,6 +132,10 @@ theorem linear_form_excluded {n : ℕ} (a : Fin n → ℝ)
     (hlarge : R < (∑ i, (b i : ℝ) * (v i : ℝ)) ^ 2)
     (hR : (C * Real.exp (-X) + (n : ℝ) * X * η) ^ 2 ≤ R) :
     Real.exp (-X) < |∑ i, (b i : ℝ) * a i| := by
+  sorry
+
+/-- A nonzero integral affine target has zero distance to the lattice. -/
+example : (∃ z : ℤ, 2 * z = 2) ∧ ¬ (0 < |(2 : ℝ) - 2 * 1|) := by
   sorry
 
 end ED1
@@ -163,6 +180,9 @@ example (N : ℕ) : realLogPartialSum 1 N = 0 := by
 example : arctanPartialSum 1 1 = 1 ∧ arctanPartialSum (-1) 1 = -1 := by
   sorry
 
+example : arctanPartialSum 1 2 = 2 / 3 ∧ arctanPartialSum 1 0 = 0 := by
+  sorry
+
 /-- The already defined principal-unit logarithm is compared with this finite
 sum. The README states the finite-extension version with ramification losses. -/
 def padicLogPartialSum {p : ℕ} [Fact p.Prime] (z : ℚ_[p]) (N : ℕ) : ℚ_[p] :=
@@ -191,6 +211,26 @@ example : padicLogPartialSum (4 : ℚ_[3]) 4 = (-51 / 4 : ℚ_[3]) := by
 
 example {p : ℕ} [Fact p.Prime] (N : ℕ) :
     padicLogPartialSum (1 : ℚ_[p]) N = 0 := by
+  sorry
+
+example : padicLogPartialSum (4 : ℚ_[3]) 0 = 0 ∧
+    padicLogPartialSum (4 : ℚ_[3]) 1 = 3 := by
+  sorry
+
+/-- An odd power does not kill the sign modulo four: the signed form vanishes,
+while its discrete logarithm in the order-two subgroup need not vanish. -/
+example : (3 : ZMod 4) ≠ 1 ∧ (3 : ZMod 4) ^ 2 = 1 ∧
+    (-(3 : ZMod 4) - 1 = 0) ∧ (1 : ZMod 2) ≠ 0 := by
+  sorry
+
+/-- A trivial cyclic subgroup has order p^0, including at p=2. -/
+example : (1 : ZMod 4) ^ (2 ^ 0 : ℕ) = 1 ∧ (2 ^ 0 : ℕ) = 1 := by
+  sorry
+
+/-- The zero form meets every valuation precision, although the totalised
+rational valuation of zero is zero. -/
+example [Fact (Nat.Prime 5)] :
+    padicValRat 5 (1 - 1 : ℚ) = 0 ∧ ED0.padicBallContains 5 0 3 (0 : ℚ_[5]) := by
   sorry
 
 /- S-unit finite enumeration is an equivalence proved after the bound. The
@@ -224,10 +264,17 @@ example : supportedOn {2, 3} 12 := by
 example : ¬ supportedOn {2, 3} 5 := by
   sorry
 
+example : supportedOn ∅ 1 ∧ ¬ supportedOn {2, 3} 0 := by
+  sorry
+
 example : coprimeSUnitTriple {2, 3} (1, 2, 3) := by
   sorry
 
 example : ¬ coprimeSUnitTriple {2, 3} (2, 2, 4) := by
+  sorry
+
+example : ¬ coprimeSUnitTriple {2, 3} (2, 1, 3) ∧
+    ¬ coprimeSUnitTriple {2, 3} (0, 1, 1) := by
   sorry
 
 end ED2
@@ -333,13 +380,17 @@ theorem candidates_eq_known {X : Type*} {ι : Type*} [Fintype ι]
     R = L := by
   sorry
 
+/-- A distinct-root count of one does not supply a multiplicity bound of one. -/
+example : (Polynomial.X ^ 2 : Polynomial ℚ).roots = ({0, 0} : Multiset ℚ) := by
+  sorry
+
 end ED6
 
 /- The README specifies the following further definitions and constructions.
 Layer 0: RealEnclosure, ComplexEnclosure, PadicEnclosure, ExactAlgebraicCertificate,
 RealRootIsolation, ArchimedeanEmbeddingCertificate, PadicEmbeddingCertificate,
 ValuationCertificate, LocalBallCertificate, heightEnclosure, boundedHeightPoints
-and boundedHeightProjectivePoints.
+and boundedHeightProjectivePoints, including the normalized p-adic ball record.
 Layer 1: linearFormMatrix, linearFormLattice, linearFormTarget, roundOfEnclosure,
 padicLatticeMatrix, padicLatticeTarget, padicLinearForm, apprOfEnclosure,
 quadraticCompletion, fpEnumeration, DistanceWitness, RealExclusionCertificate,
@@ -352,9 +403,11 @@ thueSolutions, ThueEquation, ThueFactorCovering, ThueConstants, ThueBoundParamet
 thueSmallSolutions, ThueCertificate, SemanticThueCertificate, thueMahlerSolutions,
 ThueMahlerEquation, ThueMahlerCovering, ThueMahlerCertificate,
 SemanticThueMahlerCertificate, sUnitSolutions, SUnitCertificate and
-SemanticSUnitCertificate, including their finite raw transcript types.
+SemanticSUnitCertificate, sUnitExponentHeight, including their finite raw transcript types.
 Layer 3: ellipticLocalImage, CertifiedLocalImage, TwoSelmerCertificate,
-quarticLocalSolubility, twoIsogenyDescentMap, canonicalHeightEnclosure,
+quarticLocallySoluble, zpSoluble, twoIsogenyCurve, twoIsogeny, twoIsogenyDual,
+twoIsogenyDescentMap, cremonaMu, canonicalHeightEnclosure, pairingEnclosure,
+heightCoordinatePoints,
 IsPSaturated, saturation, TorsionCertificate, FiniteIndexSubgroupCertificate
 and MordellWeilBasisCertificate.
 Layer 4: GoodReductionChabautyDatum, ReductionDiscData, abelianLog,
@@ -369,6 +422,7 @@ Layer 6: SemanticQCDiscCertificate, QCDiscCertificate, ExplicitSetup,
 AdmissibleTateMatrix, A_Z, gaugeMatrix, connectionMatrix, HodgeFiltrationData,
 leftMulMatrix, rightMulMatrix, transportMatrix, Frobenius structure and splitting,
 localHeight, QCInput, QCFailure, QCOutput, xs13FrobeniusLift and xs13Theta,
+xs13AffineQuartic, xs13SpecialFibrePoints, xs13GammaFilClass,
 with the exact model, Hodge truncation, coefficient, root-cluster and finite
 comparison certificates used by the worked examples. -/
 end TauCetiRoadmap.EffectiveDiophantineMethods
