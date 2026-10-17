@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T22:00Z",
+ "updated": "2026-10-17T22:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -355,7 +355,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "66e251a",
+   "head": "f8dae22",
    "depends_on": [
     779,
     789,
@@ -371,9 +371,9 @@
    ],
    "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -633,7 +633,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "cd03045",
+   "head": "21df972",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -1093,7 +1093,7 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "608aee4",
+   "head": "593dbd0",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "changes",
@@ -1241,7 +1241,7 @@
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1309,7 +1309,7 @@
   "PerfectoidShimuraVarieties": {
    "stage": "pr",
    "pr": 1085,
-   "head": "e710322",
+   "head": "a552611",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
    "review": {
     "recommendation": null,
@@ -1321,7 +1321,7 @@
   "TorsionCohomologyInfrastructure": {
    "stage": "pr",
    "pr": 1087,
-   "head": "1f397e9",
+   "head": "c7bcbc4",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
    "review": {
     "recommendation": null,
