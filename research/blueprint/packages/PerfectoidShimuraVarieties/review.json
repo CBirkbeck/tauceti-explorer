@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-PKG-PerfectoidShimuraVarieties",
-    "date": "2026-10-14",
-    "notes": "Accepted for the maintainer draft after fixing Bruhat quotient depths/API hypotheses, supplier stage labels, self-layer dependency summaries, and an unverified published-number collation. All 98 targets, 174 APIs and 111 original Checks are preserved; one negative domain Check was added. Independent 15-citation sample, flagged-source and current-upstream/library audits, adversarial pass and all 16 Lean signature matches are recorded in the review report. Pinned lean-check exited 0 with only 49 sorry warnings. Seven exact conditional proof inputs remain implementation prerequisites, not solved theorems; no new duplication removal or ownership move."
+    "reviewer": "fix-FIX-PKG-PerfectoidShimuraVarieties~adv",
+    "date": "2026-10-17",
+    "notes": "Accepted for the manager's narrowly scoped dependency-order repair. No incoming TorsionCohomologyInfrastructure supplier edge existed in the checked-in package. The scope paragraph now names the local Layer 1 owners; the sole remaining citation is under Downstream consumers, identifying the exported geometry and placing Scholze's Theorem 4.2.1 comparison in TC.2, with the fixed-exponent carrier supplied there by CompletedCohomologyPartII §8.6. All target bodies, hypotheses, APIs, Checks, seven conditional proof inputs and Suggested.lean are unchanged. The named ~adv report is absent; the existing independent review and the issue's explicit ORDER were checked. Pinned lean-check exited 0 with only 49 existing sorry warnings; sorry-data and intake checks passed. The unchanged blueprint packet separately reports seven unresolved ShimuraData prerequisites; they are recorded in the handoff and lie outside this package-only repair."
   }
 }
