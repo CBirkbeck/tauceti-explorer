@@ -4,9 +4,9 @@ import Mathlib
 # Arithmetic statistics, Part IV: representative target signatures
 
 The accompanying README is the full specification, with source locators and exact
-supplier contracts. This file gives light definitions and selected milestones on
-the pinned carriers. Counts retain the specified cutoffs and denominators; orbit,
-moduli, covering and arithmetic probability constructions remain README targets.
+supplier contracts. This file is not exhaustive: it gives light definitions and
+selected theorem signatures statable against the pinned APIs. Counts retain the specified cutoffs and denominators; orbit,
+arithmetic probability constructions remain README targets.
 -/
 
 noncomputable section
@@ -72,6 +72,13 @@ example : ¬ fkLinked (fun _ : Fin 1 => (1, 0)) (fun _ => (1, 1)) := by sorry
 example : fkLinked (fun _ : Fin 1 => (0, 1)) (fun _ => (1, 1)) := by sorry
 example : (fkGoodPlanes 0).ncard = 1 := by sorry
 example : (fkGoodPlanes 1).ncard = 2 := by sorry
+example : Submodule.span (ZMod 2)
+    {fun _ : Fin 1 => ((1 : ZMod 2), (0 : ZMod 2))} ∉ fkGoodPlanes 1 := by sorry
+example : powerRank (Multiplicative (ZMod 8)) 2 3 = 1 ∧
+    powerRank (Multiplicative (ZMod 8)) 2 4 = 0 := by sorry
+example : ¬ fkLinked (fun _ : Fin 1 => (1, 1)) 0 ∧
+    fkPhase (fun _ : Fin 1 => (1, 1)) 0 = 1 ∧
+    fkPhase 0 (fun _ : Fin 1 => (1, 1)) = 1 := by sorry
 
 end FieldStatistics
 
@@ -100,12 +107,25 @@ theorem woodGridSeparator_diagonal {m p : ℕ} (hp : p.Prime)
       (fun i => (p : ℂ) ^ (∑ j : Fin (m + 1) with j ≤ i, b j)) ≠ 0 := by sorry
 
 
+example : woodGridSeparator 0 2 (fun _ => 0) 0 = 1 := by sorry
 example : woodGridSeparator 0 2 (fun _ => 0) (fun _ => 2) = 0 := by sorry
 example : woodGridSeparator 0 2 (fun _ => 0) (fun _ => 1) ≠ 0 := by sorry
 
 example : woodGridSeparator 0 2 (fun _ => 1) (fun _ => 4) = 0 ∧
     woodGridSeparator 0 2 (fun _ => 1) (fun _ => 2) ≠ 0 := by sorry
 
+example : woodGridSeparator 1 2 ![2, 0] ![4, 8] = 0 ∧
+    woodGridSeparator 1 2 ![2, 0] ![4, 4] ≠ 0 := by sorry
+
 end Distributions
+
+/-! The README additionally specifies the number-field counting function and its
+reciprocal-automorphism weight; classGroupTorsionCard; gaussBinom; the
+partition-indexed FinAbPGroupClass representatives, conjugate partitions,
+multiplicities and automorphism counts; surjCard; the Cohen–Lenstra constants,
+weights and measures; surjectionMoment; IsEnlargement and enlargements; normalized
+p-adic matrix Haar measure, padicCokernel and cokernelLaw; the finite product
+Cohen–Lenstra measure; matrixKernelLaw and symmetricKernelLaw. Their full APIs,
+checks and end theorems remain in the README. -/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartIV

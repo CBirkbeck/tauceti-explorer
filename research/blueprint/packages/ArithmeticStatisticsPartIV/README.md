@@ -4,65 +4,49 @@
 
 ## Scope and ownership
 
-This part owns finite groups, matrix laws and moment tools. Its numbered subsections retain the common layer notation: Layer 0 is the family interface, Layer 1 the orbit dictionaries, Layer 2 the counts, Layer 3 the field and finite-group tools, Layer 4 the Selmer means, and Layer 5 the probability and geometric comparisons. An exact link identifies the supplying part whenever a layer is shared between two parts.
+This part owns the statistical adapters for number-field classes, partition-indexed finite abelian groups, Cohen–Lenstra measures, finite-field kernel laws, prime-power ranks, the Fouvry–Klüners directed phase, and Wood's discrete moment method. It retains Layer 3 of the common arithmetic-statistics build. Its input from an earlier part is the family interface of Part I; none of the counts or orbit dictionaries of Parts II–III is needed for the abstract probability results.
 
-The following boundaries fix the carriers and prevent parallel versions of existing mathematics.
+### Prerequisites and boundaries
 
-- TauCetiRoadmap.EllipticCurves Layers 1, 4–8 supply isogenies, local point groups, quadratic twists, Mordell–Weil, finite Selmer groups and their exact sequence, and the unique integral minimal short pair over Q. Here the new elliptic-family adapter sends that pair `(A,B)` to `(-3A,-27B)` and tracks the resulting height and local-density factors. Mathlib's pointwise `WeierstrassCurve.naiveHeight` is a height on points and is not this curve-family height.
-- TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own permutation actions on roots, conjugacy of their images, and the transitive-group predicates. The field-counting predicate here specializes that interface to embeddings of an extension; it does not define another permutation Galois group.
-- TauCetiRoadmap.GlobalNumberFields Layers 9–11 own discriminants, orders, Picard groups and the number-field lattice dictionary. Its lattice/coset estimates and GeometryOfNumbersAndQuadraticArithmetic:GN.4 supply the bounded semialgebraic count. What is added here is its use on skew, truncated and averaged arithmetic fundamental regions, with the cusp error retained. TauCetiRoadmap.OrthogonalSpinGroups Layer 0 supplies the generic orthogonal group; the one-matrix slice here fixes an arithmetic quadratic matrix and integral lattice. TauCetiRoadmap.IntegralLattices §2G supplies Minkowski reduction and bounded Gram entries for integral symmetric lattices. The polynomial-order Gram target here uses a real embedding metric, with one embedding per complex pair, which need not be integral; only that metric adapter and its restricted change-of-basis groups are new. Alternating lattices used in symplectic monodromy are separate objects.
-- TauCetiRoadmap.NumberFieldArithmetic Layers 1, 4 and 6 and TauCetiRoadmap.LocalFieldsRamification Layer 3 supply splitting, relative discriminants, towers and local ramification. TauCetiRoadmap.ClassFieldTheory supplies Artin reciprocity, unramified class fields and conductor characters. Generic norm and ideal-extension maps are reused; the added narrow-class-group and base-character filters keep total positivity and the relative statistical numerator explicit.
-- `TauCeti.FiniteQuadraticModule.IsIsotropic`, `IsLagrangian` and `orthogonalQuotient` already provide finite quadratic isotropy, self-orthogonality and the induced quadratic quotient. Their `orthogonalQuotientMk`, quadratic-value, pairing, surjectivity, equality and nondegeneracy theorems are the finite-module interface consumed here. The new targets are the maximal-isotropic *parameter space*, its uniform probability, reduction of a varying maximal isotropic, and the fibre/intersection counts. Over F_p, identify the values with `(1/p)Z/Z`; over other fields use Mathlib's `QuadraticForm` and submodule quotients. Quadratic vanishing is retained at p=2.
-- Scalar finite-measure moment determinacy with an exponential moment is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`, together with `ext_of_mgf`. Here surjection moments on finite group classes and exponential rank-grid moments have different growth assumptions and need the discrete separator and tightness arguments below.
-- Restricted-product groups and independent infinite product measures use Tau Ceti's completed RestrictedProducts roadmap and Mathlib's `MeasureTheory.Measure.infinitePi` and projective-measure interfaces. The added structure is the quadratic form, self-duality, finite reductions and canonical maximal-isotropic probability, not another restricted product or product measure.
-- SchemeAndStackFoundations:SF.3 owns unpointed Picard schemes and their degree torsors, the Picard–Brauer obstruction, rational-divisor-class comparison, norm and high-degree Abel maps. The Picard quotient, carry and Hecke probability here are finite statistical specializations. AbelianSchemesAndArithmeticModuli:A3 supplies theta groups and Cartier-dual isogeny kernels; A6 supplies polarized automorphisms and the Rosati-positive-unit orbit description of principal polarizations. The finite counting fibres and their asymptotics are new.
-- InverseGaloisAndArithmeticFundamentalGroups:IG.3–IG.5 own reduced Schur multipliers and covers, arithmetic lifting invariants and Hurwitz components. They are imported with their marked central-cover choices and cyclotomic power actions. Here embedded wreath types, infinity rigidifications and the normalized component sums specify which arithmetic moments are counted.
+- Mathlib already proves Hermite finiteness (`NumberField.finite_of_discr_bdd`) and the finite abelian-group structure theorem (`AddCommGroup.equiv_directSum_zmod_of_finite`). The new objects here are the isomorphism-class counting function and the partition-indexed probability carrier, with their statistical APIs. The completed EffectiveBounds roadmap supplies quantitative Hermite bounds; this part requests no replacement bound.
+- TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own the permutation action on roots and conjugacy-invariant transitive-group labels. The field-counting predicate specializes that action to embeddings of an extension.
+- Wide class groups and number-field discriminants are Mathlib's `ClassGroup (𝓞 K)` and `NumberField.discr`. Narrow class groups and their finiteness are `NumberField.NarrowClassGroup` and `NumberField.NarrowClassGroup.instFinite` in Tau Ceti. The existing elementary-two quotient and its torsion-cardinality comparison are used as the k=1 interface; higher power-image ranks are the new statistic.
+- Scalar finite-measure moment determinacy under an exponential-moment hypothesis is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`. The group-valued surjection moments and discrete rank-grid moments below have different carriers and growth hypotheses.
+- Tau Ceti's symmetric-matrix rank measurability in `TauCeti.MeasureTheory.Measure.SymmetricMatrix.Rank` concerns real self-adjoint matrices. The laws here count matrices over finite fields. The FK good-plane condition uses a directed nonsymmetric pairing, so the generic finite quadratic-module isotropy and orthogonal-quotient constructions are not duplicated.
 
-The pointwise two-Selmer rank identity is supplied by EllipticCurves Layer 7's exact sequence and Layer 6's Mordell–Weil theorem: `dim Sel₂(E)=rank E(Q)+dim E(Q)[2]+dim Sha(E)[2]`. Its explicit descent cardinal formula and rank inequality are already `WeierstrassCurve.Affine.card_range_μ` and `pow_rank_le_card_of_range_μ_le` in `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup`, transported by EllipticCurves' explicit/cohomological comparison. These pointwise facts are prerequisites; the new results here average them in the specified family.
-
-AnalyticNumberTheory is a prerequisite of every part of this roadmap and takes no input from any part. The other prospective suppliers used below are lower in the build: SchemeAndStackFoundations; GeometryOfNumbersAndQuadraticArithmetic; AdelicAlgebraicGroups; AlgebraicModuliForArithmeticGeometry; DiophantineApproximationAndTranscendence; InverseGaloisAndArithmeticFundamentalGroups; AbelianSchemesAndArithmeticModuli; ArithmeticGaloisRepresentations; SelmerIwasawaCohomology; ArithmeticGaloisDuality; NeronModelsAndSemistableAbelianVarieties; HeightsRationalPointsAndObstructions; EtaleDualityAndPerverseSheaves; and DeligneWeightsAndPurity. More specialized facts required here are stated as local supporting targets, not deferred to a later roadmap.
+The arithmetic conclusions of later parts consume these models only after proving their own family-specific moments. ModularityAndLanglandsExtensions is downstream only. AnalyticNumberTheoryPartI and AnalyticNumberTheoryPartII precede the arithmetic-statistics parts and take no input from them.
 
 ## Conventions
 
-All finite-field cardinalities `q` are prime powers greater than one. A letter `p` or `ℓ` declared prime is a natural prime. An integer modulus is positive unless its zero case is explicitly discussed. Empty products have value one, zero-dimensional vector spaces and the trivial group are retained, and any formula with `q^i-1` in a denominator specifies the positive index range. At characteristic two, alternating means zero diagonal as well as skew symmetry; polar isotropy alone is not quadratic isotropy.
+Finite-field cardinalities q are prime powers greater than one; p and ℓ are natural primes. All group representatives are finite abelian groups unless a finitely generated or p-adic source is explicitly named. Partitions have positive parts, with the empty partition representing the trivial group. Conjugate-partition coordinates are indexed from 1 and eventually zero; FK coordinates and the Lean separator coordinates are indexed from 0. Empty products are one and zero-dimensional spaces are retained.
 
-A height includes its carrier and equivalence relation. Inclusive Northcott sublevels use `H≤X`; strict source counts use `H<X`. Passing between them requires the stated boundary estimate. A field is counted up to base-field isomorphism unless an embedded or rigid family is named. An orbit count is unweighted unless its reciprocal stabilizer or rational-orbit weight is displayed. A natural cardinal is used only after finiteness; the value zero of `Nat.card` on an infinite type never licenses division. The average of an empty finite sublevel is zero, but any limiting ratio theorem assumes the specified positive denominator.
+Cardinalities are natural numbers only after finiteness. Probability weights and displayed divisions are in Q, R or R≥0∞ as specified, never natural-number division. A negative exponent denotes an integer exponent in a field. Every factor q^i−1 in a denominator has i≥1, so it is nonzero; |A| and |Aut A| are positive even for the trivial group. Infinite products require convergence and nonvanishing separately. The p-adic absolute value has |p|_p=p⁻¹, and additive matrix Haar measure has total mass one.
 
-Binary coefficients descend in x-degree, and changes of variables use row vectors. Cubics use the determinant-twisted GL2 action; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
+Number fields are counted up to Q-isomorphism, with signed discriminant and strict open cutoffs. The Part I family interface also has inclusive cutoffs; its `countLT` gives the strict count here. Wide and narrow class groups are distinguished explicitly. At p=2 a symmetric matrix may have nonzero diagonal; it is not required to be alternating. Linkage and good planes use the displayed directed FK pairing, including its diagonal values.
 
-Coefficient lattices have additive Haar mass one locally. An algebraic-group Haar measure comes from the stated invariant differential; it is not independently renormalized during a product formula. The p-adic absolute value has `|p|_p=p⁻¹`. Archimedean coefficient regions use the displayed Euclidean or Lebesgue measure. Actual CRT residue proportions are used for coupled finite conditions; a product of marginal densities is valid only for independently imposed prime-power conditions.
-
-Every arithmetic conjecture is a proposition, not an axiom or an unconditional distribution theorem. Distribution convergence does not imply convergence of unbounded moments. Fixed-q degree limits, fixed-degree large-q limits and iterated liminf/limsup limits are kept distinct. Selmer dimension, p-infinity Selmer corank and Mordell–Weil rank are distinguished; passing from corank to rank requires the stated condition on the divisible part of Sha. A degree-one Picard-scheme point, an actual degree-one divisor, and a point over an odd-degree extension are compared only under the explicit Brauer/local-solubility hypotheses.
+The measures below are abstract probability models. Their interpretation as arithmetic class-group distributions is conjectural unless a later part proves it for its specified family. Distribution convergence alone does not imply convergence of unbounded surjection moments.
 
 ## Exact supplier contracts
 
-From Mathlib use `Northcott`, `Northcott.comp_of_finite_fibers`, finite sets and quotient/orbit types; `Polynomial.discr`, resultants, separability and `Squarefree`; `ClassGroup`, `NumberField.discr` and `NumberField.dedekindZeta_residue`; p-adic fields and integers; Haar measures, real and extended nonnegative integrals, filters, infinite sums and products; `QuadraticForm`, bilinear forms, matrices, ranks, finite-dimensional subspaces, finite abelian-group structure and Smith normal form. The prime-counting estimate is `Chebyshev.eventually_primeCounting_le` in `Mathlib.NumberTheory.Chebyshev`: for every ε>0 and eventually x, `π(⌊x⌋)≤(log 4+ε)x/log x`. The new weighted prime-tail statements use partial summation from that estimate.
+### From Mathlib
 
-From Tau Ceti use `TauCeti.normLE`, `coe_normLE` and `summatory` to compare natural-valued heights with Northcott counts. Finite quadratic-module and scalar-determinacy imports are specified in Scope and ownership. They do not assert a group-valued moment theorem or a statistical intersection law.
+Use `NumberField.finite_of_discr_bdd` in `NumberTheory.NumberField.Discriminant.Basic` for intermediate fields of a fixed extension with bounded absolute discriminant, together with `NumberField.discr`, `NumberField.sign_discr`, `ClassGroup` and class-group finiteness. The quotient by Q-algebra isomorphism and the strict signed interval are the adapters defined here.
 
-The alternating-extension transfer consumes `TauCeti.NumberField.discr_emod_four_eq_zero_or_one` from `TauCeti.NumberTheory.NumberField.Discriminant.Stickelberger` and `NumberField.discr_eq_of_squarefree_of_mod_four_eq_one` from `TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers`. The latter requires a generator of minimal polynomial X²−d, generation over Q, squarefree d and d≡1 modulo four. Mathlib's `NumberField.abs_discr_gt_two` rules out a nontrivial number field of absolute discriminant one. These are existing arithmetic inputs, not new targets.
+Use `Nat.Partition`, `ZMod.card` and `AddCommGroup.equiv_directSum_zmod_of_finite` in `GroupTheory.FiniteAbelian.Basic` for finite group representatives. The latter supplies a decomposition into prime-power cyclic groups; sorting their nonzero exponents and identifying the unique conjugate partition are the statistical adapter targets below. Use `card_linearIndependent` and `Matrix.card_GL_field` in `LinearAlgebra.Matrix.GeneralLinearGroup.Card` for finite-field cardinalities, with their finite-field and dimension-range hypotheses. Matrix kernels use `Matrix.mulVecLin`, `LinearMap.ker`, `Module.finrank` and rank–nullity; the p-adic finite-cokernel argument uses `Submodule.smithNormalForm` over the DVR Z_p.
 
-From TauCetiRoadmap.EllipticCurves require the finite exact sequence `0→E(K)/nE(K)→Sel_n(E/K)→Sha(E/K)[n]→0`, compatibility with localization, naturality under isogenies, and rational torsion. Over Q require a unique integral short pair with no prime satisfying `p⁴|A` and `p⁶|B`, nonsingular discriminant, finiteness of bounded-height pairs and invariance under Q-isomorphism. Over Q_p require a finite-index open formal subgroup isomorphic to an open additive Z_p subgroup and the reduction/component/Tamagawa dictionary. Over R require the one- or two-component compact Lie-group description. These exact local groups, not only their cardinalities, enter the five-adic labels.
+Use `PMF`, nonnegative infinite sums, normalized additive Haar measure on compact groups, filters, locally uniform analytic convergence and infinite products. Rearrangements of arbitrary nonnegative moments take place in R≥0∞; real or complex rearrangements require the stated absolute convergence. The geometric-series bound supplies convergence of ∑ p^(−j). It does not by itself prove that a product with a zero factor is nonzero.
 
-From TauCetiRoadmap.ClassFieldTheory require the unramified reciprocity quotient, including split real places for ordinary classes and allowed real ramification for narrow classes, the conductor–discriminant formula, and equivariance under field automorphisms. From NumberFieldArithmetic require norm/extension compatibility and discriminant transitivity. From GlobalNumberFields require the finite order-class and overorder interfaces, trace duals, ideal norms, and discriminant/index-square identities. From GlobalQuadraticForms Layer 5 require the Hasse principle for nonsingular conics over number fields, used to compare quartic descent with the cohomological two-Selmer group.
+### From Tau Ceti
 
-From GeometryOfNumbersAndQuadraticArithmetic:GN.0 require primitive-vector saturation and integral minor/gcd comparison; GN.2–GN.3 require successive-minimum and covolume bounds; GN.4 requires the Davenport estimate for a bounded semialgebraic region with bounded complexity, including translates, projections and multiplicity. From AdelicAlgebraicGroups:AA.0–AA.4 require Haar integration on the specified adelic group, arithmetic reduction and fundamental sets, and central-isogeny measure comparison. Representation-specific Jacobians, cusps and Tamagawa values below still have to be proved.
-
-The finite-dimensional singular system is already owned by [TauCetiRoadmap.OperatorTheory, PolarDecomposition Part C](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/OperatorTheory/PolarDecomposition/README.md): PD-C09–PD-C18 supply right and left singular vectors and reconstruction. Its real invertible two-dimensional specialization gives g=k diag(u,u⁻¹)l, u≥1, for |det g|=1, with k,l orthogonal. This is the supplier used in compact binary transporters. Mathlib's `LinearMap.IsSymmetric.eigenvectorBasis` in `Analysis.InnerProductSpace.Spectrum` already supplies the underlying spectral theorem; no general singular-decomposition theory is planned here.
-
-From SchemeAndStackFoundations:SF.0–SF.3 require representability and base change for the specified moduli problems, finite étale covers, smooth lifting, unpointed Picard degree torsors, and the Picard–Brauer exact sequence. From AlgebraicModuliForArithmeticGeometry:R09.1 require Grassmannian/projective representability and smoothness tests; the split quadratic isotropic locus is constructed here. From AbelianSchemesAndArithmeticModuli:A2–A3 require abelian isogenies, duality, polarizations and theta-group commutators, with fppf cohomology when the degree meets the characteristic; A6 gives the Rosati orbit description and finite polarized automorphism groups. From NeronModelsAndSemistableAbelianVarieties:R11.1,R11.3,R11.4,R11.6 require local existence, semistable reduction, normalization/Picard exact sequences, graph monodromy and the identity-component comparison used in the twist parity formulas.
-
-From SelmerIwasawaCohomology:L0–L4 require continuous/fppf cohomology, Kummer localization, finite Selmer groups and torsors and the p-infinity corank interface. From ArithmeticGaloisDuality:D7 and R02.4 require the Poitou–Tate annihilator statement and local invariant normalization, Cassels–Tate pairing and adjointness of dual isogenies, including the finite quotient by the maximal divisible subgroup. From ArithmeticGaloisRepresentations:R01.6 require the precise residual ordinary and ramification predicates used in the analytic rank criteria. From HeightsRationalPointsAndObstructions:RP.1 require the degree/index and actual-divisor obstruction comparison, without identifying a rational relative Picard point with a line bundle before the obstruction vanishes.
-
-From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embedding problems, quantitative Hilbert irreducibility and the fixed-model Lang–Weil estimate. IG.3 supplies `H₂(F,c)=H₂(F,Z)/Q_c`, a chosen reduced cover, and functorial cyclotomic powers. IG.4–IG.5 supply marked arithmetic lifting invariants, unramified Gamma groups and Hurwitz components with their rational Frobenius action. A stable component formula is used only in its stable multidegree range; boundary components remain in the total profile.
-
-From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
-
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+Use `TauCeti.ClassGroup.ElementaryTwoQuotient` and `TauCeti.ClassGroup.card_elementaryTwoQuotient_eq_card_twoTorsion` in `TauCeti.NumberTheory.ClassGroup.ElementaryTwoQuotient`: for a finite class group, the square quotient and the two-torsion have equal cardinality. This gives the class-group specialization of the p=2,k=1 rank comparison. Use `NumberField.NarrowClassGroup` from `TauCeti.NumberTheory.NumberField.NarrowClassGroup.Basic` and its `instFinite` from `.Finite` when the input is Cl⁺(K). No narrow/wide identification is assumed.
 
 ### From earlier arithmetic-statistics parts
 
-From ArithmeticStatisticsPartI require [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family). Their hypotheses, weights, cutoffs and normalizations are retained at the point of use below.
+Consume [ArithmeticStatisticsPartI, arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family): an isomorphism-class carrier with a Northcott height, weights and both `count` (inclusive) and `countLT` (strict). For number fields take H(K)=|Disc(K)|, the unweighted count or the displayed reciprocal-automorphism weight, and use Hermite finiteness. No later arithmetic-statistics part supplies a definition or theorem here.
+
+### Analytic prerequisites
+
+[AnalyticNumberTheoryPartI](../AnalyticNumberTheoryPartI/README.md#exact-supplier-contracts) and [Part II](../AnalyticNumberTheoryPartII/README.md#exact-supplier-contracts) precede this part in the programme. Their prime estimates, cubic zeta functions and continuation theorems are not hypotheses of the finite-group laws. The convergent Euler products in this part are justified directly by the Mathlib geometric-series and infinite-product interfaces above; no unspecialized analytic supplier output is presumed. Later arithmetic applications can use the two analytic parts with their own exact hypotheses. The direction of dependency never reverses.
 
 ## How to read the build
 
@@ -86,7 +70,7 @@ The required API is:
 
 - `finite_numberFieldsInInterval`: The set S_n(P; ξ, η) of intermediate fields of Q̄/Q of degree n with ξ < discr < η and P is finite (from NumberField.finite_of_discr_bdd).
 
-- `numberFieldCount_eq_sum_card_aut`: N_n(P; ξ, η) = Σ_{K ∈ S_n(P; ξ, η)} #Aut(K/Q)/n (each isomorphism class has n/#Aut(K/Q) conjugate subfields).
+- `numberFieldCount_eq_sum_card_aut`: (N_n(P; ξ, η) : Q) = Σ_{K ∈ S_n(P; ξ, η)} (#Aut(K/Q) : Q)/(n : Q) (each isomorphism class has n/#Aut(K/Q) conjugate subfields).
 
 - `numberFieldCount_mono`: N_n(P; ξ, η) ≤ N_n(P'; ξ', η') whenever P ⇒ P' and (ξ, η) ⊆ (ξ', η').
 
@@ -98,7 +82,7 @@ The required API is:
 
 - `numberFieldCount_congr`: If P and P' agree on all number fields of degree n then N_n(P; ξ, η) = N_n(P'; ξ, η).
 
-For the proof, The set S_n(P; ξ, η) is contained in the set of intermediate fields K of Q̄/Q with |discr K| ≤ ⌈max(|ξ|, |η|)⌉, which is finite by NumberField.finite_of_discr_bdd; take Nat.card of the quotient by the isomorphism relation. Invariance of P and of finrank and discr under Q-isomorphism makes the quotient well defined; the embedding of every number field of degree n into Q̄ (its minimal polynomial splits in Q̄) shows that every isomorphism class is represented. The subfield formula: the members of S_n(P; ξ, η) isomorphic to a fixed K are the images of the n embeddings K → Q̄, two embeddings having the same image iff they differ by an automorphism of K, so the class of K has n/#Aut(K/Q) members and N_n(P; ξ, η) = Σ_{K ∈ S_n(P; ξ, η)} #Aut(K/Q)/n. The family of degree-n number fields up to isomorphism, ordered by |Disc|, with weight 1 (or 1/#Aut(K/Q) for the weighted count), is an instance of the arithmetic family of [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family); its counting function is N_n(P; X), and its bounded-height finiteness is Hermite's theorem.
+For the proof, The set S_n(P; ξ, η) is contained in the set of intermediate fields K of Q̄/Q with |discr K| ≤ ⌈max(|ξ|, |η|)⌉, which is finite by NumberField.finite_of_discr_bdd; take Nat.card of the quotient by the isomorphism relation. Invariance of P and of finrank and discr under Q-isomorphism makes the quotient well defined; the embedding of every number field of degree n into Q̄ (its minimal polynomial splits in Q̄) shows that every isomorphism class is represented. The subfield formula: the members of S_n(P; ξ, η) isomorphic to a fixed K are the images of the n embeddings K → Q̄, two embeddings having the same image iff they differ by an automorphism of K, so the class of K has n/#Aut(K/Q) members and the sum of the rational weights #Aut(K/Q)/n is N_n(P; ξ, η). In a non-Galois cubic class each of its three subfields contributes 1/3; natural-number division would incorrectly give zero. The family of degree-n number fields up to isomorphism, ordered by |Disc|, with weight 1 (or 1/#Aut(K/Q) for the weighted count), is an instance of the arithmetic family of [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family); its strict counting function `countLT` is N_n(P; X), and its bounded-height finiteness is Hermite's theorem.
 
 *Needs:* [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family), `NumberField.finite_of_discr_bdd` (Mathlib), `NumberField.discr` (Mathlib), `NumberField.sign_discr` (Mathlib), `NumberField.InfinitePlace.nrComplexPlaces` (Mathlib), `AlgebraicClosure` (Mathlib), `IntermediateField` (Mathlib), `MulAction.toPermHom` (Mathlib).
 
@@ -140,8 +124,6 @@ The required API is:
 
 - `classGroupTorsionCard_prime_eq_pow_rank`: For p prime, h_p(K) = #(Cl(K)/Cl(K)^p) = p^{rk_p Cl(K)} with rk_p A = dim_{F_p} A/pA.
 
-- `classGroupTorsionCard_two_eq_card_elementaryTwoQuotient`: h₂(K) = Nat.card (TauCeti.ClassGroup.ElementaryTwoQuotient (𝓞 K)) (Tau Ceti's TauCeti.ClassGroup.card_elementaryTwoQuotient_eq_card_twoTorsion).
-
 - `classGroupTorsionCard_congr`: A Q-algebra isomorphism K ≃ K' gives h_m(K) = h_m(K').
 
 For the proof, Define h_m(K) as Nat.card of the subtype {c : ClassGroup (𝓞 K) // c ^ m = 1}; it is the kernel of the m-th power endomorphism of the finite abelian group Cl(K). For a finite abelian group A, #A[m] = #(A/mA) = #Hom(A, Z/mZ) (duality of finite abelian groups), and for m = p prime #A[p] = p^{rk_p A}. For coprime m, m': A[mm'] ≅ A[m] × A[m'], so h_{mm'} = h_m h_{m'}; and h_m(K) divides h(K) = NumberField.classNumber K by Lagrange.
@@ -168,17 +150,17 @@ For the proof, Define h_m(K) as Nat.card of the subtype {c : ClassGroup (𝓞 K)
 
 - The number of index-3 subgroups of Cl(K) is (h₃(K) − 1)/2, the quantity of BST (59).
 
-### 3.10 Gaussian coefficients
+### 3.2 Gaussian coefficients
 
 <a id="gaussian-binomial-coefficient"></a>
 
-**Gaussian binomial coefficient.** For an element t of a field (or t = q a prime power) and integers 0 ≤ k ≤ n, the Gaussian binomial coefficient is [n k]_t := ∏_{i=1}^{k} (1 − t^{n−k+i})/(1 − t^{i}) when t is not a root of unity of order ≤ n, extended as the polynomial in ℤ[t] defined by the recursion [n 0]_t = [n n]_t = 1, [n+1 k]_t = [n k−1]_t + t^{k}[n k]_t, and [n k]_t := 0 for k > n. For a finite field 𝔽_q, [n k]_q equals the number of k-dimensional subspaces of 𝔽_q^n.
+**Gaussian binomial coefficient.** Define [n k]_t by polynomial evaluation for t in any commutative ring and n,k≥0. For t in a field and 0≤k≤n, the Gaussian binomial coefficient is [n k]_t := ∏_{i=1}^{k} (1 − t^{n−k+i})/(1 − t^{i}) when t is not a root of unity of order ≤ n, with polynomial values determined by the recursion [n 0]_t = [n n]_t = 1, [n+1 k]_t = [n k−1]_t + t^{k}[n k]_t, and [n k]_t := 0 for k > n. For a finite field 𝔽_q, evaluate at the integer q in ℕ or ℚ, rather than reducing q in 𝔽_q: [n k]_q equals the number of k-dimensional subspaces of 𝔽_q^n.
 
-0 ≤ k for the subspace count: q = #𝔽_q a prime power
+The polynomial definition permits all n,k≥0. For the subspace count q=#𝔽_q is a prime power; the count is zero for k>n.
 
 The required API is:
 
-- `gaussBinom`: [n k]_t as an element of a field, via the recursion (0 for k > n).
+- `gaussBinom`: [n k]_t as an element of a commutative ring, via the recursion (0 for k > n).
 
 - `gaussBinom_zero_right`: [n 0]_t = 1.
 
@@ -234,7 +216,7 @@ For the proof, Induct on n: multiply the identity for n by (1 + t^{n} z) and com
 
 - n = 2: (1 + z)(1 + tz) = 1 + (1 + t)z + t z².
 
-### 3.11 Finite abelian groups and Cohen–Lenstra mass
+### 3.3 Finite abelian groups and Cohen–Lenstra mass
 
 <a id="isomorphism-classes-of-finite-abelian-p-groups"></a>
 
@@ -354,7 +336,7 @@ For the proof, Use the coordinate perfect pairings A_λ × A_λ → Q/Z, with ea
 
 *Needs:* [isomorphism classes of finite abelian p groups](#isomorphism-classes-of-finite-abelian-p-groups), [surjection count](#surjection-count).
 
-([[37]](#ref-37), Annals 183 (2016), proof of Lemma 8.4, p. 772.)
+([[37]](#ref-37), Annals 183 (2016), proof of Lemma 8.4, p. 772, supplies the enlargement setting; the displayed exact surjection formula is the supporting flag-count lemma proved here.)
 
 **Checks.**
 
@@ -436,7 +418,7 @@ For the proof, Multiply [weighted inverse automorphism sum](#weighted-inverse-au
 
 <a id="cohen-lenstra-measure"></a>
 
-**Cohen lenstra measure.** For a prime p and an integer u ≥ 0 put c_{p,u} = ∏_{i ≥ u+1} (1 − p^{−i}). The Cohen–Lenstra measure μ_{p,u} is the probability measure on the isomorphism classes L of finite abelian p-groups with μ_{p,u}(A) = c_{p,u} / (|A|^u · |Aut A|). The case u = 0 is the Cohen–Lenstra distribution of EVW §8.1 (imaginary quadratic fields); u = 1 is the real-quadratic distribution. Total mass one is the mass formula ([cohen lenstra mass formula](#cohen-lenstra-mass-formula)), which the construction takes as input.
+**Cohen lenstra measure.** For a prime p and an integer u ≥ 0 put c_{p,u} = ∏_{i ≥ u+1} (1 − p^{−i}). The Cohen–Lenstra measure μ_{p,u} is the probability measure on the isomorphism classes L of finite abelian p-groups with μ_{p,u}(A) = c_{p,u} / (|A|^u · |Aut A|). The case u = 0 is the Cohen–Lenstra distribution of EVW §8.1 (imaginary quadratic fields); u = 1 is the corresponding real-quadratic model. These descriptions are conjectural arithmetic interpretations, not distribution theorems for number fields. Total mass one is the mass formula ([cohen lenstra mass formula](#cohen-lenstra-mass-formula)), which the construction takes as input.
 
 p prime u ∈ ℕ
 
@@ -484,7 +466,7 @@ For the proof, Define c_{p,u} as the convergent infinite product ∏_{i≥0} (1 
 
 - μ_{p,0}(ℤ/p²) = (p² − 1) μ_{p,0}((ℤ/p)²).
 
-### 3.12 Surjection moments and extension groupoids
+### 3.4 Surjection moments and extension groupoids
 
 <a id="surjection-moment"></a>
 
@@ -578,7 +560,7 @@ For the proof, Write the moment as c_{p,u} Σ_i p^{−iu} Σ_{|X|=p^i} |Sur(X, A
 
 - A = 0 gives total mass 1 (the mass formula).
 
-### 3.13 Moment uniqueness and convergence
+### 3.5 Moment uniqueness and convergence
 
 <a id="cohen-lenstra-contraction-constant"></a>
 
@@ -784,7 +766,7 @@ For the proof, Wood's Theorem 3.1 (from Wood, The distribution of sandpile group
 
 - It covers p = 2, where EVW's contraction argument fails.
 
-### 3.14 Random p-adic cokernels
+### 3.6 Random p-adic cokernels
 
 <a id="cokernel-law-of-haar-random-p-adic-matrices"></a>
 
@@ -816,7 +798,7 @@ For the proof, Give ℤ_p the Borel σ-algebra; the Pi type of matrices is a com
 
 *Needs:* [isomorphism classes of finite abelian p groups](#isomorphism-classes-of-finite-abelian-p-groups), `MeasureTheory.Measure.haarMeasure` (Mathlib), `PadicInt.compactSpace` (Mathlib), `Matrix.mulVecLin` (Mathlib), `Matrix.card_GL_field` (Mathlib), `Submodule.smithNormalForm` (Mathlib).
 
-([[38]](#ref-38), arXiv 1504.04391v1, §1, p. 1; [[38]](#ref-38), arXiv 1504.04391v1, §1, p. 3.)
+([[38]](#ref-38), arXiv 1504.04391v1, §1, p. 1; [[38]](#ref-38), arXiv 1504.04391v1, §1, p. 3; the finite-n construction and cylinder measurability are the supporting arguments above.)
 
 **Checks.**
 
@@ -834,11 +816,11 @@ For the proof, Give ℤ_p the Borel σ-algebra; the Pi type of matrices is a com
 
 <a id="haar-matrix-cokernel-surjection-moments"></a>
 
-**Haar matrix cokernel surjection moments.** Let p be prime, n, u ≥ 0 and M ∈ M_{n×(n+u)}(ℤ_p) Haar-random, viewed as ℤ_p^{n+u} → ℤ_p^n. For every finite abelian p-group A: E|Sur(coker M, A)| = |Sur(ℤ_p^n, A)| · |A|^{−(n+u)} = |A|^{−u} ∏_{i=0}^{r−1}(1 − p^{i−n}), r the p-rank of A. In particular the moments are ≤ |A|^{−u} and tend to |A|^{−u} as n → ∞.
+**Haar matrix cokernel surjection moments.** Let p be prime, n, u ≥ 0 and M ∈ M_{n×(n+u)}(ℤ_p) Haar-random, viewed as ℤ_p^{n+u} → ℤ_p^n. For every finite abelian p-group A: E|Sur(coker M, A)| = |Sur(ℤ_p^n, A)| · |A|^{−(n+u)} = |A|^{−u} ∏_{i=0}^{r−1}(1 − p^i/p^n), r the p-rank of A. The quotient is in Q or R; if r>n, the factor at i=n is zero, so the whole product is zero. In particular the moments are ≤ |A|^{−u} and tend to |A|^{−u} as n → ∞.
 
 p prime M Haar-distributed on M_{n×(n+u)}(ℤ_p)
 
-For the proof, A surjection coker M ↠ A is a surjection F : ℤ_p^n ↠ A with F∘M = 0; so E|Sur(coker M, A)| = Σ_{F ∈ Sur(ℤ_p^n, A)} P(F M = 0) (finite sum, homomorphisms factor through (ℤ/p^e)^n). For surjective F the n + u columns F(M e_j) are independent and uniform on A (image of Haar measure under a surjective continuous homomorphism is Haar), so P(FM = 0) = |A|^{−(n+u)}. |Sur(ℤ_p^n, A)| = |A|^n ∏_{i=0}^{r−1}(1 − p^{i−n}) (a map is onto iff it is onto modulo p; count F_p-surjections F_p^n → F_p^r by Matrix.card_GL_field-type counting and lift).
+For the proof, A surjection coker M ↠ A is a surjection F : ℤ_p^n ↠ A with F∘M = 0; so E|Sur(coker M, A)| = Σ_{F ∈ Sur(ℤ_p^n, A)} P(F M = 0) (finite sum, homomorphisms factor through (ℤ/p^e)^n and hence are continuous). For surjective F the n + u columns F(M e_j) are independent and uniform on A (image of Haar measure under a surjective continuous homomorphism is Haar), so P(FM = 0) = |A|^{−(n+u)}. |Sur(ℤ_p^n, A)| = |A|^n ∏_{i=0}^{r−1}(1 − p^i/p^n) (a map is onto iff it is onto modulo p; count F_p-surjections F_p^n → F_p^r by Matrix.card_GL_field-type counting and lift).
 
 *Needs:* [cokernel law of haar random p adic matrices](#cokernel-law-of-haar-random-p-adic-matrices), [surjection count](#surjection-count), [surjection moment](#surjection-moment), [isomorphism classes of finite abelian p groups](#isomorphism-classes-of-finite-abelian-p-groups), `MeasureTheory.Measure.haarMeasure` (Mathlib).
 
@@ -856,7 +838,7 @@ For the proof, A surjection coker M ↠ A is a surjection F : ℤ_p^n ↠ A with
 
 p prime u ∈ ℕ Haar measure on the compact group M_{n×(n+u)}(ℤ_p)
 
-For the proof, The finite-cokernel argument is that of friedman-washington-cokernel-law: for n>0, the first square minor is a nonzero determinant polynomial, whose Haar-zero vanishing set is proved by induction and Fubini. Off that set the adjugate gives a finite-index image. For n=0 the cokernel is zero. Full rank modulo p is not necessary: the 1×1 matrix [p] already has finite cokernel. By [haar matrix cokernel surjection moments](#haar-matrix-cokernel-surjection-moments) the A-moments of the finite-n laws converge to |A|^{−u}. Apply [moments determine cohen lenstra limits for all p and u](#moments-determine-cohen-lenstra-limits-for-all-p-and-u) (for p odd, u = 0 also [moment convergence implies distribution convergence](#moment-convergence-implies-distribution-convergence)) and identify the limit with μ_{p,u} via [cohen lenstra moments](#cohen-lenstra-moments).
+For the proof, The finite-cokernel argument is that of [the finite-n cokernel law](#cokernel-law-of-haar-random-p-adic-matrices): for n>0, the first square minor is a nonzero determinant polynomial, whose Haar-zero vanishing set is proved by induction and Fubini. Off that set the adjugate gives a finite-index image. For n=0 the cokernel is zero. Full rank modulo p is not necessary: the 1×1 matrix [p] already has finite cokernel. By [haar matrix cokernel surjection moments](#haar-matrix-cokernel-surjection-moments) the A-moments of the finite-n laws converge to |A|^{−u}. Apply [moments determine cohen lenstra limits for all p and u](#moments-determine-cohen-lenstra-limits-for-all-p-and-u) (for p odd, u = 0 also [moment convergence implies distribution convergence](#moment-convergence-implies-distribution-convergence)) and identify the limit with μ_{p,u} via [cohen lenstra moments](#cohen-lenstra-moments).
 
 *Needs:* [cokernel law of haar random p adic matrices](#cokernel-law-of-haar-random-p-adic-matrices), [haar matrix cokernel surjection moments](#haar-matrix-cokernel-surjection-moments), [moments determine cohen lenstra limits for all p and u](#moments-determine-cohen-lenstra-limits-for-all-p-and-u), [moment convergence implies distribution convergence](#moment-convergence-implies-distribution-convergence), [cohen lenstra measure](#cohen-lenstra-measure), [cohen lenstra moments](#cohen-lenstra-moments).
 
@@ -920,7 +902,7 @@ For the proof, Define the product of the μ_{ℓ,u} over ℓ ∈ S. Total mass o
 
 - S = ∅ gives the point mass 1.
 
-### 3.15 Finite-field kernel laws
+### 3.7 Finite-field kernel laws
 
 <a id="matrix-kernel-law-over-a-finite-field"></a>
 
@@ -960,7 +942,7 @@ For the proof, Define the ratio of the cardinality of the subtype of matrices wi
 
 F finite field with q elements r ≤ min(m, n)
 
-For the proof, A rank-r matrix is determined by its column space W ⊆ F^m (dim r) and a surjective linear map F^n ↠ W. The number of r-dimensional subspaces is the Gaussian binomial [m choose r]_q ([gaussian binomial coefficient](#gaussian-binomial-coefficient), owned by part S of this stage). Surjections F^n ↠ F^r are counted by choosing r linearly independent rows: ∏_{i<r}(q^n − q^i) (as in Mathlib Matrix.card_GL_field / card_linearIndependent).
+For the proof, A rank-r matrix is determined by its column space W ⊆ F^m (dim r) and a surjective linear map F^n ↠ W. The number of r-dimensional subspaces is the Gaussian binomial [m choose r]_q ([gaussian binomial coefficient](#gaussian-binomial-coefficient)). Surjections F^n ↠ F^r are counted by choosing r linearly independent rows: ∏_{i<r}(q^n − q^i) (as in Mathlib Matrix.card_GL_field / card_linearIndependent).
 
 *Needs:* [matrix kernel law over a finite field](#matrix-kernel-law-over-a-finite-field), [gaussian binomial coefficient](#gaussian-binomial-coefficient), `Matrix.card_GL_field` (Mathlib), `Matrix.rank` (Mathlib).
 
@@ -1036,7 +1018,7 @@ For the proof, Replace the invalid independent-(T,U) conditioning in the source 
 
 - m = 2: (6/16 + (1/3)(9/16) + (1/7)(1/16))/4 = 1/7.
 
-- Verified exactly for m ≤ 11 by direct finite enumeration.
+- For every 0≤m≤11, substitution of the exact rank-count products gives the identity in rational arithmetic; this check does not enumerate all 2^(m²) matrices.
 
 - m=0: both sides equal 1; the kernel weight denominator is #ker U - 1=1, not zero.
 
@@ -1046,7 +1028,7 @@ For the proof, Replace the invalid independent-(T,U) conditioning in the source 
 
 - The specified probability uses a uniform U followed by a uniform nonzero kernel vector; uniform sampling of all pairs (U,x in ker U minus {0}) is a different measure.
 
-### 3.16 Symmetric border-rank recurrences
+### 3.8 Symmetric border-rank recurrences
 
 <a id="symmetric-image-obstruction"></a>
 
@@ -1164,7 +1146,7 @@ For the proof, All denominators q^(2i)−1 are nonzero since i≥1 and q≥2. Em
 
 - At n=0, k=0,1 and k≥2 it yields 1,q−1 and 0.
 
-### 3.17 Finite-field kernel laws
+### 3.9 Symmetric kernel limit
 
 <a id="macwilliams-symmetric-rank-count"></a>
 
@@ -1194,7 +1176,7 @@ For the proof, Use the native subtype count N_F(n,k), with N_F(0,0)=1 and N_F(0,
 
 n ∈ ℕ r ≥ 1
 
-For the proof, If n>r, the finite kernel mass is zero and the target limit lies in [0,1], while 2^{n+1−r}≥1, so the stated bound is immediate. Assume henceforth n≤r. By [macwilliams symmetric rank count](#macwilliams-symmetric-rank-count) with k = r − n = 2h or 2h + 1: P_Sym(r, n) = 2^{−n(n+1)/2} ∏_{i=1}^{h}(1 − 2^{−2i})^{−1} ∏_{j=n+1}^{r}(1 − 2^{−j}) (the exponent kr − k(k−1)/2 − r(r+1)/2 simplifies to −n(n+1)/2). Letting r → ∞: P_Sym(∞, n) = 2^{−n(n+1)/2}∏_{i≥1}(1 − 2^{−2i})^{−1}∏_{j≥n+1}(1 − 2^{−j}) = ∏_{j odd}(1 − 2^{−j})/∏_{i=1}^{n}(2^i − 1). Rate: P_Sym(r, n) = P_Sym(∞, n)·R with R = ∏_{i>h}(1 − 2^{−2i})/∏_{j>r}(1 − 2^{−j}); since 2h + 2 ≥ r − n + 1, 1 − (2/3)2^{n−r} ≤ R ≤ 1 + 2^{1−r}, and P_Sym(∞, n) ≤ 1. Explicitly, the omitted even-factor tail is at most (4/3)2^{−2h−2}≤(2/3)2^{n−r}; the denominator tail is at least 1−2^{−r}, and (1−2^{−r})⁻¹≤1+2^{1−r} for r≥1. Σ_n P_Sym(∞, n) = ∏_{j odd}(1 − 2^{−j}) Σ_n 2^{−n(n+1)/2}/∏_{i≤n}(1 − 2^{−i}) = ∏_{j odd}(1 − 2^{−j})∏_{i≥1}(1 + 2^{−i}) = 1 (Euler).
+For the proof, If r=n=0, the finite mass is 1 and the limiting mass lies in [0,1], so the error is at most 1≤2. If n>r, the finite kernel mass is zero and the target limit lies in [0,1], while 2^{n+1−r}≥1, so the stated bound is immediate. Assume henceforth n≤r. By [macwilliams symmetric rank count](#macwilliams-symmetric-rank-count) with k = r − n = 2h or 2h + 1: P_Sym(r, n) = 2^{−n(n+1)/2} ∏_{i=1}^{h}(1 − 2^{−2i})^{−1} ∏_{j=n+1}^{r}(1 − 2^{−j}) (the exponent kr − k(k−1)/2 − r(r+1)/2 simplifies to −n(n+1)/2). Letting r → ∞: P_Sym(∞, n) = 2^{−n(n+1)/2}∏_{i≥1}(1 − 2^{−2i})^{−1}∏_{j≥n+1}(1 − 2^{−j}) = ∏_{j odd}(1 − 2^{−j})/∏_{i=1}^{n}(2^i − 1). Rate: P_Sym(r, n) = P_Sym(∞, n)·R with R = ∏_{i>h}(1 − 2^{−2i})/∏_{j>r}(1 − 2^{−j}); since 2h + 2 ≥ r − n + 1, 1 − (2/3)2^{n−r} ≤ R ≤ 1 + 2^{1−r}, and P_Sym(∞, n) ≤ 1. Explicitly, the omitted even-factor tail is at most (4/3)2^{−2h−2}≤(2/3)2^{n−r}; the denominator tail is at least 1−2^{−r}, and (1−2^{−r})⁻¹≤1+2^{1−r} for r≥1. Σ_n P_Sym(∞, n) = ∏_{j odd}(1 − 2^{−j}) Σ_n 2^{−n(n+1)/2}/∏_{i≤n}(1 − 2^{−i}) = ∏_{j odd}(1 − 2^{−j})∏_{i≥1}(1 + 2^{−i}) = 1 (Euler).
 
 *Needs:* [macwilliams symmetric rank count](#macwilliams-symmetric-rank-count), [symmetric matrix kernel law](#symmetric-matrix-kernel-law), `tsum_geometric_of_lt_one` (Mathlib).
 
@@ -1206,7 +1188,7 @@ For the proof, If n>r, the finite kernel mass is zero and the target limit lies 
 
 - r = 2, n = 0: |1/2 − 0.4194| ≈ 0.081 ≤ 1/2; numerically the ratio of the error to 2^{n+1−r} stays below 0.17 for r ≤ 40.
 
-### 3.18 Four-rank phases and good subspaces
+### 3.10 Four-rank phases and good subspaces
 
 <a id="prime-power-class-group-rank"></a>
 
@@ -1252,6 +1234,8 @@ k≥0; all coordinates and phase values lie in F₂.
 
 The required API is:
 
+- `FieldStatistics.FKSpace`: the coordinate carrier Fin k → F₂×F₂; its cardinality is 4^k, and coordinatewise linear operations are inherited.
+
 - `FieldStatistics.fkPhase`: The F₂-valued phase Φ_k on ordered pairs.
 
 - `FieldStatistics.fkQuadratic`: The quadratic expression P_k.
@@ -1272,17 +1256,29 @@ For the proof, Expand each Jacobi factor of the first moment and raise to the kt
 
 **Checks.**
 
-- For k=0 the phase and quadratic expression vanish.
+- For k=0 the phase and quadratic expression vanish, and no two indices are linked.
+
+- FKSpace has cardinalities 1,4,16 at k=0,1,2; replacing pairs by single coordinates would give the wrong nonzero-dimensional values.
 
 - For k=1,u=(1,0),v=(0,0), Φ(u,v)=1 and Φ(v,u)=0.
 
 - For k=1,u=(1,1),v=0, both ordered phases equal 1 but u and v are unlinked; P(u)=0.
 
+- For k=1,u=(0,1),v=(1,1), the indices are linked, although P(u)=P(v)=0. Thus linkage depends on P(u+v), not on P(u)+P(v).
+
 <a id="fk-good-subspace-bijection"></a>
 
-**Fk good subspace bijection.** Let E_k=F₂^{2k}, k≥1, and L(u,v)=Σ_j u_{j,1}(v_{j,1}+v_{j,2}). The k-dimensional subspaces U with L|_{U×U}=0 are in bijection with all subspaces of F₂^k. In the basis b_{j,1}=e_{j,1}+e_{j,2}, b_{j,2}=e_{j,2}, the bijection sends F≤X=span(b_{j,1}) to F⊕F^⊥≤X⊕Y. Consequently their number is N(k,2). If a nonempty Γ⊆{1,…,k} prescribes Σ_{j∈Γ}(u_{j,1}+u_{j,2})=0, or prescribes Σ_{j∈Γ}u_{j,1}=0, the number is N(k−1,2).
+**Fk good subspace bijection.** Define `FieldStatistics.fkGoodPlanes k` for k≥0 as the set of k-dimensional subspaces of E_k=F₂^{2k} on which the directed pairing L vanishes on every ordered pair. Here L(u,v)=Σ_j u_{j,1}(v_{j,1}+v_{j,2}). The k-dimensional subspaces U with L|_{U×U}=0 are in bijection with all subspaces of F₂^k. In the basis b_{j,1}=e_{j,1}+e_{j,2}, b_{j,2}=e_{j,2}, the bijection sends F≤X=span(b_{j,1}) to F⊕F^⊥≤X⊕Y. Consequently their number is N(k,2). If a nonempty Γ⊆{1,…,k} prescribes Σ_{j∈Γ}(u_{j,1}+u_{j,2})=0, or prescribes Σ_{j∈Γ}u_{j,1}=0, the number is N(k−1,2).
 
-k≥1; good means the full nonsymmetric bilinear form vanishes, not merely its alternating symmetrization.
+The bijection also holds for k=0, when both carriers are singletons. The extra Γ constraints require k≥1 and Γ nonempty. Good means the full nonsymmetric bilinear form vanishes, not merely its alternating symmetrization.
+
+The required API is:
+
+- `FieldStatistics.mem_fkGoodPlanes`: U is good iff dim U=k and L(u,v)=0 for every u,v∈U.
+- `FieldStatistics.finite_fkGoodPlanes`: the set is finite, as a subset of subspaces of the finite vector space E_k.
+- `FieldStatistics.fk_good_subspace_bijection`: the displayed equivalence with subspaces of F₂^k, including k=0.
+- `FieldStatistics.fkGoodPlanes_ncard`: its cardinality is N(k,2)=∑_{d=0}^k [k d]_2.
+- `FieldStatistics.fkGoodPlanes_linear_constraint`: each of the two nonempty-Γ constraints has N(k−1,2) solutions for k≥1.
 
 For the proof, Use the displayed change of basis to express L as the perfect X×Y pairing. Projection of a good k-plane to X is F, and projection to Y lies in F^⊥. Dimensions force U=F⊕F^⊥. The extra linear constraint means respectively containing one nonzero vector or lying in one hyperplane; quotient or duality yields N(k−1,2).
 
@@ -1290,7 +1286,15 @@ For the proof, Use the displayed change of basis to express L as the perfect X×
 
 ([[90]](#ref-90), §5.7, Lemma26 and its proof, pp.32–34.)
 
-### 3.38 Analytic separation of group profiles
+**Checks.**
+
+- At k=0 the zero subspace is the unique good plane, giving N(0,2)=1.
+- At k=1 precisely the lines spanned by (1,1) and (0,1) are good; the line spanned by (1,0) fails because L((1,0),(1,0))=1.
+- At k=2 there are five good planes, the number of subspaces of F₂². Vanishing only of L(u,v)+L(v,u) instead gives fifteen planes and fails this test.
+- At k=1,Γ={1}, each extra linear constraint selects one of the two good lines, giving N(0,2)=1.
+
+
+### 3.11 Analytic separation of group profiles
 
 <a id="refinement-wood-grid-separator"></a>
 
@@ -1300,13 +1304,13 @@ p is prime; b is antitone; the coordinate length is positive.
 
 The required API is:
 
-- `ArithmeticStatistics.ST5.woodGridSeparator_zero`: At z=0 the value is 1.
+- `Distributions.woodGridSeparator_zero`: At z=0 the value is 1.
 
-- `ArithmeticStatistics.ST5.woodGridSeparator_one_variable`: When m=0 only the one-variable infinite product remains.
+- `Distributions.woodGridSeparator_one_variable`: When m=0 only the one-variable infinite product remains.
 
-- `ArithmeticStatistics.ST5.woodGridSeparator_upper`: At the grid point of any antitone f lexicographically greater than b, the value is zero.
+- `Distributions.woodGridSeparator_upper`: At the grid point of any antitone f lexicographically greater than b, the value is zero.
 
-- `ArithmeticStatistics.ST5.woodGridSeparator_diagonal`: At the grid point of the antitone b itself, the value is nonzero.
+- `Distributions.woodGridSeparator_diagonal`: At the grid point of the antitone b itself, the value is nonzero.
 
 For the proof, Use the infinite product only in coordinate zero, and finite polynomials in the other coordinates. At the first larger coordinate of f, identify a vanishing factor. Use absolute convergence and nonvanishing of all factors at b to separate the diagonal.
 
@@ -1322,7 +1326,7 @@ For the proof, Use the infinite product only in coordinate zero, and finite poly
 
 - For m=0,p=2,b=0,z=1 the value is nonzero.
 
-- For m=1,p=2,b=(2,0),z=(4,8) the finite second-coordinate factor vanishes.
+- For m=1,p=2,b=(2,0),z=(4,8) the finite second-coordinate factor vanishes. At the diagonal point z=(4,4) it is nonzero: the first excluded exponent is 3. This detects an incorrect finite interval endpoint.
 
 <a id="refinement-wood-coefficient-bound"></a>
 
@@ -1354,7 +1358,7 @@ For the proof, Use the exact subgroup count by conjugate partition, retaining th
 
 <a id="refinement-wood-grid-uniqueness"></a>
 
-**Wood grid uniqueness.** Let p₁,…,p_s be distinct primes, m_j≥1, and M the product of antitone nonnegative integer profiles of lengths m_j. Let x_µ,y_µ≥0 have finite equal exponential moments C_λ=Σ_µ x_µ∏_j p_j^(Σ_i λ_ji µ_ji)=Σ_µ y_µ∏_j p_j^(Σ_i λ_ji µ_ji). Assume C_λ≤∏_j F^(m_j)p_j^(Σ_i λ_ji(λ_ji−1)/2) for some F>0. Then x_µ=y_µ for every µ. The finite-moment and summability hypotheses are part of the statement.
+**Wood grid uniqueness.** Let p₁,…,p_s be distinct primes, m_j≥1, and M the product of antitone nonnegative integer profiles of lengths m_j. Let x_µ,y_µ≥0 have finite equal exponential moments for every λ∈M, given by C_λ=Σ_µ x_µ∏_j p_j^(Σ_i λ_ji µ_ji)=Σ_µ y_µ∏_j p_j^(Σ_i λ_ji µ_ji). Assume C_λ≤∏_j F^(m_j)p_j^(Σ_i λ_ji(λ_ji−1)/2) for some F>0. Then x_µ=y_µ for every µ. The finite-moment and summability hypotheses are part of the statement.
 
 For the proof, For each profile ν expand the product of grid separators in its Taylor coefficients. The absolute coefficient bound and moment growth make the interchange of the coefficient and mass sums absolutely convergent. Use well-founded lexicographic induction on the finite concatenation of the nonnegative integer profiles. Lexicographic order on a fixed finite power of N is a well-order, and restricting to antitone profiles preserves well-foundedness. The triangular separator vanishes above the chosen profile; the absolutely convergent sum over lower profiles is already determined by induction.
 
@@ -1370,7 +1374,7 @@ For the proof, For each profile ν expand the product of grid separators in its 
 
 **Wood bounded moment limit.** Let a≥1 and A_a be finite abelian group classes of exponent dividing a. Let X_n be random finitely generated abelian groups and suppose E#Sur(X_n,G)→M_G for every G∈A_a, with 0≤M_G≤|∧²G|. For every H∈A_a, Pr(X_n/aX_n≅H) has a limit; these limiting masses sum to1 and have the moments M_G. A second sequence with the same moments has the same limiting quotient law. The theorem concerns X_n/aX_n, not an unproved full-group limit.
 
-For the proof, Convert surjection moments to homomorphism moments by the finite sum over image subgroups; use the exterior-square subgroup bound. For each test type λ choose the dominating type with conjugate entries2λ′_i+1; the sum of homomorphism-count ratios is finite and controls tails. Extract subsequential masses on the countable exponent-bounded carrier, preserve moments by domination and apply grid uniqueness. The trivial-group moment fixes total mass1; uniqueness upgrades subsequences to the whole sequence. The all-p,u target consumes this theorem together with exponent-tail control.
+For the proof, Convert surjection moments to homomorphism moments by the finite sum over image subgroups; use the exterior-square subgroup bound. For each test type λ choose the dominating type with conjugate entries2λ′_i+1; the sum of homomorphism-count ratios is finite and controls tails. Extract subsequential masses on the countable exponent-bounded carrier, preserve moments by domination and apply grid uniqueness. The trivial-group moment fixes total mass1; uniqueness upgrades subsequences to the whole sequence. For the all-p,u target, take a=p^(e+1) when the desired finite p-group H has exponent dividing p^e: the quotient is isomorphic to H exactly when the original finite p-group is H. This isolates its mass without assuming a full-group limit for arbitrary finitely generated groups.
 
 *Needs:* [wood subgroup bound](#refinement-wood-subgroup-bound), [wood grid uniqueness](#refinement-wood-grid-uniqueness), [surjection count](#surjection-count), [surjection moment](#surjection-moment).
 
@@ -1388,11 +1392,11 @@ The light rank witnesses give power-image 2-rank zero for C₂ at k=2, one for C
 
 ### Dependencies
 
-Parts I–III provide the family, invariant and counting interfaces. Finite group structure, submodules, Haar probability, infinite products and sums come from Mathlib; the torsion-cardinality comparison is the named Tau Ceti class-group contract. AnalyticNumberTheory supplies the convergent Euler-product and summation interfaces; the discrete separators and group-valued moment bounds are the new targets here.
+Part I provides the family interface; this layer requires no invariant or counting theorem from Parts II–III. Finite group structure, submodules, Haar probability, infinite products and sums come from Mathlib; the torsion-cardinality comparison is the named Tau Ceti class-group contract. The Mathlib analytic interfaces justify the convergent Euler products and sums; AnalyticNumberTheoryPartI and PartII are earlier analytic roadmaps, with no reverse dependency; the discrete separators and group-valued moment bounds are the new targets here.
 
 ## Downstream consumers
 
-The later arithmetic-statistics parts use the exact targets supplied here. Field and Selmer comparisons identify their family, height, equivalence relation and local weights before applying an arithmetic average. Probability convergence alone supplies no unbounded moment identity. AnalyticNumberTheory is a supplier of every part and takes no input from any part.
+The later arithmetic-statistics parts use the exact targets supplied here. Field and Selmer comparisons identify their family, height, equivalence relation and local weights before applying an arithmetic average. Probability convergence alone supplies no unbounded moment identity. AnalyticNumberTheoryPartI and AnalyticNumberTheoryPartII remain upstream. ModularityAndLanglandsExtensions is a downstream consumer and supplies nothing to this part.
 
 ## References
 
@@ -1438,7 +1442,7 @@ The later arithmetic-statistics parts use the exact targets supplied here. Field
 
 <a id="ref-41"></a>
 
-[41] Peter Koymans, Carlo Pagano. [On Stevenhagen's conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv 2201.13424v1 (31 Jan 2022); Acta Mathematica, to appear.
+[41] Peter Koymans, Carlo Pagano. [On Stevenhagen's conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv 2201.13424v1 (31 Jan 2022); version used for the preprint page locators.
 
 <a id="ref-42"></a>
 

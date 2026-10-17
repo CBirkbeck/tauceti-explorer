@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatisticsPartIV~adv",
     "date": "2026-10-17",
-    "notes": "Finite-group/matrix/moment tools precede their arithmetic consumers. Retained all moment growth/tightness/uniform-integrability hypotheses. Added mirrored rank-zero, cyclic 2/4, FK phase and good-plane controls and Wood separator controls. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 24 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+    "notes": "Independent review with fixes: all 52 targets audited adversarially, 15 reproducibly sampled public-source locators checked, and original split boundaries verified with no mathematical targets lost. Scoped supplier contracts to actual inputs; corrected rational subfield weights, Gaussian coefficient generality, Haar-moment exponent notation, FK definition/API controls, Wood quotient-law explanation, and attribution of supporting lemmas. Removed one API alias already supplied by Tau Ceti; no principal target removed. Current upstream roadmap/library duplication audit completed. All eleven kept Lean signatures compared with README. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474, 29 warnings all declaration uses sorry; no sorry-defined data. Exact small-group, finite-matrix, border, FK and rational product checks passed. Full adversarial table and source register are in the independent review report. Ready for upstream draft PR; this is a roadmap, not formalized proofs."
   }
 }
