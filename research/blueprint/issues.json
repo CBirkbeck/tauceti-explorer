@@ -4943,5 +4943,7 @@
  "REV-PrismaticCohomology~2": 10118,
  "BP-PrismaticCohomology~2": 10119,
  "PKG-EtaleDualityAndPerverseSheaves~codex": 10120,
- "PKG-GL2ModularityLifting~codex": 10121
+ "PKG-GL2ModularityLifting~codex": 10121,
+ "BP-AutomorphicFormsOnReductiveGroups~5": 10124,
+ "REV-AutomorphicFormsOnReductiveGroups~5": 10125
 }
