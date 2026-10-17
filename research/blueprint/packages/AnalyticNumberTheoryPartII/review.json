@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-AnalyticNumberTheory~adv3",
+    "date": "2026-10-17",
+    "notes": "Fix #10249 by Codex codex-Digyy3. Compaction uses the issue-authorized split: complete Part I (Layers 0-3, 348030 bytes) and Part II (Layers 4-6, 347788 bytes), with no Part I-to-II dependency; the unsuffixed package preserves all 497 legacy anchors as a routing index. All 236 primary and 257 subsidiary first statements, 97 Check blocks, 675 target/example bullets and 236 expanded prerequisite sets are preserved; 79 proof paragraphs and repeated narrative are compacted. G1 scalar heat/Weyl, G2 BC/operator suppliers, G3 fixed-degree/Zaman 35/19, G4 uniform prime/Hilbert/Gamma refinements, G5 multiplicative/Beurling, G6 cubic/order-one/fixed-strip/Bochner and G7 complex Lerch/Hurwitz/Barnes repairs remain. Round-2 #253 generic-theory imports and the downstream-only ArithmeticStatistics ordering remain. All three lean-check runs exit 0: index no warnings, Part I 42 and Part II 17 sorry warnings only. Sorry-data, unchanged packet, statement/Check/API/prerequisite preservation, local links/DAG, exact rational witnesses and intake file checks pass. Finding dispositions and the exhaustive adversarial pass table are in handoff/FIX-PKG-AnalyticNumberTheory~adv3.md. This is the explicitly authorized fixing verdict, not an independent review."
+  }
+}
