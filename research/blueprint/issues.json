@@ -4968,5 +4968,7 @@
  "FIX-PKG-DirichletPadicLFunctions~adv": 10181,
  "FIX-PKG-PadicHodgeTheory~adv2": 10182,
  "PKG-GL2ModularityLifting": 10194,
- "REV-PKG-GL2ModularityLifting": 10195
+ "REV-PKG-GL2ModularityLifting": 10195,
+ "FIX-PKG-AInfCohomology~adv": 10201,
+ "FIX-PKG-PerfectoidQuotients~adv2": 10202
 }
