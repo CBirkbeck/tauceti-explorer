@@ -738,6 +738,9 @@ theorem numerical_spanning (k : AdmissibleIndex) : mzv_indices k ∈
     Submodule.span ℚ (Set.range (fun w : HoffmanWeightWords (indexWeight k.val) =>
       mzv_indices ⟨w.val, by sorry⟩)) := by sorry
 -- The full numerical_spanning target also transports arbitrary MT(Z) periods
--- through PS.2's Tate localization. That period-torsor interface is omitted.
+-- through PS.2's Tate localization and MC.6's fullEquiv/fibreComparison
+-- for the actual full Nori fibres. These absent carrier interfaces remain
+-- reader targets. Brown's H and its unipotent coaction stay as stated above;
+-- no inverse of motivic zeta(2) is adjoined to H by this supplier import.
 
 end TauCeti.PeriodsAndSpecialValues

@@ -321,9 +321,51 @@ example (k r' : ℤ) (hlo : 1 ≤ r') (hhi : r' ≤ k-1) :
 -- moment_identity_maps
 example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
     LinearMap.id LinearMap.id LinearMap.id 1 = 1 := by sorry
-theorem chernHeckeDiamond (Ch : K →ₗ[F] H) (A : K →ₗ[F] K)
-    (B : H →ₗ[F] H) (scalar : F) (h : B.comp Ch = scalar • (Ch.comp A))
-    (z : K) : B (Ch z) = scalar • Ch (A z) := by sorry
+variable {E : Type*} [Field E] [Module E K] [Module E H]
+
+/-- Kato Lemma 8.8(1), p.185: r′ is the moment index. -/
+def momentHeckeScalar (n : E) (r' : ℤ) : E := n ^ (r' - 1)
+/-- Kato Lemma 8.8(2), p.185, with the stated forward diamond convention. -/
+def momentDiamondScalar (a b : E) (k r r' : ℤ) : E :=
+  a ^ (r' - 1) * b ^ (k - r' - 1) * (a*b) ^ (-r)
+
+-- The geometric Ch and Hecke/diamond operators, with their coprimality
+-- hypotheses, are owner inputs omitted here. This evaluation adapter takes
+-- the source-normalized intertwining law; it proves no geometric equivariance
+-- for arbitrary linear maps. The r′ exponent cannot be chosen freely.
+theorem chernHeckeDiamond (Ch : K →ₗ[E] H) (A : K →ₗ[E] K)
+    (B : H →ₗ[E] H) (n : E) (r' : ℤ)
+    (h : B.comp Ch = momentHeckeScalar n r' • (Ch.comp A)) (z : K) :
+    B (Ch z) = momentHeckeScalar n r' • Ch (A z) := by
+  exact congrArg (fun f : K →ₗ[E] H => f z) h
+
+-- r=1,r′=2 distinguishes the moment index from the twist index.
+example : momentHeckeScalar (2 : ℚ) 2 = 2 ∧
+    (2 : ℚ) ^ (1 - (2 : ℤ)) * 2 ^ ((2 : ℤ) - 1 - 1) = 1/2 ∧
+    (2 : ℚ) ^ (1 - (1 : ℤ)) * 2 ^ ((2 : ℤ) - 1 - 1) ≠ 1/2 := by
+  norm_num [momentHeckeScalar]
+
+-- Generic transport exponent, with nonzero prime scalar (the field law is reused).
+example (n : E) (hn : n ≠ 0) (r r' : ℤ) :
+    n ^ (1-r') * n ^ (r'-1-r) = n ^ (-r) := by
+  rw [← zpow_add₀ hn]
+  congr 1
+  ring
+
+-- The central diamond and the covering degree retain the quadratic exponent.
+example (n : E) (hn : n ≠ 0) (k r r' : ℤ) :
+    n * momentDiamondScalar n n k r r' = n ^ (k-1-2*r) := by
+  simp only [momentDiamondScalar, mul_zpow]
+  calc
+    n * (n ^ (r'-1) * n ^ (k-r'-1) * (n ^ (-r) * n ^ (-r))) =
+        n ^ (1 : ℤ) * n ^ (r'-1) * n ^ (k-r'-1) * n ^ (-r) * n ^ (-r) := by
+          simp only [zpow_one]
+          ring
+    _ = n ^ ((1+(r'-1)+(k-r'-1)+(-r))+(-r)) := by
+      repeat rw [← zpow_add₀ hn]
+    _ = n ^ (k-1-2*r) := by congr 1; ring
+
+
 -- Omitted: the inertia/residue-field duality and cohomological-dimension theorem.
 -- Original inverse corestriction is dual to the following direct restriction.
 -- Kato 8.5, pp.183–184. Omitted: Galois/continuous cohomology,

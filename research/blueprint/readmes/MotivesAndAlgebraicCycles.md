@@ -2,17 +2,17 @@
 
 Blueprint for the roadmap `MotivesAndAlgebraicCycles`, written by job `BP-MotivesAndAlgebraicCycles` (issue #1014) and since revised by the independent review and the fix rounds recorded at the end of this document. Packet: `research/blueprint/packets/MotivesAndAlgebraicCycles.json`. Suggested Lean file: `research/blueprint/suggested/MotivesAndAlgebraicCycles.lean`.
 
-This document is generated from the packet at this revision, so that the two agree: every node below, with its statement, hypotheses, steps, acceptance, API, uses, unit tests, prerequisites and sources, and every coverage entry, gap, request, source issue, structural proposal, source version and pinned declaration, is the packet's own text. The prose paragraphs that open MC.0 to MC.5 and MC.7 are the original blueprint's introductions to those layers, kept because they say how the layer is organised; the coverage statement above each of them is the packet's current one.
+This reader records the packet's target-level plan. The four MC.6 targets changed in this round, the complete gap list and the current review record are synchronized with the packet. Source quotations inherited from older rounds have been removed; the statements and precise locators remain. The prose paragraphs that open MC.0 to MC.5 and MC.7 are the original blueprint's introductions to those layers, kept because they say how the layer is organised; the coverage statement above each of them is the packet's current one.
 
-**Status: partial.** The packet has 182 nodes (68 theorems, 41 lemmas, 37 constructions, 30 definitions, 5 comparisons, 1 application), 453 API items, 263 unit tests and 47 planets; it cites 108 declarations of the pinned libraries, records 22 gaps and makes 16 requests to other roadmaps. Coverage by layer: MC.0 partial, MC.1 source_decomposed, MC.2 partial, MC.3 source_decomposed, MC.4 partial, MC.5 partial, MC.6 partial, MC.7 partial. No layer is `closed`: closure means Lean, nothing here is formalised, and every node's `implementationStatus` is `unchecked`.
+**Status: partial.** The packet has 182 nodes (68 theorems, 41 lemmas, 37 constructions, 30 definitions, 5 comparisons, 1 application), 485 API items, 282 unit tests and 47 planets; it cites 113 declarations of the pinned libraries, records 24 gaps and makes 16 requests to other roadmaps. Coverage by layer: MC.0 partial, MC.1 source_decomposed, MC.2 partial, MC.3 source_decomposed, MC.4 partial, MC.5 partial, MC.6 partial, MC.7 partial. No layer is `closed`: closure means Lean, nothing here is formalised, and every node's `implementationStatus` is `unchecked`.
 
-**Review.** The packet's current `review` is `needs_changes`, by `independent-review-REV-FIX-RT-AREA-iwasawa-3~2` (2026-10-02). The fix round `FIX-RT-AREA-iwasawa-3~3` makes the corrections that review asked for and awaits its own independent review, `REV-FIX-RT-AREA-iwasawa-3~3`. The nine abstract reconstruction nodes added by `FIX-RT-AREA-geomlanglands~2` await their independent review, `REV-FIX-RT-AREA-geomlanglands~2`, which this round does not replace.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
 ## Summary
 
-Algebraic cycles, pure and mixed motives, planned from freely available sources read for the parts used, the four principal ones being the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through requests to their owners (sixteen at this revision) and are planned nowhere in this packet. FIX-RT-AREA-iwasawa-3~2: MC.5 exports the effective/localized Nori diagram/category and coefficient maps; MC.6 exports the single formal-period presentation P_eff, its Tate localization P and inverse, the effective-then-localized comparison and the period torsor/complex point. PS.2 imports them and owns the integration/evaluation application. The original partial status, gaps and requests remain. FIX-RT-AREA-iwasawa-3~3: the complex period point takes a typed unital multiplicative comparison compatible with every edge of the diagram of pairs.
+Algebraic cycles, pure and mixed motives, planned from freely available sources read for the parts used, the four principal ones being the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through requests to their owners (sixteen at this revision) and are planned nowhere in this packet. FIX-RT-AREA-iwasawa-3~2: MC.5 exports the effective/localized Nori diagram/category and coefficient maps; MC.6 exports the single formal-period presentation P_eff, its Tate localization P and inverse, the effective-then-localized comparison and the period torsor/complex point. PS.2 imports them and owns the integration/evaluation application. The original partial status, gaps and requests remain. FIX-RT-AREA-iwasawa-3~3: the complex period point takes a typed unital multiplicative comparison compatible with every edge of the diagram of pairs. FIX-RT-AREA-iwasawa-3~4 specifies the full Nori comparison adapter on finite coefficients and localization generators, extends both fibres and their complex tensor comparison on MM_Nori, and fixes both action conventions and the actual period point. Its heavy constructions are README targets under the current roadmap shape rule; all implementation statuses and independent verdicts remain unchanged.
 
 ## Sources
 
@@ -207,7 +207,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FFZ, the displayed definition opening the section.
 
-  > We define the Q-vector space of correspondences of degree r from X to Y by the formula Corr^r(X, Y) = direct sum over d of CH^{d+r}(X_d times Y) tensor Q, contained in CH^*(X times Y) tensor Q.
 
   The node is that formula, with the decomposition of X into equidimensional parts spelled out as a hypothesis rather than left to the notation.
 
@@ -269,7 +268,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FFZ, the two displayed formulas after the definition of Corr^r(X, Y).
 
-  > Given c in Corr^r(X, Y) and b in CH_j(Y) tensor Q we can define the pullback of b by c using the formula c^*(b) = pr_{1,*}(c . pr_2^*b) in CH_{j-r}(X) tensor Q. Similarly, switching to grading by codimension, given a in CH^i(X) tensor Q, c_*(a) = pr_{2,*}(c . pr_1^*a) in CH^{i+r}(Y) tensor Q.
 
   The node is those two formulas together with the dimension bookkeeping the source gives immediately after each, which is what fixes the target degrees.
 
@@ -330,7 +328,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FFZ, the display defining the composition of correspondences.
 
-  > We define a composition of correspondences Corr^s(Y, Z) times Corr^r(X, Y) to Corr^{r+s}(X, Z) by the rule (c', c) maps to c' composed with c = pr_{13,*}(pr_{12}^*c . pr_{23}^*c').
 
   The node is that display, with the flatness and properness of the three projections written out as the hypotheses the pullbacks and the pushforward need.
 
@@ -369,7 +366,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG0, part (1), with the proof of associativity.
 
-  > We have the following for correspondences: (1) composition of correspondences is Q-bilinear and associative, [...] Bilinearity follows immediately from the linearity of pushforward and pullback and the bilinearity of the intersection product.
 
   The node is part (1) of the lemma with the source's five-step proof of associativity; parts (2) to (4) are separate nodes.
 
@@ -427,7 +423,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Example 0FG1.
 
-  > Let f : Y to X be a morphism of smooth projective schemes over k. Denote Gamma_f in X times Y the graph of f. [...] Then Gamma_f intersected with X_d times Y has pure codimension d. Hence [Gamma_f] [...] is contained in Corr^0(X times Y), i.e., [Gamma_f] is a correspondence of degree 0 from X to Y.
 
   The node is that example, with the codimension computation made a proof step. The source's 'Corr^0(X times Y)' is a misprint for Corr^0(X, Y) (sourceIssues MotivesAndAlgebraicCycles/E6); the node uses the corrected group.
 
@@ -491,7 +486,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG2 with its proof.
 
-  > Smooth projective schemes over k with correspondences and composition of correspondences as defined above form a graded category over Q [...]. Everything is clear from the construction and Lemma 0FG0 except for the existence of identity morphisms.
 
   The node is the lemma, with the source's proof of the identity axiom turned into the proof steps, including the reduction to integral X and Y and the proper intersection input the source cites (Stacks 0FFD).
 
@@ -529,7 +523,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG3 with its proof.
 
-  > There is a contravariant functor from the category of smooth projective schemes over k to the category of correspondences which is the identity on objects and sends f : Y to X to the element the class of Gamma_f in Corr^0(X, Y).
 
   The node is the lemma, with the source's proof of functoriality on composites written out in the four steps, including the identification of the scheme theoretic intersection the source performs.
 
@@ -588,7 +581,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Remark 0FG4.
 
-  > Assume X is equidimensional of dimension d and Y is equidimensional of dimension e. Then the isomorphism X times Y to Y times X switching the factors determines an isomorphism Corr^r(X, Y) to Corr^{d-e+r}(Y, X), c maps to c^t called the transpose. It acts on cycles as well as cycle classes.
 
   The node is that remark, with the equidimensionality made an explicit hypothesis since the degree shift is stated only under it.
 
@@ -631,7 +623,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG5 with its proof.
 
-  > (1) pushforward of cycles by the correspondence [Gamma_f] agrees with the Gysin map f^! : CH^*(X) to CH^*(Y), (2) pullback of cycles by the correspondence [Gamma_f] agrees with the pushforward map f_* : CH_*(Y) to CH_*(X), (3) if X and Y are equidimensional of dimensions d and e, then [...]
 
   The node is the lemma with all four assertions, proved simultaneously by the same computation; the proof steps follow the source's computation (source issues E4 and E5 are in this proof).
 
@@ -700,7 +691,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FFZ, the paragraph after Example 0FG6, and Lemma 0FG7.
 
-  > The category of correspondences is a symmetric monoidal category. [...] we define a tensor product [...] by the rule (c, c') maps to c tensor c' = pr_{13}^*c . pr_{24}^*c' [...]. The commutativity constraint will be given by the isomorphism X times Y to Y times X switching the factors.
 
   The node is that paragraph together with Lemma 0FG7, whose proof the source omits ('Omitted.'); the verification is therefore listed as proof steps of this blueprint and its one non-routine identity is the lemma node MC.0/tensor-interchange.
 
@@ -742,7 +732,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Example 0FG6.
 
-  > Choose a k-rational point x in X and consider the cycles c_0 = [x times X] and c_2 = [X times x]. A computation shows that 1 = [Delta] = c_0 + c_2 in Corr^0(X, X) and that we have the following rules for composition c_0 o c_0 = c_0, c_0 o c_2 = 0, c_2 o c_0 = 0, and c_2 o c_2 = c_2.
 
   The node is that example, with the computation the source leaves implicit written out as proof steps.
 
@@ -788,7 +777,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Example 0FG6 together with Lemma 0FG0 and Lemma 0FG3.
 
-  > A computation shows that 1 = [Delta] = c_0 + c_2 in Corr^0(X, X) and that we have the following rules for composition c_0 after c_0 = c_0, c_0 after c_2 = 0, c_2 after c_0 = 0, c_2 after c_2 = c_2.
 
   The node is the same computation with the projective line and its chosen point replaced by a pointed geometrically irreducible curve. Only the first two projectors are claimed to be given by the source's formula; the third is defined as the complement, and the source is cited for the composition rules and for the fact that the diagonal is the identity, which are the two inputs the computation uses. The source does not state the curve case, and the blueprint does not claim it does.
 
@@ -854,13 +842,11 @@ recorded rather than filled from memory.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 447, the second paragraph.
 
-  > Fix a field F of characteristic zero, and an adequate equivalence relation ~ on F-linear algebraic cycles (cf [K2] §1; in short, pull-back, push-forward and intersection of cycles is always (well-)defined modulo ~). For a variety X and an integer j ≥ 0, denote by A^j(X) = A^j(X, F) the group
 
   The node is that paragraph. Jannsen's relation is on cycles and refers to Kleiman for the definition; the node records it through the classes it identifies with zero, which is the form in which the paper uses it (the groups A^j and the composition law on them).
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 4 (Algebraic cycles), subsection Definitions, page 5.
 
-  > Rational equivalence is the finest equivalence relation on algebraic cycles giving a well defined map (2) on equivalence classes and satisfying certain natural conditions. The coarsest such equivalence relation is numerical equivalence
 
   Cited for the two extreme cases. Milne's 'coarsest' is informal; the precise comparison, which must exclude the trivial relation, is in the numerical equivalence node (sourceIssues MotivesAndAlgebraicCycles/E10).
 
@@ -927,13 +913,11 @@ recorded rather than filled from memory.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 4 (Algebraic cycles), subsection Definitions, page 5.
 
-  > The coarsest such equivalence relation is numerical equivalence: two algebraic cycles γ and γ′ are numerically equivalent if γ · δ = γ′ · δ for all algebraic cycles δ of complementary dimension for which the intersection numbers are defined.
 
   The node is that definition, stated on Chow groups with F-coefficients; Milne's next sentence, that the classes form a ring which is a quotient of the Chow ring, is the ring structure.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, first sentence of the proof of Theorem 1.
 
-  > Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation.
 
   Cited with a correction: the statement fails for the trivial relation (sourceIssues MotivesAndAlgebraicCycles/E10); the node proves the corrected comparison.
 
@@ -973,7 +957,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG0, parts (2) and (3).
 
-  > (2) there is a canonical isomorphism CH_{-r}(X) tensor Q = Corr^r(X, Spec(k)) such that pullback by correspondences corresponds to composition, (3) there is a canonical isomorphism CH^r(X) tensor Q = Corr^r(Spec(k), X) such that pushforward by correspondences corresponds to composition,
 
   The node is parts (2) and (3), which the source proves together by 'carefully bookkeeping where various cycles live'; the bookkeeping is written out as proof steps.
 
@@ -1010,7 +993,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG0, part (4), with the last paragraph of its proof.
 
-  > (4) composition of correspondences is compatible with pushforward and pullback of cycles. [...] The statement on pushforward and pullback of cycles means that (c' o c)^*(alpha) = c^*((c')^*(alpha)) and (c' o c)_*(alpha) = (c')_*(c_*(alpha)). This follows on combining (1), (2), and (3).
 
   The node is part (4) with the source's one-line proof.
 
@@ -1053,7 +1035,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGF, proof, first paragraph; and Lemma 0FGJ, proof.
 
-  > If n = m, then a direct sum is given by (Y coproduct Z, p + q, m), with obvious notation. Details omitted. [...] Let X = coproduct X_i be the decomposition of X into irreducible components. Then h(X) = direct sum of h(X_i)
 
   The node is the 'obvious notation' and the omitted details behind both statements, made one lemma about correspondences, which both MC.1 statements then use.
 
@@ -1093,7 +1074,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG7 with its proof, and the display in Section 0FG9 defining the tensor product of morphisms of motives.
 
-  > The tensor product of correspondences defined above turns the category of correspondences into a symmetric monoidal category with unit Spec(k). Proof. Omitted. [...] a tensor a' = (q o c o p) tensor (q' o c' o p') = (q tensor q') o (c tensor c') o (p tensor p')
 
   The source omits the proof of Lemma 0FG7 and uses the interchange law in Section 0FG9 without comment; this node is that law, the one non-routine identity the omitted verification needs.
 
@@ -1135,7 +1115,6 @@ recorded rather than filled from memory.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG8 with its proof.
 
-  > Assume X and Y equidimensional of dimensions d and e. [...] The diagram [...] is commutative in the category of correspondences. [...] going either way around the diagram we obtain the element of Corr^d(X × Y, Spec(k)) corresponding to the cycle Gamma_f
 
   The node is the lemma with its two computations; the degree printed as d is corrected to -e (E11).
 
@@ -1228,13 +1207,11 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FG9, the definition of a motive and of a morphism of motives.
 
-  > A motive or a Chow motive over k will be a triple (X, p, m) where (1) X is a smooth projective scheme over k, (2) p in Corr^0(X, X) satisfies p o p = p, (3) m in Z. [...] Hom((X, p, m), (Y, q, n)) = q o Corr^{n-m}(X, Y) o p, contained in Corr^{n-m}(X, Y)
 
   The node is that definition, with the closure of the cut under composition made a proof step and the identification with the Karoubi envelope of the category of pairs (X, m) recorded.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 447, the definition of M_k.
 
-  > Objects of M_k are triples (X, p, m), where X is a variety, p in A^{dim X}(X times X) is a projector, and m is an integer. The morphism sets are defined by putting Hom((X, p, m), (Y, q, n)) = q A^{dim(X)-m+n}(X times Y) p.
 
   Cited for the same definition with an arbitrary adequate equivalence relation in place of rational equivalence, which is the form the semisimplicity layer uses; the two agree when the relation is rational equivalence.
 
@@ -1292,7 +1269,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGA with its proof.
 
-  > The category M_k whose objects are motives over k and morphisms are morphisms of motives over k is a Q-linear category.
 
   The node is the first assertion of that lemma; the second, the functor h, is the next node.
 
@@ -1357,7 +1333,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGA, second assertion, with the section's opening paragraph.
 
-  > There is a contravariant functor h : {smooth projective schemes over k} to M_k defined by h(X) = (X, 1, 0) and h(f) = [Gamma_f]. [...] a contravariant functor h which maps products to tensor products and disjoint unions to direct sums.
 
   The node is that functor together with the two structural properties the section's opening paragraph states for it.
 
@@ -1398,7 +1373,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGB with its proof.
 
-  > The category M_k is Karoubian. Let M = (X, p, m) be a motive and let a be a projector in the endomorphisms of M. Set N = (X, a, m). Since we have a = p after a after a in Corr^0(X, X) we see that a : N to M is a morphism of M_k.
 
   The node is that lemma with the source's proof written out; the universal property of the kernel is spelled out as the third proof step.
 
@@ -1466,7 +1440,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FG9, the paragraph defining the tensor functor, and Lemma 0FGC.
 
-  > On objects we use the formula (X, p, m) tensor (Y, q, n) = (X times Y, p tensor q, m + n). The category M_k with tensor product defined as above is symmetric monoidal with the obvious associativity and commutativity constraints and with unit 1 = (Spec(k), 1, 0).
 
   The node is that construction and lemma; the source omits the details of the verification, so the checks are listed as proof steps of this blueprint.
 
@@ -1524,7 +1497,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FG9, the paragraph following Lemma 0FGC.
 
-  > The motives 1(n) = (Spec(k), 1, n) are useful. Observe that 1 = 1(0) and 1(n + m) = 1(n) tensor 1(m). Thus tensoring with 1(1) is an autoequivalence of the category of motives. Given a motive M we sometimes write M(n) = M tensor 1(n). Observe that if M = (X, p, m), then M(n) = (X, p, m + n).
 
   The node is that paragraph verbatim.
 
@@ -1567,7 +1539,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGD with its proof, and Remark 0FGE.
 
-  > (1) the motive (X, c_0, 0) is isomorphic to the motive 1 = (Spec(k), 1, 0). (2) the motive (X, c_2, 0) is isomorphic to the motive 1(-1) = (Spec(k), 1, -1). [...] the Lefschetz motive is isomorphic to 1(-1). Hence the Lefschetz motive is invertible
 
   The node is that lemma and remark, with the source's two computations kept as separate proof steps because they fix the sign of the twist. The proof's 'a' = a' o b o a'' is a misprint for a' o b' o a' (sourceIssues MotivesAndAlgebraicCycles/E7).
 
@@ -1607,7 +1578,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGF with its proof.
 
-  > The category M_k is additive. [...] If n = m, then a direct sum is given by (Y coproduct Z, p + q, m), with obvious notation. Details omitted. Suppose that n < m. [...] This reduces us to the case discussed in the first paragraph.
 
   The node is that lemma with the source's reduction written out; the 'obvious notation' is MC.0/correspondences-of-disjoint-union.
 
@@ -1646,7 +1616,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGG.
 
-  > In M_k we have h(P^1_k) isomorphic to 1 plus 1(-1). This follows from Example 0FG6 and Lemma 0FGD.
 
   The node is that lemma with the two ingredients of its one-line proof made prerequisites.
 
@@ -1693,7 +1662,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGH with its proof.
 
-  > Let C be a Q-linear Karoubian symmetric monoidal category. Any Q-linear functor F [...] to C of symmetric monoidal categories such that the image of F(c_2) on F(X) is an invertible object, factors uniquely through a functor F : M_k to C of symmetric monoidal categories.
 
   The node is that lemma; the source omits the verification that the extension is a symmetric monoidal functor ('We omit the verification'), so that verification is a proof step of this blueprint.
 
@@ -1736,7 +1704,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGI with its proof.
 
-  > Let X be a smooth projective scheme over k which is equidimensional of dimension d. Then h(X)(d) is a left dual to h(X) in M_k. [...] Here we have eta = [Delta]. [...] and here we have the class epsilon = [Delta] of the diagonal as well.
 
   The node is that lemma with its zig-zag computation on the fourfold and fivefold products; 'left dual' in the source's sense (Categories 0FFP) is an exact pairing (h(X), h(X)(d)) in Mathlib's sense.
 
@@ -1785,7 +1752,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGJ with its proof.
 
-  > Every object of M_k has a left dual. [...] Then M is a summand of (X, 1, m) = h(X)(m). [...] By construction 1(-m) is a left dual of 1(m). Hence it suffices to show that h(X) has a left dual [...]. Then h(X) = direct sum of h(X_i)
 
   The node is that lemma with its reduction steps kept separate; each categorical input the source cites (Homology 0FFU, Categories 0FFS, Homology 0FFT) is a prerequisite.
 
@@ -1847,7 +1813,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Definition 0FGL and the paragraph after it.
 
-  > Let M = (X, p, m) be a Chow motive over k. For i in Z we define the i-th Chow group of M by the formula CH^i(M) = p(CH^{i+m}(X) tensor Q). We have CH^i(h(X)) = CH^i(X) tensor Q if X is a smooth projective scheme over k. Observe that CH^i(-) is a functor from M_k to Q-vector spaces.
 
   The node is that definition with the functoriality the source establishes in the following paragraph.
 
@@ -1888,7 +1853,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGM.
 
-  > The functor CH^i(-) on the category of motives M_k is representable by 1(-i), that is, we have CH^i(M) = Hom_{M_k}(1(-i), M) functorially in M in M_k. Immediate from the definitions and Lemma 0FG0.
 
   The node is that lemma, with the unfolding the source calls immediate written out as four proof steps.
 
@@ -1931,7 +1895,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGN with its proof.
 
-  > Let c : M to N be a morphism of motives. If for every smooth projective scheme X over k the map c tensor 1 : M tensor h(X) to N tensor h(X) induces an isomorphism on Chow groups, then c is an isomorphism.
 
   The node is that lemma, attributed to Manin in the source, with its four proof steps kept separate; the third uses that every object has a left dual, which is why rigidity is a prerequisite.
 
@@ -1978,7 +1941,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGQ with its proof, and the paragraph of Section 0FGP defining the correspondences c_i.
 
-  > the map sum over i = 0, ..., r - 1 of c_i : direct sum of h(X)(-i) to h(P) is an isomorphism in the category of motives. [...] By Lemma 0FGN it suffices to show that our map defines an isomorphism on Chow groups of motives after taking the product with any smooth projective scheme Z.
 
   The node is that lemma with the definition of the c_i from the preceding paragraph, including the normalisation p_*(O_P(1)) = E, which the source fixes explicitly.
 
@@ -2016,7 +1978,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGR with its proof.
 
-  > The class of the diagonal of P in CH^*(P times P) can be written as the cap of the sum over i of (r - 1 choose i) c_{r-1-i}(pr_1^* S dual) with c_1(pr_2^* O_P(1))^i, applied to (p times p)^*[Delta_X], where S is the kernel of the canonical surjection p^* E to O_P(1).
 
   The node is that lemma with the coefficients corrected to 1 (sourceIssues MotivesAndAlgebraicCycles/E9): the source's proof ends by citing Stacks 02UD, whose top-degree case has all coefficients binom(j, j) = 1.
 
@@ -2088,7 +2049,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, the sentence after the Remark, and page 450, the proof of Corollary 2.
 
-  > M_k is an F-linear, pseudo-abelian category, cf. [K2] Sect. 5. [...] Moreover, M_k is rigid ([DM] 1.7), with the internal Hom in the case of an irreducible X defined by Hom((X, p, m), (Y, q, n)) = (X times Y, ^tp times q, dim(X) - m + n).
 
   The node is that construction, taken from the two places in the source where it is set up and then recalled with its tensor structure and internal Hom.
 
@@ -2150,13 +2110,11 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FG9, the definition of a morphism of motives.
 
-  > we define a morphism of motives or a morphism of Chow motives to be an element of Hom((X, p, m), (Y, q, n)) = q o Corr^{n-m}(X, Y) o p, contained in Corr^{n-m}(X, Y)
 
   The source's morphism groups are cut out of Corr^{n-m}(X, Y); this node is the category those ambient groups form, of which the category of motives is the Karoubi envelope.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 5 (Definition of motives), Third attempt, page 7.
 
-  > This can be achieved quite easily simply by inverting L. The objects of M(k) are now triples h(X, e, m) with X and e as before, and with m ∈ Z.
 
   Milne describes the same passage from effective motives to motives by adding the twist m.
 
@@ -2195,7 +2153,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGF, proof, second paragraph.
 
-  > Suppose that n < m. Let X, c_2 be as in Example 0FG6. Then we consider (Z, q, n) = (Z, q, m) tensor (Spec(k), 1, -1) tensor ... tensor (Spec(k), 1, -1) =~ (Z, q, m) tensor (X, c_2, 0) tensor ... tensor (X, c_2, 0) =~ (Z × X^{m-n}, q tensor c_2 tensor ... tensor c_2, m)
 
   The node is that chain of isomorphisms, which the proof of Lemma 0FGH reuses as sigma.
 
@@ -2234,7 +2191,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.HOMOLOGY — The Stacks Project authors, *The Stacks Project, chapter "Homological Algebra" (tag 0111)*, Lemma 0FFT with its proof.
 
-  > Let A be an additive monoidal category. If Y_i, i = 1, 2 are left duals of X_i, i = 1, 2, then Y_1 ⊕ Y_2 is a left dual of X_1 ⊕ X_2. Proof. Follows from uniqueness of adjoints and Categories, Remark [left-dual-adjoint].
 
   The node is that lemma in Mathlib's convention; the proof steps are a direct computation in place of the source's appeal to uniqueness of adjoints. Cited by the proof of Lemma 0FGJ.
 
@@ -2273,7 +2229,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.HOMOLOGY — The Stacks Project authors, *The Stacks Project, chapter "Homological Algebra" (tag 0111)*, Lemma 0FFU with its proof.
 
-  > In a Karoubian additive monoidal category every summand of an object which has a left dual has a left dual. [...] If a : X → X corresponds to b : Y → Y then b is the unique endomorphism of Y such that precomposing by a [...] is the same as postcomposing by 1 ⊗ b.
 
   The node is that lemma in Mathlib's convention; the endomorphism b of the source is the adjoint mate. Cited by the proof of Lemma 0FGJ.
 
@@ -2320,7 +2275,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FGP, the paragraph after Lemma 0FGQ.
 
-  > We immediately conclude c'_j o c_i = 0 for i + r - 1 - j < r - 1, in other words when i < j. On the other hand, [...] Hence for i = j the pushforward above gives the class of the diagonal and hence we see that c'_i o c_i = 1 in Corr^0(X, X)
 
   For X = Spec(k) the source's c_i and c'_j are h^i and h^{n-j}; the node specialises that paragraph and Lemma 0FGR (with the correction E9) to projective space.
 
@@ -2358,7 +2312,6 @@ rigidity is not what distinguishes numerical equivalence; MC.3 says what does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGR, proof.
 
-  > The source of the composition is a module locally free of rank r - 1 and a local calculation shows that this map vanishes exactly along Delta_P. By Chow Homology, Lemma [top-chern-class] the class [Delta_P] is the top Chern class of the dual q_1^* S dual tensor q_2^* O_P(1)
 
   The node is the local calculation the source leaves to the reader, with the hypotheses of Stacks 0FA9 (expected dimension, regular sequence) checked.
 
@@ -2453,13 +2406,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, the proof of the implication c) -> b) of Theorem 1.
 
-  > Let ~ be numerical equivalence, and fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k [...]. Denote the corresponding homological equivalence by ~', and the cycle groups modulo ~' by B^j(X).
 
   The node is the notion Jannsen introduces there, over an algebraically closed base field; Jannsen's own use is over an arbitrary field through k_s, which is the gap recorded for this node.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6 (What is known about the categories of motives), page 8.
 
-  > Conjecture D. If an algebraic cycle is numerically equivalent to zero, then its cohomology class is zero.
 
   Cited for the direction that is open: only one of the two implications between homological and numerical equivalence is a theorem.
 
@@ -2529,7 +2480,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FGS, the list of data (D1), (D2), (D3) with the remarks following it.
 
-  > The data is given by: (D1) A contravariant functor H^* from the category of smooth projective varieties to the category of graded commutative F-algebras. (D2) For every smooth projective variety X a group homomorphism gamma from CH^i(X) to H^{2i}(X). (D3) For every smooth projective variety X of dimension d a map the integral over X from H^{2d}(X) to F.
 
   The node is that list together with the source's remarks naming pullback, the cycle class map and the trace map, and flagging the ambiguity of the cycle class notation.
 
@@ -2601,7 +2551,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Definition 0FGV together with the statements of axioms (A), (B) and (C) in Section 0FGS, and Remark 0FGU.
 
-  > A classical Weil cohomology theory over k with coefficients in F is given by data (D1), (D2), and (D3) satisfying Poincare duality, the Kuenneth formula, and compatibility with cycle classes, more precisely, satisfying (A), (B), and (C).
 
   The node is that definition with the three axioms written out from the same section, and the remark that (C)(c) is equivalent to compatibility with exterior products recorded as an acceptance point.
 
@@ -2662,7 +2611,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FGS, the paragraph defining f_* after axiom (A), and Lemma 0FGT with its proof.
 
-  > Using Poincare duality we can define a pushforward f_* from H^{2d-i}(X) to H^{2e-i}(Y) as the contragredient of f^*. For a in H^{2d-i}(X), the element f_*a is characterised by: the integral over X of f^*b cup a equals the integral over Y of b cup f_*a. Assume given (D1) and (D3) satisfying (A). Then f_*(f^*b cup a) = b cup f_*a, and g_* after f_* = (g after f)_*.
 
   The node is that construction and lemma, with the source's two short proofs kept as proof steps.
 
@@ -2701,7 +2649,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGW.
 
-  > Let H^* be a classical Weil cohomology theory. Let X be a smooth projective variety of dimension d. The diagram with CH^d(X) to H^{2d}(X) by gamma, CH^d(X) equal to CH_0(X), the trace from H^{2d}(X) to F and the degree from CH_0(X) to Z commutes, where the degree is the degree of zero cycles.
 
   The node is that lemma, with the reduction to the class of a closed point made explicit as the first proof step.
 
@@ -2740,7 +2687,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGX with its proof (Section 0FGS).
 
-  > Let X and Y be smooth projective varieties. Then ∫_{X × Y} = ∫_X ⊗ ∫_Y. ... By Lemma 0FGW this 1-dimensional vector space generated by the class γ([x × y]) of a closed point (x, y) and ∫_{X × Y} γ([x × y]) = 1.
 
   The node is Lemma 0FGX with its proof; Lemma 0FGY, formerly bundled here, is MC.2/pushforward-along-projection.
 
@@ -2781,7 +2727,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGZ.
 
-  > Let X be a smooth projective variety of dimension d. Choose a basis e_{i,j} of H^i(X) over F. Using Kuenneth write gamma([Delta]) as the sum over i and j of e_{i,j} tensor e'_{2d-i,j} with e'_{2d-i,j} in H^{2d-i}(X). Then the integral over X of e_{i,j} cup e'_{2d-i,j'} is minus one to the i times the Kronecker delta of j and j'.
 
   The node is that lemma verbatim, with the sign retained.
 
@@ -2822,7 +2767,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH0.
 
-  > Let X be a smooth projective variety. We have the sum over i from 0 to 2 dim(X) of minus one to the i times dim_F H^i(X) equals deg([Delta] . [Delta]) equals deg(c_d(T_X) cap [X]).
 
   The node is that lemma, with the consequence that the Euler characteristic does not depend on the theory recorded as an acceptance point.
 
@@ -2874,13 +2818,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH1.
 
-  > Consider a Q-linear functor G : M_k → graded F-vector spaces of symmetric monoidal categories such that G(1(1)) is nonzero only in degree −2. Then we obtain data (D1), (D2), (D3) satisfying all of (A), (B), (C) except for possibly (A)(c) and (A)(d).
 
   The node is that lemma, with the two axioms that are not obtained named in the statement, as the source does.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH1, proof, second paragraph.
 
-  > By assumption we only get something nonzero in degree −2 and we may choose an isomorphism F[2] → G(1(1)) of graded F-vector spaces. Here and below F[n] means the graded F-vector space which has F in degree −n and zero elsewhere.
 
   Cited for the choice of normalisation and the shift convention, both now in the statement. The same proof prints F[−2d] twice where F[2d] is meant (source issue E12).
 
@@ -2931,7 +2873,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH2.
 
-  > Let H^* be a classical Weil cohomology theory. Then we can construct a Q-linear functor G from M_k to graded F-vector spaces of symmetric monoidal categories such that H^*(X) = G(h(X)).
 
   The node is that lemma; the construction of the functor on correspondences and the verification that the image of c_2 is invertible are written out as proof steps because the extension to motives is what the universal property needs.
 
@@ -2974,7 +2915,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Proposition 0FH3.
 
-  > A classical Weil cohomology theory is the same thing as a Q-linear functor G from M_k to graded F-vector spaces of symmetric monoidal categories together with an isomorphism F[2] to G(1(1)) of graded F-vector spaces such that in addition (1) G(h(X)) lives in nonnegative degrees, and (2) dim_F G^0(h(X)) = 1 for any smooth projective variety X.
 
   The node is that proposition, with the two extra conditions kept in the statement and identified in the proof steps with the two axioms the functorial description does not otherwise give.
 
@@ -3010,7 +2950,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH6 with its proof (Section 0FH4).
 
-  > Let K/k be an algebraic field extension. Let X be a finite type scheme over k. Then CH_i(X_K) = colim CH_i(X_{k'}) where the colimit is over the subextensions K/k'/k with k'/k finite. Proof. This is a special case of Chow Homology, Lemma 0FVQ.
 
   The node is that lemma with its one-line proof.
 
@@ -3049,7 +2988,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGY with its proof (Section 0FGS).
 
-  > Let X and Y be smooth projective varieties. Then pr_{2,*} : H^*(X × Y) → H^*(Y) sends a ⊗ b to (∫_X a) b. Proof. This is equivalent to the result of Lemma 0FGX.
 
   The node is Lemma 0FGY, split off from MC.2/trace-of-a-product, with the one-line equivalence written out.
 
@@ -3090,7 +3028,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FGZ, proof, first paragraph.
 
-  > [X] · [X] = [X] hence by axiom (C)(c) the cohomology class γ([X]) is 0 or 1 in the 1-dimensional F-algebra H^0(X); here we have also used axioms (A)(d) and (A)(b). But γ([X]) cannot be zero as [X] · [x] = [x] for a closed point x of X
 
   The node is the step of the proof of Lemma 0FGZ showing γ([X]) = 1, made a lemma because Lemmas 0FGZ and 0FH0, the realisation and the round trip all use γ([Δ]) = Δ_*1.
 
@@ -3159,19 +3096,16 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.HOMOLOGY — The Stacks Project authors, *The Stacks Project, chapter "Homological Algebra" (tag 0111)*, Example 0FFX (Homology, Section 09MF).
 
-  > There are two commutativity constraints on C which turn C into a symmetric monoidal category: one involves the intervention of signs and the other does not. We will usually use the one that does. ... V^p ⊗_F W^q → W^q ⊗_F V^p, v ⊗ w ↦ (−1)^{pq} w ⊗ v
 
   The node is that example, the convention Lemma 0FH1 uses for graded commutativity; the source omits the verification that it is symmetric monoidal.
 
 - STACKS.HOMOLOGY — The Stacks Project authors, *The Stacks Project, chapter "Homological Algebra" (tag 0111)*, Lemma 0FFV with its proof.
 
-  > Let F be a field. Let C be the category of graded F-vector spaces viewed as a monoidal category as in Example 0FFX. If V in C has a left dual W, then Σ_n dim_F V^n < ∞ and the map ε defines nondegenerate pairings W^{−n} × V^n → F.
 
   The duality statement of the node.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH1, proof, second paragraph.
 
-  > Since 1(1) is invertible in the category of motives we see that G(1(1)) is invertible in the category of graded F-vector spaces. Thus Σ_i dim_F G^i(1(1)) = 1.
 
   The description of invertible objects, used there without separate proof.
 
@@ -3237,13 +3171,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH2, proof, first paragraph.
 
-  > Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)
 
   The node supplies the omitted details: the extension of a classical theory from varieties to smooth projective schemes (source issue E18).
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FHA, the data (D1) and (D3).
 
-  > (D1) A contravariant functor H^* from the category of smooth projective schemes over k to the category of graded commutative F-algebras. ... (D3) For every nonempty smooth projective scheme X over k which is equidimensional of dimension d a map ∫_X : H^{2d}(X)(d) → F.
 
   The shape of the data on schemes, which the source uses over an arbitrary field; here only the extension of a classical theory is needed.
 
@@ -3313,13 +3245,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of the implication c) to b) of Theorem 1.
 
-  > fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k, and l is a prime number invertible in k.
 
   Jannsen fixes a Weil cohomology theory for varieties over an arbitrary field without defining the notion; the node makes it precise as the base change of a classical theory over an algebraic closure, which is the form MC.3 uses.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FH4, opening sentence.
 
-  > Some lemmas which will help us in our study of motives over base fields which are not algebraically closed.
 
   The change-of-field lemmas of that section are the inputs used for rational coefficients.
 
@@ -3360,19 +3290,16 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of the implication c) to b) of Theorem 1.
 
-  > fix a Weil cohomology X ↦ H(X), for example the one given by the étale cohomology groups H^i(X ×_k k_s, Q_l), where k_s is a separable closure of k, and l is a prime number invertible in k.
 
   Jannsen's instance of a Weil cohomology theory; the node states that it is one, with every part imported from its owner.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 2, on the cohomology theories available for varieties over an arbitrary field.
 
-  > For each prime number ℓ distinct from the characteristic of k, étale cohomology gives cohomology groups H^0_et(X, Q_ℓ), ..., H^{2n}_et(X, Q_ℓ) which are finite-dimensional vector spaces over Q_ℓ and satisfy Poincaré duality, a Lefschetz fixed point formula, and so on.
 
   Milne's description of the properties being assembled.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Section 0FGS, opening paragraph.
 
-  > In this section we define what we will call a classical Weil cohomology theory. This is exactly what is called a Weil cohomology theory in [Kleiman, Section 1.2].
 
   The definition being verified is Kleiman's, whose standard example is l-adic cohomology.
 
@@ -3415,13 +3342,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, Lemma 1, the case g = Δ.
 
-  > Then for f, g ∈ B^{dim(X)}(X × X) one has ⟨f · ᵗg⟩ = Σ_{i=0}^{2dim(X)} (−1)^i Tr_i(f ∘ g), where Tr_i(f) is the trace of f acting on H^i(X).
 
   With g the diagonal this is the formula for the correspondence f. Jannsen calls it well known and cites Kleiman, whose survey was not obtained.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemmas 0FGZ and 0FH0.
 
-  > Then ∫_X e_{i,j} ∪ e'_{2d−i,j'} = (−1)^i δ_{jj'}. ... We have Σ_{i = 0, ..., 2 dim(X)} (−1)^i dim_F H^i(X) = deg([Δ] · [Δ]) = deg(c_d(T_X) ∩ [X])
 
   Lemma 0FH0 is the case u = γ([Δ]); the general case is the same computation with the basis of Lemma 0FGZ, written out in the proof steps.
 
@@ -3489,13 +3414,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, Corollary 1, and page 449 to 450, its proof.
 
-  > If, for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then ... Now, by definition of the π^j we have Tr_i(f ∘ π^j) = δ_{ij} Tr_j(f) for every f ∈ B
 
   The definition and the defining trace identity; placed in MC.2 so that MC.3 does not depend on MC.7, which states the conjecture that they are algebraic.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 451, Remark 1.
 
-  > Moreover, if the assumption holds for X and Y, it also holds for X × Y, since π^j_{X×Y} = Σ_{r+s=j} π^r_X ⊗ π^s_Y by the Künneth formula.
 
   The product formula, an API item.
 
@@ -3537,13 +3460,11 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, proof of Corollary 1.
 
-  > By definition, the cycle map B ↪ H^{2dim(X)}(X × X) = ⊕_{i≥0} End H^i(X) is an injective ring homomorphism, so that f is nilpotent in B.
 
   The node is the statement Jannsen uses as a definition, with the identification of H^{2d}(X × X) with the endomorphisms of cohomology made explicit and extended to correspondences between two varieties.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'Is X ↦ hX a universal cohomology theory?'.
 
-  > With M_num(k) there is a problem: a correspondence numerically equivalent to zero will define the zero map on motives, but we don't know in general that it defines the zero map on cohomology.
 
   The reason the realisation is stated modulo homological, not numerical, equivalence.
 
@@ -3587,7 +3508,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Proposition 0FH3 with its proof.
 
-  > A classical Weil cohomology theory is the same thing as a Q-linear functor G : M_k → graded F-vector spaces of symmetric monoidal categories together with an isomorphism F[2] → G(1(1)) ... Conversely, given H^* we get a functor G by the construction of Lemma 0FH2.
 
   The proposition asserts a bijection; its proof builds the two constructions and checks the extra conditions but does not compose them (source issue E13). The node supplies the verification.
 
@@ -3629,7 +3549,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FG8 with its proof (Section 0FFZ).
 
-  > Let f : Y → X be a morphism of smooth projective schemes over k. Assume X and Y equidimensional of dimensions d and e. Denote a = [Γ_f] ∈ Corr^0(X, Y) and a^t = [Γ_f^t] ∈ Corr^{d−e}(Y, X). ... The diagram ... is commutative in the category of correspondences.
 
   The node is Lemma 0FG8, which no node of the packet planned although Lemma 0FH1 uses it for (C)(b). It belongs with the correspondences of MC.0 and may be re-parented there.
 
@@ -3666,7 +3585,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH8 with its proof (Section 0FH4).
 
-  > Let K/k be an algebraic extension of fields. Let X be a finite type scheme over k. The kernel of the map CH_i(X) → CH_i(X_K) constructed in Lemma 0FH6 is torsion. Proof. ... This is clear because π_* π^* α = [k' : k] α
 
   The node is Lemma 0FH8, formerly bundled into MC.2/chow-groups-under-field-extension.
 
@@ -3706,7 +3624,6 @@ layer be narrowed to this axiomatic half, with the theories and their comparison
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH5 with its proof (Section 0FH4).
 
-  > Let k be a field. Let X be a smooth projective scheme over k. Then CH_0(X) is generated by classes of closed points whose residue fields are separable over k.
 
   The node is Lemma 0FH5, formerly bundled into MC.2/chow-groups-under-field-extension; its proof, a Bertini argument of about a page, is not routine and is laid out in the proof steps.
 
@@ -3782,13 +3699,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, Lemma 1.
 
-  > Lemma 1. Let f ↦ ᵗf, B^{dim(X)}(X × X) → B^{dim(X)}(X × X), be the transposition, induced by interchanging the factors of X × X. Then for f, g ∈ B^{dim(X)}(X × X) one has ⟨f · ᵗg⟩ = Σ_{i=0}^{2dim(X)} (−1)^i Tr_i(f ∘ g), where Tr_i(f) is the trace of f acting on H^i(X).
 
   The node is Jannsen's Lemma 1. He calls it well known and cites Kleiman's 1968 article, which was not obtained; the proof steps derive it from the Lefschetz formula of MC.2/lefschetz-trace-formula and an identity of correspondences.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemmas 0FGZ and 0FH0.
 
-  > Then ∫_X e_{i,j} ∪ e'_{2d−i,j'} = (−1)^i δ_{jj'}. ... We have Σ_{i = 0, ..., 2 dim(X)} (−1)^i dim_F H^i(X) = deg([Δ] · [Δ]) = deg(c_d(T_X) ∩ [X])
 
   Cited for the method: the case f = g = [Δ] is Lemma 0FH0, and the general case goes through MC.2/lefschetz-trace-formula, which uses the basis of Lemma 0FGZ.
 
@@ -3836,7 +3751,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, Lemma 2 with its proof.
 
-  > Lemma 2. Let C be an F-linear, pseudo-abelian category such that End(M) is a finite-dimensional, semi-simple F-algebra for every object M of C. Then C is a semi-simple abelian category. Proof. By Wedderburn's theorem, End(M) is a product of full matrix algebras over skewfields.
 
   The node is Jannsen's Lemma 2 with his proof, kept in its steps; the last step is the equivalence with a sum of categories of vector spaces over division rings.
 
@@ -3882,7 +3796,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 451, Remark 3.
 
-  > Then the category C of finitely generated free Q[ε]-modules is a Q-linear pseudo-abelian category with a faithful Q-linear functor into Vec_Q (the forgetful functor), and every indecomposable object of C is simple, but C is not an abelian category. In fact, the endomorphism ε of Q[ε] has no kernel.
 
   The node is that remark; Jannsen adds that the endomorphism ε of Q[ε] has no kernel, that Lemma 2 should replace Lemma 6.6 of Deligne and Milne, which is false, and that the same wrong argument seems to appear in Saavedra Rivano's book.
 
@@ -3926,13 +3839,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, Theorem 1.
 
-  > Theorem 1. The following properties are equivalent. a) M_k is a semi-simple abelian category. b) A^{dim(X)}(X × X) is a finite-dimensional, semi-simple F-algebra for every variety X. c) The relation ∼ is numerical equivalence.
 
   The node is that theorem; its three implications are MC.3/semisimple-category-implies-numerical, MC.3/numerical-implies-semisimple-algebras and MC.3/semisimple-algebras-imply-semisimple-category.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 447, the opening paragraph.
 
-  > is a semi-simple abelian category if - and in fact, only if - the relation is numerical equivalence. Contrary to general belief Grothendieck's standard conjectures are not needed for this.
 
   Cited for the unconditionality: an implementation that assumes a standard conjecture has not proved this theorem.
 
@@ -3981,7 +3892,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, Corollary 1, with its proof on pages 449 to 450.
 
-  > If, for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then the kernel of the surjective ring homomorphism S : B = A_hom^{dim(X)}(X × X) → A_num^{dim(X)}(X × X) = A is the Jacobson radical of B, and is a nilpotent ideal.
 
   The node is that corollary with its proof, including the comparison of coefficient fields and the source's statement that finite dimensionality over F is open in positive characteristic.
 
@@ -4026,13 +3936,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, inside the proof of Corollary 2.
 
-  > under the above normalizations the rank (in the sense of [DM] p. 113) of a motive h(X) = (X, id, 0) can be negative, while in the presence of a fibre functor it should be non-negative, as the dimension of a vector space ... one easily computes rk(h(X)) = ⟨Δ · Δ⟩ for the diagonal
 
   The node is that step of the proof, made a lemma because it is what forces the sign change.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'Is M_num(k) tannakian?'.
 
-  > For example, if X is a curve of genus g, then Tr(u|hX) = dim H^0 − dim H^1 + dim H^2 = 2 − 2g, which may be negative. This proves that there does not exist an exact faithful tensor functor ω: M_num(k) → Vec_F for any field F.
 
   Milne's version, with the genus formula the node uses.
 
@@ -4085,19 +3993,16 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, Corollary 2.
 
-  > Corollary 2. If the Künneth components of the diagonal (w.r.t. some fixed Weil cohomology X ↦ H(X)) are algebraic for every variety X over k, then the category M_k of motives with respect to numerical equivalence is a semi-simple F-linear Tannakian category
 
   The node is that corollary.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 451, proof of Corollary 2, continued.
 
-  > If we modify the constraints by defining ψ_new = ⊕_{r,s} (−1)^{rs} ψ^{r,s}, then the computation leading to Lemma 1 easily shows rk((X, p, m)) = Σ_{i≥0} dim_A pH^i(X) ≥ 0 for every motive (X, p, m) in M_k. By Deligne's theorem 7.1 in [D], M_k is Tannakian.
 
   The sign change and the rank formula, with the grading printed just before as (X, p, m)^r = (X, pπ^{r+2m}, r), a misprint for twist m (source issue E16).
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 451, Remark 2.
 
-  > Moreover, the result of Corollary 2 holds for every subcategory C of M_k generated (as an abelian tensor category) by 1(1) and a family of varieties (X_i | i ∈ I) such that the Künneth components of the diagonal are algebraic for the X_i.
 
   Recorded as an acceptance point; the abelian-variety case of the remark rests on Lieberman's theorem, cited by Jannsen and not read.
 
@@ -4163,13 +4068,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, proof of Lemma 2.
 
-  > Indeed, then C is equivalent to a sum, indexed by the isomorphism classes of indecomposables (= irreducibles), of categories which are equivalent to categories of vector spaces over skewfields.
 
   Jannsen uses the notion without defining it; this sentence is the description the node records as its block decomposition.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'Properties of the category M(k)'.
 
-  > The category M_num(k) is abelian and semisimple, but M_rat(k) is not even abelian, except perhaps when k is algebraic over a finite field.
 
   The use of the notion for numerical motives.
 
@@ -4236,13 +4139,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, proof of Corollary 2.
 
-  > under the above normalizations the rank (in the sense of [DM] p. 113) of a motive h(X) = (X, id, 0) can be negative, while in the presence of a fibre functor it should be non-negative, as the dimension of a vector space
 
   Jannsen uses the rank of Deligne and Milne, which was not obtained; the node records the standard definition through the commutativity constraint, which is what makes the sign change of Corollary 2 change ranks.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'Is M_num(k) tannakian?'.
 
-  > In an abelian category T with tensor products and duals it possible to deﬁne the trace of an endomorphism of an object. This is preserved by every exact faithful tensor functor ω: T → Vec_Q, and so, for the identity map u of an object M, Tr(u|M) = Tr(ω(u)|ω(M)) = dim_Q ω(M)
 
   Milne's description of the trace and of its preservation, which the node states.
 
@@ -4310,13 +4211,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'What is a tannakian category?', with its footnote 9.
 
-  > A tannakian category T over Q (not necessarily neutral) is an abelian category with tensor products and duals for which there exists an exact faithful tensor functor to the category of vector spaces over some field of characteristic zero (not necessarily Q). ... We also require that End(1) = Q
 
   The node takes Milne's formulation over F, with his footnote requiring End(1) = F, and records neutrality separately as the stage asks.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, proof of Corollary 2.
 
-  > Then M_k is semi-simple abelian by Theorem 1, so by [D] it only needs a fibre functor with values in some extension field F' of F = End(1) to make M_k into a Tannakian category.
 
   Jannsen's working definition, which agrees; he cites Saavedra Rivano and Deligne, neither obtained.
 
@@ -4358,13 +4257,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of c) to b).
 
-  > It is well-known that A^j(X) is a finite-dimensional F-vector space for all X and j, and that one has an isomorphism A^j(X, Q) ⊗_Q F ≅ A^j(X, F), cf. [K1] Thm. 3.5.
 
   The node is the fact Jannsen quotes from Kleiman's Theorem 3.5, which was not obtained; the proof steps are the standard argument through a Weil cohomology theory.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, 'Properties of the category M(k)'.
 
-  > The Hom sets are Q-vector space, which are ﬁnite-dimensional if ∼ = num (but not usually otherwise).
 
   Milne states the same finiteness without proof.
 
@@ -4407,7 +4304,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of c) to b).
 
-  > In particular, the Jacobson radical J of A^{dim(X)}(X × X, F) is obtained from the one of A^{dim(X)}(X × X, Q) by base extension to F, and it suffices to show J = 0 over any field F.
 
   Jannsen uses this without proof; the node is the standard separability argument, needed because the reduction to one coefficient field rests on it.
 
@@ -4447,7 +4343,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 450, proof of Corollary 1.
 
-  > The same is true for all powers of f, which implies that for all i ≥ 0 the endomorphism f_i of H^i(X) induced by f has zero eigenvalues, thus is nilpotent.
 
   The step of Jannsen's proof this lemma makes precise.
 
@@ -4490,7 +4385,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of a) to c).
 
-  > Since End(1) = F is a field, 1 is an irreducible object. Hence every non-trivial morphism f: 1 → (X, id, j) is a monomorphism, and by a) there is a morphism g: (X, id, j) → 1 with g ∘ f = id. Translated back to algebraic cycles this means
 
   The node is the implication a) to c) of Theorem 1 with its proof.
 
@@ -4539,7 +4433,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 448, proof of c) to b).
 
-  > Now consider the surjection of finite-dimensional Q_l-algebras S : B = B^{dim(X)}(X × X) → A^{dim(X)}(X × X) = A and let J' be the Jacobson radical of B. Since B/J' is semi-simple and this carries over to quotients, and since S(J') is a nilpotent two-sided ideal in A, we must have S(J') = J.
 
   The node is the implication c) to b) of Theorem 1 with its proof, which continues on page 449.
 
@@ -4581,7 +4474,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, proof of b) to a).
 
-  > First we deduce from b) that End_{M_k}(M) is a finite-dimensional, semi-simple F-algebra for every direct factor M of h(X) = (X, id, 0) and hence for every object M of M_k. In fact, if J is a nilpotent two-sided ideal of End(M), and if h(X) = M ⊕ N, then
 
   The node is the implication b) to a) of Theorem 1 with its proof.
 
@@ -4622,7 +4514,6 @@ nonnegative, and only then does the category become Tannakian.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, pages 451 to 452, Remark 4.
 
-  > Under the assumption of Corollary 1, one can associate cohomology groups H(M) to every motive M = (X, p, m) w.r.t. numerical equivalence, such that H(M) is well-defined up to non-canonical isomorphism. In fact, one can lift p to an idempotent p' in A_hom^{dim X}(X × X)
 
   The node is Remark 4, which no node of the packet planned although Corollary 2's rank formula needs it to make sense of pH^i(X) for a numerical class p.
 
@@ -4689,13 +4580,11 @@ nonnegative, and only then does the category become Tannakian.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 5, 'Second attempt', and Section 6.
 
-  > That's it! This is the category of effective motives for rational or numerical equivalence depending on the choice of ∼
 
   Milne builds both categories by one recipe; the quotient functor is reduction of cycles. He adds that M_rat(k) contains more information than M_num(k).
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 447, the setting.
 
-  > Fix a field F of characteristic zero, and an adequate equivalence relation ∼ on F-linear algebraic cycles (cf [K2] §1; in short, pull-back, push-forward and intersection of cycles is always (well-)defined modulo ∼).
 
   The category is formed for every adequate relation, and rational equivalence is the finest, which gives the reduction maps.
 
@@ -4797,13 +4686,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Definition 14.1, second paragraph (p. 109).
 
-  > We define DM^eff_gm(k,R) to be the thick subcategory of DM^{eff,-}_Nis(k,R) generated by the motives M(X), where X is smooth over k. Objects in DM^eff_gm(k,R) will be called effective geometric motives.
 
   The definition, literally; the rest of the paragraph (the resolution-dependent consequences) is the node MC.4/geometric-motives-generated-by-smooth-projective.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 9, Definition 9.1 (p. 67).
 
-  > A full additive subcategory E of D^- is thick if: (1) Let A -> B -> C -> A[1] be a distinguished triangle. Then if two out of A,B,C are in E then so is the third. (2) if A+B is in E then both A and B are in E.
 
   Fixes the meaning of 'thick' used in Definition 14.1: a triangulated subcategory closed under summands, which is Mathlib's triangulated envelope closed under retracts.
 
@@ -4874,19 +4761,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, paragraph after Definition 14.2 (p. 110).
 
-  > The category DM_gm(k,R) of geometric motives is obtained from DM^eff_gm(k,R) by inverting the Tate twist operation M -> M(1) = M tensor^tr_{L,Nis} R(1). From the previous paragraph, it is clear that DM_gm(k,R) is a full tensor triangulated subcategory of DM^-(k,R)
 
   The definition of DM_gm and its relation to DM^-, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, paragraph after Definition 14.2 (p. 110).
 
-  > Thus every object in DM^-(k,R) is isomorphic to M(-n) for some n >= 0 and some M in DM^{eff,-}_Nis(k,R). For any coefficients R, it will follow from 8A.11 and 15.8 below that DM^-(k,R) is always a tensor triangulated category.
 
   The description of the objects and the two inputs of the tensor structure.
 
 - VOEVODSKY.CANCEL — Vladimir Voevodsky, *Cancellation theorem*, Section 4, Corollary 4.10.
 
-  > Let k be a perfect field. Then for any K, L in DM^eff_-(k) the map Hom(K, L) -> Hom(K(1), L(1)) is a bijection.
 
   The cancellation theorem in the form imported from MotivicEtaleKTheory:M.5a and used for full faithfulness.
 
@@ -4926,19 +4810,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Properties 14.5, first item (p. 110).
 
-  > By 14.4, we have M(X) = Z_tr(X) = C_*Z_tr(X). By 8.10, we see that M(X) tensor M(Y) = M(X x Y), and 2.24 yields M(X) = M(X x A^1).
 
   Homotopy invariance, literally (with isomorphism signs written as =).
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Properties 14.5, Mayer-Vietoris item, display (14.5.1) (p. 110).
 
-  > (Mayer-Vietoris) For each open cover {U,V} of a smooth scheme X, proposition 13.15 yields the Mayer-Vietoris triangle in DM^{eff,-}_Nis(k,R): (14.5.1) M(U intersect V) -> M(V)+M(U) -> M(X) -> M(U intersect V)[1].
 
   The triangle, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 13, before Proposition 13.15 (p. 103).
 
-  > If U = {U1,...,Un} is a Zariski covering of X, we saw in 6.12 that the Cech complex Z_tr(U^): 0 -> Z_tr(U1 intersect ... intersect Un) -> ... -> +_i Z_tr(Ui) -> 0 is a resolution of Z_tr(X) in the etale topology (and the Nisnevich topology).
 
   The exactness from which the triangle in DM follows over any field.
 
@@ -4981,19 +4862,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 13, Example 13.17 (p. 103).
 
-  > Applying 13.15 to the usual cover of P1 (by P1 - {0} and P1 - {infinity}) allows us to deduce that C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2] for the Zariski topology, because C_*Z_tr(A1)/Z = 0 by 2.24.
 
   The computation for P^1; the middle term should be C_*(Z_tr(G_m)/Z)[1] (MotivesAndAlgebraicCycles/E20).
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Corollary 15.5 with the start of its proof (p. 121).
 
-  > There is a quasi-isomorphism M(Pn) = C_*Z_tr(Pn) -> Z+Z(1)[2]+...+Z(n)[2n]. PROOF. We proceed by induction, the case n = 1 being 13.17. By exercise 15.4, the map Z_tr(Pn-1) -> Z_tr(Pn) is split injective in DM
 
   The computation for P^n and the structure of its proof.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 3, Definition 3.1 (p. 21).
 
-  > For every integer q >= 0 the motivic complex Z(q) is defined as the following complex of presheaves with transfers: Z(q) = C_*Z_tr(G_m^{wedge q})[-q].
 
   With Lemma 2.13 this gives M(G_m) = Z + Z(1)[1].
 
@@ -5039,13 +4917,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Theorem 15.15 (p. 124).
 
-  > Let X be a smooth scheme over a perfect field and Z a smooth closed subscheme of X of codimension c. Then there is a "Gysin" triangle: C_*Z_tr(X - Z) -> C_*Z_tr(X) -> C_*Z_tr(Z)(c)[2c] -> C_*Z_tr(X - Z)[1].
 
   The theorem as the source states it; the node adds the resolution hypothesis its proof uses (E21).
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, proof of Theorem 15.15 (p. 124).
 
-  > We have to show that the Gysin map gamma-bar : C_*(Z_tr(X)/Z_tr(X - Z)) -> C_*Z_tr(Z)(c)[2c] of 15.13 is a quasi-isomorphism. By 12.20 we may assume that X = Y x A^c and Z = Y x 0. But then gamma-bar is the isomorphism of 15.14, tensored with C_*Z_tr(Y).
 
   The proof the node's steps follow.
 
@@ -5091,13 +4967,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.14 and Definition 20.15 (p. 170).
 
-  > Let L, M, and N be three objects of DM_gm. Then there is a natural isomorphism Hom_gm(L tensor M,N) = Hom_gm(L,M^* tensor N). ... DEFINITION 20.15. If M and N are two objects of DM_gm, we define their internal Hom to be: Hom(M,N) = M^* tensor N.
 
   The adjunction and the internal Hom.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, before Theorem 20.17 and the theorem (pp. 170-171).
 
-  > Recall from [DMOS82, p. 111] that a tensor category A is said to be rigid if it has an internal Hom, bi-distributive for the tensor, and if A -> (A^*)^* is an isomorphism for every A. THEOREM 20.17. The tensor category DM_gm is rigid.
 
   The notion of rigidity and the theorem.
 
@@ -5147,19 +5021,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.1 (p. 167).
 
-  > Assume that k is a perfect field which admits resolution of singularities. Then Grothendieck's category of effective Chow motives embeds contravariantly into DM^eff_gm(k,Z), ... in the sense that if X and Y are two smooth projective schemes, then Hom_Chow(Y,X) = Hom(M(X),M(Y)).
 
   The proposition, literally; the proof is the chain the node's steps follow, with d = dim Y.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, introduction and Remark 20.2 (pp. 167-168).
 
-  > whose morphisms are given by: Hom_Chow(Y,X) = CH_dimX(X x Y). ... The Lefschetz motive L is mapped to Z(1)[2] by 13.17. So from 16.25 and 20.1 we have the following diagram of fully faithful tensor functors:
 
   The source's convention for Chow^eff and its assertion of the functor.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Authors' list of corrections, entries for p. 167.
 
-  > p.167, line 13: HomChow(Y, X) should be CHdim Y (X x Y). p.167, line -5: We set d = dim Y (not dim X)
 
   The correction to the value of d in the proof; list fetched from the Internet Archive copy of the file linked from Weibel's page.
 
@@ -5202,19 +5073,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 19, Theorem 19.1 (p. 159).
 
-  > Let X be a smooth separated scheme over a perfect field k, then for all n and i >= 0 there is a natural isomorphism: H^{n,i}(X,Z) -> CH^i(X,2i-n).
 
   The theorem, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 19, Corollary 19.2 and Vanishing Theorem 19.3 (p. 159).
 
-  > Because CH^i(X,0) is the classical Chow group CH^i(X) we obtain: COROLLARY 19.2. H^{2i,i}(X,Z) = CH^i(X). It is clear from definition 17.1 that CH^i(X,m) = 0 for m < 0.
 
   The two consequences.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 19, proof of Theorem 19.1 (p. 163).
 
-  > Using 19.9 and 19.12, we define the map to be the compositions of isomorphisms: H^{n,i}(X,Z) = H^n(X,Z(i)) -> H^{n-2i}(X,z^i(- x A^i)) = CH^i(X,2i-n).
 
   The proof the node's steps follow.
 
@@ -5256,13 +5124,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 13, Theorem 13.26 (p. 106).
 
-  > Assume that resolution of singularities holds over k. Let X' -> X be an abstract blow-up with center Z, and set Z' = Z x_X X'. Then there is a distinguished triangle in D^-(Sh_Nis(Cor_k)): C_*Z_tr(Z') -> C_*Z_tr(Z)+C_*Z_tr(X') -> C_*Z_tr(X) -> C_*Z_tr(Z')[1].
 
   The theorem, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 13, Theorem 13.25 (p. 105).
 
-  > Assume that resolution of singularities holds over a perfect field k. Let F be a Nisnevich sheaf with transfers such that F_cdh = 0. Then the complex C_*(F) is acyclic.
 
   The input the proof reduces to, which needs k perfect.
 
@@ -5333,19 +5199,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Definition 16.13 (p. 128).
 
-  > For any scheme X of finite type over k, let M^c(X) denote z_equi(X,0), regarded as an object in DM^{eff,-}_Nis(k). By 14.4, M^c(X) = C_*z_equi(X,0) in DM^{eff,-}_Nis(k).
 
   The definition, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, paragraph after Definition 16.13 (p. 129).
 
-  > As pointed out in 16.1, M^c(X) is contravariant in X for etale maps and covariant in X for proper maps. As observed in 16.2, there is a canonical map M(X) -> M^c(X), induced by Z_tr(X) in z_equi(X,0). Moreover, M(X) = M^c(X) if X is proper over k.
 
   The elementary functoriality, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Example 16.14 (p. 129).
 
-  > We have an isomorphism M^c(A^i) = Z(i)[2i] in DM^{eff,-}_Nis(k). To see this, recall from 16.7 that the Suslin-Friedlander motivic complex Z_SF(i) = C_*z_equi(A^i,0)[-2i] is quasi-isomorphic to Z(i).
 
   The computation and its input, which needs k perfect.
 
@@ -5409,13 +5272,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Definition 16.20 (p. 130).
 
-  > We define the motivic cohomology with compact supports of X with coefficients in R to be: H^{n,i}_c(X,R) = Hom(M^c(X),R(i)[n]). Dually, we define the (Borel-Moore) motivic homology with compact supports H^BM_{n,i}(X,R) to be H^BM_{n,i}(X,R) = Hom(R(i)[n],M^c(X)).
 
   The two definitions, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, after Definition 16.20 (p. 130).
 
-  > Applying Hom to the triangle in 16.15 yields the expected long exact localization sequences for motivic cohomology and homology with compact supports
 
   The sequences, from the localisation triangle.
 
@@ -5485,19 +5346,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Appendix 8A, before Exercise 8A.8 (p. 65).
 
-  > Let C[T^-1] denote the category whose objects are pairs (X,m) with X in C and m in Z; morphisms (X,m) -> (Y,n) in C[T^-1] are just elements of the direct limit lim_{i->infinity} Hom(X tensor T^{tensor m+i}, Y tensor T^{tensor n+i}), where the bonding maps are given by the functor tensor T : C -> C.
 
   The construction, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Appendix 8A, Proposition 8A.10 and Corollary 8A.11 (pp. 65-66).
 
-  > Let T be an object in a symmetric monoidal category (C,tensor,1) such that the cyclic permutation on T^{tensor 3} is the identity in C[T^-1]. Then (C[T^-1],tensor,1) is also a symmetric monoidal category.
 
   The symmetric monoidal structure and its hypothesis; 8A.11 adds the triangulated structure under the same hypothesis.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Appendix 8A, Exercise 8A.8 (p. 65).
 
-  > Let T be an object in a tensor triangulated category C. Show that C[T^-1] is a triangulated category, and that C -> C[T^-1] is triangulated.
 
   The triangulated structure, left as an exercise in the source and planned here.
 
@@ -5538,13 +5396,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Corollary 15.8 (p. 122).
 
-  > The action of the symmetric group Sigma_n on Z(n) is A1-homotopic to the trivial action. Hence it is trivial in DM^{eff,-}_Nis, and on the motivic cohomology groups H^p(X,Z(n)).
 
   The statement, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Example 15.6 and Proposition 15.7 (pp. 121-122).
 
-  > Consider the reflection automorphism tau of Pn, n >= 1, sending (x0 : x1 : ... : xn) to (-x0 : x1 : ... : xn). We claim that the induced automorphism of C_*Z_tr(Pn) is A1-homotopic to the identity map
 
   The geometric input of the proof.
 
@@ -5585,7 +5441,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Definition 14.1, second paragraph (p. 109).
 
-  > If k admits resolution of singularities, it follows from (14.5.3) and (14.5.5) that DM^eff_gm contains M(Y) for every Y in Sch/k, and is generated by M(X), where X is smooth and projective.
 
   The two assertions, literally; the inductions are written out in the steps.
 
@@ -5623,13 +5478,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 13, Corollary 13.16 with its proof (p. 103).
 
-  > If E is a vector bundle over X, C_*Z_tr(E) -> C_*Z_tr(X) is a quasi-isomorphism. PROOF. Choose a Zariski cover U of X on which E is a trivial bundle.
 
   The statement and the start of the proof.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 14, Properties 14.5, vector bundle item (p. 111).
 
-  > (Vector bundle) If E -> X is a vector bundle, by 13.16 we have an isomorphism M(E) -> M(X).
 
   The statement in DM.
 
@@ -5669,13 +5522,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Lemma 15.1 and Theorem 15.2 (p. 119).
 
-  > LEMMA 15.1. There is a chain homotopy equivalence: C_*Z_tr(Pn - 0) = C_*Z_tr(Pn-1). THEOREM 15.2. If k is a perfect field, there is a quasi-isomorphism of Zariski sheaves for each n: C_*(Z_tr(Pn)/Z_tr(Pn-1)) = C_*Z_tr(G_m^{wedge n})[n] = Z(n)[2n].
 
   The two statements, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, after Theorem 15.2 (p. 119).
 
-  > Our proof will use theorem 13.12, whose proof depended upon theorem 13.8, a result whose proof we have postponed until lecture 24. The requirement that k be perfect is only needed for 13.8 (and hence 13.12).
 
   Where the hypothesis on k enters.
 
@@ -5714,7 +5565,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Exercise 15.4 with its hint (p. 121).
 
-  > Show that the map C_*Z_tr(Pi) -> Z(i)[2i] of theorem 15.2 factors through the natural inclusion C_*Z_tr(Pi) -> C_*Z_tr(Pn) for all n > i. Hint: Fix U0 in U and construct Z_tr(U^) -> Z(1)[2] vanishing on Z_tr(U0).
 
   The statement and the hint the proof follows.
 
@@ -5760,13 +5610,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Theorem 15.12 (p. 123).
 
-  > (Projective Bundle Theorem). Let p : P(E) -> X be a projective bundle associated to a vector bundle E of rank n + 1. Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM, and p is the projection onto the factor Z_tr(X).
 
   The theorem; the arrow of the display is reversed relative to the construction (E26).
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Construction 15.10 (pp. 122-123).
 
-  > From 4.2, 13.11, and 13.5 we have an isomorphism Pic(P) = H2_Nis(P,Z(1)) = Hom_{D-}(Z_tr(P),Z(1)[2]). Therefore the canonical line bundle yields a canonical map tau : Z_tr(P) -> Z(1)[2] in D-.
 
   The construction of the canonical map.
 
@@ -5809,13 +5657,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, Corollary 15.13 (p. 123).
 
-  > Let X be a smooth scheme and Z a smooth subscheme of pure codimension c. Let p : X' -> X be the blow-up along Z. Then C_*Z_tr(X') = C_*Z_tr(X)+(+_{i=1}^{c-1} C_*Z_tr(Z)(i)[2i]). Moreover, there is a natural "Gysin" map gamma : C_*Z_tr(X) -> C_*Z_tr(Z)(c)[2c], which is zero on C_*Z_tr(X - Z).
 
   The statement, literally; MVW's (14.5.4) is its first half.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 15, proof of Corollary 15.13 (p. 123).
 
-  > Since Z is smooth, Z' is the projective bundle associated to the normal bundle of Z in X. We claim that the morphism C_*Z_tr(X') -> C_*Z_tr(X) is a split surjection. By 13.26 and 15.12, this will prove the first assertion.
 
   Shows that the proof uses Theorem 13.26 and hence resolution (E21).
 
@@ -5883,19 +5729,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Definition 16.1 (p. 125).
 
-  > The presheaf z_equi(T,r) on Sm/k is defined as follows. For each smooth S, z_equi(T,r)(S) is the free abelian group generated by the closed and irreducible subvarieties Z of S x T which are dominant and equidimensional of relative dimension r over a component of S.
 
   The definition, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, after Definition 16.1 and Exercise 16.3 (pp. 125-126).
 
-  > One can also check that each z_equi(T,r) is contravariant for flat maps in T, and covariant for proper maps in T, both with the appropriate change in the dimension index r
 
   The functoriality, cited in the source from Relative cycles and Chow sheaves.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Example 16.2 (p. 125).
 
-  > If T is projective, or proper, then Z_tr(T) = z_equi(T,0).
 
   The proper case.
 
@@ -5936,13 +5779,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.7 (p. 126).
 
-  > Assume that k is perfect. Then there is a quasi-isomorphism in the Zariski topology: Z(i) = Z_SF(i). In particular, H^{n,i}(X,Z) = H^n(X,Z_SF(i)) for all n and i.
 
   The theorem, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, before Example 16.5 and Theorem 16.8 (pp. 126-127).
 
-  > We define the Suslin-Friedlander motivic complexes Z_SF(i) by: Z_SF(i) = C_*z_equi(A^i,0)[-2i]. ... THEOREM 16.8. There is a quasi-isomorphism in the Zariski topology: C_*(z_equi(P^i,0)/z_equi(P^{i-1},0)) = C_*z_equi(A^i,0).
 
   The definition and the key comparison whose proof (16.9-16.12) the steps follow.
 
@@ -5985,13 +5826,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 19, Lemma 19.4 (p. 159).
 
-  > Let T be smooth of dimension d. If 0 <= i <= d then for all X there is an embedding of simplicial abelian groups: C_.z_equi(T,d-i)(X) in z^i(X x T,.). In particular (for T = A^i), Z_SF(i)[2i](X) is a subcomplex of z^i(X x A^i,*).
 
   The embedding, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 19, Theorem 19.8 and Corollary 19.9 (p. 161).
 
-  > The map Z_SF(i)[2i] = C_*z_equi(A^i,0) -> z^i(- x A^i,*) is a quasi-isomorphism of complexes of Zariski sheaves. COROLLARY 19.9. For any smooth scheme X, the inclusion of 19.4 induces an isomorphism: H^{n,i}(X,Z) -> H^{n-2i}(X,z^i(- x A^i,*)).
 
   The quasi-isomorphism and its consequence.
 
@@ -6034,13 +5873,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.15 (p. 129).
 
-  > Assume that k admits resolution of singularities. If Z -> X is a closed subscheme with complement U -> X, there is a distinguished triangle: M^c(Z) -> M^c(X) -> M^c(U) -> M^c(Z)[1].
 
   The theorem, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, proof of Theorem 16.15 (p. 129).
 
-  > It is easy to see from the definitions that there is an exact sequence of sheaves with transfers: 0 -> z_equi(Z,0) -> z_equi(X,0) -> z_equi(U,0) -> Q -> 0. By 13.25 it suffices to show that Q_cdh = 0.
 
   The reduction the steps follow; 13.25 assumes k perfect.
 
@@ -6082,7 +5919,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Corollary 16.16 with its proof (p. 129).
 
-  > For every X and Y, M^c(X x Y) = M^c(X) tensor^tr_{L,Nis} M^c(Y). In particular, M^c(X x A^i) = M^c(X)(i)[2i]. PROOF. If X and Y are smooth and proper, this is just the identity M(X x Y) = M(X) tensor^tr_{L,Nis} M(Y).
 
   The statement and the base case; the rest of the proof cites 13.26 and 16.15 with the axioms of 8A.1.
 
@@ -6121,7 +5957,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Corollary 16.17 with its proof (p. 129).
 
-  > For every scheme X in Sch/k, M^c(X) is in DM^eff_gm. PROOF. If X is proper, so that M^c(X) = M(X), this follows from (14.5.3), as pointed out in 14.1. The general case follows from this, using theorem 16.15.
 
   The statement and its proof, literally.
 
@@ -6161,19 +5996,16 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.22 (p. 130).
 
-  > Let X be in Sch/k, where k admits resolution of singularities. Then for any r >= 0 and any M in DM^{eff,-}_Nis, there are natural isomorphisms: Hom(M(1)[2],C_*z_equi(X,r)) -> Hom(M,C_*z_equi(X,r+1)); Hom(M(r)[2r],M^c(X)) -> Hom(M,C_*z_equi(X,r)).
 
   The theorem, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Remark 16.21 and after Theorem 16.22 (p. 130).
 
-  > In [BivCy, 8.3], they proved the following result: ... More precisely, they proved in [BivCy, 8.3] that there is a natural isomorphism A_{r,i}(Y(1)[2],X) = A_{r+1,i}(Y,X) for every X,Y in Sch/k.
 
   The source cites the result from Friedlander-Voevodsky and does not prove it.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Corollary 16.23 (pp. 130-131).
 
-  > Let X -> Y be a flat map of relative dimension r. Then we have a morphism in DM^{eff,-}_Nis: M^c(Y)(r)[2r] -> M^c(X).
 
   The flat pullback.
 
@@ -6210,13 +6042,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, before and in Theorem 16.24 (p. 131).
 
-  > The Duality Theorem below is also due to Friedlander and Voevodsky ([BivCy, 8.2]). We also cite it without proof. THEOREM 16.24. (Duality) Assume that k admits resolution of singularities. If T is a smooth scheme of dimension d over k then there are canonical isomorphisms
 
   The theorem and the source's statement that it is cited without proof.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 16, Theorem 16.24, display (p. 131).
 
-  > Hom(M(X x T)[n],M^c(Y)) = Hom(M(X)(d)[2d+n],M^c(T x Y)).
 
   The isomorphism.
 
@@ -6258,13 +6088,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.3 (p. 168).
 
-  > If X is smooth of dimension d, the diagonal X -> X x X induces isomorphisms for r >= 0: Delta_r : M^c(X)(r)[-2d] = RHom(M(X),Z(d))(r) = RHom(M(X),Z(d+r)).
 
   The proposition, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Example 20.11 (p. 169).
 
-  > If X is smooth of dimension d, the dual M(X)^* is just an untwisting of M^c(X). To see this, we combine 20.3 with definition 20.6: M^c(X) = RHom(M(X),Z(d))[2d] = M(X)^*(d)[2d]. In particular, if X is projective then M(X) = M(X)^*(d)[2d].
 
   The consequence for the dual, which MC.4/geometric-motive-dual defines.
 
@@ -6329,13 +6157,11 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Definition 20.6 (p. 168).
 
-  > If X is in Sm/k and d = dimX, we define the dual to be: M(X)^* = RHom(M(X),Z(d))(-d). ... If M is any object of DM_gm, some twist M(r) is effective. We define the dual M^* to be RHom(M(r),Z(i))(r-i) for large i.
 
   The definition, literally.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.8 (p. 169).
 
-  > The dual M^* of an object M in DM_gm represents the functor A -> Hom_gm(A tensor M,Z), in the sense that there is a natural isomorphism: Hom_gm(A,M^*) = Hom_gm(A tensor M,Z).
 
   The representability, literally.
 
@@ -6374,7 +6200,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.12 with its proof (pp. 169-170).
 
-  > There is a natural isomorphism iota_M : M -> M^** for M in DM_gm. PROOF. ... To prove that iota_M is an isomorphism for all M, it suffices to prove it when M = M(X), where X is a smooth projective scheme of dimension d.
 
   The proposition and the reduction.
 
@@ -6412,7 +6237,6 @@ forms and which statements of this layer use which.
 
 - MVW.2006 — Carlo Mazza, Vladimir Voevodsky and Charles Weibel, *Lecture Notes on Motivic Cohomology*, Lecture 20, Proposition 20.13 (p. 170).
 
-  > There is a natural isomorphism M^* tensor N^* -> (M tensor N)^* for every M and N in DM_gm.
 
   The proposition, literally.
 
@@ -6517,13 +6341,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.1 (p. 17).
 
-  > A small diagram D is a directed graph on a set of vertices such that for every vertex there is a distinguished edge id : v -> v. ... A finite subdiagram of a small diagram D is a diagram containing a finite subset of vertices of D and all edges (in D) between them.
 
   The definition of a diagram, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.4 (p. 17).
 
-  > A representation T of a diagram D in a category C is a map T of directed graphs from D to D(C) such that id is mapped to id.
 
   The definition of a representation, literally; D(C) is the diagram of C (Example B.3).
 
@@ -6585,13 +6407,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.6 (p. 17).
 
-  > Let T be a representation of D in R-Mod. For each finite subdiagram F in D let End(T|F) be the ring of endomorphisms of the functor T|F, more precisely, as End(T|F) := {(e_p) in prod_{p in F} End_R(T(p)) | e_q o T(m) = T(m) o e_p for all p, q in F, m in Mor(p, q)}.
 
   The endomorphism ring, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.7 (p. 17).
 
-  > Suppose R is a Dedekind domain or a field and T takes values in R-Proj. Let A(F, T) := Hom_R(End(T|F), R). We set A(T) := colim_F A(F, T). Then C(T) is the category of finitely generated R-modules with an R-linear A(T)-comodule structure.
 
   The coalgebra and its role; the proof is referred to von Wangenheim's thesis.
 
@@ -6660,13 +6480,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, notation list (p. 4).
 
-  > Let C(D, T) its associated diagram category. It is the universal abelian category together with a functor f_T : C(D, T) -> Q-Mod such that T factors via f_T. ... The category C(D, T) arises as the category of A(T)-comodules finite dimensional over Q for a certain coalgebra A(T).
 
   The comodule description the node takes as the definition.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.6 (p. 17).
 
-  > Let C(T|F) = End(T|F)-Mod be the category of finitely generated R-modules equipped with an R-linear operation of algebra End(T|F). Finally let C(T) = colim_F C(T|F).
 
   The source's own definition, compared with the comodule description in B.7.
 
@@ -6737,19 +6555,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.14 (pp. 20-21).
 
-  > A graded diagram is a small diagram D together with a map |.| : {vertices of D} -> Z/2Z. ... A commutative product structure on a graded D is a map of graded diagrams x : D x D -> D together with choices of edges a_{f,g} : f x g -> g x f
 
   The grading and the product structure; conditions (1)-(5) follow in the definition.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.16 (p. 21).
 
-  > (1) Then C(T) is a commutative and associative tensor category with unit and T : C(T) -> R-Mod is a tensor functor. (2) If in addition R is a field or a Dedekind domain, the coalgebra A(T) carries a natural structure of commutative bialgebra (with unit and counit).
 
   The two conclusions, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Remark B.19(2) (p. 24).
 
-  > In an earlier version, we had to assume f0 even. We were able to drop the condition by shifting the sign condition in the definition of a multiplicative diagram to the first variable.
 
   Where the sign sits.
 
@@ -6818,19 +6633,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Definition B.18 (p. 24).
 
-  > (1) for every f a vertex of Deff and n in Z a vertex denoted f(n); (2) for every edge a : f -> g in Deff and every n in Z, an edge denoted a(n) : f(n) -> g(n) in D; (3) for every vertex f in Deff and every n in Z an edge denoted c_{f,n} : (f x f0)(n) -> f(n + 1).
 
   The localised diagram, literally (the source writes gamma for c).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Assumption B.20 and Lemma B.21 (pp. 24-25).
 
-  > Let T be a graded multiplicative unital representation of Deff with values in R-Proj such that T(f0) is locally free of rank 1 as R-module. ... T extends uniquely to a graded multiplicative representation of D such that T(f(n)) = T(f) tensor T(f0)^{tensor n}
 
   The assumption and the extension.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.22 (p. 25).
 
-  > (1) C(D, T) is the localization of C(Deff, T) with respect to the object T~(f0). (2) Let chi in End(T(f0))^dual = A({f0}, T) be the dual of id in End(T(f0)). We view it in Aeff. Then A = Aeff_chi (localization of algebras).
 
   The two conclusions, literally.
 
@@ -6900,19 +6712,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Definition 1.1(1) (p. 4).
 
-  > The diagram Deff of effective pairs consists of triples (X, Y, i) with X a Q-variety, Y in X a closed subvariety and an integer i. There are two types of edges between effective good pairs: (a) (functoriality) For every morphism f : X -> X' with f(Y) in Y' an edge f^* : (X', Y', i) -> (X, Y, i)
 
   The vertices and the functoriality edges; 'good' is a slip for 'effective' (MotivesAndAlgebraicCycles/E34).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Definition 1.1(1)(b) and (2) (p. 4).
 
-  > (b) (coboundary) For every chain X contains Y contains Z of closed Q-subschemes of X an edge d : (Y, Z, i) -> (X, Y, i + 1). The diagram is graded (see Definition B.14) by |(X, Y, i)| = i. (2) The diagram Deff_Nori of effective good pairs is the full subdiagram of Deff
 
   The coboundary edges, the grading and good pairs.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Definition 1.1(3) and the sentence after it (p. 4).
 
-  > The diagram D~eff of effective very good pairs is the full subdiagram of those effective good pairs (X, Y, i) with X affine, X - Y smooth and either X of dimension i and Y of dimension i - 1, or X = Y of dimension less than i.
 
   Very good pairs, literally.
 
@@ -6979,19 +6788,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Definition 1.3 (p. 4).
 
-  > The category of (effective) mixed Nori motives MM_Nori (resp. MM^eff_Nori) is defined as the diagram category C(D_Nori, H^*) (resp. C(D^eff_Nori, H^*)). For a good pair (X, Y, i) we write H^i_Nori(X, Y) for the corresponding object in MM_Nori. We put 1(-1) = H^1_Nori(G_m, {1}) in MM^eff_Nori.
 
   The definition, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, after Definition 1.1 (p. 4).
 
-  > We use the representation H^* : D_Nori -> Q-Mod which assigns to (X, Y, i) relative singular cohomology H^i(X(C), Y(C), Q).
 
   The representation.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Definition 1.11 (p. 7).
 
-  > Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.
 
   The second definition of 1(-1) (E35).
 
@@ -7038,19 +6844,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Theorem 1.6 (pp. 4-5).
 
-  > (1) This definition is equivalent to Nori's original definition. (2) MM^eff_Nori in MM_Nori are commutative tensor categories with a faithful fiber functor H^*. (3) MM_Nori is the localization of MM^eff_Nori with respect to the Lefschetz object 1(-1).
 
   The theorem, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Theorem 1.6 (p. 5).
 
-  > It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i'). with unit given by (SpecQ, empty, 0)
 
   The product, given on vertices only (E30).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Theorem 1.6 (p. 5).
 
-  > Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.
 
   The sign description that conflicts with Definition B.14 (E29).
 
@@ -7094,13 +6897,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Corollary 1.7 (p. 5).
 
-  > The diagram categories of Deff and D~eff with respect to singular cohomology are equivalent to MM^eff_Nori as abelian categories. The diagram categories of D and D~ are equivalent to MM_Nori.
 
   The corollary, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Corollary 1.7 (pp. 5-6).
 
-  > We are going to represent the diagram Deff in C(D~eff) such the restriction of the representation to D~eff gives back H^* (up to natural isomorphism). By the universal property this induces a faithful functor j : C(Deff) -> C(D~eff)
 
   The structure of the proof.
 
@@ -7140,13 +6941,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Corollary 1.10 with its proof (pp. 6-7).
 
-  > Let Z in X be a closed immersion. Then there is a natural object H^i_Z(X) in MM_Nori representing cohomology with supports. There is a natural long exact sequence ... -> H^i_Z(X) -> H^i_Nori(X) -> H^i_Nori(X - Z) -> H^{i+1}_Z(X) -> ...
 
   The corollary, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Corollary 1.10 (p. 7).
 
-  > Let U = X - Z. Put R_Z(X) = R(Cone(U -> X)), H^i_Z(X) = H^i(R_Z(X)).
 
   The definition through the realisation functor.
 
@@ -7193,13 +6992,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Theorem 1.14 with its proof (p. 8).
 
-  > (Nori). MM_Nori is rigid, hence a neutral Tannakian category. Its Tannaka dual is given by G_mot = Spec(A(D_Nori, H^*)). Proof. By Corollary 1.8 every object of MM_Nori is subquotient of M = H^i_Nori(X, Y)(j) for a good pair (X, Y, i) of the particular form occurring in Lemma 1.13.
 
   The theorem and the start of its proof.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Theorem 1.14 (p. 8).
 
-  > By this Lemma they all admit a perfect pairing. By Proposition C.4, the category MM_Nori is neutral Tannakian. The Hopf algebra of its Tannaka dual agrees with Nori's algebra by Theorem B.10.
 
   The criterion used is Proposition C.4.
 
@@ -7240,7 +7037,6 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.8 (p. 18).
 
-  > Then there is a category C(T) together with a faithful exact R-linear functor f_T : C(T) -> R-Mod and a representation T~ : D -> C(T) such that f_T o T~ = T
 
   The source uses that the diagram category, which is finitely generated comodules, is abelian with a faithful exact fibre functor; for comodules over a field this is the routine lemma planned here.
 
@@ -7277,13 +7073,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.8 (p. 18).
 
-  > for any other representation F : D -> A into some R-linear abelian category A with a faithful exact functor A -> R-Mod there is a unique functor (up to unique isomorphism) C(T) -> A such that
 
   The universal property, literally; the diagram that follows requires compatibility with the functors to R-Mod.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Introduction (p. 3).
 
-  > What is missing from our account is the proof of universality of Nori's diagram category for a diagram with a representation. The paper [vW] by J. von Wangenheim provides full details.
 
   The source's own statement that the proof is not included.
 
@@ -7321,7 +7115,6 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix B, Proposition B.9 (p. 18).
 
-  > (1) As an abelian category C(T) is generated by the T~(v) ... (2) Each object of C(T) is a subquotient of a finite direct sum of objects of the form T~(v). (3) If a : v -> v' is an edge in D such that T(a) is an isomorphism, then T~(a) is also an isomorphism.
 
   The proposition, literally.
 
@@ -7397,13 +7190,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, after Definition 1.1 (p. 4).
 
-  > We use the representation H^* : D_Nori -> Q-Mod which assigns to (X, Y, i) relative singular cohomology H^i(X(C), Y(C), Q).
 
   The representation on vertices; on edges it is the pullback and the connecting map, as the edges' names indicate.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Corollary 1.7 (p. 6).
 
-  > Finally, we need to consider edges corresponding to coboundary maps for triples X contains Y contains Z. In this case, it follows from the construction of R that there is a natural triangle R(X, Y) -> R(X, Z) -> R(Y, Z). We use the connecting morphism in cohomology to represent the edge
 
   Coboundary edges are represented by connecting morphisms of triples.
 
@@ -7441,13 +7232,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix D, Lemma D.2 (p. 29).
 
-  > (Basic Lemma of Nori). Let X be an affine scheme of finite type over k in C of dimension n and Z in X be a closed subscheme of dimension <= n - 1. Then there is a closed subscheme Y containing Z such that (X, Y, n) is a good pair.
 
   The lemma; the three bullet conditions and 'Moreover X - Y can be chosen smooth' follow in the source.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix D, after Lemma D.2 (p. 29).
 
-  > A similar result holds in arbitrary characteristic by work of Beilinson [B, Lemma 3.3] and Kari Vilonen apparently used similar methods in his Master thesis [V].
 
   The source gives no proof, only these references.
 
@@ -7515,19 +7304,16 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix D, Proposition D.3 (p. 30).
 
-  > Let A be an R-linear abelian category with a faithful forgetful functor to R-Mod. Let T : D~eff -> A be a representation. Then there is a natural contravariant triangulated functor R : C^b(Z[Var]) -> D^b(A)
 
   The statement; it continues with the cohomology of R(Cone(Y -> X)) and the comparison with singular cohomology.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix D, proof of Proposition D.3 (p. 33).
 
-  > Choose a rigidified affine cover U~_{X_*} of X_*. Choose a very good filtration on the cover. In induces a very good filtration on Tot C_*(U~_{X_*}). Put R(X_*) = R~(Tot C_*(U~_{X_*})). Note that any other choice yields a complex isomorphic to this one in D^+(A).
 
   The construction; the remaining properties are not verified in the proof (E31).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix D, Corollary D.19 (p. 33).
 
-  > Let X be a variety, U~_X a rigidified affine cover with Cech complex C_*(U~_X). Then R(X) -> R(C_*(U~_X)) is an isomorphism in D^+(A).
 
   Cech descent.
 
@@ -7568,13 +7354,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Corollary 1.8 (p. 6).
 
-  > Every object of MM^eff_Nori is subquotient of a direct sum of objects of the form H^i_Nori(X, Y) for a good pair (X, Y, i) where X = W - W_inf and Y = W_0 - (W_0 intersect W_inf) with W smooth projective, W_inf union W_0 a divisor with normal crossings.
 
   The corollary, literally.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Remark 1.9 (p. 6).
 
-  > It is not clear to us if it suffices to construct Nori's category using the diagram of (X, Y, i) with X smooth, Y a divisor with normal crossings. The corollary says that the diagram category has the right "generators", but there might be too few "relations".
 
   The caveat recorded in the statement.
 
@@ -7614,13 +7398,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Lemma 1.12(1) and (2) (p. 7).
 
-  > (1) H^{2n}_Nori(P^N) = 1(-n) for N >= n >= 0. (2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n).
 
   The two statements as printed; (2) needs geometric irreducibility (E28).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Lemma 1.12(2) (p. 7).
 
-  > (2) Let Z in P^N be a closed immersion with N large enough. Then H^{2n}_Nori(Z) -> H^{2n}_Nori(P^N) is an isomorphism in MM_Nori because it is in singular cohomology.
 
   The proof; the map is the restriction from P^N to Z.
 
@@ -7663,13 +7445,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Lemma 1.12(3) (p. 7).
 
-  > (3) Let X be a smooth variety, Z in X a smooth, irreducible, closed subvariety of pure codimension n. Then H^{2n}_Z(X) = 1(-n).
 
   The statement as printed; it needs Z geometrically connected (E28).
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Lemma 1.12(3) (p. 7).
 
-  > We note first that (3) holds in singular cohomology by the Gysin isomorphism H^0(Z) -> H^{2n}_Z(X) under our assumptions.
 
   The proof starts from H^0(Z), which is one-dimensional only when Z is geometrically connected.
 
@@ -7712,13 +7492,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, Lemma 1.13 (p. 8).
 
-  > Let W be a smooth projective variety of dimension i ... We assume that (X, Y) is a very good pair. Then there is a morphism in MM_Nori q : 1 -> H^i_Nori(X, Y) tensor H^i_Nori(X', Y')(i) such that the dual of H^*(q) is a perfect pairing.
 
   The lemma; the definitions of X, Y, X', Y' are elided.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 1, proof of Lemma 1.13 (p. 8).
 
-  > Again, by functoriality, there is a map H^{2i}_Delta(X x X') <- H^{2i}_{Delta-bar}(W x W) with Delta-bar = Delta(W). By Lemma 1.12 it is isomorphic to 1(-i).
 
   Where Lemma 1.12(3) is applied to the diagonal of W, which needs W geometrically connected.
 
@@ -7762,13 +7540,11 @@ nodes that use it name it, and it is recorded as a gap.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix C, Proposition C.4 (p. 28).
 
-  > (Nori). Let C and T : C -> R-Mod be as defined at the beginning of the section. Let {V_i | i in I} be a set of objects of C with the properties: (1) It generates C as an abelian tensor category
 
   The criterion; condition (2) (the pairings) and the conclusion follow.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix C, Lemma C.3 and Lemma C.6 (pp. 26-28).
 
-  > Let V be an object such that C = <V>_tensor and such that V admits a perfect duality. Then C is rigid. ... Let R be noetherian ring, G be an algebraic group scheme of finite type over R and M in G a closed immersion of a submonoid with 1 in M(R). Then M is an algebraic group scheme over R.
 
   The two lemmas the criterion rests on.
 
@@ -7778,7 +7554,7 @@ nodes that use it name it, and it is recorded as a gap.
 
 ## MC.6 Motivic Galois groups, abstract reconstruction and periods
 
-**Coverage: partial.** Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs.
+**Coverage: partial.** Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs. FIX-RT-AREA-iwasawa-3~4 gives exact NoriPeriod.* supplier signatures and maps in the reader for the full localized comparison, extended fibre functors, heap, actions and period point; these heavy targets remain unchecked, with their implementation boundary visible.
 
 **Remaining in this layer.**
 
@@ -7863,7 +7639,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix A, Definition A.1, Lemma A.2 and Lemma A.3 (pages 14 to 15), arXiv:1105.0865v5.
 
-  > A torsor is a set X together with a map (·, ·, ·) : X × X × X → X satisfying: (1) (x, y, y) = (y, y, x) = x for all x, y ∈ X (2) ((x, y, z), u, v) = (x, (u, z, y), v) = (x, y, (z, u, v)) for all x, y, z, u, v ∈ X.
 
   The node is Definition A.1 with Lemmas A.2 and A.3. Proposition A.4, Definition A.5 and Proposition A.6 are the separate nodes MC.6/torsor-groups, MC.6/affine-torsor and MC.6/affine-torsor-groups. The source traces the notion to Baer (1929).
 
@@ -7940,13 +7715,11 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Theorem 1.14 with its proof (page 8) and Theorem B.10 (page 18), arXiv:1105.0865v5.
 
-  > Theorem 1.14 (Nori). MMNori is rigid, hence a neutral Tannakian category. Its Tannaka dual is given by Gmot = Spec(A(DNori, H∗)).
 
   The definition of G_mot through singular cohomology; Theorem B.10 identifies A(T) with the Hopf algebra of the Tannaka dual by reference to Deligne and Milne.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Lemma 3.2 (page 12), arXiv:1105.0865v5.
 
-  > Assume C(T1) is a neutral Tannakian category. In this way we obtain two affine group schemes G1 = Aut⊗(T1), G2 = Aut⊗(T2) and an affine scheme X = X1,2 = Iso⊗(T1, T2).
 
   The first half of the lemma, for one fibre functor; the second half is MC.6/tensor-iso-scheme.
 
@@ -8014,7 +7787,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 2, the setting paragraph, Definition 2.1, Lemma 2.2 and Example 2.3 (page 9), arXiv:1105.0865v5.
 
-  > Let D be a graded diagram with commutative product structure (see Definition B.14), T1, T2 : D → Q-Mod two representations. Definition 2.1. Let A1 = A(D, T1), A2 = A(D, T2). Put A1,2 = colimF Hom(T1|F , T2|F )∨
 
   The node is Definition 2.1 with Lemma 2.2, under the multiplicativity hypothesis the lemma needs (finding E36); Example 2.3 records the application to de Rham and singular cohomology.
 
@@ -8076,7 +7848,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Definition 2.4, Proposition 2.5 and the construction of Ψ after it (page 9), arXiv:1105.0865v5.
 
-  > We deﬁne the space of periods P1,2 as the Q-vector space generated by symbols (p, ω, γ) where p is a vertex of D, ω ∈ T1(p), γ ∈ T2(p)∨ with the following relations: (1) linearity in ω, γ; (2) (change of variables) If f : p → p′ is an edge in D
 
   The node is Definition 2.4 with Proposition 2.5 and the natural transformation Ψ, which the source gives in the same place.
 
@@ -8116,7 +7887,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Theorem 2.6 with its proof, and Remark 2.7.
 
-  > The above map Psi from P_{1,2} to A_{1,2} is an isomorphism of Q-algebras. For a finite subdiagram F of D let P_{1,2}(F) be the space of periods. This works for coefficients in Dedekind rings as long as the representations take values in projective modules of finite type.
 
   The node is that theorem with the source's reduction to finite subdiagrams, and the remark on Dedekind coefficients.
 
@@ -8196,7 +7966,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Definition 2.8 with Remark 2.9.
 
-  > The space of formal periods is the localization P of P^+ with respect to the period of (G_m, {1}, dX/X, S^1).
 
   The node is that definition together with the remark recording the three ways in which it differs from Kontsevich's.
 
@@ -8206,20 +7975,23 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 *theorem.*
 
-**Statement.** Let D be the diagram of pairs over Q, T_1 = H*_dR algebraic de Rham cohomology and T_2 = H* singular cohomology with rational coefficients. Then the algebra of formal periods P agrees with the space of periods P_{1,2} of these two representations and with their comparison algebra A_{1,2}: the three are canonically isomorphic Q-algebras, P = P_{1,2} = A_{1,2}, the ring structure on the comparison algebra of the diagram of all pairs being that of the diagram of good pairs, to which it is canonically identified. The identification first gives P_eff ≃ A^eff_{1,2}, carrying L to its comparison class chi_{1,2}; applying the pinned localization-of-an-algebra-equivalence API gives P_eff[L^-1] ≃ A^eff_{1,2}[chi_{1,2}^-1]=A_{1,2}. Export that localized identification to PS.2 and the full tensor-isomorphism torsor theorem; the effective identification alone does not identify Spec(P_eff) with the full torsor.
+**Statement.** Let D be the diagram of pairs over Q, T_1 = H*_dR algebraic de Rham cohomology and T_2 = H* singular cohomology with rational coefficients. Then the algebra of formal periods P agrees with the space of periods P_{1,2} of these two representations and with their comparison algebra A_{1,2}: the three are canonically isomorphic Q-algebras, P = P_{1,2} = A_{1,2}, the ring structure on the comparison algebra of the diagram of all pairs being that of the diagram of good pairs, to which it is canonically identified. The identification first gives P_eff ≃ A^eff_{1,2}, carrying L to its comparison class chi_{1,2}; applying the pinned localization-of-an-algebra-equivalence API gives P_eff[L^-1] ≃ A^eff_{1,2}[chi_{1,2}^-1]=A_{1,2}. Export that localized identification to PS.2 and the full tensor-isomorphism torsor theorem; the effective identification alone does not identify Spec(P_eff) with the full torsor. Here A_{1,2} means the comparison algebra of the two extended representations on the full integer-Tate diagram, not merely the localization of an unspecified effective ring. NoriPeriod.comparisonLocalization identifies that actual full algebra as the localization for the canonical coefficient inclusion, and NoriPeriod.fullEquiv is the resulting canonical algebra equivalence from P.
 
 **Hypotheses.**
 
 - The base field is Q and D is the diagram of pairs of Definition 1.1, localised at (G_m, {1}, 1).
 - The two representations are algebraic de Rham cohomology and singular cohomology of pairs, in the degree of the vertex; the comparison isomorphism plays no part in the identification.
-- On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the suggested file): for other structures the products of P_eff and of A_{1,2} need not agree on generators.
+- On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the suggested file): for other structures the products of P_eff and of A_{1,2} need not agree on generators. Use the convention already fixed in MC.5/nori-tensor-category: the inverse de Rham Künneth map is (-1)^{ij} times the exterior product, and the inverse singular map evaluates to (-1)^{ij} times the product of the two evaluations. Both signs are necessary and cancel in the comparison coefficient, leaving the formal-period product unsigned.
+- For the full comparison-algebra adapter, use D^+ of good pairs, its geometric product and unit (Spec Q, empty, 0), and the two unital graded multiplicative structures with the common MC.5 sign. In the legacy prototype ProductCompatible now records unit_eq and unital₁, unital₂ as well as mul_eq and the two signed product laws. Both Tate fibres at g=(G_m,{1},1) have rank one. Extend these same representations by MC.5/diagram-localisation; do not supply unrelated representations on the full diagram. These are mathematical supplier contracts, not assumptions of effective rigidity.
 
 **Construction, or proof, in steps.**
 
 1. Effective case: identify the generators and the three families of relations of P^+ with those of P^eff_{1,2}, using that H_d(X(C), D(C), Q) is the dual of H^d(X(C), D(C), Q); relation (2) is change of variables along the functoriality edges and relation (3) along the coboundary edges.
 2. Route the algebra structure through good pairs: the comparison algebras of all pairs and of good pairs are identified (the analogue for two representations of Corollary 1.7, MC.5/diagram-comparison), and on good pairs both cohomologies are graded multiplicative, so Theorem 2.6 applies as a statement about algebras (finding E37).
-3. Apply Theorem 2.6 (MC.6/periods-equal-comparison-algebra) to obtain P^eff_{1,2} = A^eff_{1,2} and check that the resulting identification with P^+ is multiplicative on generators, where it is the Künneth product.
-4. Localise: both sides are localised at the class of (G_m, {1}, 1), by the analogue of Proposition B.22 for comparison algebras (MC.5/diagram-localisation).
+3. Apply Theorem 2.6 (MC.6/periods-equal-comparison-algebra) to obtain P^eff_{1,2} = A^eff_{1,2} and check that the resulting identification with P^+ is multiplicative on generators, where it is the Künneth product. On a product of degree i and degree j the two inverse Künneth signs contribute (-1)^{2ij}=1; omitting only one of them would give the wrong product for two odd pairs.
+4. On each finite set F of effective good vertices, restrict full comparison matrices along v -> (v,0) and conjugate by the canonical degree-zero extension isomorphisms. Dualizing this restriction and passing to the filtered colimit defines the coefficient inclusion j:A^eff_{1,2}->A^full_{1,2}; multiplicativity follows from the induced product structures. See the typed NoriPeriod.finiteHomRestrict and comparisonIncl contracts.
+5. Let ell=e_eff(L). A tensor comparison on the effective diagram whose Tate coefficient is a unit extends uniquely to integer Tate powers: use powers of its rank-one Tate map and the inverse dual map for negative powers. This construction is compatible with functoriality, connecting and localization edges; conversely every full comparison restricts and makes ell a unit. Apply this to arbitrary commutative Q-algebras and the finite-coefficient description to prove IsLocalization.Away ell A^full for precisely j. This is the comparison-algebra analogue of B.22 used in Theorem 2.10; it is not supplied by the general Mathlib localization equivalence.
+6. Compose localization of e_eff with the unique equivalence between A^eff[ell^-1] and A^full over j. Obtain E=NoriPeriod.fullEquiv, E(ofEff x)=j(e_eff x), and E(L^-1)=j(ell)^-1. This construction identifies the actual full diagram comparison algebra before the full-category torsor interpretation.
 
 **Acceptance.**
 
@@ -8227,13 +7999,29 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - The identification is of algebras, not only of vector spaces; the multiplicative structure is carried by good pairs.
 - The evaluation to the complex numbers plays no part in the theorem; its injectivity is the period conjecture, which the source does not address.
 - The exported comparison explicitly commutes with the two localization maps and carries the Tate inverse to the inverse of the comparison Tate class. MC.6/formal-periods provides the one presentation; PS.2 owns the integration/evaluation application, not another Nori category or torsor proof.
+- For two degree-one good pairs the two inverse Künneth maps each have sign -1. On coefficient factors 2 and 3 the paired product is (-2)(-3)=6; leaving just one side unsigned gives -6. The proved odd-degree regression in the suggested file distinguishes both defects.
+- The target of fullEquiv is ComparisonAlgebra(T_dR^full,T_B^full) on D^full, with its induced good-pair multiplication; the comparisonLocalization theorem states the localization property for the coefficient inclusion defined on finite pieces. An arbitrary algebra structure on an unrelated ring is insufficient.
+- These heavy construction signatures are README targets under the current WORKERS/PACKAGE_REVIEW shape rule. They are specified below and remain unchecked; no sorry-defined NoriPeriod data are added to the legacy suggested file.
 
-**API.** What a user of this object needs in order to use it without unfolding the definition.
+**API.** Intended signatures; new heavy `NoriPeriod.*` constructions are reader targets, not declarations claimed at the pins.
 
 | name | role | statement |
 | --- | --- | --- |
 | `FormalPeriods.localizeComparison` | compatibility | For an effective Q-algebra identification e:P_eff ≃ A_eff, the imported IsLocalization.algEquivOfAlgEquiv induces P ≃ Localization.Away(e(L)), compatibly with the canonical maps on every effective element. This is the localization step in the existing comparison theorem, not a new general localization theory. |
 | `FormalPeriods.localizeComparison_ofEff` | simp | The induced localized comparison sends ofEff(x) to the canonical image of e(x), for every effective element x, in particular the Tate class. |
+| `PairDiagram.ProductCompatible.signs_cancel` | compatibility | For a parity a in Z/2 and u,v in Q, ((-1)^a u)((-1)^a v)=uv. The de Rham and singular inverse Künneth maps must use the same MC.5 sign for the coefficient product to agree with the unsigned formal-period product. |
+| `NoriPeriod.finiteHomRestrict` | functoriality | For F finite in D^+, res_F:Hom(T_dR^full\|iF,T_B^full\|iF)->_Q Hom(T_dR^+\|F,T_B^+\|F), with (res_F a)_v = beta_v^-1 o a_(v,0) o alpha_v. Here alpha:T_dR^+ ~= i^*T_dR^full and beta:T_B^+ ~= i^*T_B^full are MC.5 degree-zero extension isomorphisms. Compatible with every inclusion F subset Fprime. |
+| `NoriPeriod.comparisonIncl` | constructor | j:A_eff ->_Q-alg A_full, whose underlying linear map satisfies j(ofFinite F lambda)=ofFinite(iF)(lambda o res_F). The full algebra is ComparisonAlgebra of the specified MC.5 extensions, with induced multiplicative structures. |
+| `NoriPeriod.effectiveEquiv` | comparison | e_eff:P_eff ~=_Q-alg A_eff, sending a good-pair symbol (v,omega,gamma) to the coefficient a \|-> gamma(a_v omega); all-pair symbols are transported through the existing diagram comparison. The Tate symbol maps to ell. |
+| `NoriPeriod.comparisonLocalization` | characterisation | For precisely the A_eff-algebra structure induced by comparisonIncl j, IsLocalization.Away ell A_full, where ell=effectiveEquiv(L). In particular j(ell) is a unit. The map and algebra are fixed before this theorem. |
+| `NoriPeriod.fullEquiv` | comparison | E:P ~=_Q-alg A_full is localization of effectiveEquiv followed by the comparisonLocalization identification. For every x:P_eff, E(ofEff x)=j(e_eff x). It identifies the actual full comparison algebra, not just Localization.Away(e_eff L). |
+| `NoriPeriod.fullEquiv_tateInverse` | simp | j(ell)*E(L^-1)=1=E(L^-1)*j(ell). This and fullEquiv_ofEff pin the map on the localization generators. |
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `NoriPeriod.finite_coefficient_square` (compatibility): For every finite F, its coefficient lambda and every inclusion F subset Fprime, both paths to A_full equal the coefficient dual to res_F. At a singleton v this is conjugation by alpha_v,beta_v, not a freely chosen algebra map.
+- `NoriPeriod.fullEquiv_generator` (computation): For a good pair v, E(ofEff[v,omega,gamma]) is the full degree-zero coefficient a |-> gamma(beta_v^-1(a_(v,0)(alpha_v omega))).
+- `NoriPeriod.fullEquiv_tate_inverse` (computation): E(L^-1)*j(ell)=1, and a map fixing all effective generators but sending L^-1 to 0 fails this identity. In the rank-one model the map is Q[t,t^-1]~=Q[t,t^-1] with t and t^-1 fixed.
 
 **Prerequisites.**
 
@@ -8246,11 +8034,9 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 **Sources.**
 
-- HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Theorem 2.10 with its proof (page 11), arXiv:1105.0865v5.
-
-  > Theorem 2.10. Let D be the diagram of pairs (see Deﬁnition 1.1). Let T1 = H∗dR : D → Q-Mod (de Rham cohomology) T2 = H∗: D → Q-Mod (singular cohomology) then the space of formal periods P (Deﬁnition 2.4) agrees with the comparison algebra A1,2 (Deﬁnition 2.8). P = P1,2 = A1,2 .
-
-  The node is Theorem 2.10. Its two parenthetical cross references are misprinted (finding E1), and its proof applies Theorem 2.6 as a statement about algebras on the diagram of all pairs (finding E37).
+- HMS.2014 — Theorem 2.10 with its proof (page 11), arXiv:1105.0865v5. The node is Theorem 2.10. Its two parenthetical cross references are misprinted (finding E1), and its proof applies Theorem 2.6 as a statement about algebras on the diagram of all pairs (finding E37).
+- HMS.2014 — Definition B.14, pp.20–21, with the convention recorded in MC.5/nori-tensor-category (E29); arXiv:1105.0865v5. The shared degree sign in both inverse Künneth maps agrees with the packet’s existing first-variable convention and cancels in the period coefficient product.
+- HMS.2014 — Theorem 2.10, p.11; Lemma B.21 and Proposition B.22, pp.25–26; arXiv:1105.0865v5. The proof localizes comparison coefficients as well as the cohomology diagram; the explicit finite-coefficient inclusion and its localization universal property fill the supplier boundary left open in the preceding review.
 
 *Implementation status:* `unchecked`.
 
@@ -8258,7 +8044,7 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 *lemma.*
 
-**Statement.** Let T_1 and T_2 be two representations of the same diagram in finite dimensional Q-vector spaces, and φ : T_1 ⊗ K → T_2 ⊗ K an isomorphism of representations after extension of scalars to a field K containing Q. Then T_2 extends to a fibre functor, a faithful exact Q-linear functor to finite dimensional Q-vector spaces, on the diagram category C(T_1). If T_1 and T_2 are unital graded multiplicative representations and φ is compatible with the multiplicative structures, the extension is a tensor functor (finding E36).
+**Statement.** Let T_1 and T_2 be two representations of the same diagram in finite dimensional Q-vector spaces, and φ : T_1 ⊗ K → T_2 ⊗ K an isomorphism of representations after extension of scalars to a field K containing Q. Then T_2 extends to a fibre functor, a faithful exact Q-linear functor to finite dimensional Q-vector spaces, on the diagram category C(T_1). If T_1 and T_2 are unital graded multiplicative representations and φ is compatible with the multiplicative structures, the extension is a tensor functor (finding E36). For the full Nori application apply this lemma on D^full with T_1=T_B^full, T_2=T_dR^full and the inverse extended comparison. This gives an actual faithful exact Q-linear symmetric tensor fibre functor omega_dR on MM_Nori and a complex tensor natural isomorphism Phi:omega_dR tensor C ~= omega_B tensor C, restricting to the supplied cohomology comparison on every integer-Tate vertex.
 
 **Hypotheses.**
 
@@ -8266,6 +8052,7 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - φ is an isomorphism of representations after extension of scalars to a field K containing Q; it is part of the data.
 - For the tensor statement, T_1 and T_2 are unital graded multiplicative representations and φ is compatible with the multiplicative structures; the source does not say this (finding E36).
 - The universal property of C(T_1) is used as stated in Proposition B.8; its proof is in von Wangenheim's work, not obtained (gap).
+- In the Nori specialization use the existing MC.5 full localized category, its singular fibre omega_B and rigidity, the geometric unit and unital signed good-pair products, and the common rank-one Tate fibres. The complex all-pairs comparison comes from ComplexComparisonPartII:C5 and is restricted to good pairs before extension.
 
 **Construction, or proof, in steps.**
 
@@ -8273,6 +8060,9 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 2. The projection p_1 : A → Q-Mod is faithful and exact and p_1 ∘ T = T_1, so the universal property of the diagram category gives a faithful exact functor C(T_1) → A over p_1.
 3. Compose with the projection p_2 to obtain the extension of T_2; it is exact since p_2 is, and faithful since a morphism whose second component vanishes has, after conjugating by the isomorphisms over K, vanishing first component, and f_{T_1} is faithful.
 4. Under the multiplicative hypotheses, A is a tensor category with the componentwise tensor product, T is a graded multiplicative representation in it, and the multiplicative universal property (Proposition B.16) makes the functor, and so the extension of T_2, a tensor functor.
+5. Extend the effective good-pair representations to D^full by MC.5: at (v,n) use T(v) tensor T(g)^{tensor n}, with dual powers for n<0. Extend the comparison by the same tensor powers, using its inverse dual for negative powers. On (v,0) recover the given effective comparison after alpha_v,beta_v.
+6. Use the abelian category of pairs of rational vector spaces with an isomorphism after complex base change, now with the componentwise tensor product. Its two projections, together with the multiplicative universal property, extend both rational fibres and the same comparison natural isomorphism to the category. Apply this with the Betti representation first, so the base category is the already rigid MM_Nori. Do not infer effective rigidity or ask for a new neutral context.
+7. Applying the construction with the representations exchanged gives an equivalence C(T_dR^full) ~= MM_Nori. The universal property and generation by diagram objects identify both composites with the identity, compatibly with tensor structures. Transport the existing MC.5 rigidity across this equivalence when the generic tensor-isomorphism theorem is formulated on C(T_dR^full).
 
 **Acceptance.**
 
@@ -8280,19 +8070,35 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - The resulting functor is a fibre functor, so both representations give fibre functors on the same category.
 - The comparison isomorphism over the extension field is part of the data, and the construction depends on it.
 
+**API.** Intended signatures; new heavy `NoriPeriod.*` constructions are reader targets, not declarations claimed at the pins.
+
+| name | role | statement |
+| --- | --- | --- |
+| `NoriPeriod.fullRepresentations` | data | T_dR^full,T_B^full:D^full -> Vec_Q are exactly the MC.5 integer-Tate extensions of the good-pair cohomologies, with their induced unital signed product structures. Their degree-zero restrictions are alpha,beta above. No independent representation is an input. |
+| `NoriPeriod.fullComparison` | constructor | phi_full:T_dR^full tensor C ~=tensor T_B^full tensor C is the Tate-power extension of phi_good. It restricts along i to phi_good via alpha,beta; on negative Tate powers it is the inverse dual tensor power. |
+| `NoriPeriod.deRhamFibre` | data | omega_dR:MM_Nori -> Vec_Q is faithful, exact, Q-linear and symmetric monoidal. For the full universal diagram lift U:D^full->MM_Nori, eta_dR:omega_dR o U ~= T_dR^full. The singular fibre omega_B and eta_B:omega_B o U ~= T_B^full are the existing MC.5 suppliers. |
+| `NoriPeriod.fibreComparison` | comparison | Phi:omega_dR tensor C ~=tensor omega_B tensor C, with (eta_B tensor C) o (Phi U) = phi_full o (eta_dR tensor C). This pins the comparison on every localized diagram generator and hence on subquotients of finite sums. |
+| `NoriPeriod.categoryEquiv` | comparison | A Q-linear exact symmetric tensor equivalence C(T_dR^full) ~= MM_Nori, commuting with the diagram lifts and both rational fibre functors up to the specified isomorphisms. In particular C(T_dR^full) is rigid because MM_Nori is, not because the effective category is assumed rigid. |
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `NoriPeriod.fibre_degree_zero` (compatibility): On (v,0), the two fibre identifications and Phi recover exactly phi_v, for both functoriality and connecting edges. A natural isomorphism multiplied by 2 fails the unit condition.
+- `NoriPeriod.fibre_negative_tate` (computation): On (unit,-1), Phi is the inverse dual of the rank-one Tate comparison. The evaluation and coevaluation diagrams commute; using the original scalar instead of its inverse fails unless its square is 1.
+- `NoriPeriod.full_not_effective_rigid` (non-example): For the effective Tate model with coefficients Q[t], the permitted tensor endomorphism t|->0 has no inverse. After adjoining t^-1 only unit scalars remain. The full neutral context cannot be replaced by an assumed effective one.
+
 **Prerequisites.**
 
 - `MotivesAndAlgebraicCycles:MC.5/diagram-category`
 - `MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram`
 - `MotivesAndAlgebraicCycles:MC.5/diagram-category-universal-property`
+- `MotivesAndAlgebraicCycles:MC.5/diagram-localisation`
+- `MotivesAndAlgebraicCycles:MC.5/nori-rigidity`
+- `ComplexComparisonPartII:C5`
 
 **Sources.**
 
-- HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Section 3, the setting paragraph and Lemma 3.1 with its proof (page 12), arXiv:1105.0865v5.
-
-  > Let D be a graded diagram with commutative product structure, T1, T2 → Q-Mod two representations which become isomorphic after some ﬁeld extension K/Q. The isomorphism is denoted by ϕ : T1 ⊗ K → T2 ⊗ K. ... Lemma 3.1. T2 extends to a ﬁber functor
-
-  The node is Lemma 3.1 with its proof, where the universal property of the diagram category is used; the tensor structure needs the hypothesis of finding R401.
+- HMS.2014 — Section 3, the setting paragraph and Lemma 3.1 with its proof (page 12), arXiv:1105.0865v5. The node is Lemma 3.1 with its proof, where the universal property of the diagram category is used; the tensor structure needs the hypothesis of finding R401.
+- HMS.2014 — Lemma 3.1 with proof, p.12; Theorem 1.14, p.8; Lemma B.21 and Proposition B.22, pp.25–26; arXiv:1105.0865v5. The comparison category produces the second rational fibre and its complex natural comparison on the already full Nori category. Rigidity is the separate MC.5 theorem.
 
 *Implementation status:* `unchecked`.
 
@@ -8331,7 +8137,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Theorem 3.3 with its proof (page 13), arXiv:1105.0865v5.
 
-  > Theorem 3.3. There is a natural isomorphism of aﬃne schemes ι : X1,2 → X2,1 given by f ↦ f −1. Furthermore, X1,2 and X2,1 carry the structure of aﬃne torsors in the sense of appendix A.
 
   The node is Theorem 3.3; Lemma 3.2 is now MC.6/tensor-automorphism-group and MC.6/tensor-iso-scheme.
 
@@ -8341,20 +8146,23 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 *theorem.* **Planet:** *Formal period torsor*.
 
-**Statement.** Let T_1 = H*_dR and T_2 = H* on the diagram of pairs over Q, with the comparison isomorphism over C. The algebra of formal periods P carries a natural map P → P ⊗ P ⊗ P making Spec P an affine heap: through P = A_{1,2} it is the heap X_{1,2} = Iso⊗(H*_dR, H*) of MC.6/iso-torsor. The motivic Galois group G_mot = Aut⊗(H*) of MC.6/tensor-automorphism-group acts on Spec P by composition, compatibly with the heap map, and Spec P is a G_mot-torsor, faithfully flat over Q; the tensor automorphism group of de Rham cohomology acts on the other side. On period matrices the heap map is P_{ij} ↦ Σ_{k,l} P_{ik} ⊗ P⁻¹_{kl} ⊗ P_{lj}.
+**Statement.** Let T_1 = H*_dR and T_2 = H* on the diagram of pairs over Q, with the comparison isomorphism over C. The algebra of formal periods P carries a natural map P → P ⊗ P ⊗ P making Spec P an affine heap: through P = A_{1,2} it is the heap X_{1,2} = Iso⊗(H*_dR, H*) of MC.6/iso-torsor. The motivic Galois group G_mot = Aut⊗(H*) of MC.6/tensor-automorphism-group acts on Spec P by composition, compatibly with the heap map, and Spec P is a G_mot-torsor, faithfully flat over Q; the tensor automorphism group of de Rham cohomology acts on the other side. On period matrices the heap map is P_{ij} ↦ Σ_{k,l} P_{ik} ⊗ P⁻¹_{kl} ⊗ P_{lj}. Fix ordinary functional composition: for f:omega_dR->omega_B, the Betti group acts on the left by b.f=b o f and the de Rham group on the right by f.d=f o d. Thus the canonical Betti coaction has type P -> O(G_mot) tensor_Q P, and the de Rham coaction has type P -> P tensor_Q O(G_dR). These explicit formulas fix the convention independently of diagrammatic composition notation in the source.
 
 **Hypotheses.**
 
-- The base field is Q; the diagram is the diagram of pairs; T_1 is de Rham and T_2 singular cohomology, with the comparison isomorphism over C compatible with pullbacks, connecting maps and products (request ComplexComparisonPartII:C5).
+- The base field is Q; the diagram is the diagram of pairs; T_1 is de Rham and T_2 singular cohomology. Supply PairDiagram.PeriodComparison for all effective pairs (request ComplexComparisonPartII:C5), including pullback and connecting-map compatibility, unitality and multiplicativity; supply the good-pair product structure P, graded multiplicative structures M_1 and M_2, and PairDiagram.ProductCompatible relating them to the actual exterior and cross products.
 - The Tannakian input is taken on MM_Nori = C(D_Nori, H*), which Theorem 1.14 proves neutral Tannakian; de Rham cohomology is extended to it by MC.6/fibre-functor-extension with the roles of the two representations exchanged, and X_{2,1} is identified with X_{1,2} by inversion (finding E39).
 - G_mot is the tensor automorphism group of singular cohomology, as in Theorem 1.14.
 
 **Construction, or proof, in steps.**
 
-1. Identify P with A_{1,2} (MC.6/formal-periods-equal-comparison-algebra).
+1. Use NoriPeriod.fullEquiv to identify P with the actual full diagram comparison algebra, and NoriPeriod.deRhamFibre/fibreComparison to put both fibre functors on the already rigid MM_Nori.
 2. Apply MC.6/tensor-iso-scheme and MC.6/iso-torsor with base category MM_Nori: X_{2,1} = Iso⊗(H*, H*_dR) = Spec A_{2,1} is an affine heap, and inversion identifies it with X_{1,2} = Spec A_{1,2}; this gives the map P → P ⊗ P ⊗ P.
-3. Let G_mot = Aut⊗(H*) act by composition; the action commutes with the heap map, and MC.6/tensor-iso-torsor gives faithful flatness over Q and the torsor property.
-4. Record the formula on period matrices (Remark 3.5) and the source's remark that these torsors are torsors in the pro-fppf topology.
+3. The supplied typed comparison gives a complex tensor-isomorphism point for the compatible good-pair structures. This establishes nonemptiness after the faithfully flat field extension Q → C; the torsor assertion is not made for arbitrary PeriodData without these witnesses.
+4. Let G_mot = Aut⊗(H*) act by composition; the action commutes with the heap map, and MC.6/tensor-iso-torsor gives faithful flatness over Q and the torsor property.
+5. Record the formula on period matrices (Remark 3.5) and the source's remark that these torsors are torsors in the pro-fppf topology.
+6. Transport the represented full comparison heap and its two composition actions along E, defining NoriPeriod.formalHeap, bettiCoaction and deRhamCoaction. Their maps on R-points are f g^-1 h, b o f, and f o d, for every commutative Q-algebra R. A right action changed to a left action requires inversion on the acting group as well as a tensor-factor flip; a flip alone is not an action-convention adapter.
+7. For each side the canonical map G x X -> X x X (respectively X x G -> X x X) is an isomorphism, and P is faithfully flat over Q because its complex point supplies nonemptiness after the faithfully flat extension Q->C. This gives the actual full torsor without a separate effective TannakianPair argument.
 
 **Acceptance.**
 
@@ -8363,6 +8171,22 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - The period conjecture, the injectivity of the evaluation map to the complex numbers, plays no part.
 - The result is due to Nori and stated without proof by Kontsevich; the source supplies the proof.
 - This theorem uses P=P_eff[L^-1], and the localized category MM_Nori, throughout. The rank-one Tate model is Q[t,t^-1]; Q[t] is the effective model and does not already furnish the full Tate tensor-isomorphism torsor.
+- The suggested period_torsor signature consumes P, M_1, M_2, ProductCompatible and PeriodComparison explicitly. An unrelated de Rham representation or arbitrary exterior/cross products cannot satisfy the theorem merely by being PeriodData.
+
+**API.** Intended signatures; new heavy `NoriPeriod.*` constructions are reader targets, not declarations claimed at the pins.
+
+| name | role | statement |
+| --- | --- | --- |
+| `NoriPeriod.formalHeap` | data | The affine heap on P transported along E: h_P:P->_Q-alg P tensor P tensor P satisfies h_A o E = (E tensor E tensor E) o h_P. On R-points its operation is (f,g,h)\|->f o g^-1 o h. |
+| `NoriPeriod.bettiCoaction` | functoriality | rho_B:P->_Q-alg O(G_mot) tensor P, the left Betti coaction induced by b.f=b o f on full tensor-isomorphism points. Its group algebra is canonically A(D^full,T_B^full), identified with the existing MC.5 Nori Hopf algebra through the common diagram and signed fibre structure. |
+| `NoriPeriod.deRhamCoaction` | functoriality | rho_dR:P->_Q-alg P tensor O(G_dR), the right de Rham coaction induced by f.d=f o d. Both coactions are transported through E from the full comparison algebra; their identities hold over every commutative Q-algebra, not only at the complex period point. |
+| `NoriPeriod.fullTorsor` | characterisation | P is faithfully flat over Q, rho_B and rho_dR are counital/coassociative and commute, and (b,f)\|->(b o f,f) and (f,d)\|->(f,f o d) are scheme isomorphisms G_mot x X ~= X x X ~= X x G_dR with the indicated coordinate orders. |
+
+**Unit tests.** A plausible wrong definition fails one of these.
+
+- `NoriPeriod.tate_torsor` (computation): For the rank-one model P=Q[t,t^-1], rho_B(t)=u tensor t, rho_dR(t)=t tensor v and h_P(t)=t tensor t^-1 tensor t. The inverse coordinate transforms inversely. Q[t] fails both inverse identities.
+- `NoriPeriod.action_order` (compatibility): On a rank-two free tensor fibre over Q, take b=[[1,1],[0,1]], d=[[1,0],[1,1]], f=I. The left Betti and right de Rham actions give b f d=[[2,1],[1,1]], whereas d b=[[1,1],[1,2]]. This detects silently swapping the named groups or reversing functional composition; the two actions commute because they act on different sides.
+- `NoriPeriod.heap_identity` (characterisation): For every commutative Q-algebra R and every full comparison f, h(f,f,f)=f, including the unit and all negative Tate powers. The compatibility is through E, rather than through an unrelated heap chosen on the same ring.
 
 **Prerequisites.**
 
@@ -8373,14 +8197,12 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - `MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension`
 - `MotivesAndAlgebraicCycles:MC.5/nori-motives`
 - `ComplexComparisonPartII:C5`
+- `MotivesAndAlgebraicCycles:MC.5/nori-rigidity`
 
 **Sources.**
 
-- HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Corollary 3.4 with its proof and Remark 3.5 (page 13); Theorem 0.2 (page 2), arXiv:1105.0865v5.
-
-  > Corollary 3.4. The algebra of formal periods P (see Deﬁnition 2.8) has a natural torsor structure under Gmot. Proof. By Theorems 2.6 and 2.9 we have A1,2 = P = P1,2 ... Finally note that G1 = Gmot is the motivic fundamental group by deﬁnition.
-
-  The node is Corollary 3.4, the paper's main theorem as announced in Theorem 0.2. The reference to Theorem 2.9 is misprinted (E2); the identification G_1 = G_mot contradicts Theorem 1.14 (E39); the introduction points to Corollary 2.11 for the proof (E40).
+- HMS.2014 — Corollary 3.4 with its proof and Remark 3.5 (page 13); Theorem 0.2 (page 2), arXiv:1105.0865v5. The node is Corollary 3.4, the paper's main theorem as announced in Theorem 0.2. The reference to Theorem 2.9 is misprinted (E2); the identification G_1 = G_mot contradicts Theorem 1.14 (E39); the introduction points to Corollary 2.11 for the proof (E40).
+- HMS.2014 — Lemma 3.2, p.12; Theorem 3.3, Corollary 3.4 and Remark 3.5, p.13; arXiv:1105.0865v5. Full neutrality gives representability and both actions. The formulas here declare ordinary functional-composition conventions and keep the Betti group identified with the existing motivic Galois supplier.
 
 *Implementation status:* `unchecked`.
 
@@ -8445,7 +8267,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix A, Proposition A.4 with its proof (pages 15 to 16), arXiv:1105.0865v5.
 
-  > Let µl : X2 × X2 → X2 be given by µl ((a, b), (c, d)) = ((a, b, c), d). Then µl is associative and has (x, x) for x ∈ X as left-neutral elements. Let Gl = X2/ ∼l where (a, b) ∼l (a, b)(x, x) for all x ∈ X is an equivalence relation.
 
   The node is Proposition A.4, with the nonemptiness hypothesis its statement needs (finding E42); the right-hand group is the case the source leaves to the reader.
 
@@ -8510,7 +8331,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix A, Definition A.5 (page 16), arXiv:1105.0865v5.
 
-  > Definition A.5. A torsor in the category of schemes is a scheme X and a morphism X × X × X → X which on S-valued points is a torsor for all S. This simply means that the diagrams of the previous definition commute as morphisms of schemes.
 
   The node is Definition A.5 restricted to affine schemes, the only case the source uses (Proposition A.6, Theorem 3.3, Corollary 3.4).
 
@@ -8550,7 +8370,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Appendix A, Proposition A.6 with its proof (page 16), arXiv:1105.0865v5.
 
-  > Proposition A.6. Let X be a torsor in the category of affine schemes. Then there are affine group schemes Gl and Gr operating from the left and right on X respectively such that X is a Gl- and Gr-torsor. Proof. We use Thm. 1.4 from [SGA3, exposé VII] to obtain affine scheme quotients
 
   The node is Proposition A.6 with the nonemptiness hypothesis added (E42); the quotient theorem its proof cites was not obtained and is recorded as a gap.
 
@@ -8594,13 +8413,11 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Proposition 1.13 (page 12) and the end of the proof of Theorem 2.11 (pages 23 to 24), in the corrected version of 2012.
 
-  > PROPOSITION 1.13. Let (F,c) and (G,d) be tensor functors C → C′. If C and C′ are rigid, then every morphism of tensor functors λ: F → G is an isomorphism. ... If we now assume that (C,⊗) is rigid, then (1.13) shows that End⊗(ω) = Aut⊗(ω), and the theorem follows.
 
   The node is that argument for the category of finite dimensional B-comodules.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Theorem 1.14 with its proof (page 8) and Theorem B.10 (page 18), arXiv:1105.0865v5.
 
-  > By Proposition C.4, the category MMNori is neutral Tannakian. The Hopf algebra of its Tannaka dual agrees with Nori's algebra by Theorem B.10.
 
   The source uses the lemma, through Deligne and Milne, to see that Nori's bialgebra is a Hopf algebra.
 
@@ -8640,7 +8457,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Corollary 2.11 with its proof (page 11), arXiv:1105.0865v5.
 
-  > Corollary 2.11. The algebra of formal periods P remains unchanged when we restrict in Deﬁnition 2.8 to (X, D, ω, γ) with X aﬃne of dimension d, D of dimension d −1 and X ∖ D smooth
 
   The node is Corollary 2.11, split out of the theorem node; its proof is the same argument for very good pairs with the analogue of Corollary 1.7.
 
@@ -8707,7 +8523,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Lemma 3.2 and the paragraph after it (pages 12 to 13), arXiv:1105.0865v5.
 
-  > If A1, A2 and A1,2 denote the Hopf algebras deﬁned above then we have G1 = Spec(A1), G2 = Spec(A2), and X = Spec(A1,2). Proof. This follows (almost verbatim) the Tannakian pattern, see [DM]. ... These schemes are related via natural morphisms
 
   The second half of Lemma 3.2 and the natural morphisms displayed after it; the proof steps decompose the Tannakian pattern the source refers to.
 
@@ -8749,13 +8564,11 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Theorem 3.2(a) with its proof, and Remark 3.3 (pages 30 to 31), in the corrected version of 2012.
 
-  > THEOREM 3.2. Let C be a neutral Tannakian category over k: (a) For any ﬁbre functor η on C with values in R, Hom⊗(ω,η) is representable by an afﬁne scheme faithfully ﬂat over Spec R; it is therefore a G-torsor.
 
   The node is part (a) of that theorem; part (b), the equivalence between fibre functors and torsors, is not needed here.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Lemma 3.2, proof (page 12), arXiv:1105.0865v5.
 
-  > Proof. This follows (almost verbatim) the Tannakian pattern, see [DM].
 
   The source defers the Tannakian facts it uses to Deligne and Milne.
 
@@ -8797,13 +8610,11 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Propositions 2.14, 2.20 and 2.21 (pages 22 to 25), in the corrected version of 2012.
 
-  > PROPOSITION 2.20. Let G be an afﬁne group scheme over k. (a) G is ﬁnite if and only if there exists an object X of Repk(G) such that every object of Repk(G) is isomorphic to a subquotient of Xn for some n ≥ 0. (b) G is algebraic if and only if Repk(G) has a tensor generator X.
 
   The algebraicity of the groups of the subcategories generated by finite subdiagrams, with Propositions 2.14 and 2.21 for the colimit and the transition maps.
 
 - HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Proposition B.7 and Proposition B.9 (pages 17 to 18), arXiv:1105.0865v5.
 
-  > Let A(F, T ) := HomR(End(T |F ), R). We set A(T ) := colimF A(F, T ). Then C(T ) is the category of ﬁnitely generated R-modules with an R-linear A(T )-comodule structure.
 
   Nori's colimit over finite subdiagrams, and the generation of C(T) by the objects attached to vertices.
 
@@ -8811,22 +8622,24 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 #### `period-point` — The comparison isomorphism as a complex point of the period torsor
 
-*construction.* Added by `REV-MotivesAndAlgebraicCycles`.
+*construction.*
 
-**Statement.** Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps, unital and compatible with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C, sending L^-1 to the inverse of the nonzero period of L. This is the coefficient embedding of the period torsor that the layer exports to PeriodsAndSpecialValues.
+**Statement.** Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps, unital and compatible with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C, sending L^-1 to the inverse of the nonzero period of L. This is the complex evaluation map of the period torsor that the layer exports to PeriodsAndSpecialValues; its injectivity is the period conjecture and is not asserted.
 
 **Hypotheses.**
 
-- The comparison isomorphism is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars to C (request ComplexComparisonPartII:C5; finding E36): natural for morphisms of pairs, compatible with the connecting maps of triples, sending the period of (Spec Q, ∅, 1, [pt]) to 1, and multiplicative for the exterior product in de Rham cohomology and the cross product in singular homology. In the suggested file this is the typed contract PairDiagram.PeriodComparison. A family of complex-linear isomorphisms natural for pullbacks alone does not qualify.
-- On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the suggested file). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators.
+- The comparison is an isomorphism between the de Rham and singular-cohomology representations of the effective diagram of all pairs after extension of scalars to C (request ComplexComparisonPartII:C5; finding E36): natural for morphisms of pairs, compatible with the connecting maps of triples, sending the period of (Spec Q, ∅, 1, [pt]) to 1, and compatible with the exterior-product and cross-product pairings. In the suggested file this is the typed contract PairDiagram.PeriodComparison. After restriction to good pairs with the specified PairDiagram.ProductCompatible structures, it is an isomorphism of unital graded multiplicative representations. The all-pairs pairing laws alone do not assert a single-degree Künneth isomorphism for every pair. A family of complex-linear isomorphisms natural for pullbacks alone does not qualify.
+- On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the suggested file). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators. With the MC.5 convention, both inverse Künneth maps carry (-1)^{ij} for degrees i,j; the two signs cancel in the period product. PairDiagram.ProductCompatible records these signs explicitly rather than changing the supplied exterior or cross products. Its geometric unit is the point pair, and both graded multiplicative structures are unital. These inputs are included explicitly in ProductCompatible; they are needed for the full neutral context, in addition to the signed Künneth laws.
 - No rational point of X_{1,2} is asserted.
+- At the Tate pair, PairHomology.gm_finrank supplies the rank-one calculation and PeriodData supplies nonzero dlog and circle. These hypotheses, together with the comparison isomorphism, justify period_tate_ne_zero and extension through the Tate localization; nonzero vectors in arbitrary finite-dimensional dual spaces would not suffice.
 
 **Construction, or proof, in steps.**
 
-1. Read φ as a compatible family of complex linear maps T_1(p) ⊗ C → T_2(p) ⊗ C commuting with both kinds of edge, unital and respecting the exterior and cross products; on good pairs, with the multiplicative structures of the second hypothesis, it is a tensor isomorphism T_1 ⊗ C → T_2 ⊗ C (PairDiagram.PeriodComparison.toTensorIsoOver).
-2. By MC.6/tensor-iso-scheme this is a complex point of X_{1,2}, a Q-algebra map A_{1,2} → C, and its value on the class of (p, ω, γ) is γ(φ_p(ω)).
-3. Compose with P_eff = A^eff_{1,2} (MC.6/formal-periods-equal-comparison-algebra) to obtain a ring homomorphism on P_eff; on generators it is the period γ(φ_p(ω)), which respects relations (2) and (3) because φ commutes with both kinds of edge.
-4. The period of L = (G_m, {1}, dX/X, S^1) is nonzero: φ is an isomorphism of one-dimensional spaces at (G_m, {1}, 1), and dX/X and [S^1] are nonzero. So the homomorphism extends uniquely to P = P_eff[L^-1] (IsLocalization.Away.lift), and its value on L^-1 is the inverse of the period of L.
+1. On the effective diagram, use the typed comparison to send each generator (p, omega, gamma) to gamma(phi_p(omega)). Naturality for maps of pairs and compatibility with the connecting maps give the two edge relations; linearity, unitality and product compatibility give a Q-algebra homomorphism P_eff -> C. This construction needs no tensor-isomorphism representability or rigidity of the effective category.
+2. Transport this effective evaluation through the effective algebra identification P_eff = A^eff_{1,2} of MC.6/formal-periods-equal-comparison-algebra. On good pairs, PairDiagram.PeriodComparison.toTensorIsoOver records its compatibility with the specified multiplicative structures; it does not by itself identify Spec(A^eff_{1,2}) with an isomorphism torsor.
+3. The period of L is nonzero: the Tate cohomology and homology fibres are one-dimensional, phi is a linear isomorphism there, and dlog and circle are nonzero. Extend uniquely to P = P_eff[L^-1] through IsLocalization.Away.lift, sending L^-1 to the inverse of its period.
+4. For the torsor interpretation, use MC.5/diagram-localisation and full Nori rigidity to extend the two fibre functors and their tensor comparison to the full Tate-localized category. Only in that neutral Tannakian setting apply MC.6/fibre-functor-extension and MC.6/tensor-iso-scheme (HMS Lemmas 3.1 and 3.2) and the full comparison-algebra identification. The localized evaluation then gives the complex point of the full torsor, with the generator values already established.
+5. Define per_A=periodPoint.formal o E^-1:A_full->C. Its good-pair values and its Tate-inverse value show that under full tensor-isomorphism representability it corresponds to NoriPeriod.fibreComparison. Transport the heap and actions along E. The targets NoriPeriod.point_heap and NoriPeriod.point_action below consume the actual full fibre functors and MC.5 rigidity, with no independently supplied effective TannakianPair. The legacy effective helpers retain their additional context and are not the Nori application.
 
 **Acceptance.**
 
@@ -8837,21 +8650,25 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - A family of complex-linear isomorphisms natural for pullbacks alone does not define the point: twice a genuine comparison has the same two properties, but its unit period is 2 and its product periods double while the products of periods quadruple. The typed contract rejects it (PeriodComparison.doubled_not_comparison).
 - The value on L^-1 is the inverse of the period of L with no normalisation assumed; with PS.2's normalisation of that period to 2πi it is (2πi)^-1, and periodPoint.formal is then an instance of periodPoint_tate_inverse.
 
-**API.** What a user of this object needs in order to use it without unfolding the definition.
+**API.** Intended signatures; new heavy `NoriPeriod.*` constructions are reader targets, not declarations claimed at the pins.
 
 | name | role | statement |
 | --- | --- | --- |
-| `periodPoint` | data | For a typed comparison φ (PairDiagram.PeriodComparison) and graded multiplicative structures compatible with the products (PairDiagram.ProductCompatible), the Q-algebra map A_{1,2} → C corresponding to the tensor isomorphism φ.toTensorIsoOver under TensorIsoScheme.represents. |
+| `periodPoint` | data | The effective complex evaluation A^eff_{1,2} → C from the typed unital multiplicative comparison and the good-pair products. Its Tate-localized extension is periodPoint.formal, the intended full torsor point; effective rigidity is not inferred. |
 | `periodPoint_gen` | simp | On the class of (p, ω, γ), for a good pair p, it is the period γ(φ_p(ω)). |
-| `periodPoint_heap` | characterisation | For every typed comparison, composed with the heap map A_{1,2} → A_{1,2}^{⊗3} and taken with itself three times, it returns itself. |
+| `periodPoint_heap` | characterisation | Legacy conditional effective helper, with its separately supplied effective Diagram.Rep.TannakianPair. It is not used as the full Nori application; that application is the README target NoriPeriod.point_heap. |
 | `periodPoint.formal` | compatibility | For a typed comparison φ, the ring homomorphism P → C equal to γ(φ_p(ω)) on generators: the period point on P_eff = A^eff_{1,2}, extended through the localisation P = P_eff[L^-1] because the period of L is nonzero. PeriodsAndSpecialValues:PS.2 identifies it with integration. |
-| `periodPoint_action` | relation | Every complex point of X_{1,2} is the composite of the period point of a typed comparison with a unique complex point of G_1. |
+| `periodPoint_action` | relation | Legacy conditional effective helper, with its separately supplied effective Diagram.Rep.TannakianPair. It is not used as the full Nori application; that application is the README target NoriPeriod.point_action. |
 | `periodPoint_tate_inverse` | compatibility | For a ring homomorphism per:P->C with per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1. periodPoint.formal of a typed comparison is such a homomorphism once PS.2 shows that the period of L is 2πi. No injectivity is needed and nothing is constructed. |
 | `PairDiagram.PeriodComparison.toTensorIsoOver` | constructor | A typed comparison, restricted to good pairs whose multiplicative structures are those of the exterior and cross products, is a tensor isomorphism H*_dR ⊗ C ≅ H* ⊗ C of graded multiplicative representations: the complex point the torsor formalism needs (finding E36). |
 | `periodPoint.formal_gen` | simp | periodPoint.formal(ofEff(X, D, ω, γ)) = γ(φ(ω)) for every effective pair. |
-| `periodPoint.formal_eq_periodPoint` | compatibility | On the generators of a good pair, periodPoint.formal agrees with periodPoint through P_eff = A^eff_{1,2}. |
+| `periodPoint.formal_eq_periodPoint` | compatibility | On effective good-pair generators, the full formal evaluation equals the effective comparison-algebra evaluation. This does not identify the effective spectrum with the full tensor-isomorphism torsor. |
 | `periodPoint.formal_tateInverse` | simp | periodPoint.formal(tateInverse) is the inverse of the period of L, with no normalisation assumed. |
 | `PairDiagram.PeriodComparison.period_tate_ne_zero` | characterisation | The period of L = (G_m, {1}, dX/X, S^1) under a typed comparison is nonzero, since the comparison is an isomorphism of one-dimensional spaces there and dX/X and [S^1] are nonzero. |
+| `NoriPeriod.point` | constructor | per_A:A_full->_Q-alg C is periodPoint.formal o E^-1. Under the full representability equivalence it is precisely Phi:omega_dR tensor C ~=tensor omega_B tensor C, not just an arbitrary complex point. |
+| `NoriPeriod.point_generator` | simp | per_A(E(ofEff[v,omega,gamma]))=gamma(phi_v omega) for every effective good pair; via the all-pairs presentation it holds for every effective symbol. per_A(E(L^-1))=period_phi(L)^-1. |
+| `NoriPeriod.point_heap` | characterisation | On the full formal heap, h(per,per,per)=per for per=periodPoint.formal. No effective-rigidity or separate neutral-context parameter is present. |
+| `NoriPeriod.point_action` | characterisation | For every x:P->_Q-alg C there are unique b in G_mot(C) and d in G_dR(C) with x=b o Phi and x=Phi o d under full representability. Explicitly b=x o Phi^-1, d=Phi^-1 o x. Evaluation on P is transported through E, and the actions use bettiCoaction and deRhamCoaction above. |
 
 **Uses.**
 
@@ -8864,10 +8681,13 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - `periodPoint_unit` (degenerate): For every typed comparison φ, the value of periodPoint.formal on the class of the unit vertex (Spec Q, ∅) in degree 0 with ω = 1 and γ the class of the point is 1.
 - `periodPoint_mul` (compatibility): For every typed comparison φ and compatible multiplicative structures, periodPoint is multiplicative on A_{1,2}: the value on a product is the product of the values.
 - `periodPoint_twist_not_rational` (non-example): For a typed comparison whose period of (G_m, {1}, dX/X, S^1) is 2πi, as for the integration pairing, the value is not real; so the point does not come from a rational point of X_{1,2}.
-- `periodPoint_heap_test` (characterisation): For every typed comparison, the heap operation applied to (φ, φ, φ) returns φ.
+- `periodPoint_heap_test` (characterisation): For every typed comparison, the heap operation applied to (φ, φ, φ) returns φ. The effective Lean example is conditional on the separately supplied neutral Tannakian context; use the localized Nori heap for the intended application.
 - `periodPoint_tate_inverse_test` (computation): Given a ring homomorphism per:P->C and the integration normalization per(ofEff(L))=2πi, per(tateInverse)=(2πi)^-1 and per(ofEff(L))*per(tateInverse)=1. The test takes per as given; periodPoint.formal of a typed comparison is such a map once PS.2 normalises the period of L (periodPoint.formal_tateInverse_test).
 - `periodPoint.formal_tateInverse_test` (computation): For a typed comparison whose period of L is 2πi, periodPoint.formal sends L^-1 to (2πi)^-1 and L*L^-1 to 1.
 - `PeriodComparison.doubled_not_comparison` (non-example): Twice a typed comparison is still a family of linear isomorphisms natural for pullbacks, but it is not a typed comparison: its unit period would be 2. The contract that the previous prototype stored accepted it.
+- `NoriPeriod.point_representation` (characterisation): Evaluate the full point on a degree-zero good coefficient and on L^-1. The values are gamma(phi_v omega) and period_phi(L)^-1; these force its representing comparison to restrict to phi_good and to use inverse Tate powers.
+- `NoriPeriod.point_action_identity` (compatibility): For x=per, the unique Betti and de Rham elements are both identity; for x=b o Phi the unique de Rham element is Phi^-1 o b o Phi. Omitting this conjugation incorrectly identifies the two rational group forms.
+- `NoriPeriod.integration_inverse` (computation): After the consumer PS.2 proves period_phi(L)=2*pi*i, per(L^-1)=(2*pi*i)^-1 and per(L)*per(L^-1)=1. The supplier uses nonvanishing before this integration normalization, so no injectivity or rational point is assumed.
 
 **Prerequisites.**
 
@@ -8875,20 +8695,17 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 - `MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra`
 - `ComplexComparisonPartII:C5`
 - `mathlib:IsLocalization.Away.lift`
+- `MotivesAndAlgebraicCycles:MC.5/diagram-localisation`
+- `MotivesAndAlgebraicCycles:MC.5/nori-rigidity`
+- `MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension`
 
 **Sources.**
 
-- HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, Introduction, the paragraph after Theorem 0.2 (page 2), arXiv:1105.0865v5.
-
-  > ... singular cohomology and algebraic de Rham cohomology are both ﬁber functors on the same Tannaka category of motives. By general Tannaka formalism, there is a pro-algebraic torsor of isomorphisms between them. The period pairing is nothing but a complex point of this torsor.
-
-  The node makes that sentence a construction.
-
-- HMS.2014 — Annette Huber and Stefan Mueller-Stach, *On the relation between Nori motives and Kontsevich periods*, The paragraph before Corollary 2.12 (page 11), arXiv:1105.0865v5.
-
-  > All formal eﬀective periods (X, D, ω, γ) can be evaluated by ”integrating” ω along γ. More precisely, there is a natural pairing Hd dR(X, D) × Hd(X(C), D(C)) → C This induces a ring homomorphism ev : P → C which maps (Gm, {1}, dX/X, S1) to 2πi.
-
-  The evaluation, which PeriodsAndSpecialValues:PS.2 constructs by integration and identifies with this point.
+- HMS.2014 — Introduction, the paragraph after Theorem 0.2 (page 2), arXiv:1105.0865v5. The node makes that sentence a construction.
+- HMS.2014 — The paragraph before Corollary 2.12 (page 11), arXiv:1105.0865v5. The evaluation, which PeriodsAndSpecialValues:PS.2 constructs by integration and identifies with this point.
+- HMS.2014 — Lemmas 3.1 and 3.2, p.12; Theorem 3.3 and Corollary 3.4, p.13; arXiv:1105.0865v5. The full torsor interpretation uses extended fibre functors in a neutral Tannakian category; the effective algebra evaluation is constructed before Tate localization and does not use effective tensor-isomorphism representability.
+- HMS.2014 — Lemma B.21 and Proposition B.22, pp.25–26; Theorem 1.14, p.8; arXiv:1105.0865v5. The effective representations extend by tensor powers of their rank-one Tate fibres, and the full Nori category is neutral Tannakian. These are separate inputs to the full torsor interpretation, rather than consequences of effective evaluation.
+- HMS.2014 — Definition 1.1, p.4; Theorem 1.6 and its proof, pp.4–5; Definition B.14, pp.20–21; arXiv:1105.0865v5. The effective all-pairs diagram and its cohomology representations are distinguished from the good-pair diagram. The good-pair restriction carries the graded multiplicative structure with single-degree Künneth isomorphisms; product compatibility of the all-pairs comparison does not supply those isomorphisms on arbitrary pairs.
 
 *Implementation status:* `unchecked`.
 
@@ -8947,7 +8764,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - FS.2021.v4 — Laurent Fargues and Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.10.2, pp.232–233, first proof paragraph.
 
-  > left adjoint
 
   The local adjunction, tensor monad and dual coalgebra are the finite-piece construction.
 
@@ -9008,7 +8824,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - FS.2021.v4 — Laurent Fargues and Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.10.2, p.233, middle proof paragraphs.
 
-  > coalgebra
 
   Filtered coalgebra and the explicit coaction on F(Y).
 
@@ -9069,7 +8884,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - FS.2021.v4 — Laurent Fargues and Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.10.2, pp.233–234.
 
-  > bialgebra
 
   Multiplication from tensor products of representing objects; only a bialgebra without source rigidity.
 
@@ -9119,7 +8933,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - FS.2021.v4 — Laurent Fargues and Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.10.2, p.234, final rigidity paragraph.
 
-  > If C is rigid
 
   The additional rigidity hypothesis supplies inversion.
 
@@ -9179,7 +8992,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, 2.12 and Lemma 2.13, pp.21–22.
 
-  > subquotients
 
   Construction of P_X, its stabilizer algebra, finite-module equivalence and the needed local representing object.
 
@@ -9238,7 +9050,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Propositions 2.14 and 2.16, Example 2.15, pp.22–24.
 
-  > coalgebra
 
   Neutral coalgebra assembly, induced bialgebra and representability of tensor endomorphisms.
 
@@ -9290,7 +9101,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Theorem 2.11, pp.20–24; Proposition 1.13, p.12.
 
-  > exact faithful
 
   Arbitrary neutral reconstruction; duality turns tensor endomorphisms into automorphisms.
 
@@ -9337,7 +9147,6 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Proposition 2.20, pp.24–25.
 
-  > algebraic
 
   Finite-group and algebraic-group criteria; keep the two generator notions separate.
 
@@ -9386,13 +9195,11 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 - DM.TC — Pierre Deligne and James S. Milne, *Tannakian Categories*, Proposition 2.21(a) and Corollary 2.22, p.25.
 
-  > connected
 
   Tensor subcategory/quotient recognition and connectedness in characteristic zero.
 
 - FS.2021.v4 — Laurent Fargues and Peter Scholze, *Geometrization of the local Langlands correspondence*, VI.11, p.236.
 
-  > finite type
 
   The rational Satake application uses finite tensor generation, absence of finite tensor subcategories, then characteristic-zero reductivity.
 
@@ -9402,7 +9209,7 @@ The abstract reconstruction nodes (relative and neutral Tannaka reconstruction a
 
 ## MC.7 Cycle conjectures and proven special cases
 
-**Coverage: partial.** Marked source_decomposed with nothing remaining while the packet itself lists open MC.7 gaps (Murre and Bloch-Beilinson conditions, K3 proofs) and the standard conjectures were not stated by any source read.
+**Coverage: partial.** Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs. FIX-RT-AREA-iwasawa-3~4 gives exact NoriPeriod.* supplier signatures and maps in the reader for the full localized comparison, extended fibre functors, heap, actions and period point; these heavy targets remain unchecked, with their implementation boundary visible.
 
 **Remaining in this layer.**
 
@@ -9481,13 +9288,11 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, the statement of Conjecture C with display (4) and the paragraph after it (pages 8 to 9).
 
-  > CONJECTURE C. In the ring End(hX) = C^dimX_num(X × X), the diagonal ΔX has a canonical decomposition into a sum of orthogonal idempotents ΔX = π0 + ··· + π2dimX.
 
   Milne's form of the conjecture, which the node obtains from the cohomological predicate; the remark that it is a weak form of the Lefschetz standard conjecture is in Section 7.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 449, the hypothesis of Corollary 1; page 451, the first paragraph (in the proof of Corollary 2).
 
-  > If for a variety X, the Künneth components π^j ∈ H^{2dim(X)−j}(X) ⊗ H^j(X) of the diagonal are algebraic (cf. [K1] Sect. 2), then the kernel of the surjective ring homomorphism S ... Note that the π^j are central idempotents, with π^j orthogonal to π^i for i ≠ j.
 
   The cohomological form of the predicate, and the properties of the numerical classes that bridge to Milne's form.
 
@@ -9548,7 +9353,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, the statement of Conjecture D with the two paragraphs following it (page 8).
 
-  > CONJECTURE D. If an algebraic cycle is numerically equivalent to zero, then its cohomology class is zero. ... Thus, the conjecture is an existence statement for algebraic cycles. ... In characteristic zero, Conjecture D is known for abelian varieties and it is implied by the Hodge conjecture.
 
   The node is that statement with the two remarks the source makes about it.
 
@@ -9590,7 +9394,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - JANNSEN.1992 — Uwe Jannsen, *Motives, numerical equivalence, and semi-simplicity*, page 451, Remarks 1 and 2.
 
-  > The assumption of Corollary 1 holds if dim X is at most 2 or X is an abelian variety, and for all X if k is inside the algebraic closure of a finite field. If it holds for X and Y, it holds for X times Y. Corollary 2 holds for every subcategory generated by 1(1) and varieties for which the components are algebraic; in particular the category generated by abelian varieties is Tannakian over any k.
 
   The node is those two remarks. The three individual cases are attributed there to Murre, to Lieberman as reported by Kleiman, and to Katz and Messing; none of those three papers was obtained for this packet, which is recorded as a gap.
 
@@ -9633,7 +9436,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - STACKS.WEIL — The Stacks Project authors, *The Stacks Project, chapter "Weil Cohomology Theories" (tag 0FFG)*, Lemma 0FH9 with its proof, and Lemma 0FH8; the Bertini argument in the proof of Lemma 0FH7 (weil.tex at a04446e).
 
-  > Lemma 45.8.5 (Voevodsky). Let k be a field. Let X be a geometrically irreducible smooth projective scheme over k. Let x, x′ ∈ X be k-rational points. For n large enough the class of the zero cycle ([x] − [x′]) × … × ([x] − [x′]) ∈ CH0(X^n) is torsion.
 
   The node is Lemma 0FH9, which the source attributes to Voevodsky, with Lemma 0FH8 used in its first step. Two steps of its proof are omitted in the source (findings E46, E47) and a symbol is misprinted (E45).
 
@@ -9699,19 +9501,16 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 1, the statement, and the paragraph before it (pages 1 to 2).
 
-  > Rational (p, p)-classes are called Hodge classes. They form the group H2p(X, Q) ∩ Hp,p(X) = H2p(X, Q) ∩ F p ⊂ H2p(X, C). ... Hodge Conjecture. On a projective non-singular algebraic variety over C, any Hodge class is a rational linear combination of classes cl(Z) of algebraic cycles.
 
   The conjecture, verbatim.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 2, remarks (ii) to (vi) (pages 2 to 3).
 
-  > (v) The assumption in the Hodge conjecture that X be algebraic cannot be weakened to X being merely Kähler. See Zucker's appendix to [11] for counterexamples where X is a complex torus. (vi) When Hodge formulated his conjecture, he had not realized it could hold only rationally
 
   The remarks recorded in the statement.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 4, Examples 1 and 2, and Section 5 (page 4).
 
-  > Example 1. For X of complex dimension N, the diagonal ∆ of X × X is an algebraic cycle of codimension N. The Hodge decomposition being compatible with Künneth, the Künneth components cl(∆)a,b ∈ Ha(X) ⊗ Hb(X) ⊂ H2N(X × X) (a + b = 2N) of cl(∆) are Hodge classes.
 
   The relation to Conjecture C and, with Example 2, to the Lefschetz standard conjecture.
 
@@ -9779,19 +9578,16 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, Conjecture 1.1 and the paragraph after it.
 
-  > Let k be a finitely generated field over the prime field (that is, over Q or a finite field). Let X be a smooth projective variety over k. Then the Q_l-linear subspace of H^{2a}(X; Q_l(a)) fixed by the Galois group of k is spanned by the classes of codimension-a subvarieties of X. ... A cohomology class fixed by the Galois group is sometimes called a Tate class. Thus the conjecture says ...
 
   The conjecture and the name of its objects, verbatim.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, the paragraph on the base field.
 
-  > The Tate conjecture depends on the fact that the base field k, a finitely generated field over the prime field, is small in some sense. The analogous statement fails when k is algebraically closed (in which case the Galois representation is trivial), and also for some other fields such as p-adic fields.
 
   Why the hypothesis on the base field cannot be dropped, verbatim.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the base-change reduction.
 
-  > In another direction, the Tate conjecture for a smooth projective variety X over a finitely generated field k follows easily from the conjecture for the base change X_E, for any finite Galois extension field E. ... As a result, one can always make finite extensions of the base field in trying to prove the Tate conjecture.
 
   The reduction along a finite extension, verbatim.
 
@@ -9834,25 +9630,21 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the strong Tate conjecture and the standard conjectures (page 6).
 
-  > The strong Tate conjecture would imply most of Grothendieck’s standard conjectures (except for the “Hodge standard conjecture” in positive characteristic) [2, section 7.3]. ... that is, “numerical and homological equivalence of algebraic cycles coincide.”
 
   The consequences of the strong variant, verbatim.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, Jannsen's variant, the separable-closure variant and the integral variant (page 6).
 
-  > In fact, this more general conjecture essentially follows from the usual Tate conjecture (the case where X is smooth and projective). The deduction works whenever X has a resolution of singularities with a smooth compactiﬁcation [17, Theorem 7.10].
 
   The Borel-Moore variant with its hypothesis; the separable-closure paragraph prints Q_l(i) for Q_l(a) (finding E43).
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the integral variant (page 6).
 
-  > for varieties over a ﬁnite ﬁeld k, the usual Tate conjecture for divisors would imply the integral Tate conjecture for divisors ... Also, for varieties over the algebraic closure of a ﬁnite ﬁeld, the usual Tate conjecture for divisors on surfaces would imply the integral Tate conjecture for 1-cycles
 
   The two integral implications with their fields.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, the fibred-surface equivalence (page 4) and the summary diagram (page 5).
 
-  > let X be a smooth projective surface over a ﬁnite ﬁeld k, and let f be a morphism with connected ﬁbers from X onto a smooth projective curve C. Assume that the generic ﬁber F of f, which is a curve over the function ﬁeld k(C), is smooth over k(C).
 
   The hypotheses of the equivalence with the Brauer and Tate-Shafarevich finiteness and BSD; the diagram on page 5 gives the implications.
 
@@ -9922,25 +9714,21 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, The standard conjectures and the Weil conjectures (page 12).
 
-  > In 1968 Grothendieck announced two conjectures, known respectively as the Lefschetz standard conjecture and the Hodge standard conjecture, whose proof would allow one to extend Weil’s proof of the Weil conjectures from curves to varieties of arbitrary dimension
 
   The two conjectures are named, not stated.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, the Hodge standard conjecture and its status (page 12).
 
-  > The Hodge standard conjecture is a positivity statement which implies that the endomorphism algebra of every motive admits a positive deﬁnite involution. Assuming this, Weil’s argument then proves (7b). In characteristic zero, the Hodge standard conjecture can be proved by analytic methods
 
   The description and status of the Hodge standard conjecture, verbatim.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 7, after the status paragraph (page 12).
 
-  > In 1973, Deligne succeeded in completing the proof of the Weil conjectures by means of a very clever argument not involving the standard conjectures.
 
   The status of the Weil conjectures relative to the two conjectures.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 4, Example 2, and Section 5 (page 4).
 
-  > Example 2. If η ∈ H2(X, Z) is the cohomology class of a hyperplane section of X, the iterated cup product ηp : HN−p(X, C) → HN+p(X, C) is an isomorphism (hard Lefschetz theorem, proved by Hodge. See [10, IV.6]). Let z ∈ HN−p(X, C) ⊗ HN−p(X, C) ⊂ H2N−2p(X × X)
 
   The class whose algebraicity is the typed Lefschetz predicate; Section 5 states what the algebraicity of the classes of Examples 1 and 2 would give.
 
@@ -9981,7 +9769,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 6, Aside 6.1.
 
-  > Murre conjectured that a decomposition (4) exists with certain properties even in C^{dim X}_rat(X times X). It has been shown that his conjecture is equivalent to the existence of an interesting filtration on the Chow groups, which had been conjectured by Beilinson and Bloch.
 
   The whole of what the source says about both conjectures; the phrase with certain properties is exactly what this packet cannot fill in from the sources read.
 
@@ -10021,7 +9808,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - MILNE.MOT — James S. Milne, *Motives - Grothendieck's Dream*, Section 10, Final note.
 
-  > Grothendieck also envisaged a category of mixed motives attached to the category of all varieties over k. It should no longer be semisimple, but each mixed motive should have a filtration whose quotients are pure motives. There is at present no definition of a category of mixed motives, but several mathematicians have constructed triangulated categories that are candidates to be its ...
 
   The whole of what the sources read say about the motivic t-structure, verbatim.
 
@@ -10068,37 +9854,31 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 3, the abelian variety case (pages 7 to 9).
 
-  > let A and B be abelian varieties over a ﬁnite ﬁeld k. ... there is a natural homomorphism Homk(A, B) ⊗ Zl → HomGal(ks/k)(H1(A, Zl), H1(B, Zl)), which is injective. Tate’s theorem is that for k ﬁnite, this homomorphism is actually bijective.
 
   Entry T1 with its equivalent formulation, verbatim.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 4, Faltings, Zarhin, h^{2,0} = 0, Tankeev and André (pages 9 to 10).
 
-  > Using the results of Tate and Faltings, Zarhin deduced the Tate conjecture for divisors on an abelian variety over any ﬁnitely generated ﬁeld. ... The Tate conjecture for divisors on a variety X over a number ﬁeld is trivial when the Hodge number h2,0(X) = dim H0(X, Ω2) is equal to zero
 
   Entries T2 to T6.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 4, Theorem 4.1 (page 10).
 
-  > Let X be a smooth proper variety with h2,0(X) = 1 over a ﬁnitely generated ﬁeld k of characteristic zero. Assume that there is an embedding of k into C such that XC has a deformation (over some smooth base variety) in which the Hodge structure on H2(XC, Q) varies nontrivially.
 
   Entry T7 with its hypotheses, verbatim.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 5, opening paragraphs (pages 10 to 11).
 
-  > For non-supersingular K3 surfaces in characteristic p > 5, the Tate conjecture was proved by Nygaard and Ogus ... Finally, the supersingular case was proved in a series of papers starting in 2012 by Charles, Kim, Madapusi Pera, and Maulik ... The case of characteristic 2 was proved only in the last
 
   Entry T8 with its characteristic restrictions.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the Tate-Beilinson paragraph (page 7).
 
-  > More generally, the group of k-points on an abelian variety over a ﬁnite ﬁeld k is ﬁnite, which implies Beilinson’s conjecture for codimension-1 cycles.
 
   Entry TB1.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 2, remark (iii) (page 2).
 
-  > a class c ∈ H2(X, Z) of type (1, 1) has image 0 in the quotient H0,2 = H2(X, O) of H2(X, C), and the long exact sequence of cohomology deﬁned by the exponential exact sequence shows that c is the ﬁrst Chern class of a line bundle.
 
   Entry H1, verbatim.
 
@@ -10164,13 +9944,11 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 1, the paragraph on the Hodge filtration and the paragraph before the statement (page 1 to 2).
 
-  > When X moves in a holomorphic family, the Hodge ﬁltration F p := ⊕a≥p Ha,n−a of Hn(X, C) is better behaved than the Hodge decomposition. ... Rational (p, p)-classes are called Hodge classes. They form the group H2p(X, Q) ∩ Hp,p(X) = H2p(X, Q) ∩ F p ⊂ H2p(X, C).
 
   The definition of the Hodge filtration and of Hodge classes, verbatim; the packet's algebraic description of F^p is the one the de Rham comparison supplies.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 1, the paragraph on the Hodge conjecture (page 4).
 
-  > The Hodge conjecture predicts the converse: any element of H2a(X, Q) whose image in H2a(X, C) is in the middle piece of the Hodge decomposition is the class of some algebraic cycle with Q coeﬃcients
 
   The same definition, in terms of the middle piece of the Hodge decomposition.
 
@@ -10211,7 +9989,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - DELIGNE.HODGE — Pierre Deligne, *The Hodge Conjecture*, Section 1, the last paragraph of page 1 and the first sentence of page 2, and remark (i) of Section 2.
 
-  > If Z is a closed analytic subspace of X, of complex codimension p, Z is an integral cycle and, by Poincaré duality, deﬁnes a class cl(Z) in H2p(X, Z). The integration current on Z is a closed (p, p)-form with generalized function coeﬃcients, representing the image of cl(Z) in H2p(X, C).
 
   The node is that argument; remark (i) supplies Chow's theorem.
 
@@ -10269,7 +10046,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the paragraphs on the strong Tate conjecture and on motives over finite fields (pages 6 to 7).
 
-  > The strong Tate conjecture is the combination of the Tate conjecture with the conjecture that, for a smooth projective variety over a ﬁnitely generated ﬁeld k, the Galois-invariant subspace of H2a(X, Ql(a)) is a summand, as a Galois representation.
 
   The definition, verbatim; the consequences are recorded from the two paragraphs that follow.
 
@@ -10329,7 +10105,6 @@ target supplies no unconditional theorem anywhere in this packet.
 
 - TOTARO.TATE — Burt Totaro, *Recent progress on the Tate conjecture*, Section 2, the paragraphs on the Tate-Beilinson conjecture (page 7).
 
-  > ... there is an important strengthening of the Tate conjecture, the Tate-Beilinson conjecture. Namely, let X be a smooth projective variety over a ﬁnite ﬁeld k. ... Beilinson conjectured in the mid-1980s that the cycle map to l-adic cohomology, CHa(X) ⊗ Q → H2a(X, Ql(a)), is injective
 
   The definition; the conjunction with the Tate conjecture follows the source's 'strengthening' and its diagram, in which the Tate-Beilinson conjecture implies the Tate conjecture.
 
@@ -10337,13 +10112,70 @@ target supplies no unconditional theorem anywhere in this packet.
 
 ---
 
+## Full Nori comparison adapter
+
+This is the intended signature and construction of the `NoriPeriod.*` API in the four preceding targets. It specifies the missing mathematical supplier interface; its implementation is still unchecked. The carriers are the MC.5–MC.6 targets, so this specification belongs in the reader under the current roadmap shape rule. It adds no independently assumed effective neutral context.
+
+Write `D⁺` for the good-pair diagram, `g=(G_m,{1},1)` for its Tate vertex, and `D` for the existing MC.5 localization. Let `i:D⁺→D` send `v` to `(v,0)`. Fix the geometric point-pair unit, the product of pairs and the two unital graded multiplicative structures with the MC.5 sign. The imported product-edge repair and universal property remain prerequisites: the specification here does not prove those inherited gaps.
+
+Let `T₁⁺=H_dR` and `T₂⁺=H_B` on `D⁺`. The rank-one Tate calculations permit the already planned MC.5 extensions `T₁,T₂:D→Vec_Q`. Their values are `T_a(v,n)=T_a⁺(v)⊗T_a⁺(g)^{⊗n}`, with dual powers when `n<0`. Use precisely the induced unital tensor structures, together with the canonical isomorphisms `α:T₁⁺≅i*T₁` and `β:T₂⁺≅i*T₂`. In particular `T₂` agrees, through the geometric product identification and these same signed Künneth maps, with the existing full singular representation `noriRep`. An arbitrary representation is not an input to this adapter.
+
+For a finite set `F` of vertices of `D⁺`, the first map is
+
+`res_F : Hom(T₁|iF,T₂|iF) →ₗ[Q] Hom(T₁⁺|F,T₂⁺|F)`.
+
+It sends the matrix family `a` to `v ↦ β_v⁻¹ ∘ a_(v,0) ∘ α_v`. Naturality follows by conjugating each edge square, including connecting edges. Restricting from `F′` to `F` commutes with `res`; dualizing therefore gives a map of the filtered coefficient systems in the correct direction. The induced map
+
+`j : A_eff →ₐ[Q] A_full`, where `A_eff=A(D⁺;T₁⁺,T₂⁺)` and `A_full=A(D;T₁,T₂)`,
+
+is characterized by `j(ι_F λ)=ι_iF(λ∘res_F)`. This formula and compatibility with the specified product and unit determine `NoriPeriod.comparisonIncl`. The effective presentation isomorphism `e:P_eff≃ₐ[Q]A_eff` is fixed on good-pair coefficients by `[v,ω,γ] ↦ (a↦γ(a_vω))`. Set `ℓ=e(L)`, not an independently chosen invertible coefficient.
+
+The next theorem is **`IsLocalization.Away ℓ A_full` for the `A_eff`-algebra structure induced by this j**. Its content is stronger than choosing an abstract localization ring. To prove it, express algebra points of the coefficient colimit as tensor-compatible natural transformations of the diagram representations. This finite-coefficient description does not assert that every effective tensor morphism is an isomorphism. The Tate component is a map between lines. Its scalar is a unit exactly when the transformation extends to the inverse Tate vertex; then tensor powers and inverse dual powers give a unique extension to all integer indices. Check the MC.5 localization edges and tensor laws. Thus restriction identifies full comparison points with effective comparison points whose value at `ℓ` is a unit, naturally for every commutative Q-algebra. The localization universal property identifies the representing algebras over the displayed `j`. This is the comparison analogue used in HMS Theorem 2.10, p.11, of Lemma B.21 and Proposition B.22, pp.25–26.
+
+Now localize `e` using the pinned Mathlib equivalence API and compose with that identification. The result has the actual type
+
+`E : P_eff[L⁻¹] ≃ₐ[Q] A(D;T₁,T₂)`.
+
+Its defining equations are `E(ofEff x)=j(e x)` for every `x:P_eff` and `E(L⁻¹)·j(ℓ)=j(ℓ)·E(L⁻¹)=1`. For a good-pair generator, it is the full degree-zero coefficient
+
+`E(ofEff[v,ω,γ]) : a ↦ γ(β_v⁻¹(a_(v,0)(α_vω)))`.
+
+This supplies the missing comparison-algebra identification rather than stopping at `Localization.Away(e L)`. It does not use injectivity of numerical evaluation. The signed products are checked before localization: on two odd-degree pairs the two minus signs cancel, so paired coefficient values `2` and `3` give `6`, not `−6`.
+
+For the categorical part, let `M=MM_Nori`, let `U:D→M` be its universal full diagram lift, and let `ω_B:M→Vec_Q` be its existing MC.5 faithful exact symmetric tensor fibre functor. Restrict the supplied all-pairs complex comparison to good pairs, then extend it by the same integer Tate powers to `φ:T₁⊗C≅⊗T₂⊗C`. At index zero it is the original comparison through `α,β`; at the inverse Tate vertex it is the inverse dual map. Use HMS Lemma 3.1, p.12, with the Betti representation first. The category of pairs of rational vector spaces with a complex comparison has two faithful exact projections. Its componentwise tensor structure and the multiplicative universal property give
+
+`ω_dR : M → Vec_Q`, faithful, exact, Q-linear and symmetric monoidal,
+
+`η_dR : ω_dR∘U ≅ T₁`, `η_B : ω_B∘U ≅ T₂`, and
+
+`Φ : ω_dR⊗C ≅⊗ ω_B⊗C`, with `(η_B⊗C)∘(Φ U)=φ∘(η_dR⊗C)`.
+
+The natural comparison on the whole category comes from this same comparison-category construction. It is not inferred merely from two unrelated fibre functors. Reversing the construction and using the diagram universal property gives a tensor equivalence `C(D,T₁)≌M` that commutes with the lifts and rational fibres. Theorem 1.14, p.8, makes `M` rigid, and rigidity transports across this equivalence. Consequently the context for Lemma 3.2 is furnished on the full category, with its actual fibres, point-pair unit, unital structures and `Φ`. There is no assumption that `C(D⁺,T₁⁺)` is rigid.
+
+Let `H_B=O(Aut⊗ω_B)` and `H_dR=O(Aut⊗ω_dR)`. The first is the existing motivic Galois Hopf algebra: the coefficient identification sends a finite Betti coefficient to the same coefficient of the MC.5 full representation. With ordinary functional composition, set `b·f=b∘f` and `f·d=f∘d` for `f:ω_dR→ω_B`. Representability gives the full heap `h_A` and coactions
+
+`ρ_B^A:A_full→ₐ[Q]H_B⊗A_full`, `ρ_dR^A:A_full→ₐ[Q]A_full⊗H_dR`.
+
+Transport them through `E`:
+
+`h_P=(E⁻¹⊗E⁻¹⊗E⁻¹)∘h_A∘E`,
+
+`ρ_B=(id⊗E⁻¹)∘ρ_B^A∘E`, `ρ_dR=(E⁻¹⊗id)∘ρ_dR^A∘E`.
+
+The heap operation on points is `(f,g,h)↦f∘g⁻¹∘h`. The coactions are counital, coassociative and commute; the torsor maps are the two displayed scheme isomorphisms in `NoriPeriod.fullTorsor`. These are full algebra/scheme identities over arbitrary commutative Q-algebras. They do not follow just by testing one complex point. If another composition convention presents Betti as a right action, changing it to this left action uses group inversion as well as a tensor-factor flip. The explicit formulas fix that convention without misidentifying the two rational groups. Sources: HMS Lemma 3.2, p.12; Theorem 3.3, Corollary 3.4 and Remark 3.5, p.13, with the packet's E39 correction.
+
+Finally, let `per:P→C` be the existing localized evaluation of the typed comparison and define `per_A=per∘E⁻¹`. Its representing tensor isomorphism is exactly `Φ`: they agree on all good-pair generators, on the inverse Tate vertex and hence on the full diagram and its generated category. Thus `h_P(per,per,per)=per`. Every complex point `x` has unique factors `b=x∘Φ⁻¹` and `d=Φ⁻¹∘x`, satisfying `x=b∘Φ=Φ∘d`. This is the full `NoriPeriod.point_heap` and `point_action` target, with no extra effective context. The complex point also supplies nonemptiness after the faithfully flat extension Q→C, yielding faithful flatness of the torsor. PS.2 still proves that `per` is integration and that `per(L)=2πi`.
+
+In the rank-one model all of this is explicit: `P_eff=Q[t]`, `P=Q[t,t⁻¹]`, `E(t)=t`, `E(t⁻¹)=t⁻¹`, `ρ_B(t)=u⊗t`, `ρ_dR(t)=t⊗v`, and `h_P(t)=t⊗t⁻¹⊗t`. A normalized complex evaluation sends `t` to `2πi` and `t⁻¹` to `(2πi)⁻¹`; both inverse identities evaluate to `1`. The effective specialization `t↦0` cannot extend to `P`. This checks localization, both action factors and the heap inverse with one computation. The separate Artin/Tate-subcategory classification gap is unaffected.
+
+
 ## Gaps
 
-Each of these is something this packet could not establish from the sources read, or an implementation contract it has not yet supplied. None is papered over, and every node that depends on one is named.
+Each gap remains explicit; all implementation targets are unchecked.
 
 ### The conditions in Murre's conjecture and in the Bloch-Beilinson filtration are in no source read here
 
-Milne's notes say that Murre conjectured a decomposition of the diagonal modulo rational equivalence with certain properties, and that his conjecture is equivalent to the existence of a filtration on the Chow groups conjectured by Beilinson and Bloch. The properties and the filtration axioms are what give both statements their content, and neither is stated in any source read for this packet. The node states the part that is precise, the existence of a Chow-level orthogonal idempotent decomposition, and records the rest as missing. NEXT SOURCE ACTION: obtain Murre's two 1993 papers in Indagationes Mathematicae, or Jannsen's article on motivic sheaves and filtrations on Chow groups in the 1991 motives proceedings, and add the conditions verbatim before anything is built on them.
+Milne's notes say that Murre conjectured a decomposition of the diagonal modulo rational equivalence with certain properties, and that his conjecture is equivalent to the existence of a filtration on the Chow groups conjectured by Beilinson and Bloch. The properties and the filtration axioms are what give both statements their content, and neither is stated in any source read for this packet. The node states the part that is precise, the existence of a Chow-level orthogonal idempotent decomposition, and records the rest as missing. NEXT SOURCE ACTION: obtain Murre's two 1993 papers in Indagationes Mathematicae, or Jannsen's article on motivic sheaves and filtrations on Chow groups in the 1991 motives proceedings, and state the exact conditions in the worker’s own words with theorem and page locators before anything is built on them.
 
 *Needed by:* `MotivesAndAlgebraicCycles:MC.7`.
 
@@ -10473,6 +10305,19 @@ Supply the A-linear representability/action interface, monoidal extension to Ind
 
 *Needed by:* `MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly`, `MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode`.
 
+### Abstract reconstruction still lacks typed carriers, signatures and tests
+
+Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements.
+
+*Needed by:* `MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly`, `MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode`, `MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability`, `MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition`, `MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition`.
+
+### Full localized comparison adapter awaits implementation at the pins
+
+FIX-RT-AREA-iwasawa-3~4 supplies the canonical finite-coefficient map, actual full comparison-algebra localization, fibre functors and their complex natural comparison, transported heap/actions and point compatibility as exact README/packet targets NoriPeriod.*. The preceding missing mathematical interface is specified. Its carriers and constructions are not in the pinned libraries, so under the current roadmap shape rule they are not added as sorry-defined Lean data. These targets remain unchecked; the legacy effective heap/action helpers are conditional and do not implement the full adapter. Implementation must first discharge the existing MC.5 product-edge and universal-property suppliers and then prove these maps and laws. Neither this specification nor successful elaboration of legacy placeholders is a proof of the full Nori application.
+
+*Needed by:* `MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra`, `MotivesAndAlgebraicCycles:MC.6/period-torsor`, `MotivesAndAlgebraicCycles:MC.6/period-point`.
+
+
 ## Mistakes found in the sources
 
 Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node uses the corrected reading.
@@ -10483,7 +10328,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> then the space of formal periods P (Definition 2.4) agrees with the comparison algebra A_{1,2} (Definition 2.8). P = P_{1,2} = A_{1,2}.
 
 **Correction.** The two parenthetical references are crossed and neither is right. The space of formal periods P is Definition 2.8; the comparison algebra A_{1,2} is Definition 2.1; Definition 2.4 defines the third term of the display, the space of periods P_{1,2} of a diagram. The sentence should read: the space of formal periods P (Definition 2.8) agrees with the comparison algebra A_{1,2} (Definition 2.1).
 
@@ -10491,7 +10335,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page for arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version, with no later version and no comment recording an erratum; the published version's own numbering could not be compared, since this finding is about the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered page 11 of arXiv:1105.0865v5 (SHA-256 matches the packet): Theorem 2.10 prints 'the space of formal periods P (Definition 2.4) agrees with the comparison algebra A1,2 (Definition 2.8)'; P is Definition 2.8, A_{1,2} is Definition 2.1, and Definition 2.4 is the space of periods P_{1,2}.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E2` (misprint, affects nothing)
 
@@ -10499,7 +10343,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> By Theorems 2.6 and 2.9 we have A_{1,2} = P = P_{1,2}
 
 **Correction.** The second reference should be Theorem 2.10. The numbered item 2.9 in that paper is a remark, comparing the definition of formal periods with Kontsevich's; the result that identifies P with P_{1,2} is Theorem 2.10.
 
@@ -10507,7 +10350,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing for arXiv:1105.0865, where v5 is the most recent version and no erratum is recorded
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on page 13: the proof of Corollary 3.4 prints 'By Theorems 2.6 and 2.9'; 2.9 is Remark 2.9 (on Kontsevich's definition) and the identification P = P_{1,2} is Theorem 2.10.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E3` (misprint, affects nothing)
 
@@ -10515,7 +10358,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> The fourth equality follows from the projection formula for p^{1234}_{134}. The fourth equality is that proper pushforward is compatible with composition.
 
 **Correction.** The second occurrence should read: the fifth equality is that proper pushforward is compatible with composition.
 
@@ -10523,7 +10365,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the current master of the Stacks Project source repository, where the file weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contains both occurrences; the tag page for 0FG0, which displays the same text
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in weil.tex at commit a04446e (SHA-256 matches the packet): the proof of Lemma 0FG0 displays six expressions (five equalities) and justifies them as 'first', 'second', 'third', 'fourth' and again 'fourth'; the last is the fifth (functoriality of proper pushforward). The live tag page prints the same.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E4` (misprint, affects the proof)
 
@@ -10531,7 +10373,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Proof of (2). Recall that [Gamma_f]_*(beta) = pr_{1,*}([Gamma_f] . pr_2^*beta).
 
 **Correction.** The operation on the left is the pullback by the correspondence and should be written [Gamma_f]^*(beta); the displayed formula is the definition of pullback, not of pushforward.
 
@@ -10539,7 +10380,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the current master of the Stacks Project source repository, where weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still prints the subscript star; the tag page for 0FG5, which displays the same text
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked: the proof of Lemma 0FG5 (2) opens 'Recall that [Gamma_f]_*(beta) = pr_{1,*}([Gamma_f] . pr_2^*beta)', which is the defining formula of the pullback [Gamma_f]^*(beta). A misprint whose intended meaning is clear from the statement of (2); its 'affects' should be 'nothing' rather than 'the proof', since the proof is right as intended.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E5` (misprint, affects nothing)
 
@@ -10547,7 +10388,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Then we coclude because pr_{2,*} composed with (f, 1)_* = 1_*.
 
 **Correction.** Read: then we conclude.
 
@@ -10555,7 +10395,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the current master of the Stacks Project source repository, where weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 still contains the misspelling
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked: the proof of Lemma 0FG5 (1) prints 'Then we coclude because'.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E6` (misprint, affects nothing)
 
@@ -10563,7 +10403,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Hence [Gamma_f] in CH^*(X × Y) tensor Q is contained in Corr^0(X × Y), i.e., [Gamma_f] is a correspondence of degree 0 from X to Y.
 
 **Excerpt as extracted.** Hence $[\Gamma_f] \in \CH^*(X \times Y) \otimes \mathbf{Q}$ is contained in $\text{Corr}^0(X \times Y)$, i.e., $[\Gamma_f]$ is a correspondence of degree $0$ from $X$ to $Y$.
 
@@ -10573,7 +10412,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b; the live tag page https://stacks.math.columbia.edu/tag/0FG1 and its comments, read 2026-09-24; the tag page for Section 0FFZ, whose two comments concern other slips
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while checking the excerpt of MC.0/graph-correspondence.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E7` (misprint, affects nothing)
 
@@ -10581,7 +10420,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Thus a' = a' o b o a' = c_2 o a' and b' = b' o a' o b' = b' o c_2.
 
 **Excerpt as extracted.** Thus $a' = a' \circ b \circ a' = c_2 \circ a'$ and $b' = b' \circ a' \circ b' = b' \circ c_2$.
 
@@ -10591,7 +10429,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b; the live tag page https://stacks.math.columbia.edu/tag/0FGD and its comments, read 2026-09-24; the four comments on the tag page (2024 to 2025) concern other slips in the same proof, which were fixed; this one is still printed
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while checking MC.1/lefschetz-motive.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E8` (misprint, affects nothing)
 
@@ -10599,7 +10437,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> [pr^{12345,-1}_{23}(Delta) cap pr^{12345,-1}_{14}(Delta)] . [pr^{12345,-1}_{34}(Delta) cap pr^{12345,-1}_{15}(Delta)] = [small diagonal in X^5]
 
 **Excerpt as extracted.** [\text{pr}^{12345, -1}_{23}(\Delta) \cap \text{pr}^{12345, -1}_{14}(\Delta)] \cdot [\text{pr}^{12345, -1}_{34}(\Delta) \cap \text{pr}^{12345, -1}_{15}(\Delta)] = [\text{small diagonal in } X^5]
 
@@ -10609,7 +10446,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b; the live tag page https://stacks.math.columbia.edu/tag/0FGI and its comments, read 2026-09-24; the tag page has no comments
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while checking MC.1/motive-dual.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E9` (error, affects a stated result)
 
@@ -10617,7 +10454,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> [Delta_P] = (sum over i = 0, ..., r - 1 of (r - 1 choose i) c_{r-1-i}(pr_1^*S^dual) cap c_1(pr_2^*O_P(1))^i) cap (p × p)^*[Delta_X]
 
 **Excerpt as extracted.** [\Delta_P] = \left(\sum\nolimits_{i = 0, \ldots, r - 1} {r - 1 \choose i} c_{r - 1 - i}(\text{pr}_1^*\mathcal{S}^\vee) \cap c_1(\text{pr}_2^*\mathcal{O}_P(1))^i\right) \cap (p \times p)^*[\Delta_X]
 
@@ -10627,7 +10463,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b; the live tag page https://stacks.math.columbia.edu/tag/0FGR and its comments, read 2026-09-24; the tag page for Section 0FGP, whose two comments (2021) concern the transpose in the definition of c_i and were fixed; the tag page for 0FGR has no comments
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while checking MC.1/diagonal-of-projective-bundle; the consumer in the source (Lemma 'ok-for-projective-bundle' in Section 0FID) needs only the corrected formula.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E10` (error, affects a stated result)
 
@@ -10635,7 +10471,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation.
 
 **Excerpt as extracted.** Proof. Recall that, obviously, numerical equivalence is the coarsest adequate equivalence relation. a) → c): Let 1 = (Spec k, id, 0) be the identity object and let X be an irreducible variety. Since End(1) = F is a field, 1 is an irreducible object.
 
@@ -10645,7 +10480,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the Regensburg repository record epub.uni-regensburg.de/26642 (a scan of the published article, SHA-256 f2a285cb7ba9f53a1dcb3844e41901dd4f8391cc2655b1b8195bc7a62a277fab), which lists no erratum or corrigendum; the six pages of the article, which contain no remark excluding the trivial relation; Milne's expository article, which makes the same informal claim ('The coarsest such equivalence relation is numerical equivalence')
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while checking MC.0/adequate-equivalence-relation and MC.0/numerical-equivalence; the MC.3 node for Theorem 1 needs the added hypothesis.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E11` (misprint, affects nothing)
 
@@ -10653,7 +10488,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> In other words, going either way around the diagram we obtain the element of Corr^d(X × Y, Spec(k)) corresponding to the cycle Gamma_f in X × Y.
 
 **Excerpt as extracted.** In other words, going either way around the diagram we obtain the element of $\text{Corr}^d(X \times Y, \Spec(k))$ corresponding to the cycle $\Gamma_f \subset X \times Y$.
 
@@ -10663,7 +10497,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14 (28 July 2026), SHA-256 3861f2d85eb151058b6a0248e7f1b06910adf8c4f4f017e856cc76f7a439ad3b; the live tag page https://stacks.math.columbia.edu/tag/0FG8 and its comments, read 2026-09-24; the tag page has no comments
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Found by this reviewer while adding MC.0/graph-against-diagonals.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E12` (misprint, affects nothing)
 
@@ -10671,7 +10505,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> H^*(X) ⊗ F[−2d] = G(h(X)(d)) → G(1) = F ... G(h(X)(d)) = H^*(X) ⊗ F[−2d] is a left dual to H^*(X)
 
 **Excerpt as extracted.** This map is zero except in degree 0 where we obtain ∫_X : H^{2d}(X) → F. This is the datum (D3).
 
@@ -10681,7 +10514,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: tag page 0FH1; weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E13` (gap, affects the proof)
 
@@ -10689,7 +10522,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> A classical Weil cohomology theory is the same thing as a Q-linear functor G ... together with an isomorphism F[2] → G(1(1)) ... Conversely, given H^* we get a functor G by the construction of Lemma 0FH2.
 
 **Excerpt as extracted.** Given G and F[2] → G(1(1)) by setting H^*(X) = G(h(X)) we obtain data (D1), (D2), and (D3) satisfying all of (A), (B), and (C) except for possibly (A)(c) and (A)(d)
 
@@ -10699,7 +10531,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: tag page 0FH3; weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E14` (misprint, affects nothing)
 
@@ -10707,7 +10539,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> The fourth equalith holds by axiom (C)(a) and the fact that the Gysin map agrees with flat pullback for flat morphisms
 
 **Correction.** The fourth equality holds by axiom (C)(a) ...
 
@@ -10715,7 +10546,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: tag pages 0FH2 and 0FHL; weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E15` (gap, affects nothing)
 
@@ -10723,7 +10554,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> since otherwise (0 0; Hom(M, N) 0) ⊆ (End(M) Hom(N, M); Hom(M, N) End(N)) = End(M ⊕ N) was a non-trivial nilpotent two-sided ideal.
 
 **Excerpt as extracted.** If Hom(M, N) ≠ 0, then the composition Hom(N, M) × Hom(M, N) → End(M), (f, g) ↦ f ∘ g is non-zero, since otherwise
 
@@ -10733,7 +10563,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the Regensburg repository record of the author's copy, which lists no erratum; Crossref metadata for DOI 10.1007/BF01231898, which records no update or erratum; the Springer article page, which refused automated access
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E16` (misprint, affects nothing)
 
@@ -10741,7 +10571,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> (X, p, m)^r = (X, pπ^{r+2m}, r)
 
 **Excerpt as extracted.** Thus every motive M gets a Z-grading by putting (X, p, m)^r = (X, pπ^{r+2m}, r), and this grading is respected by all morphisms.
 
@@ -10751,7 +10580,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the Regensburg repository record, which lists no erratum; Crossref metadata for DOI 10.1007/BF01231898, which records no update or erratum; the Springer article page, which refused automated access
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E17` (misprint, affects nothing)
 
@@ -10759,7 +10588,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> satisfying all classical axioms (A), (B), (C), except for possibly the classical axioms (A)(a) and (A)(d). However, if E is an elliptic curve over k, then we find dim H^{−1}(E) = 1, i.e., axiom (A)(a) is indeed violated.
 
 **Excerpt as extracted.** However, if E is an elliptic curve over k, then we find dim H^{−1}(E) = 1, i.e., axiom (A)(a) is indeed violated.
 
@@ -10769,7 +10597,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: tag page 0FHZ; weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E18` (gap, affects the proof)
 
@@ -10777,7 +10605,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Since every smooth projective scheme is canonically a disjoint union of smooth projective varieties, it suffices to construct G on the category whose objects are smooth projective varieties and whose morphisms are correspondences of degree 0. (Some details omitted.)
 
 **Correction.** The extension of a classical theory from varieties to smooth projective schemes, with the componentwise pullback, cycle class, trace and Künneth maps, has to be constructed and checked; the blueprint does this in MC.2/weil-cohomology-of-schemes.
 
@@ -10785,7 +10612,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** the source flags the omission itself. Searched: tag page 0FH2; weil.tex at commit a04446e57ec1fbc252a871afcec7752fb2807b14 of the Stacks Project repository, the version read (SHA-256 3861f2d8...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E19` (misprint, affects nothing)
 
@@ -10793,7 +10620,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> As unit we take By Categories, Definition 0FFP we have maps η : 1 → V ⊗ W, ε : W ⊗ V → 1
 
 **Correction.** Delete the stray fragment 'As unit we take'; the proof begins with 'By Categories, Definition ...'.
 
@@ -10801,7 +10627,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: tag page 0FFV, which prints the same text and has no comments; homology.tex at the pinned commit (SHA-256 483caf01...)
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locator in the version read by the reviewer who found it; see reason.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E20` (misprint, affects nothing)
 
@@ -10809,7 +10635,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2]
 
 **Excerpt as extracted.** allows us to deduce that C_*(Z_tr(P1)/Z) = C_*Z_tr(G_m)[1] = Z(1)[2] for the Zariski topology
 
@@ -10819,7 +10644,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against Definition 3.1 and Lemma 2.13 of the same source, and the rendered page.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E21` (gap, affects the proof)
 
@@ -10827,7 +10652,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> COROLLARY 15.13. Let X be a smooth scheme and Z a smooth subscheme of pure codimension c. ... THEOREM 15.15. Let X be a smooth scheme over a perfect field
 
 **Excerpt as extracted.** We claim that the morphism C_*Z_tr(X') -> C_*Z_tr(X) is a split surjection. By 13.26 and 15.12, this will prove the first assertion.
 
@@ -10837,7 +10661,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new (the statements are true over any perfect field by Voevodsky's 'Triangulated categories of motives over a field', not read here). Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked the hypotheses of 13.25, 13.26, 15.13 and 15.15 and the proofs of 15.13 and 15.15.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E22` (misprint, affects nothing)
 
@@ -10845,7 +10669,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> the quasi-isomorphism Z_tr(Pn-1) -> +Z(i)[i] factors through it. ... C_*Z_tr(Pn) -> Z(n)[n] -> C_*Z_tr(Pn-1)[1].
 
 **Excerpt as extracted.** By exercise 15.4, the map Z_tr(Pn-1) -> Z_tr(Pn) is split injective in DM, because the quasi-isomorphism Z_tr(Pn-1) -> +Z(i)[i] factors through it.
 
@@ -10855,7 +10678,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** The authors' corrections list, entry 'p.121 line 11: Z(i)[i] should be Z(i)[2i]; on line 13, Z(n)[n] should be Z(n)[2n]'.. Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: The misprint is in the text read and is corrected in the authors' list.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E23` (misprint, affects the proof)
 
@@ -10863,7 +10686,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> We set d = dimX and compute in DM^{eff,-}_Nis: CH^d(X x Y) = H^{2d,d}(X x Y,Z)
 
 **Excerpt as extracted.** We set d = dimX and compute in DM^{eff,-}_Nis
 
@@ -10873,7 +10695,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** The authors' corrections list, entries 'p.167, line 13: HomChow(Y, X) should be CHdim Y (X x Y)' and 'p.167, line -5: We set d = dim Y (not dim X)'.. Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: The misprint is in the text read and is corrected in the authors' list.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E24` (gap, affects the proof)
 
@@ -10881,7 +10703,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Then Grothendieck's category of effective Chow motives embeds contravariantly into DM^eff_gm(k,Z) ... in the sense that if X and Y are two smooth projective schemes, then Hom_Chow(Y,X) = Hom(M(X),M(Y)).
 
 **Excerpt as extracted.** So from 16.25 and 20.1 we have the following diagram of fully faithful tensor functors:
 
@@ -10891,7 +10712,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new (Voevodsky's 'Triangulated categories of motives over a field' constructs the functor; not read here). Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked the proof of 20.1 and Remark 20.2.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E25` (gap, affects a stated result)
 
@@ -10899,7 +10720,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> COROLLARY 13.14. Let f : C1 -> C2 be a map of bounded above cochain complexes of presheaves with transfers.
 
 **Excerpt as extracted.** PROOF. Let K = cone(f) denote the mapping cone of f. By assumption, each H^pK is a presheaf with transfers which vanishes on all Hensel local schemes, i.e., K_Nis = 0. By 13.12, C_*H^pK = 0 in the Zariski topology.
 
@@ -10909,7 +10729,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new (the introduction warns that 13.8 needs a perfect field, but the listed statements omit it). Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked the hypothesis of each statement against the results its proof cites.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E26` (misprint, affects nothing)
 
@@ -10917,7 +10737,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM, and p is the projection onto the factor Z_tr(X).
 
 **Excerpt as extracted.** Then the canonical map +_{i=0}^n Z_tr(X)(i)[2i] -> Z_tr(P(E)) is an isomorphism in DM
 
@@ -10927,7 +10746,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against Construction 15.10.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E27` (misprint, affects nothing)
 
@@ -10935,7 +10754,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Let T be any scheme of finite type over k and m >= 0 an integer. The presheaf z_equi(T,r) on Sm/k is defined as follows.
 
 **Correction.** m should be r.
 
@@ -10943,7 +10761,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the authors' list 'Corrections to Lectures on Motivic Cohomology' linked from Weibel's page for the book (the live link returns 404; read from the Internet Archive copy https://web.archive.org/web/2020/http://www.math.rutgers.edu/~weibel/MVWnotes/MVW.errors.pdf); the freely posted Clay PDF of the book, which is the version read
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in the definition.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E28` (error, affects a stated result)
 
@@ -10951,7 +10769,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> (2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n). (3) Let X be a smooth variety, Z in X a smooth, irreducible, closed subvariety of pure codimension n. Then H^{2n}_Z(X) = 1(-n).
 
 **Excerpt as extracted.** (2) Let Z be a projective variety of dimension n. Then H^{2n}_Nori(Z) = 1(-n).
 
@@ -10961,7 +10778,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked with the counterexamples in singular cohomology, which the faithful fibre functor detects.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E29` (error, affects the proof)
 
@@ -10969,7 +10786,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Properties (2) and (3) depend on a choice of a sign convention such that the boundary map d is compatible with cup products in the first variable and compatible up to sign in the second variable.
 
 **Correction.** Definition B.14 puts the sign in the first variable (condition (2): T(g x id) = (-1)^{|g||h|} T(g) tensor id) and none in the second (condition (3)), as Remark B.19(2) says. With the usual conventions d(a x b) = da x b and d(a x b) = (-1)^{|a|} a x db for the cross product, singular cohomology satisfies B.14 with tau^{-1}(a tensor b) = (-1)^{|a||b|} a x b, not with the plain cross product.
 
@@ -10977,7 +10793,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against Definition B.14 on the rendered page 20 and Remark B.19(2).
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E30` (gap, affects the proof)
 
@@ -10985,7 +10801,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> D^eff_Nori is a graded diagram in the sense of Definition B.14. It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i').
 
 **Excerpt as extracted.** It carries a commutative multiplicative structure (see Definition B.14 again) by (X, Y, i) x (X', Y', i') = (X x X', X x Y' union Y x X', i + i').
 
@@ -10995,7 +10810,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new (not checked against the authors' 2017 book). Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked by enumerating the edges of Definition 1.1 with the given ends.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E31` (gap, affects the proof)
 
@@ -11003,7 +10818,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Then there is a natural contravariant triangulated functor R : C^b(Z[Var]) -> D^b(A) on the category of bounded homological complexes in Z[Var] such that for every good pair (X, Y, i) we have H^j(R(Cone(Y -> X)) = 0 for j not i, T(X, Y, i) for j = i
 
 **Excerpt as extracted.** Put R(X_*) = R~(Tot C_*(U~_{X_*})). Note that any other choice yields a complex isomorphic to this one in D^+(A).
 
@@ -11013,7 +10827,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new (not checked against the authors' 2017 book). Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked the proof of D.3 as printed.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E32` (misprint, affects nothing)
 
@@ -11021,7 +10835,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Left and right commute by property (3) up to the same sign (-1)^{|g||a|}. ... The associativity assumption (3) for representations of diagrams with product structure implies the coassociativity of mu*.
 
 **Excerpt as extracted.** Left and right commute by property (3) up to the same sign (-1)^{|g||a|}.
 
@@ -11031,7 +10844,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against the numbering of Definition B.14.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E33` (misprint, affects nothing)
 
@@ -11039,7 +10852,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> By construction F_{n-1}X - F_{n-1}X is smooth and hence the pair is very good.
 
 **Correction.** F_nX - F_{n-1}X is smooth.
 
@@ -11047,7 +10859,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered page 31.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E34` (misprint, affects nothing)
 
@@ -11055,7 +10867,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> The diagram D^eff of effective pairs consists of triples (X, Y, i) ... There are two types of edges between effective good pairs:
 
 **Excerpt as extracted.** There are two types of edges between effective good pairs:
 
@@ -11065,7 +10876,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against parts (2) and (3) of the definition and Definition D.1.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E35` (misprint, affects nothing)
 
@@ -11073,7 +10884,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> We put 1(-1) = H^1_Nori(G_m, {1}) in MM^eff_Nori. ... Definition 1.11. Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.
 
 **Excerpt as extracted.** Let 1(-1) = H^1_Nori(G_m) and 1(-n) = 1(-1)^{tensor n}.
 
@@ -11083,7 +10893,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv listing of arXiv:1105.0865, where v5 (21 May 2014) is the latest version and no erratum is recorded; the authors' 2017 book 'Periods and Nori motives', which reworks this material, was not consulted
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in singular cohomology and against Corollary 1.7.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E36` (gap, affects the proof)
 
@@ -11091,7 +10901,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Let D be a graded diagram with commutative product structure (see Definition B.14), T1, T2 : D → Q-Mod two representations.
 
 **Excerpt as extracted.** Let D be a graded diagram with commutative product structure (see Deﬁnition B.14), T1, T2 : D → Q-Mod two representations.
 
@@ -11101,7 +10910,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at the locators: the setting paragraphs say only 'two representations', while the multiplication in Proposition 2.5 and the proof of Lemma 2.2 (via Proposition B.16) need the τ of both.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E37` (gap, affects the proof)
 
@@ -11109,7 +10918,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> We first restrict to the effective situation. ... Hence by Theorem 2.6 P^eff_{1,2} = A^eff_{1,2} and P_{1,2} = A_{1,2}.
 
 **Excerpt as extracted.** We ﬁrst restrict to the eﬀective situation. Let P eﬀ 1,2 and Aeﬀ 1,2 be the algebras for this diagram. ... Hence by Theorem 2.6 P eﬀ 1,2 = Aeﬀ 1,2 and P1,2 = A1,2.
 
@@ -11119,7 +10927,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked: Definition 1.1 and the proof of Theorem 1.6 put the multiplicative structure on good pairs only, and Assumption B.20 and Lemma B.21 require a graded multiplicative representation.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E38` (error, affects the proof)
 
@@ -11127,7 +10935,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> By definition P_{1,2} is the subspace of ∏_{p∈D} T_1(p) ⊗ T_2(p)^∨ of elements satisfying the relations induced by D. By definition A_{1,2}(T) is the subspace of ∏_{p∈D} Hom(T_1(p), T_2(p))^∨ of elements satisfying the relations induced by D.
 
 **Excerpt as extracted.** By deﬁnition P1,2 is the subspace of ∏p∈D T1(p) ⊗ T2(p)∨ of elements satisfying the relations induced by D. By deﬁnition A1,2(T ) is the subspace of ∏p∈D Hom(T1(p), T2(p))∨ of elements satisfying the relations induced by D.
 
@@ -11137,7 +10944,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered page 10; the theorem stands with the corrected proof, which the packet's node already follows.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E39` (gap, affects the proof)
 
@@ -11145,7 +10952,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Finally note that G_1 = G_mot is the motivic fundamental group by definition.
 
 **Excerpt as extracted.** Finally note that G1 = Gmot is the motivic fundamental group by deﬁnition.
 
@@ -11155,7 +10961,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked at both locators; the statement of Corollary 3.4 survives because X_{1,2} is a torsor under both groups.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E40` (misprint, affects nothing)
 
@@ -11163,7 +10969,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> The main aim of this note is to provide the proof (see Corollary 2.11) of the following result:
 
 **Excerpt as extracted.** The main aim of this note is to provide the proof (see Corollary 2.11) of the following result: Theorem 0.2 (Nori, [Ko] Theorem 6). Spec(P) is a torsor under the motivic Galois group of Nori’s category of mixed motives over Q.
 
@@ -11173,7 +10978,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked against the numbering of Sections 2 and 3.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E41` (misprint, affects nothing)
 
@@ -11181,7 +10986,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> (X, D, ω, γ)(X′, D′, ω′, γ′) = (X × X′, D × X′ ∪ D′ × X, ω ∧ ω′, γ × γ′)
 
 **Excerpt as extracted.** P + is turned into an algebra via (X, D, ω, γ)(X′, D′, ω′, γ′) = (X × X′, D × X′ ∪ D′ × X, ω ∧ ω′, γ × γ′)
 
@@ -11191,7 +10995,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered pages 2 and 10.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E42` (error, affects a stated result)
 
@@ -11199,7 +11003,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> Let G_l = X^2/∼_l ... Then µ_l is well-defined on G_l and turns G_l into a group. ... Proposition A.6. Let X be a torsor in the category of affine schemes. Then there are affine group schemes G_l and G_r
 
 **Excerpt as extracted.** Let Gl = X2/ ∼l where (a, b) ∼l (a, b)(x, x) for all x ∈ X is an equivalence relation. Then µl is well-deﬁned on Gl and turns Gl into a group.
 
@@ -11209,7 +11012,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the arXiv abstract page of arXiv:1105.0865, which lists v5 of 21 May 2014 as the latest version with no comment recording an erratum; the published version (Journal of the London Mathematical Society) was not consulted; the finding is scoped to arXiv v5
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked: the definition allows the empty set and the proof of Proposition A.4 uses an element x of X; in the application X_{1,2} is nonempty, so nothing downstream changes.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E43` (misprint, affects nothing)
 
@@ -11217,7 +11020,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> every class in H^{2a}(X, Q_l(i)) fixed by some open subgroup of Gal(k_s/k) is represented by an algebraic cycle over some finite extension of k
 
 **Excerpt as extracted.** Another version of the Tate conjecture is that for a variety X over a ﬁnitely generated ﬁeld k, every class in H2a(X, Ql(i)) ﬁxed by some open subgroup of Gal(ks/k) is represented by an algebraic cycle over some ﬁnite extension of k.
 
@@ -11227,7 +11029,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the author's copy at the URL of the packet's source record, the only version read; the Bulletin of the AMS version was not compared; the finding is scoped to the author's copy
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered page 6.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E44` (misprint, affects nothing)
 
@@ -11235,7 +11037,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> CH^1 of an elliptic curve X is the direct sum of Z with the Mordell-Weil group X(k), where X(k) maps to zero in H^2(X, Q_l(i)) ≅ Q_l.
 
 **Excerpt as extracted.** For example, CH1 of an elliptic curve X is the direct sum of Z with the Mordell-Weil group X(k), where X(k) maps to zero in H2(X, Ql(i)) ∼= Ql.
 
@@ -11245,7 +11046,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: the author's copy at the URL of the packet's source record, the only version read; the Bulletin of the AMS version was not compared; the finding is scoped to the author's copy
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked on the rendered page 7.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E45` (misprint, affects nothing)
 
@@ -11253,7 +11054,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> an invertible module $\mathcal{L}'$ on $T \times X$ and $k$-rational points $p, q \in T$ such that $\mathcal{M}_p \cong \mathcal{O}_X$ and $\mathcal{M}_q = \mathcal{L}$.
 
 **Excerpt as extracted.** an invertible module L′ on T × X and k-rational points p, q ∈ T such that Mp ≅ OX and Mq = L. Namely, since L = OX(x − x′) we can take T = X, p = x′, q = x, and L′ = OX×X(∆) ⊗ pr2*OX(−x′).
 
@@ -11263,7 +11063,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14; the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in the pinned weil.tex and on the tag page.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E46` (gap, affects the proof)
 
@@ -11271,7 +11071,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> in $\Pic(X^n)$ by a calculation. Deails omitted; hint: this follows from the fact that $\text{Norm}_\pi$ ...
 
 **Excerpt as extracted.** π*N = (L1 ⊗ … ⊗ Ln)⊗(n−1)! in Pic(Xn) by a calculation. Deails omitted; hint: this follows from the fact that Normπ : π*OXn → OSn(X) composed with the natural map ... is equal to the product over all σ ∈ Sn
 
@@ -11281,7 +11080,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14; the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in the pinned weil.tex and on the tag page.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ### `MotivesAndAlgebraicCycles/E47` (gap, affects the proof)
 
@@ -11289,7 +11088,6 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Printed.**
 
-> For $n \geq 2g - 1$ this morphism is a projective space bundle (details omitted; compare with the proof of Picard Schemes of Curves, Lemma 44.6.7).
 
 **Excerpt as extracted.** For n ≥ 2g − 1 this morphism is a projective space bundle (details omitted; compare with the proof of Picard Schemes of Curves, Lemma 44.6.7).
 
@@ -11299,7 +11097,7 @@ Recorded in the packet's `sourceIssues` under PROTOCOL section 18. Every node us
 
 **Existing correction:** new. Searched: weil.tex at the pinned commit a04446e57ec1fbc252a871afcec7752fb2807b14; the tag page stacks.math.columbia.edu/tag/0FH9 as served on 24 September 2026, which shows the same text
 
-**Review.** confirmed by `REV-MotivesAndAlgebraicCycles`: Checked in the pinned weil.tex and on the tag page.
+**Review.** The packet retains its independent `needs_changes` verdict by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3` (2026-10-11). Round 4 makes the bounded corrections below and requires independent `REV-FIX-RT-AREA-iwasawa-3~4`. It does not accept itself or supersede the separate abstract reconstruction review.
 
 ## Structural proposals
 
@@ -11472,7 +11270,10 @@ Each was read at the pinned commit; the packet's `baseline.declarations` lists 1
 
 ## Review and fix record
 
-**Current review:** `needs_changes` by `independent-review-REV-FIX-RT-AREA-iwasawa-3~2`, 2026-10-02. Independently reviewed all eight confirmed findings and both fix ledgers. Findings /1–/7 have faithful, issue-authorized future-blueprint handoffs, not applied corrections to their owners. For /8, the six supplier nodes correctly distinguish effective and localized Nori categories and formal-period algebras, export the Tate inverse and effective-then-localized comparison, and leave integration/evaluation with PS.2 importing the single MC.6 presentation. Read the six new Mathlib APIs at the exact baseline pin and selected public HMS, Kato and BDP passages. Corrected the new inverse-evaluation API/test to take an explicitly supplied ring homomorphism per:P->C, rather than rely on the unsupported periodPoint.formal constructor for arbitrary PeriodData; this conditional lemma does not supply that constructor. Shortened the formal-periods source excerpt to the protocol limit. Follows independent-review-REV-FIX-RT-AREA-algebraicgeometry, archived verbatim in reviewHistory, and preserves its comparison-compatibility gap. Still needs changes: encode a unital multiplicative comparison compatible with connecting edges and thread it through the period-point APIs; reconcile the stale reader (outside this issue's allowed files) with the 182-node partial packet and corrected conditional signature. The separate geomlanglands~2 review obligation and all inherited gaps, coverage, requests and sourceIssues remain. Checker passed with the pinned declaration index; new signatures not compiled and nothing promoted.
+**Current fix:** `FIX-RT-AREA-iwasawa-3~4` (issue #8925), Codex — `codex-rmGSAt`, 17 October 2026. The full comparison adapter's mathematical signatures and defining squares are now reader targets. The implementation boundary remains visible, all unrelated gaps and independent verdicts are retained, and no new Nori carriers are declared by `sorry` in Lean. Earlier source quotations have been removed from this reader; statements and locators remain in our own words.
+
+
+**Current review:** `needs_changes` by `independent-review-REV-FIX-RT-AREA-iwasawa-3~3`, 2026-10-11. Codex (GPT-6), session codex-BIjxwP: independently checked the eight confirmed findings and their corrections against public HMS v5, published Kato and BDP, following codex-R4MNK8 whose review is preserved exactly in reviewHistory. Corrected MC.6/period-point hypothesis 0 to distinguish the natural unital product-compatible comparison on all effective pairs from the graded multiplicative representation on good pairs, with Definition 1.1/Theorem 1.6 and Definition B.14 locators. Existing edge laws, shared Künneth signs, Tate inverse and effective evaluation contracts are retained. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. Fresh Motives Lean check: exit 0, 817 admitted-proof-only warnings, no errors or other warnings. This is a bounded review of the assigned fixes, not an exhaustive audit of all 182 nodes. Kato and GH.0 were inspected read-only: their corrections and remaining Hecke-normalization/model-hypothesis errors are recorded in the report. Their four packet/suggested paths are required by intake but excluded by the live issue; no scope extension has been received and their review markers remain unchanged.
 
 **Earlier reviews** (archived verbatim in the packet's `reviewHistory`):
 
@@ -11480,7 +11281,7 @@ Each was read at the pinned commit; the packet's `baseline.declarations` lists 1
 - `pending` — (pending marker).
 - `needs_changes` — independent-review-REV-FIX-RT-AREA-algebraicgeometry, 2026-10-02.
 
-**Current fix:** `FIX-RT-AREA-iwasawa-3~3` (issue #5868), Claude — claude-kEZwtq, 2026-10-07, input revision `d5d17b08ef42c3c39feec4777313896efda3dd8d`.
+**Previous fix:** `FIX-RT-AREA-iwasawa-3~3` (issue #5868), Claude — claude-kEZwtq, 2026-10-07, input revision `d5d17b08ef42c3c39feec4777313896efda3dd8d`.
 
 - `RT-AREA-iwasawa-3/8`: Round-2 review corrections applied: the typed comparison is encoded and threaded through MC.6/period-point (packet and suggested file), and the reader is regenerated from the current packet. PS.2's integration/evaluation application stays handed to BP-PeriodsAndSpecialValues--PS.0 and --PS.8.
 - `RT-AREA-iwasawa-3/1`: Handoff to BP-GeneralizedHeegnerCycles--GH.0, unchanged.
@@ -11504,8 +11305,6 @@ One node rewritten in place (MC.6/period-point: hypotheses, proof steps, two acc
 
 ## Checks
 
-    python3 scripts/check_blueprint.py --index <pinned declaration index> research/blueprint/packets/MotivesAndAlgebraicCycles.json
+Run `python3 scripts/check_blueprint.py research/blueprint/packets/MotivesAndAlgebraicCycles.json` and `lean-check research/blueprint/suggested/MotivesAndAlgebraicCycles.lean` at the pinned environment. The fresh results for this round are recorded in `research/blueprint/redteam/RT-AREA-iwasawa-3.fixes-4.md`.
 
-At this revision the checker, run with the pinned declaration index, reports zero errors and zero warnings.
-
-The suggested Lean file was elaborated in full with `lake env lean` against Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` in `FIX-RT-AREA-iwasawa-3~3`: its only messages are the warnings for declarations whose proofs are placeholders. It imports Mathlib modules only. Every API item and unit test of the packet appears in it under the packet's name, except the 39 names of the abstract reconstruction nodes of `FIX-RT-AREA-geomlanglands~2`, which the file lists in comments as not yet stated in Lean; that inventory awaits `REV-FIX-RT-AREA-geomlanglands~2`.
+The suggested file is an inherited legacy prototype with admitted carriers, not a package ready for port. Its successful elaboration checks signatures; it neither proves those constructions nor establishes NoriPeriod.*. The new heavy adapter targets are stated here according to the current roadmap shape rule. A later package must apply that shape to the inherited prototype too. The separate abstract reconstruction and relative Beck gaps remain open.

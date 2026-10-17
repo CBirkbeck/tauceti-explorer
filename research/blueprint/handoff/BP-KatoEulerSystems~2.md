@@ -83,3 +83,8 @@ The five review-added exports are routed as exact requests to ModularCurvesPartI
 No usable staged CMAllPrimeMainConjectures owner was found in the atlas/reserved IDs. The early elliptic-unit supplier must include p=2 and Q(i), precede the rational Kato map, and provide the separate local-length comparison for the CM upper bound; it cannot be inferred from a CM equality involving that map. The critical-family boundary also remains: PadicFamilies:L4 consumes this roadmap and cannot be made a prerequisite for constructing its classes. The upstream atlas-edge handoff is retained without editing atlas or upstream Tau Ceti documents.
 
 Scratch source files and working logs are removed after the PR opens. Everything needed by the next worker is in the four deliverables and their public source/version locators. This run submits one PR with `Refs #6976` and stops without claiming a second job.
+
+
+## FIX-RT-AREA-iwasawa-3~4 follow-through (17 October 2026)
+
+Corrected the remaining Lemma 8.8(1) scalar from n^(r−1) to n^(r′−1) in the statement and acceptance annotation. The source-normalized Lean helpers and r=1,r′=2,n=2 regression now connect it to the Euler linear coefficient n^(−r), retaining k−1−2r in the quadratic coefficient. Findings /2 and /4–/7 remain corrected; the round-4 report supplies fresh source and elaboration receipts. The independent review verdict is preserved.
