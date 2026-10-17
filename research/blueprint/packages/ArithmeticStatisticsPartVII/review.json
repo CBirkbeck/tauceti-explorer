@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatisticsPartVII~adv",
     "date": "2026-10-17",
-    "notes": "Quadratic probability and conditional twist applications. Actual continuous quadratic map and topological polar self-duality, dyadic quadratic isotropy, common parity and summability/half-mass hypotheses retained. C is present over the actual averaging field for every applicable isogeny factor. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 9 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+    "notes": "Independent adversarial review of all 104 mathematical anchors. Fixed sign action at two, general abelian Selmer interfaces, fixed-degree twist support, Schubert component fibre, dimension-zero rank case, exponent-p probability support and k>=1 complex-place construction; corrected primary locators and analytic supplier links. Current TauCetiRoadmap 0d144d04 and Tau Ceti a91d3aaf audited: no duplicate statistical targets. All 151 APIs retained; Checks 260 to 266, all 30 definition blocks have >=3. lean-check exits 0 with 13 sorry-only warnings; no sorry-defined data. Explicit C and other conditional frontiers retained. Full source sample, adversarial table and validation in the review report."
   }
 }

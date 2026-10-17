@@ -20,7 +20,7 @@ The following boundaries fix the carriers and prevent parallel versions of exist
 
 The pointwise two-Selmer rank identity is supplied by EllipticCurves Layer 7's exact sequence and Layer 6's Mordell–Weil theorem: `dim Sel₂(E)=rank E(Q)+dim E(Q)[2]+dim Sha(E)[2]`. Its explicit descent cardinal formula and rank inequality are already `WeierstrassCurve.Affine.card_range_μ` and `pow_rank_le_card_of_range_μ_le` in `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup`, transported by EllipticCurves' explicit/cohomological comparison. These pointwise facts are prerequisites; the new results here average them in the specified family.
 
-AnalyticNumberTheory is a prerequisite of every part of this roadmap and takes no input from any part. The other prospective suppliers used below are lower in the build: SchemeAndStackFoundations; GeometryOfNumbersAndQuadraticArithmetic; AdelicAlgebraicGroups; AlgebraicModuliForArithmeticGeometry; DiophantineApproximationAndTranscendence; InverseGaloisAndArithmeticFundamentalGroups; AbelianSchemesAndArithmeticModuli; ArithmeticGaloisRepresentations; SelmerIwasawaCohomology; ArithmeticGaloisDuality; NeronModelsAndSemistableAbelianVarieties; HeightsRationalPointsAndObstructions; EtaleDualityAndPerverseSheaves; and DeligneWeightsAndPurity. More specialized facts required here are stated as local supporting targets, not deferred to a later roadmap.
+AnalyticNumberTheoryPartI and PartII are prerequisites of every part of this roadmap and take no input from any part. The other prospective suppliers used below are lower in the build: SchemeAndStackFoundations; GeometryOfNumbersAndQuadraticArithmetic; AdelicAlgebraicGroups; AlgebraicModuliForArithmeticGeometry; DiophantineApproximationAndTranscendence; InverseGaloisAndArithmeticFundamentalGroups; AbelianSchemesAndArithmeticModuli; ArithmeticGaloisRepresentations; SelmerIwasawaCohomology; ArithmeticGaloisDuality; NeronModelsAndSemistableAbelianVarieties; HeightsRationalPointsAndObstructions; EtaleDualityAndPerverseSheaves; and DeligneWeightsAndPurity. More specialized facts required here are stated as local supporting targets, not deferred to a later roadmap.
 
 ## Conventions
 
@@ -58,7 +58,7 @@ From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embe
 
 From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
 
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+From AnalyticNumberTheoryPartII require the [binary-cubic action and discriminant](../AnalyticNumberTheoryPartII/README.md#s5-4) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheoryPartII/README.md#s5-5) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheoryPartII/README.md#s5-6) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheoryPartII/README.md#s5-7) (§5.7), [cubic continuation and residues](../AnalyticNumberTheoryPartII/README.md#s5-21) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheoryPartII/README.md#s5-28) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheoryPartII/README.md#s5-29) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheoryPartI and PartII also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
 
 ### From earlier arithmetic-statistics parts
 
@@ -73,6 +73,8 @@ From ArithmeticStatisticsPartV require [davenport heilbronn mean of three torsio
 From ArithmeticStatisticsPartVI require [height moments in an arithmetic family](../ArithmeticStatisticsPartVI/README.md#height-moments-in-an-arithmetic-family), [average size of the 2 selmer group is three](../ArithmeticStatisticsPartVI/README.md#average-size-of-the-2-selmer-group-is-three), [rational p torsion has density zero](../ArithmeticStatisticsPartVI/README.md#rational-p-torsion-has-density-zero), [local selmer mass ratios](../ArithmeticStatisticsPartVI/README.md#local-selmer-mass-ratios), [archimedean selmer ratio is one half](../ArithmeticStatisticsPartVI/README.md#archimedean-selmer-ratio-is-one-half). Their hypotheses, weights, cutoffs and normalizations are retained at the point of use below.
 
 ## How to read the build
+
+Construct the finite quadratic spaces and intersection counts in §5.4 first, then the unnormalized weights and normalization in §5.5, and the alternating models in §5.6. For the locally compact model use §§5.23–5.24 before §5.26 and the global comparison in §5.27. The integral Grassmannian and intrinsic rank-stratum measures in §5.29 precede the p-adic intersection limit in §5.7 and its all-prime consequences in §5.30. The arithmetic conjectures in §§5.1–5.3, 5.8–5.9 and 5.28 use these model laws; the three-isogeny applications in §§5.10–5.11 and 5.32 additionally retain their counting hypotheses. The subsection numbers preserve the common layer notation across parts.
 
 The mathematical specification is this README; `Suggested.lean` gives representative light definitions and signatures on the pinned carriers. The sections below state every target with its hypotheses, source locator, API and Checks. Definitions requiring new arithmetic or geometric carriers are README targets. Earlier-part supplier links point to their precise statements. The source counts retain their strict or inclusive cutoffs and their own denominators.
 
@@ -198,7 +200,9 @@ For the proof, Define the product over the list σ of |ker(ρ(σ_v) − 1)|, the
 
 **Checks.**
 
-- G = C_2 acting by −1 on F_p, σ the generator: prediction 1 (Cohen–Lenstra u = 0).
+- G = C_2 acting by −1 on F_p with p odd, σ the generator: prediction 1 (Cohen–Lenstra u = 0).
+
+- At p=2 the sign action on F₂ is trivial, so the same fixed-space formula gives 1/2, not 1. This tests the formula outside the coprime-prime hypotheses of the arithmetic conjecture.
 
 - σ = 1: prediction 1/p (Cohen–Lenstra u = 1).
 
@@ -458,7 +462,7 @@ For the proof, Represent the family by probability mass functions P_g on finite 
 
 <a id="maximal-isotropic-subspaces-of-a-quadratic-space"></a>
 
-**Maximal isotropic subspaces of a quadratic space.** Let K be a field, V a finite-dimensional K-vector space and Q : V → K a quadratic form (Mathlib QuadraticForm, any characteristic), with polar form b_Q(x, y) = Q(x + y) − Q(x) − Q(y). For a subspace W let W^⊥ be its b_Q-orthogonal. W is maximal isotropic if Q|_W = 0 and W^⊥ = W; I_V denotes the set of maximal isotropic subspaces. (V, Q) is nondegenerate if b_Q is nondegenerate, and weakly metabolic if moreover I_V ≠ ∅. For K = 𝔽_p this is Poonen–Rains' definition for a quadratic form with values in (1/p)ℤ/ℤ ≅ 𝔽_p. The condition Q|_W = 0 is part of the definition: in characteristic 2, W^⊥ = W does not imply it.
+**Maximal isotropic subspaces of a quadratic space.** This is the submodule parameter-space adapter over an arbitrary field, extending the finite quadratic-module boundary above. Let K be a field, V a finite-dimensional K-vector space and Q : V → K a quadratic form (Mathlib QuadraticForm, any characteristic), with polar form b_Q(x, y) = Q(x + y) − Q(x) − Q(y). For a subspace W let W^⊥ be its b_Q-orthogonal. W is maximal isotropic if Q|_W = 0 and W^⊥ = W; I_V denotes the set of maximal isotropic subspaces. (V, Q) is nondegenerate if b_Q is nondegenerate, and weakly metabolic if moreover I_V ≠ ∅. For K = 𝔽_p this is Poonen–Rains' definition for a quadratic form with values in (1/p)ℤ/ℤ ≅ 𝔽_p. The condition Q|_W = 0 is part of the definition: in characteristic 2, W^⊥ = W does not imply it.
 
 V finite-dimensional over K Q a quadratic form on V
 
@@ -502,7 +506,7 @@ For the proof, Define W^⊥ as LinearMap.BilinForm.orthogonal of QuadraticMap.po
 
 <a id="isotropic-reduction-map"></a>
 
-**Isotropic reduction map.** Let (V, Q) be a nondegenerate quadratic space over a field K and X ⊆ V an isotropic subspace (Q|_X = 0). Then X ⊆ X^⊥, the quotient X^⊥/X carries the induced quadratic form Q_X(v + X) := Q(v), which is well defined and has nondegenerate polar form, and dim X^⊥/X = dim V − 2 dim X. For W ∈ I_V, the subspace (W ∩ X^⊥) + X lies in I_V and its image π_X(W) := ((W ∩ X^⊥) + X)/X lies in I_{X^⊥/X}. The map π_X : I_V → I_{X^⊥/X} is the isotropic reduction map; if X ⊆ W then π_X(W) = W/X, and for X ⊆ Y isotropic, π_{Y/X} ∘ π_X = π_Y.
+**Isotropic reduction map.** The new map reduces a varying maximal isotropic; the quotient-form adapter extends the finite quadratic quotient to arbitrary fields. Let (V, Q) be a nondegenerate quadratic space over a field K and X ⊆ V an isotropic subspace (Q|_X = 0). Then X ⊆ X^⊥, the quotient X^⊥/X carries the induced quadratic form Q_X(v + X) := Q(v), which is well defined and has nondegenerate polar form, and dim X^⊥/X = dim V − 2 dim X. For W ∈ I_V, the subspace (W ∩ X^⊥) + X lies in I_V and its image π_X(W) := ((W ∩ X^⊥) + X)/X lies in I_{X^⊥/X}. The map π_X : I_V → I_{X^⊥/X} is the isotropic reduction map; if X ⊆ W then π_X(W) = W/X, and for X ⊆ Y isotropic, π_{Y/X} ∘ π_X = π_Y.
 
 (V, Q) nondegenerate, finite-dimensional X isotropic: Q|_X = 0
 
@@ -1244,7 +1248,7 @@ For the proof, de Jong Theorem 1.2 bounds q^(−10d−1) Σ_(h(E)=d)(#Sel3(E)−
 
 *Needs:* [height moments in an arithmetic family](../ArithmeticStatisticsPartVI/README.md#height-moments-in-an-arithmetic-family), [poonen rains selmer conjecture](#poonen-rains-selmer-conjecture).
 
-([[56]](#ref-56), Theorem 1.2, §1.1, Proposition 4.12, Proposition 4.14 and Lemma 10.2; author DVI pp.1–2,8–11,29. The projective-cubic bounds are Propositions 5.14,7.5,7.9, author pp.20,24–25..)
+([[56]](#ref-56), Theorem 1.2, §1.1, Proposition 4.12, Proposition 4.14 and Lemma 10.2; author DVI pp.1–2,8–11,29. The projective-cubic bounds are Propositions 5.14,7.5,7.9, author pp.20,24–25.)
 
 **Checks.**
 
@@ -1408,9 +1412,9 @@ For the proof, Translate Smith's r_{2^∞} into corank_{ℤ_2} Sel_{2^∞} ([smi
 
 <a id="selmer-ratio-of-an-isogeny"></a>
 
-**Selmer ratio of an isogeny.** Let φ : E → E' be an isogeny of elliptic curves over a number field F. For a place v of F put c_v(φ) := #coker(φ : E(F_v) → E'(F_v)) / #ker(φ : E(F_v) → E'(F_v)) ∈ ℚ_{>0} (finite: the kernel is finite and the cokernel is finite since E'(F_v)/φE(F_v) injects into H¹(F_v, E[φ])). The global Selmer ratio is c(φ) := ∏_v c_v(φ), a finite product because c_v(φ) = 1 for all finite v ∤ deg φ at which E has good reduction; c_v is multiplicative under composition of isogenies (index multiplicativity). For s ∈ F^×/F^{×2} let φ_s : E^s → E'^s be the quadratic twist of φ (twisting by the same cocycle, Tau Ceti EllipticCurves Layer 5). For deg φ = 3, c(φ_s) ∈ 3^ℤ and t(φ_s) := ord_3 c(φ_s); for m ∈ ℤ, T_m(φ) := {s ∈ F^×/F^{×2} : c(φ_s) = 3^m} (signed; BKLOS §9 notation), and |T|_m := T_m ∪ T_{−m} is BKLOS §2's T_m.
+**Selmer ratio of an isogeny.** Let φ : A → A' be an isogeny of abelian varieties over a number field F. For a place v of F put c_v(φ) := #coker(φ : A(F_v) → A'(F_v)) / #ker(φ : A(F_v) → A'(F_v)) ∈ ℚ_{>0}. The groups are finite by the local isogeny/Kummer finiteness theorem, including finiteness of H¹(F_v,A[φ]). The global Selmer ratio is c(φ) := ∏_v c_v(φ), a finite product because c_v(φ) = 1 for all finite v ∤ deg φ at which A has good reduction; c_v is multiplicative under composition of isogenies (index multiplicativity). For s ∈ F^×/F^{×2} let φ_s : A^s → A'^s be the twist by the common central automorphism [−1]. For elliptic curves this is the quadratic twist of Tau Ceti EllipticCurves Layer 5. For deg φ = 3, c(φ_s) ∈ 3^ℤ and t(φ_s) := ord_3 c(φ_s); for m ∈ ℤ, T_m(φ) := {s ∈ F^×/F^{×2} : c(φ_s) = 3^m} (signed; BKLOS §9 notation), and |T|_m := T_m ∪ T_{−m} is BKLOS §2's T_m.
 
-E, E' elliptic over a number field F φ : E → E' an F-isogeny
+A, A' abelian over a number field F; φ : A → A' an F-isogeny. Elliptic specializations below use E, E'.
 
 The required API is:
 
@@ -1426,15 +1430,15 @@ The required API is:
 
 - `localSelmerRatio_complex`: If φ is surjective on points with kernel of order 3 (a 3-isogeny at a complex place) then c(φ) = 1/3.
 
-- `localSelmerRatio_comp`: c(ψ ∘ φ) = c(φ)·c(ψ) for homomorphisms with finite kernels and cokernels (snake lemma); the global identity c(φ)c(φ̂) = 1 is [cassels isogeny selmer ratio formula](#cassels-isogeny-selmer-ratio-formula).
+- `localSelmerRatio_comp`: c(ψ ∘ φ) = c(φ)·c(ψ) for homomorphisms with finite kernels and cokernels (snake lemma); for elliptic curves the global identity c(φ)c(φ̂) = 1 is [cassels isogeny selmer ratio formula](#cassels-isogeny-selmer-ratio-formula).
 
-- `globalSelmerRatio_twist_local`: c(φ_s) depends only on the images of s in F_v^×/F_v^{×2} for v in a finite set S.
+- `globalSelmerRatio_twist_local`: For deg φ=3, c(φ_s) depends only on the images of s in F_v^×/F_v^{×2} for v in a fixed finite set S, independent of s.
 
-For the proof, Define c_v(φ) from the local Kummer map (finite groups) and the product over all places; finiteness of the product support from [local selmer ratio via tamagawa numbers](#local-selmer-ratio-via-tamagawa-numbers) (c_v = 1 at good v ∤ deg φ). Define the twisted isogeny φ_s and the classes T_m(φ) as subsets of the squareclass group ([quadratic twist squareclass family](../ArithmeticStatisticsPartI/README.md#quadratic-twist-squareclass-family)). c(φ_s) depends on s only through its images in F_v^×/F_v^{×2} for v in the finite set S = {v | 3∞} ∪ {bad v} ∪ {v | 2}, so T_m(φ) ∩ Σ is defined by finitely many local conditions when Σ is ([selmer ratio classes are locally defined](#selmer-ratio-classes-are-locally-defined)).
+For the proof, Define c_v(φ) from the finite local Kummer groups and take the product over all places. At good finite places away from deg φ, the étale isogeny on the formal groups and equality of the finite-field point counts give c_v=1; for elliptic curves this is also [local selmer ratio via tamagawa numbers](#local-selmer-ratio-via-tamagawa-numbers). Define the twisted isogeny φ_s and the classes T_m(φ) as subsets of the squareclass group ([quadratic twist squareclass family](../ArithmeticStatisticsPartI/README.md#quadratic-twist-squareclass-family)). For degree three the uniform assertion c_v(φ_s)=1 outside {v | 6∞} ∪ {bad v} is BKLOS Theorem 6.2; the finite remaining local squareclass groups give the ratio strata. The elliptic specialization is [selmer ratio classes are locally defined](#selmer-ratio-classes-are-locally-defined).
 
-*Needs:* [quadratic twist squareclass family](../ArithmeticStatisticsPartI/README.md#quadratic-twist-squareclass-family), `WeierstrassCurve` (Mathlib).
+*Needs:* [quadratic twist squareclass family](../ArithmeticStatisticsPartI/README.md#quadratic-twist-squareclass-family), AbelianSchemesAndArithmeticModuli:A2–A3, SelmerIwasawaCohomology:L0, `WeierstrassCurve` (Mathlib) for the elliptic specialization.
 
-([[26]](#ref-26), §2, p. 2 (arXiv v2); [[26]](#ref-26), §2, p. 4 (arXiv v2).)
+([[26]](#ref-26), §2, p. 2 and Theorem 6.2, p. 10 (arXiv v2); local archimedean formula: Proposition 10.1, p. 14.)
 
 **Checks.**
 
@@ -1538,13 +1542,13 @@ For the proof, Local conditions: the images of the local Kummer maps E'(F_v)/φE
 
 <a id="isogeny-factorisation-selmer-exact-sequence"></a>
 
-**Isogeny factorisation selmer exact sequence.** Let φ_1 : A_1 → A_2 and φ_2 : A_2 → A_3 be isogenies of elliptic curves over a number field F and ψ = φ_2 ∘ φ_1. There is an exact sequence 0 → A_2(F)[φ_2]/φ_1(A_1(F)[ψ]) → Sel_{φ_1}(A_1) → Sel_ψ(A_1) → Sel_{φ_2}(A_2) → Ш(A_2)[φ_2]/φ_1(Ш(A_1)[ψ]) → 0. For a 3-isogeny φ : E → E' with ψ = φ̂ ∘ φ = [3] this gives dim_{𝔽_3} Sel_3(E) ≤ dim Sel_φ(E) + dim Sel_φ̂(E').
+**Isogeny factorisation selmer exact sequence.** Let φ_1 : A_1 → A_2 and φ_2 : A_2 → A_3 be isogenies of abelian varieties over a number field F and ψ = φ_2 ∘ φ_1. There is an exact sequence 0 → A_2(F)[φ_2]/φ_1(A_1(F)[ψ]) → Sel_{φ_1}(A_1) → Sel_ψ(A_1) → Sel_{φ_2}(A_2) → Ш(A_2)[φ_2]/φ_1(Ш(A_1)[ψ]) → 0. For elliptic curves and a 3-isogeny φ : E → E' with ψ = φ̂ ∘ φ = [3] this gives dim_{𝔽_3} Sel_3(E) ≤ dim Sel_φ(E) + dim Sel_φ̂(E').
 
 φ_1, φ_2 isogenies over F
 
-For the proof, The short exact sequence of Galois modules 0 → A_1[φ_1] → A_1[ψ] → A_2[φ_2] → 0 gives a long exact cohomology sequence compatible with the Kummer sequences of φ_1, ψ, φ_2 globally and locally (Tau Ceti EllipticCurves Layer 7, Selmer structures). Diagram chase with the local conditions (the images of local points) gives exactness at the Selmer terms and identifies the kernel and cokernel with the displayed torsion and Ш quotients (Schaefer–Stoll, Corollary 1). The inequality: exactness at Sel_ψ(A_1) bounds its dimension by the dimensions of its neighbours.
+For the proof, The short exact sequence of Galois modules 0 → A_1[φ_1] → A_1[ψ] → A_2[φ_2] → 0 gives a long exact cohomology sequence compatible with the Kummer sequences of φ_1, ψ, φ_2 globally and locally (SelmerIwasawaCohomology:L0 and the abelian Kummer contract; Tau Ceti EllipticCurves Layer 7 supplies the elliptic specialization). Diagram chase with the local conditions (the images of local points) gives exactness at the Selmer terms and identifies the kernel and cokernel with the displayed torsion and Ш quotients (Schaefer–Stoll, Corollary 1). The inequality: exactness at Sel_ψ(A_1) bounds its dimension by the dimensions of its neighbours.
 
-*Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny).
+*Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), AbelianSchemesAndArithmeticModuli:A2–A3, SelmerIwasawaCohomology:L0.
 
 ([[26]](#ref-26), §9, Lemma 9.1 and (9.1), p. 13 (arXiv v2); [[27]](#ref-27), §8.1, Proposition 42(i) and (22), p. 21 (arXiv v1), citing Schaefer–Stoll.)
 
@@ -1802,7 +1806,7 @@ For the proof, Form the closed, quadratic-isotropic, self-annihilating subtype. 
 
 *Needs:* [lc quadratic](#refinement-lc-quadratic), [weak metabolic](#refinement-weak-metabolic).
 
-([[119]](#ref-119), Paragraph preceding Theorem 2.19 and Theorem 2.19(c), p. 9.)
+([[119]](#ref-119), Paragraph preceding Theorem 2.19 and Theorem 2.19(c), pp. 9–10.)
 
 **Checks.**
 
@@ -1845,6 +1849,10 @@ For the proof, Use a finite dependent product indexed by Fin k. Mix the two comm
 - For two factors and rank vector (0,1), the weight is zero.
 
 - The empty rank vector has weight 1.
+
+- For one prime the coupled weight equals its original marginal. For two prime laws supported at 0 and 1 with weight 1/2 each, the four rank vectors have weights 1/2,0,0,1/2 and total one.
+
+- If both prime laws put all mass at zero, the coupled mass at (0,0) is 2. Total mass one for each marginal alone does not normalize the coupling; the half-parity hypotheses are necessary.
 
 ### 5.26 Locally compact quadratic probability
 
@@ -2096,7 +2104,7 @@ For the proof, Use the finite-field maximal-isotropic count at e=1. Each smooth 
 
 **Ogr schubert dimension.** For 0≤r≤n the locus S_(n,r)⊂OGr_n of points with dim(Z∩W)≥r and dim(Z∩W)≡r mod2 is closed and has relative dimension (n−r)(n+r−1)/2. Its exact-rank open stratum has this dimension. Fixed-rank random models use the intrinsic measure on S_(n,r); when r≥2 they cannot be defined by conditioning the ambient OGr law on a positive-probability rank-r event.
 
-For the proof, Use the fixed parity component and determinantal intersection equations. Resolve by pairs (Z,X) with X an r-plane in Z∩W; over Gr(r,W) the fibre is OGr_(n−r). On the exact-rank locus X is unique and the fibre is the affine space of alternating graph maps. Lower-dimensional vanishing in the requested measure gives the conditioning warning.
+For the proof, Use the fixed parity component and determinantal intersection equations. Resolve by pairs (Z,X) with X an r-plane in Z∩W; over Gr(r,W), select the component of OGr_(n−r) on which dim((Z/X)∩(W/X)) is even. For n=r this fibre is the single point OGr₀. On the exact-rank locus X is unique, and the part of the fibre transverse to W/X is the affine space of alternating graph maps. Lower-dimensional vanishing in the requested measure gives the conditioning warning.
 
 *Needs:* [ogr components](#refinement-ogr-components), [ogr smooth projective](#refinement-ogr-smooth-projective), AlgebraicModuliForArithmeticGeometry:R09.1, AdelicAlgebraicGroups:AA.2.
 
@@ -2105,6 +2113,8 @@ For the proof, Use the fixed parity component and determinantal intersection equ
 **Checks.**
 
 - At n=2,r=2 the locus is a point and is null for the dimension-one ambient measure; it still has its own normalized intrinsic point mass.
+
+- At n=1,r=0 the even-intersection locus is one of the two points of OGr₁. Using both components as the resolution fibre would add the excluded odd-intersection point.
 
 ### 5.30 Delaunay models at all primes
 
@@ -2300,9 +2310,9 @@ For the proof, apply the general-abelian orbit count in Layer 2, whose dictionar
 
 **Endomorphism rank bound.** Let ψ:A→A factor over F as a nonempty chain of degree3 isogenies φ_i. Assume C for every factor and averaging family, and additionally a constant c>0, independent of s, such that log₃#(A_s(F)/ψ_s A_s(F))≥c·rank_Z A_s(F) for every quadratic twist s. Then limsup average rank A_s(F)≤c^(−1)Σ_i(1+average c(φ_(i,s)))<∞. The source’s unrestricted ψ claim is conditional here, because its e/t index estimate is not justified for a general Z[ψ]-module.
 
-For the proof, Use the requested general-abelian isogeny-chain exact sequence in BKLOS Lemma 9.1, not the elliptic-only node; iterate it to bound log₃#Sel_ψ by the sum of degree-3 Selmer dimensions. Embed the Mordell–Weil quotient in Sel_ψ and apply the explicit uniform rank-index hypothesis. Bound each dimension by its cardinality and apply the abelian average theorem.
+For the proof, Iterate the general-abelian [isogeny-chain exact sequence](#isogeny-factorisation-selmer-exact-sequence) of BKLOS Lemma 9.1 to bound log₃#Sel_ψ by the sum of degree-3 Selmer dimensions. Embed the Mordell–Weil quotient in Sel_ψ and apply the explicit uniform rank-index hypothesis. Bound each dimension by its cardinality and apply the abelian average theorem.
 
-*Needs:* [abelian three isogeny average](#refinement-abelian-three-isogeny-average), AbelianSchemesAndArithmeticModuli:A6, SelmerIwasawaCohomology:L0.
+*Needs:* [abelian three isogeny average](#refinement-abelian-three-isogeny-average), [isogeny factorisation selmer exact sequence](#isogeny-factorisation-selmer-exact-sequence), AbelianSchemesAndArithmeticModuli:A6, SelmerIwasawaCohomology:L0.
 
 ([[127]](#ref-127), Theorem 2.2, p. 3; Lemma 9.1 and Section 9 proof, pp. 12–13, corrected conditional formulation.)
 
@@ -2314,7 +2324,7 @@ For the proof, Use the requested general-abelian isogeny-chain exact sequence in
 
 **Multiplication three rank bound.** If [3]:A→A factors over F as a chain of degree3 isogenies and C holds for each factor in the full twist family, the average rank of all quadratic twists A_s/F under H(s)=∏_{v(s) odd}Nv is bounded. In this case #A_s(F)/3A_s(F)≥3^(rank A_s(F)), so the preceding theorem applies with c=1. This conclusion needs no assumption that Z[ψ]-modules have uniform index e/t.
 
-For the proof, Mordell–Weil finite generation computes the3-quotient of the free part exactly. Use the preceding conditional rank bound with ψ=[3] and c=1.
+For the proof, Mordell–Weil finite generation computes the3-quotient of the free part exactly. In positive dimension the factorization is nonempty, so use the preceding conditional rank bound with ψ=[3] and c=1. If dim A=0, the factorization is empty and every twist has rank zero directly.
 
 *Needs:* [endomorphism rank bound](#refinement-endomorphism-rank-bound), AbelianSchemesAndArithmeticModuli:A3.
 
@@ -2323,6 +2333,8 @@ For the proof, Mordell–Weil finite generation computes the3-quotient of the fr
 **Checks.**
 
 - On a free Mordell–Weil group of rank r, the quotient by three has exactly 3^r elements; torsion can only increase that index.
+
+- For the zero abelian variety, [3] is the identity and the degree-three chain is empty. Every twist has rank zero, so this case does not require a factor to which C applies.
 
 <a id="refinement-finite-extension-rank-bound"></a>
 
@@ -2346,7 +2358,7 @@ For the proof, On a signed t=m stratum, use Cassels’ formula to compare φ and
 
 *Needs:* [abelian three isogeny average](#refinement-abelian-three-isogeny-average), [cassels isogeny selmer ratio formula](#cassels-isogeny-selmer-ratio-formula), [isogeny factorisation selmer exact sequence](#isogeny-factorisation-selmer-exact-sequence), [selmer ratio classes are locally defined](#selmer-ratio-classes-are-locally-defined), [finitely many twists with rational p torsion](#finitely-many-twists-with-rational-p-torsion), [number field twist orbit count](../ArithmeticStatisticsPartIII/README.md#refinement-number-field-twist-orbit-count).
 
-([[127]](#ref-127), Theorem 2.4, pp. 3–4; Section 9.1, p. 13.)
+([[127]](#ref-127), Theorem 2.4, pp. 3–4; Section 9.1, p. 14.)
 
 **Checks.**
 
@@ -2360,7 +2372,7 @@ For the proof, Use archimedean Selmer ratios and the finite-place attainable ran
 
 *Needs:* [elliptic explicit twist rank](#refinement-elliptic-explicit-twist-rank), [positive proportions of three selmer ranks in local subfamilies](#positive-proportions-of-three-selmer-ranks-in-local-subfamilies), [three isogeny selmer parity](#three-isogeny-selmer-parity), [number field twist orbit count](../ArithmeticStatisticsPartIII/README.md#refinement-number-field-twist-orbit-count), [local selmer mass ratios](../ArithmeticStatisticsPartVI/README.md#local-selmer-mass-ratios).
 
-([[127]](#ref-127), Theorem 2.6(i)–(iii), pp. 4–5; Section 10 local ratios, pp. 13–16; Section 11 signature proof, pp. 17–18.)
+([[127]](#ref-127), Theorem 2.6(i)–(iii), p. 4; Section 10 local ratios, pp. 14–17; Section 11 signature proof, p. 18.)
 
 **Checks.**
 
@@ -2370,7 +2382,7 @@ For the proof, Use archimedean Selmer ratios and the finite-place attainable ran
 
 **Complex place obstruction.** For every number field F with r₂ complex places, there exists an elliptic E/F with a3-isogeny such that dim_F3 Sel₃(E_s)≥r₂ for every quadratic twist s. Thus signature hypotheses in the positive-proportion theorem cannot simply be removed. This is an existence construction, not a typical-curve law.
 
-For the proof, Use E_k:y²=x³+(4^k·3^8+27)(x+4)² with k satisfying the source local valuation bounds. The local ratios at2,3 and infinity give c(φ_s)≥3^r₂ for every s. The local/global Selmer-ratio formula and exact sequence force the Selmer dimension lower bound. Retain the exceptional torsion check and finite k choice from Proposition13.4.
+For the proof, Use E_k:y²=x³+(4^k·3^8+27)(x+4)² with an integer k≥1. The local ratios at2,3 and infinity give c(φ_s)≥3^r₂ for every s. The local/global Selmer-ratio formula and exact sequence force the Selmer dimension lower bound. In the exceptional dual-torsion twist, the remaining factor 1−4^(2k)3^13−4^(k+1)3^7 is a square in Q₂ and Q₃: it is 1 modulo 8 and 1 modulo 3. This supplies the split multiplicative cases in Proposition13.4 after any base extension.
 
 *Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), [cassels isogeny selmer ratio formula](#cassels-isogeny-selmer-ratio-formula), [isogeny factorisation selmer exact sequence](#isogeny-factorisation-selmer-exact-sequence), [archimedean selmer ratio is one half](../ArithmeticStatisticsPartVI/README.md#archimedean-selmer-ratio-is-one-half).
 
@@ -2380,11 +2392,13 @@ For the proof, Use E_k:y²=x³+(4^k·3^8+27)(x+4)² with k satisfying the source
 
 - The example must work for every squareclass after one finite choice of k satisfying the local conditions; it is not an average-only lower bound.
 
+- k=1 gives a remaining factor congruent to 1 modulo 8 and modulo 3. At k=0 it is 2 modulo 8, so the Q₂ square argument requires the stated positive lower bound on k.
+
 ### Supporting probability and arithmetic comparisons
 
 <a id="support-quadratic-probability"></a>
 
-For a second-countable weakly metabolic locally compact quadratic group, prove that the compact-open quadratic-isotropic reductions form a countable cofinal inverse system, that maximal-isotropic reductions compose and that the inverse-limit topology is the specified Borel structure. Use compatible finite uniform laws to obtain a unique Borel probability; prove continuous isometry invariance, almost-sure discreteness and finiteness of intersection with the fixed compact-open maximal isotropic. Infinite F_p-dimension gives the limiting Poonen–Rains law, while finite dimension gives its finite intersection law. Source: Poonen–Rains Theorem 2.19, pp. 9–11. The countable projective-measure extension is imported from Mathlib; the quadratic finite reductions and their compatibility are proved here.
+For a second-countable weakly metabolic locally compact quadratic group V killed by a fixed prime p, prove that the compact-open quadratic-isotropic reductions form a countable cofinal inverse system, that maximal-isotropic reductions compose and that the inverse-limit topology is the specified Borel structure. Under this exponent-p hypothesis, use compatible finite uniform laws to obtain a unique Borel probability; prove continuous isometry invariance, almost-sure discreteness and finiteness of intersection with the fixed compact-open maximal isotropic. Infinite F_p-dimension gives the limiting Poonen–Rains law, while finite dimension gives its finite intersection law. Source: Poonen–Rains Theorem 2.19, pp. 9–11. The countable projective-measure extension is imported from Mathlib; the quadratic finite reductions and their compatibility are proved here.
 
 For the arithmetic intersection prove the finite-flat theta obstruction and its local invariant normalization, with polar pairing the *negative* Weil-cup product and no division by two. Use global duality to identify the global image and local Kummer image as maximal isotropics and obtain `Sel_λ/Sha¹(k,A[λ])≃Z∩W`. Prove the finite-module Sha1 vanishing criteria separately from any assertion on Sha(A). Characteristic dividing the isogeny degree uses fppf cohomology throughout. Source: Poonen–Rains Proposition 3.3, Corollary 4.6 and Theorem 4.13, pp. 13–21; A3 and D7 supply the theta and duality machinery.
 
@@ -2394,7 +2408,7 @@ For the all-prime symplectic model prove the primewise error bound and apply Bor
 
 <a id="support-cm"></a>
 
-For CM twists retain the arithmetic CM action: maximal-order CM, all endomorphisms defined over the stated base, and the existence of a twist with good reduction. Then prove the local three-isogeny Tamagawa ratio and differential comparison at every place, including two and three. For nonmaximal orders pass through a base-defined isogeny and use corank invariance, rather than assert that geometric CM alone forces every local ratio one. At j=0 and 1728 use the appropriate larger twist automorphism group; the ordinary squareclass-injectivity assertion excludes them or records its fibre. Sources: Rubin's CM lemmas as used in BKLOS §12, and BKLOS Theorems 2.1–2.6 and local §10. Cassels–Tate adjointness is the imported D7 contract; its application yields the exact isogeny Selmer-ratio and parity statements here.
+For CM twists retain the arithmetic CM action: maximal-order CM, all endomorphisms defined over the stated base, and the existence of a twist with good reduction. Then prove the local three-isogeny Tamagawa ratio and differential comparison at every place, including two and three. For nonmaximal orders pass through a base-defined isogeny and use corank invariance, rather than assert that geometric CM alone forces every local ratio one. At j=0 and 1728 use the appropriate larger twist automorphism group; the ordinary squareclass-injectivity assertion excludes them or records its fibre. Sources: BKLOS §11, Lemma 11.1 and Theorem 11.2, pp. 18–19, and proof of Theorem 2.7, p. 19; Rubin §5.1, Proposition 5.3, pp. 15–16, Theorem 5.15, pp. 19–20, and Corollary 5.22, pp. 21–22. Cassels–Tate adjointness is the imported D7 contract; its application yields the exact isogeny Selmer-ratio and parity statements here.
 
 The general endomorphism rank application assumes a uniform constant `c>0` with `log3#(A_s(F)/ψ_sA_s(F))≥c rank A_s(F)`. Prove the bound from that hypothesis and the factorization into degree-three isogenies. For ψ=[3] it holds with c=1 by finite generation. Do not infer it for every Z[ψ]-module from a degree/exponent ratio. Source: BKLOS Theorem 2.2 and Lemma 9.1, pp. 3 and 12–13; the multiplication-by-three specialization and finite-extension corollary assume C for every degree-three factor, over the field where the mean is taken.
 
