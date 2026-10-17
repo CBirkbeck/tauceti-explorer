@@ -229,24 +229,24 @@ open scoped TensorProduct
 variable {F V W : Type*} [Field F] [AddCommGroup V] [Module F V] [AddCommGroup W] [Module F W]
 
 /-- The form `b ⊗ ω` on `V ⊗ W` of an orthogonal–symplectic pair (3.1). -/
-abbrev dualPairForm (b : BilinForm F V) (ω : BilinForm F W) : BilinForm F (V ⊗[F] W) :=
+abbrev tensorSymplecticForm (b : BilinForm F V) (ω : BilinForm F W) : BilinForm F (V ⊗[F] W) :=
   b.tmul ω
 
 /-- **The dual-pair form is symplectic** (3.1): a symmetric `b` and an alternating `ω` give an
 alternating `b ⊗ ω`, in every characteristic. -/
-theorem dualPairForm_isAlt (b : BilinForm F V) (ω : BilinForm F W) (hb : b.IsSymm)
-    (hω : ω.IsAlt) : (dualPairForm b ω).IsAlt := by
+theorem tensorSymplecticForm_isAlt (b : BilinForm F V) (ω : BilinForm F W) (hb : b.IsSymm)
+    (hω : ω.IsAlt) : (tensorSymplecticForm b ω).IsAlt := by
   sorry
 
 /-- Nondegenerate finite-dimensional factors give a nondegenerate `b ⊗ ω` (3.1). -/
-theorem dualPairForm_nondegenerate [FiniteDimensional F V] [FiniteDimensional F W]
+theorem tensorSymplecticForm_nondegenerate [FiniteDimensional F V] [FiniteDimensional F W]
     (b : BilinForm F V) (ω : BilinForm F W) (hb : b.Nondegenerate) (hω : ω.Nondegenerate) :
-    (dualPairForm b ω).Nondegenerate := by
+    (tensorSymplecticForm b ω).Nondegenerate := by
   sorry
 
 /-- On pure tensors `b ⊗ ω` is the product of the two forms. -/
 example (b : BilinForm F V) (ω : BilinForm F W) (v v' : V) (w w' : W) :
-    dualPairForm b ω (v ⊗ₜ w) (v' ⊗ₜ w') = b v v' * ω w w' := by
+    tensorSymplecticForm b ω (v ⊗ₜ w) (v' ⊗ₜ w') = b v v' * ω w w' := by
   sorry
 
 /-- Two alternating factors do not give an alternating form: for `ω` the standard symplectic
@@ -255,7 +255,7 @@ example (ω : BilinForm ℚ (Fin 2 → ℚ))
     (hω : ∀ v w, ω v w = v 0 * w 1 - v 1 * w 0) :
     let x : (Fin 2 → ℚ) ⊗[ℚ] (Fin 2 → ℚ) :=
       Pi.single 0 1 ⊗ₜ Pi.single 1 1 - Pi.single 1 1 ⊗ₜ Pi.single 0 1
-    dualPairForm ω ω x x = 2 := by
+    tensorSymplecticForm ω ω x x = 2 := by
   sorry
 
 open Classical in
@@ -285,31 +285,31 @@ variable {D : Type*} [AddCommGroup D] [Fintype D] [DecidableEq D]
 
 /-- The diagonal operator `T` of the finite Weil representation in the `ω_L` convention (4.7):
 `(Tφ)(μ) = e(−q(μ)) φ(μ)` for a `ℚ/ℤ`-valued quadratic form `q`. -/
-noncomputable def finiteWeilT (q : D → AddCircle (1 : ℝ)) : (D → ℂ) →ₗ[ℂ] (D → ℂ) :=
+noncomputable def finiteWeil_TOperator (q : D → AddCircle (1 : ℝ)) : (D → ℂ) →ₗ[ℂ] (D → ℂ) :=
   Matrix.toLin' (Matrix.diagonal fun μ => ((AddCircle.toCircle (-q μ) : Circle) : ℂ))
 
 /-- The operator `S` (4.7): `(Sφ)(ν) = c/√|D| · Σ_μ e((μ, ν)) φ(μ)` for the discriminant pairing
 `(·, ·)` and the Weil phase `c` fixed by `ψ`. -/
-noncomputable def finiteWeilS (pair : D →+ D →+ AddCircle (1 : ℝ)) (c : ℂ) :
+noncomputable def finiteWeil_SOperator (pair : D →+ D →+ AddCircle (1 : ℝ)) (c : ℂ) :
     (D → ℂ) →ₗ[ℂ] (D → ℂ) :=
   Matrix.toLin' fun ν μ =>
     c / (Real.sqrt (Fintype.card D) : ℂ) * ((AddCircle.toCircle (pair μ ν) : Circle) : ℂ)
 
 /-- **`S² = c²·[−1]`** (4.7): for a symmetric nondegenerate discriminant pairing,
 `(S²φ)(ν) = c² φ(−ν)`. -/
-theorem finiteWeilS_sq (pair : D →+ D →+ AddCircle (1 : ℝ)) (c : ℂ)
+theorem finiteWeil_SOperator_sq (pair : D →+ D →+ AddCircle (1 : ℝ)) (c : ℂ)
     (hsymm : ∀ μ ν, pair μ ν = pair ν μ) (hnd : ∀ ν, (∀ μ, pair μ ν = 0) → ν = 0)
     (φ : D → ℂ) (ν : D) :
-    finiteWeilS pair c (finiteWeilS pair c φ) ν = c ^ 2 * φ (-ν) := by
+    finiteWeil_SOperator pair c (finiteWeil_SOperator pair c φ) ν = c ^ 2 * φ (-ν) := by
   sorry
 
 /-- The sign of the `ω_L` convention: `q(μ) = 1/4` gives `T e_μ = −i e_μ`. -/
 example (q : D → AddCircle (1 : ℝ)) (μ : D) (hq : q μ = ((1 / 4 : ℝ) : AddCircle (1 : ℝ))) :
-    finiteWeilT q (Pi.single μ 1) μ = -Complex.I := by
+    finiteWeil_TOperator q (Pi.single μ 1) μ = -Complex.I := by
   sorry
 
 /-- On a singleton with the zero pairing and phase `1`, `S` is the identity. -/
-example : finiteWeilS (0 : Unit →+ Unit →+ AddCircle (1 : ℝ)) 1 = LinearMap.id := by
+example : finiteWeil_SOperator (0 : Unit →+ Unit →+ AddCircle (1 : ℝ)) 1 = LinearMap.id := by
   sorry
 
 end FiniteWeil
@@ -471,7 +471,7 @@ theorem theta_pairing (a : ℕ) (ha : 0 < a) (Z : SiegelSpace) (μ ν : Fin 2 �
 `∫_{ℝ²} e(−m Z⁻¹[W] − RᵀW) dW = √(−det Z)/(2m) · e(Z[R]/(4m))`, with the principal square root,
 which is the holomorphic branch positive at `Z = iY`. This is the source of the factor `1/(2m)` in
 the genus-two unfolding kernel; the theta pairing of 8.21 does not enter it. -/
-theorem gaussian_fourier_genusTwo (Z : SiegelSpace) (m : ℝ) (hm : 0 < m) (R : Fin 2 → ℝ) :
+theorem gaussianFourier_genusTwo (Z : SiegelSpace) (m : ℝ) (hm : 0 < m) (R : Fin 2 → ℝ) :
     ∫ W : Fin 2 → ℝ,
         expTwoPi (-(m : ℂ) * quad Z.1⁻¹ (fun i => (W i : ℂ)) - ∑ i, (R i : ℂ) * W i) =
       (-Z.1.det) ^ (1 / 2 : ℂ) / (2 * m) * expTwoPi (quad Z.1 (fun i => (R i : ℂ)) / (4 * m)) := by

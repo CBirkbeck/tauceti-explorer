@@ -24,7 +24,7 @@ Local Langlands inputs are taken from the roadmaps that state them: GL2Automorph
 
 ## Conventions
 
-Write e(t)=exp(2πit). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QuadraticFormInvariants §6C supplies nonarchimedean Hilbert symbols, and GlobalQuadraticForms Layer 4 the real one. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
+Write e(t)=exp(2πit) (`expTwoPi`). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QuadraticFormInvariants §6C supplies nonarchimedean Hilbert symbols, and GlobalQuadraticForms Layer 4 the real one. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
 
 Distinguish the scalar-circle extension from its normalized μ₂ subcover. A genuine representation sends the latter’s central −1 to −Id. Fix q’s polar form as q(x+y)−q(x)−q(y); its determinant differs from the quadratic determinant by 2^dimV. GQT parameters use m=m₀+2r, d(n)=n+ε₀, s₀=(m−d(n))/2 and ρ_H=(m−r−ε₀)/2. The half-weight parameter is r/2 and the paired weight-zero parameter r. Petersson products use unnormalized hyperbolic area. In BFH, the original newform conductor is M, the auxiliary level N, and the normalized Siegel parameter s−2.
 
@@ -170,7 +170,7 @@ R is a commutative ring and W,W′,W″ are R-modules with additive commutative 
 
 ### 0.9a Symplectic bases and Lagrangian complements
 
-Prove `exists_symplecticBasis` and `exists_lagrangianComplement`. Let F be a field and ω a nondegenerate alternating form on a finite-dimensional F-space W. Then dim W=2n is even and W has a basis e₁,…,eₙ,f₁,…,fₙ with ω(eᵢ,eⱼ)=ω(fᵢ,fⱼ)=0 and ω(eᵢ,fⱼ)=δᵢⱼ. Every Lagrangian X (an isotropic subspace of dimension n, equivalently X^⊥=X) extends to such a basis with X=span(eᵢ), so Y=span(fᵢ) is a Lagrangian complement and y↦ω(·,y)|_X is an isomorphism Y≅X^∨; any two Lagrangians are exchanged by an element of Sp(W). When char F≠2 the complement can be chosen canonically from any vector-space complement V of X, as the graph {v+Av} of the linear map A:V→X with ω(·,Av)|_X = −½ω(·,v)|_X under X≅V^∨.
+Prove `exists_symplecticBasis` and `exists_lagrangianComplement`. Let F be a field and ω a nondegenerate alternating form on a finite-dimensional F-space W. Then dim W=2n is even and W has a basis e₁,…,eₙ,f₁,…,fₙ with ω(eᵢ,eⱼ)=ω(fᵢ,fⱼ)=0 and ω(eᵢ,fⱼ)=δᵢⱼ. Every Lagrangian X (an isotropic subspace of dimension n, equivalently X^⊥=X) extends to such a basis with X=span(eᵢ), so Y=span(fᵢ) is a Lagrangian complement and y↦ω(·,y)|_X is an isomorphism Y≅X^∨; any two Lagrangians are exchanged by an element of Sp(W). When char F≠2 the complement can be chosen canonically from any vector-space complement V of X, as the graph {v+Av : v∈V} of the linear map A:V→X determined by ω(Av,v′)=−½ω(v,v′) for v,v′∈V; A exists and is unique because ω pairs X with V perfectly, and isotropy of the graph is the identity ω(v₁,v₂)+ω(Av₁,v₂)−ω(Av₂,v₁)=0.
 
 The symplectic-basis statement holds over every field, because ω is alternating, not merely skew; the canonical complement needs ½. Tau Ceti's `TauCeti.SymplecticForm.IsLagrangian` and `TauCeti.SymplecticForm.IsLagrangian.two_mul_finrank` treat the real case only; this target is the field version used by the polarizations of 0.10, 0.15–0.16 and 2.3.
 
@@ -556,6 +556,8 @@ char F≠2; finite-dimensional spaces; b and ω nondegenerate. The tensor-produc
 (Kudla96, II.1, PDF29–30, tensor orthogonal–symplectic pair). *Needs:* 0.8; RepresentationTheory/ClassicalGroups Layer 0.
 
 - `tensorSymplecticForm`: The form evaluates on pure tensors as b(v,v′)ω(w,w′).
+- `tensorSymplecticForm_isAlt`: For symmetric b and alternating ω, b⊗ω is alternating; this holds in every characteristic.
+- `tensorSymplecticForm_nondegenerate`: For finite-dimensional V, W, nondegenerate b and ω give a nondegenerate b⊗ω.
 - `dualPair_commute`: The O(V) and Sp(W) actions commute on V⊗W.
 - `dualPair_kernel`: For nonzero factors the kernel is the simultaneous scalar pairs (aI,a⁻¹I) admitted by the two groups.
 
@@ -564,6 +566,7 @@ char F≠2; finite-dimensional spaces; b and ω nondegenerate. The tensor-produc
 - V=F: Sp(W) acts by its defining representation.
 - V=0: the target and its isometry group are trivial; the product map need not be injective.
 - (−I,−I) acts trivially on V⊗W.
+- Two alternating factors do not give a symplectic form: for ω the standard form on ℚ², ω⊗ω is symmetric and pairs e₀⊗e₁−e₁⊗e₀ with itself to 2.
 
 ### 3.2 Cover over orthogonal–symplectic pairs
 
@@ -687,6 +690,7 @@ Tower supplied by QuadraticFormInvariants and classical groups; nonvanishing at 
 
 (SunZhu15, §1.5 PDF5–8). *Needs:* 3.4, 3.9; QuadraticFormInvariants §6C.
 
+- `firstOccurrence_eq_top_iff`: The first occurrence is ∞ exactly when every member of the tower is zero.
 - `firstOccurrence_nonzero`: For finite first occurrence r₀, ΘV_r₀(π) is nonzero.
 - `firstOccurrence_vanishing`: For r<r₀ the big lift is zero.
 - `firstOccurrence_dimension`: The dimension index is m_0+2r₀ when r₀ is finite.
@@ -863,14 +867,6 @@ Compatible polarizations, ψ and χ; exact norm-image subgroups and components.
 
 (IP23, AppendixA.8, PDF96, and §A.9 LemmaA.13, PDF97). *Needs:* 3.24, 3.27, 3.8.
 
-### 3.29 Periods-I splitting comparison
-
-Prove `quaternionSplitting_periodsI`: For m=2, V=B₁⊗E B₂, J₁J₂=J, κ₁=1, κ₂=−J₁, the ratio ζ=tilde s/s is an automorphic character. If F is totally real, E totally imaginary and B₁,B₂ split at one common real place, ζ=1 at every local place.
-
-All global hypotheses of A.14, including the common split real place.
-
-(IP23, AppendixA PropositionA.14, equations(A.9)–(A.11), PDF98–99). *Needs:* 3.24, 3.25, 3.26, 3.30, 3.31, 3.32; QuadraticFormInvariants §6C.
-
 ### 3.30 First scalar splitting calculation
 
 Prove `quaternionSplitting_scalarA9`: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
@@ -894,6 +890,14 @@ Prove `quaternionSplitting_scalarA11`: When J_i=t_i², the normalized generators
 Specified square roots and the global real-place argument of A.14.
 
 (IP23, AppendixA LemmasA.21–A.23, PDF106–108). *Needs:* 3.27, 3.24, 3.25, 3.26.
+
+### 3.32a Periods-I splitting comparison
+
+Prove `quaternionSplitting_periodsI`: For m=2, V=B₁⊗E B₂, J₁J₂=J, κ₁=1, κ₂=−J₁, the ratio ζ=tilde s/s is an automorphic character. If F is totally real, E totally imaginary and B₁,B₂ split at one common real place, ζ=1 at every local place.
+
+All global hypotheses of A.14, including the common split real place.
+
+(IP23, AppendixA PropositionA.14, equations(A.9)–(A.11), PDF98–99). *Needs:* 3.24, 3.25, 3.26, 3.30, 3.31, 3.32; QuadraticFormInvariants §6C.
 
 ### 3.33 Harris–Kudla splitting comparison
 
@@ -1092,6 +1096,7 @@ Nondegenerate even lattice, ψ_Q with positive real exponential and globally com
 - `finiteWeil_conjugate`: ρ_L is the complex conjugate of ω_L; T exponents change sign.
 - `finiteWeil_TOperator`: Construct the diagonal native linear operator with negative quadratic exponential on D→ℂ.
 - `finiteWeil_SOperator`: Construct the native finite Fourier linear operator with positive pairing exponential and specified Weil phase.
+- `finiteWeil_SOperator_sq`: For a symmetric nondegenerate discriminant pairing, (S²φ)(ν)=c²φ(−ν), where c is the Weil phase.
 
 **Checks.**
 
@@ -1742,9 +1747,9 @@ Define `plusOperators` as follows. On the unitary-weight space set UF(z)=(√2/4
 
 (DIT16, §8, printed976, PDF28, U,W and footnote6). *Needs:* 7.1, 7.2, 7.9, 5.5.
 
-- `plusOperators_uFormula`: U=(√2/4)Σ_{ν mod 4}F((z+ν)/4) in the unitary normalization.
-- `plusOperators_wFormula`: W uses exp(iπ/4)(z/|z|)^(−1/2) and z↦−1/(4 z).
-- `plusOperators_projectionComparison`: The supplied U,W formulas define (2/3)WU+(1/3)id on functions; proving that it is the orthogonal plus projection requires the actual Maass domain and relations.
+- `plusU`: UF(z)=(√2/4)Σ_{ν mod 4}F(`shiftFour` ν z), with `shiftFour` ν z=(z+ν)/4, in the unitary normalization.
+- `plusW`: WF(z)=exp(iπ/4)(z/|z|)^(−1/2)F(`invertFour` z), with `invertFour` z=−1/(4z) and the principal power.
+- `plusProjector`: pr⁺=(2/3)WU+(1/3)id on functions on the upper half-plane; that it is the orthogonal projection onto the plus space is 7.11.
 
 **Checks.**
 
@@ -1933,11 +1938,17 @@ Prove `kohnenPlus_heckeBasis`: Construct an orthonormal simultaneous Hecke eigen
 
 *Proof input.* The eigenbasis needs the Hecke operators T(p²) for all p, including the plus-space operator at p=2, on the self-adjoint domain of 7.15; simultaneous diagonalization away from 2 does not give an eigenbasis for the Euler product. The operator at 2 and its self-adjointness are part of this target (DIT16 §10, Katok–Sarnak).
 
+### 7.28a Shimura coefficient relation
+
+Prove `shimura_coefficientRelation`: For m>0 and fundamental d, mΣ_{n|m}n^(−3/2)(d/n)b_ψ(m²d/n²)=a_ψ(m)b_ψ(d). Prove that some fundamental coefficient is nonzero, so these relations determine the lift and all coefficients from fundamental ones.
+
+(DIT16, Theorem4; §10, pp981–982). *Needs:* 7.3, 7.28, 5.5.
+
 ### 7.29 Shimura lift from an eigenline
 
 Define `shimuraEigenlineLift` as follows. For ψ∈B_r, choose a fundamental d with b_ψ(d)≠0, define a_ψ(n) from the Hecke Euler factors, and form Shim(ψ)(z)=2√yΣ_{n≠0}a_ψ(|n|)K_ir(2π|n|y)e(nx). Prove independence from the selected d and from scaling ψ; define it first on the eigenline.
 
-(DIT16, §10 (10.1)–(10.3), p981). *Needs:* 7.3, 7.28, 5.5, 7.30; AutomorphicFormsOnReductiveGroups §4.5.
+(DIT16, §10 (10.1)–(10.3), p981). *Needs:* 7.3, 7.28, 5.5, 7.28a; AutomorphicFormsOnReductiveGroups §4.5.
 
 - `shimuraEigenlineLift_heckeSeries`: Form the even K-Bessel series from the Hecke eigenvalues.
 - `shimuraEigenlineLift_scaleIndependence`: Multiplying ψ by a nonzero scalar leaves all a_ψ(n) and Shim(ψ) unchanged.
@@ -1949,129 +1960,13 @@ Define `shimuraEigenlineLift` as follows. For ψ∈B_r, choose a fundamental d w
 - b(d)=0 cannot serve as denominator.
 - The p=2 factor requires its own plus-space convention.
 
-### 7.30 Shimura coefficient relation
-
-Prove `shimura_coefficientRelation`: For m>0 and fundamental d, mΣ_{n|m}n^(−3/2)(d/n)b_ψ(m²d/n²)=a_ψ(m)b_ψ(d). Prove that some fundamental coefficient is nonzero, so these relations determine the lift and all coefficients from fundamental ones.
-
-(DIT16, Theorem4; §10, pp981–982). *Needs:* 7.3, 7.28, 5.5.
-
 ### 7.31 Spectral substitution residue factor four
 
 Prove `spectralResidue_substitution`: Set w=s/2+1/4, s₀=1/2+ir and w₀=1/2+ir/2, r>0. Then Res_{s=s₀}[(2s−1)H(s/2+1/4)]=4 Res_{w=w₀}[(2w−1)H(w)] for H with a simple pole at w₀. One factor2 is the derivative of the coordinate change, the other the linear spectral factor.
 
 (DIT16, §10, p982).
 
-### 7.32 Spectral trace identity before multiplicity one
-
-Prove `halfWeight_spectralTrace`: Taking residues of the three-case identity and using the Fourier residues, Shimura coefficient relation and factor-four change of variable gives 12√π|D|³/⁴Σ_ψ b_ψ(d′)conj(b_ψ(d))a_ψ(m)=Σ_φ a_φ(m)T(φ,χ). Here T is the norm-divided three-case geometric trace of 7.47. Retain both finite eigenspace sums until the Shimura bijection is proved.
-
-(DIT16, §10 (10.4)–(10.6), pp981–982). *Needs:* 7.20, 7.27, 7.30, 7.31, 5.5, 7.47; AutomorphicSpectralTheory §4.17a.
-
-### 7.33 Automorphy of the Shimura series
-
-Prove `shimura_automorphy`: Use the family of trace identities and the Biró linear-independence argument to prove Shim(ψ) is an even level-one Hecke–Maass cusp form with eigenvalue1/4+r². Formal Fourier series with the right Euler factors alone do not imply automorphy.
-
-(DIT16, §10, p982, citing Biró[3]p129). *Needs:* 7.29, 7.32, 7.43, 5.5.
-
-### 7.34 Shimura bijection of eigenlines
-
-Prove `shimura_eigenlineBijection`: The weight-one-half Kohnen-plus Hecke eigenlines at parameter r/2 correspond bijectively to normalized even level-one Hecke–Maass forms at parameter r. On a previously chosen orthonormal basis B_r this gives one selected vector for each line; it does not produce a phase-independent unit vector.
-
-(DIT16, §10 Proposition6 proof, pp981–982, [1]Theorem1.2). *Needs:* 7.28, 7.33, 5.5.
-
-*Proof input.* Surjectivity onto the weight-zero eigenlines is Baruch–Mao's Theorem 1.2, which DIT16 Proposition 6 cites; it is an input of this target, with its level, multiplier and local conditions stated as in Baruch–Mao.
-
-### 7.35 Extended trace formula for all discriminants
-
-Prove `shimura_extendedTrace`: For a normalized even φ and a unit ψ on its corresponding plus eigenline, T(φ,χ)=12√π|D|^(3/4)b_ψ(d′)conj(b_ψ(d)) for fundamental d, discriminant d′, D=d′d nonsquare. General negative D requires |D|^(3/4).
-
-(DIT16, Proposition6, pp981–982). *Needs:* 7.32, 7.34, 5.5, 7.47.
-
-### 7.36 Theorem4 negative factors
-
-Prove `shimura_negativeTrace`: Let φ be the even level-one form of 7.29 with a(1)=1, λ=1/4+r², and let F be the corresponding half-weight eigenline vector with unnormalized Petersson norm 1 and the coefficient relation of 7.30. For coprime negative fundamental d,d′, D=dd′>0, prove 12√πD³/⁴ b(d′)conj(b(d))=||φ||⁻²(λ/2)Σ_{A∈Cl⁺(K)}χ(A)∫_{F_A}φdμ. F remains determined only up to unit phase.
-
-(DIT16, §5 Theorem4, (5.16) first branch, p965). *Needs:* 7.35, 5.5, 7.47; FuchsianOrbifolds Layer 6.
-
-### 7.37 Theorem4 positive factors
-
-Prove `shimura_positiveTrace`: For coprime positive fundamental d,d′, 12√πD^(3/4)b(d′)conj(b(d))=||φ||⁻²Σ_Aχ(A)∫_{C_A}φds, with the same normalized φ and unit half-weight eigenline.
-
-(DIT16, §5 Theorem4, (5.16) second branch, p965). *Needs:* 7.35, 5.5, 7.47.
-
-### 7.38 Theorem4 CM factors
-
-Prove `shimura_cmTrace`: For coprime fundamental d,d′ of opposite sign, 12√π|D|^(3/4)b(d′)conj(b(d))=||φ||⁻²(2√π/ω_D)Σ_Aχ(A)φ(z_A). Keep both 2√π and ω_D; the paper explicitly corrects the earlier CM constant.
-
-(DIT16, §5 Theorem4, (5.16) third branch and footnote4, p965). *Needs:* 7.35, 5.5, 7.47.
-
-### 7.39 Duke coefficient estimate with spectral factor
-
-Prove `halfWeight_dukeBound`: For an L²-unit weight-one-half cusp form on Γ₀(4) with eigenvalue 1/4+t² for real t, and nonzero fundamental n, prove |b(n)|≪_ε(1+|t|)^C cosh(πt/2)|n|^(−2/7+ε). For the paired lift t=r/2. Conversion to the a(1)=1 weight-zero form retains its Petersson norm and the spectral factor; it requires no unproved symmetric-square r^ε estimate.
-
-(DIT16, §6, (6.6), printed968–969/PDF20–21; Duke88, §2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF16–17). *Needs:* 7.3, 7.12, 7.28, 5.5.
-
-The Duke88 Theorem 5 statement, its spectral normalization and its proof on printed pp.85–86 have been checked. The formal signature still awaits the full spectral coefficient carrier.
-
-### 7.40 Exact conjugation of the two U and W normalizations
-
-Prove `plusOperators_conjugation`: On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.
-
-(DIT16, §8, printed976, PDF28, U,W and footnote6; DIT11 §2, printed959, PDF13).
-
-### 7.41 Positive Fourier kernel and orthogonal complement
-
-Define `positiveFourierKernel` as follows. In the finite-dimensional fixed-eigenvalue plus cusp space W, let W₀=⋂_{n>0,n≡0,1(4)}ker(b_n) and W₁=W₀⊥. Use W=W₀⊕W₁ with the inherited Petersson inner product. No hypothesis or conclusion W₀=0 is imposed.
-
-(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.3, 7.9.
-
-- `positiveFourierKernel_memKernel`: Membership in W₀ means every positive admissible Fourier coefficient vanishes.
-- `positiveFourierKernel_orthogonalSplit`: Choose an orthonormal basis adapted to W₀⊕W₁ using finite dimensionality.
-- `positiveFourierKernel_liftZero`: For positive fundamental D, the Biró lift is zero on W₀ because every DQ² index is positive and admissible.
-
-**Checks.**
-
-- Identity positive-coefficient maps on C exclude nonzero vectors.
-- Full positive kernel forces all positive coefficients to vanish.
-- A sole negative-index identity map leaves the positive kernel full.
-
-### 7.42 Finite Fourier certificate with conjugated trace coefficients
-
-Prove `positiveFourier_finiteCertificate`: For an orthonormal basis f₁,…,f_m of W₁, there exist m positive admissible indices n_i for which the matrix (conj(b_{f_j}(n_i))) is invertible. This uses all positive admissible coefficients, not only fundamental indices.
-
-(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.41.
-
-### 7.43 Automorphy from finite Fourier separation
-
-Prove `shimura_finiteFourierAutomorphy`: At N=1, assume convergence of Biró’s Fourier series and its equation (14) for every positive admissible index n=s/D. This expresses each conjugated-coefficient combination of Sh_D f_j as a finite genus-weighted weight-zero cusp trace. Finite Fourier separation then proves each Sh_D f, f∈W, is a possibly zero level-one cusp eigenform at parameter r. For positive D its Fourier coefficients are even. Establish the trace identity independently; for N>1 the spaces are Γ₀(N) and V*₁/₂(4N).
-
-D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional node, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
-
-(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.41, 7.42.
-
-### 7.44 Coefficients of the weight-1/2 plus-space Eisenstein series
-
-Prove `halfWeightEisenstein_dit11`: For positive m and fundamental D, prove Σ_{n|m}(D/n)b₀(Dm²/n²,s)=2^(2−4s)π^(s+1/4)m^(3/2−2s)|D|^(s−1/4)σ_{4s−2}(m)L_D(2s−1/2)/ζ(4s−1), and b₀(0,s)=√π2^(5/2−6s)Γ(2s)ζ(4s−2)/ζ(4s−1), for the DIT11 P₀⁺ coefficients. Consequently E*₁/₂(z,s)=2^sΛ(2s)y¹/⁴P₀⁺(z,s/2+1/4), recovering the constant term, fundamental coefficients and Shimura relation above.
-
-(DIT16, DIT11 Lemma 4, (2.23)–(2.25), pp961–962; used for the E*_{1/2} display, DIT16 p964, which cites only [16, Prop. 2 p. 959]). *Needs:* 5.5, 7.4, 7.3, 7.40.
-
-### 7.45 Fourier expansion and residues of the weight-1/2 resolvent
-
-Prove `halfWeightResolvent_fourier`: For Re s>1, reduced z and Im z′>Im z, expand G₁/₂(z′,z;s) as Σ_{n≠0}F₁/₂,n(z,s)W_{sgn n/4,s−1/2}(4π|n|y′)e(−nx′) plus its separate Eisenstein term. Continue meromorphically and prove Resₛ₌₁/₂₊ᵢᵣ/₂(2s−1)G₁/₂=Σ_ψ conj(ψ(z′))ψ(z), using an orthonormal basis of V_r. Fay’s resolvent input also gives meromorphic continuation of Φ⁺ to all s.
-
-(DIT16, §8, pp.975–977, citing Fay [20, Thm 3.1] and footnote 5; Fay Cor. 3.6 p.178). *Needs:* 5.5, 7.15, 7.16, 7.17.
-
-*Proof input.* DIT16 §8 records the Fourier formula and refers to Fay, Theorem 3.1 and Corollary 3.6, p.178; the resolvent itself is the one constructed in 7.15.
-
-### 7.46 Shimura Dirichlet-series identity for ψ∈B_r
-
-Prove `shimura_dirichletSeries`: For ψ∈B_r and fundamental d, prove L_d(s+1/2)Σ_{n≥1}b(dn²)n^(1−s)=b(d)∏_p(1−a_ψ(p)p^−s+p^−2s)^−1. Here L_d=L(−,χ_d), and a_ψ(2) uses the specified plus-space Hecke operator. Coefficient comparison gives 7.30.
-
-Use the all-prime simultaneous eigenbasis, including the separately supplied plus-space operator at2; an odd-prime eigenbasis does not define the displayed Euler product.
-
-(DIT16, §10, p.981 (display after (10.1))). *Needs:* 5.5, 7.3, 7.28, 7.30.
-
-### 7.47 Geometric trace
+### 7.31a Geometric trace
 
 Define `geometricTrace` as follows. For an even Hecke–Maass cusp form φ, fundamental d, discriminant d′ and nonsquare D=d′d, define T(φ,χ)=||φ||⁻²Σ_{Q∈Γ\Q_D}χ(Q)Y_Q. Here Y_Q=2sqrt(π)ω_Q⁻¹φ(z_Q) for D<0, ∫C_Qφ y⁻¹|dz| for d,d′>0, and ∫C_Q i∂_zφ dz for d,d′<0, with the corrected z→γ_Qz orientation. The sums and cycles are the supplied arithmetic geometric objects; for odd φ the paired trace vanishes.
 
@@ -2089,13 +1984,123 @@ Nonzero actual cusp eigenform so ||φ||²>0; the genus character on possibly imp
 - Equal-weight paired points with φ(q)=−φ(p) cancel in the weighted trace.
 - The denominator is 1 at Petersson norm 1, and is retained at other norms.
 
+### 7.32 Spectral trace identity before multiplicity one
+
+Prove `halfWeight_spectralTrace`: Taking residues of the three-case identity and using the Fourier residues, Shimura coefficient relation and factor-four change of variable gives 12√π|D|³/⁴Σ_ψ b_ψ(d′)conj(b_ψ(d))a_ψ(m)=Σ_φ a_φ(m)T(φ,χ). Here T is the norm-divided three-case geometric trace of 7.31a. Retain both finite eigenspace sums until the Shimura bijection is proved.
+
+(DIT16, §10 (10.4)–(10.6), pp981–982). *Needs:* 7.20, 7.27, 7.28a, 7.31, 5.5, 7.31a; AutomorphicSpectralTheory §4.17a.
+
+### 7.32a Positive Fourier kernel and orthogonal complement
+
+Define `positiveFourierKernel` as follows. In the finite-dimensional fixed-eigenvalue plus cusp space W, let W₀=⋂_{n>0,n≡0,1(4)}ker(b_n) and W₁=W₀⊥. Use W=W₀⊕W₁ with the inherited Petersson inner product. No hypothesis or conclusion W₀=0 is imposed.
+
+(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.3, 7.9.
+
+- `positiveFourierKernel_memKernel`: Membership in W₀ means every positive admissible Fourier coefficient vanishes.
+- `positiveFourierKernel_orthogonalSplit`: Choose an orthonormal basis adapted to W₀⊕W₁ using finite dimensionality.
+- `positiveFourierKernel_liftZero`: For positive fundamental D, the Biró lift is zero on W₀ because every DQ² index is positive and admissible.
+
+**Checks.**
+
+- Identity positive-coefficient maps on C exclude nonzero vectors.
+- Full positive kernel forces all positive coefficients to vanish.
+- A sole negative-index identity map leaves the positive kernel full.
+
+### 7.32b Finite Fourier certificate with conjugated trace coefficients
+
+Prove `positiveFourier_finiteCertificate`: For an orthonormal basis f₁,…,f_m of W₁, there exist m positive admissible indices n_i for which the matrix (conj(b_{f_j}(n_i))) is invertible. This uses all positive admissible coefficients, not only fundamental indices.
+
+(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.32a.
+
+### 7.32c Automorphy from finite Fourier separation
+
+Prove `shimura_finiteFourierAutomorphy`: At N=1, assume convergence of Biró’s Fourier series and its equation (14) for every positive admissible index n=s/D. This expresses each conjugated-coefficient combination of Sh_D f_j as a finite genus-weighted weight-zero cusp trace. Finite Fourier separation then proves each Sh_D f, f∈W, is a possibly zero level-one cusp eigenform at parameter r. For positive D its Fourier coefficients are even. Establish the trace identity independently; for N>1 the spaces are Γ₀(N) and V*₁/₂(4N).
+
+D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional node, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
+
+(Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.32a, 7.32b.
+
+### 7.33 Automorphy of the Shimura series
+
+Prove `shimura_automorphy`: Use the family of trace identities and the Biró linear-independence argument to prove Shim(ψ) is an even level-one Hecke–Maass cusp form with eigenvalue1/4+r². Formal Fourier series with the right Euler factors alone do not imply automorphy.
+
+(DIT16, §10, p982, citing Biró[3]p129). *Needs:* 7.29, 7.32, 7.32c, 5.5.
+
+### 7.34 Shimura bijection of eigenlines
+
+Prove `shimura_eigenlineBijection`: The weight-one-half Kohnen-plus Hecke eigenlines at parameter r/2 correspond bijectively to normalized even level-one Hecke–Maass forms at parameter r. On a previously chosen orthonormal basis B_r this gives one selected vector for each line; it does not produce a phase-independent unit vector.
+
+(DIT16, §10 Proposition6 proof, pp981–982, [1]Theorem1.2). *Needs:* 7.28, 7.33, 5.5.
+
+*Proof input.* Surjectivity onto the weight-zero eigenlines is Baruch–Mao's Theorem 1.2, which DIT16 Proposition 6 cites; it is an input of this target, with its level, multiplier and local conditions stated as in Baruch–Mao.
+
+### 7.35 Extended trace formula for all discriminants
+
+Prove `shimura_extendedTrace`: For a normalized even φ and a unit ψ on its corresponding plus eigenline, T(φ,χ)=12√π|D|^(3/4)b_ψ(d′)conj(b_ψ(d)) for fundamental d, discriminant d′, D=d′d nonsquare. General negative D requires |D|^(3/4).
+
+(DIT16, Proposition6, pp981–982). *Needs:* 7.32, 7.34, 5.5, 7.31a.
+
+### 7.36 Theorem4 negative factors
+
+Prove `shimura_negativeTrace`: Let φ be the even level-one form of 7.29 with a(1)=1, λ=1/4+r², and let F be the corresponding half-weight eigenline vector with unnormalized Petersson norm 1 and the coefficient relation of 7.28a. For coprime negative fundamental d,d′, D=dd′>0, prove 12√πD³/⁴ b(d′)conj(b(d))=||φ||⁻²(λ/2)Σ_{A∈Cl⁺(K)}χ(A)∫_{F_A}φdμ. F remains determined only up to unit phase.
+
+(DIT16, §5 Theorem4, (5.16) first branch, p965). *Needs:* 7.35, 5.5, 7.31a; FuchsianOrbifolds Layer 6.
+
+### 7.37 Theorem4 positive factors
+
+Prove `shimura_positiveTrace`: For coprime positive fundamental d,d′, 12√πD^(3/4)b(d′)conj(b(d))=||φ||⁻²Σ_Aχ(A)∫_{C_A}φds, with the same normalized φ and unit half-weight eigenline.
+
+(DIT16, §5 Theorem4, (5.16) second branch, p965). *Needs:* 7.35, 5.5, 7.31a.
+
+### 7.38 Theorem4 CM factors
+
+Prove `shimura_cmTrace`: For coprime fundamental d,d′ of opposite sign, 12√π|D|^(3/4)b(d′)conj(b(d))=||φ||⁻²(2√π/ω_D)Σ_Aχ(A)φ(z_A). Keep both 2√π and ω_D; the paper explicitly corrects the earlier CM constant.
+
+(DIT16, §5 Theorem4, (5.16) third branch and footnote4, p965). *Needs:* 7.35, 5.5, 7.31a.
+
+### 7.39 Duke coefficient estimate with spectral factor
+
+Prove `halfWeight_dukeBound`: For an L²-unit weight-one-half cusp form on Γ₀(4) with eigenvalue 1/4+t² for real t, and nonzero fundamental n, prove |b(n)|≪_ε(1+|t|)^C cosh(πt/2)|n|^(−2/7+ε). For the paired lift t=r/2. Conversion to the a(1)=1 weight-zero form retains its Petersson norm and the spectral factor; it requires no unproved symmetric-square r^ε estimate.
+
+(DIT16, §6, (6.6), printed968–969/PDF20–21; Duke88, §2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF16–17). *Needs:* 7.3, 7.12, 7.28, 5.5.
+
+The Duke88 Theorem 5 statement, its spectral normalization and its proof on printed pp.85–86 have been checked. The formal signature still awaits the full spectral coefficient carrier.
+
+### 7.40 Exact conjugation of the two U and W normalizations
+
+Prove `plusOperators_conjugation`: On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.
+
+(DIT16, §8, printed976, PDF28, U,W and footnote6; DIT11 §2, printed959, PDF13).
+
+### 7.44 Coefficients of the weight-1/2 plus-space Eisenstein series
+
+Prove `halfWeightEisenstein_dit11`: For positive m and fundamental D, prove Σ_{n|m}(D/n)b₀(Dm²/n²,s)=2^(2−4s)π^(s+1/4)m^(3/2−2s)|D|^(s−1/4)σ_{4s−2}(m)L_D(2s−1/2)/ζ(4s−1), and b₀(0,s)=√π2^(5/2−6s)Γ(2s)ζ(4s−2)/ζ(4s−1), for the DIT11 P₀⁺ coefficients. Consequently E*₁/₂(z,s)=2^sΛ(2s)y¹/⁴P₀⁺(z,s/2+1/4), recovering the constant term, fundamental coefficients and Shimura relation above.
+
+(DIT16, DIT11 Lemma 4, (2.23)–(2.25), pp961–962; used for the E*_{1/2} display, DIT16 p964, which cites only [16, Prop. 2 p. 959]). *Needs:* 5.5, 7.4, 7.3, 7.40.
+
+### 7.45 Fourier expansion and residues of the weight-1/2 resolvent
+
+Prove `halfWeightResolvent_fourier`: For Re s>1, reduced z and Im z′>Im z, expand G₁/₂(z′,z;s) as Σ_{n≠0}F₁/₂,n(z,s)W_{sgn n/4,s−1/2}(4π|n|y′)e(−nx′) plus its separate Eisenstein term. Continue meromorphically and prove Resₛ₌₁/₂₊ᵢᵣ/₂(2s−1)G₁/₂=Σ_ψ conj(ψ(z′))ψ(z), using an orthonormal basis of V_r. Fay’s resolvent input also gives meromorphic continuation of Φ⁺ to all s.
+
+(DIT16, §8, pp.975–977, citing Fay [20, Thm 3.1] and footnote 5; Fay Cor. 3.6 p.178). *Needs:* 5.5, 7.15, 7.16, 7.17.
+
+*Proof input.* DIT16 §8 records the Fourier formula and refers to Fay, Theorem 3.1 and Corollary 3.6, p.178; the resolvent itself is the one constructed in 7.15.
+
+### 7.46 Shimura Dirichlet-series identity for ψ∈B_r
+
+Prove `shimura_dirichletSeries`: For ψ∈B_r and fundamental d, prove L_d(s+1/2)Σ_{n≥1}b(dn²)n^(1−s)=b(d)∏_p(1−a_ψ(p)p^−s+p^−2s)^−1. Here L_d=L(−,χ_d), and a_ψ(2) uses the specified plus-space Hecke operator. Coefficient comparison gives 7.28a.
+
+Use the all-prime simultaneous eigenbasis, including the separately supplied plus-space operator at2; an odd-prime eigenbasis does not define the displayed Euler product.
+
+(DIT16, §10, p.981 (display after (10.1))). *Needs:* 5.5, 7.3, 7.28, 7.28a.
+
 ### 7.48 Biró lift
 
 Define `biroLift` as follows. For N>0, positive fundamental D and f∈V*₁/₂(4N) with Biró eigenvalue λ=−1/4−t²<−3/16, define Sh_D f=Σ_{k≠0}a_Sh(k)W_{1/2+2it}(kz), where a_Sh(k)=Σ_{PQ=k,P>0,(N,P)=1}|Q|¹/²P⁻¹(D/P)b_f(DQ²). Prove it is a Γ₀(N) cusp form with eigenvalue −1/4−(2t)². Take V*=V⁺ for odd N and V for even N; use Biró’s W normalization. This is a Fourier-series construction.
 
 N>0, D>0 fundamental, f∈V*_{1/2}(4N), λ<−3/16. Use Biró’s own Whittaker W_s(kz) normalization, with its |k|^{1/2} factor when compared to a 2sqrt(y)K series. The general-level coefficient and trace spaces must be instantiated, not identified with the N=1 space. λ is real and t²=−λ−1/4; t may be real or purely imaginary. The complex parameter retains the source complementary range −1/4<λ<−3/16, rather than silently restricting Theorem1 to real t.
 
-(Biro00, §1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27). *Needs:* 7.41, 7.42, 7.43; AutomorphicSpectralTheory §§0.26–0.27; AutomorphicFormsOnReductiveGroups §4.5; AutomorphicLFunctionsAndLocalFactors AL.0 (K-Bessel kernel).
+(Biro00, §1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27). *Needs:* 7.32a, 7.32b, 7.32c; AutomorphicSpectralTheory §§0.26–0.27; AutomorphicFormsOnReductiveGroups §4.5; AutomorphicLFunctionsAndLocalFactors AL.0 (K-Bessel kernel).
 
 - `biroLift_coeff`: The source-normalized divisor expression is used in the series over all k≠0, with positive-D inputs b_f(DQ²); actual Fourier coefficient extraction requires the analytic carrier.
 - `biroLift_spectral`: Half-weight parameter t gives weight-zero parameter2t in the negative Laplacian convention.
@@ -2226,9 +2231,9 @@ Define `SiegelSpace` as follows. H₂ is the subtype of complex symmetric 2×2 m
 
 (BFH90, §1, p.546, definition of H₂).
 
-- `siegelSpace_mem`: Membership is Zᵀ=Z and (Im Z).PosDef.
-- `siegelSpace_im_pos`: For Z∈H₂, (Im Z).PosDef.
-- `siegelSpace_base`: iI₂ is in H₂.
+- `SiegelSpace`: the subtype of complex symmetric Z with (Im Z).PosDef.
+- `SiegelSpace.im`: the imaginary part Y of Z, a positive-definite real matrix.
+- `SiegelSpace.base`: the base point iI₂.
 
 **Checks.**
 
@@ -2387,11 +2392,17 @@ Define `fourierCoefficient` as follows. For j=0 or 1, define B_j(g;T,R)=N^(−3j
 - For Φ(g,W)=e(N^(1−j)RᵀW), Q=0 and matching R, the coefficient is 1.
 - For constant 1 and nonzero R, the coefficient at Q=0 is 0 (N>0).
 
+### 8.20a Genus-two theta normal convergence
+
+Prove `theta_normal_convergence`: For a>0, on every compact subset of H₂×C² the θ_{a,ν} series and all coordinate derivatives converge absolutely and uniformly. Hence θ is jointly holomorphic and termwise differentiation, residue-class regrouping and compact-torus integration are valid. The bound uses the least eigenvalue of Im Z uniformly bounded below and bounded Im W.
+
+(BFH90, §2, pp.551–553, definition of θ and Proposition 2.1). *Needs:* 8.18, 8.10; Layer 2.
+
 ### 8.21 Gaussian orthogonality of genus-two theta series
 
 Prove `theta_pairing`: For a>0, Z=X+iY∈H₂ and μ,ν∈Z², the Lebesgue integral over C²/(Z Z²+Z²) of θᵃ_μ(Z,W) conjugate(θᵃ_ν(Z,W)) exp(−4πa Y⁻¹[Im W]) is √det(Y)/(4a) if μ≡ν mod 2a, and zero otherwise. In W=Zλ+ρ coordinates the measure is det(Y)dλdρ on [0,1)^4.
 
-(BFH90, Proposition 2.1, p.551). *Needs:* 8.18, 8.75.
+(BFH90, Proposition 2.1, p.551). *Needs:* 8.18, 8.20a.
 
 Integrating first in ρ eliminates unequal lattice indices. For equal residues the remaining translates of λ tile R², and the integrand is exp(−4πa λᵀYλ). Its integral is 1/(4a√det Y); multiplication by the Jacobian det Y gives the stated norm. This computation corrects the displayed factor in BFH Proposition 2.1 for the stated Lebesgue measure.
 
@@ -2401,31 +2412,7 @@ Integrating first in ρ eliminates unequal lattice indices. For equal residues t
 - At a=2,Z=iI₂ the diagonal norm is 1/8, detecting the index scaling.
 - At a=1,Z=iI₂, μ=(0,0),ν=(1,0), the pairing is zero.
 
-### 8.22 Holomorphic contour shift for Fourier coefficients
-
-Prove `coefficient_shift_analytic`: If Φ_j is continuous, smooth in g, holomorphic in W, and invariant under the BFH elliptic lattice at cusp j, its Fourier extraction obeys B_j(g;T,R)=B_j(g;T−(N/2)(Rλᵀ+λRᵀ)+mN^jλλᵀ,R−2mN^(j−1)λ), λ∈N^(−j)Z². Hence the retained coefficient-invariants theorem applies with a=m/N and c=N^(1−j).
-
-(BFH90, §2, pp.552–553, (2.9)). *Needs:* 8.20, 8.17, 8.1, 8.9, 8.26.
-
-### 8.23 BFH two-cusp theta decomposition
-
-Prove `theta_decomposition`: Under the Jacobi regularity and lattice hypotheses above, there are unique components E_j(g;ν), ν mod 2a, satisfying Φ_j(g,W)=Σν E_j(g;ν) θᵃ_ν(N^(1−2j)Z_g,N^(1−j)W). Put C_j(g;U,ν)=B_j(g;T,ν) if T=(U+N^(2−j)ννᵀ)/(4m) is half-integral, and 0 otherwise. Then E_j(g;ν)=Σ_{U integral symmetric} C_j(g;U,ν)e(tr(UZ_g)/(4mN^j)), with the convergence inherited from the Fourier expansion.
-
-(BFH90, Proposition 2.2, pp.552–554, (2.4)–(2.6)). *Needs:* 8.21, 8.22, 8.7, 8.8, 8.27, 8.28, 8.26, 8.75; Layer 6.
-
-### 8.24 Genus-two theta Fourier transform
-
-Prove `theta_fourier_transform`: For a>0 and Z∈H₂, θᵃ_ν(−Z⁻¹,Z⁻¹W)=e(aZ⁻¹[W]) √(−det Z)/(2a) Σ_{μ mod2a} e(−νᵀμ/(2a))θᵃ_μ(Z,W). The holomorphic branch √(−det Z) is positive when Z=iY. The finite Fourier matrix has square equal to residue negation after normalization by 1/(2a).
-
-(BFH90, §2, p.554, (2.12)–(2.13)). *Needs:* 8.18; Layer 2; Layer 6.
-
-### 8.25 Fourier law for BFH theta components
-
-Prove `theta_component_fourier_law`: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√(−det Z_g)/(2m) Σμ e(−Nνᵀμ/(2m))E₀(Jg;μ), and E₀(g;ν)=√(−det Z_g)/(2m) Σμ e(+Nνᵀμ/(2m))E₁(Jg;μ). Both sums are over (Z/(2a)Z)². The missing N in the prefactor relative to theta S is due to rescaling Z by N⁻¹.
-
-(BFH90, Proposition 2.2, p.552, (2.7)–(2.8)). *Needs:* 8.23, 8.24, 8.16, 8.27, 8.26.
-
-### 8.26 BFH Jacobi coordinate space
+### 8.21a BFH Jacobi coordinate space
 
 Define `bfhJacobiFunctions` as follows. Specialize the Layer 6 Jacobi space to smooth Φ_j:GSp₄⁺(R)×C²→C, holomorphic in W, invariant under Γ_N for j=0 or J⁻¹Γ_NJ for j=1, and under ||[N^−jℓ;N^(j−1)r] for integral ℓ,r. For vector values impose these conditions after every continuous linear functional. Supply the Layer 6 weight and multiplier separately; lattice invariance does not determine them.
 
@@ -2441,7 +2428,13 @@ Define `bfhJacobiFunctions` as follows. Specialize the Layer 6 Jacobi space to s
 - Constant 1 belongs at index m=0.
 - Constant 1 is excluded at N=8,m=16.
 
-### 8.27 BFH theta component projection
+### 8.22 Holomorphic contour shift for Fourier coefficients
+
+Prove `coefficient_shift_analytic`: If Φ_j is continuous, smooth in g, holomorphic in W, and invariant under the BFH elliptic lattice at cusp j, its Fourier extraction obeys B_j(g;T,R)=B_j(g;T−(N/2)(Rλᵀ+λRᵀ)+mN^jλλᵀ,R−2mN^(j−1)λ), λ∈N^(−j)Z². Hence the retained coefficient-invariants theorem applies with a=m/N and c=N^(1−j).
+
+(BFH90, §2, pp.552–553, (2.9)). *Needs:* 8.20, 8.17, 8.1, 8.9, 8.21a.
+
+### 8.22a BFH theta component projection
 
 Define `thetaComponent` as follows. For a=m/N>0, define E_j(g;ν) by the orthogonal projection of the coordinate function onto θᵃ_ν at Z′=N^(1−2j)Z_g, W′=N^(1−j)W, divided by its norm √det(Im Z′)/(4a). Integrate in W′ on its period torus. For a BFH Jacobi function this equals the component in Proposition 2.2. Define the projection before its decomposition theorem.
 
@@ -2457,7 +2450,7 @@ Define `thetaComponent` as follows. For a=m/N>0, define E_j(g;ν) by the orthogo
 - The component of the zero coordinate function is zero.
 - At N=8,a=2,j=1, the residue vectors (0,5) and (0,1) give the same component.
 
-### 8.28 Theta-component Fourier coefficients
+### 8.22b Theta-component Fourier coefficients
 
 Define `thetaCoefficient` as follows. C_j(g;U,ν) is the Fourier coefficient B_j(g;T,ν) with T=(U+N^(2−j)ννᵀ)/(4m); set it to zero if this is not an integral quadratic form, equivalently a half-integral symmetric matrix. This computational construction is defined before imposing Jacobi invariance. For the actual BFH family, the shift theorem makes the residue choice independent.
 
@@ -2473,9 +2466,27 @@ Define `thetaCoefficient` as follows. C_j(g;U,ν) is the Fourier coefficient B_j
 - For N=8,m=16,j=1,U=I,ν=0 the coefficient is zero for any coordinate function.
 - At N=8,m=16,j=1,U=diag(0,56),ν=(0,1), the recovered index is T=diag(0,1).
 
+### 8.23 BFH two-cusp theta decomposition
+
+Prove `theta_decomposition`: Under the Jacobi regularity and lattice hypotheses above, there are unique components E_j(g;ν), ν mod 2a, satisfying Φ_j(g,W)=Σν E_j(g;ν) θᵃ_ν(N^(1−2j)Z_g,N^(1−j)W). Put C_j(g;U,ν)=B_j(g;T,ν) if T=(U+N^(2−j)ννᵀ)/(4m) is half-integral, and 0 otherwise. Then E_j(g;ν)=Σ_{U integral symmetric} C_j(g;U,ν)e(tr(UZ_g)/(4mN^j)), with the convergence inherited from the Fourier expansion.
+
+(BFH90, Proposition 2.2, pp.552–554, (2.4)–(2.6)). *Needs:* 8.21, 8.22, 8.7, 8.8, 8.22a, 8.22b, 8.21a, 8.20a; Layer 6.
+
+### 8.24 Genus-two theta Fourier transform
+
+Prove `theta_fourier_transform`: For a>0 and Z∈H₂, θᵃ_ν(−Z⁻¹,Z⁻¹W)=e(aZ⁻¹[W]) √(−det Z)/(2a) Σ_{μ mod2a} e(−νᵀμ/(2a))θᵃ_μ(Z,W). The holomorphic branch √(−det Z) is positive when Z=iY. The finite Fourier matrix has square equal to residue negation after normalization by 1/(2a).
+
+(BFH90, §2, p.554, (2.12)–(2.13)). *Needs:* 8.18; Layer 2; Layer 6.
+
+### 8.25 Fourier law for BFH theta components
+
+Prove `theta_component_fourier_law`: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√(−det Z_g)/(2m) Σμ e(−Nνᵀμ/(2m))E₀(Jg;μ), and E₀(g;ν)=√(−det Z_g)/(2m) Σμ e(+Nνᵀμ/(2m))E₁(Jg;μ). Both sums are over (Z/(2a)Z)². The missing N in the prefactor relative to theta S is due to rescaling Z by N⁻¹.
+
+(BFH90, Proposition 2.2, p.552, (2.7)–(2.8)). *Needs:* 8.23, 8.24, 8.16, 8.22a, 8.21a.
+
 ### 8.28a BFH arithmetic datum
 
-Define `BFHDatum` as the structure bundling: positive integers N, m, M and an even integer k≥2 with 8M∣N, N∣m and 4m∣N²; a normalized holomorphic newform f of weight k, trivial character and conductor M, with Fourier coefficients a(n); its Fricke transform f̂(τ)=τ^(−k)f(−1/(Nτ)) at the auxiliary level N; a continuous finite-dimensional representation σ of K=U(2), trivial on −I, with a vector v satisfying vσ(κ)=ρ_k(κ)v for κ∈SO(2); and, for scalar statements, a continuous linear functional T on the space of σ. The seed (8.29), the section family (8.30), the Jacobi Eisenstein series (8.31), its Fourier coefficients (8.20, 8.28) and theta components (8.27), the Dirichlet series (8.66–8.67) and the Whittaker expansions (8.68–8.69) are all built from one BFH datum, and the theorems of 8.63–8.87 are statements about those objects, not about independent functions of the displayed variables. The newform's own completion uses its conductor M; the Fricke transform uses N.
+Define `BFHDatum` as the structure bundling: positive integers N, m, M and an even integer k≥2 with 8M∣N, N∣m and 4m∣N²; a normalized holomorphic newform f of weight k, trivial character and conductor M, with Fourier coefficients a(n); its Fricke transform f̂(τ)=τ^(−k)f(−1/(Nτ)) at the auxiliary level N; a continuous finite-dimensional representation σ of K=U(2), trivial on −I, with a vector v satisfying vσ(κ)=ρ_k(κ)v for κ∈SO(2); and, for scalar statements, a continuous linear functional T on the space of σ. The seed (8.29), the section family (8.30), the Jacobi Eisenstein series (8.31), its Fourier coefficients (8.20, 8.22b) and theta components (8.22a), the Dirichlet series (8.66–8.67) and the Whittaker expansions (8.68–8.69) are all built from one BFH datum, and the theorems of 8.63–8.87 are statements about those objects, not about independent functions of the displayed variables. The newform's own completion uses its conductor M; the Fricke transform uses N.
 
 (BFH90, §1, pp.547–550, (1.11)–(1.16), and the standing assumptions of §§5–7). *Needs:* 8.14; ModularForms Layer 4; ModularForms Layer 6; AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors).
 
@@ -2774,7 +2785,7 @@ Prove `theta_unipotent_transforms`: For ν=(0,r), E₁(n(V)g;ν)=E₁(g;ν) if V
 
 Prove `coefficient_levi_transform`: For y∈Γ⁰(N) at cusp j=1 and y∈Γ₀(N) at j=0, B_j(m(y)g;T,R)=B_j(g;yᵀTy,yᵀR) and C_j(m(y)g;U,R)=C_j(g;yᵀUy,yᵀR), with the corresponding residue reduction. Corollary 2.8 specializes ν=(0,r) and the diagonal U₁(−ND),U₀(−D) to the invariances required for §6–8 Fourier extraction.
 
-(BFH90, §2, pp.556–557, Proposition 2.7, Corollary 2.8). *Needs:* 8.20, 8.23, 8.54, 8.28.
+(BFH90, §2, pp.556–557, Proposition 2.7, Corollary 2.8). *Needs:* 8.20, 8.23, 8.54, 8.22b.
 
 ### 8.57 Matrix Möbius function
 
@@ -2851,7 +2862,7 @@ Define `fourierUnfoldingKernel` as follows. For Y=QQᵀ positive definite, Z=X+i
 ∫_{ℝ²} e(−m Z⁻¹[W] − RᵀW) dW = √(−det Z)/(2m) · e(Z[R]/(4m)),
 ```
 
-for Z∈H₂ and m>0, with the principal root (positive at Z=iY; det(Z/i) never meets (−∞,0] on H₂ in degree two), which is a Gaussian integral with matrix 2πimZ⁻¹ (BFH90 p.581). Hence (2mN³)⁻¹=N⁻³·(2m)⁻¹. The theta pairing of 8.21 and the projection of 8.27 do not enter this kernel or 8.63–8.69; they enter only through the theta components, whose expansion 8.23 is read off from Fourier coefficients and does not depend on the pairing's norm. Prove `gaussianFourier_genusTwo` (the display).
+for Z∈H₂ and m>0, with the principal root (positive at Z=iY; det(Z/i) never meets (−∞,0] on H₂ in degree two), which is a Gaussian integral with matrix 2πimZ⁻¹ (BFH90 p.581). Hence (2mN³)⁻¹=N⁻³·(2m)⁻¹. The theta pairing of 8.21 and the projection of 8.22a do not enter this kernel or 8.63–8.69; they enter only through the theta components, whose expansion 8.23 is read off from Fourier coefficients and does not depend on the pairing's norm. Prove `gaussianFourier_genusTwo` (the display).
 
 ### 8.63 Cusp-one full-rank Fourier unfolding
 
@@ -2873,7 +2884,7 @@ All objects here are built from one BFH datum (8.28a).
 
 Define `whittakerCoefficientExtraction` as follows. For ν=(0,r), D∈Z, n₂=q/N>0 and n₁=N(r²−D)/(4m) integral, define C₁(s;D,n₂,r;y₁,y₂)=N⁻¹∫₀ᴺ C₁(m(E(x₂))m(√y₁diag(y₂,1));U₁(−ND),ν)e(−n₂x₂)dx₂. Define C₀ by the finite Fourier sum Σμ e(−Nν·μ/(2m)) of C₀ at m(E(−x₂)ᵀ)m(√y₁diag(y₂,1)), index U₀(−D), and the same normalized x₂ integral. The latter vanishes unless 4m|D; both are well defined by the coefficient covariance and periods. At cusp zero extend the extracted function by zero outside 4m|D before using its parity API.
 
-(BFH90, §6, pp.583,585–586, definitions before Propositions 6.1–6.2). *Needs:* 8.56, 8.55, 8.27, 8.28.
+(BFH90, §6, pp.583,585–586, definitions before Propositions 6.1–6.2). *Needs:* 8.56, 8.55, 8.22a, 8.22b.
 
 - `whittakerCoefficientExtraction_linear`: Extraction is linear in the theta-component family.
 - `whittakerCoefficientExtraction_period`: The value is independent of the interval representative of length N under the proven period law.
@@ -2989,12 +3000,6 @@ All objects here are built from one BFH datum (8.28a).
 
 **Check.** Taking an independent coefficient b(s,1)=s makes its norm unbounded on real s≥2. The finite polynomial and its newform bound are construction hypotheses, not consequences for arbitrary coefficient functions.
 
-### 8.75 Genus-two theta normal convergence
-
-Prove `theta_normal_convergence`: For a>0, on every compact subset of H₂×C² the θ_{a,ν} series and all coordinate derivatives converge absolutely and uniformly. Hence θ is jointly holomorphic and termwise differentiation, residue-class regrouping and compact-torus integration are valid. The bound uses the least eigenvalue of Im Z uniformly bounded below and bounded Im W.
-
-(BFH90, §2, pp.551–553, definition of θ and Proposition 2.1). *Needs:* 8.18, 8.10; Layer 2.
-
 ### 8.76 Genuine normalized induced-section comparison
 
 Prove `genuine_induced_comparison`: Lift the actual theta-component vector by ℰ_j(g,h)=h(iI₂)E_j(g), making the central sign genuine. On the positive Siegel Levi the root magnitude |detQ|⁻¹/² changes the I_s exponent to s−1/2; dividing by δ_P¹/²=|detQ|³/² gives normalized parameter ν=s−2. Prove an equivariant identification with Ind_{P̃}^{G̃}(π̃_f⊗|det|^(s−2)), where π̃_f is π_f twisted by the Weil determinant phase, retaining finite vectors and Haar measures.
@@ -3011,7 +3016,7 @@ Prove `genuine_eisenstein_initial_convergence`: For the specified BFH K-type, ne
 
 All objects here are built from one BFH datum (8.28a).
 
-(BFH90, §1, p.549, definition of E_s; §5, p.580, Proposition 5.1). *Needs:* 8.76, 8.75, 8.28a; AutomorphicSpectralTheory §1.3.
+(BFH90, §1, p.549, definition of E_s; §5, p.580, Proposition 5.1). *Needs:* 8.76, 8.20a, 8.28a; AutomorphicSpectralTheory §1.3.
 
 ### 8.78 Genuine Siegel intertwining operators
 
@@ -3044,15 +3049,7 @@ All objects here are built from one BFH datum (8.28a).
 - The real-box `genuineConstantTerm` of E=0 is 0.
 - The totalized real integral `genuineIntertwiner` of the nonintegrable constant F=1 is 0, while F(g)=1. Hence 0≠1+0: an independent pair E,F fails the proposed formula. The actual induced section and its Eisenstein sum, with convergence, are required.
 
-### 8.80 Genuine Eisenstein continuation and Weyl equation
-
-Prove `genuine_eisenstein_continuation`: Prove meromorphic continuation of the genuine BFH family and E(s,F)=E(4−s,M(w,s)F), with the raw intertwiner and contragredient cusp identification. Poles come from the proved genuine constant terms. Near s=2, regularity is equivalent to regularity of those coefficients; intertwiner residues give genuine automorphic residues. Supply the cover-specific AS.2 adaptation and the original Fricke conductor M.
-
-All objects here are built from one BFH datum (8.28a).
-
-(BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550–551, newform L-functions). *Needs:* 8.79, 8.81, 8.28a; AutomorphicSpectralTheory §§2.4–2.4a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors).
-
-### 8.81 Opposite-cusp zero coefficient regularity
+### 8.79a Opposite-cusp zero coefficient regularity
 
 Prove `opposite_cusp_zero_regularity`: For the fixed BFH arithmetic data and r, prove P(s,0,r) holomorphic near s=2 and polynomial D-growth of P(s,D,r), uniformly on compact pole-free parameter sets. Compute ramified cusp factors as L(s,0) times rational functions of p^−s, p|N, with denominators nonzero at 2. Obtain growth from the actual cover-compatible Whittaker estimates. Establish this arithmetic result independently of Eisenstein continuation.
 
@@ -3062,13 +3059,21 @@ All objects here are built from one BFH datum (8.28a).
 
 *Proof route.* BFH p.589 states the regularity without the ramified calculation, and this target includes it: for each p|N express the p-part of P(s,0,r) through the local sums of 8.70–8.72 at p, as L(s,0)'s p-factor times a rational function of p^(−s), and check that each denominator is nonzero at s=2; the polynomial D-growth then follows from 8.39–8.40 uniformly on compact pole-free sets.
 
+### 8.80 Genuine Eisenstein continuation and Weyl equation
+
+Prove `genuine_eisenstein_continuation`: Prove meromorphic continuation of the genuine BFH family and E(s,F)=E(4−s,M(w,s)F), with the raw intertwiner and contragredient cusp identification. Poles come from the proved genuine constant terms. Near s=2, regularity is equivalent to regularity of those coefficients; intertwiner residues give genuine automorphic residues. Supply the cover-specific AS.2 adaptation and the original Fricke conductor M.
+
+All objects here are built from one BFH datum (8.28a).
+
+(BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550–551, newform L-functions). *Needs:* 8.79, 8.79a, 8.28a; AutomorphicSpectralTheory §§2.4–2.4a; GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors).
+
 ### 8.82 Fourier and residue interchange for genuine families
 
 Prove `fourier_residue_interchanges`: For the continued genuine family with locally finite pole divisor, clear a local holomorphic denominator. Prove locally uniform holomorphy of compact-torus Fourier integrals, the finite theta transform and the absolutely convergent nonzero-discriminant Whittaker/Mellin tails. These operations then commute with s-residues and derivatives. Infinite theta or D sums require their Gaussian/rapid-decay bounds; this gives no joint Fubini theorem for the expanded Novodvorsky kernel.
 
 Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
-(BFH90, §8, pp.601–614, proof of Proposition 8.1). *Needs:* 8.80, 8.75, 8.39, 8.45, 8.81.
+(BFH90, §8, pp.601–614, proof of Proposition 8.1). *Needs:* 8.80, 8.20a, 8.39, 8.45, 8.79a.
 
 ### 8.83 BFH two-variable twist series
 
@@ -3092,7 +3097,7 @@ Prove `two_variable_polar_combination`: Put A=(4m)^(−s+u+5/2)N^(−s+4+k/2)[Z�
 
 All objects here are built from one BFH datum (8.28a). Fix y₂>0. The scalar coefficient φ(κ)=T(vσ(κ)) is globally divisible by φ₁ in R_k: there exists ψ∈R_k with φ(κ)=φ₁(κ)ψ(κ) for every κ∈K. This is the standing hypothesis on printed p.601 before Proposition 8.1, not merely divisibility in the positive κ(X) chart.
 
-(BFH90, §8, pp.601–614, Proposition 8.1). *Needs:* 8.83, 8.68, 8.69, 8.47, 8.46, 8.82, 8.81, 8.41, 8.45, 8.28a.
+(BFH90, §8, pp.601–614, Proposition 8.1). *Needs:* 8.83, 8.68, 8.69, 8.47, 8.46, 8.82, 8.79a, 8.41, 8.45, 8.28a.
 
 ### 8.85 Genus-two coefficient and local-test export
 
@@ -3187,3 +3192,19 @@ Page numbers refer to the linked version. “PDF” denotes a physical page and 
 **YZZ11.** Xinyi Yuan; Shou-Wu Zhang; Wei Zhang, [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail). Author draft dated 6 November 2011, 266 PDF pages; author-uploaded public copy. Distinct from the 2013 published book.
 
 **Duke88.** William Duke, [Hyperbolic distribution problems and half-integral weight Maass forms](https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf). Inventiones Mathematicae 92 (1988), 73–90; public scan on the author’s UCLA page.
+
+**CdS.** Ana Cannas da Silva, [Lectures on Symplectic Geometry](https://people.math.ethz.ch/~acannas/Papers/lsg.pdf). Lecture Notes in Mathematics 1764, Springer, 2001; author's corrected version. §1.1 Theorem 1.1, p.3; §8.2 Proposition 8.2, pp.46–47.
+
+**MVW87.** Colette Mœglin, Marie-France Vignéras and Jean-Loup Waldspurger, *Correspondances de Howe sur un corps p-adique*. Lecture Notes in Mathematics 1291, Springer, 1987.
+
+**Minguez08.** Alberto Mínguez, *Correspondance de Howe explicite : paires duales de type II*. Annales scientifiques de l'École normale supérieure (4) 41 (2008), 717–741.
+
+**Fay77.** John D. Fay, *Fourier coefficients of the resolvent for a Fuchsian group*. Journal für die reine und angewandte Mathematik 293/294 (1977), 143–203.
+
+**Kohnen85.** Winfried Kohnen, *Fourier coefficients of modular forms of half-integral weight*. Mathematische Annalen 271 (1985), 237–268.
+
+**BaruchMao07.** Ehud Moshe Baruch and Zhengyu Mao, *Central value of automorphic L-functions*. Geometric and Functional Analysis 17 (2007), 333–384.
+
+**KatokSarnak93.** Svetlana Katok and Peter Sarnak, *Heegner points, cycles and Maass forms*. Israel Journal of Mathematics 84 (1993), 193–227.
+
+**Maass71.** Hans Maass, *Siegel's Modular Forms and Dirichlet Series*. Lecture Notes in Mathematics 216, Springer, 1971.
