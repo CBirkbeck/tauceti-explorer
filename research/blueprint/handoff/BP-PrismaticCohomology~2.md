@@ -1,82 +1,93 @@
-# BP-PrismaticCohomology~2 — blocked revision checkpoint
+# BP-PrismaticCohomology~2 — complete revision for independent review
 
-Issue [#10119](https://github.com/CBirkbeck/tauceti-explorer/issues/10119); Codex, session `codex-pqU1gU`; 2026-10-17. Claim comment 6234129701 was confirmed by the bot in comment 6234130776. Branch `codex-pqU1gU-prismatic-revision`. Only this job was claimed. This checkpoint refines the formal-affine comparison on regular prism charts. It does not complete assembly or independently review the preceding checkpoints.
+Issue [#10119](https://github.com/CBirkbeck/tauceti-explorer/issues/10119). Worker: Claude (Opus 5.5), session `claude-dJntse`, 2026-10-17. The claim comment 6234513664 was confirmed by the bot. Branch `claude-dJntse-prismatic-revision`. I wrote neither part packet, neither part review, the 2026-10-13 review, nor any of the six earlier checkpoints of this job.
 
-## Scope blocker
+This is the **complete revision**, not a checkpoint. It goes to REV-PrismaticCohomology~2 (issue #10118).
 
-[WORKERS.md](../WORKERS.md), “Doing the work”, says **“Edit only the files the issue names, plus your own scratch space.”** The issue names only the top packet, reader, suggested Lean file and this handoff. The independent [REV-PrismaticCohomology](../reviews/REV-PrismaticCohomology.md), “Required revision and orchestrator decisions”, requires an effective serialized graph preserving the inherited canonical IDs and metadata. The checker rejects that graph while the retained parts exist. The importer does not assemble `imports`; promotion copies the packet as written. Removing parts is rejected by the submission workflow, and renaming their IDs would break the required preservation.
+## The assembly blocker, resolved without re-serializing
 
-I requested authorization to extend this issue to checker, promotion, importer and submission scope rules through an asynchronous question. No answer had arrived when preparing this checkpoint. No out-of-scope repository file was edited. This is a scope blocker, not exhaustion of the eight-hour allowance. The existing independent `needs_changes` verdict is untouched.
+The six earlier checkpoints stopped on one point. The 2026-10-13 review asked for an effective whole-roadmap graph. Copying the 369 accepted targets into this packet gives 361 "also appears in" errors in `scripts/check_blueprint.py`, and the part packets are not deliverables of this job.
 
-Reproduction, freshly checked against the current scripts:
+No copy is needed. `scripts/blueprints.py` (`merge_blueprints`) builds a roadmap from the nodes of **every** promoted packet of that roadmap. That is how every multi-part roadmap in the atlas is assembled: AnalyticNumberTheory, DiamondEtaleCohomology, CompletedCohomologyPartII and PadicHodgeTheory all have a whole-roadmap packet with `imports` beside accepted parts. The effective roadmap is therefore the union of three packets with disjoint node ids:
 
-1. Load the top packet, `PrismaticCohomology--PR.0.json` and `PrismaticCohomology--PR.8.json`.
-2. In scratch, union nodes by `id`, source records by `id` and baseline declarations by `ref`, keeping top records first. Name the diagnostic `PrismaticCohomology.json`.
-3. Call `check_blueprint.check(scratch_path, None, check_blueprint.world())` and inspect the entire error list, not the truncated CLI display.
+- PrismaticCohomology--PR.0, layers PR.0–PR.7: 290 targets, 48 planets, accepted, promoted 2026-10-09;
+- PrismaticCohomology--PR.8: 79 targets, 6 planets, accepted 2026-10-10;
+- this packet: 12 targets, no planets.
 
-There are **380 nodes, 154 baseline references, 41 source IDs and 54 planets** after this checkpoint's new source. There are **361 errors, all canonical duplicate IDs**: 282 against PR.0 and 79 against PR.8; no other errors. Eight inherited IDs first resolve to integrated decomposition nodes, so do not trigger this check. The deliberately incomplete metadata union also has 408 warnings. It is a diagnostic, not a candidate packet: requests, gaps, source issues and provenance still require reconciliation.
+**Dry assembly.** I patched `blueprints.load_promoted` in a scratch script and ran `build.assemble(require_distances=False)` with the three packets, writing nothing. The build passes. The roadmap has 381 declarations (PR.0 93, PR.1 27, PR.2 30, PR.3 26, PR.4 33, PR.5 35, PR.6 30, PR.7 28, PR.8 79), 54 planets and no skipped links; the atlas has 5,709 stages and 15,143 stage edges.
 
-## New mathematics: unbounded effectivity on regular charts
+**PR.8 promotion.** The PR.8 part is absent from `data/blueprints` only because no promotion has run since 2026-10-09. `promote.py --dry-run` lists 272 accepted files waiting, PR.8 among them, and `decide()` returns "promote" for it. That is a maintainer action, not a defect of this roadmap.
 
-The refined target is `PR.5/formal-affine-complete-qcoh`, in the packet and the reader's PR.5 section. It still states Bhatt–Lurie's full bounded-prism target. Its proof now establishes the unbounded comparison when J=(p)+I has a finite regular generating sequence, including crystalline and transversal charts. The general bounded-prism case outside that range remains a precise gap. No claim that bounded torsion or weak proregularity alone proves that remaining case was added.
+The gap "Executable whole-roadmap assembly" is removed, and `imports` now records this mechanism.
 
-The proof is an explicit regular-ideal specialization of the mechanism in Bhatt–Scholze, *The pro-étale topology for schemes*, Lemmas 3.5.4–3.5.5 and 3.5.7(5), printed pp.25–26. Their surrounding setup is noetherian; the argument recorded here uses the following uniform Koszul calculation and does not import a noetherian assumption:
+## Routed prerequisite edits (restructure R1–R7)
 
-1. For a regular sequence f_1,...,f_r, use B_n=A/(f_1^n,...,f_r^n). These ideals are cofinal with powers of J; B_n is A-perfect of amplitude [-r,0]. For a derived scalar-compatible system M_n, put M=Rlim M_n. All its terms and its limit are derived J-complete.
-2. For n>=k, the coefficient fibre E_(n,k)=fib(B_n tensor-derived over A with B_k -> B_k) has cohomology in [-r,-1], with degree -j equal to the j-th exterior power of B_k^r. Koszul transition maps multiply degree-one generators by f_i^(m-n), so kill all these groups when m-n>=k.
-3. Restrict the finite chain of coefficient maps to the common source ring B_(n+rk). A composite of r cohomologically zero maps between objects supported in r degrees is zero: successively factor through target truncations <=b-1, <=b-2, and so on. Thus E_(n+rk,k)->E_(n,k) is zero **in the derived category of that source ring**, before tensoring. Merely proving pro-vanishing of individual Tor groups would not justify the next step for unbounded M_n.
-4. Tensor with M_(n+rk) and use compatibility. The tower of fibres of M_n tensor-derived over A with B_k -> M_k is uniformly pro-zero, with lag rk, and has zero derived limit. B_k is perfect, so its tensor commutes with the inverse limit. This proves B_k tensor-derived over A with M is M_k without any truncation hypothesis on the system.
-5. The unit on a complete M is DD.1's Koszul completion tower. The construction gives inverse enhanced functors and mapping spaces. Evaluation and derived scalar change supply the coherent completed tensor, pullback and colimit formulas in this range.
-6. In a crystalline prism, p is regular and J=(p). For an oriented transversal prism, d is regular and p is regular on A/d, so (d,p) is regular. Local orientations are compatible by descent and the intrinsic reduction functor. No regularity claim for (d,p) on an arbitrary bounded prism is made.
+The review asked that only justified R1–R7 changes be applied to the actual node prerequisites. Every consumer belongs to a part packet, so this job cannot make the edits. Instead I checked each one against the consumer's statement and proof and against the supplier's statement. Each record now has a per-node `map` with `remove`, `replaceBy` and `verdict`, an `applicationStatus` and a `routedTo` file. The reader shows each edit as a **Routed prerequisite edit** paragraph at the consumer, 52 in all.
 
-Added `FormalAffineQCoh.regularReductions` to the API and two discriminating checks:
+- **R1 (LP1 → PR.5; 10 nodes).**
+  - Six nodes use LP1 only for stack formalism, which they already cite from DiamondsAndVStacks D0 and SchemeAndStackFoundations SF.1: `generalized-cartier-divisor`, `cartier-witt-stack`, `wcart-quotient-presentation`, `prism-point-of-wcart`, `wcart-fibre-products-of-prisms` and `hodge-tate-divisor`. They drop LP1 and add nothing.
+  - Four nodes move to the new PR.5 nodes: `quasi-coherent-complexes-on-wcart`, `prismatic-crystals-on-wcart`, `sen-operator` and `sen-operator-classification`.
+  - Two scope notes are recorded. In `quasi-coherent-complexes-on-wcart`, base change and the projection formula for ρ_A* are supplied only when ρ_A is flat, that is for transversal A. In `prismatic-crystals-on-wcart`, the form indexed by all bounded prisms depends on the open general case of the formal-QCoh comparison. Both are now in the gap "Formal affine quasi-coherent complexes".
+- **R2 (QW.6 → PR.6; 4 nodes).**
+  - `q-de-rham-prismatic-comparison-zp` is verified: its finite framing is (p,q−1)-adically noetherian.
+  - `framed-q-pd-datum` and `gamma-extension-to-q-pd-envelope` are verified through the new theorem below.
+  - `framed-q-de-rham-complex` stays conditional, because decay on the q-PD envelope is still needed when the framing is infinite.
+- **R3, R4.** One consumer each: `tate-twist-analytic-continuation` and `weakly-admissible-extension-over-ainf`. Both are verified. The named inputs keep their proof gaps.
+- **R6 (PR.8's 39 bare stage citations, 41 rows).**
+  - 35 rows are verified as listed. Row 23 carries a note on the two sites' topologies, and the verdicts of rows 1 and 2 record that the consumer already cites one more PR.0 node its proof uses.
+  - Three rows are conditional or probable:
+    - row 20: the PR.1 relative-Frobenius lemma is stated for polynomial algebras, while the consumer needs Laurent polynomial algebras;
+    - row 25: the log operators are the consumer's own, and its decay must be checked for an infinite S;
+    - row 38: perfectness for proper log schemes comes from the consumer.
+  - Row 27 drops a redundant citation. The ordinary QRSP input of `DD.6/log-quasiregular-semiperfectoid` is PerfectoidQuotients Q0, so there is nothing to replace.
+  - Rows 37 and 40 were already resolved.
+- **R5, R7 (stage edges, for the maintainer).** The edges T6:log-sites → PR.8, RT.3b → PR.7 and RT.6 → PR.7 are present in `data/atlas.json`; the six intra-roadmap edges of R7 are absent. With R3 and R5 removed and R7 added, the 3,511 stage edges of `data/atlas.json` form an acyclic graph.
+- **Simulation.** Applying R1–R4 and R6 to a copy of the 381 nodes gives an acyclic graph. It has no citation of LanglandsParameterStacks, QWittVectors, RefinedTraceMethods or VectorBundlesAndIsocrystals, and no bare stage citation in PR.8.
 
-- `twoSidedUnbounded`: on the q-de Rham prism A=Z_p[[q-1]], B_n=A/(p^n,[p]_q^n), the single compatible system direct-sum_j B_n[j], over all integers j, reconstructs the zero-differential complex with A in every degree. Its cohomology is nonzero in every integer degree. Testing individual shifts alone would not establish this range.
-- `principalTorTransition`: over Z_p, E_(n,k) is Z/p^k[1], and the transition from n+k to n is zero as a Z/p^(n+k)-linear map, although each finite-level Tor group is nonzero.
+**Notion moves (WORKERS.md, "Upstream tiers").** These moves, carried over from the first whole-roadmap pass, are confirmed:
 
-The existing DD.1 `koszul-complex` and `koszul-completion-tower` are now explicit prerequisites, alongside its completeness, reflector and exchange contracts. Their actual supplier statements were read. No second generic completion or Koszul definition was planned. The suggested file explains this reader-only target; the required enhanced carriers are absent at the pins, so no placeholder Lean carrier or data definition was added.
+- D(X) on prestacks, flat descent, flat affine direct image and the formal-affine comparison move from LanglandsParameterStacks LP1 to PR.5. LP1 and LP4 import them.
+- The framed q-de Rham machinery moves from QWittVectors QW.6 to PR.6. QW.6 and HabiroCohomologyFoundations HQ.1 import it.
+- The Beilinson fibre square and the Fargues–Fontaine slope-zero results become named inputs in PR.7. RefinedTraceMethods RT.3b and the owner of the curve's bundle classification prove them.
 
-## Sources and library checks
+## Mathematics in this revision
 
-Fresh source readings for this run, with paraphrases and numbered/page locators in the deliverables:
+**New theorem `PR.6/framed-algebras-over-flat-bases`.** It has no independent review yet. Let D be flat over A = Z_p[[q−1]] and I = (p, q−1), and let P be completely ind-étale over D[X_s : s∈S]^∧, with S arbitrary. Then:
 
-- Bhatt–Lurie, *Absolute prismatic cohomology*, arXiv:2201.06120v1, Proposition 3.2.8 and Corollaries 3.2.9–3.2.10, pp.41–43; §3.3 through Corollary 3.3.11, pp.43–44. The paragraph before Proposition 3.3.5 and Warning 3.3.6 give the full bounded-prism comparison and its boundary. Corollary 3.2.9 is affineness; Corollary 3.2.10 is transversal flatness. SHA-256 `0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269`.
-- Bhatt–Scholze, *The pro-étale topology for schemes*, arXiv:1309.1198v2, 17 December 2014, Lemmas 3.5.4–3.5.5 and 3.5.7(5), printed pp.25–26. Read in place in the maintainer-supplied author preprint; added source `BS15-PROETALE`. SHA-256 `ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84`.
-- Bhatt–Scholze, *Prisms and prismatic cohomology*, arXiv:1905.08229v4, §1.2 footnote 7, printed p.12. Its unbounded Koszul-completion comparison points to the method of BS15 Lemma 3.5.5, rather than an unrestricted ordinary-quotient inference from connective SAG. Read in place in the cleared author preprint. SHA-256 `1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a`.
+1. P is classically complete with gr_I P = (P/IP)[p̄, t̄], and p, t, X_s and tX_s are nonzerodivisors.
+2. P/pP, P/tP and P/tX_sP are classically complete. These are the sufficient hypotheses of `framed-q-automorphisms`, its δ-clause included.
+3. (I^(n+1)P : tX_s) ⊆ I^nP uniformly in s.
+4. γ_s(f) ≡ f mod I^(n+1)P for all but finitely many s.
 
-No cleared library file or source passage was copied anywhere. No uncleared book was used. Existing source-issue verdicts and review scopes were not recertified.
+So decay holds with c = 1. The proof uses complete flatness and Tor vanishing over A, initial forms in the polynomial graded ring, closedness of gP for g ∈ {p, t, tX_s}, and finite presentation of the étale pieces with étale uniqueness through a nilpotent thickening. It does not reach q-PD envelopes or log charts, which stay in the gap.
 
-Read the relevant reviewed AUDIT-38 prismatic records and review; `data/library-coverage.json` has no own PrismaticCohomology layer records. Reread all nine top baseline declarations at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: `DerivedCategory`, `ModuleCat`, `Module.FaithfullyFlat`, `AlgEquiv`, `Algebra.FormallyEtale`, `KaehlerDifferential`, `ExteriorAlgebra`, `Ideal.span`, `AdicCompletion`. They supply ordinary carriers, not the missing enhanced comparison. The shared Tau Ceti pin is `f790474821cf4256814db967cb154e7af3d0c369`.
+**Regular-ideal clause of `PR.5/formal-affine-complete-qcoh`.** The checkpoint's Koszul argument uses only the regular sequence, not the prism structure. I stated it for any ring and ideal generated by a finite regular sequence, with API `FormalAffineQCoh.regularIdealEquiv` and test `hodgeTateChart`. This covers the Hodge–Tate charts (A/I, (p)) of transversal prisms, which `sen-operator` needs.
 
-Current read-only upstream commits: TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27`, Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read AlgebraicVectorBundles' ordinary QCoh/vector-bundle interfaces and AdicSpaces' Layer 6 again. Screened the suggested files of all nine newer roadmap families; OperatorTheory has eight split suggested files. No prism, delta-ring or formal derived-QCoh completion supplier was found there or in current Tau Ceti. Ordinary QCoh is imported, not replanned; the adic FF quotient is also imported, not treated as bundle classification or GAGA. No lake command ran in those trees.
+**Re-derivation of the four checkpoint additions.** I re-derived the arguments of the four targets the checkpoints added and found no error:
 
-## Concrete assembly proposal for the scope decision
+- `general-prismatic-envelope`: the telescope criterion via Rlim of the f-tower, closure of complete subrings under the solution operations, the λ = κ^ℵ0 bound with ω_1 stages, the solution set and product, and uniqueness through preserved solution operations;
+- `quasiregular-quotient-initial-prism`: its reduction to monic perfected presentations; the fat-point and non-surjective tests are consistent;
+- `formal-affine-complete-qcoh`: cofinality J^(r(n−1)+1) ⊆ (f_i^n) ⊆ J^n, the Koszul fibre E_(n,k) in degrees [−r,−1], the zero transition for lag ≥ k, the ghost-map composite of r steps, and Rlim of a pro-zero tower;
+- `completed-q-derivative-summability`: the infinite-series, square-zero and common-Y tests check out.
 
-This is a proposed implementation contract, not an implemented feature. The maintainer needs to authorize its paths and submission scope before a worker applies it.
+**Sources.** No source was re-read in this run, and no library file was opened. The locators of these four targets are as their checkpoints recorded them, and the reviewer should read them. The new theorem cites only BS22 Construction 16.19 for its setting, and says that its arguments are this plan's own.
 
-- Add a pure shared resolver, for example `scripts/blueprint_assembly.py`, used by `check_blueprint.py` and `blueprints.py`. Its input is the set of named packet objects; its output is the effective set plus provenance and duplicate-resolution information. It must not infer precedence from filename order or treat every same-roadmap duplicate as acceptable.
-- Introduce an explicit `assembly.supersedes` manifest on the whole packet. Each entry names one part's file stem, same roadmap ID, exact scope, sorted canonical node/planet/sourceIssue inventories and accepted review identity. Include a normalized payload hash and historical provenance so a changed part cannot silently be swallowed. Normalize source-excerpt removal consistently with promotion before hashing. Keep full historical review and sourceIssue records in the assembled packet, separately from its new review.
-- In research validation, require each named part to exist, match that manifest and have an accepted historical review. The whole must contain every inherited canonical ID and planet, every sourceIssue with its verdict, and the sources/baseline references those records need. Reject foreign-roadmap parts, path traversal, scope loss, cycles or competing superseders. Allow a shared ID only for that validated whole/part relation. A retained historical part is checked in the same relation, not renamed or globally exempted.
-- Promotion retains the existing independent-review gate. Validate the assembly before copying; preserve the parts as historical data. The atlas loader selects the accepted assembly and omits its named superseded parts from the effective set, rather than relying on per-node dictionary overwrite. Keep provenance readable. A source part not yet promoted, such as PR.8, must not prevent a complete accepted whole from being loaded: its checked inventory and preserved historical review travel with the whole. If a matching part is present in promoted data, verify it; reject a conflicting present version instead of silently choosing one. Source/promoted hash normalization and version policy need explicit tests.
-- Test genuine same-roadmap supersession, unchanged ordinary packets, unrelated duplicates, a foreign-roadmap part, missing source part, canonical target/planet/sourceIssue loss, altered verdict, mismatched payload, ambiguous supersession, cycles, and a dependency on an inherited ID. Add a promotion/import round trip asserting all 380 nodes and 54 planets appear exactly once and that an unreviewed whole cannot hide accepted parts.
-- Likely implementation paths are the new resolver, `scripts/check_blueprint.py`, `scripts/blueprints.py`, `scripts/promote.py`, their focused tests and the exact job-output/path handling in `research/blueprint/intake.py` and the submission workflow if required. Add these exact paths to this job's permitted outputs and apply a narrow explicit path rule; do not globally admit arbitrary scripts. A checker-only duplicate exception would leave importer precedence and historical provenance unresolved.
+## What remains
 
-## Continuation
-
-The top packet has 11 nodes, 6 gaps, 7 requests and no serialized inherited planets. Its 369 inherited targets, 54 planets and 91 sourceIssue verdicts remain in the accepted parts. All nine current coverage entries are partial; no implementation status or independent verdict was advanced.
-
-1. Obtain the assembly scope decision and implement/test the agreed lifecycle. Then consolidate the actual graph and metadata; a first-record union loses provenance and is insufficient. Preserve every canonical ID. The independent review requires an effective graph, not a claim that `imports` assembles it.
-2. Keep the prior general-envelope proof at `PR.0/general-prismatic-envelope` and bounded-base quotient proof at `PR.2/quasiregular-quotient-initial-prism`. They remain unreviewed additions. Their detailed hypotheses, proof steps, API, tests and source locators are in the packet/reader. The former uses the DD.1 telescope solution operations, a cardinal-bounded omega_1 closure and product/uniqueness construction over any orientable base prism. The latter uses perfected variables over an enlarged bounded prism and a natural idempotent to obtain initiality even for unbounded targets. Neither requires the original exactified kernel to be regular. Use the respective theorems for R6 rows 5/31 and row 30 after checking the log-to-ordinary adapter.
-3. Check this run's regular-chart argument independently, especially its common-source-ring coefficient maps before tensoring and uniform lag rk. Finish or precisely retain the general bounded-prism effectivity gap. Do not cite connective SAG Theorem 8.3.4.4 as an unrestricted proof.
-4. Preserve the previous q-topology/cofinal-powers and completed-coordinate decay work. The reader still requires quotient completeness and uniform division/decay for all inherited ind-etale/q-PD-envelope consumers before R2 can be applied. Individual continuity is insufficient for infinite summation. Keep the general operator-complex carrier with AI.1.
-5. Apply only justified R1–R7 changes to serialized prerequisites and reader. Preserve trace/prismatic syntomic matching, integral mixed-characteristic A_crys/de Rham, schematic/analytic/Robba matching and FF classification/GAGA gaps. R6 row 27 retains DD.6's log-QRSP adapter; rows 37 and 40 are already resolved. No such consumer repointing was applied in this checkpoint.
-6. Recheck the full graph and compact suggested file, then submit the completed revision for independent review. The node budget does not authorize discarding unresolved proof boundaries or historical verdicts.
+1. **REV-PrismaticCohomology~2.** Review the twelve targets: the five without review are the four checkpoint additions and the new theorem. Review also the routed verdicts and the dry-assembly claim.
+2. **Apply the routed edits** in the part packets, through a fix or revision job that owns `PrismaticCohomology--PR.0.json` (R1–R4) and `PrismaticCohomology--PR.8.json` (R6). The `map` rows are mechanical. Rows 20, 25 and 38 of R6 and the `framed-q-de-rham-complex` row of R2 carry their conditions; drop the part requests to LP1, QW.6, RT.3b, RT.6 and VB2 at the same time.
+3. **Maintainer.**
+   - Run promotion: the PR.8 part waits with 271 other accepted files.
+   - Apply the stage-edge changes of R3, R5 and R7.
+   - Decide whether the named inputs of PR.7 (trace-theoretic Beilinson square, FF classification and GAGA) stay named inputs for upstream.
+4. **Open gaps** (5): Trace-theoretic proof of the Beilinson fibre square; Classification of vector bundles on the Fargues–Fontaine curve; Formal affine quasi-coherent complexes (nontransversal bounded prisms); Complete framed and infinite-coordinate q interfaces (decay on q-PD envelopes and log charts); Beilinson syntomic and derived de Rham interface.
 
 ## Validation
 
-- Packet checker with a freshly generated declaration index from the existing pinned shared sources: **0 errors, 0 warnings**. Index: 70,802 Tau Ceti and 246,008 Mathlib declarations. Packet: 11 nodes, 6 constructions, 5 theorems, 9 baseline declarations, 6 gaps, 7 requests. All nodes together have 60 API entries and 42 tests; the checker counts the constructions' 56 API entries and 38 tests.
-- `lean-check research/blueprint/suggested/PrismaticCohomology.lean`: **exit 0**, 26 warnings, all declarations using `sorry`, no other warnings or errors. Memory checked first: 90 GiB available. File: 368 lines. The three retained elementary sequence examples are proved; no sorry-bodied data was introduced.
-- Sorry-data check, four-file intake check and `git diff --check`: passed.
-- The scratch union's duplicate-ID failures are the documented blocker, not a passing assembly check. No checker, workflow, retained part, atlas data or review file changed.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/PrismaticCohomology.json` with the declaration index at the pins (Mathlib 082e2d3, Tau Ceti f790474) gives **0 errors, 0 warnings**. The packet has 12 nodes (6 constructions, 6 theorems), 61 API entries and 43 tests, 9 baseline declarations, 5 gaps and 7 requests.
+- `lean-check research/blueprint/suggested/PrismaticCohomology.lean` exits 0. Its only warnings are 26 uses of `sorry`, and there are no errors; 89 GB of memory was available. The file has 375 lines. Only its closing comment changed, to name the reader-only targets. `scripts/check_sorry_data.py` passes.
+- `research/blueprint/intake.py check-files` on the four deliverables reports 0 problems, and `git diff --check` is clean.
+- Every internal link of the reader resolves. This includes seven appendix links to the layer anchors that were broken before this revision and are now repaired.
+- The 2026-10-13 review object is preserved unchanged, and `revisionCheckpoint` is replaced by a `revision` record.
 
-Scratch is deleted after the checkpoint PR opens. All continuation information needed from it is recorded here.
+The scratch tools are deleted with the scratch directory: the dry-assembly patch, the route simulation and the edit scripts. Everything they established is recorded above and in the packet's `revision` record.
