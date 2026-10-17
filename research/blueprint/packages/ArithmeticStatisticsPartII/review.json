@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "date": "2026-10-17",
+    "notes": "Integral orbit dictionaries. Kept marked quartic monicization scales and original Kummer images; standalone Fin 5 monicization has three mirrored witnesses. Pencils keep fixed matrix size, determinant sign and characteristic-two bilinear/quadratic distinction. Cubic dictionaries are AN-owned import/specialization contracts. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 28 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+  }
+}

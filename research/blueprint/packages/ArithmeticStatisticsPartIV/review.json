@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "date": "2026-10-17",
+    "notes": "Finite-group/matrix/moment tools precede their arithmetic consumers. Retained all moment growth/tightness/uniform-integrability hypotheses. Added mirrored rank-zero, cyclic 2/4, FK phase and good-plane controls and Wood separator controls. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 24 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+  }
+}

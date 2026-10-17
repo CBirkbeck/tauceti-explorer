@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "date": "2026-10-17",
+    "notes": "Function-field and geometric statistics. Retained all limit-order, cohomological, component-profile and escaped-mass qualifications. Added light CDF distance/atom and finite trace signatures with mirrored 0/1/one-half, q=1 exclusion and n=0 controls; the numeric trace theorem permits real q>1 and its geometric application uses prime powers. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 10 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "date": "2026-10-17",
+    "notes": "Quadratic probability and conditional twist applications. Actual continuous quadratic map and topological polar self-duality, dyadic quadratic isotropy, common parity and summability/half-mass hypotheses retained. C is present over the actual averaging field for every applicable isogeny factor. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 9 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+  }
+}

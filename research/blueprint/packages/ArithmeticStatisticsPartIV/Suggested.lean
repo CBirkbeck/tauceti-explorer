@@ -1,0 +1,111 @@
+import Mathlib
+
+/-!
+# Arithmetic statistics, Part IV: representative target signatures
+
+The accompanying README is the full specification, with source locators and exact
+supplier contracts. This file gives light definitions and selected milestones on
+the pinned carriers. Counts retain the specified cutoffs and denominators; orbit,
+moduli, covering and arithmetic probability constructions remain README targets.
+-/
+
+noncomputable section
+open scoped BigOperators Topology
+open Polynomial Filter
+set_option autoImplicit false
+set_option linter.unusedVariables false
+
+namespace TauCetiRoadmap.ArithmeticStatisticsPartIV
+
+/-! ## Layer 3: Finite groups, matrix laws and moment tools -/
+
+namespace FieldStatistics
+
+/-- The p-torsion in the (k−1)st power image, rather than all p-torsion. -/
+def powerRank (A : Type*) [CommGroup A] [Finite A] (p k : ℕ) : ℕ :=
+  Nat.log p (Nat.card {a : A // (∃ b : A, b ^ (p ^ (k - 1)) = a) ∧ a ^ p = 1})
+
+/-- Adjacent power-image ranks add under direct products. -/
+theorem powerRank_prod (A B : Type*) [CommGroup A] [Finite A] [CommGroup B] [Finite B]
+    {p k : ℕ} (hp : p.Prime) (hk : 1 ≤ k) :
+    powerRank (A × B) p k = powerRank A p k + powerRank B p k := by sorry
+
+example : powerRank (Multiplicative (ZMod 2)) 2 2 = 0 := by sorry
+example : powerRank (Multiplicative (ZMod 4)) 2 2 = 1 := by sorry
+
+/-- Binary coordinates for the Fouvry–Klüners finite quadratic calculation. -/
+abbrev FKSpace (k : ℕ) := Fin k → ZMod 2 × ZMod 2
+
+/-- The asymmetric phase in the quadratic-discriminant Jacobi expansion. -/
+def fkPhase {k : ℕ} (u v : FKSpace k) : ZMod 2 :=
+  ∑ j, ((u j).1 + (v j).1) * ((u j).1 + (v j).2)
+/-- The phase relative to zero, as a quadratic expression. -/
+def fkQuadratic {k : ℕ} (u : FKSpace k) : ZMod 2 :=
+  ∑ j, (u j).1 * ((u j).1 + (u j).2)
+/-- Linked indices have nonzero symmetrized phase. -/
+def fkLinked {k : ℕ} (u v : FKSpace k) : Prop := fkPhase u v + fkPhase v u = 1
+/-- Good planes are k-dimensional subspaces annihilated by the directed pairing. -/
+def fkGoodPlanes (k : ℕ) : Set (Submodule (ZMod 2) (FKSpace k)) :=
+  {U | Module.finrank (ZMod 2) U = k ∧
+    ∀ u ∈ U, ∀ v ∈ U, (∑ j, (u j).1 * ((v j).1 + (v j).2)) = 0}
+/-- The FK good k-planes are counted by all subspaces of F₂^k. -/
+theorem fk_good_subspace_bijection (k : ℕ) :
+    Nonempty ({U // U ∈ fkGoodPlanes k} ≃ Submodule (ZMod 2) (Fin k → ZMod 2)) := by sorry
+
+example : fkPhase (fun _ : Fin 1 => (1, 0)) 0 = 1 ∧
+    fkPhase 0 (fun _ : Fin 1 => (1, 0)) = 0 := by sorry
+example : fkQuadratic (fun _ : Fin 1 => (1, 0)) = 1 ∧
+    fkQuadratic (fun _ : Fin 1 => (1, 1)) = 0 := by sorry
+example : fkLinked (fun _ : Fin 1 => (1, 0)) 0 := by sorry
+example : Nat.card (FKSpace 0) = 1 ∧ Nat.card (FKSpace 1) = 4 := by sorry
+example : (fkGoodPlanes 2).ncard = 5 := by sorry
+example : powerRank (Multiplicative (ZMod 4)) 2 1 = 1 ∧
+    powerRank (Multiplicative (ZMod 2)) 2 1 = 1 := by sorry
+example : powerRank Unit 2 1 = 0 := by sorry
+example : Nat.card (FKSpace 2) = 16 := by sorry
+example : fkPhase (0 : FKSpace 0) 0 = 0 ∧ fkQuadratic (0 : FKSpace 0) = 0 ∧
+    ¬ fkLinked (0 : FKSpace 0) 0 := by sorry
+example : fkPhase (fun _ : Fin 1 => (1, 0)) (fun _ => (1, 1)) = 0 ∧
+    fkPhase (fun _ : Fin 1 => (1, 1)) (fun _ => (1, 0)) = 0 := by sorry
+example : fkQuadratic (fun _ : Fin 1 => (0, 1)) = 0 := by sorry
+example : ¬ fkLinked (fun _ : Fin 1 => (1, 0)) (fun _ => (1, 1)) := by sorry
+example : fkLinked (fun _ : Fin 1 => (0, 1)) (fun _ => (1, 1)) := by sorry
+example : (fkGoodPlanes 0).ncard = 1 := by sorry
+example : (fkGoodPlanes 1).ncard = 2 := by sorry
+
+end FieldStatistics
+
+namespace Distributions
+/-- Wood's separating product on a finite partition grid, with its convergent first factor. -/
+def woodGridSeparator (m p : ℕ) (b : Fin (m + 1) → ℕ)
+    (z : Fin (m + 1) → ℂ) : ℂ :=
+  (∏' j : ℕ, (1 - z 0 / (p : ℂ) ^ (b 0 + 1 + j))) *
+    ∏ i : Fin m,
+      ∏ j ∈ Finset.Icc
+        ((∑ k : Fin (m + 1) with k.val ≤ i.val + 1, b k) + 1)
+        ((∑ k : Fin (m + 1) with k.val ≤ i.val, b k) + b i.castSucc),
+        (1 - z i.succ / (p : ℂ) ^ j)
+
+/-- The separator vanishes on a partition lexicographically greater than its target. -/
+theorem woodGridSeparator_upper {m p : ℕ} (hp : p.Prime)
+    (b f : Fin (m + 1) → ℕ) (hb : Antitone b) (hf : Antitone f)
+    (hlex : ∃ i : Fin (m + 1), (∀ j, j < i → f j = b j) ∧ b i < f i) :
+    woodGridSeparator m p b
+      (fun i => (p : ℂ) ^ (∑ j : Fin (m + 1) with j ≤ i, f j)) = 0 := by sorry
+
+/-- The same product is nonzero at the target partition. -/
+theorem woodGridSeparator_diagonal {m p : ℕ} (hp : p.Prime)
+    (b : Fin (m + 1) → ℕ) (hb : Antitone b) :
+    woodGridSeparator m p b
+      (fun i => (p : ℂ) ^ (∑ j : Fin (m + 1) with j ≤ i, b j)) ≠ 0 := by sorry
+
+
+example : woodGridSeparator 0 2 (fun _ => 0) (fun _ => 2) = 0 := by sorry
+example : woodGridSeparator 0 2 (fun _ => 0) (fun _ => 1) ≠ 0 := by sorry
+
+example : woodGridSeparator 0 2 (fun _ => 1) (fun _ => 4) = 0 ∧
+    woodGridSeparator 0 2 (fun _ => 1) (fun _ => 2) ≠ 0 := by sorry
+
+end Distributions
+
+end TauCetiRoadmap.ArithmeticStatisticsPartIV
