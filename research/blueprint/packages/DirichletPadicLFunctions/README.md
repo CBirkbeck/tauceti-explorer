@@ -14,6 +14,7 @@ The following existing objects are inputs, rather than constructions of this roa
 
 * Mathlib's `DirichletCharacter`, its `conductor`, `primitiveCharacter`, `changeLevel`, `LFunction`, `gaussSum`, Bernoulli numbers and polynomials, and `riemannZeta` at nonpositive integers.
 * Current Tau Ceti's `DirichletCharacter.generalizedBernoulli`, including its coefficient-map and modulus-one comparisons. Its convention uses representatives in `(0,N]`; at level one it is `bernoulli'`, so its first value is `+1/2`. The Mellin kernel below uses `bernoulli`, whose first value is `−1/2`. These two conventions agree in degrees other than one and are never silently interchanged.
+* Current Tau Ceti's low-degree Tate comparisons `TauCeti.TateCohomology.H0IsoNormQuotient` and `HNegOneIsoNormKernelQuotient`, with their representative maps and equality criteria, in `TauCeti.RepresentationTheory.Homological.TateCohomology.LowDegree`. Mathlib's `Rep.FiniteCyclicGroup.groupCohomologyIsoOdd` and `groupCohomologyπOdd` supply the ordinary H¹ comparison through the same norm-kernel quotient. The targets below identify the operators on the actual distribution quotient and its parity torsion.
 * Current Tau Ceti's primitive composite-modulus Gauss-sum product theorem. Primitivity is a hypothesis on both the multiplicative and additive characters; the theorem is not restricted to a prime modulus.
 * Current Tau Ceti's local-field logarithm convergence on the first unit filtration and its deeper injectivity theorem, and its power-series evaluation and division API. The global Iwasawa logarithm still comes from ColemanIntegration.
 * Current Tau Ceti's `EisensteinSeries.normalizedCharEisensteinSeriesMF`, its character space and positive Fourier coefficients, and its actual level-raising form and q-expansion. The arithmetic constant comparison, deletion of the Euler factor at p, and interpolation by measures remain the targets here.
@@ -165,7 +166,7 @@ For a number field F, identify the supplier's trivial-character Tate L-function 
 
 The residue is positive, so the meromorphic order of ζ_F at 1 is exactly −1. The construction is attached to the actual continued Dedekind function and the supplier's archimedean factor, not to an arbitrary entire function with an assigned central value. Its API comprises agreement on the punctured neighborhood, analyticity, value at 1, nonzero residue, simple-pole order and uniqueness of the germ. This arithmetic comparison consumes the global continuation and class-number formula; it does not reproduce Tate's thesis. (RJW, Theorem 2.2, p.108; the global-character normalization in §2.4.2, pp.114–116.)
 
-For ℚ, identify a continuous GL₁ arithmetic character with finite-unit character χ, the compatible infinity sign and its norm exponent. In the convention where the associated Dirichlet coefficients use χ, its finite uniformizer value is `χ(ℓ)⁻¹ℓ^(−s)`. Prove the change of arithmetic convention by inversion, the compatibility at −1, and the local Euler-factor comparison; do not infer this normal form for an arbitrary discontinuous function on ideles.
+For ℚ, identify a continuous GL₁ arithmetic character with finite-unit character χ, the compatible infinity sign and its norm exponent. Here χ is the finite-unit restriction, and at an unramified prime ℓ its uniformizer value is `χ(ℓ)⁻¹ℓ^(−s)`. Thus its usual Tate Euler factor has Dirichlet coefficient χ⁻¹(ℓ). To obtain the Dirichlet L-function with coefficients χ, use the idele-class character whose finite-unit restriction is χ⁻¹. Prove this conversion, the compatibility at −1, and the local Euler-factor comparison; do not infer this normal form for an arbitrary discontinuous function on ideles. (RJW, Propositions 2.9 and 2.11, pp.113–115; the local comparison follows by expanding the unramified geometric series.)
 
 Use `dedekindPoleCleared_analytic`, `_one`, `_residue` and `_unique` for the germ and `glOneCharacter_uniformizer` and `_parity` for the global character normalization.
 
@@ -173,6 +174,7 @@ Use `dedekindPoleCleared_analytic`, `_one`, `_residue` and `_unique` for the ger
 
 * F=ℚ has `r₁=1,r₂=0,h=1,R=1,w=2,disc=1`, so the displayed residue is 1.
 * The first two terms of an unramified GL₁ Euler factor are `1+χ(ℓ)⁻¹ℓ^(−s)`, fixing the inverse-character convention.
+* For the quartic character modulo 5 with χ(2)=i, the finite-unit convention gives coefficient −i at ℓ=2. Inverting that finite-unit character gives coefficient i. A quadratic character would not distinguish the two choices.
 * A trivial finite character has trivial infinity sign; an odd finite character requires the sign at the real place.
 * Positivity rules out residue 0. The theorem makes no simple-pole conclusion from an arbitrary proposed pole-cleared function that vanishes at 1.
 
@@ -797,7 +799,7 @@ Its API gives G(0), the unit/nonunit recurrence, its unit image in Z, and intege
 Γ_p(x+1)=−Γ_p(x)         for x∈pZ.
 ```
 
-Morita's original Γ is the unsigned product; this roadmap uses his signed `(-1)^x Γ` convention where the sign is defined on integers and then extended as the complete signed function. At odd p the standalone expression `(-1)^x` is not a continuous function on Z and is not used to define the extension. Define `gammaDisc r` by `x↦Γ_p(p^r x)`, with restriction, rescaling, continuity and natural-value equations. (Morita, Theorem 1 and its proof, pp.255–257; Robert, §1, pp.158–160.)
+Morita's original Γ is the unsigned product; this roadmap uses his signed `(-1)^x Γ` convention where the sign is defined on integers and then extended as the complete signed function. At odd p the standalone expression `(-1)^x` is not a continuous function on Z and is not used to define the extension. Define `gammaDisc r` by `x↦Γ_p(p^r x)`, with restriction, rescaling, continuity and natural-value equations. (Morita, Theorem 1 and its proof, pp.255–256; Robert, §2, pp.158–160.)
 
 The finite signed product is `moritaNaturalValue`; `moritaNaturalValue_congruence` is its admissible-precision congruence and `existsUnique_moritaGamma` is the continuous interpolation milestone. Use `moritaGamma_nat`, `moritaGamma_unit_step`, `moritaGamma_nonunit_step`, `moritaGamma_zero` and `moritaGamma_continuous` for its arithmetic API.
 
@@ -829,7 +831,7 @@ M_χ^(n+1)(S(A))−M_χ^n(S(A))
 
 The expansion is used only when `‖N_n‖` lies inside the actual Taylor radius; this is not automatically true at n=0. Establish the finite-sum and HasSum interchanges at the surviving unit indices, with the exact inverse torsion power in χ_m. Prove power-sum bounds, the telescoping identity, and the finite polynomial controls independently of the analytic hypotheses.
 
-For convergence use a genuine Taylor expansion on a radius `R>r=‖q‖`, with divided derivatives D_m and a common bound B. Require value bounds `‖D_m(x)‖≤B/R^m` and Lipschitz bounds `‖D_m(x)−D_m(y)‖≤B‖x−y‖/(R^m r)` on `‖x−1‖≤r`, together with the actual Taylor HasSum. Define the useful finite bound `C_f=max(‖b⁻¹‖,‖q⁻¹‖²)`. The block recursion yields uniform mean bounds and a geometric bound on successive differences; in particular `‖M_χ^n(S(D_m))‖≤C_f B/R^m`, convergence to actual coefficients v_m, and the corresponding limit bound. The power-sum factor must remain in the quantitative difference estimate; it is not estimated by an archimedean sum of q unit norms and then discarded. An equivalent theorem with explicit value/Lipschitz constants for each D_m is useful when no analytic carrier is packaged. Completeness supplies the limits, not the finite identities. (Morita, Lemmas 1–4 and Theorem 2, pp.257–260; the larger-radius hypothesis makes the closed-disc boundary convergence explicit.)
+For convergence use a genuine Taylor expansion on a radius `R>r=‖q‖`, with divided derivatives D_m and a common bound B. Require value bounds `‖D_m(x)‖≤B/R^m` and Lipschitz bounds `‖D_m(x)−D_m(y)‖≤B‖x−y‖/(R^m r)` on `‖x−1‖≤r`, together with the actual Taylor HasSum. Define the useful finite bound `C_f=max(‖b⁻¹‖,‖q⁻¹‖²)`. The block recursion yields uniform mean bounds and a geometric bound on successive differences; in particular `‖M_χ^n(S(D_m))‖≤C_f B/R^m`, convergence to actual coefficients v_m, and the corresponding limit bound. The power-sum factor must remain in the quantitative difference estimate; it is not estimated by an archimedean sum of q unit norms and then discarded. An equivalent theorem with explicit value/Lipschitz constants for each D_m is useful when no analytic carrier is packaged. Completeness supplies the limits, not the finite identities. (Morita, §2, especially the estimates on pp.257–259 and Theorem 2, pp.259–260; the larger-radius hypothesis makes the closed-disc boundary convergence explicit.)
 
 Name the averaging modulus `moritaModulus`, the tower `moritaMeanLevel` and the linear finite sample `moritaFiniteMean`. Use `moritaFiniteMean_add`, `moritaFiniteMean_smul`, `moritaFiniteMean_map`, `moritaFiniteMean_raiseLevel`, `moritaFiniteMean_block` and `moritaFiniteMean_tendsto` for the stated interfaces. Name the sample operators `moritaAngularSample` and `moritaShiftedSample`, the twist `moritaDerivativeTwist`, the block sum `moritaBlockPowerSum` and the explicit bound `moritaMeanBound`.
 
@@ -1075,7 +1077,7 @@ The light full-fiber expression is `divisionRelator`; its definition needs finit
 * In an odd quotient the class of 0 is killed by 2 and need not be zero. Adding its vanishing is a separate normalization.
 * For X=Q/Z,m=2,a=0, the ordinary relation is `[0]+[1/2]−[0]=[1/2]`; omitting one root changes it.
 * An orbit lift for t=p requires `f(pa)=f(a)`. Oddness alone does not imply this extra relation.
-* On the trivial group, the weight-w relator is `(m^w−1)[0]`: at w=0 it is zero; at w=1,m=2 it is [0]; at w=2,m=2 it is 3[0]. The ordinary quotient is Z, whereas these two positive-weight quotients are zero and Z/3 respectively.
+* On the trivial group, the weight-w relator is `(m^w−1)[0]`: at w=0 it is zero; at w=1,m=2 it is [0]; at w=2,m=2 it is 3[0]. With multiplier set S={2}, the ordinary quotient is Z, whereas these two positive-weight quotients are zero and Z/3 respectively. Allowing both 2 and 3 at weight 2 adds the relator 8[0]; since 3·3−8=1, that quotient is zero. The answer depends on S.
 * With no allowed multipliers the quotient is the original free group. Allowing only m=1 adds zero relations. Allowing m=2 on Z/2 at weight zero kills [1] but leaves [0].
 * The parity quotient on X={0}, w=0 is Z for even sign and Z/2 for odd sign; further normalization killing [0] makes either zero. Frobenius equal to the identity adds no orbit relation, whereas explicit normalization still changes this example.
 
@@ -1157,7 +1159,7 @@ a_n=A/n^k       (n>0),
 a_(−n)=B/n^k    (n>0).
 ```
 
-The distribution space is two-dimensional over C before imposing parity; A and B are independent. For k>1 construct `G_k(t)=Σ_(n≥1)exp(2πint)/n^k` with uniform absolute convergence. For k=1 use the actual convergent/logarithmic representative away from integers and a compatible endpoint or modified difference before descending. Give the positive/negative Fourier parameters, parity projections over C, the exact weighted law and the corresponding Cartan realization. (Kubert, Proposition 3.3 and Lemma 3.4, pp.190–191.)
+The distribution space is two-dimensional over C before imposing parity; A and B are independent. For k>1 construct `G_k(t)=Σ_(n≥1)exp(2πint)/n^k` with uniform absolute convergence. For k=1 use the actual convergent/logarithmic representative away from integers and a compatible endpoint or modified difference before descending. Give the positive/negative Fourier parameters, parity projections over C, the exact weighted law and the corresponding Cartan realization. (Kubert, Proposition 3.3 and Lemma 3.4, pp.189–191.)
 
 The injectivity target for the Cartan realization must prove that its primitive-character projections are nonzero. Compute those projections by Gauss sums, the nonzero Dirichlet value and the exact Euler factors at deleted primes, and then use character separation and the primary basis. This is the arithmetic content of the character criterion, not a blanket assertion that every nonzero distribution gives an injective realization. For k>1, state the resulting injective Cartan map for the constructed G_k and its full complex linear span. (Kubert, Theorem 3.10 and proof, pp.192–193.)
 
@@ -1210,20 +1212,13 @@ The API names are `rationalCartanValue`, `rationalCartanValue_equivariant`, `rat
 
 ### 4.12 Parity, Tate cohomology and the integral torsion
 
-On any quotient Q=U_(S,w)(X) let j be the actual point-negation involution. Define `d_even=j−1` and `d_odd=j+1`; their composites are zero. Define the C₂ representation on the native Z-module Q by the identity and j, and prove its native group norm is d_odd and generator difference is d_even. The API includes uniqueness of this representation from the actual generator action, transport along additive equivalences, intertwining, invariants `ker d_even` and augmentation image `im d_even`. Using the native cohomology definitions, construct the concrete comparisons
+On any quotient Q=U_(S,w)(X) let j be the actual point-negation involution. Define `d_even=j−1` and `d_odd=j+1`; their composites are zero. Define the C₂ representation on the native Z-module Q by the identity and j, and prove its native group norm is d_odd and generator difference is d_even. The API includes uniqueness of this representation from the actual generator action, transport along additive equivalences, intertwining, invariants `ker d_even` and augmentation image `im d_even`. These operator identities specialize the cohomology interfaces listed under Scope and ownership to Q. Unlike the generic norm-quotient comparisons, the targets here construct embeddings into the actual odd quotient `Q/im d_odd` and even quotient `Q/im d_even`, preserving point representatives. Prove their zero/equality criteria, naturality and that both images are killed by 2. Define the parity descent maps induced by d_even from the odd quotient to Q and by d_odd from the even quotient to Q; their kernels are precisely these images, and their images are the corresponding operator images.
 
-```text
-Hhat^0(C₂,Q) ≃ ker(d_even)/im(d_odd),
-Hhat^(−1)(C₂,Q) ≃ ker(d_odd)/im(d_even).
-```
-
-The images are restricted to their displayed kernels. Give representatives, zero/equality criteria, surjectivity, naturality and inverse representative formulas. The first group embeds in the odd quotient `Q/im d_odd`, and the second in the even quotient `Q/im d_even`. Both are killed by 2. Define the parity descent maps induced by d_even from the odd quotient to Q and by d_odd from the even quotient to Q; their kernels are precisely these Tate images, and their images are the corresponding operator images.
-
-If Q is torsion-free, those kernels are exactly the torsion subgroups of the two parity quotients. Construct both Z-linear and F₂-linear equivalences, retaining the original representative maps, inverses and functoriality. Ordinary `H¹(C₂,Q)` is canonically the negative Tate group by the explicit 2-periodic resolution; give the representative comparison and its consequent torsion equivalence with the even quotient under the same torsion-free hypothesis. Do not identify ordinary H¹ with degree-zero Tate. (Kubert, Corollary 4.15, pp.199–200; Kubert, *The Z/2Z cohomology of the universal ordinary distribution*, §1, pp.203–207, for the involution and parity conventions.)
+If Q is torsion-free, those kernels are exactly the torsion subgroups of the two parity quotients. Construct both Z-linear and F₂-linear equivalences, retaining the original representative maps, inverses and functoriality. Compose the supplied ordinary degree-one and negative Tate interfaces to obtain the torsion comparison with the actual even distribution quotient, under the same torsion-free hypothesis. This target retains point representatives and does not identify ordinary H¹ with degree-zero Tate. (Kubert, Corollary 4.15, pp.199–200; Kubert, *The Z/2Z cohomology of the universal ordinary distribution*, §1, pp.203–207, for the involution and parity conventions.)
 
 Apply this to the torsion-free ordinary torus quotient. For `N>2`, both rational parity ranks are half the primitive count. At N=1, the even rank is 1 and the odd rank 0. At N=2, every point is fixed by negation, so the even rank is `2^d−1` and the odd rank 0. These are ranks; the odd quotient can still contain 2-torsion. State the GL_d action on the rationalized representation and the finite-level compatibility from the basis theorem, not an integral decomposition by half-idempotents.
 
-Use `distributionNegation`, `distributionParityOperator`, `distributionSignRepresentation`, `distributionTateZeroEquiv`, `distributionTateNegOneEquiv`, `distributionHOneEquiv`, `distributionParityTorsionEquiv` and `ordinaryDistribution_parityRank` for the point involution and concrete cohomology comparisons. Each map keeps the original point representatives.
+Use `distributionNegation`, `distributionParityOperator`, `distributionSignRepresentation`, `distributionTateZeroParityEmbedding`, `distributionTateNegOneParityEmbedding`, `distributionHOneParityTorsionEquiv`, `distributionParityTorsionEquiv` and `ordinaryDistribution_parityRank` for the point involution, embeddings and torsion comparisons. Each map keeps the original point representatives.
 
 **Checks.**
 
@@ -1374,13 +1369,13 @@ Name the positive-series measure `positiveEisensteinSeriesMeasure`; use `_coeff_
 
 ### 5.3 Classical arithmetic normalization and stabilization
 
-For `k≥4`, define the arithmetic level-one form as the scalar multiple of the existing constant-one Eisenstein form
+For even `k≥4`, define the arithmetic level-one form as the scalar multiple of the existing constant-one Eisenstein form
 
 ```text
 E_k^a=(−B_k/(2k)) E_k^lib.
 ```
 
-At even k it has constant `−B_k/(2k)=ζ(1−k)/2` and positive coefficients σ_(k−1)(n). Its API gives the bundled ModularForm equality, pointwise equation, native q-expansion and both coefficient formulas. The constructor is a scalar normalization of an existing form; it does not rebuild holomorphy or modular invariance. For a prime p define the actual level-Γ₀(p) form
+It has constant `−B_k/(2k)=ζ(1−k)/2` and positive coefficients σ_(k−1)(n). Every form and coefficient comparison in this subsection retains this even-weight hypothesis. Its API gives the bundled ModularForm equality, pointwise equation, native q-expansion and both coefficient formulas. The constructor is a scalar normalization of an existing form; it does not rebuild holomorphy or modular invariance. For a prime p define the actual level-Γ₀(p) form
 
 ```text
 E_(k,p)^a(z)=E_k^a(z)−p^(k−1)E_k^a(pz),
@@ -1403,6 +1398,7 @@ Name the arithmetic form `arithmeticEisensteinForm` and its stabilization `stabi
 * At p=2,k=4, the stabilized constant is −7/240 and coefficient at q² is 1.
 * At p=3,k=4, both coefficients at q² and q⁶ are 9; setting every p-divisible index to zero fails.
 * The constant-one library E₄ cannot be used without the scalar factor, even though its modular weight is correct.
+* At k=5 the Bernoulli scalar is zero, so that scalar multiple has q coefficient 0, while σ₄(1)=1. Extending the positive coefficient formula to odd weights is false.
 
 ### 5.4 Shifted denominators and the full constant coefficient
 
@@ -1641,7 +1637,7 @@ ColemanIntegration uses the weight-one cyclotomic logarithm comparison and the a
 ## References
 
 * Joaquín Rodrigues Jacinto and Chris Williams, *An introduction to p-adic L-functions*, Essential Number Theory **4** (2025), no.1, 101–230, [published PDF](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf). The locators above use the printed pages of this edition: §2, Theorem 2.4 and Lemmas 2.6–2.7; §§4–5 for the arithmetic measures; §6, Theorems 6.1 and 6.7 for logarithmic values; §7 for the residue; §8 for Eisenstein interpolation. The coordinate twist and finite-level conductor conventions are stated explicitly in the formulas here.
-* Yoshio Morita, *A p-adic analogue of the Γ-function*, Journal of the Faculty of Science, University of Tokyo, Section IA, Mathematics **22** (1975), 255–266, [repository PDF](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf). Theorem 1 constructs the continuous function; §2 treats normalized analytic means; Theorem 3 and §3 give its local analytic expression; §4 gives reciprocal mean comparisons. The signed normalization is fixed in §4.1 above.
+* Yasuo Morita, *A p-adic analogue of the Γ-function*, Journal of the Faculty of Science, University of Tokyo, Section IA, Mathematics **22** (1975), 255–266, [repository PDF](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf). Theorem 1 constructs the continuous function; §2 treats normalized analytic means; Theorem 3 and §3 give its local analytic expression; §4 gives reciprocal mean comparisons. The signed normalization is fixed in §4.1 above.
 * Benedict H. Gross and Neal Koblitz, *Gauss sums and the p-adic Γ-function*, Annals of Mathematics **109** (1979), 569–581, [author-hosted scan](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf). Theorem 1.7 and Lemma 2.11 identify the Gauss product; Theorem 3.1 gives the multiplication formula. In the logarithmic use of §3, pp.576–577, common periods and least periods are kept distinct as in §4.6 above.
 * Alain M. Robert, *The Gross–Koblitz formula revisited*, Rendiconti del Seminario Matematico della Università di Padova **105** (2001), 157–170, [Numdam PDF](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf). Theorems 1–4 provide the scalar power-series proof, with the all-prime digit estimate on pp.167–168 and the reflection and splitting-function comparisons in the appendices, p.169.
 * Daniel S. Kubert, *The universal ordinary distribution*, Bulletin de la Société Mathématique de France **107** (1979), 179–202, [Numdam PDF](https://www.numdam.org/item/10.24033/bsmf.1891.pdf). Theorem 1.8 gives the basis, §2 the Cartan models, §3 the analytic distributions and injective realizations, §4 the rational realization and integral image, and the Appendix the weighted version. The smooth classification is used with the endpoint bound made explicit in §4.10 above.
