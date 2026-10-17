@@ -4975,5 +4975,7 @@
  "FIX-PKG-ColemanIntegration~adv2": 10204,
  "FIX-PKG-ModularityAndLanglandsExtensions~adv": 10210,
  "FIX-PKG-PotentialModularityAndCompatibleSystems~adv": 10211,
- "FIX-PKG-PrismaticCohomology~adv2": 10214
+ "FIX-PKG-PrismaticCohomology~adv2": 10214,
+ "FIX-PKG-PerfectoidShimuraVarieties~adv": 10216,
+ "FIX-PKG-ShimuraCompactifications~adv": 10217
 }
