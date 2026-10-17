@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T19:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -95,7 +95,7 @@ Generated 2026-10-17T19:10Z from the README supplier graph of every open pull re
 ## Wave 18
 - #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #785, #792, #813, #848, #849, #852, #853, #856, #871, #873, #908, #938, #944
-- #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #785, #792, #813, #853, #856, #858, #869, #879
+- #923 LocalGaloisDeformationRings — draft; waits on #1034, #785, #792, #813, #853, #856, #858, #869, #879
 
 ## Wave 19
 - #920 GlobalGaloisDeformations — ready (approved at an earlier head); waits on #785, #856, #858, #869, #923
@@ -127,25 +127,25 @@ Generated 2026-10-17T19:10Z from the README supplier graph of every open pull re
 - #1043 ColemanIntegration — draft; waits on #1002, #1039, #792, #813, #815, #851, #854, #944
 
 ## Wave 24
-- #966 PELModuli — ready (approved at an earlier head); waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #921, #933, #938
-- #970 SmallRamificationAndAbelianVarietyBaseCases — ready (approved at an earlier head); waits on #849, #850, #852, #856, #879, #921, #923, #928, #931, #933
+- #966 PELModuli — draft; waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #921, #933, #938
+- #970 SmallRamificationAndAbelianVarietyBaseCases — draft; waits on #849, #850, #852, #856, #879, #921, #923, #928, #931, #933
 - #1035 CompletedCohomologyPartII — ready; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #933, #944
 
 ## Wave 25
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
-- #1005 HilbertModularVarietiesAndShimuraCurves — ready; waits on #1001, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #929, #931, #933, #938, #966, #934
+- #1005 HilbertModularVarietiesAndShimuraCurves — draft; waits on #1001, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #929, #931, #933, #938, #966, #934
 - #1038 ShimuraData — ready; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
 
 ## Wave 26
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #792, #848, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
-- #1006 AutomorphicGaloisRepresentationsPartII — ready; waits on #1001, #1002, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #966, #999
+- #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #966, #970, #999
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #785, #852, #856, #858, #879, #913, #920, #923, #928, #931
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #785, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
 - #1053 ShimuraCompactifications — draft; waits on #1005, #1038, #792, #813, #848, #849, #852, #853, #858, #879, #913, #933, #966
 
 ## Wave 27
-- #1007 AutomorphicGaloisRepresentations — ready; waits on #1001, #1005, #1006, #1013, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #938, #940, #966, #999, #934
+- #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #938, #940, #966, #970, #999, #934
 - #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #1039, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968, #934
 - #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1001, #1002, #1017, #1043, #785, #848, #849, #850, #852, #853, #857, #858, #869, #879, #924, #929, #938, #940, #944, #966
 
@@ -160,4 +160,4 @@ Generated 2026-10-17T19:10Z from the README supplier graph of every open pull re
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
 
 ## Wave 31
-- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1004, #1006, #1007, #1018, #1036, #1046, #850, #856, #879, #913, #931, #933
+- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1004, #1006, #1007, #1018, #1034, #1036, #1046, #850, #856, #871, #879, #913, #920, #923, #931, #933
