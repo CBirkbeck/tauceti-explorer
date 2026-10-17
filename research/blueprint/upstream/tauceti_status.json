@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T21:28Z",
+ "updated": "2026-10-17T21:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -869,7 +869,7 @@
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1129,7 +1129,7 @@
   "EllipticCurveModularityImaginaryQuadratic": {
    "stage": "pr",
    "pr": 1048,
-   "head": "b95f99c",
+   "head": "4eb7e6f",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
    "review": {
     "recommendation": "changes",
@@ -1165,7 +1165,7 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "0527913",
+   "head": "4dfb23d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1261,7 +1261,7 @@
   "PotentialModularityAndCompatibleSystems": {
    "stage": "pr",
    "pr": 1075,
-   "head": "f2d6324",
+   "head": "815a8ae",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 66); red team running",
    "review": {
     "recommendation": null,
@@ -1273,7 +1273,7 @@
   "PrismaticCohomologyPartIV": {
    "stage": "pr",
    "pr": 1080,
-   "head": "e0b7572",
+   "head": "436a663",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": null,
@@ -1285,7 +1285,7 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "ae36fa8",
+   "head": "efd3f14",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": null,
@@ -1322,7 +1322,13 @@
    "stage": "pr",
    "pr": 1087,
    "head": "1f397e9",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
