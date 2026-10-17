@@ -207,7 +207,7 @@ example : B.a₃ = -1 ∧ ¬ (⟨0,0,1,0,1⟩ : WeierstrassCurve ℚ).toAffine.E
 /-! ## Layer 5: Genus-one curves and rational divisor classes -/
 
 /-- The level-fifteen arithmetic model y²=x(x+16)(x+25), of discriminant
-207360000. Its modular identification is level_fifteen_models (CN p.93). -/
+207360000. Its modular identification is LevelFifteenModels (CN p.93). -/
 def E15 : WeierstrassCurve ℚ := ⟨0, 41, 0, 400, 0⟩
 
 /-- The second level-fifteen arithmetic model y²=x(x+1)(x+16), of
@@ -250,27 +250,67 @@ example : ∃ h : Es35.toAffine.Equation 0 0, WeierstrassCurve.Affine.Point.mk h
 /-- The three rational two-torsion x-coordinates are 0, −1 and −16. -/
 example : Es35.toAffine.Equation (0) 0 ∧ Es35.toAffine.Equation (-1) 0 ∧ Es35.toAffine.Equation (-16) 0 := by sorry
 
-/-- Quadratic torsion growth on actual point groups (CN Corollary 7.1.2 proof,
-p.93). Square-root conditions identify the exceptional quadratic fields.
-There are eight new Gaussian torsion points, beyond eight rational points; no
-rank-zero claim is made for an arbitrary quadratic field. -/
-theorem quadratic_level_fifteen_torsion (F : Type*) [Field F] [NumberField F]
-    (hF : Module.finrank ℚ F = 2) :
-    ((∀ P : (E15.toAffine.baseChange F).Point,
-        IsOfFinAddOrder P → P ∈ Set.range
-          (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
-            (Algebra.ofId ℚ F))) ↔
-      (¬ ∃ i : F, i ^ 2 = -1) ∧ (¬ ∃ s : F, s ^ 2 = 5)) ∧
-    ((∀ P : (Es35.toAffine.baseChange F).Point,
-        IsOfFinAddOrder P → P ∈ Set.range
-          (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
-            (Algebra.ofId ℚ F))) ↔ (¬ ∃ s : F, s ^ 2 = 5)) ∧
-    Nat.card E15.toAffine.Point = 8 ∧ Nat.card Es35.toAffine.Point = 8 ∧
-    ((∃ i : F, i ^ 2 = -1) →
-      Nat.card {P : (E15.toAffine.baseChange F).Point |
-        IsOfFinAddOrder P ∧ P ∉ Set.range
-          (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
-            (Algebra.ofId ℚ F))} = 8) := by sorry
+/-- The assumed quadratic torsion table on actual point groups (CN Corollary
+7.1.2 proof, p.93; Kwon Theorem 1(iii), pp.144–145). The structure records
+explicit arithmetic hypotheses; no theorem constructs an inhabitant. -/
+structure QuadraticLevelFifteenTorsion (F : Type*) [Field F] [NumberField F] : Prop where
+  quadratic_degree : Module.finrank ℚ F = 2
+  e15_no_growth_iff :
+    (∀ P : (E15.toAffine.baseChange F).Point,
+      IsOfFinAddOrder P → P ∈ Set.range
+        (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+          (Algebra.ofId ℚ F))) ↔
+      (¬ ∃ i : F, i ^ 2 = -1) ∧ (¬ ∃ s : F, s ^ 2 = 5)
+  es35_no_growth_iff :
+    (∀ P : (Es35.toAffine.baseChange F).Point,
+      IsOfFinAddOrder P → P ∈ Set.range
+        (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
+          (Algebra.ofId ℚ F))) ↔ (¬ ∃ s : F, s ^ 2 = 5)
+  e15_rational_card : Nat.card E15.toAffine.Point = 8
+  es35_rational_card : Nat.card Es35.toAffine.Point = 8
+  gaussian_new_card : (∃ i : F, i ^ 2 = -1) →
+    Nat.card {P : (E15.toAffine.baseChange F).Point |
+      IsOfFinAddOrder P ∧ P ∉ Set.range
+        (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+          (Algebra.ofId ℚ F))} = 8
+
+/-- Gaussian input gives growth for E15, none for Es35, and eight new torsion
+points. It gives no rank-zero assertion for the field. -/
+example (F : Type*) [Field F] [NumberField F]
+    (h : QuadraticLevelFifteenTorsion F) (i : F) (hi : i ^ 2 = -1)
+    (h5 : ¬ ∃ s : F, s ^ 2 = 5) :
+    (∃ P : (E15.toAffine.baseChange F).Point, IsOfFinAddOrder P ∧
+      P ∉ Set.range (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+        (Algebra.ofId ℚ F))) ∧
+    (∀ P : (Es35.toAffine.baseChange F).Point, IsOfFinAddOrder P →
+      P ∈ Set.range (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
+        (Algebra.ofId ℚ F))) ∧
+    Nat.card {P : (E15.toAffine.baseChange F).Point | IsOfFinAddOrder P ∧
+      P ∉ Set.range (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+        (Algebra.ofId ℚ F))} = 8 := by sorry
+
+/-- A square root of 5 forces growth in both tables, including the real
+quadratic exception excluded by the final imaginary-field theorem. -/
+example (F : Type*) [Field F] [NumberField F]
+    (h : QuadraticLevelFifteenTorsion F) (s : F) (hs : s ^ 2 = 5) :
+    (∃ P : (E15.toAffine.baseChange F).Point, IsOfFinAddOrder P ∧
+      P ∉ Set.range (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+        (Algebra.ofId ℚ F))) ∧
+    (∃ P : (Es35.toAffine.baseChange F).Point, IsOfFinAddOrder P ∧
+      P ∉ Set.range (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
+        (Algebra.ofId ℚ F))) := by sorry
+
+/-- With neither exceptional square root, all torsion points are rational
+images. Finiteness of the full point groups is a separate hypothesis. -/
+example (F : Type*) [Field F] [NumberField F]
+    (h : QuadraticLevelFifteenTorsion F)
+    (hi : ¬ ∃ i : F, i ^ 2 = -1) (h5 : ¬ ∃ s : F, s ^ 2 = 5) :
+    (∀ P : (E15.toAffine.baseChange F).Point, IsOfFinAddOrder P →
+      P ∈ Set.range (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+        (Algebra.ofId ℚ F))) ∧
+    (∀ P : (Es35.toAffine.baseChange F).Point, IsOfFinAddOrder P →
+      P ∈ Set.range (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
+        (Algebra.ofId ℚ F))) := by sorry
 
 /-- The Gaussian long Weierstrass model (i,1,1,6+i,10−15i), for i²=−1
 in the arithmetic comparisons (CN Corollary 7.1.2 proof, p.93; LMFDB 4050.1-c3). -/
@@ -305,8 +345,11 @@ example : ns3b5Quartic.eval (0) = -75 := by sorry
 /-- The value at −5/2 agrees with the special point y=5√−3/4. -/
 example : ns3b5Quartic.eval (-5/2) = -75/16 := by sorry
 
+/-- The scalar-one infinity coordinate fails the genuine −3-twisted equation. -/
+example : (1 : ℚ) ^ 2 = 1 ∧ (1 : ℚ) ^ 2 ≠ -3 := by norm_num
+
 /-- The five ordered weighted coordinate triples over a square root of −3.
-Their lifts to the smooth proper curve need genus_one_model (CN p.95). -/
+Their lifts to the smooth proper curve need GenusOneModel (CN p.95). -/
 def genusOneSpecialPoints (K : Type*) [Field K] (s : K) : List (Fin 3 → K) := [![1,s,0], ![1,-s,0], ![0,5*s,1], ![-2,-s,1], ![-5/2,5*s/4,1]]
 
 /-- All five triples satisfy the weight-(1,2,1) homogeneous equation
@@ -327,6 +370,15 @@ example (K : Type*) [Field K] [CharZero K] (s : K) (hs : s ^ 2 = -3) :
 example (K : Type*) [Field K] [CharZero K] (s : K) (hs : s ^ 2 = -3) :
     (genusOneSpecialPoints K s)[4]? = some ![-5/2, 5*s/4, 1] ∧
     (5*s/4)^2 = ns3b5Quartic.eval₂ (Rat.castHom K) (-5/2) := by sorry
+
+/-- At x=1+2i the norm-five relation agrees with the plus Fricke lift;
+the minus lift has the same x-coordinate and the wrong y-coordinate. -/
+example (K : Type*) [Field K] [CharZero K] (i : K) (hi : i ^ 2 = -1) :
+    (3 + 6 * i) ^ 2 = ns3b5Quartic.eval₂ (Rat.castHom K) (1 + 2 * i) ∧
+    (1 + 2 * i) * (1 - 2 * i) = 5 ∧
+    5 / (1 + 2 * i) = 1 - 2 * i ∧
+    5 * (3 + 6 * i) / (1 + 2 * i) ^ 2 = 3 - 6 * i ∧
+    -(5 * (3 + 6 * i) / (1 + 2 * i) ^ 2) ≠ 3 - 6 * i := by sorry
 
 /-! ## Layer 6: Genus-two curves and exceptional points -/
 
@@ -450,11 +502,11 @@ theorem small_imaginary_quadratic_level_fifteen_finite
     Finite (E15.toAffine.baseChange F).Point := by sorry
 
 /-- The point (−1,6√−10) on the actual level-fifteen model is nonrational
-and nontorsion, so the point group is infinite. Its compactified modular
-interpretation uses level_fifteen_models (CN p.93; explicit substitution). -/
+and nontorsion under the stated torsion input, so the point group is infinite.
+Its compactified modular interpretation uses LevelFifteenModels (CN p.93; explicit substitution). -/
 theorem sqrt_minus_ten_infinite_level_fifteen
     (F : Type*) [Field F] [NumberField F] (hF : Module.finrank ℚ F = 2)
-    (s : F) (hs : s ^ 2 = -10) :
+    (s : F) (hs : s ^ 2 = -10) (hTorsion : QuadraticLevelFifteenTorsion F) :
     ∃ h : (E15.toAffine.baseChange F).Equation (-1) (6 * s),
       ¬ IsOfFinAddOrder (WeierstrassCurve.Affine.Point.mk h) ∧
       (∀ q : ℚ, 6 * s ≠ (q : F)) ∧
