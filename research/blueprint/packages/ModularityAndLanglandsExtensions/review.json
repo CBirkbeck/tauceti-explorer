@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-ModularityAndLanglandsExtensions",
-    "date": "2026-10-14",
-    "notes": "Independent review #9226: corrected GSp4 positive chamber and lattice parity, residue-cardinality normalization, rank/degree labeling, archimedean character, analytic/source scope and locators, lifting supplier mappings, FKP hypotheses and all-primes monodromy boundary; added current Satake API ownership boundary. All 142 targets, 151 API items and 110 Checks retained. Lean-check exit 0 with 22 sorry-only warnings; Suggested.lean unchanged. Needs changes for absent method/Dwork/open-image suppliers, unclosed strengthened comparisons and upstream order, coefficient-prime monodromy, and explicit primary-source gaps. Exact repairs R1-R8 and full source/adversarial/signature audit are in REV-PKG-ModularityAndLanglandsExtensions.md."
+    "reviewer": "independent-review-REV-PKG-ModularityAndLanglandsExtensions~2",
+    "date": "2026-10-17",
+    "notes": "Completed independent review #9885. Corrected real scalar highest-weight/contragredient conventions and local hypotheses, equidistribution convergence/norm order, rank-one range, actual supplier mappings and cyclic induction primary locators; added discriminating Checks. All 142 targets, 151 API items and 110 packet tests retained. Lean-check exit 0 with 22 sorry-only warnings; Suggested.lean unchanged. Checked the two-place Steinberg repair and current-library/upstream duplication. Needs changes: six absent suppliers, coefficient-prime Dwork filtration, stronger lifting/analytic/cohomological/real-theta/classification/categorical and constituent-system exports, the exact Hilbert modular witness, upstream placement and explicit remaining primary-source obligations. Full findings and partial closures of R1-R8 are in REV-PKG-ModularityAndLanglandsExtensions~2.md."
   }
 }
