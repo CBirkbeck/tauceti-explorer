@@ -1557,7 +1557,7 @@
           "how": "the complex points are indexed by ker¹(ℚ, G) and described by G(ℚ)\\X × G(𝔸_f)/K"
         },
         {
-          "where": "ShimuraData:D4/shimura-datum",
+          "where": "ShimuraVarieties §P.1 (pure data and special pairs)",
           "how": "the PEL Shimura datum has group G_ℚ"
         },
         {
@@ -1970,29 +1970,30 @@
       ],
       "title": "The Shimura datum (G, X) of a PEL datum",
       "kind": "construction",
-      "statement": "For a rational PEL datum put X := the G(ℝ)-conjugacy class of h, viewed via the Deligne torus as homomorphisms h : S → G_ℝ (Deligne's convention, (V, h) of type {(−1,0),(0,−1)}). (G, h) satisfies: h(ℝ^×) is central; the cocharacter μ_h acts on Lie G_ℂ with weights in {−1, 0, 1}; Int h(√−1) is a Cartan involution of G₁/(centre) (Kottwitz Lemma 4.1). When G is connected (no type D factor) and h is nontrivial on every ℚ-simple factor of G^ad, (G, X) is a Shimura datum in the sense of ShimuraData:D4/shimura-datum, and the Siegel embedding G ↪ GSp(V) gives a morphism of Shimura data into a Siegel datum, so (G, X) is of Hodge type. Kottwitz writes the same object as (G, h⁻¹) under the opposite sign convention; the conversion is recorded.",
+      "statement": "For a rational PEL datum put X := the G(ℝ)-conjugacy class of h, viewed via the Deligne torus as homomorphisms h : S → G_ℝ (Deligne's convention, (V, h) of type {(−1,0),(0,−1)}). (G, h) satisfies: h(ℝ^×) is central; the cocharacter μ_h acts on Lie G_ℂ with weights in {−1, 0, 1}; Int h(√−1) is a Cartan involution of G₁/(centre) (Kottwitz Lemma 4.1). When G is connected (no type D factor) and h is nontrivial on every ℚ-simple factor of G^ad, (G, X) is a Shimura datum in the sense of ShimuraVarieties §P.1 (pure data and special pairs), and the Siegel embedding G ↪ GSp(V) gives a morphism of Shimura data into a Siegel datum, so (G, X) is of Hodge type. Kottwitz writes the same object as (G, h⁻¹) under the opposite sign convention; the conversion is recorded.",
       "hypotheses": [
         "For the preliminary Hodge/Cartan conclusions, an actual rational PEL datum.",
-        "For the D4 Shimura datum and Hodge-type embedding, connected G and nontrivial h-projection on every Q-simple adjoint factor (SV3)."
+        "For the ShimuraVarieties §P.1 datum and Hodge-type embedding, connected G and nontrivial h-projection on every Q-simple adjoint factor (SV3).",
+        "Supplier retarget: ShimuraVarieties §P.1 (pure data and special pairs). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/shimura-datum node is superseded.",
+        "Supplier retarget: ShimuraVarieties §P.1 (pure data and special pairs). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/datum-morphism node is superseded.",
+        "Supplier retarget: ShimuraVarieties §P.1 (pure data and special pairs). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/hodge-type node is superseded.",
+        "Supplier retarget: the Siegel datum of ShimuraVarieties §P.4. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/siegel-datum node is superseded."
       ],
       "proofSteps": [
         "Define X as the G(ℝ)-orbit of h|_{S} and record the sign dictionary with ShimuraData (type (p, q) ↔ character z^{−p} z̄^{−q}).",
         "Prove Kottwitz Lemma 4.1 (1)–(3) for (G, h) (central weight, weights of the adjoint action, Cartan involution via a positive involution on C ⊗ ℂ).",
         "Under connectedness and nontriviality on Q-simple factors, conclude the Shimura axioms (Milne §8: SV1, SV2, SV4 from the Siegel embedding; SV3 from nontriviality).",
-        "Construct the datum morphism (G, X) → (GSp(V), Siegel half spaces) of ShimuraData:D5/siegel-datum."
+        "Construct the datum morphism (G, X) → (GSp(V), Siegel half spaces) of the Siegel datum of ShimuraVarieties §P.4."
       ],
       "acceptance": [
-        "The Siegel PEL datum gives ShimuraData:D5/siegel-datum.",
+        "The Siegel PEL datum gives the Siegel datum of ShimuraVarieties §P.4.",
         "A totally definite unitary datum of rank n≥2 has central h and fails SV3. Rank-one definite tori have trivial adjoint group and are a separate positive example."
       ],
       "prerequisites": [
         "PELModuli:M0/hodge-structure-of-datum",
         "PELModuli:M0/similitude-group-structure",
-        "ShimuraData:D4/shimura-datum",
-        "ShimuraData:D4/datum-morphism",
-        "ShimuraData:D4/hodge-type",
-        "ShimuraData:D5/siegel-datum",
-        "AdelicAlgebraicGroups:AA.1"
+        "AdelicAlgebraicGroups:AA.1",
+        "ShimuraVarieties:V0"
       ],
       "uses": [
         {
@@ -2558,12 +2559,14 @@
       ],
       "title": "The PEL reflex field equals the Shimura reflex field",
       "kind": "theorem",
-      "statement": "Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum whose (G, X) is a Shimura datum (M0/pel-shimura-datum). Then the reflex field E(G, X) of ShimuraData:D3/reflex-field, the field of definition of the G(ℂ)-conjugacy class of μ_h, equals the field of definition F₀ of the isomorphism class of the B ⊗ ℂ-module V₀ = V^{−1,0}.",
+      "statement": "Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum whose (G, X) is a Shimura datum (M0/pel-shimura-datum). Then the reflex field E(G, X) of ShimuraVarieties §P.3 (Hodge filtrations and reflex fields), the field of definition of the G(ℂ)-conjugacy class of μ_h, equals the field of definition F₀ of the isomorphism class of the B ⊗ ℂ-module V₀ = V^{−1,0}.",
       "hypotheses": [
-        "(G, X) is a Shimura datum (G connected)"
+        "(G, X) is a Shimura datum (G connected)",
+        "Supplier retarget: ShimuraVarieties §P.3 (Hodge filtrations and reflex fields). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/cocharacter-class node is superseded.",
+        "Supplier retarget: ShimuraVarieties §P.3 (Hodge filtrations and reflex fields). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D3/reflex-field node is superseded."
       ],
       "proofSteps": [
-        "Use D3’s conjugacy class of the actual cocharacter μ_h obtained from the same h, rather than an independently supplied subgroup.",
+        "Use ShimuraVarieties §P.3’s conjugacy class of the actual cocharacter μ_h obtained from the same h, rather than an independently supplied subgroup.",
         "Conjugacy of μ_h is equivalent to isomorphism of its weight submodule V₀ with the B-action; the determinant/trace classification identifies its Galois stabilizer.",
         "The fixed fields agree, giving E(G,X)=F₀ under the connected Shimura hypotheses (Milne Proposition 12.4, p.112; Kottwitz §5, pp.389–390)."
       ],
@@ -2575,8 +2578,7 @@
         "PELModuli:M0/reflex-field",
         "PELModuli:M0/pel-shimura-datum",
         "PELModuli:M0/similitude-group-structure",
-        "ShimuraData:D3/reflex-field",
-        "ShimuraData:D3/cocharacter-class"
+        "ShimuraVarieties:V0"
       ],
       "sources": [
         {
@@ -5323,22 +5325,23 @@
       ],
       "title": "Neat open compact subgroups of G(Ẑ^□)",
       "kind": "definition",
-      "statement": "Embed G(Ẑ^□) ⊂ GL(L ⊗ Ẑ^□) × G_m(Ẑ^□) (or use any faithful representation). For g = (g_p)_{p ∉ □} let Γ_p ⊂ ℚ̄_p^× be the subgroup generated by the eigenvalues of g_p; fixing ℚ̄ ↪ ℚ̄_p, (ℚ̄^× ∩ Γ_p)_tors is independent of the embedding. g is neat if ⋂_{p ∉ □} (ℚ̄^× ∩ Γ_p)_tors = {1}, and an open compact H ⊂ G(Ẑ^□) is neat if all its elements are. For □ = ∅ this is Pink's neatness of ShimuraData:D5/neat-level; for unitary groups U(V)(𝔸^{∞,□}_{F⁺}) the same definition with places of F⁺ (LTXZZ Definition 3.1.11(1)). U^□(n) is neat for n ≥ 3 prime to □.",
+      "statement": "Embed G(Ẑ^□) ⊂ GL(L ⊗ Ẑ^□) × G_m(Ẑ^□) (or use any faithful representation). For g = (g_p)_{p ∉ □} let Γ_p ⊂ ℚ̄_p^× be the subgroup generated by the eigenvalues of g_p; fixing ℚ̄ ↪ ℚ̄_p, (ℚ̄^× ∩ Γ_p)_tors is independent of the embedding. g is neat if ⋂_{p ∉ □} (ℚ̄^× ∩ Γ_p)_tors = {1}, and an open compact H ⊂ G(Ẑ^□) is neat if all its elements are. For □ = ∅ this is Pink's neatness of AdelicAlgebraicGroups §4.3 (neat elements and levels); for unitary groups U(V)(𝔸^{∞,□}_{F⁺}) the same definition with places of F⁺ (LTXZZ Definition 3.1.11(1)). U^□(n) is neat for n ≥ 3 prime to □.",
       "hypotheses": [
-        "H ⊂ G(Ẑ^□) open compact"
+        "H ⊂ G(Ẑ^□) open compact",
+        "Supplier retarget: AdelicAlgebraicGroups §4.3 (neat elements and levels). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/neat node is superseded.",
+        "Supplier retarget: AdelicAlgebraicGroups §4.3 (neat elements and levels). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/neat-level node is superseded."
       ],
       "proofSteps": [
         "Define the eigenvalue groups factorwise and show independence of the faithful representation and of ℚ̄ ↪ ℚ̄_p (Pink 0.6, as in Lan §1.4.1).",
         "U^□(n), n ≥ 3: an element ≡ 1 mod n has eigenvalues ≡ 1 mod n; Serre's lemma excludes nontrivial torsion (Lan Remark 1.4.1.9).",
-        "Compare with ShimuraData:D5/neat-level when □ = ∅ and G is connected."
+        "Compare with AdelicAlgebraicGroups §4.3 (neat elements and levels) when □ = ∅ and G is connected."
       ],
       "acceptance": [
         "U^□(3) is neat; GL₂(Ẑ) is not (it contains −1)."
       ],
       "prerequisites": [
         "PELModuli:M0/similitude-group",
-        "ShimuraData:D5/neat",
-        "ShimuraData:D5/neat-level"
+        "AdelicAlgebraicGroups:AA.4"
       ],
       "uses": [
         {
@@ -5410,7 +5413,7 @@
         {
           "name": "IsNeat.shimuraData",
           "role": "compatibility",
-          "statement": "Unfold the faithful-representation definition: every allowed rational element has a torsion-free subgroup generated by all its eigenvalues. Agreement with ShimuraData D5 uses that owner’s same neatness convention."
+          "statement": "Unfold the faithful-representation definition: every allowed rational element has a torsion-free subgroup generated by all its eigenvalues. Agreement with AdelicAlgebraicGroups §4.3 uses its same neatness convention."
         }
       ],
       "library": {
@@ -6818,11 +6821,13 @@
       ],
       "title": "The moduli Galois action on CM points is Shimura reciprocity",
       "kind": "theorem",
-      "statement": "Assume the connected PEL datum satisfies SV3. Let K be neat, (T, h) a special pair of (G, X) (ShimuraData:D4/special-pair) with reflex field E(T, h) ⊃ F₀, and x = [h, g] ∈ Sh_K(G^{(i)}, X)(ℂ) ⊂ M^ad_K(ℂ) a special point (the abelian variety A_x has CM by a CM algebra containing the image of T). For σ ∈ Aut(ℂ/E(T, h)) and s ∈ 𝔸^×_{E(T,h),f} with art(s) = σ|_{E(T,h)^ab} (in the normalization of ShimuraVarieties V4), the point σ(x) defined by the F₀-structure of the moduli problem (σ acting on (A, λ, i, η̄) by base change) equals [h, r_{(T,h)}(s)·g], where r_{(T,h)} is the reflex-norm reciprocity map. Hence the F₀-structure on M^ad_K satisfies the canonical-model condition of V4 on special points.",
+      "statement": "Assume the connected PEL datum satisfies SV3. Let K be neat, (T, h) a special pair of (G, X) (ShimuraVarieties §P.1 (pure data and special pairs)) with reflex field E(T, h) ⊃ F₀, and x = [h, g] ∈ Sh_K(G^{(i)}, X)(ℂ) ⊂ M^ad_K(ℂ) a special point (the abelian variety A_x has CM by a CM algebra containing the image of T). For σ ∈ Aut(ℂ/E(T, h)) and s ∈ 𝔸^×_{E(T,h),f} with art(s) = σ|_{E(T,h)^ab} (in the normalization of ShimuraVarieties V4), the point σ(x) defined by the F₀-structure of the moduli problem (σ acting on (A, λ, i, η̄) by base change) equals [h, r_{(T,h)}(s)·g], where r_{(T,h)} is the reflex-norm reciprocity map. Hence the F₀-structure on M^ad_K satisfies the canonical-model condition of V4 on special points.",
       "hypotheses": [
         "K neat",
         "Case A or C",
-        "The connected PEL datum satisfies SV3 on every rational simple adjoint factor; the referenced (G,X) is an actual Shimura datum."
+        "The connected PEL datum satisfies SV3 on every rational simple adjoint factor; the referenced (G,X) is an actual Shimura datum.",
+        "Supplier retarget: ShimuraVarieties §P.1 (pure data and special pairs). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-pair node is superseded.",
+        "Supplier retarget: ShimuraVarieties §P.1 (pure data and special pairs). This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D4/special-point node is superseded."
       ],
       "proofSteps": [
         "For a special h and its Mumford–Tate torus, apply V5 complex multiplication to the actual polarized abelian variety with full finite adelic level.",
@@ -6837,8 +6842,7 @@
         "PELModuli:M3/complex-points",
         "ShimuraVarieties:V4",
         "ShimuraVarieties:V5",
-        "ShimuraData:D4/special-pair",
-        "ShimuraData:D4/special-point"
+        "ShimuraVarieties:V0"
       ],
       "planet": {
         "name": "CM reciprocity on PEL moduli"
@@ -7568,10 +7572,11 @@
       ],
       "title": "Siegel PEL data of every genus and polarization type",
       "kind": "construction",
-      "statement": "For g ≥ 1 and positive integers d₁ | d₂ | … | d_g (the type D), the Siegel PEL datum of genus g and type D is (ℤ, id, L_D, ⟨·,·⟩_D, h): L_D = ℤ^{2g} with basis e₁, …, e_g, f₁, …, f_g and ⟨e_i, f_j⟩_D = d_i δ_{ij}·2π√−1, ⟨e_i, e_j⟩ = ⟨f_i, f_j⟩ = 0 (values in ℤ(1)), and h(√−1) = J_D with J_D e_i = f_i, J_D f_i = −e_i, so that (1/2π√−1)⟨x, J_D y⟩ = Σ_i d_i (x_{e_i} y_{e_i} + x_{f_i} y_{f_i}) is positive definite (for D = (1, …, 1) and Mathlib's Matrix.J, whose form has ψ(e_i, f_i) = −1, the same structure is h(√−1) = −J). Its similitude group is G = GSp(L_D) (≅ GSp_{2g} over ℚ), Case C, I_bad = 1, Disc = 1, [L_D^# : L_D] = (d₁⋯d_g)², reflex field ℚ, signatures (g, g), and the bad primes for level n are those dividing n·d_g. Its Shimura datum is ShimuraData:D5/siegel-datum.",
+      "statement": "For g ≥ 1 and positive integers d₁ | d₂ | … | d_g (the type D), the Siegel PEL datum of genus g and type D is (ℤ, id, L_D, ⟨·,·⟩_D, h): L_D = ℤ^{2g} with basis e₁, …, e_g, f₁, …, f_g and ⟨e_i, f_j⟩_D = d_i δ_{ij}·2π√−1, ⟨e_i, e_j⟩ = ⟨f_i, f_j⟩ = 0 (values in ℤ(1)), and h(√−1) = J_D with J_D e_i = f_i, J_D f_i = −e_i, so that (1/2π√−1)⟨x, J_D y⟩ = Σ_i d_i (x_{e_i} y_{e_i} + x_{f_i} y_{f_i}) is positive definite (for D = (1, …, 1) and Mathlib's Matrix.J, whose form has ψ(e_i, f_i) = −1, the same structure is h(√−1) = −J). Its similitude group is G = GSp(L_D) (≅ GSp_{2g} over ℚ), Case C, I_bad = 1, Disc = 1, [L_D^# : L_D] = (d₁⋯d_g)², reflex field ℚ, signatures (g, g), and the bad primes for level n are those dividing n·d_g. Its Shimura datum is the Siegel datum of ShimuraVarieties §P.4.",
       "hypotheses": [
         "g ≥ 1",
-        "d₁ | … | d_g positive integers"
+        "d₁ | … | d_g positive integers",
+        "Supplier retarget: the Siegel datum of ShimuraVarieties §P.4. This is an existing upstream roadmap target, imported rather than planned again; the former ShimuraData:D5/siegel-datum node is superseded."
       ],
       "proofSteps": [
         "Write down L_D, ⟨·,·⟩_D and h; check Condition 1.2.1.2 by computing the real form (block-diagonal positive definite).",
@@ -7580,7 +7585,7 @@
       ],
       "acceptance": [
         "D = (1): principally polarized Siegel datum, good at every p ∤ n.",
-        "g = 1, D = (1): the GL₂ datum (ShimuraData:D5/gl2-datum)."
+        "g = 1, D = (1): the GL₂ datum (ShimuraVarieties §P.4 (the GL₂ example))."
       ],
       "prerequisites": [
         "PELModuli:M0/integral-pel-datum",
@@ -7588,10 +7593,10 @@
         "PELModuli:M0/good-primes",
         "PELModuli:M0/reflex-field",
         "PELModuli:M0/pel-shimura-datum",
-        "ShimuraData:D5/siegel-datum",
         "tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero",
         "tauceti:TauCeti.Symplectic.groupScheme",
-        "mathlib:Matrix.J"
+        "mathlib:Matrix.J",
+        "ShimuraVarieties:V0"
       ],
       "uses": [
         {
@@ -7670,7 +7675,7 @@
         {
           "name": "siegelDatum_shimura",
           "role": "compatibility",
-          "statement": "toShimuraDatum (siegelDatum D) = ShimuraData:D5/siegel-datum for every D (the rational datum does not depend on D)."
+          "statement": "toShimuraDatum (siegelDatum D) = the Siegel datum of ShimuraVarieties §P.4 for every D (the rational datum does not depend on D)."
         },
         {
           "name": "siegelDatum_type",
@@ -7828,13 +7833,14 @@
       ],
       "title": "The Hilbert example satisfies the M0–M4 contracts",
       "kind": "application",
-      "statement": "Let F be a totally real field of degree d, D5's rational Hilbert data, H0's integral trace-lattice refinement and H1's polarization-module PEL instance (B = F, * = id, O = O_F, L = O_F ⊕ 𝔠^∨-type lattice with the trace pairing; owned by HilbertModularVarietiesAndShimuraCurves H1 per RS-23). Then: the datum is of Case C (G = G* ⊂ Res_{F/ℚ}GL₂ with rational multiplier); I_bad = 1; Disc(O_F) = disc(F) with good primes p ∤ n·disc(F)·[L^#:L]; signatures (1, 1) at each real embedding; reflex field ℚ; ker¹(ℚ, G) = 1; relative dimension d (M2/kodaira-spencer-dimension); at good p the determinant condition is the Rapoport condition (Lie_{A/S} locally free of rank one over O_F ⊗ O_S). The verification is an acceptance test of the imported construction, not a second construction and not an input to H1/H2.",
+      "statement": "Let F be a totally real field of degree d, the rational Hilbert datum of existing upstream PELModuli §M5.4, H0's integral trace-lattice refinement and H1's polarization-module PEL instance (B = F, * = id, O = O_F, L = O_F ⊕ 𝔠^∨-type lattice with the trace pairing; owned by HilbertModularVarietiesAndShimuraCurves H1 per RS-23). Then: the datum is of Case C (G = G* ⊂ Res_{F/ℚ}GL₂ with rational multiplier); I_bad = 1; Disc(O_F) = disc(F) with good primes p ∤ n·disc(F)·[L^#:L]; signatures (1, 1) at each real embedding; reflex field ℚ; ker¹(ℚ, G) = 1; relative dimension d (M2/kodaira-spencer-dimension); at good p the determinant condition is the Rapoport condition (Lie_{A/S} locally free of rank one over O_F ⊗ O_S). The verification is an acceptance test of the imported construction, not a second construction and not an input to H1/H2.",
       "hypotheses": [
         "F totally real",
-        "H1's polarization-module datum"
+        "H1's polarization-module datum",
+        "Use this roadmap’s existing upstream §M5.4 rational datum and trace embedding. The surviving ShimuraData:D5/hilbert-star-datum compares against this datum and is not a reverse prerequisite; it was not superseded."
       ],
       "proofSteps": [
-        "Import the rational datum from ShimuraData D5 (D5/hilbert-star-datum, D5/hilbert-trace-embedding) and the integral/polarization-module instance from H0/H1.",
+        "Use the existing upstream PELModuli §M5.4 rational Hilbert datum and trace embedding, together with the integral/polarization-module instance from H0/H1. ShimuraData’s Hilbert comparison consumes this datum and is not a reverse prerequisite.",
         "Compute the Albert type (C), bad primes, signature and reflex field from M0 (traces Tr(a | V₀) = Tr_{F/ℚ}(a) ∈ ℚ).",
         "Hasse principle from M3/hasse-principle-cases (Case C); dimension from M2/kodaira-spencer-dimension; determinant condition at unramified p equals the Rapoport condition by M0/determinant-condition-splitting."
       ],
@@ -7849,8 +7855,6 @@
         "PELModuli:M0/determinant-condition-splitting",
         "PELModuli:M2/kodaira-spencer-dimension",
         "PELModuli:M3/hasse-principle-cases",
-        "ShimuraData:D5/hilbert-star-datum",
-        "ShimuraData:D5/hilbert-trace-embedding",
         "HilbertModularVarietiesAndShimuraCurves:H0",
         "HilbertModularVarietiesAndShimuraCurves:H1"
       ],
@@ -7870,7 +7874,7 @@
       "prototype": {
         "status": "admitted suggested signatures; mathematical implementation unchecked",
         "omittedHypotheses": [
-          "D5 rational Hilbert datum and H0/H1 polarization-module refinement with actual trace/different pairing; this node imports that construction and only checks PEL consequences."
+          "Existing upstream PELModuli §M5.4 rational Hilbert datum and H0/H1 polarization-module refinement with actual trace/different pairing; this node imports that construction and only checks PEL consequences."
         ],
         "interpretation": "The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims."
       }
@@ -10808,6 +10812,137 @@
           "note": "This target supplies explicit admissible Siegel/unitary families and levels with the stated positivity and good-prime conditions. Nonemptiness is checked for these examples, not imposed on every arbitrary datum. Source check: lan2008: Remark 1.4.3.13, pp. 165–166"
         }
       ]
+    }
+  ],
+  "upstreamImports": [
+    {
+      "node": "PELModuli:M0/reflex-field-comparison",
+      "from": "ShimuraData:D3/cocharacter-class",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M0/reflex-field-comparison",
+      "from": "ShimuraData:D3/reflex-field",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.3 Hodge filtrations and reflex fields of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M0/pel-shimura-datum",
+      "from": "ShimuraData:D4/shimura-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M0/pel-shimura-datum",
+      "from": "ShimuraData:D4/datum-morphism",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M4/cm-points-reciprocity",
+      "from": "ShimuraData:D4/special-pair",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M4/cm-points-reciprocity",
+      "from": "ShimuraData:D4/special-point",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M0/pel-shimura-datum",
+      "from": "ShimuraData:D4/hodge-type",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.1 Pure data and special pairs of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M2/neat-level",
+      "from": "ShimuraData:D5/neat",
+      "to": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "upstream": "§4.3 Neat elements and levels of AdelicAlgebraicGroups",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M2/neat-level",
+      "from": "ShimuraData:D5/neat-level",
+      "to": [
+        "AdelicAlgebraicGroups:AA.4"
+      ],
+      "upstream": "§4.3 Neat elements and levels of AdelicAlgebraicGroups",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M0/pel-shimura-datum",
+      "from": "ShimuraData:D5/siegel-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M5/siegel-pel-datum",
+      "from": "ShimuraData:D5/siegel-datum",
+      "to": [
+        "ShimuraVarieties:V0"
+      ],
+      "upstream": "§P.4 Levels and basic examples of ShimuraVarieties",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M5/hilbert-example-acceptance",
+      "from": "ShimuraData:D5/hilbert-trace-embedding",
+      "to": [
+        "PELModuli:M5"
+      ],
+      "upstream": "§M5.4 The principal Hilbert datum of PELModuli",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
+    },
+    {
+      "node": "PELModuli:M5/hilbert-example-acceptance",
+      "from": "ShimuraData:D5/hilbert-star-datum",
+      "to": [],
+      "upstream": "",
+      "reviewNote": "REV-ShimuraData~4: not superseded, but under the rescope this citation closes the stage cycle PELModuli:M5↔ShimuraData:D5 (D5/hilbert-star-datum now consumes §M5.4); drop it, since the node is §M5.4's own hilbertExample.",
+      "status": "proposed upstream foundation contract; not a pinned implementation",
+      "source": "ShimuraData accepted consumerRetargets, revision5; ShimuraVarieties PR933 head1dd09ed7a832fd36e071726e9066948d76173d0a §§P.1–P.4; AdelicAlgebraicGroups §4.3 as applicable"
     }
   ]
 }

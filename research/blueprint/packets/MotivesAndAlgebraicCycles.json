@@ -8149,7 +8149,7 @@
     "A conjectural target never supplies an unconditional downstream theorem."
    ],
    "proofSteps": [
-    "Record the Hodge entry H1 with Deligne's sketch: the image of a (1, 1) class in H^{0,2} = H^2(X, O) vanishes, and the exponential sequence makes it a first Chern class; the identification of H^{0,2} with H^2(X, O) uses the Hodge decomposition (gap).",
+    "Record the Hodge entry H1 with Deligne's sketch: the image of a (1, 1) class in H^{0,2} = H^2(X, O) vanishes, and the exponential sequence makes it a first Chern class; the identification of H^{0,2} with H^2(X, O) uses C5/proper-pure-hodge; the primary proof of this register entry remains a separate source gap.",
     "Record T1 with its equivalent form and the structure of the proof from Totaro, Section 3, and that it gives the strong form.",
     "Record T2 as a consequence of the isogeny theorem of R28.4 through NS(A × B) = NS(A) ⊕ NS(B) ⊕ Hom_k(A, B̂), which the source states for abelian varieties over any field, and T3 as Zarhin's extension.",
     "Record T4 to T7 with their hypotheses, noting that the Kuga-Satake correspondence is not known to be algebraic and is used only through its effect on Hodge and Tate classes.",
@@ -8168,7 +8168,9 @@
     "MotivesAndAlgebraicCycles:MC.7/tate-beilinson-conjecture",
     "MotivesAndAlgebraicCycles:MC.7/tate-conjecture-variants",
     "MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4"
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "ComplexComparisonPartII:C5/proper-pure-hodge",
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
    ],
    "sources": [
     {
@@ -12886,16 +12888,16 @@
    ],
    "title": "Hodge classes",
    "kind": "definition",
-   "statement": "Let X be a projective non-singular algebraic variety over C and n ≥ 0. The complex cohomology H^n(X, C) = H^n(X, Q) ⊗ C carries the Hodge filtration F^p, which this packet takes to be the image of the hypercohomology of the truncated algebraic de Rham complex Ω^{≥p} under the comparison of algebraic de Rham and singular cohomology (ComplexComparisonPartII:C5); by the Hodge decomposition, which no layer of the atlas plans (gap), F^p = ⊕_{a ≥ p} H^{a, n−a}. A Hodge class of degree 2p is an element of H^{2p}(X, Q) whose image in H^{2p}(X, C) lies in F^p. The Hodge classes form the Q-subspace H^{2p}(X, Q) ∩ F^p, which equals H^{2p}(X, Q) ∩ H^{p,p}.",
+   "statement": "Let X be a projective non-singular algebraic variety over C and n ≥ 0. The complex cohomology H^n(X, C) = H^n(X, Q) ⊗ C carries the Hodge filtration F^p, which this packet takes to be the image of the hypercohomology of the truncated algebraic de Rham complex Ω^{≥p} under the comparison of algebraic de Rham and singular cohomology (ComplexComparisonPartII:C5); by the imported C5/proper-pure-hodge theorem, F^p = ⊕_{a ≥ p} H^{a, n−a}. A Hodge class of degree 2p is an element of H^{2p}(X, Q) whose image in H^{2p}(X, C) lies in F^p. The Hodge classes form the Q-subspace H^{2p}(X, Q) ∩ F^p, which equals H^{2p}(X, Q) ∩ H^{p,p}.",
    "hypotheses": [
     "X is projective and non-singular over C.",
-    "F^p is the image of the hypercohomology of Ω^{≥p}; its identification with ⊕_{a ≥ p} H^{a, n−a}, and the equality H^{2p}(X, Q) ∩ F^p = H^{2p}(X, Q) ∩ H^{p,p}, use the Hodge decomposition and its symmetry (gap).",
+    "F^p is the image of the hypercohomology of Ω^{≥p}; its identification with ⊕_{a ≥ p} H^{a, n−a}, and the equality H^{2p}(X, Q) ∩ F^p = H^{2p}(X, Q) ∩ H^{p,p}, use C5/proper-pure-hodge and its Hodge symmetry.",
     "Integral classes are Hodge classes when their rational images are."
    ],
    "proofSteps": [
     "Define the Hodge filtration on algebraic de Rham cohomology through the truncations Ω^{≥p}, and transport it to H^n(X, C) by the comparison isomorphism of ComplexComparisonPartII:C5.",
     "Define the Hodge classes of degree 2p as the preimage of F^p under H^{2p}(X, Q) → H^{2p}(X, C), a Q-subspace.",
-    "Record Deligne's equality with H^{2p}(X, Q) ∩ H^{p,p}, which needs the Hodge decomposition and Hodge symmetry (gap).",
+    "Record Deligne's equality with H^{2p}(X, Q) ∩ H^{p,p}, using C5/proper-pure-hodge and its Hodge symmetry.",
     "Record functoriality: pullback along a morphism of smooth projective complex varieties preserves the filtration, hence Hodge classes, and cup product sends Hodge classes of degrees 2p and 2q to a Hodge class of degree 2(p + q)."
    ],
    "acceptance": [
@@ -12905,8 +12907,9 @@
    ],
    "prerequisites": [
     "SchemeAndStackFoundations:SF.2",
-    "ComplexComparisonPartII:C5",
-    "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data"
+    "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data",
+    "ComplexComparisonPartII:C5/proper-pure-hodge",
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
    ],
    "sources": [
     {
@@ -13006,7 +13009,7 @@
    "statement": "Let X be a projective non-singular variety over C and Z a closed analytic subspace of complex codimension p, by Chow's theorem the same as an algebraic cycle. The class cl(Z) in H^{2p}(X, Z), defined by Poincaré duality, is of type (p, p): its image in H^{2p}(X, C) lies in F^p, so its rational image is a Hodge class. Hence every rational linear combination of cycle classes is a Hodge class.",
    "hypotheses": [
     "X is projective and non-singular over C; Z is a closed analytic, equivalently algebraic, subspace of codimension p.",
-    "The argument computes cohomology with currents; that currents compute the same groups as smooth forms, and the Hodge decomposition, are recorded as a gap."
+    "Import C5/analytic-cycle-integration for the current/smooth-form comparison and C5/proper-pure-hodge for geometric Hodge decomposition; retain their supplier integration obligations."
    ],
    "proofSteps": [
     "Use Chow's theorem to identify closed analytic subspaces of X with algebraic cycles (ComplexComparisonPartII:C4).",
@@ -13022,8 +13025,10 @@
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.7/hodge-class",
     "SchemeAndStackFoundations:SF.2",
-    "ComplexComparisonPartII:C5",
-    "ComplexComparisonPartII:C4"
+    "ComplexComparisonPartII:C4",
+    "ComplexComparisonPartII:C5/proper-pure-hodge",
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+    "ComplexComparisonPartII:C5/analytic-cycle-integration"
    ],
    "sources": [
     {
@@ -14083,13 +14088,13 @@
    "detail": "Proposition A.6 of Huber and Mueller-Stach forms the left and right groups of an affine heap as affine quotients of X × X, citing Theorem 1.4 of SGA 3, Exposé VII, for the existence of affine quotients by flat equivalence relations. That text was not obtained, so the step is recorded, not decomposed. The proposition is not on the path to the period torsor, where the acting groups are the tensor automorphism groups and no quotient is formed."
   },
   {
-   "title": "The Hodge decomposition of a smooth projective complex variety is planned by no layer",
+   "title": "Geometric Hodge and current-comparison supplier integration",
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.7/hodge-class",
     "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge",
     "MotivesAndAlgebraicCycles:MC.7/tate-and-hodge-known-cases"
    ],
-   "detail": "Deligne's statement of the Hodge conjecture uses the Hodge decomposition H^n(X, C) = ⊕ H^{p,q} of a compact Kähler manifold, the Hodge filtration F^p = ⊕_{a≥p} H^{a,n−a}, Hodge symmetry, the computation of cohomology with currents and the identification of H^{0,2} with H^2(X, O) used by the degree-two case. The Tau Ceti roadmap HodgeStructures builds abstract Hodge structures (its layer L0), not the Hodge theorem for varieties, and ComplexComparisonPartII:C5 builds the algebraic de Rham comparison without the degeneration of the Hodge-to-de Rham spectral sequence. MC.7/hodge-class therefore defines F^p algebraically, through the truncated de Rham complex and C5's comparison, and records its identification with the analytic filtration, the (p, p) description of Hodge classes, the lemma MC.7/cycle-classes-are-hodge (through currents) and the degree-two register entry as depending on this gap. Owner: the confirmed finding RT-AREA-algebraicgeometry/4 proposes a single owner for this theorem, a new layer of ComplexComparisonPartII after C5 (Hodge decomposition and Hodge–de Rham degeneration); no owner is accepted yet. It covers the analytic Kähler input, the degeneration with the Hodge decomposition and Hodge symmetry for smooth projective, then smooth proper, complex varieties (Deligne 1968, (5.2)–(5.3)), the relative theorem (5.5), and geometric instances of the Tau Ceti Hodge structures. BP-ComplexComparisonPartII carries the finding; its packet tracks it as the gap ‘Geometric Hodge theory owner’, and HodgeStructuresPartII does not plan it. NEXT ACTION: when that layer exists, MC.7/hodge-class, MC.7/cycle-classes-are-hodge and the degree-two register entry import its Hodge decomposition, the identification of the algebraic filtration F^p with the analytic one, and Hodge symmetry, and the edge from the new layer to MC.2 joins the atlas."
+   "detail": "ComplexComparisonPartII:C5 now plans kaehler-hodge-decomposition, proper-pure-hodge, relative-hodge-bundles and analytic-cycle-integration. Import those exact geometric targets; completed HodgeStructures supplies only the abstract L0–L3 objects. C5 tracks the general analytic inputs from proposed ComplexKahlerGeometry PR953 K5a–K6/K8 rather than developing another generic Hodge theorem. For projective smooth X, identify the algebraic de Rham filtration with the analytic one via C5/repair-proper-de-rham-betti and proper-pure-hodge (Deligne1968 Proposition5.3, pp.122–123); relative nonreduced-base compatibility uses Theorem5.5, pp.123–125. Cycle classes require analytic-cycle-integration and the current/smooth-form comparison with their stated multiplicities. These suppliers remain plans with integration gaps. The primary proof of the Lefschetz(1,1) register entry remains a separate source obligation; assigning its geometric supplier does not prove that entry."
   },
   {
    "title": "The precise Hodge standard conjecture, and the Lefschetz standard conjecture for an arbitrary Weil cohomology theory, are in no source read",
@@ -14319,12 +14324,13 @@
   },
   {
    "supplier": "ComplexComparisonPartII:C5",
-   "need": "The comparison of algebraic de Rham and singular cohomology, which C5 owns (RT-AREA-algebraicgeometry/31: MC.2, SF.6 and PeriodsAndSpecialValues PS.0/PS.8 consume it; the atlas edge C5 -> MC.2 is requested from the maintainer). (a) For a smooth projective complex variety X, and after base change along each embedding into C for a variety over a subfield: the algebraic de Rham complex with its truncations Ω^{≥p}, and the natural isomorphism H_dR(X/C) ≅ H(X(C), C), compatible with cup products, pullback and trace, as C5 states. MC.7 defines the Hodge filtration on H^n(X(C), C) as the image of the hypercohomology of Ω^{≥p} under it, and uses the compatibility of the de Rham and Betti cycle classes under it. (b) For MC.6: for every pair (X, Y) of varieties over Q with Y closed in X, the comparison between relative algebraic de Rham cohomology H^i_dR(X, Y) ⊗ C and relative singular cohomology H^i(X(C), Y(C), Q) ⊗ C, natural for morphisms of pairs, compatible with the connecting maps of triples and with products (Künneth and cup product), and unital, so that it is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars (the suggested file types this contract as PairDiagram.PeriodComparison); Huber and Mueller-Stach cite Huber's Mixed realizations, sections 7 and 8, for it. C5 plans the smooth and the smooth proper cases; the extension to pairs of arbitrary varieties is asked of C5 as the owner, or of the owner it names.",
+   "need": "The comparison of algebraic de Rham and singular cohomology, which C5 owns (RT-AREA-algebraicgeometry/31: MC.2, SF.6 and PeriodsAndSpecialValues PS.0/PS.8 consume it; the atlas edge C5 -> MC.2 is requested from the maintainer). (a) For a smooth projective complex variety X, and after base change along each embedding into C for a variety over a subfield: the algebraic de Rham complex with its truncations Ω^{≥p}, and the natural isomorphism H_dR(X/C) ≅ H(X(C), C), compatible with cup products, pullback and trace, as C5 states. MC.7 defines the Hodge filtration on H^n(X(C), C) as the image of the hypercohomology of Ω^{≥p} under it, and uses the compatibility of the de Rham and Betti cycle classes under it. (b) For MC.6: for every pair (X, Y) of varieties over Q with Y closed in X, the comparison between relative algebraic de Rham cohomology H^i_dR(X, Y) ⊗ C and relative singular cohomology H^i(X(C), Y(C), Q) ⊗ C, natural for morphisms of pairs, compatible with the connecting maps of triples and with products (Künneth and cup product), and unital, so that it is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars (the suggested file types this contract as PairDiagram.PeriodComparison); Huber and Mueller-Stach cite Huber's Mixed realizations, sections 7 and 8, for it. C5 plans the smooth and the smooth proper cases; the extension to pairs of arbitrary varieties is asked of C5 as the owner, or of the owner it names. MC.7 imports the exact proper-pure-hodge, repair-proper-de-rham-betti and analytic-cycle-integration targets. These are geometric suppliers; abstract HodgeStructures alone does not prove them. Relative consumers import relative-hodge-bundles, including its nonreduced-base hypotheses.",
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.6/period-point",
     "MotivesAndAlgebraicCycles:MC.6/period-torsor",
     "MotivesAndAlgebraicCycles:MC.7/hodge-class",
-    "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge"
+    "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge",
+    "MotivesAndAlgebraicCycles:MC.7/tate-and-hodge-known-cases"
    ]
   },
   {

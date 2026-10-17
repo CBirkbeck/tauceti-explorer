@@ -10,13 +10,13 @@ All analytic spaces have finite complex dimension and use quotient structure she
 
 Cohomology uses the native sheaf-cohomology and derived sheaf-module objects. Exterior derivatives and connections are C-linear; relative derivatives are f⁻¹O_S-linear. They generally are not O_X-linear. Accordingly the de Rham complex is a complex of abelian or C-module sheaves, with coherent O-modules in its terms, and its comparison uses differential operators or principal parts. This distinction also applies to the logarithmic monodromy triangle.
 
-A positive coordinate loop has integral ∫dz/z=2πi. First Chern forms use iΘ/(2π), with the Fubini–Study hyperplane class integrating to 1 on P¹. The Hodge star on complex forms is C-linear; conjugation occurs in its metric pairing. The nonnegative Hodge Laplacian is dd*+d*d, and on functions it is the negative of the scalar div-grad Laplacian. For a canonical logarithmic extension choose residue representatives 0≤Re(a)<1; its positive-loop monodromy is exp(−2πia). The general strip extension needs an integer lattice adjustment under tensor products. The unipotent extension has its separate tensor compatibility.
+A positive coordinate loop has integral ∫dz/z=2πi. First Chern forms use iΘ/(2π), with the Fubini–Study hyperplane class integrating to 1 on P¹. The Hodge star on complex forms is C-linear. With the native inner product conjugate-linear in the first slot, α∧*conj(β)=⟨β,α⟩vol. The nonnegative Hodge Laplacian is dd*+d*d, and on functions it is the negative of the scalar div-grad Laplacian. For a canonical logarithmic extension choose residue representatives 0≤Re(a)<1; its positive-loop monodromy is exp(−2πia). The general strip extension needs an integer lattice adjustment under tensor products. The unipotent extension has its separate tensor compatibility.
 
 ## Inputs and ownership
 
-ComplexComparison PR196, Layers 0–2 at head 4bd72379658126cbe9be935656396f0c9dac4de0, proposes the nonreduced analytic-space carrier, its quotient/gluing maps and finite-type scheme analytification. AnalyticGeometry PR279, Milestones 5–7 at head 581f66fed0f12fe49b8f5dd96aa18d3e435c190a, proposes the smooth holomorphic bundle carrier. Both remain open supplier proposals. Their integration is an explicit gap; C0 applies them and does not construct a competing carrier. The finite-coefficient Artin comparison of PR196 does not supply the arbitrary-abelian-coefficient result needed in C5.
+The ordinary complex analytic-space carrier, with nilpotents and scheme analytification, is requested from SchemeAndStackFoundations SF.2 Part II. C0 applies that shared carrier to coherent comparison. ComplexComparison PR196 Layers0–2, head `4bd72379658126cbe9be935656396f0c9dac4de0`, and AnalyticGeometry PR279 Milestones5–7, head `275ce8b253d32e715b7832d2b0df4a62ccbb0699`, remain open proposed integration suppliers. The latter supplies holomorphic manifold gluing and bundles. The finite-coefficient Artin comparison of PR196 does not supply the arbitrary-abelian-coefficient result needed in C5.
 
-Current TauCetiRoadmap main f9e4a9026b04c282878900edaada0a3f3eb3c82a and Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were checked against the older atlas snapshot. AlgebraicVectorBundles L0A–L0C owns the general sheaf-module monoidal, internal-Hom, finite locally free, exterior-power and determinant interfaces. DifferentialGeometry L5–L9 owns smooth forms, Stokes, smooth de Rham theory, integration/cup comparison and duality. The pinned `TauCeti.Hodge.Conjugation` and `TauCeti.Hodge.HodgeStructureOn` structures already provide the abstract Hodge carrier, and Completed HodgeStructures owns its broader linear algebra; its completion does not prove analytic Hodge theory. These existing plans are imported. DifferentialGeometry needs an extension for Ehresmann and Hermitian holomorphic Chern connections, PDE needs compact bundle elliptic estimates beyond its scalar D16, and OperatorTheory needs the Montel/Schwartz compact-map cohomology interface.
+Current TauCetiRoadmap main 0d144d044dacebca17b654695b6f1ad58f159b27 and Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were checked against the older atlas snapshot. AlgebraicVectorBundles L0A–L0C owns the general sheaf-module monoidal, internal-Hom, finite locally free, exterior-power and determinant interfaces. DifferentialGeometry L5–L9 owns smooth forms, Stokes, smooth de Rham theory, integration/cup comparison and duality. The pinned `TauCeti.Hodge.Conjugation` and `TauCeti.Hodge.HodgeStructureOn` structures already provide the abstract Hodge carrier, and Completed HodgeStructures owns its broader linear algebra; its completion does not prove analytic Hodge theory. These existing plans are imported. DifferentialGeometry needs an extension for Ehresmann and Hermitian holomorphic Chern connections, the existing open ComplexKahlerGeometry proposal supplies the compact bundle elliptic/Hodge targets beyond scalar PDE D16, and OperatorTheory needs the Montel/Schwartz compact-map cohomology interface.
 
 The projective algebraic cohomology inputs belong to R09.1; proper Chow dévissage and resolution belong to R09.2; algebraic-space étale descent and algebraic family Hom/Isom belong to R09.3. SchemeAndStackFoundations SF.1/SF.2 supplies the native sites, module descent, derived comparison and bounded hypercohomology. DiamondsAndVStacks D0 supplies the acyclic-cover Čech-to-derived comparison. AlgebraicCurves supplies the existing projective function-field model and open immersion of an affine curve, and AlgebraicTopology supplies singular chains, products, trace and finite-CW inputs.
 
@@ -24,9 +24,9 @@ ComplexComparison is tier 5. Its elementary prelog, logification, chart, logarit
 
 ## Pinned prototype boundary
 
-The suggested file elaborates against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. It uses the actual germ quotient, ring/ideal quotients, sheaf-module categories, native sheaf cohomology, Kähler differentials, exterior powers, cochain complexes, monoids and inner-product operators. At those pins the shared analytic-space carrier, global analytic cotangent gluing, compact manifold form/current carrier and algebraic-space derived interfaces are unavailable. The suggested signatures therefore omit those conditions, as the prototyping convention requires; they do not encode the omitted condition by an arbitrary proposition or opaque carrier. Ringed-site GAGA signatures are meaningful only after supplying the projective/proper analytification data specified below.
+The suggested file elaborates against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. It follows the binding 12 October shape: real-bodied light definitions over native carriers, selected end theorems and a few examples. It uses the polynomial ideal quotient for the dual-number model, Euclidean one-forms for the pairing convention, the native scalar Laplacian and continuous linear operators for the compactness-estimate implication. It contains no admitted data definitions or geometric claims with omitted hypotheses.
 
-The affine/stalk tests retain their native operations. The Hodge star prototype uses an oriented plane chart, and the harmonic/curve tests use the supplied finite cohomology models; their identification with geometric cohomology is a target below. The regular-singular prototype gives the rank-one rational connection chart on P¹, including the derivative factor at infinity. The full statements below, rather than those limited carrier prototypes, are the formalization contract. All implementation statuses are unchecked.
+The analytic-space, current, coherent comparison and relative Hodge constructions remain full targets below until their suppliers integrate. All implementation statuses remain unchecked. For the nilpotent model, the checks retain a nonzero epsilon with square zero, preserve the constant unit and kill X³; unique constant/epsilon coefficients distinguish it from a reduction or an unrestricted polynomial ring. For the plane, star(dx)=dy and star(dy)=−dx, star squared is −id, and the scalar-i pairing fixes the conjugate-linear first slot. The scalar Laplacian vanishes on constants and sends x₁² to −2 in the positive Hodge convention.
 
 <a id="c0"></a>
 
@@ -40,11 +40,11 @@ Atlas objects: Convergent power-series ring; Weierstrass division; Weierstrass p
 
 ### Applying the shared complex analytification carrier
 
-Use the finite-type complex-scheme analytification supplied by ComplexComparison PR196 Layers0–2, including quotient structure sheaves, nonreduced schemes, morphisms over C and the canonical locally ringed-space map φ_X:X^an→X. This target applies that carrier to coherent sheaves; it does not construct a second analytification functor.
+Apply the ordinary nilpotent-preserving analytification functor requested from SchemeAndStackFoundations SF.2 Part II to coherent sheaves, through its canonical locally C-ringed-space map φ_X:X^an→X. Compare it with ComplexComparison PR196 Layers0–2 when that proposal integrates. C0 owns coherent analytic algebra and comparison on this shared carrier.
 
 Target `C0/repair-analytification` (application). Dependencies: `mathlib:AlgebraicGeometry.LocallyRingedSpace`.
 
-Prototype: `TauCeti.ComplexComparison.schemeCoherentAnalytification`.
+Proposed interface: `TauCeti.ComplexComparison.schemeCoherentAnalytification`.
 
 Proof route: Take the shared quotient-sheaf and gluing construction, not just the topology of complex points. Use its canonical morphism of locally ringed spaces to feed the native sheaf-module pullback API. Retain nilpotent ideals in every closed-subspace comparison.
 
@@ -60,7 +60,7 @@ For n≥0, O_n is the subring of Filter.Germ(𝓝0)(C^n,C) consisting of germs w
 
 Target `C0/convergent-germs` (definition). Dependencies: `mathlib:Filter.Germ.valueRingHom`, `mathlib:AnalyticAt`.
 
-Prototype: `TauCeti.ComplexComparison.ConvergentGerm`.
+Proposed interface: `TauCeti.ComplexComparison.ConvergentGerm`.
 
 Proof route: Use neighbourhood equivalence of functions and the native analytic predicate. Addition and multiplication descend and preserve analyticity. Taylor expansion identifies the germ with a series converging on some positive polydisc; evaluation is the native germ ring map.
 
@@ -90,7 +90,7 @@ Let f∈O_n be regular of order d in the last variable (f(0,z_n) has a zero of e
 
 Target `C0/weierstrass-division` (theorem). Dependencies: [C0/convergent-germs](#C0-convergent-germs).
 
-Prototype: `TauCeti.ComplexComparison.weierstrassDivision`.
+Proposed interface: `TauCeti.ComplexComparison.weierstrassDivision`.
 
 Proof route: Choose a small contour enclosing the d zeros with f nonzero on it. Cauchy division produces holomorphic coefficient functions and quotient on a smaller polydisc. The residue formula and uniqueness for a distinguished polynomial give uniqueness; formal division alone supplies no convergence.
 
@@ -106,7 +106,7 @@ For f as in Weierstrass division, f=uP uniquely, where u is a unit of O_n and P 
 
 Target `C0/weierstrass-preparation` (theorem). Dependencies: [C0/weierstrass-division](#C0-weierstrass-division).
 
-Prototype: `TauCeti.ComplexComparison.weierstrassPreparation`.
+Proposed interface: `TauCeti.ComplexComparison.weierstrassPreparation`.
 
 Proof route: Divide z_n^d by f and isolate the polynomial remainder. The leading coefficient is a nonvanishing germ and supplies the unit. Apply uniqueness of division to compare two factorizations.
 
@@ -122,7 +122,7 @@ O_n is a Noetherian local C-algebra with maximal ideal (z_1,…,z_n), and its co
 
 Target `C0/noetherian-germs` (theorem). Dependencies: [C0/weierstrass-preparation](#C0-weierstrass-preparation).
 
-Prototype: `TauCeti.ComplexComparison.noetherianGerms`.
+Proposed interface: `TauCeti.ComplexComparison.noetherianGerms`.
 
 Proof route: Use induction on n and a generic coordinate change making one nonzero ideal element regular in z_n. Weierstrass division makes the quotient finite over O_{n−1}; Noetherian induction controls every ideal. Use Taylor coefficients and powers of the maximal ideal for the completion.
 
@@ -138,7 +138,7 @@ On an open subset of C^n the holomorphic structure sheaf is coherent: every morp
 
 Target `C0/oka-coherence` (theorem). Dependencies: [C0/noetherian-germs](#C0-noetherian-germs), [C0/weierstrass-division](#C0-weierstrass-division).
 
-Prototype: `TauCeti.ComplexComparison.okaCoherence`.
+Proposed interface: `TauCeti.ComplexComparison.okaCoherence`.
 
 Proof route: Choose a Weierstrass-regular relation and divide uniformly near the base point. Induct on dimension to generate relations on one common neighbourhood, not just independently at each stalk. Descend presentations along the coherent ambient ideal; kernels and quotient structure sheaves retain the nilpotent relations.
 
@@ -154,7 +154,7 @@ For an analytic space T with coherent O_T, Coh(T) is the full subcategory of nat
 
 Target `C0/coherent-analytic-module` (construction). Dependencies: `mathlib:SheafOfModules.IsFinitePresentation`, [C0/oka-coherence](#C0-oka-coherence).
 
-Prototype: `TauCeti.ComplexComparison.CoherentAnalyticModule`.
+Proposed interface: `TauCeti.ComplexComparison.CoherentAnalyticModule`.
 
 Proof route: Apply the native local-finite-presentation condition to the analytic structure sheaf. Coherence makes the condition independent of chosen local finite generators. Use full-subcategory morphisms and the sheaf-module gluing API; do not invent a parallel module category.
 
@@ -184,7 +184,7 @@ On a coherent analytic ringed space, kernels, cokernels, extensions, finite tens
 
 Target `C0/coherent-operations` (theorem). Dependencies: [C0/coherent-analytic-module](#C0-coherent-analytic-module).
 
-Prototype: `TauCeti.ComplexComparison.coherentOperations`.
+Proposed interface: `TauCeti.ComplexComparison.coherentOperations`.
 
 Proof route: Reduce each operation to kernels and cokernels of finite-free local presentations. For Hom, present its first argument and identify Hom as the kernel between finite sums of the second argument. Glue finite presentations locally and apply sheaf descent; import the general monoidal and internal-Hom construction from AlgebraicVectorBundles.
 
@@ -200,7 +200,7 @@ A coherent analytic ideal is an O_T-submodule I⊆O_T whose sheaf module is cohe
 
 Target `C0/coherent-analytic-ideal` (construction). Dependencies: [C0/coherent-operations](#C0-coherent-operations), [C0/repair-analytification](#C0-repair-analytification).
 
-Prototype: `TauCeti.ComplexComparison.CoherentAnalyticIdeal`.
+Proposed interface: `TauCeti.ComplexComparison.CoherentAnalyticIdeal`.
 
 Proof route: Use coherent submodules of the structure sheaf. The supplier constructs the quotient locally ringed space; apply coherence to its quotient structure sheaf. Pullback of the quotient extends the ideal, rather than taking the inverse image of its set of zeros alone.
 
@@ -230,7 +230,7 @@ On a smooth complex manifold, taking holomorphic sections gives an equivalence b
 
 Target `C0/holomorphic-bundle-dictionary` (theorem). Dependencies: [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.holomorphicBundleDictionary`.
+Proposed interface: `TauCeti.ComplexComparison.holomorphicBundleDictionary`.
 
 Proof route: Use a finite holomorphic frame to identify the section sheaf with O^r. Recover transition matrices from overlaps of module frames, and glue the supplier bundle. Check the tensor/dual/determinant formulas on frames and descend.
 
@@ -246,7 +246,7 @@ For X locally of finite type over C and x∈X(C), the canonical local ring map O
 
 Target `C0/repair-local-faithful-flatness` (theorem). Dependencies: [C0/repair-analytification](#C0-repair-analytification), [C0/noetherian-germs](#C0-noetherian-germs), `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.localFaithfulFlatness`.
+Proposed interface: `TauCeti.ComplexComparison.localFaithfulFlatness`.
 
 Proof route: Compute both completions as the same formal power-series quotient. Use flatness of Noetherian local completion and the completed-map criterion to obtain flatness before completion. The local map has the same residue field C, hence flatness is faithful.
 
@@ -262,7 +262,7 @@ For X locally of finite type over C define F^an=O_{X^an}⊗_{φ_X^{-1}O_X}φ_X^{
 
 Target `C0/repair-coherent-pullback` (construction). Dependencies: `tauceti:TauCeti.AlgebraicGeometry.FinitelyPresentedSheaf`, [C0/repair-analytification](#C0-repair-analytification), [C0/coherent-analytic-module](#C0-coherent-analytic-module).
 
-Prototype: `TauCeti.ComplexComparison.CoherentAnalytification.functor`.
+Proposed interface: `TauCeti.ComplexComparison.CoherentAnalytification.functor`.
 
 Proof route: Apply inverse image and extension of scalars to a finite local presentation. Coherence of O_{X^an} proves the pulled-back presentation is coherent. Identity, composition and module-morphism maps are those of the native pullback.
 
@@ -293,7 +293,7 @@ For X locally of finite type over C, coherent analytification is exact and faith
 
 Target `C0/repair-exact-faithful-pullback` (theorem). Dependencies: [C0/repair-coherent-pullback](#C0-repair-coherent-pullback), [C0/repair-local-faithful-flatness](#C0-repair-local-faithful-flatness), `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.exactFaithfulPullback`.
+Proposed interface: `TauCeti.ComplexComparison.exactFaithfulPullback`.
 
 Proof route: Flat stalk pullback preserves short exact sequences. A nonzero coherent kernel, cokernel or image has a closed complex point in its support. Faithful flatness detects its nonzero stalk and yields faithfulness and isomorphism reflection.
 
@@ -309,7 +309,7 @@ Analytification commutes naturally with tensor and internal Hom for finitely pre
 
 Target `C0/coherent-pullback-operations` (theorem). Dependencies: [C0/repair-exact-faithful-pullback](#C0-repair-exact-faithful-pullback), [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.coherentPullbackHom`.
+Proposed interface: `TauCeti.ComplexComparison.coherentPullbackHom`.
 
 Proof route: Present the first Hom argument by two finite free modules. Flatness identifies kernels after pullback, giving the internal-Hom comparison. Tensor, exterior powers and determinant follow from native sheaf-module monoidal pullback and local frames.
 
@@ -325,7 +325,7 @@ For a holomorphic map f:T→S of finite-dimensional complex analytic spaces, the
 
 Target `C0/fiber-dimension-loci` (theorem). Dependencies: [C0/oka-coherence](#C0-oka-coherence).
 
-Prototype: `TauCeti.ComplexComparison.fiberDimensionLoci`.
+Proposed interface: `TauCeti.ComplexComparison.fiberDimensionLoci`.
 
 Proof route: Upper semicontinuity follows from an adapted finite projection on a common small polydisc, as in Demailly II8.2 pp.116–117. Analyticity needs the local analytic dimension-locus theorem, not upper semicontinuity alone; the unverified Whitney proof reference is an explicit gap. Glue the local defining ideals; nilpotents do not affect local fibre dimension. The proper-image consequence consumes C4 without making this node depend on it.
 
@@ -341,7 +341,7 @@ For a morphism f:X→S locally of finite type over C and a coherent F, construct
 
 Target `C3/repair-higher-image-comparison-map` (construction). Dependencies: [C0/repair-coherent-pullback](#C0-repair-coherent-pullback), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.relativeHigherImageComparison`.
+Proposed interface: `TauCeti.ComplexComparison.relativeHigherImageComparison`.
 
 Proof route: Construct the degree-zero adjunction square of ringed-space pullback and pushforward. Use an injective/acyclic resolution and the canonical derived exchange map, rather than choose unrelated isomorphisms in each degree. Coherence restricts the construction to the coherent categories; projective and proper arguments prove its invertibility.
 
@@ -379,7 +379,7 @@ On a polydisc in C^n, every smooth ∂̄-closed (p,q)-form with q>0 admits, afte
 
 Target `C1/local-dolbeault` (theorem). Dependencies: [C0/oka-coherence](#C0-oka-coherence).
 
-Prototype: `TauCeti.ComplexComparison.localDolbeault`.
+Proposed interface: `TauCeti.ComplexComparison.localDolbeault`.
 
 Proof route: Solve the one-variable equation by Cauchy–Green with a cutoff and differentiate under the integral. Remove successively the last-variable d̄z component, shrinking discs so the cutoff support stays away from the boundary. Induct in the number of variables and retain estimates on compact subpolydiscs and holomorphic parameter derivatives.
 
@@ -395,7 +395,7 @@ On a complete Kähler manifold with Hermitian holomorphic bundle E, let A=[iΘ(E
 
 Target `C1/weighted-dolbeault-estimate` (theorem). Dependencies: [C1/local-dolbeault](#C1-local-dolbeault), [C1/bochner-kodaira](#C1-bochner-kodaira).
 
-Prototype: `TauCeti.ComplexComparison.weightedDolbeaultEstimate`.
+Proposed interface: `TauCeti.ComplexComparison.weightedDolbeaultEstimate`.
 
 Proof route: Integration by parts and the Bochner–Kodaira identity give the coercive graph-norm estimate. Complete-metric cutoffs and Friedrichs convolution approximate both differential and adjoint domains; boundaries cannot be ignored. Hahn–Banach and Riesz represent the functional ∂̄*v↦⟨v,g⟩; elliptic regularity gives the smooth minimal solution.
 
@@ -411,7 +411,7 @@ On a second-countable Stein complex space, every coherent analytic module has va
 
 Target `C1/stein-coherent-acyclicity` (theorem). Dependencies: [C1/weighted-dolbeault-estimate](#C1-weighted-dolbeault-estimate), [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.cartanB`.
+Proposed interface: `TauCeti.ComplexComparison.cartanB`.
 
 Proof route: Choose a complete metric and an exhaustion-dependent rapidly increasing weight so every relevant smooth form satisfies the weighted estimate. Resolve coherent modules locally by ambient free modules, of enough finite length for the fixed degree; use convex bumps and Runge approximation to glue. Pass through a countable exhaustion with the required dense transition images and surjective Čech terms; this is not an algebraization argument.
 
@@ -427,7 +427,7 @@ Apply DiamondsAndVStacks D0/cech-to-derived-comparison to the standard projectiv
 
 Target `C1/acyclic-projective-cover` (application). Dependencies: [C1/stein-coherent-acyclicity](#C1-stein-coherent-acyclicity), `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `mathlib:CategoryTheory.Sheaf.H`.
 
-Prototype: `TauCeti.ComplexComparison.acyclicProjectiveCover`.
+Proposed interface: `TauCeti.ComplexComparison.acyclicProjectiveCover`.
 
 Proof route: Identify the actual coordinate intersections and their restrictions. Invoke Cartan B on every intersection, including repeated-index degenerate intersections. Use the supplier Leray comparison and its naturality; no second spectral-sequence API is planned here.
 
@@ -443,7 +443,7 @@ For P^r(C) define O(k), k∈Z, by homogeneous holomorphic sections of degree k o
 
 Target `C1/analytic-twisting-sheaf` (construction). Dependencies: [C0/coherent-operations](#C0-coherent-operations), [C0/repair-analytification](#C0-repair-analytification).
 
-Prototype: `TauCeti.ComplexComparison.analyticTwistTransition`.
+Proposed interface: `TauCeti.ComplexComparison.analyticTwistTransition`.
 
 Proof route: Use homogeneous local frames and transition functions on nonzero-coordinate charts. Verify the multiplicative cocycle and glue an invertible coherent module. Identify its algebraic pullback using the same homogeneous frames.
 
@@ -473,7 +473,7 @@ For r≥1, H^q(P^r_an,O(k)) is zero unless q=0 or q=r; H^0 for k≥0 has homogen
 
 Target `C1/twist-cohomology` (theorem). Dependencies: [C1/analytic-twisting-sheaf](#C1-analytic-twisting-sheaf), [C1/acyclic-projective-cover](#C1-acyclic-projective-cover), `AlgebraicModuliForArithmeticGeometry:R09.1`.
 
-Prototype: `TauCeti.ComplexComparison.twistCohomology`.
+Proposed interface: `TauCeti.ComplexComparison.twistCohomology`.
 
 Proof route: Expand convergent Laurent series on chart intersections, keeping uniform compact convergence. Split by exponent support; the augmented Čech combinatorics contracts every support pattern except the all-nonnegative and all-negative cases. Compare the surviving monomials with the algebraic calculation; connecting maps use the same Čech differential signs.
 
@@ -489,7 +489,7 @@ For a compact finite-dimensional complex analytic space T, including nonreduced 
 
 Target `C1/compact-coherent-finiteness` (theorem). Dependencies: [C0/coherent-operations](#C0-coherent-operations), [C1/stein-coherent-acyclicity](#C1-stein-coherent-acyclicity), `DiamondsAndVStacks:D0/cech-to-derived-comparison`.
 
-Prototype: `TauCeti.ComplexComparison.compactCoherentFiniteness`.
+Proposed interface: `TauCeti.ComplexComparison.compactCoherentFiniteness`.
 
 Proof route: Topologize sections by finite local presentations on embedded analytic charts. Use nested finite distinguished covers and compact restriction maps from Montel’s theorem. The compact-map cohomology lemma of Schwartz yields finite-dimensional Čech cohomology; Leray identifies it with the native derived carrier.
 
@@ -505,7 +505,7 @@ For a coherent module F on a projective analytic space T⊆P^r_an, there exists 
 
 Target `C1/analytic-serre-generation` (theorem). Dependencies: [C1/compact-coherent-finiteness](#C1-compact-coherent-finiteness), [C1/analytic-twisting-sheaf](#C1-analytic-twisting-sheaf), [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.analyticSerreGeneration`.
+Proposed interface: `TauCeti.ComplexComparison.analyticSerreGeneration`.
 
 Proof route: Induct on the dimension of support, using a hyperplane section and coherent kernel/cokernel. Use finiteness of H¹ to stabilize the relevant restriction maps after increasing twists. Nakayama gives generation near each point; compactness gives one integer and finitely many global generators.
 
@@ -521,7 +521,7 @@ For F as above, there exists k_1 such that H^q(T,F(k))=0 for all q>0 and k≥k_1
 
 Target `C1/analytic-serre-vanishing` (theorem). Dependencies: [C1/analytic-serre-generation](#C1-analytic-serre-generation), [C1/twist-cohomology](#C1-twist-cohomology).
 
-Prototype: `TauCeti.ComplexComparison.analyticSerreVanishing`.
+Proposed interface: `TauCeti.ComplexComparison.analyticSerreVanishing`.
 
 Proof route: Analytic generation gives a surjection from a finite sum of negative twists. Its kernel is coherent; dimension shifting and the finite ambient cohomological bound descend from high degrees. Twist-cohomology vanishing closes the induction without assuming algebraization.
 
@@ -537,7 +537,7 @@ Every coherent analytic F on P^r admits an exact O(−b)^m→O(−a)^n→F→0 w
 
 Target `C1/twist-presentations` (theorem). Dependencies: [C1/analytic-serre-generation](#C1-analytic-serre-generation), [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.twistPresentation`.
+Proposed interface: `TauCeti.ComplexComparison.twistPresentation`.
 
 Proof route: Generate F(a) globally to obtain the first surjection. Generate a sufficiently high twist of the coherent kernel to obtain the second map. Repeat for the finite length needed by dimension shifting; do not infer finite projective dimension on a singular space.
 
@@ -553,7 +553,7 @@ For a Hermitian holomorphic vector bundle E on a Kähler manifold, its Chern con
 
 Target `C1/bochner-kodaira` (theorem). Dependencies: [C1/local-dolbeault](#C1-local-dolbeault), [C0/holomorphic-bundle-dictionary](#C0-holomorphic-bundle-dictionary).
 
-Prototype: `TauCeti.ComplexComparison.bochnerKodaira`.
+Proposed interface: `TauCeti.ComplexComparison.bochnerKodaira`.
 
 Proof route: Use the imported Hermitian bundle metric and Chern connection in a normal holomorphic frame. Compute the wedge/contraction commutators at the frame origin, then use graded Jacobi and D²=Θ. Apply integration by parts on compactly supported forms; complete-metric cutoffs and Friedrichs density extend the estimate to the graph domain.
 
@@ -577,7 +577,7 @@ For a projective C-scheme X, without a reducedness assumption, coherent F and q�
 
 Target `C2/projective-cohomology` (theorem). Dependencies: [C1/twist-cohomology](#C1-twist-cohomology), [C1/twist-presentations](#C1-twist-presentations), [C0/repair-exact-faithful-pullback](#C0-repair-exact-faithful-pullback), [C3/repair-higher-image-comparison-map](#C3-repair-higher-image-comparison-map), `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `AlgebraicModuliForArithmeticGeometry:R09.1`.
 
-Prototype: `TauCeti.ComplexComparison.projectiveCohomology`.
+Proposed interface: `TauCeti.ComplexComparison.projectiveCohomology`.
 
 Proof route: Embed X in projective space and push F forward along the closed immersion, retaining its ideal rather than reducing X. Compare all twist classes on the common acyclic Čech cover. Use coherent kernels and finite-length dimension shifting; finite algebraic cohomological dimension and analytic Serre vanishing terminate the induction.
 
@@ -593,7 +593,7 @@ For a projective C-scheme X and coherent F,G, Hom_X(F,G)→Hom_{X^an}(F^an,G^an)
 
 Target `C2/projective-full-faithfulness` (theorem). Dependencies: [C2/projective-cohomology](#C2-projective-cohomology), [C0/coherent-pullback-operations](#C0-coherent-pullback-operations).
 
-Prototype: `TauCeti.ComplexComparison.projectiveFullFaithfulness`.
+Proposed interface: `TauCeti.ComplexComparison.projectiveFullFaithfulness`.
 
 Proof route: Identify Hom with H^0 of the coherent internal-Hom sheaf. Use flat finite-presentation Hom comparison from C0. Apply the degree-zero case of the named cohomology comparison.
 
@@ -609,7 +609,7 @@ Every coherent analytic module on X^an for a projective C-scheme X is isomorphic
 
 Target `C2/projective-essential-surjectivity` (theorem). Dependencies: [C2/projective-full-faithfulness](#C2-projective-full-faithfulness), [C1/twist-presentations](#C1-twist-presentations), [C0/coherent-analytic-ideal](#C0-coherent-analytic-ideal).
 
-Prototype: `TauCeti.ComplexComparison.projectiveEssentialSurjectivity`.
+Proposed interface: `TauCeti.ComplexComparison.projectiveEssentialSurjectivity`.
 
 Proof route: First take a two-term twist presentation of the analytic module pushed to projective space. Full faithfulness algebraizes its matrix, and exact pullback identifies its coherent cokernel. The algebraic ideal of X annihilates that cokernel because its analytic action is zero and C0 is faithful.
 
@@ -625,7 +625,7 @@ For projective X/C, the native coherent analytification functor is an exact equi
 
 Target `C2/projective-gaga-equivalence` (construction). Dependencies: [C2/projective-full-faithfulness](#C2-projective-full-faithfulness), [C2/projective-essential-surjectivity](#C2-projective-essential-surjectivity), [C0/repair-exact-faithful-pullback](#C0-repair-exact-faithful-pullback).
 
-Prototype: `TauCeti.ComplexComparison.projectiveGAGA`.
+Proposed interface: `TauCeti.ComplexComparison.projectiveGAGA`.
 
 Proof route: Use full faithfulness and essential surjectivity to construct the quasi-inverse on the existing categories. Choose the unit and counit from the canonical pullback comparison and verify the triangle identities. Transport exactness and tensor/dual compatibilities without changing the underlying functor.
 
@@ -655,7 +655,7 @@ For projective f:X→S with S locally of finite type over C and coherent F, θ^q
 
 Target `C2/relative-projective-comparison` (theorem). Dependencies: [C2/projective-cohomology](#C2-projective-cohomology), [C3/repair-higher-image-comparison-map](#C3-repair-higher-image-comparison-map), `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`.
 
-Prototype: `TauCeti.ComplexComparison.relativeProjectiveComparison`.
+Proposed interface: `TauCeti.ComplexComparison.relativeProjectiveComparison`.
 
 Proof route: Work over an affine algebraic base and its small Stein analytic neighbourhoods. Relative twist presentations and relative Serre vanishing compare the algebraic and analytic derived images term by term. Use coherent dévissage and compatibility with restriction to identify the adjunction map, and glue on the base.
 
@@ -671,7 +671,7 @@ For projective f and coherent F, the higher-image comparison commutes with proje
 
 Target `C2/gaga-base-change` (theorem). Dependencies: [C2/relative-projective-comparison](#C2-relative-projective-comparison), `SchemeAndStackFoundations:SF.2/tor-independent-base-change`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`.
 
-Prototype: `TauCeti.ComplexComparison.gagaFlatBaseChange`.
+Proposed interface: `TauCeti.ComplexComparison.gagaFlatBaseChange`.
 
 Proof route: Use the derived pullback/direct-image exchange diagrams before passing to degree q. Finite locally free tensor factors commute with both pullback and pushforward. Identify the same base-change square on both sides using the exact hypotheses of the imported algebraic theorem.
 
@@ -687,7 +687,7 @@ For projective X/C, coherent ideal sheaves and closed analytic subspaces of X^an
 
 Target `C2/projective-geometric-dictionaries` (theorem). Dependencies: [C2/projective-gaga-equivalence](#C2-projective-gaga-equivalence), [C0/coherent-analytic-ideal](#C0-coherent-analytic-ideal), [C0/holomorphic-bundle-dictionary](#C0-holomorphic-bundle-dictionary).
 
-Prototype: `TauCeti.ComplexComparison.projectiveGeometricDictionary`.
+Proposed interface: `TauCeti.ComplexComparison.projectiveGeometricDictionary`.
 
 Proof route: Algebraize the ideal as a coherent submodule and use fullness for its inclusion into O. Check multiplication and the ideal property by faithfulness, then take the algebraic quotient. Use local faithful-flat descent of finite projectivity for finite locally free modules.
 
@@ -711,7 +711,7 @@ For a proper morphism f:X→S of schemes locally of finite type over C and coher
 
 Target `C3/repair-relative-proper-gaga` (theorem). Dependencies: [C2/relative-projective-comparison](#C2-relative-projective-comparison), `AlgebraicModuliForArithmeticGeometry:R09.2`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`.
 
-Prototype: `TauCeti.ComplexComparison.relativeProperComparison`.
+Proposed interface: `TauCeti.ComplexComparison.relativeProperComparison`.
 
 Proof route: Use the R09.2 Chow modification that is projective over the base and an isomorphism on a dense open. Coherent dévissage separates modules supported on the lower-dimensional complement and the part compared through the modification. Noetherian induction, proper coherent direct-image finiteness and the Leray comparison reduce to the projective result.
 
@@ -727,7 +727,7 @@ For a proper C-scheme X, the analytification functor is fully faithful on cohere
 
 Target `C3/repair-proper-coherent-full-faithfulness` (lemma). Dependencies: [C3/repair-relative-proper-gaga](#C3-repair-relative-proper-gaga), [C0/coherent-pullback-operations](#C0-coherent-pullback-operations).
 
-Prototype: `TauCeti.ComplexComparison.properFullFaithfulness`.
+Proposed interface: `TauCeti.ComplexComparison.properFullFaithfulness`.
 
 Proof route: Apply proper higher-image comparison to X→SpecC in degree zero. Identify Hom with global sections of the coherent internal Hom. Use finite-presentation flat Hom comparison, retaining the actual pullback map.
 
@@ -743,7 +743,7 @@ For X proper over C, every coherent analytic module on X^an algebraizes to an al
 
 Target `C3/repair-proper-coherent-essential-surjectivity` (theorem). Dependencies: [C3/repair-proper-coherent-full-faithfulness](#C3-repair-proper-coherent-full-faithfulness), [C2/projective-essential-surjectivity](#C2-projective-essential-surjectivity), `AlgebraicModuliForArithmeticGeometry:R09.2`.
 
-Prototype: `TauCeti.ComplexComparison.properEssentialSurjectivity`.
+Proposed interface: `TauCeti.ComplexComparison.properEssentialSurjectivity`.
 
 Proof route: Use a projective Chow modification and its proper fibre product to algebraize the pulled-back module and descent maps on the projective locus. Treat modules supported on the modification’s exceptional complement by Noetherian induction. Use coherent proper pushforward, the canonical adjunction map and the full-faithfulness result to reconstruct the module on X.
 
@@ -759,7 +759,7 @@ For X proper over C, the forward coherent analytification functor is an exact eq
 
 Target `C3/proper-gaga-equivalence` (construction). Dependencies: [C3/repair-proper-coherent-essential-surjectivity](#C3-repair-proper-coherent-essential-surjectivity), [C3/repair-proper-coherent-full-faithfulness](#C3-repair-proper-coherent-full-faithfulness), [C0/repair-exact-faithful-pullback](#C0-repair-exact-faithful-pullback).
 
-Prototype: `TauCeti.ComplexComparison.properGAGA`.
+Proposed interface: `TauCeti.ComplexComparison.properGAGA`.
 
 Proof route: Assemble the proved full-faithfulness and algebraization results on the native categories. Use canonical pullback natural isomorphisms for maps, rather than require a strictly functorial choice of quasi-inverse. Transfer the exact and monoidal structure with coherent unit and counit.
 
@@ -789,7 +789,7 @@ An étale presentation U→X of a finite-type complex algebraic space analytifie
 
 Target `C3/analytic-etale-descent` (theorem). Dependencies: [C0/repair-analytification](#C0-repair-analytification), `SchemeAndStackFoundations:SF.1`, `AlgebraicModuliForArithmeticGeometry:R09.3`.
 
-Prototype: `TauCeti.ComplexComparison.analyticEtaleStalkIso`.
+Proposed interface: `TauCeti.ComplexComparison.analyticEtaleStalkIso`.
 
 Proof route: Use the supplier étale analytification/local-isomorphism carrier. Apply native sheaf-module gluing to the cover groupoid and its coherent presentations. Compare restrictions and cocycles by C0; the global algebraization step is supplied by the reconstruction theorem.
 
@@ -805,7 +805,7 @@ Let c:T→X be a flat morphism of ringed sites of a proper finite-type C-algebra
 
 Target `C3/closed-point-reconstruction` (theorem). Dependencies: [C3/analytic-etale-descent](#C3-analytic-etale-descent), [C1/compact-coherent-finiteness](#C1-compact-coherent-finiteness), `SchemeAndStackFoundations:SF.2/derived-pullback-pushforward-qcoh`, `SchemeAndStackFoundations:SF.2/perfect-generator`.
 
-Prototype: `TauCeti.ComplexComparison.closedPointReconstruction`.
+Proposed interface: `TauCeti.ComplexComparison.closedPointReconstruction`.
 
 Proof route: Construct the quasi-coherent right adjoint and show it preserves bounded coherent complexes by perfect testing. Closed-point residue equivalences and Tor-independent base change identify unit/counit after tensoring with perfect support detectors. Top-cohomology Nakayama detects the cones; the adjunction is an equivalence, whose t-exact flat pullback restricts to the coherent hearts.
 
@@ -821,7 +821,7 @@ For a proper finite-type algebraic space X/C, including nonreduced X, coherent a
 
 Target `C3/proper-algebraic-space-gaga` (theorem). Dependencies: [C3/closed-point-reconstruction](#C3-closed-point-reconstruction), [C3/repair-relative-proper-gaga](#C3-repair-relative-proper-gaga), [C3/analytic-etale-descent](#C3-analytic-etale-descent).
 
-Prototype: `TauCeti.ComplexComparison.properAlgebraicSpaceGAGA_schemePart`.
+Proposed interface: `TauCeti.ComplexComparison.properAlgebraicSpaceGAGA_schemePart`.
 
 Proof route: Verify the local faithful-flat and residue-field hypotheses on finite-type étale scheme charts. Compact coherent finiteness and the requested algebraic-space derived support interfaces meet the reconstruction theorem’s global hypotheses. For the relative assertion apply the same proper derived comparison over Stein neighbourhoods of the base, retaining θ and coherent descent.
 
@@ -845,7 +845,7 @@ For a proper holomorphic map f:T→S of finite-dimensional complex analytic spac
 
 Target `C4/remmert-proper-image` (theorem). Dependencies: [C0/oka-coherence](#C0-oka-coherence), [C0/weierstrass-preparation](#C0-weierstrass-preparation).
 
-Prototype: `TauCeti.ComplexComparison.remmertProperImage`.
+Proposed interface: `TauCeti.ComplexComparison.remmertProperImage`.
 
 Proof route: Work near a compact fibre with finitely many adapted coordinate neighbourhoods. Induct simultaneously on dimension with the extension theorem: outside the lower-dimensional critical image, finite projections and symmetric holomorphic coefficients describe the image. Extend across the critical image with the dimension inequality from the simultaneous induction; topological properness proves closedness.
 
@@ -861,7 +861,7 @@ Let E be an analytic subset of a complex manifold and A an analytic subset of it
 
 Target `C4/remmert-stein-extension` (theorem). Dependencies: [C4/remmert-proper-image](#C4-remmert-proper-image), [C0/weierstrass-preparation](#C0-weierstrass-preparation).
 
-Prototype: `TauCeti.ComplexComparison.remmertSteinExtension`.
+Proposed interface: `TauCeti.ComplexComparison.remmertSteinExtension`.
 
 Proof route: Use the extension half of the same simultaneous dimension induction as the proper mapping proof. Choose finite linear projections whose exceptional sets have smaller dimension. Extend the symmetric coefficients and reconstruct the closed analytic set; equal-dimensional closure is not asserted.
 
@@ -877,7 +877,7 @@ Every closed analytic subspace Z⊆P^r_an defined by a coherent ideal I, includi
 
 Target `C4/nonreduced-projective-chow` (theorem). Dependencies: [C1/analytic-serre-generation](#C1-analytic-serre-generation), [C2/projective-geometric-dictionaries](#C2-projective-geometric-dictionaries), [C4/remmert-stein-extension](#C4-remmert-stein-extension).
 
-Prototype: `TauCeti.ComplexComparison.nonreducedProjectiveChow`.
+Proposed interface: `TauCeti.ComplexComparison.nonreducedProjectiveChow`.
 
 Proof route: High twists generate the coherent ideal by homogeneous holomorphic sections. Twist H^0 comparison identifies these generators with homogeneous polynomials. Algebraize the inclusion and multiplication maps and compare their quotient sheaves, retaining all nilpotent orders.
 
@@ -893,7 +893,7 @@ For a separated finite-type C-scheme Y and a coherent analytic module on Y^an wh
 
 Target `C4/proper-support-algebraization` (theorem). Dependencies: [C3/proper-gaga-equivalence](#C3-proper-gaga-equivalence), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.properSupportAlgebraization`.
+Proposed interface: `TauCeti.ComplexComparison.properSupportAlgebraization`.
 
 Proof route: Request the Noetherian separated finite-type compactification leaf in SF.2; the present supplier packet does not yet prove it. Do not re-plan Nagata in this comparison roadmap. Proper support is closed in the compactification, so extending the supported coherent module by zero is coherent on an analytic neighbourhood of that support. Apply proper GAGA to the compactification and restrict back; support detection and full faithfulness make the result independent of compactification.
 
@@ -909,7 +909,7 @@ For X proper over C and Y separated of finite type over C, the canonical map Hom
 
 Target `C4/repair-proper-morphism-algebraicity` (theorem). Dependencies: [C4/proper-support-algebraization](#C4-proper-support-algebraization), [C0/coherent-analytic-ideal](#C0-coherent-analytic-ideal), [C3/proper-gaga-equivalence](#C3-proper-gaga-equivalence), `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.properMorphismAlgebraicity`.
+Proposed interface: `TauCeti.ComplexComparison.properMorphismAlgebraicity`.
 
 Proof route: The analytic graph is a closed analytic subspace of X^an×Y^an, proper over C. Algebraize its coherent ideal in a proper compactification, including quotient structure and both projections. The algebraic first projection is an isomorphism: properness and analytic fibres give quasi-finiteness, hence finiteness; its finite module map is an isomorphism by faithful-flat analytic detection. Compose its inverse with the second projection.
 
@@ -925,7 +925,7 @@ For reduced finite-type complex varieties X,Y, a holomorphic map X^an→Y^an who
 
 Target `C4/algebraic-graph-regular` (theorem). Dependencies: [C0/repair-local-faithful-flatness](#C0-repair-local-faithful-flatness), `AlgebraicModuliForArithmeticGeometry:R09.2`, `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.algebraicGraphRegular`.
+Proposed interface: `TauCeti.ComplexComparison.algebraicGraphRegular`.
 
 Proof route: The graph’s first algebraic projection is bijective and analytically an isomorphism. Serre’s closure argument gives a Zariski homeomorphism; componentwise birationality identifies total fraction rings. Use the faithful-flat local-ring intersection argument to identify the algebraic stalks; the second projection then gives the regular map.
 
@@ -941,7 +941,7 @@ Apply proper-source morphism comparison to proper complex fibres and to a total 
 
 Target `C4/family-morphism-interface` (application). Dependencies: [C4/repair-proper-morphism-algebraicity](#C4-repair-proper-morphism-algebraicity), [C4/algebraic-graph-regular](#C4-algebraic-graph-regular), `AlgebraicModuliForArithmeticGeometry:R09.3`, [C2/gaga-base-change](#C2-gaga-base-change).
 
-Prototype: `TauCeti.ComplexComparison.properMorphismAlgebraicity`.
+Proposed interface: `TauCeti.ComplexComparison.properMorphismAlgebraicity`.
 
 Proof route: Use functoriality of graph algebraization to preserve algebraic composition and fibre identities. Apply the imported representability of Hom/Isom where available and compare the fibre over an algebraic complex point. Check group-law diagrams by faithfulness for isogenies; impose the consumer’s properness and algebraic variation hypotheses.
 
@@ -957,7 +957,7 @@ For a smooth affine complex curve U, import its unique smooth projective model C
 
 Target `C4/repair-affine-curve-completion-interface` (theorem). Dependencies: `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts`, `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields`, [C0/repair-analytification](#C0-repair-analytification).
 
-Prototype: `TauCeti.ComplexComparison.affineCurveCompletionInterface`.
+Proposed interface: `TauCeti.ComplexComparison.affineCurveCompletionInterface`.
 
 Proof route: Use the existing function-field model and its open-immersion universal property. A closed proper subset of a Noetherian curve has dimension zero and finitely many complex points. Compare restriction of the structure sheaf and the complement topology; do not equate all holomorphic functions on U^an with its coordinate ring.
 
@@ -973,7 +973,7 @@ If M is a connected Riemann surface and D is a finite subset, M\D is connected a
 
 Target `C4/punctured-riemann-connected` (theorem). Dependencies: [C4/repair-affine-curve-completion-interface](#C4-repair-affine-curve-completion-interface).
 
-Prototype: `TauCeti.ComplexComparison.puncturedRiemannConnected`.
+Proposed interface: `TauCeti.ComplexComparison.puncturedRiemannConnected`.
 
 Proof route: Connected manifolds are path connected by their locally path-connected charts. Replace each piece of a path meeting D by an arc inside a punctured coordinate disc, using a finite covering subdivision. The replacement avoids all boundary points and keeps both endpoints.
 
@@ -989,7 +989,7 @@ For a smooth affine complex curve U, U is algebraically connected if and only if
 
 Target `C4/affine-curve-connectedness` (theorem). Dependencies: [C4/punctured-riemann-connected](#C4-punctured-riemann-connected), [C3/proper-gaga-equivalence](#C3-proper-gaga-equivalence).
 
-Prototype: `TauCeti.ComplexComparison.affineCurveConnectedness`.
+Proposed interface: `TauCeti.ComplexComparison.affineCurveConnectedness`.
 
 Proof route: Connectedness of the smooth projective model agrees with connectedness of its dense affine open, component by component. Proper GAGA identifies idempotents in H^0(O_C) with those on C^an. The finite-boundary theorem preserves analytic connectedness.
 
@@ -1013,7 +1013,7 @@ For a smooth C-scheme X, Ω^p_{X/C}=∧^pΩ^1_{X/C} uses the native Kähler diff
 
 Target `C5/algebraic-de-rham-complex` (construction). Dependencies: `mathlib:KaehlerDifferential.D`, `mathlib:exteriorPower.ιMulti`, `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.algebraicDeRhamComplex`.
+Proposed interface: `TauCeti.ComplexComparison.algebraicDeRhamComplex`.
 
 Proof route: Use the universal derivation and exterior powers on affines. Define d(a_0 da_1∧…∧da_p)=da_0∧…∧da_p and verify the defining relations. Localization compatibility glues the terms and C-linear differential; smoothness gives finite locally free terms in a bounded degree range.
 
@@ -1043,7 +1043,7 @@ On a complex manifold T, Ω^p_T is the coherent sheaf of holomorphic p-forms on 
 
 Target `C5/holomorphic-de-rham-complex` (construction). Dependencies: [C0/holomorphic-bundle-dictionary](#C0-holomorphic-bundle-dictionary), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.holomorphicDeRhamComplex`.
+Proposed interface: `TauCeti.ComplexComparison.holomorphicDeRhamComplex`.
 
 Proof route: Use holomorphic cotangent frames and the native exterior-bundle operations. Define d in coordinates and compare on overlaps by the chain rule. Forget to sheaves of C-modules before forming the cochain complex.
 
@@ -1073,7 +1073,7 @@ The inclusion of the constant C-sheaf into Ω^•_T is a quasi-isomorphism on a 
 
 Target `C5/holomorphic-poincare` (theorem). Dependencies: [C5/holomorphic-de-rham-complex](#C5-holomorphic-de-rham-complex).
 
-Prototype: `TauCeti.ComplexComparison.holomorphicPoincare`.
+Proposed interface: `TauCeti.ComplexComparison.holomorphicPoincare`.
 
 Proof route: Contract the coordinate ball radially and integrate contraction of p-forms along the contraction. Differentiate under the parameter integral to obtain dK+Kd=id−evaluation, with the degree-zero evaluation term. The local homotopy proves exactness on stalks and glues the canonical inclusion into a quasi-isomorphism.
 
@@ -1089,7 +1089,7 @@ For finite-presentation coherent modules F,G, an algebraic C-linear differential
 
 Target `C5/differential-operator-analytification` (construction). Dependencies: [C0/repair-coherent-pullback](#C0-repair-coherent-pullback), [C0/coherent-analytic-ideal](#C0-coherent-analytic-ideal), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.differentialOperatorAnalytification`.
+Proposed interface: `TauCeti.ComplexComparison.differentialOperatorAnalytification`.
 
 Proof route: Form principal parts from the finite diagonal neighbourhood using tensor products and the diagonal-ideal quotient. Analytify its universal jet map and the O-linear map from principal parts to G. Check changes of order, composition and the iterative commutator characterization of differential operators.
 
@@ -1119,7 +1119,7 @@ For X proper over C and a bounded complex K whose terms are coherent O_X-modules
 
 Target `C5/bounded-operator-hypergaga` (theorem). Dependencies: [C5/differential-operator-analytification](#C5-differential-operator-analytification), [C3/repair-relative-proper-gaga](#C3-repair-relative-proper-gaga), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.operatorHyperGAGA`.
+Proposed interface: `TauCeti.ComplexComparison.operatorHyperGAGA`.
 
 Proof route: Use the finite filtration by complex degree and the canonical comparison of each coherent term. The bounded hypercohomology spectral sequence identifies the E1 pages; operator analytification makes all differentials commute. Bounded convergence gives the quasi-isomorphism, and the resolution-level construction respects compatible triangles.
 
@@ -1135,7 +1135,7 @@ For a space T and an abelian group A, use Sella’s directed nestings of neighbo
 
 Target `C5/small-singular-cochain-sheaf` (construction). Dependencies: `mathlib:CategoryTheory.Sheaf.H`, `tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
-Prototype: `TauCeti.ComplexComparison.smallSingularCochains`.
+Proposed interface: `TauCeti.ComplexComparison.smallSingularCochains`.
 
 Proof route: Use the nesting monotonicity under deleting entries, and impose smallness on all faces. The directed refinement and subdivision/prism homotopies give a cochain sheaf with surjective restriction maps. Local contractibility gives the augmentation exactness; Sella’s face-corrected homotopy compares small and all singular cochains.
 
@@ -1165,7 +1165,7 @@ For a semilocally contractible space T and any abelian group A, the canonical ma
 
 Target `C5/repair-sheaf-singular-comparison` (theorem). Dependencies: [C5/small-singular-cochain-sheaf](#C5-small-singular-cochain-sheaf), `tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque`.
 
-Prototype: `TauCeti.ComplexComparison.sheafSingularComparison`.
+Proposed interface: `TauCeti.ComplexComparison.sheafSingularComparison`.
 
 Proof route: Use the exact flasque small-cochain resolution of the constant sheaf. Apply the native positive-degree flasque acyclicity instance and derived cohomology of the resolution. Use the explicit small-chain homotopy equivalence to identify its global cohomology with singular cohomology.
 
@@ -1181,7 +1181,7 @@ For a smooth proper C-scheme X and q≥0, there is a canonical natural C-linear 
 
 Target `C5/repair-proper-de-rham-betti` (theorem). Dependencies: [C5/algebraic-de-rham-complex](#C5-algebraic-de-rham-complex), [C5/holomorphic-de-rham-complex](#C5-holomorphic-de-rham-complex), [C5/bounded-operator-hypergaga](#C5-bounded-operator-hypergaga), [C5/holomorphic-poincare](#C5-holomorphic-poincare), [C5/repair-sheaf-singular-comparison](#C5-repair-sheaf-singular-comparison).
 
-Prototype: `TauCeti.ComplexComparison.properDeRhamBetti`.
+Proposed interface: `TauCeti.ComplexComparison.properDeRhamBetti`.
 
 Proof route: Identify analytified Kähler forms with holomorphic cotangent exterior powers by local coordinates. Compare the proper bounded differential-operator complexes. Resolve the constant sheaf holomorphically and then compare to singular cohomology.
 
@@ -1197,7 +1197,7 @@ The de Rham–Betti comparison is compatible with pullback and, through Differen
 
 Target `C5/multiplicative-period-interface` (application). Dependencies: [C5/repair-proper-de-rham-betti](#C5-repair-proper-de-rham-betti), `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
-Prototype: `TauCeti.ComplexComparison.multiplicativePeriodInterface`.
+Proposed interface: `TauCeti.ComplexComparison.multiplicativePeriodInterface`.
 
 Proof route: Use the existing smooth integration chain map and its wedge/cup homotopy; do not manufacture another smooth de Rham theorem. Apply coefficient-change and universal coefficients with their finite-generation hypotheses. Retain torsion information at the Z-level and fix the positively oriented G_m loop period of dz/z to2πi.
 
@@ -1213,7 +1213,7 @@ For a smooth holomorphic map f:T→S, the relative holomorphic complex Ω^•_{T
 
 Target `C5/relative-poincare` (theorem). Dependencies: [C5/holomorphic-de-rham-complex](#C5-holomorphic-de-rham-complex).
 
-Prototype: `TauCeti.ComplexComparison.relativePoincare`.
+Proposed interface: `TauCeti.ComplexComparison.relativePoincare`.
 
 Proof route: Choose a local product chart and apply the radial homotopy only to the fibre coordinates. Holomorphic dependence on base parameters is preserved by integration. The degree-zero kernel is the pullback of base holomorphic functions; local horizontal frames give the coefficient version.
 
@@ -1229,7 +1229,7 @@ For a proper smooth holomorphic map of complex manifolds f:T→S, R^qf_*A is loc
 
 Target `C5/relative-betti-local-system` (theorem). Dependencies: [C5/repair-sheaf-singular-comparison](#C5-repair-sheaf-singular-comparison).
 
-Prototype: `TauCeti.ComplexComparison.relativeBettiLocalSystem`.
+Proposed interface: `TauCeti.ComplexComparison.relativeBettiLocalSystem`.
 
 Proof route: Import the proper-submersion local trivialization, keeping properness and smoothness explicit. Identify sheaf and singular cohomology locally on the base with the fibre cohomology. The transition maps define the locally constant coefficient sheaf; finite-CW compact fibres supply finite rank for C.
 
@@ -1245,7 +1245,7 @@ For a smooth proper algebraic map f:X→S in characteristic zero with S smooth, 
 
 Target `C5/gauss-manin-connection` (construction). Dependencies: [C5/algebraic-de-rham-complex](#C5-algebraic-de-rham-complex), [C5/relative-poincare](#C5-relative-poincare), [C5/relative-betti-local-system](#C5-relative-betti-local-system), [C5/algebraic-connection](#C5-algebraic-connection), `SchemeAndStackFoundations:SF.2`.
 
-Prototype: `TauCeti.ComplexComparison.gaussManinConnection`.
+Proposed interface: `TauCeti.ComplexComparison.gaussManinConnection`.
 
 Proof route: Filter the absolute de Rham complex by the number of pulled-back base forms; smoothness makes its graded pieces Ω^p_S⊗Ω^•_(X/S)[−p]. Take the connecting map of the first two levels. Identify the first spectral-sequence page with Ω^p_S⊗H^q_dR(X/S) using the locally free projection formula. Its multiplicative differential gives the connection and its Leibniz rule. The square of this first differential is zero, so the extended connection has zero curvature (Katz–Oda §2, Theorem1, pp.201–204). Use the short exact filtration quotient and the Čech total complex of an affine cover to identify this differential with the connecting construction (§3 pp.204–206). The complex is a complex of abelian sheaves even though its terms are coherent. Compare the exact sequence through operator hyper-GAGA and relative Poincaré to identify the analytic horizontal sheaf and the Betti local system.
 
@@ -1275,7 +1275,7 @@ For a smooth proper algebraic map f:X→S of smooth C-schemes, the canonical mor
 
 Target `C5/relative-de-rham-betti` (theorem). Dependencies: [C5/gauss-manin-connection](#C5-gauss-manin-connection), [C5/relative-poincare](#C5-relative-poincare), [C5/relative-betti-local-system](#C5-relative-betti-local-system), [C5/bounded-operator-hypergaga](#C5-bounded-operator-hypergaga).
 
-Prototype: `TauCeti.ComplexComparison.relativeDeRhamBetti`.
+Proposed interface: `TauCeti.ComplexComparison.relativeDeRhamBetti`.
 
 Proof route: Compare the relative bounded differential-operator complexes under the proper map. Use the relative Poincaré resolution and local topological trivialization to identify analytic hypercohomology with the Betti module tensored with O_S. The filtration connecting maps identify the Gauss–Manin and locally constant flat connections.
 
@@ -1291,7 +1291,7 @@ For f:X→S smooth and proper with S locally Noetherian over a characteristic-ze
 
 Target `C5/relative-hodge-bundles` (theorem). Dependencies: [C5/relative-de-rham-betti](#C5-relative-de-rham-betti), [C5/proper-pure-hodge](#C5-proper-pure-hodge), `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`.
 
-Prototype: `TauCeti.ComplexComparison.relativeHodgeBundles`.
+Proposed interface: `TauCeti.ComplexComparison.relativeHodgeBundles`.
 
 Proof route: Noetherian approximation reduces to finite type and then to Artin local thickenings. Over fields embed the needed finitely generated characteristic-zero data into C and apply the proper geometric Hodge result. Deligne’s length comparison on Artin thickenings forces degeneration, freeness and arbitrary base change; idempotent images are direct summands, giving Qian’s character statement.
 
@@ -1303,13 +1303,13 @@ Proof references: [DELIGNE1968](https://www.numdam.org/item/PMIHES_1968__35__107
 
 ### Hodge star on the existing smooth-form carrier
 
-On an oriented Riemannian real m-manifold, define the fibrewise Hodge star on DifferentialGeometry’s smooth exterior forms by α∧*β=⟨α,β⟩vol. Extend C-linearly to complex forms and use the Hermitian pairing with conjugation in the defining identity. The native smooth-form carrier and wedge product are imported, not reconstructed.
+Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, Hodge star and pairing convention), then identify its maps with the shared smooth/coherent carriers used here. On an oriented Riemannian real m-manifold, define the fibrewise Hodge star on DifferentialGeometry’s smooth exterior forms by α∧*β=⟨α,β⟩vol. Extend C-linearly to complex forms and use Mathlib’s Hermitian convention, conjugate-linear in the first slot: α∧*conj(β)=⟨β,α⟩vol. The native smooth-form carrier and wedge product are imported, not reconstructed.
 
 Target `C5/hodge-star` (construction). Dependencies: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
-Prototype: `TauCeti.ComplexComparison.planeStar`.
+Proposed interface: `TauCeti.ComplexComparison.planeStar`.
 
-Proof route: Use the induced metric and oriented volume element on each cotangent exterior power. The nondegenerate wedge pairing defines a unique star; smooth local orthonormal frames prove smoothness. Compare frames and extend complex linearly, keeping conjugation in the Hermitian formula.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. The nondegenerate wedge pairing defines a unique star; smooth local orthonormal frames prove smoothness.
 
 API:
 
@@ -1321,7 +1321,7 @@ Discriminating tests:
 
 - `HodgeStar.dimensionZero` (degenerate): On an oriented point, star is identity.
 - `HodgeStar.euclideanPlane` (computation): With dx∧dy positive, *dx=dy and *dy=−dx.
-- `HodgeStar.complexLinearity` (characterisation): *(iα)=i*α; conjugation belongs in the pairing, not in the star map.
+- `HodgeStar.complexLinearity` (characterisation): *(iα)=i*α. For a real form θ, (iθ)∧*conj(θ)=i‖θ‖²vol; this detects reversal of the native inner-product arguments.
 
 Uses: C5 codifferential and Hodge Laplacian — Defines the formal adjoint with the exact degree sign.; C5 Kähler harmonic decomposition — Acts on the existing complex-valued form bundle and respects the Hodge metric..
 
@@ -1333,13 +1333,13 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 ### Positive Hodge Laplacian and formal adjoint
 
-On a compact oriented Riemannian m-manifold without boundary, the codifferential on r-forms is δ_r=(−1)^(m(r+1)+1)*d*. The Hodge Laplacian is Δ_r=dδ+δd and has nonnegative energy ⟨Δα,α⟩=||dα||²+||δα||². DifferentialGeometry’s scalar laplaceBeltrami uses div grad; Δ_0 is its negative. Use the existing smooth forms, integration and metric APIs.
+Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, formal adjoints and positive Hodge Laplacian), then identify its maps with the shared smooth/coherent carriers used here. On a compact oriented Riemannian m-manifold without boundary, the codifferential on r-forms is δ_r=(−1)^(m(r+1)+1)*d*. The Hodge Laplacian is Δ_r=dδ+δd and has nonnegative energy ⟨Δα,α⟩=||dα||²+||δα||². DifferentialGeometry’s scalar laplaceBeltrami uses div grad; Δ_0 is its negative. Use the existing smooth forms, integration and metric APIs.
 
 Target `C5/hodge-laplacian` (construction). Dependencies: [C5/hodge-star](#C5-hodge-star).
 
-Prototype: `TauCeti.ComplexComparison.hodgeLaplacian`.
+Proposed interface: `TauCeti.ComplexComparison.hodgeLaplacian`.
 
-Proof route: Use Stokes and the wedge-star identity to compute the adjoint sign with the input degree r. Expand Δ and use d²=0 to prove commutation with d and δ. Integration on the compact boundary-free manifold gives the energy identity and positivity.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Use Stokes and the wedge-star identity to compute the adjoint sign with the input degree r. Use Stokes and the wedge-star identity to compute the adjoint sign with the input degree r.
 
 API:
 
@@ -1363,15 +1363,15 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 ### Compact bundle elliptic Fredholm and regularity interface
 
-Import an extension of PDEPartII to formally self-adjoint strongly elliptic operators on finite-rank vector bundles over compact smooth boundary-free manifolds. The required contract is H^{s+2} elliptic regularity, a global Gårding estimate, Rellich compactness, finite-dimensional smooth kernel, closed image equal to its orthogonal complement, and bounded inverse on that complement. The present scalar Euclidean PDE roadmap does not yet provide this contract.
+Import ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 K5a for formally self-adjoint strongly elliptic operators on finite-rank bundles over compact smooth manifolds without boundary: H^{s+2} regularity, global Gårding estimate, Rellich compactness, finite smooth kernel, closed image equal to its orthogonal complement, and bounded inverse there. Compare its positive Laplacian, smooth-form and Sobolev interfaces with the geometric Hodge application. The scalar Euclidean PDE D16 alone does not supply this theorem.
 
-Target `C5/compact-elliptic-hodge` (application). Dependencies: [C5/hodge-laplacian](#C5-hodge-laplacian), `tauceti:TauCetiRoadmap/PDE#milestone-d-16`.
+Target `C5/compact-elliptic-hodge` (application). Dependencies: [C5/hodge-laplacian](#C5-hodge-laplacian); proposed ComplexKahlerGeometry PR953 K5a, tracked in the integration gap.
 
-Prototype: `TauCeti.ComplexComparison.compactEllipticHodge`.
+Proposed interface: `TauCeti.ComplexComparison.compactEllipticHodge`.
 
-Proof route: Apply the requested local system estimates in finitely many bundle trivializations and control commutator terms with a partition of unity. Compact Sobolev inclusion makes the kernel finite and the orthogonal-complement estimate coercive. The self-adjoint closed-range argument and elliptic regularity produce a smooth Green solution for smooth data.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Apply the requested local system estimates in finitely many bundle trivializations and control commutator terms with a partition of unity. Apply the requested local system estimates in finitely many bundle trivializations and control commutator terms with a partition of unity.
 
-Acceptance: Demailly states the Rellich and Gårding inputs but refers out for their proofs; this is an explicit supplier gap. Neither scalar Lax–Milgram alone nor a bare Hilbert-space spectral theorem proves this bundle elliptic contract.
+Acceptance: The exact general bundle-system contract is imported from proposed PR953 K5a, with integration still open. Demailly VI2.2–2.3 cites external proofs of its Rellich/Gårding inputs. Neither scalar Lax–Milgram alone nor a bare Hilbert-space spectral theorem proves this bundle elliptic contract.
 
 Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf), VI2.2–2.4, pp.289–291; elliptic regularity VI1.6 pp.288–289.
 
@@ -1379,13 +1379,13 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 ### Harmonic projection and Green operator
 
-For the compact manifold and Hodge Laplacian above, H_r is the orthogonal projection onto its finite-dimensional smooth kernel and G_r is zero on that kernel and the inverse of Δ_r on its orthogonal complement. Thus id=H+ΔG=H+GΔ on smooth forms. Harmonic forms represent de Rham cohomology uniquely.
+Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K5a, compact Hodge decomposition and Green operator), then identify its maps with the shared smooth/coherent carriers used here. For the compact manifold and Hodge Laplacian above, H_r is the orthogonal projection onto its finite-dimensional smooth kernel and G_r is zero on that kernel and the inverse of Δ_r on its orthogonal complement. Thus id=H+ΔG=H+GΔ on smooth forms. Harmonic forms represent de Rham cohomology uniquely.
 
 Target `C5/harmonic-projection-green` (construction). Dependencies: [C5/compact-elliptic-hodge](#C5-compact-elliptic-hodge), [C5/hodge-laplacian](#C5-hodge-laplacian).
 
-Prototype: `TauCeti.ComplexComparison.harmonicProjection`.
+Proposed interface: `TauCeti.ComplexComparison.harmonicProjection`.
 
-Proof route: Use the imported compact bundle elliptic Fredholm result to split kernel and orthogonal complement. Define the Green inverse there and prove smoothness by regularity. Commutation with d and δ gives the exact/coexact/harmonic decomposition and the unique cohomology representative.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Use the imported compact bundle elliptic Fredholm result to split kernel and orthogonal complement. Use the imported compact bundle elliptic Fredholm result to split kernel and orthogonal complement.
 
 API:
 
@@ -1409,13 +1409,13 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 ### Kähler identities and equality of Laplacians
 
-On a Kähler manifold, with L=ω∧ and Λ its adjoint, [Λ,∂]=i∂̄* and [Λ,∂̄]=−i∂*. Consequently Δ_d=2Δ_∂=2Δ_∂̄, with the positive Hodge sign. On a general Hermitian manifold torsion terms occur, so these uncorrected identities are not asserted.
+Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K6.0, local Kähler identities without compactness), then identify its maps with the shared smooth/coherent carriers used here. On a Kähler manifold, with L=ω∧ and Λ its adjoint, [Λ,∂]=i∂̄* and [Λ,∂̄]=−i∂*. Consequently Δ_d=2Δ_∂=2Δ_∂̄, with the positive Hodge sign. On a general Hermitian manifold torsion terms occur, so these uncorrected identities are not asserted.
 
 Target `C5/kaehler-identities` (theorem). Dependencies: [C5/hodge-star](#C5-hodge-star), [C5/hodge-laplacian](#C5-hodge-laplacian).
 
-Prototype: `TauCeti.ComplexComparison.kaehlerIdentities`.
+Proposed interface: `TauCeti.ComplexComparison.kaehlerIdentities`.
 
-Proof route: Compute wedge/contraction commutators in constant orthonormal complex coordinates. Kähler normal coordinates kill the first metric derivatives at the chosen point, globalizing the identities. Apply graded Jacobi and ∂²=∂̄²=∂∂̄+∂̄∂=0 to identify the three Laplacians.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. Kähler normal coordinates kill the first metric derivatives at the chosen point, globalizing the identities.
 
 Acceptance: For a flat complex coordinate chart, Δ_d=2Δ_∂̄ with the positive sign. A general Hermitian metric keeps its torsion terms and does not satisfy the uncorrected Kähler formula.
 
@@ -1425,13 +1425,13 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 ### Compact Kähler geometric Hodge decomposition
 
-For a compact Kähler manifold T, smooth de Rham cohomology in degree n is canonically the direct sum of harmonic (p,q)-forms with p+q=n, hence of H^q(T,Ω^p_T); complex conjugation exchanges (p,q) and(q,p). The Hodge filtration and its conjugate are opposed, and the Hodge-to-de Rham spectral sequence degenerates at E1. E1 degeneration on a general compact complex manifold alone is not used to infer this canonical decomposition.
+Import the general analytic result from ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 (K6.1 and K8, compact Kähler Hodge decomposition and Frölicher degeneration), then identify its maps with the shared smooth/coherent carriers used here. For a compact Kähler manifold T, smooth de Rham cohomology in degree n is canonically the direct sum of harmonic (p,q)-forms with p+q=n, hence of H^q(T,Ω^p_T); complex conjugation exchanges (p,q) and(q,p). The Hodge filtration and its conjugate are opposed, and the Hodge-to-de Rham spectral sequence degenerates at E1. E1 degeneration on a general compact complex manifold alone is not used to infer this canonical decomposition.
 
 Target `C5/kaehler-hodge-decomposition` (theorem). Dependencies: [C5/harmonic-projection-green](#C5-harmonic-projection-green), [C5/kaehler-identities](#C5-kaehler-identities), [C1/local-dolbeault](#C1-local-dolbeault), `tauceti:TauCeti.Hodge.Conjugation`, `tauceti:TauCeti.Hodge.HodgeStructureOn`.
 
-Prototype: `TauCeti.ComplexComparison.compactKaehlerHodge`.
+Proposed interface: `TauCeti.ComplexComparison.compactKaehlerHodge`.
 
-Proof route: The equal Laplacians preserve bidegree, so the unique harmonic representative splits into harmonic (p,q) components. Dolbeault’s fine resolution identifies those components with coherent H^q(Ω^p). The conjugation and harmonic splitting prove opposed filtrations; the ∂∂̄ lemma yields filtration compatibility and degeneration.
+Proof route: Use the proposed ComplexKahlerGeometry supplier for the general analytic theorem. The following steps describe the required compatibility and proof contract, not a second foundational development in C5. The equal Laplacians preserve bidegree, so the unique harmonic representative splits into harmonic (p,q) components. The equal Laplacians preserve bidegree, so the unique harmonic representative splits into harmonic (p,q) components.
 
 Acceptance: For an elliptic curve, H¹_C has conjugate one-dimensional (1,0) and (0,1) pieces. For P¹, H¹=0 and H² has type (1,1).
 
@@ -1445,7 +1445,7 @@ For a smooth proper C-scheme X, including nonprojective X, H^n_sing(X^an,Q) carr
 
 Target `C5/proper-pure-hodge` (theorem). Dependencies: [C5/kaehler-hodge-decomposition](#C5-kaehler-hodge-decomposition), [C5/repair-proper-de-rham-betti](#C5-repair-proper-de-rham-betti), `AlgebraicModuliForArithmeticGeometry:R09.2`, `tauceti:TauCeti.Hodge.Conjugation`, `tauceti:TauCeti.Hodge.HodgeStructureOn`.
 
-Prototype: `TauCeti.ComplexComparison.properPureHodge`.
+Proposed interface: `TauCeti.ComplexComparison.properPureHodge`.
 
 Proof route: Chow modification and characteristic-zero resolution give a smooth projective proper modification Y→X. Pullback on cohomology is injective, with a trace/Gysin retraction through the existing manifold duality interface. Deligne’s filtration argument transports the pure structure and identifies the algebraic de Rham filtration on X.
 
@@ -1461,7 +1461,7 @@ For a pure d-dimensional analytic subset Z of a complex manifold, define [Z](η)
 
 Target `C5/analytic-cycle-integration` (construction). Dependencies: [C4/remmert-stein-extension](#C4-remmert-stein-extension), [C5/closed-current-extension](#C5-closed-current-extension).
 
-Prototype: `TauCeti.ComplexComparison.analyticCycleIntegration`.
+Proposed interface: `TauCeti.ComplexComparison.analyticCycleIntegration`.
 
 Proof route: Generic finite projections bound local mass by their finite sheet numbers. Extend the integration functional across the lower-dimensional singular locus using the finite-mass closed-current extension theorem. Take integer-weighted sums and use the existing smooth test forms, integration and Stokes APIs.
 
@@ -1491,7 +1491,7 @@ With complex orientation, wedge products of semipositive real (1,1)-forms are st
 
 Target `C5/semipositive-wedge` (theorem). Dependencies: [C5/analytic-cycle-integration](#C5-analytic-cycle-integration).
 
-Prototype: `TauCeti.ComplexComparison.semipositiveWedge`.
+Proposed interface: `TauCeti.ComplexComparison.semipositiveWedge`.
 
 Proof route: Diagonalize each semipositive Hermitian form into a sum of positive elementary wedges. Multiply the elementary wedges and check the complex orientation sign. Expand α=(α−β)+β and integrate the nonnegative mixed terms against the positive cycle current.
 
@@ -1507,7 +1507,7 @@ For a Hermitian holomorphic line bundle L, (i/2π)Θ(L) represents the image of 
 
 Target `C5/chern-fubini-study-intersection` (theorem). Dependencies: [C5/analytic-cycle-integration](#C5-analytic-cycle-integration), [C5/semipositive-wedge](#C5-semipositive-wedge), [C5/multiplicative-period-interface](#C5-multiplicative-period-interface), `AlgebraicModuliForArithmeticGeometry:R09.1`.
 
-Prototype: `TauCeti.ComplexComparison.chernFubiniStudyIntersection`.
+Proposed interface: `TauCeti.ComplexComparison.chernFubiniStudyIntersection`.
 
 Proof route: The Lelong–Poincaré identity identifies curvature with the divisor current of a meromorphic section. Use the normalized projective metric to evaluate c1(O(1)) on a line. Iterate divisor intersections or the imported projective degree/intersection interface, retaining multiplicities and lowering the singular support dimension.
 
@@ -1523,7 +1523,7 @@ In DGH21 Proposition4.2 use the Segre Fubini–Study representative of O(1,1), a
 
 Target `C5/dgh-integration-application` (application). Dependencies: [C5/analytic-cycle-integration](#C5-analytic-cycle-integration), [C5/semipositive-wedge](#C5-semipositive-wedge), [C5/chern-fubini-study-intersection](#C5-chern-fubini-study-intersection).
 
-Prototype: `TauCeti.ComplexComparison.dghIntegrationApplication`.
+Proposed interface: `TauCeti.ComplexComparison.dghIntegrationApplication`.
 
 Proof route: Retain the paper’s second projection and its line-bundle pullback, rather than replace it with O(1,1,1). Apply the semipositive mixed-wedge inequality to each compact cutoff on the analytic component. Pass to the limit using finite mass and remove the lower-dimensional boundary contribution before identifying the total intersection degree.
 
@@ -1539,7 +1539,7 @@ For a smooth C-scheme X and finite locally free E, a connection is a C-linear sh
 
 Target `C5/algebraic-connection` (construction). Dependencies: [C5/algebraic-de-rham-complex](#C5-algebraic-de-rham-complex), [C0/coherent-operations](#C0-coherent-operations).
 
-Prototype: `TauCeti.ComplexComparison.AlgebraicConnection`.
+Proposed interface: `TauCeti.ComplexComparison.AlgebraicConnection`.
 
 Proof route: Use the native sheaf modules, Kähler derivation and tensor product. Impose the displayed Leibniz equation on the C-linear connection map, rather than define an opaque flatness predicate. Extend to exterior forms; compute the square as wedge action by curvature.
 
@@ -1569,7 +1569,7 @@ A finite locally free integrable algebraic connection on a smooth finite-type C-
 
 Target `C5/regular-singular-connection` (definition). Dependencies: [C5/algebraic-connection](#C5-algebraic-connection), [C5/divisorial-log-structure](#C5-divisorial-log-structure), `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification`.
 
-Prototype: `TauCeti.ComplexComparison.RegularSingular`.
+Proposed interface: `TauCeti.ComplexComparison.RegularSingular`.
 
 Proof route: Define the curve criterion using the supplied smooth curve model and punctured local lattices. Use local monodromy extensions, resolution and the corrected moderate-growth argument to obtain a logarithmic lattice on an SNC compactification. Apply pullback and local boundary charts to prove the curve criterion and independence of choices.
 
@@ -1599,7 +1599,7 @@ For a finite-rank C-local system on U= X\D with X smooth proper and D simple nor
 
 Target `C5/canonical-logarithmic-extension` (construction). Dependencies: [C5/regular-singular-connection](#C5-regular-singular-connection), [C5/log-differentials](#C5-log-differentials).
 
-Prototype: `TauCeti.ComplexComparison.canonicalResidue`.
+Proposed interface: `TauCeti.ComplexComparison.canonicalResidue`.
 
 Proof route: In a punctured polydisc choose commuting logarithms of the commuting monodromy operators with the required residue representatives. Multiply multivalued flat frames by the residue exponential to obtain single-valued holomorphic frames with logarithmic connection. The moderate-growth characterization glues these frames and proves uniqueness, local freeness and exactness.
 
@@ -1629,7 +1629,7 @@ For a smooth finite-type complex variety U, algebraic finite locally free integr
 
 Target `C5/deligne-regular-singular-equivalence` (theorem). Dependencies: [C5/canonical-logarithmic-extension](#C5-canonical-logarithmic-extension), [C5/relative-poincare](#C5-relative-poincare), [C3/proper-gaga-equivalence](#C3-proper-gaga-equivalence), `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.rankOneRiemannHilbert`.
+Proposed interface: `TauCeti.ComplexComparison.rankOneRiemannHilbert`.
 
 Proof route: On a smooth quasiprojective open use an SNC compactification and construct the canonical logarithmic extension. Proper coherent GAGA algebraizes the extension and the finite-order logarithmic connection operator. The regular moderate-growth characterization algebraizes horizontal morphisms; algebraic open descent covers the general smooth variety.
 
@@ -1645,7 +1645,7 @@ For a smooth finite-type C-variety U and a regular-singular flat algebraic conne
 
 Target `C5/regular-singular-de-rham-comparison` (theorem). Dependencies: [C5/deligne-regular-singular-equivalence](#C5-deligne-regular-singular-equivalence), [C5/bounded-operator-hypergaga](#C5-bounded-operator-hypergaga), [C5/log-de-rham-complex](#C5-log-de-rham-complex), [C5/repair-sheaf-singular-comparison](#C5-repair-sheaf-singular-comparison).
 
-Prototype: `TauCeti.ComplexComparison.regularSingularDeRhamComparison`.
+Proposed interface: `TauCeti.ComplexComparison.regularSingularDeRhamComparison`.
 
 Proof route: On a boundary polydisc expand Laurent series and separate the negative-exponent subcomplex. Contract it using the inverses of the exponent-plus-residue operators; excluding positive integer residue eigenvalues makes these inverses available. Apply proper operator hyper-GAGA to the extension and then the coefficient Poincaré resolution; algebraic open descent removes a global quasiprojectivity restriction.
 
@@ -1661,7 +1661,7 @@ For a smooth projective complex curve C with reduced finite boundary D and U=C\D
 
 Target `C5/curve-log-complex` (construction). Dependencies: [C5/log-de-rham-complex](#C5-log-de-rham-complex), [C5/regular-singular-de-rham-comparison](#C5-regular-singular-de-rham-comparison), [C4/repair-affine-curve-completion-interface](#C4-repair-affine-curve-completion-interface).
 
-Prototype: `TauCeti.ComplexComparison.curveLogComplex`.
+Proposed interface: `TauCeti.ComplexComparison.curveLogComplex`.
 
 Proof route: Use the supplied curve completion and its finite reduced divisor. The local logarithmic Poincaré calculation identifies the ordinary complex with Rj_*C and the twisted complex with j!C. The inclusion of complexes induces the ordinary/compact-support map and its image; no new generic compact-support cohomology carrier is defined.
 
@@ -1691,7 +1691,7 @@ For the preceding curve, 0→Ω^•_C→Ω^•_C(logD)→⊕_{p∈D}C_p[−1]→
 
 Target `C5/curve-residue-localization` (theorem). Dependencies: [C5/curve-log-complex](#C5-curve-log-complex), [C5/multiplicative-period-interface](#C5-multiplicative-period-interface).
 
-Prototype: `TauCeti.ComplexComparison.curveResidueLocalization`.
+Proposed interface: `TauCeti.ComplexComparison.curveResidueLocalization`.
 
 Proof route: Check the logarithmic quotient locally and identify the coefficient of dz/z. Apply native hypercohomology to its exact triangle and compare every connecting morphism through operator GAGA. The loop integral fixes the2πi factor; Stokes and duality identify the trace and compact-support pairing.
 
@@ -1707,7 +1707,7 @@ For a ringed site (T,O_T), a prelog structure is a sheaf M of commutative monoid
 
 Target `C5/prelog-structure` (definition). Dependencies: `SchemeAndStackFoundations:SF.1`.
 
-Prototype: `TauCeti.ComplexComparison.PrelogStructure`.
+Proposed interface: `TauCeti.ComplexComparison.PrelogStructure`.
 
 Proof route: Use native monoid objects, sheaves and monoid homomorphisms on the same site as O_T. Forget the additive structure of O_T in the target, retaining its multiplicative zero. Define morphisms by their commuting structure-map square.
 
@@ -1737,7 +1737,7 @@ A log structure is a prelog structure α:M→O_T for which the induced map α^{-
 
 Target `C5/log-structure` (definition). Dependencies: [C5/prelog-structure](#C5-prelog-structure).
 
-Prototype: `TauCeti.ComplexComparison.LogStructure`.
+Proposed interface: `TauCeti.ComplexComparison.LogStructure`.
 
 Proof route: Form the inverse-image unit subsheaf from the native unit map. Require the actual induced morphism to be an isomorphism, rather than supply an unrelated equivalence or a name for the condition. Use restriction and stalk maps of the native sheaf category.
 
@@ -1767,7 +1767,7 @@ For a prelog α:M→O_T, define M^a as the sheaf pushout M⊕_{α^{-1}(O_T*)}O_T
 
 Target `C5/associated-log-structure` (construction). Dependencies: [C5/log-structure](#C5-log-structure).
 
-Prototype: `TauCeti.ComplexComparison.associatedLog`.
+Proposed interface: `TauCeti.ComplexComparison.associatedLog`.
 
 Proof route: Use the native commutative-monoid colimit and sheafification. The pushout identifies exactly the old elements mapping to units with their native units. The pushout universal property gives the log unit isomorphism and the logification adjunction.
 
@@ -1797,7 +1797,7 @@ For a ringed-space morphism f:T→S and log structure M on S, define f* M as log
 
 Target `C5/log-pullback` (construction). Dependencies: [C5/associated-log-structure](#C5-associated-log-structure).
 
-Prototype: `TauCeti.ComplexComparison.logPullback`.
+Proposed interface: `TauCeti.ComplexComparison.logPullback`.
 
 Proof route: Pull back the monoid sheaf and compose the structure map with f’s ring map. Logify using the units in the target structure sheaf. The universal property identifies iterated pullback and preserves fine chart conditions.
 
@@ -1827,7 +1827,7 @@ A commutative monoid is integral when cancellation holds, equivalently it embeds
 
 Target `C5/fine-log-chart` (definition). Dependencies: [C5/associated-log-structure](#C5-associated-log-structure), [C5/log-pullback](#C5-log-pullback).
 
-Prototype: `TauCeti.ComplexComparison.FineLogChart`.
+Proposed interface: `TauCeti.ComplexComparison.FineLogChart`.
 
 Proof route: Use the native finite-generation and cancellation conditions on the chart monoid. Keep the chart-to-logification isomorphism as data and require local charts in the étale topology. Group-completion localization compares overlapping charts; Kato’s finite-generation argument extends a suitable stalk chart to an étale neighbourhood.
 
@@ -1857,7 +1857,7 @@ For a smooth scheme X with an SNC divisor D and j:U=X\D→X, M_D is the subsheaf
 
 Target `C5/divisorial-log-structure` (construction). Dependencies: [C5/fine-log-chart](#C5-fine-log-chart), `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification`.
 
-Prototype: `TauCeti.ComplexComparison.divisorialLog`.
+Proposed interface: `TauCeti.ComplexComparison.divisorialLog`.
 
 Proof route: Use the native open-immersion restriction of units to define the subsheaf. Regular SNC local coordinates factor boundary-supported divisors into coordinate powers times a unit. This identifies the subsheaf with logification of N^r, and fixes its characteristic monoids.
 
@@ -1887,7 +1887,7 @@ For a prelog ring morphism (A,Q)→(B,P), Ω¹_log is (Ω¹_{B/A}⊕(B⊗_Z P^gp
 
 Target `C5/log-differentials` (construction). Dependencies: [C5/prelog-structure](#C5-prelog-structure), [C5/associated-log-structure](#C5-associated-log-structure), [C5/fine-log-chart](#C5-fine-log-chart), `mathlib:KaehlerDifferential.D`.
 
-Prototype: `TauCeti.ComplexComparison.LogDifferentialModule`.
+Proposed interface: `TauCeti.ComplexComparison.LogDifferentialModule`.
 
 Proof route: Use native Kähler differentials, monoid group completion, tensor and submodule quotient. Impose both the scalar derivative relation and the relative base-monoid relation. The universal logarithmic derivation identifies changes of charts and logification; finite charts imply coherence.
 
@@ -1917,7 +1917,7 @@ A morphism of fine log schemes is log smooth when its underlying scheme map is l
 
 Target `C5/log-smoothness` (definition). Dependencies: [C5/fine-log-chart](#C5-fine-log-chart), [C5/log-differentials](#C5-log-differentials).
 
-Prototype: `TauCeti.ComplexComparison.LogSmooth`.
+Proposed interface: `TauCeti.ComplexComparison.LogSmooth`.
 
 Proof route: State the square-zero ideal, commuting square and compatible log-map equations explicitly. Quantify over the native scheme and log morphisms and an étale cover of the test object. Use the fine-category fibre product and its universal property for base-change statements.
 
@@ -1947,7 +1947,7 @@ A fine log morphism is log smooth iff étale locally there are charts Q→P exte
 
 Target `C5/log-chart-criterion` (theorem). Dependencies: [C5/log-smoothness](#C5-log-smoothness), [C5/log-differentials](#C5-log-differentials).
 
-Prototype: `TauCeti.ComplexComparison.logChartCriterion`.
+Proposed interface: `TauCeti.ComplexComparison.logChartCriterion`.
 
 Proof route: The toric chart model lifts units across square-zero ideals using1+I and the invertible group orders. Log derivations measure the difference between two lifts, giving local freeness and deformation control. Choose logarithmic differential generators and enlarge the chart group; Kato’s group argument and the infinitesimal criterion give the étale chart factorization.
 
@@ -1963,7 +1963,7 @@ For a fine log morphism, Ω^p_log=∧^pΩ¹_log and d extends the universal log 
 
 Target `C5/log-de-rham-complex` (construction). Dependencies: [C5/log-differentials](#C5-log-differentials), [C5/log-chart-criterion](#C5-log-chart-criterion), [C5/algebraic-de-rham-complex](#C5-algebraic-de-rham-complex).
 
-Prototype: `TauCeti.ComplexComparison.logDeRhamComplex`.
+Proposed interface: `TauCeti.ComplexComparison.logDeRhamComplex`.
 
 Proof route: Take native exterior powers of the universal quotient differential module. Verify d preserves its logarithmic relations and has square zero. Glue by chart independence and identify the SNC coordinate generators.
 
@@ -1993,7 +1993,7 @@ For a proper fine log-smooth complex log scheme X over the standard logpoint (Sp
 
 Target `C5/proper-log-gaga-monodromy` (theorem). Dependencies: [C5/log-de-rham-complex](#C5-log-de-rham-complex), [C5/bounded-operator-hypergaga](#C5-bounded-operator-hypergaga), [C5/differential-operator-analytification](#C5-differential-operator-analytification).
 
-Prototype: `TauCeti.ComplexComparison.properLogMonodromyTriangle_distinguished`.
+Proposed interface: `TauCeti.ComplexComparison.properLogMonodromyTriangle_distinguished`.
 
 Proof route: The chart quotient formula makes each log form coherent and identifies algebraic and analytic absolute-to-relative sequences. Apply bounded C-linear differential-operator hyper-GAGA under properness. Functoriality for the exact triangle identifies the connecting endomorphism N and its sign from the fixed wedge map.
 
@@ -2009,7 +2009,7 @@ Let E be a closed complete pluripolar subset of a complex manifold and T a close
 
 Target `C5/closed-current-extension` (theorem). Dependencies: [C4/remmert-stein-extension](#C4-remmert-stein-extension).
 
-Prototype: `TauCeti.ComplexComparison.closedCurrentExtension`.
+Proposed interface: `TauCeti.ComplexComparison.closedCurrentExtension`.
 
 Proof route: Choose a plurisubharmonic function with pole locus E and cutoff functions tending to1 away from E. Stokes and Cauchy–Schwarz bound the error terms by a uniformly controlled weighted gradient term times the mass on a shrinking neighbourhood. Finite local mass makes that latter term tend to0; the smooth approximation of the plurisubharmonic function is an explicit analytic supplier input.
 
@@ -2037,7 +2037,7 @@ Proof references: [DEMAILLY](https://www-fourier.univ-grenoble-alpes.fr/~demaill
 
 Every mathematical target is stated. The following leaves prevent a claim of proof closure; they do not remove the targets or assert implementation.
 
-**Shared analytic-space suppliers need tracked integration.** ComplexComparison PR196 Layers0–2 (head4bd72379658126cbe9be935656396f0c9dac4de0) and AnalyticGeometry PR279 Milestones5–7 (head581f66fed0f12fe49b8f5dd96aa18d3e435c190a) are open proposals. Record their nonreduced quotient, gluing, étale and holomorphic-bundle exports once as tracked suppliers. No accepted stage ID or pinned implementation is invented. Needed by: [C0/repair-analytification](#C0-repair-analytification), [C0/holomorphic-bundle-dictionary](#C0-holomorphic-bundle-dictionary).
+**Shared analytic-space suppliers need tracked integration.** The proposed SchemeAndStackFoundations SF.2 Part II owns ordinary complex analytic spaces locally (V(I), O_U/I), with I a locally finitely generated holomorphic ideal, including nilpotents; locally C-ringed morphisms, open/closed subspaces, gluing and fibre products; and SGA1 XII1.1–1.2 analytification of locally finite-type C-schemes with its representing property and product/immersion/étale/smooth comparisons. This extends the existing foundations direction, as PELModuli requests. It is an unapplied supplier proposal, not a pinned carrier or an accepted new stage. Track ComplexComparison PR196 Layers0–2 (head4bd72379658126cbe9be935656396f0c9dac4de0) as the proposed analytification adapter, and AnalyticGeometry PR279 Milestones5–7 (head275ce8b253d32e715b7832d2b0df4a62ccbb0699) as the proposed holomorphic manifold/gluing/bundle supplier. Retain the distinction between ordinary analytic spaces and manifolds. Needed by: [C0/repair-analytification](#C0-repair-analytification), [C0/holomorphic-bundle-dictionary](#C0-holomorphic-bundle-dictionary).
 
 **Cartan–Remmert analytic dimension-locus proof.** PS08 Lemma8.2 redirects analyticity to Whitney, Complex Analytic Varieties, Theorem9F p.240. That book is neither freely supplied nor cleared in the maintainer library. Demailly II8.2 proves semicontinuity, which does not by itself prove analyticity. The exact analytic-locus proof still needs a cleared source or another public proof. Needed by: [C0/fiber-dimension-loci](#C0-fiber-dimension-loci).
 
@@ -2051,7 +2051,7 @@ Every mathematical target is stated. The following leaves prevent a claim of pro
 
 **Noetherian compactification supplier leaf.** The SF.2 coherent-duality packet explicitly leaves Noetherian Nagata compactification open. Supply its separated finite-type version before the proper-support extension and separated-target graph proof. A curve completion or Chow lemma does not replace it. Needed by: [C4/proper-support-algebraization](#C4-proper-support-algebraization).
 
-**Compact bundle elliptic estimates.** PDE D16 is a scalar Euclidean estimate. Demailly VI2.2–2.3 states Rellich/Gårding and refers out for proofs. The PDE PartII contract must prove the compact bundle system version before Green operators and geometric Hodge theory close. Needed by: [C5/compact-elliptic-hodge](#C5-compact-elliptic-hodge).
+**ComplexKahlerGeometry analytic supplier integration.** The open ComplexKahlerGeometry PR953 at 13b2335ea038b439655df55654e71b19603d8ee1 plans the general star, Laplacian, compact elliptic/Hodge and Kähler theorems in K5a–K6, with Frölicher degeneration in K8. Import those contracts instead of proposing another PDE Part II construction. C5 retains proper algebraic Hodge structures, algebraic-filtration identification, relative nonreduced-base Hodge bundles and cycle/coherent compatibility. Integration of the proposed analytic supplier and its native maps is still open; neither a proposed target nor Demailly’s statement-only Rellich/Gårding input is a completed proof. Needed by: [C5/compact-elliptic-hodge](#C5-compact-elliptic-hodge).
 
 **Ehresmann and finite-CW supplier interfaces.** Tom Dieck §2.2 pp.52–53 supplies a public proof of proper-submersion local triviality, but DifferentialGeometry current main has no Ehresmann target. Request DifferentialGeometry PartII with that theorem and its native manifold hypotheses; request the compact fibre finite-CW theorem from AlgebraicTopology for finite rank. Needed by: [C5/relative-betti-local-system](#C5-relative-betti-local-system).
 
@@ -2065,9 +2065,9 @@ Exact supplier requests:
 - `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts`: The existing unique smooth projective function-field model and complex Riemann-surface dictionary of Layers12B–12C, with the supplied open immersion from the affine curve. C4 only adds the finite boundary and connectedness comparison.
 - `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields`: The existing valuation/local-ring and holomorphy-ring dictionary for the open immersion into the projective curve model; no second normalization or rational-map-extension theorem.
 - `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`: Singular chains/cochains for arbitrary abelian groups, coefficient/pullback maps, subdivision and prism homotopies, products and trace. Include compact smooth finite-CW/triangulation and universal coefficients for the integral lattice, and degree-one modification trace/pullback compatibility for pure Hodge transport.
-- `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`: Relative proper coherent direct-image finiteness, projection and cohomology/base-change with the stated flatness and fibre hypotheses; extend the curve interface to the higher-dimensional proper maps required by GAGA rather than assert arbitrary individual R^q base change.
-- `tauceti:TauCetiRoadmap/PDE#milestone-d-16`: PDE PartII: bundle-valued strongly elliptic operators on compact manifolds without boundary, global Sobolev regularity and Gårding estimate, Rellich compactness, Fredholm closed range, finite smooth kernel and inverse on the orthogonal complement. Current D16 is scalar Euclidean Gårding; it is a starting point, not this full result.
-- `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`: Import its coherent algebraic cohomology, projective twists and curve duality in their precise scope. General all-degree projective/relative proper inputs are requested from R09 and JacobianChallenge; curve duality alone is insufficient.
+- `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`: Import the existing J-C shared proper coherent cohomology/base-change contract recorded in StableReduction’s supplier table and JacobianChallenge Layer C: proper finitely presented morphisms over locally Noetherian bases, with the stated coherence, flatness and fibre hypotheses, projection and Leray maps. Its general relative-dimension contract already exists upstream; no higher-dimensional extension is replanned. Individual R^q base change still requires the supplier’s criteria.
+- Proposed ComplexKahlerGeometry PR953 K5a: Proposed PR953, head13b2335ea038b439655df55654e71b19603d8ee1, K5a supplies the general compact bundle elliptic/Green contract stated in C5/compact-elliptic-hodge. Integrate and compare the native smooth-form, positive-Laplacian and Sobolev interfaces before using it. The URL identifies an open proposal, not a baseline declaration or installed atlas stage.
+- `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`: Import StableReduction Layer2’s proper coherent pushforward/finiteness and cohomology/base-change targets over locally Noetherian bases in all relative dimensions, with its J-C shared-file ownership. Its curve vanishing and duality are additional specializations. Import relative Proj/ampleness here and the already planned detailed projective O(k)/Serre contracts from R09.1; no duplicate proper-cohomology development is requested.
 
 ## Source corrections
 
@@ -2105,3 +2105,13 @@ These locators refer to the editions actually read. PDF page numbers are one-bas
 - [CURVE-CONTRACT — Algebraic curves: function fields, divisors, and Riemann–Roch](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f9e4a9026b04c282878900edaada0a3f3eb3c82a/TauCetiRoadmap/AlgebraicCurves/README.md). Tau Ceti roadmap maintainers. Public version read 2026-10-09. Read 2026-10-09. Selected proof locations: Layer12B–12C and Layer6: projective models, their maps and holomorphy rings.
 - [TOMDIECK — Differential Manifolds](https://www.uni-math.gwdg.de/tammo/GT03.pdf). Tammo tom Dieck. Author notes, preliminary version of January13,2009. Read 2026-10-09. Selected proof locations: §2.2, Theorems2.2.1,2.2.3,2.2.4 and proofs, pp.52–53.
 - [KATZODA68 — On the differentiation of de Rham cohomology classes with respect to parameters](https://www.its.caltech.edu/~matilde/GaussManinKatzOda.pdf). Nicholas M. Katz and Tadao Oda. Journal of Mathematics of Kyoto University8(2)(1968),199–213; published article scan hosted by Caltech. Read 2026-10-09. Selected proof locations: §1 pp.199–201, connection, extended differential and curvature; §2 Theorem1 and proof pp.201–204; §3 filtration connecting map and Čech reduction pp.204–206.
+
+## Supplier reconciliation (17 October 2026)
+
+The ordinary nilpotent-preserving analytic-space carrier is requested from SchemeAndStackFoundations SF.2 Part II, consistently with PELModuli. C0 is its coherent-comparison application. ComplexComparison [PR196](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196) Layers0–2 and AnalyticGeometry [PR279](https://github.com/TauCetiProject/TauCetiRoadmap/pull/279) Milestones5–7 remain open proposed suppliers. Their heads checked here are `4bd72379658126cbe9be935656396f0c9dac4de0` and `275ce8b253d32e715b7832d2b0df4a62ccbb0699`. The manifold gluing/bundle contract is distinct from the ordinary analytic-space carrier. No new stage id or dependency edge is installed.
+
+The open [ComplexKahlerGeometry PR953](https://github.com/TauCetiProject/TauCetiRoadmap/pull/953), head `13b2335ea038b439655df55654e71b19603d8ee1`, already plans the general analytic Hodge theory: K5a supplies smooth bundle forms, star, positive Laplacians, compact elliptic regularity, Rellich/Gårding and Green operators; K5b supplies Hermitian/Dolbeault theory; K6.0 supplies local Kähler identities and K6.1 compact Kähler Hodge decomposition; K8 supplies Frölicher degeneration. C5 imports these proposed targets through the comparisons described above. It does not propose a second PDE Part II for those same bundle estimates. C5 retains smooth proper algebraic Hodge structures, the algebraic-filtration identification, relative Hodge bundles over possibly nonreduced characteristic-zero bases, and cycle/coherent compatibility. These are proposed imports with an explicit integration gap, not proved or pinned results. The primary locators on each target remain in force.
+
+The requested Ehresmann/finite-CW, exact Chern-connection and Montel/Schwartz coherent-finiteness interfaces remain obligations to the extent not supplied by the analytic proposal. The SF.2 request also includes the ordinary analytic carrier in addition to its independent derived/coherent contracts; those adjoints and compactification leaves are unchanged.
+
+The [suggested file](../suggested/ComplexComparisonPartII.lean) follows the binding 12 October shape. It contains selected statements over native carriers and light definitions for the nilpotent, pairing and sign checks. All 97 targets and their full hypotheses, APIs and worked checks remain in this reader. A proposed interface name in a subsection is a roadmap name; it does not assert that every interface is declared in the suggested file. General analytic spaces, currents, relative Hodge bundles and the geometric comparisons are README targets until their suppliers integrate.
