@@ -10,6 +10,8 @@ This is the analytic continuation of ArithmeticDirichletSeries. It owns quantita
 
 ArithmeticDirichletSeries supplies norm-indexed ideal coefficients, genuine Euler products, partial-sum continuation, Abel and Perron summation, Landau positivity, Wiener–Ikehara and the qualitative transfer from logarithmic derivatives to prime counts. Mathlib supplies arithmetic functions, ordinary Dirichlet-series continuation and functional equations, nonvanishing on the closed right half-plane, the real Dedekind residue limit, and the circle-valued real Hurwitz zeta function. None of these is constructed again here.
 
+Integral Brauer induction and nilpotent monomiality are already in the current Tau Ceti library; their exact combination is specified under [From RepresentationTheory](#from-representationtheory). The Artin targets add arithmetic Euler-factor and continuation comparisons, rather than another representation-theoretic induction theorem.
+
 The qualitative prime ideal theorem is `TauCeti.primeIdealTheorem`, in `TauCeti.NumberTheory.ArithmeticDirichletSeries.Prime.PrimeIdealTheorem`. Its count form is `TauCeti.primeCount_univ_isEquivalent_div_log`. Qualitative Frobenius prime counts are `NumberField.Chebotarev.tendsto_frobeniusPrimeCount`, in `TauCeti.NumberTheory.Chebotarev.PrimeCounting.FrobeniusPrimeCount`. Chebotarev Layers 13–14 supply the rational progression and total-prime specializations. Their comparison with inclusive rational Chebyshev sums uses `NumberField.Chebotarev.frobeniusVonMangoldtCoeff_galEquivZMod_symm_of_coprime`. The all-input identity `frobeniusVonMangoldtCoeff_galEquivZMod_symm` requires `q % 4 ≠ 2`; at a level congruent to 2 modulo 4, discard the finitely many prime-power contributions dividing the level instead. For example, the unramified prime 2 in the conductor-reduced cyclotomic field cannot be treated as a unit modulo 6. The quantitative results below require new error bounds, not another qualitative PNT.
 
 The current generic weight nonvanishing theorems in `TauCeti.NumberTheory.ArithmeticDirichletSeries.Cancellation.Nonvanishing` already cover `Re s > 1`, the square-with-cancellation case on `Re s ≥ 1`, and a quadratic weight away from `s=1`: use `continuedLFunctionOfWeight_ne_zero_of_one_lt_re`, `continuedLFunctionOfWeight_ne_zero_of_hasCancellation_sq` and `continuedLFunctionOfWeight_ne_zero_of_isTrivialOnGood_sq`. The Hecke boundary comparison below adds the exact ray-character identification and the quadratic endpoint at 1. Its continuation is the canonical Tate continuation; it is not an arbitrary function with a prescribed Euler product.
@@ -33,6 +35,8 @@ The functions ψ and θ use inclusive prime-power and prime cutoffs, respectivel
 A character modulus, its primitive conductor and an Artin conductor are distinct. A primitive quadratic character is obtained from a fundamental discriminant, including its 2-adic possibilities; the trivial discriminant 1 is allowed only where expressly stated. Standard Dirichlet and Hecke functional equations retain the conductor, the base discriminant, archimedean parities and the root number. Removing finitely many Euler factors multiplies an ordinary simple-pole residue by their values at 1; it preserves the coefficient of the logarithmic-derivative pole, not the original residue.
 
 Write Γℝ(s)=π^(−s/2)Γ(s/2), and use the Γℂ convention of the consumed Tate integral. Haar measures and trace characters are fixed before comparing completed functions. For an imaginary quadratic discriminant D, `ω_D=|O_Kˣ|/2`; thus ω₋₄=2 and ω₋₃=3. A real quadratic geodesic is divided by the full norm-one unit group; if ε_D>1 is its least positive norm-one generator, its length is `2 log ε_D`. Ordinary and narrow classes are not interchanged without the norm-minus-one unit dichotomy.
+
+For the quadratic genus-period formulas, write Λ_DIT(s,χ_d)=|d|^(s/2)π^(−s/2)Γ((s+α_d)/2)L(s,χ_d), with α_d=(1−sign d)/2, as a meromorphic completion (Duke–İmamoğlu–Tóth (5.13), p.964). Thus Λ_DIT=π^(α_d/2)|d|^(s/2)·DirichletCharacter.completedLFunction(χ_d,s). This differs for odd characters from the completion Λ_std=(|d|/π)^((s+α_d)/2)Γ((s+α_d)/2)L used for the imaginary quadratic endpoint values: Λ_std=(|d|/π)^(α_d/2)Λ_DIT. In particular the two completions agree for d>0; for d=−4, Λ_DIT(0)=Λ_DIT(1)=√π/2 whereas Λ_std(0)=Λ_std(1)=1; for d=−3, the corresponding values are √π/3 and 1/√3. These comparisons use canonical continued values at the endpoints.
 
 An entire upper-order condition means that for every `b>ρ` there is `C_b>0` with `|f(z)|≤C_b exp(|z|^b)`. Hadamard factorization requires a nonzero function. Strict positivity of every derivative additionally requires nonpolynomiality and the stated parity and real-sign conditions. Barnes G is fixed by its canonical product, not by recurrence and `G(1)=1` alone. Its Gamma recurrence is pointwise only away from Gamma poles; at zero, Mathlib's totalized Gamma gives `Γ(0)G(0)=0`, whereas `G(1)=1`.
 
@@ -121,9 +125,9 @@ Consume [ClassFieldTheory layer 11 the global class formation and global artin r
 
 ### From RepresentationTheory
 
-Consume [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction). Artin rational induction for finite-dimensional complex representations of a finite group, explicitly clearing denominators into a virtual sum of characters induced from cyclic subgroups. Global meromorphy uses the distinct Brauer integral-induction interface and its linear-character reduction, not unproved global roots. For the Colmez targets, refine the integral statement to induced one-dimensional finite-order characters; elementary-induced arbitrary characters alone do not give a Hecke product. For every group of order≤(2g)!, choose decompositions of its irreducibles with sum of absolute integer coefficients and number of terms bounded solely in g. This follows only after the monomial refinement and finite-group finiteness proof.
+Consume [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction) for rational Artin induction. For integral Brauer induction use the current library's `TauCeti.ClassFunction.character_mem_indCharacterSpanInt_isElementary` in `TauCeti.RepresentationTheory.Induction.Brauer.Induction`: over an algebraically closed characteristic-zero field, a finite-group character is an integer combination of characters induced from irreducibles of elementary subgroups. Such subgroups are nilpotent by `TauCeti.IsElementary.isNilpotent` (`TauCeti.GroupTheory.Elementary`). Their irreducibles are induced from linear characters by `FDRep.exists_character_eq_indClassFun_of_isNilpotent` (`TauCeti.RepresentationTheory.Induction.Monomial`). Combine these existing results with `TauCeti.indClassFun_indClassFun_subgroupOf` (`TauCeti.RepresentationTheory.Induction.ClassFunction`) to obtain χ_ρ=Σ n_j Ind_{H_j}^G χ_j with n_j∈ℤ and χ_j one-dimensional. The proof of `TauCeti.virtualCharacters_eq_map_of_isPrimitiveRoot` in `TauCeti.RepresentationTheory.Induction.Cyclotomic.SplittingField` already performs this reduction. These declarations belong to the current library rather than the historical pin. No new monomiality theorem is required here; rational induction alone still gives only a meromorphic power.
 
-Consume [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction). Supply the integral monomial refinement χ_ρ=Σ n_j Ind_{H_j}^G χ_j with n_j∈Z and χ_j one-dimensional. Layer6 currently exports elementary-subgroup characters; prove their further induced-linear decomposition, e.g. monomiality of elementary groups and induction transitivity. Keep rational Artin induction separate; it gives only a meromorphic power.
+For the Colmez finite-family estimates, the remaining uniformity step is finite: transport each group of order m≤(2g)! to a group law on `Fin m`. There are finitely many such laws and finitely many irreducible characters for each. Choose one integral induced-linear expression for each irreducible and take the maximum of its number of terms and sum of absolute coefficients, enlarged to at least one. This defines a bound B_g independent of the CM field. Transporting the chosen character identities along group isomorphisms preserves those bounds. The discriminant and analytic-conductor estimates are separate Layer 2 inputs.
 
 Consume [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula). Use the existing representation-level Mackey3a isomorphism for restriction to D of Ind_H^Gσ, with exact conjugated intersection maps. Add the inertia-fixed cyclic-orbit determinant adapter in AN; do not claim character induction alone gives a ramified local determinant.
 
@@ -309,9 +313,9 @@ See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingul
 
 For q>=3 and a quadratic Dirichlet character modulo q, a real zero beta>0 satisfies beta<=1-40/(sqrt(q)*(log q)^2).
 
-The proof proceeds as follows. Combine the effective quadratic class-number lower estimate with a uniform derivative estimate between β and 1. Read the original theorem to retain the explicit constant 40 and q≥3.
+The proof proceeds as follows. For primitive q≥400000, Bennett–Martin–O'Bryant–Rechnitzer Lemma6.3 gives L(1,χ)≥12/√q. Lemmas6.4–6.5 give |L′(σ,χ)|<0.27356(log q)² on 1−1/(4√q)≤σ≤1. If β lies in this interval, the real mean-value theorem gives 1−β≥12/(0.27356√q(log q)²), which is stronger than the claimed constant40. If β is to its left, use (log q)²>160. The derivative estimate follows from partial summation with the explicit Pólya–Vinogradov bound and the cutoff y=q^0.655. The L-value estimate uses the quadratic class-number formula, a class-number lower bound for negative discriminants and a regulator lower bound plus finite verification for positive discriminants. The q<400000 case uses the finite zero verification cited in §6.1; a formally checked certificate for this finite range and the class-number/regulator computations remains required. For an imprimitive character of conductor q*, the extra Euler factors have no positive real zeros, and √q(log q)² increases for q≥3.
 
-See [Michael A. Bennett and Samir Siksek — A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), §12 p.387; Bennett–Martin–O'Bryant–Rechnitzer Proposition 1.11.
+See [Michael A. Bennett, Greg Martin, Kevin O'Bryant and Andrew Rechnitzer — Explicit bounds for primes in arithmetic progressions](https://personal.math.ubc.ca/~gerg/papers/downloads/EBPAP.pdf), Proposition1.11, printed p.436; §6.1, Lemmas6.3–6.5 and proof of Proposition1.11, printed pp.491–494. Bennett–Siksek §12 p.387 uses this estimate.
 
 *Needs:* `DirichletCharacter.LFunction`.
 
@@ -1346,7 +1350,7 @@ Assume x≥2; T≥2; zeros counted with multiplicity; symmetric strict height cu
 
 The proof proceeds as follows. Apply the ADS truncated arithmetic Perron formula to the half-weight ψ₀. Shift the contour using the residue lemma, horizontal bound and left-contour limit. Adjust from a good height to the stated strict cutoff with multiplicity-weighted local zero counting; include the nearest-prime-power error.
 
-The result must also satisfy these compatibility requirements: At a prime power m, ψ₀(m)=Chebyshev.psi(m)−Λ(m)/2; at x=2 the value is (log2)/2, not log2. Multiplicity cannot be replaced by a set of distinct zeros. At a zero height T, a strict cutoff must agree with the height-adjustment error, not silently switch to ≤. The s=0 residue uses ζ(0), and each trivial-zero residue carries the minus sign; Kedlaya Lemma9.2 has slips the normalization convention–the normalization convention, while the target retains the corrected formula.
+The result must also satisfy these compatibility requirements: At a prime power m, ψ₀(m)=Chebyshev.psi(m)−Λ(m)/2; at x=2 the value is (log2)/2, not log2. Multiplicity cannot be replaced by a set of distinct zeros. At a zero height T, a strict cutoff must agree with the height-adjustment error, not silently switch to ≤. The s=0 residue uses ζ(0), and each trivial-zero residue carries the minus sign; Kedlaya Lemma9.2 has a trivial-zero sign error and a missing logarithmic-derivative denominator, while the target retains the corrected formula.
 
 See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), Definition7.1/Theorem7.2, printed pp.43–44; Theorem9.9 final assembly, pp.56–58.
 
@@ -1820,11 +1824,11 @@ See [Michael Lipnowski and Jacob Tsimerman — How large is A_g(F_q)?](https://a
 
 ### 2.17 Imaginary quadratic completion and root number
 
-For negative fundamental D, put δ=|D| and let ε_D be the canonical primitive odd Dirichlet character of Q(√D), of conductorδ. On Re s>1, Λ(s,ε_D)=(δ/π)^((s+1)/2)Γ((s+1)/2)L(s,ε_D). Its canonical entire continuation is δ^((s+1)/2)·DirichletCharacter.completedLFunction(ε_D,s). The new quadratic normalization assertion is that the root number is+1 and Λ(1−s,ε_D)=Λ(s,ε_D). Entire continuation of a nontrivial Dirichlet completed function is already in Mathlib; no duplicate continuation construction is planned.
+For negative fundamental D, put δ=|D| and let ε_D be the canonical primitive odd Dirichlet character of Q(√D), of conductorδ. On Re s>1, Λ_std(s,ε_D)=(δ/π)^((s+1)/2)Γ((s+1)/2)L(s,ε_D). Its canonical entire continuation is δ^((s+1)/2)·DirichletCharacter.completedLFunction(ε_D,s). The new quadratic normalization assertion is that the root number is+1 and Λ_std(1−s,ε_D)=Λ_std(s,ε_D). Entire continuation of a nontrivial Dirichlet completed function is already in Mathlib; no duplicate continuation construction is planned.
 
 The proof proceeds as follows. Import the nontrivial-character differentiability of the completedLFunction and its primitive functional equation. The library completion omits the conductor power, so multiply byδ^((s+1)/2) with the real logarithm ofδ>0. Compare ζ_K=ζ_Q L(s,ε_D), first on Re s>1 then as canonical meromorphic functions, to the number-field completed functional equation. Γ_C(s)/Γ_R(s) and the duplication identity give the oddΓ_R(s+1) branch. The canonical odd character/conductor identification is required. Cancel on a nonzero open half-plane to obtain root+1, then use analytic continuation. Do not infer the sign from |rootNumber|=1 or evaluate a totalizedΓ·L product at a cancelled pole. The existing normalization gap records this comparison proof.
 
-The result must also satisfy these compatibility requirements: At D=−4 the conductor is4, the character is odd and Λ(0)=Λ(1)=1; at D=−3 both endpoints are1/√3. Mathlib’s unnormalized completed function alone has the conductor factorδ^(s−1/2) in its functional equation; that factor cancels only after multiplying by the specified conductor power. The completion is its canonical entire continuation. At negative odd integers, a divergent gamma factor times a vanishing L-value must not be assigned the naive product value0.
+The result must also satisfy these compatibility requirements: At D=−4 the conductor is4, the character is odd and Λ_std(0)=Λ_std(1)=1; at D=−3 both endpoints are1/√3. Mathlib’s unnormalized completed function alone has the conductor factorδ^(s−1/2) in its functional equation; that factor cancels only after multiplying by the specified conductor power. The completion is its canonical entire continuation. At negative odd integers, a divergent gamma factor times a vanishing L-value must not be assigned the naive product value0.
 
 See [Benedict H. Gross, Don B. Zagier — Heegner points and derivatives of L-series](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf), ChapterIV§4, p.282, proof of(4.1), and§5 p.290 after(5.4).
 
@@ -1978,7 +1982,7 @@ The proof proceeds as follows. Use the primitive completed functional equation a
 
 The result must also satisfy these compatibility requirements: The trivial character at s=1 is outside this finite-value inequality; do not interpret its meromorphic pole via totalized division. Nontrivial characters may be evaluated at s=1.
 
-See [Jacob Tsimerman — The André–Oort conjecture for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), Thorner-Zaman 2017, Lemma 2.3, printed p. 1142; credits Rademacher 1959; [Jesse Thorner and Asif Zaman — An explicit bound for the least prime ideal in the Chebotarev density theorem](https://msp.org/ant/2017/11-5/ant-v11-n5-p04-p.pdf), Lemma2.3 [Rademacher 1959], unnumbered bound, printed p.1142.
+See [Jesse Thorner and Asif Zaman — An explicit bound for the least prime ideal in the Chebotarev density theorem](https://msp.org/ant/2017/11-5/ant-v11-n5-p04-p.pdf), Lemma2.3 [Rademacher 1959], unnumbered bound, printed p.1142.
 
 *Needs:* [Primitive Hecke functional-equation normalization](#primitive-hecke-functional-equation-normalization-hecke-primitive-functional-equation).
 
@@ -2028,7 +2032,7 @@ See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadra
 
 ### 2.26 Genus Hecke factorization
 
-(p.971.) Let D = d'd ≠ 1 be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). Either factor may be the trivial discriminant 1. For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ(s,χ) = Λ(s,χ_{d'})Λ(s,χ_d), with Λ(s,χ) as in (7.4)–(7.5) and Λ(s,χ_d) as in (5.13).
+(p.971.) Let D = d'd ≠ 1 be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). Either factor may be the trivial discriminant 1. For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ_DIT(s,χ) = Λ_DIT(s,χ_{d'})Λ_DIT(s,χ_d), with the genus completion as in (7.4)–(7.5) and the Dirichlet completion fixed in the conventions by (5.13).
 
 The proof proceeds as follows. Reuse the genus character on the narrow class group and its coprime-ideal evaluation. Compare Euler factors at split, inert and every ramified prime; continue only after the convergent identity.
 
@@ -2056,7 +2060,7 @@ See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadra
 
 With the same imaginary quadratic data, the canonical continued primitive Dirichlet function satisfies L(0,ε_D)=h/u.
 
-The proof proceeds as follows. Use the canonical root-number-one continuation from imaginary_quadratic_root_number_one, not a pointwise product at a gamma pole. At0 and1 the gamma factors are regular; Γ(1/2)=√π andΓ(1)=1 give Λ(0)=√δ L(0) andΛ(1)=(δ/π)L(1). Insert L(1)=πh/(u√δ) from imaginary_quadratic_lvalue_one, obtaining L(0)=h/u. Both gamma values are library declarations.
+The proof proceeds as follows. Use the canonical root-number-one continuation from imaginary_quadratic_root_number_one, not a pointwise product at a gamma pole. At0 and1 the gamma factors are regular; Γ(1/2)=√π andΓ(1)=1 give Λ_std(0)=√δ L(0) andΛ_std(1)=(δ/π)L(1). Insert L(1)=πh/(u√δ) from imaginary_quadratic_lvalue_one, obtaining L(0)=h/u. Both gamma values are library declarations.
 
 The result must also satisfy these compatibility requirements: D=−4 gives L(0,ε_−4)=1/2; D=−3 gives L(0,ε_−3)=1/3. For D=−15, h=2,u=1, hence L(0,ε_−15)=2. This is for odd characters from negative fundamental discriminants. An even nontrivial quadratic character has a trivial zero at0 and cannot satisfy this formula.
 
@@ -2070,9 +2074,9 @@ See [Benedict H. Gross, Don B. Zagier — Heegner points and derivatives of L-se
 
 Every finite-image complex Artin Euler series has a meromorphic continuation to C obtained from an integral Brauer expression as a finite product of integer powers of canonical Hecke continuations. This asserts global meromorphy, not Artin holomorphy.
 
-The proof proceeds as follows. Request the integral monomial refinement of Brauer induction: χ_ρ=Σ_j n_j Ind_{H_j}^G χ_j with n_j∈Z and χ_j one-dimensional. The current upstream Layer6 only supplies elementary subgroup characters; their further induced-linear decomposition must be proved, not inferred from that wording. Apply Layer 2/artin-direct-sum-factor, Layer 2/artin-induction-factor and Layer 2/artin-linear-hecke-comparison to the character identity on Re s>1, obtaining a finite product of integer powers of canonical meromorphic Hecke continuations. Nonzero right-half-plane values ensure none of the denominator factors is identically zero. Use the identity theorem to identify this meromorphic continuation independently of the chosen integral expression. Negative coefficients may introduce poles away from1, so no Artin holomorphy conclusion follows. Rational coefficients give only a meromorphic power and cannot replace this proof.
+The proof proceeds as follows. Use the existing integral Brauer, elementary-nilpotent, nilpotent-monomial and induction-transitivity declarations specified in [Prerequisites and boundaries](#prerequisites-and-boundaries) and [From RepresentationTheory](#from-representationtheory) to write χ_ρ=Σ_j n_j Ind_{H_j}^G χ_j with n_j∈ℤ and χ_j one-dimensional. Apply Layer 2/artin-direct-sum-factor, Layer 2/artin-induction-factor and Layer 2/artin-linear-hecke-comparison to the character identity on Re s>1, obtaining a finite product of integer powers of canonical meromorphic Hecke continuations. Nonzero right-half-plane values ensure none of the denominator factors is identically zero. Use the identity theorem to identify this meromorphic continuation independently of the chosen integral expression. Negative coefficients may introduce poles away from1, so no Artin holomorphy conclusion follows. Rational coefficients give only a meromorphic power and cannot replace this proof.
 
-See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §22.5 boundary result; integral Brauer strengthening requires its original source; [J.S. Milne — Class Field Theory](https://www.jmilne.org/math/CourseNotes/CFT.pdf), ChapterVIII§10 Artin L-series, pp.261–262.
+See [Kiran S. Kedlaya — Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf), §22.5 boundary result; integral monomial induction is supplied by the current Tau Ceti declarations listed in the boundary section; [J.S. Milne — Class Field Theory](https://www.jmilne.org/math/CourseNotes/CFT.pdf), ChapterVIII§10 Artin L-series, pp.261–262.
 
 *Needs:* [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [NumberFieldArithmetic layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary); [NumberFieldArithmetic layer 2 frobenius elements and the artin symbol](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol); [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula); [Artin Euler series](#artin-euler-series-artin-euler-series); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [ArithmeticDirichletSeries layer 1 norm fibres and mathlib lseries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries); [ArithmeticDirichletSeries layer 3 local factors and euler products](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products); [Hecke series and Tate integral comparison](#hecke-series-and-tate-integral-comparison-hecke-L-function-euler-product-comparison); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity); [ClassFieldTheory layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [RepresentationTheory/InductionRestriction layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Primitive Hecke functional-equation normalization](#primitive-hecke-functional-equation-normalization-hecke-primitive-functional-equation); [Absolute convergence of Artin factors](#proof-artin-absolute-convergence); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Uniform finite Artin factor bound](#proof-artin-local-reciprocal-bound); [Ramified local Artin induction identity](#proof-artin-ramified-induction-polynomial).
 
@@ -2240,7 +2244,7 @@ See [Jacob Tsimerman — The André–Oort conjecture for A_g](https://annals.ma
 
 ### 2.36 Theorem3 negative factors
 
-For s=1/2+it, coprime negative fundamental d,d′ and D=d′d>0, Λ(s,χ_d)Λ(s,χ_{d′})=(s(1−s)/2)Σ_Aχ(A)∫_{F_A}E*(z,s)dμ. First continue the compact boundary Hecke identity from Re(s)>1 to the critical line, then apply Stokes there. The raw core integral diverges when Re(s)>1 and is not its initial definition.
+For s=1/2+it, coprime negative fundamental d,d′ and D=d′d>0, Λ_DIT(s,χ_d)Λ_DIT(s,χ_{d′})=(s(1−s)/2)Σ_Aχ(A)∫_{F_A}E*(z,s)dμ. First continue the compact boundary Hecke identity from Re(s)>1 to the critical line, then apply Stokes there. The raw core integral diverges when Re(s)>1 and is not its initial definition.
 
 The proof proceeds as follows. Apply the odd compact-boundary Hecke identity and the genus Euler factorization. Continue this identity to the critical line before applying Stokes; never start from the divergent Re s>1 core integral.
 
@@ -2252,7 +2256,7 @@ See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadra
 
 ### 2.37 Theorem3 positive factors
 
-Let D > 1 be a fundamental discriminant and D = d′d a factorization into positive fundamental discriminants (equivalently, d′, d > 0 coprime fundamental discriminants with d′d > 1; then D is fundamental). Let χ be the genus character. Then Λ(s,χ_{d'})Λ(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.
+Let D > 1 be a fundamental discriminant and D = d′d a factorization into positive fundamental discriminants (equivalently, d′, d > 0 coprime fundamental discriminants with d′d > 1; then D is fundamental). Let χ be the genus character. Then Λ_DIT(s,χ_{d'})Λ_DIT(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.
 
 The proof proceeds as follows. Sum the even compact-geodesic identity against χ and use genus factorization. Identify geodesic and boundary arcs on the critical line with the imported oriented geometric conventions.
 
@@ -2264,7 +2268,7 @@ See [W. Duke, Ö. Imamoḡlu, Á. Tóth — Geometric invariants for real quadra
 
 ### 2.38 Theorem3 CM factors
 
-For coprime fundamental d,d′ of opposite sign, Λ(s,χ_d)Λ(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity. Here D=dd′<0, the sum is over ordinary ideal classes of ℚ(√D), χ is the genus character, and ω_D=|O_K^×|/2 as in the CM partial-zeta comparison; use the same E* normalization.
+For coprime fundamental d,d′ of opposite sign, Λ_DIT(s,χ_d)Λ_DIT(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity. Here D=dd′<0, the sum is over ordinary ideal classes of ℚ(√D), χ is the genus character, and ω_D=|O_K^×|/2 as in the CM partial-zeta comparison; use the same E* normalization.
 
 The proof proceeds as follows. Sum the CM point partial-zeta identity against the genus character. Match the two Dirichlet gamma factors and the unit factor 2√π/ω_D.
 
@@ -2292,13 +2296,33 @@ See [Robert Lemke Oliver, Jiuya Wang and Melanie Matchett Wood — The average s
 
 If K/Q is finite Galois and the canonical continued ζ_K has a simple real zero β with0<β<1, then a quadratic subfield k⊆K satisfies ζ_k(β)=0. The conclusion uses meromorphic Artin continuation and the Aramata–Brauer entire-quotient theorem, not Artin holomorphy.
 
-The proof proceeds as follows. Heilbronn Theorem1 first puts the simple real zero in the compositum K₂ of all quadratic subfields. Meromorphic Artin continuation gives integral orders m_χ, possibly negative, for irreducible characters. The Aramata–Brauer theorem says ζ_K/ζ_E is entire for every intermediate E (K/E remains Galois). Thus ζ_E has zero order0 or1 at β. This stronger holomorphy-of-a-quotient input is missing from the existing meromorphic Artin result. Form the virtual character φ=Σ m_χχ. The subgroup averages S(H) are the intermediate zeta orders. If the maximal abelian subfield’s zeta is nonzero, choose a minimal subgroup H* of the commutator subgroup with S(H*)=0; proper subgroups have average1. Möbius inversion over cyclic subgroups forces H* cyclic. Odd-prime cyclic quotients are ruled out by conjugate pairs of nonreal degree-one Hecke factors; hence H* is a nontrivial2-group. Write the real virtual character as φ_+−φ_− with real genuine characters. Every determinant character is trivial on the commutator subgroup, so the multiplicities of eigenvalue−1 on a generator are both even. The subgroup-average difference forces their difference to be1, a contradiction. In the maximal abelian extension, nonreal Hecke factors occur in conjugate pairs and cannot contribute a simple real zero. Over Q, ζ_Q is nonzero on(0,1), so the real factor is a nontrivial quadratic character; its quadratic field zeta vanishes. Original Aramata/Brauer and the finite-character/Möbius proof interfaces still need lemma-level supplier/decomposition.
+The proof proceeds as follows. Heilbronn Theorem1 first puts the simple real zero in the compositum K₂ of all quadratic subfields. Meromorphic Artin continuation gives integral orders m_χ, possibly negative, for irreducible characters. The Aramata–Brauer theorem says ζ_K/ζ_E is entire for every intermediate E (K/E remains Galois). Thus ζ_E has zero order0 or1 at β. This stronger holomorphy-of-a-quotient input is supplied by the two local Aramata targets below; meromorphic Artin continuation alone does not give it. Form the virtual character φ=Σ m_χχ. The subgroup averages S(H) are the intermediate zeta orders. If the maximal abelian subfield’s zeta is nonzero, choose a minimal subgroup H* of the commutator subgroup with S(H*)=0; proper subgroups have average1. Möbius inversion over cyclic subgroups forces H* cyclic. Odd-prime cyclic quotients are ruled out by conjugate pairs of nonreal degree-one Hecke factors; hence H* is a nontrivial2-group. Write the real virtual character as φ_+−φ_− with real genuine characters. Every determinant character is trivial on the commutator subgroup, so the multiplicities of eigenvalue−1 on a generator are both even. The subgroup-average difference forces their difference to be1, a contradiction. In the maximal abelian extension, nonreal Hecke factors occur in conjugate pairs and cannot contribute a simple real zero. Over Q, ζ_Q is nonzero on(0,1), so the real factor is a nontrivial quadratic character; its quadratic field zeta vanishes. The positive cyclic-character decomposition and entire quotient are stated below. The finite-character/Möbius steps of the Heilbronn argument still need lemma-level decomposition.
 
 The result must also satisfy these compatibility requirements: K=Q cannot satisfy the premise: ζ_Q has no zero on(0,1). For K quadratic over Q the conclusion is its own field, by ζ_K=ζ_Q L(s,χ_K). An Artin factor may have a pole: nonnegative m_χ are never assumed in the virtual-character argument.
 
 See [Hans Heilbronn — On real zeros of Dedekind ζ-functions](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C5957B0EA95C11C03686CE62D407E1DC/S0008414X00050926a.pdf/on-real-zeros-of-dedekind-z-functions.pdf), Theorem1 p.870; complete proof pp.871–873; postscript p.873; [Peter Koymans, Carlo Pagano — On Stevenhagen’s conjecture](https://arxiv.org/pdf/2201.13424v1), §8.3 p.92, proof following Theorem8.13.
 
-*Needs:* [Global meromorphic Artin continuation](#global-meromorphic-artin-continuation-brauer-meromorphic-continuation); [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [NumberFieldArithmetic layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary); [NumberFieldArithmetic layer 2 frobenius elements and the artin symbol](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol); [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula); [Artin Euler series](#artin-euler-series-artin-euler-series); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [ArithmeticDirichletSeries layer 1 norm fibres and mathlib lseries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries); [ArithmeticDirichletSeries layer 3 local factors and euler products](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products); `LinearMap.charpoly_prodMap`; [Hecke series and Tate integral comparison](#hecke-series-and-tate-integral-comparison-hecke-L-function-euler-product-comparison); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity); [ClassFieldTheory layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [Quadratic zeta factorization and the residue quotient](#quadratic-zeta-factorization-and-the-residue-quotient-quadratic-zeta-factorization); [Direct sums of Artin local factors](#proof-artin-direct-sum-factor); [Absolute convergence of Artin factors](#proof-artin-absolute-convergence); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Uniform finite Artin factor bound](#proof-artin-local-reciprocal-bound); [Ramified local Artin induction identity](#proof-artin-ramified-induction-polynomial).
+*Needs:* [Aramata entire quotient](#proof-aramata-entire-quotient); [Global meromorphic Artin continuation](#global-meromorphic-artin-continuation-brauer-meromorphic-continuation); [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [NumberFieldArithmetic layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary); [NumberFieldArithmetic layer 2 frobenius elements and the artin symbol](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol); [RepresentationTheory/InductionRestriction layer 3 the mackey decomposition formula](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula); [Artin Euler series](#artin-euler-series-artin-euler-series); [Dedekind continuation and real-side comparison](#dedekind-continuation-and-real-side-comparison-dedekind-zeta-continuation-and-residue); [ArithmeticDirichletSeries layer 1 norm fibres and mathlib lseries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries); [ArithmeticDirichletSeries layer 3 local factors and euler products](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products); `LinearMap.charpoly_prodMap`; [Hecke series and Tate integral comparison](#hecke-series-and-tate-integral-comparison-hecke-L-function-euler-product-comparison); [ClassFieldTheory layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity); [ClassFieldTheory layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [GlobalNumberFields layer 9 hecke and ray class characters](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); [Quadratic zeta factorization and the residue quotient](#quadratic-zeta-factorization-and-the-residue-quotient-quadratic-zeta-factorization); [Direct sums of Artin local factors](#proof-artin-direct-sum-factor); [Absolute convergence of Artin factors](#proof-artin-absolute-convergence); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Uniform finite Artin factor bound](#proof-artin-local-reciprocal-bound); [Ramified local Artin induction identity](#proof-artin-ramified-induction-polynomial).
+
+<a id="proof-aramata-positive-cyclic-decomposition"></a>
+
+**Positive cyclic decomposition of the augmentation character.** For a finite group G, there exist a positive integer N and finitely many cyclic subgroups C_j≤G, nontrivial one-dimensional complex characters ψ_j of C_j and nonnegative integers n_j such that N(Reg_G−1_G)=Σ_j n_j Ind_(C_j)^G ψ_j. The trivial group permits the empty sum. This positive rational decomposition is stronger than the signed integral Brauer expression used for meromorphic continuation; no claim of nonnegative coefficients for arbitrary irreducible characters is made.
+
+Group elements by conjugacy of the cyclic subgroups they generate. For each nonidentity class of this relation, Aramata's Satz5 constructs a class function supported on that class and the identity. Its expression in cyclic induced characters has coefficients proportional to φ(k)−μ(k), which vanish for k=1 and are positive for k>1. Satz6 sums these functions to Reg_G−1_G. Clear the finitely many positive rational denominators to obtain N and n_j.
+
+See [Hideo Aramata — Über die Teilbarkeit der Dedekindschen Zetafunktionen](https://www.jstage.jst.go.jp/article/pjab1912/9/2/9_2_31/_pdf), Sätze4–6 and proof of the main theorem, printed pp.32–34; divisor identities Sätze1–3, p.31.
+
+*Needs:* [From RepresentationTheory](#from-representationtheory), for finite-group class functions, linear characters, induction and their character formulas; finite cyclic character orthogonality and Möbius divisor inversion.
+
+<a id="proof-aramata-entire-quotient"></a>
+
+**Aramata entire quotient.** For a finite Galois extension K/E of number fields, the meromorphic quotient ζ_K/ζ_E extends to an entire function, agreeing with the quotient on Re s>1. For K=E this is the constant1. This assertion includes removal of the apparent singularities at zeros of ζ_E.
+
+Apply the positive cyclic decomposition to Gal(K/E). Artin induction and the ramified local-factor identity identify the N-th power of the quotient with a product of nonnegative integer powers of finite-order Hecke L-functions attached to the nontrivial ψ_j. Each factor is entire. The quotient is already meromorphic; a pole of order m would give a pole of order Nm in its N-th power, so it has no poles. This argument does not assume general Artin holomorphy.
+
+See [Hideo Aramata — Über die Teilbarkeit der Dedekindschen Zetafunktionen](https://www.jstage.jst.go.jp/article/pjab1912/9/2/9_2_31/_pdf), main theorem p.31 and proof p.34.
+
+*Needs:* [Positive cyclic decomposition of the augmentation character](#proof-aramata-positive-cyclic-decomposition); [Global meromorphic Artin continuation](#global-meromorphic-artin-continuation-brauer-meromorphic-continuation); [Induction identity including ramification](#proof-artin-induction-factor); [Linear Artin factors are Hecke factors](#proof-artin-linear-hecke-comparison); [Primitive Hecke functional-equation normalization](#primitive-hecke-functional-equation-normalization-hecke-primitive-functional-equation).
 
 <a id="eisenstein-series-at-a-cm-point-equals-a-partial-zeta-function-gross-zagier-cm-eisenstein-comparison"></a>
 
@@ -2509,7 +2533,7 @@ See [Jacob Tsimerman — The André–Oort conjecture for A_g](https://annals.ma
 
 ### Remaining analytic proof obligations
 
-**Artin local determinant and induction proofs.** Complete inertia-invariant conjugacy transport, finite-order spectrum, coefficient convolution convergence, ramified relative Frobenius and the Mackey cyclic-block determinant. Integral monomial Brauer induction must refine elementary-subgroup induction before a product of one-dimensional Hecke functions is available. Used in [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [Artin Euler series](#artin-euler-series-artin-euler-series); [Artin continuation near the line one](#artin-continuation-near-the-line-one-artin-induction-versus-artin-holomorphy); [Heilbronn's theorem on real zeros of Dedekind zeta functions](#heilbronn-s-theorem-on-real-zeros-of-dedekind-zeta-functions-heilbronn-simple-real-zero); [Factorwise logarithmic derivative at one](#factorwise-logarithmic-derivative-at-one-artin-log-derivative-one); [Logarithmic functional equation](#logarithmic-functional-equation-artin-log-functional-equation); [Two-sided subpolynomial values at one](#two-sided-subpolynomial-values-at-one-artin-value-one-subpower); [Global meromorphic Artin continuation](#global-meromorphic-artin-continuation-brauer-meromorphic-continuation).
+**Artin local determinant and induction proofs.** Complete inertia-invariant conjugacy transport, finite-order spectrum, coefficient convolution convergence, ramified relative Frobenius and the Mackey cyclic-block determinant. Integral induced-linear Brauer expressions use the existing current-library reduction specified in [From RepresentationTheory](#from-representationtheory); only the local determinant and arithmetic comparison adapters remain new work. Used in [Artin local polynomial](#artin-local-polynomial-artin-local-polynomial); [Artin Euler series](#artin-euler-series-artin-euler-series); [Artin continuation near the line one](#artin-continuation-near-the-line-one-artin-induction-versus-artin-holomorphy); [Heilbronn's theorem on real zeros of Dedekind zeta functions](#heilbronn-s-theorem-on-real-zeros-of-dedekind-zeta-functions-heilbronn-simple-real-zero); [Factorwise logarithmic derivative at one](#factorwise-logarithmic-derivative-at-one-artin-log-derivative-one); [Logarithmic functional equation](#logarithmic-functional-equation-artin-log-functional-equation); [Two-sided subpolynomial values at one](#two-sided-subpolynomial-values-at-one-artin-value-one-subpower); [Global meromorphic Artin continuation](#global-meromorphic-artin-continuation-brauer-meromorphic-continuation).
 
 **Fixed-degree arithmetic analytic estimates.** Prove bounded-degree uniformity for divisor coefficient majorants, residues, Brauer–Siegel, CM conductor comparison, regularized Brauer values and logarithmic derivatives. Separate trivial Hecke poles and prove cancellation of their orders. For a quadratic CM extension use D_F≤D_E^(1/2), positive residue quotients, pole-aware convexity on a full Cauchy circle, and the conductor Q before identifying it arithmetically with D_E/D_F. A bound for L′ alone never bounds L′/L. Used in [Bounded-degree Brauer-Siegel](#bounded-degree-brauer-siegel-bounded-degree-brauer-siegel); [Uniform bounded-norm ideal count](#uniform-bounded-norm-ideal-count-bounded-norm-ideal-count); [Sufficient conductor-discriminant estimate](#sufficient-conductor-discriminant-estimate-artin-conductor-bound); [Logarithmic functional equation](#logarithmic-functional-equation-artin-log-functional-equation); [Two-sided subpolynomial values at one](#two-sided-subpolynomial-values-at-one-artin-value-one-subpower); [Factorwise logarithmic derivative at one](#factorwise-logarithmic-derivative-at-one-artin-log-derivative-one); [Quadratic zeta factorization and the residue quotient](#quadratic-zeta-factorization-and-the-residue-quotient-quadratic-zeta-factorization); [Uniform subpolynomial Dedekind residues](#uniform-subpolynomial-dedekind-residues-bounded-degree-residue-bounds); [Two-sided quadratic Hecke value bound](#two-sided-quadratic-hecke-value-bound-quadratic-hecke-value-one); [Uniform finite-order Hecke convexity](#uniform-finite-order-hecke-convexity-primitive-hecke-convexity); [A fixed small circle gives a subpolynomial derivative](#a-fixed-small-circle-gives-a-subpolynomial-derivative-quadratic-hecke-cauchy-derivative); [Subpolynomial logarithmic derivative at one](#subpolynomial-logarithmic-derivative-at-one-quadratic-hecke-log-derivative-one); [Logarithmic functional equation at zero and one](#logarithmic-functional-equation-at-zero-and-one-quadratic-hecke-log-functional-equation); [Uniform coefficient bound by a divisor function](#uniform-coefficient-bound-by-a-divisor-function-ideal-coefficient-divisor-majorant); [Subpolynomial fixed-order divisor function](#subpolynomial-fixed-order-divisor-function-fixed-order-divisor-subpower).
 
@@ -2561,7 +2585,7 @@ The proof proceeds as follows. Set D=max(1,(ε log 2)⁻¹). Apply the local uni
 
 The result must also satisfy these compatibility requirements: n=1 is covered. B may be increased without invalidating the estimate. The constant depends only on ε and the chosen certified B, never on n.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 *Needs:* `Real.log_pos`; `Real.log_le_log`; `Real.add_one_le_exp`; `Real.rpow_def_of_pos`; `Real.le_log_iff_exp_le`; `Nat.card_divisors`; `Nat.prod_primeFactors_pow_factorization`; `Nat.prime_of_mem_primeFactors`; `Finset.prod_le_prod`; `Real.mul_rpow`; `Real.rpow_mul`; `Real.rpow_natCast`; [Uniform prime-power divisor bound](#proof-prime-power-log-bound); [Large-prime divisor factor bound](#proof-large-prime-power-bound); [Divisor bounds from local factors](#proof-divisor-bound-from-local-bounds).
 
@@ -2573,7 +2597,7 @@ Here ε>0; p,a natural; p≥2.
 
 Logarithm monotonicity gives log p≥log 2>0. Thus D≥1 and D ε log p≥1. Multiply the latter inequality by a≥0 and add 1≤D to obtain a+1≤D(1+aε log p). Use 1+t≤exp t and p^(aε)=exp(aε log p).
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 <a id="proof-large-prime-power-bound"></a>
 
@@ -2583,7 +2607,7 @@ Here ε>0; p>0; a natural; exp(1/ε)≤p.
 
 Apply the exponential/logarithm equivalence to get ε log p≥1. Multiply by a, add 1 and apply 1+t≤exp t; identify the real power.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 <a id="proof-divisor-bound-from-local-bounds"></a>
 
@@ -2593,7 +2617,7 @@ Here D≥1; B natural; two uniform prime-power hypotheses; n>0.
 
 Use Nat.card_divisors to write τ(n)=∏p|n(a_p+1); use Nat.prod_primeFactors_pow_factorization to write n=∏p|n p^a_p. Split the finite prime-factor set at p≤B. Multiply the respective nonnegative local bounds using Finset.prod_le_prod. Repeated Real.mul_rpow and Real.rpow_mul identify the prime-power product with n^ε. At most B small prime divisors occur, since they inject into {1,…,B}. Hence τ(n)≤D^r n^ε with r≤B; D≥1 gives D^r≤D^B.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 <a id="largest-prime-factor-of-a-quadratic-conductor-quadratic-conductor-largest-prime"></a>
 
@@ -3121,7 +3145,7 @@ The proof proceeds as follows. Choose B by the Archimedean theorem exists_nat_ge
 
 The result must also satisfy these compatibility requirements: ε=1/(64c), c>0, supplies the exact ES.0 request for every M>0. C is retained at small inputs; setting C=1 for all n fails at n=2, ε=1/2. No squarefreeness, primitivity or coprimality hypothesis appears.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 *Needs:* [Explicit divisor subpower bound](#explicit-divisor-subpower-bound-explicit-divisor-subpower-bound); `exists_nat_ge`.
 
@@ -3344,7 +3368,7 @@ The proof proceeds as follows. Use uniform-divisor-subpower-bound with ε=δ/2. 
 
 The result must also satisfy these compatibility requirements: N≥1 excludes the library's totalized zero input. Replacing δ by 2ε gives the equivalent eventual form used in the divisor estimate. The result makes no universal claim at n=2.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 *Needs:* [Uniform divisor subpower bound](#uniform-divisor-subpower-bound-uniform-divisor-subpower-bound); `Real.rpow_add`; `Real.rpow_nonneg`; `exists_nat_ge`; `Real.rpow_le_rpow`; `Real.rpow_mul`; [Absorption of the divisor-bound constant](#proof-absorb-divisor-bound-constant).
 
@@ -3356,7 +3380,7 @@ Here n>0; the two displayed inequalities.
 
 Multiply C≤n^(δ−ε) by n^ε≥0 and compose with the first inequality. Apply Real.rpow_add at positive n and simplify (δ−ε)+ε=δ.
 
-See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Second proof, exponential estimate and small/large-prime split.
+See [Terence Tao — The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), Proof of (3), large-prime step, and Proof of (4), Taylor estimate and finite small-prime product.
 
 <a id="von-mangoldt-truncation-error-mangoldt-truncation-error"></a>
 
@@ -3631,7 +3655,7 @@ The required interface consists of the following operations and identities.
 
 The result must also satisfy these compatibility requirements: G(n) = (n − 2)! (n − 3)! ⋯ 1! for n ≥ 2 (DLMF 5.17.2).
 
-See [F. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier et al. (eds.); Chapter 5 by R. A. Askey and R. Roy — NIST Digital Library of Mathematical Functions, §5.17 Barnes’ G-function (double gamma function)](https://dlmf.nist.gov/5.17), §5.17, equations (5.17.1)–(5.17.5).
+See [F. W. J. Olver, A. B. Olde Daalhuis, D. W. Lozier et al. (eds.); Chapter 5 by R. A. Askey and R. Roy — NIST Digital Library of Mathematical Functions, §5.17 Barnes’ G-function (double gamma function)](https://dlmf.nist.gov/5.17), §5.17, equations (5.17.1)–(5.17.5); [Victor S. Adamchik — Contributions to the Theory of the Barnes Function](https://arxiv.org/pdf/math/0308086v1), canonical product p.2, (20) and Proposition3.1, pp.7–8, Lemma5.1 and proof, pp.10–11 (right-half-plane asymptotic).
 
 *Needs:* `Complex.Gamma`; `Complex.exp`; [Uniform Stirling bounds for Γ on vertical strips](#uniform-stirling-bounds-for-on-vertical-strips-uniform-complex-stirling).
 
@@ -3944,7 +3968,7 @@ Keep two analytic constructions separate. The selected 16-component quadratic do
 
 ### 5.1 The four real characters modulo eight
 
-Fix the row order ψ1,ψ−1,ψ2,ψ−2 and unit residues 1,3,5,7. Their value table is ((1,1,1,1),(1,−1,1,−1),(1,−1,−1,1),(1,1,−1,−1)); each is zero on even integers. They are genuine Dirichlet characters, with conductors 1,4,8,8 and parities 0,1,0,1. The two positive-sign descriptions and one conductor row printed on p.358 are corrected in the normalization convention–the normalization convention.
+Fix the row order ψ1,ψ−1,ψ2,ψ−2 and unit residues 1,3,5,7. Their value table is ((1,1,1,1),(1,−1,1,−1),(1,−1,−1,1),(1,1,−1,−1)); each is zero on even integers. They are genuine Dirichlet characters, with conductors 1,4,8,8 and parities 0,1,0,1. The two positive-sign descriptions and one conductor row printed on p.358 are corrected in the character table above.
 
 The proof proceeds as follows. Verify multiplicativity on the four-element unit group modulo eight. Extend by zero away from units. Check primitive conductor and parity by restriction to levels 1,4,8.
 
@@ -3960,7 +3984,7 @@ The required interface consists of the following operations and identities.
 - ψ2(3)=−1 and ψ−2(7)=−1.
 - For rows i,j, Ση ψi(η)ψj(η)=4 if i=j and 0 otherwise.
 
-The result must also satisfy these compatibility requirements: Fix the row order ψ1,ψ−1,ψ2,ψ−2 and unit residues 1,3,5,7. Their value table is ((1,1,1,1),(1,−1,1,−1),(1,−1,−1,1),(1,1,−1,−1)); each is zero on even integers. They are genuine Dirichlet characters, with conductors 1,4,8,8 and parities 0,1,0,1. The two positive-sign descriptions and one conductor row printed on p.358 are corrected in the normalization convention–the normalization convention.
+The result must also satisfy these compatibility requirements: Fix the row order ψ1,ψ−1,ψ2,ψ−2 and unit residues 1,3,5,7. Their value table is ((1,1,1,1),(1,−1,1,−1),(1,−1,−1,1),(1,1,−1,−1)); each is zero on even integers. They are genuine Dirichlet characters, with conductors 1,4,8,8 and parities 0,1,0,1. The two positive-sign descriptions and one conductor row printed on p.358 are corrected in the character table above.
 
 See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §2.1, (7)–(11), p.358.
 
@@ -4288,7 +4312,7 @@ The required interface consists of the following operations and identities.
 - q(2,η)=q(3,η)=8 and their parities are respectively 0 and 1.
 - e(0,η=1)=1; e(1,η=3)=−1; e(2,η)=0.
 
-See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §2.1, (7)–(13), pp.358–359; (32)–(33), p.362.
+See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §2.1, (7)–(13), pp.358–359; (32)–(33), p.363.
 
 *Needs:* [The four real characters modulo eight](#the-four-real-characters-modulo-eight-characters-mod-eight); `DirichletCharacter`.
 
@@ -4874,7 +4898,7 @@ See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www
 
 Interchange the absolutely convergent odd sums. Expand the quadratic-reciprocity sign using the finite character table. Use identity continuation from the nonempty overlap.
 
-See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §3 equations (31)–(32), p.362.
+See [Valentin Blomer — Subconvexity for a double Dirichlet series](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/318BFEE754E14DA26285D1F15B2990C1/S0010437X10004926a.pdf/subconvexity-for-a-double-dirichlet-series.pdf), §3 equations (31)–(32), pp.362–363.
 
 <a id="proof-quadratic-reflection-equation"></a>
 
@@ -5196,7 +5220,6 @@ The required interface consists of the following operations and identities.
 
 - `TauCeti.BostConnes.mem_axbInt_iff`: Membership means lower-left=0, both diagonal entries=1 and upper-right integral.
 - `TauCeti.BostConnes.axbInt_le_axbRat`: The subgroup inclusion into positive rational ax+b matrices.
-- `TauCeti.BostConnes.mem_axbInt_iff`: The explicit coordinate membership law.
 
 **Checks.**
 
@@ -5291,9 +5314,9 @@ See [Sergey Neshveyev — Ergodicity of the action of the positive rationals on 
 
 ### 6.10 All normalized scaling measures
 
-A β-scaling measure is a positive Radon measure μ on A_f with μ(Ẑ)=1 and μ(qE)=q^(−β)μ(E) for every positive rational q and Borel set E. These two conditions force μ({0})=0. No unit invariance is assumed; the canonical product measure is one element.
+For β>0, a β-scaling measure is a positive Radon measure μ on A_f with μ(Ẑ)=1 and μ(qE)=q^(−β)μ(E) for every positive rational q and Borel set E. These two conditions force μ({0})=0. No unit invariance is assumed; the canonical product measure is one element.
 
-The proof proceeds as follows. State Radon regularity, normalization and the rational scaling law on the existing finite-adele carrier. Apply the law to the fixed singleton zero with a rational q different from 1; its finite mass must vanish.
+The proof proceeds as follows. State Radon regularity, normalization and the rational scaling law on the existing finite-adele carrier. Apply the law with q=2 to the fixed singleton zero. Its mass is finite because {0}⊆Ẑ and μ(Ẑ)=1; since β>0, the factor 2^(−β) differs from 1, forcing that mass to vanish.
 
 The required interface consists of the following operations and identities.
 
@@ -5305,7 +5328,7 @@ The required interface consists of the following operations and identities.
 **Checks.**
 
 - The zero measure is not normalized.
-- The atom at 0 is normalized but violates scaling for q=2 and β>0.
+- The atom at 0 is normalized but violates scaling for q=2 and β>0. At β=0 it satisfies the scaling law and has μ({0})=1, so positivity of β is essential for `zero_atom`.
 - The product-density measure satisfies the normalized scaling predicate.
 
 See [Sergey Neshveyev — Ergodicity of the action of the positive rationals on the group of finite adeles and the Bost–Connes phase transition theorem](https://arxiv.org/pdf/math/0002141v1), Neshveyev 2000 (1β), p.1.
@@ -5652,7 +5675,7 @@ The proof proceeds as follows. The shifted operator Δ+s(s−1) is unchanged by 
 
 The result must also satisfy these compatibility requirements: With D_g(s)=I_g(s)exp(2(g−1)[2ζ′(−1)−log√(2π)]), the continued scalar Selberg function satisfies ZΓ(s)D_g(s)=ZΓ(1−s)D_g(1−s) as a meromorphic identity. This formulation fixes all Barnes branches by continuation from real s>1 and avoids an unnormalized path integral.
 
-See [Jay Jorgenson, Lejla Smajlovic and Polyxeni Spilioti — Determinants of twisted Laplacians and the twisted Selberg zeta function](https://arxiv.org/pdf/2512.16681v2), Theorem 6.1 (6.1), p.20; scalar (8.4), p.27; (8.8), p.28. Use the scalar identity factor confirmed by the heat derivative, as specified in the normalization convention..
+See [Jay Jorgenson, Lejla Smajlovic and Polyxeni Spilioti — Determinants of twisted Laplacians and the twisted Selberg zeta function](https://arxiv.org/pdf/2512.16681v2), Theorem 6.1 (6.1), p.20; scalar (8.4), p.27; (8.8), p.28. Use the scalar identity factor confirmed by the heat derivative, as specified in the normalization convention.
 
 *Needs:* [The compact Selberg determinant comparison](#the-compact-selberg-determinant-comparison-selberg-determinant-comparison); [Positive-spectrum zeta and heat series](#positive-spectrum-zeta-and-heat-series-spectral-zeta-series); AutomorphicSpectralTheory AS.4; [The scalar Selberg primitive-geodesic product](#the-scalar-selberg-primitive-geodesic-product-selberg-primitive-product); AutomorphicSpectralTheory AS.6; [Barnes G-function](#barnes-g-function-barnes-g-function); [Entire shifted determinant](#entire-shifted-determinant-shifted-entire-determinant); [The compact discrete-spectrum input](#proof-compact-spectrum-and-weyl); [The compact scalar heat trace input](#proof-scalar-heat-trace-formula); [Identity contribution and Barnes normalization](#proof-identity-barnes-transform); [Branch-independent identity factor](#proof-selberg-identity-germ).
 
@@ -6367,7 +6390,7 @@ See [Alain Connes and Matilde Marcolli — Noncommutative Geometry, Quantum Fiel
 
 Restrict a bounded strip correlation and use uniqueness against the entire core orbit to evaluate the upper boundary. For the converse take norm approximations a_j,b_j in the core. The bound on differences gives uniform convergence on the full closed strip. Locally uniform limits remain holomorphic, and the limits have the required two boundary values.
 
-See [Alain Connes and Matilde Marcolli — Noncommutative Geometry, Quantum Fields and Motives](https://www.its.caltech.edu/~matilde/coll-55.pdf), Chapter 3, Definition 3.6, p.446, and entire-core identity (3.19), p.450; the externally cited general analytic-core theorem remains a source gap, while the finite-spectral-core argument is specified here..
+See [Alain Connes and Matilde Marcolli — Noncommutative Geometry, Quantum Fields and Motives](https://www.its.caltech.edu/~matilde/coll-55.pdf), Chapter 3, Definition 3.6, p.446, and entire-core identity (3.19), p.450; the externally cited general analytic-core theorem remains a source gap, while the finite-spectral-core argument is specified here.
 
 <a id="proof-bc-corner-expectation"></a>
 
@@ -6712,7 +6735,7 @@ See [Sergey Neshveyev — Von Neumann algebras arising from Bost–Connes type s
 
 Apply PNT in the residue class 1 mod N to paired intervals [X,(1+δ)X] and [λX,λ(1+δ)X]. Choose δ small enough for the desired ratio tolerance; matching counts are bounded below by cX/logX. Separate successive blocks geometrically; each block contributes ≥c/logX to Σ1/p, so the block sum diverges. A diagonal tolerance choice preserves this divergence.
 
-See [Sergey Neshveyev — Von Neumann algebras arising from Bost–Connes type systems](https://arxiv.org/pdf/0907.1456v1), Lemma 2.3 and complete proof, p.4; Theorem 2.1 application p.5, with the stated fixed-progression refinement..
+See [Sergey Neshveyev — Von Neumann algebras arising from Bost–Connes type systems](https://arxiv.org/pdf/0907.1456v1), Lemma 2.3 and complete proof, p.4; Theorem 2.1 application p.5, with the stated fixed-progression refinement.
 
 <a id="proof-bc-asymptotic-ratio-inclusion"></a>
 
@@ -7005,7 +7028,7 @@ See [Alain Connes and Matilde Marcolli — Noncommutative Geometry, Quantum Fiel
 
 **Compact scalar geometric spectral and Gaussian trace adapters.** Identify the scalar geometric Laplacian, simple zero, multiplicities, Weyl law and uniform full heat expansion. Extend compactly supported smooth trace tests to the Gaussian, with geodesic growth and a fixed primitive orientation convention. The generic Mellin calculations do not establish these geometric inputs. Used in [The compact Selberg determinant comparison](#the-compact-selberg-determinant-comparison-selberg-determinant-comparison); [The compact Selberg functional equation](#the-compact-selberg-functional-equation-selberg-functional-equation); [Selberg zeros and scalar spectral parameters](#selberg-zeros-and-scalar-spectral-parameters-selberg-spectral-zero-comparison); [Entire shifted determinant](#entire-shifted-determinant-shifted-entire-determinant); [Spectral zeta is regular at zero](#spectral-zeta-is-regular-at-zero-spectral-regularity-zero).
 
-**Barnes G original normalization and asymptotic proof.** The Barnes product needs its original normalization, zero divisor, logarithmic derivative and uniform asymptotic proof. The asymptotic fixes the identity determinant constant; recurrence and G(1)=1 alone do not. Use the single-valued integer-power identity factor when continuing. Used in [The compact Selberg determinant comparison](#the-compact-selberg-determinant-comparison-selberg-determinant-comparison); [The compact Selberg functional equation](#the-compact-selberg-functional-equation-selberg-functional-equation); [Selberg zeros and scalar spectral parameters](#selberg-zeros-and-scalar-spectral-parameters-selberg-spectral-zero-comparison).
+**Barnes G original normalization and asymptotic proof.** The Barnes product needs its original normalization, zero divisor, logarithmic derivative and uniform asymptotic proof. Adamchik Lemma5.1, pp.10–11, proves a remainder formula for Re z>0 using an integral with kernel x/(exp(2πx)−1) and the finite Taylor remainder for log(1+x²/z²). This supplies a primary half-plane proof route. The uniform estimate on every closed sector |arg z|≤π−δ still needs a source-backed continuation/remainder argument. The asymptotic fixes the identity determinant constant; recurrence and G(1)=1 alone do not. Use the single-valued integer-power identity factor when continuing. Used in [The compact Selberg determinant comparison](#the-compact-selberg-determinant-comparison-selberg-determinant-comparison); [The compact Selberg functional equation](#the-compact-selberg-functional-equation-selberg-functional-equation); [Selberg zeros and scalar spectral parameters](#selberg-zeros-and-scalar-spectral-parameters-selberg-spectral-zero-comparison).
 
 ### Examples
 
@@ -7020,6 +7043,10 @@ Mathlib Hecke and C⋆-algebra, Hilbert-space, trace-class and measure tools whe
 ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progression estimates, divisor constants and Mangoldt-window bounds. For a growing W-trick modulus the consumer must prove W≤(log x)^B before using Siegel–Walfisz. ArithmeticStatistics consumes quadratic and cubic analytic estimates and supplies the arithmetic input of the same bundle. CM-height applications consume the fixed-degree conductor, value and logarithmic-derivative bounds with the odd normal-closure representation family stated above. Quadratic period applications consume the ordinary/narrow class and regulator dictionary. Spectral and noncommutative arithmetic applications consume the completed Bost–Connes system, its phase transition and the compact determinant comparison. These are uses of the results, not additional prerequisite roadmaps.
 
 ## References
+
+- Hideo Aramata. [Über die Teilbarkeit der Dedekindschen Zetafunktionen](https://www.jstage.jst.go.jp/article/pjab1912/9/2/9_2_31/_pdf). Proceedings of the Imperial Academy9(1933),31–34.
+- Victor S. Adamchik. [Contributions to the Theory of the Barnes Function](https://arxiv.org/pdf/math/0308086v1). arXiv math/0308086v1,2003.
+- Michael A. Bennett, Greg Martin, Kevin O'Bryant and Andrew Rechnitzer. [Explicit bounds for primes in arithmetic progressions](https://personal.math.ubc.ca/~gerg/papers/downloads/EBPAP.pdf). Illinois Journal of Mathematics62(2018),427–532.
 
 - Michael A. Bennett and Samir Siksek. [A conjecture of Erdős, supersingular primes and short character sums](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf). Annals of Mathematics 191 (2020), no.2, published article.
 - Gregory Debruyne and Jasson Vindas. [On general prime number theorems with remainder](https://arxiv.org/pdf/1601.05324). arXiv1601.05324v2.

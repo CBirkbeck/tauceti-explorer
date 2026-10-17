@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AnalyticNumberTheory",
+    "date": "2026-10-17",
+    "notes": "Completed independent fixing review. Corrected DIT versus standard quadratic completions with endpoint Lean witnesses, positive-beta scaling-measure scope, current-library monomial-induction duplication and source locators; added primary BMOR and Aramata proof routes. Lean elaborates with only sorry warnings. Not ready for upstream: scalar geometric heat/Gaussian trace refinements are absent from AS.4/AS.6; BC completion/strip-KMS and nonsingular factor classification lack closed source-backed prerequisite chains; fixed-family Hecke logarithmic derivatives, full Sathe-Selberg/intersection estimates, cubic local-distribution/Bochner/order bounds and complex-parameter/full-sector adapters remain unresolved. Exact locations, source sample, adversarial pass and required contracts are in research/blueprint/reviews/REV-PKG-AnalyticNumberTheory.md. Heavy README-only carriers are permitted and are not themselves a rejection reason."
+  }
+}

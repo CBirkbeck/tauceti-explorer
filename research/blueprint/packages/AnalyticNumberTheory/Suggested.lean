@@ -257,6 +257,27 @@ sum is `2i`. -/
 example : DirichletCharacter.rootNumber (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) = 1 := by
   sorry
 
+/-- At `D = -4`, the standard parity completion and the DIT period completion
+have different endpoint values. Mathlib's completion contains neither conductor power.
+Compare DIT (5.13), p.964, and README conventions. -/
+example :
+    (4 : ℂ) ^ (1 / 2 : ℂ) *
+        DirichletCharacter.completedLFunction (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) 0 = 1 ∧
+    (Real.pi : ℂ) ^ (1 / 2 : ℂ) *
+        DirichletCharacter.completedLFunction (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) 0 =
+          (Real.sqrt Real.pi : ℂ) / 2 := by
+  sorry
+
+/-- The same distinction at `s = 1`: conductor four contributes a factor two
+in the DIT completion and a factor four in the standard parity completion. -/
+example :
+    (4 : ℂ) *
+        DirichletCharacter.completedLFunction (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) 1 = 1 ∧
+    2 * (Real.pi : ℂ) ^ (1 / 2 : ℂ) *
+        DirichletCharacter.completedLFunction (ZMod.χ₄.ringHomComp (Int.castRingHom ℂ)) 1 =
+          (Real.sqrt Real.pi : ℂ) / 2 := by
+  sorry
+
 end AN4
 
 /-! ## Layer 3: Multiplicative means, smooth numbers and moments -/
