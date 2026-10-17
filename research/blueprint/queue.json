@@ -131257,8 +131257,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-EtaleDualityAndPerverseSheaves~codex.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/PKG-EtaleDualityAndPerverseSheaves~codex.md",
+   "note": "created by mistake — plan part EDC.4 is not accepted (revision BP~4 live)"
   },
   {
    "id": "PKG-GL2ModularityLifting~codex",
@@ -131276,8 +131277,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting~codex.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting~codex.md",
+   "note": "created by mistake — plan part R22.1 is not accepted (revision live)"
   }
  ]
 }
