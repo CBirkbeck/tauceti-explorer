@@ -256509,12 +256509,12 @@
   {
    "id": "ShimuraData/E18",
    "kind": "error",
-   "locator": "§8, PEL Shimura varieties, p.88, sentence before the definition of a PEL Shimura datum (2017 author notes)",
+   "locator": "§8, p.87 (after Proposition 8.14: SV3 deduced from the nontriviality of h and the simplicity of G^ad) and p.88, sentence before the definition of a PEL Shimura datum (2017 author notes)",
    "printed": "Milne deduces from the embedding of G into the Siegel group, which carries X into the Siegel domain, that (G,X) satisfies SV1–SV4.",
    "correction": "SV1, SV2 and SV4 follow; SV3 must be added as a hypothesis. For a wholly definite unitary PEL datum of rank n≥2 (signature (n,0) at every real place) h is central, G^ad is a nontrivial ℚ-simple group with compact real points, and SV3 fails.",
    "reason": "Take K imaginary quadratic, B=K with complex conjugation, V=K^n with a definite skew-hermitian form and h(z) acting on V⊗ℝ=ℂ^n by the scalar z. The positivity condition of Proposition 8.14 holds, h(S) is central, so its projection to G^ad=PU(n) is trivial while PU(n) is a nontrivial ℚ-simple factor for n≥2. The embedding into the Siegel datum transfers SV1, SV2 and SV4 but not SV3.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "new in the atlas; PELModuli §M0.12 (TauCetiRoadmap pull request #966) states the same correction independently. No correction on Milne's errata page or in Jungin Lee's list.",
    "searched": [
     "https://www.jmilne.org/math/xnotes/errata.html (SVI 2017 corrections listed there; none for p.88)",
     "TauCetiRoadmap pull request #966 README §M0.12, which states the same correction independently"
@@ -256522,6 +256522,83 @@
    "owner": "ShimuraData",
    "file": "research/blueprint/packets/ShimuraData.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Author notes, 2017 edition",
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraData~4",
+   "reviewReason": "On p.87 Milne deduces SV3 for simple PEL data from h≠1 and G^ad simple, and on p.88 asserts SV1–SV4 for every PEL datum; for B=K imaginary quadratic and a definite hermitian K^n, n≥2, h(z) is the scalar z, central, so its projection to the nontrivial ℚ-simple PU(n) is trivial and SV3 fails. Checked in the recorded copy on 2026-10-17."
+  },
+  {
+   "id": "ShimuraData/E19",
+   "kind": "misprint",
+   "locator": "§5, Example 5.25(c), p.64 (2017 author notes)",
+   "printed": "T(ℤ)={±(1+√2)^n | n∈ℤ} for the norm-one torus of ℚ(√2)",
+   "correction": "T(ℤ)={±(1+√2)^{2n}}={±(3+2√2)^n}: the norm-one units of ℤ[√2] are the even powers.",
+   "reason": "Nm(1+√2)=(1+√2)(1−√2)=−1, so 1+√2 is a unit of norm −1 and not a point of T. The conclusion that T(ℤ) is infinite and T(ℚ) not discrete in T(𝔸_f) is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://www.jmilne.org/math/xnotes/errata.html (SVI 2017 entries; none for Example 5.25)",
+    "https://www.jmilne.org/math/xnotes/SV_errata.pdf (Jungin Lee; its p.64 entries concern line 4 and a typo in Example 5.25(a))"
+   ],
+   "owner": "ShimuraData",
+   "file": "research/blueprint/packets/ShimuraData.json",
+   "citation": "J. S. Milne, Introduction to Shimura varieties, Author notes, 2017 edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraData/E20",
+   "kind": "misprint",
+   "locator": "§8, proof of Proposition 8.8, p.513",
+   "printed": "With w=−μ−ιμ and (ι+1)μ₀=w, μ is replaced by μ−μ₀ to make the weight zero.",
+   "correction": "Replace μ by μ+μ₀ (or take μ₀ with (ι+1)μ₀=−w).",
+   "reason": "The weight of μ−μ₀ is −(1+ι)(μ−μ₀)=w+(ι+1)μ₀=2w. The proof of Proposition 8.10 on p.513 uses the opposite convention w_h=(ι+1)μ_h, under which μ−μ₀ is right; Proposition 8.8 mixes the two. The existence statement is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://www.jmilne.org/math/xnotes/errata.html (entries for Shimura Varieties and Moduli; none for §8)"
+   ],
+   "owner": "ShimuraData",
+   "file": "research/blueprint/packets/ShimuraData.json",
+   "citation": "J. S. Milne, Shimura varieties and moduli, Published Handbook of Moduli, Vol. II (2013), author-hosted typeset chapter; printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraData/E21",
+   "kind": "misprint",
+   "locator": "§3.1, definition of Y_w before Lemma 3.1.2, p.32 (arXiv v1)",
+   "printed": "Y_w=∪_{w′≥w}C_w",
+   "correction": "Y_w=∪_{w′≥w}C_{w′}.",
+   "reason": "As printed the union is the single cell C_w; the next sentence (Y_w is open and contains C_w) and the proof of Lemma 3.1.2 (X^w⊆∪_{v≥w}C_v) use the union of the cells C_{w′} with w′≥w.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The recorded arXiv v1 PDF at the cited locator"
+   ],
+   "owner": "ShimuraData",
+   "file": "research/blueprint/packets/ShimuraData.json",
+   "citation": "George Boxer; Vincent Pilloni, Higher Coleman theory, arXiv:2110.10251v1 (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraData/E22",
+   "kind": "misprint",
+   "locator": "§5.3, sentence before Theorem 5.5, PDF p.28",
+   "printed": "The Weyl chambers C₀,…,C₄",
+   "correction": "C₀,…,C₃.",
+   "reason": "Section 2.1 defines four chambers C₀=closed dominant chamber and C_i=w̃_i(C₀) for i=1,2,3, and the display that follows lists exactly C₀,…,C₃.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The recorded advance-publication PDF at the cited locator"
+   ],
+   "owner": "ShimuraData",
+   "file": "research/blueprint/packets/ShimuraData.json",
+   "citation": "Frank Calegari; David Geraghty, Minimal modularity lifting for nonregular symplectic representations, Publisher-typeset Duke Math. J. advance-publication PDF, ©2019, DOI 10.1215/00127094-2019-0044, pp.1–96, hosted on author site; final volume/issue/page numbers unassigned in this copy",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
