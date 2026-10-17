@@ -8,11 +8,11 @@ This part owns Layers4–6 and consumes [Part I](../AnalyticNumberTheoryPartI/RE
 
 ### Prerequisites and boundaries
 
-ProfiniteArithmetic Layer 0 owns the ring of profinite integers, its product of p-adic factors, finite projections, units and compatible character lifting. RestrictedProducts owns the restricted-product carrier and topology; GlobalNumberFields owns the number-field finite adeles. AdelicAlgebraicGroups owns additive local Haar normalization. No second profinite-integer or adele object is introduced here. The Bost–Connes scaling measure is a particular normalized measure on these carriers.
+ProfiniteArithmetic Layer 0 is implemented on `Additive TauCeti.zHat`: consume `TauCeti.zHat.toZMod`, `ringEquivPiPadicInt` and its two continuity theorems, `isUnit_iff_component`, `unitsEquivPiPadicInt`, `unitsLift`, `unitsLift_unique` and `continuous_unitsLift` in `TauCeti.Topology.Algebra.Group.Profinite.ZHat.{ZMod,Decomposition,Units}`. RestrictedProducts owns the restricted-product carrier and topology; GlobalNumberFields owns the number-field finite adeles. AdelicAlgebraicGroups owns additive local Haar normalization. The Bost–Connes scaling measure is a particular normalized measure on these carriers.
 
 The commutative representation of a positive functional by a finite inner-regular measure is `LinearMap.exists_isFiniteMeasure_integral_characterSpace_eq`, in `TauCeti.Analysis.CStarAlgebra.CharacterSpaceMeasure`. It assumes a unital commutative complex C⋆-algebra and positivity on `star a * a`; normalization of the functional gives total mass one. The work here adds uniqueness, the Bost–Connes restriction and expectation argument, and the corresponding weak topology. The positive-definite-kernel translation construction already exists as `TauCeti.IsPositiveDefiniteSub.gnsSpace`, `gnsVector` and `gnsRepresentation` in `TauCeti.Analysis.PositiveDefinite.Function.GNS`; use it for the additive-group specialization. The algebraic positive-functional construction below adds bounded left multiplication for the Bost–Connes generators and its universal C⋆-norm. The general matrix and Hilbert-space spectral theories of OperatorTheory are prerequisites. Full and reduced crossed products, the reduced conditional expectation, the amenable full/reduced comparison and the KMS theory of a C⋆-dynamical system are OperatorAlgebraDynamics D1, D2 and D7; normal representations, nonsingular crossed products and ratio-set classification are consumed from VonNeumannAlgebras. The universal C⋆-completion of the Bost–Connes core, its semigroup dilation corner and the Bost–Connes instances of these theorems are constructed here.
 
-Layer 5 owns the binary-cubic arithmetic needed by its analytic series: the twisted action, locally free cubic algebra correspondence, discriminant and trace-dual conditions, finite weighted coefficients and the uniform degree-at-most-three field count. It also owns the quadratic large sieve and its fourth-moment consequence.
+Layer 5 owns the binary-cubic arithmetic needed by its analytic series: the determinant-inverse twist of row substitution, locally free cubic algebra correspondence, discriminant and trace-dual conditions, finite weighted coefficients and the uniform degree-at-most-three field count. Generic substitution on homogeneous polynomials is already `MvPolynomial.linearSubst` and `linearSubstRep` in `TauCeti.RingTheory.MvPolynomial.LinearSubst`; transpose its column convention for row variables, then add the determinant twist. It also owns the quadratic large sieve and its fourth-moment consequence.
 
 ## Conventions
 
@@ -566,7 +566,7 @@ Use the Taylor-subtracted integral and the reciprocal-gamma zero at−m. Identif
 
 At m=0,c=1 the value is−1/2; at m=0,c=1/2 it is0; at m=0,c=1+i it is−1/2−i. The positive-half-plane series definition at s=0 is divergent and totalizes to0; use the continued H, not that totalized sum.
 
-See [94][R94], §6 p.40 for the Bernoulli/Hurwitz discussion; the separate [§4.12a][R329] above supplies the identity with its B₁ sign and complex-c generality.
+See [NIST DLMF §25.11(v), (25.11.13)–(25.11.14)](https://dlmf.nist.gov/25.11#E14) for the complex-parameter identity; [94][R94], §6 p.40 discusses its arithmetic setting. The [§4.12a][R329] supplies the proof with this B₁ sign.
 
 *Needs:* [§4.12](#s4-12); `Polynomial.bernoulli`; `Polynomial.bernoulli_one`; `Polynomial.bernoulli_eval_one`.
 
@@ -631,6 +631,7 @@ Verify multiplicativity on the four-element unit group modulo eight. Extend by z
 - Every row takes value 1 at 1.
 - ψ2(3)=−1 and ψ−2(7)=−1.
 - For rows i,j, Ση ψi(η)ψj(η)=4 if i=j and 0 otherwise.
+- Every row vanishes at 2; even inputs are nonunits, not an extra positive character value.
 
 
 See [102][R102], §2.1, (7)–(11), p.358.
@@ -1111,6 +1112,7 @@ Use the two affine involutions to transport the preceding open base and take its
 - (2,2) is in B0.
 - (−2,−2) is in B4 but not B3.
 - (0,0) is not in B5.
+- The finite dihedral orbit of the ball x²+y²<5 does not cover (10,10): the generators fix (1/2,1/2) and preserve Q(x,y)=(x−1/2)²+(x−1/2)(y−1/2)+(y−1/2)². Since Q≤2(x²+y²)+3, Q<13 on the ball, whereas Q(10,10)=1083/4. Exterior R6 charts are essential for arbitrary rectangles.
 
 See [102][R102], Lemma 2 proof, pp.363–364.
 
@@ -1622,7 +1624,7 @@ See [102][R102], §3 equation (29), pp.361–362.
 
 <a id="s5-30g"></a>
 
-**§5.30g Quadratic fourth moment.** Consume the [§5.29](#s5-29) just stated.  For fixed σ∈[1/2,1] and ε>0, Σχ nonprincipal primitive real,condχ≤Q |L(σ+it,χ)|⁴ ≤ Cσ,ε [Q+(Q(1+|t|))^(2−2σ)](Q(1+|t|))^ε, for Q≥1 and t∈R. The conductor-one principal character is treated separately.
+**§5.30g Quadratic fourth moment.** Consume the [§5.29](#s5-29) just stated.  For fixed σ∈[1/2,1] and ε>0, Σχ nonprincipal primitive real,condχ≤Q |L(σ+it,χ)|⁴ ≤ Cσ,ε {Q+(Q(1+|t|))^(2−2σ)}(Q(1+|t|))^ε, for Q≥1 and t∈R. The conductor-one principal character is treated separately.
 
 Use the quadratic large sieve on the smoothed Dirichlet polynomial for L². Bound the reflected contour using the primitive functional equation; bootstrap the dyadic fourth moment and treat σ=1/2 by σ=1/2−ε.
 
@@ -1799,7 +1801,7 @@ See [111][R111], §4.3, Proposition 4.6, pp.37–38; application pp.43–44.
 
 **§5.30ab Polynomial growth of cleared double series.** For each compact real rectangle I×J there exist C,N>0 with |Eij(s,w)|≤C(1+|Ims|)^N(1+|Imw|)^N whenever Res∈I,Rew∈J. Here Eij is the entire cleared continuation.
 
-Obtain polynomial bounds on every component of the R6 shell from the compact-uniform primitive moment and uniform Gamma ratio. Normalize by (3+s)^M(3+w)^M on a real-part ball and use bounded reciprocal tube extension. Translate the ball under the functional system to cover the requested rectangle.
+Use §5.30z–aa for the filled ball x²+y²<5. Its union with the unbounded open base of R6 is all R², since the omitted polygon lies in x²+y²≤3. Cover the requested compact rectangle by finitely many open charts from this union: the filled-ball bound applies inside, while the transported convergence bounds apply outside. Take the largest exponents and constants over that finite cover; each affine transport bounds the transformed imaginary heights by a constant times 1+|Ims|+|Imw|. A finite orbit of the bounded ball alone is insufficient.
 
 See [102][R102], Lemma 2 proof, pp.363–364.
 
@@ -1934,6 +1936,7 @@ Import the compact quotient and positive scalar Laplacian. Index the nonzero spe
 - For a finite spectrum consisting of λ>0, the series is λ^(−s).
 - The zero eigenvalue contributes1 to the heat series and contributes no term to ζΔ.
 - Replacing each positive λ by cλ for c>0 multiplies the convergent zeta series by c^(−s).
+- Positivity alone does not imply convergence: the infinite constant spectrum λj=1 gives the divergent series Σ1 for every s. Its totalized `spectralZetaSeries` is 0, not an analytic spectral continuation.
 
 
 See [115][R115], §1, (1.1)–(1.5), p.603.
@@ -1950,25 +1953,23 @@ See [116][R116], §4, pp.13–15; Sarnak §1, p.603.
 
 <a id="s6-5"></a>
 
-### 6.5 Ratio set of a nonsingular action
+### 6.5 Bost–Connes ratio-witness convention
 
-Let a countable group G act nonsingularly on a nonzero standard sigma-finite measure space (X,μ), and let ρg=d(g_*μ)/dμ with g_*μ(E)=μ(g⁻¹E). RatioSet is the set of λ≥0 such that for every measurable A of positive measure and ε>0 some g has μ({x∈A∩gA:|ρg(x)−λ|<ε})>0. The derivative is evaluated at the target x.
+For the canonical β-scaling measure on A_f, β>0, compare positive-rational dilation witnesses with V11's measured-relation cocycle. Since q_*μβ(E)=μβ(q⁻¹E)=q^βμβ(E), its pushforward density at the target is q^β. Thus a witness for λ≥0 is a positive-measure subset of A∩qA on which |q^β−λ|<ε, for each positive-measure measurable A and ε>0. This is a BC specialization, not another ratio-set carrier.
 
-Compare with V11's ratio-set carrier using pushforward RN derivative at the target and witnesses in A∩gA. General closedness/orbit invariance/classification is imported, not reconstructed.
-
-- `TauCeti.BostConnes.RatioSet.one_mem`: The identity transformation puts 1 in the ratio set.
-- `TauCeti.BostConnes.RatioSet.closed`: The ratio set is closed in nonnegative reals.
-- `TauCeti.BostConnes.RatioSet.orbit_invariant`: Equivalent nonsingular orbit relations have the same ratio set. The derivative convention is pushforward at the target.
+- `TauCeti.BostConnes.ratioWitness_iff`: The displayed BC witnesses are equivalent to membership in V11's ratio set for this action.
+- `TauCeti.BostConnes.pushforwardDensity`: The target density of dilation q is q^β; the inverse dilation has density q^(−β).
 
 **Checks.**
 
 - For the identity action on a one-point probability space, 1 lies in the ratio set.
 - For that same action, 2 does not lie in the ratio set.
 - For that same action, 0 does not lie in the ratio set.
+- For q=2, β=1, μβ(2Ẑ)=1/2, while the pushforward density of dilation by 2 is 2 and that of its inverse is 1/2. Cylinder mass and target density have opposite exponents.
 
 See [117][R117], §1 ratio-set definition, p.2.
 
-*Needs:* `MeasureTheory.Measure.rnDeriv`.
+*Needs:* [§6.2][R440]; VonNeumannAlgebras V8/V11; `MeasureTheory.Measure.rnDeriv`.
 
 <a id="s6-6"></a>
 
@@ -2150,7 +2151,7 @@ See [115][R115], §1, (1.1)–(1.5), p.603.
 
 <a id="s6-12a"></a>
 
-**§6.12a Explicit scalar hyperbolic heat kernel.** Fix one connected compact torsion-free surface X=Γ\H, curvature −1, hyperbolic measure dμ=dx dy/y², area A=4π(g−1), and a compact fundamental polygon D of diameter d. The positive scalar differential expression is A_X=−div grad=−y²(∂x²+∂y²). Identify this expression and measure with DifferentialGeometry Layer 12 in the standard hyperbolic charts; complex functions use the componentwise complexification of its real Green identity. The resulting energy is ∫|grad f|² and vanishes precisely on constants, using connectedness and full support of dμ.
+**§6.12a Explicit scalar hyperbolic heat kernel.** Fix one connected compact torsion-free surface X=Γ\H, curvature −1, hyperbolic measure dμ=dx dy/y², area A=4π(g−1), and a compact fundamental polygon D of diameter d. The positive scalar expression is A_X=−div grad=−y²(∂x²+∂y²), the negative of DifferentialGeometry Layer 12's `laplaceBeltrami`. Prove this sign and measure comparison in hyperbolic charts; complexify its real Green identity componentwise. The energy is ∫|grad f|² and vanishes precisely on constants by connectedness and full support. As a local sign check, A_X(x²)=−2y², whereas `laplaceBeltrami`(x²)=2y².
 
 For t>0 and ρ=d(z,w), construct
 
@@ -2944,7 +2945,7 @@ For β>0, IsKMS(β,φ) on the dense complex Hecke algebra means: φ is complex l
 
 Assume β > 0.
 
-Taking f=1 in the boundary identity kills every a≠1 term since a⁻ᵝ≠1; remaining coefficients are time-fixed. For bounded completed states apply the analytic-core strip criterion. Algebraic positivity alone gives no completed state.
+Taking f=1 in the boundary identity kills every a≠1 term since a⁻ᵝ≠1; remaining coefficients are time-fixed. Completion uses the BC generator bounds and universal/regular norm comparison in §6.33g–i; the analytic-core strip criterion then applies.
 
 - `TauCeti.BostConnes.IsKMS`: IsKMS(β,φ) includes β>0, normalization, complex-order positivity and the displayed boundary identity on the dense Hecke algebra.
 - `TauCeti.BostConnes.IsKMS.timeEvolution_invariant`: IsKMS β φ → φ (timeEvolution t f) = φ f for real t.
@@ -3263,9 +3264,7 @@ See [112][R112], Chapter 3, Definition 3.7 and following ground-state remark, p.
 
 <a id="s6-36a"></a>
 
-**§6.36a KMS-infinity limits are ground states.** For a unital C*-system with point-norm continuous dynamics, each KMS∞ state is a ground state. On every finite upper strip the KMSβ correlation functions, for sufficiently large β, are bounded by ‖a‖‖b‖; use normal families and boundary convergence.
-
-Take beta tending to infinity along the weak state limit. On each fixed upper strip the correlation functions have a common norm bound once beta exceeds its height. A diagonal normal-family limit is analytic on the upper half-plane and has the required boundary values.
+**§6.36a BC KMS-infinity limits are ground states.** Apply D7's limit theorem to the completed BC system: §6.24 and §6.33h give a unital C*-algebra and point-norm continuous dynamics, and §6.30 identifies the completed KMS predicate. Therefore the finite-observable limit in §6.36 satisfies its upper-half-plane ground-state condition. The local target is this compatibility and specialization.
 
 See [112][R112], Ch.3, Definition 3.7, p.447.
 
@@ -3488,7 +3487,7 @@ The intended interface is:
 
 See Neshveyev, [Ergodicity of the action of the positive rationals on the group of finite adeles][R123], corollary proof, p.3; and [Von Neumann algebras of the Bost–Connes type][R124], §1, pp.1–2 and Theorem 2.1, p.3. These sources prove the arithmetic application. The general classification and flow-of-weights contracts are imported from [VonNeumannAlgebras V8/V11, PR#889][R125], rather than attributed to Neshveyev’s application.
 
-*Needs:* standard measure-space quotients, Radon–Nikodym derivatives, Hilbert-space operator algebras, the ratio-set definition below, and the expectation/compression construction. Its arithmetic application follows the ergodicity and full-ratio-set proofs below.
+*Needs:* VonNeumannAlgebras V0/V4/V8/V11; [§6.5](#s6-5); the BC expectation/compression construction; the arithmetic ergodicity and full-ratio-set proofs.
 
 <a id="s6-42"></a>
 
@@ -3552,7 +3551,7 @@ Approximate any finite positive-measure set by a finite valuation and unit cylin
 
 <a id="s6-42g"></a>
 
-**§6.42g Ergodicity makes the group-measure algebra a factor.** For the canonical μβ, the Q+× action is essentially free: qx=x with q≠1 forces x=0, a null point. For a countable essentially free nonsingular action on a standard sigma-finite measure space, the center of L∞(X,μ)⋊G equals L∞(X,μ)^G; ergodicity therefore makes it a factor.
+**§6.42g The BC group-measure algebra is a factor.** For 0<β≤1 the canonical μβ action is essentially free: qx=x with q≠1 forces x=0, a null point. Its space is standard and sigma-finite by the countable rational-dilate exhaustion. Apply V8 to this action and §6.9's ergodicity to obtain factoriality of L∞(A_f,μβ)⋊Q+×.
 
 For a nonidentity rational q, invert q-1 in the finite adeles to show its only fixed point is zero; scaling gives that point measure zero. Import VonNeumannAlgebras V8’s group-measure-space center theorem, then use the canonical ergodicity result.
 
@@ -3560,7 +3559,7 @@ See [114][R114], Corollary proof, p.3.
 
 <a id="s6-42h"></a>
 
-**§6.42h Full positive ratio set determines type III1.** For a countable essentially free ergodic nonsingular action on a standard sigma-finite measure space, RatioSet=[0,∞) implies its group-measure factor has type III1; equivalently its flow of weights is trivial. This is the operator classification input, distinct from the arithmetic ratio witnesses.
+**§6.42h The BC group-measure factor has type III1.** For 0<β≤1 apply V11 to the action verified in §6.42g and the arithmetic full ratio set in §6.42f. Its group-measure factor has type III1, equivalently trivial flow of weights. This specializes the imported classification; it does not own a general ratio-set/type theorem.
 
 Apply the imported VonNeumannAlgebras V11 ratio-set/associated-flow comparison and III₁ criterion, after the V8 factoriality check, to this established essentially free ergodic action and its full nonnegative ratio set. The theorem identifies the Connes type from that measured ratio invariant; no arithmetic witness replaces this classification input.
 
@@ -3727,7 +3726,7 @@ See [112][R112], Chapter 3, Theorem 3.32, pp.474–475; Proposition 3.8, pp.447�
 
 <a id="s6-48a"></a>
 
-**§6.48a Unit-orbit decomposition above the critical temperature.** Forβ>1, the disjoint sets nẐ× cover a μβ-full subset ofẐ, and μβ(Ẑ×)=∏p(1−p^(−β))=ζ(β)^(−1). Every scaling measure is reconstructed from a probability measure onẐ× by the weighted orbit sums.
+**§6.48a Unit-orbit decomposition above the critical inverse temperature.** Forβ>1, the disjoint sets nẐ× cover a μβ-full subset ofẐ, and μβ(Ẑ×)=∏p(1−p^(−β))=ζ(β)^(−1). Every scaling measure is reconstructed from a probability measure onẐ× by the weighted orbit sums.
 
 For every normalized scaling measure, the mass of the p-divisibility cylinder is p^(−β). Their sum is finite when β>1, so Borel–Cantelli leaves finitely many nonunit coordinates almost surely. A coordinate identically zero has zero mass by arbitrary repeated p-divisibility. Clear the remaining finite valuations by one positive rational, uniquely, to reach W. On the integral slice only positive integers occur; sum their scaling masses to get μ(W)=1/ζ(β), and recover the measure from its normalized unit restriction.
 
@@ -3745,7 +3744,7 @@ See [114][R114], Neshveyev 2000, pp.1–2.
 
 **§6.48c Probability measures parameterize high-beta KMS states.** For β>1, ν↦∫W φβ,u dν(u) is an affine homeomorphism from Radon probability measures on the existing compact group W=Ẑ× to completed KMSβ states. The inverse is the normalized unit restriction of the corresponding scaling measure.
 
-Restrict the scaling measure to units and multiply by zeta(beta). The rational-orbit decomposition reconstructs it and yields the Gibbs barycentre. Integrals against continuous test functions give weak continuity of both maps; the state topology is pointwise weak evaluation.
+The unit restriction and rational-orbit decomposition give inverse affine bijections. For each core element the Gibbs formula is continuous in u by the uniformly summable ζ(β) tail; norm density and state norm one extend this to every completed element. Integration gives weak continuity of the forward map. Radon probabilities on compact W form a compact space, and weak evaluation of states is Hausdorff, so the inverse is continuous. This avoids assuming restriction to the closed, nonopen unit locus preserves weak convergence.
 
 See [112][R112], Ch.3, Theorem 3.32, pp.474–476; Neshveyev 2000, pp.1–2.
 
