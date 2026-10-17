@@ -42,7 +42,7 @@ The real reductive Harish-Chandra/globalization statements use their stated real
 
 ## Target status and Suggested file
 
-All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items and 30 planets, now with 213 specified definition/construction Checks. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records dependencies and the accepted fourth independent target-level review, [REV-AutomorphicFormsOnReductiveGroups~4](../reviews/REV-AutomorphicFormsOnReductiveGroups~4.md). Acceptance covers the plan with its recorded remaining work; it does not close a stage or implement a target.
+All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items and 30 planets, now with 214 specified definition/construction Checks. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records dependencies and the accepted fourth independent target-level review, [REV-AutomorphicFormsOnReductiveGroups~4](../reviews/REV-AutomorphicFormsOnReductiveGroups~4.md). That verdict concerns the fourth revision. The fifth revision retains its corrections and refines the coefficient-ring Check in AF.5, as recorded in the [handoff](../handoff/BP-AutomorphicFormsOnReductiveGroups~5.md); it awaits independent review. Acceptance does not close a stage or implement a target.
 
 The [Suggested file](../suggested/AutomorphicFormsOnReductiveGroups.lean) follows the current worker shape: only real-bodied light definitions and representative theorem signatures on carriers available at the pins. Full intended mathematical interfaces, including all three conclusions of `AF.4/bhr-large-weight`, remain in this reader when their carriers are not at the pins. No theorem is represented by an admitted data definition, an arbitrary proposition standing for its conclusion, or a numerical weight check.
 
@@ -4281,13 +4281,15 @@ Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open,
 |---|---|---|
 | `centralAMF_split_torus` | computation | For G=G_m over a real quadratic field, Z_f=G(𝔸_f), ψ=1 and trivial coefficients, the central-quotient class set has one element and S_ψ=A despite positive rank of rational units. |
 | `centralAMF_trivial_centre` | compatibility | When Z_f is trivial the carrier agrees with LevelAlgebraicModularForm. |
-| `centralAMF_incompatible` | non-example | For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, every compatible form vanishes; the unrestricted carrier must not be used. |
+| `centralAMF_incompatible` | non-example | For a one-dimensional coefficient space over a field A, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, the transformation equations force every form to vanish. Over a general coefficient ring, the same scalar-cancellation argument applies when the difference of the two scalars acts injectively on M; inequality alone is insufficient. Such mismatched data are excluded by the required overlap compatibility. |
+| `centralAMF_ring_scalar_mismatch` | non-example | Over A=ℤ/8ℤ with M=A, ψ=1 and a central involution acting by −1, the nonzero constant value 4 satisfies both scalar transformation equations although 1≠−1. These coefficient data fail the required overlap compatibility, but show why scalar inequality alone does not force zero over a ring. |
 
 **Acceptance.**
 
 - For G=G_m over a real quadratic field, Z_f=G(𝔸_f), ψ=1 and trivial coefficients, the central-quotient class set has one element and S_ψ=A despite positive rank of rational units.
 - When Z_f is trivial the carrier agrees with LevelAlgebraicModularForm.
-- For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, every compatible form vanishes; the unrestricted carrier must not be used.
+- For a one-dimensional coefficient space over a field A, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, the transformation equations force every form to vanish. Over a general coefficient ring, the same scalar-cancellation argument applies when the difference of the two scalars acts injectively on M; inequality alone is insufficient. Such mismatched data are excluded by the required overlap compatibility.
+- Over A=ℤ/8ℤ with M=A, ψ=1 and a central involution acting by −1, the nonzero constant value 4 satisfies both scalar transformation equations although 1≠−1. These coefficient data fail the required overlap compatibility, but show why scalar inequality alone does not force zero over a ring.
 
 **Intended interface scope.** README interface contract; not a claim of a declaration in Suggested. Native ψ-weighted equivariance, overlap compatibility, stabilizer values, effective endomorphism units, central double-coset evaluation and tensor base-change. Arithmetic central-quotient class/stabilizer finiteness for positive-unit-rank centres is an AA request.
 

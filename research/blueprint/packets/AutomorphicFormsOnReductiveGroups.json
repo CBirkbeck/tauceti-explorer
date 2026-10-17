@@ -12,7 +12,7 @@
     "AutomorphicFormsOnReductiveGroups:AF.5"
   ],
   "status": "complete",
-  "summary": "Revision 4 specifies all three BHR large-weight conclusions, including a quantified arithmetic root-wall criterion and the arbitrary-irreducible lowest-weight/degree classification. The base scope is a general connected reductive group over a number field; GL_n, GL_2 and GSp_4 are explicitly bounded specializations. All 100 node identifiers and the independent review ledger are retained. Current AA, RG2, SR, AS and ALS foundational contracts are imports, with ownership overlaps recorded rather than re-planned. Following WORKERS.md (2026-10-12), Suggested contains only representative statements on carriers available at the pins; the full mathematical targets, intended APIs and tests are in the reader. All seven stages remain planned, none closed, and implementations unchecked; construction and unread-proof refinements remain explicit.",
+  "summary": "The plan specifies all three BHR large-weight conclusions, including a quantified arithmetic root-wall criterion and the arbitrary-irreducible lowest-weight/degree classification. The base scope is a general connected reductive group over a number field; GL_n, GL_2 and GSp_4 are explicitly bounded specializations. All 100 node identifiers and the independent review ledger are retained. Current AA, RG2, SR, AS and ALS foundational contracts are imports, with ownership overlaps recorded rather than re-planned. Following WORKERS.md (2026-10-12), Suggested contains only representative statements on carriers available at the pins; the full mathematical targets, intended APIs and tests are in the reader. All seven stages remain planned, none closed, and implementations unchecked; construction and unread-proof refinements remain explicit. The fifth revision preserves the accepted fourth review and its corrections, scopes scalar-mismatch vanishing to field coefficients (or injective scalar difference), and adds a coefficient-ring countercheck.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -9338,7 +9338,8 @@
       "acceptance": [
         "For G=G_m over a real quadratic field, Z_f=G(𝔸_f), ψ=1 and trivial coefficients, the central-quotient class set has one element and S_ψ=A despite positive rank of rational units.",
         "When Z_f is trivial the carrier agrees with LevelAlgebraicModularForm.",
-        "For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, every compatible form vanishes; the unrestricted carrier must not be used."
+        "For a one-dimensional coefficient space over a field A, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, the transformation equations force every form to vanish. Over a general coefficient ring, the same scalar-cancellation argument applies when the difference of the two scalars acts injectively on M; inequality alone is insufficient. Such mismatched data are excluded by the required overlap compatibility.",
+        "Over A=ℤ/8ℤ with M=A, ψ=1 and a central involution acting by −1, the nonzero constant value 4 satisfies both scalar transformation equations although 1≠−1. These coefficient data fail the required overlap compatibility, but show why scalar inequality alone does not force zero over a ring."
       ],
       "sources": [
         {
@@ -9399,7 +9400,12 @@
         {
           "name": "centralAMF_incompatible",
           "kind": "non-example",
-          "statement": "For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, every compatible form vanishes; the unrestricted carrier must not be used."
+          "statement": "For a one-dimensional coefficient space over a field A, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, the transformation equations force every form to vanish. Over a general coefficient ring, the same scalar-cancellation argument applies when the difference of the two scalars acts injectively on M; inequality alone is insufficient. Such mismatched data are excluded by the required overlap compatibility."
+        },
+        {
+          "name": "centralAMF_ring_scalar_mismatch",
+          "kind": "non-example",
+          "statement": "Over A=ℤ/8ℤ with M=A, ψ=1 and a central involution acting by −1, the nonzero constant value 4 satisfies both scalar transformation equations although 1≠−1. These coefficient data fail the required overlap compatibility, but show why scalar inequality alone does not force zero over a ring."
         }
       ],
       "uses": [

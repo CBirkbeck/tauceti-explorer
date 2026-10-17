@@ -318,6 +318,17 @@ example (ι : Γ →* G) (σ : Representation ℂ Γ M) (J : Subgroup G)
 
 end AlgebraicForms
 
+/-- Distinct central scalars force a value to vanish over a coefficient field. -/
+example {A : Type*} [Field A] (a b m : A) (hab : a ≠ b)
+    (h : a * m = b * m) : m = 0 := by
+  have hzero : (a - b) * m = 0 := by rw [sub_mul, h, sub_self]
+  exact (mul_eq_zero.mp hzero).resolve_left (sub_ne_zero.mpr hab)
+
+/-- Over a coefficient ring, unequal central scalars can agree on a nonzero value.
+This checks centralAMF_ring_scalar_mismatch; overlap compatibility is still required. -/
+example : (4 : ZMod 8) ≠ 0 ∧ (1 : ZMod 8) ≠ -1 ∧
+    (-1 : ZMod 8) * 4 = 1 * 4 := by decide
+
 /-!
 README-only targets include real/Harish-Chandra classification and globalization;
 all-degree relative and coherent cohomology and van Est; actual automorphic
