@@ -132642,7 +132642,7 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv3.md",
    "note": "claimed on GitHub issue #10249"
   },
@@ -132662,7 +132662,7 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv2.md",
    "note": "claimed on GitHub issue #10250"
   }
