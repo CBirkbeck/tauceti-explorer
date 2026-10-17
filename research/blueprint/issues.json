@@ -4984,5 +4984,8 @@
  "PKG-PrismaticCohomology~3": 10231,
  "REV-PKG-ModularityAndLanglandsExtensions~3": 10232,
  "REV-PKG-PrismaticCohomology~3": 10233,
- "FIX-PKG-AnalyticNumberTheory~adv2": 10234
+ "FIX-PKG-AnalyticNumberTheory~adv2": 10234,
+ "REV-PKG-PrismaticCohomologyPartIII~adv": 10236,
+ "REV-PKG-PrismaticCohomologyPartII~adv": 10237,
+ "REV-PKG-PrismaticCohomologyPartIV~adv": 10238
 }
