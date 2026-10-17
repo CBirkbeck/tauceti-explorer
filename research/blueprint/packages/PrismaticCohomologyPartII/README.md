@@ -10,6 +10,10 @@ Supplier abbreviations in prerequisite labels: DD = DerivedDeRhamCohomology; EDS
 
 This part consumes PrismaticCohomology Layers 0–2. It owns canonical prism twists, the relative Nygaard filtration, the Cartier–Witt and absolute constructions, and the framed q-models. AInfCohomology supplies décalage and AΩ; ordinary monoidal derived and formal-stack foundations remain imports. The local enhancements and all-coordinate comparison maps are specified in Layers 3–5.
 
+The lax symmetric monoidal décalage functor, its multiplicative Bockstein comparison and its description by the Beilinson cover are supplied by AInfCohomology §§AI.1.3–AI.1.4 (`Decalage.etaTensor`, `AInf.bockstein_reduction`, `AInf.filtered_beilinson_description`). This part uses those enhanced interfaces rather than constructing another décalage functor. Mathlib `geom_sum_mul` supplies the denominator-free geometric-sum identity used by the q-integer notation.
+
+Ordinary effective Cartier divisors and their flat pullback are supplied by Tau Ceti `AlgebraicGeometry.Scheme.IdealSheafData.IsEffectiveCartier` and `IsEffectiveCartier.comap` in `TauCeti.AlgebraicGeometry.EffectiveCartierDivisor.Basic`. Generalized Cartier data here allow a noninjective map from a line module; only that enlargement, its descent and its comparison with the existing effective-divisor predicate are new. Cartier divisors defined by rational functions on integral schemes remain Tau Ceti `TauCeti.AlgebraicGeometry.Scheme.CartierDivisor` in `TauCeti.AlgebraicGeometry.CartierDivisor.Basic`.
+
 ## Conventions
 
 Use PrismaticCohomology Conventions for p prime, commutative unital rings (including zero), cohomological indexing, animated inputs and ideal-marked derived completion. In the bounded-prism targets (A,I) is bounded unless a broader prism range is explicitly stated. D_comp(A) is derived (p,I)-complete; tensor products in it are completed.
@@ -34,18 +38,19 @@ A supplier row specifies the interface used, under the hypotheses shown. Its the
 | `DD:DD.2` | 3, 4 | Derived p-complete de Rham algebras with Hodge filtration, polynomial models, continuous forms for smooth algebras and crystalline base change; log-free extension is DD.6. Comparison maps preserve multiplication and the stated filtrations. |
 | `DD:DD.5` | 3, 4, 5 | Quasisyntomic site and QRSP basis, completed faithfully flat cotangent-power descent, unfolding from QRSP objects and completed left Kan extension. BMS2 Lemma 4.34 supplies the relative cotangent-flatness condition only in its perfect-base range. |
 | `CR:CR.2` | 3, 4, 5 | Crystalline–de Rham comparison on smooth lifts and its polynomial/derived extension with Frobenius and completed base change. No singular site comparison follows from the smooth theorem alone. |
-| `EDS:E2` | 5 | Enhanced sheaves, hypercovers, effective epimorphisms, cohomological descent and replete-topos limits. Use space-valued fpqc sheafification, not just groupoid stackification. |
+| `EDS:E2` | 4, 5 | Enhanced sheaves, hypercovers, effective epimorphisms, cohomological descent and replete-topos limits. Use space-valued fpqc sheafification, not just groupoid stackification. |
 | `DD:DD.4` | 4 | Crystals and de Rham realizations, completed filtered modules and base change in their stated ranges; prismatic F-crystal comparison and integral lattice descent are local targets. |
 | `SF:SF.1` | 4 | Affine module/vector-bundle faithfully flat descent and henselian invariance. Complete formal QCoh, compatible-tower effectivity and punctured derived-completion descent have explicit local owners where used. |
 | `AI:AI.1` | 3, 5 | Derived Lη for an invertible ideal, torsion-free η-models, cohomology/truncation and Bockstein reduction, with lax monoidal comparisons. Completed commuting-endomorphism Koszul models retain the exterior degree/sign adapter. |
 | `EDS:E3` | 3, 5 | Coherent left/right Kan extensions, sifted colimits, totalizations and adjunctions in enhanced categories. Polynomial animation uses its universal property, not a choice of a single resolution. |
+| `EDS:E0` and `EDS:E5:abstract` | 3, 4, 5 | Limits, stable presentable module ∞-categories, symmetric monoidal functors, algebra objects and coherent adjunctions. The ordinary derived category alone does not supply these structures. |
 | `EDS:E5:animation` | 3 | Animated commutative rings and prelog analogues, compact projective polynomial generators, free resolutions and the nonabelian-derived universal property. Completion and algebra structures use DD.1/E5:abstract. |
 | `CR:CR.4` | 4 | de Rham–Witt and logarithmic de Rham–Witt sheaves on smooth characteristic-p schemes, Frobenius/Verschiebung/Nygaard operators, Cartier and crystalline comparisons, and their pro-étale coefficient range. |
 | `AI:AI.3` | 5 | AΩ on small smooth formal charts and its étale, Hodge–Tate and crystalline comparisons, compatible with completed base change and Frobenius. |
 | `AI:AI.4` | 5 | Framed q-de Rham computations of AΩ, completed Čech/Koszul models and coordinate-injective comparison maps. Arbitrary coordinate identifications and multiplicative E₁ coherence are constructed in §§5.18, 5.22. |
 | `DD:DD.3` | 3 | Polynomial Cartier maps and completed derived Cartier comparison, compatible with cotangent transitivity and the conjugate filtration. |
 | `DVS:D0` | 4 | Ordinary prestacks, groupoid stacks, torsors and their descent. Space-valued formal stacks/QCoh and the schematic Fargues–Fontaine adapter require the explicit local targets. |
-| `AI:AI.7.2` and `AI.7.3` | 3 | Cyclotomic THH, TC^−, TP and the absolute trace sheaf with perfectoid coefficients, crystalline and AΩ comparisons (AI.7.2). AI.7.3 separately gives π₀TP(S/𝕊[z])≃N̂(φ_𝔖^*Δ_(S/𝔖)) for QRSP O_K-algebras with δ/Nygaard structures, using absolute recognition, independently of the Beilinson square. Absolute trace–prismatic identification, TC, rational cyclic square and its graded comparison are local §7.0 targets. |
+| TauCetiRoadmap.AlgebraicVectorBundles L0A–L0B | 4 | Ordinary quasi-coherent sheaves, tensor/dual conventions and the affine finite-projective comparison. The pointwise derived and formal-stack categories in §4.0 are additional interfaces. |
 | PerfectoidSpaces §§P1.16–P1.18, P4.15.2–P4.15.5; PerfectoidQuotients §0.0 | 3–5 | Integral perfectoid rings, A_inf, θ, primitive kernels, initial and perfected prisms, semiperfectoid universal quotient, André covers and surjectivity are the same inputs as PrismaticCohomology Scope; complete étale δ-extension and perfectoid Tor-independence come from PerfectoidQuotients. No companion imports this part. |
 
 ### Existing library interface
@@ -98,13 +103,19 @@ First calculate the Frobenius-divisibility ideals of discrete quasiregular semip
 <a id="s3-0"></a>
 <a id="layer-3-filtered-multiplicative-enhancement"></a>
 
-### 3.0 Multiplicative Beilinson cover and décalage
+### 3.0 Multiplicative Beilinson connective cover
 
-Prove `Prismatic.Filtered.connectiveCover_laxMonoidal` and `Prismatic.Decalage.eInfinity`: for a commutative ring T and an invertible Cartier ideal J, the Beilinson connective cover on DF(T) is lax symmetric monoidal, and Lη_J on D(T) has a natural lax symmetric monoidal refinement, hence carries E_∞ algebras and their coherent maps to E_∞ algebras. For a J-torsion-free cochain model K the underlying object is the ordinary η_J model; reduction modulo J is the Bockstein complex with its multiplicative enhancement. These statements include naturality in the ideal and the coefficient algebra. (BMS2, Definition 5.3, Theorem 5.4(1),(3), pp.28–29; Proposition 5.8, Corollary 5.10, pp.31–32.)
+Prove `Prismatic.Filtered.connectiveCover_laxMonoidal`: for a commutative ring T, the Beilinson connective cover on DF(T) is lax symmetric monoidal, naturally in T, with its unit, counit and coherent products. This statement applies to arbitrary filtered objects, beyond the ideal-power filtrations in AInfCohomology's décalage interface. Applied to filtered E_∞ algebras it preserves their coherent multiplication. (BMS2, Definition 5.3 and Theorem 5.4(1),(3), p.29; the right-adjoint monoidal argument in Corollary 5.10, p.33.)
 
 *Needs:* `DD:DD.1/filtered-modules`, `DD.1/completed-filtered-tensor`, `DD.1/beilinson-t-structure`, `DD.1/beilinson-heart`, `EDS:E5:abstract/algebra-objects`. The filtered category, Day tensor and Beilinson t-structure are imported, rather than constructed again here.
 
-**Checks.** For K=T in degree zero, Lη_JK=T and its unit remains 1. For a nonzerodivisor d generating J and K=[T --d→ T] in degrees 0,1, η_JK=[T --d→ dT] is acyclic; retaining its T/d cohomology is incorrect. For K=T[1] in degree −1, η_JK=J^(−1)[1], which detects omission of negative filtration indices. For two homogeneous classes the Bockstein obeys β(xy)=β(x)y+(−1)^deg(x)xβ(y); two degree-one generators over Z at p=2 still have the integral minus sign before reduction.
+**Checks.**
+
+- The Day unit is the step filtration with T at indices i≤0 and zero at i>0. Its connective cover and unit map are unchanged.
+- A step filtration with its sole graded piece T[−i] at index i is already Beilinson connective. Replacing that piece by T[−i−1] gives zero connective cover, since its cohomology is in degree i+1; ordinary degree-zero truncation would miss the index dependence.
+- The constant filtration T has zero graded pieces and is still Beilinson connective; its cover is itself. Replacing the cover by filtered completion would incorrectly kill it.
+- In the supplied décalage model, K=T in degree zero has Lη_JK=T with unit 1. For regular d generating J and K=[T --d→ T] in degrees 0,1, η_JK=[T --d→ dT] is acyclic; retaining T/d is incorrect. For K=T[1] in degree −1, η_JK=J^(−1)[1], detecting omission of negative indices.
+- The supplied multiplicative Bockstein obeys β(xy)=β(x)y+(−1)^deg(x)xβ(y); two degree-one generators over Z at p=2 retain the integral minus sign before reduction.
 
 **Proof route.** The Beilinson connective objects are closed under Day convolution: their i-th graded pieces lie in D^{≤i}, and the tensor connective bounds add. The inclusion of this symmetric monoidal subcategory has a right adjoint τ_B^{≤0}; the adjunction's unit and counit construct its lax structure and all coherences.
 
@@ -165,7 +176,7 @@ Over a perfectoid R with prism (A,(d)), call a multiplicative ideal filtration M
 
 Regularity is relative to R (BS22 Definition 2.42, I=(p)); in Proposition 12.8’s proof, “in f_i” means “in R′”.
 
-(BS22, Proposition 12.8 and its proof; p. 90; BS22, Proposition 12.8; p. 90.)
+(BS22, Proposition 12.8 and its proof, including relatively perfect base change and descent; pp.90–91.)
 
 *Needs:* [§3.1](#s3-1), [§3.2](#s3-2), [§2.15](../PrismaticCohomology/README.md#s2-15), [§2.3](../PrismaticCohomology/README.md#s2-3), [§2.8](../PrismaticCohomology/README.md#s2-8), [§2.17](../PrismaticCohomology/README.md#s2-17), `PS:P4.15.4`, `DD:DD.1`.
 
@@ -515,7 +526,7 @@ For smooth R/A/I, construct V_i:τ≤iΔ⊗I^i→τ≤iΔ¹ such that both compo
 
 X smooth p-adic formal scheme over A/I; Δ^{(1)}_{X/A} = Δ_{X/A} ⊗̂^L_{A, φ_A} A as a sheaf on X_ét. BS22 Corollary 15.5 prints the induced map as H^i(X_ét, Δ^{(1)}_{X/A}) ⊗ I^{⊗ i} → H^i_Δ(X/A); source and target are interchanged. The target states the corrected direction, which is that of BS22 Theorem 1.8 (6). The identification H^i(X_ét, Δ^{(1)}_{X/A}) = H^i(φ_A^*RΓ_Δ(X/A)) uses the completed quasi-coherent projection formula on a quasi-compact quasi-separated X, established through finite affine descent as in §1.21; the sheaf-level statement needs no such hypothesis.
 
-(BS22, Corollary 15.5 and its proof; p. 104; BS22, Theorem 1.8 (6); p. 4; BMS1, Lemma 6.9; p. 51.)
+(BS22, Corollary 15.5 and its proof; p. 104; BS22, Theorem 1.8 (6); p. 5; BMS1, Lemma 6.9; p. 51.)
 
 *Needs:* [§3.16](#s3-16), `AI:AI.1`, `AI:AI.1/decalage-truncations`, `AI:AI.1/derived-decalage`.
 
@@ -526,7 +537,7 @@ X smooth p-adic formal scheme over A/I; Δ^{(1)}_{X/A} = Δ_{X/A} ⊗̂^L_{A, φ
 
 ### 3.19 Comparison of the Nygaard filtration with the Hodge filtration of derived de Rham cohomology
 
-For animated R/A/I, Bockstein on H^n(gr_N^nΔ¹) gives the p-completed ordinary de Rham DGA of π₀R; Ωhat^n means H⁰ of derived completion and need not be classically separated. The natural filtered map γ:Fil_NΔ¹→Fil_Hdg LΩhat has γ₀:R→R the identity and fibre I⊗Fil_N^(•−1)→Fil_N^•→Fil_Hdg^•. Reduction by I identifies lim Fil_N with lim Fil_Hdg. If the p-completion of R is smooth of dimension ≤d, v:I⊗Fil_N^n→Fil_N^(n+1) is an iso for n≥d, so Fil_N^n=I^(n−d)Fil_N^d. The graded fibre is Fil_(n−1)^conjΔ̄{n}→Fil_n^conjΔ̄{n}→∧^nLhat[−n].
+For animated R/A/I, Bockstein on H^n(gr_N^nΔ¹) gives the p-completed ordinary de Rham DGA of π₀R; Ωhat^n means H⁰ of derived completion and need not be classically separated. The natural filtered map γ:Fil_NΔ¹→Fil_Hdg LΩhat induces the identity on gr⁰≃Rhat, the derived p-completion of R; its fibre sequence is I⊗Fil_N^(•−1)→Fil_N^•→Fil_Hdg^•. Reduction by I identifies lim Fil_N with lim Fil_Hdg. If the p-completion of R is smooth of dimension ≤d, v:I⊗Fil_N^n→Fil_N^(n+1) is an iso for n≥d, so Fil_N^n=I^(n−d)Fil_N^d. The graded fibre is Fil_(n−1)^conjΔ̄{n}→Fil_n^conjΔ̄{n}→∧^nLhat[−n].
 
 R animated Ā-algebra; dR^∧_{R/Ā} and its Hodge filtration are those of DD:DD.2, p-completed; for p-completely smooth R they are the p-completed de Rham complex with its stupid filtration. In (1) the de Rham complex is that of π_0(R) relative to Ā, and Ω̂^n is H^0 of the derived p-completion of Ω^n_{π_0(R)/Ā} (Bhatt–Lurie's convention; it need not be p-adically separated and agrees with the classical completion when Ω^n has bounded p^∞-torsion). In the proof of BL22 Corollary 5.2.8 the Hodge–Tate comparison is printed gr_n^conj Δ̄_{R/A}{n} ≃ LΩ̂^n_{R/Ā}[n]; the shift is [−n]. The fibre sequence compares three filtrations at once: on graded pieces it reads Fil_{n−1}^conj Δ̄{n} → Fil_n^conj Δ̄{n} → gr_n^conj Δ̄{n} ≅ LΩ̂^n_{R/Ā}[−n].
 
@@ -566,7 +577,7 @@ For a prism define Bhat=lim_i B/Fil_N^i, with kernel filtration; the API gives t
 
 - `pr3_completion_perfect`: For a perfect prism (B, (d)) with B classically (p, d)-adically complete, c : B → B̂ is bijective.
 - `pr3_completion_quotient`: B̂ → B/Fil^i_N B is surjective with kernel Fil^i_N B̂, and c^{-1}(Fil^i_N B̂) = Fil^i_N B.
-- `pr3_completion_frobenius`: φ̂ ∘ c = φ: the Frobenius of the completion restricts to φ on B.
+- `pr3_completion_frobenius`: The map φ̂:Bhat→B satisfies φ̂∘c=φ_B. The induced endomorphism φ_Bhat=c∘φ̂ instead satisfies φ_Bhat∘c=c∘φ_B. Thus an extension to B and the completion's own Frobenius have different codomains.
 - `pr3_completion_not_surjective`: It is false that c is surjective for every prism: for the prism of F_p[X^{1/p^∞}]/(X) the element Σ_m Y^m/m! of B̂ is not in the image.
 
 **Proof route.** (a): the inverse limit of rings along surjections; the kernel of B̂ → B/Fil^i_N B is the limit of Fil^i_N/Fil^j_N, the transition maps are surjective, so B̂ → B/Fil^i_N is surjective and the quotients and graded pieces are unchanged; completeness of B̂ is the standard statement for limits of towers.
@@ -657,7 +668,7 @@ For QRSP S over perfectoid R with prism (A,(d)), δ(Fil_N^i)⊂Fil_N^(pi)+(d,p)^
 
 At i=1 the bound is vacuous. The trace-theoretic inputs of BS22 Theorem 13.1, including BMS2 Corollary 9.12 and Theorem 8.17, belong to §7.0; they are not prerequisites here.
 
-(BS22, Lemma 13.2 and its proof; p. 94; BS22, Theorem 13.1 and its proof; p. 94; BS22, Proposition 15.7; p. 105.)
+(BS22, Lemma 13.2 and its proof; pp.94–95; BS22, Theorem 13.1 and its proof; pp.94–96; BS22, Proposition 15.7; p.105.)
 
 *Needs:* [§3.20](#s3-20), [§3.5](#s3-5), [§3.2](#s3-2), [§3.3](#s3-3), [§3.1](#s3-1), [§2.8](../PrismaticCohomology/README.md#s2-8), [§2.15](../PrismaticCohomology/README.md#s2-15), [§0.35](../PrismaticCohomology/README.md#s0-35), [§0.3](../PrismaticCohomology/README.md#s0-3), [§3.25](#s3-25).
 
@@ -707,7 +718,7 @@ For (Z_p,(p)), φ=id and Fil_N^i=p^iZ_p. The divided Frobenius satisfies φ_i(p^
 
 **§3.21.** (Z_p, (p)), S = F_p: Δ = Z_p, Fil^i = (p^i), complete. R = A/I⟨T⟩: complete, with Fil^n_N = I^{n−1} ⊗ Fil^1_N for n ≥ 1. S = F_p[X^{1/p^∞}]/(X): dR^∧_{S/F_p} is the divided power algebra with its divided power filtration, which is not complete; correspondingly Δ_S ≠ Δ̂_S. The statement of BS22 Theorem 13.1 involves Δ̂_S and not Δ_S for exactly this reason.
 
-**§3.22.** R = A/I (d = 0): Fil^m_N = I^m and I^{−m} ⊗ I^m = A = Δ for all m. Perfect prism and S perfectoid: e^{−m}(e^m) = A_inf(S). After inverting I the relative Frobenius φ_A^*Δ_{R/A}[1/I] → Δ_{R/A}[1/I] is an isomorphism for smooth R, in agreement with §3.18.
+**§3.22.** R = A/I (relative dimension 0): Fil^m_N = I^m and I^{−m} ⊗ I^m = A = Δ for all m. For perfectoid S, the relative expression is I^{−m}⊗I^m=A_inf(S); transporting the entire expression by φ_A^−1 instead gives e^{−m}(e^m)=A_inf(S), with e=φ_A^−1(d). After inverting I the relative Frobenius φ_A^*Δ_{R/A}[1/I] → Δ_{R/A}[1/I] is an isomorphism for smooth R, in agreement with §3.18.
 
 **§3.23.** a case where Δ and its Nygaard completion visibly differ. Δ_{S_0}/Fil^1_N = ⊕_{i<1} F_p Y^i ≅ S_0. gr^n_N Δ_{S_0} is the F_p-span of the classes of p^{n−⌊i⌋} Y^i/⌊i⌋! for ⌊i⌋ ≤ n, a free S_0-module of rank n + 1, matching Fil_n^conj of the divided power algebra. The partial sums Σ_{m<n} Y^m/m! are a Cauchy sequence for the Nygaard topology with no limit in Δ_{S_0}.
 
@@ -734,7 +745,7 @@ API: `QCohPrestack.eval`, `ofPoints`, `pullback` (precomposition, preserving col
 
 **Checks.**
 
-- D(∅) is the zero stable category; D(Spec Z)=D(Z). Replacing the pointwise limit by a direct sum fails the empty case.
+- D(∅) is the zero stable category, with its unique zero object; D(Spec Z)=D(Z). Returning an empty category in the first case, or the same category D(Z) for every prestack, fails these two computations.
 - For Spec R, Hom(O,O[i]) is R for i=0 and zero otherwise. The affine point formula recovers the actual derived category.
 - For B(Z/2) over F₂, H¹(B(Z/2),O)=F₂. Pullback to the trivializing affine point forgets that class, so an atlas value alone cannot specify a complex or a map.
 - Z⊕Z[3] is perfect and dualizable in D(Z); Q is not dualizable. Restricting perfection to vector bundles, or declaring every flat module perfect, gives wrong answers.
@@ -758,11 +769,11 @@ For representable flat affine f:Y→X, define `QCohPrestack.affinePushforward` b
 - In the ordinary square obtained by base-changing Z→F_p along Z→F_p, the fibre product ring is F_p, while F_p⊗^L_Z F_p has nonzero H⁻¹ and H⁰, both F_p. Thus unrestricted ordinary nonflat base change is false.
 - For N=B and M=R[1], the projection formula gives B[1] on both sides, fixing the use of derived tensor and the shift.
 
-For bounded prisms define `FormalQCoh(Spf A)=D_(p,I)-comp(A)` and identify it with the pointwise D(Spf A). For an adic map A→B preserving the radical of the finitely generated defining ideal, `FormalQCoh.completedPullback(M)=LΛ(B⊗^L_A M)` is left adjoint to restriction on complete modules. It has completed projection formula, derived-cartesian completed base change and completely faithfully flat completed Čech descent. Ordinary formal base change additionally requires that the ordinary completed tensor ring equal the derived one, as for completely flat adic maps. These statements do not extend the pointwise identification to arbitrary unbounded formal rings. (BL22 Notation 3.3.2, Proposition 3.3.5, p.43; Warning 3.3.6, p.44; Corollary 3.2.10, p.42.)
+For bounded prisms define `FormalQCoh(Spf A)=D_(p,I)-comp(A)` and identify it with the pointwise D(Spf A). For an adic map A→B preserving the radical of the finitely generated defining ideal, `FormalQCoh.completedPullback(M)=LΛ(B⊗^L_A M)` is left adjoint to restriction on complete modules. It has completed projection formula, derived-cartesian completed base change and completely faithfully flat completed Čech descent. Ordinary formal base change additionally requires that the ordinary completed tensor ring equal the derived one, as for completely flat adic maps. These statements do not extend the pointwise identification to arbitrary unbounded formal rings. (BL22 Remark 3.3.2, Proposition 3.3.5 and Warning 3.3.6, p.43; Corollary 3.2.10, p.42.)
 
 `FormalQCoh.prismPushforward_flatBaseChange` also applies to ρ_(B*) for arbitrary bounded B, pulled back along a representable flat morphism, in particular a transversal atlas ρ_A: it is the right adjoint for the affine formal fibre product. For dualizable E, ρ_(B*)(ρ_B*E⊗M)≃E⊗ρ_(B*)M. These give exactly the nontransversal pushforward properties used in §4.19; I^m{n} is dualizable. (BL22 Proposition 4.4.8, pp.91–92.)
 
-`FormalQCoh.classifyingStackComodules` totalizes the actual affine nerve for W× or G_m^♯, with completed tensor products, to obtain homotopy-coherent comodules; `FormalQCoh.quotientDescent` does the same for quotient stacks. Global sections are right adjoint to the unit tensor functor, computed by the Cartier–Witt atlas Čech totalization and derived p-complete. (BL22 Lemma 3.3.10, Corollary 3.3.11, p.44; Construction 3.4.4, pp.45–46; Theorem 3.5.8, pp.51–52.)
+`FormalQCoh.classifyingStackComodules` totalizes the actual affine nerve for W× or G_m^♯, with completed tensor products, to obtain homotopy-coherent comodules; `FormalQCoh.quotientDescent` does the same for quotient stacks. Global sections are right adjoint to the unit tensor functor, computed by the Cartier–Witt atlas Čech totalization and derived p-complete. (BL22 Lemma 3.3.10, Corollary 3.3.11, p.44; Construction 3.4.4, pp.45–46; Theorem 3.5.8, p.50.)
 
 **Checks.**
 
@@ -810,7 +821,7 @@ Site cohomology below assumes X bounded. All site prisms are bounded; an initial
 
 ### 4.2 Generalized Cartier divisors and the stack Cart
 
-Define Cart(R) as the groupoid of invertible R-modules I with a linear map α:I→R; its arrows ρ satisfy α′ρ=α. Base change is (S⊗I,S⊗α). The full subgroupoid with α injective consists of Cartier divisors and has trivial automorphism groups. This is an fpqc stack equivalent to [A¹/G_m]; the principal objects (R,f·) and (R,g·) are isomorphic iff g=uf for a unit u.
+Define Cart(R) as the groupoid of invertible R-modules I with an arbitrary linear map α:I→R, including the zero map; its arrows are isomorphisms ρ satisfying α′ρ=α. Base change is (S⊗I,S⊗α). On the full subgroupoid with α injective, taking the image ideal identifies these data with effective Cartier divisors on Spec R; their automorphism groups are trivial. This is an fpqc stack equivalent to [A¹/G_m]; the principal objects (R,f·) and (R,g·) are isomorphic iff g=uf for a unit u.
 
 For schemes use invertible sheaves. Injectivity can fail after pullback, which motivates the generalized notion.
 
@@ -1104,6 +1115,8 @@ Define D(WCart^HT) by §4.0, equivalently lim D̂(A/I)≃Tot D̂(A^•/I^•), w
 The functor E↦(E_η,Θ_E) into D(Z[Θ]) is fully faithful with image the p-complete M for which Θ^p−Θ acts locally nilpotently on H*(F_p⊗^L M). There is a fibre sequence RΓ(E)→E_η→^(Θ)E_η, and O≃(η_*O)^(Θ=0). Thus H*(O)=Z_p in degrees 0,1 only, and RΓ(O{n})=(Z_p/n)[−1] for n≠0. RΓ preserves colimits; E≃O{n} iff E_η≃Z_p and Θ=n. The nonnegative twists generate D(WCart^HT), while I^n, n∈Z, generate D(WCart), under shifts and colimits.
 
 All colimits here are p-completed, including at p=2.
+
+**Checks.** The twist of weight 1 has Θ=1 and Θ^p−Θ=0 modulo every p; requiring Θ itself to be nilpotent would wrongly exclude it. At p=2, the matrix Θ=((0,1),(1,1)) on F₂² satisfies Θ²−Θ=id, which is not locally nilpotent on a nonzero vector; an arbitrary operator therefore need not lie in the essential image. For weights 2 and −3 the tensor product has weight −1, and its dual has weight 1, fixing the tensor and dual signs. For the unit, Θ=0 and the fibre of zero:Z_p→Z_p has Z_p in degrees 0 and 1; it cannot be replaced by its ordinary kernel.
 
 (BL22, Theorem 3.5.8 with its proof; p. 50; BL22, Propositions 3.5.10, 3.5.11 and 3.5.15, Example 3.5.12, Corollaries 3.5.13, 3.5.14 and 3.5.16; pp. 51, 52, 53.)
 
@@ -1521,7 +1534,7 @@ Construct q-divided powers and q-crystalline envelopes over the distinguished cy
 
 ### 5.0 Complete delta-base framing foundations
 
-Define `QCrys.qInteger(n,q)=Σ_(i<n)q^i` and `QCrys.pAnalog(p,q)=[p]_q` over a commutative ring. API: `qInteger_mul_sub_one`, `qInteger_one`, zero, evaluation naturality and agreement with prime cyclotomic evaluation; no division by q−1 defines them.
+Define `QCrys.qInteger(n,q)=Σ_(i<n)q^i` and `QCrys.pAnalog(p,q)=[p]_q` over a commutative ring. API: `qInteger_one`, zero, evaluation naturality and agreement with prime cyclotomic evaluation; the geometric-sum identity is Mathlib `geom_sum_mul` after unfolding the notation. No division by q−1 defines them. (BS22 Notation 16.1, p.106; Mathlib `Algebra/Ring/GeomSum`, `geom_sum_mul`.)
 
 **Checks.**
 
@@ -1917,6 +1930,7 @@ The coefficient is integral. Its q-PD ideal is K⊕Eε, quotient E/K; evaluation
 **Checks.**
 
 - For p=2, v_s=(2+t)X_s and δ(ε)=X_sε. Directly (X_s+ε)²=X_s²+(2+t)X_sε, including the ε² term. Setting ε²=0 before reducing t gives the wrong Frobenius lift.
+- For p=3, [3]_q=3+3t+t² and δ(ε)=X_s²(1+t)ε. The relation ε²=tX_sε gives (X_s+ε)³=X_s³+(3+3t+t²)X_s²ε, fixing the integral coefficient beyond the dyadic case.
 - For P=A⟨X⟩, J=(t,X) and z=X^p/[p]_q, one gets γ(z)=q^p z and ∇(z)=X^(p−1). Modulo t this is the PD derivative of X^p/p, including at p=2.
 - For J=tP the envelope is P, and the ε-coefficient construction recovers [n]_q X^(n−1) on X^n; for n=0 it gives zero.
 - With two coordinates, the mixed ε_1ε_2 coefficient of the image of X_1X_2 is 1 in either order. This detects the commuting derivative convention used in the two-term Koszul differential.
