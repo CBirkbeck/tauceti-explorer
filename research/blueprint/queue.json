@@ -132176,8 +132176,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv.md",
+   "note": "premature — the adversarial review #9879 of the completed package has not run yet; a fix job is created after it"
   }
  ]
 }
