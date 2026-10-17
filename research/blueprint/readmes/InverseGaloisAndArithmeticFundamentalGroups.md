@@ -4,7 +4,7 @@ The first prerequisite is [BelyiMaps](../../../content/tau-ceti/BelyiMaps/README
 
 A finite cover turns geometry into a finite permutation action. Choosing a geometric point supplies the fiber on which that action operates; changing the point gives a path torsor and an inner ambiguity. Over a nonclosed field the arithmetic fundamental group remembers the constant-field Galois action. Hilbert irreducibility then turns regular function-field realizations into number-field realizations, while rigidity and Hurwitz spaces organize the covers from which those realizations arise. Embedding problems supply a separate arithmetic construction, whose weak solutions must be distinguished from proper field realizations.
 
-This is a complete target-level plan of IG.0–IG.6: 137 nodes, with 20 definitions, 31 constructions, 8 comparisons, 63 theorems, 8 lemmas and 7 applications. The definitions and constructions have 203 API items and 154 tests; 33 planets identify the central objects and theorems. All seven stages are planned and none is closed. The 27 explicit gaps and 49 supplier requests describe the remaining proof and carrier interfaces. Every implementation status is unchecked. No source is claimed to have been fully decomposed merely because its target statements have been planned.
+This is a complete target-level plan of IG.0–IG.6: 139 nodes, with 20 definitions, 31 constructions, 8 comparisons, 65 theorems, 8 lemmas and 7 applications. The definitions and constructions have 206 API items and 157 tests; 33 planets identify the central objects and theorems. All seven stages are planned and none is closed. The 29 explicit gaps and 49 supplier requests describe the remaining proof and carrier interfaces. Every implementation status is unchecked. No source is claimed to have been fully decomposed merely because its target statements have been planned.
 
 ## Conventions and baseline
 
@@ -16,7 +16,7 @@ Arithmetic Frobenius is x↦xᵠ; geometric Frobenius is its inverse. Positive i
 
 In the specialization component, T is the parameter of native RatFunc k and Y is the outer polynomial variable. The reduced denominator defines regularity. A removable pole is canceled first; total RatFunc evaluation at a genuine pole does not provide a ring homomorphism. Degree preservation requires both coefficient regularity and nonvanishing of the leading numerator, and does not imply irreducibility.
 
-The pinned implemented baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The 67 declaration statements were inspected at those pins. Current roadmap main df8020193b157c047bcaa0381c3f0d6c3f605dcb and current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were read separately. Current roadmap plans are imports, not implemented baseline declarations. ProfiniteArithmetic and PeripheralActions supply their current conventions; BelyiMaps11–13 supplies the three-point and arithmetic interfaces, ProfiniteProPGroups5 the generic weak finite embedding carrier and arbitrary abelian-kernel obstruction, and PolynomialGaloisGroups9 the existing generic polynomial group predicate.
+The pinned implemented baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The 74 declaration statements were inspected at those pins. The original audit recorded roadmap main df8020193b157c047bcaa0381c3f0d6c3f605dcb. For this fix the relevant ownership interfaces were checked at current roadmap main 0d144d044dacebca17b654695b6f1ad58f159b27 and current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. The open-subgroup finite-generation theorem already implemented there is imported through ProfiniteProPGroups3. Current roadmap plans are imports, not implemented baseline declarations. ProfiniteArithmetic and PeripheralActions supply their current conventions; BelyiMaps11–13 supplies the three-point and arithmetic interfaces, ProfiniteProPGroups5 the generic weak finite embedding carrier and arbitrary abelian-kernel obstruction, and PolynomialGaloisGroups9 the existing generic polynomial group predicate.
 
 Native abstract Galois categories do not establish the scheme fiber-functor instance. Native affine finite étale algebras do not establish the global scheme gluing bridge. Native finite Schur–Zassenhaus existence does not establish profinite complement conjugacy. These differences are recorded as exact nodes or gaps rather than strengthened library citations. The retained fifteen-node rational-specialization component uses Polynomial.toSubring instead of rebuilding its coefficient lift.
 
@@ -457,13 +457,13 @@ Tests:
 
 - NoohiGroup.profinite_test (computation): Every profinite group is Noohi.
 - NoohiGroup.discrete_test (computation): Every discrete group is Noohi; infinite Z is not profinite.
-- NoohiGroup.tameness_test (non-example): Reconstruction of all continuous actions needs categorical tameness; the remaining infinite-category axioms alone do not assert transitivity.
+- NoohiGroup.tameness_test (non-example): In the category of discrete Z-sets the connected object Z/2Z has a two-point fiber, and its reconstructed Z-action is transitive and nontrivial. A reconstruction that gives this fiber the trivial action fails categorical tameness.
 
 Acceptance:
 
 - Every profinite group is Noohi.
 - Every discrete group is Noohi; infinite Z is not profinite.
-- Reconstruction of all continuous actions needs categorical tameness; the remaining infinite-category axioms alone do not assert transitivity.
+- In the category of discrete Z-sets the connected object Z/2Z has a two-point fiber, and its reconstructed Z-action is transitive and nontrivial. A reconstruction that gives this fiber the trivial action fails categorical tameness.
 
 Sources:
 
@@ -477,15 +477,22 @@ Recorded gaps: Noohi and pro-étale carrier signatures.
 
 **IG.0/proetale-fundamental-group** · construction. Planet: Pro-étale fundamental group.
 
-For connected locally topologically noetherian X, Loc(X_proét), the category of locally constant set sheaves, with its geometric stalk is a tame infinite Galois category. Define π₁^proét(X,x)=Aut(stalk) with pointwise topology. It is Noohi and Loc(X_proét)≃π₁^proét-Set_cont. Its profinite completion is π₁^ét. If X is geometrically unibranch, the comparison is already an isomorphism. For a Noohi target H, locally trivial H-torsors for its continuous-value sheaf correspond as a groupoid to continuous homomorphisms π₁^proét→H, with arrows conjugations. In particular this applies to GL_r(E) for a p-adic local field E and to J_b(Qp) in the Caraiani–Scholze application; the reductive target geometry is imported.
+Let X be a connected locally topologically noetherian scheme with geometric point x. On the existing small pro-étale site, Loc(X_proét) is the category of locally constant sheaves of sets. Its geometric stalk F_x makes it a tame infinite Galois category. Define π₁^proét(X,x)=Aut(F_x) with the topology of pointwise stabilizers on fibers. This is a Noohi group and Loc(X_proét) is equivalent, compatibly with F_x, to discrete sets with continuous π₁^proét-action. Restriction to finite locally constant sheaves gives a canonical continuous map to IG.0’s finite-étale π₁^ét(X,x), identifying that group with the completion for continuous finite quotients. For geometrically unibranch X this map is a topological isomorphism; unibranchness is not required for the construction. For a locally profinite group H let F_H(U)=Cont(|U|,H), the continuous-value sheaf on X_proét. The groupoid of locally trivial right F_H-torsors is equivalent to Hom_cont(π₁^proét(X,x),H)//H, whose arrows a:ρ→ρ′ satisfy ρ′=aρa⁻¹. A chosen point of the fiber gives the framed version. This includes GL_r(E) for a p-adic local field E and J_b(Q_p); the latter group and its reductive geometry are supplied externally. The source group need not be profinite or a limit of discrete groups.
+
+Hypotheses:
+
+- X is connected and locally topologically noetherian, and x is a geometric point.
+- H is Hausdorff, locally compact and totally disconnected (locally profinite); torsors are for F_H with the topology of H retained.
 
 Proof route:
 
-1. Use Cov(X): étale schemes satisfying the valuative properness condition, allowing infinite fibers, to prove the infinite-category axioms and tameness.
-2. Apply infinite reconstruction; restrict to finite actions for profinite completion, and to target H-actions for the torsor groupoid.
-3. For geometrically unibranch X, a connected Cov object is finite étale, proving the stronger comparison.
+1. Reuse Scheme.ProEt, Scheme.ProEt.topology and Scheme.proetaleTopology. SF.2 supplies their comparison with the sheaf-theoretic site, geometric stalks and locally constant sheaves. E2 supplies repleteness and inverse-limit/descent results only where used, rather than a second site or repleteness construction.
+2. Identify Loc(X_proét) with Cov(X), the étale X-schemes satisfying the existence-and-uniqueness valuative criterion of properness, without a finite-type or finite-fiber requirement (Bhatt–Scholze7.3.9). Prove the infinite Galois-category axioms, including a set of connected generators, and transitivity on connected fibers (7.4.1). Apply 7.2.5 and 7.4.2.
+3. Finite continuous actions recover finite étale covers. Use the geometric stalk to define the comparison homomorphism and prove its universal property for continuous finite quotients (7.4.3). Do not use the abstract profinite completion of the underlying group, which can forget the continuity requirement.
+4. For locally profinite H choose a compact open subgroup K. Given ρ, use the pointed Cov cover V associated to U=ρ⁻¹(K). The slice equivalence identifies Loc(V_proét) with continuous U-sets and hence its pointed fundamental group with U. Construct the K-torsor there by finite quotients, extend its structure group and descend. Conversely a right F_H-torsor with a fiber point induces a fiber-preserving functor from continuous discrete H-sets to Loc(X_proét), and hence a continuous ρ by Noohi reconstruction. Check full faithfulness and all conjugation arrows; this extends the compact-open argument of 7.4.7 and the J_b(Q_p) instance in Caraiani–Scholze4.3.14.
+5. If X is geometrically unibranch, each connected object of Cov(X) is finite étale, by 7.4.10. This proves equality with π₁^ét only under the additional comparison hypothesis.
 
-Prerequisites: [IG.0/noohi-groups](#IG-0-noohi-groups); [IG.0/etale-fundamental-group](#IG-0-etale-fundamental-group); SchemeAndStackFoundations:SF.2; EnhancedDerivedSheaves:E2.
+Prerequisites: [IG.0/noohi-groups](#IG-0-noohi-groups); [IG.0/etale-fundamental-group](#IG-0-etale-fundamental-group); SchemeAndStackFoundations:SF.2; EnhancedDerivedSheaves:E2; mathlib:AlgebraicGeometry.Scheme.ProEt; mathlib:AlgebraicGeometry.Scheme.proetaleTopology; mathlib:AlgebraicGeometry.Scheme.ProEt.topology.
 
 Uses:
 
@@ -494,30 +501,38 @@ Uses:
 
 API:
 
-- ProetaleFundamentalGroup.actionEquivalence (equivalence): The equivalence is compatible with geometric stalks.
-- ProetaleFundamentalGroup.toEtale (compatibility): The map induces the profinite completion; finite continuous actions agree.
-- ProetaleFundamentalGroup.torsorEquivalence (equivalence): Hom_cont(π₁,H)//H is the H-torsor groupoid, including all conjugation arrows.
-- ProetaleFundamentalGroup.map (functoriality): Pointed scheme maps induce continuous homomorphisms, with base-point transport up to inner automorphism.
+- ProetaleFundamentalGroup.actionEquivalence (equivalence): Loc(X_proét)≃π₁^proét(X,x)-Set_cont commutes with the forgetful functor and the geometric stalk, including infinite fibers.
+- ProetaleFundamentalGroup.toEtale (compatibility): The canonical continuous map to π₁^ét identifies finite continuous action categories and is universal for continuous maps to profinite groups.
+- ProetaleFundamentalGroup.unibranchComparison (equivalence): For connected locally topologically noetherian geometrically unibranch X, toEtale is a topological group isomorphism.
+- ProetaleFundamentalGroup.torsorEquivalence (equivalence): For locally profinite H, right F_H-torsors form Hom_cont(π₁^proét,H)//H, with an arrow a:ρ→ρ′ exactly when ρ′(g)=aρ(g)a⁻¹ for all g. In particular Aut(ρ) is the centralizer of its image, not the trivial group in general.
+- ProetaleFundamentalGroup.framedTorsorEquivalence (equivalence): Right F_H-torsors equipped with a point p over x form the discrete groupoid of continuous homomorphisms, using g(p)=pρ(g). Replacing p by p a changes ρ to a⁻¹ρa; a frame-preserving automorphism is the identity.
+- ProetaleFundamentalGroup.map (functoriality): A pointed scheme map induces a continuous homomorphism through pullback of locally constant sheaves. Identity and composition agree with pullback and the comparison to π₁^ét.
+- ProetaleFundamentalGroup.changeBasepoint (functoriality): A path, namely an isomorphism of geometric stalk functors on Loc(X_proét), induces a topological group isomorphism. Two paths differ by inner conjugation; the finite-cover comparison and torsor equivalence respect this transport.
 
 Tests:
 
-- ProetaleFundamentalGroup.normal_test (computation): For connected normal locally noetherian X, pro-étale and étale π₁ agree.
-- ProetaleFundamentalGroup.node_test (non-example): The nodal rational curve has an infinite loop detected by Qp monodromy p; finite π₁ alone does not classify this local system.
-- ProetaleFundamentalGroup.conjugacy_test (computation): Unmarked H-torsors give homomorphisms up to conjugacy, whereas a chosen fiber point removes that quotient.
+- ProetaleFundamentalGroup.normal_test (computation): For connected normal locally noetherian X, toEtale is an isomorphism. In particular Spec(Q) gives the usual absolute Galois group; omitting the finite-cover comparison fails this test.
+- ProetaleFundamentalGroup.node_test (non-example): Let X be two copies of P¹ over an algebraically closed field, identified at 0 and at ∞. Glue trivial rank-one Q_p-local systems on X minus 0 and X minus ∞ by identity on one overlap component and multiplication by p on the other. Its loop monodromy contains p^Z, which is not relatively compact, so it cannot come from a continuous representation of the profinite étale group. Finite-cover-only reconstruction fails.
+- ProetaleFundamentalGroup.conjugacy_test (computation): For H=S₃ with the discrete topology, the trivial right torsor has all six elements of H as automorphisms; with a fixed fiber point only the identity remains. Reframing by a gives a⁻¹ρa. Passing directly to a set of conjugacy classes loses arrows and fails this test.
+- ProetaleFundamentalGroup.nonprodiscrete_test (non-example): Use the positive-genus nodal curve and the rank n≥2 local system with nonintegral gluing matrix from Bhatt–Scholze7.4.9, with the monodromy choices specified there. Its GL_n(E)-representation does not factor through the pro-(discrete-group) completion. Replacing the Noohi group by that completion fails even if infinite discrete quotients are retained.
+- ProetaleFundamentalGroup.quadratic_torsor_test (computation): Over Spec(Q), the C₂-torsor Spec(Q(√2)) corresponds to the nontrivial quadratic character, whereas the split C₂-torsor corresponds to the trivial character. Both have automorphism group C₂; their framed versions have trivial automorphism groups. A dictionary that sends every torsor to trivial monodromy fails.
 
 Acceptance:
 
-- For connected normal locally noetherian X, pro-étale and étale π₁ agree.
-- The nodal rational curve has an infinite loop detected by Qp monodromy p; finite π₁ alone does not classify this local system.
-- Unmarked H-torsors give homomorphisms up to conjugacy, whereas a chosen fiber point removes that quotient.
+- For connected normal locally noetherian X, toEtale is an isomorphism. In particular Spec(Q) gives the usual absolute Galois group; omitting the finite-cover comparison fails this test.
+- Let X be two copies of P¹ over an algebraically closed field, identified at 0 and at ∞. Glue trivial rank-one Q_p-local systems on X minus 0 and X minus ∞ by identity on one overlap component and multiplication by p on the other. Its loop monodromy contains p^Z, which is not relatively compact, so it cannot come from a continuous representation of the profinite étale group. Finite-cover-only reconstruction fails.
+- For H=S₃ with the discrete topology, the trivial right torsor has all six elements of H as automorphisms; with a fixed fiber point only the identity remains. Reframing by a gives a⁻¹ρa. Passing directly to a set of conjugacy classes loses arrows and fails this test.
+- Use the positive-genus nodal curve and the rank n≥2 local system with nonintegral gluing matrix from Bhatt–Scholze7.4.9, with the monodromy choices specified there. Its GL_n(E)-representation does not factor through the pro-(discrete-group) completion. Replacing the Noohi group by that completion fails even if infinite discrete quotients are retained.
+- Over Spec(Q), the C₂-torsor Spec(Q(√2)) corresponds to the nontrivial quadratic character, whereas the split C₂-torsor corresponds to the trivial character. Both have automorphism group C₂; their framed versions have trivial automorphism groups. A dictionary that sends every torsor to trivial monodromy fails.
 
 Sources:
 
-- [bhatt-scholze](#source-bhatt-scholze), Lemma7.3.9; Lemma7.4.1, Definition7.4.2; Lemmas7.4.3/7.4.7/7.4.10, PDF pp.67–71. Gives the finite comparison and continuous target classification.
+- [bhatt-scholze](#source-bhatt-scholze), Lemma4.2.12 p.30; Example7.1.6 p.64; Theorem7.2.5 pp.65–66; Lemma7.3.9 pp.67–68; Lemma7.4.1, Definition7.4.2, Construction7.4.4 and Lemmas7.4.3/7.4.7/7.4.10, Example7.4.9 pp.69–71 (arXiv v2 pagination). Supplies the continuous-value sheaf, Noohi reconstruction, finite comparison, compact-open torsor argument and the example distinguishing prodiscrete completion.
 - [caraiani-scholze](#source-caraiani-scholze), Proposition1.13, Remarks1.14/4.3.14, pp.656–657,721. Uses a noncompact p-adic group torsor, beyond finite-cover classification.
+- [kedlaya-liu](#source-kedlaya-liu), Remark1.4.4 and Example1.4.5, p.21; Example1.4.6 for the irreducible variant. The rank-one local system on two projective lines identified at 0 and ∞, with gluing by p, detects noncompact monodromy.
 
-Signature boundary: Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Recorded gaps: Noohi and pro-étale carrier signatures.
+Signature boundary: The pro-étale site is native at the pin. The full Loc/Cov, Noohi reconstruction and locally profinite torsor statements remain reader targets until their carriers and descent proofs exist. The continuous finite-quotient comparison must not be replaced by an abstract completion or a prodiscrete group.
+Recorded gaps: Noohi and pro-étale carrier signatures; Supplier comparison adapters.
 
 ### IG.1
 
@@ -1652,32 +1667,114 @@ Sources:
 Signature boundary: Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Recorded gaps: Quantitative and local Hilbert proof sources.
 
+<a id="IG-2-hilbertian-finitely-generated-fields"></a>
+#### Hilbertianity of finitely generated characteristic-zero fields
+
+**IG.2/hilbertian-finitely-generated-fields** · theorem.
+
+Every field k finitely generated as a field extension of Q is Hilbertian, including fields of positive transcendence degree. Finite generation is equivalently Algebra.EssFiniteType Q k, or finite generation of the top intermediate field, not finite generation as a Q-algebra.
+
+Hypotheses:
+
+- k is a field with a Q-algebra structure and is finitely generated as a field over Q.
+
+Proof route:
+
+1. Choose a finite transcendence basis, so k is finite separable over a rational function field over Q. Use the number-field Hilbert theorem in transcendence degree zero and Hilbertianity of rational function fields in positive transcendence degree.
+2. Prove the finite-separable-extension stability of Hilbert sets, retaining simultaneous irreducibility and the parameter guard; these transfer arguments are part of this target. Minamide2.3(i) states the required field range and cites Fried–Jarden, second edition13.4.2 for the general Hilbertianity input.
+
+Prerequisites: [IG.2/number-field-hilbert](#IG-2-number-field-hilbert); [IG.2/hilbert-subsets](#IG-2-hilbert-subsets); mathlib:Algebra.EssFiniteType; mathlib:IntermediateField.fg_top_iff.
+
+Acceptance:
+
+- Q and every number field satisfy the target.
+- Q(t) satisfies the target even though it is not a finitely generated Q-algebra.
+- The algebraically closed field C is not Hilbertian and is outside the stated finite-generation hypothesis.
+
+Sources:
+
+- [minamide](#source-minamide), Corollary2.3(i) and proof, p.186. States Hilbertianity for every finitely generated extension of Q, rather than only number fields.
+
+Signature boundary: The exact Hilbertian-field target is stated in the reader. Its Hilbert-set and field-transfer interfaces are not yet connected in Lean; no untyped Hilbertian predicate is substituted.
+Recorded gaps: Absolute Galois proof-source closure.
+
+<a id="IG-2-weissauer-extension"></a>
+#### Weissauer’s extension theorem
+
+**IG.2/weissauer-extension** · theorem.
+
+Let k be Hilbertian, K/k an algebraic Galois extension of arbitrary degree, and L/K a finite separable extension with [L:K]>1. Then L is Hilbertian. No Hilbertianity of K itself and no finiteness of K/k are assumed. The strict inequality is essential.
+
+Hypotheses:
+
+- k is Hilbertian.
+- K/k is algebraic and Galois; it may be infinite.
+- L/K is finite, separable and proper.
+
+Proof route:
+
+1. Read Weissauer9.7 with its proof and 9.2–9.6: first handle proper finite Galois L/K by a finite change of the Hilbertian base and a nontrivial finite automorphism group; invariant Hilbertian systems give Hilbertianity via 9.6. Descend the construction to intermediate fields for the finite separable case.
+2. For a field-theoretic implementation use the standard proof cited by Mochizuki as Fried–Jarden, second edition (2005)13.9.1(b). Its proof, cross-edition numbering and the nonstandard foundations of Weissauer’s alternative proof are an explicit source-closure obligation, not an implemented supplier.
+
+Prerequisites: [IG.2/hilbert-subsets](#IG-2-hilbert-subsets).
+
+Acceptance:
+
+- If K=k, the conclusion includes Hilbertianity of nontrivial finite separable extensions of a Hilbertian field.
+- Taking K to be a separable closure shows why L=K must be excluded: K need not be Hilbertian.
+- The normal-subgroup application takes K=(k̄)^N and L=(k̄)^N₁ for a proper open normal N₁<N; closedness and normality of N make K/k Galois.
+
+Sources:
+
+- [weissauer](#source-weissauer), Satz9.7 and proof, p.219; background9.1–9.6 pp.217–219. The original theorem states the precise proper finite separable extension of an arbitrary Galois extension of a Hilbertian field.
+
+Signature boundary: The exact Hilbertian-field target is stated in the reader. Its Hilbert-set and field-transfer interfaces are not yet connected in Lean; no untyped Hilbertian predicate is substituted.
+Recorded gaps: Absolute Galois proof-source closure.
+
 <a id="IG-2-absolute-galois-normal-subgroups"></a>
 #### Normal subgroups of absolute Galois groups
 
 **IG.2/absolute-galois-normal-subgroups** · theorem. Planet: Absolute Galois normal subgroups.
 
-For a field k finitely generated over Q, every closed normal topologically finitely generated subgroup N of Γ_k is trivial. More generally the cited Fried–Jarden result applies to Hilbertian fields in its exact original scope, which must be read before exporting that generality. This separately named normal-subgroup continuation is stronger than Hilbert irreducibility alone; ownership is proposed locally under the assigned area finding, subject to the maintainer accepting the continuation.
+Let k be a field finitely generated over Q, let Γ_k=Gal(k̄/k) with its Krull topology, and let N≤Γ_k. If N is closed, normal, and topologically finitely generated with the subspace topology, then N={1}. This includes number fields and positive-transcendence-degree finitely generated fields. No assertion for arbitrary characteristic-zero fields, arbitrary closed subgroups, or arbitrary profinite groups is part of this contract.
+
+Hypotheses:
+
+- k is finitely generated as a field over Q (Algebra.EssFiniteType Q k).
+- N is a closed normal subgroup of the actual absolute Galois group Γ_k.
+- A finite subset of N generates a dense subgroup of N; abstract finite generation is not required.
 
 Proof route:
 
-1. Read Fried–Jarden, Field Arithmetic, third edition Proposition16.11.6 and its Weissauer input; the original proofs are a recorded source obligation.
-2. Apply the theorem to k, which is Hilbertian because it is finitely generated over Q. Track closedness, normality and topological finite generation separately.
-3. Do not weaken the conclusion to finite index: a finite-index absolute Galois subgroup is itself an absolute Galois group of a finite extension and has infinitely many independent quadratic characters.
+1. Apply hilbertian-finitely-generated-fields, including its field-extension transfer argument; ordinary number-field Hilbert irreducibility alone is not the full prerequisite.
+2. If N is nontrivial, choose a proper open normal subgroup N₁ of the profinite group N. Set K=(k̄)^N and L=(k̄)^N₁. Closed normality of N implies K/k is Galois, and [L:K]>1 is finite separable. Apply weissauer-extension to conclude L is Hilbertian.
+3. A Hilbertian field L of characteristic zero has arbitrarily large finite independent subsets of L×/(L×)². Given finitely many square classes, choose representatives a of their span and simultaneously specialize the irreducible polynomials Y²−aT, also excluding T=0. The specialization t avoids every class in that span, so adjoining its square root increases the elementary abelian 2-group rank. Iterating gives composita with Galois group (C₂)^r for all r. These extensions lie in k̄, so Γ_L=N₁ has those continuous quotients.
+4. The open subgroup N₁ of the topologically finitely generated compact group N is topologically finitely generated by the profinite Schreier theorem, already supplied by ProfiniteProPGroups3 and implemented in current Tau Ceti. A quotient of a d-generated profinite group is d-generated, whereas (C₂)^r requires r generators. Taking r>d gives the contradiction.
+5. This is the field-specialized argument used in Schmidt–Stix7.1. Fried–Jarden16.11.6 is its original cited source; the public Mochizuki2.4 proof corroborates the same argument for number-field Galois extensions under the additional no-cyclic-degree-p-extension hypothesis. Do not drop that hypothesis when quoting Mochizuki or claim that reading this proof is reading Fried–Jarden.
 
-Prerequisites: [IG.2/number-field-hilbert](#IG-2-number-field-hilbert); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations.
+Prerequisites: [IG.2/hilbertian-finitely-generated-fields](#IG-2-hilbertian-finitely-generated-fields); [IG.2/weissauer-extension](#IG-2-weissauer-extension); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations; tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation; mathlib:Field.absoluteGaloisGroup; mathlib:Algebra.EssFiniteType; tauceti:TauCeti.IsTopologicallyFinitelyGenerated.
+
+Uses:
+
+- Schmidt–Stix, proof of Theorem7.1, p.850; PAPER-SCHMIDT-STIX-16/36 and gap G2: Identifies the geometric fundamental subgroup as the maximal topologically finitely generated closed normal subgroup when reconstructing the constant-field quotient. This packet supplies the additional arithmetic theorem, not merely the Hilbert-set definition.
 
 Acceptance:
 
-- The trivial subgroup satisfies the conclusion.
-- A finite-index subgroup is not a counterexample: its absolute Galois group is not topologically finitely generated.
+- N={1} satisfies the conclusion.
+- The target applies to k=Q(t), which rules out accidentally proving only the number-field case.
+- For every finite extension k′/k, Γ_k′ has arbitrarily large elementary abelian 2-quotients, so a finite-index subgroup of Γ_k is not topologically finitely generated.
+- Characteristic zero alone is insufficient: Γ_R≅C₂ is a nontrivial finitely generated closed normal subgroup of itself. Likewise the whole group C₂ is a counterexample to a formulation about all profinite groups.
 
 Sources:
 
 - [schmidt-stix](#source-schmidt-stix), Theorem7.1 proof, published p.850. Names this stronger normal-subgroup input and its original Fried–Jarden citation.
+- [weissauer](#source-weissauer), Satz9.7 and proof, p.219. Makes the proper finite extension of the normal fixed field Hilbertian.
+- [mochizuki](#source-mochizuki), Theorem2.4 and proof, pp.62–63. Public proof of the number-field Galois-extension variant, with its explicit no-cyclic-degree-p-extension assumption; not a source for an unqualified arbitrary-field assertion.
+- [minamide](#source-minamide), Topological-group conventions p.179; Theorem2.1 and Corollary2.3 p.186. Corroborates the finite-generation obstruction and the finitely-generated-over-Q field range; its proofs cite Fried–Jarden rather than reproducing them.
 
-Signature boundary: Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Recorded gaps: Absolute Galois original proof and ownership.
+Signature boundary: The normal-subgroup conclusion is statable over native absoluteGaloisGroup, Algebra.EssFiniteType and TauCeti.IsTopologicallyFinitelyGenerated. Its theorem proof remains a roadmap obligation, including the two named Hilbertian input targets and the original-source checks.
+Suggested Lean target: TauCeti.InverseGalois.absoluteGalois_normal_eq_bot.
+Recorded gaps: Absolute Galois proof-source closure.
 
 <a id="IG-2-quadratic-specialization-example"></a>
 #### A worked disjoint quadratic family
@@ -4683,7 +4780,7 @@ A request imports mathematics from its existing owner. It does not create a seco
 
 - **SchemeAndStackFoundations:SF.0**: Finite morphisms and finite étale scheme pullbacks; relative Spec and finite-algebra anti-equivalence on affines. Consumers: [IG.0/finite-etale-covers](#IG-0-finite-etale-covers), [IG.1/decomposition-inertia](#IG-1-decomposition-inertia), [IG.2/hilbert-subsets](#IG-2-hilbert-subsets), [IG.2/thin-sets](#IG-2-thin-sets), [IG.2/regular-full-group](#IG-2-regular-full-group), [IG.2/norm-pullback-hilbert](#IG-2-norm-pullback-hilbert), [IG.5/configuration-spaces](#IG-5-configuration-spaces), [IG.5/lifted-affine-coordinate-group](#IG-5-lifted-affine-coordinate-group).
 - **SchemeAndStackFoundations:SF.1**: Effective fpqc descent for finite étale algebras/schemes, finite group quotients and torsors; stackification of the isogeny prestack. Consumers: [IG.0/finite-etale-covers](#IG-0-finite-etale-covers), [IG.0/geometric-fiber](#IG-0-geometric-fiber), [IG.0/finite-galois-algebras](#IG-0-finite-galois-algebras), [IG.0/finite-etale-idempotents](#IG-0-finite-etale-idempotents), [IG.0/adic-local-systems](#IG-0-adic-local-systems), [IG.1/arithmetic-exact-sequence](#IG-1-arithmetic-exact-sequence), [IG.1/charzero-base-extension](#IG-1-charzero-base-extension), [IG.3/rational-rigidity](#IG-3-rational-rigidity), [IG.3/general-cover-moduli-descent](#IG-3-general-cover-moduli-descent), [IG.5/configuration-spaces](#IG-5-configuration-spaces), [IG.5/formal-curve-patching](#IG-5-formal-curve-patching), [IG.4/finite-quotient-approximation](#IG-4-finite-quotient-approximation).
-- **SchemeAndStackFoundations:SF.2**: Small étale and pro-étale sites, geometric stalks, locally constant sheaves, weakly étale covers and w-contractible stalk models in the locally topologically noetherian range. Consumers: [IG.0/integral-monodromy](#IG-0-integral-monodromy), [IG.0/adic-local-systems](#IG-0-adic-local-systems), [IG.0/noohi-groups](#IG-0-noohi-groups), [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group), [IG.3/general-cover-moduli-descent](#IG-3-general-cover-moduli-descent), [IG.5/tame-cohomological-specialization](#IG-5-tame-cohomological-specialization), [IG.5/fixed-degree-mod-l-comparison](#IG-5-fixed-degree-mod-l-comparison), [IG.5/coefficient-tower-comparison](#IG-5-coefficient-tower-comparison), [IG.5/restricted-hurwitz-trace-kernel](#IG-5-restricted-hurwitz-trace-kernel), [IG.3/finite-coefficient-comparison](#IG-3-finite-coefficient-comparison).
+- **SchemeAndStackFoundations:SF.2**: Reuse the native small étale/pro-étale site carriers, especially Scheme.ProEt and ProEt.topology. Supply their comparison with the Bhatt–Scholze sheaf site, geometric stalks, locally constant sheaves, weakly étale covers and w-contractible stalk models in the locally topologically noetherian range. IG.0 owns Noohi reconstruction and its fundamental group; this request does not ask SF.2 to reconstruct it. Consumers: [IG.0/integral-monodromy](#IG-0-integral-monodromy), [IG.0/adic-local-systems](#IG-0-adic-local-systems), [IG.0/noohi-groups](#IG-0-noohi-groups), [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group), [IG.3/general-cover-moduli-descent](#IG-3-general-cover-moduli-descent), [IG.5/tame-cohomological-specialization](#IG-5-tame-cohomological-specialization), [IG.5/fixed-degree-mod-l-comparison](#IG-5-fixed-degree-mod-l-comparison), [IG.5/coefficient-tower-comparison](#IG-5-coefficient-tower-comparison), [IG.5/restricted-hurwitz-trace-kernel](#IG-5-restricted-hurwitz-trace-kernel), [IG.3/finite-coefficient-comparison](#IG-3-finite-coefficient-comparison).
 - **EnhancedDerivedSheaves:E2**: The replete pro-étale topos and its inverse-limit/descent input used for local systems; no second repleteness construction. Consumers: [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group), [IG.5/tame-cohomological-specialization](#IG-5-tame-cohomological-specialization), [IG.5/coefficient-tower-comparison](#IG-5-coefficient-tower-comparison), [IG.5/restricted-hurwitz-trace-kernel](#IG-5-restricted-hurwitz-trace-kernel).
 - **SchemeAndStackFoundations:SF.4**: Proper finite-cover lifting over henselian DVRs and deformation of smooth proper schemes, with fiber identification. Consumers: [IG.1/proper-specialization](#IG-1-proper-specialization), [IG.4/supersolvable-grunwald](#IG-4-supersolvable-grunwald), [IG.4/collective-degree-realization](#IG-4-collective-degree-realization), [IG.5/arithmetic-hurwitz-moduli](#IG-5-arithmetic-hurwitz-moduli), [IG.5/admissible-stacks-and-stable-curves](#IG-5-admissible-stacks-and-stable-curves), [IG.5/finite-cover-image-lemmas](#IG-5-finite-cover-image-lemmas).
 - **SchemeAndStackFoundations:SF.3**: Smooth proper curve compactifications with relative disjoint sections, the universal stable pointed curve and its punctured family. Consumers: [IG.1/punctured-specialization](#IG-1-punctured-specialization), [IG.1/stack-and-family-exactness](#IG-1-stack-and-family-exactness), [IG.3/branch-cycle-realization](#IG-3-branch-cycle-realization), [IG.5/tame-g-cover](#IG-5-tame-g-cover), [IG.5/admissible-g-covers](#IG-5-admissible-g-covers), [IG.5/ordered-configuration-compactification](#IG-5-ordered-configuration-compactification), [IG.5/double-cover-trace-zero](#IG-5-double-cover-trace-zero), [IG.5/formal-curve-patching](#IG-5-formal-curve-patching), [IG.3/artin-good-neighborhoods](#IG-3-artin-good-neighborhoods), [IG.2/general-hilbert-local-approximation](#IG-2-general-hilbert-local-approximation).
@@ -4726,8 +4823,8 @@ A request imports mathematics from its existing owner. It does not create a seco
 - **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations**: Use the existing layer contract for Proper solutions with local prescriptions, Finite abelian-kernel obstruction and pullback, Free operator-group shrinking, Central Property E. The consuming statements and proof steps specify the needed maps and hypotheses; no separate carrier or proof of the supplied theory is introduced. Consumers: [IG.4/proper-local-embedding-problem](#IG-4-proper-local-embedding-problem), [IG.4/abelian-kernel-obstruction](#IG-4-abelian-kernel-obstruction), [IG.4/free-operator-shrinking](#IG-4-free-operator-shrinking), [IG.4/property-e](#IG-4-property-e).
 - **tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups**: Use the existing layer contract for Finite stabilizers and homogeneous fundamental groups. The consuming statements and proof steps specify the needed maps and hypotheses; no separate carrier or proof of the supplied theory is introduced. Consumers: [IG.1/homogeneous-space-fundamental-group](#IG-1-homogeneous-space-fundamental-group).
 - **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors**: Use the existing layer contract for Wang’s cyclic-eight local obstruction. Exact restrictions are in these nodes; this is an import, not a second construction. Consumers: [IG.4/wang-cyclic-eight-counterexample](#IG-4-wang-cyclic-eight-counterexample).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations**: Use the existing layer contract for Frattini detection of full profinite image, Normal subgroups of absolute Galois groups, Finitely many bounded-degree geometric covers, Coprime profinite complements. Exact restrictions are in these nodes; this is an import, not a second construction. Consumers: [IG.2/frattini-full-image](#IG-2-frattini-full-image), [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups), [IG.3/bounded-cover-count](#IG-3-bounded-cover-count), [IG.4/coprime-profinite-complements](#IG-4-coprime-profinite-complements).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation**: Use the existing layer contract for Frattini detection of full profinite image. Exact restrictions are in these nodes; this is an import, not a second construction. Consumers: [IG.2/frattini-full-image](#IG-2-frattini-full-image), [IG.4/free-operator-shrinking](#IG-4-free-operator-shrinking).
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations**: Profinite foundations only: closed subgroups and closed-normal fixed-field/quotient interfaces, open normal subgroups detecting nonidentity elements, and compatible finite quotients. The arithmetic absolute-Galois normal-subgroup theorem is proved in IG.2, not imported from this layer. For the other listed consumers retain only their stated generic profinite input; their arithmetic/geometric conclusions are local targets. Consumers: [IG.2/frattini-full-image](#IG-2-frattini-full-image), [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups), [IG.3/bounded-cover-count](#IG-3-bounded-cover-count), [IG.4/coprime-profinite-complements](#IG-4-coprime-profinite-complements).
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation**: Use the existing layer contract for Frattini detection of full profinite image. Exact restrictions are in these nodes; this is an import, not a second construction. For absolute-galois-normal-subgroups import the profinite Schreier theorem: an open subgroup of a topologically finitely generated compact group is topologically finitely generated. Current Tau Ceti implements this as TauCeti.IsTopologicallyFinitelyGenerated.of_openSubgroup; do not re-plan it. Consumers: [IG.2/frattini-full-image](#IG-2-frattini-full-image), [IG.4/free-operator-shrinking](#IG-4-free-operator-shrinking), [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups).
 - **tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary**: Use the existing layer contract for Approximation and nonabelian localization. Exact restrictions are in these nodes; this is an import, not a second construction. Consumers: [IG.4/finite-quotient-approximation](#IG-4-finite-quotient-approximation).
 - **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets**: Import the stated layer contracts; the consuming node statements give the exact restricted interface. Consumers: [IG.4/free-operator-shrinking](#IG-4-free-operator-shrinking).
 
@@ -4743,7 +4840,7 @@ Needed by: [IG.0/finite-etale-covers](#IG-0-finite-etale-covers), [IG.0/geometri
 
 ### Noohi and pro-étale carrier signatures
 
-The pin has the scheme pro-étale site but no Noohi or infinite Galois-category reconstruction API. Construct the explicit Loc/Cov and continuous target groupoids before stating these in Lean; the categorical set-sized generator argument in Bhatt–Scholze7.4.1 is also an explicit proof obligation.
+The pin already has Scheme.ProEt, Scheme.proetaleTopology and Scheme.ProEt.topology. No Noohi group or infinite Galois reconstruction API was found at the pin or in the current Tau Ceti/roadmap search. IG.0 must construct the actual Loc/Cov and continuous-action/torsor groupoids on those site carriers, including the set-sized connected-generator argument in Bhatt–Scholze7.4.1, compact-open reduction/descent for locally profinite targets, and the comparison for continuous finite quotients. The missing constructions stay full reader targets, without substitute opaque carriers.
 
 Needed by: [IG.0/noohi-groups](#IG-0-noohi-groups), [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group).
 
@@ -4771,11 +4868,11 @@ The norm construction requires exact all-point inclusion and rational-fiber equa
 
 Needed by: [IG.2/norm-pullback-hilbert](#IG-2-norm-pullback-hilbert).
 
-### Absolute Galois original proof and ownership
+### Absolute Galois proof-source closure
 
-Read Fried–Jarden2008 Proposition16.11.6 and Weissauer’s original theorem from a cleared source before certifying this stronger target. The ownership proposal gives it the named IG.2 continuation; the extraction’s UNACCEPTED route cannot be declared accepted by this blueprint.
+The owner and the finitely-generated-over-Q statement are fixed at IG.2/absolute-galois-normal-subgroups, with separate Hilbertian-transfer and Weissauer targets. Weissauer9.7 and its printed proof were read in the original article; its earlier nonstandard foundations and Roquette input have not been fully decomposed. Minamide2.3 and Schmidt–Stix7.1 give the exact field range. Fried–Jarden, second edition13.4.2 and13.9.1(b) (cited by Minamide and Mochizuki), and third edition16.11.6 (cited by Schmidt–Stix) have not been read directly: obtain a cleared or lawful public copy and check edition numbering, the standard transfer/extension proofs and their match with the quadratic-quotient argument before certifying original-source closure. No wider Hilbertian-field normal-subgroup theorem is exported. PAPER-SCHMIDT-STIX-16 gap G2 and rejected route3 remain subject to that extraction’s revision and independent review; an owner or an elaborating target does not accept the route.
 
-Needed by: [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups).
+Needed by: [IG.2/hilbertian-finitely-generated-fields](#IG-2-hilbertian-finitely-generated-fields), [IG.2/weissauer-extension](#IG-2-weissauer-extension), [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups).
 
 ### Stable braid cancellation proof
 
@@ -4899,12 +4996,14 @@ Needed by: [IG.1/charzero-base-extension](#IG-1-charzero-base-extension), [IG.3/
 
 ## Routed-source coverage
 
-The ledger checks 151 candidate routed items against this plan. Of them, 150 are assigned to this roadmap or its native/import adapters; Chen/4 is the separately owned congruence theorem and is excluded. Withdrawn EVW12 counting conclusions and unrelated results of the cited papers are not premises. This is target coverage, not a source-by-source summary or an assertion of complete source decomposition.
+The pro-étale continuation in IG.0 supplies Caraiani–Scholze/125; the finite-cover construction remains separate. The additional normal-subgroup consequence is owned by IG.2/hilbertian-finitely-generated-fields, IG.2/weissauer-extension and IG.2/absolute-galois-normal-subgroups. The supplier assignment does not accept PAPER-SCHMIDT-STIX-16: its extraction remains partial, its verdict revise, route3 rejected, and gap G2 open for source closure and revision review. PAPER-BRESCIANI-24/119 keeps its narrower Hilbertian-field/thin-set tag.
+
+The ledger checks 152 candidate routed items against this plan. Of them, 151 have suppliers named in this roadmap or its native/import adapters; Chen/4 is the separately owned congruence theorem and is excluded. Withdrawn EVW12 counting conclusions and unrelated results of the cited papers are not premises. This is target coverage, not a source-by-source summary or an assertion of complete source decomposition.
 
 | Routed item | Owner(s) | Disposition |
 | --- | --- | --- |
 | PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01/ekedahl-hilbert-irreducibility | [IG.2/general-hilbert-local-approximation](#IG-2-general-hilbert-local-approximation), [IG.2/hilbert-local-conditions](#IG-2-hilbert-local-conditions) | planned here or supplier adapter |
-| PAPER-CARAIANI-SCHOLZE-17/125 | [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group) | planned here or supplier adapter |
+| PAPER-CARAIANI-SCHOLZE-17/125 | [IG.0/proetale-fundamental-group](#IG-0-proetale-fundamental-group) | named pro-étale supplier contract |
 | PAPER-CHEN-24/4 | NonabelianLevelStructures (PAPER-CHEN-24 route6; design pending) | owned elsewhere; excluded from this blueprint |
 | PAPER-CHEN-24/5 | [IG.3/exterior-epimorphisms](#IG-3-exterior-epimorphisms) | planned here or supplier adapter |
 | PAPER-CHEN-24/6 | [IG.3/nielsen-open-statements](#IG-3-nielsen-open-statements) | planned here or supplier adapter |
@@ -5054,6 +5153,7 @@ The ledger checks 151 candidate routed items against this plan. Of them, 150 are
 | PAPER-WOOD-19/318 | [IG.5/bounded-core-galois-reduction](#IG-5-bounded-core-galois-reduction) | planned here or supplier adapter |
 | PAPER-WOOD-19/319 | [IG.5/bounded-core-galois-reduction](#IG-5-bounded-core-galois-reduction) | planned here or supplier adapter |
 | PAPER-WOOD-19/345 | [IG.5/arbitrary-monodromy-marked-moduli](#IG-5-arbitrary-monodromy-marked-moduli) | planned here or supplier adapter |
+| PAPER-SCHMIDT-STIX-16/36 | [IG.2/hilbertian-finitely-generated-fields](#IG-2-hilbertian-finitely-generated-fields), [IG.2/absolute-galois-normal-subgroups](#IG-2-absolute-galois-normal-subgroups) | supplier named; paper route remains rejected |
 
 ## Source corrections and version boundaries
 
@@ -5106,7 +5206,7 @@ These references identify the texts actually inspected. Printed page numbers are
 - **sga1** — A. Grothendieck and M. Raynaud, [Revêtements étales et groupe fondamental (SGA 1)](https://arxiv.org/pdf/math/0206203v2). Recomposed 2003 edition, arXiv math/0206203v2. Inspected: Exposé V §§4–8, printed pp.97–118; IX §§5–6 pp.189–197; X §§3.6–3.9 pp.214–217 and Corollary1.8 p.204; XII §§4.6–5.2 pp.251–253; XIII §§2.1–2.4 pp.280–285 and §§2.10–2.12 pp.289–290. These selected arguments were inspected; this is not a reading of the whole volume..
 
 <a id="source-bhatt-scholze"></a>
-- **bhatt-scholze** — B. Bhatt and P. Scholze, [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2). arXiv:1309.1198v2, 72 PDF pages. Inspected: §§7.1–7.4, PDF pp.63–71.
+- **bhatt-scholze** — B. Bhatt and P. Scholze, [The pro-étale topology for schemes](https://arxiv.org/pdf/1309.1198v2). arXiv:1309.1198v2, 72 PDF pages. Inspected: §§7.1–7.4, PDF pp.63–71; Lemma4.2.12 and proof p.30, reread on 2026-10-17 at the same v2 hash.
 
 <a id="source-evw"></a>
 - **evw** — J. Ellenberg, A. Venkatesh and C. Westerland, [Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p01-p.pdf). Annals of Mathematics 183 (2016), 729–786. Inspected: §§2.1–2.4, pp.736–741; §§7.1–7.9, pp.764–772.
@@ -5201,6 +5301,15 @@ These references identify the texts actually inspected. Printed page numbers are
 <a id="source-hops-v2"></a>
 - **hops-v2** — D. Harbater, A. Obus, R. Pries and K. Stevenson, [Abhyankar’s conjectures in Galois theory: Current status and future directions](https://arxiv.org/pdf/1408.0859v2). arXiv:1408.0859v2, 16 July 2017; inspected §3.2.1 only. Inspected: §3.2.1, PDF p.11; the whole v2 paper was not read.
 
+<a id="source-weissauer"></a>
+- **weissauer** — R. Weissauer, [Der Hilbertsche Irreduzibilitätssatz](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0334/LOG_0015.pdf). Journal für die reine und angewandte Mathematik334 (1982), 203–220; GDZ scan with one cover sheet. Inspected: §9, Definitions9.1 and results9.2–9.7 with their printed proofs, pp.217–219; p.220 continuation. Earlier nonstandard inputs were not fully read. Accessed 2026-10-17; SHA-256 `b0434aee69b8f5ed8ee5ec995d3a4c01eab82dda3852e02bfc154552a7728ea5`.
+
+<a id="source-mochizuki"></a>
+- **mochizuki** — S. Mochizuki, [Global solvably closed anabelian geometry](https://www.math.okayama-u.ac.jp/mjou/mjou48/_07_mochizuki.pdf). Mathematical Journal of Okayama University48 (2006), 57–71. Inspected: Theorem2.4 and proof, pp.62–63. Accessed 2026-10-17; SHA-256 `c336f36aab8932aeacf95d9cd9573fba851e36f696a5256a86eb6bfb071961f6`.
+
+<a id="source-minamide"></a>
+- **minamide** — A. Minamide, [Indecomposability of various profinite groups arising from hyperbolic curves](https://www.math.okayama-u.ac.jp/mjou/mjou60/_10_Minamide.pdf). Mathematical Journal of Okayama University60 (2018), 175–208. Inspected: Topological-group conventions p.179; Theorem2.1, Remark2.2 and Corollary2.3 with their proofs, p.186. Accessed 2026-10-17; SHA-256 `482576a533b00f5451dafb8905ff790e16dffe1f0bb71e170e82ebd8ad14c6f6`.
+
 ## Implemented baseline interfaces
 
 These references supply only the statements recorded here; broader reductions remain in the corresponding node proof routes.
@@ -5272,6 +5381,14 @@ These references supply only the statements recorded here; broader reductions re
 - mathlib:frattini — Intersection of maximal subgroups; a finite discrete group specialization is native. Source module: Mathlib/GroupTheory/Frattini.lean.
 - mathlib:Group.IsNilpotent — Nilpotence by termination of the upper central series. Source module: Mathlib/GroupTheory/Nilpotent.lean.
 - mathlib:Group.IsSolvable — Solvability by termination of the derived series, with the current namespaced class. Source module: Mathlib/GroupTheory/Solvable.lean.
+
+- mathlib:AlgebraicGeometry.Scheme.ProEt — The existing category of weakly étale schemes over a scheme, with its finite limits; no replacement site is planned. Source module: Mathlib/AlgebraicGeometry/Sites/Proetale.lean.
+- mathlib:AlgebraicGeometry.Scheme.proetaleTopology — The big pro-étale Grothendieck topology generated by fpqc covers of weakly étale morphisms. Source module: Mathlib/AlgebraicGeometry/Sites/Proetale.lean.
+- mathlib:AlgebraicGeometry.Scheme.ProEt.topology — The small pro-étale topology on the native weakly étale over-category. Source module: Mathlib/AlgebraicGeometry/Sites/Proetale.lean.
+- mathlib:Field.absoluteGaloisGroup — The automorphism group of an algebraic closure with the Krull topology, used in characteristic zero for the normal-subgroup target. Source module: Mathlib/FieldTheory/AbsoluteGaloisGroup.lean.
+- mathlib:Algebra.EssFiniteType — The native essentially finite type condition; for a field extension it expresses finite generation as a field, allowing positive transcendence degree. Source module: Mathlib/RingTheory/EssentialFiniteness.lean.
+- mathlib:IntermediateField.fg_top_iff — Identifies finite generation of the top intermediate field with Algebra.EssFiniteType; prevents replacing field finite generation by algebra finite type. Source module: Mathlib/FieldTheory/IntermediateField/Adjoin/Algebra.lean.
+- tauceti:TauCeti.IsTopologicallyFinitelyGenerated — Existence of a finite subset whose generated subgroup is dense; used on the actual subgroup with its subspace topology. Source module: TauCeti/Topology/Algebra/Group/Generation.lean.
 
 ## Signature inventory
 
