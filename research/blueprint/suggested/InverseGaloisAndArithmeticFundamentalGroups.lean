@@ -1,4 +1,8 @@
 import Mathlib.AlgebraicGeometry.Morphisms.Etale
+import Mathlib.AlgebraicGeometry.Sites.Proetale
+import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+import TauCeti.Topology.Algebra.Group.Generation
 import Mathlib.AlgebraicGeometry.Morphisms.Finite
 import Mathlib.RingTheory.Etale.Finite
 import Mathlib.CategoryTheory.Comma.Over.Pullback
@@ -551,6 +555,16 @@ theorem numberFieldHilbert {K : Type*} [Field K] [NumberField K]
       Irreducible (TauCeti.RationalSpecialization.specialize t p) := by sorry
 
 
+/-- IG.2/absolute-galois-normal-subgroups: the additional arithmetic consequence for
+fields finitely generated over Q, including positive transcendence degree.
+The two Hilbertian input targets and the original-source checks remain proof obligations. -/
+theorem absoluteGalois_normal_eq_bot
+    (K : Type*) [Field K] [Algebra ℚ K] [Algebra.EssFiniteType ℚ K]
+    (N : Subgroup (Field.absoluteGaloisGroup K)) [N.Normal]
+    (hclosed : IsClosed (N : Set (Field.absoluteGaloisGroup K)))
+    (hfg : TauCeti.IsTopologicallyFinitelyGenerated N) : N = ⊥ := by sorry
+
+
 /-- The largest nilpotent normal subgroup, with finite-group structure in its API. -/
 def FittingSubgroup (G : Type*) [Group G] : Subgroup G :=
   sSup {N : Subgroup G | N.Normal ∧ Group.IsNilpotent N}
@@ -682,11 +696,13 @@ Exact gap obligations: Noohi and pro-étale carrier signatures.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.0/proetale-fundamental-group
-whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Whole API omissions: ProetaleFundamentalGroup.actionEquivalence, ProetaleFundamentalGroup.toEtale, ProetaleFundamentalGroup.torsorEquivalence, ProetaleFundamentalGroup.map.
-Whole test omissions: ProetaleFundamentalGroup.normal_test, ProetaleFundamentalGroup.node_test, ProetaleFundamentalGroup.conjugacy_test.
-Exact gap obligations: Noohi and pro-étale carrier signatures; Supplier comparison adapters.
+whole declaration omitted. The pro-étale site is native at the pin. The full Loc/Cov, Noohi reconstruction and locally profinite torsor statements remain reader targets until their carriers and descent proofs exist. The continuous finite-quotient comparison must not be replaced by an abstract completion or a prodiscrete group.
+Whole API omissions: ProetaleFundamentalGroup.actionEquivalence, ProetaleFundamentalGroup.toEtale, ProetaleFundamentalGroup.unibranchComparison, ProetaleFundamentalGroup.torsorEquivalence, ProetaleFundamentalGroup.framedTorsorEquivalence, ProetaleFundamentalGroup.map, ProetaleFundamentalGroup.changeBasepoint.
+Whole test omissions: ProetaleFundamentalGroup.normal_test, ProetaleFundamentalGroup.node_test, ProetaleFundamentalGroup.conjugacy_test, ProetaleFundamentalGroup.nonprodiscrete_test, ProetaleFundamentalGroup.quadratic_torsor_test.
+Exact gap obligations: Noohi and pro-étale carrier signatures, Supplier comparison adapters.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.2, EnhancedDerivedSheaves:E2.
+Native site inputs: Scheme.ProEt, Scheme.proetaleTopology, Scheme.ProEt.topology.
+Required distinctions: Noohi rather than a prodiscrete completion; continuous finite quotients; right torsor conjugation arrows and framing; compact-open descent for locally profinite targets.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
@@ -850,10 +866,19 @@ whole declaration omitted. Full mathematical target remains the packet statement
 Exact gap obligations: Quantitative and local Hilbert proof sources.
 Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence.
 
+### InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbertian-finitely-generated-fields
+whole declaration omitted. The exact Hilbertian-field target is stated in the reader. Its Hilbert-set and field-transfer interfaces are not yet connected in Lean; no untyped Hilbertian predicate is substituted.
+Exact gap obligations: Absolute Galois proof-source closure.
+
+### InverseGaloisAndArithmeticFundamentalGroups:IG.2/weissauer-extension
+whole declaration omitted. The exact Hilbertian-field target is stated in the reader. Its Hilbert-set and field-transfer interfaces are not yet connected in Lean; no untyped Hilbertian predicate is substituted.
+Exact gap obligations: Absolute Galois proof-source closure.
+
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.2/absolute-galois-normal-subgroups
-whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Absolute Galois original proof and ownership.
-Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations.
+target signature. The normal-subgroup conclusion is statable over native absoluteGaloisGroup, Algebra.EssFiniteType and TauCeti.IsTopologicallyFinitelyGenerated. Its theorem proof remains a roadmap obligation, including the two named Hilbertian input targets and the original-source checks.
+Typed target/carrier: TauCeti.InverseGalois.absoluteGalois_normal_eq_bot.
+Exact gap obligations: Absolute Galois proof-source closure.
+Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.2/quadratic-specialization-example
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected. The prerequisite list below is the exact carrier boundary; no untyped condition is replaced by a proposition parameter.
