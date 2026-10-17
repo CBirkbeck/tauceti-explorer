@@ -49673,8 +49673,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EffectiveDiophantineMethods.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10086",
-   "finishedAt": "2026-10-16T23:39:30Z"
+   "finishedAt": "2026-10-16T23:39:30Z",
+   "note": "deliverables arrived from an external worker on issue #10086"
   },
   {
    "id": "REV-PKG-EffectiveDiophantineMethods",
@@ -49700,8 +49700,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EffectiveDiophantineMethods.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10087",
-   "finishedAt": "2026-10-17T00:15:54Z"
+   "finishedAt": "2026-10-17T00:15:54Z",
+   "note": "deliverables arrived from an external worker on issue #10087"
   },
   {
    "id": "PKG-EllipticCurveModularity",
