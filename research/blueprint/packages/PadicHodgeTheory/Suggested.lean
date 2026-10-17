@@ -6,7 +6,8 @@ import TauCeti.RingTheory.Huber.Restricted.TwoSidedSeries.Convolution
 
 The roadmap is README.md. This file records definitions and theorem signatures
 statable against the pinned APIs and is not exhaustive. Laurent coefficients
-use genuine discrete convolution; theta uses Mathlib's de Rham completion.
+use genuine discrete convolution. Field periods and their geometric structures
+are imported from the lower owners named in the README.
 Coordinate matrices fix covariant Tate periods, negative-derivative monodromy
 and arithmetic Weil Frobenius. Rational supremum estimates carry convergence
 and positive-radius hypotheses. No matrix formula asserts existence of a
@@ -22,76 +23,50 @@ namespace TauCetiRoadmap.PadicHodgeTheory
 
 /-! ## Layer 0: Rational period rings -/
 
-section GeometricPeriodRing
+/-- A theta-kernel element and its translate by p have different theta images.
+This checks the kernel-membership hypothesis independently of reduction modulo p. -/
+example {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S)
+    (p : ℕ) (x : R) (hx : f x = 0) (hp : (p : S) ≠ 0) :
+    f (x + p) = (p : S) ∧ f (x + p) ≠ 0 := by
+  simp [hx, hp]
 
-variable (p : ℕ) [Fact p.Prime]
+/-- At p = 2 the iterated divided powers obey delta-zero squared = 2 delta-one. -/
+example (x : ℚ) : (x ^ 2 / 2) ^ 2 = 2 * (x ^ 4 / 8) := by
+  ring
 
-/-- The prime is a nonunit in the integers of C_p. -/
-theorem cpIntegers_p_not_unit : ¬ IsUnit (p : PadicComplexInt p) := by
-  sorry
+/-- Raw series coefficients are not independent modulo the relation 2T = xi. -/
+example : Polynomial.eval (3 / 2 : ℚ)
+    (Polynomial.C 3 - Polynomial.C 2 * Polynomial.X) = 0 ∧ (3 : ℚ) ≠ 0 := by
+  norm_num
 
-/-- The integers of C_p are complete for the principal ideal (p). -/
-theorem cpIntegers_complete :
-    IsAdicComplete (Ideal.span {(p : PadicComplexInt p)}) (PadicComplexInt p) := by
-  sorry
+/-- Breuil's integral monodromy is (1+X) times the derivative, before rescaling. -/
+example : ((1 + Polynomial.X : Polynomial ℚ) *
+    Polynomial.derivative ((1 + Polynomial.X) ^ 2 - 1)) =
+    Polynomial.C 2 * (1 + Polynomial.X) ^ 2 := by
+  rw [Polynomial.derivative_sub, Polynomial.derivative_pow]
+  norm_num
+  ring
 
-/-- Frobenius on the quotient of the integers of C_p by p is surjective. -/
-theorem cpIntegers_frobenius_surjective : Function.Surjective
-    (fun x : (PadicComplexInt p) ⧸ Ideal.span {(p : PadicComplexInt p)} => x ^ p) := by
-  sorry
+/-- Absolute monodromy negates Breuil's operator and divides by the ramification index. -/
+example : -Polynomial.C (1 / 2 : ℚ) * (1 + Polynomial.X) *
+    Polynomial.derivative Polynomial.X =
+    -Polynomial.C (1 / 2 : ℚ) * (1 + Polynomial.X) := by
+  simp
 
-variable [Fact (¬ IsUnit (p : PadicComplexInt p))]
-    [IsAdicComplete (Ideal.span {(p : PadicComplexInt p)}) (PadicComplexInt p)]
+/-- Scaling N by c = -2 divides its connecting map by -2; transport back multiplies by c. -/
+example (b : ℚ) : (-2 : ℚ) * ((-2 : ℚ)⁻¹ * b) = b := by
+  ring
 
-/-- The de Rham positive ring of C_p is a complete discrete valuation ring.
-Its residue field is C_p; the README identifies B_dR with its fraction field. -/
-theorem bdrPlus_complete_dvr :
-    ∃ h : IsDomain (BDeRhamPlus (PadicComplexInt p) p),
-      @IsDiscreteValuationRing (BDeRhamPlus (PadicComplexInt p) p) inferInstance h := by
-  sorry
+/-- In a characteristic-two PD ideal, every element has zero square. -/
+example {R : Type*} [CommRing R] [CharP R 2] (I : Ideal R)
+    (hI : DividedPowers I) (x : R) (hx : x ∈ I) : x ^ 2 = 0 := by
+  have hpow := hI.factorial_mul_dpow_eq_pow (n := 2) hx
+  simpa [Nat.factorial, show (2 : R) = 0 from CharP.cast_eq_zero R 2] using hpow.symm
 
-/-- θ_dR is evaluation at level one followed by the map
-that θ[1/p] induces on the quotient by its kernel. Its target `Localization.Away p` of 𝓞_ℂ_[p]
-is ℂ_[p]; the identification is not restated here. -/
-def thetaDR : BDeRhamPlus (PadicComplexInt p) p →+* Localization.Away (p : PadicComplexInt p) :=
-  (RingHom.kerLift (fontaineThetaInvertP (PadicComplexInt p) p)).comp
-    (AdicCompletion.evalOneₐ (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p))).toRingHom
+/-- A PD variable in characteristic two is not an ordinary polynomial variable. -/
+example : (Polynomial.X : Polynomial (ZMod 2)) ^ 2 ≠ 0 := by
+  exact pow_ne_zero _ Polynomial.X_ne_zero
 
-/-- θ_dR extends θ[1/p]. -/
-theorem thetaDR_coe
-    (x : Localization.Away (p : WittVector p (PreTilt (PadicComplexInt p) p))) :
-    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _ x) =
-      fontaineThetaInvertP (PadicComplexInt p) p x := by
-  sorry
-
-/-- The de Rham residue map is surjective. -/
-theorem thetaDR_surjective : Function.Surjective (thetaDR p) := by
-  sorry
-
-/-- Test thetaDR_teichmuller: θ_dR([x]) = x^♯ for x in the tilt. -/
-example (x : PreTilt (PadicComplexInt p) p) :
-    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _
-      (algebraMap (WittVector p (PreTilt (PadicComplexInt p) p)) _ (WittVector.teichmuller p x))) =
-      algebraMap (PadicComplexInt p) (Localization.Away (p : PadicComplexInt p))
-        (PreTilt.untilt x) := by
-  sorry
-
-/-- The quotient map preserves the constant one. -/
-example : thetaDR p 1 = 1 := by
-  sorry
-
-/-- The scalar p remains a unit in the de Rham residue algebra. -/
-example : IsUnit (thetaDR p (p : BDeRhamPlus (PadicComplexInt p) p)) := by
-  sorry
-
-/-- Adding p to a theta-kernel element destroys kernel membership.
-In the integral source, reduction modulo p cannot detect this change. -/
-example (x : BDeRhamPlus (PadicComplexInt p) p) (hx : thetaDR p x = 0) :
-    thetaDR p (x + p) = (p : Localization.Away (p : PadicComplexInt p)) ∧
-      thetaDR p (x + p) ≠ 0 := by
-  sorry
-
-end GeometricPeriodRing
 
 /-- The first two logarithm terms fix the negative polynomial-derivative convention. -/
 example : -Polynomial.derivative
@@ -193,6 +168,10 @@ example : Polynomial.comp (Polynomial.X : Polynomial ℚ) (Polynomial.X + 1) -
 example : (- (!![(0 : ℚ), 0; 1, 0])) *ᵥ ![1, 0] = ![0, -1] := by
   sorry
 
+/-- At a crossing of two boundary components the alternating simplex differential squares to zero. -/
+example (x : ℚ) : (LinearMap.fst ℚ ℚ ℚ - LinearMap.snd ℚ ℚ ℚ) (x, x) = 0 := by
+  simp
+
 /-! ## Layer 3: Filtered period functors -/
 
 /-- A Tate-line period of exponent minus one has filtration jump minus one. -/
@@ -254,6 +233,18 @@ This is not an assertion of a period torsor for nonadmissible data. -/
 example : (1 : ℤ) - 0 = 1 ∧ (0 : ℤ) - 1 = -1 := by
   norm_num
 
+/-! ## Layer 6: Ordinary lifting -/
+
+/-- The mod-five tame factors cancel in the first residual character. -/
+example : (2 : ZMod 5) * 3 = 1 ∧ (2 : ZMod 5) ≠ 1 := by
+  decide
+
+/-- The first character in the lifting counterexample still has nontrivial wild value. -/
+example : (6 : ℚ) ≠ 1 ∧ (6 : ZMod 5) = 1 := by
+  constructor
+  · norm_num
+  · decide
+
 /-! ## Layer 7: Relative period cohomology -/
 
 /-- The B-pair differential annihilates a diagonal section. -/
@@ -262,6 +253,18 @@ example : (LinearMap.fst ℚ ℚ ℚ - LinearMap.snd ℚ ℚ ℚ) (1, 1) = 0 := 
 
 /-- The Frobenius complex uses phi minus one. -/
 example : ((2 : ℚ) - 1) * 1 = 1 ∧ ((1 : ℚ) - 2) * 1 = -1 := by
+  norm_num
+
+/-- The degree-zero positive-twist Koszul row is diagonal followed by difference. -/
+example (x : ℚ) : (-1 : ℚ) * x + x = 0 := by
+  ring
+
+/-- In bidegree (1,1), the signed total differential has cancelling mixed terms. -/
+example (a b : ℚ) : a * b + (-1 : ℚ) ^ (1 : ℕ) * (b * a) = 0 := by
+  ring
+
+/-- Omitting the total sign gives a nonzero mixed term in characteristic zero. -/
+example : (1 : ℚ) * 1 + 1 * 1 = 2 ∧ (2 : ℚ) ≠ 0 := by
   norm_num
 
 /-- At d = 1, positive analytic degree and geometric degree have opposite signs. -/
@@ -413,6 +416,12 @@ example {R : Type*} [CommRing R] : tateMonodromyMatrix (0 : R) = 0 := by
 example : tateMonodromyMatrix (2 : ℚ) *ᵥ ![3, 5] = ![10, 0] := by
   sorry
 
+/-- For e = 2 and q = pi^5, N_K has coefficient 5 and absolute N has coefficient 5/2. -/
+example : (1 / 2 : ℚ) • tateMonodromyMatrix (5 : ℚ) =
+    tateMonodromyMatrix (5 / 2 : ℚ) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [tateMonodromyMatrix]
+
 /-- The prime two has reciprocal period Frobenius. -/
 example : tatePhiMatrix (2 : ℚ) = !![1/2, 0; 0, 1] := by
   sorry
@@ -421,38 +430,5 @@ example : tatePhiMatrix (2 : ℚ) = !![1/2, 0; 0, 1] := by
 example : tatePhiMatrix (3 : ℚ) * !![3, 0; 0, 1] = 1 := by
   sorry
 
-/-
-The remaining targets require the heavier carriers and constructions specified in README.md:
-Layer 0: galoisActionCp and its transported actions; normalized traces R_n;
-I^[r], Fil_p^r and B'_cris; pFlat, filAffinoid,
-bdRPlusAffinoid, filBdR, naturalTopologyAinfInvP, naturalTopologyBdRPlus,
-fontaineT, logTeichmuller, BHT, acrisToBdRPlus, acrisFrobenius, BcrisPlus,
-Bcris, Amax, BmaxPlus, logCris, Bst, bstToBdR, breuilMin and completedBstPlus.
-Layer 1: AnnulusRing and its topology, restriction, evaluation and derivative;
-RobbaRing, AmiceRing, their bounded/integral subrings and CycRing operations.
-Layer 2: UncompletedStructureSheaf, CompletedStructureSheaf, InfinitesimalPeriodSheaf,
-DeRhamPlusSheaf, DeRhamSheaf, StructuralDeRhamPlusSheaf, PowerSeriesStructure,
-StructuralDeRhamSheaf, CrystallinePeriodSheaf, StructuralCrystallineSheaf,
-SemistablePeriodSheaf, StructuralSemistableSheaf and primitiveCover.
-Layer 3: IsRegularPeriodRing, FilteredSpace, DHT, DdR, Dcris, Dst, Vcris, Vst,
-IsHodgeTate, IsDeRham, IsCrystalline, IsSemistable, hodgeNumber,
-FilteredPhiNModule, FilteredPhiModule, newtonNumber, IsWeaklyAdmissible,
-FilteredPhiNGaloisModule, filtrationMultiplicity, hodgeTateWeights,
-RegularOrdinary, filteredGFunctor, admissiblePair and classicalStComplex.
-Layer 4: RobbaK, ExtRobba, tLog, LogExtendedRobba, RobbaRealisation,
-RobbaCrystal, IsUnipotentConnection, senModule, senOperator, difPlus, dif,
-wachModule, wachLattice, Wach.dcrisLattice, BPair, WdRPlus, herrComplex and simpleSenBlock.
-Layer 5: deRhamDiffEq, bergerModification, stL, pst, fontaineWD,
-weilDeligneParameter, inertialType, IsPure, rankTwoSupercuspidal, rankTwoSpecial,
-sigmaConjugacy, kottwitzInvariant, tensor Newton invariants and period torsors.
-Layer 6: Fontaine–Laffaille realization functors and IsOrdinary.
-Layer 7: BdRPlusLocalSystem, OBdRPlusConnection, FilteredConnection,
-associatedLocalSystem, LisseZpSheaf, DeRhamPair, relativePeriodSheaf,
-RelativePhiModule, RelativeBPair, relativePhiComplex, relativeBPairComplex,
-scheme-Proj/chartwise curve patching and all-module derived comparison.
-Layers 8 and 9: geometric comparison maps and cohomology, Kummer lattice/Ext
-realizations, tateLInvariantOfModule and the geometric reduction criteria.
-Their exact APIs and discriminating Checks remain in the README.
--/
 
 end TauCetiRoadmap.PadicHodgeTheory
