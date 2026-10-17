@@ -132179,6 +132179,25 @@
    "state": "superseded",
    "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv.md",
    "note": "premature — the adversarial review #9879 of the completed package has not run yet; a fix job is created after it"
+  },
+  {
+   "id": "FIX-PKG-ColemanIntegration~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ColemanIntegration~adv2.md",
+    "research/blueprint/packages/ColemanIntegration/review.json",
+    "research/blueprint/packages/ColemanIntegration/README.md",
+    "research/blueprint/packages/ColemanIntegration/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv2.md"
   }
  ]
 }
