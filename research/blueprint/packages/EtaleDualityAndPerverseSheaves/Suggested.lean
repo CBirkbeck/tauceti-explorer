@@ -351,13 +351,23 @@ end GradedDeterminants
 /-- Diagnostic Euler computation for projective-line Betti numbers. -/
 example : gradedEulerChar 1 (fun i => if i = 0 ∨ i = 2 then 1 else 0) = 2 := sorry
 
-/-- Diagnostic odd-rank magnitude: dimension one must retain s rather than c^(1/2 truncated). -/
-example (s : ℚ) : s ^ (1 : ℕ) = s := by simp
+/-- Empty cohomology gives Euler characteristic zero. -/
+example : gradedEulerChar 1 (fun _ => 0) = 0 := by sorry
 
+/-- Three rank-one degrees give Euler characteristic `1 - 1 + 1 = 1`. -/
+example : gradedEulerChar 1 (fun _ => 1) = 1 := by sorry
 
-/-- With the projective-line grading, determinant factors are multiplied, not inverted. -/
-example (q : ℚˣ) : (1 : ℚˣ) ^ (1 : ℤ) * q ^ (1 : ℤ) = q := by
-  simp
+/-- The degree-zero determinant is retained, including for an arbitrary unit multiplier. -/
+example (q : ℚˣ) :
+    gradedDelta (fun _ => ℚ) 0 (fun _ => LinearEquiv.smulOfUnit q) = q := by
+  sorry
+
+/-- Three scalar determinants `2, 3, 5` give `2 * 3⁻¹ * 5 = 10/3`.
+This checks the definition without imposing geometric Poincaré-duality conditions. -/
+example : gradedDelta (fun _ => ℚ) 1 (fun i =>
+    LinearEquiv.smulOfNeZero ℚ ℚ (if i = 0 then (2 : ℚ) else if i = 1 then 3 else 5)
+      (by split_ifs <;> norm_num)) = Units.mk0 (10 / 3 : ℚ) (by norm_num) := by
+  sorry
 
 /-- Rank zero gives the multiplicative identity, including at multiplier zero. -/
 example : LinearMap.det (0 : (Fin 0 → ℚ) →ₗ[ℚ] (Fin 0 → ℚ)) = 1 := by
