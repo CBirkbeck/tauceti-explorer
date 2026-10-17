@@ -768,14 +768,14 @@
       ],
       "title": "The regulator target H²_D(E_R, R(2)) of an elliptic curve, its dimension and its normalisation",
       "kind": "construction",
-      "statement": "The real Deligne complex R(2)_D, its hypercohomology, products and long exact sequence are imported from MotivicEtaleKTheory M.8 (its early part; confirmed findings RT-AREA-ktheory-2/7 and /24). For an elliptic curve E over a number field F, with E(C) = ⊔_σ E_σ(C) and F_∞ as in ER.1, this node computes the target. (a) The exact sequence 0 → F²H^1_dR(E_C) → H^1(E(C), R(1)) → H^2_D(E_C, R(2)) → 0 with F²H^1_dR = 0 gives H^2_D(E_C, R(2)) ≅ H^1(E(C), R(1)), and H^2_D(E_R, R(2)) is the part fixed by the de Rham conjugation, i.e. H^1(E(C), R(1))^−, the classes anti-invariant under c^* (Brunault Lemma 61). (b) [ν] ↦ (ω ↦ ∫_{E(C)} ν ∧ ω) is an isomorphism H^1(E(C), R(1)) ≅ Hom_C(Ω^{1,0}(E_C), C) carrying H^1(E(C), R(1))^− onto Hom_R(Ω^{1,0}_R, R(1)) (Lemma 62 with d = 1). (c) dim_R H^2_D(E_R, R(2)) = r_1 + 2r_2 = [F : Q]; it is 1 for F = Q. (d) For F = Q the identification with R is φ ↦ φ(ω_0)/i with ω_0 = η^*dz, the unique holomorphic differential with ∫_{E^0(R)} ω_0 = 1 (Brunault Proposition 26); another normalisation changes it by a non-zero real factor, and reversing the orientation of E(R) changes its sign.",
+      "statement": "The real Deligne complex R(2)_D, its hypercohomology, products and long exact sequence are imported from MotivicEtaleKTheory:M.8/deligne-regulator, the existing smooth projective export. For an elliptic curve E over a number field F, with E(C) = ⊔_σ E_σ(C) and F_∞ as in ER.1, this node computes the target. (a) The exact sequence 0 → F²H^1_dR(E_C) → H^1(E(C), R(1)) → H^2_D(E_C, R(2)) → 0 with F²H^1_dR = 0 gives H^2_D(E_C, R(2)) ≅ H^1(E(C), R(1)), and H^2_D(E_R, R(2)) is the part fixed by the de Rham conjugation, i.e. H^1(E(C), R(1))^−, the classes anti-invariant under c^* (Brunault Lemma 61). (b) [ν] ↦ (ω ↦ ∫_{E(C)} ν ∧ ω) is an isomorphism H^1(E(C), R(1)) ≅ Hom_C(Ω^{1,0}(E_C), C) carrying H^1(E(C), R(1))^− onto Hom_R(Ω^{1,0}_R, R(1)) (Lemma 62 with d = 1). (c) dim_R H^2_D(E_R, R(2)) = r_1 + 2r_2 = [F : Q]; it is 1 for F = Q. (d) For F = Q the identification with R is φ ↦ φ(ω_0)/i with ω_0 = η^*dz, the unique holomorphic differential with ∫_{E^0(R)} ω_0 = 1 (Brunault Proposition 26); another normalisation changes it by a non-zero real factor, and reversing the orientation of E(R) changes its sign.",
       "hypotheses": [
         "E is an elliptic curve over a number field F; E(C) = ⊔_σ E_σ(C) with the involution F_∞ of ER.1/all-embeddings-and-the-conjugation-action (Brunault states Lemmas 61 and 62 for an abelian variety over Q; for F ≠ Q they are applied to E viewed over Q, componentwise).",
         "The Deligne complex and its exact sequence are M.8's (requested); Brunault recalls them from Schneider [65] and Nekovář [52], and this node uses that normalisation.",
         "The identification with R in (d) is not canonical: it depends on the orientation through ω_0."
       ],
       "proofSteps": [
-        "Import from M.8 the complex R(2)_D, its hypercohomology and the sequence 0 → F²H^1_dR → H^1(·, R(1)) → H^2_D(·, R(2)) → 0 for a smooth projective curve over C.",
+        "Import from the exact M.8/deligne-regulator supplier (the curve exact-sequence adapter remains requested) the complex R(2)_D, its hypercohomology and the sequence 0 → F²H^1_dR → H^1(·, R(1)) → H^2_D(·, R(2)) → 0 for a smooth projective curve over C.",
         "F²H^1_dR(E_C) = 0 for a curve (Hodge filtration, Brunault (2.97)); the de Rham conjugation is [ν] ↦ [conj c^*ν] = −[c^*ν], so the real part is H^1(E(C), R(1))^− (Lemma 61).",
         "Lemma 62: [ν] ↦ (ω ↦ ∫ ν ∧ ω) is injective by the Hodge decomposition and Poincaré duality, hence bijective; the computation (2.104) with d = 1 identifies the minus part with Hom_R(Ω^{1,0}_R, R(1)).",
         "Dimension: H^1(E(C), R) has dimension 2[F : Q]; c^* exchanges the two summands of a complex pair and has eigenvalues +1 and −1 once each on a real summand, so dim H^1(E(C), R(1))^− = r_1 + 2r_2 = [F : Q] (mathlib InfinitePlace.card_add_two_mul_card_eq_rank).",
@@ -792,7 +792,8 @@
         "EllipticRegulators:ER.1/periods-and-the-comparison-isomorphism",
         "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
         "EllipticRegulators:ER.1/complex-uniformisation",
-        "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank"
+        "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+        "MotivicEtaleKTheory:M.8/deligne-regulator"
       ],
       "sources": [
         {
@@ -1100,7 +1101,8 @@
         "EllipticRegulators:ER.2/the-regulator-on-symbols",
         "EllipticRegulators:ER.2/the-eta-form-and-its-differential-identity",
         "EllipticRegulators:ER.2/the-deligne-cohomology-target",
-        "Polylogarithms:P.5/regulator-induces-beilinson"
+        "Polylogarithms:P.5/regulator-induces-beilinson",
+        "MotivicEtaleKTheory:M.8/deligne-regulator"
       ],
       "sources": [
         {
@@ -5472,8 +5474,8 @@
       ]
     },
     {
-      "supplier": "MotivicEtaleKTheory:M.8",
-      "need": "As an early part needing no BorelRegulators input (RT-AREA-ktheory-2/7 and /24, confirmed): the real Deligne–Beilinson complex R(n)_D of a smooth variety over R with its hypercohomology, products and the exact sequence 0 → F²H^1_dR → H^1(X(C), R(1)) → H^2_D(X_C, R(2)) → 0 for curves; Beilinson's regulator K_2^{(2)} → H^2_D(X_R, R(2)) with its compatibility with pull-back to open subsets and with cup products, the cup-product formula r{F, G} = [η_B(F, G)] (Nekovář (7.3.2)), and the comparison of Schneider's normalisation (the one Brunault uses) with the universal Chern/Deligne regulator. FIX-RT-AREA-ktheory-2~2: require an EARLY real Deligne complex interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
+      "supplier": "MotivicEtaleKTheory:M.8/deligne-regulator",
+      "need": "The accepted deligne-regulator node now supplies the smooth projective Deligne complex, normalized rational regulator, products and real conjugation before R.7/D.2. Consume that exact node for proper targets. ER.2 still needs the curve long exact sequence and the comparison of the Schneider/Nekovář normalization used by Brunault with this universal regulator. Restriction to U=E−S and the symbol cup-product formula require the logarithmic Deligne–Beilinson realization on the open curve, not its ordinary analytic Deligne complex (Brunault §2.5, Proposition 67 and (2.120)–(2.123), pp.67–69). The supplier itself records mixed-Hodge/realization proof gaps; its existence as an accepted plan is not an implemented carrier or a closed proof. No dependence on the late whole of M.8 is introduced.",
       "neededBy": [
         "EllipticRegulators:ER.2/the-deligne-cohomology-target",
         "EllipticRegulators:ER.2/the-normalisation-factor"
@@ -6272,9 +6274,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
-    "date": "2026-09-30",
-    "notes": "Codex — codex-J6LwjP independently reviewed the follow-up by Codex codex-rtOQ9t (commit e306457, PR #5210); this session did none of that fix. Follows the qualified RT-AREA-combinatorics verification by codex-7e92bd and the previous review independent-review-REV-EllipticRegulators. The prior review object is preserved in reviewHistory as historical evidence, not re-certified here. Scope: finding /14, the two ER.4/ER.5 Fourier nodes, the AC.0 request, six added baseline declarations and their suggested-file signatures. Re-read four Bloch page images and pinned character/Fourier/Haar statements; independently checked 14,769 finite Fourier equalities for C=1,...,6 and the C=3 normalization/index counterexamples. The fix is mathematically correct. Corrected E7’s explanatory scalar from C^(-1) to C^(-2) before its raw sum; its corrected transform and historical source verdict remain unchanged. Preserve the separate later K-theory supplier changes at 0ba7ef0; this review does not accept that other job or re-audit all 75 nodes. Current packet remains partial: 14 gaps, 40 requests, no closed stages. Stock checker with the pinned declaration index passes with no errors/warnings; suggested file inspected but not compiled because no existing pinned build was found."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+    "date": "2026-10-17",
+    "notes": "Codex session codex-gM56zj; independent review of FIX-RT-AREA-ktheory-2~2, following independent-review-REV-FIX-RT-AREA-combinatorics~2 (2026-09-30), preserved unchanged in reviewHistory. Findings /5–12 and /15: checked CM/Kato/Coleman/vertical-model ownership, the proper real-Deligne versus logarithmic open-curve distinction, and the conditional functional-equation scalar. Replaced the obsolete whole-M.8 request with the accepted deligne-regulator export and two exact consumer prerequisites. The open/logarithmic realization, Schneider/Nekovář convention and normalization comparisons remain explicit requests; unrelated Fourier/source reviews remain attributed to their earlier reviewers. The packet checker with the pinned declaration index passes with zero errors/warnings; the compact Suggested file elaborates with only admitted-declaration warnings. All packet targets are retained. Accepted is a bounded planning-fix verdict, not a new exhaustive audit, stage closure or formalisation; see the report and external handoff."
   },
   "fixHistory": [
     {
@@ -6671,6 +6673,12 @@
           "note": "Added from checker C's decomposition (Brunault.SiegelUnits.2016, Theorem 24, §5.1, p. 13): A second modular-unit example: conductors 14, 35 and 54."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
+      "date": "2026-09-30",
+      "notes": "Codex — codex-J6LwjP independently reviewed the follow-up by Codex codex-rtOQ9t (commit e306457, PR #5210); this session did none of that fix. Follows the qualified RT-AREA-combinatorics verification by codex-7e92bd and the previous review independent-review-REV-EllipticRegulators. The prior review object is preserved in reviewHistory as historical evidence, not re-certified here. Scope: finding /14, the two ER.4/ER.5 Fourier nodes, the AC.0 request, six added baseline declarations and their suggested-file signatures. Re-read four Bloch page images and pinned character/Fourier/Haar statements; independently checked 14,769 finite Fourier equalities for C=1,...,6 and the C=3 normalization/index counterexamples. The fix is mathematically correct. Corrected E7’s explanatory scalar from C^(-1) to C^(-2) before its raw sum; its corrected transform and historical source verdict remain unchanged. Preserve the separate later K-theory supplier changes at 0ba7ef0; this review does not accept that other job or re-audit all 75 nodes. Current packet remains partial: 14 gaps, 40 requests, no closed stages. Stock checker with the pinned declaration index passes with no errors/warnings; suggested file inspected but not compiled because no existing pinned build was found."
     }
   ]
 }
