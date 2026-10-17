@@ -44486,8 +44486,8 @@
   "review": {
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-    "date": "2026-10-11",
-    "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /13: the eight QM.5 exports correctly separate scalar analytic periods from the knot cocycle of Zagier Example 5. Read Quantum modular forms p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier Theorems 1-2 and proposition pp.98-99 and section 4 pp.103-104, and rendered Strange identity section 6 equations (38)-(39) pp.958-959. The packet and Lean retain the lower-boundary sign correction at c=0,d<0. The reader QM.5/kontsevich-quantum-modular still asserts the naive inverse eta multiplier; at -I it acts as -1 instead of 1. Correct that reader when its path is authorized. Preserve codex-jnfi6H full-plan objections in REV-QSeriesPartitionsAndMockModularForms~2 (#6469); they are not reassessed here. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
+    "date": "2026-10-17",
+    "notes": "Bounded independent review of finding /13 by Codex (GPT-6), codex-BsNNY8. Checked eight scalar QM.5 exports, their APIs/tests and Lean signatures against Zagier Quantum modular forms p.2 and Examples 3-5 pp.10-12; Lawrence-Zagier Theorems 1-2 and proposition pp.98-99; rendered Strange identity section 6 (38)-(39) p.958. The packet and Lean correctly use inverse eta except for an extra minus sign when c=0,d<0. The reader still asserts inverse eta everywhere: at -I that gives action -1, while epsilon=-i and the lower-boundary factor=i give identity. Its omitted reader path needs authorization before correction. Keep scalar real-analytic periods distinct from Example 5 knot cocycles and formal evaluations distinct from analytic radial limits. Preserve the separately attributed codex-jnfi6H whole-plan objections in REV-QSeriesPartitionsAndMockModularForms~2 (#6469). This is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
   },
   "reviewHistory": [
     {
@@ -50095,6 +50095,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), codex-8VNvtM: Independent bounded review of FIX-RT-AREA-topology~4. Review of assigned finding /13: QM.5 scalar definitions/examples and eight supplier contracts do not provide QT.7 knot modularity. Checked Zagier Quantum modular forms p.2 and Examples 3-5, pp.10-12; Lawrence-Zagier Theorems 1-2/proposition, pp.98-99, and section 4, pp.103-104; rendered Strange identity section 6, pp.958-959. Packet/Lean include the lower-boundary multiplier correction at c=0,d<0, but the reader QM.5/kontsevich-quantum-modular still asserts the unqualified inverse eta multiplier. At -I the corrected -i times weight i is 1, whereas the naive inverse gives -1. Reader synchronization remains outside this issue scope. Preserve the independently attributed full-plan negative audit by codex-jnfi6H, REV-QSeriesPartitionsAndMockModularForms~2; this bounded review does not supersede its other objections. No mathematical payload changed. Follows codex-kCCEnu's bounded review of 11 October 2026, retained whole in reviewHistory; this is not a new full-plan audit."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /13: the eight QM.5 exports correctly separate scalar analytic periods from the knot cocycle of Zagier Example 5. Read Quantum modular forms p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier Theorems 1-2 and proposition pp.98-99 and section 4 pp.103-104, and rendered Strange identity section 6 equations (38)-(39) pp.958-959. The packet and Lean retain the lower-boundary sign correction at c=0,d<0. The reader QM.5/kontsevich-quantum-modular still asserts the naive inverse eta multiplier; at -I it acts as -1 instead of 1. Correct that reader when its path is authorized. Preserve codex-jnfi6H full-plan objections in REV-QSeriesPartitionsAndMockModularForms~2 (#6469); they are not reassessed here. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
     }
   ],
   "revisionDisposition": {

@@ -6860,10 +6860,10 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-  "date": "2026-10-11",
-  "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /7: the ordered ideal-tetrahedron formula remains in P.2, with direct GeometricTopology 7/8 inputs. Checked Zagier I.3 equations (3),(5), p.11, I.4 equations (7)-(9), pp.13-14, Neumann v2 Theorem 2.6 and section 3, pp.420-421, and current metric/measure owners. Cross-ratio and orientation tests distinguish cocycle conventions; canonical regions, finite-volume integration and regulator calibration stay open. QT.5 must import the formula explicitly. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-17",
+   "notes": "Bounded independent review of finding /7 by Codex (GPT-6), codex-BsNNY8. Rechecked the ordered ideal-tetrahedron contract, direct GT 7/8 suppliers, distinguishing orientation tests and the unchanged Lean signature. Read Zagier I.3 (3),(5), p.11 and I.4 (7)-(9), pp.13-14; Neumann v2 Theorem 2.6 and section 3, pp.420-421. Current upstream metric/measure and differential-form owners must be imported. Canonical ideal regions, finite-volume integration and regulator calibration remain explicit obligations. The QT.5 direct formula prerequisite is still a scope-dependent consumer correction. This is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
  },
  "reviewHistory": [
   {
@@ -7404,6 +7404,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-11",
    "notes": "Codex (GPT-6), codex-8VNvtM: Independent bounded review of FIX-RT-AREA-topology~4. Review of assigned finding /7: P.2 owns the ordered ideal-tetrahedron identity and imports GeometricTopology 7/8. Zagier I.3 equations (3),(5), p.11, and I.4 equations (7)-(9), pp.13-14 distinguish the cocycle from its signed geometric interpretation; Neumann v2 Theorem 2.6 and section 3, pp.420-421, fix the regulator comparison. Independent exact arithmetic checks all 24 cross-ratio orders. Canonical regions, signed integration and regulator calibration remain explicit gaps; current metric/measure APIs are imports. No mathematical payload changed. Follows codex-kCCEnu's bounded review of 11 October 2026, retained whole in reviewHistory; this is not a new full-plan audit."
+  },
+  {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /7: the ordered ideal-tetrahedron formula remains in P.2, with direct GeometricTopology 7/8 inputs. Checked Zagier I.3 equations (3),(5), p.11, I.4 equations (7)-(9), pp.13-14, Neumann v2 Theorem 2.6 and section 3, pp.420-421, and current metric/measure owners. Cross-ratio and orientation tests distinguish cocycle conventions; canonical regions, finite-volume integration and regulator calibration stay open. QT.5 must import the formula explicitly. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
   }
  ]
 }
