@@ -5001,5 +5001,7 @@
  "REV-PKG-ArithmeticStatisticsPartVI~adv": 10279,
  "REV-PKG-ArithmeticStatisticsPartVII~adv": 10280,
  "REV-PKG-ArithmeticStatisticsPartVIII~adv": 10281,
- "FIX-PKG-AnalyticNumberTheoryPartII~adv": 10301
+ "FIX-PKG-AnalyticNumberTheoryPartII~adv": 10301,
+ "FIX-PKG-AnalyticNumberTheoryPartI~adv": 10305,
+ "FIX-PKG-ArithmeticStatisticsPartV~adv": 10306
 }
