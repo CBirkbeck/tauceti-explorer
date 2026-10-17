@@ -1488,8 +1488,7 @@ models and every locally free sheaf `E` of finite rank on `X`, with `E′ = f^*E
 `H^i(X, E) → H^i(X′, E′)` and `H^i(X, E ⊗ I_D) → H^i(X′, E′ ⊗ I_{D′})` are isomorphisms for all `i`.
 Over the good integral base `B` of C5 the same holds for `E ⊗_B M` for every `B`-module `M`, flat or
 not, under Lan's hypotheses in 7.1.1.4 (a Dedekind or field base). No automorphic structure on `E` is
-used; the canonical extensions of automorphic bundles satisfy `f^*E^can = E′^can` by
-AutomorphicBundles B3.5, which applies this theorem. Combine C3.6–C3.8 with the projection formula
+used. Combine C3.6–C3.8 with the projection formula
 for locally free sheaves; for arbitrary `M`, reduce by filtered colimits to finitely generated
 modules, split them over the Dedekind base into torsion and projective parts, and use the universal
 form of C3.5 for the torsion quotients. Fan independence follows through common refinements (C3.4)
@@ -1539,8 +1538,7 @@ ArithmeticGaloisDuality R02.1.1 (Milnor exact sequence).
 ### Dependencies
 
 Layers C0–C2; ShimuraVarieties 1.5 and Layer 8; AdicSpacesPartII F0;
-SchemeAndStackFoundations SF.0–SF.2; AnalyticToricGeometry Layers 0–5. AutomorphicBundles B3.5 applies
-C3.9 to canonical extensions.
+SchemeAndStackFoundations SF.0–SF.2; AnalyticToricGeometry Layers 0–5.
 
 ## Layer C3.general: general-data maps and correspondences
 
@@ -2464,8 +2462,7 @@ is each tautological family of the lattice collection. The completed Hodge bundl
 character-line sum tensor the bundle of the Raynaud extension pulled back from the torsor base (Lan,
 Lemma 7.1.2.1, applied to `E`), which is free after completion at a point; tensor constructions keep
 the form; on regular charts the boundary ideal is the sum over strictly positive characters, and
-C3.8 handles refinements. Verifying the condition for general automorphic canonical extensions is
-AutomorphicBundles B3.10, which applies this definition ([Lan17], Definition 8.5, p. 34;
+C3.8 handles refinements ([Lan17], Definition 8.5, p. 34;
 Proposition 5.1, p. 15; Theorem 6.1(3)–(4), pp. 22–23; [Lan], Lemma 7.1.2.1, p. 534; [BPS], 5.1–5.2,
 pp. 1009–1010). *Needs:* C3.8, C4.1, C4.7, C5.3, C5.4, C5.19, C5.31.
 
@@ -3674,10 +3671,13 @@ Mathlib's units of number fields and trace duals; Tau Ceti's total positivity.
 
 ## Downstream consumers
 
-- **AutomorphicBundles** (developed together with this roadmap): coefficient bundles on toroidal models
-  (C4.1 Hodge bundle), canonical extensions under refinement (C3.9), formally canonical sheaves (C5.21),
-  Fourier–Jacobi expansions (C5.15), component detection (C5.10), Hilbert formal comparisons (C6.23,
-  C6.36, C6.40).
+- **AutomorphicBundles** builds on the compactifications constructed here. Its coefficient bundles use
+  the Hodge bundle of C4.1. Its canonical extensions satisfy `f^*E^can = E′^can` under refinement
+  (B3.5), so C3.9 supplies their cohomology comparison in every degree. Its B3.10 verifies the
+  formally canonical condition of C5.21 for its good-prime PEL automorphic coefficients. Its
+  Fourier–Jacobi expansions use the scalar expansions of C5.15 and component detection of C5.10;
+  its Hilbert comparisons use C6.23, C6.36 and C6.40. Canonical and subcanonical extensions are
+  constructed in that roadmap; they are not inputs to the constructions here.
 - **HodgeTateAndCanonicalSubgroups**: boundary Hasse determinant (C4.15), ordinary Hilbert boundary and
   Hasse neighbourhoods (C6.43–C6.49).
 - **PerfectoidShimuraVarieties**, **IgusaVarietiesAndTorsionConcentration** and the higher Hida theory
