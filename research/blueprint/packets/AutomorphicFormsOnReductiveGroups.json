@@ -1695,7 +1695,7 @@
         {
           "name": "Automorphic.UniformModerateGrowth.rightTranslate",
           "role": "functoriality",
-          "statement": "For a normalized continuous submultiplicative height, N≥0 and y∈G(𝔸), right translation is a linear endomorphism of T_N([G]); its level changes from J to y_f^{-1}Jy_f."
+          "statement": "For a normalized continuous submultiplicative height, N≥0 and y∈G(𝔸), right translation is a linear endomorphism of T_N([G]); its level changes from J to y_fJy_f^{-1}."
         },
         {
           "name": "Automorphic.UniformModerateGrowth.rightTranslate_seminorm",
@@ -1738,6 +1738,11 @@
           "name": "uniformModerateGrowth_arthur_compat",
           "kind": "compatibility",
           "statement": "On G(ℚ)\\G(𝔸)^1, membership in T([G]) is Arthur's 'uniformly tempered'."
+        },
+        {
+          "name": "uniformModerateGrowth_translation_level",
+          "kind": "non-example",
+          "statement": "For R(y)f(g)=f(gy), a J-invariant f becomes yJy⁻¹-invariant. On S₃ acting on {0,1,2}, take J the stabilizer of 2, y=(0 1 2), j=(0 1) and f(g)=g(2) viewed in ℂ. Then R(y)f(1)=R(y)f(yjy⁻¹)=0, whereas R(y)f(y⁻¹jy)=2. The opposite conjugation fails."
         }
       ],
       "planet": {
@@ -6513,7 +6518,7 @@
         "mathlib:RootPairing"
       ],
       "acceptance": [
-        "GL_2 over ℚ: λ = (k−2, 0) gives V_λ = Sym^{k−2}(std), of dimension k−1.",
+        "GL_2 over ℚ, k≥2: λ = (k−2, 0) gives V_λ = Sym^{k−2}(std), of dimension k−1.",
         "GL_1 over a number field F: λ = (n_σ)_σ ∈ ℤ^{Hom(F,ℂ)} with V_λ the character x ↦ ∏_σ σ(x)^{n_σ}."
       ],
       "sources": [
@@ -6588,7 +6593,7 @@
         {
           "name": "algWeight_gl2_dim",
           "kind": "computation",
-          "statement": "For GL_2/ℚ and λ = (k−2, 0), dim V_λ = k − 1."
+          "statement": "For GL_2/ℚ, k≥2 and λ = (k−2, 0), dim V_λ = k − 1."
         },
         {
           "name": "algWeight_zero",
@@ -7818,7 +7823,7 @@
         },
         {
           "name": "TauCeti.Automorphic.GSp4.coherent_classification_largeWeight",
-          "contract": "Part (ii): ∃R>0, ∀a,c satisfying the fixed-central/parity/large-negative hypotheses, ∀irreducible essentially unitary π, the H⁰/H¹ implications select the holomorphic/generic limit classes."
+          "contract": "Part (ii): For fixed c, ∃R>0, ∀a satisfying the parity/large-negative hypotheses, ∀irreducible essentially unitary π, the H⁰/H¹ implications select the holomorphic/generic limit classes."
         },
         {
           "name": "TauCeti.Automorphic.GSp4.holomorphic_of_coherentH0",
@@ -8756,7 +8761,7 @@
         "For p-adic J_f coefficients, Γ_i acts on M through γ↦t_i^−1γt_i∈J_f. For the rational convention it acts through the algebraic G(F)-representation. These actions are related by the stated transport, not silently identified."
       ],
       "proofSteps": [
-        "(i) Finiteness of class numbers (AdelicAlgebraicGroups:AA.3/class-number-finite) and discreteness of G(F) in G(𝔸_f) (compactness at infinity), so Γ_i is discrete in the compact t_iJ_ft_i⁻¹, hence finite.",
+        "(i) Class-set finiteness comes from AdelicAlgebraicGroups:AA.3/class-number-finite. For stabilizers, combine arithmetic finiteness of bounded rational elements modulo the centre with the stated compact-mod-A_∞ and discrete-rational-centre hypotheses to obtain discreteness of G(F) in G(𝔸_f). Its intersection with the compact t_iJ_ft_i⁻¹ is then finite. Compactness modulo the real centre alone is insufficient; positive-unit-rank tori explain the separate central-quotient branch.",
         "(ii) A sufficiently small J_f has torsion-free projection at some v, and Γ_i embeds in it.",
         "(iii) In the prescribed A_∞-central character matching V_λ^∨, the quotient G(F_∞)/A_∞ is compact. Its finite-dimensional isotypic decomposition, followed by evaluation at g_∞=1, gives the rational-coefficient Gross dictionary. Actual compactness of G(F_∞) is not assumed; the split-central action must first be matched."
       ],
@@ -9314,7 +9319,7 @@
       ],
       "title": "Algebraic modular forms with central character",
       "kind": "construction",
-      "statement": "Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. Class-number finiteness and finiteness of effective stabilizers require the stated compact-mod-centre arithmetic supplier theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.",
+      "statement": "Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. The central-quotient class set is finite as a quotient of the ordinary finite class set from AA.3/class-number-finite. Finiteness of effective stabilizers and descent of the coefficient action require the separately stated arithmetic/central compatibility theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.",
       "hypotheses": [
         "G(F_∞)/Z_G(F_∞) is compact; supply finiteness of the central-quotient class set and effective stabilizers from AA.3 under its precise arithmetic hypotheses. The central character is compatible with rational centre and the coefficient action on Z_f∩J.",
         "Use the central quotient class set and effective stabilizer action. Do not retain the unmodified G(F)\\G(𝔸_f)/J finiteness or claim its infinite rational-central stabilizers are finite.",
@@ -9322,7 +9327,7 @@
       ],
       "proofSteps": [
         "The compatibility conditions make the displayed transformation law independent of central/level overlap. It defines a coefficient submodule.",
-        "Use the requested central-quotient class-number theorem from AA.3. Evaluation on representatives identifies the carrier with effective-stabilizer invariants; central pairs act trivially by compatibility.",
+        "The central-quotient class set is the image of the ordinary finite class set from AA.3/class-number-finite. Use the separately requested effective-stabilizer finiteness and central-character descent theorem. Evaluation on representatives then identifies the carrier with effective-stabilizer invariants; central pairs act trivially by compatibility.",
         "Extend the coefficient action to the Hecke semigroup to obtain the weighted coset sum; restriction and trace preserve ψ. Averaging finite effective stabilizers gives base change when their orders are invertible."
       ],
       "prerequisites": [
@@ -10830,510 +10835,510 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-AutomorphicFormsOnReductiveGroups~3",
-    "date": "2026-10-10",
-    "notes": "Completed independent target-level review of all 100 nodes, 57 baseline statements, 43 requests, 35 source records and 19 source issues. Corrected 20 node records, including one still unverifiable full contract: AF.4/bhr-large-weight has only part (ii) in Lean, while (i) and (iii) are promised. Missing old names and pinned Tau Ceti imports are resolved; compile and reader synchronization are reported in the review. All original proof/supplier gaps remain explicit; nothing is formalized.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AutomorphicFormsOnReductiveGroups~4",
+    "date": "2026-10-17",
+    "notes": "Completed independent target-level review of all 100 nodes and all 57 pinned baseline declarations. Accepted after correcting five node records: right-translation level conjugation, a GL₂ dimension hypothesis, fixed-central BHR quantifiers and the two algebraic-modular finiteness explanations. The fourth revision specifies all three BHR contracts in the README under the current pinned-carrier Suggested-file rule. All seven stages remain planned, all implementation statuses unchecked, with 43 requests and 23 explicit supplier/proof refinements retained. Fresh source readings and inherited provenance are distinguished in the review report.",
     "checked": [
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/smooth-adelic-function",
         "verdict": "verified",
-        "note": "Finite compact-open level and smooth archimedean slices agree with BPCZ; finite and real nonsmoothness tests are distinct."
+        "note": "Finite-level invariance and smooth archimedean slices are separate conditions; AA supplies the adelic product and ALS supplies real-point smoothness."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/adelic-test-functions",
         "verdict": "verified",
-        "note": "Compact support, finite-level tensor carrier and Haar convolution retain local SR/AA ownership; LF strictness is a gap."
+        "note": "The finite-place carrier imports SR convolution; compact support gives finite sums of tensors, while completeness and LF topology remain proof obligations."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/adelic-schwartz-space",
         "verdict": "verified",
-        "note": "Both left and right derivatives are controlled; Gaussian tests decay at zero and infinity in the idele direction."
+        "note": "Schwartz bounds include both left and right derivatives and a two-sided height; polynomial Haar integrability remains an AA analytic input."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/moderate-growth",
         "verdict": "verified",
-        "note": "The exponent is nonnegative and the constant positive; height comparison and inverse-dual matrix properness remain explicit."
+        "note": "Polynomial height comparison changes the growth exponent; constants and exponential escape distinguish the predicate."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/uniform-moderate-growth-space",
-        "verdict": "verified",
-        "note": "One exponent controls every derivative, with derivative-dependent constants; fixed-level/exponent topologies are specified."
+        "verdict": "corrected",
+        "note": "Corrected translated level to y_f J y_f^{-1}; the proved S₃ example rejects the opposite conjugation. One exponent controls all derivatives."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/growth-translation-differentiation",
         "verdict": "verified",
-        "note": "Right-translation covariance and inverse-adjoint differentiation use the same Lie convention as the native action."
+        "note": "The inverse-adjoint seminorm formula agrees with R(y)f(g)=f(gy); rational left invariance and finite-level conjugation are distinct."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/convolution-to-uniform-growth",
         "verdict": "verified",
-        "note": "The principal anti-automorphism sign matches differentiation of the test factor; Haar integrability is not inferred from boundedness."
+        "note": "Moving differentiation to the test factor introduces the principal anti-automorphism; the common growth exponent follows only after absolute integrability."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/finite-hecke-action",
         "verdict": "verified",
-        "note": "Normalized compact-open Haar idempotents and local double-coset sums agree; level preservation is stated on actual function carriers."
+        "note": "Normalized Haar idempotents and finite right-coset sums agree; the finite-place action commutes with the differentiated archimedean action."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/gk-pair",
         "verdict": "verified",
-        "note": "Derivative equality, injective compact Lie inclusion and smooth adjoint covariance are real data, not arbitrary propositions."
+        "note": "The pair includes an injective differentiated compact inclusion and actual adjoint covariance; ALS.F.5 supplies the shared foundation."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/gk-module",
         "verdict": "verified",
-        "note": "Local compact finiteness and differentiated compatibility are distinguished from countability; the SL₂ model checks the compact basis."
+        "note": "Local K-finiteness is not countability; compatible Lie and compact actions survive kernels, quotients and finite coefficient tensors."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex",
         "verdict": "verified",
-        "note": "Horizontal K-equivariant alternating cochains use the bracket-first sign and all-degree differential; H⁰ is simultaneous invariants."
+        "note": "Horizontal K-invariant cochains use the all-degree alternating differential; disconnected K-invariance is stronger than Lie invariance alone."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/relative-cohomology-functoriality",
         "verdict": "verified",
-        "note": "Pair restriction, long exact sequences, cup products and relative Ext are stated; the projective Koszul resolution remains a gap."
+        "note": "Exactness uses locally finite compact complete reducibility; the relative Koszul resolution and Ext comparison remain explicit proof refinements."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/differentiable-cochains",
         "verdict": "verified",
-        "note": "The smoothing inclusion compares actual continuous and differentiable complexes with finite-dimensional coefficient scope."
+        "note": "The inclusion compares actual continuous and differentiable cochain complexes with the stated finite-dimensional coefficient assumptions."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/invariant-forms-complex",
-        "verdict": "corrected",
-        "note": "Current DG forms are an upstream input; quotient charts and Maurer–Cartan compatibility remain separate construction obligations. Recorded current DifferentialGeometry 0–1 as explicit upstream prerequisites, alongside the existing registry/adapter gap."
+        "verdict": "verified",
+        "note": "DG supplies forms and exterior differentiation; AF retains homogeneous-quotient evaluation and the Maurer–Cartan/relative-differential comparison."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/van-est-isomorphism",
         "verdict": "verified",
-        "note": "Wockel’s relative comparison is not misattributed as the full invariant de Rham proof; naturality and coefficient hypotheses remain."
+        "note": "The differentiation map has naturality and cup compatibility; Wockel's comparison is distinguished from the invariant-form/Poincaré argument."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/cartan-iwasawa-malcev",
         "verdict": "verified",
-        "note": "The reductive case imports ALS/LieGroups; the general finite-component Lie-group proof remains an explicit source gap."
+        "note": "The reductive case imports Cartan decomposition; the finite-component general Lie-group structure proof is still a named source gap."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/van-est-acceptance",
         "verdict": "verified",
-        "note": "Compact averaging, vector-group exterior classes, U(n) weighted odd generators and the GL₂ component action are distinguished."
+        "note": "Compact averaging, vector-group exterior classes and the compact-dual U(n) calculation have different inputs; component actions are tested separately."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-points-lie-group",
-        "verdict": "corrected",
-        "note": "The finite-dimensional comodule orbit map, corrected lieMap module and upstream CAD component argument match the scoped native contract. Corrected lieMap module to Geometry/Lie/Functor and retained its finite-dimensional real-model hypotheses. Matched orbit-map scope to the native finite-dimensional comodule carrier; excluded an arbitrary singular target. Imported current RealAlgebraicGeometry Layer 6 finite connected-cell CAD for component finiteness; retained only the algebraic-group application here."
+        "verdict": "verified",
+        "note": "The algebraic-point embedding and tangent compatibility refine ALS.F.1; current real algebraic CAD supplies component finiteness."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-group",
         "verdict": "verified",
-        "note": "Hopf-connected reductivity, differentiated compact subgroup and Cartan outputs are characterized; an arbitrary compact subgroup is insufficient."
+        "note": "A maximal compact comes from a Cartan involution; an arbitrary compact subgroup would not yield the decomposition or component conclusion."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/k-finite-vectors",
         "verdict": "verified",
-        "note": "K-finiteness is an algebraic orbit-span condition and is linked to differentiated compact weights under the required smoothness assumptions."
+        "note": "Orbit-span finiteness is algebraic; density and projectors require the continuous complete setting and the correct Haar character normalization."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module",
-        "verdict": "corrected",
-        "note": "Admissibility uses finite-dimensional Hom_K multiplicities, not the vacuous finite finrank inequality; finite generation is separate. Replaced the vacuous finrank < infinity API wording by finite-dimensional multiplicity spaces, as in the native predicate."
+        "verdict": "verified",
+        "note": "Admissibility means finite-dimensional K-multiplicities; finite generation and central finiteness are stated separately before their theorem-level equivalence."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character",
         "verdict": "verified",
-        "note": "The shifted Weyl-orbit centre character and highest-weight μ+ρ convention agree with the imported enveloping-centre machinery."
+        "note": "The centre character uses the rho shift; disconnected compact stability needs the inner algebraic action or an invariant character hypothesis."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/harish-chandra-admissibility",
         "verdict": "verified",
-        "note": "Irreducible admissibility is scoped to the real-reductive compatible category, with classification proof inputs recorded as gaps."
+        "note": "Admissibility and finite infinitesimal-character fibres retain the real-reductive scope; embedding alone does not prove finite fibres."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/principal-series",
         "verdict": "verified",
-        "note": "Normalized covariance and SL₂ parity agree with Casselman Proposition 10.8; compact-picture and dual parameter are typed."
+        "note": "The normalized covariance, compact picture and SL₂ parity/Casimir checks are compatible; the inducing representation is finite dimensional here."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/casselman-embedding",
         "verdict": "verified",
-        "note": "The embedding is an actual injective compatible-module morphism into a principal series, preceding globalization."
+        "note": "The injection is a compatible-module morphism; Jacquet nonvanishing and separation of vectors remain the original-proof obligation."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/sf-representation",
         "verdict": "verified",
-        "note": "Smooth moderate-growth Fréchet actions have joint continuity and topology data; the L² nonsmooth vector is a separate counterexample."
+        "note": "Smooth Fréchet actions include joint continuity and seminorm growth; the pinned ContRepresentation alone does not supply this structure."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/g-continuous-norms",
         "verdict": "verified",
-        "note": "Norm completions include genuine continuous representations and growth bounds; arbitrary norms are not asserted continuous."
+        "note": "A G-continuous norm requires a genuinely continuous completion; Sobolev equivalence and polynomial K-type estimates are nontrivial targets."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization",
         "verdict": "verified",
-        "note": "Canonical globalization and K-finite recovery, morphism extension and smooth-completion compatibility are actual functorial signatures."
+        "note": "Globalization includes recovery and morphism extension; the independent classification/goodness reduction is not replaced by embedding alone."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/dixmier-malliavin",
         "verdict": "verified",
-        "note": "Factorization concerns smooth vectors, with the original Dixmier–Malliavin proof explicitly unread rather than attributed to its users."
+        "note": "Factorization concerns smooth vectors and actual convolution; the unread Dixmier–Malliavin proof is recorded rather than silently supplied by a citation."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
         "verdict": "verified",
-        "note": "Irreducibles use isomorphism classes, with contragredient and twist laws; compact and GL₁ tests retain the actual group action."
+        "note": "Irreducibles are isomorphism classes of compatible modules, with contragredient and twist operations; this is a scoped classification interface."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable",
         "verdict": "verified",
-        "note": "Coefficient integrability is on a specified central quotient and unitary realization; arbitrary Banach coefficients are not substituted."
+        "note": "Integrability is on the stated central quotient with a unitary realization; essential square integrability allows the specified norm twist."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/discrete-series",
         "verdict": "verified",
-        "note": "Compact-Cartan and nondegeneracy conditions characterize discrete/limit series modulo centre, with exhaustion and K-conjugacy signatures."
+        "note": "Compact-Cartan existence and nondegenerate limit parameters are distinguished; quotienting by compact Weyl conjugacy avoids false uniqueness."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification",
-        "verdict": "corrected",
-        "note": "Knapp’s real GL_n quotient classification is an inspected special case; the general-group proof remains separately recorded. Added a directly inspected GL_n real quotient-classification source without claiming it proves the general-group theorem."
+        "verdict": "verified",
+        "note": "Normalized standard modules have unique irreducible quotients in the positive chamber; general-group proofs remain distinct from checked GL_n statements."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/weil-group-real",
-        "verdict": "corrected",
-        "note": "The nonsplit real Weil group and j²=−1 relations match Knapp §3, pp.401–403; Gan–Ichino p.22 is unrelated. Removed the unrelated Gan–Ichino p.22 attribution and replaced it by Knapp §3, pp.401–403."
+        "verdict": "verified",
+        "note": "The real Weil group is nonsplit with j²=-1, and its induced two-dimensional parameters are not characters of a direct product."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
-        "verdict": "corrected",
-        "note": "Knapp Theorems 2 and 5 supply real/complex GL_n correspondences; local factors remain AL exports, without the false Gan citation. Removed the unrelated Gan–Ichino complex-GL_n citation; Knapp Theorems 2 and 5 remain the inspected real/complex correspondence sources."
+        "verdict": "verified",
+        "note": "The real and complex GL_n correspondences use Langlands data; higher local factors remain AL exports and are not reconstructed here."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series",
         "verdict": "verified",
-        "note": "The two-ray model has the O₂ reflection extension and integrated classification; Casimir k(k−2)/4 fixes k=2 and k=12."
+        "note": "Compact-basis raising/lowering coefficients give Casimir k(k-2)/4; full O(2) exchanges the two half-lines."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual",
         "verdict": "verified",
-        "note": "Jiang–Zhang Appendix B.6 gives the generic-unitary GL_n formula, distinct from the classical-group B.5 formula."
+        "note": "The generic unitary dual retains the strict complementary interval and GL_n scope; it does not assert temperedness of all unitary representations."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-form",
         "verdict": "verified",
-        "note": "Automorphic forms impose actual arithmetic invariance, K-finiteness, central finiteness and moderate growth; they need not be centre eigenvectors."
+        "note": "Rational invariance, archimedean smoothness, finite level, K-finiteness, central finiteness and growth are actual function conditions."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-uniform-growth",
         "verdict": "verified",
-        "note": "Borel–Jacquet’s reconstruction input upgrades moderate to uniform growth; the kernel estimate is preserved as a nonroutine proof gap."
+        "note": "Common-exponent derivative growth needs the Harish-Chandra reconstruction kernel; an arbitrary approximate identity is insufficient."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/smooth-automorphic-forms",
-        "verdict": "corrected",
-        "note": "Only fixed-level/type/central-ideal pieces receive globalization topology; no global LF/SLF conclusion is inferred for the full union. Removed an unsupported global LF/SLF inference and added the fixed-type finiteness prerequisite actually used in globalization."
+        "verdict": "verified",
+        "note": "The smooth automorphic carrier has fixed-level/central-ideal pieces and a separate globalization comparison; no unsupported global strict-LF assertion is used."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/harish-chandra-finiteness",
         "verdict": "verified",
-        "note": "Fixed level, finite K-types and cofinite central ideal are all required; no finiteness of unrestricted A(G) is claimed."
+        "note": "Fixed level, compact type and cofinite central ideal are essential to finite dimensionality; reduction and reconstruction proofs remain explicit."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/adelic-classical-bijection",
         "verdict": "verified",
-        "note": "Finite adelic class decomposition and stabilizer invariance give the classical comparison, including growth/centre transport."
+        "note": "AA's finite component decomposition transports the actual rational invariance and height bounds; it is not a formal unrestricted product equality."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-module",
-        "verdict": "corrected",
-        "note": "The commuting compatible and finite actions consume the archimedean Hecke algebra directly; A(G) itself is not asserted admissible. Added the direct archimedean Hecke-algebra prerequisite used by its equivalence and projector proof."
+        "verdict": "verified",
+        "note": "The Hecke action uses the archimedean distribution algebra and d_sigma times the conjugate character projector, not its reciprocal."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation",
         "verdict": "verified",
-        "note": "Irreducible subquotients, rather than arbitrary subquotients, inherit admissibility and finite multiplicity from cyclic finite-type pieces."
+        "note": "An irreducible subquotient lies in a finite-type admissible piece; the full union is not asserted admissible, and spectral occurrences are extra structure."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/restricted-tensor-product",
         "verdict": "verified",
-        "note": "The restricted product is a module colimit of finite tensor products, not a set of elementary vector sequences."
+        "note": "The restricted tensor product is a linear directed colimit of finite tensors; vectors may be sums and need not be pure tensors."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/spherical-dimension-one",
         "verdict": "verified",
-        "note": "Spherical invariant dimension is at most one; hyperspecial existence almost everywhere needs the reductive model export, not bare integrality."
+        "note": "Spherical fixed vectors have dimension at most one, including zero; global reductive spreading-out is not supplied by a local hyperspecial example."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/flath-factorization",
         "verdict": "verified",
-        "note": "Flath’s irreducible finite-corner factorization is distinct from blanket admissible-module tensor factorization."
+        "note": "Finite corners and local compatible modules give algebraic factorization; the separate unitary Hilbert factorization is not substituted for it."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/nongeneric-automorphic",
         "verdict": "verified",
-        "note": "The trivial constituent is automorphic but its nontrivial unipotent Fourier coefficient vanishes, so it is nongeneric."
+        "note": "The constant representation is automorphic but noncuspidal on split GL₂ and has no nontrivial Whittaker coefficient."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/holomorphic-sl2-forms",
         "verdict": "verified",
-        "note": "Zhang’s rational structure is over Q̄ with number-field models and Hilbert fractional-ideal coefficients, not a universal Q model."
+        "note": "Hilbert holomorphy and parallel weight are explicit; rational structure is over a suitable number field, with fractional-ideal Fourier indexing."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact",
         "verdict": "verified",
-        "note": "Unipotent quotient compactness follows by an additive filtration; the additive base is imported from GlobalNumberFields."
+        "note": "Unipotent characteristic-zero filtrations reduce compactness to the additive quotient; probability measure and integration in stages come from AA."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/constant-term",
         "verdict": "verified",
-        "note": "The rational-parabolic Haar integral has actual smoothness, automorphic-preservation, Levi, central and action comparisons."
+        "note": "The constant term integrates over N(F)\\\\N(A), not N(A); it preserves right actions, and its parabolic target has the correct left invariance."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/constant-term-transitivity",
         "verdict": "verified",
-        "note": "Nested parabolic transitivity uses the supplied quotient/fibre measures and normalized Fubini law; normalizer invariance alone is insufficient."
+        "note": "AS §0.51 supplies normalized integration in stages; AF retains rational conjugation and maximal-standard-parabolic sufficiency."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form",
         "verdict": "verified",
-        "note": "All proper rational parabolic constant terms vanish; maximal-standard reduction and classical-cusp comparison are outgoing APIs."
+        "note": "Cuspidality is the common kernel of actual proper rational constant terms; the L² version uses almost-everywhere maps and a closed subspace."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/anisotropic-cuspidal",
         "verdict": "verified",
-        "note": "Anisotropy modulo centre removes proper rational parabolics; it does not by itself imply finite volume of the unrestricted centre."
+        "note": "Anisotropy modulo the centre excludes proper rational parabolics; compactness is the separate AA arithmetic quotient theorem."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay",
-        "verdict": "corrected",
-        "note": "Franke Theorem 5 and its printed pp.200–201 consequence support rapid decay; the original analytic proof remains a refinement. Corrected Franke printed page 202 to pp.200–201, including the explicit consequence on p.201."
+        "verdict": "verified",
+        "note": "Rapid decay is on Siegel sets modulo the split centre with fixed central character; the original Fourier/integration-by-parts proof remains a gap."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-forms-square-integrable",
-        "verdict": "corrected",
-        "note": "Rapid decay and finite quotient volume prove inclusion; density is downstream of the discrete-spectrum/regularity argument. Made the discrete-spectrum input for density a direct prerequisite; inclusion and boundedness still use rapid decay and finite volume."
+        "verdict": "verified",
+        "note": "Unitary central-quotient square integrability follows from decay and volume; density additionally consumes discreteness and central-finite smooth vectors."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete",
-        "verdict": "corrected",
-        "note": "The independent Hilbert route precedes density, and the suggested sum now explicitly includes orthogonality and finite multiplicity. Removed dependence on the density conclusion, made the Hilbert supplier inputs explicit, and recorded the non-routine corrected-kernel/regularity argument."
+        "verdict": "verified",
+        "note": "Corrected smoothing kernels and compact operators supply discreteness, orthogonality and finite multiplicity; pointwise decay alone cannot do so."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation",
         "verdict": "verified",
-        "note": "Hilbert constituents use unitary central character; algebraic subquotients and nonunitary norm twists retain separate conventions."
+        "note": "Cuspidal occurrences include a Hilbert embedding and smooth compatible-module comparison; nonunitary twists use a separately stated convention."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/sl2-generation",
-        "verdict": "corrected",
-        "note": "Zhang §13.3, pp.64–65 includes the SL₂ unipotent generation argument; real-place generation is not its adelic proof alone."
+        "verdict": "verified",
+        "note": "Bruhat reduction gives t(c)w rather than w; conjugating upper to lower unipotents still proves elementary generation."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/sl2-fourier-vanishing",
-        "verdict": "corrected",
-        "note": "The nontrivial additive Fourier coefficient vanishing argument uses the actual arithmetic quotient and both unipotent directions."
+        "verdict": "verified",
+        "note": "Fourier uniqueness, local unipotent averaging and strong approximation prove vanishing at nonzero parallel weight; the constant term is treated separately."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/maass-cusp-forms",
-        "verdict": "corrected",
-        "note": "The normalized Maass T_p is p^(−1/2) times the raw adelic integral; the added comparison uses actual arithmeticForms transport. Corrected the reversed square-root factor in the outgoing adelic API and added its native prime-Hecke comparison."
+        "verdict": "verified",
+        "note": "The classical Maass carrier precedes adelization; p^{-1/2} normalization, Casimir sign and the unproved imaginary Bessel branch remain visible."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight",
         "verdict": "corrected",
-        "note": "Integral character lattices/isogeny constraints remain necessary beyond Lie highest-weight theory; CT’s locator is §1.4 p.8. Corrected the coefficient-module locator from §1.3 to §1.4, p.8; preserved the separate general algebraic integration gap."
+        "note": "Restored k≥2 to the GL₂ Sym^{k-2} dimension Check. Integral character lattices and algebraic integration are not supplied by Lie classification alone."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/infinitesimal-character-of-weight",
         "verdict": "verified",
-        "note": "Infinitesimal character uses λ+ρ and dual character −(λ+ρ); coefficient duality and Weyl shift are consistent."
+        "note": "The highest-weight character is chi_{lambda+rho}; strict-chamber uniqueness and duality include the full central parameter."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic",
         "verdict": "verified",
-        "note": "C/L algebraicity retains the rational half-root shift and distinguishes integral rho cases; general rationality is not assumed."
+        "note": "C/L integrality uses the specified GL_n half-determinant twist; no general twisting element is assumed without an integral-character supplier."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation",
         "verdict": "verified",
-        "note": "Existence of an algebraic coefficient with nonzero relative cohomology is separate from coefficient data or essential temperedness."
+        "note": "Cohomological means a nonzero relative group with an algebraic coefficient; full compact and identity-component conventions remain distinct."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma",
         "verdict": "verified",
-        "note": "Wigner uses the contragredient coefficient and actual relative Ext resolution, rather than an unrelated centre action."
+        "note": "ALS.F.7 supplies Wigner's central-character obstruction; the differentiated contragredient sign and compact-central obstruction are both retained."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/l0-q0-invariants",
         "verdict": "verified",
-        "note": "The invariants use complex ranks and the balanced central quotient, distinct from real split rank."
+        "note": "Ranks are absolute complexified Lie ranks and q₀ uses the symmetric-space dimension; real and complex places have different contributions."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range",
         "verdict": "verified",
-        "note": "The Borel–Wallach degree interval retains unitarity/temperedness and the split-central quotient assumptions."
+        "note": "The tempered range and binomial dimensions retain the correct pair, coefficient and component assumptions; the original proof remains a refinement."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/vogan-zuckerman",
-        "verdict": "corrected",
-        "note": "The general fundamental Cartan parameter restricts to the compact torus for its lowest K-type; Hermitian Hodge concentration has compact-centre scope. Reconciled the general fundamental-Cartan native theorem with the packet and kept the compact-centre Hermitian specialization separate."
+        "verdict": "verified",
+        "note": "The fundamental Cartan may have a split part; Hermitian Hodge formulas require the additional compact-centre scope."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/gln-tempered-cohomological",
         "verdict": "verified",
-        "note": "GL_n block induction uses actual normalized inducing representations and retains component/split-centre terms."
+        "note": "The real GL_n classification retains the odd-dimensional sign choice and component action; purity/genericity are separate inputs to essential temperedness."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/clozel-purity",
         "verdict": "verified",
-        "note": "Purity first removes the positive central-character part by a global norm twist, then restores the common weight."
+        "note": "Cuspidal GL_n purity first removes the real central norm twist; the generic unitary classification then excludes complementary exponents by algebraicity."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/hermitian-positive-system",
         "verdict": "verified",
-        "note": "Fixing holomorphic noncompact roots leaves a compact-positive-root choice; GSp₄ root counts and coefficient transport test it."
+        "note": "The noncompact holomorphic roots do not determine the compact positive root; the explicit GSp₄ lattice and central parity are fixed separately."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/coherent-relative-cohomology",
         "verdict": "verified",
-        "note": "The Hodge stabilizer contains the split centre; central balancing precedes use of the compact quotient cohomology carrier."
+        "note": "The noncompact Hodge stabilizer must be quotiented by A_∞ after tensor-central balance; the compact-pair complex cannot accept it unchanged."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/gsp4-discrete-series",
         "verdict": "verified",
-        "note": "Compact and split torus lattices, Levi/full longest elements, duality and compact-wall exclusions are distinct."
+        "note": "The four GSp₄ chambers, shifted coherent parameter and contragredient convention agree with the Calegari–Geraghty coordinates."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/bhr-coherent-cohomology",
         "verdict": "verified",
-        "note": "The contributing coherent degree is one-dimensional, without reinstating Harris’s false full-disconnected-group vanishing assertion."
+        "note": "The contributing degree and dimension are retained without extending Harris's false full-disconnected-group vanishing statement."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/mirkovic-tempered-coherent",
         "verdict": "verified",
-        "note": "The essentially tempered hypothesis is essential for the discrete/nondegenerate-limit conclusion; the actual Hodge coefficient is used."
+        "note": "Temperedness is a hypothesis of the Mirković discrete/limit criterion; the original proof remains distinct from Harris's recorded statement."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/bhr-large-weight",
-        "verdict": "unverifiable",
-        "note": "Part (ii) is typed, but parts (i) and (iii) have no faithful native statements. Essential temperedness was restored in the prose three-case classification; the incomplete multi-part target remains a §13 blocker."
+        "verdict": "corrected",
+        "note": "All three BHR contracts are specified: uniform arithmetic root-wall bound, fixed-central local two-limit criterion and arbitrary-irreducible H⁰/tempered degree classification. Corrected the intended local quantifier to fix c before R."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/harris-limits-gsp2g",
         "verdict": "verified",
-        "note": "Harris Theorem 3.5 supports the stated limit-series characterization, with Goldring–Koskivirta’s component/other-degree correction retained."
+        "note": "The rational character space accommodates rho; minimal Levi-coset representatives have lengths 0,1,2,3 in genus two, so E8 remains rejected."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/holomorphic-ds-sp2n-unn",
         "verdict": "verified",
-        "note": "Minimal K-types for symplectic/unitary holomorphic series use genuine coefficient modules and strict/limit inequalities."
+        "note": "Scalar holomorphic lowest K-type has the strict discrete-series bound and the separate limit boundary for the two classical families."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/coefficient-lattices",
         "verdict": "verified",
-        "note": "The family is over p-adic integer rings and full rank at every p-adic place; current quadratic Z-lattice work is not duplicated."
+        "note": "Local compact-group orbit sums yield stable lattices; almost-everywhere integral coaction and the other-place tensor factors remain global obligations."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/rationality-field",
-        "verdict": "corrected",
-        "note": "Rationality is the finite-part twist-stabilizer fixed field; a field of definition is extra data, and HR §2.3.4 is the definition source. Replaced BCG25 p.1, which does not define rationality fields, by Harder–Raghuram §2.3.4."
+        "verdict": "verified",
+        "note": "The field of rationality is defined by finite-part Aut(C) stabilizers; descent to a model is a theorem, not part of the definition."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality",
-        "verdict": "corrected",
-        "note": "Clozel’s established GL_n statement is distinguished from conditional general-group finiteness; BCG25 is only cohomological context. Limited BCG25 attribution to its actual cohomological context and corrected the locator to Remark 1.2."
+        "verdict": "verified",
+        "note": "GL_n has a model over its rationality field under Clozel's hypotheses; the general-group statement only gives the explicitly conditional finite extension."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/torsion-hecke-eigenclasses",
-        "verdict": "corrected",
-        "note": "A torsion eigensystem carries a nonzero class and a ring character; nonfaithful classes do not uniquely determine that character. Replaced the coherent/Satake passage on p.82 by the actual Betti/torsion eigensystem discussion on p.6."
+        "verdict": "verified",
+        "note": "Eigenclasses must be nonzero; finite-field characters have maximal kernel without surjectivity, and reduction is useful only with nonzero image."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl1-dictionary",
         "verdict": "verified",
-        "note": "Hecke characters, conductor and infinity types import GlobalNumberFields; only the automorphic dictionary is an AF target."
+        "note": "GL₁ irreducible subquotients are Hecke characters; generalized central translates may include polynomial logarithms before taking irreducibles."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-classical-to-adelic",
         "verdict": "verified",
-        "note": "Actual GL₂ rational, level, central, rotation and slash covariance specify adelization and distinguish sign conventions."
+        "note": "Adelization has the stated slash, inverse nebentypus and rotation convention; existing modular forms are imported with their determinant normalization."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-dictionary",
         "verdict": "verified",
-        "note": "The modular dictionary uses the existing classical owner and its cusp carrier; it does not recreate classical modular forms."
+        "note": "The modular/automorphic inverse uses Cauchy–Riemann and polynomial cusp growth; boundedness of y^{k/2}|f| is not asserted for Eisenstein forms."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-hecke-normalisation",
         "verdict": "verified",
-        "note": "The raw adelic R_p and classical weight-k T_p differ by p^(k/2−1), with inverse diamond-character action."
+        "note": "The raw adelic operator is p^{1-k/2} times classical T_p and unitary normalization gives a_p/p^{(k-1)/2}; pinned Hecke maps need that scalar bridge."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/algebraic-modular-forms",
         "verdict": "verified",
-        "note": "Gross rational-action and level-action carriers are distinct; their comparison includes the p-adic transport and full stabilizers."
+        "note": "Gross rational and continuous p-adic coefficient actions are different conventions; finite generation does not force an open kernel."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/algebraic-modular-forms-structure",
-        "verdict": "verified",
-        "note": "Class-number finiteness is distinct from type number and effective-stabilizer finiteness; base change requires invertible orders or neatness."
+        "verdict": "corrected",
+        "note": "Separated class-set finiteness from stabilizer finiteness; the proof now explicitly uses the compact-mod-A_∞ and discrete-rational-centre hypotheses, not compactness modulo centre alone."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/transport-compatibilities",
         "verdict": "verified",
-        "note": "Restriction of scalars has point/Lie/growth transport; product automorphic constituent extraction remains a separate nonroutine gap."
+        "note": "Weil restriction uses the actual point/Lie comparison; product constituent extraction and central generalized-character decomposition are separate proof tasks."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/absolute-lie-cochain-complex",
         "verdict": "verified",
-        "note": "The absolute all-degree characteristic-zero Lie complex imports the existing low degrees, with the same bracket sign and Levi action."
+        "note": "All-degree absolute Chevalley–Eilenberg cochains extend the existing degrees zero through two, preserving the bracket-first differential sign."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/kostant-parabolic-cohomology",
         "verdict": "verified",
-        "note": "Kostant’s Weyl representatives, Levi action and rational descent are characteristic-zero statements, not integral/mod-p decompositions."
+        "note": "ALS.4.5 owns Kostant's full-Levi splitting/descent theorem; AF retains dot-action, left-coset and coefficient comparisons, without an integral formula."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/finite-corner-tensor-factorization",
         "verdict": "verified",
-        "note": "Finite idempotent corners generate submodules before restriction; arbitrary vector-space complements are not invariant complements."
+        "note": "The native corner handles arbitrary submodules; Schur needs algebraic closure plus finite dimension before the commutant is scalar."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/archimedean-hecke-algebra",
         "verdict": "verified",
-        "note": "Supported bi-K-finite distributions and the balanced PBW quotient are actual carriers; normalized projectors use dimension times dual character."
+        "note": "Bi-K-finite distributions supported on K have the U(k)-balanced PBW description; convolution and nondegenerate-module equivalence remain analytic targets."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction",
         "verdict": "verified",
-        "note": "Compact-picture equivalence is topological and no longer assumes the desired bijectivity; normalized induction and transitivity are typed."
+        "note": "General normalized real induction is independent of globalization and precedes Langlands classification; compact-picture estimates provide the SF structure."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/central-translation-finiteness",
         "verdict": "verified",
-        "note": "Borel–Jacquet’s centre translates have finite span through the kernel/finiteness argument, not because the centre acts scalarly on all forms."
+        "note": "Central translates stay in one finite-dimensional fixed-type space; Artinian joint-character decomposition uses finiteness, not differential centrality alone."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/central-character-algebraic-modular-forms",
-        "verdict": "verified",
-        "note": "The central-quotient class set is finite by AA’s ordinary theorem; effective stabilizers and coefficient descent remain separately requested."
+        "verdict": "corrected",
+        "note": "Clarified that central class-set finiteness follows by quotienting AA's ordinary finite class set. Effective stabilizers and coefficient descent remain separately requested."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/local-stable-lattice",
         "verdict": "verified",
-        "note": "Local stable lattices include spanning, full rank and integral coaction/action compatibility; the adjoint Kostant result is only a specialization."
+        "note": "A compact subgroup has a finite orbit of a lattice because its setwise stabilizer is open; commensurability and conjugation retain full-span hypotheses."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/gl2-algebraic-weight-model",
         "verdict": "verified",
-        "note": "The explicit clockwise compact H/X/Y matrices satisfy their brackets and give the two-ray Casimir, independent of a split diagonal basis."
+        "note": "The compact-Cartan triple differs from the split diagonal triple; boundary coefficients vanish and the Casimir computation keeps the correct sign."
       },
       {
         "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-with-coefficient",
         "verdict": "verified",
-        "note": "The supplied coefficient and degree specify actual nonzero relative cohomology; existential IsCohomological is its separate interface."
+        "note": "A supplied finite coefficient uses the actual tensor relative complex; Wigner compares the contragredient infinitesimal character, not the undualized one."
       }
     ]
   },
@@ -12319,6 +12324,514 @@
           "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-with-coefficient",
           "verdict": "verified",
           "note": "The native existential cohomology predicate has a supplied finite-dimensional compatible coefficient. It deliberately does not assert algebraic irreducibility or replace the full IsCohomological target."
+        }
+      ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-AutomorphicFormsOnReductiveGroups~3",
+      "date": "2026-10-10",
+      "notes": "Completed independent target-level review of all 100 nodes, 57 baseline statements, 43 requests, 35 source records and 19 source issues. Corrected 20 node records, including one still unverifiable full contract: AF.4/bhr-large-weight has only part (ii) in Lean, while (i) and (iii) are promised. Missing old names and pinned Tau Ceti imports are resolved; compile and reader synchronization are reported in the review. All original proof/supplier gaps remain explicit; nothing is formalized.",
+      "checked": [
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/smooth-adelic-function",
+          "verdict": "verified",
+          "note": "Finite compact-open level and smooth archimedean slices agree with BPCZ; finite and real nonsmoothness tests are distinct."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/adelic-test-functions",
+          "verdict": "verified",
+          "note": "Compact support, finite-level tensor carrier and Haar convolution retain local SR/AA ownership; LF strictness is a gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/adelic-schwartz-space",
+          "verdict": "verified",
+          "note": "Both left and right derivatives are controlled; Gaussian tests decay at zero and infinity in the idele direction."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/moderate-growth",
+          "verdict": "verified",
+          "note": "The exponent is nonnegative and the constant positive; height comparison and inverse-dual matrix properness remain explicit."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/uniform-moderate-growth-space",
+          "verdict": "verified",
+          "note": "One exponent controls every derivative, with derivative-dependent constants; fixed-level/exponent topologies are specified."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/growth-translation-differentiation",
+          "verdict": "verified",
+          "note": "Right-translation covariance and inverse-adjoint differentiation use the same Lie convention as the native action."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/convolution-to-uniform-growth",
+          "verdict": "verified",
+          "note": "The principal anti-automorphism sign matches differentiation of the test factor; Haar integrability is not inferred from boundedness."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.0/finite-hecke-action",
+          "verdict": "verified",
+          "note": "Normalized compact-open Haar idempotents and local double-coset sums agree; level preservation is stated on actual function carriers."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/gk-pair",
+          "verdict": "verified",
+          "note": "Derivative equality, injective compact Lie inclusion and smooth adjoint covariance are real data, not arbitrary propositions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/gk-module",
+          "verdict": "verified",
+          "note": "Local compact finiteness and differentiated compatibility are distinguished from countability; the SL₂ model checks the compact basis."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex",
+          "verdict": "verified",
+          "note": "Horizontal K-equivariant alternating cochains use the bracket-first sign and all-degree differential; H⁰ is simultaneous invariants."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/relative-cohomology-functoriality",
+          "verdict": "verified",
+          "note": "Pair restriction, long exact sequences, cup products and relative Ext are stated; the projective Koszul resolution remains a gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/differentiable-cochains",
+          "verdict": "verified",
+          "note": "The smoothing inclusion compares actual continuous and differentiable complexes with finite-dimensional coefficient scope."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/invariant-forms-complex",
+          "verdict": "corrected",
+          "note": "Current DG forms are an upstream input; quotient charts and Maurer–Cartan compatibility remain separate construction obligations. Recorded current DifferentialGeometry 0–1 as explicit upstream prerequisites, alongside the existing registry/adapter gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/van-est-isomorphism",
+          "verdict": "verified",
+          "note": "Wockel’s relative comparison is not misattributed as the full invariant de Rham proof; naturality and coefficient hypotheses remain."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/cartan-iwasawa-malcev",
+          "verdict": "verified",
+          "note": "The reductive case imports ALS/LieGroups; the general finite-component Lie-group proof remains an explicit source gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/van-est-acceptance",
+          "verdict": "verified",
+          "note": "Compact averaging, vector-group exterior classes, U(n) weighted odd generators and the GL₂ component action are distinguished."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-points-lie-group",
+          "verdict": "corrected",
+          "note": "The finite-dimensional comodule orbit map, corrected lieMap module and upstream CAD component argument match the scoped native contract. Corrected lieMap module to Geometry/Lie/Functor and retained its finite-dimensional real-model hypotheses. Matched orbit-map scope to the native finite-dimensional comodule carrier; excluded an arbitrary singular target. Imported current RealAlgebraicGeometry Layer 6 finite connected-cell CAD for component finiteness; retained only the algebraic-group application here."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-group",
+          "verdict": "verified",
+          "note": "Hopf-connected reductivity, differentiated compact subgroup and Cartan outputs are characterized; an arbitrary compact subgroup is insufficient."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/k-finite-vectors",
+          "verdict": "verified",
+          "note": "K-finiteness is an algebraic orbit-span condition and is linked to differentiated compact weights under the required smoothness assumptions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module",
+          "verdict": "corrected",
+          "note": "Admissibility uses finite-dimensional Hom_K multiplicities, not the vacuous finite finrank inequality; finite generation is separate. Replaced the vacuous finrank < infinity API wording by finite-dimensional multiplicity spaces, as in the native predicate."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character",
+          "verdict": "verified",
+          "note": "The shifted Weyl-orbit centre character and highest-weight μ+ρ convention agree with the imported enveloping-centre machinery."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/harish-chandra-admissibility",
+          "verdict": "verified",
+          "note": "Irreducible admissibility is scoped to the real-reductive compatible category, with classification proof inputs recorded as gaps."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/principal-series",
+          "verdict": "verified",
+          "note": "Normalized covariance and SL₂ parity agree with Casselman Proposition 10.8; compact-picture and dual parameter are typed."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/casselman-embedding",
+          "verdict": "verified",
+          "note": "The embedding is an actual injective compatible-module morphism into a principal series, preceding globalization."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/sf-representation",
+          "verdict": "verified",
+          "note": "Smooth moderate-growth Fréchet actions have joint continuity and topology data; the L² nonsmooth vector is a separate counterexample."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/g-continuous-norms",
+          "verdict": "verified",
+          "note": "Norm completions include genuine continuous representations and growth bounds; arbitrary norms are not asserted continuous."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization",
+          "verdict": "verified",
+          "note": "Canonical globalization and K-finite recovery, morphism extension and smooth-completion compatibility are actual functorial signatures."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/dixmier-malliavin",
+          "verdict": "verified",
+          "note": "Factorization concerns smooth vectors, with the original Dixmier–Malliavin proof explicitly unread rather than attributed to its users."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+          "verdict": "verified",
+          "note": "Irreducibles use isomorphism classes, with contragredient and twist laws; compact and GL₁ tests retain the actual group action."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/tempered-square-integrable",
+          "verdict": "verified",
+          "note": "Coefficient integrability is on a specified central quotient and unitary realization; arbitrary Banach coefficients are not substituted."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/discrete-series",
+          "verdict": "verified",
+          "note": "Compact-Cartan and nondegeneracy conditions characterize discrete/limit series modulo centre, with exhaustion and K-conjugacy signatures."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification",
+          "verdict": "corrected",
+          "note": "Knapp’s real GL_n quotient classification is an inspected special case; the general-group proof remains separately recorded. Added a directly inspected GL_n real quotient-classification source without claiming it proves the general-group theorem."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/weil-group-real",
+          "verdict": "corrected",
+          "note": "The nonsplit real Weil group and j²=−1 relations match Knapp §3, pp.401–403; Gan–Ichino p.22 is unrelated. Removed the unrelated Gan–Ichino p.22 attribution and replaced it by Knapp §3, pp.401–403."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+          "verdict": "corrected",
+          "note": "Knapp Theorems 2 and 5 supply real/complex GL_n correspondences; local factors remain AL exports, without the false Gan citation. Removed the unrelated Gan–Ichino complex-GL_n citation; Knapp Theorems 2 and 5 remain the inspected real/complex correspondence sources."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series",
+          "verdict": "verified",
+          "note": "The two-ray model has the O₂ reflection extension and integrated classification; Casimir k(k−2)/4 fixes k=2 and k=12."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual",
+          "verdict": "verified",
+          "note": "Jiang–Zhang Appendix B.6 gives the generic-unitary GL_n formula, distinct from the classical-group B.5 formula."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-form",
+          "verdict": "verified",
+          "note": "Automorphic forms impose actual arithmetic invariance, K-finiteness, central finiteness and moderate growth; they need not be centre eigenvectors."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-uniform-growth",
+          "verdict": "verified",
+          "note": "Borel–Jacquet’s reconstruction input upgrades moderate to uniform growth; the kernel estimate is preserved as a nonroutine proof gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/smooth-automorphic-forms",
+          "verdict": "corrected",
+          "note": "Only fixed-level/type/central-ideal pieces receive globalization topology; no global LF/SLF conclusion is inferred for the full union. Removed an unsupported global LF/SLF inference and added the fixed-type finiteness prerequisite actually used in globalization."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/harish-chandra-finiteness",
+          "verdict": "verified",
+          "note": "Fixed level, finite K-types and cofinite central ideal are all required; no finiteness of unrestricted A(G) is claimed."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/adelic-classical-bijection",
+          "verdict": "verified",
+          "note": "Finite adelic class decomposition and stabilizer invariance give the classical comparison, including growth/centre transport."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-module",
+          "verdict": "corrected",
+          "note": "The commuting compatible and finite actions consume the archimedean Hecke algebra directly; A(G) itself is not asserted admissible. Added the direct archimedean Hecke-algebra prerequisite used by its equivalence and projector proof."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/automorphic-representation",
+          "verdict": "verified",
+          "note": "Irreducible subquotients, rather than arbitrary subquotients, inherit admissibility and finite multiplicity from cyclic finite-type pieces."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/restricted-tensor-product",
+          "verdict": "verified",
+          "note": "The restricted product is a module colimit of finite tensor products, not a set of elementary vector sequences."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/spherical-dimension-one",
+          "verdict": "verified",
+          "note": "Spherical invariant dimension is at most one; hyperspecial existence almost everywhere needs the reductive model export, not bare integrality."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/flath-factorization",
+          "verdict": "verified",
+          "note": "Flath’s irreducible finite-corner factorization is distinct from blanket admissible-module tensor factorization."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/nongeneric-automorphic",
+          "verdict": "verified",
+          "note": "The trivial constituent is automorphic but its nontrivial unipotent Fourier coefficient vanishes, so it is nongeneric."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/holomorphic-sl2-forms",
+          "verdict": "verified",
+          "note": "Zhang’s rational structure is over Q̄ with number-field models and Hilbert fractional-ideal coefficients, not a universal Q model."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/unipotent-quotient-compact",
+          "verdict": "verified",
+          "note": "Unipotent quotient compactness follows by an additive filtration; the additive base is imported from GlobalNumberFields."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/constant-term",
+          "verdict": "verified",
+          "note": "The rational-parabolic Haar integral has actual smoothness, automorphic-preservation, Levi, central and action comparisons."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/constant-term-transitivity",
+          "verdict": "verified",
+          "note": "Nested parabolic transitivity uses the supplied quotient/fibre measures and normalized Fubini law; normalizer invariance alone is insufficient."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form",
+          "verdict": "verified",
+          "note": "All proper rational parabolic constant terms vanish; maximal-standard reduction and classical-cusp comparison are outgoing APIs."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/anisotropic-cuspidal",
+          "verdict": "verified",
+          "note": "Anisotropy modulo centre removes proper rational parabolics; it does not by itself imply finite volume of the unrestricted centre."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-form-rapid-decay",
+          "verdict": "corrected",
+          "note": "Franke Theorem 5 and its printed pp.200–201 consequence support rapid decay; the original analytic proof remains a refinement. Corrected Franke printed page 202 to pp.200–201, including the explicit consequence on p.201."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cusp-forms-square-integrable",
+          "verdict": "corrected",
+          "note": "Rapid decay and finite quotient volume prove inclusion; density is downstream of the discrete-spectrum/regularity argument. Made the discrete-spectrum input for density a direct prerequisite; inclusion and boundedness still use rapid decay and finite volume."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete",
+          "verdict": "corrected",
+          "note": "The independent Hilbert route precedes density, and the suggested sum now explicitly includes orthogonality and finite multiplicity. Removed dependence on the density conclusion, made the Hilbert supplier inputs explicit, and recorded the non-routine corrected-kernel/regularity argument."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation",
+          "verdict": "verified",
+          "note": "Hilbert constituents use unitary central character; algebraic subquotients and nonunitary norm twists retain separate conventions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/sl2-generation",
+          "verdict": "corrected",
+          "note": "Zhang §13.3, pp.64–65 includes the SL₂ unipotent generation argument; real-place generation is not its adelic proof alone."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/sl2-fourier-vanishing",
+          "verdict": "corrected",
+          "note": "The nontrivial additive Fourier coefficient vanishing argument uses the actual arithmetic quotient and both unipotent directions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.3/maass-cusp-forms",
+          "verdict": "corrected",
+          "note": "The normalized Maass T_p is p^(−1/2) times the raw adelic integral; the added comparison uses actual arithmeticForms transport. Corrected the reversed square-root factor in the outgoing adelic API and added its native prime-Hecke comparison."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight",
+          "verdict": "corrected",
+          "note": "Integral character lattices/isogeny constraints remain necessary beyond Lie highest-weight theory; CT’s locator is §1.4 p.8. Corrected the coefficient-module locator from §1.3 to §1.4, p.8; preserved the separate general algebraic integration gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/infinitesimal-character-of-weight",
+          "verdict": "verified",
+          "note": "Infinitesimal character uses λ+ρ and dual character −(λ+ρ); coefficient duality and Weyl shift are consistent."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic",
+          "verdict": "verified",
+          "note": "C/L algebraicity retains the rational half-root shift and distinguishes integral rho cases; general rationality is not assumed."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation",
+          "verdict": "verified",
+          "note": "Existence of an algebraic coefficient with nonzero relative cohomology is separate from coefficient data or essential temperedness."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma",
+          "verdict": "verified",
+          "note": "Wigner uses the contragredient coefficient and actual relative Ext resolution, rather than an unrelated centre action."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/l0-q0-invariants",
+          "verdict": "verified",
+          "note": "The invariants use complex ranks and the balanced central quotient, distinct from real split rank."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range",
+          "verdict": "verified",
+          "note": "The Borel–Wallach degree interval retains unitarity/temperedness and the split-central quotient assumptions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/vogan-zuckerman",
+          "verdict": "corrected",
+          "note": "The general fundamental Cartan parameter restricts to the compact torus for its lowest K-type; Hermitian Hodge concentration has compact-centre scope. Reconciled the general fundamental-Cartan native theorem with the packet and kept the compact-centre Hermitian specialization separate."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/gln-tempered-cohomological",
+          "verdict": "verified",
+          "note": "GL_n block induction uses actual normalized inducing representations and retains component/split-centre terms."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/clozel-purity",
+          "verdict": "verified",
+          "note": "Purity first removes the positive central-character part by a global norm twist, then restores the common weight."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/hermitian-positive-system",
+          "verdict": "verified",
+          "note": "Fixing holomorphic noncompact roots leaves a compact-positive-root choice; GSp₄ root counts and coefficient transport test it."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/coherent-relative-cohomology",
+          "verdict": "verified",
+          "note": "The Hodge stabilizer contains the split centre; central balancing precedes use of the compact quotient cohomology carrier."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/gsp4-discrete-series",
+          "verdict": "verified",
+          "note": "Compact and split torus lattices, Levi/full longest elements, duality and compact-wall exclusions are distinct."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/bhr-coherent-cohomology",
+          "verdict": "verified",
+          "note": "The contributing coherent degree is one-dimensional, without reinstating Harris’s false full-disconnected-group vanishing assertion."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/mirkovic-tempered-coherent",
+          "verdict": "verified",
+          "note": "The essentially tempered hypothesis is essential for the discrete/nondegenerate-limit conclusion; the actual Hodge coefficient is used."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/bhr-large-weight",
+          "verdict": "unverifiable",
+          "note": "Part (ii) is typed, but parts (i) and (iii) have no faithful native statements. Essential temperedness was restored in the prose three-case classification; the incomplete multi-part target remains a §13 blocker."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/harris-limits-gsp2g",
+          "verdict": "verified",
+          "note": "Harris Theorem 3.5 supports the stated limit-series characterization, with Goldring–Koskivirta’s component/other-degree correction retained."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/holomorphic-ds-sp2n-unn",
+          "verdict": "verified",
+          "note": "Minimal K-types for symplectic/unitary holomorphic series use genuine coefficient modules and strict/limit inequalities."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/coefficient-lattices",
+          "verdict": "verified",
+          "note": "The family is over p-adic integer rings and full rank at every p-adic place; current quadratic Z-lattice work is not duplicated."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/rationality-field",
+          "verdict": "corrected",
+          "note": "Rationality is the finite-part twist-stabilizer fixed field; a field of definition is extra data, and HR §2.3.4 is the definition source. Replaced BCG25 p.1, which does not define rationality fields, by Harder–Raghuram §2.3.4."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/clozel-rationality",
+          "verdict": "corrected",
+          "note": "Clozel’s established GL_n statement is distinguished from conditional general-group finiteness; BCG25 is only cohomological context. Limited BCG25 attribution to its actual cohomological context and corrected the locator to Remark 1.2."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/torsion-hecke-eigenclasses",
+          "verdict": "corrected",
+          "note": "A torsion eigensystem carries a nonzero class and a ring character; nonfaithful classes do not uniquely determine that character. Replaced the coherent/Satake passage on p.82 by the actual Betti/torsion eigensystem discussion on p.6."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl1-dictionary",
+          "verdict": "verified",
+          "note": "Hecke characters, conductor and infinity types import GlobalNumberFields; only the automorphic dictionary is an AF target."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-classical-to-adelic",
+          "verdict": "verified",
+          "note": "Actual GL₂ rational, level, central, rotation and slash covariance specify adelization and distinguish sign conventions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-dictionary",
+          "verdict": "verified",
+          "note": "The modular dictionary uses the existing classical owner and its cusp carrier; it does not recreate classical modular forms."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/gl2-hecke-normalisation",
+          "verdict": "verified",
+          "note": "The raw adelic R_p and classical weight-k T_p differ by p^(k/2−1), with inverse diamond-character action."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/algebraic-modular-forms",
+          "verdict": "verified",
+          "note": "Gross rational-action and level-action carriers are distinct; their comparison includes the p-adic transport and full stabilizers."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/algebraic-modular-forms-structure",
+          "verdict": "verified",
+          "note": "Class-number finiteness is distinct from type number and effective-stabilizer finiteness; base change requires invertible orders or neatness."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/transport-compatibilities",
+          "verdict": "verified",
+          "note": "Restriction of scalars has point/Lie/growth transport; product automorphic constituent extraction remains a separate nonroutine gap."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1a/absolute-lie-cochain-complex",
+          "verdict": "verified",
+          "note": "The absolute all-degree characteristic-zero Lie complex imports the existing low degrees, with the same bracket sign and Levi action."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/kostant-parabolic-cohomology",
+          "verdict": "verified",
+          "note": "Kostant’s Weyl representatives, Levi action and rational descent are characteristic-zero statements, not integral/mod-p decompositions."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/finite-corner-tensor-factorization",
+          "verdict": "verified",
+          "note": "Finite idempotent corners generate submodules before restriction; arbitrary vector-space complements are not invariant complements."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/archimedean-hecke-algebra",
+          "verdict": "verified",
+          "note": "Supported bi-K-finite distributions and the balanced PBW quotient are actual carriers; normalized projectors use dimension times dual character."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction",
+          "verdict": "verified",
+          "note": "Compact-picture equivalence is topological and no longer assumes the desired bijectivity; normalized induction and transitivity are typed."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.2/central-translation-finiteness",
+          "verdict": "verified",
+          "note": "Borel–Jacquet’s centre translates have finite span through the kernel/finiteness argument, not because the centre acts scalarly on all forms."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.5/central-character-algebraic-modular-forms",
+          "verdict": "verified",
+          "note": "The central-quotient class set is finite by AA’s ordinary theorem; effective stabilizers and coefficient descent remain separately requested."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/local-stable-lattice",
+          "verdict": "verified",
+          "note": "Local stable lattices include spanning, full rank and integral coaction/action compatibility; the adjoint Kostant result is only a specialization."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.1/gl2-algebraic-weight-model",
+          "verdict": "verified",
+          "note": "The explicit clockwise compact H/X/Y matrices satisfy their brackets and give the two-ray Casimir, independent of a split diagonal basis."
+        },
+        {
+          "nodeId": "AutomorphicFormsOnReductiveGroups:AF.4/cohomological-with-coefficient",
+          "verdict": "verified",
+          "note": "The supplied coefficient and degree specify actual nonzero relative cohomology; existential IsCohomological is its separate interface."
         }
       ]
     }

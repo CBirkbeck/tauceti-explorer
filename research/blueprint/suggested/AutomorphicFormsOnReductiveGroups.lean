@@ -121,6 +121,16 @@ theorem levelInvariant_rightTranslate (J : Subgroup G) {f : G → ℂ}
     (hf : IsLevelInvariant J f) (y : G) :
     IsLevelInvariant (J.map (MulAut.conj y).toMonoidHom) (rightTranslate y f) := sorry
 
+/-- In S₃ the two conjugation directions give different translated levels.
+Here f(g)=g(2), J fixes 2, y=(0 1 2), and j=(0 1). -/
+example :
+    let y : Equiv.Perm (Fin 3) := Equiv.swap 0 1 * Equiv.swap 1 2
+    let j : Equiv.Perm (Fin 3) := Equiv.swap 0 1
+    let f : Equiv.Perm (Fin 3) → ℂ := fun g => ((g 2).val : ℂ)
+    rightTranslate y f (y * j * y⁻¹) = rightTranslate y f 1 ∧
+      rightTranslate y f (y⁻¹ * j * y) ≠ rightTranslate y f 1 := by
+  norm_num [rightTranslate, Equiv.Perm.mul_apply, Equiv.swap_apply_def, Fin.ext_iff]
+
 /-- A constant function is rationally invariant. -/
 example (Γ : Subgroup G) (c : ℂ) : IsLeftInvariant Γ (fun _ => c) := sorry
 
