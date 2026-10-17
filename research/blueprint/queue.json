@@ -41189,8 +41189,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R22.1~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10112",
-   "finishedAt": "2026-10-17T12:53:54Z"
+   "finishedAt": "2026-10-17T12:53:54Z",
+   "note": "deliverables arrived from an external worker on issue #10112"
   },
   {
    "kind": "blueprint",
@@ -48069,8 +48069,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10159",
-   "finishedAt": "2026-10-17T13:30:55Z"
+   "finishedAt": "2026-10-17T13:30:55Z",
+   "note": "deliverables arrived from an external worker on issue #10159"
   },
   {
    "id": "REV-PKG-AutomorphicFormsOnReductiveGroups",
@@ -48096,8 +48096,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicFormsOnReductiveGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10164",
-   "finishedAt": "2026-10-17T14:10:48Z"
+   "finishedAt": "2026-10-17T14:10:48Z",
+   "note": "deliverables arrived from an external worker on issue #10164"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -50616,8 +50616,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EtaleDualityAndPerverseSheaves.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10160",
-   "finishedAt": "2026-10-17T14:10:51Z"
+   "finishedAt": "2026-10-17T14:10:51Z",
+   "note": "deliverables arrived from an external worker on issue #10160"
   },
   {
    "id": "REV-PKG-EtaleDualityAndPerverseSheaves",
@@ -51015,6 +51015,49 @@
    "state": "done",
    "finishedAt": "2026-10-10T18:23:37Z",
    "note": "deliverables arrived from an external worker on issue #7929"
+  },
+  {
+   "id": "PKG-GL2ModularityLifting",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "GL2ModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/packages/GL2ModularityLifting/README.md",
+    "research/blueprint/packages/GL2ModularityLifting/Suggested.lean",
+    "research/blueprint/packages/GL2ModularityLifting/metadata.toml",
+    "research/blueprint/handoff/PKG-GL2ModularityLifting.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-GL2ModularityLifting",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "GL2ModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-GL2ModularityLifting.md",
+    "research/blueprint/packages/GL2ModularityLifting/review.json",
+    "research/blueprint/packages/GL2ModularityLifting/README.md",
+    "research/blueprint/packages/GL2ModularityLifting/Suggested.lean",
+    "research/blueprint/packages/GL2ModularityLifting/metadata.toml"
+   ],
+   "after": [
+    "PKG-GL2ModularityLifting"
+   ],
+   "avoidAccountOf": "PKG-GL2ModularityLifting",
+   "independentOf": [
+    "PKG-GL2ModularityLifting"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-GL2ModularityLifting.md",
+   "state": "pending"
   },
   {
    "id": "PKG-GeneralizedHeegnerCycles",
@@ -54913,8 +54956,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraData.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10161",
-   "finishedAt": "2026-10-17T14:10:57Z"
+   "finishedAt": "2026-10-17T14:10:57Z",
+   "note": "deliverables arrived from an external worker on issue #10161"
   },
   {
    "id": "REV-PKG-ShimuraData",
@@ -83256,6 +83299,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-GL2ModularityLifting--R22.1~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1088,
+   "name": "blueprint BP-GL2ModularityLifting--R22.1~2: GL₂ Modularity Lifting",
+   "target": "BP-GL2ModularityLifting--R22.1~2",
+   "roadmapIds": [
+    "GL2ModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GL2ModularityLifting--R22.1~2.result.json",
+    "research/blueprint/redteam/RT-BP-GL2ModularityLifting--R22.1~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-GL2ModularityLifting--R22.1~2",
+    "REV-GL2ModularityLifting--R22.1~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-GL2ModularityLifting--R22.1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-GL2ModularityLifting--R22.1~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1088,
+   "name": "blueprint BP-GL2ModularityLifting--R22.1~2: GL₂ Modularity Lifting",
+   "roadmapIds": [
+    "GL2ModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GL2ModularityLifting--R22.1~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-GL2ModularityLifting--R22.1~2.md"
+   ],
+   "after": [
+    "RT-BP-GL2ModularityLifting--R22.1~2"
+   ],
+   "avoidAccountOf": "RT-BP-GL2ModularityLifting--R22.1~2",
+   "independentOf": [
+    "RT-BP-GL2ModularityLifting--R22.1~2",
+    "BP-GL2ModularityLifting--R22.1~2",
+    "REV-GL2ModularityLifting--R22.1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-GL2ModularityLifting--R22.1~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-GeometricSatakeAndFusion--GS0~2",
    "kind": "redteam",
    "priority": 2,
@@ -93458,6 +93548,53 @@
     "REV-AutomorphicFormsOnReductiveGroups~5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicFormsOnReductiveGroups~5.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ShimuraData~5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1506,
+   "name": "blueprint BP-ShimuraData~5: Shimura data, Hermitian domains, and adelic level structures",
+   "target": "BP-ShimuraData~5",
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraData~5.result.json",
+    "research/blueprint/redteam/RT-BP-ShimuraData~5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ShimuraData~5",
+    "REV-ShimuraData~5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ShimuraData~5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ShimuraData~5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1506,
+   "name": "blueprint BP-ShimuraData~5: Shimura data, Hermitian domains, and adelic level structures",
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraData~5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ShimuraData~5.md"
+   ],
+   "after": [
+    "RT-BP-ShimuraData~5"
+   ],
+   "avoidAccountOf": "RT-BP-ShimuraData~5",
+   "independentOf": [
+    "RT-BP-ShimuraData~5",
+    "BP-ShimuraData~5",
+    "REV-ShimuraData~5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraData~5.md",
    "state": "pending"
   },
   {
