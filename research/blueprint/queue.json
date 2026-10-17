@@ -132845,6 +132845,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartVII~adv.md"
+  },
+  {
+   "id": "REV-PKG-ArithmeticStatisticsPartVIII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticStatisticsPartVIII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArithmeticStatisticsPartVIII~adv.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartVIII/review.json",
+    "research/blueprint/packages/ArithmeticStatisticsPartVIII/README.md",
+    "research/blueprint/packages/ArithmeticStatisticsPartVIII/Suggested.lean",
+    "research/blueprint/packages/ArithmeticStatisticsPartVIII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartVIII~adv.md"
   }
  ]
 }
