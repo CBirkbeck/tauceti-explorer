@@ -131351,6 +131351,115 @@
     "BP-AutomorphicFormsOnReductiveGroups~5"
    ],
    "state": "pending"
+  },
+  {
+   "id": "BP-ShimuraData~5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ShimuraData.json",
+    "research/blueprint/readmes/ShimuraData.md",
+    "research/blueprint/suggested/ShimuraData.lean",
+    "research/blueprint/handoff/BP-ShimuraData~5.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-ShimuraData~5.md",
+   "scope": [
+    "ShimuraData:D0",
+    "ShimuraData:D1",
+    "ShimuraData:D2",
+    "ShimuraData:D3",
+    "ShimuraData:D4",
+    "ShimuraData:D5"
+   ],
+   "after": [
+    "REV-ShimuraData~4"
+   ],
+   "revisionOf": "BP-ShimuraData"
+  },
+  {
+   "id": "REV-ShimuraData~5",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ShimuraData"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ShimuraData~5.md",
+    "research/blueprint/packets/ShimuraData.json",
+    "research/blueprint/readmes/ShimuraData.md",
+    "research/blueprint/suggested/ShimuraData.lean"
+   ],
+   "after": [
+    "BP-ShimuraData~5"
+   ],
+   "avoidAccountOf": "BP-ShimuraData~5",
+   "independentOf": [
+    "BP-ShimuraData",
+    "BP-ShimuraData~2",
+    "BP-ShimuraData~3",
+    "BP-ShimuraData~4",
+    "BP-ShimuraData~5"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4~5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
+    "research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.4.md",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean",
+    "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~5.md",
+   "scope": [
+    "EtaleDualityAndPerverseSheaves:EDC.4"
+   ],
+   "after": [
+    "REV-EtaleDualityAndPerverseSheaves--EDC.4~4"
+   ],
+   "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4"
+  },
+  {
+   "id": "REV-EtaleDualityAndPerverseSheaves--EDC.4~5",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EtaleDualityAndPerverseSheaves--EDC.4~5.md",
+    "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
+    "research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.4.md",
+    "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean"
+   ],
+   "after": [
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~5"
+   ],
+   "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4~5",
+   "independentOf": [
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~2",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~3",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
+    "BP-EtaleDualityAndPerverseSheaves--EDC.4~5"
+   ],
+   "state": "pending"
   }
  ]
 }
