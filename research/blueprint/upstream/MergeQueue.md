@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T16:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T16:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -116,7 +116,7 @@ Generated 2026-10-17T16:30Z from the README supplier graph of every open pull re
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #856, #871, #873, #875, #923, #924, #925, #928, #938, #934
 - #964 FarguesFontaineDiamonds — ready (approved at an earlier head); waits on #813, #814, #818, #820, #908, #922, #965
 - #1002 PadicDifferentialEquationsAndRigidCohomology — draft; waits on #785, #813, #814, #815, #849, #850, #854, #856, #857, #868, #873, #875, #879, #908, #913, #921, #929, #938, #940, #965
-- #1040 EtaleDualityAndPerverseSheaves — draft; waits on #848, #849, #873, #875, #908, #929, #938, #965
+- #1040 EtaleDualityAndPerverseSheaves — draft; waits on #848, #849, #850, #856, #873, #875, #908, #929, #938, #965
 
 ## Wave 23
 - #933 ShimuraVarieties — ready; waits on #785, #792, #848, #849, #850, #852, #853, #871, #913, #931

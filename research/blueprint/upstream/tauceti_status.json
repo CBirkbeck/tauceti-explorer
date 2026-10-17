@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T16:30Z",
+ "updated": "2026-10-17T16:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1045,7 +1045,7 @@
   "ShimuraData": {
    "stage": "pr",
    "pr": 1038,
-   "head": "98a9e80",
+   "head": "bf2c1dd",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": null,
@@ -1057,7 +1057,7 @@
   "DirichletPadicLFunctions": {
    "stage": "pr",
    "pr": 1039,
-   "head": "85a5614",
+   "head": "06335c7",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": null,
@@ -1069,7 +1069,7 @@
   "EtaleDualityAndPerverseSheaves": {
    "stage": "pr",
    "pr": 1040,
-   "head": "4a9b1c2",
+   "head": "869e327",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
    "review": {
     "recommendation": null,
