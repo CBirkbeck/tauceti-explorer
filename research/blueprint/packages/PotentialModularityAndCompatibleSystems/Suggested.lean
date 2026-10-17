@@ -28,18 +28,36 @@ def dualPolynomial {M : Type u} [Field M] (Q : Polynomial M) : Polynomial M :=
 
 /-- Reciprocal roots in rank one: the root `2` becomes `1/2`. -/
 example : dualPolynomial (Polynomial.X - Polynomial.C (2 : ℚ)) =
-    Polynomial.X - Polynomial.C (1 / 2 : ℚ) := by sorry
+    Polynomial.X - Polynomial.C (1 / 2 : ℚ) := by
+  unfold dualPolynomial
+  have h1 : (1 : Polynomial ℚ).reverse = 1 := by simpa using Polynomial.reverse_C (1 : ℚ)
+  have hX : (Polynomial.X : Polynomial ℚ).reverse = 1 := by
+    have h := Polynomial.reverse_mul_X (1 : Polynomial ℚ)
+    rw [one_mul] at h
+    rw [h, h1]
+  have h : (Polynomial.X - Polynomial.C (2 : ℚ)).reverse = 1 - Polynomial.C 2 * Polynomial.X := by
+    rw [sub_eq_add_neg, ← Polynomial.C_neg, Polynomial.reverse_add_C, hX, Polynomial.natDegree_X,
+      pow_one, Polynomial.C_neg]
+    ring
+  rw [h]
+  simp only [Polynomial.coeff_sub, Polynomial.coeff_X_zero, Polynomial.coeff_C_zero]
+  rw [show ((0:ℚ) - 2)⁻¹ = -1/2 by norm_num]
+  rw [mul_sub, mul_one, ← mul_assoc, ← Polynomial.C_mul]
+  norm_num
+  ring
 
 /-- The zero-dimensional characteristic polynomial is preserved. -/
-example : dualPolynomial (1 : Polynomial ℚ) = 1 := by sorry
+example : dualPolynomial (1 : Polynomial ℚ) = 1 := by
+  have h1 : (1 : Polynomial ℚ).reverse = 1 := by simpa using Polynomial.reverse_C (1 : ℚ)
+  simp [dualPolynomial, h1]
 
 /-- A noninvertible operator is outside the domain of the characteristic-polynomial rule. -/
-example : dualPolynomial (Polynomial.X : Polynomial ℚ) = 0 := by sorry
+example : dualPolynomial (Polynomial.X : Polynomial ℚ) = 0 := by
+  simp [dualPolynomial]
 
-/-- Integer real-place multiplicities (BLGGT v4 §5.1, pp. 63–64); interpreting these as
-nonnegative multiplicities requires determinant ±1 and, in odd rank, even weight.
-Integer real-place multiplicities `d^±`: `n/2` for `n` even, `(n ± (−1)^{w/2} det ℛ(c_v))/2`
-for `n` odd. -/
+/-- Integer real-place multiplicities `d^±` (BLGGT v4 §5.1, pp. 63–64): `n/2` for `n` even and
+`(n ± (−1)^{w/2} det ℛ(c_v))/2` for `n` odd. Interpreting these as nonnegative multiplicities
+requires determinant ±1 and, in odd rank, even weight. -/
 def archimedeanD (n : ℕ) (w detc : ℤ) : ℤ × ℤ :=
   if Even n then ((n : ℤ) / 2, (n : ℤ) / 2)
   else (((n : ℤ) + (if Even (w / 2) then (1 : ℤ) else -1) * detc) / 2,
@@ -71,44 +89,68 @@ def archimedeanEpsilon (realPlace : Bool) (H Hbar : Multiset ℤ) (w : ℤ) (dmi
 
 /-- Rank zero, even rank, and the real odd sign distinguish the multiplicity rule. -/
 example : archimedeanD 0 0 1 = (0, 0) ∧ archimedeanD 2 1 (-1) = (1, 1) ∧
-    archimedeanD 1 0 (-1) = (0, 1) := by sorry
+    archimedeanD 1 0 (-1) = (0, 1) := by decide
 
 /-- The geometric cyclotomic character has weight `-2` and odd determinant. -/
-example : archimedeanD 1 (-2) (-1) = (1, 0) := by sorry
+example : archimedeanD 1 (-2) (-1) = (1, 0) := by decide
 
 /-- The trivial real character fixes the Gamma and epsilon normalizations. -/
 example (s : ℂ) :
     archimedeanGammaFactor true {0} {0} 0 1 0 s = Complex.Gammaℝ s ∧
-    archimedeanEpsilon true {0} {0} 0 0 = 1 := by sorry
+    archimedeanEpsilon true {0} {0} 0 0 = 1 := by
+  simp [archimedeanGammaFactor, archimedeanEpsilon, Multiset.filter_singleton]
 
 /-- The sign character instead has real factor `Gammaℝ (s+1)` and epsilon `i`. -/
 example (s : ℂ) :
     archimedeanGammaFactor true {0} {0} 0 0 1 s = Complex.Gammaℝ (s + 1) ∧
-    archimedeanEpsilon true {0} {0} 0 1 = Complex.I := by sorry
+    archimedeanEpsilon true {0} {0} 0 1 = Complex.I := by
+  simp [archimedeanGammaFactor, archimedeanEpsilon, Multiset.filter_singleton]
 
 /-- At a complex place the two embeddings give the single complex factor in rank one. -/
 example (s : ℂ) :
     archimedeanGammaFactor false {0} {0} 0 0 0 s = Complex.Gammaℂ s ∧
-    archimedeanEpsilon false {0} {0} 0 0 = 1 := by sorry
+    archimedeanEpsilon false {0} {0} 0 0 = 1 := by
+  simp [archimedeanGammaFactor, archimedeanEpsilon, Multiset.filter_singleton]
 
 /-- The empty product in rank zero is one, even at a pole of the auxiliary Gamma factor. -/
 example (s : ℂ) :
     archimedeanGammaFactor false 0 0 0 0 0 s = 1 ∧
-    archimedeanEpsilon false 0 0 0 0 = 1 := by sorry
+    archimedeanEpsilon false 0 0 0 0 = 1 := by
+  simp [archimedeanGammaFactor, archimedeanEpsilon]
 
 /-- The geometric cyclotomic Hodge weight is `-1`. -/
 example (s : ℂ) :
     archimedeanGammaFactor true {-1} {-1} (-2) 1 0 s = Complex.Gammaℝ (s + 1) ∧
-    archimedeanEpsilon true {-1} {-1} (-2) 0 = 1 := by sorry
+    archimedeanEpsilon true {-1} {-1} (-2) 0 = 1 := by
+  simp [archimedeanGammaFactor, archimedeanEpsilon, Multiset.filter_singleton]
 
 /-- Elliptic-curve cancellation is pointwise valid away from the denominator's poles. -/
 example (s : ℂ) (hs : ∀ n : ℕ, s - 1 / 2 ≠ -(n : ℂ)) :
     archimedeanGammaFactor true {0, 1} {0, 1} 1 1 1 s = Complex.Gammaℂ s ∧
-    archimedeanEpsilon true {0, 1} {0, 1} 1 1 = -1 := by sorry
+    archimedeanEpsilon true {0, 1} {0, 1} 1 1 = -1 := by
+  have hne : Complex.Gammaℂ (s - 1 / 2) ≠ 0 := by
+    rw [Complex.Gammaℂ_def]
+    exact mul_ne_zero (mul_ne_zero two_ne_zero
+      (Complex.cpow_ne_zero_iff.mpr (Or.inl (by simp [Real.pi_ne_zero]))))
+      (Complex.Gamma_ne_zero hs)
+  constructor
+  · have hdup := Complex.Gammaℝ_mul_Gammaℝ_add_one (s - 2⁻¹)
+    have hne' : Complex.Gammaℂ (s - 2⁻¹) ≠ 0 := by simpa [one_div] using hne
+    simp [archimedeanGammaFactor, Multiset.filter_singleton]
+    rw [show s + 1 - 2⁻¹ = s - 2⁻¹ + 1 by ring, hdup]
+    rw [mul_comm]
+    exact div_mul_cancel₀ _ hne'
+  · simp only [archimedeanEpsilon, ite_true]
+    norm_num
 
 /-- The raw quotient is zero at `s=1/2`, while its meromorphic continuation is nonzero. -/
 example : archimedeanGammaFactor true {0, 1} {0, 1} 1 1 1 (1 / 2) = 0 ∧
-    Complex.Gammaℂ (1 / 2) ≠ 0 := by sorry
+    Complex.Gammaℂ (1 / 2) ≠ 0 := by
+  constructor
+  · simp [archimedeanGammaFactor, Complex.Gammaℂ]
+  · rw [Complex.Gammaℂ]
+    refine mul_ne_zero (mul_ne_zero two_ne_zero ?_) (Complex.Gamma_ne_zero_of_re_pos (by norm_num))
+    exact Complex.cpow_ne_zero_iff.mpr (Or.inl (by simp [Real.pi_ne_zero]))
 
 end Factors
 
@@ -125,11 +167,13 @@ theorem eq_single_one_of_norm_one {ι : Type*} (n : ι →₀ ℤ) (d : ι → �
 /-- For the cyclic group of order two, `3·1 − ε` has degree two but norm ten, so degree alone does not
 make a virtual class genuine. -/
 example : ((Finsupp.single (0 : Fin 2) (3 : ℤ) + Finsupp.single 1 (-1)).sum fun _ a => a ^ 2) = 10 := by
-  sorry
+  rw [Finsupp.sum_of_support_subset _ (Finset.subset_univ _) _ (by simp)]
+  simp [Fin.sum_univ_two]
 
 /-- The class `2[V₁] − [V₂]` has norm five. -/
 example : ((Finsupp.single (0 : Fin 2) (2 : ℤ) + Finsupp.single 1 (-1)).sum fun _ a => a ^ 2) = 5 := by
-  sorry
+  rw [Finsupp.sum_of_support_subset _ (Finset.subset_univ _) _ (by simp)]
+  simp [Fin.sum_univ_two]
 
 end RepRing
 
@@ -139,7 +183,7 @@ namespace Fields
 
 /-- Disjointness through towers (Qian §2, opening facts, p. 5): if `A` and `D` are linearly disjoint
 over `C`, `D` is finite over `C` and `B ≤ A`, then `A ∩ BD = B`. -/
-theorem towerLinearDisjoint {C Ω : Type*} [Field C] [Field Ω] [Algebra C Ω]
+theorem inf_sup_eq_of_linearDisjoint {C Ω : Type*} [Field C] [Field Ω] [Algebra C Ω]
     (A B D : IntermediateField C Ω) [FiniteDimensional C D] (hBA : B ≤ A)
     (h : A.LinearDisjoint D) : A ⊓ (B ⊔ D) = B := by
   sorry
@@ -170,7 +214,8 @@ example : ¬ (5 : ℤ) ∣ 1 - 4 * 5 := by decide
 /-- The auxiliary prime is taken larger than `3`: the index-two subgroup of the inertia of `ℚ_p` sees
 the mod-`p` cyclotomic character with order `(p − 1)/2`, which is `1` exactly for `p = 3`. -/
 theorem half_order_gt_one {p : ℕ} (hp : 3 < p) (hodd : Odd p) : 1 < (p - 1) / 2 := by
-  sorry
+  obtain ⟨k, rfl⟩ := hodd
+  omega
 
 example : (3 - 1) / 2 = 1 := by decide
 
@@ -231,14 +276,18 @@ theorem finite_presentation_complete_intersection
   sorry
 
 /-- The zero-variable presentation recovers the coefficient ring. -/
-example (O : Type) [CommRing O] : HasPresentation O O 0 0 := by sorry
+example (O : Type) [CommRing O] : HasPresentation O O 0 0 := by
+  refine ⟨Fin.elim0, ⟨(MvPowerSeries.isEmptyEquiv (σ := Fin 0) (R := O)).symm.trans ?_⟩⟩
+  rw [Set.range_eq_empty, Ideal.span_empty]
+  exact (AlgEquiv.quotientBot O _).symm
 
 /-- Quotienting one variable by that variable gives the coefficient ring. -/
 example (O : Type) [CommRing O] : HasPresentation O O 1 1 := by sorry
 
 /-- A unit equation is permitted as a presentation but gives the zero algebra. -/
 example : HasPresentation ℚ
-    (MvPowerSeries (Fin 1) ℚ ⧸ Ideal.span ({1} : Set (MvPowerSeries (Fin 1) ℚ))) 1 1 := by sorry
+    (MvPowerSeries (Fin 1) ℚ ⧸ Ideal.span ({1} : Set (MvPowerSeries (Fin 1) ℚ))) 1 1 :=
+  ⟨fun _ => 1, ⟨by rw [Set.range_const]; exact AlgEquiv.refl⟩⟩
 
 /-- A nonzero coefficient ring is flat over itself with the empty regular sequence. -/
 example (O : Type) [CommRing O] [Nontrivial O] : IsFlatCompleteIntersection O O 0 := by sorry
@@ -289,28 +338,37 @@ def requiresSteinberg : RequiredLiftParameters p k → Prop
 /-- The dyadic level-one character at `q=5` must have even exponent. -/
 example (k : ℕ) : ¬ (2 = 2 → Even 1) ∧
     (RequiredLiftParameters.levelOne (p := 2) (k := k) 5 2 (by norm_num) (by norm_num)
-      (by norm_num) (by norm_num) (fun _ => even_two)).auxiliaryPrime = some 5 := by sorry
+      (by norm_num) (by norm_num) (fun _ => even_two)).auxiliaryPrime = some 5 :=
+  ⟨by decide, rfl⟩
 
 /-- At `q=7`, the exponent `6` gives order `8` and genuine level two. -/
 example (k : ℕ) :
     (RequiredLiftParameters.levelTwo (p := 2) (k := k) 7 6 0 (by norm_num) (by norm_num)
-      (by norm_num) (by norm_num) ⟨3, by norm_num⟩ (fun _ => by decide)).auxiliaryPrime = some 7 := by
-  sorry
+      (by norm_num) (by norm_num) ⟨3, by norm_num⟩ (fun _ => by decide)).auxiliaryPrime = some 7 :=
+  rfl
 
 /-- At `q=5` no exponents satisfy all the dyadic level-two restrictions simultaneously. -/
 example : ¬ ∃ (i j r : ℕ), j < i ∧ i ≤ 4 ∧ Even (i + j) ∧
-    24 / Nat.gcd 24 (i + 5 * j) = 2 ^ r := by sorry
+    24 / Nat.gcd 24 (i + 5 * j) = 2 ^ r := by
+  rintro ⟨i, j, r, hji, hi, hev, hr⟩
+  have key : ∀ r : ℕ, 2 ^ r ≠ 12 ∧ 2 ^ r ≠ 6 ∧ 2 ^ r ≠ 3 := by
+    intro r
+    have h3 : ¬ 3 ∣ 2 ^ r := fun h =>
+      absurd (Nat.Coprime.eq_one_of_dvd (Nat.Coprime.pow_right r (by norm_num)) h) (by norm_num)
+    exact ⟨fun h => h3 (h ▸ by norm_num), fun h => h3 (h ▸ by norm_num), fun h => h3 (h ▸ by norm_num)⟩
+  interval_cases i <;> interval_cases j <;> simp_all (config := {decide := true})
 
 /-- The level-one prescription at `p=3,q=5` fails its divisibility condition. -/
-example : ¬ 3 ∣ 5 - 1 := by sorry
+example : ¬ 3 ∣ 5 - 1 := by decide
 
 /-- The weight-two prescription has no auxiliary prime. -/
 example (p k : ℕ) :
-    (RequiredLiftParameters.weightTwo (p := p) (k := k)).auxiliaryPrime = none := by sorry
+    (RequiredLiftParameters.weightTwo (p := p) (k := k)).auxiliaryPrime = none := rfl
 
 /-- The exceptional weight requires Steinberg monodromy; weight two at `p=3` does not. -/
 example : (RequiredLiftParameters.weightTwo (p := 3) (k := 4)).requiresSteinberg ∧
-    ¬ (RequiredLiftParameters.weightTwo (p := 3) (k := 2)).requiresSteinberg := by sorry
+    ¬ (RequiredLiftParameters.weightTwo (p := 3) (k := 2)).requiresSteinberg := by
+  simp [RequiredLiftParameters.requiresSteinberg]
 
 end RequiredLiftParameters
 end LiftParameters
@@ -337,21 +395,21 @@ end ResidualMembers
 
 /-! The following named targets are stated in README.md. Their arithmetic, geometric or
 automorphic carriers require the supplier theories described there.
-Layer 1: `weakCompatibility_ofKW`, `CompatibleSystem`, `ExtremelyWeaklyCompatibleSystem`, `induce`, `PolarizedSystem`, `WeaklyCompatibleSystem.IsRegular`, `symmetricPower`, `PolarizedSystem.tensor`, `characterSystem`, `rank_one_purity`, `induced_character_purity`, `artinSystem`, `artin_twist_purity`, `rank_two_reducibility_independent_of_lambda`, `partialLFunction`, `RepRing`, `monodromy_component_field`, `LarsenData.G`, `serre_theta_uniform_bounds`, `larsen_good_primes`, `residual_irreducibility_density_one`, `constituents_essentially_self_dual`.
-Layer 2: `SkolemDatum`, `densityOfAlgebraicLocalPoints`, `elementaryReductions`, `reductionToCurves`, `Picard.generalizedPicard`, `localPicardOpensAndApproximation`, `compactGeneralizedJacobianQuotient`, `moretBailly`, `theoremGFromMoretBailly`, `taylorTheoremG`, `functionFieldChebotarev`, `frobeniusPrimesGenerate`, `disjointnessByExtraSplitPlaces`, `Fields.towerLinearDisjoint`, `chtCharacterExtension`, `chtSolublePrescribedCompletions`, `moretBaillyThreeLocalConditions`, `moretBaillyAbovePreliminaryField`, `snowdenSolublePreliminaryField`, `surjectiveSpecialisation`, `functionFieldIsomTorsor`, `fixedConstantField`, `potentialGlobalGaloisLocalData`.
-Layer 3: `taylorLemma11`, `TaylorAuxiliaryData`, `localPointsTwistedHilbertModuli`, `restrictedAuxiliaryModuli`.
-Layer 4: `taylorLemma15`, `quaternionicHeckeGaloisRealisation`, `localResidualInertialShape`, `skinnerWilesLevelAdjustment`, `taylorCrystallineLifting`, `auxiliaryModularityTransfer`, `taylorOrdinaryPotentialResidual`, `taylorNiveauTwoPotentialResidual`, `weightReductionHeckeSurjection`, `weightShift`, `weightAndLevelPotentialResidual`, `taylorSerreWeightPotentialResidual`, `kwPotentialResidual`, `kwOrdinaryPotentialResidual`, `snowdenPotentialResidual`, `bcgpPotentialResidual`.
-Layer 5: `potentialModularityGivenLift`.
-Layer 6: `controlledExtension`, `bcgpLocalData`.
-Layer 8: `AuxiliaryField`, `kwGlobalFiniteness`, `DefiniteUnitaryTwo.ordinaryHeckeAlgebra`, `DefiniteUnitaryTwo.heckeGaloisRepresentation`, `rankTwoOrdinaryPatching`, `rankTwoOrdinaryAutomorphyAndFiniteness`, `ordinaryGlobalFiniteness`, `cgRingFiniteness`.
-Layer 9: `requiredTypeLiftExists`, `newtonThornePoint`.
-Layer 10: `bockle_presentation`, `Presentations.finite_presentation_complete_intersection`, `bockle_minimal_r_equals_t`, `kw_annals_minimal_lifts`, `RequiredLiftType`, `theorem_5_1_part_1_minimal_crystalline`, `theorem_5_1_part_2_weight_two`, `theorem_5_1_part_3_level_one_type_at_q`, `theorem_5_1_part_4_level_two_type_at_q`, `theorem_5_1_application_table`, `modern_prescribed_type_lifts`.
-Layer 11: `alpha_beta_from_residual_modularity`, `kw_theorem_4_1`.
-Layer 12: `brauerSystem`, `brauerOverlapHomCharacters`, `almost_strict_compatibility`, `strict_brauer_system`, `kw_theorem_5_1_systems`, `dieulefait_families`.
+Layer 1: `weakCompatibility_ofKW`, `CompatibleSystem`, `ExtremelyWeaklyCompatibleSystem`, `induce`, `PolarizedSystem`, `WeaklyCompatibleSystem.IsRegular`, `symmetricPower`, `PolarizedSystem.tensor`, `characterSystem`, `rank_one_purity`, `induced_character_purity`, `artinSystem`, `artin_twist_purity`, `rank_two_reducibility_independent_of_lambda`, `partialLFunction`, `RepRing`, `monodromy_component_field`, `hodgeTateCocharacterInMonodromy`, `LarsenData.G`, `serre_theta_uniform_bounds`, `larsen_good_primes`, `residual_irreducibility_density_one`, `constituents_essentially_self_dual`.
+Layer 2: `SkolemDatum`, `density_of_algebraic_local_points`, `elementary_reductions`, `reduction_to_curves`, `Picard.generalizedPicard`, `local_picard_opens_and_approximation`, `compact_generalized_jacobian_quotient`, `moret_bailly_integral_point`, `splitField_density_of_integralPoints`, `splitField_points_dense`, `function_field_chebotarev`, `frobenius_primes_generate`, `disjointness_by_extra_split_places`, `Fields.inf_sup_eq_of_linearDisjoint`, `cht_character_extension`, `cht_soluble_prescribed_completions`, `moret_bailly_three_local_conditions`, `moret_bailly_above_preliminary_field`, `snowden_soluble_preliminary_field`, `surjectiveSpecialisation`, `schemeChebotarevPoints`, `function_field_isom_torsor`, `fixed_constant_field`, `potential_global_galois_local_data`.
+Layer 3: `exists_cm_character_with_local_reductions`, `TaylorAuxiliaryData`, `local_points_twisted_hilbert_moduli`, `restricted_auxiliary_moduli`.
+Layer 4: `auxiliary_tateModule_ordinary_shape`, `quaternionic_hecke_galois_realisation`, `local_residual_inertial_shape`, `skinner_wiles_level_adjustment`, `taylor_crystalline_lifting`, `auxiliary_modularity_transfer`, `taylor_ordinary_potential_residual`, `taylor_niveau_two_potential_residual`, `weight_reduction_hecke_surjection`, `weightShift`, `weight_and_level_potential_residual`, `taylor_serre_weight_potential_residual`, `kw_potential_residual`, `kw_ordinary_potential_residual`, `snowden_potential_residual`, `bcgp_potential_residual`.
+Layer 5: `potential_modularity_given_lift`.
+Layer 6: `controlled_extension`, `bcgp_local_data`.
+Layer 8: `AuxiliaryField`, `kwGlobalFiniteness`, `DefiniteUnitaryTwo.ordinaryHeckeAlgebra`, `DefiniteUnitaryTwo.heckeGaloisRepresentation`, `rank_two_ordinary_patching`, `rank_two_ordinary_automorphy_and_finiteness`, `ordinary_global_finiteness`, `cgRingFiniteness`.
+Layer 9: `exists_lift_of_required_type`, `newton_thorne_point`.
+Layer 10: `bockle_presentation`, `Presentations.finite_presentation_complete_intersection`, `bockle_minimal_r_equals_t`, `exists_minimally_ramified_lift`, `RequiredLiftType`, `exists_minimal_crystalline_lift`, `exists_minimal_weight_two_lift`, `exists_lift_level_one_type_at_q`, `exists_lift_level_two_type_at_q`, `requiredLiftType_applications`, `modern_prescribed_type_lifts`.
+Layer 11: `alpha_beta_from_residual_modularity`, `rational_field_modularity_lifting`.
+Layer 12: `brauerSystem`, `brauerOverlapHomCharacters`, `almost_strict_compatibility`, `strict_brauer_system`, `exists_family_through_required_lift`, `dieulefait_families`.
 Layer 13: `residual_members`, `local_compatibility_at_the_coefficient_prime`, `linked_systems_modularity_transfer`.
 The family predicates and operations are on the imported `CompatibleSystemData`:
-`WeaklyCompatibleSystem`, `CompatibleSystem`, `PolarizedSystem`, `VeryWeakSystem`,
-`ExtremelyWeakSystem`, with the regularity, purity, strictness and automorphy predicates of §1.6.
+`WeaklyCompatibleSystem`, `CompatibleSystem`, `PolarizedSystem`, `VeryWeaklyCompatibleSystem`,
+`ExtremelyWeaklyCompatibleSystem`, with the regularity, purity, strictness and automorphy predicates of §1.6.
 The full `cgRingFiniteness` and `dieulefait_families` retain the hypotheses in §§8.8 and 12.5;
 their adequate-image and KW-type milestones do not discharge the remaining cases. -/
 
