@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T19:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T20:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -110,7 +110,7 @@ Generated 2026-10-17T19:50Z from the README supplier graph of every open pull re
 
 ## Wave 21
 - #921 ClassicalArithmeticCompletion — ready (approved at an earlier head); waits on #785, #792, #851, #856, #924
-- #925 AutomorphicSpectralTheory — ready; waits on #1037, #785, #792, #856, #858, #871, #924, #1041
+- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #1041
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — draft; waits on #854, #924

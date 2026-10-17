@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T19:50Z",
+ "updated": "2026-10-17T20:00Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -106,10 +106,10 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "9d20803",
+   "head": "c4c1e68",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "APPROVED"
    }
@@ -355,7 +355,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "a264b09",
+   "head": "dba09d0",
    "depends_on": [
     779,
     789,
@@ -372,7 +372,7 @@
    "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -550,7 +550,7 @@
    "note": "N2 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -657,11 +657,11 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "a58a2ed",
+   "head": "d2a1dbd",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    },
@@ -797,7 +797,7 @@
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
