@@ -42155,7 +42155,9 @@
     "BP-PrismaticCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10118",
+   "finishedAt": "2026-10-17T15:30:40Z"
   },
   {
    "kind": "blueprint",
@@ -51035,8 +51037,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10194"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10194",
+   "finishedAt": "2026-10-17T15:30:43Z"
   },
   {
    "id": "REV-PKG-GL2ModularityLifting",
