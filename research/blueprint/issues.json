@@ -4963,5 +4963,8 @@
  "REV-PKG-ArithmeticStatistics~2": 10163,
  "REV-PKG-AutomorphicFormsOnReductiveGroups": 10164,
  "REV-PKG-EtaleDualityAndPerverseSheaves": 10165,
- "REV-PKG-ShimuraData": 10166
+ "REV-PKG-ShimuraData": 10166,
+ "FIX-PKG-ColemanIntegration~adv": 10180,
+ "FIX-PKG-DirichletPadicLFunctions~adv": 10181,
+ "FIX-PKG-PadicHodgeTheory~adv2": 10182
 }
