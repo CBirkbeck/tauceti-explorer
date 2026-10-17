@@ -42128,8 +42128,9 @@
    ],
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #10119"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10119",
+   "finishedAt": "2026-10-17T14:52:42Z"
   },
   {
    "priority": 2,
@@ -50642,7 +50643,9 @@
     "PKG-EtaleDualityAndPerverseSheaves"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EtaleDualityAndPerverseSheaves.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10165",
+   "finishedAt": "2026-10-17T14:52:43Z"
   },
   {
    "id": "PKG-ExponentialSumsAndCircleMethod",
@@ -51032,7 +51035,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10194"
   },
   {
    "id": "REV-PKG-GL2ModularityLifting",
@@ -54982,7 +54986,9 @@
     "PKG-ShimuraData"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ShimuraData.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10166",
+   "finishedAt": "2026-10-17T14:52:46Z"
   },
   {
    "id": "PKG-ShimuraVarieties",
@@ -132024,9 +132030,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv.md",
-   "note": "claimed on GitHub issue #10146"
+   "note": "deliverables arrived from an external worker on issue #10146",
+   "finishedAt": "2026-10-17T14:52:50Z"
   },
   {
    "id": "FIX-PKG-ArithmeticStatistics~adv",
@@ -132086,9 +132093,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-DirichletPadicLFunctions~adv.md",
-   "note": "claimed on GitHub issue #10181"
+   "note": "deliverables arrived from an external worker on issue #10181",
+   "finishedAt": "2026-10-17T14:52:53Z"
   },
   {
    "id": "FIX-PKG-ColemanIntegration~adv",
