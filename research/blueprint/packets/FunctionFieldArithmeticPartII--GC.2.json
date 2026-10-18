@@ -1,0 +1,856 @@
+{
+  "roadmapId": "FunctionFieldArithmeticPartII",
+  "protocol": "blueprint-v1",
+  "part": "GC.2",
+  "status": "complete",
+  "scope": [
+    "FunctionFieldArithmeticPartII:GC.2"
+  ],
+  "summary": "A target-level continuation of the three inherited GC.2 targets. It imports the reviewed full function-field idele nodes, retains the actual noninjective modified-unit action, identifies the signed right quotient with generically trivialized root lines and proves the separate Picard quotient by explicit labelled Hom descent. Its degree uses O_X(−E), and its stabilizers retain root signs and the locally-square constant extension. One precise completed-divisor-lattice supplier contract remains; no new ordinary Picard, restricted-product or curve theory is planned here.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:MonoidHom.eqLocus",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "Equalizer subgroup of two homomorphisms on an existing group; specializes to the modified-unit fibre product.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:Valuation.Completion",
+        "kind": "abbrev",
+        "module": "Mathlib/Topology/Algebra/Valued/WithVal.lean",
+        "provides": "Completion of the valuation-specific WithVal carrier, so distinct places select their own topology.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:Valued.valuedCompletion",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Algebra/Valued/ValuedField.lean",
+        "provides": "The valuation extends to the completion with the same ordered value-group codomain.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:Valued.valuedCompletion_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Valued/ValuedField.lean",
+        "provides": "The extended valuation agrees on embedded field elements; used to restrict the actual diagonal.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroup",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "The subgroup of local field units lying in the valuation ring together with their inverses.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroupToResidueFieldUnits",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "Actual residue-unit homomorphism from the valuation-subring unit subgroup.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "Surjectivity of residue units for any valuation subring of a field.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+        "provides": "Native cofinite restricted product; all-place specialization is owned by FA.2.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.unitsEquiv",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/Units.lean",
+        "provides": "Algebraic equivalence between units of a restricted product and restricted products of local units.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ActionCategory",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Action.lean",
+        "provides": "Labelled action category, with groupoid instance for group actions; it does not pass to orbit sets.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ActionCategory.stabilizerIsoEnd",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Action.lean",
+        "provides": "An action stabilizer is multiplicatively equivalent to the endomorphism monoid at the corresponding object.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "mathlib:FiniteField.unit_isSquare_iff",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "For finite fields of characteristic other than two, a unit is square exactly when its half-cardinality power is one.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.Place",
+        "kind": "structure",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
+        "provides": "Normalized surjective Z-valued places trivial on constants; ord(π)=1.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
+        "kind": "theorem",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/Zeros.lean",
+        "provides": "For an algebraic function field, every function has finitely many places of nonzero order; gives actual diagonal restrictedness.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor",
+        "kind": "abbrev",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "The native finitely supported signed integer divisor group on normalized places.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree",
+        "kind": "def",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "Additive degree weighted by residue finrank, including signed coefficients.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree_principal",
+        "kind": "theorem",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
+        "provides": "Degree of a principal divisor is zero under IsFunctionField; no rational-point hypothesis.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "provides": "Native full subcategory of locally free rank-one scheme modules; morphisms are module maps.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
+        "provides": "Pinned Noetherian integral DVR-curve divisor-class injection into line-bundle classes; does not supply the completed-lattice or full framed-groupoid comparison.",
+        "checked": "Statement and hypotheses read in the source at the exact pin."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "YZ19",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "Annals of Mathematics 189 (2019), 393–526; author-hosted published copy",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Definition A.1, p. 514; A.1.1, p. 515: root Picard objects and degree.",
+        "A.1.6, pp. 517–518, including all of Lemma A.5 and its proof; published page image p. 518 checked for the frame ratio.",
+        "§6.2.3, pp. 498–499, signed right quotient, root line and Lemma 6.4 consumer.",
+        "A.3.4, Proposition A.12 proof, p. 525, for the inverse-uniformizer character consumer only."
+      ]
+    },
+    {
+      "id": "YZ19v2",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "arXiv:1712.08026v2, 13 June 2020; selected collation only",
+      "url": "https://arxiv.org/pdf/1712.08026v2",
+      "sha256": "e159d869e86a3526e95aaf9560780870ed5c7af35593eb5ebb4fe477f0adf258",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "A.1.6 and Lemma A.5, printed pp. 84–85: frame-ratio and inverse-uniformizer collation; no full-paper reading claimed."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/root-unit-exact-sequence",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "theorem",
+      "title": "The modified-unit kernel and residue-square quotient",
+      "statement": "The projection H→U has kernel canonically ∏_{x∈R} μ₂(κ_x), via the retained root coordinates, and image U_sq={u∈U : ū_x is a square in κ_x× for every x∈R}. Reduction followed by residue square class induces U/p(H) ≅ ∏_{x∈R} κ_x×/(κ_x×)². Thus 1→∏ μ₂(κ_x)→H→U→∏ κ_x×/(κ_x×)²→1 is exact as a sequence of abelian groups. The last arrow is onto. At R=∅ its last two nontrivial terms identify H with U. No fibre-product ring is required.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/root-units",
+        "FunctionFieldArithmetic:FA.2/projective-ideles",
+        "mathlib:MonoidHom.eqLocus",
+        "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits"
+      ],
+      "proofSteps": [
+        "Apply the native valuation-subring residue-unit surjection at each branch point. The curve/completion residue comparison is part of FA.2/projective-adeles and its AlgebraicCurves Layer 5 prerequisite.",
+        "An element of the projection kernel has u=1 and v_x²=1. Conversely these labels produce every kernel element, without identifying different labels.",
+        "A unit tuple lifts exactly when all branch residues have square roots. Reduction onto the finitely many branch residue-unit groups is onto; the product of their square-class quotients is therefore the cokernel."
+      ],
+      "acceptance": [
+        "For a branch point in odd characteristic, the coordinate (1,−1) is a nonidentity kernel label.",
+        "A residue nonsquare is excluded from p(H), even though it belongs to U.",
+        "The product is over closed branch points: |ker p|=2^{#|R|}, not 2^{deg R}."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.6, pp. 517–518; Lemma A.5 proof, p. 518",
+          "match": "The source supplies the residue-square fibre products and their frame-changing action. The exact kernel/image/cokernel sequence is an explicit algebraic deduction from those definitions, not a separately numbered claim of the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootUnits_exact"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "definition",
+      "title": "Root lines with a generic trivialization",
+      "statement": "Let G_R(X) be the groupoid of (L,K_R,ι,τ_η), where (L,K_R,ι) is the inherited k-point of Pic_X^√R and τ_η:L|Spec F≅F is an F-linear trivialization. An arrow (φ,ψ) satisfies φ|R∘ι=ι′∘ψ^{⊗2} and τ′_η∘φ_η=τ_η. Tensor product multiplies generic trivializations, the unit has its standard generic trivialization, and duality inverts it. Forgetting τ_η maps to the existing root Picard groupoid. Degree is deg L and may have either sign.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.0/root-picard",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf"
+      ],
+      "proofSteps": [
+        "Add only a generic trivialization to the existing root-line triple; use its existing line-bundle isomorphisms, tensor product and duality.",
+        "Restrict arrows to those preserving the generic frame. The square-root diagram remains part of each arrow, so root automorphisms are retained.",
+        "Tensor, dual, restriction and their coherence are imported from GC.0 and the ordinary Picard-groupoid supplier."
+      ],
+      "acceptance": [
+        "The forgetful functor remembers the entire root-line triple and forgets exactly the generic frame.",
+        "No section or effectivity condition is added; G_R is defined in all realized degrees."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5 proof, p. 518; §6.2.3, p. 498",
+          "match": "The fully framed source proof separates the generic frame from the local/root frames. Retaining the former after forgetting the latter gives this intermediate groupoid; it supplies the right quotient used in §6.2.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.GenericFramedRootLine",
+      "uses": [
+        {
+          "where": "GC.2 right-quotient-generic-frame-comparison",
+          "how": "Identifies the geometric object represented by the signed right quotient without discarding the generic frame."
+        },
+        {
+          "where": "YZ19 §6.2.3, p. 498",
+          "how": "Makes O_X(−E) and its branch root intrinsic before the further Picard quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.mk",
+          "role": "constructor",
+          "statement": "Build an object from a root-line triple and an actual generic-fibre isomorphism."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.forget",
+          "role": "projection",
+          "statement": "Forget the generic trivialization to Pic_X^√R(k), on both objects and arrows."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.hom_ext",
+          "role": "extensionality",
+          "statement": "Two arrows are equal exactly when their line-bundle and root-line isomorphisms agree; a root label is never inferred from the line isomorphism alone."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.hom_iff",
+          "role": "characterisation",
+          "statement": "A pair of isomorphisms is an arrow exactly when it respects both the root square diagram and the displayed generic-frame equality."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.tensor",
+          "role": "structure",
+          "statement": "Tensor the line bundles, roots, square identifications and generic frames; associators, unitors and symmetry are inherited coherently."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.dual",
+          "role": "structure",
+          "statement": "Dualize all data and invert the generic trivialization, with the usual evaluation isomorphisms to the unit."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.degree",
+          "role": "projection",
+          "statement": "Return deg L; this is invariant under arrows, additive under tensor product and negated by duality."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.changeGenericFrame",
+          "role": "functoriality",
+          "statement": "For f∈F× multiply τ_η by f. This is an F× action with identity and composition laws; forgetting the frame is invariant under it."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.test_empty_R",
+          "kind": "degenerate",
+          "statement": "For R=∅, forgetting root data identifies G_∅ with ordinary generically trivialized line bundles; through the ordinary divisor dictionary it is equivalent to the discrete groupoid of signed divisors."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.test_generic_frame_matters",
+          "kind": "non-example",
+          "statement": "For f∈F× with nonzero principal divisor, the trivial root line at R=∅ with generic frames 1 and f gives nonisomorphic objects of G_∅, although forgetting the generic frame gives the same line bundle."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.test_root_squareclass",
+          "kind": "computation",
+          "statement": "On X=P¹ over F₅ with R={0}, take L=O_X, K_R=F₅ and τ_η=1. The square identifications with coefficients 1 and 2 give nonisomorphic objects of G_R, both of valuation divisor 0."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GenericFramedRootLine.test_dual",
+          "kind": "compatibility",
+          "statement": "For every A, A⊗A^∨ is isomorphic to the unit with its standard generic frame; its degree is 0, even when A has negative degree."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "definition",
+      "title": "The fully framed root Picard groupoid",
+      "statement": "Let F_R(X) have objects (L,K_R,ι,τ_η,(τ_x)_x,(t_x)_{x∈R}), extending G_R(X). Each τ_x is an O_x-linear isomorphism L⊗O_x≅O_x; each t_x is a κ_x-linear isomorphism K_x≅κ_x, and (τ_x mod m_x)∘ι_x=t_x^{⊗2}. Morphisms preserve the root triple and every frame. The transition coefficient is a_x=τ_η∘τ_x^{-1} after extension to F_x. There is no extra summability axiom: for an algebraic line bundle and a rational frame these coefficients are units at all but finitely many x. The forgetful functor to G_R forgets τ_x and t_x. Tensor and dual are componentwise.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
+        "FunctionFieldArithmetic:FA.2/projective-adeles",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits"
+      ],
+      "proofSteps": [
+        "Use the ordinary curve/divisor dictionary and local freeness to obtain the generic and completed local frames; root fibres are one-dimensional over their residue fields.",
+        "Forgetting a compatible root frame and its root line over a fixed ordinary frame has contractible fibre: the framed residue line with square identification is uniquely isomorphic to the standard one.",
+        "The requested completed-lattice dictionary proves that local transition coefficients are integral units away from a finite divisor; use the reciprocal of the source proof’s printed transition ratio, as recorded in EGC2-1.",
+        "Frame-preserving arrows and tensor coherence are inherited; a line map fixed on the generic fibre is determined everywhere on the integral curve."
+      ],
+      "acceptance": [
+        "All its automorphism groups are trivial, including the root-line automorphisms, because the root frames must also be preserved.",
+        "Its local-frame compatibility is an equation of isomorphisms of lines, not a choice of square root of a transition scalar in F_x."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5, complete proof and frame diagram, p. 518",
+          "match": "The source uses generic, completed local and residue-root frames to parametrize ideles. This node makes its morphisms and frame equation explicit. The transition ratio is corrected to match the source’s inverse-uniformizer normalization and §6.2.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.FullyFramedRootLine",
+      "planet": {
+        "name": "Framed Picard groupoid"
+      },
+      "uses": [
+        {
+          "where": "YZ19 Lemma A.5 proof, p. 518",
+          "how": "Provides the discrete idele presentation before forgetting frames."
+        },
+        {
+          "where": "GC.2 double-quotient-arrow-descent",
+          "how": "Makes local/root and generic frame changes independent, with their full labels."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.mk",
+          "role": "constructor",
+          "statement": "Construct the fully framed object from the root-line triple, generic frame, local frames and compatible root frames."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.forgetLocalFrames",
+          "role": "projection",
+          "statement": "Forget all local and root frames to G_R; preserve τ_η."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.forgetRootFrames",
+          "role": "projection",
+          "statement": "Forget K_R,ι,t_x to the ordinary fully framed Picard groupoid; the functor is an equivalence."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.coefficient",
+          "role": "projection",
+          "statement": "The coefficient at x is the scalar τ_η∘τ_x^{-1}; it is a unit of F_x, and these coefficients form an idele."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.hom_ext",
+          "role": "extensionality",
+          "statement": "A fully frame-preserving isomorphism is unique when it exists; both the ordinary line and the root line maps are fixed by their frames."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.changeFrames",
+          "role": "functoriality",
+          "statement": "For (f,h) with h=(u,v), change τ_η to fτ_η, τ_x to u_x^{-1}τ_x and t_x to v_x^{-1}t_x. The root frame equation is preserved, and the coefficient changes to diag(f) a p(h)."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.tensor",
+          "role": "structure",
+          "statement": "Multiply the coefficients under tensor product; unit coefficients are 1 and dual coefficients are inverse. The inherited associator, unitor and symmetry maps preserve all frames."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.test_empty_R",
+          "kind": "degenerate",
+          "statement": "For R=∅ this is the ordinary fully framed Picard groupoid; its coefficient functor identifies it with the discrete groupoid on the full idele group, including the infinity factors."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.test_uniformizer_inverse",
+          "kind": "computation",
+          "statement": "For x∉R the line O_X(x), its standard generic frame and the local frame π_x·(−) at x has coefficient π_x^{-1}; all other local frames can be chosen with coefficient 1."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.test_root_sign_contractible",
+          "kind": "characterisation",
+          "statement": "Replace one root frame t_x by −t_x while keeping the ordinary data. The two fully framed tuples are uniquely isomorphic by root-line scalar −1 at x; this does not create another idele coefficient or an automorphism."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.test_no_unframed_kernel",
+          "kind": "non-example",
+          "statement": "A nontrivial root-line sign cannot be an automorphism preserving the chosen t_x. The nontrivial root signs become automorphisms only after the local/root frames are forgotten."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "comparison",
+      "title": "Idele gluing with the sign fixed by local lattices",
+      "statement": "The coefficient functor F_R(X)→Discrete(I), A↦(τ_η∘τ_x^{-1})_x, is an equivalence. Its inverse sends a to the line L(a)=O_X(−E(a)) as a subsheaf of the constant rational line F, whose completed lattice is a_xO_x, together with τ_η the rational identity, τ_x division by a_x, K_R=O_R, t_x=1 and ι_x sending 1 to the residue of the completed basis a_x. This is a symmetric monoidal equivalence for tensor product versus idele multiplication. Its coefficient equations commute with the F××H frame changes specified above.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
+        "FunctionFieldArithmetic:FA.2/projective-ideles",
+        "SchemeAndStackFoundations:SF.3/class-group-picard-locally-factorial",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "proofSteps": [
+        "Use finite support of E(a) and the ordinary divisor sheaf O_X(−E(a)); its completed-lattice identification is the precise AC.12 supplier request.",
+        "The local element a_x is a basis of this completed rank-one lattice. Its residue basis defines ι_x for the trivial root line, giving a fully framed object with coefficient a.",
+        "For an arbitrary framed line, its generic embedding identifies every completed lattice with a_xO_x. The ordinary dictionary identifies the algebraic line with O_X(−E(a)); the frame diagram uniquely identifies the residue-root data.",
+        "A framed arrow exists exactly when the coefficients agree and is then unique. Multiplication, identity and inversion of bases give the monoidal comparison and frame-change equivariance."
+      ],
+      "acceptance": [
+        "The coefficient π_x maps to O_X(−x), and π_x^{-1} maps to O_X(x).",
+        "The construction needs no rational point or degree-one divisor and makes no claim that a global element has the prescribed local coefficients.",
+        "The inverse is specified by divisor sheaves, rather than an unspecified general formal-patching theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5 proof, p. 518; §6.2.3, p. 498",
+          "match": "Lemma A.5 uses the fully framed idele comparison. The lattice construction spells out its ordinary gluing input and fixes its frame-ratio misprint consistently with the lemma statement and the signed divisor use."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.fullyFramed_idele_equivalence"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/right-quotient-generic-frame-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "comparison",
+      "title": "The signed right quotient represents generically framed root lines",
+      "statement": "The inherited right-action groupoid Div^√R(X)=I//H is symmetrically monoidally equivalent to G_R(X). The functor sends a to (L(a),K_R(a),ι(a),τ_η). A labelled arrow h=(u,v):a→b=a p(h) acts by the identity on the rational line and by v_x^{-1} on the standard root lines. Under this equivalence the underlying divisor functor is E:I//H→Discrete(Div(X)), and the line is O_X(−E). The induced functor Q to the inherited double-action presentation sends a to a and h to (1,h). The geometric square with G_R(X)→Pic_X^√R(k) commutes up to a specified monoidal natural isomorphism.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+        "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+        "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+        "mathlib:CategoryTheory.ActionCategory"
+      ],
+      "proofSteps": [
+        "Apply the fully framed comparison, then forget local and residue-root frames while keeping the generic frame.",
+        "Two sets of compatible local frames differ by a unique h∈H. Their root-coordinate difference, even in ker p, is a distinct arrow after forgetting the frames.",
+        "For b=a u the line lattices agree. The line identity and root scalar v^{-1} respect ι since ū=v². Conversely every generic-frame-preserving root-line arrow has exactly this label.",
+        "Forgetting the remaining generic frame is the double-quotient inclusion h↦(1,h); the same frame maps give the natural square and its tensor coherence."
+      ],
+      "acceptance": [
+        "For R=∅ this reduces to the discrete groupoid of signed divisors, rather than their divisor classes.",
+        "A nonconstant principal idele with nonzero divisor is distinct from the unit in the right quotient.",
+        "The map on root-line fibres is v^{-1}, a sign convention checked against the root square diagram; p is not replaced by its image subgroup."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "§6.2.3, p. 498; Lemma A.5, p. 518",
+          "match": "The right quotient and its further Picard map are explicitly used in §6.2.3. The intermediate generic-frame equivalence and commuting square are extracted from the separate frame changes in A.5, with the morphisms written out."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootDivisor_genericFrame_equivalence"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/double-quotient-arrow-descent",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "theorem",
+      "title": "Full morphism descent for the Picard double quotient",
+      "statement": "For a,b∈I, gluing gives a bijection {(f,h)∈F××H : b=diag(f)a p(h)} ≅ Isom_{Pic_X^√R(k)}(L(a)^♮,L(b)^♮). If h=(u,v), the line map is multiplication by f on the rational line and the root map is multiplication by v_x^{-1}. These bijections preserve identity, composition, tensor product and inverse. Every root-line triple admits generic and compatible local/root frames, so they give the inherited Lemma A.5 equivalence with full faithfulness and essential surjectivity. Q:I//H→I//(F××H) is faithful, with arrow label h↦(1,h), and is the functor that forgets the generic frame.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+        "FunctionFieldArithmeticPartII:GC.2/right-quotient-generic-frame-comparison",
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+        "mathlib:CategoryTheory.ActionCategory.stabilizerIsoEnd",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid"
+      ],
+      "proofSteps": [
+        "An isomorphism of line bundles on the integral curve is multiplication by a unique f on their generic embeddings. Comparing completed lattices gives u_x=b_x/(f a_x)∈O_x× at every x.",
+        "Write the root-line map as a scalar ψ_x. The root square diagram says ψ_x²=overline(f a_x/b_x)=ū_x^{-1}; set v_x=ψ_x^{-1}. Thus (u,v)∈H. This recovers every label uniquely.",
+        "Conversely these equations ensure that multiplication by f carries each completed lattice to the other and the root squares commute. The completed-lattice dictionary used in the preceding comparison supplies the actual algebraic line map.",
+        "Generic fibres and residue-root fibres are one-dimensional. Choose frames and lift the needed residue-unit adjustments to completed local frames using the residue-unit surjection; this proves essential surjectivity.",
+        "Products of labels give compositions and tensors because the groups are abelian. The embedding h↦(1,h) is injective, proving faithfulness of Q, without claiming it is full."
+      ],
+      "acceptance": [
+        "For R=∅ every Picard automorphism is a scalar in k×, so the result cannot be replaced by a bijection of class groups.",
+        "The arrow (f,1) connects a and diag(f)a in the double presentation, even when no such right-quotient arrow exists.",
+        "Root signs survive as distinct arrows with the same ordinary line map."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5, (A.4) and proof, p. 518; §6.2.3, p. 498",
+          "match": "A.5 identifies the full double quotient with the root Picard groupoid. This node supplies the explicit Hom bijections, their coherence and the further-quotient functor that the source uses implicitly; it is a refinement of the inherited node, not a second definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootPicard_doubleArrow_bijection"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/root-divisor-fibres",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "theorem",
+      "title": "Signed divisor fibres with their square classes and stabilizers",
+      "statement": "For each signed divisor D of X, the fibre of E:I//H→Discrete(Div(X)) is nonempty. Its isomorphism classes form a torsor under U/p(H)≅∏_{x∈R}κ_x×/(κ_x×)². Every object has automorphism group canonically ker p≅∏_{x∈R}μ₂(κ_x), using its arrow labels. Choosing an idele with E(a)=D and representatives of the square classes yields an equivalence with the disjoint union, indexed by that square-class product, of the classifying groupoid of ∏μ₂(κ_x). This last presentation depends on the choices; the torsor action and the labelled stabilizer identification do not. For r=#|R| there are 2^r components, each with automorphism group of order 2^r.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+        "FunctionFieldArithmeticPartII:GC.2/root-unit-exact-sequence",
+        "FunctionFieldArithmetic:FA.2/idele-divisor-exact-sequence",
+        "mathlib:CategoryTheory.ActionCategory.stabilizerIsoEnd",
+        "mathlib:FiniteField.unit_isSquare_iff"
+      ],
+      "proofSteps": [
+        "Surjectivity of the imported idele divisor map gives a base object in the fibre; all other objects differ by an integral unit tuple.",
+        "The right-unit quotient of that unit tuple is U/p(H), whose square-class description is the preceding exact sequence.",
+        "Use the native action-category stabilizer/endomorphism identification. Translation on I gives stabilizer exactly ker p, retaining every label.",
+        "A transitive group action component is equivalent to the classifying groupoid of a stabilizer after choosing an object and connecting arrows. Finite odd residue fields have two square classes and two square roots of 1."
+      ],
+      "acceptance": [
+        "For R=∅ every divisor fibre is contractible, yielding the ordinary discrete signed divisor groupoid.",
+        "For X=P¹/F₃ and R a single degree-two closed point, each divisor fibre has two components and each stabilizer has order two. The count is not four.",
+        "A product of classifying groupoids alone would miss the square-class components over the finite base field."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.6 and Lemma A.5, pp. 517–518; §6.2.3, p. 498",
+          "match": "This fibre computation is a deduction from the source’s noninjective modified-unit action and the ordinary idele/divisor sequence. It is not asserted as a named lemma in YZ19."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootDivisor_fibre"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/picard-stabilizer-extension",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "theorem",
+      "title": "The stabilizer extension in the double quotient",
+      "statement": "For every idele a, its automorphism group in the double-action presentation is canonically A_R={(c,(v_x)) : c∈k×, v_x∈κ_x×, v_x²=c^{-1} for every x∈R}, under componentwise multiplication. Let C_R={c∈k× : c is a square in every κ_x×}. Projection gives an exact sequence 1→∏_{x∈R}μ₂(κ_x)→A_R→C_R→1. This sequence is not asserted to split. For finite odd k, C_R=(k×)² if R has an odd-degree closed point, and C_R=k× if every closed branch point has even degree; the latter includes R=∅. At R=∅, A_R=k×.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/double-quotient-arrow-descent",
+        "FunctionFieldArithmeticPartII:GC.2/root-unit-exact-sequence",
+        "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+        "mathlib:FiniteField.unit_isSquare_iff"
+      ],
+      "proofSteps": [
+        "At a fixed idele a a double automorphism satisfies diag(f)p(h)=1. The ordinary line automorphism is a global unit, hence f=c∈k× by the ordinary proper-curve Picard supplier.",
+        "Then u_x=c^{-1} at every place, and the remaining labelled equations are v_x²=c^{-1}. This gives A_R and the exact projection sequence.",
+        "For κ_x/k of degree d and q=|k|, a nonsquare constant stays nonsquare exactly when d is odd: the exponent (q^d−1)/(q−1) has parity d. Apply the finite-field square criterion.",
+        "The kernel is the same labelled root-sign group, but its quotient is only the constants locally square at all branch points. Check the nonsplit example rather than choosing an unjustified section."
+      ],
+      "acceptance": [
+        "For X=P¹/F₅ and R={0}, v↦(v^{-2},v) identifies A_R with F₅×≅C₄. The element (c=4,v=2) has order four, while the proposed split C₂×C₂ has none.",
+        "With two rational branch points over F₃, A_R has order four and retains two independent root signs.",
+        "For X=P¹/F₃ and one degree-two branch point, C_R=F₃×; the nontrivial constant lifts only after using a square root in F₉."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.5, p. 518; Definition A.1 and A.1.1, pp. 514–515",
+          "match": "The source’s root-line isomorphisms and double-action presentation determine these automorphisms. The exact extension, parity criterion and nonsplit examples are deductions given here; the source does not state them as a separate theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootPicard_stabilizer"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/valuation-degree-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.2",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.2"
+      ],
+      "kind": "theorem",
+      "title": "The valuation divisor and Picard degree have opposite signs",
+      "statement": "Let Φ:I//(F××H)≃Pic_X^√R(k) be the inherited equivalence with the corrected frame-ratio convention. For a∈I, the ordinary line of Φ(a) is O_X(−E(a)) and deg Φ(a)=−deg E(a)=−Σ_x ord_x(a_x)[κ_x:k]. The same formula holds for Q(a) from the right quotient, is invariant under every labelled double arrow, and defines its integer grading. Tensor product adds this grading; duality negates it. The diagram from I//H to the ordinary divisor groupoid and to Pic_X^√R(k) commutes after applying D↦O_X(−D) with the retained generic/root data. At x∉R, a_x=π_x^{-1}, a_y=1 elsewhere gives E=−[x] and Φ(a)=O_X(x)^♮ of degree [κ_x:k].",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
+        "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
+        "I=∏′_x F_x× relative to O_x×; U=∏_x O_x×; H=O_{√R}× is the inherited modified-unit group. Write p:H→I for its actual homomorphism. Set E(a)=Σ_x ord_x(a_x)[x], with ord_x(π_x)=1.",
+        "All groupoids retain labelled morphisms. A right arrow h:a→b means b=a p(h); a double arrow (f,h):a→b means b=diag(f) a p(h). Local root-unit coordinates satisfy ū_x=v_x²."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+        "FunctionFieldArithmeticPartII:GC.2/double-quotient-arrow-descent",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard",
+        "FunctionFieldArithmetic:FA.2/projective-ideles",
+        "SchemeAndStackFoundations:SF.3/vector-bundle-degree",
+        "tauceti:TauCeti.Divisor.degree",
+        "tauceti:TauCeti.Divisor.degree_principal"
+      ],
+      "proofSteps": [
+        "The completed lattice of the glued line is a_xO_x, which is the completion of O_X(−E(a)). This fixes the line sign before passing to isomorphism classes.",
+        "The imported ordinary degree/divisor comparison evaluates O_X(D) as deg D; use the native weighted divisor degree, not the unweighted coefficient sum.",
+        "A right-unit arrow preserves E. A generic frame change by f adds div(f) to E; the pinned product formula makes its degree zero. Thus the degree descends to the double groupoid.",
+        "Tensor and inverse multiply and invert ideles, so their weighted valuations add and negate. Check the inverse-uniformizer at an arbitrary closed point outside R."
+      ],
+      "acceptance": [
+        "The sign test uses x of any residue degree, not just a rational point.",
+        "Positive and negative signed divisors both occur; no symmetric-power effectivity hypothesis is introduced.",
+        "The grading requires no degree-one point, no chosen component representative and no norm exactness or Frobenius-trace theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "§6.2.3, p. 498, O_X(−E); Lemma A.5 statement and proof, p. 518; Definition A.1, p. 514",
+          "match": "These passages fix the signed divisor line, inverse-uniformizer normalization and Picard grading. The full weighted-degree formula and its arrow invariance are the compatible consequence using the ordinary divisor/degree suppliers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/AdelicPicard",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declarationName": "TauCeti.RamifiedClassField.rootPicard_degree",
+      "planet": {
+        "name": "Degree of the root Picard groupoid"
+      }
+    }
+  ],
+  "importedTargets": [
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/root-units",
+      "role": "The modified-unit definition and its original API/tests remain owned by the parent packet."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid",
+      "role": "The signed right-action groupoid and Abel–Jacobi functor remain owned by the parent packet; the native suggested presentation instantiates them."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
+      "role": "Lemma A.5 double-groupoid equivalence remains owned by the parent; this packet closes the labelled frame comparison and degree contracts."
+    }
+  ],
+  "requests": [
+    {
+      "id": "GC2-COMPLETED-LATTICES",
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "need": "Specialize the existing curve/place/divisor dictionary to smooth projective geometrically connected X/k. For every signed divisor D, identify the generic fibre of O_X(D) with F and its completed stalk at each closed x with {z∈F_x : z=0 or ord_x(z)≥−D_x}=π_x^{−D_x}O_x as a submodule of F_x, naturally in divisor addition and in multiplication by rational functions. Identify the residue of that completed rank-one lattice with the algebraic fibre. For invertible sheaves with given generic frames, a rational scalar extends to a sheaf map exactly when it carries each completed lattice into the target lattice; the extension is unique. These comparisons must commute with tensor product, duality and the already planned point/place and completed residue-field identifications. This is an exact interface to existing AlgebraicCurves Layer 12D and JacobianChallenge A, not a request to rebuild formal patching, Picard schemes or Riemann–Roch.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
+        "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "FunctionFieldArithmeticPartII:GC.2",
+      "status": "planned",
+      "remaining": [
+        "Discharge GC2-COMPLETED-LATTICES in the named AlgebraicCurves Layer 12 dictionary. The full sheaf-level frame and degree comparisons use that explicit contract; they are not claimed as baseline declarations."
+      ]
+    }
+  ],
+  "gaps": [],
+  "restructure": [],
+  "upstreamNotes": [],
+  "sourceIssues": [
+    {
+      "id": "FunctionFieldArithmeticPartII/EGC2-1",
+      "source": "YZ19",
+      "kind": "misprint",
+      "locator": "Published author-hosted copy, Lemma A.5 proof, p. 518, frame-coefficient display; the corresponding arXiv:1712.08026v2 display is on p. 85.",
+      "printed": "With τ_η:L_η→F and τ_x:L⊗O_x→O_x directed as stated, the displayed idele coefficient is τ_x∘τ_η^{-1}, while the lemma sends an inverse uniformizer to O_X(x).",
+      "correction": "Use the inverse coefficient τ_η∘τ_x^{-1} for the lemma’s inverse-uniformizer normalization and for E(a)=Σ ord_x(a_x)[x], L(a)=O_X(−E(a)). Change the generic frame by f and the local/root coframes by (u^{-1},v^{-1}) so that the displayed quotient actions keep their stated form.",
+      "reason": "For L=O_X(x), the standard rational frame is the identity and the local frame is multiplication by π_x. The printed ratio is π_x, whereas the lemma requires π_x^{-1}. Equivalently, the printed ratio b gives rational lattice b^{-1}O_x=O_X(+ord b); the corrected ratio a gives lattice aO_x=O_X(−ord a). This is a sign slip in the proof, not a counterexample to the root Picard equivalence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-10-18: compared the published author-hosted page image p. 518 and arXiv:1712.08026v2 pp. 84–85; both retain the conflicting ratio and the inverse-uniformizer test.",
+        "2026-10-18: inspected the Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and both authors’ publication entries https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html; no correction linked for this ratio was located.",
+        "2026-10-18: title/Appendix A/Lemma A.5 correction and erratum searches found no correction. The arXiv listing gives v2 as the latest version. This is a scoped search, not an assertion that no correction exists."
+      ]
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "id": "FunctionFieldArithmeticPartII/E9",
+      "note": "The root-frame tuple notation slip on p. 518 was already recorded and confirmed in the parent. Use t_R for the root frame; do not duplicate ownership of that finding."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "read": "2026-10-18",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.08026v2",
+      "read": "2026-10-18",
+      "sha256": "e159d869e86a3526e95aaf9560780870ed5c7af35593eb5ebb4fe477f0adf258"
+    }
+  ],
+  "auditEvidence": {
+    "reviewedAudit": "data/library-coverage.json: FA.2 not built, SF.3 partly built; read before planning. The audit distinguishes the native restricted-product machinery and divisor classes from absent global idele/complete Picard interfaces.",
+    "exactPinCheck": "The cited Mathlib source was read from the checkout at 082e2d37e8b0463410cdb532e111cd43d5a66174. Six relevant Tau Ceti source files were compared byte-for-byte to raw source at f790474821cf4256814db967cb154e7af3d0c369 before the declarations were cited.",
+    "currentLibrary": "Searched current Tau Ceti and current TauCetiRoadmap read-only for root Picard/divisor/unit and function-field idele targets. Current LineBundle/RationalTrivialization already supplies rational triviality of ordinary line bundles; that theory is imported from its owner. No root-line gluing or completed root action presentation was found.",
+    "currentUpstream": [
+      "JacobianChallenge README, Layers A–F and coordination, read in full: ordinary divisor/line/Picard theory is imported.",
+      "Completed/RestrictedProducts README, read in full: generic restricted-product algebra/topology is completed infrastructure, never a new node.",
+      "AlgebraicCurves README, Layers 0–5, 12 and coordination inspected; completed places and the curve/place/divisor dictionary are its existing targets.",
+      "AlgebraicVectorBundles Suggested.lean L0A–L0B inspected: tensor/pullback carriers and coherence remain imported infrastructure."
+    ],
+    "otherPackets": [
+      "FunctionFieldArithmetic FA.2/projective-adeles, projective-ideles and idele-divisor-exact-sequence: accepted review, exact contracts imported.",
+      "SchemeAndStackFoundations--SF.3 picard-groupoid, class-group-picard-locally-factorial, vector-bundle-degree and picard-stack-curve: exact stated supplier contracts imported. That packet has needs_changes review for other proof/interface obligations; none is treated as a proved baseline theorem."
+    ],
+    "links": "Screened all blueprint link entries for GC.2 and the new roadmap stage requires; no external link entry mentions this stage. The GC.5/GC.6 and §6.2.3 consumers are retained through the parent.",
+    "designSearch": "2026-10-18: searched Mathlib GitHub PR and Lean Zulip results for root stacks, Picard groupoids and action categories. The existing ActionCategory is adopted. The Picard discussion located concerns ordinary module/class-group comparisons; no completed root-line presentation was located. This is a scoped search, not a claim about every open development."
+  },
+  "suggestedCoverage": {
+    "policy": "WORKERS.md compact shape, 2026-10-12, overrides older exhaustive signature instructions. Definitions are light real-bodied specializations over native carriers; no admitted data or new sheaf theory.",
+    "native": [
+      "Local completed fields/valuation subrings; equalizer modified units; native all-place restricted ideles and diagonal; actual right and double ActionCategory specializations; labelled abelJacobi inclusion functor.",
+      "Kernel, root relation, right/double Hom tests, Q faithfulness, branch-kernel retention, signed degree and principal-idele regression statements."
+    ],
+    "readmeOnly": [
+      "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
+      "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
+      "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+      "FunctionFieldArithmeticPartII:GC.2/right-quotient-generic-frame-comparison",
+      "Sheaf gluing, global Picard degree and the full geometric stabilizer extension."
+    ]
+  },
+  "planningPass": {
+    "granularity": "target",
+    "complete": true,
+    "note": "Every inherited stage target has an explicit refinement route. Smaller algebraic manipulations remain in proof sketches; the only unresolved supplier interface is named precisely. All nodes remain unchecked."
+  }
+}
