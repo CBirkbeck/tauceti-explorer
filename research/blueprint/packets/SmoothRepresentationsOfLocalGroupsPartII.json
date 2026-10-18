@@ -12,7 +12,7 @@
   "SmoothRepresentationsOfLocalGroupsPartII:SRU.6",
   "SmoothRepresentationsOfLocalGroupsPartII:SRU.7"
  ],
- "status": "complete",
+ "status": "partial",
  "summary": "Smooth representations of local groups, Part II: the unitary representation theory of p-adic groups on top of SR.0–SR.6. SRU.0 sets up strongly continuous unitary representations, Hilbert sums, functions of positive type, the GNS construction through Tau Ceti's Kolmogorov space, the unitary dual and pure positive-type functions, and smooth vectors with K-type projectors. SRU.1 develops weak containment, Milman's converse to Krein–Milman, Godement's integrated positive type, weak-* compactness of P≤1, Raikov's theorem, single-coefficient approximation, the Fell topology, the closure theorem for sums and the corrected Gan–Savin Proposition 11.6 and Corollary 11.7 for second-countable locally compact groups. SRU.2 identifies the unitary dual with irreducible unitarizable smooth representations (unitary structures, uniqueness, semisimplicity, unitary induction, completion, Bernstein's admissibility). SRU.3 proves the limit theorems (characters, Miličić, Tadić, K-types, Rodier, Heiermann–Opdam, Gan–Savin 11.2, isolation of discrete series in the tempered dual), and SRU.4 the isolation of the Steinberg representation in rank ≥ 2 and of supercuspidals (finite Steinberg, Barbasch–Moy, Rodier, Howe–Moore). SRU.5–SRU.7 follow Ciubotaru–Harris: real Satake parameters, half-integrality, the generic unitary spherical region and its classification, the half-integral points and the generic temperedness test (stated for real or central-compact parameters), the nonsplit unramified transfer, the Aubert–Zelevinsky involution, Kazhdan–Lusztig parameters and the spherical complementary series with extraneous points. The other Part II directions of SR are proposed as separate roadmaps.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -22,225 +22,225 @@
     "ref": "mathlib:ContRepresentation",
     "kind": "structure",
     "module": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
-    "provides": "Continuous representations G →* (V →L[R] V) of a monoid on a topological module, the carrier of unitary representations here.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Monoid homomorphism into continuous linear maps; continuity in g is a separate strong-continuity hypothesis.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 54. Monoid homomorphism into continuous linear maps; continuity in g is a separate strong-continuity hypothesis."
    },
    {
     "ref": "mathlib:ContinuousMap",
     "kind": "structure",
     "module": "Mathlib/Topology/ContinuousMap/Defs.lean",
-    "provides": "Bundled continuous maps C(X, Y).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Carries a function and its continuity proof.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 33. Carries a function and its continuity proof."
    },
    {
     "ref": "mathlib:InnerProductSpace.Core",
     "kind": "structure",
     "module": "Mathlib/Analysis/InnerProductSpace/Defs.lean",
-    "provides": "The data of an inner product on a vector space (a positive-definite hermitian form) without a fixed normed structure.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Positive-definite hermitian form on a module; does not supply completeness.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 154. Positive-definite hermitian form on a module; does not supply completeness."
    },
    {
     "ref": "mathlib:LocallyConvexSpace",
     "kind": "class",
     "module": "Mathlib/Topology/Algebra/Module/LocallyConvex.lean",
-    "provides": "Locally convex topological vector spaces.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Use the ordered scalar field ℝ on the complex function/dual space.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 51. Use the ordered scalar field ℝ on the complex function/dual space."
    },
    {
     "ref": "mathlib:Matrix.PosSemidef",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
-    "provides": "Positive semidefinite matrices (hermitian with nonnegative quadratic form), used for kernels α → α → 𝕜.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Hermitian kernel with nonnegative finitely supported quadratic forms; arbitrary index type is allowed.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 59. Hermitian kernel with nonnegative finitely supported quadratic forms; arbitrary index type is allowed."
    },
    {
     "ref": "mathlib:MeasureTheory.Lp",
     "kind": "def",
     "module": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
-    "provides": "The Lp spaces of a measure.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "AE-equivalence classes; use p=1 or ∞ and the chosen left Haar measure.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 89. AE-equivalence classes; use p=1 or ∞ and the chosen left Haar measure."
    },
    {
     "ref": "mathlib:MeasureTheory.Measure.haar",
     "kind": "abbrev",
     "module": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
-    "provides": "A left Haar measure on a locally compact group.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Locally compact Hausdorff topological group with Borel measurable structure; normalise compact-subgroup integrals separately.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 584. Locally compact Hausdorff topological group with Borel measurable structure; normalise compact-subgroup integrals separately."
    },
    {
     "ref": "mathlib:Multiplicative",
     "kind": "def",
     "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
-    "provides": "The type synonym turning an additive group into a multiplicative one.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Additive-to-multiplicative type synonym; does not turn a nonabelian group into an AddCommGroup.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 46. Additive-to-multiplicative type synonym; does not turn a nonabelian group into an AddCommGroup."
    },
    {
     "ref": "mathlib:Representation.IsIrreducible",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Irreducible.lean",
-    "provides": "Algebraic irreducibility of a representation (simple as a module over the group algebra).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Algebraic irreducibility; compare with closed-invariant-subspace irreducibility only with the stated finite-dimensional hypothesis.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 30. Algebraic irreducibility; compare with closed-invariant-subspace irreducibility only with the stated finite-dimensional hypothesis."
    },
    {
     "ref": "mathlib:Set.extremePoints",
     "kind": "def",
     "module": "Mathlib/Analysis/Convex/Extreme.lean",
-    "provides": "Extreme points of a set in a module over an ordered field.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Extreme points over the real scalar field, as used in P₁ and P≤1.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 70. Extreme points over the real scalar field, as used in P₁ and P≤1."
    },
    {
-    "ref": "mathlib:Submodule.orthogonalProjection",
-    "kind": "abbrev",
+    "ref": "mathlib:Submodule.orthogonalProjectionOnto",
+    "kind": "definition",
     "module": "Mathlib/Analysis/InnerProductSpace/Projection/Basic.lean",
-    "provides": "Orthogonal projection onto a complete subspace of an inner product space.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Replaced deprecated alias (line 124) by Submodule.orthogonalProjectionOnto. Requires HasOrthogonalProjection, supplied by a closed subspace of a Hilbert space; compose with subtypeL for an ambient endomorphism.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 121. Replaced deprecated alias (line 124) by Submodule.orthogonalProjectionOnto. Requires HasOrthogonalProjection, supplied by a closed subspace of a Hilbert space; compose with subtypeL for an ambient endomorphism."
    },
    {
     "ref": "mathlib:TopologicalSpace.generateFrom",
     "kind": "def",
     "module": "Mathlib/Topology/Order.lean",
-    "provides": "The topology generated by a family of sets.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Generated topology; basis axioms require the separate approximation argument.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 70. Generated topology; basis axioms require the separate approximation argument."
    },
    {
     "ref": "mathlib:UniformSpace.Completion",
     "kind": "def",
     "module": "Mathlib/Topology/UniformSpace/Completion.lean",
-    "provides": "The Hausdorff completion of a uniform space.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Uniform completion carrier; normed/Hilbert instances are separate.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 291. Uniform completion carrier; normed/Hilbert instances are separate."
    },
    {
     "ref": "mathlib:UniformSpace.Completion.innerProductSpace",
     "kind": "instance",
     "module": "Mathlib/Analysis/InnerProductSpace/Completion.lean",
-    "provides": "The completion of an inner product space is an inner product space (Hilbert space).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Extends an inner product to the normed-space completion.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 89. Extends an inner product to the normed-space completion."
    },
    {
     "ref": "mathlib:WeakDual.isCompact_closedBall",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Normed/Module/WeakDual.lean",
-    "provides": "Banach–Alaoglu: closed balls of the dual are weak-* compact.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Weak-dual compactness over a proper scalar field (ℂ qualifies); apply after the L¹/L∞ identification.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 269. Weak-dual compactness over a proper scalar field (ℂ qualifies); apply after the L¹/L∞ identification."
    },
    {
     "ref": "mathlib:closure_convexHull_extremePoints",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Convex/KreinMilman.lean",
-    "provides": "Krein–Milman: a compact convex set in a Hausdorff locally convex space is the closed convex hull of its extreme points.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Compact convex subset of a Hausdorff real locally convex space; does not supply the Milman converse.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 96. Compact convex subset of a Hausdorff real locally convex space; does not supply the Milman converse."
    },
    {
     "ref": "mathlib:convexHull",
     "kind": "def",
     "module": "Mathlib/Analysis/Convex/Hull.lean",
-    "provides": "The convex hull of a set.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Algebraic convex hull, with closure taken separately.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 46. Algebraic convex hull, with closure taken separately."
    },
    {
     "ref": "mathlib:extremePoints_convexHull_subset",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Convex/Extreme.lean",
-    "provides": "The extreme points of the convex hull of A lie in A.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Only extreme points of the algebraic convex hull; the closed-convex-hull Milman converse remains its own node.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 293. Only extreme points of the algebraic convex hull; the closed-convex-hull Milman converse remains its own node."
    },
    {
     "ref": "mathlib:lp",
     "kind": "def",
     "module": "Mathlib/Analysis/Normed/Lp/lpSpace.lean",
-    "provides": "The space lp E p of p-summable sections of a family of normed spaces; for p = 2 and inner product spaces, the Hilbert direct sum.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "ℓp family of normed groups; p=2 with Hilbert fibres supplies the Hilbert sum.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable mathlib pin, line 371. ℓp family of normed groups; p=2 with Hilbert fibres supplies the Hilbert sum."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.KolmogorovSpace",
     "kind": "abbrev",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The Hilbert space of the minimal Kolmogorov decomposition of a positive semidefinite kernel (via Mathlib's RKHS.OfKernel).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Existing RKHS-based Hilbert carrier for the positive kernel.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 126. Existing RKHS-based Hilbert carrier for the positive kernel."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.inner_kolmogorovFeature",
     "kind": "theorem",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The Kolmogorov identity ⟪Φ a, Φ b⟫ = K a b.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Inner product is K(a,b), in the second-linear convention needed here.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 142. Inner product is K(a,b), in the second-linear convention needed here."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.kolmogorovEquiv",
     "kind": "def",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The linear isometric equivalence with any other minimal realization of the kernel.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Complete target with the same kernel and dense feature span gives a linear isometric equivalence.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 285. Complete target with the same kernel and dense feature span gives a linear isometric equivalence."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.kolmogorovFeature",
     "kind": "def",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The feature map Φ : α → KolmogorovSpace of a positive semidefinite kernel.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Existing feature vector indexed by a.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 133. Existing feature vector indexed by a."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.kolmogorovFeature_dense",
     "kind": "theorem",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The span of the feature vectors is dense.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Topological closure of the linear feature span is the whole space.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 171. Topological closure of the linear feature span is the whole space."
    },
    {
     "ref": "tauceti:Matrix.PosSemidef.kolmogorovIsometry",
     "kind": "def",
     "module": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
-    "provides": "The unique linear isometry from the Kolmogorov space to any other realization of the kernel.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Complete target with matching kernel; no dense-span assumption until surjectivity is wanted.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 220. Complete target with matching kernel; no dense-span assumption until surjectivity is wanted."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.IsUnitary",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Continuous/Unitary/Basic.lean",
-    "provides": "The predicate that every π g preserves the inner product.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Preserves the inner product; no continuity of g↦π(g) is included.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 52. Preserves the inner product; no continuity of g↦π(g) is included."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.IsUnitary.adjoint_eq_inv",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Continuous/Unitary/Basic.lean",
-    "provides": "For unitary π on a Hilbert space, the adjoint of π g is π g⁻¹.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Requires complete Hilbert space for the bounded adjoint.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 184. Requires complete Hilbert space for the bounded adjoint."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.IsUnitary.subrepresentation",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Continuous/Unitary/Basic.lean",
-    "provides": "Unitarity passes to the subrepresentation on an invariant submodule.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Restriction to an invariant submodule preserves unitarity; a Hilbert restriction also needs closedness.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 100. Restriction to an invariant submodule preserves unitarity; a Hilbert restriction also needs closedness."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.matrixCoeff",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
-    "provides": "The coefficient g ↦ ⟪π g v, w⟫ as an element of C(G, 𝕜), for π continuous in the operator norm.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Requires operator-norm Continuous π and uses ⟪π(g)v,w⟫. Our strongly continuous second-linear coefficient therefore has its own node and inverse/conjugation adapter.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 73. Requires operator-norm Continuous π and uses ⟪π(g)v,w⟫. Our strongly continuous second-linear coefficient therefore has its own node and inverse/conjugation adapter."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.matrixCoeff_apply",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Continuous/MatrixCoefficient.lean",
-    "provides": "Evaluation of matrixCoeff: matrixCoeff π hπ v w g = ⟪π g v, w⟫.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Same operator-norm continuity hypothesis and coefficient convention as matrixCoeff.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 80. Same operator-norm continuity hypothesis and coefficient convention as matrixCoeff."
    },
    {
     "ref": "tauceti:TauCeti.ContRepresentation.subrepresentation",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Continuous/Subrepresentation.lean",
-    "provides": "The continuous subrepresentation on an invariant submodule.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Invariant-submodule carrier; no continuity-in-g or closedness supplied.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 49. Invariant-submodule carrier; no continuity-in-g or closedness supplied."
    },
    {
     "ref": "tauceti:TauCeti.IsPositiveDefiniteSub",
     "kind": "def",
     "module": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
-    "provides": "Positive definiteness of F : G → ℂ on an additive commutative group in the subtraction form Σ cᵢ conj(cⱼ) F(vᵢ − vⱼ) ≥ 0.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474)"
+    "provides": "Standing AddCommGroup hypothesis; difference kernel is abelian only, so the nonabelian positive-type node is necessary.",
+    "checked": "Independent review REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII, 2026-10-18: raw file opened at the immutable tauceti pin, line 140. Standing AddCommGroup hypothesis; difference kernel is abelian only, so the nonabelian positive-type node is necessary."
    }
   ]
  },
@@ -289,7 +289,8 @@
     "Appendix C.4, Definition C.4.1, Propositions C.4.2–C.4.3, Theorem C.4.10 (GNS), pp. 373–377",
     "Appendix C.5, Proposition C.5.1, Theorem C.5.2, Lemmas C.5.3–C.5.4, Theorems C.5.5–C.5.6, Proposition C.5.8, pp. 379–386",
     "Appendix F.1–F.2, Definition F.1.1, Remark F.1.2, Proposition F.1.4, Definition F.2.1, Propositions F.2.2, F.2.4, Example F.2.5, Definition F.2.6, Proposition F.2.7, pp. 419–430",
-    "Exercise F.6.4, p. 444"
+    "Exercise F.6.4, p. 444",
+    "Appendix A.1, Proposition A.1.4, pp. 307–308; Appendix F.1, Lemma F.1.3 and proof, pp. 421–423 (independent review)"
    ]
   },
   {
@@ -326,7 +327,7 @@
    "sha256": "6d6f152d691316cea9145e63d43399c3a4f95aa29f042fb002895b2ae0fc1a73",
    "accessDate": "2026-10-18",
    "readSections": [
-    "§3, Theorem 3.1 and Proposition 3.5 (irreducibility of regular unramified principal series), pp. 399–401 (page image of p. 401 checked)"
+    "§3, Theorem 3.1 and proof, pp. 397–400; Proposition 3.5, p. 401 (page image checked)"
    ]
   },
   {
@@ -351,7 +352,8 @@
    "accessDate": "2026-10-18",
    "readSections": [
     "§1.1–1.3 (setting, Iwahori–Matsumoto involution, genericity of spherical modules, real infinitesimal character, the orbit O(χ)), pp. 1–3",
-    "§3.1–3.4 (spherical principal series, hermitian and reducibility criteria, constancy of signature, the 0-complementary series theorem, classical types, G2 and F4), pp. 16–18"
+    "§3.1–3.4 (spherical principal series, hermitian and reducibility criteria, constancy of signature, the 0-complementary series theorem, classical types, G2 and F4), pp. 16–18",
+    "§7.2.1–7.2.4, pp. 46–47 (exceptional alcoves and root tables, independent review)"
    ]
   },
   {
@@ -373,13 +375,21 @@
    "authors": "Anne-Marie Aubert",
    "edition": "Transactions of the American Mathematical Society 347 (1995), no. 6, 2179–2189",
    "url": "https://www.ams.org/journals/tran/1995-347-06/S0002-9947-1995-1285969-0/S0002-9947-1995-1285969-0.pdf",
-   "sha256": "57af9c46769f6edd8e142ddaf465e89acfa2f2147db222d26879a28a06df9693",
    "accessDate": "2026-10-18",
-   "readSections": [
+   "independentReview": {
+    "access": "Original §1, pp. 2181–2183, read via public OCR at https://studylibfr.com/doc/540639/dualité-dans-le-groupe-de-grothendieck-de-la . Full AMS PDF returned 403; §2–3 and the 1996 erratum not independently read.",
+    "endpoint": "Ban02 Theorem 3.1, p. 678, corroborates irreducibility/involution with the erratum cited; the corrected proof remains a gap.",
+    "erratum": "https://doi.org/10.1090/S0002-9947-96-01776-X"
+   },
+   "priorDesignReadSections": [
     "§1, Définition 1.5 and Théorème 1.7, p. 2181",
     "§2, Théorème 2.3 (agreement with Zelevinsky's involution for GL_n), p. 2185",
     "§3, Corollaire 3.9 (irreducibility of ±D_G(π)), p. 2189"
-   ]
+   ],
+   "readSections": [
+    "§1, Définition 1.5 and Théorème 1.7 with proof, pp. 2181–2183 (public OCR only)"
+   ],
+   "priorDesignSha256": "57af9c46769f6edd8e142ddaf465e89acfa2f2147db222d26879a28a06df9693"
   },
   {
    "id": "CCLTV",
@@ -490,6 +500,78 @@
    "readSections": [
     "Scope, conventions, and dependencies",
     "D2 (regular representations, weak containment of the trivial representation)"
+   ]
+  },
+  {
+   "id": "CIK71",
+   "title": "Hecke algebras and characters of parabolic type of finite groups with (B,N)-pairs",
+   "authors": "Charles W. Curtis, Nagayoshi Iwahori and Robert Kilmoyer",
+   "edition": "Publ. Math. IHÉS 40 (1971), 81–116",
+   "url": "https://www.numdam.org/item/PMIHES_1971__40__81_0.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§4, Lemma 4.3, Theorem 4.4 and example (b), pp. 93–95"
+   ],
+   "sha256": "2a3b416e895712dc0b4aadbd36875e645b512ca9dd1283f71daa3c492a12acfc"
+  },
+  {
+   "id": "BCP",
+   "title": "Unitarizable minimal principal series of reductive groups",
+   "authors": "Dan Barbasch, Dan Ciubotaru and Alessandra Pantano",
+   "edition": "arXiv:0804.1937v1; PDF carries September 16, 2021 in its header",
+   "url": "https://arxiv.org/pdf/0804.1937v1",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§5.1–5.2, definitions, bounded-region lemma and classification theorem, pp. 52–54"
+   ],
+   "sha256": "4e62c7d152348ee008b337d6a4f0aad83751bbff5c1b462ac69c3cf3042d7338"
+  },
+  {
+   "id": "La24",
+   "title": "The Iwahori–Matsumoto dual for tempered representations of Lusztig’s geometric Hecke algebras",
+   "authors": "Ruben La",
+   "edition": "arXiv:2403.14528v2 (14 August 2024)",
+   "url": "https://arxiv.org/pdf/2403.14528v2",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§4.1–4.2, Definitions 4.1–4.2 and Theorem 4.3, p. 18; §4.3, pp. 18–20 (convention comparison)"
+   ],
+   "sha256": "a9e77a11ec63cd65178ba6a151dc5d617c72d56a26746e2d06704145a8ac2d93"
+  },
+  {
+   "id": "Ban02",
+   "title": "The Aubert involution and R-groups",
+   "authors": "Dubravka Ban",
+   "edition": "Ann. Sci. ÉNS (4) 35 (2002), 673–693",
+   "url": "https://www.numdam.org/item/ASENS_2002_4_35_5_673_0.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§3, Theorem 3.1, p. 678; bibliography reference [4], p. 692"
+   ],
+   "sha256": "48a2e8be3360d8d73b050d5a4a012303bec1f4e96e408ceb083fc17b6364b4c6"
+  },
+  {
+   "id": "CiF4",
+   "title": "The unitary I-spherical dual for split p-adic groups of type F4",
+   "authors": "Dan Ciubotaru",
+   "edition": "Author version, pp. 1–49; published Represent. Theory 9 (2005), 94–137, DOI 10.1090/S1088-4165-05-00206-2",
+   "url": "https://www.math.utah.edu/~ptrapa/math-library/ciubotaru/ciubotaru_F4.pdf",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "§3.1, Theorem 3.1, author pp. 10–11; §3.2–3.3, the B₃ and rank-two complementary-series entries"
+   ],
+   "sha256": "ca54d347930151085d38eb02875f0853841fdecbbf7f493a735a7f034d0475e1"
+  },
+  {
+   "id": "PD",
+   "title": "Polar decomposition: functional calculus, the operator modulus, and singular systems",
+   "authors": "TauCetiRoadmap contributors",
+   "edition": "TauCetiRoadmap main 350e970ce49f707a327909beac0b7b7c782cc7ee",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/350e970ce49f707a327909beac0b7b7c782cc7ee/TauCetiRoadmap/OperatorTheory/PolarDecomposition/README.md",
+   "accessDate": "2026-10-18",
+   "sha256": "7600b6b99c73d1143bf498f1a7ad8b7e20bd0dcc33ecb4d8aa0e9b75cc40d58b",
+   "readSections": [
+    "Part B, PD-B24–B34 (complete-space rectangular polar decomposition); conventions and Part A functional calculus"
    ]
   }
  ],
@@ -648,7 +730,7 @@
    ],
    "proofSteps": [
     "Coordinatewise action preserves the ℓ² norm, so each (⊕̂ πᵢ)(g) is a linear isometry with inverse (⊕̂ πᵢ)(g⁻¹); this gives IsUnitary.",
-    "Strong continuity: for f with finite support the orbit map is a finite sum of continuous maps; finitely supported f are dense in lp 2, and an ε/3 argument with the uniform bound ‖(⊕̂ πᵢ)(g)‖ = 1 gives continuity for every f.",
+    "Strong continuity: for f with finite support the orbit map is a finite sum of continuous maps; finitely supported f are dense in lp 2, and an ε/3 argument with the uniform bound ‖(⊕̂ πᵢ)(g)‖ ≤ 1 gives continuity for every f.",
     "The inclusions lp.single i are isometric intertwiners; orthogonality and density of their spans are Mathlib's lp Hilbert-sum facts."
    ],
    "acceptance": [
@@ -727,7 +809,7 @@
     {
      "name": "hilbertSum_not_algebraic_sum",
      "kind": "non-example",
-     "statement": "For infinite ι the algebraic direct sum ⊕ᵢ Hᵢ is a proper dense invariant subspace of lp (fun i ↦ Hᵢ) 2, not the carrier of hilbertSum."
+     "statement": "For ι = ℕ and Hᵢ = ℂ with trivial action, the algebraic direct sum is proper and dense in ℓ²(ℕ): the vector i ↦ 1/(i+1) belongs to ℓ² and has infinite support. Infinite ι alone does not imply properness (all Hᵢ might be zero)."
     }
    ],
    "library": {
@@ -1028,10 +1110,10 @@
    "proofSteps": [
     "By positive-type-function the kernel K(a, b) = φ(a⁻¹b) is Matrix.PosSemidef; take H_φ = Matrix.PosSemidef.KolmogorovSpace and Φ = kolmogorovFeature, so ⟪Φ a, Φ b⟫ = K a b and the span of Φ(G) is dense (inner_kolmogorovFeature, kolmogorovFeature_dense).",
     "For g ∈ G the map a ↦ Φ(g a) has the same kernel, since (g a)⁻¹(g b) = a⁻¹b, and dense span; Tau Ceti's kolmogorovEquiv gives a linear isometric equivalence π_φ(g) with π_φ(g)Φ(a) = Φ(ga). Uniqueness of kolmogorovEquiv gives π_φ(gh) = π_φ(g)π_φ(h).",
-    "Strong continuity: ‖Φ(ga) − Φ(a)‖² = 2 Re(φ(e) − φ(a⁻¹ g a)), which tends to 0 as g → e by continuity of φ; density and the uniform bound ‖π_φ(g)‖ = 1 extend continuity to all vectors ([BHV] Theorem C.4.10, proof).",
+    "Strong continuity: ‖Φ(ga) − Φ(a)‖² = 2 Re(φ(e) − φ(a⁻¹ g a)), which tends to 0 as g → e by continuity of φ; density and the uniform bound ‖π_φ(g)‖ ≤ 1 extend continuity to all vectors ([BHV] Theorem C.4.10, proof).",
     "ptCoeff π_φ ξ_φ (g) = ⟪Φ e, Φ g⟫ = φ(g).",
     "Uniqueness: for (π, H, ξ) the map Φ(a) ↦ π(a)ξ has the same kernel; kolmogorovIsometry and cyclicity give T, and uniqueness of the extension gives intertwining.",
-    "Proposition C.5.1: the map Σ cᵢ π_φ(gᵢ)ξ_φ ↦ Σ cᵢ π_{φ₁}(gᵢ)ξ_{φ₁} is bounded by 1 since φ − φ₁ ∈ P(G); its adjoint gives the embedding."
+    "For Proposition C.5.1, domination gives a contraction T : H_φ → H_{φ₁} with dense range, intertwining the actions. T* is injective but need not be isometric. Apply the rectangular polar decomposition to T*: its initial space is all H_{φ₁}, and its polar isometry intertwines, since TT* on H_{φ₁} and its square root commute with the action. This gives the required isometric intertwiner (BHV Proposition A.1.4, pp. 307–308; upstream OperatorTheory/PolarDecomposition PD-B24–B34)."
    ],
    "acceptance": [
     "For φ = 1, H_φ is one-dimensional and π_φ is trivial.",
@@ -1058,6 +1140,16 @@
      "sourceId": "BHV",
      "locator": "Proposition C.5.1, p. 379",
      "match": "If φ = φ₁ + φ₂ in P(G) then π_{φ₁} is contained in π_φ, and if π_φ is irreducible then φ₁ is a multiple of φ."
+    },
+    {
+     "sourceId": "BHV",
+     "locator": "Appendix A.1, Proposition A.1.4, pp. 307–308",
+     "match": "A bounded intertwiner induces a unitary equivalence between the orthogonal complement of its kernel and the closure of its image, via its polar decomposition."
+    },
+    {
+     "sourceId": "PD",
+     "locator": "Part B, PD-B24–B34; PD-B36 (uniqueness)",
+     "match": "The complete-space rectangular polar factor gives an isometry from the orthogonal complement of the kernel onto the closure of the image; uniqueness yields equivariance for a bounded intertwiner."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1275,7 +1367,7 @@
     "G a topological group; φ continuous of positive type with φ(e) = 1 in (1)."
    ],
    "proofSteps": [
-    "If π_φ is reducible, H_φ = W ⊕ Wᗮ with W closed invariant and ξ_φ in neither summand (cyclicity); writing ξ_φ = ξ₁ + ξ₂ gives φ = s φ₁ + t φ₂ with φᵢ normalised coefficients of ξᵢ/‖ξᵢ‖ and s + t = 1, s, t > 0, and φ₁ ≠ φ₂ since they generate disjoint subrepresentations ([BHV] Theorem C.5.2, first half).",
+    "If H_φ = W ⊕ Wᗮ is a nontrivial invariant orthogonal decomposition, cyclicity makes both projected cyclic vectors nonzero. Their normalised coefficients give φ = sφ₁+(1−s)φ₂ with 0<s<1. If φ₁=φ, equality of coefficients gives ⟪π(g)ξ,P_Wξ⟫=s⟪π(g)ξ,ξ⟫ for every g. The orbit spans densely, hence P_Wξ=sξ, which is impossible for a projection and a nonzero ξ with 0<s<1. Thus the decomposition is nonconstant (BHV Theorem C.5.2, pp. 380–381). Orthogonal invariant subspaces can carry equivalent representations; disjointness is not used.",
     "If π_φ is irreducible and φ = t φ₁ + (1 − t) φ₂, then t φ₁ ≤ φ in the cone order, so by [BHV] Proposition C.5.1 (gns-construction, gns_add_le) there is a positive operator A in the commutant of π_φ with t φ₁ = ⟪ξ_φ, π_φ(·) A ξ_φ⟫; Schur's lemma for topologically irreducible unitary representations ([BHV] Theorem A.2.2; owned by the open NoncompactQuantumSymmetry roadmap, M0 item 1, see upstreamImports) makes A scalar, so φ₁ = φ.",
     "(2): 0 is extreme in P≤1 because φ(e) = 0 forces φ = 0; an element ψ with 0 < ψ(e) < 1 is the convex combination ψ(e)(ψ/ψ(e)) + (1 − ψ(e))0; normalisation forces both summands of a decomposition of an element of ext P₁ into P₁ ([BHV] Theorem C.5.5(i), proof).",
     "(3) follows from (1)–(2) and the GNS uniqueness: π_{ptCoeff π v} ≃ᵤ π."
@@ -1344,7 +1436,7 @@
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-vectors",
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector",
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/compact-open-invariants",
-    "mathlib:Submodule.orthogonalProjection"
+    "mathlib:Submodule.orthogonalProjectionOnto"
    ],
    "sources": [
     {
@@ -1476,7 +1568,7 @@
     "Equivalence of the two forms: if a sum Σ ψᵢ of coefficients of π approximates a normalised φ uniformly on a compact Q ∋ e, then Σ ψᵢ(e) is close to 1 and Σ (ψᵢ(e)/Σⱼψⱼ(e)) (ψᵢ/ψᵢ(e)) is a convex combination of normalised coefficients close to φ on Q; the converse rescales ([BHV] Remark F.1.2).",
     "Reflexivity and invariance under unitary equivalence are immediate; transitivity substitutes approximations, using that coefficients of π are uniformly continuous in the vector (dist_ptCoeff_le).",
     "A closed invariant subrepresentation or a Hilbert summand of π is weakly contained in π; a Hilbert sum ⊕̂ σᵢ ≺ π iff every σᵢ ≺ π, because the coefficient of a finitely supported vector is the sum of the coefficients of its components and finitely supported vectors are dense.",
-    "Lemma F.1.3: coefficients of linear combinations of translates of the test vectors are approximated by expanding ⟪Σ cᵢπ(gᵢ)v, π(g) Σ cⱼπ(gⱼ)v⟫ and using the sesquilinear dependence on the vector."
+    "For Lemma F.1.3, first fix one test vector: expand coefficients of its finite linear combinations of translates, on the enlarged compact sets gᵢ⁻¹Qgⱼ. For different test vectors use the argument of BHV pp. 421–423: the vectors with approximable coefficients form a closed G-invariant subspace; to prove closure under addition, project one cyclic subspace into the orthogonal complement of the other and use Proposition A.1.4 to identify the resulting cyclic representation with a subrepresentation of the second. Orthogonal sums then give coefficient sums. Expanding cross terms for two unrelated test vectors does not suffice."
    ],
    "acceptance": [
     "σ ≺ σ ⊕̂ ρ for every ρ.",
@@ -1485,7 +1577,8 @@
    "prerequisites": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/positive-type-coefficient",
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/hilbert-direct-sum",
-    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/strongly-continuous-unitary"
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/strongly-continuous-unitary",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/gns-construction"
    ],
    "sources": [
     {
@@ -1497,6 +1590,16 @@
      "sourceId": "GS23",
      "locator": "§11.2, Definition 11.5, p. 33",
      "match": "σ is weakly contained in π when each normalised coefficient of σ is approximated uniformly on compact sets by convex combinations of normalised coefficients of π."
+    },
+    {
+     "sourceId": "BHV",
+     "locator": "Appendix F.1, Lemma F.1.3 and proof, pp. 421–423; Appendix A.1, Proposition A.1.4, pp. 307–308",
+     "match": "Testing on a set whose translates span densely is sufficient; the proof handles sums of cyclic subspaces using an equivariant polar decomposition."
+    },
+    {
+     "sourceId": "PD",
+     "locator": "Part B, PD-B24–B34; PD-B36 (uniqueness)",
+     "match": "The complete-space rectangular polar factor gives an isometry from the orthogonal complement of the kernel onto the closure of the image; uniqueness yields equivariance for a bounded intertwiner."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1658,7 +1761,7 @@
    "proofSteps": [
     "φ ∈ P(G) is bounded by φ(e) (positive-type-function) and continuous; ‖φ‖_∞ = φ(e) because φ is continuous at e.",
     "The integrated inequality for continuous φ is the limit of the finite sums defining positive type (Riemann-sum approximation of the double integral on the compact support of f).",
-    "Conversely, the integrated form defines a positive sesquilinear form on C_c(G); its GNS completion carries the left regular action, and an approximate identity (fⱼ) supported in shrinking neighbourhoods of e gives vectors whose coefficients converge almost everywhere to φ and are continuous of positive type (gns-construction); the limit is continuous because these coefficients are uniformly equicontinuous ([BHV] Lemma C.5.3, citing Folland (3.35) and Dixmier 13.4.4)."
+    "The converse is Godement’s representation theorem for a positive bounded functional on the convolution algebra L¹(G): construct its nondegenerate integrated GNS representation and recover its continuous positive-type coefficient. Comparing the L¹ pairings identifies that coefficient with φ almost everywhere. BHV Lemma C.5.3, p. 382, states this result and refers to Folland (3.35) and Dixmier 13.4.4; it does not supply the proof. The integrated-GNS comparison is an explicit gap below. An arbitrary approximate-identity family has not been proved uniformly equicontinuous, so continuity cannot be inferred that way."
    ],
    "acceptance": [
     "For G discrete, the integrated condition with f = Σ cᵢ δ_{gᵢ} is literally the defining finite sum.",
@@ -1841,13 +1944,14 @@
    "kind": "definition",
    "statement": "Let G be a topological group and Ĝ its unitary dual (SRU.0). For x = [π] ∈ Ĝ, positive-type coefficients φ₁, …, φₙ of π, a compact Q ⊆ G and ε > 0, let W(x, φ₁, …, φₙ, Q, ε) be the set of y = [ρ] ∈ Ĝ such that each φᵢ is within ε on Q of a finite sum of positive-type coefficients of ρ. These sets form a basis of the Fell topology on Ĝ ([BHV] Definition F.2.1). A net yⱼ converges to x iff π ≺ ⊕̂_{k} ρ_k for the representatives ρ_k of every subnet ([BHV] Proposition F.2.2); for G as in SRU.1 irreducible-weak-containment, single normalised coefficients of ρ suffice in W ([BHV] Proposition F.2.4). For a sequence (xₙ), the limit points L[xₙ] (xₙ → x) and cluster points C[xₙ] (x a limit point of a subsequence) satisfy L ⊆ C; x ∈ L[xₙ] iff for some, equivalently every, unit v there are unit vₙ with ptCoeff πₙ vₙ → ptCoeff π v uniformly on compacta (Gan–Savin §11.1). x is isolated when {x} is open. The support of a unitary representation π is supp π = {x ∈ Ĝ : rep x ≺ π}, a closed subset ([BHV] Definition F.2.6). Ĝ is not Hausdorff in general, so L[xₙ] can have several points.",
    "hypotheses": [
-    "G a topological group for the definition; G as in SRU.1 irreducible-weak-containment for the single-coefficient basis and the 'some, equivalently every' clause."
+    "G a topological group for the definition; G as in SRU.1 irreducible-weak-containment for the single-coefficient basis and the 'some, equivalently every' clause.",
+    "The criterion using one sequence of single normalised coefficients assumes G second-countable locally compact; the basic topology and net formulation retain their stated generality."
    ],
    "proofSteps": [
-    "Basis axioms: an intersection of two basic sets around x contains the basic set with the union of the coefficient lists, the union of the compact sets and the smaller ε ([BHV] Definition F.2.1).",
+    "For intersections of basic neighbourhoods centred at x, combine coefficient lists and compact sets and reduce ε. For the full basis axiom at any point y in such a set, take the finitely many approximating vectors witnessing membership, keep the positive error slack, and approximate their coefficients at a nearby representation. The triangle inequality yields a basic neighbourhood of y contained in the original set (BHV Definition F.2.1, pp. 425–426).",
     "Net characterisation: membership of y in W(x, …) is an approximation of finitely many coefficients of x by sums of coefficients of y; along a net this is weak containment in the Hilbert sum over any subnet ([BHV] Proposition F.2.2).",
     "Single coefficients: by irreducible-weak-containment, if x is approximated by sums of coefficients of a net it is approximated by single normalised coefficients ([BHV] Proposition F.2.4).",
-    "'Some ⇒ every': if one coefficient of the irreducible π is approximated, the closed span of the translates of that vector is H (cyclicity), so WeaklyContained.of_total gives π ≺ ⊕ over the sequence, and the single-coefficient step applies to every vector.",
+    "For the sequence criterion assume G second countable and locally compact. A nonzero vector in an irreducible representation is cyclic. Approximate any other vector by a finite linear combination of its translates; the same combination of the per-index approximating vectors controls its coefficient on enlarged compact sets. Renormalise and diagonalise over a compact exhaustion with errors tending to zero. This preserves the index n and proves some ⇒ every and convergence. Weak containment in the sum over the entire sequence alone proves only membership in its closure, not convergence.",
     "supp π is closed: if x is in its closure, approximations of coefficients of x by sums of coefficients of points of supp π, themselves approximated by coefficients of π, compose."
    ],
    "acceptance": [
@@ -1906,7 +2010,7 @@
     {
      "name": "UnitaryDual.tendsto_iff_exists_coeff",
      "role": "characterisation",
-     "statement": "A sequence xₙ → x iff for some (equivalently every) unit v there are unit vₙ with ptCoeff (rep xₙ) vₙ → ptCoeff (rep x) v uniformly on compacta."
+     "statement": "For G second-countable locally compact, a sequence xₙ → x iff for some (equivalently every) unit v there are unit vₙ with ptCoeff (rep xₙ) vₙ → ptCoeff (rep x) v uniformly on compacta."
     },
     {
      "name": "UnitaryDual.limitPoints",
@@ -2078,7 +2182,7 @@
    "proofSteps": [
     "{[σ]} is open and meets closure {[πᵢ]} (gan-savin-closure), hence meets {[πᵢ]}: [σ] = [πᵢ] for some i, so σ ≃ᵤ πᵢ (UnitaryDual.mk_eq_mk_iff).",
     "Relative form: {[σ]} is open in R and meets closure {[πᵢ]} ∩ R, the closure of {[πᵢ]} in R, hence meets {[πᵢ]}.",
-    "Product form: an irreducible unitary representation of G × C with C compact is an outer tensor product σ ⊗ τ with τ finite-dimensional (restrict to C and use that each τ-isotypic part is G-stable); the Fell topology of the product dual is the product topology, and Ĉ is discrete ([BHV] Example F.2.5(ii)), so a product of isolated points is isolated."
+    "For a compact factor C, its finite-dimensional irreducible τ-isotypic projector (NoncompactQuantumSymmetry M0) gives an open condition near σ⊗τ. Compactness and Schur identify the τ-isotypic part with a Hilbert multiplicity space tensored with τ, and the commuting G-action acts on that space. Test finitely many coefficients on a basis of τ to transfer isolation from G to G×C. For several reductive factors also use the type-I tensor-product and Fell-topology compatibility; this requires the precise product-dual theorem, recorded as a gap below. Discreteness of Ĉ alone does not prove a product homeomorphism."
    ],
    "acceptance": [
     "Without isolation the statement fails: the trivial representation of ℤ is weakly contained in the Hilbert sum of the characters n ↦ e^{inθ}, θ ≠ 0 rational multiples of 2π, without being one of them."
@@ -2297,7 +2401,7 @@
    ],
    "title": "Admissible unitarizable representations are semisimple",
    "kind": "theorem",
-   "statement": "Let G be locally profinite and (ρ, V) admissible with a unitary structure. For every subrepresentation U ⊆ V the orthogonal complement U^⊥ is a subrepresentation and V = U ⊕ U^⊥ ([Cas95] Proposition 2.1.5). Consequently V is a direct sum of irreducible admissible unitarizable representations, each isomorphism class with finite multiplicity, countably many if G is second countable ([Cas95] Proposition 2.1.14; [Ber92] Proposition 41). In particular a unitarizable representation of finite length is a finite direct sum of irreducibles.",
+   "statement": "Let G be locally profinite and (ρ, V) admissible with a unitary structure. For every subrepresentation U ⊆ V the orthogonal complement U^⊥ is a subrepresentation and V = U ⊕ U^⊥ ([Cas95] Proposition 2.1.5). Consequently V is a direct sum of irreducible admissible unitarizable representations, each isomorphism class with finite multiplicity, countably many if G is second countable ([Cas95] Proposition 2.1.14; [Ber92] Proposition 41). In particular an admissible unitarizable representation of finite length is a finite direct sum of irreducibles.",
    "hypotheses": [
     "G locally profinite; V admissible and unitarizable."
    ],
@@ -2383,13 +2487,13 @@
    ],
    "title": "Hilbert completion of a unitarizable representation",
    "kind": "construction",
-   "statement": "Let G be locally profinite and (ρ, V) smooth with a unitary structure. Its Hilbert completion Ĥ(V) (Mathlib's UniformSpace.Completion with the completed inner product) carries a unique strongly continuous unitary representation ρ̂ extending ρ. V ⊆ Ĥ(V)^∞, with equality Ĥ(V)^K = V^K for every compact open K when V is admissible; then Ĥ(V)^∞ = V. If V is irreducible and admissible, ρ̂ is topologically irreducible. Isomorphic unitarizable admissible representations have unitarily equivalent completions after rescaling the forms (unitary-structure-unique).",
+   "statement": "Let G be locally profinite and (ρ, V) smooth with a unitary structure. Its Hilbert completion Ĥ(V) (Mathlib's UniformSpace.Completion with the completed inner product) carries a unique strongly continuous unitary representation ρ̂ extending ρ. V ⊆ Ĥ(V)^∞, with equality Ĥ(V)^K = V^K for every compact open K when V is admissible; then Ĥ(V)^∞ = V. If V is irreducible and admissible, ρ̂ is topologically irreducible. Isomorphic irreducible unitarizable admissible representations have unitarily equivalent completions after rescaling the forms (unitary-structure-unique).",
    "hypotheses": [
     "G locally profinite; V smooth with a unitary structure; admissibility for the statements about smooth vectors and irreducibility."
    ],
    "proofSteps": [
     "Each ρ(g) is isometric on V, hence extends to a linear isometry of the completion; these form a ContRepresentation, unitary because the inverses extend too.",
-    "Strong continuity: g ↦ ρ(g)v is locally constant for v ∈ V; density of V and the uniform bound ‖ρ̂(g)‖ = 1 give continuity on Ĥ(V).",
+    "Strong continuity: g ↦ ρ(g)v is locally constant for v ∈ V; density of V and the uniform bound ‖ρ̂(g)‖ ≤ 1 give continuity on Ĥ(V).",
     "Smooth vectors: the projection e_K of Ĥ(V) (smooth-vectors-unitary) maps V onto V^K, so Ĥ(V)^K = e_K Ĥ(V) is the closure of V^K, which equals V^K when finite-dimensional; hence Ĥ(V)^∞ = ⋃ V^K = V.",
     "Irreducibility: for a closed invariant W, W^∞ = ⋃_K e_K W ⊆ V is a subrepresentation, so W^∞ = 0 or V; W^∞ is dense in W (smooth-vectors-unitary), so W = 0 or Ĥ(V) ([BZ76] §4.21(c) for GL_n)."
    ],
@@ -2736,7 +2840,8 @@
     "The C*-algebra of G has bounded trace on the K-fixed parts (uniform admissibility, SR.3a): for every K, dim πₙ^K ≤ c(G, K); this is the hypothesis of Miličić's theorem on C*-algebras with bounded trace.",
     "Fell convergence of irreducible unitary representations of such algebras is controlled by traces: πₙ → σ iff Θ_σ ≤ lim inf of Θ_{πₙ} on positive elements of the K-corners, for every K (Miličić).",
     "With weakly convergent characters the limit functional Θ is positive on positive K-corner elements and has finite rank on each corner (bounded by c(G, K)); it decomposes as a finite sum Σ n_σ Θ_σ by linear independence (characters-linearly-independent), and the σ occurring are exactly the limit and the cluster points.",
-    "The analytic part of this argument is cited from Miličić through Gan–Savin and Tadić [Ta1]; its decomposition into C*-algebra lemmas is listed under the layer's remaining refinements."
+    "The analytic part of this argument is cited from Miličić through Gan–Savin and Tadić [Ta1]; its decomposition into C*-algebra lemmas is listed under the layer's remaining refinements.",
+    "The passage from bounded ranks on each Hecke corner to one globally finite character decomposition is not a consequence of linear independence alone. It is precisely the bounded-trace C*-algebra theorem recorded in the gap; do not treat the preceding outline as closing that step."
    ],
    "acceptance": [
     "For a constant sequence πₙ = σ, S = {σ}, n_σ = 1 and L = C = {[σ]}.",
@@ -2780,10 +2885,10 @@
     "τₙ irreducible tempered; unitary central characters."
    ],
    "proofSteps": [
-    "Fix a compact open K. The τₙ with τₙ^K ≠ 0 lie in finitely many Bernstein components (SR.3 finite-type-corners), and by the Harish–Chandra tempered support (SR.3.3) each is a summand of i_Q(δ ⊗ ψₙ) with (L, δ) from a finite list up to unramified twist and ψₙ in the compact torus of unitary unramified characters of L.",
-    "Pass to a subsequence along which either τₙ^K = 0 eventually, or (L, δ) is constant, ψₙ converges and the position of τₙ among the finitely many summands is constant; the traces on H(G, K) then converge, by continuity of the characters of i_Q(δ ⊗ ψ) in ψ (character-weak-convergence, induction).",
-    "Diagonalise over a decreasing basis K₁ ⊇ K₂ ⊇ ⋯ of compact open subgroups: the limit is a functional on C_c^∞(M) equal to the character of a finite-length representation τ (possibly zero, possibly reducible), namely the corresponding summand of the limiting induced representation.",
-    "The cuspidal support of i_Q(δ ⊗ ψₙ) is that of δ twisted by ψₙ, which converges; constituents of the limit share the limit support (SR.3 cuspidal-support)."
+    "Uniform admissibility bounds dim τₙ^K by c_K. For K-biinvariant f, |Θ_{τₙ}(f)| ≤ c_K‖f‖₁, since the integrated unitary operator has norm at most ‖f‖₁. Second countability gives a countable spanning family of C_c^∞(M); diagonal subsequence extraction produces a weak character limit, possibly zero.",
+    "Apply milicic-limits to identify a nonzero limit as a finite positive-integer combination of irreducible unitary characters. The bounded-trace prerequisite of that theorem remains an explicit gap. The support is tempered, since each τₙ is weakly contained in the regular representation and this support is Fell closed.",
+    "For a nonzero limit, every constituent is a Fell limit of the subsequence by Miličić; fell-convergence-bernstein-centre gives convergence of the common cuspidal supports to that of every constituent. With zero limit the constituent assertion is vacuous.",
+    "This replaces the unsupported assertion that fixed K permits only finitely many inducing discrete-series supports and a fixed summand position. No global finite-length character is deduced solely from local finite-rank limits."
    ],
    "acceptance": [
     "For M = T a split torus, the τₙ are unitary characters; the theorem reduces to compactness of the unitary unramified characters together with finiteness of characters of T ∩ K of bounded conductor at fixed level.",
@@ -2795,7 +2900,9 @@
     "SmoothRepresentationsOfLocalGroups:SR.3/cuspidal-support",
     "SmoothRepresentationsOfLocalGroups:SR.3/unramified-characters",
     "SmoothRepresentationsOfLocalGroups:SR.3/bernstein-components",
-    "SmoothRepresentationsOfLocalGroups:SR.3/finite-type-corners"
+    "SmoothRepresentationsOfLocalGroups:SR.3/finite-type-corners",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/milicic-limits",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/fell-convergence-bernstein-centre"
    ],
    "sources": [
     {
@@ -3034,9 +3141,10 @@
     "F of characteristic zero, as in Gan–Savin; G with compact centre, or all representations with a fixed unitary central character."
    ],
    "proofSteps": [
-    "By the Harish–Chandra tempered support (SR.3.3 harish-chandra-tempered-support) every irreducible tempered π is a summand of i_P(τ) with τ square-integrable of a Levi M, uniquely up to conjugacy; the tempered dual is a union of the compact families obtained by twisting τ with unitary unramified characters of M (SR.3 unramified-characters), modulo finite groups.",
-    "Convergence in the Fell topology implies convergence of infinitesimal characters (fell-convergence-bernstein-centre); a sequence converging to δ eventually lies in the finitely many families with the cuspidal support of δ, with parameters converging to those of δ.",
-    "For M ≠ G the members of these families are not square-integrable and, by Casselman's criterion (SR.3.3) and the strict exponent inequalities of δ, δ is not a constituent of a limit of i_P(τ ⊗ ψₙ) with M ≠ G; for M = G the family of δ is finite, since a group with compact centre has no nontrivial unitary unramified twists."
+    "Use SRup SR.3.3 harish-chandra-tempered-support to express each irreducible tempered representation as a constituent of induction from a discrete series of a Levi. This gives decomposition and uniqueness, not a description of Fell neighbourhoods.",
+    "The missing input is the finite-level local structure of the tempered dual: after fixing a compact-open type near δ, a convergent family is controlled by finitely many induction data with compact unitary-unramified parameter spaces, and the discrete-series point cannot occur as a limit from a proper-Levi component. Supply the precise theorem and proof before using this step; Bernstein-centre convergence alone does not imply it.",
+    "Conditional on that input, only the G-Levi discrete-series family can approach δ. For compact centre the ordinary unitary-unramified character group of G is trivial; with fixed central character the allowed twisting fibre is finite. Removing its other points isolates δ.",
+    "Ordinary unramified characters here use the subgroup generated by all compact subgroups (SRup SR.3.1, target unramified-characters). They differ from weakly unramified characters. The statement remains a target with its spectral-topology proof prerequisite recorded as a gap."
    ],
    "acceptance": [
     "For PGL₂(ℚ_p) the Steinberg representation is not a limit of unitary principal series i_B(|·|^{itₙ} ⊗ |·|^{−itₙ}): their limits are unitary principal series, which do not contain St.",
@@ -3080,7 +3188,8 @@
    "proofSteps": [
     "The constituents of Ind_B^Γ 1 correspond to the irreducible modules of H(W, q) = End_Γ(Ind_B^Γ 1), whose basis T_w (w ∈ W) comes from the Bruhat decomposition Γ = ⊔ BwB (ReductiveGroups layer 7) with the quadratic and braid relations. For K = 𝐆(O) hyperspecial, K/I ≅ Γ/B via the reduction K → Γ, so H(W, q) ≅ H(K, I), the finite part of the Iwahori–Matsumoto presentation of H(G, I) generated by the T_w, w ∈ W (SR.1 iwahori-matsumoto). The sign character T_s ↦ −1 gives a constituent st_Γ.",
     "The alternating sum Σ_J (−1)^{|J|} Ind_{P_J} 1 is the character of this constituent (Solomon–Tits: it is the top homology of the Tits building); its degree is the index-weighted alternating sum, q^N.",
-    "Inflation along the reduction K → 𝐆(𝔽_q), surjective with kernel the positive radical K⁺ (ReductiveGroupsPartII RG2.3 reductive-quotient-of-special-fibre; the special fibre is 𝐆_{𝔽_q} because K is hyperspecial, RG2.3 hyperspecial-vertices), gives a smooth irreducible representation of K."
+    "Inflation along the reduction K → 𝐆(𝔽_q), surjective with kernel the positive radical K⁺ (ReductiveGroupsPartII RG2.3 reductive-quotient-of-special-fibre; the special fibre is 𝐆_{𝔽_q} because K is hyperspecial, RG2.3 hyperspecial-vertices), gives a smooth irreducible representation of K.",
+    "The finite-Hecke sign character and its q^{|Φ⁺|} degree are independently supported by CIK71 §4, pp. 94–95. Identifying it with the alternating parabolic character additionally uses the Solomon/Coxeter-complex identity; that combinatorial input is recorded in the finite-Steinberg gap below."
    ],
    "acceptance": [
     "For Γ = GL₂(𝔽_q), Ind_B^Γ 1 = 1 ⊕ st_Γ with dim st_Γ = q.",
@@ -3102,6 +3211,11 @@
      "sourceId": "BC1",
      "locator": "§1.1, p. 1",
      "match": "The Iwahori–Matsumoto involution of the Iwahori-spherical category preserves hermitian and unitary modules, exchanges spherical and generic modules, and takes the trivial representation to the Steinberg representation."
+    },
+    {
+     "sourceId": "CIK71",
+     "locator": "§4, Lemma 4.3, Theorem 4.4 and example (b), pp. 94–95",
+     "match": "The sign character of the finite Hecke algebra determines a unique irreducible constituent of the flag permutation representation, of degree q to the number of positive roots; this is Steinberg’s representation."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3277,7 +3391,7 @@
    ],
    "proofSteps": [
     "χ = δ_B^{1/2} is regular, so r_B(i_B χ) has the |W| distinct exponents w·χ (SR.2 principal-series-jacquet). Since r_B(St_G) = δ_B^{1/2} (SR.3.4 steinberg), first adjointness (SR.2 first-adjointness) embeds St_G in i_B(δ_B^{1/2}); dually the trivial representation is its quotient.",
-    "Reducibility occurs along exactly the simple-root walls: χ(α^∨(ϖ)) = q^{±1} for the simple roots; the subquotient lattice is a product of r two-element chains, one for each simple reflection, giving 2^r constituents indexed by J ⊆ Δ (Rodier; Casselman 1980 §3 for the intertwining operators).",
+    "Rodier’s theorem gives multiplicity-one irreducible constituents indexed by subsets of the simple roots, with the required Jacquet exponents. The proof is not obtained by taking a product of rank-one submodule lattices: rank-one intertwiner relations do not imply that assertion. The exact combinatorial theorem is an explicit prerequisite gap.",
     "The exponent sets are read off from which intertwining operators T_{s_α} vanish on the constituent (Casselman 1980, Theorem 3.1)."
    ],
    "acceptance": [
@@ -3321,15 +3435,15 @@
    ],
    "title": "The Howe–Moore theorem over nonarchimedean local fields",
    "kind": "theorem",
-   "statement": "Let 𝐆 be connected, almost simple and isotropic over a nonarchimedean local field F (any characteristic), G = 𝐆(F) and G⁺ the normal subgroup generated by the unipotent radicals of F-parabolic subgroups (G⁺ = G for 𝐆 simply connected; G/G⁺ is finite abelian in general). If π is a strongly continuous unitary representation of G with no nonzero G⁺-invariant vector, then every coefficient g ↦ ⟪w, π(g)v⟫ vanishes at infinity on G. In particular, an infinite-dimensional irreducible unitary representation of G has coefficients vanishing at infinity.",
+   "statement": "Let 𝐆 be connected, almost simple and isotropic over a nonarchimedean local field F (any characteristic), G = 𝐆(F) and G⁺ the normal subgroup generated by the unipotent radicals of F-parabolic subgroups (G⁺ = G for 𝐆 simply connected; G/G⁺ is compact abelian in general, and finite in characteristic zero). If π is a strongly continuous unitary representation of G with no nonzero G⁺-invariant vector, then every coefficient g ↦ ⟪w, π(g)v⟫ vanishes at infinity on G. In particular, an infinite-dimensional irreducible unitary representation of G has coefficients vanishing at infinity.",
    "hypotheses": [
     "𝐆 almost F-simple and F-isotropic; π strongly continuous unitary without G⁺-invariant vectors."
    ],
    "proofSteps": [
-    "Cartan decomposition G = K M(F) K with M = Z_G(S) for a maximal split torus S (ReductiveGroupsPartII RG2.4); the maximal compact subgroup M₁ of M(F) lies in K and M(F)/M₁ is a finitely generated group containing the image of S(F) with finite index, so it suffices to show ⟪w, π(a)v⟫ → 0 as a → ∞ in the dominant part A⁺ of S(F), uniformly for v, w in the unit ball of a K-invariant dense set.",
-    "If π(aₙ)v → v₀ weakly with aₙ → ∞, the Mautner phenomenon shows v₀ is fixed by the root subgroups U_α contracted by aₙ, hence by the group they generate with the opposite ones, which is G⁺ (almost simplicity) (Howe–Moore 1979).",
-    "No nonzero G⁺-invariant vector forces v₀ = 0, so coefficients tend to 0.",
-    "For an infinite-dimensional irreducible π, a nonzero G⁺-fixed vector would span, under the finite abelian G/G⁺, a finite-dimensional invariant subspace, contradicting irreducibility."
+    "Cartan decomposition reduces coefficient decay to escape in a positive chamber. Uniformity is needed only for compact K-orbits of fixed v and w and follows from finite ε-nets and unitarity. Uniform decay over the entire unit ball would be false.",
+    "Use the full Howe–Moore contraction/Mautner lemma to show every weak cluster vector along an escaping chamber sequence is G⁺-fixed. The contracted root groups alone do not generate their opposites; that propagation is a nonroutine part of the theorem, recorded as a gap below. CCLTV §1, pp. 1–2, confirms the G⁺ theorem in arbitrary local-field characteristic; its separate relative Theorem 1.4 is characteristic zero only.",
+    "The hypothesis forces the weak cluster vectors to vanish, hence all coefficients tend to zero at infinity.",
+    "For an irreducible π, H^{G⁺} is closed invariant, so is either zero or H. In the latter case π factors through compact abelian G/G⁺ and is one-dimensional. Thus an infinite-dimensional irreducible has no G⁺-fixed vector. For PGL_p over 𝔽_q((t)), F×/(F×)^p illustrates why finiteness must not be asserted in positive characteristic."
    ],
    "acceptance": [
     "For G = SL₂(ℚ_p), the coefficients of the Steinberg representation (square-integrable) and of every unitary principal series vanish at infinity; the trivial representation is excluded by the invariant-vector hypothesis.",
@@ -3422,7 +3536,7 @@
     "Suppose [St] ∈ L[πₙ] with πₙ irreducible unitarizable, πₙ ≇ St. By k-types-persist, st_G occurs in πₙ for n large, so πₙ is generic (barbasch-moy-genericity), and the gan-savin-generic-limits apply: after a subsequence πₙ ≅ i_P(τₙ), τₙ → τ, St a subquotient of i_P(τ), and every subquotient of i_P(τ) is a limit point (milicic-limits), hence unitarizable.",
     "πₙ is eventually nontempered (discrete-series-isolated-tempered), so P ≠ G. By fell-convergence-bernstein-centre every subquotient of i_P(τ) has the cuspidal support of St, i.e. lies in i_B(δ_B^{1/2}).",
     "If P = B, all 2^r ≥ 4 constituents of i_B(δ_B^{1/2}) would be unitarizable, contradicting steinberg-series-unitary.",
-    "If B ⊊ P ⊊ G: τ is generic, so (barbasch-moy-genericity for M) st_M is a (K ∩ M)-type of τ; by the Iwasawa decomposition G = QK for a minimal parabolic Q ⊆ P (ReductiveGroupsPartII RG2.4), hence G = PK, i_P(τ)|_K = Ind_{K∩P}^K(τ|_{K∩M}) contains the inflation of the finite induced representation Ind_{P(𝔽_q)}^{Γ}(st_{M(𝔽_q)}), whose B(𝔽_q)-fixed vectors form the H(W, q)-module induced from the sign character of H(W_M, q). It has dimension [W : W_M] > 1, contains the sign character once and the trivial character not at all (W_M ≠ 1), so it has an irreducible constituent different from both; this is a K-type with I-fixed vectors other than st_G and other than the trivial K-type. The constituent of i_P(τ) carrying it is unitarizable, is not St (steinberg-k-types) and not 1, contradicting steinberg-series-unitary. Gan–Savin call this step easy; the expansion here is the finite-Hecke-algebra computation."
+    "If B ⊊ P ⊊ G: τ has Iwahori-spherical cuspidal support because i_P(τ) has the cuspidal support of St; hence τ is Iwahori-spherical. Within that block τ is generic, so (barbasch-moy-genericity for M) st_M is a (K ∩ M)-type of τ; by the Iwasawa decomposition G = QK for a minimal parabolic Q ⊆ P (ReductiveGroupsPartII RG2.4), hence G = PK, i_P(τ)|_K = Ind_{K∩P}^K(τ|_{K∩M}) contains the inflation of the finite induced representation Ind_{P(𝔽_q)}^{Γ}(st_{M(𝔽_q)}), whose B(𝔽_q)-fixed vectors form the H(W, q)-module induced from the sign character of H(W_M, q). It has dimension [W : W_M] > 1, contains the sign character once and the trivial character not at all (W_M ≠ 1), so it has an irreducible constituent different from both; this is a K-type with I-fixed vectors other than st_G and other than the trivial K-type. The constituent of i_P(τ) carrying it is unitarizable, is not St (steinberg-k-types) and not 1, contradicting steinberg-series-unitary. Gan–Savin call this step easy; the expansion here is the finite-Hecke-algebra computation."
    ],
    "acceptance": [
     "For PGL₂(ℚ_p) the complementary series i_B(|·|^{s} ⊗ |·|^{−s}), 0 < s < 1/2, converge as s → 1/2 to both 1 and St in the Fell topology, so St is not isolated in rank one.",
@@ -3745,8 +3859,8 @@
     "k a nonarchimedean local field of any characteristic with residue field 𝔽_q, G = 𝐆(k) for 𝐆 quasi-simple, split and adjoint, K = 𝐆(O) hyperspecial, B ⊃ T a Borel subgroup and maximal split torus, based root datum (X, Φ, X^∨, Φ^∨, Π), Weyl group W, longest element w₀, Coxeter number h, dual group G^∨ over ℂ with maximal torus T^∨ = X ⊗ ℂ^× (Ciubotaru–Harris §6 setting)."
    ],
    "proofSteps": [
-    "If ν = 0, χ_s is unitary, X(s) is unitarily induced, hence unitarizable and semisimple (SRU.2 unitary-induction), and tempered; L(s) is a summand.",
-    "Conversely, L(s) embeds in some X(w s) (Casselman); temperedness through Casselman's criterion (SR.3.3 casselman-criterion) bounds the exponents w'·χ_s of the Jacquet module by 1 in absolute value on the negative cone; the exponent set of L(s) is W-stable in the real part only if ν = 0, by the Langlands classification (SR.3.3 langlands-classification): a nonzero dominant ν makes L(s) the Langlands quotient of a standard module with P ≠ G or ν ≠ 0, which is not tempered."
+    "If ν=0, χ_s is unitary and normalised induction is tempered. In the adjoint setting of real-satake-parameter, irreducibility follows from the unramified irreducibility criterion; hence its spherical constituent is tempered. No argument uses unitarizability alone to deduce irreducibility.",
+    "Conversely use the spherical Langlands classification and Casselman’s tempered exponent criterion, precisely as in CH26 Lemma 5.2, pp. 12–13: a nonzero dominant real part gives a nonzero positive Langlands exponent, incompatible with temperedness. The Jacquet exponent set of an individual spherical constituent need not be Weyl stable."
    ],
    "acceptance": [
     "For PGL₂(ℚ_p), the spherical L(s) is tempered iff |s| = 1; the trivial representation L(q^{1/2}) is not tempered."
@@ -3785,7 +3899,7 @@
     "(3): for real dominant ν, α^∨(s_ν) = q^{⟨α^∨, ν⟩} with ⟨α^∨, ν⟩ ≥ 0 for positive α, so only the value 1 can occur."
    ],
    "acceptance": [
-    "For PGL₂ with s = diag(t, t⁻¹) ∈ SL₂(ℂ), X(s) is reducible iff t² = q^{±1}; t = ±q^{1/2} give 1 ⊕ St and its twist by the unramified quadratic character.",
+    "For PGL₂ with s=diag(t,t⁻¹), reducibility occurs exactly at t²=q^{±1}. At t=+q^{1/2} the Jordan–Hölder constituents are 1 and St; at t=−q^{1/2} both are twisted by the unramified quadratic character. These endpoint principal series are nonsplit extensions, not Hilbert direct sums.",
     "For PGL₂ and the real parameter ν with ⟨α^∨, ν⟩ = 1, X(ν) contains the trivial and Steinberg representations."
    ],
    "prerequisites": [
@@ -4057,8 +4171,9 @@
     "k a nonarchimedean local field of any characteristic with residue field 𝔽_q, G = 𝐆(k) for 𝐆 quasi-simple, split and adjoint, K = 𝐆(O) hyperspecial, B ⊃ T a Borel subgroup and maximal split torus, based root datum (X, Φ, X^∨, Φ^∨, Π), Weyl group W, longest element w₀, Coxeter number h, dual group G^∨ over ℂ with maximal torus T^∨ = X ⊗ ℂ^× (Ciubotaru–Harris §6 setting)."
    ],
    "proofSteps": [
-    "If ν ∈ U₀^g, then L(ν) = X(ν) is irreducible, infinite-dimensional and unitary, so its spherical matrix coefficient vanishes at infinity (SRU.4 howe-moore).",
-    "Along the negative cone the spherical coefficient of X(ν) is asymptotic to a combination of the exponents w·χ_{s_ν} of the Jacquet module r_B(X(ν)) (SR.2 principal-series-jacquet, casselman-pairing; Macdonald's formula makes the coefficients c(w·ν) explicit for split groups). Along the ray of the fundamental coweight dual to αᵢ, an exponent with ⟨αᵢ^∨, ν⟩ > 1 occurs with nonzero coefficient and its modulus does not decay, a contradiction (Barbasch–Ciubotaru 2005 §3.3, as Ciubotaru–Harris cite it)."
+    "Use signature constancy on the hermitian components of the complement of root-value-one hyperplanes. In the affine/graded Hecke algebra the normalised long intertwiner on the reflection W-type is indefinite on every unbounded region; see BCP §5.2, Lemma (2) and its following argument, p. 53.",
+    "In the dominant region with ⟨αᵢ^∨,ν⟩>1, move out along the fundamental-weight ray without crossing any root-value-one wall (all positive-coroot pairings are nondecreasing). In the hermitian locus use a ray invariant under −w₀, or its paired fundamental-weight ray. This places ν in an unbounded component, so it is not unitary. This is a signature argument, not a consequence of a single simple-root value forcing failure of coefficient decay.",
+    "The reflection-type signature calculation is a nonroutine classification input, included in the Hecke-signature gap below. BCP is stated for characteristic-zero groups; using it over function fields requires the characteristic-independent equal-parameter Hecke-algebra statement that CH26 uses."
    ],
    "acceptance": [
     "For PGL₂, ν with ⟨α^∨, ν⟩ > 1 gives X(ν) irreducible but not unitary: its spherical function grows or fails to decay."
@@ -4075,6 +4190,11 @@
      "sourceId": "CH26",
      "locator": "§6, Lemma 6.8, p. 18",
      "match": "No unbounded region is unitary: ⟨αᵢ^∨, ν⟩ > 1 for a simple coroot excludes ν from U₀^g, citing Howe–Moore and Barbasch–Ciubotaru's spherical unitary principal series §3.3."
+    },
+    {
+     "sourceId": "BCP",
+     "locator": "§5.2, Lemma (2) and following explanation, p. 53",
+     "match": "Only bounded regions contribute to the zero complementary series; the reflection W-type detects failure of positivity in unbounded regions."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4304,9 +4424,10 @@
    ],
    "title": "Half-integral generic unitary points for PSp(2n)",
    "kind": "theorem",
-   "statement": "For G = PSp(2n), with coroots α₁^∨ = ε₁, αᵢ^∨ = −εᵢ₋₁ + εᵢ, weights ωᵢ = εᵢ + ⋯ + εₙ and highest coroot γ^∨ = εₙ₋₁ + εₙ (Ciubotaru–Harris §6.5): the maximal level is r₀ = n for n odd and n + 1 for n even, with the coroots (6.16), (6.17); the resulting bounds force ν₁ = ⋯ = ν_{⌊n/2⌋} = 0 and Σ_{j > ⌊n/2⌋} νⱼ < 1, leaving ½ωⱼ for j > ⌊n/2⌋, of which ½ωⱼ (j < n) lie on the wall ⟨γ^∨, ν⟩ = 1. Hence U₀^{g,½} = {0, ½ωₙ}, with ⟨γ^∨, ½ωₙ⟩ = ½.",
+   "statement": "For n ≥ 2, for G = PSp(2n), with coroots α₁^∨ = ε₁, αᵢ^∨ = −εᵢ₋₁ + εᵢ, weights ωᵢ = εᵢ + ⋯ + εₙ and highest coroot γ^∨ = εₙ₋₁ + εₙ (Ciubotaru–Harris §6.5): the maximal level is r₀ = n for n odd and n + 1 for n even, with the coroots (6.16), (6.17); the resulting bounds force ν₁ = ⋯ = ν_{⌊n/2⌋} = 0 and Σ_{j > ⌊n/2⌋} νⱼ < 1, leaving ½ωⱼ for j > ⌊n/2⌋, of which ½ωⱼ (j < n) lie on the wall ⟨γ^∨, ν⟩ = 1. Hence U₀^{g,½} = {0, ½ωₙ}, with ⟨γ^∨, ½ωₙ⟩ = ½.",
    "hypotheses": [
-    "G = PSp(2n); coordinates of Ciubotaru–Harris §6.5."
+    "G = PSp(2n); coordinates of Ciubotaru–Harris §6.5.",
+    "n ≥ 2 for the displayed ε_{n−1}+ε_n formula; the rank-one case PSp₂ = PGL₂ is handled by half-integral-type-a."
    ],
    "proofSteps": [
     "The coroots of level r₀ give the inequalities 2ν₁ + ν₂ + ⋯ < 1, …, displayed in §6.5 for n odd and even (generic-unitary-classification, after Barbasch Theorem 3.1).",
@@ -4315,7 +4436,8 @@
    ],
    "acceptance": [
     "For PSp(2) ≅ PGL₂, {0, ½ω₁} as in type A.",
-    "For PSp(4), the candidates ½ω₁ (excluded by ν₁ = 0) and ½ω₂ leave U₀^{g,½} = {0, ½ω₂}."
+    "For PSp(4), the candidates ½ω₁ (excluded by ν₁ = 0) and ½ω₂ leave U₀^{g,½} = {0, ½ω₂}.",
+    "For n=1 use PSp₂=PGL₂ and type A₁; do not interpret ε₀ in the rank ≥2 formula."
    ],
    "prerequisites": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-reduction",
@@ -4775,7 +4897,7 @@
     {
      "name": "splitCompanion",
      "role": "constructor",
-     "statement": "G(τ), the split adjoint group over k whose dual group is G^∨(τ)."
+     "statement": "G(τ), the split group over k with full root datum dual to G^∨(τ); its isogeny is retained and it need not be adjoint."
     },
     {
      "name": "splitCompanion_type",
@@ -4813,6 +4935,11 @@
      "name": "splitCompanion_not_fixed_points_of_G",
      "kind": "non-example",
      "statement": "G(τ) is not a subgroup of G: for ²A₂ it is SL₂, while the k-rank-one PSU(3) has a non-split Levi."
+    },
+    {
+     "name": "splitCompanion_psu3_isogeny",
+     "kind": "non-example",
+     "statement": "For PSU₃ the fixed dual is SO₃ and the split companion is Sp₂=SL₂, not PGL₂. Type A₁ alone does not determine the isogeny."
     }
    ],
    "planet": {
@@ -4837,9 +4964,9 @@
     "ν real."
    ],
    "proofSteps": [
-    "By the Borel–Casselman equivalence and SRU.5 barbasch-moy-unitarity, unitarity of L^G(ν) is a statement about the Iwahori–Hecke algebra of G at the real infinitesimal character ν.",
-    "Barbasch–Ciubotaru identify, *-preservingly, the graded Hecke algebra of G at s_e with that of the split group with dual G(s_e τ); for s_e = 1 this is G(τ), giving a unitary equivalence of the categories with real infinitesimal character (BC3 Corollary 6.2.6).",
-    "Genericity is preserved because it is the sign-character condition of SRU.4 barbasch-moy-genericity, carried along the *-isomorphism."
+    "BC3 Theorem 1.3.1 and Theorem 1.4.1, pp. 3–4, give the unitary categorical comparison for unramified groups with the fixed root datum. This is the nonsplit theorem; SRU.5’s split-only Barbasch–Moy statement alone does not justify this step.",
+    "BC3 Corollary 6.2.6 and Example 6.2.7, p. 29, identify the companion at compact part one, with its actual isogeny. Keep Sp(2n) for the odd unitary group. The comparison for arbitrary compact part uses Z_{G^∨}(s_cτ), which can be disconnected.",
+    "The genericity assertion is CH26 Theorem 7.4, pp. 25–26. Its proof needs the transport of the nonsplit Whittaker/sign criterion through the Hecke equivalence. This adapter and the passage from the characteristic-zero group theorem to characteristic-independent Hecke algebras are explicitly recorded in the Hecke-signature/transfer gap."
    ],
    "acceptance": [
     "For ν = 0 both sides are unitary principal series and the statement is immediate.",
@@ -4861,6 +4988,11 @@
      "sourceId": "BC3",
      "locator": "§1.3, p. 3; Corollary 6.2.6, p. 29",
      "match": "Barbasch–Ciubotaru work over p-adic fields of characteristic zero and prove that the real-infinitesimal-character categories of G and of G(s_e τ) are unitarily equivalent, in particular for Iwahori-fixed vectors between G and G(τ)."
+    },
+    {
+     "sourceId": "BC3",
+     "locator": "§1.3, Theorem 1.3.1; §1.4, Theorem 1.4.1, pp. 3–4; §6.2, Corollary 6.2.6 and Example 6.2.7, p. 29",
+     "match": "Unitary equivalences retain arbitrary isogeny and the compact-part twisted centraliser; at compact part one they give the split companions with their actual root data."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4873,11 +5005,12 @@
    ],
    "title": "The generic temperedness test for nonsplit unramified groups",
    "kind": "theorem",
-   "statement": "In the setting of tau-fixed-dual-group, assume G is not the quasi-split form of PSU(2n+1), and let s = s_c s_ν ∈ T'^∨ with s_c = 1 or central. If L^G(s) is generic and unitary, then s is geometric with respect to all finite-dimensional representations of G^∨ ⋊ ⟨τ⟩ iff ν = 0, i.e. iff L^G(s) = L^G(s_c) is tempered (Ciubotaru–Harris Corollary 7.5, scope corrected as in SRU.5 generic-temperedness-test; PAPER-CIUBOTARU-HARRIS-26/E11). The representations used are the adjoint representation (τ-stable, restricting to the adjoint representation of G^∨(τ)), V ⊕ V^τ for G^∨ = SL(2n) (restricting to the defining representation of Sp(2n)), and the sum of the two half-spin representations for G^∨ = Spin(2n) (restricting to the spin representation of Spin(2n−1)).",
+   "statement": "In the setting of tau-fixed-dual-group, assume G is not the quasi-split form of PSU(2n+1), and let s = s_c s_ν ∈ T'^∨ with s_c = 1 or central. If L^G(s) is generic and unitary, then s is geometric with respect to all finite-dimensional representations of G^∨ ⋊ ⟨τ⟩ iff ν = 0, i.e. iff L^G(s) = L^G(s_c) is tempered (Ciubotaru–Harris Corollary 7.5, scope corrected as in SRU.5 generic-temperedness-test; PAPER-CIUBOTARU-HARRIS-26/E11). The representations used are the adjoint representation (τ-stable, whose restriction contains the adjoint representation of G^∨(τ)), V ⊕ V^τ for G^∨ = SL(2n) (restricting to two copies of the defining representation of Sp(2n)), and the sum of the two half-spin representations for G^∨ = Spin(2n) (restricting to two copies of the spin representation of Spin(2n−1)).",
    "hypotheses": [
     "k a nonarchimedean local field, G = 𝐆(k) with 𝐆 quasi-simple of adjoint type, quasi-split and split over an unramified extension k'/k of degree d, not split; A a maximal split torus, M = Z_G(A), K a special maximal compact subgroup attached to A, B ⊃ A a Borel subgroup (Ciubotaru–Harris §7).",
     "G not the quasi-split PSU(2n+1)",
-    "s_c = 1 or central."
+    "s_c = 1 or central.",
+    "A compact part called central means central in the full L-dual group and compatible with a unitary unramified character twist; being central merely in the abelian parameter torus is insufficient. Otherwise keep the compact part equal to one."
    ],
    "proofSteps": [
     "By nonsplit-unitary-transfer, L^{G(τ)}(ν) is generic unitary.",
@@ -4910,9 +5043,10 @@
    ],
    "title": "The residual candidate for the odd quasi-split unitary group",
    "kind": "theorem",
-   "statement": "Let G be the quasi-split form of PSU(2n+1): G^∨ = SL(2n+1, ℂ), G^∨(τ) = SO(2n+1, ℂ), G(τ) = Sp(2n). For real ν, the argument of nonsplit-generic-temperedness leaves the two possibilities ν = 0 and ν = ½ωₙ (the G(τ)-weight in the numbering of Ciubotaru–Harris §6.5): the adjoint representation of G^∨ restricts to contain the adjoint representation of G^∨(τ), which leaves {0, ½ωₙ} (SRU.5 half-integral-type-c for PSp(2n)), and ½ωₙ is excluded for PSp(2n) only by the spin representation of Spin(2n+1, ℂ), which does not factor through SO(2n+1, ℂ) and so does not occur in any representation of SL(2n+1, ℂ) (Ciubotaru–Harris Remark 7.6). This is not an automorphic counterexample.",
+   "statement": "Let G be the quasi-split form of PSU(2n+1): G^∨ = SL(2n+1, ℂ), G^∨(τ) = SO(2n+1, ℂ), G(τ) = Sp(2n). Assume L^G(ν) is generic and unitary, ν is real, and the geometric half-integrality test holds for every finite-dimensional representation of the ambient dual SL(2n+1,ℂ). Under these hypotheses, the argument of nonsplit-generic-temperedness leaves the two possibilities ν = 0 and ν = ½ωₙ (the G(τ)-weight in the numbering of Ciubotaru–Harris §6.5): the adjoint representation of G^∨ restricts to contain the adjoint representation of G^∨(τ), which leaves {0, ½ωₙ} (SRU.5 half-integral-type-c for PSp(2n)), and ½ωₙ is excluded for PSp(2n) only by the spin representation of Spin(2n+1, ℂ), which does not factor through SO(2n+1, ℂ) and so does not occur in any representation of SL(2n+1, ℂ) (Ciubotaru–Harris Remark 7.6). This is not an automorphic counterexample.",
    "hypotheses": [
-    "G the quasi-split adjoint unitary group in 2n + 1 variables over k."
+    "G the quasi-split adjoint unitary group in 2n + 1 variables over k.",
+    "L^G(ν) generic unitary, ν real, and the half-integrality condition holds in every finite-dimensional ambient-dual representation; the Sp/PSp comparison requires the adapter in the transfer gap."
    ],
    "proofSteps": [
     "nonsplit-unitary-transfer and SRU.5 half-integral-type-c for PSp(2n) give ν ∈ {0, ½ωₙ}.",
@@ -4943,14 +5077,14 @@
    ],
    "title": "The Aubert–Zelevinsky involution",
    "kind": "construction",
-   "statement": "Let G = 𝐆(F) be reductive over a nonarchimedean local field with minimal parabolic B and simple roots Δ, and R(G) the Grothendieck group of finite-length smooth complex representations. D_G := Σ_{J⊆Δ} (−1)^{|J|} i_{P_J} ∘ r_{P_J} on R(G), with normalised induction and Jacquet functors of the standard parabolics P_J (Aubert Définition 1.5). D_G commutes with the contragredient, satisfies D_G ∘ i_{P_J} = i_{P_J} ∘ D_{L_J} and r_{P_J} ∘ D_G = Ad(w_J) ∘ D_{L_{J'}} ∘ r_{P_{J'}} for the conjugate subset J' = w_J(J) (Théorème 1.7(1)–(2)), is an involution, D_G² = id (1.7(3)), and acts on an irreducible cuspidal π by (−1)^{|Δ|} (1.7(4)). For irreducible π, ±D_G(π) is irreducible for a unique sign (Corollaire 3.9); AZ(π) denotes this irreducible representation. AZ preserves cuspidal support, AZ(1_G) = St_G for split G, and for GL_n it is Zelevinsky's involution (Théorème 2.3), the involution of SR.5.3. Aubert writes for p-adic groups; the arguments use only the geometric lemma and finite length (SR.2–SR.3), available over any nonarchimedean local field, the generality Ciubotaru–Harris use (F = k((t))).",
+   "statement": "Let G = 𝐆(F) be reductive over a nonarchimedean local field with minimal parabolic B and simple roots Δ, and R(G) the Grothendieck group of finite-length smooth complex representations. D_G := Σ_{J⊆Δ} (−1)^{|J|} i_{P_J} ∘ r_{P_J} on R(G), with normalised induction and Jacquet functors of the standard parabolics P_J (Aubert Définition 1.5). D_G commutes with the contragredient, satisfies D_G ∘ i_{P_J} = i_{P_J} ∘ D_{L_J} and r_{P_J} ∘ D_G = Ad(w_J) ∘ D_{L_{J'}} ∘ r_{P_{J'}} for the conjugate subset J' = w_J(J) (Théorème 1.7(1)–(2)), is an involution, D_G² = id (1.7(3)), and acts on an irreducible cuspidal π by (−1)^{|Δ|} (1.7(4)). For irreducible π, ±D_G(π) is irreducible for a unique sign (Corollaire 3.9); AZ(π) denotes this irreducible representation. AZ preserves cuspidal support, AZ(1_G) = St_G for split G, and for GL_n it is Zelevinsky's involution (Théorème 2.3), the involution of SR.5.3. The characteristic-zero endpoint is independently corroborated by Ban02 Theorem 3.1. Ciubotaru–Harris use the same involution over function fields; checking the corrected-resolution proof and its characteristic extension remains the explicit Aubert gap below.",
    "hypotheses": [
     "G reductive over a nonarchimedean local field; representations of finite length."
    ],
    "proofSteps": [
     "D_G is additive and well defined on R(G): i_P is exact and preserves finite length (SR.2 parabolic-induction; SR.3 finite-length (1)); r_P is exact over ℂ (SR.2 jacquet-lemma), takes admissible to admissible (SR.2 jacquet-invariants) and finitely generated to finitely generated (SR.2 jacquet-module), hence finite length to finite length (SR.3 finite-length (2)).",
     "Théorème 1.7(2) is the geometric lemma (SR.2 geometric-lemma) summed with signs over the subsets J; (3) follows from (2) by induction on the semisimple rank and (4) for cuspidals; (1) uses Casselman's duality of r_P with the contragredient.",
-    "Irreducibility of ±D_G(π) (Corollaire 3.9) comes from Aubert's resolution (3.7)–(3.8), an exact sequence of induced representations whose cokernel represents ±D_G(π).",
+    "Irreducibility up to sign is the endpoint cited in Aubert Corollaire 3.9 and independently restated in Ban02 Theorem 3.1(6), p. 678, whose reference includes Aubert’s 1996 erratum. The original resolution proof and the correction were not accessible for this independent review, so their proof input is recorded as a gap rather than declared exact from the uncorrected 1995 paper.",
     "Cuspidal support: every term i_{P_J} ∘ r_{P_J}(π) has the cuspidal support of π (SR.3 cuspidal-support).",
     "AZ(1) = St for split G: by Théorème 1.7(2) with J = ∅, r_B(D_G[1]) = ±Ad(w₀)(r_B 1) = ±δ_B^{1/2}, a single exponent; among the constituents of i_B(δ_B^{1/2}) only St_G has normalised Jacquet module δ_B^{1/2} (SR.3.4 steinberg; SRU.4 rodier-steinberg-series), so AZ(1) = St_G."
    ],
@@ -4985,6 +5119,11 @@
      "sourceId": "CH26",
      "locator": "§4.2, Proposition 4.5 and proof, p. 12",
      "match": "For tempered π, π and AZ(π) have the same cuspidal support, by [Au, Theorem 1.7]."
+    },
+    {
+     "sourceId": "Ban02",
+     "locator": "§3, Theorem 3.1(1)–(6), p. 678",
+     "match": "The alternating induction–Jacquet operator is involutive, compatible with induction and Jacquet functors, and takes irreducibles to irreducibles up to sign; the cited Aubert reference includes the 1996 erratum."
     }
    ],
    "implementationStatus": "unchecked",
@@ -5122,9 +5261,9 @@
    ],
    "title": "Kazhdan–Lusztig parameters",
    "kind": "definition",
-   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). A Kazhdan–Lusztig triple is (s, e, ρ) with s ∈ G^∨ semisimple, e ∈ g^∨ nilpotent with Ad(s)e = q·e, and ρ an irreducible representation of the component group A(s, e) = π₀(Z_{G^∨}(s, e)) of Springer type (occurring in the homology of the variety of Borel subalgebras containing e and fixed by s), on which the centre of G^∨ acts trivially; triples are taken up to G^∨-conjugacy. g^∨_q denotes the q-eigenspace of Ad(s); G^∨(s) = Z_{G^∨}(s) acts on it with finitely many orbits and a unique open orbit. For a Lie triple (e, h, f) with h ∈ t^∨_ℝ and s ∈ T^∨, s₀ := s q^{−h/2} commutes with the triple.",
+   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). A Kazhdan–Lusztig triple is (s, e, ρ) with s ∈ G^∨ semisimple, e ∈ g^∨ nilpotent with Ad(s)e = q·e, and ρ an irreducible representation of the component group A(s, e) = π₀(Z_{G^∨}(s, e)) of Springer type (occurring in the homology of the variety of Borel subalgebras containing e and fixed by s), on which the centre of G^∨ acts trivially; triples are taken up to G^∨-conjugacy. g^∨_q denotes the q-eigenspace of Ad(s); G^∨(s) = Z_{G^∨}(s) acts on it with finitely many orbits and a unique open orbit. For a Lie triple (e, h, f) with h ∈ t^∨_ℝ and s ∈ T^∨, s₀ := s q^{−h/2} commutes with the triple.",
    "hypotheses": [
-    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting).",
+    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting).",
     "For connected-centre G the classification is Kazhdan–Lusztig's; general isogeny is Reeder's."
    ],
    "proofSteps": [
@@ -5227,14 +5366,15 @@
    ],
    "title": "The Kazhdan–Lusztig classification of Iwahori-spherical representations",
    "kind": "theorem",
-   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). Irreducible smooth representations of G with nonzero Iwahori-fixed vectors are in bijection, π(s, e, ρ) ↔ (s, e, ρ), with G^∨-conjugacy classes of Kazhdan–Lusztig triples (Kazhdan–Lusztig 1987 Theorem 7.12 for connected centre; Reeder 2002 in general). Moreover: (1) π(s, e, ρ) is K-spherical iff e = 0, and then ρ is trivial and π(s, 0, triv) = L(s) with s the Satake parameter; (2) π(s, e, ρ) is tempered iff s₀ is compact; (3) π(s, e, ρ) is generic iff ρ is trivial and e lies in the open G^∨(s)-orbit of g^∨_q; (4) AZ(L(s)) = π(s, e, triv) with e in that open orbit (Ciubotaru–Harris §5 and §8.1).",
+   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). Irreducible smooth representations of G with nonzero Iwahori-fixed vectors are in bijection, π(s, e, ρ) ↔ (s, e, ρ), with G^∨-conjugacy classes of Kazhdan–Lusztig triples (Kazhdan–Lusztig 1987 Theorem 7.12 for connected centre; Reeder 2002 in general). Moreover: (1) π(s, e, ρ) is K-spherical iff e = 0, and then ρ is trivial and π(s, 0, triv) = L(s) with s the Satake parameter; (2) π(s, e, ρ) is tempered iff s₀ is compact; (3) π(s, e, ρ) is generic iff ρ is trivial and e lies in the open G^∨(s)-orbit of g^∨_q; (4) AZ(L(s)) = π(s, e, triv) with e in that open orbit (Ciubotaru–Harris §5 and §8.1).",
    "hypotheses": [
-    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
+    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
    ],
    "proofSteps": [
     "The Iwahori block is equivalent to H(G, I)-modules (SR.3.4 borel-casselman-block), and H(G, I) is the affine Hecke algebra with Bernstein presentation (SR.1).",
     "Kazhdan–Lusztig realise H(G, I) in the equivariant K-theory of the Steinberg variety of G^∨ and classify simple modules by standard modules in the homology of fixed-point varieties; this geometric proof is not decomposed here (gaps: equivariant K-theory realisation).",
-    "(1) Spherical modules contain the trivial H(K, I)-character, which occurs exactly for e = 0; (2) Casselman's criterion in terms of the exponents of the standard module; (3) Barbasch–Moy, Reeder; (4) on Iwahori-spherical modules the Aubert involution is the Iwahori–Matsumoto involution (az-iwahori-matsumoto), which exchanges spherical and generic modules with the same s."
+    "(1) Spherical modules contain the trivial H(K, I)-character, which occurs exactly for e = 0; (2) Casselman's criterion in terms of the exponents of the standard module; (3) Barbasch–Moy, Reeder; (4) on Iwahori-spherical modules the Aubert involution is the Iwahori–Matsumoto involution (az-iwahori-matsumoto), which exchanges spherical and generic modules with the same s.",
+    "The adjoint hypothesis is essential to the simplified spherical criterion as written. With arbitrary isogeny e=0 need not force the component-group representation to be trivial. A general dictionary must impose e=0 and trivial enhancement, and keep the Whittaker datum in the generic criterion; that extension is not claimed here."
    ],
    "acceptance": [
     "For PGL₂: L(s) = π(s, 0, triv); St = π(diag(q^{1/2}, q^{−1/2}), e, triv); at s = diag(q^{1/2}, q^{−1/2}) the q-eigenspace is the line of e, the open orbit is e ≠ 0, so AZ(1) = St.",
@@ -5273,13 +5413,14 @@
    ],
    "title": "Aubert duality on the Iwahori block preserves unitarity",
    "kind": "theorem",
-   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). On irreducible Iwahori-spherical representations, AZ corresponds under V ↦ V^I to the Iwahori–Matsumoto involution of H(G, I) (twisted by the sign of the finite Hecke algebra), which preserves hermitian and unitary modules. Hence AZ(π) is unitarizable iff π is, for Iwahori-spherical π; in particular AZ of a tempered Iwahori-spherical representation is unitarizable.",
+   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). On irreducible Iwahori-spherical representations, AZ corresponds under V ↦ V^I to the central-character-preserving Iwahori–Matsumoto involution of H(G, I) specified below, which preserves hermitian and unitary modules. Hence AZ(π) is unitarizable iff π is, for Iwahori-spherical π; in particular AZ of a tempered Iwahori-spherical representation is unitarizable.",
    "hypotheses": [
     "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
    ],
    "proofSteps": [
-    "The Iwahori–Matsumoto involution IM of H(G, I) is the algebra involution with IM(T_s) = −q·T_s⁻¹ for the simple affine reflections s and IM(T_ω) = T_ω for length-zero ω; it is well defined because it preserves the quadratic, braid and length-zero relations of the Iwahori–Matsumoto presentation (SR.1 iwahori-matsumoto).",
-    "Both AZ and IM are compatible with parabolic induction and fix cuspidal supports, and agree on the trivial/Steinberg pair (Kato; Barbasch–Moy).",
+    "Fix the central-character-preserving convention of La24 Definition 4.2, p. 18, in Bernstein generators: IM(T_s)=−qT_s⁻¹ for finite simple reflections, and IM(θ_x)=T_{w₀} θ_{w₀x} T_{w₀}⁻¹. It fixes the Bernstein centre. The other common convention with θ_x↦θ_{−x} has a different effect on central characters and must not be substituted here.",
+    "Kato’s alternating induction–restriction identity identifies this involution with D_G on the Iwahori block, using compatibility of Iwahori invariants with normalised induction and Jacquet restriction (La24 Theorem 4.3, p. 18). Agreement on 1 and St and induction compatibility alone would not prove equality of functors.",
+    "For the graded convention tw↦(−1)^ℓ(w)tw and ω↦−ω, unitarity is preserved (CiF4 Theorem 3.1, pp. 10–11 of the author version). Passing to the central-character-preserving version composes with the opposition automorphism/inner conjugacy, which preserves positive forms; retain this convention adapter through the affine-to-graded equivalence.",
     "SRU.5 barbasch-moy-unitarity: the Iwahori–Matsumoto involution preserves unitary H(G, I)-modules (Barbasch–Ciubotaru §1.1, after [BM1]).",
     "Tempered representations are unitarizable (SR.3.3 and SRU.2 unitary-induction)."
    ],
@@ -5304,6 +5445,16 @@
      "sourceId": "CH26",
      "locator": "§8.1, p. 28",
      "match": "The spherical representation at the central point is the AZ dual of a tempered representation and is unitary."
+    },
+    {
+     "sourceId": "La24",
+     "locator": "§4.2, Definition 4.2 and Theorem 4.3, p. 18",
+     "match": "The central-character-preserving involution has an explicit Bernstein-generator formula and equals the alternating induction–restriction operator; the alternative inverse-torus convention is distinguished."
+    },
+    {
+     "sourceId": "CiF4",
+     "locator": "§3.1, Theorem 3.1, pp. 10–11 of the author version",
+     "match": "The usual graded Iwahori–Matsumoto involution preserves unitarity; the central-point spherical module is its dual of a tempered module."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5316,9 +5467,9 @@
    ],
    "title": "The nilpotent partition of the spherical dual",
    "kind": "construction",
-   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). For a nilpotent G^∨-orbit O^∨ ⊆ g^∨, Sph(G, O^∨) is the set of G^∨-classes of s with AZ(L(s)) = π(s, e, triv), e ∈ O^∨ ((8.1)); these sets partition the K-spherical dual. For a Lie triple (e^∨, h^∨, f^∨) of O^∨, s = q^{h^∨/2} ∈ Sph(G, O^∨) is the central point. For s ∈ T^∨ write s = q^{ℜ(s)} s_c with ℜ(s) ∈ t^∨_ℝ and Sph(G, O^∨)₀ for the set of real parts. SU(G) is the spherical unitary dual (s with L(s) unitarizable), CS(G, O^∨) = SU(G) ∩ Sph(G, O^∨) the spherical complementary series attached to O^∨, and CS(G, O^∨)₀ its real parts; SU(G) = ⊔ CS(G, O^∨). Z(O^∨) = C_{G^∨}(e^∨, h^∨, f^∨) is reductive, possibly disconnected, with Lie algebra z(O^∨); G(O^∨) is the split group dual to Z(O^∨)°; choosing a Cartan subalgebra a^∨ ⊆ z(O^∨) inside t^∨, every ℜ(s) ∈ Sph(G, O^∨)₀ can be written ℜ(s) = ½h^∨ + ν with ν ∈ a^∨_ℝ, regarded as a parameter in Sph(G(O^∨), 0)₀ ((8.2)).",
+   "statement": "Let k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting). For a nilpotent G^∨-orbit O^∨ ⊆ g^∨, Sph(G, O^∨) is the set of G^∨-classes of s with AZ(L(s)) = π(s, e, triv), e ∈ O^∨ ((8.1)); these sets partition the K-spherical dual. For a Lie triple (e^∨, h^∨, f^∨) of O^∨, s = q^{h^∨/2} ∈ Sph(G, O^∨) is the central point. For s ∈ T^∨ write s = q^{ℜ(s)} s_c with ℜ(s) ∈ t^∨_ℝ and Sph(G, O^∨)₀ for the set of real parts. SU(G) is the spherical unitary dual (s with L(s) unitarizable), CS(G, O^∨) = SU(G) ∩ Sph(G, O^∨) the spherical complementary series attached to O^∨, and CS(G, O^∨)₀ its real parts; SU(G) = ⊔ CS(G, O^∨). Z(O^∨) = C_{G^∨}(e^∨, h^∨, f^∨) is reductive, possibly disconnected, with Lie algebra z(O^∨); G(O^∨) is the split group dual to Z(O^∨)°; choosing a Cartan subalgebra a^∨ ⊆ z(O^∨) inside t^∨, for s with trivial or central compact part, ℜ(s) ∈ Sph(G, O^∨)₀ can be written ℜ(s) = ½h^∨ + ν with ν ∈ a^∨_ℝ, regarded as a parameter in Sph(G(O^∨), 0)₀ ((8.2)).",
    "hypotheses": [
-    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
+    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
    ],
    "proofSteps": [
     "The partition: each L(s) has exactly one AZ dual, whose KL triple has e in the open orbit of g^∨_q (kazhdan-lusztig-classification (4)); its G^∨-saturation is O^∨.",
@@ -5326,8 +5477,8 @@
     "The decomposition ℜ(s) = ½h^∨ + ν with ν in the centraliser follows from Barbasch–Moy's characterisation of O(χ) (Barbasch–Ciubotaru §1.3, (1.3.1)–(1.3.2)); the existence of Lie triples and the reductivity of Z(O^∨) are nilpotent-orbit inputs (gaps: nilpotent-orbit owner pending)."
    ],
    "acceptance": [
-    "For O^∨ = 0, Sph(G, 0) = {s : g^∨_q = 0} up to the open-orbit condition, the generic spherical representations; CS(G, 0)₀ is U₀^g up to W (SRU.5).",
-    "For O^∨ regular, Sph(G, O^∨) = {q^ρ}, the trivial representation, whose AZ dual is St."
+    "For O^∨=0, the real slice {ν | q^ν∈CS(G,0)} equals U₀^g up to W. This does not identify all real parts CS(G,0)₀ when arbitrary compact parts are allowed.",
+    "For regular O^∨ the real slice is {q^ρ}; the full stratum also contains central compact twists zq^ρ. For PGL₂ the two choices of z give the trivial and unramified quadratic characters."
    ],
    "prerequisites": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/kazhdan-lusztig-classification",
@@ -5393,7 +5544,7 @@
     {
      "name": "realPart_decomposition",
      "role": "characterisation",
-     "statement": "Every ℜ(s) ∈ Sph(G, O^∨)₀ is W-conjugate to ½h^∨ + ν with ν in a Cartan subalgebra of z(O^∨)."
+     "statement": "For s with trivial or central compact part, every ℜ(s) ∈ Sph(G, O^∨)₀ is W-conjugate to ½h^∨ + ν with ν in a Cartan subalgebra of z(O^∨)."
     }
    ],
    "tests": [
@@ -5405,7 +5556,7 @@
     {
      "name": "complementarySeries_zero_eq",
      "kind": "compatibility",
-     "statement": "CS(G, 0)₀ ∩ C₀ = U₀^g of SRU.5 generic-unitary-region."
+     "statement": "The real-parameter slice {ν ∈ C₀ | q^ν ∈ CS(G,0)} equals U₀^g. The real parts of the full stratum with arbitrary compact parts need not equal U₀^g: the noncentral G₂ witness gives a strict extra point."
     },
     {
      "name": "centralPoint_regular",
@@ -5436,7 +5587,7 @@
    "kind": "theorem",
    "statement": "In the setting of nilpotent-partition, for every nilpotent O^∨ the spherical representation L(q^{h^∨/2}) at the central point is unitarizable (Ciubotaru–Harris §8.1).",
    "hypotheses": [
-    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
+    "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple, adjoint and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting)."
    ],
    "proofSteps": [
     "L(q^{h^∨/2}) = AZ(π(q^{h^∨/2}, e^∨, triv)) with the second tempered (nilpotent-partition, step 2).",
@@ -5466,13 +5617,14 @@
    ],
    "title": "Complementary series reduce to the triple centraliser",
    "kind": "theorem",
-   "statement": "In the setting of nilpotent-partition, with G of connected centre or adjoint as in Ciubotaru–Harris §8: if O^∨ is not the orbit 4A₁ of E₈, s ∈ CS(G, O^∨) and ℜ(s) = ½h^∨ + ν with ν ∈ Sph(G(O^∨), 0)₀, then ν ∈ CS(G(O^∨), 0)₀ (Ciubotaru–Harris Theorem 8.3). For 4A₁ in E₈ the complementary series has an extra region beyond that of the centraliser C₄ (e8-4a1-exclusion).",
+   "statement": "In the setting of nilpotent-partition, with G of connected centre or adjoint as in Ciubotaru–Harris §8: assuming s has trivial or central compact part, if O^∨ is not the orbit 4A₁ of E₈, s ∈ CS(G, O^∨) and ℜ(s) = ½h^∨ + ν with ν ∈ Sph(G(O^∨), 0)₀, then ν ∈ CS(G(O^∨), 0)₀ (Ciubotaru–Harris Theorem 8.3). For 4A₁ in E₈ the complementary series has an extra region beyond that of the centraliser C₄ (e8-4a1-exclusion).",
    "hypotheses": [
     "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting).",
-    "O^∨ ≠ 4A₁ ⊂ E₈."
+    "O^∨ ≠ 4A₁ ⊂ E₈.",
+    "s=q^{ℜ(s)} or s=zq^{ℜ(s)} with z compact and central in the full dual group; strip the corresponding unitary unramified character twist first. No assertion here covers arbitrary noncentral compact part."
    ],
    "proofSteps": [
-    "By SRU.5 barbasch-moy-unitarity, unitarity of L(s) is unitarity of the spherical module of the graded Hecke algebra at ℜ(s); Barbasch–Moy's reduction relates parameters ½h^∨ + ν to the graded algebra of the centraliser.",
+    "Strip a central compact part using its unitary unramified character twist (with the full root datum retained). For the remaining real parameter, use the real graded-Hecke equivalence. For noncentral compact part the relevant graded root system is that of Z_{G^∨}(s_c), so replacing it by G^∨ at ℜ(s) would be invalid.",
     "The classification of the spherical unitary dual (Barbasch for classical types, Ciubotaru for F₄ and E₆, Barbasch–Ciubotaru for E₇, E₈) shows, case by case, that the ν occurring are in the zero complementary series of G(O^∨), except for 4A₁ in E₈; the case analysis is cited."
    ],
    "acceptance": [
@@ -5623,7 +5775,7 @@
    ],
    "title": "Extraneous points for exceptional duals",
    "kind": "theorem",
-   "statement": "In the setting of extraneous-point, with G of connected centre and s = s_c q^ν with s_c = 1 or s_c central in G^∨: the extraneous real parts occur only for O^∨ = B₃ (real part ω₁ + ½ω₃ + ½ω₄, corrected from the printed ω₁ + ω₂ + ½ω₃ + ½ω₄, PAPER-CIUBOTARU-HARRIS-26/E5) and Ã₁ + A₁ (½ω₁ + ½ω₄) in F₄; D₅(a₁) + A₁ in E₇ (½(ω₁ + ω₂ + ω₃ + ω₆ + ω₇)); and D₆, A₆, A₄ + A₂, A₂ + 2A₁ in E₈ (Ciubotaru–Harris Theorem 8.5(3)–(5)); there are none for G₂ and E₆ in this sector. Without the restriction on s_c the list is not exhaustive: the G₂ witness (SRU.5 g2-noncentral-witness) gives a geometric unitary s ∈ CS(G₂, 0) with real part ½ω₂ ≠ 0 (PAPER-CIUBOTARU-HARRIS-26/E18).",
+   "statement": "In the setting of extraneous-point, with G of connected centre and s = s_c q^ν with s_c = 1 or s_c central in G^∨: the extraneous real parts occur only for O^∨ = B₃ (real part ω₁ + ½ω₃ + ½ω₄, corrected from the printed ω₁ + ω₂ + ½ω₃ + ½ω₄, PAPER-CIUBOTARU-HARRIS-26/E5) and Ã₁ + A₁ (½ω₁ + ½ω₄) in F₄; D₅(a₁) + A₁ in E₇ (½(ω₁ + ω₂ + ω₃ + ω₆ + ω₇)); and the following four E₈ points: D₆ (centraliser B₂), ω₁+½ω₄+½ω₆+ω₈; A₆ (centraliser 2A₁), ½ω₁+½ω₄+½ω₇+½ω₈; A₄+A₂ (centraliser 2A₁), ½ω₁+½ω₅+½ω₈; A₂+2A₁ (centraliser B₃+A₁), ½ω₂+½ω₈ (Ciubotaru–Harris Theorem 8.5(3)–(5)); there are none for G₂ and E₆ in this sector. Without the restriction on s_c the list is not exhaustive: the G₂ witness (SRU.5 g2-noncentral-witness) gives a geometric unitary s ∈ CS(G₂, 0) with real part ½ω₂ ≠ 0 (PAPER-CIUBOTARU-HARRIS-26/E18).",
    "hypotheses": [
     "k a nonarchimedean local field (any characteristic) with residue field 𝔽_q, G = 𝐆(k) with 𝐆 quasi-simple and split, I ⊂ K = 𝐆(O) an Iwahori subgroup, G^∨ the complex dual group with Lie algebra g^∨ (Ciubotaru–Harris §8 setting).",
     "G of connected centre",
@@ -5668,7 +5820,8 @@
    "proofSteps": [
     "Adjoint half-integrality forces all νᵢ ∈ ½ℤ_{≥0} or all in ¼ + ½ℤ (the second case is empty in these coordinates, E14).",
     "In the first case ν₁ + ν₄ < 1 and ν₂ + ν₄ > 1 are incompatible with νᵢ ∈ ½ℤ; in the second, ν₄ = ¾ forces ν₂ = ν₃ = ¾, contradicting ν₂ + ν₃ < 1.",
-    "The region {ν₄ < ½} is CS(C₄, 0) and is handled by extraneous-exceptional as for other orbits."
+    "The region {ν₄ < ½} is CS(C₄, 0) and is handled by extraneous-exceptional as for other orbits.",
+    "The two E₈ lattice cases are checked separately: half-integer coordinates and ν₄<1 give ν₄≤½, contradicting ν₂+ν₄>1; quarter-integer coordinates give ν₄=¾ and ν₂>¼, hence ν₂≥¾ and ν₂+ν₃≥3/2, contradicting ν₂+ν₃<1. This also fixes the switched case labels in CH26 §8.3; the suggested Lean inequalities express these same two cases."
    ],
    "acceptance": [
     "The point ν = (½, ½, ½, ½) violates ν₁ + ν₄ < 1; the point (¼, ¾, ¾, ¾) violates ν₂ + ν₃ < 1."
@@ -5782,55 +5935,75 @@
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "Godement integrated positive-type theorem: Supply the positive L¹-functional representation theorem, its nondegenerate integrated GNS construction and recovery of a continuous positive-type representative, including the modular-function involution for a general locally compact group. BHV Lemma C.5.3, p. 382, only cites this input. OperatorAlgebraDynamics D1–D2 supplies group C*-algebras and C*-GNS, but the L¹ comparison needed here was not located. This is a proof prerequisite, not a lemma-level refinement.",
+    "Finite products and Fell topology: The abstract relative-isolation conclusion is proved. Its advertised finite-product application additionally needs the type-I tensor-product classification for reductive p-adic groups and compatibility of the resulting product dual with Fell topology. The compact-factor argument uses the upstream M0 isotypic projectors; neither a full product-dual theorem nor its exact supplier was located in the read sources. Keep the application conditional until supplied.",
     "Decompose Raikov's theorem and Lemma C.5.3 (Godement's integrated positive type) into lemma nodes over a fixed approximate identity.",
     "Record the comparison of coefficient weak containment with C*-kernel weak containment once NoncompactQuantumSymmetry (TauCetiRoadmap PR #1015) is in the atlas; that comparison is owned there."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Refine Bernstein's admissibility theorem into the polynomial-identity steps once an owner for PI C*-algebras exists (gap 'Bernstein's admissibility: the PI input')."
+    "Bernstein's admissibility: the polynomial-identity input: The passage from the uniform bound on simple H(G, K)-modules (SR.3a uniform-admissibility) to finite-dimensionality of H^K for a topologically irreducible unitary π uses polynomial identities of C*-algebras (Godement, Kaplansky), as Bernstein–Zelevinsky §4.21 indicate. No roadmap owns PI theory for C*-algebras; the step is cited.",
+    "Refine Bernstein's admissibility theorem into the polynomial-identity steps once an owner for PI C*-algebras exists (gap 'Bernstein's admissibility: the PI input').",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "Miličić's theorem: the C*-algebraic input: Miličić's Theorem 5 is a statement about C*-algebras with bounded trace and the topology of their spectra. The group C*-algebra exists upstream (OperatorAlgebraDynamics D1–D2, TauCetiRoadmap main) and the GCR and hull-kernel comparisons are in the open NoncompactQuantumSymmetry roadmap (PR #1015), but the bounded-trace theory and Miličić's limit theorem are not planned anywhere. milicic-limits states the theorem as Gan–Savin use it; its C*-algebraic proof is this gap.",
+    "Tempered dual local topology: Supply the finite-level local structure of Harish–Chandra’s tempered dual and the argument excluding a discrete series from limits of proper-Levi inductions when the centre is compact. SRup SR.3.3 harish-chandra-tempered-support states decomposition and uniqueness, not the needed topology. Convergence of Bernstein parameters alone is insufficient; retain the isolation theorem as a target with this input open.",
     "Decompose Miličić's theorem through the bounded-trace property of the group C*-algebra (gap 'Miličić's theorem: the C*-algebraic input').",
-    "Make explicit the continuity of the characters of i_Q(δ ⊗ ψ) in the unitary unramified parameter ψ used in Tadić's compactness of tempered characters."
+    "Make explicit the continuity of the characters of i_Q(δ ⊗ ψ) in the unitary unramified parameter ψ used in Tadić's compactness of tempered characters.",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Write the 2^r exponent sets of Rodier's decomposition explicitly for the split simple types, as needed by steinberg-series-unitary."
+    "Finite Steinberg and Rodier constituent combinatorics: Supply the finite Coxeter-complex/Solomon alternating-character identity identifying the finite-Hecke sign representation with the alternating parabolic sum, and Rodier’s precise multiplicity-one constituent/exponent description for the principal series containing St. CIK71 §4, pp. 94–95, verifies the finite sign character and degree; GS23 §11.1, pp. 31–32, supplies the Rodier statement secondarily. An entire Boolean product description of the submodule lattice is not implied and is not asserted.",
+    "Howe–Moore contraction lemma: The full contraction/Mautner propagation argument, from a weak cluster vector along an escaping Cartan sequence to G⁺-invariance, is nonroutine and is not supplied by Cartan decomposition alone. CCLTV §1, pp. 1–2, supports the all-characteristic G⁺ statement but cites the semisimple-group theorem. Locate and plan this proof without importing the characteristic-zero-only relative theorem.",
+    "Write the 2^r exponent sets of Rodier's decomposition explicitly for the split simple types, as needed by steinberg-series-unitary.",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "Noncentral compact parts: classification of geometric unitary spherical parameters for arbitrary s_c: Corollaries 6.32 and 7.5 and Theorem 8.5 of Ciubotaru–Harris hold as stated only for real or central-compact Satake parameters (PAPER-CIUBOTARU-HARRIS-26/E11, E18); the G₂ witness shows the printed general statements fail. A general statement requires, for each compact s_c, the unitary spherical dual of the graded Hecke algebra of Z_{G^∨}(s_c) with its parameters (noncentral-compact-reduction), its geometric real parts, and the lifting of centraliser orbits. No source read for this plan proves it; the Ciubotaru–Harris route brief names it as a new exhaustive target. The global consumer (the Ramanujan–Arthur route GlobalShtukasPartIIRamanujanArthur of DESIGN-GlobalShtukasAndFunctionFieldLanglandsPartII) must keep the real/central-compact hypothesis at each place until this is supplied.",
+    "Hecke signatures, isogenies and genericity transfer: The classification uses explicit long-intertwiner signature calculations (BCP §5.2, pp. 53–54; BC1 §3) rather than decay alone. For the nonsplit transfer, use BC3 Theorems 1.3.1 and 1.4.1 plus Corollary 6.2.6, including transport of the generic/sign condition and the central-isogeny adapter Sp(2n) versus adjoint PSp(2n). The split-only Barbasch–Moy K-type theorem is not itself a nonsplit supplier. Record a characteristic-independent affine/graded-Hecke formulation before applying the characteristic-zero group statements over function fields; CH26 §7 uses this extension but does not prove these adapters.",
     "Decompose the cited case analyses of Theorem 6.9 (Barbasch, Ciubotaru, Barbasch–Ciubotaru) into W-type signature computations per type.",
-    "Make explicit, for each type, the list of coroots of the maximal level r₀ from the cited classification tables (Barbasch Theorem 3.1, Ciubotaru F₄ and E₆, Barbasch–Ciubotaru §7.2)."
+    "Make explicit, for each type, the list of coroots of the maximal level r₀ from the cited classification tables (Barbasch Theorem 3.1, Ciubotaru F₄ and E₆, Barbasch–Ciubotaru §7.2).",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.6",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Expand Barbasch–Ciubotaru's *-isomorphism of graded Hecke algebras (BC3 §6.1–6.2) into nodes for each line of Table 1."
+    "Hecke signatures, isogenies and genericity transfer: The classification uses explicit long-intertwiner signature calculations (BCP §5.2, pp. 53–54; BC1 §3) rather than decay alone. For the nonsplit transfer, use BC3 Theorems 1.3.1 and 1.4.1 plus Corollary 6.2.6, including transport of the generic/sign condition and the central-isogeny adapter Sp(2n) versus adjoint PSp(2n). The split-only Barbasch–Moy K-type theorem is not itself a nonsplit supplier. Record a characteristic-independent affine/graded-Hecke formulation before applying the characteristic-zero group statements over function fields; CH26 §7 uses this extension but does not prove these adapters.",
+    "Expand Barbasch–Ciubotaru's *-isomorphism of graded Hecke algebras (BC3 §6.1–6.2) into nodes for each line of Table 1.",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   },
   {
    "stageId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables: The nilpotent partition of the spherical dual needs: existence and conjugacy of sl₂-triples through a nilpotent e (Jacobson–Morozov, Kostant); reductivity and component groups of Z_{G^∨}(e, h, f); finiteness of Z_{G^∨}(s)-orbits on the q-eigenspace g^∨_q with a unique open orbit; and, for the exceptional cases of Theorem 8.5, the list of nilpotent orbits with the types of their reductive centralisers. TauCetiRoadmap LieHighestWeight stops at sl₂ and finite-dimensional irreducibles. The owner is the pending design DESIGN-LieHighestWeightPartII (issue #3373), which receives the Ciubotaru–Harris route LieHighestWeightPartIINilpotentOrbits and the Mao–Wan–Zhang route; this roadmap imports it once planned.",
+    "Kazhdan–Lusztig classification: the equivariant K-theory realisation: Kazhdan–Lusztig's proof realises the affine Hecke algebra in the G^∨ × ℂ^×-equivariant K-theory of the Steinberg variety and classifies simple modules through standard modules in the homology of fixed-point varieties of Springer fibres; Reeder extends it to all isogenies. No roadmap in the atlas plans this equivariant K-theory; DESIGN-SpringerResolutionAndCharacteristicCycles plans the Steinberg variety's geometry but not its K-theory. The classification is stated here as a cited theorem with its spherical, tempered and generic criteria.",
+    "Noncentral compact parts: classification of geometric unitary spherical parameters for arbitrary s_c: Corollaries 6.32 and 7.5 and Theorem 8.5 of Ciubotaru–Harris hold as stated only for real or central-compact Satake parameters (PAPER-CIUBOTARU-HARRIS-26/E11, E18); the G₂ witness shows the printed general statements fail. A general statement requires, for each compact s_c, the unitary spherical dual of the graded Hecke algebra of Z_{G^∨}(s_c) with its parameters (noncentral-compact-reduction), its geometric real parts, and the lifting of centraliser orbits. No source read for this plan proves it; the Ciubotaru–Harris route brief names it as a new exhaustive target. The global consumer (the Ramanujan–Arthur route GlobalShtukasPartIIRamanujanArthur of DESIGN-GlobalShtukasAndFunctionFieldLanglandsPartII) must keep the real/central-compact hypothesis at each place until this is supplied.",
+    "Aubert corrected proof and KL arbitrary-isogeny dictionary: Aubert’s original §1 (pp. 2181–2183) was accessible, but the full §2–3 PDF and the 1996 erratum (Trans. AMS 348, pp. 4687–4690, DOI 10.1090/S0002-9947-96-01776-X) were not. Ban02 Theorem 3.1, p. 678, confirms the irreducibility/involution endpoint with the erratum in its bibliography, but the corrected resolution proof and the asserted extension to positive characteristic have not been independently checked. The simplified KL spherical/generic dictionary is now restricted to split adjoint groups; arbitrary isogeny needs the Reeder component-group and fixed-Whittaker refinements, including e=0 plus trivial enhancement for spherical modules.",
     "Plan the nilpotent-orbit inputs once DESIGN-LieHighestWeightPartII is accepted (gap 'Nilpotent orbits of g^∨').",
-    "The arbitrary-compact classification of geometric unitary spherical parameters (gap 'Noncentral compact parts')."
+    "The arbitrary-compact classification of geometric unitary spherical parameters (gap 'Noncentral compact parts').",
+    "Retain the explicit proof prerequisites above; no target is claimed implemented or proof-closed."
    ]
   }
  ],
@@ -5875,6 +6048,68 @@
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-irreducibles-admissible"
    ],
    "detail": "The passage from the uniform bound on simple H(G, K)-modules (SR.3a uniform-admissibility) to finite-dimensionality of H^K for a topologically irreducible unitary π uses polynomial identities of C*-algebras (Godement, Kaplansky), as Bernstein–Zelevinsky §4.21 indicate. No roadmap owns PI theory for C*-algebras; the step is cited."
+  },
+  {
+   "title": "Godement integrated positive-type theorem",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/positive-type-integral-form"
+   ],
+   "detail": "Supply the positive L¹-functional representation theorem, its nondegenerate integrated GNS construction and recovery of a continuous positive-type representative, including the modular-function involution for a general locally compact group. BHV Lemma C.5.3, p. 382, only cites this input. OperatorAlgebraDynamics D1–D2 supplies group C*-algebras and C*-GNS, but the L¹ comparison needed here was not located. This is a proof prerequisite, not a lemma-level refinement.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Finite products and Fell topology",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/gan-savin-isolated-summand"
+   ],
+   "detail": "The abstract relative-isolation conclusion is proved. Its advertised finite-product application additionally needs the type-I tensor-product classification for reductive p-adic groups and compatibility of the resulting product dual with Fell topology. The compact-factor argument uses the upstream M0 isotypic projectors; neither a full product-dual theorem nor its exact supplier was located in the read sources. Keep the application conditional until supplied.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Finite Steinberg and Rodier constituent combinatorics",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/finite-steinberg",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/rodier-steinberg-series"
+   ],
+   "detail": "Supply the finite Coxeter-complex/Solomon alternating-character identity identifying the finite-Hecke sign representation with the alternating parabolic sum, and Rodier’s precise multiplicity-one constituent/exponent description for the principal series containing St. CIK71 §4, pp. 94–95, verifies the finite sign character and degree; GS23 §11.1, pp. 31–32, supplies the Rodier statement secondarily. An entire Boolean product description of the submodule lattice is not implied and is not asserted.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Howe–Moore contraction lemma",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/howe-moore"
+   ],
+   "detail": "The full contraction/Mautner propagation argument, from a weak cluster vector along an escaping Cartan sequence to G⁺-invariance, is nonroutine and is not supplied by Cartan decomposition alone. CCLTV §1, pp. 1–2, supports the all-characteristic G⁺ statement but cites the semisimple-group theorem. Locate and plan this proof without importing the characteristic-zero-only relative theorem.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Hecke signatures, isogenies and genericity transfer",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/unbounded-not-unitary",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/generic-unitary-classification",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/nonsplit-unitary-transfer",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/odd-unitary-residual"
+   ],
+   "detail": "The classification uses explicit long-intertwiner signature calculations (BCP §5.2, pp. 53–54; BC1 §3) rather than decay alone. For the nonsplit transfer, use BC3 Theorems 1.3.1 and 1.4.1 plus Corollary 6.2.6, including transport of the generic/sign condition and the central-isogeny adapter Sp(2n) versus adjoint PSp(2n). The split-only Barbasch–Moy K-type theorem is not itself a nonsplit supplier. Record a characteristic-independent affine/graded-Hecke formulation before applying the characteristic-zero group statements over function fields; CH26 §7 uses this extension but does not prove these adapters.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Aubert corrected proof and KL arbitrary-isogeny dictionary",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/aubert-involution",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/kazhdan-lusztig-classification"
+   ],
+   "detail": "Aubert’s original §1 (pp. 2181–2183) was accessible, but the full §2–3 PDF and the 1996 erratum (Trans. AMS 348, pp. 4687–4690, DOI 10.1090/S0002-9947-96-01776-X) were not. Ban02 Theorem 3.1, p. 678, confirms the irreducibility/involution endpoint with the erratum in its bibliography, but the corrected resolution proof and the asserted extension to positive characteristic have not been independently checked. The simplified KL spherical/generic dictionary is now restricted to split adjoint groups; arbitrary isogeny needs the Reeder component-group and fixed-Whittaker refinements, including e=0 plus trivial enhancement for spherical modules.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+  },
+  {
+   "title": "Tempered dual local topology",
+   "neededBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/discrete-series-isolated-tempered",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/tadic-tempered-limits"
+   ],
+   "detail": "Supply the finite-level local structure of Harish–Chandra’s tempered dual and the argument excluding a discrete series from limits of proper-Levi inductions when the centre is compact. SRup SR.3.3 harish-chandra-tempered-support states decomposition and uniqueness, not the needed topology. Convergence of Bernstein parameters alone is insufficient; retain the isolation theorem as a target with this input open.",
+   "addedBy": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
   }
  ],
  "restructure": [
@@ -5951,6 +6186,19 @@
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/strongly-continuous-unitary"
    ],
    "note": "Boundary only: group C*-algebras and amenability are owned there; this roadmap works with coefficients."
+  },
+  {
+   "roadmap": "TauCetiRoadmap/OperatorTheory/PolarDecomposition",
+   "status": "TauCetiRoadmap main 350e970ce49f707a327909beac0b7b7c782cc7ee (post-snapshot; no atlas stage id)",
+   "sourceId": "PD",
+   "sections": [
+    "Part B PD-B24–B34: bounded rectangular polar factor, its initial space (ker T)⊥ and final space closure(range T)"
+   ],
+   "usedBy": [
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/gns-construction",
+    "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/weak-containment"
+   ],
+   "note": "Consume the existing polar decomposition. Equivariance follows from uniqueness of the polar factor applied to U₂(g) T U₁(g)⁻¹=T; no new polar-decomposition roadmap or node is planned here."
   }
  ],
  "upstreamNotes": [
@@ -5965,7 +6213,8 @@
     "tauceti:TauCetiRoadmap/NoncompactQuantumSymmetry"
    ],
    "note": "Open PR #1015 owns the bounded unitary Schur lemma, compact-group isotypic projectors on strongly continuous unitary representations and the comparison of C*-kernel weak containment with coefficient weak containment. This Part II uses the first two (upstreamImports) and defines coefficient weak containment and the Fell topology on the unitary dual ([BHV] F.1–F.2), with Raikov's theorem; the comparison targets of NoncompactQuantumSymmetry can point at those definitions."
-  }
+  },
+  "Independent review: consume OperatorTheory/PolarDecomposition PD-B24–B36 from current main. Current Tau Ceti a91d3a has additive GNS in Analysis/PositiveDefinite/Function/GNS.lean under AddCommGroup; it does not supply the nonabelian construction. Continuous/Schur and Unitary/Equivalence use finite-dimensional hypotheses, so they do not replace the Hilbert Schur supplier. The library-coverage audit’s OneParameterSemigroups Part C confirms the kernel/Kolmogorov overlap, already imported here."
  ],
  "routeCoverage": [
   {
@@ -6287,7 +6536,12 @@
    "searched": [
     "arXiv:2209.07346 versions v1–v2 (v2 is the last)",
     "Crossref record of 10.1017/fmp.2023.27 (no update or erratum relation), checked 2026-10-02 by the paper extraction and again 2026-10-18"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the published GS23 PDF, p. 32; finite-group character orthogonality gives the missing dim τ factor. The nonvanishing argument survives.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "SmoothRepresentationsOfLocalGroupsPartII/E2",
@@ -6302,7 +6556,12 @@
    "searched": [
     "arXiv:2311.15300 lists only v1 (checked 2026-10-18 through the arXiv API; recorded also 2026-09-29 and 2026-10-02 by the paper extraction)",
     "Annals 204 (2026) 545–601 article page: no PDF served, no erratum linked (per the paper extraction's searches)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed for CH26 v1 p. 17 with its positive valuation convention: at ν=ρ the induced representation contains constants, so L(ρ) is the subrepresentation. This does not assert an error in the uncollated Annals revision.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "SmoothRepresentationsOfLocalGroupsPartII/E3",
@@ -6317,7 +6576,12 @@
    "searched": [
     "arXiv:2311.15300 lists only v1 (2026-10-18)",
     "The paper extraction's errata searches of 2026-09-23 to 2026-10-02 (no correction found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a proof gap, not a counterexample to part (2): CH26 v1 p. 25 invokes a real-parameter proposition without applying it to the compact-part centraliser. The packet keeps the corrected scope.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   }
  ],
  "sourceIssueReferences": [
@@ -6327,7 +6591,12 @@
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/gan-savin-closure",
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/gan-savin-isolated-summand"
    ],
-   "note": "Proposition 11.6 stated in the Fell-closure form."
+   "note": "Proposition 11.6 stated in the Fell-closure form.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "GS23 pp. 32–33 yields closure. An isolated representation appearing once, followed by a constant inequivalent sequence, disproves an infinite-subsequence conclusion.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E11",
@@ -6336,7 +6605,12 @@
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/g2-noncentral-witness",
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/nonsplit-generic-temperedness"
    ],
-   "note": "Corollaries 6.32(1) and 7.5 restricted to real or central-compact parameters."
+   "note": "Corollaries 6.32(1) and 7.5 restricted to real or central-compact parameters.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CH26 v1 Corollary 6.32 and §7 use real classification; the independently checked G₂ involution witness has a noncentral compact part and nonzero geometric real part.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E18",
@@ -6344,35 +6618,60 @@
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-exceptional",
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-classical"
    ],
-   "note": "Theorem 8.5 and Remark 8.7 restricted to the real or central-compact sector."
+   "note": "Theorem 8.5 and Remark 8.7 restricted to the real or central-compact sector.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The same G₂ witness has nilpotent stratum zero; the exhaustive real-part list cannot include arbitrary compact parts.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E5",
    "usedBy": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-exceptional"
    ],
-   "note": "Corrected F₄, B₃ real part ω₁ + ½ω₃ + ½ω₄."
+   "note": "Corrected F₄, B₃ real part ω₁ + ½ω₃ + ½ω₄.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CH26 v1 Theorem 8.5 gives F₄ B₃ coordinates (5/2,1,1/2,0); the stated fundamental-weight expression with an extra ω₂ does not produce them. The corrected expression does.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E8",
    "usedBy": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/generic-unitary-classification"
    ],
-   "note": "Theorem 6.9 uses the hermitian locus C_{0,h}."
+   "note": "Theorem 6.9 uses the hermitian locus C_{0,h}.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CH26 v1 Theorem 6.9 must be intersected with the hermitian locus; BC1 §3.1–3.2 makes the w₀ν=−ν condition explicit.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E2",
    "usedBy": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-classical"
    ],
-   "note": "'j odd' in the proof of Theorem 8.5(1) read as 'j even'."
+   "note": "'j odd' in the proof of Theorem 8.5(1) read as 'j even'.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CH26 v1 proof of Theorem 8.5(1): the odd centraliser multiplicity space occurs for even Jordan size j, matching the subsequent argument.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26/E14",
    "usedBy": [
     "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/e8-4a1-exclusion"
    ],
-   "note": "Case labels in §8.3 corrected."
+   "note": "Case labels in §8.3 corrected.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "CH26 v1 §8.3 switches the two coordinate-lattice case labels. The two inequalities in the corrected node and Lean file exclude each actual lattice case.",
+    "by": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII"
+   }
   }
  ],
  "sourceVersions": [
@@ -6395,5 +6694,448 @@
    "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
    "citation": "Ciubotaru–Harris; the Annals version (revised 8 October 2025) was not served, so findings are scoped to v1"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII",
+  "date": "2026-10-18",
+  "notes": "Independent target-level review of all 87 nodes, all 32 pinned baseline declarations, every definition API/test, source issues and ownership. Corrections are in place. The review pass is finished; the packet remains partial with seven partial stages and precise proof gaps, not a proof-closed plan. CH26 findings concern v1, not the uncollated Annals revision. Aubert corrected-proof access is explicitly limited and its endpoint corroborated by Ban02. No source passages are reproduced.",
+  "checked": [
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/strongly-continuous-unitary",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 9 API entries and 4 checks inspected. Locators: GS23 §11, opening paragraph, pp. 30–31; BHV Appendix A.1 conventions as used in Definition F.1.1, p. 420, and Proposition C.4.3, p. 374; NQS M0, first paragraph"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/hilbert-direct-sum",
+    "verdict": "corrected",
+    "note": "Corrected a test that failed for zero summands and used the norm bound valid also on the zero space. 5 API entries and 4 checks inspected. Locators: GS23 §11.2, Proposition 11.6 and proof, p. 33; BHV Exercise F.6.4, p. 444; Proposition F.2.7, p. 429"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/positive-type-function",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 11 API entries and 5 checks inspected. Locators: BHV Definition C.4.1 and Proposition C.4.2, p. 373; BHV §C.5, opening definitions, p. 379 (P(G), P₁(G)); before Lemma C.5.4, p. 382 (P≤1(G)); GS23 §11.2, proof of Proposition 11.6, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/positive-type-coefficient",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 8 API entries and 4 checks inspected. Locators: BHV Proposition C.4.3, p. 374; GS23 §11.1, definition of limit points, p. 31; Definition 11.5, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/gns-construction",
+    "verdict": "corrected",
+    "note": "Replaced the false isometric-adjoint step by polar decomposition; current additive GNS only handles abelian groups. 8 API entries and 4 checks inspected. Locators: BHV Theorem C.4.10 and Definition C.4.11, pp. 376–377; BHV Proposition C.5.1, p. 379; BHV Appendix A.1, Proposition A.1.4, pp. 307–308; PD Part B, PD-B24–B34; PD-B36 (uniqueness)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/unitary-dual",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 6 API entries and 4 checks inspected. Locators: BHV §F.2, opening paragraph, p. 427; Remark C.4.13, p. 378; GS23 §11, opening paragraph and §11.1, pp. 30–31"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/pure-iff-irreducible",
+    "verdict": "corrected",
+    "note": "Corrected the disjoint-subrepresentations argument using cyclicity and the invariant projection. Locators: BHV Theorem C.5.2 and its proof, pp. 380–381; BHV Theorem C.5.5(i) and proof, p. 383; GS23 §11.2, proof of Proposition 11.6, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.0/smooth-vectors-unitary",
+    "verdict": "corrected",
+    "note": "Updated the deprecated projection prerequisite and added completeness to the suggested density theorem. 9 API entries and 4 checks inspected. Locators: Cas95 §2.1, definition of P_K and the sentence after it, p. 20; GS23 §11.1, proof of Proposition 11.3, p. 32; GS23 §11, opening paragraph, pp. 30–31; NQS M0, Peter–Weyl extension paragraph"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/weak-containment",
+    "verdict": "corrected",
+    "note": "Repaired the missing mixed-vector argument in the total-set criterion. 9 API entries and 4 checks inspected. Locators: BHV Definition F.1.1, Remark F.1.2, Lemma F.1.3, pp. 420–422; GS23 §11.2, Definition 11.5, p. 33; BHV Appendix F.1, Lemma F.1.3 and proof, pp. 421–423; Appendix A.1, Proposition A.1.4, pp. 307–308; PD Part B, PD-B24–B34; PD-B36 (uniqueness)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/milman-converse",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BHV Proof of Proposition F.1.4, p. 423; GS23 §11.2, proof of Proposition 11.6, p. 33; CitedOnly J. B. Conway, A course in functional analysis, 2nd ed., Theorem V.7.8 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/positive-type-integral-form",
+    "verdict": "corrected",
+    "note": "Removed an unsupported equicontinuity assertion and exposed the integrated-GNS analytic prerequisite. Proof closure remains conditional on the explicit gaps: Godement integrated positive-type theorem. Locators: BHV Lemma C.5.3, p. 382; CitedOnly G. B. Folland, A course in abstract harmonic analysis, (3.35); J. Dixmier, Les C*-algèbres et leurs représentations, 13.4.4 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/positive-type-weak-star-compact",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BHV Lemma C.5.4 and Theorem C.5.5, pp. 382–383; GS23 §11.2, proof of Proposition 11.6, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/raikov",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BHV Theorem C.5.6 and proof, Remark C.5.7, Proposition C.5.8, pp. 384–386; GS23 §11.2, proof of Proposition 11.6, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/irreducible-weak-containment",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BHV Proposition F.1.4 and its proof, p. 423; GS23 §11.2, proof of Proposition 11.6, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/fell-topology",
+    "verdict": "corrected",
+    "note": "Completed the basis axiom and repaired closure versus sequence convergence; recorded the exhaustion hypothesis. 12 API entries and 4 checks inspected. Locators: BHV Definition F.2.1, Propositions F.2.2 and F.2.4, Example F.2.5, Definition F.2.6, pp. 427–429; GS23 §11.1, limit and cluster points, pp. 31"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/weak-containment-sum-closure",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BHV Exercise F.6.4, p. 444; GS23 §11.2, Proposition 11.6, p. 33, as corrected"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/gan-savin-closure",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.2, Proposition 11.6 and proof, p. 33; BHV Exercise F.6.4, p. 444"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.1/gan-savin-isolated-summand",
+    "verdict": "corrected",
+    "note": "Kept relative isolation (the form GI18 A.2 uses); exposed the independent product-topology prerequisite. Proof closure remains conditional on the explicit gaps: Finite products and Fell topology. Locators: GS23 §11.2, Corollary 11.7, p. 33; GS23 §10.2, proof of Proposition 10.5, pp. 28–29; §10.3, proof of Proposition 10.7, pp. 29–30; GS23 Corollary 11.7, p. 33, with the corrected Proposition 11.6; GI18 Appendix A.1, proof of Proposition A.2, arXiv v3 pp. 31–32"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-structure",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 8 API entries and 4 checks inspected. Locators: Ber92 Ch. IV §1.1, Definition 27 and Remarks 1–2, p. 83; Proposition 40, p. 85; GS23 §11, opening paragraph, p. 31; Cas95 §2.1, Proposition 2.1.5 and the paragraph after Proposition 2.1.11, pp. 20–22"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-structure-unique",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: Ber92 Ch. IV §1.1, Lemma 38 and proof, p. 84; Cas95 §2.1, Proposition 2.1.15, p. 23"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/admissible-unitary-semisimple",
+    "verdict": "corrected",
+    "note": "Kept admissibility in the finite-length consequence for a general locally profinite group. Locators: Cas95 §2.1, Propositions 2.1.5 and 2.1.14 with proof, pp. 20–23; Ber92 Ch. IV §1.2, Proposition 41 and proof, p. 86"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-induction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: Ber92 Ch. IV §1.1, Proposition 38 and remark, pp. 83–84; CH26 §6, before (6.2), p. 17"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/hilbert-completion",
+    "verdict": "corrected",
+    "note": "Restricted scalar uniqueness to irreducible admissible representations; retained uniqueness for a specified dense isometry. 6 API entries and 3 checks inspected. Locators: BZ76 §4.21, Theorem (c), p. 43; GS23 §11, opening paragraph, p. 31"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-irreducibles-admissible",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Proof closure remains conditional on the explicit gaps: Bernstein's admissibility: the polynomial-identity input. Locators: BZ76 §4.21, Theorem (a)–(b) and the sentence before it, p. 43; CitedOnly I. N. Bernstein, All reductive p-adic groups are tame, Funct. Anal. Appl. 8 (1974) (not read); SRup SR.3a.2, uniform-admissibility"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.2/unitary-dual-smooth",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11, opening paragraph, p. 31; §11.1, pp. 31–32; BZ76 §4.21, Theorem (a)–(c), p. 43"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/character-weak-convergence",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 5 API entries and 3 checks inspected. Locators: GS23 §11.1, before Theorem 11.1, p. 31; Cas95 §2.3, definition of the distribution character, p. 25"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/characters-linearly-independent",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: Cas95 §2.3, Proposition 2.3.1 (p. 25) and Corollary 2.3.2 (pp. 25–26)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/milicic-limits",
+    "verdict": "corrected",
+    "note": "Identified the nonroutine global finiteness step with the already recorded bounded-trace gap. Proof closure remains conditional on the explicit gaps: Miličić's theorem: the C*-algebraic input. Locators: GS23 §11.1, Theorem 11.1, p. 31; CitedOnly D. Miličić, On C*-algebras with bounded trace, Glasnik Mat. 8 (28) (1973), Theorem 5; M. Tadić, Glasnik Mat. 23 (1988) (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/tadic-tempered-limits",
+    "verdict": "corrected",
+    "note": "Replaced an unjustified finite-support extraction with uniform-admissibility diagonalisation and the correctly conditional Miličić theorem. Proof closure remains conditional on the explicit gaps: Tempered dual local topology. Locators: GS23 §11.1, proof of Proposition 11.2, p. 32; GS23 §10.3, proof of Lemma 10.8, p. 30; CitedOnly M. Tadić, On limits of characters of irreducible unitary representations, Glasnik Mat. 23 (1988) 15–25 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/fell-convergence-bernstein-centre",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, proof of Proposition 11.3, p. 33; CitedOnly M. Tadić, Geometry of dual spaces of reductive groups (non-Archimedean case), J. Analyse Math. 51 (1988) 139–181 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/k-types-persist",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, Lemma 11.4 and proof, p. 32"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/rodier-heredity",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: HO §1, before Theorem 1.1, p. 2; BC1 §1.2, p. 2; CitedOnly F. Rodier, Whittaker models for admissible representations of reductive p-adic split groups, Proc. Sympos. Pure Math. 26 (1973) (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/heiermann-opdam-standard-module",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: HO §1, Theorem 1.1 and Corollary 1.2, pp. 2–3; GS23 §11.1, proof of Proposition 11.2, p. 32"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/gan-savin-generic-limits",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, Proposition 11.2 and proof, pp. 31–32"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.3/discrete-series-isolated-tempered",
+    "verdict": "corrected",
+    "note": "Separated the spectral-topology input from the existing tempered-support supplier; checked ordinary versus weak unramified characters. Proof closure remains conditional on the explicit gaps: Tempered dual local topology. Locators: GS23 §11.1, proof of Proposition 11.3, pp. 32–33; §10.3, proof of Lemma 10.8, p. 30; CitedOnly M. Tadić, Geometry of dual spaces of reductive groups (non-Archimedean case), J. Analyse Math. 51 (1988) (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/finite-steinberg",
+    "verdict": "corrected",
+    "note": "Added an independently read primary locator for the sign-character construction and degree; exposed the alternating-character identity. 6 API entries and 4 checks inspected. Proof closure remains conditional on the explicit gaps: Finite Steinberg and Rodier constituent combinatorics. Locators: GS23 §11.1, proof of Proposition 11.3, p. 32; BC1 §1.1, p. 1; CIK71 §4, Lemma 4.3, Theorem 4.4 and example (b), pp. 94–95"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/steinberg-k-types",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, proof of Proposition 11.3, pp. 32–33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/barbasch-moy-genericity",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, proof of Proposition 11.3, p. 32; BC1 §1.1–1.2, pp. 1–2; CitedOnly D. Barbasch and A. Moy, Whittaker models with an Iwahori fixed vector, Contemp. Math. 177 (1994) 101–105 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/rodier-steinberg-series",
+    "verdict": "corrected",
+    "note": "Removed an unsupported Boolean submodule-lattice claim; retained the source’s constituent indexing. Proof closure remains conditional on the explicit gaps: Finite Steinberg and Rodier constituent combinatorics. Locators: GS23 §11.1, proof of Proposition 11.3, p. 33; Cas80 §3, Theorem 3.1 (p. 397) and Proposition 3.5 (p. 401); CitedOnly F. Rodier, Decomposition of principal series for reductive p-adic groups and the Langlands' classification, in Operator algebras and group representations II (Neptun 1980), Pitman 1984, 86–94 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/howe-moore",
+    "verdict": "corrected",
+    "note": "Corrected the quotient statement in positive characteristic. Corrected false uniform unit-ball decay and exposed the full contraction lemma. Proof closure remains conditional on the explicit gaps: Howe–Moore contraction lemma. Locators: CCLTV §1, opening paragraph and Theorem 1.4(2), pp. 1–2; GS23 §11.1, end of the proof of Proposition 11.3, p. 33; CH26 §6, Lemma 6.8, p. 18; CitedOnly R. Howe and C. C. Moore, Asymptotic properties of unitary representations, J. Funct. Anal. 32 (1979) 72–96, Theorem 5.1 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/steinberg-series-unitary",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §11.1, end of the proof of Proposition 11.3, p. 33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/steinberg-isolated",
+    "verdict": "corrected",
+    "note": "Supplied the Iwahori-block hypothesis before using the Levi Steinberg-type genericity criterion. Locators: GS23 §11.1, Proposition 11.3 and proof, pp. 32–33"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.4/supercuspidal-isolated",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: GS23 §10.2, proof of Proposition 10.5, p. 29; SRup SR.3.2, bernstein-decomposition and cuspidal-splitting"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/real-satake-parameter",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 9 API entries and 4 checks inspected. Locators: CH26 §6, (6.1)–(6.6) and the paragraphs between them, pp. 16–18; BC1 §1.2, (1.2.1)–(1.2.2), p. 2"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-parameter",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 6 API entries and 4 checks inspected. Locators: CH26 §6, Definition 6.3, p. 17; (6.11)–(6.13), p. 19"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/spherical-tempered-criterion",
+    "verdict": "corrected",
+    "note": "Removed a false Weyl-stability assertion from the temperedness proof. Locators: CH26 §5, Lemma 5.2 and proof, pp. 12–13"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/unramified-principal-series-irreducibility",
+    "verdict": "corrected",
+    "note": "Distinguished reducible endpoint constituents from a semisimple unitary induction. Locators: Cas80 §3, Theorem 3.1 (p. 397) and Proposition 3.5(b) (p. 401, page image checked); CH26 §6, after Definition 6.3, p. 17; BC1 §3.1, pp. 16–17; CitedOnly S. Kato, Irreducibility of principal series representations for Hecke algebras of affine type, J. Fac. Sci. Univ. Tokyo 28 (1981) (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/spherical-generic-criterion",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6, p. 17; §5, proof of Corollary 5.7, p. 15; BC1 §1.2, p. 2; §3.1, pp. 16–17"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/spherical-hermitian-criterion",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BC1 §1.2, p. 2; §3.1, pp. 16–17; CH26 §6, (6.5), p. 17"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/generic-unitary-region",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 5 API entries and 4 checks inspected. Locators: CH26 §6, (6.4)–(6.6) and the paragraph between (6.5) and (6.6), pp. 17–18"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/fundamental-alcove-unitary",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6, Lemma 6.7 and proof, p. 18; BC1 §3.1–3.2, pp. 16–17"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/unbounded-not-unitary",
+    "verdict": "corrected",
+    "note": "Replaced an invalid coefficient-asymptotics argument with the precise signature input. Proof closure remains conditional on the explicit gaps: Hecke signatures, isogenies and genericity transfer. Locators: CH26 §6, Lemma 6.8, p. 18; BCP §5.2, Lemma (2) and following explanation, p. 53"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/barbasch-moy-unitarity",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BC1 §1.1–1.2, pp. 1–2; CitedOnly D. Barbasch and A. Moy, A unitarity criterion for p-adic groups, Invent. Math. 98 (1989); Reduction to real infinitesimal character in affine Hecke algebras, J. Amer. Math. Soc. 6 (1993) (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/generic-unitary-classification",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Proof closure remains conditional on the explicit gaps: Hecke signatures, isogenies and genericity transfer. Locators: CH26 §6, Theorem 6.9, p. 18; BC1 §3.2 Theorem, §3.3 Theorem, §3.4 Proposition, pp. 17–18"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/integral-root-wall",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.1, Proposition 6.10 and proof, p. 18; Corollary 6.32(2) and proof, p. 25"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-reduction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.2, (6.11)–(6.13), p. 19"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-a",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.3, (6.15), p. 20"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-b",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.4, p. 20"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-c",
+    "verdict": "corrected",
+    "note": "Excluded undefined rank-one coroot coordinates and routed n=1 to A₁. Locators: CH26 §6.5, (6.16)–(6.17), pp. 20–21"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-d",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.6, (6.18), pp. 21–22"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-g2",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.7, (6.19)–(6.20), p. 22"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-f4",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.8, (6.21)–(6.22), p. 22"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-e6",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.11, (6.28)–(6.29), p. 24"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-e7",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.10, (6.26)–(6.27), pp. 23–24"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-type-e8",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.9, (6.23)–(6.25), pp. 22–23"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integral-generic-unitary",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.2, Theorem 6.14, p. 19"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/half-integrality-highest-weight",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.12, Lemma 6.30 and proof, p. 24"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/fundamental-separators",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.12, Proposition 6.31 and proof, pp. 24–25"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/generic-temperedness-test",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Proof closure remains conditional on the explicit gaps: Noncentral compact parts: classification of geometric unitary spherical parameters for arbitrary s_c. Locators: CH26 §6.12, Corollary 6.32(1) and proof, p. 25"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.5/g2-noncentral-witness",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §6.12, Corollary 6.32(1), p. 25"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/tau-fixed-dual-group",
+    "verdict": "corrected",
+    "note": "Corrected the splitCompanion API: PSU(2n+1) has companion Sp(2n), not adjoint PSp(2n). 6 API entries and 5 checks inspected. Locators: CH26 §7, (7.1)–(7.3) and Table 1, pp. 25–26; BC3 §6.2 before Corollary 6.2.6, p. 29"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/nonsplit-unitary-transfer",
+    "verdict": "corrected",
+    "note": "Replaced split-only imports with the precise nonsplit categorical theorem and retained the genericity and characteristic adapters as gaps. Proof closure remains conditional on the explicit gaps: Hecke signatures, isogenies and genericity transfer. Locators: CH26 §7, p. 25 (remark on [BC3]) and Theorem 7.4, p. 26; BC3 §1.3, p. 3; Corollary 6.2.6, p. 29; BC3 §1.3, Theorem 1.3.1; §1.4, Theorem 1.4.1, pp. 3–4; §6.2, Corollary 6.2.6 and Example 6.2.7, p. 29"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/nonsplit-generic-temperedness",
+    "verdict": "corrected",
+    "note": "Kept the restriction argument as containment and retained all representation-level half-integrality hypotheses. Locators: CH26 §7, Corollary 7.5 and proof, pp. 26–27"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.6/odd-unitary-residual",
+    "verdict": "corrected",
+    "note": "Restored the generic-unitary and ambient half-integrality assumptions of Remark 7.6. Kept the restriction argument as containment and retained all representation-level half-integrality hypotheses. Proof closure remains conditional on the explicit gaps: Hecke signatures, isogenies and genericity transfer. Locators: CH26 §7, Remark 7.6, p. 27"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/aubert-involution",
+    "verdict": "corrected",
+    "note": "Added independent endpoint corroboration and the published erratum; no claim to have verified the inaccessible corrected resolution. 9 API entries and 4 checks inspected. Proof closure remains conditional on the explicit gaps: Aubert corrected proof and KL arbitrary-isogeny dictionary. Locators: Aub95 §1, Définition 1.5 and Théorème 1.7, p. 2181; Aub95 §2, Théorème 2.3, p. 2185; §3, Corollaire 3.9, p. 2189; CH26 §4.2, Proposition 4.5 and proof, p. 12; Ban02 §3, Theorem 3.1(1)–(6), p. 678"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/aubert-semisimple-parameter",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: CH26 §4.2, Proposition 4.5 and proof, p. 12"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/kazhdan-lusztig-parameters",
+    "verdict": "corrected",
+    "note": "Restricted this KL dictionary to adjoint split G, where the connected-dual-centraliser conventions used here apply; arbitrary isogeny is an explicit gap. 5 API entries and 4 checks inspected. Proof closure remains conditional on the explicit gaps: Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables. Locators: CH26 §5, proof of Corollary 5.7, p. 15; §8.1, pp. 27–28; CitedOnly D. Kazhdan and G. Lusztig, Proof of the Deligne–Langlands conjecture for Hecke algebras, Invent. Math. 87 (1987), Theorem 7.12; M. Reeder, Represent. Theory 6 (2002), Theorem 1 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/kazhdan-lusztig-classification",
+    "verdict": "corrected",
+    "note": "Restricted this KL dictionary to adjoint split G, where the connected-dual-centraliser conventions used here apply; arbitrary isogeny is an explicit gap. Proof closure remains conditional on the explicit gaps: Kazhdan–Lusztig classification: the equivariant K-theory realisation; Aubert corrected proof and KL arbitrary-isogeny dictionary. Locators: CH26 §5, proof of Corollary 5.7, p. 15; §8.1, pp. 27–28; CitedOnly Kazhdan–Lusztig 1987, Theorem 7.12; Reeder 2002, Theorem 1 (not read)"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/az-iwahori-matsumoto",
+    "verdict": "corrected",
+    "note": "Specified the centre-preserving Bernstein-generator convention and replaced an insufficient identification argument by Kato’s identity. Locators: BC1 §1.1, p. 1; CH26 §8.1, p. 28; La24 §4.2, Definition 4.2 and Theorem 4.3, p. 18; CiF4 §3.1, Theorem 3.1, pp. 10–11 of the author version"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/nilpotent-partition",
+    "verdict": "corrected",
+    "note": "Restricted this KL dictionary to adjoint split G, where the connected-dual-centraliser conventions used here apply; arbitrary isogeny is an explicit gap. Corrected the check that contradicted the packet’s own noncentral G₂ witness. 7 API entries and 4 checks inspected. Proof closure remains conditional on the explicit gaps: Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables. Locators: CH26 §8.1–8.2, (8.1)–(8.2), pp. 27–28; BC1 §1.3, (1.3.1)–(1.3.2), p. 3"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/central-point-unitary",
+    "verdict": "corrected",
+    "note": "Restricted this KL dictionary to adjoint split G, where the connected-dual-centraliser conventions used here apply; arbitrary isogeny is an explicit gap. Kept the split adjoint hypothesis aligned with the simplified KL parameter dictionary. Locators: CH26 §8.1, p. 28"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/centralizer-reduction",
+    "verdict": "corrected",
+    "note": "Kept the real/central-compact hypothesis at the input to the triple-centraliser classification. Proof closure remains conditional on the explicit gaps: Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables. Locators: CH26 §8.2, Theorem 8.3, p. 28"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-point",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. 3 API entries and 3 checks inspected. Locators: CH26 §8.2, Definition 8.4 and Remark 8.6, pp. 28–29"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-classical",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Proof closure remains conditional on the explicit gaps: Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables; Noncentral compact parts: classification of geometric unitary spherical parameters for arbitrary s_c. Locators: CH26 §8.2, Theorem 8.5(1)–(2), Remark 8.6 and proof cases (1)–(3), pp. 28–29"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/extraneous-exceptional",
+    "verdict": "corrected",
+    "note": "Completed the four E₈ endpoint formulas rather than giving only orbit names. Proof closure remains conditional on the explicit gaps: Nilpotent orbits of g^∨: Jacobson–Morozov, centralisers of sl₂-triples, graded orbits and Bala–Carter tables; Noncentral compact parts: classification of geometric unitary spherical parameters for arbitrary s_c. Locators: CH26 §8.2, Theorem 8.5(3)–(5), Remark 8.7 and proof case (4), pp. 29–30"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/e8-4a1-exclusion",
+    "verdict": "corrected",
+    "note": "Verified both lattice exclusions and corrected source case labels without reproducing source prose. Locators: CH26 §8.3, (8.8) and the following argument, p. 30"
+   },
+   {
+    "nodeId": "SmoothRepresentationsOfLocalGroupsPartII:SRU.7/noncentral-compact-reduction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, proof route, direct prerequisites, API/tests where applicable and planet checked against the cited source locations. No correction required. Locators: BC1 §1.2, p. 2; CH26 §6.12, Corollary 6.32, p. 25"
+   }
+  ]
+ }
 }
