@@ -9988,7 +9988,8 @@
    "avoidAccountOf": "DESIGN-ZAGIER",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ZAGIER.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #78"
   },
   {
    "id": "DESIGN-BCGP18",
@@ -10165,7 +10166,8 @@
    "avoidAccountOf": "DESIGN-SKINNER",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-SKINNER.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #955"
   },
   {
    "id": "DESIGN-BETTS-STIX",
@@ -10749,7 +10751,8 @@
    "avoidAccountOf": "DESIGN-SmoothRepresentationsOfLocalGroupsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3616"
   },
   {
    "id": "DESIGN-GlobalShtukasAndFunctionFieldLanglandsPartII",
@@ -11551,7 +11554,9 @@
    "avoidAccountOf": "DESIGN-ArcTopologyAndDescent",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArcTopologyAndDescent.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3494",
+   "finishedAt": "2026-10-18T21:45:40Z"
   },
   {
    "id": "DESIGN-PrismaticCohomologyPartII",
@@ -11917,7 +11922,8 @@
    "avoidAccountOf": "DESIGN-LocallyAnalyticDistributionsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LocallyAnalyticDistributionsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3564"
   },
   {
    "id": "DESIGN-ArithmeticLocallySymmetricSpacesPartII",
@@ -12419,7 +12425,8 @@
    "avoidAccountOf": "DESIGN-QuadraticFormInvariantsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-QuadraticFormInvariantsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3598"
   },
   {
    "id": "DESIGN-AdicCoefficientsAndComparisonsPartII",
@@ -12861,7 +12868,8 @@
    "avoidAccountOf": "DESIGN-ColemanPowerSeriesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ColemanPowerSeriesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3508"
   },
   {
    "id": "DESIGN-EllipticCurveModularityPartII",
@@ -13455,7 +13463,8 @@
    "avoidAccountOf": "DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3594"
   },
   {
    "id": "DESIGN-IntegralIwasawaTheoryPartII",
@@ -16684,7 +16693,8 @@
    "avoidAccountOf": "DESIGN-DirectSummandsAndBigCohenMacaulay",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DirectSummandsAndBigCohenMacaulay.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3518"
   },
   {
    "id": "DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
@@ -17050,7 +17060,9 @@
    "avoidAccountOf": "DESIGN-EllAdicHomotopyTypesAndWeights",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllAdicHomotopyTypesAndWeights.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4593",
+   "finishedAt": "2026-10-18T21:45:43Z"
   },
   {
    "id": "DESIGN-AnalyticNumberTheoryPartII",
@@ -29380,7 +29392,8 @@
    ],
    "avoidAccountOf": "BP-HigherLocalFieldsAndHigherClassFieldTheory",
    "prompt": "research/blueprint/prompts/REV-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #518"
   },
   {
    "id": "BP-InverseGaloisAndArithmeticFundamentalGroups",
@@ -108712,7 +108725,8 @@
    ],
    "avoidAccountOf": "BP-IntegralIwasawaTheory--I.8",
    "prompt": "research/blueprint/prompts/REV-IntegralIwasawaTheory--I.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #437"
   },
   {
    "id": "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
@@ -116009,7 +116023,8 @@
    "avoidAccountOf": "DESIGN-CMRankZeroConverse",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CMRankZeroConverse.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1889"
   },
   {
    "id": "DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
@@ -116101,7 +116116,8 @@
    "avoidAccountOf": "DESIGN-AnticyclotomicLocalUnits",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AnticyclotomicLocalUnits.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1717"
   },
   {
    "id": "DESIGN-NonordinaryCMSpecialValues",
@@ -116420,7 +116436,8 @@
    "avoidAccountOf": "DESIGN-GeometricFreyMazur",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GeometricFreyMazur.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1725"
   },
   {
    "id": "DESIGN-CongruenceSpectralGap",
@@ -135508,8 +135525,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EffectiveClassNumbers~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-EffectiveClassNumbers~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10395",
+   "finishedAt": "2026-10-18T21:45:47Z"
   }
  ]
 }
