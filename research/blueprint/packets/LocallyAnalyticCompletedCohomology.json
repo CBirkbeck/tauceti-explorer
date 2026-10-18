@@ -17,8 +17,8 @@
   "LocallyAnalyticCompletedCohomology:LA.11",
   "LocallyAnalyticCompletedCohomology:LA.12"
  ],
- "status": "complete",
- "summary": "Target-level plan of both of Pan's papers on locally analytic vectors in the completed cohomology of modular curves. Paper I (Forum Math. Pi 2022): the relative Sen operator and locally analytic coverings (LA.0); the perfectoid modular curve, the sheaf O^la_{K^p} on the flag variety, the vanishing of the horizontal nilpotent action and the horizontal Cartan action θ_h (LA.1); the power-series structure of O^la and the identification of the locally analytic vectors of completed cohomology with H^i(Fl, O^la) (LA.2); θ_h as the Sen operator and the LB topology of the cohomology (LA.3); n-cohomology and the μ-isotypic decomposition into overconvergent forms (LA.4); weight-one classicality, the irregular Fontaine–Mazur conjecture and Gouvêa's conjecture (LA.5). Paper II (Annals 2026, read in arXiv v1): the differential operators d_{k+1} and d̄_{k+1} and the intertwining operator I_k (LA.6); the n-invariants of ker I¹_k (LA.7); the computation of ker and coker over the Newton strata P¹(Q_p) (LA.8) and Ω (LA.9); the spectral decomposition, the de Rham complexes DR_k and the p-adic vanishing-cycle sequence (LA.10); the comparison of I_k with Fontaine's operator (LA.11); and the classicality theorem with the geometric descriptions of Π_ρ^la (LA.12). Items other roadmaps already own are imported by node id; Fontaine's almost de Rham theory, the general theory of locally analytic vectors and the supersingular uniformization at infinite level are requested from their owners.",
+ "status": "partial",
+ "summary": "Target-level plan of both of Pan's papers on locally analytic vectors in the completed cohomology of modular curves. Paper I (Forum Math. Pi 2022): the relative Sen operator and locally analytic coverings (LA.0); the perfectoid modular curve, the sheaf O^la_{K^p} on the flag variety, the vanishing of the horizontal nilpotent action and the horizontal Cartan action θ_h (LA.1); the power-series structure of O^la and the identification of the locally analytic vectors of completed cohomology with H^i(Fl, O^la) (LA.2); θ_h as the Sen operator and the LB topology of the cohomology (LA.3); n-cohomology and the μ-isotypic decomposition into overconvergent forms (LA.4); weight-one classicality, the irregular Fontaine–Mazur conjecture and Gouvêa's conjecture (LA.5). Paper II (Annals 2026, read in arXiv v1): the differential operators d_{k+1} and d̄_{k+1} and the intertwining operator I_k (LA.6); the n-invariants of ker I¹_k (LA.7); the computation of ker and coker over the Newton strata P¹(Q_p) (LA.8) and Ω (LA.9); the spectral decomposition, the de Rham complexes DR_k and the p-adic vanishing-cycle sequence (LA.10); the comparison of I_k with Fontaine's operator (LA.11); and the classicality theorem with the geometric descriptions of Π_ρ^la (LA.12). Items other roadmaps already own are imported by node id; Fontaine's almost de Rham theory, the general theory of locally analytic vectors and the supersingular uniformization at infinite level are requested from their owners. Independent review REV-DESIGN-PAN leaves the packet partial: geometric Čech strictness, relative module decompletion, Drinfeld Higgs compatibility, compact-support duality, the second-comparison highest-weight input and the Igusa crystalline comparison require the explicit repairs recorded in gaps. Downstream applications are targets conditional on these inputs.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -27,42 +27,42 @@
     "ref": "mathlib:cyclotomicCharacter",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
-    "provides": "The p-adic cyclotomic character (L ≃+* L) →* Z_p^× of a field with all p-power roots of unity; G_{Q_p} acts on t, e₁, e₂ through it, and the Sen operator of C(j) is j.",
+    "provides": "The multiplicative character (L ≃+* L) →* ℤ_[p]ˣ. Its geometric action on period sections and the Sen operator of C(j) are separate roadmap results, not consequences of this declaration.",
     "checked": "statement read at the pinned commit"
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
-    "provides": "GL(n, R) as the units of the matrix ring; GL_2(Q_p) = GeneralLinearGroup (Fin 2) ℚ_[p] acting on the perfectoid modular curve and on V = Q_p².",
+    "provides": "GL(n, R) as (Matrix n n R)ˣ, supplying the carrier GL_2(Q_p). Actions on perfectoid modular curves are supplied by PerfectoidShimuraVarieties.",
     "checked": "statement read at the pinned commit"
    },
    {
     "ref": "mathlib:Matrix.trace",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
-    "provides": "The trace of a square matrix; the Lie algebra of GL_2(Q_p) acts on t by X·t = tr(X)t.",
+    "provides": "The sum of diagonal entries of a square matrix. The geometric identity X·t = tr(X)t is proved in LA.2/power-series-expansion.",
     "checked": "statement read at the pinned commit"
    },
    {
     "ref": "mathlib:IsCompactOperator",
     "kind": "def",
     "module": "Mathlib/Analysis/Normed/Operator/Compact/Basic.lean",
-    "provides": "A map is compact if some neighbourhood of 0 maps into a compact set; over a finite extension K of Q_p (locally compact) this agrees with Schneider's compact operators between K-Banach spaces used for the decompleted K-forms (not over C, which is not locally compact).",
+    "provides": "A map f is compact when there exists a compact K with f⁻¹(K) a neighbourhood of zero. Use the K-Banach interpretation only for finite K/Q_p; extension of scalars to C need not preserve compactness.",
     "checked": "statement read at the pinned commit"
    },
    {
     "ref": "mathlib:ModularForm",
     "kind": "structure",
     "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
-    "provides": "Complex holomorphic modular forms of weight k for a subgroup Γ of SL_2(ℤ); after C ≅ ℂ and GAGA, the classical forms M_k(K^pK_p) at finite level.",
+    "provides": "Complex modular forms extending SlashInvariantForm Γ k for Γ a subgroup of GL_2(ℝ), with holomorphy and boundedness at every cusp. Finite-level algebraic automorphic bundles and their GAGA comparison are requested from R15.1.",
     "checked": "statement read at the pinned commit"
    },
    {
     "ref": "mathlib:Polynomial.derivative",
     "kind": "def",
     "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
-    "provides": "The formal derivative of polynomials, a linear map R[X] → R[X]; on the n-finite part the operator d̄_{k+1} is a multiple of the (k + 1)-st derivative in x.",
+    "provides": "The formal derivative as an R-linear map R[X] →ₗ[R] R[X]. Its iterates supply polynomial examples; construction of d̄ on locally analytic sheaves belongs to LA.6.",
     "checked": "statement read at the pinned commit"
    }
   ]
@@ -94,26 +94,21 @@
    "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4",
    "accessed": "2026-10-18",
    "readSections": [
-    "§1, pp. 1–11",
-    "§3 statements, pp. 17–33",
-    "§4, pp. 33–51",
-    "§5 statements and the structure of the arguments, pp. 51–83",
-    "§6.2 and the statements of §§6.3–6.5, pp. 92–115",
-    "§7, pp. 115–125",
-    "every other statement through the reviewed extraction PAPER-PAN-26, whose locators were spot-checked against the PDF"
+    "§§1–7, pp. 1–125, including every cited node locator and the proofs used in this review; bibliography pp. 125–127 consulted for supplier references. All pagination is arXiv v1."
    ]
   }
  ],
  "sourceVersions": [
   {
    "kind": "published",
-   "url": "https://doi.org/10.1017/fmp.2022.1",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/923CD328775CD10902CA75F9D265D1B8/S2050508622000014a.pdf/div-class-title-on-locally-analytic-vectors-of-the-completed-cohomology-of-modular-curves-div.pdf",
    "read": "2026-10-18",
-   "sha256": "61549f3aa31342994049b2d4780009f722c96b6331d0db6dd5bede0453bc293e"
+   "sha256": "61549f3aa31342994049b2d4780009f722c96b6331d0db6dd5bede0453bc293e",
+   "citation": "Lue Pan, Forum of Mathematics, Pi 10 (2022), e7; doi:10.1017/fmp.2022.1"
   },
   {
    "kind": "preprint",
-   "url": "https://arxiv.org/abs/2209.06366v1",
+   "url": "https://arxiv.org/pdf/2209.06366v1",
    "read": "2026-10-18",
    "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4"
   }
@@ -269,7 +264,7 @@
     "The chart f₁ is fixed; a change of chart rescales the result by a unit of A (LA.0/differential-equation)."
    ],
    "proofSteps": [
-    "Apply Berger–Colmez's decompletion (BC08 Proposition 3.3.1) to (B_∞)° ⊗ T with constants c₁, c₂, c₃ = c small (Pan I Proposition 3.2.11).",
+    "Apply Berger–Colmez's decompletion (BC08 Proposition 3.3.1) to (B_∞)° ⊗ T with constants c₁, c₂, c₃ = c small (Pan I Proposition 3.2.11). This requires the relative Banach-algebra module theorem, not merely classical finite-dimensional Sen theory; its supplier contract remains open.",
     "Use Amice's criterion that (γ − 1)^m(B°) ⊂ pB° makes the action analytic on p^hZ_p (Pan I Example 2.1.9).",
     "Identify the p^mΓ-analytic vectors of (B_∞ ⊗ V)^{G_0} with B_{G_0,m} ⊗ D⁺ (Pan I Lemma 3.2.12) and extend scalars.",
     "Check functoriality and the tensor rule on the Γ-locally analytic G-fixed vectors (Pan I Propositions 3.2.13–3.2.14)."
@@ -279,8 +274,8 @@
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.0/tate-sen-for-the-kummer-tower",
-    "PadicHodgeTheory:P7/sen-module",
-    "LocallyAnalyticDistributions:L0"
+    "LocallyAnalyticDistributions:L0",
+    "PadicHodgeTheory:P7"
    ],
    "sources": [
     {
@@ -363,7 +358,7 @@
    ],
    "title": "Locally analytic vectors satisfy the relative Sen differential equation",
    "kind": "theorem",
-   "statement": "Let X̃ = Spa(B, B⁺) be a log G-Galois pro-étale perfectoid covering of a small affinoid curve X = Spa(A, A⁺) with a fixed chart. There is an element θ = θ_X̃ ∈ B ⊗_{Q_p} Lie(G), the image of a generator of Lie(Γ) under a map φ_X̃: Lie(Γ) → B ⊗ Lie(G), such that: (1) θ annihilates the G-locally analytic vectors B^la, for the B-linear extension of the Lie(G)-action; (2) for a closed normal subgroup H with X̃^H a covering, θ_X̃ ≡ θ_{X̃^H} modulo B ⊗ Lie(H); (3) θ ≠ 0 when X̃ is a locally analytic covering (LA.0/theta-nonzero); (4) a different chart changes θ by a unit of A, so A^×θ is intrinsic; (5) for every finite-dimensional V, the Lie(Γ)-action on B_∞ ⊗ V induced by θ through the infinitesimal G-action equals φ_V; (6) a D ∈ B_∞ ⊗ Lie(G) killing the G × Γ-locally analytic vectors of B_∞ is 0, and a D ∈ B_∞ ⊗ Lie(G × Γ) killing them is a multiple bd with b ∈ B_∞ and d in the image of φ_{X̃_∞}.",
+   "statement": "Let X̃ = Spa(B, B⁺) be a log G-Galois pro-étale perfectoid covering of a small affinoid curve X = Spa(A, A⁺) with a fixed chart. There is an element θ = θ_X̃ ∈ B ⊗_{Q_p} Lie(G), the image of a generator of Lie(Γ) under a map φ_X̃: Lie(Γ) → B ⊗ Lie(G), such that: (1) θ annihilates the G-locally analytic vectors B^la, for the B-linear extension of the Lie(G)-action; (2) for a closed normal subgroup H with X̃^H a covering, θ_X̃ ≡ θ_{X̃^H} modulo B ⊗ Lie(H); (3) a different chart changes θ by a unit of A, so A^×θ is intrinsic; (4) for every finite-dimensional V, the Lie(Γ)-action on B_∞ ⊗ V induced by θ through the infinitesimal G-action equals φ_V; (5) a D ∈ B_∞ ⊗ Lie(G) killing the G × Γ-locally analytic vectors of B_∞ is 0, and a D ∈ B_∞ ⊗ Lie(G × Γ) killing them is a multiple bd with b ∈ B_∞ and d in the image of φ_{X̃_∞}.",
    "hypotheses": [
     "X̃ → X is a log G-Galois pro-étale perfectoid covering of a small affinoid curve; θ is determined only up to A^×."
    ],
@@ -371,8 +366,8 @@
     "Apply LA.0/relative-sen-operator to the finite-dimensional, two-sided-translation-stable subspaces V_k of C^an(G_0, Q_p) whose union is dense and multiplicative (Pan I Proposition 2.1.3), and pass to the completed limit, obtaining φ_{G_0} on B_∞ ⊗̂ C^an(G_0, Q_p) (Pan I §3.3.1).",
     "The multiplicativity of the V_k makes φ_{G_0}(x) a right-invariant derivation commuting with Γ, hence an element of B ⊗ Lie(G_0) (Pan I Proposition 3.3.3, Corollary 3.3.4, using (B_∞)^Γ = B).",
     "On B^{G_0-an} = (B_∞ ⊗̂ C^an(G_0))^{G_0 × Γ} the Lie(Γ)-action is trivial, giving (1) (Pan I Corollary 3.3.5).",
-    "Matrix coefficients V ⊗ V* → C^an(G_0) give (5) (Pan I Corollary 3.3.6); (2) is functoriality of the construction (Corollary 3.3.9); (6) is Proposition 3.3.10 and Corollary 3.3.11.",
-    "For (4), compare the two Γ-cohomology identifications of H¹(G' × Γ, B'_∞) through the two charts; the discrepancy a ∈ A^× is computed by the unipotent representation (Pan I Lemma 3.4.3, Proposition 3.4.5)."
+    "Matrix coefficients V ⊗ V* → C^an(G_0) give (4) (Pan I Corollary 3.3.6); (2) is functoriality of the construction (Corollary 3.3.9); (5) is Proposition 3.3.10 and Corollary 3.3.11.",
+    "For (3), compare the two Γ-cohomology identifications of H¹(G' × Γ, B'_∞) through the two charts; the discrepancy a ∈ A^× is computed by the unipotent representation (Pan I Lemma 3.4.3, Proposition 3.4.5)."
    ],
    "acceptance": [
     "For X = T¹ and X̃ the Kummer tower with G ≅ Z_p, θ = (dT/T) ⊗ 1, a generator of Lie(G) (Pan I Example 3.1.6).",
@@ -732,14 +727,14 @@
    "proofSteps": [
     "Define the subbundles pointwise by the incidence condition and check local freeness on the two standard charts.",
     "Compute that the section (x x²; −1 −x) of g⁰ over U₁ lies in n_x at every point (it is nilpotent with kernel the line of x).",
-    "The quotient b⁰/n⁰ is a trivial bundle with fibre h because any two Borels are conjugate by a unique element of the unipotent radical up to the torus (Beilinson–Bernstein's construction, Pan I §4.2.6)."
+    "Write the flag variety as B\\GL_2 with the chosen convention. Conjugation by B is trivial on b/n, so the associated quotient bundle is O_Fl ⊗ h; the two chart matrices verify the ranks and the equivariance (Pan I §4.2.6, p. 37)."
    ],
    "acceptance": [
     "The section (x x²; −1 −x) is nilpotent: its square is 0.",
     "Over U₂ the generator of n⁰ is obtained by applying the Weyl element (0 1; 1 0)."
    ],
    "prerequisites": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+    "LocallyAnalyticCompletedCohomology:LA.1/fake-hasse-invariants"
    ],
    "sources": [
     {
@@ -957,7 +952,7 @@
     "O_Fl(U) is a continuous quotient of a Tate algebra on which some K_p acts trivially modulo p, so it consists of analytic vectors by Amice's criterion (Pan I §4.2.6)."
    ],
    "acceptance": [
-    "H⁰(Fl, O^la_{K^p}) = colim_{K_p} H⁰(X_{K^pK_p}, O), the locally analytic vectors of H̃⁰(K^p, C) (Pan I Corollary 5.1.3 and Theorem 4.4.6)."
+    "H⁰(Fl, O^la_{K^p}) = H̃⁰(K^p, C)^la (Pan I Theorem 4.4.6, p. 45). The SL_2-action is trivial, but the determinant action can be locally analytic and non-smooth."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.1/fake-hasse-invariants",
@@ -1018,13 +1013,18 @@
      "name": "LASheaf.galois",
      "role": "structure",
      "statement": "G_{Q_p} acts semilinearly, commuting with GL_2(Q_p) and Hecke operators (Pan II §3.3.1)."
+    },
+    {
+     "name": "LASheaf.section_ext",
+     "role": "extensionality",
+     "statement": "Two locally analytic sections are equal if their images in O_{K^p}(U) are equal. Restriction and the inclusions O^sm → O^la → O commute, and the section operations are inherited from O."
     }
    ],
    "tests": [
     {
      "name": "LASheaf.global_sections",
      "kind": "computation",
-     "statement": "H⁰(Fl, O^la_{K^p}) = colim_{K_p} H⁰(X_{K^pK_p}, O_{X_{K^pK_p}}), the smooth (indeed locally constant) functions on the components."
+     "statement": "H⁰(Fl, O^la_{K^p}) = H̃⁰(K^p, C)^la, including the global function t with z·t = 2t; replacing these sections by locally constant functions would exclude t (Pan I §§4.1, 4.4)."
     },
     {
      "name": "LASheaf.sm_sub_la",
@@ -1101,7 +1101,7 @@
    ],
    "title": "The horizontal Cartan action θ_h and the weight sheaves",
    "kind": "construction",
-   "statement": "Since n⁰ acts trivially on O^la_{K^p}, b⁰/n⁰ = O_Fl ⊗ h acts, and h → H⁰(Fl, b⁰/n⁰) gives an action θ_h of h on O^la_{K^p} commuting with g. −θ_h extends the action of Z(U(sl_2)) to S(h₀) through the Harish-Chandra isomorphism (with the sign coming from n_x-coinvariants), and θ_h restricted to the centre z of g is the action of z ⊂ g. On U ⊂ U₁ (e₁ a generator) θ_h(diag(a, d)) acts as the element (d  (d − a)x; 0  a) of O_Fl(U) ⊗ g. For a weight χ: h → C, χ(diag(a, d)) = n₁a + n₂d, written χ = (n₁, n₂), O^{la,χ}_{K^p} is the χ-isotypic subsheaf (θ_h(H)s = χ(H)s); likewise ω^{k,la,χ}_{K^p}. In terms of the expansion of LA.2/power-series-expansion, θ_h(diag(a, d)) acts on coefficients by c_{i,j,k} ↦ d(j + 1)c_{i,j+1,k} + (a + d)(k + 1)c_{i,j,k+1}. On ω^{k,sm}_{K^p} θ_h is trivial and on ω_Fl it is the character diag(a, d) ↦ d.",
+   "statement": "Since n⁰ acts trivially on O^la_{K^p}, b⁰/n⁰ = O_Fl ⊗ h acts, and h → H⁰(Fl, b⁰/n⁰) gives an action θ_h of h on O^la_{K^p} commuting with g. −θ_h extends the action of Z(U(sl_2)) to S(h₀) through the Harish-Chandra isomorphism (with the sign coming from n_x-coinvariants), and θ_h restricted to the centre z of g is the action of z ⊂ g. On U ⊂ U₁ (e₁ a generator) θ_h(diag(a, d)) acts as the element (d  (d − a)x; 0  a) of O_Fl(U) ⊗ g. For a weight χ: h → C, χ(diag(a, d)) = n₁a + n₂d, written χ = (n₁, n₂), O^{la,χ}_{K^p} is the χ-isotypic subsheaf (θ_h(H)s = χ(H)s); likewise ω^{k,la,χ}_{K^p}. On ω^{k,sm}_{K^p} θ_h is trivial and on ω_Fl it is the character diag(a, d) ↦ d.",
    "hypotheses": [
     "Weights are C-linear functionals on h; Pan II uses only integral weights."
    ],
@@ -1116,7 +1116,8 @@
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.1/horizontal-nilpotent-acts-trivially",
     "LocallyAnalyticCompletedCohomology:LA.1/flag-variety-lie-algebra-bundles",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
    ],
    "sources": [
     {
@@ -1127,7 +1128,7 @@
     {
      "sourceId": "Pan22",
      "locator": "§5.1.1, pp. 46–47",
-     "match": "The coordinate formula for θ_h and its effect on the expansion coefficients."
+     "match": "The local matrix formula for θ_h; the coefficient calculation is placed in LA.2/weight-sheaves after power-series expansion is available."
     },
     {
      "sourceId": "PanII",
@@ -1226,18 +1227,17 @@
    ],
    "title": "Twists of O^la by automorphic bundles and the Hecke-equivariant Hodge–Tate sequence",
    "kind": "construction",
-   "statement": "Fix k ∈ Z. On U ∈ 𝔅 a generator of ω_Fl identifies O_{X_{K^p}}(π_HT^{-1}U) with ω^k_{K^p}(π_HT^{-1}U), giving a Banach structure independent of the generator and hence ω^{k,la}_{K^p}. There are two h-equivariant descriptions as twists: on the flag variety, ω^{k,la}_{K^p}(−k) = O^la_{K^p} ⊗_{O_Fl} ω_Fl^{⊗k}; on the modular curves, ω^{k,la}_{K^p} = ω^{k,sm}_{K^p} ⊗_{O^sm_{K^p}} O^la_{K^p}. Hecke-equivariantly, the relative Hodge–Tate sequence must be written 0 → ∧²D ⊗ ω^{-1}(1) → V(1) ⊗ O → ω → 0 with D the canonical extension of H¹_dR of the universal elliptic curve, since the implicit trivialisation of ∧²D shifts the prime-to-p Hecke action by the adelic norm.",
+   "statement": "Fix k ∈ Z. On U ∈ 𝔅 a generator of ω_Fl identifies O_{X_{K^p}}(π_HT^{-1}U) with ω^k_{K^p}(π_HT^{-1}U), giving a Banach structure independent of the generator and hence ω^{k,la}_{K^p}. There is an h-equivariant flag-variety twist: ω^{k,la}_{K^p}(−k) = O^la_{K^p} ⊗_{O_Fl} ω_Fl^{⊗k}. The smooth modular-curve tensor description is proved in LA.2/analytic-banach-algebras after the local expansion is constructed. Hecke-equivariantly, the relative Hodge–Tate sequence must be written 0 → ∧²D ⊗ ω^{-1}(1) → V(1) ⊗ O → ω → 0 with D the canonical extension of H¹_dR of the universal elliptic curve, since the implicit trivialisation of ∧²D shifts the prime-to-p Hecke action by the adelic norm.",
    "hypotheses": [
     "k is an integer; U ∈ 𝔅."
    ],
    "proofSteps": [
     "The Banach structure is transported by a generator; independence because two generators differ by a unit of O_Fl(U) acting by an analytic automorphism.",
     "The flag-variety twist is the pull-back π_HT*ω_Fl = ω(−1) (S3/elliptic-hodge-tate-and-O1).",
-    "The modular-curve twist is LA.2/locally-algebraic-sheaves' twisting isomorphism (Pan II Lemma 3.2.8).",
     "The Hecke-equivariant form is the import S3/hecke-equivariant-hodge-tate-sequence (Pan II §4.2.3)."
    ],
    "acceptance": [
-    "The h-action on ω^{k,sm}_{K^p} is trivial and on ω_Fl is diag(a, d) ↦ d, so both descriptions have the same weights."
+    "θ_h acts on the flag line ω_Fl through diag(a,d) ↦ d; tensor powers add this character."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.1/locally-analytic-sheaf",
@@ -1270,11 +1270,6 @@
      "statement": "ω^{k,la}_{K^p}(−k) ≅ O^la_{K^p} ⊗_{O_Fl} ω_Fl^{⊗k}, h-equivariantly."
     },
     {
-     "name": "Twist.curve_iso",
-     "role": "equivalence",
-     "statement": "ω^{k,la}_{K^p} ≅ ω^{k,sm}_{K^p} ⊗_{O^sm_{K^p}} O^la_{K^p}, h-equivariantly."
-    },
-    {
      "name": "Twist.mul",
      "role": "structure",
      "statement": "ω^{k,la} ⊗ ω^{l,la} → ω^{k+l,la}, adding weights."
@@ -1289,7 +1284,7 @@
     {
      "name": "Twist.k_zero",
      "kind": "degenerate",
-     "statement": "For k = 0 both isomorphisms are the identity of O^la_{K^p}."
+     "statement": "For k = 0 the flag isomorphism is the identity of O^la_{K^p}."
     },
     {
      "name": "Twist.e1_section",
@@ -1299,7 +1294,7 @@
     {
      "name": "Twist.flag_and_curve_agree",
      "kind": "compatibility",
-     "statement": "Composing the two isomorphisms identifies O^la ⊗ ω_Fl^k(k) with ω^{k,sm} ⊗ O^la compatibly with the inclusion of ω^{k,sm}_{K^p}(U) ⊗ O_Fl(U) on both sides."
+     "statement": "For a generator v of ω_Fl(U) and a unit u ∈ O_Fl(U), the trivialisations from v and uv differ by multiplication by u^k, an analytic continuous automorphism; thus they give the same locally analytic sections."
     },
     {
      "name": "Twist.naive_sequence_not_hecke",
@@ -1403,14 +1398,15 @@
    ],
    "title": "The Banach algebras O_n(U){x, e₁, t} and the spaces A_n",
    "kind": "definition",
-   "statement": "For U, V_{G_n}, x_n, e_{1,n}, t_n as in LA.2/power-series-expansion and n > 0, O_n(U){x, e₁, t} ⊂ O^la_{K^p}(U) is the set of f = Σ c_{i,j,k}(x − x_n)^i (log(e₁/e_{1,n}))^j (log(t/t_n))^k with c_{i,j,k} ∈ H⁰(V_{G_{r(n)}}, O) and ‖c_{i,j,k}‖ ≤ C′p^{(n−1)(i+j+k)}, normed by ‖f‖_n = sup ‖c_{i,j,k}p^{(n−1)(i+j+k)}‖ (a C-Banach algebra, independent of the choice of x_n, e_{1,n}, t_n). Its unit ball is ∏_{i,j,k} H⁰(V_{G_{r(n)}}, O⁺) as a topological Z_p-module. For each m there is n with G_m-analytic vectors ⊂ O_n(U){x, e₁, t} ⊂ G_{r(n)}-analytic vectors, so O^la_{K^p}(U) = colim_n O_n(U){x, e₁, t}. In weight χ = (n₁, n₂), A_n ⊂ O^{la,χ}_{K^p}(U) is the subspace of t^{n₁}e₁^{n₂−n₁}Σ_i c_i(x − x_n)^i with ‖e₁^{n₂−n₁}c_i p^{(n−1)i}‖ bounded (c_i ∈ H⁰(V_{G_{r(n)}}, ω^{n₁−n₂})), a Banach space, and O^{la,χ}_{K^p}(U) = colim A_n as LB-spaces; B_n ⊂ ω^{k,la,χ}(U) is defined likewise and H⁰(V_{G_{r(n)}}, ω^k) ⊗ A_n = B_n.",
+   "statement": "For U, V_{G_n}, x_n, e_{1,n}, t_n as in LA.2/power-series-expansion and n > 0, O_n(U){x, e₁, t} ⊂ O^la_{K^p}(U) is the set of f = Σ c_{i,j,k}(x − x_n)^i (log(e₁/e_{1,n}))^j (log(t/t_n))^k with c_{i,j,k} ∈ H⁰(V_{G_{r(n)}}, O) and ‖c_{i,j,k}‖ ≤ C′p^{(n−1)(i+j+k)}, normed by ‖f‖_n = sup ‖c_{i,j,k}p^{(n−1)(i+j+k)}‖ (a C-Banach algebra, independent of the choice of x_n, e_{1,n}, t_n). Its unit ball is ∏_{i,j,k} H⁰(V_{G_{r(n)}}, O⁺) with the uniform coefficient topology (the supremum norm, rather than the Tychonoff product topology). For each m there is n with G_m-analytic vectors ⊂ O_n(U){x, e₁, t} ⊂ G_{r(n)}-analytic vectors, so O^la_{K^p}(U) = colim_n O_n(U){x, e₁, t}. In weight χ = (n₁, n₂), A_n ⊂ O^{la,χ}_{K^p}(U) is the subspace of t^{n₁}e₁^{n₂−n₁}Σ_i c_i(x − x_n)^i with ‖e₁^{n₂−n₁}c_i p^{(n−1)i}‖ bounded (c_i ∈ H⁰(V_{G_{r(n)}}, ω^{n₁−n₂})), a Banach space, and O^{la,χ}_{K^p}(U) = colim A_n as LB-spaces; B_n ⊂ ω^{k,la,χ}(U) is defined likewise and H⁰(V_{G_{r(n)}}, ω^k) ⊗ A_n = B_n. Passing the finite-level tensor identifications A_n → B_n to the direct limit proves ω^{k,la,χ} ≅ ω^{k,sm} ⊗_{O^sm} O^{la,χ}, and the same argument before taking a weight gives ω^{k,la} ≅ ω^{k,sm} ⊗_{O^sm} O^la (Pan II Lemma 3.2.8 and Remark 3.2.9, p. 21).",
    "hypotheses": [
     "U ∈ 𝔅 with e₁ a generator; the weight χ is integral for A_n."
    ],
    "proofSteps": [
     "Norm and completeness follow from the product description of the unit ball (Pan I Definition 4.3.10).",
     "Independence of choices: changing x_n, e_{1,n}, t_n rescales by power series with bounded coefficients (Pan I Remark 4.3.11).",
-    "The sandwich between analytic vectors is Theorem 4.3.9 with Remark 4.3.12; A_n is the weight-χ slice (Pan II §3.2.7, displays (3.2.1)–(3.2.2))."
+    "The sandwich between analytic vectors is Theorem 4.3.9 with Remark 4.3.12; A_n is the weight-χ slice (Pan II §3.2.7, displays (3.2.1)–(3.2.2)).",
+    "Use finite-level local freeness of ω^k to tensor the coefficient modules, then pass to the direct limit; this proves the smooth tensor description without assuming it in LA.1."
    ],
    "acceptance": [
     "A_n ≅ O⁺(V_{G_{r(n)}})[[(x − x_n)/p^{n−1}]] ⊗ Q_p after fixing a generator of ω^{n₁−n₂} at level G_{r(n)} (Pan II (3.2.2))."
@@ -1461,6 +1457,16 @@
      "name": "AnalyticBanach.twist",
      "role": "relation",
      "statement": "H⁰(V_{G_{r(n)}}, ω^k) ⊗ A_n = B_n."
+    },
+    {
+     "name": "Twist.curve_iso",
+     "role": "equivalence",
+     "statement": "ω^{k,la}_{K^p} ≅ ω^{k,sm}_{K^p} ⊗_{O^sm_{K^p}} O^la_{K^p}, h-equivariantly."
+    },
+    {
+     "name": "AnalyticBanach.coeff_ext",
+     "role": "extensionality",
+     "statement": "For a fixed level and approximation coordinates, equality of every coefficient implies equality in A_n. The coefficient map respects the uniform coefficient topology; comparison to another level is through the specified transition map, not equality of the coefficient lists in different coordinates."
     }
    ],
    "tests": [
@@ -1472,7 +1478,7 @@
     {
      "name": "AnalyticBanach.x_expansion",
      "kind": "computation",
-     "statement": "x ∈ O_n(U){x, e₁, t} with c_{0,0,0} = x_n, c_{1,0,0} = 1 and all other coefficients zero, so ‖x‖_n = max(‖x_n‖, p^{n−1})."
+     "statement": "x ∈ O_n(U){x, e₁, t} with c_{0,0,0} = x_n, c_{1,0,0} = 1 and all other coefficients zero, so ‖x‖_n = max(‖x_n‖, p^{−(n−1)})."
     },
     {
      "name": "AnalyticBanach.norm_decreases",
@@ -1482,7 +1488,7 @@
     {
      "name": "AnalyticBanach.not_sup_norm",
      "kind": "non-example",
-     "statement": "‖·‖_n is not the supremum norm of functions: x − x_n has ‖x − x_n‖_n = p^{n−1} (coefficient c_{1,0,0} = 1) while |x − x_n| ≤ p^{−n} pointwise on V_∞."
+     "statement": "‖·‖_n is not the supremum norm of functions: x − x_n has ‖x − x_n‖_n = p^{−(n−1)} (coefficient c_{1,0,0} = 1) while |x − x_n| ≤ p^{−n} pointwise on V_∞."
     }
    ],
    "uses": [
@@ -1552,7 +1558,7 @@
     "H̃^i(K^p, Z_p) is p-torsion free here (Pan I Remark 4.4.5), which simplifies the limit argument."
    ],
    "acceptance": [
-    "For i = 0 both sides are the locally constant functions on π_0(X_{K^p}) = lim π_0(X_{K^pK_p}) with values in O_C, up to almost zero."
+    "In degree zero, completed integral cohomology gives continuous O_C-valued functions on the profinite component set lim π_0(X_{K^pK_p}); the perfectoid comparison is up to almost zero. Modulo p^m these functions factor through finite component sets."
    ],
    "prerequisites": [
     "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
@@ -1590,7 +1596,7 @@
     "The Čech complex of O_{K^p} is strict (bounded torsion of H^i(Fl, O⁺_{K^p})), its terms are LA-acyclic and its cohomology H̃^i(K^p, C) is LA-acyclic by admissibility (Schneider–Teitelbaum, Pan I Corollary 2.2.4); Pan I Lemma 2.2.2(2) gives the claim."
    ],
    "acceptance": [
-    "Theorem 1.0.9 of Pan I is this statement; for i = 0 it recovers H⁰(Fl, O^la) = colim H⁰(X_{K^pK_p}, O)."
+    "Pan I Theorem 1.0.9 gives H⁰(Fl,O^la)=H̃⁰(K^p,C)^la. The smooth subspace is the finite-level colimit of H⁰(X_{K^pK_p},O); the full locally analytic space also permits non-smooth determinant characters."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.2/completed-cohomology-as-perfectoid-cohomology",
@@ -1619,7 +1625,7 @@
    ],
    "title": "The weight sheaves O^{la,χ} and their sections",
    "kind": "definition",
-   "statement": "For a weight χ = (n₁, n₂) of h, O^{la,χ}_{K^p} ⊂ O^la_{K^p} is the χ-isotypic subsheaf for θ_h (LA.1/horizontal-cartan-action); likewise ω^{k,la,χ}_{K^p}. On U ∈ 𝔅 with e₁ a generator: H^i(h, O^la_{K^p}(U) ⊗ χ) = 0 for i ≥ 1, and every f ∈ O^{la,χ}_{K^p}(U) is (t/t_N)^{n₁}(e₁/e_{1,N})^{n₂−n₁}Σ_{i≥0} c^{(n)}_i(f)(x − x_n)^i for n > N large, with c^{(n)}_i(f) ∈ H⁰(V_{G_{r(n)}}, O) and ‖c^{(n)}_i(f)‖ ≤ C′p^{(n−1)i}. For integral χ this reads f = t^{n₁}e₁^{n₂−n₁}Σ_i c_i(x − x_n)^i with c_i ∈ H⁰(V_{G_{r(n)}}, ω^{n₁−n₂}), every G_n-analytic vector arises this way and f = 0 iff all c_i = 0; for ω^{k,la,χ} the c′_i lie in H⁰(V_{G_{r(n)}}, ω^{n₁−n₂+k}). The n-finite part, the f with finitely many nonzero c_i at some level, is dense and equals ω^{n₁−n₂+k,sm}_{K^p}(U) ⊗_{Q_p} M^∨_{(n₂,n₁)}, M^∨ the dual Verma-type module of polynomials in x. Multiplication by t^k identifies O^{la,(n₁,n₂)} with O^{la,(n₁+k,n₂+k)}.",
+   "statement": "For a weight χ = (n₁, n₂) of h, O^{la,χ}_{K^p} ⊂ O^la_{K^p} is the χ-isotypic subsheaf for θ_h (LA.1/horizontal-cartan-action); likewise ω^{k,la,χ}_{K^p}. On U ∈ 𝔅 with e₁ a generator: H^i(h, O^la_{K^p}(U) ⊗ χ) = 0 for i ≥ 1, and every f ∈ O^{la,χ}_{K^p}(U) is (t/t_N)^{n₁}(e₁/e_{1,N})^{n₂−n₁}Σ_{i≥0} c^{(n)}_i(f)(x − x_n)^i for n > N large, with c^{(n)}_i(f) ∈ H⁰(V_{G_{r(n)}}, O) and ‖c^{(n)}_i(f)‖ ≤ C′p^{(n−1)i}. For integral χ this reads f = t^{n₁}e₁^{n₂−n₁}Σ_i c_i(x − x_n)^i with c_i ∈ H⁰(V_{G_{r(n)}}, ω^{n₁−n₂}), every G_n-analytic vector arises this way and f = 0 iff all c_i = 0; for ω^{k,la,χ} the c′_i lie in H⁰(V_{G_{r(n)}}, ω^{n₁−n₂+k}). The n-finite part, the f with finitely many nonzero c_i at some level, is dense and equals ω^{n₁−n₂+k,sm}_{K^p}(U) ⊗_{Q_p} M^∨_{(n₂,n₁)}, M^∨ the dual Verma-type module of polynomials in x. Multiplication by t^k identifies O^{la,(n₁,n₂)} with O^{la,(n₁+k,n₂+k)}. On the three-variable expansion of LA.2/power-series-expansion, θ_h(diag(a, d)) sends c_{i,j,k} to d(j + 1)c_{i,j+1,k} + (a + d)(k + 1)c_{i,j,k+1} (Pan I §5.1.1, pp. 46–47).",
    "hypotheses": [
     "χ is a C-linear functional on h; integrality n₁, n₂ ∈ Z is assumed in Pan II and wherever ω-coefficients are used."
    ],
@@ -1663,7 +1669,7 @@
     {
      "name": "WeightSheaf.h_cohomology",
      "role": "other",
-     "statement": "H^i(h, O^la(U) ⊗ χ) = 0 for i ≥ 1, so taking χ-parts is exact on O^la(U)."
+     "statement": "H^i(h, O^la(U) ⊗ χ) = 0 for i ≥ 1. Apply the resulting χ-part exactness only to the coefficient and Čech modules for which this acyclicity is proved; no exactness on arbitrary locally analytic representations is asserted."
     },
     {
      "name": "WeightSheaf.twist_t",
@@ -1854,7 +1860,7 @@
     "The Čech complex of {U₁, U₂} computes both sides (LA.2/locally-analytic-completed-cohomology)."
    ],
    "proofSteps": [
-    "Global sections of O^la are smooth functions on the components, of weight given by t-powers (Pan I Corollary 5.1.3(1)).",
+    "Global sections factor through the determinant on connected components, so the sl_2-action, and hence the horizontal coroot action, vanishes. These functions can be locally analytic without being smooth; the centre can act nontrivially (Pan I Corollary 5.1.3(1), p. 47).",
     "Apply h-cohomology to the two-term Čech complex using the vanishing H^i(h, O^la(U) ⊗ χ) = 0 of LA.2/weight-sheaves (Pan I Corollary 5.1.3(2) and footnote 2)."
    ],
    "acceptance": [
@@ -2051,12 +2057,13 @@
    "kind": "theorem",
    "statement": "For an integral weight χ = (n₁, n₂) and U ∈ 𝔅, the C-Banach space of G_n-analytic vectors of O^{la,χ}_{K^p}(U) is Hodge–Tate of weight −n₂ for every n ≥ 0, and so is the Banach space A_n of LA.2/analytic-banach-algebras. Consequently the Čech cohomology Ȟ^*(O^{G_n-an,χ}_{K^p}) for {U₁, U₂} is Hodge–Tate of weight −n₂.",
    "hypotheses": [
-    "K contains μ_{p²} and x_n is defined over K."
+    "K contains μ_{p²} and x_n is defined over K.",
+    "The assertion about Čech cohomology requires the closed-range Banach quotient construction of LA.3/lb-topology-on-cohomology; that construction is an open gap here."
    ],
    "proofSteps": [
     "G_K acts on t, e₁, e₂ by the cyclotomic character and fixes x, so A_n is G_K-stable; its K-form A_{n,K} of series with G_K-invariant coefficients carries the n₂-th power of the cyclotomic character, and A_n = C ⊗̂_K A_{n,K} by Pan II Proposition 3.3.3 (Pan II Proposition 3.3.8, Lemma 3.3.9).",
     "Taking G_n-analytic vectors commutes with this base change.",
-    "Čech cohomology inherits the property by Pan II Corollary 3.3.4 (Pan II Proposition 3.4.10)."
+    "Conditional on the strict Čech maps of LA.3/lb-topology-on-cohomology, their Banach kernels and quotients inherit the Hodge–Tate property by Pan II Corollary 3.3.4 (Proposition 3.4.10). This step does not repair the missing strictness proof."
    ],
    "acceptance": [
     "Consistency with LA.3/theta-h-is-the-sen-operator: θ_h(diag(0, 1)) acts on O^{la,(n₁,n₂)} by n₂, the Sen operator, i.e. weight −n₂."
@@ -2064,7 +2071,8 @@
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.3/banach-sen-operator",
     "LocallyAnalyticCompletedCohomology:LA.2/analytic-banach-algebras",
-    "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves"
+    "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves",
+    "LocallyAnalyticCompletedCohomology:LA.3/lb-topology-on-cohomology"
    ],
    "sources": [
     {
@@ -2123,12 +2131,13 @@
    "kind": "definition",
    "statement": "Let G_0 = 1 + p²M_2(Z_p), G_n = G_0^{p^n}. The restriction O_{K^p}(U₁) → O_{K^p}(U₁₂) is a closed embedding, hence so is the map on G_n-analytic vectors, and the two-term Čech complex of G_n-analytic vectors (of weight χ) for {U₁, U₂} is strict; its cohomology Ȟ^*(O^{G_n-an,χ}_{K^p}) is a C-Banach space with an analytic G_n-action. The colimit over n is the Čech complex of O^{la,χ}_{K^p}, which computes H^i(Fl, O^{la,χ}_{K^p}); give H^i(Fl, O^{la,χ}) the inductive-limit (LB) topology of colim_n Ȟ^i(O^{G_n-an,χ}). For O^la itself (no weight) the same recipe gives an LB structure on H^i(Fl, O^la_{K^p}) equivalent to that of H^i(Fl, O_{K^p})^la = H̃^i(K^p, C)^la (Pan II Remark 3.4.6); a topology on H^i(Fl, ω^{k,la,χ}) is defined the same way (Remark 3.4.7, not used).",
    "hypotheses": [
-    "χ integral; the cover {U₁, U₂} of Fl."
+    "χ integral; the cover {U₁, U₂} of Fl.",
+    "Planning gap: closed range and strictness of the analytic weight-χ Čech differential require an independent argument replacing Pan II Lemma 3.4.3; see E2 and the strictness gap."
    ],
    "proofSteps": [
     "Injectivity of O(U₁) → O(U₁₂): a kernel element extends to a global section vanishing on U₂, which is SL_2(Q_p)-invariant (H̃⁰ has trivial SL_2-action, Emerton) and SL_2(Q_p)·U₂ = Fl (Pan II Lemma 3.4.2).",
-    "Strictness: a map i is strict iff (i, w∘i) is, for a continuous involution w — applied to the Weyl element (Pan II Lemma 3.4.3).",
-    "Taking G_n-analytic vectors preserves closed embeddings (Pan II Lemma 2.3.2, imported) and the weight-χ part is a direct factor (Pan II §3.4.4, Definition 3.4.5).",
+    "The required closed-range and strictness argument at analytic level is unresolved here. Pan II Lemma 3.4.3 cannot supply it as stated: the claimed general involution criterion is false (source issue E2). A replacement using the geometry or additional hypotheses is required before this topology construction is accepted.",
+    "Taking G_n-analytic vectors preserves closed embeddings (Pan II Lemma 2.3.2), but this alone does not prove that the sum of the two Čech images is closed. Nor is the weight-χ part automatically a topological direct factor. Prove strictness of the actual weight-χ Čech map separately.",
     "Equivalence with the topology of H̃^i(K^p, C)^la for O^la by strong LA-acyclicity of O_{K^p}(U_i) and of H⁰(Fl, O_{K^p}) (Pan II Remark 3.4.6); the twisted sheaves by the same strictness argument (Remarks 3.4.7–3.4.8)."
    ],
    "acceptance": [
@@ -2165,14 +2174,14 @@
      "statement": "The LB topology on H^i(Fl, O^{la,χ}) = colim_n Ȟ^i(O^{G_n-an,χ})."
     },
     {
-     "name": "LBCohomology.weyl_strict",
-     "role": "characterisation",
-     "statement": "A continuous map i of Banach spaces is strict iff (i, w∘i) is strict for a continuous involution w."
-    },
-    {
      "name": "LBCohomology.compare",
      "role": "compatibility",
      "statement": "The comparison map H^i(Fl, O^{la,χ}) → H^i(Fl, O_{K^p}) is continuous."
+    },
+    {
+     "name": "LBCohomology.quotient_lift",
+     "role": "universal-property",
+     "statement": "Conditional on the closed-range Čech assertion: a continuous linear map from the degree-one Čech term that kills coboundaries descends uniquely and continuously to the Banach quotient. Compatible level maps induce the corresponding continuous map on the LB colimit."
     }
    ],
    "tests": [
@@ -2272,7 +2281,7 @@
     "Stalk at ∞: neighbourhoods of ∞ in Fl pull back to strict neighbourhoods of the canonical locus (Pan I Lemmas 5.2.8–5.2.9, 5.3.7)."
    ],
    "acceptance": [
-    "For k = 0, M_0(K^p) = colim H⁰(X_{K^pK_p}, O) = H⁰(Fl, O^la) (locally constant functions on components)."
+    "For k=0, M_0(K^p)=colim H⁰(X_{K^pK_p},O)=H⁰(Fl,O^sm), the locally constant functions on components. Its inclusion into H⁰(Fl,O^la) identifies the smooth subspace."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.1/locally-analytic-sheaf",
@@ -2456,7 +2465,7 @@
     {
      "name": "Overconvergent.not_ordinary_locus",
      "kind": "non-example",
-     "statement": "Sections of ω^k defined only on the canonical (ordinary) locus itself, not on a strict neighbourhood, are p-adic modular forms but not overconvergent; they are not in M†_k(K^p)."
+     "statement": "A section defined only on the canonical locus, with no extension to any strict neighbourhood, does not define an overconvergent form. Sections on that locus which do extend are included through their extensions."
     }
    ],
    "uses": [
@@ -2659,26 +2668,28 @@
    ],
    "title": "The singular weight μ(h) = −1 and the nilpotent Sen operator",
    "kind": "theorem",
-   "statement": "Let μ = (k₁, k₁ + 1), so μ(h) = −1. There is an exact sequence 0 → N₁·e₁^{−1}t^{k₁+1} → H̃¹(K^p, C)^la_μ → M†_1(K^p)·e₁^{−1}t^{k₁+1} → 0 with 0 → M†_1/M_1 → N₁ → colim_{K_p} H¹(X_{K^pK_p}, ω) → 0; the weight-(k₁ + 1, k₁) part H̃¹(K^p, C)^{la,(k₁+1,k₁)}_μ is the pull-back of M_1(K^p)·e₁^{−1}t^{k₁+1}. The Sen operator on H̃¹(K^p, C)^la_μ is nilpotent, factors through the quotient M†_1·e₁^{−1}t and maps it to M†_1/M_1·e₁^{−1}t ⊂ N₁·e₁^{−1}t. Passing to the colimit over K^p, (H̃¹(C)^la_{μ₁})^{G_{Q_p}} lies in H̃¹(C)^{la,(1,0)}_{μ₁} (Pan I Theorem 1.0.2).",
+   "statement": "Let μ = (k₁, k₁ + 1), so μ(h) = −1. There is an exact sequence 0 → N₁·e₁^{−1}t^{k₁+1} → H̃¹(K^p, C)^la_μ → M†_1(K^p)·e₁^{−1}t^{k₁+1} → 0 with 0 → M†_1/M_1 → N₁ → colim_{K_p} H¹(X_{K^pK_p}, ω) → 0; the weight-(k₁ + 1, k₁) part H̃¹(K^p, C)^{la,(k₁+1,k₁)}_μ is the pull-back of M_1(K^p)·e₁^{−1}t^{k₁+1}. On H̃¹(K^p, C)^la_μ the shifted operator Θ_Sen − k₁ is square-zero. In the normalisation k₁ = 0, Θ_Sen factors through M†_1·e₁^{−1}t and maps it by the quotient map into (M†_1/M_1)·e₁^{−1}t ⊂ N₁·e₁^{−1}t; general k₁ is obtained by the locally analytic character twist of Pan I §5.3.9. Passing to the colimit over K^p, (H̃¹(C)^la_{μ₁})^{G_{Q_p}} lies in H̃¹(C)^{la,(1,0)}_{μ₁} (Pan I Theorem 1.0.2).",
    "hypotheses": [
     "μ(h) = −1, the singular weight where Hodge–Tate–Sen weights coincide."
    ],
    "proofSteps": [
     "θ_h(h) − 1 = −(h + 1) on the n-part of the auxiliary sheaf F₂ of §5.4.3 (Pan I Lemma 5.4.4); compute the kernels as in §5.4.5.",
-    "Combine with LA.4/n-cohomology-integral-weight in the case k = 1 (Pan I Theorem 5.4.6)."
+    "Combine with LA.4/n-cohomology-integral-weight in the case k = 1 (Pan I Theorem 5.4.6).",
+    "Untwist μ = (k₁,k₁+1) to μ₁ = (0,1) using Pan I §5.3.9, pp. 60–61. Twisting changes the Sen operator by the scalar k₁; only Θ_Sen − k₁ is nilpotent in general (Theorem 1.0.2, p. 4)."
    ],
    "acceptance": [
     "The extension does not split in general, reflecting non-Hodge–Tate representations with equal Hodge–Tate–Sen weights."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.4/n-cohomology-integral-weight",
-    "LocallyAnalyticCompletedCohomology:LA.3/theta-h-is-the-sen-operator"
+    "LocallyAnalyticCompletedCohomology:LA.3/theta-h-is-the-sen-operator",
+    "LocallyAnalyticCompletedCohomology:LA.1/horizontal-cartan-action"
    ],
    "sources": [
     {
      "sourceId": "Pan22",
      "locator": "§5.4.3, Lemma 5.4.4, §5.4.5, Theorem 5.4.6, pp. 64–67; Theorem 1.0.2, p. 4",
-     "match": "The μ-isotypic part for μ(h) = −1 as an extension of overconvergent weight-one forms by N₁, the identification of the weight-(k₁+1, k₁) part with the classical pull-back, and the nilpotent Sen operator."
+     "match": "The μ-isotypic part for μ(h) = −1 as an extension of overconvergent weight-one forms by N₁, the identification of the weight-(k₁+1, k₁) part with the classical pull-back, and the nilpotent Sen operator in the normalisation k₁ = 0, and its shifted version for general μ."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2710,7 +2721,6 @@
     "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
     "CompletedCohomologyPartII:CC.8/completed-hecke-algebra",
     "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
-    "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
     "LocallyAnalyticCompletedCohomology:LA.2/locally-analytic-completed-cohomology"
    ],
    "sources": [
@@ -2757,7 +2767,7 @@
     {
      "name": "ProModular.classical_eigenform",
      "kind": "computation",
-     "statement": "For a cuspidal eigenform f of weight 2 and tame level K^p, the system λ_f of its Hecke eigenvalues gives ρ_{λ_f} = ρ_f (the Eichler–Shimura representation), which is pro-cohomological."
+     "statement": "For a classical cuspidal eigensystem, identify its representation after matching geometric Frobenius: tr ρ_λ(Frob_l) = l^{−1}λ(T_l). A representation normalised using arithmetic Frobenius must be dualised or twisted explicitly before comparison."
     },
     {
      "name": "ProModular.twist",
@@ -2829,14 +2839,15 @@
    ],
    "title": "Classicality of weight-one overconvergent eigensystems with a U_p-eigenvector",
    "kind": "theorem",
-   "statement": "Let ρ = ρ_λ be pro-modular of tame level K^p. If M†_1(K^p)^{N_0}[p_λ] contains a nonzero U_p-eigenvector and ρ|G_{Q_p} is Hodge–Tate of weights 0, 0, then ρ comes from a classical weight-one eigenform: M_1(K^p)[p_λ] ≠ 0. In particular an overconvergent weight-one eigenform of finite slope whose Galois representation is Hodge–Tate at p is classical (no assumption that the U_p-eigenvalue is nonzero).",
+   "statement": "Let ρ = ρ_λ be pro-modular of tame level K^p. If M†_1(K^p)^{N_0}[p_λ] contains a nonzero U_p-eigenvector and ρ|G_{Q_p} is Hodge–Tate of weights 0, 0, then ρ comes from a classical weight-one eigenform: M_1(K^p)[p_λ] ≠ 0. The theorem allows U_p-eigenvalue zero. Its finite-slope special case has nonzero U_p-eigenvalue by definition.",
    "hypotheses": [
     "ρ_λ|G_{Q_p} Hodge–Tate with weights 0, 0; a nonzero U_p-eigenvector in the N_0-invariants of M†_1(K^p)[p_λ]."
    ],
    "proofSteps": [
-    "Reduce to ρ irreducible and normalise K^p = ∏K_l with K_l = Γ₁(l^m) at l ∈ S∖{p}; the operators U_l are integral over T(K^p) (Pan I Lemma 6.2.5).",
-    "Extend λ to λ′ on T̃(K^p)[U_p]; by the q-expansion principle and transitivity of A_S on components, the λ′-eigenspace in the ψ-isotypic M†_1 at Γ₁(p^n)-level is one-dimensional (Pan I Lemma 6.2.6).",
-    "By Eichler–Shimura, H̃¹(K^p, C)^la_{μ₁}[p_{λ·t}] = ρ_λ ⊗ W; Hodge–Tate of weights 0, 0 puts it inside the weight-(1, 0) part, which by LA.4/weight-one-isotypic-part maps to M_1·e₁^{−1}t if λ is not classical — the N_0-invariant λ′-eigenspaces would then have dimension 1 on one side and ≥ dim ρ = 2 on the other, a contradiction (Pan I Theorem 6.2.2 and its proof, sketched on p. 5)."
+    "If ρ is reducible, finite-order characters give the required classical Eisenstein eigensystem. For irreducible ρ normalise the tame level to Γ₁-type level and extend λ to λ′ including the bad-prime operators and U_p (Pan I §6.2.4 and Lemma 6.2.5).",
+    "The q-expansion recurrence for a simultaneous λ′-eigenvector determines its coefficients from a₁; the rigid analytic identity principle on each component and the action on components give dimension one in the chosen ψ-part of M†₁ at Γ₁(p^n)-level (Pan I Lemma 6.2.6). This needs the overconvergent q-expansion contract below.",
+    "Assume M₁[p_λ] = 0. Semisimplicity gives M₁ localised at p_λ equal to zero, and Serre duality with logarithmic Kodaira–Spencer then gives H¹(ω) localised at p_λ equal to zero. These are the finite-level coherent inputs in the R15.1 request.",
+    "Set λ_t(T_l)=l^{−1}λ(T_l) and μ₁=(0,1). LA.4/weight-one-isotypic-part, after localising at λ_t, identifies the weight-(1,0) part with M†₁[p_λ]·e₁^{−1}t under the preceding vanishing assumption. Hodge–Tate weights 0,0 force the entire μ₁-part to have this weight. Boston–Lenstra–Ribet gives a tensor factor ρ of dimension two, contradicting the one-dimensional simultaneous λ′-eigenspace (Pan I pp. 70–71)."
    ],
    "acceptance": [
     "In the ordinary case this recovers Buzzard–Taylor's classicality theorem (Pan I Remark 6.2.3)."
@@ -2846,7 +2857,8 @@
     "LocallyAnalyticCompletedCohomology:LA.4/weight-one-isotypic-part",
     "LocallyAnalyticCompletedCohomology:LA.4/overconvergent-modular-forms",
     "AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem",
-    "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura"
+    "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+    "AlgebraicModularFormsAndSerreWeights:R15.1"
    ],
    "sources": [
     {
@@ -2939,7 +2951,7 @@
    ],
    "proofSteps": [
     "By LA.5/local-global-compatibility-at-eisenstein-ideals, H̃¹(K^p, Q̄_p)[p_λ] is a sum of copies of Π(ρ|G_{Q_p}) or has an ordinary subrepresentation.",
-    "By LA.5/up-eigenvector-from-kirillov-model its locally analytic N_0-invariants contain a U_p-eigenvector, which by LA.4/weight-one-isotypic-part gives one in M†_1(K^p)^{N_0}[p_λ].",
+    "First twist λ by t and use LA.5/infinitesimal-character-of-eigenspaces to select μ₁=(0,1). In that isotypic part, the weight-one decomposition and Hodge–Tate weights 0,0 put the locally analytic vectors in weight (1,0). Apply the Kirillov-model U_p-eigenvector argument inside this part; the map to M†₁·e₁^{−1}t gives the required eigenvector (Pan I proof of Theorem 6.4.7, p. 77).",
     "Apply LA.5/weight-one-classicality-with-up-eigenvector (Pan I Theorem 6.4.7; Remark 6.4.12 sketches a second proof in the nonordinary case)."
    ],
    "acceptance": [
@@ -2949,7 +2961,9 @@
     "LocallyAnalyticCompletedCohomology:LA.5/weight-one-classicality-with-up-eigenvector",
     "LocallyAnalyticCompletedCohomology:LA.5/up-eigenvector-from-kirillov-model",
     "LocallyAnalyticCompletedCohomology:LA.5/local-global-compatibility-at-eisenstein-ideals",
-    "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation"
+    "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
+    "LocallyAnalyticCompletedCohomology:LA.5/infinitesimal-character-of-eigenspaces",
+    "LocallyAnalyticCompletedCohomology:LA.4/weight-one-isotypic-part"
    ],
    "sources": [
     {
@@ -3014,7 +3028,8 @@
    ],
    "proofSteps": [
     "(1): an eigenvector in M†_χ gives, through LA.4/hodge-tate-decomposition-of-isotypic-parts, a vector of H̃¹(C)^la[p_λ] of known θ_h-weight; compare with the infinitesimal character of LA.5/infinitesimal-character-of-eigenspaces and the Sen interpretation.",
-    "(2): local–global compatibility gives Π(ρ|G_{Q_p}) inside H̃¹[p_λ], and the Kirillov model gives N_0-invariant locally analytic vectors of the right weights, which LA.4/hodge-tate-decomposition-of-isotypic-parts places in M†_χ (Pan I Theorem 6.4.11)."
+    "(2): local–global compatibility gives Π(ρ|G_{Q_p}) inside H̃¹[p_λ], and the Kirillov model gives N_0-invariant locally analytic vectors of the right weights, which LA.4/hodge-tate-decomposition-of-isotypic-parts places in M†_χ (Pan I Theorem 6.4.11).",
+    "For the converse do not apply only the regular μ-decomposition: when the two Sen weights coincide use the singular weight-one decomposition; when their difference is one use the k=0,2 exceptional exact sequences. The M₀ terms have abelian Galois eigensystems, so irreducibility excludes them. The Kirillov-model vectors therefore survive in the asserted M† spaces (Pan I proof of Theorem 6.4.11, pp. 78–79)."
    ],
    "acceptance": [
     "For a classical eigenform of weight k ≥ 2 the Hodge–Tate weights are 0, k − 1, consistent with (1) (Pan I Remark 1.0.8; Howe obtained the easier direction independently)."
@@ -3024,7 +3039,9 @@
     "LocallyAnalyticCompletedCohomology:LA.5/up-eigenvector-from-kirillov-model",
     "LocallyAnalyticCompletedCohomology:LA.5/local-global-compatibility-at-eisenstein-ideals",
     "LocallyAnalyticCompletedCohomology:LA.4/hodge-tate-decomposition-of-isotypic-parts",
-    "LocallyAnalyticCompletedCohomology:LA.4/overconvergent-modular-forms"
+    "LocallyAnalyticCompletedCohomology:LA.4/overconvergent-modular-forms",
+    "LocallyAnalyticCompletedCohomology:LA.4/weight-one-isotypic-part",
+    "LocallyAnalyticCompletedCohomology:LA.4/smooth-automorphic-sheaves"
    ],
    "sources": [
     {
@@ -3254,15 +3271,15 @@
    ],
    "title": "The differential operator d_{k+1} along the modular curve",
    "kind": "construction",
-   "statement": "Let χ = (n₁, n₂) be integral with k = n₂ − n₁ ≥ 0. There is a unique natural continuous operator d_{k+1}: O^{la,χ}_{K^p} → ω^{2k+2,la,χ}_{K^p} ⊗ (∧²D^sm)^{−k−1} = O^{la,χ}_{K^p} ⊗_{O^sm} (Ω¹_{K^p}(C)^sm)^{⊗(k+1)} such that (1) d_{k+1} is O_Fl-linear and (2) d_{k+1}(t^{n₁}e₁^ie₂^{k−i}s) = t^{n₁}e₁^ie₂^{k−i}θ_{k+1}(s) for every smooth s of ω^{−k,sm}_{K^p} and 0 ≤ i ≤ k. It commutes with GL_2(Q_p) and prime-to-p Hecke operators. Twisting by ω_Fl^{−k}(−k) gives the equivalent d′_{k+1}: ω^{−k,la,χ′} → ω^{k+2,la,χ′} ⊗ (∧²D^sm)^{−k−1}, χ′ = (n₁, n₁), with d′_{k+1}(t^{n₁}s) = t^{n₁}θ_{k+1}(s). For k = 0, d₁: O^{la,(0,0)} → O^{la,(0,0)} ⊗_{O^sm} Ω^{1,sm}_{K^p}(C) is the unique continuous O_Fl-linear extension of the derivation d of O^sm. The surjection Sym^kD^{*,(0,0)} → ω^{−k,la,(0,0)} has a unique continuous left inverse r_k with ∇_k∘r_k landing in Fil^k ⊗ Ω¹.",
+   "statement": "Let χ = (n₁, n₂) be integral with k = n₂ − n₁ ≥ 0. There is a unique natural continuous operator d_{k+1}: O^{la,χ}_{K^p} → ω^{2k+2,la,χ}_{K^p} ⊗ (∧²D^sm)^{−k−1} = O^{la,χ}_{K^p} ⊗_{O^sm} (Ω¹_{K^p}(C)^sm)^{⊗(k+1)} such that (1) d_{k+1} is O_Fl-linear and (2) d_{k+1}(t^{n₁}e₁^ie₂^{k−i}s) = t^{n₁}e₁^ie₂^{k−i}θ_{k+1}(s) for every smooth s of ω^{−k,sm}_{K^p} and 0 ≤ i ≤ k. It commutes with GL_2(Q_p) and prime-to-p Hecke operators. Twisting by ω_Fl^{−k}(−k) gives the equivalent d′_{k+1}: ω^{−k,la,χ′} → ω^{k+2,la,χ′} ⊗ (∧²D^sm)^{−k−1}, χ′ = (n₁, n₁), with d′_{k+1}(t^{n₁}s) = t^{n₁}θ_{k+1}(s). For k = 0, d₁: O^{la,(0,0)} → O^{la,(0,0)} ⊗_{O^sm} Ω^{1,sm}_{K^p}(C) is the unique continuous O_Fl-linear extension of the derivation d of O^sm. The surjection Sym^kD^{*,(0,0)} → ω^{−k,la,(0,0)} has a unique continuous section r_k with ∇_k∘r_k landing in Fil^k ⊗ Ω¹.",
    "hypotheses": [
     "χ integral with n₂ − n₁ = k ≥ 0."
    ],
    "proofSteps": [
-    "k = 0, locally: on U ∈ 𝔅 with e₁ a generator and f = t^{n₁}Σc_i(x − x_n)^i ∈ A_n, set d_n(f) = t^{n₁}(Σ(x − x_n)^i dc_i − Σ(i + 1)c_{i+1}(x − x_n)^i dx_n); continuity of d bounds p^{(n−1)i}dc_i, and d_{n+1}|_{A_n} = d_n on the dense polynomial part (Pan II proof of Theorem 4.1.4).",
+    "k = 0, locally: on U ∈ 𝔅 with e₁ a generator and f = t^{n₁}Σc_i(x − x_n)^i ∈ A_n, set d_n(f) = t^{n₁}(Σ(x − x_n)^i dc_i − Σ(i + 1)c_{i+1}(x − x_n)^i dx_n); continuity of d bounds p^{(n−1)i}dc_i, and compatibility of d_{n+1}|_{A_n} with d_n follows after passing to a smaller radius where polynomial truncations converge (Pan II proof of Theorem 4.1.4).",
     "O_Fl-linearity: commutes with polynomials in x on U₁ = Spa C⟨x⟩, then with O_Fl(U₁) by continuity, and with rational subdomains by density of C⟨x⟩[1/g].",
     "General k: on D^{χ′} = D^sm ⊗ O^{la,χ′} extend the filtration, use d₁ to build ∇_{χ′} whose Kodaira–Spencer composite is an isomorphism, and repeat the construction of θ_{k+1} on Sym^k of the dual (Pan II proof of Theorem 4.1.4, Remark 4.1.5).",
-    "The splitting r_k: (f ↦ (f mod Fil¹, ∇_kf mod Fil^k)) is an isomorphism by Kodaira–Spencer, hence an isometry by open mapping (Pan II Lemma 4.1.6)."
+    "The map r:f↦(f mod Fil¹,∇_kf mod Fil^k) is an isomorphism by Kodaira–Spencer and a topological isomorphism on the Banach coefficient pieces by open mapping. The required section is r_k(f)=r⁻¹(f,0), hence continuous; no isometry is asserted (Pan II Lemma 4.1.6)."
    ],
    "acceptance": [
     "Uniqueness: two O_Fl-linear continuous extensions agree on the dense image of O^sm ⊗ O_Fl (LA.6/smooth-tensor-flag-is-dense)."
@@ -3272,7 +3289,8 @@
     "LocallyAnalyticCompletedCohomology:LA.6/smooth-de-rham-bundle",
     "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves",
     "LocallyAnalyticCompletedCohomology:LA.2/analytic-banach-algebras",
-    "LocallyAnalyticCompletedCohomology:LA.1/automorphic-twists"
+    "LocallyAnalyticCompletedCohomology:LA.1/automorphic-twists",
+    "LocallyAnalyticCompletedCohomology:LA.6/smooth-tensor-flag-is-dense"
    ],
    "sources": [
     {
@@ -3367,12 +3385,12 @@
    ],
    "title": "The differential operator d̄_{k+1} along the flag variety",
    "kind": "construction",
-   "statement": "Ω¹_Fl ≅ ω_Fl^{−2} ⊗ det GL_2-equivariantly. By Beilinson–Bernstein localisation differential operators on Fl act on O^{la,(0,0)}_{K^p}; the derivation d/dx acts as u₊, giving d̄₁: O^{la,(0,0)} → O^{la,(0,0)} ⊗_{O_Fl} Ω¹_Fl, s ↦ u₊(s) ⊗ dx where e₁ is invertible: the O^sm-linear extension of the de Rham differential of Fl. For χ = (n₁, n₂) integral with k = n₂ − n₁ ≥ 0 and −w·(−χ) = (n₂ + 1, n₁ − 1) there is a natural continuous operator d̄_{k+1}: O^{la,χ} → (∧²D^sm)^{k+1} ⊗ ω^{−2k−2,la,−w·(−χ)}(k + 1) = O^{la,χ} ⊗ (Ω¹_Fl)^{⊗(k+1)}, formally the (k + 1)-st power of the derivation of Fl, with (1) d̄_{k+1} O^sm-linear and (2) d̄_{k+1}(s) = c·(u₊)^{k+1}(s) ⊗ (dx)^{k+1} for a nonzero rational c wherever x is regular; it commutes with GL_2(Q_p), Hecke operators and d_{k+1}. Construction (BGG): λ_k denotes the common infinitesimal character of O^{la,(0,0)} ⊗ ω_Fl^k and its twist by (Ω¹_Fl)^{k+1}; the Hodge–Tate sequence gives 0 → ∧²D^sm ⊗ ω^{−1,la,(1,0)} → V ⊗ O^{la,(0,0)} → ω^{1,la,(0,1)}(−1) → 0, its Sym^k-version φ_{k,1}: Sym^kV ⊗ O^{la,(0,0)} → ω^{k,la,(0,k)}(−k) and φ_{k,2}, both isomorphisms on λ_k-isotypic parts; d̄_{k+1} is the λ_k-isotypic part of Sym^kV ⊗ d̄₁ transported along them.",
+   "statement": "Ω¹_Fl ≅ ω_Fl^{−2} ⊗ det GL_2-equivariantly. The horizontal weight-(0,0) relations glue the local differential operators on Fl acting on O^{la,(0,0)}_{K^p}; the derivation d/dx acts as u₊, giving d̄₁: O^{la,(0,0)} → O^{la,(0,0)} ⊗_{O_Fl} Ω¹_Fl, s ↦ u₊(s) ⊗ dx where e₁ is invertible: the O^sm-linear extension of the de Rham differential of Fl. For χ = (n₁, n₂) integral with k = n₂ − n₁ ≥ 0 and −w·(−χ) = (n₂ + 1, n₁ − 1) there is a natural continuous operator d̄_{k+1}: O^{la,χ} → (∧²D^sm)^{k+1} ⊗ ω^{−2k−2,la,−w·(−χ)}(k + 1) = O^{la,χ} ⊗ (Ω¹_Fl)^{⊗(k+1)}, formally the (k + 1)-st power of the derivation of Fl, with (1) d̄_{k+1} O^sm-linear and (2) d̄_{k+1}(s) = c·(u₊)^{k+1}(s) ⊗ (dx)^{k+1} for a nonzero rational c wherever x is regular; it commutes with GL_2(Q_p), Hecke operators and d_{k+1}. Construction (BGG): λ_k denotes the common infinitesimal character of O^{la,(0,0)} ⊗ ω_Fl^k and its twist by (Ω¹_Fl)^{k+1}; the Hodge–Tate sequence gives 0 → ∧²D^sm ⊗ ω^{−1,la,(1,0)} → V ⊗ O^{la,(0,0)} → ω^{1,la,(0,1)}(−1) → 0, its Sym^k-version φ_{k,1}: Sym^kV ⊗ O^{la,(0,0)} → ω^{k,la,(0,k)}(−k) and φ_{k,2}, both isomorphisms on λ_k-isotypic parts; d̄_{k+1} is the λ_k-isotypic part of Sym^kV ⊗ d̄₁ transported along them.",
    "hypotheses": [
     "Two weights (n₁, n₂), (k₁, k₂) of O^la have the same infinitesimal character iff n₁ + n₂ = k₁ + k₂ and (n₁ − n₂ − 1)² = (k₁ − k₂ − 1)² (Harish-Chandra with θ_h)."
    ],
    "proofSteps": [
-    "d̄₁ from Beilinson–Bernstein: u₊ is d/dx on O_Fl (Pan II §§4.2.1–4.2.2).",
+    "Define d̄₁ = u₊ ⊗ dx on the x-chart, and the analogous expression on the reciprocal chart. The horizontal weight-(0,0) matrix relations of LA.1 show these expressions agree on the overlap, giving the O^sm-linear differential of Fl (Pan II §§4.2.1–4.2.2). This rank-two chart calculation replaces an unprovided general Beilinson–Bernstein localisation theorem.",
     "The λ_1-isotypic part of the middle term of the Hodge–Tate sequence is canonically its quotient; taking λ_1-parts of V ⊗ d̄₁ gives d̄₂, identified with (u₊)² ⊗ (dx)² up to a nonzero rational constant (Pan II §4.2.4, (4.2.4)).",
     "General k with Sym^kV and the filtration by (∧²D^sm)^i ⊗ ω^{k−2i,la,(i,k−i)}(i − k), of which only i = 0 is λ_k-isotypic (Pan II §4.2.5, Lemma 4.2.6).",
     "Properties and commutation with d_{k+1} from the explicit formulae (Pan II Theorem 4.2.7, Remark 4.2.8)."
@@ -3387,7 +3405,8 @@
     "LocallyAnalyticCompletedCohomology:LA.6/smooth-de-rham-bundle",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
     "PerfectoidShimuraVarieties:S3/hecke-equivariant-hodge-tate-sequence",
-    "mathlib:Polynomial.derivative"
+    "mathlib:Polynomial.derivative",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
    ],
    "sources": [
     {
@@ -3431,7 +3450,7 @@
     {
      "name": "OperatorDbar.isotypic",
      "role": "other",
-     "statement": "φ_{k,1}, φ_{k,2} are isomorphisms on λ_k-isotypic parts; φ_{k,1} has a U(g)-equivariant left inverse φ′_k."
+     "statement": "φ_{k,1}, φ_{k,2} induce isomorphisms on λ_k-isotypic parts; φ_{k,1} has a U(g)-equivariant section φ′_k, so φ_{k,1}∘φ′_k=id."
     }
    ],
    "tests": [
@@ -3453,7 +3472,7 @@
     {
      "name": "OperatorDbar.infinitesimal_character",
      "kind": "compatibility",
-     "statement": "Source and target have the same infinitesimal character: (n₁ − n₂ − 1)² = (n₂ + 1 − n₁ + 1 − 1)² holds for the weights χ and −w·(−χ)."
+     "statement": "For χ′ = (n₂+1,n₁−1), n₁+n₂ = χ′₁+χ′₂ and (n₁−n₂−1)² = ((n₂+1)−(n₁−1)−1)² = (n₂−n₁+1)². Thus source and target have the same infinitesimal character in the horizontal convention."
     },
     {
      "name": "OperatorDbar.not_O_Fl_linear",
@@ -3492,7 +3511,7 @@
     "By equivariance it suffices to argue where e₁ generates."
    ],
    "proofSteps": [
-    "Surjectivity: u₊ is surjective on O^{la,χ}(U) where e₁ generates (Pan I Proposition 5.2.9, expansion in x − x_n).",
+    "Surjectivity: u₊ is surjective on O^{la,χ}(U) where e₁ generates (Pan I proof of Proposition 5.2.10, pp. 55–57, expansion in x − x_n).",
     "Kernel: it is gl_2-stable and killed by (u₊)^{k+1}, so locally finite; an infinitesimal-character computation identifies it with the Sym^kV-isotypic part, i.e. LA.2/locally-algebraic-subsheaves (Pan II Proposition 4.2.9, Remark 4.2.10)."
    ],
    "acceptance": [
@@ -3525,7 +3544,7 @@
     "Weight (0, 0)."
    ],
    "proofSteps": [
-    "By LA.2/weight-sheaves a section of weight (0, 0) is Σc_i(x − x_n)^i with c_i at finite level, i.e. smooth; finite sums lie in O^sm(U) ⊗ O_Fl(U) and are dense in A_n."
+    "Use the weight-(0,0) expansion Σc_i(x−x_n)^i. Weighted coefficients are bounded, so polynomial truncations need not converge in the same A_n. After passing to a later stage with a smaller analytic radius, the extra factor p^{−i} forces the tails to zero. The finite sums belong to O^sm(U) ⊗ O_Fl(U), proving density in the LB limit (Pan II Theorem 3.2.2 and Corollary 3.2.3, pp. 19–20)."
    ],
    "acceptance": [
     "Hence d₁ and d̄₁ are determined by their values on O^sm (where d̄₁ = 0, d₁ = d) and on O_Fl (where d₁ = 0, d̄₁ = d)."
@@ -3623,7 +3642,7 @@
     {
      "name": "Intertwining.weights",
      "kind": "compatibility",
-     "statement": "Source and target weights χ and −w·(−χ) = (n₂ + 1, n₁ − 1) are exchanged by the dot action of the nontrivial Weyl element, as an intertwining operator between principal-series-type objects should."
+     "statement": "The weight transformation χ ↦ −w·(−χ) = (n₂+1,n₁−1) is the conjugate of the dot reflection by negation, and is an involution preserving the horizontal infinitesimal character. It is not the ordinary dot action on χ."
     },
     {
      "name": "Intertwining.not_zero",
@@ -3662,7 +3681,7 @@
     "Fl has cohomological dimension one for sheaves of abelian groups on its analytic site, as used in Pan II §4.4."
    ],
    "proofSteps": [
-    "Since I_k = d̄′_{k+1} ∘ d_{k+1} and d̄′_{k+1} is surjective (LA.6/dbar-is-surjective-with-locally-algebraic-kernel), it suffices that H¹ of ker d̄′_{k+1} = Sym^kV(k) ⊗ ω^{k+2,la} ⊗ (∧²D^sm)^{−k−1}-type sheaf vanish, which reduces to H¹(Fl, ω^{k+2,sm}) = 0 for k ≥ 0 (Pan II Lemma 4.4.2, with Pan I Corollary 5.3.6).",
+    "Since I_k = d̄′_{k+1} ∘ d_{k+1} and d̄′_{k+1} is surjective (LA.6/dbar-is-surjective-with-locally-algebraic-kernel), it suffices that H¹ of ker d̄′_{k+1} = Sym^kV(k) ⊗ ω^{k+2,sm} ⊗ (∧²D^sm)^{−k−1}-type sheaf vanish, which reduces to H¹(Fl, ω^{k+2,sm}) = 0 for k ≥ 0 (Pan II Lemma 4.4.2, with Pan I Corollary 5.3.6).",
     "The homological lemma is a diagram chase with the factorisation F → X(F) → G (Pan II Lemma 4.4.4, Remark 4.4.5)."
    ],
    "acceptance": [
@@ -3733,7 +3752,7 @@
    "proofSteps": [
     "Snake lemma applied to the diagram of §4.4.10 (Pan II Proposition 4.4.12).",
     "k = 0: θ₁ is essentially the derivation, whose kernel on a strict neighbourhood of the canonical locus is locally constant functions, i.e. global functions since Igusa curves are irreducible (Pan II Lemma 4.4.13).",
-    "k ≥ 1: dim ker θ_{k+1} at level Γ(p^n) ≤ (k + 1)·#π₀ (an order-(k + 1) linear ODE away from the cusps), so the kernel is a finite-dimensional smooth GL_2(A_f^p)-representation factoring through det; a nonzero kernel would give a spherical eigensystem with consecutive Hodge–Tate weights at gap k + 1 > 1, contradicting Pan's 2020 theorem (Pan II Lemma 4.4.14)."
+    "k ≥ 1: dim ker θ_{k+1} at level Γ(p^n) ≤ (k + 1)·#π₀ (an order-(k + 1) linear ODE away from the cusps), so the kernel is a finite-dimensional smooth GL_2(A_f^p)-representation factoring through det; a nonzero kernel would give a spherical eigensystem with consecutive Hodge–Tate weights at gap k + 1 > 1, contradicting LA.5/gouvea-conjecture (the Sen-weight theorem quoted as Pan20 in the source) (Pan II Lemma 4.4.14)."
    ],
    "acceptance": [
     "For k > 0, M_{−k}(K^p) = 0, so A_{(k,0)} = colim H¹(X_{K^pK_p}, ω^{−k}) (Pan II Remark 4.4.16)."
@@ -3743,7 +3762,7 @@
     "LocallyAnalyticCompletedCohomology:LA.6/theta-operators",
     "LocallyAnalyticCompletedCohomology:LA.6/smooth-de-rham-bundle",
     "ModularCurvesPartII:R13.5/igusa-components",
-    "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform"
+    "LocallyAnalyticCompletedCohomology:LA.5/gouvea-conjecture"
    ],
    "sources": [
     {
@@ -3838,7 +3857,7 @@
    "kind": "construction",
    "statement": "Fl = P¹ = P¹(Q_p) ⊔ Ω with Ω the Drinfeld upper half-plane; ∞ ∈ P¹(Q_p) is the zero of e₁ with coordinate y = e₁/e₂. The stalk of O_Fl at ∞ is colim_n O_C[[y/p^n]][1/p], each a C-Banach space, and the stalk of ω^{l,sm}_{K^p} at ∞ is M†_l(K^p). Write O_{Fl,∞} ⊗̂ M†_l for the colimit of the completed tensor products, whose elements are Σ_i c_iy^i with c_i ∈ ω^l(U) for a strict affinoid neighbourhood U of some canonical locus and c_ip^{mi} bounded. Then the stalk of O^{la,(n₁,n₂)}_{K^p} at ∞ is ω^{n₂−n₁}_{Fl,∞} ⊗̂ M†_{n₁−n₂}(K^p)(n₂ − n₁)·t^{n₁}, and that of ω^{l,la,(n₁,n₂)} is the same with M†_{n₁−n₂+l}. By GL_2(Q_p)-equivariance the same holds at every point of P¹(Q_p).",
    "hypotheses": [
-    "The fibres of π_HT over P¹(Q_p) are perfect Igusa curves and over Ω profinite sets (Newton strata correspond, IG.3)."
+    "Use the modular-curve Hodge–Tate stratification from PerfectoidShimuraVarieties:S5; IG.3/newton-strata-correspond supplies the good-reduction interior comparison. At cusps use the compactified modular tower and its explicit boundary charts from S1, rather than extending the good-reduction theorem by assertion."
    ],
    "proofSteps": [
     "After the Weyl element, a section near ∞ is t^{n₁}e₂^{n₂−n₁} times a power series in y − y_n by LA.2/weight-sheaves; shrink so that y_n = 0 (Pan II Lemma 5.1.2, as in Pan I Proposition 5.2.10).",
@@ -3850,7 +3869,9 @@
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves",
     "LocallyAnalyticCompletedCohomology:LA.4/overconvergent-modular-forms",
-    "IgusaVarietiesAndTorsionConcentration:IG.3/newton-strata-correspond"
+    "IgusaVarietiesAndTorsionConcentration:IG.3/newton-strata-correspond",
+    "PerfectoidShimuraVarieties:S5",
+    "PerfectoidShimuraVarieties:S1"
    ],
    "sources": [
     {
@@ -4025,7 +4046,9 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit",
     "LocallyAnalyticCompletedCohomology:LA.0/log-galois-perfectoid-covering",
-    "LocallyAnalyticCompletedCohomology:LA.1/flag-variety-lie-algebra-bundles"
+    "LocallyAnalyticCompletedCohomology:LA.1/flag-variety-lie-algebra-bundles",
+    "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-differential-equation",
+    "PerfectoidShimuraVarieties:S5"
    ],
    "sources": [
     {
@@ -4115,12 +4138,13 @@
    "kind": "theorem",
    "statement": "(1) For an open affinoid X of M_LT with preimage X̃ = Spa(B, B⁺) in M_{LT,∞} (a GL_2(Z_p)-Galois pro-étale perfectoid covering), the element θ_X̃ of LA.0/differential-equation is a generator of n⁰ up to a unit of B; equivalently n⁰ kills B^la. (2) For an affinoid Y of M_Dr whose preimage Ỹ in M_{Dr,∞} has Hodge–Tate image in an affinoid of Fl′ (such Y form a basis), Ỹ is an O_{D_p}^×-Galois pro-étale perfectoid covering and the operator annihilating the D_p^×-locally analytic vectors is a generator of n⁰_{D_p} up to a unit.",
    "hypotheses": [
-    "Smallness in LA.0 can be removed here (Pan II §5.2.5)."
+    "Smallness in LA.0 can be removed here (Pan II §5.2.5).",
+    "Planning gap: the Drinfeld conclusion requires the deferred comparison between the Liu–Zhu Higgs field and the relative Sen Higgs field, or an independent direct proof. ET.6a/analytic-vectors-under-duality assumes the same compatibility and cannot prove it here."
    ],
    "proofSteps": [
-    "Embed the height-zero Lubin–Tate space into a modular curve and use LA.1/theta-on-the-modular-curve (Pan II proof of Theorem 5.2.6).",
+    "Embed the height-zero Lubin–Tate space into a modular curve and use LA.1/theta-on-the-modular-curve (Pan II proof of Theorem 5.2.6). The embedding and its identification of period maps are the S5 uniformization request; pass from principal tame level to a neat subgroup by compatible finite-level descent.",
     "Conceptual alternative (Harris): the Higgs field of the standard representation is computed from (D(G), ∇_LT); it kills Fil⁰ = ω_LT^{−1} and induces the Kodaira–Spencer isomorphism (Pan II Proposition 5.2.3) on the quotient — this route needs the compatibility of Liu–Zhu's Higgs bundle with Pan I's Higgs field, deferred by the author (footnote 3, p. 58; source issue E3 of the extraction).",
-    "The Drinfeld case is the same, Kodaira–Spencer holding for the Drinfeld tower (Pan II Theorem 5.3.6)."
+    "The Drinfeld argument in Pan II Theorem 5.3.6 uses the conceptual Higgs-field route. Its compatibility with Pan I’s relative Sen Higgs field is deferred in footnote 3 of Theorem 5.2.6 (p. 58); T6/log-higgs-functor does not state that comparison. The modular-curve proof given for Lubin–Tate alone does not close the Drinfeld case."
    ],
    "acceptance": [
     "Hence b⁰/n⁰ acts and θ_{LT,h}, θ_{Dr,h} are defined (LA.9/lubin-tate-locally-analytic-sheaves)."
@@ -4131,7 +4155,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms",
-    "HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor"
+    "HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor",
+    "PerfectoidShimuraVarieties:S5"
    ],
    "sources": [
     {
@@ -4155,7 +4180,7 @@
    ],
    "title": "Power-series descriptions on both towers and the agreement of the Cartan actions",
    "kind": "theorem",
-   "statement": "(1) (Lubin–Tate) For every n and coefficients c_{i,j,k} at level G_{r(n)} with ‖c_{i,j,k}‖p^{(n−1)(i+j+k)} bounded, Σc_{i,j,k}(x − x_n)^i(log(e₁/e_{1,n}))^j(log(t/t_n))^k converges in the G_{r(n)}-analytic vectors of B, and every G_n-analytic vector arises so; consequently B^la ⊂ B^{D_p^×-la}. (2) (Drinfeld) The same with (y − y_n), log(f₁/f_{1,n}), log(t/t′_n) and H_n = 1 + p^nO_{D_p} describes the H_n-analytic vectors (the coefficients denoted c_{i,j,k}; the printed d_{i,j,k} in the norm bound is a misprint, extraction E1). (3) θ_{LT,h} = θ_{Dr,h} on O^la_LT: both vanish on the smooth and on the D_p^×-smooth structure sheaves, θ_{LT,h}(h) is 0 on ω^sm_LT and −1 on the D_p^×-smooth part, and symmetrically.",
+   "statement": "(1) (Lubin–Tate) For every n and coefficients c_{i,j,k} at level G_{r(n)} with ‖c_{i,j,k}‖p^{(n−1)(i+j+k)} bounded, Σc_{i,j,k}(x − x_n)^i(log(e₁/e_{1,n}))^j(log(t/t_n))^k converges in the G_{r(n)}-analytic vectors of B, and every G_n-analytic vector arises so; consequently B^la ⊂ B^{D_p^×-la}. (2) (Drinfeld) The same with (y − y_n), log(f₁/f_{1,n}), log(t/t′_n) and H_n = 1 + p^nO_{D_p} describes the H_n-analytic vectors (the coefficients denoted c_{i,j,k}; the displayed series uses c_{i,j,k} while the quantified coefficients and their bound use d_{i,j,k}; these names must agree, extraction E1). (3) θ_{LT,h} = θ_{Dr,h} on O^la_LT: both vanish on the smooth and on the D_p^×-smooth structure sheaves, θ_{LT,h}(h) is 0 on ω^sm_LT and −1 on the D_p^×-smooth part, and symmetrically.",
    "hypotheses": [
     "G_n = Γ(p^n); the coordinates of LA.9/lubin-tate-locally-analytic-sheaves."
    ],
@@ -4267,7 +4292,7 @@
    ],
    "title": "Through the supersingular uniformization, ker d on Ω is quaternionic forms",
    "kind": "theorem",
-   "statement": "Let D be the definite quaternion algebra over Q ramified at {p, ∞} with D ⊗ Q_p = D_p and X_{K^p} = D^×\\(D ⊗ A_f^p)^×/K^p ≅ a finite disjoint union of O_{D_p}^×-orbits. Through the supersingular uniformization (requested from PerfectoidShimuraVarieties S5), O_{K^p}|_Ω is the sheaf of O_{D_p}^×-equivariant maps from X_{K^p} to O_LT, and ker d_{k+1}|_Ω the equivariant maps into ker d^{k+1}_LT. Hence: (1) d_{k+1}|_Ω is surjective and coker d_{k+1} is supported on P¹(Q_p), given by LA.8/cokernel-of-d-on-rational-points; (2) coker I_k is supported on P¹(Q_p) and I¹_k is surjective; (3) for χ = (n₁, n₂), k = n₂ − n₁ ≥ 0, there is a Hecke- and GL_2(Q_p)⁰-equivariant isomorphism ker d_{k+1}|_Ω ≅ (A_{D,(−n₁,−n₂)}^{K^p} ⊗ (D_p^×-smooth part of ω^{−k}_Dr))^{O_{D_p}^×}(n₂)·|det|^{n₁}det^{n₁}, where A_{D,−χ} are the quaternionic forms with coefficients in the dual W_{(−n₁,−n₂)} of the algebraic representation of D_p^× of highest weight (n₂, n₁); it extends to a GL_2(Q_p)-equivariant isomorphism after summing the bundle over its Z-translates.",
+   "statement": "Let D be the definite quaternion algebra over Q ramified at {p, ∞} with D ⊗ Q_p = D_p and X_{K^p} = D^×\\(D ⊗ A_f)^×/K^p ≅ a finite disjoint union of O_{D_p}^×-orbits. Through the supersingular uniformization (requested from PerfectoidShimuraVarieties S5), O_{K^p}|_Ω is the sheaf of O_{D_p}^×-equivariant maps from X_{K^p} to O_LT, and ker d_{k+1}|_Ω the equivariant maps into ker d^{k+1}_LT. Hence: (1) d_{k+1}|_Ω is surjective and coker d_{k+1} is supported on P¹(Q_p), given by LA.8/cokernel-of-d-on-rational-points; (2) coker I_k is supported on P¹(Q_p) and I¹_k is surjective; (3) for χ = (n₁, n₂), k = n₂ − n₁ ≥ 0, there is a Hecke- and GL_2(Q_p)⁰-equivariant isomorphism ker d_{k+1}|_Ω ≅ (A_{D,(−n₁,−n₂)}^{K^p} ⊗ (D_p^×-smooth part of ω^{−k}_Dr))^{O_{D_p}^×}(n₂)·|det|^{n₁}det^{n₁}, where A_{D,−χ} are the quaternionic forms with coefficients in the dual W_{(−n₁,−n₂)} of the algebraic representation of D_p^× of highest weight (n₂, n₁); it extends to a GL_2(Q_p)-equivariant isomorphism after summing the bundle over its Z-translates.",
    "hypotheses": [
     "K^p inside a level-N subgroup, N ≥ 3 prime to p, so that O_{D_p}^× acts freely on X_{K^p}."
    ],
@@ -4442,7 +4467,7 @@
     {
      "name": "HeckeSpectrum.twist",
      "kind": "compatibility",
-     "statement": "σ^{K^p}_{k,n} is σ^{K^p}_k twisted by the n-th power of ε∘det: λ(T_l) is multiplied by l^n."
+     "statement": "For the conventions of Pan I p. 71, multiplying by t^n sends λ(T_l) to l^{−n}λ(T_l). In particular λ·t has T_l-eigenvalue l^{−1}λ(T_l), not lλ(T_l)."
     },
     {
      "name": "HeckeSpectrum.weight_zero",
@@ -4512,17 +4537,18 @@
    ],
    "title": "The de Rham complexes DR_k and D_k and the Hodge filtration",
    "kind": "construction",
-   "statement": "For k ≥ 0 let DR_k be the two-term complex d_{k+1}: O^{la,(−k,0)}_{K^p} → (target of d_{k+1}) on Fl, DR′_k that of d′_{k+1}, and D_k the two-term complex θ_{k+1}: ω^{−k,sm}_{K^p} → ω^{k+2,sm} ⊗ (∧²D^sm)^{−k−1}. Fil¹DR_k is the target placed in degree 1. Then ker H¹(d_{k+1}) = H¹(DR_k)/Fil¹H¹(DR_k), H⁰(d_{k+1}) = 0, and Fil¹H¹(DR_k) = H⁰(target) ≅ Sym^kV ⊗ M_{k+2}(K^p)(k) ⊗ D₀^{−k−1}·t^{−k}, embedded by i_H through the locally algebraic inclusion. D_k is quasi-isomorphic to the de Rham complex of Sym^kD^{*,sm}, H¹(D_k) = colim of finite-level de Rham cohomology H¹_dR(X_{K^pK_p}, Sym^kD^*) with 0 → H⁰(target) → H¹(D_k) → H¹(ω^{−k,sm}) → 0, H²(D_k) = 0, and T^S acts semisimply on H¹(D_k). d̄_{k+1} gives an exact triangle D_k ⊗ Sym^kV·ε^{−k} → DR_k → DR′_k, so 0 → H¹(D_k) ⊗ Sym^kV·ε^{−k} → H¹(DR_k) → H¹(DR′_k) → 0, and i_H describes the classical Hodge filtration of H¹(D_k).",
+   "statement": "For k ≥ 0 let DR_k be the two-term complex d_{k+1}: O^{la,(−k,0)}_{K^p} → (target of d_{k+1}) on Fl, DR′_k that of d′_{k+1}, and D_k the two-term complex θ_{k+1}: ω^{−k,sm}_{K^p} → ω^{k+2,sm} ⊗ (∧²D^sm)^{−k−1}. Fil¹DR_k is the target placed in degree 1. Then ker H¹(d_{k+1}) = H¹(DR_k)/Fil¹H¹(DR_k), H⁰(d_{k+1}) = 0, and Fil¹H¹(DR_k) = H⁰(target) ≅ Sym^kV ⊗ M_{k+2}(K^p)(k) ⊗ D₀^{−k−1}·t^{−k}, embedded by i_H through the locally algebraic inclusion. D_k is quasi-isomorphic to the logarithmic de Rham complex Sym^kD^{*,sm} → Sym^kD^{*,sm} ⊗ Ω¹(log cusps), H¹(D_k) = colim of finite-level de Rham cohomology H¹_dR,log(X_{K^pK_p}, Sym^kD^*) with 0 → H⁰(target) → H¹(D_k) → H¹(ω^{−k,sm}) → 0, H²(D_k) = 0, and T^S acts semisimply on H¹(D_k). d̄_{k+1} gives an exact triangle D_k ⊗ Sym^kV·ε^{−k} → DR_k → DR′_k, so 0 → H¹(D_k) ⊗ Sym^kV·ε^{−k} → H¹(DR_k) → H¹(DR′_k) → 0, and i_H describes the classical Hodge filtration of H¹(D_k).",
    "hypotheses": [
-    "k ≥ 0; hypercohomology on the analytic site of Fl."
+    "k ≥ 0; hypercohomology on the analytic site of Fl.",
+    "At finite level use the canonical logarithmic connection at the cusp divisor. After localising at a cuspidal eigensystem the boundary contribution vanishes, so the usual cuspidal de Rham interpretation is recovered."
    ],
    "proofSteps": [
     "Hodge filtration via Remark 4.4.5; H⁰(d_{k+1}) = 0 since H⁰ of the source vanishes for k ≠ 0 and is M_0·t^{n₁}, killed by d₁, for k = 0 (Pan II §5.5.10, Lemma 5.5.11, Definition 5.5.12).",
-    "D_k and its semisimplicity: the inclusion ω^{−k,sm} ⊂ Sym^kD^{*,sm} is a quasi-isomorphism onto the de Rham complex; Hecke semisimplicity from the Shimura isomorphism over C (Pan II §5.6.1, Proposition 5.6.2).",
+    "D_k and its semisimplicity: the inclusion ω^{−k,sm} ⊂ Sym^kD^{*,sm} is a quasi-isomorphism onto the logarithmic de Rham complex; Hecke semisimplicity from the Shimura isomorphism over C (Pan II §5.6.1, Proposition 5.6.2).",
     "The triangle from d̄ commuting with d (Pan II §5.6.3, Remark 5.6.12)."
    ],
    "acceptance": [
-    "For k = 0, H¹(D_0) = colim H¹_dR(X_{K^pK_p}) and its Fil¹ is colim H⁰(X_{K^pK_p}, ω²) (Pan II Remark 1.1.13)."
+    "For k=0, H¹(D_0) is the finite-level colimit of logarithmic de Rham cohomology. Its Fil¹ is colim H⁰(X_{K^pK_p},Ω¹(log cusps))=colim H⁰(X_{K^pK_p},ω²), using logarithmic Kodaira–Spencer (Pan II Remark 1.1.13)."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.6/operator-d",
@@ -4541,7 +4567,7 @@
     {
      "sourceId": "PanII",
      "locator": "§5.6.1, Proposition 5.6.2, §5.6.3, Remark 5.6.12, pp. 79–83",
-     "match": "The complex D_k of θ_{k+1}, its identification with de Rham cohomology of Sym^kD^* at finite level, semisimplicity of the Hecke action, the triangle D_k ⊗ Sym^kV → DR_k → DR′_k, and the Hodge filtration."
+     "match": "The complex D_k of θ_{k+1}, its identification with logarithmic de Rham cohomology of Sym^kD^* at finite level, semisimplicity of the Hecke action, the triangle D_k ⊗ Sym^kV → DR_k → DR′_k, and the Hodge filtration."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4569,7 +4595,7 @@
     {
      "name": "DeRhamComplex.D_deRham",
      "role": "equivalence",
-     "statement": "H¹(D_k) ≅ colim_{K_p} H¹_dR(X_{K^pK_p}, Sym^kD^*)."
+     "statement": "H¹(D_k) ≅ colim_{K_p} H¹_dR,log(X_{K^pK_p}, Sym^kD^*)."
     },
     {
      "name": "DeRhamComplex.triangle",
@@ -4586,7 +4612,7 @@
     {
      "name": "DeRhamComplex.k_zero",
      "kind": "degenerate",
-     "statement": "For k = 0, D_0 = [O^sm → Ω^{1,sm}(C)], whose H¹ is colim H¹_dR(X_{K^pK_p}) with Fil¹ = colim H⁰(X, Ω¹(C)) = M_2(K^p) ⊗ D₀^{−1}."
+     "statement": "For k = 0, D_0 = [O^sm → Ω^{1,sm}(C)], whose H¹ is colim H¹_dR,log(X_{K^pK_p}) with Fil¹ = colim H⁰(X, Ω¹(C)) = M_2(K^p) ⊗ D₀^{−1}."
     },
     {
      "name": "DeRhamComplex.no_H0",
@@ -4596,7 +4622,7 @@
     {
      "name": "DeRhamComplex.classical_hodge",
      "kind": "compatibility",
-     "statement": "Under H¹(D_k) ⊗ Sym^kV ⊂ H¹(DR_k), Fil¹ restricts to the Hodge filtration Fil¹H¹_dR(X, Sym^kD^*) = H⁰(X, ω^{k+2} ⊗ (∧²D)^{−k−1})."
+     "statement": "Under H¹(D_k) ⊗ Sym^kV ⊂ H¹(DR_k), Fil¹ restricts to the Hodge filtration Fil¹H¹_dR,log(X, Sym^kD^*) = H⁰(X, ω^{k+2} ⊗ (∧²D)^{−k−1})."
     },
     {
      "name": "DeRhamComplex.cohomology_ignores_fil",
@@ -4665,11 +4691,11 @@
    "kind": "definition",
    "statement": "Let DR_dR be the complex d: (D_p^×-smooth structure sheaf on Ω) → Ω¹_Dr (≅ ω²_Dr ⊗ det by Kodaira–Spencer) and j: Ω → Fl. H^i_{dR,c}(M^{(0)}_{Dr,∞}) := H^i(Fl, j_!DR_dR); since only H¹ of each term is nonzero, H^i_{dR,c} is the (i − 1)-st cohomology of H¹(j_!O^{D-sm}) → H¹(j_!Ω¹_Dr). The same recipe at finite level gives H^i_{dR,c}(M^{(0)}_{Dr,n}) with H^i_{dR,c}(M^{(0)}_{Dr,∞}) = colim_n. GL_2(Q_p)⁰ acts on H²_{dR,c} through det and O_{D_p}^× through the reduced norm.",
    "hypotheses": [
-    "The finite-level Drinfeld spaces are partially proper, so their de Rham cohomology is computed naively."
+    "At finite level the Drinfeld curve is finite étale over the Stein upper half-plane, hence quasi-Stein; coherent acyclicity, rather than partial properness alone, permits the naive de Rham complex. The topological Serre-duality comparison with compact supports is a separate input."
    ],
    "proofSteps": [
     "Definition by j_! (Pan II Definition 5.6.5).",
-    "At finite level Serre duality gives H^i_dR dual to H^{2−i}_{dR,c}, and the result agrees with the compactly supported cohomology of Colmez–Dospinescu–Nizioł (Pan II §5.6.9, explanatory; owned by the proposed ProetaleCohomologyOfPAdicCurvesAndTowers).",
+    "The identification with finite-level compactly supported de Rham cohomology and topological Serre duality need the curve/tower duality theorem discussed in Pan II §5.6.9, p. 83 (Colmez–Dospinescu–Nizioł §4.3). No listed prerequisite supplies it. Until the proposed ProetaleCohomologyOfPAdicCurvesAndTowers has such a node, this interpretation and the H² action are conditional; the j_! hypercohomology definition itself is well specified.",
     "H⁰_dR is the continuous functions on π₀, so H²_{dR,c} is abelian (Pan II Lemma 5.6.10)."
    ],
    "acceptance": [
@@ -4755,7 +4781,7 @@
    ],
    "title": "The p-adic vanishing-cycle exact sequence and honest Igusa eigenspaces",
    "kind": "theorem",
-   "statement": "For k ≥ 1 there is a natural exact sequence 0 → (H¹_{dR,c}(M^{(0)}_{Dr,∞}) ⊗ A_{D,(k,0)})^{O_{D_p}^×} → H¹(D_k) → Ind_B^{GL_2(Q_p)}H¹_rig(Ig(K^p), Sym^k) → (H²_{dR,c} ⊗ A_{D,(k,0)})^{O_{D_p}^×} → 0 (twists as in Pan II; the induction is the smooth one, the global sections of the ordinary sheaf H¹_ord), and for k = 0 the same with A^c and an extra summand M_0(K^p) in the last term. Consequently, if λ comes from a cuspidal π and the generalised λ-eigenspace of H¹_rig(Ig(K^p), Sym^k) is nonzero, then (1) it is an honest eigenspace and (2) π_p is a principal series or special.",
+   "statement": "For k ≥ 1 there is a natural exact sequence 0 → (H¹_{dR,c}(M^{(0)}_{Dr,∞}) ⊗ A_{D,(k,0)})^{O_{D_p}^×} → H¹(D_k) → Ind_B^{GL_2(Q_p)}H¹_rig(Ig(K^p), Sym^k) → (H²_{dR,c} ⊗ A_{D,(k,0)})^{O_{D_p}^×} → 0 (with the displayed untwisted normalisation of Pan II Theorem 5.6.7; the induction is smooth, the global sections of H¹_ord), and for k = 0 the same with A^c and an extra summand M_0(K^p) in the last term. Consequently, if λ comes from a cuspidal π and the generalised λ-eigenspace of H¹_rig(Ig(K^p), Sym^k) is nonzero, then (1) it is an honest eigenspace and (2) π_p is a principal series or special.",
    "hypotheses": [
     "k ≥ 0; cuspidal eigensystems λ."
    ],
@@ -4797,12 +4823,13 @@
    "kind": "construction",
    "statement": "On X_{K^p}, A_inf assigns to an affinoid perfectoid V the Witt vectors of the tilt of O⁺(V), with θ onto O⁺; B⁺_dR is the ker θ-adic completion of A_inf[1/p], with Fontaine's t generating the relative kernel, so gr^iB⁺_dR = O(i). Push forward along π_HT to get B⁺_dR on Fl with gr^i = O_{K^p}(i), and truncate: B⁺_{dR,k} = B⁺_dR/(t^k). For U ∈ 𝔅, B⁺_{dR,k}(U) is a flat Banach B⁺_dR/(t^k)-module with unit ball the image of A_inf, with GL_2(Q_p)- and (for K large) G_K-action; B^{+,la}_{dR,k} is the locally analytic subsheaf, with g-action, and for an infinitesimal character χ̃ of Z = Z(U(g)), B^{+,la,χ̃}_{dR,k} its χ̃-isotypic part. Then gr^iB^{+,la}_{dR,k} ≅ O^la_{K^p}(i) and gr^iB^{+,la,χ̃}_{dR,k} ≅ O^{la,χ̃}_{K^p}(i) for 0 ≤ i ≤ k − 1; both sheaves are flat over B⁺_dR/(t^k). The restriction B⁺_{dR,k}(U₁) → B⁺_{dR,k}(U₁₂) is a closed embedding, strict for the t-adic filtration; so are the maps on G_n-analytic χ̃-isotypic sections (closed embeddings) and on locally analytic χ̃-isotypic sections (closed embeddings, strict for the t-adic filtration); their Čech cohomology for {U₁, U₂} computes H*(Fl, B⁺_{dR,k}) and H*(Fl, B^{+,la,χ̃}_{dR,k}), flat over B⁺_dR/(t^k) with gr^iH* = H*(gr^i), and H*(Fl, B^{+,la,χ̃}_{dR,k}) is Hausdorff.",
    "hypotheses": [
-    "B⁺_dR is the ker θ-adic completion of A_inf[1/p] on affinoid perfectoid opens, as in Scholze 2013 §6; χ̃ an infinitesimal character, viewed as a W-orbit in h* by Harish-Chandra."
+    "B⁺_dR is the ker θ-adic completion of A_inf[1/p] on affinoid perfectoid opens, as in Scholze 2013 §6; χ̃ an infinitesimal character, viewed as a W-orbit in h* by Harish-Chandra.",
+    "Planning gap: the asserted closed-range/topological cohomology package depends on the unresolved geometric strictness argument (source issue E2)."
    ],
    "proofSteps": [
     "Construction and graded pieces from Scholze's period sheaves (Pan II §6.2.1).",
     "gr^i commutes with locally analytic vectors by LA-acyclicity of O_{K^p}(U) (LA.2/la-acyclicity-on-the-basis); with χ̃-parts by a Koszul-complex vanishing of Ext_Z(χ̃, −) after Harish-Chandra embeds Z in a polynomial ring in two variables, using the h-cohomology vanishing of LA.2/weight-sheaves (Pan II Lemma 6.2.2).",
-    "Strictness from LA.3/lb-topology-on-cohomology's Lemmas 3.4.2–3.4.3 on graded pieces (Pan II Lemma 6.2.9, Corollaries 6.2.10–6.2.11); cohomology and Hausdorffness from LA.3/cohomology-is-hausdorff-lb (Pan II Definition 6.2.12, Proposition 6.2.13)."
+    "The strictness and Hausdorff cohomology assertions are conditional on repairing LA.3/lb-topology-on-cohomology. Pan II Corollaries 6.2.10–6.2.11 use the invalid general Lemma 3.4.3 via the graded Čech maps; flatness of the local modules and the existence of their graded pieces do not prove closed range. Prove the actual period Čech strictness and filtration strictness geometrically."
    ],
    "acceptance": [
     "For k = 1, B⁺_{dR,1} = O_{K^p} and the statements reduce to LA.2–LA.3."
@@ -4854,6 +4881,11 @@
      "name": "PeriodSheaf.galois",
      "role": "structure",
      "statement": "For U ∈ 𝔅 and K large, G_K acts on B⁺_{dR,k}(U) semilinearly, commuting with GL_2(Q_p)."
+    },
+    {
+     "name": "PeriodSheaf.truncate",
+     "role": "functoriality",
+     "statement": "For 1 ≤ a ≤ b, reduction B⁺_{dR,b} → B⁺_{dR,a} respects the t-adic filtration, restriction of opens, Galois and GL_2 actions. Its grⁱ map is the identity for i<a and zero for i≥a; analytic/isotypic exactness uses the stated acyclicity hypotheses."
     }
    ],
    "tests": [
@@ -4901,7 +4933,7 @@
    ],
    "title": "The infinitesimal character χ̃_k and the Hodge–Tate decomposition",
    "kind": "definition",
-   "statement": "For k ≥ 1, χ̃_k is the dot-orbit {(0, 1 − k), (−k, 1)} ⊂ h*, the infinitesimal character of Sym^{k−1} of the dual of the standard representation. On the χ̃_k-isotypic part, θ_h satisfies a quadratic relation, giving O^{la,χ̃_k}_{K^p} = O^{la,(1−k,0)}_{K^p} ⊕ O^{la,(1,−k)}_{K^p}, Hodge–Tate of weights 0 and k respectively, so the χ̃_k-isotypic part is Hodge–Tate of weights 0, k. Correspondingly B^{+,la,χ̃_k}_{dR,k+1}(U), a Hausdorff LB-space module over B⁺_dR/(t^{k+1}) (a colimit of flat Banach modules), is Hodge–Tate of weights 0, k and satisfies the hypotheses of the LB Fontaine construction (Pan II §6.1.17).",
+   "statement": "For k ≥ 1, χ̃_k is the dot-orbit {(0, 1 − k), (−k, 1)} ⊂ h*, the infinitesimal character of Sym^{k−1} of the dual of the standard representation. On the χ̃_k-isotypic part, θ_h satisfies a quadratic relation, giving O^{la,χ̃_k}_{K^p} = O^{la,(1−k,0)}_{K^p} ⊕ O^{la,(1,−k)}_{K^p}, Hodge–Tate of weights 0 and k respectively, so the χ̃_k-isotypic part is Hodge–Tate of weights 0, k. Correspondingly B^{+,la,χ̃_k}_{dR,k+1}(U), a Hausdorff LB-space module over B⁺_dR/(t^{k+1}) (a colimit of flat Banach modules), is Hodge–Tate of weights 0, k in the terminology of Pan II Definition 6.1.9 (a condition on its gr⁰ = W/tW), and satisfies the hypotheses of the LB Fontaine construction (Pan II §6.1.17). This does not assign weights 0,k to all t-adic graded pieces: grⁱW ≅ gr⁰W(i), with the corresponding shifted Sen eigenvalues.",
    "hypotheses": [
     "Harish-Chandra: Z(U(g)) ≅ S(h)^{W·}; θ_h relates to Z as in LA.1/horizontal-cartan-action."
    ],
@@ -4959,7 +4991,7 @@
     {
      "name": "ChiTilde.periodModule",
      "role": "compatibility",
-     "statement": "B^{+,la,χ̃_k}_{dR,k+1}(U) is a Hausdorff LB-module over B⁺_dR/(t^{k+1}), Hodge–Tate of weights 0, k, satisfying the hypotheses of Pan II §6.1.17."
+     "statement": "B^{+,la,χ̃_k}_{dR,k+1}(U) is a Hausdorff LB-module over B⁺_dR/(t^{k+1}), Hodge–Tate of weights 0, k, satisfying the hypotheses of Pan II §6.1.17. Here weights 0,k describe gr⁰ of the period module, as in Definition 6.1.9; higher graded pieces are Tate twists."
     }
    ],
    "tests": [
@@ -5003,7 +5035,7 @@
    ],
    "title": "The Fontaine operator N_k on O^{la,(1−k,0)}",
    "kind": "definition",
-   "statement": "For U ∈ 𝔅 the module B^{+,la,χ̃_k}_{dR,k+1}(U) satisfies the hypotheses of the LB-space Fontaine construction (requested from the PadicHodgeTheory Part II), giving a Fontaine operator O^{la,(1−k,0)}_{K^p}(U) → O^{la,(1,−k)}_{K^p}(U)(k); by functoriality these glue to N_k: O^{la,(1−k,0)}_{K^p} → O^{la,(1,−k)}_{K^p}(k). Concretely: on the G_{K_∞}-fixed G_K-analytic vectors, the action ∇ of 1 ∈ Lie Gal(K_∞/K) on the generalised 0-eigenspace E_0 is an extension of the weight-0 graded piece by the twisted weight-k piece on which ∇ acts trivially, and ∇ induces the map between them, extended C-linearly. On cohomology, H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) is Hodge–Tate of weights 0, k and its Fontaine operator is H¹(N_k); for k ≥ 2, H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) = H¹(Fl, B⁺_{dR,k+1})^{la,χ̃_k}, and for k = 1 these differ by Ext¹_Z, Ext²_Z(χ̃_1, H⁰(Fl, B⁺_{dR,2})^la).",
+   "statement": "For U ∈ 𝔅 the module B^{+,la,χ̃_k}_{dR,k+1}(U) satisfies the hypotheses of the LB-space Fontaine construction (requested from the PadicHodgeTheory Part II), giving a Fontaine operator O^{la,(1−k,0)}_{K^p}(U) → O^{la,(1,−k)}_{K^p}(U)(k); by functoriality these glue to N_k: O^{la,(1−k,0)}_{K^p} → O^{la,(1,−k)}_{K^p}(k). Concretely: on the G_{K_∞}-fixed G_K-analytic vectors, the action ∇ of 1 ∈ Lie Gal(K_∞/K) on the generalised 0-eigenspace E_0 is an extension of the weight-0 graded piece by the twisted weight-k piece on which ∇ acts trivially, and ∇ induces the map between them, extended C-linearly. On cohomology, H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) is Hodge–Tate of weights 0, k in the gr⁰ sense of Definition 6.1.9 and its Fontaine operator is H¹(N_k); for k ≥ 2, H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) = H¹(Fl, B⁺_{dR,k+1})^{la,χ̃_k}, and for k = 1 these differ by Ext¹_Z, Ext²_Z(χ̃_1, H⁰(Fl, B⁺_{dR,2})^la).",
    "hypotheses": [
     "k ≥ 1; U ∈ 𝔅 with G_K acting."
    ],
@@ -5192,7 +5224,6 @@
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.11/log-period-sheaf-presentation",
-    "PadicHodgeTheory:P8/horizontal-relative-periods",
     "HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert",
     "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves",
     "PadicHodgeTheory:P8"
@@ -5251,7 +5282,7 @@
    ],
    "title": "Second comparison: N′_k = c_kd̄′_k with c_k ∈ Q^×",
    "kind": "theorem",
-   "statement": "The gr^k Poincaré sequence 0 → gr^kB^{+,la}_dR(U) → gr^kOB^{+,la}_dR(U) → gr^{k−1}OB^{+,la}_dR(U) ⊗ Ω¹_{V₀}(C) → 0 stays exact after taking χ̃_k-isotypic parts, G_{K_∞}-fixed G_K-analytic vectors and G_K-invariants; Z acts on gr^kB^{+,la}_dR(U)^{G_K,z_k} through χ̃_k, and on gr^{k−1}OB^{+,la}_dR(U)^{G_K,z_k} the χ̃_k-generalised eigenspace is honest and equals O^{la,(1−k,0)}(U)^{G_K} ⊗ Ω¹_{V₀}(C)^{⊗(k−1)}. The shifted Casimir induces Ñ_k between the outer terms O^{la,(1−k,0)}(U)^{G_K} ⊗ Ω¹_{V₀}(C)^{⊗k} and O^{la,(1,−k)}(U)(k)^{G_K}, N′_k = Ñ_k/(2k), and Ñ_k = c d̄′_k for some c ∈ Q^×. Hence N′_k = c_kd̄′_k with c_k ∈ Q^×.",
+   "statement": "The gr^k Poincaré sequence 0 → gr^kB^{+,la}_dR(U) → gr^kOB^{+,la}_dR(U) → gr^{k−1}OB^{+,la}_dR(U) ⊗ Ω¹_{V₀}(C) → 0 stays exact after taking the scalar z_k-part for the Lie-algebra centre and G_K-invariants (Pan II Proposition 6.5.2), before extracting the generalised full-Z character; Z acts on gr^kB^{+,la}_dR(U)^{G_K,z_k} through χ̃_k, and on gr^{k−1}OB^{+,la}_dR(U)^{G_K,z_k} the χ̃_k-generalised eigenspace is honest and equals O^{la,(1−k,0)}(U)^{G_K} ⊗ Ω¹_{V₀}(C)^{⊗(k−1)}. The shifted Casimir induces Ñ_k between the outer terms O^{la,(1−k,0)}(U)^{G_K} ⊗ Ω¹_{V₀}(C)^{⊗k} and O^{la,(1,−k)}(U)(k)^{G_K}, N′_k = Ñ_k/(2k), and Ñ_k = c d̄′_k for some c ∈ Q^×. Hence N′_k = c_kd̄′_k with c_k ∈ Q^×. Full-Z generalised eigenspaces in the middle term need not be honest eigenspaces: the nontrivial shifted Casimir action produces Ñ_k. Exactness after full-Z ordinary eigenspaces is not asserted.",
    "hypotheses": [
     "U ∈ 𝔅 with e₁ invertible; the trivialisation of ∧²D fixed."
    ],
@@ -5259,7 +5290,7 @@
     "Exactness by an equivariant splitting of the locally analytic Faltings extension (Faltings) for k = 1 and symmetric powers in general (Pan II Proposition 6.5.2, Lemma 6.5.3).",
     "The quadratic relation for θ_Sen, which is θ_h of the lower-right idempotent (LA.3/theta-h-is-the-sen-operator), controls the Z-action (Pan II Proposition 6.5.4, Corollary 6.5.5).",
     "Compare N′_k with Ñ_k (Pan II §6.5.6, Lemma 6.5.7).",
-    "Both Ñ_k and d̄′_k are continuous O^sm-linear and preserve the dense n-finite parts, where they come from g-maps M^∨_{(0,1−k)} → M^∨_{(−k,1)}(k) between category-O modules; such maps form a one-dimensional space and neither is zero (Verma module of highest weight −ρ, translation functors), so they are proportional; Q-structures give c ∈ Q^× (Pan II §6.5.8–Remark 6.5.13, Lemmas 6.5.9–6.5.12)."
+    "Both Ñ_k and d̄′_k are continuous O^sm-linear and preserve the dense n-finite parts, where they come from g-maps M^∨_{(0,1−k)} → M^∨_{(−k,1)}(k) between category-O modules; such maps form a one-dimensional space and neither is zero (Verma module of highest weight −ρ, translation functors), so they are proportional; Q-structures give c ∈ Q^× (Pan II §6.5.8–Remark 6.5.13, Lemmas 6.5.9–6.5.12). The necessary category-O/translation-functor input is absent from LieHighestWeight’s existing scope (its README explicitly excludes full category O). This step requires the Part II contract below or an explicit rank-one calculation proving its nonzero one-dimensional Hom statement."
    ],
    "acceptance": [
     "The n-finite part of the Hodge–Tate sequence is ω^{2,sm} ⊗ (0 → M^∨_{(−1,1)}(1) → V(1) ⊗ M^∨_{(0,−1)} → M^∨_{(0,0)} → 0) (Pan II Lemma 6.5.10)."
@@ -5327,9 +5358,10 @@
    ],
    "title": "The Banach representation Π_ρ and its locally analytic vectors",
    "kind": "definition",
-   "statement": "Let E/Q_p be finite and ρ: G_Q → GL_2(E) continuous, two-dimensional, absolutely irreducible. Π_ρ := Hom_{E[G_Q]}(ρ, H̃¹(K^p, E)) with H̃¹(K^p, E) = H̃¹(K^p, Z_p) ⊗ E, an admissible E-Banach representation of GL_2(Q_p); H̃¹(K^p, E)[ρ] is the image of the evaluation map ρ ⊗ Π_ρ → H̃¹(K^p, E). Π_ρ^la is its subspace of GL_2(Q_p)-locally analytic vectors. With λ the cyclotomic twist of the Hecke eigensystem with ρ_λ(−1) = ρ, H̃¹(K^p, E)[ρ] is the λ-isotypic part, and H̃¹(K^p, E)[ρ] ⊗̂ C = W_0 ⊕ W_k (Hodge–Tate weights 0, k) when ρ|G_{Q_p} has Hodge–Tate weights 0, k. If ρ is attached to a cuspidal eigenform, fixing τ: E → C gives an irreducible π^∞ = ⊗′π_l of GL_2(A_f), the finite part of an automorphic representation, with (π^∞)^{K^p} the λ_τ-part of M_{k+2} ⊗ D₀^{−1}.",
+   "statement": "Let E/Q_p be finite and ρ: G_Q → GL_2(E) continuous, two-dimensional, absolutely irreducible. Π_ρ := Hom_{E[G_Q]}(ρ, H̃¹(K^p, E)) with H̃¹(K^p, E) = H̃¹(K^p, Z_p) ⊗ E, an admissible E-Banach representation of GL_2(Q_p); H̃¹(K^p, E)[ρ] is the image of the evaluation map ρ ⊗ Π_ρ → H̃¹(K^p, E). Π_ρ^la is its subspace of GL_2(Q_p)-locally analytic vectors. With λ the cyclotomic twist of the Hecke eigensystem with ρ_λ(−1) = ρ, H̃¹(K^p, E)[ρ] is the λ-isotypic part, and H̃¹(K^p, E)[ρ] ⊗̂ C = W_0 ⊕ W_k (Hodge–Tate weights 0, k) when ρ|G_{Q_p} has Hodge–Tate weights 0, k. If ρ is attached to a cuspidal eigenform, fixing τ: E → C gives an irreducible π^∞ = ⊗′π_l of GL_2(A_f), the finite part of an automorphic representation, with (π^∞)^{K^p} the λ_τ-part of M_{k+1} ⊗ D₀^{−1}.",
    "hypotheses": [
-    "ρ appears in H̃¹(K^p, E), i.e. Π_ρ ≠ 0."
+    "ρ appears in H̃¹(K^p, E), i.e. Π_ρ ≠ 0.",
+    "The two-weight decomposition assumes k>0; the classical automorphic weight is k+1. This corrects the unreindexed k+2 in Pan II §7.3.1 (E7)."
    ],
    "proofSteps": [
     "Admissibility from that of completed cohomology (CC.5); Π_ρ^la ≠ 0 by Schneider–Teitelbaum (Pan II §1.2.2).",
@@ -5372,12 +5404,12 @@
     {
      "name": "PiRho.hodgeTate",
      "role": "characterisation",
-     "statement": "H̃¹(K^p, E)[ρ] ⊗̂ C = W_0 ⊕ W_k when ρ|G_{Q_p} is Hodge–Tate of weights 0, k."
+     "statement": "H̃¹(K^p, E)[ρ] ⊗̂ C = W_0 ⊕ W_k when ρ|G_{Q_p} is Hodge–Tate of weights 0, k. Assume k>0 so the two weights are distinct."
     },
     {
      "name": "PiRho.automorphic",
      "role": "constructor",
-     "statement": "For classical ρ and τ: E → C, the GL_2(A_f)-representation π^∞ with (π^∞)^{K^p} = (M_{k+2} ⊗ D₀^{−1})[λ_τ]."
+     "statement": "For classical ρ of Hodge–Tate weights 0,k with k>0 and τ:E→C, π^∞ has (π^∞)^{K^p} = (M_{k+1} ⊗ D₀^{−1})[λ_τ], using the Hecke normalisation of §7.2.1. The k+2 in §7.3.1 is the index slip E7."
     }
    ],
    "tests": [
@@ -5421,7 +5453,7 @@
    ],
    "title": "Completed cohomology with period coefficients and the de Rham kernel",
    "kind": "theorem",
-   "statement": "Let ρ be as in LA.12/multiplicity-space-pi-rho with ρ|G_{Q_p} de Rham of Hodge–Tate weights 0, k (k > 0), and λ as there. (1) For k ≥ 1 there is a natural G_{Q_p}-equivariant isomorphism of B⁺_{dR,k}-modules H̃^i(K^p, B⁺_{dR,k}) ≅ H^i(Fl, B⁺_{dR,k}) (imported: CP.6/pan-truncated-period-isomorphism, Pan II Proposition 7.2.3). (2) The locally analytic λ-isotypic part of H̃¹(K^p, B⁺_{dR,k+1} ⊗ E) is H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) ⊗ E at λ. (3) (Theorem 7.2.2) There is a natural GL_2(Q_p)-equivariant isomorphism (H̃¹(K^p, E)[ρ] ⊗̂ C)_0^{la} ≅ (ker I¹_{k−1} ⊗ E)[λ] between the locally analytic vectors of the Hodge–Tate weight-0 part and the λ-part of ker I¹_{k−1}. More generally, on H̃¹(K^p, Q_p)^{la,χ̃_k} ⊗̂ C = W_0 ⊕ W_k there is a natural continuous N: W_0 → W_k(k), equal to c_k^{−1}I¹_{k−1}, whose restriction to (V ⊗ C)_0 is Fontaine's operator of V for every two-dimensional irreducible G_Q-subrepresentation V (Pan II §1.2.2).",
+   "statement": "Let ρ be as in LA.12/multiplicity-space-pi-rho with ρ|G_{Q_p} de Rham of Hodge–Tate weights 0, k (k > 0), and λ as there. (1) For k ≥ 1 there is a natural G_{Q_p}-equivariant isomorphism of B⁺_{dR,k}-modules H̃^i(K^p, B⁺_{dR,k}) ≅ H^i(Fl, B⁺_{dR,k}) (imported: CP.6/pan-truncated-period-isomorphism, Pan II Proposition 7.2.3). (2) The locally analytic λ-isotypic part of H̃¹(K^p, B⁺_{dR,k+1} ⊗ E) is H¹(Fl, B^{+,la,χ̃_k}_{dR,k+1}) ⊗ E at λ. (3) (Theorem 7.2.2) There is a natural GL_2(Q_p)-equivariant isomorphism (H̃¹(K^p, E)[ρ] ⊗̂ C)_0^{la} ≅ (ker I¹_{k−1} ⊗ E)[λ] between the locally analytic vectors of the Hodge–Tate weight-0 part and the λ-part of ker I¹_{k−1}. More generally, on H̃¹(K^p, Q_p)^{la,χ̃_k} ⊗̂ C = W_0 ⊕ W_k there is a natural continuous N: W_0 → W_k(k), equal to c_kI¹_{k−1} in the convention N_k = c_kI_{k−1} of LA.11, whose restriction to (V ⊗ C)_0 is Fontaine's operator of V for every two-dimensional irreducible G_Q-subrepresentation V (Pan II §1.2.2).",
    "hypotheses": [
     "ρ_λ has Hodge–Tate weights −1, k − 1 (Pan's convention), so the locally analytic vectors of the isotypic part have infinitesimal character χ̃_k."
    ],
@@ -5504,7 +5536,7 @@
    ],
    "title": "Π_ρ^la in the supercuspidal case (Breuil–Strauch)",
    "kind": "theorem",
-   "statement": "Let ρ be as in LA.12/classicality-theorem with k ≥ 1 and suppose the attached π_p is supercuspidal; let π′_p be its Jacquet–Langlands transfer to D_p^×. Then there is a GL_2(Q_p)⁰-equivariant isomorphism (upgraded to a GL_2(Q_p)-equivariant one by summing over Z-translates as in LA.9/kernel-on-omega-is-quaternionic) (H̃¹(K^p, C)[λ_τ])_0^{la} ≅ (π^{∞,p})^{K^p} ⊗ [(H¹(Fl, j_!(D_p^×-smooth part of ω^{−k+1}_Dr)) ⊗ π′_p)^{O_{D_p}^×}(twisted)]/(Sym^{k−1}V* ⊗ π_p), the embedding of π_p coming from the position of the Hodge filtration of ρ|G_{Q_p}, with a short exact sequence whose sub is (π^∞)^{K^p} ⊗ Sym^{k−1}V*. For k = 1 the quaternionic term is (H¹(P¹, j_!π^{(0)}_{Dr,n*}O) ⊗ π′_p)^{O_{D_p}^×} and, by the vanishing-cycle sequence, its subspace from H¹_{dR,c} is D_dR(ρ|G_{Q_p}) ⊗ π_p with π_p embedded as Fil¹D_dR ⊗ π_p; with Emerton's local–global compatibility this is the Breuil–Strauch conjecture for ρ|G_{Q_p} in dual form (proved in general by Dospinescu–Le Bras). Since H̃¹(K^p, E)^la is admissible, the quaternionic cohomology is 'admissible' over C, although C is not spherically complete.",
+   "statement": "Let ρ be as in LA.12/classicality-theorem with k ≥ 1 and suppose the attached π_p is supercuspidal; let π′_p be its Jacquet–Langlands transfer to D_p^×. Then there is a GL_2(Q_p)⁰-equivariant isomorphism (upgraded to a GL_2(Q_p)-equivariant one by summing over Z-translates as in LA.9/kernel-on-omega-is-quaternionic) (H̃¹(K^p, C)[λ_τ])_0^{la} ≅ (π^{∞,p})^{K^p} ⊗ [((H¹(Fl, j_!(D_p^×-smooth part of ω^{−k+1}_Dr)) ⊗ π′_p)^{O_{D_p}^×}·ε′_p^{−k+1})/(Sym^{k−1}V* ⊗ π_p)], the embedding of π_p coming from the position of the Hodge filtration of ρ|G_{Q_p}, with a short exact sequence whose sub is (π^∞)^{K^p} ⊗ Sym^{k−1}V* and whose quotient is (H¹(Fl,j_!ω^{k+1,D_p^×-sm}_Dr) ⊗ π′^∞)^{K^p×O_{D_p}^×} ⊗ det^{k+1}·ε′_p^{−k} (Remark 7.3.4). For k = 1 the quaternionic term is (H¹(P¹, j_!π^{(0)}_{Dr,n*}O) ⊗ π′_p)^{O_{D_p}^×} and, by the vanishing-cycle sequence, its subspace from H¹_{dR,c} is D_dR(ρ|G_{Q_p}) ⊗ π_p with π_p embedded as Fil¹D_dR ⊗ π_p; with Emerton's local–global compatibility this is the Breuil–Strauch conjecture for ρ|G_{Q_p} in dual form (proved in general by Dospinescu–Le Bras). Since H̃¹(K^p, E)^la is admissible, the quaternionic cohomology is 'admissible' over C, although C is not spherically complete.",
    "hypotheses": [
     "π_p supercuspidal; k ≥ 1 (introduction: k = 1, i.e. weight 2)."
    ],
@@ -5514,7 +5546,7 @@
     "Comparison with Breuil–Strauch through LA.10/vanishing-cycle-sequence, Emerton's local–global compatibility and Dospinescu–Le Bras (Pan II Remark 7.3.6; inputs requested, used for the comparison only)."
    ],
    "acceptance": [
-    "Theorem 1.1.7 is the case k = 1: Π_ρ^la ⊗̂ C ≅ (π^{∞,p})^{K^p} ⊗ (colim_n H¹(P¹, j_!π^{(0)}_{Dr,n*}O)^{O_{D_p}^×} ⊗ π′_p)/π_p."
+    "At k=1 (Theorem 1.1.7), tensor the away-from-p factor with the quotient [(colim_n H¹(P¹,j_!π^{(0)}_{Dr,n*}O)⊗π′_p)^{O_{D_p}^×}/i_π(π_p)]. Take invariants after tensoring with π′_p, and take this quotient before tensoring with (π^{∞,p})^{K^p}; ε′_p^{−k+1} is trivial in this case. The identification with Π_ρ^la⊗̂C uses the multiplicity-space comparison."
    ],
    "prerequisites": [
     "LocallyAnalyticCompletedCohomology:LA.12/period-cohomology-comparison",
@@ -5546,13 +5578,13 @@
    ],
    "title": "Π_ρ^la in the principal series case (Berger–Breuil–Emerton)",
    "kind": "theorem",
-   "statement": "Let ρ be as in LA.12/classicality-theorem with k ≥ 1 and π_p a principal series. Then there is a GL_2(Q_p)-equivariant isomorphism (H̃¹(K^p, C)[λ_τ])_0^{la} ≅ (Ind_B^{GL_2(Q_p)}(H¹_rig(Ig(K^p), Sym^{k−1})·ε^{−k+1}(e′₂)^{k−1})^{la})[λ]/((π^∞)^{K^p} ⊗ Sym^{k−1}V*), with the corresponding short exact sequence whose quotient is the induction twisted by ε^{−k+1}(e′₁)^k(e′₂)^{−1} at λ. Moreover for k = 1 (and in the same way for general k with Sym^{k−1} coefficients) H¹_rig(Ig(K^p))[λ] ≅ (π^{∞,p})^{K^p} ⊗ D_cris(ρ|G_{Q_p}) (D_cris over a sufficiently ramified cyclotomic extension, with the Weil-group action made B-equivariant by the congruence relation), so (H̃¹(K^p, C)[λ_τ])_0^{la} ≅ (π^{∞,p})^{K^p} ⊗ Ind_B^{GL_2(Q_p)}D_cris(ρ|G_{Q_p})/π_p with π_p embedded through Fil¹; with Emerton's local–global compatibility this is the Berger–Breuil–Emerton conjecture, proved by Liu–Xie–Zhang and Colmez.",
+   "statement": "Let ρ be as in LA.12/classicality-theorem with k ≥ 1 and π_p a principal series. Then there is a GL_2(Q_p)-equivariant isomorphism (H̃¹(K^p, C)[λ_τ])_0^{la} ≅ (Ind_B^{GL_2(Q_p)}(H¹_rig(Ig(K^p), Sym^{k−1})·ε^{−k+1}(e′₂)^{k−1})^{la})[λ]/((π^∞)^{K^p} ⊗ Sym^{k−1}V*), with the corresponding short exact sequence whose quotient is the induction twisted by ε^{−k+1}(e′₁)^k(e′₂)^{−1} at λ. For k = 1, Remark 7.3.9 sketches the further identification H¹_rig(Ig(K^p))[λ] ≅ (π^{∞,p})^{K^p} ⊗ D_cris,K_N(ρ|G_{Q_p}), where K_N=Q_p(μ_{p^N}) is sufficiently large and D_cris,K_N(V)=(V⊗B_cris)^{G_{K_N}}. This is a potentially crystalline module over K_N, not necessarily D_cris,Q_p(V). With the congruence-relation B-action and the embedding through Fil¹, it gives the Berger–Breuil–Emerton quotient after local–global compatibility. This comparison, and any extension to Sym^{k−1} coefficients, is conditional on the missing Igusa log-rigid/log-crystalline Galois comparison; the geometric formula above remains the target of Theorem 7.3.7.",
    "hypotheses": [
     "π_p a principal series; k ≥ 1."
    ],
    "proofSteps": [
     "Combine LA.12/period-cohomology-comparison with LA.10/de-rham-cohomology-and-eigenspaces (2) (Pan II Theorem 7.3.7, Remark 7.3.8).",
-    "H¹_rig(Ig) as log rigid cohomology of the Igusa tower, the log rigid–log crystalline comparison and Carayol's congruence relation (Pan II Remark 7.3.9; RD.4)."
+    "The optional D_cris,K_N comparison of Remark 7.3.9, pp. 123–124, needs the Igusa log-rigid/log-crystalline comparison, Galois eigenspace identification and Carayol congruence relation. RD.4/proper-log-rigid-convergent-comparison only covers constant coefficients and does not supply these identifications. Record the comparison as conditional rather than deduce it from RD.4."
    ],
    "acceptance": [
     "Theorem 1.1.10 is the case k = 1: Π_ρ^la ⊗̂ C ≅ (Ind_B^{GL_2(Q_p)}H¹_rig(Ig(K^p))[λ_τ])^{la}/i_π((π^∞)^{K^p})."
@@ -5586,12 +5618,13 @@
    ],
    "title": "The uniform description Π_ρ^la ⊗̂ C = H¹(DR_{k−1})[λ]/Fil¹",
    "kind": "theorem",
-   "statement": "In both the supercuspidal and the principal series cases, Π_ρ^la ⊗̂ C ≅ H¹(DR_{k−1})[λ]/Fil¹H¹(DR_{k−1})[λ], with DR_{k−1} the two-term de Rham complex of d_k on Fl and Fil its Hodge filtration; for k = 1, Fil¹H¹(DR_0)[λ] = Fil¹colim_{K_p}H¹_dR(X_{K^pK_p})[λ] = (π^∞)^{K^p}. Thus the Breuil–Strauch and Berger–Breuil–Emerton descriptions are two instances of one statement; H¹(DR_{k−1})[λ] itself does not see the Hodge filtration, in analogy with Kashiwara–Schmid's constructions for real groups.",
+   "statement": "In both the supercuspidal and the principal series cases, the canonical weight-zero completed-cohomology space W₀^{la}[λ] is H¹(DR_{k−1})[λ]/Fil¹. Choosing a nonzero vector in the one-dimensional Hodge–Tate weight-zero line of ρ⊗_{E,τ}C identifies it noncanonically with Π_ρ^la ⊗̂_{E,τ} C; thus, after that choice, Π_ρ^la ⊗̂_{E,τ} C ≅ H¹(DR_{k−1})[λ]/Fil¹H¹(DR_{k−1})[λ], with DR_{k−1} the two-term de Rham complex of d_k on Fl and Fil its Hodge filtration; for k = 1, Fil¹H¹(DR_0)[λ] = Fil¹colim_{K_p}H¹_dR,log(X_{K^pK_p})[λ] = (π^∞)^{K^p}. Thus the Breuil–Strauch and Berger–Breuil–Emerton descriptions are two instances of one statement; H¹(DR_{k−1})[λ] itself does not see the Hodge filtration, in analogy with Kashiwara–Schmid's constructions for real groups.",
    "hypotheses": [
     "π_p supercuspidal or a principal series."
    ],
    "proofSteps": [
-    "ker I¹_{k−1}[λ] = H¹(DR_{k−1})[λ]/Fil¹ in both cases (LA.10/de-rham-cohomology-and-eigenspaces, Pan II Remark 5.5.15) and LA.12/period-cohomology-comparison (Pan II Remarks 1.1.13, 7.3.10)."
+    "ker I¹_{k−1}[λ] = H¹(DR_{k−1})[λ]/Fil¹ in both cases (LA.10/de-rham-cohomology-and-eigenspaces, Pan II Remark 5.5.15) and LA.12/period-cohomology-comparison (Pan II Remarks 1.1.13, 7.3.10).",
+    "Distinguish the canonical W₀ statement from the choice needed to identify Π_ρ⊗C with W₀ (Pan II Remark 7.3.5, p. 122). For the displayed k=1 cuspidal λ, the boundary contribution to log de Rham cohomology vanishes."
    ],
    "acceptance": [
     "The expected special-case analogue is LA.12/special-case-claim."
@@ -5652,14 +5685,15 @@
  "requests": [
   {
    "supplier": "AlgebraicModularFormsAndSerreWeights:R15.1",
-   "need": "Coherent cohomology of the compactified modular curves with automorphic coefficients: for K = K^pK_p and k ∈ Z, the finite-dimensional spaces H^i(X_{K,C}, ω^k) (i = 0, 1), their GAGA comparison with the complex-analytic spaces of modular forms, their GL_2(A_f)-equivariant transition maps in K and the prime-to-p Hecke action (Pan I §1, p. 3, and Lemma 5.3.5, p. 60).",
+   "need": "Coherent cohomology of the compactified modular curves with automorphic coefficients: for K = K^pK_p and k ∈ Z, the finite-dimensional spaces H^i(X_{K,C}, ω^k) (i = 0, 1), their GAGA comparison with the complex-analytic spaces of modular forms, their GL_2(A_f)-equivariant transition maps in K and the prime-to-p Hecke action (Pan I §1, p. 3, and Lemma 5.3.5, p. 60). Also supply Serre duality on the smooth proper compactified curve, with Ω¹(log cusps) identified by logarithmic Kodaira–Spencer, the induced Hecke adjoints/twists, and compatibility with localising at a non-Eisenstein eigensystem, as used in Pan I proof of Theorem 6.2.2, pp. 70–71.",
    "neededBy": [
-    "LocallyAnalyticCompletedCohomology:LA.4/smooth-automorphic-sheaves"
+    "LocallyAnalyticCompletedCohomology:LA.4/smooth-automorphic-sheaves",
+    "LocallyAnalyticCompletedCohomology:LA.5/weight-one-classicality-with-up-eigenvector"
    ]
   },
   {
    "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
-   "need": "R31.1 specialises completed cohomology to modular curves: for a tame level K^p, H̃^i(K^p, Z_p) = lim_n colim_{K_p} H^i(Y_{K^pK_p}(C), Z/p^n) with its continuous admissible GL_2(Q_p)- and Hecke actions, vanishing for i ≥ 2, unchanged when Y is replaced by the compactified curves (Pan I §4.4.1, pp. 43–44), and with O_C- and C-coefficient versions H̃^i(K^p, O_C) = H̃^i(K^p, Z_p) ⊗̂ O_C, H̃^i(K^p, C) (Pan I p. 45).",
+   "need": "R31.1 specialises completed cohomology to modular curves: for a tame level K^p, H̃^i(K^p, Z_p) = lim_n colim_{K_p} H^i(Y_{K^pK_p}(C), Z/p^n) with its continuous admissible GL_2(Q_p)- and Hecke actions, vanishing for i ≥ 2, unchanged after taking the direct limit over p-level when Y is replaced by the compactified curves (using unbounded p-power ramification at the cusps; no finite-level equality is asserted) (Pan I §4.4.1, pp. 43–44), and with O_C- and C-coefficient versions H̃^i(K^p, O_C) = H̃^i(K^p, Z_p) ⊗̂ O_C, H̃^i(K^p, C) (Pan I p. 45).",
    "neededBy": [
     "LocallyAnalyticCompletedCohomology:LA.2/completed-cohomology-as-perfectoid-cohomology"
    ]
@@ -5674,7 +5708,7 @@
   },
   {
    "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
-   "need": "Emerton's p-adic local–global compatibility for completed H¹ of modular curves, in the form Pan uses: H̃¹(K^p, Q̄_p)[p_λ] is described through the p-adic local Langlands correspondence Π(ρ|G_{Q_p}) (Pan I §6.3, Pan II Remarks 7.3.6, 7.3.9, 7.3.11), and the weak form needed after localising at a possibly Eisenstein maximal ideal (Pan I Theorem 6.3.5, Corollary 6.3.6).",
+   "need": "Supply Emerton’s local–global compatibility under its original hypotheses, and the dense classical/algebraic vectors with Hecke semisimplicity used in Pan I Lemmas 6.3.8–6.3.9. LA.5/local-global-compatibility-at-eisenstein-ideals proves Pan I Theorem 6.3.5 and Corollary 6.3.6 from these inputs and Paškūnas–Tung; this request does not import those same conclusions. For the comparisons only, supply the factorisation through Π(ρ|G_{Q_p}) used in Pan II Remarks 7.3.6, 7.3.9 and 7.3.11.",
    "neededBy": [
     "LocallyAnalyticCompletedCohomology:LA.12/principal-series-description",
     "LocallyAnalyticCompletedCohomology:LA.12/special-case-claim",
@@ -5745,24 +5779,59 @@
    "supplier": "PerfectoidShimuraVarieties:S5",
    "need": "The supersingular uniformization of the perfectoid modular curve at infinite level (the extraction PAPER-PAN-26, route 3, accepted, names S3/S5 as its owner, but the accepted packet has no node for it): with E₀ supersingular over F̄_p, D = End(E₀) ⊗ Q (ramified at p and ∞, D ⊗ Q_p = D_p) and K^p viewed in (D ⊗ A_f^p)^× via a fixed trivialisation of H¹_ét(E₀, A_f^p), a GL_2(Q_p)-equivariant isomorphism, functorial in K^p, π_HT^{-1}(Ω) ≅ D^×\\(M_{LT,∞} × (D ⊗ A_f^p)^×/K^p) identifying π_HT with π_{LT,HT} and ω_{K^p}|Ω with the pull-back of ω_LT, D^× acting through the main involution (Pan II Theorem 5.4.2, from Scholze 2015 Lemma III.3.6 and Rapoport–Zink); and its consequence that π_HT^{-1}(Ω) is a finite disjoint union of copies of the height-zero Lubin–Tate space M^{(0)}_{LT,∞}, GL_2(Q_p)⁰-equivariantly (Pan II Lemma 5.4.4).",
    "neededBy": [
-    "LocallyAnalyticCompletedCohomology:LA.9/kernel-on-omega-is-quaternionic"
+    "LocallyAnalyticCompletedCohomology:LA.9/kernel-on-omega-is-quaternionic",
+    "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-differential-equation",
+    "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-locally-analytic-sheaves",
+    "LocallyAnalyticCompletedCohomology:LA.8/newton-stratification"
    ]
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
-   "need": "Existing Tau Ceti layer, cited as it stands: the centre Z(U(g)) and the Harish-Chandra isomorphism Z(U(g)) ≅ S(h)^{W·} with the dot action w·μ = w(μ + ρ) − ρ, for g = gl_2 and sl_2 over C (Pan I §4.2.6, p. 37).",
+   "need": "LieHighestWeight layer 7 supplies the semisimple sl_2 Harish–Chandra isomorphism and dot action. For gl_2 use its layer 9 split-centre decomposition gl_2 = sl_2 ⊕ Cz (characteristic zero), tensor the enveloping algebra with C[z], and extend the sl_2 isomorphism by the central variable. Layer 7 alone is not cited as an existing general gl_2 theorem. Pan I §4.2.6, p. 37 fixes the horizontal convention. Additional Part II request (not present in the current layer): Additional rank-one highest-weight theory for Pan II Lemmas 6.5.9–6.5.12, pp. 113–115: the relevant dual Verma modules M^∨_{(0,1−k)} and M^∨_{(−k,1)}, the singular Verma/projective-cover calculation at −ρ, translation to the regular block, and the one-dimensional Hom space containing both nonzero operators Ñ_k and d̄′_k, with Q-forms. Existing LieHighestWeight layers 7 and 9 do not include category O or translation functors. A direct explicit sl_2 calculation proving these exact facts is an alternative.",
    "neededBy": [
     "LocallyAnalyticCompletedCohomology:LA.1/flag-variety-lie-algebra-bundles",
     "LocallyAnalyticCompletedCohomology:LA.1/horizontal-cartan-action",
+    "LocallyAnalyticCompletedCohomology:LA.6/operator-dbar",
+    "LocallyAnalyticCompletedCohomology:LA.11/second-comparison"
+   ]
+  },
+  {
+   "supplier": "PadicHodgeTheory:P7",
+   "need": "Relative Tate–Sen module decompletion (Berger–Colmez Proposition 3.3.1 in the setting verified by Pan I Proposition 3.2.7): given the Banach algebra B_∞, the small TS constants, and a finite free semilinear lattice (B_∞)° ⊗ T, construct the unique finite free D⁺_{G₀,n}(T), its base-change isomorphism and functorial tensor compatibility used in Pan I Propositions 3.2.11–3.2.14, pp. 18–20. P7/sen-module only covers finite-dimensional representations over a field; it does not supply this module theorem. Assign the additional statement to the PadicHodgeTheory Part II.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.0/relative-sen-operator"
+   ]
+  },
+  {
+   "supplier": "AlgebraicModularFormsAndSerreWeights:R15.2",
+   "need": "The overconvergent q-expansion principle used in Pan I Lemma 6.2.6, pp. 70–71: on each rigid strict neighbourhood of the canonical locus, equality of all cusp coefficients implies equality of sections, and the Hecke/U_l/U_p recurrences determine a normalised simultaneous weight-one eigensection from a₁. Prove the extension of the classical q-expansion principle using analytic continuation on the relevant connected components; include the tame component action and ψ-isotypic restriction. The existing classical q-expansion node alone does not state this extension.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.5/weight-one-classicality-with-up-eigenvector"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+   "need": "Use the existing split-centre structure gl_2 = sl_2 ⊕ Cz and the pinned sl↔gl transfer (LieHighestWeight README layer 9, current upstream). Tensoring the enveloping algebra with C[z] extends layer 7’s sl_2 Harish–Chandra isomorphism by the free central variable; no duplicate reductive theory is planned.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.1/horizontal-cartan-action",
     "LocallyAnalyticCompletedCohomology:LA.6/operator-dbar"
+   ]
+  },
+  {
+   "supplier": "PerfectoidShimuraVarieties:S1",
+   "need": "The existing compactified modular-curve boundary charts, compatible with p-level and the Hodge–Tate coordinate at the cusps. Use these charts for the boundary in LA.8; IG.3/newton-strata-correspond is restricted to the good-reduction interior.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.8/newton-stratification"
    ]
   }
  ],
  "coverage": [
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.0",
-   "status": "planned",
-   "remaining": []
+   "status": "partial",
+   "remaining": [
+    "Relative Banach-algebra Tate–Sen module decompletion is not supplied (P7 request)."
+   ]
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.1",
@@ -5776,8 +5845,10 @@
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.3",
-   "status": "planned",
-   "remaining": []
+   "status": "partial",
+   "remaining": [
+    "Closed range and strictness of geometric analytic/weight Čech maps need a replacement for false Pan II Lemma 3.4.3 (E2)."
+   ]
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.4",
@@ -5806,23 +5877,33 @@
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.9",
-   "status": "planned",
-   "remaining": []
+   "status": "partial",
+   "remaining": [
+    "Drinfeld relative-Sen/Liu–Zhu Higgs compatibility is deferred; S5 uniformization and ET.6a ownership must be resolved."
+   ]
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.10",
-   "status": "planned",
-   "remaining": []
+   "status": "partial",
+   "remaining": [
+    "Finite-level compact-support duality of Drinfeld curves is not supplied; Igusa coefficient comparison/finiteness remains conditional on its RD owner."
+   ]
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.11",
-   "status": "planned",
-   "remaining": []
+   "status": "partial",
+   "remaining": [
+    "Period Čech strictness depends on the E2 repair.",
+    "The rank-one category-O/translation calculation in the second comparison has no supplier.",
+    "The CP.6 ownership inversion must be resolved, in addition to the existing Fontaine and lattice-comparison requests."
+   ]
   },
   {
    "stageId": "LocallyAnalyticCompletedCohomology:LA.12",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "The Igusa crystalline eigenspace comparison of Remark 7.3.9 is only sketched and not supplied.",
+    "Applications remain conditional on the LA.3/LA.9–LA.11 proof gaps.",
     "The special-case equality (Pan II Remark 7.3.11) is a claim conditional on imported p-adic local Langlands inputs; a self-contained proof is open (Pan II Remark 5.5.15)."
    ]
   }
@@ -5874,7 +5955,7 @@
    "neededBy": [
     "LocallyAnalyticCompletedCohomology:LA.12/special-case-claim"
    ],
-   "detail": "Pan II Remark 7.3.11 claims, with a sketch, that when π_p is special (k = 1, ρ|G_{Q_p} absolutely irreducible) the generalised eigenspace (ker I¹_0)~[λ_τ] equals the locally analytic weight-zero part; the sketch rests on Emerton's local–global compatibility, Liu–Xie–Zhang and Colmez, Breuil's Σ(2, L) and an unproved Serre-duality analysis. Remark 5.5.15 asks for a direct proof. The plan records the claim as conditional; the supercuspidal and principal series cases are complete."
+   "detail": "Pan II Remark 7.3.11 claims, with a sketch, that when π_p is special (k = 1, ρ|G_{Q_p} absolutely irreducible) the generalised eigenspace (ker I¹_0)~[λ_τ] equals the locally analytic weight-zero part; the sketch rests on Emerton's local–global compatibility, Liu–Xie–Zhang and Colmez, Breuil's Σ(2, L) and an unproved Serre-duality analysis. Remark 5.5.15 asks for a direct proof. The plan records the claim as conditional; the supercuspidal and principal series geometric statements are fully stated, but their proof routes still depend on the topology, duality and supplier gaps recorded below."
   },
   {
    "title": "The published Annals text of Pan II was not obtained",
@@ -5906,6 +5987,54 @@
     "LocallyAnalyticCompletedCohomology:LA.12/uniform-de-rham-description"
    ],
    "detail": "Pan II is cited in arXiv:2209.06366v1 (the only arXiv version, 127 pages); the Annals version (2026, 161 pages) is behind a paywall and its numbering may differ. All Pan II locators are v1 labels and pages. Pan I is cited in its open-access version of record."
+  },
+  {
+   "title": "Relative Tate–Sen module decompletion is not supplied",
+   "detail": "The Kummer tower verifies ring-level TS hypotheses, but LA.0/relative-sen-operator also invokes the non-routine finite-free module decompletion of Berger–Colmez Proposition 3.3.1. Neither P7/sen-module nor R06.1/tate-sen-axioms-cyclotomic has this statement. The new P7 request specifies the missing theorem; the construction remains conditional on it.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.0/relative-sen-operator"
+   ]
+  },
+  {
+   "title": "Drinfeld Higgs compatibility is missing",
+   "detail": "Pan II Theorem 5.3.6, pp. 63–64, uses the Higgs-field argument of Theorem 5.2.6. Footnote 3, p. 58, defers the compatibility of Liu–Zhu’s Higgs field with Pan I’s relative Sen field. The Lubin–Tate modular-curve reduction does not prove the Drinfeld statement. T6:comparison/log-higgs-functor defines the functor but not this compatibility; ET.6a/analytic-vectors-under-duality explicitly assumes it. Supply a comparison theorem or a direct Drinfeld computation before using its consequences.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-differential-equation",
+    "LocallyAnalyticCompletedCohomology:LA.9/supersingular-differential-operators"
+   ]
+  },
+  {
+   "title": "Compact-support duality for Drinfeld curves has no supplier node",
+   "detail": "LA.10/compactly-supported-de-rham-drinfeld requires the topological Serre-duality theorem and the comparison with compactly supported de Rham cohomology in Pan II §5.6.9, p. 83 (Colmez–Dospinescu–Nizioł §4.3), including finite-level compatibility and the determinant/reduced-norm action on components. The cited local sheaf and kernel nodes do not prove this. Route the precise theorem to ProetaleCohomologyOfPAdicCurvesAndTowers; partial properness alone is insufficient.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.10/compactly-supported-de-rham-drinfeld",
+    "LocallyAnalyticCompletedCohomology:LA.10/vanishing-cycle-sequence"
+   ]
+  },
+  {
+   "title": "The second comparison has an unplanned category-O input",
+   "detail": "The proportionality of Ñ_k and d̄′_k in Pan II §§6.5.8–6.5.13, pp. 113–115, uses translation functors and a projective-cover/Verma-module calculation. Existing LieHighestWeight explicitly excludes full category O. The new Part II request specifies the exact rank-one calculation needed; no proof of it or supplier node is present.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.11/second-comparison"
+   ]
+  },
+  {
+   "title": "The Igusa crystalline eigenspace comparison is not supplied",
+   "detail": "Pan II Remark 7.3.9, pp. 123–124, sketches the k=1 comparison with (ρ⊗B_cris)^{G_{Q_p(μ_{p^N})}}. RD.4’s proper log-rigid comparison has constant coefficients and does not include this Igusa tower, the Galois eigenspace identification or the congruence-relation B-action; RD.5’s finiteness node itself assumes its coefficient-comparison input. Specify and prove that comparison in the rigid-cohomology owner before claiming the Berger–Breuil–Emerton identification, and state separately what extends to Sym^{k−1} coefficients.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.12/principal-series-description",
+    "LocallyAnalyticCompletedCohomology:LA.8/cokernel-of-d-on-rational-points",
+    "LocallyAnalyticCompletedCohomology:LA.10/spectral-decomposition"
+   ]
+  },
+  {
+   "title": "Geometric strictness must replace the false involution criterion",
+   "detail": "Pan II v1 Lemma 3.4.3, pp. 28–29, is false in both directions (E2). It is used for the restriction map in Lemma 3.4.2, the analytic and χ-weight Čech maps in §3.4.4 and the period maps in Corollaries 6.2.10–6.2.11. Prove closed range for the actual geometric maps and sums, including filtration strictness; preservation of closed embeddings by analytic vectors is insufficient. This invalidates the proposed proof route, not the geometric target statements themselves. Later LB continuity and Fontaine-cohomology assertions remain conditional on this repair.",
+   "neededBy": [
+    "LocallyAnalyticCompletedCohomology:LA.3/lb-topology-on-cohomology",
+    "LocallyAnalyticCompletedCohomology:LA.3/cohomology-is-hausdorff-lb",
+    "LocallyAnalyticCompletedCohomology:LA.11/relative-period-sheaves-on-the-flag-variety"
+   ]
   }
  ],
  "sourceIssues": [
@@ -5922,7 +6051,132 @@
    "searched": [
     "the Forum of Mathematics, Pi article page (no correction notice)",
     "arXiv:2008.07099v3, which has the same wording"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the published p. 64 and arXiv v3. Part (1) conflicts with the same theorem’s general statement and the k=2 exception; Theorem 1.0.1(1), p. 3 confirms the corrected condition.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E2",
+   "source": "PanII",
+   "kind": "error",
+   "locator": "Lemma 3.4.3, pp. 28–29; arXiv:2209.06366v1 only",
+   "printed": "For a continuous Q_p-Banach map i:A→B and a continuous involution w on B, the lemma asserts that i is strict exactly when (i,wi):A⊕A→B is strict.",
+   "correction": "Delete this general criterion. Prove the required closed-range assertions for the actual geometric restriction and Čech maps with additional hypotheses.",
+   "reason": "Let A=c₀(N≥1,Q_p), T(x)_n=p^n x_n. T(A) is dense and not closed: (p^n) lies in its closure but has no c₀ preimage. For i:A⊕A→A⊕A, i(x,y)=(x,Ty), and coordinate-swap w, i is injective and non-strict while (i,wi) is surjective and strict. Conversely i(x)=(x,Tx) is a closed graph embedding, hence strict; for w(u,v)=(u,−v), (i,wi) has image A⊕T(A), not closed. Composition of strict maps need not be strict, the step used in both parts of the printed argument.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Let A=c₀(N≥1,Q_p), T(x)_n=p^n x_n. T(A) is dense and not closed: (p^n) lies in its closure but has no c₀ preimage. For i:A⊕A→A⊕A, i(x,y)=(x,Ty), and coordinate-swap w, i is injective and non-strict while (i,wi) is surjective and strict. Conversely i(x)=(x,Tx) is a closed graph embedding, hence strict; for w(u,v)=(u,−v), (i,wi) has image A⊕T(A), not closed. Composition of strict maps need not be strict, the step used in both parts of the printed argument.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E3",
+   "source": "PanII",
+   "kind": "error",
+   "locator": "Proof of Theorem 4.1.4, p. 36; arXiv:2209.06366v1 only",
+   "printed": "The proof uses convergence of polynomial truncations in the same Banach coefficient space A_n.",
+   "correction": "Pass to a later analytic stage with smaller radius before using polynomial density; this proves density in the LB limit.",
+   "reason": "The coefficient condition in Theorem 3.2.2, pp. 19–20, only bounds the weighted coefficients. The series with c_i=p^{−(n−1)i} has all weighted terms of norm one, so its truncations do not converge for the A_n supremum coefficient norm. After one radius loss their tail gains a factor p^{−i}.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The coefficient condition in Theorem 3.2.2, pp. 19–20, only bounds the weighted coefficients. The series with c_i=p^{−(n−1)i} has all weighted terms of norm one, so its truncations do not converge for the A_n supremum coefficient norm. After one radius loss their tail gains a factor p^{−i}.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E4",
+   "source": "PanII",
+   "kind": "error",
+   "locator": "Lemma 4.1.6 and its proof, p. 37; Lemma 4.2.6, p. 40; arXiv:2209.06366v1 only",
+   "printed": "The open mapping theorem is used to conclude that a Banach-space comparison is an isometry. The same lemma calls a section of a surjection a left inverse. Lemma 4.2.6 uses the same inverse terminology for φ′_k.",
+   "correction": "The theorem gives a topological isomorphism. Use boundedness of the inverse where continuity is needed; do not assert equality of the chosen norms. The map r_k is a section (right inverse) of the projection to gr⁰. Likewise φ′_k is a section of φ_{k,1}, satisfying φ_{k,1}∘φ′_k=id.",
+   "reason": "Multiplication by p on Q_p is a continuous linear bijection with bounded inverse and is not an isometry for the fixed p-adic norm. The roadmap only needs the topological conclusion. The displayed domains and codomains in both lemmas give the right-inverse identities.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Multiplication by p on Q_p is a continuous linear bijection with bounded inverse and is not an isometry for the fixed p-adic norm. The roadmap only needs the topological conclusion. The displayed domains and codomains in both lemmas give the right-inverse identities.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E5",
+   "source": "PanII",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.4.2, p. 42; arXiv:2209.06366v1 only",
+   "printed": "The kernel of d̄ on the target of d is written with locally analytic ω^{k+2} coefficients.",
+   "correction": "Read the coefficients as ω^{k+2,sm}; only the flag polynomial factor contributes Sym^k V.",
+   "reason": "Proposition 4.2.9, p. 40, identifies ker d̄ as the locally algebraic sheaf. Its smooth coefficient factor gives the following coherent H¹ argument; the full locally analytic factor would not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Proposition 4.2.9, p. 40, identifies ker d̄ as the locally algebraic sheaf. Its smooth coefficient factor gives the following coherent H¹ argument; the full locally analytic factor would not.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E6",
+   "source": "PanII",
+   "kind": "misprint",
+   "locator": "Theorem 5.5.4, p. 74; arXiv:2209.06366v1 only",
+   "printed": "The displayed increasing filtration is assigned Fil^n=0 for n≥0 before listing its three positive graded pieces. Its upper endpoint is written as I¹_k rather than its kernel.",
+   "correction": "Read Fil^n=0 for n≤0 (and the complete space for n≥3). The upper endpoint is ker I¹_k.",
+   "reason": "An increasing filtration vanishing at every positive index has no nonzero first, second or third graded piece. The proof and the displayed exact sequences specify the intended three-step filtration.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "An increasing filtration vanishing at every positive index has no nonzero first, second or third graded piece. The proof and the displayed exact sequences specify the intended three-step filtration.",
+    "by": "REV-DESIGN-PAN"
+   }
+  },
+  {
+   "id": "LocallyAnalyticCompletedCohomology/E7",
+   "source": "PanII",
+   "kind": "misprint",
+   "locator": "§7.3.1, pp. 121–122; arXiv:2209.06366v1 only",
+   "printed": "After fixing Hodge–Tate weights 0,k, the notation paragraph retains M_{k+2} and A_{D,(k,0)} from the earlier operator-index convention.",
+   "correction": "Use the reindexed classical weight k+1 and quaternionic algebraic weight (k−1,0), with the Hecke twist of §7.2.1.",
+   "reason": "Theorem 7.1.2 and its proof after Theorem 7.2.2 give weight k+1. Theorem 7.3.2 uses ω_Dr^{−k+1} and Sym^{k−1}V*, showing the same index shift.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals DOI landing page and arXiv:2209.06366v1 record (the published PDF was not obtained)",
+    "Author’s public papers page and bounded title searches for erratum/correction; no correction located (2026-10-18)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Theorem 7.1.2 and its proof after Theorem 7.2.2 give weight k+1. Theorem 7.3.2 uses ω_Dr^{−k+1} and Sym^{k−1}V*, showing the same index shift.",
+    "by": "REV-DESIGN-PAN"
+   }
   }
  ],
  "restructure": [
@@ -5933,7 +6187,7 @@
     "LocallyAnalyticCompletedCohomology"
    ],
    "detail": "The accepted node EndoscopicTransferAndUnitaryTraceComparison:ET.6a/analytic-vectors-under-duality states Pan II Corollary 5.3.9 (GL_2(Q_p)- and D_p^×-locally analytic vectors coincide) and Theorem 5.3.20 (d̄_Dr = c′d_LT). Its proof steps use Pan II Theorems 5.2.8, 5.3.8 and the uniqueness in Theorem 5.2.15, which this roadmap plans at LA.9 (lubin-tate-and-drinfeld-power-series, supersingular-differential-operators) on top of Pan I's relative Sen theory (LA.0); ET.6a lists none of them as prerequisites. This plan imports the ET.6a node rather than duplicating it.",
-   "proposal": "Move the statement into LA.9 as a node of this roadmap (keeping ET.6a/el-duality, period-morphisms and gross-hopkins-vector-fields in ET.6a as its inputs), or let ET.6a/analytic-vectors-under-duality list LA.9/lubin-tate-and-drinfeld-power-series and LA.9/supersingular-differential-operators as prerequisites. Either way the dependency points from Pan's local analysis to the duality comparison."
+   "proposal": "Move ET.6a/analytic-vectors-under-duality down into LA.9, retaining general tower/duality inputs in ET.6a, or schedule the tightly coupled roadmaps as a bundle if the tier rules permit. The comparison explicitly needs the deferred Higgs compatibility, so it cannot be used to prove that compatibility. Repoint consumers in the orchestrator’s restructuring job."
   },
   {
    "action": "rescope",
@@ -5942,7 +6196,7 @@
     "LocallyAnalyticCompletedCohomology"
    ],
    "detail": "The accepted nodes CohomologyComparisons:CP.6/pan-graded-analytic-decompletion (Pan II Proposition 6.3.9), pan-truncated-period-isomorphism (Proposition 7.2.3), pan-etale-site-truncated-comparison-map (Lemma 7.2.4), pan-bounded-torsion-inverse-limit and pan-completed-coefficient-and-flag-descent (Lemmas 7.2.5–7.2.6) are statements about Pan's sheaves O^{la,χ̃}_{K^p}, B⁺_{dR,k} and OB⁺_{dR,k} on the flag variety, which this roadmap constructs (LA.1, LA.2, LA.11). This plan imports them by id.",
-   "proposal": "Keep them in CP.6 but have them cite LA.2/weight-sheaves and LA.11/relative-period-sheaves-on-the-flag-variety as prerequisites; or move them into LA.11 and LA.12 of this roadmap, leaving CP.6 the general period-sheaf comparison."
+   "proposal": "Move the Pan-specific CP.6 nodes down into LA.11/LA.12, with CP.6 retaining general comparison inputs. CP.6 is a lower-tier supplier: simply adding backward dependencies on LA.11 would violate the tier rule and create the present ownership inversion. Update CP.6 and its consumers together in the orchestrator’s restructuring job."
   },
   {
    "action": "rescope",
@@ -5961,7 +6215,494 @@
    ],
    "detail": "The requests for locally analytic vectors of Banach and LB representations (Pan I §2, Pan II §2) and for locally analytic induction from B are filed at LocallyAnalyticDistributions:L0 only because their routed owner LocallyAnalyticRepresentationsOfLocalGroups is undesigned.",
    "proposal": "When DESIGN-LocallyAnalyticRepresentationsOfLocalGroups runs, it should plan these items (extraction items /100–/116, /357) and this roadmap's LA.0, LA.2, LA.3, LA.8 requests should be re-pointed to its stages."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "LocallyAnalyticCompletedCohomology"
+   ],
+   "detail": "LA.5 owns Pan I Theorem 6.3.5 and Corollary 6.3.6. Its former R31.4 request also imported these conclusions, making the proof route circular.",
+   "proposal": "Keep the Eisenstein-ideal extension here; R31.4 supplies the original Emerton input and dense algebraic/classical vectors. The Part II of R31 imports this LA.5 result."
   }
  ],
- "upstreamNotes": []
+ "upstreamNotes": [],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-DESIGN-PAN",
+  "date": "2026-10-18",
+  "notes": "Completed independent source, pinned-baseline, closure, API, test, planet and suggested-file review of all 94 targets. Corrected 46 nodes in place and all six baseline scope descriptions; added four API items and removed the false strictness API item (179 total). All 123 tests were checked. No nodes added. Nine ledger entries retain unresolved proof obligations, chiefly the false general strictness lemma (Pan II arXiv v1 Lemma 3.4.3), the deferred Drinfeld Higgs comparison and unplanned supplier inputs. Packet status is partial, with six precisely partial stages. The reader and roadmap are synchronized. Pan II findings are against arXiv v1 only; the published PDF was not obtained. The unchanged Lean file elaborated with its sole expected theorem-placeholder warning. See REV-DESIGN-PAN.md for counterexamples, source versions and the complete ledger.",
+  "checked": [
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/log-galois-perfectoid-covering",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The setup: a smooth affinoid curve over C, a compact p-adic Lie group G and a 'log G-Galois pro-étale perfectoid covering' with ramification of p-power order along a finite set S; the smallness condition through an étale chart to the torus or the disc. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/tate-sen-for-the-kummer-tower",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Construction of the base-changed Kummer tower, its normalised traces, the identification of analytic vectors with finite levels, the Tate–Sen conditions for G × Γ and the invariants (B_∞)^Γ = B. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/relative-sen-operator",
+    "verdict": "unverifiable",
+    "note": "Removed finite-dimensional Sen as a supplier of relative module decompletion; the precise P7 contract remains unfilled."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/differential-equation",
+    "verdict": "corrected",
+    "note": "Separated the differential equation from nonvanishing, which belongs to the later locally analytic-covering theorem; removed the forward proof dependency."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/locally-analytic-covering",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The extension (FE) obtained from the unipotent representation of Γ, its relation with the log Faltings extension, the three equivalent conditions and the definition of a locally analytic covering, with the intrinsic H¹ criterion. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/theta-nonzero",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Nonvanishing of φ_X̃ for locally analytic coverings. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/acyclicity-of-locally-analytic-vectors",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The equivalence between vanishing of R^iLA(B) and the locally analytic covering condition, with strong LA-acyclicity, proved by reduction to Γ-cohomology of analytic vectors and an explicit primitive. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.0/acyclicity-for-covers-by-small-opens",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Removal of the smallness hypothesis: R^iLA(B) is the (Čech) cohomology of the locally analytic subsheaf, and strong acyclicity follows from essential vanishing of Čech cohomology of the analytic pieces. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/fake-hasse-invariants",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The perfectoid modular curve, the relative Hodge–Tate sequence and π_HT; the fake-Hasse invariants e₁, e₂ as images of the standard basis; the function t from the Weil pairing with its Galois, GL_2(Q_p) and adelic transformation laws; the basis u₊, h, z of b with u₊·x = 1, h·e₁ = e₁, z·t = 2t. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/flag-variety-lie-algebra-bundles",
+    "verdict": "corrected",
+    "note": "Used flag incidence and the trivial B-action on b/n; removed an irrelevant Harish-Chandra dependency and the invalid unique-conjugator argument."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/faltings-extension-is-hodge-tate-sequence",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The relative log de Rham comparison with the canonical extension, the relative Hodge–Tate filtration obtained from Scholze's Proposition 7.9 in the log setting, the log Faltings extension, and the identification of the two extensions up to −1 through Kodaira–Spencer. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/modular-coverings-are-locally-analytic",
+    "verdict": "verified",
+    "note": "Read the stated source locators: On a small affinoid with Hodge–Tate image in an affinoid, the global sections of the relative Hodge–Tate sequence stay exact after taking locally analytic vectors, so the preimage is a locally analytic covering. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/theta-on-the-modular-curve",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Explicit formula for θ on the modular tower, computed from the standard representation and Faltings's extension; θ is the Higgs field attached by the p-adic Simpson correspondence to the universal local system. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/locally-analytic-sheaf",
+    "verdict": "corrected",
+    "note": "Corrected degree-zero smooth versus analytic sections and its test; added section extensionality and restriction compatibility."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/horizontal-nilpotent-acts-trivially",
+    "verdict": "verified",
+    "note": "Read the stated source locators: n⁰ acts trivially on O^la_{K^p}, deduced from the explicit θ. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/horizontal-cartan-action",
+    "verdict": "corrected",
+    "note": "Kept the horizontal matrix action here; the coefficient recursion uses the later power-series expansion and is stated with weight sheaves."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.1/automorphic-twists",
+    "verdict": "corrected",
+    "note": "Replaced a nonexistent forward node by the local trivialization calculation; corrected the Hecke determinant twist and its test, with an analytic-Banach compatibility prerequisite."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/borel-invariants-are-smooth",
+    "verdict": "verified",
+    "note": "Read the stated source locators: A locally analytic section killed by the upper-triangular Borel subalgebra is killed by gl_2(Q_p), by the differential equation, or alternatively by Tate traces on the anticanonical tower. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/power-series-expansion",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Explicit power-series description of the sections of O^la_{K^p} over U ∈ 𝔅 along x − x_n, log(e₁/e_{1,n}), log(t/t_n), with coefficients at finite level, norm bounds and the converse. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/analytic-banach-algebras",
+    "verdict": "corrected",
+    "note": "Corrected weighted norms and norm tests; the coefficient topology is uniform, not product topology. Added coefficient extensionality."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/la-acyclicity-on-the-basis",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Sheaf-theoretic form of the expansion, essential vanishing of Čech cohomology of the analytic pieces, and strong LA-acyclicity of O_{K^p}(U) for U ∈ 𝔅. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/completed-cohomology-as-perfectoid-cohomology",
+    "verdict": "corrected",
+    "note": "Corrected integral degree-zero functions to continuous functions on profinite components, retaining the almost qualifier."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/locally-analytic-completed-cohomology",
+    "verdict": "corrected",
+    "note": "Corrected degree-zero acceptance: the finite-level colimit is smooth, while completed locally analytic sections can have non-smooth determinant characters."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/weight-sheaves",
+    "verdict": "corrected",
+    "note": "Moved the expansion-dependent coefficient recursion here; narrowed h-cohomology exactness to the acyclic section modules actually proved."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/locally-algebraic-subsheaves",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The locally algebraic subsheaf as the image of Sym^kV(k) ⊗ ω^{−k,sm}, and the isomorphism ω^{k,sm} ⊗_{O^sm} O^{la,χ} = ω^{k,la,χ}. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/cech-cohomology-essentially-zero",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Čech complexes of the G_n-analytic subsheaves, essential vanishing of their higher cohomology, the two covers 𝔘 and 𝔘′ and the extension of sections to the larger cover. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.2/cohomology-of-weight-sheaves",
+    "verdict": "corrected",
+    "note": "Corrected the proof: global determinant functions need not be smooth; only the sl_2 action must vanish."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/banach-sen-operator",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Definition of a Sen operator on C-Banach spaces and their increasing unions with semilinear Galois action, and of pure Hodge–Tate–Sen weight. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/theta-h-is-the-sen-operator",
+    "verdict": "verified",
+    "note": "Read the stated source locators: θ_h(diag(0,1)) is the unique Sen operator on O_{K^p}(U)^la and on H̃^i(K^p, C)^la, proved by explicit calculation. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/analytic-vectors-are-hodge-tate",
+    "verdict": "unverifiable",
+    "note": "The local Banach assertions match the source, but the cohomology assertion needs strict Banach quotients. Added that direct dependency and conditional hypothesis; E2 leaves it unresolved."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/decompleted-restriction-is-compact",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Compactness of restriction to a strictly smaller open after passing to the K-forms of the analytic vectors. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/lb-topology-on-cohomology",
+    "verdict": "unverifiable",
+    "note": "Deleted the false general involution criterion from the API/proof; recorded geometric closed range and weight-part strictness as open. Added the conditional quotient universal property."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.3/cohomology-is-hausdorff-lb",
+    "verdict": "unverifiable",
+    "note": "The compact transition and kernel-stabilisation route is conditional on the unresolved Banach Čech quotients in LA.3; the stated source route does not close this gap."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/smooth-automorphic-sheaves",
+    "verdict": "corrected",
+    "note": "Corrected the weight-zero acceptance to H⁰(O^sm), retaining the smooth inclusion in H⁰(O^la)."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/overconvergent-modular-forms",
+    "verdict": "corrected",
+    "note": "Restricted the proposed nonexample to overconvergent sections that fail to extend; classical forms are themselves overconvergent."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/n-coinvariants-at-infinity",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Structure of the n-coinvariants of O^{la,χ}: a skyscraper at ∞ built from overconvergent forms, with the extra summand for nonpositive integral χ(h) and its vanishing for non-Liouville weights. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/n-invariants-local",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The n-invariant sections of O^{la,χ} come from finite level after twisting by t and e-powers, carry weight (n₂, n₁), and vanish at ∞ for nonintegral or positive χ(h); for k ≥ 2 they embed into ω^{k,sm} with cokernel M†_k at ∞. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/n-cohomology-general-weight",
+    "verdict": "verified",
+    "note": "Read the stated source locators: n-coinvariants vanish for χ(h) ≠ 0, and the n-invariants of H¹ split into overconvergent forms of weight χ twisted by n* and a second piece of the Weyl-reflected weight. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/n-cohomology-integral-weight",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Complete determination of the n-cohomology of H¹(Fl, O^{la,χ}) for integral weights in the four ranges k ≥ 2, k ≤ −1, k = 0, k = 1, in terms of classical, overconvergent and coherent H¹ terms. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/hodge-tate-decomposition-of-isotypic-parts",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The Hodge–Tate–Sen decomposition of the μ-isotypic part of the locally analytic completed cohomology into overconvergent and classical pieces, a p-adic analogue of the Shimura isomorphism. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.4/weight-one-isotypic-part",
+    "verdict": "corrected",
+    "note": "Corrected square-zero nilpotence to Θ_Sen−k₁; the explicit unshifted formula assumes k₁=0. Added the direct infinitesimal-character input."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/pro-modular-representations",
+    "verdict": "corrected",
+    "note": "Removed a classical-eigenform-only input as justification for general pro-modular representations; corrected the corresponding definition test."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/infinitesimal-character-of-eigenspaces",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Nonvanishing and infinitesimal character of the locally analytic λ-eigenspace, from Schneider–Teitelbaum, the centre and the Sen interpretation of θ_h; compare Dospinescu–Paškūnas–Schraen. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/weight-one-classicality-with-up-eigenvector",
+    "verdict": "corrected",
+    "note": "Removed the finite-slope restriction incompatible with eigenvalue zero; specified Serre duality, logarithmic Kodaira–Spencer and weight-one q-expansion multiplicity inputs, distinguishing a one-dimensional form line from its two-dimensional Galois representation."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/local-global-compatibility-at-eisenstein-ideals",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Generalisation of Emerton's local–global compatibility to possibly Eisenstein maximal ideals through Paškūnas–Tung, and its consequence for the λ-eigenspaces of completed H¹. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/up-eigenvector-from-kirillov-model",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Colmez's Kirillov model gives nonzero U_p-eigenvectors (even in the kernel of U_p) among the N_0-invariant locally analytic vectors of irreducible admissible unitary Banach representations. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/weight-one-classicality",
+    "verdict": "corrected",
+    "note": "Made weight/eigenspace selection explicit before the Kirillov-model step, with the direct infinitesimal-character and singular-weight prerequisites."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/irregular-fontaine-mazur",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Promodularity under Emerton's hypotheses and the resulting proof of the Fontaine–Mazur conjecture for Hodge–Tate weights 0, 0. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.5/gouvea-conjecture",
+    "verdict": "corrected",
+    "note": "Included the coincident-weight and k=0,2 edge cases in the converse; irreducibility excludes the degree-zero eigensystems. Removed the inadequate R19 input."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/smooth-de-rham-bundle",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The canonical extension D with Hodge filtration and Gauss–Manin connection, the Kodaira–Spencer isomorphism, and the smooth de Rham bundle D^sm_{K^p} on Fl. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/theta-operators",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Construction of θ'_{k+1} and θ_{k+1} from Kodaira–Spencer and the Gauss–Manin connection on Sym^kD; θ₁ is the derivation. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/operator-d",
+    "verdict": "corrected",
+    "note": "Used radius loss before polynomial density and the later density theorem directly; open mapping gives a topological isomorphism, and r_k is its inverse evaluated at (f,0)."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/operator-dbar",
+    "verdict": "corrected",
+    "note": "Replaced an unavailable general localisation theorem by the rank-two chart calculation; corrected infinitesimal-character conventions, direct reductive-centre input, and the section identity for φ′_k."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/dbar-is-surjective-with-locally-algebraic-kernel",
+    "verdict": "corrected",
+    "note": "Replaced the nonexistent Pan I Proposition 5.2.9 citation by the appropriate local integration argument in the proof of Proposition 5.2.10."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/smooth-tensor-flag-is-dense",
+    "verdict": "corrected",
+    "note": "Polynomial truncations require a smaller analytic radius; this yields LB density, not density in each fixed bounded-coefficient Banach norm (E3)."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.6/intertwining-operator",
+    "verdict": "corrected",
+    "note": "Corrected the reflection test to the negation-conjugated dot action used by these sheaves."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.7/kernel-of-i-is-kernel-of-hd",
+    "verdict": "corrected",
+    "note": "Corrected ker d̄ coefficients to ω^{k+2,sm}, not the full locally analytic sheaf; this is required by the coherent H¹ calculation (E5)."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.7/n-invariants-of-weight-sheaves",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The n-invariants, n-coinvariants and H⁰ of O^{la,(0,k)} and ω^{2k+2,la,(0,k)}, the resulting description of the n-invariants of H¹ and the compatibility of H¹(d_{k+1}) with θ_{k+1}. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.7/kernel-n-invariants-decomposition",
+    "verdict": "corrected",
+    "note": "Used the local Gouvêa theorem for overconvergent eigensystem weights instead of the classical-only R19 citation."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.7/n-invariants-are-classical",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Classicality of the Hecke action on the n-invariants of ker I¹_k, with the shape of the two weight pieces. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.7/finiteness-of-analytic-n-invariants",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Finiteness of the analytic n-invariants of ker I¹_k: analytic vectors come from a fixed strict neighbourhood, components become connected deeper in the tower, and three classical points in each fibre force sl_2-triviality. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.8/newton-stratification",
+    "verdict": "corrected",
+    "note": "Separated open Igusa geometry from the cuspidal boundary; added the boundary and infinite-level stratification contracts at S1 and S5."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.8/kernel-of-d-on-rational-points",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The kernel of d_{k+1} on the rational points vanishes for k ≥ 1 and is O_Fl ⊗ M_0 for k = 0. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.8/cokernel-of-d-on-rational-points",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Rigid cohomology of Igusa curves with Sym^k coefficients, the cokernel of d_{k+1} at ∞, the ordinary sheaf H¹_ord as a smooth induction, locally analytic induction from B, and the cokernel sheaves of d_{k+1} and d′_{k+1} on P¹(Q_p). The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-locally-analytic-sheaves",
+    "verdict": "corrected",
+    "note": "Added S5 for the modular-curve realization of Lubin–Tate opens; the ET.6a import still needs the recorded ownership correction."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-differential-equation",
+    "verdict": "unverifiable",
+    "note": "The modular-curve reduction covers Lubin–Tate only. Drinfeld needs the deferred relative-Sen/Liu–Zhu Higgs comparison, not merely the log-Higgs functor; recorded this as a gap."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/lubin-tate-and-drinfeld-power-series",
+    "verdict": "corrected",
+    "note": "Corrected the coefficient-name mismatch using extraction E1; the Drinfeld expansion remains conditional on the preceding Higgs comparison."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/supersingular-differential-operators",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The operators d^{k+1}_LT and d̄^{k+1}_LT on the Lubin–Tate side, with surjectivity and locally algebraic kernel of d̄. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/kernel-of-d-on-omega",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Comparison of d̄_Dr with d_LT up to a rational constant and the resulting surjectivity and kernel of d_LT. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/kernel-on-omega-is-quaternionic",
+    "verdict": "corrected",
+    "note": "Corrected the quaternionic double quotient to finite adeles, retaining the local p-factor; recorded the missing S5 uniformization contract."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.9/global-kernel-of-d",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Global description of ker d_{k+1} and ker d′_{k+1} as extension by zero of the quaternionic sheaf on Ω, plus O_Fl ⊗ M_0 for k = 0. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/three-step-filtration",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The two factorisations of I_k, the filtration from d′ ∘ d̄ and the three graded pieces: coherent H¹ of smooth forms, compactly supported quaternionic cohomology on Ω, and the induction of rigid cohomology of Igusa curves. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/hecke-eigensystems",
+    "verdict": "corrected",
+    "note": "Corrected the Hecke twist test to multiplication by l^{−n} for the normalization used here."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/spectral-decomposition",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The generalised eigenspace decomposition of ker I¹_k over classical eigensystems, with the spectrum bounded through the classicality of n-invariants. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/de-rham-complex-drk",
+    "verdict": "corrected",
+    "note": "Specified the canonical logarithmic connection and Ω¹(log cusps), including the degree-zero example, Hodge filtration and unit test."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/de-rham-cohomology-and-eigenspaces",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Two-step description of H¹(DR_k) by compactly supported quaternionic cohomology on Ω and the induction of Igusa rigid cohomology, and the honest eigenspaces of ker I¹_k when π_p is supercuspidal or a principal series. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/compactly-supported-de-rham-drinfeld",
+    "verdict": "unverifiable",
+    "note": "Partial properness does not supply finite-level duality or the vanishing. Specified the quasi-Stein argument and left topological compact-support duality as a supplier gap."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.10/vanishing-cycle-sequence",
+    "verdict": "corrected",
+    "note": "Separated the untwisted normalization of the stated exact sequence from the algebraic twists used elsewhere."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/relative-period-sheaves-on-the-flag-variety",
+    "verdict": "unverifiable",
+    "note": "Period Čech maps need geometric closed range and filtration strictness; E2 does not supply either. Added compatible truncation maps to the API and retained the conditional status."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/infinitesimal-character-chi-k",
+    "verdict": "corrected",
+    "note": "Clarified that weights 0,k describe gr⁰; higher period-graded pieces are Tate twists."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/sheaf-fontaine-operator",
+    "verdict": "corrected",
+    "note": "Fixed the scalar normalization consistently as N_k=c_k I_{k−1}; retained the independent almost-de-Rham supplier contract."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/log-period-sheaf-presentation",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The structural log de Rham period sheaf on the modular curve, its Poincaré sequence and Faltings extension, the Kodaira–Spencer trivialisation of Ω¹, the filtration of gr^k and the presentation B⁺_dR[[X]] ≅ OB⁺_dR, and the truncated sheaves OB⁺_{dR,k}. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/reduction-to-two-comparisons",
+    "verdict": "verified",
+    "note": "Read the stated source locators: The linear-algebra mechanism expressing an operator through a section, and the reduction of the identity N_k = c_kI_{k−1} to the comparison of E_0(∇_log) ∘ s_{k+1} with d_k and of N′_k with d̄′_k. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/p-adic-legendre-relation",
+    "verdict": "corrected",
+    "note": "Removed a mismatched Shimizu input; the precise logarithmic two-lattice comparison remains a P8 request."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/first-comparison",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Construction of the section s_{k+1} and the proof that ∇_log ∘ s_{k+1} = d_k, by reduction modulo t to an explicit diagram. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/second-comparison",
+    "verdict": "unverifiable",
+    "note": "Exactness applies to the scalar central element z_k and Galois invariants, not arbitrary full infinitesimal-character parts. The rank-one category-O/projective-cover calculation is still missing."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.11/intertwining-operator-is-fontaine-operator",
+    "verdict": "verified",
+    "note": "Read the stated source locators: N_k is a nonzero rational multiple of the intertwining operator I_{k−1}, on sheaves and on cohomology. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/multiplicity-space-pi-rho",
+    "verdict": "corrected",
+    "note": "Corrected classical weight k+1 for Hodge–Tate weights 0,k; the Hodge–Tate split uses k>0."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/period-cohomology-comparison",
+    "verdict": "corrected",
+    "note": "Kept Fontaine’s scalar normalization consistent with N=cI and stated the comparison conditionally on the period and topology inputs."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/classicality-theorem",
+    "verdict": "verified",
+    "note": "Read the stated source locators: Classicality of two-dimensional de Rham representations with distinct Hodge–Tate weights appearing in completed cohomology, and finiteness of the n-invariants of analytic vectors, by the geometric route. The target is checked with its stated hypotheses and prerequisite contracts; this does not discharge open predecessor obligations."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/supercuspidal-description",
+    "verdict": "corrected",
+    "note": "Restored ε′_p^{−k+1}; placed the local quotient inside the away-from-p tensor factor and invariants after tensoring with π′_p. Corrected the k=1 acceptance accordingly."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/principal-series-description",
+    "verdict": "unverifiable",
+    "note": "Restricted the optional crystalline comparison to the sketched k=1 case over a sufficiently large cyclotomic field; RD.4 constant coefficients do not prove the Igusa eigenspace comparison or its higher-coefficient extension."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/uniform-de-rham-description",
+    "verdict": "corrected",
+    "note": "Distinguished the canonical weight-zero quotient from its identification with Π_ρ, which requires a choice, and retained logarithmic cohomology before cuspidal localization removes boundary terms."
+   },
+   {
+    "nodeId": "LocallyAnalyticCompletedCohomology:LA.12/special-case-claim",
+    "verdict": "verified",
+    "note": "Verified as a conditional claim only: Remark 7.3.11, pp. 124–125, gives a sketch, while Remark 5.5.15, p. 79, asks for a direct proof. No theorem is certified here."
+   }
+  ]
+ }
 }
