@@ -65,6 +65,7 @@ A separate read-only audit used TauCetiRoadmap current main `0d144d044dacebca17b
 | Current TauCeti/LinearAlgebra/QuadraticForm/Witt/Pfister/Basic.lean: pfisterForm and fundamentalIdeal_pow_eq_addClosure | Import the odd-characteristic all-length construction and generation from parent Layer 4. |
 | Current Witt/Round.lean: oneFold, twoFold; Witt/Pfister/Hyperbolic.lean: the two-fold criterion | Prove the remaining all-length induction here, with the characteristic-two base and tensor action. |
 | Pinned quadratic baseChange interfaces use invertibility of two in the relevant general form | Construct coordinate-polynomial scalar extension here and prove comparison where the pinned carrier applies. |
+| Current Transfer/Basic.lean:48–54,188–190 has QuadraticMap.scharlauTransfer and its polar identity in every characteristic; Transfer/Witt.lean:147,186–190 has the odd-characteristic Witt transfer and projection formula | Import parent Layer9 and these existing APIs; add only the missing characteristic-two module extensions and norm-Pfister calculation. |
 | Current Witt RegularFormClass is diagonal and belongs to the odd-characteristic construction | Do not reuse it as the characteristic-two quadratic Witt carrier. |
 | Current RealAlgebraicGeometry Layer 1 supplies orderings/real-closure existence; AdicSpaces Layer 1 supplies Spv and patch topology | Import both owners; the proposed real branch adds Harrison/signature applications, and Q2.7 adds only the henselization loci. |
 | No matching current all-characteristic high Pfister module, all-degree graded quadratic comparison, or finite-descent theorem was found | These are targets or explicit proof-input gaps, not asserted missing library declarations based only on a name search. |
@@ -73,33 +74,37 @@ A separate read-only audit used TauCetiRoadmap current main `0d144d044dacebca17b
 
 Locators use the printed page numbering of the linked version. Source descriptions and target statements are in our own words. The source list records the portions actually used; it does not claim a full audit of the independent real-function-field direction.
 
-**ekm — [The Algebraic and Geometric Theory of Quadratic Forms](https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf), Richard Elman, Nikita Karpenko and Alexander Merkurjev.** Freely available author book PDF, final manuscript; AMS 2008 bibliographic edition. Locators use the PDF’s printed page numbers. Read 18 October 2026.
+**ekm — [The Algebraic and Geometric Theory of Quadratic Forms](https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf), Richard Elman, Nikita Karpenko and Alexander Merkurjev.** Freely available author book PDF, final manuscript; AMS 2008 bibliographic edition. Locators use the PDF’s printed page numbers. Read 2026-10-18.
 
-- §§1–4 pp.17–24 (metabolic splitting and bilinear Witt quotient); §7 pp.39–46; §8 pp.47–51; §9 pp.52–54; §15 pp.64–67; §16 pp.67–69; §17 pp.71–74; §§18–20 pp.75–87; §22 pp.93–95; §23 pp.98–100; §97 pp.385–387; §101 pp.402–404. Targeted definitions and the proof chains named in nodes; Fact16.2 states rather than proves the deep comparisons.
+- §§1–4 pp.17–24 (metabolic splitting and bilinear Witt quotient); §7 pp.39–46; §8 pp.47–51; §9 pp.52–54; §15 pp.64–67; §16 pp.67–69; §17 pp.71–74; §§18–20 pp.75–87; §22 pp.93–94; §23 Theorem23.7 p.100; §97 pp.385–386; §101 pp.402–404. Targeted definitions and the proof chains named in nodes; Fact16.2 states rather than proves the deep comparisons.
 
-**dp — [Characterizing finitely generated fields by a single field axiom](https://arxiv.org/pdf/2012.01307v2), Philip Dittmann and Florian Pop.** arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated. Read 18 October 2026.
+**dp — [Characterizing finitely generated fields by a single field axiom](https://arxiv.org/pdf/2012.01307v2), Philip Dittmann and Florian Pop.** arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated. Read 2026-10-18.
 
-- §1 dimension convention p.2; §2 coefficient convention and Fact2.1 pp.3–4; §3 Pfister conventions and Fact3.1, Proposition3.2 with its full proof pp.6–8; valuation patch topology and Lemma3.9 pp.10–11.
+- §1 dimension convention p.1; §2 coefficient convention and Fact2.1 pp.3–4; §3 Pfister conventions and Fact3.1, Proposition3.2 with its full proof pp.6–8; valuation patch topology and Lemma3.9 pp.10–11.
 
-**morel — [Milnor’s conjecture on quadratic forms and mod 2 motivic complexes](https://www.numdam.org/item/RSMUP_2005__114__63_0.pdf), Fabien Morel.** Rendiconti del Seminario Matematico della Università di Padova114 (2005), 63–101; publisher digitization. Read 18 October 2026.
+**morel — [Milnor’s conjecture on quadratic forms and mod 2 motivic complexes](https://www.numdam.org/item/RSMUP_2005__114__63_0.pdf), Fabien Morel.** Rendiconti del Seminario Matematico della Università di Padova114 (2005), 63–101; publisher digitization. Read 2026-10-18.
 
-- §1 pp.63–69; §2.1 Theorems2.2–2.3 pp.70–72; §2.2 Theorem2.11 pp.76–78; §3.3 Theorem3.10 pp.87–89; §3.4 pp.89–94; Theorem3.4 and Lemmas3.5–3.9 pp.83–87. Read the actual theorem statements and lifting argument; the externally cited Witt purity/Rost and prime-field computations are recorded as a proof-input gap.
+- §1 pp.63–69; §2.1 Theorems2.2–2.3 pp.70–72; §2.2 Theorem2.11 pp.76–78; §3.3 Theorem3.10 pp.87–89; §3.4 pp.89–93; Theorem3.4 and Lemmas3.5–3.9 pp.83–87. Read the actual theorem statements and lifting argument; the externally cited Witt purity/Rost and prime-field computations are recorded as a proof-input gap.
 
-**ovv — [An exact sequence for K_*^M/2 with applications to quadratic forms](https://annals.math.princeton.edu/wp-content/uploads/annals-v165-n1-p01.pdf), Dmitri Orlov, Alexander Vishik and Vladimir Voevodsky.** Annals165 (2007), 1–13; published PDF. Read 18 October 2026.
+**ovv — [An exact sequence for K_*^M/2 with applications to quadratic forms](https://annals.math.princeton.edu/wp-content/uploads/annals-v165-n1-p01.pdf), Dmitri Orlov, Alexander Vishik and Vladimir Voevodsky.** Annals165 (2007), 1–13; published PDF. Read 2026-10-18.
 
 - §4.1 Theorem4.1 and its proof, printed p.11; §1 standing characteristic-zero hypothesis. Used to check the boundary of that alternative proof, not as a proof for all odd characteristics.
 
-**benoist — [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf), Olivier Benoist.** Publications Mathématiques de l’IHÉS130 (2019), 63–110; published PDF. Read 18 October 2026.
+**benoist — [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf), Olivier Benoist.** Publications Mathématiques de l’IHÉS130 (2019), 63–110; published PDF. Read 2026-10-18.
 
 - §0.5 pp.65–66; §6.4 proof of Theorem0.12 pp.95–96, to determine the boundary and supplier direction of the split. The independent real-function-field proof inputs are assigned to the proposed design job, not audited here.
 
-**bw — [On the integral Hodge conjecture for real varieties, I](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf), Olivier Benoist and Olivier Wittenberg.** Published-layout author PDF; Inventiones219 (2020), 1–77. Read 18 October 2026.
+**bw — [On the integral Hodge conjecture for real varieties, I](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf), Olivier Benoist and Olivier Wittenberg.** Published-layout author PDF; Inventiones222 (2020), 1–77. Read 2026-10-18.
 
-- §2.3 pp.37–38 and Lemma3.7 proof p.50, for the split’s level/quadric and real-curve boundary. Full source audit belongs to the proposed real-function-field design.
+- §2.3, Example2.5, pp.37–38, and Lemma3.7 proof p.50, for the quadric and real-curve boundary. The level/ω equivalence is located instead in Benoist17 Proposition3.3. Full proof audit of the split belongs to its proposed design.
 
-**upstream-qfi — [Quadratic forms and cohomological invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md), Tau Ceti Roadmap contributors.** Current upstream checkout 0d144d044dacebca17b654695b6f1ad58f159b27, read 18 October 2026; current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Read-only audit, separate from pins. Read 18 October 2026.
+**upstream-qfi — [Quadratic forms and cohomological invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md), Tau Ceti Roadmap contributors.** Current upstream checkout 0d144d044dacebca17b654695b6f1ad58f159b27, read 18 October 2026; current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Read-only audit, separate from pins. Read 2026-10-18.
 
-- Scope and baseline; Layer4 and Suggested.lean Layer4, including current-main all-length Pfister construction and generation. Related RealAlgebraicGeometry Layer1, AdicSpaces Layer1, ProfiniteCohomology Layers10–12 and ClassFieldTheory Layer6 contracts read at the same checkout.
+- Scope and baseline; Layers1,4,7A–B,9 and the corresponding Suggested.lean sections, including current-main Pfister construction/generation and transfer. Current Tau Ceti Witt/Pfister and Transfer/{Basic,Frobenius,Class,Witt}.lean declarations read separately from the pins. Related RealAlgebraicGeometry Layer1, AdicSpaces Layer1, ProfiniteCohomology Layers10–12 and ClassFieldTheory Layer6 contracts read at the same checkout.
+
+**benoist17 — [On Hilbert’s 17th problem in low degree](https://www.math.ens.psl.eu/~benoist/articles/Hilbert17.pdf), Olivier Benoist.** Published-layout author PDF; Algebra & Number Theory11 (2017), 929–959. Read 2026-10-18.
+
+- §3B, Proposition3.3 and proof, pp.939–940: smooth integral variety over a real closed field, n≥1, level/mod-two/unramified integral 2-adic comparison. Used only to verify the routed split’s boundary, not to claim its integral-cohomology proof dependencies are closed.
 
 ## Supplier contracts
 
@@ -113,7 +118,7 @@ Consumers: `Q2.0/nonsingular-witt-decomposition`.
 
 Consumers: `Q2.0/bilinear-witt-ring`, `Q2.0/quadratic-witt-module`, `Q2.0/quadratic-filtration`, `Q2.1/quadratic-pfister`, `Q2.1/all-length-roundness`, `Q2.1/pfister-hyperbolicity`, `Q2.3/milnor-witt-map`, `Q2.3/unramified-witt-sheaves`, `Q2.3/odd-graded-comparison`, `Q2.6/coefficient-field`.
 
-**S3. `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters`.** Import the existing odd-characteristic μ₂ coefficient adapters and the degree-two Kummer/quaternion comparison, with the parent minus-sign convention.
+**S3. `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters`.** Import the existing odd-characteristic μ₂ coefficient and Kummer-character adapters, with the parent minus-sign convention. The quaternion/Brauer interpretation is a separate Layer7B contract.
 
 Consumers: `Q2.3/cohomology-coefficients`.
 
@@ -129,7 +134,7 @@ Consumers: `Q2.3/cohomology-coefficients`.
 
 Consumers: `Q2.6/local-function-field-cd`.
 
-**S7. `LogicAndDefinabilityInNumberTheory:LD.1`.** Supply general-rank valued-field residue/value interfaces; multivariable simple-root Hensel lifting; henselization as an immediate separable algebraic extension described by pointed étale neighborhoods; finite subextensions have an integral primitive generator with derivative a unit; unique valuation extension to algebraic henselian extensions. For residue characteristic zero supply comparison of the algebraic henselization of a number field at a finite place with its completion for finite étale 2-primary cohomology. Do not replace these with discrete local-field hypotheses.
+**S7. `LogicAndDefinabilityInNumberTheory:LD.1`.** Supply general-rank valued-field residue/value interfaces; multivariable simple-root Hensel lifting; henselization as an immediate separable algebraic extension described by pointed étale neighborhoods; finite subextensions have an integral primitive generator with derivative a unit; unique valuation extension to algebraic henselian extensions. For a number field at every finite place, including dyadic places, supply comparison of its algebraic henselization with its completion for finite étale 2-primary cohomology. Do not replace these with discrete local-field hypotheses.
 
 Consumers: `Q2.2/odd-divisor-specialization`, `Q2.4/unit-reduction`, `Q2.5/kronecker-dimension`, `Q2.6/coefficient-field`, `Q2.6/real-place-descent`, `Q2.7/henselian-embedding-open`, `Q2.6/local-function-field-cd`.
 
@@ -169,13 +174,21 @@ Consumers: `Q2.3/cohomology-coefficients`, `Q2.3/kato-graded-comparison`.
 
 Consumers: `Q2.2/quadric-function-field`, `Q2.5/ci-systems`.
 
+**S17. `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula`.** Reuse current QuadraticMap.scharlauTransfer and polar_scharlauTransfer in every characteristic, together with their identity, product, isometry and tower API. Import existing odd-characteristic WittRing.scharlauTransfer and scharlauTransfer_baseChange_mul for any finite field extension and nonzero linear functional. Q2.2 adds the missing characteristic-two bilinear/quadratic-Witt-module descent and reciprocity and the power-basis norm-Pfister calculation.
+
+Consumers: `Q2.2/quadratic-transfer`.
+
+**S18. `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.** Import the parent’s Kummer cup/quaternion Brauer-class comparison, with its canonical μ₂/ZMod2 coefficients and minus-sign convention, for the n=2 compatibility test of the higher invariant. The all-degree comparison is proved here; no low-degree quaternion comparison is re-planned.
+
+Consumers: `Q2.3/pfister-invariant`.
+
 ## Open proof-input audits
 
 **G1. Primary proof audit for Kato’s quadratic comparison.** EKM Fact16.2 states the exact comparison and cites Kato, Inventiones66 (1982), 493–510, DOI10.1007/BF01389226. The publisher page was accessible but the full proof was not served; no copy was in the cleared source index. Read an authorized/public primary proof, audit the differential presentation and kernel=I_q^(n+1) in every n, and refine this target. The BGK coefficient theorem does not discharge this gap.
 
 Direct targets: `Q2.3/kato-graded-comparison`.
 
-**G2. External proof leaves in Morel’s all-odd-characteristic argument.** Read Morel’s construction and inductive argument, but its Ojanguren–Panin purity input (Theorem2.2), the generic Rost cycle-module formalism and associated unramified-sheaf/transfer/residue interface, and the prime-field computations used on p.66 were not independently proved or traced to fully read primary proofs here. Audit those exact leaves, give the generic cycle-module infrastructure a single owner after cross-roadmap search, and record declarations/requests there. No invisible Witt-purity or prime-field-Milnor assumption is accepted. The local Witt presentation and extension-lifting argument are specified in the current target.
+**G2. External proof leaves in Morel’s all-odd-characteristic argument.** Morel’s construction and induction have been read. The unaudited external proof leaves are: Ojanguren–Panin Witt purity (Morel2.2, pp.70–71); Arason Satz3.3, used in Morel2.11 (pp.76–78) for transfer preservation of I^n and independence of the functional on the associated graded; quadratic-extension generation of Milnor K-theory cited there as [5, Corollary5.3, p.29]; generic Rost cycle-module residue/transfer axioms, Gersten resolutions and homotopy invariance; and the prime-field computations cited on p.66. Audit their primary proofs, assign generic infrastructure once after cross-roadmap search, and record the resulting declarations or requests. The elementary transfer target does not discharge Arason’s filtration theorem. The local Witt presentation and extension-lifting argument are specified here, with no implicit purity or prime-field-Milnor assumption.
 
 Direct targets: `Q2.3/unramified-witt-sheaves`, `Q2.3/milnor-kernel-ext`, `Q2.3/odd-graded-comparison`.
 
@@ -191,14 +204,14 @@ Q2.3 inherits both G1 and G2. The invariant-dependent descent targets in Q2.6 in
 
 **Prerequisites:** `mathlib:QuadraticMap.proj`, `mathlib:QuadraticMap.polarBilin`, `mathlib:QuadraticMap.Nondegenerate`, `mathlib:QuadraticForm.dualProd`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, Notation 7.3, Examples 7.5–7.6 and Proposition 7.31, pp.40–41,45–46.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, Notation 7.3 and Examples 7.5–7.6, pp.40–41; Proposition 7.19, pp.43–44; Proposition 7.31, pp.45–46.
 
 **Construction / proof route.**
 
 - Use the existing quadratic-map sum and scalar actions on coordinate monomials. Compute the polar matrix and its determinant.
 - Identify xy with the rank-one dual-product form. In characteristic two the off-diagonal pairing remains nonzero although the diagonal vanishes.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `binary` (constructor): The quadratic map [a,b] on Fin 2 → F.
 - `binary_apply` (simp): Evaluation is a x₀²+x₀x₁+b x₁².
@@ -230,14 +243,14 @@ Q2.3 inherits both G1 and G2. The invariant-dependent descent targets in Q2.6 in
 
 **Prerequisites:** `Q2.0/binary`, `mathlib:QuadraticMap.prod`, `mathlib:QuadraticMap.polarBilin`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, scalar extension before Lemma 7.15, pp.40–41; §8, Remark 8.18, p.51.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, scalar extension before Lemma 7.15, p.42; §8, Remark 8.18, p.51.
 
 **Construction / proof route.**
 
 - In a basis write q as square monomials plus off-diagonal polar coefficients and extend coefficients. The quadratic identities show this expression agrees after a change of basis.
 - Tensor the linear maps witnessing isometries; matrix invertibility preserves nonsingularity. Identify the polynomial extension with Mathlib quadratic baseChange wherever its invertibility-of-two hypotheses hold.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `extend` (constructor): The quadratic map on E⊗F V.
 - `extend_tmul` (simp): q_E(c⊗v)=c²·algebraMap(q(v)).
@@ -296,7 +309,7 @@ Q2.3 inherits both G1 and G2. The invariant-dependent descent targets in Q2.6 in
 - Form the isometry-class semiring, its group completion and the metabolic ideal. A lagrangian tensor any nonsingular bilinear form is again metabolic, so tensor descends.
 - Use dimension parity to define I_b. A characteristic-two alternating nonsingular bilinear space is metabolic; diagonal nonsingular symmetric forms supply the remaining classes. Reuse the parent ring when 2 is invertible.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `BilinearWitt.classOf` (constructor): Class of a nonsingular symmetric bilinear form.
 - `BilinearWitt.class_tensor` (compatibility): Tensor classes multiply and orthogonal sums add.
@@ -335,7 +348,7 @@ Q2.3 inherits both G1 and G2. The invariant-dependent descent targets in Q2.6 in
 - A lagrangian tensored with the other space gives the required hyperbolic dimension. Thus the action descends through metabolic and hyperbolic classes.
 - Use Witt cancellation to compare representatives of equal class and dimension; use polarization for the odd-characteristic ideal identification.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `QuadraticWitt.classOf` (constructor): Class of an even nonsingular quadratic space.
 - `bilinearTensorQuadratic` (constructor): Quadratic tensor on W⊗V, with the pure-tensor and polar formulas.
@@ -374,7 +387,7 @@ Q2.3 inherits both G1 and G2. The invariant-dependent descent targets in Q2.6 in
 - Define the subgroup spanned by the indicated module products and derive the descending inclusions.
 - Transport the odd-characteristic polarization isomorphism and compare module products with ideal powers.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `quadraticFiltration` (constructor): I_b^(n−1)·I_q, indexed only for n≥1.
 - `quadraticFiltration_one` (simp): The first term is all I_q.
@@ -421,7 +434,7 @@ Over F₂, [1,1] has value 1 at each of (1,0), (0,1), (1,1), hence is anisotropi
 - Prove the dimension and represented unit by tensor bases. Binary-block decomposition and I_b generation give scaled Pfister generation; the difference identity (9.5) removes scalars for n>1.
 - For odd characteristic reuse the parent pfisterForm and its generation theorem. Compare [1,a] with ⟨1,−(1−4a)⟩ when 1−4a≠0 by completing the square.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `quadraticPfister` (constructor): The displayed bilinear tensor with the binary quadratic last factor.
 - `quadraticPfister_dim` (simp): An n-fold form has dimension 2^n.
@@ -467,20 +480,20 @@ Over F₂, [1,1] has value 1 at each of (1,0), (0,1), (1,1), hence is anisotropi
 
 ### Q2.1/binary-tensor-roundness — The Pfister roundness induction step
 
-**Theorem.** If ρ is nonsingular and round then ⟨1,−a⟩_b⊗ρ is round, for a∈F×. For nonsingular ρ this tensor is isotropic iff it is hyperbolic iff a is a nonzero represented value of ρ, provided ρ is anisotropic; if ρ is already hyperbolic so is the tensor.
+**Theorem.** If ρ is nonsingular and round then ⟨1,−a⟩_b⊗ρ is round, for a∈F×. Its isotropy, hyperbolicity and the condition a∈D(ρ) are equivalent. This includes an isotropic round ρ: it is universal, so every a is represented and every such tensor is hyperbolic.
 
 **Prerequisites:** `Q2.0/quadratic-witt-module`, `Q2.0/nonsingular-witt-decomposition`, `Q2.1/binary-norm-roundness`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §9, Proposition 9.8, pp.53–54.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §9, Proposition 9.8, p.54.
 
 **Construction / proof route.**
 
 - Write a represented value as ρ(v)−aρ(w). Use roundness to normalize nonzero block values and the binary norm identity to obtain a similarity of the tensor.
-- If both blocks yield an isotropic vector and ρ is anisotropic, their nonzero values give a represented ratio a. Roundness identifies aρ with ρ, so ρ⊥−aρ is hyperbolic. Treat isotropic round ρ by its hyperbolic split and the same dimension comparison.
+- If ρ is anisotropic, an isotropic vector of ρ⊥−aρ gives two nonzero represented values with ratio a. Roundness then identifies aρ with ρ, so the tensor is isometric to ρ⊥−ρ and is hyperbolic. If ρ is isotropic, nonsingularity splits off a hyperbolic plane, hence D(ρ)=F×. Roundness gives G(ρ)=F× and the same tensor identity; it does not require ρ itself to be hyperbolic.
 
 **Acceptance.**
 
-- The parameter test is conditional on anisotropic ρ.
+- The parameter test also covers isotropic round ρ; it does not assert that ρ itself is hyperbolic.
 - No division by 2 occurs in the tensor argument.
 
 ### Q2.1/all-length-roundness — Roundness in every Pfister length
@@ -531,7 +544,7 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 ## Q2.2 — Polynomial representation and the Arason–Pfister bound
 
-**Direct layer inputs:** `Q2.0`, `LogicAndDefinabilityInNumberTheory:LD.1`, `SchemeAndStackFoundations:SF.0`, `Q2.1`.
+**Direct layer inputs:** `Q2.0`, `LogicAndDefinabilityInNumberTheory:LD.1`, `SchemeAndStackFoundations:SF.0`, `Q2.1`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula`.
 
 ### Q2.2/purely-transcendental-anisotropy — Pure transcendental preservation
 
@@ -539,11 +552,11 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 **Prerequisites:** `Q2.0/scalar-extension`, `Q2.0/nonsingular-witt-decomposition`, `Q2.0/quadratic-witt-module`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, Lemma 7.15, p.41; §8, Remark 8.18, p.51.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, Lemma 7.15, p.43; §8, Remark 8.18, p.51.
 
 **Construction / proof route.**
 
-- Clear denominators in a hypothetical isotropic vector and take the first nonzero coefficient in the one-variable polynomial vector; anisotropy rules out its leading quadratic coefficient.
+- Clear denominators in a hypothetical isotropic vector. In one variable let v_d be its highest nonzero coefficient. The coefficient of degree 2d in q(v(T)) is q(v_d), which anisotropy makes nonzero, a contradiction.
 - Iterate one variable at a time and apply uniqueness of anisotropic representatives to the Witt kernel.
 
 **Acceptance.**
@@ -553,7 +566,7 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 ### Q2.2/cassels-pfister — The Cassels–Pfister polynomial representation theorem
 
-**Theorem.** For anisotropic q over F and h∈F[t] nonzero, if q represents h over F(t), there is a polynomial vector v∈V[t] with q(v)=h. The version with an additionally prescribed polynomial polar pairing with a fixed vector also holds.
+**Theorem.** For anisotropic q over F and h∈F[t] nonzero, if q represents h over F(t), there is a polynomial vector w∈V[t] with q(w)=h. More precisely, for s∈V and an existing v∈V(F(t)) such that q(v) and polar(q)(s,v) both lie in F[t], one can choose w∈V[t] retaining both values.
 
 **Prerequisites:** `Q2.0/scalar-extension`, `Q2.2/purely-transcendental-anisotropy`, `Q2.0/nonsingular-witt-decomposition`, `tauceti:QuadraticMap.Represents`.
 
@@ -563,7 +576,7 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 - Choose a rational representing vector with minimal denominator degree. Divide its polynomial numerator by that denominator.
 - Reflect in the remainder vector; the quadratic identity produces a smaller denominator unless the original denominator was constant. The remainder is nonisotropic by anisotropy.
-- For the polar constraint use the same division with a polynomial vector satisfying the prescribed pairing; the reflecting remainder is orthogonal to the fixed vector, so the pairing is preserved.
+- For the constrained version start with the given rational vector v. Write its numerator as d·u+r with deg r<deg d. Since polar(s,v) is polynomial, polar(s,r) is divisible by d and has smaller degree, hence is zero. Reflection in r fixes s and retains the pairing while decreasing the denominator.
 
 **Acceptance.**
 
@@ -578,13 +591,13 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 **Prerequisites:** `Q2.2/cassels-pfister`, `Q2.2/purely-transcendental-anisotropy`, `Q2.0/nonsingular-witt-decomposition`, `tauceti:QuadraticMap.IsRepresentedBy`, `Q2.0/binary`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §17, Lemma 17.10, Corollary 17.11 and Theorem 17.12, pp.73–74.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §7, Example 7.2, pp.39–40, and Corollary 7.29/Proposition 7.31, pp.45–46; §8, reflection identity (8.1), p.47; §17, Lemma 17.10, Corollary 17.11 and Theorem 17.12, pp.73–74.
 
 **Construction / proof route.**
 
-- Use polynomial representation and the fixed polar-pairing version to split off each nonsingular binary block of ψ.
-- After binary block removal the residual diagonal part is treated one variable at a time by the same minimal-denominator argument and Witt extension to align the first represented vector.
-- The other two implications are specialization to the generic vector and composition with an injective isometry.
+- Choose the quadratic normal form of ψ: nonsingular binary blocks together with a diagonal polar-radical part in characteristic two, or a diagonal form in odd characteristic (EKM7.29–7.31). Use polynomial representation and its fixed-pairing version to remove a binary block while retaining its mixed term.
+- For the remaining diagonal part, isolate one variable and apply the polynomial representation theorem over the field in the other variables. Align two vectors of the same nonzero value directly: if x≠y, reflection in x−y maps x to y because anisotropy ensures q(x−y)≠0. Restrict the remaining polynomial vector to the appropriate orthogonal complement and induct. This works for anisotropic complements even if their polar forms are singular; no unrestricted Witt extension theorem is assumed.
+- An injective isometry gives value inclusion after every extension. Conversely apply value inclusion over F(T) to the generic vector of ψ; anisotropy under pure transcendence makes its value nonzero. The preceding induction gives the injective isometry and its dimension bound.
 
 **Acceptance.**
 
@@ -593,24 +606,25 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 ### Q2.2/quadratic-transfer — Transfer and Frobenius reciprocity
 
-**Construction.** For a finite field extension E/F and a nonzero F-linear functional s:E→F, transfer b and q by restricting scalars and composing their values with s. Transfer preserves nonsingularity and metabolic or hyperbolic forms and descends to W_b and I_q. It satisfies Frobenius reciprocity s_*(b_E⊗q)=b⊗s_*q. For E=F(θ) with θ≠0, use s(1)=1 and s(θ^i)=0 for 1≤i<[E:F]; its transfer of the one-fold bilinear Pfister class is ⟨⟨N_E/Fθ⟩⟩_b.
+**Construction.** For a finite field extension E/F and nonzero F-linear s:E→F, use the current library’s QuadraticMap.scharlauTransfer for q↦s∘q on restriction of scalars; construct its symmetric bilinear counterpart and extend the nonsingularity, hyperbolicity, Witt-module descent and Frobenius reciprocity results to characteristic two. Import the parent’s existing odd-characteristic Witt transfer and projection formula. In every characteristic obtain s_*(b_E⊗q)=b⊗s_*q. For E=F(θ), θ≠0, the functional s(1)=1, s(θ^i)=0 for 1≤i<[E:F] sends the one-fold bilinear Pfister class of θ to that of N_E/Fθ.
 
-**Prerequisites:** `Q2.0/scalar-extension`, `Q2.0/bilinear-witt-ring`, `Q2.0/quadratic-witt-module`, `Q2.0/nonsingular-witt-decomposition`.
+**Prerequisites:** `Q2.0/scalar-extension`, `Q2.0/bilinear-witt-ring`, `Q2.0/quadratic-witt-module`, `Q2.0/nonsingular-witt-decomposition`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula`.
 
-**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §20.A, Lemmas 20.1, 20.4–20.5, Proposition 20.2 and Corollary 20.13, pp.82–86.
+**Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §20.A, Lemmas 20.1, 20.4–20.5, Proposition 20.2 and Corollary 20.13, pp.82–86; Tau Ceti Roadmap contributors, Layer9, transfer milestones; current Tau Ceti Transfer/Basic.lean:48–54,188–190; Transfer/Frobenius.lean:102; Transfer/Witt.lean:147,186–190 at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039.
 
 **Construction / proof route.**
 
-- The tensor reassociation map identifies the two Frobenius-reciprocity forms by evaluation. Nonzero s gives a nondegenerate trace-type pairing even for inseparable extensions; do not substitute the possibly zero field trace.
+- Reuse current QuadraticMap.scharlauTransfer and polar_scharlauTransfer, which require no inverse of two. The tensor reassociation map identifies the Frobenius-reciprocity forms by evaluation. A nonzero functional gives a nondegenerate pairing (x,y)↦s(xy), even for inseparable field extensions; do not substitute a possibly zero field trace.
 - Transfer a half-dimensional lagrangian and count the restricted-scalar dimension to descend to Witt groups.
 - In the power basis compute the two transferred lines and cancel metabolic pairs; their difference gives the norm Pfister class.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
-- `quadraticTransfer` (constructor): q↦s∘q on restriction of scalars.
+- `QuadraticMap.scharlauTransfer` (compatibility): Reuse the current library constructor q↦s∘q; no second quadratic-transfer constructor is introduced.
 - `quadraticTransfer_frobenius` (compatibility): Transfer commutes with the displayed bilinear module action.
 - `quadraticTransfer_hyperbolic` (characterisation): A hyperbolic input has hyperbolic transfer.
 - `bilinearTransfer_normPfister` (simp): The specified power-basis functional sends ⟨⟨θ⟩⟩ to ⟨⟨Nθ⟩⟩.
+- `bilinearTransfer` (constructor): Compose a symmetric bilinear form’s values with s after restricting scalars; give the evaluation formula and descend through metabolic classes.
 
 **Uses.**
 
@@ -632,15 +646,15 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 **Theorem.** An anisotropic quadratic form remains anisotropic under every finite extension of odd degree, in all characteristics. Hence restriction on I_q is injective for such extensions.
 
-**Prerequisites:** `Q2.2/purely-transcendental-anisotropy`, `Q2.2/cassels-pfister`, `Q2.0/nonsingular-witt-decomposition`, `Q2.0/quadratic-witt-module`, `Q2.0/scalar-extension`.
+**Prerequisites:** `Q2.2/purely-transcendental-anisotropy`, `Q2.0/nonsingular-witt-decomposition`, `Q2.0/quadratic-witt-module`, `Q2.0/scalar-extension`.
 
 **Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §18, Lemma 18.1, Theorem 18.3 and Corollaries 18.5–18.6, pp.75–77.
 
 **Construction / proof route.**
 
-- Reduce to a primitive odd-degree extension. Clear denominators of an isotropic vector modulo its minimal polynomial.
-- The polynomial value argument divides a numerator by that polynomial and decreases its degree, exactly as in EKM18.3; the leading term of every represented polynomial of an anisotropic form has even degree. The odd minimal-polynomial degree is impossible.
-- Pass from anisotropy to Witt injectivity by anisotropic representatives.
+- Induct through a tower of simple extensions; all their degrees are odd. For a counterexample of least odd degree n>1, write E=F(θ) with monic minimal polynomial p of degree n. Lift an isotropic vector to polynomial coordinates of degree <n and divide their common gcd to obtain a primitive vector v still nonzero modulo p.
+- Anisotropy over F makes q(v) nonzero of degree 2d, where d is the largest coordinate degree. Write q(v)=p·g. Then deg g=2d−n is nonnegative, odd and <n. An odd-degree irreducible factor h of g exists. Primitivity makes v modulo h nonzero, so it is an isotropic vector over F[t]/(h), contradicting minimality. This also covers inseparable simple extensions.
+- Use the anisotropic representative of a quadratic Witt class to deduce injectivity of restriction on I_q.
 
 **Acceptance.**
 
@@ -675,8 +689,8 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 **Construction / proof route.**
 
-- Complete the DVR F[T]_(p). A nonsingular integral form splits hyperbolic planes; a residue isotropic vector lifts by Hensel since its polar gradient is nonzero.
-- If the residual anisotropic complement were nonzero, its sum with its uniformizer multiple would be anisotropic by reducing a primitive vector and comparing even/odd valuations. This contradicts q≅πq after removing square factors from f.
+- Pass to the henselization of the DVR F[T]_(p), preserving residue field and value group. A nonsingular integral form splits off every residue hyperbolic plane: a residue isotropic vector lifts by the simple-root Hensel argument because its polar gradient is nonzero.
+- After removing square factors, f=uπ for a unit u and uniformizer π. If the residual anisotropic complement were nonzero, its sum with its uπ multiple would be anisotropic by reducing a primitive vector and comparing even and odd valuations. This contradicts q≅uπq. The unit cannot simply be discarded; it can instead be absorbed into the chosen uniformizer.
 
 **Acceptance.**
 
@@ -685,7 +699,7 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 ### Q2.2/quadratic-similarity — The quadratic similarity theorem
 
-**Theorem.** For nonsingular even-dimensional q over F and nonzero f∈F[T], a scalar multiple af with a∈F× is a similarity factor of q_F(T) iff q_F(p) is hyperbolic for every irreducible divisor p occurring oddly in f. Equivalently f* f is a similarity factor, where f* is the leading coefficient in the successive variable order used by EKM.
+**Theorem.** For nonsingular even-dimensional q over F and nonzero f∈F[T], there exists a∈F× such that af is a similarity factor of q_F(T) iff q_F(p) is hyperbolic for every irreducible divisor p occurring oddly in f. Equivalently f* f is a similarity factor, where f* is the leading coefficient in the successive variable order used by EKM.
 
 **Prerequisites:** `Q2.2/odd-divisor-specialization`, `Q2.2/similarity-norm`, `Q2.2/purely-transcendental-anisotropy`, `Q2.0/scalar-extension`.
 
@@ -693,9 +707,9 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 
 **Construction / proof route.**
 
-- Necessity is odd-divisor specialization. For one variable a monic irreducible p is the norm of t−θ, where θ is its residue root; hyperbolicity and the similarity norm principle supply p.
-- For several variables divide by the leading coefficient in the first variable. Apply the one-variable argument over the rational function field in the remaining variables.
-- Its leading coefficient has the same required hyperbolic specializations; invoke induction on variable count and pure-transcendental Witt injectivity.
+- Necessity is odd-divisor specialization. For one variable a monic irreducible p is the norm of t−θ from its residue field extended by t. Hyperbolicity makes t−θ a similarity factor upstairs, and the similarity norm principle supplies p downstairs. Products and square factors reduce the general polynomial to irreducible factors.
+- For the multivariable induction take f irreducible of positive first-variable degree, set E=F(T′), and let g∈F[T′] be its leading coefficient. Gauss’s lemma makes f/g monic irreducible in E[t₁]; its residue field is F(f). The one-variable argument gives f/g, hence fg, as a similarity factor over F(T).
+- For an irreducible p of odd multiplicity in g, irreducibility of f gives p∤f. Apply the already proved necessity to the similarity factor fg: q is hyperbolic over F(p)(t₁). Pure-transcendental Witt injectivity descends this to F(p). Induct on g in fewer variables to get g*·g; multiplying by f/g gives f*·f, since g*=f*.
 
 **Acceptance.**
 
@@ -717,7 +731,7 @@ In characteristic two [1,0](0,1)=0 and its polar form is nonsingular, so it is h
 - Choose a homogeneous coordinate, pass to the affine chart and take its fraction field; chart changes give canonical identifications.
 - Anisotropy implies irreducibility of the quadratic equation. The degree-zero fractions of the coordinate ratios give a nonzero generic isotropic vector. For a binary form this recovers the field defined by its irreducible quadratic polynomial.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `quadricFunctionField` (constructor): The projective function field of anisotropic nonsingular ψ.
 - `quadricFunctionField_isotropic` (characterisation): ψ extended to this field has a nonzero zero.
@@ -792,7 +806,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 
 ## Q2.3 — Higher quadratic cohomological invariants
 
-**Direct layer inputs:** `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees`, `HigherLocalFieldsAndHigherClassFieldTheory:HL.2`, `SchemeAndStackFoundations:SF.2`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters`, `K2SymbolsBrauer:T.2`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal`, `Q2.0`, `Q2.1`, `MotivicEtaleKTheory:M.5a`, `Q2.2`, `MotivicEtaleKTheory:M.5d`.
+**Direct layer inputs:** `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees`, `HigherLocalFieldsAndHigherClassFieldTheory:HL.2`, `SchemeAndStackFoundations:SF.2`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7a-the-mod-2-operations-consumed-and-the-μ₂-adapters`, `K2SymbolsBrauer:T.2`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal`, `Q2.0`, `Q2.1`, `MotivicEtaleKTheory:M.5a`, `Q2.2`, `MotivicEtaleKTheory:M.5d`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
 
 ### Q2.3/cohomology-coefficients — Quadratic cohomology coefficients
 
@@ -807,7 +821,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 - Use the prime-to-characteristic étale/Galois comparison for the odd-characteristic branch. At characteristic two use the logarithmic coefficient complex and its degree shift, not the ordinary étale μ₂ group.
 - Transport restriction and the action of Milnor symbols from the supplied cohomology functors. Identify the degree-one Artin–Schreier description.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `QuadraticCohomology` (constructor): The specified H_q^n(F), n≥1.
 - `QuadraticCohomology.restrict` (functoriality): A field embedding induces restriction; identity and tower laws hold.
@@ -845,7 +859,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 - The Witt identities for ⟨⟨u⟩⟩ show additivity modulo I² and the Steinberg relation. Thus the tensor-algebra map factors through mod-two Milnor K-theory.
 - Parent Pfister generation gives surjectivity in every positive degree; dimension parity treats degree zero.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `milnorWittMap` (constructor): The displayed graded ring map s.
 - `milnorWittMap_symbol` (simp): A pure symbol maps to its n-fold Pfister class modulo I^(n+1).
@@ -880,9 +894,9 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 
 - Sheafify the Witt presheaf and identify its restriction to fields with the imported field-level carrier. The required Witt purity theorem identifies sections with the codimension-one intersection.
 - Use DVR residues and transfer compatibility to descend the Milnor map to a map of cycle modules; define its kernel. When lower j degrees vanish, j_N is birational and flasque.
-- The primary proof of Witt purity and the generic Rost cycle-module infrastructure have not been independently audited here; the exact proof-input gap records these leaves.
+- Morel2.11 also uses Arason’s transfer theorem to preserve I^n and make graded transfer independent of the chosen nonzero functional, and quadratic-extension generation for Milnor K-theory. The recorded proof-input gap includes these precise external leaves, Ojanguren–Panin Witt purity, and the generic Rost residue/transfer/Gersten and homotopy infrastructure; the elementary transfer node alone does not prove them.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `unramifiedWitt` (constructor): The Zariski Witt sheaf W over Sm_k.
 - `unramifiedWitt_power` (data): The intersection subsheaf I^n.
@@ -930,7 +944,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 
 **Prerequisites:** `Q2.3/milnor-witt-map`, `Q2.3/unramified-witt-sheaves`, `Q2.3/milnor-kernel-ext`, `MotivicEtaleKTheory:M.5d`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal`, `Q2.3/cohomology-coefficients`.
 
-**Source:** Fabien Morel, Theorems1.1 and1.3, pp.65–66; §3.4, Lemmas3.11–3.16 and Corollary3.17, pp.89–94.
+**Source:** Fabien Morel, Theorems1.1 and1.3, pp.65–66; §3.4, Lemmas3.11–3.16 and Corollary3.17, pp.89–93.
 
 **Construction / proof route.**
 
@@ -970,7 +984,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 
 **Definition.** For a nonsingular quadratic n-fold Pfister form ρ, n≥1, define e_n(ρ)=ē_n([ρ] mod I_q^(n+1))∈H_q^n(F), using the odd-characteristic comparison followed by norm residue or the characteristic-two Kato comparison. It depends only on the isometry class. In odd characteristic it is the cup of the outer Kummer symbols with the final quadratic étale character; in characteristic two the last character is Artin–Schreier.
 
-**Prerequisites:** `Q2.1/quadratic-pfister`, `Q2.3/cohomology-coefficients`, `Q2.3/odd-graded-comparison`, `Q2.3/kato-graded-comparison`, `Q2.0/quadratic-filtration`.
+**Prerequisites:** `Q2.1/quadratic-pfister`, `Q2.3/cohomology-coefficients`, `Q2.3/odd-graded-comparison`, `Q2.3/kato-graded-comparison`, `Q2.0/quadratic-filtration`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
 
 **Source:** Richard Elman, Nikita Karpenko and Alexander Merkurjev, §16, Proposition16.1 and Fact16.2, pp.67–68; Dittmann–Pop §3, p.6.
 
@@ -979,7 +993,7 @@ For the anisotropic binary form [1,1] over F₂, the projective chart y≠0 has 
 - Take the quotient class under the existing Witt-class map and apply the appropriate comparison. Thus isometry invariance follows without defining the invariant by an unproved relation on slot tuples.
 - Evaluate on Pfister generators using the symbol formulas of the two comparisons.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `pfisterInvariant` (constructor): The class e_n(ρ) in H_q^n(F).
 - `pfisterInvariant_symbol` (simp): Evaluation on slot tuples is the Kummer/Artin–Schreier cup symbol as specified.
@@ -1136,7 +1150,7 @@ Take F=F₂((t)) with its t-adic valuation and residual [1,1]. For a nonzero vec
 - Use the existing multivariate polynomial carrier and homogeneous predicate with the strict numerical bound.
 - Monotonicity C_i⇒C_j for i≤j follows from d≥1. Characterize C_0 by algebraic closedness using homogenized one-variable equations in one direction; in the other, restrict a homogeneous form in at least two variables to a coordinate plane and use a root of the resulting binary form over the algebraically closed field.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `IsCi` (constructor): The displayed homogeneous-zero predicate.
 - `IsCi.mono` (structure): C_i implies C_j when i≤j.
@@ -1246,7 +1260,7 @@ Take F=F₂((t)) with its t-adic valuation and residual [1,1]. For a nonzero vec
 
 **Prerequisites:** `mathlib:Algebra.trdeg`, `LogicAndDefinabilityInNumberTheory:LD.1`.
 
-**Source:** Philip Dittmann and Florian Pop, §1, dimension convention, p.2; Proposition3.2(3), proof on p.7.
+**Source:** Philip Dittmann and Florian Pop, §1, dimension convention, p.1; Proposition3.2(3), proof on p.7.
 
 **Construction / proof route.**
 
@@ -1254,7 +1268,7 @@ Take F=F₂((t)) with its t-adic valuation and residual [1,1]. For a nonzero vec
 - If the residue characteristic changes from 0 to p, normalize integer coefficients by their smallest p-adic value. Reduction proves that lifted residue-independent elements are algebraically independent over Q, so trdegκ≤trdegF; the extra +1 in δ(F) gives strictness.
 - Algebraic extensions of the prime field and their valuations account for the constant subfield; no finite generation is assumed.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `kroneckerDimension` (constructor): δ(F) for finite absolute transcendence degree, with the characteristic-zero shift.
 - `kroneckerDimension_alg` (compatibility): Algebraic field extensions preserve δ.
@@ -1321,7 +1335,7 @@ F_p(t) is C₂, with δ=1. Its t-adic residue F_p is C₁. A length-two unit Pfi
 - An element algebraic over E has value zero; its residual root lies in E and the separable simple-root uniqueness shows the element already belongs to E. Thus E is relatively closed and contains all constants.
 - Each ε_i/η_i reduces to 1. Apply Hensel to X²−ε_i/η_i, whose derivative 2 is a unit, and rescale the corresponding Pfister coordinates.
 
-**API.** All names below have the prefix `TauCeti.QuadraticFormInvariantsPartII`.
+**API.** Names have the prefix `TauCeti.QuadraticFormInvariantsPartII` unless an existing declaration is written in full.
 
 - `coefficientField` (constructor): A subfield E⊂O_w with reduction isomorphism E≅κ.
 - `coefficientField_relativelyClosed` (characterisation): Every element of F algebraic over E lies in E.
@@ -1378,9 +1392,9 @@ F_p(t) is C₂, with δ=1. Its t-adic residue F_p is C₁. A length-two unit Pfi
 **Construction / proof route.**
 
 - Index by finitely generated subfields E′ containing η. Nonreal places contribute zero by the local cohomological bound since δ(E′)≤δ(E)<r.
-- For each E′ let Σ_E′ be the finite set of real places of k′ where the invariant is nonzero. Restriction defines transition maps Σ_E″→Σ_E′. If all were nonempty, compactness of the inverse limit of finite discrete spaces would give a coherent real place of the union k.
+- For each E′ let Σ_E′ be the finite set of real places of k′ where the invariant is nonzero. If E′⊂E″, restriction of a bad real place of k″ is a bad place of k′, since the corresponding classes restrict compatibly; this defines Σ_E″→Σ_E′. If all sets were nonempty, the finite inverse-system theorem gives a coherent real ordering of the union k.
 - Extend w to Fk_v. The residue field is κk_v and Ek_v is a coefficient field. Unit reduction and the assumed isotropy over Fk_v give zero invariant over Ek_v.
-- Étale cohomological continuity says that this zero is already zero at a finite stage along the coherent branch. That contradicts membership in every Σ_E′. Do not infer that an arbitrary system of nonzero classes stays nonzero in its colimit.
+- Along that coherent real place the fields E′k′_v form a directed union Ek_v and the invariant classes are compatible. Étale cohomological continuity says their zero image over Ek_v is zero at some later finite stage. That stage still lies in its bad-place set, a contradiction. Thus some Σ_E′ is empty, and the nonreal bounds handle all remaining places.
 
 **Acceptance.**
 
@@ -1500,7 +1514,7 @@ Every one of the 30 input items is assigned below. The shared C_i items have thi
 | PAPER-BENOIST-19/187 | QuadraticFormsRealFunctionFields | RF.4: Pfister u conjecture recorded as a conjecture, never a theorem dependency. (proposed-split) |
 | PAPER-BENOIST-19/191 | QuadraticFormsRealFunctionFields | RF.0: realClosureAt adapter imports current upstream RealAlgebraicGeometry Layer1 real-closure existence at a chosen ordering. (proposed-split) |
 | PAPER-BENOIST-19/192 | QuadraticFormsRealFunctionFields | RF.1: Harrison topology and closed Brauer nonvanishing locus. (proposed-split) |
-| PAPER-BENOIST-WITTENBERG-20/level-omega | QuadraticFormsRealFunctionFields | RF.3: level<2^n iff mod-two ω^n vanishes at the generic point iff the integral 2-adic ω^n class has coniveau≥1, with the smooth-integral real-closed-base hypotheses and supplied étale comparison. (proposed-split) |
+| PAPER-BENOIST-WITTENBERG-20/level-omega | QuadraticFormsRealFunctionFields | RF.3: level<2^n iff mod-two ω^n vanishes at the generic point iff the integral 2-adic ω^n class has coniveau≥1, with the smooth-integral real-closed-base hypotheses and supplied étale comparison. Locator: Benoist17 §3B, Proposition3.3, pp.939–940 (cited by BW20 Example2.5); n≥1. (proposed-split) |
 | PAPER-BENOIST-WITTENBERG-20/quadric-level | QuadraticFormsRealFunctionFields | RF.3: for an anisotropic projective n-dimensional quadric over a real closed field, −1 is a sum of seven squares in its function field iff n≤6. (proposed-split) |
 | PAPER-BENOIST-WITTENBERG-20/witt-curve | QuadraticFormsRealFunctionFields | RF.2: for a smooth proper geometrically integral curve B over any real closed field with B(R)=∅, −1 is a sum of two squares in R(B), equivalently the Hamilton class dies in Br(B). Compare with Benoist19/141 without narrowing the base. (proposed-split) |
 
@@ -1520,6 +1534,6 @@ These findings are inherited from the Dittmann–Pop extraction and checked agai
 
 **E4 — Lemma3.9(2), final neighborhood sentence, p.11 (arXiv v2 only; journal text not collated).** The neighborhood is attached to the quadratic form in the sentence proving openness of a valuation locus. It is a neighborhood of the chosen valuation w. The ambient topology is Val_F; the quadratic form is fixed and is not a point of that space.
 
-## Acceptance and next review
+## Independent review and remaining work
 
-The independent review should check the all-characteristic tensor convention, the characteristic-two filtration shift, the projective quadric field, the finite-place bound and the finite inverse system of bad real places. It must assess the proposed split and the exact supplier contracts, especially the Jannsen input, without treating a request as an existing theorem. G1 and G2 state the source/proof audits still needed for closure. All 47 nodes remain unchecked implementation targets.
+The independent review verified all 47 target statements at their cited locators or corrected them in place, re-read all 14 baseline declarations at the pins, and checked the current upstream/library boundary. All four source findings above are independently confirmed for arXiv v2. The completed review accepts this planning pass; it does not close its two proof-input audits or 18 supplier contracts. The proposed real-function-field split still needs the maintainer’s decision. All 47 nodes remain unchecked implementation targets. See [the review report](../reviews/REV-DESIGN-QuadraticFormInvariantsPartII.md) for the correction inventory and checks.
