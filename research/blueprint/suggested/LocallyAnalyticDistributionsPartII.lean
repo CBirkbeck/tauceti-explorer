@@ -67,7 +67,8 @@ def trivial (p : ℕ) : TauCeti.PValuation p Unit where
 /-- `pValuation_trivial`: the trivial group is `p`-valued. -/
 example (p : ℕ) : (trivial p).ω () = ⊤ := rfl
 
-/-- `not_pValuation_torsion`: a group with an element of order `p` carries no `p`-valuation. -/
+/-- `not_pValuation_torsion`: a group with an element of order `p` carries no `p`-valuation (more
+generally, a `p`-valued group is torsion-free). -/
 example (p : ℕ) [Fact p.Prime] (v : TauCeti.PValuation p (Multiplicative (ZMod p))) : False := by
   sorry
 
@@ -225,7 +226,7 @@ central quotients and Banach representations) do not exist at the pinned commits
 proposed declaration name of the roadmap document, where its statement, API and checks are given.
 
 Layer ND.0:
-* ND.0/p-valuation (p-valuations, ordered bases and the condition (HYP)): `TauCeti.PValuation.filtration`, `TauCeti.PValuation.IsOrderedBasis`, `TauCeti.PValuation.Hyp`, `pValuation_padicInt`, `not_isSaturated_shift`.
+* ND.0/p-valuation (p-valuations, ordered bases and the condition (HYP)): `TauCeti.PValuation.filtration`, `TauCeti.PValuation.gr`, `TauCeti.PValuation.IsOrderedBasis`, `TauCeti.PValuation.Hyp`, `TauCeti.PValuation.restrict`, `pValuation_padicInt`, `not_isSaturated_shift`.
 * ND.0/ordered-basis-chart (Ordered bases give global coordinates): `ordered-basis-chart`.
 * ND.0/uniform-groups-p-valued (Uniform pro-p groups are p-valued groups satisfying (HYP)): `uniform-groups-p-valued`.
 * ND.0/p-valued-analytic-structure (The analytic structure of a p-valued group): `p-valued-analytic-structure`.
@@ -233,7 +234,7 @@ Layer ND.0:
 * ND.0/first-congruence-sl2 (The first congruence subgroup of SL₂(ℤ_p) and its Lie lattice): `first-congruence-sl2`.
 
 Layer ND.1:
-* ND.1/distribution-algebra (The distribution algebra D(G, K) under convolution): `TauCeti.DistributionAlgebra.convolution_apply`, `TauCeti.DistributionAlgebra.dirac`, `TauCeti.DistributionAlgebra.dirac_mul_dirac`, `TauCeti.DistributionAlgebra.continuous_mul`, `TauCeti.DistributionAlgebra.dense_span_dirac`, `TauCeti.DistributionAlgebra.comm_iff`, `dirac_mul_dirac_comm_iff`, `distributionAlgebra_trivial`, `distributionAlgebra_finite`, `convolution_order`.
+* ND.1/distribution-algebra (The distribution algebra D(G, K) under convolution; its product is the convolution `TauCeti.AnalyticDistributions.distributionConvolution` of LocallyAnalyticDistributions L1): `TauCeti.DistributionAlgebra.D`, `TauCeti.DistributionAlgebra.convolution_apply`, `TauCeti.DistributionAlgebra.dirac`, `TauCeti.DistributionAlgebra.dirac_mul_dirac`, `TauCeti.DistributionAlgebra.continuous_mul`, `TauCeti.DistributionAlgebra.dense_span_dirac`, `TauCeti.DistributionAlgebra.map`, `TauCeti.DistributionAlgebra.comm_iff`, `dirac_mul_dirac_comm_iff`, `distributionAlgebra_trivial`, `distributionAlgebra_finite`, `convolution_order`, `convolution_eq_distributionConvolution`.
 * ND.1/lie-algebra-in-distributions (The enveloping algebra inside D(G, K)): `TauCeti.DistributionAlgebra.ofLie`, `TauCeti.DistributionAlgebra.ofLie_lie`, `TauCeti.DistributionAlgebra.envelopingHom`, `TauCeti.DistributionAlgebra.envelopingHom_injective`, `TauCeti.DistributionAlgebra.ofLie_eq_lim`, `TauCeti.DistributionAlgebra.dirac_conj_ofLie`, `TauCeti.DistributionAlgebra.map_ofLie`, `ofLie_padicInt`, `ofLie_zero`, `ofLie_sl2_commutator`, `ofLie_not_dirac`.
 * ND.1/iwasawa-to-distributions (The rational Iwasawa algebra K[[G]] inside D(G, K)): `TauCeti.DistributionAlgebra.ofMeasure`, `TauCeti.DistributionAlgebra.ofMeasure_injective`, `TauCeti.DistributionAlgebra.ofMeasure_mul`, `TauCeti.DistributionAlgebra.coeff`, `TauCeti.DistributionAlgebra.hasSum_coeff`, `TauCeti.DistributionAlgebra.coeff_eq_mahler`, `TauCeti.DistributionAlgebra.mem_range_ofMeasure_iff`, `coeff_dirac_generator`, `ofMeasure_trivial_group`, `ofMeasure_padicInt_compat`, `log_not_bounded_coeff`.
 * ND.1/open-subgroup-decomposition (Finite free decomposition over an open subgroup): `open-subgroup-decomposition`.
@@ -256,7 +257,7 @@ Layer ND.3:
 * ND.3/arens-michael-envelope (The Arens–Michael envelope 𝒰(g) and its coadmissible modules): `TauCeti.CompletedEnveloping.radiusCompletion`, `TauCeti.CompletedEnveloping.arensMichael`, `TauCeti.CompletedEnveloping.arensMichael_frechetStein`, `TauCeti.CompletedEnveloping.arensMichael_dual_germs`, `TauCeti.CompletedEnveloping.arensMichael_cofinal`, `TauCeti.CompletedEnveloping.flat_arensMichael`, `TauCeti.CompletedEnveloping.completeModule`, `TauCeti.CompletedEnveloping.IsAdmissible`, `arensMichael_abelian`, `arensMichael_zero`, `arensMichael_pairing`, `completeModule_orientation`.
 
 Layer ND.4:
-* ND.4/microlocalisation (Algebraic microlocalisation of complete filtered rings): `TauCeti.Microlocalization.oreSetOfSymbols`, `TauCeti.Microlocalization.microlocalization`, `TauCeti.Microlocalization.flat`, `TauCeti.Microlocalization.tensor_equiv`, `TauCeti.Microlocalization.eq_zero_iff`, `TauCeti.Microlocalization.lift`, `microlocalization_trivial_T`, `microlocalization_commutative`, `microlocalization_powerSeries`, `microlocalization_kills_torsion`.
+* ND.4/microlocalisation (Algebraic microlocalisation of complete filtered rings): `TauCeti.Microlocalization.oreSetOfSymbols`, `TauCeti.Microlocalization.microlocalization`, `TauCeti.Microlocalization.algebraMap`, `TauCeti.Microlocalization.flat`, `TauCeti.Microlocalization.tensor_equiv`, `TauCeti.Microlocalization.eq_zero_iff`, `TauCeti.Microlocalization.lift`, `microlocalization_trivial_T`, `microlocalization_commutative`, `microlocalization_powerSeries`, `microlocalization_kills_torsion`.
 * ND.4/m-adic-filtration (Lazard's m-adic filtration of the Iwasawa algebra of a uniform group): `m-adic-filtration`.
 * ND.4/microlocal-ore-set (The microlocal Ore set S_0 = ⋃_a (p^a + m^{a+1})): `TauCeti.IwasawaMicrolocal.oreSet`, `TauCeti.IwasawaMicrolocal.mem_oreSet_iff`, `TauCeti.IwasawaMicrolocal.zero_not_mem_oreSet`, `TauCeti.IwasawaMicrolocal.oreSet_conj`, `p_mem_oreSet`, `oreSet_trivial_group`, `b_not_mem_oreSet`, `zero_mem_ramified`.
 * ND.4/lazard-microlocalisation (The microlocalisation of R[[G]] is the completed enveloping algebra): `lazard-microlocalisation`.
@@ -268,7 +269,7 @@ Layer ND.4:
 * ND.4/isotypic-comparison (Microlocalisation preserves W-isotypic quotients): `isotypic-comparison`.
 
 Layer ND.5:
-* ND.5/infinitesimal-character-quotients (Central specialisations of distribution and enveloping algebras): `TauCeti.DistributionAlgebra.centralIdeal_isClosed`, `TauCeti.DistributionAlgebra.eigenspace`, `TauCeti.DistributionAlgebra.centralQuotientR`, `casimir_acts_symk`, `centralQuotient_trivial_character`, `casimir_killing_compat`.
+* ND.5/infinitesimal-character-quotients (Central specialisations of distribution and enveloping algebras): `TauCeti.DistributionAlgebra.centralQuotient`, `TauCeti.DistributionAlgebra.centralIdeal_isClosed`, `TauCeti.DistributionAlgebra.eigenspace`, `TauCeti.DistributionAlgebra.centralQuotientR`, `casimir_acts_symk`, `centralQuotient_trivial_character`, `casimir_killing_compat`.
 * ND.5/induced-infinitesimal-characters (Induced infinitesimal characters): `TauCeti.DistributionAlgebra.IsInducedCharacter`, `TauCeti.DistributionAlgebra.isInduced_sl2_iff`, `TauCeti.DistributionAlgebra.isInduced_pi`, `isInduced_valuation_only_if`.
 * ND.5/central-strong-duality (Strong duality after infinitesimal specialisation): `central-strong-duality`.
 * ND.5/principal-series-eigenfunction (The locally analytic principal series and a nowhere-vanishing eigenfunction): `TauCeti.DistributionAlgebra.principalSeries`, `TauCeti.DistributionAlgebra.principalSeries_eigen`, `TauCeti.DistributionAlgebra.principalSeries_equiv`, `TauCeti.DistributionAlgebra.nonvanishingEigenfunction`, `TauCeti.DistributionAlgebra.smul_locallyConstant_mem_eigenspace`, `principalSeries_trivial`, `principalSeries_sl2_value`, `principalSeries_nonvanishing`, `one_not_mem_principalSeries`.
@@ -285,7 +286,7 @@ Layer ND.5:
 
 Layer ND.6:
 * ND.6/banach-iwasawa-duality (Admissible Banach representations and finitely generated Iwasawa modules): `banach-iwasawa-duality`.
-* ND.6/algebraic-matrix-coefficients (Algebraic functions on a compact open subgroup of SL₂(ℤ_p)): `TauCeti.BanachIwasawa.algebraicFunctions`, `TauCeti.BanachIwasawa.degreeFiltration`, `TauCeti.BanachIwasawa.algebraicFunctions_le_locallyAnalytic`, `finrank_gr_zero`, `restrict_not_injective_finite`.
+* ND.6/algebraic-matrix-coefficients (Algebraic functions on a compact open subgroup of SL₂(ℤ_p)): `TauCeti.BanachIwasawa.algebraicFunctions`, `TauCeti.BanachIwasawa.degreeFiltration`, `TauCeti.BanachIwasawa.finrank_gr`, `TauCeti.BanachIwasawa.algebraicFunctions_le_locallyAnalytic`, `finrank_gr_zero`, `restrict_not_injective_finite`.
 * ND.6/algebraic-peter-weyl (The algebraic Peter–Weyl theorem on a compact open subgroup of SL₂): `algebraic-peter-weyl`.
 
 -/
