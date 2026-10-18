@@ -37,9 +37,9 @@ The proof controls W directly. After finite rank, W and V are fields and V=ℚ(x
 
 where B=eJ(p∘φ)/log λ. When χ is integral, x belongs to H, W contains ℚ(x), and W=V, so the sharper bound for V over ℚ(p) follows. This includes χ=t and preserves the source's original qualitative finiteness statement.
 
-**Finding E1, awaiting independent review.** CDT25 Definition 2.0.4 defines V using ℚ(x), but its Corollary 2.0.5, (2.0.7), bounds V over ℚ(p) for a general rational χ. Take p=x+x⁴/32, χ its tangent inverse, U=ℂ and φ=2z. The hypotheses hold, and V contains ℚ(x), of degree 4 over ℚ(p). On the parameter circle |p(2z)|≤5/2, so the proposed bound is at most e log(5/2)/log2<4. The corrected W statement and the degree-factor V comparison above are the exported interfaces. A consumer must identify its scalar span before invoking a rank bound. This finding does not refute the main analytic theorem or establish a failure of the paper's modular application.
+**Finding E1, independently confirmed.** CDT25 Definition 2.0.4 defines V using ℚ(x), but its Corollary 2.0.5, (2.0.7), bounds V over ℚ(p) for a general rational χ. Take p=x+x⁴/32, χ its tangent inverse, U=ℂ and φ=2z. The hypotheses hold, and V contains ℚ(x), of degree 4 over ℚ(p). On the parameter circle |p(2z)|≤5/2, so the proposed bound is at most e log(5/2)/log2<4. The corrected W statement and the degree-factor V comparison above are the exported interfaces. A consumer must identify its scalar span before invoking a rank bound. This finding does not refute the main analytic theorem or establish a failure of the paper's modular application.
 
-**Finding E2, awaiting independent review.** The arbitrary-compact formula (2.5.28), p.649, fails even when χ=t and p=x, so this is independent of E1. Take K=closedDisk(1/2,1/4), U=ℂ and φ(z)=8z exp(−20z). Then cap(K)=1/4 and the proposed denominator is log2>0. On K, |φ(z)|≤6e⁻⁵<1, so its entire positive-log integral is zero, although the rank is at least 1. The valid centred-circle/disc case is obtained by rescaling. A source-supported arbitrary-compact replacement remains G1; the false formula is not a promised theorem.
+**Finding E2, independently confirmed.** The arbitrary-compact formula (2.5.28), p.649, fails even when χ=t and p=x, so this is independent of E1. Take K=closedDisk(1/2,1/4), U=ℂ and φ(z)=8z exp(−20z). Then cap(K)=1/4 and the proposed denominator is log2>0. On K, |φ(z)|≤6e⁻⁵<1, so its entire positive-log integral is zero, although the rank is at least 1. The valid centred-circle/disc case is obtained by rescaling. A source-supported arbitrary-compact replacement remains G1; the false formula is not a promised theorem.
 
 The supplier `ConformalMappingPartII:L0/quotient-representation` already incorporates the extraction's E15–E16 corrections: a missing unimodular reconstruction constant and a missing logarithm on a supremum. We use that corrected interface. Circular discrepancy relative to nonatomic Haar is weakly continuous even at atomic limit measures; AA.3 includes the finite-mesh proof.
 
@@ -960,7 +960,7 @@ The blueprint is a complete target-level planning pass: AA.0–AA.4 are closed r
 
 **Planet.** General compact obstruction.
 
-**Layer status.** planned. G1: establish a valid arbitrary-compact replacement, or remove that false source target after independent review. The centred versions and the obstruction are fully planned.
+**Layer status.** planned. G1: establish a valid arbitrary-compact replacement sensitive to the fixed base point, or obtain a maintainer decision to remove the refuted general target. E2 is independently confirmed; the centred versions and the obstruction are fully planned.
 
 ## Native baseline declarations
 
@@ -1012,6 +1012,8 @@ CDT25 was read in its published author offprint, §§1.1.1 and 2, with the appli
 
 - BB11: Yuri Bilu and Alexander Borichev, [Remarks on Eisenstein](https://arxiv.org/pdf/1112.2290v2), arXiv:1112.2290v2, 21 December 2011. Accessed 2026-10-18. SHA-256 `31a6d216243dacc754b7040c1b1cbc20df2c4969745fdb6409346c6297bf9af1`.
 
-The bounded correction search on 2026-10-18 checked the author publication page, the current linked published offprint, the arXiv version history (latest v4, 16 September 2024), targeted web searches, and correction/capacity keywords in the author-linked 2026 ICM survey. No applicable published correction was located. E1 and E2 remain findings for the independent reviewer, not accepted errata.
+The bounded correction search on 2026-10-18 checked the author publication page, the current linked published offprint, the arXiv version history (latest v4, 16 September 2024), targeted web searches, and correction/capacity keywords in the author-linked 2026 ICM survey. No applicable published correction was located. Independent review `REV-DESIGN-DiophantineApproximationAndTranscendencePartII` confirmed both findings against the published page images and repeated the bounded correction search. This establishes the stated counterexamples, not exhaustive novelty or a failure of the paper’s modular application.
 
-G1 is the only open mathematical gap: establish an exact, source-supported arbitrary-compact replacement sensitive to the distinguished base point, or remove that false target after independent review. A worker must not assert the original formula, hide the gap in a hypothesis, or substitute a bound on the wrong scalar span. The centred capacity theorem and qualitative holonomic finiteness do not depend on resolving G1.
+G1 is the only open mathematical gap: establish an exact, source-supported arbitrary-compact replacement sensitive to the distinguished base point, or obtain a maintainer decision to remove that refuted general target. A worker must not assert the original formula, hide the gap in a hypothesis, or substitute a bound on the wrong scalar span. The centred capacity theorem and qualitative holonomic finiteness do not depend on resolving G1.
+
+Independent review accepted all 35 nodes on 2026-10-18, relative to the cited supplier interfaces and the explicit G1 follow-up. All 20 baseline declarations were checked at the pins. The unchanged 250-line suggested Lean file elaborated with only `sorry` warnings; this checks signatures, not proofs. The review report records the source checks, supplier boundaries and the one known namespace-index warning.
