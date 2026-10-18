@@ -47,6 +47,13 @@ The following objects and results are supplied elsewhere and enter only as prere
   used here is the finite-level action supplied by IG.3.5; there is no second profinite carrier.
 - **AlgebraicTopology** supplies singular homology of spaces. The group-homology comparisons
   here concern the algebraic bar complex rather than a second singular-homology development.
+- **AlgebraicCodingTheory, Layer 3**, and the current Tau Ceti module
+  `TauCeti/InformationTheory/Coding/Weight/Enumerator.lean` supply weight distributions and
+  polynomials for arbitrary finite sets of words, including affine binary cosets. Use
+  `Set.weightPolynomial : Set (Fin N → ZMod 2) → Polynomial ℤ`,
+  `Set.coeff_weightPolynomial` and `Set.eval_one_weightPolynomial`; their coefficient and
+  cardinality formulas are prerequisites. RS.4.18 adds the translation by a coordinate lower
+  bound and the generating series for integer degrees satisfying that bound.
 - **ArithmeticStatistics, ST.3** identifies the explicit marked groups of Layer RS.6 with the
   embedded arithmetic types and enumerates those types. Its ST.5 and ArithmeticStatisticsPartV
   use the fixed-fiber counts and parity statistics to form moments and limits. Those arithmetic
@@ -130,7 +137,9 @@ The following objects and results are supplied elsewhere and enter only as prere
   two elements have the same image exactly when their quotient is a square.
 - `TauCeti.GroupExtension.factorSet` and `TauCeti.GroupExtension.inl_factorSet`
   (`TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean`) fix the convention
-  `inl(φ(g,h)) = σ(g)σ(h)σ(gh)⁻¹`. The supplied class map uses this sign.
+  `inl(φ(g,h)) = σ(g)σ(h)σ(gh)⁻¹`. They require a normalized section, an abelian kernel and
+  `InducesAction S`; for a central extension take the trivial kernel action and prove that
+  compatibility from centrality. The supplied class map uses this sign.
 
 ### From the current Tau Ceti library
 
@@ -460,7 +469,9 @@ p.390 (PDF pp.12,14).
 - `localClassNormalization_test_2` (computation): For S₃ with c the transpositions and c₀=(12),
   z((23))=(12) in its identity reduced cover.
 - `localClassNormalization_test_3` (non-example): For several conjugacy classes c, one c₀ cannot
-  normalize elements from all classes; the single-class hypothesis is essential.
+  normalize elements from all classes: in the identity cover of the abelian group C₃ with
+  c={1,2} in additive residues, the conjugacy class of 2 has no point above c₀=1. The single-class
+  hypothesis is essential.
 
 ### RS.1.3 Local normalized factors commute
 
@@ -588,7 +599,7 @@ extensions* (2024), §12, published version pp. 104–105; arXiv v2 pp. 47–48.
 **Checks.**
 
 - `boundedDegreeSlice_test_1` (degenerate): For D empty, the slice is singleton at n=0 and empty at
-  n>0.
+  every n≠0, including n=−1.
 - `boundedDegreeSlice_test_2` (computation): For |D|=2,n=3,M=1, the slice consists of (1,2),(2,1).
 - `boundedDegreeSlice_test_3` (non-example): For nonempty D,n=0,M=1, the slice is empty; it is never
   declared a group containing zero.
@@ -679,8 +690,9 @@ below are algebraic consequences developed here, with their deductions given exp
 
 ### RS.4.1 Lift squares are central
 
-Prove `involution_square_central`: Assume c consists of involutions. For x∈c every lift X∈S_c has
-X²∈A=M(G,c), hence X² commutes with S_c.
+Prove `involution_square_central`: for any reduced cover S_c→G and any x∈G with x²=1, every
+lift X∈S_c has X²∈A=M(G,c), hence X² commutes with S_c. This elementary statement requires
+neither x∈c nor generation by c; the later fiber theorems retain the layer's standing hypotheses.
 
 *Proof sketch.* Project X² to x²=1; apply centrality of the kernel.
 
@@ -727,6 +739,11 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 - `squareObstruction_test_2` (computation): For g∈c_k and m=e_k, β=0.
 - `squareObstruction_test_3` (non-example): A degree incompatible with [g] cannot acquire a nonempty
   fiber merely because the formal square product is a square.
+- At the square-quotient stage, the algebraic fixture A=C₈ sends a generator a and a³ to the
+  same nonzero class, and sends a² to zero. This checks the quotient computation, without
+  asserting that this fixture is realised by an admissible marked group. In the marked central
+  model C₁₄→C₂ below, (g,m)=(g,3) gives b=a⁻²≠1 but β=0; replacing a square class by its chosen
+  representative would fail this check.
 
 ### RS.4.3 The fixed-fiber power equation
 
@@ -750,6 +767,11 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 - For q = 3 (r = 1) and an involution class with X² = a, the correction is W_3(e_i) = X_i^{−2} =
   a⁻¹, so the equation reads h² = b⁻¹; the sign matters for the solutions h, though not for
   solvability.
+- In the marked central model C₁₄→C₂, write X for a generator of C₁₄ and a=X² for the kernel
+  generator of order seven. For g the nonidentity element and m=3, choose Y=X. Then b=a⁻²
+  and q=3 gives h²=a², whose unique solution is h=a. Reversing the sign gives h=a⁻¹ instead.
+  Indeed (Xa)³a⁻³=Xa, whereas (Xa⁻¹)³a⁻³≠Xa⁻¹. This tests the coordinate action on a
+  marked central extension; C₁₄→C₂ is not asserted to be a reduced Schur cover.
 
 ### RS.4.4 Square-times-torsion solvability
 
@@ -983,6 +1005,9 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 - `paritySquareMap_test_3` (non-example): For distinct classes with the same abelianized image,
   a(e₁+e₂)=0 even though e₁+e₂≠0. In S₆ the class of a transposition and the class of three disjoint
   transpositions give an explicit example: their cycle types differ and both have odd sign.
+- At the free-vector-space adapter, prescribe two columns s₁=s₂=1 in B=F₂. Then
+  s(e₁)=s(e₂)=1 and s(e₁+e₂)=0. The zero map and a map taking the union of the nonzero
+  columns both fail this test. This is a linear-algebra fixture, not a claim about a reduced cover.
 
 ### RS.4.14 Compatible parities and their obstruction
 
@@ -1040,8 +1065,9 @@ developed here, rather than separately numbered results in that paper.
 - `jointParityMap_test_1` (degenerate): L_t(0)=0.
 - `jointParityMap_test_2` (computation): For a=0,s=id on F₂ and B_t=0, kerL_t=0; when B_t=B,
   kerL_t=F₂.
-- `jointParityMap_test_3` (non-example): Using only a misses the obstruction in the first of those
-  cases.
+- `jointParityMap_test_3` (non-example): For a=id and s=0 on F₂, kerL_t=0 for every B_t.
+  Keeping only the square-obstruction coordinate would incorrectly give all of F₂; keeping
+  only a fails the preceding test with a=0 and s=id.
 
 ### RS.4.16 Surviving parities form an affine kernel coset
 
@@ -1101,21 +1127,33 @@ developed here, rather than separately numbered results in that paper.
 - With N = 2, ker L_t = {0, e₁ + e₂}: for g = 1 the coset {0, e₁+e₂} and for v_g = e₁ the coset {e₁,
   e₂} both have 2 = 2^{2−1} elements, but (with N₀ = 0) weight enumerators 1 + X² and 2X.
 
-### RS.4.18 Weight enumerator of a surviving parity coset
+### RS.4.18 Lower bounds and the parity degree series
 
-**`parityWeightEnumerator`.** For C_t^g⊆F₂^N and lower bound N₀≥0, set δ=N₀ mod 2 and
-W_t^g(X)=Σ_{ε∈C_t^g} X^{wt(ε+δ·1)}∈ℕ[X]. The exponent is the excess above the coordinate lower bound
-of the least nonnegative degree of parity ε.
+For a subset C⊆F₂^N, in particular the surviving affine coset C_t^g, and an integer lower
+bound N₀≥0, let δ=N₀ mod 2.
+Use W(X) for the supplied weight polynomial of the translated set
+T_δ(C)={ε+δ·1 : ε∈C}, with coefficients in ℤ. The additional datum here is the lower-bound
+translation: its exponent wt(ε+δ·1) is the excess above N·N₀ of the least total degree with
+parity ε and all coordinates at least N₀.
 
-*Construction.* Take a finite polynomial sum. The associated counting-series interface is
-X^{NN₀}W(X)/(1−X²)^N, but no Tauberian theorem or asymptotic limit is built here.
+Prove `parity_lowerBound_translation`: for each ε∈C, the degrees m∈ℤ^N with m_i≥N₀ and
+m_i mod 2=ε_i are uniquely m_i=N₀+(ε_i+δ)̃+2k_i with k_i∈ℕ, where the tilde takes the
+representative 0 or 1. In particular the translation changes the weight argument and leaves the
+surviving parity condition ε∈C fixed.
 
-The API:
+Prove `parity_degree_generatingSeries`: define c_n as the finite cardinality of
+{m∈ℤ^N : ∀i, m_i≥N₀, (m mod 2)∈C, Σ_i m_i=n}. Then in ℤ[[X]],
 
-- `parityWeightEnumerator_coefficient`: The coefficient of X^j is the number of ε with wt(ε+δ·1)=j.
-- `parityWeightEnumerator_at_one`: W(1)=|C_t^g|.
-- `parityWeightEnumerator_translation`: Changing the lower-bound parity translates the weight
-  argument, not the surviving affine coset.
+```text
+Σ_{n≥0} c_n X^n = X^{N·N₀} W(X) · (1−X²)^(−N).
+```
+
+Here the last factor means the Nth power of the formal inverse of 1−X², whose constant
+coefficient is the unit 1. This includes N=0: there is one empty degree of total zero if
+C contains the empty vector, and none otherwise. For N>0, the coefficient also equals
+Σ_{ε∈C} binom(k+N−1,N−1), summing only ε for which
+n−N·N₀−wt(ε+δ·1)=2k with k∈ℕ. The unique coordinate decomposition proves the series by
+multiplying N geometric series; no asymptotic statement is used.
 
 *Needs:* RS.4.16.
 
@@ -1126,10 +1164,16 @@ developed here, rather than separately numbered results in that paper.
 
 **Checks.**
 
-- `parityWeightEnumerator_test_1` (degenerate): For N=0 and the singleton parity, W=1.
-- `parityWeightEnumerator_test_2` (computation): For N=1,N₀=0, C={0} gives 1 and C={1} gives X.
-- `parityWeightEnumerator_test_3` (non-example): Those two cosets have equal cardinality but unequal
+- `parity_degree_series_test_1` (degenerate): For N=0 and the singleton parity, the series is 1;
+  for the empty parity set it is 0.
+- `parity_degree_series_test_2` (computation): For N=1,N₀=0, C={0} gives 1/(1−X²) and C={1}
+  gives X/(1−X²).
+- `parity_degree_series_test_3` (non-example): Those two cosets have equal cardinality but unequal
   polynomials; signature counts cannot be identified by cardinality alone.
+- `parity_degree_series_test_4` (lower-bound shift): For N=1,N₀=1, C={0} gives
+  X²/(1−X²), whereas C={1} gives X/(1−X²). Omitting T_δ would interchange the two series.
+- For N=2,N₀=1,C={00,11}, the series is (X²+X⁴)/(1−X²)². Its coefficient at X⁴ is 3:
+  the degrees (1,3), (3,1), (2,2). This pins both the shift and the total-degree convention.
 
 ### RS.4.19 Independent class images eliminate the obstruction
 
@@ -1415,8 +1459,8 @@ The API:
 - `antidiagonalModel_mem`: ((a,b),t) ∈ F(G) iff b = a⁻¹.
 - `antidiagonalModel_card`: |F(G)| = 2|G| for finite G.
 - `antidiagonalModel_outside`: x ∈ c(G) iff ρ(x) ≠ 1, and then x² = 1.
-- `antidiagonalModel_dihedral`: for G = ZMod n, an isomorphism F(G) ≃\* DihedralGroup n carrying c(G)
-  onto the reflections.
+- `antidiagonalModel_dihedral`: for G = Multiplicative (ZMod n), an isomorphism
+  F(G) ≃\* DihedralGroup n carrying c(G) onto the reflections.
 
 *Construction.* Define the swap action `swapAction G : C₂ →* MulAut (G × G)` through
 `MulEquiv.prodComm`, form `SwapWreath G = (G × G) ⋊ C₂`, and take F(G) to be the kernel of ((a,b),t)
@@ -1436,6 +1480,21 @@ the admissibility conditions and this model for abelian groups; §8.2, Table 2, 
 - `antidiagonalModel_test_3` (dihedral): F(C₃) is the dihedral group of order 6 (≅ S₃), with c the
   three reflections.
 
+The light semidirect-product adapters have their own checks. Coordinates in C₃ below are
+additive residues; the trailing 1 denotes the identity of the swap group.
+
+- `swapAction` at the identity fixes (1,2) in C₃², the nonidentity element sends it to (2,1),
+  and applying that nonidentity element twice returns (1,2). Thus a trivial action or an
+  action with the wrong order fails these computed checks.
+- `SwapWreath 1` has order two; `SwapWreath C₃` has order eighteen; in the latter the pure swap
+  conjugates the base element ((1,0),1) to ((0,1),1), so this group is not the direct product.
+- `abelianizedSum` on C₃² sends (1,2) to 0 and (1,1) to 2, and on S₃² sends a pair of
+  transpositions to the identity in S₃ᵃᵇ=C₂. These reject a difference, a projection, and an
+  unabelianized product as its definition.
+- `outsideInvolutions` excludes the identity, includes the pure swap, and in `SwapWreath C₃`
+  excludes ((1,0),swap), whose square is ((1,1),1)≠1. Checking the outside coordinate alone
+  would admit that last element.
+
 Prove `antidiagonal_marking`: for every abelian G, c(G) generates F(G) (the product of two outside
 elements ((a,a⁻¹),t)((b,b⁻¹),t) is ((ab⁻¹,(ab⁻¹)⁻¹),1)), and for finite G of odd order c(G) is a
 single conjugacy class: conjugating ((a,a⁻¹),t) by ((b,b⁻¹),1) gives ((ab²,(ab²)⁻¹),t), and squaring
@@ -1453,9 +1512,15 @@ is the exterior square of the ℤ-module G. Concretely, for G = ⊕ᵢ C_{nᵢ} 
 ⊕_{i<j} C_{gcd(nᵢ,nⱼ)}.
 
 *Proof sketch.* The kernel of ρ is G, of odd order, so RS.6.1 gives M(F,c) = M(F) ≅ M(G)_{C₂}, where
-C₂ acts through inversion on G. The Künneth formula gives M(A × B) ≅ M(A) ⊕ M(B) ⊕ (A ⊗ B) for
-abelian A, B, and M(C_n) = 0, so M(G) ≅ Λ²G naturally in G; inversion acts on Λ²G by (−1)·(−1) = 1,
-so the coinvariants are all of M(G). *Needs:* RS.6.1; RS.0.3; Mathlib
+C₂ acts through inversion on G. Prove the degree-two Künneth comparison
+`multiplier_prod_abelian`: M(A × B) ≅ M(A) ⊕ M(B) ⊕ (A ⊗ B) for abelian A, B, with the
+tensor summand carried by the cross-factor commuting-pair cycles. The map
+`abelian_multiplier_exteriorSquare` sends a∧b to ⟨a,b⟩. The boundary calculation of RS.1.1
+makes it bilinear, and ⟨a,a⟩=0 makes it alternating. A finite cyclic decomposition, the
+Künneth comparison and M(C_n)=0 show that this map is an isomorphism for finite abelian G.
+Naturality follows from the supplied naturality of commuting-pair classes, independently of
+the chosen decomposition. Inversion therefore acts on Λ²G by (−1)·(−1)=1, so the coinvariants
+are all of M(G). *Needs:* RS.6.1; RS.0.3; RS.1.1; Mathlib
 `Rep.FiniteCyclicGroup.groupHomologyIsoEven` (M(C_n) = 0); the degree-two Künneth formula M(A × B) ≅
 M(A) ⊕ M(B) ⊕ (A ⊗ B), which Mathlib lacks at the pin and which is proved as part of this target.
 
@@ -1610,7 +1675,7 @@ statements remain with the named arithmetic roadmaps.
   page numbers above refer to the journal copy.
 - Melanie Matchett Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland*,
   Research in the Mathematical Sciences 8 (2021), Article 21 ([author
-  copy](https://abel.math.harvard.edu/~mmwood/Publications/lifting.pdf)): §2.1, p. 2; §2, Lemmas
+  copy](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf)): §2.1, p. 2; §2, Lemmas
   2.1–2.4 and Theorem 2.5, pp. 2–4; §4, equations (2) and (4) and Remark 4.1, pp. 6–8.
 - Jordan S. Ellenberg, Akshay Venkatesh, Craig Westerland, *Homological stability for Hurwitz spaces
   and the Cohen–Lenstra conjecture over function fields, II*,
