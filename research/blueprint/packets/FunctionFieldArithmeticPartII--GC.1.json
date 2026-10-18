@@ -1,0 +1,1442 @@
+{
+  "roadmapId": "FunctionFieldArithmeticPartII",
+  "protocol": "blueprint-v1",
+  "part": "GC.1",
+  "scope": [
+    "FunctionFieldArithmeticPartII:GC.1"
+  ],
+  "status": "complete",
+  "summary": "A target-level refinement of the accepted parent GC.1 contracts: relative root evaluation with actual arrow and base-change formulas, incidence residuals and normal-crossing charts, full fibres and coarse maps, coordinate addition, ordered-map inertia and proper quasi-finiteness, and refined Abel–Jacobi fibres and compatibilities. The parent objects are imported. Native stack signatures remain an explicit gap; no geometric carrier is replaced by an abstract predicate.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:rootsOfUnity",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "The subgroup of units whose specified natural power is one; rootsOfUnity 2 B models mu_2(B) on arbitrary commutative value algebras.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "6c5e4fe6b0390435bdb3d54eda8cc33eaff1505ebcc8794afbbe512f688ef2c0"
+      },
+      {
+        "ref": "mathlib:restrictRootsOfUnity",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "A monoid homomorphism induces the corresponding homomorphism on native roots of unity.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "6c5e4fe6b0390435bdb3d54eda8cc33eaff1505ebcc8794afbbe512f688ef2c0"
+      },
+      {
+        "ref": "mathlib:Pi.evalMonoidHom",
+        "module": "Mathlib/Algebra/Group/Pi/Lemmas.lean",
+        "provides": "Evaluation of a family of monoid elements at an index is a bundled monoid homomorphism.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "0528e7440acf34ed318de22f1c4fe0067ba1dc31d5e59d8dab61aec835aec99d"
+      },
+      {
+        "ref": "mathlib:MonoidHom.finsetProd_apply",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Lemmas.lean",
+        "provides": "A finite product of homomorphisms into a commutative monoid evaluates to the product of their values; gives the chosen orderedInertiaProduct abbreviation.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "75eae4ecb2130179720710a6bdb73436dc05390719d1377bec44cb25cb02418a"
+      },
+      {
+        "ref": "mathlib:map_prod",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "A monoid homomorphism into a commutative monoid preserves finite products; supplies coordinate naturality.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "e935efa96ad9381658f3158f900d04589c46d7e933cab15f4d8632e1af85527f"
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.groupScheme",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "provides": "Native mu_n as the diagonalizable group scheme with cyclic character group, including arbitrary base rings.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "64d20906b80d6e64b382ab1846bcde00fb440ac89689b7f2a700d9ae9033ae42"
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.schemePointsMulEquiv",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "provides": "Multiplicative equivalence from the actual affine scheme-valued points of mu_n to rootsOfUnity n of the value algebra.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "64d20906b80d6e64b382ab1846bcde00fb440ac89689b7f2a700d9ae9033ae42"
+      },
+      {
+        "ref": "tauceti:TauCeti.RootsOfUnityGroup.schemePointsMulEquiv_mapValue",
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "provides": "The native point equivalence commutes with every algebra map through restrictRootsOfUnity.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "64d20906b80d6e64b382ab1846bcde00fb440ac89689b7f2a700d9ae9033ae42"
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "provides": "Native locally free rank-one sheaves. Its morphisms are module maps; use its core for line-bundle isomorphisms. This is not a Picard-stack carrier.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target.",
+        "sourceSha256": "a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43"
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.EffectiveDivisorOfDegree",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/FixedDegree/Basic.lean",
+        "provides": "Fixed-degree effective formal Weil divisors on a type, compared with Sym of that type. This does not represent relative divisors on schemes.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.EffectiveDivisorOfDegree.equivSym_add",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/FixedDegree/Addition.lean",
+        "provides": "The fixed-degree formal divisor addition agrees with Sym.append. It is the geometric-point reconciliation test, not construction of the symmetric scheme.",
+        "checked": "Statement and defining data read at the exact recorded pin on 2026-10-18 by Codex — codex-B8iByz; direct scope checked. This is an ingredient, not the geometric target."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "YZ19",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "read": "2026-10-18",
+      "readSections": [
+        "Appendix A.1.1–A.1.5, Definitions A.1–A.3 and Lemma A.4, printed pp. 514–517.",
+        "A.2.1, the ordered map and proof of Lemma A.7, printed pp. 519–520.",
+        "Proof of Lemma A.9, geometric fibre equation, printed p. 521; read to distinguish the fixed-object two-fibre from a scaling quotient."
+      ],
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c"
+    },
+    {
+      "id": "STACKS-DIV",
+      "title": "Moduli of divisors on smooth curves",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0B9C",
+      "read": "2026-10-18",
+      "readSections": [
+        "Section 44.3, Lemmas 44.3.1–44.3.5, Proposition 44.3.6 (0B9I), Remark 44.3.7. HTML is unpaginated; numbered statements identify the source."
+      ]
+    },
+    {
+      "id": "STACKS-PROP",
+      "title": "Proper morphisms of algebraic stacks",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0CL4",
+      "read": "2026-10-18",
+      "readSections": [
+        "Section 101.37, Definition 101.37.1 and Lemmas 101.37.2–101.37.5; particularly Lemma 101.37.5(2). HTML is unpaginated."
+      ]
+    },
+    {
+      "id": "STACKS-QF",
+      "title": "Locally quasi-finite and quasi-finite morphisms of algebraic stacks",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/06PT",
+      "read": "2026-10-18",
+      "readSections": [
+        "Section 101.23, Definition 101.23.2 and Lemmas 101.23.3, 101.23.7, 101.23.8.",
+        "Section 101.24 (0G2L), Definition 101.24.1 and Lemmas 101.24.2–101.24.4. HTML is unpaginated."
+      ]
+    },
+    {
+      "id": "UP-JAC",
+      "title": "The Jacobian challenge, algebraic-geometric version",
+      "authors": "The Tau Ceti Roadmap contributors",
+      "edition": "Current upstream roadmap, commit 0d144d044dacebca17b654695b6f1ad58f159b27",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/JacobianChallenge/README.md",
+      "read": "2026-10-18",
+      "readSections": [
+        "README and Suggested.lean; Layers A–D and F, standing hypotheses and scope. Layer C owns ordinary relative divisors and symmetric schemes; Layer D distinguishes the Picard stack and sheaf. No-point torsors use the SF.3 extension, not the pointed v1 goal."
+      ]
+    },
+    {
+      "id": "UP-VB",
+      "title": "Algebraic vector bundles",
+      "authors": "The Tau Ceti Roadmap contributors",
+      "edition": "Current upstream roadmap, commit 0d144d044dacebca17b654695b6f1ad58f159b27",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "read": "2026-10-18",
+      "readSections": [
+        "README and the L0A–L0B tensor/pullback signatures of Suggested.lean. Import the general coherent tensor and pullback infrastructure."
+      ]
+    },
+    {
+      "id": "PIN-MU",
+      "title": "Native roots of unity and their group-scheme points",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d3 and Tau Ceti f790474, exact source files",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+      "read": "2026-10-18",
+      "readSections": [
+        "rootsOfUnity, restrictRootsOfUnity, Pi.evalMonoidHom, map_prod and MonoidHom.finsetProd_apply at the Mathlib pin.",
+        "groupScheme, schemePointsMulEquiv and schemePointsMulEquiv_mapValue at the Tau Ceti pin. These supply the coordinate fragment, not the geometric inertia comparison."
+      ]
+    },
+    {
+      "id": "STACKS-RES",
+      "title": "Reduced singleton Deligne–Mumford stacks",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online version accessed 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/06MC",
+      "read": "2026-10-18",
+      "readSections": [
+        "Lemma 101.21.4 and its groupoid-presentation proof (HTML, unpaginated); residual-gerbe existence Lemma 101.31.2 (06UI)."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Relative evaluation and its chosen two-pullback equivalence",
+      "kind": "construction",
+      "declarationName": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence",
+      "statement": "Let H_d(T) be the imported ordinary groupoid of degree-d line bundles L on X_T with section a. Let A_R(T) be line bundles with sections on R_T, with square functor theta_2(K,alpha)=(K tensor K,alpha tensor alpha). Restriction defines ev_R:H_d→A_R. Construct a pseudonatural equivalence from the parent hat root-symmetric stack to H_d times_{A_R,theta_2} A_R. Over every T it sends (L,K,iota,a,alpha) to ((L,a),(K,alpha),iota). On an arrow (u,v), iota prime composed with v squared equals u restricted to R composed with iota, and u(a)=a prime, v(alpha)=alpha prime. Its inverse retains exactly this data. The comparison commutes with arbitrary pullback on T with specified identity and composition modifications. After a finite separable splitting of R, A_R becomes a product of rho copies of [A1/G_m], with the descent action permuting geometric branch points.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-pullback",
+        "SchemeAndStackFoundations:SF.3/universal-section-stack",
+        "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "proofSteps": [
+        "Use the ordinary section stack from SF.3 and the finite-etale restriction contract GC1-RESTRICTION; restriction of invertible sheaves and sections gives ev_R, without any assertion that a pushforward on X is locally free.",
+        "Apply the SF.1 two-fibre-product construction. The specified isomorphism between the two restricted section objects is exactly iota with iota(alpha squared)=a restricted to R.",
+        "Check the two arrow compatibility equations before constructing the inverse functor. Unit and counit are componentwise identities under the chosen two-pullback model.",
+        "Use imported coherent sheaf pullback (upstream AlgebraicVectorBundles L0A–L0B) to give the pseudonaturality modifications. Verify their equations on L, K, both sections and iota.",
+        "Split the finite etale k-scheme R and use Galois descent to recover the unsplit comparison."
+      ],
+      "acceptance": [
+        "The specified iota and all automorphisms survive the equivalence.",
+        "The construction is natural for a map killing a nonzero nilpotent root section."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Definition A.2, p. 515, and diagram (A.1), p. 516.",
+          "match": "The moduli data and evaluation square determine the functor; the arrow and coherence formulas here spell out the relative equivalence."
+        },
+        {
+          "sourceId": "UP-VB",
+          "locator": "Layers L0A–L0B (unpaginated README and Suggested.lean).",
+          "match": "General tensor and pullback coherence is an import, not a second construction here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "YZ19 Lemma A.4, pp. 516–517",
+          "how": "Pull back ordinary evaluation to obtain root symmetric geometry."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+          "how": "Retain the two different forgetful maps on arbitrary test schemes."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.object",
+          "role": "constructor",
+          "statement": "The forward functor sends a root tuple to its two section objects and iota, preserving a=0."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.arrow",
+          "role": "characterisation",
+          "statement": "An arrow is exactly a pair (u,v) satisfying the section and square-isomorphism equations in the statement."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.inverse",
+          "role": "equivalence",
+          "statement": "The inverse functor recovers the five pieces of root data, including the specified power isomorphism."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.unitCounit",
+          "role": "relation",
+          "statement": "The unit and counit have identity components on all root data; their triangle equations hold."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.baseChange",
+          "role": "functoriality",
+          "statement": "For every T prime→T the pullback comparison is a natural isomorphism; identity and composition comparisons obey the pseudofunctor coherence equations."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.splitBranch",
+          "role": "compatibility",
+          "statement": "After a splitting field extension the restriction stack is the product over all geometric points of R, and the equivalence is Galois equivariant."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.test_empty_R",
+          "kind": "degenerate",
+          "statement": "For R empty, A_R is terminal and the equivalence reduces to the ordinary section stack H_d, including zero sections."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.test_zero",
+          "kind": "non-example",
+          "statement": "For d=0, trivial L and K and iota=1, the tuple a=0, alpha=0 exists in the hat stack and maps to the zero-section object."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.test_nilpotent",
+          "kind": "non-example",
+          "statement": "For d=0 over T=Spec k[epsilon]/epsilon squared with R nonempty, trivial lines, iota=1, a=0 and alpha=epsilon is a hat object. It maps to alpha=0 after reduction, and is not isomorphic to that zero-root-section object over T."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.relativeEvaluationEquivalence.test_arrow",
+          "kind": "characterisation",
+          "statement": "Over an algebraically closed field, d=0, a=alpha=0 and trivial lines, automorphisms are v in (G_m)^rho and u in G_m satisfying v_x squared=u for every x. The comparison preserves this group, not only its set of isomorphism classes."
+        }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "The relative effective open and nilpotent sections",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.rootEffectiveOpen_baseChange",
+      "statement": "For a hat root-divisor family over T, the locus T_eff of t where a on X over an algebraic closure of kappa(t) is nonzero is open. Pullback to T_eff is the effective root-symmetric family. For every T prime→T its effective locus is the inverse image of T_eff. This is the inverse image under relativeEvaluationEquivalence of the ordinary fibrewise-nonzero section open, and the resulting divisor is a relative effective Cartier divisor finite locally free of degree d. No condition alpha=0 or nonzero is imposed separately. The effective root space has degree-zero component Spec k. The hat stack retains zero and fibrewise-zero infinitesimal sections.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+        "SchemeAndStackFoundations:SF.3/universal-section-stack",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "proofSteps": [
+        "Use the fibrewise-nonzero open and its relative Cartier-divisor comparison in SF.3/universal-section-stack. The exact section-functor restriction adapter is GC1-CURVE-FAMILY.",
+        "Pull back that open along the two-pullback projection. Fibrewise nonzeroness is unchanged by residue-field extension, giving arbitrary base-change compatibility.",
+        "Use the relative divisor dictionary of upstream JacobianChallenge C and Stacks Lemma 44.3.1 to obtain finite locally free degree d.",
+        "In degree zero, a nonzero-on-fibres section trivializes L. Its restriction is a unit, so alpha trivializes K as well, leaving the unit object with trivial automorphisms."
+      ],
+      "acceptance": [
+        "Over k[epsilon]/epsilon cubed take trivial lines, a=epsilon squared and alpha=epsilon. This is a hat degree-zero family, has empty effective locus, and has a nonzero global section.",
+        "For R empty the effective open is the imported Sym^d X."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Definition A.2, p. 515.",
+          "match": "The effective condition concerns the global section on every geometric fibre, while the hat object allows zero sections."
+        },
+        {
+          "sourceId": "STACKS-DIV",
+          "locator": "Section 44.3, Lemma 44.3.1 (HTML, no page numbering).",
+          "match": "For a proper smooth curve, relative effective Cartier divisors of finite degree are finite locally free over the base."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "UPSTREAM:JacobianChallenge:C",
+        "UPSTREAM:JacobianChallenge:D"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Scheme-theoretic incidence residuals",
+      "kind": "construction",
+      "declarationName": "TauCeti.RamifiedClassField.incidenceResidualEquivalence",
+      "statement": "Work over an algebraic closure K of k. For a set I of distinct points of R_K and d at least the cardinality r of I, construct an isomorphism Sym^{d-r} X_K→the scheme-theoretic intersection of D_x for x in I, where D_x is the vanishing of the universal divisor section at x. The forward map adds E_I=sum of x in I; the inverse removes E_I as a relative Cartier subdivisor. On arbitrary K-schemes T, membership means E_I times T is a closed subscheme of the universal relative divisor. The residual divisor is finite locally free of degree d-r and formation commutes with arbitrary T base change. If r>d the intersection is empty. In particular, all nonempty intersections are smooth of codimension r, including at divisors with repeated support at some x.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/incidence-transversality",
+        "SchemeAndStackFoundations:SF.3/universal-section-stack",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "proofSteps": [
+        "Use the universal relative divisor from the ordinary symmetric-power supplier. Its restriction at x vanishes scheme-theoretically exactly when the graph x times T is contained in the divisor.",
+        "The graphs for distinct x are disjoint Cartier divisors, so joint containment is containment of E_I times T. Apply residual subtraction for relative effective Cartier divisors (Stacks Lemma 44.3.3).",
+        "Subtracting E_I and adding it back are inverse natural transformations of represented functors, including on nonreduced T; apply Yoneda.",
+        "Negative residual degree is impossible on any geometric fibre. Smoothness and the dimension d-r follow from ordinary symmetric powers, not a tangent-space calculation on geometric points alone."
+      ],
+      "acceptance": [
+        "The defining ideal is the sum of incidence ideals, rather than its radical.",
+        "For d=2, I={x,y} with x different from y, the intersection is the reduced point x+y; at 2x the single divisor D_x is smooth."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Proof of Lemma A.4, pp. 516–517, incidence intersections.",
+          "match": "The proof uses residual addition to identify simultaneous branch incidence with a smaller symmetric power."
+        },
+        {
+          "sourceId": "STACKS-DIV",
+          "locator": "Lemmas 44.3.2–44.3.4 and Proposition 44.3.6 (HTML, unpaginated).",
+          "match": "Relative divisor addition and subtraction give the arbitrary-base functorial inverse and the needed dimension statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "YZ19 Lemma A.4, pp. 516–517",
+          "how": "Produces transverse incidence divisors for smooth evaluation."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+          "how": "Provides independent local equations for the branch divisors."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.forward",
+          "role": "constructor",
+          "statement": "Add the fixed divisor E_I to the universal degree-(d-r) divisor."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.inverse",
+          "role": "equivalence",
+          "statement": "Take the unique relative Cartier residual D minus E_I; its degree is d-r."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.universalDivisor",
+          "role": "compatibility",
+          "statement": "Under the comparison, the pulled-back universal divisor equals the residual universal divisor plus E_I times the parameter scheme."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.baseChange",
+          "role": "functoriality",
+          "statement": "Residual subtraction and the scheme isomorphism commute with every base change of the test scheme, with identity and composition laws."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.nesting",
+          "role": "relation",
+          "statement": "For disjoint I and J, removing I then J agrees with removing their union under the canonical degree identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.test_empty",
+          "kind": "degenerate",
+          "statement": "For I empty the comparison is the identity of Sym^d X."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.test_degree_one",
+          "kind": "computation",
+          "statement": "For d=1 and I={x}, the incidence scheme is the point x, identified with Sym^0 X."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.test_excess",
+          "kind": "non-example",
+          "statement": "For d=1 and I={x,y}, x different from y, the intersection is empty, rather than a point of a fictitious negative symmetric power."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.incidenceResidualEquivalence.test_double",
+          "kind": "compatibility",
+          "statement": "For d=2 and I={x}, the residual of the divisor 2x is x; D_x is smooth at 2x. Repeated multiplicity at one branch is not a second incidence equation."
+        }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:JacobianChallenge:C",
+        "UPSTREAM:JacobianChallenge:D"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "The frame atlas and its differential",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RamifiedClassField.evaluationAtlas_differential",
+      "statement": "Let Z be a smooth finite-type scheme over an algebraically closed field, with r invertible sheaves and sections determining f:Z→[A^r/G_m^r]. The pullback of the atlas A^r is the product of their frame torsors E→Z. In compatible local frames its map F:E→A^r is F_i=lambda_i times f_i. At z let I={i:f_i(z)=0}. The differential of F at a point over z is surjective precisely when the covectors df_i(z), i in I, are independent in the cotangent space of Z. Changing a frame multiplies these zero-coordinate covectors by units. Consequently f is smooth exactly when every vanishing stratum is smooth of codimension its number of equations; for the incidence system this applies to all degrees d, without requiring d! to be invertible.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage.",
+        "For the frame criterion Z need not be irreducible; in the parent criterion each section is nonidentically zero on the smooth irreducible Z. The incidence application has this property."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion",
+        "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "proofSteps": [
+        "Pull back the quotient atlas by taking the product of frame torsors, not the finite root cover A^r→A^r.",
+        "Compute dF_i=lambda_i df_i+f_i d lambda_i. For i outside I the vertical frame direction supplies that coordinate independently. For i in I the remaining rank is exactly that of df_i.",
+        "Apply the prescribed-function smooth-coordinate criterion GC1-SMOOTH-COORDINATES. Independence is equivalent to a smooth complete intersection of the expected codimension at every stratum.",
+        "Use incidenceResidualEquivalence to supply the required smooth scheme-theoretic intersections."
+      ],
+      "acceptance": [
+        "For Z=A1, two equal sections both given by z fail surjectivity at zero: the two covectors coincide.",
+        "For Z=A1 and a section z squared, smoothness fails at zero in odd characteristic.",
+        "A nowhere-vanishing section has empty zero divisor and its frame direction contributes full rank."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Claim in the proof of Lemma A.4(1), p. 516, and its application on pp. 516–517.",
+          "match": "The smoothness claim is a criterion for the classifying map. The explicit frame-torsor differential supplies its atlas-level content."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Smooth quotient charts for root symmetric powers",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RamifiedClassField.rootNormalCrossingChart",
+      "statement": "Over an algebraic closure K, let D in Sym^d X_K and I be the set of branch points contained in its support. There is an etale neighbourhood V=Spec A of D avoiding other incidence divisors, on which D_x, x in I, has equation f_x and the f_x form part of a smooth coordinate system. Over V the effective root-symmetric stack is [Spec B/(mu_2)^I], B=A[t_x:x in I]/(t_x squared-f_x). The action changes each t_x by its own sign. Spec B is smooth over K of dimension d, and its quotient atlas is finite etale and surjective. These charts, with descent over a splitting field, make the effective root space a smooth separated Deligne–Mumford stack of dimension d. No smoothness statement for the whole hat stack is included.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+        "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+        "FunctionFieldArithmeticPartII:RS.1/base-change",
+        "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "proofSteps": [
+        "After splitting R, identify the effective evaluation pullback with simultaneous square roots of the incidence line bundles and sections.",
+        "Use the residual and differential comparisons with GC1-SMOOTH-COORDINATES to choose the f_x as part of etale coordinates on V. Invert the incidence sections not vanishing at D; their root sections trivialize their root data.",
+        "Apply the inherited root affine-chart and base-change contracts in each remaining coordinate. The result is the stated independent sign action, not an S_d quotient of root curves.",
+        "Spec B is etale over affine d-space with coordinates (t_x, remaining coordinates), by base change of the etale coordinate map for V. Thus its smoothness does not require the derivative of t_x squared to be a unit.",
+        "Since 2 is invertible, the finite sign group is etale; its torsor atlas is etale. Finite diagonal and separatedness follow from the finite quotient charts and the separated ordinary coarse scheme; descend the presentation along the finite separable splitting extension."
+      ],
+      "acceptance": [
+        "At d=1 this is the root curve with its square-root chart at each point of R.",
+        "At D=2x with x in R there is one root coordinate and one sign factor, regardless of multiplicity two.",
+        "At R empty the chart is an ordinary smooth symmetric-power chart."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Diagram (A.1), p. 516, and Lemma A.4, pp. 516–517.",
+          "match": "The root evaluation square and the smooth incidence criterion give smooth DM root symmetric powers; the displayed rings specify the local presentation."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Invariant coordinates and the proper coarse map",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.rootCoarseChart",
+      "statement": "In each rootNormalCrossingChart the invariant subalgebra of B under the sign group is the coefficient image A. Its inverse sends an invariant to its constant coefficient in the squarefree monomial basis. This identification commutes with every A-algebra change, including nonflat ones. These maps descend to a coarse moduli morphism c_d from the effective root-symmetric stack to Sym^d X, with the algebraic-space universal property and the geometric isomorphism-class bijection. The map c_d is proper and is an equivalence over Sym^d(X minus R). Its formation and its coarse universal property commute with arbitrary base change on Sym^d X.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+        "FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse",
+        "FunctionFieldArithmeticPartII:RS.1/coarse-space",
+        "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+        "SchemeAndStackFoundations:SF.1/tame-local-structure",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "SchemeAndStackFoundations:SF.1",
+        "FunctionFieldArithmeticPartII:RS.1/affine-invariants"
+      ],
+      "proofSteps": [
+        "Import the generic finite-root invariant calculation from RS.1/coarse-space, iterating in the independent root coordinates. The monic squarefree basis has one coefficient in each sign character; only the constant character survives.",
+        "Use SF.1/finite-quotient-coarse on the finite constant sign group after splitting R. The constant coefficient calculation identifies its invariant scheme with V and gives arbitrary base change directly, including for nonreduced coefficients.",
+        "The atlas Spec B→[Spec B/Gamma] is finite etale surjective and Spec B→Spec A is finite. The quotient has proper diagonal (finite isomorphism spaces); it is of finite type and universally closed because its atlas is finite over A. Apply GC1-PERMANENCE to obtain properness.",
+        "Descend the charts, the universal property and the point bijection. When the universal divisor avoids R, every root section is a unit and trivializes its root line, giving the equivalence."
+      ],
+      "acceptance": [
+        "At a point meeting one branch, the invariant algebra of K[t]/t squared is K although the full fibre stack is nonreduced.",
+        "Coarse formation remains correct after A→A/I for an arbitrary ideal I; no flatness assumption is added.",
+        "The map to the coarse scheme is not asserted representable."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.3, pp. 515–516, and Lemma A.4(2), p. 517.",
+          "match": "The coarse symmetric scheme follows from the evaluation root construction. The full fibre is read with the inherited nilpotent correction."
+        },
+        {
+          "sourceId": "STACKS-PROP",
+          "locator": "Definition 101.37.1 and Lemmas 101.37.2–101.37.3 (HTML, unpaginated).",
+          "match": "Properness is a stack-morphism property separate from representability; base change and composition preserve it."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Full branch fibres and their inertia",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.rootFullFibre_inertia",
+      "statement": "For a geometric divisor D over an algebraically closed K, write I=R_K intersect support(D). The full two-fibre of c_d over D is equivalent to [Spec K[t_x:x in I]/(t_x squared:x in I)/(mu_2)^I]. Its reduced substack is B((mu_2)^I), and the automorphism group of its geometric point is (mu_2)^I. Each distinct branch in the support contributes one factor, independently of its multiplicity. This is an equivalence on arbitrary K-test schemes, and retains the nonzero square-zero root sections. If I is empty the fibre is Spec K.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+        "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "FunctionFieldArithmeticPartII:RS.1/closed-fibre"
+      ],
+      "proofSteps": [
+        "Base change the local root chart by the geometric coarse point. Every incident f_x becomes zero; the other root factors have already been trivialized by units.",
+        "Retain the quotient of the full tensor product of dual-number algebras. Reduction replaces every t_x by zero, giving the classifying stack.",
+        "At the geometric object all root sections vanish, so each sign independently preserves the root data. Multiplicity changes the coarse divisor but does not repeat an incidence coordinate."
+      ],
+      "acceptance": [
+        "For d=2 and D=2x at one branch, the geometric inertia is mu_2 and the full fibre is the one-variable nilpotent quotient, not B(mu_2 squared).",
+        "Over K[epsilon]/epsilon squared the section t=epsilon is a valid fibre object and is not identified with t=0 by a sign.",
+        "For d=2 and D=x+y at two distinct branches the full fibre has two independent nilpotent coordinates and inertia mu_2 squared."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.3, pp. 515–516, read with source issue E2; diagram (A.1), p. 516.",
+          "match": "The evaluation square determines the full nilpotent fibre; the classifying-stack description applies to its reduction."
+        },
+        {
+          "sourceId": "PIN-MU",
+          "locator": "Mathlib rootsOfUnity and Tau Ceti RootsOfUnityGroup.schemePointsMulEquiv at the recorded pins (unpaginated Lean sources).",
+          "match": "The group factors are genuine mu_2 evaluated on all coefficient algebras, not a replacement by two geometric signs."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "The equivariant coordinate map for root addition",
+      "kind": "construction",
+      "declarationName": "TauCeti.RamifiedClassField.rootAdditionChart",
+      "statement": "For a commutative k-algebra A and f,g in A, put C=A[u]/(u squared-fg) and B=A[s,t]/(s squared-f,t squared-g). Construct the A-algebra map C→B with u mapped to st. It is equivariant for the homomorphism mu_2 times mu_2→mu_2 given by multiplication: the source signs on s and t induce their product on st. For all branch coordinates take the product of these homomorphisms. With compatible local frames of the incidence line bundles these quotient maps equal the parent rootAddition, on hat families as well as effective families. The comparisons commute with arbitrary algebra change and with the imported tensor associator, symmetry and unit.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-addition",
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:RS.1/affine-chart",
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "mathlib:rootsOfUnity",
+        "mathlib:restrictRootsOfUnity",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.EffectiveDivisorOfDegree.equivSym_add"
+      ],
+      "proofSteps": [
+        "The relation (st) squared=fg gives the quotient-ring lift. General polynomial-quotient lifts and tensor products are imported, not separate theory targets.",
+        "On all test A-algebras the sign action sends st to (zeta eta)st. This gives an equivariant scheme morphism in the opposite direction and then the quotient-stack morphism.",
+        "The universal ordinary divisor of a sum is the sum of divisors, so in compatible frames its section is the product fg; compare the root data component by component using relativeEvaluationEquivalence.",
+        "Pullback and the tensor coherence isomorphisms give arbitrary-base naturality and the unit, block and permutation comparisons. Their equality is checked on the root line, the section and its square identification."
+      ],
+      "acceptance": [
+        "This map is defined even when f or g is zero or nilpotent.",
+        "For two ordered factors supported at the same branch, the induced stabilizer map is multiplication, with a nontrivial diagonal kernel in odd characteristic."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, formula (A.2), p. 517.",
+          "match": "Root addition tensors the two root lines and multiplies their sections; the local algebra and sign formulas are its coordinate expression."
+        },
+        {
+          "sourceId": "UP-VB",
+          "locator": "L0A–L0B (unpaginated).",
+          "match": "Tensor associativity, symmetry, units and pullback coherence have an existing upstream owner."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+          "how": "Identifies the inertia homomorphism of an iterated ordered sum."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
+          "how": "Provides the actual addition correspondence and its associative and symmetric comparisons."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+          "how": "Matches root addition with Picard tensor multiplication."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.coefficient",
+          "role": "simp",
+          "statement": "The algebra map is the identity on the coefficient image A."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.root",
+          "role": "simp",
+          "statement": "The target root coordinate u pulls back to st; its square relation pulls back to (st) squared=fg."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.equivariance",
+          "role": "compatibility",
+          "statement": "The quotient map is equivariant for (zeta,eta) mapped to zeta eta, on every coefficient algebra."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.baseChange",
+          "role": "functoriality",
+          "statement": "The ring map, group homomorphism and quotient morphism commute with arbitrary A→A prime and obey identity and composition laws."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.globalCompatibility",
+          "role": "relation",
+          "statement": "On overlaps the coordinate morphisms agree with parent rootAddition through the tensor associator, symmetry and unit; they therefore descend to its global morphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.test_unit",
+          "kind": "degenerate",
+          "statement": "For the effective degree-zero unit, f=1 and its chosen root s=1; the formula u=st gives u=t."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.test_zero",
+          "kind": "non-example",
+          "statement": "For f=g=0 over a field, the tensor root coordinate st in K[s,t]/(s squared,t squared) is nonzero and square-zero. Multiplying the sections does not discard this infinitesimal root."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.test_signs",
+          "kind": "computation",
+          "statement": "The pair of signs (-1,-1) sends st to itself; either single minus sign sends it to -st."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.rootAdditionChart.test_ordinary",
+          "kind": "compatibility",
+          "statement": "For R empty the global quotient comparison is ordinary divisor addition, and on geometric formal divisors it agrees with Tau Ceti EffectiveDivisorOfDegree.add via equivSym_add."
+        }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Inertia of the ordered divisor morphism",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.orderedInertia",
+      "statement": "Let q=(q_1,...,q_d) be a geometric point of the product of d root curves and let its coarse divisor be D=sum m_x x. On geometric inertia the parent orderedRootDivisors map is the product, over branch points x with m_x>0, of multiplication homomorphisms mu_2^{m_x}→mu_2. The relative inertia is the product of their kernels. On every commutative K-algebra B, each kernel for m=n+1 is naturally isomorphic to (Fin n→rootsOfUnity 2 B) by discarding coordinate zero; the inverse inserts the inverse of the product in coordinate zero. This description is natural in B and in reordering the factors, without choosing geometric signs as the definition of mu_2. Consequently a collision with m_x at least two makes the ordered morphism nonrepresentable in odd characteristic. A divisor containing a branch once has no kernel at that branch.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia",
+        "mathlib:rootsOfUnity",
+        "mathlib:restrictRootsOfUnity",
+        "mathlib:Pi.evalMonoidHom",
+        "mathlib:MonoidHom.finsetProd_apply",
+        "mathlib:map_prod",
+        "tauceti:TauCeti.RootsOfUnityGroup.schemePointsMulEquiv",
+        "tauceti:TauCeti.RootsOfUnityGroup.schemePointsMulEquiv_mapValue",
+        "SchemeAndStackFoundations:SF.1/representable-stack-morphism"
+      ],
+      "proofSteps": [
+        "Use the coordinate addition comparison to show that each branch sign acts on the output root line by the product of all signs over that branch. The output has one inertia factor per distinct branch by rootFullFibre_inertia.",
+        "The fibre automorphism group is the kernel of this actual inertia homomorphism; separated branch factors give a product of kernels.",
+        "In native rootsOfUnity the kernel coordinate formula and its inverse are finite-product identities in a commutative group. Natural algebra change follows from restrictRootsOfUnity and map_prod, and agrees with the existing schemePointsMulEquiv comparison.",
+        "For m at least two the element with -1 in two coordinates and 1 elsewhere is a nonidentity kernel point. A morphism representable by algebraic spaces has injective maps of geometric stabilizers, so it cannot have this kernel."
+      ],
+      "acceptance": [
+        "For d=0 both source and target inertia are trivial, and for d=1 each inertia map is the identity.",
+        "At two equal branch points the source has mu_2 squared, the target has mu_2, and the relative kernel is diagonal mu_2.",
+        "At a double collision away from R both inertia groups are trivial; any symmetric-group ramification of the coarse ordered map is a different phenomenon.",
+        "No invertibility of d! is used, including when the characteristic divides d!."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, (A.3), p. 517; proof of Lemma A.7, pp. 519–520.",
+          "match": "The ordered sum and its local multiplication homomorphism identify the geometric inertia. The kernel character-triviality conclusion remains owned by GC.3/collision-kernel."
+        },
+        {
+          "sourceId": "PIN-MU",
+          "locator": "Pinned rootsOfUnity, finite-product API, schemePointsMulEquiv and schemePointsMulEquiv_mapValue (unpaginated).",
+          "match": "These existing carriers give the algebra-valued kernel-coordinate statements and their native group-scheme agreement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Ordered root divisors"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Geometric two-fibres of ordered divisors",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.orderedGeometricFibre",
+      "statement": "Fix a geometric effective root divisor y over an algebraically closed K, with coarse divisor D=sum m_x x. The underlying points of the ordered-map two-fibre over y are in bijection with the ordered tuples of the multiset D, so their number is d! divided by the product of the m_x!. After choosing a lift and its isomorphism to y for each ordering, the reduction of the two-fibre is the disjoint union of classifying stacks B K_q, where K_q is the product over branch points with m_x>0 of ker(mu_2^{m_x}→mu_2). The full two-fibre can have nilpotent directions and is not replaced by this reduction. In particular these field-valued two-fibres have discrete underlying spaces, providing the missing fibre criterion for the parent proper quasi-finite theorem. All morphism-property conclusions are in the nonrepresentable stack sense.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+        "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3/universal-section-stack",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "proofSteps": [
+        "The coarse ordered map X^d→Sym^d X is finite locally free (Stacks Proposition 44.3.6), and its geometric points are precisely the orderings of the multiset D. Each geometric root-curve point over a fixed coarse point is unique up to isomorphism.",
+        "At each ordering q, orderedInertia identifies the source-to-target inertia map. It is surjective: the product map has at least one factor over every branch occurring in D. Thus the set of isomorphisms from p_d(q) to y modulo source automorphisms is a singleton. The fibre stabilizer is the stated kernel. Local root charts are finite over ordinary divisor charts; after fixing y the remaining root-isomorphism choices are finite too. Together with the finite ordinary ordering fibre this gives a finite-type zero-dimensional DM two-fibre, without assuming the parent proper quasi-finite conclusion.",
+        "A finite-type zero-dimensional DM stack over an algebraically closed field with finitely many points has reduction a disjoint union of its residual gerbes. The chosen lifts neutralize them. This exact residual-gerbe fact is included in GC1-PERMANENCE; it gives the displayed reduced-fibre description without erasing nilpotent directions in the full fibre.",
+        "For parent ordered-proper, rootCoarseChart in degree one makes the source proper over k, and the target is separated. Apply Stacks Lemma 101.37.5(2). The map is quasi-DM and locally of finite type, has the discrete fibres just computed, and is quasi-compact by properness. Apply Definitions 101.23.2 and 101.24.1. These properties commute with arbitrary base change.",
+        "Away from R on the multiplicity-free locus the same map is the ordinary finite etale S_d-torsor of orderings. Constant S_d is etale even when the characteristic divides d!, so no factorial-invertibility hypothesis is used."
+      ],
+      "acceptance": [
+        "For d=0 the two-fibre is Spec K, and for d=1 it is Spec K because p_1 is the identity.",
+        "For d=2 and D=x+y with x different from y, there are two fibre points and both relative stabilizers are trivial, including when x or y is a branch point.",
+        "For X=P1, R={0}, d=2 and D=2 times 0, local coordinates give the full two-fibre [Spec K[s,t]/(s squared+t squared,st)/mu_2], with diagonal sign action. Its reduction is Bmu_2; the full fibre retains s and t as nonzero nilpotents.",
+        "At a double collision away from R the reduction is one point with trivial inertia; the ordinary ordering fibre can still be nonreduced."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, (A.3), p. 517; A.2.1, p. 519.",
+          "match": "The source uses the ordered map for pushforward. The explicit stack property convention here preserves its nonrepresentable collision behaviour."
+        },
+        {
+          "sourceId": "STACKS-PROP",
+          "locator": "Lemma 101.37.5(2) and Lemmas 101.37.2–101.37.3 (HTML, unpaginated).",
+          "match": "A morphism from a proper stack to a separated stack over the same base is proper; base changes preserve it."
+        },
+        {
+          "sourceId": "STACKS-QF",
+          "locator": "Definition 101.23.2 and Definition 101.24.1 (HTML, unpaginated; latter in tag 0G2L).",
+          "match": "Quasi-finiteness for stacks includes quasi-DM and the discrete two-fibre condition; representability is not part of this definition."
+        },
+        {
+          "sourceId": "STACKS-DIV",
+          "locator": "Proposition 44.3.6 and its proof (HTML, unpaginated).",
+          "match": "The coarse ordering morphism is finite locally free of degree d!, in every characteristic."
+        },
+        {
+          "sourceId": "STACKS-RES",
+          "locator": "Lemma 101.21.4, with its quotient-groupoid proof; Lemma 101.31.2 (HTML, unpaginated).",
+          "match": "A reduced singleton DM stack has an etale field atlas. Over the algebraically closed field in this finite-type situation, a chosen object identifies the singleton component with its automorphism classifying stack."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/ordered-block-permutation-coherence",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Coherence of ordered sums",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.orderedDivisors_coherence",
+      "statement": "The parent ordered map p_d has a specified S_d-invariance isomorphism for every permutation of the factors. These isomorphisms compose according to the group action. Under the canonical identification of a (d+e)-tuple with two blocks, p_{d+e} is two-isomorphic to rootAddition_{d,e} composed with p_d times p_e. The block comparison commutes with arbitrary base change, three-block reassociation and permutations inside and between blocks. The comparisons use the same tensor unit, associator and symmetry as the parent addition; p_0 is the empty effective root divisor and p_1 is the identity of the root curve.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+        "FunctionFieldArithmeticPartII:GC.1/root-addition",
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence"
+      ],
+      "proofSteps": [
+        "Iterate the parent tensor operation on L, K and the two sections. Import its general monoidal coherence from AlgebraicVectorBundles L0A–L0B.",
+        "Define the permutation and block isomorphisms by these actual sheaf isomorphisms, then check they preserve the root square identification and the sections.",
+        "Use the two-pullback comparison to test equality of the resulting two-morphisms on all components. The pentagon, symmetry and unit equations reduce to the imported coherence equations."
+      ],
+      "acceptance": [
+        "The transposition at a double branch collision swaps the two source sign factors but leaves their product unchanged.",
+        "The two ways to regroup three factors have the same induced root-line isomorphism, including when every section is zero.",
+        "The empty block gives the unit constraints rather than a chosen point of X."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.4, (A.2)–(A.3), p. 517.",
+          "match": "The tensor addition and invariant ordered sum require coherent permutation and block comparisons."
+        },
+        {
+          "sourceId": "UP-VB",
+          "locator": "L0A–L0B (unpaginated).",
+          "match": "General tensor coherence is already planned upstream and is reused on the root data."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "Fixed-root-section fibres of Abel–Jacobi",
+      "kind": "construction",
+      "declarationName": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre",
+      "statement": "Over an algebraically closed extension K, fix a degree-d root-Picard-with-section object (L,K_R,iota,alpha). Put V=H0(X_K,L), W=H0(R_K,L restricted to R), and c=iota(alpha squared) in W. Construct a canonical equivalence between the two-fibre of the refined hat Abel–Jacobi map over that fixed object and the affine K-scheme ev_R inverse(c) inside the affine space V. Its effective restriction is the open where a is nonzero, so it deletes the origin if the origin lies in the fibre and deletes nothing otherwise. If the fibre has a point a_0, translation by a_0 identifies it with H0(X_K,L(-R)); without such a point the fibre can be empty. This finite-dimensional vector-space statement is over K; in arbitrary families use the actual sheaves of sections and no uniform vector-bundle assertion at small degree.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard-section",
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "SchemeAndStackFoundations:SF.3/universal-section-stack",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "proofSteps": [
+        "Use a specified isomorphism to the fixed target object to transport all data to L, K_R, iota and alpha. An arrow compatible with that isomorphism is then the identity, so the two-fibre is the section functor with one linear evaluation equation.",
+        "Over K the ordinary coherent-cohomology supplier gives finite-dimensional V and W. The inverse image of the K-point c under their linear evaluation map is a closed affine subscheme.",
+        "The exact sequence of sheaves L(-R)→L→L restricted to R identifies the kernel on global sections with H0(L(-R)); this needs left exactness, not surjectivity of evaluation.",
+        "The effective condition deletes a=0, using rootEffectiveOpen_baseChange. Forgetting alpha gives the family of these affine equations parametrised by the root-section space, matching the already-owned unrefined GC.4/affine-fibre-chart formula."
+      ],
+      "acceptance": [
+        "Fixing an actual Picard-stack object gives an affine two-fibre, with no quotient by scalar automorphisms of that fixed object.",
+        "A small-degree fibre is allowed to be empty; no high-degree Riemann–Roch bound is smuggled into this construction."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.5, p. 517; geometric fibre equation in the proof of Lemma A.9, p. 521.",
+          "match": "The refined map retains alpha. Fixing that coordinate in the section equation gives this linear fibre; the source unrefined equation is used without its high-degree conclusions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart",
+          "how": "Separates the linear fixed-alpha fibre from the unrefined quadratic family; the high-degree splitting and weighted quotient remain in GC.4."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.5/hat-character-pullback",
+          "how": "Keeps the retained root section and the zero global section distinct in the hat pullback."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.section",
+          "role": "projection",
+          "statement": "The equivalence sends a point to its transported global section a in V."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.equation",
+          "role": "characterisation",
+          "statement": "A section lies in the two-fibre exactly when ev_R(a)=iota(alpha squared), as an equality of sections including on nonreduced K-test algebras."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.effectiveOpen",
+          "role": "compatibility",
+          "statement": "The effective two-fibre is the complement of the origin when c=0 and is the whole affine fibre when c is nonzero."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.translation",
+          "role": "equivalence",
+          "statement": "Given a point a_0 of the fibre, b mapped to a_0+b is an isomorphism from H0(L(-R)); replacing a_0 translates by the corresponding kernel vector."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.forgetRootSection",
+          "role": "compatibility",
+          "statement": "Varying alpha and then forgetting it recovers the quadratic equation ev_R(a)=iota(alpha squared) for the unrefined fixed-root-Picard two-fibre, whose high-degree geometry is GC.4."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.test_empty_R",
+          "kind": "compatibility",
+          "statement": "For R empty the hat two-fibre is V, and the effective two-fibre is V minus the origin, rather than projective space."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.test_inconsistent",
+          "kind": "non-example",
+          "statement": "For X=P1, L=O, R={0,infinity}, trivial K_R and iota, and alpha=(0,1), evaluation of a constant is (a,a), so the refined fibre is empty."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.test_zero",
+          "kind": "degenerate",
+          "statement": "For alpha=0, the hat fibre contains a=0 and equals H0(L(-R)); its effective restriction excludes that zero point."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.refinedAbelJacobiFibre.test_degree_zero",
+          "kind": "computation",
+          "statement": "For d=0, L=O, nonempty R, trivial K_R and iota and alpha=1, the fibre is the single section a=1, and it is effective."
+        }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:JacobianChallenge:C",
+        "UPSTREAM:JacobianChallenge:D"
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.1/abel-jacobi-relative-compatibility",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.1",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.1"
+      ],
+      "title": "The four relative Abel–Jacobi maps and their tensor squares",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RamifiedClassField.rootAbelJacobi_compatibility",
+      "statement": "The parent refined and unrefined hat Abel–Jacobi maps are functors over every T/k, given respectively by forgetting a and by forgetting both a and alpha. Their restrictions to the effective open define both refined and unrefined effective maps. Forgetting alpha from the refined target composes to the unrefined map, for both domains, and the open-restriction squares commute with a specified identity two-isomorphism. All four maps commute pseudonaturally with arbitrary T base change and tensor addition. The tensor compatibility two-isomorphisms satisfy the same unit, associativity and symmetry equations as rootAddition, including on zero and nilpotent-section hat families. The targets are the Picard stacks of GC.0; no replacement by a Picard scheme or choice of a rational point is made.",
+      "hypotheses": [
+        "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
+        "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
+        "The degree d is a natural number. Test schemes T/k are arbitrary, including nonreduced schemes. All products of stacks are two-fibre products and all equivalences include arrows and pullback coherence.",
+        "No rational basepoint of X and no coefficient local system is required for this geometric stage."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+        "FunctionFieldArithmeticPartII:GC.1/root-addition",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard-section",
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre"
+      ],
+      "proofSteps": [
+        "Define the four arrows by the parent forgetful functors and effective-open restriction, retaining the specified root power identification and the appropriate sections.",
+        "Compute each composite on objects and arrows under relativeEvaluationEquivalence; both forget-alpha composites and the restriction squares have identity components.",
+        "Transport the tensor and pullback comparison isomorphisms from the parent Picard stacks. Equality of their coherence two-morphisms follows componentwise from the imported tensor and pullback coherence.",
+        "Use refinedAbelJacobiFibre as an acceptance calculation, without making its field-wise vector-space model the definition in families."
+      ],
+      "acceptance": [
+        "The tuple a=0, alpha=epsilon over dual numbers has both hat images, and the refined one still retains epsilon.",
+        "With R empty the maps agree with the ordinary degree-d Abel map to the Picard stack; composition to its Picard sheaf gives the usual map to Pic^d.",
+        "At d=0 the effective unit maps to the Picard tensor unit. A fixed-object two-fibre over that stack point can still contain scalar trivializations, as the R-empty fibre test requires."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "A.1.4–A.1.5, (A.2), p. 517.",
+          "match": "Both hat forgetful maps, the effective restriction and tensor addition are specified; their relative squares are the functorial compatibility required here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "GC1-RESTRICTION",
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "For a finite etale k-scheme R, supply the restriction stack whose T-objects are invertible sheaves with sections on R times T, its equivalence with [Res_R A1/Res_R G_m], the tensor-square 1-morphism, and its Galois-equivariant identification after a splitting extension with a product indexed by all geometric points of R. The existing line-bundle-section-stack node gives the rank-one factor, but does not state this restriction/descent adapter. Its chosen comparisons must obey identity/composition pullback coherence.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence"
+      ]
+    },
+    {
+      "id": "GC1-PERMANENCE",
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Extend the actual stack-morphism-property interface with the nonrepresentable quasi-finite definition of Stacks 101.23.2 and 101.24.1, its base-change law, properness base change/composition, and Lemma 101.37.5(2): over a base, any morphism from a proper stack to a separated stack is proper. Include the proper finite-quotient chart criterion: for finite etale Gamma, a finite Gamma-equivariant affine scheme over A gives a proper quotient stack over Spec A (finite diagonal, finite type, universally closed). Existing stack-morphism-properties defines properness but does not supply these exact permanence statements. Also supply the finite-type zero-dimensional DM residual-gerbe decomposition: over an algebraically closed field a reduced such stack with finitely many points is the disjoint union of its residual gerbes, each neutralized by a chosen object.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres"
+      ]
+    },
+    {
+      "id": "GC1-CURVE-FAMILY",
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Using SF.3/universal-section-stack and picard-stack-curve, supply the ordinary section-functor restriction map to a finite etale divisor R, and the left-exact kernel identification for L(-R)→L→L restricted to R, functorially in actual invertible sheaves and pullbacks. Over a field identify these section functors with their finite-dimensional affine spaces, including after extension to arbitrary test algebras. Integrate upstream JacobianChallenge C/D without assuming a rational point. In general parameter families do not replace the section functor by a vector bundle or assert that pi_*L commutes with every base change in small degree. The fibrewise-zero locus is a statement about geometric fibres: a nilpotent-valued section supported there need not factor through the zero-section substack.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres"
+      ]
+    },
+    {
+      "id": "GC1-SMOOTH-COORDINATES",
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "For a smooth finite-type scheme Z over an algebraically closed field and functions f_1,...,f_r, supply the prescribed-function criterion: Z→A^r is smooth at z precisely when the df_i at z are linearly independent, and an independent list extends locally to etale coordinates. SF.0/etale-coordinates supplies some coordinates at a smooth point; it does not state that they can start with these specified functions. Use the scheme cotangent/Jacobian interface, not a set-theoretic tangent test.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "FunctionFieldArithmeticPartII:GC.1",
+      "status": "planned",
+      "remaining": [
+        "Resolve the four exact supplier contracts and choose their actual relative section, stack and smooth-coordinate interfaces; preserve the stated nonreduced family semantics.",
+        "Complete the actual typed geometric declarations, all construction API and test signatures listed in the compact file omission ledger after adopting supplier carriers; re-elaborate at the recorded pins. The finite-product coordinate fragment does not establish these geometric signatures."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GC1-NATIVE-GEOMETRY",
+      "title": "Actual relative geometric carriers and typed transports",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+        "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia",
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-block-permutation-coherence",
+        "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre",
+        "FunctionFieldArithmeticPartII:GC.1/abel-jacobi-relative-compatibility"
+      ],
+      "detail": "The target-level objects, arrows, local equations, proof steps, API and tests are specified here, using the imported parent nodes. Concrete algebraic-stack/Picard-stack carriers, finite-etale restriction and chosen pullback/quotient/coarse interfaces at the pins do not yet support their full typed signatures. Adopt the exact supplier contracts GC1-RESTRICTION, GC1-PERMANENCE, GC1-CURVE-FAMILY and GC1-SMOOTH-COORDINATES, then type every name in the Suggested.lean omission ledger over those actual carriers and check its pseudonatural transports. SF.0, SF.1 and SF.3 follow-up packets currently have needs_changes reviews, so their cited nodes are planned imports, not established library facts. The native mu_2 coordinate fragment elaborates independently; its admitted statements do not close this geometric gap."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "FunctionFieldArithmeticPartII/E2",
+      "source": "YZ19",
+      "kind": "error",
+      "locator": "§A.1.3, pp. 515–516 (same in arXiv v2)",
+      "printed": "The source describes the full ramified geometric fibre as a classifying stack.",
+      "correction": "The full geometric fibre is [Spec K[t]/(t²)/μ2]; only its reduced substack is Bμ2.",
+      "reason": "Trivialize the square line. A root section satisfies t²=0, so it has nonzero infinitesimal possibilities over dual numbers. The source's subsequent Cartesian squaring diagram yields this nonreduced fibre.",
+      "affects": "a stated result",
+      "known": "Previously recorded in PAPER-YUN-ZHANG-19/E33 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
+      "origin": "PAPER-YUN-ZHANG-19/E33",
+      "searched": [
+        "Inherited correction search recorded in the accepted parent packet FunctionFieldArithmeticPartII/E2; its journal/author/arXiv search receipts are inherited, not claimed as a new independent search.",
+        "The author-hosted published PDF at the same SHA-256 was read on 2026-10-18 at the stated printed pages; the corrected equation was rechecked on the actual moduli data."
+      ],
+      "inheritedReview": {
+        "verdict": "confirmed",
+        "reason": "A.1.3 pp.515–516 gives the classifying-stack description for a full fibre. The root equation and AGV B.2 p.53 retain nonzero nilpotent sections, so that description applies only to the reduced fibre.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+        "agent": "Codex — codex-j5HIy4",
+        "date": "2026-10-11"
+      },
+      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E5",
+      "source": "YZ19",
+      "kind": "misprint",
+      "locator": "Definition A.2, p. 515 (same in arXiv v2)",
+      "printed": "The restriction clause refers back to the restricted section itself.",
+      "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
+      "reason": "Checked on the page image. a is the global section in the previous bullet.",
+      "affects": "nothing",
+      "known": "Previously recorded in PAPER-YUN-ZHANG-19/E66 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
+      "origin": "PAPER-YUN-ZHANG-19/E66",
+      "searched": [
+        "Inherited correction search recorded in the accepted parent packet FunctionFieldArithmeticPartII/E5; its journal/author/arXiv search receipts are inherited, not claimed as a new independent search.",
+        "The author-hosted published PDF at the same SHA-256 was read on 2026-10-18 at the stated printed pages; the corrected equation was rechecked on the actual moduli data."
+      ],
+      "inheritedReview": {
+        "verdict": "confirmed",
+        "reason": "Definition A.2 p.515 has both the global section and its restriction as data. The self-reference for the restriction must instead refer to the global section.",
+        "by": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+        "agent": "Codex — codex-j5HIy4",
+        "date": "2026-10-11"
+      },
+      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a."
+    }
+  ],
+  "restructure": [],
+  "implementationStatus": "unchecked",
+  "depth": {
+    "level": "target",
+    "closure": "gap-recorded",
+    "note": "Every parent GC.1 target is imported and mapped to explicit refinements below. All prerequisite chains end in exact-pin ingredients, existing parent/supplier nodes, the four precise requested contracts, or GC1-NATIVE-GEOMETRY. This is a complete planning pass, not a closed stage or formalization."
+  },
+  "targetCoverage": [
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/root-symmetric-space",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+        "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/evaluation-pullback",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/incidence-transversality",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+        "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/root-addition",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-block-permutation-coherence",
+        "FunctionFieldArithmeticPartII:GC.1/abel-jacobi-relative-compatibility"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-block-permutation-coherence"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/ordered-proper",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+        "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres"
+      ]
+    },
+    {
+      "parentTarget": "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+      "refinements": [
+        "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre",
+        "FunctionFieldArithmeticPartII:GC.1/abel-jacobi-relative-compatibility"
+      ]
+    }
+  ],
+  "baselineAudit": {
+    "reviewedAudit": "data/library-coverage.json: FunctionFieldArithmetic:FA.1 (AUDIT-20, partly built); no FunctionFieldArithmeticPartII entry exists.",
+    "conclusion": "The arithmetic divisor and Riemann–Roch lane is imported. It does not construct relative symmetric schemes, section stacks or geometric Picard stacks. The ordinary geometric targets stay with JacobianChallenge C/D and their SF.3 adapters.",
+    "currentUpstream": {
+      "roadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "libraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "mathlibCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+      "readOnlyChecks": [
+        "AlgebraicVectorBundles README and L0A–L0B Suggested.lean signatures.",
+        "JacobianChallenge README and Suggested.lean.",
+        "Current Tau Ceti fixed-degree formal divisors, relative effective Cartier divisors, invertible sheaves and rigidified Picard functor searched and relevant statements read."
+      ],
+      "conclusion": "General tensor/pullback theory, ordinary relative divisor geometry and Picard theory are imports. Current formal divisor Sym types and the set-valued rigidified Picard functor do not provide the root-divisor stack and its relative two-fibres. No builds were run in the upstream environment."
+    },
+    "pinReceipts": [
+      {
+        "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "sha256": "64d20906b80d6e64b382ab1846bcde00fb440ac89689b7f2a700d9ae9033ae42",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean"
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+        "sha256": "a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43",
+        "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/LineBundle/Basic.lean"
+      },
+      {
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "6c5e4fe6b0390435bdb3d54eda8cc33eaff1505ebcc8794afbbe512f688ef2c0",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RootsOfUnity/Basic.lean"
+      },
+      {
+        "module": "Mathlib/Algebra/Group/Pi/Lemmas.lean",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "0528e7440acf34ed318de22f1c4fe0067ba1dc31d5e59d8dab61aec835aec99d",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Pi/Lemmas.lean"
+      },
+      {
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Lemmas.lean",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "75eae4ecb2130179720710a6bdb73436dc05390719d1377bec44cb25cb02418a",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/BigOperators/Group/Finset/Lemmas.lean"
+      },
+      {
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sha256": "e935efa96ad9381658f3158f900d04589c46d7e933cab15f4d8632e1af85527f",
+        "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean"
+      }
+    ]
+  },
+  "dependencyNotes": [
+    {
+      "contract": "CURVE-GEOM, parent request",
+      "resolution": "For GC.1 use SF.3/picard-stack-curve and the effective-open/divisor clauses of universal-section-stack, plus GC1-CURVE-FAMILY for the precise section-functor restriction and kernel adapters. A family supported on the zero-section locus need not factor through that closed substack. This distinction is not a claim that the supplier closed-complement statement is false."
+    },
+    {
+      "contract": "STACK-GEOM, parent request",
+      "resolution": "For GC.1 use SF.1/two-fibre-product, line-bundle-section-stack, quotient-stack-algebraic and finite-quotient-coarse. GC1-RESTRICTION and GC1-PERMANENCE state the exact missing adapters. R09.4 and R09.5 are not used as suppliers of general finite-root quotient algebraicity or coarse properties: their inspected follow-ups have a different moduli/rigidification scope."
+    },
+    {
+      "contract": "Source and ownership boundary",
+      "resolution": "The generic roots, tensor/pullback coherence, ordinary Picard/symmetric schemes, GC.3 character triviality and GC.4 high-degree affine/weighted fibre geometry retain their existing owners. The new fixed-alpha fibre is a refinement for the refined map; it does not reproduce the unrefined high-degree chart target."
+    },
+    {
+      "contract": "Atlas planets",
+      "resolution": "The parent already selects five GC.1 planets. This packet adds Ordered root divisors as its sole new planet, so the union has six. No restructuring is required."
+    },
+    {
+      "contract": "Link audit",
+      "resolution": "Read the new-roadmap stage description and parent GC.1, GC.3, GC.4 and GC.5 consumer contracts. No existing research/blueprint/links entry mentions FunctionFieldArithmeticPartII. Dependencies on other stages are through the specific imported node ids or the explicit requests above."
+    }
+  ],
+  "upstreamNotes": [],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "citation": "Author-hosted copy of Annals of Mathematics 189 (2019), 393–526; printed pages used throughout.",
+      "read": "2026-10-18",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c"
+    }
+  ],
+  "sourceConventions": {
+    "orderedMap": "The finite-map wording in YZ19 A.2.1 p.519 is used through the explicitly stated proper quasi-finite nonrepresentable stack convention, as in the parent. It is not read as a representably finite morphism theorem.",
+    "noNewErratumClaim": "E2 and E5 are inherited confirmed findings, locally rechecked against the same published PDF. This follow-up claims neither a new correction search nor an independent review verdict."
+  }
+}
