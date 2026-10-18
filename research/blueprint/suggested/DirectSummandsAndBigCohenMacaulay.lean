@@ -225,7 +225,7 @@ theorem IsBigCohenMacaulayFor.of_linearEquiv {N : Type*} [AddCommGroup N] [Modul
     IsBigCohenMacaulayFor R N x := by
   sorry
 
-theorem IsBigCohenMacaulayFor.iff_isRegular {x : List R} :
+theorem IsBigCohenMacaulayFor.iff_isRegular [IsNoetherianRing R] {x : List R} :
     IsBigCohenMacaulayFor R M x ↔
       IsSystemOfParameters x ∧ RingTheory.Sequence.IsRegular M x := by
   sorry
@@ -396,7 +396,7 @@ theorem absoluteIntegralClosure_isBalancedBigCM_of_charP (R : Type u) [CommRing 
 
 /-! ## DS.5 The direct summand theorem and flat domination -/
 
-/-- **The direct summand theorem** (André B, Théorème 0.1.1; Bhatt, Theorem 1.1;
+/-- **The direct summand theorem** (André B, Conjecture 0.1.1 (proved in the paper); Bhatt, Theorem 1.1;
 node `DS.5/direct-summand-theorem`): every Noetherian regular ring is a splinter. -/
 theorem isSplinter_of_isRegularRing (R : Type u) [CommRing R] [IsRegularRing R] :
     IsSplinter R := by
