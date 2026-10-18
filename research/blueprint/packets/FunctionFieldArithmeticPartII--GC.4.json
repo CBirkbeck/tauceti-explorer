@@ -557,7 +557,7 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
-        "FunctionFieldArithmeticPartII:GC.3/collision-descent",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-local-systems"
       ],
       "sources": [
@@ -688,7 +688,7 @@
         "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
-        "FunctionFieldArithmeticPartII:GC.3/collision-descent",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
       ],
       "sources": [
@@ -804,7 +804,8 @@
         "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
         "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
         "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
-      ]
+      ],
+      "assemblyInterface": "ASM-STACK-LISSE: one intended owner, with these two exact facets and all their hypotheses retained."
     },
     {
       "id": "GC4-GEOMETRIC-SIGNATURES",
@@ -932,5 +933,10 @@
         "note": "Made scheme refinements of algebraic-space overlaps explicit before invoking the scheme finite-cover comparison. Full faithfulness, effective gluing and normalized uniqueness are otherwise verified; no parent end theorem is assumed in its own proof."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

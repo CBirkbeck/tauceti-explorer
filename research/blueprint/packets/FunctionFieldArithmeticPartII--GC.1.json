@@ -1523,5 +1523,10 @@
         "note": "Verified all four forgetful maps and identity-component restriction squares from YZ19 A.1.4–A.1.5 p. 517. Tensor/pullback comparisons use the parent Picard stacks and existing general tensor contracts. The empty-R degree-zero fixed-object fibre and nilpotent retained root section are consistent."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

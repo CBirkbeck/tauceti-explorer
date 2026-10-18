@@ -310,7 +310,8 @@
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "SchemeAndStackFoundations:SF.3/picard-groupoid",
         "SchemeAndStackFoundations:SF.3/picard-stack-curve",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "tauceti:CategoryTheory.Sheaf.additiveUnitsFunctor",
         "tauceti:CategoryTheory.Sheaf.additiveUnitsFunctor_obj_obj",
         "FunctionFieldArithmeticPartII:GC.6/root-unit-coordinates",
@@ -585,7 +586,8 @@
         "FunctionFieldArithmeticPartII:GC.6/exact-sheaf-complex",
         "FunctionFieldArithmeticPartII:GC.6/root-torsor-comparison",
         "FunctionFieldArithmeticPartII:GC.6/difference-norm-nullhomotopy",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "SchemeAndStackFoundations:SF.1/small-etale-site",
         "SchemeAndStackFoundations:SF.1/sheaf-stack",
         "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent"
@@ -1585,5 +1587,10 @@
         "note": "The signed trace formula and the actual quotient surjection determine characters on every degree component; verified the quadratic specialization and corrected the A.4 locator to p.518."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

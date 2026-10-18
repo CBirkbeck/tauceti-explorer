@@ -1220,5 +1220,10 @@
         "note": "Geometric stabilizers are trivial off the zero locus and μ_n on it. The imported unramified-diagonal criterion gives precisely invertibility of n along V(s); the tangent-unit test and relative stack-base qualification are correct."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

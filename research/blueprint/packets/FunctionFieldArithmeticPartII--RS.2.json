@@ -2009,5 +2009,10 @@
         "note": "Argument verified. TOWER-AFF now resolves to RS.2/flat-torsor-tower-limit, and the finite-residue closed point is Mathlib's finite_of_finite_type_of_isJacobsonRing (Zariski's lemma), not a request."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

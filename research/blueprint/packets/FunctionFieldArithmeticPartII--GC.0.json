@@ -487,8 +487,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
         "FunctionFieldArithmeticPartII:GC.0/root-degree-components",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
         "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "SchemeAndStackFoundations:SF.3/picard-stack-curve",
         "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
         "SchemeAndStackFoundations:SF.1/setoid-criterion"
@@ -715,7 +715,8 @@
         "FunctionFieldArithmeticPartII:GC.0/native-root-section-fibres",
         "FunctionFieldArithmeticPartII:GC.0/root-frame-action",
         "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
         "SchemeAndStackFoundations:SF.1"
       ],
@@ -953,7 +954,7 @@
     {
       "id": "GC0-ORDINARY-SITE",
       "supplier": "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
-      "need": "On the actual big scheme fppf site, identify the native invertible-sheaf pseudofunctors and their root-arrow groupoids with the supplier stack carrier. Connect D0/groupoid-quotients-and-two-fibre-products to SF.1/two-fibre-product and quotient-stack on this site, preserving the explicit isomorphism in each two-fibre object and all torsor descent arrows. Provide the ordinary quotient universal property for the rigidified Picard groupoid, including the R=empty stack case; the nonempty-R algebraic-space reduction uses the imported setoid criterion. This is a comparison between existing ordinary stack interfaces, not diamond geometry.",
+      "need": "On the actual big scheme fppf site, identify the native invertible-sheaf pseudofunctors and their root-arrow groupoids with the supplier stack carrier. Use the current generic SF.1 two-fibre-product, quotient-stack and stackification interfaces on this site, preserving the explicit isomorphism in each two-fibre object and all torsor descent arrows. Provide the ordinary quotient universal property for the rigidified Picard groupoid, including the R=empty stack case; the nonempty-R algebraic-space reduction uses the imported setoid criterion. This is a comparison between existing ordinary stack interfaces, not diamond geometry.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.0/native-root-fibres",
         "FunctionFieldArithmeticPartII:GC.0/square-quotient-comparison",
@@ -1098,5 +1099,10 @@
         "note": "Automorphisms in Definition A.1 and A.1.1–A.1.2, pp. 514–515, give u²=c and uα=α on all test schemes. Corrected full triviality at an everywhere-nonzero geometric section to require r>0. Added the vacuous r=0 check and stronger coordinate Lean milestones; arbitrary-ring equations remain uncancelled."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }
