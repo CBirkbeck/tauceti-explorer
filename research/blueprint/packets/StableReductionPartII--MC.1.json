@@ -86,20 +86,20 @@
       "sha256": "99304b1a36799044a20cb7c74ad12e1a73e06ca2cd3b132b6c37a9b869a41a29",
       "accessed": "2026-10-18",
       "readSections": [
-        "§75.25, Lemma 75.25.1 and remarks, pp. 60–62",
-        "§75.26, Lemmas 75.26.4–75.26.7, pp. 64–66"
+        "§75.25, Lemmas 75.25.1 and 75.25.4(1), pp. 60–62",
+        "§75.26, Lemmas 75.26.4–75.26.8, pp. 64–66"
       ]
     },
     {
       "id": "DEF",
-      "title": "Examples of Deformation Problems",
+      "title": "Deformation Problems",
       "authors": "The Stacks Project Authors",
       "edition": "Stacks Project ed88ff78, compiled 2026-07-14",
       "url": "https://stacks.math.columbia.edu/download/examples-defos.pdf",
       "sha256": "6628c6bb54013573e46922057a717a8d53c3ac9e126f0dba87290ffe8e3ad3d8",
       "accessed": "2026-10-18",
       "readSections": [
-        "§93.16, Lemmas 93.16.2–93.16.4, pp. 28–29"
+        "§93.15, Lemma 93.15.1, p. 27; §93.16, Lemmas 93.16.2–93.16.4, pp. 28–29"
       ]
     },
     {
@@ -124,7 +124,7 @@
       "accessed": "2026-10-18",
       "readSections": [
         "§41.17, Lemmas 41.17.1–41.17.3, pp. 19–20",
-        "§41.21, definitions and Lemmas 41.21.2–41.21.7, pp. 26–29"
+        "§41.21, Definitions 41.21.1/4 and Lemmas 41.21.2–3/5–7, pp. 26–29"
       ]
     },
     {
@@ -287,8 +287,8 @@
         },
         {
           "sourceId": "PERF",
-          "locator": "Lemma 75.25.1(1) (0A1P), pp. 60–61; Lemma 75.26.4, pp. 64–65",
-          "match": "Perfect pushforward and its degree-concentration locus give the required bundle universally."
+          "locator": "Lemma 75.25.4(1) (0CTM), pp. 61–62; Lemma 75.26.4, pp. 64–65",
+          "match": "The flat proper finitely presented special case gives perfect pushforward and arbitrary derived base change; the single-degree free locus then gives the required bundle universally."
         }
       ],
       "acceptance": [
@@ -335,8 +335,8 @@
         },
         {
           "sourceId": "PERF",
-          "locator": "Lemma 75.26.6 (0D21), p. 65; Lemma 75.26.7, pp. 65–66",
-          "match": "Supplies the universal lowest-cohomology stratum and connected reduced-fibre pushforward of functions."
+          "locator": "Lemma 75.26.6 (0D21), p. 65; Lemmas 75.26.7–75.26.8 (0E0S), pp. 65–66",
+          "match": "The lowest-cohomology stratum is universal; Lemma 75.26.8 gives universal pushforward of functions for geometrically reduced connected fibres, via Lemma 75.26.7."
         },
         {
           "sourceId": "MC",
@@ -664,7 +664,7 @@
       ],
       "tests": [
         {
-          "name": "TricanonicalActionGroupoid.identity",
+          "name": "TricanonicalActionGroupoid.identity_restriction",
           "kind": "characterisation",
           "statement": "Restricting the identity projective transformation gives the identity curve isomorphism."
         },
@@ -693,8 +693,9 @@
       ],
       "title": "The normalization sequence and the deformation dimension",
       "kind": "theorem",
-      "statement": "Let C/k be a stable connected nodal genus-g curve over an algebraically closed field, and ν:⊔C_v→C its normalization. Let D_v be the reduced divisor of branches above nodes and N_q=T_{q+}C_v⊗_k T_{q−}C_w (also when both branches lie on one component). Then T_C≅ν_*(⊔T_{C_v}(−D_v)), Ext⁰_C(Ω_C,O_C)=0, Ext²_C(Ω_C,O_C)=0, and there is a natural exact sequence 0→⊕_v H¹(C_v,T_{C_v}(−D_v))→Ext¹_C(Ω_C,O_C)→⊕_q N_q→0. Its middle dimension is 3g−3. The sequence has no asserted canonical splitting.",
+      "statement": "Let C/k be a proper geometrically connected nodal curve of pure dimension one over an algebraically closed field, and ν:⊔C_v→C its normalization. Let D_v be the reduced divisor of branches above nodes and N_q=T_{q+}C_v⊗_k T_{q−}C_w (also when both branches lie on one component). Then T_C≅ν_*(⊔T_{C_v}(−D_v)), Ext²_C(Ω_C,O_C)=0, and there is a natural exact sequence 0→⊕_v H¹(C_v,T_{C_v}(−D_v))→Ext¹_C(Ω_C,O_C)→⊕_q N_q→0. If C is stable of genus g≥2, then also Ext⁰_C(Ω_C,O_C)=0 and dim Ext¹_C(Ω_C,O_C)=3g−3. The sequence has no asserted canonical splitting.",
       "hypotheses": [
+        "Properness, geometric connectedness, nodality and pure dimension one suffice for Ext² vanishing and the exact sequence; only Ext⁰ vanishing and the dimension formula require stability and g≥2.",
         "All characteristics are allowed.",
         "Ext is coherent sheaf Ext over O_C followed by global derived Hom; Ω_C is algebraic Kähler differentials on the finite-type curve.",
         "N_q is a tensor product of tangent lines, not a chosen copy of k until branch parameters are fixed."
@@ -703,8 +704,8 @@
         "Use normalization at nodes from StableReduction Layer 1: a derivation on the node lifts to derivations vanishing on both branches.",
         "The local hypersurface resolution gives sheaf Ext¹ supported at nodes with fibres N_q and sheaf Ext^i=0 for i≥2. On the reduced nodal curve the conormal map in the hypersurface presentation is injective, so the cotangent complex is quasi-isomorphic to Ω_C for this computation.",
         "Use the local-to-global coherent Ext spectral sequence requested in Q3, together with cohomological dimension one from StableReduction Layer 2. This gives the exact sequence and vanishing; the zero-dimensional support kills H¹ of sheaf Ext¹.",
-        "Stability implies H⁰(T_{C_v}(−D_v))=0. Riemann–Roch gives h¹=3g_v−3+deg D_v. Use Σdeg D_v=2δ and g=Σg_v+δ−|vertices|+1 to obtain Σh¹+δ=3g−3.",
-        "The resulting global-to-local tangent map is surjective, which makes the δ local smoothing parameters independent. No averaging over automorphism groups is used."
+        "For the stable clause, stability implies H⁰(T_{C_v}(−D_v))=0. Riemann–Roch gives h¹=3g_v−3+deg D_v. Use Σdeg D_v=2δ and g=Σg_v+δ−|vertices|+1 to obtain Σh¹+δ=3g−3.",
+        "The global-to-local deformation map is smooth by SF.4/node-versal-deformation and Lemma 93.16.3; the displayed tangent surjection identifies its δ local smoothing directions. With unobstructedness these become independent parameters in refinement-completed-atlas. Tangent surjectivity alone is not the formal smoothness assertion. No averaging over automorphism groups is used."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
@@ -722,15 +723,16 @@
         },
         {
           "sourceId": "DEF",
-          "locator": "Lemmas 93.16.2–93.16.4 (0DZP, 0DZQ), pp. 28–29",
-          "match": "Relates isolated algebraic singularities to their completed local deformation hulls and supplies unobstructedness in dimension one."
+          "locator": "Lemmas 93.16.3–93.16.4 (0DZP, 0DZQ), pp. 28–29; Lemma 93.15.1, p. 27",
+          "match": "For separated finite-type curves smooth outside finitely many points, Lemma 93.16.3 gives a smooth global-to-local deformation map and the henselian/completed comparisons with tangent isomorphisms; the lci hypothesis in Lemma 93.16.4 gives unobstructedness."
         }
       ],
       "acceptance": [
         "For smooth genus two, the local-node sum is zero and h¹(T_C)=3.",
         "For an irreducible one-nodal genus-two curve, the normalization has genus one: h¹(T_E(−p−q))=2 and the local contribution is 1.",
         "For the genus-two theta curve consisting of two P¹s meeting at three nodes, both H¹(T_{P¹}(−3 points)) vanish, and the three local directions give dimension 3.",
-        "Ordinary algebraic differentials of k[[u,v]] must not replace continuous deformation theory of a complete local algebra."
+        "Ordinary algebraic differentials of k[[u,v]] must not replace continuous deformation theory of a complete local algebra.",
+        "For the unstable smooth curve P¹, the same Ext² vanishing and exact sequence hold, while h⁰(T)=3 and Ext¹=0; neither stable-only conclusion may be applied."
       ],
       "implementationStatus": "unchecked"
     },
@@ -742,14 +744,14 @@
       ],
       "title": "Completed framed Hilbert charts",
       "kind": "comparison",
-      "statement": "Let C/k and δ nodes be as above. Choose Λ=k in characteristic zero and Λ=W(k) in characteristic p. The deformation groupoid over Artinian local Λ-algebras with residue k and a fixed special-fibre identification has no infinitesimal automorphisms; its isomorphism-class functor is prorepresented by R_C≅Λ[[t_1,…,t_{3g−3}]], noncanonically, with the node equations uv=t_i for 1≤i≤δ. At a chosen framed point u of (U_g)_Λ(k), the completed local ring is noncanonically R_C[[z_1,…,z_{r²−1}]]. Hence U_g→Spec Z is smooth of relative dimension (3g−3)+(r²−1), and its smooth-curve open U_g^sm is dense in every irreducible component.",
+      "statement": "Let C/k be a stable connected nodal curve of genus g≥2 over an algebraically closed field, with δ nodes. Choose Λ=k in characteristic zero and Λ=W(k) in characteristic p. The deformation groupoid over Artinian local Λ-algebras with residue k and a fixed special-fibre identification has no infinitesimal automorphisms; its isomorphism-class functor is prorepresented by R_C≅Λ[[t_1,…,t_{3g−3}]], noncanonically, with the node equations uv=t_i for 1≤i≤δ. At a chosen framed point u of (U_g)_Λ(k), the completed local ring is noncanonically R_C[[z_1,…,z_{r²−1}]]. Hence U_g→Spec Z is smooth of relative dimension (3g−3)+(r²−1), and its smooth-curve open U_g^sm is dense in every irreducible component.",
       "hypotheses": [
         "The chosen special-fibre identification is part of a deformation object; automorphisms of C are not discarded from the moduli stack.",
         "The displayed completed ring is that of the Λ-base-changed Hilbert scheme at its k-rational point. It is not claimed to be the completion of a finite-type Z-point with residue field an arbitrary algebraically closed k.",
         "The identifications of power-series rings and node parameters involve choices."
       ],
       "proofSteps": [
-        "Import the existing node-versal-deformation theorem from SF.4 and the exact sequence above, using the continuous-versus-algebraic comparison of Lemma 93.16.2 for the completed node. Schlessinger prorepresentability uses H⁰(T_C)=0, not absence of finite automorphisms of C.",
+        "Import the existing node-versal-deformation theorem from SF.4 and the exact sequence above, using the continuous-versus-algebraic comparison of Lemma 93.16.3 (0DZP) for the completed node. Schlessinger prorepresentability uses H⁰(T_C)=0, not absence of finite automorphisms of C.",
         "Compare the deformation functor of the existing Hilbert scheme with deformations of C and a lift of its projective frame. The frame torsor is smooth of dimension r²−1, so frame liftings contribute exactly that many formal variables.",
         "Use the scheme-formal comparison of R09.6 after base change to Λ; u is a finite-type point over Λ. The ample compatible ω³ and SF.4 Grothendieck algebraization give effectivity and full faithfulness of the formal family, without invoking a generic algebraization theorem whose finite-type-residue hypothesis over Z fails for k=F_p-bar.",
         "Apply the infinitesimal lifting criterion for the finitely presented atlas, coefficient-ring descent, and the dimension comparison in Q4. This supplies native scheme smoothness rather than equating formal smoothness with smoothness without finite presentation.",
@@ -774,8 +776,8 @@
         },
         {
           "sourceId": "DEF",
-          "locator": "Lemmas 93.16.2–93.16.4, pp. 28–29",
-          "match": "The completed node hull computes the local deformation tangent and obstruction problem."
+          "locator": "Lemmas 93.16.3–93.16.4 (0DZP, 0DZQ), pp. 28–29",
+          "match": "The smooth global-to-local map, local-to-completed comparisons and lci unobstructedness justify using the continuous completed-node hull; these are not the gluing statement of Lemma 93.16.2."
         },
         {
           "sourceId": "MC",
@@ -900,7 +902,7 @@
       "proofSteps": [
         "Use actual algebraic ideals I_i, and the faithful-flat coefficient-completion comparison in Q4 to detect invertibility and injectivity of I_i→O_T from their completed ideals (t_i).",
         "Apply the same comparison to all finite intersections: their completed rings are Λ[[remaining t,z]], so the intersections are smooth over Z of the stated codimensions. Q4 explicitly includes descent of these native scheme properties.",
-        "Relative conormal independence makes the differential of (a_1,…,a_δ) surjective. The smooth coordinate criterion in Q6 gives a smooth map to A^δ_Z and then étale coordinates after adjoining N−δ functions.",
+        "The relative differentials da_1,…,da_δ are independent at u; equivalently the relative tangent map of (a_1,…,a_δ) is surjective there. The smooth coordinate criterion in Q6 gives a smooth map to A^δ_Z and then étale coordinates after adjoining N−δ functions.",
         "The product ideal defines a reduced effective Cartier divisor and is independent of choices of generators and labels. The intrinsic singular scheme makes its ideals agree on refinements of the relation groupoid.",
         "Use the relative-normal-crossing descent contract in Q6 to descend the divisor along the smooth atlas and obtain the parent boundary target. The generic absolute-normal-crossings node alone is insufficient."
       ],
@@ -918,8 +920,8 @@
         },
         {
           "sourceId": "ETALE",
-          "locator": "§41.21, Lemmas 41.21.2–41.21.7 (0CBN, 0CBR, 0CBS), pp. 26–29",
-          "match": "Gives the algebraic branch/intersection approach to normal crossings; the relative smooth-intersection enhancement is kept as an explicit request."
+          "locator": "§41.21, Lemmas 41.21.2 (0BIA), 41.21.3 (0CBP), 41.21.5 (0CBQ), 41.21.6 (0CBR) and 41.21.7 (0CBS), pp. 26–29",
+          "match": "These give the absolute regular-intersection criterion, smooth pullback and étale-local tests. Lemma 41.21.7 assumes J-2 or Nagata; the finite-type Z charts satisfy both. None substitutes for the relative smooth-intersection enhancement explicitly requested in Q6."
         }
       ],
       "acceptance": [
@@ -999,7 +1001,7 @@
     {
       "id": "Q3",
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "For coherent modules on a proper nodal curve, provide sheaf Ext, global Ext, the local-to-global Ext spectral sequence E₂^{p,q}=H^p(sheaf Ext^q)⇒Ext^{p+q}, functorial edge maps, and compatibility with the lci cotangent-complex deformation groups when L_{C/k}≃Ω_C. Must combine with curve cohomological dimension one and finite-support cohomology, without interpreting algebraic Kähler differentials of a power-series ring as continuous differentials. DM §1 pp.78–83 and Stacks93.16.2–4, pp.28–29. No sufficient generic node was found in the existing SF.2 packet.",
+      "need": "For coherent modules on a proper nodal curve, provide sheaf Ext, global Ext, the local-to-global Ext spectral sequence E₂^{p,q}=H^p(sheaf Ext^q)⇒Ext^{p+q}, functorial edge maps, and compatibility with the lci cotangent-complex deformation groups when L_{C/k}≃Ω_C. Must combine with curve cohomological dimension one and finite-support cohomology, without interpreting algebraic Kähler differentials of a power-series ring as continuous differentials. DM §1 pp.78–83 and Stacks93.16.3–4, pp.28–29. No sufficient generic node was found in the existing SF.2 packet.",
       "neededBy": [
         "StableReductionPartII:MC.1/refinement-deformation-sequence"
       ]
@@ -1120,7 +1122,7 @@
         "StableReductionPartII:MC.1/refinement-completed-atlas",
         "StableReductionPartII:MC.1/refinement-action-groupoid"
       ],
-      "detail": "SF.0/SF.1/SF.4 packets are not accepted gap-free proofs. In particular SF.4/node-versal-deformation records the completed-node continuous-versus-algebraic issue. Stacks93.16.2–4 supplies the precise comparison needed, but the generic implementation plan and its downstream closure must remain with SF.4. Smooth PGL groupoids use only the smooth case of SF.1/stack-presentation, avoiding its separate flat-groupoid bootstrap gap."
+      "detail": "SF.0/SF.1/SF.4 packets are not accepted gap-free proofs. In particular SF.4/node-versal-deformation records the completed-node continuous-versus-algebraic issue. Stacks93.16.3–4 supplies the precise comparison needed, but the generic implementation plan and its downstream closure must remain with SF.4. Smooth PGL groupoids use only the smooth case of SF.1/stack-presentation, avoiding its separate flat-groupoid bootstrap gap."
     }
   ],
   "targetResolutions": [
@@ -1161,9 +1163,12 @@
     {
       "target": "StableReductionPartII:MC.1/isom-representable",
       "resolvedBy": [
-        "StableReductionPartII:MC.1/refinement-bounded-graphs"
+        "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "StableReductionPartII:MC.1/refinement-source-valuative",
+        "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
       ],
-      "argument": "Preservation of ω bounds the entire bare Isom in one fixed graph-polynomial component, not an unbounded locally-finite-presentation union."
+      "argument": "The fixed graph polynomial gives compatible locally quasi-projective representing schemes of finite presentation. The later properness and unramifiedness results make Isom finite over S, hence globally quasi-projective, completing the parent conclusion. Ordered marking conditions, if imposed, are closed equalizers of section evaluations because the target curve is separated. No polarization-line isomorphism is added."
     },
     {
       "target": "StableReductionPartII:MC.1/isom-unramified",
@@ -1196,7 +1201,7 @@
       "resolvedBy": [
         "StableReductionPartII:MC.1/refinement-deformation-sequence"
       ],
-      "argument": "The local-to-global sequence and one-dimensional coherent cohomology give Ext²=0 and surjectivity onto the independent local smoothing lines."
+      "argument": "The Ext² vanishing and local-to-global surjection hold for every proper geometrically connected nodal curve of pure dimension one, as in the parent target. Stability is needed only for the additional Ext⁰ vanishing and 3g−3 dimension computation."
     },
     {
       "target": "StableReductionPartII:MC.1/versal-node-parameters",
@@ -1211,7 +1216,8 @@
       "target": "StableReductionPartII:MC.1/smooth-dimension",
       "resolvedBy": [
         "StableReductionPartII:MC.1/refinement-completed-atlas",
-        "SchemeAndStackFoundations:SF.1/stack-morphism-properties"
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "SchemeAndStackFoundations:SF.1"
       ],
       "argument": "Smoothness descends along the smooth PGL_r atlas. Q8 applies the stack dimension formula on geometric fibres and subtracts r²−1 to give relative dimension 3g−3; density descends from U^sm. No finite-diagonal hypothesis is used to establish U smoothness, so the Isom properness route is acyclic."
     },
@@ -1249,7 +1255,12 @@
         "Official tag 0DRJ and its comments (zero comments), checked 2026-10-18: no correction, same sign.",
         "Official GitHub master stacks-geometry.tex at stacks/stacks-project, checked 2026-10-18: the proof opening retains the plus sign.",
         "Existing atlas source-issue registry and relevant supplier sourceIssues: no matching correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the recorded PDF, official tag 0DRJ and current upstream TeX on 2026-10-18. The proof opening has a plus sign while the statement and concluding computation have minus. For the point stack, the identity atlas gives 0 and the affine-line atlas would give 2 under addition, so addition cannot be atlas-invariant. This is the existing finding, not a second erratum.",
+        "by": "REV-StableReductionPartII--MC.1"
+      }
     }
   ],
   "sourceVersions": [
@@ -1284,5 +1295,73 @@
       "note": "The supplied current roadmap checkout at 0d144d044dacebca17b654695b6f1ad58f159b27 and current Tau Ceti library at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were read, including StableReduction, JacobianChallenge and AlgebraicVectorBundles. Existing curve cohomology, stability, projective-bundle conventions and smooth-generic stable uniqueness are imported, not replanned. The generic full relative moduli/Ext/PGL contracts are not inferred from vector-bundle or absolute module-cohomology carriers. The upstream tier guide describes foundations as merged, but the supplied checkout has no SchemeAndStackFoundations or AlgebraicModuliForArithmeticGeometry directory; the available atlas supplier nodes are used as precise plans, not represented as checked upstream implementations."
     }
   ],
-  "planetPolicy": "The six MC.1 planets already selected by the parent packet are retained unchanged; this refinement adds no planets, so assembly stays within six per layer."
+  "planetPolicy": "The six MC.1 planets already selected by the parent packet are retained unchanged; this refinement adds no planets, so assembly stays within six per layer.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-StableReductionPartII--MC.1",
+    "date": "2026-10-18",
+    "notes": "Independent review of all twelve nodes, thirteen inherited target resolutions, exact supplier contracts, eight source files and five pinned baseline declarations. Corrected source locators, the general nodal obstruction scope, formal-smoothness justification and target-map completeness; synchronized the reader and confirmed the existing source sign misprint. No new nodes or baseline replacements. The suggested file elaborates with nine expected proof-placeholder warnings only. Accepted as a complete planning pass with planned MC.1 coverage: Q1–Q8, transitive supplier gaps and terminal ownership consolidation remain explicit; no stage is closed and no geometric implementation is claimed.",
+    "checked": [
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-polynomial",
+        "verdict": "verified",
+        "note": "Checked DM pp. 77–78, the integer polynomial, all five API formulas and the four genus tests. The real Lean definition uses the pinned Polynomial carrier."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-arbitrary-base",
+        "verdict": "corrected",
+        "note": "Replaced the nonexistent part 75.25.1(1) by 75.25.4(1), pp. 61–62. Verified unrestricted derived base change and single-degree concentration against PERF and the exact A0-extension suppliers; arbitrary-base duality and evaluation remain Q1."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-polarization-locus",
+        "verdict": "corrected",
+        "note": "Added Lemma 75.26.8 for geometrically reduced connected fibres. Checked the universal lowest-cohomology rank stratum, proper-image evaluation open and all four tests, including nilpotents and a nontrivial base line."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-complete-series",
+        "verdict": "verified",
+        "note": "The actual coordinate map between rank-r bundles gives the determinant open and universal complete-series condition. The projected genus-two embedding distinguishes polarization alone from completeness."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-frame-comparison",
+        "verdict": "verified",
+        "note": "Checked the quotient convention, base-line twist and scalar ambiguity. Q2 precisely supplies the missing relative PGL comparison; only affine torsor descent is used, with no reliance on the non-affine bootstrap."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "verdict": "verified",
+        "note": "Restriction of the product tricanonical polarization to an isomorphism graph is omega^6, with polynomial (g−1)(12n−1). R09.2 provides the fixed-polynomial finite-presentation charts. The target map now obtains global quasi-projectivity from the later finite Isom result and retains the marked closed-equalizer corollary."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-action-groupoid",
+        "verdict": "corrected",
+        "note": "Checked the all-test-scheme frame-change equivalence, stabilizers, base change and h2h1 composition order. Renamed the identity restriction test to avoid reusing an API name. The input stable-curve-stack is its groupoid definition, not a terminal algebraicity theorem."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-deformation-sequence",
+        "verdict": "corrected",
+        "note": "Extended the exact sequence and Ext2 vanishing to arbitrary proper geometrically connected nodal curves, as required by the inherited obstruction target; stability is retained for Ext0 vanishing and dimension 3g−3. Added the unstable P1 acceptance case, distinguished formal smoothness from tangent surjectivity, and corrected DEF locators to 93.16.3–4."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "verdict": "corrected",
+        "note": "Corrected the completed-deformation comparison from 93.16.2 to 93.16.3. Checked fixed-special-fibre deformations, the r²−1 frame variables, coefficient base change, effectivity hypotheses and the noncircular density argument. The precise native smoothness/descent frontier remains Q4."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-labelled-branches",
+        "verdict": "verified",
+        "note": "Lemma 41.17.3 splits the actual finite unramified singular scheme into closed immersions, without flatness. The xy=t model identifies the algebraic branch ideals after completion and distinguishes a branch from an etale cover."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-relative-boundary",
+        "verdict": "corrected",
+        "note": "Corrected individual Stacks tags and retained the J-2/Nagata hypothesis of 41.21.7; finite-type Z charts satisfy it. Clarified tangent versus cotangent direction. Q4/Q6 explicitly supply relative smooth-intersection and coordinate descent, beyond the absolute normal-crossings criterion."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.1/refinement-source-valuative",
+        "verdict": "verified",
+        "note": "Read the proof of 32.15.3 and checked the actual source-generic DVR quantifiers. Smooth-source density permits same-DVR stable-model uniqueness without a field extension; universal properness then descends to all pairs. Stack properness uses the separate extension-permitting Q7 criterion."
+      }
+    ]
+  }
 }
