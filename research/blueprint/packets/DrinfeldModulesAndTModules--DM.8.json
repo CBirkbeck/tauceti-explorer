@@ -1069,9 +1069,9 @@
     },
     {
       "id": "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
-      "parentStageId": "DrinfeldModulesAndTModules:DM.8",
+      "parentStageId": "DrinfeldModulesAndTModules:DM.2",
       "realises": [
-        "DrinfeldModulesAndTModules:DM.8"
+        "DrinfeldModulesAndTModules:DM.2"
       ],
       "title": "Coefficient Frobenius twist",
       "kind": "construction",
@@ -1167,7 +1167,8 @@
           "kind": "non-example",
           "statement": "The coefficient twist of (t−a)(t−b) is (t−σ_C(a))(t−σ_C(b)); this distinguishes coefficient twist from substituting t^q."
         }
-      ]
+      ],
+      "notes": "Layer DM.2 since the assembly ASM-DrinfeldModulesAndTModules: DM.2/omega, DM.4/inverse-twist-dual-motive and DM.4/star-adapter use this twist, so placing it in DM.8 made DM.2 and DM.4 depend on DM.8 while DM.8 depends on both. The id and the mathematics are unchanged."
     },
     {
       "id": "DrinfeldModulesAndTModules:DM.8/entire-series",
@@ -1190,7 +1191,7 @@
         "The series Σ t^n over the chosen C is excluded: its coefficients do not tend to zero at radius one."
       ],
       "prerequisites": [
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/c-infinity",
         "mathlib:PowerSeries.IsRestricted.subring",
         "mathlib:IntermediateField.adjoin"
       ],
@@ -1291,7 +1292,7 @@
       "prerequisites": [
         "mathlib:PowerSeries.IsRestricted.subring",
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
-        "DrinfeldModulesAndTModules:DM.2"
+        "DrinfeldModulesAndTModules:DM.2/c-infinity"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Analytic",
@@ -1409,7 +1410,7 @@
       ],
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/c-infinity",
         "FunctionFieldArithmetic:FA.0",
         "mathlib:Algebra.IsGeometricallyReduced"
       ],
@@ -1448,6 +1449,8 @@
       ],
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/betti-comparison-dimension",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
+        "DrinfeldModulesAndTModules:DM.4/star-adapter",
         "DrinfeldModulesAndTModules:DM.4",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields"
       ],
@@ -1620,6 +1623,7 @@
         "DrinfeldModulesAndTModules:DM.8/fundamental-matrix",
         "DrinfeldModulesAndTModules:DM.8/rigid-triviality",
         "DrinfeldModulesAndTModules:DM.8/fixed-basis-coordinates",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "DrinfeldModulesAndTModules:DM.4"
       ],
       "library": {
@@ -1659,8 +1663,9 @@
         "DrinfeldModulesAndTModules:DM.8/twisting-limit",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
         "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "DrinfeldModulesAndTModules:DM.4",
-        "DrinfeldModulesAndTModules:DM.2"
+        "DrinfeldModulesAndTModules:DM.2/omega"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -1698,6 +1703,7 @@
         "DrinfeldModulesAndTModules:DM.8/rigid-triviality",
         "DrinfeldModulesAndTModules:DM.8/fundamental-betti-basis",
         "DrinfeldModulesAndTModules:DM.8/betti-comparison-injective",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "DrinfeldModulesAndTModules:DM.4"
       ],
       "library": {
@@ -1736,6 +1742,8 @@
         "DrinfeldModulesAndTModules:DM.8/betti-exact-tensor",
         "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
+        "DrinfeldModulesAndTModules:DM.4/dual-realization",
         "DrinfeldModulesAndTModules:DM.4",
         "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "MotivesAndAlgebraicCycles:MC.6"
@@ -2399,6 +2407,7 @@
         "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
         "MotivesAndAlgebraicCycles:MC.6",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "DrinfeldModulesAndTModules:DM.4"
       ],
       "library": {
@@ -2588,7 +2597,7 @@
         "DrinfeldModulesAndTModules:DM.8/abp-lifting",
         "mathlib:Module.finrank",
         "mathlib:Submodule.span",
-        "DrinfeldModulesAndTModules:DM.4"
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -2758,7 +2767,7 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/entire-series",
         "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/carlitz-exponential",
         "FunctionFieldArithmetic:FA.0"
       ],
       "library": {
@@ -2846,7 +2855,8 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/carlitz-deformation",
         "DrinfeldModulesAndTModules:DM.8/entire-from-equation",
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/omega",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "DrinfeldModulesAndTModules:DM.4"
       ],
       "library": {
@@ -2933,6 +2943,8 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/logarithm-matrices",
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
+        "DrinfeldModulesAndTModules:DM.4/dual-realization",
         "DrinfeldModulesAndTModules:DM.4"
       ],
       "library": {
@@ -2980,7 +2992,8 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/omega",
+        "DrinfeldModulesAndTModules:DM.2/carlitz-period",
         "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "MotivesAndAlgebraicCycles:MC.6",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
@@ -3071,7 +3084,8 @@
         "DrinfeldModulesAndTModules:DM.8/logarithm-group-linear",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence",
         "DrinfeldModulesAndTModules:DM.8/carlitz-deformation",
-        "DrinfeldModulesAndTModules:DM.2"
+        "DrinfeldModulesAndTModules:DM.2/omega",
+        "DrinfeldModulesAndTModules:DM.2/carlitz-exponential"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -3106,7 +3120,8 @@
         "Check every field, scalar extension and twist convention in the statement."
       ],
       "prerequisites": [
-        "DrinfeldModulesAndTModules:DM.2",
+        "DrinfeldModulesAndTModules:DM.2/carlitz-exponential",
+        "DrinfeldModulesAndTModules:DM.2/carlitz-period",
         "FunctionFieldArithmetic:FA.0"
       ],
       "library": {
@@ -3188,7 +3203,7 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
-        "DrinfeldModulesAndTModules:DM.4",
+        "DrinfeldModulesAndTModules:DM.4/inverse-twist-dual-motive",
         "mathlib:RatFunc"
       ],
       "library": {
@@ -3217,37 +3232,6 @@
     }
   ],
   "requests": [
-    {
-      "supplier": "DrinfeldModulesAndTModules:DM.2",
-      "need": "Supply the chosen completion C_infinity of an algebraic closure of F_q((1/θ)), the Carlitz exponential and its kernel F_q[θ]·π̃, its local inverse on |α|<q^(q/(q−1)), and compatible period normalization π̃=−1/Ω(θ). These are inputs to the actual analytic field, the rank-one test and the arbitrary-logarithm reduction, not assumptions on a generic Prop-valued object.",
-      "neededBy": [
-        "DrinfeldModulesAndTModules:DM.8/entire-series",
-        "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
-        "DrinfeldModulesAndTModules:DM.8/analytic-separability",
-        "DrinfeldModulesAndTModules:DM.8/integral-trivialization",
-        "DrinfeldModulesAndTModules:DM.8/carlitz-deformation",
-        "DrinfeldModulesAndTModules:DM.8/logarithm-matrices",
-        "DrinfeldModulesAndTModules:DM.8/carlitz-group",
-        "DrinfeldModulesAndTModules:DM.8/logarithm-linear-relations",
-        "DrinfeldModulesAndTModules:DM.8/logarithm-division"
-      ]
-    },
-    {
-      "supplier": "DrinfeldModulesAndTModules:DM.4",
-      "need": "Supply the motive types and rationalization with explicit reconciliation between the campaign contravariant τ convention and Papanikolas dual Anderson σ convention σ(c)=c^(1/q), σ(t)=t. Export the invertible semilinear pre-t-motive operator, its L-scalar extension and the F_q(t)-linear underlying map, Hom compatibility, and the appropriate abelian dual-motive image. Do not assert all t-modules are rigid analytically trivial.",
-      "neededBy": [
-        "DrinfeldModulesAndTModules:DM.8/rigid-triviality",
-        "DrinfeldModulesAndTModules:DM.8/fundamental-betti-basis",
-        "DrinfeldModulesAndTModules:DM.8/integral-trivialization",
-        "DrinfeldModulesAndTModules:DM.8/betti-exact-tensor",
-        "DrinfeldModulesAndTModules:DM.8/neutral-category",
-        "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
-        "DrinfeldModulesAndTModules:DM.8/specialization-rank",
-        "DrinfeldModulesAndTModules:DM.8/logarithm-matrices",
-        "DrinfeldModulesAndTModules:DM.8/logarithm-motive-membership",
-        "DrinfeldModulesAndTModules:DM.8/constant-denominator"
-      ]
-    },
     {
       "supplier": "MotivesAndAlgebraicCycles:MC.6",
       "need": "Reuse the existing arbitrary-field MC.6/neutral-tannaka-reconstruction and tannaka-finiteness-recognition nodes, and tensor-iso-torsor after transporting along reconstruction. The remaining exports are: formation of the strictly full tensor subcategory generated by a family; for a compatible exact tensor functor between neutral categories, full faithfulness plus closure of its image under subobjects iff the induced group map is faithfully flat, and tensor generation of the target iff it is a closed immersion; and the computation of the tensor-automorphism group of integer-weight graded finite-dimensional F-vector spaces as G_m. State these over any field F, including imperfect F_q(t). The existing diagram-specific pro-algebraic-approximation and characteristic-zero connectedness criterion are insufficient for these remaining uses. Do not reconstruct an already planned neutral group again.",
@@ -3315,10 +3299,11 @@
       "stageId": "DrinfeldModulesAndTModules:DM.8",
       "status": "planned",
       "remaining": [
-        "Reconcile the DM.4 dual-σ motive interfaces with the generated category T and instantiate the neutral arbitrary-field MC.6 interface.",
-        "Instantiate the existing restricted-series norms at the pinned analytic types, discharge the C∞ zero/pole comparison and AdicSpaces bounded-disk zero/growth and FA.0 separability/curve/Lang transport inputs, and supply the precise SF.0 filtered-growth export.",
+        "Plan the DM.4 pre-t-motive category (gap: The pre-t-motive category of DM.4), reconcile it with the generated category T, and instantiate the neutral arbitrary-field MC.6 interface.",
+        "Instantiate the existing restricted-series norms at the pinned analytic types, discharge the C∞ zero/pole comparison and bounded-disk zero/growth (now owned upstream by RestrictedPowerSeries and NewtonPolygons) and FA.0 separability/curve/Lang transport inputs, and supply the precise SF.0 filtered-growth export.",
         "Verify separability of the particular logarithm-group projection in Proposition6.2.3 and complete its scheme-level linear-kernel argument.",
-        "Replace the documented supplier-dependent suggested-signature omissions once the actual motive/category interfaces are available."
+        "Replace the documented supplier-dependent suggested-signature omissions once the actual motive/category interfaces are available.",
+        "Anderson's comparison, which DM.4/uniformizability assigns to this layer: the t-module of an abelian t-motive over C∞ is uniformizable if and only if the motive is rigid analytically trivial (BP-RAPID Theorem 4.2, p. 16, citing Anderson's t-Motives, Theorem 4; on the dual side, Papanikolas §1.1.4, p. 2). No DM.8 target states it, and no target of the plan cites it, since DM.8's period theorems use rigid triviality directly. Plan it as a DM.8 comparison target once the DM.4 pre-t-motive category exists, stated in both the τ and σ conventions through DM.4/star-adapter."
       ]
     }
   ],
@@ -3333,14 +3318,20 @@
       "detail": "PAP Proposition6.2.3 invokes a Lie-algebra surjectivity verification for the particular scalar-action logarithm group. A general smooth group surjection need not be separable. The plan states the exact scalar-action theorem and records this verification before inferring a smooth linear kernel; no generic smoothness inference is used."
     },
     {
-      "title": "Motive and neutral-category suggested interfaces",
+      "title": "The pre-t-motive category of DM.4",
       "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8/rigid-triviality",
+        "DrinfeldModulesAndTModules:DM.8/fundamental-betti-basis",
+        "DrinfeldModulesAndTModules:DM.8/integral-trivialization",
+        "DrinfeldModulesAndTModules:DM.8/betti-exact-tensor",
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
         "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
+        "DrinfeldModulesAndTModules:DM.8/logarithm-matrices",
         "DrinfeldModulesAndTModules:DM.8/logarithm-motive-membership",
+        "DrinfeldModulesAndTModules:DM.8/carlitz-group",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
       ],
-      "detail": "DM.4 has not supplied the compiled dual-σ pre-t-motive category with scalar extension, tensor/dual and rationalization interfaces. MC.6 already plans arbitrary-field neutral reconstruction and finite-type recognition; its remaining tensor-subcategory and group-map comparison criteria are requested precisely. The suggested file omits category-valued signatures until these interfaces can actually be instantiated; native fixed-module, matrix and coordinate-algebra forms remain. Supplier packets marked needs_changes are mathematical contracts, not reviewed or implemented exports."
+      "detail": "DM.4 plans effective dual t-motives over a perfect field with the inverse-Frobenius σ (DM.4/inverse-twist-dual-motive), the τ-to-σ star dictionary for coordinate t-modules (DM.4/star-adapter) and the abelian-iff-A-finite image (DM.4/dual-realization). No DM.4 node yet defines the rational category these DM.8 targets live in: pre-t-motives over k̄(t), that is finite-dimensional k̄(t)-vector spaces with a bijective σ-semilinear operator, their morphisms, the rationalization functor H ↦ k̄(t)⊗H from effective dual t-motives (full on Hom after tensoring with F_q(t), by DM.8/constant-denominator), tensor products over k̄(t) with diagonal σ, internal Hom and duals given by inverse-transpose matrices, the unit object, the Carlitz object C with σ-matrix t−θ and its twists C(n) with σ-matrix (t−θ)^n (the rationalized dual motives of the Carlitz tensor powers of DM.4/carlitz-tensor-power), and scalar extension to the analytic fraction field L (Papanikolas §§3.2–3.4, pp. 10–19). Plan these as a DM.4 definition node with its API and tests; until then these targets keep the DM.4 stage as a prerequisite. MC.6 already plans arbitrary-field neutral reconstruction and finite-type recognition; its remaining tensor-subcategory and group-map comparison criteria are requested precisely. The suggested file omits category-valued signatures until these interfaces can be instantiated; native fixed-module, matrix and coordinate-algebra forms remain."
     },
     {
       "title": "Analytic and dimension supplier matching",
@@ -3352,7 +3343,7 @@
         "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
       ],
-      "detail": "Instantiation at the pin of current univariate/multivariate restricted-series Gauss norms, the C∞ normalized zero/pole comparison and AdicSpaces bounded-disk zero/growth estimates beyond the existing Tau Ceti preparation/unit/principal-ideal results, FA.0 general separability, curve transport and Lang base extension, and the requested SF.0 filtered growth theorem remains. SF.0 already plans the dimension/transcendence and base-extension statements; SF.1 already plans affine descent and torsors. Only the additional exact interfaces stated in requests are missing; the existing theories are imported."
+      "detail": "Instantiation at the pin of current univariate/multivariate restricted-series Gauss norms, the C∞ normalized zero/pole comparison and AdicSpaces bounded-disk zero/growth estimates beyond the existing Tau Ceti preparation/unit/principal-ideal results, FA.0 general separability, curve transport and Lang base extension, and the requested SF.0 filtered growth theorem remains. SF.0 already plans the dimension/transcendence and base-extension statements; SF.1 already plans affine descent and torsors. Only the additional exact interfaces stated in requests are missing; the existing theories are imported. TauCetiRoadmap main 350e970ce now has RestrictedPowerSeries (Gauss norms, Weierstrass preparation, unit-radius Tate algebras, the entire-series subring) and NewtonPolygons (disc factors, exact zero counts, entire products with a prescribed zero divisor). These own the normalized zero/pole factorization and the bounded-disk zero counts requested here from AdicSpaces; see upstreamImports. Neither roadmap is yet registered in the atlas, so the AdicSpaces stage stays as the recorded prerequisite."
     }
   ],
   "sourceIssues": [
@@ -4132,6 +4123,28 @@
           "verdict": "corrected",
           "note": "The rational intertwiner and both determinant hypotheses match PAP/CPY. The existing CPY correction is now explicitly recorded and independently confirmed."
         }
+      ]
+    }
+  ],
+  "upstreamImports": [
+    {
+      "owner": "tauceti:TauCetiRoadmap/RestrictedPowerSeries#layer-7-open-disc-entire-and-overconvergent-series",
+      "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
+      "provides": "The entire-series subring of native PowerSeries, its evaluation homomorphism and division by polynomials (§7.2), and the unit-radius Tate algebra with Weierstrass preparation (§4.3), distinguished coordinates and unique factorisation (§§5.1–5.2). E is the subring of these entire series whose coefficients are algebraic over k and generate a finite extension of k∞; T is the radius-one restricted algebra.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8/entire-series",
+        "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
+        "DrinfeldModulesAndTModules:DM.8/entire-from-equation"
+      ]
+    },
+    {
+      "owner": "tauceti:TauCetiRoadmap/NewtonPolygons#layer-4-disc-factors-slope-factors-and-analytic-zeros",
+      "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
+      "provides": "Gauss norms as supporting values of the Newton polygon (§2.2), disc factors and exact zero counts with multiplicity in closed discs (§§4.1–4.3), and entire products with the polynomial criterion for entire functions with finitely many zeros (§5.3). These give the finite zero divisor on the unit disk, the bounded-disk zero finiteness and zero-count growth bound used in the ABP lifting, and Ω∉C∞(t).",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
+        "DrinfeldModulesAndTModules:DM.8/abp-lifting",
+        "DrinfeldModulesAndTModules:DM.8/carlitz-group"
       ]
     }
   ]
