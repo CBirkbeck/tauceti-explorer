@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T00:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T00:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -19,6 +19,7 @@ Generated 2026-10-18T00:30Z from the README supplier graph of every open pull re
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
+- #1015 NoncompactQuantumSymmetry (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
 - #1041 VonNeumannAlgebras (kim-em, other author)
 
@@ -74,7 +75,7 @@ Generated 2026-10-18T00:30Z from the README supplier graph of every open pull re
 
 ## Wave 14
 - #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #813, #849, #938, #248, #446
-- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #871, #938
+- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #871, #938, #1015, #934
 
 ## Wave 15
 - #858 ArithmeticGaloisDuality — ready; waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
