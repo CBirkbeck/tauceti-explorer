@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T21:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T22:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -142,7 +142,7 @@ Generated 2026-10-18T21:40Z from the README supplier graph of every open pull re
 - #970 SmallRamificationAndAbelianVarietyBaseCases — draft; waits on #849, #850, #852, #856, #879, #923, #928, #931, #933
 - #1035 CompletedCohomologyPartII — ready; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #933, #944
 - #1080 PrismaticCohomologyPartIV — draft; waits on #1042, #1044, #1057, #1062, #1065, #1070, #814, #818, #820, #857, #868, #875, #908, #922, #944
-- #1171 ArithmeticStatisticsPartI — draft; waits on #1040, #1126, #1167, #792, #849, #850, #851, #852, #853, #858, #869, #929
+- #1171 ArithmeticStatisticsPartI — draft; waits on #1040, #1126, #1167, #785, #792, #849, #850, #851, #852, #858, #869, #929
 
 ## Wave 25
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #1040, #1062, #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
@@ -158,6 +158,7 @@ Generated 2026-10-18T21:40Z from the README supplier graph of every open pull re
 - #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #1037, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #966, #970, #999
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #785, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
 - #1063 MetaplecticAutomorphicForms — draft; waits on #1037, #785, #792, #851, #856, #924, #925, #931, #999
+- #1174 ArithmeticStatisticsPartIII — draft; waits on #1126, #1167, #1171, #1173, #792, #849, #850, #851, #869, #924, #929
 
 ## Wave 27
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #785, #852, #856, #858, #879, #913, #920, #923, #928, #931
