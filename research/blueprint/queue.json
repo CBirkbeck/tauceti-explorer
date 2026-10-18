@@ -52606,8 +52606,8 @@
    "revisionOf": "PKG-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9836",
-   "finishedAt": "2026-10-18T05:21:26Z"
+   "finishedAt": "2026-10-18T05:21:26Z",
+   "note": "deliverables arrived from an external worker on issue #9836"
   },
   {
    "id": "REV-PKG-HeightsRationalPointsAndObstructions~2",
