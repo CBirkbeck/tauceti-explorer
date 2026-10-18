@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T20:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T20:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -12,6 +12,7 @@ Generated 2026-10-18T20:30Z from the README supplier graph of every open pull re
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
+- #821 AmenableGroups (homeowmorphism, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
@@ -36,6 +37,7 @@ Generated 2026-10-18T20:30Z from the README supplier graph of every open pull re
 - #814 AdicEtaleGeometry — maintainer approved; waits on #813, #944
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
+- #952 PseudodifferentialOperators (kim-em, other author)
 
 ## Wave 4
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814, #944
@@ -135,6 +137,7 @@ Generated 2026-10-18T20:30Z from the README supplier graph of every open pull re
 - #1001 WeightsInEtaleCohomology — ready; waits on #1002, #849, #850, #852, #856, #857, #868, #873, #879, #908, #913, #928, #929, #931, #938, #940, #944
 - #1043 ColemanIntegration — draft; waits on #1002, #1039, #792, #813, #815, #851, #854, #944
 - #1062 PadicHodgeTheory — draft; waits on #1002, #1042, #1044, #1057, #785, #813, #814, #816, #818, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #908, #923, #940, #944
+- #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #792, #924, #925, #248, #253, #821, #889, #952
 
 ## Wave 24
 - #966 PELModuli — draft; waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #933, #938
