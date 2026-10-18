@@ -4,7 +4,7 @@ This roadmap assembles the converse proved by Christopher Skinner in *A converse
 
 The unit of planning is a mathematical target. Proof details stay with that target; general Selmer theory, CM-point geometry, the complex and p-adic Gross–Zagier formulas, congruence constructions and Euler-system descent keep their existing owners. In particular, the statistical theorem quoted as Theorem D on p. 332 is already `ArithmeticStatistics:ST.4/refinement-positive-simultaneous-rank-one`: the lower density of rational elliptic curves having both ranks one is positive under the unique minimal-short-pair height max(4|A|³,27B²). It consumes the converse. There is no dependency from this proof back to statistics.
 
-All seven layers below are **planned**, with exact supplier requests. The packet is **complete** at target level, but no layer is claimed closed and no declaration is claimed implemented. The definitive specification is this document together with the packet. The compact [suggested file](../suggested/RankOneConverse.lean) contains only the localization predicate and vector-space milestones that can already be stated at the pinned libraries. Heavy arithmetic definitions and the final arithmetic theorem statements remain targets here; proposition records do not substitute for their missing carriers.
+Independent review [REV-DESIGN-SKINNER](../reviews/REV-DESIGN-SKINNER.md) accepts this planning pass. All seven layers below are **planned**, with exact supplier requests. The packet is **complete** at target level, but no layer is claimed closed and no declaration is claimed implemented. The definitive specification is this document together with the packet. The compact [suggested file](../suggested/RankOneConverse.lean) contains only the localization predicate and vector-space milestones that can already be stated at the pinned libraries. Heavy arithmetic definitions and the final arithmetic theorem statements remain targets here; proposition records do not substitute for their missing carriers.
 
 ## Conventions and theorem boundary
 
@@ -85,7 +85,7 @@ Direct inputs: GL2AutomorphicRepresentationsAndTransfer:R16.3; HeegnerPointEuler
 
 ### The normalized f-Heegner point
 
-**Target:** `PC.0/normalized-heegner-point` (construction). In Case I or II, import the CM divisor D_K on the appropriate curve X, its Jacobian J, a Hecke-equivariant quotient φ:J→A_f and the coefficient projector ε_f. For an auxiliary prime ℓ away from pND set D_K,ℓ=(T_ℓ−1−ℓ)D_K and Q_K(f)=ε_f[D_K,ℓ]/(a_ℓ(f)−1−ℓ) in J(K)⊗M; put P_K(f)=φQ_K(f). This is independent of ℓ and equals the projection of the rational degree-zero Hodge divisor; in the modular case the cusp-normalized divisor gives the same projection.
+**Target:** `PC.0/normalized-heegner-point` (construction). In Case I or II, import the CM divisor D_K on the appropriate curve X, its Jacobian J, a Hecke-equivariant quotient φ:J→A_f and the coefficient projector ε_f. For an auxiliary prime ℓ away from pND set D_K,ℓ=(T_ℓ−1−ℓ)D_K and Q_K(f)=ε_f[D_K,ℓ]/(a_ℓ(f)−1−ℓ) in J(K)⊗M; put P_K(f)=φQ_K(f). Writing ξ for the degree-one rational Hodge class, set Q_K^ξ=[D_K−deg(D_K)ξ] in J(K)⊗ℚ. Then Q_K(f)=ε_f Q_K^ξ is independent of ℓ; in the modular case the cusp-normalized divisor gives the same projection.
 
 **Hypotheses and conventions.** The Hecke idempotent selects the chosen coefficient embedding, rather than merely the rational Galois orbit. The quotient, CM descent and normalized degree-one Hodge class are supplier objects.
 
@@ -125,7 +125,7 @@ Direct inputs: RankOneConverse:PC.0/normalized-heegner-point; GL2AutomorphicRepr
 
 **Checks.** A differential rescaling must be reflected quadratically in a squared-log formula.
 
-**Sources.** [A converse to a theorem of Gross, Zagier, and Kolyvagin](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf), §2.4 Case II and §2.6, pp. 340, 342–344. The rational transfer and differential choices used in the formulas. [Shimura curves and special values of p-adic L-functions](https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content), §2.7, p. 4190; §8.6, Proposition 8.13, p. 4239. The norm normalization and quotient logarithm comparison; the final formula needs the squared logarithm.
+**Sources.** [A converse to a theorem of Gross, Zagier, and Kolyvagin](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf), §2.4 Case II and §2.6, pp. 340, 342–344. The rational transfer and differential choices used in the formulas. [Shimura curves and special values of p-adic L-functions](https://infoscience.epfl.ch/server/api/core/bitstreams/c151dcd9-ff05-4c82-90d5-de19eec6f189/content), §2.7, p. 4190; §8.6, Proposition 8.13, p. 4239. Brooks §2.7 fixes the rational normalization of the transferred form; §8.6 gives quotient functoriality of logarithms. The norm ratio is supplied separately by GZ.9/petersson-norm-ratio, and the final value formula retains the logarithm square.
 
 **Acceptance for this layer.** Every target above has an exact supplier or baseline input. Obtain the exact local epsilon-factor export from R16.3. The layer is planned, with that supplier work recorded rather than treated as implemented.
 
@@ -225,9 +225,9 @@ Direct inputs: RankOneConverse:PC.1/semilocal-dimension; RankOneConverse:PC.1/ra
 
 ### The ordinary parity specialization
 
-**Target:** `PC.1/selmer-parity` (comparison). For λ-ordinary f as in the common conventions, the parity of dim_L H¹_f(F,V), F=ℚ or K, is the root-number parity of L(f/F,s). In particular dimension one over K gives w(f/K)=−1; dimension zero or one over ℚ gives respectively w(f)=+1 or −1.
+**Target:** `PC.1/selmer-parity` (comparison). For λ-ordinary f as in the common conventions with p∤N (and p∤D, already implied by splitting), the parity of dim_L H¹_f(F,V), F=ℚ or K, is the root-number parity of L(f/F,s). In particular dimension one over K gives w(f/K)=−1; dimension zero or one over ℚ gives respectively w(f)=+1 or −1.
 
-**Hypotheses and conventions.** Match the geometric Tate realization to Nekovář’s self-dual convention before applying the supplied theorem.
+**Hypotheses and conventions.** Assume p∤N; splitting already gives p∤D. Match the geometric Tate realization to Nekovář’s self-dual convention before applying the supplied theorem.
 
 **Argument and dependencies.** Use the existing ordinary modular parity node, restricted to ℚ and its quadratic extensions. Check that the central point is 1 in motivic weight-two normalization and convert from the cohomological dual convention.
 
@@ -265,7 +265,7 @@ Direct inputs: SelmerIwasawaCohomology:L3; SelmerIwasawaCohomology:L2; PadicMeas
 
 - `AnticyclotomicSelmer.augmentation_fibre` (compatibility): M_∞[γ−1]≅V/T as continuous G_K-modules.
 - `AnticyclotomicSelmer.local_condition` (characterisation): A class belongs exactly when its restriction to I_𝔭 vanishes; 𝔭̄ is relaxed.
-- `AnticyclotomicSelmer.change_lattice` (functoriality): Commensurable stable lattices have isogenous rationalized fibres and the indicated finite local errors.
+- `AnticyclotomicSelmer.change_lattice` (functoriality): For T⊆T′⊆p^(−m)T, coefficient-module and induced global/local cohomology comparisons have kernels and cokernels killed by a power of p. Their compact duals become isomorphic after inverting p. These errors need not be finite at the Λ level; finiteness at augmentation requires the separate control calculation.
 - `AnticyclotomicSelmer.dual_action` (compatibility): Pontryagin duality uses the contragredient Γ-action, with the involution recorded.
 - `AnticyclotomicSelmer.characteristic_zero` (characterisation): The extended characteristic ideal is zero if X_∞ is not Λ-torsion.
 
@@ -275,6 +275,7 @@ Direct inputs: SelmerIwasawaCohomology:L3; SelmerIwasawaCohomology:L2; PadicMeas
 - `AnticyclotomicSelmer.strict_place` (non-example): A class supported only at the relaxed 𝔭̄ is not rejected by a nonexistent strict condition there.
 - `AnticyclotomicSelmer.nontorsion` (degenerate): For a positive-rank dual the characteristic ideal is zero, not the unit ideal.
 - `AnticyclotomicSelmer.inverse_action` (computation): Specialization at ψ gives the V⊗ψ⁻¹ convention used by Skinner; replacing Ψ⁻¹ by Ψ reverses the weights.
+- `AnticyclotomicSelmer.bounded_error` (non-example): Λ/(p) is infinite although killed by p, and its characteristic ideal (p) becomes the unit ideal after inverting p. A lattice-change API must allow such bounded p-primary errors rather than promise finite Λ-level errors.
 
 **Checks.** Finite generation is proved or supplied, not an implicit consequence of the notation X_∞.
 
@@ -300,19 +301,19 @@ Direct inputs: RankOneConverse:PC.0/transfer-differential; GrossZagierAndArithme
 
 **Hypotheses and conventions.** Choose ψ₀ of weight n₀>6 divisible by p−1, so Wan’s κ=2n₀ satisfies κ≥6 and κ≡0 mod 2(p−1), and check its finite branch condition. Wan Theorem 1.2 requires a nonsplit q||N and residual irreducibility over G_K; do not add Theorem 1.1’s CM residual hypotheses. With ξ=ψ₀,alg·ω and κ=2n₀, check that the p-adic avatar of ξ|·|^(κ/2)(ω⁻¹∘Nm) factors through Γ_K, precisely Wan’s finite branch condition. Work after a finite coefficient extension satisfying (L-lrg) and descend the rational containment as appropriate.
 
-**Argument and dependencies.** Import the ordinary fixed-weight imprimitive Fitting bound from the proof of Wan Theorem 1.2 over the two-variable coefficient ring after inverting p. Apply the exact Selmer specialization/control comparison and Fitting-ideal base change to the anticyclotomic quotient and ψ₀-twist. Finite/p-primary errors disappear only at the stated rationalization. Use the analytic dictionary to identify the resulting principal analytic ideal. Take divisorial closure in the normal specialized ring to pass from the Fitting bound to the characteristic bound. Principality of characteristic ideals alone is insufficient.
+**Argument and dependencies.** Import the ordinary fixed-weight imprimitive Fitting bound from the proof of Wan Theorem 1.2 over the two-variable coefficient ring after inverting p. Apply the exact Selmer specialization/control comparison and Fitting-ideal base change to the anticyclotomic quotient and ψ₀-twist. Finite/p-primary errors disappear only at the stated rationalization. An arbitrary pseudo-null error over the two-variable ring need not disappear after inverting p; retain the actual fixed-weight Fitting bound and the exact control hypothesis instead of discarding such errors. Use the analytic dictionary to identify the resulting principal analytic ideal. Take divisorial closure in the normal specialized ring to pass from the Fitting bound to the characteristic bound. Principality of characteristic ideals alone is insufficient.
 
 Direct inputs: RankOneConverse:PC.0/residual-restriction; RankOneConverse:PC.2/deformed-selmer; RankOneConverse:PC.2/analytic-dictionary; AutomorphicCongruences:L2; SelmerIwasawaCohomology:L3; PadicMeasuresIwasawaAlgebras:L5.
 
 **Checks.** The direction is char⊆(L); the opposite inclusion does not prove the augmentation implication. Do not use the withdrawn nonordinary preprint in place of the published ordinary theorem.
 
-**Sources.** [A converse to a theorem of Gross, Zagier, and Kolyvagin](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf), §2.7, Proposition 2.7.2 and its proof, pp. 345–346. The one-sided bound and its two-variable specialization. [Iwasawa main conjecture for Rankin–Selberg p-adic L-functions](https://msp.org/ant/2020/14-2/ant-v14-n2-p04-p.pdf), Theorem 1.2, pp. 385–386; §2B–C, pp. 392–394; §7E; proof of Theorem 1.2, pp. 479–480. The ordinary fixed-form theorem and the Fitting bound used in its proof. [The Iwasawa main conjectures for GL₂](https://www.math.columbia.edu/~urban/eurp/MC.pdf), §3.1.6, p. 20; §3.2, Proposition 3.2.8 and Corollary 3.2.9, pp. 24–25. Fitting base change and the principal divisorial bound after an exact Selmer-control comparison.
+**Sources.** [A converse to a theorem of Gross, Zagier, and Kolyvagin](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf), §2.7, Proposition 2.7.2 and its proof, pp. 345–346. The one-sided bound and its two-variable specialization. [Iwasawa main conjecture for Rankin–Selberg p-adic L-functions](https://msp.org/ant/2020/14-2/ant-v14-n2-p04-p.pdf), Theorem 1.2, pp. 385–386; §2B–C, pp. 392–394; §7E, Proposition 7.7 and equations (7-2)–(7-6), pp. 445–449; proof of Theorem 1.2, pp. 479–480. The ordinary fixed-form theorem and the Fitting bound used in its proof. [The Iwasawa main conjectures for GL₂](https://www.math.columbia.edu/~urban/eurp/MC.pdf), §3.1.6, pp. 19–20; §3.2, Proposition 3.2.8 and Corollary 3.2.9, pp. 23–24. Fitting base change and the principal divisorial bound after an exact Selmer-control comparison.
 
 ### Finite-error augmentation control
 
 **Target:** `PC.2/augmentation-control` (comparison). With the preceding residual irreducibility and ordinary local hypotheses, the natural map Sel_𝔭(W)→Sel_∞[γ−1] is injective with finite cokernel. Hence X_𝔭 is infinite iff X_∞/(γ−1)X_∞ is infinite. The maximal divisible part of Sel_𝔭(W), after rationalizing its Tate module, is H_𝔭=ker[H¹(G_(K,S),V)→H¹(K_𝔭,V)].
 
-**Hypotheses and conventions.** The integral condition at augmentation is inertia-strict. Its difference from full decomposition-group restriction on V is finite, using the local invariant calculation.
+**Hypotheses and conventions.** Assume good ordinary p, as in the preceding divisibility. The integral condition at augmentation is inertia-strict, with the finite local control error computed separately. On V the map H¹(K_𝔭,V)→H¹(I_𝔭,V) is injective: its unramified kernel H¹(G_(K_𝔭)/I_𝔭,V^{I_𝔭}) vanishes by the local Frobenius/purity calculation. Thus the rational inertia-strict and full-local kernels agree exactly.
 
 **Argument and dependencies.** Residual irreducibility kills global invariants and identifies H¹(W) with H¹(M_∞)[γ−1]. Use the snake diagram on the actual global-to-inertia images. Bound the local cokernel by the invariants of M_∞^{I_𝔭}/(γ−1)M_∞^{I_𝔭}; the requested ordinary/purity calculation makes this finite. Dualize the finite-error comparison and use cofinite generation to pass from infinitude to a positive divisible corank, then compare the rational full-local kernel.
 
@@ -396,7 +397,7 @@ The field choice has to preserve a residual-ramified prime. For sufficiently lar
 
 The needed local nonvanishing can be reduced to the already planned BFH splitting theorem. Fix one negative odd fundamental discriminant D₀ with the desired local quadratic characters. The normalized form g=f⊗χ_(D₀) still has weight two and trivial nebentypus, although its level need not be squarefree. Put every prime of 2pND₀ and cond(g) in S. If g has sign +1, BFH(ii) gives a positive fundamental δ split at S and a nonzero central value. Since δ is square at these local fields, it preserves each prescribed character. The product D₀δ is negative, odd and fundamental because the factors are coprime and δ≡1 mod 8. This proves the needed local-prescription reduction; BSD.2 remains the owner of its general form.
 
-**Layer inputs.** RankOneConverse:PC.1; RankZeroOneBSD:BSD.2; GL2AutomorphicRepresentationsAndTransfer:R16.3; AutomorphicGaloisRepresentations:R19.3; RankOneConverse:PC.3; HeegnerPointEulerSystems:HE.7; EllipticCurveModularity:R29.5; EllipticCurveModularity:R29.6; RankZeroOneBSD:BSD.1.
+**Layer inputs.** RankOneConverse:PC.1; RankZeroOneBSD:BSD.2; GL2AutomorphicRepresentationsAndTransfer:R16.3; AutomorphicGaloisRepresentations:R19.3; RankOneConverse:PC.3; HeegnerPointEulerSystems:HE.7; EllipticCurveModularity:R29.5; EllipticCurveModularity:R29.6; RankZeroOneBSD:BSD.1; RankZeroOneBSD:BSD.0.
 
 ### The auxiliary Heegner field with nonzero twist value
 
@@ -435,9 +436,9 @@ Direct inputs: RankOneConverse:PC.1/selmer-parity; RankZeroOneBSD:BSD.2/bfh-nonv
 
 **Hypotheses and conventions.** All local alternatives and the squarefree-level hypothesis are retained. A_f is the modular isogeny class with Hecke field M and d=[M:ℚ].
 
-**Argument and dependencies.** Squarefree level excludes CM. Use the existing density-one ordinary-prime/large-residual-image export to choose p,λ, and parity to obtain w(f)=−1. Choose K by the auxiliary-field construction. The requested GL₂-type forward theorem makes A_f^D(ℚ) rank zero with finite Sha. The quadratic isogeny gives rank A_f(K)=d and finite Sha; the corrected arithmetic-localization criterion supplies B(e) for the chosen λ. Apply B, then subtract the zero analytic order of f⊗χ_D from the base-change order one.
+**Argument and dependencies.** Squarefree level excludes CM. Use the existing density-one ordinary-prime/large-residual-image export to choose p,λ, and parity to obtain w(f)=−1. Choose K by the auxiliary-field construction. The requested GL₂-type forward theorem makes A_f^D(ℚ) rank zero with finite Sha. The quadratic isogeny gives rank A_f(K)=d and finite Sha; the corrected arithmetic-localization criterion supplies B(e) for the chosen λ. Apply B, then subtract the zero analytic order of f⊗χ_D from the base-change order one. Repeat this argument for each f^σ: A_(f^σ) is in the same rational modular isogeny class, and the local St or St⊗ξ alternatives are unchanged by σ. Each conjugate has order one, so the actual conjugate-product L-function has order d.
 
-Direct inputs: AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes; RankOneConverse:PC.1/selmer-parity; RankOneConverse:PC.4/auxiliary-field; RankOneConverse:PC.1/rational-selmer-comparison; RankOneConverse:PC.1/arithmetic-localization; RankOneConverse:PC.3/theorem-b; HeegnerPointEulerSystems:HE.7; GL2AutomorphicRepresentationsAndTransfer:R16.3.
+Direct inputs: AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes; RankOneConverse:PC.1/selmer-parity; RankOneConverse:PC.4/auxiliary-field; RankOneConverse:PC.1/rational-selmer-comparison; RankOneConverse:PC.1/arithmetic-localization; RankOneConverse:PC.3/theorem-b; HeegnerPointEulerSystems:HE.7; GL2AutomorphicRepresentationsAndTransfer:R16.3; RankZeroOneBSD:BSD.0.
 
 **Checks.** Ordinarity is available at some λ|p, while sufficiently large λ all satisfy the residual conditions. No assumption that p has a unique prime in M is added.
 
@@ -539,7 +540,7 @@ Direct inputs: AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordina
 
 **Hypotheses and conventions.** The assertion is precisely the squarefree/local-type result of Theorem E; it does not claim every rank-zero main-conjecture converse mentioned in the introduction.
 
-**Argument and dependencies.** Use the derivative-twist base-change lemma to obtain B(e) and the other B hypotheses. Apply B to conclude ord L(f/K)=1. The twist already has order one, so the base-change factorization and additivity of finite analytic orders force ord L(f)=0. Apply the conjugate-product dictionary for A_f.
+**Argument and dependencies.** Use the derivative-twist base-change lemma to obtain B(e) and the other B hypotheses. Apply B to conclude ord L(f/K)=1. The twist already has order one, so base-change factorization and additivity of finite analytic orders force ord L(f)=0. Repeat the same argument for every f^σ: the modular abelian isogeny class, arithmetic hypotheses and local St or St⊗ξ alternatives are unchanged. Each conjugate central value is nonzero; only then use the conjugate-product dictionary to obtain ord L(A_f)=0.
 
 Direct inputs: RankOneConverse:PC.6/rank-zero-base-change; RankOneConverse:PC.3/theorem-b; RankZeroOneBSD:BSD.0.
 
@@ -577,7 +578,7 @@ A request names an existing mathematical owner. It does not assert that the resu
 
 12. **SerreWeightAndLevelOptimisation:R20.2.** Export the exact fixed-p, semistable weight-two level-lowering contradiction used in Skinner C: irreducible E[p], p≥5 good ordinary, and no residual ramification at any odd q|N imply a weight-two newform of level dividing 2; include the finite-flat p condition and proof S₂(Γ₀(1))=S₂(Γ₀(2))=0. Consumers: RankOneConverse:PC.5/odd-residual-ramification.
 
-13. **RankZeroOneBSD:BSD.0.** Export the actual analytic L-function and order/additivity interface for weight-two newforms and all conjugates, plus A_f and its quadratic base change at every local factor, including ramified conductor primes. The existing elliptic-only nodes are the comparison model, not a GL₂-type proof. Consumers: RankOneConverse:PC.3/point-and-height, RankOneConverse:PC.6/theorem-e.
+13. **RankZeroOneBSD:BSD.0.** Export the actual analytic L-function and order/additivity interface for weight-two newforms and all conjugates, plus A_f and its quadratic base change at every local factor, including ramified conductor primes. The existing elliptic-only nodes are the comparison model, not a GL₂-type proof. Consumers: RankOneConverse:PC.3/point-and-height, RankOneConverse:PC.4/theorem-a, RankOneConverse:PC.6/theorem-e.
 
 14. **tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4.** Reuse the existing upstream Layer 7 general discrete Selmer structure, finite elliptic Kummer exact sequence, finite Sel_p and Sha targets. This is an import of existing roadmap work, not a request to revise or duplicate it. The p∞/rational local-condition comparison is requested from SelmerIwasawaCohomology. Consumers: RankOneConverse:PC.5/mod-p-localization.
 
@@ -585,11 +586,15 @@ No internal mathematical gap is concealed in the assembly. There are fourteen ex
 
 ## Source corrections and version discipline
 
-The exact source URLs, read date 2026-10-18 and SHA-256 file hashes are in the packet. The published Skinner PDF is the reference for its numbered statements. The Wan input is the **published ordinary** Algebra & Number Theory paper associated with arXiv:1408.4044, not the withdrawn nonordinary arXiv:1412.1767. Skinner’s older §7.5 and §2.2 Wan references correspond to the published §7E and §2B–C. The Skinner–Urban source read is explicitly an author-hosted copy: its relevant statement is Corollary 3.2.9, not an asserted journal-number collation. Brooks’s published norm convention is in §2.7, p. 4190.
+The exact source URLs, read date 2026-10-18 and SHA-256 file hashes are in the packet. The published Skinner PDF is the reference for its numbered statements. The Wan input is the **published ordinary** Algebra & Number Theory paper associated with arXiv:1408.4044, not the withdrawn nonordinary arXiv:1412.1767. Skinner’s older §7.5 and §2.2 Wan references correspond to the published §7E and §2B–C. The Skinner–Urban source read is explicitly an author-hosted copy: Fitting/divisorial algebra is in §3.1.6, pp.19–20; Proposition 3.2.8 and Corollary 3.2.9 are on pp.23–24. These are not asserted journal-page locators. Brooks’s rational transfer normalization is in §2.7, p.4190; this is distinct from the Petersson-norm ratio.
 
-The packet records twelve source findings, all in our own words, against the versions actually read. Two are repaired proof omissions: componentwise logarithm nonvanishing in Lemma 2.2.2 and in Corollary 2.6.2. They are supplied by BSW Theorem 1.1 and the actual pre-projector point, preserving the published rank-one conclusions. The derivative choice in Theorem E receives the explicit BFH reduction above. The remaining Skinner findings identify the UFD wording, omitted restriction in the residual argument, tame-prime letter, point-symbol mismatch, reversed point notation, missing finite-condition subscript in the rank bound, character/extension wording and the Brooks section number. Brooks Propositions 8.12–8.13 must retain the square of the logarithm from Theorem 8.11. Every target uses these corrected conventions.
+The independent review records thirteen source findings, all paraphrased against the versions read: twelve confirmed and one rejected as a substantive gap. Two confirmed proof omissions are componentwise logarithm nonvanishing in Skinner Lemma 2.2.2 and Corollary 2.6.2. BSW Theorem 1.1, applied to the actual pre-projector point, repairs both without changing the rank-one conclusions. BSW §1.2, p.2, also identifies the omitted componentwise-logarithm justification. Its structural-rank conjectures are not used.
 
-BSW is read as arXiv:2603.20886v2. Its unconditional eigenlogarithm theorem is enough; its structural-rank conjectures are outside this proof. No claim that an arbitrary nonzero cohomology class or coefficient tensor has a nonzero scalar logarithm is made. The Annals landing page and the existing atlas source corrections were checked for known corrections. These records are inputs for independent verification, not self-review verdicts.
+The alleged substantive gap in Theorem E is rejected: the short source argument invokes the auxiliary-field method, and BFH has the derivative branch required there. The explicit two-twist reduction above supplies the details; a root number alone is never used to infer a simple zero. E6 is narrowed to the omitted form argument in the proof of **Proposition 2.6.1**, p.344: the source itself already explains the projector/logarithm comparison. E7 belongs to the **opening of §2.6**, p.341. E11 concerns the rational transfer normalization, not a norm definition.
+
+The other confirmed Skinner findings concern UFD wording, the omitted restriction in the residual contradiction, the tame-prime letter, reversed point notation, the missing finite-condition subscript in the rank bound and character/extension terminology. Brooks Propositions 8.12–8.13, p.4239, must retain the logarithm square from Theorem 8.11. The review also records E13: in the intervening pullback rule, the input point belongs to the source curve C, not the target C′.
+
+BSW is read as arXiv:2603.20886v2. No claim that an arbitrary coefficient tensor or nonzero cohomology class has a nonzero scalar logarithm is made. The Annals landing page and existing atlas source corrections were checked. Primary-source searches for Brooks corrections at OUP and EPFL found none; direct publisher/DOI landing-page retrieval was unavailable. Each source finding now has its own independent verdict and reason in the packet.
 
 ## Complete source-target ledger
 
@@ -610,4 +615,4 @@ The other objects used in the argument retain the following owners. Newform real
 
 The compact Lean file elaborates against pinned Mathlib with only proof-placeholder warnings. It has one real-bodied definition, four API theorem signatures, four examples and two semilocal milestone signatures. It is 106 lines rather than an attempted development of the unavailable arithmetic theory. The normalized Heegner point, anticyclotomic module, auxiliary-field construction and the five arithmetic final statements are specified above. The unit tests for those heavy constructions are acceptance targets for their eventual canonical carriers, and are not encoded using invented proposition fields.
 
-A follow-up first reviews the mathematical targets and source findings independently, then closes the supplier interfaces before declaring the layers closed. The downstream statistics packet can replace its recorded missing-owner references with PC.3/theorem-b and PC.5/theorem-c after acceptance. No implementation status is advanced by this plan.
+Independent review REV-DESIGN-SKINNER accepts this complete planning pass after the corrections recorded above. Supplier interfaces must be closed before any layer is declared closed. The downstream statistics packet can replace its recorded missing-owner references with PC.3/theorem-b and PC.5/theorem-c after acceptance. No implementation status is advanced by this plan.

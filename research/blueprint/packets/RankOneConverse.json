@@ -116,7 +116,7 @@
       "sha256": "3936b305ce070959713b1331a895a9ff8877ac12666bb1ad8f4b20c09e6c870d",
       "read": "2026-10-18",
       "readSections": [
-        "Introduction, Theorems 1.1–1.2, pp. 384–386; §2B–C, pp. 392–394; proof of Theorem 1.2, pp. 479–480"
+        "Introduction, Theorems 1.1–1.2, pp. 384–386; §2B–C, pp. 392–394; §7E, Proposition 7.7 and equations (7-2)–(7-6), pp. 445–449; proof of Theorem 1.2, pp. 479–480"
       ]
     },
     {
@@ -140,7 +140,7 @@
       "sha256": "f9faa40aa5e30eba705da88e3d68c8aa43069b5be01c1cc6ece212dd57879748",
       "read": "2026-10-18",
       "readSections": [
-        "§3.1.6–3.1.8, pp. 20–21; §3.2, Proposition 3.2.8, Corollary 3.2.9, Propositions 3.2.11 and 3.2.13, pp. 24–26"
+        "§3.1.6–3.1.8, pp. 19–21; §3.2, Proposition 3.2.8, Corollary 3.2.9, Propositions 3.2.11 and 3.2.13, pp. 23–26"
       ]
     },
     {
@@ -248,7 +248,7 @@
       ],
       "title": "The normalized f-Heegner point",
       "kind": "construction",
-      "statement": "In Case I or II, import the CM divisor D_K on the appropriate curve X, its Jacobian J, a Hecke-equivariant quotient φ:J→A_f and the coefficient projector ε_f. For an auxiliary prime ℓ away from pND set D_K,ℓ=(T_ℓ−1−ℓ)D_K and Q_K(f)=ε_f[D_K,ℓ]/(a_ℓ(f)−1−ℓ) in J(K)⊗M; put P_K(f)=φQ_K(f). This is independent of ℓ and equals the projection of the rational degree-zero Hodge divisor; in the modular case the cusp-normalized divisor gives the same projection.",
+      "statement": "In Case I or II, import the CM divisor D_K on the appropriate curve X, its Jacobian J, a Hecke-equivariant quotient φ:J→A_f and the coefficient projector ε_f. For an auxiliary prime ℓ away from pND set D_K,ℓ=(T_ℓ−1−ℓ)D_K and Q_K(f)=ε_f[D_K,ℓ]/(a_ℓ(f)−1−ℓ) in J(K)⊗M; put P_K(f)=φQ_K(f). Writing ξ for the degree-one rational Hodge class, set Q_K^ξ=[D_K−deg(D_K)ξ] in J(K)⊗ℚ. Then Q_K(f)=ε_f Q_K^ξ is independent of ℓ; in the modular case the cusp-normalized divisor gives the same projection.",
       "hypotheses": [
         "f is a normalized weight-two newform with trivial nebentypus, squarefree level N and Hecke field M; A_f is its modular abelian variety, d=[M:ℚ]=dim A_f. Fix p≥5, λ|p, L=M_λ (or a finite extension), O its integers, and the geometric Tate realization V=V_p(A_f)⊗_(M⊗ℚ_p)L with a stable lattice T. K is imaginary quadratic of odd discriminant D, with p=𝔭𝔭̄ and 2 split.",
         "The Hecke idempotent selects the chosen coefficient embedding, rather than merely the rational Galois orbit. The quotient, CM descent and normalized degree-one Hodge class are supplier objects."
@@ -374,7 +374,7 @@
         {
           "sourceId": "brooks-2015",
           "locator": "§2.7, p. 4190; §8.6, Proposition 8.13, p. 4239",
-          "match": "The norm normalization and quotient logarithm comparison; the final formula needs the squared logarithm."
+          "match": "Brooks §2.7 fixes the rational normalization of the transferred form; §8.6 gives quotient functoriality of logarithms. The norm ratio is supplied separately by GZ.9/petersson-norm-ratio, and the final value formula retains the logarithm square."
         }
       ],
       "implementationStatus": "unchecked"
@@ -638,10 +638,11 @@
       ],
       "title": "The ordinary parity specialization",
       "kind": "comparison",
-      "statement": "For λ-ordinary f as in the common conventions, the parity of dim_L H¹_f(F,V), F=ℚ or K, is the root-number parity of L(f/F,s). In particular dimension one over K gives w(f/K)=−1; dimension zero or one over ℚ gives respectively w(f)=+1 or −1.",
+      "statement": "For λ-ordinary f as in the common conventions with p∤N (and p∤D, already implied by splitting), the parity of dim_L H¹_f(F,V), F=ℚ or K, is the root-number parity of L(f/F,s). In particular dimension one over K gives w(f/K)=−1; dimension zero or one over ℚ gives respectively w(f)=+1 or −1.",
       "hypotheses": [
         "f is a normalized weight-two newform with trivial nebentypus, squarefree level N and Hecke field M; A_f is its modular abelian variety, d=[M:ℚ]=dim A_f. Fix p≥5, λ|p, L=M_λ (or a finite extension), O its integers, and the geometric Tate realization V=V_p(A_f)⊗_(M⊗ℚ_p)L with a stable lattice T. K is imaginary quadratic of odd discriminant D, with p=𝔭𝔭̄ and 2 split.",
-        "Match the geometric Tate realization to Nekovář’s self-dual convention before applying the supplied theorem."
+        "Match the geometric Tate realization to Nekovář’s self-dual convention before applying the supplied theorem.",
+        "Assume p∤N, as in Skinner Lemma 2.2.1; splitting in K already gives p∤D."
       ],
       "proofSteps": [
         "Use the existing ordinary modular parity node, restricted to ℚ and its quadratic extensions.",
@@ -716,7 +717,7 @@
         {
           "name": "AnticyclotomicSelmer.change_lattice",
           "role": "functoriality",
-          "statement": "Commensurable stable lattices have isogenous rationalized fibres and the indicated finite local errors."
+          "statement": "For T⊆T′⊆p^(−m)T, coefficient-module and induced global/local cohomology comparisons have kernels and cokernels killed by a power of p. Their compact duals become isomorphic after inverting p. These errors need not be finite at the Λ level; finiteness at augmentation requires the separate control calculation."
         },
         {
           "name": "AnticyclotomicSelmer.dual_action",
@@ -759,6 +760,11 @@
           "name": "AnticyclotomicSelmer.inverse_action",
           "kind": "computation",
           "statement": "Specialization at ψ gives the V⊗ψ⁻¹ convention used by Skinner; replacing Ψ⁻¹ by Ψ reverses the weights."
+        },
+        {
+          "name": "AnticyclotomicSelmer.bounded_error",
+          "kind": "non-example",
+          "statement": "Λ/(p) is infinite although killed by p, and its characteristic ideal (p) becomes the unit ideal after inverting p. A lattice-change API must allow such bounded p-primary errors rather than promise finite Λ-level errors."
         }
       ]
     },
@@ -816,7 +822,7 @@
       ],
       "proofSteps": [
         "Import the ordinary fixed-weight imprimitive Fitting bound from the proof of Wan Theorem 1.2 over the two-variable coefficient ring after inverting p.",
-        "Apply the exact Selmer specialization/control comparison and Fitting-ideal base change to the anticyclotomic quotient and ψ₀-twist. Finite/p-primary errors disappear only at the stated rationalization.",
+        "Apply the exact Selmer specialization/control comparison and Fitting-ideal base change to the anticyclotomic quotient and ψ₀-twist. Finite/p-primary errors disappear only at the stated rationalization. An arbitrary pseudo-null error over the two-variable ring need not disappear after inverting p; retain the actual fixed-weight Fitting bound and the exact control hypothesis instead of discarding such errors.",
         "Use the analytic dictionary to identify the resulting principal analytic ideal. Take divisorial closure in the normal specialized ring to pass from the Fitting bound to the characteristic bound. Principality of characteristic ideals alone is insufficient."
       ],
       "acceptance": [
@@ -839,12 +845,12 @@
         },
         {
           "sourceId": "wan-2020",
-          "locator": "Theorem 1.2, pp. 385–386; §2B–C, pp. 392–394; §7E; proof of Theorem 1.2, pp. 479–480",
+          "locator": "Theorem 1.2, pp. 385–386; §2B–C, pp. 392–394; §7E, Proposition 7.7 and equations (7-2)–(7-6), pp. 445–449; proof of Theorem 1.2, pp. 479–480",
           "match": "The ordinary fixed-form theorem and the Fitting bound used in its proof."
         },
         {
           "sourceId": "skinner-urban-author",
-          "locator": "§3.1.6, p. 20; §3.2, Proposition 3.2.8 and Corollary 3.2.9, pp. 24–25",
+          "locator": "§3.1.6, pp. 19–20; §3.2, Proposition 3.2.8 and Corollary 3.2.9, pp. 23–24",
           "match": "Fitting base change and the principal divisorial bound after an exact Selmer-control comparison."
         }
       ],
@@ -864,7 +870,7 @@
       "statement": "With the preceding residual irreducibility and ordinary local hypotheses, the natural map Sel_𝔭(W)→Sel_∞[γ−1] is injective with finite cokernel. Hence X_𝔭 is infinite iff X_∞/(γ−1)X_∞ is infinite. The maximal divisible part of Sel_𝔭(W), after rationalizing its Tate module, is H_𝔭=ker[H¹(G_(K,S),V)→H¹(K_𝔭,V)].",
       "hypotheses": [
         "f is a normalized weight-two newform with trivial nebentypus, squarefree level N and Hecke field M; A_f is its modular abelian variety, d=[M:ℚ]=dim A_f. Fix p≥5, λ|p, L=M_λ (or a finite extension), O its integers, and the geometric Tate realization V=V_p(A_f)⊗_(M⊗ℚ_p)L with a stable lattice T. K is imaginary quadratic of odd discriminant D, with p=𝔭𝔭̄ and 2 split.",
-        "The integral condition at augmentation is inertia-strict. Its difference from full decomposition-group restriction on V is finite, using the local invariant calculation."
+        "Assume good ordinary p, as in the preceding divisibility. The integral condition at augmentation is inertia-strict, with the finite local control error computed separately. On V the map H¹(K_𝔭,V)→H¹(I_𝔭,V) is injective: its unramified kernel H¹(G_(K_𝔭)/I_𝔭,V^{I_𝔭}) vanishes by the local Frobenius/purity calculation. Thus the rational inertia-strict and full-local kernels agree exactly."
       ],
       "proofSteps": [
         "Residual irreducibility kills global invariants and identifies H¹(W) with H¹(M_∞)[γ−1].",
@@ -1186,7 +1192,7 @@
         "Squarefree level excludes CM. Use the existing density-one ordinary-prime/large-residual-image export to choose p,λ, and parity to obtain w(f)=−1.",
         "Choose K by the auxiliary-field construction. The requested GL₂-type forward theorem makes A_f^D(ℚ) rank zero with finite Sha.",
         "The quadratic isogeny gives rank A_f(K)=d and finite Sha; the corrected arithmetic-localization criterion supplies B(e) for the chosen λ.",
-        "Apply B, then subtract the zero analytic order of f⊗χ_D from the base-change order one."
+        "Apply B, then subtract the zero analytic order of f⊗χ_D from the base-change order one. Repeat this argument for each f^σ: A_(f^σ) is in the same rational modular isogeny class, and the local St or St⊗ξ alternatives are unchanged by σ. Each conjugate has order one, so the actual conjugate-product L-function has order d."
       ],
       "acceptance": [
         "Ordinarity is available at some λ|p, while sufficiently large λ all satisfy the residual conditions.",
@@ -1200,7 +1206,8 @@
         "RankOneConverse:PC.1/arithmetic-localization",
         "RankOneConverse:PC.3/theorem-b",
         "HeegnerPointEulerSystems:HE.7",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "RankZeroOneBSD:BSD.0"
       ],
       "sources": [
         {
@@ -1429,7 +1436,7 @@
       "proofSteps": [
         "Use the derivative-twist base-change lemma to obtain B(e) and the other B hypotheses.",
         "Apply B to conclude ord L(f/K)=1.",
-        "The twist already has order one, so the base-change factorization and additivity of finite analytic orders force ord L(f)=0. Apply the conjugate-product dictionary for A_f."
+        "The twist already has order one, so base-change factorization and additivity of finite analytic orders force ord L(f)=0. Repeat the same argument for every f^σ: the modular abelian isogeny class, arithmetic hypotheses and local St or St⊗ξ alternatives are unchanged. Each conjugate central value is nonzero; only then use the conjugate-product dictionary to obtain ord L(A_f)=0."
       ],
       "acceptance": [
         "Nonvanishing of the base factor follows from total order one and twist order one."
@@ -1555,6 +1562,7 @@
       "need": "Export the actual analytic L-function and order/additivity interface for weight-two newforms and all conjugates, plus A_f and its quadratic base change at every local factor, including ramified conductor primes. The existing elliptic-only nodes are the comparison model, not a GL₂-type proof.",
       "neededBy": [
         "RankOneConverse:PC.3/point-and-height",
+        "RankOneConverse:PC.4/theorem-a",
         "RankOneConverse:PC.6/theorem-e"
       ]
     },
@@ -1632,7 +1640,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Lemma 2.2.2 and BSW §1.2, p.2, which identifies the omitted componentwise-logarithm justification. BSW Theorem 1.1 repairs it on actual algebraic points without restricting the number of primes above p.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E2",
@@ -1647,7 +1660,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Corollary 2.6.2 uses the chosen scalar component. BSW Theorem 1.1, applied before coefficient projection as in Theorem 2.3, supplies its nonvanishing for a non-torsion point.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E3",
@@ -1662,7 +1680,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as wording only: unique factorization concerns rings. The mathematical specialization in this plan separately retains Fitting base change and exact control; the typographical finding alone does not prove a further gap.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E4",
@@ -1677,7 +1700,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the contradiction must begin with a G_K-invariant line; the global representation is already assumed irreducible. The unique unipotent fixed line and normality complete the argument.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E5",
@@ -1692,28 +1720,38 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the tame-inertia step of Lemma 2.8.1: both references must use the one selected residual-ramified prime.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E6",
       "source": "skinner-2020",
       "kind": "misprint",
-      "locator": "§2.6, proof of Corollary 2.6.2, p. 344",
-      "printed": "The comparison of logarithms uses the Heegner-point symbol for a different choice without identifying it.",
-      "correction": "Use the rational Hodge-divisor representative and its specified projected P_K(f), with matching ω.",
-      "reason": "The eigendifferential kills the complementary projector, giving the stated equality only after this identification.",
+      "locator": "§2.6, proof of Proposition 2.6.1, p. 344",
+      "printed": "One occurrence of the point in the first logarithm comparison drops the form argument (f).",
+      "correction": "Read that occurrence as the same P_K(f) used in the next displayed equality; retain the rational Hodge-divisor representative for the projector comparison.",
+      "reason": "The source explicitly explains the eigendifferential/projector equality. The defect is only an omitted form argument, not an unidentified choice or missing comparison.",
       "affects": "nothing",
       "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as the omitted (f) argument in the proof of Proposition 2.6.1, not Corollary 2.6.2. Corrected the locator and rejected the earlier description of an unexplained choice: the source already gives the projector comparison.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E7",
       "source": "skinner-2020",
       "kind": "misprint",
-      "locator": "§2.5, concluding paragraph, p. 341",
+      "locator": "§2.6, opening paragraph, p. 341",
       "printed": "The image point is denoted with its field and form arguments interchanged.",
       "correction": "Use the same P_K(f) defined in §2.4.",
       "reason": "There is a single fixed quotient point in the height argument.",
@@ -1722,7 +1760,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after moving the locator to the opening of §2.6, p.341. The point notation there reverses the fixed field and form arguments.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E8",
@@ -1737,7 +1780,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the rank upper bound in §2.9 uses the finite Selmer dimension. The Kummer map must land in H¹_f, whose omitted subscript is supplied by the preceding hypotheses.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E9",
@@ -1752,7 +1800,12 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as terminology: the Steinberg twist uses an unramified quadratic character; the corresponding extension only determines that character.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E10",
@@ -1767,22 +1820,32 @@
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a substantive proof gap. The short §4 argument refers back to the auxiliary-field method and BFH has both value and derivative branches (introductory Theorem (i)–(ii), pp.543–544). The source does not deduce simplicity from the sign alone. The plan correctly spells out the derivative branch and its local-prescription reduction; an omitted explicit citation is not evidence of a false or missing theorem.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E11",
       "source": "skinner-2020",
       "kind": "misprint",
       "locator": "§2.4 Case II, p. 340",
-      "printed": "The norm comparison points to Brooks §2.8.",
-      "correction": "The Petersson norm convention needed there is in the published Brooks §2.7, p. 4190.",
-      "reason": "The cited §2.8 begins the CM setup; the preceding section contains the norm.",
+      "printed": "The rational normalization of the transferred form is referred to Brooks §2.8.",
+      "correction": "Use Brooks §2.7, p. 4190, for the rationally normalized transferred form; the Petersson-norm ratio is a separate comparison.",
+      "reason": "Brooks §2.7 treats rational normalization of the transfer. Section 2.8 starts the CM cohomology setup; this is not a locator for the Petersson norm.",
       "affects": "nothing",
       "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
       "searched": [
         "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
         "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after correcting the subject of the citation: it is rational transfer normalization, not the Petersson norm. Brooks §2.7, p.4190, supplies it, while §2.8 begins the CM setup.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     },
     {
       "id": "RankOneConverse/E12",
@@ -1796,8 +1859,35 @@
       "known": "Already flagged in the atlas GZ.9/quaternionic-weight-two-formula; the corrected squared expression is used by Skinner Proposition 2.6.1.",
       "searched": [
         "Published Brooks PDF, Theorem 8.11 and §8.6, read 2026-10-18",
-        "Existing GrossZagierAndArithmeticHeights GZ.9 packet source issues and normalization nodes"
-      ]
+        "Existing GrossZagierAndArithmeticHeights GZ.9 packet source issues and normalization nodes",
+        "Primary-source searches for Brooks rnu062 corrections/errata at OUP and EPFL on 2026-10-18; no correction surfaced. Direct OUP/DOI landing-page retrieval was unavailable."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the rendered published p.4239 and Theorem 8.11: both final weight-two formulas have lost the logarithm exponent. Skinner Proposition 2.6.1 uses the square. No separate correction surfaced in the primary-source erratum search; the publisher landing page could not be retrieved.",
+        "by": "REV-DESIGN-SKINNER"
+      }
+    },
+    {
+      "id": "RankOneConverse/E13",
+      "source": "brooks-2015",
+      "kind": "misprint",
+      "locator": "§8.6, logarithm pullback rule between Propositions 8.12 and 8.13, p. 4239",
+      "printed": "The point in the pullback rule for the map from C to C′ is assigned to the target curve.",
+      "correction": "The argument of the pullback logarithm belongs to the source C (or its Jacobian after Abel–Jacobi); its image belongs to C′.",
+      "reason": "The map can only be evaluated on its source, and the pulled-back differential also lives there. The quotient-cycle comparison has this source convention.",
+      "affects": "nothing",
+      "known": "No separate published correction located in the primary-source search; the functoriality statement is corrected here.",
+      "searched": [
+        "Published Brooks PDF, Theorem 8.11 and §8.6, read 2026-10-18",
+        "Existing GrossZagierAndArithmeticHeights GZ.9 packet source issues and normalization nodes",
+        "Primary-source searches for Brooks rnu062 corrections/errata at OUP and EPFL on 2026-10-18; no correction surfaced. Direct OUP/DOI landing-page retrieval was unavailable."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read directly in the rendered published p.4239. The source and target are interchanged only in the point-membership phrase; the map and pullback identity determine the intended domain.",
+        "by": "REV-DESIGN-SKINNER"
+      }
     }
   ],
   "sourceVersions": [
@@ -1892,7 +1982,9 @@
     "reviewedAudit": "data/library-coverage.json: RankZeroOneBSD BSD.0–4; SelmerIwasawaCohomology L0–4; PadicMeasuresIwasawaAlgebras L4–5; GZ and HE stages",
     "upstreamRead": [
       "content/tau-ceti/ArithmeticDirichletSeries/README.md",
-      "content/tau-ceti/Multiquadratic/README.md"
+      "content/tau-ceti/Multiquadratic/README.md",
+      "TauCetiRoadmap/EllipticCurves/README.md (independent review: introduction and Layer 7)",
+      "TauCetiRoadmap/LocalGaloisGroups/README.md (independent review: introduction, cohomology and duality boundaries)"
     ],
     "currentMainChecked": "Read-only TauCetiRoadmap main and current TauCeti library checked in addition to pinned objects. The nine post-snapshot roadmaps and current suggested files were searched for these targets; no converse/Heegner/Selmer replacement was found. Abelian varieties, tangent spaces and continuous cohomology are reused. No build was run in the upstream trees.",
     "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
@@ -1907,7 +1999,8 @@
       "PeripheralActions",
       "ProfiniteArithmetic",
       "RealAlgebraicGeometry"
-    ]
+    ],
+    "independentReview": "REV-DESIGN-SKINNER reread all nine pinned declaration statements and the reviewed coverage, read exact supplier nodes across their split packets, and independently searched the nine post-snapshot roadmaps and current TauCeti library. Existing EllipticCurves Layer 7 general Selmer targets are imported, not replanned."
   },
   "sourceCoverage": [
     {
@@ -1989,5 +2082,143 @@
         "RankOneConverse:PC.6/theorem-e"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SKINNER",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 26 nodes, every source locator, nine pinned baseline declarations, exact supplier statements/requests, current upstream nonduplication, definitions/API/tests, planets, reader and suggested Lean. Corrected eight nodes and source metadata/locators; added one discriminating lattice-error test and one Brooks domain misprint. Thirteen source findings have independent verdicts (12 confirmed, one rejected as a substantive gap). All seven layers remain planned, not closed, with fourteen precise supplier requests and every implementationStatus unchecked. See the review report for validation.",
+    "checked": [
+      {
+        "nodeId": "RankOneConverse:PC.0/residual-restriction",
+        "verdict": "verified",
+        "note": "Checked the nontrivial unipotent, its square and uniqueness/normality argument; retained odd nonsplit residual ramification and exact local-global compatibility supplier."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.0/heegner-cases",
+        "verdict": "verified",
+        "note": "Checked the conditional ramified-level clause, local signs and Case II even/nonempty inert set; exact epsilon-table export remains requested."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.0/normalized-heegner-point",
+        "verdict": "corrected",
+        "note": "Made the pre-projector rational Hodge-divisor point explicit; checked Hecke denominator, independence and coefficient projector against §2.4 and the exact GZ.3/HE.1 suppliers."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.0/transfer-differential",
+        "verdict": "corrected",
+        "note": "Separated rational transfer normalization (Brooks §2.7) from the Petersson-norm ratio; checked rational-model, differential and norm suppliers."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/rank-one-localization",
+        "verdict": "verified",
+        "note": "Verified the actual map, finite-dimensional line condition, all four API items and four discriminating tests; suggested Lean uses the pinned vector-space carriers."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/rational-selmer-comparison",
+        "verdict": "verified",
+        "note": "Checked GL₂-type Kummer and every λ-component, rational Tate-Sha term, local finite comparison, ± decomposition and entire-Sha isogeny request; concrete selmerGroup₂ is not misused."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/arithmetic-localization",
+        "verdict": "verified",
+        "note": "Checked BSW Theorem 1.1 on an actual non-torsion M-generator, clearing denominators before coefficient projection; no uniqueness-of-λ hypothesis."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/semilocal-dimension",
+        "verdict": "verified",
+        "note": "Checked local dimensions 2 and 1, global/dual invariant vanishing and the precise Euler/Poitou–Tate supplier specialization."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/strict-kernels",
+        "verdict": "verified",
+        "note": "Verified the conjugation/axis argument and both Lean milestones: a nonzero axis kernel forces both finite axes into an image assumed to be a line. No fixed-prime conjugation is assumed."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.1/selmer-parity",
+        "verdict": "corrected",
+        "note": "Restricted to good p, matching Skinner Lemma 2.2.1; the imported ordinary parity theorem is more general, and every consumer here uses good p."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.2/deformed-selmer",
+        "verdict": "corrected",
+        "note": "Corrected the lattice-change API from finite errors to bounded p-primary errors with rationalized compact-dual comparison; added the Λ/(p) discriminating test. Checked inverse action, inertia condition, coefficient duality and finite-generation request."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.2/analytic-dictionary",
+        "verdict": "verified",
+        "note": "Checked O^ur, inverse-character weights, finite coefficient enlargement, imprimitive factors and augmentation outside classical interpolation; period and ramified-formula requests remain explicit."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.2/wan-divisibility",
+        "verdict": "corrected",
+        "note": "Verified the published ordinary Wan Fitting bound on p.480 and the finite branch hypotheses; corrected Skinner–Urban author-copy page locators, supplied Wan §7E pages and excluded unjustified disposal of arbitrary pseudo-null errors."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.2/augmentation-control",
+        "verdict": "corrected",
+        "note": "Replaced the imprecise finite difference on V by exact equality of rational kernels using the vanishing unramified kernel; retained the distinct finite integral augmentation error and explicit good-ordinary hypothesis."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.2/augmentation-obstruction",
+        "verdict": "verified",
+        "note": "Checked height-one augmentation divisor, finite pseudo-null case and the nontorsion Nakayama branch under finite generation and faithful coefficient extension."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.3/point-and-height",
+        "verdict": "verified",
+        "note": "Checked the same normalized point in the positive-height formula and all-conjugate order-d conclusion against Proposition 2.5.1 and GZ.8."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.3/point-and-logarithm",
+        "verdict": "verified",
+        "note": "Checked the squared-log formula, nonzero good-p Euler factor, imprimitive comparison and BSW on the actual rational pre-projector point; ramified Case I remains a supplier request."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.3/theorem-b",
+        "verdict": "verified",
+        "note": "Checked all five published B hypotheses, especially the conditional clause (d); the assembly supplies analytic orders, rank d and entire Sha via the requested full GL₂-type forward theorem."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.4/auxiliary-field",
+        "verdict": "verified",
+        "note": "Checked both local-type alternatives, preservation of the selected residual-ramified prime, CRT fundamental discriminants and BFH positive second-twist value branch; four API items and five tests discriminate the construction."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.4/theorem-a",
+        "verdict": "corrected",
+        "note": "Made the order-d conclusion explicit by running the converse argument for every Galois conjugate, rather than inferring conjugate analytic orders from one embedding; added the direct BSD.0 factorization supplier request."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.4/theorem-a-prime",
+        "verdict": "verified",
+        "note": "Checked semistable elliptic modularity, the split/nonsplit multiplicative dictionary and rational-isogeny invariance; no extra elliptic hypothesis is introduced."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.5/mod-p-localization",
+        "verdict": "verified",
+        "note": "Checked finite-to-p∞ Kummer, finite cyclic versus divisible alternatives, perfect alternating pairing rather than square size alone, and the good-reduction local torsion bound."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.5/odd-residual-ramification",
+        "verdict": "verified",
+        "note": "Checked the fixed-p level-lowering contradiction and the zero weight-two spaces at levels 1 and 2; finite-flat and iteration details are explicitly requested from R20.2."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.5/theorem-c",
+        "verdict": "verified",
+        "note": "Checked the given good ordinary prime, residual irreducibility, local torsion avoidance, auxiliary twist and elliptic forward theorem; no finite-Sha hypothesis is smuggled into C."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.6/rank-zero-base-change",
+        "verdict": "verified",
+        "note": "Checked the BFH derivative branch after a locally prescribed first twist; positive second discriminant keeps 2,p split and all level local characters. Full GL₂-type forward and arithmetic localization give B(e)."
+      },
+      {
+        "nodeId": "RankOneConverse:PC.6/theorem-e",
+        "verdict": "corrected",
+        "note": "Justified order zero for the abelian L-function by repeating the rank-zero deduction for all Galois conjugates before using the product; checked derivative BFH branch and full forward/Sha requests."
+      }
+    ]
+  }
 }
