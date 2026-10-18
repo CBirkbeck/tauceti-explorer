@@ -1,0 +1,2277 @@
+{
+  "roadmapId": "DiophantineApproximationAndTranscendencePartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "DiophantineApproximationAndTranscendencePartII:AA.0",
+    "DiophantineApproximationAndTranscendencePartII:AA.1",
+    "DiophantineApproximationAndTranscendencePartII:AA.2",
+    "DiophantineApproximationAndTranscendencePartII:AA.3",
+    "DiophantineApproximationAndTranscendencePartII:AA.4",
+    "DiophantineApproximationAndTranscendencePartII:AA.5"
+  ],
+  "status": "complete",
+  "summary": "A target-level plan for CDT25 arithmetic algebraization, including all three proofs, the holonomic application and corrected scalar-span and capacity statements. All nodes are specifications, not implemented declarations.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient linear maps on native univariate formal power series.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_rescale",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The nth coefficient after rescaling by a is a^n times the original coefficient.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:PowerSeries.substAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Substitution as an algebra homomorphism when the substituted series has nilpotent constant coefficient; zero constant coefficient suffices over the coefficient fields used here.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:Int.Matrix.exists_ne_zero_int_vec_norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/SiegelsLemma.lean",
+        "provides": "For a finite integer matrix with 0<row count<column count, a nonzero integral kernel vector with the stated sup-norm bound (column count times max(1,matrix norm))^(rows/(columns−rows)).",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd.circleAverage_log_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/JensenFormula.lean",
+        "provides": "Jensen formula on a closed disc for an analytic function nonzero at the centre, including the zero divisor and the logarithm of the central value.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:Stirling.factorial_isEquivalent_stirling",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Stirling.lean",
+        "provides": "Asymptotic equivalence n! ~ sqrt(2πn)(n/e)^n, from which d/(d!)^(1/d) tends to e.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:Matrix.det_vandermonde",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+        "provides": "Determinant of the native Vandermonde matrix is the product of v_j−v_i over i<j; the sign convention differs from the reversed product but its norm agrees.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis_det",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean",
+        "provides": "Determinant in the Gram–Schmidt orthonormal basis is the product of the successive diagonal inner products. This supplies the determinant estimate after Cauchy–Schwarz, not a pre-existing Hadamard inequality.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:eVariationOn",
+        "kind": "def",
+        "module": "Mathlib/Topology/EMetricSpace/BoundedVariation.lean",
+        "provides": "Extended variation is the supremum of sums of consecutive extended distances over increasing finite partitions.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:LipschitzWith.comp_boundedVariationOn",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/EMetricSpace/BoundedVariation.lean",
+        "provides": "A Lipschitz outer map preserves bounded variation on a subset of a linear order.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.empiricalMeasureOfFintype",
+        "kind": "def",
+        "module": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+        "provides": "A nonempty finite population gives a probability measure with weight inverse cardinality at each indexed value, retaining multiplicities.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.integral_empiricalMeasureOfFintype",
+        "kind": "theorem",
+        "module": "TauCeti/Probability/Process/EmpiricalMeasure.lean",
+        "provides": "Integrals of strongly measurable functions against the finite empirical measure are normalized finite sums.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact",
+        "kind": "lemma",
+        "module": "Mathlib/MeasureTheory/Measure/Prokhorov.lean",
+        "provides": "Finite measures of bounded mass supported on a fixed compact set form a compact set in the weak topology.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
+        "provides": "Weak convergence of probability measures is convergence of integrals of bounded continuous real test functions.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Liouville.lean",
+        "provides": "Cauchy derivative estimate n! C/R^n for a complex differentiable function continuous on the closed positive-radius disc and bounded by C on its boundary; divide by n! for Taylor coefficients and iterate in separate variables.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:RatFunc.finrank_eq_max_natDegree",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/IntermediateField.lean",
+        "provides": "The degree of K(X) over K(f) is the maximum of the reduced numerator and denominator degrees; finrank is zero for a constant f. Nonconstancy supplies the finite extension in the applications.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:RatFunc.coeToLaurentSeries",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/LaurentSeries.lean",
+        "provides": "The rational-function to Laurent-series coercion is the field algebra map, compatible with the polynomial and power-series embeddings.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:IsAlgebraic.exists_integral_multiple",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Algebraic/Integral.lean",
+        "provides": "An element algebraic over a commutative ring has a nonzero scalar multiple integral over that ring. Apply over ℤ and take a positive common multiple for finitely many algebraic numbers.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:ProbabilityMeasure.continuous_prod",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/FiniteMeasureProd.lean",
+        "provides": "Native full name MeasureTheory.ProbabilityMeasure.continuous_prod. On second-countable pseudometrizable spaces with measurable opens, binary product of probability measures is weakly continuous; the compact metric circle meets the hypotheses. The short reference is intentional: the supplied index mistakenly retains the preceding FiniteMeasure namespace after its commented end command, while the source closes it on line 89. This is an index discrepancy, not missing mathematics.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Measure/Portmanteau.lean",
+        "provides": "Weak convergence on a pseudometrizable space implies convergence of masses of sets whose frontier is null for the limit probability; applies to arcs with endpoints outside its atoms.",
+        "checked": "Declaration statement read in the source tree at the recorded pin; the provides field records its scope, not a claim that the consuming target is implemented."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "CDT25",
+      "title": "The unbounded denominators conjecture",
+      "authors": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang",
+      "edition": "Journal of the American Mathematical Society 38 (2025), 627–702; published author offprint",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf",
+      "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§§1.1.1–1.1.3, pp.629–631; §2, pp.634–649; §3 application interface, pp.649–651. Mathematical statements checked on page images 635, 636 and 649; all three proof routes read."
+      ]
+    },
+    {
+      "id": "BB11",
+      "title": "Remarks on Eisenstein",
+      "authors": "Yuri Bilu and Alexander Borichev",
+      "edition": "arXiv:1112.2290v2, 21 December 2011",
+      "url": "https://arxiv.org/pdf/1112.2290v2",
+      "sha256": "31a6d216243dacc754b7040c1b1cbc20df2c4969745fdb6409346c6297bf9af1",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1, pp.1–2; §6, Theorem 6.1 and proof, pp.10–11; opening of §8, p.14. Only the qualitative denominator consequence is a target here."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0"
+      ],
+      "title": "Integral coefficient lattices",
+      "kind": "definition",
+      "statement": "For f=Σ a_n x^n in ℚ[[x]] and an integer M>0, write IntegralAtScale(M,f) when M^n a_n is an integer for every n≥0, equivalently f(Mx) lies in the image of ℤ[[x]] in ℚ[[x]]. IntegralSeries(f) means IntegralAtScale(1,f). For a field embedded in ℂ the same convention uses algebraic integers in place of rational integers. The tangent lattice for χ=t+Σ_{n≥2}a_n t^n is the stronger requirement M^(n−1)a_n∈ℤ for n≥2, equivalently χ(Mt)/M∈t+t²ℤ[[t]].",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.coeff",
+        "mathlib:PowerSeries.coeff_rescale"
+      ],
+      "proofSteps": [
+        "Use the existing coefficientwise map and rescale operation; the lattice is their preimage, not a competing series type.",
+        "Identify the tangent condition by dividing the rescaled series by the nonzero integer M."
+      ],
+      "acceptance": [
+        "Variable scaling never changes the constant coefficient.",
+        "The normalized inverse lemma needs the stronger tangent lattice, not just the ordinary scaled lattice."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA0",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§2.1, proof of Lemma 2.1.2, pp.637–638",
+          "match": "The denominator argument uses coefficientwise integral series and distinguishes normalized coordinate rescaling from ordinary variable rescaling. The lattice terminology packages that argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral power series"
+      },
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.coeff",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to integrality of every M^n coefficient."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.rescale",
+          "role": "compatibility",
+          "statement": "Membership is equivalent to the native rescale M being in the coefficientwise image of integral power series."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.ring",
+          "role": "structure",
+          "statement": "At fixed M the series form a subring; at M=1 it is the image of the native integral-series ring."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.enlarge",
+          "role": "functoriality",
+          "statement": "If M divides N and both are positive, membership at M implies membership at N."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.constant",
+          "role": "simp",
+          "statement": "A constant belongs exactly when its value is integral, independently of M."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.tangent",
+          "role": "characterisation",
+          "statement": "For a tangent-to-identity series, χ(Mt)/M is integral exactly when M^(n−1)coeff_nχ is integral for all n≥2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.geometricHalf",
+          "kind": "example",
+          "statement": "Σ(x/2)^n belongs at scale 2 and fails at scale 1."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.halfConstant",
+          "kind": "counterexample",
+          "statement": "The constant series 1/2 belongs at no positive integral scale."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.zero",
+          "kind": "degenerate",
+          "statement": "Zero belongs at every positive scale."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.IntegralAtScale.tangentDifference",
+          "kind": "counterexample",
+          "statement": "χ=t+t²/4 belongs at ordinary scale 2, but fails the tangent lattice at M=2; M=4 satisfies the latter."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CDT25 Lemma 2.1.2, pp.637–638",
+          "how": "Clears the integer matrix of Taylor constraints before applying Siegel’s lemma."
+        },
+        {
+          "where": "AA.0/inverse-denominators",
+          "how": "Distinguishes stable inverse-coordinate denominators from the weaker scaled-series condition."
+        }
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0"
+      ],
+      "title": "Simultaneous analytic uniformization of formal series",
+      "kind": "definition",
+      "statement": "For a formal f∈ℚ[[x]], a holomorphic φ near the closed unit disc with φ(0)=0 and φ′(0)≠0, and a holomorphic g near that disc, Uniformizes(φ,f,g) means that there is a holomorphic germ F at x=0 whose Taylor coefficients are those of f and g=F∘φ as germs at z=0. The Taylor coefficient convention is F^(n)(0)/n!. It does not mean that the original series for f converges at every φ(z). A family is simultaneously uniformized by a single φ when each member has such a g. Write J(g)=∫_𝕋 log(max(1,|g|)) dμ, with Haar mass one.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.coeff",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "proofSteps": [
+        "Use analytic germs at zero and Taylor uniqueness; φ′(0)≠0 gives a local inverse and preserves the formal information.",
+        "The uniformized functions live near the closed disc, while the initial realization F only lives near zero.",
+        "Use log(max(1,r)) to make the positive logarithm continuous even at g=0."
+      ],
+      "acceptance": [
+        "Specify neighbourhoods of the closed disc, rather than just the open disc, in every finite-radius estimate.",
+        "For the open-disc André criterion, obtain closed-disc hypotheses by shrinking the parameter disc."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA0",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§1.1.1, pp.630–631; Theorem 2.0.1, p.635; (2.1.1), p.637",
+          "match": "The simultaneous uniformization condition in Theorem 2.0.1 is a statement about the pulled-back germs holomorphic near the closed parameter disc; the mean uses normalized Haar measure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Simultaneous analytic uniformization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.taylor",
+          "role": "projection",
+          "statement": "The germ F has nth coefficient F^(n)(0)/n!, including n=0."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.germUnique",
+          "role": "extensionality",
+          "statement": "The analytic realization F is unique as a germ; two uniformized g agree on the connected disc if their germs agree."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.ring",
+          "role": "structure",
+          "statement": "The uniformized realizations of 0,1,f+h and fh are 0,1,g_f+g_h and g_fg_h."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.shrink",
+          "role": "functoriality",
+          "statement": "For 0<r≤1, replacing φ(z) by φ(rz) and g by g(rz) preserves the closed-unit-disc relation; the new derivative is rφ′(0). More general radii require holomorphicity on the corresponding larger disc."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.formalSubstitution",
+          "role": "compatibility",
+          "statement": "Its Taylor expansion is native substitution of the Taylor series of φ into f; φ(0)=0 is the substitution hypothesis."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.inverseRadius",
+          "role": "relation",
+          "statement": "A finite simultaneous family has a common positive radius of convergence in x, obtained from an inverse chart for φ."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.positiveLogMean.constant",
+          "role": "simp",
+          "statement": "J(constant c)=log(max(1,|c|)), and J(0)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.linear",
+          "kind": "example",
+          "statement": "For φ(z)=2z, f=x and g(z)=2z, the relation holds and J(g)=log2."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.algebraicBranch",
+          "kind": "example",
+          "statement": "For m≥2, f=(1−m²x)^(1/m) as its branch with constant 1 and φ(z)=(1−exp(Mz))/m², g(z)=exp(Mz/m) realizes the same germ."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.wrongBranch",
+          "kind": "counterexample",
+          "statement": "For f with constant coefficient 1, the negative analytic square-root branch with value −1 at zero does not realize f."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.Uniformizes.noGlobalSeriesEvaluation",
+          "kind": "counterexample",
+          "statement": "For f=1/(1−x), analytic continuation is interpreted as a germ identity; a map φ hitting the actual pole 1 cannot have a holomorphic uniformized realization on the closed disc."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CDT25 Theorem 2.0.1",
+          "how": "Connects arithmetic formal substitutions to the independently supplied analytic uniformization."
+        },
+        {
+          "where": "CDT25 §§2.2,2.4,2.5",
+          "how": "Makes the auxiliary finite sums holomorphic on a closed polydisc without assuming convergence of f at every point of φ’s image."
+        }
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.0/integral-radius-polynomial",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0"
+      ],
+      "title": "Integral series beyond the unit radius are polynomials",
+      "kind": "theorem",
+      "statement": "If f=Σ a_n x^n∈ℤ[[x]] has a complex analytic realization on a disc of radius R>1, then a_n=0 for all sufficiently large n; thus f is the image of an integer polynomial.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs",
+        "mathlib:Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le"
+      ],
+      "proofSteps": [
+        "Choose 1<r<R and bound the analytic realization on the compact circle of radius r.",
+        "Cauchy’s coefficient estimate gives |a_n|≤Cr^(−n), eventually less than 1.",
+        "An integer of absolute value less than 1 vanishes. This is a one-variable Cauchy consequence, not an extra algebraization hypothesis."
+      ],
+      "acceptance": [
+        "The geometric series 1/(1−x) at radius exactly 1 prevents a non-strict radius statement.",
+        "Polynomials satisfy the conclusion at every finite radius."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA0",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Lemma 1.1.2, p.629",
+          "match": "Lemma 1.1.2 forces eventual vanishing of integral coefficients by comparing integer discreteness with a Cauchy estimate beyond radius one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral radius criterion"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.0/eisenstein",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0"
+      ],
+      "title": "Eisenstein denominators for algebraic series",
+      "kind": "theorem",
+      "statement": "Let y(u)=Σ a_nu^n∈ℚ̄[[u]] be algebraic over ℚ̄(u). There exist positive rational integers c,M such that c M^n a_n is an algebraic integer for every n≥0. If a_0 is an algebraic integer, some positive M′ alone suffices: (M′)^n a_n is integral for every n. The same statement applies to a nonnegative Puiseux series after putting u=x^(1/N), N>0. No variable-only claim is made for a nonintegral constant term.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale",
+        "mathlib:IsAlgebraic.exists_integral_multiple"
+      ],
+      "proofSteps": [
+        "Use the elementary tail-series route described in BB11 §1, p.1, rather than planning its stronger effective p-adic estimates. Choose a square-free annihilator P(x,y) over a number field. Since P_y(x,f) is nonzero, let s be its finite order and choose N>s. Write f=b(x)+x^N g with b the truncation below N.",
+        "The polynomial Q(x,Y)=x^(−N−s)P(x,b(x)+x^N Y) has coefficients in a finite extension containing the finitely many coefficients of b, and Q(0,Y)=aY+b₀ with a≠0. Indeed the constant term is divisible by x^(N+s) because P(x,f)=0, the linear term has exactly that order, and each higher term has order at least 2N>N+s. Include g(0) in that finite extension. After Y=g(0)+u and division by a the equation is u+xR(x,u)=0 for a polynomial R with algebraic coefficients.",
+        "Choose a positive integer M clearing the finitely many algebraic coefficients of R and all nonconstant coefficients in b and g(0), using the native integral-multiple theorem. The equation for u(Mt) is u(Mt)=−Mt R(Mt,u(Mt)). Its nth coefficient is an integral polynomial in earlier coefficients, so induction shows u(Mt) has algebraic-integer coefficients. Thus all positive-degree coefficients of f(Mt) are integral after enlarging M if necessary. The same recurrence also places every coefficient in the chosen finite extension.",
+        "Choose c to clear the remaining constant coefficient. Equivalently, if a first argument gives cM^n a_n integral, an integral a_0 permits replacing M by cM since (cM)^n a_n=c^(n−1)(cM^n a_n) for n≥1. Apply the identical univariate argument after putting u=x^(1/N) for the Puiseux variant."
+      ],
+      "acceptance": [
+        "y=1/2 requires the scalar c; no change of variable alters its constant term.",
+        "The branch of an inverse rational function used below has zero constant term, so variable-only scaling applies.",
+        "This node requires no quantitative BB11 height bound or p-adic convergence constant."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA0",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "BB11",
+          "locator": "§1, p.1 (qualitative theorem and Heine tail-series route); Theorem 6.1, pp.10–11; opening of §8, p.14; application CDT25, p.637",
+          "match": "BB11 states the qualitative denominator theorem and explains the reduction to a tail series satisfying an implicit equation. The proof sketch here fills that elementary route; the stronger quantitative height estimates are not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eisenstein’s theorem"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.0/inverse-denominators",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0"
+      ],
+      "title": "Uniform denominators of a normalized inverse coordinate",
+      "kind": "theorem",
+      "statement": "Let p∈ℚ(x) be nonconstant and regular at zero, and χ(t)∈t+t²ℚ[[t]] satisfy p(χ(t))∈ℤ[[t]]. There is a positive integer M depending only on p such that χ(Mt)/M∈t+t²ℤ[[t]]. Its formal inverse τ has τ(Mx)/M∈x+x²ℤ[[x]]. Consequently, f(χ(t))∈ℤ[[t]] implies f(Mx)∈ℤ[[x]]. One may bound M in terms of the degree and rational coefficient height of p; it is independent of f and of the auxiliary dimension.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/eisenstein",
+        "mathlib:PowerSeries.substAlgHom",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale"
+      ],
+      "proofSteps": [
+        "Write b(p(x)−p(0))/c=x^N+O(x^(N+1)), N>0, with b a nonzero integer and c>0 integral. The normalized inverse Puiseux branch has constant zero. Apply Eisenstein and absorb its scalar.",
+        "Apply the coefficient estimate (1+u)^(1/N)∈ℤ[[u/N²]] to the normalized Nth root of the integral pullback. The branch with leading term t is selected by χ′(0)=1. The proof on pp.637–638 supplies M=c²N⁴M₁².",
+        "The rescaled series χ(Mt)/M=t+O(t²) has integral coefficients; recursive formal inversion over ℤ has integral coefficients. Rescale back to obtain the identical tangent lattice for τ.",
+        "Compose the integral series f∘χ with τ(Mx), which has integral coefficients and zero constant. For uniform dependence on degree and height, the displayed algebraic construction depends only on p; finitely many rational coefficient lists of bounded degree and height also give a uniform bound."
+      ],
+      "acceptance": [
+        "For p=x, the hypotheses already force χ integral, so M=1 works.",
+        "For p=x+x⁴/32, its tangent inverse satisfies p∘χ=t but χ is not integral: its fourth coefficient is −1/32. Thus integrality of p∘χ must not be confused with integrality of χ.",
+        "Both zero constant term and linear coefficient 1 are used to preserve the lowest integral jet."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA0",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Proof of Lemma 2.1.2, pp.637–638",
+          "match": "The proof constructs an integer M from the rational function p, controls the tangent lattice of the inverse coordinate, and deduces uniform coefficient denominators for every integral pullback."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Inverse-series denominator bound"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.1/tensor-independence",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1"
+      ],
+      "title": "Independence in separate formal variables",
+      "kind": "lemma",
+      "statement": "Let p∈ℚ(x) be nonconstant and regular at zero. If f₁,…,f_m∈ℚ[[x]] are linearly independent over ℚ(p(x)), then for every d,D≥1 the (mD)^d series ∏_{s=1}^d p(x_s)^(k_s) f_(i_s)(x_s), with 1≤i_s≤m and 0≤k_s<D, are linearly independent over ℚ in ℚ[[x₁,…,x_d]]. In particular any nonzero coefficient vector gives a nonzero auxiliary function.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.coeff"
+      ],
+      "proofSteps": [
+        "In one variable, group the powers of p into polynomial coefficients of the f_i. Nonconstancy of p makes powers of p independent over ℚ.",
+        "For a finite independent family of coefficient sequences choose finitely many coefficient functionals giving an injective map to a finite-dimensional rational space.",
+        "In d separate variables the corresponding coefficient matrix is a tensor product of injective matrices. Its column independence proves the claim without evaluating an arbitrary formal series at a nonzero rational point."
+      ],
+      "acceptance": [
+        "For f₁=1 the assertion is the independence of separate-variable powers of a nonconstant p.",
+        "The hypothesis is over ℚ(p), not merely over ℚ; the pair 1,p is a counterexample to the weaker premise."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA1",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Proof of Lemma 2.1.2, p.638",
+          "match": "The auxiliary-function proof needs independence of products in separate variables. The finite coefficient-functional proof here supplies that formal step without evaluating arbitrary formal series."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1"
+      ],
+      "title": "Multivariable auxiliary function with small coefficients",
+      "kind": "theorem",
+      "statement": "Assume the arithmetic and analytic data of Theorem 2.0.1: nonconstant p∈ℚ(x) regular at 0; χ=t+O(t²) rational; integral p∘χ and f_i∘χ; a common uniformization φ with φ(0)=0, λ=|φ′(0)|>1, and holomorphic realizations of p and f_i near the closed unit disc; the f_i are ℚ(p)-independent, m≥1. There is C≥0 depending only on p and a fixed inverse-chart radius for φ, independent of d and κ, such that for each 0<κ<1 there is d₁(κ)≥1 and, for every fixed d≥d₁(κ), for all sufficiently large α there are D≥1 and integers a_(i,k), not all zero, for which F=Σ_(i,k) a_(i,k)∏_s p(x_s)^(k_s) f_(i_s)(x_s) is nonzero, has total vanishing order at least α, and satisfies limsup_(α→∞) D/α≤(1+1/κ)^(1/d)/(m(d!)^(1/d)) and limsup_(α→∞) (log max(1,max|a_(i,k)|))/α≤κC. The sums run over i∈{1,…,m}^d and k∈{0,…,D−1}^d.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/inverse-denominators",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs",
+        "DiophantineApproximationAndTranscendencePartII:AA.1/tensor-independence",
+        "mathlib:Int.Matrix.exists_ne_zero_int_vec_norm_le",
+        "mathlib:Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le"
+      ],
+      "proofSteps": [
+        "The local inverse chart for φ gives a common convergence disc of radius ρ>0 for the finitely many f_i; choose a smaller closed circle and Cauchy bounds. Inverse-coordinate denominators give M independent of this family.",
+        "Vanishing of all coefficients of total degree below α gives binomial(α+d−1,d) rational linear equations. Clear them using the common M. On a fixed small inverse-chart circle |x|=r≤1 put P₀=max(1,sup|p|). The integer matrix entries are bounded by exp(α log(M/r)+dD log P₀+o(α)); the fixed family norms and the number of summands contribute o(α) for fixed d. The degree ratio below satisfies dD/α≤e²+o(1) once d≥log(1+1/κ), by d/(d!)^(1/d)≤e. Thus a constant C independent of d,κ controls the matrix on this cofinal dimension range. The factorial bound follows by comparing Σ log j with the integral of log; it is a small step, not an imported new theorem.",
+        "Choose D just above the threshold with (mD)^d / binomial(α+d−1,d) tending to 1+1/κ; the row-to-surplus ratio tends to κ. The pinned integral Siegel lemma gives the claimed height estimate. If zero rows occur, discard them or use a coordinate vector.",
+        "Apply tensor independence to its nonzero kernel vector. Rounding D affects only the o(α) term. All limsups are taken with the remaining parameters fixed."
+      ],
+      "acceptance": [
+        "The number of constraints is total-degree growth α^d/d!, not a box of α^d constraints.",
+        "C must remain independent of d and κ; otherwise the limiting extrapolation does not prove the stated universal constant.",
+        "Do not interchange the limits α→∞, d→∞, κ→0. This cofinal-dimension version of Lemma 2.1.2 is what the plan uses: d≥d₁(κ) makes the uniform constant explicit without claiming a uniform small-κ estimate at every fixed small d."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA1",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Lemma 2.1.2 and proof, pp.637–638",
+          "match": "Lemma 2.1.2 supplies the auxiliary construction. The plan states its cofinal-dimension specialization, with the matrix height estimate and the uniformity range explicit; this suffices for all three successive-limit proofs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Auxiliary function lemma"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.1/integral-lowest-jet",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1"
+      ],
+      "title": "Integrality of the lowest nonzero jet",
+      "kind": "theorem",
+      "statement": "Let F∈ℚ[[x₁,…,x_d]] be nonzero with exact total order β and F(χ(t₁),…,χ(t_d)) integral, where χ=t+O(t²). Its homogeneous degree-β part has integer coefficients. After x_j=φ(z_j), where φ(0)=0 and φ′(0)=a≠0, this part is multiplied by a^β. Multiplication by ∏h(z_j)^D with h(0)=1 leaves this lowest homogeneous part unchanged. Thus some nonzero coefficient of the resulting series has absolute value at least |a|^β.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "proofSteps": [
+        "The degree-preserving part of a tangent-to-identity substitution is the identity. All higher substituted terms have larger total degree.",
+        "The degree-preserving part of φ is scalar multiplication by a in each variable. A monomial of total degree β therefore acquires a^β.",
+        "Choose a nonzero integer coefficient of the homogeneous part. A factor with constant term 1 cannot change that part."
+      ],
+      "acceptance": [
+        "The coefficient multiplier is a^β, with β the order of F, not the degree of an arbitrary auxiliary polynomial.",
+        "If χ′(0) is merely nonzero, an extra rational scale appears and the integral lower bound must be changed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA1",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§2.2, (2.2.1)–(2.2.3), pp.638–639",
+          "match": "The arithmetic lower bound in the extrapolation is a nonzero integral lowest homogeneous coefficient multiplied by the corresponding power of the uniformizing derivative."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral lowest jet"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.1/cauchy-extrapolation",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1"
+      ],
+      "title": "Cauchy extrapolation with a normalized multiplier",
+      "kind": "lemma",
+      "statement": "For the auxiliary functions above and h holomorphic near the closed unit disc with h(0)=1, put A=log(max(sup_𝕋|h|,sup_𝕋|hg|)), where g uniformizes p. Then A≥0, and for each fixed κ∈(0,1), d≥d₁(κ) in the auxiliary lemma and λ=|φ′(0)|>1, one has logλ≤[d/(m(d!)^(1/d))](1+1/κ)^(1/d) A+κC after taking α→∞. Supremum norms are finite; log of their maximum is the same as the maximum of the logarithmic suprema interpreted with log0=−∞.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function",
+        "DiophantineApproximationAndTranscendencePartII:AA.1/integral-lowest-jet",
+        "mathlib:Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le"
+      ],
+      "proofSteps": [
+        "Form H(z)=∏h(z_j)^D F(φ(z₁),…,φ(z_d)), holomorphic near the closed unit polydisc. Cauchy’s coefficient formula bounds every coefficient by its boundary supremum.",
+        "Rewrite each factor h^D g^k as h^(D−k)(hg)^k. The product is bounded by exp(dDA), times the fixed f_i boundary norms.",
+        "The number of summands is (mD)^d with logarithm o(α); the fixed f_i norms contribute o(α). Compare the integral lower coefficient |a|^β, β≥α, to obtain αlogλ≤dDA+κCα+o(α). Divide and pass to the first limit.",
+        "The maximum principle and h(0)=1 imply sup|h|≥1, so A≥0 and no logarithm of a nonpositive bound is used."
+      ],
+      "acceptance": [
+        "For g=h=1, A=0, not 1.",
+        "The estimate uses holomorphicity near a compact polydisc and no probabilistic independence assumption."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA1",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§2.2, (2.2.1)–(2.2.3) and the estimates following them, pp.638–639",
+          "match": "The source combines the arithmetic lowest coefficient with a polydisc Cauchy bound for a multiplier-modified auxiliary function; the order and dimension limits are separated here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.1/multiplier-bound",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1"
+      ],
+      "title": "Arithmetic rank bound with a holomorphic multiplier",
+      "kind": "theorem",
+      "statement": "Under the full arithmetic and analytic hypotheses of AA.1/auxiliary-function, every holomorphic h near the closed unit disc with h(0)=1 satisfies m≤e A/logλ, with A=log(max(sup_𝕋|h|,sup_𝕋|hg|)) and λ=|φ′(0)|>1. Equivalently A=max(sup log|h|,sup log|hg|).",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/cauchy-extrapolation",
+        "mathlib:Stirling.factorial_isEquivalent_stirling"
+      ],
+      "proofSteps": [
+        "For fixed κ, let d→∞ in the Cauchy extrapolation inequality: d/(d!)^(1/d)→e and (1+1/κ)^(1/d)→1.",
+        "Then let κ decrease to zero, using the independence of C from d and κ. Rearrange using logλ>0.",
+        "Use the same bound for arbitrary finite families of powers to obtain algebraicity, as detailed in AA.2/algebraicity."
+      ],
+      "acceptance": [
+        "Use log(max of sup norms) or logarithmic suprema; replacing A by a supremum norm changes the theorem.",
+        "The statement does not require h to have no zeros."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA1",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Lemma 2.0.8, p.636; proof §2.2, pp.638–639",
+          "match": "Lemma 2.0.8 bounds the independent family size by a maximum of logarithmic boundary suprema after choosing a holomorphic multiplier normalized at the origin."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Holomorphic multiplier bound"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2"
+      ],
+      "title": "Integrated arithmetic rank bound",
+      "kind": "theorem",
+      "statement": "Let p∈ℚ(x)\\ℚ be regular at 0; χ∈t+t²ℚ[[t]] with p∘χ∈ℤ[[t]]; φ holomorphic on a neighbourhood of the closed unit disc with φ(0)=0, λ=|φ′(0)|>1, and g the holomorphic uniformization of p there. For any m≥1, let f₁,…,f_m∈ℚ[[x]] be ℚ(p)-linearly independent, with f_i∘χ integral and holomorphic uniformized realizations on the same neighbourhood. Then m≤e J(g)/logλ, where J(g)=∫_𝕋 log(max(1,|g|)) dμ_Haar.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs",
+        "DiophantineApproximationAndTranscendencePartII:AA.1/multiplier-bound",
+        "ConformalMappingPartII:L0/quotient-representation"
+      ],
+      "proofSteps": [
+        "For every ε>0 import the corrected Nevanlinna quotient representation: a holomorphic h with h(0)=1 has max(sup log|h|,sup log|hg|)≤J(g)+ε.",
+        "Apply the multiplier bound and let ε decrease to zero. The source’s missing constant phase in reconstruction has no effect on the norm estimates; its supremum must be logarithmic.",
+        "All arithmetic inputs are unchanged by the choice of h. This proof only imports the quotient theorem, not the rest of punctured-plane uniformization."
+      ],
+      "acceptance": [
+        "For p=x, χ=t and φ=Rz with R>1, J=logR and the bound is m≤e.",
+        "The growth term is a mean of log⁺, not the maximum of |p∘φ| and not an unnormalized arc-length integral."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA2",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Theorem 2.0.1 and (2.0.3), p.635; §2.3, Lemma 2.3.1, pp.640–641",
+          "match": "Theorem 2.0.1 gives the integrated positive-logarithmic growth bound; the quotient proof obtains the numerator from corrected Lemma 2.3.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic holonomicity theorem"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.2/algebraicity",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2"
+      ],
+      "title": "Algebraicity from a uniform bound on powers",
+      "kind": "theorem",
+      "statement": "Under the scalar hypotheses on p,χ,φ of AA.2/mean-rank-bound, every f∈ℚ[[x]] with f∘χ integral and a holomorphic uniformization by φ is algebraic over ℚ(x). In fact f is algebraic over ℚ(p(x)). The conclusion does not assert that f is rational or that its analytic continuation is single-valued on the x-plane.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs"
+      ],
+      "proofSteps": [
+        "If f were transcendental over ℚ(p), every finite list 1,f,…,f^(m−1) would be independent over ℚ(p).",
+        "All powers retain the integral pullback and their analytic uniformizations are the corresponding powers of g. The right side of the mean rank bound depends only on p,χ,φ, hence is fixed as m increases. Contradict its bound for a sufficiently large m.",
+        "Since ℚ(p)⊂ℚ(x) and x is algebraic over ℚ(p) for nonconstant rational p, the two algebraicity conclusions are compatible."
+      ],
+      "acceptance": [
+        "The binomial examples yield genuine nonrational algebraic series.",
+        "Do not infer rationality from algebraicity of a rational-coefficient formal power series."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA2",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "End of §2.2, p.639; algebraicity clause of Theorem 2.0.1, p.635",
+          "match": "The algebraicity clause follows by applying the uniform finite-family rank bound to arbitrarily long lists of powers of a single admissible germ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic algebraization"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.2/andre-criterion",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2"
+      ],
+      "title": "André’s open-disc algebraicity criterion",
+      "kind": "theorem",
+      "statement": "Let f∈ℤ[[x]]. Suppose φ is holomorphic on the open unit disc, φ(0)=0 and |φ′(0)|>1, and the formal pullback has a holomorphic realization on that disc in the germ sense of AA.0/uniformized-germs. Then f is algebraic over ℚ(x).",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/algebraicity",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs"
+      ],
+      "proofSteps": [
+        "Choose r<1 so close to 1 that r|φ′(0)|>1. The maps φ(rz) and the corresponding uniformized f are holomorphic on a neighbourhood of the closed unit disc.",
+        "Use p=x, χ=t; the integral pullback of p is t. Apply arithmetic algebraicity.",
+        "This proves the case needed here directly from CDT25 and requires no reading of André’s unavailable monograph."
+      ],
+      "acceptance": [
+        "For m≥2 the series (1−m²x)^(1/m) has integral coefficients: for n≥1 the binomial coefficient times m^(2n) is integral by its prime valuations. The map φ=(1−exp(Mz))/m² has derivative modulus M/m²>1 when M>m² and uniformization exp(Mz/m).",
+        "Strictness is necessary even for the identity coordinate: −log(1−x)=Σx^n/n does not supply an integral test, whereas the lacunary integral series Σ_{k≥0}x^(2^k) is analytic on the unit disc and is not algebraic (its singularities at dyadic roots of unity are dense). It has φ(z)=z with derivative 1.",
+        "The numerical derivative threshold is not the radius of convergence of f in x; simultaneous uniformization can cross the original convergence circle.",
+        "CDT25 (1.1.4)–(1.1.5), p.631, supplies the named boundary benchmark F(x)=Σ binomial(2n,n)²x^n: it is integral and transcendental, while φ(q)=λ(q)/16 has φ′(0)=1 and F∘φ=(Σ_(n∈ℤ)q^(n²))² on |q|<1. Thus equality at the derivative threshold cannot imply algebraicity. These modular identity data are source benchmark inputs, not a second development of modular functions here."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA2",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§1.1.1, pp.630–631 (case of André Théorème 5.4.3); derived from Theorem 2.0.1",
+          "match": "The introductory special case of André’s criterion uses integral coefficients and a simultaneous analytic uniformization with derivative modulus greater than one. Closed-disc estimates apply after shrinking."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "André’s algebraicity criterion"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.2/lexicographic-coefficient",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2"
+      ],
+      "title": "A logarithmic estimate for the first lexicographic coefficient",
+      "kind": "theorem",
+      "statement": "For d≥1 let G be nonzero and holomorphic on a neighbourhood of the closed unit polydisc. Let c z₁^(n₁)⋯z_d^(n_d), c≠0, be the lexicographically least monomial of its Taylor support, in the coordinate order z₁,…,z_d. Then log|G| is integrable on the unit polycircle after arbitrary finite values on its zero set, that zero set is Haar-null, and log|c|≤∫_(𝕋^d) log|G| dμ. This least monomial need not have the least total degree.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:AnalyticOnNhd.circleAverage_log_norm"
+      ],
+      "proofSteps": [
+        "For d=1 factor out the exact zero order and apply Jensen to the remaining function with nonzero central value. Its isolated circle zeros are integrable logarithmic singularities.",
+        "For d>1 factor z₁^(n₁), and put H(0,z′) equal to the first nonzero coefficient function. Apply the one-variable Jensen inequality to almost every slice; exceptional slices on which it vanishes identically are contained in the zero set of that nonzero coefficient function.",
+        "Apply induction to H(0,z′). For Fubini, first use the uniform upper bound log|G|≤log sup|G| and the integrable lower bound coming from the coefficient function. This controls the negative part and justifies the iterated integral; do not assign a genuine −∞ singularity the value zero on a positive-measure set.",
+        "Integrate the slice inequalities. The logarithm can use the native totalized value at zeros only after their Haar-nullness has been proved."
+      ],
+      "acceptance": [
+        "For G=c z^n the inequality is equality.",
+        "For G=z₂^100+z₁, the least lexicographic monomial is z₂^100 while the least total degree is 1; the proof must not confuse them."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA2",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Lemma 2.4.2, (2.4.3)–(2.4.5), p.642",
+          "match": "Lemma 2.4.2 bounds the logarithm of the least lexicographic coefficient by the Haar average of the logarithmic modulus; its proof iterates the one-variable Jensen inequality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Lexicographic coefficient inequality"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.2/plurisubharmonic-proof",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2"
+      ],
+      "title": "The integrated bound through logarithmic averaging",
+      "kind": "comparison",
+      "statement": "The auxiliary function of AA.1 also proves the identical mean rank bound m≤eJ(g)/logλ by the lexicographic coefficient inequality, without using a quotient multiplier or the discrepancy route.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function",
+        "DiophantineApproximationAndTranscendencePartII:AA.2/lexicographic-coefficient",
+        "mathlib:Stirling.factorial_isEquivalent_stirling"
+      ],
+      "proofSteps": [
+        "Separate-variable tangent substitutions preserve the least lexicographic exponent vector and its coefficient; coordinatewise higher terms cannot create a smaller vector. Hence the least coefficient after φ is a^β times a nonzero integer, β≥α.",
+        "The pointwise triangle inequality gives log|F(φ(z))|≤DΣ_j log⁺|g(z_j)|+κCα+o(α). Integrate and apply the lexicographic inequality to bound that coefficient above.",
+        "Compare αlogλ≤dDJ(g)+κCα+o(α). Pass through α→∞, d→∞ and κ→0 in that order. This recovers the same theorem with an independent analytic interior."
+      ],
+      "acceptance": [
+        "Both proof routes have the same arithmetic data and the same factor e.",
+        "The lexicographically least exponent may have total degree larger than the order of F; β≥α is all the lower bound needs."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA2",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§2.4.6, (2.4.7)–(2.4.10), pp.642–643",
+          "match": "The averaging proof of Theorem 2.0.1 compares that coefficient inequality with the same arithmetic auxiliary function and the same successive limits."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Circular box discrepancy",
+      "kind": "definition",
+      "statement": "For d≥1 and an indexed tuple z₁,…,z_d on 𝕋, define D_circ(z)=sup_(a∈ℝ,0≤ℓ≤1)|d^(−1)#{j:z_j∈I(a,ℓ)}−ℓ|, where I(a,ℓ)={exp(2πit): frac(t−a)∈[0,ℓ)}; I(a,0) is empty and I(a,1)=𝕋. Points are counted with multiplicity. Equivalently take the supremum over cuts a of the existing star discrepancy of the rotated arguments frac(arg(z_j)/(2π)−a). On a Borel probability ν on 𝕋 use the same arc formula with ν(I) in place of the empirical frequency. This is an adapter to the owner’s star discrepancy, not a second general discrepancy library.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy",
+        "tauceti:TauCeti.Probability.empiricalMeasureOfFintype"
+      ],
+      "proofSteps": [
+        "Use the native unit circle or its additive angle coordinate, with their standard exponential identification. Every proper half-open circular arc is one initial interval after a rotation of the cut.",
+        "Define the supremum from empirical frequencies or from the supremum of rotated star discrepancies, and prove the two agree. Arc length ℓ is normalized Haar mass.",
+        "Keep d>0 for a tuple; the owner’s empty-sample convention is not used in the damping theorem."
+      ],
+      "acceptance": [
+        "The lower bound 1/d≤D_circ≤1 holds for nonempty d-tuples.",
+        "Changing half-open endpoint convention leaves the supremum unchanged, although individual arc counts can change."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Definition 2.5.4, p.644; adaptation of the existing PM.2 star-discrepancy node",
+          "match": "Definition 2.5.4 measures normalized arc-count error. The interval implementation is already owned by PM.2; this node fixes only circular cuts, multiplicities and endpoint conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Circular box discrepancy"
+      },
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.arcSup",
+          "role": "characterisation",
+          "statement": "The value is the supremum over the half-open arcs I(a,ℓ), with Haar mass ℓ."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.rotatedStar",
+          "role": "compatibility",
+          "statement": "It equals sup_a D*(frac(θ_j−a)); only the angle adapter is new."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.bounds",
+          "role": "relation",
+          "statement": "For d≥1, 1/d≤D_circ≤1; empirical equality to Haar is impossible."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.reindex",
+          "role": "functoriality",
+          "statement": "A permutation of the indices preserves the value, retaining all repeated points."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.rotation",
+          "role": "functoriality",
+          "statement": "Multiplication of every point by a common unit scalar preserves the value."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.replicate",
+          "role": "simp",
+          "statement": "Repeating every entry exactly r≥1 times leaves the discrepancy unchanged."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.empirical",
+          "role": "compatibility",
+          "statement": "The tuple value equals the measure version evaluated at the existing finite empirical probability measure."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.haar",
+          "role": "simp",
+          "statement": "The measure discrepancy of normalized Haar is zero, and zero discrepancy characterizes Haar."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.onePoint",
+          "kind": "example",
+          "statement": "A singleton has discrepancy 1."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.regularPolygon",
+          "kind": "example",
+          "statement": "The dth roots of unity, once each, have discrepancy 1/d."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.repeatedPoint",
+          "kind": "counterexample",
+          "statement": "Any number of identical points still has discrepancy 1, so replacing the indexed population by its set of distinct values is invalid."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.circleDiscrepancy.rotatedPair",
+          "kind": "example",
+          "statement": "An antipodal pair has discrepancy 1/2, at every rotation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CDT25 Lemma 2.5.9",
+          "how": "Distinguishes tuples whose empirical measures stay away from Haar."
+        },
+        {
+          "where": "CDT25 (2.5.15)–(2.5.20)",
+          "how": "Splits the analytic bound into well-distributed and damped regions."
+        }
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/discrepancy-weak-limit",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Weak limits and circular discrepancy",
+      "kind": "lemma",
+      "statement": "The measure discrepancy ν↦D_circ(ν) is continuous on Borel probability measures on 𝕋 for weak convergence. In particular, if empirical probabilities converge weakly to Haar, their circular discrepancies tend to zero; if their discrepancies are bounded below by ε>0, any weak limit differs from Haar.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto"
+      ],
+      "proofSteps": [
+        "For a fixed limit measure ν choose a finite circular mesh with arbitrarily small Haar length between consecutive endpoints and with all endpoints outside the at most countably many atoms of ν.",
+        "Weak convergence gives convergence of the finitely many mesh-arc masses, since their boundaries are ν-null. This is the usual Portmanteau consequence of the native bounded-continuous-test characterization.",
+        "Enclose or inscribe any arc by mesh arcs. Monotonicity of every probability measure controls its mass, while the Haar error of enlarging each endpoint is at most the mesh length. Thus both discrepancies differ from the finite mesh maximum by a uniformly small error.",
+        "Pass first to the weak limit and then refine the mesh. This argument works even when the limit has atoms; it does not assert uniform convergence of all distribution functions."
+      ],
+      "acceptance": [
+        "Weak convergence of two nearby point masses to one point mass leaves discrepancy tending to 1.",
+        "A regular d-gon’s empirical measures converge to Haar and its discrepancy 1/d tends to zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Proof of Lemma 2.5.9, p.646, the discrepancy passage; detailed finite-mesh justification",
+          "match": "The energy argument passes a positive discrepancy bound to a weak limit. The finite mesh argument here justifies that passage even when the limit measure has atoms."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-koksma",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Koksma’s inequality on the circle",
+      "kind": "theorem",
+      "statement": "Let g:𝕋→ℝ have finite native variation V(g)=eVariationOn(t↦g(exp(2πit)),[0,1]) converted to a real number. For every nonempty d-tuple on 𝕋, |d^(−1)Σ_j g(z_j)−∫_𝕋g dμ|≤V(g)D_circ(z). Values at sample discontinuities are retained. No new general bounded-variation definition is introduced.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy",
+        "ProbabilisticAndMetricNumberTheory:PM.2/koksma",
+        "mathlib:eVariationOn"
+      ],
+      "proofSteps": [
+        "Choose arguments in [0,1) and pull g back to the closed unit interval, including the common periodic endpoint.",
+        "Apply the existing PM.2 Koksma theorem, whose strict-cut star discrepancy and native variation have the matching pointwise conventions.",
+        "Use D*≤D_circ and identify normalized Lebesgue angular integration with normalized circle Haar integration."
+      ],
+      "acceptance": [
+        "A constant function has zero variation and exact quadrature.",
+        "For a continuous C¹ periodic function the variation is ∫_0^1 |d/dt g(exp(2πit))|dt; an arclength derivative requires the corresponding 2π factor."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "(2.5.6)–(2.5.7), p.645; the general Koksma theorem is imported from PM.2",
+          "match": "The displayed circle Koksma inequality controls quadrature error by variation times arc discrepancy. Its general interval theorem is imported, and the angular normalization is made explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Koksma’s circle inequality"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-erdos-turan",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Erdős–Turán for circular arcs",
+      "kind": "theorem",
+      "statement": "For a nonempty d-tuple z_j∈𝕋 and K≥1, D_circ(z)≤3[1/(K+1)+Σ_(k=1)^K (1/k)|d^(−1)Σ_j z_j^k|]. This target is a circular-coordinate specialization of the existing PM.2 Erdős–Turán theorem.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy",
+        "ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan"
+      ],
+      "proofSteps": [
+        "Apply the owner’s star-discrepancy inequality to the arguments after an arbitrary rotation of the cut.",
+        "Every kth exponential mean changes only by a unit scalar, so the right side is independent of the cut.",
+        "Take the supremum over cuts using the rotated-star identity. This retains the constant 3; the rough D_circ≤2D* comparison would unnecessarily double it."
+      ],
+      "acceptance": [
+        "For a regular d-gon all Fourier means of orders 1,…,d−1 vanish.",
+        "This inequality is a requested routed target, but the damping proof uses Koksma and the energy gap rather than Erdős–Turán."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "(2.5.8), p.645; imported PM.2 Erdős–Turán followed by rotation",
+          "match": "The source records the circular Fourier bound with constant 3. The existing star-discrepancy bound gives that same constant after rotating the cut."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Erdős–Turán inequality"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/positive-log-variation",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Variation of a positive logarithmic norm",
+      "kind": "lemma",
+      "statement": "For h:𝕋→ℂ of class C¹, the real function log(max(1,|h|)) has finite native variation in the angular parameter t∈[0,1]. For a real C¹ function g on 𝕋 that variation equals ∫_0^1 |d/dt g(exp(2πit))|dt. Boundary zeros of h cause no singularities in the positive logarithm.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:eVariationOn",
+        "mathlib:LipschitzWith.comp_boundedVariationOn"
+      ],
+      "proofSteps": [
+        "On ℂ the function w↦log(max(1,|w|)) is 1-Lipschitz: the radial scalar map is 1-Lipschitz and the norm is 1-Lipschitz.",
+        "The angular pullback of h is C¹ on a compact interval, hence Lipschitz and of bounded variation. Compose using the existing variation lemma.",
+        "The real C¹ variation identity follows from the FTC upper bound on partition sums and approximation of the integral of |g′| by fine partitions; this is the specific calculus bridge, not a new variation carrier."
+      ],
+      "acceptance": [
+        "For h=0 the variation is 0, not infinite.",
+        "For h(z)=z it is 0; for h(z)=2z it is also 0.",
+        "The expression log|h| without the positive cutoff can have logarithmic singularities at boundary zeros and is not the function used in Koksma."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Definition 2.5.5 and (2.5.6), p.645; sentence applying it to log⁺ in §2.5.14, p.647",
+          "match": "The damping proof requires finite variation of log-positive-modulus on a C¹ boundary curve. The angular derivative convention repairs any ambiguity between turns and arc length."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/fekete-circle",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Fekete’s extremal Vandermonde on the circle",
+      "kind": "theorem",
+      "statement": "For d≥1 and z_j∈𝕋, let V(z)=∏_(i<j)(z_i−z_j). Then |V(z)|≤d^(d/2), with equality precisely when the tuple, up to permutation, is a rotation of all dth roots of unity. For d=1 every singleton is such a rotation; repeated points give zero when d≥2.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det_vandermonde",
+        "mathlib:InnerProductSpace.gramSchmidtOrthonormalBasis_det"
+      ],
+      "proofSteps": [
+        "Use the native Vandermonde matrix, ignoring the harmless sign from the product orientation. All its row vectors have Euclidean norm √d.",
+        "For independent rows, use Gram–Schmidt and Cauchy–Schwarz to show the determinant norm is at most the product of row norms; dependent rows give zero. Equality means pairwise orthogonal rows. This is the finite-dimensional Hadamard argument specialized here.",
+        "The inner product of distinct Vandermonde rows is Σ_(k=0)^(d−1)(z_i/z_j)^k. Orthogonality forces every distinct quotient to be a nontrivial dth root of unity. Fix one point and use distinctness to obtain the entire regular d-gon. Conversely its finite geometric sums vanish."
+      ],
+      "acceptance": [
+        "d=2 gives |z₁−z₂|≤2 with equality at antipodal pairs.",
+        "The determinant formula alone does not supply this norm inequality or its equality case."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "(2.5.2), Lemma 2.5.3, p.644",
+          "match": "Lemma 2.5.3 identifies the circle Vandermonde maximum and its regular-polygon equality case by the finite-dimensional determinant norm argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fekete’s circle extremal theorem"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/haar-equilibrium",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Haar equilibrium and the circle energy gap",
+      "kind": "theorem",
+      "statement": "For every Borel probability ν on 𝕋 the logarithmic energy I(ν)=∫∫log(1/|z−w|)dν(z)dν(w), with value +∞ on the diagonal before integration, lies in (−∞,+∞] and satisfies I(ν)≥0. Equality holds exactly for normalized Haar measure, which has energy zero. The kernel is bounded below by −log2, so no undefined difference of infinities is involved.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/energy",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/diameter-capacity",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/fekete-circle"
+      ],
+      "proofSteps": [
+        "Fekete’s exact maximum gives circle transfinite diameter lim_d d^(1/(d−1))=1. Import equality of capacity and transfinite diameter and the existence and uniqueness of the equilibrium measure for positive capacity.",
+        "Rotation invariance of the kernel preserves energy and hence preserves the unique minimizer. Its invariance under every rotation identifies it with normalized Haar.",
+        "Capacity 1 gives minimum energy 0. This uses the imported extended-energy convention, including infinite energy of atomic probabilities."
+      ],
+      "acceptance": [
+        "A point mass has energy +∞.",
+        "A regular finite polygon is not itself a finite-energy equilibrium probability: its self-energy is infinite even though its off-diagonal products are maximal."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Potential-theoretic step in proof of Lemma 2.5.9, p.646; general definitions imported from LP.0–LP.1",
+          "match": "The proof of Lemma 2.5.9 uses Haar as the unique zero-energy equilibrium on the circle. General capacity and equilibrium facts are imported from LP rather than developed again."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/vandermonde-discrepancy-gap",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Exponential Vandermonde loss away from Haar",
+      "kind": "theorem",
+      "statement": "For each ε∈(0,1] there are c_ε>0 and d₀≥1 such that if d≥d₀ and z∈𝕋^d has D_circ(z)≥ε, then |V(z)|<exp(−c_ε d²). The assertion allows collisions and requires no explicit dependence of c_ε,d₀ on ε.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/haar-equilibrium",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/discrepancy-weak-limit",
+        "tauceti:TauCeti.Probability.empiricalMeasureOfFintype",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasureOfFintype",
+        "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "mathlib:ProbabilityMeasure.continuous_prod"
+      ],
+      "proofSteps": [
+        "If no such gap exists, choose dimensions tending to infinity and tuples with discrepancy at least ε and normalized off-diagonal energy tending to a nonpositive value. Collisions already give the desired conclusion and can be excluded from the contrary sequence.",
+        "Compactness of probability measures supported on the compact metric circle gives a weakly convergent subsequence ν_d→ν; sequential extraction follows from metrizability. Discrepancy continuity shows ν≠Haar.",
+        "For A>0 use the continuous bounded kernel k_A(z,w)=min(A,log(1/|z−w|)), with k_A(z,z)=A. Product weak convergence and the empirical formula give ∫k_A dν²≤limsup[2d^(−2)Σ_(i<j)log(1/|z_i−z_j|)+A/d]≤0.",
+        "Let A→∞ by monotone convergence after adding log2. Obtain I(ν)≤0, contradicting uniqueness of the Haar minimizer. This treats atomic and atomless limits uniformly.",
+        "If the resulting uniform lower bound for normalized off-diagonal energy is non-strict, shrink c_ε to get the displayed strict exponential inequality."
+      ],
+      "acceptance": [
+        "The diagonal contribution is A/d and disappears before A→∞; dropping it at finite d would use the infinite self-energy of the empirical measure incorrectly.",
+        "Finite-dimensional logarithmic factors from the Fekete maximum are negligible beside d²."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Lemma 2.5.9 and proof, pp.645–646",
+          "match": "Lemma 2.5.9 gives an exponential-in-d-squared loss for tuples away from Haar. Its compactness and truncated-energy proof is specified including the empirical diagonal contribution."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Vandermonde discrepancy gap"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/damped-cauchy",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "Vandermonde damping of the auxiliary function",
+      "kind": "lemma",
+      "statement": "Fix the arithmetic data, ε∈(0,1], κ∈(0,1), and d≥max(d₀(ε),d₁(κ)). For the auxiliary F at order α and degree D set S=sup_𝕋 log⁺|g| and M=ceil(SD/(c_ε d)); take M=0 if S=0. Then H=V^M F(φ(z₁),…,φ(z_d)) is nonzero and every nonzero coefficient b_n satisfies log|b_n|≤dDJ(g)+κCα+ε dD V(log⁺|g|)+M(d/2)log d+o(α) as α→∞ with d,κ,ε fixed. Moreover some coefficient has modulus at least λ^β for a β≥α.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function",
+        "DiophantineApproximationAndTranscendencePartII:AA.1/integral-lowest-jet",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-koksma",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/positive-log-variation",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/fekete-circle",
+        "DiophantineApproximationAndTranscendencePartII:AA.3/vandermonde-discrepancy-gap",
+        "mathlib:Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le"
+      ],
+      "proofSteps": [
+        "On the region D_circ<ε, Koksma bounds Σlog⁺|g(z_j)| by dJ(g)+εdV(log⁺|g|). Bound the Vandermonde factor by d^(dM/2).",
+        "On its complement, |V|≤exp(−c_εd²) and the choice of M cancels the crude dDS growth term. The ceiling avoids a rounding remainder; it changes the good-region estimate by O(d log d), which is o(α) for fixed d.",
+        "Cauchy’s polydisc coefficient bound controls all coefficients of H by the combined boundary supremum.",
+        "Among the lowest total-degree terms of F choose the lexicographically greatest exponent. Multiply it by the greatest exponent of V^M. Their sum is uniquely greatest among terms of that lowest degree, so cancellation is impossible; its coefficient is a nonzero integer times φ′(0)^β, up to the sign of the Vandermonde product."
+      ],
+      "acceptance": [
+        "The derivative exponent is β, not β+M·binomial(d,2), since V is multiplied after substituting φ.",
+        "Using the global Fekete upper bound on the bad region would lose the integrated growth improvement."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "§2.5.14–§2.5.25, (2.5.15)–(2.5.26), pp.647–648",
+          "match": "The equidistribution proof multiplies the auxiliary function by a Vandermonde power, applies Koksma on the good region and an energy gap on the other region, then compares Taylor coefficients. Ceiling the exponent is a harmless choice that removes rounding remainders."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.3/equidistribution-proof",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3"
+      ],
+      "title": "The mean bound through equidistribution damping",
+      "kind": "comparison",
+      "statement": "The Vandermonde-damped coefficient bounds yield the same rank bound m≤eJ(g)/logλ as AA.2/mean-rank-bound, with no use of the quotient representation or the lexicographically least coefficient inequality.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/damped-cauchy",
+        "mathlib:Stirling.factorial_isEquivalent_stirling"
+      ],
+      "proofSteps": [
+        "Compare the coefficient lower bound αlogλ with the damped upper bound and divide by α.",
+        "For fixed ε and κ let d→∞. Since D/α=O(1/d), the term M d logd/α is O_ε(logd/d) and tends to zero. The Koksma error tends to at most a constant times ε V(log⁺|g|).",
+        "Let κ→0, then ε→0. The Siegel constant is independent of d and κ. The order of all four limits is α, d, κ, ε."
+      ],
+      "acceptance": [
+        "The three analytic proofs agree on every normalization and on the final factor e.",
+        "Erdős–Turán is a companion target and does not supply the energy gap used here."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA3",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "End of §2.5.25, pp.648–649",
+          "match": "The final successive limits in the damped proof give the same integrated arithmetic rank theorem as the quotient and Jensen routes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Integral holonomic germs with meromorphic local bases",
+      "kind": "definition",
+      "statement": "Let U⊆ℂ be open with 0∈U and χ∈t+t²ℚ[[t]]. Define H(U,χ,ℤ) to be the subset of ℚ[[x]] consisting of f with f∘χ∈ℤ[[t]] for which some nonzero linear differential operator L∈ℚ̄(x)[∂] annihilates f and has a full meromorphic local solution basis at every singular point in U. At an order-n singularity this means n independent solutions meromorphic on a whole neighbourhood, spanning the punctured-neighbourhood solution space. The zero series is included. The existence of a suitable operator, rather than a chosen operator or the minimal operator, is part of membership.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.5/d-finite-power-series",
+        "ConformalMappingPartII:O0/meromorphic-basis-monodromy",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale"
+      ],
+      "proofSteps": [
+        "Intersect the integral-pullback predicate with existence of the imported differential equation and its full meromorphic-basis property.",
+        "Keep the local condition at every singularity in U, including the initial point when it is singular; the series f itself has no negative powers at zero.",
+        "Use the closure theorem below to supply the subring structure."
+      ],
+      "acceptance": [
+        "Identity of topological monodromy alone is insufficient: exp(1/(x−α)) has identity monodromy but an essential singularity.",
+        "A pole is allowed for other local solutions; it is only the chosen formal f that must be regular at zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Definition 2.0.4 and its local-basis convention, pp.635–636",
+          "match": "Definition 2.0.4 specializes here to R=ℤ and a rational tangent-to-identity coordinate. The following paragraph defines local monodromy by a full meromorphic basis, with the operator over algebraic rational functions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral holonomic germs"
+      },
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.mem",
+          "role": "characterisation",
+          "statement": "Membership is exactly integral pullback plus the existence of a algebraic-coefficient annihilator with the stated full local bases."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.zero_one",
+          "role": "simp",
+          "statement": "Zero and one belong for every U and χ."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.subring",
+          "role": "structure",
+          "statement": "H is closed under addition, negation and multiplication by the closure theorem."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.restrictDomain",
+          "role": "functoriality",
+          "statement": "For open U′⊆U containing 0, H(U,χ,ℤ)⊆H(U′,χ,ℤ)."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.integralCoordinate",
+          "role": "relation",
+          "statement": "For χ=t the ring is a ℤ[x]-algebra; when p has no poles in U and p∘χ is integral it is a ℤ[p]-algebra."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.nativeDFinite",
+          "role": "compatibility",
+          "statement": "Membership forgets to the parent roadmap’s D-finite predicate over ℚ̄; rationality of f also gives D-finiteness over ℚ by coefficient-linear-system descent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.unit",
+          "kind": "example",
+          "statement": "The series 1 is a member even when U=ℂ."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.poleOutside",
+          "kind": "example",
+          "statement": "For χ=t, 1/(1−x) belongs on ℂ and its first-order equation has a meromorphic basis at 1."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.exponential",
+          "kind": "counterexample",
+          "statement": "exp(x) is D-finite and entire but fails integral coefficients for χ=t, since its x² coefficient is 1/2."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicGerms.essential",
+          "kind": "counterexample",
+          "statement": "Put L(t)=−log(1−t), χ=L/(1+L), and f(x)=exp(x/(1−x)). Then χ=t+O(t²) is rational-coefficient and f∘χ=1/(1−t) is integral. The rational-coefficient germ f is D-finite, satisfying (1−x)²f′−f=0, but f does not belong to H(ℂ,χ,ℤ): its essential singularity at 1 precludes every full-meromorphic-basis annihilator. Thus the local condition is independent of D-finiteness and integral pullback."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CDT25 Corollary 2.0.5",
+          "how": "Supplies the arithmetic germs whose poles must be cleared before applying the analytic rank theorem."
+        },
+        {
+          "where": "CDT25 §3, pp.649–651, and §7.1, pp.686–688",
+          "how": "Supplies the holonomic ambient space for modular-function applications; this roadmap exports the corrected W rank theorem without planning modular curves again."
+        }
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Ring closure and rational multipliers",
+      "kind": "theorem",
+      "statement": "For U,χ as above, H(U,χ,ℤ) is a subring of ℚ[[x]]. If p∈ℚ(x) is regular throughout U and p∘χ is integral, then multiplication by p preserves H; hence it is a ℤ[p]-algebra. For χ=t, multiplication by x preserves H and it is a ℤ[x]-algebra.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring",
+        "DiophantineApproximationAndTranscendence:DT.5/d-finite-power-series",
+        "ConformalMappingPartII:O0/initial-value-basis",
+        "ConformalMappingPartII:O0/meromorphic-basis-monodromy"
+      ],
+      "proofSteps": [
+        "Integral pullbacks are closed under the ring operations. Use the parent D-finite closure construction on finite-dimensional ℚ̄(x) differential modules: direct sums for sums and tensor products for products.",
+        "On a punctured neighbourhood the input differential modules have full horizontal meromorphic bases. Their direct sums and tensors do too. The cyclic differential subquotient defining the resulting scalar equation inherits this property: a horizontal frame identifies these modules and their subquotients with constant finite-dimensional spaces. This also covers any new apparent singularities of the cyclic presentation.",
+        "The rational function p has a first-order meromorphic solution module (or is constant). Tensor with it; at its zeros a basis can still be meromorphic. The assumption of no poles in U ensures p itself is holomorphic at zero and that p∘χ multiplication stays within formal power series.",
+        "For χ=t, x has integral pullback and is regular everywhere."
+      ],
+      "acceptance": [
+        "The derivative need not preserve the arithmetic ring for arbitrary χ; no derivative-closure API is asserted.",
+        "An arbitrary rational multiplier can destroy integral coefficients and is available only after taking the scalar spans."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Ring and module assertions following Definition 2.0.4, pp.635–636; rational differential-module closure spells out the property used there",
+          "match": "The source calls H a ring and a polynomial algebra in the integral coordinate. The differential-module sketch explains preservation of the full-meromorphic-basis condition in that assertion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Two distinct scalar spans of integral holonomic germs",
+      "kind": "construction",
+      "statement": "Assume the data of H and let p∈ℚ(x) be nonconstant, regular on U, with p∘χ integral. Embed ℚ[[x]] and ℚ(x) in ℚ((x)). Set W(U,χ,p)=span_(ℚ(p)) H(U,χ,ℤ), and V(U,χ,ℤ)=span_(ℚ(x)) H(U,χ,ℤ), both inside this same Laurent-series field. Then W⊆V and V=ℚ(x)W. The space V is the source’s V; W is the smaller span to which the mean rank argument directly applies. Neither space is defined as a span over ℚ alone.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure",
+        "mathlib:RatFunc.coeToLaurentSeries"
+      ],
+      "proofSteps": [
+        "Use native scalar restriction and submodule spans in the common Laurent-series field; rational functions are interpreted through their Laurent expansion at zero.",
+        "Expand each finite span explicitly. Closure of H under multiplication makes both spans subalgebras over their respective scalar fields, containing 1.",
+        "The inclusions of scalar fields and the iterated finite-span identity give W⊆V and V=ℚ(x)W."
+      ],
+      "acceptance": [
+        "The scalar field in a dimension statement is part of its type.",
+        "The definition does not force x∈W when χ has nonintegral coefficients."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Definition 2.0.4, p.635; correction of the scalar-span passage in Corollary 2.0.5, p.636",
+          "match": "Definition 2.0.4 defines the larger span V. The smaller W is introduced here to repair the field mismatch in the rank corollary; the source does not name W."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Holonomic scalar spans"
+      },
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.mem_W",
+          "role": "characterisation",
+          "statement": "W elements are finite ℚ(p)-linear combinations of H elements."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.mem_V",
+          "role": "characterisation",
+          "statement": "V elements are finite ℚ(x)-linear combinations of H elements."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.algebra",
+          "role": "structure",
+          "statement": "W and V are subalgebras over their displayed fields and contain their scalar fields via 1∈H."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.scalarExtend",
+          "role": "compatibility",
+          "statement": "V=ℚ(x)W inside ℚ((x)); restriction of scalars embeds W in V."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.integralChi",
+          "role": "relation",
+          "statement": "If χ is integral, x∈H, and after the finite-rank theorem W is a field containing ℚ(x), hence W=V."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.sourceV",
+          "role": "relation",
+          "statement": "For χ=t, V agrees exactly with the source’s V(U,ℤ); the parent D-finite predicate is a condition on generators, not on an arbitrary chosen presentation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.constants",
+          "kind": "example",
+          "statement": "For every admissible datum, ℚ(p)⊆W and ℚ(x)⊆V, so neither space has rank zero."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.identityCoordinate",
+          "kind": "compatibility",
+          "statement": "For p=x and χ=t the scalar fields coincide and W=V by definition."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.degreeFour",
+          "kind": "counterexample",
+          "statement": "For p=x+x⁴/32 and χ its tangent inverse, V contains ℚ(x), whose degree over ℚ(p) is 4. This cannot be bounded as though V were just the span over ℚ(p)."
+        },
+        {
+          "name": "TauCeti.ArithmeticAlgebraization.HolonomicSpans.laurent",
+          "kind": "degenerate",
+          "statement": "Even though generators are power series, x⁻¹ belongs to V. The ambient space must therefore allow Laurent expansions."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AA.4/rank-bound",
+          "how": "Finite independent families of W generators are controlled by the analytic theorem."
+        },
+        {
+          "where": "AA.4/span-comparison and the scalar-field counterexample",
+          "how": "Distinguishes the corrected result from the printed Corollary 2.0.5 and supplies safe downstream interfaces."
+        }
+      ]
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/pole-clearing",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Uniformization after rational simultaneous pole clearing",
+      "kind": "lemma",
+      "statement": "For a finite family f_i∈H(U,χ,ℤ), a nonconstant p∈ℚ(x) without poles on U with p∘χ integral, and φ holomorphic near the closed unit disc with image in U, φ(0)=0 and φ′(0)≠0, there is a nonzero q∈ℤ[t] such that every q(p)f_i has integral χ-pullback and a holomorphic uniformization on a neighbourhood of that closed disc. Multiplication by this common nonzero factor preserves ℚ(p)-linear independence.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure",
+        "ConformalMappingPartII:O0/simultaneous-pole-clearing",
+        "ConformalMappingPartII:O0/path-continuation",
+        "ConformalMappingPartII:O0/global-solution-dimension",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs"
+      ],
+      "proofSteps": [
+        "Each algebraic-coefficient differential operator has finitely many algebraic singularities; take their union for the chosen finite family. Import rational simultaneous pole clearing using sufficiently high powers of the minimal polynomials of p(α), at singularities α lying in U. Multiply the polynomial by an integer to make all its coefficients integral.",
+        "Every local solution multiplied by q(p) is holomorphic throughout U at the formerly singular points. Continue the initial germ along paths pulled back to the parameter disc. The imported uniqueness and monodromy argument on a slightly larger simply connected disc give single-valued holomorphic realizations. A sufficiently small enlargement still maps into U by compactness.",
+        "The factor q(p∘χ) is integral. Since p is nonconstant, q(p)≠0; multiplication is injective in the Laurent-series field and preserves independence.",
+        "No Galois invariance of the subset of singularities lying in U is assumed: rational minimal polynomials may add harmless conjugate zeros."
+      ],
+      "acceptance": [
+        "A polynomial with complex coefficients would not preserve the arithmetic pullback condition.",
+        "Pole clearing is applied to the full local bases, rather than only a selected branch."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Proof of Corollary 2.0.5, p.636",
+          "match": "The proof of Corollary 2.0.5 multiplies local solutions by a polynomial in p and uses complex ODE continuation to obtain holomorphic pullbacks. The existing supplier gives the rational simultaneous form needed to preserve integrality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Corrected holonomic rank bound",
+      "kind": "theorem",
+      "statement": "Let U⊆ℂ be open with 0∈U; χ=t+O(t²)∈ℚ[[t]]; p∈ℚ(x) nonconstant without poles on U with p∘χ integral. Let φ be holomorphic near the closed unit disc, map it and a neighbourhood into U, satisfy φ(0)=0, and have λ=|φ′(0)|>1. Then W(U,χ,p) has finite dimension over ℚ(p), and dim_(ℚ(p))W≤B:=eJ(p∘φ)/logλ. This bound is for W as defined above, without adjoining all rational functions in x.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/pole-clearing",
+        "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound"
+      ],
+      "proofSteps": [
+        "Every finite independent family in W can be replaced by an equally large independent family of H generators: choose generators in finite span presentations and perform finite-dimensional basis extraction.",
+        "Apply simultaneous integral pole clearing to this family. Its independence and integral pullbacks survive, and its uniformizations are holomorphic.",
+        "Apply the mean rank theorem. A uniform real bound on all finite independent families implies finite dimension and the dimension bound."
+      ],
+      "acceptance": [
+        "The derivative and logarithmic mean have the same normalization as in AA.2.",
+        "The printed bound on dim_(ℚ(p))V is not a consequence unless W=V or another scalar-extension factor is included."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Corollary 2.0.5 and its proof, p.636, with the scalar span corrected as in source issue E1",
+          "match": "The printed proof controls finite independent lists of arithmetic generators over ℚ(p). It therefore gives the corrected W bound, while the printed V statement fails as in E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Holonomic rank bound"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Field structure and safe bounds for V",
+      "kind": "theorem",
+      "statement": "Under AA.4/rank-bound, W and V are fields in ℚ((x)), finite over ℚ(p) and ℚ(x), respectively. Write n=[ℚ(x):ℚ(p)]<∞. Then dim_(ℚ(x))V≤dim_(ℚ(p))W≤B and dim_(ℚ(p))V≤n·B. If χ∈ℤ[[t]], then W=V, so the stronger bound dim_(ℚ(p))V≤B holds. In all cases V is finite-dimensional over ℚ(x).",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+        "mathlib:RatFunc.finrank_eq_max_natDegree"
+      ],
+      "proofSteps": [
+        "A finite-dimensional subalgebra of a field is a field: multiplication by a nonzero element is injective and hence surjective as a linear endomorphism. Apply this first to W.",
+        "A ℚ(p)-basis of W spans V over ℚ(x), giving its dimension bound and then its field structure by the same argument.",
+        "Import the native rational-function extension-degree formula: for nonconstant p=a/b in reduced form, [ℚ(x):ℚ(p)]=max(deg a,deg b)<∞. The scalar tower formula gives the second displayed inequality.",
+        "If χ is integral then x∈H. The field W consequently contains ℚ(x), so V=ℚ(x)W=W."
+      ],
+      "acceptance": [
+        "Multiplication by n is indispensable in the general χ statement about dimension over ℚ(p).",
+        "The printed first, qualitative finiteness claim is preserved."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Corrected interpretation of Corollary 2.0.5, pp.635–636; finite-field argument fills the passage from the bounded generator span to V",
+          "match": "This is the elementary scalar-extension correction to Corollary 2.0.5. Finite-dimensional domains are fields, and the rational-function degree formula supplies the safe factor for V."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/integral-coordinate-finiteness",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Finiteness for an integral coordinate above radius one",
+      "kind": "theorem",
+      "statement": "Let U⊆ℂ be open with 0∈U. If there is a holomorphic map φ from the open unit disc into U with φ(0)=0 and |φ′(0)|>1, then V(U,ℤ)=V(U,t,ℤ) is finite-dimensional over ℚ(x). More generally the same conclusion holds for integral χ=t+O(t²). For a connected hyperbolic U the hypothesis is equivalent to conformal radius at 0 greater than 1; for U=ℂ or ℂ∖{a} with a≠0 use the explicit disc-map hypothesis rather than a hyperbolic-radius definition outside its domain.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+        "ConformalMappingPartII:U0/conformal-radius",
+        "ConformalMappingPartII:U0/radius-schwarz",
+        "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs"
+      ],
+      "proofSteps": [
+        "Choose 1/|φ′(0)|<r<1 and restrict to φ(rz). This supplies a neighbourhood of the closed disc with derivative r|φ′(0)|>1.",
+        "Take p=x, whose χ-pullback is integral. The corrected rank theorem bounds W=V directly.",
+        "For connected hyperbolic U import the conformal-radius universal-cover characterization. For other open U the operational disc-map condition suffices and requests no new general uniformization theorem."
+      ],
+      "acceptance": [
+        "A map with derivative exactly 1 does not meet this sufficient criterion.",
+        "For U=ℂ, φ(z)=2z supplies the hypothesis; the formulation does not try to evaluate a hyperbolic conformal radius at a parabolic surface."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "First assertion of Corollary 2.0.5, p.636",
+          "match": "The qualitative first assertion of Corollary 2.0.5 is recovered intact by taking p=x and shrinking an open-disc uniformization with derivative greater than one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Holonomic finiteness above radius one"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.4/scalar-span-counterexample",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4"
+      ],
+      "title": "Counterexample to the unrestricted V rank bound",
+      "kind": "application",
+      "statement": "In the published Corollary 2.0.5, take U=ℂ, p=x+x⁴/32, χ the formal inverse of p tangent to the identity, and φ(z)=2z. Then p∘χ=t∈ℤ[[t]] and all printed hypotheses hold. Since 1∈H, dim_(ℚ(p))V≥[ℚ(x):ℚ(p)]=4. However J(p∘φ)≤log(5/2), so eJ(p∘φ)/log2<4. Thus the printed (2.0.7) for V is false for general rational χ.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+        "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound",
+        "mathlib:RatFunc.finrank_eq_max_natDegree"
+      ],
+      "proofSteps": [
+        "Formal inversion exists because p(0)=0 and p′(0)=1; its fourth coefficient is −1/32, so χ is rational but nonintegral.",
+        "On |z|=1, |p(2z)|=|2z+z⁴/2|≤5/2. Hence its positive-log average is at most log(5/2).",
+        "The polynomial p has degree 4, giving the extension degree 4. Finally e<3 and (5/2)³=125/8<16=2⁴ show e log(5/2)/log2<4.",
+        "All points of U are allowed because p is a polynomial. The counterexample concerns the scalar extension in this corollary, not the validity of the main analytic theorem."
+      ],
+      "acceptance": [
+        "Taking p=x would conceal this problem because its scalar fields coincide.",
+        "The corrected W bound and the integral-coordinate bound survive this example."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA4",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Definition 2.0.4, pp.635–636; Corollary 2.0.5, (2.0.7), p.636",
+          "match": "This original falsification test uses the printed hypotheses and Definition 2.0.4. It is not attributed to a proof in the source; it identifies precisely the scalar extension responsible for E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.5",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5"
+      ],
+      "title": "Capacity normalization on centred circles and discs",
+      "kind": "theorem",
+      "statement": "Assume U,χ,p as in AA.4/rank-bound, and let φ be holomorphic on a neighbourhood of the closed disc |z|≤r, r>0, with image there in U, φ(0)=0, and r|φ′(0)|>1. For K={|z|≤r} or K={|z|=r}, its capacity is r and its equilibrium measure is normalized arc measure on the boundary circle. Then dim_(ℚ(p))W≤e∫_K log⁺|p∘φ|dμ_K/(log|φ′(0)|+log cap(K)). The same bound holds for dim_(ℚ(x))V, and for dim_(ℚ(p))V if χ is integral. For general χ the latter bound requires the factor [ℚ(x):ℚ(p)].",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium"
+      ],
+      "proofSteps": [
+        "Apply AA.4/rank-bound to ψ(z)=φ(rz). Its derivative modulus is r|φ′(0)| and its circle integral is the displayed equilibrium integral.",
+        "Import capacity of the disc and circle as r and the uniqueness of their rotationally invariant equilibrium probability. This proves the formula exactly for both centred shapes, including r≠1.",
+        "Use the scalar-span comparison for the asserted V versions."
+      ],
+      "acceptance": [
+        "The denominator must be positive, not merely nonzero.",
+        "For r=1 this recovers the corrected circle corollary.",
+        "The conformal centre is fixed at 0; translation of K while leaving φ(0)=0 fixed is not a consequence."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA5",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "Valid centred-disc and circle cases of (2.5.28), p.649; proof by rescaling Corollary 2.0.5",
+          "match": "The centred-circle and centred-disc specialization of the proposed capacity formula follows by rescaling the valid rank theorem. No arbitrary-compact version is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Centred capacity rank bound"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII:AA.5/compact-counterexample",
+      "parentStageId": "DiophantineApproximationAndTranscendencePartII:AA.5",
+      "realises": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5"
+      ],
+      "title": "Failure of the arbitrary-compact capacity formula",
+      "kind": "theorem",
+      "statement": "Let K be the closed disc with centre 1/2 and radius 1/4, contained in the open unit disc. Take U=ℂ, p=x, χ=t and φ(z)=8z exp(−20z). Then φ(0)=0, |φ′(0)|=8, cap(K)=1/4 and log|φ′(0)|+log cap(K)=log2>0. Yet ∫_K log⁺|p∘φ|dμ_K=0 while dim_(ℚ(x))V≥1. Thus the arbitrary-compact claim (2.5.28) fails even with integral χ and identical scalar fields.",
+      "hypotheses": [
+        "All notation and standing hypotheses are expanded in the statement or in the cited definition nodes."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+        "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium"
+      ],
+      "proofSteps": [
+        "On K, Re z≥1/4 and |z|≤3/4, hence |φ(z)|≤6exp(−5)<1. Its positive logarithm vanishes at every point of K, regardless of the equilibrium measure.",
+        "Capacity is invariant under translation and the capacity of a radius-1/4 disc is 1/4. The positive denominator follows from 8/4=2.",
+        "The constant germ 1 lies in H, so both W=V contain ℚ(x) and have rank at least one. The proposed inequality would give rank zero.",
+        "A general replacement would have to link the sampling compactum to the analytic base point and the admissible auxiliary functions. This plan records that missing replacement rather than assigning a false theorem a proof."
+      ],
+      "acceptance": [
+        "The compactum has positive capacity and the denominator is strictly positive, so neither degeneracy explains the failure.",
+        "The map is entire and p has no poles anywhere; shrinking away from singularities cannot repair this example."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ArithmeticAlgebraization/AA5",
+        "namespace": "TauCeti.ArithmeticAlgebraization"
+      },
+      "sources": [
+        {
+          "sourceId": "CDT25",
+          "locator": "(2.5.28) and the paragraph introducing K, p.649",
+          "match": "This original falsification test refutes the unrestricted compact-set assertion on p.649 with a positive-capacity disc and positive denominator. It is not attributed to a source proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "General compact obstruction"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.0",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.1",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.2",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.3",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.4",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "DiophantineApproximationAndTranscendencePartII:AA.5",
+      "status": "planned",
+      "remaining": [
+        "G1: establish a valid arbitrary-compact replacement, or remove that false source target after independent review. The centred versions and the obstruction are fully planned."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII/G1",
+      "title": "A valid arbitrary-compact replacement for (2.5.28)",
+      "detail": "The stated arbitrary-compact formula is false, even for a positive-capacity disc and a positive denominator (E2). The centred-circle/disc version is proved by rescaling. Identify a source-supported base-point-sensitive generalization with exact geometric hypotheses and a backward-closed proof, or obtain a maintainer decision to remove the false general target. Neither cap(K)>0 nor positivity of the printed denominator alone suffices. No false theorem is included as a promised declaration.",
+      "nodes": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5/compact-counterexample"
+      ],
+      "stages": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII/E1",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "CDT25 published offprint, Definition 2.0.4, p.635; Corollary 2.0.5, (2.0.7), p.636.",
+      "printed": "The source defines V as the ℚ(x)-span of H but bounds its dimension over ℚ(p) under a rational tangent-to-identity coordinate change.",
+      "correction": "Bound the smaller ℚ(p)-span W by B=eJ(p∘φ)/log|φ′(0)|. Then dim_(ℚ(x))V≤B and dim_(ℚ(p))V≤[ℚ(x):ℚ(p)]B. With the added hypothesis χ∈ℤ[[t]], W=V and the original sharper bound is valid.",
+      "reason": "Take U=ℂ, p=x+x⁴/32, χ=p⁻¹ at zero and φ=2z. The printed hypotheses hold, but V contains ℚ(x) of degree 4 over ℚ(p). Its proposed upper bound is at most e log(5/2)/log2<4. Full verification is AA.4/scalar-span-counterexample. The proof on p.636 controls independent H generators over ℚ(p), which gives W rather than the scalar extension V.",
+      "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+      "searched": [
+        "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
+        "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
+        "Web searches on 2026-10-18 for CDT unbounded-denominators erratum/corrigendum, Corollary 2.0.5 and (2.5.28) found no applicable correction.",
+        "The author-linked 2026 ICM survey https://www.math.uchicago.edu/~fcale/papers/ICM.pdf was searched for correction, capacity and compact; no applicable correction located. This is a bounded errata search, not a claim that the survey was read in full."
+      ],
+      "affectedNodes": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+        "DiophantineApproximationAndTranscendencePartII:AA.4/scalar-span-counterexample"
+      ],
+      "source": "CDT25"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendencePartII/E2",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "CDT25 published offprint, §2.5.27, (2.5.28), p.649.",
+      "printed": "The proposed capacity version replaces circle averaging by equilibrium averaging on any compact K in the unit disc, adding log cap(K) to the derivative denominator.",
+      "correction": "The formula is proved here only for circles or discs centred at the parameter base point, with positive denominator. A valid arbitrary-compact replacement needs additional hypotheses or different terms; it is not supplied by the printed argument.",
+      "reason": "Set K=closedDisk(1/2,1/4), p=x, χ=t, U=ℂ and φ(z)=8z exp(−20z). On K, |φ|≤6e^(−5)<1, so the numerator is zero. The denominator is log8+log(1/4)=log2>0, while the space contains 1 and has rank at least 1. See AA.5/compact-counterexample. This failure is independent of E1 since p=x and χ=t.",
+      "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+      "searched": [
+        "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
+        "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
+        "Web searches on 2026-10-18 for CDT unbounded-denominators erratum/corrigendum, Corollary 2.0.5 and (2.5.28) found no applicable correction.",
+        "The author-linked 2026 ICM survey https://www.math.uchicago.edu/~fcale/papers/ICM.pdf was searched for correction, capacity and compact; no applicable correction located. This is a bounded errata search, not a claim that the survey was read in full."
+      ],
+      "affectedNodes": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity",
+        "DiophantineApproximationAndTranscendencePartII:AA.5/compact-counterexample"
+      ],
+      "source": "CDT25"
+    }
+  ],
+  "restructure": [],
+  "importAudit": [
+    {
+      "supplier": "DiophantineApproximationAndTranscendence:DT.5",
+      "provides": "D-finite series, finite differential spans and their closure; earlier heights/transcendence and E/G-function targets are unchanged."
+    },
+    {
+      "supplier": "ConformalMappingPartII:O0",
+      "provides": "Analytic initial-value and path-continuation theory, full meromorphic local bases, and rational simultaneous pole clearing."
+    },
+    {
+      "supplier": "ConformalMappingPartII:U0",
+      "provides": "Conformal radius on connected hyperbolic domains; outside that domain the finiteness statement uses an explicit disc map."
+    },
+    {
+      "supplier": "ConformalMappingPartII:L0",
+      "provides": "Corrected normalized Nevanlinna quotient theorem; known extraction findings E15–E16 are inherited through the accepted supplier."
+    },
+    {
+      "supplier": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "provides": "Star discrepancy, Koksma and Erdős–Turán on [0,1]. This plan owns only the circular adapter."
+    },
+    {
+      "supplier": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0–LP.1",
+      "provides": "Extended logarithmic energy, compact-set capacity, equilibrium measure and capacity/transfinite-diameter equality. This plan owns only the circle specialization and arithmetic application."
+    }
+  ],
+  "upstreamAudit": {
+    "checked": "2026-10-18",
+    "method": "Read the current read-only TauCetiRoadmap checkout, including ConformalMapping, ModularForms and the completed ContourIntegration roadmap; searched the nine newer roadmap directories and the current Tau Ceti sources for arithmetic algebraization, holonomic rank, power-series Eisenstein denominators, circular discrepancy and the needed determinant norm estimate.",
+    "result": "No existing arithmetic-algebraization roadmap or implementation found. Generic power series, analytic continuation, contour integration and existing discrepancy/potential-theory plans remain imports. The parent atlas package exists but the parent roadmap directory was not present in the current upstream checkout; its DT.5 packet supplies the cited exact interface. A missing checkout directory is not treated as missing mathematics.",
+    "upstreamNotes": [
+      "No upstream roadmap is edited or replanned. Supplier acceptance is an interface dependency; its own recorded proof gaps and requests remain with that supplier."
+    ]
+  },
+  "sourceItemCoverage": [
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-1.1.2",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/integral-radius-polynomial"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/andre-criterion",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/andre-criterion"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/thm-2.0.1-bound",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/thm-2.0.1-algebraicity",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/algebraicity"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/def-2.0.4",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/trivial-local-monodromy",
+      "targets": [
+        "ConformalMappingPartII:O0/meromorphic-basis-monodromy"
+      ],
+      "note": "Imported from its existing owner."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/cor-2.0.5-finiteness",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/integral-coordinate-finiteness"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/cor-2.0.5-bound",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound"
+      ],
+      "note": "Corrected scalar span; see E1."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-2.0.8",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/multiplier-bound"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-2.1.2",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function"
+      ],
+      "note": "Cofinal-dimension specialization with explicit uniform coefficient constant; sufficient for all three proofs."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/inverse-series-denominators",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/inverse-denominators"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/eisenstein-theorem",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.0/eisenstein"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-2.4.2",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.2/lexicographic-coefficient"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-2.5.3",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/fekete-circle"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/def-2.5.4",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/koksma",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-koksma"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/erdos-turan",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/circle-erdos-turan"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/lemma-2.5.9",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/vandermonde-discrepancy-gap"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/circle-equilibrium-measure",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.3/haar-equilibrium"
+      ],
+      "note": "Covered at target level."
+    },
+    {
+      "item": "PAPER-CALEGARI-DIMITROV-TANG-25/potential-generalization-2.5.27",
+      "targets": [
+        "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity"
+      ],
+      "note": "General version refuted; centred replacement and explicit G1 retained."
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E15",
+      "locator": "CDT25 p.640, reconstruction before Lemma 2.3.1 and (2.3.2).",
+      "correction": "Restore the unimodular factor G(0)/|G(0)|, or assert only the identity of moduli.",
+      "supplier": "ConformalMappingPartII:L0/quotient-representation"
+    },
+    {
+      "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E16",
+      "locator": "CDT25 proof of Lemma 2.3.1, p.641.",
+      "correction": "The bounded quantity is sup log|h|, not sup|h|.",
+      "supplier": "ConformalMappingPartII:L0/quotient-representation"
+    }
+  ],
+  "benchmarkBoundary": "The explicit λ–theta identity of CDT25 (1.1.4)–(1.1.5), p.631, is recorded as source benchmark data for the strict derivative threshold. The elementary lacunary example proves the same threshold obstruction without a modular-theory dependency. Modular identity proofs remain in the modular-functions direction.",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf",
+      "citation": "Calegari–Dimitrov–Tang, JAMS 38 (2025), 627–702; published author offprint with journal pagination and DOI 10.1090/jams/1053.",
+      "read": "2026-10-18",
+      "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e"
+    }
+  ]
+}
