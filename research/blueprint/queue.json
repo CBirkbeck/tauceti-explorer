@@ -10056,7 +10056,8 @@
    ],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-BCGP25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #906"
   },
   {
    "id": "REV-DESIGN-BCGP25",
@@ -10685,8 +10686,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LieHighestWeightPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3373"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3373",
+   "finishedAt": "2026-10-18T23:21:37Z"
   },
   {
    "id": "REV-DESIGN-LieHighestWeightPartII",
@@ -11674,7 +11676,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NonabelianLevelStructures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3368"
   },
   {
    "id": "REV-DESIGN-NonabelianLevelStructures",
@@ -11718,7 +11721,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MappingClassGroupsAndCanonicalRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3370"
   },
   {
    "id": "REV-DESIGN-MappingClassGroupsAndCanonicalRepresentations",
@@ -12630,7 +12634,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SchemeKTheoryOperationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3391"
   },
   {
    "id": "REV-DESIGN-SchemeKTheoryOperationsPartII",
@@ -13582,7 +13587,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LocalFieldsRamificationPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3454"
   },
   {
    "id": "REV-DESIGN-LocalFieldsRamificationPartII",
@@ -14382,7 +14388,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SymplecticReidemeisterTorsionModSquares.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3427"
   },
   {
    "id": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares",
@@ -15948,7 +15955,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-K3SurfacesAndSymplecticBoundedness.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3461"
   },
   {
    "id": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness",
@@ -16405,7 +16413,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SpringerResolutionAndCharacteristicCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3471"
   },
   {
    "id": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles",
@@ -16817,7 +16826,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ChromaticHomotopyTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3478"
   },
   {
    "id": "REV-DESIGN-ChromaticHomotopyTheory",
@@ -23560,8 +23570,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyAndLocalGlobalCompatibility.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #700"
   },
   {
    "id": "REV-CompletedCohomologyAndLocalGlobalCompatibility",
@@ -27633,9 +27644,9 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicLocalLanglandsForGL2Qp.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #970"
+   "note": "claimed on GitHub issue #970"
   },
   {
    "id": "REV-PadicLocalLanglandsForGL2Qp",
@@ -98693,8 +98704,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5869"
+   "state": "external",
+   "note": "claimed on GitHub issue #5869"
   },
   {
    "id": "FIX-RT-AREA-iwasawa-3~4",
@@ -135748,9 +135759,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv2.md",
-   "note": "claimed on GitHub issue #10409"
+   "note": "deliverables arrived from an external worker on issue #10409",
+   "finishedAt": "2026-10-18T23:21:39Z"
   }
  ]
 }
