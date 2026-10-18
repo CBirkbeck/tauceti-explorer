@@ -47735,7 +47735,9 @@
     "PKG-AnalyticNumberTheoryPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10373",
+   "finishedAt": "2026-10-18T21:02:35Z"
   },
   {
    "id": "PKG-AnalyticToricGeometryPartII",
@@ -48295,7 +48297,9 @@
     "PKG-ArithmeticStatisticsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10374",
+   "finishedAt": "2026-10-18T21:02:38Z"
   },
   {
    "id": "PKG-AutomorphicBundles",
