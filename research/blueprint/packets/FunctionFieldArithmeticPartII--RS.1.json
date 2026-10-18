@@ -156,7 +156,7 @@
       "sha256": "121062fb15b9c0bd67de1eb3ff53fd370ecaf441cbfa22aefaffb5d53cf0d176",
       "accessed": "2026-10-18",
       "readSections": [
-        "§1.1; §1.18–§1.23; §3.4 Picard groupoids; §4.13 regular schemes.",
+        "§1.1; §1.15–§1.23; §3.4 Picard groupoids; §4.13 regular schemes.",
         "Suggested.lean: corresponding stack-in-groupoids declaration and absence of retained heavy root/quotient declarations; README owns the omitted carriers."
       ]
     },
@@ -550,7 +550,7 @@
         {
           "sourceId": "AGV08",
           "locator": "Appendix B.2, pp.53–54",
-          "match": "The affine equation and the quotient presentation are obtained by normalizing the power identification of the root line."
+          "match": "Normalize the power identification using an fppf μ_n-torsor to obtain the finite affine equation. The finite quotient comparison follows from that normalization and torsor descent, not from the false product-isomorphism assertion on p.54 (E13)."
         },
         {
           "sourceId": "TV17",
@@ -602,7 +602,7 @@
         {
           "sourceId": "AGV08",
           "locator": "Appendix B.2, pp.53–54, presentation as [V_σ/G_m]",
-          "match": "The frame presentation uses a smooth G_m atlas even when the finite root group is not smooth. Our q is the inverse of the coefficient of the power identification."
+          "match": "The frame presentation uses a smooth G_m atlas even when the finite root group is not smooth. Our q is the inverse of the coefficient of the power identification. The product-isomorphism assertion at the top of p.54 is false in this preprint (source issue E13); the contracted-product comparison here is instead derived from the explicit invariant coordinate map and torsor descent."
         },
         {
           "sourceId": "SSF",
@@ -667,6 +667,11 @@
           "name": "FiniteRoot.smoothPresentation_unit",
           "kind": "compatibility",
           "statement": "For f a unit, eliminate q=z^n/f to obtain V_n(f)≅Spec A[z,z^−1]; the G_m action scales z and its quotient is Spec A."
+        },
+        {
+          "name": "FiniteRoot.smoothPresentation_not_product",
+          "kind": "non-example",
+          "statement": "For A=C, f=1 and n=2, V_2(1) is G_m and is connected, while W_2(1) is two reduced points and W_2(1)×G_m has two connected components. The comparison must take the antidiagonal μ_2 quotient; the product itself is not isomorphic to V_2(1)."
         }
       ],
       "uses": [
@@ -1025,10 +1030,10 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Rendered arXiv math/0603151v2 p.53 B.2 item(3) uses m for the section exponent, whereas item(2) uses d for the power isomorphism. The root equation must use d. This finding is restricted to that preprint.",
-        "by": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
-        "agent": "Codex — codex-j5HIy4",
-        "date": "2026-10-11"
+        "reason": "Independently read and rendered arXiv math/0603151v2 p.53, Appendix B.2, items (2)–(3): the power identification binds d but the section equation uses unbound m. The section must be raised to d. Confirmation is restricted to the selected preprint.",
+        "by": "REV-FunctionFieldArithmeticPartII--RS.1",
+        "agent": "Codex — codex-MYEB4Z",
+        "date": "2026-10-18"
       },
       "reviewHistory": [
         {
@@ -1037,9 +1042,40 @@
           "by": "REV-DESIGN-FunctionFieldArithmeticPartII",
           "agent": "Codex — codex-B75yty",
           "date": "2026-10-05"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Rendered arXiv math/0603151v2 p.53 B.2 item(3) uses m for the section exponent, whereas item(2) uses d for the power isomorphism. The root equation must use d. This finding is restricted to that preprint.",
+          "by": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+          "agent": "Codex — codex-j5HIy4",
+          "date": "2026-10-11"
         }
       ],
-      "reuseNote": "Inherited accepted parent finding. The corresponding arXiv v2 p.53 passage was reread on 2026-10-18; no new erratum search or version-of-record collation is asserted."
+      "reuseNote": "Inherited accepted parent finding, independently reconfirmed in this review at the rendered preprint locator. Earlier review records are preserved; no assertion about the version of record is made."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E13",
+      "source": "AGV08",
+      "kind": "error",
+      "locator": "arXiv:math/0603151v2, Appendix B.2, top of printed p.54, completing the last paragraph of p.53; preprint only.",
+      "printed": "After defining the monic root scheme W_σ, the preprint identifies its ordinary product with G_m with the frame-presentation scheme V_σ.",
+      "correction": "In this packet’s coordinates, V_n(f) is the quotient of W_n(f)×G_m by ζ·(w,λ)=(ζw,λζ⁻¹), hence the contracted product W_n(f)×^{μ_n}G_m. The map (w,λ)↦(λw,λ^n) is invariant and induces the comparison; it is not an isomorphism from the unquotiented product.",
+      "reason": "Take A=C, f=1 and n=2. The root equation w²=1 makes W two reduced points, so W×G_m has two connected components. In the preprint coordinate u, V has equation uz²=1, hence V≅G_m by eliminating u; it is connected. Thus the asserted schemes are not isomorphic, even with invertible exponent. Equivalently q=u⁻¹ gives the packet’s equation z²=q. The antidiagonal quotient identifies the two product components and gives precisely that V. The rendered p.54 confirms an ordinary product rather than an extraction artifact.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-18: https://arxiv.org/abs/math/0603151 lists v2 (13 April 2008) as the latest version; the downloaded and rendered v2 retains the product assertion.",
+        "2026-10-18: exact-title erratum/correction searches and searches for the authors with the two scheme symbols identified no correction of this assertion.",
+        "2026-10-18: inspected Abramovich’s public paper-directory listings https://www.math.brown.edu/dabramov/PAPERS/ and its VISTOLI subdirectory; no linked correction of this claim was identified.",
+        "2026-10-18: attempted the Project Euclid journal page for DOI 10.1353/ajm.0.0017; it served an access-block page. The Caltech author record https://authors.library.caltech.edu/records/yk2a8-1th60 supplies publication metadata, but no readable published text was obtained. The finding concerns only the specified preprint, not the version of record."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two-component versus connected example disproves the preprint’s product assertion. Taking the μ_2 antidiagonal quotient fixes this example and the general coordinate map descends to the contracted-product comparison already used by the packet.",
+        "by": "REV-FunctionFieldArithmeticPartII--RS.1",
+        "agent": "Codex — codex-MYEB4Z",
+        "date": "2026-10-18"
+      }
     }
   ],
   "restructure": [
@@ -1075,6 +1111,9 @@
       "sourceId": "SSF",
       "layers": [
         "1.1",
+        "1.15",
+        "1.16",
+        "1.17",
         "1.18",
         "1.19",
         "1.20",
@@ -1108,5 +1147,78 @@
     "nodeCount": 11,
     "scopeBoundary": "Finite roots only. RS.0 owns framed arithmetic and native pullback/normalization; RS.2 owns towers and inverse limits. The reserved root definition and the accepted parent invariant algebra are reused, without edits or duplicated node ids. All eleven parent RS.1 target uses are mapped in the reader coverage table.",
     "upstreamCheckout": "The provided read-only checkout at 0d144d0 lacks the newly merged SchemeAndStackFoundations. Its actual current public main README and Suggested.lean were read at immutable commit 350e970; no repository was cloned or copied."
+  },
+  "sourceVersions": [
+    {
+      "sourceId": "AGV08",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0603151v2",
+      "read": "2026-10-18",
+      "sha256": "c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb",
+      "scope": "Appendix B.1–B.2, pp.52–54, with pp.53–54 also rendered for E12/E13. Published journal text was not obtained; both findings are restricted to this preprint."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--RS.1",
+    "date": "2026-10-18",
+    "notes": "Independent review of all eleven nodes, every cited source locator, all twelve actual pinned declarations, direct supplier statements, accepted parent/RS.0/RS.2 interfaces, current upstream ownership and the reviewed audit. Corrected AGV attribution around its false ordinary-product assertion, added confirmed preprint-only finding E13 and a thirteenth construction test, reconfirmed inherited E12 with prior reviews preserved, and synchronized reader/Lean omission ledgers. All baseline citations confirmed; no nodes added or removed. Complete is one target-level pass; RS.1 remains planned with the precise coarse-quotient request and native-signature integration boundary. Packet validation passes; the compact suggested file elaborates with only the five permitted proof-admission warnings.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-effective-descent",
+        "verdict": "verified",
+        "note": "QCoh descent includes all maps; finite locally free rank descends. Descending sections, φ and its inverse gives the stated groupoid equivalence and uniqueness gives base-change/refinement coherence."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-upstream-equivalence",
+        "verdict": "verified",
+        "note": "The line-section equivalence and 2-pullback retain φ, the base arrow and both root-arrow equations. Scheme-test descent justifies stack bases without removing their absolute automorphisms."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-universal-root-comparison",
+        "verdict": "verified",
+        "note": "The second 2-pullback projection and its structural isomorphism give the whole universal triple. The 2-Yoneda comparison is at groupoid level."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-basechange-square",
+        "verdict": "verified",
+        "note": "Associativity and full faithfulness of the 2-pullback comparison give arbitrary base change and its coherent 2-cells; no flatness or representability of g is used."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-quotient-comparison",
+        "verdict": "corrected",
+        "note": "Verified normalized-frame μ_n-torsors, inverse-weight equivariance and effective descent, with TV17 Corollary 3.13 as an independent chart source. Clarified that AGV’s false product assertion is not a proof of this comparison."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-smooth-presentation",
+        "verdict": "corrected",
+        "note": "Verified the q-inverse convention, G_m torsor atlas, action and antidiagonal contracted product. Added the connected-component test excluding the unquotiented product and linked the newly recorded AGV preprint error E13."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-algebraicity",
+        "verdict": "verified",
+        "note": "Finite monic charts give flatness/lfp; their μ_n map is a torsor over the stack. Relative Isom spaces are closed in finite torsors, hence finite without a flatness claim. Stack-base inertia remains relative."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-coarse-space",
+        "verdict": "verified",
+        "note": "The accepted parent supplies the actual invariant-algebra equivalence. The geometric universal property is explicitly conditional on the precise diagonalizable-quotient request; AOV tame base change is not used to assume existence."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-geometric-fibres",
+        "verdict": "verified",
+        "note": "The nilpotent ideal (z) defines the intrinsic zero-section gerbe. Its smooth G_m atlas proves Bμ_n reduced even in wild characteristic; the full fibre has a nonreduced smooth atlas for n>1."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-regularity",
+        "verdict": "verified",
+        "note": "For n≥2 and z in the prime, f is an ambient regular parameter and z^n−qf has nonzero cotangent class. Off z=0, eliminate q. The n=1 case and wild example use the actual smooth atlas."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.1/native-dm-locus",
+        "verdict": "verified",
+        "note": "Geometric stabilizers are trivial off the zero locus and μ_n on it. The imported unramified-diagonal criterion gives precisely invertibility of n along V(s); the tangent-unit test and relative stack-base qualification are correct."
+      }
+    ]
   }
 }

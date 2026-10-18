@@ -93,7 +93,7 @@ README-only signature ledger, exhaustive for this packet:
   actual quotient stack. The ZMod 4 example records its global-frame obstruction.
 * native-smooth-presentation: smoothPresentation, smoothPresentation_action,
   smoothPresentation_torsor, smoothPresentation_quotient,
-  smoothPresentation_finiteChart, smoothPresentation_baseChange and all four
+  smoothPresentation_finiteChart, smoothPresentation_baseChange and all five
   smoothPresentation_* tests need the actual torsor/quotient geometry. The two
   light abbreviations name its ring only, not its atlas map or quotient theorem.
 * native-algebraicity needs actual algebraic stacks and relative morphism
