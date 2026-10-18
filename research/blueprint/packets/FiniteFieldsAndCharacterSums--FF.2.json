@@ -667,10 +667,7 @@
           "kind": "compatibility",
           "statement": "Coefficient evaluation agrees with Mathlib MvPolynomial.eval at every affine point."
         }
-      ],
-      "planet": {
-        "name": "Universal smooth polynomial family"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/polynomial-boundary-local-models",
@@ -840,10 +837,7 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/PolynomialFamilyLissity.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Lissity of exponential-sum cohomology"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology",
@@ -1461,10 +1455,7 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/ExplicitProjectiveBettiBound.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Katz’s Betti-number bound"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound",
@@ -1772,10 +1763,7 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/TraceCorrelationMainTerm.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Trace-function quasi-orthogonality"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/isotypic-quasi-orthogonality",
@@ -1815,7 +1803,10 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/IsotypicQuasiOrthogonality.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Trace-function quasi-orthogonality"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/geometric-mobius-stabilizer",
