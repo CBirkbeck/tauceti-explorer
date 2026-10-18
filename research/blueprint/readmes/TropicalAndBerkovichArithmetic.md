@@ -69,7 +69,7 @@ The current TauCetiRoadmap main and current Tau Ceti source tree were also check
 Stage contracts whose exact required node is absent are requested explicitly:
 - **SchemeAndStackFoundations:SF.3**: Integrate the native smooth connected algebraic curve, smooth proper completion and finite puncture set from AlgebraicCurves. Analytification belongs to TB.0, not this request. Supply H⁰(X̄,O)=K for a smooth proper geometrically connected curve over algebraically closed K, used with proper GAGA for analytic connectedness. Consumed by `TB.2/semistable-vertex-sets-and-skeleta` (Semistable vertex set), `TB.0/connected-analytification` (Connected algebraic curves remain connected).
 - **SchemeAndStackFoundations:SF.0**: Common scheme interfaces for closed toric embeddings over the general nonarchimedean field K, equivariant dominating maps and initial degenerations retaining generic multiplicities. Coordinate the toric extension with AnalyticToricGeometry Layer 0, whose specified algebraic supplier uses a complex base. Do not duplicate its cones, fans or toric gluing. Consumed by `TB.5/faithful-tropicalization-and-expansion-factors` (Faithful tropicalization of a finite subgraph), `TB.4/tropical-multiplicity-formula` (Tropical multiplicity formula for curves).
-- **SchemeAndStackFoundations:SF.4**: Intersection degrees of model line bundles and vertical Cartier divisors on proper normal flat models over arbitrary complete rank-one valuation rings; independence under admissible blowups, flat degree specialization and projection formula, with residue degrees and component multiplicities. This is an extension beyond the DVR case, not semistable-reduction existence. Consumed by `TB.6/formal-model-metrics` (Formal and model metrics), `TB.6/model-measures` (Chambert–Loir model measures).
+- **SchemeAndStackFoundations:SF.5**: Use SF.5/first-chern, SF.5/chern-projection and SF.5/degree for intersections on proper finite-type residue-field schemes. Extend the model specialization, vertical Cartier intersection and admissible-blowup projection identities to proper normal flat models over arbitrary complete rank-one valuation rings, retaining residue degrees and component multiplicities. SF.5/arithmetic-surface-comparison covers regular proper arithmetic surfaces over a Dedekind base; it does not supply this possibly nonnoetherian extension. SF.4 supplies formal geometry, not the intersection-theory owner. Consumed by `TB.6/formal-model-metrics` (Formal and model metrics), `TB.6/model-measures` (Chambert–Loir model measures).
 - **NeronModelsAndSemistableAbelianVarieties:R11.3**: Extend the DVR formal Raynaud comparison to the analytic uniformization cross over a complete algebraically closed rank-one field: 0→M′→Eᵃⁿ→Jᵃⁿ→0 and 0→T→E→B→0, the valuation map, its full lattice and good-reduction kernel, base change, and principal period/monodromy pairing. The existing raynaud-extension-comparison node is a formal DVR result and does not provide this analytic cross. Consumed by `TB.7/analytic-jacobian-periods` (Analytic Jacobian periods), `TB.7/bc-abelian-tropical-correction` (BC–abelian tropical correction).
 - **ArithmeticDynamics:DY.2**: The DKY degenerating family needs locally uniform convergence of normalized dynamical Green potentials on the hybrid analytic space. TB.0 owns that space and TB.6 its local kernel/energy; the dynamical escape-rate estimates and family-specific convergence remain here, rather than being asserted from topology alone. Consumed by `TB.0/hybrid-analytic-space` (Hybrid analytic spaces), `TB.6/hsia-potentials-and-energy` (Hsia kernels and positive energy).
 - **tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets**: Native valuation classes, Spa(A,A⁺), rational topology and continuous maps; TB.0 adds normalized real rank-one points and the Hausdorff quotient, with no perfectoid or diamond prerequisite. Consumed by `TB.0/adic-rank-one-retraction` (Normalized rank-one adic quotient).
@@ -329,7 +329,7 @@ Proof route. For existence use Berkovich’s maximal-ideal quotient and minimal 
 
 *Needs:* `TB.0/banach-ring-category` (Seminormed Banach rings); `TB.0/compact-spectrum` (Compactness of the Berkovich spectrum); `TB.0/hausdorff-spectrum` (Hausdorffness of the Berkovich spectrum).
 
-Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Theorem 1.2.1, pp. 12–14. Supplies existence, including the part not implied by compactness. [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Theorem 2.14, pp. 10–11. Records the general Banach-ring version and unit normalization.
+Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Theorem 1.2.1, pp. 13–15. Supplies existence, including the part not implied by compactness. [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Theorem 2.14, pp. 10–11. Records the general Banach-ring version and unit normalization.
 
 Acceptance: The zero-ring exception is necessary. The archimedean and trivial absolute-value field cases are included.
 
@@ -343,7 +343,7 @@ Proof route. Apply nonemptiness to the quotient by a maximal ideal containing a 
 
 *Needs:* `TB.0/nonempty-spectrum` (Existence of spectral points); `TB.0/bounded-iff-dominated` (Bounded points are norm dominated).
 
-Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Corollary 1.2.4 and Theorem 1.3.1, pp. 14–16. Gives unit detection and the spectral maximum, rather than only a definition by infimum. [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Corollary 2.15, p. 11 and Proposition 2.21, pp. 12–13. Relates spectral uniformization to the same spectrum.
+Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Corollary 1.2.4, p. 15 and Theorem 1.3.1, pp. 15–16. Gives unit detection and the spectral maximum, rather than only a definition by infimum. [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Corollary 2.15, p. 11 and Proposition 2.21, pp. 12–13. Relates spectral uniformization to the same spectrum.
 
 Acceptance: A nonzero nilpotent has spectral radius zero. In ℝ×ℝ the radius is max(|a|,|b|), not a multiplicative norm.
 
@@ -372,7 +372,7 @@ Construction. Multiplicativity makes the kernel prime; define |a/b|=x(a)/x(b), p
 
 *Needs:* `TB.0/spectrum` (Berkovich spectrum); `TB.0/comap` (Pullback of Berkovich points).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition I.2.1 and Proposition I.2.5, pp. 6–7. Gives the residue-field construction and its role in point types. [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §2.2.2, pp. 6–7. Evaluation realizes a spectral point in a complete valued residue field.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition I.2.1 and Lemma I.2.5, pp. 6–7. Gives the residue-field construction and its role in point types. [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §2.2.2, pp. 6–7. Evaluation realizes a spectral point in a complete valued residue field.
 
 ### 0.16 Valued base change of spectra
 
@@ -384,7 +384,7 @@ Proof route. A point lifts by amalgamating H(x) and L over K and evaluating in a
 
 *Needs:* `TB.0/completed-residue-fields` (Completed residue fields); `TB.0/affinoid-algebras` (Affinoid algebras over valued fields).
 
-Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Proposition 1.3.5 and Corollary 1.3.6, pp. 16–17. Normal and purely inseparable spectrum comparison. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Propositions I.5.1 and I.5.5–I.5.6, pp. 19–21. Valued amalgamation proves surjectivity; the quotient statements are topological.
+Sources: Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (maintainer-cleared edition), Proposition 1.3.5 and Corollary 1.3.6, p. 16. Normal and purely inseparable spectrum comparison. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Propositions I.5.1 and I.5.5, Corollary I.5.6, pp. 19–22. Valued amalgamation proves surjectivity; the quotient statements are topological.
 
 ### 0.17 Spectra and contractive colimits
 
@@ -452,7 +452,7 @@ Construction. Verify the rational universal property using g invertible on any f
 
 *Needs:* `TB.0/affinoid-algebras` (Affinoid algebras over valued fields); `TB.0/unit-and-spectral-radius` (Units and spectral maximum); `TB.0/completed-residue-fields` (Completed residue fields).
 
-Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definitions 3.2.2.1 and 3.2.3.1; Facts 3.2.3.2–3.2.3.4, pp. 15–18. Distinguishes rational inequalities from the universal affinoid-domain definition and states Gerritzen–Grauert.
+Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definitions 3.2.2.1 and 3.2.3.1; Facts 3.2.3.2–3.2.3.4, pp. 14–16. Distinguishes rational inequalities from the universal affinoid-domain definition and states Gerritzen–Grauert.
 
 ### 0.20 Affinoid structure sheaf and acyclicity
 
@@ -479,7 +479,7 @@ Construction. Use rational refinements and Laurent-cover acyclicity, then finite
 
 *Needs:* `TB.0/affinoid-domains` (Rational and affinoid domains); `AdicSpacesPartII:R1/affinoid-covering-tate-acyclicity`.
 
-Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §§3.3.1–3.3.3, pp. 18–20. Finite compact covers, Tate acyclicity, sheaf equalizers and affinoid analytic spaces.
+Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §§3.3.1–3.3.3, pp. 16–18. Finite compact covers, Tate acyclicity, sheaf equalizers and affinoid analytic spaces.
 
 ### 0.21 Analytic atlases and morphisms
 
@@ -672,7 +672,7 @@ Proof route. Proper GAGA identifies global analytic functions with algebraic glo
 
 *Needs:* `TB.0/analytification` (Berkovich analytification); `TB.0/idempotents-and-clopens` (Idempotents and clopen subsets); `TB.1/tree-hyperbolic-metric` (Paths, tangent directions and hyperbolic metric); `SchemeAndStackFoundations:SF.3`.
 
-Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Facts 5.1.2.1–5.1.2.2, p. 34. Proper coherent GAGA identifies global functions and analytic morphisms. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), §I.6, Propositions I.6.12–I.6.14, pp. 25–26. Path structure of disc charts gives the endpoint removal argument.
+Sources: [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Facts 5.1.2.1–5.1.2.2, p. 34. Proper coherent GAGA identifies global functions and analytic morphisms. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12 and Remark I.6.14, pp. 25–26. Path structure of disc charts gives the endpoint removal argument.
 
 ### 0.32 Uniform units and trivial spectrum
 
@@ -759,7 +759,7 @@ Proof route. Use nested discs extracted from values of T−a; a common point giv
 
 *Needs:* `TB.1/gauss-line-and-discs` (Gauss points, discs and projective line); `TB.0/completed-residue-fields` (Completed residue fields); `TB.0/spectral-base-change` (Valued base change of spectra).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Propositions I.2.9, I.2.11–I.2.12 and Example I.2.20, pp. 7–11. Classification, the radius/value-group distinction and an explicit type-IV construction.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition I.2.9, Lemma I.2.11, Proposition I.2.12 and Example I.2.20, pp. 7–11. Classification, the radius/value-group distinction and an explicit type-IV construction. In Example I.2.20 the Hahn coefficients are complex, as corrected in E11.
 
 Acceptance: Type IV is not deleted for a merely complete field. At II the residue transcendence degree is one; at III the value-group rational-rank increment is one. Over a nonclosed field a type-I point need not be K-rational.
 
@@ -789,7 +789,7 @@ Construction. Join nested-disc points at their least common containing disc. Log
 
 *Needs:* `TB.1/four-point-types` (Four types of points).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12, pp. 25–26; §§I.8.1–I.8.9, pp. 29–30. Unique paths, tangent directions and multiplicative length, converted here to additive −log lengths. [Charles Favre and Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective](https://arxiv.org/pdf/math/0407471), §3, pp. 19–22. Hyperbolic tree distance and the distinction from the compact analytic topology.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12, pp. 25–26; §§I.8.1–I.8.9, pp. 29–31. Unique paths, tangent directions and multiplicative length, converted here to its logarithm, equivalently the difference of −log radial coordinates. [Charles Favre and Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective](https://arxiv.org/pdf/math/0407471), §3, pp. 19–22. Hyperbolic tree distance and the distinction from the compact analytic topology.
 
 ### 1.4 Annular skeleton and deformation
 
@@ -810,14 +810,14 @@ The API consists of:
 **Checks.**
 
 - `TauCeti.Berkovich.TB1.annular_skeleton.check1`: The annulus |q|<|T|<1 has length −log|q|.
-- `TauCeti.Berkovich.TB1.annular_skeleton.check2`: Inverting T reverses orientation without changing length.
+- `TauCeti.Berkovich.TB1.annular_skeleton.check2`: For T↦a/T with a≠0, a₋₁=a and a₁=0: the annulus r<|T|<R maps to |a|/R<|T|<|a|/r, reversing orientation and preserving log(R/r). This uses the E12-corrected coefficient.
 - `TauCeti.Berkovich.TB1.annular_skeleton.check3`: A closed annulus has its two endpoints; an open annulus excludes them.
 
 Construction. Identify the Gauss interval via Laurent evaluations; every complementary residue ball attaches at exactly one skeletal point. Enlarge disc radii continuously to the attachment radius to construct the homotopy, then descend through valued scalar extension.
 
 *Needs:* `TB.1/gauss-line-and-discs` (Gauss points, discs and projective line); `TB.1/tree-hyperbolic-metric` (Paths, tangent directions and hyperbolic metric).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions I.7.1–I.7.2 and Propositions I.7.8–I.7.11, pp. 26–29. Skeleta and explicit deformation homotopies for discs/annuli. [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), §2, Propositions 2.4–2.5 and 2.10, pp. 4–6. Generalized annulus skeleta, retractions and boundary versions.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions I.7.1–I.7.2, Lemmas I.7.8–I.7.9 and Propositions I.7.10–I.7.11, pp. 26–29. Skeleta and explicit deformation homotopies for discs/annuli. [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), §2, Propositions 2.4–2.5 and 2.10, pp. 4–6. Generalized annulus skeleta, retractions and boundary versions.
 
 ### 1.5 Integral slopes of analytic units
 
@@ -859,7 +859,7 @@ Construction. Use Galois transitivity on geometric components and uniqueness of 
 
 *Needs:* `TB.1/annular-skeleton` (Annular skeleton and deformation); `TB.0/spectral-base-change` (Valued base change of spectra).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions I.7.1–I.7.2, Propositions I.7.4–I.7.6 and Remark I.7.7, pp. 26–28. A¹-domain descent, the end-swap caution and the component-count modulus convention.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions I.7.1–I.7.2, Lemma I.7.4, Remark I.7.5, Definition I.7.6 and Remark I.7.7, pp. 26–28. A¹-domain descent, the end-swap caution and the component-count modulus convention.
 
 ## Layer 2: Semistable models and skeleta of curves
 
@@ -1118,7 +1118,7 @@ Proof route. Compare the special fiber with the imported algebraic numerical typ
 
 *Needs:* `TB.2/formal-model-skeleton` (Formal models and metric dual graphs); `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`; `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`; `TB.1/annular-skeleton` (Annular skeleton and deformation); `TB.0/analytification` (Berkovich analytification).
 
-Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition II.2.14, Example II.2.16 and Theorems II.2.22–II.2.23, pp. 40–43. Stable genus and the analytic/algebraic genus formula; the example rules out unqualified residue-genus invariance.
+Sources: [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition II.2.14, Remark II.2.16, Definition II.2.22 and Theorem II.2.23, pp. 40–43. Stable genus and the analytic/algebraic genus formula; the example rules out unqualified residue-genus invariance.
 
 Acceptance: A good-reduction genus-g curve has a one-vertex skeleton of vertex genus g. A split Tate curve has b₁=1 and all vertex genera zero. A potentially good-reduction elliptic point can have residue genus zero before extension and stable genus one.
 
@@ -1192,15 +1192,15 @@ Acceptance: For a smooth analytic curve over a p-adic local field, the canonical
 
 ### 2.21 Triangulated curves and formal automorphisms
 
-Prove `TauCeti.Berkovich.TB2.triangulated_formal_automorphisms`. For a normal flat formal curve over O_K in the CDN local-field setting, its generic-component points give the associated triangulation. An automorphism of its analytic generic fiber preserving this set extends uniquely to a formal automorphism. A split semistable chart uv=a, a≠0, gives the corresponding triangulated annular chart. This statement is local/modelwise and does not assert that every noncompact curve has one proper finite semistable model after a uniform finite extension.
+Prove `TauCeti.Berkovich.TB2.triangulated_formal_automorphisms`. For a normal flat admissible formal curve over O_K in the CDN local-field setting, let S be the set of analytic points corresponding to generic points of its special-fiber components. An automorphism of its analytic generic fiber preserving S extends uniquely to a formal automorphism. If the model is semistable, S is its associated triangulation; normality and flatness alone do not make S a triangulation. A split semistable chart uv=a, a≠0, gives the annular chart. This modelwise statement asserts neither a converse reconstruction theorem nor a single proper finite model for every noncompact curve.
 
-Assumptions and scope: Formal curve and triangulation satisfy the normality, flatness and admissibility conditions of CDN Appendix A.2.
+Assumptions and scope: Normal flat admissible formal curve in the local-field setting of CDN Appendix A.2; semistability is an additional hypothesis for the triangulation assertion.
 
-Proof route. Recover formal affine chart rings as bounded analytic functions on the triangulation domains. A triangulation-preserving automorphism preserves these rings; normality and separated gluing give unique extension. The full analytic/formal reconstruction theorem is recorded as a proof input.
+Proof route. Use the normal formal model and its component-point set S. The extension criterion for automorphisms preserving S is the cited Ducros theorem; on semistable charts it respects the disc/annulus decomposition. Supply the locally finite gluing and uniqueness proof before closure; CDN does not itself establish a converse reconstruction theorem.
 
 *Needs:* `TB.2/noncompact-triangulations` (Locally finite triangulations and analytic nodes); `AdicSpacesPartII:R2/admissible-formal-scheme`; `AdicSpacesPartII:R2/raynaud-generic-fibre`; `TB.1/annular-skeleton` (Annular skeleton and deformation); `TB.0/analytification` (Berkovich analytification).
 
-Sources: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie des revêtements du demi-plan de Drinfeld](https://arxiv.org/pdf/1704.08928v2), Appendix A.2–A.3, pp. 52–53, citing Ducros Theorem 6.3.23. Formal reconstruction and automorphisms preserving the associated vertex set; the noncompact construction has extra hypotheses.
+Sources: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie des revêtements du demi-plan de Drinfeld](https://arxiv.org/pdf/1704.08928v2), Appendix A.2–A.3, pp. 52–53, citing Ducros Theorem 6.3.23. Gives the component-point set and the automorphism-extension criterion for normal flat models. The set is a triangulation for a semistable model; a general triangulation-to-model reconstruction is a separate proof input.
 
 ### 2.22 Strong deformation onto a skeleton
 
@@ -1212,7 +1212,7 @@ Proof route. Glue the annular radial homotopies and rooted-ball contraction whil
 
 *Needs:* `TB.2/continuous-retraction` (Continuity of skeletal retraction); `TB.2/skeleton-complement-balls` (Ball components off the skeleton); `TB.1/annular-skeleton` (Annular skeleton and deformation).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Lemma 3.8 and Remark 3.9, pp. 9–10. Retraction and its homotopy interpretation; vertex topology must be supplied explicitly. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), §I.6, pp. 23–26; §II.2, pp. 40–43. Tree contractions and semistable decomposition supply the local homotopies.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), §2.3, p. 4 and Lemma 3.8, p. 9. The annular homotopy is recalled in §2.3. Lemma 3.8 states continuous retraction only; it does not prove the strong homotopy, and its vertex-continuity exercise remains an explicit proof input. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Lemmas I.7.8–I.7.9 and Propositions I.7.10–I.7.11, pp. 28–29; paragraph following Theorem II.2.20, p. 43. Explicit local disc/annulus homotopies and the global strong-retraction assertion. Gluing and continuity at all vertex directions remain the recorded proof input.
 
 ### 2.23 Contractions of genus-zero vertices
 
@@ -1486,7 +1486,7 @@ Proof route. For a value-group-rational tropical point, pass to its polyhedral a
 
 *Needs:* `SchemeAndStackFoundations:SF.0`; `TB.4/relative-tropical-multiplicity` (Relative point and edge multiplicities); `TB.3/slope-formula` (Slope formula for rational functions).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.3, arXiv pp. 2–3. Reviewed introduction statement; proof bodies remain open.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.3, pp. 2–3; Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23. The curve multiplicity formula is proved by the comparison of analytic edge degrees and initial generic lengths. The original finite-map reduction input is still explicitly recorded as a proof leaf.
 
 Acceptance: Factors 2 and 3 contribute multiplicity 5, not 2.
 
@@ -1498,7 +1498,7 @@ Proof route. The index of the coordinate-slope vector in its primitive lattice d
 
 *Needs:* `TB.4/relative-tropical-multiplicity` (Relative point and edge multiplicities); `TB.3/slope-formula` (Slope formula for rational functions).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Introduction, arXiv p. 3, pointing to Remark 5.6. Reviewed introduction statement; proof bodies remain open.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Remark 5.6 and formula (5.6.1), p. 22. The expansion index of an integral slope vector is the positive gcd of its coordinate slopes, measured against the primitive image lattice.
 
 Acceptance: Slopes (−2,4) give factor 2; (0,0) gives zero.
 
@@ -1555,7 +1555,7 @@ Construction. Extend the valued field to realize finitely many weights, translat
 
 *Needs:* `TB.4/torus-tropicalization` (Torus tropicalization); `TB.0/affinoid-algebras` (Affinoid algebras over valued fields).
 
-Sources: [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§5.1–5.5 and §§6.5–6.7, pp. 10–13. Extension/translation definition and the failure of unconditional finite generation over some valuation rings. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Definitions 4.8 and 4.14, Propositions 4.17–4.18, pp. 15–17. Canonical analytic/formal models and their initial special fibers.
+Sources: [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§5.1–5.5 and §§6.5–6.7, pp. 10–13. Extension/translation definition and the failure of unconditional finite generation over some valuation rings. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Definitions 4.8 and 4.14, Propositions 4.17–4.18, pp. 15–18. Canonical analytic/formal models and their initial special fibers.
 
 ### 4.5 Fundamental theorem and polyhedrality
 
@@ -1609,7 +1609,7 @@ Proof route. Reduce by valued extension and cycle-linearity to complete algebrai
 
 *Needs:* `TB.4/weighted-tropical-cycles` (Tropical weights and balancing); `TB.4/relative-tropical-multiplicity` (Relative point and edge multiplicities).
 
-Sources: [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§13.14–13.17, pp. 45–46. Cycle pushforward and the generic-degree formula. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §8, Corollary 8.4, pp. 34–36. Analytic proof input for arbitrary-dimensional pushforward, distinct from curve harmonicity.
+Sources: [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§13.14–13.17, pp. 45–46. Cycle pushforward and the generic-degree formula. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §7, Theorem 7.1 and Corollary 7.3, pp. 34–35. Analytic proof input for arbitrary-dimensional pushforward, distinct from curve harmonicity.
 
 Acceptance: For T↦Tⁿ on G_m, δ=n and [ℤ:nℤ]=n, so both sides equal n. A contracted component contributes zero to the d-dimensional pushforward. The reciprocal lattice index is not used.
 
@@ -1654,7 +1654,7 @@ Proof route. Cover the finite embedded graph by finitely many closed skeletal se
 
 *Needs:* `TB.2/skeleton` (Skeleton of a semistable decomposition); `SchemeAndStackFoundations:SF.0`; `TB.5/faithful-embedding-predicate` (Faithful tropicalization on a graph); `TB.5/unit-slope-separating-functions` (Functions separating edges and vertices).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.1, arXiv p. 2. Reviewed introduction statement; proof bodies remain open.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.1, p. 2; Theorems 5.20–5.21 and proofs, p. 26. The finite-graph existence theorem follows from finitely many separating unit-slope coordinates. The original formal lifting and Runge approximation inputs remain explicit proof leaves.
 
 Acceptance: A plane embedding can contract a Tate loop; faithfulness is not automatic.
 
@@ -1662,11 +1662,11 @@ Acceptance: A plane embedding can contract a Tate loop; faithfulness is not auto
 
 Prove `TauCeti.Berkovich.Curve.faithful_domination`. Embeddings faithful on a fixed Γ are stable under domination by equivariant toric maps and cofinal among toric embeddings meeting the dense torus.
 
-Proof route. Adjoin the finitely many unit-slope and separating rational coordinates to a given toric embedding; choose an affine toric target where these rational functions are regular as maps. Projection to the old coordinates gives domination. Faithfulness persists under adjoining coordinates because one coordinate tuple already has gcd one and separates the graph.
+Proof route. Extend each separating rational function on the smooth proper completion to a morphism to P¹. For the specified closed embedding into a toric variety Y, take the graph of this finite tuple in Y×(P¹)^n. This is a closed toric embedding and projection gives domination; the target remains quasiprojective when Y is quasiprojective. The gcd-one slope and point-separation properties persist under adjoining coordinates. For domination by any equivariant toric map, expansion indices multiply and the composite has index one, so both indices are one. Use the intrinsic image-graph metric.
 
 *Needs:* `TB.5/faithful-tropicalization-and-expansion-factors` (Faithful tropicalization of a finite subgraph); `TB.5/unit-slope-separating-functions` (Functions separating edges and vertices); `TB.5/faithful-embedding-predicate` (Faithful tropicalization on a graph).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.1 and following paragraph, arXiv p. 2. Reviewed introduction statement; proof bodies remain open.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §5.15, Remark 5.16, Lemma 5.17 and Theorems 5.20–5.21, pp. 24–26. Lemma 5.17 treats domination for toric targets; Theorems 5.20–5.21 supply quasiprojective faithful embeddings. Taking the product with an arbitrary specified toric target proves cofinality in the stated class. Formal lifting and Runge inputs remain explicit proof leaves.
 
 Acceptance: Lengths are measured within the image subgraph, not via shortcuts in the entire tropicalization.
 
@@ -1680,7 +1680,7 @@ Proof route. At each value-group-rational tropical point, multiplicity one force
 
 *Needs:* `TB.4/tropical-multiplicity-formula` (Tropical multiplicity formula for curves); `TB.4/relative-tropical-multiplicity` (Relative point and edge multiplicities); `TB.2/continuous-retraction` (Continuity of skeletal retraction).
 
-Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.4, arXiv p. 3. Reviewed introduction statement; proof bodies remain open.
+Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.4, p. 3; Theorem 5.24 and Corollaries 5.25–5.28, pp. 27–28. Multiplicity one gives a unique positive-relative-multiplicity lift and unit expansion on the stated locus; continuity and compactness identify the intrinsic graph metrics.
 
 Acceptance: Irreducibility without generic reducedness is insufficient.
 
@@ -1741,7 +1741,7 @@ Sources: [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tr
 
 Model intersection degrees first give atomic measures with the correct total mass. Semipositivity and integrability specify the approximation class for weak limits and local heights. Graph Green functions, line Hsia potentials and hybrid topology have distinct contracts; none implies dynamical convergence without its consumer theorem.
 
-External layer inputs: `AdicSpacesPartII:R2/admissible-formal-scheme`; `AdicSpacesPartII:R2/raynaud-generic-fibre`; `SchemeAndStackFoundations:SF.4`.
+External layer inputs: `AdicSpacesPartII:R2/admissible-formal-scheme`; `AdicSpacesPartII:R2/raynaud-generic-fibre`; `SchemeAndStackFoundations:SF.5`.
 
 ### 6.1 Formal and model metrics
 
@@ -1771,7 +1771,7 @@ Construction. Use unit absolute value of formal transition functions to glue the
 
 Sources: [Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), §2.1–2.3, pp. 4–5. Formal metrics, tensor powers, semipositivity and model-function changes.
 
-Acceptance: A model metric on a line bundle L over proper X is induced by an admissible formal model (𝔛,𝔏) of (X,L^e), e≥1: on a formal frame σ, ||fσ||=|f|^(1/e), interpreted on L through its e-th power. A metric is continuous, homogeneous in scalars and nonzero on nonzero vectors. Tensor products and duals add and negate logarithmic metric ratios. A vertical Cartier divisor gives a model function on Xᵃⁿ, compatible with admissible blowups.
+Acceptance: For a local section s of L with s^e=fσ in a formal frame σ of the model of L^e, the defining identity is ||s||^e=|f|. A frame of L^e is not silently treated as a frame of L; tensor and dual operations respect this identity.
 
 ### 6.2 Chambert–Loir model measures
 
@@ -1797,7 +1797,7 @@ The API consists of:
 
 Construction. Pass to a common normal model and compute atomic weights by special-fiber intersection. Algebraic specialization of degree gives total mass; projection formula gives blowup invariance and finite-map pushforward, and symmetry of intersections gives symmetry of mixed measures.
 
-*Needs:* `TB.6/formal-model-metrics` (Formal and model metrics); `TB.2/formal-model-skeleton` (Formal models and metric dual graphs); `SchemeAndStackFoundations:SF.4`.
+*Needs:* `TB.6/formal-model-metrics` (Formal and model metrics); `TB.2/formal-model-skeleton` (Formal models and metric dual graphs); `SchemeAndStackFoundations:SF.5`.
 
 Sources: [Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), Definition 2.4 and §2.5, pp. 5–6. Atomic intersection formula, multiplicities, multilinearity and local heights.
 
@@ -1869,7 +1869,7 @@ Construction. Construct finite-tree potentials and use the graph energy identity
 
 *Needs:* `TB.1/tree-hyperbolic-metric` (Paths, tangent directions and hyperbolic metric); `TB.3/graph-laplacian` (Graph Laplacians and potentials).
 
-Sources: [Charles Favre and Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective](https://arxiv.org/pdf/math/0407471), §§4.1–4.5, equation (20), Lemmas 4.3–4.4 and Proposition 4.5, pp. 23–27. Kernel, continuous potentials, integrability and positive self-energy. [Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves](https://arxiv.org/pdf/1901.09945v2), §2.7, pp. 11–12. Consumer normalization; its printed cross-energy claim is corrected in source issue E6. [Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p05-s.pdf), §2.7, printed p. 961. The local pairing uses self-energy of the difference; the intervening arbitrary cross-energy positivity assertion needs the E6 correction.
+Sources: [Charles Favre and Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective](https://arxiv.org/pdf/math/0407471), §§4.1–4.5, equation (20), Lemmas 4.3–4.4 and Proposition 4.5, pp. 23–27. Kernel, continuous potentials, integrability and positive self-energy. The source Δ equals this packet’s ddc=−Δ. Correct the interior second-derivative sign in §4.2 as recorded in E13; equation (20) and the outgoing vertex atoms fix the convention. The source Δ equals this packet’s ddc=−Δ. Correct the interior second-derivative sign in §4.2 as recorded in E13; equation (20) and the outgoing vertex atoms fix the convention. [Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves](https://arxiv.org/pdf/1901.09945v2), §2.7, pp. 11–12. Consumer normalization; its printed cross-energy claim is corrected in source issue E6. [Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p05-s.pdf), §2.7, printed p. 961. The local pairing uses self-energy of the difference; the intervening arbitrary cross-energy positivity assertion needs the E6 correction.
 
 ### 6.6 Admissible Green functions and measures
 
@@ -1916,11 +1916,11 @@ Acceptance: For F(t)=t on an interval, curvature change is δ₀−δ_L. Changin
 
 ### 6.8 Good-reduction and Tate calibration
 
-Prove `TauCeti.Berkovich.TB6.good_reduction_and_tate_measures`. For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; multiplying the reference O(0) metric by exp(−g) therefore produces the canonical curvature.
+Prove `TauCeti.Berkovich.TB6.good_reduction_and_tate_measures`. For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; choose a reference O(0) metric whose curvature is δ₀ at the skeletal origin. Multiplication by exp(−g) then produces the canonical curvature. The constant L/12 normalizes the graph potential to mean zero; identifying the resulting metric with a chosen canonical metric additionally requires its rigidification.
 
-Assumptions and scope: Split good reduction or split Tate reduction; 0<|q|<1; canonical translation-invariant/symmetric metric normalization fixes the additive constant.
+Assumptions and scope: Split good reduction or split Tate reduction; 0<|q|<1. The reference metric has curvature δ₀. Mean-zero normalization fixes g, while a fixed rigidification fixes the canonical line-bundle metric up to its otherwise undetermined constant.
 
-Proof route. The good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L and its derivative jump −1 at 0. The resulting curvature is invariant uniform measure; the canonical normalization gives the Bernoulli constant L/12.
+Proof route. The good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L, derivative jump −1 at 0 and integral zero. Add ddc g to the reference curvature δ₀ to get ds/L. Curvature determines the metric only up to a constant; compare rigidifications separately.
 
 *Needs:* `TB.6/model-measures` (Chambert–Loir model measures); `TB.6/model-metric-laplacian` (Metric–Laplacian and admissible corrections); `TB.7/tate-analytic-quotient` (Tate analytic quotient and skeletal circle).
 
@@ -2106,7 +2106,7 @@ For f(s)=s on [0,L], divPL(f)=δ₀−δ_L and Δf=δ_L−δ₀. A metric multip
 
 ### Vertex genus and rank
 
-A good-reduction genus-g curve has a one-point skeleton carrying vertex genus g; a split Tate curve has a circle with all vertex genera zero. The first graph has b₁=0 and the second b₁=1, while both satisfy g(X)=b₁+Σg(v) with their correct genera. The bare graph of a good-reduction curve cannot remember its algebraic linear-series rank; its residue curve in the metrized complex supplies that information (Poineau–Turchetti Theorems II.2.22–II.2.23, pp. 42–43; Amini–Baker §§1–3, pp. 1–14).
+A good-reduction genus-g curve has a one-point skeleton carrying vertex genus g; a split Tate curve has a circle with all vertex genera zero. The first graph has b₁=0 and the second b₁=1, while both satisfy g(X)=b₁+Σg(v) with their correct genera. The bare graph of a good-reduction curve cannot remember its algebraic linear-series rank; its residue curve in the metrized complex supplies that information (Poineau–Turchetti Definition II.2.22 and Theorem II.2.23, pp. 42–43; Amini–Baker §§1–3, pp. 1–14).
 
 On a tree every divisor of nonnegative degree d has graph rank d. On a circle, a degree-one divisor has rank zero, while a divisor of positive degree d has rank d−1. The circle Jacobian is ℝ/Lℤ. A bridge attached to the circle is contracted by Abel–Jacobi, so that map does not itself give a faithful tropicalization of every graph (Gathmann–Kerber Theorem 1.2, p. 3; Baker–Faber Theorem 4.1, p. 17).
 
@@ -2132,13 +2132,13 @@ All eight layers have their target-level definitions and key theorems specified.
 
 ### Nonstrict Tate descent
 
-The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 18–20 state the result; the strictification descent proof has not been verified.
+The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 16–18 state the result; the strictification descent proof has not been verified.
 
 Used by `TB.0/analytic-sheaf` (Affinoid structure sheaf and acyclicity).
 
 ### Global analytic comparison proof
 
-Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions; it cites Huber Theorem 8.3.5. The full gluing, tautness and morphism-comparison proof in the cleared Huber reference has not been followed. The properness comparison in analytification also uses this proof input.
+Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions. Remark A.6, p. 84 cites Huber (1996) Proposition 8.3.1, Remark 8.3.2 and Lemma 5.6.8(i), and Huber (1994) Proposition 4.5(iv). Huber Theorem 8.3.5 concerns the later sheaf comparison, not this analytic-space equivalence. The full gluing, tautness and morphism-comparison proofs in those references have not been followed. The properness comparison in analytification also uses this proof input.
 
 Used by `TB.0/global-adic-comparison` (Strict Berkovich–adic equivalence), `TB.0/analytification` (Berkovich analytification), `TB.0/real-quotient` (Real quotient of analytic preadic spaces), `TB.0/connected-analytification` (Connected algebraic curves remain connected).
 
@@ -2156,7 +2156,7 @@ Used by `TB.2/continuous-retraction` (Continuity of skeletal retraction), `TB.2/
 
 ### Locally finite model correspondence
 
-CDN Appendix A.2, pp. 51–52 states the noncompact triangulation/formal-model equivalence. Verify the locally finite gluing and the nonsplit constant-field/node invariants in its cited Ducros construction; compact finite skeleton arguments do not prove this extension.
+CDN Appendix A.2, pp. 51–52 gives component points of a normal flat model and the criterion for extending automorphisms that preserve them; it does not state a general triangulation/formal-model equivalence. Supply the converse reconstruction, locally finite gluing and nonsplit constant-field/node invariants from the cited Ducros theory. Semistability is required before calling the component-point set a triangulation; compact finite skeleton arguments do not prove this extension.
 
 Used by `TB.2/noncompact-triangulations` (Locally finite triangulations and analytic nodes), `TB.2/triangulated-formal-automorphisms` (Triangulated curves and formal automorphisms), `TB.1/virtual-annuli-descent` (Virtual annuli and metric descent).
 
@@ -2186,13 +2186,13 @@ Used by `TB.4/initial-degenerations` (Initial degenerations over valued fields),
 
 ### General-valued balancing and pushforward
 
-Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR Appendix A supply the general statement, whose whole proof was not read. Use the corrected target/image lattice index.
+Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR §7, Theorem 7.1 and Corollary 7.3, pp. 34–35 supply the general pushforward statement, whose whole proof was not read. Use the corrected target/image lattice index.
 
 Used by `TB.4/weighted-tropical-cycles` (Tropical weights and balancing), `TB.4/cycle-pushforward` (Sturmfels–Tevelev pushforward).
 
 ### General rank-one model intersections
 
-Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the SF.4 intersection interface. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.
+Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the requested SF.5 intersection extension. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.
 
 Used by `TB.6/model-measures` (Chambert–Loir model measures), `TB.6/measure-limits-and-local-heights` (Limits and local intersection heights).
 
@@ -2252,7 +2252,7 @@ Used by `TB.2/genus-zero-contractions` (Contractions of genus-zero vertices), `T
 
 ### Finite-map reduction multiplicities
 
-BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 19–22 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.
+BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.
 
 Used by `TB.4/relative-tropical-multiplicity` (Relative point and edge multiplicities), `TB.4/tropical-multiplicity-formula` (Tropical multiplicity formula for curves), `TB.5/multiplicity-one-isometry` (Multiplicity-one isometry criterion).
 
@@ -2264,97 +2264,176 @@ Used by `TB.5/unit-slope-separating-functions` (Functions separating edges and v
 
 ## Source corrections
 
-These statements are used in corrected form above. The inherited Temkin and BPR findings retain their original version and reading provenance. New findings distinguish the publisher text from the accessible preprint; an inaccessible version of record is never treated as collated.
+All thirteen findings were independently checked in REV-TropicalAndBerkovichArithmetic on 2026-10-18 and confirmed. Findings E10–E13 were added by this review. Every finding below is scoped to its identified text; an inaccessible published version is not treated as collated.
+
 
 ### E1: Definition/Exercise 2.1.1.1(iv), preprint p. 4 only
 
-In the specified source, The source makes equivalence of two seminorms equivalent to equality of the topologies they induce.
+Source: `temkin-2011`. The source makes equivalence of two seminorms equivalent to equality of the topologies they induce.
 
 Correction. Two-sided constant bounds imply equal topologies; the converse is false for general seminormed abelian groups.
 
 Reason. On the additive real group, |x| and √|x| are norms with the same topology. At x=n² their ratio is n, and near zero the reverse ratio is unbounded. No global equivalence constant exists.
 
-Reach: a stated result. Existing-correction search: arXiv:1010.2235 submission history: v2 remains the listed version. Author-hosted PDF; author papers-page URLs unavailable. Springer chapter landing page and PDF request (returned HTML). Searches for Temkin introduction Berkovich errata: no relevant correction located.
+Reach: a stated result. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: arXiv:1010.2235 submission history: v2 remains the listed version. Author-hosted PDF; author papers-page URLs unavailable. Springer chapter landing page and PDF request (returned HTML). Searches for Temkin introduction Berkovich errata: no relevant correction located. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained. Independent review opened https://math.huji.ac.il/~temkin/papers/Selected_Publications.html and searched the title with errata; no relevant correction located. This supplements the earlier unavailable-page report.
+
 
 ### E2: Definition 2.2.3.1, preprint p. 7 only
 
-In the specified source, The source takes f ∈ A.
+Source: `temkin-2011`. The source takes f ∈ A.
 
 Correction. Use f ∈ C in the topology of MSpec(C).
 
 Reason. For C=K[T], evaluation points at T=0 and T=1 agree on A=K and differ at T. Base-ring coordinates alone cannot separate these points.
 
-Reach: a stated result. Existing-correction search: arXiv:1010.2235 submission history: v2 remains the listed version. Author-hosted PDF; author papers-page URLs unavailable. Springer chapter landing page and PDF request (returned HTML). Searches for Temkin introduction Berkovich errata: no relevant correction located.
+Reach: a stated result. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: arXiv:1010.2235 submission history: v2 remains the listed version. Author-hosted PDF; author papers-page URLs unavailable. Springer chapter landing page and PDF request (returned HTML). Searches for Temkin introduction Berkovich errata: no relevant correction located. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained. Independent review opened https://math.huji.ac.il/~temkin/papers/Selected_Publications.html and searched the title with errata; no relevant correction located. This supplements the earlier unavailable-page report.
+
 
 ### E3: Proof of Lemma 3.2, printed p. 102 (physical 10); also arXiv p. 8
 
-In the specified source, The argument takes r sufficiently near 1.
+Source: `bpr-structure-published`. The argument takes r sufficiently near 1.
 
 Correction. The logarithmic radius tends to 0, and the scalar function |f(φ(z))| on the annular skeleton must lie in (c1,c2).
 
 Reason. The preceding limit is r→0. The map φ has values on the curve, not in a real interval; r1,r2 are not the endpoints of the continuity test. These substitutions repair the intended collar argument.
 
-Reach: the proof. Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located.
+Reach: the proof. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E4: Proof of Lemma 3.4(4), printed pp. 102–103; also arXiv p. 8
 
-In the specified source, The source allows every neighborhood that is connected.
+Source: `bpr-structure-published`. The source allows every neighborhood that is connected.
 
 Correction. Qualify the connected neighborhood as disjoint from V.
 
 Reason. A connected subset of the complement of V lies in one component; an arbitrary connected neighborhood need not. The candidate affinoid neighborhood already has the required disjointness, so the theorem is unchanged.
 
-Reach: the proof. Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located.
+Reach: the proof. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E5: §5.3 opening, printed p. 115 (physical 23); also arXiv p. 18
 
-In the specified source, The source asserts an inclusion preserving distances.
+Source: `bpr-structure-published`. The proof places each old skeletal edge inside a single edge after refining the vertex set.
 
 Correction. The old edge becomes a union of subdivided edges with its length preserved. Use Proposition 3.13(1)–(2), not containment of the old edge in one refined edge.
 
 Reason. Insert a type-2 point in the interior of an old edge, as Proposition 3.13(2) permits. The two new edges each omit part of the old one. The global metric compatibility result requires the subdivision formulation.
 
-Reach: the proof. Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located.
+Reach: the proof. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: arXiv:1404.0279v1 and published author offprint collated. Rabinoff research/publications page and Payne published offprint. Searches for the paper title with errata: no relevant correction located. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E6: §2.7, printed p. 961, Annals 191 (2020); also arXiv:1901.09945v2 §2.7, p. 12
 
-In the specified source, The bilinear cross-energy of two arbitrary signed mass-zero continuous-potential measures is declared nonnegative, with equality characterized by their equality.
+Source: `dky-published-2020`. The bilinear cross-energy of two arbitrary signed mass-zero continuous-potential measures is declared nonnegative, with equality characterized by their equality.
 
 Correction. Nonnegative definiteness applies to E(ρ,ρ), with equality iff ρ=0; for two equal-mass measures use E(ν₁−ν₂,ν₁−ν₂), with equality iff ν₁=ν₂. The subsequent local pairing already uses this difference self-energy.
 
 Reason. Take distinct nonclassical tree points x,y and ρ=δ_x−δ_y. Their continuous tree potentials have E(ρ,ρ)=d(x,y)>0. Thus E(ρ,−ρ)<0; taking both arguments equal to ρ also disproves the printed equality criterion.
 
-Reach: a stated result. Existing-correction search: Annals article/DOI listing and publisher PDF checked 2026-10-18; the assertion persists in the version of record. Author pages and searches for a correction to the DKY potential-theory energy assertion checked 2026-10-18; no correction identified. Compared arXiv:1901.09945v2 §2.7 with printed p. 961; this finding concerns the local preliminary assertion, not the main theorem.
+Reach: a stated result. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Annals article/DOI listing and publisher PDF checked 2026-10-18; the assertion persists in the version of record. Author pages and searches for a correction to the DKY potential-theory energy assertion checked 2026-10-18; no correction identified. Compared arXiv:1901.09945v2 §2.7 with printed p. 961; this finding concerns the local preliminary assertion, not the main theorem. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E7: arXiv:1504.00694 PDF, Proposition 3.28 proof, p. 26, last dimension estimate
 
-In the specified source, The final proof sentence gives an upper bound on the dimension of the agreement subspace, whereas the proposition states the same bound on its codimension.
+Source: `krzb-primary-2015`. The final proof sentence gives an upper bound on the dimension of the agreement subspace, whereas the proposition states the same bound on its codimension.
 
 Correction. Replace the final dimension estimate by codimension ≤deg(ζ)−1; the proposition statement is unchanged.
 
 Reason. Agreement is the kernel of a linear map into the space of harmonic functions on a star modulo constants, whose dimension is deg(ζ)−1. Rank bounds the kernel codimension, not its dimension.
 
-Reach: the proof. Existing-correction search: The current arXiv PDF, Proposition 3.28 and proof, checked 2026-10-18. Rabinoff and Zureick-Brown publication pages and erratum searches checked 2026-10-18; no correction identified. The author-linked Duke offprint returned HTTP 404, and the Project Euclid PDF was blocked by its browser challenge. The published proof was not collated; finding scoped to the preprint.
+Reach: the proof. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: The current arXiv PDF, Proposition 3.28 and proof, checked 2026-10-18. Rabinoff and Zureick-Brown publication pages and erratum searches checked 2026-10-18; no correction identified. The author-linked Duke offprint returned HTTP 404, and the Project Euclid PDF was blocked by its browser challenge. The published proof was not collated; finding scoped to the preprint. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E8: Author-hosted arXiv:1108.6126v2, §13.16, p. 46, tropical-cycle pushforward multiplicity
 
-In the specified source, The displayed lattice factor places the source lattice first and the target lattice second, without applying the lattice map.
+Source: `gubler-2012`. The displayed lattice factor places the source lattice first and the target lattice second, without applying the lattice map.
 
 Correction. For a source cell σ mapping with full dimension to τ, use [N′_τ:A(N_σ)].
 
 Reason. For z↦z² on the one-dimensional torus the source lattice maps to 2ℤ⊂ℤ, so the weight must be [ℤ:2ℤ]=2. Reversing the index is undefined as a subgroup index and would give the wrong degree.
 
-Reach: nothing. Existing-correction search: Author-hosted guide PDF and author publication page checked 2026-10-18; no separate correction identified. The guide is published in Contemporary Mathematics 589 (2013), 125–189; no publisher full text was obtained in this run. This finding is scoped only to the author-hosted v2 formula. Compared with Sturmfels–Tevelev Corollary 3.8 and the BPR multiplicity formulation, which use the target/image index.
+Reach: nothing. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Author-hosted guide PDF and author publication page checked 2026-10-18; no separate correction identified. The guide is published in Contemporary Mathematics 589 (2013), 125–189; no publisher full text was obtained in this run. This finding is scoped only to the author-hosted v2 formula. Compared with Sturmfels–Tevelev Theorem 1.1, formula (1.2), pp. 1–2 and Theorem 3.12, pp. 9–10, and BPR Corollary 7.3, pp. 34–35, which use the target/image index. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.
+
 
 ### E9: arXiv:1301.0792v5, Remark 2.3.9, second bullet, p. 35
 
-In the specified source, The characteristic-p assertion makes the existence of a uniform unit sufficient for a bounded analytic-field scalar structure, without norm uniformity.
+Source: `kedlaya-liu-2015`. The characteristic-p assertion makes the existence of a uniform unit sufficient for a bounded analytic-field scalar structure, without norm uniformity.
 
 Correction. Retain the forward implication. For the converse require norm control on all integral powers of the uniform unit, for example that A is uniform as a Banach ring.
 
 Reason. On F_p((z)), choose 0<r<1 and the weighted norm max_i rⁱ(1+|i|). The weights are submultiplicative and this complete norm gives z spectral values r and r⁻¹, hence a uniform unit. Any bounded analytic-field scalar map would send a small nonzero scalar t to an element of positive z-valuation k. Its positive and negative nth powers have norms at least r^(±nk)(1+nk). Multiplying the proposed bounded estimates forces (1+nk)²≤C² for every n, a contradiction.
 
-Reach: a stated result. Existing-correction search: Read the supplied v5 p. 35 again in this run and checked the weighted-norm argument. The existing paper extraction records searches of the authors’ Part II Appendix A errata, author papers page, arXiv history and atlas errata register. Its independent review confirms that the correction to 2.8.1 does not correct this remark. Those searches are inherited provenance, not a claim of fresh published-version collation. The existing extraction did not obtain the published Astérisque text; this imported finding remains scoped to arXiv v5.
+Reach: a stated result. Known correction: Already recorded as PAPER-KEDLAYA-LIU-15/E101 and independently confirmed by REV-PAPER-KEDLAYA-LIU-15; this packet imports the correction. Independent verdict: **confirmed**.
+
+Existing-correction search: Read the supplied v5 p. 35 again in this run and checked the weighted-norm argument. The existing paper extraction records searches of the authors’ Part II Appendix A errata, author papers page, arXiv history and atlas errata register. Its independent review confirms that the correction to 2.8.1 does not correct this remark. Those searches are inherited provenance, not a claim of fresh published-version collation. The existing extraction did not obtain the published Astérisque text; this imported finding remains scoped to arXiv v5. Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained. Fresh independent check: https://kskedlaya.org/papers/ and arXiv:1602.06899v3 Appendix A, pp. 189–191; corrections to 2.4.11 and 2.8.1 were read, with no correction to 2.3.9 found.
+
+
+### E10: Proposition A.4 proof, published JEP 4 (2017), p. 136; also arXiv:1605.05277 p. 45
+
+Source: `boucksom-jonsson-published-2017`. The norm of the central-fiber Laurent-series point is expressed as r^(−ord₀(f)).
+
+Correction. Use r^(ord₀(f)), as in the norm of Appendix A.5–A.6.
+
+Reason. For f=t, the exponent ord₀(t)=1. Since 0<r<1 and ||t||=r, the printed r⁻¹ is greater than the ambient norm and cannot define a point of M(A_r). The corrected value is r.
+
+Reach: the proof. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Numdam version of record https://www.numdam.org/item/10.5802/jep.39.pdf collated at p. 136 with the preprint p. 45 on 2026-10-18; the sign persists. Numdam article listing and Boucksom publications page https://sebastien.boucksom.perso.math.cnrs.fr/publis.html, plus title/erratum search, checked 2026-10-18; no correction found.
+
+
+### E11: Author preprint dated 18 October 2020, Example I.2.20, p. 11 only
+
+Source: `poineau-2020`. In the Hahn-series description of C((t^Q)), coefficients a_q are required to be rational numbers.
+
+Correction. The exponents q are rational; coefficients a_q belong to C.
+
+Reason. A spherical completion of the chosen completed algebraic closure of C((t)) must contain its constant i. Rational-coefficient Hahn series cannot contain i as a constant, whereas complex-coefficient series do.
+
+Reach: nothing. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Author PDF and arXiv:2010.09043 history checked 2026-10-18; only this preprint was collated. Poineau/Turchetti author research pages and title/errata search checked 2026-10-18; no relevant correction found. The Springer chapter was not read; this finding makes no assertion about its text.
+
+
+### E12: Author preprint dated 18 October 2020, Proposition I.4.14, p. 19 only, reversing-annulus case and bound variables
+
+Source: `poineau-2020`. For i₀=−1 the image radii and Gauss-point image use |a₁|. The dominance and point-image formulas also quantify t while using s as a free radial variable.
+
+Correction. Use |a₋₁| in the reversing case: r₂=|a₋₁|/s₁, s₂=|a₋₁|/r₁ and η_t↦η_(|a₋₁|/t). Use t consistently in the quantified dominance inequality and both point-image formulas.
+
+Reason. For ϕ(T)=a/T, a≠0, the only nonzero coefficient is a₋₁=a. The printed |a₁| is zero and collapses both positive target radii to zero. The corrected map reverses radii and preserves log modulus.
+
+Reach: a stated result. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Author PDF p. 19 read and formula visually checked 2026-10-18; arXiv:2010.09043 history and author research pages checked. Title/proposition errata searches found no correction. The Springer chapter was not read; the finding concerns only the identified author preprint.
+
+
+### E13: arXiv:math/0407471 PDF retrieved 2026-10-18, §4.2, pp. 24–25 only
+
+Source: `favre-rivera-letelier-2004`. The interior edge density is −g″ while the vertex atoms are sums of positive outgoing derivatives.
+
+Correction. With the outgoing-derivative atoms printed there, the interior density is +g″. This is the convention of the source equation (20); in this packet it is ddc=−Δ.
+
+Reason. On a segment of length one take g(s)=s², extended constantly on complementary branches. The outgoing atoms have total −2. Interior density +2 ds restores the zero total mass required in §4.1; the printed −2 ds gives total mass −4. The preceding prose also describes the positive second derivative.
+
+Reach: a stated result. Known correction: new. Independent verdict: **confirmed**.
+
+Existing-correction search: Current arXiv text and author publications page checked 2026-10-18. Read the author-hosted 2007 corrigendum https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf in full; it corrects quantitative bounds from Cauchy–Schwarz, not this §4.2 sign. Publisher PDF https://link.springer.com/content/pdf/10.1007/s00208-006-0751-x.pdf returned HTML, not the article, on 2026-10-18. Published formula not collated; finding scoped to the accessible preprint.
 
 ## References and versions
 
@@ -2385,3 +2464,11 @@ Reach: a stated result. Existing-correction search: Read the supplied v5 p. 35 a
 - **dky-published-2020**: Laura DeMarco, Holly Krieger and Hexi Ye, *Uniform Manin–Mumford for a family of genus 2 curves*. Annals of Mathematics 191 (2020), 949–1001; version of record. [Source](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p05-s.pdf). Access recorded 2026-10-18.
 
 The packet records content hashes, exact read ranges and the separate source-version ledger. The Berkovich 1990 book was read in place; its source text is not reproduced. The Baker–Rumely book was not used. Its relevant line-potential claims are supported here by freely accessible Favre–Rivera-Letelier and DKY sources. Missing original proof inputs are listed explicitly above.
+
+- **boucksom-jonsson-published-2017**: Sébastien Boucksom and Mattias Jonsson, *Tropical and non-Archimedean limits of degenerating families of volume forms*. JEP 4 (2017), 87–139; version of record; Appendix A.4–A.6, pp. 136–137 collated for E10. [Source](https://www.numdam.org/item/10.5802/jep.39.pdf). Read 2026-10-18.
+
+- **favre-rivera-letelier-corrigendum-2007**: Charles Favre and Juan Rivera-Letelier, *Corrigendum to Équidistribution quantitative des points de petite hauteur sur la droite projective*. Author-hosted corrigendum, 3 pages; read in full; quantitative error bounds are corrected, not the §4.2 Laplacian sign. [Source](https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf). Read 2026-10-18.
+
+- **kedlaya-liu-ii-errata**: Kiran Kedlaya and Ruochuan Liu, *Relative p-adic Hodge theory, II: Imperfect period rings*. arXiv:1602.06899v3, Appendix A, pp. 189–191; errata to Part I checked for E9. [Source](https://arxiv.org/pdf/1602.06899v3). Read 2026-10-18.
+
+The independent review ledger is [REV-TropicalAndBerkovichArithmetic](../reviews/REV-TropicalAndBerkovichArithmetic.md). The packet retains all 22 explicit proof gaps and the precise supplier requests; no stage is claimed closed.

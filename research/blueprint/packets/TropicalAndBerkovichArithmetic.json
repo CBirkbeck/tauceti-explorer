@@ -956,7 +956,7 @@
       "sources": [
         {
           "sourceId": "berkovich-1990",
-          "locator": "Theorem 1.2.1, pp. 12–14",
+          "locator": "Theorem 1.2.1, pp. 13–15",
           "match": "Supplies existence, including the part not implied by compactness."
         },
         {
@@ -1001,7 +1001,7 @@
       "sources": [
         {
           "sourceId": "berkovich-1990",
-          "locator": "Corollary 1.2.4 and Theorem 1.3.1, pp. 14–16",
+          "locator": "Corollary 1.2.4, p. 15 and Theorem 1.3.1, pp. 15–16",
           "match": "Gives unit detection and the spectral maximum, rather than only a definition by infimum."
         },
         {
@@ -1045,7 +1045,7 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Definition I.2.1 and Proposition I.2.5, pp. 6–7",
+          "locator": "Definition I.2.1 and Lemma I.2.5, pp. 6–7",
           "match": "Gives the residue-field construction and its role in point types."
         },
         {
@@ -1134,12 +1134,12 @@
       "sources": [
         {
           "sourceId": "berkovich-1990",
-          "locator": "Proposition 1.3.5 and Corollary 1.3.6, pp. 16–17",
+          "locator": "Proposition 1.3.5 and Corollary 1.3.6, p. 16",
           "match": "Normal and purely inseparable spectrum comparison."
         },
         {
           "sourceId": "poineau-2020",
-          "locator": "Propositions I.5.1 and I.5.5–I.5.6, pp. 19–21",
+          "locator": "Propositions I.5.1 and I.5.5, Corollary I.5.6, pp. 19–22",
           "match": "Valued amalgamation proves surjectivity; the quotient statements are topological."
         }
       ],
@@ -1302,7 +1302,7 @@
       "sources": [
         {
           "sourceId": "temkin-2011",
-          "locator": "Definitions 3.2.2.1 and 3.2.3.1; Facts 3.2.3.2–3.2.3.4, pp. 15–18",
+          "locator": "Definitions 3.2.2.1 and 3.2.3.1; Facts 3.2.3.2–3.2.3.4, pp. 14–16",
           "match": "Distinguishes rational inequalities from the universal affinoid-domain definition and states Gerritzen–Grauert."
         }
       ],
@@ -1383,7 +1383,7 @@
       "sources": [
         {
           "sourceId": "temkin-2011",
-          "locator": "§§3.3.1–3.3.3, pp. 18–20",
+          "locator": "§§3.3.1–3.3.3, pp. 16–18",
           "match": "Finite compact covers, Tate acyclicity, sheaf equalizers and affinoid analytic spaces."
         }
       ],
@@ -2000,7 +2000,7 @@
         },
         {
           "sourceId": "poineau-2020",
-          "locator": "§I.6, Propositions I.6.12–I.6.14, pp. 25–26",
+          "locator": "Proposition I.6.12 and Remark I.6.14, pp. 25–26",
           "match": "Path structure of disc charts gives the endpoint removal argument."
         }
       ],
@@ -2249,8 +2249,8 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Propositions I.2.9, I.2.11–I.2.12 and Example I.2.20, pp. 7–11",
-          "match": "Classification, the radius/value-group distinction and an explicit type-IV construction."
+          "locator": "Definition I.2.9, Lemma I.2.11, Proposition I.2.12 and Example I.2.20, pp. 7–11",
+          "match": "Classification, the radius/value-group distinction and an explicit type-IV construction. In Example I.2.20 the Hahn coefficients are complex, as corrected in E11."
         }
       ],
       "library": {
@@ -2287,8 +2287,8 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Proposition I.6.12, pp. 25–26; §§I.8.1–I.8.9, pp. 29–30",
-          "match": "Unique paths, tangent directions and multiplicative length, converted here to additive −log lengths."
+          "locator": "Proposition I.6.12, pp. 25–26; §§I.8.1–I.8.9, pp. 29–31",
+          "match": "Unique paths, tangent directions and multiplicative length, converted here to its logarithm, equivalently the difference of −log radial coordinates."
         },
         {
           "sourceId": "favre-rivera-letelier-2004",
@@ -2381,7 +2381,7 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Definitions I.7.1–I.7.2 and Propositions I.7.8–I.7.11, pp. 26–29",
+          "locator": "Definitions I.7.1–I.7.2, Lemmas I.7.8–I.7.9 and Propositions I.7.10–I.7.11, pp. 26–29",
           "match": "Skeleta and explicit deformation homotopies for discs/annuli."
         },
         {
@@ -2431,7 +2431,7 @@
         {
           "name": "TauCeti.Berkovich.TB1.annular_skeleton.check2",
           "kind": "discriminating",
-          "statement": "Inverting T reverses orientation without changing length."
+          "statement": "For T↦a/T with a≠0, a₋₁=a and a₁=0: the annulus r<|T|<R maps to |a|/R<|T|<|a|/r, reversing orientation and preserving log(R/r). This uses the E12-corrected coefficient."
         },
         {
           "name": "TauCeti.Berkovich.TB1.annular_skeleton.check3",
@@ -2517,7 +2517,7 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Definitions I.7.1–I.7.2, Propositions I.7.4–I.7.6 and Remark I.7.7, pp. 26–28",
+          "locator": "Definitions I.7.1–I.7.2, Lemma I.7.4, Remark I.7.5, Definition I.7.6 and Remark I.7.7, pp. 26–28",
           "match": "A¹-domain descent, the end-swap caution and the component-count modulus convention."
         }
       ],
@@ -3388,7 +3388,7 @@
       "sources": [
         {
           "sourceId": "poineau-2020",
-          "locator": "Definition II.2.14, Example II.2.16 and Theorems II.2.22–II.2.23, pp. 40–43",
+          "locator": "Definition II.2.14, Remark II.2.16, Definition II.2.22 and Theorem II.2.23, pp. 40–43",
           "match": "Stable genus and the analytic/algebraic genus formula; the example rules out unqualified residue-genus invariance."
         }
       ],
@@ -3624,15 +3624,15 @@
       ],
       "title": "Triangulated curves and formal automorphisms",
       "kind": "theorem",
-      "statement": "For a normal flat formal curve over O_K in the CDN local-field setting, its generic-component points give the associated triangulation. An automorphism of its analytic generic fiber preserving this set extends uniquely to a formal automorphism. A split semistable chart uv=a, a≠0, gives the corresponding triangulated annular chart. This statement is local/modelwise and does not assert that every noncompact curve has one proper finite semistable model after a uniform finite extension.",
+      "statement": "For a normal flat admissible formal curve over O_K in the CDN local-field setting, let S be the set of analytic points corresponding to generic points of its special-fiber components. An automorphism of its analytic generic fiber preserving S extends uniquely to a formal automorphism. If the model is semistable, S is its associated triangulation; normality and flatness alone do not make S a triangulation. A split semistable chart uv=a, a≠0, gives the annular chart. This modelwise statement asserts neither a converse reconstruction theorem nor a single proper finite model for every noncompact curve.",
       "hypotheses": [
-        "Formal curve and triangulation satisfy the normality, flatness and admissibility conditions of CDN Appendix A.2."
+        "Normal flat admissible formal curve in the local-field setting of CDN Appendix A.2; semistability is an additional hypothesis for the triangulation assertion."
       ],
       "proofSteps": [
-        "Recover formal affine chart rings as bounded analytic functions on the triangulation domains. A triangulation-preserving automorphism preserves these rings; normality and separated gluing give unique extension. The full analytic/formal reconstruction theorem is recorded as a proof input."
+        "Use the normal formal model and its component-point set S. The extension criterion for automorphisms preserving S is the cited Ducros theorem; on semistable charts it respects the disc/annulus decomposition. Supply the locally finite gluing and uniqueness proof before closure; CDN does not itself establish a converse reconstruction theorem."
       ],
       "acceptance": [
-        "For a normal flat formal curve over O_K in the CDN local-field setting, its generic-component points give the associated triangulation. An automorphism of its analytic generic fiber preserving this set extends uniquely to a formal automorphism. A split semistable chart uv=a, a≠0, gives the corresponding triangulated annular chart. This statement is local/modelwise and does not assert that every noncompact curve has one proper finite semistable model after a uniform finite extension."
+        "For a normal flat admissible formal curve over O_K in the CDN local-field setting, let S be the set of analytic points corresponding to generic points of its special-fiber components. An automorphism of its analytic generic fiber preserving S extends uniquely to a formal automorphism. If the model is semistable, S is its associated triangulation; normality and flatness alone do not make S a triangulation. A split semistable chart uv=a, a≠0, gives the annular chart. This modelwise statement asserts neither a converse reconstruction theorem nor a single proper finite model for every noncompact curve."
       ],
       "prerequisites": [
         "TropicalAndBerkovichArithmetic:TB.2/noncompact-triangulations",
@@ -3645,7 +3645,7 @@
         {
           "sourceId": "cdn-2020",
           "locator": "Appendix A.2–A.3, pp. 52–53, citing Ducros Theorem 6.3.23",
-          "match": "Formal reconstruction and automorphisms preserving the associated vertex set; the noncompact construction has extra hypotheses."
+          "match": "Gives the component-point set and the automorphism-extension criterion for normal flat models. The set is a triangulation for a semistable model; a general triangulation-to-model reconstruction is a separate proof input."
         }
       ],
       "library": {
@@ -3681,13 +3681,13 @@
       "sources": [
         {
           "sourceId": "bpr-structure-2014",
-          "locator": "Lemma 3.8 and Remark 3.9, pp. 9–10",
-          "match": "Retraction and its homotopy interpretation; vertex topology must be supplied explicitly."
+          "locator": "§2.3, p. 4 and Lemma 3.8, p. 9",
+          "match": "The annular homotopy is recalled in §2.3. Lemma 3.8 states continuous retraction only; it does not prove the strong homotopy, and its vertex-continuity exercise remains an explicit proof input."
         },
         {
           "sourceId": "poineau-2020",
-          "locator": "§I.6, pp. 23–26; §II.2, pp. 40–43",
-          "match": "Tree contractions and semistable decomposition supply the local homotopies."
+          "locator": "Lemmas I.7.8–I.7.9 and Propositions I.7.10–I.7.11, pp. 28–29; paragraph following Theorem II.2.20, p. 43",
+          "match": "Explicit local disc/annulus homotopies and the global strong-retraction assertion. Gluing and continuity at all vertex directions remain the recorded proof input."
         }
       ],
       "library": {
@@ -4511,8 +4511,8 @@
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Theorem 1.3, arXiv pp. 2–3",
-          "match": "Reviewed introduction statement; proof bodies remain open."
+          "locator": "Theorem 1.3, pp. 2–3; Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23",
+          "match": "The curve multiplicity formula is proved by the comparison of analytic edge degrees and initial generic lengths. The original finite-map reduction input is still explicitly recorded as a proof leaf."
         }
       ],
       "library": {
@@ -4551,8 +4551,8 @@
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Introduction, arXiv p. 3, pointing to Remark 5.6",
-          "match": "Reviewed introduction statement; proof bodies remain open."
+          "locator": "Remark 5.6 and formula (5.6.1), p. 22",
+          "match": "The expansion index of an integral slope vector is the positive gcd of its coordinate slopes, measured against the primitive image lattice."
         }
       ],
       "library": {
@@ -4677,7 +4677,7 @@
         },
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Definitions 4.8 and 4.14, Propositions 4.17–4.18, pp. 15–17",
+          "locator": "Definitions 4.8 and 4.14, Propositions 4.17–4.18, pp. 15–18",
           "match": "Canonical analytic/formal models and their initial special fibers."
         }
       ],
@@ -4906,7 +4906,7 @@
         },
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "§8, Corollary 8.4, pp. 34–36",
+          "locator": "§7, Theorem 7.1 and Corollary 7.3, pp. 34–35",
           "match": "Analytic proof input for arbitrary-dimensional pushforward, distinct from curve harmonicity."
         }
       ],
@@ -5028,8 +5028,8 @@
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Theorem 1.1, arXiv p. 2",
-          "match": "Reviewed introduction statement; proof bodies remain open."
+          "locator": "Theorem 1.1, p. 2; Theorems 5.20–5.21 and proofs, p. 26",
+          "match": "The finite-graph existence theorem follows from finitely many separating unit-slope coordinates. The original formal lifting and Runge approximation inputs remain explicit proof leaves."
         }
       ],
       "library": {
@@ -5055,7 +5055,7 @@
         "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
       ],
       "proofSteps": [
-        "Adjoin the finitely many unit-slope and separating rational coordinates to a given toric embedding; choose an affine toric target where these rational functions are regular as maps. Projection to the old coordinates gives domination. Faithfulness persists under adjoining coordinates because one coordinate tuple already has gcd one and separates the graph."
+        "Extend each separating rational function on the smooth proper completion to a morphism to P¹. For the specified closed embedding into a toric variety Y, take the graph of this finite tuple in Y×(P¹)^n. This is a closed toric embedding and projection gives domination; the target remains quasiprojective when Y is quasiprojective. The gcd-one slope and point-separation properties persist under adjoining coordinates. For domination by any equivariant toric map, expansion indices multiply and the composite has index one, so both indices are one. Use the intrinsic image-graph metric."
       ],
       "acceptance": [
         "Lengths are measured within the image subgraph, not via shortcuts in the entire tropicalization."
@@ -5068,8 +5068,8 @@
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Theorem 1.1 and following paragraph, arXiv p. 2",
-          "match": "Reviewed introduction statement; proof bodies remain open."
+          "locator": "§5.15, Remark 5.16, Lemma 5.17 and Theorems 5.20–5.21, pp. 24–26",
+          "match": "Lemma 5.17 treats domination for toric targets; Theorems 5.20–5.21 supply quasiprojective faithful embeddings. Taking the product with an arbitrary specified toric target proves cofinality in the stated class. Formal lifting and Runge inputs remain explicit proof leaves."
         }
       ],
       "library": {
@@ -5106,8 +5106,8 @@
       "sources": [
         {
           "sourceId": "bpr-tropicalization-2016",
-          "locator": "Theorem 1.4, arXiv p. 3",
-          "match": "Reviewed introduction statement; proof bodies remain open."
+          "locator": "Theorem 1.4, p. 3; Theorem 5.24 and Corollaries 5.25–5.28, pp. 27–28",
+          "match": "Multiplicity one gives a unique positive-relative-multiplicity lift and unit expansion on the stated locus; continuity and compactness identify the intrinsic graph metrics."
         }
       ],
       "library": {
@@ -5299,7 +5299,7 @@
         "Use unit absolute value of formal transition functions to glue the local norms; divide logarithms by e. Pullback along a common admissible blowup compares different model presentations."
       ],
       "acceptance": [
-        "A model metric on a line bundle L over proper X is induced by an admissible formal model (𝔛,𝔏) of (X,L^e), e≥1: on a formal frame σ, ||fσ||=|f|^(1/e), interpreted on L through its e-th power. A metric is continuous, homogeneous in scalars and nonzero on nonzero vectors. Tensor products and duals add and negate logarithmic metric ratios. A vertical Cartier divisor gives a model function on Xᵃⁿ, compatible with admissible blowups."
+        "For a local section s of L with s^e=fσ in a formal frame σ of the model of L^e, the defining identity is ||s||^e=|f|. A frame of L^e is not silently treated as a frame of L; tensor and dual operations respect this identity."
       ],
       "prerequisites": [
         "TropicalAndBerkovichArithmetic:TB.0/analytic-spaces",
@@ -5394,7 +5394,7 @@
       "prerequisites": [
         "TropicalAndBerkovichArithmetic:TB.6/formal-model-metrics",
         "TropicalAndBerkovichArithmetic:TB.2/formal-model-skeleton",
-        "SchemeAndStackFoundations:SF.4"
+        "SchemeAndStackFoundations:SF.5"
       ],
       "sources": [
         {
@@ -5610,7 +5610,7 @@
         {
           "sourceId": "favre-rivera-letelier-2004",
           "locator": "§§4.1–4.5, equation (20), Lemmas 4.3–4.4 and Proposition 4.5, pp. 23–27",
-          "match": "Kernel, continuous potentials, integrability and positive self-energy."
+          "match": "Kernel, continuous potentials, integrability and positive self-energy. The source Δ equals this packet’s ddc=−Δ. Correct the interior second-derivative sign in §4.2 as recorded in E13; equation (20) and the outgoing vertex atoms fix the convention."
         },
         {
           "sourceId": "dky-2020",
@@ -5832,12 +5832,12 @@
       ],
       "title": "Good-reduction and Tate calibration",
       "kind": "theorem",
-      "statement": "For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; multiplying the reference O(0) metric by exp(−g) therefore produces the canonical curvature.",
+      "statement": "For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; choose a reference O(0) metric whose curvature is δ₀ at the skeletal origin. Multiplication by exp(−g) then produces the canonical curvature. The constant L/12 normalizes the graph potential to mean zero; identifying the resulting metric with a chosen canonical metric additionally requires its rigidification.",
       "hypotheses": [
-        "Split good reduction or split Tate reduction; 0<|q|<1; canonical translation-invariant/symmetric metric normalization fixes the additive constant."
+        "Split good reduction or split Tate reduction; 0<|q|<1. The reference metric has curvature δ₀. Mean-zero normalization fixes g, while a fixed rigidification fixes the canonical line-bundle metric up to its otherwise undetermined constant."
       ],
       "proofSteps": [
-        "The good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L and its derivative jump −1 at 0. The resulting curvature is invariant uniform measure; the canonical normalization gives the Bernoulli constant L/12."
+        "The good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L, derivative jump −1 at 0 and integral zero. Add ddc g to the reference curvature δ₀ to get ds/L. Curvature determines the metric only up to a constant; compare rigidifications separately."
       ],
       "acceptance": [
         "The Tate canonical measure is not a Dirac mass at one chosen vertex.",
@@ -6422,7 +6422,12 @@
       "readSections": [
         "Physical pp. 1, 3–7; §§2.1–2.2.4 through p. 7. Spectrum definition, compactness statement and functoriality exercise. This passage supplies no proof of nonemptiness or spectral maximum.",
         "Source issues visually checked on pp. 4 and 7."
-      ]
+      ],
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§§2.1–2.2, pp. 3–7; §§3.1–3.3, pp. 11–18; §§4.1.1–4.1.3, pp. 21–24; §5.1, pp. 33–34."
+      }
     },
     {
       "id": "bpr-structure-2014",
@@ -6436,7 +6441,12 @@
         "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1404.0279v1, 363304 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1404.0279v1 [math.AG] 1 Apr 2014\"): Section 3 opening conventions, Definitions 3.1, 3.3, 3.5, 3.7, Remark 3.6, Lemmas 3.2, 3.4, 3.8 and Proposition 3.9 with all proofs, and Definition 3.10 (pp. 7-9, lines 370-490); Theorem 4.22 with the whole printed proof and Corollary 4.23 (lines 878-905).",
         "This worker, 2026-09-27: physical pp. 1, 7–10, 16–18. Hash reproduced; published comparison recorded separately."
       ],
-      "sha256": "5e40117270a0051d9661c9bbd0317968b810573796a5c2408582f20692568a11"
+      "sha256": "5e40117270a0051d9661c9bbd0317968b810573796a5c2408582f20692568a11",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§2, pp. 4–6; §3, pp. 7–12; §§4.3–4.24, pp. 13–17; §5.3 and §5.15, pp. 18, 21–22. All cited statements and the local-to-global proof dependencies checked."
+      }
     },
     {
       "id": "bpr-tropicalization-2016",
@@ -6449,7 +6459,12 @@
         "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1104.0320v3, 577783 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1104.0320v3 [math.AG] 10 Jun 2015\"): the version remark and the whole introduction, including the standing hypotheses, the definition of H°(X^an) as the space of non-leaves, Theorems 1.1-1.4, the expansion-factor discussion and the gcd formula (pp. 1-3, lines 20-145); Remark 5.6 with (5.6.1) (lines 1237-1245).",
         "This worker, 2026-09-27: physical pp. 1–3 including standing hypotheses and Theorems 1.1–1.4. Hash reproduced. Remark 5.6 locator is inherited; its formula is also on p. 3. Proof bodies unread."
       ],
-      "sha256": "19fbd64ec043835cbadad0375df562d78aa62b26b4820bd1e9f0f79d45c4348e"
+      "sha256": "19fbd64ec043835cbadad0375df562d78aa62b26b4820bd1e9f0f79d45c4348e",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "Theorems 1.1–1.4, pp. 2–3; Definitions 4.8/4.14 and Propositions 4.17–4.24, pp. 15–19; §5, pp. 19–28; §7, pp. 34–35. Full cited proof routes read; the original formal lifting and Runge inputs remain gaps."
+      }
     },
     {
       "id": "bpr-structure-published",
@@ -6472,7 +6487,12 @@
       "readSections": [
         "Contents and preface; §§1.2–1.4, printed pp. 12–18: compactness/nonemptiness proof, unit criterion, spectral maximum, Gelfand consequences and basic examples. No source text is reproduced."
       ],
-      "accessed": "2026-10-18"
+      "accessed": "2026-10-18",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "Theorem 1.2.1 and its proof, pp. 13–15; Corollary 1.2.4, p. 15; Theorem 1.3.1, pp. 15–16; Corollary 1.3.2, Proposition 1.3.5 and Corollary 1.3.6, p. 16. Read in place; no source text copied."
+      }
     },
     {
       "id": "scholze-2026",
@@ -6498,7 +6518,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf",
-      "sha256": "f3ac0d8adabfc4fb9e77ba81a8a9061863202b234e79d6e90df231caec1aa0cf"
+      "sha256": "f3ac0d8adabfc4fb9e77ba81a8a9061863202b234e79d6e90df231caec1aa0cf",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§§I.1–I.3, pp. 4–15; Propositions I.4.12/I.4.14, p. 19; §I.5, pp. 19–22; §I.6, pp. 23–26; §I.7, pp. 26–29; §I.8, pp. 29–31; §II.2, pp. 39–45; Lemma II.3.6 and proof, pp. 46–47; Theorems II.3.18–II.3.19, pp. 49–50; §II.4, pp. 56–57, 61–62."
+      }
     },
     {
       "id": "gathmann-kerber-2007",
@@ -6510,7 +6535,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/math/0612129v2",
-      "sha256": "de05c79158d5cae92fca5997971116643a307239414242ef237c53fdcdd44dc2"
+      "sha256": "de05c79158d5cae92fca5997971116643a307239414242ef237c53fdcdd44dc2",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§1, pp. 2–8; Theorem 2.1, Lemma 2.3, Proposition 2.4 and Corollary 2.5, pp. 8–11; Proposition 3.1 and proof, pp. 11–13."
+      }
     },
     {
       "id": "baker-2007",
@@ -6535,7 +6565,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/1204.3508v3",
-      "sha256": "69d40d2417a0ade8f27ea5e4f45380fd666a9605b19ba56b0495f49328352686"
+      "sha256": "69d40d2417a0ade8f27ea5e4f45380fd666a9605b19ba56b0495f49328352686",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§§1–2, pp. 4–10; Theorems 3.2/3.7, pp. 12–14; §§4.2–4.6, pp. 21–24; Appendix A, pp. 40–43, including the final induction. Full reduced-divisor proof remains an explicit gap."
+      }
     },
     {
       "id": "baker-faber-2009",
@@ -6547,7 +6582,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/0905.1679",
-      "sha256": "9d56f1475646c92cb5e9d6378f5dab31391e3d7da83607ded928f449c4070e8f"
+      "sha256": "9d56f1475646c92cb5e9d6378f5dab31391e3d7da83607ded928f449c4070e8f",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§3, pp. 15–16, and Theorem 4.1 with proof, pp. 17–19. The finite-model exact sequences in §2 remain an explicit proof input."
+      }
     },
     {
       "id": "gubler-2012",
@@ -6559,7 +6599,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf",
-      "sha256": "e3087e939cb971a53405e176923d1c9a3d682fec9442c27334fe04fa927bce20"
+      "sha256": "e3087e939cb971a53405e176923d1c9a3d682fec9442c27334fe04fa927bce20",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§§2–3, pp. 3–7; §§5–6, pp. 10–13; Theorem 10.14 and Proposition 10.15, p. 32; §§13.1–13.17, pp. 43–46. The cited Gröbner-theory proof inputs remain explicit."
+      }
     },
     {
       "id": "sturmfels-tevelev-2007",
@@ -6571,7 +6616,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/0704.3471",
-      "sha256": "eccf07cf4d5a4b3330d355601581ed2b9d25e3e5245ff4958d4ee92b7eb3948d"
+      "sha256": "eccf07cf4d5a4b3330d355601581ed2b9d25e3e5245ff4958d4ee92b7eb3948d",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "Theorem 1.1 and formula (1.2), pp. 1–2; §3, pp. 7–10, including Theorem 3.12. Trivial-valuation scope retained; the arbitrary-valued proof is separately located in BPR §7."
+      }
     },
     {
       "id": "chambert-loir-2004",
@@ -6631,7 +6681,12 @@
         "§§2.3–2.4, pp. 34–43: uniform units, normalized rank-one retraction, rational traces and Hausdorff localizations; §§8.2.11–8.2.13, pp. 160–161: real quotient, tautness, partially proper opens and doubled-disc caution."
       ],
       "accessed": "2026-10-18",
-      "url": "https://arxiv.org/abs/1301.0792"
+      "url": "https://arxiv.org/abs/1301.0792",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "Remark 2.3.9 and Lemmas 2.3.12–2.3.14, pp. 35–36; Definitions 2.4.1/2.4.3/2.4.6/2.4.8/2.4.12, Remark 2.4.4 and Lemma 2.4.17, pp. 37–43; §§8.2.11–8.2.14, pp. 160–161. Read in the cleared reference library."
+      }
     },
     {
       "id": "cdn-2020",
@@ -6667,7 +6722,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/1605.05277",
-      "sha256": "1e247d1168b5dad41def9b8bbf31863d5b04ec5773ea58c3794579b5b9e2be8b"
+      "sha256": "1e247d1168b5dad41def9b8bbf31863d5b04ec5773ea58c3794579b5b9e2be8b",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§§4.3–4.6, pp. 23–27; Appendix A, pp. 43–46; hybrid norm and Proposition A.4 checked against published p. 136. Full SNC inverse-limit proof remains a gap."
+      }
     },
     {
       "id": "krzb-2016",
@@ -6691,7 +6751,12 @@
       ],
       "accessed": "2026-10-18",
       "url": "https://arxiv.org/pdf/1504.00694",
-      "sha256": "d81017bf1e5206873061214ad7f8c4db14b3f983f35203b368edbcc5cea4c10a"
+      "sha256": "d81017bf1e5206873061214ad7f8c4db14b3f983f35203b368edbcc5cea4c10a",
+      "independentReviewRead": {
+        "by": "REV-TropicalAndBerkovichArithmetic",
+        "date": "2026-10-18",
+        "sections": "§2.6 and §§3.1–3.4.2, pp. 15–23; Propositions 3.28–3.29, pp. 26–27; branch, Laurent residue, Raynaud cross and comparison proof read."
+      }
     },
     {
       "id": "baker-rabinoff-2013",
@@ -6716,6 +6781,42 @@
       "accessed": "2026-10-18",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p05-s.pdf",
       "sha256": "7a4bd817bc7cc561363c68c3941b449af55fbf4cb1b3481bd0d601e84b9307df"
+    },
+    {
+      "id": "boucksom-jonsson-published-2017",
+      "title": "Tropical and non-Archimedean limits of degenerating families of volume forms",
+      "authors": "Sébastien Boucksom and Mattias Jonsson",
+      "edition": "JEP 4 (2017), 87–139; version of record; Appendix A.4–A.6, pp. 136–137 collated for E10",
+      "url": "https://www.numdam.org/item/10.5802/jep.39.pdf",
+      "sha256": "f1ab95eaf0f14109e4d5ff13f6b9f60a9aaa3ffa99099b7dea40f7e3779d3769",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Proposition A.4 proof and Appendix A.5–A.6, pp. 136–137: norm sign checked against the hybrid norm."
+      ]
+    },
+    {
+      "id": "favre-rivera-letelier-corrigendum-2007",
+      "title": "Corrigendum to Équidistribution quantitative des points de petite hauteur sur la droite projective",
+      "authors": "Charles Favre and Juan Rivera-Letelier",
+      "edition": "Author-hosted corrigendum, 3 pages; read in full; quantitative error bounds are corrected, not the §4.2 Laplacian sign",
+      "url": "https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf",
+      "sha256": "dd74776159bbad2fa0368b6a2a6d19bd708773c2da2381679e53108e4d8d9a95",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "All three pages, to check whether the E13 sign is corrected; it is not."
+      ]
+    },
+    {
+      "id": "kedlaya-liu-ii-errata",
+      "title": "Relative p-adic Hodge theory, II: Imperfect period rings",
+      "authors": "Kiran Kedlaya and Ruochuan Liu",
+      "edition": "arXiv:1602.06899v3, Appendix A, pp. 189–191; errata to Part I checked for E9",
+      "url": "https://arxiv.org/pdf/1602.06899v3",
+      "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Appendix A, pp. 189–191; corrections to Part I, including 2.4.11 and 2.8.1, but not Remark 2.3.9."
+      ]
     }
   ],
   "sourceVersions": [
@@ -6894,6 +6995,33 @@
       "url": "https://arxiv.org/abs/1301.0792",
       "read": "2026-10-18",
       "citation": "Kedlaya–Liu arXiv:1301.0792v5, supplied paper copy read in place, pp. 34–43 and 160–161. E9 imports the independently confirmed PAPER-KEDLAYA-LIU-15/E101 correction; no source file or passage copied."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.5802/jep.39.pdf",
+      "citation": "JEP 4 (2017), 87–139; version of record; Appendix A.4–A.6, pp. 136–137 collated for E10",
+      "read": "2026-10-18",
+      "sha256": "f1ab95eaf0f14109e4d5ff13f6b9f60a9aaa3ffa99099b7dea40f7e3779d3769"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf",
+      "citation": "Author-hosted corrigendum, 3 pages; read in full; quantitative error bounds are corrected, not the §4.2 Laplacian sign",
+      "read": "2026-10-18",
+      "sha256": "dd74776159bbad2fa0368b6a2a6d19bd708773c2da2381679e53108e4d8d9a95"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1602.06899v3",
+      "citation": "arXiv:1602.06899v3, Appendix A, pp. 189–191; errata to Part I checked for E9",
+      "read": "2026-10-18",
+      "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c"
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00208-006-0751-x.pdf",
+      "citation": "Favre–Rivera-Letelier, Math. Ann. 335 (2006), 311–361. Request returned HTML instead of article. E13 is scoped to the accessible preprint; no published formula was collated.",
+      "read": "2026-10-18"
     }
   ],
   "sourceIssues": [
@@ -6911,8 +7039,15 @@
         "arXiv:1010.2235 submission history: v2 remains the listed version.",
         "Author-hosted PDF; author papers-page URLs unavailable.",
         "Springer chapter landing page and PDF request (returned HTML).",
-        "Searches for Temkin introduction Berkovich errata: no relevant correction located."
-      ]
+        "Searches for Temkin introduction Berkovich errata: no relevant correction located.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.",
+        "Independent review opened https://math.huji.ac.il/~temkin/papers/Selected_Publications.html and searched the title with errata; no relevant correction located. This supplements the earlier unavailable-page report."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The same-topology counterexample |x| versus √|x| on the additive real group disproves the converse constant bound; forward implication survives.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E2",
@@ -6928,8 +7063,15 @@
         "arXiv:1010.2235 submission history: v2 remains the listed version.",
         "Author-hosted PDF; author papers-page URLs unavailable.",
         "Springer chapter landing page and PDF request (returned HTML).",
-        "Searches for Temkin introduction Berkovich errata: no relevant correction located."
-      ]
+        "Searches for Temkin introduction Berkovich errata: no relevant correction located.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.",
+        "Independent review opened https://math.huji.ac.il/~temkin/papers/Selected_Publications.html and searched the title with errata; no relevant correction located. This supplements the earlier unavailable-page report."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Evaluation at the base field cannot separate the two K[T] points T=0 and T=1; all elements of C are required.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E3",
@@ -6944,8 +7086,14 @@
       "searched": [
         "arXiv:1404.0279v1 and published author offprint collated.",
         "Rabinoff research/publications page and Payne published offprint.",
-        "Searches for the paper title with errata: no relevant correction located."
-      ]
+        "Searches for the paper title with errata: no relevant correction located.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The collar parameter in the preceding limit tends to zero; applying |f| to the curve-valued coordinate map gives the real interval condition.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E4",
@@ -6960,15 +7108,21 @@
       "searched": [
         "arXiv:1404.0279v1 and published author offprint collated.",
         "Rabinoff research/publications page and Payne published offprint.",
-        "Searches for the paper title with errata: no relevant correction located."
-      ]
+        "Searches for the paper title with errata: no relevant correction located.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The connected-component argument is valid in the complement of V. The neighborhood constructed in the proof has precisely that property.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E5",
       "source": "bpr-structure-published",
       "kind": "error",
       "locator": "§5.3 opening, printed p. 115 (physical 23); also arXiv p. 18",
-      "printed": "The source asserts an inclusion preserving distances.",
+      "printed": "The proof places each old skeletal edge inside a single edge after refining the vertex set.",
       "correction": "The old edge becomes a union of subdivided edges with its length preserved. Use Proposition 3.13(1)–(2), not containment of the old edge in one refined edge.",
       "reason": "Insert a type-2 point in the interior of an old edge, as Proposition 3.13(2) permits. The two new edges each omit part of the old one. The global metric compatibility result requires the subdivision formulation.",
       "affects": "the proof",
@@ -6976,8 +7130,14 @@
       "searched": [
         "arXiv:1404.0279v1 and published author offprint collated.",
         "Rabinoff research/publications page and Payne published offprint.",
-        "Searches for the paper title with errata: no relevant correction located."
-      ]
+        "Searches for the paper title with errata: no relevant correction located.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Refinement by an interior vertex splits one old edge into two; the old edge lies in their union, with lengths adding, rather than in either refined edge.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E6",
@@ -6992,8 +7152,14 @@
       "searched": [
         "Annals article/DOI listing and publisher PDF checked 2026-10-18; the assertion persists in the version of record.",
         "Author pages and searches for a correction to the DKY potential-theory energy assertion checked 2026-10-18; no correction identified.",
-        "Compared arXiv:1901.09945v2 §2.7 with printed p. 961; this finding concerns the local preliminary assertion, not the main theorem."
-      ]
+        "Compared arXiv:1901.09945v2 §2.7 with printed p. 961; this finding concerns the local preliminary assertion, not the main theorem.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For ρ=δ_x−δ_y at distinct hyperbolic points, positive self-energy implies negative cross-energy with −ρ. Equality of two arbitrary arguments also does not imply zero energy.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E7",
@@ -7008,8 +7174,14 @@
       "searched": [
         "The current arXiv PDF, Proposition 3.28 and proof, checked 2026-10-18.",
         "Rabinoff and Zureick-Brown publication pages and erratum searches checked 2026-10-18; no correction identified.",
-        "The author-linked Duke offprint returned HTTP 404, and the Project Euclid PDF was blocked by its browser challenge. The published proof was not collated; finding scoped to the preprint."
-      ]
+        "The author-linked Duke offprint returned HTTP 404, and the Project Euclid PDF was blocked by its browser challenge. The published proof was not collated; finding scoped to the preprint.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The agreement subspace is a kernel. The finite-dimensional target bounds its codimension; this is exactly the proposition’s stated bound.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E8",
@@ -7024,8 +7196,14 @@
       "searched": [
         "Author-hosted guide PDF and author publication page checked 2026-10-18; no separate correction identified.",
         "The guide is published in Contemporary Mathematics 589 (2013), 125–189; no publisher full text was obtained in this run. This finding is scoped only to the author-hosted v2 formula.",
-        "Compared with Sturmfels–Tevelev Corollary 3.8 and the BPR multiplicity formulation, which use the target/image index."
-      ]
+        "Compared with Sturmfels–Tevelev Theorem 1.1, formula (1.2), pp. 1–2 and Theorem 3.12, pp. 9–10, and BPR Corollary 7.3, pp. 34–35, which use the target/image index.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For z↦z² the correct target/image index is [ℤ:2ℤ]=2. The printed reversed/unmapped index is not this degree.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     },
     {
       "id": "TropicalAndBerkovichArithmetic/E9",
@@ -7040,8 +7218,100 @@
       "searched": [
         "Read the supplied v5 p. 35 again in this run and checked the weighted-norm argument.",
         "The existing paper extraction records searches of the authors’ Part II Appendix A errata, author papers page, arXiv history and atlas errata register. Its independent review confirms that the correction to 2.8.1 does not correct this remark. Those searches are inherited provenance, not a claim of fresh published-version collation.",
-        "The existing extraction did not obtain the published Astérisque text; this imported finding remains scoped to arXiv v5."
-      ]
+        "The existing extraction did not obtain the published Astérisque text; this imported finding remains scoped to arXiv v5.",
+        "Independent review 2026-10-18: the cited text and counterexample were read and checked again; source/version scope retained.",
+        "Fresh independent check: https://kskedlaya.org/papers/ and arXiv:1602.06899v3 Appendix A, pp. 189–191; corrections to 2.4.11 and 2.8.1 were read, with no correction to 2.3.9 found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The complete weighted Laurent norm is submultiplicative; bounds on both positive and negative powers would force an unbounded polynomial weight to be uniformly bounded. The Part II Appendix A corrections do not repair Remark 2.3.9.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E10",
+      "source": "boucksom-jonsson-published-2017",
+      "kind": "misprint",
+      "locator": "Proposition A.4 proof, published JEP 4 (2017), p. 136; also arXiv:1605.05277 p. 45",
+      "printed": "The norm of the central-fiber Laurent-series point is expressed as r^(−ord₀(f)).",
+      "correction": "Use r^(ord₀(f)), as in the norm of Appendix A.5–A.6.",
+      "reason": "For f=t, the exponent ord₀(t)=1. Since 0<r<1 and ||t||=r, the printed r⁻¹ is greater than the ambient norm and cannot define a point of M(A_r). The corrected value is r.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Numdam version of record https://www.numdam.org/item/10.5802/jep.39.pdf collated at p. 136 with the preprint p. 45 on 2026-10-18; the sign persists.",
+        "Numdam article listing and Boucksom publications page https://sebastien.boucksom.perso.math.cnrs.fr/publis.html, plus title/erratum search, checked 2026-10-18; no correction found."
+      ],
+      "addedBy": "REV-TropicalAndBerkovichArithmetic",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For f=t, the exponent ord₀(t)=1. Since 0<r<1 and ||t||=r, the printed r⁻¹ is greater than the ambient norm and cannot define a point of M(A_r). The corrected value is r.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E11",
+      "source": "poineau-2020",
+      "kind": "misprint",
+      "locator": "Author preprint dated 18 October 2020, Example I.2.20, p. 11 only",
+      "printed": "In the Hahn-series description of C((t^Q)), coefficients a_q are required to be rational numbers.",
+      "correction": "The exponents q are rational; coefficients a_q belong to C.",
+      "reason": "A spherical completion of the chosen completed algebraic closure of C((t)) must contain its constant i. Rational-coefficient Hahn series cannot contain i as a constant, whereas complex-coefficient series do.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Author PDF and arXiv:2010.09043 history checked 2026-10-18; only this preprint was collated.",
+        "Poineau/Turchetti author research pages and title/errata search checked 2026-10-18; no relevant correction found. The Springer chapter was not read; this finding makes no assertion about its text."
+      ],
+      "addedBy": "REV-TropicalAndBerkovichArithmetic",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A spherical completion of the chosen completed algebraic closure of C((t)) must contain its constant i. Rational-coefficient Hahn series cannot contain i as a constant, whereas complex-coefficient series do.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E12",
+      "source": "poineau-2020",
+      "kind": "misprint",
+      "locator": "Author preprint dated 18 October 2020, Proposition I.4.14, p. 19 only, reversing-annulus case and bound variables",
+      "printed": "For i₀=−1 the image radii and Gauss-point image use |a₁|. The dominance and point-image formulas also quantify t while using s as a free radial variable.",
+      "correction": "Use |a₋₁| in the reversing case: r₂=|a₋₁|/s₁, s₂=|a₋₁|/r₁ and η_t↦η_(|a₋₁|/t). Use t consistently in the quantified dominance inequality and both point-image formulas.",
+      "reason": "For ϕ(T)=a/T, a≠0, the only nonzero coefficient is a₋₁=a. The printed |a₁| is zero and collapses both positive target radii to zero. The corrected map reverses radii and preserves log modulus.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author PDF p. 19 read and formula visually checked 2026-10-18; arXiv:2010.09043 history and author research pages checked.",
+        "Title/proposition errata searches found no correction. The Springer chapter was not read; the finding concerns only the identified author preprint."
+      ],
+      "addedBy": "REV-TropicalAndBerkovichArithmetic",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For ϕ(T)=a/T, a≠0, the only nonzero coefficient is a₋₁=a. The printed |a₁| is zero and collapses both positive target radii to zero. The corrected map reverses radii and preserves log modulus.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E13",
+      "source": "favre-rivera-letelier-2004",
+      "kind": "misprint",
+      "locator": "arXiv:math/0407471 PDF retrieved 2026-10-18, §4.2, pp. 24–25 only",
+      "printed": "The interior edge density is −g″ while the vertex atoms are sums of positive outgoing derivatives.",
+      "correction": "With the outgoing-derivative atoms printed there, the interior density is +g″. This is the convention of the source equation (20); in this packet it is ddc=−Δ.",
+      "reason": "On a segment of length one take g(s)=s², extended constantly on complementary branches. The outgoing atoms have total −2. Interior density +2 ds restores the zero total mass required in §4.1; the printed −2 ds gives total mass −4. The preceding prose also describes the positive second derivative.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Current arXiv text and author publications page checked 2026-10-18.",
+        "Read the author-hosted 2007 corrigendum https://www.cmls.polytechnique.fr/perso/favre/corrigendum.pdf in full; it corrects quantitative bounds from Cauchy–Schwarz, not this §4.2 sign.",
+        "Publisher PDF https://link.springer.com/content/pdf/10.1007/s00208-006-0751-x.pdf returned HTML, not the article, on 2026-10-18. Published formula not collated; finding scoped to the accessible preprint."
+      ],
+      "addedBy": "REV-TropicalAndBerkovichArithmetic",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On a segment of length one take g(s)=s², extended constantly on complementary branches. The outgoing atoms have total −2. Interior density +2 ds restores the zero total mass required in §4.1; the printed −2 ds gives total mass −4. The preceding prose also describes the positive second derivative.",
+        "by": "REV-TropicalAndBerkovichArithmetic"
+      }
     }
   ],
   "requests": [
@@ -7062,8 +7332,8 @@
       ]
     },
     {
-      "supplier": "SchemeAndStackFoundations:SF.4",
-      "need": "Intersection degrees of model line bundles and vertical Cartier divisors on proper normal flat models over arbitrary complete rank-one valuation rings; independence under admissible blowups, flat degree specialization and projection formula, with residue degrees and component multiplicities. This is an extension beyond the DVR case, not semistable-reduction existence.",
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Use SF.5/first-chern, SF.5/chern-projection and SF.5/degree for intersections on proper finite-type residue-field schemes. Extend the model specialization, vertical Cartier intersection and admissible-blowup projection identities to proper normal flat models over arbitrary complete rank-one valuation rings, retaining residue degrees and component multiplicities. SF.5/arithmetic-surface-comparison covers regular proper arithmetic surfaces over a Dedekind base; it does not supply this possibly nonnoetherian extension. SF.4 supplies formal geometry, not the intersection-theory owner.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.6/formal-model-metrics",
         "TropicalAndBerkovichArithmetic:TB.6/model-measures"
@@ -7133,7 +7403,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/weighted-acyclicity-descent",
       "title": "Nonstrict Tate descent",
-      "detail": "The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 18–20 state the result; the strictification descent proof has not been verified.",
+      "detail": "The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 16–18 state the result; the strictification descent proof has not been verified.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.0/analytic-sheaf"
       ]
@@ -7141,7 +7411,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/analytic-comparison-proof",
       "title": "Global analytic comparison proof",
-      "detail": "Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions; it cites Huber Theorem 8.3.5. The full gluing, tautness and morphism-comparison proof in the cleared Huber reference has not been followed. The properness comparison in analytification also uses this proof input.",
+      "detail": "Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions. Remark A.6, p. 84 cites Huber (1996) Proposition 8.3.1, Remark 8.3.2 and Lemma 5.6.8(i), and Huber (1994) Proposition 4.5(iv). Huber Theorem 8.3.5 concerns the later sheaf comparison, not this analytic-space equivalence. The full gluing, tautness and morphism-comparison proofs in those references have not been followed. The properness comparison in analytification also uses this proof input.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.0/global-adic-comparison",
         "TropicalAndBerkovichArithmetic:TB.0/analytification",
@@ -7170,7 +7440,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/noncompact-model-proof",
       "title": "Locally finite model correspondence",
-      "detail": "CDN Appendix A.2, pp. 51–52 states the noncompact triangulation/formal-model equivalence. Verify the locally finite gluing and the nonsplit constant-field/node invariants in its cited Ducros construction; compact finite skeleton arguments do not prove this extension.",
+      "detail": "CDN Appendix A.2, pp. 51–52 gives component points of a normal flat model and the criterion for extending automorphisms that preserve them; it does not state a general triangulation/formal-model equivalence. Supply the converse reconstruction, locally finite gluing and nonsplit constant-field/node invariants from the cited Ducros theory. Semistability is required before calling the component-point set a triangulation; compact finite skeleton arguments do not prove this extension.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.2/noncompact-triangulations",
         "TropicalAndBerkovichArithmetic:TB.2/triangulated-formal-automorphisms",
@@ -7215,7 +7485,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/cycle-balancing-proof",
       "title": "General-valued balancing and pushforward",
-      "detail": "Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR Appendix A supply the general statement, whose whole proof was not read. Use the corrected target/image lattice index.",
+      "detail": "Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR §7, Theorem 7.1 and Corollary 7.3, pp. 34–35 supply the general pushforward statement, whose whole proof was not read. Use the corrected target/image lattice index.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.4/weighted-tropical-cycles",
         "TropicalAndBerkovichArithmetic:TB.4/cycle-pushforward"
@@ -7224,7 +7494,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/general-model-measure-proof",
       "title": "General rank-one model intersections",
-      "detail": "Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the SF.4 intersection interface. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.",
+      "detail": "Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the requested SF.5 intersection extension. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.6/model-measures",
         "TropicalAndBerkovichArithmetic:TB.6/measure-limits-and-local-heights"
@@ -7313,7 +7583,7 @@
     {
       "id": "TropicalAndBerkovichArithmetic/relative-multiplicity-proof",
       "title": "Finite-map reduction multiplicities",
-      "detail": "BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 19–22 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.",
+      "detail": "BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.",
       "neededBy": [
         "TropicalAndBerkovichArithmetic:TB.4/relative-tropical-multiplicity",
         "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
@@ -7337,8 +7607,8 @@
       "stageId": "TropicalAndBerkovichArithmetic:TB.0",
       "status": "planned",
       "remaining": [
-        "Nonstrict Tate descent: The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 18–20 state the result; the strictification descent proof has not been verified.",
-        "Global analytic comparison proof: Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions; it cites Huber Theorem 8.3.5. The full gluing, tautness and morphism-comparison proof in the cleared Huber reference has not been followed. The properness comparison in analytification also uses this proof input.",
+        "Nonstrict Tate descent: The strict finite-module Čech theorem is an exact external import. Supply faithful strictifying scalar extension and descent for arbitrary positive radii, including a trivially valued base. Temkin §§3.3.1–3.3.3, pp. 16–18 state the result; the strictification descent proof has not been verified.",
+        "Global analytic comparison proof: Zavyalov Appendix A, pp. 84–86 gives the exact equivalence and directions. Remark A.6, p. 84 cites Huber (1996) Proposition 8.3.1, Remark 8.3.2 and Lemma 5.6.8(i), and Huber (1994) Proposition 4.5(iv). Huber Theorem 8.3.5 concerns the later sheaf comparison, not this analytic-space equivalence. The full gluing, tautness and morphism-comparison proofs in those references have not been followed. The properness comparison in analytification also uses this proof input.",
         "Idempotent descent through Laurent covers: Scholze Theorem 2.18, pp. 11–12 reduces the general Banach-ring clopen theorem to Newton lifting and an overconvergent Laurent equalizer, using KL Corollary 2.8.9. Check that equalizer and its closed-ideal argument; a sheaf on the ordinary topology of M(A) is not available for arbitrary Banach rings.",
         "Analytification over the hybrid Banach base: The nonarchimedean analytic-space atlas in TB.0 does not construct analytification over the mixed archimedean/nonarchimedean ring A_r. Boucksom–Jonsson Appendix A gives this Banach-ring scheme analytification, and §§4.3–4.6 give the SNC inverse-limit comparison. The complete Appendix A construction and SNC retraction/inverse-limit proof must be checked before closing the hybrid-space target."
       ],
@@ -7348,7 +7618,7 @@
       "stageId": "TropicalAndBerkovichArithmetic:TB.1",
       "status": "planned",
       "remaining": [
-        "Locally finite model correspondence: CDN Appendix A.2, pp. 51–52 states the noncompact triangulation/formal-model equivalence. Verify the locally finite gluing and the nonsplit constant-field/node invariants in its cited Ducros construction; compact finite skeleton arguments do not prove this extension."
+        "Locally finite model correspondence: CDN Appendix A.2, pp. 51–52 gives component points of a normal flat model and the criterion for extending automorphisms that preserve them; it does not state a general triangulation/formal-model equivalence. Supply the converse reconstruction, locally finite gluing and nonsplit constant-field/node invariants from the cited Ducros theory. Semistability is required before calling the component-point set a triangulation; compact finite skeleton arguments do not prove this extension."
       ],
       "note": "All stage targets have declaration nodes or exact imports. Proof leaves and requested interfaces remain explicit; this is not an implementation claim."
     },
@@ -7358,7 +7628,7 @@
       "remaining": [
         "Rank-one semistable-reduction proof: BL85 Theorem 7.1 is the explicitly owned theorem, not a request that SF.4 or StableReduction already supplies it. Its application was checked in BPR Theorem 4.22, pp. 16–17, and Poineau–Turchetti II.2.20, pp. 42–43. The original nonnoetherian proof and finite-extension descent for a nonclosed base have not been read in full; do not mark this theorem closed from the DVR reduction theorem.",
         "Vertex continuity of the homotopy: Give the full star-neighborhood proof at vertices with infinitely many residue-ball directions, using finite annular cuts and local analytic connectedness; BPR Lemma 3.8, p. 9 leaves continuity as an exercise. Annular formulas alone are not a proof of the global retraction or strong homotopy.",
-        "Locally finite model correspondence: CDN Appendix A.2, pp. 51–52 states the noncompact triangulation/formal-model equivalence. Verify the locally finite gluing and the nonsplit constant-field/node invariants in its cited Ducros construction; compact finite skeleton arguments do not prove this extension.",
+        "Locally finite model correspondence: CDN Appendix A.2, pp. 51–52 gives component points of a normal flat model and the criterion for extending automorphisms that preserve them; it does not state a general triangulation/formal-model equivalence. Supply the converse reconstruction, locally finite gluing and nonsplit constant-field/node invariants from the cited Ducros theory. Semistability is required before calling the component-point set a triangulation; compact finite skeleton arguments do not prove this extension.",
         "Nonnoetherian component contractions: Verify the genus-zero formal contractions in BL85 Lemma 6.1, as used by BPR Proposition 4.21, p. 16. The rational tail/bridge proof must retain puncture exclusions and add edge thicknesses. The current native StableReduction theorem is restricted to a DVR."
       ],
       "note": "All stage targets have declaration nodes or exact imports. Proof leaves and requested interfaces remain explicit; this is not an implementation claim."
@@ -7378,8 +7648,8 @@
       "status": "planned",
       "remaining": [
         "Valued Gröbner and polyhedral theorem: Gubler Theorem 10.14, p. 32 and Theorem 3.3, p. 7 state finite rational polyhedrality and purity over arbitrary real value groups. Read the cited valued Gröbner/Bieri–Groves proof, including tilted-algebra descent where K° is nonnoetherian; a DVR Gröbner argument is insufficient.",
-        "General-valued balancing and pushforward: Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR Appendix A supply the general statement, whose whole proof was not read. Use the corrected target/image lattice index.",
-        "Finite-map reduction multiplicities: BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 19–22 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone."
+        "General-valued balancing and pushforward: Sturmfels–Tevelev §3, pp. 7–8 gives the trivial-valuation balancing proof via tropical compactification. Complete the arbitrary-valued reduction-to-local-stars argument and the flat-cycle intersection comparison; Gubler §§13.13–13.17, pp. 45–46 and BPR §7, Theorem 7.1 and Corollary 7.3, pp. 34–35 supply the general pushforward statement, whose whole proof was not read. Use the corrected target/image lattice index.",
+        "Finite-map reduction multiplicities: BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone."
       ],
       "note": "All stage targets have declaration nodes or exact imports. Proof leaves and requested interfaces remain explicit; this is not an implementation claim."
     },
@@ -7387,7 +7657,7 @@
       "stageId": "TropicalAndBerkovichArithmetic:TB.5",
       "status": "planned",
       "remaining": [
-        "Finite-map reduction multiplicities: BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 19–22 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.",
+        "Finite-map reduction multiplicities: BPR Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23 relate canonical-reduction degrees, initial lengths and annular expansion. Read the full finite-map multiplicity proof and its base-change reduction, including inseparable residue degrees; it is not a consequence of the gcd definition alone.",
         "Formal lifting and Runge approximation: BPR Lemmas 5.18–5.19 and Theorem 5.20, pp. 25–26 use BL85 Corollary 3.8 to lift compatible rational residue functions, FM86 Théorème 4 §2.4 for annular coordinate approximation, and FM86 Théorème 1 §1.4 for rational sublevel descriptions of edge affinoids. These three exact analytic lifting/approximation results are not supplied by algebraic Riemann–Roch; their complete proofs must be read."
       ],
       "note": "All stage targets have declaration nodes or exact imports. Proof leaves and requested interfaces remain explicit; this is not an implementation claim."
@@ -7396,7 +7666,7 @@
       "stageId": "TropicalAndBerkovichArithmetic:TB.6",
       "status": "planned",
       "remaining": [
-        "General rank-one model intersections: Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the SF.4 intersection interface. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.",
+        "General rank-one model intersections: Chambert–Loir §2, pp. 4–8 supplies the model-measure construction in its stated model range. Extend independence and the projection formula to the requested possibly nonnoetherian models using the requested SF.5 intersection extension. Also supply Radon weak-limit existence without the countable-density hypothesis; the present weak-limit theorem retains it explicitly.",
         "Admissible Green kernel with arbitrary edge lengths: Yuan A.5, pp. 115–118 is unit-edge normalized. Derive the arbitrary-length resistance formula and probability mass from Kirchhoff theory, and construct the normalized Green kernel with this Laplacian sign. Verify PL approximation with weak Laplacian convergence and controlled variation for the C² curvature identity.",
         "Potential theory beyond the cited Cp range: The corrected self-energy positivity is verified in the Cp tree convention of Favre–Rivera-Letelier §4, pp. 22–27. Extending this Radon/continuous-potential argument to every complete algebraically closed rank-one field requires a source/proof check; no arbitrary cross-energy positivity is asserted."
       ],
@@ -7479,5 +7749,528 @@
       ]
     }
   },
-  "closureNote": "Complete means every TB.0–TB.7 target has been planned at definition/key-theorem granularity. 22 specifically located proof leaves and 11 stage requests prevent closure. The compact suggested file uses only real-bodied native-carrier definitions and statable endpoints; geometric declarations whose carriers are absent stay in the definitive reader, without abstract certificates or fabricated carriers."
+  "closureNote": "Complete means every TB.0–TB.7 target has been planned at definition/key-theorem granularity. 22 specifically located proof leaves and 11 stage requests prevent closure. The compact suggested file uses only real-bodied native-carrier definitions and statable endpoints; geometric declarations whose carriers are absent stay in the definitive reader, without abstract certificates or fabricated carriers.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-TropicalAndBerkovichArithmetic",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 103 nodes, statements, hypotheses, proof routes, APIs, tests and planets; 25 nodes corrected and 78 verified. All 22 baseline declarations confirmed at Mathlib 082e2d3 and Tau Ceti f790474. Corrected sources/locators, formal-model triangulation hypotheses, toric domination proof, SF.5 intersection ownership and Tate metric normalization. Confirmed all 9 inherited sourceIssues and added 4 version-scoped misprints E10–E13. The complete pass retains 22 explicit proof gaps and 11 supplier requests, with 8 stages planned and none closed. Suggested Lean elaborates with only the expected admitted-theorem warnings.",
+    "checked": [
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "verdict": "verified",
+        "note": "Native MulRingSeminorm carrier, norm-sensitive bound and the zero-ring test agree with Temkin 2.2.2.1; no completeness is needed for the definition."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/bounded-iff-dominated",
+        "verdict": "verified",
+        "note": "The pinned contraction_of_isPowMul_of_boundedWrt applies to the multiplicative pullback. Positive-power bounds remove the uniform constant."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/evaluation-topology",
+        "verdict": "verified",
+        "note": "The initial topology uses every ring element. The coordinate continuity, universal property and all three discriminating tests fit this topology."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/evaluation-embedding",
+        "verdict": "verified",
+        "note": "Extensionality supplies injectivity; the induced topology supplies the embedding. The pinned embedding and continuity declarations have the required directions."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/evaluation-range",
+        "verdict": "verified",
+        "note": "Nonnegativity, unitality, multiplicativity, triangle inequalities and domination characterize the image; the zero-ring contradiction is retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/closed-evaluation-range",
+        "verdict": "verified",
+        "note": "Each defining coordinate equation/inequality is closed in the product of real intervals, using the cited pinned closed-set lemmas."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/compact-spectrum",
+        "verdict": "verified",
+        "note": "Tychonoff plus the closed image proves compactness without completeness or a field; nonemptiness remains a separate target."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/hausdorff-spectrum",
+        "verdict": "verified",
+        "note": "Different seminorms differ on a coordinate, and the real product is Hausdorff. The cited embedding theorem transfers separation."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/comap",
+        "verdict": "verified",
+        "note": "Composition with a bounded ring map gives a bounded seminorm, then domination by the power trick. Evaluation proves continuity and contravariant composition."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/field-norm-point",
+        "verdict": "verified",
+        "note": "The multiplicative field norm gives a real point; inverse evaluation and scalar tests distinguish it from evaluation at zero."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/field-spectrum-singleton",
+        "verdict": "verified",
+        "note": "Domination at a and a⁻¹ forces equality with the given norm, including trivial and archimedean field norms."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/banach-ring-category",
+        "verdict": "verified",
+        "note": "Scholze Definitions 2.1–2.2 and Proposition 2.4 distinguish contractive colimits from bounded affinoid maps; the ℓ¹/projective seminorm and separated completion are retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/nonempty-spectrum",
+        "verdict": "corrected",
+        "note": "Corrected Berkovich Theorem 1.2.1 locator to pp. 13–15; its existence proof and Scholze Theorem 2.14 support exactly the nonzero complete unital range."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/unit-and-spectral-radius",
+        "verdict": "corrected",
+        "note": "Corrected the printed-page locators to Corollary 1.2.4 p. 15 and Theorem 1.3.1 pp. 15–16; nilpotents and the product-ring spectral maximum have the right interpretation."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/completed-residue-fields",
+        "verdict": "corrected",
+        "note": "Corrected I.2.5 from Proposition to Lemma. Prime kernel, fraction-field valuation and completion give the point field and its universal evaluation map."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/spectral-base-change",
+        "verdict": "corrected",
+        "note": "Corrected Poineau declaration kinds/pages and Berkovich printed pages. Valued amalgamation gives surjectivity; normal/Galois quotients and purely inseparable homeomorphisms retain their hypotheses."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/contractive-colimits",
+        "verdict": "verified",
+        "note": "Scholze Proposition 3.2 gives surjectivity for pushouts and a homeomorphism for filtered colimits. No unwarranted pushout homeomorphism is asserted."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/affinoid-algebras",
+        "verdict": "verified",
+        "note": "Weighted Tate quotients, strictness and completed scalar extension match Temkin §3.1; the radius and nonstrict examples detect dropping the norm data."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/affinoid-domains",
+        "verdict": "corrected",
+        "note": "Corrected Temkin pages to 14–16. Rational inequalities have the no-common-zero condition, and the universal domain property is separate from a chosen rational presentation."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/analytic-sheaf",
+        "verdict": "corrected",
+        "note": "Corrected Temkin pages to 16–18. The strict module Čech input is imported exactly; nonstrict strictification/descent remains explicitly open."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/analytic-spaces",
+        "verdict": "verified",
+        "note": "Temkin §4.1 supplies nets and affinoid atlases rather than an ordinary-open affinoid cover. Gluing, chart changes and morphism locality are covered by the API/tests."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/analytification",
+        "verdict": "verified",
+        "note": "Scheme charts, nonarchimedean analytification and proper GAGA are separated from the mixed Banach-ring hybrid construction; the comparison proof leaf remains explicit."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/adic-rank-one-retraction",
+        "verdict": "verified",
+        "note": "KL 2.4.1/2.4.4/2.4.6/2.4.8 support the full pair (A,A⁺) under a uniform unit. Native Spa is imported; neither diamonds nor the false characteristic-p converse is used."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/hausdorff-localizations",
+        "verdict": "verified",
+        "note": "KL Definitions 2.4.8/2.4.12 and Lemma 2.4.17 support the rational encircling/localization claims under the uniform-unit hypotheses."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/global-adic-comparison",
+        "verdict": "verified",
+        "note": "Zavyalov A.5–A.8 and A.11 support Hausdorff strict Berkovich versus taut adic spaces and the stated one-direction morphism comparisons. Corrected the separate Huber proof-gap reference; no false general étale equivalence is introduced."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/real-quotient",
+        "verdict": "verified",
+        "note": "KL 8.2.11–8.2.14 distinguish the real quotient, partially proper opens and tautness. The doubled-disc example prevents extending the Hausdorff conclusion without its hypotheses."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/hybrid-analytic-space",
+        "verdict": "verified",
+        "note": "Boucksom–Jonsson 4.9/4.12 and Appendix A support the analytic hybrid topology. The t-norm test already detects new E10; SNC inverse limits and dynamical convergence remain separate open inputs."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/gelfand-representation",
+        "verdict": "verified",
+        "note": "Scholze 2.19–2.21 give the uniform isometric transform; Berkovich Corollary 1.3.2 identifies the spectral zero ideal. No surjectivity onto arbitrary continuous sections is claimed."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/idempotents-and-clopens",
+        "verdict": "verified",
+        "note": "Scholze Theorem 2.18 uses overconvergent Laurent descent and Newton lifting. The packet explicitly records that nonroutine proof leaf and does not assume an ordinary sheaf for every Banach ring."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/gelfand-mazur",
+        "verdict": "verified",
+        "note": "Scholze Theorem 2.12 keeps the archimedean exponent range and nonarchimedean alternative. The statement is norm-sensitive, not merely a topological classification."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/connected-analytification",
+        "verdict": "corrected",
+        "note": "Corrected I.6.12/I.6.14 kinds. Proper GAGA plus H⁰=K excludes idempotents; classical endpoints are removed by the path argument, with the algebraic scalar-function input requested explicitly."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/uniform-unit-hierarchy",
+        "verdict": "verified",
+        "note": "Uniform-unit, Tate and uniform-norm hypotheses are distinct. The E9 corrected converse is used only with its added norm control; the weighted-norm counterexample remains a discriminating test."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.0/residue-field-surjectivity",
+        "verdict": "verified",
+        "note": "KL 2.3.12/2.3.14 and 2.4.17(c) give finite-cokernel detection, faithful finite étale surjectivity and openness; these are not asserted for arbitrary scalar maps."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/gauss-line-and-discs",
+        "verdict": "verified",
+        "note": "Poineau §§I.1/I.3 give the Gauss formula and equality of discs with different centers. Radius zero and the nonclassical Gauss-point tests distinguish evaluation from a disc norm."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/four-point-types",
+        "verdict": "corrected",
+        "note": "Corrected definition/lemma/proposition kinds and recorded the complex Hahn-coefficient correction E11. Type III, type IV and nonspherical completeness hypotheses remain distinct."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/tree-hyperbolic-metric",
+        "verdict": "corrected",
+        "note": "Corrected the log-modulus wording and page range through p. 31. Classical endpoints are at infinite distance, and the finite path metric is not the compact analytic topology."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/annular-skeleton",
+        "verdict": "corrected",
+        "note": "Corrected Poineau lemma/proposition kinds; the inverse-coordinate test and logarithmic length are sound. Explicit local homotopies do not close the separate global vertex-continuity gap."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/annular-integral-slopes",
+        "verdict": "verified",
+        "note": "BPR Propositions 2.4–2.5 and Theorem 5.15 match Laurent minima in s=−log|T|, integral slopes and puncture orders. The KRZB Laurent formula has the same sign."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.1/virtual-annuli-descent",
+        "verdict": "corrected",
+        "note": "Corrected I.7.4/I.7.5/I.7.6 kinds. The component-count modulus convention and end-swap condition are not identified with the length of one geometric component; noncompact descent remains a proof leaf."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "verdict": "verified",
+        "note": "BPR Definition 3.1 uses finite type-II sets with disc/annulus complement in the split algebraic setting; analytic semistable existence is a separate prerequisite."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "verdict": "verified",
+        "note": "BPR Definitions 3.3/3.5 glue vertices and annular axes. Completion, puncture endpoints and complement-ball tests prevent using the entire analytic curve as the graph carrier."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "verdict": "verified",
+        "note": "BPR Lemma 3.2 was checked with E3. Boundary points arise from the corrected collar limit, rather than an incorrectly typed interval condition on the curve coordinate."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "verdict": "verified",
+        "note": "BPR Lemma 3.4(3) gives complementary generalized balls with one boundary point; puncture balls and marked rays follow the specified completion convention."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "verdict": "verified",
+        "note": "BPR Lemma 3.4(1)–(2) and Definition 3.5 support the skeleton closure and finite boundary; classical punctures are not finite-length vertices."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "verdict": "verified",
+        "note": "The connected-neighborhood condition is used inside the complement of V, with E4 applied. This gives the correct local disc characterization."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "verdict": "verified",
+        "note": "BPR Definition 3.7 gives the unique ball-boundary projection and annular radius projection; the type of the set map is separate from continuity."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "verdict": "verified",
+        "note": "BPR Lemma 3.8 supports retraction continuity but leaves the vertex step as an exercise. The packet honestly records that proof input rather than treating componentwise continuity as sufficient."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+        "verdict": "verified",
+        "note": "BPR Proposition 3.9 and connectedness of the analytic curve give connectedness of the retraction image; the empty-vertex exceptional cases are retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "verdict": "verified",
+        "note": "BPR Theorems 4.22/4.24 combine the separately owned rank-one existence, contractions and stable/minimal refinements. Native StableReduction Layers 7–9 are only the DVR compatibility input."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "verdict": "verified",
+        "note": "Positive-genus points and non-disc points determine the minimal core with the listed exceptional rational cases. Genus-zero contractions remain an explicit nonnoetherian proof input."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "verdict": "verified",
+        "note": "BPR §4 and Corollary 4.23 give the valency/genus criterion in the hyperbolic range; loops count twice and marked punctures contribute to valency."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "verdict": "verified",
+        "note": "The intrinsic-core characterization and common refinement give uniqueness of the subset with its metric, not uniqueness of every possible vertex subdivision."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set",
+        "verdict": "verified",
+        "note": "The hyperbolic inequality and stable valency/genus criterion remove the exceptional nonunique genus-zero or unmarked genus-one vertex choices."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/rank-one-semistable-reduction",
+        "verdict": "verified",
+        "note": "BPR Theorem 4.22 and Poineau II.2.20 locate the nonnoetherian BL85 input. The original proof is explicitly open; a DVR theorem is not substituted for it."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/formal-model-skeleton",
+        "verdict": "verified",
+        "note": "BPR Theorem 4.11 gives the formal-model correspondence and uv=a length. The combinatorial dual graph is imported from native StableReduction Layer 1 rather than defined again."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/vertex-genus-and-genus-formula",
+        "verdict": "corrected",
+        "note": "Corrected II.2.16/II.2.22 declaration kinds. StableReduction supplies the combinatorial genus and flat-family genus invariance; the added result is their analytic metric realization."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/refinement-and-field-extension",
+        "verdict": "verified",
+        "note": "BPR Proposition 3.13 and corrected §5.3 show subdivision with additive lengths. Isometric scalar extension is distinguished from renormalizing a discrete valuation by ramification degree."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/marked-extended-skeleton",
+        "verdict": "verified",
+        "note": "Punctures add infinite rays while the classical endpoint lies only in the topological completion. Annular coordinates and the separate vertex-continuity input give the intended marked retraction."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/noncompact-triangulations",
+        "verdict": "verified",
+        "note": "CDN Appendix A.2 uses locally finite triangulations and nonsplit type-II/III points. The packet does not replace them by a single proper finite model; locally finite reconstruction remains an explicit gap."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/triangulated-formal-automorphisms",
+        "verdict": "corrected",
+        "note": "Corrected the false claim that every normal flat model supplies a triangulation: semistability is required. CDN gives a component-point set and automorphism criterion, not a converse reconstruction theorem."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/skeletal-strong-deformation",
+        "verdict": "corrected",
+        "note": "Removed nonexistent BPR Remark 3.9; cited §2.3 and Lemma 3.8 only for their actual claims, with Poineau I.7.8–11 and the paragraph after II.2.20 for homotopies. Vertex gluing remains open."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.2/genus-zero-contractions",
+        "verdict": "verified",
+        "note": "BPR Proposition 4.21 contracts only the permitted unmarked rational tails/bridges. Puncture exclusions and thickness addition remain explicit, with BL85 Lemma 6.1 as the nonnoetherian proof input."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/metric-graphs",
+        "verdict": "verified",
+        "note": "Finite positive-length models allow loops and multiple edges; graph points and subdivision are intrinsic. Vertex genera are retained separately from b₁."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/graph-divisors",
+        "verdict": "verified",
+        "note": "Divisors range over every graph point; outgoing integral slopes define principal divisors. Rank, effectiveness and the canonical divisor agree with Gathmann–Kerber §1."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/graph-laplacian",
+        "verdict": "verified",
+        "note": "The packet consistently uses negative outgoing slopes and −f″ds. Endpoint atoms restore total mass zero, while ddc is the opposite operator."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/graph-jacobian",
+        "verdict": "verified",
+        "note": "Baker–Faber §3 and Baker–Rabinoff 2.7/2.8 give the harmonic period lattice and Pic⁰ comparison. The finite-model exact sequences remain a named proof input; bridge contraction tests are meaningful."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/graph-riemann-roch",
+        "verdict": "verified",
+        "note": "Gathmann–Kerber Theorem 1.2 and §§2–3 supply rational approximation for real edge lengths. The graph rank and canonical degree are used with all-point divisors."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/divisor-specialization",
+        "verdict": "verified",
+        "note": "Baker §2 supplies the DVR case; Amini–Baker §4.3 supplies arbitrary complete algebraically closed rank-one specialization. Retraction and residue-curve points are kept distinct."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/slope-formula",
+        "verdict": "verified",
+        "note": "BPR Theorem 5.15 and Amini–Baker Theorem 4.5 have opposite log conventions, which the packet explicitly converts. Δ(−log|f|)=τ_*div(f) has the checked sign."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/metrized-complexes",
+        "verdict": "verified",
+        "note": "Amini–Baker §1 gives residue curves with distinct half-edge marks and both graph and curve terms in principal divisors. Bare graph rank is not substituted for the complex rank."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/metrized-complex-riemann-roch",
+        "verdict": "verified",
+        "note": "Amini–Baker Theorems 3.2/3.7 give genus and Riemann–Roch. The reduced-divisor proof is explicitly open, rather than hidden behind the theorem label."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/specialization-rank-inequality",
+        "verdict": "verified",
+        "note": "Amini–Baker Theorems 4.5–4.6 preserve principal specialization and give rank ≥ algebraic rank over the stated field. Baker Lemma 2.8 is only its compatible DVR specialization."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.3/metrized-complex-rank-determining",
+        "verdict": "verified",
+        "note": "Appendix A Theorem A.1 was checked through the final induction. Any g_v+1 residue points suffice on a loopless model; no false genericity hypothesis is imposed."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "verdict": "corrected",
+        "note": "BPR Theorem 1.3 and proof Theorem 5.8/Corollary 5.9 support summing expansion factors over lifts. The separate reduction-degree/finite-map proof input remains explicit."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd",
+        "verdict": "corrected",
+        "note": "The lattice index of the primitive slope tuple is its positive gcd, as in BPR Remark 5.6; this is not the Euclidean speed of the coordinate tuple."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/torus-tropicalization",
+        "verdict": "verified",
+        "note": "Gubler §§2–3 support valuation-invariant seminorm tropicalization and support under extension. Classical-point closure retains its algebraically closed nontrivial extension hypotheses."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/initial-degenerations",
+        "verdict": "corrected",
+        "note": "Extended the BPR locator through p. 18. Gubler §§5–6 and BPR §4 distinguish tilted models, translations after extension, initial lengths and the nonnoetherian finiteness cautions."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/fundamental-polyhedral-theorem",
+        "verdict": "verified",
+        "note": "Gubler Theorems 3.3/5.6/10.14 and Proposition 10.15 give support, purity, finite subdivisions and local stars. The valued Gröbner proof remains an explicit leaf."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/weighted-tropical-cycles",
+        "verdict": "verified",
+        "note": "Generic component lengths, inseparable residue degrees and subdivision compatibility match Gubler §13. Trivial-valuation balancing is not silently promoted to the arbitrary-valued proof."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/cycle-pushforward",
+        "verdict": "corrected",
+        "note": "Replaced wrong BPR §8/Corollary 8.4 by §7/Theorem 7.1/Corollary 7.3, pp. 34–35. The target/image lattice index and contracted-cell rule pass the power-map check."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.4/relative-tropical-multiplicity",
+        "verdict": "verified",
+        "note": "BPR 4.21–4.24 and Theorem 5.8 identify Shilov-point multiplicity, initial generic length and edge expansion. The finite-map reduction argument remains a separately recorded proof leaf."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "verdict": "corrected",
+        "note": "BPR Theorems 5.20–5.21 prove the finite-graph endpoint from separating unit-slope coordinates. The formal lifting and Runge inputs are explicitly open; all metric assertions use intrinsic graph length."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "verdict": "corrected",
+        "note": "Replaced the impossible proper-curve embedding into an affine toric target by the graph in a product with (P¹)^n. Corrected the proof locator to BPR §5.15/5.17/5.20–5.21 and explained both cofinality and arbitrary domination."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry",
+        "verdict": "corrected",
+        "note": "BPR Theorem 5.24 and Corollaries 5.25–5.28 give unique lift and unit expansion on the stated multiplicity-one locus. The connected smooth curve and edge hypotheses are retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/faithful-embedding-predicate",
+        "verdict": "verified",
+        "note": "BPR §5.15–5.17 separates injectivity from expansion one and uses intrinsic image metrics. The triangle/gcd tests distinguish all parts of faithfulness."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/unit-slope-separating-functions",
+        "verdict": "verified",
+        "note": "BPR Lemmas 5.18–5.19 and Theorem 5.20 require more than algebraic Riemann–Roch. Residue lifting and annular Runge approximation have exact, named proof leaves."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.5/puncture-ray-faithfulness",
+        "verdict": "verified",
+        "note": "BPR Theorem 5.22 uses coprime pole orders and a faithful finite core to control every marked infinite tail. A finite compact-subgraph argument alone would not suffice."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/formal-model-metrics",
+        "verdict": "corrected",
+        "note": "Corrected the acceptance wording to ||s||^e=|f| for s^e=fσ. The formal frame belongs to L^e; transition units, tensor operations and the exponent tests give the right metric."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/model-measures",
+        "verdict": "corrected",
+        "note": "Moved the intersection owner from SF.4 to SF.5 and read its Chern/projection/degree contracts. The nonnoetherian model specialization remains a requested extension, with component multiplicities and tensor exponents retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/semipositive-integrable-metrics",
+        "verdict": "verified",
+        "note": "Chambert–Loir §2 distinguishes semipositive uniform limits from differences of such metrics. Tensor/dual operations and positivity tests respect the distinction."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/measure-limits-and-local-heights",
+        "verdict": "verified",
+        "note": "Chambert–Loir §2.7 supplies weak limits and local heights with the countable-density hypothesis retained. The stronger Radon existence problem is recorded as a gap; no global adelic height theory is duplicated."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/hsia-potentials-and-energy",
+        "verdict": "corrected",
+        "note": "Confirmed E6 and added E13; explicitly matched source Δ to packet ddc=−Δ. Positivity is for mass-zero self-energy with continuous potential, and finite nonclassical diagonal terms are retained."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/graph-green-and-admissible-measure",
+        "verdict": "verified",
+        "note": "Yuan Appendix A.5 is unit-edge normalized; the arbitrary-length resistance formula has correct bridge and loop limits. Its Green-kernel/resistance derivation remains an explicit proof leaf."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/model-metric-laplacian",
+        "verdict": "verified",
+        "note": "Yuan A.4 gives curvature change by ddc f=−Δf; rescaling edge coordinates rescales the potential compatibly. Degree and endpoint atoms agree with the adopted sign."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/good-reduction-and-tate-measures",
+        "verdict": "corrected",
+        "note": "Specified reference curvature δ₀ before multiplying by exp(−g), separated mean-zero Bernoulli normalization from metric rigidification, and retained normalized circle measure ds/L."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.6/model-pl-approximation",
+        "verdict": "verified",
+        "note": "Yuan A.4 uses rational model subdivisions; the packet explicitly requires weak Laplacian convergence with variation control for the C² passage. Uniform convergence alone is not presented as enough."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/tate-analytic-quotient",
+        "verdict": "verified",
+        "note": "The native algebraic Tate curve is imported; Poineau II.4 and Chambert–Loir supply the analytic quotient and circle calibration. Natural-log length is −log|q|."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/schottky-data",
+        "verdict": "verified",
+        "note": "Poineau II.3.1/II.3.6 define disc pairs, free generators and a fundamental domain. Disjointness, strict contraction and all three tests exclude arbitrary PGL₂ tuples."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/mumford-uniformization",
+        "verdict": "verified",
+        "note": "Poineau II.3.18–II.3.19 and II.4 supply the discontinuity domain, proper analytic quotient and Mumford correspondence. The converse Schottky construction proof remains explicitly open."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/analytic-jacobian-periods",
+        "verdict": "verified",
+        "note": "Baker–Rabinoff §§2/6/7 supply the pairing identification; R11.3 is precisely requested for the non-DVR analytic Raynaud cross, rather than misused as if it already contained it."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/berkovich-coleman-path-integral",
+        "verdict": "verified",
+        "note": "KRZB Definitions 3.1/3.3/3.5 and the survey §§4.2–4.3 match branch-fixed homotopy classes and annular primitives. Good-reduction Coleman integration is imported, while global gluing is a proof leaf."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/annular-residues-and-periods",
+        "verdict": "verified",
+        "note": "KRZB §2.6 and §3 give oriented residues, harmonic graph cochains and periods. Local Coleman residue interfaces do not alone establish the global monodromy comparison, which stays explicit."
+      },
+      {
+        "nodeId": "TropicalAndBerkovichArithmetic:TB.7/bc-abelian-tropical-correction",
+        "verdict": "verified",
+        "note": "KRZB Proposition 3.16 and Propositions 3.28–3.29 give the tropical correction under the requested Raynaud cross. Cp coefficients and v_p(p)=1 are distinct from real natural-log graph energies; E7 fixes the final codimension estimate."
+      }
+    ]
+  }
 }
