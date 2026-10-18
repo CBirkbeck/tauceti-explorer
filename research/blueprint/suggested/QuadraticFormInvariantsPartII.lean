@@ -25,7 +25,7 @@ namespace TauCeti.QuadraticFormInvariantsPartII
 
 variable {F : Type*} [Field F]
 
-/-- Q2.0/binary: the nonsingular binary block [a,b]. -/
+/-- Q2.0/binary: the block [a,b], with its nonsingularity criterion below. -/
 def binary (a b : F) : QuadraticForm F (Fin 2 → F) :=
   a • QuadraticMap.proj 0 0 + QuadraticMap.proj 0 1 + b • QuadraticMap.proj 1 1
 
@@ -44,6 +44,7 @@ theorem binary_nondegenerate_iff (a b : F) :
   sorry
 
 example (a b : F) : binary a b ![1, 0] = a := by sorry
+example (a b : F) : binary a b ![0, 1] = b := by sorry
 example : binary (0 : F) 0 ![1, 1] = 1 := by sorry
 example : (binary (1 : ZMod 2) 1).Anisotropic := by sorry
 example : ¬ (binary (1 : ZMod 2) 0).Anisotropic := by sorry
