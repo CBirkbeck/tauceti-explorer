@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "complete",
-  "summary": "A finished 300-node lemma-level planning pass: five stages planned through precise gaps; PM.4 remains partial because its homogeneous-dynamics extension is not specified. All258 incoming declarations are retained and42 API lemmas are separated. Native arithmetic/probability objects are reused; all181 baseline statements checked. No stage is closed and every node remains unimplemented.",
+  "summary": "Assembled with the accepted PM.4 continuation: 300 parent nodes and 115 continuation nodes, six planned stages and no closed stage. The continuation supplies the four old PM.4 proof-plan gaps and specifies the homogeneous consumers. Nineteen unrelated parent gaps and the two continuation supplier requests remain. No theorem is claimed implemented.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1609,6 +1609,24 @@
         "Physical pp.1–4: classical small-prime geometric model, exact total variation convention (1.6), classical bound (1.1), and divisibility hypothesis. Only the classical uniform model is used; original Kubilius proof is unread."
       ],
       "reviewedBy": "REV-ProbabilisticAndMetricNumberTheory"
+    },
+    {
+      "id": "Sun2017",
+      "title": "A Generalization of Gauss-Kuzmin-Lévy Theorem",
+      "authors": "Peng Sun",
+      "edition": "arXiv:1705.02921v2, 9 November 2017; version of record Acta Mathematica Scientia 38(3) (2018), 965–972",
+      "url": "https://arxiv.org/pdf/1705.02921v2",
+      "sha256": "9b2eb1867614fe285aa4d729345c25962590e6767a36f2b0c20326a8b86cd703",
+      "accessed": "2026-10-05",
+      "readSections": [
+        "Physical pp.1–6: Theorems 1–2 and their full C1 argument; pp.7–8: zeta bound and references. Only p=1 is used, with a corrected weaker bound."
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "9b2eb1867614fe285aa4d729345c25962590e6767a36f2b0c20326a8b86cd703",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     }
   ],
   "nodes": [
@@ -5225,27 +5243,27 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 3, the definition (1.1)",
-          "match": "The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "match": "Uniqueness of the limit measure. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Uniqueness of the limit measure. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "match": "The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
-          "match": "Positive lower density and dense range. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Positive lower density and dense range. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Example 1.1.1",
-          "match": "The non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The non-example test. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5404,7 +5422,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, after (1.1)",
-          "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The definition. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5487,7 +5505,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "match": "Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5603,17 +5621,17 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The definition. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, after (1.2)",
-          "match": "The pairing Z^d × T^d → T used in the definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The pairing Z^d × T^d → T used in the definition. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
-          "match": "The rational extreme, for the non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The rational extreme, for the non-example test. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5727,12 +5745,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
-          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, proof of Proposition 1.1.2",
-          "match": "The density step of the proof. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The density step of the proof. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5777,7 +5795,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Corollary 1.1.3",
-          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5823,12 +5841,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5",
-          "match": "Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
-          "match": "Statement (iv), the irrationality condition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Statement (iv), the irrationality condition. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5872,17 +5890,17 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, Corollary 1.1.7",
-          "match": "The statement; the ℤ-indexed version is not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement; the ℤ-indexed version is not planned in this pass. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, Lemma 1.1.6",
-          "match": "The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, end of the proof of Corollary 1.1.7",
-          "match": "The limiting step. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The limiting step. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5924,12 +5942,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 8, Corollary 1.1.9",
-          "match": "The statement; the node is the ℕ-indexed half. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement; the node is the ℕ-indexed half. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, proof of Corollary 1.1.9",
-          "match": "The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5975,17 +5993,17 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
-          "match": "The frequency characterisation, specialised to arcs of the circle. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The frequency characterisation, specialised to arcs of the circle. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
-          "match": "Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Haar measure on T as Lebesgue measure on [0, 1). Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
-          "match": "The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The criterion, at d = 1. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6024,12 +6042,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4",
-          "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The definition. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 4, footnote 2",
-          "match": "Omitting x(0) is harmless. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Omitting x(0) is harmless. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6136,7 +6154,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 5, proof of Proposition 1.1.2",
-          "match": "The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6178,7 +6196,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.4",
-          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6220,7 +6238,7 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iii)–(iv)",
-          "match": "Statement (iii) and its equivalence with (iv). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Statement (iii) and its equivalence with (iv). Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6266,12 +6284,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.6",
-          "match": "Statements (i)–(iii). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Statements (i)–(iii). Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.6 (iv)",
-          "match": "Statement (iv) and the reduction to d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Statement (iv) and the reduction to d = 1. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6318,12 +6336,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16, complexity of a subtorus",
-          "match": "The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed pp. 16–17, Exercise 1.1.22",
-          "match": "Every compact connected subgroup is of this form; that identification is not planned in this pass (see coverage). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "Every compact connected subgroup is of this form; that identification is not planned in this pass (see coverage). Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6478,12 +6496,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, proof of Proposition 1.1.5",
-          "match": "The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.2, printed p. 16",
-          "match": "The SL_d(Z) normal form of a subtorus. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The SL_d(Z) normal form of a subtorus. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6531,12 +6549,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, Exercise 1.1.7",
-          "match": "The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 9, after Exercise 1.1.7",
-          "match": "The consequence for the limit law. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The consequence for the limit law. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6574,12 +6592,12 @@
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 7, Proposition 1.1.5",
-          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The statement. Statement and proof relationship described in the roadmap authors’ own words."
         },
         {
           "sourceId": "TAO-HOFA-1.1",
           "locator": "§1.1.1, printed p. 6",
-          "match": "The rational extreme. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+          "match": "The rational extreme. Statement and proof relationship described in the roadmap authors’ own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10752,7 +10770,10 @@
         "mathlib:birkhoffAverage",
         "mathlib:MeasurableSpace.invariants",
         "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring",
-        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification"
+        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification",
+        "ProbabilisticAndMetricNumberTheory:PM.4/nonnegative-limit",
+        "ProbabilisticAndMetricNumberTheory:PM.4/signed-limit",
+        "ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-invariant"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -10792,7 +10813,9 @@
         "First let the long orbit length tend to infinity, then remove the bad set and ε. A precise measurable extended-limsup representative and the finite coloring lemma signatures remain to be split."
       ],
       "prerequisites": [
-        "mathlib:birkhoffAverage"
+        "mathlib:birkhoffAverage",
+        "ProbabilisticAndMetricNumberTheory:PM.4/upper-coloring-integrated",
+        "ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bound"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -10830,7 +10853,9 @@
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring",
-        "mathlib:MeasurableSpace.invariants"
+        "mathlib:MeasurableSpace.invariants",
+        "ProbabilisticAndMetricNumberTheory:PM.4/invariant-set-integrals",
+        "ProbabilisticAndMetricNumberTheory:PM.4/native-condexp-identification"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -11822,7 +11847,9 @@
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/exact-system",
-        "ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing"
+        "ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing",
+        "ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-constant",
+        "ProbabilisticAndMetricNumberTheory:PM.4/tail-correlation-bound"
       ],
       "acceptance": [
         "Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/exact-system."
@@ -12003,13 +12030,15 @@
       "proofSteps": [
         "Induct on the finite word using the existing continuant/matrix recurrence and determinant ±1.",
         "Use q_(n−1)≤q_n to compare denominators between q_n and 2q_n, then differentiate their logarithm.",
-        "The finite-word/native stream and differentiable branch interface has not been fixed; the general-word signature is explicitly omitted."
+        "Use word-native-continuants for the native index comparison and word-derivative for the signed branch derivative; word-matrix-positive bounds the two adjacent denominators. These continuation nodes fix the finite-word interface."
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion",
         "mathlib:GenContFract.of",
         "mathlib:GenContFract.dens",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative",
+        "ProbabilisticAndMetricNumberTheory:PM.4/word-native-continuants",
+        "ProbabilisticAndMetricNumberTheory:PM.4/word-derivative"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12043,11 +12072,12 @@
       "proofSteps": [
         "Integrate the absolute derivative of the cylinder inverse branch over B.",
         "Compare it to its integral over [0,1] using the uniform distortion bound. Extend from intervals to Borel sets by native measure extensionality.",
-        "The general finite-word cylinder/continuant bridge must be made explicit; its signature is omitted until that native comparison is fixed."
+        "Apply cylinder-measure-distortion, whose inverse-word image and native-continuant comparisons establish the finite-word interface. The reviewed bound permits C=4, including the empty word."
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian",
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12086,7 +12116,10 @@
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/exact-system",
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi",
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion",
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound",
+        "ProbabilisticAndMetricNumberTheory:PM.4/tail-zero-one"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12465,7 +12498,9 @@
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure",
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit",
-        "ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant"
+        "ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant",
+        "ProbabilisticAndMetricNumberTheory:PM.4/digit-log-integrable",
+        "ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integrable"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12548,7 +12583,8 @@
         "mathlib:GenContFract.of",
         "mathlib:GenContFract.dens",
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-map",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit",
+        "ProbabilisticAndMetricNumberTheory:PM.4/orbit-product-identity"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12585,7 +12621,9 @@
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability",
+        "ProbabilisticAndMetricNumberTheory:PM.4/alternating-zeta-two",
+        "ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integral"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12661,14 +12699,16 @@
         "All hypotheses and normalization conventions are in the statement."
       ],
       "proofSteps": [
-        "Use the Lebesgue transfer operator Lf(x)=Σ_{a≥1} f(1/(a+x))/(a+x)² and its fixed density.",
-        "Prove the Lipschitz Doeblin–Fortet estimate and compact embedding; apply the separately recorded Hennion spectral input and simplicity from Gauss mixing.",
-        "Integrate L^n1−h over the digit cylinder. Its L1 norm gives a constant uniform in a; the iterate index follows the corrected first-digit convention."
+        "Use the native Lebesgue transfer operator L and its fixed Gauss density, with density-pushforward identifying L^n1 as the n-th image density.",
+        "Use the reviewed continuation’s closed-interval C1 derivative contraction for the normalized transfer P. Absolute weight derivatives give a sufficient rate 9/10; weighted-mean-pins-limit and conjugacy give density-uniform-error.",
+        "Integrate density-uniform-error over the first-digit event. The digit shift gives digit-marginal-error uniformly in a. Choose C=1 and rho=9/10. The unused Hennion/Lipschitz route is not a prerequisite of this target."
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant",
         "ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion"
+        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion",
+        "ProbabilisticAndMetricNumberTheory:PM.4/density-uniform-error",
+        "ProbabilisticAndMetricNumberTheory:PM.4/digit-marginal-error"
       ],
       "acceptance": [
         "Retain every stated hypothesis, endpoint, averaging weight and normalization.",
@@ -12679,6 +12719,11 @@
           "sourceId": "SarigTransfer",
           "locator": "§2.3 Gauss–Kuzmin theorem and Doeblin–Fortet proof, physical pp.11–13",
           "match": "Exact source-scoped target or explicitly described refinement in the native pinned carriers."
+        },
+        {
+          "sourceId": "Sun2017",
+          "locator": "Theorem 2, arXiv:1705.02921v2, physical pp.3–6; corrected p=1 absolute-coefficient estimate in continuation nodes transfer-absolute-coefficients through transfer-coefficient-total",
+          "match": "Proof strategy specialized to p=1, with the reviewed weaker rate 9/10; no assertion of the printed sharper Q_p bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -15985,14 +16030,10 @@
     },
     {
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "The README also asks for an extension to homogeneous dynamics through GN.4. No particular acting group, quotient, measure, theorem or comparison with the real Gauss system is chosen here, so that target is not realised by a node. First select the exact GN.4-owned theorem and required consumer comparison, preserving nondegeneracy and irrationality where relevant. This is why PM.4 is partial, despite its detailed Gauss-map plan.",
-        "Pointwise ergodic proof and native representative: Complete the finite measurable coloring lemma, extended-real limsup truncation and conditional-expectation identification in the exact native invariants sigma-algebra. The full source proof was read; this pass records its logic and interfaces, not a checked implementation. Tau Ceti’s audited L1/mean Birkhoff results remain imports and do not supply this pointwise theorem. No existing roadmap stage was found to own the generic pointwise extension.",
-        "Gauss martingale and native cylinder inputs: Match the forward cylinder conditional-expectation convergence, Borel-generation proof, and reverse-martingale exact-to-mixing theorem at the pin. Read their actual native hypotheses before citing declarations; the source proofs invoke them. Native Gauss digits must be matched to the existing nonterminating continued-fraction stream, not reconstructed in a second carrier.",
-        "Gauss–Kuzmin analytic closure: Finish native Lipschitz Banach-space/transfer-operator norm estimates, prove compact embedding, and read Hennion’s Appendix A.3 proof (physical pp.35–38). This input and the spectral-gap/simplicity argument are not supplied by qualitative mixing or pointwise averages. No abstract spectral-gap Prop parameter replaces these conditions in the suggested file.",
-        "Native continued-fraction orbit and integral bridges: Prove the floor-stream/digit shift identification on irrational (0,1), match exact native nontermination, positive-continuant and adjacent-denominator comparison lemmas, and identify finite-word inverse branches with native convergents. Match the integral/series interchange and ζ(2) evaluation used in the Gauss logarithmic integral. Definitions alone are not treated as those proof inputs.",
-        "Homogeneous dynamics is GN.4-owned: use its quotient/flow contracts for the roadmap’s overview applications. The real Gauss metric statements here do not depend on those unrelated group-flow theorems."
+        "For irrational 0<x<1, bounded native GenContFract.of x partial denominators (equivalently this packet’s Gauss digits via native-stream-gauss) iff DT.0/badly-approximable: ∃c>0 ∀natural q≥1, q|qx−round(qx)|≥c. Import this theorem from the owner; DT.0 currently defines badly approximable but has no exact bounded-digit equivalence node. Preserve the positive denominator and irrationality hypotheses.",
+        "Concrete SL(2,real)/SL(2,integer) quotient topology and Borel structure, the integer subgroup lattice proof and normalized invariant Haar probability; continuous left action of a_t=diag(exp t,exp(−t)); the max-norm version of GN.4/mahler-compactness; and time-one strong mixing of left a_1 from GN.4/howe-moore-mixing. Continuous-flow ergodicity alone does not supply time-one ergodicity. Also expose transpose Γ\\G→G/Γ as the quotient homeomorphism for the consumer convention."
       ]
     },
     {
@@ -16081,32 +16122,6 @@
       "detail": "Acquire the original k≥2 divergence proof and match its coordinatewise coprimality, sup-norm cubes, ambient volume normalization and overlap/zero-one lemmas. BV supplies the precise target but only cites the proof. The preserved one-dimensional Pollington–Vaughan overlap gap remains separately recorded."
     },
     {
-      "title": "Pointwise ergodic proof and native representative",
-      "neededBy": [
-        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise",
-        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring",
-        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification",
-        "ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic"
-      ],
-      "detail": "Complete the finite measurable coloring lemma, extended-real limsup truncation and conditional-expectation identification in the exact native invariants sigma-algebra. The full source proof was read; this pass records its logic and interfaces, not a checked implementation. Tau Ceti’s audited L1/mean Birkhoff results remain imports and do not supply this pointwise theorem. No existing roadmap stage was found to own the generic pointwise extension."
-    },
-    {
-      "title": "Gauss martingale and native cylinder inputs",
-      "neededBy": [
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi"
-      ],
-      "detail": "Match the forward cylinder conditional-expectation convergence, Borel-generation proof, and reverse-martingale exact-to-mixing theorem at the pin. Read their actual native hypotheses before citing declarations; the source proofs invoke them. Native Gauss digits must be matched to the existing nonterminating continued-fraction stream, not reconstructed in a second carrier."
-    },
-    {
-      "title": "Gauss–Kuzmin analytic closure",
-      "neededBy": [
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-kuzmin"
-      ],
-      "detail": "Finish native Lipschitz Banach-space/transfer-operator norm estimates, prove compact embedding, and read Hennion’s Appendix A.3 proof (physical pp.35–38). This input and the spectral-gap/simplicity argument are not supplied by qualitative mixing or pointwise averages. No abstract spectral-gap Prop parameter replaces these conditions in the suggested file."
-    },
-    {
       "title": "Short-interval analytic proof",
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill",
@@ -16128,16 +16143,6 @@
         "ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality"
       ],
       "detail": "Match native infinite product probability, independent fair signs and unit-circle Haar phase laws, and their finite integral-factorization statements. The outcome-wise arithmetic constructions and their discriminating prime-power tests are concrete; no transfer from their expected cancellation to deterministic Möbius/Liouville is available."
-    },
-    {
-      "title": "Native continued-fraction orbit and integral bridges",
-      "neededBy": [
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral"
-      ],
-      "detail": "Prove the floor-stream/digit shift identification on irrational (0,1), match exact native nontermination, positive-continuant and adjacent-denominator comparison lemmas, and identify finite-word inverse branches with native convergents. Match the integral/series interchange and ζ(2) evaluation used in the Gauss logarithmic integral. Definitions alone are not treated as those proof inputs."
     },
     {
       "title": "Classical Kubilius quantitative proof and native product law",
@@ -17397,6 +17402,30 @@
         "partialDeclarations": 155
       },
       "fullSuggestedCompiled": false
+    },
+    "assembly": {
+      "job": "ASM-ProbabilisticAndMetricNumberTheory",
+      "session": "codex-fbcDyN",
+      "date": "2026-10-18",
+      "nodeCount": 415,
+      "parentNodes": 300,
+      "continuationNodes": 115,
+      "resolvedParentGaps": [
+        "Gauss martingale and native cylinder inputs",
+        "Gauss–Kuzmin analytic closure",
+        "Native continued-fraction orbit and integral bridges",
+        "Pointwise ergodic proof and native representative"
+      ],
+      "reviewPreservation": "Both independent-review objects and every source-finding verdict retained verbatim. Target statements, hypotheses, APIs, tests and planet assignments unchanged. Eleven targetRefinements become direct edges; three parent proof sketches reconciled with the accepted continuation.",
+      "suggestedElaboration": {
+        "wholeFile": true,
+        "lineCount": 619,
+        "command": "lean-check research/blueprint/suggested/ProbabilisticAndMetricNumberTheory.lean",
+        "exitCode": 0,
+        "warnings": 66,
+        "onlySorryWarnings": true,
+        "sorryDataCheck": "pass"
+      }
     }
   },
   "provenance": {
