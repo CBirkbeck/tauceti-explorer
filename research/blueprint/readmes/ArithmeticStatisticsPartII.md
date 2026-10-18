@@ -2,15 +2,15 @@
 
 This roadmap builds the probability theory of random profinite groups with an action of a finite group Γ, following Liu, Wood and Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (Part I, §§1–7), and the paper of Liu and Wood on the free group modulo n + u random relations on whose lemmas its §§4–5 rest. It starts where *Arithmetic statistics, counting fields and Selmer distributions* (ArithmeticStatistics) stops: that roadmap plans families of fields, the Cohen–Lenstra measure, class-group moments and the function-field moment theorems, but no measure on spaces of profinite groups.
 
-The end results are: the free admissible Γ-group 𝓕_n and its universal property; the random groups X_{u,n} = 𝓕_n/[Y(S)] for n + u Haar-random relations of the form Y(s); the exact distribution of their level-𝒞 completions (Theorem 4.12); the absence of escape of mass and the limiting Borel probability measure μ_u on the space 𝒫 of admissible Γ-groups, with μ_Γ = μ_1 the weak limit of X_{1,n} (Theorem 1.2) and its explicit values (5.13) and (Theorem 5.15); the moments ∫|Sur_Γ(X, A)| dμ_u = [A : A^Γ]^{−u} (Theorem 6.2); the specializations to the Cohen–Lenstra–Martinet distribution (§7.1) and to the Boston–Bush–Hajir distributions of p-class tower groups (Theorems 7.4–7.5); and the arithmetic interface: the conjecture that Gal(K^#/K) is μ_Γ-distributed (Conjecture 1.3), stated as a proposition, its consistency with admissibility and Property E, the comparison with the function-field moment theorem, and the occurrence of every p-class tower group in the model (Proposition 3.22).
+The end results are: the free admissible Γ-group 𝓕_n and its universal property; the random groups X_{u,n} = 𝓕_n/[Y(S)] for n + u Haar-random Y-relation tuples; the exact distribution of their level-𝒞 completions (Theorem 4.12); the absence of escape of mass and the limiting Borel probability measure μ_u on the space 𝒫 of admissible Γ-groups, with μ_Γ = μ_1 the weak limit of X_{1,n} (Theorem 1.2) and its explicit values (5.13) and (Theorem 5.15); the moments ∫|Sur_Γ(X, A)| dμ_u = [A : A^Γ]^{−u} (Theorem 6.2); the specializations to the Cohen–Lenstra–Martinet distribution (§7.1) and to the Boston–Bush–Hajir distributions of p-class tower groups (Theorems 7.4–7.5); and the arithmetic interface: the conjecture that Gal(K^#/K) is μ_Γ-distributed (Conjecture 1.3), stated as a proposition, its consistency with admissibility and Property E, the comparison with the function-field moment theorem, and the occurrence of every p-class tower group in the model (Proposition 3.22).
 
 ## Scope and boundaries
 
 - **ArithmeticStatistics** (first prerequisite). ST.5 supplies the Cohen–Lenstra measure μ_{p,u} (`cohen-lenstra-measure`), the predicted Cohen–Martinet moments (`cohen-martinet-predicted-surjection-moment`, `cohen-martinet-surjection-moment-conjecture`), the abelian conjugacy lemma (`complements-of-a-coprime-abelian-normal-subgroup-are-conjugate`) and the function-field moment theorem of Liu–Wood–Zureick-Brown with its corollary (`liu-wood-zureick-brown-function-field-moments`, `cohen-lenstra-martinet-moments-over-function-fields`). Those are imported, never restated; the comparison of their right-hand sides with μ_Γ is RG.6.
 - **InverseGaloisAndArithmeticFundamentalGroups IG.4** supplies the Galois side: the Γ-action on Gal(K^#/K) through a Schur–Zassenhaus section and the definition of admissible Γ-groups (`unramified-gamma-groups`), Property E for the pro-Δ′ category (`property-e`), the theorem that Gal(K^#/K) has Property E (`unramified-property-e`) and the profinite coprime complements (`coprime-profinite-complements`). This roadmap asks IG.4 to state Property E for an arbitrary full subcategory and to record the solvability input of complement conjugacy.
-- **Tau Ceti.** ProfiniteProPGroups Layers 0–1 (profinite foundations and the supernatural order, `TauCeti.profiniteOrder`), Layer 3 (Frattini theory, generator rank, the lower p-central series), Layer 4 (free pro-C groups on finite sets) and Layer 5 (presentations, H² of free pro-p groups, relation ranks); ProfiniteCohomology Layer 5 (the five-term sequence); ClassFieldTheory Layer 12 (Hilbert class fields). At the pinned commit Tau Ceti has `TauCeti.haarProb` (normalized Haar measure on compact groups, uniform on finite groups), `TauCeti.maximalProPQuotient` and `TauCeti.IsProP`; it does not have the free pro-C group, which Tau Ceti's main branch now has as `TauCeti.freeProC`.
-- **Mathlib** supplies MulDistribMulAction and its equivariant homomorphisms, semidirect products, fixed-point subgroups, Schur–Zassenhaus existence and the abelian conjugacy, the Möbius function of a locally finite order, Carathéodory extension from a σ-subadditive content (`MeasureTheory.AddContent.measure`), Fatou's lemma, Tannery's theorem, the open-set Portmanteau criterion, Maschke's theorem, Nakayama's lemma and Hermite's finiteness theorem.
-- **ArithmeticGaloisDuality R02.3** is asked for Koch's bound on H² of the maximal unramified pro-p extension and the Galois structure of the units mod p; **FunctionFieldArithmetic FA.4** for the function-field class field theory.
+- **Tau Ceti.** ProfiniteProPGroups Layers 0–1 (profinite foundations and the supernatural order, `TauCeti.profiniteOrder`), Layer 3 (Frattini theory and generator rank), Layer 4 (free pro-C groups on finite sets) and Layer 5 (presentations, H² of free pro-p groups, relation ranks), Layer 8 (the existing lower p-central series and p-class); ProfiniteCohomology Layer 5 (the five-term sequence); ClassFieldTheory Layer 12 (Hilbert class fields). At the pinned commit Tau Ceti has `TauCeti.haarProb` (normalized Haar measure on compact groups, uniform on finite groups), `TauCeti.maximalProPQuotient` and `TauCeti.IsProP`; it does not have the free pro-C group, which Tau Ceti's main branch now has as `TauCeti.freeProC`.
+- **Mathlib** supplies MulDistribMulAction and its equivariant homomorphisms, semidirect products, fixed-point subgroups, Schur–Zassenhaus existence, the Möbius function of a locally finite order, Carathéodory extension from a σ-subadditive content (`MeasureTheory.AddContent.measure`), Fatou's lemma, Tannery's theorem, the open-set Portmanteau criterion, Maschke's theorem, Nakayama's lemma and Hermite's finiteness theorem.
+- **ArithmeticGaloisDuality R02.3** is asked for Koch's bound on H² of the maximal unramified pro-p extension and the Galois structure of the units mod p; **FunctionFieldArithmetic FA.4** for function-field class field theory, the completed Picard degree direction and finiteness of bounded-degree unramified extensions.
 - **Not here.** The Hurwitz-space proof of the function-field moment theorem belongs to ArithmeticStatistics ST.5 and InverseGaloisAndArithmeticFundamentalGroups IG.5. Random polynomials of growing degree, Schinzel averages over coefficient boxes and Smith's method for 2^∞-class groups are separate Part II roadmaps of ArithmeticStatistics (see *Structure*).
 
 ## Conventions
@@ -21,7 +21,9 @@ The end results are: the free admissible Γ-group 𝓕_n and its universal prope
 - 𝒞 always denotes a set of finite |Γ|′-Γ-groups; 𝒞̄ is its closure under finite direct products, Γ-subgroups and Γ-quotients, which need not be closed under extensions; 𝒞_ℓ is the set of |Γ|′-Γ-groups of order at most ℓ. 'Property E at level 𝒞' means Property E in the category of Γ-groups of level 𝒞.
 - n ≥ 1 and u is an integer with u > −n; the default is u = 1 and μ_Γ = μ_1. Every statement about μ_u holds for every integer u.
 - 𝒜_H is the set of non-trivial finite abelian irreducible |Γ|′-(H ⋊ Γ)-groups — Z/p with trivial action is a member, with |Y(Z/p)| = 1 — and 𝒩 the set of |Γ|′-Γ-groups that are powers of a non-abelian simple group.
-- Statements use the corrected forms recorded under *Source issues*: in particular, every explicit limit formula assumes Property E at level 𝒞, and gives the value 0 without it.
+- Statements use the corrected forms recorded under *Source issues*, checked in arXiv:1907.05002v2; no comparison with the final journal text is claimed: in particular, every explicit limit formula assumes Property E at level 𝒞, and gives the value 0 without it.
+
+The abelian multiplicity limit uses h^m − 1; omitting the subtracted 1 requires |Y(G)| > 1. Property E characterizes the existence of a Y-presentation, while a prescribed n + u relation tuples also imposes a relation-rank bound. In the BBH comparisons, their probabilities conditional on generator rank are multiplied by the corresponding Cohen–Lenstra rank weights. Arithmetic assertions in RG.6 concern the totally real family, so infinity splits completely.
 
 ## Layers
 
@@ -83,7 +85,7 @@ Let Γ be a finite group. A Γ-group is a profinite group G (a compact, Hausdorf
 
 **Depends on.** `MulDistribMulAction` (Mathlib); `MulDistribMulActionHom` (Mathlib); `FixedPoints.subgroup` (Mathlib); `SemidirectProduct` (Mathlib); `OpenNormalSubgroup` (Mathlib); `Subgroup.topologicalClosure` (Mathlib); `ProfiniteGrp` (Mathlib); `TauCeti.profiniteOrder` (Tau Ceti); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index.
 
-**Source.** LWZB, §1.7, p. 9: Fixes the conventions: Γ-groups as profinite groups with continuous Γ-action, morphisms, Γ-subgroups and Γ-quotients, Hom_Γ, Sur_Γ, Aut_Γ, irreducible Γ-groups, Γ-generation, the closed normal Γ-subgroup [x_1, …], H ⋊ Γ, h_Γ and pro-n′ groups. LW20, §2.2, p. 4: Defines F-groups for an arbitrary group F, their morphisms, irreducible F-groups as those with no normal F-subgroups but 1 and the group, and h_F(G) = |Hom_F(G, G)|.
+**Source.** lwzb, §1.7, p. 9: Fixes the conventions: Γ-groups as profinite groups with continuous Γ-action, morphisms, Γ-subgroups and Γ-quotients, Hom_Γ, Sur_Γ, Aut_Γ, irreducible Γ-groups, Γ-generation, the closed normal Γ-subgroup [x_1, …], H ⋊ Γ, h_Γ and pro-n′ groups. lw20, §2.2, p. 4: Defines F-groups for an arbitrary group F, their morphisms, irreducible F-groups as those with no normal F-subgroups but 1 and the group, and h_F(G) = |Hom_F(G, G)|.
 
 #### The map Y
 
@@ -125,7 +127,7 @@ Fix a tuple (γ_1, …, γ_d) of generators of Γ. For a Γ-group G define Y : G
 
 **Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group); `FixedPoints.subgroup` (Mathlib).
 
-**Source.** LWZB, (3.3) and Lemma 3.5, pp. 13–14: Defines Y(g) = (g⁻¹γ_1(g), …, g⁻¹γ_d(g)) for a fixed generating set and proves that its fibres over finite G are the cosets of G^Γ, so |G| = |G^Γ||Y(G)|. LWZB, §3.2, p. 15: Introduces the notation [Y(S)] for the closed normal Γ-subgroup generated by the coordinates of Y(r), r ∈ S.
+**Source.** lwzb, (3.3) and Lemma 3.5, pp. 13–14: Defines Y(g) = (g⁻¹γ_1(g), …, g⁻¹γ_d(g)) for a fixed generating set and proves that its fibres over finite G are the cosets of G^Γ, so |G| = |G^Γ||Y(G)|. lwzb, §3.2, p. 15: Introduces the notation [Y(S)] for the closed normal Γ-subgroup generated by the coordinates of Y(r), r ∈ S.
 
 #### The coprime conjugacy hypothesis (SZ)
 
@@ -138,8 +140,8 @@ For a finite group Γ, (SZ_Γ) is the proposition: for every finite group N of o
 **Construction or proof.**
 
 1. Crossed homomorphisms c correspond to sections σ ↦ (c(σ), σ) of N ⋊ Γ → Γ, principal ones to the N-conjugates of the trivial section; this gives the equivalence of the three formulations.
-2. Abelian N: Mathlib's Subgroup.exists_smul_eq (the abelian Schur–Zassenhaus conjugacy) and ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate.
-3. Solvable Γ: the classical induction on |N ⋊ Γ| over a minimal normal subgroup of the solvable complement (Gorenstein, Finite Groups, Theorem 6.2.1, case of a solvable quotient), using the abelian case at each step.
+2. Abelian N: average a crossed homomorphism over Γ, using that multiplication by |Γ| is invertible on N; equivalently import ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate. Mathlib's internal Subgroup.exists_smul_eq concerns quotient-difference transitivity, not this public complement statement.
+3. For solvable Γ use the solvable-quotient case of finite Schur–Zassenhaus conjugacy (induction over the solvable complement). Ribes–Zalesskii, Theorem 2.3.15, pp. 40–41, states the profinite conclusion and reduces it to finite Schur–Zassenhaus; its unrestricted finite input is kept separate from the elementary solvable case.
 4. General Γ: one of |N|, |Γ| is odd, hence the corresponding group is solvable by Feit–Thompson, and the solvable cases apply. Neither library nor any atlas layer has Feit–Thompson; this is recorded as a gap.
 5. Profinite form: the sets of g ∈ N/U trivializing c mod U are non-empty finite and compatible over the open normal Γ-stable U, so their inverse limit is non-empty (as in InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements).
 
@@ -159,13 +161,13 @@ For a finite group Γ, (SZ_Γ) is the proposition: for every finite group N of o
 - `CoprimeH1Trivial.test_Z2` (computation): (SZ_Γ) holds for Γ = Z/2 (solvable); for N = Z/3 with inversion every a ∈ Z/3 is the value c(σ) of a crossed homomorphism (c(σ²) = a + σ(a) = 0), and c(σ) = −2g = g⁻¹σ(g) for g = a, since −2 ≡ 1 mod 3.
 - `CoprimeH1Trivial.test_trivial_group` (degenerate): For Γ = 1 the proposition holds trivially: the only crossed homomorphism is constant 1.
 - `CoprimeH1Trivial.test_noncoprime` (non-example): Without coprimality the statement fails: Γ = Z/2 acting trivially on N = Z/2 has the crossed homomorphism id, which is not principal because g⁻¹σ(g) = 1.
-- `CoprimeH1Trivial.test_abelian_compat` (compatibility): For abelian N the conclusion is Mathlib's abelian Schur–Zassenhaus conjugacy Subgroup.exists_smul_eq transported along N ⋊ Γ.
+- `CoprimeH1Trivial.test_abelian_compat` (compatibility): For abelian N, averaging agrees with ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate applied to N ⋊ Γ.
 
 **Acceptance.** (SZ_Γ) holds for Γ = Z/2, Z/4, (Z/2)², D_8 and S_3, which covers every Γ in the test cases of RG.5. Dropping coprimality breaks it: Γ = Z/2 acting trivially on N = Z/2 has the non-principal crossed homomorphism id : Γ → N.
 
-**Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group); `Subgroup.exists_right_complement'_of_coprime` (Mathlib); `Subgroup.exists_smul_eq` (Mathlib); `Group.IsSolvable` (Mathlib); ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate; InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements.
+**Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group); `Subgroup.exists_right_complement'_of_coprime` (Mathlib); `Group.IsSolvable` (Mathlib); ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate; InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements.
 
-**Source.** LWZB, §2, p. 10, and the proof of Lemma 3.6, p. 14: Uses that all sections of Gal(L/Q) → Γ are conjugate and that H¹(Γ, N) vanishes for finite |Γ|′-Γ-groups N, both by the Schur–Zassenhaus theorem (Ribes–Zalesskii, Theorem 2.3.15). LWZB, Remark after Definition 3.15, p. 17: Notes that for |Γ| odd the random groups need not be prosolvable, so the conjugacy input is not covered by a solvability argument on the side of the random group.
+**Source.** lwzb, §2, p. 10, and the proof of Lemma 3.6, p. 14: Uses that all sections of Gal(L/Q) → Γ are conjugate and that H¹(Γ, N) vanishes for finite |Γ|′-Γ-groups N, both by the Schur–Zassenhaus theorem (Ribes–Zalesskii, Theorem 2.3.15). lwzb, Remark after Definition 3.15, p. 17: Notes that for |Γ| odd the random groups need not be prosolvable, so the conjugacy input is not covered by a solvability argument on the side of the random group. rz10, Theorem 2.3.15 and proof, pp. 40–41: States complement existence and conjugacy for a closed normal Hall subgroup of a profinite group, and passes from finite Schur–Zassenhaus by compactness; it does not supply a formalization of the finite conjugacy input.
 
 #### Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)
 
@@ -173,7 +175,7 @@ Declaration: ArithmeticStatisticsPartII:RG.0/sections-and-y. Kind: theorem. Plan
 
 Assume (SZ_Γ). (a) For a |Γ|′-Γ-group G, sending g to the g-conjugate of the trivial section induces a bijection between Y(G) and the continuous sections of G ⋊ Γ → Γ; the sections form one G-conjugacy class with stabilizer G^Γ. (b) (Lemma 3.4) For a closed Γ-subgroup E of a |Γ|′-Γ-group G, Y(E) = Y(G) ∩ E^d. (c) (Lemma 3.6) For an exact sequence 1 → N → G → H → 1 of finite |Γ|′-Γ-groups: 1 → N^Γ → G^Γ → H^Γ → 1 is exact; |Y(N)| = |Y(G)|/|Y(H)|; and |Y(G) ∩ π⁻¹(x)| = |Y(G)|/|Y(H)| for every x ∈ Y(H), where π also denotes G^d → H^d.
 
-**Hypotheses.** (SZ_Γ) (RG.0/coprime-conjugacy-hypothesis), or the special case it covers (Γ solvable, or all groups involved abelian). G, E, N, G, H are pro-|Γ|′ (finite in (c)).
+**Hypotheses.** (SZ_Γ) (RG.0/coprime-conjugacy-hypothesis), or the special case it covers (Γ solvable, or all groups involved abelian); G, E, N, G, H are pro-|Γ|′ (finite in (c))
 
 **Construction or proof.**
 
@@ -186,7 +188,7 @@ Assume (SZ_Γ). (a) For a |Γ|′-Γ-group G, sending g to the g-conjugate of th
 
 **Depends on.** *The map Y* (RG.0/y-map); *The coprime conjugacy hypothesis (SZ)* (RG.0/coprime-conjugacy-hypothesis); InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements; `SemidirectProduct` (Mathlib).
 
-**Source.** LWZB, Paragraph after (3.3), Lemma 3.4, Lemma 3.6, pp. 13–14: Identifies Y(G) with the sections of G ⋊ Γ → Γ by Schur–Zassenhaus, proves Y(E) = Y(G) ∩ E^d, and proves exactness of fixed points and the counting identities for |Y| in an exact sequence of finite |Γ|′-Γ-groups. LWZB, Proof of Lemma 3.6(3), p. 14: Translates the fibre over x to N^d by the map z ↦ (g, …, g) z (γ_i(g)⁻¹); the printed γ_d^{−1}(g) is read as γ_d(g)^{−1} (source issue ArithmeticStatisticsPartII/E2).
+**Source.** lwzb, Paragraph after (3.3), Lemma 3.4, Lemma 3.6, pp. 13–14: Identifies Y(G) with the sections of G ⋊ Γ → Γ by Schur–Zassenhaus, proves Y(E) = Y(G) ∩ E^d, and proves exactness of fixed points and the counting identities for |Y| in an exact sequence of finite |Γ|′-Γ-groups. lwzb, Proof of Lemma 3.6(3), p. 14: Translates the fibre over x to N^d by the map z ↦ (g, …, g) z (γ_i(g)⁻¹); the printed γ_d^{−1}(g) is read as γ_d(g)^{−1} (source issue ArithmeticStatisticsPartII/E2).
 
 #### Admissible Γ-groups: closure properties and the abelian criterion
 
@@ -209,7 +211,7 @@ Call a Γ-group admissible when it is pro-|Γ|′ and topologically generated by
 
 **Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups; *The map Y* (RG.0/y-map); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y); *Γ-groups and their equivariant maps* (RG.0/gamma-group).
 
-**Source.** LWZB, Lemma 3.9 and Lemma 3.12, pp. 14–15: Lemma 3.9: an admissible G is Γ-generated by the coordinates of Y(G), so 𝓕_n does not depend on the generating set; Lemma 3.12: a normal Γ-subgroup of an admissible group on which Γ acts trivially is centralized by the whole group. LWZB, §7.1, p. 34, first paragraph: Shows that a finite abelian |Γ|′-Γ-group is admissible exactly when it has no non-zero Γ-invariants, using Lemma 3.6(1). LWZB, Proof of Theorem 4.12, p. 25: Uses that for admissible E, Y(D) = Y(E) forces D = E, in the bounds |Y(D)|/|Y(H)| ≤ |Y(G)| and (4.18).
+**Source.** lwzb, Lemma 3.9 and Lemma 3.12, pp. 14–15: Lemma 3.9: an admissible G is Γ-generated by the coordinates of Y(G), so 𝓕_n does not depend on the generating set; Lemma 3.12: a normal Γ-subgroup of an admissible group on which Γ acts trivially is centralized by the whole group. lwzb, §7.1, p. 34, first paragraph: Shows that a finite abelian |Γ|′-Γ-group is admissible exactly when it has no non-zero Γ-invariants, using Lemma 3.6(1). lwzb, Proof of Theorem 4.12, p. 25: Uses that for admissible E, Y(D) = Y(E) forces D = E, in the bounds |Y(D)|/|Y(H)| ≤ |Y(G)| and (4.18).
 
 ### RG.1. The free admissible Γ-group and level-𝒞 completions
 
@@ -240,6 +242,7 @@ For a set 𝒞 of (isomorphism classes of) finite Γ-groups let 𝒞̄ be the sm
 3. Universal property: a morphism f : G → L with L of level 𝒞 has, for each M_L with L/M_L ∈ 𝒞̄, preimage M = f⁻¹(M_L) with G/M ↪ L/M_L, hence G/M ∈ 𝒞̄; the compatible maps G/M → L/M_L assemble to G^𝒞 → L^𝒞 = L.
 4. Surjections are preserved: for f : F → H surjective, the image of F^𝒞 → H^𝒞 is closed and dense (LWZB, the standard argument after (3.11)).
 5. For 𝒞 the class of all finite p-Γ-groups (p ∤ |Γ|) the completion is the maximal pro-p quotient TauCeti.maximalProPQuotient with its induced action, because that class is closed under extensions as well.
+6. For a finite 𝒞 and a Γ-group G topologically Γ-generated by d elements, G is topologically generated as an ordinary group by at most d|Γ| elements. The group of word functions in that many variables on the finitely many underlying groups in 𝒞 embeds in the finite product of their evaluations on all tuples. Every group in 𝒞̄ satisfies these word identities, so every such generated finite quotient of G is a quotient of that finite word-function group. Their orders are uniformly bounded; the directed finite quotients stabilize, hence G^𝒞 is finite. This avoids assuming maps to arbitrary quotients lift to members of 𝒞.
 
 **Uses.** LWZB (4.1): the fundamental sequence starts from (𝓕_n)^𝒞; LWZB Proposition 3.13: Property E is taken in the category of level-𝒞 Γ-groups; LWZB §3.2 and Definition 3.15: basic opens U_{𝒞,H} = {X : X^𝒞 ≅ H}; LWZB Lemma 5.10 and Theorem 5.12: induction over the levels 𝒞_ℓ, with H^{𝒞_{ℓ−1}} as the coarser datum; LWZB Theorems 7.4–7.5: 𝒞 = all p-Γ-groups, or those of p-class ≤ c.
 
@@ -254,7 +257,7 @@ For a set 𝒞 of (isomorphism classes of) finite Γ-groups let 𝒞̄ be the sm
 - `levelCompletion.ker_eta` (characterisation): ker η_G is the intersection of the closed normal Γ-subgroups M with G/M ∈ 𝒞̄.
 - `IsOfLevel` (data): G is of level 𝒞 iff η_G is an isomorphism; for finite G iff G ∈ 𝒞̄.
 - `levelCompletion.completion_of_le` (compatibility): (G^𝒞)^𝒟 ≅ G^𝒟 when 𝒟̄ ⊆ 𝒞̄.
-- `levelCompletion.finite_of_finite_class` (other): If 𝒞 is finite and G is topologically Γ-generated by finitely many elements, G^𝒞 is finite (finitely many Γ-maps to members of 𝒞, whose common kernel has finite index).
+- `levelCompletion.finite_of_finite_class` (other): If 𝒞 is finite and G is topologically Γ-generated by finitely many elements, G^𝒞 is finite: the finite group of word functions on 𝒞 bounds every finite generated quotient of level 𝒞.
 - `levelCompletion.eq_maximalProPQuotient` (compatibility): For 𝒞 the finite p-Γ-groups, G^𝒞 is TauCeti.maximalProPQuotient p G with the induced action.
 
 **Unit tests.**
@@ -268,7 +271,7 @@ For a set 𝒞 of (isomorphism classes of) finite Γ-groups let 𝒞̄ be the sm
 
 **Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations; `TauCeti.maximalProPQuotient` (Tau Ceti); `ProfiniteGrp` (Mathlib).
 
-**Source.** LWZB, §3.2, (3.11), p. 15: Defines 𝒞̄ as the closure under finite direct products, Γ-quotients and Γ-subgroups and the pro-𝒞 completion G^𝒞 as the inverse limit over closed normal Γ-subgroups with quotient in 𝒞̄; notes functoriality and preservation of surjections. LW20, §2.4, p. 5: The Γ = 1 version: the variety generated by S and the pro-S̄ completion; for profinite G in 𝒫, G is of level S iff G = G^S̄. LWZB, §5.2, p. 27, and §7.2.2, p. 36: Uses 𝒞_ℓ (groups of order ≤ ℓ, which must be |Γ|′-groups, source issue E4 here) and the p-Γ-groups of p-class ≤ c, two classes that are not extension-closed.
+**Source.** lwzb, §3.2, (3.11), p. 15: Defines 𝒞̄ as the closure under finite direct products, Γ-quotients and Γ-subgroups and the pro-𝒞 completion G^𝒞 as the inverse limit over closed normal Γ-subgroups with quotient in 𝒞̄; notes functoriality and preservation of surjections. lw20, §2.4, p. 5: The Γ = 1 version: the variety generated by S and the pro-S̄ completion; for profinite G in 𝒫, G is of level S iff G = G^S̄. lwzb, §5.2, p. 27, and §7.2.2, p. 36: Uses 𝒞_ℓ (groups of order ≤ ℓ, which must be |Γ|′-groups, source issue E4 here) and the p-Γ-groups of p-class ≤ c, two classes that are not extension-closed.
 
 #### The free pro-|Γ|′ Γ-group F_n(Γ)
 
@@ -307,7 +310,7 @@ For n ≥ 0, F_n(Γ) is the free pro-|Γ|′ group on the finite set {x_{i,γ} :
 
 **Depends on.** tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets; *Γ-groups and their equivariant maps* (RG.0/gamma-group).
 
-**Source.** LWZB, §3.1, p. 13: Defines F_n(Γ) as the free pro-|Γ|′ group on {x_{i,γ}} with σ(x_{i,γ}) = x_{i,σγ}. LWZB, Proof of Corollary 3.10, p. 15: Uses that F_n^ab is Ẑ′[Γ]^n, free over the pro-|Γ|′ completion of Z.
+**Source.** lwzb, §3.1, p. 13: Defines F_n(Γ) as the free pro-|Γ|′ group on {x_{i,γ}} with σ(x_{i,γ}) = x_{i,σγ}. lwzb, Proof of Corollary 3.10, p. 15: Uses that F_n^ab is Ẑ′[Γ]^n, free over the pro-|Γ|′ completion of Z.
 
 #### The free admissible Γ-group 𝓕_n (Lemma 3.1, Remark 3.2)
 
@@ -347,7 +350,7 @@ Declaration: ArithmeticStatisticsPartII:RG.1/free-admissible-gamma-group. Kind: 
 
 **Depends on.** *The free pro-|Γ|′ Γ-group F_n(Γ)* (RG.1/free-gamma-group); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); *The coprime conjugacy hypothesis (SZ)* (RG.0/coprime-conjugacy-hypothesis).
 
-**Source.** LWZB, §3.1, Lemma 3.1, Remark 3.2, p. 13, and proof of Lemma 3.1, p. 14: Defines 𝓕_n as the closed Γ-subgroup generated by the x_i⁻¹γ_j(x_i), proves it admissible with a Γ-retraction π from F_n, and records that it is free pro-|Γ|′ on the x_i⁻¹σ(x_i), Γ-generated by n elements, and maps onto every pro-|Γ|′ Γ-group generated by n elements' Y-coordinates (the text omits pro-|Γ|′, source issue E1 here).
+**Source.** lwzb, §3.1, Lemma 3.1, Remark 3.2, p. 13, and proof of Lemma 3.1, p. 14: Defines 𝓕_n as the closed Γ-subgroup generated by the x_i⁻¹γ_j(x_i), proves it admissible with a Γ-retraction π from F_n, and records that it is free pro-|Γ|′ on the x_i⁻¹σ(x_i), Γ-generated by n elements, and maps onto every pro-|Γ|′ Γ-group generated by n elements' Y-coordinates (the text omits pro-|Γ|′, source issue E1 here).
 
 #### Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)
 
@@ -362,14 +365,14 @@ Assume (SZ_Γ). (a) (Corollary 3.8) For every pro-|Γ|′ Γ-group G, the map Y(
 1. (a) Injectivity: two maps x_i ↦ g_i, g_i′ agree on 𝓕_n iff they agree on the generators x_i⁻¹γ_j(x_i), i.e. iff Y(g_i) = Y(g_i′). Surjectivity: extend a morphism 𝓕_n → G along the retraction π of RG.1/free-admissible-gamma-group.
 2. (b) RG.0/y-map gives |Y(H)| = [H : H^Γ]; non-surjective morphisms land in proper Γ-subgroups H′, each with |Y(H′)| < |Y(H)| by RG.0/admissible-gamma-groups(d), so their number is at most Σ_{H′} |Y(H′)|^n = o(|Y(H)|^n).
 3. (c) Universal property of the level-𝒞 completion (RG.1/level-completion).
-4. (d) 𝓕_n^ab injects into F_n^ab = Ẑ′[Γ]^n (if [x, y] ∈ F_n with x, y ∈ 𝓕_n then [x, y] = π([x, y]) ∈ [𝓕_n, 𝓕_n]) with image I^n, I the augmentation ideal; |Γ| is invertible in Ẑ′ so Ẑ′[Γ] = I ⊕ Ẑ′·Σg and I ≅ Ẑ′[Γ]/(Σg); I^Γ = 0 because |Γ|⁻¹Σg acts as 0 on I.
-5. (e) The intersection W of the kernels of the finitely many Γ-maps from 𝓕_n to members of 𝒞 has finite index and is killed by all maps to 𝒞̄ (lift maps to quotients by π), so (𝓕_n)^𝒞 = 𝓕_n/W.
+4. (d) The inclusion 𝓕_n → F_n and retraction F_n → 𝓕_n induce maps on profinite abelianizations whose composite is the identity. Thus 𝓕_n^ab embeds as a direct summand of F_n^ab = Ẑ′[Γ]^n. Its image, generated by the differences γ(x_i) − x_i, is the augmentation ideal I^n. Averaging with |Γ|⁻¹Σg gives Ẑ′[Γ] = I ⊕ Ẑ′·Σg, I ≅ Ẑ′[Γ]/(Σg), and I^Γ = 0.
+5. (e) Apply the finite-word-function argument of RG.1/level-completion to the finitely Γ-generated group 𝓕_n. The special retraction argument of LWZB p. 17 also works here, but is not used for arbitrary G.
 
 **Acceptance.** Γ = Z/2, H = Z/3 with inversion: |Hom_Γ(𝓕_n, Z/3)| = 3^n and |Sur_Γ(𝓕_n, Z/3)| = 3^n − 1. Γ = Z/2, G = Z/4 with inversion: |Y(Z/4)| = 2 but Hom_Γ(𝓕_1, Z/4) = {1} since 𝓕_1 is pro-odd, so (a) needs G pro-|Γ|′.
 
 **Depends on.** *The free admissible Γ-group 𝓕_n (Lemma 3.1, Remark 3.2)* (RG.1/free-admissible-gamma-group); *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); *The map Y* (RG.0/y-map); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups).
 
-**Source.** LWZB, Corollary 3.8, Lemma 3.9 and Corollary 3.10, pp. 14–15: Corollary 3.8 identifies Y(G)^n with Hom_Γ(𝓕_n, G) (stated for every Γ-group G, which needs pro-|Γ|′, source issue E1); Corollary 3.10 computes 𝓕_n^ab = (Ẑ[Γ]/(Σg))^n with trivial invariants. LWZB, Paragraph before Definition 3.15, pp. 16–17: Proves (𝓕_n)^𝒞 finite for finite 𝒞 by the finite-index intersection of kernels. LWZB, (4.18) in the proof of Theorem 4.12, p. 25: Proves |Sur_Γ(𝓕_n, H)||Y(H)|^{−n} → 1 for finite admissible H by bounding the non-surjective maps through proper Γ-subgroups.
+**Source.** lwzb, Corollary 3.8, Lemma 3.9 and Corollary 3.10, pp. 14–15: Corollary 3.8 identifies Y(G)^n with Hom_Γ(𝓕_n, G) (stated for every Γ-group G, which needs pro-|Γ|′, source issue E1); Corollary 3.10 computes 𝓕_n^ab = (Ẑ[Γ]/(Σg))^n with trivial invariants. lwzb, Paragraph before Definition 3.15, pp. 16–17: Proves (𝓕_n)^𝒞 finite for finite 𝒞 by the finite-index intersection of kernels. lwzb, (4.18) in the proof of Theorem 4.12, p. 25: Proves |Sur_Γ(𝓕_n, H)||Y(H)|^{−n} → 1 for finite admissible H by bounding the non-surjective maps through proper Γ-subgroups.
 
 #### Property E relative to a level: restriction and completion
 
@@ -390,7 +393,7 @@ Property E is taken in the general form of LWZB Definition 2.3: for a full subca
 
 **Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e; *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); *Γ-groups and their equivariant maps* (RG.0/gamma-group).
 
-**Source.** LWZB, Definition 2.3 and (2.4), p. 11: Defines Property E for an arbitrary full subcategory of Γ-groups by lifting Γ-surjections along non-split central extensions by Z/p with trivial Γ-action. LWZB, §3.2, p. 15, first example: Gives (Z/2)² with Z/3-action and Q_8 as an admissible quotient of 𝓕_n without Property E. LWZB, Proof of Proposition 3.22, p. 19: Uses Property E of G_{K,p} in the category of pro-p Γ-groups, deduced from Theorem 2.5.
+**Source.** lwzb, Definition 2.3 and (2.4), p. 11: Defines Property E for an arbitrary full subcategory of Γ-groups by lifting Γ-surjections along non-split central extensions by Z/p with trivial Γ-action. lwzb, §3.2, p. 15, first example: Gives (Z/2)² with Z/3-action and Q_8 as an admissible quotient of 𝓕_n without Property E. lwzb, Proof of Proposition 3.22, p. 19: Uses Property E of G_{K,p} in the category of pro-p Γ-groups, deduced from Theorem 2.5.
 
 #### Property E as the shape of the relations (Proposition 3.13)
 
@@ -407,11 +410,11 @@ Assume (SZ_Γ). Let n ≥ 1, 𝒞 a set of finite |Γ|′-Γ-groups and φ : (�
 3. (⇐) If [Y(ker φ)] ⊊ ker φ, put M = ker φ/[Y(ker φ)] and E = (𝓕_n)^𝒞/[Y(ker φ)]. Γ acts trivially on M, E is admissible, so E centralizes M (RG.0/admissible-gamma-groups(c)).
 4. A maximal proper subgroup D of M gives 1 → N → H̃ → H → 1 with N = M/D simple, central, hence Z/p with trivial action; it is split only if H̃ = N × H, contradicting admissibility of H̃, and non-split contradicts Property E of H.
 
-**Acceptance.** For Γ = Z/3 and H = (Z/2)² with nontrivial action, the kernel of any surjection (𝓕_1)^𝒞 → H, 𝒞 ∋ Q_8, is not generated by Y-relations, matching the failure of Property E. For abelian 𝒞 and H with H^Γ = 1 every Γ-quotient has Property E at level 𝒞 (no non-split central extensions of level 𝒞 exist by abelianness), consistent with §7.1.
+**Acceptance.** For Γ = Z/3 and H = (Z/2)² with nontrivial action, the kernel of any surjection (𝓕_1)^𝒞 → H, 𝒞 ∋ Q_8, is not generated by Y-relations, matching the failure of Property E. For abelian 𝒞 and admissible H, every Γ-quotient has Property E at level 𝒞. Indeed an abelian pro-|Γ|′ extension E with trivial Γ-action on its kernel decomposes by averaging as E^Γ ⊕ I_Γ E; if the quotient G has G^Γ = 0, I_Γ E maps isomorphically to G and gives a Γ-section. Non-split abelian extensions exist (Z/9 → Z/3), but do not meet these kernel-action conditions.
 
 **Depends on.** *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e.
 
-**Source.** LWZB, Lemma 3.12 and Proposition 3.13 with proof, pp. 15–16: Proves that the kernel of a Γ-quotient of (𝓕_n)^𝒞 is generated by its Y-image exactly when the quotient has Property E for level-𝒞 groups, via lifting generators along a non-split central extension and, conversely, a maximal subgroup of the trivial-action quotient kernel.
+**Source.** lwzb, Lemma 3.12 and Proposition 3.13 with proof, pp. 15–16: Proves that the kernel of a Γ-quotient of (𝓕_n)^𝒞 is generated by its Y-image exactly when the quotient has Property E for level-𝒞 groups, via lifting generators along a non-split central extension and, conversely, a maximal subgroup of the trivial-action quotient kernel.
 
 ### RG.2. The space of admissible Γ-groups and the random groups X_{u,n}
 
@@ -464,7 +467,7 @@ Declaration: ArithmeticStatisticsPartII:RG.2/space-of-admissible-gamma-groups. K
 
 **Depends on.** *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); `MeasureTheory.Measure.map` (Mathlib); `MeasureTheory.ProbabilityMeasure` (Mathlib).
 
-**Source.** LWZB, §3.2, p. 16: Defines 𝒫 as the isomorphism classes of admissible |Γ|′-Γ-groups whose level-𝒞 completions are finite for finite 𝒞, topologized by the basic opens U_{𝒞,H}. LWZB, §5.3, p. 30, and §5.4, p. 31: Uses that every open set is a disjoint union of basic opens and that V_{𝒞,H} for infinite 𝒞 is an intersection of a sequence of basic opens. LW20, §1, p. 1, and §3, p. 5: The Γ = 1 model: the space P of profinite groups with finite pro-S̄ completions, with basic opens U_{S,H}, and the algebra 𝒜 they generate.
+**Source.** lwzb, §3.2, p. 16: Defines 𝒫 as the isomorphism classes of admissible |Γ|′-Γ-groups whose level-𝒞 completions are finite for finite 𝒞, topologized by the basic opens U_{𝒞,H}. lwzb, §5.3, p. 30, and §5.4, p. 31: Uses that every open set is a disjoint union of basic opens and that V_{𝒞,H} for infinite 𝒞 is an intersection of a sequence of basic opens. lw20, §1, p. 1, and §3, p. 5: The Γ = 1 model: the space P of profinite groups with finite pro-S̄ completions, with basic opens U_{S,H}, and the algebra 𝒜 they generate.
 
 #### Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)
 
@@ -498,7 +501,7 @@ For n ≥ 1 and an integer u > −n, let S = (s_1, …, s_{n+u}) be distributed 
 **Unit tests.**
 
 - `RandomGammaGroup.test_Z2_n1` (computation): Γ = Z/2, n = 1, u = 0: X_{0,1} ≅ Ẑ_odd/rẐ_odd and μ_{0,1}(U_{𝒞,1}) = 2/3 for 𝒞 = {Z/3 with σ = −1}.
-- `RandomGammaGroup.test_min_relations` (degenerate): u = 1 − n (one relation): μ_{1−n,n}-almost surely the quotient is 𝓕_n/[Y(s)], Γ-generated by n elements with one relation; for n = 1, Γ = Z/2 it is Ẑ_odd/sẐ_odd.
+- `RandomGammaGroup.test_min_relations` (degenerate): u = 1 − n (one Y-relation tuple): μ_{1−n,n}-almost surely the quotient is 𝓕_n/[Y(s)], Γ-generated by n elements with one Y-relation tuple; for n = 1, Γ = Z/2 it is Ẑ_odd/sẐ_odd.
 - `RandomGammaGroup.test_support` (non-example): Γ = Z/3, H = (Z/2)² with nontrivial action: μ_{u,n}(U_{𝒞,H}) = 0 for every 𝒞 containing Q_8 with its compatible Z/3-action, although H is an admissible quotient of 𝓕_1.
 - `RandomGammaGroup.test_uniform_pushforward` (compatibility): For finite 𝒞, the image law of S̄ is the uniform measure on ((𝓕_n)^𝒞)^{n+u}.
 
@@ -506,7 +509,7 @@ For n ≥ 1 and an integer u > −n, let S = (s_1, …, s_{n+u}) be distributed 
 
 **Depends on.** *The free admissible Γ-group 𝓕_n (Lemma 3.1, Remark 3.2)* (RG.1/free-admissible-gamma-group); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion); *The space 𝒫 of admissible Γ-groups* (RG.2/space-of-admissible-gamma-groups); `TauCeti.haarProb` (Tau Ceti); `TauCeti.haarProb_eq_uniformOn_univ` (Tau Ceti); `MeasureTheory.Measure.isHaarMeasure_eq_of_isProbabilityMeasure` (Mathlib); `MeasureTheory.Measure.map` (Mathlib).
 
-**Source.** LWZB, Definition 3.15 and (3.16), p. 17: Defines X_{Γ,n,u} = 𝓕_n/[Y(S)] for n + u independent Haar-random elements, the laws μ_{u,n} on Borel sets of 𝒫, and μ_u on the algebra of basic opens as the limit in n. LW20, §4, p. 6: In the Γ = 1 model, (X_{u,n})^S̄ has the law of a quotient of the finite group (F̂_n)^S̄ by n + u uniform relations.
+**Source.** lwzb, Definition 3.15 and (3.16), p. 17: Defines X_{Γ,n,u} = 𝓕_n/[Y(S)] for n + u independent Haar-random elements, the laws μ_{u,n} on Borel sets of 𝒫, and μ_u on the algebra of basic opens as the limit in n. lw20, §4, p. 6: In the Γ = 1 model, (X_{u,n})^S̄ has the law of a quotient of the finite group (F̂_n)^S̄ by n + u uniform relations.
 
 ### RG.3. The finite-level distribution
 
@@ -515,10 +518,10 @@ For n ≥ 1 and an integer u > −n, let S = (s_1, …, s_{n+u}) be distributed 
 - *The fundamental short exact sequence (4.1)–(4.2)* 1 → R → F → H → 1 attached to (𝒞, n, ϖ), the sets 𝒜_H (abelian irreducible |Γ|′-(H ⋊ Γ)-groups, including Z/p with trivial action) and 𝒩 (powers of non-abelian simple groups), and the multiplicities m(𝒞, n, H, G).
 - *Generation by Y-relations (Proposition 4.3, Remark 4.4).*
 - *H-extensions and the Möbius function of the poset of sub-H-extensions (§4, corrected recursion)*; counting maps (Lemma 4.6); multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9).
-- *The λ-invariants (4.10)–(4.11)*, their finite support and their relation (4.17) to the multiplicities; the tail-product limit (Liu–Wood Lemma 8.11).
+- *The λ-invariants (4.10)–(4.11)*, their finite support for finite 𝒞 and their relation to the multiplicities: λ = lim (h^m−1)|Y(G)|^{−n} on the abelian side, with h^m allowed only if |Y(G)|>1; the tail-product limit (Liu–Wood Lemma 8.11).
 - *Theorem 4.12*: the exact finite-n formula (4.13) for Prob((X_{u,n})^𝒞 ≅ H) and, when H has Property E at level 𝒞, its limit (4.14); the probability is 0 for every n when Property E fails.
 
-**Acceptance.** For H = 1 and 𝒞 = {Z/3 with σ = −1}, (4.13) is ∏_{k<n}(1 − 3^{k−n−u}) and (4.14) is ∏_{i>u}(1 − 3^{−i}); for Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2 and H = F_3² with σ = −1 the probability is 0 for every n.
+**Acceptance.** For H = 1 and 𝒞 = {Z/3 with σ = −1}, (4.13) is ∏_{k<n}(1 − 3^{k−n−u}) and (4.14) is ∏_{i>u}(1 − 3^{−i}); for Γ = Z/2, p = 3, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x)=x⁻¹, σ(y)=y⁻¹} and H = F_3² with σ = −1 the probability is 0 for every n although the printed limit product at u=0 is approximately 0.002698. The full infinite class of 3-class ≤2 groups gives the same obstruction.
 
 Layer dependencies: ArithmeticStatisticsPartII:RG.2.
 
@@ -544,7 +547,7 @@ Let F be a group and G_1, …, G_k pairwise non-isomorphic finite irreducible F-
 
 **Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group).
 
-**Source.** LW20, Theorem 5.1, Lemmas 5.3–5.5, 5.8, Corollaries 5.6–5.10, Lemma 5.11, pp. 6–10: Computes the probability that N uniform elements normally F-generate a product of irreducible F-groups, from the structure of its normal F-subgroups, and shows N/M is such a product. LW20, Lemma 6.1, p. 10, and Theorem 7.1 with Lemmas 7.2–7.3, pp. 14–15: Bounds the power of a simple group in an irreducible kernel by |H|, and counts F-surjections from a product of irreducibles onto one factor.
+**Source.** lw20, Theorem 5.1, Lemmas 5.3–5.5, 5.8, Corollaries 5.6–5.10, Lemma 5.11, pp. 7–10: Computes the probability that N uniform elements normally F-generate a product of irreducible F-groups, from the structure of its normal F-subgroups, and shows N/M is such a product. lw20, Lemma 6.1, pp. 10–11, and Theorem 7.1 with Lemmas 7.2–7.3, pp. 14–15: Bounds the power of a simple group in an irreducible kernel by |H|, and counts F-surjections from a product of irreducibles onto one factor.
 
 #### The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)
 
@@ -585,7 +588,7 @@ Let n ≥ 1, 𝒞 a finite set of finite |Γ|′-Γ-groups, H a finite Γ-group 
 
 **Depends on.** *Products of irreducible F-groups (Liu–Wood §§5–7)* (RG.3/products-of-irreducible-operator-groups); *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property).
 
-**Source.** LWZB, §4, (4.1)–(4.2), p. 20, and Remark 4.9, p. 23: Defines the fundamental short exact sequence from the intersection of the maximal (𝓕_n)^𝒞-normal Γ-subgroups of the kernel, the sets 𝒜_H and 𝒩, and the multiplicities, shown independent of ϖ in Remark 4.9. LW20, §4, (4.1), pp. 5–6: The Γ = 1 version, where any two surjections (F̂_n)^S̄ → H are isomorphic as H-extensions (Lubotzky).
+**Source.** lwzb, §4, (4.1)–(4.2), p. 20, and Remark 4.9, p. 23: Defines the fundamental short exact sequence from the intersection of the maximal (𝓕_n)^𝒞-normal Γ-subgroups of the kernel, the sets 𝒜_H and 𝒩, and the multiplicities, shown independent of ϖ in Remark 4.9. lw20, §4, (4.1), pp. 6–7: The Γ = 1 version, where any two surjections (F̂_n)^S̄ → H are isomorphic as H-extensions (Lubotzky).
 
 #### Generation by Y-relations (Proposition 4.3, Remark 4.4)
 
@@ -593,21 +596,21 @@ Declaration: ArithmeticStatisticsPartII:RG.3/y-generation-probability. Kind: the
 
 Assume (SZ_Γ). Let F be a Γ-group, G_1, …, G_k pairwise non-isomorphic finite irreducible F ⋊ Γ-groups (of order prime to |Γ|) and R = ∏ G_i^{m_i}. For integers n, u with n + u ≥ 1 and r_1, …, r_{n+u} independent uniform elements of R, Prob([Y(r_1), …, Y(r_{n+u})]_{F⋊Γ} = R) = ∏_{G_i abelian} ∏_{j=0}^{m_i−1}(1 − h_{F⋊Γ}(G_i)^j |Y(G_i)|^{−n−u}) · ∏_{G_i non-abelian}(1 − |Y(G_i)|^{−n−u})^{m_i}, where [·]_{F⋊Γ} is the normal F ⋊ Γ-subgroup generated by the coordinates. (Remark 4.4) For an abelian irreducible F ⋊ Γ-group G and m maximal such that G^m is F ⋊ Γ-generated by the coordinates of one Y(g), h_{F⋊Γ}(G)^m = |Y(G)|.
 
-**Hypotheses.** (SZ_Γ) (for the count of maps in the abelian case, through Corollary 3.8). the G_i of order prime to |Γ|.
+**Hypotheses.** (SZ_Γ) (for the count of maps in the abelian case, through Corollary 3.8); the G_i of order prime to |Γ|
 
 **Construction or proof.**
 
 1. Normal F ⋊ Γ-subgroups of R split along the isotypic parts (RG.3/products-of-irreducible-operator-groups (a)), so the probability factors over the G_i^{m_i}.
 2. Y(y) has all coordinates trivial iff y ∈ G^Γ, which for uniform y has probability |Y(G)|⁻¹ (RG.0/y-map).
 3. Non-abelian G: by part (b) of the products node, G^m is generated iff each projection receives a non-trivial Y-coordinate, giving (1 − |Y(G)|^{−n−u})^m.
-4. Abelian G: condition on the first m − 1 projections; the tuples Y(y_i) correspond to maps 𝓕_{n+u} → G^m (RG.1/free-admissible-universal-property (a)), and the bad last coordinates are those factoring through G^{m−1}: h_{F⋊Γ}(G)^{m−1} of the |Y(G)|^{n+u} possibilities (counted via RG.0/y-map). The printed proof writes 𝓕_n for 𝓕_{n+u} and Y[(…)] for [Y(…)] (source issue E11 here).
+4. Abelian G: condition on the first m − 1 projections generating G^{m−1} as an F ⋊ Γ-group. A proper F ⋊ Γ-submodule of G^m projecting onto G^{m−1} is the graph of an F ⋊ Γ-homomorphism G^{m−1} → G. There are h_{F⋊Γ}(G)^{m−1} such maps, giving distinct bad last arrays of Y-coordinates because the first arrays generate. The last arrays are uniform on Y(G)^{n+u}, by the equal-fibre property of Y, so the conditional failure probability is h^{m−1}|Y(G)|^{−n−u}. Iterate in m. This counts operator-equivariant graphs, rather than treating Γ-equivariant free-group maps as F ⋊ Γ-equivariant maps (source issue E11).
 5. Remark 4.4: apply the formula with n + u = 1 for m and m + 1.
 
 **Acceptance.** Γ = Z/2, F = 1, R = (Z/3 with σ = −1)^m: the probability is ∏_{j<m}(1 − 3^{j−n−u}), the probability that n + u uniform vectors span F_3^m. A factor Z/p with trivial action has |Y(Z/p)| = 1 and contributes the factor 1 − 1 = 0 when m ≥ 1: trivial-action factors are never generated by Y-relations.
 
 **Depends on.** *Products of irreducible F-groups (Liu–Wood §§5–7)* (RG.3/products-of-irreducible-operator-groups); *The map Y* (RG.0/y-map); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property).
 
-**Source.** LWZB, Proposition 4.3 with proof and Remark 4.4, p. 21: Gives the probability that the Y-coordinates of n + u uniform elements generate a product of irreducible F ⋊ Γ-groups, reducing to Liu–Wood Lemmas 5.5 and 5.8 and a conditional count of maps from 𝓕_{n+u}.
+**Source.** lwzb, Proposition 4.3 with proof and Remark 4.4, p. 21: Gives the probability that the Y-coordinates of n + u uniform elements generate a product of irreducible F ⋊ Γ-groups, reducing to Liu–Wood Lemmas 5.5 and 5.8 and a conditional count of maps from 𝓕_{n+u}.
 
 #### H-extensions of Γ-groups and the Möbius function of sub-extensions
 
@@ -621,7 +624,7 @@ For a Γ-group H, an H-extension is a pair (E, π) of a Γ-group E and a Γ-surj
 
 1. The Möbius function is Mathlib's IncidenceAlgebra.mu of the finite poset 𝓔^E_H, evaluated at (D, E).
 2. Möbius inversion on 𝓔^E_H: if g(D) = Σ_{D′ ≤ D} f(D′) for every D, then f(E) = Σ_D ν(D, E) g(D).
-3. Finiteness of 𝓔_𝒞(G, H): an extension of level 𝒞 is a Γ-quotient of a product of members of 𝒞 of bounded order |H||G|, and there are finitely many such up to isomorphism.
+3. For fixed finite G and H, every extension E has order |G||H|. There are finitely many group laws, Γ-actions and surjections to H on a set of that order, hence finitely many isomorphism classes in 𝓔_𝒞(G,H), independently of how 𝒞 is presented.
 
 **Uses.** LWZB Lemma 4.6: Möbius inversion over 𝓔^E_H counts surjections of H-extensions; LWZB Proposition 4.7 and Corollary 4.8: the multiplicities are sums over 𝓔_𝒞(G, H); LWZB (4.10)–(4.11): λ(𝒞, H, G) is a weighted count of 𝓔_𝒞(G, H); LWZB Lemma 5.4: non-abelian H-extensions of level 𝒞_ℓ are counted through chief factor pairs.
 
@@ -649,7 +652,7 @@ For a Γ-group H, an H-extension is a pair (E, π) of a Γ-group E and a Γ-surj
 
 **Depends on.** *Γ-groups and their equivariant maps* (RG.0/gamma-group); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); `IncidenceAlgebra.mu` (Mathlib).
 
-**Source.** LWZB, §4.1, pp. 21–22, before Lemma 4.6 and before Proposition 4.7: Defines H-extensions of Γ-groups, admissible H-extensions, sub-H-extensions, the poset 𝓔^E_H with its Möbius function ν, and the sets 𝓔(G, H), 𝓔_𝒞(G, H) in the abelian and non-abelian cases. LW20, §2.3, p. 4: The Γ = 1 notions of H-extensions, their morphisms and sub-H-extensions.
+**Source.** lwzb, §4.1, pp. 21–22, before Lemma 4.6 and before Proposition 4.7: Defines H-extensions of Γ-groups, admissible H-extensions, sub-H-extensions, the poset 𝓔^E_H with its Möbius function ν, and the sets 𝓔(G, H), 𝓔_𝒞(G, H) in the abelian and non-abelian cases. lw20, §2.3, p. 5: The Γ = 1 notions of H-extensions, their morphisms and sub-H-extensions.
 
 #### Counting surjections of H-extensions (Lemma 4.6)
 
@@ -670,7 +673,7 @@ Assume (SZ_Γ). Let n ≥ 1, 𝒞 a finite set of finite |Γ|′-Γ-groups, H a 
 
 **Depends on.** *H-extensions of Γ-groups and the Möbius function of sub-extensions* (RG.3/h-extensions); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y).
 
-**Source.** LWZB, Lemma 4.6 with proof, p. 22: Counts surjections of H-extensions from (𝓕_n)^𝒞 by counting all maps into each sub-H-extension through Corollary 3.8 and Lemma 3.6(3), then inverting over the poset of sub-H-extensions.
+**Source.** lwzb, Lemma 4.6 with proof, p. 22: Counts surjections of H-extensions from (𝓕_n)^𝒞 by counting all maps into each sub-H-extension through Corollary 3.8 and Lemma 3.6(3), then inverting over the poset of sub-H-extensions.
 
 #### Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)
 
@@ -691,21 +694,21 @@ Assume (SZ_Γ). Let 1 → R → F → H → 1 be the fundamental sequence of (�
 
 **Depends on.** *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *Counting surjections of H-extensions (Lemma 4.6)* (RG.3/counting-extension-maps); *Products of irreducible F-groups (Liu–Wood §§5–7)* (RG.3/products-of-irreducible-operator-groups); *H-extensions of Γ-groups and the Möbius function of sub-extensions* (RG.3/h-extensions).
 
-**Source.** LWZB, Proposition 4.7, Corollary 4.8 and Remark 4.9 with proofs, pp. 22–24: Counts F ⋊ Γ-surjections from R onto an irreducible group through H-extensions of level 𝒞 and Lemma 4.6, compares with the count through multiplicities (Liu–Wood Theorem 7.1), and concludes that the multiplicities do not depend on ϖ. LW20, Propositions 8.7 and 8.9, pp. 16–19: The Γ = 1 counts of surjections from R to abelian and non-abelian irreducible groups.
+**Source.** lwzb, Proposition 4.7, Corollary 4.8 and Remark 4.9 with proofs, pp. 22–24: Counts F ⋊ Γ-surjections from R onto an irreducible group through H-extensions of level 𝒞 and Lemma 4.6, compares with the count through multiplicities (Liu–Wood Theorem 7.1), and concludes that the multiplicities do not depend on ϖ. lw20, Propositions 8.7 and 8.9, pp. 17–20: The Γ = 1 counts of surjections from R to abelian and non-abelian irreducible groups.
 
 #### The λ-invariants λ(𝒞, H, G)
 
 Declaration: ArithmeticStatisticsPartII:RG.3/lambda-invariants. Kind: definition. Planet: λ-invariants of extensions. Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/FiniteLevel`, namespace `TauCeti.GammaGroup`.
 
-For a set 𝒞 of finite |Γ|′-Γ-groups and a finite Γ-group H of level 𝒞: for G ∈ 𝒜_H, λ(𝒞, H, G) = (h_{H⋊Γ}(G) − 1) Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E, π)|⁻¹ (LWZB (4.10)); for G ∈ 𝒩, λ(𝒞, H, G) = Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E, π)|⁻¹ (4.11). For finite 𝒞 these are finite sums, non-zero for only finitely many G, and (4.17) λ(𝒞, H, G) = lim_n h_{H⋊Γ}(G)^{m(𝒞,n,H,G)}|Y(G)|^{−n} for G ∈ 𝒜_H and lim_n m(𝒞, n, H, G)|Y(G)|^{−n} for G ∈ 𝒩; λ > 0 iff 𝓔_𝒞(G, H) ≠ ∅, and then m → ∞. λ is nondecreasing in 𝒞; for an arbitrary set 𝒞 (Definition 5.14) λ(𝒞, H, G) = lim_i λ(𝒟_i, H, G) along any increasing exhaustion of 𝒞 by finite sets 𝒟_i, independent of the exhaustion. If H has Property E at level 𝒞 then λ(𝒞, H, Z/p) = 0 for Z/p with trivial action.
+For a set 𝒞 of finite |Γ|′-Γ-groups and finite admissible H of level 𝒞, define λ(𝒞,H,G) = (h_{H⋊Γ}(G) − 1) Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|⁻¹ for G ∈ 𝒜_H, and λ(𝒞,H,G) = Σ_{(E,π)∈𝓔_𝒞(G,H)} |Aut_{Γ,H}(E,π)|⁻¹ for G ∈ 𝒩 (LWZB (4.10)–(4.11)). For finite 𝒞 these have finite support. Under (SZ_Γ), writing h = h_{H⋊Γ}(G) and m = m(𝒞,n,H,G), the abelian asymptotic valid for every G is λ = lim_n (h^m − 1)|Y(G)|^{−n}; it can be written lim_n h^m|Y(G)|^{−n} only when |Y(G)| > 1. The non-abelian asymptotic is λ = lim_n m|Y(G)|^{−n}. Here multiplicities are considered for all sufficiently large n. Also λ > 0 iff 𝓔_𝒞(G,H) ≠ ∅, and λ > 0 with |Y(G)| > 1 implies m → ∞. λ is nondecreasing in 𝒞. For arbitrary 𝒞, λ is the increasing limit along any finite exhaustion (Definition 5.14), independent of the exhaustion, with finite nonnegative rational values. If H has Property E at level 𝒞, λ vanishes on trivial-action Z/p.
 
 **Hypotheses.** H of level 𝒞; for (4.17), (SZ_Γ) and H admissible.
 
 **Construction or proof.**
 
 1. Finiteness of support: an irreducible kernel of an extension of level 𝒞 is a power of a simple group in the subgroup-and-quotient closure of 𝒞 (Liu–Wood Corollary 6.12) with exponent at most |H ⋊ Γ| (Liu–Wood Lemma 6.1).
-2. (4.17): in the formula of RG.3/multiplicities-via-extensions, D = E is the unique term with |Y(D)|/|Y(H)| = |Y(G)|, the others being smaller by admissibility (RG.0/admissible-gamma-groups (d)); divide by |Y(G)|^n and let n → ∞.
-3. Monotonicity in 𝒞: 𝓔_𝒞(G, H) grows with 𝒞; for an exhaustion the limit is the sum over all extensions of level 𝒞, which does not depend on the exhaustion.
+2. Use RG.3/multiplicities-via-extensions with h^m − 1, not h^m, on the abelian side. Among the sub-H-extensions D of an admissible E, only D = E has |Y(D)| = |Y(E)|; divide by |Y(G)|^n to get the leading extension count. Removing the subtracted 1 requires |Y(G)| > 1. When Y(G) = 1 every proper D would have smaller positive Y-cardinality and cannot occur: the unscaled identity h^m − 1 = λ remains, and m need not tend to infinity (E6). The non-abelian argument has no added 1.
+3. Monotonicity in 𝒞 follows because 𝓔_𝒞(G,H) grows with 𝒞. For fixed finite G,H, all E have order |G||H|, so only finitely many Γ-equivariant H-extension classes occur even when 𝒞 is infinite. Every class of level 𝒞 is already of level some finite subset of 𝒞. Thus the increasing sequence of weighted sums stabilizes, and its finite rational limit is independent of the exhaustion; finite support in G is asserted only for finite 𝒞.
 4. Property E: a non-split central extension of H by Z/p of level 𝒞 admits no surjection from H (by order), so under Property E there is none, and split ones are not admissible; hence 𝓔_𝒞(Z/p, H) = ∅.
 
 **Uses.** LWZB (4.14) and (5.13): the limiting values of the basic opens are products over G with parameters λ(𝒞, H, G); LWZB Theorem 5.15: λ for infinite 𝒞; LWZB §7.1: λ = 1 for the abelian level; LWZB Theorem 7.4: λ = p^{r(H)−d(H)} for p-groups.
@@ -713,11 +716,11 @@ For a set 𝒞 of finite |Γ|′-Γ-groups and a finite Γ-group H of level 𝒞
 **API.**
 
 - `lambdaInv` (data): λ(𝒞, H, G) for finite 𝒞 and G ∈ 𝒜_H ∪ 𝒩, as a nonnegative rational.
-- `lambdaInv_eq_tendsto` (relation): (4.17): λ is the limit of h^m|Y(G)|^{−n} (abelian) or m|Y(G)|^{−n} (non-abelian).
+- `lambdaInv_eq_tendsto` (relation): For abelian G, λ = lim_n (h^m − 1)|Y(G)|^{−n}; when |Y(G)| > 1 also λ = lim_n h^m|Y(G)|^{−n}. For non-abelian G, λ = lim_n m|Y(G)|^{−n}.
 - `lambdaInv_pos_iff` (characterisation): λ(𝒞, H, G) > 0 iff 𝓔_𝒞(G, H) ≠ ∅.
 - `lambdaInv_finiteSupport` (other): For finite 𝒞, λ(𝒞, H, G) = 0 for all but finitely many G.
 - `lambdaInv_mono` (relation): λ(𝒞, H, G) ≤ λ(𝒞′, H, G) when 𝒞 ⊆ 𝒞′.
-- `lambdaInvInf` (data): λ for arbitrary 𝒞, the limit along an exhaustion (Definition 5.14), with independence of the exhaustion.
+- `lambdaInvInf` (data): For arbitrary 𝒞 and fixed finite H,G, λ is the finite nonnegative rational increasing limit along a finite exhaustion (Definition 5.14). The sequence stabilizes because the possible H-extensions with kernel G form a finite set; its limit is independent of the exhaustion.
 - `lambdaInv_trivial_of_propertyE` (other): Under Property E at level 𝒞, λ(𝒞, H, Z/p) = 0 for trivial-action Z/p.
 
 **Unit tests.**
@@ -725,15 +728,16 @@ For a set 𝒞 of finite |Γ|′-Γ-groups and a finite Γ-group H of level 𝒞
 - `lambdaInv.test_cohen_lenstra` (computation): Γ = Z/2, H = 1, 𝒞 = {Z/3 with σ = −1}, G = Z/3 with σ = −1: one extension with |Aut| = 2 and h = 3, so λ = (3 − 1)/2 = 1.
 - `lambdaInv.test_abelian_level` (compatibility): For 𝒞 the abelian |Γ|′-Γ-groups and H abelian with H^Γ = 1, λ(𝒞, H, G) = 1 for each G with trivial H-action and G^Γ = 1 (LWZB §7.1).
 - `lambdaInv.test_level_dependence` (computation): Γ = Z/2, H = Z/3 with σ = −1, G = Z/3 with trivial H-action and σ = −1: at level 𝒞 = {Z/3^−} the only extension is F_3² → Z/3 with |Aut_{Γ,H}| = 6, so λ = 2/6 = 1/3; at the level of all abelian 3-Γ-groups Z/9 → Z/3 (|Aut_{Γ,H}| = 3) also occurs and λ = 2(1/6 + 1/3) = 1.
-- `lambdaInv.test_bbh` (computation): Γ = Z/2, p odd, 𝒞 all p-Γ-groups, G = Z/p with trivial H-action: λ = p^{r(H) − d(H)} (LWZB proof of Theorem 7.4).
+- `lambdaInv.test_bbh` (computation): Γ = Z/2, p odd, 𝒞 all finite p-Γ-groups, and H admitting a Y-presentation: for G = Z/p with trivial H-action and σ = −1, λ = p^{r(H)−d(H)} (LWZB Theorem 7.4). For σ = +1, λ = 0 by Property E; these two actions must not be interchanged.
 - `lambdaInv.test_not_multiplicity` (non-example): λ is not the limit of the multiplicities themselves: for H = 1 above m(𝒞, n, 1, G) = n → ∞ while λ = lim 3^n·3^{−n} = 1.
 - `lambdaInv.test_empty_class` (degenerate): For 𝒞 = {1} and H = 1 every 𝓔_𝒞(G, H) is empty and all λ vanish.
+- `lambdaInv.test_trivial_action_offset` (non-example): For Γ = Z/2, H = F_3² with σ = −1 and the finite level in RG.3/finite-level-distribution, trivial-action G = Z/3 has m = 1 and λ = 2. Thus (3^m − 1)|Y(G)|^{−n} = 2, while 3^m|Y(G)|^{−n} = 3; for the level {1}, m = λ = 0 but 3^m = 1.
 
 **Acceptance.** The λ's are the parameters of the limiting formulas (4.14), (5.13) and Theorem 5.15.
 
-**Depends on.** *H-extensions of Γ-groups and the Möbius function of sub-extensions* (RG.3/h-extensions); *Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)* (RG.3/multiplicities-via-extensions); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *Products of irreducible F-groups (Liu–Wood §§5–7)* (RG.3/products-of-irreducible-operator-groups).
+**Depends on.** *H-extensions of Γ-groups and the Möbius function of sub-extensions* (RG.3/h-extensions); *Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)* (RG.3/multiplicities-via-extensions); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *Products of irreducible F-groups (Liu–Wood §§5–7)* (RG.3/products-of-irreducible-operator-groups); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); *The coprime conjugacy hypothesis (SZ)* (RG.0/coprime-conjugacy-hypothesis); *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level).
 
-**Source.** LWZB, (4.10)–(4.11), p. 24, (4.17), p. 25, and Definition 5.14, p. 31: Defines λ as a weighted count of level-𝒞 H-extensions with kernel G, relates it to the growth of the multiplicities, and extends it to arbitrary 𝒞 by exhaustion. LW20, §3.1, pp. 5–6, and Remark 8.13: The Γ = 1 definitions of λ(S, H, G) in the abelian and non-abelian cases.
+**Source.** lwzb, (4.10)–(4.11), p. 24, (4.17), p. 25, and Definition 5.14, p. 31: Defines λ as a weighted count of level-𝒞 H-extensions with kernel G, relates it to the growth of the multiplicities, and extends it to arbitrary 𝒞 by exhaustion. lw20, §3.1, pp. 5–6, and Remark 8.13: The Γ = 1 definitions of λ(S, H, G) in the abelian and non-abelian cases.
 
 #### Limits of truncated products (Liu–Wood Lemma 8.11)
 
@@ -753,13 +757,13 @@ Let a > 1, x_n → x in ℝ and y_n → ∞ (positive integers). Then f(x) = ∏
 
 **Depends on.** `tendsto_tsum_of_dominated_convergence` (Mathlib).
 
-**Source.** LW20, Lemma 8.11, p. 20: States the continuity of x ↦ ∏(1 − x a^{−i}) and the convergence of truncated products with converging parameters and diverging lengths, used to pass from (8.2) to (8.3).
+**Source.** lw20, Lemma 8.11, p. 20: States the continuity of x ↦ ∏(1 − x a^{−i}) and the convergence of truncated products with converging parameters and diverging lengths, used to pass from (8.2) to (8.3).
 
 #### The finite-level distribution and its limit (Theorem 4.12)
 
 Declaration: ArithmeticStatisticsPartII:RG.3/finite-level-distribution. Kind: theorem. Planet: Finite-level distribution (Theorem 4.12). Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/FiniteLevel`, namespace `TauCeti.GammaGroup`.
 
-Assume (SZ_Γ). Let 𝒞 be a finite set of finite |Γ|′-Γ-groups, H a finite admissible Γ-group of level 𝒞, n ≥ 1 and u > −n. Then, with m = m(𝒞, n, H, G), Prob((X_{u,n})^𝒞 ≅ H) = |Sur_Γ(𝓕_n, H)| / (|Aut_Γ(H)| |Y(H)|^{n+u}) · ∏_{G∈𝒜_H} ∏_{k=0}^{m−1}(1 − h_{H⋊Γ}(G)^k |Y(G)|^{−n−u}) · ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m   (4.13). If H has Property E at level 𝒞, then as n → ∞ this tends to |Aut_Γ(H)|⁻¹|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞, H, G) h_{H⋊Γ}(G)^{−i} |Y(G)|^{−u}) · ∏_{G∈𝒩} exp(−|Y(G)|^{−u} λ(𝒞, H, G))   (4.14), a product with finitely many factors different from 1. If H lacks Property E at level 𝒞, the probability (4.13) is 0 for every n. (The printed (4.14) carries no Property E hypothesis and is false in that case: source issue E6 here.)
+Assume (SZ_Γ). Let 𝒞 be a finite set of finite |Γ|′-Γ-groups, H a finite admissible Γ-group of level 𝒞, n ≥ 1 and u > −n. If Sur_Γ(𝓕_n,H) is empty the probability is 0. Otherwise, with m = m(𝒞, n, H, G), Prob((X_{u,n})^𝒞 ≅ H) = |Sur_Γ(𝓕_n, H)| / (|Aut_Γ(H)| |Y(H)|^{n+u}) · ∏_{G∈𝒜_H} ∏_{k=0}^{m−1}(1 − h_{H⋊Γ}(G)^k |Y(G)|^{−n−u}) · ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m   (4.13). If H has Property E at level 𝒞, then as n → ∞ this tends to |Aut_Γ(H)|⁻¹|Y(H)|^{−u} ∏_{G∈𝒜_H} ∏_{i≥1}(1 − λ(𝒞, H, G) h_{H⋊Γ}(G)^{−i} |Y(G)|^{−u}) · ∏_{G∈𝒩} exp(−|Y(G)|^{−u} λ(𝒞, H, G))   (4.14), a product with finitely many nontrivial G-indexed blocks (each abelian block is an infinite product). If H lacks Property E at level 𝒞, the probability (4.13) is 0 for every n. (The printed (4.14) carries no Property E hypothesis and is false in that case: source issue E6 here.)
 
 **Hypotheses.** (SZ_Γ); 𝒞 finite of |Γ|′-groups; H finite admissible of level 𝒞; n ≥ 1, u > −n.
 
@@ -769,14 +773,14 @@ Assume (SZ_Γ). Let 𝒞 be a finite set of finite |Γ|′-Γ-groups, H a finite
 2. (4.16): Prob(Y(r_j) ∈ N^d for all j) = |Y(H)|^{−n−u}, by RG.0/y-map and RG.0/sections-and-y.
 3. Conditionally on that event, [Y(r)] = N iff the images of the Y(r_j) generate R in the fundamental sequence (the reference to (7.1) in the printed proof is to (4.1), source issue E12 here), and Y(r) mod M has the law of Y(r′) for uniform r′ ∈ R; apply RG.3/y-generation-probability and Remark 4.9.
 4. The number of N is |Sur_Γ(𝓕_n, H)|/|Aut_Γ(H)| (RG.1/free-admissible-universal-property (c)); this gives (4.13).
-5. Limits: finitely many G have m ≠ 0 (RG.3/fundamental-exact-sequence); by (4.17) of RG.3/lambda-invariants and RG.3/tail-product-limit each factor converges; |Sur_Γ(𝓕_n, H)||Y(H)|^{−n} → 1 (4.18).
+5. Limits: the union of the supports of m over all n is finite, by the chief-factor and simple-power bound in RG.3/lambda-invariants (RG.3/fundamental-exact-sequence); by (4.17) of RG.3/lambda-invariants and RG.3/tail-product-limit each factor converges; |Sur_Γ(𝓕_n, H)||Y(H)|^{−n} → 1 (4.18).
 6. Property E: then λ(𝒞, H, G) ≠ 0 forces |Y(G)| ≥ 2 (trivial-action Z/p has λ = 0), which is what the limit of the factor with h^m = 1 + λ·|Y(G)|^n requires. Without Property E some trivial-action Z/p occurs with m ≥ 1 for every n, its k = 0 factor is 1 − 1 = 0, and the probability vanishes, as RG.1/property-e-criterion also shows.
 
-**Acceptance.** Γ = Z/2, H = 1, 𝒞 = {Z/3 with σ = −1}: (4.13) = ∏_{k<n}(1 − 3^{k−n−u}) and (4.14) = ∏_{i>u}(1 − 3^{−i}), the Cohen–Lenstra probability of a trivial 3-part. Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1: here 𝒜_H contributes Z/3 with σ = −1 (m = n, λ = 1: the extensions F_3³ and the four classes of Z/9 × Z/3 over H, with |Aut_{Γ,H}| = 18 and 9) and Z/3 with trivial action (m = 1 for every n, λ = 2: the Heisenberg group, |Aut_{Γ,H}| = 1); the probability is 0 for every n, whereas the printed (4.14) gives (1/48)∏_{i≥1}(1 − 3^{−i})∏_{i≥1}(1 − 2·3^{−i}) ≈ 2.70·10^{−3} at u = 0, and (4.17) fails for the trivial-action factor (h^m|Y(G)|^{−n} = 3 ≠ λ).
+**Acceptance.** Γ = Z/2, H = 1, 𝒞 = {Z/3 with σ = −1}: (4.13) = ∏_{k<n}(1 − 3^{k−n−u}) and (4.14) = ∏_{i>u}(1 − 3^{−i}), the Cohen–Lenstra probability of a trivial 3-part. Γ = Z/2, p = 3, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x) = x⁻¹ and σ(y) = y⁻¹}, H = F_3² with σ = −1: for n ≥ 2, m(sign) = n and λ(sign) = 1 from F_3³ and the four classes of Z/9 × Z/3 over H (|Aut_{Γ,H}| = 18 and 9); m(trivial) = 1 and λ(trivial) = 2 from the Heisenberg extension (|Aut_{Γ,H}| = 1). Thus the true probability is 0 for every n; the printed (4.14) at u = 0 is (1/48)∏_{i≥1}(1 − 3^{−i})∏_{i≥1}(1 − 2·3^{−i}) ≈ 0.002698. Here h^m = 3 and h^m − 1 = λ = 2 for the trivial-action factor. The finite level meets Theorem 4.12's hypothesis; all groups of 3-class ≤ 2 form an infinite class.
 
-**Depends on.** *Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)* (RG.2/random-gamma-groups); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *Generation by Y-relations (Proposition 4.3, Remark 4.4)* (RG.3/y-generation-probability); *Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)* (RG.3/multiplicities-via-extensions); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *Limits of truncated products (Liu–Wood Lemma 8.11)* (RG.3/tail-product-limit); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion).
+**Depends on.** *Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)* (RG.2/random-gamma-groups); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *Generation by Y-relations (Proposition 4.3, Remark 4.4)* (RG.3/y-generation-probability); *Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)* (RG.3/multiplicities-via-extensions); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *Limits of truncated products (Liu–Wood Lemma 8.11)* (RG.3/tail-product-limit); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y).
 
-**Source.** LWZB, Theorem 4.12 with proof, (4.13)–(4.18), pp. 24–25: Computes Prob((X_{u,n})^𝒞 ≅ H) exactly by summing over kernels, reducing to the generation probability of Proposition 4.3 with the multiplicities of Corollary 4.8, and takes the limit in n through (4.17) and Liu–Wood Lemma 8.11. LW20, Theorem 8.1, (8.2)–(8.3), p. 15: The Γ = 1 finite-n formula and its limit.
+**Source.** lwzb, Theorem 4.12 with proof, (4.13)–(4.18), pp. 24–25: Computes Prob((X_{u,n})^𝒞 ≅ H) exactly by summing over kernels, reducing to the generation probability of Proposition 4.3 with the multiplicities of Corollary 4.8, and takes the limit in n through (4.17) and Liu–Wood Lemma 8.11. lw20, Theorem 8.1, (8.2)–(8.3), pp. 15–16: The Γ = 1 finite-n formula and its limit.
 
 ### RG.4. No escape of mass and the limiting measure μ_Γ
 
@@ -784,13 +788,13 @@ Assume (SZ_Γ). Let 𝒞 be a finite set of finite |Γ|′-Γ-groups, H a finite
 - *Chief factor pairs (Liu–Wood §6)*: chief series of finite groups, the pairs (M, A), their isomorphism, independence of the chief series, closure under products, subgroups and quotients, finiteness for a finite set.
 - *Γ-chief factor pairs (Definition 5.1, Lemma 5.2, Corollary 5.3).*
 - *Multiplicity bounds (Lemma 5.4)* and the uniform positivity bound (Corollary 5.9).
-- *The interchange lemma (Lemma 5.10)*, with the monotone-positivity hypothesis its proof needs.
-- *Countable additivity (Theorem 5.12)* of μ_u on the algebra 𝒜, for every integer u.
+- *The interchange lemma (Lemma 5.10)*, with nonnegative finite majorants, the persistence-of-positivity hypothesis its proof needs, and a Fatou step before dominated convergence.
+- *Countable additivity (Theorem 5.12)* of μ_u on the algebra 𝒜, for every integer u, using finite-cylinder approximation and an inverse-limit argument for continuity at the empty set.
 - *The limiting measure*: μ_u as a Borel probability measure on 𝒫 (Carathéodory), μ_Γ = μ_1.
 - *Theorem 1.2*: μ_{1,n} → μ_Γ weakly, with the explicit value (5.13) on basic opens for H with Property E at level 𝒞 and 0 otherwise.
 - *Theorem 5.15*: the value of μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14), with the same Property E proviso.
 
-**Acceptance.** μ_u(𝒫) = 1 for every integer u; the abelian 3-part of μ_0 for Γ = Z/2 is the Cohen–Lenstra measure μ_{3,0}; the printed (5.13) value 2.70·10^{−3} for the F_3² example is replaced by 0.
+**Acceptance.** μ_u(𝒫) = 1 for every integer u; the abelian 3-part of μ_0 for Γ = Z/2 is the Cohen–Lenstra measure μ_{3,0}; the printed limit product (4.14) at u=0 gives about 0.002698 in the F_3² example, while the correct value is 0.
 
 Layer dependencies: ArithmeticStatisticsPartII:RG.3.
 
@@ -832,11 +836,11 @@ A chief series of a finite group G is a chain 1 = G_0 ◁ G_1 ◁ ⋯ ◁ G_r = 
 - `chiefFactors.test_A4` (non-example): A_4 has chief series 1 ◁ V_4 ◁ A_4 with pairs (V_4, Z/3) and (Z/3, 1): a chief factor need not be simple (V_4 contributes two composition factors Z/2 but one chief factor pair).
 - `chiefFactors.test_pgroup` (compatibility): For a finite p-group P ≠ 1, CF(P) = {(Z/p, 1)} and every chief series has log_p|P| steps, the length of a composition series in Mathlib's sense.
 
-**Acceptance.** Mathlib has composition series of lattices (CompositionSeries.jordan_holder) but no chief series of groups or minimal normal subgroups; these are new here.
+**Acceptance.** Mathlib's CompositionSeries.jordan_holder concerns factors of a Jordan–Hölder lattice, not chief factors with their conjugation images in Aut(M). Independence of chief pairs is proved by the normal-subgroup induction in Liu–Wood Lemma 6.3; no reduction to that lattice theorem is assumed.
 
-**Depends on.** `CompositionSeries.jordan_holder` (Mathlib); `IsSimpleGroup` (Mathlib).
+**Depends on.** `IsSimpleGroup` (Mathlib).
 
-**Source.** LW20, §6, pp. 10–14: the definitions before Lemma 6.3, Lemma 6.3, Lemma 6.10, Lemma 6.11, Corollaries 6.12–6.13: Defines chief series, ρ_M, chief factor pairs and their isomorphism, proves that the multiset of chief factor pairs is independent of the chief series, and that the chief factor pairs of the variety generated by a set of groups are those of the set itself, with a size bound. LWZB, §5.1, pp. 25–26: Recalls these definitions from Liu–Wood before introducing Γ-chief factor pairs.
+**Source.** lw20, §6, pp. 10–14: the definitions before Lemma 6.3, Lemma 6.3, Lemma 6.10, Lemma 6.11, Corollaries 6.12–6.13: Defines chief series, ρ_M, chief factor pairs and their isomorphism, proves that the multiset of chief factor pairs is independent of the chief series, and that the chief factor pairs of the variety generated by a set of groups are those of the set itself, with a size bound. lwzb, §5.1, pp. 25–26: Recalls these definitions from Liu–Wood before introducing Γ-chief factor pairs.
 
 #### Γ-chief factor pairs (Definition 5.1, Lemma 5.2, Corollary 5.3)
 
@@ -873,7 +877,7 @@ For a finite |Γ|′-Γ-group G, CF_Γ(G) is the set of (M, A) ∈ CF(G ⋊ Γ) 
 
 **Depends on.** *Chief factor pairs of finite groups (Liu–Wood §6)* (RG.4/chief-factor-pairs); *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); *The coprime conjugacy hypothesis (SZ)* (RG.0/coprime-conjugacy-hypothesis).
 
-**Source.** LWZB, Definition 5.1, Lemma 5.2 with proof, Corollary 5.3, pp. 26–27: Defines the Γ-chief factor pairs of G as the chief factor pairs of G ⋊ Γ with order prime to |Γ|, proves they do not grow under the closure operations of level-𝒞 groups (using Schur–Zassenhaus conjugacy), and bounds them for groups of bounded order.
+**Source.** lwzb, Definition 5.1, Lemma 5.2 with proof, Corollary 5.3, pp. 26–27: Defines the Γ-chief factor pairs of G as the chief factor pairs of G ⋊ Γ with order prime to |Γ|, proves they do not grow under the closure operations of level-𝒞 groups (using Schur–Zassenhaus conjugacy), and bounds them for groups of bounded order.
 
 #### Multiplicity bounds at level ℓ (Lemma 5.4)
 
@@ -893,13 +897,13 @@ Assume (SZ_Γ). Let H be a finite Γ-group of level 𝒞_ℓ and H̃ = H^{𝒞_{
 
 **Depends on.** *Γ-chief factor pairs (Definition 5.1, Lemma 5.2, Corollary 5.3)* (RG.4/gamma-chief-factor-pairs); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *H-extensions of Γ-groups and the Möbius function of sub-extensions* (RG.3/h-extensions).
 
-**Source.** LWZB, Lemma 5.4 with proof, (5.5)–(5.8), pp. 27–28: Bounds the number of irreducible factors of a given underlying group, and of non-abelian level-𝒞_ℓ extensions, by maps into the finite set of Γ-chief factor pairs, through the coarser quotient H^{𝒞_{ℓ−1}}.
+**Source.** lwzb, Lemma 5.4 with proof, (5.5)–(5.8), pp. 27–28: Bounds the number of irreducible factors of a given underlying group, and of non-abelian level-𝒞_ℓ extensions, by maps into the finite set of Γ-chief factor pairs, through the coarser quotient H^{𝒞_{ℓ−1}}.
 
 #### A uniform lower bound for the generation factors (Corollary 5.9)
 
 Declaration: ArithmeticStatisticsPartII:RG.4/uniform-positivity. Kind: theorem. Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/NoEscape`, namespace `TauCeti.GammaGroup`.
 
-Assume (SZ_Γ). For a finite Γ-group H of level 𝒞_ℓ let P_{u,n}(U_{𝒞_ℓ,H}) = ∏_{G∈𝒜_H} ∏_{k<m}(1 − h_{H⋊Γ}(G)^k |Y(G)|^{−n−u}) ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m (m = m(𝒞_ℓ, n, H, G)), the product in (4.13) without its prefactor. For ℓ > 1, integers u, and a finite Γ-group H̃ of level 𝒞_{ℓ−1}, there is c(u, ℓ, H̃) > 0 such that for all n ≥ 1 with u > −n and every H of level 𝒞_ℓ with H^{𝒞_{ℓ−1}} ≅ H̃, either P_{u,n}(U_{𝒞_ℓ,H}) = 0 or P_{u,n}(U_{𝒞_ℓ,H}) ≥ c(u, ℓ, H̃).
+Assume (SZ_Γ). For a finite Γ-group H of level 𝒞_ℓ let P_{u,n}(U_{𝒞_ℓ,H}) = ∏_{G∈𝒜_H} ∏_{k<m}(1 − h_{H⋊Γ}(G)^k |Y(G)|^{−n−u}) ∏_{G∈𝒩}(1 − |Y(G)|^{−n−u})^m (m = m(𝒞_ℓ, n, H, G)), the product in (4.13) without its prefactor, whenever a Γ-surjection 𝓕_n → H exists. Put P_{u,n} = 0 otherwise; in particular it is 0 for non-admissible H. This convention only adds zero cases to the bound. For ℓ > 1, integers u, and a finite Γ-group H̃ of level 𝒞_{ℓ−1}, there is c(u, ℓ, H̃) > 0 such that for all n ≥ 1 with u > −n and every H of level 𝒞_ℓ with H^{𝒞_{ℓ−1}} ≅ H̃, either P_{u,n}(U_{𝒞_ℓ,H}) = 0 or P_{u,n}(U_{𝒞_ℓ,H}) ≥ c(u, ℓ, H̃).
 
 **Hypotheses.** (SZ_Γ).
 
@@ -912,13 +916,13 @@ Assume (SZ_Γ). For a finite Γ-group H of level 𝒞_ℓ let P_{u,n}(U_{𝒞_�
 
 **Depends on.** *Multiplicity bounds at level ℓ (Lemma 5.4)* (RG.4/multiplicity-bounds); *Multiplicities through extensions (Proposition 4.7, Corollary 4.8, Remark 4.9)* (RG.3/multiplicities-via-extensions); *Generation by Y-relations (Proposition 4.3, Remark 4.4)* (RG.3/y-generation-probability); *Counting surjections of H-extensions (Lemma 4.6)* (RG.3/counting-extension-maps).
 
-**Source.** LWZB, Corollary 5.9 and the paragraph after it, pp. 28–29: States the uniform lower bound for P_{u,n}(U_{𝒞_ℓ,H}) depending only on (u, ℓ, H^{𝒞_{ℓ−1}}), proved as in Liu–Wood Lemma 9.5 from Lemma 5.4 and Remark 4.4. LW20, Lemmas 9.5–9.6, pp. 23–26: The Γ = 1 bounds for the abelian and non-abelian parts.
+**Source.** lwzb, Corollary 5.9 and the paragraph after it, pp. 28–29: States the uniform lower bound for P_{u,n}(U_{𝒞_ℓ,H}) depending only on (u, ℓ, H^{𝒞_{ℓ−1}}), proved as in Liu–Wood Lemma 9.5 from Lemma 5.4 and Remark 4.4. lw20, Lemmas 9.5–9.6, pp. 23–26: The Γ = 1 bounds for the abelian and non-abelian parts.
 
 #### Interchanging limits and sums over the level tower (Lemma 5.10)
 
 Declaration: ArithmeticStatisticsPartII:RG.4/limit-interchange. Kind: theorem. Planet: Interchange lemma (Lemma 5.10). Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/NoEscape`, namespace `TauCeti.GammaGroup`.
 
-Let f_n(H, ℓ) ≥ 0 be defined for n ≥ n_0, ℓ ≥ 1 and finite Γ-groups H of level 𝒞_ℓ, with: (1) f_n(H, ℓ) = g_n(H, ℓ) P_{u,n}(U_{𝒞_ℓ,H}); (2) g_n(H, ℓ) → g(H, ℓ) and g_n(H, ℓ) ≤ g(H, ℓ) for all n; (3) Σ_{H : H^{𝒞_{ℓ−1}} ≅ H̃} f_n(H, ℓ) = f_n(H̃, ℓ − 1); (4) if f_n(H, ℓ) > 0 then f_{n′}(H, ℓ) > 0 for all n′ ≥ n (monotone positivity, absent from the printed statement and needed by its proof: source issue E7 here). Then lim_n f_n(H, ℓ) exists for all (H, ℓ) and Σ_{H of level 𝒞_ℓ} lim_n f_n(H, ℓ) = lim_n f_n(1, 1). For u < 0 take n_0 = 1 − u.
+Assume (SZ_Γ). Let f_n(H, ℓ) ≥ 0 be defined for n ≥ n_0, ℓ ≥ 1 and finite Γ-groups H of level 𝒞_ℓ, with: (1) f_n(H, ℓ) = g_n(H, ℓ) P_{u,n}(U_{𝒞_ℓ,H}); (2) 0 ≤ g_n(H, ℓ) ≤ g(H, ℓ) < ∞ and g_n(H, ℓ) → g(H, ℓ) for all n; (3) Σ_{H : H^{𝒞_{ℓ−1}} ≅ H̃} f_n(H, ℓ) = f_n(H̃, ℓ − 1); (4) if f_n(H, ℓ) > 0 then f_{n′}(H, ℓ) > 0 for all n′ ≥ n (monotone positivity, absent from the printed statement and needed by its proof: source issue E7 here). Then lim_n f_n(H, ℓ) exists for all (H, ℓ) and Σ_{H of level 𝒞_ℓ} lim_n f_n(H, ℓ) = lim_n f_n(1, 1). For u < 0 take n_0 = 1 − u.
 
 **Hypotheses.** (SZ_Γ) through Corollary 5.9; the four hypotheses above.
 
@@ -926,14 +930,14 @@ Let f_n(H, ℓ) ≥ 0 be defined for n ≥ n_0, ℓ ≥ 1 and finite Γ-groups H
 
 1. Existence of lim_n f_n: by (1), (2) and the convergence of P_{u,n} in the proof of Theorem 4.12.
 2. Induction on ℓ; the case ℓ = 1 is the trivial group alone. By (3) it suffices to interchange limit and sum over the H above a fixed H̃.
-3. For each H with f_n(H, ℓ) > 0 for some n, (4) and Corollary 5.9 give f_n(H, ℓ) ≥ ½c(u, ℓ, H̃)g(H, ℓ) for all large n; so Σ_H g(H, ℓ) ≤ (2/c) lim_n f_n(H̃, ℓ − 1) < ∞ and the f_n(H, ℓ) are dominated by the summable g(H, ℓ).
+3. Let Λ consist of H that have f_n(H,ℓ) > 0 for some n. For each H ∈ Λ, persistence (4), convergence of g_n and Corollary 5.9 give f_n(H,ℓ) ≥ ½c(u,ℓ,H̃)g(H,ℓ) for all sufficiently large n, with threshold allowed to depend on H. Fatou for the nonnegative sum, followed by (3) and the induction hypothesis, yields Σ_{H∈Λ} g(H,ℓ) ≤ (2/c) lim_n f_n(H̃,ℓ−1) < ∞. Thus the summable majorant is g on Λ and 0 outside Λ; no uniform threshold in H is required.
 4. Dominated convergence for sums (Mathlib's tendsto_tsum_of_dominated_convergence) gives the interchange.
 
-**Acceptance.** Both applications satisfy (4): killing the generator x_{n+1} identifies 𝓕_{n+1}/[Y(S ∪ {y})] with 𝓕_n/[Y(S)] when Y(y) = Y(x_{n+1}), so an event of positive probability at n stays positive at n + 1.
+**Acceptance.** Both applications satisfy (4): killing the generator x_{n+1} identifies 𝓕_{n+1}/[Y(S ∪ {y})] with 𝓕_n/[Y(S)] when Y(y) = Y(x_{n+1}), so an event of positive probability at n stays positive at n + 1. The g_n in both applications are nonnegative counts divided by positive denominators, so the explicitly stated nonnegativity condition also holds.
 
-**Depends on.** *A uniform lower bound for the generation factors (Corollary 5.9)* (RG.4/uniform-positivity); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); `tendsto_tsum_of_dominated_convergence` (Mathlib).
+**Depends on.** *A uniform lower bound for the generation factors (Corollary 5.9)* (RG.4/uniform-positivity); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); `tendsto_tsum_of_dominated_convergence` (Mathlib); `MeasureTheory.lintegral_liminf_le` (Mathlib).
 
-**Source.** LWZB, Lemma 5.10 with proof, p. 29: States the interchange of the limit in n with the sum over the level-𝒞_ℓ groups for functions of the form g_n·P_{u,n} with dominated g_n and compatible sums, proved by induction on ℓ and dominated convergence using Corollary 5.9.
+**Source.** lwzb, Lemma 5.10 with proof, pp. 29–30: States the interchange of the limit in n with the sum over the level-𝒞_ℓ groups for functions of the form g_n·P_{u,n} with dominated g_n and compatible sums, proved by induction on ℓ and dominated convergence using Corollary 5.9.
 
 #### No escape of mass: countable additivity of μ_u (Theorem 5.12)
 
@@ -947,13 +951,13 @@ Assume (SZ_Γ). For every integer u, the set function μ_u(A) = lim_n μ_{u,n}(A
 
 1. Existence of the limit on basic opens is RG.3/finite-level-distribution (limit 0 when Property E fails); finite additivity passes to the limit, so μ_u is a finitely additive content on 𝒜 with μ_u(𝒫) = 1.
 2. Tightness: apply RG.4/limit-interchange with f_n(H, ℓ) = μ_{u,n}(U_{𝒞_ℓ,H}) and g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}), whose limit is |Aut_Γ(H)|⁻¹|Y(H)|^{−u} for admissible H by (4.18) (and 0 otherwise); this gives Σ_H μ_u(U_{𝒞_ℓ,H}) = μ_u(U_{𝒞_1,1}) = 1.
-3. Countable additivity on 𝒜 follows from tightness at every level, as in Liu–Wood Corollary 9.7 and Theorem 9.1: a countable disjoint union in 𝒜 of level-ℓ basic opens has measure the sum, and every countable disjoint decomposition in 𝒜 refines to one of this form.
+3. First use total mass 1 at each level and finite additivity to obtain countable additivity for unions of cylinders at one fixed level. For continuity at the empty set, suppose decreasing B_j ∈ 𝒜 have empty intersection but μ_u(B_j) ≥ ε. Each B_j is a union of cells at some level. Choose a finite union K_j of such cells, contained in B_j, with μ_u(B_j \ K_j) < ε·2^{−j−1}, and refine to cofinally increasing levels 𝒞_{ℓ_j}, with ℓ_j ≥ j. The finite intersections of the K_j then have positive content, so their cylinder tree has an infinite branch by finite branching. Choose compatible representatives and quotient maps along that branch; their inverse limit is an admissible group in 𝒫 with the prescribed finite-level completions. It lies in every B_j, a contradiction. This is the decreasing-set argument of Liu–Wood Theorem 9.1, pp. 26–27; countably many arbitrary algebra sets need not share one fixed finite level.
 
 **Acceptance.** μ_u(𝒫) = 1 for every u; for Γ = Z/2 and 𝒞 the abelian 3-Γ-groups, the masses of the V_{𝒞,H} sum to 1 (the Cohen–Lenstra mass formula, ArithmeticStatistics:ST.5/cohen-lenstra-mass-formula, for u ≥ 0).
 
 **Depends on.** *Interchanging limits and sums over the level tower (Lemma 5.10)* (RG.4/limit-interchange); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); *The space 𝒫 of admissible Γ-groups* (RG.2/space-of-admissible-gamma-groups); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property).
 
-**Source.** LWZB, Theorem 5.12 with proof, p. 30: Proves countable additivity of μ_u on the algebra of basic opens by reducing to the total mass of each level and applying Lemma 5.10 to μ_{u,n}(U_{𝒞_ℓ,H}) (stated for u ≥ 0). LW20, Theorem 9.1, Theorem 9.2 and Corollary 9.7, pp. 21–28: The Γ = 1 reduction of countable additivity to the level-ℓ total mass.
+**Source.** lwzb, Theorem 5.12 with proof, p. 30: Proves countable additivity of μ_u on the algebra of basic opens by reducing to the total mass of each level and applying Lemma 5.10 to μ_{u,n}(U_{𝒞_ℓ,H}) (stated for u ≥ 0). lw20, Theorem 9.1, pp. 26–27; Theorem 9.2 and Corollary 9.7, pp. 21–28: The Γ = 1 reduction of countable additivity to the level-ℓ total mass.
 
 #### The limiting measures μ_u and μ_Γ
 
@@ -985,13 +989,13 @@ Assume (SZ_Γ). For each integer u, μ_u is the unique Borel probability measure
 - `limitMeasure.test_total_mass` (degenerate): μ_u(𝒫) = 1 for every integer u, including u < 0.
 - `limitMeasure.test_cohen_lenstra` (compatibility): For Γ = Z/2 and 𝒞 the abelian 3-Γ-groups, H ↦ μ_0(V_{𝒞,H}) on finite abelian 3-groups with σ = −1 is the Cohen–Lenstra measure μ_{3,0} of ArithmeticStatistics:ST.5/cohen-lenstra-measure.
 - `limitMeasure.test_trivial_part` (computation): For Γ = Z/2, μ_1(U_{{Z/3^−},1}) = ∏_{i≥2}(1 − 3^{−i}) ≈ 0.840.
-- `limitMeasure.test_E5` (non-example): For Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2 and H = F_3² with σ = −1, μ_0(U_{𝒞,H}) = 0, not the 2.70·10^{−3} of the printed (5.13).
+- `limitMeasure.test_E6` (non-example): For Γ = Z/2, p = 3, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x)=x⁻¹, σ(y)=y⁻¹} and H = F_3² with σ = −1, μ_0(U_{𝒞,H}) = 0. The printed (4.14) at u = 0 would give approximately 0.002698. For the infinite class of all 3-Γ-groups of 3-class ≤2, use V_{𝒞,H}; its μ_0-value is also 0.
 
 **Acceptance.** μ_u(U_{𝒞,H}) = lim_n μ_{u,n}(U_{𝒞,H}) for every finite 𝒞 and H.
 
 **Depends on.** *No escape of mass: countable additivity of μ_u (Theorem 5.12)* (RG.4/countable-additivity); *The space 𝒫 of admissible Γ-groups* (RG.2/space-of-admissible-gamma-groups); `MeasureTheory.AddContent.measure` (Mathlib); `MeasureTheory.AddContent.measure_eq` (Mathlib); `MeasureTheory.ProbabilityMeasure` (Mathlib).
 
-**Source.** LWZB, §5.3, p. 30, first sentences: Extends μ_u from the algebra of basic opens to the Borel sets by Carathéodory's theorem and sets μ_Γ = μ_1. LW20, §3, p. 5: The Γ = 1 definition of μ_u on the algebra and its Carathéodory extension.
+**Source.** lwzb, §5.3, p. 30, first sentences: Extends μ_u from the algebra of basic opens to the Borel sets by Carathéodory's theorem and sets μ_Γ = μ_1. lw20, §3, p. 5: The Γ = 1 definition of μ_u on the algebra and its Carathéodory extension.
 
 #### Convergence of the random Γ-groups (Theorem 1.2)
 
@@ -1007,11 +1011,11 @@ Assume (SZ_Γ). For every finite group Γ, the laws μ_{1,n} of X_{Γ,n} = 𝓕_
 2. Weak convergence follows from the open-set criterion of the Portmanteau theorem (Mathlib's MeasureTheory.tendsto_of_forall_isOpen_le_liminf; the filter atTop is countably generated).
 3. (5.13) is (4.14) with u = 1 and |Y(G)| = [G : G^Γ] (RG.0/y-map); the vanishing case is the last clause of RG.3/finite-level-distribution.
 
-**Acceptance.** Γ = Z/2, 𝒞 = {Z/3 with σ = −1}, H = Z/3: here λ = 1/3 and μ_Γ(U_{𝒞,H}) = (1/6)∏_{i≥3}(1 − 3^{−i}) = (3/16)∏_{i≥2}(1 − 3^{−i}), the real-quadratic (u = 1) Cohen–Lenstra probability that the 3-rank is exactly 1. Γ = Z/2, H = F_3² with σ = −1 at the level of 3-class ≤ 2: μ_Γ(U_{𝒞,H}) = 0.
+**Acceptance.** Γ = Z/2, 𝒞 = {Z/3 with σ = −1}, H = Z/3: here λ = 1/3 and μ_Γ(U_{𝒞,H}) = (1/6)∏_{i≥3}(1 − 3^{−i}) = (3/16)∏_{i≥2}(1 − 3^{−i}), the real-quadratic (u = 1) Cohen–Lenstra probability that the 3-rank is exactly 1. Γ = Z/2, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x)=x⁻¹, σ(y)=y⁻¹}, H = F_3² with σ = −1: μ_Γ(U_{𝒞,H}) = 0. For the full infinite class of 3-class ≤2 groups the same statement uses V_{𝒞,H}.
 
-**Depends on.** *The limiting measures μ_u and μ_Γ* (RG.4/limit-measure); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); *Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)* (RG.2/random-gamma-groups); *The map Y* (RG.0/y-map); `MeasureTheory.tendsto_of_forall_isOpen_le_liminf` (Mathlib); `MeasureTheory.lintegral_liminf_le` (Mathlib).
+**Depends on.** *The limiting measures μ_u and μ_Γ* (RG.4/limit-measure); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); *Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)* (RG.2/random-gamma-groups); *The map Y* (RG.0/y-map); `MeasureTheory.tendsto_of_forall_isOpen_le_liminf` (Mathlib); `MeasureTheory.lintegral_liminf_le` (Mathlib); *The space 𝒫 of admissible Γ-groups* (RG.2/space-of-admissible-gamma-groups).
 
-**Source.** LWZB, Theorem 1.2, p. 2, and §5.3 with (5.13), p. 30: States weak convergence of the laws of X_{Γ,n} to μ_Γ and proves it from countable additivity, the decomposition of open sets into basic opens and Fatou's lemma, giving the explicit value (5.13) on basic opens.
+**Source.** lwzb, Theorem 1.2, p. 2, and §5.3 with (5.13), p. 30: States weak convergence of the laws of X_{Γ,n} to μ_Γ and proves it from countable additivity, the decomposition of open sets into basic opens and Fatou's lemma, giving the explicit value (5.13) on basic opens.
 
 #### μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14, Theorem 5.15)
 
@@ -1031,21 +1035,21 @@ Assume (SZ_Γ). Let 𝒞 be an arbitrary set of finite |Γ|′-Γ-groups, H a fi
 
 **Depends on.** *The limiting measures μ_u and μ_Γ* (RG.4/limit-measure); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *The finite-level distribution and its limit (Theorem 4.12)* (RG.3/finite-level-distribution); *Limits of truncated products (Liu–Wood Lemma 8.11)* (RG.3/tail-product-limit); *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level).
 
-**Source.** LWZB, Definition 5.14 and Theorem 5.15, p. 31: Extends m and λ to an arbitrary set 𝒞 by exhaustion and gives μ_u(V_{𝒞,H}) as the corresponding infinite product, proved as Liu–Wood Lemma 11.3. LW20, Lemma 11.3, pp. 32–33: The Γ = 1 computation of μ_u(V_{S,H}) as a double limit with monotone factors.
+**Source.** lwzb, Definition 5.14 and Theorem 5.15, p. 31: Extends m and λ to an arbitrary set 𝒞 by exhaustion and gives μ_u(V_{𝒞,H}) as the corresponding infinite product, proved as Liu–Wood Lemma 11.3. lw20, Lemma 11.3, pp. 28–29: The Γ = 1 computation of μ_u(V_{S,H}) as a double limit with monotone factors.
 
 ### RG.5. Moments, Cohen–Lenstra–Martinet and Boston–Bush–Hajir
 
 **Targets.**
 - *Moments (Lemma 6.1, Theorem 6.2)*: for every finite admissible Γ-group A and integer u, E|Sur_Γ(X_u, A)| = [A : A^Γ]^{−u}; in particular the μ_Γ-moment is [A : A^Γ]^{−1}.
 - *Abelianization (§7.1)*: finite-index Γ-submodules of (Z_p[Γ]/(Σ_g g))^n are isomorphic to it (p ∤ |Γ|); μ_u(V_{𝒞_ab,H}) = |Aut_Γ(H)|^{−1}|H|^{−u} ∏_{p∤|Γ|} ∏_G ∏_{i≥1}(1 − h_Γ(G)^{−i}|G|^{−u}) for finite abelian |Γ|′-Γ-groups with H^Γ = 1 — the Cohen–Lenstra–Martinet distribution for u = 1.
-- *The p-covering group*: p-multiplicator R′, relation rank r(H), lower p-central series, p-class, nucleus and nuclear rank ν(H), with their Γ-structure.
-- *Boston–Bush–Hajir (Lemma 7.2, Theorems 7.4–7.5)*: for Γ = Z/2 and p odd, μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{i ≥ 1+u+d(H)−r(H)}(1 − p^{−i}) on pro-p completions, and the p-class-c version with r(H) − ν(H) when cl_p(H) = c; 0 for H not of the form (𝓕_n)^𝒞/[Y(S)].
+- *The p-covering group*: p-multiplicator R′, relation rank r(H), lower p-central series, p-class, nucleus and nuclear rank ν(H), with their Γ-structure; nucleus and nuclear rank are defined using a minimal presentation and compared with redundant presentations.
+- *Boston–Bush–Hajir (Lemma 7.2, Theorems 7.4–7.5)*: for Γ = Z/2 and p odd, μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u} ∏_{i ≥ 1+u+d(H)−r(H)}(1 − p^{−i}) on pro-p completions, and the p-class-c version with r(H) − ν(H) when cl_p(H) = c; 0 for H not of the form (𝓕_n)^𝒞/[Y(S)] with n+u relation tuples. Property E gives some such presentation, while the prescribed count also requires r−d≤u, or r−ν−d≤u at exact class c. Comparisons for u=0,1 multiply the BBH conditional-rank measures by the corresponding Cohen–Lenstra rank weights.
 
-**Imports.** The Cohen–Lenstra measure μ_{p,u}: ArithmeticStatistics:ST.5 (`cohen-lenstra-measure`); the lower p-central series and relation ranks: tauceti:TauCetiRoadmap/ProfiniteProPGroups Layers 3 and 5.
+**Imports.** The Cohen–Lenstra measure μ_{p,u}: ArithmeticStatistics:ST.5 (`cohen-lenstra-measure`); Frattini theory and generator rank: ProfiniteProPGroups Layer 3; relation ranks: its Layer 5; the existing lower p-central series and p-class: its Layer 8; the Γ-natural five-term sequence: ProfiniteCohomology Layer 5.
 
 **Acceptance.** Γ = Z/2, A = Z/3 with σ = −1: moments 1/3 (u = 1) and 1 (u = 0), i.e. average |Cl[3]| = 4/3 and 2 (Davenport–Heilbronn); Γ = Z/4, A the Heisenberg group mod 3: moment 1/9; Theorem 7.4 for H = Z/3 gives ∏_{i≥2}(1 − 3^{−i})/6 = μ_{3,1}(Z/3).
 
-Layer dependencies: ArithmeticStatisticsPartII:RG.4, ArithmeticStatistics:ST.5, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations.
+Layer dependencies: ArithmeticStatisticsPartII:RG.4, ArithmeticStatistics:ST.5, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation, tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences.
 
 #### Moments at finite n (Lemma 6.1)
 
@@ -1065,7 +1069,7 @@ Assume (SZ_Γ). For a finite admissible Γ-group A and integers n ≥ 1, u > −
 
 **Depends on.** *Random Γ-groups X_{u,n} and their laws μ_{u,n} (Definition 3.15)* (RG.2/random-gamma-groups); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *The map Y* (RG.0/y-map); *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y).
 
-**Source.** LWZB, Lemma 6.1 with proof, p. 31: Computes the expected number of Γ-surjections from X_{u,n} to a finite admissible A as |Sur_Γ(𝓕_n, A)||Y(A)|^{−n−u} and its limit [A : A^Γ]^{−u}.
+**Source.** lwzb, Lemma 6.1 with proof, p. 31: Computes the expected number of Γ-surjections from X_{u,n} to a finite admissible A as |Sur_Γ(𝓕_n, A)||Y(A)|^{−n−u} and its limit [A : A^Γ]^{−u}.
 
 #### The moments of μ_u (Theorem 6.2)
 
@@ -1085,7 +1089,7 @@ Assume (SZ_Γ). For every integer u and every finite admissible Γ-group A, X �
 
 **Depends on.** *Moments at finite n (Lemma 6.1)* (RG.5/finite-n-moments); *Interchanging limits and sums over the level tower (Lemma 5.10)* (RG.4/limit-interchange); *The limiting measures μ_u and μ_Γ* (RG.4/limit-measure); *No escape of mass: countable additivity of μ_u (Theorem 5.12)* (RG.4/countable-additivity); *Counting surjections of H-extensions (Lemma 4.6)* (RG.3/counting-extension-maps).
 
-**Source.** LWZB, Theorem 6.2 with proof, (6.3)–(6.5), pp. 31–33: Proves that the moments of μ_u are [A : A^Γ]^{−u} by applying Lemma 5.10 to the expectation of |Sur_Γ(X_{u,n}, A)| on each level-ℓ basic open. LWZB, §1.5, pp. 7–8: Lists predicted moments: 1/9 for Γ = Z/4 and the Heisenberg group mod 3, 1/27 for Γ = (Z/2)², 1/15 for (Z/5)² ⋊ Z/3 with Γ = Z/2, and 1/125 for Γ = S_3.
+**Source.** lwzb, Theorem 6.2 with proof, (6.3)–(6.5), pp. 31–33: Proves that the moments of μ_u are [A : A^Γ]^{−u} by applying Lemma 5.10 to the expectation of |Sur_Γ(X_{u,n}, A)| on each level-ℓ basic open. lwzb, §1.5, pp. 8–9: Lists predicted moments: 1/9 for Γ = Z/4 and the Heisenberg group mod 3, 1/27 for Γ = (Z/2)², 1/15 for (Z/5)² ⋊ Z/3 with Γ = Z/2, and 1/125 for Γ = S_3.
 
 #### Finite-index sublattices over Z_p[Γ] for p ∤ |Γ|
 
@@ -1100,49 +1104,49 @@ Let p be a prime not dividing |Γ| and L = (Z_p[Γ]/(Σ_{g∈Γ} g))^n. Every Γ
 1. Lattices are projective Z_p[Γ]-modules: a Z_p-linear splitting of Z_p[Γ] ⊗ M → M, averaged over Γ (|Γ| is a unit), is Z_p[Γ]-linear (Mathlib's Module.Projective.of_split).
 2. Reductions agree in the Grothendieck group: for T = M′/M finite, the snake lemma for multiplication by p on 0 → M → M′ → T → 0 gives an exact sequence 0 → T[p] → M/pM → M′/pM′ → T/pT → 0, and T[p], T/pT have the same composition factors (from 0 → T[p] → T → T → T/pT → 0).
 3. F_p[Γ] is semisimple (Maschke, Mathlib's MonoidAlgebra.Submodule.exists_isCompl), so M/pM ≅ M′/pM′.
-4. Lift an isomorphism M/pM → M′/pM′ to φ : M → M′ by projectivity; φ is onto by Nakayama (Mathlib's Submodule.le_of_le_smul_of_le_jacobson_bot, with p in the Jacobson radical) and injective because M and M′ are free of the same Z_p-rank.
+4. Lift an isomorphism M/pM → M′/pM′ to φ : M → M′ by projectivity over Z_p[Γ]. Restrict scalars to the commutative ring Z_p: M′ = range φ + pM′ and (p) lies in its Jacobson radical, so Mathlib's Submodule.le_of_le_smul_of_le_jacobson_bot gives surjectivity. Equal finite Z_p-ranks give injectivity. No commutative-ring Nakayama lemma is applied to the noncommutative group algebra.
 
 **Acceptance.** For Γ = Z/2, p = 3, n = 1: L = Z_3 with σ = −1 and every non-zero Γ-submodule 3^kZ_3 is isomorphic to L. The hypothesis p ∤ |Γ| is needed: for Γ = Z/2, p = 2, the sublattice of Z_2[Γ] spanned by 1 + σ and 2 has finite index but its reduction mod 2 is the trivial module twice, not F_2[Γ].
 
 **Depends on.** `Module.Projective.of_split` (Mathlib); `MonoidAlgebra.Submodule.exists_isCompl` (Mathlib); `Submodule.le_of_le_smul_of_le_jacobson_bot` (Mathlib).
 
-**Source.** LWZB, §7.1, p. 34, second paragraph: Uses that a finite-index closed Γ-submodule N_p of the pro-p abelian quotient of 𝓕_n is isomorphic to it, because Z_p[Γ] is hereditary and N_p ⊗ Q_p ≅ (𝓕_n)^𝒞_p ⊗ Q_p (citing Serre, Linear Representations, §16, Theorem 34, Corollary 2); the module is printed as Z_p[Γ]^n instead of (Z_p[Γ]/(Σg))^n (source issue E13 here).
+**Source.** lwzb, §7.1, p. 34, second paragraph: Uses that a finite-index closed Γ-submodule N_p of the pro-p abelian quotient of 𝓕_n is isomorphic to it, because Z_p[Γ] is hereditary and N_p ⊗ Q_p ≅ (𝓕_n)^𝒞_p ⊗ Q_p (citing Serre, Linear Representations, §16, Theorem 34, Corollary 2); the module is printed as Z_p[Γ]^n instead of (Z_p[Γ]/(Σg))^n (source issue E13 here).
 
 #### The abelianization: the Cohen–Lenstra–Martinet distribution (§7.1)
 
 Declaration: ArithmeticStatisticsPartII:RG.5/abelian-specialization. Kind: theorem. Planet: Cohen–Lenstra–Martinet specialization. Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/Abelian`, namespace `TauCeti.RandomGammaGroup`.
 
-Assume (SZ_Γ). Let 𝒞 be the set of all finite abelian |Γ|′-Γ-groups (or those whose orders involve only a fixed set of primes not dividing |Γ|), and H a finite abelian |Γ|′-Γ-group with H^Γ = 1. Then: (a) in every fundamental sequence 1 → R → F → H → 1 at level 𝒞 the H-action on R is trivial and F^Γ = R^Γ = H^Γ = 1, so m(𝒞, n, H, G) = 0 unless G ∈ 𝒜_H has trivial H-action; (b) for G with trivial H-action and G^Γ = 1, m(𝒞, n, H, G) = n·m_G (m_G maximal with G^{m_G} cyclic as a Γ-module, h_Γ(G)^{m_G} = |G|) and λ(𝒞, H, G) = 1; (c) μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1} |H|^{−u} ∏_{p∤|Γ|} ∏_{G} ∏_{i≥1}(1 − h_Γ(G)^{−i}|G|^{−u}), the middle product over the non-trivial irreducible F_p[Γ]-modules G (restricted to the chosen primes). For u = 1 this is the Cohen–Lenstra–Martinet distribution of the prime-to-|Γ| class groups of totally real Γ-fields; for Γ = Z/2 and u = 0, 1 its p-parts are the Cohen–Lenstra measures μ_{p,u}.
+Assume (SZ_Γ). Let 𝒞 be the set of all finite abelian |Γ|′-Γ-groups (or those whose orders involve only a fixed set of primes not dividing |Γ|), and H a finite abelian |Γ|′-Γ-group with H^Γ = 1. Then: (a) in the fundamental sequences 1 → R → F → H → 1 at finite abelian levels approximating 𝒞 the H-action on R is trivial and F^Γ = R^Γ = H^Γ = 1, so m(𝒞, n, H, G) = 0 unless G ∈ 𝒜_H has trivial H-action; (b) for G with trivial H-action and G^Γ = 1, the exhaustion multiplicity m(𝒞, n, H, G) = n·m_G (m_G maximal with G^{m_G} cyclic as a Γ-module, h_Γ(G)^{m_G} = |G|) and λ(𝒞, H, G) = 1; (c) μ_u(V_{𝒞,H}) = |Aut_Γ(H)|^{−1} |H|^{−u} ∏_{p∤|Γ|} ∏_{G} ∏_{i≥1}(1 − h_Γ(G)^{−i}|G|^{−u}), the middle product over the non-trivial irreducible F_p[Γ]-modules G (restricted to the chosen primes). For u = 1 this is the Cohen–Lenstra–Martinet distribution of the prime-to-|Γ| class groups of totally real Γ-fields; for Γ = Z/2 and u = 0, 1 its p-parts are the Cohen–Lenstra measures μ_{p,u}.
 
 **Hypotheses.** (SZ_Γ) (abelian H needs it only through the general machinery); H^Γ = 1.
 
 **Construction or proof.**
 
 1. (a) In an abelian level the kernel R is abelian with trivial F-conjugation, hence trivial H-action; (𝓕_n^ab)^Γ = 0 (RG.1/free-admissible-universal-property (d)) gives F^Γ = 1.
-2. (b) For a finite-index closed Γ-subgroup N of (𝓕_n)^𝒞, N ≅ (𝓕_n)^𝒞 one prime at a time (RG.5/coprime-lattice-lemma), so the maximal quotient of N that is a product of copies of G has G^{n m_G}, giving m = n·m_G; by (4.17) λ = lim h^{n m_G}|G|^{−n} = 1 (Remark 4.4 with |Y(G)| = |G| because G^Γ = 1).
+2. (b) Use m for infinite 𝒞 in the exhaustion sense of Definition 5.14. For a finite-index closed Γ-subgroup N of (𝓕_n)^𝒞, N ≅ (𝓕_n)^𝒞 one prime at a time (RG.5/coprime-lattice-lemma), so the maximal quotient of N that is a product of copies of G has G^{n m_G}, giving m = n·m_G; by (4.17) λ = lim h^{n m_G}|G|^{−n} = 1 (Remark 4.4 with |Y(G)| = |G| because G^Γ = 1).
 3. (c) Insert (b) into RG.4/arbitrary-level-values; |Y(H)| = |H| because H^Γ = 1; the trivial F_p[Γ]-module has m = 0 and λ = 0.
-4. For Γ = Z/2 the only non-trivial irreducible F_p[Γ]-module is F_p with σ = −1, h_Γ = p, so the p-part is |Aut H|^{−1}|H|^{−u}∏_{i>u}(1 − p^{−i}) = μ_{p,u}(H) (ArithmeticStatistics:ST.5/cohen-lenstra-measure). The agreement with Cohen–Martinet's formulation for general Γ is Wang–Wood, Proposition 6.5.
+4. For Γ = Z/2 the only non-trivial irreducible F_p[Γ]-module is F_p with σ = −1, h_Γ = p, so the p-part is |Aut H|^{−1}|H|^{−u}∏_{i>u}(1 − p^{−i}) = μ_{p,u}(H) (ArithmeticStatistics:ST.5/cohen-lenstra-measure). For general Γ, compare Wang–Wood arXiv v2, §3.2–3.3 and Proposition 6.6, p. 13 (not Proposition 6.5 in this version). Their Theorem 4.1, pp. 8–9, makes the weight |H| for totally real Γ-fields over Q because the decomposition group at the sole real place is trivial. The comparison is at each finite set of allowed primes; the global law is its compatible product. No probability law on finite abelian groups at all primes is asserted when u = 0.
 
 **Acceptance.** Γ = Z/2, H = Z/3 with σ = −1, 𝒞 the abelian 3-Γ-groups, u = 1: μ_1(V_{𝒞,H}) = (1/6)∏_{i≥2}(1 − 3^{−i}) = μ_{3,1}(Z/3). For abelian H with H^Γ = 1 the moment |H|^{−1} of RG.5/moments equals the predicted Cohen–Martinet moment ∏_v |H^{σ_v}|^{−1} of ArithmeticStatistics:ST.5/cohen-martinet-predicted-surjection-moment for totally real fields (every σ_v = 1).
 
-**Depends on.** *μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14, Theorem 5.15)* (RG.4/arbitrary-level-values); *Finite-index sublattices over Z_p[Γ] for p ∤ |Γ|* (RG.5/coprime-lattice-lemma); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); ArithmeticStatistics:ST.5/cohen-lenstra-measure; ArithmeticStatistics:ST.5/cohen-martinet-predicted-surjection-moment.
+**Depends on.** *μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14, Theorem 5.15)* (RG.4/arbitrary-level-values); *Finite-index sublattices over Z_p[Γ] for p ∤ |Γ|* (RG.5/coprime-lattice-lemma); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property); *Admissible Γ-groups: closure properties and the abelian criterion* (RG.0/admissible-gamma-groups); ArithmeticStatistics:ST.5/cohen-lenstra-measure; ArithmeticStatistics:ST.5/cohen-martinet-predicted-surjection-moment; *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level).
 
-**Source.** LWZB, §7.1, pp. 34–35: Shows that for abelian levels the multiplicities are n·m_G and λ = 1, and that μ_u restricted to finite abelian |Γ|′-Γ-groups with trivial invariants is |Aut_Γ(H)|^{−1}|H|^{−u} times a product over non-trivial irreducible F_p[Γ]-modules, the Cohen–Lenstra–Martinet distribution for u = 1.
+**Source.** lwzb, §7.1, pp. 34–35: Shows that for abelian levels the multiplicities are n·m_G and λ = 1, and that μ_u restricted to finite abelian |Γ|′-Γ-groups with trivial invariants is |Aut_Γ(H)|^{−1}|H|^{−u} times a product over non-trivial irreducible F_p[Γ]-modules, the Cohen–Lenstra–Martinet distribution for u = 1. ww, §3.2–3.3, pp. 6–7; Theorem 4.1, pp. 8–9; Proposition 6.6, p. 13: Gives the automorphism-and-size measure at finitely many allowed primes, identifies the totally real weight, and compares with the Cohen–Martinet averaging prescription. These are the locators in arXiv v2.
 
 #### The p-covering group, p-multiplicator and nucleus
 
 Declaration: ArithmeticStatisticsPartII:RG.5/p-covering-group. Kind: construction. Planet: p-covering group and nucleus. Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/BostonBushHajir`, namespace `TauCeti.RandomGammaGroup`.
 
-Let p be a prime and H a finite p-group with generator rank d = d(H) = dim_{F_p} H/Φ(H). For n ≥ d and a surjection ϖ : F → H from a free pro-p group of rank n with kernel N, put N* = N^p[N, F], F′ = F/N* and R′ = N/N* (LWZB (7.1)); R′ is elementary abelian and central in F′, and F′ is the largest quotient of F mapping onto H with kernel elementary abelian with trivial F′-action. For n = d, F′ is the p-covering group of H and R′ its p-multiplicator; r(H) = dim_{F_p} R′ = dim H²(H, F_p) is the relation rank, and for n ≥ d, dim R′ = r(H) + n − d. The lower p-central series is P_0(P) = P, P_{i+1}(P) = [P_i(P), P]·P_i(P)^p, Q_i(P) = P/P_i(P), and the p-class cl_p(H) is the least c with P_c(H) = 1. If cl_p(H) = c, the nucleus of H is P_c(F′) ≤ R′ and ν(H) = dim_{F_p} P_c(F′) is the nuclear rank. When a group Γ of order prime to p acts on H and ϖ is Γ-equivariant, N, N*, F′, R′ and P_c(F′) are Γ-stable and the constructions are Γ-equivariant; for 𝒞 the p-Γ-groups of p-class at most c, (𝓕_n)^𝒞 = Q_c((𝓕_n)_p).
+Let p be a prime and H a finite p-group with generator rank d = d(H) = dim_{F_p} H/Φ(H). For n ≥ d and a surjection ϖ : F → H from a free pro-p group of rank n with kernel N, put N* = N^p[N, F], F′ = F/N* and R′ = N/N* (LWZB (7.1)); R′ is elementary abelian and central in F′, and F′ is the largest quotient of F mapping onto H with kernel elementary abelian with trivial F′-action. For n = d, F′ is the p-covering group of H and R′ its p-multiplicator; r(H) = dim_{F_p} R′ = dim H²(H, F_p) is the relation rank, and for n ≥ d, dim R′ = r(H) + n − d. Import the lower p-central series from ProfiniteProPGroups Layer 8: P_0(P) = P, P_{i+1}(P) = closure([P_i(P), P]·P_i(P)^p), Q_i(P) = P/P_i(P), and the p-class cl_p(H) is the least c with P_c(H) = 1. If cl_p(H) = c, using a minimal presentation n = d, the nucleus of H is P_c(F′) ≤ R′ and ν(H) = dim_{F_p} P_c(F′) is the nuclear rank. When a group Γ of order prime to p acts on H and ϖ is Γ-equivariant, N, N*, F′, R′ and P_c(F′) are Γ-stable and the constructions are Γ-equivariant; for 𝒞 the p-Γ-groups of p-class at most c, (𝓕_n)^𝒞 = Q_c((𝓕_n)_p).
 
 **Hypotheses.** H a finite p-group; for the Γ-structure, p ∤ |Γ|.
 
 **Construction or proof.**
 
-1. N* is characteristic in N and normal in F, so F′ and R′ are well defined; R′ is elementary abelian and central because N^p[N, F] ⊇ N^p[N, N].
+1. N* = N^p[N,F] is normal in F and invariant under automorphisms of the pair (F,N), hence Γ-stable when the presentation is equivariant. It need not be characteristic under arbitrary automorphisms of N. Its quotient R′ is elementary abelian and central in F′.
 2. Independence of the presentation: two surjections from free pro-p groups of rank d differ by an automorphism of F (Gaschütz lifting of generators, tauceti:TauCetiRoadmap/ProfiniteProPGroups Layer 3), so F′ is unique up to isomorphism over H.
-3. dim R′ = r(H) + n − d: R′ is dual to H¹(N, F_p)^F, which the five-term sequence and H²(F, F_p) = 0 identify with H¹(F, F_p)/inflation ⊕ H²(H, F_p) of dimension (n − d) + r(H) (ProfiniteProPGroups Layer 5, the H² interpretation).
-4. The lower p-central series and p-class are ProfiniteProPGroups' pLowerCentralSeries; Q_c((𝓕_n)_p) is of level 𝒞 and universal for maps to p-groups of p-class ≤ c, which is (𝓕_n)^𝒞 (RG.1/level-completion).
+3. dim R′ = r(H) + n − d: R′ is dual to H¹(N, F_p)^F, which the five-term sequence and H²(F, F_p) = 0 identify with H¹(F, F_p)/inflation ⊕ H²(H, F_p) of dimension (n − d) + r(H) (ProfiniteProPGroups Layer 5, the H² interpretation). The five-term sequence is imported with Γ-naturality from ProfiniteCohomology Layer 5.
+4. Import ProfiniteProPGroups Layer 8's pLowerCentralSeries and pClass, with the convention P_0(P) = P. Q_c((𝓕_n)_p) is universal for maps to finite p-Γ-groups of p-class ≤ c, hence is (𝓕_n)^𝒞 by RG.1/level-completion. For nontrivial H, Gaschütz lifting splits a redundant presentation as its minimal p-cover times a central elementary abelian factor of rank n − d; P_c of that factor is trivial for c ≥ 1. Thus the nucleus and ν(H) used in the p-class formula agree with those from the minimal presentation. For H = 1 use the minimal rank-zero cover and handle the redundant presentation separately.
 
 **Uses.** LWZB Lemma 7.2: the fundamental sequence at a large p-level is (7.1); LWZB Theorem 7.4: m = r(H) − d(H) + n and λ = p^{r(H)−d(H)}; LWZB Theorem 7.5: the nuclear rank corrects the multiplicity at p-class c; Boston–Bush–Hajir measures: their formulas are expressed in d(H), r(H) and ν(H).
 
@@ -1154,8 +1158,8 @@ Let p be a prime and H a finite p-group with generator rank d = d(H) = dim_{F_p}
 - `relationRank_eq_finrank_H2` (compatibility): r(H) = dim H²(H, F_p), ProfiniteProPGroups' relation rank of a finite p-group.
 - `finrank_pMultiplicator` (relation): For a presentation of rank n ≥ d, dim R′ = r(H) + n − d.
 - `pCoveringGroup_unique` (characterisation): F′ is unique up to isomorphism over H and is the largest quotient of F over H with elementary abelian kernel on which F′ acts trivially.
-- `pClass` (data): cl_p(H), the length of the lower p-central series (ProfiniteProPGroups' pLowerCentralSeries).
-- `nucleus` (data): P_c(F′) for c = cl_p(H), a subgroup of R′.
+- `pClass` (data): Use ProfiniteProPGroups Layer 8's pClass and pLowerCentralSeries, with P_0(P) = P; this is an imported interface, not a new definition.
+- `nucleus` (data): P_c(F′) for c = cl_p(H) and the minimal presentation of rank d(H); for nontrivial H its value agrees with that from a redundant presentation.
 - `nuclearRank` (data): ν(H) = dim_{F_p} P_c(F′).
 - `pCoveringGroup_equivariant` (functoriality): For Γ of order prime to p acting on H and on F compatibly, F′, R′ and the nucleus are Γ-stable.
 - `levelCompletion_pClass` (compatibility): For 𝒞 the p-Γ-groups of p-class ≤ c, (𝓕_n)^𝒞 = Q_c((𝓕_n)_p).
@@ -1164,15 +1168,15 @@ Let p be a prime and H a finite p-group with generator rank d = d(H) = dim_{F_p}
 
 - `pCoveringGroup.test_cyclic` (computation): H = Z/p: d = 1, r = 1, the p-covering group is Z/p², the multiplicator and the nucleus are pZ/p² ≅ Z/p, cl_p = 1 and ν = 1.
 - `pCoveringGroup.test_elementary` (computation): H = (Z/p)²: d = 2 and r = 3 = d(d + 1)/2.
-- `pCoveringGroup.test_trivial` (degenerate): H = 1: d = r = 0 and F′ = 1.
+- `pCoveringGroup.test_trivial` (degenerate): H = 1: d = r = 0 and the minimal rank-zero cover is F′ = 1. For a redundant rank-n presentation, N = F and F′ = R′ = (Z/p)^n, so dim R′ = n.
 - `pCoveringGroup.test_not_schur` (non-example): The p-multiplicator is not the Schur multiplier: for H = Z/p, H_2(H, Z) = 0 while R′ ≅ Z/p.
 - `pCoveringGroup.test_H2` (compatibility): r(H) agrees with ProfiniteProPGroups' relation rank dim H²(H, F_p) for every finite p-group H.
 
 **Acceptance.** For H = (Z/p)^d, r(H) = d(d + 1)/2, the sanity value in ProfiniteProPGroups Layer 5.
 
-**Depends on.** tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation; tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations; *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); `TauCeti.IsProP` (Tau Ceti).
+**Depends on.** tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation; tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations; *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); `TauCeti.IsProP` (Tau Ceti); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy; tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences; *Homomorphisms out of 𝓕_n (Corollary 3.8, Corollary 3.10, finiteness)* (RG.1/free-admissible-universal-property).
 
-**Source.** LWZB, §7.2.1, (7.1) and the paragraph before Theorem 7.4, pp. 34–35; §7.2.2, pp. 35–36: Defines N* = N^p[N, (𝓕_n)_p], R′, F′ and the sequence (7.1), names F′ the p-covering group, R′ the p-multiplicator (printed as 'p-multiplicator rank', source issue E14 here) with dimension the relation rank, and defines the lower p-central series, p-class, nucleus and nuclear rank. LW20, Lemma 12.5 with proof, p. 37: For a finite p-group H of generator rank d and S all finite p-groups, the multiplicity of Z/p with trivial action is r(H) at n = d and r(H) + n − d for n ≥ d, through the p-covering group.
+**Source.** lwzb, §7.2.1, (7.1) and the paragraph before Theorem 7.4, pp. 34–35; §7.2.2, pp. 35–36: Defines N* = N^p[N, (𝓕_n)_p], R′, F′ and the sequence (7.1), names F′ the p-covering group, R′ the p-multiplicator (printed as 'p-multiplicator rank', source issue E14 here) with dimension the relation rank, and defines the lower p-central series, p-class, nucleus and nuclear rank. lw20, Lemma 12.5 with proof, p. 34: For a finite p-group H of generator rank d and S all finite p-groups, the multiplicity of Z/p with trivial action is r(H) at n = d and r(H) + n − d for n ≥ d, through the p-covering group.
 
 #### The pro-p specialization: Boston–Bush–Hajir (Lemma 7.2, Theorem 7.4)
 
@@ -1186,14 +1190,14 @@ Let Γ = Z/2 = ⟨σ⟩, p an odd prime and u an integer. (Lemma 7.2) If H is an
 
 1. Lemma 7.2: by the Y-generation of the kernel, σ acts by −1 on every irreducible factor G of R; as G is an irreducible p-group-module it is Z/p with trivial H-action, so F′ → H factors through F; conversely F → H factors through the largest level-𝒞 quotient of F′.
 2. Theorem 7.4: by RG.4/arbitrary-level-values only G = Z/p (trivial H-action, σ = −1) has λ ≠ 0, with |Y(G)| = h_{H⋊Γ}(G) = p; m(𝒞, n, H, G) = r(H) − d(H) + n (Liu–Wood Lemma 12.5 with RG.5/p-covering-group), so λ = p^{r(H)−d(H)} by (4.17).
-3. Then ∏_{i≥1}(1 − p^{r−d}p^{−i}p^{−u}) = ∏_{j≥1+u+d−r}(1 − p^{−j}); the vanishing case is the support statement of RG.4/arbitrary-level-values (H without Property E, equivalently not of the stated form by RG.1/property-e-criterion).
-4. Agreement with Boston–Bush–Hajir: for u = 0 Boston–Wood Lemma 4.8, for u = 1 Boston–Bush–Hajir (2021), Theorem 2.22, with equality of supports from Boston–Bush–Hajir (2017), Lemma 2.7, and (2021), Lemma 2.8.
+3. The index change gives the displayed product. For the zero case distinguish two obstructions. Failure of admissibility or Property E gives measure 0 by RG.4/arbitrary-level-values. If H has Property E at the pro-p level, its presentation kernel has only sign factors, and its least number of Y-relation tuples in rank n is r(H) + n − d(H), by generation in R/R*. An exact n + u presentation is possible only if r(H) − d(H) ≤ u (padding by redundant tuples is allowed); if this fails, the displayed product contains the i = 0 factor and is 0. Property E characterizes the existence of some Y-presentation, not a presentation with a prescribed n + u tuples.
+4. For u = 0 compare Boston–Wood arXiv v2, §3, pp. 5–7, and Lemma 4.8, pp. 10–11: the formula is conditional on generator rank d and must be multiplied by its Cohen–Lenstra rank probability. For u = 1 compare Boston–Bush–Hajir arXiv v1, Definitions 2.2–2.3, p. 2, Lemma 2.8, p. 5, and Theorem 2.22 with proof, pp. 9–11; their Meas is also conditional on rank. The real-quadratic rank weight is p^{−d(d+1)}∏_{i≥1}(1−p^{−i})/(∏_{i=1}^{d}(1−p^{−i})∏_{i=1}^{d+1}(1−p^{−i})). Multiplication gives precisely the displayed μ_1 formula. Property E supplies inversion on the relation module, and the bound r−d≤u supplies the allowed number of relations. These directly checked presentations and counting arguments replace the unverified locator BBH (2017), Lemma 2.7.
 
-**Acceptance.** H = Z/3 (σ = −1), u = 1: d = r = 1 and μ_1(V_{𝒞,H}) = (1/6)∏_{i≥2}(1 − 3^{−i}) = μ_{3,1}(Z/3), consistent with RG.5/abelian-specialization because a cyclic 3-class group has trivial 3-class field tower beyond it. H = 1: μ_u(V_{𝒞,1}) = ∏_{i≥1+u}(1 − p^{−i}), the Cohen–Lenstra probability of a trivial p-part. H = F_3² with σ = −1 is not of the stated form (it lacks Property E), so μ_u(V_{𝒞,H}) = 0.
+**Acceptance.** H = Z/3 (σ = −1), u = 1: d = r = 1 and μ_1(V_{𝒞,H}) = (1/6)∏_{i≥2}(1 − 3^{−i}) = μ_{3,1}(Z/3), consistent with RG.5/abelian-specialization because a cyclic 3-class group has trivial 3-class field tower beyond it. H = 1: μ_u(V_{𝒞,1}) = ∏_{i≥1+u}(1 − p^{−i}), the Cohen–Lenstra probability of a trivial p-part. H = F_3² with σ = −1 is not of the stated form (it lacks Property E), so μ_u(V_{𝒞,H}) = 0. H = Z/3 with inversion has Property E at the pro-3 level and r = d = 1. At u = −1 it has no rank-n presentation by n − 1 Y-tuples and has μ_{−1}-mass 0, since the product starts at i = 0. This distinguishes Property E from the fixed-relation-count support condition.
 
 **Depends on.** *The p-covering group, p-multiplicator and nucleus* (RG.5/p-covering-group); *μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14, Theorem 5.15)* (RG.4/arbitrary-level-values); *The fundamental short exact sequence and the multiplicities m(𝒞, n, H, G)* (RG.3/fundamental-exact-sequence); *The λ-invariants λ(𝒞, H, G)* (RG.3/lambda-invariants); *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion).
 
-**Source.** LWZB, Lemma 7.2, Remark 7.3 and Theorem 7.4 with proofs, pp. 35–36: Identifies the fundamental sequence at p-levels with the p-covering-group sequence and computes μ_u(V_{𝒞,H}) on pro-p completions for Γ = Z/2 through the multiplicity r(H) − d(H) + n. LW20, Lemma 12.5, p. 37: Supplies the multiplicity r(H) + n − d of the trivial module Z/p for p-groups.
+**Source.** lwzb, Lemma 7.2, Remark 7.3 and Theorem 7.4 with proofs, pp. 35–36: Identifies the fundamental sequence at p-levels with the p-covering-group sequence and computes μ_u(V_{𝒞,H}) on pro-p completions for Γ = Z/2 through the multiplicity r(H) − d(H) + n. lw20, Lemma 12.5, p. 34: Supplies the multiplicity r(H) + n − d of the trivial module Z/p for p-groups. bw17, §3, pp. 5–7; Lemma 4.8 with proof, pp. 10–11: Defines the imaginary-quadratic measure as a mixture over Cohen–Lenstra generator ranks and calculates its class-c cylinder probabilities, with h_c = r−ν at class c and r below class c. bbhreal, Definitions 2.2–2.3, p. 2; Lemma 2.8, p. 5; Theorem 2.22 with proof, pp. 9–11; §3, pp. 13–14: Specifies the real-quadratic presentation support and conditional-rank probabilities. Multiplying by the real Cohen–Lenstra rank weight gives the u = 1 cylinder and singleton formulas.
 
 #### The p-class-c specialization (Theorem 7.5)
 
@@ -1209,24 +1213,28 @@ Let Γ = Z/2, p odd, u an integer, c ≥ 1, and 𝒞 the set of finite p-Γ-grou
 2. If cl_p(H) < c, P_c(F′) = 1 because P_{c−1}(F′) lies in the elementary abelian central kernel; so F′ is of p-class ≤ c and the fundamental sequence is (7.1) (Remark 7.3).
 3. If cl_p(H) = c, P_c((𝓕_n)_p) ≤ N and the fundamental sequence is F′/P_c(F′) → H with kernel R′/P_c(F′), of dimension r(H) − ν(H) + n − d(H).
 4. Insert the multiplicities into RG.4/arbitrary-level-values as in Theorem 7.4.
+5. For the zero case repeat the two-obstruction argument of RG.5/boston-bush-hajir-pro-p at the class-c level. Under Property E the necessary Y-relation count is n + r − d when cl_p(H) < c, and n + r − ν − d when cl_p(H) = c. Failure of the corresponding bound makes an i = 0 factor occur; absence of Property E gives measure 0 independently.
+6. For the BBH comparison use the same conditional-rank normalization as in RG.5/boston-bush-hajir-pro-p, replacing r by h_c = r−ν at exact p-class c and by r below class c. Boston–Wood Lemma 4.8 and Boston–Bush–Hajir Theorem 2.22 calculate these two cases. The Y-presentation support is read at the class-c level, not inferred merely from Property E without the rank bound.
 
 **Acceptance.** c = 1: the p-class-1 groups are the elementary abelian p-Γ-groups; for H = F_p^d (σ = −1), ν(H) = r(H) and μ_u(V_{𝒞,H}) = |GL_d(F_p)|^{−1}p^{−du}∏_{i≥1+u+d}(1 − p^{−i}), the Cohen–Lenstra probability that the p-rank is d.
 
 **Depends on.** *The pro-p specialization: Boston–Bush–Hajir (Lemma 7.2, Theorem 7.4)* (RG.5/boston-bush-hajir-pro-p); *The p-covering group, p-multiplicator and nucleus* (RG.5/p-covering-group); *μ_u on V_{𝒞,H} for arbitrary 𝒞 (Definition 5.14, Theorem 5.15)* (RG.4/arbitrary-level-values).
 
-**Source.** LWZB, §7.2.2 and Theorem 7.5, pp. 35–36: Computes μ_u on p-Γ-groups of p-class at most c, with the nuclear rank correcting the multiplicity when the p-class of H is exactly c, and identifies the u = 0, 1 cases with the Boston–Bush–Hajir measures.
+**Source.** lwzb, §7.2.2 and Theorem 7.5, pp. 35–36: Computes μ_u on p-Γ-groups of p-class at most c, with the nuclear rank correcting the multiplicity when the p-class of H is exactly c, and identifies the u = 0, 1 cases with the Boston–Bush–Hajir measures. bw17, §3, pp. 5–7; Lemma 4.8 with proof, pp. 10–11: Defines the imaginary-quadratic measure as a mixture over Cohen–Lenstra generator ranks and calculates its class-c cylinder probabilities, with h_c = r−ν at class c and r below class c. bbhreal, Definitions 2.2–2.3, p. 2; Lemma 2.8, p. 5; Theorem 2.22 with proof, pp. 9–11; §3, pp. 13–14: Specifies the real-quadratic presentation support and conditional-rank probabilities. Multiplying by the real Cohen–Lenstra rank weight gives the u = 1 cylinder and singleton formulas.
 
 ### RG.6. The arithmetic interface: the conjecture and p-class towers
 
 **Targets.**
-- *Conjecture 1.3*, as a proposition: for Q = Q or F_q(t) (q prime to |Γ|), Δ = 2|Γ| or q(q−1)|Γ|, and finite 𝒞 of Γ-groups of order prime to Δ, the totally real Γ-extensions ordered by radical discriminant have Gal(K^#/K)^𝒞 ≅ H^𝒞 with frequency μ_Γ(U_{𝒞,H}), and average |Sur_Γ(Gal(K^#/K), H)| equal to [H : H^Γ]^{−1}.
-- *Consistency*: Gal(K^#/K)^𝒞 is a finite admissible Γ-group with Property E at level 𝒞, the support condition of μ_Γ; the abelian part is the Cohen–Lenstra–Martinet prediction for the prime-to-Δ class group.
+- *Conjecture 1.3*, as a proposition: for Q = Q or F_q(t) (q prime to |Γ|), Δ = 2|Γ| or q(q−1)|Γ|, and finite 𝒞 of Γ-groups of order prime to Δ, the totally real Γ-extensions ordered by radical discriminant have Gal(K^#/K)^𝒞 ≅ H^𝒞 with frequency μ_Γ(U_{𝒞,H^𝒞}), and average |Sur_Γ(Gal(K^#/K), H)| equal to [H : H^Γ]^{−1}.
+- *Consistency for the totally real family*: Gal(K^#/K)^𝒞 is a finite admissible Γ-group with Property E at level 𝒞, the support condition of μ_Γ; the abelian part is the Cohen–Lenstra–Martinet prediction for the prime-to-Δ class group.
 - *Function-field moments*: ArithmeticStatistics:ST.5's form of LWZB Theorem 1.4 identifies the q → ∞ moments with the μ_Γ-moments of RG.5.
-- *p-class towers in the model (Lemma 3.17, Proposition 3.22)*: for p ∤ Δ with μ_p ⊄ K and n large, the maximal pro-p quotient of Gal(K^#/K) is (𝓕_n)_p/[Y(S)] with |S| = n + 1.
+- *p-class towers in the model (Lemma 3.17, Proposition 3.22)*: for totally real K/Q and p ∤ Δ with μ_p ⊄ K and n large, the maximal pro-p quotient of Gal(K^#/K) is (𝓕_n)_p/[Y(S)] with |S| = n + 1.
 
 **Imports.** Gal(K^#/K) as an admissible Γ-group with Property E: InverseGaloisAndArithmeticFundamentalGroups:IG.4; the H² bound for the maximal unramified pro-p extension and the Galois structure of units mod p: ArithmeticGaloisDuality:R02.3; class field theory: tauceti:TauCetiRoadmap/ClassFieldTheory and FunctionFieldArithmetic:FA.4.
 
 **Acceptance.** The conjecture's abelian specialization for Γ = Z/2 is the real-quadratic Cohen–Lenstra prediction; the q → ∞ moment of ST.5 equals ∫|Sur_Γ(X, H)| dμ_Γ.
+
+Finiteness of arithmetic level completions uses smallness, the bounded chief factors of a finite level (Liu–Wood Corollary 6.13), and the primitive-quotient bound, followed by the finite-word-function argument of RG.1. The function-field relation-module argument uses the complete curve and the p-adically completed Picard group, including its degree component; affine units are not just constants.
 
 Layer dependencies: ArithmeticStatisticsPartII:RG.5, InverseGaloisAndArithmeticFundamentalGroups:IG.4, ArithmeticGaloisDuality:R02.3, ArithmeticStatistics:ST.5, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence.
 
@@ -1241,7 +1249,7 @@ Let Q be Q, or F_q(t) with q prime to |Γ|, and Δ = 2|Γ| for Q = Q, Δ = q(q �
 **Construction or proof.**
 
 1. E_Γ(D, Q) is finite: the discriminant of K/Q is bounded in terms of D and |Γ|, and Hermite's theorem (Mathlib's NumberField.finite_of_discr_bdd) or its function-field analogue applies.
-2. Gal(K^#/K)^𝒞 is finite for finite 𝒞 (RG.6/conjecture-consistency), so the counts in (i) are counts of finitely many conditions.
+2. The event in (i) is defined by the level-completion functor and the finite target H^𝒞; the assertion that the arithmetic groups lie in 𝒫 is a separate consistency theorem below, not an input to defining this proposition. No theorem about the conjectured frequencies is assumed.
 3. The right sides are μ_Γ of a basic open (RG.4/weak-convergence) and the moment of RG.5/moments; both statements are propositions about limits of explicit finite averages.
 
 **Uses.** ArithmeticStatistics:ST.5/liu-wood-zureick-brown-function-field-moments: proves form (ii) over F_q(t) in the iterated limit q → ∞ then b → ∞; LWZB §1.2–1.3: it implies the Cohen–Martinet and Boston–Bush–Hajir predictions; RG.6/conjecture-consistency: the Galois groups lie in the support of μ_Γ; RG.6/function-field-moment-comparison: the proven function-field moments equal the μ_Γ-moments.
@@ -1267,28 +1275,28 @@ Let Q be Q, or F_q(t) with q prime to |Γ|, and Δ = 2|Γ| for Q = Q, Δ = q(q �
 
 **Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups; *Convergence of the random Γ-groups (Theorem 1.2)* (RG.4/weak-convergence); *The moments of μ_u (Theorem 6.2)* (RG.5/moments); `NumberField.finite_of_discr_bdd` (Mathlib).
 
-**Source.** LWZB, §1.2, pp. 2–3, the definitions before Conjecture 1.3 and Conjecture 1.3: Defines Δ, K^#, totally real Γ-extensions, the radical discriminant and E_Γ(D, Q), and conjectures that the Gal(K^#/K) are equidistributed for μ_Γ when fields are ordered by radical discriminant, in the two test-function forms (i) and (ii). LWZB, §1.6, p. 9: Explains the choice of the radical discriminant and of finitely many primes, and why roots of unity of the base field are avoided.
+**Source.** lwzb, §1.2, pp. 2–3, the definitions before Conjecture 1.3 and Conjecture 1.3: Defines Δ, K^#, totally real Γ-extensions, the radical discriminant and E_Γ(D, Q), and conjectures that the Gal(K^#/K) are equidistributed for μ_Γ when fields are ordered by radical discriminant, in the two test-function forms (i) and (ii). lwzb, §1.6, p. 9: Explains the choice of the radical discriminant and of finitely many primes, and why roots of unity of the base field are avoided.
 
 #### The Galois groups lie in the support of μ_Γ
 
 Declaration: ArithmeticStatisticsPartII:RG.6/conjecture-consistency. Kind: theorem. Planet: Consistency with the Galois side. Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/Conjecture`, namespace `TauCeti.RandomGammaGroup`.
 
-Assume (SZ_Γ). Let K/Q be a Γ-extension (Q = Q or F_q(t)) and 𝒞 a finite set of finite Γ-groups of order prime to Δ. (a) Gal(K^#/K)^𝒞 is a finite admissible Γ-group with Property E at level 𝒞, and the class of Gal(K^#/K) lies in 𝒫. (b) μ_Γ(U_{𝒞,H}) = 0 unless H is admissible with Property E at level 𝒞, so form (i) of the conjecture predicts positive frequency only for groups the Galois side allows. (c) Gal(K^#/K)^ab is the prime-to-Δ part of the class group (Cl(O_K) for Q = Q; the prime-to-q(q−1)|Γ| part of Cl(O_K), O_K the integral closure of F_q[t], for Q = F_q(t)); hence at abelian levels form (i) is the Cohen–Lenstra–Martinet prediction with u = 1 (RG.5/abelian-specialization).
+Assume (SZ_Γ). Let K/Q be a totally real Γ-extension (Q = Q or F_q(t)) and 𝒞 a finite set of finite Γ-groups of order prime to Δ. (a) Gal(K^#/K)^𝒞 is a finite admissible Γ-group with Property E at level 𝒞, and the class of Gal(K^#/K) lies in 𝒫. (b) μ_Γ(U_{𝒞,H}) = 0 unless H is admissible with Property E at level 𝒞, so form (i) of the conjecture predicts positive frequency only for groups the Galois side allows. (c) Gal(K^#/K)^ab is the prime-to-Δ part of the class group (Cl(O_K) for Q = Q; the prime-to-q(q−1)|Γ| part of Cl(O_K), O_K the integral closure of F_q[t], for Q = F_q(t)); hence at abelian levels form (i) is the Cohen–Lenstra–Martinet prediction with u = 1 (RG.5/abelian-specialization).
 
-**Hypotheses.** (SZ_Γ); K a Γ-extension of Q or F_q(t).
+**Hypotheses.** (SZ_Γ); K a Γ-extension of Q or F_q(t).; K/Q is split completely above ∞ (the totally real family of Conjecture 1.3).
 
 **Construction or proof.**
 
 1. (a) Admissibility is LWZB Proposition 2.2 and Property E for Δ′-Γ-groups is Theorem 2.5 (InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups and IG.4/unramified-property-e); RG.1/property-e-at-level (b) passes Property E to the level-𝒞 completion.
-2. Finiteness of Gal(K^#/K)^𝒞: K has finitely many unramified extensions of bounded degree (Hermite), so finitely many Γ-maps to the members of 𝒞, and the intersection of their kernels has finite index; this places the class in 𝒫.
+2. Finiteness uses smallness, not an unsupported lift of maps to quotients of 𝒞. Unramified extensions of bounded degree are finite in number (Hermite over number fields; the bounded-degree finite étale-cover statement over a finite constant field is requested from FunctionFieldArithmetic). Therefore G = Gal(K^#/K), and every quotient of G, has finitely many open subgroups of each index. For finite 𝒞, Liu–Wood Corollary 6.13 bounds the orders of all possible chief factors of finite quotients of G^𝒞. A finite primitive quotient P has a transitive minimal normal subgroup M; its centralizer is semiregular, so |C_P(M)| ≤ |M| and |P| ≤ |M||Aut(M)|. Thus all maximal open subgroups of G^𝒞 have bounded index. There are finitely many by smallness, making the Frattini subgroup open. Lift generators of the finite Frattini quotient; a proper closed subgroup lies in a maximal open subgroup, so the lifts generate G^𝒞. Apply RG.1/level-completion's finite-word-function argument to conclude G^𝒞 is finite. This works for every finite level, placing G in 𝒫 without asserting G itself is finitely generated.
 3. (b) is the support clause of RG.4/weak-convergence.
 4. (c) is class field theory: the maximal unramified abelian extension split completely at the infinite places is the Hilbert class field (tauceti:TauCetiRoadmap/ClassFieldTheory Layer 12) or, over F_q(t), the extension with Galois group Cl(O_K) (FunctionFieldArithmetic:FA.4); restrict to the prime-to-Δ part.
 
-**Acceptance.** For Γ = Z/2 and Q = Q, Gal(K^#/K)^ab is the odd part of the class group of the real quadratic field K, and its abelian level-3 predictions are the u = 1 Cohen–Lenstra probabilities. For Γ = Z/2, p = 3 and H = F_3² with σ = −1 at 3-class ≤ 2, no real quadratic K has Gal(K^#/K)^𝒞 ≅ H, consistently with μ_Γ(U_{𝒞,H}) = 0.
+**Acceptance.** For Γ = Z/2 and Q = Q, Gal(K^#/K)^ab is the odd part of the class group of the real quadratic field K, and its abelian level-3 predictions are the u = 1 Cohen–Lenstra probabilities. For Γ = Z/2, p = 3 and H = F_3² with σ = −1, at the finite level of the RG.3 counterexample no totally real Γ-field has Gal(K^#/K)^𝒞 ≅ H, consistently with μ_Γ(U_{𝒞,H}) = 0. The full infinite class of 3-class ≤2 groups uses V_{𝒞,H}.
 
-**Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups; InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-property-e; *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level); *Convergence of the random Γ-groups (Theorem 1.2)* (RG.4/weak-convergence); *The abelianization: the Cohen–Lenstra–Martinet distribution (§7.1)* (RG.5/abelian-specialization); *The Liu–Wood–Zureick-Brown conjecture (Conjecture 1.3), as a proposition* (RG.6/lwzb-conjecture); tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence; FunctionFieldArithmetic:FA.4; `NumberField.finite_of_discr_bdd` (Mathlib).
+**Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups; InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-property-e; *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level); *Convergence of the random Γ-groups (Theorem 1.2)* (RG.4/weak-convergence); *The abelianization: the Cohen–Lenstra–Martinet distribution (§7.1)* (RG.5/abelian-specialization); *The Liu–Wood–Zureick-Brown conjecture (Conjecture 1.3), as a proposition* (RG.6/lwzb-conjecture); tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence; FunctionFieldArithmetic:FA.4; `NumberField.finite_of_discr_bdd` (Mathlib); *Chief factor pairs of finite groups (Liu–Wood §6)* (RG.4/chief-factor-pairs); *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion); ArithmeticGaloisDuality:R02.3/hermite-unramified-outside-finite.
 
-**Source.** LWZB, §2, Proposition 2.2 and Theorem 2.5, pp. 10–13: Proves that Gal(K^#/K) is admissible and has Property E in the category of Δ′-Γ-groups, the two facts the model is built to respect. LWZB, §1.2, p. 3, and §1.5, p. 6: Notes that Gal(K^#/K)^ab is the prime-to-Δ part of the class group by class field theory, and that Gal(K^un/K)^𝒞 is a finite admissible Γ-group for finite 𝒞.
+**Source.** lwzb, §2, Proposition 2.2 and Theorem 2.5, pp. 10–13: Proves that Gal(K^#/K) is admissible and has Property E in the category of Δ′-Γ-groups, the two facts the model is built to respect. lwzb, §1.2, p. 3, and §1.5, p. 6: Notes that Gal(K^#/K)^ab is the prime-to-Δ part of the class group by class field theory, and that Gal(K^un/K)^𝒞 is a finite admissible Γ-group for finite 𝒞. lw20, Corollary 6.13, p. 14: Bounds the chief pairs throughout a level generated by finitely many groups. The review combines this with smallness and the primitive-quotient bound to justify finiteness of arithmetic level completions.
 
 #### Function-field moments agree with the moments of μ_Γ
 
@@ -1308,42 +1316,55 @@ Assume (SZ_Γ). Let H be a finite admissible Γ-group and q range over prime pow
 
 **Depends on.** ArithmeticStatistics:ST.5/liu-wood-zureick-brown-function-field-moments; ArithmeticStatistics:ST.5/cohen-lenstra-martinet-moments-over-function-fields; *The moments of μ_u (Theorem 6.2)* (RG.5/moments); *The Liu–Wood–Zureick-Brown conjecture (Conjecture 1.3), as a proposition* (RG.6/lwzb-conjecture).
 
-**Source.** LWZB, Theorem 1.4 and Corollary 1.5, pp. 3–4: States that the q → ∞ function-field moments of Gal(K^#/K) are the μ_Γ-moments [H : H^Γ]^{−1}, with the class-group corollary |H|^{−1}; ArithmeticStatistics ST.5 owns the proof and records the lim sup/lim inf reading.
+**Source.** lwzb, Theorem 1.4 and Corollary 1.5, pp. 3–4: States that the q → ∞ function-field moments of Gal(K^#/K) are the μ_Γ-moments [H : H^Γ]^{−1}, with the class-group corollary |H|^{−1}; ArithmeticStatistics ST.5 owns the proof and records the lim sup/lim inf reading.
 
 #### p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)
 
 Declaration: ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model. Kind: theorem. Planet: p-class towers in the model (Proposition 3.22). Proposed module: `TauCeti/NumberTheory/ArithmeticStatistics/RandomGammaGroups/Conjecture`, namespace `TauCeti.RandomGammaGroup`.
 
-Assume (SZ_Γ). Let K/Q be a Γ-extension (Q = Q or F_q(t)) and p ∤ Δ a prime with μ_p ⊄ K. Let G_{K,p} be the maximal pro-p quotient of Gal(K^#/K) (the Galois group of the maximal unramified pro-p extension of K split completely above ∞) and G̃_{K,p} the Galois group of the maximal unramified pro-p extension of K. (Lemma 3.17) For the presentations ρ : F → G̃_{K,p} of §3.3 (F = (F_n)_p over Q, F = (F_{n+1})_p over F_q(t), the extra generator mapping to a decomposition group at an infinite place), N = ker ρ and N* = [N, F]N^p, there is an F_p[Γ]-surjection F_p[Γ]^{n+1} → N/N*. (Proposition 3.22) If n is so large that G_{K,p} = [Y({h_1, …, h_n})] for some h_i ∈ G_{K,p}, then G_{K,p} ≅ (𝓕_n)_p/[Y(S)] for a subset S ⊆ (𝓕_n)_p with |S| = n + 1. So every p-class tower group of a totally real Γ-field is of the shape of the random groups X_{1,n}.
+Assume (SZ_Γ). Let K/Q be a totally real Γ-extension (Q = Q or F_q(t)) and p ∤ Δ a prime with μ_p ⊄ K. Let G_{K,p} be the maximal pro-p quotient of Gal(K^#/K) (the Galois group of the maximal unramified pro-p extension of K split completely above ∞) and G̃_{K,p} the Galois group of the maximal unramified pro-p extension of K. (Lemma 3.17) For the presentations ρ : F → G̃_{K,p} of §3.3 (F = (F_n)_p over Q, F = (F_{n+1})_p over F_q(t), the extra generator mapping to a decomposition group at an infinite place), N = ker ρ and N* = [N, F]N^p, there is an F_p[Γ]-surjection F_p[Γ]^{n+1} → N/N*. (Proposition 3.22) If n is so large that G_{K,p} = [Y({h_1, …, h_n})] for some h_i ∈ G_{K,p}, then G_{K,p} ≅ (𝓕_n)_p/[Y(S)] for a subset S ⊆ (𝓕_n)_p with |S| = n + 1. So every p-class tower group of a totally real Γ-field is of the shape of the random groups X_{1,n}.
 
-**Hypotheses.** (SZ_Γ); p ∤ Δ; μ_p ⊄ K.
+**Hypotheses.** (SZ_Γ); p ∤ Δ; μ_p ⊄ K.; K/Q is split completely above ∞ (the totally real family of Conjecture 1.3).
 
 **Construction or proof.**
 
 1. G_{K,p} is finitely presented and admissible (Koch, Chapter 11; IG.4/unramified-gamma-groups), so the h_i exist for n large.
 2. Lemma 3.17: by the five-term sequence (tauceti:TauCetiRoadmap/ProfiniteCohomology Layer 5) and H²(F, F_p) = 0 for free pro-p F (ProfiniteProPGroups Layer 5), (N/N*)^∨ = H¹(N, F_p)^F is an extension of H²(G̃_{K,p}, F_p) by the image of restriction, which is (N/(N ∩ Φ(F)))^∨; F_p[Γ] is semisimple, so it splits.
-3. H²(G̃_{K,p}, F_p) embeds into (V/K^{×p})^∨ (Koch, Theorem 11.3; requested from ArithmeticGaloisDuality:R02.3), and V/K^{×p} is an extension of Cl(O_K)[p] by O_K^×/O_K^{×p}, which embeds in F_p[Γ]/(Σg) (Neukirch–Schmidt–Wingberg, Corollary 8.7.3; same request). Counting F_p[Γ]-ranks gives the surjection from F_p[Γ]^{n+1}. In the function-field case the units and class group must be those of the complete curve C_K (constant units, Pic(C_K)), because O_K^× is not F_{q^r}^× for totally real K with Γ ≠ 1 (source issue E15 here).
+3. Use the explicitly requested Γ-equivariant arithmetic input: H²(G̃_{K,p},F_p) embeds in (V/K^{×p})^∨. Over number fields V/K^{×p} is an extension of Cl(O_K)[p] by units mod p; the unit module embeds in the augmentation quotient of F_p[Γ]. Semisimplicity identifies the class-group p-torsion and mod-p modules and cancels their dual constituents against H¹(G̃_{K,p},F_p) in the five-term sequence. The regular module F/Φ(F) plus one augmentation quotient then bounds (N/N*)^∨ constituent by constituent, yielding F_p[Γ]^{n+1} → N/N*. Over function fields use complete-curve constants and Pic(C_K)[p], with the p-adically completed Picard group in unramified abelianization; the degree component contributes a trivial module to H¹. Constant units mod p vanish under μ_p ⊄ K, so regular rank n + 1 suffices. Affine O_K-units have rank |Γ| − 1 and cannot be replaced by constants (E15). The duality and unit-module inputs remain explicit supplier requests, not results read in the uncleared Koch or NSW books.
 4. Proposition 3.22: G_{K,p} has Property E for pro-p Γ-groups (Theorem 2.5 with RG.1/property-e-at-level (c)), so R = ker ϖ = [Y(R)] by RG.1/property-e-criterion and (R/R*)^Γ = 0; the surjection of Lemma 3.17 then factors through (F_p[Γ]/(Σg))^{n+1} → R/R*, which is Γ-generated by Y-coordinates of n + 1 elements; lift them to S ⊆ R (generation theory: elements generate R as a closed normal subgroup iff their images generate R/R*, ProfiniteProPGroups Layer 5).
 
 **Acceptance.** For Γ = Z/2, Q = Q and p odd with K real quadratic, the 3-class tower group of K is a quotient of (𝓕_n)_3 ≅ the free pro-3 group of rank n (σ inverting the generators) by n + 1 Y-relations. The conclusion is about the shape of G_{K,p}; it does not assert that G_{K,p} is finite.
 
 **Depends on.** InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups; InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-property-e; *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level); *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion); *The free admissible Γ-group 𝓕_n (Lemma 3.1, Remark 3.2)* (RG.1/free-admissible-gamma-group); tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations; tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences; ArithmeticGaloisDuality:R02.3; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence; FunctionFieldArithmetic:FA.4.
 
-**Source.** LWZB, §3.3, Lemma 3.17 and Proposition 3.22 with proofs, pp. 17–20: Shows, through the Hochschild–Serre sequence, Koch's bound for H² of the maximal unramified pro-p extension and the Galois structure of the units, that N/N* is an F_p[Γ]-quotient of F_p[Γ]^{n+1}, and deduces from Property E that the p-class tower group is (𝓕_n)_p modulo n + 1 Y-relations.
+**Source.** lwzb, §3.3, Lemma 3.17 and Proposition 3.22 with proofs, pp. 17–20: Shows, through the Hochschild–Serre sequence, Koch's bound for H² of the maximal unramified pro-p extension and the Galois structure of the units, that N/N* is an F_p[Γ]-quotient of F_p[Γ]^{n+1}, and deduces from Property E that the p-class tower group is (𝓕_n)_p modulo n + 1 Y-relations.
 
-## Dependencies on other roadmaps
+## Coverage and imports
 
-- **InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e.** State Property E for an arbitrary full subcategory 𝒦 of Γ-groups closed under isomorphism (LWZB Definition 2.3): H ∈ 𝒦 has Property E for 𝒦 if every Γ-surjection H → G lifts to a Γ-surjection H → G̃ along every non-split central extension 1 → Z/p → G̃ → G → 1 in 𝒦 with trivial Γ-action on Z/p; the pro-Δ′ Γ-groups are one instance. The uses here take 𝒦 = Γ-groups of level 𝒞 and 𝒦 = pro-p Γ-groups. Needed by: *Property E relative to a level: restriction and completion* (RG.1/property-e-at-level), *Property E as the shape of the relations (Proposition 3.13)* (RG.1/property-e-criterion).
-- **InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements.** Record that conjugacy of complements in the finite and profinite Schur–Zassenhaus theorem holds without further input when the normal subgroup or the quotient is (pro)solvable, and in general rests on the Feit–Thompson theorem; state the conjugacy half with that hypothesis (or an imported Feit–Thompson) so that consumers can track it. The consumers here use it as the hypothesis (SZ_Γ) of RG.0/coprime-conjugacy-hypothesis. Needed by: *The coprime conjugacy hypothesis (SZ)* (RG.0/coprime-conjugacy-hypothesis), *Sections of G ⋊ Γ and the fibres of Y (Lemmas 3.4–3.6)* (RG.0/sections-and-y).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations.** Inverse limits of finite discrete quotients of profinite groups, closed normal subgroups and quotients, and compactness of inverse limits of non-empty finite sets (used for level-𝒞 completions and the level-tower injectivity of 𝒫). Needed by: *Level-𝒞 closure and the pro-𝒞 completion of a Γ-group* (RG.1/level-completion), *The space 𝒫 of admissible Γ-groups* (RG.2/space-of-admissible-gamma-groups).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index.** The supernatural order TauCeti.profiniteOrder and its behaviour under closed subgroups, quotients and finite products, to define pro-n′ Γ-groups. Needed by: *Γ-groups and their equivariant maps* (RG.0/gamma-group).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets.** The free pro-C group on a finite set for C the (extension-closed) class of finite groups of order prime to a fixed integer, with its universal property and functoriality in the generating set (so that a permutation of the basis induces an automorphism); and the free pro-p group on a finite set. Tau Ceti's main branch has TauCeti.freeProC; the pinned commit f790474 does not. Needed by: *The free pro-|Γ|′ Γ-group F_n(Γ)* (RG.1/free-gamma-group).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation.** The lower p-central series (pLowerCentralSeries), the Frattini subgroup and generator rank d(G) = dim G/Φ(G), and Gaschütz lifting of generating tuples for pro-p groups. Needed by: *The p-covering group, p-multiplicator and nucleus* (RG.5/p-covering-group).
-- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations.** Presentations of finitely generated pro-p groups: H²(F, F_p) = 0 for free pro-p F; for 1 → R → F → G → 1, elements of R generate it as a closed normal subgroup iff their images generate R/R^p[R, F], which is dual to H¹(R, F_p)^F; and r(G) = dim H²(G, F_p) for finite p-groups, with dim R/R^p[R, F] = r(G) + rank F − d(G). Needed by: *The p-covering group, p-multiplicator and nucleus* (RG.5/p-covering-group), *p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)* (RG.6/p-class-tower-in-model).
-- **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences.** The five-term inflation–restriction exact sequence 0 → H¹(G/N) → H¹(G) → H¹(N)^G → H²(G/N) → H²(G) for a closed normal subgroup N of a profinite group with F_p-coefficients, natural with respect to a finite group acting compatibly on G and N. Needed by: *p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)* (RG.6/p-class-tower-in-model).
-- **ArithmeticGaloisDuality:R02.3.** (a) Koch, Galois Theory of p-Extensions, Theorem 11.3 for S = ∅: for a number field K and the Galois group G̃ of its maximal unramified pro-p extension, an injection H²(G̃, F_p) ↪ (V/K^{×p})^∨ with V = {α ∈ K^× : (α) = 𝔞^p}, equivariant for automorphisms of K; and its function-field analogue for the complete curve. (b) Neukirch–Schmidt–Wingberg, Corollary 8.7.3: for K/Q Galois with group Γ, K totally real, p ∤ |Γ| and μ_p ⊄ K, an F_p[Γ]-injection O_K^×/O_K^{×p} ↪ F_p[Γ]/(Σ_g g). Needed by: *p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)* (RG.6/p-class-tower-in-model).
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence.** For a number field K, the Galois group of the maximal unramified abelian extension in which every infinite place splits completely is Cl(O_K) (the Hilbert class field), equivariantly for automorphisms of K over Q. Needed by: *The Galois groups lie in the support of μ_Γ* (RG.6/conjecture-consistency), *p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)* (RG.6/p-class-tower-in-model).
-- **FunctionFieldArithmetic:FA.4.** For a finite extension K/F_q(t) with O_K the integral closure of F_q[t], the Galois group of the maximal unramified abelian extension split completely above ∞ is Cl(O_K), and the maximal unramified abelian extension corresponds to Pic(C_K) (C_K the complete curve), equivariantly for automorphisms over F_q(t). Needed by: *The Galois groups lie in the support of μ_Γ* (RG.6/conjecture-consistency), *p-class tower groups occur in the model (Lemma 3.17, Proposition 3.22)* (RG.6/p-class-tower-in-model).
+This is a complete pass at target level: all seven layers are planned and none is closed. The following refinements and supplier requests remain. No claim of implementation is made.
+
+- **RG.0 (planned).** At lemma level, split RG.0/sections-and-y into the bijection Y(G) ↔ sections, Lemma 3.4, and the three parts of Lemma 3.6. (SZ_Γ) for non-solvable Γ rests on the recorded Feit–Thompson gap.
+- **RG.1 (planned).** At lemma level, separate the universal property, functoriality and finiteness of the level-𝒞 completion into lemma nodes. The generalisation of InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e to arbitrary full subcategories is requested.
+- **RG.2 (planned).** At lemma level, prove measurability of the class map 𝓕_n^{n+u} → 𝒫 and the level-tower model of 𝒫 as separate lemmas.
+- **RG.3 (planned).** At lemma level, decompose Liu–Wood §§5–8 (Lemmas 5.3–5.11, Theorem 7.1, Propositions 8.7–8.9) into lemma nodes; they are planned here as two theorem nodes.
+- **RG.4 (planned).** At lemma level, decompose Liu–Wood §9 (Lemmas 9.3–9.6, Corollary 9.7, Theorem 9.1) and the two counts of Lemma 5.4.
+- **RG.5 (planned).** At lemma level, spell out the finite-prime Cohen–Martinet comparison using Wang–Wood arXiv v2 Proposition 6.6 and Theorem 4.1, and the conditional-rank normalization in the BBH comparisons. The cited statements and relevant proofs have been checked directly; no unverified BBH (2017) Lemma 2.7 import remains.
+- **RG.6 (planned).** Koch's Theorem 11.3 and the unit-group structure (NSW Corollary 8.7.3) are requested from ArithmeticGaloisDuality:R02.3. At lemma level, expand the complete-curve function-field argument of Lemma 3.17 (E15), keeping the p-adically completed Picard degree component and the explicitly requested duality input.
+
+### Supplier requests
+
+- **InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e.** State Property E for an arbitrary full subcategory 𝒦 of Γ-groups closed under isomorphism (LWZB Definition 2.3): H ∈ 𝒦 has Property E for 𝒦 if every Γ-surjection H → G lifts to a Γ-surjection H → G̃ along every non-split central extension 1 → Z/p → G̃ → G → 1 in 𝒦 with trivial Γ-action on Z/p; the pro-Δ′ Γ-groups are one instance. The uses here take 𝒦 = Γ-groups of level 𝒞 and 𝒦 = pro-p Γ-groups. Needed by: ArithmeticStatisticsPartII:RG.1/property-e-at-level, ArithmeticStatisticsPartII:RG.1/property-e-criterion.
+- **InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements.** Record that conjugacy of complements in the finite and profinite Schur–Zassenhaus theorem holds without further input when the normal subgroup or the quotient is (pro)solvable, and in general rests on the Feit–Thompson theorem; state the conjugacy half with that hypothesis (or an imported Feit–Thompson) so that consumers can track it. The consumers here use it as the hypothesis (SZ_Γ) of RG.0/coprime-conjugacy-hypothesis. Needed by: ArithmeticStatisticsPartII:RG.0/coprime-conjugacy-hypothesis, ArithmeticStatisticsPartII:RG.0/sections-and-y.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations.** Inverse limits of finite discrete quotients of profinite groups, closed normal subgroups and quotients, and compactness of inverse limits of non-empty finite sets (used for level-𝒞 completions and the level-tower injectivity of 𝒫). Needed by: ArithmeticStatisticsPartII:RG.1/level-completion, ArithmeticStatisticsPartII:RG.2/space-of-admissible-gamma-groups.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index.** The supernatural order TauCeti.profiniteOrder and its behaviour under closed subgroups, quotients and finite products, to define pro-n′ Γ-groups. Needed by: ArithmeticStatisticsPartII:RG.0/gamma-group.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets.** The free pro-C group on a finite set for C the (extension-closed) class of finite groups of order prime to a fixed integer, with its universal property and functoriality in the generating set (so that a permutation of the basis induces an automorphism); and the free pro-p group on a finite set. Tau Ceti's main branch has TauCeti.freeProC; the pinned commit f790474 does not. Needed by: ArithmeticStatisticsPartII:RG.1/free-gamma-group.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation.** The Frattini subgroup, generator rank d(G) = dim G/Φ(G), and Gaschütz lifting of generating tuples for pro-p groups. The lower p-central series is imported separately from Layer 8. Needed by: ArithmeticStatisticsPartII:RG.5/p-covering-group.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations.** Presentations of finitely generated pro-p groups: H²(F, F_p) = 0 for free pro-p F; for 1 → R → F → G → 1, elements of R generate it as a closed normal subgroup iff their images generate R/R^p[R, F], which is dual to H¹(R, F_p)^F; and r(G) = dim H²(G, F_p) for finite p-groups, with dim R/R^p[R, F] = r(G) + rank F − d(G). Needed by: ArithmeticStatisticsPartII:RG.5/p-covering-group, ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model.
+- **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences.** The five-term inflation–restriction exact sequence 0 → H¹(G/N) → H¹(G) → H¹(N)^G → H²(G/N) → H²(G) for a closed normal subgroup N of a profinite group with F_p-coefficients, natural with respect to a finite group acting compatibly on G and N. Needed by: ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model, ArithmeticStatisticsPartII:RG.5/p-covering-group.
+- **ArithmeticGaloisDuality:R02.3.** (a) Koch, Galois Theory of p-Extensions, Theorem 11.3 for S = ∅: for a number field K and the Galois group G̃ of its maximal unramified pro-p extension, an injection H²(G̃, F_p) ↪ (V/K^{×p})^∨ with V = {α ∈ K^× : (α) = 𝔞^p}, equivariant for automorphisms of K; and its function-field analogue for the complete curve. (b) Neukirch–Schmidt–Wingberg, Corollary 8.7.3: for K/Q Galois with group Γ, K totally real, p ∤ |Γ| and μ_p ⊄ K, an F_p[Γ]-injection O_K^×/O_K^{×p} ↪ F_p[Γ]/(Σ_g g). Needed by: ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model.
+- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence.** For a number field K, the Galois group of the maximal unramified abelian extension in which every infinite place splits completely is Cl(O_K) (the Hilbert class field), equivariantly for automorphisms of K over Q. Needed by: ArithmeticStatisticsPartII:RG.6/conjecture-consistency, ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model.
+- **FunctionFieldArithmetic:FA.4.** For K/F_q(t) and O_K the integral closure of F_q[t], identify the maximal unramified abelian extension split above ∞ with the finite group Cl(O_K). For the complete curve C_K, identify the maximal unramified abelian pro-p quotient with the p-adic completion of Pic(C_K)(F_q), including its Z_p degree component; the full abelian group uses the profinite completion. Require naturality for automorphisms over F_q(t). Also supply smallness: only finitely many finite extensions inside a fixed separable closure of bounded degree are everywhere unramified, over a finite constant field (and likewise after the split-infinity restriction). Needed by: ArithmeticStatisticsPartII:RG.6/conjecture-consistency, ArithmeticStatisticsPartII:RG.6/p-class-tower-in-model.
+- **tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-8-the-central-tower-comparison-method-and-finite-quotient-determinacy.** Import pLowerCentralSeries, P_0(G) = G and P_{i+1}(G) = closure([P_i(G),G]P_i(G)^p), and pClass for finite p-groups. Use the existing central-tower interface, without planning those definitions again. Needed by: ArithmeticStatisticsPartII:RG.5/p-covering-group.
 
 ## Gaps
 
@@ -1351,23 +1372,23 @@ Assume (SZ_Γ). Let K/Q be a Γ-extension (Q = Q or F_q(t)) and p ∤ Δ a prime
 
 ## Source issues
 
-Mistakes found in the sources, stated at their locators in arXiv v2 of Liu–Wood–Zureick-Brown; the statements above use the corrections.
+These findings concern the arXiv v2 text actually read. Their review verdicts qualify the claims where an entry concerns a proof gap, a later application or terminology. They do not assert that the journal text contains the same issue. All descriptions below are in our own words.
 
-- **E1 (error, Corollary 3.8, p. 14; Remark 3.2(3), p. 13; the paragraph after (3.3), p. 14 (arXiv v2)).** The bijection Y(G)^n ≅ Hom_Γ(𝓕_n, G), the quotient statement of Remark 3.2(3) and the identification of Y(G) with sections are asserted for every Γ-group G. Correction: Assume G pro-|Γ|′ (a |Γ|′-Γ-group), as the proofs require. Reason: For Γ = Z/2 acting on Z/4 by inversion, |Y(Z/4)| = 2 but Hom_Γ(𝓕_1, Z/4) is trivial because 𝓕_1 is pro-odd. Reach: a stated result.
-- **E2 (misprint, Proof of Lemma 3.6(3), p. 14 (arXiv v2)).** The translating map is written with γ_d^{−1}(g) in its last coordinate. Correction: Read γ_d(g)^{−1}, matching the other coordinates γ_i(g)^{−1}. Reason: Only γ_i(g)^{−1} makes the map carry Y(G) to itself and π^{−1}(x) onto N^d. Reach: nothing.
-- **E3 (gap, Proof of Proposition 3.13 (⇒), p. 16 (arXiv v2)).** Applies Lemma 3.6(2), a statement about finite groups, to the kernel of ϖ, which is infinite when 𝒞 is infinite. Correction: Argue by containment: Y(ker φ) ⊆ Y((𝓕_n)^𝒞) ∩ (ker ϖ)^d = Y(ker ϖ) by Lemma 3.4, and Y(ker ϖ) ⊆ (ker ρ)^d because Γ acts trivially on ker ϖ/ker ρ ≅ Z/p. Reason: Lemma 3.6 is proved only for finite groups; the containment argument needs only Lemma 3.4. Reach: the proof.
-- **E4 (misprint, §5.2, definition of 𝒞_ℓ, p. 27 (arXiv v2)).** 𝒞_ℓ is defined as the set of all Γ-groups of order at most ℓ. Correction: Take the |Γ|′-Γ-groups of order at most ℓ, as the basic opens and Lemma 5.4 require. Reason: The basic opens U_{𝒞,H} are defined only for sets of finite |Γ|′-Γ-groups. Reach: nothing.
-- **E5 (misprint, Definition of ν before Lemma 4.6, p. 22 (arXiv v2)).** The Möbius recursion sets ν(D, E) = −Σ ν(D′, E) over all D′ in the poset with D′ ≠ D. Correction: Sum over D ⊊ D′ ⊆ E. Reason: For E = F_3² over H = 1 (Γ = Z/2, σ = −1) the printed recursion is circular on the four lines; the corrected one gives ν = −1 on lines and ν(0, E) = 3. Reach: nothing.
-- **E6 (error, Theorem 4.12, (4.14), p. 24; (5.13), p. 30; Theorem 5.15, p. 31 (arXiv v2)).** The limiting formulas are stated for every finite admissible H of level 𝒞, with no Property E hypothesis. Correction: Assume H has Property E at level 𝒞; otherwise the probabilities (4.13) vanish for every n and the limits are 0. Reason: Without Property E a trivial-action Z/p in 𝒜_H has m = 1 for all n, so (4.17) fails (h^m|Y(G)|^{−n} = 1 + λ). Example: Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1: λ = 1 for Z/3 with σ = −1 and λ = 2 for the trivial Z/3, and the printed (4.14) at u = 0 is (1/48)∏(1 − 3^{−i})∏(1 − 2·3^{−i}) ≈ 2.698·10^{−3} (recomputed here), while the true value is 0 and the paper's own Theorem 7.4 gives 0. Reach: a stated result.
-- **E7 (gap, Lemma 5.10 and its proof, p. 29 (arXiv v2)).** The proof bounds f_n(H, ℓ) below for n ≥ i(H) using Corollary 5.9 for every H with f_n(H, ℓ) > 0 for some n. Correction: Add the hypothesis that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for n′ ≥ n; it holds in both applications. Reason: Corollary 5.9 gives the dichotomy 'zero or ≥ c' for each n separately; without monotone positivity a function could vanish at infinitely many n and the domination step does not follow. Reach: the proof.
-- **E8 (misprint, Lemma 5.4, (5.6), p. 27 (arXiv v2)).** The set counted has kernel 'irred. E-group'. Correction: Read: ker π is an irreducible E ⋊ Γ-group, as in the definition of 𝓔(G, H). Reason: The non-abelian sets 𝓔(G, H) before Proposition 4.7 use irreducibility as an E ⋊ Γ-group. Reach: nothing.
-- **E9 (gap, Theorem 5.12, p. 30 (arXiv v2)).** Countable additivity of μ_u is stated for integers u ≥ 0. Correction: It holds for every integer u (with X_{u,n} defined for n > −u); Theorems 5.15, 6.2 and 7.4–7.5 use it for all u. Reason: The proof (Lemma 5.10 with f_n = μ_{u,n}(U_{𝒞_ℓ,H})) never uses u ≥ 0; Corollary 5.9 needs only u > −n. Reach: a stated result.
-- **E10 (misprint, §5.3, proof of Theorem 1.2, p. 30 (arXiv v2)).** The Fatou step is written μ_Γ(U) ≤ lim_n μ_{1,n}(U). Correction: Read lim inf. Reason: The limit of μ_{1,n}(U) for a general open U is not known to exist; Fatou gives lim inf, which is what the Portmanteau criterion needs. Reach: nothing.
-- **E11 (misprint, Proof of Proposition 4.3, p. 21 (arXiv v2)).** The proof writes 𝓕_n for 𝓕_{n+u}, Y[(…)] for [Y(…)], and 'γ ∈ F ⋊ Γ' where the F ⋊ Γ-subgroup generated by the y_i^{−1}γ(y_i), γ ∈ Γ, is meant. Correction: Use 𝓕_{n+u}, [Y(…)] and the generated F ⋊ Γ-subgroup. Reason: There are n + u random elements, giving maps from 𝓕_{n+u}. Reach: nothing.
-- **E12 (misprint, Proof of Theorem 4.12, p. 25 (arXiv v2)).** The proof refers to 'the fundamental exact sequence (7.1)'. Correction: Refer to (4.1). Reason: (7.1) is the p-covering-group sequence of §7.2. Reach: nothing.
-- **E13 (misprint, §7.1, p. 34 (arXiv v2)).** The pro-p abelian completion of 𝓕_n is written (Z_p[Γ])^n. Correction: It is (Z_p[Γ]/(Σ_g g))^n, by Corollary 3.10. Reason: (Z_p[Γ])^n has Γ-invariants Z_p^n, while (𝓕_n^ab)^Γ = 0; the lattice argument is unaffected. Reach: nothing.
-- **E14 (misprint, Paragraph before Theorem 7.4, p. 35 (arXiv v2)).** R′ is called the 'p-multiplicator rank' of H. Correction: R′ is the p-multiplicator; its F_p-dimension is the relation rank r(H). Reason: The next clause gives dim R′ = r(H), so R′ itself is the group. Reach: nothing.
-- **E15 (error, Proof of Lemma 3.17, function-field case, p. 19 (arXiv v2)).** The proof uses O_K^× = F_{q^r}^× (the constant field units) for the function field K. Correction: For totally real K with Γ ≠ 1, O_K^× (O_K the integral closure of F_q[t]) has rank |Γ| − 1; the bound must be run with the complete curve C_K (constant units, Pic(C_K)) for the maximal unramified pro-p extension. Reason: K is split completely above ∞, so |Γ| places lie over ∞ and Dirichlet's S-unit theorem gives units of rank |Γ| − 1. Reach: the proof.
+- **E1 (error, Corollary 3.8, p. 14; Remark 3.2(3), p. 13; the paragraph after (3.3), p. 14 (arXiv v2)).** The bijection Y(G)^n ≅ Hom_Γ(𝓕_n, G), the quotient statement of Remark 3.2(3) and the identification of Y(G) with sections are asserted for every Γ-group G. Correction: Assume G pro-|Γ|′ (a |Γ|′-Γ-group), as the proofs require. Reason: For Γ = Z/2 acting on Z/4 by inversion, |Y(Z/4)| = 2 but Hom_Γ(𝓕_1, Z/4) is trivial because 𝓕_1 is pro-odd. Review: confirmed. Confirmed in arXiv v2 p. 14: the proof uses coprime complement conjugacy and the pro-|Γ|′ universal property. Inversion on Z/4 gives |Y| = 2 but only the trivial map from pro-odd 𝓕_1.
+- **E2 (misprint, Proof of Lemma 3.6(3), p. 14 (arXiv v2)).** The translating map is written with γ_d^{−1}(g) in its last coordinate. Correction: Read γ_d(g)^{−1}, matching the other coordinates γ_i(g)^{−1}. Reason: Only γ_i(g)^{−1} makes the map carry Y(G) to itself and π^{−1}(x) onto N^d. Review: confirmed. Confirmed on p. 14. The translation requires the inverse of γ_d(g), as in its other coordinates, rather than the inverse automorphism applied to g.
+- **E3 (gap, Proof of Proposition 3.13 (⇒), p. 16 (arXiv v2)).** Applies Lemma 3.6(2), a statement about finite groups, to the kernel of ϖ, which is infinite when 𝒞 is infinite. Correction: Argue by containment: Y(ker φ) ⊆ Y((𝓕_n)^𝒞) ∩ (ker ϖ)^d = Y(ker ϖ) by Lemma 3.4, and Y(ker ϖ) ⊆ (ker ρ)^d because Γ acts trivially on ker ϖ/ker ρ ≅ Z/p. Reason: Lemma 3.6 is proved only for finite groups; the containment argument needs only Lemma 3.4. Review: confirmed. Confirmed as a proof-domain gap on p. 16: Lemma 3.6 is finite, but the kernel may be infinite. The replacement containment follows from Lemma 3.4 and trivial Γ-action on the central kernel.
+- **E4 (misprint, §5.2, definition of 𝒞_ℓ, p. 27 (arXiv v2)).** 𝒞_ℓ is defined as the set of all Γ-groups of order at most ℓ. Correction: Take the |Γ|′-Γ-groups of order at most ℓ, as the basic opens and Lemma 5.4 require. Reason: The basic opens U_{𝒞,H} are defined only for sets of finite |Γ|′-Γ-groups. Review: confirmed. Confirmed as an omitted ambient restriction on p. 27: the earlier topology and all applications use prime-to-|Γ| groups.
+- **E5 (misprint, Definition of ν before Lemma 4.6, p. 22 (arXiv v2)).** The Möbius recursion sets ν(D, E) = −Σ ν(D′, E) over all D′ in the poset with D′ ≠ D. Correction: Sum over D ⊊ D′ ⊆ E. Reason: For E = F_3² over H = 1 (Γ = Z/2, σ = −1) the printed recursion is circular on the four lines; the corrected one gives ν = −1 on lines and ν(0, E) = 3. Review: confirmed. Confirmed on p. 22: the recurrence must run over strict superobjects of D. The four lines in F_3² give the corrected value 3 at the bottom.
+- **E6 (error, Theorem 4.12, (4.14), p. 24 and (4.17), p. 25; (5.13), p. 30; Theorem 5.15, p. 31 (arXiv v2)).** The limiting formulas are stated for every finite admissible H of level 𝒞, with no Property E hypothesis. Correction: Assume H has Property E at level 𝒞 in the displayed limit formulas; otherwise probabilities vanish. In the abelian multiplicity asymptotic use (h^m − 1)|Y(G)|^{−n}; replacing h^m − 1 by h^m requires |Y(G)| > 1, and m → ∞ requires both λ > 0 and |Y(G)| > 1. Reason: Failure of Property E gives at least one trivial-action Z/p with m ≥ 1, independent of n for n sufficiently large, and h^m − 1 = λ; m need not always be 1. A finite counterexample uses Γ = Z/2, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x) = x⁻¹ and σ(y) = y⁻¹}, and H = F_3² with σ = −1. For n ≥ 2 the sign and trivial multiplicities are n and 1, with λ = 1 and 2. The printed u = 0 product is approximately 0.002698, whereas the exact probability is 0. The same obstruction occurs for the infinite class of all finite 3-Γ-groups of 3-class ≤ 2 (Theorem 7.5). Review: confirmed. Confirmed on pp. 24–25 and 30–31. The finite two-group level in the corrected example satisfies the finite-𝒞 hypothesis. The exact probability has a zero trivial-action factor, while the proposed limit is positive. Also corrected the unshifted abelian asymptotic and the overstrong assertion m = 1 in every failure case.
+- **E7 (gap, Lemma 5.10 and its proof, p. 29 (arXiv v2)).** The proof bounds f_n(H, ℓ) below for n ≥ i(H) using Corollary 5.9 for every H with f_n(H, ℓ) > 0 for some n. Correction: Add the hypothesis that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for n′ ≥ n; it holds in both applications. Reason: Corollary 5.9 gives the dichotomy 'zero or ≥ c' for each n separately; without monotone positivity a function could vanish at infinitely many n and the domination step does not follow. Review: confirmed. Confirmed as a missing justification in the domination proof, pp. 29–30, rather than a counterexample to the printed lemma: the zero-or-positive lower bound alone does not give eventual positivity. The strengthened version states persistence and verifies it by adding a generator with one Y-relation tuple in both applications.
+- **E8 (misprint, Lemma 5.4, (5.6), p. 27 (arXiv v2)).** The set counted has kernel 'irred. E-group'. Correction: Read: ker π is an irreducible E ⋊ Γ-group, as in the definition of 𝓔(G, H). Reason: The non-abelian sets 𝓔(G, H) before Proposition 4.7 use irreducibility as an E ⋊ Γ-group. Review: confirmed. Confirmed as the stronger scope required by the later application: irreducibility is under E ⋊ Γ. The narrower printed E-group bound is not itself claimed false.
+- **E9 (gap, Theorem 5.12, p. 30 (arXiv v2)).** Countable additivity of μ_u is stated for integers u ≥ 0. Correction: It holds for every integer u (with X_{u,n} defined for n > −u); Theorems 5.15, 6.2 and 7.4–7.5 use it for all u. Reason: The proof (Lemma 5.10 with f_n = μ_{u,n}(U_{𝒞_ℓ,H})) never uses u ≥ 0; Corollary 5.9 needs only u > −n. Review: confirmed. Confirmed as an unstated extension, not a false nonnegative-u theorem. The proof and its bounds apply to any fixed integer u after discarding n ≤ −u; the downstream theorems use that extension.
+- **E10 (misprint, §5.3, proof of Theorem 1.2, p. 30 (arXiv v2)).** The Fatou step is written μ_Γ(U) ≤ lim_n μ_{1,n}(U). Correction: Read lim inf. Reason: The limit of μ_{1,n}(U) for a general open U is not known to exist; Fatou gives lim inf, which is what the Portmanteau criterion needs. Review: confirmed. Confirmed on p. 30: Fatou supplies a liminf on open sets before weak convergence has been established.
+- **E11 (misprint, Proof of Proposition 4.3, p. 21 (arXiv v2)).** The proof writes 𝓕_n for 𝓕_{n+u}, Y[(…)] for [Y(…)], and 'γ ∈ F ⋊ Γ' where the F ⋊ Γ-subgroup generated by the y_i^{−1}γ(y_i), γ ∈ Γ, is meant. Correction: Use 𝓕_{n+u}, [Y(…)] and the generated F ⋊ Γ-subgroup. Reason: There are n + u random elements, giving maps from 𝓕_{n+u}. Review: confirmed. Confirmed on p. 21. Corrected the relation count and brackets, and used graphs of operator-equivariant homomorphisms to retain the F ⋊ Γ-action in the abelian counting step.
+- **E12 (misprint, Proof of Theorem 4.12, p. 25 (arXiv v2)).** The proof refers to 'the fundamental exact sequence (7.1)'. Correction: Refer to (4.1). Reason: (7.1) is the p-covering-group sequence of §7.2. Review: confirmed. Confirmed on p. 25: the referenced fundamental sequence is (4.1); (7.1) is the later p-covering sequence.
+- **E13 (misprint, §7.1, p. 34 (arXiv v2)).** The pro-p abelian completion of 𝓕_n is written (Z_p[Γ])^n. Correction: It is (Z_p[Γ]/(Σ_g g))^n, by Corollary 3.10. Reason: (Z_p[Γ])^n has Γ-invariants Z_p^n, while (𝓕_n^ab)^Γ = 0; the lattice argument is unaffected. Review: confirmed. Confirmed on p. 34 by Corollary 3.10: the regular module has invariants, whereas its augmentation quotient does not.
+- **E14 (misprint, Paragraph before Theorem 7.4, p. 35 (arXiv v2)).** R′ is called the 'p-multiplicator rank' of H. Correction: R′ is the p-multiplicator; its F_p-dimension is the relation rank r(H). Reason: The next clause gives dim R′ = r(H), so R′ itself is the group. Review: confirmed. Confirmed as terminology on p. 35: R′ is a group, and its dimension is the rank.
+- **E15 (error, Proof of Lemma 3.17, function-field case, p. 19 (arXiv v2)).** The proof uses O_K^× = F_{q^r}^× (the constant field units) for the function field K. Correction: For totally real K with Γ ≠ 1, O_K^× (O_K the integral closure of F_q[t]) has rank |Γ| − 1; the bound must be run with the complete curve C_K (constant units, Pic(C_K)) for the maximal unramified pro-p extension. Reason: K is split completely above ∞, so |Γ| places lie over ∞ and Dirichlet's S-unit theorem gives units of rank |Γ| − 1. Review: confirmed. Confirmed for the affine ring defined in the paper: complete splitting at infinity gives |Γ| places, hence affine unit rank |Γ| − 1. The corrected proof requests the complete-curve duality input and retains the completed degree direction in abelianization.
 
 ## Structure
 
@@ -1376,11 +1397,10 @@ Mistakes found in the sources, stated at their locators in arXiv v2 of Liu–Woo
 
 ## References
 
-- Y. Liu, M. M. Wood, D. Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions*, Invent. Math. 237 (2024), 49–116; arXiv:1907.05002v2 (read).
-- Y. Liu, M. M. Wood, *The free group on n generators modulo n + u random relations as n goes to infinity*, J. reine angew. Math. 762 (2020); arXiv:1708.08509v2 (read).
-- N. Boston, M. Bush, F. Hajir, *Heuristics for p-class towers of imaginary quadratic fields*, Math. Ann. 368 (2017), and *Heuristics for p-class towers of real quadratic fields*, J. Inst. Math. Jussieu 20 (2021) (cited for the comparison of measures).
-- N. Boston, M. M. Wood, *Non-abelian Cohen–Lenstra heuristics over function fields*, Compos. Math. 153 (2017) (cited for the u = 0 comparison).
-- W. Wang, M. M. Wood, *Moments and interpretations of the Cohen–Lenstra–Martinet heuristics*, Comment. Math. Helv. 96 (2021) (cited for the comparison with Cohen–Martinet).
-- H. Koch, *Galois Theory of p-Extensions*, Springer (2002), Chapter 11 (cited for the H² bound, requested from ArithmeticGaloisDuality).
-- J. Neukirch, A. Schmidt, K. Wingberg, *Cohomology of Number Fields*, 2nd ed., Springer (2008), Corollaries 3.9.3 and 8.7.3 (cited).
-- L. Ribes, P. Zalesskii, *Profinite Groups*, 2nd ed., Springer (2010), Theorem 2.3.15 (profinite Schur–Zassenhaus, cited through IG.4).
+- Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, [A predicted distribution for Galois groups of maximal unramified extensions](https://arxiv.org/abs/1907.05002v2), arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled). Part I, §§1–7 (pp. 1–37), read in full from the arXiv v2 PDF on 2026-10-17 (SHA-256 above, matching the paper extraction's copy); §§8–10 (pp. 37–41) consulted for the interface with ArithmeticStatistics ST.5; Independent review, 2026-10-18: every cited Part I locator and source issue checked in v2, pp. 1–37; pp. 37–41 checked for the supplier interface..
+- Yuan Liu and Melanie Matchett Wood, [The free group on n generators modulo n + u random relations as n goes to infinity](https://arxiv.org/abs/1708.08509v2), arXiv:1708.08509v2 (26 November 2019), 41 pp.; published J. reine angew. Math. 762 (2020). §§1–9 (pp. 1–28): the model, Theorem 5.1 and Lemmas 5.3–5.11, §6 (chief factor pairs, Lemmas 6.1–6.13), Theorem 7.1, Theorem 8.1, Propositions 8.7–8.9, Lemma 8.11, Theorems 9.1–9.2, Lemmas 9.3–9.6, Corollary 9.7; Lemma 11.3 and Lemma 12.5, read on 2026-10-17; Independent review, 2026-10-18: §§2–9 and cited Lemmas 11.3 (pp. 28–29) and 12.5 (p. 34) checked directly in v2..
+- Luis Ribes and Pavel Zalesskii, [Profinite Groups](https://doi.org/10.1007/978-3-642-01642-4), 2nd edition, Springer, 2010. Theorem 2.3.15 and proof, pp. 40–41, read in the maintainer-cleared copy on 2026-10-18; no text or file reproduced.
+- Nigel Boston and Melanie Matchett Wood, [Nonabelian Cohen–Lenstra Heuristics over Function Fields](https://arxiv.org/abs/1604.03433v2), arXiv:1604.03433v2 (18 January 2017); Compositio Math. 153 (2017), 1372–1390. §3, pp. 5–7; Lemma 4.8 with proof, pp. 10–11, independently read on 2026-10-18.
+- Nigel Boston, Michael R. Bush and Farshid Hajir, [Heuristics for p-class towers of real quadratic fields](https://arxiv.org/abs/1803.04047v1), arXiv:1803.04047v1 (11 March 2018); published J. Inst. Math. Jussieu 20 (2021). Definitions 2.1–2.3, p. 2; Lemma 2.8 and definitions of rank-conditioned measures, pp. 4–5; Theorem 2.22 with proof, pp. 9–11; §3, pp. 13–14, independently read on 2026-10-18.
+- Weitong Wang and Melanie Matchett Wood, [Moments and interpretations of the Cohen–Lenstra–Martinet heuristics](https://arxiv.org/abs/1907.11201v2), arXiv:1907.11201v2 (15 February 2020); Comment. Math. Helv. 96 (2021). §3.2–3.3, pp. 6–7; Theorem 4.1, pp. 8–9; Proposition 6.6 with proof, p. 13, independently read on 2026-10-18.
+- Koch, *Galois Theory of p-Extensions*, Theorem 11.3, and Neukirch–Schmidt–Wingberg, *Cohomology of Number Fields*, Corollaries 3.9.3 and 8.7.3, are indirect inputs cited by LWZB. Their required statements are explicit requests to the owning roadmaps; those books were not independently read in this review.
