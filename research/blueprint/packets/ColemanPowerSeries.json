@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "complete",
-  "summary": "A 300-node planning pass for the actual cyclotomic tower, finite-free Coleman norm, arithmetic interpolation, the signed Coleman map, principal exact sequence and local cyclotomic-unit quotient. The 251 inherited nodes are retained and 49 missing arithmetic-action, closure, cyclicity and quotient targets are specified. This is a complete budgeted pass, not a closed roadmap: exact supplier requests and source/coefficient refinements remain explicit; no implementation is claimed.",
+  "summary": "The 300-node cyclotomic plan, assembled with the 140-node L0 arithmetic refinement and the 42-node L1 unramified interpolation refinement. The unified reader retains every target, API item and test. L0 and L1 source decomposition is supplied by those accepted refinements; canonical arithmetic receivers, the chosen relative integral basis, weak-measure/completed-algebra transport and the stated higher-layer supplier interfaces remain explicit requests. All implementation statuses remain unchecked; no layer is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3314,10 +3314,7 @@
           "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
           "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
         }
-      ],
-      "planet": {
-        "name": "Frobenius power basis"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L1/frobenius-basis-values",
@@ -3533,10 +3530,7 @@
           "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
           "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
         }
-      ],
-      "planet": {
-        "name": "Coleman norm"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L1/coleman-norm-base-scalars",
@@ -3781,10 +3775,7 @@
           "where": "ColemanPowerSeries:L1, RJW Lemma 10.8 and Coates–Sujatha Proposition 2.2.3",
           "how": "Supply the actual finite-free algebra, its computational coordinates and determinant/trace; interpolation consumes these maps after the still-required evaluation comparison."
         }
-      ],
-      "planet": {
-        "name": "Integral Coleman trace"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L1/coleman-trace-coordinates",
@@ -4916,10 +4907,7 @@
           "kind": "compatibility",
           "statement": "For p=2 and Y=1+T, N(N(Y))=N(Y)=−Y, while N(Y)−Y=−2Y."
         }
-      ],
-      "planet": {
-        "name": "Coleman norm congruences"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L1/frobenius-coordinates-continuous",
@@ -8390,10 +8378,7 @@
           "match": "The source fixes compatible roots and states the cyclotomic degree; Lemma10.9 uses the relative polynomial X^p−ζ. The explicit local Eisenstein descent, native field construction and dyadic sign extension are worker deductions. The source assumes p odd."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Local cyclotomic irreducibility"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ColemanPowerSeries:L0/primitive-root-lift",
@@ -8699,10 +8684,7 @@
           "where": "RJW10.9 and ColemanPowerSeries:L1",
           "how": "The same included fields must receive evaluated series and their relative arithmetic norms."
         }
-      ],
-      "planet": {
-        "name": "Local cyclotomic tower"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L0/local-cyclotomic-inclusion",
@@ -9312,10 +9294,7 @@
           "match": "The source uses total ramification, a uniformizer and residue lifting in the finite-level interpolation argument. These algebraic integral-closure, power-basis and quotient adapters are worker deductions from the pinned library. These algebraic adapters alone do not establish the valuative assertions; the later spectral-norm and integral-ring comparison nodes supply the native cyclotomic specialization, with the canonical upstream structure comparison still requested. The dyadic tests extend the source’s odd-prime range."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Cyclotomic integral closure"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ColemanPowerSeries:L0/integral-cyclotomic-root",
@@ -12222,15 +12201,15 @@
         "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
       ],
       "proofSteps": [
-        "Choose the existing unit polynomial-series lift F of u at the upper level. The arithmetic norm square identifies its norm with the lower evaluation of colemanNorm(F).",
-        "The preceding evaluation-reduction lemma makes both residues constant-coefficient reductions. The existing Coleman congruence colemanNorm(F)≡F modulo p makes these reductions equal.",
-        "This argument avoids assuming that the relative integer ring already has a separately constructed free basis. In particular, residue1 is preserved."
+        "Specialize the exact unramified coefficient norm-residue theorem to E=ℚ_p. Its canonical residue field is ZMod p, so the relative degree-p norm sends residue r to r^p=r by ZMod.pow_card.",
+        "Transport the native integer rings, residues and unit norms through baseIntegerEquiv and basePrincipalEquiv_norm. Both norms are restrictions of the same field norm, so the statement is precisely the parent reduction_unitsNorm equality on its original carrier.",
+        "This removes the former detour through L1 arithmetic norm evaluation. It supplies principal-unit preservation at L0 without requiring an interpolation result or a newly assumed relative integral basis."
       ],
       "prerequisites": [
-        "ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift",
-        "ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation",
-        "ColemanPowerSeries:L0/arithmetic-evaluation-reduction",
-        "ColemanPowerSeries:L1/coleman-norm-residue-identity"
+        "ColemanPowerSeries:L0/unramified-coefficient-norm-residue",
+        "ColemanPowerSeries:L0/unramified-base-integer-equivalence",
+        "ColemanPowerSeries:L0/unramified-base-principal-equivalence",
+        "mathlib:ZMod.pow_card"
       ],
       "acceptance": [
         "This supplies preservation of the principal-unit condition, not its pro-p proof or a new module structure."
@@ -13010,12 +12989,13 @@
         "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
       ],
       "proofSteps": [
-        "Install the preceding compactSpace_normFixedUnits theorem on the existing norm-fixed-series subgroup. The supplied evaluation map is continuous, so the image of the whole compact domain is compact.",
+        "Use unramified-unit-space-compact at O=ℤ_p and σ=id. Its coefficient-fixed scalar algebra is the same native substitution algebra, its determinant is the parent norm, and its equalizer is the parent normFixedUnits; thus its compactness applies to this exact carrier.",
+        "Apply this compactness theorem to the existing norm-fixed-series subgroup. The supplied evaluation map is continuous, so the image of the whole compact domain is compact.",
         "The target has the native Hausdorff topology as a subgroup of the product of Hausdorff unit groups. Native IsCompact.isClosed makes the image closed. No bijectivity is needed for this step."
       ],
       "prerequisites": [
         "ColemanPowerSeries:L1/norm-fixed-evaluation-map",
-        "ColemanPowerSeries:L3/norm-fixed-units-compact",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
         "mathlib:IsCompact.image",
         "mathlib:IsCompact.isClosed"
       ],
@@ -13318,12 +13298,13 @@
       ],
       "prerequisites": [
         "ColemanPowerSeries:L1/norm-fixed-finite-precision-approximation",
-        "ColemanPowerSeries:L3/norm-fixed-units-compact",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
         "ColemanPowerSeries:L0/cyclotomic-series-evaluation-continuity",
         "mathlib:Continuous.dist",
         "mathlib:IsClosed.isCompact"
       ],
       "proofSteps": [
+        "Use unramified-unit-space-compact at O=ℤ_p and σ=id. Its coefficient-fixed scalar algebra is the same native substitution algebra, its determinant is the parent norm, and its equalizer is the parent normFixedUnits; thus its compactness applies to this exact carrier.",
         "The approximation theorem gives nonemptiness. Rewrite the norm difference as the native metric distance. The distance between continuous evaluation and a fixed coordinate is continuous by native Continuous.dist, so each closed inequality is closed. Their finite intersection is closed in the existing compact norm-fixed unit group, hence compact.",
         "The bound p^(−(k+2))≤p^(−(k+1)) and the extra coordinate condition make the sequence decreasing."
       ],
@@ -13382,9 +13363,6 @@
         "module": "TauCeti/NumberTheory/Iwasawa/ColemanL1",
         "namespace": "ColemanCyclotomic",
         "declaration": "ColemanCyclotomic.normFixedEvaluation_surjective"
-      },
-      "planet": {
-        "name": "Coleman interpolation theorem"
       }
     },
     {
@@ -13471,10 +13449,7 @@
           "where": "ColemanPowerSeries:L2/raw-coleman-map, ColemanPowerSeries:L3/raw-coleman-kernel",
           "how": "Provides the actual arithmetic construction consumed in the named comparison, kernel, image or quotient target."
         }
-      ],
-      "planet": {
-        "name": "Coleman power series"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L1/coleman-equivalence-homeomorphism",
@@ -13491,11 +13466,12 @@
       "prerequisites": [
         "ColemanPowerSeries:L1/coleman-equivalence",
         "ColemanPowerSeries:L1/norm-fixed-evaluation-map",
-        "ColemanPowerSeries:L3/norm-fixed-units-compact",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
         "ColemanPowerSeries:L0/norm-compatible-units-compact",
         "mathlib:Continuous.isClosedEmbedding"
       ],
       "proofSteps": [
+        "Use unramified-unit-space-compact at O=ℤ_p and σ=id. Its coefficient-fixed scalar algebra is the same native substitution algebra, its determinant is the parent norm, and its equalizer is the parent normFixedUnits; thus its compactness applies to this exact carrier.",
         "The existing evaluation map is continuous, bijective, from a compact space to a Hausdorff space. The native compact-to-Hausdorff closed-embedding theorem makes its inverse continuous."
       ],
       "acceptance": [
@@ -13862,12 +13838,13 @@
         "ColemanPowerSeries:L1/coleman-equivalence-homeomorphism",
         "ColemanPowerSeries:L2/raw-coleman-map",
         "ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-continuous",
-        "ColemanPowerSeries:L3/psi-fixed-boundary-topology",
         "PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-weak-homeomorphism",
-        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight"
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "ColemanPowerSeries:L3/psi-fixed-boundary",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-psi-series-continuous"
       ],
       "proofSteps": [
-        "Use the continuous Coleman inverse and restricted logarithmic derivative. The fixed-space boundary is continuous.",
+        "Use the continuous Coleman inverse and restricted logarithmic derivative. On W the fixed-space boundary is id−phi psi, whose continuity is the exact PMIA phi-psi-series-continuous input; restriction to the native kernel submodule preserves continuity. The full L3 topological exact sequence is not needed for this construction.",
         "For each continuous integral test f, inverseWeight acts by evaluation on the fixed continuous test ιf; it is weakly continuous by the native weak evaluation topology. Transport through the imported integral Amice homeomorphism; the inverse intrinsic unit Amice equivalence is also a homeomorphism."
       ],
       "acceptance": [
@@ -14230,10 +14207,7 @@
           "where": "ColemanPowerSeries:L3/binomial-evaluation-tate, ColemanPowerSeries:L4",
           "how": "Provides the actual arithmetic construction consumed in the named comparison, kernel, image or quotient target."
         }
-      ],
-      "planet": {
-        "name": "Cyclotomic Tate module"
-      }
+      ]
     },
     {
       "id": "ColemanPowerSeries:L3/raw-coleman-kernel",
@@ -17554,7 +17528,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
-      "need": "Functorial continuous ℤ_p-module structure on abelian pro-p groups; apply only after proving the principal-unit inverse limit has that structure.",
+      "need": "Use the existing current ProfiniteArithmetic §1.3 interface and TauCeti.IsProP.module for the functorial continuous ℤ_p-module structure on abelian pro-p groups. Verify its hypotheses and arithmetic naturality on the actual principal-unit norm limit; this is a receiving-interface request, not a request to construct the generic scalar action again.",
       "neededBy": [
         "ColemanPowerSeries:L0",
         "ColemanPowerSeries:L0/principal-tower-pro-p",
@@ -17564,7 +17538,7 @@
         "ColemanPowerSeries:L4/finite-principal-closure-span"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
+      "note": "The historical atlas supplier id is retained for resolution. Current Tau Ceti already implements padicPow and IsProP.module beyond the pin; the receiving arithmetic comparison remains open."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
@@ -17628,7 +17602,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "need": "Supply product and closed-subgroup stability of the native IsProP predicate. Apply these to the actual closed norm-compatible subgroup of the product of finite local principal unit groups; coordinate surjectivity is not required. This generic result remains upstream.",
+      "need": "Use the existing current Tau Ceti arbitrary-product and subgroup closure theorems for native IsProP, with their compact Hausdorff hypotheses, on the actual closed norm-compatible subgroup of the product of finite local principal unit groups. Verify the arithmetic receiving structures; coordinate surjectivity is not required. No generic pro-p closure theorem is missing or replanned here.",
       "neededBy": [
         "ColemanPowerSeries:L0/principal-tower-pro-p"
       ],
@@ -17655,18 +17629,19 @@
   "coverage": [
     {
       "stageId": "ColemanPowerSeries:L0",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Compare all native local-field structures, normalized valuations, ramification invariants and the native Teichmüller section with the upstream canonical interfaces. The exact receiving structures, residue maps and topology diamonds require their declared supplier requests.",
-        "Typecheck the imported pro-p, ℤ_p-module and completed-action adapters against the owner’s final interfaces; the packet specifies their actual arithmetic hypotheses and does not assume full units are a scalar module.",
-        "Read and decompose the explicitly unramified/semilocal coefficient tower, Frobenius and norm transitions. Establish the signed dyadic Tate convention separately; none of the odd-prime action/quotient statements is asserted at p=2."
+        "Consume the exact unramified and semilocal L0 nodes in ColemanPowerSeries--L0. The arithmetic source decomposition and signed all-prime Tate convention are now specified there; the original odd-prime higher-layer scope is unchanged.",
+        "Discharge ColemanPowerSeries:L0/G1: canonical local-field/integral-closure, scalar, valuation and topology compatibility; the chosen relative integral basis and arithmetic norm/trace/evaluation adapters consumed by L1.",
+        "Discharge ColemanPowerSeries:L0/G2: continuous Dirac-preserving comparison of the weak-measure algebra with the native completed group algebra. Reuse the current pro-p product, scalar and completed-action constructions through their owners; only the arithmetic carrier/action comparisons belong here."
       ]
     },
     {
       "stageId": "ColemanPowerSeries:L1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Read and decompose the original Coleman/unramified coefficient-Frobenius interpolation variant; the actual norm and arithmetic interpolation plan here has ℤ_p coefficients."
+        "Consume the exact Frobenius-corrected norm and twisted-interpolation nodes in ColemanPowerSeries--L1; original Coleman and finite-unramified source decomposition is recorded there, including the corrected locators.",
+        "Discharge ColemanPowerSeries:L1/G1 and its four supplier requests: the coherent L0 arithmetic receiver/relative-basis specialization and independent PMIA finite-unramified bounded-psi receiving-topology adapter. Do not treat an absolute integral basis as the relative rank-p basis."
       ]
     },
     {
@@ -17695,18 +17670,18 @@
   ],
   "gaps": [
     {
-      "title": "L0 remaining refinement or source boundary",
+      "title": "L0 canonical arithmetic and action adapters",
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "Compare all native local-field structures, normalized valuations, ramification invariants and the native Teichmüller section with the upstream canonical interfaces. The exact receiving structures, residue maps and topology diamonds require their declared supplier requests. Typecheck the imported pro-p, ℤ_p-module and completed-action adapters against the owner’s final interfaces; the packet specifies their actual arithmetic hypotheses and does not assume full units are a scalar module. Read and decompose the explicitly unramified/semilocal coefficient tower, Frobenius and norm transitions. Establish the signed dyadic Tate convention separately; none of the odd-prime action/quotient statements is asserted at p=2."
+      "detail": "Consume the exact unramified and semilocal L0 nodes in ColemanPowerSeries--L0. The arithmetic source decomposition and signed all-prime Tate convention are now specified there; the original odd-prime higher-layer scope is unchanged. Discharge ColemanPowerSeries:L0/G1: canonical local-field/integral-closure, scalar, valuation and topology compatibility; the chosen relative integral basis and arithmetic norm/trace/evaluation adapters consumed by L1. Discharge ColemanPowerSeries:L0/G2: continuous Dirac-preserving comparison of the weak-measure algebra with the native completed group algebra. Reuse the current pro-p product, scalar and completed-action constructions through their owners; only the arithmetic carrier/action comparisons belong here."
     },
     {
-      "title": "L1 remaining refinement or source boundary",
+      "title": "L1 arithmetic and independent psi receivers",
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "Read and decompose the original Coleman/unramified coefficient-Frobenius interpolation variant; the actual norm and arithmetic interpolation plan here has ℤ_p coefficients."
+      "detail": "Consume the exact Frobenius-corrected norm and twisted-interpolation nodes in ColemanPowerSeries--L1; original Coleman and finite-unramified source decomposition is recorded there, including the corrected locators. Discharge ColemanPowerSeries:L1/G1 and its four supplier requests: the coherent L0 arithmetic receiver/relative-basis specialization and independent PMIA finite-unramified bounded-psi receiving-topology adapter. Do not treat an absolute integral basis as the relative rank-p basis."
     },
     {
       "title": "L2 remaining refinement or source boundary",
@@ -17728,14 +17703,6 @@
         "ColemanPowerSeries:L4"
       ],
       "detail": "Elaborate the global/local embeddings, the actual finite principal scalar structures and the generic G⁺ completed-algebra interface. Verify the owner’s procyclic augmentation and plus algebra/pseudomeasure comparison, including the identity e⁺ on the plus ideal. Refine the native quotient and finite-flat completed-tensor signatures; retain the actual unit quotient on the left. The global finite-conductor generator and local norm-stability proof use the exact imported global node statements."
-    },
-    {
-      "title": "Unread original Coleman and unramified arithmetic coefficient source",
-      "neededBy": [
-        "ColemanPowerSeries:L0",
-        "ColemanPowerSeries:L1"
-      ],
-      "detail": "Coleman1979 and a fully sourced unramified/semilocal arithmetic norm-interpolation variant remain unread. The finite-free A tensor comparisons in L3/L4 do not discharge that separate arithmetic target."
     }
   ],
   "sourceIssues": [
@@ -18047,6 +18014,13 @@
       "previousReads": [
         "2026-09-27"
       ]
+    },
+    {
+      "kind": "assembly focal reread",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "read": "2026-10-18",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "scope": "Assembly checks of tower/interpolation and arithmetic sign conventions; previous complete reviewed source scopes retain their historical attribution."
     }
   ],
   "provenance": {
