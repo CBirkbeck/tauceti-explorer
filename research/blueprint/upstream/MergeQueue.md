@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T18:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T18:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -23,6 +23,7 @@ Generated 2026-10-18T18:00Z from the README supplier graph of every open pull re
 - #1033 SubspaceTheorem (rwst, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
 - #813 AdicSpacesPartIII — draft; waits on #944
@@ -84,7 +85,7 @@ Generated 2026-10-18T18:00Z from the README supplier graph of every open pull re
 
 ## Wave 16
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #785, #792, #814, #848, #849, #853, #856, #858, #908, #938
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #785, #792, #858, #908, #248, #280, #284, #286, #417, #894, #947
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #785, #792, #858, #908, #1142, #248, #280, #284, #286, #417, #894, #947
 - #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #858, #944
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #785, #818, #849, #856, #857, #858, #868, #938, #940, #944
 
