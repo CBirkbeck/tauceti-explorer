@@ -41,7 +41,7 @@ Four additional findings are recorded, with their own confirmed review verdicts:
 
 | Finding | Text and locator | Check and correction |
 |---|---|---|
-| E10 | Boucksom–Jonsson, Proposition A.4 proof, JEP 4 (2017), p. 136; preprint p. 45 | r^(−ord₀(f)) has the wrong sign. At f=t it violates domination by ||t||=r<1; use r^(ord₀(f)). Collated against the published version. |
+| E10 | Boucksom–Jonsson, Proposition A.4 proof, JEP 4 (2017), p. 136; preprint p. 45 | r^(−ord₀(f)) has the wrong sign. At f=t it violates domination by \|\|t\|\|=r<1; use r^(ord₀(f)). Collated against the published version. |
 | E11 | Poineau–Turchetti author preprint, Example I.2.20, p. 11 | Hahn coefficients are complex; rationality belongs to the exponents. The completion must contain the constant i. No assertion is made about the unread Springer chapter. |
 | E12 | Same author preprint, Proposition I.4.14, p. 19 | The reversing case uses a₋₁, not a₁. The map T↦a/T otherwise produces zero target radii. Quantified radial variables are made consistent. Published chapter not collated. |
 | E13 | Favre–Rivera-Letelier preprint, §4.2, pp. 24–25 | With positive outgoing-derivative atoms, the interior density is +g″. For g=s² on a unit segment, this gives total zero, whereas the printed negative sign gives −4. Source equation (20) agrees with packet ddc=−Δ. Published PDF request returned HTML; finding concerns the preprint only. |
@@ -130,7 +130,7 @@ The machine-readable counterpart is the packet's `review.checked` list. A verifi
 | `TB.1/four-point-types` | corrected | Corrected definition/lemma/proposition kinds and recorded the complex Hahn-coefficient correction E11. Type III, type IV and nonspherical completeness hypotheses remain distinct. |
 | `TB.1/tree-hyperbolic-metric` | corrected | Corrected the log-modulus wording and page range through p. 31. Classical endpoints are at infinite distance, and the finite path metric is not the compact analytic topology. |
 | `TB.1/annular-skeleton` | corrected | Corrected Poineau lemma/proposition kinds; the inverse-coordinate test and logarithmic length are sound. Explicit local homotopies do not close the separate global vertex-continuity gap. |
-| `TB.1/annular-integral-slopes` | verified | BPR Propositions 2.4–2.5 and Theorem 5.15 match Laurent minima in s=−log|T|, integral slopes and puncture orders. The KRZB Laurent formula has the same sign. |
+| `TB.1/annular-integral-slopes` | verified | BPR Propositions 2.4–2.5 and Theorem 5.15 match Laurent minima in s=−log\|T\|, integral slopes and puncture orders. The KRZB Laurent formula has the same sign. |
 | `TB.1/virtual-annuli-descent` | corrected | Corrected I.7.4/I.7.5/I.7.6 kinds. The component-count modulus convention and end-swap condition are not identified with the length of one geometric component; noncompact descent remains a proof leaf. |
 | `TB.2/semistable-vertex-sets-and-skeleta` | verified | BPR Definition 3.1 uses finite type-II sets with disc/annulus complement in the split algebraic setting; analytic semistable existence is a separate prerequisite. |
 | `TB.2/skeleton` | verified | BPR Definitions 3.3/3.5 glue vertices and annular axes. Completion, puncture endpoints and complement-ball tests prevent using the entire analytic curve as the graph carrier. |
@@ -161,7 +161,7 @@ The machine-readable counterpart is the packet's `review.checked` list. A verifi
 | `TB.3/graph-jacobian` | verified | Baker–Faber §3 and Baker–Rabinoff 2.7/2.8 give the harmonic period lattice and Pic⁰ comparison. The finite-model exact sequences remain a named proof input; bridge contraction tests are meaningful. |
 | `TB.3/graph-riemann-roch` | verified | Gathmann–Kerber Theorem 1.2 and §§2–3 supply rational approximation for real edge lengths. The graph rank and canonical degree are used with all-point divisors. |
 | `TB.3/divisor-specialization` | verified | Baker §2 supplies the DVR case; Amini–Baker §4.3 supplies arbitrary complete algebraically closed rank-one specialization. Retraction and residue-curve points are kept distinct. |
-| `TB.3/slope-formula` | verified | BPR Theorem 5.15 and Amini–Baker Theorem 4.5 have opposite log conventions, which the packet explicitly converts. Δ(−log|f|)=τ_*div(f) has the checked sign. |
+| `TB.3/slope-formula` | verified | BPR Theorem 5.15 and Amini–Baker Theorem 4.5 have opposite log conventions, which the packet explicitly converts. Δ(−log\|f\|)=τ_*div(f) has the checked sign. |
 | `TB.3/metrized-complexes` | verified | Amini–Baker §1 gives residue curves with distinct half-edge marks and both graph and curve terms in principal divisors. Bare graph rank is not substituted for the complex rank. |
 | `TB.3/metrized-complex-riemann-roch` | verified | Amini–Baker Theorems 3.2/3.7 give genus and Riemann–Roch. The reduced-divisor proof is explicitly open, rather than hidden behind the theorem label. |
 | `TB.3/specialization-rank-inequality` | verified | Amini–Baker Theorems 4.5–4.6 preserve principal specialization and give rank ≥ algebraic rank over the stated field. Baker Lemma 2.8 is only its compatible DVR specialization. |
@@ -180,7 +180,7 @@ The machine-readable counterpart is the packet's `review.checked` list. A verifi
 | `TB.5/faithful-embedding-predicate` | verified | BPR §5.15–5.17 separates injectivity from expansion one and uses intrinsic image metrics. The triangle/gcd tests distinguish all parts of faithfulness. |
 | `TB.5/unit-slope-separating-functions` | verified | BPR Lemmas 5.18–5.19 and Theorem 5.20 require more than algebraic Riemann–Roch. Residue lifting and annular Runge approximation have exact, named proof leaves. |
 | `TB.5/puncture-ray-faithfulness` | verified | BPR Theorem 5.22 uses coprime pole orders and a faithful finite core to control every marked infinite tail. A finite compact-subgraph argument alone would not suffice. |
-| `TB.6/formal-model-metrics` | corrected | Corrected the acceptance wording to ||s||^e=|f| for s^e=fσ. The formal frame belongs to L^e; transition units, tensor operations and the exponent tests give the right metric. |
+| `TB.6/formal-model-metrics` | corrected | Corrected the acceptance wording to \|\|s\|\|^e=\|f\| for s^e=fσ. The formal frame belongs to L^e; transition units, tensor operations and the exponent tests give the right metric. |
 | `TB.6/model-measures` | corrected | Moved the intersection owner from SF.4 to SF.5 and read its Chern/projection/degree contracts. The nonnoetherian model specialization remains a requested extension, with component multiplicities and tensor exponents retained. |
 | `TB.6/semipositive-integrable-metrics` | verified | Chambert–Loir §2 distinguishes semipositive uniform limits from differences of such metrics. Tensor/dual operations and positivity tests respect the distinction. |
 | `TB.6/measure-limits-and-local-heights` | verified | Chambert–Loir §2.7 supplies weak limits and local heights with the countable-density hypothesis retained. The stronger Radon existence problem is recorded as a gap; no global adelic height theory is duplicated. |
@@ -189,7 +189,7 @@ The machine-readable counterpart is the packet's `review.checked` list. A verifi
 | `TB.6/model-metric-laplacian` | verified | Yuan A.4 gives curvature change by ddc f=−Δf; rescaling edge coordinates rescales the potential compatibly. Degree and endpoint atoms agree with the adopted sign. |
 | `TB.6/good-reduction-and-tate-measures` | corrected | Specified reference curvature δ₀ before multiplying by exp(−g), separated mean-zero Bernoulli normalization from metric rigidification, and retained normalized circle measure ds/L. |
 | `TB.6/model-pl-approximation` | verified | Yuan A.4 uses rational model subdivisions; the packet explicitly requires weak Laplacian convergence with variation control for the C² passage. Uniform convergence alone is not presented as enough. |
-| `TB.7/tate-analytic-quotient` | verified | The native algebraic Tate curve is imported; Poineau II.4 and Chambert–Loir supply the analytic quotient and circle calibration. Natural-log length is −log|q|. |
+| `TB.7/tate-analytic-quotient` | verified | The native algebraic Tate curve is imported; Poineau II.4 and Chambert–Loir supply the analytic quotient and circle calibration. Natural-log length is −log\|q\|. |
 | `TB.7/schottky-data` | verified | Poineau II.3.1/II.3.6 define disc pairs, free generators and a fundamental domain. Disjointness, strict contraction and all three tests exclude arbitrary PGL₂ tuples. |
 | `TB.7/mumford-uniformization` | verified | Poineau II.3.18–II.3.19 and II.4 supply the discontinuity domain, proper analytic quotient and Mumford correspondence. The converse Schottky construction proof remains explicitly open. |
 | `TB.7/analytic-jacobian-periods` | verified | Baker–Rabinoff §§2/6/7 supply the pairing identification; R11.3 is precisely requested for the non-DVR analytic Raynaud cross, rather than misused as if it already contained it. |
