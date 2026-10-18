@@ -21,140 +21,147 @@
     "kind": "def",
     "module": "Mathlib/RingTheory/AdjoinRoot.lean",
     "provides": "The quotient R[X]/(f) adjoining a root of a polynomial",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Algebra.Etale",
     "kind": "class",
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
     "provides": "Étale algebras (formally étale and of finite presentation)",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.Linear",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Linear/LinearFunctor.lean",
     "provides": "R-linear functors between R-linear categories",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:CategoryTheory.Limits.limit",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
     "provides": "Limits in a category with limits, used for towers and projective systems",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:CyclotomicField",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
     "provides": "The cyclotomic extension of a field by roots of unity of a given order",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:DerivedCategory",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "The derived category of an abelian category with its triangulated structure",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Filtration.lean",
     "provides": "Krull's intersection theorem: x ∈ ⋂ I^n M iff (1 − r)x = 0 for some r ∈ I, for finite M over Noetherian R",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:IsAdicComplete",
     "kind": "class",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "I-adic completeness (separated and complete) of a module",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:IsAlmostIntegral",
     "kind": "def",
     "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/AlmostIntegral.lean",
     "provides": "Almost integrality: some nonzerodivisor r of R has r·s^n ∈ R for all n",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:IsNoetherianRing",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
     "provides": "Noetherian rings",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:LinearMap.lTensor",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
     "provides": "The map P ⊗ M → P ⊗ N induced by M → N",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Localization.Away",
     "kind": "abbrev",
     "module": "Mathlib/GroupTheory/MonoidLocalization/Away.lean",
     "provides": "The localisation R[1/g]",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
     "provides": "Faithfully flat modules",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Module.FaithfullyFlat.lTensor_injective_iff_injective",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
     "provides": "For faithfully flat P, injectivity of P ⊗ f is equivalent to injectivity of f",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:Module.Flat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/Basic.lean",
     "provides": "Flat modules",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:MvPowerSeries",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
     "provides": "Multivariate formal power series rings",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
-    "ref": "mathlib:Submodule.annihilator",
-    "kind": "abbrev",
+    "ref": "mathlib:Module.annihilator",
+    "kind": "def",
     "module": "Mathlib/RingTheory/Ideal/Maps.lean",
-    "provides": "The annihilator ideal of a module",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "provides": "The ideal of scalars annihilating an entire R-module, used in the Krull detection lemma",
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:WittVector",
     "kind": "structure",
     "module": "Mathlib/RingTheory/WittVector/Defs.lean",
     "provides": "The ring of p-typical Witt vectors W(k)",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:completeIntegralClosure",
     "kind": "def",
     "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/AlmostIntegral.lean",
     "provides": "The complete integral closure (almost integral elements, multiplier from R⁰) of R in S",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
    },
    {
     "ref": "mathlib:integralClosure",
     "kind": "def",
     "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
     "provides": "The integral closure of R in an R-algebra S, as a subalgebra",
-    "checked": "statement read at the pinned commit 082e2d3 (declaration index and source file)"
+    "checked": "Independent review: declaration statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; hypotheses compared with its uses in this packet."
+   },
+   {
+    "ref": "mathlib:IsIntegralClosure.finite",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
+    "provides": "For a normal Noetherian domain A with fraction field K and a finite separable extension L/K, its integral closure C in L is a finite A-module; applied separately to the finite characteristic-zero field factors of a Kummer algebra.",
+    "checked": "Independent review: statement, finite-dimensional and separability hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 108–175; source bytes verified against the pinned commit."
    }
   ]
  },
@@ -198,7 +205,9 @@
     "§3.5.4 Définition 3.5.2, Lemme 3.5.3, Proposition 3.5.4, Remarques 3.5.5, Lemme 3.5.5, Proposition 3.5.6, pp. 46–48",
     "§3.6 including Proposition 3.6.1 and formulas (3.12)–(3.16), pp. 48–50",
     "§4 complete: Proposition 4.2.1, Théorème 4.2.2, Lemme 4.2.3, Corollaire 4.2.4, Exemple 4.2.6, Proposition 4.3.1, Remarque 4.3.1, Proposition 4.4.1, Théorème 4.4.2, Proposition 4.4.4, pp. 53–63",
-    "§5 complete: Théorème 5.2.1, Proposition 5.2.3, Remarque 5.2.1, Proposition 5.3.1, §5.4, pp. 63–69"
+    "§5 complete: Théorème 5.2.1, Proposition 5.2.3, Remarque 5.2.1, Proposition 5.3.1, §5.4, pp. 63–69",
+    "Exemple 3.1.2(1), p. 35, for general perfect residue field",
+    "§3.5.3, pp. 45–46, for a nonsaturated perfectoid algebra"
    ]
   },
   {
@@ -217,6 +226,31 @@
     "§3 complete: Théorème 3.2.1, Corollaire 3.2.2, §§3.3–3.4, pp. 83–84",
     "Annexe A: A.1–A.2 and A.4 (purity, almost purity, Lemmes A.1.1, A.2.1, A.4.1), pp. 89–92"
    ]
+  },
+  {
+   "id": "GR03",
+   "title": "Almost ring theory",
+   "authors": "Ofer Gabber and Lorenzo Ramero",
+   "edition": "arXiv:math/0201175v3; cleared library copy",
+   "url": "https://arxiv.org/pdf/math/0201175v3",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Lemma 2.4.2 and its proof, pp. 22–23"
+   ]
+  },
+  {
+   "id": "ANDRE18B-V1",
+   "title": "La conjecture du facteur direct",
+   "authors": "Yves André",
+   "edition": "arXiv:1609.00345v1 (2016); used only for version comparison",
+   "url": "https://arxiv.org/pdf/1609.00345v1",
+   "sha256": "57a439666e580a6ef58229d706a33d4c4a93ff248e77bc627f2464cf593a41f0",
+   "accessDate": "2026-10-18",
+   "readSections": [
+    "Lemme 1.1.2, p. 5, compared with the published statement",
+    "§5.5, p. 14, compared with published Annexe A.4, p. 92"
+   ]
   }
  ],
  "sourceVersions": [
@@ -234,7 +268,7 @@
   },
   {
    "kind": "preprint",
-   "url": "https://arxiv.org/pdf/1609.00345",
+   "url": "https://arxiv.org/pdf/1609.00345v1",
    "read": "2026-10-18",
    "sha256": "57a439666e580a6ef58229d706a33d4c4a93ff248e77bc627f2464cf593a41f0"
   },
@@ -243,6 +277,18 @@
    "url": "https://arxiv.org/pdf/1608.08882v2",
    "read": "2026-10-18",
    "sha256": "08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1609.00320",
+   "read": "2026-10-18",
+   "sha256": "485c564a47f04a62f8df5a8595fd1957870e511c59fd4959cdd9be0ef29a618e"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0201175v3",
+   "read": "2026-10-18",
+   "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8"
   }
  ],
  "nodes": [
@@ -294,7 +340,7 @@
     {
      "name": "bhatt_example_not_proZero_almost",
      "kind": "non-example",
-     "statement": "For the same tower, no single n′ works for all k: the image of M_{n+r} → M_n contains the class of ϖ^{1/p^n − 1/p^{n+r}}, which is not killed by ϖ^{1/p^{n+r}}. So the pro-object of almost modules is not zero; a definition with n′ independent of k fails this test."
+     "statement": "For the same tower, no single n′ works for all k: the image of M_{n+r} → M_n contains the class of ϖ^{1/p^n − 1/p^{n+r}}, which is killed by ϖ^{1/p^{n+r}} but is not killed by ϖ^{1/p^{n+r+1}}. So the pro-object of almost modules is not zero; a definition with n′ independent of k fails this test."
     },
     {
      "name": "isAlmostProZero_zero",
@@ -542,7 +588,7 @@
    ],
    "title": "Linear functors preserve almost-pro-zero towers",
    "kind": "theorem",
-   "statement": "Let A and t be as in PerfectoidSpacesPartII:RA.0/almost-pro-zero-tower, (M_n) an almost-pro-zero tower of A-modules and F : Mod_A → Mod_A an A-linear functor (F(a·φ) = a·F(φ) for a ∈ A and every A-linear map φ). Then (F(M_n))_n, with transitions F(ρ_{n′,n}), is almost-pro-zero. In particular this holds for Hom_A(N, −), Ext^i_A(N, −), N ⊗_A − and Tor_i^A(N, −) for any A-module N, and, termwise, a tower almost-pro-isomorphic to a constant tower stays so after applying such a functor.",
+   "statement": "Let A and t be as in PerfectoidSpacesPartII:RA.0/almost-pro-zero-tower, (M_n) an almost-pro-zero tower of A-modules and F : Mod_A → Mod_A an additive A-linear functor (F(a·φ) = a·F(φ) for a ∈ A and every A-linear map φ). Then (F(M_n))_n, with transitions F(ρ_{n′,n}), is almost-pro-zero. In particular this holds for Hom_A(N, −), Ext^i_A(N, −), N ⊗_A − and Tor_i^A(N, −) for any A-module N, and, termwise, a tower almost-pro-isomorphic to a constant tower stays so after applying such a functor.",
    "hypotheses": [
     "F need not be exact; only A-linearity on Hom groups is used."
    ],
@@ -990,7 +1036,7 @@
     {
      "name": "completeIntegralClosureAway_noetherian",
      "kind": "compatibility",
-     "statement": "For R = Z and g = 2, completeIntegralClosureAway Z 2 = Z inside Z[1/2]: if 2^m s^n ∈ Z for all n with s = a/2^e, e > 0, then e·n ≤ m for all n, which forces e = 0; this agrees with the integral closure of Z in Z[1/2]."
+     "statement": "For R = Z and g = 2, completeIntegralClosureAway Z 2 = Z inside Z[1/2]: if 2^m s^n ∈ Z for all n with s = a/2^e in lowest terms, e > 0, then e·n ≤ m for all n, which forces e = 0; this agrees with the integral closure of Z in Z[1/2]."
     }
    ],
    "prerequisites": [
@@ -1073,19 +1119,20 @@
    ],
    "title": "The norm–unit-ball dictionary for uniform Banach algebras",
    "kind": "theorem",
-   "statement": "Let K be complete for a nontrivial nonarchimedean absolute value, ϖ ∈ K°° nonzero and Γ ⊂ R with |ϖ|^Γ = |K^×|. (a) For a K°-flat K°-algebra A, the gauge |a| = |ϖ|^r with r = sup{s ∈ Γ : ϖ^{-s}a ∈ A} is a seminorm on A[1/ϖ], a norm iff A has no nonzero infinitely ϖ-divisible element; its unit ball is A when Γ is discrete and A_* = ⋂_{s ∈ Γ_{>0}} ϖ^{-s}A otherwise; a ring map φ : A[1/ϖ] → A′[1/ϖ] with φ(A) ⊂ A′ is continuous, and it is isometric iff also φ^{-1}(A′) = A. (b) If |K| is dense in the norm values of a normed K-algebra A with unit ball A_{≤1}, then A^†_A ⊂ A^+_A ⊂ A^*_A = A° for the closures of A_{≤1}, and (A^†_A)_* is the unit ball of the spectral seminorm. (c) Under (b) the following are equivalent: the norm is spectral (power-multiplicative); A_{≤1} = A°; A_{≤1} is completely integrally closed in A; it is integrally closed in A; it is p-root closed in A; and, when |ϖ| ≥ |p| and 1/p ∈ Γ, Frobenius A_{≤1}/ϖ^{1/p} → A_{≤1}/ϖ is injective. (d) If |K| is dense in R_{>0}, B ↦ B° is an equivalence from uniform Banach K-algebras with continuous homomorphisms to K°-algebras B that are K°-flat, ϖ-adically complete, completely integrally closed (equivalently integrally closed, or p-root closed) in B[1/ϖ], and equal to Hom_{K°}(K°°, B); a quasi-inverse is B ↦ (B[1/ϖ], gauge norm). The same holds relative to a fixed uniform Banach K-algebra.",
+   "statement": "Let K be complete for a nontrivial nonarchimedean absolute value, ϖ ∈ K°° nonzero and Γ ⊂ R with |ϖ|^Γ = |K^×|. (a) For a K°-flat K°-algebra A, the gauge |a| = |ϖ|^r with r = sup{s ∈ Γ : ϖ^{-s}a ∈ A} is a seminorm on A[1/ϖ], a norm iff A has no nonzero infinitely ϖ-divisible element; its unit ball is A when Γ is discrete and A_* = ⋂_{s ∈ Γ_{>0}} ϖ^{-s}A otherwise; a ring map φ : A[1/ϖ] → A′[1/ϖ] with φ(A) ⊂ A′ is continuous, and φ^{-1}(A′) = A is sufficient for it to be isometric. The exact criterion is φ^{-1}(A′_{≤1}) = A_{≤1} for the actual gauge unit balls (equal to A_* and A′_* in the nondiscrete case). (b) If |K| is dense in the norm values of a normed K-algebra A with unit ball A_{≤1}, then A^†_A ⊂ A^+_A ⊂ A^*_A = A° for the closures of A_{≤1}, and (A^†_A)_* is the unit ball of the spectral seminorm. (c) Under (b) the following are equivalent: the norm is spectral (power-multiplicative); A_{≤1} = A°; A_{≤1} is completely integrally closed in A; it is integrally closed in A; it is p-root closed in A; and, when |ϖ| ≥ |p| and 1/p ∈ Γ, Frobenius A_{≤1}/ϖ^{1/p} → A_{≤1}/ϖ is injective. (d) If |K| is dense in R_{>0}, B ↦ B° is an equivalence from uniform Banach K-algebras with continuous homomorphisms to K°-algebras B that are K°-flat, ϖ-adically complete, completely integrally closed (equivalently integrally closed, or p-root closed) in B[1/ϖ], and equal to Hom_{K°}(K°°, B); a quasi-inverse is B ↦ (B[1/ϖ], gauge norm). The same holds relative to a fixed uniform Banach K-algebra.",
    "hypotheses": [
     "Uniform means that A° is bounded, equivalently that the norm is equivalent to the spectral seminorm (with the corrected constant of PAPER-ANDRE-18/E20).",
     "Density of |K| in R_{>0} holds when the valuation of K is not discrete, for instance for perfectoid K."
    ],
    "proofSteps": [
-    "(a) is read off from the definition of the gauge and the flatness of A; the isometry criterion reduces, by density, to A_{≤1} → A′_{≤1} ∩ φ(A) being bijective, which follows inductively from injectivity modulo ϖ.",
+    "Construct the gauge using flatness. A linear map is an isometry exactly when it preserves and reflects every norm bound, equivalently the actual gauge unit ball and its scalar dilates. Equality φ^{-1}(A′) = A implies this after taking the intersections defining A_*; the converse for arbitrary lattices is not asserted.",
     "(b) An element is power-bounded iff its powers lie in a finitely generated A_{≤1}-submodule, so A^*_A = A°. The gauge of the p-root closure is lim |a^{p^n}|^{1/p^n}, the spectral seminorm, by Fekete's lemma.",
     "(c) combines (a), (b) and the inclusion of closures; Frobenius injectivity modulo ϖ is p-root closedness read on reductions.",
     "(d) The four conditions characterise unit balls of spectral norms by (a) and (c); continuous maps of uniform algebras preserve power-bounded elements."
    ],
    "acceptance": [
-    "André's example K°[ϖT, …, ϖ^{i+1}T^{p^i}, …] ⊂ K°[T] (Remarque 2.3.3(2)) shows A^+ ⊂ A^* = A° ⊂ spectral unit ball can all be strict, and that a complete integral closure need not be completely integrally closed."
+    "André's example K°[ϖT, …, ϖ^{i+1}T^{p^i}, …] ⊂ K°[T] (Remarque 2.3.3(2)) shows A^+ ⊂ A^* = A° ⊂ spectral unit ball can all be strict, and that a complete integral closure need not be completely integrally closed.",
+    "For densely valued K, take A = K° + K°°T K°[T] ⊂ A′ = K°[T]. Both generic fibres are K[T] and both gauge norms are Gauss, since scalar factors of norm just above 1 clear each of the finitely many coefficients. Thus the identity is isometric although T ∈ A′ ∖ A. This distinguishes a gauge unit ball from the original lattice."
    ],
    "planet": {
     "name": "Norm–unit-ball dictionary"
@@ -1261,20 +1308,20 @@
    ],
    "title": "Laurent localisation A{λ/g} of a uniform Banach algebra",
    "kind": "construction",
-   "statement": "Let K be complete nonarchimedean and A a uniform Banach K-algebra. For f_1, …, f_n, f ∈ A generating the unit ideal, A{f_1,…,f_n/f} = A⟨U_1,…,U_n⟩/(fU_i − f_i)^−, the quotient by the closure of the ideal; it is the universal Banach A-algebra in which f is invertible and the f_i/f are power-bounded. For λ ∈ K° and g = λf ∈ A°, A{λ/g} := A{1/f} = A⟨U⟩/(fU − 1)^−, regarded as a K⟨T⟩-algebra through T ↦ g. Properties: the ideal (fU − 1) is closed when A is uniform, so the closure is unnecessary; A{λ/g} ≅ A ⊗̂_{K⟨T⟩} K⟨T⟩{λ/T} isometrically; A{λ/g} = 0 when g ∈ λA°°; for |λ| ≤ |μ| there are canonical maps A{λ/g} → A{μ/g} and A{μ/g} ≅ A{λ/g}{μ/g}; if |g − h| < |λ| then A{λ/g} ≅ A{λ/h}; the image of a ∈ A has norm inf_m |(g/λ)^m a|. The uniformization A{λ/g}^u (AdicSpacesPartII R0) is the left adjoint, on uniform K⟨T⟩-algebras, of the inclusion of those in which T/λ is invertible with power-bounded inverse. Gabber's invariance: if g is a nonzerodivisor and A ⊂ A′ ⊂ A[1/g] is a Banach algebra extension, then A{λ/g} → A′{λ/g} is an isomorphism. If moreover A is uniform, A° → lim_{λ→0} A{λ/g}° is injective.",
+   "statement": "Let K be complete nonarchimedean and A a uniform Banach K-algebra. For f_1, …, f_n, f ∈ A generating the unit ideal, A{f_1,…,f_n/f} = A⟨U_1,…,U_n⟩/(fU_i − f_i)^−, the quotient by the closure of the ideal; it is the universal Banach A-algebra in which f is invertible and the f_i/f are power-bounded. For 0 ≠ λ ∈ K° and g = λf ∈ A°, A{λ/g} := A{1/f} = A⟨U⟩/(fU − 1)^−, regarded as a K⟨T⟩-algebra through T ↦ g. Properties: the ideal (fU − 1) is closed when A is uniform, so the closure is unnecessary; A{λ/g} ≅ A ⊗̂_{K⟨T⟩} K⟨T⟩{λ/T} isometrically; A{λ/g} = 0 when g ∈ λA°°; for |λ| ≤ |μ| there are canonical maps A{λ/g} → A{μ/g} and A{μ/g} ≅ A{λ/g}{μ/g}; if |g − h| < |λ| then A{λ/g} ≅ A{λ/h}; the image of a ∈ A has quotient norm inf_{h ∈ A⟨U⟩} ‖a + (fU − 1)h‖_Gauss, not in general inf_m |(g/λ)^m a|. The uniformization A{λ/g}^u (AdicSpacesPartII R0) is the left adjoint, on uniform K⟨T⟩-algebras, of the inclusion of those in which T/λ is invertible with power-bounded inverse. Gabber's invariance: if g is a nonzerodivisor and A ⊂ A′ ⊂ A[1/g] is a Banach algebra extension, then A{λ/g} → A′{λ/g} is an isomorphism. If moreover A is uniform, A° → lim_{λ→0} A{λ/g}° is injective.",
    "hypotheses": [
-    "Corrections recorded with this node: in the proof of Lemme 2.6.3 the lower bound is |a|, not 1 (PAPER-ANDRE-18/E6); the general injectivity of A{λ/g}^u → A{μ/g}^u asserted in Remarque 2.6.4(1) is false without further hypotheses and is not used (PAPER-ANDRE-18/E16).",
+    "The lower-bound slip in Lemme 2.6.3 and the stronger false norm formula on pp. 28–29 are separate issues (E3 and E11). The limit-injectivity conclusion is retained using a spectral-point argument. Restriction maps between individual annuli need not be injective (E4).",
     "A{λ/g} need not be uniform; only its uniformization is used in the uniform category."
    ],
    "proofSteps": [
     "A{λ/g} is the rational localisation of the Huber pair (A, A°) at {λ, g}/g (AdicSpaces Layer 3 and AdicSpacesPartII R0), so its universal property is the one of rational localisation.",
-    "Closedness of (fU − 1) for uniform A is Mihara's Proposition 2.3 (also Kedlaya–Liu 2.8.8), via the Gelfand transform.",
-    "The isometry with A ⊗̂ K⟨T⟩{λ/T} and the elementary properties follow from the universal property and the expansion 1/h − 1/g = Σ λ^{-m-1}(g − h)^m(λ/g)^{m+1}.",
+    "For closedness (André A Lemme 2.6.1, after Mihara), replace the uniform norm by the equivalent spectral norm. At each bounded multiplicative point x, extend to the Gauss seminorm on A⟨U⟩: ‖(fU−1)h‖_x = max(1,|f(x)|)‖h‖_x ≥ ‖h‖_x. Taking the supremum over x gives the spectral Gauss norm and bounds multiplication by fU−1 below. Its image is therefore complete and closed. The same closedness holds for the original equivalent norm.",
+    "The completed-tensor presentation and transition maps follow from their presentations and universal properties. If ‖g−h‖ < |λ|, use the convergent expansion 1/h = Σ_{m≥0}(g−h)^m/g^{m+1} inside A{λ/g}; the difference 1/h−1/g starts at m = 1. The norm is the quotient norm, obtained by varying all h ∈ A⟨U⟩.",
     "Gabber's invariance: by Baire and the open mapping theorem, multiplication by a power g^N maps A′ continuously into A, which gives a continuous inverse after inverting g in A{λ/g}.",
-    "Injectivity: for a ∈ A° nonzero and 0 < |λ| ≤ |ga| the norm of the image of a in A{λ/g} is at least |a| (corrected form)."
+    "For nonzero a and a nonzerodivisor g, ag ≠ 0. The spectral seminorm of a uniform Banach algebra is a norm, so choose a bounded multiplicative seminorm x with |a(x)g(x)| > 0 (AdicSpacesPartII R3). Choose nonzero λ ∈ K° with |λ| ≤ |g(x)|. This point extends to A{λ/g}, where it detects the image of a. Hence A → lim_{λ→0} A{λ/g}, and therefore A° → lim A{λ/g}°, is injective. No lower bound uniform in all points is needed."
    ],
    "acceptance": [
-    "For A = K⟨T⟩ and g = T, A{λ/T} = K⟨T, λ/T⟩ is the algebra of the closed annulus λ ≤ |T| ≤ 1, spectral, with multiplicative norm only when λ = 0 or |λ| = 1."
+    "For A = K⟨T⟩, g = T and 0 < |λ| ≤ 1, A{λ/T} = K⟨T, λ/T⟩ is the closed annulus |λ| ≤ |T| ≤ 1. Its quotient norm is spectral and is multiplicative exactly when |λ| = 1."
    ],
    "uses": [
     {
@@ -1294,7 +1341,7 @@
     {
      "name": "laurentLocalisation_annulus",
      "kind": "computation",
-     "statement": "For A = K⟨T⟩, A{λ/T} = K⟨T, λ/T⟩, whose unit ball is K°⟨T, λ/T⟩."
+     "statement": "For 0 < |λ| ≤ 1 and A = K⟨T⟩, A{λ/T} = K⟨T, λ/T⟩ with its Gauss annulus norm and unit ball K°⟨T, λ/T⟩."
     },
     {
      "name": "laurentLocalisation_zero",
@@ -1309,25 +1356,36 @@
     {
      "name": "laurentLocalisation_isometry_fails",
      "kind": "non-example",
-     "statement": "K⟨T, λ/T⟩ and K⟨T, λ²/T²⟩ are isomorphic Banach algebras but not isometric: the first is spectral, the second gives λ/T norm |λ|^{-1} > 1. A definition fixing the norm by the presentation alone distinguishes them correctly only up to equivalence."
+     "statement": "For 0 < |λ| < 1, K⟨T, λ/T⟩ and K⟨T, λ²/T²⟩ are isomorphic as topological Banach algebras, but their presentation norms give λ/T norms 1 and |λ|^{-1}, respectively. The second norm is not spectral."
     },
     {
      "name": "laurentLocalisation_rational",
      "kind": "compatibility",
      "statement": "A{λ/g} agrees with the completed rational localisation of the Huber pair (A, A°) at ({λ, g}, g) of AdicSpaces Layer 3."
+    },
+    {
+     "name": "laurentLocalisation_product_norm",
+     "kind": "non-example",
+     "statement": "Let q = |ϖ| ∈ (0,1), A = K×K with max norm, λ = ϖ, g = (ϖ²,1), and a = (1,ϖ²). The first localisation factor is zero and the second is K with U = ϖ, so ‖ι(a)‖ = q². But inf_{m≥0} ‖(g/λ)^m a‖ = inf_m max(q^m,q^{2−m}) = q, attained at m = 1. Thus the one-parameter infimum is not the quotient norm, even for uniform A and regular g."
+    },
+    {
+     "name": "laurentLocalisation_restriction_kernel",
+     "kind": "non-example",
+     "statement": "For A = K×K and g = (ϖ²,1), the restriction A{ϖ³/g} → A{ϖ/g} kills the first factor although g is a nonzerodivisor. Limit injectivity cannot be proved by claiming every restriction is injective."
     }
    ],
    "prerequisites": [
     "AdicSpacesPartII:R0/uniformization",
     "AdicSpacesPartII:R0/uniform-completed-tensor-product",
     "AdicSpacesPartII:R0/spectral-seminorm",
-    "PerfectoidSpacesPartII:RA.2/unit-ball-dictionary"
+    "PerfectoidSpacesPartII:RA.2/unit-ball-dictionary",
+    "AdicSpacesPartII:R3/uniform-spectral-seminorm"
    ],
    "api": [
     {
      "name": "laurentLocalisation",
      "role": "constructor",
-     "statement": "A{λ/g} for λ ∈ K° and g ∈ A° with g ∈ λ·A^× after inverting, as a Banach K⟨T⟩-algebra."
+     "statement": "A{λ/g} for 0 ≠ λ ∈ K° and g ∈ A°, as the Banach quotient A⟨U⟩/((g/λ)U−1), with its K⟨T⟩-algebra structure T ↦ g."
     },
     {
      "name": "laurentLocalisation.lift",
@@ -1361,8 +1419,8 @@
     },
     {
      "name": "laurentLocalisation.norm_image",
-     "role": "simp",
-     "statement": "The image of a ∈ A in A{λ/g} has norm inf_m |(g/λ)^m a|."
+     "role": "characterisation",
+     "statement": "‖ι(a)‖ = inf_{h ∈ A⟨U⟩} ‖a + ((g/λ)U−1)h‖_Gauss. This need not equal inf_m ‖(g/λ)^m a‖."
     },
     {
      "name": "laurentLocalisation.gabber",
@@ -1373,6 +1431,11 @@
      "name": "laurentLocalisation.injective_lim",
      "role": "relation",
      "statement": "For A uniform and g a nonzerodivisor, A° → lim_λ A{λ/g}° is injective."
+    },
+    {
+     "name": "laurentLocalisation.norm_ge_point",
+     "role": "relation",
+     "statement": "A bounded multiplicative seminorm x on A with |g(x)| ≥ |λ| extends to A{λ/g}; consequently ‖ι(a)‖ ≥ |a(x)|."
     }
    ],
    "library": {
@@ -1407,7 +1470,7 @@
    ],
    "title": "Weierstrass localisation B{f/λ} and its unit ball",
    "kind": "theorem",
-   "statement": "Let K be complete for a nontrivial valuation, 0 ≠ λ ∈ K°, B a uniform Banach K-algebra and f ∈ B_{≤1}. Then B{f/λ} = B⟨U⟩/(λU − f), the ideal being closed; if f is a nonzerodivisor of B then so is λU − f in B⟨U⟩. Suppose |K| is dense in |B| and multiplication by f is isometric (e.g. the norm is multiplicative and |f| = 1). Then B_{≤1}⟨U⟩/(λU − f) is torsion-free over K°, (λU − f)B_{≤1}⟨U⟩ = ((λU − f)B⟨U⟩)_{≤1}, and B{f/λ}_{≤1} = B_{≤1}⟨U⟩/(λU − f) if the valuation is discrete, B{f/λ}_{≤1} = (B_{≤1}⟨U⟩/(λU − f))_* otherwise. Moreover (λU − f)B_{≤1}⟨U⟩ is closed, B_{≤1}⟨U⟩/(λU − f) is ϖ-adically separated and equals the ϖ-adic completion of B_{≤1}[f/λ] ⊂ B, through the exact sequence 0 → (λU − f)B_{≤1}[U] → B_{≤1}[U] → B_{≤1}[f/λ] → 0 and its completion. Finally B_{≤1}⟨U⟩/(λU − f) does not change, up to isomorphism, when f is replaced by f′ with |f − f′| ≤ |λ| or λ by λ′ with |λ′| = |λ|; the isomorphism is U ↦ (λ/λ′)(U + h) with h = λ^{-1}(f′ − f).",
+   "statement": "Let K be complete for a nontrivial valuation, 0 ≠ λ ∈ K°, B a uniform Banach K-algebra and f ∈ B_{≤1}. Then B{f/λ} = B⟨U⟩/(λU − f), the ideal being closed; if f is a nonzerodivisor of B then so is λU − f in B⟨U⟩. Suppose |K| is dense in |B| and multiplication by f is isometric (e.g. the norm is multiplicative and |f| = 1). Then B_{≤1}⟨U⟩/(λU − f) is torsion-free over K°, (λU − f)B_{≤1}⟨U⟩ = ((λU − f)B⟨U⟩)_{≤1}, and B{f/λ}_{≤1} = B_{≤1}⟨U⟩/(λU − f) if the valuation is discrete, B{f/λ}_{≤1} = (B_{≤1}⟨U⟩/(λU − f))_* otherwise. Moreover (λU − f)B_{≤1}⟨U⟩ is closed, B_{≤1}⟨U⟩/(λU − f) is ϖ-adically separated and equals the ϖ-adic completion of B_{≤1}[f/λ] ⊂ B, through the exact sequence 0 → (λU − f)B_{≤1}[U] → B_{≤1}[U] → B_{≤1}[f/λ] → 0 and its completion. Finally B_{≤1}⟨U⟩/(λU − f) does not change, up to isomorphism, when f is replaced by f′ with |f − f′| ≤ |λ| or λ by λ′ with |λ′| = |λ|; the map from the new presentation to the old one sends U_new ↦ (λ/λ′)U_old + (f′−f)/λ′.",
    "hypotheses": [
     "André's argument for torsion-freeness is written for λ-torsion; the same computation with an arbitrary nonzero μ ∈ K° gives torsion-freeness over K°, which is what is used (the extraction's E14 records this reading; its review rejected it as an error).",
     "The conditional in formula (2) of André B reads 'if the valuation of K is discrete' (misprint PAPER-ANDRE-18-B/E15)."
@@ -1416,7 +1479,7 @@
     "Closedness of the ideal is the Weierstrass case of André A Lemme 2.6.1 (PerfectoidSpacesPartII:RA.2/laurent-localisation).",
     "If μ·Σ b_m U^m = (λU − f)Σ a_m U^m with a_m ∈ B_{≤1}, comparing coefficients and using that multiplication by f is injective modulo μ (it is isometric) shows μ divides every a_m; this gives torsion-freeness and the equality of unit balls, then (2)/(3) by the gauge dictionary (PerfectoidSpacesPartII:RA.2/unit-ball-dictionary).",
     "The polynomial sequence is exact by the same torsion-freeness; its completion is right exact with dense image of (λU − f)B_{≤1}⟨U⟩ in the kernel, and closedness gives exactness, whence (4).",
-    "The change of variables U ↦ (λ/λ′)(U + h) maps λU − f to λ′(…) − f′ up to a unit."
+    "The substitution U_new ↦ (λ/λ′)U_old + (f′−f)/λ′ is bounded on integral Tate algebras and sends λ′U_new−f′ to λU_old−f. Its inverse is U_old ↦ (λ′/λ)U_new+(f−f′)/λ; this proves invariance in the indicated direction."
    ],
    "acceptance": [
     "For B = K⟨T⟩ (Gauss norm), f = T and λ = ϖ, B{T/ϖ} = K⟨T/ϖ⟩ is the disc of radius |ϖ| and its unit ball is K°⟨U⟩ with T = ϖU.",
@@ -1496,7 +1559,7 @@
     {
      "name": "ulim_const",
      "kind": "degenerate",
-     "statement": "The uniform limit of a constant system A with identity maps is A with its spectral norm."
+     "statement": "The uniform limit of a constant tower (or a constant diagram on a nonempty connected category) A with identity maps is A with its spectral norm."
     },
     {
      "name": "ulim_annuli",
@@ -1614,7 +1677,7 @@
     {
      "name": "ucolim_shrinking_discs",
      "kind": "computation",
-     "statement": "ucolim_i K⟨T/ϖ^i⟩ = K, with the maps given by evaluation at 0 (André A Exemple 2.9.3(4))."
+     "statement": "For the shrinking discs, ucolim_i K⟨T/ϖ^i⟩ = K (André A Exemple 2.9.3(4)). The transitions restrict functions to the smaller discs. The universal cocone to K is evaluation at T = 0."
     },
     {
      "name": "ucolim_ne_colim",
@@ -1849,7 +1912,8 @@
    "kind": "construction",
    "statement": "Let K be a perfectoid field. For a uniform Banach K-algebra A, A♭ = lim_{x↦x^p} A is a perfectoid K♭-algebra (PerfectoidSpaces P1, tilt of a uniform Tate ring), and A^♮ := (A♭)^♯ is the perfectoid K-algebra corresponding to it under the tilting equivalence. There is a canonical map A^♮ → A; with spectral norms it is isometric, and it is an isomorphism iff A is perfectoid. The functor ♮ is right adjoint to the inclusion of perfectoid K-algebras into uniform Banach K-algebras, so perfectoid K-algebras form a coreflective full subcategory, and ♭ is right adjoint to ι∘♯. In characteristic p, A^♮ = ulim_F A. Limits of perfectoid algebras exist and are computed as (ulim)^♮.",
    "hypotheses": [
-    "The counit A^♮ → A need not be surjective, and A^♮°/ϖ → A°/ϖ is injective."
+    "The counit A^♮ → A need not be surjective, and A^♮°/ϖ → A°/ϖ is injective.",
+    "In characteristic p, Frobenius is semilinear over K, not generally K-linear. The tower ulim_F is formed on underlying normed rings with the successive K-actions twisted by Frobenius; it then has the compatible K-algebra structure required by the coreflection."
    ],
    "proofSteps": [
     "A^♮°/ϖ ≅ A♭°/ϖ♭ → A°/ϖ is injective (André A Proposition 3.3.1), which gives the isometry of the counit; ♮ restricted to perfectoid algebras is the identity, which gives the adjunction.",
@@ -2369,14 +2433,18 @@
    "proofSteps": [
     "Introduce the triple system R_i[j]_k of submodules spanned by the u^s for s ≤ 1/p^k; as in the limit lemma, lim¹_j (R_j)ᵃ = lim¹_{i,j,k}(R_i[j]_k)ᵃ.",
     "Bound cokernels of transitions: R_i[j+1]_k → R_i[j]_k by ϖ^{1/p^k}, R_i[j]_{k+1} → R_i[j]_k by T^{1/p^k}, and, for i′ ≥ i ≥ j + rp^{k+1}/(p−1), an image comparison giving almost containment.",
-    "Along j = k and i_k ≥ k + rp^{k+1}/(p−1), the cokernels of the composite transitions are killed by (ϖT)^{3/p^k}; as Σ 3/p^k converges, lim¹ vanishes almost (Gabber–Ramero Lemma 2.4.2(iii))."
+    "On a cofinal diagonal j = k, i_k ≥ k + rp^{k+1}/(p−1), the transition cokernels in the almost category are killed by s^{3/p^k}, where s = ϖT. The remaining argument is stronger than termwise almost-zero limit vanishing and is given in the next two steps.",
+    "Apply almost elements (·)_*: the cokernel bounds become s^{6/p^k} on the ordinary representative tower N_k, allowing the extra factor needed to lift an almost epimorphism. The comparison (lim¹ N_k)^a ≅ lim¹ (N_k^a) is the module-tower comparison in Gabber–Ramero Lemma 2.4.2(iii), using the Roos product complex. Thus it suffices to show each s^{1/p^l} kills the ordinary Roos cokernel.",
+    "Fix ε = 1/p^l and a tail k ≥ N with b_k = 12/p^k ≤ ε. For arbitrary y_k ∈ N_k solve x_k−ψ_k(x_{k+1}) = s^ε y_k by x_k = s^{b_k}z_k: choose z_N = 0 and lift s^{b_k−b_{k+1}}(z_k−s^{ε−b_k}y_k) through ψ_k to obtain z_{k+1}. Such a lift exists because b_k−b_{k+1} ≥ 6/p^k, the cokernel-annihilator exponent. Extend x backwards through the finite head. All powers have exponents in Z[1/p]_{≥0}. Every root of s therefore kills lim¹, proving the almost vanishing."
    ],
    "acceptance": [
     "For a constant nested system lim¹ is zero on the nose."
    ],
    "prerequisites": [
     "PerfectoidSpacesPartII:RA.3/scholze-limit-lemma",
-    "PerfectoidSpaces:P0/almost-zero-limits-and-colimits"
+    "PerfectoidSpaces:P0/almost-zero-limits-and-colimits",
+    "PerfectoidSpaces:P0/almost-hom-and-adjoints",
+    "EnhancedDerivedSheaves:E2/coherent-towers-and-roos"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Perfectoid/RiemannExtension",
@@ -2387,6 +2455,11 @@
      "sourceId": "ANDRE18A",
      "locator": "Proposition 4.4.1 with proof, pp. 60–61",
      "match": "Proves almost vanishing of lim¹ for nested systems of root localisations by explicit annihilation estimates on a triple system of submodules."
+    },
+    {
+     "sourceId": "GR03",
+     "locator": "Lemma 2.4.2(iii) and proof, pp. 22–23 (arXiv v3)",
+     "match": "The almost-elements comparison doubles the transition-cokernel annihilators; a Cauchy product of these ideals makes lim¹ almost zero. The special root-exponent proof is expanded here, rather than attributed to the weaker termwise-zero supplier node."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2424,7 +2497,7 @@
     {
      "name": "compatibleAnnularSystem_const",
      "kind": "degenerate",
-     "statement": "(A[j])_j with the localisation maps is an object, and ulim of it is g^{-1/p^∞}A°[1/ϖ] (Riemann extension)."
+     "statement": "For A = K⟨T^{1/p^∞}⟩ and g = T, the canonical system B_j = A{ϖ^j/T} satisfies the nested base-change condition; its envelope is the Riemann-extension algebra A."
     },
     {
      "name": "compatibleAnnularSystem_zero",
@@ -2439,7 +2512,7 @@
     {
      "name": "compatibleAnnularSystem_not_arbitrary_tower",
      "kind": "non-example",
-     "statement": "The tower (A[j][X]/(X^2))_j is not an object: perfectoid algebras are reduced (PerfectoidSpaces P1) and X is a nonzero nilpotent, so a definition admitting arbitrary towers of A[j]-algebras is too large."
+     "statement": "For A = K⟨T^{1/p^∞}⟩ and g = T, every A[j] is nonzero. The compatible system A[j][ε]/ε² fails the perfectoid-algebra condition because ε is a nonzero nilpotent. The base-change condition alone is insufficient."
     }
    ],
    "prerequisites": [
@@ -2671,9 +2744,9 @@
    ],
    "title": "Galois closures of finite étale extensions and Galois rigidity",
    "kind": "lemma",
-   "statement": "(1) Let R → S be a finite étale extension of rings of constant rank r. There is a Galois extension R → T with group S_r factoring through S such that S → T is Galois with group S_{r−1}: take T the ring of the complement Z of all partial diagonals in the r-fold fibre product Spec S ×_{Spec R} ⋯ ×_{Spec R} Spec S, with S_r permuting the factors. (2) Let G be a finite group of automorphisms of a ring S, R = S^G, and R ⊂ S′ ⊂ S a G-stable intermediate ring that is G-Galois over R. Then S′ = S.",
+   "statement": "(1) Let R → S be a finite étale extension of rings of constant rank r ≥ 1. There is a Galois extension R → T with group S_r factoring through S such that S → T is Galois with group S_{r−1}: take T the ring of the complement Z of all partial diagonals in the r-fold fibre product Spec S ×_{Spec R} ⋯ ×_{Spec R} Spec S, with S_r permuting the factors. (2) Let G be a finite group of automorphisms of a ring S, R = S^G, and R ⊂ S′ ⊂ S a G-stable intermediate ring that is G-Galois over R. Then S′ = S.",
    "hypotheses": [
-    "Both statements are classical (non-almost) ring theory; (1) holds without connectedness (Mumford, Abelian varieties, p. 122)."
+    "Both statements are classical ring theory. In (1), finite étale extension means faithful, so r ≥ 1; connectedness of Spec R is not required. The construction and proof are supplied by André A §1.9.3, p. 10."
    ],
    "proofSteps": [
     "(1) Since S is étale over R the partial diagonals are open and closed, so Z is finite étale over Spec R and over Spec S; S_r × Z → Z ×_X Z (resp. S_{r−1} × Z → Z ×_Y Z) is an isomorphism, checked on geometric fibres where S is a product of r copies of the residue field.",
@@ -2681,7 +2754,8 @@
    ],
    "acceptance": [
     "For r = 1, T = S = R and S_1 is trivial.",
-    "For r = 2 and R → S = R[x]/(x² − a) with 2a invertible, T = S."
+    "For r = 2 and R → S = R[x]/(x² − a) with 2a invertible, T = S.",
+    "Rank zero is excluded: over a nonzero ring R, R → 0 cannot factor a faithfully flat Galois extension R → T through 0. For a general finite étale algebra split off its open-and-closed zero-rank locus first."
    ],
    "prerequisites": [
     "PerfectoidSpacesPartII:RA.4/almost-galois-extension",
@@ -2717,7 +2791,8 @@
    "proofSteps": [
     "(1) Each B_j is finite étale over the perfectoid A[j], hence perfectoid (PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid); B_i ⊗_{A[i]} A[j] ≅ B_j and, B_i being finite projective over A[i], the tensor product is already complete, equal to B_i{ϖ^j/g}.",
     "(2) The integral closure of A° in B′ maps to the integral closure of A[j]° in B_j, which is B_j° (almost purity: PerfectoidSpaces:P3/integral-closure-almost-finite-etale); in the limit this gives δ : B′ → B[1/g], and δ_j is a right inverse of η_j. The adjunction of PerfectoidSpacesPartII:RA.3/nested-systems-theorem forces δ_jη_j = id.",
-    "(3) δ is injective: its kernel I has trace zero in every A[j], hence in A[1/g], which embeds into ulim A[j] (PerfectoidSpacesPartII:RA.2/laurent-localisation, injectivity into the limit); I = 0 as B′ is étale. Surjectivity: for B′ Galois with group G, B[1/g]^G = A[1/g] and Galois rigidity (André A Lemme 1.9.3) concludes; in general embed B′ in an S_r-Galois closure (André A Lemme 1.9.2) and take S_{r−1}-invariants."
+    "(3) δ is injective: its kernel I has trace zero in every A[j], hence in A[1/g], which embeds into the algebraic limit lim_j A[j] (PerfectoidSpacesPartII:RA.2/laurent-localisation, injectivity into the limit); I = 0 as B′ is étale. Surjectivity: for B′ Galois with group G, B[1/g]^G = A[1/g] and Galois rigidity (André A Lemme 1.9.3) concludes; in general embed B′ in an S_r-Galois closure (André A Lemme 1.9.2) and take S_{r−1}-invariants.",
+    "For the trace argument, first use Laurent limit injectivity to embed A[1/g] in the algebraic projective limit lim_j A[j], where g is invertible. It generally does not embed in the bounded-family uniform limit: 1/T has unbounded annular norms. If I = ker(B′ → lim_j B_j), then tr(xy) maps to zero for x ∈ I and every y ∈ B′, so tr(xy) = 0 by this algebraic-limit embedding. Nondegeneracy of the finite étale trace pairing gives I = 0. On constant-rank components use the Galois closure only for positive rank; the rank-zero algebra is treated separately."
    ],
    "acceptance": [
     "For B′ = A[1/g]^n the envelope is the product of n copies of the Riemann extension of A."
@@ -2861,7 +2936,7 @@
    ],
    "proofSteps": [
     "Replace A° by g^{-1/p^∞}A°. The integral closure of A° in B′ maps into each B_j° (André A Lemme 2.4.1(1)), hence into B°; this map of subrings of B′ is injective, and surjective because B° is integral over A° — from the Galois invariants formula (5.6) after reducing to the Galois case.",
-    "The almost comparison with (A°)^+_{B′} is Gabber–Ramero 8.2.8; maximality of B̃^♮ follows from PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra."
+    "For the almost comparison, let x satisfy a monic equation with coefficients b_i in g^{-1/p^∞}A°. For any ε = g^{1/p^l}, multiplying the equation by ε^n gives a monic equation for εx with coefficients ε^i b_i ∈ A°. Thus every root of g sends B̃° into (A°)^+_{B′}, while the reverse inclusion is immediate. This proves the asserted almost comparison in the stated ramified setup directly. Maximality of B̃^♮ follows from PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra and the coreflection."
    ],
    "acceptance": [
     "For B′ = A[1/g], B̃° = g^{-1/p^∞}A° and the envelope is (g^{-1/p^∞}A°[1/ϖ])^♮."
@@ -2895,7 +2970,12 @@
     {
      "name": "abhyankarEnvelope_unramified",
      "kind": "compatibility",
-     "statement": "If B′ comes from a finite étale A-algebra C, then abhyankarEnvelope A g B′ = C (almost purity, PerfectoidSpaces P3)."
+     "statement": "If B′ = C[1/g] for finite étale C over A, the envelope is (g^{-1/p^∞}C°[1/ϖ])^♮. It equals C if C° is already root-saturated along g; finite étaleness alone does not ensure that condition."
+    },
+    {
+     "name": "abhyankarEnvelope_unramified_enlarges",
+     "kind": "non-example",
+     "statement": "In characteristic p let P = K⟨T_1^{1/p^∞},T_2^{1/p^∞}⟩ and A = K + closure(Σ_m T_1^{1/p^m}P), with g = T_1. Both are perfectoid, but T_2 ∉ A and g^{1/p^m}T_2 ∈ A for every m. The root saturation is P, so the envelope of the identity finite étale A-algebra after inverting g is P, strictly larger than A (André A §3.5.3, pp. 45–46)."
     }
    ],
    "prerequisites": [
@@ -2952,6 +3032,11 @@
      "sourceId": "ANDRE18A",
      "locator": "§5.3 and Proposition 5.3.1(1)–(2) with proof, pp. 67–68",
      "match": "Defines the integral closures B̃° and B̃, identifies B̃ with the uniform limit B, proves completeness and root saturation of B̃°, its almost comparison with the integral closure of A°, and maximality of B̃^♮."
+    },
+    {
+     "sourceId": "ANDRE18A",
+     "locator": "§3.5.3, pp. 45–46",
+     "match": "A perfect characteristic-p subalgebra of a two-variable perfected Tate algebra need not be saturated along one coordinate; this tests the extra saturation condition in the unramified example."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2972,7 +3057,7 @@
    ],
    "proofSteps": [
     "Take B = B̃^♮ from PerfectoidSpacesPartII:RA.4/abhyankar-envelope, which gives (1) and maximality.",
-    "(2) is PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale applied to B̃ (almost perfectoid with B̃[1/g] = B′).",
+    "(2) Apply PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale to the perfectoid algebra B = B̃^♮, with B[1/g] = B′. Transfer the conclusion across the almost isomorphism B°ᵃ ≅ B̃°ᵃ when the integral-closure model is used.",
     "(3) If B′ is faithful then B̃° is a faithful A°-module, and since A → B̃ is isometric, B̃°/p is faithful over A°/p; B̃°ᵃ/p is finite étale over A°ᵃ/p, so the trace is almost surjective modulo p onto (A°ᵃ)_* = g^{-1/p^∞}A°, and almost surjective by the almost Nakayama lemma for complete modules (André A §1.3)."
    ],
    "acceptance": [
@@ -3018,12 +3103,13 @@
    ],
    "title": "Almost perfectoid envelopes of reduced affinoid algebras",
    "kind": "application",
-   "statement": "Let K be perfectoid and B a reduced K-affinoid algebra of dimension n, presented as a finite extension of A = K⟨T_1,…,T_n⟩ by Noether normalisation, and let g ∈ A° with B[1/g] étale over A[1/g]. Put 𝒜 = g^{-1/p^∞}K⟨T_1^{1/p^∞},…,T_n^{1/p^∞}, g^{1/p^∞}⟩ (an almost perfectoid algebra) and ℬ the integral closure of B ⊗_A 𝒜 in B ⊗_A 𝒜[1/g]. Then ℬ is almost perfectoid, and ℬ°ᵃ is finite étale over 𝒜°ᵃ modulo every power of p in the setup (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}K°[T^{1/p^∞}]) with T^{1/p^k} ↦ g^{1/p^k}.",
+   "statement": "Let K be perfectoid, B a reduced K-affinoid algebra of dimension n, and fix a finite injective Noether-normalisation A = K⟨T_1,…,T_n⟩ → B together with 0 ≠ g ∈ A° such that B[1/g] is finite étale over A[1/g]. Put P = K⟨T_1^{1/p^∞},…,T_n^{1/p^∞},g^{1/p^∞}⟩ and 𝒜 = (g^{-1/p^∞}P°)[1/ϖ], with its spectral norm. Let ℬ be the integral closure of the image of B ⊗_A 𝒜 in B ⊗_A 𝒜[1/g]. Then 𝒜 and ℬ are almost perfectoid, and ℬ°ᵃ/p^m is finite étale over 𝒜°ᵃ/p^m for every m, in the setup (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}K°[T^{1/p^∞}]) with T^{1/p^h} ↦ g^{1/p^h}.",
    "hypotheses": [
-    "The construction depends on the choice of Noether normalisation and discriminant g."
+    "The construction depends on the choice of Noether normalisation and discriminant g.",
+    "Noether normalisation supplies a finite injection. The additional choice making B[1/g] étale is part of this presentation; it is not a conclusion of the cited normalisation node alone. The zero affinoid is handled separately."
    ],
    "proofSteps": [
-    "Noether normalisation (Bosch–Güntzer–Remmert 6.1.2/2) presents B as finite over A; 𝒜 is almost perfectoid by PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra and the root saturation; apply PerfectoidSpacesPartII:RA.4/abhyankar-envelope and PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale to B ⊗_A 𝒜[1/g], finite étale over 𝒜[1/g]."
+    "Use AdicSpacesPartII:R0/affinoid-noether-normalisation for the finite injection; retain the explicit hypothesis on g. The root algebra P is perfectoid. RA.3 root saturation and Riemann extension make 𝒜 almost perfectoid. Apply the annular-envelope and Abhyankar-envelope construction to B ⊗_A 𝒜[1/g]; apply integral almost étaleness to its perfectoid coreflection and transfer along the almost isomorphism of unit balls. This gives the assertion for ℬ without treating an almost perfectoid algebra as a perfectoid one."
    ],
    "acceptance": [
     "For B = A one gets 𝒜 itself.",
@@ -3033,7 +3119,9 @@
     "PerfectoidSpacesPartII:RA.4/abhyankar-envelope",
     "PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale",
     "PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra",
-    "PerfectoidSpacesPartII:RA.2/root-saturation"
+    "PerfectoidSpacesPartII:RA.2/root-saturation",
+    "AdicSpacesPartII:R0/affinoid-noether-normalisation",
+    "PerfectoidSpacesPartII:RA.3/almost-perfectoid-algebra"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Perfectoid/Abhyankar",
@@ -3068,7 +3156,8 @@
    ],
    "proofSteps": [
     "Lazard's characterisation via finitely presented modules and filtered colimits of split monomorphisms; Tor-injectivity follows since filtered colimits commute with Tor.",
-    "Ring-level statements follow from the module-level ones by taking symmetric algebras and the faithfulness criterion as in André B Lemme A.2.1."
+    "Ring-level statements follow from the module-level ones by taking symmetric algebras and the faithfulness criterion as in André B Lemme A.2.1.",
+    "For the generator criterion use the trace ideal generated by f(s), with f ∈ Hom_R(S,R). If it is R, choose finitely many pairs (f_i,s_i) with Σ_i f_i(s_i) = 1. Then t ↦ Σ_i f_i(s_i t) is an R-linear retraction S → R. The generator property does not require a single evaluation f(s) to equal 1."
    ],
    "acceptance": [
     "Every split injection is pure; a faithfully flat ring map is pure."
@@ -3201,7 +3290,8 @@
    "kind": "definition",
    "statement": "Let (V, m) be a basic setup with m ⊗_V m flat (PerfectoidSpaces P0), R a V-algebra and u : M → N a map of R-modules. Then u is almost pure if P ⊗_R u is almost injective (its kernel is killed by m) for every R-module P (equivalently every finitely presented P); equivalently M^a_! → N^a_! is pure. A map of V-algebras R → S is almost pure if it is almost pure as a map of R-modules, equivalently R^a_{!!} → S^a_{!!} is pure. If M ⊂ N is almost pure, then Hom_R(P, N) → Hom_R(P, N/M) is almost surjective for every finitely presented P; in particular, if N/M is finitely presented, M is an almost direct summand of N and the class of N in Ext^1_R(N/M, M) is almost zero. If R → S → T is almost pure then so is R → S, and if M → M′ → N with M → N almost pure then M → M′ is almost pure. An almost faithfully flat map of almost algebras is almost pure.",
    "hypotheses": [
-    "Corrections PAPER-ANDRE-18-B/E10–E11: purity of M → N is tested on P ⊗ M → P ⊗ N, and the intermediate factorisation is M → M′ → N."
+    "Corrections PAPER-ANDRE-18-B/E10–E11: purity of M → N is tested on P ⊗ M → P ⊗ N, and the intermediate factorisation is M → M′ → N.",
+    "The published A.4, p. 92, already tensors M → N correctly. The malformed ring-map expression in the module definition occurs only in arXiv:1609.00345v1 §5.5, p. 14; this is a version-specific source issue, not an error in the published definition."
    ],
    "proofSteps": [
     "The left adjoint (·)_! is exact and commutes with ⊗ (Gabber–Ramero 2.2.24, 2.4.35), so almost injectivity of P ⊗ u is injectivity of its (·)_!; this gives the equivalence with purity of M^a_! → N^a_!.",
@@ -3332,7 +3422,7 @@
     "PerfectoidSpacesPartII:RA.5/pure-map",
     "mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff",
     "mathlib:Module.FaithfullyFlat",
-    "mathlib:Submodule.annihilator"
+    "mathlib:Module.annihilator"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Purity",
@@ -3356,16 +3446,18 @@
    ],
    "title": "The normalized two-index Kummer tower over W(k)⟦T_1,…,T_n⟧",
    "kind": "construction",
-   "statement": "Let k be a perfect field of characteristic p, W(k) its Witt vectors, K_0 = W(k)[1/p], K_j = K_0(ζ_{p^j}) with ζ_{p^j} a compatible system of primitive p^j-th roots of unity, K_∞ = ⋃ K_j and K̂_∞ its p-adic completion, a perfectoid field. Let A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g ∈ A. For (j, k) ∈ N², put K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}] = K_j°⟦T_1^{1/p^j},…,T_n^{1/p^j}⟧[X]/(X^{p^k} − g) and A_jk = K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}][1/p], a double inductive system of K_0-algebras with the natural inclusions; infinite indices mean directed unions. Let A°_jk be the integral closure of A in A_jk. Then A°_jk contains K_j°⟦T^{1/p^j}⟧[g^{1/p^k}] and A_jk = A°_jk[1/p]; for (j, k) ∈ N² it is Noetherian and p-adically complete; A°_{j0} = K_j°⟦T^{1/p^j}⟧ and A°_{00} = A; A°_{j′k′} = A°_jk ∩ A_{j′k′} for j′ ≤ j, k′ ≤ k; for j = ∞, A°_{∞k} is the increasing union of Noetherian integrally closed rings finite over one another, hence completely integrally closed in A_{∞k}. The maps A°_{j0} → A°_{j′0} are finite and faithfully flat (indeed free), A°_{∞0} is faithfully flat over each A°_{j0}, and so is its p-adic completion Â°_{∞0}, which is isomorphic to W(k⟦T^{1/p^∞}_{≤n}⟧) ⊗̂_{W(k)} K̂_∞°.",
+   "statement": "Let k be a perfect field of characteristic p, W(k) its Witt vectors, K_0 = W(k)[1/p], K_j = K_0(ζ_{p^j}) with ζ_{p^j} a compatible system of primitive p^j-th roots of unity, K_∞ = ⋃ K_j and K̂_∞ its p-adic completion, a perfectoid field. Let A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g ∈ A. For (j, k) ∈ N², put K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}] = K_j°⟦T_1^{1/p^j},…,T_n^{1/p^j}⟧[X]/(X^{p^k} − g) and A_jk = K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}][1/p], a double inductive system of K_0-algebras with the natural inclusions; infinite indices mean directed unions. Let A°_jk be the integral closure of A in A_jk. Then A°_jk contains K_j°⟦T^{1/p^j}⟧[g^{1/p^k}] and A_jk = A°_jk[1/p]; for (j, k) ∈ N² it is Noetherian and p-adically complete; A°_{j0} = K_j°⟦T^{1/p^j}⟧ and A°_{00} = A; A°_{j′k′} = A°_jk ∩ A_{j′k′} for j′ ≤ j, k′ ≤ k; for j = ∞, A°_{∞k} is the increasing union of Noetherian rings finite over one another, each integrally closed relative to its specified generic algebra; A°_{∞k} is completely integrally closed relative to A_{∞k}. These generic algebras and models may have zero divisors. The maps A°_{j0} → A°_{j′0} are finite and faithfully flat (indeed free), A°_{∞0} is faithfully flat over each A°_{j0}, and so is its p-adic completion Â°_{∞0}, which is isomorphic to W(k⟦T^{1/p^∞}_{≤n}⟧) ⊗̂_{W(k)} K̂_∞°.",
    "hypotheses": [
     "The p-adic completion Â_∞⟨g^{1/p^∞}⟩° of the introduction of André B must be taken as the completed directed union of the A°_jk including the coordinate roots T_l^{1/p^j}, not only the cyclotomic and g-roots (PAPER-ANDRE-18-B/E25).",
-    "Describing A°_jk at finite level is hard in general (tame and fierce ramification); only its formal properties are used."
+    "Describing A°_jk at finite level is hard in general (tame and fierce ramification); only its formal properties are used.",
+    "The exponent k indexing the Kummer root is separate from the perfect residue field k. The symbol [g^{1/p^k}] means the freely adjoined root algebra, retaining all branches; it does not choose a root in a field. Relative integral closedness is the intended notion throughout."
    ],
    "proofSteps": [
-    "Integral closures of the Noetherian complete local domain A in finite extensions of its fraction field are finite (A is Nagata, being complete local), hence Noetherian and complete; the intersection formula is the transitivity of integral closure.",
+    "For finite j,k, A_jk is a finite reduced A[1/p]-algebra: the naive monic ring is finite over A, p is inverted, and g ≠ 0 makes X^{p^k}−g separable over the fraction field. Its total quotient algebra is a finite product of finite field extensions of Frac(A), all separable in characteristic zero. Mathlib IsIntegralClosure.finite gives a finite A-module D by normalizing A in each field factor (A is normal and Noetherian). Then A°_jk = D ∩ A_jk is an A-submodule of D, hence finite, Noetherian and p-adically complete. This is integral closedness relative to A_jk, without asserting that A°_jk is a normal domain or equals D. The intersection formula follows from integrality over A and injectivity of the tower maps.",
     "A°_{j0} = K_j°⟦T^{1/p^j}⟧ because this ring is regular, hence normal, and integral over A; the transitions are free of finite rank with basis monomials, hence faithfully flat; completion preserves faithful flatness over the Noetherian A°_{j0} (DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion).",
-    "An increasing union of integrally closed Noetherian rings finite over one another is completely integrally closed in its fraction ring: powers of an element in a finitely generated module lie, at a finite stage, in a finitely generated module of a Noetherian ring, where complete and ordinary integral closure agree.",
-    "The Witt-vector description of Â°_{∞0} is André A (3.1) and is not used."
+    "For relative complete integral closedness in R = A°_{∞k} ⊂ S = A_{∞k} = R[1/p], use exactly the pinned definition IsAlmostIntegral: let x ∈ S and let d be a nonzerodivisor of R with d x^m ∈ R for every m. Choose a finite generic stage A_jl containing both x and d. Each d x^m is integral over A, and the intersection formula puts it in A°_jl. Multiplication by d embeds the A-module A[x] into the finite A-module A°_jl: d remains a nonzerodivisor after inverting p, hence on this stage. Noetherianity of A makes A[x] finite, so x is integral over A and belongs to R. This also treats k = ∞. Only x and the multiplier descend to one stage; the infinitely many coefficient relations need not.",
+    "The Witt-vector description of Â°_{∞0} is André A (3.1) and is not used.",
+    "For arbitrary perfect k, ζ_{p^j} = ζ_{p^{j+1}}^p and perfectness of k give surjectivity of Frobenius from K_{j+1}°/p onto K_j°/p. The valuations of ζ_{p^j}−1 tend to zero. Thus the rank-one completion K̂_∞ is nondiscretely valued with surjective Frobenius modulo p, hence perfectoid by PerfectoidSpaces:P1/perfectoid-field-characterisation (André A Exemple 3.1.2(1), p. 35). The finite-Q_p cyclotomic supplier is not used for general k."
    ],
    "acceptance": [
     "For n = 0, A = W(k) and g = p, A_{0k} = K_0(p^{1/p^k}) and A°_{0k} = W(k)[p^{1/p^k}]."
@@ -3404,6 +3496,16 @@
      "name": "kummerTower_coord_flat",
      "kind": "compatibility",
      "statement": "A°_{10} = W(k)[ζ_p]⟦T^{1/p}⟧ is free of rank p^n·(p − 1) over A, agreeing with Mathlib's Module.Free/Module.Flat for the inclusion."
+    },
+    {
+     "name": "kummerTower_zero_divisors",
+     "kind": "non-example",
+     "statement": "Take n = 1, g = T_1 and j = k = 1. Write S = T_1^{1/p} in K_1°⟦S⟧. In A_{11}, X^p−T_1 = (X−S)∏_{ζ^p=1, ζ≠1}(X−ζS). The two factors have positive degree < p, so both are nonzero in the monic quotient, are integral over A and lie in A°_{11}, but their product is zero. Thus A°_{11} is not a domain. Only after also inverting T_1 do the factors become comaximal and yield a product of p copies of K_1°⟦S⟧[1/(pT_1)]; relative integral closure inside A_{11} is not normalization in its total quotient ring."
+    },
+    {
+     "name": "kummerTower_unit_not_identity",
+     "kind": "non-example",
+     "statement": "For p = 2, k = F_2, n = 0, g = 1 and (j,k) = (0,1), A_{01} = Q_2[X]/(X²−1) ≅ Q_2×Q_2 and A°_{01} ≅ Z_2×Z_2. Freely adjoining roots of 1 does not give the identity algebra. The suggested file states the corresponding two nonzero factors in the rational root algebra."
     }
    ],
    "planet": {
@@ -3417,7 +3519,9 @@
     "mathlib:AdjoinRoot",
     "DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion",
     "DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion",
-    "PerfectoidSpacesPartII:RA.2/p-root-closure"
+    "PerfectoidSpacesPartII:RA.2/p-root-closure",
+    "PerfectoidSpaces:P1/perfectoid-field-characterisation",
+    "mathlib:IsIntegralClosure.finite"
    ],
    "api": [
     {
@@ -3475,6 +3579,11 @@
      "sourceId": "ANDRE18A",
      "locator": "Exemple 3.2.3(2), formula (3.1), p. 37",
      "match": "Identifies the completion of the coordinate tower with W(k⟦T^{1/p^∞}⟧) ⊗̂ K̂_∞° and shows it is perfectoid."
+    },
+    {
+     "sourceId": "ANDRE18A",
+     "locator": "Exemple 3.1.2(1), p. 35",
+     "match": "The completed cyclotomic extension of Frac W(k) is perfectoid for any perfect residue field k, using the Frobenius congruence and nondiscrete value group."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3525,9 +3634,10 @@
    ],
    "title": "The completed Kummer tower as a colimit of tubes; perfectoidness",
    "kind": "theorem",
-   "statement": "In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let Â_∞0⟨T^{1/p^∞}⟩ be the p-adic completion of A_∞0[T^{1/p^∞}] (also its completion for the multiplicative Gauss norm), so that Â_∞0⟨T^{1/p^∞}⟩° = Â°_∞0⟨T^{1/p^∞}⟩ = Â_∞0⟨T^{1/p^∞}⟩_{≤1} and T − g has norm 1. In the almost setup (K°_∞, K°°_∞) there is a canonical isomorphism Â°ᵃ_∞∞ ≅ completed colim_i (Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}°)ᵃ, the completion being p-adic. The K̂_∞-algebra Â_∞0 is perfectoid, hence so are Â_∞0⟨T^{1/p^∞}⟩ and Â_∞∞ = Â_∞0⟨g^{1/p^∞}⟩.",
+   "statement": "In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let Â_∞0⟨T^{1/p^∞}⟩ be the completion of A_∞0[T^{1/p^∞}] for the multiplicative Gauss norm (equivalently, complete the integral Gauss unit ball p-adically and then invert p), so that Â_∞0⟨T^{1/p^∞}⟩° = Â°_∞0⟨T^{1/p^∞}⟩ = Â_∞0⟨T^{1/p^∞}⟩_{≤1} and T − g has norm 1. In the almost setup (K°_∞, K°°_∞) there is a canonical isomorphism Â°ᵃ_∞∞ ≅ completed colim_i (Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}°)ᵃ, the completion being p-adic. The K̂_∞-algebra Â_∞0 is perfectoid, hence so are Â_∞0⟨T^{1/p^∞}⟩ and Â_∞∞ = Â_∞0⟨g^{1/p^∞}⟩.",
    "hypotheses": [
-    "Â_∞∞ denotes the completed uniform colimit of the A_jk with the spectral norms of PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm."
+    "Â_∞∞ denotes the completed uniform colimit of the A_jk with the spectral norms of PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm.",
+    "Algebraic (p)-adic completion after p is inverted would be the zero ring and is not the construction intended here. The root algebra freely adjoins a compatible root system, even when g = 1; it is not obtained by choosing the root 1 at every stage."
    ],
    "proofSteps": [
     "Â_∞0 is perfectoid: Frobenius is surjective modulo p on ⋃ A°_{i0} since A°_i ≡ (A°_{i+1})^p mod p (André A Exemple 3.2.3(2)); the perfected Tate algebra over it is perfectoid (PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra).",
@@ -3541,7 +3651,7 @@
     "PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm",
     "PerfectoidSpacesPartII:RA.2/tubular-colimit",
     "PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra",
-    "PerfectoidSpaces:P3/cyclotomic-completion-of-finite-extension"
+    "PerfectoidSpaces:P1/frobenius-surjectivity-criterion"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Perfectoid/KummerTower",
@@ -3570,18 +3680,20 @@
    ],
    "title": "Faithful flatness of the Noetherian tube models",
    "kind": "theorem",
-   "statement": "In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let j be finite, ϖ_j a uniformizer of K_j°, 0 ≠ ϖ_{ik} ∈ K_j with |ϖ_{ik}| < |ϖ_j|, f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ and g_k ∈ A°_{j0}⟨T^{1/p^j}⟩ with f_{ik} ≡ T^{1/p^k} − g_k modulo ϖ_j. Then C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) = A_{j0}⟨T^{1/p^j}⟩{f_{ik}/ϖ_{ik}}_{≤1} is a Noetherian, ϖ_j-torsion-free, ϖ_j-adically complete A°_{j0}-algebra with C/ϖ_j ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k) free over A°_{j0}/ϖ_j; hence C is faithfully flat over A°_{j0}.",
+   "statement": "In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let j ≥ k be finite, ϖ_j a uniformizer of K_j°, 0 ≠ ϖ_{ik} ∈ K_j with |ϖ_{ik}| < |ϖ_j|, f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ and g_k ∈ A°_{j0} with f_{ik} ≡ T^{1/p^k} − g_k modulo ϖ_j. Then C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) = A_{j0}⟨T^{1/p^j}⟩{f_{ik}/ϖ_{ik}}_{≤1} is a Noetherian, ϖ_j-torsion-free, ϖ_j-adically complete A°_{j0}-algebra with C/ϖ_j ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k) free over A°_{j0}/ϖ_j; hence C is faithfully flat over A°_{j0}.",
    "hypotheses": [
     "Gap in the source, repaired here: André B proves flatness of the generic fibre A_{j0}⟨T^{1/p^j}⟩{f_{ik}/ϖ_{ik}} over A_{j0} by describing the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs, a step not justified in the text (PAPER-ANDRE-18-B/E26). The repair uses the complete flatness criterion on the torsion-free integral model instead, and obtains the generic-fibre flatness as a corollary."
    ],
    "proofSteps": [
-    "The Gauss norm on A_{j0}⟨T^{1/p^j}⟩ is multiplicative (PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm) and |f_{ik}| = 1, so multiplication by f_{ik} is isometric; the Weierstrass unit-ball theorem (PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball) gives that C is torsion-free over K_j° and equals the unit ball of the Weierstrass localisation (discrete valuation case).",
-    "C is a quotient of the Noetherian ring A°_{j0}⟨T^{1/p^j}, U⟩ and is ϖ_j-adically complete; modulo ϖ_j, since |ϖ_{ik}| < |ϖ_j|, C/ϖ_j = A°_{j0}⟨T^{1/p^j}, U⟩/(f_{ik}, ϖ_j) ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k), free over A°_{j0}/ϖ_j with a monomial basis.",
+    "Since g_k belongs to the base and j ≥ k, the reduction of f_{ik} in Z = T^{1/p^j} is the monic polynomial Z^{p^{j−k}}−g_k. Hence f_{ik} has Gauss norm 1. The base Gauss norm is multiplicative, so multiplication by f_{ik} is isometric, and RA.2 Weierstrass gives the torsion-free unit-ball quotient C.",
+    "The Noetherian restricted-power-series quotient is ϖ_j-adically complete. Its reduction is (A°_{j0}/ϖ_j)[Z,U]/(Z^{p^{j−k}}−g_k), with the explicit free basis {Z^a U^b : 0 ≤ a < p^{j−k}, b ≥ 0}. The basis contains 1, so the reduction is faithfully flat.",
     "Bhatt's flatness criterion (DerivedDeRhamCohomology:DD.1/ordinary-flatness-from-complete-flatness) with π = ϖ_j gives faithful flatness of A°_{j0} → C: A°_{j0} is Noetherian, both rings are ϖ_j-torsion-free and complete, and the reduction is faithfully flat (free and nonzero, its fibre over the closed point being k[T^{1/p^j}, U]/(f̄) with f̄ not a unit).",
     "Inverting p gives the flatness of the generic fibre over A_{j0} that André B asserts in step (a)."
    ],
    "acceptance": [
-    "For f_{ik} = T^{1/p^k} − g_k exactly, C is the unit ball of the tube {|T^{1/p^k} − g_k| ≤ |ϖ_{ik}|}."
+    "For f_{ik} = T^{1/p^k} − g_k exactly, C is the unit ball of the tube {|T^{1/p^k} − g_k| ≤ |ϖ_{ik}|}.",
+    "The hypothesis g_k ∈ A°_{j0} is essential: if g_k = T^{1/p^k} in the auxiliary Tate algebra and f_{ik} = 0, the quotient has nonzero ϖ_j-torsion and is not flat. If j < k the displayed monomial is not even in the indicated stage.",
+    "For a fixed k, obtain g_k by Frobenius surjectivity on the completed coordinate base Â°_∞0 modulo a sufficiently small pseudouniformizer, then approximate it in a finite base stage and enlarge j ≥ k. No dependence on the auxiliary T is needed."
    ],
    "prerequisites": [
     "PerfectoidSpacesPartII:RA.5/normalized-kummer-tower",
@@ -3626,12 +3738,12 @@
    "proofSteps": [
     "Fix ϖ ∈ K̂°_∞ with |p| ≤ |ϖ| < 1 and roots, and ϖ′ ∈ K°_∞ with |ϖ| < |ϖ′| < 1. By the approximation lemma (PerfectoidSpaces:P2/approximation-lemma) choose f_i ∈ Â°_∞0⟨T^{1/p^∞}⟩ with compatible roots, f_i ≡ T − g mod ϖ′, and the same tube: Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}° ≅ Â_∞0⟨T^{1/p^∞}⟩{f_i/ϖ^i}° (formula (11)).",
     "By the explicit almost integral model of rational localisations (PerfectoidSpaces:P2/almost-integral-model-of-untilted-rational-localization) and the Weierstrass unit-ball theorem, the almost unit ball is the completed colimit over k of Â°_∞0⟨T^{1/p^∞}, U⟩/(ϖ^{i/p^k}U − f_i^{1/p^k}) (formulas (12)–(13)).",
-    "Each term does not change when f_i^{1/p^k} is replaced by f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ congruent modulo ϖ^{i/p^k} and ϖ^{i/p^k} by ϖ_{ik} ∈ K_j of the same norm (Weierstrass invariance), and is the completed colimit over j of the Noetherian tube models (formulas (14)–(17)).",
-    "The Noetherian tube models are faithfully flat over A°_{j0} (PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness); colimits and completions over the Noetherian A°_{j0} preserve faithful flatness (DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion), so each completed colimit is faithfully flat over A°_∞0.",
+    "Each term does not change when f_i^{1/p^k} is replaced by f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ congruent modulo ϖ^{i/p^k} and ϖ^{i/p^k} by ϖ_{ik} ∈ K_j of the same norm (Weierstrass invariance), and is the completed colimit over j of the Noetherian tube models (formulas (14)–(17)). Choose g_k in the completed coordinate base by Frobenius surjectivity, approximate it in A°_{j0}, and enlarge j ≥ k so f_{ik} ≡ T^{1/p^k}−g_k mod ϖ_j. This is the base-ring choice required by the Noetherian tube lemma.",
+    "Fix a finite coordinate stage A°_{a0}. Build the relevant filtered colimits of tube models at stages j ≥ a,k; each is faithfully flat over A°_{a0}, since A°_{j0} is finite free over A°_{a0}. Their p-adic completions remain faithfully flat over this fixed Noetherian A°_{a0}, by DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion (p lies in its Jacobson radical). Apply this at every finite stage. The equational criterion now gives flatness over A°_∞0, since any finite coefficient relation descends to one stage; faithfulness follows since a finite expression 1 ∈ IC for a proper ideal I also descends to a stage, contradicting stagewise faithfulness. No completion theorem with a non-Noetherian base is being invoked.",
     "Pass to the almost category: (·)_{!!} respects faithful flatness (PerfectoidSpaces:P0/lower-shriek-shriek-faithful-flatness), so the tube algebras' (·)_{!!} are faithfully flat; the completed colimit over i is faithfully flat, and the tubular description (PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description) identifies it almost with Â°_∞∞."
    ],
    "acceptance": [
-    "For g a unit of A the tower is ind-étale-like after inverting p and the theorem is the faithful flatness of Â°_∞0 itself.",
+    "For g a unit the generic root covers are étale. For g = 1, freely adjoining roots retains all cyclotomic branches; it is not the identity algebra Â°_∞0. Evaluation at the compatible roots 1 gives a quotient to the base, not an equality with the free root tower.",
     "Consequence: Â_∞∞ is faithfully flat over A[1/p] and g is a nonzerodivisor of Â_∞∞ (PerfectoidSpacesPartII:RA.5/kummer-generic-faithful-flatness)."
    ],
    "planet": {
@@ -3741,7 +3853,7 @@
     "Faithful flatness of A_∞0 over A[1/p] follows from the coordinate-tower statement of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower after inverting p."
    ],
    "acceptance": [
-    "For g = T_1 the Kummer tower adjoins further roots of a coordinate, A°_{jk} = K_j°⟦T_1^{1/p^{j+k}}, T_2^{1/p^j}, …⟧, and faithful flatness is visible directly."
+    "For g = T_1 and j = 0, A°_{0k} = W(k)⟦T_1^{1/p^k},T_2,…,T_n⟧ is finite free over A. At j = k = 1, however, X^p−T_1 already factors over the coordinate-root base and A°_{11} has zero divisors, as tested in normalized-kummer-tower. It is not a power-series domain with exponent 1/p^{j+k}."
    ],
    "prerequisites": [
     "PerfectoidSpacesPartII:RA.5/kummer-almost-faithful-flatness",
@@ -3800,7 +3912,7 @@
     {
      "name": "flatIntegralModel_quotient_almostZero",
      "kind": "characterisation",
-     "statement": "A°_∞0 ⊂ S, K°°_∞Â°_∞∞ ⊂ S, and Â°_∞∞/S is killed by K°°_∞; a definition taking the almost elements (Â°ᵃ_∞∞)_* (which contains Â°_∞∞) instead of (·)_{!!} gives a different, larger ring for which faithful flatness is not available."
+     "statement": "A°_∞0 ⊂ S, K°°_∞Â°_∞∞ ⊂ S, and Â°_∞∞/S is killed by K°°_∞; a definition taking the almost elements (Â°ᵃ_∞∞)_* (which contains Â°_∞∞) instead of (·)_{!!} may give a larger ring; the faithful-flatness theorem invoked here applies to (·)_{!!}, not to the almost-elements right adjoint."
     },
     {
      "name": "flatIntegralModel_torsionFree",
@@ -3869,10 +3981,10 @@
    ],
    "title": "Ramified almost flatness and purity modulo p^m for the Kummer tower",
    "kind": "theorem",
-   "statement": "Let B be a finite extension of A = W(k)⟦T_1,…,T_n⟧, reduced and p-torsion-free, and g ∈ A ∖ pA with B[1/(pg)] étale over A[1/(pg)]. Let B° be the integral closure of Â°_∞∞ in the finite étale Â_∞∞[1/g]-algebra B ⊗_A Â_∞∞[1/g]; the map B ⊗_A S → B ⊗_A Â_∞∞[1/g] (S as in PerfectoidSpacesPartII:RA.5/flat-integral-model) factors through B°, and becomes an isomorphism after inverting pg. View Â°_∞∞ and B° as K°_∞[T^{1/p^∞}]-algebras through T^{1/p^h} ↦ g^{1/p^h}. Then in the setup (K°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), for every m ∈ N, Â°_∞∞/p^m → B°/p^m is almost faithfully flat, hence almost pure. Consequently, in the setup (K°_∞ + K°°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), S/p^m → (B ⊗_A S)/p^m is almost pure for every m.",
+   "statement": "Let A = W(k)⟦T_1,…,T_n⟧ and A ↪ B be a finite injective extension with B reduced and p-torsion-free, and g ∈ A ∖ pA with B[1/(pg)] étale over A[1/(pg)]. Let B° be the integral closure of Â°_∞∞ in the finite étale Â_∞∞[1/g]-algebra B ⊗_A Â_∞∞[1/g]; the map B ⊗_A S → B ⊗_A Â_∞∞[1/g] (S as in PerfectoidSpacesPartII:RA.5/flat-integral-model) factors through B°, and becomes an isomorphism after inverting pg. View Â°_∞∞ and B° as K°_∞[T^{1/p^∞}]-algebras through T^{1/p^h} ↦ g^{1/p^h}. Then in the setup (K°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), for every m ∈ N, Â°_∞∞/p^m → B°/p^m is almost faithfully flat, hence almost pure. Consequently, in the setup (K°_∞ + K°°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), S/p^m → (B ⊗_A S)/p^m is almost pure for every m.",
    "hypotheses": [
     "For the purity of A ↪ B one may assume B reduced and p-torsion-free, even a domain with B[1/(pg)] Galois over A[1/(pg)] (Hochster's reduction); the Galois case of the Abhyankar lemma suffices.",
-    "The map A/p^m → B/p^m is injective because A is integrally closed in A[1/p]."
+    "If a ∈ A maps to p^m b in B, then b = a/p^m ∈ A[1/p] and is integral over A because B is finite. Normality of A implies b ∈ A, proving A/p^m → B/p^m injective."
    ],
    "proofSteps": [
     "Â_∞∞ is perfectoid (PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description) and g is a nonzerodivisor with compatible roots in it (PerfectoidSpacesPartII:RA.5/kummer-generic-faithful-flatness); B′ = B ⊗_A Â_∞∞[1/g] is finite étale over Â_∞∞[1/g] since B[1/(pg)] is étale over A[1/(pg)] and p is invertible in Â_∞∞.",
@@ -3880,7 +3992,7 @@
     "For the corollary: almost zero has the same meaning in both setups and S is almost isomorphic to Â°_∞∞ there, so S/p^m → B°/p^m is almost pure, and so is S/p^m → (B ⊗_A S)/p^m, through which it factors."
    ],
    "acceptance": [
-    "If g is a unit (B[1/p] étale over A[1/p]) the statement is Faltings's almost purity over the perfectoid Â_∞0, as used by Bhatt and Shimomoto.",
+    "For g a unit the ramified almost setup reduces to the valuation setup and the almost-flatness assertion is ordinary almost purity over the resulting perfectoid base. One can also apply ordinary almost purity to the coordinate cover Â_∞0; this does not identify the freely adjoined g-root tower with Â_∞0.",
     "This is the input that, with the Krull detection lemma and Hochster's Mittag-Leffler argument, proves the direct summand theorem in André B §§3.3–3.4 (owned by Direct summands and big Cohen–Macaulay algebras)."
    ],
    "planet": {
@@ -3968,7 +4080,7 @@
    "kind": "gap",
    "locator": "Published Théorème 2.5.2, proof step (a), p. 81",
    "printed": "To get flatness of the generic fibre of the Noetherian tube over A_{j0}, the source describes the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs and invokes flatness of affinoid subdomains; the descent from the polydiscs to A_{j0} is not argued.",
-   "correction": "Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness).",
+   "correction": "Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness). Require j ≥ k and choose g_k in A°_{j0}, so the special fibre is monic in the auxiliary variable and free on Z^a U^b with a < p^{j−k}. The choice exists by Frobenius surjectivity on the coordinate base, independently of the auxiliary variable.",
    "reason": "A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available.",
    "affects": "the proof",
    "known": "PAPER-ANDRE-18-B/E26 (recorded by the extraction, no review verdict yet)",
@@ -3976,7 +4088,12 @@
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00345 versions",
     "the extraction PAPER-ANDRE-18-B and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E2",
@@ -3992,7 +4109,12 @@
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00320 versions",
     "the extraction PAPER-ANDRE-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "If B′ = 0 (or B′ is supported on a proper factor of A[1/g]) then B = 0 or the structure map has a kernel, so A → B is not an inclusion. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E3",
@@ -4000,15 +4122,20 @@
    "kind": "error",
    "locator": "Published Lemme 2.6.3, proof, p. 29",
    "printed": "The proof bounds the infimum over m of |(g/λ)^m a| below by 1.",
-   "correction": "The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|.",
+   "correction": "The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|. This repairs only the displayed numerical bound; the quotient-norm identity used before it is a separate false assertion (E11), so the proof of limit injectivity is replaced by spectral-point detection.",
    "reason": "With |λ| ≤ |ga| and a ∈ A°, |(g/λ)^m a| ≥ |a| for spectral norms, but it can be smaller than 1 when |a| < 1; the lemma's conclusion only needs positivity.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "PAPER-ANDRE-18/E6",
    "searched": [
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00320 versions",
     "the extraction PAPER-ANDRE-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The m = 0 term has norm |a|, which can be strictly below 1. The power-multiplicative inequality gives the stated local repair, but E11 prevents that calculation from proving the lemma by itself.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E4",
@@ -4017,14 +4144,19 @@
    "locator": "Published Remarque 2.6.4(1), p. 29",
    "printed": "The remark asserts that all the maps A{λ/g}^u → A{μ/g}^u are injective.",
    "correction": "Remove the general injectivity assertion; a use needs hypotheses ensuring the particular restriction map is injective. This roadmap does not use it.",
-   "reason": "Non-zero-divisibility of g alone is insufficient (counterexample recorded in the extraction review).",
+   "reason": "Take A = K×K with max norm, g = (ϖ²,1), λ = ϖ³ and μ = ϖ. Then g is regular, A{λ/g} has both factors, and restriction to A{μ/g} kills the first factor.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18/E16",
    "searched": [
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00320 versions",
     "the extraction PAPER-ANDRE-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Take A = K×K with max norm, g = (ϖ²,1), λ = ϖ³ and μ = ϖ. Then g is regular, A{λ/g} has both factors, and restriction to A{μ/g} kills the first factor. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E5",
@@ -4033,14 +4165,19 @@
    "locator": "Published formula (2.17), §2.5.3(1), p. 26",
    "printed": "The middle term of the displayed equality inverts p.",
    "correction": "Invert ϖ: g^{-1/p^∞}B = g^{-1/p^∞}B°[1/ϖ] = B_*.",
-   "reason": "Throughout §2.5 the generic fibre is formed by inverting the chosen ϖ; for |p| < |ϖ| the two differ.",
+   "reason": "In characteristic p, inverting p means inverting 0 and gives the zero ring, whereas inverting the nonzero pseudouniformizer gives the intended generic fibre. In mixed characteristic these inversions agree; differing positive norms alone would not distinguish them.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18/E5",
    "searched": [
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00320 versions",
     "the extraction PAPER-ANDRE-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In characteristic p, inverting p means inverting 0 and gives the zero ring, whereas inverting the nonzero pseudouniformizer gives the intended generic fibre. In mixed characteristic these inversions agree; differing positive norms alone would not distinguish them. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E6",
@@ -4056,7 +4193,12 @@
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00320 versions",
     "the extraction PAPER-ANDRE-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The elements ϖ^{m/p^n}g^{m/p^n}b lie in B[1/g], not necessarily in B°[1/g]. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E7",
@@ -4065,14 +4207,19 @@
    "locator": "arXiv v2 §1.4 Notation, p. 3",
    "printed": "The chosen t ∈ K° has p-power roots and |t| = |p| in characteristic 0; nothing excludes |t| = 1 or t = 0 in characteristic p.",
    "correction": "Also require 0 < |t| < 1, so that t is a pseudouniformizer.",
-   "reason": "In characteristic p a unit t would make every module almost zero for nothing and the rational subsets X⟨t^n/g⟩ would not shrink.",
+   "reason": "For t a unit the almost-zero condition is ordinary zero and the annuli do not grow to exhaust g ≠ 0. For t = 0 almost mathematics degenerates in the opposite direction. A nonzero topologically nilpotent t is the intended setup.",
    "affects": "nothing",
    "known": "PAPER-BHATT-18/E16",
    "searched": [
     "arXiv:1608.08882 v1–v2",
     "Inventiones Mathematicae article page (no erratum found)",
     "the extraction PAPER-BHATT-18 and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For t a unit the almost-zero condition is ordinary zero and the annuli do not grow to exhaust g ≠ 0. For t = 0 almost mathematics degenerates in the opposite direction. A nonzero topologically nilpotent t is the intended setup. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E8",
@@ -4088,7 +4235,12 @@
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00345 versions",
     "the extraction PAPER-ANDRE-18-B and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Formula (3) treats the non-discrete case. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E9",
@@ -4097,14 +4249,19 @@
    "locator": "Published introduction §0.6, p. 74",
    "printed": "The introduction describes Â_∞⟨g^{1/p^∞}⟩° as the completion of the union of the integral closures of A in A[ζ_{p^i}, g^{1/p^i}, 1/p].",
    "correction": "Include the coordinate roots: it is the completed directed union of the A°_{jk} of §§2.2–2.3, which adjoin T_l^{1/p^j} as well.",
-   "reason": "Without the coordinate roots the completed union is not perfectoid (Frobenius is not surjective modulo p on W(k)⟦T⟧-coordinates), contradicting its use as Â°_∞∞.",
+   "reason": "For example take n ≥ 1 and g = 1. Adjoining only cyclotomic and g-roots does not supply p-th roots of the independent coordinates; Frobenius on their reduction is not surjective. The main-text double tower includes the necessary coordinate roots.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18-B/E25",
    "searched": [
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00345 versions",
     "the extraction PAPER-ANDRE-18-B and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For example take n ≥ 1 and g = 1. Adjoining only cyclotomic and g-roots does not supply p-th roots of the independent coordinates; Frobenius on their reduction is not surjective. The main-text double tower includes the necessary coordinate roots. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   },
   {
    "id": "PerfectoidSpacesPartII/E10",
@@ -4120,7 +4277,95 @@
     "Numdam page of the published article (no erratum listed)",
     "arXiv:1609.00345 versions",
     "the extraction PAPER-ANDRE-18-B and its review"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Almost purity of a composite implies almost purity of its first factor, as for ordinary purity. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E11",
+   "source": "ANDRE18A",
+   "kind": "error",
+   "locator": "Published §2.6.2 property list, p. 28, and Lemme 2.6.3 proof, p. 29",
+   "printed": "The image norm in A{λ/g} is identified with inf_{m≥0} ‖(g/λ)^m a‖.",
+   "correction": "Use the Banach quotient norm inf_h ‖a+((g/λ)U−1)h‖_Gauss. Prove the limit-injectivity conclusion by extending a spectral point with |ag| > 0 to a sufficiently large annulus.",
+   "reason": "For A = K×K, λ = ϖ, g = (ϖ²,1), a = (1,ϖ²) and q = |ϖ| < 1, the quotient norm is q², while the claimed infimum is inf_m max(q^m,q^{2−m}) = q. The denominator ideal can change the representative in each factor independently.",
+   "affects": "a stated result",
+   "known": "Independently detected in this review; the latest arXiv preprint has the same formula.",
+   "searched": [
+    "Published Numdam PDF, pp. 28–29",
+    "Latest arXiv:1609.00320 text, corresponding property list and proof",
+    "Bounded web search for a correction to the Laurent norm formula; none located"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For A = K×K, λ = ϖ, g = (ϖ²,1), a = (1,ϖ²) and q = |ϖ| < 1, the quotient norm is q², while the claimed infimum is inf_m max(q^m,q^{2−m}) = q. The denominator ideal can change the representative in each factor independently. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E12",
+   "source": "ANDRE18A",
+   "kind": "error",
+   "locator": "Published Proposition 4.4.4 proof (2), p. 63",
+   "printed": "The trace argument says A[1/g] embeds in the uniform limit of the A[j].",
+   "correction": "Use the algebraic limit lim_j A[j], where g is invertible; use Laurent limit injectivity before localising. This suffices to detect the trace pairing and the kernel.",
+   "reason": "With A = K⟨T^{1/p^∞}⟩ and g = T, the annular norms of 1/T are |ϖ|^{-j}, so 1/T is not in the bounded uniform limit, although it lies in the algebraic limit. For x in the kernel test tr(xy) for every y, then use nondegeneracy.",
+   "affects": "the proof",
+   "known": "Independently detected in this review; the latest arXiv preprint has the same bounded-limit wording.",
+   "searched": [
+    "Published Numdam PDF, p. 63",
+    "Latest arXiv:1609.00320 corresponding proof",
+    "Bounded web search for an erratum; none located"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "With A = K⟨T^{1/p^∞}⟩ and g = T, the annular norms of 1/T are |ϖ|^{-j}, so 1/T is not in the bounded uniform limit, although it lies in the algebraic limit. For x in the kernel test tr(xy) for every y, then use nondegeneracy. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E13",
+   "source": "ANDRE18B",
+   "kind": "misprint",
+   "locator": "Published proof of Lemme A.2.1, p. 90",
+   "printed": "The dual used for the generator criterion is written with S-linear maps from S to R.",
+   "correction": "Use Hom_R(S,R); write 1 as a finite sum Σ_i f_i(s_i), then t ↦ Σ_i f_i(s_i t) is an R-linear retraction.",
+   "reason": "The base ring R has no canonical S-module structure for this argument. The trace ideal of a generator uses R-linear functionals; a finite sum, rather than a single evaluation, proves the retraction.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E1; independently confirmed against the published proof.",
+   "searched": [
+    "Published Numdam PDF, p. 90",
+    "PAPER-ANDRE-18-B extraction and independent review"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The base ring R has no canonical S-module structure for this argument. The trace ideal of a generator uses R-linear functionals; a finite sum, rather than a single evaluation, proves the retraction. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E14",
+   "source": "ANDRE18B-V1",
+   "kind": "misprint",
+   "locator": "arXiv:1609.00345v1 §5.5, p. 14; corrected in published Annexe A.4, p. 92",
+   "printed": "The definition for a module map M → N instead tests the ring-map expression P → P ⊗_R S, with S absent from the module setup.",
+   "correction": "For every P require P ⊗_R M → P ⊗_R N almost injective. Cite the already-correct published Annexe A.4 for the definition.",
+   "reason": "A test involving an unrelated ring S cannot define almost purity of a general module map. The published text repairs this; this record is explicitly preprint-only.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E11.",
+   "searched": [
+    "arXiv:1609.00345v1 p. 14",
+    "Published Numdam PDF, p. 92",
+    "PAPER-ANDRE-18-B extraction and independent review"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "A test involving an unrelated ring S cannot define almost purity of a general module map. The published text repairs this; this record is explicitly preprint-only. Independently checked at the recorded locator.",
+    "by": "REV-DESIGN-PerfectoidSpacesPartII"
+   }
   }
  ],
  "restructure": [
@@ -4159,5 +4404,263 @@
    ],
    "note": "The PerfectoidSpaces package (Tau Ceti pull request #818) does not contain almost-pro-zero towers or almost Galois extensions, although the accepted paper routes PAPER-BHATT-18 route 1 and PAPER-ANDRE-18 route 1 assigned them to its P0/P3. PerfectoidSpacesPartII RA.0 and RA.4 plan them instead; PerfectoidSpaces needs no change."
   }
- ]
+ ],
+ "review": {
+  "reviewer": "independent-review-REV-DESIGN-PerfectoidSpacesPartII",
+  "status": "accepted",
+  "date": "2026-10-18",
+  "notes": "Independent Codex review of all 50 targets, 21 pinned baseline declarations and every direct supplier. Corrected statements, hypotheses, examples and proof closure in place. Four additional source issues recorded; no new nodes or unresolved mathematical gaps. The suggested Lean file states only light constructions available at the pins.",
+  "checked": [
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.0/almost-pro-zero-tower",
+    "verdict": "corrected",
+    "note": "Corrected the strict root index in Bhatt Example 3.3: the root at n+r kills the displayed class; the root at n+r+1 does not. Checked Definition 3.2 and the Serre-class argument."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.0/uniformly-almost-pro-zero",
+    "verdict": "verified",
+    "note": "Checked both root quantifiers, uniformity in n and the equivalence with the Lean predicate."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.0/almost-pro-zero-derived-limit",
+    "verdict": "verified",
+    "note": "Checked Bhatt Lemmas 3.4–3.5: fixed-root multiplication factors through a pro-zero tower; bounded cohomological amplitude and E2 derived limits suffice."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.0/almost-pro-zero-linear-functor",
+    "verdict": "corrected",
+    "note": "Read Bhatt Lemma 3.6 and pinned Functor.Linear. Made additivity explicit in the packet, matching the separate F.Additive and F.Linear assumptions in the suggested file; scalar annihilation is preserved."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.0/uniform-annihilation-derived-tensor",
+    "verdict": "verified",
+    "note": "Checked amplitude-zero cone, factorisation through the cokernel, root-factor slack, and arbitrary derived tensor input. The same c controls both adjacent cohomology degrees."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.1/annular-tower",
+    "verdict": "verified",
+    "note": "Checked annulus orientation, O-plus definition and P2 root-relation presentation, with empty-annulus and unit tests."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.1/quantitative-riemann-extension",
+    "verdict": "verified",
+    "note": "Read Bhatt Theorems 1.6 and 4.2 proof: denominator estimate gives c = p^k m and almost-zero kernels under almost regularity."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.1/quantitative-riemann-extension-derived",
+    "verdict": "verified",
+    "note": "Checked Remark 4.3 and the RA.0 uniform cone argument; the Koszul consequence uses a regular sequence and the DD.1 supplier."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.1/quantitative-riemann-extension-general",
+    "verdict": "verified",
+    "note": "Checked Remark 4.4: pass from the universal variable to g by derived tensor with the explicit integral presentation; no hidden nonzerodivisor assumption."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.1/riemann-extension-almost-limit",
+    "verdict": "verified",
+    "note": "Checked Remark 1.7 and the cofinal double-limit argument; completeness and almost exactness are used before interchanging the limits."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/p-root-closure",
+    "verdict": "corrected",
+    "note": "Checked p-root versus integral closure and the characteristic-p characterisation; required a reduced fraction in the Z[1/2] computation."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/unit-ball-dictionary",
+    "verdict": "corrected",
+    "note": "The inverse-image equality for input lattices is sufficient for isometry, not necessary. Replaced the iff by the actual gauge-unit-ball criterion and added a dense-valued counterexample (Sorite 2.3.1(2c), pp. 16–17)."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/root-saturation",
+    "verdict": "verified",
+    "note": "Checked all six root-saturation conditions, localisation of complete integral closure and compatibility with bounded limits; corrections E5–E6 are respected."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/laurent-localisation",
+    "verdict": "corrected",
+    "note": "Removed the false norm infimum from the published property list, supplied the quotient-norm formula and a K×K counterexample, and proved limit injectivity by a detecting spectral point. Required nonzero λ, corrected a geometric series, and made the annulus tests precise (new source issue E11). Supplied a closed-image argument using the Gauss seminorms at spectral points."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball",
+    "verdict": "corrected",
+    "note": "Specified the direction of the change of variables; U_new ↦ (λ/λ′)U_old+(f′−f)/λ′ takes the new relation to the old relation. Checked torsion-freeness, density and both unit-ball formulas."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/uniform-limit",
+    "verdict": "corrected",
+    "note": "Qualified the constant-diagram test by connected nonempty indexing; verified the bounded-family universal property and the open-disc example against (2.27)–(2.28)."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/uniform-colimit",
+    "verdict": "corrected",
+    "note": "Corrected shrinking-disc transition maps to restrictions and identified evaluation at 0 as the cocone; checked the uniformization and unit-ball universal properties."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/root-algebra",
+    "verdict": "verified",
+    "note": "Checked universal root-system property, uniform colimit norm and the nilpotent test; freely adjoining roots is distinct from choosing a root in a field."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.2/tubular-colimit",
+    "verdict": "verified",
+    "note": "Checked Proposition 2.9.2 and Corollary 2.9.3, tubular transitions and the flat almost-unit-ball conclusion."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/perfectoid-coreflection",
+    "verdict": "corrected",
+    "note": "Made Frobenius semilinearity explicit in characteristic p: the inverse limit uses Frobenius-twisted K-actions. Checked both adjunctions and the characteristic-zero coreflection."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra",
+    "verdict": "verified",
+    "note": "Checked both characteristic cases of the root algebra and its tilted compatible root, with the P1/P2 suppliers."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/almost-perfectoid-algebra",
+    "verdict": "verified",
+    "note": "Checked Definition 3.5.2 and both coreflection tests, completeness and equivalence of integral models; none asserts almost perfectoid implies perfectoid."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/annular-localisation-perfectoid",
+    "verdict": "verified",
+    "note": "Checked Proposition 3.6.1, integral model (3.16), tilt formula and relative almost setup."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/scholze-limit-lemma",
+    "verdict": "verified",
+    "note": "Read Proposition 4.2.1 and the root-localisation proof, including the reduction modulo a pseudouniformizer power and the principal-root almost ideal."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/perfectoid-riemann-extension",
+    "verdict": "verified",
+    "note": "Checked Theorem 4.2.2, Lemma 4.2.3, complete integral closure, nonzerodivisor hypothesis and the integral/generic dictionary."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra",
+    "verdict": "verified",
+    "note": "Checked Corollary 4.2.4: root saturation followed by coreflection, with the universal largest-subalgebra property."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/uniform-limit-perfectoid-criterion",
+    "verdict": "verified",
+    "note": "Checked Proposition 4.3.1 and its hypotheses: the ordinary uniform limit need not be perfectoid, whereas the almost criterion passes through Frobenius modulo ϖ."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/nested-lim-one-vanishing",
+    "verdict": "corrected",
+    "note": "The existing P0 node only handles termwise almost-zero systems. Added the missing summable-annihilator proof using almost elements, doubled exponents and a weighted Roos recursion; read Gabber–Ramero Lemma 2.4.2(iii), pp. 22–23, in the cleared copy."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/compatible-annular-system",
+    "verdict": "corrected",
+    "note": "Restricted the canonical and dual-number examples to a concrete nonzero annular tower, so the claimed nonexamples cannot degenerate to the zero algebra."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.3/nested-systems-theorem",
+    "verdict": "verified",
+    "note": "Checked Theorem 4.4.2 and its unit/counit maps; the strengthened lim-one proof closes its Frobenius-surjectivity step."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/almost-galois-extension",
+    "verdict": "verified",
+    "note": "Checked Lemma 1.9.1: the Galois tensor comparison and invariants imply almost faithful flatness and étaleness; tests distinguish automorphisms from a torsor."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/galois-closure-and-rigidity",
+    "verdict": "corrected",
+    "note": "Required positive constant rank for a faithful Galois closure and added the zero-rank counterexample; verified the geometric-fibre proof and rigidity lemma (p. 10)."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/annular-envelope",
+    "verdict": "corrected",
+    "note": "Replaced the false embedding of A[1/g] into the bounded uniform limit by its embedding into the algebraic limit. Trace detection then proves the kernel vanishes; the Galois reduction separates zero-rank components (source issue E12)."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale",
+    "verdict": "verified",
+    "note": "Read Proposition 5.2.3 proof and checked the perfectoid input, descent, trace pairing and modulo-p-power conclusion; no unproved global almost-finiteness assertion."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/ramified-almost-purity",
+    "verdict": "verified",
+    "note": "Checked all three categories of Theorem 5.2.1, their completeness and finite-étale conditions, and both quasi-inverse constructions."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/abhyankar-envelope",
+    "verdict": "corrected",
+    "note": "Corrected the unramified test: a finite étale C is recovered only after root saturation and coreflection, with equality to C requiring saturation. Added André’s characteristic-p two-variable example (pp. 45–46). Gave the almost comparison directly by rescaling a monic equation, without importing an unstated general integral-closure theorem."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/perfectoid-abhyankar-lemma",
+    "verdict": "corrected",
+    "note": "Applied integral ramified almost étaleness to the perfectoid coreflection B = B̃^♮, then transferred the conclusion across its almost unit-ball comparison; B̃ itself is only almost perfectoid in general."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.4/almost-perfectoid-envelope-of-affinoid",
+    "verdict": "corrected",
+    "note": "Added the exact Noether-normalisation supplier and distinguished its finite injection from the separately assumed nonzero discriminant giving an étale localisation. Defined the root-saturated Banach algebra through its integral model and transferred almost étaleness through coreflection."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/pure-map",
+    "verdict": "corrected",
+    "note": "Expanded the generator-to-retraction argument using a finite dual-basis sum in Hom_R(S,R); recorded the source’s Hom_S typo as E13 and checked the nonsplit nodal-normalisation example."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/almost-pure-map",
+    "verdict": "corrected",
+    "note": "Confirmed the corrected tensor definition in the published Annexe A.4 and the first-factor property; recorded separately that the unrelated P→P⊗S formula belongs only to arXiv v1 §5.5, p. 14 (E14)."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/krull-detection-lemma",
+    "verdict": "corrected",
+    "note": "Replaced the incorrect baseline Submodule.annihilator citation by Module.annihilator, the ideal of scalars killing the entire module used in the statement and Lean file; read the pinned definition and Krull intersection theorem."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/normalized-kummer-tower",
+    "verdict": "corrected",
+    "note": "Corrected relative integral closedness versus normal domains, retained all free-root branches, supplied zero-divisor and g = 1 tests, and proved the cyclotomic field assertion for arbitrary perfect residue field. Added the pinned IsIntegralClosure.finite theorem: finite field-factor normalizations make each relative integral closure finite over A. For complete integral closure, multiplication by the regular multiplier embeds A[x] into one finite-stage model, matching IsAlmostIntegral exactly without descending infinitely many relations."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm",
+    "verdict": "verified",
+    "note": "Checked the relative-integral-closure norm criterion, isometric transitions and coordinate-stage multiplicativity; no multiplicativity claimed for all Kummer stages."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description",
+    "verdict": "corrected",
+    "note": "Replaced algebraic p-adic completion of a ring where p is already a unit by Gauss-norm completion. Removed the finite-Q_p supplier, using the general perfect-residue-field argument in the tower construction and Frobenius on the coordinate tower."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness",
+    "verdict": "corrected",
+    "note": "Added j ≥ k and required g_k in the base ring, so the special fibre is monic in the auxiliary variable. Gave the explicit free basis and excluded the choice g_k = T^{1/p^k}, which invalidated the original universal claim."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/kummer-almost-faithful-flatness",
+    "verdict": "corrected",
+    "note": "Repaired the finite-stage-to-union flatness argument: all completions are checked over a fixed Noetherian base stage, then the equational criterion gives flatness over A°_∞0. Explicitly chose base-ring approximants and corrected the g = 1 test, whose free root algebra need not collapse."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/kummer-purity",
+    "verdict": "verified",
+    "note": "Checked Corollary 2.6.1: coherent finite-free coordinate union, finitely presented kernel module, Krull detection and descent of purity to the finite stages."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/kummer-generic-faithful-flatness",
+    "verdict": "corrected",
+    "note": "Replaced the false coordinate-root formula by the valid j = 0 computation and the j = k = 1 zero-divisor regression; checked the passage from almost faithful flatness to generic faithful flatness."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/flat-integral-model",
+    "verdict": "corrected",
+    "note": "Weakened the claimed strict enlargement by almost elements to possible enlargement: the two adjoints need not give strictly different rings in every case. Checked the explicit lower-!! formula and faithful-flatness supplier."
+   },
+   {
+    "nodeId": "PerfectoidSpacesPartII:RA.5/ramified-kummer-almost-flatness",
+    "verdict": "corrected",
+    "note": "Made the injectivity in finite extension explicit, justified reduction modulo p^m by relative normality of A in A[1/p], and qualified the unit-g comparison without identifying a free Kummer tower with its base."
+   }
+  ]
+ }
 }

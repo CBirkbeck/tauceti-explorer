@@ -32,8 +32,8 @@ Imports, by layer of the supplier:
 | PerfectoidSpaces P0 | basic setups, the root-ideal and valuation setups, almost modules and algebras, almost elements, (·)_! and (·)_{!!} with faithful-flatness preservation, almost flat, projective and finite étale algebras, traces, faithfully flat descent, change of basic setup, almost zero limits |
 | PerfectoidSpaces P1 | perfectoid Tate rings and fields, integral perfectoid rings, tilts of uniform Tate rings, the sharp map, the tilting equivalence, perfected Tate algebras |
 | PerfectoidSpaces P2 | rational localisation of perfectoid affinoids with Scholze's almost integral model (Lemma 6.4), the approximation lemma (Corollary 6.7), completed tensor products of perfectoid algebras and their plus rings |
-| PerfectoidSpaces P3 | almost purity, integral closures almost finite étale, finite étale algebras over perfectoid rings are perfectoid, completed cyclotomic fields |
-| AdicSpacesPartII R0, R3 | spectral seminorm, uniformization of Tate Huber pairs, uniform completed tensor products, uniformity criteria |
+| PerfectoidSpaces P3 | almost purity, integral closures almost finite étale, finite étale algebras over perfectoid rings are perfectoid |
+| AdicSpacesPartII R0, R3 | spectral seminorm, uniformization of Tate Huber pairs, uniform completed tensor products, uniformity criteria, affinoid Noether normalisation |
 | EnhancedDerivedSheaves E1, E2 | derived tensor products; ordinary pro-zero towers, coherent towers, R lim and the Milnor sequence |
 | DerivedDeRhamCohomology DD.1 | Koszul complexes; Bhatt's criterion lifting (faithful) flatness from a complete reduction |
 | DeformationAndDerivedPatchingAlgebra R03.1 | completion of (faithfully) flat algebras over Noetherian rings (André B Lemme 1.1.1) |
@@ -51,7 +51,9 @@ K denotes a perfectoid field (RA.1, RA.3–RA.5) or a complete nonarchimedean fi
 
 In RA.5, k is a perfect field of characteristic p (not to be confused with the root index k of the Kummer tower, which is always a subscript), A = W(k)⟦T_1,…,T_n⟧, K_j = W(k)[1/p](ζ_{p^j}), and infinite indices mean directed unions; a hat means p-adic completion.
 
-Source abbreviations: **Bhatt** is Bhatt, *On the direct summand conjecture and its derived variant*, arXiv:1608.08882v2 (Invent. Math. 212, 2018); **André A** is André, *Le lemme d’Abhyankar perfectoïde*, Publ. Math. IHÉS 127 (2018), 1–70; **André B** is André, *La conjecture du facteur direct*, Publ. Math. IHÉS 127 (2018), 71–93. Page numbers are those of the published IHÉS articles and of Bhatt's arXiv v2. Corrections to the sources are listed in the last section and used in the statements.
+Generic Banach completions use the Gauss topology: complete an integral unit ball p-adically and then invert p. They are not algebraic (p)-adic completions of rings in which p is already a unit. Kummer root algebras retain all branches and their integral closures are relative to the specified ambient algebras; these models can have zero divisors.
+
+Source abbreviations: **Bhatt** is Bhatt, *On the direct summand conjecture and its derived variant*, arXiv:1608.08882v2 (Invent. Math. 212, 2018); **André A** is André, *Le lemme d’Abhyankar perfectoïde*, Publ. Math. IHÉS 127 (2018), 1–70; **André B** is André, *La conjecture du facteur direct*, Publ. Math. IHÉS 127 (2018), 71–93. **GR** denotes Gabber–Ramero, *Almost ring theory*, arXiv:math/0201175v3. Page numbers are those of the published IHÉS articles, Bhatt's arXiv v2 and the GR preprint; André B v1 is identified explicitly when used for comparison. Corrections to the sources are listed in the last section and used in the statements.
 
 API names are proposals for the interfaces to implement; the tests record behaviour a definition must have and cases it must distinguish. [Suggested.lean](../suggested/PerfectoidSpacesPartII.lean) states the targets whose carriers exist at the pins.
 
@@ -68,7 +70,7 @@ Fix a ring A and an element t with a chosen compatible system of p-power roots t
 - **Almost-pro-zero towers** (Bhatt Definition 3.2): a tower {M_n}_{n≥1} of A-modules is almost-pro-zero when for every k and n there is m ≥ n with the image of M_m → M_n killed by t^{1/p^k}; equivalently {M_n[t^{1/p^k}]} → {M_n} is a pro-isomorphism for every k. A morphism of towers in D^b(A) is an **almost-pro-isomorphism** when every cohomology tower of its cone is almost-pro-zero. Example 3.3 (the tower A/t^{1/p^n} with transitions multiplication by t^{1/p^n−1/p^{n+1}}) is almost-pro-zero but not pro-zero in the almost category.
 - **Uniform almost-pro-zero towers** relative to a second element g with compatible roots: for every k there is c with the c-step transitions killed by g^{1/p^k} in t-almost modules, for all n at once.
 - **Derived limits** (Bhatt Lemmas 3.4–3.5): R lim of an almost-pro-zero tower is almost zero, and an almost-pro-isomorphism induces an almost isomorphism on R lim.
-- **Linear functors** (Bhatt Lemma 3.6): an A-linear functor sends almost-pro-zero towers to almost-pro-zero towers.
+- **Linear functors** (Bhatt Lemma 3.6): an additive A-linear functor sends almost-pro-zero towers to almost-pro-zero towers.
 - **Uniform annihilation survives derived tensor products** (the amplitude-zero cone argument behind Bhatt Remark 4.3): if R → R_n (R = A/t^m) has almost-zero kernels and uniformly g^{1/p^k}-annihilated cokernel transitions with constant c, then for every K ∈ D(R) and every i the kernel and cokernel towers of H^i(K) → H^i(K ⊗^L_R R_n) have c-step transitions killed by (tg)^{1/p^k}, with the same c.
 
 Ordinary pro-zero towers, R lim and the Milnor sequence are imported from EnhancedDerivedSheaves E2; the derived tensor product of modules from E1.
@@ -110,7 +112,7 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 **Unit tests.**
 
 - `isAlmostProZero_bhatt_example` (computation): For A = K° the valuation ring of a perfectoid field K and t = ϖ with chosen roots, the tower M_n = A/ϖ^{1/p^n} with transitions multiplication by ϖ^{1/p^n − 1/p^{n+1}} is almost-pro-zero: every M_{n′} with n′ ≥ k is killed by ϖ^{1/p^k}.
-- `bhatt_example_not_proZero_almost` (non-example): For the same tower, no single n′ works for all k: the image of M_{n+r} → M_n contains the class of ϖ^{1/p^n − 1/p^{n+r}}, which is not killed by ϖ^{1/p^{n+r}}. So the pro-object of almost modules is not zero; a definition with n′ independent of k fails this test.
+- `bhatt_example_not_proZero_almost` (non-example): For the same tower, no single n′ works for all k: the image of M_{n+r} → M_n contains the class of ϖ^{1/p^n − 1/p^{n+r}}, which is killed by ϖ^{1/p^{n+r}} but is not killed by ϖ^{1/p^{n+r+1}}. So the pro-object of almost modules is not zero; a definition with n′ independent of k fails this test.
 - `isAlmostProZero_zero` (degenerate): The zero tower, and any tower of almost zero modules with arbitrary transitions, is almost-pro-zero.
 - `not_isAlmostProZero_const` (non-example): For A = K° and t = ϖ ≠ 0, the constant tower (A, id) is not almost-pro-zero: the image of every transition is A, which ϖ^{1/p^k} does not annihilate.
 - `isAlmostProZero_iff_isProZero_unit` (compatibility): When t = 1 (so every t^{1/p^k} may be taken to be 1), IsAlmostProZero coincides with EnhancedDerivedSheaves E2 IsProZero.
@@ -128,8 +130,8 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Notation 3.1 and Definition 3.2, pp. 5–6. Defines almost-pro-zero pro-modules by the condition that for every k and n some later transition has image killed by t^{1/p^k}, gives the equivalent pro-isomorphism formulation, and defines almost-pro-isomorphisms in D^b(A) through cohomology of cones.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Example 3.3, p. 6. Exhibits the tower A/(t^{1/p^n}) with transitions multiplication by t^{1/p^n−1/p^{n+1}}, which is almost-pro-zero although the associated pro-object of almost modules is not zero.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Notation 3.1 and Definition 3.2, pp. 5–6. Defines almost-pro-zero pro-modules by the condition that for every k and n some later transition has image killed by t^{1/p^k}, gives the equivalent pro-isomorphism formulation, and defines almost-pro-isomorphisms in D^b(A) through cohomology of cones.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Example 3.3, p. 6. Exhibits the tower A/(t^{1/p^n}) with transitions multiplication by t^{1/p^n−1/p^{n+1}}, which is almost-pro-zero although the associated pro-object of almost modules is not zero.
 
 ### Uniformly almost-pro-zero towers relative to a second root system
 
@@ -175,7 +177,7 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 4.2(2), p. 6, and Remark 4.3, p. 7. Formulates uniform almost-pro-vanishing of the cokernel tower: for each k there is c, independent of n, such that the c-fold transition of cokernels is killed by g^{1/p^k} in t-almost modules, and stresses that the independence of c from n is what makes the derived statement work.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 4.2(2), p. 6, and Remark 4.3, p. 7. Formulates uniform almost-pro-vanishing of the cokernel tower: for each k there is c, independent of n, such that the c-fold transition of cokernels is killed by g^{1/p^k} in t-almost modules, and stresses that the independence of c from n is what makes the derived statement work.
 
 ### Derived limits of almost-pro-zero towers are almost zero
 
@@ -202,12 +204,12 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.4, p. 6. Shows that R lim of an almost-pro-zero pro-module has almost zero cohomology, by replacing the tower with its t^{1/p^k}-torsion subtower.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.5, p. 6. Deduces that almost-pro-isomorphisms in D^b(A) induce almost isomorphisms on R lim, by applying Lemma 3.4 to the cone.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.4, p. 6. Shows that R lim of an almost-pro-zero pro-module has almost zero cohomology, by replacing the tower with its t^{1/p^k}-torsion subtower.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.5, p. 6. Deduces that almost-pro-isomorphisms in D^b(A) induce almost isomorphisms on R lim, by applying Lemma 3.4 to the cone.
 
 ### Linear functors preserve almost-pro-zero towers
 
-**Target `PerfectoidSpacesPartII:RA.0/almost-pro-zero-linear-functor` (theorem).** Let A and t be as in PerfectoidSpacesPartII:RA.0/almost-pro-zero-tower, (M_n) an almost-pro-zero tower of A-modules and F : Mod_A → Mod_A an A-linear functor (F(a·φ) = a·F(φ) for a ∈ A and every A-linear map φ). Then (F(M_n))_n, with transitions F(ρ_{n′,n}), is almost-pro-zero. In particular this holds for Hom_A(N, −), Ext^i_A(N, −), N ⊗_A − and Tor_i^A(N, −) for any A-module N, and, termwise, a tower almost-pro-isomorphic to a constant tower stays so after applying such a functor.
+**Target `PerfectoidSpacesPartII:RA.0/almost-pro-zero-linear-functor` (theorem).** Let A and t be as in PerfectoidSpacesPartII:RA.0/almost-pro-zero-tower, (M_n) an almost-pro-zero tower of A-modules and F : Mod_A → Mod_A an additive A-linear functor (F(a·φ) = a·F(φ) for a ∈ A and every A-linear map φ). Then (F(M_n))_n, with transitions F(ρ_{n′,n}), is almost-pro-zero. In particular this holds for Hom_A(N, −), Ext^i_A(N, −), N ⊗_A − and Tor_i^A(N, −) for any A-module N, and, termwise, a tower almost-pro-isomorphic to a constant tower stays so after applying such a functor.
 
 **Named signature.** `TauCeti.Almost.IsAlmostProZero.map_linear`.
 
@@ -228,7 +230,7 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.6, p. 6. Shows that A-linear endofunctors of A-modules carry almost-pro-zero pro-modules to almost-pro-zero pro-modules, by factoring transitions through torsion submodules.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Lemma 3.6, p. 6. Shows that A-linear endofunctors of A-modules carry almost-pro-zero pro-modules to almost-pro-zero pro-modules, by factoring transitions through torsion submodules.
 
 ### Uniform annihilation survives derived tensor products
 
@@ -257,11 +259,10 @@ Ordinary pro-zero towers, R lim and the Milnor sequence are imported from Enhanc
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.3, p. 7. Asserts that, because the constant in Theorem 4.2 is independent of n, the kernel and cokernel pro-systems of H^i(K) → H^i(K ⊗^L A⟨t^n/g⟩/t^m) are uniformly almost-pro-zero with the same constants for every complex K, and records the Koszul consequence; the cone argument written here supplies the justification Bhatt calls formal.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.3, p. 7. Asserts that, because the constant in Theorem 4.2 is independent of n, the kernel and cokernel pro-systems of H^i(K) → H^i(K ⊗^L A⟨t^n/g⟩/t^m) are uniformly almost-pro-zero with the same constants for every complex K, and records the Koszul consequence; the cone argument written here supplies the justification Bhatt calls formal.
 
 ### Dependencies
 
-- Earlier layers of this roadmap: none.
 - Other roadmaps: EnhancedDerivedSheaves:E1, EnhancedDerivedSheaves:E2, PerfectoidSpaces:P0.
 - Mathlib: `CategoryTheory.Functor.Linear`, `DerivedCategory`.
 
@@ -339,9 +340,9 @@ Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, §1.4 Notation, p. 3, and Notation 4.1, p. 6. Defines integral perfectoid K°-algebras and the rings A⟨t^n/g⟩ of bounded functions on X⟨t^n/g⟩ for g with compatible roots.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Proof of Theorem 4.2, p. 7. Uses Scholze's Lemma 6.4 to present A⟨t^n/g⟩/t^m almost as A[u_n^{1/p^∞}] modulo t^m and the relations (u_n g)^{1/p^k} = t^{n/p^k}, with transitions multiplying u^e by t^{ce}.
-- Bhatt, *On the direct summand conjecture and its derived variant*, §1.2, p. 2. Introduces the tower of rational subsets U_n = {|p^n| ≤ |g|} exhausting the Zariski open {g ≠ 0}, on which g divides p^n.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, §1.4 Notation, p. 3, and Notation 4.1, p. 6. Defines integral perfectoid K°-algebras and the rings A⟨t^n/g⟩ of bounded functions on X⟨t^n/g⟩ for g with compatible roots.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Proof of Theorem 4.2, p. 7. Uses Scholze's Lemma 6.4 to present A⟨t^n/g⟩/t^m almost as A[u_n^{1/p^∞}] modulo t^m and the relations (u_n g)^{1/p^k} = t^{n/p^k}, with transitions multiplying u^e by t^{ce}.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, §1.2, p. 2. Introduces the tower of rational subsets U_n = {|p^n| ≤ |g|} exhausting the Zariski open {g ≠ 0}, on which g divides p^n.
 
 ### Bhatt's quantitative Riemann extension theorem
 
@@ -374,8 +375,8 @@ Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 4.2 and its proof, pp. 6–7. States and proves the almost injectivity of A/t^m → A⟨t^n/g⟩/t^m, the uniform annihilation of cokernel transitions by g^{1/p^k} with c = p^k m, and the resulting almost-pro-isomorphism with respect to (tg)^{1/p^∞}, under the almost-regularity of g modulo t^m.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 1.6, p. 2. Introductory form of the same statement for A_∞, with t = p.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 4.2 and its proof, pp. 6–7. States and proves the almost injectivity of A/t^m → A⟨t^n/g⟩/t^m, the uniform annihilation of cokernel transitions by g^{1/p^k} with c = p^k m, and the resulting almost-pro-isomorphism with respect to (tg)^{1/p^∞}, under the almost-regularity of g modulo t^m.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Theorem 1.6, p. 2. Introductory form of the same statement for A_∞, with t = p.
 
 ### Derived form of the quantitative Riemann extension theorem
 
@@ -401,8 +402,8 @@ Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.3, p. 7. States the uniform almost-pro-isomorphism after derived tensor product with an arbitrary A/t^m-complex, with the same constants, and its consequence for Koszul complexes of regular sequences.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.8, p. 3. Explains that the limiting isomorphism survives A_∞-linear functors such as Ext^i(N, −) and that the direct summand theorems use i = 1 and all i ≥ 0.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.3, p. 7. States the uniform almost-pro-isomorphism after derived tensor product with an arbitrary A/t^m-complex, with the same constants, and its consequence for Koszul complexes of regular sequences.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.8, p. 3. Explains that the limiting isomorphism survives A_∞-linear functors such as Ext^i(N, −) and that the direct summand theorems use i = 1 and all i ≥ 0.
 
 ### Quantitative Riemann extension without regularity of g
 
@@ -429,7 +430,7 @@ Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.4, p. 7. Drops the hypothesis that g be a nonzerodivisor modulo t^m by treating the universal case K°⟨T^{1/p^∞}⟩, g = T, and base-changing along the map determined by the roots of g, using the explicit description of the annuli.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 4.4, p. 7. Drops the hypothesis that g be a nonzerodivisor modulo t^m by treating the universal case K°⟨T^{1/p^∞}⟩, g = T, and base-changing along the map determined by the roots of g, using the explicit description of the annuli.
 
 ### Riemann extension after limits (principal Hebbarkeitssatz)
 
@@ -457,13 +458,12 @@ Let K be a perfectoid field, t ∈ K° with compatible p-power roots and |t| = |
 
 **Sources.**
 
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.7, p. 3. Takes limits over n and m in Theorem 1.6 to obtain an almost isomorphism from A_∞ to the limit of the A_∞⟨p^n/g⟩, recovering Scholze's Proposition II.3.2 (any bounded function off g = 0 almost extends) and comparing with Bartenwerfer's rigid-analytic theorem.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.7, p. 3. Takes limits over n and m in Theorem 1.6 to obtain an almost isomorphism from A_∞ to the limit of the A_∞⟨p^n/g⟩, recovering Scholze's Proposition II.3.2 (any bounded function off g = 0 almost extends) and comparing with Bartenwerfer's rigid-analytic theorem.
 
 ### Dependencies
 
 - Earlier layers of this roadmap: PerfectoidSpacesPartII:RA.0.
 - Other roadmaps: DerivedDeRhamCohomology:DD.1, EnhancedDerivedSheaves:E1, PerfectoidSpaces:P0, PerfectoidSpaces:P1, PerfectoidSpaces:P2.
-- Mathlib: none.
 
 ### Acceptance for the layer
 
@@ -522,7 +522,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 - `pRootClosure_self` (degenerate): pRootClosure p R R = ⊤ (as a subalgebra of R).
 - `pRootClosure_frac_power` (computation): For R = F_p[T] inside S = F_p[T^{1/p}], pRootClosure p R S = ⊤: T^{1/p} has p-th power T ∈ R.
 - `pRootClosure_gaussian_ne_integralClosure` (non-example): For p = 3, R = Z and S = Z[i], the p-root closure is Z (if (a + bi)^3 ∈ Z then b(3a² − b²) = 0, so b = 0), while i is integral: R^†_S ≠ R^+_S. A definition of p-root closure as integral closure fails this.
-- `completeIntegralClosureAway_noetherian` (compatibility): For R = Z and g = 2, completeIntegralClosureAway Z 2 = Z inside Z[1/2]: if 2^m s^n ∈ Z for all n with s = a/2^e, e > 0, then e·n ≤ m for all n, which forces e = 0; this agrees with the integral closure of Z in Z[1/2].
+- `completeIntegralClosureAway_noetherian` (compatibility): For R = Z and g = 2, completeIntegralClosureAway Z 2 = Z inside Z[1/2]: if 2^m s^n ∈ Z for all n with s = a/2^e in lowest terms, e > 0, then e·n ≤ m for all n, which forces e = 0; this agrees with the integral closure of Z in Z[1/2].
 
 **Uses.**
 
@@ -536,12 +536,12 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §2.3.1, p. 15. Defines integral, almost integral (powers in a finitely generated submodule) and p-radicial elements, the integral, complete integral and p-root closures, the inductive construction of the p-root closure, and the inclusions between them.
-- André, *Le lemme d’Abhyankar perfectoïde*, §2.5.5, formulas (2.18)–(2.19), p. 26. Describes the complete integral closure of B° in B°[1/g] and in B[1/g] by the condition that a fixed power of g (resp. ϖg) times every power of b lies in B°.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §2.3.1, p. 15. Defines integral, almost integral (powers in a finitely generated submodule) and p-radicial elements, the integral, complete integral and p-root closures, the inductive construction of the p-root closure, and the inclusions between them.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §2.5.5, formulas (2.18)–(2.19), p. 26. Describes the complete integral closure of B° in B°[1/g] and in B[1/g] by the condition that a fixed power of g (resp. ϖg) times every power of b lies in B°.
 
 ### The norm–unit-ball dictionary for uniform Banach algebras
 
-**Target `PerfectoidSpacesPartII:RA.2/unit-ball-dictionary` (theorem).** Let K be complete for a nontrivial nonarchimedean absolute value, ϖ ∈ K°° nonzero and Γ ⊂ R with |ϖ|^Γ = |K^×|. (a) For a K°-flat K°-algebra A, the gauge |a| = |ϖ|^r with r = sup{s ∈ Γ : ϖ^{-s}a ∈ A} is a seminorm on A[1/ϖ], a norm iff A has no nonzero infinitely ϖ-divisible element; its unit ball is A when Γ is discrete and A_* = ⋂_{s ∈ Γ_{>0}} ϖ^{-s}A otherwise; a ring map φ : A[1/ϖ] → A′[1/ϖ] with φ(A) ⊂ A′ is continuous, and it is isometric iff also φ^{-1}(A′) = A. (b) If |K| is dense in the norm values of a normed K-algebra A with unit ball A_{≤1}, then A^†_A ⊂ A^+_A ⊂ A^*_A = A° for the closures of A_{≤1}, and (A^†_A)_* is the unit ball of the spectral seminorm. (c) Under (b) the following are equivalent: the norm is spectral (power-multiplicative); A_{≤1} = A°; A_{≤1} is completely integrally closed in A; it is integrally closed in A; it is p-root closed in A; and, when |ϖ| ≥ |p| and 1/p ∈ Γ, Frobenius A_{≤1}/ϖ^{1/p} → A_{≤1}/ϖ is injective. (d) If |K| is dense in R_{>0}, B ↦ B° is an equivalence from uniform Banach K-algebras with continuous homomorphisms to K°-algebras B that are K°-flat, ϖ-adically complete, completely integrally closed (equivalently integrally closed, or p-root closed) in B[1/ϖ], and equal to Hom_{K°}(K°°, B); a quasi-inverse is B ↦ (B[1/ϖ], gauge norm). The same holds relative to a fixed uniform Banach K-algebra.
+**Target `PerfectoidSpacesPartII:RA.2/unit-ball-dictionary` (theorem).** Let K be complete for a nontrivial nonarchimedean absolute value, ϖ ∈ K°° nonzero and Γ ⊂ R with |ϖ|^Γ = |K^×|. (a) For a K°-flat K°-algebra A, the gauge |a| = |ϖ|^r with r = sup{s ∈ Γ : ϖ^{-s}a ∈ A} is a seminorm on A[1/ϖ], a norm iff A has no nonzero infinitely ϖ-divisible element; its unit ball is A when Γ is discrete and A_* = ⋂_{s ∈ Γ_{>0}} ϖ^{-s}A otherwise; a ring map φ : A[1/ϖ] → A′[1/ϖ] with φ(A) ⊂ A′ is continuous, and φ^{-1}(A′) = A is sufficient for it to be isometric. The exact criterion is φ^{-1}(A′_{≤1}) = A_{≤1} for the actual gauge unit balls (equal to A_* and A′_* in the nondiscrete case). (b) If |K| is dense in the norm values of a normed K-algebra A with unit ball A_{≤1}, then A^†_A ⊂ A^+_A ⊂ A^*_A = A° for the closures of A_{≤1}, and (A^†_A)_* is the unit ball of the spectral seminorm. (c) Under (b) the following are equivalent: the norm is spectral (power-multiplicative); A_{≤1} = A°; A_{≤1} is completely integrally closed in A; it is integrally closed in A; it is p-root closed in A; and, when |ϖ| ≥ |p| and 1/p ∈ Γ, Frobenius A_{≤1}/ϖ^{1/p} → A_{≤1}/ϖ is injective. (d) If |K| is dense in R_{>0}, B ↦ B° is an equivalence from uniform Banach K-algebras with continuous homomorphisms to K°-algebras B that are K°-flat, ϖ-adically complete, completely integrally closed (equivalently integrally closed, or p-root closed) in B[1/ϖ], and equal to Hom_{K°}(K°°, B); a quasi-inverse is B ↦ (B[1/ϖ], gauge norm). The same holds relative to a fixed uniform Banach K-algebra.
 
 **Named signature.** `TauCeti.UniformBanach.unitBall_dictionary`.
 
@@ -554,7 +554,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Proof outline.**
 
-1. (a) is read off from the definition of the gauge and the flatness of A; the isometry criterion reduces, by density, to A_{≤1} → A′_{≤1} ∩ φ(A) being bijective, which follows inductively from injectivity modulo ϖ.
+1. Construct the gauge using flatness. A linear map is an isometry exactly when it preserves and reflects every norm bound, equivalently the actual gauge unit ball and its scalar dilates. Equality φ^{-1}(A′) = A implies this after taking the intersections defining A_*; the converse for arbitrary lattices is not asserted.
 2. (b) An element is power-bounded iff its powers lie in a finitely generated A_{≤1}-submodule, so A^*_A = A°. The gauge of the p-root closure is lim |a^{p^n}|^{1/p^n}, the spectral seminorm, by Fekete's lemma.
 3. (c) combines (a), (b) and the inclusion of closures; Frobenius injectivity modulo ϖ is p-root closedness read on reductions.
 4. (d) The four conditions characterise unit balls of spectral norms by (a) and (c); continuous maps of uniform algebras preserve power-bounded elements.
@@ -564,12 +564,13 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 **Checks.**
 
 - André's example K°[ϖT, …, ϖ^{i+1}T^{p^i}, …] ⊂ K°[T] (Remarque 2.3.3(2)) shows A^+ ⊂ A^* = A° ⊂ spectral unit ball can all be strict, and that a complete integral closure need not be completely integrally closed.
+- For densely valued K, take A = K° + K°°T K°[T] ⊂ A′ = K°[T]. Both generic fibres are K[T] and both gauge norms are Gauss, since scalar factors of norm just above 1 clear each of the finitely many coefficients. Thus the identity is isometric although T ∈ A′ ∖ A. This distinguishes a gauge unit ball from the original lattice.
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Sorite 2.3.1 with proof, pp. 16–19. Gives the dictionary between flat K°-algebras and norms: gauge norm and its unit ball, continuity and isometry criteria, the chain of closures equal to A° and the spectral unit ball, and six equivalent characterisations of spectrality.
-- André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 2.3.2, p. 19. Identifies uniform Banach K-algebras with K°-algebras that are flat, complete, closed in their generic fibre and equal to their almost elements.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarques 2.3.3, p. 19. Shows Frobenius is always injective on A°/ϖ^{1/p} → A°/ϖ and gives the example with strict inclusions.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Sorite 2.3.1 with proof, pp. 16–19. Gives the dictionary between flat K°-algebras and norms: gauge norm and its unit ball, continuity and isometry criteria, the chain of closures equal to A° and the spectral unit ball, and six equivalent characterisations of spectrality.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 2.3.2, p. 19. Identifies uniform Banach K-algebras with K°-algebras that are flat, complete, closed in their generic fibre and equal to their almost elements.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarques 2.3.3, p. 19. Shows Frobenius is always injective on A°/ϖ^{1/p} → A°/ϖ and gives the example with strict inclusions.
 
 ### The root saturation g^{-1/p^∞}B° and its closedness
 
@@ -621,51 +622,54 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §2.5.2, Lemme 2.5.1 and formulas (2.12)–(2.16), pp. 24–25. Computes the almost elements of B° in the setup (K°⟨T^{1/p^∞}⟩, T^{1/p^∞}K°°) as the intersection of the g^{-1/p^m}B°, with injectivity, completeness and the criterion for B° → (B°ᵃ)_* to be injective.
-- André, *Le lemme d’Abhyankar perfectoïde*, Lemme 2.5.2, p. 25, and Lemme 2.5.3 with proof, pp. 26–27. Shows nothing changes when g is invertible, and proves six equivalent closedness conditions for the root saturation.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarque 2.5.6, p. 27, and Lemme 2.8.2, p. 32. Expresses the complete integral closure through the root saturation of the p-root closure, and shows root saturation commutes with projective limits.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §2.5.2, Lemme 2.5.1 and formulas (2.12)–(2.16), pp. 24–25. Computes the almost elements of B° in the setup (K°⟨T^{1/p^∞}⟩, T^{1/p^∞}K°°) as the intersection of the g^{-1/p^m}B°, with injectivity, completeness and the criterion for B° → (B°ᵃ)_* to be injective.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Lemme 2.5.2, p. 25, and Lemme 2.5.3 with proof, pp. 26–27. Shows nothing changes when g is invertible, and proves six equivalent closedness conditions for the root saturation.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarque 2.5.6, p. 27, and Lemme 2.8.2, p. 32. Expresses the complete integral closure through the root saturation of the p-root closure, and shows root saturation commutes with projective limits.
 
 ### Laurent localisation A{λ/g} of a uniform Banach algebra
 
-**Target `PerfectoidSpacesPartII:RA.2/laurent-localisation` (construction).** Let K be complete nonarchimedean and A a uniform Banach K-algebra. For f_1, …, f_n, f ∈ A generating the unit ideal, A{f_1,…,f_n/f} = A⟨U_1,…,U_n⟩/(fU_i − f_i)^−, the quotient by the closure of the ideal; it is the universal Banach A-algebra in which f is invertible and the f_i/f are power-bounded. For λ ∈ K° and g = λf ∈ A°, A{λ/g} := A{1/f} = A⟨U⟩/(fU − 1)^−, regarded as a K⟨T⟩-algebra through T ↦ g. Properties: the ideal (fU − 1) is closed when A is uniform, so the closure is unnecessary; A{λ/g} ≅ A ⊗̂_{K⟨T⟩} K⟨T⟩{λ/T} isometrically; A{λ/g} = 0 when g ∈ λA°°; for |λ| ≤ |μ| there are canonical maps A{λ/g} → A{μ/g} and A{μ/g} ≅ A{λ/g}{μ/g}; if |g − h| < |λ| then A{λ/g} ≅ A{λ/h}; the image of a ∈ A has norm inf_m |(g/λ)^m a|. The uniformization A{λ/g}^u (AdicSpacesPartII R0) is the left adjoint, on uniform K⟨T⟩-algebras, of the inclusion of those in which T/λ is invertible with power-bounded inverse. Gabber's invariance: if g is a nonzerodivisor and A ⊂ A′ ⊂ A[1/g] is a Banach algebra extension, then A{λ/g} → A′{λ/g} is an isomorphism. If moreover A is uniform, A° → lim_{λ→0} A{λ/g}° is injective.
+**Target `PerfectoidSpacesPartII:RA.2/laurent-localisation` (construction).** Let K be complete nonarchimedean and A a uniform Banach K-algebra. For f_1, …, f_n, f ∈ A generating the unit ideal, A{f_1,…,f_n/f} = A⟨U_1,…,U_n⟩/(fU_i − f_i)^−, the quotient by the closure of the ideal; it is the universal Banach A-algebra in which f is invertible and the f_i/f are power-bounded. For 0 ≠ λ ∈ K° and g = λf ∈ A°, A{λ/g} := A{1/f} = A⟨U⟩/(fU − 1)^−, regarded as a K⟨T⟩-algebra through T ↦ g. Properties: the ideal (fU − 1) is closed when A is uniform, so the closure is unnecessary; A{λ/g} ≅ A ⊗̂_{K⟨T⟩} K⟨T⟩{λ/T} isometrically; A{λ/g} = 0 when g ∈ λA°°; for |λ| ≤ |μ| there are canonical maps A{λ/g} → A{μ/g} and A{μ/g} ≅ A{λ/g}{μ/g}; if |g − h| < |λ| then A{λ/g} ≅ A{λ/h}; the image of a ∈ A has quotient norm inf_{h ∈ A⟨U⟩} ‖a + (fU − 1)h‖_Gauss, not in general inf_m |(g/λ)^m a|. The uniformization A{λ/g}^u (AdicSpacesPartII R0) is the left adjoint, on uniform K⟨T⟩-algebras, of the inclusion of those in which T/λ is invertible with power-bounded inverse. Gabber's invariance: if g is a nonzerodivisor and A ⊂ A′ ⊂ A[1/g] is a Banach algebra extension, then A{λ/g} → A′{λ/g} is an isomorphism. If moreover A is uniform, A° → lim_{λ→0} A{λ/g}° is injective.
 
 **Named signature.** `TauCeti.UniformBanach.laurentLocalisation`.
 
 **Hypotheses and conventions.**
 
-- Corrections recorded with this node: in the proof of Lemme 2.6.3 the lower bound is |a|, not 1 (PAPER-ANDRE-18/E6); the general injectivity of A{λ/g}^u → A{μ/g}^u asserted in Remarque 2.6.4(1) is false without further hypotheses and is not used (PAPER-ANDRE-18/E16).
+- The lower-bound slip in Lemme 2.6.3 and the stronger false norm formula on pp. 28–29 are separate issues (E3 and E11). The limit-injectivity conclusion is retained using a spectral-point argument. Restriction maps between individual annuli need not be injective (E4).
 - A{λ/g} need not be uniform; only its uniformization is used in the uniform category.
 
 **Construction.**
 
 1. A{λ/g} is the rational localisation of the Huber pair (A, A°) at {λ, g}/g (AdicSpaces Layer 3 and AdicSpacesPartII R0), so its universal property is the one of rational localisation.
-2. Closedness of (fU − 1) for uniform A is Mihara's Proposition 2.3 (also Kedlaya–Liu 2.8.8), via the Gelfand transform.
-3. The isometry with A ⊗̂ K⟨T⟩{λ/T} and the elementary properties follow from the universal property and the expansion 1/h − 1/g = Σ λ^{-m-1}(g − h)^m(λ/g)^{m+1}.
+2. For closedness (André A Lemme 2.6.1, after Mihara), replace the uniform norm by the equivalent spectral norm. At each bounded multiplicative point x, extend to the Gauss seminorm on A⟨U⟩: ‖(fU−1)h‖_x = max(1,|f(x)|)‖h‖_x ≥ ‖h‖_x. Taking the supremum over x gives the spectral Gauss norm and bounds multiplication by fU−1 below. Its image is therefore complete and closed. The same closedness holds for the original equivalent norm.
+3. The completed-tensor presentation and transition maps follow from their presentations and universal properties. If ‖g−h‖ < |λ|, use the convergent expansion 1/h = Σ_{m≥0}(g−h)^m/g^{m+1} inside A{λ/g}; the difference 1/h−1/g starts at m = 1. The norm is the quotient norm, obtained by varying all h ∈ A⟨U⟩.
 4. Gabber's invariance: by Baire and the open mapping theorem, multiplication by a power g^N maps A′ continuously into A, which gives a continuous inverse after inverting g in A{λ/g}.
-5. Injectivity: for a ∈ A° nonzero and 0 < |λ| ≤ |ga| the norm of the image of a in A{λ/g} is at least |a| (corrected form).
+5. For nonzero a and a nonzerodivisor g, ag ≠ 0. The spectral seminorm of a uniform Banach algebra is a norm, so choose a bounded multiplicative seminorm x with |a(x)g(x)| > 0 (AdicSpacesPartII R3). Choose nonzero λ ∈ K° with |λ| ≤ |g(x)|. This point extends to A{λ/g}, where it detects the image of a. Hence A → lim_{λ→0} A{λ/g}, and therefore A° → lim A{λ/g}°, is injective. No lower bound uniform in all points is needed.
 
-**Inputs.** `AdicSpacesPartII:R0/uniformization`, `AdicSpacesPartII:R0/uniform-completed-tensor-product`, `AdicSpacesPartII:R0/spectral-seminorm`, `PerfectoidSpacesPartII:RA.2/unit-ball-dictionary`.
+**Inputs.** `AdicSpacesPartII:R0/uniformization`, `AdicSpacesPartII:R0/uniform-completed-tensor-product`, `AdicSpacesPartII:R0/spectral-seminorm`, `PerfectoidSpacesPartII:RA.2/unit-ball-dictionary`, `AdicSpacesPartII:R3/uniform-spectral-seminorm`.
 
 **API.**
 
-- `laurentLocalisation` (constructor): A{λ/g} for λ ∈ K° and g ∈ A° with g ∈ λ·A^× after inverting, as a Banach K⟨T⟩-algebra.
+- `laurentLocalisation` (constructor): A{λ/g} for 0 ≠ λ ∈ K° and g ∈ A°, as the Banach quotient A⟨U⟩/((g/λ)U−1), with its K⟨T⟩-algebra structure T ↦ g.
 - `laurentLocalisation.lift` (universal-property): A continuous map φ : A → B of Banach algebras with φ(g)/λ invertible and power-bounded inverse factors uniquely through A{λ/g}.
 - `laurentLocalisation.lift_comp` (universal-property): lift φ ∘ (A → A{λ/g}) = φ, and two maps out of A{λ/g} agreeing on A are equal.
 - `laurentLocalisation.isClosed_ideal` (characterisation): For A uniform, the ideal (fU − 1) of A⟨U⟩ is closed.
 - `laurentLocalisation.tensorIso` (equivalence): A{λ/g} ≅ A ⊗̂_{K⟨T⟩} K⟨T⟩{λ/T}, isometrically.
 - `laurentLocalisation.trans` (functoriality): For |λ| ≤ |μ|, the map A{λ/g} → A{μ/g} and the isomorphism A{μ/g} ≅ A{λ/g}{μ/g}.
 - `laurentLocalisation.congr` (other): If |g − h| < |λ| then A{λ/g} ≅ A{λ/h}.
-- `laurentLocalisation.norm_image` (simp): The image of a ∈ A in A{λ/g} has norm inf_m |(g/λ)^m a|.
+- `laurentLocalisation.norm_image` (characterisation): ‖ι(a)‖ = inf_{h ∈ A⟨U⟩} ‖a + ((g/λ)U−1)h‖_Gauss. This need not equal inf_m ‖(g/λ)^m a‖.
 - `laurentLocalisation.gabber` (compatibility): For g a nonzerodivisor and A ⊂ A′ ⊂ A[1/g] Banach, A{λ/g} → A′{λ/g} is an isomorphism of Banach algebras.
 - `laurentLocalisation.injective_lim` (relation): For A uniform and g a nonzerodivisor, A° → lim_λ A{λ/g}° is injective.
+- `laurentLocalisation.norm_ge_point` (relation): A bounded multiplicative seminorm x on A with |g(x)| ≥ |λ| extends to A{λ/g}; consequently ‖ι(a)‖ ≥ |a(x)|.
 
 **Unit tests.**
 
-- `laurentLocalisation_annulus` (computation): For A = K⟨T⟩, A{λ/T} = K⟨T, λ/T⟩, whose unit ball is K°⟨T, λ/T⟩.
+- `laurentLocalisation_annulus` (computation): For 0 < |λ| ≤ 1 and A = K⟨T⟩, A{λ/T} = K⟨T, λ/T⟩ with its Gauss annulus norm and unit ball K°⟨T, λ/T⟩.
 - `laurentLocalisation_zero` (degenerate): If g ∈ λA°° then A{λ/g} = 0 (fU − 1 is a unit).
 - `laurentLocalisation_unit` (degenerate): If |λ| = 1 and g = 1 then A{λ/g} = A.
-- `laurentLocalisation_isometry_fails` (non-example): K⟨T, λ/T⟩ and K⟨T, λ²/T²⟩ are isomorphic Banach algebras but not isometric: the first is spectral, the second gives λ/T norm |λ|^{-1} > 1. A definition fixing the norm by the presentation alone distinguishes them correctly only up to equivalence.
+- `laurentLocalisation_isometry_fails` (non-example): For 0 < |λ| < 1, K⟨T, λ/T⟩ and K⟨T, λ²/T²⟩ are isomorphic as topological Banach algebras, but their presentation norms give λ/T norms 1 and |λ|^{-1}, respectively. The second norm is not spectral.
 - `laurentLocalisation_rational` (compatibility): A{λ/g} agrees with the completed rational localisation of the Huber pair (A, A°) at ({λ, g}, g) of AdicSpaces Layer 3.
+- `laurentLocalisation_product_norm` (non-example): Let q = |ϖ| ∈ (0,1), A = K×K with max norm, λ = ϖ, g = (ϖ²,1), and a = (1,ϖ²). The first localisation factor is zero and the second is K with U = ϖ, so ‖ι(a)‖ = q². But inf_{m≥0} ‖(g/λ)^m a‖ = inf_m max(q^m,q^{2−m}) = q, attained at m = 1. Thus the one-parameter infimum is not the quotient norm, even for uniform A and regular g.
+- `laurentLocalisation_restriction_kernel` (non-example): For A = K×K and g = (ϖ²,1), the restriction A{ϖ³/g} → A{ϖ/g} kills the first factor although g is a nonzerodivisor. Limit injectivity cannot be proved by claiming every restriction is injective.
 
 **Uses.**
 
@@ -675,17 +679,17 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Checks.**
 
-- For A = K⟨T⟩ and g = T, A{λ/T} = K⟨T, λ/T⟩ is the algebra of the closed annulus λ ≤ |T| ≤ 1, spectral, with multiplicative norm only when λ = 0 or |λ| = 1.
+- For A = K⟨T⟩, g = T and 0 < |λ| ≤ 1, A{λ/T} = K⟨T, λ/T⟩ is the closed annulus |λ| ≤ |T| ≤ 1. Its quotient norm is spectral and is multiplicative exactly when |λ| = 1.
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §2.6.2, formulas (2.21)–(2.24) and the list of properties, pp. 27–28. Defines the Banach localisations A{f_1,…,f_n/f} and A{λ/g}, their universal property, the isometry with a completed tensor product and the elementary transition properties.
-- André, *Le lemme d’Abhyankar perfectoïde*, Lemme 2.6.1, p. 28. States, after Mihara, that (fU − 1) is closed in A⟨U⟩ for uniform A.
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.6.3, Lemmes 2.6.2–2.6.3 and Remarques 2.6.4, pp. 29–30. Gives the annulus examples, the uniform localisation as a left adjoint, Gabber's invariance under intermediate Banach algebras inside A[1/g], and the injectivity of A° into the limit of the localisations.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §2.6.2, formulas (2.21)–(2.24) and the list of properties, pp. 27–28. Defines the Banach localisations A{f_1,…,f_n/f} and A{λ/g}, their universal property, the isometry with a completed tensor product and the elementary transition properties.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Lemme 2.6.1, p. 28. States, after Mihara, that (fU − 1) is closed in A⟨U⟩ for uniform A.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.6.3, Lemmes 2.6.2–2.6.3 and Remarques 2.6.4, pp. 29–30. Gives the annulus examples, the uniform localisation as a left adjoint, Gabber's invariance under intermediate Banach algebras inside A[1/g], and the injectivity of A° into the limit of the localisations.
 
 ### Weierstrass localisation B{f/λ} and its unit ball
 
-**Target `PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball` (theorem).** Let K be complete for a nontrivial valuation, 0 ≠ λ ∈ K°, B a uniform Banach K-algebra and f ∈ B_{≤1}. Then B{f/λ} = B⟨U⟩/(λU − f), the ideal being closed; if f is a nonzerodivisor of B then so is λU − f in B⟨U⟩. Suppose |K| is dense in |B| and multiplication by f is isometric (e.g. the norm is multiplicative and |f| = 1). Then B_{≤1}⟨U⟩/(λU − f) is torsion-free over K°, (λU − f)B_{≤1}⟨U⟩ = ((λU − f)B⟨U⟩)_{≤1}, and B{f/λ}_{≤1} = B_{≤1}⟨U⟩/(λU − f) if the valuation is discrete, B{f/λ}_{≤1} = (B_{≤1}⟨U⟩/(λU − f))_* otherwise. Moreover (λU − f)B_{≤1}⟨U⟩ is closed, B_{≤1}⟨U⟩/(λU − f) is ϖ-adically separated and equals the ϖ-adic completion of B_{≤1}[f/λ] ⊂ B, through the exact sequence 0 → (λU − f)B_{≤1}[U] → B_{≤1}[U] → B_{≤1}[f/λ] → 0 and its completion. Finally B_{≤1}⟨U⟩/(λU − f) does not change, up to isomorphism, when f is replaced by f′ with |f − f′| ≤ |λ| or λ by λ′ with |λ′| = |λ|; the isomorphism is U ↦ (λ/λ′)(U + h) with h = λ^{-1}(f′ − f).
+**Target `PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball` (theorem).** Let K be complete for a nontrivial valuation, 0 ≠ λ ∈ K°, B a uniform Banach K-algebra and f ∈ B_{≤1}. Then B{f/λ} = B⟨U⟩/(λU − f), the ideal being closed; if f is a nonzerodivisor of B then so is λU − f in B⟨U⟩. Suppose |K| is dense in |B| and multiplication by f is isometric (e.g. the norm is multiplicative and |f| = 1). Then B_{≤1}⟨U⟩/(λU − f) is torsion-free over K°, (λU − f)B_{≤1}⟨U⟩ = ((λU − f)B⟨U⟩)_{≤1}, and B{f/λ}_{≤1} = B_{≤1}⟨U⟩/(λU − f) if the valuation is discrete, B{f/λ}_{≤1} = (B_{≤1}⟨U⟩/(λU − f))_* otherwise. Moreover (λU − f)B_{≤1}⟨U⟩ is closed, B_{≤1}⟨U⟩/(λU − f) is ϖ-adically separated and equals the ϖ-adic completion of B_{≤1}[f/λ] ⊂ B, through the exact sequence 0 → (λU − f)B_{≤1}[U] → B_{≤1}[U] → B_{≤1}[f/λ] → 0 and its completion. Finally B_{≤1}⟨U⟩/(λU − f) does not change, up to isomorphism, when f is replaced by f′ with |f − f′| ≤ |λ| or λ by λ′ with |λ′| = |λ|; the map from the new presentation to the old one sends U_new ↦ (λ/λ′)U_old + (f′−f)/λ′.
 
 **Named signature.** `TauCeti.UniformBanach.weierstrass_unitBall`.
 
@@ -699,7 +703,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 1. Closedness of the ideal is the Weierstrass case of André A Lemme 2.6.1 (PerfectoidSpacesPartII:RA.2/laurent-localisation).
 2. If μ·Σ b_m U^m = (λU − f)Σ a_m U^m with a_m ∈ B_{≤1}, comparing coefficients and using that multiplication by f is injective modulo μ (it is isometric) shows μ divides every a_m; this gives torsion-freeness and the equality of unit balls, then (2)/(3) by the gauge dictionary (PerfectoidSpacesPartII:RA.2/unit-ball-dictionary).
 3. The polynomial sequence is exact by the same torsion-freeness; its completion is right exact with dense image of (λU − f)B_{≤1}⟨U⟩ in the kernel, and closedness gives exactness, whence (4).
-4. The change of variables U ↦ (λ/λ′)(U + h) maps λU − f to λ′(…) − f′ up to a unit.
+4. The substitution U_new ↦ (λ/λ′)U_old + (f′−f)/λ′ is bounded on integral Tate algebras and sends λ′U_new−f′ to λU_old−f. Its inverse is U_old ↦ (λ′/λ)U_new+(f−f′)/λ; this proves invariance in the indicated direction.
 
 **Inputs.** `PerfectoidSpacesPartII:RA.2/laurent-localisation`, `PerfectoidSpacesPartII:RA.2/unit-ball-dictionary`, `mathlib:IsAdicComplete`.
 
@@ -710,10 +714,10 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §1.2, formula (1), p. 76. Defines B{f/λ} as B⟨U⟩ modulo the closure of (λU − f), notes the ideal is closed, and that λU − f is a nonzerodivisor when f is.
-- André, *La conjecture du facteur direct*, §1.2.1, formulas (2)–(3), pp. 76–77. Under density and isometric multiplication by f, proves torsion-freeness of B_{≤1}⟨U⟩/(λU − f) and identifies the unit ball of B{f/λ} with it (discrete case) or its almost elements (otherwise).
-- André, *La conjecture du facteur direct*, §1.2.2, formulas (4)–(6), p. 77. Shows the quotient is separated and equals the completion of B_{≤1}[f/λ], via the exact sequence (5) and its completion (6).
-- André, *La conjecture du facteur direct*, §1.2.3, p. 77. States the invariance of the integral Weierstrass algebra under approximation of f and rescaling of λ.
+- Yves André, *La conjecture du facteur direct*, §1.2, formula (1), p. 76. Defines B{f/λ} as B⟨U⟩ modulo the closure of (λU − f), notes the ideal is closed, and that λU − f is a nonzerodivisor when f is.
+- Yves André, *La conjecture du facteur direct*, §1.2.1, formulas (2)–(3), pp. 76–77. Under density and isometric multiplication by f, proves torsion-freeness of B_{≤1}⟨U⟩/(λU − f) and identifies the unit ball of B{f/λ} with it (discrete case) or its almost elements (otherwise).
+- Yves André, *La conjecture du facteur direct*, §1.2.2, formulas (4)–(6), p. 77. Shows the quotient is separated and equals the completion of B_{≤1}[f/λ], via the exact sequence (5) and its completion (6).
+- Yves André, *La conjecture du facteur direct*, §1.2.3, p. 77. States the invariance of the integral Weierstrass algebra under approximation of f and rescaling of λ.
 
 ### Uniform limits of uniform Banach algebras
 
@@ -746,7 +750,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Unit tests.**
 
-- `ulim_const` (degenerate): The uniform limit of a constant system A with identity maps is A with its spectral norm.
+- `ulim_const` (degenerate): The uniform limit of a constant tower (or a constant diagram on a nonempty connected category) A with identity maps is A with its spectral norm.
 - `ulim_annuli` (computation): ulim_j K⟨T, ϖ^j/T⟩ = K⟨T⟩ (André A Exemple 2.8.2(2)).
 - `ulim_discs` (computation): The uniform limit of the closed discs of radius r_i ↑ 1 is K°⟦T⟧ ⊗_{K°} K.
 - `ulim_ne_lim` (non-example): For the discs of radius r_i ↑ 1 the algebraic limit contains unbounded series such as Σ T^n/ϖ^{⌊√n⌋}, which are not in the uniform limit: the boundedness condition cannot be dropped.
@@ -764,8 +768,8 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §2.8.1, formulas (2.27)–(2.28), p. 31. Shows K-uBan is complete, defines the uniform limit by bounded families with the supremum of spectral norms, and computes its unit ball as the limit of unit balls.
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.8.2 and Lemme 2.8.1, pp. 31–32. Gives the disc and annulus examples and proves injectivity of the reduction modulo ϖ of the uniform limit into the limit of reductions.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §2.8.1, formulas (2.27)–(2.28), p. 31. Shows K-uBan is complete, defines the uniform limit by bounded families with the supremum of spectral norms, and computes its unit ball as the limit of unit balls.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.8.2 and Lemme 2.8.1, pp. 31–32. Gives the disc and annulus examples and proves injectivity of the reduction modulo ϖ of the uniform limit into the limit of reductions.
 
 ### Uniform filtered colimits of uniform Banach algebras
 
@@ -798,7 +802,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 **Unit tests.**
 
 - `ucolim_const` (degenerate): The uniform colimit of a constant system B is B with its spectral norm.
-- `ucolim_shrinking_discs` (computation): ucolim_i K⟨T/ϖ^i⟩ = K, with the maps given by evaluation at 0 (André A Exemple 2.9.3(4)).
+- `ucolim_shrinking_discs` (computation): For the shrinking discs, ucolim_i K⟨T/ϖ^i⟩ = K (André A Exemple 2.9.3(4)). The transitions restrict functions to the smaller discs. The universal cocone to K is evaluation at T = 0.
 - `ucolim_ne_colim` (non-example): For the shrinking discs the algebraic colimit is the ring of germs at 0, which is not K: the separated completion for the spectral seminorm cannot be omitted.
 - `ucolim_perfection` (compatibility): If char K = p, ucolim K^{1/p^i} is the completed perfection of K, agreeing with Mathlib's perfection followed by completion.
 
@@ -814,8 +818,8 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §§2.9.1–2.9.2 and Lemme 2.9.1, p. 32. Defines the uniform filtered colimit as the separated completion for the limit spectral seminorm, computes its unit ball, proves cocompleteness and commutation with uniform localisation.
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.9.3(1), (3), (4), p. 33. Gives the completed perfection, the presentation of any uniform algebra as a uniform colimit of reduced affinoids, and the shrinking-disc colimit equal to K.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §§2.9.1–2.9.2 and Lemme 2.9.1, p. 32. Defines the uniform filtered colimit as the separated completion for the limit spectral seminorm, computes its unit ball, proves cocompleteness and commutation with uniform localisation.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemples 2.9.3(1), (3), (4), p. 33. Gives the completed perfection, the presentation of any uniform algebra as a uniform colimit of reduced affinoids, and the shrinking-disc colimit equal to K.
 
 ### The root algebras A⟨g^{1/p^i}⟩ and A⟨g^{1/p^∞}⟩
 
@@ -861,7 +865,7 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemple 2.9.3(2), formulas (2.29)–(2.30), p. 33. Defines the root algebras as uniform completed tensor products over K⟨T⟩ and their uniform colimit, proves the transition maps isometric and gives the quotient description.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemple 2.9.3(2), formulas (2.29)–(2.30), p. 33. Defines the root algebras as uniform completed tensor products over K⟨T⟩ and their uniform colimit, proves the transition maps isometric and gives the quotient description.
 
 ### The root algebra as a uniform colimit of tubular neighbourhoods
 
@@ -890,12 +894,11 @@ K is a field complete for a nontrivial nonarchimedean absolute value, with |K^×
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 2.9.2, formula (2.31), pp. 33–34. Identifies the uniform colimit of the Weierstrass neighbourhoods {|f| ≤ |ϖ|^i} with the uniformized quotient B/fB.
-- André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 2.9.3, formula (2.32), p. 34. Deduces that the root algebra and its unit ball are the uniform (completed) colimits of the tubes around T = g in A⟨T^{1/p^∞}⟩.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 2.9.2, formula (2.31), pp. 33–34. Identifies the uniform colimit of the Weierstrass neighbourhoods {|f| ≤ |ϖ|^i} with the uniformized quotient B/fB.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 2.9.3, formula (2.32), p. 34. Deduces that the root algebra and its unit ball are the uniform (completed) colimits of the tubes around T = g in A⟨T^{1/p^∞}⟩.
 
 ### Dependencies
 
-- Earlier layers of this roadmap: none.
 - Other roadmaps: AdicSpacesPartII:R0, AdicSpacesPartII:R3, PerfectoidSpaces:P0, PerfectoidSpaces:P1.
 - Mathlib: `CategoryTheory.Limits.limit`, `IsAdicComplete`, `IsAlmostIntegral`, `Localization.Away`, `completeIntegralClosure`, `integralClosure`.
 
@@ -930,6 +933,7 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 **Hypotheses and conventions.**
 
 - The counit A^♮ → A need not be surjective, and A^♮°/ϖ → A°/ϖ is injective.
+- In characteristic p, Frobenius is semilinear over K, not generally K-linear. The tower ulim_F is formed on underlying normed rings with the successive K-actions twisted by Frobenius; it then has the compatible K-algebra structure required by the coreflection.
 
 **Construction.**
 
@@ -967,8 +971,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §3.3.6, formula (3.10) and Proposition 3.3.3, p. 40. Defines ♮ = ♯∘♭, proves it right adjoint to the inclusion of perfectoid algebras with isometric counit that is an isomorphism exactly on perfectoid algebras, and that ♭ is right adjoint to ι∘♯.
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.2.1, p. 36, and §3.8.1, pp. 50–51. In characteristic p the right adjoint is ulim along Frobenius; K-Perf is complete.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §3.3.6, formula (3.10) and Proposition 3.3.3, p. 40. Defines ♮ = ♯∘♭, proves it right adjoint to the inclusion of perfectoid algebras with isometric counit that is an isomorphism exactly on perfectoid algebras, and that ♭ is right adjoint to ι∘♯.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.2.1, p. 36, and §3.8.1, pp. 50–51. In characteristic p the right adjoint is ulim along Frobenius; K-Perf is complete.
 
 ### Perfectoid root algebras and the root-variable universal property
 
@@ -994,8 +998,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemples 3.2.3(1), p. 37. States that A⟨T^{1/p^∞}⟩ is perfectoid with unit ball the completed A°⟨T^{1/p^∞}⟩ and gives its universal property among perfectoid A-algebras with compatible roots.
-- André, *Le lemme d’Abhyankar perfectoïde*, §3.6.1, pp. 48–49. Shows extremal quotients of perfectoid algebras are perfectoid and deduces that A⟨g^{1/p^∞}⟩ is perfectoid with g = (g♭)^♯.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemples 3.2.3(1), p. 37. States that A⟨T^{1/p^∞}⟩ is perfectoid with unit ball the completed A°⟨T^{1/p^∞}⟩ and gives its universal property among perfectoid A-algebras with compatible roots.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §3.6.1, pp. 48–49. Shows extremal quotients of perfectoid algebras are perfectoid and deduces that A⟨g^{1/p^∞}⟩ is perfectoid with g = (g♭)^♯.
 
 ### Almost perfectoid K⟨T^{1/p^∞}⟩-algebras
 
@@ -1045,9 +1049,9 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §3.5.4, Définition 3.5.2 and Lemme 3.5.3, p. 46. Defines almost perfectoid K⟨T^{1/p^∞}⟩-algebras by an isomorphism in the almost uniform category to a perfectoid algebra, and shows the coreflection descends.
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.5.4, p. 47. Proves six equivalent characterisations of almost perfectoid algebras.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarques 3.5.5, Lemme 3.5.5 and Proposition 3.5.6, pp. 47–48. Gives the example of an almost perfectoid non-perfectoid algebra, the integral description and the finite étale equivalence.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §3.5.4, Définition 3.5.2 and Lemme 3.5.3, p. 46. Defines almost perfectoid K⟨T^{1/p^∞}⟩-algebras by an isomorphism in the almost uniform category to a perfectoid algebra, and shows the coreflection descends.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.5.4, p. 47. Proves six equivalent characterisations of almost perfectoid algebras.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarques 3.5.5, Lemme 3.5.5 and Proposition 3.5.6, pp. 47–48. Gives the example of an almost perfectoid non-perfectoid algebra, the integral description and the finite étale equivalence.
 
 ### Annular localisations of perfectoid algebras and their integral models
 
@@ -1072,8 +1076,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §3.6.3, formulas (3.12)–(3.15), p. 49. Computes the unit ball and power-bounded subring of the localisation of K⟨T^{1/p^∞}⟩ at ϖ^j/T and expresses A{ϖ^j/g} as a completed tensor product.
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.6.1, formula (3.16), p. 50. Proves A{ϖ^j/g} perfectoid with integral model the almost elements of the completed tensor product, and the tilt formula.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §3.6.3, formulas (3.12)–(3.15), p. 49. Computes the unit ball and power-bounded subring of the localisation of K⟨T^{1/p^∞}⟩ at ϖ^j/T and expresses A{ϖ^j/g} as a completed tensor product.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 3.6.1, formula (3.16), p. 50. Proves A{ϖ^j/g} perfectoid with integral model the almost elements of the completed tensor product, and the tilt formula.
 
 ### Scholze's limit lemma for root localisations
 
@@ -1100,8 +1104,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §4.2.1, formula (4.3), and Proposition 4.2.1 with proof, pp. 54–55. Defines the algebras R[j] and proves that R → lim R[j] is an almost isomorphism in the setup generated by the roots of ϖT, via the submodules R[j]_k and an annihilation estimate for kernels.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarque 4.2.2, p. 55. Notes the almost isomorphisms R[j] → R[i][j] for i ≥ j coming from the perfectoid localisations.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §4.2.1, formula (4.3), and Proposition 4.2.1 with proof, pp. 54–55. Defines the algebras R[j] and proves that R → lim R[j] is an almost isomorphism in the setup generated by the roots of ϖT, via the submodules R[j]_k and an annihilation estimate for kernels.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarque 4.2.2, p. 55. Notes the almost isomorphisms R[j] → R[i][j] for i ≥ j coming from the perfectoid localisations.
 
 ### André's perfectoid Riemann extension theorem
 
@@ -1132,9 +1136,9 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §4 introduction, formula (4.1), p. 53. Recalls Bartenwerfer's rigid-analytic Riemann extension theorem as the model for the perfectoid versions.
-- André, *Le lemme d’Abhyankar perfectoïde*, Théorème 4.2.2 with proof, pp. 55–56. Proves lim A{ϖ^j/g}° = g^{-1/p^∞}A°, the complete integral closure of A° in A[1/g], for (almost) perfectoid A and g a nonzerodivisor with compatible roots.
-- André, *Le lemme d’Abhyankar perfectoïde*, Lemme 4.2.3 and Remarque 4.2.4, p. 56. Shows the root saturation is completely integrally closed for perfectoid K⟨T^{1/p^∞}⟩-algebras and gives the isometric-case form with ulim.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §4 introduction, formula (4.1), p. 53. Recalls Bartenwerfer's rigid-analytic Riemann extension theorem as the model for the perfectoid versions.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Théorème 4.2.2 with proof, pp. 55–56. Proves lim A{ϖ^j/g}° = g^{-1/p^∞}A°, the complete integral closure of A° in A[1/g], for (almost) perfectoid A and g a nonzerodivisor with compatible roots.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Lemme 4.2.3 and Remarque 4.2.4, p. 56. Shows the root saturation is completely integrally closed for perfectoid K⟨T^{1/p^∞}⟩-algebras and gives the isometric-case form with ulim.
 
 ### The largest perfectoid subalgebra of A[1/g]
 
@@ -1159,7 +1163,7 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 4.2.4 with proof, p. 56. Identifies the largest spectral perfectoid A-algebra in A[1/g] as the coreflection of g^{-1/p^∞}A°[1/ϖ] and computes its tilt.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Corollaire 4.2.4 with proof, p. 56. Identifies the largest spectral perfectoid A-algebra in A[1/g] as the coreflection of g^{-1/p^∞}A°[1/ϖ] and computes its tilt.
 
 ### When is a uniform limit of perfectoid algebras perfectoid
 
@@ -1186,8 +1190,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.3.1 with proof, pp. 58–59. Compares the uniform and perfectoid limits of a projective system of perfectoid algebras through conditions on the limit of reductions modulo ϖ.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarque 4.3.1, p. 59. Transfers the argument to the ramified setup and concludes almost perfectoidness of the uniform limit.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.3.1 with proof, pp. 58–59. Compares the uniform and perfectoid limits of a projective system of perfectoid algebras through conditions on the limit of reductions modulo ϖ.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarque 4.3.1, p. 59. Transfers the argument to the ramified setup and concludes almost perfectoidness of the uniform limit.
 
 ### Vanishing of lim¹ for nested root-localisation systems
 
@@ -1203,9 +1207,11 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 1. Introduce the triple system R_i[j]_k of submodules spanned by the u^s for s ≤ 1/p^k; as in the limit lemma, lim¹_j (R_j)ᵃ = lim¹_{i,j,k}(R_i[j]_k)ᵃ.
 2. Bound cokernels of transitions: R_i[j+1]_k → R_i[j]_k by ϖ^{1/p^k}, R_i[j]_{k+1} → R_i[j]_k by T^{1/p^k}, and, for i′ ≥ i ≥ j + rp^{k+1}/(p−1), an image comparison giving almost containment.
-3. Along j = k and i_k ≥ k + rp^{k+1}/(p−1), the cokernels of the composite transitions are killed by (ϖT)^{3/p^k}; as Σ 3/p^k converges, lim¹ vanishes almost (Gabber–Ramero Lemma 2.4.2(iii)).
+3. On a cofinal diagonal j = k, i_k ≥ k + rp^{k+1}/(p−1), the transition cokernels in the almost category are killed by s^{3/p^k}, where s = ϖT. The remaining argument is stronger than termwise almost-zero limit vanishing and is given in the next two steps.
+4. Apply almost elements (·)_*: the cokernel bounds become s^{6/p^k} on the ordinary representative tower N_k, allowing the extra factor needed to lift an almost epimorphism. The comparison (lim¹ N_k)^a ≅ lim¹ (N_k^a) is the module-tower comparison in Gabber–Ramero Lemma 2.4.2(iii), using the Roos product complex. Thus it suffices to show each s^{1/p^l} kills the ordinary Roos cokernel.
+5. Fix ε = 1/p^l and a tail k ≥ N with b_k = 12/p^k ≤ ε. For arbitrary y_k ∈ N_k solve x_k−ψ_k(x_{k+1}) = s^ε y_k by x_k = s^{b_k}z_k: choose z_N = 0 and lift s^{b_k−b_{k+1}}(z_k−s^{ε−b_k}y_k) through ψ_k to obtain z_{k+1}. Such a lift exists because b_k−b_{k+1} ≥ 6/p^k, the cokernel-annihilator exponent. Extend x backwards through the finite head. All powers have exponents in Z[1/p]_{≥0}. Every root of s therefore kills lim¹, proving the almost vanishing.
 
-**Inputs.** `PerfectoidSpacesPartII:RA.3/scholze-limit-lemma`, `PerfectoidSpaces:P0/almost-zero-limits-and-colimits`.
+**Inputs.** `PerfectoidSpacesPartII:RA.3/scholze-limit-lemma`, `PerfectoidSpaces:P0/almost-zero-limits-and-colimits`, `PerfectoidSpaces:P0/almost-hom-and-adjoints`, `EnhancedDerivedSheaves:E2/coherent-towers-and-roos`.
 
 **Checks.**
 
@@ -1213,7 +1219,8 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.4.1 with proof, pp. 60–61. Proves almost vanishing of lim¹ for nested systems of root localisations by explicit annihilation estimates on a triple system of submodules.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.4.1 with proof, pp. 60–61. Proves almost vanishing of lim¹ for nested systems of root localisations by explicit annihilation estimates on a triple system of submodules.
+- Ofer Gabber and Lorenzo Ramero, *Almost ring theory*, Lemma 2.4.2(iii) and proof, pp. 22–23 (arXiv v3). The almost-elements comparison doubles the transition-cokernel annihilators; a Cauchy product of these ideals makes lim¹ almost zero. The special root-exponent proof is expanded here, rather than attributed to the weaker termwise-zero supplier node.
 
 ### Compatible systems of perfectoid algebras on the annuli
 
@@ -1242,10 +1249,10 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Unit tests.**
 
-- `compatibleAnnularSystem_const` (degenerate): (A[j])_j with the localisation maps is an object, and ulim of it is g^{-1/p^∞}A°[1/ϖ] (Riemann extension).
+- `compatibleAnnularSystem_const` (degenerate): For A = K⟨T^{1/p^∞}⟩ and g = T, the canonical system B_j = A{ϖ^j/T} satisfies the nested base-change condition; its envelope is the Riemann-extension algebra A.
 - `compatibleAnnularSystem_zero` (degenerate): The zero system is an object (terminal).
 - `compatibleAnnularSystem_finite_etale` (computation): For B′ = A[1/g] × A[1/g], the system (A[j] × A[j])_j is an object with ulim A × A up to almost isomorphism.
-- `compatibleAnnularSystem_not_arbitrary_tower` (non-example): The tower (A[j][X]/(X^2))_j is not an object: perfectoid algebras are reduced (PerfectoidSpaces P1) and X is a nonzero nilpotent, so a definition admitting arbitrary towers of A[j]-algebras is too large.
+- `compatibleAnnularSystem_not_arbitrary_tower` (non-example): For A = K⟨T^{1/p^∞}⟩ and g = T, every A[j] is nonzero. The compatible system A[j][ε]/ε² fails the perfectoid-algebra condition because ε is a nonzero nilpotent. The base-change condition alone is insufficient.
 
 **Uses.**
 
@@ -1258,7 +1265,7 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §4.4.2, formula (4.16) and footnote 22, p. 61. Defines the category of projective systems of perfectoid A[j]-algebras whose transitions are localisations, and the localisation functor from almost perfectoid A-algebras.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §4.4.2, formula (4.16) and footnote 22, p. 61. Defines the category of projective systems of perfectoid A[j]-algebras whose transitions are localisations, and the localisation functor from almost perfectoid A-algebras.
 
 ### Uniform limits of nested perfectoid systems are almost perfectoid
 
@@ -1287,14 +1294,13 @@ K is a perfectoid field of residue characteristic p and ϖ ∈ K°° with pK° �
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Théorème 4.4.2 with proof, pp. 61–62. Proves that uniform limits of nested systems of perfectoid algebras on the annuli are almost perfectoid and that ulim is left quasi-inverse and right adjoint to localisation.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarques 4.4.3 and Question 4.4.3, p. 62. Records the necessity of the root variables and the open question of essential surjectivity.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Théorème 4.4.2 with proof, pp. 61–62. Proves that uniform limits of nested systems of perfectoid algebras on the annuli are almost perfectoid and that ulim is left quasi-inverse and right adjoint to localisation.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarques 4.4.3 and Question 4.4.3, p. 62. Records the necessity of the root variables and the open question of essential surjectivity.
 
 ### Dependencies
 
 - Earlier layers of this roadmap: PerfectoidSpacesPartII:RA.2.
-- Other roadmaps: PerfectoidSpaces:P0, PerfectoidSpaces:P1, PerfectoidSpaces:P2, PerfectoidSpaces:P3.
-- Mathlib: none.
+- Other roadmaps: EnhancedDerivedSheaves:E2, PerfectoidSpaces:P0, PerfectoidSpaces:P1, PerfectoidSpaces:P2, PerfectoidSpaces:P3.
 
 ### Acceptance for the layer
 
@@ -1314,7 +1320,7 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 - **Integral almost étaleness** (Proposition 5.2.3): for a perfectoid A-algebra B with g a nonzerodivisor and B[1/g] finite étale over A[1/g], B°ᵃ/p^m is finite étale over A°ᵃ/p^m in (V, m) for every m, and B°[1/g] is almost finite étale over A°[1/g] in (K°, K°°).
 - **Ramified almost purity** (Théorème 5.2.1): equivalences between complete A°ᵃ-algebras finite étale modulo every p^m and finite étale after inverting g, almost perfectoid A-algebras finite étale after inverting g, and finite étale A[1/g]-algebras.
 - **The perfectoid Abhyankar lemma** (Théorème 0.3.1 with Proposition 5.3.1, in the corrected form of the packet): the largest perfectoid A-algebra B in B′, B[1/g] = B′, B° almost equal to the integral closures of A° and of g^{-1/p^∞}A° in B′, B°/p^m almost finite étale over A°/p^m, and almost surjectivity of the trace onto g^{-1/p^∞}A° when B′ is faithful.
-- **Almost perfectoid envelopes of reduced affinoid algebras** through Noether normalisation (§5.4).
+- **Almost perfectoid envelopes of reduced affinoid algebras** from a fixed finite Noether-normalisation and a chosen nonzero g making the localisation étale (§5.4).
 
 ### Almost Galois extensions of almost algebras
 
@@ -1363,18 +1369,18 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §§1.9.1–1.9.2, formula (1.1) and footnote 6, pp. 8–9. Defines the canonical map B ⊗ C → Π C, almost Galois extensions with group G, and the embedding of G × G in the wreath product; notes the failure for almost elements and (·)_{!!}.
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 1.9.1 with proof, pp. 9–10. Proves that almost Galois extensions are finite étale of rank |G| with trace the sum of conjugates, are stable under base change and faithfully flat descent, and the intermediate-extension statement.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §§1.9.1–1.9.2, formula (1.1) and footnote 6, pp. 8–9. Defines the canonical map B ⊗ C → Π C, almost Galois extensions with group G, and the embedding of G × G in the wreath product; notes the failure for almost elements and (·)_{!!}.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 1.9.1 with proof, pp. 9–10. Proves that almost Galois extensions are finite étale of rank |G| with trace the sum of conjugates, are stable under base change and faithfully flat descent, and the intermediate-extension statement.
 
 ### Galois closures of finite étale extensions and Galois rigidity
 
-**Target `PerfectoidSpacesPartII:RA.4/galois-closure-and-rigidity` (lemma).** (1) Let R → S be a finite étale extension of rings of constant rank r. There is a Galois extension R → T with group S_r factoring through S such that S → T is Galois with group S_{r−1}: take T the ring of the complement Z of all partial diagonals in the r-fold fibre product Spec S ×_{Spec R} ⋯ ×_{Spec R} Spec S, with S_r permuting the factors. (2) Let G be a finite group of automorphisms of a ring S, R = S^G, and R ⊂ S′ ⊂ S a G-stable intermediate ring that is G-Galois over R. Then S′ = S.
+**Target `PerfectoidSpacesPartII:RA.4/galois-closure-and-rigidity` (lemma).** (1) Let R → S be a finite étale extension of rings of constant rank r ≥ 1. There is a Galois extension R → T with group S_r factoring through S such that S → T is Galois with group S_{r−1}: take T the ring of the complement Z of all partial diagonals in the r-fold fibre product Spec S ×_{Spec R} ⋯ ×_{Spec R} Spec S, with S_r permuting the factors. (2) Let G be a finite group of automorphisms of a ring S, R = S^G, and R ⊂ S′ ⊂ S a G-stable intermediate ring that is G-Galois over R. Then S′ = S.
 
 **Named signature.** `TauCeti.galoisClosure_of_finiteEtale`.
 
 **Hypotheses and conventions.**
 
-- Both statements are classical (non-almost) ring theory; (1) holds without connectedness (Mumford, Abelian varieties, p. 122).
+- Both statements are classical ring theory. In (1), finite étale extension means faithful, so r ≥ 1; connectedness of Spec R is not required. The construction and proof are supplied by André A §1.9.3, p. 10.
 
 **Proof outline.**
 
@@ -1387,10 +1393,11 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 - For r = 1, T = S = R and S_1 is trivial.
 - For r = 2 and R → S = R[x]/(x² − a) with 2a invertible, T = S.
+- Rank zero is excluded: over a nonzero ring R, R → 0 cannot factor a faithfully flat Galois extension R → T through 0. For a general finite étale algebra split off its open-and-closed zero-rank locus first.
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §1.9.3, Lemmes 1.9.2–1.9.3 with proofs, p. 10. Constructs an S_r-Galois closure of a finite étale extension of constant rank through the complement of partial diagonals, and proves that a G-stable Galois intermediate ring of S over S^G is all of S.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §1.9.3, Lemmes 1.9.2–1.9.3 with proofs, p. 10. Constructs an S_r-Galois closure of a finite étale extension of constant rank through the complement of partial diagonals, and proves that a G-stable Galois intermediate ring of S over S^G is all of S.
 
 ### Annular envelopes of finite étale algebras over A[1/g]
 
@@ -1406,7 +1413,8 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 1. (1) Each B_j is finite étale over the perfectoid A[j], hence perfectoid (PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid); B_i ⊗_{A[i]} A[j] ≅ B_j and, B_i being finite projective over A[i], the tensor product is already complete, equal to B_i{ϖ^j/g}.
 2. (2) The integral closure of A° in B′ maps to the integral closure of A[j]° in B_j, which is B_j° (almost purity: PerfectoidSpaces:P3/integral-closure-almost-finite-etale); in the limit this gives δ : B′ → B[1/g], and δ_j is a right inverse of η_j. The adjunction of PerfectoidSpacesPartII:RA.3/nested-systems-theorem forces δ_jη_j = id.
-3. (3) δ is injective: its kernel I has trace zero in every A[j], hence in A[1/g], which embeds into ulim A[j] (PerfectoidSpacesPartII:RA.2/laurent-localisation, injectivity into the limit); I = 0 as B′ is étale. Surjectivity: for B′ Galois with group G, B[1/g]^G = A[1/g] and Galois rigidity (André A Lemme 1.9.3) concludes; in general embed B′ in an S_r-Galois closure (André A Lemme 1.9.2) and take S_{r−1}-invariants.
+3. (3) δ is injective: its kernel I has trace zero in every A[j], hence in A[1/g], which embeds into the algebraic limit lim_j A[j] (PerfectoidSpacesPartII:RA.2/laurent-localisation, injectivity into the limit); I = 0 as B′ is étale. Surjectivity: for B′ Galois with group G, B[1/g]^G = A[1/g] and Galois rigidity (André A Lemme 1.9.3) concludes; in general embed B′ in an S_r-Galois closure (André A Lemme 1.9.2) and take S_{r−1}-invariants.
+4. For the trace argument, first use Laurent limit injectivity to embed A[1/g] in the algebraic projective limit lim_j A[j], where g is invertible. It generally does not embed in the bounded-family uniform limit: 1/T has unbounded annular norms. If I = ker(B′ → lim_j B_j), then tr(xy) maps to zero for x ∈ I and every y ∈ B′, so tr(xy) = 0 by this algebraic-limit embedding. Nondegeneracy of the finite étale trace pairing gives I = 0. On constant-rank components use the Galois closure only for positive rank; the rank-zero algebra is treated separately.
 
 **Inputs.** `PerfectoidSpacesPartII:RA.3/compatible-annular-system`, `PerfectoidSpacesPartII:RA.3/nested-systems-theorem`, `PerfectoidSpacesPartII:RA.2/laurent-localisation`, `PerfectoidSpacesPartII:RA.4/galois-closure-and-rigidity`, `PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid`, `PerfectoidSpaces:P3/integral-closure-almost-finite-etale`, `PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras`.
 
@@ -1416,7 +1424,7 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.4.4 with proof, pp. 62–63. For a finite étale A[1/g]-algebra B′, shows the base changes to the annuli form a nested perfectoid system whose uniform limit B satisfies B[j] ≅ B_j and B[1/g] ≅ B′, using almost purity, the adjunction of Théorème 4.4.2, a trace argument and a Galois reduction.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 4.4.4 with proof, pp. 62–63. For a finite étale A[1/g]-algebra B′, shows the base changes to the annuli form a nested perfectoid system whose uniform limit B satisfies B[j] ≅ B_j and B[1/g] ≅ B′, using almost purity, the adjunction of Théorème 4.4.2, a trace argument and a Galois reduction.
 
 ### Integral almost étaleness of extensions finite étale away from g
 
@@ -1445,8 +1453,8 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Proposition 5.2.3 with proof, pp. 66–67. Proves that B°ᵃ/p^m is finite étale (Galois in the Galois case) over A°ᵃ/p^m in the ramified setup and that B°[1/g] is almost finite étale over A°[1/g], via the Riemann extension theorem applied to B ⊗ B.
-- André, *Le lemme d’Abhyankar perfectoïde*, Remarque 5.2.1, p. 67. Explains why almost finite étaleness of B°ᵃ over A°ᵃ is not obtained: almost finiteness is missing and ϖ does not generate a tight ideal.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Proposition 5.2.3 with proof, pp. 66–67. Proves that B°ᵃ/p^m is finite étale (Galois in the Galois case) over A°ᵃ/p^m in the ramified setup and that B°[1/g] is almost finite étale over A°[1/g], via the Riemann extension theorem applied to B ⊗ B.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Remarque 5.2.1, p. 67. Explains why almost finite étaleness of B°ᵃ over A°ᵃ is not obtained: almost finiteness is missing and ϖ does not generate a tight ideal.
 
 ### Ramified almost purity: André's equivalences of categories
 
@@ -1474,8 +1482,8 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §5.1 and Théorème 5.2.1 with proof, pp. 63–65. States and proves the three-way equivalence between integral almost algebras finite étale modulo p-powers and after inverting g, almost perfectoid algebras finite étale after inverting g, and finite étale A[1/g]-algebras.
-- André, *Le lemme d’Abhyankar perfectoïde*, Question 5.2.2, p. 64. Asks whether these categories agree with finite étale A°ᵃ-algebras.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §5.1 and Théorème 5.2.1 with proof, pp. 63–65. States and proves the three-way equivalence between integral almost algebras finite étale modulo p-powers and after inverting g, almost perfectoid algebras finite étale after inverting g, and finite étale A[1/g]-algebras.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Question 5.2.2, p. 64. Asks whether these categories agree with finite étale A°ᵃ-algebras.
 
 ### The perfectoid Abhyankar envelope of a finite étale A[1/g]-algebra
 
@@ -1490,7 +1498,7 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 **Construction.**
 
 1. Replace A° by g^{-1/p^∞}A°. The integral closure of A° in B′ maps into each B_j° (André A Lemme 2.4.1(1)), hence into B°; this map of subrings of B′ is injective, and surjective because B° is integral over A° — from the Galois invariants formula (5.6) after reducing to the Galois case.
-2. The almost comparison with (A°)^+_{B′} is Gabber–Ramero 8.2.8; maximality of B̃^♮ follows from PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra.
+2. For the almost comparison, let x satisfy a monic equation with coefficients b_i in g^{-1/p^∞}A°. For any ε = g^{1/p^l}, multiplying the equation by ε^n gives a monic equation for εx with coefficients ε^i b_i ∈ A°. Thus every root of g sends B̃° into (A°)^+_{B′}, while the reverse inclusion is immediate. This proves the asserted almost comparison in the stated ramified setup directly. Maximality of B̃^♮ follows from PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra and the coreflection.
 
 **Inputs.** `PerfectoidSpacesPartII:RA.4/annular-envelope`, `PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale`, `PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra`, `PerfectoidSpacesPartII:RA.3/perfectoid-coreflection`, `PerfectoidSpacesPartII:RA.2/root-saturation`, `mathlib:integralClosure`.
 
@@ -1509,7 +1517,8 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 - `abhyankarEnvelope_trivial` (degenerate): For B′ = A[1/g], abhyankarEnvelope A g B′ = (g^{-1/p^∞}A°[1/ϖ])^♮, and for g = 1 it is A.
 - `abhyankarEnvelope_product` (computation): abhyankarEnvelope A g (B′ × B″) = abhyankarEnvelope A g B′ × abhyankarEnvelope A g B″.
 - `abhyankarEnvelope_ne_target` (non-example): For A = K⟨T^{1/p^∞}⟩, g = T and B′ = A[1/T], the envelope is (T^{-1/p^∞}A°[1/ϖ])^♮ = A, a proper subalgebra of B′: a definition taking the envelope to be B′ itself fails.
-- `abhyankarEnvelope_unramified` (compatibility): If B′ comes from a finite étale A-algebra C, then abhyankarEnvelope A g B′ = C (almost purity, PerfectoidSpaces P3).
+- `abhyankarEnvelope_unramified` (compatibility): If B′ = C[1/g] for finite étale C over A, the envelope is (g^{-1/p^∞}C°[1/ϖ])^♮. It equals C if C° is already root-saturated along g; finite étaleness alone does not ensure that condition.
+- `abhyankarEnvelope_unramified_enlarges` (non-example): In characteristic p let P = K⟨T_1^{1/p^∞},T_2^{1/p^∞}⟩ and A = K + closure(Σ_m T_1^{1/p^m}P), with g = T_1. Both are perfectoid, but T_2 ∉ A and g^{1/p^m}T_2 ∈ A for every m. The root saturation is P, so the envelope of the identity finite étale A-algebra after inverting g is P, strictly larger than A (André A §3.5.3, pp. 45–46).
 
 **Uses.**
 
@@ -1522,7 +1531,8 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §5.3 and Proposition 5.3.1(1)–(2) with proof, pp. 67–68. Defines the integral closures B̃° and B̃, identifies B̃ with the uniform limit B, proves completeness and root saturation of B̃°, its almost comparison with the integral closure of A°, and maximality of B̃^♮.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §5.3 and Proposition 5.3.1(1)–(2) with proof, pp. 67–68. Defines the integral closures B̃° and B̃, identifies B̃ with the uniform limit B, proves completeness and root saturation of B̃°, its almost comparison with the integral closure of A°, and maximality of B̃^♮.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §3.5.3, pp. 45–46. A perfect characteristic-p subalgebra of a two-variable perfected Tate algebra need not be saturated along one coordinate; this tests the extra saturation condition in the unramified example.
 
 ### André's perfectoid Abhyankar lemma
 
@@ -1540,7 +1550,7 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 **Proof outline.**
 
 1. Take B = B̃^♮ from PerfectoidSpacesPartII:RA.4/abhyankar-envelope, which gives (1) and maximality.
-2. (2) is PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale applied to B̃ (almost perfectoid with B̃[1/g] = B′).
+2. (2) Apply PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale to the perfectoid algebra B = B̃^♮, with B[1/g] = B′. Transfer the conclusion across the almost isomorphism B°ᵃ ≅ B̃°ᵃ when the integral-closure model is used.
 3. (3) If B′ is faithful then B̃° is a faithful A°-module, and since A → B̃ is isometric, B̃°/p is faithful over A°/p; B̃°ᵃ/p is finite étale over A°ᵃ/p, so the trace is almost surjective modulo p onto (A°ᵃ)_* = g^{-1/p^∞}A°, and almost surjective by the almost Nakayama lemma for complete modules (André A §1.3).
 
 **Inputs.** `PerfectoidSpacesPartII:RA.4/abhyankar-envelope`, `PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale`, `PerfectoidSpacesPartII:RA.4/ramified-almost-purity`, `PerfectoidSpacesPartII:RA.3/largest-perfectoid-subalgebra`, `PerfectoidSpaces:P0/almost-finite-projective-and-finite-etale-algebras`, `PerfectoidSpaces:P3/almost-purity-theorem`.
@@ -1553,24 +1563,25 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, Théorème 0.3.1, p. 2, and §0.4, pp. 2–3. States the perfectoid Abhyankar lemma: the largest perfectoid intermediate algebra, its almost integral model, almost finite étaleness modulo p-powers and after inverting g, and almost surjectivity of the trace for faithful B′.
-- André, *Le lemme d’Abhyankar perfectoïde*, §5.3 and Proposition 5.3.1(3) with proof, pp. 67–68. Deduces Théorème 0.3.1 from Proposition 5.2.3 and the comparison of B̃ with the uniform limit, including the trace argument via Nakayama.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Théorème 0.3.1, p. 2, and §0.4, pp. 2–3. States the perfectoid Abhyankar lemma: the largest perfectoid intermediate algebra, its almost integral model, almost finite étaleness modulo p-powers and after inverting g, and almost surjectivity of the trace for faithful B′.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §5.3 and Proposition 5.3.1(3) with proof, pp. 67–68. Deduces Théorème 0.3.1 from Proposition 5.2.3 and the comparison of B̃ with the uniform limit, including the trace argument via Nakayama.
 
 ### Almost perfectoid envelopes of reduced affinoid algebras
 
-**Target `PerfectoidSpacesPartII:RA.4/almost-perfectoid-envelope-of-affinoid` (application).** Let K be perfectoid and B a reduced K-affinoid algebra of dimension n, presented as a finite extension of A = K⟨T_1,…,T_n⟩ by Noether normalisation, and let g ∈ A° with B[1/g] étale over A[1/g]. Put 𝒜 = g^{-1/p^∞}K⟨T_1^{1/p^∞},…,T_n^{1/p^∞}, g^{1/p^∞}⟩ (an almost perfectoid algebra) and ℬ the integral closure of B ⊗_A 𝒜 in B ⊗_A 𝒜[1/g]. Then ℬ is almost perfectoid, and ℬ°ᵃ is finite étale over 𝒜°ᵃ modulo every power of p in the setup (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}K°[T^{1/p^∞}]) with T^{1/p^k} ↦ g^{1/p^k}.
+**Target `PerfectoidSpacesPartII:RA.4/almost-perfectoid-envelope-of-affinoid` (application).** Let K be perfectoid, B a reduced K-affinoid algebra of dimension n, and fix a finite injective Noether-normalisation A = K⟨T_1,…,T_n⟩ → B together with 0 ≠ g ∈ A° such that B[1/g] is finite étale over A[1/g]. Put P = K⟨T_1^{1/p^∞},…,T_n^{1/p^∞},g^{1/p^∞}⟩ and 𝒜 = (g^{-1/p^∞}P°)[1/ϖ], with its spectral norm. Let ℬ be the integral closure of the image of B ⊗_A 𝒜 in B ⊗_A 𝒜[1/g]. Then 𝒜 and ℬ are almost perfectoid, and ℬ°ᵃ/p^m is finite étale over 𝒜°ᵃ/p^m for every m, in the setup (K°[T^{1/p^∞}], (ϖT)^{1/p^∞}K°[T^{1/p^∞}]) with T^{1/p^h} ↦ g^{1/p^h}.
 
 **Named signature.** `TauCeti.Perfectoid.almostPerfectoidEnvelope`.
 
 **Hypotheses and conventions.**
 
 - The construction depends on the choice of Noether normalisation and discriminant g.
+- Noether normalisation supplies a finite injection. The additional choice making B[1/g] étale is part of this presentation; it is not a conclusion of the cited normalisation node alone. The zero affinoid is handled separately.
 
 **Proof outline.**
 
-1. Noether normalisation (Bosch–Güntzer–Remmert 6.1.2/2) presents B as finite over A; 𝒜 is almost perfectoid by PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra and the root saturation; apply PerfectoidSpacesPartII:RA.4/abhyankar-envelope and PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale to B ⊗_A 𝒜[1/g], finite étale over 𝒜[1/g].
+1. Use AdicSpacesPartII:R0/affinoid-noether-normalisation for the finite injection; retain the explicit hypothesis on g. The root algebra P is perfectoid. RA.3 root saturation and Riemann extension make 𝒜 almost perfectoid. Apply the annular-envelope and Abhyankar-envelope construction to B ⊗_A 𝒜[1/g]; apply integral almost étaleness to its perfectoid coreflection and transfer along the almost isomorphism of unit balls. This gives the assertion for ℬ without treating an almost perfectoid algebra as a perfectoid one.
 
-**Inputs.** `PerfectoidSpacesPartII:RA.4/abhyankar-envelope`, `PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale`, `PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra`, `PerfectoidSpacesPartII:RA.2/root-saturation`.
+**Inputs.** `PerfectoidSpacesPartII:RA.4/abhyankar-envelope`, `PerfectoidSpacesPartII:RA.4/integral-ramified-almost-etale`, `PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra`, `PerfectoidSpacesPartII:RA.2/root-saturation`, `AdicSpacesPartII:R0/affinoid-noether-normalisation`, `PerfectoidSpacesPartII:RA.3/almost-perfectoid-algebra`.
 
 **Checks.**
 
@@ -1579,13 +1590,13 @@ K perfectoid, ϖ as in RA.3, almost setup (V, m) = (K°[T^{1/p^∞}], (ϖT)^{1/p
 
 **Sources.**
 
-- André, *Le lemme d’Abhyankar perfectoïde*, §5.4, pp. 68–69. Attaches to any reduced affinoid algebra, through Noether normalisation and a discriminant, an almost perfectoid algebra whose integral model is finite étale modulo p-powers over the perfectoid polydisc with roots of g.
-- André, *Le lemme d’Abhyankar perfectoïde*, §0.5, p. 3. Presents this as freeing the construction of perfectoid algebras from toric coordinates.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §5.4, pp. 68–69. Attaches to any reduced affinoid algebra, through Noether normalisation and a discriminant, an almost perfectoid algebra whose integral model is finite étale modulo p-powers over the perfectoid polydisc with roots of g.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, §0.5, p. 3. Presents this as freeing the construction of perfectoid algebras from toric coordinates.
 
 ### Dependencies
 
 - Earlier layers of this roadmap: PerfectoidSpacesPartII:RA.2, PerfectoidSpacesPartII:RA.3.
-- Other roadmaps: PerfectoidSpaces:P0, PerfectoidSpaces:P2, PerfectoidSpaces:P3.
+- Other roadmaps: AdicSpacesPartII:R0, PerfectoidSpaces:P0, PerfectoidSpaces:P2, PerfectoidSpaces:P3.
 - Mathlib: `Algebra.Etale`, `Module.FaithfullyFlat`, `integralClosure`.
 
 ### Acceptance for the layer
@@ -1604,7 +1615,7 @@ Fix a perfect field k of characteristic p, A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g
 
 - **Pure and almost pure maps** (André B Annexe A.1–A.2, A.4): universally injective module and ring maps, their stability properties, the finitely presented splitting criterion, and almost purity with Lemme A.4.1; almost faithfully flat maps are almost pure.
 - **The Krull detection lemma** (André B Lemme 1.1.2).
-- **The normalized two-index Kummer tower** (André B §§2.2–2.4): A_jk = K_j°⟦T^{1/p^j}⟧[g^{1/p^k}][1/p] with K_j = Frac W(k)(ζ_{p^j}), the integral closures A°_jk, their Noetherian, complete and completely integrally closed properties, the unique spectral norm with unit ball A°_jk and the isometric transitions.
+- **The normalized two-index Kummer tower** (André B §§2.2–2.4): A_jk = K_j°⟦T^{1/p^j}⟧[g^{1/p^k}][1/p] with K_j = Frac W(k)(ζ_{p^j}), the integral closures A°_jk, their finite-stage Noetherian and complete models, relative integral closedness (allowing zero divisors), and relative complete integral closedness in the union, the unique spectral norm with unit ball A°_jk and the isometric transitions.
 - **Tubular description** (Lemme 2.5.1): Â°ᵃ_∞∞ is the completed colimit of the unit balls of the tubes Â_∞0⟨T^{1/p^∞}⟩{(T−g)/ϖ^i}, and Â_∞∞ is perfectoid.
 - **André's flatness theorem** (Théorème 2.5.2): Â°_∞∞ is almost faithfully flat over A°_∞0 in (K°_∞, K°°_∞), with the Noetherian-stage faithful flatness repaired through the complete flatness criterion.
 - **Purity of Kummer extensions** (Corollaire 2.6.1) for all j, k ∈ N ∪ {∞}, and **generic faithful flatness** (Remarque 2.6.1(1)).
@@ -1627,6 +1638,7 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 1. Lazard's characterisation via finitely presented modules and filtered colimits of split monomorphisms; Tor-injectivity follows since filtered colimits commute with Tor.
 2. Ring-level statements follow from the module-level ones by taking symmetric algebras and the faithfulness criterion as in André B Lemme A.2.1.
+3. For the generator criterion use the trace ideal generated by f(s), with f ∈ Hom_R(S,R). If it is R, choose finitely many pairs (f_i,s_i) with Σ_i f_i(s_i) = 1. Then t ↦ Σ_i f_i(s_i t) is an R-linear retraction S → R. The generator property does not require a single evaluation f(s) to equal 1.
 
 **Inputs.** `mathlib:LinearMap.lTensor`, `mathlib:Module.Flat`, `mathlib:Module.FaithfullyFlat`, `mathlib:Module.FaithfullyFlat.lTensor_injective_iff_injective`.
 
@@ -1663,8 +1675,8 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Annexe A.1, Lemme A.1.1, p. 89. Defines pure submodules by injectivity after tensoring and lists Lazard's characterisations: lifting from finitely presented modules, direct summands when the quotient is finitely presented, filtered colimits of split monomorphisms, Tor-injectivity, flatness of the quotient, restriction of scalars.
-- André, *La conjecture du facteur direct*, Annexe A.2, Lemme A.2.1, pp. 89–90. Defines pure ring maps (universally injective), their stability properties, the faithfulness criterion, faithful flatness as pure plus flat, and the finitely presented splitting criterion.
+- Yves André, *La conjecture du facteur direct*, Annexe A.1, Lemme A.1.1, p. 89. Defines pure submodules by injectivity after tensoring and lists Lazard's characterisations: lifting from finitely presented modules, direct summands when the quotient is finitely presented, filtered colimits of split monomorphisms, Tor-injectivity, flatness of the quotient, restriction of scalars.
+- Yves André, *La conjecture du facteur direct*, Annexe A.2, Lemme A.2.1, pp. 89–90. Defines pure ring maps (universally injective), their stability properties, the faithfulness criterion, faithful flatness as pure plus flat, and the finitely presented splitting criterion.
 
 ### Almost pure maps
 
@@ -1675,6 +1687,7 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 **Hypotheses and conventions.**
 
 - Corrections PAPER-ANDRE-18-B/E10–E11: purity of M → N is tested on P ⊗ M → P ⊗ N, and the intermediate factorisation is M → M′ → N.
+- The published A.4, p. 92, already tensors M → N correctly. The malformed ring-map expression in the module definition occurs only in arXiv:1609.00345v1 §5.5, p. 14; this is a version-specific source issue, not an error in the published definition.
 
 **Construction.**
 
@@ -1713,8 +1726,8 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Annexe A.4 and Lemme A.4.1, p. 92. Defines almost pure module and algebra maps, relates them to purity after (·)_! and (·)_{!!}, and proves the almost lifting and almost-splitting property with the almost vanishing of the extension class.
-- André, *La conjecture du facteur direct*, Corollaire 2.6.1 proof and Théorème 3.2.1, pp. 82–83. Uses that almost faithfully flat maps are almost pure.
+- Yves André, *La conjecture du facteur direct*, Annexe A.4 and Lemme A.4.1, p. 92. Defines almost pure module and algebra maps, relates them to purity after (·)_! and (·)_{!!}, and proves the almost lifting and almost-splitting property with the almost vanishing of the extension class.
+- Yves André, *La conjecture du facteur direct*, Corollaire 2.6.1 proof and Théorème 3.2.1, pp. 82–83. Uses that almost faithfully flat maps are almost pure.
 
 ### Krull detection along faithfully flat algebras with an idempotent ideal
 
@@ -1732,7 +1745,7 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 2. By purity of R → S (faithful flatness), R ∩ J^nS = J^n, so the preimage of K lies in ⋂_n J^n.
 3. Krull's intersection theorem (Mathlib Ideal.mem_iInf_smul_pow_eq_bot_iff) gives r ∈ J with (1 − r)s = 0; in the local case 1 − r is a unit unless J is the unit ideal, and then M = 0.
 
-**Inputs.** `PerfectoidSpacesPartII:RA.5/pure-map`, `mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff`, `mathlib:Module.FaithfullyFlat`, `mathlib:Submodule.annihilator`.
+**Inputs.** `PerfectoidSpacesPartII:RA.5/pure-map`, `mathlib:Ideal.mem_iInf_smul_pow_eq_bot_iff`, `mathlib:Module.FaithfullyFlat`, `mathlib:Module.annihilator`.
 
 **Checks.**
 
@@ -1741,11 +1754,11 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Lemme 1.1.2 with proof, p. 76. Proves, for Noetherian R, finite M, faithfully flat S and an idempotent ideal K killing M ⊗ S, that elements of R in K are killed by 1 − r for some r annihilating M, by purity and Krull's intersection theorem.
+- Yves André, *La conjecture du facteur direct*, Lemme 1.1.2 with proof, p. 76. Proves, for Noetherian R, finite M, faithfully flat S and an idempotent ideal K killing M ⊗ S, that elements of R in K are killed by 1 − r for some r annihilating M, by purity and Krull's intersection theorem.
 
 ### The normalized two-index Kummer tower over W(k)⟦T_1,…,T_n⟧
 
-**Target `PerfectoidSpacesPartII:RA.5/normalized-kummer-tower` (construction).** Let k be a perfect field of characteristic p, W(k) its Witt vectors, K_0 = W(k)[1/p], K_j = K_0(ζ_{p^j}) with ζ_{p^j} a compatible system of primitive p^j-th roots of unity, K_∞ = ⋃ K_j and K̂_∞ its p-adic completion, a perfectoid field. Let A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g ∈ A. For (j, k) ∈ N², put K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}] = K_j°⟦T_1^{1/p^j},…,T_n^{1/p^j}⟧[X]/(X^{p^k} − g) and A_jk = K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}][1/p], a double inductive system of K_0-algebras with the natural inclusions; infinite indices mean directed unions. Let A°_jk be the integral closure of A in A_jk. Then A°_jk contains K_j°⟦T^{1/p^j}⟧[g^{1/p^k}] and A_jk = A°_jk[1/p]; for (j, k) ∈ N² it is Noetherian and p-adically complete; A°_{j0} = K_j°⟦T^{1/p^j}⟧ and A°_{00} = A; A°_{j′k′} = A°_jk ∩ A_{j′k′} for j′ ≤ j, k′ ≤ k; for j = ∞, A°_{∞k} is the increasing union of Noetherian integrally closed rings finite over one another, hence completely integrally closed in A_{∞k}. The maps A°_{j0} → A°_{j′0} are finite and faithfully flat (indeed free), A°_{∞0} is faithfully flat over each A°_{j0}, and so is its p-adic completion Â°_{∞0}, which is isomorphic to W(k⟦T^{1/p^∞}_{≤n}⟧) ⊗̂_{W(k)} K̂_∞°.
+**Target `PerfectoidSpacesPartII:RA.5/normalized-kummer-tower` (construction).** Let k be a perfect field of characteristic p, W(k) its Witt vectors, K_0 = W(k)[1/p], K_j = K_0(ζ_{p^j}) with ζ_{p^j} a compatible system of primitive p^j-th roots of unity, K_∞ = ⋃ K_j and K̂_∞ its p-adic completion, a perfectoid field. Let A = W(k)⟦T_1,…,T_n⟧ and 0 ≠ g ∈ A. For (j, k) ∈ N², put K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}] = K_j°⟦T_1^{1/p^j},…,T_n^{1/p^j}⟧[X]/(X^{p^k} − g) and A_jk = K_j°⟦T^{1/p^j}_{≤n}⟧[g^{1/p^k}][1/p], a double inductive system of K_0-algebras with the natural inclusions; infinite indices mean directed unions. Let A°_jk be the integral closure of A in A_jk. Then A°_jk contains K_j°⟦T^{1/p^j}⟧[g^{1/p^k}] and A_jk = A°_jk[1/p]; for (j, k) ∈ N² it is Noetherian and p-adically complete; A°_{j0} = K_j°⟦T^{1/p^j}⟧ and A°_{00} = A; A°_{j′k′} = A°_jk ∩ A_{j′k′} for j′ ≤ j, k′ ≤ k; for j = ∞, A°_{∞k} is the increasing union of Noetherian rings finite over one another, each integrally closed relative to its specified generic algebra; A°_{∞k} is completely integrally closed relative to A_{∞k}. These generic algebras and models may have zero divisors. The maps A°_{j0} → A°_{j′0} are finite and faithfully flat (indeed free), A°_{∞0} is faithfully flat over each A°_{j0}, and so is its p-adic completion Â°_{∞0}, which is isomorphic to W(k⟦T^{1/p^∞}_{≤n}⟧) ⊗̂_{W(k)} K̂_∞°.
 
 **Named signature.** `TauCeti.KummerTower.normalizedKummerTower`.
 
@@ -1755,15 +1768,17 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 - The p-adic completion Â_∞⟨g^{1/p^∞}⟩° of the introduction of André B must be taken as the completed directed union of the A°_jk including the coordinate roots T_l^{1/p^j}, not only the cyclotomic and g-roots (PAPER-ANDRE-18-B/E25).
 - Describing A°_jk at finite level is hard in general (tame and fierce ramification); only its formal properties are used.
+- The exponent k indexing the Kummer root is separate from the perfect residue field k. The symbol [g^{1/p^k}] means the freely adjoined root algebra, retaining all branches; it does not choose a root in a field. Relative integral closedness is the intended notion throughout.
 
 **Construction.**
 
-1. Integral closures of the Noetherian complete local domain A in finite extensions of its fraction field are finite (A is Nagata, being complete local), hence Noetherian and complete; the intersection formula is the transitivity of integral closure.
+1. For finite j,k, A_jk is a finite reduced A[1/p]-algebra: the naive monic ring is finite over A, p is inverted, and g ≠ 0 makes X^{p^k}−g separable over the fraction field. Its total quotient algebra is a finite product of finite field extensions of Frac(A), all separable in characteristic zero. Mathlib IsIntegralClosure.finite gives a finite A-module D by normalizing A in each field factor (A is normal and Noetherian). Then A°_jk = D ∩ A_jk is an A-submodule of D, hence finite, Noetherian and p-adically complete. This is integral closedness relative to A_jk, without asserting that A°_jk is a normal domain or equals D. The intersection formula follows from integrality over A and injectivity of the tower maps.
 2. A°_{j0} = K_j°⟦T^{1/p^j}⟧ because this ring is regular, hence normal, and integral over A; the transitions are free of finite rank with basis monomials, hence faithfully flat; completion preserves faithful flatness over the Noetherian A°_{j0} (DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion).
-3. An increasing union of integrally closed Noetherian rings finite over one another is completely integrally closed in its fraction ring: powers of an element in a finitely generated module lie, at a finite stage, in a finitely generated module of a Noetherian ring, where complete and ordinary integral closure agree.
+3. For relative complete integral closedness in R = A°_{∞k} ⊂ S = A_{∞k} = R[1/p], use exactly the pinned definition IsAlmostIntegral: let x ∈ S and let d be a nonzerodivisor of R with d x^m ∈ R for every m. Choose a finite generic stage A_jl containing both x and d. Each d x^m is integral over A, and the intersection formula puts it in A°_jl. Multiplication by d embeds the A-module A[x] into the finite A-module A°_jl: d remains a nonzerodivisor after inverting p, hence on this stage. Noetherianity of A makes A[x] finite, so x is integral over A and belongs to R. This also treats k = ∞. Only x and the multiplier descend to one stage; the infinitely many coefficient relations need not.
 4. The Witt-vector description of Â°_{∞0} is André A (3.1) and is not used.
+5. For arbitrary perfect k, ζ_{p^j} = ζ_{p^{j+1}}^p and perfectness of k give surjectivity of Frobenius from K_{j+1}°/p onto K_j°/p. The valuations of ζ_{p^j}−1 tend to zero. Thus the rank-one completion K̂_∞ is nondiscretely valued with surjective Frobenius modulo p, hence perfectoid by PerfectoidSpaces:P1/perfectoid-field-characterisation (André A Exemple 3.1.2(1), p. 35). The finite-Q_p cyclotomic supplier is not used for general k.
 
-**Inputs.** `mathlib:WittVector`, `mathlib:MvPowerSeries`, `mathlib:integralClosure`, `mathlib:CyclotomicField`, `mathlib:AdjoinRoot`, `DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion`, `DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion`, `PerfectoidSpacesPartII:RA.2/p-root-closure`.
+**Inputs.** `mathlib:WittVector`, `mathlib:MvPowerSeries`, `mathlib:integralClosure`, `mathlib:CyclotomicField`, `mathlib:AdjoinRoot`, `DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion`, `DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion`, `PerfectoidSpacesPartII:RA.2/p-root-closure`, `PerfectoidSpaces:P1/perfectoid-field-characterisation`, `mathlib:IsIntegralClosure.finite`.
 
 **API.**
 
@@ -1782,6 +1797,8 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 - `kummerTower_n0_p` (computation): For n = 0 and g = p: A°_{0k} = W(k)[p^{1/p^k}], a discrete valuation ring with uniformizer p^{1/p^k}.
 - `kummerTower_not_naive` (non-example): For n = 0, k = F_p, p odd, g = p² and (j, k) = (0, 1): y = X^{(p+1)/2}/p satisfies y^p = p, so it is integral over Z_p, but it is not in Z_p[X]/(X^p − p²), which is free on 1, X, …, X^{p−1}. Hence A°_{01} ≠ K_0°[g^{1/p}]: the integral closure cannot be replaced by the naive Kummer ring.
 - `kummerTower_coord_flat` (compatibility): A°_{10} = W(k)[ζ_p]⟦T^{1/p}⟧ is free of rank p^n·(p − 1) over A, agreeing with Mathlib's Module.Free/Module.Flat for the inclusion.
+- `kummerTower_zero_divisors` (non-example): Take n = 1, g = T_1 and j = k = 1. Write S = T_1^{1/p} in K_1°⟦S⟧. In A_{11}, X^p−T_1 = (X−S)∏_{ζ^p=1, ζ≠1}(X−ζS). The two factors have positive degree < p, so both are nonzero in the monic quotient, are integral over A and lie in A°_{11}, but their product is zero. Thus A°_{11} is not a domain. Only after also inverting T_1 do the factors become comaximal and yield a product of p copies of K_1°⟦S⟧[1/(pT_1)]; relative integral closure inside A_{11} is not normalization in its total quotient ring.
+- `kummerTower_unit_not_identity` (non-example): For p = 2, k = F_2, n = 0, g = 1 and (j,k) = (0,1), A_{01} = Q_2[X]/(X²−1) ≅ Q_2×Q_2 and A°_{01} ≅ Z_2×Z_2. Freely adjoining roots of 1 does not give the identity algebra. The suggested file states the corresponding two nonzero factors in the rational root algebra.
 
 **Uses.**
 
@@ -1795,8 +1812,9 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §§2.1–2.3, formulas (7)–(8), p. 78. Defines the cyclotomic tower, the base A = W(k)⟦T_1,…,T_n⟧, the double system A_jk, its integral closures A°_jk, their Noetherian, complete and completely integrally closed properties, and the faithful flatness of the coordinate tower and of its completion.
-- André, *Le lemme d’Abhyankar perfectoïde*, Exemple 3.2.3(2), formula (3.1), p. 37. Identifies the completion of the coordinate tower with W(k⟦T^{1/p^∞}⟧) ⊗̂ K̂_∞° and shows it is perfectoid.
+- Yves André, *La conjecture du facteur direct*, §§2.1–2.3, formulas (7)–(8), p. 78. Defines the cyclotomic tower, the base A = W(k)⟦T_1,…,T_n⟧, the double system A_jk, its integral closures A°_jk, their Noetherian, complete and completely integrally closed properties, and the faithful flatness of the coordinate tower and of its completion.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemple 3.2.3(2), formula (3.1), p. 37. Identifies the completion of the coordinate tower with W(k⟦T^{1/p^∞}⟧) ⊗̂ K̂_∞° and shows it is perfectoid.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Exemple 3.1.2(1), p. 35. The completed cyclotomic extension of Frac W(k) is perfectoid for any perfect residue field k, using the Frobenius congruence and nondiscrete value group.
 
 ### The spectral norm of the Kummer tower and isometric transitions
 
@@ -1821,24 +1839,25 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §2.4, pp. 78–79. Shows the existence and spectrality of the unique norm with unit ball A°_{∞k}, the isometry of transitions, multiplicativity on A_{j0}, and the description of the topologically nilpotent ideal.
+- Yves André, *La conjecture du facteur direct*, §2.4, pp. 78–79. Shows the existence and spectrality of the unique norm with unit ball A°_{∞k}, the isometry of transitions, multiplicativity on A_{j0}, and the description of the topologically nilpotent ideal.
 
 ### The completed Kummer tower as a colimit of tubes; perfectoidness
 
-**Target `PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description` (theorem).** In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let Â_∞0⟨T^{1/p^∞}⟩ be the p-adic completion of A_∞0[T^{1/p^∞}] (also its completion for the multiplicative Gauss norm), so that Â_∞0⟨T^{1/p^∞}⟩° = Â°_∞0⟨T^{1/p^∞}⟩ = Â_∞0⟨T^{1/p^∞}⟩_{≤1} and T − g has norm 1. In the almost setup (K°_∞, K°°_∞) there is a canonical isomorphism Â°ᵃ_∞∞ ≅ completed colim_i (Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}°)ᵃ, the completion being p-adic. The K̂_∞-algebra Â_∞0 is perfectoid, hence so are Â_∞0⟨T^{1/p^∞}⟩ and Â_∞∞ = Â_∞0⟨g^{1/p^∞}⟩.
+**Target `PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description` (theorem).** In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let Â_∞0⟨T^{1/p^∞}⟩ be the completion of A_∞0[T^{1/p^∞}] for the multiplicative Gauss norm (equivalently, complete the integral Gauss unit ball p-adically and then invert p), so that Â_∞0⟨T^{1/p^∞}⟩° = Â°_∞0⟨T^{1/p^∞}⟩ = Â_∞0⟨T^{1/p^∞}⟩_{≤1} and T − g has norm 1. In the almost setup (K°_∞, K°°_∞) there is a canonical isomorphism Â°ᵃ_∞∞ ≅ completed colim_i (Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}°)ᵃ, the completion being p-adic. The K̂_∞-algebra Â_∞0 is perfectoid, hence so are Â_∞0⟨T^{1/p^∞}⟩ and Â_∞∞ = Â_∞0⟨g^{1/p^∞}⟩.
 
 **Named signature.** `TauCeti.KummerTower.completed_eq_tubularColimit`.
 
 **Hypotheses and conventions.**
 
 - Â_∞∞ denotes the completed uniform colimit of the A_jk with the spectral norms of PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm.
+- Algebraic (p)-adic completion after p is inverted would be the zero ring and is not the construction intended here. The root algebra freely adjoins a compatible root system, even when g = 1; it is not obtained by choosing the root 1 at every stage.
 
 **Proof outline.**
 
 1. Â_∞0 is perfectoid: Frobenius is surjective modulo p on ⋃ A°_{i0} since A°_i ≡ (A°_{i+1})^p mod p (André A Exemple 3.2.3(2)); the perfected Tate algebra over it is perfectoid (PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra).
 2. Â_∞∞ is the root algebra Â_∞0⟨g^{1/p^∞}⟩ (the A_jk adjoin compatible roots of g, and the spectral norms agree by isometry), so it is perfectoid by PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra; the colimit formula is the unit-ball form of the tubular-colimit theorem (PerfectoidSpacesPartII:RA.2/tubular-colimit) for A = Â_∞0.
 
-**Inputs.** `PerfectoidSpacesPartII:RA.5/normalized-kummer-tower`, `PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm`, `PerfectoidSpacesPartII:RA.2/tubular-colimit`, `PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra`, `PerfectoidSpaces:P3/cyclotomic-completion-of-finite-extension`.
+**Inputs.** `PerfectoidSpacesPartII:RA.5/normalized-kummer-tower`, `PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm`, `PerfectoidSpacesPartII:RA.2/tubular-colimit`, `PerfectoidSpacesPartII:RA.3/perfectoid-root-algebra`, `PerfectoidSpaces:P1/frobenius-surjectivity-criterion`.
 
 **Checks.**
 
@@ -1846,12 +1865,12 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §2.5, Lemme 2.5.1 and formulas (9)–(10), p. 79. Expresses Â°ᵃ_∞∞ as the completed colimit of the unit balls of the tubes around T = g, as a special case of André A Corollaire 2.9.3.
-- André, *La conjecture du facteur direct*, §3.1, p. 83. States that Â_∞∞ is perfectoid, citing André A §3.6.2 (or Propositions 3.6.1–3.6.2 with Corollaire 2.9.3).
+- Yves André, *La conjecture du facteur direct*, §2.5, Lemme 2.5.1 and formulas (9)–(10), p. 79. Expresses Â°ᵃ_∞∞ as the completed colimit of the unit balls of the tubes around T = g, as a special case of André A Corollaire 2.9.3.
+- Yves André, *La conjecture du facteur direct*, §3.1, p. 83. States that Â_∞∞ is perfectoid, citing André A §3.6.2 (or Propositions 3.6.1–3.6.2 with Corollaire 2.9.3).
 
 ### Faithful flatness of the Noetherian tube models
 
-**Target `PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness` (theorem).** In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let j be finite, ϖ_j a uniformizer of K_j°, 0 ≠ ϖ_{ik} ∈ K_j with |ϖ_{ik}| < |ϖ_j|, f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ and g_k ∈ A°_{j0}⟨T^{1/p^j}⟩ with f_{ik} ≡ T^{1/p^k} − g_k modulo ϖ_j. Then C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) = A_{j0}⟨T^{1/p^j}⟩{f_{ik}/ϖ_{ik}}_{≤1} is a Noetherian, ϖ_j-torsion-free, ϖ_j-adically complete A°_{j0}-algebra with C/ϖ_j ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k) free over A°_{j0}/ϖ_j; hence C is faithfully flat over A°_{j0}.
+**Target `PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness` (theorem).** In the setting of PerfectoidSpacesPartII:RA.5/normalized-kummer-tower, let j ≥ k be finite, ϖ_j a uniformizer of K_j°, 0 ≠ ϖ_{ik} ∈ K_j with |ϖ_{ik}| < |ϖ_j|, f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ and g_k ∈ A°_{j0} with f_{ik} ≡ T^{1/p^k} − g_k modulo ϖ_j. Then C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) = A_{j0}⟨T^{1/p^j}⟩{f_{ik}/ϖ_{ik}}_{≤1} is a Noetherian, ϖ_j-torsion-free, ϖ_j-adically complete A°_{j0}-algebra with C/ϖ_j ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k) free over A°_{j0}/ϖ_j; hence C is faithfully flat over A°_{j0}.
 
 **Named signature.** `TauCeti.KummerTower.noetherianTube_faithfullyFlat`.
 
@@ -1861,8 +1880,8 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Proof outline.**
 
-1. The Gauss norm on A_{j0}⟨T^{1/p^j}⟩ is multiplicative (PerfectoidSpacesPartII:RA.5/kummer-tower-spectral-norm) and |f_{ik}| = 1, so multiplication by f_{ik} is isometric; the Weierstrass unit-ball theorem (PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball) gives that C is torsion-free over K_j° and equals the unit ball of the Weierstrass localisation (discrete valuation case).
-2. C is a quotient of the Noetherian ring A°_{j0}⟨T^{1/p^j}, U⟩ and is ϖ_j-adically complete; modulo ϖ_j, since |ϖ_{ik}| < |ϖ_j|, C/ϖ_j = A°_{j0}⟨T^{1/p^j}, U⟩/(f_{ik}, ϖ_j) ≅ (A°_{j0}/ϖ_j)[T^{1/p^j}, U]/(T^{1/p^k} − g_k), free over A°_{j0}/ϖ_j with a monomial basis.
+1. Since g_k belongs to the base and j ≥ k, the reduction of f_{ik} in Z = T^{1/p^j} is the monic polynomial Z^{p^{j−k}}−g_k. Hence f_{ik} has Gauss norm 1. The base Gauss norm is multiplicative, so multiplication by f_{ik} is isometric, and RA.2 Weierstrass gives the torsion-free unit-ball quotient C.
+2. The Noetherian restricted-power-series quotient is ϖ_j-adically complete. Its reduction is (A°_{j0}/ϖ_j)[Z,U]/(Z^{p^{j−k}}−g_k), with the explicit free basis {Z^a U^b : 0 ≤ a < p^{j−k}, b ≥ 0}. The basis contains 1, so the reduction is faithfully flat.
 3. Bhatt's flatness criterion (DerivedDeRhamCohomology:DD.1/ordinary-flatness-from-complete-flatness) with π = ϖ_j gives faithful flatness of A°_{j0} → C: A°_{j0} is Noetherian, both rings are ϖ_j-torsion-free and complete, and the reduction is faithfully flat (free and nonzero, its fibre over the closed point being k[T^{1/p^j}, U]/(f̄) with f̄ not a unit).
 4. Inverting p gives the flatness of the generic fibre over A_{j0} that André B asserts in step (a).
 
@@ -1871,11 +1890,13 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 **Checks.**
 
 - For f_{ik} = T^{1/p^k} − g_k exactly, C is the unit ball of the tube {|T^{1/p^k} − g_k| ≤ |ϖ_{ik}|}.
+- The hypothesis g_k ∈ A°_{j0} is essential: if g_k = T^{1/p^k} in the auxiliary Tate algebra and f_{ik} = 0, the quotient has nonzero ϖ_j-torsion and is not flat. If j < k the displayed monomial is not even in the indicated stage.
+- For a fixed k, obtain g_k by Frobenius surjectivity on the completed coordinate base Â°_∞0 modulo a sufficiently small pseudouniformizer, then approximate it in a finite base stage and enlarge j ≥ k. No dependence on the auxiliary T is needed.
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Proof of Théorème 2.5.2, formulas (14)–(17) and steps (a)–(b), pp. 80–81. Descends the tubes to Noetherian stages A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}), identifies them with unit balls of Weierstrass localisations, and proves their faithful flatness over A°_{j0} by the fibrewise criterion, with a free special fibre.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Proposition 5.1, p. 8. Lifts (faithful) flatness from the reduction modulo π for π-torsion-free π-adically complete algebras over a Noetherian π-adically complete base.
+- Yves André, *La conjecture du facteur direct*, Proof of Théorème 2.5.2, formulas (14)–(17) and steps (a)–(b), pp. 80–81. Descends the tubes to Noetherian stages A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}), identifies them with unit balls of Weierstrass localisations, and proves their faithful flatness over A°_{j0} by the fibrewise criterion, with a free special fibre.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Proposition 5.1, p. 8. Lifts (faithful) flatness from the reduction modulo π for π-torsion-free π-adically complete algebras over a Noetherian π-adically complete base.
 
 ### André's flatness theorem for the Kummer tower
 
@@ -1894,22 +1915,22 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 1. Fix ϖ ∈ K̂°_∞ with |p| ≤ |ϖ| < 1 and roots, and ϖ′ ∈ K°_∞ with |ϖ| < |ϖ′| < 1. By the approximation lemma (PerfectoidSpaces:P2/approximation-lemma) choose f_i ∈ Â°_∞0⟨T^{1/p^∞}⟩ with compatible roots, f_i ≡ T − g mod ϖ′, and the same tube: Â_∞0⟨T^{1/p^∞}⟩{(T − g)/ϖ^i}° ≅ Â_∞0⟨T^{1/p^∞}⟩{f_i/ϖ^i}° (formula (11)).
 2. By the explicit almost integral model of rational localisations (PerfectoidSpaces:P2/almost-integral-model-of-untilted-rational-localization) and the Weierstrass unit-ball theorem, the almost unit ball is the completed colimit over k of Â°_∞0⟨T^{1/p^∞}, U⟩/(ϖ^{i/p^k}U − f_i^{1/p^k}) (formulas (12)–(13)).
-3. Each term does not change when f_i^{1/p^k} is replaced by f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ congruent modulo ϖ^{i/p^k} and ϖ^{i/p^k} by ϖ_{ik} ∈ K_j of the same norm (Weierstrass invariance), and is the completed colimit over j of the Noetherian tube models (formulas (14)–(17)).
-4. The Noetherian tube models are faithfully flat over A°_{j0} (PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness); colimits and completions over the Noetherian A°_{j0} preserve faithful flatness (DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion), so each completed colimit is faithfully flat over A°_∞0.
+3. Each term does not change when f_i^{1/p^k} is replaced by f_{ik} ∈ A°_{j0}⟨T^{1/p^j}⟩ congruent modulo ϖ^{i/p^k} and ϖ^{i/p^k} by ϖ_{ik} ∈ K_j of the same norm (Weierstrass invariance), and is the completed colimit over j of the Noetherian tube models (formulas (14)–(17)). Choose g_k in the completed coordinate base by Frobenius surjectivity, approximate it in A°_{j0}, and enlarge j ≥ k so f_{ik} ≡ T^{1/p^k}−g_k mod ϖ_j. This is the base-ring choice required by the Noetherian tube lemma.
+4. Fix a finite coordinate stage A°_{a0}. Build the relevant filtered colimits of tube models at stages j ≥ a,k; each is faithfully flat over A°_{a0}, since A°_{j0} is finite free over A°_{a0}. Their p-adic completions remain faithfully flat over this fixed Noetherian A°_{a0}, by DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion (p lies in its Jacobson radical). Apply this at every finite stage. The equational criterion now gives flatness over A°_∞0, since any finite coefficient relation descends to one stage; faithfulness follows since a finite expression 1 ∈ IC for a proper ideal I also descends to a stage, contradicting stagewise faithfulness. No completion theorem with a non-Noetherian base is being invoked.
 5. Pass to the almost category: (·)_{!!} respects faithful flatness (PerfectoidSpaces:P0/lower-shriek-shriek-faithful-flatness), so the tube algebras' (·)_{!!} are faithfully flat; the completed colimit over i is faithfully flat, and the tubular description (PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description) identifies it almost with Â°_∞∞.
 
 **Inputs.** `PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness`, `PerfectoidSpacesPartII:RA.5/kummer-tower-tubular-description`, `PerfectoidSpacesPartII:RA.2/weierstrass-localisation-unit-ball`, `PerfectoidSpacesPartII:RA.5/normalized-kummer-tower`, `PerfectoidSpaces:P2/approximation-lemma`, `PerfectoidSpaces:P2/almost-integral-model-of-untilted-rational-localization`, `PerfectoidSpaces:P0/lower-shriek-shriek-faithful-flatness`, `PerfectoidSpaces:P0/change-of-basic-setup`, `DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion`.
 
 **Checks.**
 
-- For g a unit of A the tower is ind-étale-like after inverting p and the theorem is the faithful flatness of Â°_∞0 itself.
+- For g a unit the generic root covers are étale. For g = 1, freely adjoining roots retains all cyclotomic branches; it is not the identity algebra Â°_∞0. Evaluation at the compatible roots 1 gives a quotient to the base, not an equality with the free root tower.
 - Consequence: Â_∞∞ is faithfully flat over A[1/p] and g is a nonzerodivisor of Â_∞∞ (PerfectoidSpacesPartII:RA.5/kummer-generic-faithful-flatness).
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Théorème 2.5.2 with proof, pp. 79–82. Proves that Â°_∞∞ is almost faithfully flat over A°_∞0 by approximating T − g by elements with p-power roots, presenting the tubes through Scholze's almost integral models, descending to Noetherian stages, proving their faithful flatness, and passing through completed colimits and (·)_{!!}.
-- André, *La conjecture du facteur direct*, Remarques 2.6.1(4), pp. 82–83. Notes that only the statement modulo p-powers is used, and that several elements and ramified regular bases can be treated the same way.
-- Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.3(1) and Theorem 2.3 with Remark 2.4, pp. 1 and 4–5. Identifies André's flatness lemma as the essential new ingredient and reproduces it in a more general but weaker form.
+- Yves André, *La conjecture du facteur direct*, Théorème 2.5.2 with proof, pp. 79–82. Proves that Â°_∞∞ is almost faithfully flat over A°_∞0 by approximating T − g by elements with p-power roots, presenting the tubes through Scholze's almost integral models, descending to Noetherian stages, proving their faithful flatness, and passing through completed colimits and (·)_{!!}.
+- Yves André, *La conjecture du facteur direct*, Remarques 2.6.1(4), pp. 82–83. Notes that only the statement modulo p-powers is used, and that several elements and ramified regular bases can be treated the same way.
+- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Remark 1.3(1) and Theorem 2.3 with Remark 2.4, pp. 1 and 4–5. Identifies André's flatness lemma as the essential new ingredient and reproduces it in a more general but weaker form.
 
 ### Purity of normalized Kummer extensions
 
@@ -1940,8 +1961,8 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Corollaire 2.6.1 with proof, p. 82. Deduces the purity of A°_{j0} → A°_jk from almost faithful flatness, coherence of A°_∞0, descent of a finitely presented annihilator to a Noetherian stage and Lemme 1.1.2.
-- André, *La conjecture du facteur direct*, Introduction §0.6, p. 74. Notes that the corollary proves the direct summand conjecture in the Kummer case without the perfectoid Abhyankar lemma.
+- Yves André, *La conjecture du facteur direct*, Corollaire 2.6.1 with proof, p. 82. Deduces the purity of A°_{j0} → A°_jk from almost faithful flatness, coherence of A°_∞0, descent of a finitely presented annihilator to a Noetherian stage and Lemme 1.1.2.
+- Yves André, *La conjecture du facteur direct*, Introduction §0.6, p. 74. Notes that the corollary proves the direct summand conjecture in the Kummer case without the perfectoid Abhyankar lemma.
 
 ### Faithful flatness of the Kummer tower on generic fibres
 
@@ -1962,11 +1983,11 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Checks.**
 
-- For g = T_1 the Kummer tower adjoins further roots of a coordinate, A°_{jk} = K_j°⟦T_1^{1/p^{j+k}}, T_2^{1/p^j}, …⟧, and faithful flatness is visible directly.
+- For g = T_1 and j = 0, A°_{0k} = W(k)⟦T_1^{1/p^k},T_2,…,T_n⟧ is finite free over A. At j = k = 1, however, X^p−T_1 already factors over the coordinate-root base and A°_{11} has zero divisors, as tested in normalized-kummer-tower. It is not a power-series domain with exponent 1/p^{j+k}.
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, Remarques 2.6.1(1)–(3), p. 82. Deduces faithful flatness of Â_∞∞ over A_∞ and A[1/p] and the regularity of g, and lists normality, integrality and multiplicativity criteria for the Kummer algebras.
+- Yves André, *La conjecture du facteur direct*, Remarques 2.6.1(1)–(3), p. 82. Deduces faithful flatness of Â_∞∞ over A_∞ and A[1/p] and the regularity of g, and lists normality, integrality and multiplicativity criteria for the Kummer algebras.
 
 ### The faithfully flat integral model S = (Â°_∞∞)_{!!}
 
@@ -1996,7 +2017,7 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 **Unit tests.**
 
 - `flatIntegralModel_contains_base` (degenerate): S contains A°_∞0, hence A; in particular S/pS ≠ 0, as faithful flatness over A requires.
-- `flatIntegralModel_quotient_almostZero` (characterisation): A°_∞0 ⊂ S, K°°_∞Â°_∞∞ ⊂ S, and Â°_∞∞/S is killed by K°°_∞; a definition taking the almost elements (Â°ᵃ_∞∞)_* (which contains Â°_∞∞) instead of (·)_{!!} gives a different, larger ring for which faithful flatness is not available.
+- `flatIntegralModel_quotient_almostZero` (characterisation): A°_∞0 ⊂ S, K°°_∞Â°_∞∞ ⊂ S, and Â°_∞∞/S is killed by K°°_∞; a definition taking the almost elements (Â°ᵃ_∞∞)_* (which contains Â°_∞∞) instead of (·)_{!!} may give a larger ring; the faithful-flatness theorem invoked here applies to (·)_{!!}, not to the almost-elements right adjoint.
 - `flatIntegralModel_torsionFree` (computation): S is A-torsion-free: a faithfully flat module over the domain A has no torsion.
 - `flatIntegralModel_mathlib` (compatibility): Module.FaithfullyFlat A (flatIntegralModel A g) holds in Mathlib's sense.
 
@@ -2011,11 +2032,11 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §3.1, p. 83. Defines (Â°_∞∞)_{!!} through almostification and its left adjoint, deduces its faithful flatness over A°_∞0 and A from Théorème 2.5.2, and identifies it with A°_∞0 + K°°_∞Â°_∞∞, stable under the roots of ϖg.
+- Yves André, *La conjecture du facteur direct*, §3.1, p. 83. Defines (Â°_∞∞)_{!!} through almostification and its left adjoint, deduces its faithful flatness over A°_∞0 and A from Théorème 2.5.2, and identifies it with A°_∞0 + K°°_∞Â°_∞∞, stable under the roots of ϖg.
 
 ### Ramified almost flatness and purity modulo p^m for the Kummer tower
 
-**Target `PerfectoidSpacesPartII:RA.5/ramified-kummer-almost-flatness` (theorem).** Let B be a finite extension of A = W(k)⟦T_1,…,T_n⟧, reduced and p-torsion-free, and g ∈ A ∖ pA with B[1/(pg)] étale over A[1/(pg)]. Let B° be the integral closure of Â°_∞∞ in the finite étale Â_∞∞[1/g]-algebra B ⊗_A Â_∞∞[1/g]; the map B ⊗_A S → B ⊗_A Â_∞∞[1/g] (S as in PerfectoidSpacesPartII:RA.5/flat-integral-model) factors through B°, and becomes an isomorphism after inverting pg. View Â°_∞∞ and B° as K°_∞[T^{1/p^∞}]-algebras through T^{1/p^h} ↦ g^{1/p^h}. Then in the setup (K°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), for every m ∈ N, Â°_∞∞/p^m → B°/p^m is almost faithfully flat, hence almost pure. Consequently, in the setup (K°_∞ + K°°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), S/p^m → (B ⊗_A S)/p^m is almost pure for every m.
+**Target `PerfectoidSpacesPartII:RA.5/ramified-kummer-almost-flatness` (theorem).** Let A = W(k)⟦T_1,…,T_n⟧ and A ↪ B be a finite injective extension with B reduced and p-torsion-free, and g ∈ A ∖ pA with B[1/(pg)] étale over A[1/(pg)]. Let B° be the integral closure of Â°_∞∞ in the finite étale Â_∞∞[1/g]-algebra B ⊗_A Â_∞∞[1/g]; the map B ⊗_A S → B ⊗_A Â_∞∞[1/g] (S as in PerfectoidSpacesPartII:RA.5/flat-integral-model) factors through B°, and becomes an isomorphism after inverting pg. View Â°_∞∞ and B° as K°_∞[T^{1/p^∞}]-algebras through T^{1/p^h} ↦ g^{1/p^h}. Then in the setup (K°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), for every m ∈ N, Â°_∞∞/p^m → B°/p^m is almost faithfully flat, hence almost pure. Consequently, in the setup (K°_∞ + K°°_∞[T^{1/p^∞}], T^{1/p^∞}K°°_∞[T^{1/p^∞}]), S/p^m → (B ⊗_A S)/p^m is almost pure for every m.
 
 **Named signature.** `TauCeti.KummerTower.ramified_almost_faithfullyFlat`.
 
@@ -2024,7 +2045,7 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 **Hypotheses and conventions.**
 
 - For the purity of A ↪ B one may assume B reduced and p-torsion-free, even a domain with B[1/(pg)] Galois over A[1/(pg)] (Hochster's reduction); the Galois case of the Abhyankar lemma suffices.
-- The map A/p^m → B/p^m is injective because A is integrally closed in A[1/p].
+- If a ∈ A maps to p^m b in B, then b = a/p^m ∈ A[1/p] and is integral over A because B is finite. Normality of A implies b ∈ A, proving A/p^m → B/p^m injective.
 
 **Proof outline.**
 
@@ -2036,19 +2057,19 @@ André's flatness lemma in Bhatt–Scholze's form (an absolutely integrally clos
 
 **Checks.**
 
-- If g is a unit (B[1/p] étale over A[1/p]) the statement is Faltings's almost purity over the perfectoid Â_∞0, as used by Bhatt and Shimomoto.
+- For g a unit the ramified almost setup reduces to the valuation setup and the almost-flatness assertion is ordinary almost purity over the resulting perfectoid base. One can also apply ordinary almost purity to the coordinate cover Â_∞0; this does not identify the freely adjoined g-root tower with Â_∞0.
 - This is the input that, with the Krull detection lemma and Hochster's Mittag-Leffler argument, proves the direct summand theorem in André B §§3.3–3.4 (owned by Direct summands and big Cohen–Macaulay algebras).
 
 **Sources.**
 
-- André, *La conjecture du facteur direct*, §3.1–3.2, Théorème 3.2.1 and Corollaire 3.2.2 with proof, p. 83. Sets up the finite extension B with discriminant g, the integral closure B° and the factorisation of B ⊗ S → B ⊗ Â_∞∞[1/g], states the fragment of the perfectoid Abhyankar lemma giving almost faithful flatness of Â°_∞∞/p^m → B°/p^m, and deduces almost purity of S/p^m → (B ⊗ S)/p^m.
-- André, *Le lemme d’Abhyankar perfectoïde*, Théorème 0.3.1, p. 2. The perfectoid Abhyankar lemma from which the fragment is taken (the Galois case suffices).
+- Yves André, *La conjecture du facteur direct*, §3.1–3.2, Théorème 3.2.1 and Corollaire 3.2.2 with proof, p. 83. Sets up the finite extension B with discriminant g, the integral closure B° and the factorisation of B ⊗ S → B ⊗ Â_∞∞[1/g], states the fragment of the perfectoid Abhyankar lemma giving almost faithful flatness of Â°_∞∞/p^m → B°/p^m, and deduces almost purity of S/p^m → (B ⊗ S)/p^m.
+- Yves André, *Le lemme d’Abhyankar perfectoïde*, Théorème 0.3.1, p. 2. The perfectoid Abhyankar lemma from which the fragment is taken (the Galois case suffices).
 
 ### Dependencies
 
 - Earlier layers of this roadmap: PerfectoidSpacesPartII:RA.2, PerfectoidSpacesPartII:RA.3, PerfectoidSpacesPartII:RA.4.
-- Other roadmaps: DeformationAndDerivedPatchingAlgebra:R03.1, DerivedDeRhamCohomology:DD.1, PerfectoidSpaces:P0, PerfectoidSpaces:P2, PerfectoidSpaces:P3.
-- Mathlib: `AdjoinRoot`, `CyclotomicField`, `Ideal.mem_iInf_smul_pow_eq_bot_iff`, `IsAdicComplete`, `IsNoetherianRing`, `LinearMap.lTensor`, `Module.FaithfullyFlat`, `Module.FaithfullyFlat.lTensor_injective_iff_injective`, `Module.Flat`, `MvPowerSeries`, `Submodule.annihilator`, `WittVector`, `integralClosure`.
+- Other roadmaps: DeformationAndDerivedPatchingAlgebra:R03.1, DerivedDeRhamCohomology:DD.1, PerfectoidSpaces:P0, PerfectoidSpaces:P1, PerfectoidSpaces:P2.
+- Mathlib: `AdjoinRoot`, `CyclotomicField`, `Ideal.mem_iInf_smul_pow_eq_bot_iff`, `IsAdicComplete`, `IsIntegralClosure.finite`, `IsNoetherianRing`, `LinearMap.lTensor`, `Module.FaithfullyFlat`, `Module.FaithfullyFlat.lTensor_injective_iff_injective`, `Module.Flat`, `Module.annihilator`, `MvPowerSeries`, `WittVector`, `integralClosure`.
 
 ### Acceptance for the layer
 
@@ -2056,23 +2077,28 @@ Every target above is stated with its hypotheses and has the checks listed with 
 
 ## Corrections to the sources
 
-The statements above use the corrected forms. Each item gives the place, what is wrong, the correction and whether it was already recorded.
+These records paraphrase the source claims and give independently checked corrections. All fourteen are confirmed; E14 is a preprint-only slip already repaired in the published article. The norm formula (E11) and the use of a bounded uniform limit (E12) require replacement arguments, given at their targets.
 
-- **PerfectoidSpacesPartII/E1** (gap, André, *La conjecture du facteur direct*, Published Théorème 2.5.2, proof step (a), p. 81). To get flatness of the generic fibre of the Noetherian tube over A_{j0}, the source describes the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs and invokes flatness of affinoid subdomains; the descent from the polydiscs to A_{j0} is not argued. Correction: Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness). Reason: A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available. Affects: the proof. Recorded: PAPER-ANDRE-18-B/E26 (recorded by the extraction, no review verdict yet).
-- **PerfectoidSpacesPartII/E2** (error, André, *Le lemme d’Abhyankar perfectoïde*, Published Théorème 0.3.1(1), p. 2; compare Proposition 5.3.1(2), p. 68). The theorem speaks of an inclusion of A into the largest perfectoid algebra B between A and B′. Correction: B is the largest perfectoid A-algebra contained in B′ with continuous structure map A → B; the map A → B is injective when B′ is faithful over A[1/g], which part (3) assumes. Reason: If B′ = 0 (or B′ is supported on a proper factor of A[1/g]) then B = 0 or the structure map has a kernel, so A → B is not an inclusion. Affects: a stated result. Recorded: PAPER-ANDRE-18/E13.
-- **PerfectoidSpacesPartII/E3** (error, André, *Le lemme d’Abhyankar perfectoïde*, Published Lemme 2.6.3, proof, p. 29). The proof bounds the infimum over m of |(g/λ)^m a| below by 1. Correction: The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|. Reason: With |λ| ≤ |ga| and a ∈ A°, |(g/λ)^m a| ≥ |a| for spectral norms, but it can be smaller than 1 when |a| < 1; the lemma's conclusion only needs positivity. Affects: nothing. Recorded: PAPER-ANDRE-18/E6.
-- **PerfectoidSpacesPartII/E4** (error, André, *Le lemme d’Abhyankar perfectoïde*, Published Remarque 2.6.4(1), p. 29). The remark asserts that all the maps A{λ/g}^u → A{μ/g}^u are injective. Correction: Remove the general injectivity assertion; a use needs hypotheses ensuring the particular restriction map is injective. This roadmap does not use it. Reason: Non-zero-divisibility of g alone is insufficient (counterexample recorded in the extraction review). Affects: nothing. Recorded: PAPER-ANDRE-18/E16.
-- **PerfectoidSpacesPartII/E5** (misprint, André, *Le lemme d’Abhyankar perfectoïde*, Published formula (2.17), §2.5.3(1), p. 26). The middle term of the displayed equality inverts p. Correction: Invert ϖ: g^{-1/p^∞}B = g^{-1/p^∞}B°[1/ϖ] = B_*. Reason: Throughout §2.5 the generic fibre is formed by inverting the chosen ϖ; for |p| < |ϖ| the two differ. Affects: nothing. Recorded: PAPER-ANDRE-18/E5.
-- **PerfectoidSpacesPartII/E6** (misprint, André, *Le lemme d’Abhyankar perfectoïde*, Published Lemme 2.5.3, proof of (2) ⇒ (6), p. 27). The implication (2) ⇒ (6) invokes condition (1). Correction: Invoke (2), p-root closedness in B[1/g]. Reason: The elements ϖ^{m/p^n}g^{m/p^n}b lie in B[1/g], not necessarily in B°[1/g]. Affects: nothing. Recorded: PAPER-ANDRE-18/E11.
-- **PerfectoidSpacesPartII/E7** (misprint, Bhatt, *On the direct summand conjecture and its derived variant*, arXiv v2 §1.4 Notation, p. 3). The chosen t ∈ K° has p-power roots and |t| = |p| in characteristic 0; nothing excludes |t| = 1 or t = 0 in characteristic p. Correction: Also require 0 < |t| < 1, so that t is a pseudouniformizer. Reason: In characteristic p a unit t would make every module almost zero for nothing and the rational subsets X⟨t^n/g⟩ would not shrink. Affects: nothing. Recorded: PAPER-BHATT-18/E16.
-- **PerfectoidSpacesPartII/E8** (misprint, André, *La conjecture du facteur direct*, Published §1.2.1, formula (2), p. 77). The condition under which formula (2) holds is printed with a misplaced conjunction before 'discrète'. Correction: Read: if the valuation of K is discrete. Reason: Formula (3) treats the non-discrete case. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E15.
-- **PerfectoidSpacesPartII/E9** (error, André, *La conjecture du facteur direct*, Published introduction §0.6, p. 74). The introduction describes Â_∞⟨g^{1/p^∞}⟩° as the completion of the union of the integral closures of A in A[ζ_{p^i}, g^{1/p^i}, 1/p]. Correction: Include the coordinate roots: it is the completed directed union of the A°_{jk} of §§2.2–2.3, which adjoin T_l^{1/p^j} as well. Reason: Without the coordinate roots the completed union is not perfectoid (Frobenius is not surjective modulo p on W(k)⟦T⟧-coordinates), contradicting its use as Â°_∞∞. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E25.
-- **PerfectoidSpacesPartII/E10** (misprint, André, *La conjecture du facteur direct*, Published Annexe A.4, first paragraph, p. 92). For an intermediate module the source writes that M′ → M is almost injective. Correction: For a factorisation M → M′ → N with M → N almost pure, M → M′ is almost pure without further hypothesis; if an almost injective arrow is meant it is M′ → N. Reason: Almost purity of a composite implies almost purity of its first factor, as for ordinary purity. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E10.
+- **PerfectoidSpacesPartII/E1** (gap; Yves André, *La conjecture du facteur direct*, Published Théorème 2.5.2, proof step (a), p. 81). To get flatness of the generic fibre of the Noetherian tube over A_{j0}, the source describes the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs and invokes flatness of affinoid subdomains; the descent from the polydiscs to A_{j0} is not argued. Correction: Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness). Require j ≥ k and choose g_k in A°_{j0}, so the special fibre is monic in the auxiliary variable and free on Z^a U^b with a < p^{j−k}. The choice exists by Frobenius surjectivity on the coordinate base, independently of the auxiliary variable. Reason: A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available. Affects: the proof. Recorded: PAPER-ANDRE-18-B/E26 (recorded by the extraction, no review verdict yet) Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E2** (error; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published Théorème 0.3.1(1), p. 2; compare Proposition 5.3.1(2), p. 68). The theorem speaks of an inclusion of A into the largest perfectoid algebra B between A and B′. Correction: B is the largest perfectoid A-algebra contained in B′ with continuous structure map A → B; the map A → B is injective when B′ is faithful over A[1/g], which part (3) assumes. Reason: If B′ = 0 (or B′ is supported on a proper factor of A[1/g]) then B = 0 or the structure map has a kernel, so A → B is not an inclusion. Affects: a stated result. Recorded: PAPER-ANDRE-18/E13 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E3** (error; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published Lemme 2.6.3, proof, p. 29). The proof bounds the infimum over m of |(g/λ)^m a| below by 1. Correction: The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|. This repairs only the displayed numerical bound; the quotient-norm identity used before it is a separate false assertion (E11), so the proof of limit injectivity is replaced by spectral-point detection. Reason: With |λ| ≤ |ga| and a ∈ A°, |(g/λ)^m a| ≥ |a| for spectral norms, but it can be smaller than 1 when |a| < 1; the lemma's conclusion only needs positivity. Affects: the proof. Recorded: PAPER-ANDRE-18/E6 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E4** (error; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published Remarque 2.6.4(1), p. 29). The remark asserts that all the maps A{λ/g}^u → A{μ/g}^u are injective. Correction: Remove the general injectivity assertion; a use needs hypotheses ensuring the particular restriction map is injective. This roadmap does not use it. Reason: Take A = K×K with max norm, g = (ϖ²,1), λ = ϖ³ and μ = ϖ. Then g is regular, A{λ/g} has both factors, and restriction to A{μ/g} kills the first factor. Affects: nothing. Recorded: PAPER-ANDRE-18/E16 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E5** (misprint; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published formula (2.17), §2.5.3(1), p. 26). The middle term of the displayed equality inverts p. Correction: Invert ϖ: g^{-1/p^∞}B = g^{-1/p^∞}B°[1/ϖ] = B_*. Reason: In characteristic p, inverting p means inverting 0 and gives the zero ring, whereas inverting the nonzero pseudouniformizer gives the intended generic fibre. In mixed characteristic these inversions agree; differing positive norms alone would not distinguish them. Affects: nothing. Recorded: PAPER-ANDRE-18/E5 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E6** (misprint; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published Lemme 2.5.3, proof of (2) ⇒ (6), p. 27). The implication (2) ⇒ (6) invokes condition (1). Correction: Invoke (2), p-root closedness in B[1/g]. Reason: The elements ϖ^{m/p^n}g^{m/p^n}b lie in B[1/g], not necessarily in B°[1/g]. Affects: nothing. Recorded: PAPER-ANDRE-18/E11 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E7** (misprint; Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, arXiv v2 §1.4 Notation, p. 3). The chosen t ∈ K° has p-power roots and |t| = |p| in characteristic 0; nothing excludes |t| = 1 or t = 0 in characteristic p. Correction: Also require 0 < |t| < 1, so that t is a pseudouniformizer. Reason: For t a unit the almost-zero condition is ordinary zero and the annuli do not grow to exhaust g ≠ 0. For t = 0 almost mathematics degenerates in the opposite direction. A nonzero topologically nilpotent t is the intended setup. Affects: nothing. Recorded: PAPER-BHATT-18/E16 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E8** (misprint; Yves André, *La conjecture du facteur direct*, Published §1.2.1, formula (2), p. 77). The condition under which formula (2) holds is printed with a misplaced conjunction before 'discrète'. Correction: Read: if the valuation of K is discrete. Reason: Formula (3) treats the non-discrete case. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E15 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E9** (error; Yves André, *La conjecture du facteur direct*, Published introduction §0.6, p. 74). The introduction describes Â_∞⟨g^{1/p^∞}⟩° as the completion of the union of the integral closures of A in A[ζ_{p^i}, g^{1/p^i}, 1/p]. Correction: Include the coordinate roots: it is the completed directed union of the A°_{jk} of §§2.2–2.3, which adjoin T_l^{1/p^j} as well. Reason: For example take n ≥ 1 and g = 1. Adjoining only cyclotomic and g-roots does not supply p-th roots of the independent coordinates; Frobenius on their reduction is not surjective. The main-text double tower includes the necessary coordinate roots. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E25 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E10** (misprint; Yves André, *La conjecture du facteur direct*, Published Annexe A.4, first paragraph, p. 92). For an intermediate module the source writes that M′ → M is almost injective. Correction: For a factorisation M → M′ → N with M → N almost pure, M → M′ is almost pure without further hypothesis; if an almost injective arrow is meant it is M′ → N. Reason: Almost purity of a composite implies almost purity of its first factor, as for ordinary purity. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E10 Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E11** (error; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published §2.6.2 property list, p. 28, and Lemme 2.6.3 proof, p. 29). The image norm in A{λ/g} is identified with inf_{m≥0} ‖(g/λ)^m a‖. Correction: Use the Banach quotient norm inf_h ‖a+((g/λ)U−1)h‖_Gauss. Prove the limit-injectivity conclusion by extending a spectral point with |ag| > 0 to a sufficiently large annulus. Reason: For A = K×K, λ = ϖ, g = (ϖ²,1), a = (1,ϖ²) and q = |ϖ| < 1, the quotient norm is q², while the claimed infimum is inf_m max(q^m,q^{2−m}) = q. The denominator ideal can change the representative in each factor independently. Affects: a stated result. Recorded: Independently detected in this review; the latest arXiv preprint has the same formula. Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E12** (error; Yves André, *Le lemme d’Abhyankar perfectoïde*, Published Proposition 4.4.4 proof (2), p. 63). The trace argument says A[1/g] embeds in the uniform limit of the A[j]. Correction: Use the algebraic limit lim_j A[j], where g is invertible; use Laurent limit injectivity before localising. This suffices to detect the trace pairing and the kernel. Reason: With A = K⟨T^{1/p^∞}⟩ and g = T, the annular norms of 1/T are |ϖ|^{-j}, so 1/T is not in the bounded uniform limit, although it lies in the algebraic limit. For x in the kernel test tr(xy) for every y, then use nondegeneracy. Affects: the proof. Recorded: Independently detected in this review; the latest arXiv preprint has the same bounded-limit wording. Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E13** (misprint; Yves André, *La conjecture du facteur direct*, Published proof of Lemme A.2.1, p. 90). The dual used for the generator criterion is written with S-linear maps from S to R. Correction: Use Hom_R(S,R); write 1 as a finite sum Σ_i f_i(s_i), then t ↦ Σ_i f_i(s_i t) is an R-linear retraction. Reason: The base ring R has no canonical S-module structure for this argument. The trace ideal of a generator uses R-linear functionals; a finite sum, rather than a single evaluation, proves the retraction. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E1; independently confirmed against the published proof. Independent verdict: confirmed.
+- **PerfectoidSpacesPartII/E14** (misprint; Yves André, *La conjecture du facteur direct*, arXiv:1609.00345v1 §5.5, p. 14; corrected in published Annexe A.4, p. 92). The definition for a module map M → N instead tests the ring-map expression P → P ⊗_R S, with S absent from the module setup. Correction: For every P require P ⊗_R M → P ⊗_R N almost injective. Cite the already-correct published Annexe A.4 for the definition. Reason: A test involving an unrelated ring S cannot define almost purity of a general module map. The published text repairs this; this record is explicitly preprint-only. Affects: nothing. Recorded: PAPER-ANDRE-18-B/E11. Independent verdict: confirmed.
 
 ## References
 
-- Bhargav Bhatt, *On the direct summand conjecture and its derived variant*. arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.. https://arxiv.org/pdf/1608.08882v2
-- Yves André, *Le lemme d’Abhyankar perfectoïde*. Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint). https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf
-- Yves André, *La conjecture du facteur direct*. Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.. https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf
+- Bhargav Bhatt, [*On the direct summand conjecture and its derived variant*](https://arxiv.org/pdf/1608.08882v2). arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.
+- Yves André, [*Le lemme d’Abhyankar perfectoïde*](https://www.numdam.org/item/10.1007/s10240-017-0096-x.pdf). Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint).
+- Yves André, [*La conjecture du facteur direct*](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf). Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.
+- Ofer Gabber and Lorenzo Ramero, [*Almost ring theory*](https://arxiv.org/pdf/math/0201175v3). arXiv:math/0201175v3; cleared library copy.
+- Yves André, [*La conjecture du facteur direct*](https://arxiv.org/pdf/1609.00345v1). arXiv:1609.00345v1 (2016); used only for version comparison.
 - P. Scholze, *Perfectoid spaces*, Publ. Math. IHÉS 116 (2012): Lemma 6.4 and Corollary 6.7, through PerfectoidSpaces P2.
-- O. Gabber and L. Ramero, *Almost ring theory*, Lecture Notes in Math. 1800 (2003): through PerfectoidSpaces P0.
