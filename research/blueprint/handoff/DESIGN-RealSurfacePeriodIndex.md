@@ -1,38 +1,74 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
-Codex session `codex-lzSsrV`, 11 October 2026. The bot confirmed this session's
-claim at 11:11:47 UTC. This is a **checkpoint, not a completed design**.
+Codex session `codex-Zs3gud`, 18 October 2026. The bot confirmed this session's
+claim in [comment 6244376310](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6244376310).
+This is a **checkpoint, not a completed design**. It updates the dependency
+diagnosis from [checkpoint PR #8877](https://github.com/CBirkbeck/tauceti-explorer/pull/8877).
 No second job was claimed. No mathematical target is claimed formalised.
 
-## Why execution is blocked
+## Current blocker and exact resume condition
 
 The issue incorporates the `RealSurfacePeriodIndex` route in
-[PAPER-BENOIST-19.result.json](../papers/PAPER-BENOIST-19.result.json). That
-route requires all four continuation designs, including their Benoist
-tranches, before execution of this consumer. The queue's `after: []` does
-not encode that requirement. Availability of the consumer issue therefore
-does not establish readiness of its mathematical inputs.
+[PAPER-BENOIST-19.result.json](../papers/PAPER-BENOIST-19.result.json).
+Its final brief paragraph expressly requires the four continuation designs,
+with all needed Benoist tranches present, before execution of this consumer.
+Two required designs are still absent. The queue's `after: []` does not
+encode that prerequisite, so the consumer's available label does not make
+it ready. The request to wait is in the incorporated brief itself; this is
+not an inference that supplier implementation must be finished first.
 
-The following checks were made against atlas commit
-`897618096af2bb002a83d22044f03ed8e63fd066` and the live supplier issues on
-11 October 2026:
+The current verification used atlas commit
+`8e721db6a9d2c8782f4ce067416f946133bac337` and live issue metadata on
+18 October 2026. Both base packets and follow-up packet names were checked.
 
-| Required supplier | Evidence | Exact condition for resuming |
+| Required supplier | Current evidence | What the next worker should do |
 | --- | --- | --- |
-| `SemisimpleAlgebrasPartII`, proposed tranche `BrauerPeriodIndexArithmetic` | [#3469](https://github.com/CBirkbeck/tauceti-explorer/issues/3469) is submitted. Its packet has 55 nodes; SA.0 and SA.1 are planned. | Recheck the class-index, splitting-degree, scalar-extension, period and corestriction statements and use their existing node IDs. The present plan has gaps and is not closed. |
-| `AlgebraicTopologyPartII`, proposed tranche `EquivariantTopologyRealVarieties` | [#3401](https://github.com/CBirkbeck/tauceti-explorer/issues/3401) is available. Its roadmap definition and packet are absent. | The common C2 cohomology, fixed-locus components, twists, trace/norm, double-cover quotient, circle extensions, Gysin and real duality contracts must have a design. |
-| `HodgeStructuresPartII`, proposed tranche `DegeneratingHodgeStructures` | [#3371](https://github.com/CBirkbeck/tauceti-explorer/issues/3371) is submitted and its queue job is done. The packet has 569 nodes, but `HodgeStructuresPartII:H.8` is `not_read`, with no nodes parented there or realising it. | Complete the actual H.8 real Noether–Lefschetz tranche: geometric weight-two variations, Kodaira–Spencer contraction, normal-boundary factorisation, Green's cone and Voisin's kernel-cone interfaces. Completion of another tranche is insufficient. |
-| `QuadraticFormInvariantsPartII`, proposed tranche `QuadraticFormsRealFunctionFields` | [#3385](https://github.com/CBirkbeck/tauceti-explorer/issues/3385) is available. Its roadmap definition and packet are absent. | The shared ordering/real-closure, Harrison compactness, zero-signature u-invariant, Pfister, Witt-curve, valuation/Springer and Amer–Brumer contracts must have a design. |
+| `SemisimpleAlgebrasPartII`, tranche `BrauerPeriodIndexArithmetic` | [#3469](https://github.com/CBirkbeck/tauceti-explorer/issues/3469) is submitted. Its 55-node packet has an accepted review; SA.0 and SA.1 contain class index, splitting degrees, period and corestriction. | Reuse its exact node contracts and retain their explicit supplier gaps. Do not require implementation or closure before designing the consumer. |
+| `AlgebraicTopologyPartII`, tranche `EquivariantTopologyRealVarieties` | [#3401](https://github.com/CBirkbeck/tauceti-explorer/issues/3401) is available; both roadmap definition and packet are absent, with no follow-up packet. | Wait for the design of the common C2 cohomology, fixed-locus components, twists, trace/norm, double-cover quotient, circle extensions, Gysin and real duality contracts. |
+| `HodgeStructuresPartII`, tranche `DegeneratingHodgeStructures` | [#3371](https://github.com/CBirkbeck/tauceti-explorer/issues/3371) is submitted. The main packet still labels H.8 not read, but [the H.8 follow-up packet](../packets/HodgeStructuresPartII--H.8.json) has 31 nodes and an accepted independent review dated 8 October. Its planning and review queue jobs are done. | This tranche is present. Use the follow-up, including `HodgeStructuresPartII:H.8/normal-boundary-factorization`, `/real-green-open-cone` and `/voisin-product-surface`; preserve its five recorded gaps and requests. Do not repeat the previous checkpoint's claim that H.8 has no plan. |
+| `QuadraticFormInvariantsPartII`, tranche `QuadraticFormsRealFunctionFields` | [#3385](https://github.com/CBirkbeck/tauceti-explorer/issues/3385) is available; both roadmap definition and packet are absent, with no follow-up packet. | Wait for the design of the shared ordering/real-closure, Harrison compactness, zero-signature u-invariant, deeper Pfister, Witt-curve, valuation/Springer and Amer–Brumer contracts. Reuse the parent's existing elementary Pfister theory. |
 
-This checkpoint does not replace those suppliers by new application-owned
-definitions or by assumed propositions. It makes no edits to their files,
-the queue, reserved IDs, or issue labels. These are recorded contract needs;
-no supplier requests were posted separately.
+The main change since the previous checkpoint is the discovery of the accepted
+H.8 follow-up. Its presence removes the earlier Hodge prerequisite blocker;
+it does not supply either of the two absent designs. No changes to supplier
+files or review verdicts were made. No new mathematical request was posted.
+The manager can encode the two remaining design dependencies in the queue;
+this worker has not edited the queue or issue labels.
 
-## Reading and checks preserved for the next worker
+## Current session checks and remaining work
 
-The published paper was read throughout, independently of the extraction:
+Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the claimed issue again
+after confirmation, the incorporated route, the previous handoff, the supplier
+coverage records and the relevant queue entries. Checked the accepted H.8
+follow-up and its specific export statements, rather than relying on the
+stale H.8 coverage in the main packet. The design still requires the full
+source reading and pinned-library audit described in the resume procedure.
+
+The current upstream roadmap checkout was inspected read-only at commit
+`0d144d044dacebca17b654695b6f1ad58f159b27`; the current Tau Ceti checkout is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Scope and suggested-file searches
+in AlgebraicTopology, QuadraticFormInvariants and RealAlgebraicGeometry are
+ownership leads only, not a fresh exhaustive library audit. In particular,
+RealAlgebraicGeometry's scope excludes semialgebraic homology, and elementary
+Pfister forms already belong to the parent quadratic-form development.
+No library absence claim or new baseline citation is certified by these searches.
+No build or language server was started in either checkout.
+
+No mathematical deliverable was added while the brief's explicit prerequisite
+condition remains unmet. The remaining work is the whole consumer design:
+all 100 routed items, roadmap layers, node statements, proof closure, API,
+discriminating tests, planets, reader and compact suggested Lean file.
+Counts remain zero for local nodes, API items, unit tests, planets, packet
+baseline declarations and formal packet requests. There are no consumer stage
+coverage records because the roadmap has not been designed. Lean was not
+compiled; there is no suggested file. The blueprint checker is inapplicable
+to this handoff-only checkpoint. The handoff assertions and `git diff --check`
+are the applicable validation checks.
+
+## Reading and checks inherited from the previous checkpoint
+
+The previous worker (`codex-lzSsrV`, checkpoint PR #8877, 11 October 2026) reported the following reading. The current session has not reread the paper and does not claim this reading as its own. The published paper was read throughout, independently of the extraction:
 Olivier Benoist, *The period-index problem for real surfaces*, Publications
 Mathématiques de l'IHÉS 130 (2019), printed pp. 63–110. The public version is
 [the Numdam PDF](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf),
@@ -42,7 +78,7 @@ The PDF and extracted text were kept only in disposable scratch space.
 No author-copy or preprint comparison is claimed in this run. The extraction's
 other-version readings retain their original attribution.
 
-Read WORKERS.md, the blueprint and expansion protocols, and UPSTREAM_GUIDE.md.
+The previous worker read WORKERS.md, the blueprint and expansion protocols, and UPSTREAM_GUIDE.md.
 Checked the current upstream semisimple-algebra and real-algebraic-geometry
 carrier/boundary material and their suggested files. The upstream checkout
 was read only: TauCetiRoadmap commit
@@ -175,7 +211,7 @@ to additional targets.
 
 ## Resume procedure and validation status
 
-1. Recheck the three missing tranches in the supplier table. Resume the
+1. Recheck the two absent designs in the current supplier table, including their required Benoist tranches. Preserve the accepted H.8 follow-up as the Hodge supplier rather than consulting only the main Hodge packet. Resume the
    consumer design only when the brief's prerequisite condition is met;
    an administrative queue repair belongs to the manager.
 2. Read at least two upstream roadmap documents fully for the design pass,
