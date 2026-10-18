@@ -177928,17 +177928,16 @@
    "correction": "Assume G pro-|Γ|′ (a |Γ|′-Γ-group), as the proofs require.",
    "reason": "For Γ = Z/2 acting on Z/4 by inversion, |Y(Z/4)| = 2 but Hom_Γ(𝓕_1, Z/4) is trivial because 𝓕_1 is pro-odd.",
    "affects": "a stated result",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E12, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed in arXiv v2 p. 14: the proof uses coprime complement conjugacy and the pro-|Γ|′ universal property. Inversion on Z/4 gives |Y| = 2 but only the trivial map from pro-odd 𝓕_1."
   },
   {
    "id": "ArithmeticStatisticsPartII/E2",
@@ -177948,17 +177947,16 @@
    "correction": "Read γ_d(g)^{−1}, matching the other coordinates γ_i(g)^{−1}.",
    "reason": "Only γ_i(g)^{−1} makes the map carry Y(G) to itself and π^{−1}(x) onto N^d.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E20, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 14. The translation requires the inverse of γ_d(g), as in its other coordinates, rather than the inverse automorphism applied to g."
   },
   {
    "id": "ArithmeticStatisticsPartII/E3",
@@ -177968,17 +177966,16 @@
    "correction": "Argue by containment: Y(ker φ) ⊆ Y((𝓕_n)^𝒞) ∩ (ker ϖ)^d = Y(ker ϖ) by Lemma 3.4, and Y(ker ϖ) ⊆ (ker ρ)^d because Γ acts trivially on ker ϖ/ker ρ ≅ Z/p.",
    "reason": "Lemma 3.6 is proved only for finite groups; the containment argument needs only Lemma 3.4.",
    "affects": "the proof",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E13, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as a proof-domain gap on p. 16: Lemma 3.6 is finite, but the kernel may be infinite. The replacement containment follows from Lemma 3.4 and trivial Γ-action on the central kernel."
   },
   {
    "id": "ArithmeticStatisticsPartII/E4",
@@ -177988,17 +177985,16 @@
    "correction": "Take the |Γ|′-Γ-groups of order at most ℓ, as the basic opens and Lemma 5.4 require.",
    "reason": "The basic opens U_{𝒞,H} are defined only for sets of finite |Γ|′-Γ-groups.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E18, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as an omitted ambient restriction on p. 27: the earlier topology and all applications use prime-to-|Γ| groups."
   },
   {
    "id": "ArithmeticStatisticsPartII/E5",
@@ -178008,37 +178004,35 @@
    "correction": "Sum over D ⊊ D′ ⊆ E.",
    "reason": "For E = F_3² over H = 1 (Γ = Z/2, σ = −1) the printed recursion is circular on the four lines; the corrected one gives ν = −1 on lines and ν(0, E) = 3.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E9, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 22: the recurrence must run over strict superobjects of D. The four lines in F_3² give the corrected value 3 at the bottom."
   },
   {
    "id": "ArithmeticStatisticsPartII/E6",
    "kind": "error",
-   "locator": "Theorem 4.12, (4.14), p. 24; (5.13), p. 30; Theorem 5.15, p. 31 (arXiv v2)",
+   "locator": "Theorem 4.12, (4.14), p. 24 and (4.17), p. 25; (5.13), p. 30; Theorem 5.15, p. 31 (arXiv v2)",
    "printed": "The limiting formulas are stated for every finite admissible H of level 𝒞, with no Property E hypothesis.",
-   "correction": "Assume H has Property E at level 𝒞; otherwise the probabilities (4.13) vanish for every n and the limits are 0.",
-   "reason": "Without Property E a trivial-action Z/p in 𝒜_H has m = 1 for all n, so (4.17) fails (h^m|Y(G)|^{−n} = 1 + λ). Example: Γ = Z/2, p = 3, 𝒞 the 3-Γ-groups of 3-class ≤ 2, H = F_3² with σ = −1: λ = 1 for Z/3 with σ = −1 and λ = 2 for the trivial Z/3, and the printed (4.14) at u = 0 is (1/48)∏(1 − 3^{−i})∏(1 − 2·3^{−i}) ≈ 2.698·10^{−3} (recomputed here), while the true value is 0 and the paper's own Theorem 7.4 gives 0.",
+   "correction": "Assume H has Property E at level 𝒞 in the displayed limit formulas; otherwise probabilities vanish. In the abelian multiplicity asymptotic use (h^m − 1)|Y(G)|^{−n}; replacing h^m − 1 by h^m requires |Y(G)| > 1, and m → ∞ requires both λ > 0 and |Y(G)| > 1.",
+   "reason": "Failure of Property E gives at least one trivial-action Z/p with m ≥ 1, independent of n for n sufficiently large, and h^m − 1 = λ; m need not always be 1. A finite counterexample uses Γ = Z/2, 𝒞 = {Z/9 with inversion, the exponent-3 Heisenberg group of order 27 with σ(x) = x⁻¹ and σ(y) = y⁻¹}, and H = F_3² with σ = −1. For n ≥ 2 the sign and trivial multiplicities are n and 1, with λ = 1 and 2. The printed u = 0 product is approximately 0.002698, whereas the exact probability is 0. The same obstruction occurs for the infinite class of all finite 3-Γ-groups of 3-class ≤ 2 (Theorem 7.5).",
    "affects": "a stated result",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E5, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on pp. 24–25 and 30–31. The finite two-group level in the corrected example satisfies the finite-𝒞 hypothesis. The exact probability has a zero trivial-action factor, while the proposed limit is positive. Also corrected the unshifted abelian asymptotic and the overstrong assertion m = 1 in every failure case."
   },
   {
    "id": "ArithmeticStatisticsPartII/E7",
@@ -178048,17 +178042,16 @@
    "correction": "Add the hypothesis that f_n(H, ℓ) > 0 implies f_{n′}(H, ℓ) > 0 for n′ ≥ n; it holds in both applications.",
    "reason": "Corollary 5.9 gives the dichotomy 'zero or ≥ c' for each n separately; without monotone positivity a function could vanish at infinitely many n and the domination step does not follow.",
    "affects": "the proof",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E10, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as a missing justification in the domination proof, pp. 29–30, rather than a counterexample to the printed lemma: the zero-or-positive lower bound alone does not give eventual positivity. The strengthened version states persistence and verifies it by adding a generator with one Y-relation tuple in both applications."
   },
   {
    "id": "ArithmeticStatisticsPartII/E8",
@@ -178068,17 +178061,16 @@
    "correction": "Read: ker π is an irreducible E ⋊ Γ-group, as in the definition of 𝓔(G, H).",
    "reason": "The non-abelian sets 𝓔(G, H) before Proposition 4.7 use irreducibility as an E ⋊ Γ-group.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E19, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as the stronger scope required by the later application: irreducibility is under E ⋊ Γ. The narrower printed E-group bound is not itself claimed false."
   },
   {
    "id": "ArithmeticStatisticsPartII/E9",
@@ -178088,17 +178080,16 @@
    "correction": "It holds for every integer u (with X_{u,n} defined for n > −u); Theorems 5.15, 6.2 and 7.4–7.5 use it for all u.",
    "reason": "The proof (Lemma 5.10 with f_n = μ_{u,n}(U_{𝒞_ℓ,H})) never uses u ≥ 0; Corollary 5.9 needs only u > −n.",
    "affects": "a stated result",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E4, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as an unstated extension, not a false nonnegative-u theorem. The proof and its bounds apply to any fixed integer u after discarding n ≤ −u; the downstream theorems use that extension."
   },
   {
    "id": "ArithmeticStatisticsPartII/E10",
@@ -178108,17 +178099,16 @@
    "correction": "Read lim inf.",
    "reason": "The limit of μ_{1,n}(U) for a general open U is not known to exist; Fatou gives lim inf, which is what the Portmanteau criterion needs.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E14, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 30: Fatou supplies a liminf on open sets before weak convergence has been established."
   },
   {
    "id": "ArithmeticStatisticsPartII/E11",
@@ -178128,17 +178118,16 @@
    "correction": "Use 𝓕_{n+u}, [Y(…)] and the generated F ⋊ Γ-subgroup.",
    "reason": "There are n + u random elements, giving maps from 𝓕_{n+u}.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E22, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 21. Corrected the relation count and brackets, and used graphs of operator-equivariant homomorphisms to retain the F ⋊ Γ-action in the abelian counting step."
   },
   {
    "id": "ArithmeticStatisticsPartII/E12",
@@ -178148,17 +178137,16 @@
    "correction": "Refer to (4.1).",
    "reason": "(7.1) is the p-covering-group sequence of §7.2.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E1, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 25: the referenced fundamental sequence is (4.1); (7.1) is the later p-covering sequence."
   },
   {
    "id": "ArithmeticStatisticsPartII/E13",
@@ -178168,17 +178156,16 @@
    "correction": "It is (Z_p[Γ]/(Σ_g g))^n, by Corollary 3.10.",
    "reason": "(Z_p[Γ])^n has Γ-invariants Z_p^n, while (𝓕_n^ab)^Γ = 0; the lattice argument is unaffected.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E3, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed on p. 34 by Corollary 3.10: the regular module has invariants, whereas its augmentation quotient does not."
   },
   {
    "id": "ArithmeticStatisticsPartII/E14",
@@ -178188,17 +178175,16 @@
    "correction": "R′ is the p-multiplicator; its F_p-dimension is the relation rank r(H).",
    "reason": "The next clause gives dim R′ = r(H), so R′ itself is the group.",
    "affects": "nothing",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E24, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed as terminology on p. 35: R′ is a group, and its dimension is the rank."
   },
   {
    "id": "ArithmeticStatisticsPartII/E15",
@@ -178208,17 +178194,16 @@
    "correction": "For totally real K with Γ ≠ 1, O_K^× (O_K the integral closure of F_q[t]) has rank |Γ| − 1; the bound must be run with the complete curve C_K (constant units, Pic(C_K)) for the maximal unramified pro-p extension.",
    "reason": "K is split completely above ∞, so |Γ| places lie over ∞ and Dirichlet's S-unit theorem gives units of rank |Γ| − 1.",
    "affects": "the proof",
-   "known": "new (also recorded by the paper extraction as PAPER-LIU-WOOD-ZUREICKBROWN-24/E11, not a published correction)",
+   "known": "Recorded in the paper extraction; independently checked here in arXiv v2. No claim of novelty against the final journal version.",
    "searched": [
-    "arXiv listing of 1907.05002 (versions v1 and v2)",
-    "the Publisher Correction, Invent. Math. 237 (2024) 117–120, as recorded in PAPER-LIU-WOOD-ZUREICKBROWN-24 (reference restyling only)"
+    "arXiv:1907.05002v2, exact locators above; findings are limited to this version"
    ],
    "owner": "ArithmeticStatisticsPartII",
    "file": "research/blueprint/packets/ArithmeticStatisticsPartII.json",
    "citation": "Yuan Liu, Melanie Matchett Wood and David Zureick-Brown, A predicted distribution for Galois groups of maximal unramified extensions, arXiv:1907.05002v2 (21 July 2022), 58 pp.; published Invent. Math. 237 (2024), 49–116, doi 10.1007/s00222-024-01257-1 (not read: paywalled)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArithmeticStatisticsPartII",
+   "reviewReason": "Confirmed for the affine ring defined in the paper: complete splitting at infinity gives |Γ| places, hence affine unit rank |Γ| − 1. The corrected proof requests the complete-curve duality input and retains the completed degree direction in abelianization."
   },
   {
    "id": "AutomorphicBundles/E1",
@@ -205194,6 +205179,46 @@
    "reviewReason": "Reread §2.2.1, p.8 (deg g = −Σ[κ(x):Fq]x(g_x)) and the proof on p.38: with exponents −(n−1)n_v,…,0 the determinant has deg = +n(n−1)(g−1) in Yu’s own convention, but p.38 prints −n(n−1)(g−1) and multiplies by a^{(n−1)(g−1)}, which doubles instead of cancelling. The scalar power must be −(n−1)(g−1)."
   },
   {
+   "id": "FunctionFieldArithmeticPartII/E2",
+   "kind": "error",
+   "locator": "Yun–Zhang published edition, A.1.3, pp. 515–516; parent finding FunctionFieldArithmeticPartII/E2",
+   "printed": "The source identifies the whole geometric fibre over a vanishing effective section value with the classifying stack of μ₂.",
+   "correction": "For a fixed zero target value the full fibre factor is [Spec K[t]/(t²)/μ₂]; only its reduced substack is Bμ₂.",
+   "reason": "The root-section coordinate satisfies t²=0. It can be nonzero on a dual-number test scheme. The section-preservation equation and the square-map two-pullback retain this nilpotent thickening.",
+   "affects": "a stated result",
+   "known": "Existing parent finding FunctionFieldArithmeticPartII/E2, confirmed by REV-DESIGN-FunctionFieldArithmeticPartII~2. No new source error is claimed by this part.",
+   "searched": [
+    "The parent E2 record contains the author-page, Annals and arXiv correction searches and their version checks. This part inherits that search audit; it re-read the published A.1.3 statement and its square-map diagram on 2026-10-18, without claiming a new exhaustive erratum search."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.0.json",
+   "citation": "Sources of the blueprint of FunctionFieldArithmeticPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC2-1",
+   "kind": "misprint",
+   "locator": "Published author-hosted copy, Lemma A.5 proof, p. 518, frame-coefficient display; the corresponding arXiv:1712.08026v2 display is on p. 85.",
+   "printed": "With τ_η:L_η→F and τ_x:L⊗O_x→O_x directed as stated, the displayed idele coefficient is τ_x∘τ_η^{-1}, while the lemma sends an inverse uniformizer to O_X(x).",
+   "correction": "Use the inverse coefficient τ_η∘τ_x^{-1} for the lemma’s inverse-uniformizer normalization and for E(a)=Σ ord_x(a_x)[x], L(a)=O_X(−E(a)). Change the generic frame by f and the local/root coframes by (u^{-1},v^{-1}) so that the displayed quotient actions keep their stated form.",
+   "reason": "For L=O_X(x), the standard rational frame is the identity and the local frame is multiplication by π_x. The printed ratio is π_x, whereas the lemma requires π_x^{-1}. Equivalently, the printed ratio b gives rational lattice b^{-1}O_x=O_X(+ord b); the corrected ratio a gives lattice aO_x=O_X(−ord a). This is a sign slip in the proof, not a counterexample to the root Picard equivalence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-18: compared the published author-hosted page image p. 518 and arXiv:1712.08026v2 pp. 84–85; both retain the conflicting ratio and the inverse-uniformizer test.",
+    "2026-10-18: inspected the Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and both authors’ publication entries https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html; no correction linked for this ratio was located.",
+    "2026-10-18: title/Appendix A/Lemma A.5 correction and erratum searches found no correction. The arXiv listing gives v2 as the latest version. This is a scoped search, not an assertion that no correction exists."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.2.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FunctionFieldArithmeticPartII/EGC5-3",
    "kind": "misprint",
    "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
@@ -205340,6 +205365,27 @@
    "status": "confirmed",
    "reviewedBy": "REV-FunctionFieldArithmeticPartII--RS.0",
    "reviewReason": "Confirmed visually on arXiv v2 p.53, Appendix B.2 item (3). The power identification has exponent d while the section equation uses unbound m. Use d in that equation. This verdict concerns the specified preprint, with no new version-of-record or erratum-search claim."
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/E12",
+   "kind": "misprint",
+   "locator": "arXiv:math/0603151v2, Appendix B.2, p.53, item (3) in the triple definition; preprint only.",
+   "printed": "The section equation uses a different exponent symbol from the preceding power-identification equation.",
+   "correction": "φ(τ^d) = σ",
+   "reason": "The same definition has φ:M^{⊗d}≅L_T and d is the root exponent. No exponent m is bound there; the displayed m makes the expression ill-typed. The rendered p.53 confirms m rather than a text-extraction artifact. The packet already uses the correct exponent.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-05: arXiv version list https://arxiv.org/abs/math/0603151 has v2 as its latest version; the inspected v2 retains m.",
+    "2026-10-05: exact-title erratum search and Abramovich public paper directory https://www.math.brown.edu/dabramov/PAPERS/ did not identify a correction.",
+    "2026-10-05: attempted Project Euclid journal page for DOI 10.1353/ajm.0.0017 was not served by the browser tool. No published-version collation or assertion about the version of record is made."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--RS.1.json",
+   "citation": "Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2 (13 April 2008), printed pp.52–54",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "FunctionFieldArithmeticPartII/E12",
@@ -242564,6 +242610,216 @@
    "reviewReason": "BHW p. 10 reduces Lemma 3.7 to opens V × U, but such products do not form a basis of Y ×_L U (on the bidisc the rational domain |T − S| ≤ |π| is not a union of products), and sheaves agreeing on a non-basis need not agree. The sheaf statement is therefore not established; the packet restricts the proved statement to product affinoids and records the general equalizer as a gap."
   },
   {
+   "id": "PerfectoidSpacesPartII/E1",
+   "kind": "gap",
+   "locator": "Published Théorème 2.5.2, proof step (a), p. 81",
+   "printed": "To get flatness of the generic fibre of the Noetherian tube over A_{j0}, the source describes the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs and invokes flatness of affinoid subdomains; the descent from the polydiscs to A_{j0} is not argued.",
+   "correction": "Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness).",
+   "reason": "A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available.",
+   "affects": "the proof",
+   "known": "PAPER-ANDRE-18-B/E26 (recorded by the extraction, no review verdict yet)",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00345 versions",
+    "the extraction PAPER-ANDRE-18-B and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E2",
+   "kind": "error",
+   "locator": "Published Théorème 0.3.1(1), p. 2; compare Proposition 5.3.1(2), p. 68",
+   "printed": "The theorem speaks of an inclusion of A into the largest perfectoid algebra B between A and B′.",
+   "correction": "B is the largest perfectoid A-algebra contained in B′ with continuous structure map A → B; the map A → B is injective when B′ is faithful over A[1/g], which part (3) assumes.",
+   "reason": "If B′ = 0 (or B′ is supported on a proper factor of A[1/g]) then B = 0 or the structure map has a kernel, so A → B is not an inclusion.",
+   "affects": "a stated result",
+   "known": "PAPER-ANDRE-18/E13",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00320 versions",
+    "the extraction PAPER-ANDRE-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E3",
+   "kind": "error",
+   "locator": "Published Lemme 2.6.3, proof, p. 29",
+   "printed": "The proof bounds the infimum over m of |(g/λ)^m a| below by 1.",
+   "correction": "The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|.",
+   "reason": "With |λ| ≤ |ga| and a ∈ A°, |(g/λ)^m a| ≥ |a| for spectral norms, but it can be smaller than 1 when |a| < 1; the lemma's conclusion only needs positivity.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18/E6",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00320 versions",
+    "the extraction PAPER-ANDRE-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E4",
+   "kind": "error",
+   "locator": "Published Remarque 2.6.4(1), p. 29",
+   "printed": "The remark asserts that all the maps A{λ/g}^u → A{μ/g}^u are injective.",
+   "correction": "Remove the general injectivity assertion; a use needs hypotheses ensuring the particular restriction map is injective. This roadmap does not use it.",
+   "reason": "Non-zero-divisibility of g alone is insufficient (counterexample recorded in the extraction review).",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18/E16",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00320 versions",
+    "the extraction PAPER-ANDRE-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E5",
+   "kind": "misprint",
+   "locator": "Published formula (2.17), §2.5.3(1), p. 26",
+   "printed": "The middle term of the displayed equality inverts p.",
+   "correction": "Invert ϖ: g^{-1/p^∞}B = g^{-1/p^∞}B°[1/ϖ] = B_*.",
+   "reason": "Throughout §2.5 the generic fibre is formed by inverting the chosen ϖ; for |p| < |ϖ| the two differ.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18/E5",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00320 versions",
+    "the extraction PAPER-ANDRE-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E6",
+   "kind": "misprint",
+   "locator": "Published Lemme 2.5.3, proof of (2) ⇒ (6), p. 27",
+   "printed": "The implication (2) ⇒ (6) invokes condition (1).",
+   "correction": "Invoke (2), p-root closedness in B[1/g].",
+   "reason": "The elements ϖ^{m/p^n}g^{m/p^n}b lie in B[1/g], not necessarily in B°[1/g].",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18/E11",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00320 versions",
+    "the extraction PAPER-ANDRE-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E7",
+   "kind": "misprint",
+   "locator": "arXiv v2 §1.4 Notation, p. 3",
+   "printed": "The chosen t ∈ K° has p-power roots and |t| = |p| in characteristic 0; nothing excludes |t| = 1 or t = 0 in characteristic p.",
+   "correction": "Also require 0 < |t| < 1, so that t is a pseudouniformizer.",
+   "reason": "In characteristic p a unit t would make every module almost zero for nothing and the rational subsets X⟨t^n/g⟩ would not shrink.",
+   "affects": "nothing",
+   "known": "PAPER-BHATT-18/E16",
+   "searched": [
+    "arXiv:1608.08882 v1–v2",
+    "Inventiones Mathematicae article page (no erratum found)",
+    "the extraction PAPER-BHATT-18 and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Bhargav Bhatt, On the direct summand conjecture and its derived variant, arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E8",
+   "kind": "misprint",
+   "locator": "Published §1.2.1, formula (2), p. 77",
+   "printed": "The condition under which formula (2) holds is printed with a misplaced conjunction before 'discrète'.",
+   "correction": "Read: if the valuation of K is discrete.",
+   "reason": "Formula (3) treats the non-discrete case.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E15",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00345 versions",
+    "the extraction PAPER-ANDRE-18-B and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E9",
+   "kind": "error",
+   "locator": "Published introduction §0.6, p. 74",
+   "printed": "The introduction describes Â_∞⟨g^{1/p^∞}⟩° as the completion of the union of the integral closures of A in A[ζ_{p^i}, g^{1/p^i}, 1/p].",
+   "correction": "Include the coordinate roots: it is the completed directed union of the A°_{jk} of §§2.2–2.3, which adjoin T_l^{1/p^j} as well.",
+   "reason": "Without the coordinate roots the completed union is not perfectoid (Frobenius is not surjective modulo p on W(k)⟦T⟧-coordinates), contradicting its use as Â°_∞∞.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E25",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00345 versions",
+    "the extraction PAPER-ANDRE-18-B and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E10",
+   "kind": "misprint",
+   "locator": "Published Annexe A.4, first paragraph, p. 92",
+   "printed": "For an intermediate module the source writes that M′ → M is almost injective.",
+   "correction": "For a factorisation M → M′ → N with M → N almost pure, M → M′ is almost pure without further hypothesis; if an almost injective arrow is meant it is M′ → N.",
+   "reason": "Almost purity of a composite implies almost purity of its first factor, as for ordinary purity.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E10",
+   "searched": [
+    "Numdam page of the published article (no erratum listed)",
+    "arXiv:1609.00345 versions",
+    "the extraction PAPER-ANDRE-18-B and its review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PeriodsAndSpecialValues/E1",
    "kind": "misprint",
    "locator": "H, Proposition 4.26 and Example 4.27, PDF p.21; §4.7 normalization; checked arXiv 1101.4601v1 only",
@@ -253587,6 +253843,27 @@
    "reviewReason": null
   },
   {
+   "id": "RootSystemsPartII/E1",
+   "kind": "gap",
+   "locator": "Author l-indep_v2.pdf, proof of Proposition 5.2.3, pp. 49–50; final Annals text not obtained",
+   "printed": "After choosing a root bounded by the endpoint difference, the proof uses invariance to bound each translate separately and then claims the orbit sum has the same bound.",
+   "correction": "Use the existential root choice supplied by invariant-step, proved by integral folding. This repairs this finite combinatorial inference; the geometric root-subgroup arguments remain with the geometric consumer.",
+   "reason": "In D4 with central node 2 and triality on 1,3,4, take λ=2ρ, μ=λ+θ, θ=(1,2,1,1) in simple-root coordinates. Each translate of α1+α2 is a positive root, individually dominant after addition to λ and bounded by θ. Their distinct-orbit sum has coordinates (1,3,1,1), whose difference from θ has negative central coefficient. A suitable orbit still exists (the fixed highest root). This refutes the generic inference only; no claim that these endpoints meet every local-model hypothesis is made.",
+   "affects": "the proof",
+   "known": "Previously recorded as PAPER-KISIN-ZHOU-25/E12 and confirmed by REV-PAPER-KISIN-ZHOU-25; the present finite proof supplies its requested repair. No newer correction located in the bounded search on 18 October 2026.",
+   "searched": [
+    "Read the author PDF linked in sources; its pp. 49–50 still contain the inference.",
+    "Checked the Annals landing page https://annals.math.princeton.edu/2025/202-3/p03 and searched for a Kisin–Zhou orbit/Stembridge erratum on 18 October 2026; none located. The final PDF could not be retrieved from Annals or Project Euclid, so no claim about the final wording is made.",
+    "Read the existing extraction finding PAPER-KISIN-ZHOU-25/E12 and its independent review, using its correction as a lead, then rederived the finite folding proof and regression."
+   ],
+   "owner": "RootSystemsPartII",
+   "file": "research/blueprint/packets/RootSystemsPartII.json",
+   "citation": "Mark Kisin and Rong Zhou, Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties, 63-page revised author preprint l-indep_v2.pdf; bibliographic final: Annals of Mathematics 202 (2025), 1077–1156. All locators here refer to the author preprint, not the uninspected final text. Read 18 October 2026.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "SchemeAndStackFoundations/E102",
    "kind": "misprint",
    "locator": "Lemma 10.153.3 (tag 04GG), proof of (8) implies (10), displayed product; online text accessed 9 October 2026",
@@ -261414,6 +261691,130 @@
    "status": "confirmed",
    "reviewedBy": "REV-StableHomotopyKTheory~3",
    "reviewReason": "For each fixed k, P_nX agrees with X on π_k when n≥k. Stabilisation in the displayed tower therefore proceeds toward increasing nonnegative n, not decreasing n. This correction is independent of the Milnor shift already recorded in E9."
+  },
+  {
+   "id": "StableReductionPartII/E-MC0-1",
+   "kind": "misprint",
+   "locator": "Lemma 53.20.11 (0CBX), proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18",
+   "printed": "The displayed residue power-series map assigns the variable x twice, once to each of the two branch parameters.",
+   "correction": "The second assignment has source variable y, so x maps to the first branch parameter and y to the second.",
+   "reason": "A map from the two-variable power-series ring is determined by separate images of x and y; the subsequent kernel (xy) and the final lifted map use those separate branch parameters.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The live tag 0CBX and its comments, accessed 2026-10-18.",
+    "The live parent section 0C58 and its comments, accessed 2026-10-18.",
+    "The public chapter PDF ed88ff78, compiled 2026-07-14, p. 52."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
+   "citation": "The Stacks Project Authors, Algebraic Curves, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E-MC0-2",
+   "kind": "misprint",
+   "locator": "Lemma 48.28.5, proof, p. 73; ed88ff78 PDF and live tag 0E2X checked 2026-10-18",
+   "printed": "The restriction-cocycle equation uses a transition indexed by V as its upper source, although V was an affine open of the base and the intermediate curve open is U′.",
+   "correction": "Replace that upper source index by U′. The composite then runs from K_U restricted to U″ through K_U′ restricted to U″ to K_U″.",
+   "reason": "The preceding definition gives transition maps indexed by inclusions of opens of X. The stated composition has intermediate object K_U′, so the first factor must have upper index U′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Live tag 0E2X and its comments, accessed 2026-10-18.",
+    "Live Section 48.28 (0E2S) and its two comments, accessed 2026-10-18; these discuss Definition 48.28.1 rather than these indices.",
+    "Public chapter PDF ed88ff78, compiled 2026-07-14, at the stated page."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
+   "citation": "The Stacks Project Authors, Duality for Schemes, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E-MC0-3",
+   "kind": "misprint",
+   "locator": "Lemma 48.28.6, proof, p. 74; ed88ff78 PDF and live tag 0E2Y checked 2026-10-18",
+   "printed": "The closed immersion factoring the base-changed diagonal is given source X even though the displayed cartesian square has source X′.",
+   "correction": "The source of the primed closed immersion must be X′.",
+   "reason": "The immersion factors the diagonal of X′ over S′; the subsequent pushforward uses O_X′, which requires source X′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Live tag 0E2Y and its comments, accessed 2026-10-18.",
+    "Live Section 48.28 (0E2S) and its two comments, accessed 2026-10-18; these discuss Definition 48.28.1 rather than these indices.",
+    "Public chapter PDF ed88ff78, compiled 2026-07-14, at the stated page."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
+   "citation": "The Stacks Project Authors, Duality for Schemes, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E3",
+   "kind": "error",
+   "locator": "Corollary3.9(b), §3, printed p.190 (PDF30), published 1983 scan",
+   "printed": "The stated separating closed-immersion assertion is made whenever the source genera differ or an external marking is present.",
+   "correction": "Keep finite unramified clutching, and distinguish the chosen node through the boundary normalization. A fixed separating type can have more than one preimage.",
+   "reason": "Three elliptic curves with distinct j-invariants in a chain, with one mark on the middle curve, give a genus-three one-pointed target. Cutting either outer node gives a preimage under M̄₁,₁×M̄₂,₂→M̄₃,₁. The first elliptic factors differ, so the two preimages are nonisomorphic. A closed immersion cannot have these two geometric preimages.",
+   "affects": "a stated result",
+   "known": "Inherited confirmed finding StableReductionPartII/E3, REV-DESIGN-StableReductionPartII~2; no novelty claim in this follow-up.",
+   "searched": [
+    "Fresh visual check of the journal p.190 on 2026-10-18.",
+    "Bounded public searches on 2026-10-18 for Knudsen Corollary3.9(b), clutching, closed immersion and erratum did not locate an exact published correction.",
+    "The inherited independent review explicitly distinguishes this statement counterexample from Ile’s repair to the proof of3.7."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.3.json",
+   "citation": "Finn Faye Knudsen, The projectivity of the moduli space of stable curves, II: The stacks M_{g,n}, Math. Scand. 52 (1983), 161–199; published scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E-MC4-1",
+   "kind": "error",
+   "locator": "2021 author manuscript, Proposition 6.7 proof, p.26, Case 1 higher-direct-image assertion",
+   "printed": "The pointed induction claims R¹f_*ω^m(D_j)=0 from fibre degrees on a general nodal family with smooth generic fibre.",
+   "correction": "Retain the nefness target, but replace this vanishing step by a proved pointed model/transport or logarithmic positivity argument. The generic evaluation-image repair of Corollary 6.6 does not by itself give the required exact sequence.",
+   "reason": "Blow up a constant smooth genus-g≥2 family at a point of a special fibre. At D_j=0 the exceptional rational tail has degree −m for ω^m and H¹ of dimension m−1. The normalization sequence surjects special-fibre H¹ onto this group, whereas generic H¹ is zero. Top-degree cohomology/base change then precludes the asserted global R¹ vanishing. This is the additional Proposition 6.7 use of the phenomenon in parent E12.",
+   "affects": "the proof",
+   "known": "new; novelty and publisher-version collation unverified",
+   "searched": [
+    "Read the 2021 author copy pp.25–27; parent E12 scopes its finding to the different Corollary 6.6 sequence.",
+    "18 October 2026 title/author plus erratum and Proposition 6.7 searches located no correction. The NSF 10585475 fetch returned 502 or timed out, and its later Proposition 1.40 was not read."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.4.json",
+   "citation": "Raymond Cheng; Carl Lian; Takumi Murayama; with Yordanka Kovacheva and Monica Marinescu, Projectivity of the moduli of curves, Author manuscript dated 1 July 2021; not collated with a publisher version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E-MC4-2",
+   "kind": "misprint",
+   "locator": "1969 printed p.107, first sentence of the proof of Theorem 5.13",
+   "printed": "The reduction to the complex fibre cites Theorem 5.13 itself.",
+   "correction": "Use Corollary 5.11, the preceding constancy of geometric fibre component counts.",
+   "reason": "That corollary gives exactly the specialization-independent count needed before the complex orbit calculation; a self-reference cannot justify the reduction.",
+   "affects": "nothing",
+   "known": "new; historical novelty unverified",
+   "searched": [
+    "Read the public published scan p.107 and adjacent Corollary 5.11.",
+    "18 October 2026 bounded Deligne Mumford 1969 5.13 erratum search located no numbered correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.4.json",
+   "citation": "Pierre Deligne; David Mumford, The irreducibility of the space of curves of given genus, Public author-hosted scan of Publ. Math. IHES 36 (1969), pp.75–109",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "StableReductionPartII/E1",
