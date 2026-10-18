@@ -194300,6 +194300,50 @@
    "reviewReason": "For f=X−2 its Mahler measure is 2. On 0≤θ≤1, |e^(iθ)−2|<√3<2, so the printed integral cannot have exponential 2."
   },
   {
+   "id": "DiophantineApproximationAndTranscendencePartII/E1",
+   "kind": "error",
+   "locator": "CDT25 published offprint, Definition 2.0.4, p.635; Corollary 2.0.5, (2.0.7), p.636.",
+   "printed": "The source defines V as the ℚ(x)-span of H but bounds its dimension over ℚ(p) under a rational tangent-to-identity coordinate change.",
+   "correction": "Bound the smaller ℚ(p)-span W by B=eJ(p∘φ)/log|φ′(0)|. Then dim_(ℚ(x))V≤B and dim_(ℚ(p))V≤[ℚ(x):ℚ(p)]B. With the added hypothesis χ∈ℤ[[t]], W=V and the original sharper bound is valid.",
+   "reason": "Take U=ℂ, p=x+x⁴/32, χ=p⁻¹ at zero and φ=2z. The printed hypotheses hold, but V contains ℚ(x) of degree 4 over ℚ(p). Its proposed upper bound is at most e log(5/2)/log2<4. Full verification is AA.4/scalar-span-counterexample. The proof on p.636 controls independent H generators over ℚ(p), which gives W rather than the scalar extension V.",
+   "affects": "a stated result",
+   "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+   "searched": [
+    "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
+    "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
+    "Web searches on 2026-10-18 for CDT unbounded-denominators erratum/corrigendum, Corollary 2.0.5 and (2.5.28) found no applicable correction.",
+    "The author-linked 2026 ICM survey https://www.math.uchicago.edu/~fcale/papers/ICM.pdf was searched for correction, capacity and compact; no applicable correction located. This is a bounded errata search, not a claim that the survey was read in full."
+   ],
+   "owner": "DiophantineApproximationAndTranscendencePartII",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendencePartII.json",
+   "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, Journal of the American Mathematical Society 38 (2025), 627–702; published author offprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendencePartII/E2",
+   "kind": "error",
+   "locator": "CDT25 published offprint, §2.5.27, (2.5.28), p.649.",
+   "printed": "The proposed capacity version replaces circle averaging by equilibrium averaging on any compact K in the unit disc, adding log cap(K) to the derivative denominator.",
+   "correction": "The formula is proved here only for circles or discs centred at the parameter base point, with positive denominator. A valid arbitrary-compact replacement needs additional hypotheses or different terms; it is not supplied by the printed argument.",
+   "reason": "Set K=closedDisk(1/2,1/4), p=x, χ=t, U=ℂ and φ(z)=8z exp(−20z). On K, |φ|≤6e^(−5)<1, so the numerator is zero. The denominator is log8+log(1/4)=log2>0, while the space contains 1 and has rank at least 1. See AA.5/compact-counterexample. This failure is independent of E1 since p=x and χ=t.",
+   "affects": "a stated result",
+   "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+   "searched": [
+    "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
+    "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
+    "Web searches on 2026-10-18 for CDT unbounded-denominators erratum/corrigendum, Corollary 2.0.5 and (2.5.28) found no applicable correction.",
+    "The author-linked 2026 ICM survey https://www.math.uchicago.edu/~fcale/papers/ICM.pdf was searched for correction, capacity and compact; no applicable correction located. This is a bounded errata search, not a claim that the survey was read in full."
+   ],
+   "owner": "DiophantineApproximationAndTranscendencePartII",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendencePartII.json",
+   "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, Journal of the American Mathematical Society 38 (2025), 627–702; published author offprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DirichletPadicLFunctions/E3",
    "kind": "error",
    "locator": "Parameter choice and decay assertion in §4.1 immediately before Lemma 4.2: printed p. 136 / PDF 37; arXiv v2 p. 26. The related polynomial aside in §10.2, published p. 165 / PDF 66, was checked in the published version.",
@@ -205072,6 +205116,86 @@
    "reviewReason": "added by the review after reading LPS p. 8, SELA-VI pp. 9 and 14 and SELA-ICM p. 90"
   },
   {
+   "id": "FuchsianOrbifoldsPartII/E1",
+   "kind": "error",
+   "locator": "Version of record, §2 p.952, definition of Nielsen region",
+   "printed": "The definition places every supporting half-plane above its endpoint geodesic and identifies the ideal boundary with the real line without displaying infinity.",
+   "correction": "Use the full circle OnePoint ℝ and the half-plane away from the complementary interval. Above a bounded semicircle is correct only after normalization with ∞ in the limit set.",
+   "reason": "A conjugate of a second-kind group can have limit set in a bounded real interval. The complementary interval containing infinity then requires the inside of its endpoint semicircle. The asserted construction must be equivariant under conjugacy.",
+   "affects": "the proof",
+   "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E17; no published correction located.",
+   "searched": [
+    "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
+    "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
+   ],
+   "owner": "FuchsianOrbifoldsPartII",
+   "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
+   "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FuchsianOrbifoldsPartII/E2",
+   "kind": "gap",
+   "locator": "Version of record, proof of Theorem 1 pp.958–959, after (3.6), Figure 7",
+   "printed": "The endpoint ordering is used to cut successive pieces of the finite arc from z to γ_wz, although that ordering alone only shows crossings of the complete axes.",
+   "correction": "Prove a descending endpoint-disc induction: qℓ=SℓT^mz lies on the final circle; qₖ=Sₖqₖ₊₁ lies strictly inside its circle for k<ℓ. The other endpoint of each current finite subarc is outside, so that finite subarc reaches the required next circle. Permit equality at the last endpoint when ℓ=1.",
+   "reason": "The unit discs have disjoint interiors and inversion obeys |Sₖζ−Nₖ|=1/|ζ−Nₖ|. These statements supply the missing finite-arc, rather than whole-axis, crossing argument.",
+   "affects": "the proof",
+   "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E19; no published correction located.",
+   "searched": [
+    "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
+    "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
+   ],
+   "owner": "FuchsianOrbifoldsPartII",
+   "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
+   "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FuchsianOrbifoldsPartII/E3",
+   "kind": "gap",
+   "locator": "Version of record, last proof paragraph of Theorem 1 p.959",
+   "printed": "Distances between successive fixed points in a selected upper-half-plane polygon are treated as quantities determined by the quotient conformal surface.",
+   "correction": "Retain the orbifold cone orders; double and lift a conformal equivalence to PSL₂(ℝ). Normalize the unique cusp and use the maximal-height elliptic lifts to remove dilation. Their successive gaps recover the cyclic period. The V(n) values are lift distances, not intrinsic distances between quotient cone points.",
+   "reason": "For ℓ=2 there is one intrinsic distance between two quotient cone points, whereas a cycle such as [3,6] has two different lift distances. The maximal-height proof supplies an intrinsic normalization without this inference.",
+   "affects": "the proof",
+   "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E20; no published correction located.",
+   "searched": [
+    "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
+    "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
+   ],
+   "owner": "FuchsianOrbifoldsPartII",
+   "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
+   "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FuchsianOrbifoldsPartII/E4",
+   "kind": "misprint",
+   "locator": "Version of record, §5 p.961, Laplacian display immediately before (5.3)",
+   "printed": "The displayed Laplacian multiplies the Euclidean second derivatives by −y⁻².",
+   "correction": "Use Δ=−y²(∂x²+∂y²), consistently with the source’s own (7.10) on p.972.",
+   "reason": "Applying the printed operator to y^s gives s(1−s)y^(s−4), rather than the claimed eigenvalue times y^s. The corrected operator gives exactly s(1−s)y^s.",
+   "affects": "nothing",
+   "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E1; no published correction located.",
+   "searched": [
+    "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
+    "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
+   ],
+   "owner": "FuchsianOrbifoldsPartII",
+   "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
+   "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FunctionFieldArithmetic/E1",
    "kind": "misprint",
    "locator": "arXiv:1011.3392v1, §2.2, p.9, displayed pairing; printed page image checked",
@@ -205192,7 +205316,47 @@
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.0.json",
-   "citation": "Sources of the blueprint of FunctionFieldArithmeticPartII",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF, read 2026-10-18",
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.0",
+   "reviewReason": "The published A.1.3, pp. 515–516, gives Bμ₂ for the full vanishing-value factor. Diagram (A.1), p. 516, is instead the square-map 2-pullback: after framing a fixed target line its zero factor is [Spec K[t]/(t²)/μ₂]. The dual-number section t=ε distinguishes it from Bμ₂; reducing the factor recovers Bμ₂. This inherited effective-fibre correction remains owned by GC.1."
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/E2",
+   "kind": "error",
+   "locator": "§A.1.3, pp. 515–516 (same in arXiv v2)",
+   "printed": "The source describes the full ramified geometric fibre as a classifying stack.",
+   "correction": "The full geometric fibre is [Spec K[t]/(t²)/μ2]; only its reduced substack is Bμ2.",
+   "reason": "Trivialize the square line. A root section satisfies t²=0, so it has nonzero infinitesimal possibilities over dual numbers. The source's subsequent Cartesian squaring diagram yields this nonreduced fibre.",
+   "affects": "a stated result",
+   "known": "Previously recorded in PAPER-YUN-ZHANG-19/E33 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
+   "searched": [
+    "Inherited correction search recorded in the accepted parent packet FunctionFieldArithmeticPartII/E2; its journal/author/arXiv search receipts are inherited, not claimed as a new independent search.",
+    "The author-hosted published PDF at the same SHA-256 was read on 2026-10-18 at the stated printed pages; the corrected equation was rechecked on the actual moduli data."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.1.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/E5",
+   "kind": "misprint",
+   "locator": "Definition A.2, p. 515 (same in arXiv v2)",
+   "printed": "The restriction clause refers back to the restricted section itself.",
+   "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
+   "reason": "Checked on the page image. a is the global section in the previous bullet.",
+   "affects": "nothing",
+   "known": "Previously recorded in PAPER-YUN-ZHANG-19/E66 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
+   "searched": [
+    "Inherited correction search recorded in the accepted parent packet FunctionFieldArithmeticPartII/E5; its journal/author/arXiv search receipts are inherited, not claimed as a new independent search.",
+    "The author-hosted published PDF at the same SHA-256 was read on 2026-10-18 at the stated printed pages; the corrected equation was rechecked on the actual moduli data."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.1.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -205214,6 +205378,88 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.2.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published copy",
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.2",
+   "reviewReason": "Independently read the published p. 518 image and the corresponding arXiv v2 pp. 84–85. With the displayed coframe directions, O_X(x) has local coframe multiplication by π_x; the printed ratio gives π_x, whereas Lemma A.5 requires π_x^{-1}. Inverting the ratio and using inverse local/root coframe changes restores that normalization and §6.2.3 p. 498. This corrects the proof convention without changing the stated equivalence."
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-1",
+   "kind": "misprint",
+   "locator": "Proof of Lemma A.6, p. 519 (arXiv v2 pp. 85–86)",
+   "printed": "The proof twice writes the cohomology of the root curve over k, not over k̄: the S_d-invariants are taken of the tensor power of H*(X_1^√R,L), and that space is said to be concentrated in degree one.",
+   "correction": "Both occurrences should be the geometric cohomology H*(X_1^√R⊗k̄,L), as in the statement of the lemma.",
+   "reason": "Künneth and the Koszul-signed S_d-action are statements over k̄. Over the finite field k the Hochschild–Serre sequence makes the Frobenius coinvariants of the geometric H¹ a subgroup of the arithmetic H²; they are nonzero when geometric Frobenius has eigenvalue one on H¹(X_1^√R⊗k̄,L), for instance after twisting L by a suitable unramified character, so the arithmetic cohomology is not concentrated in degree one in general.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and the authors' pages https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html, looked at on 18 October 2026: no erratum linked for these passages.",
+    "arXiv https://arxiv.org/abs/1712.08026, version v2 (the latest) downloaded on 18 October 2026: the passage is unchanged there (pp. 85–86).",
+    "The extraction PAPER-YUN-ZHANG-19 and the parent packet's sourceIssues E1–E12 do not record it."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-2",
+   "kind": "gap",
+   "locator": "§A.2.1, p. 519 (arXiv v2 p. 85)",
+   "printed": "The pushforward of L^{⊠d} along p_d is asserted to be a middle-extension perverse sheaf because p_d is a finite map from a smooth geometrically connected Deligne–Mumford stack.",
+   "correction": "p_d is proper and quasi-finite but not representable at collisions of branch points: at m·x with x∈R it induces multiplication μ₂^m→μ₂ on stabilizers, which is not injective for m≥2, so p_d is not finite in the representable sense. The middle-extension claim needs a version of the finite-pushforward argument for proper quasi-finite morphisms of tame Deligne–Mumford stacks with rational coefficients; alternatively L_d can be built from its monodromy and extended (GC.3/monodromy-symmetric-local-system), which needs no pushforward.",
+   "reason": "Lemma A.7's own proof exhibits the fibre [pt/μ₂]^d→[pt/μ₂] at dx, whose relative inertia is the kernel of multiplication; a finite (representable) morphism has trivial relative inertia.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and the authors' pages https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html, looked at on 18 October 2026: no erratum linked for these passages.",
+    "arXiv https://arxiv.org/abs/1712.08026, version v2 (the latest) downloaded on 18 October 2026: the passage is unchanged there (pp. 85–86).",
+    "The extraction PAPER-YUN-ZHANG-19 and the parent packet's sourceIssues E1–E12 do not record it."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-3",
+   "kind": "misprint",
+   "locator": "§7.1.1, p. 506; §A.2.1 and Lemma A.7, p. 519 (same in arXiv v2)",
+   "printed": "The normalized IC object is shifted back by its dimension and then given a perverse label.",
+   "correction": "Call K the normalized unshifted IC complex; K[d] is perverse. Apply the same normalization discipline to Lhat_d.",
+   "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "affects": "nothing",
+   "known": "Inherited finding of the accepted parent packet (E1, from PAPER-YUN-ZHANG-19), re-read in the published passage on 18 October 2026; not a new finding.",
+   "searched": [
+    "Parent packet sourceIssues and their recorded searches (Annals page, authors' pages, arXiv v2), inherited rather than repeated.",
+    "Published passage re-read on the page image of printed p. 519 on 18 October 2026."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-4",
+   "kind": "misprint",
+   "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
+   "printed": "The proof restricts the global character of the arbitrary rank-one input to signs.",
+   "correction": "Use χ:π1(U)→Qℓbar× for the stated arbitrary rank-one local system; inertia at R has order dividing two.",
+   "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "affects": "nothing",
+   "known": "Inherited finding of the accepted parent packet (E3, from PAPER-YUN-ZHANG-19), re-read in the published passage on 18 October 2026; not a new finding.",
+   "searched": [
+    "Parent packet sourceIssues and their recorded searches (Annals page, authors' pages, arXiv v2), inherited rather than repeated.",
+    "Published passage re-read on the page image of printed p. 519 on 18 October 2026."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -205383,9 +205629,31 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--RS.1.json",
    "citation": "Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2 (13 April 2008), printed pp.52–54",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--RS.1",
+   "reviewReason": "Independently read and rendered arXiv math/0603151v2 p.53, Appendix B.2, items (2)–(3): the power identification binds d but the section equation uses unbound m. The section must be raised to d. Confirmation is restricted to the selected preprint."
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/E13",
+   "kind": "error",
+   "locator": "arXiv:math/0603151v2, Appendix B.2, top of printed p.54, completing the last paragraph of p.53; preprint only.",
+   "printed": "After defining the monic root scheme W_σ, the preprint identifies its ordinary product with G_m with the frame-presentation scheme V_σ.",
+   "correction": "In this packet’s coordinates, V_n(f) is the quotient of W_n(f)×G_m by ζ·(w,λ)=(ζw,λζ⁻¹), hence the contracted product W_n(f)×^{μ_n}G_m. The map (w,λ)↦(λw,λ^n) is invariant and induces the comparison; it is not an isomorphism from the unquotiented product.",
+   "reason": "Take A=C, f=1 and n=2. The root equation w²=1 makes W two reduced points, so W×G_m has two connected components. In the preprint coordinate u, V has equation uz²=1, hence V≅G_m by eliminating u; it is connected. Thus the asserted schemes are not isomorphic, even with invertible exponent. Equivalently q=u⁻¹ gives the packet’s equation z²=q. The antidiagonal quotient identifies the two product components and gives precisely that V. The rendered p.54 confirms an ordinary product rather than an extraction artifact.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-18: https://arxiv.org/abs/math/0603151 lists v2 (13 April 2008) as the latest version; the downloaded and rendered v2 retains the product assertion.",
+    "2026-10-18: exact-title erratum/correction searches and searches for the authors with the two scheme symbols identified no correction of this assertion.",
+    "2026-10-18: inspected Abramovich’s public paper-directory listings https://www.math.brown.edu/dabramov/PAPERS/ and its VISTOLI subdirectory; no linked correction of this claim was identified.",
+    "2026-10-18: attempted the Project Euclid journal page for DOI 10.1353/ajm.0.0017; it served an access-block page. The Caltech author record https://authors.library.caltech.edu/records/yk2a8-1th60 supplies publication metadata, but no readable published text was obtained. The finding concerns only the specified preprint, not the version of record."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--RS.1.json",
+   "citation": "Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2 (13 April 2008), printed pp.52–54",
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--RS.1",
+   "reviewReason": "The two-component versus connected example disproves the preprint’s product assertion. Taking the μ_2 antidiagonal quotient fixes this example and the general coordinate map descends to the contracted-product comparison already used by the packet."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E12",
@@ -227653,6 +227921,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "reviewReason": "The printed direction is reversed. The weakly converging atomic-mixture example above disproves upper semicontinuity; LP.0/descent and LP.1/equilibrium already use lower semicontinuity and the valid strict-energy proof."
+  },
+  {
+   "id": "LubinTateFormalModulesAndQuasiCanonicalLifts/E1",
+   "kind": "misprint",
+   "locator": "Published BKO21 Lemma 5.1(ii), p.956; Caltech publisher PDF with the recorded SHA-256.",
+   "printed": "For a_(p²)=2s p, s=±1, the displayed assertion associates type p+sT² and Lubin–Tate parameter −s p.",
+   "correction": "The correct type is p−sT² and the parameter is s p. In particular a_p=0 yields type p+T² and parameter −p.",
+   "reason": "The scalar q-Frobenius is [s p], while a Lubin–Tate parameter reduces to that Frobenius. Honda70 Lemma 4.2 gives s pℓ−ℓ(X^(p²)) integral modulo p, which is exactly type p−sT². The negative case agrees with the paper’s subsequent π=−p setup.",
+   "affects": "nothing",
+   "known": "Inherited confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9, confirmed by REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21. The downstream existence application is unchanged.",
+   "searched": [
+    "Read the existing atlas errata file and its confirmed E9 review; its earlier Annals/Crossref search is not represented as a new search in this run.",
+    "Reread the publisher PDF Lemma 5.1 and subsequent π=−p application, and checked the correction directly against Honda70."
+   ],
+   "owner": "LubinTateFormalModulesAndQuasiCanonicalLifts",
+   "file": "research/blueprint/packets/LubinTateFormalModulesAndQuasiCanonicalLifts.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "MetaplecticAutomorphicForms/E-MP0-1",
@@ -253859,9 +254147,9 @@
    "owner": "RootSystemsPartII",
    "file": "research/blueprint/packets/RootSystemsPartII.json",
    "citation": "Mark Kisin and Rong Zhou, Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties, 63-page revised author preprint l-indep_v2.pdf; bibliographic final: Annals of Mathematics 202 (2025), 1077–1156. All locators here refer to the author preprint, not the uninspected final text. Read 18 October 2026.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-RootSystemsPartII",
+   "reviewReason": "Read at pp. 49–50 of the author file (SHA-256 as recorded): after the single-root Stembridge step the proof bounds each Frobenius translate and then asserts the bound for the orbit sum. The D4 data check out: 2ρ has simple-coroot values 2, the root α1+α2 pairs to (1,1,−1,−1), each translate is dominant after addition and bounded by θ, and the orbit sum (1,3,1,1) exceeds θ in the central coefficient. The fixed highest root is a valid choice. The finding concerns the inference only, as stated."
   },
   {
    "id": "SchemeAndStackFoundations/E102",
@@ -261698,7 +261986,7 @@
    "locator": "Lemma 53.20.11 (0CBX), proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18",
    "printed": "The displayed residue power-series map assigns the variable x twice, once to each of the two branch parameters.",
    "correction": "The second assignment has source variable y, so x maps to the first branch parameter and y to the second.",
-   "reason": "A map from the two-variable power-series ring is determined by separate images of x and y; the subsequent kernel (xy) and the final lifted map use those separate branch parameters.",
+   "reason": "A map from the two-variable power-series ring needs separate images of x and y. The subsequent kernel (xy) requires those separate branch parameters; the final lifted map has an additional source-variable slip recorded separately below.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -261709,9 +261997,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
    "citation": "The Stacks Project Authors, Algebraic Curves, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.0",
+   "reviewReason": "Confirmed independently in the rendered ed88ff78 PDF p. 52 and live tag 0CBX: the residue map needs y as its second source variable."
   },
   {
    "id": "StableReductionPartII/E-MC0-2",
@@ -261730,9 +262018,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
    "citation": "The Stacks Project Authors, Duality for Schemes, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.0",
+   "reviewReason": "Confirmed independently in ed88ff78 p. 73 and live tag 0E2X: the intermediate object is K_U′, so the restriction-composition index must be U′, not a base open V."
   },
   {
    "id": "StableReductionPartII/E-MC0-3",
@@ -261751,6 +262039,67 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
    "citation": "The Stacks Project Authors, Duality for Schemes, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.0",
+   "reviewReason": "Confirmed independently in ed88ff78 p. 74 and live tag 0E2Y: the base-changed diagonal and the following structure sheaf have source X′."
+  },
+  {
+   "id": "StableReductionPartII/E-MC0-4",
+   "kind": "misprint",
+   "locator": "Lemma 53.20.11 (0CBX), final lifted map in the proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18",
+   "printed": "The map out of the quotient of A[[x,y]] labels its second source generator v.",
+   "correction": "The second source generator is y; its image is the constructed lift v∞.",
+   "reason": "The displayed source ring has generators x and y; v occurs only as a branch parameter before lifting. This is independent of the earlier duplicate x assignment.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Live tag 0CBX and parent section 0C58, including their comments, accessed 2026-10-18.",
+    "Public chapter PDF ed88ff78, compiled 2026-07-14, rendered p. 52."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
+   "citation": "The Stacks Project Authors, Algebraic Curves, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.0",
+   "reviewReason": "The displayed source ring has generators x and y; v occurs only as a branch parameter before lifting. This is independent of the earlier duplicate x assignment."
+  },
+  {
+   "id": "StableReductionPartII/E-MC0-5",
+   "kind": "misprint",
+   "locator": "Lemma 48.28.10 (0E30), proof, last sentence of the separated case, p. 76; ed88ff78 PDF and live tag checked 2026-10-18",
+   "printed": "The object identified by the rigidity map η is written as a diagonal pushforward of O_X, with a repeated pushforward asterisk.",
+   "correction": "Use the pushforward of O_Y along Δ_{Y/X}, with one pushforward asterisk.",
+   "reason": "The diagonal has source Y. The rigidity map η identifies the displayed derived Hom on Y×_X Y with Δ_{Y/X,*}O_Y, rather than the structure sheaf of X. The composition theorem is not a prerequisite of an MC.0 target.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Live tag 0E30 and parent section 0E2S, including comments, accessed 2026-10-18; the parent comments concern Definition 48.28.1.",
+    "Public chapter PDF ed88ff78, compiled 2026-07-14, rendered p. 76."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.0.json",
+   "citation": "The Stacks Project Authors, Duality for Schemes, Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.0",
+   "reviewReason": "The diagonal has source Y. The rigidity map η identifies the displayed derived Hom on Y×_X Y with Δ_{Y/X,*}O_Y, rather than the structure sheaf of X. The composition theorem is not a prerequisite of an MC.0 target."
+  },
+  {
+   "id": "StableReductionPartII/E-MC1-001",
+   "kind": "misprint",
+   "locator": "Stacks Project ed88ff78, compiled 2026-07-14, The Geometry of Algebraic Stacks, Lemma107.5.5 (0DRJ), p.11, opening of proof; same sign present in the official tag HTML and current source checked 2026-10-18.",
+   "printed": "The opening invariance assertion adds the dimension of the atlas fibre to the atlas dimension, whereas the displayed lemma and the conclusion subtract it.",
+   "correction": "Replace that opening plus sign by minus: dim_u(U)−dim_u(U_x).",
+   "reason": "For X=Spec k, compare the identity atlas (difference 0) with A¹_k→Spec k (difference 1−1=0). The printed sum instead gives 0 and 2, so is not invariant. The lemma statement and proof conclusion already give the consistent subtraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Official tag 0DRJ and its comments (zero comments), checked 2026-10-18: no correction, same sign.",
+    "Official GitHub master stacks-geometry.tex at stacks/stacks-project, checked 2026-10-18: the proof opening retains the plus sign.",
+    "Existing atlas source-issue registry and relevant supplier sourceIssues: no matching correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.1.json",
+   "citation": "The Stacks Project Authors, The Geometry of Algebraic Stacks, Stacks Project ed88ff78, compiled 2026-07-14",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -261772,9 +262121,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.3.json",
    "citation": "Finn Faye Knudsen, The projectivity of the moduli space of stable curves, II: The stacks M_{g,n}, Math. Scand. 52 (1983), 161–199; published scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.3",
+   "reviewReason": "Independently inspected the published 1983 p.190 scan. The three elliptic components with distinct j-invariants and a mark on the middle one give two nonisomorphic preimages under the same ordered separating map. Both satisfy the printed genus/marking alternative, contradicting a closed immersion. Corollary 3.9(a)’s finite-unramified assertion survives. This confirms the inherited finding; it asserts no new discovery."
   },
   {
    "id": "StableReductionPartII/E-MC4-1",
@@ -261792,9 +262141,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.4.json",
    "citation": "Raymond Cheng; Carl Lian; Takumi Murayama; with Yordanka Kovacheva and Monica Marinescu, Projectivity of the moduli of curves, Author manuscript dated 1 July 2021; not collated with a publisher version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.4",
+   "reviewReason": "Confirmed in the 1 July 2021 manuscript, Proposition 6.7 p.26. For the blowup of C×P¹ at a special-fibre point, with C smooth of genus at least two and no markings yet, the exceptional P¹ has relative dualizing degree −1. Its m-th power contributes H¹ of dimension m−1, and the normalization sequence maps fibre H¹ onto it. The generic H¹ is zero; top-degree base change forces nonzero R¹. This refutes the displayed vanishing step, not the nefness conclusion. No claim of historical novelty or publisher-version agreement is made."
   },
   {
    "id": "StableReductionPartII/E-MC4-2",
@@ -261812,6 +262161,93 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.4.json",
    "citation": "Pierre Deligne; David Mumford, The irreducibility of the space of curves of given genus, Public author-hosted scan of Publ. Math. IHES 36 (1969), pp.75–109",
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.4",
+   "reviewReason": "Confirmed in the published scan, p.107, proof of Theorem 5.13: the cited number is self-referential. Corollary 5.11 on the same page supplies precisely the constant component count used to pass to C. This is a locator correction; the theorem is unaffected. Historical novelty has not been established."
+  },
+  {
+   "id": "StableReductionPartII/E15",
+   "kind": "error",
+   "locator": "arXiv:math/0404387v1, §2.3, p. 18, paragraph following the two local-isomorphism projections",
+   "printed": "The argument transfers rigidity of marked curves to the forgotten objects and concludes that the arrow-to-object-pair map is an immersion.",
+   "correction": "After forgetting markings, retain automorphism arrows. For G=1 the arrow space is T_g×Mod_g and its map to T_g×T_g is unramified, but need not be a monomorphism or an immersion in the locally closed embedding sense.",
+   "reason": "Take G=1, g=2 and a marked genus-two curve x. Its underlying unmarked curve has both the identity and hyperelliptic involution; these give distinct arrows above (x,x). An immersion is a monomorphism and cannot have this fibre. Rigidity of an object with its marking does not remove automorphisms of its image in the unmarked stack.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+    "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+    "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+    "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
+   "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E16",
+   "kind": "misprint",
+   "locator": "arXiv:math/0404387v1, §2.3, p. 18, fibre formula near the bottom",
+   "printed": "The fibre over fixed x of the arrow-space projection is identified with T_g^G×Γ_g,G.",
+   "correction": "The entire arrow space has that product form in the intended quotient presentation. A fixed source fibre is the discrete group Γ_g,G, with its target determined by the action; for G=1 this is Mod_g.",
+   "reason": "The projection is already stated to be a local isomorphism, hence its point fibres are discrete. With G=1 and g≥2, T_g has positive dimension 3g−3, so its product with Mod_g cannot be such a fibre.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+    "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+    "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+    "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
+   "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E17",
+   "kind": "error",
+   "locator": "arXiv:math/0404387v1, Proposition 2.14 proof, p. 19, product-simplicial-object identification",
+   "printed": "The degreewise products in the action-groupoid nerve are treated as a product simplicial object T_g^G×BΓ_g,G and used to assert a product realization.",
+   "correction": "Use the action nerve, whose realization is EΓ_g,G×_Γ_g,G T_g^G. Its projection to BΓ_g,G has contractible fibre T_g^G and yields the required homotopy equivalence. The constant-product simplicial identification is not justified.",
+   "reason": "Already for G=1 and an element γ moving x, the two degree-one face maps of the action arrow (x,γ) are x and γx. In the constant-T_g product with BMod_g both faces keep the same T_g coordinate. The degreewise product bijections therefore do not respect the simplicial maps. This repairs the proof without rejecting the proposition’s homotopy-equivalence conclusion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+    "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+    "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+    "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
+   "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "StableReductionPartII/E15-MC6",
+   "kind": "error",
+   "locator": "Author manuscript 21 August 2024, §3.4, p.56, final Hodge-positivity paragraph; published version not collated.",
+   "printed": "The argument describes the restriction of compactified Torelli to the smooth moduli locus as finite.",
+   "correction": "Use quasi-finiteness on the smooth locus, hence generic finiteness of the maximal-variation composite. Proper finiteness to the entire Siegel target is not needed.",
+   "reason": "In genus2 a smooth family can specialize to a compact-type union of two elliptic curves; its Jacobian specializes to their decomposable product inside A₂. No smooth genus2 curve has that principally polarized Jacobian. Thus the smooth Torelli image is not closed in A₂ and the morphism to A₂ cannot be finite. Finite onto a locally closed image or finite-to-one wording would not have this problem.",
+   "affects": "the proof",
+   "known": "new; no correction located in the checks listed, and the claim is scoped only to the hash-identified author manuscript.",
+   "searched": [
+    "Author publications page, updated June2026, inspected 18 October2026; no erratum linked for this article.",
+    "Annals article page DOI10.4007/annals.2026.203.1.2 inspected; full published PDF not collated.",
+    "Web search for Yuan arithmetic bigness Bogomolov Torelli finite erratum and parent packet sourceIssues."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.6.json",
+   "citation": "Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result, Author manuscript dated 21 August 2024; printed page = PDF page. Published Annals 203 (2026), pp.15–119, not collated.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
