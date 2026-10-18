@@ -1,0 +1,194 @@
+{
+  "id": "LieHighestWeightPartII",
+  "title": "Highest weight theory, Part II: nilpotent orbits and weight patterns",
+  "area": "representations",
+  "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+  "summary": "Extend the existing highest-weight roadmap by zero-inclusive sl2 triples, their nilpotent adjoint orbits and increasing representation filtrations. Prove recognition using classical standard and half-spin modules and independently certified exceptional adjoint profiles. Construct geometric weight patterns and prove that they determine the positive real part of a complex semisimple parameter. The integral completion and category-O briefs have independent successor owners, recorded under restructure.",
+  "readme": "Build on the existing LieHighestWeight roadmap. This continuation owns nilpotent adjoint orbits, zero-inclusive triples, representation filtrations and their recognition, exceptional finite root certificates and geometric weight patterns. The full target statements, APIs, tests, sources and conventions are in research/blueprint/readmes/LieHighestWeightPartII.md. The independent p-adic enveloping-algebra and completed-category-O continuations have successor briefs in the packet restructure and handoff, and are not part of these six layers.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+  ],
+  "stages": [
+    {
+      "key": "N0",
+      "title": "Nilpotent orbits and adapted triples",
+      "description": "Build a zero-inclusive adapter to the native sl2 triple and the nilpotent adjoint orbit interface. Prove the semisimple Jordan-centralizer reduction, Jacobson–Morozov, algebraic integration of a triple, Kostant transitivity over a fixed nilpotent and conjugacy from the neutral element. Work over any algebraically closed characteristic-zero field, and use current library trace identities rather than replanning them.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
+      ]
+    },
+    {
+      "key": "N1",
+      "title": "Representation filtrations and graded multiplicities",
+      "description": "Restrict finite Lie modules through the native sl2 basis constructor. Construct the increasing eigenfiltration W_i, identify its graded quotient with the weight-i eigenspace, and recover sl2 multiplicities by d_n−d_(n+2). Prove strictness, levelwise exactness and tensor/dual compatibility in the existing filtered-object vocabulary. Zero is a single jump at zero.",
+      "requires": [
+        "LieHighestWeightPartII:N0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality"
+      ]
+    },
+    {
+      "key": "N2",
+      "title": "Classical recognition and half-spin tests",
+      "description": "Recover classical nilpotent partitions from the standard module, prove the invariant-form parity constraints and the O-to-SO splitting criterion, and distinguish the very-even pair by a fixed Lie half-spin module. State the finite test family in each classical type with the actual Lie weight lattice; do not require descent of half-spin to SO.",
+      "requires": [
+        "LieHighestWeightPartII:N0",
+        "LieHighestWeightPartII:N1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-5-the-fundamental-representations-of-bₗ-and-dₗ"
+      ]
+    },
+    {
+      "key": "N3",
+      "title": "Exceptional root certificates and appendix profiles",
+      "description": "Use dominant labels 0,1,2, opposition and nonnegative sl2 multiplicities as necessary conditions. Construct exact adjoint root profiles, certify injectivity on the finite candidate sets independently for G2,F4,E6,E7,E8, and deduce exceptional adjoint separation. Decode all 91 CH table rows by checked profiles and cumulative sums, with root-vector witnesses for the supplied representatives; printed orbit names remain row keys. The separation proof needs no full orbit enumeration.",
+      "requires": [
+        "LieHighestWeightPartII:N0",
+        "LieHighestWeightPartII:N1",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-1-cartan-subalgebras-and-the-root-space-decomposition",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data"
+      ]
+    },
+    {
+      "key": "N4",
+      "title": "Semisimple filtration recognition",
+      "description": "Assemble the classical and exceptional tests through fixed simple factors. Prove that simultaneous adjoint conjugacy, equality of all representation filtration dimensions and isomorphic sl2 restrictions are equivalent, including the zero algebra and zero triple. Record a finite representation test family and preserve factor labels.",
+      "requires": [
+        "LieHighestWeightPartII:N0",
+        "LieHighestWeightPartII:N1",
+        "LieHighestWeightPartII:N2",
+        "LieHighestWeightPartII:N3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification"
+      ]
+    },
+    {
+      "key": "N5",
+      "title": "Highest weights and geometric weight patterns",
+      "description": "Prove the root-coset and highest-weight half-integrality tests. Define finite geometric modulus patterns for q>1 and the positive part of a complex torus element using its character lattice. Supply algebraic characters with each allowed dominant leading weight by a regular semi-invariant argument, then prove that algebraic characters separate Weyl orbits and equal representation-indexed patterns force conjugacy of positive real parts. Phases and the choice of isogeny lattice are explicit.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-2-weights-of-a-module-and-their-integrality",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CH",
+      "title": "On the generalized Ramanujan and Arthur conjectures over function fields",
+      "authors": "Dan Ciubotaru; Michael Harris",
+      "edition": "arXiv:2311.15300v1, 26 November 2023; printed page numbering. Annals 204 (2026), 545–601 is a distinct, uncollated revision.",
+      "url": "https://arxiv.org/pdf/2311.15300v1",
+      "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+      "read": "2026-10-18",
+      "readSections": [
+        "§§2.1–2.2, pp.6–7, especially Definition 2.2 and Lemma 2.4",
+        "§6.12, p.24, Lemma 6.30",
+        "§10.1, p.32, Proposition 10.2",
+        "Appendix, pp.35–37, Lemma 10.9 and Tables 2–4"
+      ]
+    },
+    {
+      "id": "BAL",
+      "title": "Part I: Geometry of semisimple Lie algebras",
+      "authors": "Ana Bălibanu",
+      "edition": "Undated author notes, author-hosted copy; printed page numbering.",
+      "url": "https://people.math.harvard.edu/~ana/part1.pdf",
+      "sha256": "e6c3e0d0a7ef0df8a162940e302dfbea5d10cf4d2c2872728033346d6501ed38",
+      "read": "2026-10-18",
+      "readSections": [
+        "§5, pp.13–17, Theorem 5.1, Corollary 5.2, Proposition 5.4, Lemma 5.7; algebraic arguments adapted to any algebraically closed field of characteristic zero"
+      ]
+    },
+    {
+      "id": "SOM",
+      "title": "Nilpotent orbits and Weyl group representations",
+      "authors": "Eric Sommers",
+      "edition": "Preliminary notes, 17 July 2009.",
+      "url": "https://www.math.utah.edu/~ptrapa/sommers-preliminary-notes.pdf",
+      "sha256": "4efd401e9f7ed75cd1ec83d6a7f51e5be744ed15c08e72a8651462649fa54dc8",
+      "read": "2026-10-18",
+      "readSections": [
+        "§§2.1–2.4, pp.11–13, Theorem 2.4.1",
+        "§3.1, pp.15–16, characteristic diagrams, Dynkin–Kostant–Malcev and labels 0,1,2"
+      ]
+    },
+    {
+      "id": "DG",
+      "title": "Computing with nilpotent orbits in simple Lie algebras of exceptional type",
+      "authors": "Willem A. de Graaf",
+      "edition": "arXiv:math/0702193v2, 14 December 2007; published LMS Journal of Computation and Mathematics 11 (2008), 280–297.",
+      "url": "https://arxiv.org/pdf/math/0702193v2",
+      "sha256": "8f78bc359826032475efa37b4c53958b25bfe136286774c8dd55bf1cdcd059e6",
+      "read": "2026-10-18",
+      "readSections": [
+        "§2, pp.2–3, weighted Dynkin diagrams",
+        "§3, pp.4–5, Lemmas 2–3 and fixed-characteristic orbit argument"
+      ]
+    },
+    {
+      "id": "SLA",
+      "title": "SLA nilpotent-orbit data, nilporb.gi",
+      "authors": "Willem A. de Graaf and SLA contributors",
+      "edition": "GAP SLA commit 30b585c78be885925776f01522fdce036d45e661; an independent numerical cross-check, not a proof oracle.",
+      "url": "https://raw.githubusercontent.com/gap-packages/sla/30b585c78be885925776f01522fdce036d45e661/gap/nilporb.gi",
+      "sha256": "d22e9f2d770cf3b02628474b893cdcbcf8564ef0c468806b298d4f93b16d0f50",
+      "read": "2026-10-18",
+      "readSections": [
+        "SLAfcts.nilporbs: weighted diagrams for G2, F4, E6, E7, E8; F4 list before its GAP-numbering permutation"
+      ]
+    },
+    {
+      "id": "MIL",
+      "title": "Reductive Groups",
+      "authors": "J. S. Milne",
+      "edition": "Author notes, version 2.00, 10 March 2018; not the Algebraic Groups book.",
+      "url": "https://www.jmilne.org/math/CourseNotes/RG.pdf",
+      "sha256": "f5d282908082622f39627e6850395fccebd4f0ed9c47eba3209deda286235291",
+      "read": "2026-10-18",
+      "readSections": [
+        "§20.3–20.6, pp.102–103; §20.16–20.18, pp.104–105; §20.27–20.31, pp.107–108",
+        "§17.59, p.80, read while following a cross-reference; its Picard-group claim is corrected below"
+      ]
+    },
+    {
+      "id": "JAN",
+      "title": "Representations of Algebraic Groups",
+      "authors": "Jens Carsten Jantzen",
+      "edition": "Second edition, AMS Mathematical Surveys and Monographs 107 (2003); maintainer-cleared reference copy, read in place.",
+      "url": "https://doi.org/10.1090/surv/107",
+      "sha256": "5772b172cd315a4710220880e2dc9fb83fe2d512e5fb760c2f0f24a297222839",
+      "read": "2026-10-18",
+      "readSections": [
+        "Part II §§2.1–2.7, pp.175–179: regular semi-invariants, highest weights, and the rank-one extension proof in Proposition II.2.6"
+      ]
+    }
+  ],
+  "status": "draft"
+}
