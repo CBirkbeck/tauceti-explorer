@@ -135485,6 +135485,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md",
    "note": "claimed on GitHub issue #10389"
+  },
+  {
+   "id": "REV-PKG-EffectiveClassNumbers~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EffectiveClassNumbers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EffectiveClassNumbers~adv.md",
+    "research/blueprint/packages/EffectiveClassNumbers/review.json",
+    "research/blueprint/packages/EffectiveClassNumbers/README.md",
+    "research/blueprint/packages/EffectiveClassNumbers/Suggested.lean",
+    "research/blueprint/packages/EffectiveClassNumbers/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EffectiveClassNumbers~adv.md"
   }
  ]
 }
