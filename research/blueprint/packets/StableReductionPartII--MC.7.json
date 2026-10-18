@@ -92,8 +92,8 @@
       "accessDate": "2026-10-18",
       "readSections": [
         "Lemma 36.32.6 tag 0E0L, proof via Lemma 36.32.5 tag 0E62 and Lemma 33.9.3(7) tag 0BUG",
-        "Lemma 108.9.1 tag 0DMD, local-object and local-isomorphism proof",
-        "Lemma 109.11.2 tag 0E1H, arbitrary-base-change cohomology for reduced connected curves"
+        "Lemma 108.9.1 tag 0DME, local-object and local-isomorphism proof",
+        "Lemma 109.11.2 tag 0E6L, arbitrary-base-change cohomology for reduced connected curves"
       ]
     },
     {
@@ -104,7 +104,7 @@
       "url": "https://arxiv.org/pdf/2303.13436v1",
       "accessDate": "2026-10-18",
       "readSections": [
-        "§§5.1–5.2 pp.39–41, including Example 5.1-1"
+        "§§5.1–5.2 pp.39–41, including Example 5.1"
       ],
       "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306"
     },
@@ -180,7 +180,7 @@
       "readSections": [
         "JacobianChallenge README Layers A–F; StableReduction README Layers 2–3",
         "AlgebraicVectorBundles README L0A–L0C and Suggested.lean: tensor, pullback, dual and coherence ownership",
-        "ModularCurves README 1C,4A,4B,9D,9E and Suggested.lean coarseJLine_int/coarseJLine: existing elliptic-family and coarse-j-line targets"
+        "ModularCurves README 1C,1D,2D,4A,4B,9D,9E and Suggested.lean coarseJLine_int/coarseJLine: existing elliptic-family and coarse-j-line targets"
       ]
     }
   ],
@@ -271,8 +271,13 @@
         },
         {
           "sourceId": "yuan-2024-author",
-          "locator": "§4.3.2 pp.74–75; DGH §6.1 p.24 is a second consumer",
+          "locator": "§4.3.2 pp.74–75",
           "match": "The degree pieces are used as relative parameters; this comparison specifies their sheaf meaning on general bases."
+        },
+        {
+          "sourceId": "dgh-2021-v3",
+          "locator": "§6.1 printed/PDF pp.23–24, relative Picard and Pic¹ discussion",
+          "match": "DGH uses represented degree pieces and their difference map on the universal fine-level family; this is a second consumer of the relative sheaf comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -285,7 +290,7 @@
       ],
       "title": "Actual triples and their class morphism",
       "kind": "definition",
-      "statement": "For a B-scheme T let Trip^d_N(T) be the groupoid of triples (f_T:X→T,η,L): X/T is a smooth projective geometrically connected genus-g curve, η is the fixed-pairing full level N on its Jacobian, and L is an invertible O_X-module of degree d on every geometric fibre. A morphism (X,η,L)→(X′,η′,L′) is a T-isomorphism u:X≅X′ preserving η together with an isomorphism L≅u*L′. Pullback makes a category fibred in groupoids, with its actual tensor/pullback coherence. Forgetting L is the fine level moduli groupoid, equivalent to the discrete sheaf h_M; sending L to its relative class gives a morphism of fppf stacks q:Trip^d_N→h_P. The fixed-curve fibre is the degree-d full subgroupoid of Core(InvertibleSheaf X), not the full category of module maps and not its set of isomorphism classes.",
+      "statement": "For a B-scheme T let Trip^d_N(T) be the groupoid of triples (f_T:X→T,η,L): X/T is a smooth projective geometrically connected genus-g curve, η is the fixed-pairing full level N on its Jacobian, and L is an invertible O_X-module of degree d on every geometric fibre. A morphism (X,η,L)→(X′,η′,L′) is a T-isomorphism u:X≅X′ preserving η together with an isomorphism L≅u*L′. Pullback makes a category fibred in groupoids, with its actual tensor/pullback coherence. The functor forgetting L takes values in the fine level moduli groupoid, which is equivalent to the discrete sheaf h_M; sending L to its relative class gives a morphism of fppf stacks q:Trip^d_N→h_P. The fixed-curve fibre is the degree-d full subgroupoid of Core(InvertibleSheaf X), not the full category of module maps and not its set of isomorphism classes.",
       "hypotheses": [
         "g≥2,N≥3, chosen ζ_N and exact pairing component; d∈Z.",
         "All morphisms of line bundles in this groupoid are isomorphisms.",
@@ -323,7 +328,7 @@
         },
         {
           "sourceId": "stacks-2026-10-18",
-          "locator": "Lemma108.9.1, tag0DMD",
+          "locator": "Lemma108.9.1, tag0DME",
           "match": "The Picard stack maps to its sheaf of classes with local lifts and local isomorphisms."
         },
         {
@@ -381,18 +386,22 @@
       "tests": [
         {
           "name": "scalar-inertia",
+          "kind": "non-example",
           "statement": "Over an algebraically closed field k and a level curve, a fixed L has automorphism group k×. For k=C this group is nontrivial although the corresponding h_P-point has trivial inertia."
         },
         {
           "name": "base-twist",
+          "kind": "non-example",
           "statement": "For a fixed level genus-two curve C/C, T=P¹_C and L_T the pullback of a degree-d line bundle L on C, L_T and L_T⊗f_T*O_T(1) are distinct isomorphism classes of triples with the same q-image. Restriction to a constant point of C proves distinctness."
         },
         {
           "name": "noninvertible-map",
+          "kind": "non-example",
           "statement": "The zero endomorphism of an invertible sheaf on a nonempty curve is a morphism in the native full module subcategory but is not an arrow of Trip^d_N."
         },
         {
           "name": "tensor-class",
+          "kind": "compatibility",
           "statement": "At a fixed curve the class of L⊗K agrees with multiplication in the pinned LineBundleClass commutative monoid; this does not require its missing inverse operation."
         }
       ],
@@ -419,7 +428,8 @@
         "StableReductionPartII:MC.7/actual-triples-groupoid",
         "StableReductionPartII:MC.7/fine-family-functions",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf",
-        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack"
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split"
       ],
       "proofSteps": [
         "Use the fixed level-family identification to take the genuine groupoid fibre of q, not the fibre of a purported bijection of sets.",
@@ -434,7 +444,7 @@
       "sources": [
         {
           "sourceId": "stacks-2026-10-18",
-          "locator": "Lemma108.9.1, tag0DMD, proof of local nonemptiness and local isomorphism",
+          "locator": "Lemma108.9.1, tag0DME, proof of local nonemptiness and local isomorphism",
           "match": "The gerbe property follows from the definition of the sheafified Picard functor."
         },
         {
@@ -479,14 +489,17 @@
       "tests": [
         {
           "name": "geometric-field",
+          "kind": "degenerate",
           "statement": "For algebraically closed k the fibre has an object, every two objects are isomorphic, and its scalar automorphism group is k×; it is equivalent to BG_m(k), not a discrete singleton."
         },
         {
           "name": "pointed-normalization",
-          "statement": "A section σ:T→C_T provides a normalized representative of each p via the imported pointed splitting, while forgetting the normalization restores the entire lift groupoid."
+          "kind": "characterisation",
+          "statement": "A section σ:T→C_T gives each p a normalized lift L_norm with σ*L_norm≅O_T, unique up to unique rigidification-preserving isomorphism. Every unnormalized lift is isomorphic to L_norm⊗f_T*N for some base line bundle N. For the constant family over P¹_C, N=O(1) gives a lift not isomorphic to L_norm, although their relative classes agree."
         },
         {
           "name": "base-twist-locality",
+          "kind": "compatibility",
           "statement": "Over P¹_C, the nonisomorphic lifts differing by O(1) become isomorphic over the standard affine trivializing cover. This tests local isomorphism without global uniqueness."
         }
       ]
@@ -577,7 +590,7 @@
         },
         {
           "sourceId": "stacks-2026-10-18",
-          "locator": "Lemma108.9.1 (0DMD)",
+          "locator": "Lemma108.9.1 (0DME)",
           "match": "Local equality of lifts retains their invertible-sheaf isomorphisms."
         }
       ],
@@ -635,18 +648,22 @@
       "tests": [
         {
           "name": "nontrivial-base-Picard",
+          "kind": "computation",
           "statement": "For C/C a fixed level genus-two curve, T=P¹_C and a pullback L₀, the lifts L₀⊗f*O(n) are pairwise nonisomorphic for n∈Z. They all map to one p; the difference between n and m is O(m−n)."
         },
         {
           "name": "field-scalar",
+          "kind": "degenerate",
           "statement": "For T=Spec k with k algebraically closed, Pic(T)=0, so the lift-class fibre is a singleton, while the actual lift groupoid has automorphism group k×."
         },
         {
           "name": "section-normalization",
+          "kind": "compatibility",
           "statement": "For the same constant family with a constant section σ, all L₀⊗f*O(n) have the same normalized representative. Their σ-rigidified normalized objects are uniquely isomorphic."
         },
         {
           "name": "empty-fibre-convention",
+          "kind": "non-example",
           "statement": "The theorem is conditional on β=0 for nonemptiness: an empty fibre with β≠0 is never assigned a torsor structure with an inhabited carrier."
         }
       ],
@@ -715,6 +732,7 @@
       "statement": "For each g≥2, the smooth unpointed curve stack M_g and its universal smooth projective family, after base change to Z[1/|G|] for G=Sp_{2r}(F_ℓ) as in Abdurrahman–Venkatesh, supply the curve-family base of their §5.1 Hurwitz problem. For every T-point h of that Hurwitz stack, the underlying curve is the pullback of the universal M_g-curve along its forgetful map h→M_g. This identification is cartesian and coherent under arbitrary base change; it retains the category-valued curve automorphisms before any level is added.",
       "hypotheses": [
         "g≥2 for this unpointed stable-range export.",
+        "Fix r≥1 and a finite field F_ℓ of odd cardinality, as in the consumer; invert |Sp_{2r}(F_ℓ)| on the curve-moduli base.",
         "The consumer supplies its own connected-fibre G-cover problem, cyclotomic twist and forgetful morphism."
       ],
       "prerequisites": [
@@ -729,13 +747,13 @@
       ],
       "acceptance": [
         "Over a test scheme and after a second pullback the classifying curve is canonically the same family.",
-        "A central deck automorphism in AV Example5.1-1 is not removed by replacing the consumer stack with a curve full-level scheme.",
+        "A central deck automorphism in AV Example5.1 is not removed by replacing the consumer stack with a curve full-level scheme.",
         "No assertion of an unmarked genus-one DM stack or étaleness of the Hurwitz map is made."
       ],
       "sources": [
         {
           "sourceId": "av-2023-v1",
-          "locator": "§§5.1–5.2 pp.39–41, including Example5.1-1",
+          "locator": "§§5.1–5.2 pp.39–41, including Example5.1",
           "match": "The argument uses a universal curve over a Hurwitz groupoid, with central cover automorphisms still present."
         }
       ],
@@ -798,10 +816,10 @@
       ],
       "title": "Elliptic-stack and coarse-scheme comparison",
       "kind": "application",
-      "statement": "For every coefficient field k, the smooth one-pointed genus-one stack M_1,1,k of the parent is equivalent to the elliptic-curve stack Ell/k of current ModularCurves4A–4B, compatibly with the marked universal curve and arbitrary base change. Its coarse algebraic space is therefore canonically the existing coarse j-line A¹_k=Spec k[j] of ModularCurves9E. The comparison is characterized by the coarse classifying maps. It supplies Chen’s distinct stack M(1) and coarse scheme M(1), without putting a universal elliptic curve on the coarse scheme.",
+      "statement": "For every coefficient field k, the smooth one-pointed genus-one stack M_1,1,k of the parent is equivalent to the elliptic-curve stack Ell/k of current ModularCurves4A–4B, compatibly with the marked universal curve and arbitrary base change. Its coarse algebraic space is therefore canonically the existing coarse j-line A¹_k=Spec k[j] of ModularCurves9E. The comparison is characterized by the coarse classifying maps. It supplies Chen’s elliptic stack and its distinct coarse scheme M(1), without putting a universal elliptic curve on the coarse scheme.",
       "hypotheses": [
         "The one mark is a section; smooth proper geometric genus-one fibres.",
-        "Import current ModularCurves1C,4A,4B,9D,9E and the exact R09.5 elliptic/coarse-j recovery nodes. The SF.1 finite-quotient-coarse bridge supplies universality among algebraic spaces; the scheme-target universal property of upstream CoarseModuliData alone does not."
+        "Import current ModularCurves1C,1D,2D,4A,4B,9D,9E and the exact R09.5 elliptic/coarse-j recovery nodes. The SF.1 finite-quotient-coarse bridge supplies universality among algebraic spaces; the scheme-target universal property of upstream CoarseModuliData alone does not."
       ],
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
@@ -813,12 +831,14 @@
         "AlgebraicModuliForArithmeticGeometry:R09.5/coarse-j-line-recovery",
         "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
         "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
         "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
         "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
         "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n"
       ],
       "proofSteps": [
-        "Use ModularCurves1C to equip a pointed smooth proper genus-one family with its canonical elliptic group structure. Conversely forget the group law but retain the identity section. Uniqueness of the group structure makes these functors quasi-inverse on isomorphisms and coherent under base change.",
+        "Use ModularCurves1C for the pointed Weierstrass presentation and 1D for the canonical scheme-level group law, including arbitrary-base-change compatibility. Use 2D (KM2.5.1, isGroupHom_of_mapsZero) to show pointed isomorphisms preserve that law and to prove uniqueness of a compatible group structure. Forgetting the group law while retaining the identity section is then quasi-inverse to this construction, naturally under base change.",
         "The marked family is identified with the elliptic universal family by the classifying equivalence, not by a coarse-point bijection.",
         "Use R09.5/elliptic-coarse-recovery: the full level3 rigidifier on D(3) and level4 rigidifier on D(2) give the quotient-stack charts imported from ModularCurves4C/9D. SF.1/finite-quotient-coarse upgrades their invariant quotients to coarse spaces universal for algebraic-space targets. The unique comparisons glue on overlaps. R09.5/coarse-j-line-recovery then identifies this coarse space with the coefficient-ring j-line already owned by9E, including its explicit characteristic2/3 results. Transport through the stack equivalence and use MC.4/coarse uniqueness. This proves the latter is a scheme; scheme-target universality alone would not justify the comparison.",
         "No proof of coarse-j representability or its invariant-ring computations is added here. Hurwitz/Nielsen/Higman/Markoff constructions remain in InverseGaloisAndArithmeticFundamentalGroups:IG.5."
@@ -836,7 +856,7 @@
         },
         {
           "sourceId": "upstream-current",
-          "locator": "ModularCurves README1C,4A,4B,9D,9E; Suggested.lean coarseJLine_int and coarseJLine",
+          "locator": "ModularCurves README1C,1D,2D,4A,4B,9D,9E; Suggested.lean coarseJLine_int and coarseJLine",
           "match": "The elliptic-family category and coarse j-line already have owners; only their comparison with the parent stack is added."
         }
       ],
@@ -1035,7 +1055,21 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
-      "need": "Import the canonical elliptic group law of a pointed smooth proper genus-one family and its arbitrary-base-change/isomorphism compatibility; this supplies the inverse of forgetting the elliptic group law.",
+      "need": "Import the pointed Weierstrass-presentation theorem and the unique-variable-change description of pointed isomorphisms. The canonical group law and its uniqueness are imported separately from ModularCurves1D and2D.",
+      "neededBy": [
+        "StableReductionPartII:MC.7/consumer-chen"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "need": "Import the canonical scheme-level elliptic group law on a pointed Weierstrass family, descended through the 1C presentation, with identity, inverse and arbitrary-base-change compatibility.",
+      "neededBy": [
+        "StableReductionPartII:MC.7/consumer-chen"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
+      "need": "Import only KM2.5.1 (isGroupHom_of_mapsZero): pointed scheme morphisms between elliptic families are uniquely group homomorphisms. Its application to the identity proves uniqueness of the compatible group structure; do not reconstruct the genus-one Picard-duality package here.",
       "neededBy": [
         "StableReductionPartII:MC.7/consumer-chen"
       ]
@@ -1254,7 +1288,7 @@
       "sourceReceipt": [
         {
           "sourceId": "av-2023-v1",
-          "locator": "§§5.1–5.2 pp.39–41, including Example5.1-1",
+          "locator": "§§5.1–5.2 pp.39–41, including Example5.1",
           "match": "The argument uses a universal curve over a Hurwitz groupoid, with central cover automorphisms still present."
         }
       ],
@@ -1301,6 +1335,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.5/coarse-j-line-recovery",
         "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
         "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+        "tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals",
         "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
         "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
         "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n"
@@ -1313,7 +1349,7 @@
         },
         {
           "sourceId": "upstream-current",
-          "locator": "ModularCurves README1C,4A,4B,9D,9E; Suggested.lean coarseJLine_int and coarseJLine",
+          "locator": "ModularCurves README1C,1D,2D,4A,4B,9D,9E; Suggested.lean coarseJLine_int and coarseJLine",
           "match": "The elliptic-family category and coarse j-line already have owners; only their comparison with the parent stack is added."
         }
       ],
@@ -1584,5 +1620,78 @@
       "StableReductionPartII:MC.7/picard-triples-comparison"
     ],
     "boundary": "Exactly MC.7; parent nodes, reserved key definition and all supplier files remain unmodified. Four new planets plus the inherited Level Picard parameters planet give five, within the six-planet stage limit. All targets are planned; none is claimed implemented or supplier-closed."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-StableReductionPartII--MC.7",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 13 nodes, nine pinned declarations, exact suppliers, current upstream ownership, source locators, API/tests, planets and compact Lean coverage. Seven nodes verified and six corrected; no nodes added or removed. Corrected normalized lifts, elliptic group-law imports, source attribution/locators, AV hypotheses, forgetful wording and test kinds; reader synchronized. Validator: zero errors and warnings. Unchanged suggested Lean elaborates with six expected proof-placeholder warnings only. Complete planning pass accepted; MC.7 remains planned with four honest supplier/interface gaps, not closed.",
+    "checked": [
+      {
+        "nodeId": "StableReductionPartII:MC.7/fine-family-functions",
+        "verdict": "verified",
+        "note": "Checked Stacks 0E0L, 0E62 and 0BUG(7): universal global functions persist on arbitrary scheme tests, including non-Noetherian and nonreduced ones."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/level-picard-sheaf-comparison",
+        "verdict": "corrected",
+        "note": "Separated the DGH source receipt from Yuan. Checked the exact JC0 degree/representability/torsor suppliers and arbitrary-test sheaf comparison; retained the proper-flat quotient owner gap."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/actual-triples-groupoid",
+        "verdict": "corrected",
+        "note": "Clarified the forgetful functor into the fine-level moduli groupoid, corrected the Stacks tag and typed all tests. Verified actual invertible arrows, scalar inertia, base twists and the pinned core/class comparison."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/lift-gerbe",
+        "verdict": "corrected",
+        "note": "Replaced the false claim that forgetting normalization recovers every lift by the normalized representative plus arbitrary base-line-bundle twists. Added the direct section-picard-split prerequisite, corrected the Stacks tag and typed the tests; verified the scalar band and fppf local lifting."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/lift-obstruction",
+        "verdict": "verified",
+        "note": "Checked BLR 8.1 and the exact JC4/A0/SF.2 suppliers: this is the particular fppf Leray boundary, with its exact sequence, naturality and section specialization, and no Azumaya assertion."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/lift-torsor",
+        "verdict": "corrected",
+        "note": "Corrected the Stacks locator and typed the tests. Verified the conditional Pic(T)-torsor, chosen-origin equivalence with actual base line bundles, and change-of-origin sign."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/infinitesimal-points",
+        "verdict": "verified",
+        "note": "Checked the split dual-number unit sequence, dimension-g H¹ comparison, framed scalar automorphisms and the JC6 application over integral base Spec k rather than the dual-number test."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-av",
+        "verdict": "corrected",
+        "note": "Corrected Example 5.1 and made the positive rank, odd finite coefficient field and group-order inversion explicit. Verified universal-family pullback retaining deck inertia."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-clp",
+        "verdict": "verified",
+        "note": "Checked the stable pointed range, ordered marks, forgetful maps, boundary normalization and constant graph automorphism groups against the named source and exact parent suppliers."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-chen",
+        "verdict": "corrected",
+        "note": "Added existing ModularCurves 1D and 2D group-law and pointed-map imports and requests, narrowed 1C to its presentation theorem, and corrected stack/coarse wording. Verified the stronger R09.5/SF.1 algebraic-space coarse comparison before j-line identification."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-dgh",
+        "verdict": "verified",
+        "note": "Checked the exact fine-level component, cartesian Jacobian square, geometric Torelli fibre bound and section-free Pic¹/Abel/difference inputs; no finite-morphism inference is made."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-landesman-litt",
+        "verdict": "verified",
+        "note": "Checked the connected complex base, stable marked classifying family and the dominant étale condition restricted to the versal specialization."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.7/consumer-yuan",
+        "verdict": "verified",
+        "note": "Checked every similitude component and inverse frame change, the algebraically closed triple-class comparison, finite-cover stable extension and algebraic Hodge scope. Metric and inherited supplier obligations remain explicit."
+      }
+    ]
   }
 }

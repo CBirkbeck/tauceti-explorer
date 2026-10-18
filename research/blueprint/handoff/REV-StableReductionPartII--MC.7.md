@@ -1,0 +1,11 @@
+# Completed independent review: REV-StableReductionPartII--MC.7
+
+Issue #8943, Codex session `codex-phe8QM`, 18 October 2026. This is a completed review, not a checkpoint. The packet is accepted after corrections: seven nodes verified and six corrected, with no nodes added or removed. All nine pinned baseline declarations are confirmed.
+
+The [review report](../reviews/REV-StableReductionPartII--MC.7.md) records every correction, source-reading boundary, baseline check and node verdict. The packet and reader now distinguish normalized lifts from all lifts, import the canonical elliptic group law and pointed-map uniqueness from current ModularCurves 1D and 2D, use the correct Stacks and AV locators, state AV's finite-field hypotheses explicitly, separate DGH's source receipt, clarify the triples' forgetful functor, and type all eleven tests. Supplier requests increased from nine to eleven solely through the two existing-owner imports.
+
+The thirteen-node plan retains seventeen API items, eleven tests and five total layer planets. Coverage remains planned, not closed. Future work must retain the four explicit gaps: the R09.3 proper-flat effective quotient; missing native geometric carriers and class/site bridges; inherited curve/level/coarse/Torelli proofs; and inherited stable extension/projective-coarse/stable-Hodge proofs. No new roadmap or ownership move is proposed. Source versions remain those named in the packet; publication collation is still outside this pass.
+
+The blueprint validator reports zero errors and zero warnings. Exact-node dependency traversal reaches 457 nodes without cycles or duplicate IDs. The unchanged 132-line suggested Lean file elaborates at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, with six expected proof-placeholder warnings only. This checks its native fragments, not the omitted geometric targets. Current upstream ownership was checked at the commits recorded in the report without building or editing those checkouts.
+
+Nothing remains for this review job. Continue with the programme's next queued job in a fresh worker process; do not treat the retained implementation gaps as failed review work. Scratch sources and logs are disposable; the report, packet and reader contain the continuation information.
