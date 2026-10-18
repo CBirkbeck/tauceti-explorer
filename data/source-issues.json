@@ -170008,6 +170008,279 @@
    "reviewReason": "Read at p. 12 of the arXiv v1 preprint."
   },
   {
+   "id": "AnticyclotomicLocalUnits/E1",
+   "kind": "error",
+   "locator": "Lemma 5.2(ii), p.956; published version recorded in sourceVersions",
+   "printed": "The stated consequence includes every p≥31, on the strength of its displayed lower bound.",
+   "correction": "At p=47 that lower bound is zero and does not prove the consequence. Use the stronger generic count μ floor((p−1)/12), justified by scalar Frobenius and the m generic supersingular invariants.",
+   "reason": "At p=47, floor(46/12)−3/2+(−3/47)+(−1/47)/2=3−3/2−1−1/2=0. The stronger count gives 3μ>μ/6.",
+   "affects": "the proof",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E1",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E2",
+   "kind": "misprint",
+   "locator": "§3.0.2 and Proposition 3.3, pp.951–953; proof of Theorem 3.4, p.954; published version recorded in sourceVersions",
+   "printed": "The exponent indexing an anticyclotomic l-power character is used both for its order and its conductor.",
+   "correction": "Use ν of conductor l^m; exact order l^r means m=r+1 in this tower, and index the zeta class and ring-class field by that conductor.",
+   "reason": "The first wild character has order l and conductor l², so using the same exponent selects the wrong Euler factor and source field.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E2",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E3",
+   "kind": "misprint",
+   "locator": "Quasi-canonical lift paragraph, p.958; published version recorded in sourceVersions",
+   "printed": "The wild anticyclotomic field in the tame fixed-field relation is denoted by the full LT torsion-field symbol.",
+   "correction": "Use Ψ_s=(Ψ′_(s+1))^(Δ′), with |Δ′|=p+1.",
+   "reason": "The fixed field has degree p^s over Φ, whereas Φ_s has degree (p²−1)p^(2s).",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E3",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.5(ii), p.959; published version recorded in sourceVersions",
+   "printed": "In the forward-neighbour sum, the p isogenous curves are labelled by the current point x_s.",
+   "correction": "They are the conjugates of x_(s+1); the backward term is x_(s−1).",
+   "reason": "Their lattices have the next conductor, and the Hecke trace must be Tr_(s+1/s)x_(s+1).",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E4",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E5",
+   "kind": "misprint",
+   "locator": "Theorem 5.5(ii), conductor-zero boundary, p.959; published version recorded in sourceVersions",
+   "printed": "The trace at the first quasi-canonical boundary uses the full tame LT group symbol.",
+   "correction": "Use Δ′=Gal(Ψ′_1/Φ), of order p+1.",
+   "reason": "The quasi-canonical first field has degree p+1, not p²−1; its trace of Q is (p+1)Q.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E5",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E6",
+   "kind": "misprint",
+   "locator": "Corollary 5.6, p.959; published version recorded in sourceVersions",
+   "printed": "The displayed quotient has an untwisted ambient module and a twisted minus submodule.",
+   "correction": "The quotient is V∞*/V∞*,−.",
+   "reason": "The submodule lives in the inverse twist and its Kummer dual is D⁻; removing the star changes its Galois action.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E6",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E7",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.8, p.960; published version recorded in sourceVersions",
+   "printed": "The vanishing argument identifies the trivial-character derivative with the zero-level derivative without its scalar Euler factor.",
+   "correction": "Use δ_1=(1−π⁻¹)δ=(1+p⁻¹)δ, then infer the same kernel because the scalar is nonzero.",
+   "reason": "Differentiating the Coleman norm and removing the zero torsion point gives the factor 1−π⁻¹.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E7",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E8",
+   "kind": "misprint",
+   "locator": "§6.0.2, p.962; published version recorded in sourceVersions",
+   "printed": "The finite characters for Ψ_n-local conditions are described using a Galois group relative to the wrong base field.",
+   "correction": "Use Gal(Ψ_n/Φ).",
+   "reason": "Ψ_n is the degree-p^n extension of Φ; its finite Fourier characters have that quotient as domain.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E8",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E9",
+   "kind": "misprint",
+   "locator": "Lemma 5.1(ii), p.956; published version recorded in sourceVersions",
+   "printed": "Trace 2εp is paired with Honda type εX²+p and parameter −εp.",
+   "correction": "Use type −εX²+p and LT parameter εp; trace −2p gives parameter −p.",
+   "reason": "Scalar p²-Frobenius is εp, so [εp] reduces to X^(p²). The type coefficient has the opposite sign.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E9",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E10",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.2(ii),(iii), p.957; published version recorded in sourceVersions",
+   "printed": "The elliptic-point indices two and three are attributed to the modular parametrization.",
+   "correction": "Those are the indices of the forgetful j-map X₀(N)→X(1).",
+   "reason": "They arise from elliptic automorphism stabilizers and bound fibre cardinalities. Ramification of the elliptic quotient is bounded separately by its different.",
+   "affects": "nothing",
+   "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E10",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E11",
+   "kind": "misprint",
+   "locator": "§2, pp.407–408; published version recorded in sourceVersions",
+   "printed": "A p-adic Tate sequence is used as if it were the π-adic sequence needed for π=−p.",
+   "correction": "Replace w_n by (−1)^n w_n, up to a single fixed unit rescaling, so [π]v_(n+1)=v_n.",
+   "reason": "[−p]((−1)^(n+1)w_(n+1))=(−1)^n w_n. Without the correction the required norm/interpolation normalization has the wrong sign.",
+   "affects": "nothing",
+   "known": "BKO21, footnote 2, p.948",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Karl Rubin, Local units, elliptic units, Heegner points and elliptic curves, Inventiones mathematicae 88 (1987), 405–422; Göttingen scan of the published article",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E12",
+   "kind": "error",
+   "locator": "Lemma 4.2, p.410; published version recorded in sourceVersions",
+   "printed": "For a rank-one free Λ-module, a continuous O-linear functional taking a unit value on x is asserted to force x to generate.",
+   "correction": "Require augmentation linearity (or explicitly that the functional sends the maximal ideal times the module into pO). For the Coates–Wiles derivative this follows from δ(gx)=δ(x).",
+   "reason": "On Λ=O[[T]], take the continuous O-linear coefficient-of-T functional and x=T. Its value is 1 but T is not a unit and does not generate Λ. Augmentation linearity instead gives δ(fe)=f(0)δ(e).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Karl Rubin, Local units, elliptic units, Heegner points and elliptic curves, Inventiones mathematicae 88 (1987), 405–422; Göttingen scan of the published article",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnticyclotomicLocalUnits/E13",
+   "kind": "misprint",
+   "locator": "Forward-lattice list in the proof of Theorem 5.5(ii), p.959; published version recorded in sourceVersions",
+   "printed": "The p forward lattices are written ((1+a p^s)/p^(s+1))ℤ_p t+T for a∈𝔽_p.",
+   "correction": "Choose O=ℤ_p⊕ℤ_pθ and use ((1+a p^sθ)/p^(s+1))ℤ_p t+T. Equivalently, for e₁=p^(−s)t and e₂=θt, use ℤ_p(e₁+a e₂)/p+ℤ_p e₂.",
+   "reason": "For s≥1 the printed scalar 1+a p^s is a ℤ_p-unit, so all printed lattices coincide. The corrected two-coordinate list gives p distinct lines in T_s/pT_s besides the backward line.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
+    "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
+    "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
+   ],
+   "owner": "AnticyclotomicLocalUnits",
+   "file": "research/blueprint/packets/AnticyclotomicLocalUnits.json",
+   "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArakelovGeometryAndAbelianHeights/E1",
    "kind": "error",
    "locator": "§2, Bemerkung d), p. 351 and §3, p. 354",
@@ -181222,6 +181495,132 @@
    "status": "confirmed",
    "reviewedBy": "REV-BunGAndNewtonStrata~3",
    "reviewReason": "Independently read both public preprints and checked the identity-class counterexample. This is a local notation defect, with the theorem unchanged."
+  },
+  {
+   "id": "CMRankZeroConverse/E1",
+   "kind": "gap",
+   "locator": "BT, arXiv:2506.03465v2: Theorem 3.1 proof, equation (3.1), p. 6",
+   "printed": "Own-word description: The implication from the vanishing Selmer space to global H² is compressed into an appeal to duality.",
+   "correction": "First apply rational Poitou–Tate to W′, use the Euler identity and local dimensions to deduce H¹_f(ℚ,W′)=0, then apply it to W to kill H². Retain real-place 2-torsion errors until rationalization.",
+   "reason": "The first dual Selmer term belongs to W′, whereas the hypothesis concerns W. Interchanging them without this argument omits a nontrivial step.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E5; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CMRankZeroConverse/E2",
+   "kind": "misprint",
+   "locator": "BT, arXiv:2506.03465v2: Proof of Theorem 1.1, Selmer comparison display, p. 6",
+   "printed": "Own-word description: The displayed dual Selmer comparison uses the CM field as if it were a coefficient field for a ℤ_p module and suppresses the dual representation and central Tate twist.",
+   "correction": "Use completed coefficient fields L, actual Kummer Tate modules, V_pE⊗L=η⊕η̄, M_{f_η}(1)⊗L≅Ind η̄ and finite-condition Shapiro. Only the resulting Selmer-vanishing implication is needed.",
+   "reason": "A tensor product over ℤ_p cannot be formed with an unspecified complex/number-field scalar action, and Kato’s M_f is the cohomological dual of the arithmetic representation.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E3; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CMRankZeroConverse/E3",
+   "kind": "gap",
+   "locator": "BT, arXiv:2506.03465v2: Theorem 3.1 final reciprocity step, p. 6",
+   "printed": "Own-word description: The passage from failure of the finite condition to nonzero dual exponential does not explicitly justify equality of the geometric and finite conditions.",
+   "correction": "Prove D_cris(W^∨(1))^{φ=1}=0 by the central local Frobenius bounds and apply the Bloch–Kato dimension formula, obtaining H_g=H_f=ker exp*.",
+   "reason": "For a general de Rham representation ker exp*=H_g, which can be larger than H_f. A bad-prime purity check is necessary here.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E16; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CMRankZeroConverse/E4",
+   "kind": "gap",
+   "locator": "BT, arXiv:2506.03465v2: Proof of Theorem 3.1, choice of γ in (3.2), p. 6",
+   "printed": "Own-word description: The surviving conjugation eigenspace in the finite-level class needs the zeta sign relation to identify its generator.",
+   "correction": "Use z(cγ)=−σ_{−1}z(γ), evaluate σ_{−1} at (−1)^h and impose γ^{(−1)^(h−1)}≠0. The opposite eigenspace specializes to zero.",
+   "reason": "A nonzero vector in the wrong eigenspace cannot generate the one-dimensional central cohomology.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E6; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CMRankZeroConverse/E5",
+   "kind": "gap",
+   "locator": "BT, arXiv:2506.03465v2: Theorem 3.5 and its use for Proposition 1.3, p. 7",
+   "printed": "Own-word description: The citation to a rank-zero proportion does not state the Selmer-strength input, and the maximal-order reduction is implicit.",
+   "correction": "Use the reduced 3-Selmer rank-zero output of the BKLOS proof; for a nonmaximal CM order first pass by a K-isogeny to maximal order and preserve 3∞ corank, not finite Sel₃ dimension.",
+   "reason": "Mordell–Weil rank zero does not imply Selmer corank zero; bounded finite Selmer torsion is not an isogeny-invariant dimension.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E7; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CMRankZeroConverse/E6",
+   "kind": "gap",
+   "locator": "BT, arXiv:2506.03465v2: Theorem 3.3 and proof of Theorem 1.2, p. 6; footnote 2, p. 2",
+   "printed": "Own-word description: The Smith input and residue-class parity discussion need their precise positive-parameter family to support the stated half-density.",
+   "correction": "Use positive squarefree n≡1,2,3 mod 8 and the 2∞ corank-zero relative-density-one theorem; derive the upper bound by root numbers. Transfer to both-sign fundamental discriminants with the actual piecewise rescaled height.",
+   "reason": "Negative n does not obey the same bare residue table; finite Sel₂ dimension includes rational 2-torsion. A density statement in one ordering is not automatically one in another.",
+   "affects": "the proof",
+   "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E8; no separate published correction established in this job.",
+   "searched": [
+    "Public arXiv v2, read 2026-10-18",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "owner": "CMRankZeroConverse",
+   "file": "research/blueprint/packets/CMRankZeroConverse.json",
+   "citation": "Sources of the blueprint of CMRankZeroConverse",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ClassicalAdicEtaleCohomology/E1",
@@ -194307,7 +194706,7 @@
    "correction": "Bound the smaller ℚ(p)-span W by B=eJ(p∘φ)/log|φ′(0)|. Then dim_(ℚ(x))V≤B and dim_(ℚ(p))V≤[ℚ(x):ℚ(p)]B. With the added hypothesis χ∈ℤ[[t]], W=V and the original sharper bound is valid.",
    "reason": "Take U=ℂ, p=x+x⁴/32, χ=p⁻¹ at zero and φ=2z. The printed hypotheses hold, but V contains ℚ(x) of degree 4 over ℚ(p). Its proposed upper bound is at most e log(5/2)/log2<4. Full verification is AA.4/scalar-span-counterexample. The proof on p.636 controls independent H generators over ℚ(p), which gives W rather than the scalar extension V.",
    "affects": "a stated result",
-   "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+   "known": "new; no applicable published correction located in the recorded bounded search, repeated during independent review on 2026-10-18. The mathematical finding is independently confirmed; this is not a claim of exhaustive novelty.",
    "searched": [
     "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
     "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
@@ -194317,9 +194716,9 @@
    "owner": "DiophantineApproximationAndTranscendencePartII",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendencePartII.json",
    "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, Journal of the American Mathematical Society 38 (2025), 627–702; published author offprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII",
+   "reviewReason": "Confirmed at Definition 2.0.4, p.635 and Corollary 2.0.5, p.636, on the published page images. The inverse of x+x⁴/32 is a rational tangent series with p∘χ=t. Since 1 belongs to H, V contains ℚ(x), whose degree over ℚ(p) is four. The boundary bound |p(2z)|≤5/2 gives B<4 using e<3 and (5/2)^3<2^4. The proof bounds the ℚ(p)-span W; adjoining ℚ(x) requires the recorded degree factor unless W=V."
   },
   {
    "id": "DiophantineApproximationAndTranscendencePartII/E2",
@@ -194329,7 +194728,7 @@
    "correction": "The formula is proved here only for circles or discs centred at the parameter base point, with positive denominator. A valid arbitrary-compact replacement needs additional hypotheses or different terms; it is not supplied by the printed argument.",
    "reason": "Set K=closedDisk(1/2,1/4), p=x, χ=t, U=ℂ and φ(z)=8z exp(−20z). On K, |φ|≤6e^(−5)<1, so the numerator is zero. The denominator is log8+log(1/4)=log2>0, while the space contains 1 and has rank at least 1. See AA.5/compact-counterexample. This failure is independent of E1 since p=x and χ=t.",
    "affects": "a stated result",
-   "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+   "known": "new; no applicable published correction located in the recorded bounded search, repeated during independent review on 2026-10-18. The mathematical finding is independently confirmed; this is not a claim of exhaustive novelty.",
    "searched": [
     "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
     "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
@@ -194339,9 +194738,9 @@
    "owner": "DiophantineApproximationAndTranscendencePartII",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendencePartII.json",
    "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, Journal of the American Mathematical Society 38 (2025), 627–702; published author offprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII",
+   "reviewReason": "Confirmed at §2.5.27 and (2.5.28), p.649, on the published page image. The source imposes no centring condition on K. For the displayed disc, Re z≥1/4 and |z|≤3/4 imply |φ(z)|≤6exp(−5)<1. Thus the proposed numerator is zero, the denominator is log2>0, and the arithmetic space still contains 1. Here p=x and χ=t, so the scalar-span error E1 cannot account for the failure."
   },
   {
    "id": "DirichletPadicLFunctions/E3",
@@ -196501,6 +196900,207 @@
    "status": "confirmed",
    "reviewedBy": "REV-EffectiveDiophantineMethods~4",
    "reviewReason": "22000>6561 contradicts the stated ordering convention. Exact integer checks confirm22000+6561=28561 and coprimality; the summands have the table’s supported prime factors. This is an ordering error, not an objection to the545 count. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E1",
+   "kind": "misprint",
+   "locator": "§5 (5.1.5), p. 235",
+   "printed": "The comparison to A_PL(X)⊗Q[t] is called an isomorphism.",
+   "correction": "Treat it as the previously introduced morphism; its degree-n image is the bounded barycentric-degree subcomplex.",
+   "reason": "On an edge the target t-degree-zero piece contains x₁, but the source degree-zero piece has only constants.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E61, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E2",
+   "kind": "misprint",
+   "locator": "§5 (5.2.1.3), p. 237",
+   "printed": "The right side of the inverse-limit formula uses ordinary X instead of the bold pro-system.",
+   "correction": "Use the pro-system X on both sides.",
+   "reason": "All finite coefficients immediately above and below are those of the pro-system, and no ordinary X has been fixed there.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E62, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E3",
+   "kind": "misprint",
+   "locator": "§5 (5.2.2), second paragraph, p. 238",
+   "printed": "The countability argument is assigned to k and the cover-cofinality statement targets X.",
+   "correction": "Use the countable field k₁ and the variety X₁ throughout that paragraph.",
+   "reason": "The ambient algebraically closed k may be uncountable; all chosen covers have target X₁.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E63, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E4",
+   "kind": "misprint",
+   "locator": "§5 (5.2.2.1) and preceding line, p. 238",
+   "printed": "The notation for the cover interchanges its index α and the field-of-definition index 1.",
+   "correction": "Keep X₁^α in both the fiber product and the connected-component formula.",
+   "reason": "The cover was defined with base-field index 1 and tower index α.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E64, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E5",
+   "kind": "misprint",
+   "locator": "§5 end of (5.2.4), p. 239",
+   "printed": "The sentence introducing the next comparison omits the object of the deduction.",
+   "correction": "The deduction produces Construction 5.2.5 from SGA4 XVI 4.1.",
+   "reason": "Construction 5.2.5 and its proof directly follow.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E65, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E6",
+   "kind": "misprint",
+   "locator": "§5 (5.3.1), second and fourth paragraphs, p. 240",
+   "printed": "The coefficient algebraic closure changes case, and one tensor expression puts a star on that field.",
+   "correction": "Use Kbar for the coefficient algebraic closure, with no star on its tensor factor; Kbar× indexes nonzero eigenvalues.",
+   "reason": "M is tensored with a field, not its multiplicative group.",
+   "affects": "nothing",
+   "known": "Atlas PAPER-DELIGNE-80/E66, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E7",
+   "kind": "misprint",
+   "locator": "§5 Théorème (5.3.4), p. 241",
+   "printed": "The sum on the right uses j≤m while the left filtration index is n.",
+   "correction": "Use W_nH^i=⊕_(j≤n)H^i_j.",
+   "reason": "m is unbound; splitting an increasing filtration uses its same bound on both sides.",
+   "affects": "a stated result",
+   "known": "Atlas PAPER-DELIGNE-80/E67, independently confirmed by REV-PAPER-DELIGNE-80.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E8",
+   "kind": "gap",
+   "locator": "§5 proof of Théorème (5.3.4) and Lemme (5.3.5), p. 241",
+   "printed": "The unrestricted conjugacy result relies on a common-filtration lemma whose proof is left to the reader.",
+   "correction": "Prove the lemma for the original finite set of automorphisms; the fixed-filtration argument alone proves only restricted conjugacy.",
+   "reason": "Two arbitrary gradings must first be placed in one algebraic weight extension; independent choices of finite-type filtrations do not do this.",
+   "affects": "a stated result",
+   "known": "Atlas PAPER-DELIGNE-80/E68, independently confirmed by REV-PAPER-DELIGNE-80; this packet records the open proof task as G5.",
+   "searched": [
+    "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
+    "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E9",
+   "kind": "error",
+   "locator": "Theorem 9.2 and preceding rigidity argument, p. 195; corrected version p. 185 (1986)",
+   "printed": "The proof treats the indecomposable space of a general minimal differential algebra as unchanged by homotopic maps.",
+   "correction": "Use the associated graded of its canonical filtration as the rigid invariant; the revised theorem states Hodge-filtration data up to inner automorphism. The simply connected case is distinguished.",
+   "reason": "The published correction identifies precisely this failed rigidity step and retains the presentation result 9.4. This plan uses that presentation without asserting the rejected functorial indecomposable structure.",
+   "affects": "a stated result",
+   "known": "John W. Morgan, Correction to: The algebraic topology of smooth algebraic varieties, Publ. Math. IHÉS 64 (1986), p. 185.",
+   "searched": [
+    "The Numdam original article record and its correction link.",
+    "The published 1986 correction, read in full."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "John W. Morgan, The algebraic topology of smooth algebraic varieties, Published, Publications mathématiques de l’IHÉS 48 (1978), 137–204",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllAdicHomotopyTypesAndWeights/E10",
+   "kind": "error",
+   "locator": "§5 (5.1.5), last paragraph, p. 235",
+   "printed": "The off-diagonal tensor coefficient-change assertion is made for every quotient of every commutative coefficient ring and every simplicial set.",
+   "correction": "Restrict this roadmap to principal ideal quotients, including the l-power transitions it needs; do not use the assertion for an infinitely generated quotient ideal on an infinite simplicial set.",
+   "reason": "Take the discrete simplicial set N, R=Q[x_1,x_2,...], I=(x_1,x_2,...) and B=R/I. At (p,n)=(0,1), the mapping definition gives Ω_1^0(N,R)=product_N R times γ_1. The tensor map is (product R)/I(product R)→product(R/I). The sequence (x_i) is in its kernel but not I(product R): a finite expression using elements of I lies in a finite-variable ideal, which cannot contain every x_i. Thus the map is not injective although n≠p. The principal-quotient target and its full coefficient-resolution proof remain in G1.",
+   "affects": "a stated result",
+   "known": "No published correction located in the Numdam article record or targeted search; this counterexample requires independent review.",
+   "searched": [
+    "Published Numdam page image p. 235, read directly, and mapping definition 5.1.8 on p. 236.",
+    "Atlas PAPER-DELIGNE-80 extraction and existing source issues: the unrestricted assertion is routed there without this counterexample.",
+    "Targeted public search for Weil II 5.1.5 quotient-coefficient errata; no relevant correction found."
+   ],
+   "owner": "EllAdicHomotopyTypesAndWeights",
+   "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
+   "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "EllipticCurveModularityImaginaryQuadratic/E4",
@@ -205131,9 +205731,9 @@
    "owner": "FuchsianOrbifoldsPartII",
    "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
    "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FuchsianOrbifoldsPartII",
+   "reviewReason": "Confirmed against the final PDF p.952: the written real-line/above convention is not equivariant for a complement interval containing infinity. The full-circle away-side hull repairs it; the arithmetic cusp-normalized examples remain valid."
   },
   {
    "id": "FuchsianOrbifoldsPartII/E2",
@@ -205151,9 +205751,9 @@
    "owner": "FuchsianOrbifoldsPartII",
    "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
    "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FuchsianOrbifoldsPartII",
+   "reviewReason": "Confirmed as an omitted justification at pp.958–959: (3.5) orders complete-axis endpoints, whereas the cuts concern finite arcs. The packet’s descending disc endpoint induction establishes those finite crossings, with equality at the last one-digit endpoint."
   },
   {
    "id": "FuchsianOrbifoldsPartII/E3",
@@ -205161,7 +205761,7 @@
    "locator": "Version of record, last proof paragraph of Theorem 1 p.959",
    "printed": "Distances between successive fixed points in a selected upper-half-plane polygon are treated as quantities determined by the quotient conformal surface.",
    "correction": "Retain the orbifold cone orders; double and lift a conformal equivalence to PSL₂(ℝ). Normalize the unique cusp and use the maximal-height elliptic lifts to remove dilation. Their successive gaps recover the cyclic period. The V(n) values are lift distances, not intrinsic distances between quotient cone points.",
-   "reason": "For ℓ=2 there is one intrinsic distance between two quotient cone points, whereas a cycle such as [3,6] has two different lift distances. The maximal-height proof supplies an intrinsic normalization without this inference.",
+   "reason": "The source orders cone points by their closest boundary footpoints, but does not justify which relative homotopy classes select the displayed successive lifts. For [3,6], two unequal lift distances cannot both mean the single intrinsic metric distance between its two quotient cone points; for [4], successive lifts represent the same cone point. These checks identify the missing bridge, not a counterexample to the theorem.",
    "affects": "the proof",
    "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E20; no published correction located.",
    "searched": [
@@ -205171,9 +205771,9 @@
    "owner": "FuchsianOrbifoldsPartII",
    "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
    "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FuchsianOrbifoldsPartII",
+   "reviewReason": "Confirmed only as a missing lift-selection justification in the p.959 proof. Ordering cone points by closest footpoints alone does not prove invariance of the particular lift spacings. The one-cone and unequal two-gap examples rule out interpreting them as ordinary quotient distances. The doubled-cover and maximal-height argument supplies the bridge; the conformal rigidity theorem is not refuted."
   },
   {
    "id": "FuchsianOrbifoldsPartII/E4",
@@ -205191,9 +205791,9 @@
    "owner": "FuchsianOrbifoldsPartII",
    "file": "research/blueprint/packets/FuchsianOrbifoldsPartII.json",
    "citation": "W. Duke, Ö. Imamoḡlu and Á. Tóth, Geometric invariants for real quadratic fields, Annals of Mathematics 184 (2016), no. 3, 949–990, version of record; DOI 10.4007/annals.2016.184.3.8",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FuchsianOrbifoldsPartII",
+   "reviewReason": "Confirmed visually on p.961 and checked against (7.10), p.972: the inverse-square display fails the y^s eigenfunction test, while the square factor has the printed eigenvalue. This is a local misprint, not an error in the spectral identity."
   },
   {
    "id": "FunctionFieldArithmetic/E1",
@@ -205337,9 +205937,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.1.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.1",
+   "reviewReason": "Independently checked A.1.3 on printed pp. 515–516 and its squaring diagram. Setting the evaluated section to zero leaves the equation t squared=0 on arbitrary test algebras. The dual-number root epsilon survives; only the reduction is the classifying stack."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E5",
@@ -205357,9 +205957,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.1.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; author-hosted published PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.1",
+   "reviewReason": "Independently read the printed p. 515 page image at Definition A.2. The global section is introduced before the restriction clause, so the restricted section must come from that global section. This corrects the reference without changing the moduli condition."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC2-1",
@@ -205399,9 +205999,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.3",
+   "reviewReason": "Confirmed on the published p. 519 image and arXiv v2 pp. 85–86: the geometric base change is omitted twice in the proof. The lemma itself and its conclusion have the required base change. An unramified twist can make a nonzero geometric H¹ have a Frobenius-fixed vector, so arithmetic cohomology need not have the asserted concentration."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC3-2",
@@ -205420,9 +206020,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.3",
+   "reviewReason": "Confirmed in the standard representable convention for finite morphisms. The source itself identifies μ₂^m→μ₂ on stabilizers; its kernel is nontrivial for m≥2. This is a missing qualification/theorem for the pushforward argument, not a counterexample to the claimed local system. The plan records the needed nonrepresentable base-change input."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC3-3",
@@ -205430,7 +206030,7 @@
    "locator": "§7.1.1, p. 506; §A.2.1 and Lemma A.7, p. 519 (same in arXiv v2)",
    "printed": "The normalized IC object is shifted back by its dimension and then given a perverse label.",
    "correction": "Call K the normalized unshifted IC complex; K[d] is perverse. Apply the same normalization discipline to Lhat_d.",
-   "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. The intended normalization/character range is fixed by the surrounding statements; this does not alter the conclusions.",
    "affects": "nothing",
    "known": "Inherited finding of the accepted parent packet (E1, from PAPER-YUN-ZHANG-19), re-read in the published passage on 18 October 2026; not a new finding.",
    "searched": [
@@ -205440,9 +206040,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.3",
+   "reviewReason": "Confirmed as terminology/shift normalization: published p. 506 explicitly uses j_!*(L[d])[−d], and p. 519 treats L_d as an unshifted local system. With the usual perverse t-structure it is L_d[d] that is perverse; the displayed normalizations determine the intended object."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC3-4",
@@ -205450,19 +206050,38 @@
    "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
    "printed": "The proof restricts the global character of the arbitrary rank-one input to signs.",
    "correction": "Use χ:π1(U)→Qℓbar× for the stated arbitrary rank-one local system; inertia at R has order dividing two.",
-   "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. The intended normalization/character range is fixed by the surrounding statements; this does not alter the conclusions.",
    "affects": "nothing",
    "known": "Inherited finding of the accepted parent packet (E3, from PAPER-YUN-ZHANG-19), re-read in the published passage on 18 October 2026; not a new finding.",
    "searched": [
     "Parent packet sourceIssues and their recorded searches (Annals page, authors' pages, arXiv v2), inherited rather than repeated.",
-    "Published passage re-read on the page image of printed p. 519 on 18 October 2026."
+    "Published p. 520 image and arXiv v2 p. 86 independently re-read on 18 October 2026."
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.3",
+   "reviewReason": "Confirmed on published p. 520 and arXiv v2 p. 86. The A.2 input is arbitrary rank one with quadratic local inertia. A geometrically constant arithmetic character with Frobenius ζ₃ is permitted and rules out a globally sign-valued character. The proof works with Q̄ℓ× throughout."
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-5",
+   "kind": "misprint",
+   "locator": "§A.1.3, pp. 515–516; residual-gerbe calculation in Lemma A.7, pp. 519–520",
+   "printed": "The zero-section geometric fibre is described as the classifying gerbe Bμ₂.",
+   "correction": "The full zero-section fibre is [Spec K[t]/(t²)/μ₂]; only its reduction is Bμ₂. Fibre-cohomology calculations first use invariance under nilpotent thickenings.",
+   "reason": "Base change of the root-stack affine chart keeps the equation t²=0. The nilpotent coordinate survives before reduction. This does not change the étale cohomology after invoking the proper invariance statement.",
+   "affects": "nothing",
+   "known": "Inherited E2 of the accepted parent; independently checked here because the coarse and ordered fibre arguments use its reduced gerbes.",
+   "searched": [
+    "Parent sourceIssues E2 and RS.1/closed-fibre; published §A.1.3 and the current upstream SchemeAndStackFoundations §1.21 nonreduced-fibre test."
+   ],
+   "owner": "FunctionFieldArithmeticPartII",
+   "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.3.json",
+   "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF; arXiv:1712.08026v2 collated for the passages of the source issues",
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.3",
+   "reviewReason": "The chart calculation gives the full fibre directly. The geometric stalk argument may use the reduced gerbe only after nilpotent invariance; this condition has been added to both affected stack-operation gaps."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC5-3",
@@ -207310,6 +207929,446 @@
    "status": "confirmed",
    "reviewedBy": "REV-DESIGN-GenericDoublePointInterpolation",
    "reviewReason": "The28-minus18 dimension obstruction is valid in characteristic zero and allows six distinct on-plane supports. The source proof and the packet recursion use general pairs; only the literal unqualified statement is contradicted."
+  },
+  {
+   "id": "GeometricFreyMazur/E1",
+   "kind": "error",
+   "locator": "Published Proposition 14 and Remark 16, pp. 725–727",
+   "printed": "The repulsion conclusion is asserted for both signs of CM.",
+   "correction": "Use Heegner-only repulsion, and conjugate Hecke tubes for the minus sign.",
+   "reason": "Conjugating one factor transports nearby plus pairs to nearby minus pairs; the claimed small integral normalizer lift is not supplied.",
+   "affects": "a stated result",
+   "known": "Author erratum §§1–2, Proposition 2.1.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E2",
+   "kind": "error",
+   "locator": "Published Proposition 25 proof, pp. 736–737",
+   "printed": "The plus-sign repulsion proof is applied to the whole CM locus.",
+   "correction": "Separate the two signs; use the sinh-normalized conjugate-diagonal bound for CM−.",
+   "reason": "The minus-sign repulsion premise fails, although the multiplicity conclusion survives with the new argument.",
+   "affects": "the proof",
+   "known": "Author erratum §§3–4.1, Propositions 3.1 and 4.1.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E3",
+   "kind": "gap",
+   "locator": "Published Proposition 26 proof, p. 737",
+   "printed": "The small-Hecke contribution has exponent −1+3δ, after which the stronger p-weighted decay is inferred.",
+   "correction": "Choose independent δ₃,δ₁,δ₂ and obtain −1−2δ₃+3δ₁ with 3δ₁<2δ₃.",
+   "reason": "Multiplication by the cusp inertia p leaves growth p^(3δ) in the published proof.",
+   "affects": "the proof",
+   "known": "Author erratum §4.2, Proposition 4.2.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E4",
+   "kind": "misprint",
+   "locator": "Author erratum Proposition 4.1 proof, p. 3",
+   "printed": "The displayed factor comparing the ε-tube with the large tube is sinh(R)/sinh(ε).",
+   "correction": "Use sinh(ε)/sinh(R), with R tending to ρ_X/2 from below.",
+   "reason": "Monotonicity of V(r)/sinh(r) directly gives the smaller reciprocal factor.",
+   "affects": "nothing",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields, Five-page author erratum, including Propositions 2.1, 3.1, 4.1, 4.2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E5",
+   "kind": "gap",
+   "locator": "Published Lemma 15 proof, pp. 726–727",
+   "printed": "The order-four square relation and Gaussian norm are also used in the order-three branch.",
+   "correction": "For t=[[0,1],[-1,−1]] use t²+t+I=0, the conjugate root −I−t and det(aI+bt)=a²−ab+b².",
+   "reason": "Direct multiplication and Cayley–Hamilton distinguish the two elliptic types.",
+   "affects": "the proof",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E6",
+   "kind": "error",
+   "locator": "Published §2.5, cyclic definition p. 716 and degree p. 717",
+   "printed": "The cyclic correspondence is assigned projection degree σ₁(m).",
+   "correction": "Use ψ(m)=m∏_(ℓ|m)(1+1/ℓ); retain the sufficient O(m²) upper bound.",
+   "reason": "At m=4 there are six cyclic subgroups and seven total order-four subgroups.",
+   "affects": "a stated result",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E7",
+   "kind": "misprint",
+   "locator": "Published §2.5, pp. 716–717",
+   "printed": "Both polygon component-group domains are written with n components.",
+   "correction": "The pm-gon source has Z/(pm), reducing to Z/p in the target; the p-gon self-map has Z/p.",
+   "reason": "The definition of the n-gon identifies exactly n smooth connected components.",
+   "affects": "nothing",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E8",
+   "kind": "misprint",
+   "locator": "Published §3.1 radius definition, p. 718",
+   "printed": "The cusped radius uses the full infimum of admissible geodesic lengths.",
+   "correction": "Use half that infimum, consistently with the compact injectivity radius.",
+   "reason": "The trace-length calculation gives length 4log p and radius 2log p.",
+   "affects": "nothing",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E9",
+   "kind": "misprint",
+   "locator": "Published Proposition 18 proof, p. 731",
+   "printed": "The prose orders the two hyperbolic metrics in the reverse direction.",
+   "correction": "Use h_X restricted to Y ≤ h_Y.",
+   "reason": "Schwarz–Pick for the inclusion Y→X gives exactly this direction, also used in the next inequality.",
+   "affects": "nothing",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E10",
+   "kind": "misprint",
+   "locator": "Published Proposition 23 proof, p. 735",
+   "printed": "The logarithmic smooth term is multiplied by −1/(2π) before applying dd^c.",
+   "correction": "The coefficient inside the dd^c calculation is −1; the final ω/(4π)+[Δ] formula remains correct.",
+   "reason": "Expand log(χ/(1−χ)) as the difference of the two logarithms using the stated d^c convention.",
+   "affects": "nothing",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E12",
+   "kind": "gap",
+   "locator": "Published Lemma 5 proof, p. 718",
+   "printed": "The displayed trace-extremizing matrix is used as an upper witness for loops nontrivial after filling.",
+   "correction": "Use the residue-class-dependent M_p and triangle-trace calculation in GF.1 instead.",
+   "reason": "The published matrix is U(p)L(−p), a product of two peripheral elements killed by filling. The replacement has triangle trace (27/(4π²))p²+O(p).",
+   "affects": "the proof",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E13",
+   "kind": "gap",
+   "locator": "Published Corollary 8 proof, p. 720",
+   "printed": "A shortest geodesic is said to visit at most one deep cusp, using a 2log p length bound.",
+   "correction": "Use length at most 4log p+O(1), count all deep visits with two concentric cusp radii, and bound each detour/integral uniformly.",
+   "reason": "Length is twice the injectivity radius; separation alone does not establish the one-cusp claim. The reader supplies the bounded-visits replacement.",
+   "affects": "the proof",
+   "known": "Recorded in the existing atlas errata; no author correction located in the bounded search.",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E14",
+   "kind": "gap",
+   "locator": "Published Proposition 12(a) proof, pp. 723–724",
+   "printed": "The proof invokes a matrix height p^(8δ) to force an entry smaller than p throughout the stated δ<1/4 range.",
+   "correction": "For this proof restrict δ<1/8 with a fixed margin; the application needs only sufficiently small δ.",
+   "reason": "The implication p^(8δ)=o(p) requires 8δ<1. This records a proof-range issue, not a counterexample to the whole printed range.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E15",
+   "kind": "error",
+   "locator": "Published §2.2, p. 715, projective level moduli claim",
+   "printed": "Projective framing is described as fine moduli.",
+   "correction": "Use the coarse space and actual full-level torsors; [-1] still fixes a projective frame.",
+   "reason": "Multiplying both frame vectors by −1 is a scalar change, so the elliptic involution remains an automorphism.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E16",
+   "kind": "gap",
+   "locator": "Published Proposition 18(a) proof, pp. 729–730",
+   "printed": "The count of p equally spaced points within hyperbolic chord distance 2R is bounded by a circumference fraction proportional to R/sinh d.",
+   "correction": "Use O(min(p,1+p sinh R/sinh d)) and absorb exp(O(δρ_X)) in the allowed p^(Aδ) losses.",
+   "reason": "The exact rotation identity gives sinh(distance/2)=sinh d·|sin(angle/2)|. R grows with log p, so the small-R linear approximation is insufficient. This is a proof correction, without a claim against the full dichotomy.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E17",
+   "kind": "error",
+   "locator": "Published Proposition 27, pp. 737–740",
+   "printed": "Decay of the sum of big-diagonal multiplicities is stated for every curve outside the big diagonals.",
+   "correction": "Require both projected cycles to be nonconstant and non-Hecke, as verified in the final gonality pullback.",
+   "reason": "On T₁×T₁ embed a generic smooth ample D⊂X×X as (x,x,y,y). It avoids containment in all Δ_g but the ratio of summed multiplicities to canonical degree is 3p/(p−6), tending to 3. The reader gives the intersection calculation.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E18",
+   "kind": "error",
+   "locator": "Published Proposition 17 and proof, pp. 727–728",
+   "printed": "Reconstruction from three nearby singular bicusps is asserted to produce an ordinary small Hecke divisor.",
+   "correction": "Retain both signs: the small locus can be ordinary or conjugate Hecke.",
+   "reason": "The cofactor lift can have negative determinant. For p≡1 mod4 and a²=−1, the reader constructs three nearby cusp pairs (v,av). Any ordinary cyclic degree m containing one must satisfy m≥p−1, while the negative reflection has absolute determinant one.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E19",
+   "kind": "gap",
+   "locator": "Published Proposition 18 case 2(2), p. 731",
+   "printed": "The determinant of the reconstructed integral projective intertwiner is used as a positive Hecke index.",
+   "correction": "Split positive and negative determinants and use an ordinary or conjugate small Hecke tube respectively.",
+   "reason": "Being invertible modulo p and having square determinant class does not imply a positive rational determinant. Multiplying the matrix by −1 leaves the sign unchanged. This records the missing proof case, without asserting a counterexample to the original disjunction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E20",
+   "kind": "gap",
+   "locator": "Published Proposition 27 proof, p. 739, the radial-shell comparison",
+   "printed": "The relative diagonal-tube theorem, Proposition 23, is invoked to compare volumes in concentric point balls.",
+   "correction": "Use the weaker point-ball inequality V(r)≤C_n(1+r)exp(r−R)V(R), with a new Green-identity proof and an explicit HV.4 request.",
+   "reason": "A point-ball volume is not a diagonal-tube volume. Neither the stated Proposition 23 nor the point-multiplicity lower bound supplies this comparison. The logarithmic loss is harmless after shrinking the fixed decay exponent; the reader proves the required version.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricFreyMazur/E21",
+   "kind": "gap",
+   "locator": "Published Proposition 27 proof, p. 740, the enlarged-ball overlap step",
+   "printed": "Proposition 17 is used to assert disjointness of enlarged bicusp-centred balls except along small Hecke loci.",
+   "correction": "Use projected area forms and projected ball counts. Charge multiplicity at most two once in each surface projection, and use signed lenses only for the remaining projected multiple overlaps.",
+   "reason": "Proposition 17 has a three-bicusp premise, not a two-ball disjointness conclusion. Moreover three distinct centres in SBC×SBC can repeat either projection. The reader gives a projectionwise replacement rather than treating every product-ball overlap as a common Hecke tube.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals published article landing page and publisher PDF, checked 2026-10-18.",
+    "Author publication page and the complete five-page author erratum, checked 2026-10-18.",
+    "arXiv record 1403.7168 and targeted correction searches; no further repair located in this bounded search.",
+    "Existing independently reviewed atlas errata PAPER-BAKKER-TSIMERMAN-16, read in full."
+   ],
+   "owner": "GeometricFreyMazur",
+   "file": "research/blueprint/packets/GeometricFreyMazur.json",
+   "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "GeometricSatakeAndFusion/E1",
@@ -217419,7 +218478,7 @@
    ],
    "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
    "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
-   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -217428,7 +218487,7 @@
    "id": "HigherLocalFieldsAndHigherClassFieldTheory/E2",
    "kind": "misprint",
    "locator": "Kurihara, Part I §5.1, printed p. 55 (physical p. 67), target group immediately after the displayed lifted symbol; published MSP volume.",
-   "printed": "H^1(K, Z/p^n(q − 1))",
+   "printed": "The lifted symbol is assigned cohomological degree one in the displayed target.",
    "correction": "The lifted cup-product symbol has target H^q(K, Z/p^n(q − 1)).",
    "reason": "The first factor i(w) has degree one and each of the q−1 Kummer factors has degree one; their cup product has degree q and twist q−1. The map being defined on this page is i_F^K:H^q(F)→H^q(K). The exponent 1 was verified visually in the published PDF.",
    "affects": "nothing",
@@ -217441,7 +218500,7 @@
    ],
    "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
    "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
-   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -217450,7 +218509,7 @@
    "id": "HigherLocalFieldsAndHigherClassFieldTheory/E3",
    "kind": "misprint",
    "locator": "Kurihara, Part I §5.2, printed p. 56 (physical p. 68), sentence beginning “Since the isomorphism”; published MSP volume.",
-   "printed": "inv: H^d(K) → Q/Z",
+   "printed": "The sentence after the invariant display lowers the domain degree from d+1 to d.",
    "correction": "The invariant has domain H^{d+1}(K).",
    "reason": "The invariant displayed above that sentence and both entries in the immediately following corestriction square are H^{d+1}; the text has dropped the +1. Verified visually. For a one-dimensional local field the invariant is on H^2=Br, not H^1 of characters.",
    "affects": "nothing",
@@ -217463,7 +218522,7 @@
    ],
    "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
    "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
-   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -217485,7 +218544,47 @@
    ],
    "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
    "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
-   "citation": "Ivan Fesenko and Masato Kurihara, editors; contributions by I. Zhukov, O. Izhboldin, M. Kurihara, J. Nakamura, I. Fesenko, S. V. Vostokov, M. Spiess, L. Spriano, K. Kato, A. N. Parshin, D. Osipov and others, Invitation to higher local fields, Geometry & Topology Monographs, Volume 3 (2000), open access; 316 PDF pages; printed page numbers run from iii to 306, and the extraction page equals the printed page plus twelve",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E5",
+   "kind": "misprint",
+   "locator": "Kurihara I §9.1, theorem, printed p. 92 (physical p. 104).",
+   "printed": "The exponential theorem displays differential degree q in the domain of the map to degree-q Milnor K-theory.",
+   "correction": "The source formula requires Ω̂^{q−1}_{O_K} as domain of exp_η^q, not Ω̂^q.",
+   "reason": "Its input is a coefficient times q−1 logarithmic differentials. For q=1 the map is the ordinary exponential on O_K, whereas the printed domain would be one-forms. The residue square on p. 93 also lowers differential and Milnor degrees together.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Title/author/errata searches on 2026-10-18 located no correction; this limited search makes no priority claim.",
+    "arXiv math/0012140 submission history, checked 2026-10-18, lists only v1. The attempted MSP article XHTML fetch failed and is not counted as a negative search."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherLocalFieldsAndHigherClassFieldTheory/E6",
+   "kind": "misprint",
+   "locator": "Fesenko I §10.4.1, strong Artin–Schreier tree definition, printed p. 98 (physical p. 110).",
+   "printed": "In the strong-tree sentence the smaller field E is expressed as a field generated over the larger field M, with the polynomial coefficient placed in M.",
+   "correction": "For each degree-p M/E require M=E(α), with α^p−α∈E.",
+   "reason": "If E⊂M and [M:E]=p>1 then E cannot equal M(α), which contains M. The preceding ordinary-tree definition gives the consistent orientation of both the extension and its polynomial coefficient.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Fesenko/Artin–Schreier-tree/errata and strong-tree/correction searches on 2026-10-18 found no correction; this is not a priority claim.",
+    "arXiv math/0012141 history checked 2026-10-18 lists only v1. The published MSP volume remains reversed at the cited page; the earlier-worker author-copy check did not cover this passage."
+   ],
+   "owner": "HigherLocalFieldsAndHigherClassFieldTheory",
+   "file": "research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json",
+   "citation": "Ivan Fesenko and Masato Kurihara, editors; cited chapters by I. Zhukov, O. Izhboldin, M. Kurihara, I. Fesenko, S. V. Vostokov and K. Kato, Invitation to higher local fields, Geometry & Topology Monographs 3 (2000); printed page locators; physical page = positive printed page + 12",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -227272,6 +228371,26 @@
    "reviewReason": "Found in this review and read at the locator in the author's DVI. The node L7/height-lattice-moduli (4) states the module as projective and records the difference."
   },
   {
+   "id": "LocallyAnalyticCompletedCohomology/E1",
+   "kind": "misprint",
+   "locator": "Theorem 5.4.2(1), p. 64 of the published version (Forum Math. Pi 10 (2022) e7); the same text in arXiv:2008.07099v3",
+   "printed": "Part (1) says that N_{k,w} is isomorphic to M†_{2−k}(K^p) 'unless k ≠ 2', and then treats k = 2 separately.",
+   "correction": "N_{k,w} ≅ M†_{2−k}(K^p) unless k = 2, i.e. for k ≠ 2; for k = 2 there is the extension 0 → M†_0/M_0 → N_{2,w} → M_0 → 0.",
+   "reason": "The sentence that follows treats k = 2 as the exception, the main statement of the same theorem says M_{μ,w} = M†_{μ+2ρ} ⊗ n* 'unless k = 2', and Theorem 1.0.1(1) on p. 3 states N_{k,w} ≅ M†_{2−k} for k ≠ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Forum of Mathematics, Pi article page (no correction notice)",
+    "arXiv:2008.07099v3, which has the same wording"
+   ],
+   "owner": "LocallyAnalyticCompletedCohomology",
+   "file": "research/blueprint/packets/LocallyAnalyticCompletedCohomology.json",
+   "citation": "Lue Pan, On locally analytic vectors of the completed cohomology of modular curves, Forum of Mathematics, Pi 10 (2022), e7, 1–82, open-access version of record, doi:10.1017/fmp.2022.1; page numbers are the printed (= PDF) pages; compared with arXiv:2008.07099v3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LocallyAnalyticDistributions/E101",
    "kind": "gap",
    "locator": "Appendix A, proof of Proposition A.4, printed p. 59 (author PDF; the same in arXiv:2108.12785v4)",
@@ -227641,6 +228760,167 @@
    "reviewReason": "Confirmed in arXiv v3 p. 139, also inspected as an image. The strict <h complementary test misses the boundary eigenvalue; monic tests must include root valuation h."
   },
   {
+   "id": "LocallyAnalyticDistributionsPartII/E1",
+   "kind": "misprint",
+   "locator": "§4, equation (16), p. 14 (arXiv v2; published p. 138)",
+   "printed": "D_r(G, K), defined as the completion of D(G, K) for ‖·‖_r, is described as the series Σ λ_α b^α with sup_α |λ_α| r^{|α|} finite.",
+   "correction": "The completion consists of the series with |λ_α| r^{|α|} → 0; the bounded condition describes the larger space D_{<r}(G, K) of ST03 Lemma 4.8.",
+   "reason": "For G = ℤ_p and r = p^{−1/p} the coefficients λ_{pj} = p^{−j} (zero otherwise) give a bounded weighted sequence not tending to zero; ST03 p. 18 states the decay condition.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-FU-24/E2 in the paper extraction; no published erratum.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "the paper extraction research/blueprint/papers/PAPER-FU-24.result.json, sourceIssues",
+    "Crossref record of DOI 10.4007/annals.2024.200.1.3 (no update relation, per the extraction)"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E2",
+   "kind": "gap",
+   "locator": "Theorem 4.2, p. 14 (arXiv v2; published p. 138)",
+   "printed": "D_r(G, K) is stated to be a noetherian Banach integral domain with multiplicative norm for every 1/p ≤ r < 1.",
+   "correction": "Multiplicativity and the domain property hold for all real 1/p < r < 1 and at r = 1/p; noetherianity is proved only for r ∈ p^ℚ (and r = 1/p).",
+   "reason": "ST03 Theorem 4.5(ii) needs r ∈ p^ℚ for the filtration to be quasi-integral; nothing downstream needs irrational radii.",
+   "affects": "a stated result",
+   "known": "Recorded as PAPER-FU-24/E8 in the paper extraction; no published erratum.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E3",
+   "kind": "error",
+   "locator": "§4, equation (17), p. 14 (arXiv v2; published p. 138)",
+   "printed": "The microlocal set ⋃_a (p^a + m^{a+1}) is formed in R[[G]] with R the integers of an arbitrary finite extension K of ℚ_p.",
+   "correction": "Use R unramified (p a uniformiser), as in AW13 §10.1, and obtain the microlocalisation over K by base change (ND.4/microlocal-coefficient-extension).",
+   "reason": "If R is ramified then p ∈ m², so 0 = p − p ∈ p + m² and the set is not an Ore set of nonzerodivisors.",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-FU-24/E4 in the paper extraction; no published erratum.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E4",
+   "kind": "error",
+   "locator": "Theorem 5.7, p. 20 (arXiv v2; published p. 145)",
+   "printed": "D^λ_r(G, ℚ_p) is stated to be an integral domain for every λ and every 1/p < r < 1.",
+   "correction": "Add the integrality hypothesis v_p(λ_0) ≥ 2 (for example λ(Δ) ∈ ℤ_p); for non-integral λ the quotient can be zero.",
+   "reason": "For r = p^{−2/3} and λ(Δ) = p^{−1}, ‖Δ‖_r ≤ p^{2/3} < |λ|, so Δ − λ is a unit of D_r and D^λ_r = 0; the proof's own first branch (symbol a unit) reaches this zero quotient.",
+   "affects": "a stated result",
+   "known": "Recorded as PAPER-FU-24/E7 in the paper extraction; no published erratum.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E5",
+   "kind": "gap",
+   "locator": "Proof of Theorem 5.7, p. 20, as used in the proof of Theorem 5.1, p. 21 (arXiv v2)",
+   "printed": "The graded ring of D^λ_r for the weaker norm ‖·‖_{r′} is identified, via Lemma 2.2, with the quotient of the graded ring of D_r by the symbol of p²Δ + λ_0, and the domain property is transferred to D^λ_r.",
+   "correction": "The transfer needs the induced filtration on D_r/D_r(p²Δ + λ_0) to be separated; this holds for r < p^{−1/2} but is unproved at the radii r_n = p^{−1/p^n} of Theorem 5.1 (the gap of this packet).",
+   "reason": "Lemma 2.2 applies to a filtration in which every nonzero element has an exact degree; the filtration induced by ‖·‖_{r′} on a quotient of D_r need not have this property.",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-FU-24/E5 in the paper extraction; Theorem 1.5 itself follows from AW14, as the paper notes.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E6",
+   "kind": "error",
+   "locator": "Remark 5.8, second bullet, pp. 20–21 (arXiv v2; published p. 147)",
+   "printed": "An infinitesimal character λ is said to be induced if and only if v_p(λ_0) ≥ 2.",
+   "correction": "Only 'only if' holds: λ is induced iff 2λ(Δ) + 1 is a square in ℤ_p (ND.5/induced-infinitesimal-characters).",
+   "reason": "At p = 3, λ(Δ) = 1 is integral, but 2λ + 1 = 3 is not a square in ℚ_3.",
+   "affects": "a stated result",
+   "known": "Recorded as PAPER-FU-24/E3 in the paper extraction; no published erratum.",
+   "searched": [
+    "arXiv 2201.11190 v1 and v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Weibo Fu, Sharp bounds for multiplicities of Bianchi modular forms, Annals of Mathematics 200 (2024), no. 1, 123–152; arXiv:2201.11190v2 (15 February 2024), whose numbering agrees with the published text. The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E7",
+   "kind": "misprint",
+   "locator": "§5.2, proof of the Lemma, p. 14 (arXiv v1)",
+   "printed": "D_{1/p}(G, K) is described as the formal power series Σ λ_α b^α for which the supremum of |λ_α|(1/p)^{|α|} is finite.",
+   "correction": "As the completion of D(G, K) for ‖·‖_{1/p}, D_{1/p}(G, K) consists of the series with |λ_α| p^{−|α|} → 0; this is also what matches Û(g)_K, whose elements are null sequences in the PBW basis.",
+   "reason": "Under b_i ↦ exp(pu_i) − 1 ≡ pu_i, Σ λ_α b^α corresponds to Σ λ_α p^{|α|} u^α + (higher order), which lies in Û(g)_K iff |λ_α| p^{−|α|} → 0; the bounded series λ_{α} = p^{|α|} at α = (n, 0, …, 0) gives Σ u_1^n, not in Û(g)_K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1308.5104 (only v1 listed)",
+    "the published version in Münster J. Math. 7 (2014) was not consulted"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "Konstantin Ardakov and Simon Wadsley, Verma modules for Iwasawa algebras are faithful, Münster Journal of Mathematics 7 (2014), 5–26; arXiv:1308.5104v1 (23 August 2013). The arXiv text was read; page numbers are those of the arXiv PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E8",
+   "kind": "misprint",
+   "locator": "Definition 2.2.31, p. 24 (arXiv v1)",
+   "printed": "A left Û(g)-module is called coadmissible when it is lim M_r with M_r finitely generated and M_{r+1} ⊗_{Û(g)_{r+1}} Û(g)_r = M_r.",
+   "correction": "For left modules the transition is Û(g)_r ⊗_{Û(g)_{r+1}} M_{r+1} ≅ M_r, with the Banach algebra on the left, as in ST03 §3.",
+   "reason": "M_{r+1} ⊗_{Û(g)_{r+1}} (−) requires M_{r+1} to be a right module.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E002 in the paper extraction.",
+   "searched": [
+    "arXiv 2502.20645 (v1 only)",
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json"
+   ],
+   "owner": "LocallyAnalyticDistributionsPartII",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributionsPartII.json",
+   "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Modularity theorems for abelian surfaces, arXiv:2502.20645v1 (28 February 2025), 230 pp. Only §2.2.27–2.2.36 was read for this roadmap.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E1",
    "kind": "misprint",
    "locator": "§1 trace-constant definition, p.1; arXiv:2111.12660v2, PDF hash as recorded above; journal text not collated.",
@@ -227938,9 +229218,9 @@
    "owner": "LubinTateFormalModulesAndQuasiCanonicalLifts",
    "file": "research/blueprint/packets/LubinTateFormalModulesAndQuasiCanonicalLifts.json",
    "citation": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota, Rubin’s conjecture on local units in the anticyclotomic tower at inert primes, Annals of Mathematics 194 (2021), 943–966; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
+   "reviewReason": "Independently checked published Lemma 5.1(ii), p.956, against Honda70 Lemma 4.2, p.231. Reduction [s p]=X^(p²) gives s pℓ−ℓ(X^(p²))∈pO[[X]], hence type p−sT² and parameter s p. The explicit normalized logarithm Σ(s p)^(-j)X^(p^(2j)) satisfies pℓ−sℓ(X^(p²))=pX. For s=−1 this agrees with BKO’s subsequent parameter −p; the printed opposite signs cannot agree with scalar Frobenius."
   },
   {
    "id": "MetaplecticAutomorphicForms/E-MP0-1",
@@ -242902,7 +244182,7 @@
    "kind": "gap",
    "locator": "Published Théorème 2.5.2, proof step (a), p. 81",
    "printed": "To get flatness of the generic fibre of the Noetherian tube over A_{j0}, the source describes the analytic spectrum of A_{j0} as an increasing union of affinoid polydiscs and invokes flatness of affinoid subdomains; the descent from the polydiscs to A_{j0} is not argued.",
-   "correction": "Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness).",
+   "correction": "Prove faithful flatness of the integral model C = A°_{j0}⟨T^{1/p^j}, U⟩/(ϖ_{ik}U − f_{ik}) over A°_{j0} directly: C is Noetherian, ϖ_j-torsion-free (Weierstrass unit-ball theorem, multiplication by f_{ik} being isometric) and ϖ_j-adically complete, and C/ϖ_j is free over A°_{j0}/ϖ_j; Bhatt's Proposition 5.1 then gives faithful flatness, and the generic-fibre flatness follows by inverting p (node PerfectoidSpacesPartII:RA.5/noetherian-tube-faithful-flatness). Require j ≥ k and choose g_k in A°_{j0}, so the special fibre is monic in the auxiliary variable and free on Z^a U^b with a < p^{j−k}. The choice exists by Frobenius surjectivity on the coordinate base, independently of the auxiliary variable.",
    "reason": "A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available.",
    "affects": "the proof",
    "known": "PAPER-ANDRE-18-B/E26 (recorded by the extraction, no review verdict yet)",
@@ -242914,9 +244194,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "A_{j0} is a localisation of a complete regular local ring, not an affinoid algebra; flatness over each polydisc algebra does not by itself give flatness over the intersection without a separate argument, while step (b) and torsion-freeness are available. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E2",
@@ -242935,18 +244215,18 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "If B′ = 0 (or B′ is supported on a proper factor of A[1/g]) then B = 0 or the structure map has a kernel, so A → B is not an inclusion. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E3",
    "kind": "error",
    "locator": "Published Lemme 2.6.3, proof, p. 29",
    "printed": "The proof bounds the infimum over m of |(g/λ)^m a| below by 1.",
-   "correction": "The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|.",
+   "correction": "The lower bound is |a|, which is positive, under the stated assumptions a ∈ A° nonzero and 0 < |λ| ≤ |ga|. This repairs only the displayed numerical bound; the quotient-norm identity used before it is a separate false assertion (E11), so the proof of limit injectivity is replaced by spectral-point detection.",
    "reason": "With |λ| ≤ |ga| and a ∈ A°, |(g/λ)^m a| ≥ |a| for spectral norms, but it can be smaller than 1 when |a| < 1; the lemma's conclusion only needs positivity.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "PAPER-ANDRE-18/E6",
    "searched": [
     "Numdam page of the published article (no erratum listed)",
@@ -242956,9 +244236,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "The m = 0 term has norm |a|, which can be strictly below 1. The power-multiplicative inequality gives the stated local repair, but E11 prevents that calculation from proving the lemma by itself."
   },
   {
    "id": "PerfectoidSpacesPartII/E4",
@@ -242966,7 +244246,7 @@
    "locator": "Published Remarque 2.6.4(1), p. 29",
    "printed": "The remark asserts that all the maps A{λ/g}^u → A{μ/g}^u are injective.",
    "correction": "Remove the general injectivity assertion; a use needs hypotheses ensuring the particular restriction map is injective. This roadmap does not use it.",
-   "reason": "Non-zero-divisibility of g alone is insufficient (counterexample recorded in the extraction review).",
+   "reason": "Take A = K×K with max norm, g = (ϖ²,1), λ = ϖ³ and μ = ϖ. Then g is regular, A{λ/g} has both factors, and restriction to A{μ/g} kills the first factor.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18/E16",
    "searched": [
@@ -242977,9 +244257,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "Take A = K×K with max norm, g = (ϖ²,1), λ = ϖ³ and μ = ϖ. Then g is regular, A{λ/g} has both factors, and restriction to A{μ/g} kills the first factor. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E5",
@@ -242987,7 +244267,7 @@
    "locator": "Published formula (2.17), §2.5.3(1), p. 26",
    "printed": "The middle term of the displayed equality inverts p.",
    "correction": "Invert ϖ: g^{-1/p^∞}B = g^{-1/p^∞}B°[1/ϖ] = B_*.",
-   "reason": "Throughout §2.5 the generic fibre is formed by inverting the chosen ϖ; for |p| < |ϖ| the two differ.",
+   "reason": "In characteristic p, inverting p means inverting 0 and gives the zero ring, whereas inverting the nonzero pseudouniformizer gives the intended generic fibre. In mixed characteristic these inversions agree; differing positive norms alone would not distinguish them.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18/E5",
    "searched": [
@@ -242998,9 +244278,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "In characteristic p, inverting p means inverting 0 and gives the zero ring, whereas inverting the nonzero pseudouniformizer gives the intended generic fibre. In mixed characteristic these inversions agree; differing positive norms alone would not distinguish them. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E6",
@@ -243019,9 +244299,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "The elements ϖ^{m/p^n}g^{m/p^n}b lie in B[1/g], not necessarily in B°[1/g]. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E7",
@@ -243029,7 +244309,7 @@
    "locator": "arXiv v2 §1.4 Notation, p. 3",
    "printed": "The chosen t ∈ K° has p-power roots and |t| = |p| in characteristic 0; nothing excludes |t| = 1 or t = 0 in characteristic p.",
    "correction": "Also require 0 < |t| < 1, so that t is a pseudouniformizer.",
-   "reason": "In characteristic p a unit t would make every module almost zero for nothing and the rational subsets X⟨t^n/g⟩ would not shrink.",
+   "reason": "For t a unit the almost-zero condition is ordinary zero and the annuli do not grow to exhaust g ≠ 0. For t = 0 almost mathematics degenerates in the opposite direction. A nonzero topologically nilpotent t is the intended setup.",
    "affects": "nothing",
    "known": "PAPER-BHATT-18/E16",
    "searched": [
@@ -243040,9 +244320,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Bhargav Bhatt, On the direct summand conjecture and its derived variant, arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "For t a unit the almost-zero condition is ordinary zero and the annuli do not grow to exhaust g ≠ 0. For t = 0 almost mathematics degenerates in the opposite direction. A nonzero topologically nilpotent t is the intended setup. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E8",
@@ -243061,9 +244341,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "Formula (3) treats the non-discrete case. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E9",
@@ -243071,7 +244351,7 @@
    "locator": "Published introduction §0.6, p. 74",
    "printed": "The introduction describes Â_∞⟨g^{1/p^∞}⟩° as the completion of the union of the integral closures of A in A[ζ_{p^i}, g^{1/p^i}, 1/p].",
    "correction": "Include the coordinate roots: it is the completed directed union of the A°_{jk} of §§2.2–2.3, which adjoin T_l^{1/p^j} as well.",
-   "reason": "Without the coordinate roots the completed union is not perfectoid (Frobenius is not surjective modulo p on W(k)⟦T⟧-coordinates), contradicting its use as Â°_∞∞.",
+   "reason": "For example take n ≥ 1 and g = 1. Adjoining only cyclotomic and g-roots does not supply p-th roots of the independent coordinates; Frobenius on their reduction is not surjective. The main-text double tower includes the necessary coordinate roots.",
    "affects": "nothing",
    "known": "PAPER-ANDRE-18-B/E25",
    "searched": [
@@ -243082,9 +244362,9 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "For example take n ≥ 1 and g = 1. Adjoining only cyclotomic and g-roots does not supply p-th roots of the independent coordinates; Frobenius on their reduction is not surjective. The main-text double tower includes the necessary coordinate roots. Independently checked at the recorded locator."
   },
   {
    "id": "PerfectoidSpacesPartII/E10",
@@ -243103,9 +244383,92 @@
    "owner": "PerfectoidSpacesPartII",
    "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
    "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "Almost purity of a composite implies almost purity of its first factor, as for ordinary purity. Independently checked at the recorded locator."
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E11",
+   "kind": "error",
+   "locator": "Published §2.6.2 property list, p. 28, and Lemme 2.6.3 proof, p. 29",
+   "printed": "The image norm in A{λ/g} is identified with inf_{m≥0} ‖(g/λ)^m a‖.",
+   "correction": "Use the Banach quotient norm inf_h ‖a+((g/λ)U−1)h‖_Gauss. Prove the limit-injectivity conclusion by extending a spectral point with |ag| > 0 to a sufficiently large annulus.",
+   "reason": "For A = K×K, λ = ϖ, g = (ϖ²,1), a = (1,ϖ²) and q = |ϖ| < 1, the quotient norm is q², while the claimed infimum is inf_m max(q^m,q^{2−m}) = q. The denominator ideal can change the representative in each factor independently.",
+   "affects": "a stated result",
+   "known": "Independently detected in this review; the latest arXiv preprint has the same formula.",
+   "searched": [
+    "Published Numdam PDF, pp. 28–29",
+    "Latest arXiv:1609.00320 text, corresponding property list and proof",
+    "Bounded web search for a correction to the Laurent norm formula; none located"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "For A = K×K, λ = ϖ, g = (ϖ²,1), a = (1,ϖ²) and q = |ϖ| < 1, the quotient norm is q², while the claimed infimum is inf_m max(q^m,q^{2−m}) = q. The denominator ideal can change the representative in each factor independently. Independently checked at the recorded locator."
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E12",
+   "kind": "error",
+   "locator": "Published Proposition 4.4.4 proof (2), p. 63",
+   "printed": "The trace argument says A[1/g] embeds in the uniform limit of the A[j].",
+   "correction": "Use the algebraic limit lim_j A[j], where g is invertible; use Laurent limit injectivity before localising. This suffices to detect the trace pairing and the kernel.",
+   "reason": "With A = K⟨T^{1/p^∞}⟩ and g = T, the annular norms of 1/T are |ϖ|^{-j}, so 1/T is not in the bounded uniform limit, although it lies in the algebraic limit. For x in the kernel test tr(xy) for every y, then use nondegeneracy.",
+   "affects": "the proof",
+   "known": "Independently detected in this review; the latest arXiv preprint has the same bounded-limit wording.",
+   "searched": [
+    "Published Numdam PDF, p. 63",
+    "Latest arXiv:1609.00320 corresponding proof",
+    "Bounded web search for an erratum; none located"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, Le lemme d’Abhyankar perfectoïde, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 1–70, DOI 10.1007/s10240-017-0096-x (Numdam copy; arXiv:1609.00320 is the preprint)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "With A = K⟨T^{1/p^∞}⟩ and g = T, the annular norms of 1/T are |ϖ|^{-j}, so 1/T is not in the bounded uniform limit, although it lies in the algebraic limit. For x in the kernel test tr(xy) for every y, then use nondegeneracy. Independently checked at the recorded locator."
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E13",
+   "kind": "misprint",
+   "locator": "Published proof of Lemme A.2.1, p. 90",
+   "printed": "The dual used for the generator criterion is written with S-linear maps from S to R.",
+   "correction": "Use Hom_R(S,R); write 1 as a finite sum Σ_i f_i(s_i), then t ↦ Σ_i f_i(s_i t) is an R-linear retraction.",
+   "reason": "The base ring R has no canonical S-module structure for this argument. The trace ideal of a generator uses R-linear functionals; a finite sum, rather than a single evaluation, proves the retraction.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E1; independently confirmed against the published proof.",
+   "searched": [
+    "Published Numdam PDF, p. 90",
+    "PAPER-ANDRE-18-B extraction and independent review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy). arXiv:1609.00345v1 was compared: its Théorème 2.5.1 is the published Théorème 2.5.2, and its Lemme 1.1.2 has a different statement.",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "The base ring R has no canonical S-module structure for this argument. The trace ideal of a generator uses R-linear functionals; a finite sum, rather than a single evaluation, proves the retraction. Independently checked at the recorded locator."
+  },
+  {
+   "id": "PerfectoidSpacesPartII/E14",
+   "kind": "misprint",
+   "locator": "arXiv:1609.00345v1 §5.5, p. 14; corrected in published Annexe A.4, p. 92",
+   "printed": "The definition for a module map M → N instead tests the ring-map expression P → P ⊗_R S, with S absent from the module setup.",
+   "correction": "For every P require P ⊗_R M → P ⊗_R N almost injective. Cite the already-correct published Annexe A.4 for the definition.",
+   "reason": "A test involving an unrelated ring S cannot define almost purity of a general module map. The published text repairs this; this record is explicitly preprint-only.",
+   "affects": "nothing",
+   "known": "PAPER-ANDRE-18-B/E11.",
+   "searched": [
+    "arXiv:1609.00345v1 p. 14",
+    "Published Numdam PDF, p. 92",
+    "PAPER-ANDRE-18-B extraction and independent review"
+   ],
+   "owner": "PerfectoidSpacesPartII",
+   "file": "research/blueprint/packets/PerfectoidSpacesPartII.json",
+   "citation": "Yves André, La conjecture du facteur direct, arXiv:1609.00345v1 (2016); used only for version comparison",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PerfectoidSpacesPartII",
+   "reviewReason": "A test involving an unrelated ring S cannot define almost purity of a general module map. The published text repairs this; this record is explicitly preprint-only. Independently checked at the recorded locator."
   },
   {
    "id": "PeriodsAndSpecialValues/E1",
@@ -252579,6 +253942,90 @@
    "reviewReason": "Substitution w=z+iu in (17), or the upper incomplete gamma computation, preserves the positive Fourier phase exp(2πin² Re z/120). The gamma argument is πn²|Im z|/30. This also makes exponential growth of q^{n²/120} cancel the erfc decay. The printed argument also has n and π under the wrong scaling and uses y<0 under a real square root; the correct real erfc argument is n√(π|y|/30)."
   },
   {
+   "id": "QuadraticFormInvariantsPartII/E1",
+   "kind": "misprint",
+   "locator": "§3 definition of characteristic-two Pfister forms, p.6 (arXiv v2 only; journal text not collated)",
+   "printed": "The same two-angle outer notation as quadratic factors is used before the characteristic-two terminal factor.",
+   "correction": "Interpret the outer factors as symmetric bilinear ⟨1,−a_i⟩_b and tensor them with [1,a₀]; this removes the ambiguity.",
+   "reason": "A diagonal quadratic factor in characteristic two has zero polar form and cannot yield the asserted nonsingular quadratic tensor. EKM §9 explicitly distinguishes bilinear outer factors.",
+   "affects": "nothing",
+   "known": "Previously recorded in PAPER-DITTMANN-POP-23/E1; no published correction located.",
+   "searched": [
+    "Existing accepted Dittmann–Pop extraction sourceIssues, read 2026-10-18.",
+    "arXiv record and v2; Annals DOI landing page; author final-PDF link (download refused).",
+    "Web queries Dittmann Pop Characterizing erratum and 2012.01307 correction errata, 2026-10-18; no corrigendum found."
+   ],
+   "owner": "QuadraticFormInvariantsPartII",
+   "file": "research/blueprint/packets/QuadraticFormInvariantsPartII.json",
+   "citation": "Philip Dittmann and Florian Pop, Characterizing finitely generated fields by a single field axiom, arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QuadraticFormInvariantsPartII/E2",
+   "kind": "error",
+   "locator": "Proposition3.2(3), Case2, Claim, p.7 (arXiv v2 only; journal text not collated)",
+   "printed": "The proof bounds cd₂(E′k′_v) through cd₂(E′)≤δ(E′)+1 at nonreal v.",
+   "correction": "Bound the local compositum directly by trdeg_(k′)E′+cd₂(k′_v)≤trdeg_(k′)E′+2.",
+   "reason": "A formally real E′ has cd₂(E′)=∞. The finite-place henselian local base has cd₂=2, and the complex base has cd₂=0; the corrected argument proves the required bound without the false intermediary.",
+   "affects": "the proof",
+   "known": "Previously recorded in PAPER-DITTMANN-POP-23/E6; no published correction located.",
+   "searched": [
+    "Existing accepted Dittmann–Pop extraction sourceIssues, read 2026-10-18.",
+    "arXiv record and v2; Annals DOI landing page; author final-PDF link (download refused).",
+    "Web queries Dittmann Pop Characterizing erratum and 2012.01307 correction errata, 2026-10-18; no corrigendum found."
+   ],
+   "owner": "QuadraticFormInvariantsPartII",
+   "file": "research/blueprint/packets/QuadraticFormInvariantsPartII.json",
+   "citation": "Philip Dittmann and Florian Pop, Characterizing finitely generated fields by a single field axiom, arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QuadraticFormInvariantsPartII/E3",
+   "kind": "misprint",
+   "locator": "Proposition3.2(2), tensor expansion in the proof, p.7 (arXiv v2 only; journal text not collated)",
+   "printed": "The coefficients of the subset-indexed block sum are written as π^χ.",
+   "correction": "In odd characteristic the coefficient is (−1)^|χ|π^χ with the paper’s ⟨1,−π⟩ convention.",
+   "reason": "Already one outer factor gives q⊥−πq. The missing signs have valuation zero, so the distinct-value proof is unchanged.",
+   "affects": "nothing",
+   "known": "Previously recorded in PAPER-DITTMANN-POP-23/E10; no published correction located.",
+   "searched": [
+    "Existing accepted Dittmann–Pop extraction sourceIssues, read 2026-10-18.",
+    "arXiv record and v2; Annals DOI landing page; author final-PDF link (download refused).",
+    "Web queries Dittmann Pop Characterizing erratum and 2012.01307 correction errata, 2026-10-18; no corrigendum found."
+   ],
+   "owner": "QuadraticFormInvariantsPartII",
+   "file": "research/blueprint/packets/QuadraticFormInvariantsPartII.json",
+   "citation": "Philip Dittmann and Florian Pop, Characterizing finitely generated fields by a single field axiom, arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QuadraticFormInvariantsPartII/E4",
+   "kind": "misprint",
+   "locator": "Lemma3.9(2), final neighborhood sentence, p.11 (arXiv v2 only; journal text not collated)",
+   "printed": "The neighborhood is attached to the quadratic form in the sentence proving openness of a valuation locus.",
+   "correction": "It is a neighborhood of the chosen valuation w.",
+   "reason": "The ambient topology is Val_F; the quadratic form is fixed and is not a point of that space.",
+   "affects": "nothing",
+   "known": "Previously recorded in PAPER-DITTMANN-POP-23/E9; no published correction located.",
+   "searched": [
+    "Existing accepted Dittmann–Pop extraction sourceIssues, read 2026-10-18.",
+    "arXiv record and v2; Annals DOI landing page; author final-PDF link (download refused).",
+    "Web queries Dittmann Pop Characterizing erratum and 2012.01307 correction errata, 2026-10-18; no corrigendum found."
+   ],
+   "owner": "QuadraticFormInvariantsPartII",
+   "file": "research/blueprint/packets/QuadraticFormInvariantsPartII.json",
+   "citation": "Philip Dittmann and Florian Pop, Characterizing finitely generated fields by a single field axiom, arXiv:2012.01307v2, final author version 27 April 2023. Published Annals198 (2023), 1203–1227; published text not collated.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QuiverRepresentationsPartII/E1",
    "kind": "misprint",
    "locator": "arXiv v4 p.20, converse path construction before Figure 1; earlier published p.19 collation is inherited from REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -252631,6 +254078,246 @@
    "status": "confirmed",
    "reviewedBy": "REV-DESIGN-QuiverRepresentationsPartII",
    "reviewReason": "Direct arXiv v4 pp.12–13 text and rendered diagrams confirm a label/shortening notation inconsistency, rather than an error in the four surviving intervals or final ramified multisegment. Published-text evidence remains inherited."
+  },
+  {
+   "id": "RankOneConverse/E1",
+   "kind": "gap",
+   "locator": "§2.2, Lemma 2.2.2, pp. 337–338",
+   "printed": "The passage from global rank d to injective restriction in the chosen λ-component is treated as immediate.",
+   "correction": "Use nonvanishing of every eigenlogarithm of an actual non-torsion point; no extra uniqueness-of-λ hypothesis is needed.",
+   "reason": "A rank-one M⊗ℚ_p module can map to a local module with one component zero. Freeness alone does not exclude that. BSW Theorem 1.1 excludes it for these algebraic points.",
+   "affects": "the proof",
+   "known": "Repaired using Burungale–Skinner–Wan arXiv:2603.20886v2, Theorems 1.1 and 2.3; existing GZ.9/eigenlogarithm-nonvanishing supplies the interface.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E2",
+   "kind": "gap",
+   "locator": "§2.6, Corollary 2.6.2, p. 344",
+   "printed": "Nonzero Heegner point is taken to imply nonzero chosen scalar logarithm without an argument for a higher-dimensional A_f.",
+   "correction": "Pass to y=φQ_K^ξ before coefficient projection, match the eigendifferential, clear denominators and apply BSW.",
+   "reason": "Nonzero full vector logarithm does not alone imply a nonzero prescribed eigencomponent, nor can BSW be applied to an arbitrary coefficient tensor.",
+   "affects": "the proof",
+   "known": "Repaired using BSW Theorem 1.1 and the actual-point comparison in GZ.9/eigenlogarithm-nonvanishing.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E3",
+   "kind": "misprint",
+   "locator": "§2.7, proof of Proposition 2.7.2, p. 346",
+   "printed": "The UFD discussion describes the power-series rings themselves as ideals.",
+   "correction": "Read the assertion as a claim about the coefficient power-series rings; the needed specialized ideal containment uses Fitting base change and divisorial closure.",
+   "reason": "Unique factorization is a ring property, and principality alone does not prove characteristic-ideal specialization.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E4",
+   "kind": "misprint",
+   "locator": "§2.8, proof of Lemma 2.8.1, p. 347",
+   "printed": "The reducibility step suppresses the restriction of the representation to G_K.",
+   "correction": "The hypothetical invariant line is for the restricted representation; uniqueness and normality then make it globally invariant.",
+   "reason": "The global representation was assumed irreducible at the start of the lemma.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E5",
+   "kind": "misprint",
+   "locator": "§2.8, proof of Lemma 2.8.1, p. 347",
+   "printed": "A different prime letter occurs in the tame inertia discussion.",
+   "correction": "Use the same ramified prime ℓ throughout the local inertia argument.",
+   "reason": "No second local prime is selected in that argument.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E6",
+   "kind": "misprint",
+   "locator": "§2.6, proof of Corollary 2.6.2, p. 344",
+   "printed": "The comparison of logarithms uses the Heegner-point symbol for a different choice without identifying it.",
+   "correction": "Use the rational Hodge-divisor representative and its specified projected P_K(f), with matching ω.",
+   "reason": "The eigendifferential kills the complementary projector, giving the stated equality only after this identification.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E7",
+   "kind": "misprint",
+   "locator": "§2.5, concluding paragraph, p. 341",
+   "printed": "The image point is denoted with its field and form arguments interchanged.",
+   "correction": "Use the same P_K(f) defined in §2.4.",
+   "reason": "There is a single fixed quotient point in the height argument.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E8",
+   "kind": "misprint",
+   "locator": "§2.9, rank bound, p. 348",
+   "printed": "The target of the Kummer rank comparison is written without the finite-condition subscript.",
+   "correction": "Use H¹_f(K,V), whose dimension is one, instead of unrestricted H¹.",
+   "reason": "The hypothesis bounds the finite Selmer dimension, not unrestricted global cohomology.",
+   "affects": "the proof",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E9",
+   "kind": "misprint",
+   "locator": "§2.1.2, p. 336",
+   "printed": "The unramified quadratic twisting datum is called an extension where a character is used.",
+   "correction": "Use the unique nontrivial unramified quadratic character of ℚ_ℓ×.",
+   "reason": "The local representation is twisted by a character, not a field.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E10",
+   "kind": "gap",
+   "locator": "§4, proof of Theorem E, p. 352",
+   "printed": "The selected twist is asserted to have a simple central zero without a distinct derivative-nonvanishing input.",
+   "correction": "Apply BFH(i) to a fixed locally prescribed quadratic twist and then a positive second twist split at the enlarged set, as in PC.6.",
+   "reason": "A root number of −1 forces odd order but not order one, and value nonvanishing in the other branch cannot provide a derivative.",
+   "affects": "the proof",
+   "known": "The needed theorem is BFH 1990, unnumbered introductory Theorem (i), pp. 543–544; this plan gives its local-prescription reduction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E11",
+   "kind": "misprint",
+   "locator": "§2.4 Case II, p. 340",
+   "printed": "The norm comparison points to Brooks §2.8.",
+   "correction": "The Petersson norm convention needed there is in the published Brooks §2.7, p. 4190.",
+   "reason": "The cited §2.8 begins the CM setup; the preceding section contains the norm.",
+   "affects": "nothing",
+   "known": "No correction located in the published article landing page as checked 2026-10-18; also recorded by the atlas Skinner extraction.",
+   "searched": [
+    "Annals published PDF and article landing page, https://annals.math.princeton.edu/2020/191-2/p01, checked 2026-10-18",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json and the existing GZ.9 eigenlogarithm/normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin, Annals of Mathematics 191 (2020), 329–354; published version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "RankOneConverse/E12",
+   "kind": "misprint",
+   "locator": "§8.6, Propositions 8.12–8.13, p. 4239, published PDF",
+   "printed": "The two weight-two formulas display a scalar logarithm without its square.",
+   "correction": "Retain the square of the logarithm from Theorem 8.11 when taking weight two and descending the point.",
+   "reason": "The preceding squared formula specializes to a square. Scaling f or the point also distinguishes a linear logarithm from the required quadratic expression.",
+   "affects": "a stated result",
+   "known": "Already flagged in the atlas GZ.9/quaternionic-weight-two-formula; the corrected squared expression is used by Skinner Proposition 2.6.1.",
+   "searched": [
+    "Published Brooks PDF, Theorem 8.11 and §8.6, read 2026-10-18",
+    "Existing GrossZagierAndArithmeticHeights GZ.9 packet source issues and normalization nodes"
+   ],
+   "owner": "RankOneConverse",
+   "file": "research/blueprint/packets/RankOneConverse.json",
+   "citation": "E. Hunter Brooks, Shimura curves and special values of p-adic L-functions, International Mathematics Research Notices 2015 (12), 4177–4241; published PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "RankZeroOneBSD/E1",
@@ -262100,9 +263787,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.1.json",
    "citation": "The Stacks Project Authors, The Geometry of Algebraic Stacks, Stacks Project ed88ff78, compiled 2026-07-14",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.1",
+   "reviewReason": "Independently checked the recorded PDF, official tag 0DRJ and current upstream TeX on 2026-10-18. The proof opening has a plus sign while the statement and concluding computation have minus. For the point stack, the identity atlas gives 0 and the affine-line atlas would give 2 under addition, so addition cannot be atlas-invariant. This is the existing finding, not a second erratum."
   },
   {
    "id": "StableReductionPartII/E3",
@@ -262169,9 +263856,9 @@
    "id": "StableReductionPartII/E15",
    "kind": "error",
    "locator": "arXiv:math/0404387v1, §2.3, p. 18, paragraph following the two local-isomorphism projections",
-   "printed": "The argument transfers rigidity of marked curves to the forgotten objects and concludes that the arrow-to-object-pair map is an immersion.",
-   "correction": "After forgetting markings, retain automorphism arrows. For G=1 the arrow space is T_g×Mod_g and its map to T_g×T_g is unramified, but need not be a monomorphism or an immersion in the locally closed embedding sense.",
-   "reason": "Take G=1, g=2 and a marked genus-two curve x. Its underlying unmarked curve has both the identity and hyperelliptic involution; these give distinct arrows above (x,x). An immersion is a monomorphism and cannot have this fibre. Rigidity of an object with its marking does not remove automorphisms of its image in the unmarked stack.",
+   "printed": "The text invokes rigidity of the marked data and calls the arrow-to-object-pair map an immersion.",
+   "correction": "Retain stabilizer arrows after forgetting markings. The action groupoid for G=1 is not a monomorphism over T_g×T_g, but its arrow map is locally a graph because its source projection is a local isomorphism. This is compatible with analytic immersion in the local differential sense.",
+   "reason": "At a genus-two point the identity and hyperelliptic involution give two arrows over (x,x). This disproves global monomorphism, not local analytic immersion. In a source chart the arrow map is a holomorphic graph, hence an immersion in the differential sense. The alleged source error depends on reading immersion as a locally closed embedding and is not established by this example.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -262183,9 +263870,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
    "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-StableReductionPartII--MC.5",
+   "reviewReason": "The two-arrow example tests monomorphism rather than analytic immersion. The local-isomorphism source projection makes the arrow map locally a graph; no contradiction with that analytic meaning follows. Retain the inertia warning without treating the passage as a verified error."
   },
   {
    "id": "StableReductionPartII/E16",
@@ -262205,9 +263892,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
    "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.5",
+   "reviewReason": "The printed fixed-source fibre cannot contain the positive-dimensional Teichmüller factor when the projection is a local isomorphism. The G=1, g=2 specialization already proves the dimensional contradiction; the full arrow space and a source fibre have been confused."
   },
   {
    "id": "StableReductionPartII/E17",
@@ -262227,9 +263914,31 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
    "citation": "Paola Frediani; Frank Neumann, Étale homotopy types of moduli stacks of algebraic curves with symmetries, arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.5",
+   "reviewReason": "For an action moving x the two arrow faces land at different points, whereas the proposed constant-space product keeps x fixed. Thus the degreewise product is not a simplicial identification. The Borel construction gives the required homotopy equivalence without this identification."
+  },
+  {
+   "id": "StableReductionPartII/E18",
+   "kind": "misprint",
+   "locator": "Published J. Éc. polytech. Math. 11 (2024), Proposition 6.8 proof, printed p. 317, unnumbered projection-formula display after the complete-flag construction",
+   "printed": "The left side of the projection-formula display uses the factor [E]−r, whereas the right side retains its k₀-th gamma operation.",
+   "correction": "Retain γ^{k₀}([E]−r) on the left as well as on the right. The other factors and the complete-flag pushforward remain as in the intended argument.",
+   "reason": "Take f:P¹_k→Spec(k), E=O(1), r=1, k₀=3 and no other gamma factors. The complete-flag map is the identity and its extra product is 1. The printed left side has Euler characteristic χ(O(1))−χ(O)=1. On the right γ³([O(1)]−1)=0 because the gamma series for a line minus 1 has only its linear term. Restoring the gamma operation makes both sides zero and restores the filtration degree needed for n=1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published article page https://jep.centre-mersenne.org/articles/10.5802/jep.254/ checked 2026-10-18; no linked correction found.",
+    "arXiv https://arxiv.org/abs/2305.13129 history checked 2026-10-18: v1 and v2 both predate publication. No comparison with the preprint text is claimed.",
+    "Author publication pages https://perso.pages.math.cnrs.fr/users/gerard.freixas/research.html and https://denniseriksson-math.github.io/Dennis-Math/ checked 2026-10-18; no correction for this paper listed.",
+    "Title/author searches for erratum and corrigendum on 2026-10-18 found no separate correction."
+   ],
+   "owner": "StableReductionPartII",
+   "file": "research/blueprint/packets/StableReductionPartII--MC.5.json",
+   "citation": "Dennis Eriksson; Gerard Freixas i Montplet, Deligne–Riemann–Roch and intersection bundles, Journal de l’École polytechnique — Mathématiques 11 (2024), 247–361; version of record",
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.5",
+   "reviewReason": "The rank-one complete-flag example gives 1 on the printed left side and 0 on the right. The preceding argument and right side both require the omitted gamma operation. This is a local display typo, not a counterexample to Proposition 6.8 or Corollary 6.9."
   },
   {
    "id": "StableReductionPartII/E15-MC6",
@@ -262248,9 +263957,9 @@
    "owner": "StableReductionPartII",
    "file": "research/blueprint/packets/StableReductionPartII--MC.6.json",
    "citation": "Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result, Author manuscript dated 21 August 2024; printed page = PDF page. Published Annals 203 (2026), pp.15–119, not collated.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-StableReductionPartII--MC.6",
+   "reviewReason": "Confirmed only for proper finiteness to the whole A_g in the hash-identified author manuscript, §3.4 p.56. Over C, smooth a stable genus2 curve formed from two elliptic curves meeting in one node. The compact-type Jacobian extends to their product in A₂, whereas a smooth genus2 Jacobian has an irreducible theta divisor and cannot be that product. The smooth Torelli image is therefore not closed and its map to A₂ is not finite. Quasi-finiteness supplies the generic-finiteness step actually used; finite-to-one language is compatible with the argument. The published article is not collated."
   },
   {
    "id": "StableReductionPartII/E1",
@@ -263216,6 +264925,90 @@
    "owner": "TropicalAndBerkovichArithmetic",
    "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
    "citation": "Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves, Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E6",
+   "kind": "error",
+   "locator": "§2.7, printed p. 961, Annals 191 (2020); also arXiv:1901.09945v2 §2.7, p. 12",
+   "printed": "The bilinear cross-energy of two arbitrary signed mass-zero continuous-potential measures is declared nonnegative, with equality characterized by their equality.",
+   "correction": "Nonnegative definiteness applies to E(ρ,ρ), with equality iff ρ=0; for two equal-mass measures use E(ν₁−ν₂,ν₁−ν₂), with equality iff ν₁=ν₂. The subsequent local pairing already uses this difference self-energy.",
+   "reason": "Take distinct nonclassical tree points x,y and ρ=δ_x−δ_y. Their continuous tree potentials have E(ρ,ρ)=d(x,y)>0. Thus E(ρ,−ρ)<0; taking both arguments equal to ρ also disproves the printed equality criterion.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals article/DOI listing and publisher PDF checked 2026-10-18; the assertion persists in the version of record.",
+    "Author pages and searches for a correction to the DKY potential-theory energy assertion checked 2026-10-18; no correction identified.",
+    "Compared arXiv:1901.09945v2 §2.7 with printed p. 961; this finding concerns the local preliminary assertion, not the main theorem."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves, Annals of Mathematics 191 (2020), 949–1001; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E7",
+   "kind": "misprint",
+   "locator": "arXiv:1504.00694 PDF, Proposition 3.28 proof, p. 26, last dimension estimate",
+   "printed": "The final proof sentence gives an upper bound on the dimension of the agreement subspace, whereas the proposition states the same bound on its codimension.",
+   "correction": "Replace the final dimension estimate by codimension ≤deg(ζ)−1; the proposition statement is unchanged.",
+   "reason": "Agreement is the kernel of a linear map into the space of harmonic functions on a star modulo constants, whose dimension is deg(ζ)−1. Rank bounds the kernel codimension, not its dimension.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The current arXiv PDF, Proposition 3.28 and proof, checked 2026-10-18.",
+    "Rabinoff and Zureick-Brown publication pages and erratum searches checked 2026-10-18; no correction identified.",
+    "The author-linked Duke offprint returned HTTP 404, and the Project Euclid PDF was blocked by its browser challenge. The published proof was not collated; finding scoped to the preprint."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank, arXiv:1504.00694 PDF retrieved 2026-10-18; physical pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E8",
+   "kind": "misprint",
+   "locator": "Author-hosted arXiv:1108.6126v2, §13.16, p. 46, tropical-cycle pushforward multiplicity",
+   "printed": "The displayed lattice factor places the source lattice first and the target lattice second, without applying the lattice map.",
+   "correction": "For a source cell σ mapping with full dimension to τ, use [N′_τ:A(N_σ)].",
+   "reason": "For z↦z² on the one-dimensional torus the source lattice maps to 2ℤ⊂ℤ, so the weight must be [ℤ:2ℤ]=2. Reversing the index is undefined as a subgroup index and would give the wrong degree.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author-hosted guide PDF and author publication page checked 2026-10-18; no separate correction identified.",
+    "The guide is published in Contemporary Mathematics 589 (2013), 125–189; no publisher full text was obtained in this run. This finding is scoped only to the author-hosted v2 formula.",
+    "Compared with Sturmfels–Tevelev Corollary 3.8 and the BPR multiplicity formulation, which use the target/image index."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Walter Gubler, A guide to tropicalizations, Author-hosted arXiv:1108.6126v2; page numbers in the PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "TropicalAndBerkovichArithmetic/E9",
+   "kind": "error",
+   "locator": "arXiv:1301.0792v5, Remark 2.3.9, second bullet, p. 35",
+   "printed": "The characteristic-p assertion makes the existence of a uniform unit sufficient for a bounded analytic-field scalar structure, without norm uniformity.",
+   "correction": "Retain the forward implication. For the converse require norm control on all integral powers of the uniform unit, for example that A is uniform as a Banach ring.",
+   "reason": "On F_p((z)), choose 0<r<1 and the weighted norm max_i rⁱ(1+|i|). The weights are submultiplicative and this complete norm gives z spectral values r and r⁻¹, hence a uniform unit. Any bounded analytic-field scalar map would send a small nonzero scalar t to an element of positive z-valuation k. Its positive and negative nth powers have norms at least r^(±nk)(1+nk). Multiplying the proposed bounded estimates forces (1+nk)²≤C² for every n, a contradiction.",
+   "affects": "a stated result",
+   "known": "Already recorded as PAPER-KEDLAYA-LIU-15/E101 and independently confirmed by REV-PAPER-KEDLAYA-LIU-15; this packet imports the correction.",
+   "searched": [
+    "Read the supplied v5 p. 35 again in this run and checked the weighted-norm argument.",
+    "The existing paper extraction records searches of the authors’ Part II Appendix A errata, author papers page, arXiv history and atlas errata register. Its independent review confirms that the correction to 2.8.1 does not correct this remark. Those searches are inherited provenance, not a claim of fresh published-version collation.",
+    "The existing extraction did not obtain the published Astérisque text; this imported finding remains scoped to arXiv v5."
+   ],
+   "owner": "TropicalAndBerkovichArithmetic",
+   "file": "research/blueprint/packets/TropicalAndBerkovichArithmetic.json",
+   "citation": "Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations, arXiv:1301.0792v5, maintainer-supplied paper copy; printed PDF pages",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -264739,6 +266532,90 @@
    "status": "confirmed",
    "reviewedBy": "REV-WeilConjectures--WC.6",
    "reviewReason": "Re-read arXiv v3 Corollary 7.2 proof p.21. Poincare duality must supply b_3=0 from the assumed b_1=0; the printed repeated b_1=0 does not record the required degree-three vanishing. Confirmed as a misprint for the read preprint only."
+  },
+  {
+   "id": "ZagierConjecturePolylogarithms/E01",
+   "kind": "error",
+   "locator": "v5 §10.1, Definition 10.7 and the subsequent evaluation map, p. 97",
+   "printed": "The three-term relation in the first family is set to zero after dropping constants, and the resulting symbolic object is then mapped to the unmodified explicit trilogarithm group.",
+   "correction": "The constant-free evaluation target is B₃-exp/Q[1]₃. For the actual chain map retain a constant c evaluating to [1]₃ and set the three-term sum to c, or establish cancellation of all omitted constants in the alternating tensor map.",
+   "reason": "The actual functional relation in GR (19) has three-term sum [1]₃. Over a number field such as Q this constant has nonzero trilogarithm period, so it cannot simply evaluate to zero. The omission is explicitly acknowledged by the source, but the unmodified evaluation codomain requires the additional argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv v5, §10.1 and §§10.3–10.4, read 2026-10-18",
+    "arXiv version history, latest v5 dated 2026-07-15",
+    "Web search on 2026-10-18 for Goncharov–Rudenko symbolic Bloch constants and corrections"
+   ],
+   "owner": "ZagierConjecturePolylogarithms",
+   "file": "research/blueprint/packets/ZagierConjecturePolylogarithms.json",
+   "citation": "A. B. Goncharov and D. Rudenko, Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4), arXiv:1803.08585v5, 15 July 2026; 111 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ZagierConjecturePolylogarithms/E02",
+   "kind": "misprint",
+   "locator": "v5 Theorem 10.15(b), equation (244), p. 106, compared with its calculation on p. 107",
+   "printed": "The displayed image of the unscaled alternating wedge is the same expression used for the normalized R₇² chain-map component.",
+   "correction": "Multiply the displayed right-hand expression by −84 for the unscaled wedge, or replace the left input by −1/84 times that wedge. The map in (166) already has the correct −1/84 normalization.",
+   "reason": "The calculation on p. 107 gives δW=−42A, while the displayed right side reduces to A/2. Thus δW=−84·(right side). The factor in (166) then gives the required chain identity. The PDF display on p. 106 was visually checked, rather than relying on extracted fraction text.",
+   "affects": "nothing",
+   "known": "GR v5 equation (166) and the calculation on p. 107 give the intended −1/84 normalization; equation (244) itself remains uncorrected in the version read.",
+   "searched": [
+    "arXiv v5 equations (166) and (244), pp. 71, 106–107, read 2026-10-18",
+    "arXiv latest-version history and correction search on 2026-10-18"
+   ],
+   "owner": "ZagierConjecturePolylogarithms",
+   "file": "research/blueprint/packets/ZagierConjecturePolylogarithms.json",
+   "citation": "A. B. Goncharov and D. Rudenko, Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4), arXiv:1803.08585v5, 15 July 2026; 111 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ZagierConjecturePolylogarithms/E03",
+   "kind": "gap",
+   "locator": "v5 §9.3(2), pp. 92–93, matrix-segment construction and passage to F-valued framed subquotients",
+   "printed": "A sequence of matrix-entry segments is used to pass from the Grassmannian symbol to motivic iterated-integral expressions over the original number field.",
+   "correction": "Specify the changing entry consistently (the kth segment changes the kth first-row entry), the F-rational or tangential endpoints, regularization at determinant zeros, constants and the full cobracket/descent comparison. Keep this as LIFT until proved.",
+   "reason": "At k=1 the printed entry index is zero although matrix indices start at one. Moreover setting first-row entries to zero reaches the non-generic boundary, and equality of reduced symbols does not control constant extensions. G09’s rational-complex-variety theorem does not itself supply all the asserted F-valued motivic data. The separate source-version record scopes this finding to arXiv v5.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv v5 §9.3, pp. 92–94",
+    "G09 §3.3, Theorem 3.4 and warning, pp. 18–19; §4.1, pp. 22–23",
+    "arXiv latest-version history on 2026-10-18"
+   ],
+   "owner": "ZagierConjecturePolylogarithms",
+   "file": "research/blueprint/packets/ZagierConjecturePolylogarithms.json",
+   "citation": "A. B. Goncharov and D. Rudenko, Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4), arXiv:1803.08585v5, 15 July 2026; 111 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ZagierConjecturePolylogarithms/E04",
+   "kind": "gap",
+   "locator": "arXiv v5 §2.1, cyclic quotient preceding Theorem 2.1, p. 27; compare G08 §8.2, Propositions 8.3–8.4, pp. 84–85",
+   "printed": "The cyclic tensor quotient by first-shuffle relations is identified with special derivations without stating a pure-puncture reduction or a low-weight restriction.",
+   "correction": "For the positive-weight comparison explicitly remove the pure-puncture cyclic kernel before dualizing. In lengths at least three the pure powers vanish already by rational shuffle; the extra length-two diagonal classes need to be removed. Keep the ordinary weight-one correlator formula off its diagonal.",
+   "reason": "The two-letter pure cyclic word ⟨X_s,X_s⟩ survives the stated first-shuffle quotient, since those generators have length at least three. Its cyclic derivative is 2X_s and its induced tangential action is [X_s,2X_s]=0. Thus the literal unrestricted map has a kernel. G08 Proposition 8.3 explicitly computes the associative kernel as pure-puncture polynomials, explaining the required reduction. This is a carrier/range qualification, not a counterexample to the weight-four theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "GR arXiv v5 pp. 26–28, read 2026-10-18",
+    "G08 arXiv v4 §§8.1–8.3, pp. 82–85, and §10.3, pp. 94–96",
+    "Web searches on 2026-10-18 for Proposition 8.4 cyclic special-derivation kernel and Goncharov–Rudenko Theorem 2.1 corrections",
+    "Author publication page and Annals forthcoming list https://annals.math.princeton.edu/toappear, checked 2026-10-18: GR listed as forthcoming; this finding is scoped to arXiv v5"
+   ],
+   "owner": "ZagierConjecturePolylogarithms",
+   "file": "research/blueprint/packets/ZagierConjecturePolylogarithms.json",
+   "citation": "A. B. Goncharov and D. Rudenko, Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4), arXiv:1803.08585v5, 15 July 2026; 111 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "MordellLawrenceVenkatesh/E1",
