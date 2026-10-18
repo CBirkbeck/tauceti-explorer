@@ -168,10 +168,11 @@ end CoprimeConjugacy
 section PropertyE
 
 /-- Property E (LWZB Definition 2.3) for a finite Γ-group `H` relative to a class `𝒦` of finite
-Γ-groups: surjections onto `G ∈ 𝒦` lift along every non-split central extension
+Γ-groups: `H ∈ 𝒦`, and surjections onto `G ∈ 𝒦` lift along every non-split central extension
 `1 → Z/p → E → G → 1` in `𝒦` with trivial Γ-action on the kernel. -/
 def HasPropertyE (𝒦 : (E : Type) → [Group E] → [MulDistribMulAction Γ E] → Prop)
-    (H : Type) [Group H] [MulDistribMulAction Γ H] : Prop :=
+    (H : Type) [Group H] [Finite H] [MulDistribMulAction Γ H] : Prop :=
+  𝒦 H ∧
   ∀ (G E : Type) [Group G] [Group E] [Finite E] [MulDistribMulAction Γ G]
     [MulDistribMulAction Γ E] (π : E →*[Γ] G), 𝒦 E → 𝒦 G → Function.Surjective π →
     (Nat.card (π : E →* G).ker).Prime → (π : E →* G).ker ≤ Subgroup.center E →
@@ -183,7 +184,8 @@ def HasPropertyE (𝒦 : (E : Type) → [Group E] → [MulDistribMulAction Γ E]
 /-- Property E passes to smaller classes containing `H` (RG.1, Property E at a level, (a)). -/
 theorem HasPropertyE.mono {𝒦 𝒦' : (E : Type) → [Group E] → [MulDistribMulAction Γ E] → Prop}
     (h𝒦 : ∀ (E : Type) [Group E] [MulDistribMulAction Γ E], 𝒦' E → 𝒦 E)
-    {H : Type} [Group H] [MulDistribMulAction Γ H] (hH : HasPropertyE Γ 𝒦 H) :
+    {H : Type} [Group H] [Finite H] [MulDistribMulAction Γ H] (hH : HasPropertyE Γ 𝒦 H)
+    (hH𝒦' : 𝒦' H) :
     HasPropertyE Γ 𝒦' H := by sorry
 
 end PropertyE
