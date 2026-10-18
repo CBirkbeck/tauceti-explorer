@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-18T22:10Z",
+ "updated": "2026-10-18T22:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1372,7 +1372,7 @@
   "ArithmeticStatisticsPartI": {
    "stage": "pr",
    "pr": 1171,
-   "head": "6858955",
+   "head": "a333428",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": null,
@@ -1384,7 +1384,7 @@
   "ArithmeticStatisticsPartIV": {
    "stage": "pr",
    "pr": 1172,
-   "head": "902b51e",
+   "head": "830d7eb",
    "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
    "review": {
     "recommendation": null,
