@@ -10006,7 +10006,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-BCGP18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #905"
   },
   {
    "id": "REV-DESIGN-BCGP18",
@@ -11247,7 +11248,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RootSystemsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3358",
+   "finishedAt": "2026-10-18T01:14:06Z"
   },
   {
    "id": "REV-DESIGN-RootSystemsPartII",
@@ -11875,7 +11878,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LocallyAnalyticDistributionsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3374"
   },
   {
    "id": "REV-DESIGN-LocallyAnalyticDistributionsPartII",
@@ -13803,7 +13807,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FuchsianOrbifoldsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3414"
   },
   {
    "id": "REV-DESIGN-FuchsianOrbifoldsPartII",
@@ -14453,8 +14458,9 @@
    "avoidAccountOf": "DESIGN-ArithmeticStatisticsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArithmeticStatisticsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3499"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3499",
+   "finishedAt": "2026-10-18T01:14:07Z"
   },
   {
    "id": "DESIGN-SelmerIwasawaCohomologyPartII",
@@ -16080,7 +16086,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DiophantineApproximationAndTranscendencePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3465"
   },
   {
    "id": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII",
@@ -16573,7 +16580,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PerfectoidSpacesPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3480",
+   "finishedAt": "2026-10-18T01:14:10Z"
   },
   {
    "id": "REV-DESIGN-PerfectoidSpacesPartII",
@@ -30884,7 +30893,9 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.0.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8900",
+   "finishedAt": "2026-10-18T01:14:11Z"
   },
   {
    "id": "REV-StableReductionPartII--MC.0",
@@ -30928,7 +30939,8 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8901"
   },
   {
    "id": "REV-StableReductionPartII--MC.1",
@@ -30972,7 +30984,8 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8902"
   },
   {
    "id": "REV-StableReductionPartII--MC.2",
@@ -31016,7 +31029,9 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8903",
+   "finishedAt": "2026-10-18T01:14:13Z"
   },
   {
    "id": "REV-StableReductionPartII--MC.3",
@@ -31060,7 +31075,9 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8904",
+   "finishedAt": "2026-10-18T01:14:15Z"
   },
   {
    "id": "REV-StableReductionPartII--MC.4",
@@ -31104,7 +31121,8 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8905"
   },
   {
    "id": "REV-StableReductionPartII--MC.5",
@@ -31148,7 +31166,8 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8906"
   },
   {
    "id": "REV-StableReductionPartII--MC.6",
@@ -31192,7 +31211,8 @@
    ],
    "followUpOf": "DESIGN-StableReductionPartII",
    "prompt": "research/blueprint/prompts/BP-StableReductionPartII--MC.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8907"
   },
   {
    "id": "REV-StableReductionPartII--MC.7",
@@ -31716,7 +31736,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--RS.1.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8917",
+   "finishedAt": "2026-10-18T01:14:16Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--RS.1",
@@ -31808,7 +31830,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.0.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8909",
+   "finishedAt": "2026-10-18T01:14:17Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.0",
@@ -31852,7 +31876,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8910"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.1",
@@ -31896,7 +31921,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8911",
+   "finishedAt": "2026-10-18T01:14:19Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.2",
@@ -31940,7 +31967,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8912"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.3",
@@ -31984,7 +32012,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8913",
+   "finishedAt": "2026-10-18T01:14:20Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.4",
@@ -32076,7 +32106,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8915"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.6",
@@ -39512,8 +39543,9 @@
     "DESIGN-AnalyticNumberTheoryPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-AnalyticNumberTheoryPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8933"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8933",
+   "finishedAt": "2026-10-18T01:14:22Z"
   },
   {
    "kind": "design",
@@ -44947,8 +44979,9 @@
     "REV-ColemanPowerSeries--L1"
    ],
    "prompt": "research/blueprint/prompts/ASM-ColemanPowerSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6416"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6416",
+   "finishedAt": "2026-10-18T01:14:25Z"
   },
   {
    "id": "ASM-DirichletPadicLFunctions",
@@ -45650,8 +45683,9 @@
     "REV-FiniteFieldsAndCharacterSums--FF.4"
    ],
    "prompt": "research/blueprint/prompts/ASM-FiniteFieldsAndCharacterSums.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6279"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6279",
+   "finishedAt": "2026-10-18T01:14:28Z"
   },
   {
    "id": "ASM-GeometryOfNumbersAndQuadraticArithmetic",
@@ -45741,8 +45775,9 @@
     "REV-ProbabilisticAndMetricNumberTheory--PM.4"
    ],
    "prompt": "research/blueprint/prompts/ASM-ProbabilisticAndMetricNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6280"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6280",
+   "finishedAt": "2026-10-18T01:14:30Z"
   },
   {
    "id": "ASM-StableReductionPartII",
@@ -86845,8 +86880,9 @@
     "FIX-RT-BP-ArithmeticKTheory--N.7~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7283"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7283",
+   "finishedAt": "2026-10-18T01:14:33Z"
   },
   {
    "id": "RT-BP-AutomorphicBundles--B0",
@@ -96724,8 +96760,9 @@
     "FIX-RT-AREA-iwasawa-3~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8926"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8926",
+   "finishedAt": "2026-10-18T01:14:36Z"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -97671,8 +97708,9 @@
     "FIX-RT-AREA-langlands-3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7019"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7019",
+   "finishedAt": "2026-10-18T01:14:40Z"
   },
   {
    "id": "RT-AREA-modeltheory",
@@ -112773,8 +112811,9 @@
     "REV-DrinfeldModulesAndTModules--DM.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DrinfeldModulesAndTModules.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #225"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #225",
+   "finishedAt": "2026-10-18T01:14:43Z"
   },
   {
    "id": "ASM-OverconvergentAutomorphicForms",
@@ -113962,7 +114001,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1687"
   },
   {
    "id": "REV-DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
