@@ -240,6 +240,7 @@ Let S be a quasi-compact Noetherian scheme, g≥2, and f:X→S a stable genus-g 
 - `IntegralCurveEquations.evaluate` (universal-property): π*K_d→I(d) is onto, hence its image cuts out X.
 - `IntegralCurveEquations.projectiveFrames` (compatibility): Changing a local frame of E transports K_d by Sym^d of that frame; its projective orbit determines the abstract stable curve.
 - `IntegralCurveEquations.nativeIdeal` (compatibility): On affine projective charts the constructed ideal sheaf is the sheaf associated to the actual closed-immersion ideal, and its fibre is its tensor pullback.
+- `IntegralCurveEquations.ext` (extensionality): For fixed d and multiplication map, two subbundles with their inclusions in Sym^d E satisfying the kernel sequence coincide; their identification commutes with evaluation and arbitrary pullback.
 
 **Unit tests.**
 
@@ -295,7 +296,7 @@ Let M be the proper coarse algebraic space of the stable genus-g stack over Z, g
 
 - clm, Theorem 7.2, pp.30–31, with parent source issue StableReductionPartII/E13. Its conclusion is retained, while integral regularity fixes the determinant before fibrewise ampleness and openness.
 - ehkv, Theorem 2.7 p.5, proof §4.1 pp.12–13. Finite-type stacks over a Noetherian ground scheme with quasi-finite diagonal admit a finite surjective scheme cover; no fine-level interpretation is supplied.
-- stacks, Tag 0D2N, Lemma 30.21.4; Tag 01VG. The fixed-line openness and locality argument is applied on the proper scheme V, so an algebraic-space version of that openness lemma is not assumed.
+- stacks, Tag 0D2N, Lemma 30.21.4; Tag 01VG, Definition 29.38.1 and Lemma 29.38.4; Tag 0GFB, Lemma 69.21.2. The fixed-line openness and locality argument is applied on the proper scheme V. Tag 0GFB descends ampleness along the finite surjection V→M between proper algebraic spaces over the Noetherian ring Z, and establishes schemeness; no algebraic-space openness theorem is assumed.
 
 ### Jacobi level as an abelian Teichmuller component
 
@@ -366,7 +367,7 @@ Over B_N=Spec Z[1/N,ζ_N], let U be the smooth genus-g stack and U_N its fixed-p
 
 **Hypotheses.**
 
-- The parent MC.1 boundary charts are relative normal-crossing charts on the smooth stable stack.
+- The parent MC.1 boundary charts are excellent regular schemes, smooth over the integer base, with a relative normal-crossing boundary. Its generic divisorial points have characteristic zero, as required by the absolute local Lemma 5.10 of DM.
 - The DM tame Teichmuller normalization theorem applies to G=(Z/N)^{2g}, whose order N^{2g} is invertible on B_N.
 - Use the exact finite normalization and normal-component comparison supplier contracts; no arbitrary normalization/base-change claim is made.
 
@@ -387,7 +388,7 @@ Over B_N=Spec Z[1/N,ζ_N], let U be the smooth genus-g stack and U_N its fixed-p
 
 3. The generic Kummer-chart supplier must give flatness and geometrically normal fibres after taking this quotient; its proof uses the root charts, tame invariants and normality. This is the explicit SF.1 extension request, not a consequence of normalization being finite.
 
-4. The nonempty smooth part is dense on every geometric fibre by those same boundary charts. Apply the proper-flat-geometrically-normal component-count theorem from DM 4.17/4.19 and 5.11.
+4. The nonempty smooth part is dense on every geometric fibre by those same boundary charts. Apply the proper-flat-geometrically-normal component-count theorem DM 4.17(iii), pp.102–103, and its application in 5.11, p.107. Use 4.16 for irreducibility of normal connected components; 4.19 is instead the valuative criterion for properness.
 
 5. A normal Noetherian geometric fibre has disjoint irreducible components, so deleting this dense boundary complement preserves its connected-component count.
 
@@ -408,17 +409,20 @@ Over B_N=Spec Z[1/N,ζ_N], let U be the smooth genus-g stack and U_N its fixed-p
 - `CompactJacobiLevel.smoothRestriction` (compatibility): Its inverse image over U is the original fixed-pairing smooth level cover U_N.
 - `CompactJacobiLevel.geometricFibre` (characterisation): Every geometric fibre is normal and contains the original smooth-level fibre densely.
 - `CompactJacobiLevel.componentCount` (compatibility): The connected-component count of a geometric fibre is locally constant and equals that of its smooth open.
+- `CompactJacobiLevel.lift` (universal-property): For a normal Noetherian scheme T→M̄_g×B_N with U_T dense in T, a lift U_T→U_N extends uniquely to T→Y. This determines the normalization and comparisons independently of the chosen atlas.
+- `CompactJacobiLevel.etaleBaseChange` (functoriality): For an etale chart T→M̄_g×B_N, Y×T is the normalization of T in U_N×T. The comparison isomorphisms satisfy identity and composition and agree on overlaps; arbitrary ramified base change is not covered.
 
 **Unit tests.**
 
 - `CompactJacobiLevel.emptyBoundary` (compatibility): Restriction to a smooth stable-moduli chart gives the original finite étale level cover; the normalization adds no sheets there.
-- `CompactJacobiLevel.nonseparatingNode` (non-example): A nonseparating nodal degeneration has nontrivial unipotent homology monodromy; its level cover can ramify at the boundary and is not required to be étale there.
+- `CompactJacobiLevel.nonseparatingNode` (non-example): At one nonseparating node the primitive transvection T=[[1,1],[0,1]] satisfies T^k=[[1,k],[0,1]] and has exact order N modulo N, including N=4. Thus boundary ramification can have order N; the cover is not required to be etale there. The suggested file states this arithmetic test.
 - `CompactJacobiLevel.levelThreeAtTwo` (computation): For N=3, G=(Z/3)^{2g} has odd order and satisfies the tame theorem in characteristic 2; rejection because the symplectic deck group has even order is incorrect.
 - `CompactJacobiLevel.levelExcludedPrime` (non-example): The construction and its normal-fibre theorem are not asserted above any prime dividing N.
+- `CompactJacobiLevel.ramifiedPullback` (non-example): Over C the Kummer normalization z^3=t becomes z^3=s^3 after t=s^3. The raw pullback has three components meeting at the origin; its normalization is three disjoint affine lines. Thus even this tame local model does not commute with arbitrary base change without renormalizing.
 
 **Sources.**
 
-- dm, Theorem 5.9 and local Lemma 5.10, p.106; Corollary 5.11, p.107; 5.15, pp.108–109; §4.17–4.19, pp.103–104. The tame normalization and proper component-count route transfers connectedness to every admissible characteristic. The statement is an application of this route, not fine representability on the boundary.
+- dm, Theorem 5.9 and local Lemma 5.10, pp.106–107; Corollary 5.11, p.107; 5.15, pp.108–109; Proposition 4.16 and Theorem 4.17, pp.102–103; normalization after 4.20, pp.103–104. The tame normalization and proper component-count route transfers connectedness to every admissible characteristic. The statement is an application of this route, not fine representability on the boundary.
 
 ### The complex fixed-pairing orbit calculation
 
@@ -466,11 +470,11 @@ is a chain endpoint for a planned stage, not evidence that the theorem exists.
 
 ### MC4-R1 — `SchemeAndStackFoundations:SF.1`
 
-Extend the descent owner by the finite scheme-cover theorem: every finite-type algebraic stack over a Noetherian ground scheme with quasi-finite diagonal admits a representable finite surjective map from a scheme. Record the quasi-finite-flat atlas, stack Zariski Main, finite normalization and Galois-translate gluing proof; the cover need not be separated until properness of this particular stack is used. Also supply proper quasi-finite algebraic-space maps are finite and a finite surjection descends relative ampleness to an algebraic space, yielding schemeness and projectivity when the base is affine.
+Extend the descent owner by the finite scheme-cover theorem: every finite-type algebraic stack over a Noetherian ground scheme with quasi-finite diagonal admits a representable finite surjective map from a scheme. Record the quasi-finite-flat atlas, stack Zariski Main, finite normalization and Galois-translate gluing proof; the cover need not be separated until properness of this particular stack is used. Also supply proper quasi-finite algebraic-space maps are finite. For a finite surjection Y→X between proper algebraic spaces over an affine Noetherian base, if Y is a scheme and the pullback of a line L on X is ample, conclude that X is a scheme and L is ample, hence X is projective over that base.
 
 **Needed by:** `StableReductionPartII:MC.4/fixed-degree-ample-descent`, `StableReductionPartII:MC.4/finite-projective-cover`.
 
-**Source route:** EHKV Theorem 2.7 p.5 and proof pp.12–13; CLM Lemmas 1.2–1.3 pp.2–3. Finite normalization itself is already SF.0/R09.5.
+**Source route:** EHKV Theorem 2.7 p.5 and proof pp.12–13; CLM Lemma 1.3 p.3 and Theorem 7.2 pp.30–31; Stacks Tag 0GFB, Lemma 69.21.2, for finite ampleness descent over a Noetherian ring. CLM Definition 1.2 supplies no finite-cover theorem. Finite normalization itself is already SF.0/R09.5.
 
 ### MC4-R2 — `SchemeAndStackFoundations:SF.1`
 
@@ -482,7 +486,7 @@ For a quasi-compact finite-type separated Deligne–Mumford stack over a Noether
 
 ### MC4-R3 — `SchemeAndStackFoundations:SF.5`
 
-Extend numerical positivity to vector bundles: E nef iff all line quotients after finite maps from smooth projective curves have nonnegative degree; finite surjective pullback detects nefness; quotients, extensions, tensor products and symmetric powers preserve nefness in every characteristic. For a proper finite-type algebraic space over an algebraically closed field, nef E and a locally free quotient Sym^d E→Q whose projective-frame/Grassmann classifying map has finite geometric fibres imply det Q ample. Include the exact generic normal-Chow, nef-big/intersection and Nakai hypotheses; do not assert Q itself ample.
+Extend numerical positivity to vector bundles: E nef iff all line quotients after finite maps from smooth projective curves have nonnegative degree; finite surjective pullback detects nefness; quotients, extensions, tensor products and symmetric powers preserve nefness in every characteristic. For a proper finite-type algebraic space over an algebraically closed field, nef E and a locally free quotient Sym^d E→Q whose projective-frame/Grassmann classifying map has finite geometric fibres imply det Q ample. Here finite fibres means finitely many geometric base points for each isomorphism class of quotient after change of projective frame, as in CLM §5; it does not require that the classifying map to the quotient stack be representable. Include the exact generic normal-Chow, nef-big/intersection and Nakai hypotheses; do not assert Q itself ample.
 
 **Needed by:** `StableReductionPartII:MC.4/moduli-determinant-ample`, `StableReductionPartII:MC.4/pluricanonical-nef`, `StableReductionPartII:MC.4/fixed-degree-ample-descent`.
 
@@ -502,7 +506,7 @@ Extend finite-normalization descent by the tame relative normal-crossing theorem
 
 **Needed by:** `StableReductionPartII:MC.4/boundary-level-normalization`, `StableReductionPartII:MC.4/level-connectedness`.
 
-**Source route:** DM Theorem 5.9 and Lemma 5.10 p.106; Corollary 5.11 p.107; component results §4.17–4.19 pp.103–104. Their purity/Abhyankar/Kummer prerequisites require a generic source decomposition, not a claimed implementation.
+**Source route:** DM Theorem 5.9 and Lemma 5.10 pp.106–107, on excellent regular charts with characteristic-zero generic boundary points; Corollary 5.11 p.107; Proposition 4.16 and Theorem 4.17 pp.102–103. Normalization and its etale compatibility are described after 4.20, pp.103–104. Their purity/Abhyankar/Kummer prerequisites require a generic source decomposition, not a claimed implementation.
 
 ### MC4-R6 — `SchemeAndStackFoundations:SF.3`
 
@@ -546,9 +550,9 @@ Proposed GeometricTopology, Part II contract: the orientation-preserving genus-g
 
 ## Additional source findings
 
-- **`StableReductionPartII/E-MC4-1`** (error), 2021 author manuscript, Proposition 6.7 proof, p.26, Case 1 higher-direct-image assertion. The pointed induction claims R¹f_*ω^m(D_j)=0 from fibre degrees on a general nodal family with smooth generic fibre. Retain the nefness target, but replace this vanishing step by a proved pointed model/transport or logarithmic positivity argument. The generic evaluation-image repair of Corollary 6.6 does not by itself give the required exact sequence. Blow up a constant smooth genus-g≥2 family at a point of a special fibre. At D_j=0 the exceptional rational tail has degree −m for ω^m and H¹ of dimension m−1. The normalization sequence surjects special-fibre H¹ onto this group, whereas generic H¹ is zero. Top-degree cohomology/base change then precludes the asserted global R¹ vanishing. This is the additional Proposition 6.7 use of the phenomenon in parent E12. Status: new; novelty and publisher-version collation unverified.
+- **`StableReductionPartII/E-MC4-1`** (error), 2021 author manuscript, Proposition 6.7 proof, p.26, Case 1 higher-direct-image assertion. The pointed induction claims R¹f_*ω^m(D_j)=0 from fibre degrees on a general nodal family with smooth generic fibre. Retain the nefness target, but replace this vanishing step by a proved pointed model/transport or logarithmic positivity argument. The generic evaluation-image repair of Corollary 6.6 does not by itself give the required exact sequence. Blow up a constant smooth genus-g≥2 family at a point of a special fibre. At D_j=0 the exceptional rational tail has degree −m for ω^m and H¹ of dimension m−1. The normalization sequence surjects special-fibre H¹ onto this group, whereas generic H¹ is zero. Top-degree cohomology/base change then precludes the asserted global R¹ vanishing. This is the additional Proposition 6.7 use of the phenomenon in parent E12. Status: new; novelty and publisher-version collation unverified. Independent review: **confirmed** by `REV-StableReductionPartII--MC.4`; the target remains unchanged.
 
-- **`StableReductionPartII/E-MC4-2`** (misprint), 1969 printed p.107, first sentence of the proof of Theorem 5.13. The reduction to the complex fibre cites Theorem 5.13 itself. Use Corollary 5.11, the preceding constancy of geometric fibre component counts. That corollary gives exactly the specialization-independent count needed before the complex orbit calculation; a self-reference cannot justify the reduction. Status: new; historical novelty unverified.
+- **`StableReductionPartII/E-MC4-2`** (misprint), 1969 printed p.107, first sentence of the proof of Theorem 5.13. The reduction to the complex fibre cites Theorem 5.13 itself. Use Corollary 5.11, the preceding constancy of geometric fibre component counts. That corollary gives exactly the specialization-independent count needed before the complex orbit calculation; a self-reference cannot justify the reduction. Status: new; historical novelty unverified. Independent review: **confirmed** by `REV-StableReductionPartII--MC.4`; the target remains unchanged.
 
 ## Remaining proof gaps
 
@@ -610,8 +614,8 @@ Tau Ceti carrier; they are signatures of supplier mathematics, not new curve-own
 nodes. `boundary_transvection_order` states the finite-level arithmetic check on an
 actual 2×2 matrix; two examples cover N=3 and N=4. The last example is the nontrivial
 level-two involution on the integral rank-one module. These six signatures have no
-omitted mathematical hypotheses. The geometric constructions, their ten
-construction API items and eight unit tests, and the comparison's four API items and
+omitted mathematical hypotheses. The geometric constructions, their thirteen
+construction API items and nine unit tests, and the comparison's four API items and
 four tests are prose targets; WORKERS.md's available-carrier rule requires this split.
 There is no claim that the six admitted declarations test or implement the geometry.
 
@@ -619,6 +623,19 @@ There is no claim that the six admitted declarations test or implement the geome
 admitted-proof warnings and no other diagnostics. The structural packet checker
 passed with zero errors and zero warnings. The handoff records the final submission
 checks and the precise work required for proof closure.
+
+## Independent review
+
+Accepted on 18 October 2026 by `independent-review-REV-StableReductionPartII--MC.4`
+(Codex, session `codex-sYnh2Y`) as a complete target-level planning pass. All five
+new nodes and five baseline declarations were checked, with the fifteen parent
+targets and supplier statements read for integration. The review corrected the DM
+component-count references, made the exact finite ampleness-descent theorem explicit,
+and clarified the quotient criterion's finite fibres. It added the kernel and
+normalization APIs and the ramified-pullback test above. Both source findings are
+confirmed. No nodes or planets were added. The seven gap groups and ten requests
+remain; the stage is planned, not closed. See the
+[review report](../reviews/REV-StableReductionPartII--MC.4.md) for the audit and validation.
 
 ## Source versions and reading receipt
 
@@ -638,7 +655,7 @@ EHKV preprint pagination is silently transferred to a journal version.
 
 - **chen-zhang:** Yifei Chen; Lei Zhang, *The subadditivity of the Kodaira dimension for fibrations of relative dimension one in positive characteristics*. arXiv:1305.6024v1, 26 May 2013, 14 pages; no identification with later journal pagination. [Source](https://arxiv.org/pdf/1305.6024v1); read 2026-10-18. Theorem 1.3 p.2; §4, Theorem 4.3 and proof of Theorem 1.3 pp.10–11. SHA-256 `1812166bab9e188b085c164c1814aa618fb74fb36e00a8a7f6f00d57ec0f3c31`.
 
-- **stacks:** The Stacks Project authors, *The Stacks Project: relative generation, vanishing and ampleness*. Online stable tags read 18 October 2026; numbered tags replace unstable page numbers. [Source](https://stacks.math.columbia.edu); read 2026-10-18. Tags 02O1 (Lemma 30.16.2), 01Q3 (Proposition 28.27.13), 01VG (relative ampleness), 0D2M (Lemma 30.21.3), 0D2N (Lemma 30.21.4), 0DUT (Theorem 106.13.9), statements and proofs.
+- **stacks:** The Stacks Project authors, *The Stacks Project: relative generation, vanishing and ampleness*. Online stable tags read 18 October 2026; numbered tags replace unstable page numbers. [Source](https://stacks.math.columbia.edu); read 2026-10-18. Tags 02O1 (Lemma 30.16.2), 01Q3 (Proposition 28.27.13), 01VG (relative ampleness), 0D2M (Lemma 30.21.3), 0D2N (Lemma 30.21.4), 0DUT (Theorem 106.13.9), 0GFB (Lemma 69.21.2), statements and proofs.
 
 The parent source findings E7, E8, E9, E10, E12 and E13 remain in the accepted parent
 packet and are cited by their stable IDs rather than duplicated. They cover the false
