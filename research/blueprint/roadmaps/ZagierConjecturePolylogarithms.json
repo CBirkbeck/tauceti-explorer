@@ -1,0 +1,174 @@
+{
+  "id": "ZagierConjecturePolylogarithms",
+  "title": "Polylogarithms, Part II: the weight-four Zagier theorem",
+  "area": "ktheory",
+  "parent": "Polylogarithms",
+  "summary": "This Part II supplies the proof-specific weight-four constructions behind the explicit Zagier theorem: specialized relations, cluster cells, motivic correlators, decorated flags, Grassmannian configurations, residues and a regulator comparison. Lower weights, the determinant statement and the general conjecture are imported from Polylogarithms and its K-theoretic suppliers. Explicit and inductive presentations remain distinct, and unresolved comparison and construction leaves are recorded rather than assumed.",
+  "readme": "# Polylogarithms, Part II: the weight-four Zagier theorem\n\nThis roadmap constructs the proof-specific input to the explicit weight-four Zagier theorem for number fields. It extends Polylogarithms:P.4 and imports the existing lower-weight proofs, Bloch groups, higher inductive complexes and Borel regulator theory from their owners.\n\nThe six layers construct specialized symbol relations, associahedral cluster maps, the weight-four Lie coalgebra and motivic correlators, decorated-flag configuration maps, the residue-compatible Chern cocycle and the final regulator comparison. They distinguish explicit and inductive presentations, canonical and classical periods, and the construction of K-theory cycles from the regulator-image statement for every explicit cycle.\n\nThe complete target specifications, APIs, tests, source locators and closure obligations are in [the reader document](research/blueprint/readmes/ZagierConjecturePolylogarithms.md). All six layers are planned; none is closed. The accompanying packet records the unresolved proof leaves and supplier extensions. The suggested Lean file contains only selected statements over carriers available at the pinned libraries; it makes no implementation claim.",
+  "prerequisites": [
+    "Polylogarithms",
+    "K3BlochGroups",
+    "BorelRegulators",
+    "MotivesAndAlgebraicCycles",
+    "HodgeStructuresPartII",
+    "MotivicEtaleKTheory",
+    "GeneralAlgebraicKTheory",
+    "AnabelianGeometryAndNonabelianChabauty",
+    "PeriodsAndSpecialValues"
+  ],
+  "stages": [
+    {
+      "key": "Z.1",
+      "title": "Specialized weight-three and weight-four relations",
+      "description": "Construct the rational raw symbol modules and their full one-parameter specialization relations Q₃ and Q₄; identify L₃ with the supplier’s explicit trilogarithm group and descend δ₃. Keep L₄ as a quotient before proving δ₄ descends.",
+      "requires": [
+        "Polylogarithms:P.1",
+        "Polylogarithms:P.3"
+      ]
+    },
+    {
+      "key": "Z.2",
+      "title": "Associahedra and cluster polylogarithms",
+      "description": "Construct oriented type-A Stasheff cell complexes, triangle two-forms and the weight-four maps on vertices, edges, pentagons, squares and three-cells. Prove their boundary identities; express the K₄ top boundary as Q₄. No general cluster-variety conjecture is used.",
+      "requires": [
+        "ZagierConjecturePolylogarithms:Z.1"
+      ]
+    },
+    {
+      "key": "Z.3",
+      "title": "Lie coalgebra and motivic correlators",
+      "description": "Descend δ₄ and prove co-Jacobi, construct B₄-combinatorial as the span of single symbols and prove the extension by Λ²B₂. Construct and realize correlators on punctured P¹, establish collision continuity, change of base point and weight-four depth reduction; prove the motivic realization homomorphism. Import the generic mixed Tate category and its fundamental group by precise requests. Use the reduced cyclic-word carrier with its pure-puncture kernel removed, and separate the base-point change theorem from the weight-four depth reduction. The reduction threshold counts arguments, not motivic weight.",
+      "requires": [
+        "ZagierConjecturePolylogarithms:Z.1",
+        "ZagierConjecturePolylogarithms:Z.2",
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "HodgeStructuresPartII:H.2",
+        "Polylogarithms:P.4",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "PeriodsAndSpecialValues:PS.9"
+      ]
+    },
+    {
+      "key": "Z.4",
+      "title": "Grassmannian configurations and decorated flags",
+      "description": "Import generic configurations, projection, duality and explicit B₃ from Polylogarithms:P.3. Construct the weight-four truncation, decorated-flag comparison, Grassmannian G₄ and the normalized chain map with its Λ²B₂ diagonal. Give finite symbolic proofs retaining constants and the corrected scalar in Theorem 10.15.",
+      "requires": [
+        "ZagierConjecturePolylogarithms:Z.3",
+        "Polylogarithms:P.3"
+      ]
+    },
+    {
+      "key": "Z.5",
+      "title": "Periods, residues and the Chern cocycle",
+      "description": "Restrict the canonical Hodge period to weight four, prove its classical-cycle calibration, and construct the normal-crossing residue/current diagram required by the flag cocycle. Construct scissors comparison, its regularized motivic lift, the cancellation of the Λ²B₂ component, residue extensions and nonzero Chern normalization. Unproved descent or regularization leaves are recorded as gaps.",
+      "requires": [
+        "ZagierConjecturePolylogarithms:Z.4",
+        "Polylogarithms:P.5",
+        "MotivicEtaleKTheory:M.8",
+        "HodgeStructuresPartII:H.2"
+      ]
+    },
+    {
+      "key": "Z.6",
+      "title": "The explicit weight-four Zagier theorem",
+      "description": "Produce κ:K₇(F)Q→ker δ₄-exp and prove its nonzero regulator comparison; separately prove rational regulator image containment for every explicit cycle. Discharge the parent’s determinant interface, including the empty determinant, and state exactly the conditional boundary for the inductive presentation and higher weights.",
+      "requires": [
+        "ZagierConjecturePolylogarithms:Z.5",
+        "GeneralAlgebraicKTheory:K.2",
+        "BorelRegulators:R.3",
+        "BorelRegulators:R.4",
+        "BorelRegulators:R.5",
+        "BorelRegulators:R.7",
+        "Polylogarithms:P.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GR",
+      "title": "Motivic correlators, cluster varieties and Zagier’s conjecture on ζ_F(4)",
+      "authors": "A. B. Goncharov and D. Rudenko",
+      "edition": "arXiv:1803.08585v5, 15 July 2026; 111 pages",
+      "url": "https://arxiv.org/pdf/1803.08585v5",
+      "sha256": "d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df",
+      "readSections": [
+        "Introduction, pp. 2–25",
+        "§§2–6, pp. 26–61",
+        "§7, pp. 61–72",
+        "§§8–9, pp. 72–94",
+        "§10, pp. 94–107"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "G08",
+      "title": "Hodge correlators",
+      "authors": "A. B. Goncharov",
+      "edition": "arXiv:0803.0297v4, 10 January 2016; PDF pagination",
+      "url": "https://arxiv.org/pdf/0803.0297v4",
+      "sha256": "d4cc8a37d7dad80060b58450722964dd0d3285bda50a8840b1436eb6e2d79d42",
+      "readSections": [
+        "§1.3, pp. 7–9: mixed Tate Lie coalgebra and K-theory",
+        "§§1.5–1.6, pp. 10–11: motivic fundamental groups and realization",
+        "§11.1, pp. 102–104: classical polylogarithm periods",
+        "§§8.1–8.3, pp. 82–85: special derivations and pure-puncture kernel",
+        "§10.3, pp. 94–96: the motivic derivation action"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "G09",
+      "title": "A simple construction of Grassmannian polylogarithms",
+      "authors": "A. B. Goncharov",
+      "edition": "arXiv:0908.2238, PDF pagination",
+      "url": "https://arxiv.org/pdf/0908.2238",
+      "sha256": "b23e3e7d8274702cc1b914281128cc10300068a0f6ce25a11ef5bafbf7a5b48b",
+      "readSections": [
+        "§3.1–3.3, pp. 15–19",
+        "§4.1, pp. 22–23"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "M20",
+      "title": "Shuffle relations for Hodge and motivic correlators",
+      "authors": "N. Malkin",
+      "edition": "arXiv:2003.06521, PDF pagination",
+      "url": "https://arxiv.org/pdf/2003.06521",
+      "sha256": "6fede42fa302c1f1c7004d89013393d97ccd20e8aeb50419665e51be8615df42",
+      "readSections": [
+        "§2.1.3, pp. 17–18, Theorem 11",
+        "§4, pp. 44–45, Lemma 29 and continuity argument"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "G00",
+      "title": "Geometry of the trilogarithm and the motivic Lie algebra of a field",
+      "authors": "A. B. Goncharov",
+      "edition": "arXiv:math/0011168, PDF pagination",
+      "url": "https://arxiv.org/pdf/math/0011168",
+      "sha256": "2ee46a748224833684bdf9f87f75fd65390671c41853882d4477710cf7b8a637",
+      "readSections": [
+        "§3.3, pp. 11–17: the map a₃ and collinear degeneration",
+        "§5, pp. 29–31: relation to K-theory"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "G93",
+      "title": "Explicit construction of characteristic classes",
+      "authors": "A. B. Goncharov",
+      "edition": "Advances in Soviet Mathematics 16, part 1 (1993), pp. 169–210",
+      "url": "https://sasha-goncharov.github.io/charclasses.pdf",
+      "sha256": "7a9eb3a64c48bcbfa42037503e4304aba3552a560f35df67206e29458e69ed5b",
+      "readSections": [
+        "Introduction, p. 170",
+        "§4.3–4.4, pp. 189–191, Theorems 4.5–4.6 (scanned pages visually read)"
+      ],
+      "accessed": "2026-10-18"
+    }
+  ],
+  "status": "draft"
+}
