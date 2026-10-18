@@ -503,7 +503,7 @@ In an étale smooth coordinate neighborhood with old marking z=0 and extra secti
 
 **Inputs.** `StableReductionPartII:MC.2/expansion`, `StableReductionPartII:MC.2/section-dual-sheaf-gluing`, `SchemeAndStackFoundations:SF.0/relative-proj-base-change`, `AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian`.
 
-**Sources.** [Knudsen-II-1983](#sources), Definition 2.3 and Theorem 2.4, pp. 176–177, smooth/collision case. The diagonal-cokernel Proj inserts a three-special-point rational tail at an old-mark collision.; [Knudsen-pointed-node](#sources), Theorem 5.1, pp. 13–16, smooth-point case. Reduces the smooth and collision cases to local computations in the symmetric-algebra presentation.
+**Sources.** [Knudsen-II-1983](#sources), Definition 2.3 and Theorem 2.4, pp. 176–177, smooth/collision case. The diagonal-cokernel Proj inserts a three-special-point rational tail at an old-mark collision.; [Knudsen-pointed-node](#sources), Theorem 5.1 and opening of its proof, pp. 13–14. States stable pointed expansion but leaves the smooth and collision calculations to the reader and refers to the original proof. The displayed signed chart is derived here from the diagonal cokernel in Knudsen II Definition 2.3 and Theorem 2.4, pp. 176–177.
 
 ### Flatness at an old-mark collision
 
@@ -524,7 +524,7 @@ The collision Proj is flat and finitely presented over every coefficient ring A.
 
 **Inputs.** `StableReductionPartII:MC.2/old-mark-collision-chart`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`.
 
-**Sources.** [Knudsen-II-1983](#sources), Theorem 2.4, pp. 176–177. Collision stabilization inserts a rational tail and gives a stable flat family.; [Knudsen-pointed-node](#sources), Theorem 5.1, pp. 13–16. The smooth collision case is an elementary local symmetric-algebra calculation.
+**Sources.** [Knudsen-II-1983](#sources), Theorem 2.4, pp. 176–177. Collision stabilization inserts a rational tail and gives a stable flat family.; [Knudsen-pointed-node](#sources), Theorem 5.1 and opening of its proof, pp. 13–14. Asserts the stable-family result and omits the smooth-point calculation. The explicit coefficient-free affine cover and normal-form flatness proof are deductions here from the preceding collision presentation, rather than calculations printed in this theorem.
 
 ### Flatness transfer from the pointed formal chart
 
@@ -600,15 +600,15 @@ Let Y/S be stable (g,n+1)-pointed, and let q:Y→C be the parent contraction aft
 **Proof route.**
 
 1. Use the parent contraction and componentwise log-dual degrees to classify its exceptional fibre: collision tail, nodal bridge, or none.
-2. As in the source recovery lemma, identify q_*O_Y(last−old) with J∨(−old). The source local charts and the contraction structure-sheaf property identify its evaluation quotient with the parent K, giving Y→Proj_C Sym K.
-3. The map preserves all quotient lines and is an isomorphism on geometric fibres. Properness makes it quasi-finite and finite; for a finite map between S-flat finitely presented curves, fibrewise isomorphism makes its structure-sheaf map an isomorphism by Nakayama and coefficient-flatness.
+2. Write D for the old divisor on C, D_Y for the retained divisor on Y and l for the last section. The fibrewise tail/bridge calculations and cohomology/base change give q_*O_Y(l−D_Y)≃J∨(−D). The evaluation diagram identifies q_*O_Y(l) with K(−D), not K itself, and gives q^*K(−D)→O_Y(l) surjective. Tensor by q^*O_C(D), or use Proj Sym K(−D)≃Proj Sym K, to obtain the map Y→C^s with the specified quotient lines. Keep the signs compatible with the positive diagonal.
+3. The map preserves all quotient lines and is an isomorphism on geometric fibres, hence is quasi-finite. It is proper because Y is proper over S and C^s is separated over S, and is therefore finite. For a finite map between S-flat finitely presented curves, fibrewise isomorphism makes its structure-sheaf map an isomorphism by Nakayama and coefficient-flatness.
 4. The quotient universal property and the contraction factorization property give uniqueness. Prove over Noetherian models and descend to arbitrary S.
 
-**Check.** Verify the sheaf comparison and the induced evaluation quotient, not only a bijection on geometric points. Include an omitted marking on a rational bridge and one colliding with an old marking.
+**Check.** Verify the sheaf comparison and the induced evaluation quotient, not only a bijection on geometric points. Include an omitted marking on a rational bridge and one colliding with an old marking. Retain the twist K(−D) in the recovery evaluation diagram; its Proj is canonically the same as that of K.
 
 **Inputs.** `StableReductionPartII:MC.2/expansion-over-arbitrary-bases`, `tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves`, `tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `StableReductionPartII:MC.2/forget`, `AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian`.
 
-**Sources.** [Knudsen-II-1983](#sources), Lemma 2.5 and Corollary 2.6, pp. 178–179. Constructs the unique map from a contraction back to the intrinsic expansion and proves the inverse comparisons.; [Knudsen-pointed-node](#sources), Theorem 5.2, p. 16. The expansion and contraction operations define natural inverse functors.
+**Sources.** [Knudsen-II-1983](#sources), Lemma 2.5 and Corollary 2.6, pp. 178–179. Constructs the unique map from a contraction back to the intrinsic expansion and proves the inverse comparisons.; [Knudsen-pointed-node](#sources), Theorem 5.2, p. 16. States functoriality of stabilization. The inverse comparison comes from Knudsen II Lemma 2.5 and Corollary 2.6, not from this later theorem alone.
 
 ### Coherent universal-curve equivalence
 
@@ -629,7 +629,7 @@ The imported morphisms s:Z̄_(g,n)→M̄_(g,n+1) and c:M̄_(g,n+1)→Z̄_(g,n) f
 
 **Inputs.** `StableReductionPartII:MC.2/contraction-recovery-comparison`, `StableReductionPartII:MC.2/expansion-over-arbitrary-bases`, `StableReductionPartII:key/moduli-curves`, `StableReductionPartII:MC.0/pullback-coherence`, `StableReductionPartII:MC.0/universal-curve`, `StableReductionPartII:MC.0/effective-descent`.
 
-**Sources.** [Knudsen-II-1983](#sources), Corollary 2.6, p. 179. Identifies the two operations as inverse and hence identifies the universal stable curve with the next pointed moduli stack.; [Knudsen-pointed-node](#sources), Theorem 5.2, p. 16. Functorial formulation of the inverse stable-family operations.
+**Sources.** [Knudsen-II-1983](#sources), Corollary 2.6, p. 179. Identifies the two operations as inverse and hence identifies the universal stable curve with the next pointed moduli stack.; [Knudsen-pointed-node](#sources), Theorem 5.2, p. 16. Supplies the functorial stabilization operation. Its coherent inverse is justified here by the original recovery lemma and Corollary 2.6 together with uniqueness, rather than attributed to this theorem.
 
 ## Genus one, induction and the rigid triangle
 
