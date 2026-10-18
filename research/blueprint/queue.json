@@ -53248,8 +53248,8 @@
    "revisionOf": "PKG-InductionRestrictionPartII",
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10390",
-   "finishedAt": "2026-10-18T09:48:03Z"
+   "finishedAt": "2026-10-18T09:48:03Z",
+   "note": "deliverables arrived from an external worker on issue #10390"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII~2",
