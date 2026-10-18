@@ -5010,5 +5010,6 @@
  "REV-PKG-ArithmeticStatisticsPartII": 10374,
  "FIX-PKG-InductionRestrictionPartII~adv": 10389,
  "PKG-InductionRestrictionPartII~2": 10390,
- "REV-PKG-InductionRestrictionPartII~2": 10391
+ "REV-PKG-InductionRestrictionPartII~2": 10391,
+ "REV-PKG-EffectiveClassNumbers~adv": 10395
 }
