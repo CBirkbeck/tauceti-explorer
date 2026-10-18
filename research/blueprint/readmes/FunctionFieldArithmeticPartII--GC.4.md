@@ -280,14 +280,16 @@ groups and therefore full faithfulness of \(f_b^*\). The scheme sheaf
 comparison is [Stacks, Lemma 59.65.1 and Remark 59.65.3](https://stacks.math.columbia.edu/tag/0DV4);
 the stack and adic forms are exposed in the adapter.
 
-Take a smooth locally finite type atlas \(T\to P_d\). The two restrictions
-of \(M_b\) to the double overlap pull back to the same sheaf on its
+Take a smooth locally finite type scheme atlas \(T\to P_d\). Its double
+and triple overlaps can be algebraic spaces. Choose étale scheme covers
+of these overlaps before applying the scheme finite-cover argument above.
+The two restrictions of \(M_b\) pull back to the same sheaf on each
 **actual** Abel–Jacobi checking chart. Full faithfulness gives the unique
-overlap comparison compatible with \(F\). On the triple overlap its
-cocycle holds because it holds after that faithful pullback. Effective
-smooth descent for lisse sheaves on the Artin Picard stack glues the
-line and comparison. The same argument descends morphisms and all
-coherence diagrams. This proves the end statement without a general
+comparison compatible with \(F\); uniqueness descends it from the scheme
+refinements. On the triple overlap its cocycle holds after that faithful
+pullback and hence on the overlap. Effective smooth descent for lisse
+sheaves on the Artin Picard stack glues the line and comparison. The same
+argument descends morphisms and all coherence diagrams. This proves the end statement without a general
 nonproper-fibration homotopy or effective-descent theorem for \(AJ_d\).
 
 ## Targets, named API and discriminating tests
@@ -539,7 +541,7 @@ At d>=rho+max(2g-1,1), inverse image along f=AJ_d:S_d->P_d is fully faithful on 
 
 1. For each smooth locally finite type scheme atlas T->P_d, construct M_b and its comparison using chart-descent-line. This uses a proper DM map Q_b->T, not properness or a homotopy exact sequence for the nonproper AJ_d.
 2. By family-fibre-presentation, the actual f_b:C_b->T is smooth surjective with geometrically connected fibres. Pulling back any connected finite etale cover of connected T leaves a connected space: the projection to that cover is an open surjection with connected geometric fibres. The finite-cover/fibre-functor comparison therefore gives a surjection on pi1, so f_b^* is fully faithful on finite locally constant sheaves. The local adic formalism gives the same full faithfulness for rank-one lisse sheaves.
-3. On T x_{P_d} T the two M_b pull back to the same F on its actual Abel–Jacobi fibre product. Full faithfulness supplies the unique overlap isomorphism compatible with those comparisons. On the triple overlap the cocycle holds because its pullback holds. Effective smooth descent for lisse sheaves glues M and theta on the Artin stack P_d.
+3. The double and triple overlaps of the scheme atlas over the Artin stack P_d may be algebraic spaces. Choose etale scheme covers of these overlaps and apply the preceding scheme-chart full-faithfulness argument after each refinement. On the double overlap the two M_b pull back to the same F on its actual Abel–Jacobi fibre product, so this supplies the unique overlap isomorphism compatible with those comparisons. Uniqueness makes these isomorphisms descend from the refinements. On the triple overlap the cocycle holds because its pullback holds. Effective smooth descent for lisse sheaves glues M and theta on P_d; no scheme fundamental-group statement is applied directly to an algebraic stack or algebraic space.
 4. Check arbitrary morphisms on the atlas and its overlaps by the same full faithfulness; this proves full faithfulness globally and normalized uniqueness. It also identifies this construction with parent high-degree-descent for the specific symmetric L_d, without assuming that parent end theorem to prove itself.
 5. Apply the comparisons to tensor products, units and any Frobenius pullback; uniqueness makes their coherence diagrams descend. Carry out the same argument using P(E) when R is empty.
 
