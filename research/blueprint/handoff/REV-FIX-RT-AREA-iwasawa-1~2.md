@@ -1,33 +1,20 @@
-# Handoff: reconcile #6217 scope before another review
+# Handoff: reconcile #6217 before redispatch
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-xnTg4o**, 17 October 2026.
-Branch: `codex-xnTg4o-review-iwasawa-fixes`.
-Input: `c844b396e21e1fa45d3ee5127b777294f9deb8eb`.
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6241476191).
-This run claimed only this job. Submission: **blocked checkpoint**.
+Codex — **codex-Qlg6kx**, 18 October 2026.
+Branch: `codex-Qlg6kx-review-iwasawa-fixes`.
+Input: `663b4462fd0c660392965ef07632adc8164990de`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6256246938).
+This run holds only this job's confirmed claim. Submission: **blocked checkpoint**.
 
-## Done
+The published assignment permits the HE.0 packet, its suggested file and the
+review report. That fix review is already accepted. Both local and fresh
+live-main queue entries require 21 outputs: ten packets, their suggested files
+and the report. All outputs exist. Fresh execution of the actual completion
+function returns false for that entry and true with just the three issued
+paths substituted in memory. The previous checkpoint's blocker persists.
 
-Reread the live issue after confirmation; read the four applicable findings,
-verification and round-two fix report; reproduced the current mismatch with
-both the local and fresh live-main queue using the real completion function.
-All outputs exist. The queue requires 21 outputs: ten packets and their Lean
-files plus the report. The issued review permits only HE.0 and its Lean file
-plus the report. Completion is false for the queue and true with the issued
-three outputs substituted in memory.
-
-The unchanged HE.0 checker passes with zero errors and warnings: 78 nodes,
-24 API items, eighteen tests, thirteen baseline declarations, 21 gaps,
-63 requests and eight planned stages. Its accepted fix verdict and attributed
-source/Lean receipts are untouched. No fresh mathematical audit or Lean
-compilation was performed for this documentation-only checkpoint.
-
-## Exact current extra scope
-
-The queue requires this review's verdict on these **nine additional packets**,
-all under `research/blueprint/packets/`, and names their corresponding
-`research/blueprint/suggested/*.lean` files as outputs:
+The nine additional packets are:
 
 - `HeegnerPointEulerSystems--HE.8c.json`
 - `HeegnerPointEulerSystems--HE.8.json`
@@ -39,32 +26,39 @@ all under `research/blueprint/packets/`, and names their corresponding
 - `SelmerIwasawaCohomology.json`
 - `KatoEulerSystems.json`
 
-These replace the prior handoff's obsolete ten-packet list. The Euler-system
-packet still has `needs_changes`; the others have their own accepted reviews.
-None has been stamped with an unperformed fix review.
+They retain their own independent reviewers. The Kato marker now names
+`independent-review-REV-FIX-RT-AREA-iwasawa-3~4` and is accepted; this supersedes
+the historical report's Kato row. The Euler-system packet still has
+`needs_changes`. No unperformed fix review has been stamped onto any packet.
 
-## What must happen next
+I reread the issued instructions, prior handoff/report, the four applicable
+confirmed findings and verifier decisions, and the round-two fix report.
+The unchanged HE.0 checker passes with zero errors and warnings: 78 nodes,
+24 API items, 18 tests, 13 baseline declarations, 21 gaps, 63 requests and
+eight planned stages. Primary sources were not reread and Lean was not rerun
+for this documentation-only checkpoint. Existing mathematical and compilation
+receipts keep their original attribution.
 
-Reconcile issue #6217, the queue's output arrays and generated instructions
-before redispatch. Either restore the issued review's three outputs and
-round-two fix's four outputs (historical arrays at `88f9bcd44`) and give the
-additional work a subsequent round, or publish and authorize the expanded
-scope with the actual fixes to review. Preserving issued rounds in
-`fix_rounds` alone cannot undo already-expanded arrays. Its wider scheduling
-effects need maintainer inspection.
+A scope question was submitted to the user. Until answered, WORKERS.md's
+issue-path restriction remains in force. Fresh checks also show that intake
+rejects queue.json and make_queue.py as outside swarm output paths. This is
+an assignment conflict, not an automatic approval-review rejection.
 
-WORKERS.md restricts edits to issue-named files; current intake also rejects
-queue.json and make_queue.py as outside swarm output paths. A scope question
-was sent during this run and has not received authorization. This is a scope
-blocker, not an automatic approval-review rejection.
+Resume after one consistent assignment is published:
 
-The [current report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) contains current
-packet reviewer markers and a standalone read-only reproducer. The
-[report at 508e89592](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
-preserves mathematical review arguments, source locators, historical repair
-patch and regression experiments. Its packet lists, line numbers and replay
-counts are historical, not fresh verification. No deleted scratch artifact
-is needed to resume.
+1. Restore the issued review's three outputs and round-two fix's four outputs,
+   preserve issued rounds in the generator, and assign additional work to a
+   distinct subsequent round; or
+2. Authorize the expanded scope and identify the actual fixes to review in
+   each additional packet.
 
-Only the report and this handoff change. The packet, suggested file, queue
-and generator remain untouched. No background process remains.
+The generator's conditional preservation of existing rounds remains at
+`fix_rounds`; preserving already-expanded arrays alone cannot repair the
+current scope. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) retains the
+prior detailed diagnosis and standalone read-only reproducer, with a fresh
+18 October section. Historical mathematical arguments and repair experiments
+remain linked there. No scratch artifact is needed to resume.
+
+Only this handoff and the report change. No mathematical verdict, Lean file,
+queue, generator, application code or promoted data changes. No process is
+left running. This run will stop after opening its checkpoint pull request.

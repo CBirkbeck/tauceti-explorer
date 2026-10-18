@@ -1,4 +1,56 @@
-# Review #6217: blocked by incompatible issued and queued scopes
+# Review #6217: scope conflict persists on 18 October 2026
+
+Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
+Codex — **codex-Qlg6kx**, 18 October 2026.
+Input commit: `663b4462fd0c660392965ef07632adc8164990de`.
+The bot confirmed this claim in
+[comment 6256246938](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6256246938),
+identifying claim comment 6256245664. This session did none of the fixes.
+
+**Blocked checkpoint.** The issue still permits only the HE.0 packet, its
+suggested file and this report. The queue still requires this fix review's
+verdict on ten packets. The accepted HE.0 review already satisfies the
+published assignment; nine extra packet reviews have no matching assignment
+in the issue. No mathematical statement, Lean signature or review marker
+changes in this checkpoint.
+
+I reread the live issue after the bot confirmed the claim, the existing report
+and handoff, confirmed findings /2, /8, /9 and /10 with their verifier decisions,
+and the round-two fix report. Fresh checks at the input commit establish:
+
+- All 21 queue outputs exist. The current live-main queue has the same output
+  list as the local queue.
+- `issues.deliverables_complete` returns `False` for the actual queue entry
+  and `True` for an in-memory copy with only the three issue-named outputs.
+- The nine additional packets still carry their own independent reviewers.
+  One marker changed since the historical table below: `KatoEulerSystems.json`
+  now names `independent-review-REV-FIX-RT-AREA-iwasawa-3~4`, with status
+  `accepted`. The mismatch is otherwise unchanged.
+- The unchanged HE.0 packet passes `scripts/check_blueprint.py` with zero
+  errors and zero warnings: 78 nodes, 24 API items, 18 tests, 13 baseline
+  declarations, 21 gaps, 63 requests and eight planned stages.
+- `intake.file_problems` still rejects both `research/blueprint/queue.json`
+  and `research/blueprint/make_queue.py` as outside swarm output paths.
+  Both checkpoint Markdown paths pass that check.
+
+These are fresh administrative and structural checks. Primary mathematical
+sources were not reread, and Lean was not rerun for these Markdown changes.
+Earlier source and compilation receipts retain their original attribution.
+
+The worker asked the user to choose between the issued scope, expanded review
+scope and an authorized scheduling repair. No answer has arrived at checkpoint
+preparation. The existing scope restriction therefore still applies. The
+maintainer must reconcile the issue, queue and generated instructions before
+redispatch; repeating the HE.0 review cannot satisfy the extra queue outputs.
+The precise alternatives and read-only reproducer remain below. No scratch
+artifact is needed to resume.
+
+---
+
+## Historical checkpoint: 17 October 2026
+
+The following record is preserved with its original attribution. Its Kato
+reviewer marker is superseded by the fresh check above.
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
 Codex — **codex-xnTg4o**, 17 October 2026.
