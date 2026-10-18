@@ -1,54 +1,27 @@
 # Probabilistic, metric and ergodic number theory
 
-## Scope and mathematical boundary
+This roadmap connects arithmetic distributions, equidistribution, metric approximation and almost-everywhere dynamics. It starts with exact laws on finite positive integer samples, then plans normal-order and Gaussian laws, Weyl theory and normal digits, Duffin–Schaeffer and Hausdorff transference, continued-fraction metric laws, and proved short-interval or logarithmic multiplicative correlations.
 
-This roadmap concerns distributions over finite sets of integers, uniform distribution,
-metric approximation and almost-everywhere dynamical statements. The probability space,
-normalization and quantifiers belong to each theorem. A heuristic model is not an arithmetic
-joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
-pointwise ergodic theorem.
+The [parent packet](../packets/ProbabilisticAndMetricNumberTheory.json) and its [PM.4 continuation](../packets/ProbabilisticAndMetricNumberTheory--PM.4.json) form one graph of **415 distinct targets and API nodes**. The graph specifies a planning pass, with the remaining obligations listed below. Every statement below is proposed mathematics; none is asserted implemented. The [suggested Lean file](../suggested/ProbabilisticAndMetricNumberTheory.lean) selects light native definitions, end theorems, milestones and examples. The full mathematical specification, including definitions too substantial for that file, stays here and in the packets.
 
-The companion packet is **complete as a planning pass**, with 258 unchecked nodes. All six stages are planned; none is closed. Its exact gaps and supplier requests are listed in the final coverage ledger. The finite arithmetic, Weyl/torus and Koukoulopoulos–Maynard contracts below are retained, while the continuation adds the missing additive, distributional, discrepancy, Hausdorff, Gauss and multiplicative-function targets. No theorem is claimed implemented.
+## Layers and ownership
 
-Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/FiniteDivisibility.lean`.
-The PM.1 comparison lemmas can follow in `FiniteGaussianMoments.lean`, and the
-cutoff-removal interface in `PrimeTruncation.lean`. The full residue laws belong in
-`ResidueLaws.lean` and reuse the implemented interval counts and CRT equivalence.
-The repeated-factor comparison uses `RepeatedPrimeFactors.lean`; its fixed higher moments
-and exponential bounds use `ExcessMoments.lean`.
-Suggested namespace: `TauCeti.Probability.Arithmetic`.
+| Layer | Purpose and output | Internal inputs |
+|---|---|---|
+| PM.0 — Arithmetic probability | Exact divisibility/residue laws, weighted moments, repeated factors, concentration and arithmetic weak-limit interfaces | Existing empirical measures, arithmetic functions, counting, CRT and probability APIs |
+| PM.1 — Additive limit laws | Finite Gaussian comparison and cutoff removal; Turán–Kubilius, Hardy–Ramanujan and Erdős–Kac | PM.0 finite laws and distribution transfer; AN.2 normalization |
+| PM.2 — Uniform distribution | Weyl criteria, tori, discrepancy and normal numbers | Native Haar/Fourier APIs; PM.4 pointwise averages for normal-digit frequencies |
+| PM.3 — Metric approximation | Reduced limsup sets, Duffin–Schaeffer, GCD-graph proof plan and mass transference | Native Borel–Cantelli/zero–one results; AN.2 Mertens estimates |
+| PM.4 — Ergodic continued fractions | Pointwise averages, Gauss invariance/exactness/mixing, Khinchin and Lévy laws, Gauss–Kuzmin, specified modular-quotient consumers | Native continued fractions and conditional expectation; DT.0 and GN.4 contracts for homogeneous applications |
+| PM.5 — Multiplicative statistics | Matomäki–Radziwiłł, proved logarithmic two-point laws, separate random models | PM.0 concentration; AN.3, AN.5 and ES.0 analytic estimates |
 
-## Existing library, not duplicate carriers
+Generic arithmetic functions, summation and Dirichlet series belong to the libraries and ArithmeticDirichletSeries/AN.0. AN.2 owns prime estimates; AN.3 and AN.5 own their analytic and pretentious inputs. ES.0 owns the requested Fourier/circle-method bounds. DT.0 owns badly approximable numbers and the bounded native continued-fraction criterion. GN.4 owns the lattice, normalized Haar probability, Mahler compactness and generic homogeneous mixing; PM.4 owns only the named number-theoretic consumers. The Möbius/nilsequence direction stays with AdditiveCombinatorics:AC.5. General Chowla and Sarnak remain conjectures.
 
-The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The packet lists 173 baseline declarations. New statements were read at these commits; earlier receipts remain attributed to their historical passes. Generic finite coprime-product and subset-expansion
-identities are reused, not scheduled as arithmetic-probability nodes.
+Current TauCetiRoadmap ArithmeticDirichletSeries and Exchangeability supply the nearby roadmap conventions; IntegralLattices concerns integral quadratic/bilinear lattices and supplies no substitute for the modular homogeneous-flow contract. The nine roadmaps added since the atlas snapshot, their Suggested files (including OperatorTheory's component files), and the current Tau Ceti library were checked for overlap. Existing generic empirical laws, Gaussian moments/determinacy, mean ergodic convergence, native circle ergodicity, Borel–Cantelli and approximation zero–one theorems are imports. In particular, moment determinacy alone is not moment convergence, and an L2-input mean theorem does not supply arbitrary-integrable pointwise convergence.
 
-Mathlib already supplies `ArithmeticFunction`, with value zero at zero; `cardDistinctFactors`
-and `cardFactors`, which must not be confused; uniform measures; and the exact
-`Nat.card_multiples` count. The audited generic moment, characteristic-function and weak
-convergence infrastructure is not re-created here. No new generic probability carrier is
-introduced.
+## Baseline and conventions
 
-An important additional supplier is Tau Ceti's
-[`Probability/Process/EmpiricalMeasure.lean`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Process/EmpiricalMeasure.lean).
-Its `empiricalMeasure`, `empiricalMeasure_apply_toReal`, `integral_empiricalMeasure` and
-finite-index uniform-pushforward comparison already implement the generic empirical-law
-construction and finite-average dictionary. PM.0 specializes them to arithmetic observations.
-The reviewed AUDIT-07 record did not cite this file in its PM.0 discussion; this is an extra
-reuse finding, not an edit to the audit or a promotion of its whole-stage verdict.
-
-The reviewed audit and its accepted review are
-`research/blueprint/audit/AUDIT-07.result.json` and
-`research/blueprint/reviews/REV-AUDIT-07.md`. All six PM entries in the integrated
-`data/library-coverage.json` were also read for this continuation, together with the
-matching atlas/link entries. Accepted RS-07 keeps arithmetic probability and independence
-comparisons in PM.0 and imports the generic arithmetic-function/finite-sum baseline directly.
-The existing upstream ArithmeticDirichletSeries and Exchangeability READMEs were also
-consulted for carrier ownership and contract style, particularly their warnings against
-parallel counting/measure wrappers.
-
-## Conventions
+The implementation baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The two packets retain their exact declaration statements and read receipts (181 parent entries and 57 continuation entries, with overlaps). The integrated library audit and current upstream sources were also consulted. The newer upstream check informs ownership; it does not silently change the pins.
 
 Take a natural number m and put N=m+1. On the discrete natural numbers, let mu_N denote
 Tau Ceti's existing `empiricalMeasure` for the sequence k |-> k+1 at index m. It is a
@@ -72,7 +45,56 @@ in probability-error statements are positive. Products of arithmetic functions i
 existing carrier mean Dirichlet convolution; the pointwise products of random variables
 below are written explicitly and do not use that multiplication.
 
-## Finite prime truncations and their API
+
+Circle digits use the native half-open convention. PM.3 approximation sets use closed rational intervals, while the strict circle comparison includes its factor two and irrationality condition. Hausdorff gauges distinguish radius from diameter and retain the shrinking-radii hypothesis.
+
+The Gauss map is total on the real line, `gaussMap x = Int.fract x⁻¹`, and `gaussDigit x n` observes the n-th iterate, starting at n=0. The invariant measure uses the half-open restriction (0,1]; the auxiliary initial Lebesgue probability m uses (0,1). Endpoint nullity makes those restrictions equal as measures. Cylinders use the conull irrational domain D, not all real points. Native continued-fraction denominators satisfy q₀=1, and rational terminated streams are never assigned irrational growth estimates. Strong mixing and exactness use the parent bundled probability-measure predicates; continuation unbundled notation means the same measure with its probability instance. Homogeneous applications use column lattices G/Γ, left a_t=diag(exp t,exp(-t)), and positive time t≥0.
+
+## Sources
+
+Citations below identify the exact result, section and page used. The source register distinguishes author, preprint and published versions, and preserves the reviews of all observations. Mathematical statements and proof plans are in the roadmap authors' own words. Reading receipts belong to the workers who made them; assembly does not claim to have reread every source.
+
+- **TAO-RESIDUES**: Terence Tao, [254A, Supplement 4: Probabilistic models and heuristics for the primes (optional)](https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/). Author web exposition dated 4 January 2015; selected section reread 27 September 2026
+- **ML-ARITH**: Mathlib contributors, [Mathlib arithmetic functions and prime-factor counting](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ArithmeticFunction/Defs.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **ML-COUNT**: Mathlib contributors, [Mathlib counting of positive multiples](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Basic.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **ML-PRIME**: Mathlib contributors, [Mathlib natural prime and least-common-multiple arithmetic](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **TC-EMP**: The Tau Ceti contributors, [Empirical measures of sequences](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Process/EmpiricalMeasure.lean). f790474821cf4256814db967cb154e7af3d0c369
+- **ML-UNIFORM**: Kexing Ying and Bhavik Mehta, [Classical probability: uniformOn](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/UniformOn.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **ML-FINITE-PRODUCT**: Mathlib contributors, [Mathlib finite coprime products and subset expansions](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/BigOperators/Ring/Finset.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **GS-SIEVING**: Andrew Granville and K. Soundararajan, [Sieving and the Erdos-Kac theorem](https://dms.umontreal.ca/~andrew/PDF/ErdosKac.pdf). Author typeset copy with 2006 footer and internal pages 1-13; related published chapter in Equidistribution in Number Theory, An Introduction (2007), pp.15-27, DOI 10.1007/978-1-4020-5404-4_2. The author copy is not identified as the version of record.
+- **ML-MOMENT-TOOLS**: Mathlib contributors, [Pinned finite-moment and power-estimate suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/Distributions/Bernoulli.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **ML-MULTINOMIAL**: Mathlib contributors, [Pinned multinomial and fixed-support counting suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Choose/Multinomial.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **TC-GAUSSIAN-MOMENTS**: The Tau Ceti contributors, [Existing real Gaussian centered moments](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Moments.lean). f790474821cf4256814db967cb154e7af3d0c369
+- **ML-CUTOFF-TOOLS**: Mathlib contributors, [Pinned prime-cutoff, logarithmic and finite moment-transfer suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/PrimeCounting.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **TAO-PRIME-FACTORS**: Terence Tao, [254A, Notes 1: Elementary multiplicative number theory](https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/). Author web exposition dated 23 November 2014, accessed 27 September 2026; selected Section 4 only.
+- **ML-EXCESS-TOOLS**: Mathlib contributors, [Pinned repeated-prime-factor and finite comparison suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Basic.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **TAO-CLT-2010**: Terence Tao, [254A, Notes 2: The central limit theorem](https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/). Author web exposition dated 5 January 2010; selected passages accessed 27 September 2026.
+- **ML-ARITHMETIC-LIMITS**: Mathlib contributors, [Pinned probability-law and weak-convergence suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/LevyConvergence.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **ML-EXCESS-MOMENTS**: Mathlib contributors, [Pinned finite geometric, exponential and CRT suppliers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/Exponential.lean). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **TAO-HOFA-1.1**: Terence Tao, [Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori](https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-142-tao7-higher-book-05june2012.pdf). Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.
+- **KM-2020**: Dimitris Koukoulopoulos and James Maynard, [On the Duffin–Schaeffer conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n1-p05-s.pdf). Annals of Mathematics 192 (2020), no. 1, 251–307, doi:10.4007/annals.2020.192.1.5, publisher PDF (printed page = PDF page + 250). Collated at the finding locators with arXiv:1907.04593v3 (final version).
+- **BSKK2023**: Lior Bary-Soroker, Dimitris Koukoulopoulos and Gady Kozma, [Irreducibility of random polynomials: general real concentration input](https://arxiv.org/pdf/2007.14567v3). arXiv:2007.14567v3 (2023)
+- **KoymansPagano2022**: Peter Koymans and Carlo Pagano, [On Stevenhagen's conjecture: restricted prime-factor window](https://arxiv.org/pdf/2201.13424v1). arXiv:2201.13424v1 (2022)
+- **ElsholtzTao2011**: Christian Elsholtz and Terence Tao, [Counting the number of solutions to the Erdős–Straus equation on unit fractions](https://terrytao.wordpress.com/wp-content/uploads/2011/07/egyptian-count13.pdf). Author manuscript, egyptian-count13 (2011)
+- **Sarig2023**: Omri Sarig, [Lecture Notes on Ergodic Theory](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf). Author notes, 3 April 2023
+- **SarigTransfer**: Omri Sarig, [Introduction to the transfer operator method](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf). HMI/Bonn author lecture notes (2020 file)
+- **Smyth2020**: Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth, [Ergodic Theory with Applications to Continued Fractions](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf). UNCG summer school, 18–22 May 2020, final author notes
+- **StrauchPorubsky2018**: Oto Strauch and Štefan Porubský, [Distribution of Sequences: A Sampler](https://www.mat.savba.sk/musav/O_Strauch-S_Porubsky_Distribution_of_Sequences_A_Sampler-20180118.pdf). Author-hosted version dated 18 January 2018
+- **BeresnevichVelani**: Victor Beresnevich and Sanju Velani, [A Mass Transference Principle and the Duffin–Schaeffer conjecture for Hausdorff measures](https://annals.math.princeton.edu/wp-content/uploads/annals-v164-n3-p06.pdf). Annals of Mathematics 164 (2006), 971–992, version of record
+- **MatomakiRadziwill**: Kaisa Matomäki and Maksym Radziwiłł, [Multiplicative functions in short intervals](https://arxiv.org/pdf/1501.04585v4). arXiv:1501.04585v4, 15 October 2017
+- **TaoLogChowla**: Terence Tao, [The logarithmically averaged Chowla and Elliott conjectures for two-point correlations](https://arxiv.org/pdf/1509.05422v4). arXiv:1509.05422v4, 29 July 2016
+- **ML-PM79**: Mathlib contributors, [Pinned native metric probability interfaces](https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib). 082e2d37e8b0463410cdb532e111cd43d5a66174
+- **Harper**: Adam J. Harper, [Moments of random multiplicative functions, II: High moments](https://msp.org/ant/2019/13-10/ant-v13-n10-p02-s.pdf). Algebra & Number Theory 13:10 (2019), 2277–2321, version of record
+- **Sarnak**: Peter Sarnak, [Three Lectures on the Möbius Function, Randomness and Dynamics, Lecture 1](https://publications.ias.edu/sites/default/files/MobiusFunctionsLectures%282%29.pdf). IAS author lecture notes, 2010/2011
+- **Kubilius2021**: Louis H. Y. Chen, Arturo Jaramillo and Xiaochuan Yang, [A generalized Kubilius–Barban–Vinogradov bound for prime multiplicities](https://arxiv.org/pdf/2111.07361v1). arXiv:2111.07361v1,14 November2021
+- **Sun2017**: Peng Sun, [A Generalization of Gauss-Kuzmin-Lévy Theorem](https://arxiv.org/pdf/1705.02921v2). arXiv:1705.02921v2, 9 November 2017; version of record Acta Mathematica Scientia 38(3) (2018), 965–972
+- **Gorodnik2010**: Alexander Gorodnik, [TIFR lectures on homogeneous dynamics, Lecture 1](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf). Author course notes, Mumbai 2010, scanned lecture1.pdf
+
+The PM.4 join uses Sarig, Theorems 2.2–2.3 (physical pp.45–49 / printed pp.37–41), for pointwise averages; Sarig transfer notes, Exercise 2.5 and Appendix A.2 (physical pp.11–13,31–35), for cylinder/exactness arguments; Glasscock–Merriman–Robertson–Smyth, Theorems 20–21 and Problem 2.4 (physical pp.45–49), for metric statistics; Sun, Theorem 2 (arXiv v2, pp.3–6), for the corrected elementary transfer route; and Gorodnik, Lecture 1 (physical pp.3–8), for the homogeneous comparison. The stronger printed Sun rate is not used.
+
+## PM.0 — Arithmetic probability
+
+### Finite prime truncations and their API
 
 For a finite set P of natural indices and real weights a, construct
 
@@ -99,7 +121,7 @@ S(12)=5 and S(0)=0. Every prime truncation has S(1)=0. Unit weights on 12.primeF
 give 2, whereas the multiplicity-counting Omega gives 3. With P={2} and a(2)=2,
 S(4)=2 differs from S(2)+S(2)=4, so complete additivity must not be asserted.
 
-## Exact probabilities, before independence
+### Exact probabilities, before independence
 
 Write P_N(d) for the real probability of d dividing the sampled integer. Specializing
 `empiricalMeasure_apply_toReal` and the already implemented `Nat.card_multiples` gives
@@ -125,7 +147,7 @@ These pair statements provide an explicit comparison in place of an unproved ind
 assumption. The finite Boolean joint law is established below with its precise period
 hypothesis; a stronger growing-prime Kubilius approximation remains in the coverage ledger.
 
-## First moments and the centering convention
+### First moments and the centering convention
 
 For a finite prime set define the following local expressions:
 
@@ -146,7 +168,7 @@ A is the reciprocal-prime/model centering, not in general the exact empirical me
 For N=5, P={2,3}, a(p)=p, the observed values are 0,2,3,2,0. Their mean is 7/5,
 whereas A=2. Signed weights are allowed in both the identity and its error estimate.
 
-## Second moments: diagonal, off-diagonal, and the error
+### Second moments: diagonal, off-diagonal, and the error
 
 For positive p,q, expanding four terms in the finite average gives
 
@@ -182,7 +204,7 @@ moment automatically the empirical variance. At N=6, P={2,3}, a(p)=p, A=2 and V=
 At N=5 the centered second moment is 9/5, not 3. For P empty, Q=1 and all expressions
 are zero for every positive N.
 
-## Finite Boolean divisibility patterns
+### Finite Boolean divisibility patterns
 
 Five additional declarations extend the pair calculation to every finite zero/one
 divisibility pattern. All of them use the same positive sample and existing empirical
@@ -292,11 +314,11 @@ replacing its lcm by the product 8 would incorrectly give zero. Empty
 constraints always give mass 1. At N=1 the prime 2 is absent with probability
 1, confirming that zero is not in the sample.
 
-The suggested file includes ten additional theorem-level example contracts
+The reader specification includes ten additional theorem-level example contracts
 for these cases. The construction's seven API items and five original tests
 are retained unchanged; no new construction requires a second API.
 
-## Centered prime products and higher moments
+### Centered prime products and higher moments
 
 The finite moment comparison uses the same sample and arithmetic function as above.
 For each p in a finite prime set P, write u_p=1/p and f_p(n)=I_p(n)-u_p.
@@ -418,7 +440,7 @@ is sharper than the general bound 9 L^2/(4N) and remains part of the API.
 
 ### Moment acceptance tests and the limit-law boundary
 
-The suggested file includes ten new example contracts. Zero exponents and
+The following ten example contracts belong to the reader specification. Zero exponents and
 empty products have average one. The square of the centered 2-divisibility
 indicator has average 1/4 on every sample, with sharp error numerator zero.
 For p=3 the complete-period cube has average 2/27. Distinct primes 2 and 3
@@ -434,316 +456,7 @@ ranges, Mertens normalization, asymptotic transfer and a valid moment-convergenc
 remain open. A generic
 iid central limit theorem cannot be applied directly to the arithmetic indicators.
 
-## Finite unweighted Gaussian moment comparison
-
-The nine PM.1 declarations in this section take unit weights a(p)=1. The earlier
-weighted results keep arbitrary real weights; the sign arguments here do not
-silently extend to signed weights. For a finite prime set P write
-
-    u_p = 1/p,
-    nu_p(e) = u_p(1-u_p)^e + (1-u_p)(-u_p)^e,
-    v_p = u_p(1-u_p),   V = sum_{p in P} v_p,   Q = sum_{p in P} v_p^2.
-
-All these are local finite expressions, not new structures. The local-factor-bound
-node states 0<=nu_p(e)<=v_p for e>=2. To prove it, put e=j+2 and factor out v_p:
-the remaining factor is (1-u_p)^(j+1)-(-u_p)^(j+1). Since a prime has
-0<u_p<=1/2, power monotonicity gives a nonnegative factor; bounding the two
-absolute powers by their bases gives an upper bound of one. Direct evaluation
-also gives nu_p(0)=1, nu_p(1)=0 and nu_p(2)=v_p.
-
-The model-multinomial-expansion node rewrites the inherited unit-weight model as
-
-    M_k = sum_{alpha in piAntidiag(P,k)}
-            multinomial(P,alpha) product_{p in P} nu_p(alpha(p)).
-
-The existing piAntidiag consists of functions taking natural values, zero outside
-P, with sum k. The existing multinomial coefficient is k!/product alpha(p)!.
-Neither carrier nor the general multinomial theorem is re-planned. One proof
-compares the ordered-tuple expansion and Mathlib's multinomial expansion after
-averaging over the auxiliary complete period product P. The PM.0 exact mixed
-moments evaluate both expressions. This identifies finite model sums; it does
-not assert independence at an arbitrary sample length N.
-
-### Paired supports and collisions
-
-For r>=0 set
-
-    H_r = sum_{S subset P, |S|=r} product_{p in S} v_p,
-    D_r = sum_{injective t:{0,...,r-1}->P} product_{j<r} v_(t(j)),
-    C_(2r) = (2r)! / (2^r r!).
-
-The paired-support-formula node restricts the multiplicity expansion of M_(2r)
-to alpha(p) in {0,2}. Such an assignment corresponds uniquely to an r-subset S.
-Its multinomial coefficient is (2r)!/2^r and its local product is product v_p.
-Thus this paired part is ((2r)!/2^r) H_r.
-
-The distinct-prime-tuples node gives D_r=r! H_r. Group injective tuples by image:
-each fiber is the set of bijections from Fin r to that r-element subset. The
-pinned Fintype.card_equiv already counts those bijections as r!. Therefore the
-paired contribution is C_(2r) D_r, not yet C_(2r) V^r.
-
-For r>=2 the prime-collision-bound node supplies
-
-    0 <= V^r-D_r <= binom(r,2) Q V^(r-2).
-
-Expand V^r over all ordered tuples. Every excluded tuple has two equal positions.
-A finite union bound over the binom(r,2) position pairs bounds its nonnegative
-weight, possibly more than once. For each pair the common prime contributes
-sum v_p^2=Q and the other positions contribute V^(r-2). Existing powersetCard
-cardinality supplies the pair count. No division by V occurs, so empty P is
-allowed; at r=2 the difference is exactly Q.
-
-### Smaller supports and the corrected count
-
-The fixed-support-bound node handles a nonempty support S of size s and k>=2s.
-Among multiplicity assignments on S with total k and every exponent at least two,
-the exact number is binom(k-s-1,s-1). Subtract two in each coordinate and apply
-the existing finsuppAntidiag cardinality formula to total k-2s. This is the
-already-recorded correction E2 to the author copy, not a new source finding.
-
-Each assignment has product of factorials at least 2^s, and each local factor
-lies between zero and v_p. Its entire fixed-support contribution B therefore satisfies
-
-    0 <= B <= k! binom(k-s-1,s-1) (product_{p in S} v_p) / 2^s.
-
-The smaller-support-bound node sums over supports of size at most floor((k-1)/2).
-Since k>0 the support is nonempty. Terms with multiplicity one vanish. Summing
-the preceding bound over s-subsets gives a factor H_s, and s! H_s=D_s<=V^s.
-Consequently, with
-
-    R_k = k! sum_{s=1}^{floor((k-1)/2)}
-               binom(k-s-1,s-1) V^s / (2^s s!),
-
-the smaller-support contribution B_k satisfies 0<=B_k<=R_k. For k=1 or 2 this
-sum is empty. When k is odd every nonzero model term is a smaller-support term.
-When k=2r, a nonzero term with r distinct primes must be paired; all other
-nonzero terms are precisely the smaller-support part.
-
-### Arithmetic comparison and the existing Gaussian target
-
-The pinned Tau Ceti
-[Gaussian moment file](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Moments.lean)
-already evaluates the even central moment of a Gaussian with variance V as
-V^r (2r-1)!! and its odd central moments as zero, including V=0. Existing
-factorial/double-factorial identities identify the even value with C_(2r)V^r.
-V is the variance parameter, not the standard deviation; no new Gaussian theorem
-is scheduled here.
-
-Put A=sum 1/p, epsilon_k=(3/2)^k |P|^k/N, and let G be the existing real Gaussian
-measure of mean zero and variance V. Combining the three errors gives the
-finite-even-gaussian-bound node, for r>=2:
-
-    |integral (S(P,1)-A)^(2r) dmu_N - centralMoment(id,2r,G)|
-      <= epsilon_(2r) + C_(2r) binom(r,2) Q V^(r-2) + R_(2r).
-
-The errors are, respectively, arithmetic versus independent model, collisions
-inside the paired term, and smaller supports. The absolute value is essential:
-the model moment can lie below the Gaussian moment. The inherited exact zero-th
-moment and sharper second-moment comparison remain in force.
-
-For r>=0 the finite-odd-moment-bound node gives
-
-    |integral (S(P,1)-A)^(2r+1) dmu_N| <= epsilon_(2r+1)+R_(2r+1).
-
-The unit-weight model odd moment is nonnegative and bounded by R, but it is not
-generally zero. The arithmetic odd moment can even be negative. The left side
-is centered at the model mean A, not necessarily at the empirical mean.
-
-The eight new example contracts discriminate these distinctions. At P={2,3},
-V=17/36, the paired fourth contribution is 1/3; the single-prime fourth
-contributions add 59/432, giving M_4=203/432. The Gaussian value is 289/432,
-so M_4 minus the Gaussian value is -43/216. At P={3},N=1 the arithmetic cube
-is -1/27, while at the complete period N=3 it is 2/27. At prime 2 every odd
-local factor vanishes, but at prime 3 the fourth factor is 2/27. Empty supports
-at order zero give one, whereas an injective two-tuple on a one-prime set does
-not exist.
-
-These finite, explicit inequalities do not assert the source's growing-order
-asymptotic range or prove convergence in distribution. General sieve-multiset
-interfaces are still outside this slice and must be routed to their owners first.
-
-## Deterministic prime cutoff removal
-
-The cutoff-removal interface uses the existing inclusive set
-P_z = Nat.primesLE(floor_nat(z)). For nonnegative real z, the pinned
-membership and floor theorems say that a prime p lies in P_z exactly when
-p<=z. No second prime-set carrier is introduced. Write
-
-    T_z(n) = {p in n.primeFactors : z<p},
-    A_z = sum_{p in P_z} 1/p,
-    Y_z(n) = S(P_z,1)(n)-A_z.
-
-These are local expressions in existing finite sets and arithmetic functions.
-A prime equal to the cutoff belongs to the head. A prime power is counted once,
-as required by omega; this is not the multiplicity-counting Omega branch.
-
-### Exact decomposition and logarithmic tail
-
-The omega-cutoff-identity node states, for n>0 and z>=0,
-
-    omega(n) = S(P_z,1)(n) + |T_z(n)|.
-
-Positive evaluation identifies the head with the cardinality of the prime
-divisors at most z. The inherited omega comparison identifies the full
-cardinality. Partitioning the same finite set at the cutoff proves the identity.
-The finite sample remains 1,...,N; the factor-set convention at zero is not used
-to justify a logarithmic statement there.
-
-The large-prime-log-bound node states, for n>0 and z>1,
-
-    |T_z(n)| <= log(n)/log(z).
-
-Every member of T_z(n) is a distinct prime divisor of n. Mathlib's existing
-finite-product divisibility theorem shows that their product divides n, and
-hence is at most n. Sum log(z)<=log(p) over the tail, use the existing logarithm
-of a finite product, and apply monotonicity to obtain
-
-    |T_z(n)| log(z) <= log(product T_z(n)) <= log(n).
-
-Division is valid because log(z)>0. Empty tails need no special exception:
-their product is one. In particular n=1 gives zero on both sides, and z>n
-is allowed. The theorem is not asserted at z=1 or n=0.
-
-For n=60, cutoff 3 retains 2 and 3 and discards only 5; cutoff 5 retains all
-three. At n=8, cutoff 3/2 retains none but discards just one distinct prime.
-These tests detect both an exclusive-cutoff error and confusion with Omega.
-
-### Centering and pointwise powers
-
-For N=m+1, z>1 and an arbitrary real target center b put
-
-    D = log(N)/log(z) + |A_z-b|.
-
-The centered-cutoff-error node gives, uniformly for 1<=n<=N,
-
-    |(omega(n)-b)-Y_z(n)| <= D.
-
-Indeed the difference is exactly |T_z(n)|+(A_z-b). Apply the triangle
-inequality, the logarithmic tail estimate and n<=N. The two errors have
-different origins. The first controls the discarded factors. The second is a
-change of center, and it does not disappear merely because all sampled prime
-factors lie below the cutoff. At N=n=1,z=2,b=0, the tail is zero but the
-centered discrepancy is 1/2. No estimate for A_z-log log(N) is assumed here.
-
-The cutoff-power-error node exposes the next algebraic step. For every
-natural k, including zero,
-
-    |(omega(n)-b)^k-Y_z(n)^k|
-      <= sum_{0<=j<k} binom(k,j) D^(k-j) |Y_z(n)|^j.
-
-Set d=(omega(n)-b)-Y_z(n), expand (Y_z(n)+d)^k by the existing binomial
-theorem, remove its j=k term, and apply the finite triangle inequality.
-Each remaining |d|^(k-j) is at most D^(k-j). At k=0 the remainder is empty;
-at k=1 the bound is D; at k=2 it is D^2+2D|Y_z(n)|. Absolute values on
-the lower powers are essential. For n=1,N=2,z=3,b=A_z, one has Y_z(n)=-5/6
-and 0<D=log(2)/log(3)<1. Replacing |Y_z(n)| by Y_z(n) would make the
-quadratic upper bound negative.
-
-### Absolute moments and adjacent even moments
-
-The absolute-odd-moment node takes any finite P, real weights a and center b.
-For Z(n)=S(P,a)(n)-b and E_j=integral Z^j dmu_N it gives
-
-    integral |Z|^(2r+1) dmu_N <= sqrt(E_(2r) E_(2r+2)),  r>=0.
-
-No primality or independence is needed for this arithmetic specialization.
-The existing empirical integration theorem turns each integral into a finite
-average. Apply the existing squared finite Cauchy–Schwarz inequality to
-|Z|^r and |Z|^(r+1), divide by N^2 and take nonnegative square roots.
-Their squared powers are the adjacent even moments. At r=0, E_0=1.
-
-This does not bound an absolute odd moment by its signed counterpart.
-For the complete period N=3 with P={3}, unit weights and b=1/3, the signed
-first moment is zero but the absolute first moment is 4/9. For P={2} and
-b=1/2, all absolute observations equal 1/2, and Cauchy–Schwarz is sharp
-for every sample size and r. Generic Cauchy–Schwarz remains a library
-supplier, not a new roadmap theorem.
-
-### Finite transfer to omega moments
-
-Use E_j=integral Y_z^j dmu_N and abbreviate U_j by E_j when j is even and
-by sqrt(E_(j-1) E_(j+1)) when j is odd. The cutoff-moment-transfer theorem is
-
-    |integral (omega-b)^k dmu_N - E_k|
-      <= sum_{0<=j<k} binom(k,j) D^(k-j) U_j.
-
-Average the pointwise power bound, interchange the finite sums and bound each
-absolute lower moment. Even orders are already signed even moments; odd orders
-use the adjacent-even result. The coefficients are nonnegative. At order zero
-both moments are one; at orders one and two the bounds reduce to D and
-D^2+2D sqrt(E_2), respectively.
-
-The even inputs can be bounded using the inherited second-moment comparison
-and finite even Gaussian estimate. This theorem does not assert those bounds
-are small in a chosen asymptotic regime. The read source uses the special
-cutoff z=x^(1/k), Mertens normalization and further uniform estimates.
-Their exact growing-order ranges and a valid passage from moments to
-distribution remain separate obligations. In particular, uniqueness of the
-Gaussian from its moments alone is not a moment-convergence theorem.
-
-## Sources and what was actually read
-
-The elementary comparison is guided by
-[Terence Tao, 254A Supplement 4, Section 3](https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/):
-the first six paragraphs explain finite sampling, residue equidistribution, product-modulus
-restrictions and weak comparison of statistics. The explicit signed remainder and
-2 L^2/N inequality and finite-pattern formulas above are auxiliary calculations supplied
-in this packet. They are
-not attributed to a numbered theorem in that source and not called the Kubilius fundamental
-lemma. No conclusion from the subsequent rough-number discussion is imported.
-
-The source ledger records exact pinned files and read ranges for counting, arithmetic
-functions, prime/lcm arithmetic, uniform measures and empirical measures. The selected
-Kubilius monograph, the Kuipers/Niederreiter proofs, the metric approximation proofs,
-and the Gauss-map/correlation sources have not been read for this checkpoint. Their
-unread proof obligations remain explicit. The findings described below concern only
-the versions and passages actually inspected.
-
-The centered-product route follows
-[Granville–Soundararajan, Sieving and the Erdos–Kac theorem, author copy](https://dms.umontreal.ca/~andrew/PDF/ErdosKac.pdf),
-especially the proof of Proposition 2 on internal pages 4–5 and the weighted
-expansion in the proof of Proposition 4 on pages 10–11. The complete author copy,
-including all proofs and bibliography, was read. The five finite declarations
-in PM.0 and the nine finite PM.1 declarations are explicit auxiliary refinements,
-not claims that the source states these constants. Reading the full paper does not
-mean its entire argument is
-decomposed: the general sieve multiset framework, uniform growing-order estimates
-and asymptotic passage remain explicit work. The focal proof on pages 4–6 was
-reread in the preceding continuation, with page 5 visually rechecked. The cutoff
-continuation reread pages 3–6, especially the full deduction on page 4, whose image
-was checked. Its six new declarations refine that finite deduction; they do not
-claim its remaining asymptotic estimates have been supplied.
-
-The source ledger distinguishes that author typeset copy, with a 2006 footer,
-from [arXiv math/0606039v1](https://arxiv.org/abs/math/0606039) and the
-[published 2007 chapter](https://link.springer.com/chapter/10.1007/978-1-4020-5404-4_2).
-The arXiv finding passages were spot-checked. The publisher served only its
-[two-page preview, published pages 15–16](https://page-one.springer.com/pdf/preview/10.1007/978-1-4020-5404-4_2);
-the full chapter endpoint returned subscription HTML, not a readable PDF.
-Acquired-file hashes, dates and reading scopes are recorded in the packet.
-
-Three source findings are recorded for independent verification:
-
-- E1: inequality (1) should require k>=1, not k>=0, since its denominator is
-  (k-1)!. The k=0 contribution is the single integer 1 and must be separated.
-  This slip was checked in the published preview on page 15.
-- E2: the author copy's pages 5 and 11 count ordered parts alpha_i>=2 summing
-  to k as binom(k-s,s). For 1<=s and 2s<=k the count is
-  binom(k-s-1,s-1); at k=5,s=2 it is two, not three. The printed binomial
-  remains an upper bound, so the following estimates survive this correction.
-- E3: the author copy's polynomial-value example on page 9 gives the mean's
-  logarithmic asymptotic also for sigma_P. It should be for sigma_P squared.
-  Already the polynomial f(t)=t has variance mu_P minus sum 1/p^2, and
-  standard deviation of square-root rather than logarithmic size.
-
-E2 and E3 are also present in the checked preprint passages, but the relevant
-published pages were not accessible; they are not accusations about unread
-version-of-record text. Publisher pages, arXiv version history and Granville's
-publication lists revealed no existing correction in this search. These are
-unreviewed findings, not an independent correctness verdict or a reason to
-alter the valid finite model formulas.
-
-## Full residue laws and exact finite error
+### Full residue laws and exact finite error
 
 This continuation completes the finite all-residue branch of PM.0. It preserves
 all 42 inherited declaration objects and their APIs and tests. The positive sample
@@ -968,7 +681,7 @@ statements were also checked in Lean. Existing interval counting, finite
 summation and CRT are imported, not planned again.
 
 
-## Repeated prime factors: from omega to Omega
+### Repeated prime factors: from omega to Omega
 
 The native functions distinguish the number of distinct prime factors from the
 number counted with multiplicity. This section relates their arithmetic laws
@@ -1126,38 +839,7 @@ argument remain in the gap ledger. The new section below supplies the characteri
 dictionary and conditional weak-limit transfer. An iid central limit theorem still does not
 apply directly to these arithmetic divisibility indicators.
 
-### Historical repeated-factor checks and source limits
-
-Sixteen suggested examples cover zero and one, squarefree and repeated factors,
-prime and composite powers, the positive sample, exact means, inclusive thresholds,
-the zero-threshold counterexample, the scaled absolute mean and the CDF direction.
-The 51 inherited node objects and all 61 earlier examples are preserved.
-
-Exact-rational regressions check 1,000 finite expansions and 52,588 single-prime
-tail counts for n=1,...,500 at N=n and N=n+5; 500 mean/telescope chains;
-12,000 positive-threshold bounds; 2,000 scaled L1 bounds; 5,900 finite geometric
-bounds; and 20,160 CDF sandwiches with varying centers, positive scales, thresholds
-and positive shifts. Five rejection checks cover pointwise misuse, composite
-bases, zero samples, zero thresholds and negative scales. These are diagnostics,
-not proofs of universal contracts.
-
-A separate scratch Lean file proves six general auxiliary statements and six
-examples with no placeholders or diagnostics. It checks both the arithmetic
-counting reduction and the finite analytic inequalities, including the actual
-additive suppliers generated by two indexed multiplicative statements. The full
-suggested file elaborates with 136 expected placeholder warnings and no others;
-all 59 packet nodes remain unchecked.
-
-Only the stated Tao passages were read for this continuation. The author HTML
-hash and access date are recorded. A bounded title/exercise correction search
-and acquired-HTML occurrence screen produced no applicable correction; this is
-not a full comment-thread collation or a source-wide correctness claim. The
-three inherited Granville–Soundararajan findings and their edition restrictions
-remain unchanged. The higher repeated-factor moments in Exercise 46, the full
-Hardy–Ramanujan deduction remained explicit work at that checkpoint. The conditional
-Omega transfer is now supplied in the following section; the underlying Gaussian limit is not.
-
-## Arithmetic laws and conditional limit transfer
+### Arithmetic laws and conditional limit transfer
 
 This continuation adds eight declarations to PM.0. Use the existing empirical
 measure mu_N for N=m+1, with observations at k+1 for k=0,...,m. Every map from
@@ -1325,7 +1007,7 @@ Proof outline:
 2. For each bounded L-Lipschitz test function g, integral_map rewrites integrals against the two laws as the arithmetic expectations. On the eventual positive-scale tail, excess-lipschitz-bound gives their absolute difference at most L/s_m.
 3. The last bound tends to zero by reciprocal convergence. Apply the eventual squeeze theorem to the absolute difference, then the native metric criterion and addition/subtraction of limits to transfer the limiting integral from either law to the other.
 4. Apply the reverse direction of the same bounded-Lipschitz characterization. No new Slutsky theorem is planned, and its existing fixed-sampling-measure helper is not misapplied.
-5. Specializing the center and scale to the log-log Erdős–Kac normalization is valid once their scale divergence and the omega Gaussian-limit premise are supplied. This checkpoint does not supply the latter; it closes only the repeated-factor transfer in Exercise 51(iv).
+5. Specializing the center and scale to the log-log Erdős–Kac normalization is valid once their scale divergence and the omega Gaussian-limit premise are supplied. This transfer does not supply the latter; it concerns only the repeated-factor transfer in Exercise 51(iv).
 
 Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound`, `mathlib:MeasureTheory.TendstoInDistribution`, `mathlib:MeasureTheory.tendsto_iff_forall_lipschitz_integral_tendsto`, `mathlib:MeasureTheory.integral_map`, `mathlib:measurable_of_countable`, `mathlib:tendsto_inv_atTop_zero`, `mathlib:squeeze_zero'`, `mathlib:tendsto_iff_dist_tendsto_zero`.
 
@@ -1338,7 +1020,7 @@ Regression contracts:
 
 The arithmetic transfer refines [Tao's 2014 Section 4, Exercises 46 and 51](https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/).
 The first-moment estimate is sufficient for this conditional weak-limit transfer;
-higher repeated-factor moments are not needed for this step. They are now decomposed in
+higher repeated-factor moments are not needed for this step. They are decomposed in
 the finite exponential-moment section below.
 The probability conventions are in [Tao's 2010 Notes 2](https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/),
 Exercise 5 and Section 2 equation (5), Theorem 13 and its proof. These selected
@@ -1352,51 +1034,18 @@ not i. The correct general expression is E[(iX)^j exp(itX)], and the moment
 identity holds at zero. This does not invalidate the preceding Taylor coefficients
 or Theorem 13. The finding is restricted to the acquired author HTML, hash
 `ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d`.
-A bounded title/exercise correction search and current-page comment occurrence
-screen found no applicable correction; no full comment-thread or print-edition
-collation is claimed. The three inherited findings remain unchanged. No source
-finding has been independently reviewed in this continuation.
+The source-observation appendix records its accepted verdict and version boundary.
 
 The native convergence definition allows changing source measures. Its
 fixed-measure Slutsky helper is not directly applicable here. The proof instead
 uses the existing bounded-Lipschitz criterion on the two sequences of pushforward
 probability laws and the finite Lipschitz estimate above. It works in both
 directions and even for an atomic target. Neither direction proves that a limit
-exists. The omega Gaussian theorem, Mertens normalization and source-specific
-moment convergence remain open. The finite CDF identity is not yet the converse
-weak-convergence criterion phrased only using counts at continuity points.
+exists. PM.1 supplies the omega Gaussian target and its Mertens and moment inputs. The
+finite CDF identity alone does not prove the converse weak-convergence criterion;
+use the CDF criterion target for counts at continuity points.
 
-### Historical validation of the law-transfer checkpoint
-
-That checkpoint had 67 declaration signatures and 93 examples, elaborating
-with 160 expected placeholder warnings and no other diagnostics. All 67 nodes
-remain unchecked. The inventory is 1 construction, 48 lemmas, 1 comparison and
-17 theorems, with 7 construction API items, 21 packet test contracts (5 construction
-tests and 16 new theorem/lemma regressions), 8 unchanged planets and 106 baseline
-citations. No stage is closed; there remain 6 gaps and no supplier requests.
-
-Exact rational tests check 4,800 event counts, 5,400 CDF endpoints and 10,200
-characteristic-function values at multiples of pi/2 for N=1,...,120. The five
-observation families are a constant, the positive identity, residue modulo 3,
-omega and Omega. The characteristic checks use exact rational real/imaginary
-parts of the four roots of unity, not floating-point exponentials.
-For N=1,...,180, four centers, four positive rational scales and six statistics
-(constant, identity, absolute value, positive part, clipped identity and twice a
-shifted absolute value), 17,280 Lipschitz comparisons pass. Three diverging-scale
-families give 540 finite mean envelopes and 2,160 positive-threshold envelopes.
-The 173 fixed-scale obstructions use multiples of 4 to give a nonzero lower bound.
-Eight mutations reject loss of multiplicity, sampling zero, a strict CDF endpoint,
-wrong phase sign, omitted 1/N normalization, zero threshold, different centers
-and a fixed scale. These finite regressions do not prove asymptotic statements.
-
-A separate scratch Lean file proves six general statements and six examples,
-without placeholders, axioms or diagnostics: the count, CDF and characteristic
-identities, arithmetic Levy equivalence, reciprocal squeeze and a native
-changing-measure bounded-Lipschitz weak-transfer bridge. The last assumes the
-test-integral difference tends to zero; it does not assume a fixed source measure.
-This checks the selected bridge and identities, not all eight nodes or a Gaussian limit.
-
-## Uniform exponential and fixed higher repeated-factor moments
+### Uniform exponential and fixed higher repeated-factor moments
 
 Let D(n)=(Omega(n):R)-(omega(n):R)>=0 and let mu_M be the existing empirical measure
 on 1,...,M, with M=m+1. The fixed constants here are a=3/2 and t=log(a)>0.
@@ -1687,114 +1336,1368 @@ or Erdos–Kac. The existing weak-limit equivalence is still conditional on a
 limit for one of the laws. All stronger growing-prime and growing-moment
 requirements remain in the coverage ledger.
 
-## Ownership and remaining inputs
+### Additive arithmetic and distribution interfaces
 
-The current continuation and its coverage ledger at the end of this document supersede earlier unplanned-stage placeholders. The inherited finite arithmetic estimates do not close the growing-prime or limit-law inputs. Existing Mathlib measures and arithmetic/continued-fraction carriers remain the foundation; cross-roadmap analytic inputs are requested from their current owners.
+The generic carrier is the native zero hom ArithmeticFunction. Additivity requires f(1)=0 and the coprime product law; strong additivity adds constancy on positive prime powers. Native omega satisfies the strong law and native Omega fails it. Prime-power representation then recovers the general additive value from factorization. The probability law is the existing native ProbabilityMeasure, and concentration is a real supremum of strict-window mass. A zero-radius window has zero mass even at an atom; two equally weighted atoms distance one apart have concentration1/2 at radius1/2. These endpoint tests prevent a silent radius/length change.
 
-## Historical finite arithmetic verification
+The quantitative Kubilius target compares full small-prime exponents with independent native geometric laws. Its exponential total-variation error is a separate growing-prime theorem. Exact complete-period CRT identities and finite atom estimates do not prove it when the full prime product exceeds the sample size. The original small-prime proof and product-law realization are gaps. The real CDF criterion permits atoms and tests only continuity points. A moment-determinate Gaussian alone is not a theorem that arithmetic moments converge.
 
-The `.lean` companion is a suggested signature skeleton, not the roadmap and not an
-exhaustive file plan. This Markdown and the JSON mathematical contracts are definitive;
-names and signatures are suggestions for implementation. Definitions, each of the seven
-API declarations, five construction tests, ten finite-pattern examples, ten centered-moment
-examples, eight finite-Gaussian examples, ten cutoff-removal examples and all comparison
-statements are represented, together with nine full-residue declarations and 18 residue-law
-acceptance cases. The repeated-factor section adds eight declarations and sixteen examples.
-The law-transfer section adds eight declarations and sixteen examples.
-The higher-moment section adds nine declarations and eighteen examples. All 76
-declaration signatures and 111 example contracts elaborate at the pinned sources
-with 187 expected placeholder warnings and no others.
-The construction body is a planning placeholder too. Every node remains unchecked;
-signature elaboration is not proof verification.
+#### Additive arithmetic functions
 
-The official repository checker with the full pinned declaration index reports zero
-errors and zero warnings. Earlier checkpoints reran the inherited 1,000 divisor,
-25,000 joint-divisibility, 1,000 prime-pair and 2,680 weighted-moment cases, including
-181 complete-period moment cases. They additionally checked 9,720 disjoint prime-pattern
-cases (690 complete-period cases) and 1,920 summed-atom bounds for N=1,...,120 and
-subsets of {2,3,5,7}. These computations are regression evidence, not proofs of the
-universal statements. Separate proved Lean probes are recorded in the handoff; no
-scratch scripts or source downloads are part of the deliverables.
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate` (definition). For f:ArithmeticFunction R with R an additive commutative monoid, IsAdditive f means f(1)=0 and f(mn)=f(m)+f(n) for positive coprime m,n. Native f(0)=0 is retained; multiplication is on inputs, not Dirichlet convolution.
 
-The preceding centered-moment checks added 22,500 exact mixed-product cases (508 complete-period
-cases), 625 tuple-model versus independently enumerated Boolean-model comparisons,
-and 11,250 weighted moment cases (850 complete-period cases). A separate Lean probe
-proves seven general auxiliary lemmas and seven examples with no placeholders or
-warnings. These are historical diagnostics from the preceding continuation,
-not a formal implementation of the packet.
+The proof plan is: Introduce the displayed predicate on the native carrier. The positive-input guards avoid imposing a false law at zero. The API is used by prime-power representation and the quadratic mean bound.
 
-Historical exact-rational checks compare 288 independent Boolean-atom models with
-multinomial sums, 7,680 arithmetic moments with the finite parity bounds,
-96 collision inequalities, 120 fixed-support bounds and 100 corrected allocation counts. They range over
-all subsets of {2,3,5,7,11}, model orders 0 through 8, and sample sizes 1 through 30;
-allocation counts cover k=1,...,20. A new scratch Lean probe proves one general
-local-factor bound and six examples without placeholders or warnings. All 27
-inherited node objects, construction API/tests and three source findings remain
-unchanged. No whole stage is claimed complete.
+Direct prerequisites: `mathlib:ArithmeticFunction`.
 
-The cutoff continuation preserves all 36 preceding node objects. Its new checks
-cover 5,500 exact decompositions, 4,500 exact product bounds, 444,690 rational
-pointwise binomial inequalities, 14,580 rational averaged transfers and 9,600
-squared Cauchy–Schwarz inequalities. A separate 60-digit calculation checks
-14,580 logarithmic/square-root transfer bounds; it is numerical evidence,
-not an exact proof. The handoff records the ranges and error tolerance.
-Three general scratch lemmas, a concrete prime-factor identity and eight examples
-are proved without placeholders; the complete packet remains a plan.
+The API laws are `IsAdditive.map_one`: If f is additive, f(1)=0.; `IsAdditive.map_mul`: Additivity on positive coprime products, retaining both positivity hypotheses.; `IsAdditive.add`: The pointwise sum of additive arithmetic functions is additive..
 
-The full-residue continuation adds the nine declarations above and preserves all
-42 inherited node objects, all source findings and version records, and all
-PM.1–PM.5 coverage. Its inherited-source claims are provenance from those earlier
-checkpoints; the new source reading is the stated Tao passage and the pinned
-baseline declarations. No new source finding or completed stage is asserted.
+Tests: additive_zero: The native zero arithmetic function is additive.; additive_omega: The real cast of native omega is additive.; additive_Omega: The real cast of native Omega is additive.; additive_unit_rejected: The convolution unit takes value 1 at input 1 and is not additive..
 
-## Historical repeated-factor checkpoint verification
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers — Expands arbitrary additive functions from their coprime prime-power factors.; ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius — Defines the hypothesis of the source quadratic mean inequality..
 
-The historical inventory is 76 unchecked nodes: one construction, 55 lemmas, one
-comparison and nineteen theorems. There are seven construction API entries,
-39 packet test contracts (five construction tests and 34 lemma/theorem tests),
-111 suggested examples, eight unchanged planets, 116 baseline declarations,
-seventeen sources, four findings, five version records, six gaps and no requests.
-No stage is closed; PM.2–PM.5 remain not_read.
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
 
-The full suggested file elaborates with 187 expected placeholder warnings and
-no others. All 8,482 reached Mathlib files byte-match the pin; two Tau Ceti modules
-were freshly built from pinned sources. Six separate general scratch proofs
-check the geometric identity, reindexed local density bound, reciprocal telescope,
-factorial moment domination, joint prime-power divisibility and exponential tail
-division. Six concrete arithmetic examples also compile without placeholders,
-axioms or diagnostics. These are selected checks, not implementations of all
-nine proposed declarations.
+#### IsAdditive.map_one
 
-Exact fraction tests check 800 exponential means, 8,800 moments of orders 0–10,
-44,000 scaled moments, 9,600 inclusive tails, 66 finite Euler mean chains,
-615 local density bounds, 15,410 pointwise local expansions, 600 exponential
-products, 4,096 prime-power joint counts and 399 telescoping sums. Alternating
-log-series and positive exp-series with geometric tail bounds certify two rational
-transcendental envelopes, so these comparisons use no floating point. Eight
-mutations check the first-power term, cutoff, base-two ratio, repeated prime,
-finite-sample independence, zero sampling, zeroth moment and inclusive threshold.
-These are regressions, not universal or asymptotic proofs. All other counts above
-are historical and were not rerun in this checkpoint.
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-1` (lemma). If f is additive, f(1)=0.
 
-All 67 inherited node objects and 106 baseline entries remain exact, along with
-the construction API/tests, four findings and five version records. Only the Tao
-2014 source gains a reading-scope entry; one pinned-code source record is added.
-The other fifteen sources, PM.1–PM.5 coverage/gaps and all eight planets are unchanged.
-Packet, source-envelope, preservation/DAG and four-file intake checks are run,
-with a fresh consulted-input/link guard before publication.
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
 
-## PM.2: asymptotic equidistribution on tori
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
 
-The reviewed audit found PM.2 unbuilt. Neither library has a notion of an equidistributed sequence; Mathlib has only the density of an irrational rotation's orbit (`AddCircle.denseRange_zsmul_iff`) and its ergodicity (`AddCircle.ergodic_add_left`). This section decomposes the asymptotic core from Tao, *Higher order Fourier analysis*, §1.1.1, read in full in the author's copy (the 2010 blog notes are the same text, and were compared passage by passage). Everything reuses existing carriers. The definition is convergence of Tau Ceti's `empiricalMeasure` in Mathlib's `ProbabilityMeasure` topology; the torus is Mathlib's `UnitAddTorus` with its characters `mFourier`; and van der Corput's inequality is `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound` at r = 1, which is not replanned.
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
 
-Sequences are indexed by ℕ and averaged over 0, …, n, as `empiricalMeasure` does, whereas the source averages over 1, …, N. Equidistribution ignores any finite shift, and the API proves that (`asympEquidistributed_comp_add_iff`). The subsequent integer-indexed section supplies the two-sided indexing convention.
+#### IsAdditive.map_mul
 
-Reading the section turned up four misprints, recorded as `ProbabilisticAndMetricNumberTheory/E5`–`E8`. None is in the author's maintained errata list or the blog's corrected comments, and all four affect nothing:
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2` (lemma). Additivity on positive coprime products, retaining both positivity hypotheses.
 
-- "left-hand side" for "right-hand side" in the proof of the van der Corput inequality;
-- "leading coefficient shα_s n^{s−1}" for "shα_s" in the proof of Weyl's theorem;
-- "this torus T" for "T′" after Proposition 1.1.5;
-- "Example 1.1.7" for "Exercise 1.1.7" in Remark 1.1.19.
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### IsAdditive.add
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-3` (lemma). The pointwise sum of additive arithmetic functions is additive.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
+
+#### Strongly additive arithmetic functions
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate` (definition). For f:ArithmeticFunction R, IsStronglyAdditive f means IsAdditive f and f(p^k)=f(p) for every natural prime p and k≥1. It is different from complete additivity f(mn)=f(m)+f(n) on all positive inputs.
+
+The proof plan is: Add the explicit prime-power clause to IsAdditive; no change of arithmetic-function carrier. This clause is needed to replace the prime-power representation by the distinct-prime sum.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
+
+The API laws are `IsStronglyAdditive.isAdditive`: A strongly additive function is additive.; `IsStronglyAdditive.prime_pow`: For p prime and k>0, f(p^k)=f(p).; `IsStronglyAdditive.add`: Pointwise addition preserves strong additivity..
+
+Tests: strong_zero: Zero is strongly additive.; strong_omega: Native omega, cast to real arithmetic functions, is strongly additive.; strong_Omega_rejected: Native Omega is not strongly additive: Omega(4)=2 but Omega(2)=1..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes — Removes exponents from the prime-power representation.; ProbabilisticAndMetricNumberTheory:PM.1 — Distinguishes omega from Omega in the normal-order argument..
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.isAdditive
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-1` (lemma). A strongly additive function is additive.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.prime_pow
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2` (lemma). For p prime and k>0, f(p^k)=f(p).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### IsStronglyAdditive.add
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-3` (lemma). Pointwise addition preserves strong additivity.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
+
+Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
+
+#### Prime-power representation of additive functions
+
+`ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers` (lemma). For additive f:ArithmeticFunction R and n>0, f(n)=Σ_{p∈n.primeFactors}f(p^(n.factorization p)); this is the empty sum at n=1.
+
+The proof plan is: Factor n as the product of its positive prime powers. Distinct prime powers are pairwise coprime. Induct on that finite product using IsAdditive.map_mul and f(1)=0. No independent random model is used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `mathlib:ArithmeticFunction`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2`.
+
+Source: ML-PM79, ArithmeticFunction.Defs and Nat.factorization; elementary specialization of native factorization.
+
+#### Distinct-prime representation
+
+`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes` (lemma). For strongly additive f and n>0, f(n)=Σ_{p∈n.primeFactors}f(p).
+
+The proof plan is: Use the prime-power representation and positivity of every factorization exponent on primeFactors. Apply IsStronglyAdditive.prime_pow term by term.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2`.
+
+Source: ElsholtzTao2011, Appendix A, strongly additive convention.
+
+#### Concentration function of a real law
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration` (definition). For ν:ProbabilityMeasure ℝ and δ∈ℝ, Q(ν,δ)=sup_{u∈ℝ}ν.real((u−δ,u+δ)). The intervals are strict and δ is the radius, not the length. For δ≤0 the value is zero.
+
+The proof plan is: Use native real measure on Ioo and real sSup. All terms lie in [0,1], so the supremum is bounded. Consumers pass native pushforward laws of measurable real observations. Do not apply the real theorem directly to complex observations.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
+
+The API laws are `concentration_bounds`: For every real radius, 0≤Q≤1.; `concentration_mono`: Increasing the radius cannot decrease Q.; `concentration_translate`: Translation of a real law leaves Q unchanged.; `concentration_scale`: For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|)..
+
+Tests: concentration_zero_radius: A dirac law has zero concentration at zero radius because the interval is strict.; concentration_dirac_positive: A dirac law has concentration one at every positive radius.; concentration_two_atoms_boundary: For equal atoms at 0 and 1, radius 1/2 has Q=1/2; closed intervals would wrongly give 1..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin — The deficit sum 1−Q of each independent real summand controls the sum.; PAPER-BARY-SOROKER-KOUKOULOPOULOS-KOZMA2023/61,/62 — Supplies the generic real concentration interface; polynomial complex root projections remain the paper owner’s responsibility..
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_bounds
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-1` (lemma). For every real radius, 0≤Q≤1.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_mono
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-2` (lemma). Increasing the radius cannot decrease Q.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_translate
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-3` (lemma). Translation of a real law leaves Q unchanged.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### concentration_scale
+
+`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-4` (lemma). For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|).
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
+
+#### Kolmogorov–Rogozin inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin` (theorem). There is an absolute C>0 such that for every finite independent family of a.e. measurable real random variables X_j on a probability space, every δ>0, and D=Σ_j(1−Q(law X_j,δ))>0, Q(law(Σ_j X_j),δ)≤C/sqrt(D). Radii are equal; the D=0 case is the separate trivial bound Q≤1.
+
+The proof plan is: Match equal-radius real Kolmogorov–Rogozin, with native iIndepFun and native pushforwards. The original proof of the independent-sum concentration estimate in the cited references remains an explicit gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
+
+Source: BSKK2023, Lemma 7.2, physical p.36; references [19,33,34].
+
+#### CDF continuity-point criterion
+
+`ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion` (theorem). For ν_m,ν:ProbabilityMeasure ℝ, ν_m converges weakly to ν if and only if cdf(ν_m,x)→cdf(ν,x) at every continuity point x of the limiting native CDF. Atoms of ν are allowed; no convergence is demanded at their jumps.
+
+The proof plan is: Forward: apply the native null-frontier Portmanteau theorem to Iic at a continuity point. Reverse: subtract CDF limits on half-open intervals with continuity endpoints; these form a measurable pi-system and arbitrarily small neighborhoods. Apply the native pi-system theorem. The density of continuity points follows from countability of atoms; confirm the exact native atom/countability lemmas before implementing this bridge.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:ProbabilityTheory.cdf_eq_real`, `mathlib:IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem`.
+
+Source: ML-PM79, CDF.cdf_eq_real and Portmanteau.IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem.
+
+#### Kubilius small-prime valuation comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/kubilius-small-prime-model` (theorem). For each positive integer N sample J_N uniformly from {1,…,N}. Let β_N>0 tend to infinity and P_N={p prime:p≤N^(1/β_N)}. The joint valuation vector (J_N.factorization p)_(p∈P_N) is compared with independent geometric exponents G_p having P(G_p=k)=(1−1/p)p^(−k), k≥0. There are C,δ>0 (independent of N) such that, eventually, their total variation distance is at most C exp(−δβ_N). Total variation is one-half the sum of absolute atom-probability differences. Positive support is essential; a coordinate is an exponent, not merely a divisibility bit.
+
+The proof plan is: Use the native factorization map on the finite positive integer sample and the native finite product of geometricMeasure with success parameter 1−1/p. The bound (1.1) is quoted there from Kubilius [10], not proved by the finite CRT comparison: acquire and decompose the fundamental-lemma/small-prime estimate before closure. The displayed signature uses fully specified native model atom laws, without claiming a private carrier or a supplied independence theorem proves the arithmetic comparison.
+
+Direct prerequisites: `mathlib:ProbabilityTheory.geometricMeasure`, `mathlib:ProbabilityTheory.geometricMeasure_real_singleton`, `mathlib:Nat.primesLE`, `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-joint-law`.
+
+Source: Kubilius2021, Classical uniform result (1.1), physical p.2, and exact atom convention (1.6), p.3.
+
+### Reference contracts for the worked calculations
+
+#### Finite weighted prime truncation
+
+`ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum` (construction). Construct S(P,a) : ArithmeticFunction real for a finite set P of natural indices and real weights a. Set S(P,a)(0)=0 and, for n>0, S(P,a)(n)=sum_{p in P} (if p divides n then a(p) else 0). Only the arithmetic interpretation and the prime-power/coprime laws require every member of P to be prime.
+
+Hypotheses: P is a finite set; a is real-valued.
+
+Direct prerequisites: `mathlib:ArithmeticFunction`, `mathlib:ArithmeticFunction.ext`, `mathlib:ArithmeticFunction.map_zero`.
+
+Proof plan:
+
+1. Use the existing ArithmeticFunction=ZeroHom carrier. Define the function by the displayed zero guard and finite sum; check its zero field by evaluation.
+2. Export positive evaluation before using the construction in averages. Prove the seven separate API nodes below; do not add an independent arithmetic-function or probability carrier.
+
+Source: ML-ARITH, Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow.
+
+API:
+
+- `primeDivisibilitySum_apply`: For n>0, S(P,a)(n)=sum over p in P of a(p) times the indicator of p dividing n.
+- `primeDivisibilitySum_empty`: S(empty,a)=0 as an ArithmeticFunction, including at n=0.
+- `primeDivisibilitySum_congr`: If a(p)=b(p) for p in P then S(P,a)=S(P,b).
+- `primeDivisibilitySum_add`: S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.
+- `primeDivisibilitySum_mul_of_coprime`: For prime P and coprime positive m,n, S(P,a)(mn)=S(P,a)(m)+S(P,a)(n).
+- `primeDivisibilitySum_prime_pow`: For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.
+- `primeDivisibilitySum_primeFactors`: S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.
+
+Checks:
+
+- `weighted_twelve`: For P={2,3} and a(p)=p, S(P,a)(12)=5, not 7; prime powers are counted once.
+- `zero_extension`: For P={2,3} and a(p)=p, S(P,a)(0)=0, although every p divides 0; the unguarded indicator sum would wrongly give 5.
+- `unit`: For every finite set of primes P and every a, S(P,a)(1)=0.
+- `omega_twelve`: For P=12.primeFactors and unit weights, S(P,1)(12)=cardDistinctFactors(12)=2, whereas cardFactors(12)=3.
+- `not_completely_additive`: For P={2} and a(2)=2, S(P,a)(4)=2 differs from S(P,a)(2)+S(P,a)(2)=4.
+
+Acceptance:
+
+- Zero, positive and empty evaluations agree with the stated convention.
+- Implement the five tests listed on this node; multiplication in ArithmeticFunction is not used for pointwise products.
+
+#### Coefficient extensionality
+
+`ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence` (lemma). If a(p)=b(p) for p in P then S(P,a)=S(P,b).
+
+Hypotheses: P finite; a(p)=b(p) for every p in P.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `mathlib:ArithmeticFunction.ext`.
+
+Proof plan:
+
+1. Apply extensionality, split n=0, and compare each summand for n>0. Coefficients outside P are irrelevant.
+
+Source: ML-ARITH, Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow.
+
+Acceptance:
+
+- Changing weights outside P has no effect.
+
+#### Additivity in the weights
+
+`ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition` (lemma). S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.
+
+Hypotheses: P finite; a,b real-valued.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `mathlib:ArithmeticFunction.ext`.
+
+Proof plan:
+
+1. Split the zero and positive arguments. For each p split the divisibility condition, distribute addition, then use linearity of a finite sum.
+
+Source: ML-ARITH, Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow.
+
+Acceptance:
+
+- Cancellation a+(-a) produces the zero function; this is not a convolution formula.
+
+#### Prime-power law
+
+`ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation` (lemma). For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.
+
+Hypotheses: All p in P are prime; q prime; k>=1.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `mathlib:Nat.Prime.dvd_of_dvd_pow`, `mathlib:Nat.Prime.dvd_iff_eq`.
+
+Proof plan:
+
+1. For p in P, p divides q^k iff p divides q, using the prime divisor-of-power theorem and its elementary converse.
+2. Since p and q are prime this holds iff p=q. The finite sum has at most the q summand.
+
+Source: ML-ARITH, Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow; ML-PRIME, Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul.
+
+Acceptance:
+
+- At P={2,3}, weights a(p)=p, evaluate q=2,k=3 to 2 and q=5,k=1 to 0.
+
+#### Compatibility with the existing omega
+
+`ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility` (comparison). S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.
+
+Hypotheses: n is any natural number, including 0 and 1.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `mathlib:ArithmeticFunction.cardDistinctFactors`, `mathlib:ArithmeticFunction.cardDistinctFactors_apply`, `mathlib:ArithmeticFunction.map_zero`.
+
+Proof plan:
+
+1. At n=0 the existing arithmetic-function zero laws give both sides zero.
+2. At positive n each member of n.primeFactors divides n, so the sum is the cardinal of n.primeFactors.
+3. Identify that finite set with the deduplicated prime-factor list and use the existing cardDistinctFactors_apply theorem.
+
+Source: ML-ARITH, Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow.
+
+Acceptance:
+
+- At 12 the value is 2; at 0 and 1 it is 0. Never substitute the multiplicity-counting Omega.
+
+#### Exact divisibility probability
+
+`ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability` (lemma). For every positive d, the real probability mu_N({n : d divides n}) equals (Nat.div N d)/N. This is a probability specialization of existing counting, not a new multiples-counting theorem.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; d>0.
+
+Direct prerequisites: `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:Nat.card_multiples`.
+
+Proof plan:
+
+1. Apply empiricalMeasure_apply_toReal to the measurable divisibility set on discrete naturals.
+2. Its indicator sum is the real cast of the number of k<N with d dividing k+1. Substitute the already proved Nat.card_multiples and move the finite natural cast through the sum.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; TC-EMP, empiricalMeasure_apply_toReal and integral_empiricalMeasure.
+
+Acceptance:
+
+- N=5,d=2 gives 2/5; d>N gives 0; d=1 gives 1.
+
+#### Signed finite counting error
+
+`ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error` (lemma). Let e_N(d)=mu_N(d divides n)-1/d, in the reals. For d>0, e_N(d)=-(N mod d)/(N*d), so -1/N<e_N(d)<=0; in particular |e_N(d)|<=1/N. This notation is a local expression, not another probability definition.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; d>0.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability`.
+
+Proof plan:
+
+1. Write N=d*(Nat.div N d)+(N mod d) with 0<=N mod d<d.
+2. Substitute the exact probability, cast the quotient-remainder equality to the reals, and divide by positive N*d.
+3. The sign and strict lower bound follow from the remainder bounds. Retain the sign for exact-period specialization.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions.
+
+Acceptance:
+
+- N=5,d=2 gives -1/10. If d divides N the error is exactly zero.
+
+#### Joint divisibility and the lcm
+
+`ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility` (lemma). For positive d,e, mu_N({n : d divides n and e divides n})=(Nat.div N (Nat.lcm d e))/N. For distinct primes p,q, the denominator inside Nat.div becomes p*q; for equal primes it is p, not p^2.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; d,e>0.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability`, `mathlib:Nat.Coprime.lcm_eq_mul`, `mathlib:Nat.Prime.dvd_iff_eq`.
+
+Proof plan:
+
+1. The joint event is exactly the event that lcm(d,e) divides n, by the defining universal property of lcm. This lcm is positive.
+2. Apply divisibility-probability. Use Coprime.lcm_eq_mul only when coprimality has been proved; distinct primes are coprime since a common divisor is 1 or each of them.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; ML-PRIME, Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul.
+
+Acceptance:
+
+- N=12,d=4,e=6 gives 1/12 rather than floor(12/24)/12=0.
+- N=5,p=2,q=3 gives 0 while the product of marginal probabilities is 2/25.
+
+#### Exact mean of a finite truncation
+
+`ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean` (lemma). For prime P and real a, integral S(P,a) dmu_N = sum_{p in P} a(p)*(Nat.div N p)/N. All the quantities are real.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; P finite, all its members prime; a real-valued.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `mathlib:Nat.card_multiples`.
+
+Proof plan:
+
+1. Apply integral_empiricalMeasure to S(P,a); on the discrete natural carrier it is strongly measurable.
+2. For k<N, k+1>0, so use positive-evaluation. Interchange the two finite sums.
+3. For each p, the sum of divisibility indicators is Nat.card_multiples N p. Pull out the constant real weight. No independence enters the proof.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; TC-EMP, empiricalMeasure_apply_toReal and integral_empiricalMeasure.
+
+Acceptance:
+
+- At N=5,P={2,3},a(p)=p, the values 0,2,3,2,0 have mean 7/5.
+
+#### Centering error
+
+`ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean-error` (lemma). Write A=sum_{p in P} a(p)/p and L=sum_{p in P}|a(p)|. Then |integral S(P,a) dmu_N-A|<=L/N.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; P finite and prime; a real-valued.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`.
+
+Proof plan:
+
+1. Subtract A from the exact mean and obtain sum a(p)*e_N(p).
+2. Apply the finite triangle inequality and divisibility-error, noting that each p is positive.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; TAO-RESIDUES, Section 3, first six paragraphs; paragraph beginning However, one can still hope.
+
+Acceptance:
+
+- Weights may have either sign. The centering A is not asserted to be the exact empirical mean.
+
+#### Exact centered pair average
+
+`ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity` (lemma). For positive p,q, let I_d(n) be the real 0/1 indicator of d dividing n. Then integral (I_p-1/p)*(I_q-1/q) dmu_N equals (Nat.div N (Nat.lcm p q))/N -(Nat.div N p)/(N*q) -(Nat.div N q)/(N*p)+1/(p*q).
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; p,q>0; primality is not needed for this identity.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability`, `ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Proof plan:
+
+1. Convert the integral to its finite average and expand the product into four terms.
+2. The product I_p*I_q is the indicator of the joint divisibility event; the constant term averages to itself because there are exactly N terms.
+3. Use divisibility-probability and joint-divisibility for the three nonconstant terms.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; TC-EMP, empiricalMeasure_apply_toReal and integral_empiricalMeasure.
+
+Acceptance:
+
+- When p=q use I_p^2=I_p. When N=5,p=2,q=3 the centered average is -1/15.
+
+#### Uniform prime-pair error
+
+`ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error` (lemma). For primes p,q, put D(p,q)=1/p-1/p^2 when p=q, and 0 otherwise. Then |integral (I_p-1/p)*(I_q-1/q) dmu_N-D(p,q)|<=2/N. Repeated primes are included.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; p,q prime.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `mathlib:Nat.Coprime.lcm_eq_mul`.
+
+Proof plan:
+
+1. Replace each floor probability in centered-pair-identity by 1/d+e_N(d).
+2. If p=q then lcm(p,p)=p, and the nonerror part is 1/p-1/p^2. If p!=q, coprimality gives lcm(p,q)=p*q and the nonerror part is zero.
+3. The remaining expression is e_N(lcm(p,q))-e_N(p)/q-e_N(q)/p. Each error has magnitude at most 1/N.
+4. Since p,q>=2, 1+1/p+1/q<=2. The triangle inequality proves the bound, including the diagonal.
+
+Source: ML-PRIME, Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul; TAO-RESIDUES, Section 3, first six paragraphs; paragraph beginning However, one can still hope.
+
+Acceptance:
+
+- At p=q=2, the centered square equals 1/4 pointwise and the error is actually zero.
+- Distinct-prime indicators under mu_N need not be independent.
+
+#### Finite-head second-moment comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison` (theorem). For prime P and real a, write A=sum a(p)/p, L=sum |a(p)|, V=sum a(p)^2*(1/p-1/p^2). Then |integral (S(P,a)-A)^2 dmu_N - V| <= 2*L^2/N. This is a centered second moment about A, not a formula for variance about the empirical mean.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; P finite and prime; a real-valued, with no sign or boundedness hypothesis beyond finiteness of P.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Proof plan:
+
+1. For n in the positive sample, S(P,a)(n)-A=sum a(p)*(I_p(n)-1/p).
+2. Square and distribute as a double sum over all ordered pairs (p,q), including the diagonal. Convert the integral to a finite average and interchange these finite sums.
+3. Subtract the sum of a(p)*a(q)*D(p,q). Its off-diagonal terms vanish and its diagonal is exactly V.
+4. Apply centered-pair-error and the triangle inequality, obtaining (2/N)*sum_{p,q}|a(p)|*|a(q)|=(2/N)*L^2. No probabilistic independence or central limit theorem is used.
+
+Source: TAO-RESIDUES, Section 3, first six paragraphs; paragraph beginning However, one can still hope; TC-EMP, empiricalMeasure_apply_toReal and integral_empiricalMeasure.
+
+Acceptance:
+
+- P empty gives 0=0. Signed weights and repeated pair indices must survive expansion.
+- The bound is useful only when L^2/N is controlled; it is not the Turan-Kubilius inequality and does not discharge the large-prime tail of Erdos-Kac.
+
+#### Exact moments on complete prime periods
+
+`ProbabilisticAndMetricNumberTheory:PM.0/complete-period-moments` (theorem). Under the second-moment-comparison hypotheses, assume Q=product_{p in P}p divides N. Then integral (S(P,a)-A)^2 dmu_N=V. Also the already stated weighted-mean formula gives integral S(P,a) dmu_N=A, so this centered moment is the actual variance in this case.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.; P finite and prime; a real-valued; product_{p in P}p divides N.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison`, `ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean`.
+
+Proof plan:
+
+1. Each p in P divides Q and thus N. For p,q in P their lcm divides Q, whether p=q or not.
+2. All three remainder terms in the centered-pair-identity are zero. The exact pair average is D(p,q).
+3. Repeat the explicit finite double-sum argument of second-moment-comparison with equality. The exact first moment follows by replacing each floor quotient by N/p in weighted-mean.
+
+Source: ML-COUNT, Nat.card_multiples, in the section Lemmas about factorizations of particular functions; TAO-RESIDUES, Section 3, first six paragraphs; paragraph beginning However, one can still hope.
+
+Acceptance:
+
+- For N=6,P={2,3},a(p)=p, A=2 and V=3. For N=5 the corresponding mean is 7/5 and centered second moment is 9/5, so completeness of the period cannot be silently removed.
+- For P empty, Q=1; every positive N satisfies the condition and both moments vanish.
+
+#### Simultaneous prime-divisibility probability
+
+`ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility` (lemma). mu_N({n: every p in P divides n}) = floor(N/Q_P)/N.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.; P is a finite set of natural primes; Q_P is its product, including Q_empty=1.
+
+Direct prerequisites: `mathlib:Nat.coprime_primes`, `mathlib:Finset.lcm_eq_prod`, `mathlib:Finset.lcm_dvd_iff`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability`.
+
+Proof plan:
+
+1. Distinct members of P are coprime by Nat.coprime_primes. Finset.lcm_eq_prod therefore identifies Q_P with the finite lcm.
+2. By Finset.lcm_dvd_iff, the event of all divisibilities is exactly Q_P dividing n. This also treats P empty: the empty lcm and product are 1.
+3. Every prime is positive, hence Q_P is positive; apply divisibility-probability with d=Q_P. All sets of naturals are measurable.
+
+Source: ML-FINITE-PRODUCT, Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237; TAO-RESIDUES, Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics.
+
+Acceptance:
+
+- P empty gives probability 1 for every positive N.
+- P={2,3},N=5 gives 0; N=6 gives 1/6.
+- Dropping primality fails for P={2,4},N=4: the event has probability 1/4, while floor(4/8)/4=0.
+
+#### Signed formula for prime-divisibility patterns
+
+`ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula` (lemma). mu_N(E(S,T)) = sum_{U subset T} (-1)^|U| floor(N/Q_{S union U})/N.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.; S,T are disjoint finite sets of natural primes. Write Q_R=product_{p in R}p, with Q_empty=1; E(S,T)={n: every p in S divides n and no q in T divides n}. These are local expressions, not new carriers.
+
+Direct prerequisites: `mathlib:Finset.prod_one_add`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility`.
+
+Proof plan:
+
+1. At each natural n put I_p(n)=1 if p divides n and 0 otherwise. The event indicator is (product_{p in S} I_p(n))*(product_{q in T}(1-I_q(n))).
+2. Apply Finset.prod_one_add with f(q)=-I_q(n), then distribute the first product. The U term is (-1)^|U| times the indicator of all primes in S union U dividing n. Because U is contained in T, it is disjoint from S; repeated indicators would also be idempotent.
+3. Apply empiricalMeasure_apply_toReal to the event and each all-divisibility event; commute the two finite real sums. This avoids any unjustified signed subtraction in extended nonnegative reals.
+4. Use simultaneous-divisibility for S union U, whose members are primes. Natural division is performed before casting to the real normalized probability.
+
+Source: ML-FINITE-PRODUCT, Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237; TAO-RESIDUES, Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics.
+
+Acceptance:
+
+- T empty recovers simultaneous-divisibility; S=T=empty gives 1.
+- S={2},T={3},N=5 gives 2/5 rather than the model value 1/3.
+- S empty,T={2,3},N=6 gives 1-1/2-1/3+1/6=1/3.
+
+#### Bernoulli-product error for one pattern
+
+`ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-error` (lemma). Put b(S,T)=(product_{p in S}1/p)*(product_{q in T}(1-1/q)). Then |mu_N(E(S,T))-b(S,T)| <= 2^|T|/N.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.; S,T are disjoint finite sets of natural primes. Write Q_R=product_{p in R}p, with Q_empty=1; E(S,T)={n: every p in S divides n and no q in T divides n}. These are local expressions, not new carriers.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `mathlib:Finset.prod_one_add`, `mathlib:Finset.card_powerset`.
+
+Proof plan:
+
+1. For U contained in T, disjointness gives Q_{S union U}=Q_S*Q_U. Positivity permits the reciprocal product identity.
+2. Expand product_{q in T}(1-1/q) with Finset.prod_one_add at f(q)=-1/q. Multiplying by 1/Q_S yields b(S,T)=sum_{U subset T}(-1)^|U|/Q_{S union U}.
+3. Subtract this identity from divisibility-pattern-formula. The difference is sum_{U subset T}(-1)^|U| e_N(Q_{S union U}), with e_N from divisibility-error.
+4. Each product divisor is positive and each error has absolute value at most 1/N. The finite triangle inequality and Finset.card_powerset give 2^|T|/N.
+
+Source: ML-FINITE-PRODUCT, Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237; TAO-RESIDUES, Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics.
+
+Acceptance:
+
+- No restriction Q_{S union T}<=N is needed for this inequality, but the bound can exceed 1 and then conveys little information.
+- Disjointness cannot be dropped from the model interpretation: S=T={2} has an empty event while b=1/4, even when N is a multiple of 2.
+- For N=5,S={2},T={3}, the error is 1/15.
+
+#### Summed Boolean-atom error
+
+`ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-summed-error` (theorem). For a finite prime set P, sum_{S subset P} |mu_N(E(S,P minus S))-b(S,P minus S)| <= 3^|P|/N, with E and b as in divisibility-pattern-error.
+
+Hypotheses: m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.; P is a finite set of natural primes; each S ranges over its powerset, and P minus S is the finite set difference.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-error`, `mathlib:Finset.sum_pow_mul_eq_add_pow`.
+
+Proof plan:
+
+1. For every S contained in P, the disjoint prime sets S and P minus S satisfy divisibility-pattern-error. Their atom error is at most 2^|P minus S|/N.
+2. Sum these inequalities and factor out 1/N. Since S is contained in P, |P minus S|=|P|-|S|.
+3. Apply Finset.sum_pow_mul_eq_add_pow with real a=1,b=2 to evaluate sum_{S subset P} 2^(|P|-|S|)=3^|P|.
+4. The atoms partition the finite Boolean pattern set and the nonnegative model masses sum to product_{p in P}(1/p+(1-1/p))=1 by finite distributivity. The exported declaration is the displayed sum bound; a measure-theoretic total-variation interface is not introduced.
+
+Source: ML-FINITE-PRODUCT, Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237; TAO-RESIDUES, Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics.
+
+Acceptance:
+
+- For N=5,P={2,3}, the summed error is 1/3 and the bound is 9/5.
+- For complete prime periods all atom errors vanish by complete-period-joint-law.
+- For P empty the summed error is zero. The estimate alone is useful for varying P only when 3^|P|/N is small; it is not a general Kubilius growing-prime theorem.
+
+#### Exact centered prime-product average
+
+`ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion` (lemma). The mu_N-average of product_{p in P} f_p(n)^alpha_p equals sum_{D subset P} (product_{p in D} w_p)(product_{p in P minus D} v_p) floor(N/Q_D)/N.
+
+Hypotheses: P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.; alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility`, `mathlib:Finset.prod_add`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Proof plan:
+
+1. For each prime p and each n, split on p dividing n to obtain f_p(n)^alpha_p=v_p+w_p I_p(n), also when alpha_p=0.
+2. Apply Finset.prod_add with the w_p I_p(n) term first and v_p second. Products of zero-one indicators give the event that every p in D divides n.
+3. Use integral_empiricalMeasure to replace the integral by the finite average, interchange finite sums, and apply simultaneous-divisibility to D. Every member of D is prime, and the natural quotient N/Q_D is cast to the reals only after division.
+4. The empty subset has Q_D=1 and normalized count one; in particular zero exponents and empty P introduce no exceptional undefined term.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, pp.4-5: f_r and the finite average preceding (9).
+
+Acceptance:
+
+- All alpha_p=0 gives average one; P empty also gives one.
+- For P={2},alpha_2=2, v_2=1/4 and w_2=0; the average is exactly 1/4 for every N, including odd N.
+- For P={2,3},alpha_2=alpha_3=1,N=5 the average is -1/15, not zero.
+
+#### Explicit centered-product remainder
+
+`ProbabilisticAndMetricNumberTheory:PM.0/centered-product-error` (lemma). Put G(P,alpha)=product_{p in P}(v_p+w_p/p). The absolute difference between the mu_N-average of product f_p^alpha_p and G(P,alpha) is at most [product_{p in P}(|v_p|+|w_p|)-product_{p in P}|v_p|]/N.
+
+Hypotheses: P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.; alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `mathlib:Finset.prod_add`.
+
+Proof plan:
+
+1. Expand G by Finset.prod_add with factors w_p/p and v_p; the D coefficient is the same as in centered-product-expansion, multiplied by 1/Q_D. All Q_D are positive.
+2. Subtract the exact centered-product expansion. Each term has coefficient (product_D w_p)(product_{P minus D} v_p) times the signed divisor error e_N(Q_D) from divisibility-error.
+3. For D empty that error is zero because Q_D=1. For every other subset its absolute value is at most 1/N; apply the finite triangle inequality and multiplicativity of absolute value.
+4. Apply Finset.prod_add to |w_p| and |v_p|. The sum of absolute coefficients excluding the empty subset is exactly product(|v_p|+|w_p|)-product|v_p|, which is nonnegative.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, pp.4-5: factorization of G(r) and remainder O(tau(R)).
+
+Acceptance:
+
+- The bound is zero when P is empty or all alpha_p are zero.
+- For P={2},alpha_2=2 the bound is zero, recovering the exact square average even when 2 does not divide N.
+- The model center is G, not a product of empirical centered means; the two-prime N=5 error is 1/15.
+
+#### Uniform mixed-moment comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/centered-product-uniform-error` (lemma). With nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, the absolute difference between the mu_N-average of product_{p in P} f_p(n)^alpha_p and product_{p in P}nu_p(alpha_p) is at most (3/2)^|P|/N, for all natural exponents.
+
+Hypotheses: P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.; alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-error`, `mathlib:pow_le_of_le_one`.
+
+Proof plan:
+
+1. The identity v_p+w_p/p=nu_p(alpha_p) follows by real ring algebra.
+2. Since p is prime, 0<u_p<=1/2. If alpha_p=0, |v_p|+|w_p|=1. Otherwise pow_le_of_le_one gives u_p^alpha_p<=u_p and (1-u_p)^alpha_p<=1-u_p.
+3. The triangle inequality gives |w_p|<=(1-u_p)^alpha_p+u_p^alpha_p<=1; hence |v_p|+|w_p|<=1+u_p<=3/2. No parity or positive exponent hypothesis is suppressed.
+4. In centered-product-error discard the nonnegative subtracted product, then multiply these nonnegative bounds over P.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, pp.4-5, and weighted extension in proof of Proposition 4, pp.10-11.
+
+Acceptance:
+
+- The estimate permits zero exponents and all N>=1, without a restriction on Q_P.
+- For alpha_p=1, nu_p(1)=0, but the corresponding arithmetic centered average need not vanish on incomplete periods.
+- For p=3,e=3, nu_p(e)=2/27; odd individual centered moments are not identically zero.
+
+#### Complete-period mixed moments
+
+`ProbabilisticAndMetricNumberTheory:PM.0/complete-period-centered-product` (lemma). If Q_P divides N, the mu_N-average of product_{p in P} f_p(n)^alpha_p equals product_{p in P}[u_p(1-u_p)^alpha_p+(1-u_p)(-u_p)^alpha_p] exactly.
+
+Hypotheses: P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.; alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used.; Q_P divides N.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `mathlib:Finset.prod_add`, `mathlib:ProbabilityTheory.integral_bernoulliMeasure`.
+
+Proof plan:
+
+1. For every D contained in P, split the prime product into D and its complement to see that Q_D divides Q_P and therefore N.
+2. The signed remainder formula in divisibility-error gives e_N(Q_D)=0. In the exact subset formula every normalized floor can be replaced by 1/Q_D.
+3. Apply Finset.prod_add to factor the resulting sum as product(v_p+w_p/p), then use elementary algebra to obtain the displayed expression.
+4. Each factor is already the centered moment of the existing Bernoulli measure at 1 and 0, by integral_bernoulliMeasure. This interpretation does not introduce a second distribution carrier or claim independence on incomplete periods.
+
+Source: GS-SIEVING, Author copy, definition of G(r) in proof of Proposition 2, p.4; square-full-support observation, p.5.
+
+Acceptance:
+
+- N=3,p=3,e=3 gives 2/27, and N=6,P={2,3},both exponents one gives zero.
+- If any alpha_p=1 the model product vanishes; this is the square-full-support cancellation used in the moment method, not a claim that every square-full product has nonzero model value.
+- Repeated prime coordinates must be merged into their exponent: p=2 twice gives 1/4, not the product of two zero means.
+
+#### Finite weighted moment comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison` (theorem). Let k>=0 and a:P->R, A=sum_{p in P}a(p)/p, and L=sum_{p in P}|a(p)|. For each ordered tuple t:{0,...,k-1}->P let T_t be its image, alpha_t(p) the number of coordinates equal to p, and G(t)=product_{p in T_t}nu_p(alpha_t(p)), with nu_p(e)=(1/p)(1-1/p)^e+(1-1/p)(-1/p)^e. Put M_k=sum_t (product_{j<k}a(t(j)))G(t). Then |integral (S(P,a)(n)-A)^k dmu_N - M_k| <= (3/2)^k L^k/N. S(P,a) is the existing zero-extended primeDivisibilitySum; all auxiliary expressions are local finite sums/products.
+
+Hypotheses: P is a finite set of natural primes, a has arbitrary real weights (including negative and zero values), m,k are natural numbers, N=m+1, and mu_N samples 1,...,N.; Tuples are ordered and can repeat primes. The empty tuple exists when k=0 even if P is empty, so M_0=1 and L^0=1. When P is empty and k>0 the tuple set is empty and M_k=0.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-uniform-error`, `mathlib:Finset.sum_pow'`, `mathlib:Finset.prod_fiberwise_of_maps_to'`, `mathlib:Finset.card_image_le`, `mathlib:pow_le_pow_right₀`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `mathlib:ProbabilityTheory.integral_bernoulliMeasure`, `mathlib:ProbabilityTheory.iIndepFun.integral_fun_prod_comp`.
+
+Proof plan:
+
+1. At every sampled n>0, positive-evaluation gives S(P,a)(n)-A=sum_{p in P}a(p)f_p(n). Apply Finset.sum_pow' and integral_empiricalMeasure, commuting finite sums.
+2. For a tuple t, apply Finset.prod_fiberwise_of_maps_to' with target its image to group product_j f_{t(j)}(n) into product_{p in T_t}f_p(n)^alpha_t(p). Distinct image primes satisfy centered-product-uniform-error.
+3. Finset.card_image_le gives |T_t|<=k. Since 3/2>=1, pow_le_pow_right₀ bounds (3/2)^|T_t| by (3/2)^k. Multiply by |product_j a(t(j))| and sum using the triangle inequality.
+4. Finset.sum_pow' applied to |a| evaluates sum_t product_j |a(t(j))|=L^k, yielding the claimed bound, also in the empty-index cases.
+5. The model interpretation uses existing integral_bernoulliMeasure and iIndepFun.integral_fun_prod_comp: for an independent Bernoulli(1/p) family, first group each repeated coordinate into its power, then factor only across distinct primes. Thus M_k is its weighted centered k-th moment. This interpretation is already generic library mathematics; it is not a separate node or an independence assumption on mu_N.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, p.4, and opening weighted expansion in proof of Proposition 4, p.10.
+
+Acceptance:
+
+- For k=0 both arithmetic and model moments equal one; for P empty and k>0 both vanish.
+- For P={3},a(3)=-1,k=3,N=3, both sides' moments are -2/27. Taking absolute weights inside the model would be wrong.
+- For k=2 the model is sum a(p)^2(1/p-1/p^2). Keep the inherited sharper error 2L^2/N; the new general bound gives 9L^2/(4N), not an improvement in that special case.
+- A Gaussian approximation needs separate pairing/collision estimates and normalization; this finite comparison is not an Erdos-Kac theorem.
+
+#### Exact repeated-factor mean
+
+`ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-formula` (lemma). Integral D dmu_N equals sum over p in primesLE(N), sum over j in [2,N], floor(N/p^j)/N. Natural division is performed before casting to the reals.
+
+Hypotheses: omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.; m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/excess-prime-power-expansion`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`.
+
+Proof plan:
+
+1. Use integral_empiricalMeasure to express the integral as a finite average. Each sampled n=k+1 satisfies 0<n<=N, so apply excess-prime-power-expansion with this fixed N.
+2. Exchange the three finite sums. The average of each prime-power divisibility indicator is divisibility-probability with positive modulus p^j.
+3. This argument uses counting, not independence; repeated powers of one prime are nested events.
+
+Source: TAO-PRIME-FACTORS, Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only.
+
+Acceptance:
+
+- At N=4 the mean is 1/4, at N=12 it is 5/12, and at N=16 it is 1/2.
+- At N=1,2,3 it is zero. No empty-sample normalization is introduced.
+
+#### Uniform repeated-factor mean bound
+
+`ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound` (theorem). 0<=integral D dmu_N<=1-1/N. In particular the mean is at most 1, uniformly in the positive sample size.
+
+Hypotheses: omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.; m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-formula`, `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error`, `mathlib:ArithmeticFunction.cardFactors_apply`, `mathlib:ArithmeticFunction.cardDistinctFactors_apply`, `mathlib:List.toFinset_card_le`, `mathlib:geom_sum_Ico_le_of_lt_one`, `mathlib:Finset.prod_le_prod_of_subset_of_one_le'`, `mathlib:Finset.prod_Icc_div`, `mathlib:Nat.mem_primesLE`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Proof plan:
+
+1. Nonnegativity follows from omega<=Omega, supplied by the existing list finite-set cardinality bound, and finite empirical integration.
+2. Apply excess-mean-formula and divisibility-error termwise to bound floor(N/p^j)/N by 1/p^j.
+3. For each p>=2 the existing geom_sum_Ico_le_of_lt_one at x=1/p,m=2,n=N+1 bounds the inner sum by (1/p)^2/(1-1/p)=1/[p(p-1)].
+4. Enlarge the nonnegative sum from primes to all integers 2<=r<=N by the existing sum_le_sum_of_subset_of_nonneg. Rewrite 1/[r(r-1)]=1/(r-1)-1/r and use the existing sum_Icc_sub telescope to obtain 1-1/N. Treat N=1 separately as an empty sum. No infinite series or Mertens estimate is used.
+
+Source: TAO-PRIME-FACTORS, Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only.
+
+Acceptance:
+
+- N=1 gives equality zero; N=12 gives 5/12<=11/12.
+- This is an average bound, not D(n)<=1 pointwise: D(16)=3. It gives no bound on higher moments by itself.
+
+#### Repeated-factor tail bound
+
+`ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-bound` (lemma). For every real t>0, mu_N({n : t<=D(n)}).toReal <= (1-1/N)/t.
+
+Hypotheses: omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.; m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.; t is real and strictly positive.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound`, `mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `mathlib:List.toFinset_card_le`, `mathlib:ArithmeticFunction.cardFactors_apply`, `mathlib:ArithmeticFunction.cardDistinctFactors_apply`.
+
+Proof plan:
+
+1. Apply the existing real Markov inequality to the nonnegative D, whose integrability follows from the finite empirical Dirac decomposition on discrete naturals.
+2. Equivalently, use the empirical indicator formula and the pointwise inequality t*1_{t<=D(n)}<=D(n); summing finite terms proves the same application without any new general Markov lemma.
+3. Insert excess-mean-bound and divide by positive t. The event is inclusive at t; the stronger strict-event estimate follows by inclusion if needed.
+
+Source: TAO-PRIME-FACTORS, Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only.
+
+Acceptance:
+
+- At N=12 the probabilities for t=1,2,3 are 1/3,1/12,0.
+- t=0 is forbidden: the event is the whole sample whereas Lean's totalized division would make the proposed upper bound zero.
+
+#### Finite omega-to-Omega distribution comparison
+
+`ProbabilisticAndMetricNumberTheory:PM.0/excess-cdf-sandwich` (theorem). Put X(n)=(omega(n)-b)/s and Y(n)=(Omega(n)-b)/s, with real casts. For every real x, mu_N({X<=x-delta}).toReal-(1-1/N)/(s*delta) <= mu_N({Y<=x}).toReal <= mu_N({X<=x}).toReal.
+
+Hypotheses: omega and Omega are the existing cardDistinctFactors and cardFactors. Write D(n)=(Omega(n):R)-(omega(n):R), with casts before real subtraction. D is a local expression, not a new arithmetic-function or random-variable definition.; m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Only 1,...,N are sampled.; b,x,s,delta are real, s>0 and delta>0; the same center b and scale s are used for both observations.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-bound`, `mathlib:MeasureTheory.measureReal_mono`, `mathlib:MeasureTheory.measureReal_union_le`, `mathlib:List.toFinset_card_le`, `mathlib:ArithmeticFunction.cardFactors_apply`, `mathlib:ArithmeticFunction.cardDistinctFactors_apply`.
+
+Proof plan:
+
+1. The pointwise identity Y=X+D/s and D>=0 give {Y<=x} subset {X<=x}. Apply finite real-measure monotonicity for the upper bound.
+2. If X<=x-delta and Y>x, then D>s*delta. Thus {X<=x-delta} is contained in {Y<=x} union {s*delta<=D}. Apply real-measure subadditivity.
+3. Use excess-tail-bound at t=s*delta and rearrange. The two sides form one sandwich from the same event comparison. There is no continuity assumption because this is a finite inequality.
+4. Convergence of the X laws and a scale tending to infinity make this sandwich an input to transfer at continuity points. Such convergence and the generic CDF/weak-convergence dictionary are still separate obligations, not hypotheses silently discharged here.
+
+Source: TAO-PRIME-FACTORS, Section 4, opening divisor-sum identities and Exercise 46(i), k=1; Theorem 47 repeated-factor conclusion; Exercise 51(iv) as motivation only.
+
+Acceptance:
+
+- N=4,b=0,s=1,x=1: the Omega probability is 3/4 while the omega probability is 1; reversing the upper-bound direction fails.
+- Using different centers or a negative scale invalidates the displayed inclusion. No iid assumption is used.
+
+## PM.1 — Additive limit laws
+
+### Finite unweighted Gaussian moment comparison
+
+The nine PM.1 declarations in this section take unit weights a(p)=1. The earlier
+weighted results keep arbitrary real weights; the sign arguments here do not
+silently extend to signed weights. For a finite prime set P write
+
+    u_p = 1/p,
+    nu_p(e) = u_p(1-u_p)^e + (1-u_p)(-u_p)^e,
+    v_p = u_p(1-u_p),   V = sum_{p in P} v_p,   Q = sum_{p in P} v_p^2.
+
+All these are local finite expressions, not new structures. The local-factor-bound
+node states 0<=nu_p(e)<=v_p for e>=2. To prove it, put e=j+2 and factor out v_p:
+the remaining factor is (1-u_p)^(j+1)-(-u_p)^(j+1). Since a prime has
+0<u_p<=1/2, power monotonicity gives a nonnegative factor; bounding the two
+absolute powers by their bases gives an upper bound of one. Direct evaluation
+also gives nu_p(0)=1, nu_p(1)=0 and nu_p(2)=v_p.
+
+The model-multinomial-expansion node rewrites the inherited unit-weight model as
+
+    M_k = sum_{alpha in piAntidiag(P,k)}
+            multinomial(P,alpha) product_{p in P} nu_p(alpha(p)).
+
+The existing piAntidiag consists of functions taking natural values, zero outside
+P, with sum k. The existing multinomial coefficient is k!/product alpha(p)!.
+Neither carrier nor the general multinomial theorem is re-planned. One proof
+compares the ordered-tuple expansion and Mathlib's multinomial expansion after
+averaging over the auxiliary complete period product P. The PM.0 exact mixed
+moments evaluate both expressions. This identifies finite model sums; it does
+not assert independence at an arbitrary sample length N.
+
+### Paired supports and collisions
+
+For r>=0 set
+
+    H_r = sum_{S subset P, |S|=r} product_{p in S} v_p,
+    D_r = sum_{injective t:{0,...,r-1}->P} product_{j<r} v_(t(j)),
+    C_(2r) = (2r)! / (2^r r!).
+
+The paired-support-formula node restricts the multiplicity expansion of M_(2r)
+to alpha(p) in {0,2}. Such an assignment corresponds uniquely to an r-subset S.
+Its multinomial coefficient is (2r)!/2^r and its local product is product v_p.
+Thus this paired part is ((2r)!/2^r) H_r.
+
+The distinct-prime-tuples node gives D_r=r! H_r. Group injective tuples by image:
+each fiber is the set of bijections from Fin r to that r-element subset. The
+pinned Fintype.card_equiv already counts those bijections as r!. Therefore the
+paired contribution is C_(2r) D_r, not yet C_(2r) V^r.
+
+For r>=2 the prime-collision-bound node supplies
+
+    0 <= V^r-D_r <= binom(r,2) Q V^(r-2).
+
+Expand V^r over all ordered tuples. Every excluded tuple has two equal positions.
+A finite union bound over the binom(r,2) position pairs bounds its nonnegative
+weight, possibly more than once. For each pair the common prime contributes
+sum v_p^2=Q and the other positions contribute V^(r-2). Existing powersetCard
+cardinality supplies the pair count. No division by V occurs, so empty P is
+allowed; at r=2 the difference is exactly Q.
+
+### Smaller supports and the corrected count
+
+The fixed-support-bound node handles a nonempty support S of size s and k>=2s.
+Among multiplicity assignments on S with total k and every exponent at least two,
+the exact number is binom(k-s-1,s-1). Subtract two in each coordinate and apply
+the existing finsuppAntidiag cardinality formula to total k-2s. This is the
+already-recorded correction E2 to the author copy, not a new source finding.
+
+Each assignment has product of factorials at least 2^s, and each local factor
+lies between zero and v_p. Its entire fixed-support contribution B therefore satisfies
+
+    0 <= B <= k! binom(k-s-1,s-1) (product_{p in S} v_p) / 2^s.
+
+The smaller-support-bound node sums over supports of size at most floor((k-1)/2).
+Since k>0 the support is nonempty. Terms with multiplicity one vanish. Summing
+the preceding bound over s-subsets gives a factor H_s, and s! H_s=D_s<=V^s.
+Consequently, with
+
+    R_k = k! sum_{s=1}^{floor((k-1)/2)}
+               binom(k-s-1,s-1) V^s / (2^s s!),
+
+the smaller-support contribution B_k satisfies 0<=B_k<=R_k. For k=1 or 2 this
+sum is empty. When k is odd every nonzero model term is a smaller-support term.
+When k=2r, a nonzero term with r distinct primes must be paired; all other
+nonzero terms are precisely the smaller-support part.
+
+### Arithmetic comparison and the existing Gaussian target
+
+The pinned Tau Ceti
+[Gaussian moment file](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Distributions/Gaussian/Moments.lean)
+already evaluates the even central moment of a Gaussian with variance V as
+V^r (2r-1)!! and its odd central moments as zero, including V=0. Existing
+factorial/double-factorial identities identify the even value with C_(2r)V^r.
+V is the variance parameter, not the standard deviation; no new Gaussian theorem
+is scheduled here.
+
+Put A=sum 1/p, epsilon_k=(3/2)^k |P|^k/N, and let G be the existing real Gaussian
+measure of mean zero and variance V. Combining the three errors gives the
+finite-even-gaussian-bound node, for r>=2:
+
+    |integral (S(P,1)-A)^(2r) dmu_N - centralMoment(id,2r,G)|
+      <= epsilon_(2r) + C_(2r) binom(r,2) Q V^(r-2) + R_(2r).
+
+The errors are, respectively, arithmetic versus independent model, collisions
+inside the paired term, and smaller supports. The absolute value is essential:
+the model moment can lie below the Gaussian moment. The inherited exact zero-th
+moment and sharper second-moment comparison remain in force.
+
+For r>=0 the finite-odd-moment-bound node gives
+
+    |integral (S(P,1)-A)^(2r+1) dmu_N| <= epsilon_(2r+1)+R_(2r+1).
+
+The unit-weight model odd moment is nonnegative and bounded by R, but it is not
+generally zero. The arithmetic odd moment can even be negative. The left side
+is centered at the model mean A, not necessarily at the empirical mean.
+
+The eight new example contracts discriminate these distinctions. At P={2,3},
+V=17/36, the paired fourth contribution is 1/3; the single-prime fourth
+contributions add 59/432, giving M_4=203/432. The Gaussian value is 289/432,
+so M_4 minus the Gaussian value is -43/216. At P={3},N=1 the arithmetic cube
+is -1/27, while at the complete period N=3 it is 2/27. At prime 2 every odd
+local factor vanishes, but at prime 3 the fourth factor is 2/27. Empty supports
+at order zero give one, whereas an injective two-tuple on a one-prime set does
+not exist.
+
+These finite, explicit inequalities do not assert the source's growing-order
+asymptotic range or prove convergence in distribution. General sieve-multiset
+interfaces are still outside this slice and must be routed to their owners first.
+
+### Deterministic prime cutoff removal
+
+The cutoff-removal interface uses the existing inclusive set
+P_z = Nat.primesLE(floor_nat(z)). For nonnegative real z, the pinned
+membership and floor theorems say that a prime p lies in P_z exactly when
+p<=z. No second prime-set carrier is introduced. Write
+
+    T_z(n) = {p in n.primeFactors : z<p},
+    A_z = sum_{p in P_z} 1/p,
+    Y_z(n) = S(P_z,1)(n)-A_z.
+
+These are local expressions in existing finite sets and arithmetic functions.
+A prime equal to the cutoff belongs to the head. A prime power is counted once,
+as required by omega; this is not the multiplicity-counting Omega branch.
+
+### Exact decomposition and logarithmic tail
+
+The omega-cutoff-identity node states, for n>0 and z>=0,
+
+    omega(n) = S(P_z,1)(n) + |T_z(n)|.
+
+Positive evaluation identifies the head with the cardinality of the prime
+divisors at most z. The inherited omega comparison identifies the full
+cardinality. Partitioning the same finite set at the cutoff proves the identity.
+The finite sample remains 1,...,N; the factor-set convention at zero is not used
+to justify a logarithmic statement there.
+
+The large-prime-log-bound node states, for n>0 and z>1,
+
+    |T_z(n)| <= log(n)/log(z).
+
+Every member of T_z(n) is a distinct prime divisor of n. Mathlib's existing
+finite-product divisibility theorem shows that their product divides n, and
+hence is at most n. Sum log(z)<=log(p) over the tail, use the existing logarithm
+of a finite product, and apply monotonicity to obtain
+
+    |T_z(n)| log(z) <= log(product T_z(n)) <= log(n).
+
+Division is valid because log(z)>0. Empty tails need no special exception:
+their product is one. In particular n=1 gives zero on both sides, and z>n
+is allowed. The theorem is not asserted at z=1 or n=0.
+
+For n=60, cutoff 3 retains 2 and 3 and discards only 5; cutoff 5 retains all
+three. At n=8, cutoff 3/2 retains none but discards just one distinct prime.
+These tests detect both an exclusive-cutoff error and confusion with Omega.
+
+### Centering and pointwise powers
+
+For N=m+1, z>1 and an arbitrary real target center b put
+
+    D = log(N)/log(z) + |A_z-b|.
+
+The centered-cutoff-error node gives, uniformly for 1<=n<=N,
+
+    |(omega(n)-b)-Y_z(n)| <= D.
+
+Indeed the difference is exactly |T_z(n)|+(A_z-b). Apply the triangle
+inequality, the logarithmic tail estimate and n<=N. The two errors have
+different origins. The first controls the discarded factors. The second is a
+change of center, and it does not disappear merely because all sampled prime
+factors lie below the cutoff. At N=n=1,z=2,b=0, the tail is zero but the
+centered discrepancy is 1/2. No estimate for A_z-log log(N) is assumed here.
+
+The cutoff-power-error node exposes the next algebraic step. For every
+natural k, including zero,
+
+    |(omega(n)-b)^k-Y_z(n)^k|
+      <= sum_{0<=j<k} binom(k,j) D^(k-j) |Y_z(n)|^j.
+
+Set d=(omega(n)-b)-Y_z(n), expand (Y_z(n)+d)^k by the existing binomial
+theorem, remove its j=k term, and apply the finite triangle inequality.
+Each remaining |d|^(k-j) is at most D^(k-j). At k=0 the remainder is empty;
+at k=1 the bound is D; at k=2 it is D^2+2D|Y_z(n)|. Absolute values on
+the lower powers are essential. For n=1,N=2,z=3,b=A_z, one has Y_z(n)=-5/6
+and 0<D=log(2)/log(3)<1. Replacing |Y_z(n)| by Y_z(n) would make the
+quadratic upper bound negative.
+
+### Absolute moments and adjacent even moments
+
+The absolute-odd-moment node takes any finite P, real weights a and center b.
+For Z(n)=S(P,a)(n)-b and E_j=integral Z^j dmu_N it gives
+
+    integral |Z|^(2r+1) dmu_N <= sqrt(E_(2r) E_(2r+2)),  r>=0.
+
+No primality or independence is needed for this arithmetic specialization.
+The existing empirical integration theorem turns each integral into a finite
+average. Apply the existing squared finite Cauchy–Schwarz inequality to
+|Z|^r and |Z|^(r+1), divide by N^2 and take nonnegative square roots.
+Their squared powers are the adjacent even moments. At r=0, E_0=1.
+
+This does not bound an absolute odd moment by its signed counterpart.
+For the complete period N=3 with P={3}, unit weights and b=1/3, the signed
+first moment is zero but the absolute first moment is 4/9. For P={2} and
+b=1/2, all absolute observations equal 1/2, and Cauchy–Schwarz is sharp
+for every sample size and r. Generic Cauchy–Schwarz remains a library
+supplier, not a new roadmap theorem.
+
+### Finite transfer to omega moments
+
+Use E_j=integral Y_z^j dmu_N and abbreviate U_j by E_j when j is even and
+by sqrt(E_(j-1) E_(j+1)) when j is odd. The cutoff-moment-transfer theorem is
+
+    |integral (omega-b)^k dmu_N - E_k|
+      <= sum_{0<=j<k} binom(k,j) D^(k-j) U_j.
+
+Average the pointwise power bound, interchange the finite sums and bound each
+absolute lower moment. Even orders are already signed even moments; odd orders
+use the adjacent-even result. The coefficients are nonnegative. At order zero
+both moments are one; at orders one and two the bounds reduce to D and
+D^2+2D sqrt(E_2), respectively.
+
+The even inputs can be bounded using the inherited second-moment comparison
+and finite even Gaussian estimate. This theorem does not assert those bounds
+are small in a chosen asymptotic regime. The read source uses the special
+cutoff z=x^(1/k), Mertens normalization and further uniform estimates.
+Their exact growing-order ranges and a valid passage from moments to
+distribution remain separate obligations. In particular, uniqueness of the
+Gaussian from its moments alone is not a moment-convergence theorem.
+
+### Normal order and Gaussian arithmetic laws
+
+Turán–Kubilius uses A_N=Σf(p^k)/p^k and B_N²=Σ|f(p^k)|²/p^k, with coefficient30 from the acquired Elsholtz–Tao statement. Its uniform quadratic-mean proof is not supplied by a finite independence computation. Hardy–Ramanujan uses deviations on the log log N scale. Erdős–Kac uses the square-root scale and the native standard Gaussian CDF, for both omega and Omega. The preserved repeated-factor estimates transfer the two functions only after genuine convergence is established.
+
+The source proof chooses a moment-order-dependent prime cutoff and controls growing Gaussian moments, collisions, large-prime removal and Mertens normalization separately. Its fixed even-moment bounds are useful without being a completed asymptotic theorem. The Koymans–Pagano application conditions on positive squarefree integers whose prime factors are1 or2 modulo4. Its mean is half log log N, its exceptional window is at least(log log N)^(2/3), and its error is relative to the restricted family. Ordinary Erdős–Kac by itself does not give that conditional quantitative bound.
+
+#### Turán–Kubilius quadratic mean inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius` (theorem). For real additive f and N≥2, put A_N=Σ_{p prime,k≥1,p^k≤N}f(p^k)/p^k and B_N²=Σ_{p prime,k≥1,p^k≤N}|f(p^k)|²/p^k. Then Σ_{1≤n≤N}|f(n)−A_N|²≤30 N B_N². This is precisely Elsholtz–Tao Lemma A.2; a different centering with (1−1/p) is not substituted.
+
+The proof plan is: The displayed finite prime-power expressions use the native prime set and factorization convention. The cited quadratic-mean proof [60, p.20] is unread; its uniform covariance estimates are a recorded gap, not an application of finite-head independence.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `mathlib:Nat.primesLE`, `AnalyticNumberTheory:AN.2`.
+
+Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical p.38.
+
+#### Hardy–Ramanujan normal order
+
+`ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan` (theorem). For every ε>0, both fractions #{1≤n≤N: |ω(n)−log log N|>ε log log N}/N and #{1≤n≤N: |Ω(n)−log log N|>ε log log N}/N tend to zero. These are normal-order laws, with ω and Ω the native distinct and repeated factor counts.
+
+The proof plan is: Apply the exact source mean-square estimate to omega, compare its source A_N and B_N² to log log N using the requested reciprocal-prime asymptotic. Use the quadratic Markov bound. Transfer to Omega using the inherited uniform O(1) mean of Omega−omega and a linear Markov estimate.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound`, `AnalyticNumberTheory:AN.2`.
+
+Source: ElsholtzTao2011, Appendix A, discussion after Lemma A.2, physical pp.38–39.
+
+#### Erdős–Kac Gaussian law
+
+`ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac` (theorem). For every real x, the fractions of positive n≤N with (ω(n)−log log N)/sqrt(log log N)≤x tend to cdf(gaussianReal(0,1),x); the same statement holds for Ω. The scale is sqrt(log log N), and Gaussian variance is 1.
+
+The proof plan is: Choose a moment-order-dependent prime cutoff, normalize the inherited pairing and collision bounds and show their errors tend to zero for each fixed order. Use reciprocal-prime asymptotics and a Gaussian moment-convergence theorem, not moment determinacy alone. These analytic limit inputs remain recorded gaps. Apply the continuity-point CDF bridge (the Gaussian CDF is continuous) and the inherited omega/Omega transfer.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/finite-even-gaussian-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/finite-odd-moment-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/cutoff-moment-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion`, `AnalyticNumberTheory:AN.2`.
+
+Source: GS-SIEVING, Author copy physical pp.2–4: (5), Theorem 1 and its deduction; new target combines the preserved fixed-moment nodes.
+
+#### Restricted squarefree prime-factor window
+
+`ProbabilisticAndMetricNumberTheory:PM.1/restricted-squarefree-window` (theorem). For D(N)={d∈ℕ:0<d<N, d squarefree, and every prime divisor is 1 or 2 modulo 4}, there are absolute C,N₀>0 such that for N≥N₀ the number of d∈D(N) with |ω(d)−(1/2)log log N|≥(log log N)^(2/3) is at most C|D(N)|/(log log N)^(1/100). Routed item PAPER-KOYMANS-PAGANO/175. The printed union of cardinalities is read as the sum, following the independently confirmed extraction E29.
+
+The proof plan is: Use the already routed family convention and sum the disjoint integer r-slices; the extraction’s E29 supplies the corrected summation symbol. A quantitative concentration estimate conditional on this restricted family is a separate missing input. The ordinary Erdős–Kac theorem has center log log N and supplies neither the half-center nor this relative polynomial tail.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`.
+
+Source: KoymansPagano2022, Theorem 7.2(a), (7.2), physical p.60; family physical p.2.
+
+### Reference contracts for the worked calculations
+
+#### Centered prime factor bounds
+
+`ProbabilisticAndMetricNumberTheory:PM.1/local-factor-bound` (lemma). For a natural prime p and e>=2, 0<=nu_p(e)<=v_p.
+
+Hypotheses: Write u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e and v_p=u_p(1-u_p). These are local expressions, not new carriers. Since p is prime, 0<u_p<=1/2.; The exponent is a natural number at least two. No assertion of vanishing for odd exponents is made.
+
+Direct prerequisites: `mathlib:pow_le_pow_left₀`, `mathlib:pow_le_of_le_one`.
+
+Proof plan:
+
+1. Write e=j+2 and factor nu_p(e)=u_p(1-u_p)((1-u_p)^(j+1)-(-u_p)^(j+1)).
+2. Since 0<=u_p<=1-u_p<=1, power monotonicity and the absolute-value bound give a nonnegative bracket. Each of the two absolute powers is bounded by its base, so the bracket is at most (1-u_p)+u_p=1.
+3. Multiply by v_p>=0. Direct algebra also gives nu_p(0)=1, nu_p(1)=0 and nu_p(2)=v_p; these evaluations are routine uses of the expression, not new definitions.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- At p=3,e=3 and e=4 the factor is 2/27, positive and at most 2/9.
+- At p=2 all odd factors vanish, while e=2 gives 1/4.
+- Do not extend the conclusion to signed weighted factors a(p)^e.
+
+#### Prime model multinomial expansion
+
+`ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion` (lemma). Let M_k be the inherited unit-weight ordered-tuple model: sum over t:{0,...,k-1}->P of product_{p in image(t)}nu_p(|t^{-1}(p)|). Then M_k=sum_{alpha in piAntidiag(P,k)} multinomial(P,alpha) product_{p in P}nu_p(alpha(p)). Here piAntidiag consists of natural-valued functions, zero off P, with total k; multinomial(P,alpha)=k!/product_{p in P}alpha(p)!.
+
+Hypotheses: P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.; k is any natural number, including zero. The empty tuple and zero multiplicity assignment both contribute one when k=0.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-centered-product`, `ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison`, `mathlib:Finset.sum_pow_eq_sum_piAntidiag`, `mathlib:Nat.multinomial`, `mathlib:Finset.mem_piAntidiag`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Proof plan:
+
+1. Use the positive complete period N=product_{p in P}p (equal to one for empty P). The existing complete-period-centered-product formula evaluates every mixed product exactly.
+2. Expand the centered prime sum to the k-th power once with Finset.sum_pow' and group repeated positions by image fibers, as in weighted-moment-comparison. Integrating gives M_k exactly, because this chosen period is complete.
+3. Expand the same power with Finset.sum_pow_eq_sum_piAntidiag and integrate term by term. Complete-period-centered-product gives the stated multinomial sum. Equate these two finite averages.
+4. This argument imports the generic multinomial identity and uses an auxiliary complete period only to identify finite model expressions. It makes no independence assertion at an arbitrary empirical sample length.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- M_0=1 also for empty P; M_k=0 for empty P and k>0.
+- For P={2,3}, k=4, the expression is 203/432, not its paired contribution 1/3.
+- An assignment with some multiplicity one contributes zero; zero multiplicities contribute factors one.
+
+#### Paired prime contribution
+
+`ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula` (lemma). For r>=0 let H_r=sum_{S subset P, |S|=r} product_{p in S}v_p. The portion of the multinomial model M_(2r) over assignments alpha(p) in {0,2} is ((2r)!/2^r) H_r.
+
+Hypotheses: P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.; The portion means the sum of multinomial(P,alpha) product_{p in P}nu_p(alpha(p)) over alpha in piAntidiag(P,2r) satisfying the displayed multiplicity restriction.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion`, `mathlib:Nat.multinomial_spec`, `mathlib:Finset.mem_powersetCard`.
+
+Proof plan:
+
+1. Such an assignment is uniquely determined by S={p in P:alpha(p)=2}; its total forces |S|=r, and conversely each r-subset gives an assignment.
+2. At that assignment nu_p(0)=1 and nu_p(2)=v_p. The product of multiplicity factorials is 2^r.
+3. Use Nat.multinomial_spec to identify the coefficient with (2r)!/2^r in the reals. Reindex the finite sum by the r-subsets. For r=0 all products and factorials are one.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- For P={2,3},r=2 the contribution is 6(1/4)(2/9)=1/3.
+- For |P|<r it is zero; this is not the whole even moment.
+- The r=0 formula remains one for empty P.
+
+#### Distinct prime variance tuples
+
+`ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples` (lemma). For r>=0 put D_r=sum over injective t:{0,...,r-1}->P of product_{j<r}v_{t(j)}. Then D_r=r! H_r, where H_r sums products of v_p over r-element subsets of P.
+
+Hypotheses: P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.; The tuple is ordered and injective. Empty-index sums/products use the usual conventions.
+
+Direct prerequisites: `mathlib:Fintype.card_equiv`, `mathlib:Finset.mem_powersetCard`, `ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula`.
+
+Proof plan:
+
+1. Group the injective tuples by image S. Only r-subsets occur.
+2. For each S the fiber consists of bijections from Fin r to the subtype of elements of S. Since |S|=r, fix one such equivalence and apply Fintype.card_equiv to get exactly r! bijections.
+3. The product along every such bijection is product_{p in S}v_p. Sum the constant fiber values, also handling the unique empty bijection at r=0.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- For P={3},r=2 the tuple set is empty.
+- For P={2,3},r=2 the two orders contribute 1/9 in total.
+- For r=0 both D_r and H_r are one.
+
+#### Prime variance collision estimate
+
+`ProbabilisticAndMetricNumberTheory:PM.1/prime-collision-bound` (lemma). For r>=2, with D_r the injective ordered variance tuple sum, 0<=V^r-D_r<=binom(r,2) Q V^(r-2).
+
+Hypotheses: P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.; No lower bound on V and no nonemptiness hypothesis on P are needed; there is no division by V.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples`, `mathlib:Finset.sum_pow'`, `mathlib:Finset.card_powersetCard`.
+
+Proof plan:
+
+1. Expand V^r as the sum of products over all ordered r-tuples. Nonnegative weights show the injective sub-sum is at most the full sum.
+2. A noninjective tuple has some equal pair of distinct positions. Bound its weight by the sum of its memberships in those collision events; this is a finite union bound with multiplicities allowed.
+3. For a fixed two-position subset, sum first over the common prime. Its squared weight sums to Q. The remaining r-2 freely chosen positions contribute V^(r-2).
+4. Finset.card_powersetCard counts the two-position subsets as binom(r,2). Add their equal contributions. The r=2 empty remaining product is one even if V=0.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- For r=2 the difference is exactly Q.
+- For P={3},r=2 the difference is (2/9)^2.
+- Empty P satisfies the inequality, including r=2 with exponent zero.
+
+#### Fixed prime support moment bound
+
+`ProbabilisticAndMetricNumberTheory:PM.1/fixed-support-bound` (lemma). Let S be a nonempty finite prime set of size s and k>=2s. Sum over alpha in piAntidiag(S,k) with alpha(p)>=2 on S, writing B=sum_alpha multinomial(S,alpha) product_{p in S}nu_p(alpha(p)). Then 0<=B<=k! binom(k-s-1,s-1) (product_{p in S}v_p)/2^s.
+
+Hypotheses: S is a finite set of natural primes. Write u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e and v_p=u_p(1-u_p). These are local expressions.; s=|S|>=1 and k>=2s are essential for the exact composition count. Values of alpha off S are zero.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/local-factor-bound`, `mathlib:Nat.multinomial_spec`, `mathlib:Finset.finsuppAntidiag`, `mathlib:Finset.card_finsuppAntidiag_nat_eq_choose`.
+
+Proof plan:
+
+1. Set beta(p)=alpha(p)-2 on S and zero off S. This gives a bijection with the nonnegative assignments of total k-2s on S.
+2. Read the existing piAntidiag/finsuppAntidiag correspondence and apply card_finsuppAntidiag_nat_eq_choose. The count is binom(s+(k-2s)-1,k-2s)=binom(k-s-1,s-1), not the larger printed count in the author copy.
+3. Every local factor lies in [0,v_p] by local-factor-bound. Every alpha(p)! is at least 2, so their product is at least 2^s. Nat.multinomial_spec therefore bounds the nonnegative real coefficient by k!/2^s.
+4. Bound each summand by k! product v_p/2^s and multiply by the exact number of assignments. All denominators are positive.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- For s=2,k=5 the admissible multiplicities are (2,3) and (3,2), so the count is two, not three.
+- For k=2s the only assignment is constantly two.
+- For S={3},k=4 the actual contribution is 2/27; the bound is an upper bound, not an identity.
+
+#### Smaller prime support bound
+
+`ProbabilisticAndMetricNumberTheory:PM.1/smaller-support-bound` (lemma). For k>=1 let B_k be the part of the multinomial model over assignments with support size at most floor((k-1)/2). Define R_k=k! sum_{s=1}^{floor((k-1)/2)} binom(k-s-1,s-1) V^s/(2^s s!). Then 0<=B_k<=R_k.
+
+Hypotheses: P is a finite set of natural primes, u_p=1/p, nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, v_p=u_p(1-u_p), V=sum_{p in P}v_p and Q=sum_{p in P}v_p^2. These are local expressions, not new carriers. In particular 0<u_p<=1/2 and v_p>=0.; The support of an assignment is {p in P:alpha(p) is nonzero}; all sums use natural multiplicities of total k. For k=1 or 2 the displayed s-sum is empty and R_k=0.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/fixed-support-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples`, `mathlib:Finset.sum_pow'`.
+
+Proof plan:
+
+1. Since k>0, every assignment has nonempty support. If any multiplicity equals one, its factor nu_p(1) is zero, so discard such terms.
+2. Group the remaining assignments by their support S. Outside S the zero-multiplicity factors and factorials are one. Apply fixed-support-bound with s=|S|, since all nonzero multiplicities are at least two.
+3. Sum over all s-subsets to obtain k! binom(k-s-1,s-1) H_s/2^s for each permitted s.
+4. From distinct-prime-tuples and nonnegative weights, s! H_s=D_s<=V^s by inclusion among all tuples and Finset.sum_pow'. Divide by positive s! and sum over s to obtain R_k.
+
+Source: GS-SIEVING, Author copy, proof of Proposition 2, internal pp.4-6; pairing and smaller-support discussion on p.5.
+
+Acceptance:
+
+- For k=1,2 there are no nonzero smaller-support terms.
+- For P={2,3},k=4 the smaller-support contribution is 1/16+2/27=59/432.
+- For odd k there is no all-paired support; every nonzero model summand belongs to this bound.
+
+#### Prime cutoff decomposition of omega
+
+`ProbabilisticAndMetricNumberTheory:PM.1/omega-cutoff-identity` (lemma). For every n>0 and z>=0, omega(n)=S(P_z,1)(n)+|T_z(n)|. In particular a prime equal to z is retained, and every prime power contributes once, not its exponent.
+
+Hypotheses: Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.; For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.; n is a positive natural number. The identity needs only z>=0, not z>1.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation`, `ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility`, `mathlib:Nat.primesLE`, `mathlib:Nat.mem_primesLE`, `mathlib:Nat.le_floor_iff`, `mathlib:Nat.mem_primeFactors`.
+
+Proof plan:
+
+1. Use positive-evaluation to express S(P_z,1)(n) as a sum of divisibility indicators. Nat.mem_primesLE and Nat.le_floor_iff identify its nonzero terms with the members of n.primeFactors whose real value is at most z, using Nat.mem_primeFactors and n>0.
+2. Use omega-compatibility and positive-evaluation on n.primeFactors to express omega(n) as the cardinality of that finite set.
+3. Partition n.primeFactors by p<=z and z<p; add their cardinalities. This uses finite-set partition identities, not an asymptotic estimate.
+
+Source: GS-SIEVING, Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step.
+
+Acceptance:
+
+- At n=60,z=3 the head is 2 and the tail is 1; at z=5 the tail is 0.
+- At n=8,z=3/2 the head is 0 and tail is 1, not 3; n=1 gives two zero summands.
+
+#### Logarithmic bound for discarded prime factors
+
+`ProbabilisticAndMetricNumberTheory:PM.1/large-prime-log-bound` (lemma). For n>0 and z>1, |T_z(n)| <= log(n)/log(z). The bound counts distinct prime divisors; it permits n=1 and real nonintegral z, and has no assumption z<=n.
+
+Hypotheses: Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.; For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.; n is positive and z>1, so log(z)>0.
+
+Direct prerequisites: `mathlib:Nat.mem_primeFactors`, `mathlib:Finset.prod_primes_dvd`, `mathlib:Real.log_prod`, `mathlib:Real.log_le_log`, `mathlib:Real.log_pos`.
+
+Proof plan:
+
+1. For T=T_z(n), Nat.mem_primeFactors supplies prime, positive divisors of n. The existing Finset.prod_primes_dvd proves product T divides n. Its positive product is at most n.
+2. Every p in T satisfies log(z)<=log(p) by Real.log_le_log, so |T| log(z)<=sum_{p in T}log(p).
+3. Apply Real.log_prod to identify the sum with log(product T), then Real.log_le_log to bound this by log(n). Divide by the positive Real.log_pos z. The empty product is one, so no nonempty-tail hypothesis is used.
+
+Source: GS-SIEVING, Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step.
+
+Acceptance:
+
+- At n=1 the estimate is 0<=0; z>n gives empty T.
+- At n=30,z=2 the tail count is 2, consistent with 2 log(2)<=log(30).
+- The logarithmic quotient is not claimed for z=1 or for n=0.
+
+#### Centered prime cutoff error
+
+`ProbabilisticAndMetricNumberTheory:PM.1/centered-cutoff-error` (lemma). For N=m+1, z>1, b real, and 1<=n<=N, set D=log(N)/log(z)+|A_z-b|. Then |(omega(n)-b)-Y_z(n)|<=D. The two summands in D respectively control discarded primes and the change of center.
+
+Hypotheses: Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.; For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.; m is natural, N=m+1; b is any real center, not an assumed empirical or model mean. z>1 and 1<=n<=N.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/omega-cutoff-identity`, `ProbabilisticAndMetricNumberTheory:PM.1/large-prime-log-bound`, `mathlib:Real.log_le_log`, `mathlib:Real.log_pos`.
+
+Proof plan:
+
+1. Omega-cutoff-identity gives (omega(n)-b)-Y_z(n)=|T_z(n)|+(A_z-b). Apply the triangle inequality and nonnegativity of a finite cardinality.
+2. Use large-prime-log-bound and Real.log_le_log for n<=N, dividing by log(z)>0. This proves the displayed D bound.
+3. D is nonnegative because N>=1. No Mertens estimate for |A_z-b|, and no numerical choice of b or z, is inserted without a separate proof.
+
+Source: GS-SIEVING, Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step.
+
+Acceptance:
+
+- For b=A_z, the pointwise difference is exactly the nonnegative tail count.
+- For n=N=1, the log contribution vanishes; the error equals |A_z-b|, even when P_z contains primes absent from the sample.
+- A center mismatch is retained even if every prime factor lies below the cutoff.
+
+#### Binomial prime cutoff power error
+
+`ProbabilisticAndMetricNumberTheory:PM.1/cutoff-power-error` (lemma). For N=m+1, z>1, b real, 1<=n<=N and k>=0, with D as above, |(omega(n)-b)^k-Y_z(n)^k| <= sum_{j=0}^{k-1} binom(k,j) D^(k-j) |Y_z(n)|^j. The sum is empty at k=0.
+
+Hypotheses: Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.; For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.; m,k are natural, z>1, b real and 1<=n<=m+1. D=log(m+1)/log(z)+|A_z-b|.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/centered-cutoff-error`, `mathlib:add_pow`, `mathlib:Finset.abs_sum_le_sum_abs`, `mathlib:pow_le_pow_left₀`.
+
+Proof plan:
+
+1. Let d=(omega(n)-b)-Y_z(n). The preceding centered-cutoff-error gives |d|<=D and D>=0.
+2. Apply the pinned binomial theorem to (Y_z(n)+d)^k. Isolate its j=k term, which is Y_z(n)^k, leaving exactly j<k; at k=0 both the remainder and its bound are zero.
+3. Apply Finset.abs_sum_le_sum_abs. Replace the absolute value of each product by binom(k,j)|Y_z(n)|^j|d|^(k-j), and use monotonicity of nonnegative powers to replace |d| by D. Signs of Y and d are not discarded before this step.
+
+Source: GS-SIEVING, Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step.
+
+Acceptance:
+
+- For k=0 the bound is 0; for k=1 it is D, and for k=2 it is D^2+2D|Y|.
+- When Y is negative, |Y| cannot be replaced by Y in the bound. At n=1,N=2,z=3,b=A_z,k=2, Y=-5/6 and 0<D=log(2)/log(3)<1, so D^2+2DY is negative.
+
+#### Odd absolute prime moments from adjacent even moments
+
+`ProbabilisticAndMetricNumberTheory:PM.1/absolute-odd-moment` (lemma). For m,r natural, finite P, real weights a and real b, let Z(n)=S(P,a)(n)-b and E_j=integral Z^j dmu_(m+1). Then integral |Z|^(2r+1) dmu_(m+1) <= sqrt(E_(2r)*E_(2r+2)). Both even factors are nonnegative. At r=0, E_0=1.
+
+Hypotheses: mu_(m+1) is the existing empirical probability measure on 1,...,m+1.; P is any finite set of natural indices, a has arbitrary real values and b is real. No primality or independence hypothesis is needed for this finite-sample inequality.
+
+Direct prerequisites: `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `mathlib:Finset.sum_mul_sq_le_sq_mul_sq`, `mathlib:Real.sq_sqrt`.
+
+Proof plan:
+
+1. Rewrite all three integrals using the existing integral_empiricalMeasure. Every real function on the discrete natural carrier is strongly measurable; each resulting sum is finite.
+2. Apply the existing Finset.sum_mul_sq_le_sq_mul_sq to f(n)=|Z(n)|^r and g(n)=|Z(n)|^(r+1) over the N=m+1 sample indices. Their product is |Z|^(2r+1), and their squares equal Z^(2r) and Z^(2r+2).
+3. Divide the squared Cauchy–Schwarz inequality by N^2. The same positive normalization occurs in each average. Nonnegative square roots and Real.sq_sqrt give the stated bound. This is an arithmetic specialization, not a new generic Cauchy–Schwarz theorem.
+
+Source: GS-SIEVING, Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step.
+
+Acceptance:
+
+- For P={2},a=1,b=1/2 all |Z| equal 1/2, so equality holds for every N and r.
+- For P={3},N=3,a=1,b=1/3, the signed first moment is 0 but the absolute first moment is 4/9; the r=0 upper bound is sqrt(2/9).
+- Signed weights and constant nonzero centers are allowed. An empty P with b=0 gives zero odd absolute moments, while E_0 remains 1.
+
+## PM.2 — Uniform distribution, discrepancy and normality
+
+This layer uses native empirical probabilities, torus characters and Haar measures. Natural-indexed averages have n+1 terms; integer-indexed statements specify both tails. Van der Corput uses ES.0/q-vdc-lag-bound rather than duplicating that finite inequality.
 
 ### `asymptotic-equidistribution` — Asymptotic equidistribution of a sequence
 
@@ -1855,11 +2758,11 @@ For a topological space X with its Borel σ-algebra, a sequence x : ℕ → X an
 - On the pinned libraries: `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 3, the definition (1.1). The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). Uniqueness of the limit measure. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.2. Positive lower density and dense range. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Example 1.1.1. The non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 3, the definition (1.1). The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). Uniqueness of the limit measure. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.2. Positive lower density and dense range. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Example 1.1.1. The non-example test. Mathematical relationship paraphrased for this roadmap.
 
 ### `total-asymptotic-equidistribution` — Total asymptotic equidistribution
 
@@ -1902,7 +2805,7 @@ TotallyAsympEquidistributed x μ means AsympEquidistributed (fun n => x (q * n +
 - In this packet: `asymptotic-equidistribution`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). The definition. Mathematical relationship paraphrased for this roadmap.
 
 ### `torus-haar-probability` — Haar probability measure on the circle and the standard torus
 
@@ -1950,7 +2853,7 @@ circleHaar : ProbabilityMeasure UnitAddCircle is AddCircle.haarAddCircle, and to
 - On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Mathematical relationship paraphrased for this roadmap.
 
 ### `torus-irrational` — Irrational points of the torus
 
@@ -1998,9 +2901,9 @@ circleHaar : ProbabilityMeasure UnitAddCircle is AddCircle.haarAddCircle, and to
 - On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, after (1.2). The pairing Z^d × T^d → T used in the definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, after Remark 1.1.4. The rational extreme, for the non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). The definition. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, after (1.2). The pairing Z^d × T^d → T used in the definition. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, after Remark 1.1.4. The rational extreme, for the non-example test. Mathematical relationship paraphrased for this roadmap.
 
 ### `weyl-criterion` — Weyl equidistribution criterion
 
@@ -2027,8 +2930,8 @@ A sequence x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and 
 - On the pinned libraries: `mathlib:UnitAddTorus.span_mFourier_closure_eq_top`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The density step of the proof. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The statement. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The density step of the proof. Mathematical relationship paraphrased for this roadmap.
 
 ### `weyl-criterion-projections` — Equidistribution in T^d through one-dimensional projections
 
@@ -2053,7 +2956,7 @@ x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and only if, fo
 - On the pinned libraries: `mathlib:fourier`, `mathlib:UnitAddTorus.mFourier`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Corollary 1.1.3. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Corollary 1.1.3. The statement. Mathematical relationship paraphrased for this roadmap.
 
 ### `linear-equidistribution` — Equidistribution theorem for linear sequences
 
@@ -2080,8 +2983,8 @@ For α, β ∈ UnitAddTorus d the following are equivalent: (i) n ↦ n • α +
 - On the pinned libraries: `mathlib:geom_sum_eq`, `mathlib:AddCircle.denseRange_zsmul_iff`, `mathlib:AddCircle.ergodic_add_left`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5. Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). Statement (iv), the irrationality condition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5. Statements (i) and (ii) give the natural-indexed contract; (iii) gives its integer-indexed counterpart, specified separately below. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). Statement (iv), the irrationality condition. Mathematical relationship paraphrased for this roadmap.
 
 ### `van-der-corput-lemma` — Van der Corput's difference theorem
 
@@ -2108,9 +3011,9 @@ If x : ℕ → UnitAddTorus d is such that for every h ≥ 1 the difference sequ
 - From other roadmaps: `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.7. The statement; the ℤ-indexed version is not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Lemma 1.1.6. The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, end of the proof of Corollary 1.1.7. The limiting step. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.7. The natural-indexed statement; the integer-indexed counterpart has its own target below. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Lemma 1.1.6. The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, end of the proof of Corollary 1.1.7. The limiting step. Mathematical relationship paraphrased for this roadmap.
 
 ### `weyl-polynomial-equidistribution` — Weyl's equidistribution theorem for polynomials
 
@@ -2135,8 +3038,8 @@ Let s ≥ 1 and α : ℕ → UnitAddTorus d with α s irrational. Then n ↦ ∑
 - In this packet: `van-der-corput-lemma`, `linear-equidistribution`, `torus-irrational`, `asymptotic-equidistribution`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.9. The statement; the node is the ℕ-indexed half. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, proof of Corollary 1.1.9. The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.9. The statement; the node is the ℕ-indexed half. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, proof of Corollary 1.1.9. The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Mathematical relationship paraphrased for this roadmap.
 
 ### `uniform-distribution-mod-one` — Uniform distribution modulo one
 
@@ -2162,9 +3065,9 @@ For a real sequence u : ℕ → ℝ the following are equivalent: (a) n ↦ (u n
 - On the pinned libraries: `mathlib:Int.fract`, `mathlib:fourier`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation, specialised to arcs of the circle. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation, specialised to arcs of the circle. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure on T as Lebesgue measure on [0, 1). Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The criterion, at d = 1. Mathematical relationship paraphrased for this roadmap.
 
 ### Second pass: the rest of the asymptotic theory
 
@@ -2215,8 +3118,8 @@ A sequence x : ℤ → X is asymptotically equidistributed for μ (AsympEquidist
 - In this packet: `asymptotic-equidistribution`, `total-asymptotic-equidistribution`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4. The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, footnote 2. Omitting x(0) is harmless. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4. The definition. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, footnote 2. Omitting x(0) is harmless. Mathematical relationship paraphrased for this roadmap.
 
 #### `weyl-criterion-general-measure` — Weyl's criterion for an arbitrary limit measure on the torus
 
@@ -2241,7 +3144,7 @@ For x : ℕ → UnitAddTorus d and any μ : ProbabilityMeasure (UnitAddTorus d),
 - On the pinned libraries: `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.span_mFourier_closure_eq_top`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Mathematical relationship paraphrased for this roadmap.
 
 #### `total-equidistribution-twisted-weyl` — Total equidistribution by rational twists
 
@@ -2266,7 +3169,7 @@ x : ℕ → UnitAddTorus d is totally equidistributed for torusHaar d if and onl
 - On the pinned libraries: `mathlib:UnitAddTorus.mFourier`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.4. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.4. The statement. Mathematical relationship paraphrased for this roadmap.
 
 #### `linear-equidistribution-int` — The equidistribution theorem on ℤ
 
@@ -2290,7 +3193,7 @@ For α, β ∈ UnitAddTorus d, n ↦ n • α + β (n ∈ ℤ) is totally equidi
 - In this packet: `asymptotic-equidistribution-int`, `linear-equidistribution`, `torus-irrational`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iii)–(iv). Statement (iii) and its equivalence with (iv). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iii)–(iv). Statement (iii) and its equivalence with (iv). Mathematical relationship paraphrased for this roadmap.
 
 #### `polynomial-equidistribution-criterion` — Equidistribution criterion for polynomial sequences
 
@@ -2317,8 +3220,8 @@ For P(n) = ∑_{j=0}^{s} n^j • α_j with α_0, …, α_s ∈ UnitAddTorus d, t
 - In this packet: `weyl-criterion-projections`, `weyl-polynomial-equidistribution`, `linear-equidistribution`, `total-asymptotic-equidistribution`, `asymptotic-equidistribution-int`, `weyl-criterion`, `torus-irrational`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6. Statements (i)–(iii). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6 (iv). Statement (iv) and the reduction to d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6. Statements (i)–(iii). Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6 (iv). Statement (iv) and the reduction to d = 1. Mathematical relationship paraphrased for this roadmap.
 
 #### `subtorus` — Subtori of the standard torus and their Haar measures
 
@@ -2377,8 +3280,8 @@ A subtorus datum S of UnitAddTorus d consists of n : ℕ and an integer matrix M
 - On the pinned libraries: `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16, complexity of a subtorus. The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed pp. 16–17, Exercise 1.1.22. Every compact connected subgroup is of this form; that identification is not planned in this pass (see coverage). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16, complexity of a subtorus. The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed pp. 16–17, Exercise 1.1.22. Every compact connected subgroup is of this form; that identification lies outside the specified SL_d(Z)-datum interface (see the scope boundary below). Mathematical relationship paraphrased for this roadmap.
 
 #### `torus-rational-decomposition` — Rational decomposition of torus points along a subtorus
 
@@ -2406,8 +3309,8 @@ Let α_1, …, α_s ∈ UnitAddTorus d and Γ := {k : d → ℤ | every k · α_
 - On the pinned libraries: `mathlib:Submodule.smithNormalForm`, `mathlib:IsOfFinOrder`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, proof of Proposition 1.1.5. The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16. The SL_d(Z) normal form of a subtorus. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, proof of Proposition 1.1.5. The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16. The SL_d(Z) normal form of a subtorus. Mathematical relationship paraphrased for this roadmap.
 
 #### `abelian-ratner-polynomial` — Equidistribution theorem for abelian polynomial sequences
 
@@ -2435,8 +3338,8 @@ For P(n) = ∑_{j=0}^{s} n^j • α_j with α_0, …, α_s ∈ UnitAddTorus d th
 - On the pinned libraries: `mathlib:Function.Periodic`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.7. The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, after Exercise 1.1.7. The consequence for the limit law. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.7. The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, after Exercise 1.1.7. The consequence for the limit law. Mathematical relationship paraphrased for this roadmap.
 
 #### `abelian-ratner-linear` — Equidistribution for abelian linear sequences
 
@@ -2460,17 +3363,658 @@ For α, β ∈ UnitAddTorus d there are a subtorus datum S and α = α′ + α�
 - In this packet: `abelian-ratner-polynomial`, `torus-rational-decomposition`
 
 **Sources.**
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Proposition 1.1.5. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
-- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6. The rational extreme. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Proposition 1.1.5. The statement. Mathematical relationship paraphrased for this roadmap.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6. The rational extreme. Mathematical relationship paraphrased for this roadmap.
 
-### Remaining in PM.2
+### PM.2 source scope and proof obligations
 
-- Tao §1.1.1 (asymptotic theory) is now decomposed in full except Exercises 1.1.1–1.1.3 beyond their Portmanteau directions, the recurrence Exercise 1.1.8 and the multidimensional Definition 1.1.10 and Exercises 1.1.9–1.1.15.
-- Exercise 1.1.22 (every compact connected subgroup of T^d is the carrier of a subtorus datum) is not planned; the subtorus node takes the SL_d(Z) description as its definition.
-- Discrepancy and Borel normality now have nodes in the continuation below, with exact source-proof and native digit/circle bridge gaps.
-- Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it.
+- The asymptotic targets from Tao §1.1.1 exclude Exercises 1.1.1–1.1.3 beyond their Portmanteau directions, the recurrence Exercise 1.1.8 and the multidimensional Definition 1.1.10 and Exercises 1.1.9–1.1.15.
+- Exercise 1.1.22 (every compact connected subgroup of T^d is the carrier of a subtorus datum) lies outside the specified interface; the subtorus node takes the SL_d(Z) description as its definition.
+- Discrepancy and Borel normality have targets below, with exact source-proof and native digit/circle bridge obligations.
+- Single-scale quantitative equidistribution, §1.1.2 of the same source, lies outside the asymptotic/discrepancy scope; a consumer needing that interface must identify its owner and exact contract.
 
-## PM.3: the Duffin–Schaeffer theorem (Koukoulopoulos–Maynard)
+### Discrepancy and canonical normal digits
+
+The inherited character criterion, Weyl polynomial argument, integer indexing and abelian rational/Ratner decomposition remain in their original carriers. The extension supplies finite star discrepancy and its permutation/perturbation API. Erdős–Turán is a one-dimensional consequence with an explicitly nonsharp constant3. Koksma multiplies discrepancy by the native finite total variation on[0,1]; it is not the multidimensional Hardy–Krause theorem. The sampler’s original majorant and integration-by-parts proof inputs remain gaps.
+
+Normality means every canonical length-k digit block has frequency b^(−k), including overlapping blocks and the empty block. A dense orbit does not supply these frequencies. The proof uses the native expanding-circle ergodicity theorem, the PM.4 pointwise Birkhoff theorem and a half-open positional-cylinder comparison. Countability of lengths, words and bases gives simultaneous almost-everywhere normality. The endpoint correction is essential for all-point digit identities, even though the exceptional endpoints are null.
+
+#### Star discrepancy
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy` (definition). For x:Fin N→ℝ, D*(x)=sup_{0≤t≤1}|#{j:x_j<t}/N−t| when N>0; define D*(empty)=0. Arithmetic samples must lie in [0,1). The cut is strict and the normalization is N.
+
+The proof plan is: Use Finset.univ.filter and native real sSup over t∈Icc 0 1; guard the empty sample. Use this same normalization in Koksma and the one-dimensional Erdős–Turán estimate.
+
+Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
+
+The API laws are `starDiscrepancy_bounds`: 0≤D*≤1 for every finite real sample.; `starDiscrepancy_perm`: Reordering the finite sample preserves star discrepancy.; `starDiscrepancy_perturb`: If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε..
+
+Tests: discrepancy_empty: The guarded empty sample has discrepancy zero.; discrepancy_at_zero: A single point at zero has discrepancy one.; discrepancy_midpoint: A single point at one half has discrepancy one half..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan — Measures the finite count error bounded by Fourier sums.; ProbabilisticAndMetricNumberTheory:PM.2/koksma — Multiplies the variation in the quadrature error bound..
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_bounds
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-1` (lemma). 0≤D*≤1 for every finite real sample.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_perm
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-2` (lemma). Reordering the finite sample preserves star discrepancy.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### starDiscrepancy_perturb
+
+`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-3` (lemma). If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε.
+
+The proof plan is: For each t, compare the two empirical counts using the inclusions {x_j<t−ε}⊆{y_j<t}⊆{x_j<t+ε}. Clip t±ε to [0,1], using the support assumptions, then take the two suprema.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
+
+#### Erdős–Turán discrepancy inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan` (theorem). For N,H≥1 and x_j∈[0,1), D*(x)≤3/(H+1)+3Σ_{h=1}^H |N⁻¹Σ_j exp(2πihx_j)|/h. This is the s=1 consequence of the exact extremal-discrepancy constant (3/2)^s in Strauch–Porubský Theorem 1.11.2.1, pairing ±h; no sharp constant is claimed.
+
+The proof plan is: Use interval trigonometric majorants/minorants of degree H to bound count minus length. Pair positive and negative Fourier frequencies, apply D*≤D, and retain the stated factor 3. The referenced Vaaler/Grabner finite-majorant proof is not read; record this input as a gap.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
+
+Source: StrauchPorubsky2018, Theorem 1.11.2.1, physical p.95; D*≤D comparison.
+
+#### Koksma quadrature inequality
+
+`ProbabilisticAndMetricNumberTheory:PM.2/koksma` (theorem). For N≥1, x_j∈[0,1), and f:ℝ→ℝ with native BoundedVariationOn f [0,1], |N⁻¹Σ_j f(x_j)−∫_[0,1] f dvolume|≤(eVariationOn f [0,1]).toReal D*(x). Variation is finite by hypothesis. Values at sampled discontinuities are retained.
+
+The proof plan is: First prove the integration-by-parts bound for a monotone f against empirical distribution minus Lebesgue distribution. Decompose bounded variation into two monotone functions and add their variations. Match native diameter/variation conventions. The referenced full Koksma proof and the exact native Stieltjes bridge still need source acquisition and declaration matching.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`, `mathlib:BoundedVariationOn`, `mathlib:eVariationOn`.
+
+Source: StrauchPorubsky2018, Theorem 1.9.0.3, physical p.74.
+
+#### Normality in a base
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base` (definition). For b≥2 and x∈[0,1), IsNormalBase b x means that every block w:Fin k→Fin b, including overlapping blocks, has frequency b^(−k) in the canonical native Real.digits x b sequence. Count starting positions 0≤j<N; digits beyond N may occur in the final k−1 windows. The empty block has frequency one.
+
+The proof plan is: State the predicate using canonical native digits and finite windows, not a second digit-expansion carrier. Cylinder indicators for the expanding circle map give the simultaneous countable block-frequency theorem.
+
+Direct prerequisites: `mathlib:Real.digits`.
+
+The API laws are `IsNormalBase.block`: For a normal x each specified block has the stated overlapping frequency.; `IsNormalBase.digit`: Each single digit has frequency 1/b.; `IsNormalBase.empty_block`: The empty block is counted at all N positions, giving limiting frequency one..
+
+Tests: normal_zero_rejected: Zero is not normal in base 2.; normal_half_rejected: One half has terminating canonical binary digits and is not normal.; normal_base_one_rejected: Base one is excluded even though its single digit sequence satisfies a spurious frequency-one formula..
+
+Consumers: ProbabilisticAndMetricNumberTheory:PM.2/borel-normal — Gives the precise Lebesgue almost-everywhere conclusion, beyond density of a circle orbit..
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.block
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-1` (lemma). For a normal x each specified block has the stated overlapping frequency.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.digit
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-2` (lemma). Each single digit has frequency 1/b.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### IsNormalBase.empty_block
+
+`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-3` (lemma). The empty block is counted at all N positions, giving limiting frequency one.
+
+The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
+
+#### Digit cylinders and expanding circle orbits
+
+`ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge` (lemma). For b≥2, except the countable b-adic endpoint set, the length-k canonical digit block beginning at j equals w if and only if the jth iterate of x↦fract(bx) lies in the half-open base-b cylinder determined by w. Each cylinder has Lebesgue measure b^(−k). The same count is the corresponding Birkhoff indicator sum.
+
+The proof plan is: Evaluate the floor-based native digits on the half-open interval and identify the affine cylinder endpoint by its finite positional sum. Iterate the digit shift and sum indicators. The floor/circle/cylinder comparison needs a fresh detailed native proof; do not identify dense orbits with digit frequencies.
+
+Direct prerequisites: `mathlib:Real.digits`.
+
+Source: Smyth2020, Lesson 1 digits/dynamics and Lesson 5, physical pp.5–7,28–29; native digit refinement.
+
+#### Borel normal number theorem
+
+`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal` (theorem). For each b≥2, IsNormalBase b x holds for volume-almost every x∈[0,1);
+
+The proof plan is: Use native AddCircle.ergodic_nsmul for multiplication by b, with its positive-period volume hypothesis. Apply the pointwise ergodic theorem to each cylinder indicator and transport to native digits by the bridge. Take a countable union of null sets over lengths, words and bases. A mean/L1 theorem does not establish the needed pointwise frequencies.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`, `ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `mathlib:AddCircle.ergodic_nsmul`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29, applied to base-b cylinders.
+
+#### Simultaneous normality in every base
+
+`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal-all-bases` (theorem). For volume-almost every x∈[0,1), for every natural b≥2, the canonical native digits make x normal in base b simultaneously.
+
+The proof plan is: Intersect the full-measure sets from the fixed-base theorem over natural b≥2. Introduce the native nonzero-base instance from b≥2; no uncountable intersection is used.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal`.
+
+Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29; countable intersection refinement.
+
+### Additional API contracts
+
+#### asympEquidistributed_iff_integral_tendsto
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-1` (lemma). AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℝ, (n+1)⁻¹ ∑_{i≤n} f (x i) → ∫ f dμ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`.
+
+Proof plan:
+
+1. Unfold convergence of empirical probability measures. Apply the native real bounded-continuous test criterion and the empirical integral formula, with n+1 samples.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### asympEquidistributed_iff_integral_tendsto_complex
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-2` (lemma). The same with bounded continuous complex-valued f; this is the form the Weyl criterion uses.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`.
+
+Proof plan:
+
+1. Use the native complex bounded-continuous test criterion and the empirical integral formula; its RCLike instance specializes to complex values.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### asympEquidistributed_comp_add_iff
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-3` (lemma). AsympEquidistributed (fun n => x (n + m)) μ ↔ AsympEquidistributed x μ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-1`.
+
+Proof plan:
+
+1. For a bounded test function of norm C, deleting m initial terms and adding m terminal terms changes a normalized mean by at most 2mC/(n+1). This tends to zero; apply the integral characterization in both directions.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributed.congr_of_eventuallyEq
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-4` (lemma). Sequences that agree for all large n are equidistributed for the same measures.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-1`.
+
+Proof plan:
+
+1. Choose an index beyond which the sequences agree. Their first finitely many test values contribute O(1/(n+1)); transfer every bounded-continuous integral limit.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributed.unique
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-5` (lemma). Under HasOuterApproxClosed X and BorelSpace X, a sequence is equidistributed for at most one μ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`.
+
+Proof plan:
+
+1. Use the native T2 instance on probability measures under HasOuterApproxClosed and BorelSpace, then uniqueness of a filter limit at the nontrivial atTop filter.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributed.tendsto_frequency
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-6` (lemma). Assume HasOuterApproxClosed X. If μ (frontier E) = 0 then #{i ≤ n : x i ∈ E}/(n+1) → μ E (Portmanteau).
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`.
+
+Proof plan:
+
+1. Apply native Portmanteau convergence on a null-frontier set to the empirical measures, then use the exact empirical real-measure cardinality formula.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributed.eventually_frequency_ge
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-7` (lemma). Assume HasOuterApproxClosed X. For open U with μ U > 0 there is c > 0 with #{i ≤ n : x i ∈ U}/(n+1) ≥ c for all large n.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`.
+
+Proof plan:
+
+1. Portmanteau gives liminf of empirical masses of U at least μ(U). Choose 0<c<μ(U); eventually every empirical mass exceeds c. The open-set Portmanteau input still needs its precise native declaration, recorded as a gap.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributed.denseRange
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-8` (lemma). Assume HasOuterApproxClosed X. If μ charges every nonempty open set, then x has dense range.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-7`.
+
+Proof plan:
+
+1. For any nonempty open U, the positive lower-frequency result yields a nonzero count at a sufficiently large n, so one sequence value lies in U. Use the open-set characterization of dense range.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 3, the definition (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, after (1.1); TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.1; TAO-HOFA-1.1, §1.1.1, printed p. 4, Exercise 1.1.2; TAO-HOFA-1.1, §1.1.1, printed p. 4, Example 1.1.1.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### torusHaar_eq_volume
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-2` (lemma). (torusHaar d : Measure (UnitAddTorus d)) = volume.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`.
+
+Proof plan:
+
+1. Unfold the finite product probability and the native volume instance on UnitAddTorus: its coordinate measures are the normalized circle volumes.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 5, before Proposition 1.1.2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### circleHaar_eq_volume
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-3` (lemma). (circleHaar : Measure UnitAddCircle) = volume.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`.
+
+Proof plan:
+
+1. Unfold the native volume instance of UnitAddCircle and the circle probability wrapper; the underlying measures coincide.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 5, before Proposition 1.1.2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### isAddHaarMeasure_torusHaar
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-4` (lemma). torusHaar d is an additive Haar measure, in particular translation invariant.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`.
+
+Proof plan:
+
+1. Use the finite product additive Haar instance for normalized circle Haar measures; transport it across the probability coercion.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 5, before Proposition 1.1.2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### integral_mFourier_torusHaar
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-5` (lemma). ∫ x, mFourier k x ∂torusHaar d = if k = 0 then 1 else 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-2`.
+
+Proof plan:
+
+1. Pair the kth Fourier function with the constant zeroth Fourier function in the native orthonormal family. Orthogonality gives zero unless k=0; normalized mass gives one at zero.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 5, before Proposition 1.1.2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### integral_fourier_circleHaar
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-6` (lemma). ∫ y, fourier n y ∂circleHaar = if n = 0 then 1 else 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-5`.
+
+Proof plan:
+
+1. Specialize the finite-dimensional Fourier identity to a one-coordinate torus and identify that coordinate with the circle; the native Fourier identification remains an explicit API bridge.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 5, before Proposition 1.1.2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### torusIrrational_iff_mFourier
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-1` (lemma). TorusIrrational α ↔ ∀ k ≠ 0, mFourier k α ≠ 1.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-2`.
+
+Proof plan:
+
+1. Use the Fourier-of-sum identity and the fact that the frequency-one circle character equals one exactly at zero. The precise native kernel statement is a recorded gap.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 6, Exercise 1.1.5 (iv); TAO-HOFA-1.1, §1.1.1, printed p. 5, after (1.2); TAO-HOFA-1.1, §1.1.1, printed p. 6, after Remark 1.1.4.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### mFourier_eq_fourier_sum
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-2` (lemma). mFourier k α = fourier 1 (∑ i, k i • α i).
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`.
+
+Proof plan:
+
+1. Expand the finite product defining mFourier and combine character values using additivity and integer scalar multiplication.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 6, Exercise 1.1.5 (iv); TAO-HOFA-1.1, §1.1.1, printed p. 5, after (1.2); TAO-HOFA-1.1, §1.1.1, printed p. 6, after Remark 1.1.4.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### torusIrrational_unique_iff
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-3` (lemma). For d with exactly one element, TorusIrrational α ↔ addOrderOf (α default) = 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`.
+
+Proof plan:
+
+1. On a singleton coordinate, every integer frequency is an integer multiple of that coordinate. Having no nonzero annihilating integer is the characterization of infinite additive order.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 6, Exercise 1.1.5 (iv); TAO-HOFA-1.1, §1.1.1, printed p. 5, after (1.2); TAO-HOFA-1.1, §1.1.1, printed p. 6, after Remark 1.1.4.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TorusIrrational.zsmul
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-4` (lemma). If α is irrational and m ≠ 0 then m • α is irrational.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`.
+
+Proof plan:
+
+1. If a nonzero frequency k annihilates m•α, then the frequency m*k annihilates α. Since m≠0, a nonzero coordinate of k remains nonzero in the integers, a contradiction.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 6, Exercise 1.1.5 (iv); TAO-HOFA-1.1, §1.1.1, printed p. 5, after (1.2); TAO-HOFA-1.1, §1.1.1, printed p. 6, after Remark 1.1.4.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TorusIrrational.nsmul
+
+`ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-5` (lemma). If α is irrational and m ≠ 0 then m • α is irrational, for m : ℕ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-4`.
+
+Proof plan:
+
+1. Apply the integer-scalar lemma to the integer cast of a nonzero natural m and identify natural and integer scalar multiplication.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 6, Exercise 1.1.5 (iv); TAO-HOFA-1.1, §1.1.1, printed p. 5, after (1.2); TAO-HOFA-1.1, §1.1.1, printed p. 6, after Remark 1.1.4.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### AsympEquidistributedInt.natCast
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-2` (lemma). AsympEquidistributedInt x μ → AsympEquidistributed (fun n : ℕ => x n) μ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-3`.
+
+Proof plan:
+
+1. The positive half is the one-step shift of the natural restriction. Apply invariance under a finite shift to recover the natural sequence including index zero.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 4; TAO-HOFA-1.1, §1.1.1, printed p. 4, footnote 2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TotallyAsympEquidistributedInt.totallyAsympEquidistributed_natCast
+
+`ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-5` (lemma). Totally equidistributed on ℤ implies n ↦ x n totally equidistributed on ℕ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-2`.
+
+Proof plan:
+
+1. For each natural q≥1 and r, use total integer equidistribution for that progression and the natural-restriction lemma. The integer and natural formulas coincide on natural inputs.
+
+Source: TAO-HOFA-1.1, §1.1.1, printed p. 4; TAO-HOFA-1.1, §1.1.1, printed p. 4, footnote 2.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.continuous_toHom
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2` (lemma). toHom is continuous.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`.
+
+Proof plan:
+
+1. Each coordinate is a finite sum of integer scalar multiples of continuous coordinate projections. Continuity is preserved by finite addition and fixed scalar multiplication.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.isCompact_carrier
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-4` (lemma). The carrier is compact, hence closed.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2`.
+
+Proof plan:
+
+1. The domain torus is compact; apply compactness of the continuous image to toHom. The ambient torus is Hausdorff, hence the compact carrier is closed.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.isConnected_carrier
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-5` (lemma). The carrier is connected.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2`.
+
+Proof plan:
+
+1. The finite product of connected circles is connected, and so is its continuous image under toHom.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.haar_carrier
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-7` (lemma). S.haar (S.carrier) = 1.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-4`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2`.
+
+Proof plan:
+
+1. The preimage of the range under toHom is the whole domain. The compact carrier is measurable; apply the native pushforward evaluation formula and total probability one. The exact map-evaluation declaration remains a gap.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.integral_mFourier_haar
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-8` (lemma). ∫ mFourier k d(S.haar) = if k ᵥ* M = 0 then 1 else 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-5`.
+
+Proof plan:
+
+1. Pull the character integral back along the continuous homomorphism with integral_map. Expanding the matrix sum gives the domain character at frequency k times M; apply the torus Fourier integral.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.mFourier_eq_one_iff
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-9` (lemma). mFourier k is identically 1 on S.carrier iff k ᵥ* M = 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-8`.
+
+Proof plan:
+
+1. If k times M is zero, the expanded character is identically one. Conversely, an identically-one character has integral one; the computed integral forces k times M=0.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### Subtorus.haar_eq_of_carrier_eq
+
+`ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-10` (lemma). S.carrier = S'.carrier → S.haar = S'.haar.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.2/subtorus. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-9`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-8`, `ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion-general-measure`.
+
+Proof plan:
+
+1. Equal carriers give equal sets of frequencies annihilating them. Hence their Fourier integrals agree. Apply Fourier probability-measure extensionality; do not invoke a generic-point construction.
+
+Source: TAO-HOFA-1.1, §1.1.2, printed p. 16, complexity of a subtorus; TAO-HOFA-1.1, §1.1.2, printed pp. 16–17, Exercise 1.1.22.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+### Further distinguishing Checks
+
+- `torusIrrational.test_dependent_irrational_coordinates`: ![√2, √2] has two irrational coordinates but is not TorusIrrational: the nonzero frequency (1, −1) annihilates it. This rejects a definition that only checks coordinatewise irrationality.
+- `normal_exists`: For every integer base b≥2, some x∈[0,1) is normal in base b, by the almost-everywhere Borel theorem and positive measure of the interval. This rules out the identically false predicate.
+
+## PM.3 — Metric approximation and Hausdorff transference
 
 This section follows Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture*, Ann. of Math. 192 (2020), 251–307, read completely in the publisher PDF.
 
@@ -2686,7 +4230,7 @@ Let ψ: ℕ → [0,∞) with (qψ(q)) decreasing, and 𝒦 the set of α ∈ [0,
 **Sources.**
 - Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §1, Khinchin's theorem, p. 252. The statement as the source gives it; the proof here goes through Theorem 2.
 
-### Section 5: reduction to a second-moment bound
+### Reduction to a second-moment bound
 
 #### `second-moment-union-bound` — Second-moment lower bound for a finite union
 
@@ -2777,7 +4321,7 @@ Let ψ: ℕ → [0,1/2], Y ≥ X ≥ 1 with 1 ≤ Σ_{X≤q≤Y} ψ(q)φ(q)/q �
 **Sources.**
 - Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §5, Proposition 5.4, p. 265; §6, its proof from Proposition 6.3, p. 270. The proposition and its translation into GCD graphs.
 
-### Section 6: GCD graphs and their quality
+### GCD graphs and their quality
 
 #### `gcd-graph` — GCD graph and GCD subgraph (Definitions 6.1, 6.2, 6.4)
 
@@ -2939,7 +4483,7 @@ If G is non-trivial, p ∉ 𝒫 and μ(𝒱_{p^k}), μ(𝒲_{p^ℓ}) > 0, then q
 **Sources.**
 - Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §11, Lemma 11.1, p. 288. The formula.
 
-### Sections 7–8: a good GCD subgraph and the iterative propositions
+### Good GCD subgraphs and iterative propositions
 
 #### `edge-set-bound` — Edge-set bound (Proposition 6.3)
 
@@ -3147,7 +4691,7 @@ If δ > 0, there is G' = (μ, 𝒱', 𝒲', ℰ', 𝒫, f, g) ⪯ G with δ' ≥
 **Sources.**
 - Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §8, Lemma 8.5, p. 280; §10, proof, p. 287. The lemma and its proof.
 
-### Sections 10–14: the iteration lemmas
+### Iteration lemmas
 
 #### `degree-or-increment` — High degree or a quality increment (Lemma 10.1)
 
@@ -3378,20 +4922,6 @@ Let δ > 0 and p ∈ ℛ(G) with p ≥ 10²⁰⁰⁰. There is G' ⪯ G with �
 **Sources.**
 - Koukoulopoulos–Maynard, *On the Duffin–Schaeffer conjecture* — §14, Lemma 14.1 and proof, pp. 300–304. The lemma and its proof.
 
-### Source findings in Koukoulopoulos–Maynard
-
-Five new, unreviewed findings are recorded against the published text. Each is also present in arXiv v3.
-- **E10 (error).** Lemma 5.3's indicator 𝟙_{M(q,r) ≥ gcd(q,r)} should be 𝟙_{2M(q,r) ≥ gcd(q,r)}.
-  - Counterexample: q = 2, r = 3, ψ ≡ 3/10. Then 𝒜₂ ∩ 𝒜₃ has measure 1/6, although M = 9/10 < 1 = gcd.
-  - The proof of Theorem 1 is unaffected.
-- **E11 (misprint).** The proof of Theorem 1 cites (1.4) for 𝒜_q, which is defined in (1.3).
-- **E12 (error, harmless).** In Case 1 of Lemma 14.1, G⁺ can have smaller vertex sets than G*, so the stated quality equality is only an inequality. The inequality is what the proof needs.
-- **E13 (gap).** Lemmas 13.2 and 14.1 apply lemmas that assume p ∈ ℛ(G) to subgraphs from which p may have left ℛ.
-  - The fix: those lemmas need only p ∉ 𝒫, and the nodes here state them that way.
-- **E14 (misprint).** The last sentence of the proof of Lemma 14.1 has k+1 where k−1 is meant.
-
-The Annals page lists no erratum.
-
 ### Remaining in PM.3
 
 - Lemmas 5.2 and 5.3 are imported from Pollington–Vaughan (1990), which was not read (gap).
@@ -3400,420 +4930,7 @@ The Annals page lists no erratum.
 - Corollary3, general-gauge mass transference and Hausdorff versions now have nodes below; their native measure-extension and original higher-dimensional proof inputs remain explicit.
 - Section 15's counterexample to the Model Problem, which shows why the φ(v)/v weights matter, is recorded in acceptance notes only.
 
-### Verification of the Duffin–Schaeffer checkpoint
-
-- The new `TauCeti.DuffinSchaeffer` Lean section imports Mathlib only.
-  - Standalone, on Lean 4.34.0-rc2 against Mathlib 082e2d3, it elaborates with no errors and only proof-placeholder warnings.
-  - The whole suggested file also imports Tau Ceti modules, and no pinned Tau Ceti build exists on this machine, so the full file was not elaborated.
-- The official blueprint checker passes, as do the intake file check and the repository unit tests.
-
-## Continuation across all six stages
-
-All declarations in this continuation remain unchecked. The purpose of the dependency graph is to distinguish the arithmetic and analytic work from native infrastructure. A planned stage has its targets and key inputs stated, with every unresolved input exposed; it is not a claim of mathematical or Lean closure. Historical source-reading and compilation receipts in the preceding sections describe their own earlier passes.
-
-The finite integer laws sample1 throughN. Geometric prime models use exponent zero as a possible value and success parameter1−1/p. Discrepancy samples use N points and the strict cut x_j<t. Normal digits use the native canonical expansion, overlapping windows and positions0 throughN−1. Gauss digits are indexed from zero, so digit n means the (n+1)st continued-fraction denominator. Rational termination is totalized only for the real digit observable; denominator comparison theorems require irrational input. Hausdorff measures use the native diameter convention, with a separate comparison to the source’s radius convention.
-
-The short-interval paper includes both integer endpoints and normalizes by h, so a constant-one sample has mean(h+1)/h. The logarithmic correlation interval is x/w<n≤x, weighted by1/n and divided by log w. Positive slopes with integer shifts use native zero extension outside positive inputs. The correlation has no complex conjugate. Steinhaus covariance, by contrast, requires conjugation; the Rademacher model is supported on squarefree inputs, whereas the Steinhaus model is completely multiplicative.
-
-### PM.0 — additive arithmetic and distribution interfaces
-
-The generic carrier is the native zero hom ArithmeticFunction. Additivity requires f(1)=0 and the coprime product law; strong additivity adds constancy on positive prime powers. Native omega satisfies the strong law and native Omega fails it. Prime-power representation then recovers the general additive value from factorization. The probability law is the existing native ProbabilityMeasure, and concentration is a real supremum of strict-window mass. A zero-radius window has zero mass even at an atom; two equally weighted atoms distance one apart have concentration1/2 at radius1/2. These endpoint tests prevent a silent radius/length change.
-
-The quantitative Kubilius target compares full small-prime exponents with independent native geometric laws. Its exponential total-variation error is a separate growing-prime theorem. Exact complete-period CRT identities and finite atom estimates do not prove it when the full prime product exceeds the sample size. The original small-prime proof and product-law realization are gaps. The real CDF criterion permits atoms and tests only continuity points. A moment-determinate Gaussian alone is not a theorem that arithmetic moments converge.
-
-#### Additive arithmetic functions
-
-`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate` (definition). For f:ArithmeticFunction R with R an additive commutative monoid, IsAdditive f means f(1)=0 and f(mn)=f(m)+f(n) for positive coprime m,n. Native f(0)=0 is retained; multiplication is on inputs, not Dirichlet convolution.
-
-The proof plan is: Introduce the displayed predicate on the native carrier. The positive-input guards avoid imposing a false law at zero. The API is used by prime-power representation and the quadratic mean bound.
-
-Direct prerequisites: `mathlib:ArithmeticFunction`.
-
-The API laws are `IsAdditive.map_one`: If f is additive, f(1)=0.; `IsAdditive.map_mul`: Additivity on positive coprime products, retaining both positivity hypotheses.; `IsAdditive.add`: The pointwise sum of additive arithmetic functions is additive..
-
-Tests: additive_zero: The native zero arithmetic function is additive.; additive_omega: The real cast of native omega is additive.; additive_Omega: The real cast of native Omega is additive.; additive_unit_rejected: The convolution unit takes value 1 at input 1 and is not additive..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers — Expands arbitrary additive functions from their coprime prime-power factors.; ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius — Defines the hypothesis of the source quadratic mean inequality..
-
-Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
-
-#### IsAdditive.map_one
-
-`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-1` (lemma). If f is additive, f(1)=0.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
-
-#### IsAdditive.map_mul
-
-`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2` (lemma). Additivity on positive coprime products, retaining both positivity hypotheses.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
-
-#### IsAdditive.add
-
-`ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-3` (lemma). The pointwise sum of additive arithmetic functions is additive.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical pp.38–39.
-
-#### Strongly additive arithmetic functions
-
-`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate` (definition). For f:ArithmeticFunction R, IsStronglyAdditive f means IsAdditive f and f(p^k)=f(p) for every natural prime p and k≥1. It is different from complete additivity f(mn)=f(m)+f(n) on all positive inputs.
-
-The proof plan is: Add the explicit prime-power clause to IsAdditive; no change of arithmetic-function carrier. This clause is needed to replace the prime-power representation by the distinct-prime sum.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`.
-
-The API laws are `IsStronglyAdditive.isAdditive`: A strongly additive function is additive.; `IsStronglyAdditive.prime_pow`: For p prime and k>0, f(p^k)=f(p).; `IsStronglyAdditive.add`: Pointwise addition preserves strong additivity..
-
-Tests: strong_zero: Zero is strongly additive.; strong_omega: Native omega, cast to real arithmetic functions, is strongly additive.; strong_Omega_rejected: Native Omega is not strongly additive: Omega(4)=2 but Omega(2)=1..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes — Removes exponents from the prime-power representation.; ProbabilisticAndMetricNumberTheory:PM.1 — Distinguishes omega from Omega in the normal-order argument..
-
-Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
-
-#### IsStronglyAdditive.isAdditive
-
-`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-1` (lemma). A strongly additive function is additive.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
-
-#### IsStronglyAdditive.prime_pow
-
-`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2` (lemma). For p prime and k>0, f(p^k)=f(p).
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
-
-#### IsStronglyAdditive.add
-
-`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-3` (lemma). Pointwise addition preserves strong additivity.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`.
-
-Source: ElsholtzTao2011, Appendix A, paragraph before Lemma A.3, physical p.39.
-
-#### Prime-power representation of additive functions
-
-`ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers` (lemma). For additive f:ArithmeticFunction R and n>0, f(n)=Σ_{p∈n.primeFactors}f(p^(n.factorization p)); this is the empty sum at n=1.
-
-The proof plan is: Factor n as the product of its positive prime powers. Distinct prime powers are pairwise coprime. Induct on that finite product using IsAdditive.map_mul and f(1)=0. No independent random model is used.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `mathlib:ArithmeticFunction`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2`.
-
-Source: ML-PM79, ArithmeticFunction.Defs and Nat.factorization; elementary specialization of native factorization.
-
-#### Distinct-prime representation
-
-`ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes` (lemma). For strongly additive f and n>0, f(n)=Σ_{p∈n.primeFactors}f(p).
-
-The proof plan is: Use the prime-power representation and positivity of every factorization exponent on primeFactors. Apply IsStronglyAdditive.prime_pow term by term.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2`.
-
-Source: ElsholtzTao2011, Appendix A, strongly additive convention.
-
-#### Concentration function of a real law
-
-`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration` (definition). For ν:ProbabilityMeasure ℝ and δ∈ℝ, Q(ν,δ)=sup_{u∈ℝ}ν.real((u−δ,u+δ)). The intervals are strict and δ is the radius, not the length. For δ≤0 the value is zero.
-
-The proof plan is: Use native real measure on Ioo and real sSup. All terms lie in [0,1], so the supremum is bounded. Consumers pass native pushforward laws of measurable real observations. Do not apply the real theorem directly to complex observations.
-
-Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
-
-The API laws are `concentration_bounds`: For every real radius, 0≤Q≤1.; `concentration_mono`: Increasing the radius cannot decrease Q.; `concentration_translate`: Translation of a real law leaves Q unchanged.; `concentration_scale`: For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|)..
-
-Tests: concentration_zero_radius: A dirac law has zero concentration at zero radius because the interval is strict.; concentration_dirac_positive: A dirac law has concentration one at every positive radius.; concentration_two_atoms_boundary: For equal atoms at 0 and 1, radius 1/2 has Q=1/2; closed intervals would wrongly give 1..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin — The deficit sum 1−Q of each independent real summand controls the sum.; PAPER-BARY-SOROKER-KOUKOULOPOULOS-KOZMA2023/61,/62 — Supplies the generic real concentration interface; polynomial complex root projections remain the paper owner’s responsibility..
-
-Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
-
-#### concentration_bounds
-
-`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-1` (lemma). For every real radius, 0≤Q≤1.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
-
-Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
-
-#### concentration_mono
-
-`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-2` (lemma). Increasing the radius cannot decrease Q.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
-
-Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
-
-#### concentration_translate
-
-`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-3` (lemma). Translation of a real law leaves Q unchanged.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
-
-Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
-
-#### concentration_scale
-
-`ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-4` (lemma). For a≠0, Q(law(aX),δ)=Q(law(X),δ/|a|).
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
-
-Source: BSKK2023, Lemma 7.2, physical p.36, concentration convention.
-
-#### Kolmogorov–Rogozin inequality
-
-`ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin` (theorem). There is an absolute C>0 such that for every finite independent family of a.e. measurable real random variables X_j on a probability space, every δ>0, and D=Σ_j(1−Q(law X_j,δ))>0, Q(law(Σ_j X_j),δ)≤C/sqrt(D). Radii are equal; the D=0 case is the separate trivial bound Q≤1.
-
-The proof plan is: Match equal-radius real Kolmogorov–Rogozin, with native iIndepFun and native pushforwards. The original proof of the independent-sum concentration estimate in the cited references remains an explicit gap.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration`.
-
-Source: BSKK2023, Lemma 7.2, physical p.36; references [19,33,34].
-
-#### CDF continuity-point criterion
-
-`ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion` (theorem). For ν_m,ν:ProbabilityMeasure ℝ, ν_m converges weakly to ν if and only if cdf(ν_m,x)→cdf(ν,x) at every continuity point x of the limiting native CDF. Atoms of ν are allowed; no convergence is demanded at their jumps.
-
-The proof plan is: Forward: apply the native null-frontier Portmanteau theorem to Iic at a continuity point. Reverse: subtract CDF limits on half-open intervals with continuity endpoints; these form a measurable pi-system and arbitrarily small neighborhoods. Apply the native pi-system theorem. The density of continuity points follows from countability of atoms; confirm the exact native atom/countability lemmas before implementing this bridge.
-
-Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:ProbabilityTheory.cdf_eq_real`, `mathlib:IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem`.
-
-Source: ML-PM79, CDF.cdf_eq_real and Portmanteau.IsPiSystem.tendsto_probabilityMeasure_of_tendsto_of_mem.
-
-#### Kubilius small-prime valuation comparison
-
-`ProbabilisticAndMetricNumberTheory:PM.0/kubilius-small-prime-model` (theorem). For each positive integer N sample J_N uniformly from {1,…,N}. Let β_N>0 tend to infinity and P_N={p prime:p≤N^(1/β_N)}. The joint valuation vector (J_N.factorization p)_(p∈P_N) is compared with independent geometric exponents G_p having P(G_p=k)=(1−1/p)p^(−k), k≥0. There are C,δ>0 (independent of N) such that, eventually, their total variation distance is at most C exp(−δβ_N). Total variation is one-half the sum of absolute atom-probability differences. Positive support is essential; a coordinate is an exponent, not merely a divisibility bit.
-
-The proof plan is: Use the native factorization map on the finite positive integer sample and the native finite product of geometricMeasure with success parameter 1−1/p. The bound (1.1) is quoted there from Kubilius [10], not proved by the finite CRT comparison: acquire and decompose the fundamental-lemma/small-prime estimate before closure. The displayed signature uses fully specified native model atom laws, without claiming a private carrier or a supplied independence theorem proves the arithmetic comparison.
-
-Direct prerequisites: `mathlib:ProbabilityTheory.geometricMeasure`, `mathlib:ProbabilityTheory.geometricMeasure_real_singleton`, `mathlib:Nat.primesLE`, `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-joint-law`.
-
-Source: Kubilius2021, Classical uniform result (1.1), physical p.2, and exact atom convention (1.6), p.3.
-
-### PM.1 — normal order and Gaussian arithmetic laws
-
-Turán–Kubilius uses A_N=Σf(p^k)/p^k and B_N²=Σ|f(p^k)|²/p^k, with coefficient30 from the acquired Elsholtz–Tao statement. Its uniform quadratic-mean proof is not supplied by a finite independence computation. Hardy–Ramanujan uses deviations on the log log N scale. Erdős–Kac uses the square-root scale and the native standard Gaussian CDF, for both omega and Omega. The preserved repeated-factor estimates transfer the two functions only after genuine convergence is established.
-
-The source proof chooses a moment-order-dependent prime cutoff and controls growing Gaussian moments, collisions, large-prime removal and Mertens normalization separately. Its fixed even-moment bounds are useful without being a completed asymptotic theorem. The Koymans–Pagano application conditions on positive squarefree integers whose prime factors are1 or2 modulo4. Its mean is half log log N, its exceptional window is at least(log log N)^(2/3), and its error is relative to the restricted family. Ordinary Erdős–Kac by itself does not give that conditional quantitative bound.
-
-#### Turán–Kubilius quadratic mean inequality
-
-`ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius` (theorem). For real additive f and N≥2, put A_N=Σ_{p prime,k≥1,p^k≤N}f(p^k)/p^k and B_N²=Σ_{p prime,k≥1,p^k≤N}|f(p^k)|²/p^k. Then Σ_{1≤n≤N}|f(n)−A_N|²≤30 N B_N². This is precisely Elsholtz–Tao Lemma A.2; a different centering with (1−1/p) is not substituted.
-
-The proof plan is: The displayed finite prime-power expressions use the native prime set and factorization convention. The cited quadratic-mean proof [60, p.20] is unread; its uniform covariance estimates are a recorded gap, not an application of finite-head independence.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate`, `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers`, `mathlib:Nat.primesLE`, `AnalyticNumberTheory:AN.2`.
-
-Source: ElsholtzTao2011, Appendix A, Lemma A.2, physical p.38.
-
-#### Hardy–Ramanujan normal order
-
-`ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan` (theorem). For every ε>0, both fractions #{1≤n≤N: |ω(n)−log log N|>ε log log N}/N and #{1≤n≤N: |Ω(n)−log log N|>ε log log N}/N tend to zero. These are normal-order laws, with ω and Ω the native distinct and repeated factor counts.
-
-The proof plan is: Apply the exact source mean-square estimate to omega, compare its source A_N and B_N² to log log N using the requested reciprocal-prime asymptotic. Use the quadratic Markov bound. Transfer to Omega using the inherited uniform O(1) mean of Omega−omega and a linear Markov estimate.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound`, `AnalyticNumberTheory:AN.2`.
-
-Source: ElsholtzTao2011, Appendix A, discussion after Lemma A.2, physical pp.38–39.
-
-#### Erdős–Kac Gaussian law
-
-`ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac` (theorem). For every real x, the fractions of positive n≤N with (ω(n)−log log N)/sqrt(log log N)≤x tend to cdf(gaussianReal(0,1),x); the same statement holds for Ω. The scale is sqrt(log log N), and Gaussian variance is 1.
-
-The proof plan is: Choose a moment-order-dependent prime cutoff, normalize the inherited pairing and collision bounds and show their errors tend to zero for each fixed order. Use reciprocal-prime asymptotics and a Gaussian moment-convergence theorem, not moment determinacy alone. These analytic limit inputs remain recorded gaps. Apply the continuity-point CDF bridge (the Gaussian CDF is continuous) and the inherited omega/Omega transfer.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/finite-even-gaussian-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/finite-odd-moment-bound`, `ProbabilisticAndMetricNumberTheory:PM.1/cutoff-moment-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer`, `ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion`, `AnalyticNumberTheory:AN.2`.
-
-Source: GS-SIEVING, Author copy physical pp.2–4: (5), Theorem 1 and its deduction; new target combines the preserved fixed-moment nodes.
-
-#### Restricted squarefree prime-factor window
-
-`ProbabilisticAndMetricNumberTheory:PM.1/restricted-squarefree-window` (theorem). For D(N)={d∈ℕ:0<d<N, d squarefree, and every prime divisor is 1 or 2 modulo 4}, there are absolute C,N₀>0 such that for N≥N₀ the number of d∈D(N) with |ω(d)−(1/2)log log N|≥(log log N)^(2/3) is at most C|D(N)|/(log log N)^(1/100). Routed item PAPER-KOYMANS-PAGANO/175. The printed union of cardinalities is read as the sum, following the independently confirmed extraction E29.
-
-The proof plan is: Use the already routed family convention and sum the disjoint integer r-slices; the extraction’s E29 supplies the corrected summation symbol. A quantitative concentration estimate conditional on this restricted family is a separate missing input. The ordinary Erdős–Kac theorem has center log log N and supplies neither the half-center nor this relative polynomial tail.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`.
-
-Source: KoymansPagano2022, Theorem 7.2(a), (7.2), physical p.60; family physical p.2.
-
-### PM.2 — discrepancy and canonical normal digits
-
-The inherited character criterion, Weyl polynomial argument, integer indexing and abelian rational/Ratner decomposition remain in their original carriers. The extension supplies finite star discrepancy and its permutation/perturbation API. Erdős–Turán is a one-dimensional consequence with an explicitly nonsharp constant3. Koksma multiplies discrepancy by the native finite total variation on[0,1]; it is not the multidimensional Hardy–Krause theorem. The sampler’s original majorant and integration-by-parts proof inputs remain gaps.
-
-Normality means every canonical length-k digit block has frequency b^(−k), including overlapping blocks and the empty block. A dense orbit does not supply these frequencies. The proof uses the native expanding-circle ergodicity theorem, the missing pointwise Birkhoff extension and a half-open positional-cylinder comparison. Countability of lengths, words and bases gives simultaneous almost-everywhere normality. The endpoint correction is essential for all-point digit identities, even though the exceptional endpoints are null.
-
-#### Star discrepancy
-
-`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy` (definition). For x:Fin N→ℝ, D*(x)=sup_{0≤t≤1}|#{j:x_j<t}/N−t| when N>0; define D*(empty)=0. Arithmetic samples must lie in [0,1). The cut is strict and the normalization is N.
-
-The proof plan is: Use Finset.univ.filter and native real sSup over t∈Icc 0 1; guard the empty sample. Use this same normalization in Koksma and the one-dimensional Erdős–Turán estimate.
-
-Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`.
-
-The API laws are `starDiscrepancy_bounds`: 0≤D*≤1 for every finite real sample.; `starDiscrepancy_perm`: Reordering the finite sample preserves star discrepancy.; `starDiscrepancy_perturb`: If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε..
-
-Tests: discrepancy_empty: The guarded empty sample has discrepancy zero.; discrepancy_at_zero: A single point at zero has discrepancy one.; discrepancy_midpoint: A single point at one half has discrepancy one half..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan — Measures the finite count error bounded by Fourier sums.; ProbabilisticAndMetricNumberTheory:PM.2/koksma — Multiplies the variation in the quadrature error bound..
-
-Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
-
-#### starDiscrepancy_bounds
-
-`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-1` (lemma). 0≤D*≤1 for every finite real sample.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
-
-Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
-
-#### starDiscrepancy_perm
-
-`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-2` (lemma). Reordering the finite sample preserves star discrepancy.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
-
-Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
-
-#### starDiscrepancy_perturb
-
-`ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-3` (lemma). If both samples lie in [0,1) and corresponding points differ by at most ε≥0, their star discrepancies differ by at most ε.
-
-The proof plan is: For each t, compare the two empirical counts using the inclusions {x_j<t−ε}⊆{y_j<t}⊆{x_j<t+ε}. Clip t±ε to [0,1], using the support assumptions, then take the two suprema.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
-
-Source: StrauchPorubsky2018, §1.9 and §1.11.2, physical pp.73–74,95.
-
-#### Erdős–Turán discrepancy inequality
-
-`ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan` (theorem). For N,H≥1 and x_j∈[0,1), D*(x)≤3/(H+1)+3Σ_{h=1}^H |N⁻¹Σ_j exp(2πihx_j)|/h. This is the s=1 consequence of the exact extremal-discrepancy constant (3/2)^s in Strauch–Porubský Theorem 1.11.2.1, pairing ±h; no sharp constant is claimed.
-
-The proof plan is: Use interval trigonometric majorants/minorants of degree H to bound count minus length. Pair positive and negative Fourier frequencies, apply D*≤D, and retain the stated factor 3. The referenced Vaaler/Grabner finite-majorant proof is not read; record this input as a gap.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`.
-
-Source: StrauchPorubsky2018, Theorem 1.11.2.1, physical p.95; D*≤D comparison.
-
-#### Koksma quadrature inequality
-
-`ProbabilisticAndMetricNumberTheory:PM.2/koksma` (theorem). For N≥1, x_j∈[0,1), and f:ℝ→ℝ with native BoundedVariationOn f [0,1], |N⁻¹Σ_j f(x_j)−∫_[0,1] f dvolume|≤(eVariationOn f [0,1]).toReal D*(x). Variation is finite by hypothesis. Values at sampled discontinuities are retained.
-
-The proof plan is: First prove the integration-by-parts bound for a monotone f against empirical distribution minus Lebesgue distribution. Decompose bounded variation into two monotone functions and add their variations. Match native diameter/variation conventions. The referenced full Koksma proof and the exact native Stieltjes bridge still need source acquisition and declaration matching.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy`, `mathlib:BoundedVariationOn`, `mathlib:eVariationOn`.
-
-Source: StrauchPorubsky2018, Theorem 1.9.0.3, physical p.74.
-
-#### Normality in a base
-
-`ProbabilisticAndMetricNumberTheory:PM.2/normal-base` (definition). For b≥2 and x∈[0,1), IsNormalBase b x means that every block w:Fin k→Fin b, including overlapping blocks, has frequency b^(−k) in the canonical native Real.digits x b sequence. Count starting positions 0≤j<N; digits beyond N may occur in the final k−1 windows. The empty block has frequency one.
-
-The proof plan is: State the predicate using canonical native digits and finite windows, not a second digit-expansion carrier. Cylinder indicators for the expanding circle map give the simultaneous countable block-frequency theorem.
-
-Direct prerequisites: `mathlib:Real.digits`.
-
-The API laws are `IsNormalBase.block`: For a normal x each specified block has the stated overlapping frequency.; `IsNormalBase.digit`: Each single digit has frequency 1/b.; `IsNormalBase.empty_block`: The empty block is counted at all N positions, giving limiting frequency one..
-
-Tests: normal_zero_rejected: Zero is not normal in base 2.; normal_half_rejected: One half has terminating canonical binary digits and is not normal.; normal_base_one_rejected: Base one is excluded even though its single digit sequence satisfies a spurious frequency-one formula..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.2/borel-normal — Gives the precise Lebesgue almost-everywhere conclusion, beyond density of a circle orbit..
-
-Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
-
-#### IsNormalBase.block
-
-`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-1` (lemma). For a normal x each specified block has the stated overlapping frequency.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
-
-Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
-
-#### IsNormalBase.digit
-
-`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-2` (lemma). Each single digit has frequency 1/b.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
-
-Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
-
-#### IsNormalBase.empty_block
-
-`ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-3` (lemma). The empty block is counted at all N positions, giving limiting frequency one.
-
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`.
-
-Source: Smyth2020, Lesson 5 pointwise frequency discussion, physical pp.28–29; block version via cylinder observables.
-
-#### Digit cylinders and expanding circle orbits
-
-`ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge` (lemma). For b≥2, except the countable b-adic endpoint set, the length-k canonical digit block beginning at j equals w if and only if the jth iterate of x↦fract(bx) lies in the half-open base-b cylinder determined by w. Each cylinder has Lebesgue measure b^(−k). The same count is the corresponding Birkhoff indicator sum.
-
-The proof plan is: Evaluate the floor-based native digits on the half-open interval and identify the affine cylinder endpoint by its finite positional sum. Iterate the digit shift and sum indicators. The floor/circle/cylinder comparison needs a fresh detailed native proof; do not identify dense orbits with digit frequencies.
-
-Direct prerequisites: `mathlib:Real.digits`.
-
-Source: Smyth2020, Lesson 1 digits/dynamics and Lesson 5, physical pp.5–7,28–29; native digit refinement.
-
-#### Borel normal number theorem
-
-`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal` (theorem). For each b≥2, IsNormalBase b x holds for volume-almost every x∈[0,1);
-
-The proof plan is: Use native AddCircle.ergodic_nsmul for multiplication by b, with its positive-period volume hypothesis. Apply the pointwise ergodic theorem to each cylinder indicator and transport to native digits by the bridge. Take a countable union of null sets over lengths, words and bases. A mean/L1 theorem does not establish the needed pointwise frequencies.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/normal-base`, `ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `mathlib:AddCircle.ergodic_nsmul`.
-
-Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29, applied to base-b cylinders.
-
-#### Simultaneous normality in every base
-
-`ProbabilisticAndMetricNumberTheory:PM.2/borel-normal-all-bases` (theorem). For volume-almost every x∈[0,1), for every natural b≥2, the canonical native digits make x normal in base b simultaneously.
-
-The proof plan is: Intersect the full-measure sets from the fixed-base theorem over natural b≥2. Introduce the native nonzero-base instance from b≥2; no uncountable intersection is used.
-
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal`.
-
-Source: Smyth2020, Lesson 5 pointwise frequency theorem, physical pp.28–29; countable intersection refinement.
-
-### PM.3 — Hausdorff transference and metric approximation
+### Hausdorff transference and metric approximation
 
 The existing Koukoulopoulos–Maynard GCD-graph proof and its corrected overlap statement remain intact. The new dimension-function predicate constrains a native nonnegative-real function; native mkMetric already supplies the Hausdorff measure. The gauge normalization lemma compares radius and diameter covers rather than asserting an equality of constants. The source mass transference theorem is for Euclidean space with shrinking radii and a monotone gauge/volume ratio.
 
@@ -4077,511 +5194,3443 @@ Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/hausdorff-duffin-
 
 Source: KM-2020, Published Corollary3, printed p.255, freshly read.
 
-### PM.4 — pointwise Gauss metric laws
+### Additional API contracts
 
-The native mean/L1 ergodic statements do not give almost-everywhere averages. The generic pointwise extension uses Sarig’s coloring/limsup argument, invariant-set integrals and conditional-expectation identification. Measurable representative and martingale interfaces remain named gaps. Native Ergodic is reused. Mixing and exactness are specified as predicates on the native probability-space data, and their tests distinguish a trivial point, a two-atom identity and an ergodic periodic swap.
+#### TauCeti.DuffinSchaeffer.volume_dsSet_le
 
-The Gauss map is the total native fractional part of inverse. Its invariant density is1/((1+x)log2) on(0,1], bounded above by1/log2. Inverse branches use absolute Jacobians. Uniform finite-word distortion feeds Rényi’s cylinder comparison and exactness; exactness gives mixing, and mixing gives ergodicity through a separate declaration. Digit and finite-word frequencies are cylinder measures; no digit independence is asserted.
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-3` (lemma). λ(𝒜_q) ≤ 2φ(q)ψ(q)/q for ψ ≥ 0.
 
-Khinchin’s constant is the exponential of the log-digit integral with factor1+1/(a(a+2)). The native convergent denominators are indexed by q₀=1. Their orbit-log comparison has bounded error log2 for irrational inputs; Birkhoff and the positive integral π²/(12log2) then yield Lévy’s growth law. Gauss–Kuzmin concerns the marginal distribution from Lebesgue initial data and needs a transfer-operator spectral estimate. Qualitative mixing does not supply its exponential rate. GN.4 retains homogeneous spaces and group flows; no lattice or quotient is defined here.
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. Use finite subadditivity of interval lengths. Every reduced fraction contributes at most 2ψ(q)/q after clipping to [0,1]; there are φ(q) reduced residues for q≥1.
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.le_volume_dsSet
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-4` (lemma). λ(𝒜_q) ≥ φ(q)ψ(q)/q for q ≥ 1 and 0 ≤ ψ(q) ≤ 1/2.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. For q≥2 and ψ(q)≤1/2, distinct reduced centers are separated by at least 1/q and the intervals have disjoint interiors; their total length is 2φ(q)ψ(q)/q. At q=1 only the clipped interval at 1 remains, with length ψ(1). This gives the uniform weaker lower bound. Native finite-union length and endpoint-nullity lemmas remain a gap.
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.dsSet_mono
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-5` (lemma). 𝒜_q is monotone in ψ.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. Increasing the nonnegative radius enlarges every defining interval, and hence their finite union intersected with [0,1].
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.dsSet_subset_khinchinSet
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-6` (lemma). 𝒜_q ⊆ 𝒦_q.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. Every reduced numerator in the defining finite union is an allowed unrestricted numerator; inclusion is preserved by the union and intersection.
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.mem_dsLimsup_of_mem_addWellApproximable
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-7` (lemma). For x ∈ [0,1], if the image of x on the circle is in Mathlib's addWellApproximable for δ(n) = ψ(n)/n, then x ∈ 𝒜.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. For infinitely many primitive circle approximants, choose their reduced representative in [0,1]. Strict circle distance gives membership in the closed rational interval. Endpoints 0 and 1 cannot supply infinitely many approximants solely by wraparound without the corresponding endpoint-side interval. The primitive-order/representative bookkeeping remains the recorded bridge gap.
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.mem_addWellApproximable_of_mem_dsLimsup
+
+`ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-8` (lemma). An irrational x ∈ 𝒜 maps into addWellApproximable for δ(n) = 2ψ(n)/n.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `mathlib:Nat.totient`, `mathlib:UnitAddCircle.mem_addWellApproximable_iff`.
+
+Proof plan:
+
+1. For irrational x each distance to a reduced rational is positive. Closed distance≤ψ(q)/q therefore implies strict distance<2ψ(q)/q. Unbounded reduced denominators give native circle approximants of unbounded order; the exact native bridge is recorded as a gap.
+
+Source: KM-2020, §1, (1.2)–(1.4), pp. 252–253; KM-2020, §1, (1.2), p. 252.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.trans
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-4` (lemma). Lemma 6.7(a): ⪯ is transitive.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `mathlib:Nat.factorization`, `mathlib:Nat.primeFactors`.
+
+Proof plan:
+
+1. Compose both vertex and edge inclusions and prime-set inclusions. Valuation functions agree on the old prime set by transitivity of equality, so every clause of Definition 6.4 is preserved.
+
+Source: KM-2020, §6, Definitions 6.1, 6.2 and 6.4, pp. 269–270; KM-2020, §6, Lemma 6.7, p. 273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.refl
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-5` (lemma). G ⪯ G.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `mathlib:Nat.factorization`, `mathlib:Nat.primeFactors`.
+
+Proof plan:
+
+1. All inclusions in Definition 6.4 are reflexive and both valuation restrictions are identical.
+
+Source: KM-2020, §6, Definitions 6.1, 6.2 and 6.4, pp. 269–270; KM-2020, §6, Lemma 6.7, p. 273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.R_subset_of_isSubgraph
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-6` (lemma). Lemma 6.7(b): G' ⪯ G implies ℛ(G') ⊆ ℛ(G).
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `mathlib:Nat.factorization`, `mathlib:Nat.primeFactors`.
+
+Proof plan:
+
+1. A residual prime for the subgraph divides a surviving edge and is outside its prime set. That edge also belongs to the original graph and the original prime set is contained in the new one.
+
+Source: KM-2020, §6, Definitions 6.1, 6.2 and 6.4, pp. 269–270; KM-2020, §6, Lemma 6.7, p. 273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure_pos_of_isNontrivial
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-7` (lemma). Lemma 6.7(c): a non-trivial G has μ(𝒱), μ(𝒲) > 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `mathlib:Nat.factorization`, `mathlib:Nat.primeFactors`.
+
+Proof plan:
+
+1. A positive sum of nonnegative edge weights contains an edge with positive product weight. Both endpoint weights are positive, so both containing vertex sums are positive.
+
+Source: KM-2020, §6, Definitions 6.1, 6.2 and 6.4, pp. 269–270; KM-2020, §6, Lemma 6.7, p. 273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.isNontrivial_iff
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-8` (lemma). Lemma 6.7(d): non-trivial ⟺ δ > 0 ⟺ q > 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-7`.
+
+Proof plan:
+
+1. The positive-edge lemma gives positive vertex totals. Every quality Euler factor is strictly positive and finite since its index is prime. Thus quality, density and edge mass have the same strict positivity; if an endpoint total is zero, every edge weight and all three expressions are zero.
+
+Source: KM-2020, §6, Definition 6.6 and the remark after it, pp. 271–273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.quality_eq
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-9` (lemma). q(G) = μ(ℰ)¹⁰/(μ(𝒱)⁹μ(𝒲)⁹)·∏ when μ(𝒱), μ(𝒲) > 0.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`.
+
+Proof plan:
+
+1. Substitute δ=μ(E)/(μ(V)μ(W)) into δ^10 μ(V)μ(W) times the Euler product and cancel the two nonzero vertex totals.
+
+Source: KM-2020, §6, Definition 6.6 and the remark after it, pp. 271–273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity_le_one
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-10` (lemma). δ(G) ≤ 1.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`.
+
+Proof plan:
+
+1. The edge set is contained in the vertex product. Its nonnegative weight sum is at most μ(V)μ(W). Divide when that product is positive; when zero the totalized density is zero.
+
+Source: KM-2020, §6, Definition 6.6 and the remark after it, pp. 271–273.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_isSubgraph
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-0` (lemma). G_{p^k,p^ℓ} ⪯ G.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`.
+
+Proof plan:
+
+1. Restrict to the p-adic valuation classes, retain the corresponding edges, and append p to the prime set with valuations k,ell. Old prime conditions restrict and the new p conditions hold by construction.
+
+Source: KM-2020, §6, Definition 6.5, p. 271.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+#### TauCeti.DuffinSchaeffer.GCDGraph.R_restrictPow
+
+`ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-1` (lemma). ℛ(G_{p^k,p^ℓ}) ⊆ ℛ(G) \ {p}.
+
+Hypotheses: Use the ambient types, measurability and finiteness hypotheses of ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph. Any additional assumptions are stated explicitly above.
+
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-0`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-6`.
+
+Proof plan:
+
+1. Use residual-prime inclusion for the restricted subgraph. Its prime set contains p, so p cannot remain residual.
+
+Source: KM-2020, §6, Definition 6.5, p. 271.
+
+Acceptance:
+
+- Retain the complete API statement and every listed bridge gap; the compact suggested file selects only milestones.
+
+## PM.4 — Pointwise ergodic theory and continued fractions
+
+The layer has four proof groups: pointwise averages; native Gauss cylinders and exactness; metric continued fractions and quantitative transfer; and homogeneous number-theory consumers. These are reading groups, not new atlas stages. The six inherited planets and all node identifiers are retained.
+
+### Parent targets and their APIs
 
 #### Pointwise Birkhoff theorem
 
 `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise` (theorem). For a measure-preserving map T of a probability space and integrable f:Ω→ℝ, native birkhoffAverage ℝ T f N converges almost everywhere to the native conditional expectation of f on MeasurableSpace.invariants T. This is pointwise convergence of a representative, not just mean/L1 convergence.
 
-The proof plan is: For nonnegative f, the coloring/truncated-limsup estimate and the complementary liminf estimate force equality of limsup and liminf almost everywhere. The limit is invariant and integrable; its integrals over every invariant measurable set equal those of f, identifying native conditional expectation. Split signed f into positive/negative parts. The coloring and identification nodes below are direct prerequisites; no existing mean-ergodic result is claimed as the pointwise proof.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `mathlib:birkhoffAverage`, `mathlib:MeasurableSpace.invariants`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification`.
+Direct prerequisites: `mathlib:birkhoffAverage`, `mathlib:MeasurableSpace.invariants`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification`, `ProbabilisticAndMetricNumberTheory:PM.4/nonnegative-limit`, `ProbabilisticAndMetricNumberTheory:PM.4/signed-limit`, `ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-invariant`.
+
+Proof plan:
+
+1. For nonnegative f, the coloring/truncated-limsup estimate and the complementary liminf estimate force equality of limsup and liminf almost everywhere.
+2. The limit is invariant and integrable; its integrals over every invariant measurable set equal those of f, identifying native conditional expectation.
+3. Split signed f into positive/negative parts. The coloring and identification nodes below are direct prerequisites; no existing mean-ergodic result is claimed as the pointwise proof.
 
 Source: Sarig2023, Theorems 2.2–2.3 and their complete proof, physical pp.45–49.
 
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
+
 #### Coloring estimate for Birkhoff limsup
 
-`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring` (lemma). For a nonnegative integrable real observable on a probability-preserving system, the integrable truncation g_M=min(limsup_N A_N f,M) has integral at most ∫f. Apply the statement with its source measurable invariant limsup representative; positive limsup may be infinite before this bound.
+`ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring` (lemma). For a nonnegative integrable real observable on a probability-preserving system, for M≥0 the integrable real truncation g_M of the nonnegative extended-real limsup, namely min(limsup_N A_N f,M) has integral at most ∫f. Apply the statement with its source measurable invariant limsup representative; positive limsup may be infinite before this bound.
 
-The proof plan is: For ε>0 choose finite orbit blocks with average above g_M−ε on a set whose measure tends to one as the permitted block length grows. Color disjoint blocks along a long orbit; boundary and bad-set contributions are bounded by M times their frequency. Integrate using preservation. First let the long orbit length tend to infinity, then remove the bad set and ε. A precise measurable extended-limsup representative and the finite coloring lemma signatures remain to be split.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `mathlib:birkhoffAverage`.
+Direct prerequisites: `mathlib:birkhoffAverage`, `ProbabilisticAndMetricNumberTheory:PM.4/upper-coloring-integrated`, `ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bound`.
+
+Proof plan:
+
+1. For ε>0 choose finite orbit blocks with average above g_M−ε on a set whose measure tends to one as the permitted block length grows.
+2. Color disjoint blocks along a long orbit; boundary and bad-set contributions are bounded by M times their frequency. Integrate using preservation.
+3. First let the long orbit length tend to infinity, then remove the bad set and ε. A precise measurable extended-limsup representative and the finite coloring lemma signatures remain to be split.
 
 Source: Sarig2023, Theorem 2.2 proof, physical pp.45–47.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Invariant limit and conditional expectation
 
 `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification` (lemma). If the almost-everywhere Birkhoff limit g of an integrable f is integrable and invariant, the coloring/liminf argument gives ∫_A g=∫_A f for every native invariant measurable set A; hence g equals native condExp(invariants T,μ,f) almost everywhere.
 
-The proof plan is: Restrict the probability-preserving system to an invariant set, normalizing when its mass is positive; zero-mass sets are immediate. Use the signed coloring argument to identify the restricted integrals and the native uniqueness criterion for conditional expectation. The exact native conditional-expectation uniqueness/restriction lemmas are still to be matched; omit a bundled limit signature rather than a Prop-valued stand-in.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `mathlib:MeasurableSpace.invariants`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring`, `mathlib:MeasurableSpace.invariants`, `ProbabilisticAndMetricNumberTheory:PM.4/invariant-set-integrals`, `ProbabilisticAndMetricNumberTheory:PM.4/native-condexp-identification`.
+
+Proof plan:
+
+1. Restrict the probability-preserving system to an invariant set, normalizing when its mass is positive; zero-mass sets are immediate.
+2. Use the signed coloring argument to identify the restricted integrals and the native uniqueness criterion for conditional expectation.
+3. The exact native conditional-expectation uniqueness/restriction lemmas are still to be matched; omit a bundled limit signature rather than a Prop-valued stand-in.
 
 Source: Sarig2023, Theorem 2.3, physical pp.48–49.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Ergodic pointwise averages
 
 `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic` (theorem). For native Ergodic T μ on a probability space and integrable real f, A_N f(x)→∫f dμ for μ-almost every x.
 
-The proof plan is: Identify the pointwise limit as conditional expectation on the invariant sigma-algebra. Ergodicity makes this invariant function almost surely constant; its integral is the integral of f.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise`, `mathlib:Ergodic`.
 
+Proof plan:
+
+1. Identify the pointwise limit as conditional expectation on the invariant sigma-algebra.
+2. Ergodicity makes this invariant function almost surely constant; its integral is the integral of f.
+
 Source: Sarig2023, Theorem 2.2, ergodic conclusion, physical pp.45–47.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss map
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map` (definition). Define T:ℝ→ℝ by T(x)=Int.fract(x⁻¹), using native total inversion so T(0)=0. Its measure-theoretic domain is [0,1]; all metric digit theorems exclude rationals, and T preserves irrational points in (0,1).
 
-The proof plan is: Use the native floor/fractional-part operation rather than a second continued-fraction algorithm. Match the inverse branches x↦1/(a+x) for integers a≥1 on the irrational domain; rational boundary values are handled separately.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `mathlib:GenContFract.of`.
 
-The API laws are `gaussMap_zero`: T(0)=0.; `gaussMap_range`: Every real input maps into [0,1).; `gaussMap_measurable`: The total Gauss map is Borel measurable..
+Proof plan:
 
-Tests: gauss_half: T(1/2)=0, showing rational termination.; gauss_two_thirds: T(2/3)=1/2.; gauss_zero: The endpoint convention is T(0)=0..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure — Preserves the specific absolutely continuous Gauss probability.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit — Its iterates define the digit observations for metric laws..
+1. Use the native floor/fractional-part operation rather than a second continued-fraction algorithm.
+2. Match the inverse branches x↦1/(a+x) for integers a≥1 on the irrational domain; rational boundary values are handled separately.
 
 Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+API:
+
+- `gaussMap_zero`: T(0)=0.
+- `gaussMap_range`: Every real input maps into [0,1).
+- `gaussMap_measurable`: The total Gauss map is Borel measurable.
+
+Checks:
+
+- `gauss_half`: T(1/2)=0, showing rational termination.
+- `gauss_two_thirds`: T(2/3)=1/2.
+- `gauss_zero`: The endpoint convention is T(0)=0.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### gaussMap_zero
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-1` (lemma). T(0)=0.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-map.
 
 #### gaussMap_range
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-2` (lemma). Every real input maps into [0,1).
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-map.
 
 #### gaussMap_measurable
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-3` (lemma). The total Gauss map is Borel measurable.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.11,32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-map.
 
 #### Gauss probability measure
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure` (construction). Use native μ_G=(volume restricted to (0,1]).withDensity(ofReal(1/((1+x)log 2))). It is a Borel probability measure equivalent to the restricted Lebesgue measure; on its support the density lies between 1/(2 log 2) and 1/log 2. Outside the support density values do not affect μ_G.
 
-The proof plan is: Integrate the density explicitly by log(1+x); the mass of (0,1] is one. Use positive finite density on the support to prove mutual absolute continuity. The erroneous printed upper bound 2 log 2 is not used.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `mathlib:MeasureTheory.ProbabilityMeasure`.
 
-The API laws are `gaussMeasure_univ`: The measure has total mass one.; `gaussMeasure_interval`: For 0≤a≤b≤1, μ_G((a,b])=(log(1+b)−log(1+a))/log 2.; `gaussMeasure_equivalent`: Gauss and restricted Lebesgue measure have the same null sets..
+Proof plan:
 
-Tests: gauss_mass: μ_G((0,1])=1.; gauss_first_digit: μ_G((1/2,1])=log(4/3)/log 2, the frequency of digit 1.; gauss_no_atoms: The totalized endpoint has no mass..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant — The invariant probability for Gauss ergodic averages.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral — Sets the logarithmic observable integrals and exact constants..
+1. Integrate the density explicitly by log(1+x); the mass of (0,1] is one.
+2. Use positive finite density on the support to prove mutual absolute continuity. The erroneous printed upper bound 2 log 2 is not used.
 
 Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+API:
+
+- `gaussMeasure_univ`: The measure has total mass one.
+- `gaussMeasure_interval`: For 0≤a≤b≤1, μ_G((a,b])=(log(1+b)−log(1+a))/log 2.
+- `gaussMeasure_equivalent`: Gauss and restricted Lebesgue measure have the same null sets.
+
+Checks:
+
+- `gauss_mass`: μ_G((0,1])=1.
+- `gauss_first_digit`: μ_G((1/2,1])=log(4/3)/log 2, the frequency of digit 1.
+- `gauss_no_atoms`: The totalized endpoint has no mass.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### gaussMeasure_univ
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-1` (lemma). The measure has total mass one.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure.
 
 #### gaussMeasure_interval
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2` (lemma). For 0≤a≤b≤1, μ_G((a,b])=(log(1+b)−log(1+a))/log 2.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure.
 
 #### gaussMeasure_equivalent
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3` (lemma). Gauss and restricted Lebesgue measure have the same null sets.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical pp.32–33, density with corrected upper bound.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure.
 
 #### Gauss digit observations
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit` (definition). For real x define a_{n+1}(x)=gaussDigit(x,n)=Nat.floor((T^[n]x)⁻¹), n indexed from zero. On irrational x∈(0,1), all digits are positive and this agrees with the n-indexed native GenContFract.of x partial denominator stream. At rational termination the observable is zero, without inventing an infinite native continued fraction.
 
-The proof plan is: Use the single floor observable on native iterates. At n=0 it is the first fractional continued-fraction digit. For irrational inputs the native computation stream is nonterminating and its next inverse-fractional-part step matches T.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `mathlib:GenContFract.of`.
 
-The API laws are `gaussDigit_zero`: The first digit is floor(x⁻¹).; `gaussDigit_shift`: Digit n at T(x) equals digit n+1 at x.; `gaussDigit_native`: On irrational x in (0,1), native partial denominator n is some real cast of gaussDigit(x,n)..
+Proof plan:
 
-Tests: digit_half_first: The first digit of 1/2 is 2.; digit_half_terminated: The next digit of 1/2 is zero under totalization.; digit_two_thirds: The digits of 2/3 start 1,2,0..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-frequency — Pins the off-by-one convention in empirical frequencies.; ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean — Uses log of the positive digit observable, not its nonintegrable arithmetic mean..
+1. Use the single floor observable on native iterates. At n=0 it is the first fractional continued-fraction digit.
+2. For irrational inputs the native computation stream is nonterminating and its next inverse-fractional-part step matches T.
 
 Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+API:
+
+- `gaussDigit_zero`: The first digit is floor(x⁻¹).
+- `gaussDigit_shift`: Digit n at T(x) equals digit n+1 at x.
+- `gaussDigit_native`: On irrational x in (0,1), native partial denominator n is some real cast of gaussDigit(x,n).
+
+Checks:
+
+- `digit_half_first`: The first digit of 1/2 is 2.
+- `digit_half_terminated`: The next digit of 1/2 is zero under totalization.
+- `digit_two_thirds`: The digits of 2/3 start 1,2,0.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### gaussDigit_zero
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-1` (lemma). The first digit is floor(x⁻¹).
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit.
 
 #### gaussDigit_shift
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-2` (lemma). Digit n at T(x) equals digit n+1 at x.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit.
 
 #### gaussDigit_native
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-3` (lemma). On irrational x in (0,1), native partial denominator n is some real cast of gaussDigit(x,n).
 
-The proof plan is: Induct on n through native GenContFract.of and IntFractPair.stream, using irrational nontermination and positivity of each inverse fractional part. Match the first fractional denominator to digit zero and the next stream step to the iterate of the total Gauss map. The native bridge remains an explicit gap.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `mathlib:GenContFract.of`, `mathlib:Irrational`.
 
+Proof plan:
+
+1. Induct on n through native GenContFract.of and IntFractPair.stream, using irrational nontermination and positivity of each inverse fractional part.
+2. Match the first fractional denominator to digit zero and the next stream step to the iterate of the total Gauss map. The native bridge remains an explicit gap.
+
 Source: SarigTransfer, §2.3, physical p.11, corrected iterate/digit index; native partial denominator bridge.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit.
 
 #### Strong mixing of probability-preserving maps
 
 `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing` (definition). IsStrongMixing T μ for native μ:ProbabilityMeasure Ω means MeasurePreserving T μ μ and, for all measurable A,B, μ.real(A∩(T^[n])⁻¹B)→μ.real(A)μ.real(B). This is a general probability-system predicate; Gauss is an application.
 
-The proof plan is: Define the precise mixing limit using native iterates, preimages and real measure. General consumers include Gauss mixing here and homogeneous dynamics at GN.4. Ergodicity is imported as the native notion, not redefined.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:Ergodic`.
 
-The API laws are `IsStrongMixing.measurePreserving`: Mixing includes measure preservation.; `IsStrongMixing.ergodic`: A strongly mixing probability system is native Ergodic.; `IsStrongMixing.correlation`: Exports the defining measurable-set correlation limit..
+Proof plan:
 
-Tests: mix_dirac: Identity on a one-point dirac probability is mixing.; mix_identity_rejected: Identity on a fair two-atom measure is not mixing: take A=B={0}.; mix_periodic_rejected: The swap x↦1−x on that fair two-atom space is ergodic but not mixing..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing — States the Gauss-system correlation limit.; GeometryOfNumbersAndQuadraticArithmetic:GN.4 — Offers one generic map-level predicate; group flows and quotient measures remain that supplier’s objects..
+1. Define the precise mixing limit using native iterates, preimages and real measure.
+2. General consumers include Gauss mixing here and homogeneous dynamics at GN.4. Ergodicity is imported as the native notion, not redefined.
 
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+API:
+
+- `IsStrongMixing.measurePreserving`: Mixing includes measure preservation.
+- `IsStrongMixing.ergodic`: A strongly mixing probability system is native Ergodic.
+- `IsStrongMixing.correlation`: Exports the defining measurable-set correlation limit.
+
+Checks:
+
+- `mix_dirac`: Identity on a one-point dirac probability is mixing.
+- `mix_identity_rejected`: Identity on a fair two-atom measure is not mixing: take A=B={0}.
+- `mix_periodic_rejected`: The swap x↦1−x on that fair two-atom space is ergodic but not mixing.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### IsStrongMixing.measurePreserving
 
 `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-1` (lemma). Mixing includes measure preservation.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing.
 
 #### IsStrongMixing.ergodic
 
 `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-2` (lemma). A strongly mixing probability system is native Ergodic.
 
-The proof plan is: For a measurable strictly invariant A, the iterated preimage is A; apply mixing with B=A to obtain μ(A)=μ(A)². Since 0≤μ(A)≤1, the mass is zero or one; with the measure-preserving projection this is native Ergodic.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`, `mathlib:Ergodic`.
 
+Proof plan:
+
+1. For a measurable strictly invariant A, the iterated preimage is A; apply mixing with B=A to obtain μ(A)=μ(A)².
+2. Since 0≤μ(A)≤1, the mass is zero or one; with the measure-preserving projection this is native Ergodic.
+
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing.
 
 #### IsStrongMixing.correlation
 
 `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-3` (lemma). Exports the defining measurable-set correlation limit.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing.
 
 #### Exact probability systems
 
 `ProbabilisticAndMetricNumberTheory:PM.4/exact-system` (definition). IsExact T μ means T preserves the native probability μ and every set measurable for the tail sigma-algebra inf_n comap(T^[n],mΩ) is μ-null or μ-conull. This is exactness for a noninvertible system, stronger than ergodicity.
 
-The proof plan is: Use native MeasurableSpace.comap and its indexed infimum, not a private sigma-algebra carrier. Keep the explicit tail zero-one condition; invariance of a single set is not exactness.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
 
-The API laws are `IsExact.measurePreserving`: Exactness includes measure preservation.; `IsExact.tail_zero_one`: Exports the native tail-sigma zero-one law.; `IsExact.strongMixing`: An exact probability system is strongly mixing, by reverse martingale convergence..
+Proof plan:
 
-Tests: exact_dirac: Identity on a dirac probability is exact.; exact_identity_rejected: Identity on a fair two-atom measure is not exact.; exact_swap_rejected: An invertible two-point swap is not exact even though it is ergodic..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact — Provides the tail condition of Rényi’s proof.; ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing — Turns Gauss exactness into the measurable-set correlation limit..
+1. Use native MeasurableSpace.comap and its indexed infimum, not a private sigma-algebra carrier.
+2. Keep the explicit tail zero-one condition; invariance of a single set is not exactness.
 
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+API:
+
+- `IsExact.measurePreserving`: Exactness includes measure preservation.
+- `IsExact.tail_zero_one`: Exports the native tail-sigma zero-one law.
+- `IsExact.strongMixing`: An exact probability system is strongly mixing, by reverse martingale convergence.
+
+Checks:
+
+- `exact_dirac`: Identity on a dirac probability is exact.
+- `exact_identity_rejected`: Identity on a fair two-atom measure is not exact.
+- `exact_swap_rejected`: An invertible two-point swap is not exact even though it is ergodic.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### IsExact.measurePreserving
 
 `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-1` (lemma). Exactness includes measure preservation.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/exact-system.
 
 #### IsExact.tail_zero_one
 
 `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-2` (lemma). Exports the native tail-sigma zero-one law.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/exact-system.
 
 #### IsExact.strongMixing
 
 `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-3` (lemma). An exact probability system is strongly mixing, by reverse martingale convergence.
 
-The proof plan is: For each bounded observable, apply reverse-martingale conditional-expectation convergence to the decreasing sigma-algebras comap(T^[n]). Tail triviality identifies the limit as the constant expectation. Measure preservation converts these conditional expectations into the measurable-set mixing correlation. The native reverse-martingale theorem, its exact filtration/completion hypotheses and the conditional-expectation/pushforward identity are recorded as a gap; this API is not an unfolding lemma.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-constant`, `ProbabilisticAndMetricNumberTheory:PM.4/tail-correlation-bound`.
+
+Proof plan:
+
+1. For each bounded observable, apply reverse-martingale conditional-expectation convergence to the decreasing sigma-algebras comap(T^[n]).
+2. Tail triviality identifies the limit as the constant expectation. Measure preservation converts these conditional expectations into the measurable-set mixing correlation.
+3. The native reverse-martingale theorem, its exact filtration/completion hypotheses and the conditional-expectation/pushforward identity are recorded as a gap; this API is not an unfolding lemma.
 
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/exact-system.
 
 #### Gauss inverse branches and Jacobians
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian` (lemma). For integer a≥1, v_a(x)=1/(a+x) maps (0,1) to its ath Gauss cylinder and T(v_a(x))=x. The derivative needed for measure transport is a separate lemma.
 
-The proof plan is: Use a< a+x<a+1 on (0,1), so floor(a+x)=a, and evaluate the total inverse/fractional-part formula.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`.
 
+Proof plan:
+
+1. Use a< a+x<a+1 on (0,1), so floor(a+x)=a, and evaluate the total inverse/fractional-part formula.
+
 Source: SarigTransfer, §2.3 and Appendix A.2, physical pp.12,32.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Invariant density telescope
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-telescope` (lemma). For x∈[0,1], Σ_{a≥1}1/((a+x)(a+x+1))=1/(1+x). Therefore the Lebesgue transfer operator sends h(x)=1/((1+x)log 2) to h(x).
 
-The proof plan is: Write each summand as 1/(a+x)−1/(a+x+1) and telescope finite partial sums. Let the final reciprocal tend to zero; then substitute the density into the inverse-branch Jacobian formula.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`.
 
+Proof plan:
+
+1. Write each summand as 1/(a+x)−1/(a+x+1) and telescope finite partial sums.
+2. Let the final reciprocal tend to zero; then substitute the density into the inverse-branch Jacobian formula.
+
 Source: SarigTransfer, §2.3 transfer formula, physical p.12; worker’s exact telescoping verification.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss measure invariance
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant` (theorem). The native total Gauss map is MeasurePreserving for μ_G. The statement is equality of pushforward and μ_G on the Borel real line, with support and endpoints explicitly handled.
 
-The proof plan is: Partition the irrational support into countably many branches and use nonnegative/absolutely integrable change of variables. Use the density telescope, then native measure extensionality; all omitted rational boundaries have zero measure.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-telescope`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`.
 
+Proof plan:
+
+1. Partition the irrational support into countably many branches and use nonnegative/absolutely integrable change of variables.
+2. Use the density telescope, then native measure extensionality; all omitted rational boundaries have zero measure.
+
 Source: SarigTransfer, Transfer duality Proposition 1.1 and §2.3, physical pp.6,12.
 
-#### Uniform distortion of continued-fraction cylinders
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
+
+#### Uniform logarithmic distortion of one Gauss branch
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion` (lemma). For a≥1 and x,y∈[0,1], the logarithms of the absolute derivatives of v_a(x)=1/(a+x) differ by at most 2|x−y|. This does not assert Lip(v_a′)≤1.
 
-The proof plan is: Use the native continuant recurrences to obtain the Möbius denominator and determinant ±1. Since 0≤q_(n−1)/q_n≤1, compare denominator factors between q_n and 2q_n; differentiate log|v′| to get the bound 2.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`.
 
-Source: SarigTransfer, Exercise 2.5(c),(d), physical pp.12–13, corrected derivative hint; native matrix recurrence bridge.
+Proof plan:
+
+1. For a≥1 on [0,1], the branch derivative is −1/(a+x)², so log|v_a′(x)|=−2log(a+x).
+2. Differentiate this scalar function: its derivative has absolute value 2/(a+x)≤2. The mean-value inequality on the segment between x and y gives the claimed bound. No continued-fraction continuant lemma is needed for this one-branch assertion.
+
+Source: SarigTransfer, Exercise 2.5(c),(d), physical pp.12–13; one-branch consequence by direct differentiation, with the derivative-hint issue recorded separately.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Uniform finite-word cylinder distortion
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion` (lemma). For every positive-digit finite word w=(a₁,…,a_n), n≥1, put v_w=v_a₁∘…∘v_a_n. Its absolute derivative is (q_n+x q_(n−1))⁻², with the word continuants q₀=1,q₋₁=0. For all x,y∈[0,1], 1/4≤|v_w′(x)|/|v_w′(y)|≤4, and |log|v_w′(x)|−log|v_w′(y)||≤2|x−y|.
 
-The proof plan is: Induct on the finite word using the existing continuant/matrix recurrence and determinant ±1. Use q_(n−1)≤q_n to compare denominators between q_n and 2q_n, then differentiate their logarithm. The finite-word/native stream and differentiable branch interface has not been fixed; the general-word signature is explicitly omitted.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion`, `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion`, `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative`, `ProbabilisticAndMetricNumberTheory:PM.4/word-native-continuants`, `ProbabilisticAndMetricNumberTheory:PM.4/word-derivative`.
+
+Proof plan:
+
+1. Induct on the finite word using the existing continuant/matrix recurrence and determinant ±1.
+2. Use q_(n−1)≤q_n to compare denominators between q_n and 2q_n, then differentiate their logarithm.
+3. Use word-native-continuants for the native index comparison and word-derivative for the signed branch derivative; word-matrix-positive bounds the two adjacent denominators. These continuation nodes fix the finite-word interface.
 
 Source: SarigTransfer, Exercise 2.5(c),(d), physical pp.12–13.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Rényi cylinder comparison
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi` (lemma). There is C≥1 independent of n and the digit word a such that for every Gauss cylinder [a] of depth n and every measurable B⊂[0,1], C⁻¹m([a])m(B)≤m([a]∩(T^[n])⁻¹B)≤C m([a])m(B), where m is restricted Lebesgue measure.
 
-The proof plan is: Integrate the absolute derivative of the cylinder inverse branch over B. Compare it to its integral over [0,1] using the uniform distortion bound. Extend from intervals to Borel sets by native measure extensionality. The general finite-word cylinder/continuant bridge must be made explicit; its signature is omitted until that native comparison is fixed.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`, `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion`.
+
+Proof plan:
+
+1. Integrate the absolute derivative of the cylinder inverse branch over B.
+2. Compare it to its integral over [0,1] using the uniform distortion bound. Extend from intervals to Borel sets by native measure extensionality.
+3. Apply cylinder-measure-distortion, whose inverse-word image and native-continuant comparisons establish the finite-word interface. The bound permits C=4, including the empty word.
 
 Source: SarigTransfer, Appendix A.2, physical p.32.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Rényi exactness theorem for the Gauss map
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact` (theorem). The Gauss map with μ_G is exact in the native tail-sigma sense. Any tail measurable B with positive mass has full mass.
 
-The proof plan is: Write a tail set as T^(-n)B_n and apply Rényi’s lower bound in every depth-n cylinder. Use the correct density bounds to obtain a uniform positive lower bound m(B∩[a])/m([a])≥m(B)/(2C). The cylinders generate the Borel sigma-algebra; increasing conditional expectations converge to 1_B, forcing its positivity almost everywhere. Match this native martingale/generation input rather than inventing it.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/exact-system`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi`, `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion`, `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound`, `ProbabilisticAndMetricNumberTheory:PM.4/tail-zero-one`.
+
+Proof plan:
+
+1. Write a tail set as T^(-n)B_n and apply Rényi’s lower bound in every depth-n cylinder.
+2. Use the correct density bounds to obtain a uniform positive lower bound m(B∩[a])/m([a])≥m(B)/(2C).
+3. The cylinders generate the Borel sigma-algebra; increasing conditional expectations converge to 1_B, forcing its positivity almost everywhere. Match this native martingale/generation input rather than inventing it.
 
 Source: SarigTransfer, Appendix A.2, physical pp.32–33, corrected density estimate.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss mixing theorem
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing` (theorem). For μ_G, all Borel A,B satisfy μ_G(A∩T^(-n)B)→μ_G(A)μ_G(B).
 
-The proof plan is: Apply the general exact-to-mixing theorem through native reverse conditional expectations. Export the precise measurable-set mixing predicate, with the Gauss probability instance.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact`, `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-3`.
 
+Proof plan:
+
+1. Apply the general exact-to-mixing theorem through native reverse conditional expectations.
+2. Export the precise measurable-set mixing predicate, with the Gauss probability instance.
+
 Source: SarigTransfer, Appendix A.2: exactness implies mixing, physical p.32.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss ergodicity theorem
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic` (theorem). The total Gauss map is native Ergodic for the Gauss probability measure.
 
-The proof plan is: Apply the generic mixing-to-ergodicity API with the existing Gauss probability instance.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-2`.
 
+Proof plan:
+
+1. Apply the generic mixing-to-ergodicity API with the existing Gauss probability instance.
+
 Source: SarigTransfer, Appendix A.2, physical pp.32–33.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss digit frequency law
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-frequency` (theorem). For Lebesgue-almost every irrational x∈(0,1), simultaneously for every a≥1, #{0≤j<N:gaussDigit(x,j)=a}/N tends to log((a+1)^2/(a(a+2)))/log 2.
 
-The proof plan is: Identify a single-digit cylinder with (1/(a+1),1/a), up to zero-mass endpoints, and apply ergodic pointwise averages to its indicator. Evaluate its Gauss measure by the interval formula and take a countable common null set over digits. Transport almost-everywhere statements through the positive density to restricted Lebesgue measure.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
 
+Proof plan:
+
+1. Identify a single-digit cylinder with (1/(a+1),1/a), up to zero-mass endpoints, and apply ergodic pointwise averages to its indicator.
+2. Evaluate its Gauss measure by the interval formula and take a countable common null set over digits.
+3. Transport almost-everywhere statements through the positive density to restricted Lebesgue measure.
+
 Source: Smyth2020, Lesson 9 §1.2, physical pp.45–46.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Finite continued-fraction block frequencies
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-word-frequency` (theorem). For each positive-digit word w:Fin k→ℕ with k≥1, let C_w={y∈(0,1):∀i<k,gaussDigit(y,i)=w_i}. For Lebesgue-almost every x∈(0,1), simultaneously for every such w, the frequency of starts j<N with ∀i<k,gaussDigit(x,j+i)=w_i tends to μ_G(C_w). The digits are not asserted independent.
 
-The proof plan is: Apply pointwise ergodicity to the measurable finite intersection defining C_w and use the digit-shift API. Take the countable common null set over finite words and transport via Gauss/Lebesgue equivalence.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
 
+Proof plan:
+
+1. Apply pointwise ergodicity to the measurable finite intersection defining C_w and use the digit-shift API.
+2. Take the countable common null set over finite words and transport via Gauss/Lebesgue equivalence.
+
 Source: Smyth2020, Lesson 5 cylinder indicators and Lesson 9, physical pp.28–29,45–46.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Khinchin’s constant
 
 `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant` (definition). Define K=exp(Σ_{a≥1}log(a)·log(1+1/(a(a+2)))/log 2). The positive series converges by comparison with log(a)/a². This is the exponential of the Gauss integral of log of the first digit; it is not an independence product. The printed factor a(a+1) in the school notes is corrected.
 
-The proof plan is: Define the scalar using native tsum and real exp, prove summability separately by comparison. Identify the series with the integral of log of the digit observable by the countable cylinder partition.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
 
-The API laws are `khinchin_series_summable`: The logarithmic series defining K is summable.; `khinchinConstant_pos`: K is positive.; `khinchinConstant_log_integral`: log K equals the Gauss integral of log of the first digit..
+Proof plan:
 
-Tests: khinchin_first_term: The digit-1 logarithmic term is zero.; khinchin_second_term: The digit-2 logarithmic term is log(9/8), distinguishing a(a+2) from the printed a(a+1).; khinchin_not_unit: The constant exceeds one, unlike the all-digit-1 exceptional orbit..
-
-Consumers: ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean — The pointwise logarithmic average exponentiates to K..
+1. Define the scalar using native tsum and real exp, prove summability separately by comparison.
+2. Identify the series with the integral of log of the digit observable by the countable cylinder partition.
 
 Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+API:
+
+- `khinchin_series_summable`: The logarithmic series defining K is summable.
+- `khinchinConstant_pos`: K is positive.
+- `khinchinConstant_log_integral`: log K equals the Gauss integral of log of the first digit.
+
+Checks:
+
+- `khinchin_first_term`: The digit-1 logarithmic term is zero.
+- `khinchin_second_term`: The digit-2 logarithmic term is log(9/8), distinguishing a(a+2) from the printed a(a+1).
+- `khinchin_not_unit`: The constant exceeds one, unlike the all-digit-1 exceptional orbit.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### khinchin_series_summable
 
 `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-1` (lemma). The logarithmic series defining K is summable.
 
-The proof plan is: Use log(1+u)≤u for u≥0 to dominate the summand by log(k+1)/((k+1)(k+3)log 2). Compare log(k+1)/(k+1)² with a summable power tail; the finitely many endpoint terms are immediate.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
 
+Proof plan:
+
+1. Use log(1+u)≤u for u≥0 to dominate the summand by log(k+1)/((k+1)(k+3)log 2).
+2. Compare log(k+1)/(k+1)² with a summable power tail; the finitely many endpoint terms are immediate.
+
 Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant.
 
 #### khinchinConstant_pos
 
 `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-2` (lemma). K is positive.
 
-The proof plan is: Unfold the defining formula or use the indicated native compatibility theorem. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
 
+Proof plan:
+
+1. Unfold the defining formula or use the indicated native compatibility theorem.
+2. Prove the stated API law in the native carrier; retain the parent definition’s discriminating tests.
+
 Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant.
 
 #### khinchinConstant_log_integral
 
 `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-3` (lemma). log K equals the Gauss integral of log of the first digit.
 
-The proof plan is: Partition (0,1) by the first-digit cylinders and compute their masses by the Gauss interval formula. Use the summability API and integral over the measurable countable partition to identify the tsum, then log(exp(t))=t.
+Hypotheses: Use exactly the hypotheses in the API statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`, `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-1`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
 
+Proof plan:
+
+1. Partition (0,1) by the first-digit cylinders and compute their masses by the Gauss interval formula.
+2. Use the summability API and integral over the measurable countable partition to identify the tsum, then log(exp(t))=t.
+
 Source: Smyth2020, Theorem 21, physical p.46, corrected using the preceding digit-frequency formula.
+
+Acceptance:
+
+- Agrees with the API item of ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant.
 
 #### Integrability of Gauss logarithmic observables
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability` (lemma). The real functions x↦log(gaussDigit(x,0)) and x↦−log x are integrable for μ_G.
 
-The proof plan is: For log of the digit, sum the positive cylinder integral weights and compare with the summable logarithmic series. For −log x use the bounded positive Gauss density and the classical integral of |log x| on (0,1). The divergent digit mean can be established separately by truncation.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant`, `ProbabilisticAndMetricNumberTheory:PM.4/digit-log-integrable`, `ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integrable`.
+
+Proof plan:
+
+1. For log of the digit, sum the positive cylinder integral weights and compare with the summable logarithmic series.
+2. For −log x use the bounded positive Gauss density and the classical integral of |log x| on (0,1). The divergent digit mean can be established separately by truncation.
 
 Source: Smyth2020, Lesson 9 §1.2 and exercises 2.3–2.4, physical pp.46,48–49.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Khinchin geometric mean theorem
 
 `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean` (theorem). For Lebesgue-almost every x∈(0,1), (∏_{0≤j<N}gaussDigit(x,j))^(1/N) tends to K. The exponent is real, N→∞, and irrational positive-digit inputs hold outside one null set.
 
-The proof plan is: Apply the pointwise ergodic theorem to the integrable logarithmic first-digit observable. Use the digit-shift identity and positivity to turn the log average into the logarithm of the geometric mean; exponentiate and transport measure.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-3`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-2`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
 
+Proof plan:
+
+1. Apply the pointwise ergodic theorem to the integrable logarithmic first-digit observable.
+2. Use the digit-shift identity and positivity to turn the log average into the logarithm of the geometric mean; exponentiate and transport measure.
+
 Source: Smyth2020, Theorem 21 and exercise 2.3(c), physical pp.46,48, corrected constant.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Convergent denominators and orbit logarithms
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge` (lemma). For irrational x∈(0,1) and N≥0, |log((GenContFract.of x).dens N)+Σ_{j<N}log(T^[j]x)|≤log 2. Use the exact identity ∏_{j<N}(T^[j]x)⁻¹=q_N+q_(N−1)T^[N]x, with q_(−1)=0, q_0=1. Rational terminated streams are excluded.
 
-The proof plan is: Induct on the native continuant recurrence to obtain the exact product identity. Use 0≤q_(N−1)≤q_N and 0<T^[N]x<1 to trap the product between q_N and 2q_N; take logs.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`.
+Direct prerequisites: `mathlib:GenContFract.of`, `mathlib:GenContFract.dens`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit`, `ProbabilisticAndMetricNumberTheory:PM.4/orbit-product-identity`.
+
+Proof plan:
+
+1. Induct on the native continuant recurrence to obtain the exact product identity.
+2. Use 0≤q_(N−1)≤q_N and 0<T^[N]x<1 to trap the product between q_N and 2q_N; take logs.
 
 Source: Smyth2020, Lesson 7 continuants and Lesson 9 exercise 2.4, physical pp.34–37,48–49; sharper bounded-error refinement.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss logarithmic integral
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral` (lemma). The Gauss integral ∫−log x dμ_G is π²/(12 log 2). The value is positive; the corresponding integral of log x is its negative.
 
-The proof plan is: Expand 1/(1+x) on (0,1) with controlled truncation and integrate −x^n log x=1/(n+1)². Use the native ζ(2) evaluation and even/odd splitting to identify the alternating sum π²/12. The exact native integral-series interchange declarations remain to be matched.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`, `ProbabilisticAndMetricNumberTheory:PM.4/alternating-zeta-two`, `ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integral`.
 
-Source: Smyth2020, Lesson 9 exercise 2.4(c) with corrected sign, physical p.49; elementary integral/series evaluation.
+Proof plan:
+
+1. Expand 1/(1+x) on (0,1) with controlled truncation and integrate −x^n log x=1/(n+1)².
+2. Use the native ζ(2) evaluation and even/odd splitting to identify the alternating sum π²/12. The continuation below specifies the native integral-series interchange inputs.
+
+Source: Smyth2020, Lesson 9 exercise 2.4(b),(c), physical p.49; negative of the log(x) integral gives positive denominator growth. The inherited allegation E25 of a source sign error is rejected..
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Lévy denominator growth theorem
 
 `ProbabilisticAndMetricNumberTheory:PM.4/levy-denominator` (theorem). For Lebesgue-almost every x∈(0,1), log((GenContFract.of x).dens N)/N tends to π²/(12 log 2). The native denominator index is fixed by q_0=1, not shifted to the first fractional digit.
 
-The proof plan is: Apply the pointwise ergodic theorem to −log x and use the explicit integral. Divide the bounded log-denominator error by N; it tends to zero.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3`.
 
+Proof plan:
+
+1. Apply the pointwise ergodic theorem to −log x and use the explicit integral.
+2. Divide the bounded log-denominator error by N; it tends to zero.
+
 Source: Smyth2020, Lesson 9 §1.2 and exercise 2.4, physical pp.46,48–49.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Gauss–Kuzmin exponential convergence
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-kuzmin` (theorem). There are absolute C>0 and 0<ρ<1 such that for every a≥1 and n≥0, the Lebesgue probability that gaussDigit(x,n)=a differs from log((a+1)^2/(a(a+2)))/log 2 by at most Cρ^n. This is convergence of the nth marginal law from Lebesgue initial data; pointwise ergodic frequency alone gives no exponential rate.
 
-The proof plan is: Use the Lebesgue transfer operator Lf(x)=Σ_{a≥1} f(1/(a+x))/(a+x)² and its fixed density. Prove the Lipschitz Doeblin–Fortet estimate and compact embedding; apply the separately recorded Hennion spectral input and simplicity from Gauss mixing. Integrate L^n1−h over the digit cylinder. Its L1 norm gives a constant uniform in a; the iterate index follows the corrected first-digit convention.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
-Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`.
+Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing`, `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion`, `ProbabilisticAndMetricNumberTheory:PM.4/density-uniform-error`, `ProbabilisticAndMetricNumberTheory:PM.4/digit-marginal-error`.
 
-Source: SarigTransfer, §2.3 Gauss–Kuzmin theorem and Doeblin–Fortet proof, physical pp.11–13.
+Proof plan:
+
+1. Use the native Lebesgue transfer operator L and its fixed Gauss density, with density-pushforward identifying L^n1 as the n-th image density.
+2. Use the continuation’s closed-interval C1 derivative contraction for the normalized transfer P. Absolute weight derivatives give a sufficient rate 9/10; weighted-mean-pins-limit and conjugacy give density-uniform-error.
+3. Integrate density-uniform-error over the first-digit event. The digit shift gives digit-marginal-error uniformly in a. Choose C=1 and rho=9/10. The unused Hennion/Lipschitz route is not a prerequisite of this target.
+
+Source: SarigTransfer, §2.3 Gauss–Kuzmin theorem and Doeblin–Fortet proof, physical pp.11–13; Sun2017, Theorem 2, arXiv:1705.02921v2, physical pp.3–6; corrected p=1 absolute-coefficient estimate in continuation nodes transfer-absolute-coefficients through transfer-coefficient-total.
+
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
 
 #### Absolute Gauss inverse-branch derivative
 
 `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative` (lemma). For a≥1 and x∈[0,1], v_a(x)=1/(a+x) has real derivative −1/(a+x)² and absolute derivative 1/(a+x)².
 
-The proof plan is: Differentiate the reciprocal away from its zero denominator, using a+x≥1. The determinant sign is removed only when forming the unsigned measure Jacobian.
+Hypotheses: All hypotheses and normalization conventions are in the statement.
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian`.
 
+Proof plan:
+
+1. Differentiate the reciprocal away from its zero denominator, using a+x≥1.
+2. The determinant sign is removed only when forming the unsigned measure Jacobian.
+
 Source: SarigTransfer, §2.3 transfer formula and Appendix A.2, physical pp.12,32.
 
-### PM.5 — local multiplicative laws and separate random models
+Acceptance:
+
+- Retain every stated hypothesis, endpoint, averaging weight and normalization.
+- The displayed dependency chain is a plan; recorded gaps remain proof obligations.
+
+### Proof chains and continuation targets
+
+### Conventions and targets
+
+Let (A_n f(x)=n^{-1}\sum_{j=0}^{n-1}f(T^j x)), using the native `birkhoffAverage`, with (A_0=0). The pointwise theorem is for a probability-preserving measurable endomap and an integrable real observable. Its limit is native conditional expectation on the **strict** invariant sigma-algebra: an invariant measurable set satisfies (T^{-1}B=B). An almost-everywhere invariance assertion alone is insufficient when constructing a measurable function on this sigma-algebra.
+
+For continued fractions set
+
+\[
+ I=[0,1],\qquad D=(0,1)\cap\{x:x\text{ is irrational}\},\qquad
+ m=\operatorname{vol}|_{(0,1)},\qquad
+ T(x)=\operatorname{fract}(1/x).
+\]
+
+The inherited total map has (T(0)=0). Its invariant probability is
+
+\[
+ d\mu_G(x)=h(x)\,dm(x),\qquad h(x)=\frac1{(1+x)\log2}.
+\]
+
+The density lies between (1/(2\log2)) and (1/\log2) on (I); hence (m) and (mu_G) have the same null sets. Every Gauss iterate preserves (D). Digits are indexed from zero: (a_j(x)=\lfloor 1/T^j x\rfloor\) on (D), so (a_0) is the first positive partial quotient. On rational points termination and the inherited zero sentinel are retained. Those points are removed only by an explicit conull argument.
+
+The layer has these named targets:
+
+| Target | Exact output |
+|---|---|
+| Pointwise ergodic theorem | (A_n f\to \mathbb E_\mu[f\mid\mathcal I_T]) almost everywhere; for an ergodic system the limit is (int f,d\mu). |
+| Gauss invariance, exactness and mixing | Native measure preservation; null/conull pullback tail events; strong mixing of measurable-set correlations. |
+| Digit and word frequencies | One conull irrational set supports every positive digit and every finite positive word, with frequency equal to its Gauss mass. No independence of successive digits is assumed. |
+| Khinchin's theorem | The geometric mean of the first (N) digits tends to the inherited Khinchin constant (K). |
+| Lévy's theorem | (log q_N/N\to\pi^2/(12\log2)), for native denominator (q_N=(\operatorname{GenContFract.of}x).\mathrm{dens}(N)). |
+| Gauss–Kuzmin theorem | The (n)-th digit marginal under (m) differs from its Gauss mass by at most ((9/10)^n). |
+| Modular homogeneous Birkhoff application | Haar-almost-everywhere time-one averages on (mathrm{SL}_2(\mathbb R)/\mathrm{SL}_2(\mathbb Z)) tend to the Haar integral. |
+| Continued-fraction/diagonal-orbit comparison | For irrational (0<x<1), bounded digits are equivalent to compact closure of the positive diagonal semiorbit. Typical (x) has a noncompact semiorbit closure. |
+
+### Pointwise averages: finite coloring to native conditional expectation
+
+Four usable objects organize the proof: `upperOrbitTruncation`, `firstOrbitHit`, `greedyOrbitBlocks` and `orbitLimit`. Their APIs and distinguishing examples appear in the declaration catalogue.
+
+For nonnegative (f), take the extended nonnegative limsup of the **positive-length** averages. Define (U_L), for (L\ge0), by truncating that limsup at (L) **before** taking its real value. This keeps (0\le U_L\le L) even when the untruncated limsup is infinite. The finite-average recurrence proves strict invariance (U_L(Tx)=U_L(x)), including the infinite case by arbitrary finite thresholds. Countable suprema and infima prove measurability.
+
+The first hit (\tau(T,f,c,x)) is the least (n\ge1) with (A_n f(x)>c(x)), and zero when there is no crossing. Zero is a sentinel, never a block length. The fiber of a positive value is one measurable crossing set minus the finitely many earlier crossing sets; the zero fiber is a countable complement.
+
+Greedy coloring is a finite list of triples (start, length, blue). At a start (k<N), a permitted positive length (sigma(k)\le M) becomes a blue block if it fits. A zero or overlarge length becomes a red singleton. A permitted length that overruns (N) ends the construction. Every appended block advances; the list covers an initial segment, and the uncovered terminal interval has fewer than (M) points. These four properties are separate API declarations, with tests for empty input, unit blocks, boundary overrun and the zero sentinel.
+
+For (g\ge0) strictly invariant, (
+arepsilon>0), (N\ge M\ge1), and a positive crossing at each orbit point, summing blue blocks gives
+
+\[
+ \sum_{k<N}\left(f(T^k x)+g(x)\mathbf1_{\{\sigma(k)>M\}}\right)
+ \ge (N-M)(g(x)-\varepsilon).
+\]
+
+When (g(x)<\varepsilon), the right side is nonpositive and the inequality follows from nonnegativity. Red singleton costs are charged to the bad set. With (g=U_L), crossings exist everywhere. Integration and preservation give
+
+\[
+ \int f\,d\mu\ge\int_{\{\tau\le M\}}U_L\,d\mu-\varepsilon-ML/N.
+\]
+
+Take (N\to\infty), then (M\to\infty), then (
+arepsilon\downarrow0). This proves (int U_L\leint f). Only after that take (L\to\infty) by extended nonnegative monotone convergence. The resulting bound proves finite limsup almost everywhere.
+
+Fatou's lemma makes the extended liminf finite almost everywhere and its real representative (ell) integrable, with (intell\leint f). The infinite exceptional set is invariant; put (ell=0) there. On the conull complement choose the first (n\ge1) with (A_n f<\ell+\varepsilon), by applying the first-hit construction to (-f). The other finite coloring inequality is
+
+\[
+ \sum_{k<N}\min(f(T^k x),M)\mathbf1_{\{\theta(T^k x)\le M\}}
+ \le N(\ell(x)+\varepsilon)+M^2.
+\]
+
+Inside a blue block, the truncated summands are at most the untruncated nonnegative sum; red starts contribute zero. Each terminal term is bounded by (M). Integration, (N\to\infty), (M\to\infty) under domination by (f), and (
+arepsilon\downarrow0) prove the reverse integral inequality. Liminf is at most limsup, and their nonnegative difference has zero integral, giving almost-everywhere convergence.
+
+An integrable observable need only be almost everywhere strongly measurable. Use the native measurable representative and intersect all forward pullbacks of its agreement set. That intersection is conull and forward invariant, so **all** orbit averages agree on it. Positive and negative parts then give the signed theorem.
+
+`orbitLimit` is the unique finite real limit where one exists and zero elsewhere. The finite-average recurrence proves that convergence at (x) is equivalent to convergence at (Tx), with the same limit. Thus the totalized limit is strictly invariant at every point. For a measurable input its convergence set is measurable by the real Cauchy criterion, and its restriction is a measurable pointwise limit.
+
+Bounded observables converge in (L^1) by dominated convergence. For a general integrable observable, clip a measurable representative to ([-C,C]). Averages contract the (L^1) distance to this truncation; Fatou bounds the distance of their limits by the same error. The two errors and bounded convergence prove (L^1) convergence. On a strictly invariant measurable set (B), every average has integral (int_B f), so the limit has the same integral. Native conditional-expectation uniqueness now identifies `orbitLimit` almost everywhere with (mu[f\mid\mathcal I_T]).
+
+Every preservation-of-integral step uses native `integral_map` and the preservation map identity. The embedding version of `MeasurePreserving.integral_comp` requires injectivity and cannot be substituted for a general endomap. The existing Tau Ceti (L^1) mean theorem with an (L^2) hypothesis is also not substituted for the arbitrary-integrable pointwise theorem.
+
+### Cylinders and native continued fractions
+
+For a finite natural word (w=[a_0,\ldots,a_{n-1}]), define
+
+\[
+ C_w=\{x\in D:a_j(x)=a_j\ (j<n)\},\qquad
+ v_w=v_{a_0}\circ\cdots\circ v_{a_{n-1}},\quad v_a(y)=\frac1{a+y}.
+\]
+
+The empty cylinder is (D); any word containing zero has empty cylinder. Inverse-word functions are total, but all geometry requires positive entries. Rational endpoints are excluded by the cylinder definition. The ordered native matrix product is
+
+\[
+ W_w=\prod_{a\in w}\begin{pmatrix}0&1\\1&a\end{pmatrix}
+ =\begin{pmatrix}p_{n-1}&p_n\\q_{n-1}&q_n\end{pmatrix},\qquad
+ v_w(y)=\frac{p_{n-1}y+p_n}{q_{n-1}y+q_n}.
+\]
+
+For the empty word the matrix is identity, with formal (p_{-1}=1,q_{-1}=0,p_0=0,q_0=1). For nonempty words its entries agree with native `GenContFract.of` numerators and denominators. The native integer/fractional-part stream at (n+1) has integer part (a_n(x)) and fractional part (T^{n+1}x). This index bridge, native irrational nontermination and native continuant recurrence supply the matrix comparison; no second continued-fraction carrier is introduced.
+
+The determinant is ((-1)^n), (q_n\ge1), and (0\le q_{n-1}\le q_n). Thus
+
+\[
+ v_w'(y)=\frac{(-1)^n}{(q_n+q_{n-1}y)^2}.
+\]
+
+Native Fibonacci lower bounds give (q_n\ge\operatorname{fib}(n+1)). Cylinder closures have diameter at most (operatorname{fib}(n+1)^{-2}), tending to zero. Each positive cylinder is an inverse image of (D) by its word branch and has positive mass. The derivative ratio is at most four; the inherited Rényi inequalities follow with that constant and the unsigned absolute Jacobian.
+
+The exact orbit-product identity is
+
+\[
+ \prod_{j<N}\frac1{T^j x}=q_N+q_{N-1}T^Nx,
+\]
+
+with (q_{-1}=0) for (N=0). Since the ratio to (q_N) is between one and two, the logarithmic difference is between zero and (log2). This is the native denominator bridge needed by Lévy's theorem, including the zero-length case.
+
+### Cylinder filtration, exactness and strong mixing
+
+`gaussCylinderFiltration` is the native increasing filtration (F_n) generated by (D) and cylinders of length at most (n). Its positive-mass atoms are precisely the length-(n) positive cylinders; (D^c) is a null atom. At depth zero it is exactly the sigma-algebra generated by (D), and is not the full Borel sigma-algebra.
+
+The shrinking-cylinder argument generates the **Borel trace on (D)**: every Borel (B) has (B\cap D) measurable for (\bigvee_n F_n). It does not generate arbitrary distinctions outside (D). Relative open subsets are countable unions of sufficiently small cylinder prefixes. Native upward conditional-expectation convergence is applied to the strongly measurable representative (mathbf1_{B\cap D}), which agrees with (mathbf1_B) almost everywhere.
+
+On a length-(n) cylinder, native conditional expectation of (mathbf1_B) is the cell ratio (m(B\cap C_w)/m(C_w)). If (B) is measurable for the pullback tail (\bigcap_n T^{-n}\mathcal B), it is exactly (T^{-n}B_n) for a Borel (B_n). Gauss preservation and the density bounds imply
+
+\[
+ m(B_n)\ge(\log2)\mu_G(B)\ge m(B)/2.
+\]
+
+Rényi's factor four gives the conditional-expectation lower bound (m(B)/8) on (D). Its upward almost-everywhere limit is (mathbf1_B). If (m(B)>0), that limit cannot vanish on a set of positive measure; hence (B) is conull. Equivalence of measures gives Gauss exactness.
+
+For a general probability-preserving exact system, the pullback sigma-algebras form an antitone family with (F_0) ambient. The pinned Tau Ceti downward convergence theorem gives (L^1) convergence of (mu[\mathbf1_A\mid F_n]) to the tail conditional expectation. The pinned trivial-sigma-algebra theorem identifies that tail expectation with the constant (mu(A)). Integrating over (T^{-n}B) gives
+
+\[
+ \left|\mu(A\cap T^{-n}B)-\mu(A)\mu(B)\right|
+ \le\int\left|\mu[\mathbf1_A\mid F_n]-\mu(A)\right|\,d\mu\longrightarrow0.
+\]
+
+This is the inherited exactness-to-mixing API. The abstract upward and downward martingale theorems are library suppliers, not new PM.4 targets.
+
+### Logarithmic statistics and constants
+
+The first-digit probability is
+
+\[
+ p_a=\frac{\log((a+1)^2/(a(a+2)))}{\log2},\quad a\ge1.
+\]
+
+Native logarithm bounds give (log(1+u)\le u) and (log a\le2\sqrt a). Consequently (log(a)p_a) is bounded by a constant times (a^{-3/2}). Native real p-series summability and the measurable digit partition prove integrability of (log a_0) and the formula (int\log a_0\,d\mu_G=\sum_{a\ge1}\log(a)p_a=\log K), with the corrected inherited product for (K). Pointwise ergodic averages and exponentiation give the geometric-mean theorem.
+
+The observable (-\log x) is integrable for (m), with integral one, by native logarithm integration including the endpoint zero. Bounded density transfers integrability to (mu_G). Integration by parts first on ([epsilon,1]), followed by the native logarithmic boundary limit, gives
+
+\[
+ \int_0^1(-\log x)x^n\,dx=\frac1{(n+1)^2}.
+\]
+
+The geometric expansion of (1/(1+x)) is used on ((0,1)). Its summands after multiplication by (-\log x) have summable integrals of absolute values, so the native integral/sum interchange theorem applies. A false uniform-convergence claim at (x=1) is unnecessary. Separating even and odd terms of native (zeta(2)=\pi^2/6) gives
+
+\[
+ \int(-\log x)\,d\mu_G
+ =\frac1{\log2}\sum_{n\ge0}\frac{(-1)^n}{(n+1)^2}
+ =\frac{\pi^2}{12\log2}.
+\]
+
+The pointwise theorem applied to this observable, followed by the bounded logarithmic denominator error divided by (N), gives Lévy's limit.
+
+### Quantitative transfer and the Gauss–Kuzmin target
+
+The density transfer and normalized transfer act on native real functions:
+
+\[
+ (Lf)(x)=\sum_{a\ge1}\frac{f(v_a(x))}{(a+x)^2},\qquad
+ (Pg)(x)=\sum_{a\ge1}h_a(x)g(v_a(x)),\qquad
+ h_a(x)=\frac{1+x}{(a+x)(a+1+x)}.
+\]
+
+The total native infinite sum supplies values outside (I); all dynamics and convergence assertions are on (I). Continuous input on the compact interval gives absolute and uniform convergence. Both operators have linearity APIs. Positivity is retained, (P) preserves constants and interval bounds, and (Lh=h). The conjugacy is (P((1+\cdot)f)=(1+x)Lf). Unsigned branch change of variables gives the duality (int\psi Lf,dm=int(\psi\circ T)f,dm), and therefore the iterated pushforward density is (L^n1). The weighted integral (int Pg/(1+x)) equals (int g/(1+x)).
+
+Use native (C^1) regularity **on the closed interval** and native within derivatives. If (|g|) and (|g'|) are bounded by (C), branch values and derivatives are dominated respectively by (2C/(a(a+1))) and (4C/(a(a+1))). The native open-domain termwise-derivative theorem is applied on ((0,1)). Uniform derivative convergence, continuity and native one-sided extension lemmas supply both endpoint derivatives. The native closed-domain characterization then proves (Pg) is (C^1) on (I).
+
+Differentiating the weight sum gives (sum_a h_a'=0). Subtract (g(v_1(x))) in the derivative-weight sum. If (|g'|\le M), the mean-value inequality yields
+
+\[
+ |(Pg)'(x)|\le M\sum_{a\ge1}c_a(x),\qquad
+ c_a=\delta_a|h_a'|+\frac{h_a}{(a+x)^2},\qquad
+ \delta_a=\frac{a-1}{(1+x)(a+x)}.
+\]
+
+The absolute value is essential: (h_2'(1)=-1/72). The sufficient uniform bounds are
+
+| Branch | Bound for (c_a) on (I) |
+|---|---|
+| (a=1) | (1/2) |
+| (a=2) | (5/72), separating (delta_2|h_2'|\le1/36) and (h_2/(2+x)^2\le1/24) |
+| (a=3) | (7/216) |
+| (a=4) | (19/800) |
+| (a\ge5) | (1/a^2), with total tail at most (1/4) |
+
+For (a\ge3), (h_a'\ge0), and the combined rational coefficient has numerator (a(a-1)^2+(2+x)(1+x)^2) and denominator ((1+x)(a+x)^3(a+1+x)^2). The (a=3,4) inequalities clear positive denominators and reduce to polynomials with nonnegative coefficients. For (a\ge5), bound the numerator by (a(a-1)^2+12\le a(a+1)^2), and the denominator below by (a^3(a+1)^2). Telescoping (1/(a(a-1))) bounds the reciprocal-square tail. Thus
+
+\[
+ \sum_a c_a(x)\le\frac{18913}{21600}<\frac9{10},\qquad
+ \|(P^ng)'\|_\infty\le(9/10)^n\|g'\|_\infty.
+\]
+
+The preserved weighted mean is (c=(\log2)^{-1}int g/(1+x),dm). Integrating the mean-value bound between (x) and (y) against the normalized weight gives (|P^ng(x)-c|\le(9/10)^nM). For (g_0=1+x), (M=1), (c=1/\log2), and conjugacy implies
+
+\[
+ |L^n1(x)-h(x)|\le(9/10)^n\quad(x\in I).
+\]
+
+Integrate over a first-digit cylinder to obtain the digit-marginal error uniformly in (a\ge1). This discharges the inherited existence of constants (C>0), (0<\rho<1), with the explicit sufficient choice (C=1,\rho=9/10). This target does not require a new Lipschitz Banach-space carrier, abstract Hennion theorem or optimal Gauss–Kuzmin–Wirsing rate.
+
+### Homogeneous dynamics: exact consumers and ownership
+
+Take native (G=\mathrm{SL}_2(\mathbb R)), with (Gamma) the image of the entrywise integer inclusion, and (X=G/\Gamma) with quotient topology and Borel sigma-algebra. Let (mu_X) be the normalized (G)-invariant Haar probability. Fix
+
+\[
+ a_t=\begin{pmatrix}e^t&0\\0&e^{-t}\end{pmatrix},\qquad
+ u_x=\begin{pmatrix}1&x\\0&1\end{pmatrix}.
+\]
+
+`GeometryOfNumbersAndQuadraticArithmetic:GN.4` owns the lattice and Haar construction, continuous left action, Mahler compactness, homogeneous ergodicity and Howe–Moore theorem. The request specifies its concrete quotient interfaces and **strong mixing of the time-one map** (z\mapsto a_1z). Ergodicity of the continuous flow alone does not imply this discrete map is ergodic. Restriction of Howe–Moore along the escaping sequence (a_n) provides the required mixing; the PM.4 pointwise theorem then supplies Haar-almost-everywhere integral limits. This does not establish a pointwise limit at every (u_x\Gamma), or equidistribution along a horocycle.
+
+`DiophantineApproximationAndTranscendence:DT.0` owns badly approximable numbers. The request is the exact criterion, for irrational (0<x<1), that bounded native continued-fraction digits are equivalent to
+
+\[
+ \exists c>0\ \forall q\in\mathbb N,\ q\ge1\Longrightarrow
+ q\,|qx-\operatorname{round}(qx)|\ge c.
+\]
+
+For such a lower bound, a nonzero integer vector ((p,q)) in (a_tu_x\mathbb Z^2), (t\ge0), has maximum norm at least (min(1,\sqrt c)). If (q=0), use (|p|\ge1). Otherwise nearest-integer minimality bounds the product of its two scaled coordinates below by (c). Conversely a uniform maximum-norm lower bound (0<\delta\le1) gives (q|qx-\operatorname{round}(qx)|\ge\delta^2/2): choose (p=-\operatorname{round}(qx)), (t=\log(2q/\delta)\ge0), so the second coordinate is (delta/2) and the first must be at least (delta). GN.4 Mahler compactness now yields the compact-closure criterion.
+
+The source uses row lattices and (Gamma\backslash G). Transpose maps that class to (g^T\Gamma), preserves the integer subgroup, and changes right diagonal action to left diagonal action. Source time (s), with diagonal entries (e^{s/2},e^{-s/2}), equals (2t). The requested quotient homeomorphism and the explicit coordinate comparisons preserve relative compactness. Rational (x=0) has a vector tending to zero and is excluded from the bounded-digit criterion.
+
+On one conull irrational set, every positive digit has its strictly positive frequency. A bounded sequence would omit its next larger digit. Hence (m)-almost every (x) has an unbounded digit sequence and a semiorbit whose closure is not compact. No rate of cusp escape is asserted.
+
+### Declaration catalogue
+
+The catalogue below is organized by object and proof chain. Each entry gives its exact mathematical statement, direct prerequisites, proof steps, source scope and acceptance conditions. Definition and construction entries also give every proposed API item and every unit test.
+
+<!-- generated-catalogue -->
+
+### Finite averages and conditional expectation
+
+#### upper-orbit-truncation — Finite truncation of an extended orbit limsup
+
+**Definition.** For arbitrary T:Ω→Ω, real f, L≥0 and x, define U_L(T,f,x) as the real value of min(limsup over n of ENNReal.ofReal(A_(n+1)f(x)), ENNReal.ofReal L). A_n is native birkhoffAverage real T f n. The minimum is finite even before any integrability assertion.
+
+**Direct prerequisites:** `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Take the extended-nonnegative limsup along positive averaging lengths, truncate in ENNReal, then take its real value.
+
+**Uses:**
+
+- `upper-coloring-integrated`: The bounded invariant threshold makes finite coloring integrable.
+- `upper-truncation-bound`: Monotone removal of L preserves possible infinite limsup.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `upperOrbitTruncation_bounds` | relation | For L≥0, 0≤U_L(x)≤L. | `upper-truncation-bounds` |
+| `upperOrbitTruncation_measurable` | structure | If T and f are measurable, U_L is measurable. | `upper-truncation-measurable` |
+| `upperOrbitTruncation_comp` | compatibility | For pointwise f≥0 and L≥0, U_L(Tx)=U_L(x). | `upper-truncation-invariant` |
+
+**Unit tests:**
+
+- `upper_truncation_zero` (degenerate): For f=0 and L≥0, U_L=0.
+- `upper_truncation_constant` (computation): For f=constant c≥0, U_L=constant min(c,L); in particular c=3,L=2 gives 2.
+- `upper_truncation_infinite` (non-example): For Ω=natural, T(k)=k+1, f(k)=k and L≥0, U_L(0)=L, although the untruncated limsup is infinite.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### upper-truncation-bounds — Bounds on the truncated limsup
+
+**Lemma.** For L≥0 and all T,f,x, 0≤U_L(T,f,x)≤L.
+
+**Direct prerequisites:** `upper-orbit-truncation`.
+
+**Construction or proof:**
+
+1. The ENNReal minimum is at most the finite ENNReal.ofReal L; apply monotonicity of the real-value map on finite values.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### upper-truncation-measurable — Measurability of the truncated limsup
+
+**Lemma.** For measurable T and measurable real f, U_L(T,f,·) is measurable for every L≥0.
+
+**Direct prerequisites:** `upper-orbit-truncation`, `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Every finite orbit average is measurable by finite sums and measurable iterates.
+2. Write the limsup as the countable infimum of countable suprema, then compose with minimum and ENNReal.toReal on its bounded range.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### upper-truncation-invariant — Strict invariance of the truncated limsup
+
+**Lemma.** If f≥0 pointwise, then U_L(T,f,Tx)=U_L(T,f,x) for all x and L≥0.
+
+**Direct prerequisites:** `upper-orbit-truncation`.
+
+**Construction or proof:**
+
+1. Use A_(n+1)f(x)=f(x)/(n+1)+n/(n+1) A_n f(Tx).
+2. For nonnegative averages and finite f(x), the extended limsup is unchanged by the vanishing additive term and factor tending to one; handle infinite limsup by arbitrary finite lower thresholds.
+3. Apply finite truncation.
+
+**Acceptance:** The assertion is strict pointwise invariance; no almost-everywhere replacement is passed to MeasurableSpace.invariants.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### first-orbit-hit — First positive averaging length above a threshold
+
+**Construction.** For an endomap T:Ω→Ω and real-valued f,c:Ω→real, define τ(T,f,c,x) as the least positive natural n with A_n f(x)>c(x), and 0 if no such n exists. It depends on no measure.
+
+**Direct prerequisites:** `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Use the well-ordering of positive natural lengths when the crossing set is nonempty and the zero sentinel otherwise.
+
+**Uses:**
+
+- `upper-coloring-integrated`: Use threshold U_L−ε.
+- `lower-coloring-integrated`: Apply to −f with threshold −liminf(A_n f)−ε.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `firstOrbitHit_pos_iff` | characterisation | τ(x)>0 iff some positive-length average exceeds c(x). | `first-hit-positive` |
+| `firstOrbitHit_average` | data | If τ(x)>0 then A_τ(x) f(x)>c(x). | `first-hit-average` |
+| `firstOrbitHit_measurable` | structure | For measurable T,f,c the natural-valued τ is measurable. | `first-hit-measurable` |
+
+**Unit tests:**
+
+- `first_hit_constant` (computation): For f=constant 2 and c=constant 1, τ=1.
+- `first_hit_no_crossing` (degenerate): For f=constant 2 and c=constant 2, τ=0; strict inequality matters.
+- `first_hit_two_cycle` (computation): On Bool with T negation, f(false)=0,f(true)=4,c=constant 1, τ(false)=2 and τ(true)=1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### first-hit-positive — Positive first hit characterizes crossing
+
+**Lemma.** τ(T,f,c,x)>0 iff ∃n≥1, A_n f(x)>c(x).
+
+**Direct prerequisites:** `first-orbit-hit`.
+
+**Construction or proof:**
+
+1. Use the minimum definition and the zero sentinel.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### first-hit-average — Average on the selected block
+
+**Lemma.** If τ(T,f,c,x)>0, A_τ(x) f(x)>c(x).
+
+**Direct prerequisites:** `first-orbit-hit`.
+
+**Construction or proof:**
+
+1. The minimum belongs to the nonempty crossing set.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### first-hit-measurable — Measurability of the first hit
+
+**Lemma.** For measurable T,f,c, τ(T,f,c,·) is measurable.
+
+**Direct prerequisites:** `first-orbit-hit`, `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. For n≥1, {τ=n} is {A_n>c} minus the finite union of earlier crossing sets.
+2. The zero fiber is the complement of the countable union of crossing sets; use the countable discrete Borel structure of natural numbers.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### greedy-orbit-blocks — Finite greedy orbit coloring
+
+**Construction.** For σ:natural→natural, M≥1 and N, construct a list of triples (start,length,isBlue). Starting at k=0, while k<N: if 1≤σ(k)≤M and k+σ(k)≤N, append the blue block (k,σ(k),true) and advance; if σ(k)=0 or σ(k)>M, append the red singleton (k,1,false) and advance; otherwise stop, leaving a terminal interval. The list is ordered by start and covers an initial segment of {0,…,N−1}.
+
+**Direct prerequisites:** .
+
+**Construction or proof:**
+
+1. Use recursion with fuel N, since every appended block advances by at least one.
+2. The only early stop is a positive permitted block that would overrun N.
+
+**Uses:**
+
+- `finite-upper-coloring`: Blue sums beat the invariant threshold; red starts are charged to the bad set.
+- `finite-lower-coloring`: Blue sums lie below the lower threshold; terminal bounded terms contribute at most M².
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `greedyOrbitBlocks_partition` | characterisation | Listed disjoint consecutive intervals cover [0,k), for k≤N; their lengths sum to k. | `greedy-block-partition` |
+| `greedyOrbitBlocks_blue` | data | Every blue triple has length σ(start) in [1,M] and ends at most N. | `greedy-block-blue` |
+| `greedyOrbitBlocks_red` | data | Every red triple has length 1 and σ(start)=0 or σ(start)>M. | `greedy-block-red` |
+| `greedyOrbitBlocks_tail` | relation | The uncovered terminal interval has length <M, unless N=0 where its length is zero. | `greedy-block-tail` |
+
+**Unit tests:**
+
+- `blocks_empty` (degenerate): N=0 gives the empty list for every σ and M≥1.
+- `blocks_unit` (computation): σ=constant 1,M=1,N=3 gives [(0,1,true),(1,1,true),(2,1,true)].
+- `blocks_boundary` (computation): σ=constant 2,M=2,N=5 gives [(0,2,true),(2,2,true)], with a single uncovered terminal point.
+- `blocks_bad` (non-example): σ=constant 0,M=2,N=3 gives three red singletons, not a zero-length blue loop.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### greedy-block-partition — Partition by greedy blocks
+
+**Lemma.** The greedy list covers exactly an initial natural interval [0,k), has pairwise disjoint consecutive block intervals, and the sum of block lengths is k≤N.
+
+**Direct prerequisites:** `greedy-orbit-blocks`.
+
+**Construction or proof:**
+
+1. Induct on the recursion fuel, using the displayed three branches and positivity of each appended length.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### greedy-block-blue — Valid blue blocks
+
+**Lemma.** Every blue block has length σ(start) with 1≤σ(start)≤M and start+length≤N.
+
+**Direct prerequisites:** `greedy-orbit-blocks`.
+
+**Construction or proof:**
+
+1. Induct on the recursion fuel, using the displayed three branches and positivity of each appended length.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### greedy-block-red — Red blocks detect bad starts
+
+**Lemma.** Every red block has length 1 and σ(start)=0 or σ(start)>M.
+
+**Direct prerequisites:** `greedy-orbit-blocks`.
+
+**Construction or proof:**
+
+1. Induct on the recursion fuel, using the displayed three branches and positivity of each appended length.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### greedy-block-tail — Bound on the terminal interval
+
+**Lemma.** For M≥1, the uncovered terminal interval after greedy coloring has length strictly less than M.
+
+**Direct prerequisites:** `greedy-orbit-blocks`.
+
+**Construction or proof:**
+
+1. Induct on the recursion fuel, using the displayed three branches and positivity of each appended length.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### finite-upper-coloring — Finite lower bound from blue blocks
+
+**Lemma.** Let f≥0 pointwise, g≥0 with g(Tx)=g(x), ε>0, σ(k)=τ(T,f,g−ε,T^k x)>0 for every k, and N≥M≥1. Then Σ_(k<N) [f(T^k x)+g(x)·1_{σ(k)>M}] ≥ (N−M)(g(x)−ε).
+
+**Direct prerequisites:** `greedy-block-partition`, `greedy-block-blue`, `greedy-block-red`, `greedy-block-tail`, `first-hit-average`.
+
+**Construction or proof:**
+
+1. If g(x)<ε the right side is nonpositive and the left side is nonnegative.
+2. Otherwise sum the strict average lower bound on each blue block; invariance fixes its threshold at g(x).
+3. Each red singleton is bad and contributes g(x) through the additional term. Ignore the nonnegative terminal sum; at least N−M points are covered.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### upper-coloring-integrated — Integrated upper-limsup coloring inequality
+
+**Lemma.** On a probability space, let T be measure preserving, f measurable, nonnegative and integrable, L≥0, ε>0, and τ=τ(T,f,U_L−ε). For N≥M≥1, ∫f ≥ ∫_{τ≤M} U_L − ε − ML/N. Here τ>0 everywhere because a limsup strictly exceeds U_L−ε.
+
+**Direct prerequisites:** `finite-upper-coloring`, `upper-truncation-bounds`, `upper-truncation-measurable`, `upper-truncation-invariant`, `first-hit-measurable`, `first-hit-positive`, `mathlib:MeasureTheory.integral_map`.
+
+**Construction or proof:**
+
+1. The limsup characterization gives a positive crossing at every point.
+2. Integrate the finite inequality; every iterate has the same f integral, and U_L is strictly invariant.
+3. Rearrange the bad-set term and bound its boundary loss by ML/N.
+
+**Acceptance:** The finite bound remains valid for L=0; take N→∞ before M→∞.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### upper-truncation-bound — Removal of the bad-set and coloring boundary
+
+**Lemma.** With the preceding hypotheses, ∫ U_L dμ ≤ ∫ f dμ for every L≥0.
+
+**Direct prerequisites:** `upper-coloring-integrated`, `upper-truncation-bounds`, `first-hit-positive`, `mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence`.
+
+**Construction or proof:**
+
+1. For fixed M,ε let N→∞ in the integrated inequality.
+2. Since τ is finite and positive everywhere, 1_{τ≤M} U_L tends to U_L and is dominated by L; apply dominated convergence as M→∞.
+3. Let ε↓0. This supplies the inherited birkhoff-coloring declaration without declaring it again.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### liminf-finite-integrable — Finite integrable lower orbit limit
+
+**Lemma.** For measurable nonnegative integrable f on a probability-preserving system, the extended liminf of A_(n+1)f is finite almost everywhere, and its finite real representative ℓ is integrable with ∫ℓ≤∫f. Take ℓ=0 on the infinite exceptional set.
+
+**Direct prerequisites:** `mathlib:MeasureTheory.lintegral_liminf_le`, `mathlib:MeasureTheory.integral_map`, `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Apply the nonnegative Fatou inequality to positive-length orbit averages.
+2. Every average has integral ∫f by measure preservation.
+3. Finite total extended integral implies the liminf is finite almost everywhere; take its real value and set zero on the invariant infinite set.
+
+**Acceptance:** Do not take ENNReal.toReal of an infinite liminf and silently use its default zero as evidence of finiteness.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### finite-lower-coloring — Finite upper bound for truncated blue sums
+
+**Lemma.** Let f≥0, ℓ≥0 strictly invariant, ε>0 and θ(x)>0 satisfy A_θ(x)f(x)<ℓ(x)+ε. Let f_M=min(f,M), M≥1. For the greedy list using σ(k)=θ(T^k x), Σ_(k<N) f_M(T^k x)·1_{θ(T^k x)≤M} ≤ N(ℓ(x)+ε)+M².
+
+**Direct prerequisites:** `greedy-block-partition`, `greedy-block-blue`, `greedy-block-red`, `greedy-block-tail`.
+
+**Construction or proof:**
+
+1. Red starts are bad and contribute zero to the left side.
+2. Inside blue blocks dropping bad nonnegative terms and replacing f_M by f bounds the sum by length times ℓ+ε.
+3. The terminal interval has fewer than M terms each bounded by M; bound it by M².
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### lower-coloring-integrated — Integrated lower-limsup coloring inequality
+
+**Lemma.** For measurable nonnegative integrable f and probability-preserving T, let ℓ be the finite real liminf representative and θ the first positive length with A_θ f<ℓ+ε on its conull finite-liminf invariant set. Then ∫f≤∫ℓ+ε, hence ∫f≤∫ℓ after ε↓0.
+
+**Direct prerequisites:** `finite-lower-coloring`, `liminf-finite-integrable`, `first-hit-measurable`, `first-hit-positive`, `mathlib:MeasureTheory.integral_map`, `mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence`.
+
+**Construction or proof:**
+
+1. Set θ=firstOrbitHit(T,−f,−ℓ−ε); it is positive on the invariant conull finite-liminf set.
+2. Integrate the finite inequality; fixed M, N→∞ removes M²/N.
+3. As M→∞, min(f,M)1_{θ≤M}→f almost everywhere and is bounded by the integrable f.
+4. The finite exceptional set complement has measure zero and is ignored throughout.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### nonnegative-limit — Almost-everywhere convergence for nonnegative observables
+
+**Lemma.** For a probability-preserving T and nonnegative measurable integrable real f, A_n f converges almost everywhere to an integrable real g, and ∫g=∫f.
+
+**Direct prerequisites:** `upper-truncation-bound`, `liminf-finite-integrable`, `lower-coloring-integrated`, `mathlib:MeasureTheory.lintegral_iSup`.
+
+**Construction or proof:**
+
+1. Let L→∞ monotonically in the upper bound. This bounds the extended limsup integral by ∫f and proves it finite almost everywhere.
+2. The complementary liminf integral is at least ∫f. Since liminf≤limsup, the nonnegative difference has zero integral and is zero almost everywhere.
+3. Equality of finite liminf and limsup yields real convergence and the common integral.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### measurable-orbit-replacement — Conull transport of a measurable representative
+
+**Lemma.** Let T be measure preserving and f,g real functions with f=g almost everywhere. There is a T-forward-invariant conull set E on which f(T^n x)=g(T^n x) for all n, hence all native averages agree. In particular an integrable f can be replaced by a measurable real representative before pointwise coloring.
+
+**Direct prerequisites:** `mathlib:MeasureTheory.Measure.QuasiMeasurePreserving.ae`, `mathlib:MeasureTheory.AEStronglyMeasurable.mk`.
+
+**Construction or proof:**
+
+1. Intersect the countably many pullbacks of the agreement conull set along T^n.
+2. Measure preservation keeps every pullback conull; the intersection is forward invariant.
+3. Use the native measurable representative of the integrable function.
+
+**Acceptance:** Forward invariance alone is used for orbit transport; the strict invariant limit is constructed separately.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### signed-limit — Almost-everywhere convergence for integrable real observables
+
+**Lemma.** For probability-preserving T and integrable real f, A_n f converges almost everywhere to an integrable real g with ∫g=∫f.
+
+**Direct prerequisites:** `nonnegative-limit`, `measurable-orbit-replacement`, `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Take a measurable representative and its positive and negative parts, both integrable and nonnegative.
+2. Intersect the two convergence sets and subtract their limits using linearity of native averages.
+3. Transport the result back to the original f on the orbit-conull agreement set.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### orbit-limit — Canonical finite orbit-limit representative
+
+**Construction.** For T and real f, define orbitLimit(T,f,x) as the unique real limit of the sequence A_n f(x) if such a limit exists, and zero otherwise. No measure or selected convergence proof is part of the data.
+
+**Direct prerequisites:** `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. Use uniqueness of a convergent real sequence to choose its limit, and use zero on the complement.
+
+**Uses:**
+
+- `native-condexp-identification`: Its strict invariance gives measurability for the native invariant sigma-algebra.
+- `signed-limit`: Supplies a definite real representative on all points, including the exceptional set.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `orbitLimit_of_tendsto` | characterisation | If A_n f(x)→c then orbitLimit(T,f,x)=c. | `orbit-limit-value` |
+| `orbitLimit_measurable` | structure | Measurable T,f imply measurable orbitLimit. | `orbit-limit-measurable` |
+| `orbitLimit_comp` | compatibility | For all T,f,x, orbitLimit(T,f,Tx)=orbitLimit(T,f,x). | `orbit-limit-invariant` |
+
+**Unit tests:**
+
+- `orbit_limit_constant` (computation): For constant real c, orbitLimit(T,c,x)=c.
+- `orbit_limit_cycle` (computation): For Bool negation and f(false)=0,f(true)=4, orbitLimit is the constant 2.
+- `orbit_limit_diverges` (non-example): For natural successor T and f(k)=k, orbitLimit(T,f,0)=0; divergence does not define an extended-real limit as a real number.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### orbit-limit-value — Evaluation at convergent orbits
+
+**Lemma.** If A_n f(x) tends to c∈real, orbitLimit(T,f,x)=c.
+
+**Direct prerequisites:** `orbit-limit`.
+
+**Construction or proof:**
+
+1. Apply uniqueness of the real limit in the definition.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### orbit-limit-measurable — Measurability of the canonical limit
+
+**Lemma.** For measurable T and real f, orbitLimit(T,f,·) is measurable.
+
+**Direct prerequisites:** `orbit-limit`, `mathlib:birkhoffAverage`.
+
+**Construction or proof:**
+
+1. The real Cauchy criterion expresses the convergence set by countable unions/intersections of measurable comparisons of orbit averages.
+2. On this measurable set, the pointwise limit is measurable; extend by zero.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### orbit-limit-invariant — Strict invariance of the canonical limit
+
+**Lemma.** For every T,f and x, orbitLimit(T,f,Tx)=orbitLimit(T,f,x).
+
+**Direct prerequisites:** `orbit-limit`.
+
+**Construction or proof:**
+
+1. Use the finite-average recurrence to show real convergence at x iff convergence at Tx, with the same limit.
+2. On the invariant nonconvergence set both values are zero.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### bounded-observable-l1-limit — Integral convergence for bounded observables
+
+**Lemma.** For probability-preserving T and measurable real f bounded in absolute value by C, ∫|A_n f−orbitLimit(T,f)|→0.
+
+**Direct prerequisites:** `signed-limit`, `orbit-limit-value`, `mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence`.
+
+**Construction or proof:**
+
+1. The averages and their limit are bounded by C.
+2. Apply dominated convergence with constant bound 2C to the pointwise-convergent absolute differences.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### integrable-observable-l1-limit — Integral convergence for every L1 observable
+
+**Lemma.** For probability-preserving T and integrable real f, ∫|A_n f−orbitLimit(T,f)|→0.
+
+**Direct prerequisites:** `bounded-observable-l1-limit`, `signed-limit`, `measurable-orbit-replacement`, `mathlib:MeasureTheory.integral_map`, `mathlib:MeasureTheory.lintegral_liminf_le`, `mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence`.
+
+**Construction or proof:**
+
+1. Truncate a measurable representative to [−C,C]; its L1 distance to f tends to zero by dominated convergence.
+2. The averaging operator contracts this distance because triangle inequality and preservation give ∫|A_n(f−f_C)|≤∫|f−f_C|.
+3. Fatou gives the same bound for the difference of limits. Combine these two bounds with the bounded-observable convergence.
+
+**Acceptance:** This is a new pointwise-proof consequence for arbitrary L1. The existing Tau Ceti L1 average theorem has an additional MemLp 2 hypothesis and is not substituted here.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.2, physical pp.45–48, finite coloring proof. Declaration-sized refinement of the finite orbit argument; all extended-real and measurable-representative conventions are stated explicitly here.
+
+#### invariant-set-integrals — Equality of integrals on native invariant sets
+
+**Lemma.** For integrable real f and probability-preserving T, every s measurable for MeasurableSpace.invariants T satisfies ∫_s orbitLimit(T,f)=∫_s f.
+
+**Direct prerequisites:** `integrable-observable-l1-limit`, `orbit-limit-invariant`, `mathlib:MeasurableSpace.measurableSet_invariants`, `mathlib:MeasureTheory.integral_map`.
+
+**Construction or proof:**
+
+1. Strict invariance gives (T^n)⁻¹(s)=s. Thus ∫_s A_n f=∫_s f, by preservation applied to the indicator of f.
+2. L1 convergence controls the absolute difference of these restricted integrals.
+3. Let n→∞; this avoids a separate renormalized restricted-probability argument.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.3, physical pp.48–49. Native conditional-expectation identification, using a strict invariant measurable representative.
+
+#### native-condexp-identification — Identification with native invariant conditional expectation
+
+**Lemma.** For probability-preserving T and integrable real f, orbitLimit(T,f) equals μ-almost everywhere μ[f | MeasurableSpace.invariants T].
+
+**Direct prerequisites:** `signed-limit`, `orbit-limit-value`, `orbit-limit-measurable`, `orbit-limit-invariant`, `invariant-set-integrals`, `measurable-orbit-replacement`, `mathlib:MeasurableSpace.measurable_invariants_dom`, `mathlib:MeasureTheory.ae_eq_condExp_of_forall_setIntegral_eq`, `mathlib:MeasurableSpace.invariants`.
+
+**Construction or proof:**
+
+1. For measurable f, the strictly invariant measurable orbitLimit is measurable for the native invariant sigma-algebra, hence strongly measurable there because real is separable.
+2. Its integrability follows from the signed limit; apply native conditional-expectation uniqueness using the invariant-set integral identities.
+3. For arbitrary integrable f use a measurable representative and almost-everywhere congruence of native conditional expectation and all orbit averages.
+
+**Acceptance:** Finite probability measure supplies sigma finiteness for the trimmed invariant sigma-algebra.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/ergodicnotes.pdf), Theorem 2.3, physical pp.48–49. Native conditional-expectation identification, using a strict invariant measurable representative.
+
+### Continued-fraction cylinders and exactness
+
+#### gauss-cylinder — Irrational continued-fraction cylinders
+
+**Definition.** For a finite natural word w, define C_w={x:0<x<1 and Irrational x and, for every i<length w, gaussDigit(x,i)=w_i}. The digit convention is the inherited zero-based convention: digit 0 is the first positive partial quotient. A word containing 0 has empty cylinder; C_empty is the irrational unit interval D.
+
+**Direct prerequisites:** `gauss-digit`, `gauss-map`.
+
+**Construction or proof:**
+
+1. Intersect the irrational unit interval with the finitely many digit fibers.
+2. Do not choose half-open rational endpoints: all rational points are excluded from this definition.
+
+**Uses:**
+
+- `gauss-cylinder-filtration`: The finite-depth cylinders are its positive-mass atoms.
+- `cylinder-ce-lower-bound`: Bounded distortion compares a tail event inside every cylinder.
+- `gauss-word-frequency`: The inherited frequency theorem counts these exact words.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `gaussCylinder_nil` | simp | C_empty=D. | `cylinder-empty` |
+| `gaussCylinder_cons` | compatibility | For a≥1, C_(a::w)=D∩{digit0=a}∩T⁻¹(C_w). | `cylinder-cons` |
+| `gaussCylinder_measurable` | structure | Every C_w is Borel measurable. | `cylinder-measurable` |
+| `gaussCylinder_zero` | characterisation | If 0 occurs in w then C_w is empty. | `cylinder-zero` |
+
+**Unit tests:**
+
+- `cylinder_nil` (degenerate): C_empty=D.
+- `cylinder_zero` (non-example): C_[0] is empty.
+- `cylinder_one` (computation): C_[1]=D∩(1/2,1).
+- `cylinder_twelve` (computation): C_[1,2]=D∩(2/3,3/4); C_[2,1]=D∩(1/3,2/5), so reversing words changes the cylinder.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-empty — Empty cylinder
+
+**Lemma.** C_empty=D.
+
+**Direct prerequisites:** `gauss-cylinder`.
+
+**Construction or proof:**
+
+1. The finite digit condition is vacuous.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-cons — Cylinder shift law
+
+**Lemma.** For a≥1 and every finite word w, C_(a::w)=D∩{x:digit0(x)=a}∩T⁻¹(C_w).
+
+**Direct prerequisites:** `gauss-cylinder`, `gauss-digit-api-2`, `gauss-map-api-2`.
+
+**Construction or proof:**
+
+1. On D, T maps D into D and the inherited digit shift identifies every remaining digit.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-measurable — Borel measurability of cylinders
+
+**Lemma.** C_w is Borel measurable for every finite natural word w.
+
+**Direct prerequisites:** `gauss-cylinder`, `gauss-map-api-3`, `gauss-digit`, `irrational-conull`.
+
+**Construction or proof:**
+
+1. Digit fibers are Borel because floor, inverse and Gauss iterates are measurable.
+2. The irrational set is the complement of the countable rational range; take the finite intersection.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-zero — Zero digits give empty cylinders
+
+**Lemma.** If 0 occurs in w, then C_w=empty.
+
+**Direct prerequisites:** `gauss-cylinder`, `gauss-map-api-2`.
+
+**Construction or proof:**
+
+1. Each iterate of x∈D lies strictly between 0 and 1, so its inverse has natural floor at least one.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### irrational-conull — Irrational points form a conull Borel domain
+
+**Lemma.** D={x:0<x<1 and Irrational x} is Borel and has measure one for m=volume restricted to (0,1), and for the inherited Gauss measure μ_G. Every Gauss iterate maps D into D.
+
+**Direct prerequisites:** `gauss-measure-api-3`, `gauss-map-api-2`, `mathlib:Set.countable_range`, `mathlib:MeasureTheory.NullSingletonClass`, `mathlib:Set.Countable.measure_zero`, `mathlib:Irrational`.
+
+**Construction or proof:**
+
+1. Rational real numbers are the countable range of the rational cast and hence have zero Lebesgue measure.
+2. Equivalence transfers this conull statement to μ_G.
+3. For irrational x, a rational fractional part of 1/x would make x rational; positivity and the unit-interval range give preservation of D.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### inverse-word — Ordered inverse Gauss branches
+
+**Definition.** For w=[a_0,…,a_(n−1)], define v_w=v_a0∘…∘v_a(n−1), with v_a(y)=1/(a+y), and v_empty=id. This total real function is defined for every natural word, but geometric statements assume all entries positive.
+
+**Direct prerequisites:** `gauss-branch-jacobian`.
+
+**Construction or proof:**
+
+1. Fold the ordered list from the right, preserving the source’s composition order.
+
+**Uses:**
+
+- `word-derivative`: Express each cylinder Jacobian.
+- `cylinder-image`: Map the irrational unit interval onto C_w.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `inverseWord_nil` | simp | v_empty(y)=y. | `inverse-word-empty` |
+| `inverseWord_cons` | data | v_(a::w)(y)=1/(a+v_w(y)). | `inverse-word-cons` |
+| `inverseWord_append` | functoriality | v_(u++w)=v_u∘v_w. | `inverse-word-append` |
+
+**Unit tests:**
+
+- `inverse_word_empty` (degenerate): v_empty(2)=2.
+- `inverse_word_twelve` (computation): v_[1,2](0)=2/3 and v_[1,2](1)=3/4.
+- `inverse_word_twentyone` (non-example): v_[2,1](0)=1/3, not 2/3; word order is composition order.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### inverse-word-empty — Empty inverse word
+
+**Lemma.** v_empty(y)=y for all real y.
+
+**Direct prerequisites:** `inverse-word`.
+
+**Construction or proof:**
+
+1. Unfold the ordered fold and induct on the first word where needed.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### inverse-word-cons — Cons inverse word
+
+**Lemma.** v_(a::w)(y)=1/(a+v_w(y)) for every natural a, word w and real y.
+
+**Direct prerequisites:** `inverse-word`.
+
+**Construction or proof:**
+
+1. Unfold the ordered fold and induct on the first word where needed.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### inverse-word-append — Composition of inverse words
+
+**Lemma.** v_(u++w)=v_u∘v_w for all finite natural words u,w.
+
+**Direct prerequisites:** `inverse-word`.
+
+**Construction or proof:**
+
+1. Unfold the ordered fold and induct on the first word where needed.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-matrix — Matrix of a finite continued-fraction word
+
+**Construction.** Construct W_w as the ordered product in Matrix(Fin 2,Fin 2,real) of B_a=[[0,1],[1,a]] for a in w; W_empty=identity. This is a native matrix, not a second continued-fraction carrier.
+
+**Direct prerequisites:** `mathlib:Matrix`.
+
+**Construction or proof:**
+
+1. Use the native matrix monoid and the list product in word order.
+
+**Uses:**
+
+- `word-derivative`: The determinant and denominator entries give the Jacobian.
+- `orbit-product-identity`: The same native denominator entries give the exact orbit-product identity.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `wordMatrix_nil` | simp | W_empty=identity. | `word-matrix-empty` |
+| `wordMatrix_cons` | functoriality | W_(a::w)=B_a W_w. | `word-matrix-cons` |
+| `wordMatrix_det` | relation | det(W_w)=(-1)^(length w). | `word-matrix-determinant` |
+| `wordMatrix_native` | compatibility | For x∈C_w, n=length w≥1, W_w=[[nums(n−1),nums n],[dens(n−1),dens n]] for native GenContFract.of x. | `word-native-continuants` |
+
+**Unit tests:**
+
+- `word_matrix_empty` (degenerate): W_empty is identity.
+- `word_matrix_one` (computation): W_[3]=[[0,1],[1,3]].
+- `word_matrix_twelve` (computation): W_[1,2]=[[1,2],[1,3]], whereas W_[2,1]=[[1,1],[2,3]].
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-matrix-empty — Empty word matrix
+
+**Lemma.** W_empty=identity matrix.
+
+**Direct prerequisites:** `word-matrix`.
+
+**Construction or proof:**
+
+1. Use the empty list product.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-matrix-cons — Matrix product on cons
+
+**Lemma.** W_(a::w)=[[0,1],[1,a]] W_w.
+
+**Direct prerequisites:** `word-matrix`.
+
+**Construction or proof:**
+
+1. Use the list-product cons identity.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-matrix-determinant — Determinant of a word matrix
+
+**Lemma.** det W_w=(-1)^(length w).
+
+**Direct prerequisites:** `word-matrix`, `mathlib:Matrix.det_mul`.
+
+**Construction or proof:**
+
+1. Each branch matrix has determinant −1; multiply determinants through the ordered list.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-matrix-positive — Positive ordered matrix denominators
+
+**Lemma.** For a positive word w of length n≥1, put q=W_w(1,1), r=W_w(1,0). Then 1≤q and 0<r≤q; for the empty word q=1,r=0. The denominator q+r y is positive for 0≤y≤1.
+
+**Direct prerequisites:** `word-matrix-cons`, `word-matrix-empty`.
+
+**Construction or proof:**
+
+1. Equivalently use the append recurrence q_(n+1)=a_n q_n+q_(n−1) starting q_0=1,q_(−1)=0.
+2. Induct with a_n≥1. The n=1 case permits equality q=r when a_0=1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### native-stream-gauss — Native fractional-part stream equals Gauss iterates
+
+**Comparison.** For x∈D and n≥0, native GenContFract.IntFractPair.stream x (n+1) is some pair whose integer component is gaussDigit(x,n) and fractional component is T^(n+1)x. Therefore GenContFract.of x has all partial numerators one and its n-th partial denominator equal to the real cast of gaussDigit(x,n).
+
+**Direct prerequisites:** `gauss-digit`, `gauss-map`, `mathlib:GenContFract.IntFractPair.stream`, `mathlib:GenContFract.of`.
+
+**Construction or proof:**
+
+1. The stream at zero has floor x=0 and fract x=x.
+2. Induct on n using the stream’s reciprocal-fractional-part recursion; irrationality prevents the zero-fract termination branch.
+3. Read the of constructor’s one-step tail offset: stream index n+1 supplies partial denominator n.
+
+**Acceptance:** Stream index zero is the integer part; the first Gauss digit uses stream index one.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### native-nontermination — Irrational Gauss fractions never terminate
+
+**Lemma.** For x∈D, GenContFract.of x is not terminated at any natural index, its denominators are positive, and dens n≥fib(n+1).
+
+**Direct prerequisites:** `native-stream-gauss`, `mathlib:GenContFract.terminates_iff_rat`, `mathlib:GenContFract.succ_nth_fib_le_of_nth_den`.
+
+**Construction or proof:**
+
+1. Apply the native termination/rationality equivalence and irrationality.
+2. The native Fibonacci lower bound applies at every index; fib(n+1) is positive.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-native-continuants — Word matrices use the native continuants
+
+**Comparison.** For x∈C_w and n=length w≥1, W_w=[[g.nums(n−1),g.nums n],[g.dens(n−1),g.dens n]], where g=GenContFract.of x. For n=0 W_w=identity, with the conventional previous numerator 1 and previous denominator 0.
+
+**Direct prerequisites:** `native-stream-gauss`, `word-matrix-cons`, `word-matrix-empty`, `mathlib:GenContFract.nums_recurrence`, `mathlib:GenContFract.dens_recurrence`.
+
+**Construction or proof:**
+
+1. Check the first branch against native integer part zero and the first convergent.
+2. Induct using the native nums and dens recurrences and the identified partial denominator.
+3. Keep n=0 separate instead of applying natural subtraction to the formal index −1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-mobius — Möbius formula for inverse words
+
+**Lemma.** For a positive word w and 0≤y≤1, v_w(y)=(W_w(0,0)y+W_w(0,1))/(W_w(1,0)y+W_w(1,1)).
+
+**Direct prerequisites:** `inverse-word-cons`, `word-matrix-cons`, `word-matrix-empty`, `word-matrix-positive`.
+
+**Construction or proof:**
+
+1. Induct on the word, composing the fractional-linear branch with the preceding formula.
+2. Use positive denominators before cross multiplication.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-derivative — Signed inverse-word derivative
+
+**Lemma.** For a positive word w of length n and y∈[0,1], v_w has within-interval derivative (-1)^n/(q+r y)^2, where q=W_w(1,1),r=W_w(1,0). Its absolute derivative is (q+r y)^(-2).
+
+**Direct prerequisites:** `word-mobius`, `word-matrix-determinant`, `word-matrix-positive`.
+
+**Construction or proof:**
+
+1. Differentiate the fractional-linear formula on a neighborhood where its denominator is positive.
+2. Use det W_w=(-1)^n, including n=0.
+
+**Acceptance:** One branch is decreasing; an unsigned positive derivative is not substituted for the Jacobian.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### word-denominator-fibonacci — Uniform shrinking of positive-word intervals
+
+**Lemma.** For every positive word w of length n, q=W_w(1,1)≥fib(n+1), and the diameter of v_w([0,1]) is at most 1/(fib(n+1)^2). These bounds tend to zero as n→∞.
+
+**Direct prerequisites:** `word-matrix-positive`, `word-matrix-cons`, `word-derivative`, `mathlib:Nat.fib`.
+
+**Construction or proof:**
+
+1. Induct on the continuant recurrence with positive digits to obtain the Fibonacci bound.
+2. Bound the absolute derivative by q^(-2) and apply the interval mean-value inequality.
+3. Use growth of the Fibonacci sequence; it suffices to prove fib(n+2)≥n+1 by induction and eventual positivity.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-image — Inverse words parametrize cylinders
+
+**Lemma.** For every positive word w, v_w maps D bijectively onto C_w, with inverse T^(length w) on C_w. C_w is the open interval between v_w(0) and v_w(1), intersected with D, and has strictly positive m and μ_G mass.
+
+**Direct prerequisites:** `cylinder-cons`, `inverse-word-cons`, `word-mobius`, `word-matrix-determinant`, `word-matrix-positive`, `irrational-conull`.
+
+**Construction or proof:**
+
+1. The one-branch floor identity holds on irrational points in (0,1); iterate in word order.
+2. The nonzero determinant makes v_w strictly monotone and maps irrational points to irrational points in its rational-endpoint image interval.
+3. The image interval has distinct rational endpoints; its Lebesgue length is positive and rational removal changes no mass.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### orbit-product-identity — Exact product identity for native denominators
+
+**Lemma.** For x∈D and N≥0, (∏_(j<N) T^j x)^(-1)=g.dens N+r_N·T^N x, where g=GenContFract.of x, r_0=0 and r_N=g.dens(N−1) for N≥1. Hence the inherited denominator-log bridge has error in [0,log 2].
+
+**Direct prerequisites:** `native-stream-gauss`, `word-native-continuants`, `word-mobius`, `word-matrix-positive`, `mathlib:GenContFract.of_den_mono`.
+
+**Construction or proof:**
+
+1. Use x=v_w(T^N x) for the first N digits; multiply the successive branch denominators to obtain the bottom-row expression.
+2. Alternatively induct directly with the native continuant recurrence and T^j x=1/(a_j+T^(j+1)x).
+3. Since 0≤r_N≤dens N and 0<T^N x<1, divide by dens N to get a factor in [1,2], then take logarithms.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9 problem 2.4, physical p.49, printed p.46. The source asks for a bounded logarithmic remainder. The stronger exact product formula is derived here in native denominator indexing.
+
+#### gauss-cylinder-filtration — Native finite-digit filtration
+
+**Construction.** Construct a native Filtration natural on the Borel real line, F_n generated by D and all C_w with length w≤n. Its positive-mass atoms for m=volume|(0,1) are the positive-word cylinders of length n; the complement of D is a null atom. Do not claim F_n generates all ambient Borel sets away from D.
+
+**Direct prerequisites:** `gauss-cylinder`, `cylinder-measurable`, `cylinder-cons`, `mathlib:MeasureTheory.Filtration`.
+
+**Construction or proof:**
+
+1. Use MeasurableSpace.generateFrom of the displayed collection, monotone in n and bounded by the real Borel sigma-algebra.
+
+**Uses:**
+
+- `cylinder-ce-formula`: Conditional expectation is a cell average on each positive cylinder.
+- `cylinder-ce-converges`: Native Lévy upward identifies the limit of those averages.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `gaussCylinderFiltration_cylinder` | data | C_w is F_n-measurable when length w≤n. | `filtration-cylinder` |
+| `gaussCylinderFiltration_atoms` | characterisation | On D, length-n positive cylinders are a countable partition into F_n atoms. | `filtration-atoms` |
+| `gaussCylinderFiltration_generates` | compatibility | Every real Borel B has B∩D measurable for the supremum of F_n. | `filtration-generates` |
+
+**Unit tests:**
+
+- `filtration_zero_domain` (degenerate): D is F_0-measurable and F_0 is generated by D alone.
+- `filtration_first_digit` (compatibility): C_[1] is F_1-measurable.
+- `filtration_not_top` (non-example): C_[1] is not F_0-measurable: it is a proper nonempty subset of the single atom D.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### filtration-cylinder — Finite-depth cylinder measurability
+
+**Lemma.** If length w≤n then C_w is F_n-measurable.
+
+**Direct prerequisites:** `gauss-cylinder-filtration`.
+
+**Construction or proof:**
+
+1. Use membership in the generating collection.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### filtration-atoms — Countable cylinder atoms
+
+**Lemma.** For each n, the positive natural words of length n give a countable pairwise-disjoint partition of D into C_w; each C_w is an atom of F_n restricted to D.
+
+**Direct prerequisites:** `gauss-cylinder-filtration`, `cylinder-cons`, `cylinder-zero`.
+
+**Construction or proof:**
+
+1. Each irrational has exactly its first n positive digits, giving coverage and disjointness.
+2. Every shorter cylinder is the countable union of its length-n extensions. Thus the generated sigma-algebra is the sigma-algebra of unions of these partition cells.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### filtration-generates — Cylinder generation of the Borel trace
+
+**Lemma.** For every Borel subset B of real, B∩D is measurable for ⨆n F_n.
+
+**Direct prerequisites:** `filtration-cylinder`, `filtration-atoms`, `word-denominator-fibonacci`, `cylinder-image`.
+
+**Construction or proof:**
+
+1. For every relative open neighborhood of x∈D, a sufficiently long prefix cylinder containing x lies inside it because diameters shrink uniformly.
+2. There are countably many words; every open set intersected with D is a countable union of such cylinders.
+3. A monotone-class or sigma-algebra argument gives all Borel traces.
+
+**Acceptance:** The complement of D stays one atom; equality with ambient Borel real is false.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-ce-formula — Conditional expectation on a cylinder atom
+
+**Lemma.** For Borel B and every positive length-n word w, on C_w almost everywhere for m, m[1_B | F_n] is the constant m.real(B∩C_w)/m.real(C_w).
+
+**Direct prerequisites:** `filtration-atoms`, `cylinder-image`, `mathlib:MeasureTheory.ae_eq_condExp_of_forall_setIntegral_eq`.
+
+**Construction or proof:**
+
+1. Define the measurable step function by the displayed cell average on the countable cylinder partition and zero outside D.
+2. Its values lie in [0,1]; integrals over each cell agree with 1_B, and countable unions give the same identity for every F_n-measurable set.
+3. Apply native conditional-expectation uniqueness.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-ce-converges — Cylinder conditional expectations recover indicators
+
+**Lemma.** For Borel B, m[1_B | F_n](x)→1_B(x) for m-almost every x.
+
+**Direct prerequisites:** `filtration-generates`, `irrational-conull`, `mathlib:MeasureTheory.Integrable.tendsto_ae_condExp`.
+
+**Construction or proof:**
+
+1. Replace 1_B by 1_(B∩D), which agrees m-almost everywhere and is strongly measurable for ⨆n F_n.
+2. Apply the native upward conditional-expectation convergence theorem and transfer the almost-everywhere equality back.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-sigma-antitone — Native pullback tail sigma-algebras decrease
+
+**Lemma.** For measurable T on a measurable space (Ω,m0), Ftail_n=MeasurableSpace.comap(T^n,m0) is antitone and Ftail_0=m0; hence its infimum is ≤m0.
+
+**Direct prerequisites:** `mathlib:MeasurableSpace.comap`, `mathlib:MeasurableSpace.comap_mono`.
+
+**Construction or proof:**
+
+1. T^(n+1)=T∘T^n and comap T m0≤m0 by measurability.
+2. Use comap composition and monotonicity.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-event-preimage — A tail event has measurable pullback representatives
+
+**Lemma.** If B is measurable for ⨅n comap(T^n,m0), then for every n there is m0-measurable B_n with B=(T^n)⁻¹(B_n).
+
+**Direct prerequisites:** `tail-sigma-antitone`, `mathlib:MeasurableSpace.measurableSet_comap`.
+
+**Construction or proof:**
+
+1. Infimum measurability implies measurability for each pullback sigma-algebra.
+2. Use the native characterization of comap-measurable sets as measurable preimages.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-density-lower — Correct Lebesgue lower bound for a tail preimage
+
+**Lemma.** For a Gauss tail event B and B_n as above, m.real(B_n)≥(log 2)μ_G.real(B)≥m.real(B)/2.
+
+**Direct prerequisites:** `tail-event-preimage`, `gauss-invariant`, `gauss-measure`.
+
+**Construction or proof:**
+
+1. Gauss invariance gives μ_G(B_n)=μ_G(B).
+2. The exact density bounds 1/(2 log 2)≤h≤1/log 2 give the two comparisons.
+
+**Acceptance:** The printed source’s reversed density estimate is not used; the lower comparison constant is one half.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### cylinder-ce-lower-bound — Uniform conditional lower bound for positive tail events
+
+**Lemma.** For Borel Gauss tail B and every n, m[1_B|F_n](x)≥m.real(B)/8 for m-almost every x∈D.
+
+**Direct prerequisites:** `tail-density-lower`, `tail-event-preimage`, `gauss-renyi`, `cylinder-ce-formula`, `filtration-atoms`.
+
+**Construction or proof:**
+
+1. For each positive length-n cylinder, identify B∩C_w with v_w(B_n∩D), modulo rational null sets.
+2. Use the inherited Rényi inequality with the explicit distortion constant 4: m(B∩C_w)/m(C_w)≥m(B_n)/4≥m(B)/8.
+3. Apply the cell formula and countable union over the cylinders.
+
+**Acceptance:** The 1/8 constant comes from 1/4 distortion and 1/2 density comparison, not independence of digits.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-zero-one — Gauss tail events are null or conull
+
+**Lemma.** Every event B measurable for the native Gauss tail sigma-algebra has μ_G(B)=0 or μ_G(B)=1.
+
+**Direct prerequisites:** `cylinder-ce-lower-bound`, `cylinder-ce-converges`, `gauss-measure-api-3`, `tail-sigma-antitone`.
+
+**Construction or proof:**
+
+1. Tail measurability implies ambient Borel measurability.
+2. If m(B)>0, the positive lower bound passes to the indicator limit and forces m(B complement)=0.
+3. Transfer null/conull to μ_G by equivalence and use its probability normalization.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-ce-constant — Conditional expectation on an exact tail is constant
+
+**Lemma.** Let T preserve a probability μ and suppose every event of its native pullback tail sigma-algebra is null or conull. For every integrable real f, μ[f|tail] equals the constant ∫f almost everywhere.
+
+**Direct prerequisites:** `tail-sigma-antitone`, `tauceti:TauCeti.MeasureTheory.condExp_ae_eq_integral_of_forall_zero_or_one`.
+
+**Construction or proof:**
+
+1. The antitone tail lies below the ambient sigma-algebra.
+2. Null/conull is measure 0/1 for a probability; apply the pinned native trivial-sigma-algebra theorem.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-ce-l1-limit — Reverse conditional expectations converge in L1
+
+**Lemma.** Under the preceding exact-system hypotheses, for Borel A the integral ∫|μ[1_A|Ftail_n]−μ.real(A)| tends to zero.
+
+**Direct prerequisites:** `tail-ce-constant`, `tail-sigma-antitone`, `tauceti:MeasureTheory.tendsto_eLpNorm_condExp_iInf`, `mathlib:MeasureTheory.eLpNorm_one_eq_lintegral_enorm`.
+
+**Construction or proof:**
+
+1. Use the pinned downward conditional-expectation theorem for the antitone Ftail_n and finite μ.
+2. Replace the tail conditional expectation by the constant μ(A).
+3. Convert eLpNorm at exponent one into the integral of absolute value for integrable real differences.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+#### tail-correlation-bound — Exactness supplies the strong-mixing correlation bound
+
+**Lemma.** For measurable A,B in the preceding probability system, |μ.real(A∩(T^n)⁻¹B)−μ.real(A)μ.real(B)|≤∫|μ[1_A|Ftail_n]−μ.real(A)|.
+
+**Direct prerequisites:** `tail-event-preimage`, `tail-ce-l1-limit`, `mathlib:MeasureTheory.setIntegral_condExp`, `mathlib:MeasureTheory.integral_map`.
+
+**Construction or proof:**
+
+1. The preimage (T^n)⁻¹B is Ftail_n-measurable, so replace 1_A by its conditional expectation in the intersection integral.
+2. Preservation gives μ((T^n)⁻¹B)=μ(B); subtract the constant product.
+3. Bound the restricted absolute integral by the full L1 error; its convergence yields the inherited exact-system strong-mixing API.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Omri Sarig](https://www.weizmann.ac.il/math/sarigo/sites/math.sarigo/files/uploads/transferoperatorcourse-bonn.pdf), Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness. Refinement of the cylinder proof on irrational points; use the irrational domain and the stated density bounds.
+
+### Logarithmic statistics
+
+#### digit-log-series-bound — Summable logarithmic digit weights
+
+**Lemma.** The nonnegative series Σ_(a≥1) log(a)·log(1+1/(a(a+2)))/log 2 is summable. For a≥1 its summand is at most log(a)/(log 2·a²).
+
+**Direct prerequisites:** `mathlib:Real.log_le_sub_one_of_pos`, `mathlib:Real.summable_nat_rpow`, `mathlib:Real.log_natCast_le_rpow_div`.
+
+**Construction or proof:**
+
+1. Use log(1+u)≤u for u≥0 and a(a+2)≥a².
+2. For every positive a, the pinned logarithm/power bound with exponent 1/2 gives log a≤2sqrt a. Compare with 2a^(-3/2), whose native real p-series is summable.
+3. Keep a=1 as a zero summand and finitely many small a separately.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### digit-log-integrable — Integrability of logarithmic first digits
+
+**Lemma.** The real function x↦log(gaussDigit(x,0)) is μ_G-integrable, with integral equal to the inherited Khinchin logarithmic series.
+
+**Direct prerequisites:** `digit-log-series-bound`, `cylinder-measurable`, `filtration-atoms`, `gauss-measure-api-2`, `khinchin-constant`.
+
+**Construction or proof:**
+
+1. Partition D into single-digit cylinders with positive natural digit a.
+2. On each cylinder the function is constant log a and the mass is log(1+1/(a(a+2)))/log 2.
+3. Sum its nonnegative integrals using the established summability; outside D is null.
+
+**Acceptance:** Integrability is established before applying pointwise Birkhoff to log digit.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### negative-log-integrable — Integrability of negative logarithm for Gauss measure
+
+**Lemma.** The real function x↦−log x is μ_G-integrable. Its restricted Lebesgue absolute integral is one, and the density upper bound 1/log 2 controls its Gauss integral.
+
+**Direct prerequisites:** `gauss-measure`, `mathlib:integral_log`, `mathlib:intervalIntegral.intervalIntegrable_log'`.
+
+**Construction or proof:**
+
+1. On (0,1), −log x≥0 and the pinned log integral from 0 to 1 is −1.
+2. Use interval integrability and endpoints of zero Lebesgue mass to get the restricted integral one.
+3. Multiply by the positive bounded density to transfer absolute integrability.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### log-power-moment — Logarithmic monomial integral
+
+**Lemma.** For every n≥0, ∫_(0,1) (−log x)x^n dx=1/(n+1)².
+
+**Direct prerequisites:** `negative-log-integrable`, `mathlib:integral_log`, `mathlib:intervalIntegral.integral_mul_deriv_eq_deriv_mul_of_hasDerivAt`, `mathlib:tendsto_log_mul_rpow_nhdsGT_zero`, `mathlib:integral_pow`, `mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence`.
+
+**Construction or proof:**
+
+1. Integrate by parts first on [ε,1], using antiderivative x^(n+1)/(n+1).
+2. The boundary ε^(n+1)log ε tends to zero; the omitted integral tends to zero by integrability and 0≤x^n≤1.
+3. Evaluate the remaining polynomial integral.
+
+**Acceptance:** The n=0 case is one; no division by natural n at zero is introduced.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### alternating-zeta-two — Alternating reciprocal squares
+
+**Lemma.** Σ_(n≥0) (-1)^n/(n+1)²=π²/12, and this series is absolutely summable.
+
+**Direct prerequisites:** `mathlib:hasSum_zeta_two`.
+
+**Construction or proof:**
+
+1. Reindex the pinned reciprocal-square series, whose n=0 term is zero.
+2. Separate even and odd positive indices; the even subsum is one fourth of π²/6.
+3. Odd minus even is one half of the total, namely π²/12.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### negative-log-geometric-series — Interchange for the Gauss logarithmic integral
+
+**Lemma.** ∫_(0,1) (−log x)/(1+x) dx=Σ_(n≥0) (-1)^n/(n+1)².
+
+**Direct prerequisites:** `log-power-moment`, `alternating-zeta-two`, `mathlib:MeasureTheory.hasSum_integral_of_summable_integral_norm`.
+
+**Construction or proof:**
+
+1. For 0<x<1, the geometric series Σ(-x)^n is 1/(1+x).
+2. The sum of the absolute integrals of (−log x)(−x)^n is Σ1/(n+1)², finite by the pinned zeta theorem.
+3. Apply native integral/series interchange, avoiding an unjustified boundary-uniform geometric series at x=1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+#### negative-log-integral — Evaluation of the Gauss logarithmic observable
+
+**Lemma.** ∫ (−log x) dμ_G=π²/(12 log 2).
+
+**Direct prerequisites:** `negative-log-geometric-series`, `alternating-zeta-two`, `negative-log-integrable`, `gauss-measure`.
+
+**Construction or proof:**
+
+1. Use the withDensity integral and its scalar normalization 1/log 2.
+2. Apply the established alternating-square evaluation. This completes the proof input of the inherited gauss-density-log-integral.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Daniel Glasscock, Claire Merriman, Donald Robertson and Clifford Smyth](https://uncg.edu/~cdsmyth/UNCG_Ergodic_Theory_Summer_School_2020_Final_Lecture_Notes.pdf), Lesson 9, physical pp.45–49, printed pp.42–46: digit statistics and problem 2.4. Required logarithmic observables and denominator limit. The integral and series lemmas below are explicit worker refinements, using pinned logarithm and zeta results.
+
+### Transfer operators and quantitative convergence
+
+#### gauss-density-transfer — Gauss transfer operator on real functions
+
+**Definition.** For a real function f define (L f)(x)=Σ_(a≥1) f(1/(a+x))/(a+x)², using the native real infinite sum. Statements on I=[0,1] require f continuous on I (or the stated boundedness) so the series converges there. Values outside I are totalized by the native sum convention and have no dynamics claim.
+
+**Direct prerequisites:** `inverse-word`.
+
+**Construction or proof:**
+
+1. Use the native real sum indexed by a=n+1, retaining the positive branch indexing.
+
+**Uses:**
+
+- `density-pushforward`: It transports densities under Gauss iterates.
+- `density-uniform-error`: Start from the uniform Lebesgue density f=1.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `gaussDensityTransfer_zero` | simp | L(0)=0. | `density-transfer-zero` |
+| `gaussDensityTransfer_add` | structure | For f,g continuous on I, L(f+g)=Lf+Lg on I. | `density-transfer-add` |
+| `gaussDensityTransfer_duality` | compatibility | For continuous f on I and bounded Borel ψ on I, ∫_I ψ Lf dm=∫_I (ψ∘T)f dm. | `density-transfer-duality` |
+| `gaussDensityTransfer_smul` | structure | For continuous f on I, L(c f)=c Lf on I. | `density-transfer-scalar` |
+| `gaussDensityTransfer_nonnegative` | relation | For continuous f≥0 on I, Lf≥0 there. | `density-transfer-nonnegative` |
+| `gaussDensityTransfer_continuous` | structure | Continuous f on I has continuous Lf on I. | `density-transfer-continuous` |
+
+**Unit tests:**
+
+- `density_transfer_zero` (degenerate): L(0)(0)=0.
+- `density_transfer_one_at_zero` (computation): L(1)(0)=π²/6, so L does not preserve the constant one pointwise.
+- `density_transfer_gauss_fixed` (compatibility): For x∈I and h(x)=1/((1+x)log 2), Lh(x)=h(x).
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-zero — Zero Gauss density transfer
+
+**Lemma.** L(0)=0 as a real function.
+
+**Direct prerequisites:** `gauss-density-transfer`.
+
+**Construction or proof:**
+
+1. Every summand is zero.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-summable — Absolute convergence of the density transfer
+
+**Lemma.** For f continuous on I, the defining series for Lf converges absolutely and uniformly on I; its a-th absolute summand is bounded by C/a² where C bounds |f| on I.
+
+**Direct prerequisites:** `gauss-density-transfer`, `mathlib:hasSum_zeta_two`.
+
+**Construction or proof:**
+
+1. Compactness bounds the continuous f on I, and every inverse branch maps I into I.
+2. Use (a+x)²≥a² for a≥1 and x∈I, then the reciprocal-square majorant.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-add — Additivity on interval-continuous inputs
+
+**Lemma.** If f,g are continuous on I, then L(f+g)(x)=Lf(x)+Lg(x) for x∈I.
+
+**Direct prerequisites:** `gauss-density-transfer`, `density-transfer-summable`.
+
+**Construction or proof:**
+
+1. Use native infinite-sum additivity for the two summable branch series.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-duality — Lebesgue transfer duality
+
+**Lemma.** For f continuous on I and ψ Borel and bounded on I, ∫_I ψ(x)Lf(x) dx=∫_I ψ(Ty)f(y) dy.
+
+**Direct prerequisites:** `density-transfer-summable`, `gauss-branch-derivative`, `cylinder-image`, `irrational-conull`, `mathlib:MeasureTheory.hasSum_integral_of_summable_integral_norm`, `mathlib:MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul`.
+
+**Construction or proof:**
+
+1. On each branch interval substitute y=1/(a+x), with absolute Jacobian (a+x)^(-2).
+2. Endpoint values and rational branch boundaries are null.
+3. The bounded ψ,f and square-summable branch domination justify summing the branch integrals; the intervals partition the unit interval modulo a null set.
+
+**Acceptance:** This duality is relative to restricted Lebesgue measure; the normalized operator P below is different.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-gauss-transfer — Density-normalized Gauss transfer
+
+**Definition.** For real g define (P g)(x)=Σ_(a≥1) h_a(x)g(v_a(x)), where v_a(x)=1/(a+x) and h_a(x)=(1+x)/((a+x)(a+1+x)). On I these are nonnegative weights summing to one. P acts directly on real functions; no new C1 or Lipschitz Banach-space carrier is created.
+
+**Direct prerequisites:** `gauss-density-transfer`, `gauss-density-telescope`.
+
+**Construction or proof:**
+
+1. Use native infinite sum and the explicitly normalized branch weights.
+
+**Uses:**
+
+- `transfer-derivative-contraction`: Derivative contraction of P supplies an elementary rate.
+- `weighted-mean-pins-limit`: Its conserved weighted mean identifies the limiting constant.
+
+**API:**
+
+| Declaration | Role | Statement | Proof node |
+|---|---|---|---|
+| `normalizedGaussTransfer_const` | simp | For x∈I, P(constant c)(x)=c. | `normalized-transfer-constant` |
+| `normalizedGaussTransfer_conjugate` | compatibility | For f continuous on I, P((1+·)f)(x)=(1+x)Lf(x) for x∈I. | `normalized-transfer-conjugate` |
+| `normalizedGaussTransfer_integral` | relation | For continuous g on I, ∫_I Pg(x)/(1+x) dx=∫_I g(x)/(1+x) dx. | `normalized-transfer-integral` |
+| `normalizedGaussTransfer_add` | structure | For continuous g,h on I, P(g+h)=Pg+Ph on I. | `normalized-transfer-add` |
+| `normalizedGaussTransfer_smul` | structure | For continuous g on I, P(c g)=c Pg on I. | `normalized-transfer-scalar` |
+| `normalizedGaussTransfer_bounds` | relation | For continuous g with c≤g≤C on I, c≤Pg≤C there. | `normalized-transfer-bounds` |
+
+**Unit tests:**
+
+- `normalized_transfer_zero` (degenerate): P(0)(0)=0.
+- `normalized_transfer_one` (computation): For all x∈I, P(1)(x)=1.
+- `normalized_transfer_coordinate` (non-example): P(id)(0)=π²/6−1, not 0; the operator is not the identity.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-constant — Normalized transfer preserves constants
+
+**Lemma.** For x∈I and real c, P(constant c)(x)=c.
+
+**Direct prerequisites:** `normalized-gauss-transfer`, `gauss-density-telescope`.
+
+**Construction or proof:**
+
+1. The branch weights sum to one by telescoping; multiply by c.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-conjugate — Conjugacy of the two transfer operators
+
+**Lemma.** For f continuous on I, P((1+·)f)(x)=(1+x)Lf(x) for all x∈I.
+
+**Direct prerequisites:** `normalized-gauss-transfer`, `density-transfer-summable`.
+
+**Construction or proof:**
+
+1. At v_a, (1+v_a)h_a=(1+x)/(a+x)².
+2. Use summability and factor the constant 1+x from the native sum.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-integral — Preservation of the weighted mean
+
+**Lemma.** For g continuous on I, ∫_I Pg(x)/(1+x) dx=∫_I g(x)/(1+x) dx.
+
+**Direct prerequisites:** `normalized-transfer-conjugate`, `density-transfer-duality`.
+
+**Construction or proof:**
+
+1. Put f=g/(1+x), continuous on I, in the conjugacy.
+2. Apply Lebesgue duality with ψ=1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-branch-c1 — C1 branch summands and their uniform majorants
+
+**Lemma.** For g of native class ContDiffOn real 1 on I, each x↦h_a(x)g(v_a(x)) is C1 on I. If |g| and |derivWithin g I| are bounded by C, then its absolute derivative is bounded by 4C/(a(a+1)) uniformly for a≥1 and x∈I; its value is bounded by 2C/(a(a+1)).
+
+**Direct prerequisites:** `normalized-gauss-transfer`, `gauss-branch-derivative`, `mathlib:contDiffOn_one_iff_derivWithin`.
+
+**Construction or proof:**
+
+1. Use native within-interval product and chain rules, since v_a(I)⊆I.
+2. Compute h_a′=(a²−a−1−2x−x²)/((a+x)²(a+1+x)²).
+3. Bound |h_a′|≤3/(a(a+1)) and h_a/(a+x)²≤1/(a(a+1)); bound h_a≤2/(a(a+1)).
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-interior-derivative — Termwise derivative on the open interval
+
+**Lemma.** For C1 g on I and 0<x<1, (Pg)′(x)=Σ_(a≥1) [h_a′(x)g(v_a(x))−h_a(x)/(a+x)²·g′(v_a(x))]. The derivative series converges uniformly on I when expressed using derivWithin g I.
+
+**Direct prerequisites:** `transfer-branch-c1`, `mathlib:hasDerivAt_tsum_of_isPreconnected`.
+
+**Construction or proof:**
+
+1. The telescoping majorant Σ1/(a(a+1)) is summable and bounds the derivatives uniformly.
+2. Apply the pinned smooth-series theorem on the open preconnected interval (0,1), using the value-series summability at a base point.
+3. Interior ordinary derivatives of g agree with its within-interval derivatives; at v_1(0)=1 endpoint derivatives are reserved for the endpoint lemma.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-endpoint-derivative — Endpoint derivatives and C1 closure of P
+
+**Lemma.** If g is C1 on I, then Pg is native ContDiffOn real 1 on I, and the displayed derivative series equals derivWithin(Pg) I at every x∈I, including 0 and 1.
+
+**Direct prerequisites:** `transfer-branch-c1`, `transfer-interior-derivative`, `mathlib:hasDerivWithinAt_Ici_of_tendsto_deriv`, `mathlib:hasDerivWithinAt_Iic_of_tendsto_deriv`, `mathlib:contDiffOn_one_iff_derivWithin`, `mathlib:TendstoUniformlyOn.continuousOn`.
+
+**Construction or proof:**
+
+1. Uniformly convergent value and derivative series of continuous branch terms give continuous functions on the closed interval.
+2. On its interior the derivative equality is already proved. At 0 apply the native right-endpoint extension theorem, and at 1 its left-endpoint counterpart, using these continuous derivative limits.
+3. Restrict the half-line within derivatives to I; unique differentiability of I identifies derivWithin.
+4. Use the native C1 characterization by differentiability and continuous within derivative.
+
+**Acceptance:** The open-set smooth-series theorem alone does not prove the endpoint or closed-interval C1 claim.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-derivative-cancellation — Cancellation of derivative weights
+
+**Lemma.** For C1 g on I and x∈I, derivWithin(Pg) I x equals Σ_(a≥1) [h_a′(x)(g(v_a(x))−g(v_1(x)))−h_a(x)/(a+x)²·derivWithin g I (v_a(x))].
+
+**Direct prerequisites:** `transfer-endpoint-derivative`, `normalized-transfer-constant`.
+
+**Construction or proof:**
+
+1. Differentiate the uniformly convergent identity Σh_a=1, obtaining Σh_a′=0 with the same closed-interval argument.
+2. Subtract g(v_1(x)) times this zero series.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-absolute-coefficients — Correct absolute coefficient estimate
+
+**Lemma.** If g is C1 on I and |derivWithin g I|≤M there, M≥0, then for x∈I, |derivWithin(Pg) I x|≤M Σ_(a≥1) c_a(x), where c_a=δ_a|h_a′|+h_a/(a+x)² and δ_a=(a−1)/((1+x)(a+x)).
+
+**Direct prerequisites:** `transfer-derivative-cancellation`, `mathlib:Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le`.
+
+**Construction or proof:**
+
+1. Apply the native interval mean-value bound to |g(v_a)−g(v_1)|≤M|v_a−v_1|=Mδ_a.
+2. Take absolute values of every derivative-weight contribution before summing.
+3. Use absolute summability established by the C1 majorant.
+
+**Acceptance:** h_2′(1)=−1/72. Replacing |h_a′| by h_a′ in this triangle estimate is invalid.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-one — First branch coefficient
+
+**Lemma.** For x∈I, c_1(x)=1/((1+x)²(2+x))≤1/2.
+
+**Direct prerequisites:** `transfer-absolute-coefficients`.
+
+**Construction or proof:**
+
+1. δ_1=0; bound each positive denominator from below.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-two — Second branch coefficient
+
+**Lemma.** For x∈I, c_2(x)≤5/72.
+
+**Direct prerequisites:** `transfer-absolute-coefficients`.
+
+**Construction or proof:**
+
+1. Use δ₂≤1/2, |h₂′|≤1/18 and hence δ₂|h₂′|≤1/36.
+2. For the other term, clear the positive denominator: (2+x)^3(3+x)−24(1+x)=20x+30x²+9x³+x⁴≥0 on I, giving h₂/(2+x)²≤1/24.
+3. Add the bounds to obtain c₂≤5/72.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-positive-coefficient — Positive derivative coefficients after the second branch
+
+**Lemma.** For a≥3 and x∈I, h_a′≥0 and c_a(x)=[a(a−1)²+(2+x)(1+x)²]/[(1+x)(a+x)^3(a+1+x)^2].
+
+**Direct prerequisites:** `transfer-absolute-coefficients`.
+
+**Construction or proof:**
+
+1. The derivative numerator is at least a²−a−4≥2.
+2. Combine the two fractions using positive denominators.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-three — Third branch coefficient
+
+**Lemma.** For x∈I, c_3(x)≤7/216.
+
+**Direct prerequisites:** `transfer-positive-coefficient`.
+
+**Construction or proof:**
+
+1. Use the positive coefficient formula.
+2. After clearing denominators, 14·den(x)−432·num(x)=12960x+12762x²+6596x³+1848x⁴+252x⁵+14x⁶≥0.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-four — Fourth branch coefficient
+
+**Lemma.** For x∈I, c_4(x)≤19/800.
+
+**Direct prerequisites:** `transfer-positive-coefficient`.
+
+**Construction or proof:**
+
+1. Use the positive coefficient formula.
+2. After clearing denominators, 38·den(x)−1600·num(x)=122720x+95592x²+37806x³+8170x⁴+874x⁵+38x⁶≥0.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-tail — Reciprocal-square bound for branches with a≥5
+
+**Lemma.** For a≥5 and x∈I, c_a(x)≤1/a².
+
+**Direct prerequisites:** `transfer-positive-coefficient`.
+
+**Construction or proof:**
+
+1. The positive formula numerator is at most a(a−1)²+12 and its denominator is at least a³(a+1)².
+2. The required inequality is 12≤4a².
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-square-tail — Telescoping bound on the reciprocal-square tail
+
+**Lemma.** Σ_(a≥5) 1/a²≤1/4.
+
+**Direct prerequisites:** `mathlib:hasSum_zeta_two`.
+
+**Construction or proof:**
+
+1. For a≥5, 1/a²≤1/(a(a−1))=1/(a−1)−1/a.
+2. Telescope finite tails and pass to the summable limit.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-coefficient-total — Uniform corrected contraction coefficient
+
+**Lemma.** For every x∈I, Σ_(a≥1)c_a(x)≤18913/21600<9/10.
+
+**Direct prerequisites:** `transfer-coefficient-one`, `transfer-coefficient-two`, `transfer-coefficient-three`, `transfer-coefficient-four`, `transfer-coefficient-tail`, `transfer-square-tail`.
+
+**Construction or proof:**
+
+1. Split branches 1,2,3,4 and the tail.
+2. Add 1/2+5/72+7/216+19/800+1/4=18913/21600; its distance below 9/10 is 527/21600.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-derivative-contraction — Elementary C1 derivative contraction
+
+**Lemma.** For C1 g on I, M≥0 and |derivWithin g I|≤M on I, |derivWithin(Pg) I|≤(9/10)M on I.
+
+**Direct prerequisites:** `transfer-absolute-coefficients`, `transfer-coefficient-total`.
+
+**Construction or proof:**
+
+1. Combine the absolute coefficient estimate with the uniform total bound.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### transfer-iterate-c1-bound — C1 derivative bound for every iterate
+
+**Lemma.** For C1 g on I and derivative bound M≥0, P^n g is C1 on I and its within derivative is bounded by (9/10)^n M.
+
+**Direct prerequisites:** `transfer-endpoint-derivative`, `transfer-derivative-contraction`.
+
+**Construction or proof:**
+
+1. Induct on n starting with P^0 g=g, using C1 closure and the contraction at each step.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### weighted-mean-pins-limit — Conserved weighted mean pins the transfer constant
+
+**Lemma.** For C1 g on I, set c=(∫_I g(x)/(1+x) dx)/log 2. If |derivWithin g I|≤M, then for every n and x∈I, |P^n g(x)−c|≤(9/10)^n M.
+
+**Direct prerequisites:** `transfer-iterate-c1-bound`, `normalized-transfer-integral`, `mathlib:Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le`, `mathlib:integral_one_div_of_pos`.
+
+**Construction or proof:**
+
+1. The weighted mean of P^n g is the same as that of g, and the positive weight integrates to log 2. Translate ∫_0^1(1+x)^(-1) by x↦1+x to the pinned positive reciprocal integral from 1 to 2.
+2. For fixed x, integrate the mean-value bound |P^n g(x)−P^n g(y)|≤(9/10)^n M|x−y|≤(9/10)^n M against the normalized weight.
+3. This directly bounds distance to its weighted mean without choosing a zero of the derivative or invoking a spectral decomposition.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-pushforward — Iterated densities of the Gauss map
+
+**Lemma.** For f continuous on I and nonnegative with ∫_I f=1, the pushforward under T^n of m.withDensity(ENNReal.ofReal∘f) equals m.withDensity(ENNReal.ofReal∘L^n f). In particular map(T^n,m) has density L^n 1.
+
+**Direct prerequisites:** `density-transfer-duality`, `density-transfer-summable`, `normalized-transfer-conjugate`, `density-transfer-nonnegative`, `density-transfer-continuous`.
+
+**Construction or proof:**
+
+1. The defining density is continuous, nonnegative and integrable. Duality for bounded indicators identifies one-step pushforward measures.
+2. The uniformly convergent branch series is continuous and nonnegative on I, allowing induction.
+3. Apply the formula to f=1.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-uniform-error — Uniform exponential Gauss–Kuzmin density estimate
+
+**Theorem.** For every n≥0 and x∈I, |L^n 1(x)−1/((1+x)log 2)|≤(9/10)^n.
+
+**Direct prerequisites:** `weighted-mean-pins-limit`, `normalized-transfer-conjugate`, `density-transfer-continuous`.
+
+**Construction or proof:**
+
+1. Take g_0(x)=1+x, whose within derivative on I is 1 and whose weighted mean is 1/log 2.
+2. Induct the conjugacy P^n g_0=(1+x)L^n 1.
+3. Divide the weighted-mean estimate by 1+x≥1.
+
+**Acceptance:** This proves an explicit sufficient rate, not the source’s sharper Q_1 or the Gauss–Kuzmin–Wirsing optimal rate.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### digit-marginal-error — Uniform digit-marginal convergence
+
+**Lemma.** For every a≥1 and n≥0, |m.real{x:gaussDigit(x,n)=a}−log((a+1)²/(a(a+2)))/log 2|≤(9/10)^n.
+
+**Direct prerequisites:** `density-pushforward`, `density-uniform-error`, `gauss-digit-api-2`, `gauss-measure-api-2`.
+
+**Construction or proof:**
+
+1. Use the nth digit as the first-digit cylinder pulled back under T^n.
+2. Integrate the uniform density error over that cylinder, whose Lebesgue length is at most one.
+3. Its Gauss mass is the inherited logarithmic digit probability. The inherited gauss-kuzmin target holds with C=1 and ρ=9/10.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-scalar — Scalar linearity of the density transfer
+
+**Lemma.** For c real, f continuous on I and x∈I, L(c f)(x)=c Lf(x).
+
+**Direct prerequisites:** `gauss-density-transfer`, `density-transfer-summable`.
+
+**Construction or proof:**
+
+1. Use absolute convergence of the branch series for f and c f.
+2. Factor the fixed scalar through the native sum.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-nonnegative — Positive densities remain positive
+
+**Lemma.** For f continuous on I with f≥0 on I, Lf(x)≥0 for every x∈I.
+
+**Direct prerequisites:** `density-transfer-summable`.
+
+**Construction or proof:**
+
+1. Every inverse branch maps I into I and every Jacobian weight is nonnegative.
+2. Finite partial sums are nonnegative; their limit is Lf.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-add — Additivity of normalized transfer
+
+**Lemma.** For continuous g,h on I and x∈I, P(g+h)(x)=Pg(x)+Ph(x).
+
+**Direct prerequisites:** `normalized-transfer-conjugate`, `density-transfer-add`.
+
+**Construction or proof:**
+
+1. Apply the conjugacy to g/(1+x) and h/(1+x), continuous since 1+x≥1 on I.
+2. Use additivity of L and simplify the nonzero factors.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-scalar — Scalar linearity of normalized transfer
+
+**Lemma.** For c real, g continuous on I and x∈I, P(c g)(x)=c Pg(x).
+
+**Direct prerequisites:** `normalized-transfer-conjugate`, `density-transfer-scalar`.
+
+**Construction or proof:**
+
+1. Apply the conjugacy to g/(1+x) and factor the scalar through L.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### normalized-transfer-bounds — Preservation of pointwise interval bounds
+
+**Lemma.** If g is continuous on I and c≤g(x)≤C there, then c≤Pg(x)≤C for x∈I.
+
+**Direct prerequisites:** `normalized-transfer-constant`, `normalized-transfer-add`, `normalized-transfer-scalar`, `density-transfer-nonnegative`, `normalized-transfer-conjugate`.
+
+**Construction or proof:**
+
+1. Use positive transfer of g−c and C−g through conjugacy.
+2. Use linearity and constant preservation to obtain both bounds.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+#### density-transfer-continuous — Continuity of transferred densities
+
+**Lemma.** For f continuous on I, Lf is continuous on I.
+
+**Direct prerequisites:** `density-transfer-summable`, `mathlib:TendstoUniformlyOn.continuousOn`.
+
+**Construction or proof:**
+
+1. Every finite sum of branch terms is continuous on I because a+x≥1.
+2. Apply the native uniform-limit continuity theorem to the uniformly convergent branch partial sums.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Peng Sun](https://arxiv.org/pdf/1705.02921v2), Theorem 2, physical pp.3–6, specialized to p=1. C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate.
+
+### Homogeneous number-theory consumers
+
+#### homogeneous-birkhoff — Pointwise averages on the modular homogeneous space
+
+**Application.** Let G=SL(2, real), Γ=SL(2, integer) embedded entrywise, X=G/Γ with its quotient Borel structure, μ the normalized G-invariant Haar probability, a_t=diag(exp t, exp(-t)), and S(gΓ)=a_1 gΓ. For every μ-integrable real f, native Birkhoff averages of S converge μ-almost everywhere to ∫f dμ.
+
+**Direct prerequisites:** `GeometryOfNumbersAndQuadraticArithmetic:GN.4`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity`, `birkhoff-pointwise-ergodic`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing`, `mathlib:Matrix.SpecialLinearGroup`, `mathlib:Matrix.SpecialLinearGroup.map`, `mathlib:QuotientGroup.mk`, `mathlib:QuotientGroup.instTopologicalSpace`, `mathlib:borel`.
+
+**Construction or proof:**
+
+1. Import the concrete quotient, lattice, normalized measure and left-action contract requested from GN.4.
+2. The subgroup {a_t:t∈real} is closed and noncompact; to conclude time-one ergodicity use the stronger GN.4 Howe–Moore mixing restriction, since continuous-flow ergodicity alone does not imply time-one ergodicity.
+3. Apply the inherited pointwise ergodic theorem to S and f.
+
+**Acceptance:** This is Haar-almost-everywhere on X. It makes no assertion about every point u_xΓ or Lebesgue-almost-everywhere on a single horocycle.
+
+**Source:** [Alexander Gorodnik](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf), Lecture 1, physical pp.3–8, bounded geodesics and lattices. Consumer comparison only. Generic quotient dynamics and Mahler compactness remain owned by GN.4; row-vector and time conventions are converted explicitly.
+
+#### bounded-digits-compact-orbit — Bounded continued fractions and compact diagonal semiorbits
+
+**Comparison.** For irrational real x with 0<x<1, let u_x=[[1,x],[0,1]] and a_t=diag(exp t,exp(-t)). There exists B∈natural with every inherited Gauss digit a_n(x)≤B if and only if the closure in SL(2,real)/SL(2,integer) of {a_t u_x Γ:t≥0} is compact.
+
+**Direct prerequisites:** `DiophantineApproximationAndTranscendence:DT.0`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness`, `diagonal-short-vector-forward`, `diagonal-short-vector-reverse`, `column-row-convention`, `mathlib:Matrix.SpecialLinearGroup`, `mathlib:Matrix.SpecialLinearGroup.map`, `mathlib:QuotientGroup.mk`, `mathlib:QuotientGroup.instTopologicalSpace`, `mathlib:borel`.
+
+**Construction or proof:**
+
+1. Import the requested DT.0 equivalence between bounded native continued-fraction digits and badly approximable numbers, with irrationality retained.
+2. Use the two explicit short-vector estimates and GN.4 Mahler compactness to obtain the diagonal-semiorbit criterion.
+3. Translate the source’s row-vector Γ\G convention by transpose and double its time parameter.
+
+**Acceptance:** The rational x=0 has the short vector (0,exp(-t)) and an unbounded orbit; irrationality is essential.
+
+**Source:** [Alexander Gorodnik](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf), Lecture 1, physical pp.3–8, bounded geodesics and lattices. Consumer comparison only. Generic quotient dynamics and Mahler compactness remain owned by GN.4; row-vector and time conventions are converted explicitly.
+
+#### typical-unbounded-semiorbit — Typical Gauss digits give noncompact semiorbits
+
+**Application.** For restricted Lebesgue-almost every x∈(0,1), the positive diagonal semiorbit a_t u_x Γ is not relatively compact. More precisely, on one conull irrational set, every a≥1 occurs with its positive Gauss frequency, so the digit sequence is unbounded and the bounded-digits criterion applies.
+
+**Direct prerequisites:** `bounded-digits-compact-orbit`, `gauss-digit-frequency`, `gauss-measure-api-3`.
+
+**Construction or proof:**
+
+1. Intersect the countably many conull digit-frequency sets and the irrational set.
+2. If digits were bounded by B, the positive-frequency digit B+1 could not occur.
+3. Apply the compact-orbit comparison and equivalence of Gauss and restricted Lebesgue measure.
+
+**Acceptance:** No rate of cusp escape and no homogeneous equidistribution along a horocycle is inferred.
+
+**Source:** [Alexander Gorodnik](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf), Lecture 1, physical pp.3–8, bounded geodesics and lattices. Consumer comparison only. Generic quotient dynamics and Mahler compactness remain owned by GN.4; row-vector and time conventions are converted explicitly.
+
+#### column-row-convention — Row/column and diagonal-time comparison
+
+**Comparison.** Transpose identifies the source’s row-lattice class Γg in Γ\SL(2,real) with gᵀΓ in SL(2,real)/Γ. The row lattice {(p+xq,q)} uses g=u_xᵀ, and right multiplication by diag(exp(s/2),exp(−s/2)) becomes left multiplication by a_(s/2). Thus source positive time s corresponds to this document’s t=s/2.
+
+**Direct prerequisites:** `GeometryOfNumbersAndQuadraticArithmetic:GN.4`, `mathlib:Matrix.SpecialLinearGroup`, `mathlib:Matrix.SpecialLinearGroup.map`, `mathlib:QuotientGroup.mk`, `mathlib:QuotientGroup.instTopologicalSpace`, `mathlib:borel`.
+
+**Construction or proof:**
+
+1. Transpose reverses multiplication and sends the integer subgroup to itself, so it descends to the two quotient conventions.
+2. Check the row basis and the two diagonal entries explicitly.
+3. The induced homeomorphism preserves relative compactness.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Alexander Gorodnik](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf), Lecture 1, physical pp.3–8, bounded geodesics and lattices. Consumer comparison only. Generic quotient dynamics and Mahler compactness remain owned by GN.4; row-vector and time conventions are converted explicitly.
+
+#### diagonal-short-vector-forward — Bad approximation gives a uniform short-vector lower bound
+
+**Lemma.** Assume c>0 and q|qx−round(qx)|≥c for every positive natural q. For t≥0 and integers p,q not both zero, max(|exp(t)(p+xq)|,|exp(−t)q|)≥min(1,sqrt c).
+
+**Direct prerequisites:** `DiophantineApproximationAndTranscendence:DT.0/badly-approximable`.
+
+**Construction or proof:**
+
+1. For q=0, |p|≥1 and exp t≥1.
+2. For q≠0, nearest-integer minimality and the bound at |q| give |p+xq||q|≥c.
+3. The product of the two scaled coordinates is the same; their maximum is at least sqrt c.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+**Source:** [Alexander Gorodnik](https://www.math.uzh.ch/gorodnik/tifr/lecture1.pdf), Lecture 1, physical pp.3–8, bounded geodesics and lattices. Consumer comparison only. Generic quotient dynamics and Mahler compactness remain owned by GN.4; row-vector and time conventions are converted explicitly.
+
+#### diagonal-short-vector-reverse — Uniform short vectors give a badly-approximable constant
+
+**Lemma.** If 0<δ≤1 and for every t≥0 and integer pair (p,q)≠(0,0), max(|exp(t)(p+xq)|,|exp(−t)q|)≥δ, then q|qx−round(qx)|≥δ²/2 for every positive natural q.
+
+**Direct prerequisites:** .
+
+**Construction or proof:**
+
+1. Choose p=−round(qx) and t=log(2q/δ)≥0.
+2. The second coordinate has absolute value δ/2; hence the first has absolute value at least δ.
+3. Use exp t=2q/δ and rearrange.
+
+**Acceptance:** Retain the exact displayed hypotheses and conventions in implementation; helper targets remain in this reader even when omitted from the compact suggested file.
+
+## PM.5 — Short intervals, correlations and random models
 
 The short-interval theorem concerns bounded real multiplicative functions. Its exceptional set counts integer starting points; the intermediate good-integer estimate integrates real starting points and keeps every prime-range inequality. The full analytic proof and the source modulated-sum input remain gaps. AN.3 owns quantitative Dirichlet-polynomial estimates, AN.5 owns pretentious/Halász interfaces, and ES.0 is requested for the specific circle-method input.
 
@@ -4851,89 +8900,941 @@ Direct prerequisites: `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-covari
 
 Source: Harper, Printed p.2278, finite diagonal counting.
 
-### Conjecture register
+## Conjectures
 
 **Chowla conjecture (conjecture).** For distinct nonnegative shifts a₁<⋯<a_t, exponents k_i∈{1,2} not all even, N⁻¹Σ_{1≤n≤N}∏_i μ(n+a_i)^(k_i)→0. The Liouville formulation for pairwise nonproportional positive-slope affine forms is N⁻¹Σ_n∏_i λ(a_i n+b_i)→0. These ordinary averages are conjectural; the separate two-point logarithmic theorem does not prove them. Source: Sarnak, Conjecture 1, p.3; TaoLogChowla, Published Conjecture 1, p.2.
 
 **Sarnak conjecture (conjecture).** For every compact metric X, continuous T:X→X of zero topological entropy, continuous f:X→ℂ and x∈X, N⁻¹Σ_{1≤n≤N} μ(n)f(T^[n]x)→0. The zero-entropy condition, all points x and ordinary average are essential. The Möbius–nilsequence theorem owned by AC.5 is a proved special case, not the whole conjecture. Source: Sarnak, Definitions of deterministic flow and orthogonality and Conjecture 4, p.4.
 
-### Current coverage and remaining obligations
+## Remaining proof obligations and supplier contracts
 
-**ProbabilisticAndMetricNumberTheory:PM.0 — planned.**
+All six stages are planned; none is closed. The accepted continuation replaces the four old PM.4 gaps with explicit nodes and identifies the homogeneous consumers. Nineteen inherited gaps outside PM.4 remain. These are substantive implementation/source obligations; assembly does not claim that joining the parts solves them.
 
-- Original Kolmogorov–Rogozin proof not read: BSKK Lemma 7.2 cites references [19,33,34]. Its equal-radius real inequality is the exact target; acquire the original concentration-function proof and split its symmetrization/combinatorial estimate before claiming lemma-level closure. A complex root projection needs a separate real comparison and is outside this generic theorem.
-- Classical Kubilius quantitative proof and native product law: Chen–Jaramillo–Yang (1.1) supplies the exact classical target but cites Kubilius [10]; acquire its full small-prime/fundamental-lemma proof or a complete proof of this bound. Match the native finite product of geometricMeasure and its atom factorization. The existing exact finite-period and finite-head error estimates do not imply this growing-prime comparison, since the prime product need not be small relative to N.
-- Finite versus growing arithmetic limit-law input: Complete the source’s growing/fixed-order prime cutoff and Mertens normalization estimates using the retained arithmetic moment nodes, then apply a genuine moment-convergence theorem with uniform integrability/tightness and the native Gaussian moment determinacy. The latter alone does not imply convergence. Match density of CDF continuity points via countability of atoms. The inherited finite Gaussian upper bounds are not asserted to be asymptotic moment formulas.
+### Pollington–Vaughan inputs of the Duffin–Schaeffer proof not read
 
-**ProbabilisticAndMetricNumberTheory:PM.1 — planned.**
+Koukoulopoulos–Maynard Lemma 5.2 (the conjecture when ψ takes only values 0 or ⩾ 1/2) and Lemma 5.3 (the overlap estimate for λ(𝒜_q ∩ 𝒜_r)) are cited to Pollington–Vaughan, Mathematika 37 (1990), Theorem 2 and pp. 195–196, which were not read. The overlap estimate is recorded with its indicator corrected (E10). An open source for both proofs must be read before these two nodes are decomposed; the source notes that related proofs appear in Harman's book Metric Number Theory (Theorems 2.5, 2.6 and 3.6), which is not freely available.
 
-- Turán–Kubilius proof input: Acquire the proof cited as Elsholtz–Tao [60, p.20]. The centering A_N and coefficient 30 above are read; independent Bernoulli moments for a fixed finite prime set do not prove this uniform full prime-power mean-square bound.
-- Restricted-family quantitative concentration: Read the source for Theorem 7.2(a)’s quantitative Erdős–Kac input on D(N), or prove a restricted-family second-moment bound with center (1/2)log log N and O(|D(N)|log log N) variance. The latter would give a stronger (log log N)^(-1/3) tail. Neither estimate has been established here; ordinary Turán–Kubilius on all integers is insufficient after conditioning on this thin family.
-- Gaussian moment convergence and source cutoff estimates: Promote precise fixed-order cutoff/normalization asymptotics and prove convergence to the Gaussian from all fixed moments with tightness/uniform integrability. Native Gaussian moment formulas and moment determinacy alone are insufficient. Do not state a uniform growing-moment range without reading Granville–Soundararajan’s exact source theorem.
-- Finite versus growing arithmetic limit-law input: Complete the source’s growing/fixed-order prime cutoff and Mertens normalization estimates using the retained arithmetic moment nodes, then apply a genuine moment-convergence theorem with uniform integrability/tightness and the native Gaussian moment determinacy. The latter alone does not imply convergence. Match density of CDF continuity points via countability of atoms. The inherited finite Gaussian upper bounds are not asserted to be asymptotic moment formulas.
-- Supplier AnalyticNumberTheory:AN.2: Reciprocal-prime Mertens asymptotic Σ_{p≤z}1/p=log log z+O(1), including the bounded prime-power remainder needed to compare the source Turán–Kubilius A_N,B_N²; supply exact scope/effectivity. Import existing summation APIs instead of rebuilding AN.0.
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-large-values`, `ProbabilisticAndMetricNumberTheory:PM.3/overlap-estimate`.
 
-**ProbabilisticAndMetricNumberTheory:PM.2 — planned.**
+### Original Kolmogorov–Rogozin proof not read
 
-- Discrepancy proof inputs: Read the original or a complete freely accessible proof of the Vaaler/Grabner interval majorants and Koksma integration-by-parts formula; the author sampler supplies exact statements and constants, not those proofs. Native BoundedVariationOn/eVariationOn are used directly, and no Hardy–Krause variation or multidimensional Koksma–Hlawka theorem is silently substituted.
-- Native digit/circle cylinder bridge: Check the complete positional-cylinder/floor proof and half-open endpoint transport for Real.digits at the pin. The native expanding-circle ergodicity theorem is available, but its pointwise-frequency bridge is not. A Bernoulli-shift isomorphism is an alternative proof only once its canonical digit/endpoints comparison is established.
-- Retained torus refinements: Retained asymptotic torus statements include integer indexing and the abelian rational/Ratner decomposition. Exercise1.1.22’s compact-connected-subgroup realization and the higher-dimensional criterion exercises still need refinement beyond the SL_d(Z) subtorus presentation. Quantitative single-scale equidistribution has not been decomposed; obtain an exact requested rate and source passage from ES/AC consumers before claiming it.
+BSKK Lemma 7.2 cites references [19,33,34]. Its equal-radius real inequality is the exact target; acquire the original concentration-function proof and split its symmetrization/combinatorial estimate before claiming lemma-level closure. A complex root projection needs a separate real comparison and is outside this generic theorem.
 
-**ProbabilisticAndMetricNumberTheory:PM.3 — planned.**
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin`.
 
-- Pollington–Vaughan inputs of the Duffin–Schaeffer proof not read: Koukoulopoulos–Maynard Lemma 5.2 (the conjecture when ψ takes only values 0 or ⩾ 1/2) and Lemma 5.3 (the overlap estimate for λ(𝒜_q ∩ 𝒜_r)) are cited to Pollington–Vaughan, Mathematika 37 (1990), Theorem 2 and pp. 195–196, which were not read. The overlap estimate is recorded with its indicator corrected (E10). An open source for both proofs must be read before these two nodes are decomposed; the source notes that related proofs appear in Harman's book Metric Number Theory (Theorems 2.5, 2.6 and 3.6), which is not freely available.
-- Mass-transference native interfaces: Fix the source’s finite separated-ball tree using native Finset/Metric.closedBall and the compatible finite-mass extension to a native Borel probability. Read or replace Falconer [3, Proposition 1.7] cited in BV §5.3; the source asserts this extension without proving it. Match the full arbitrary-gauge radius/diameter comparison with Measure.mkMetric, the reduced-rational ball enumeration and strict/closed-radius transport. No private Prop-valued fields stand in for these missing conditions in the suggested file.
-- Higher-dimensional Pollington–Vaughan theorem: Acquire the original k≥2 divergence proof and match its coordinatewise coprimality, sup-norm cubes, ambient volume normalization and overlap/zero-one lemmas. BV supplies the precise target but only cites the proof. The preserved one-dimensional Pollington–Vaughan overlap gap remains separately recorded.
-- Supplier AnalyticNumberTheory:AN.2: Mertens' theorems: Σ_{p≤x} 1/p = log log x + B + O(1/log x), with an effective error such as Rosser–Schoenfeld Theorem 5 (|error| ⩽ 1/(log x)² for x ⩾ 286), and its consequences Σ_{w≤p<z} 1/p = log(log z/log w) + O(1/log w) and ∏_{p≤x}(1 + 1/p) ≍ log x. Koukoulopoulos–Maynard use them in the proof of Theorem 1 ((5.8)), Lemma 7.3 and Lemma 8.4. Mathlib 082e2d3 has Chebyshev's bounds but no Mertens theorem.
+### Turán–Kubilius proof input
 
-**ProbabilisticAndMetricNumberTheory:PM.4 — planned.**
+Acquire the proof cited as Elsholtz–Tao [60, p.20]. The centering A_N and coefficient 30 above are read; independent Bernoulli moments for a fixed finite prime set do not prove this uniform full prime-power mean-square bound.
 
-- Pointwise ergodic proof and native representative: Complete the finite measurable coloring lemma, extended-real limsup truncation and conditional-expectation identification in the exact native invariants sigma-algebra. The full source proof was read; this pass records its logic and interfaces, not a checked implementation. Tau Ceti’s audited L1/mean Birkhoff results remain imports and do not supply this pointwise theorem. No existing roadmap stage was found to own the generic pointwise extension.
-- Gauss martingale and native cylinder inputs: Match the forward cylinder conditional-expectation convergence, Borel-generation proof, and reverse-martingale exact-to-mixing theorem at the pin. Read their actual native hypotheses before citing declarations; the source proofs invoke them. Native Gauss digits must be matched to the existing nonterminating continued-fraction stream, not reconstructed in a second carrier.
-- Gauss–Kuzmin analytic closure: Finish native Lipschitz Banach-space/transfer-operator norm estimates, prove compact embedding, and read Hennion’s Appendix A.3 proof (physical pp.35–38). This input and the spectral-gap/simplicity argument are not supplied by qualitative mixing or pointwise averages. No abstract spectral-gap Prop parameter replaces these conditions in the suggested file.
-- Native continued-fraction orbit and integral bridges: Prove the floor-stream/digit shift identification on irrational (0,1), match exact native nontermination, positive-continuant and adjacent-denominator comparison lemmas, and identify finite-word inverse branches with native convergents. Match the integral/series interchange and ζ(2) evaluation used in the Gauss logarithmic integral. Definitions alone are not treated as those proof inputs.
-- Homogeneous dynamics is GN.4-owned: use its quotient/flow contracts for the roadmap’s overview applications. The real Gauss metric statements here do not depend on those unrelated group-flow theorems.
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius`.
 
-**ProbabilisticAndMetricNumberTheory:PM.5 — planned.**
+### Restricted-family quantitative concentration
 
-- Short-interval analytic proof: Read MR Sections 3–9 in full: source prime-interval parameters (4), the mean-square Dirichlet-polynomial estimate (5), the factorization by prime blocks, Halász/sieve bounds, and the exceptional-set conversion. The source theorem statement and Theorem 3 were read; no complete analytic decomposition is claimed. The intermediate integral over real x and final exceptional cardinality over integer x are distinct.
-- Logarithmic correlation proof inputs: Read Tao Sections 2–4 fully and route their finite Shannon entropy/conditional entropy/mutual-information APIs, entropy decrement with scale selection, concentration and circle-method estimate. Obtain the cited modulated short-Liouville sums of Matomäki–Radziwiłł–Tao. The original Elliott fixed-t condition is false; this plan requires the corrected uniform infimum condition. The general concentration theorem in PM.0 does not replace entropy decrement or the modulated-sum estimate.
-- Random-model law realization and covariance: Match native infinite product probability, independent fair signs and unit-circle Haar phase laws, and their finite integral-factorization statements. The outcome-wise arithmetic constructions and their discriminating prime-power tests are concrete; no transfer from their expected cancellation to deterministic Möbius/Liouville is available.
-- Supplier AnalyticNumberTheory:AN.5: Supply the existing-owner pretentious-distance and Halász interfaces with quantitative conductor/height ranges. For Tao Corollary 1.5 specifically, require uniform divergence over |t|≤Ax for every fixed character χ and A≥1; fixed-t divergence is insufficient. Also supply the Halász input to MR’s restricted Dirichlet-polynomial argument.
-- Supplier AnalyticNumberTheory:AN.3: Supply source-scoped Dirichlet-polynomial mean-value bounds and any required quantitative zero-free-region/nonpretentiousness estimate for Liouville against characters with the |t|≤Ax height range. Ordinary short-interval prime-counting estimates or a qualitative fixed-modulus PNT are insufficient for these uniform twisted bounds.
-- Supplier ExponentialSumsAndCircleMethod:ES.0: Supply the source-scoped modulated short-sum/circle-method Fourier estimates used in Tao’s entropy-decrement proof; they must include their averaging variables and scale ranges. Existing finite character-sum identities alone do not give the needed Liouville minor-arc cancellation.
-- General Chowla and Sarnak remain conjectures in the register; the theorem nodes assert only the explicitly stated proved short-interval/logarithmic results.
+Read the source for Theorem 7.2(a)’s quantitative Erdős–Kac input on D(N), or prove a restricted-family second-moment bound with center (1/2)log log N and O(|D(N)|log log N) variance. The latter would give a stronger (log log N)^(-1/3) tail. Neither estimate has been established here; ordinary Turán–Kubilius on all integers is insufficient after conditioning on this thin family.
 
-### Source observations and versions
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.1/restricted-squarefree-window`.
 
-The following observations await independent review. Their exact version, correction search and mathematical check appear in the packet; inherited findings retain their original receipts. No author was contacted.
+### Gaussian moment convergence and source cutoff estimates
 
-- **ProbabilisticAndMetricNumberTheory/E15** (SarigTransfer, misprint, affects nothing): Proposition 1.1, physical p.6 / printed p.4, uniqueness proof in acquired author notes. Replace the second h₁ by h₂. The surrounding argument compares two densities h₁ and h₂. Repeating h₁ gives zero independently of h₂ and cannot establish their equality. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E16** (SarigTransfer, misprint, affects the proof): §2.3, physical p.11 / printed p.9, first continued-fraction iterate display. Write T^(n−1)(x)=1/(aₙ+⋯), or retain Tⁿ with first denominator a_(n+1). The text starts x=[0;a₁,a₂,…] and T deletes the first digit. At n=1 the next digit is a₂, as also used in the following cylinder formula. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E17** (SarigTransfer, error, affects the proof): Exercise 2.5(b), physical p.12 / printed p.10, uniform contraction in acquired author notes. Use ≤ for all x,y, or require x≠y for a strict version. Set x=y. Both sides vanish, so the printed strict inequality says 0<0. The non-strict contraction is the proof input. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E18** (SarigTransfer, error, affects the proof): Exercise 2.5(c), physical p.13 / printed p.11, derivative hint in acquired author notes. For one-digit branches use Lip(log|v′ₐ|)≤2; for all words use the continuant denominator to bound relative derivative distortion. For a=1, v(x)=1/(1+x); the derivative secant between 0 and 1/4 has absolute slope 36/25>1. The logarithmic derivative slope is at most 2 on [0,1]. The hinted derivative bound is false, while the intended relative distortion remains valid. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E19** (SarigTransfer, misprint, affects the proof): Appendix A.2, physical p.32 / printed p.30, Rényi cylinder change of variables. Integrate |v′ₐ| for the unsigned Lebesgue Jacobian. An odd-length inverse branch has negative derivative. Its integral over a positive-measure cylinder would be negative, unlike the positive measure being computed. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E20** (SarigTransfer, error, affects the proof): Appendix A.2, physical p.33 / printed p.31, Gauss density comparison. Replace the upper density bound by 1/log 2. Thus m(Bₙ)≥(log 2)μ_G(Bₙ)≥m(B)/2 for a tail preimage Bₙ. The density tends to 1/log 2 at zero. Since log 2<7/10, 2(log 2)²<98/100<1, so the printed upper bound is smaller than the supremum and fails on an interval of positive measure. The corrected comparison still proves exactness. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E21** (Smyth2020, misprint, affects nothing): Proposition 15 proof, physical p.34 / printed Lesson 7 p.31. Use pₖ=aₖp_(k−1)+p_(k−2), and the corresponding q recurrence. The native matrix recurrence and the proposition’s preceding recurrence are correct; the induction line swaps the coefficients. For [0;1,2], p₂=2·p₁+p₀=2. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E22** (Smyth2020, error, affects a stated result): Theorem 17, physical p.35 / printed Lesson 7 p.32, acquired final author notes. Require that A is invariant as a set (or invariant modulo null sets); equality of measure under preimages alone is automatic for every measurable A. The Gauss measure is invariant. The interval A=(1/2,1) has ν(A)=log(4/3)/log 2 strictly between zero and one, while ν(T^(−n)A)=ν(A) for every n. The theorem as printed confuses invariance of a set with preservation of its mass. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E23** (Smyth2020, misprint, affects a stated result): Lesson 9 second bullet, physical p.46 / printed p.43, approximation-error logarithm. The limit of N⁻¹ log|x−p_N/q_N| is −π²/(6 log 2). Approximation errors eventually lie between zero and one, so their logarithms are negative. Theorem 30 later prints the negative exponent. Known: Theorem 30, physical p.53 / printed Lesson 10 p.50, in the same acquired final notes.
-- **ProbabilisticAndMetricNumberTheory/E24** (Smyth2020, error, affects a stated result): Theorem 21, physical p.46 / printed Lesson 9 p.43, Khinchin product. Use 1+1/(k(k+2)) inside the product defining K. The preceding first-digit formula gives mass log((k+1)²/(k(k+2)))/log 2. Exponentiating the log-digit integral gives precisely the corrected factor. Every k≥2 term in the printed product is strictly larger, so it cannot give the claimed Khinchin constant. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E25** (Smyth2020, misprint, affects the proof): Exercise 2.4(c), physical p.49 / printed Lesson 9 p.46. The integral of log x is negative; use f(x)=−log x for the positive value π²/(12 log 2). log x<0 throughout (0,1). Integrating against the positive Gauss density gives a strictly negative integral, whereas denominator growth uses its negative. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E26** (Smyth2020, error, affects the proof): Exercise 2.4(d),(f), physical p.49 / printed Lesson 9 p.46. Restrict the Fibonacci denominator bounds to irrational inputs, or indices before native rational termination. At x=1/2 the native continued fraction terminates; subsequent native denominators stay 2 while Fibonacci numbers grow without bound. The metric conclusions already discard this null rational set. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E27** (Smyth2020, misprint, affects a stated result): Conjecture 24, physical p.48 / printed Lesson 9 p.45. Use Q(Zⁿ) for the Oppenheim lattice-value density statement. The preceding bullet correctly says integer vectors. For real vectors any indefinite real quadratic form already takes every real value by homogeneity, independent of irrationality. Known: Correct integer-vector formulation in the preceding bullet on the same page.
-- **ProbabilisticAndMetricNumberTheory/E28** (Smyth2020, misprint, affects a stated result): Theorem 20 final line, physical p.45 / printed Lesson 9 p.42. Use x∈X\N_f in the general probability-space theorem. The theorem’s domain is an arbitrary measurable X. The preceding limit-existence conclusion uses X correctly; [0,1) was retained from the special-case theorem above. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E29** (BeresnevichVelani, misprint, affects the proof): Published p.988, Lemma 7 proof, middle triangle inequality. Use ≤ at the last triangle bound and < at c r_M<d(x_M,z), since z lies outside the closed ball cM. Closed balls permit equality in the triangle bound. On the line take A=closedBall(0,1), M=closedBall(3/2,1/2), c=3 and z=−1. Then A meets M at 1 and z∉cM, but d(x_M,x_A)+d(x_A,z)=5/2=2r_A+r_M. The corrected inequalities retain the lemma. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E30** (BeresnevichVelani, misprint, affects nothing): Published §§6.1–6.2, pp.991–992, theorem numbering. Disambiguate the general-space MTP on p.991 from the distinct simultaneous-approximation consequence numbered Theorem 3 on p.992. The two displayed theorems have different hypotheses and conclusions but the same number. Our citations always include section and page. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E31** (MatomakiRadziwill, misprint, affects nothing): Published p.1021, prose following Theorem 4; also arXiv v4 physical p.7. Read “while Theorem 2” in the weaker C(ε) comparison. The paragraph explicitly compares Theorem 4 with Theorem 2, gives the stronger bound from Theorem 4, and then accidentally attributes the weaker bound to Theorem 4 again. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E32** (TaoLogChowla, misprint, affects nothing): Published Theorem 2, p.3; also arXiv v4 Theorem 1.2 physical p.2. Use x→∞. n is the bound summation variable; x is the free cutoff and ω depends on x. The hypothesis and the next displayed specialization both use x→∞. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E33** (Smyth2020, error, affects a stated result): Lesson 1 boxed digit/orbit equivalence, physical p.7 / printed p.4. Use half-open fundamental intervals for the canonical terminating expansion, or remove the countable endpoints. Earlier I₀ is the closed interval [0,1/3]. For x=1/9 and n=1, T₃x=1/3 belongs to I₀ while the second canonical digit is 1. The all-point equivalence fails at endpoints; the almost-everywhere consequence remains valid. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E34** (Smyth2020, misprint, affects the proof): Lesson 5 mixing interpretation, physical p.29 / printed p.26, two consecutive bounds. Use εν(A) for the bound before dividing by ν(A), with ν(A)>0. Dividing the printed bound by ν(A) gives ε ν(B)/ν(A), which need not be ≤ε. Choosing a smaller tolerance proves the intended conditional-probability statement. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E35** (MatomakiRadziwill, misprint, affects nothing): Published p.1017, displayed (1). Use X→∞. The average in that display uses the free cutoff X and has no free x. The surrounding text already discusses large X. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E36** (Sarnak, misprint, affects nothing): Lecture 1, physical p.3, realization in the full shift. Use ξ(n)=π₁(T^(n−1)ξ) for n≥1, or choose the sampling convention T^(n−1). The source indexes ξ from one and defines Tx(n)=x(n+1). At n=1, π₁(Tξ)=ξ(2), not ξ(1). The conjecture is unaffected by a fixed index shift. Known: new.
-- **ProbabilisticAndMetricNumberTheory/E37** (Kubilius2021, error, affects a stated result): arXiv v1, Remark1.2, physical p.4. Require 0<s<1 for the claim of a positive asymptotic distance from uniform; s=0 is exactly uniform. At s=0, Z_(n,0)=n and the truncated Pareto mass is1/n at every point, so total variation distance is identically zero. The main approximation theorem is not altered by correcting the example. Known: new.
+Promote precise fixed-order cutoff/normalization asymptotics and prove convergence to the Gaussian from all fixed moments with tightness/uniform integrability. Native Gaussian moment formulas and moment determinacy alone are insufficient. Do not state a uniform growing-moment range without reading Granville–Soundararajan’s exact source theorem.
 
-### Current verification boundary
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`.
 
-The packet and suggested file are plans. The current compilation covers only the Mathlib-only continuation. The preserved incoming prefix imports pinned Tau Ceti modules whose compiled interfaces are absent in the existing build, so the whole file was not elaborated. No library build, Lake update or cache download was started. Precise omitted-signature comments name unresolved native finite-tree, product-law and analytic interfaces. The handoff records the final checker and compilation receipts; earlier numerical/proof-probe counts above remain historical.
+### Discrepancy proof inputs
 
-Current validation: the pinned-index checker and source-issue/version validator report zero errors; the packet checker has zero warnings. The 708-line Mathlib-only continuation has 104 named signatures and 50 examples and elaborates with 140 expected proof-placeholder warnings only. All 2,944 reached Mathlib sources match the pin. The 139 exact rational cases check finite arithmetic and source corrections; they do not establish the limit theorems. Whole-file elaboration remains unavailable as explained above.
+Read the original or a complete freely accessible proof of the Vaaler/Grabner interval majorants and Koksma integration-by-parts formula; the author sampler supplies exact statements and constants, not those proofs. Native BoundedVariationOn/eVariationOn are used directly, and no Hardy–Krause variation or multidimensional Koksma–Hlawka theorem is silently substituted.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan`, `ProbabilisticAndMetricNumberTheory:PM.2/koksma`.
+
+### Native digit/circle cylinder bridge
+
+Check the complete positional-cylinder/floor proof and half-open endpoint transport for Real.digits at the pin. The native expanding-circle ergodicity theorem is available, but its pointwise-frequency bridge is not. A Bernoulli-shift isomorphism is an alternative proof only once its canonical digit/endpoints comparison is established.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge`, `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal`.
+
+### Mass-transference native interfaces
+
+Fix the source’s finite separated-ball tree using native Finset/Metric.closedBall and the compatible finite-mass extension to a native Borel probability. Read or replace Falconer [3, Proposition 1.7] cited in BV §5.3; the source asserts this extension without proving it. Match the full arbitrary-gauge radius/diameter comparison with Measure.mkMetric, the reduced-rational ball enumeration and strict/closed-radius transport. No private Prop-valued fields stand in for these missing conditions in the suggested file.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general`, `ProbabilisticAndMetricNumberTheory:PM.3/hausdorff-duffin-schaeffer`, `ProbabilisticAndMetricNumberTheory:PM.3/jarnik-besicovitch`.
+
+### Higher-dimensional Pollington–Vaughan theorem
+
+Acquire the original k≥2 divergence proof and match its coordinatewise coprimality, sup-norm cubes, ambient volume normalization and overlap/zero-one lemmas. BV supplies the precise target but only cites the proof. The preserved one-dimensional Pollington–Vaughan overlap gap remains separately recorded.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/higher-dimensional-duffin-schaeffer`.
+
+### Short-interval analytic proof
+
+Read MR Sections 3–9 in full: source prime-interval parameters (4), the mean-square Dirichlet-polynomial estimate (5), the factorization by prime blocks, Halász/sieve bounds, and the exceptional-set conversion. The source theorem statement and Theorem 3 were read; no complete analytic decomposition is claimed. The intermediate integral over real x and final exceptional cardinality over integer x are distinct.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill`, `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-good-set`.
+
+### Logarithmic correlation proof inputs
+
+Read Tao Sections 2–4 fully and route their finite Shannon entropy/conditional entropy/mutual-information APIs, entropy decrement with scale selection, concentration and circle-method estimate. Obtain the cited modulated short-Liouville sums of Matomäki–Radziwiłł–Tao. The original Elliott fixed-t condition is false; this plan requires the corrected uniform infimum condition. The general concentration theorem in PM.0 does not replace entropy decrement or the modulated-sum estimate.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott`, `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla`.
+
+### Random-model law realization and covariance
+
+Match native infinite product probability, independent fair signs and unit-circle Haar phase laws, and their finite integral-factorization statements. The outcome-wise arithmetic constructions and their discriminating prime-power tests are concrete; no transfer from their expected cancellation to deterministic Möbius/Liouville is available.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality`.
+
+### Classical Kubilius quantitative proof and native product law
+
+Chen–Jaramillo–Yang (1.1) supplies the exact classical target but cites Kubilius [10]; acquire its full small-prime/fundamental-lemma proof or a complete proof of this bound. Match the native finite product of geometricMeasure and its atom factorization. The existing exact finite-period and finite-head error estimates do not imply this growing-prime comparison, since the prime product need not be small relative to N.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.0/kubilius-small-prime-model`.
+
+### Finite versus growing arithmetic limit-law input
+
+Complete the source’s growing/fixed-order prime cutoff and Mertens normalization estimates using the retained arithmetic moment nodes, then apply a genuine moment-convergence theorem with uniform integrability/tightness and the native Gaussian moment determinacy. The latter alone does not imply convergence. Match density of CDF continuity points via countability of atoms. The inherited finite Gaussian upper bounds are not asserted to be asymptotic moment formulas.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`, `ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan`, `ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion`.
+
+### Retained torus refinements
+
+Retained asymptotic torus statements include integer indexing and the abelian rational/Ratner decomposition. Exercise1.1.22’s compact-connected-subgroup realization and the higher-dimensional criterion exercises still need refinement beyond the SL_d(Z) subtorus presentation. Quantitative single-scale equidistribution has not been decomposed; obtain an exact requested rate and source passage from ES/AC consumers before claiming it.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/abelian-ratner-polynomial`.
+
+### Residual named data and elementary API declarations at the 300-node boundary
+
+Promote the separately named constructor/data/example declarations in these API lists where they are distinct declarations rather than the parent itself. Also split the four remaining elementary lemmas: TotallyAsympEquidistributed.asympEquidistributed (q=1,r=0); TotallyAsympEquidistributed.comp_affine (multiply positive moduli); asympEquidistributedInt_update_zero (neither half visits zero); TotallyAsympEquidistributedInt.asympEquidistributedInt (q=1,r=0). Their exact API statements are retained in the reader; no lemma-level closure is claimed for this bundle.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational`, `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph`, `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality`.
+
+### Native equidistribution and subtorus API bridges
+
+Match the open-set Portmanteau lower bound under HasOuterApproxClosed; identify the one-coordinate torus Fourier integral with the circle integral; match the kernel of the frequency-one circle character; match measure-map evaluation on the compact range. The pin provides convergence on null-frontier sets, which alone must not be cited as the general open-set lower bound.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-7`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-6`, `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-1`, `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-7`.
+
+### Reduced rational interval and circle API bridges
+
+Match exact finite-union Lebesgue interval lengths, endpoint nullity and reduced-numerator cardinality, including q=1. For the two circle transport directions match primitive additive order with reduced denominator, representatives and wraparound at 0/1, and unbounded denominator extraction. The backward strict-distance conversion requires irrational x and the factor 2. These API statements are recorded targets, not deductions from the native membership statement alone.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-3`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-4`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-7`, `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-8`.
+
+### Arbitrary-gauge mass distribution versus the power-gauge native theorem
+
+The baseline Measure.le_hausdorffMeasure is a power-gauge theorem. Prove the corresponding arbitrary dimension-function estimate using mkMetric and the radius/diameter comparison before applying it in mass-transference-general; use the native result directly only for a power gauge. Keep the measure-extension/tree gap separately.
+
+Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general`, `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-bound`.
+
+### Requests to other owners
+
+- **AnalyticNumberTheory:AN.2**: Mertens' theorems: Σ_{p≤x} 1/p = log log x + B + O(1/log x), with an effective error such as Rosser–Schoenfeld Theorem 5 (|error| ⩽ 1/(log x)² for x ⩾ 286), and its consequences Σ_{w≤p<z} 1/p = log(log z/log w) + O(1/log w) and ∏_{p≤x}(1 + 1/p) ≍ log x. Koukoulopoulos–Maynard use them in the proof of Theorem 1 ((5.8)), Lemma 7.3 and Lemma 8.4. Mathlib 082e2d3 has Chebyshev's bounds but no Mertens theorem. Consumers: `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem`, `ProbabilisticAndMetricNumberTheory:PM.3/few-integers-many-large-primes`, `ProbabilisticAndMetricNumberTheory:PM.3/remove-R-from-anatomy`.
+- **AnalyticNumberTheory:AN.2**: Reciprocal-prime Mertens asymptotic Σ_{p≤z}1/p=log log z+O(1), including the bounded prime-power remainder needed to compare the source Turán–Kubilius A_N,B_N²; supply exact scope/effectivity. Import existing summation APIs instead of rebuilding AN.0. Consumers: `ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan`, `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac`, `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius`.
+- **AnalyticNumberTheory:AN.5**: Supply the existing-owner pretentious-distance and Halász interfaces with quantitative conductor/height ranges. For Tao Corollary 1.5 specifically, require uniform divergence over |t|≤Ax for every fixed character χ and A≥1; fixed-t divergence is insufficient. Also supply the Halász input to MR’s restricted Dirichlet-polynomial argument. Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill`, `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott`, `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla`, `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-good-set`.
+- **AnalyticNumberTheory:AN.3**: Supply source-scoped Dirichlet-polynomial mean-value bounds and any required quantitative zero-free-region/nonpretentiousness estimate for Liouville against characters with the |t|≤Ax height range. Ordinary short-interval prime-counting estimates or a qualitative fixed-modulus PNT are insufficient for these uniform twisted bounds. Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill`, `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla`, `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-good-set`.
+- **ExponentialSumsAndCircleMethod:ES.0**: Supply the source-scoped modulated short-sum/circle-method Fourier estimates used in Tao’s entropy-decrement proof; they must include their averaging variables and scale ranges. Existing finite character-sum identities alone do not give the needed Liouville minor-arc cancellation. Consumers: `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott`, `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla`.
+- **DiophantineApproximationAndTranscendence:DT.0**: For irrational 0<x<1, bounded native GenContFract.of x partial denominators (equivalently this packet’s Gauss digits via native-stream-gauss) iff DT.0/badly-approximable: ∃c>0 ∀natural q≥1, q|qx−round(qx)|≥c. Import this theorem from the owner; DT.0 currently defines badly approximable but has no exact bounded-digit equivalence node. Preserve the positive denominator and irrationality hypotheses. Consumers: `ProbabilisticAndMetricNumberTheory:PM.4/bounded-digits-compact-orbit`.
+- **GeometryOfNumbersAndQuadraticArithmetic:GN.4**: Concrete SL(2,real)/SL(2,integer) quotient topology and Borel structure, the integer subgroup lattice proof and normalized invariant Haar probability; continuous left action of a_t=diag(exp t,exp(−t)); the max-norm version of GN.4/mahler-compactness; and time-one strong mixing of left a_1 from GN.4/howe-moore-mixing. Continuous-flow ergodicity alone does not supply time-one ergodicity. Also expose transpose Γ\G→G/Γ as the quotient homeomorphism for the consumer convention. Consumers: `ProbabilisticAndMetricNumberTheory:PM.4/homogeneous-birkhoff`, `ProbabilisticAndMetricNumberTheory:PM.4/bounded-digits-compact-orbit`, `ProbabilisticAndMetricNumberTheory:PM.4/column-row-convention`.
+
+## Source observations and review boundary
+
+The 60 observations retain their independent verdicts in the two packets. Fifty-eight are confirmed in the recorded acquired versions; E23 and E25 are rejected and must not be represented as source errors. No observation about an unread publisher version is inferred from its preprint. The following records give corrections and mathematical reasons in our own words, rather than source passages.
+
+### ProbabilisticAndMetricNumberTheory/E1 — confirmed
+
+Source: GS-SIEVING, Published preview p.15, sentence before inequality (1); also author copy p.1 and arXiv v1 p.1..
+
+In inequality (1) require integer k>=1. Treat k=0 separately: pi_0(x)=1 for x>=2. In its subsequent tail sum add the possible n=1 contribution separately. At k=0 the displayed (k-1)! is (-1)!, outside the natural factorial domain. The sole positive integer with no prime factor is 1. The exceptional contribution is negligible for the ensuing normal-order argument.
+
+### ProbabilisticAndMetricNumberTheory/E2 — confirmed
+
+Source: GS-SIEVING, Author copy p.5, composition-count sentence before (11), and p.11, final proof of Proposition 4. Same claim in arXiv v1 pp.5,10. Published body beyond preview unavailable; not asserted against its text..
+
+The number of ordered s-tuples alpha_i>=2 with sum k, for 1<=s and 2s<=k, is binom(k-s-1,s-1). The printed binom(k-s,s) remains an upper bound in this range, so the ensuing estimates need no stronger error term. For k=5,s=2 the tuples are (2,3),(3,2), two rather than three. Subtract two from each part and apply stars and bars. The ratio of the printed to correct binomial is (k-s)/s>=1; when s=0 handle the empty tuple separately.
+
+### ProbabilisticAndMetricNumberTheory/E3 — confirmed
+
+Source: GS-SIEVING, Author copy p.9, polynomial-value example after Proposition 3; same formula in arXiv v1 p.9. Published body beyond preview unavailable; not asserted against its text..
+
+Replace sigma_P by sigma_P squared in the displayed mean/variance asymptotic. In the usual fixed-power prime cutoff z=x^c, c>0, log log z=log log x+O(1). Already f(t)=t gives h(p)=1, mu_P=sum_{p in P}1/p and sigma_P^2=mu_P-sum_{p in P}1/p^2. As the prime cutoff grows, sigma_P has square-root logarithmic size, not the same size as mu_P. Proposition 3 defines sigma_P squared as the variance.
+
+### ProbabilisticAndMetricNumberTheory/E4 — confirmed
+
+Source: TAO-CLT-2010, Section 2, Exercise 11, final displayed derivative formula (after the Taylor expansion). Author HTML as accessed 27 September 2026..
+
+Evaluate the derivative at t=0: F_X^(j)(0)=i^j E[X^j]. At general t, the expression is E[(iX)^j exp(itX)] under the stated absolute moment hypothesis. For the deterministic variable X=1, F_X(t)=exp(it). For j=1 its derivative at t=pi is -i, not i. Already j=0 would incorrectly force the characteristic function to be constant 1. The Taylor coefficients in the preceding display are correctly centered at zero.
+
+### ProbabilisticAndMetricNumberTheory/E5 — confirmed
+
+Source: TAO-HOFA-1.1, Proof of Lemma 1.1.6, printed p. 8 (PDF p. 16); the same sentence in the proof of Lemma 4 of the blog notes..
+
+'We expand out the right-hand side as'. The display expands the square |E_{h∈[H]} a_{n+h}|² on the right-hand side of the preceding Cauchy–Schwarz display; the left-hand side E a_n is unchanged.
+
+### ProbabilisticAndMetricNumberTheory/E6 — confirmed
+
+Source: TAO-HOFA-1.1, Proof of Corollary 1.1.9, printed p. 9 (PDF p. 17); the same sentence in the proof of Corollary 6 of the blog notes..
+
+'with leading coefficient shα_s' (equivalently, 'with leading term shα_s n^{s−1}'). By the binomial theorem the n^{s−1} coefficient of P(n + h) − P(n) is s h α_s; the next sentence treats shα_s as the coefficient, whose irrationality is what the induction uses.
+
+### ProbabilisticAndMetricNumberTheory/E7 — confirmed
+
+Source: TAO-HOFA-1.1, Paragraph after the proof of Proposition 1.1.5, printed p. 7 (PDF p. 15); the same sentence after the proof of Proposition 3 of the blog notes..
+
+'this torus T′ is uniquely determined by α'. T is the ambient torus, given in advance; the object that α determines is the subtorus T′ of Proposition 1.1.5.
+
+### ProbabilisticAndMetricNumberTheory/E8 — confirmed
+
+Source: TAO-HOFA-1.1, Remark 1.1.19, printed p. 17 (PDF p. 25); Remark 5 of the blog notes, which says 'Example 7'..
+
+'in Exercise 1.1.7' (the blog notes: 'in Exercise 7'). There is no Example 1.1.7. The result being compared is the single-scale theorem for abelian polynomial sequences, which the text introduces with 'This gives us the following analogue of Exercise 1.1.7'; Exercise 1.1.7 is the asymptotic equidistribution theorem for abelian polynomial sequences.
+
+### ProbabilisticAndMetricNumberTheory/E9 — confirmed
+
+Source: TAO-HOFA-1.1, Exercise 1.1.7, printed p. 9 (PDF p. 17); Exercise 7 of the 2010 blog notes, same wording..
+
+'where P′, P′′ are polynomials of degree at most s'. If P is already totally equidistributed on T (e.g. P(n) = n√2 with s = 1), the decomposition has P′′ constant, of degree 0 < s; likewise P′ = 0 when P is periodic. Only 'at most s' is always achievable, and it is what the argument gives.
+
+### ProbabilisticAndMetricNumberTheory/E10 — confirmed
+
+Source: KM-2020, Lemma 5.3, p. 264 (arXiv v3 p. 12).
+
+The indicator should be 1_{2M(q,r) ⩾ gcd(q,r)} (or omitted); the rest of the bound is as printed. Distinct reduced fractions a/q, b/r satisfy |a/q − b/r| ⩾ gcd(q,r)/(qr), so A_q and A_r can meet when rψ(q) + qψ(r) ⩾ gcd(q,r), which allows M < gcd. Explicitly, q = 2, r = 3, ψ ≡ 3/10 ⩽ 1/2: A_2 = [0.35, 0.65], A_3 = [7/30, 13/30] ∪ [17/30, 23/30], λ(A_2 ∩ A_3) = 1/6 > 0, while M(2,3) = 9/10 < 1 = gcd(2,3), so the printed right-hand side is 0. The proof of Theorem 1 is unaffected: the indicator only restricts the sum (5.7), and pairs with gcd/2 ⩽ M < gcd satisfy the conditions of the later sets E_t.
+
+### ProbabilisticAndMetricNumberTheory/E11 — confirmed
+
+Source: KM-2020, Proof of Theorem 1 assuming Proposition 5.4, after (5.3), p. 265 (arXiv v3).
+
+A_q is defined by (1.3); (1.4) defines A. (1.3) defines A_q and (1.4) defines A = lim sup A_q; checked on the page image.
+
+### ProbabilisticAndMetricNumberTheory/E12 — confirmed
+
+Source: KM-2020, Proof of Lemma 14.1, Case 1 (k = 0), p. 302 (arXiv v3).
+
+The vertex sets of G⁺ are V⁺ = V_{p⁰} ∪ V_{p¹} ⊆ V and W⁺ ⊆ W, which can be proper; by the displayed quality formula q(G⁺)/q(G*) = (μ(V)/μ(V⁺))⁹(μ(W)/μ(W⁺))⁹/(1 − 1/p^{31/30})^{10} ⩾ 1/(1 − 1/p^{31/30})^{10}. Vertices v with p² | v belong to V but not to V⁺; nothing in the hypotheses excludes them. The edge sets agree (every edge of E* has both ends in V⁺ × W⁺ when k = 0), but the vertex measures do not. Only the inequality is needed, and it holds.
+
+### ProbabilisticAndMetricNumberTheory/E13 — confirmed
+
+Source: KM-2020, Proofs of Lemma 13.2, pp. 297–298, and Lemma 14.1, p. 300.
+
+Lemmas 11.1, 11.3, 11.4, 12.1, 12.2 and 13.1 hold for every prime p ∉ P, not only for p ∈ R(G): their proofs never use p ∈ R(G). With that weaker hypothesis the applications are valid, and R(G′) ⊆ R(G) \ {p} still follows from G′ ⪯ G(1) ⪯ G and p ∈ P′. G(1) is obtained from G by deleting vertices (Lemma 10.1) or restricting to smaller sets (Lemma 11.6), so R(G(1)) ⊆ R(G) may no longer contain p; the cited lemmas assume p ∈ R(G(1)). The planned nodes state these lemmas for p ∉ P.
+
+### ProbabilisticAndMetricNumberTheory/E14 — confirmed
+
+Source: KM-2020, End of the proof of Lemma 14.1, p. 303 (arXiv v3).
+
+G′ ∈ {G⁺, G_{p^k,p^{k−1}}, G_{p^{k−1},p^k}} (14.14) and (14.15), and the sentences just before, concern G_{p^k,p^{k−1}} and G_{p^{k−1},p^k}; the graphs with k+1 are not considered (the (k,k+1) edges are already in G⁺). Checked on the page image.
+
+### ProbabilisticAndMetricNumberTheory/E15 — confirmed
+
+Source: SarigTransfer, Proposition 1.1, physical p.6 / printed p.4, uniqueness proof in acquired author notes.
+
+Replace the second h₁ by h₂. The surrounding argument compares two densities h₁ and h₂. Repeating h₁ gives zero independently of h₂ and cannot establish their equality.
+
+### ProbabilisticAndMetricNumberTheory/E16 — confirmed
+
+Source: SarigTransfer, §2.3, physical p.11 / printed p.9, first continued-fraction iterate display.
+
+Write T^(n−1)(x)=1/(aₙ+⋯), or retain Tⁿ with first denominator a_(n+1). The text starts x=[0;a₁,a₂,…] and T deletes the first digit. At n=1 the next digit is a₂, as also used in the following cylinder formula.
+
+### ProbabilisticAndMetricNumberTheory/E17 — confirmed
+
+Source: SarigTransfer, Exercise 2.5(b), physical p.12 / printed p.10, uniform contraction in acquired author notes.
+
+Use ≤ for all x,y, or require x≠y for a strict version. Set x=y. Both sides vanish, so the printed strict inequality says 0<0. The non-strict contraction is the proof input.
+
+### ProbabilisticAndMetricNumberTheory/E18 — confirmed
+
+Source: SarigTransfer, Exercise 2.5(c), physical p.13 / printed p.11, derivative hint in acquired author notes.
+
+For one-digit branches use Lip(log|v′ₐ|)≤2; for all words use the continuant denominator to bound relative derivative distortion. For a=1, v(x)=1/(1+x); the derivative secant between 0 and 1/4 has absolute slope 36/25>1. The logarithmic derivative slope is at most 2 on [0,1]. The hinted derivative bound is false, while the intended relative distortion remains valid.
+
+### ProbabilisticAndMetricNumberTheory/E19 — confirmed
+
+Source: SarigTransfer, Appendix A.2, physical p.32 / printed p.30, Rényi cylinder change of variables.
+
+Integrate |v′ₐ| for the unsigned Lebesgue Jacobian. An odd-length inverse branch has negative derivative. Its integral over a positive-measure cylinder would be negative, unlike the positive measure being computed.
+
+### ProbabilisticAndMetricNumberTheory/E20 — confirmed
+
+Source: SarigTransfer, Appendix A.2, physical p.33 / printed p.31, Gauss density comparison.
+
+Replace the upper density bound by 1/log 2. Thus m(Bₙ)≥(log 2)μ_G(Bₙ)≥m(B)/2 for a tail preimage Bₙ. The density tends to 1/log 2 at zero. Since log 2<7/10, 2(log 2)²<98/100<1, so the printed upper bound is smaller than the supremum and fails on an interval of positive measure. The corrected comparison still proves exactness.
+
+### ProbabilisticAndMetricNumberTheory/E21 — confirmed
+
+Source: Smyth2020, Proposition 15 proof, physical p.34 / printed Lesson 7 p.31.
+
+Use pₖ=aₖp_(k−1)+p_(k−2), and the corresponding q recurrence. The native matrix recurrence and the proposition’s preceding recurrence are correct; the induction line swaps the coefficients. For [0;1,2], p₂=2·p₁+p₀=2.
+
+### ProbabilisticAndMetricNumberTheory/E22 — confirmed
+
+Source: Smyth2020, Theorem 17, physical p.35 / printed Lesson 7 p.32, acquired final author notes.
+
+Require that A is invariant as a set (or invariant modulo null sets); equality of measure under preimages alone is automatic for every measurable A. The Gauss measure is invariant. The interval A=(1/2,1) has ν(A)=log(4/3)/log 2 strictly between zero and one, while ν(T^(−n)A)=ν(A) for every n. The theorem as printed confuses invariance of a set with preservation of its mass.
+
+### ProbabilisticAndMetricNumberTheory/E23 — rejected
+
+Source: Smyth2020, Lesson 9 second bullet, physical p.46 / printed p.43, approximation-error logarithm.
+
+Rejected after independently reading and rendering Smyth PDF46 (printed43). The approximation-error formula is the third bullet and already displays -pi^2/(6log2). The claimed positive sign is not in the acquired bytes (SHA74a84b7ba741728055e9cc0da7b3c2b14e99b645ea79ac2f3b72d98034a9cf1f).
+
+### ProbabilisticAndMetricNumberTheory/E24 — confirmed
+
+Source: Smyth2020, Theorem 21, physical p.46 / printed Lesson 9 p.43, Khinchin product.
+
+Use 1+1/(k(k+2)) inside the product defining K. The preceding first-digit formula gives mass log((k+1)²/(k(k+2)))/log 2. Exponentiating the log-digit integral gives precisely the corrected factor. Every k≥2 term in the printed product is strictly larger, so it cannot give the claimed Khinchin constant.
+
+### ProbabilisticAndMetricNumberTheory/E25 — rejected
+
+Source: Smyth2020, Exercise 2.4(c), physical p.49 / printed Lesson 9 p.46.
+
+Rejected as an alleged mathematical sign error after reading and rendering Smyth PDF49 in context. Exercise2.4(b) approximates -log(q_n)/n by the log(x) orbit average. Applying Birkhoff to log(x), as(c) instructs, and negating gives the positive denominator-growth constant. The text does not assert that the log(x) integral itself is positive; its dangling wording is not the claimed sign error.
+
+### ProbabilisticAndMetricNumberTheory/E26 — confirmed
+
+Source: Smyth2020, Exercise 2.4(d),(f), physical p.49 / printed Lesson 9 p.46.
+
+Restrict the Fibonacci denominator bounds to irrational inputs, or indices before native rational termination. At x=1/2 the native continued fraction terminates; subsequent native denominators stay 2 while Fibonacci numbers grow without bound. The metric conclusions already discard this null rational set.
+
+### ProbabilisticAndMetricNumberTheory/E27 — confirmed
+
+Source: Smyth2020, Conjecture 24, physical p.48 / printed Lesson 9 p.45.
+
+Use Q(Zⁿ) for the Oppenheim lattice-value density statement. The preceding bullet correctly says integer vectors. For real vectors any indefinite real quadratic form already takes every real value by homogeneity, independent of irrationality.
+
+### ProbabilisticAndMetricNumberTheory/E28 — confirmed
+
+Source: Smyth2020, Theorem 20 final line, physical p.45 / printed Lesson 9 p.42.
+
+Use x∈X\N_f in the general probability-space theorem. The theorem’s domain is an arbitrary measurable X. The preceding limit-existence conclusion uses X correctly; [0,1) was retained from the special-case theorem above.
+
+### ProbabilisticAndMetricNumberTheory/E29 — confirmed
+
+Source: BeresnevichVelani, Published p.988, Lemma 7 proof, middle triangle inequality.
+
+Use ≤ at the last triangle bound and < at c r_M<d(x_M,z), since z lies outside the closed ball cM. Closed balls permit equality in the triangle bound. On the line take A=closedBall(0,1), M=closedBall(3/2,1/2), c=3 and z=−1. Then A meets M at 1 and z∉cM, but d(x_M,x_A)+d(x_A,z)=5/2=2r_A+r_M. The corrected inequalities retain the lemma.
+
+### ProbabilisticAndMetricNumberTheory/E30 — confirmed
+
+Source: BeresnevichVelani, Published §§6.1–6.2, pp.991–992, theorem numbering.
+
+Disambiguate the general-space MTP on p.991 from the distinct simultaneous-approximation consequence numbered Theorem 3 on p.992. The two displayed theorems have different hypotheses and conclusions but the same number. Our citations always include section and page.
+
+### ProbabilisticAndMetricNumberTheory/E31 — confirmed
+
+Source: MatomakiRadziwill, Published p.1021, prose following Theorem 4; also arXiv v4 physical p.7.
+
+Read “while Theorem 2” in the weaker C(ε) comparison. The paragraph explicitly compares Theorem 4 with Theorem 2, gives the stronger bound from Theorem 4, and then accidentally attributes the weaker bound to Theorem 4 again.
+
+### ProbabilisticAndMetricNumberTheory/E32 — confirmed
+
+Source: TaoLogChowla, Published Theorem 2, p.3; also arXiv v4 Theorem 1.2 physical p.2.
+
+Use x→∞. n is the bound summation variable; x is the free cutoff and ω depends on x. The hypothesis and the next displayed specialization both use x→∞.
+
+### ProbabilisticAndMetricNumberTheory/E33 — confirmed
+
+Source: Smyth2020, Lesson 1 boxed digit/orbit equivalence, physical p.7 / printed p.4.
+
+Use half-open fundamental intervals for the canonical terminating expansion, or remove the countable endpoints. Earlier I₀ is the closed interval [0,1/3]. For x=1/9 and n=1, T₃x=1/3 belongs to I₀ while the second canonical digit is 1. The all-point equivalence fails at endpoints; the almost-everywhere consequence remains valid.
+
+### ProbabilisticAndMetricNumberTheory/E34 — confirmed
+
+Source: Smyth2020, Lesson 5 mixing interpretation, physical p.29 / printed p.26, two consecutive bounds.
+
+Use εν(A) for the bound before dividing by ν(A), with ν(A)>0. Dividing the printed bound by ν(A) gives ε ν(B)/ν(A), which need not be ≤ε. Choosing a smaller tolerance proves the intended conditional-probability statement.
+
+### ProbabilisticAndMetricNumberTheory/E35 — confirmed
+
+Source: MatomakiRadziwill, Published p.1017, displayed (1).
+
+Use X→∞. The average in that display uses the free cutoff X and has no free x. The surrounding text already discusses large X.
+
+### ProbabilisticAndMetricNumberTheory/E36 — confirmed
+
+Source: Sarnak, Lecture 1, physical p.3, realization in the full shift.
+
+Use ξ(n)=π₁(T^(n−1)ξ) for n≥1, or choose the sampling convention T^(n−1). The source indexes ξ from one and defines Tx(n)=x(n+1). At n=1, π₁(Tξ)=ξ(2), not ξ(1). The conjecture is unaffected by a fixed index shift.
+
+### ProbabilisticAndMetricNumberTheory/E37 — confirmed
+
+Source: Kubilius2021, Published ALEA20(2023),p717 Remark1.2; also arXivv1 PDF4.
+
+Require 0<s<1 for the claim of a positive asymptotic distance from uniform; s=0 is exactly uniform. At s=0, Z_(n,0)=n and the truncated Pareto mass is1/n at every point, so total variation distance is identically zero. The main approximation theorem is not altered by correcting the example.
+
+### ProbabilisticAndMetricNumberTheory/E38 — confirmed
+
+Source: GS-SIEVING, Author PDF8 and arXivv1 PDF8, proof of Proposition3, distinct-prime variance-product lower bound.
+
+Do not remove the numerically smallest primes. At each sequential choice at most k/2−1 excluded weights, each≤1/4, give the lower bound (σ²−k/8)^(k/2). For k=4 take the first257 primes, weight h(2)/2=0 and all other h(p)/p=1/2. Then σ²=64=k³. The distinct-pair sum is256·255/16=4080, while the printed intermediate right side is4096. The final weaker bound survives the sequential exclusion argument.
+
+### ProbabilisticAndMetricNumberTheory/E39 — confirmed
+
+Source: TAO-PRIME-FACTORS, Current author HTML, Exercise54, definition of the Mobius function.
+
+Permit k=0 in the squarefree product, or state μ(1)=1 separately. The printed otherwise-zero clause makes μ(1)=0. The identity μ*1=δ at1 then fails. Empty products give μ(1)=1.
+
+### ProbabilisticAndMetricNumberTheory/E40 — confirmed
+
+Source: KM-2020, Published p253 Theorem2; preprintv3 and author PDF3.
+
+Allow ψ* to take +∞, or separately handle the infinite-supremum case. The theorem allows ψ(n)=n². For every fixedq, sup_(q|n) ψ(n)/n=∞, so ψ*(q) is not real-valued. The packet correctly uses an extended nonnegative codomain.
+
+### ProbabilisticAndMetricNumberTheory/E41 — confirmed
+
+Source: KM-2020, Published p260 first paragraph; preprintv3 and author PDF8.
+
+Exchange W_j and V_j in this sentence: a_j divides V_j, b_j divides W_j. The preceding iteration assigns k_i to valuations of V and ell_i to W. The products defining a_j and b_j use k_i and ell_i respectively; the following GCD-graph definition uses the correct sides.
+
+### ProbabilisticAndMetricNumberTheory/E42 — confirmed
+
+Source: KM-2020, Published p291 Lemma12.1; preprintv3 and author PDF34.
+
+Require μ(E)>0 (non-trivial G), as all actual callers do. Take V=W={1,2}, μ(1)=1, μ(2)=0, E={(2,2)}, P empty. The residual prime2 is present but μ(E)=0. Edge proportions are undefined; with total division zero the only positive vertex class k=ell=0 asks0≥1. Positive edge mass restores the normalized argument.
+
+### ProbabilisticAndMetricNumberTheory/E43 — confirmed
+
+Source: KM-2020, Published pp302–303 proof Lemma14.1, heavy vertex classes and mixed-edge bound; same author/preprint passages.
+
+Use μ(V_p^k)≥(1−10^40/p)μ(V), and μ(E_(k,k−1))≤10^20 μ(V)μ(W)/p. The source assumptions control relative vertex mass. Vertex mass scales linearly under μ↦cμ and edge mass quadratically, so the displayed unnormalized inequalities cannot hold for arbitrary weights. The normalized inequalities retain the required positivity conclusions.
+
+### ProbabilisticAndMetricNumberTheory/E44 — confirmed
+
+Source: BeresnevichVelani, Published p975 Mass Distribution Principle proof; preprintv3 PDF5.
+
+Use μ(E)≤μ(∪_i B_i) for a cover of E. For uniform measure on[0,1], take E=[0,1/2] and cover it by[0,1]. The masses are1/2 and1. The inequality suffices for the argument; the principle is unchanged.
+
+### ProbabilisticAndMetricNumberTheory/E45 — confirmed
+
+Source: BeresnevichVelani, Published p977 Remark2 following Theorem2; preprintv3 PDF7.
+
+Retain the shrinking-radius hypothesis of Theorem2. Take k=1, f(r)=sqrt(r), all r_i=1/4, and centers3m/4 for integersm, each repeated infinitely often. The f-expanded radius is1/2, so its limsup is allR. Original radius1/4 balls miss(1/4,1/2), hence miss B=closedBall(3/8,1/16). The f-Hausdorff measure of B is infinite while that of the original limsup intersect B is zero. The ratio f(r)/r=r^(-1/2) satisfies the stated monotonicity.
+
+### ProbabilisticAndMetricNumberTheory/E46 — confirmed
+
+Source: SarigTransfer, Exercise2.5, PDF12–13, definition and chain-rule hint for finite-word inverse branches.
+
+Start the composition at a₁. For v_w=v_a₁∘⋯∘v_a_n use log|v_w′(x)|=Σ_(i=1)^n log|v_ai′((v_a(i+1)∘⋯∘v_an)(x))|, with the empty suffix the identity. The word has no a₀. The chain rule evaluates each derivative at the suffix composition, while the printed hint uses prefixes and starts at zero. For two unequal digits, v_a′(v_b(x))v_b′(x) exhibits the required order.
+
+### ProbabilisticAndMetricNumberTheory/E47 — confirmed
+
+Source: Smyth2020, PDF47, Lesson9 p44, Theorem23 multiple recurrence.
+
+Require ν(B)>0. For B empty every displayed intersection has measure zero for every n, contradicting strict positivity. The following paragraph includes the missing positivity condition. This is outside the PM roadmap theorem targets.
+
+### ProbabilisticAndMetricNumberTheory/E48 — confirmed
+
+Source: Smyth2020, PDF47–48, Lesson9 Oppenheim discussion and Conjecture24.
+
+In addition to the integer-input correction E27, require Q to be nondegenerate (in the standard n≥3 formulation). The degenerate indefinite irrational form Q(m,n,z)=mn+sqrt(2)n² gives a counterexample to the proposed lattice formulation. For n≠0, if |Q|<1 then |m|≤(sqrt(2)+1)|n|, and |m+sqrt(2)n||m−sqrt(2)n|=|m²−2n²|≥1, so |Q|≥1/(2sqrt(2)+1). For n=0 it is0. Thus its integer values miss a punctured neighborhood of zero. No PM theorem depends on this aside.
+
+### ProbabilisticAndMetricNumberTheory/E49 — confirmed
+
+Source: Kubilius2021, Published p717 Example1.3, and its normalization argument.
+
+At most the exponent min(t,1) follows in this generality; normalize with n c_n=1/L+O(n^(−min(t,1))) and rewrite the displayed sums with n, not n^t. Set υ≡L=1 and t=2. The displayed integral assumption is identically zero, and J_n is uniform. For a=2 and oddn its divisibility error is1/(2n), exceeding κ/n² for every fixedκ eventually. Thus H_2 is false. The printed n^t c_n=L+O(n^(−t)) also fails since c_n=1/n. This example is not used by the packet classical uniform model.
+
+### ProbabilisticAndMetricNumberTheory/E50 — confirmed
+
+Source: Kubilius2021, Preprint PDF4 and published p717, lower bound for Z_(n,s).
+
+The equality has (n+1)^(1−s) in its numerator; alternatively retain the smaller expression with ≥. At s=0 the integral is n whereas the displayed expression is n−1. The lower bound needed in the proof remains valid.
+
+### ProbabilisticAndMetricNumberTheory/E51 — confirmed
+
+Source: ElsholtzTao2011, Published p100 (PDF51), quadratic reciprocity displays(A.7),(A.8); author PDF39.
+
+In(A.7) require gcd(m,n)=1 (with positive odd inputs). In(A.8) replace the exponent(n−1)/4 by(n−1)/2. For m=n=3 the two Jacobi symbols multiply to0 whereas the printed reciprocity right side is−1. For n=5, (−1/5)=1 but the printed(A.8) gives−1. Both defects remain in the published PDF, independently rendered and compared with the author copy. These formulas are incidental to the Turán–Kubilius passage used by PM.
+
+### ProbabilisticAndMetricNumberTheory/E52 — confirmed
+
+Source: BSKK2023, Lemma7.2 proof, arXiv2007.14567v3 PDF36 and current author PDF36–37.
+
+First project complex values to a real line and keep a positive fraction of the indices with large projection. Choose a direction for which at least(2/3)(n−1) coefficients have projection magnitude≥|z|^j/2; condition on the other independent coefficients. Apply real Kolmogorov–Rogozin at radius min(1,|z|)^n/8 to these projected summands. The stated real inequality cannot directly take complex X_j. With z=i and a_j=±1, X_1=±i is not real. Even if one extends Q to disks with real centers, for radius below1 its concentration is0, not the claimed maximal atom1/2. Averaging directions gives the indicated positive-fraction projection repair, preserving the theorem order of magnitude. The packet plans only the real inequality and retains a separate projection gap.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-1 — confirmed
+
+Source: Sun2017, arXiv:1705.02921v2, physical p.4, Theorem 2, displayed estimate after the derivative cancellation.
+
+The triangle estimate needs Σ[δ_a|h_a′|+h_a/(a+x)²]. For p=1 this packet proves a sufficient bound ≤18913/21600<9/10; it does not claim the printed sharper Q_p rate. At p=1,a=2,x=1, h_2′=−1/72. The separate mean-value derivative values may have different signs, so the displayed signed coefficient sum does not follow by the maximum-norm triangle inequality. The gap affects this proof step, not the existence of exponential convergence.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-2 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.35, printed p.33, Conditional Closure Lemma equation (A.3).
+
+Restore the factor R multiplying the seminorm: numerator ||g_n−g_m||+R||f_n−f_m||_0. The preceding displayed inequality includes R; rearranging cannot remove it. The subsequence argument still works with the fixed positive constant R.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-3 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.35, printed p.33, Riesz Lemma statement.
+
+Require U to be a proper closed subspace, or replace U by its closure and require closure(U)≠V. A dense proper linear subspace has distance zero from every vector and contradicts the stated positive separation. The subsequent applications to finite-dimensional or established closed subspaces can use the corrected lemma.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-4 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.37, printed p.35, Step 1 separation estimate.
+
+For the sequence {L^m f_n}, use |z|^m/2 separation; when subsequently using L^(m+1), the corresponding power is |z|^(m+1)/2. The factor pulled from z^(−m)L^m is |z|^m, and the normalized Riesz distance is at least 1/2. The printed last inequality changes its exponent without justification.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-5 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.37, printed p.35, iterated (A.2).
+
+The iteration is r^m||f||+R Σ_(j=0)^(m−1) r^j||L^(m−1−j)f||_0. At m=1 the printed expression introduces an extra factor r in front of R||f||_0. Inducting the one-step inequality gives the corrected index and exponents; the required compactness argument remains available.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-6 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.38, printed p.36, Step 2 direct-sum proof.
+
+Replace the second operator by (zI−L)^(2m). The vector f cannot occupy the operator position; the previous line identifies the stabilized range of zI−L.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-7 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.42, printed p.40, Appendix A.4 opening lemma (incidentally read, outside target chain).
+
+The uniform-boundedness argument gives sup_n |φ(x_n)|=∞, hence a subsequence with |φ(x_(n_k))|→∞; it does not give divergence of the whole sequence. The weak-analyticity argument should use that subsequence. In complex dimension two, in each block take a fine finite net of the unit sphere scaled by the block index, with mesh at most its inverse square. Norms tend to infinity, but every linear functional has a unit kernel vector, so a subsequence of its values tends to zero. The displayed proof itself only concludes an unbounded supremum.
+
+### ProbabilisticAndMetricNumberTheory/EPM4-8 — confirmed
+
+Source: SarigTransfer, 2020 author PDF, physical p.35, printed p.33, Conditional Closure Lemma first sentence.
+
+Replace the concrete-space symbol 𝓛 by the Banach space B in which the generic operator L acts. Theorem A.3 fixes an arbitrary Banach space B and a bounded operator on B; 𝓛 was the earlier concrete Lipschitz function space. The lemma’s remaining hypotheses and proof identify B as the intended space.
+
+## Target index
+
+Each row belongs to the indicated packet; continuation nodes refine, rather than replace, parent nodes. The two packets give a single acyclic graph. The suggested Lean file intentionally selects milestones; omission there does not remove a reader target or its API.
+
+### PM.0
+
+- `ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum` — Finite weighted prime truncation
+- `ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation` — Positive evaluation
+- `ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation` — Empty truncation
+- `ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence` — Coefficient extensionality
+- `ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition` — Additivity in the weights
+- `ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity` — Coprime product law
+- `ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation` — Prime-power law
+- `ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility` — Compatibility with the existing omega
+- `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability` — Exact divisibility probability
+- `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error` — Signed finite counting error
+- `ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility` — Joint divisibility and the lcm
+- `ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean` — Exact mean of a finite truncation
+- `ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean-error` — Centering error
+- `ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity` — Exact centered pair average
+- `ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error` — Uniform prime-pair error
+- `ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison` — Finite-head second-moment comparison
+- `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-moments` — Exact moments on complete prime periods
+- `ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility` — Simultaneous prime-divisibility probability
+- `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula` — Signed formula for prime-divisibility patterns
+- `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-error` — Bernoulli-product error for one pattern
+- `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-joint-law` — Complete-period Bernoulli law
+- `ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-summed-error` — Summed Boolean-atom error
+- `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion` — Exact centered prime-product average
+- `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-error` — Explicit centered-product remainder
+- `ProbabilisticAndMetricNumberTheory:PM.0/centered-product-uniform-error` — Uniform mixed-moment comparison
+- `ProbabilisticAndMetricNumberTheory:PM.0/complete-period-centered-product` — Complete-period mixed moments
+- `ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison` — Finite weighted moment comparison
+- `ProbabilisticAndMetricNumberTheory:PM.0/residue-probability` — Exact residue probability
+- `ProbabilisticAndMetricNumberTheory:PM.0/residue-atom-error` — Residue atom error
+- `ProbabilisticAndMetricNumberTheory:PM.0/residue-summed-error` — Exact summed residue error
+- `ProbabilisticAndMetricNumberTheory:PM.0/residue-event-error` — Sharp residue event bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/residue-statistic-error` — Bounded residue statistic bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability` — Joint residue atom formula
+- `ProbabilisticAndMetricNumberTheory:PM.0/crt-complete-period-law` — Complete-period joint residue law
+- `ProbabilisticAndMetricNumberTheory:PM.0/crt-summed-error` — Exact joint residue error
+- `ProbabilisticAndMetricNumberTheory:PM.0/crt-statistic-error` — Bounded joint residue statistic bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-factorization` — Repeated-factor decomposition
+- `ProbabilisticAndMetricNumberTheory:PM.0/prime-power-tail-count` — Repeated powers of one prime
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-prime-power-expansion` — Finite repeated-prime-power expansion
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-formula` — Exact repeated-factor mean
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-mean-bound` — Uniform repeated-factor mean bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-bound` — Repeated-factor tail bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1` — Scaled repeated-factor L1 bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-cdf-sandwich` — Finite omega-to-Omega distribution comparison
+- `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-count` — Arithmetic observation frequencies
+- `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-cdf` — Arithmetic cumulative distribution counts
+- `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-charfun` — Arithmetic characteristic-function average
+- `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-levy-criterion` — Arithmetic Levy criterion
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound` — Lipschitz comparison of prime-factor laws
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-l1-limit` — Vanishing normalized repeated-factor mean
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-limit` — Vanishing repeated-factor tail frequencies
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer` — Transfer between omega and Omega limit laws
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-local-geometric` — Positive geometric expansion at one prime
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-product` — Finite prime product for the excess exponential
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-euler` — Finite Euler upper bound for the excess mean
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-local-euler-bound` — Uniform bound for one repeated-factor Euler term
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-finite-euler-bound` — Uniform finite excess Euler product bound
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-mean` — Uniform exponential moment of repeated prime factors
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-all-moments` — All fixed repeated-factor moments
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-tail` — Exponential tail bound for repeated prime factors
+- `ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-moments` — Scaled repeated-factor moment bounds
+- `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate` — Additive arithmetic functions
+- `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-1` — IsAdditive.map_one
+- `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-2` — IsAdditive.map_mul
+- `ProbabilisticAndMetricNumberTheory:PM.0/additive-predicate-api-3` — IsAdditive.add
+- `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate` — Strongly additive arithmetic functions
+- `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-1` — IsStronglyAdditive.isAdditive
+- `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-2` — IsStronglyAdditive.prime_pow
+- `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-predicate-api-3` — IsStronglyAdditive.add
+- `ProbabilisticAndMetricNumberTheory:PM.0/additive-prime-powers` — Prime-power representation of additive functions
+- `ProbabilisticAndMetricNumberTheory:PM.0/strongly-additive-primes` — Distinct-prime representation
+- `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration` — Concentration function of a real law
+- `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-1` — concentration_bounds
+- `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-2` — concentration_mono
+- `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-3` — concentration_translate
+- `ProbabilisticAndMetricNumberTheory:PM.0/real-concentration-api-4` — concentration_scale
+- `ProbabilisticAndMetricNumberTheory:PM.0/kolmogorov-rogozin` — Kolmogorov–Rogozin inequality
+- `ProbabilisticAndMetricNumberTheory:PM.0/cdf-weak-criterion` — CDF continuity-point criterion
+- `ProbabilisticAndMetricNumberTheory:PM.0/kubilius-small-prime-model` — Kubilius small-prime valuation comparison
+
+### PM.1
+
+- `ProbabilisticAndMetricNumberTheory:PM.1/local-factor-bound` — Centered prime factor bounds
+- `ProbabilisticAndMetricNumberTheory:PM.1/model-multinomial-expansion` — Prime model multinomial expansion
+- `ProbabilisticAndMetricNumberTheory:PM.1/paired-support-formula` — Paired prime contribution
+- `ProbabilisticAndMetricNumberTheory:PM.1/distinct-prime-tuples` — Distinct prime variance tuples
+- `ProbabilisticAndMetricNumberTheory:PM.1/prime-collision-bound` — Prime variance collision estimate
+- `ProbabilisticAndMetricNumberTheory:PM.1/fixed-support-bound` — Fixed prime support moment bound
+- `ProbabilisticAndMetricNumberTheory:PM.1/smaller-support-bound` — Smaller prime support bound
+- `ProbabilisticAndMetricNumberTheory:PM.1/finite-even-gaussian-bound` — Finite even Gaussian moment bound
+- `ProbabilisticAndMetricNumberTheory:PM.1/finite-odd-moment-bound` — Finite odd prime moment bound
+- `ProbabilisticAndMetricNumberTheory:PM.1/omega-cutoff-identity` — Prime cutoff decomposition of omega
+- `ProbabilisticAndMetricNumberTheory:PM.1/large-prime-log-bound` — Logarithmic bound for discarded prime factors
+- `ProbabilisticAndMetricNumberTheory:PM.1/centered-cutoff-error` — Centered prime cutoff error
+- `ProbabilisticAndMetricNumberTheory:PM.1/cutoff-power-error` — Binomial prime cutoff power error
+- `ProbabilisticAndMetricNumberTheory:PM.1/absolute-odd-moment` — Odd absolute prime moments from adjacent even moments
+- `ProbabilisticAndMetricNumberTheory:PM.1/cutoff-moment-transfer` — Finite prime cutoff moment transfer
+- `ProbabilisticAndMetricNumberTheory:PM.1/turan-kubilius` — Turán–Kubilius quadratic mean inequality
+- `ProbabilisticAndMetricNumberTheory:PM.1/hardy-ramanujan` — Hardy–Ramanujan normal order
+- `ProbabilisticAndMetricNumberTheory:PM.1/erdos-kac` — Erdős–Kac Gaussian law
+- `ProbabilisticAndMetricNumberTheory:PM.1/restricted-squarefree-window` — Restricted squarefree prime-factor window
+
+### PM.2
+
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution` — Asymptotic equidistribution of a sequence
+- `ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution` — Total asymptotic equidistribution
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability` — Haar probability measure on the circle and the standard torus
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational` — Irrational points of the torus
+- `ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion` — Weyl equidistribution criterion
+- `ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion-projections` — Equidistribution in T^d through one-dimensional projections
+- `ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution` — Equidistribution theorem for linear sequences
+- `ProbabilisticAndMetricNumberTheory:PM.2/van-der-corput-lemma` — Van der Corput's difference theorem
+- `ProbabilisticAndMetricNumberTheory:PM.2/weyl-polynomial-equidistribution` — Weyl's equidistribution theorem for polynomials
+- `ProbabilisticAndMetricNumberTheory:PM.2/uniform-distribution-mod-one` — Uniform distribution modulo one
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int` — Equidistribution of doubly infinite sequences
+- `ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion-general-measure` — Weyl's criterion for an arbitrary limit measure on the torus
+- `ProbabilisticAndMetricNumberTheory:PM.2/total-equidistribution-twisted-weyl` — Total equidistribution by rational twists
+- `ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution-int` — The equidistribution theorem on ℤ
+- `ProbabilisticAndMetricNumberTheory:PM.2/polynomial-equidistribution-criterion` — Equidistribution criterion for polynomial sequences
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus` — Subtori of the standard torus and their Haar measures
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-rational-decomposition` — Rational decomposition of torus points along a subtorus
+- `ProbabilisticAndMetricNumberTheory:PM.2/abelian-ratner-polynomial` — Equidistribution theorem for abelian polynomial sequences
+- `ProbabilisticAndMetricNumberTheory:PM.2/abelian-ratner-linear` — Equidistribution for abelian linear sequences
+- `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy` — Star discrepancy
+- `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-1` — starDiscrepancy_bounds
+- `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-2` — starDiscrepancy_perm
+- `ProbabilisticAndMetricNumberTheory:PM.2/star-discrepancy-api-3` — starDiscrepancy_perturb
+- `ProbabilisticAndMetricNumberTheory:PM.2/erdos-turan` — Erdős–Turán discrepancy inequality
+- `ProbabilisticAndMetricNumberTheory:PM.2/koksma` — Koksma quadrature inequality
+- `ProbabilisticAndMetricNumberTheory:PM.2/normal-base` — Normality in a base
+- `ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-1` — IsNormalBase.block
+- `ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-2` — IsNormalBase.digit
+- `ProbabilisticAndMetricNumberTheory:PM.2/normal-base-api-3` — IsNormalBase.empty_block
+- `ProbabilisticAndMetricNumberTheory:PM.2/digit-cylinder-bridge` — Digit cylinders and expanding circle orbits
+- `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal` — Borel normal number theorem
+- `ProbabilisticAndMetricNumberTheory:PM.2/borel-normal-all-bases` — Simultaneous normality in every base
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-1` — asympEquidistributed_iff_integral_tendsto
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-2` — asympEquidistributed_iff_integral_tendsto_complex
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-3` — asympEquidistributed_comp_add_iff
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-4` — AsympEquidistributed.congr_of_eventuallyEq
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-5` — AsympEquidistributed.unique
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-6` — AsympEquidistributed.tendsto_frequency
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-7` — AsympEquidistributed.eventually_frequency_ge
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-review-api-8` — AsympEquidistributed.denseRange
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-2` — torusHaar_eq_volume
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-3` — circleHaar_eq_volume
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-4` — isAddHaarMeasure_torusHaar
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-5` — integral_mFourier_torusHaar
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability-review-api-6` — integral_fourier_circleHaar
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-1` — torusIrrational_iff_mFourier
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-2` — mFourier_eq_fourier_sum
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-3` — torusIrrational_unique_iff
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-4` — TorusIrrational.zsmul
+- `ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational-review-api-5` — TorusIrrational.nsmul
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-2` — AsympEquidistributedInt.natCast
+- `ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution-int-review-api-5` — TotallyAsympEquidistributedInt.totallyAsympEquidistributed_natCast
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-2` — Subtorus.continuous_toHom
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-4` — Subtorus.isCompact_carrier
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-5` — Subtorus.isConnected_carrier
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-7` — Subtorus.haar_carrier
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-8` — Subtorus.integral_mFourier_haar
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-9` — Subtorus.mFourier_eq_one_iff
+- `ProbabilisticAndMetricNumberTheory:PM.2/subtorus-review-api-10` — Subtorus.haar_eq_of_carrier_eq
+
+### PM.3
+
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets` — Duffin–Schaeffer approximation sets 𝒜_q, 𝒜, 𝒦_q and 𝒦
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-convergence` — The convergence half (1.5)
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-theorem` — The Duffin–Schaeffer theorem (Koukoulopoulos–Maynard Theorem 1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/catlin-reduction` — Catlin's reduction to reduced fractions (2.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/catlin-theorem` — Catlin's conjecture (Koukoulopoulos–Maynard Theorem 2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/decreasing-series-comparison` — Totient weights do not change divergence for decreasing ψ
+- `ProbabilisticAndMetricNumberTheory:PM.3/khinchin-theorem` — Khinchin's theorem
+- `ProbabilisticAndMetricNumberTheory:PM.3/second-moment-union-bound` — Second-moment lower bound for a finite union
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-large-values` — Duffin–Schaeffer when ψ takes only large values (Lemma 5.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/overlap-estimate` — Overlap estimate for 𝒜_q ∩ 𝒜_r (Lemma 5.3, corrected)
+- `ProbabilisticAndMetricNumberTheory:PM.3/second-moment-bound` — The second-moment bound (Proposition 5.4)
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph` — GCD graph and GCD subgraph (Definitions 6.1, 6.2, 6.4)
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality` — Edge density, ℛ(G) and the quality of a GCD graph (Definition 6.6)
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph` — The special GCD subgraphs G_{p^k,p^ℓ} (Definition 6.5)
+- `ProbabilisticAndMetricNumberTheory:PM.3/special-subgraph-quality-ratio` — Quality ratio of G_{p^k,p^ℓ} (Lemma 11.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/edge-set-bound` — Edge-set bound (Proposition 6.3)
+- `ProbabilisticAndMetricNumberTheory:PM.3/multiplicative-function-bound` — Rankin-type bound for multiplicative functions (case of Lemma 7.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/few-integers-many-large-primes` — Few integers with many large prime factors (Lemma 7.3)
+- `ProbabilisticAndMetricNumberTheory:PM.3/good-gcd-subgraph` — Existence of a good GCD subgraph (Proposition 7.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/iteration-flat-primes` — Iteration when ℛ♭(G) ≠ ∅ (Proposition 8.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/iteration-sharp-primes` — Iteration when ℛ♭(G) = ∅ (Proposition 8.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/iteration-small-primes` — Bounded quality loss for small primes (Proposition 8.3)
+- `ProbabilisticAndMetricNumberTheory:PM.3/remove-R-from-anatomy` — Removing the effect of ℛ(G) from L_t (Lemma 8.4)
+- `ProbabilisticAndMetricNumberTheory:PM.3/high-degree-subgraph` — Subgraph with high-degree vertices (Lemma 8.5)
+- `ProbabilisticAndMetricNumberTheory:PM.3/degree-or-increment` — High degree or a quality increment (Lemma 10.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/partition-pigeonhole` — One part has limited quality loss (Lemma 11.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/unbalanced-sets-few-edges` — Few edges between unbalanced sets (Lemmas 11.3 and 11.4)
+- `ProbabilisticAndMetricNumberTheory:PM.3/small-sets-few-edges` — Few edges between small sets (Lemma 11.5)
+- `ProbabilisticAndMetricNumberTheory:PM.3/small-sets-subgraph` — Subgraph with few edges between small sets (Lemma 11.6)
+- `ProbabilisticAndMetricNumberTheory:PM.3/edge-distribution-bound` — Some pair of prime-power classes carries many edges (Lemma 12.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/large-prime-increment` — Quality increment unless a prime power divides almost all (Lemma 12.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/any-prime-bounded-loss` — Small quality loss or a dominant prime power (Lemma 13.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/add-small-prime` — Adding a small prime to 𝒫 (Lemma 13.2)
+- `ProbabilisticAndMetricNumberTheory:PM.3/sharp-prime-increment` — Quality increment even when a prime power divides almost all (Lemma 14.1)
+- `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge` — Dimension functions
+- `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-1` — IsDimensionGauge.zero
+- `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-2` — IsDimensionGauge.positive
+- `ProbabilisticAndMetricNumberTheory:PM.3/dimension-gauge-api-3` — IsDimensionGauge.tendsto_zero
+- `ProbabilisticAndMetricNumberTheory:PM.3/gauge-normalization` — Radius versus diameter Hausdorff conventions
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cover` — Disjoint finite covering for mass transference
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor` — Separated nested Cantor levels
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-1` — MassTransferenceCantor.nested
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-2` — MassTransferenceCantor.limsup
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-cantor-api-3` — MassTransferenceCantor.separated
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure` — Compatible Cantor probability measure
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-1` — MassTransferenceMeasure.root
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-2` — MassTransferenceMeasure.children
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-measure-api-3` — MassTransferenceMeasure.ball_bound
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-level-mass` — Bounds on selected level-ball masses
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-geometry` — Ball intersection geometry
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-ball-bound` — Arbitrary small-ball mass bound
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-general` — Mass transference principle
+- `ProbabilisticAndMetricNumberTheory:PM.3/mass-transference-power` — Power-gauge mass transference on the line
+- `ProbabilisticAndMetricNumberTheory:PM.3/jarnik-besicovitch` — Jarník–Besicovitch dimension theorem
+- `ProbabilisticAndMetricNumberTheory:PM.3/hausdorff-duffin-schaeffer` — Hausdorff Duffin–Schaeffer theorem
+- `ProbabilisticAndMetricNumberTheory:PM.3/quasi-independent-borel-cantelli` — Second moment for limsup events
+- `ProbabilisticAndMetricNumberTheory:PM.3/higher-dimensional-duffin-schaeffer` — Higher-dimensional Duffin–Schaeffer theorem
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-dimension` — Hausdorff dimension of reduced approximation
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-3` — TauCeti.DuffinSchaeffer.volume_dsSet_le
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-4` — TauCeti.DuffinSchaeffer.le_volume_dsSet
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-5` — TauCeti.DuffinSchaeffer.dsSet_mono
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-6` — TauCeti.DuffinSchaeffer.dsSet_subset_khinchinSet
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-7` — TauCeti.DuffinSchaeffer.mem_dsLimsup_of_mem_addWellApproximable
+- `ProbabilisticAndMetricNumberTheory:PM.3/duffin-schaeffer-sets-review-api-8` — TauCeti.DuffinSchaeffer.mem_addWellApproximable_of_mem_dsLimsup
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-4` — TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.trans
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-5` — TauCeti.DuffinSchaeffer.GCDGraph.IsSubgraph.refl
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-6` — TauCeti.DuffinSchaeffer.GCDGraph.R_subset_of_isSubgraph
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-review-api-7` — TauCeti.DuffinSchaeffer.GCDGraph.vertexMeasure_pos_of_isNontrivial
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-8` — TauCeti.DuffinSchaeffer.GCDGraph.isNontrivial_iff
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-9` — TauCeti.DuffinSchaeffer.GCDGraph.quality_eq
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-quality-review-api-10` — TauCeti.DuffinSchaeffer.GCDGraph.edgeDensity_le_one
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-0` — TauCeti.DuffinSchaeffer.GCDGraph.restrictPow_isSubgraph
+- `ProbabilisticAndMetricNumberTheory:PM.3/gcd-graph-special-subgraph-review-api-1` — TauCeti.DuffinSchaeffer.GCDGraph.R_restrictPow
+
+### PM.4
+
+- `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise` — Pointwise Birkhoff theorem
+- `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-coloring` — Coloring estimate for Birkhoff limsup
+- `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-identification` — Invariant limit and conditional expectation
+- `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic` — Ergodic pointwise averages
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map` — Gauss map
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-1` — gaussMap_zero
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-2` — gaussMap_range
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-map-api-3` — gaussMap_measurable
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure` — Gauss probability measure
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-1` — gaussMeasure_univ
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-2` — gaussMeasure_interval
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-measure-api-3` — gaussMeasure_equivalent
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit` — Gauss digit observations
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-1` — gaussDigit_zero
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-2` — gaussDigit_shift
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-api-3` — gaussDigit_native
+- `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing` — Strong mixing of probability-preserving maps
+- `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-1` — IsStrongMixing.measurePreserving
+- `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-2` — IsStrongMixing.ergodic
+- `ProbabilisticAndMetricNumberTheory:PM.4/strong-mixing-api-3` — IsStrongMixing.correlation
+- `ProbabilisticAndMetricNumberTheory:PM.4/exact-system` — Exact probability systems
+- `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-1` — IsExact.measurePreserving
+- `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-2` — IsExact.tail_zero_one
+- `ProbabilisticAndMetricNumberTheory:PM.4/exact-system-api-3` — IsExact.strongMixing
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-jacobian` — Gauss inverse branches and Jacobians
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-telescope` — Invariant density telescope
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-invariant` — Gauss measure invariance
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-single-branch-distortion` — Uniform logarithmic distortion of one Gauss branch
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-distortion` — Uniform finite-word cylinder distortion
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi` — Rényi cylinder comparison
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact` — Rényi exactness theorem for the Gauss map
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-mixing` — Gauss mixing theorem
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-ergodic` — Gauss ergodicity theorem
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-digit-frequency` — Gauss digit frequency law
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-word-frequency` — Finite continued-fraction block frequencies
+- `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant` — Khinchin’s constant
+- `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-1` — khinchin_series_summable
+- `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-2` — khinchinConstant_pos
+- `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-constant-api-3` — khinchinConstant_log_integral
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-log-integrability` — Integrability of Gauss logarithmic observables
+- `ProbabilisticAndMetricNumberTheory:PM.4/khinchin-geometric-mean` — Khinchin geometric mean theorem
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-denominator-log-bridge` — Convergent denominators and orbit logarithms
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-log-integral` — Gauss logarithmic integral
+- `ProbabilisticAndMetricNumberTheory:PM.4/levy-denominator` — Lévy denominator growth theorem
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-kuzmin` — Gauss–Kuzmin exponential convergence
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-branch-derivative` — Absolute Gauss inverse-branch derivative
+- `ProbabilisticAndMetricNumberTheory:PM.4/homogeneous-birkhoff` — Pointwise averages on the modular homogeneous space (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/bounded-digits-compact-orbit` — Bounded continued fractions and compact diagonal semiorbits (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/typical-unbounded-semiorbit` — Typical Gauss digits give noncompact semiorbits (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-orbit-truncation` — Finite truncation of an extended orbit limsup (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bounds` — Bounds on the truncated limsup (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-measurable` — Measurability of the truncated limsup (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-invariant` — Strict invariance of the truncated limsup (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/first-orbit-hit` — First positive averaging length above a threshold (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/first-hit-positive` — Positive first hit characterizes crossing (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/first-hit-average` — Average on the selected block (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/first-hit-measurable` — Measurability of the first hit (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/greedy-orbit-blocks` — Finite greedy orbit coloring (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-partition` — Partition by greedy blocks (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-blue` — Valid blue blocks (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-red` — Red blocks detect bad starts (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-tail` — Bound on the terminal interval (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/finite-upper-coloring` — Finite lower bound from blue blocks (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-coloring-integrated` — Integrated upper-limsup coloring inequality (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bound` — Removal of the bad-set and coloring boundary (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/liminf-finite-integrable` — Finite integrable lower orbit limit (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/finite-lower-coloring` — Finite upper bound for truncated blue sums (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/lower-coloring-integrated` — Integrated lower-limsup coloring inequality (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/nonnegative-limit` — Almost-everywhere convergence for nonnegative observables (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/measurable-orbit-replacement` — Conull transport of a measurable representative (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/signed-limit` — Almost-everywhere convergence for integrable real observables (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit` — Canonical finite orbit-limit representative (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-value` — Evaluation at convergent orbits (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-measurable` — Measurability of the canonical limit (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-invariant` — Strict invariance of the canonical limit (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/bounded-observable-l1-limit` — Integral convergence for bounded observables (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/integrable-observable-l1-limit` — Integral convergence for every L1 observable (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/invariant-set-integrals` — Equality of integrals on native invariant sets (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/native-condexp-identification` — Identification with native invariant conditional expectation (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder` — Irrational continued-fraction cylinders (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-empty` — Empty cylinder (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-cons` — Cylinder shift law (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measurable` — Borel measurability of cylinders (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-zero` — Zero digits give empty cylinders (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/irrational-conull` — Irrational points form a conull Borel domain (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/inverse-word` — Ordered inverse Gauss branches (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-empty` — Empty inverse word (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-cons` — Cons inverse word (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-append` — Composition of inverse words (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-matrix` — Matrix of a finite continued-fraction word (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-empty` — Empty word matrix (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-cons` — Matrix product on cons (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-determinant` — Determinant of a word matrix (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-positive` — Positive ordered matrix denominators (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/native-stream-gauss` — Native fractional-part stream equals Gauss iterates (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/native-nontermination` — Irrational Gauss fractions never terminate (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-native-continuants` — Word matrices use the native continuants (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-mobius` — Möbius formula for inverse words (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-derivative` — Signed inverse-word derivative (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/word-denominator-fibonacci` — Uniform shrinking of positive-word intervals (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-image` — Inverse words parametrize cylinders (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/orbit-product-identity` — Exact product identity for native denominators (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-filtration` — Native finite-digit filtration (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/filtration-cylinder` — Finite-depth cylinder measurability (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/filtration-atoms` — Countable cylinder atoms (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/filtration-generates` — Cylinder generation of the Borel trace (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-formula` — Conditional expectation on a cylinder atom (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-converges` — Cylinder conditional expectations recover indicators (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-sigma-antitone` — Native pullback tail sigma-algebras decrease (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-event-preimage` — A tail event has measurable pullback representatives (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-density-lower` — Correct Lebesgue lower bound for a tail preimage (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion` — Explicit constant-four cylinder measure comparison (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound` — Uniform conditional lower bound for positive tail events (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-zero-one` — Gauss tail events are null or conull (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-constant` — Conditional expectation on an exact tail is constant (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-l1-limit` — Reverse conditional expectations converge in L1 (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/tail-correlation-bound` — Exactness supplies the strong-mixing correlation bound (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/digit-log-series-bound` — Summable logarithmic digit weights (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/digit-log-integrable` — Integrability of logarithmic first digits (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integrable` — Integrability of negative logarithm for Gauss measure (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/log-power-moment` — Logarithmic monomial integral (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/alternating-zeta-two` — Alternating reciprocal squares (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/negative-log-geometric-series` — Interchange for the Gauss logarithmic integral (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integral` — Evaluation of the Gauss logarithmic observable (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-transfer` — Gauss transfer operator on real functions (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-zero` — Zero Gauss density transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-summable` — Absolute convergence of the density transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-add` — Additivity on interval-continuous inputs (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-duality` — Lebesgue transfer duality (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-gauss-transfer` — Density-normalized Gauss transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-constant` — Normalized transfer preserves constants (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-conjugate` — Conjugacy of the two transfer operators (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-integral` — Preservation of the weighted mean (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-branch-c1` — C1 branch summands and their uniform majorants (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-interior-derivative` — Termwise derivative on the open interval (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-endpoint-derivative` — Endpoint derivatives and C1 closure of P (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-derivative-cancellation` — Cancellation of derivative weights (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-absolute-coefficients` — Correct absolute coefficient estimate (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-one` — First branch coefficient (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-two` — Second branch coefficient (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-positive-coefficient` — Positive derivative coefficients after the second branch (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-three` — Third branch coefficient (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-four` — Fourth branch coefficient (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-tail` — Reciprocal-square bound for branches with a≥5 (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-square-tail` — Telescoping bound on the reciprocal-square tail (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-total` — Uniform corrected contraction coefficient (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-derivative-contraction` — Elementary C1 derivative contraction (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/transfer-iterate-c1-bound` — C1 derivative bound for every iterate (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/weighted-mean-pins-limit` — Conserved weighted mean pins the transfer constant (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-pushforward` — Iterated densities of the Gauss map (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-uniform-error` — Uniform exponential Gauss–Kuzmin density estimate (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/digit-marginal-error` — Uniform digit-marginal convergence (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/column-row-convention` — Row/column and diagonal-time comparison (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/diagonal-short-vector-forward` — Bad approximation gives a uniform short-vector lower bound (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/diagonal-short-vector-reverse` — Uniform short vectors give a badly-approximable constant (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-scalar` — Scalar linearity of the density transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-nonnegative` — Positive densities remain positive (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-add` — Additivity of normalized transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-scalar` — Scalar linearity of normalized transfer (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-bounds` — Preservation of pointwise interval bounds (PM.4 continuation)
+- `ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-continuous` — Continuity of transferred densities (PM.4 continuation)
+
+### PM.5
+
+- `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean` — Inclusive short-interval means
+- `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-1` — shortMean_zero
+- `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-2` — shortMean_add
+- `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-mean-api-3` — shortMean_bound
+- `ProbabilisticAndMetricNumberTheory:PM.5/matomaki-radziwill` — Matomäki–Radziwiłł short-interval theorem
+- `ProbabilisticAndMetricNumberTheory:PM.5/short-interval-good-set` — Good-integer mean-square input
+- `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation` — Logarithmic two-point averages
+- `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-1` — logCorrelation_swap
+- `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-2` — logCorrelation_add_left
+- `ProbabilisticAndMetricNumberTheory:PM.5/log-correlation-api-3` — logCorrelation_one_window
+- `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-chowla` — Logarithmic two-point Chowla theorem
+- `ProbabilisticAndMetricNumberTheory:PM.5/logarithmic-elliott` — Corrected logarithmic Elliott theorem
+- `ProbabilisticAndMetricNumberTheory:PM.5/liouville-two-point-nontrivial` — Nontrivial ordinary Liouville correlation bound
+- `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model` — Rademacher random multiplicative model
+- `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-1` — rademacherModel_squarefree
+- `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-2` — rademacherModel_nonsquarefree
+- `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-model-api-3` — rademacherModel_multiplicative
+- `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model` — Steinhaus completely multiplicative model
+- `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-1` — steinhausModel_mul
+- `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-2` — steinhausModel_prime_pow
+- `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-model-api-3` — steinhausModel_norm
+- `ProbabilisticAndMetricNumberTheory:PM.5/rademacher-covariance` — Rademacher covariance
+- `ProbabilisticAndMetricNumberTheory:PM.5/steinhaus-covariance` — Steinhaus covariance
+- `ProbabilisticAndMetricNumberTheory:PM.5/random-model-orthogonality` — Finite random-model second moments
+
+## Verification
+
+The two packet checker results, cross-part graph check, whole-file Lean elaboration and preservation audit are recorded in the [assembly handoff](../handoff/ASM-ProbabilisticAndMetricNumberTheory.md). Proof placeholders validate statement typing only. The proposed atlas sublayers and all seven supplier requests are collected there for the next packaging job.
