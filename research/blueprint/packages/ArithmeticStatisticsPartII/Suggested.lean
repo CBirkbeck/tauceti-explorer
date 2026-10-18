@@ -144,6 +144,11 @@ example : (X ^ 4 - 1 : ℚ[X]).resultant (C 48 * X ^ 2) = 5308416 := by sorry
 /-- For x⁴−y⁴, the sextic covariant resultant is Δ³. -/
 example : (X ^ 4 - 1 : ℚ[X]).resultant (-C 32 * X * (X ^ 4 + 1)) =
     -16777216 := by sorry
+
+/-- Trace-zero representatives describe nonidentity quartic self-equivalences. -/
+example : (1 : Matrix (Fin 2) (Fin 2) ℚ).trace = 2 ∧
+    ( !![1,0;0,-1] : Matrix (Fin 2) (Fin 2) ℚ).trace = 0 ∧
+    ( !![1,0;0,-1] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 1 := by sorry
 end BinaryQuartic
 
 /-! For g=1 the signed-minor coefficient determinant is Q. These matrices record
@@ -158,7 +163,8 @@ carriers are not assumed here: based cubic index forms and normal bases;
 Davenport–Heilbronn selectors; integer-valued ternary quadratic forms and their
 pairs; quartic rings and quadratic cubic-resolvent maps; alternating quintuples
 and quadruples, Pfaffian covariants, quintic multiplication and based sextic
-resolvents; monogenized cubic resolvents; binary-quartic orbit actions, solubility,
+resolvents, quinticComplexRealization and quinticRationalRealization;
+monogenized cubic resolvents; binary-quartic orbit actions, solubility,
 covariants, the cubic invariant, point quartics and projected ternary cubics;
 ternary cubic invariants; Veronese orbit embedding; oriented ideal triples and
 norm pairs; the regular-pencil Fano and generalized Picard constructions;
