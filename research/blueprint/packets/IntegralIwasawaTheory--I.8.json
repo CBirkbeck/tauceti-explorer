@@ -33,7 +33,7 @@
     "ref": "mathlib:Complex.isPrimitiveRoot_exp",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/RootsOfUnity/Complex.lean",
-    "provides": "exp(2πi/n) is a primitive n-th root of unity.",
+    "provides": "For n≠0, exp(2πi/n) is a primitive n-th root. All citing tower orders are positive.",
     "checked": "Actual declaration statement read at the pinned commit in the indicated Lean source; not inferred from a name search."
    },
    {
@@ -68,14 +68,14 @@
     "ref": "mathlib:IsCyclotomicExtension.autEquivPow",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
-    "provides": "Gal(L/K) ≃* (ZMod n)ˣ.",
+    "provides": "For an n-th cyclotomic extension with the stated irreducibility hypothesis on cyclotomic n K, identifies Gal(L/K) with (ZMod n)^×. Over Q, cyclotomic irreducibility supplies that hypothesis; this is not true for an arbitrary base field without it.",
     "checked": "Actual declaration statement read at the pinned commit in the indicated Lean source; not inferred from a name search."
    },
    {
     "ref": "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
-    "provides": "ζ − 1 and ζ^j − 1 are associated.",
+    "provides": "For a primitive n-th root ζ in a commutative ring and a natural j coprime to n, ζ−1 and ζ^j−1 are associated. Negative exponent cases in the arithmetic subgroup are reduced to a nonnegative representative modulo n.",
     "checked": "Actual declaration statement read at the pinned commit in the indicated Lean source; not inferred from a name search."
    },
    {
@@ -182,11 +182,39 @@
     "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
     "provides": "The finite cardinality of the existing ideal class group of the ring of integers.",
     "checked": "Definition and required instances read at the pin; used directly by the compact Vandiver statement prototype."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "The real span of the logarithmic unit lattice is the entire logSpace (coordinates omit one infinite place). In the totally real Galois application reconstruct the omitted coordinate as minus the sum to obtain the permutation-equivariant augmentation hyperplane.",
+    "checked": "Independent reviewer read the actual statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.logEmbeddingEquiv",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "A Z-linear equivalence from the additive unit group modulo torsion to its logarithmic lattice; it does not assert Galois equivariance or rational representation descent, which are proved in the citing arithmetic node.",
+    "checked": "Independent reviewer read the actual statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.finrank_modTorsion",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "The Z-finrank of units modulo torsion equals the number-field unit rank r1+r2−1; tensoring gives the source dimension in the Leopoldt definition.",
+    "checked": "Independent reviewer read the actual statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.ae_eventually_notMem",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean",
+    "provides": "For sets s_n whose outer-measure sum is finite, almost every point is eventually outside s_n. Apply to Chebyshev exceptional sets on the square subsequence, for countably many positive rational thresholds.",
+    "checked": "Independent reviewer read the actual statement and ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18."
    }
   ]
  },
  "status": "complete",
- "summary": "A target-level plan for all seven stages: finite cyclotomic units and their regulator index; classical class-field and control comparisons; the conditional Vandiver module isomorphism; Baker–Brumer, abelian Leopoldt and an independent all-prime Ferrero–Washington route; and the Burns–Flach/Kurihara complex and integral determinant theorem. Generic completed algebra, cochains, determinants and inverse-limit exactness retain their existing owners. Three explicitly delimited source/proof gaps and precise supplier contracts remain; no implementation is claimed.",
+ "summary": "A target-level plan for all seven stages: finite cyclotomic units and their regulator index; classical class-field and control comparisons; the conditional Vandiver module isomorphism; the imported Baker–Brumer comparison, abelian Leopoldt and an independent all-prime Ferrero–Washington route; and the Burns–Flach/Kurihara complex and integral determinant theorem. Generic completed algebra, cochains, determinants and inverse-limit exactness retain their existing owners. Three explicitly delimited source/proof gaps and precise supplier contracts remain; no implementation is claimed.",
  "nodes": [
   {
    "id": "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
@@ -332,30 +360,33 @@
    ],
    "kind": "comparison",
    "title": "The real tower and the existing maximal real subfield",
-   "statement": "For m>0, identify F(m)^+=Q(ζ_m+ζ_m^−1) with the existing maximal real subfield. Its elements are exactly the conjugation-fixed elements of F(m). For m>2 the relative degree is two; for m=1,2 both fields are Q. These identifications commute with tower inclusions and norms.",
+   "statement": "For m>0, identify F(m)^+=Q(ζ_m+ζ_m^−1) with the existing maximal real subfield. Its elements are exactly the conjugation-fixed elements of F(m). Write e(m)=[F(m):F(m)^+], equal to 2 for m>2 and 1 for m=1,2. The identifications commute with inclusions. For m|n and u∈F(n)^+, the full-field norm, read in F(m), is the image of N_(F(n)^+/F(m)^+)(u) raised to e(n)/e(m). Thus the two norms agree when m>2 or n≤2; when m≤2<n the full norm is the square of the real norm.",
    "hypotheses": [
     "The CM-field theorem is applied only when m>2."
    ],
    "proofSteps": [
     "Use the current Tau Ceti fixed-field/even-character comparison as the supplier, specialized to this tower.",
-    "The quadratic equation of ζ_m gives the explicit real generator; compare inclusions on it. This is an arithmetic identification, not a new generic maximal-real-field construction."
+    "The quadratic equation of ζ_m gives the explicit real generator; compare inclusions on it. This is an arithmetic identification, not a new generic maximal-real-field construction.",
+    "Apply norm transitivity through F(m)^+ and F(n)^+. On a real element, the norm from F(n) to F(n)^+ is its e(n)-th power. If m>2, pair conjugate embeddings to identify the full relative norm with the real relative norm; if m≤2, transitivity gives the e(n)-th power directly."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
     "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
     "mathlib:IsCyclotomicExtension.Rat.isCMField",
-    "mathlib:NumberField.IsCMField.complexConj"
+    "mathlib:NumberField.IsCMField.complexConj",
+    "mathlib:Algebra.norm_norm"
    ],
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "§4.1, Theorem 4.1.21, p. 100; §4.3, p. 108",
+     "locator": "§1.4, Remark 1.4.9, Definition 1.4.10 and Example 1.4.11, p. 26; coherent roots in §4.3, p. 109; the relative norm comparison follows by transitivity",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
    "acceptance": [
     "F(3)^+=Q; F(5)^+=Q(√5); ζ_5 is not real.",
-    "Current library declaration TauCeti.IsCyclotomicExtension.Rat.mem_maximalRealSubfield_iff_star_eq supplies the fixed-point test; it is not claimed at the older pin."
+    "Current library declaration TauCeti.IsCyclotomicExtension.Rat.mem_maximalRealSubfield_iff_star_eq supplies the fixed-point test; it is not claimed at the older pin.",
+    "For n=8,m=1,u=1+√2∈Q(ζ_8)^+=Q(√2), the real norm is −1 and the full norm is +1. An unconditional assertion that these norms agree is false."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -387,7 +418,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Definition 11.6 and Theorem 11.7, pp. 175–176; Lemma 12.18, p. 186",
+     "locator": "Definition 11.6 and Theorem 11.7, p. 176; Lemma 12.18, p. 186",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -407,7 +438,7 @@
     {
      "name": "TauCeti.IntegralIwasawa.mem_cyclotomicUnits",
      "role": "characterisation",
-     "statement": "u∈D_n iff it is integral and belongs to the circular-number subgroup."
+     "statement": "For u∈F_n^×, u∈D_n iff u and u^−1 are integral over Z and u belongs to the circular-number subgroup; equivalently u lies in the image of O_(F_n)^× and in that subgroup."
     },
     {
      "name": "TauCeti.IntegralIwasawa.cyclotomicUnits_galois",
@@ -439,7 +470,7 @@
     {
      "name": "root_difference_not_unit",
      "kind": "non-example",
-     "statement": "1−ζ_(p^n) is not in D_n: its absolute norm is p."
+     "statement": "1−ζ_(p^n) is integral and belongs to the circular-number subgroup but is not in D_n: its absolute norm is p, so its inverse is not integral."
     },
     {
      "name": "real_ambient_index",
@@ -722,7 +753,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Proposition 4.2.17 and Lemma 4.2.19, pp. 106–107; Theorem 4.3.3, pp. 108–110",
+     "locator": "Lemma 4.2.17 and Lemma 4.2.19, pp. 106–107; Theorem 4.3.3, pp. 108–110",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -763,7 +794,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Theorem 4.1.21, p. 100; Theorem 4.2.14 and Theorem 4.2.20, pp. 104–108",
+     "locator": "Proposition 4.1.21, p. 100; Theorem 4.2.14 and Theorem 4.2.20, pp. 104–108",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -917,7 +948,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Proposition 4.2.17, pp. 106–107; Theorem 4.7.1, pp. 120–121",
+     "locator": "Lemma 4.2.17, pp. 106–107; Theorem 4.7.1, pp. 120–121",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -1659,7 +1690,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Definitions 13.2 and 13.7, pp. 189–191; Appendix A, Lemma A.3, p. 200",
+     "locator": "§13.2, definitions of M_n,L_n,M∞,L∞,X∞,Y∞, pp. 190–191; Appendix A, Definition A.2, pp. 199–200",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -1699,7 +1730,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Remark 13.7, p. 191; Propositions 13.12–13.13, p. 193",
+     "locator": "Remark 13.7, pp. 191–192; Proposition 13.13, p. 193",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -1727,14 +1758,16 @@
    "proofSteps": [
     "Use the finite global-to-local map and principal-unit preimage, then take topological closure.",
     "Prove norm stability by global norm compatibility and continuity. Import Coleman’s finite and infinite principal cyclotomic closures and identify their maps with these.",
-    "Construct compact inverse limits; no interchange of closure and inverse limit is asserted without the canonical comparison."
+    "Construct compact inverse limits; no interchange of closure and inverse limit is asserted without the canonical comparison.",
+    "For the global closure rank, apply L4 abelian Leopoldt to F_n^+ and the finite-index principal-unit subgroup. The closure construction and compactness do not themselves imply logarithmic injectivity."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L0/cyclotomic-unit-group",
     "IntegralIwasawaTheory:L0/global-unit-norm-relations",
     "ColemanPowerSeries:L4/finite-real-local-unit-subgroup",
     "ColemanPowerSeries:L4/principal-real-local-cyclotomic-units",
-    "ColemanPowerSeries:L4/real-principal-cyclotomic-limit"
+    "ColemanPowerSeries:L4/real-principal-cyclotomic-limit",
+    "IntegralIwasawaTheory:L4/abelian-leopoldt"
    ],
    "sources": [
     {
@@ -1744,7 +1777,7 @@
     }
    ],
    "acceptance": [
-    "The local rank is [F_n^+:Q]; the global rank is [F_n^+:Q]−1, with finite torsion removed or treated explicitly."
+    "The local Z_p-rank is [F_n^+:Q]. L4 abelian Leopoldt proves that the global closure rank is [F_n^+:Q]−1; treat finite torsion explicitly. The rank assertion depends on that theorem, not solely on the closure definition."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -1774,6 +1807,11 @@
      "name": "TauCeti.IntegralIwasawa.principalClosure_coleman",
      "role": "compatibility",
      "statement": "The C∞^+ comparison is a topological Λ-linear isomorphism with Coleman’s real principal cyclotomic limit, preserving inclusion into U∞^+."
+    },
+    {
+     "name": "TauCeti.IntegralIwasawa.principalGlobalUnitClosure_rank",
+     "role": "compatibility",
+     "statement": "Using abelian Leopoldt for F_n^+, the rationalized closure has dimension [F_n^+:Q]−1, while the local principal units have dimension [F_n^+:Q]."
     }
    ],
    "tests": [
@@ -1837,7 +1875,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Proposition 13.12 and exact sequence (13-1), p. 193",
+     "locator": "Definition 13.12, Proposition 13.13 and exact sequence (13-1), p. 193",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -1921,7 +1959,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Proposition 13.15, p. 194; Appendix A, Propositions A.4–A.8, pp. 201–203",
+     "locator": "Proposition 13.15, p. 194; Appendix A, Proposition A.5 and Proposition A.6, pp. 201–202",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -1964,7 +2002,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Appendix A, Proposition A.4 and Corollary A.9, pp. 201–203",
+     "locator": "Appendix A, Proposition A.6, Lemma A.7 and Proposition A.8, pp. 201–202; Proposition A.10 and Corollary A.12, pp. 203–206",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2002,7 +2040,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "§3.2, Proposition 3.2.1 and ensuing control argument, pp. 78–82",
+     "locator": "Proposition 3.1.9 and Lemma 3.1.10, pp. 76–77; Proposition 3.2.11, equation (3.2.1) and Remark 3.2.12, pp. 80–81",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2043,7 +2081,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "§3.2, pp. 79–82, inertia generators and class-number growth proof",
+     "locator": "Proposition 3.2.11, pp. 80–81; Theorem 3.2.13 and its inertia-generator proof, pp. 81–82",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2083,7 +2121,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Appendix A, Theorem A.10 and Lemmas A.11–A.12, pp. 203–207; general arithmetic proof: Sharifi §3.2, pp. 78–82",
+     "locator": "Appendix A, Theorem A.3, p. 200, Lemma A.9 and Proposition A.10, pp. 203–206, Lemma A.11 and Corollary A.12, pp. 204–206; general arithmetic proof: Sharifi Theorem 3.2.13, pp. 81–82",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2126,7 +2164,7 @@
    "sources": [
     {
      "sourceId": "RJW-PUBLISHED",
-     "locator": "Corollary A.13, p. 207; general control from Sharifi §3.2, pp. 78–82",
+     "locator": "Corollary A.13, p. 207; general control from Sharifi Proposition 3.2.11 and Theorem 3.2.13, pp. 80–82",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2404,9 +2442,9 @@
     "Define the actual linear map, kernel and dimension; compare its rank with the Z_p-rank of the principal local closure of global units."
    ],
    "prerequisites": [
-    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
     "IntegralIwasawaTheory:I.2",
-    "DiophantineApproximationAndTranscendence:DT.3/deep-unit-exp-log-adapter"
+    "DiophantineApproximationAndTranscendence:DT.3/deep-unit-exp-log-adapter",
+    "mathlib:NumberField.Units.finrank_modTorsion"
    ],
    "sources": [
     {
@@ -2477,139 +2515,6 @@
    ]
   },
   {
-   "id": "IntegralIwasawaTheory:L4/baker-brumer-auxiliary-polynomial",
-   "parentStageId": "IntegralIwasawaTheory:L4",
-   "realises": [
-    "IntegralIwasawaTheory:L4"
-   ],
-   "kind": "construction",
-   "title": "The Baker–Brumer auxiliary polynomial",
-   "statement": "Under a minimal hypothetical algebraic-coefficient relation among n≥2 Q-independent logarithms of algebraic p-adic units α_i, power the α_i deeply enough and solve log α_n=Σ_(i<n)β_i log α_i with algebraic p-integral β_i. For arbitrarily large h choose a nonzero integer coefficient polynomial P in n variables, degree at most L=⌊h^(2−1/(2n))⌋ in each variable and coefficients bounded by exp(2h³). Set F(z)=Σ_λ c_λ∏_(i<n)exp((λ_i+β_iλ_n)z_i log α_i). Its normalized algebraic jet rows vanish on the initial diagonal grid (qℓ,…,qℓ), 1≤ℓ≤h, total jet order ≤h², for a fixed q=p^a>exp(8D), D the coefficient-field degree.",
-   "hypotheses": [
-    "Choose h beyond constants depending only on α,β and their coefficient field. Deep logs satisfy v_p(log α_i)>1/(p−1). Normalized jet rows remove the nonzero log and factorial factors before Siegel’s lemma is applied."
-   ],
-   "proofSteps": [
-    "Clear denominators of the β_i, keeping them in every conjugate/height estimate. Minimality of the relation supplies the lower-dimensional independent logarithms.",
-    "Count the algebraic linear equations in c_λ: a fixed field-degree multiple of h times the number of jets of order ≤h², strictly less than (L+1)^n for h large.",
-    "Apply the imported relative Siegel estimate and its coefficient-height bound to get a nonzero integer solution. Use deep exp/log to identify normalized derivatives with algebraic polynomial rows."
-   ],
-   "prerequisites": [
-    "DiophantineApproximationAndTranscendence:DT.3/relative-siegel-polynomial-row-adapter",
-    "DiophantineApproximationAndTranscendence:DT.3/finite-place-liouville-adapter",
-    "DiophantineApproximationAndTranscendence:DT.3/normal-series-adapter",
-    "DiophantineApproximationAndTranscendence:DT.3/deep-unit-exp-log-adapter"
-   ],
-   "sources": [
-    {
-     "sourceId": "ROUSSEAU",
-     "locator": "Theorem and Lemma 1, pp. 11-01–11-04",
-     "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
-    }
-   ],
-   "acceptance": [
-    "The coefficient tuple is nonzero; formal jet conditions alone cannot substitute for that requirement.",
-    "The auxiliary q is a power of p; it is not Yu’s prime q≠p."
-   ],
-   "implementationStatus": "unchecked",
-   "library": {
-    "module": "TauCeti/NumberTheory/Iwasawa/L4",
-    "namespace": "TauCeti.IntegralIwasawa"
-   },
-   "api": [
-    {
-     "name": "TauCeti.IntegralIwasawa.bbAux_nonzero_coeff",
-     "role": "projection",
-     "statement": "The coefficient array has a nonzero entry and satisfies the stated degree/size bounds."
-    },
-    {
-     "name": "TauCeti.IntegralIwasawa.bbAux_algebraic_jets",
-     "role": "compatibility",
-     "statement": "After removing log/factorial factors, every grid jet is the corresponding algebraic row with controlled denominators."
-    },
-    {
-     "name": "TauCeti.IntegralIwasawa.bbAux_initial_vanishing",
-     "role": "characterisation",
-     "statement": "The initial grid and total jet order are exactly those specified by h and h²."
-    },
-    {
-     "name": "TauCeti.IntegralIwasawa.bbAux_normal_series",
-     "role": "structure",
-     "statement": "F and the derivatives used in the proof are normal on the closed unit polydisc, through the strict deep-unit exponential-radius bound."
-    }
-   ],
-   "tests": [
-    {
-     "name": "bbAux_zero_polynomial",
-     "kind": "non-example",
-     "statement": "P=0 satisfies every vanishing equation and fails the nonzero-coefficient requirement."
-    },
-    {
-     "name": "bbAux_one_log_reduction",
-     "kind": "degenerate",
-     "statement": "For n=1 a nonzero log cannot have a nonzero scalar relation; the auxiliary construction is used only after the n≥2 reduction."
-    },
-    {
-     "name": "bbAux_dyadic_radius",
-     "kind": "compatibility",
-     "statement": "At p=2, a unit with v_2(log α) merely equal to 1 is outside the strict exponential-disc hypothesis; power it deeper."
-    },
-    {
-     "name": "bbAux_q_parameter",
-     "kind": "non-example",
-     "statement": "q=p^a is allowed and chosen large; replacing it by a prime different from p would invalidate the small-disc zero estimate."
-    }
-   ],
-   "uses": [
-    {
-     "where": "IntegralIwasawaTheory:L4/baker-brumer-extrapolation",
-     "how": "Feeds its initial vanishing grid and arithmetic size estimate."
-    },
-    {
-     "where": "IntegralIwasawaTheory:L4/baker-brumer-independence",
-     "how": "Contradicts a minimal algebraic-coefficient relation."
-    }
-   ]
-  },
-  {
-   "id": "IntegralIwasawaTheory:L4/baker-brumer-extrapolation",
-   "parentStageId": "IntegralIwasawaTheory:L4",
-   "realises": [
-    "IntegralIwasawaTheory:L4"
-   ],
-   "kind": "theorem",
-   "title": "Baker–Brumer extrapolation and nonvanishing",
-   "statement": "For the auxiliary F above, let ε=1/(4n). For 0≤J≤12n, all normalized jets of total order ≤h²/2^J vanish at the diagonal points qℓ with 1≤ℓ≤h^(1+εJ), using integer floors. At J=12n this supplies at least (L+1)^n consecutive zeros of the diagonal exponential polynomial; the Vandermonde matrix forces two distinct monomial bases ∏α_i^(qλ_i) to coincide, contradicting Q-independence of their logarithms.",
-   "hypotheses": [
-    "All constants are fixed before h. The algebraic evaluation lower bound includes denominator and archimedean-conjugate bounds."
-   ],
-   "proofSteps": [
-    "For each derivative restrict to the diagonal and apply the p-adic normal-series Schwarz–Mahler estimate on the unit disc, with multiplicities at the previous grid in the ball |z|≤q^−1.",
-    "Compare its small upper bound with the product-formula lower bound for a nonzero normalized algebraic jet. Rousseau Lemma 2 supplies the dependence exp(2Dh³), the grid height and the derivative denominator. With q>exp(8D), the inequality is contradictory for h large at every induction step.",
-    "Halve the derivative budget while increasing the grid to h^(1+εJ), retaining the factorial bridge; prove the elementary inequalities uniformly for J≤12n.",
-    "At the last stage apply finite Vandermonde linear independence. A collision of bases gives Σ(λ_i−λ_i′)log α_i=0 with a nonzero integer tuple."
-   ],
-   "prerequisites": [
-    "IntegralIwasawaTheory:L4/baker-brumer-auxiliary-polynomial",
-    "DiophantineApproximationAndTranscendence:DT.3"
-   ],
-   "sources": [
-    {
-     "sourceId": "ROUSSEAU",
-     "locator": "Lemmas 2–3 and final contradiction, pp. 11-04–11-07",
-     "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
-    }
-   ],
-   "acceptance": [
-    "The needed Schwarz–Mahler adapter is requested from the existing transcendence roadmap, whose quantitative Yu grid does not directly have q=p^a.",
-    "Minimality of a relation is used for independent lower-dimensional logs; no assertion of Q_p-linear independence is made."
-   ],
-   "implementationStatus": "unchecked",
-   "library": {
-    "module": "TauCeti/NumberTheory/Iwasawa/L4",
-    "namespace": "TauCeti.IntegralIwasawa"
-   }
-  },
-  {
    "id": "IntegralIwasawaTheory:L4/baker-brumer-independence",
    "parentStageId": "IntegralIwasawaTheory:L4",
    "realises": [
@@ -2622,23 +2527,24 @@
     "Any fixed branch is reduced to the standard unit logarithm; zero logarithms cannot belong to an independent family."
    ],
    "proofSteps": [
-    "If there were an algebraic relation, choose one with a minimal nonempty support. A one-term relation is impossible.",
-    "Power into the strict exponential disc and rescale coefficients without changing either type of independence.",
-    "Use the auxiliary polynomial and extrapolation contradiction, then undo the powering."
+    "For a finite family choose a common positive integer M, killing the residue and torsion factors and placing every α_i^M in a strict exponential disc; log(α_i^M)=M log(α_i). This works also at p=2 after further powering.",
+    "Set ℓ_i=M log_p(α_i). These have algebraic exponentials α_i^M, satisfy the strict radius hypothesis of LinearFormsInLogarithms §8.10, and remain Q-linearly independent. Apply PadicBaker.eq_zero_of_add_sum_mul_eq_zero with constant coefficient zero to each proposed algebraic relation.",
+    "Divide by the nonzero rational scalar M to recover the original logarithms. The upstream theorem supplies all auxiliary-polynomial, interpolation and nonvanishing arguments; none is developed again in this roadmap."
    ],
    "prerequisites": [
-    "IntegralIwasawaTheory:L4/baker-brumer-auxiliary-polynomial",
-    "IntegralIwasawaTheory:L4/baker-brumer-extrapolation"
+    "DiophantineApproximationAndTranscendence:DT.3",
+    "DiophantineApproximationAndTranscendence:DT.3/deep-unit-exp-log-adapter"
    ],
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Theorem 1.5.17, p. 33; proof input supplied by Rousseau, pp. 11-01–11-07",
+     "locator": "Theorem 1.5.17, p. 33; Rousseau theorem, p. 11-01, is an alternative public proof; the formal supplier is LinearFormsInLogarithms §8.10",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
    "acceptance": [
-    "For two logs the theorem excludes an algebraic irrational ratio when their rational ratio is excluded; it does not exclude a transcendental Q_p ratio."
+    "For two logs the theorem excludes an algebraic irrational ratio when their rational ratio is excluded; it does not exclude a transcendental Q_p ratio.",
+    "The supplier requires ‖ℓ_i‖<p^(−1/(p−1)) and algebraic exp(ℓ_i). Explicit common deep powering supplies these hypotheses at every p; its endpoint is algebraic-coefficient independence, not Yu’s integer-coefficient estimate."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -2662,19 +2568,21 @@
     "Embed E into C_p. Deep-unit powering is harmless. The character coefficients are algebraic, even though their logarithms need not be."
    ],
    "proofSteps": [
-    "Apply the existing unit representation theorem and semisimple descent to choose a cyclic rational generator, then clear denominators to obtain an actual unit.",
+    "Use Mathlib’s logarithmic unit lattice and its full real span. For totally real Galois E, permuting the embeddings makes the logarithmic map G-equivariant into the coordinate-sum-zero hyperplane in R^G; the unit theorem gives an isomorphism after scalar extension to R.",
+    "Descend this representation isomorphism to Q as in Sharifi Lemma 1.5.19 and Proposition 1.5.20. Concretely, the equations for equivariant homomorphisms have rational coefficients; a real invertible solution makes their determinant polynomial nonzero, hence it has a rational point with nonzero determinant. The rational augmentation representation is cyclic. Choose its cyclic unit class and clear denominators to obtain an actual integral unit.",
     "Choose d−1 conjugate unit classes independent over Q. Their logarithms are Q-independent because the local log kernel on algebraic units is torsion.",
     "Apply Baker–Brumer; a vanishing nontrivial resolvent would be an algebraic-coefficient relation not proportional to the sole product relation."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L4/baker-brumer-independence",
-    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality"
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
+    "mathlib:NumberField.Units.dirichletUnitTheorem.unitLattice_span_eq_top",
+    "mathlib:NumberField.Units.logEmbeddingEquiv"
    ],
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Propositions 1.5.18–1.5.20 and Theorem 1.5.21, pp. 33–36",
+     "locator": "Proposition 1.5.18, Lemma 1.5.19, Proposition 1.5.20 and Theorem 1.5.21, pp. 33–36",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2712,7 +2620,7 @@
    "sources": [
     {
      "sourceId": "SHARIFI",
-     "locator": "Theorem 1.5.21 and its proof, pp. 35–36; CM reduction via §4.2, pp. 106–107",
+     "locator": "Theorem 1.5.21 and its proof, pp. 35–36; CM unit-rank reduction: Lemma 1.4.12, p. 26",
      "match": "Supplies the stated arithmetic result or the indicated construction/proof route; statements here are paraphrases, with the corrections recorded below."
     }
    ],
@@ -2743,12 +2651,12 @@
    ],
    "proofSteps": [
     "Apply the imported Weyl criterion. For nonzero t∈Z^r the linear combination c=Σt_jγ_j is nonzero. After a finite initial prefix, the corresponding additive characters on Z_p are orthogonal, so the L² norm of their average is O(1/N).",
-    "Sum the squared bounds along N=M², obtain almost-everywhere convergence, and fill the gaps between consecutive squares by the uniform |character|=1 bound. Intersect over the countable set of t.",
+    "Apply Chebyshev’s inequality for each positive rational threshold to the squared L² bounds at N=M². Their sum is finite; Mathlib MeasureTheory.ae_eventually_notMem gives almost-everywhere convergence along squares. Fill gaps between squares using |character|=1, and intersect the measure-one sets over countably many thresholds and nonzero t.",
     "For congruence and d constraints, use d invertible in Z_p, scale target boxes, and take a finite covering of the real torus by images of finitely many truncated digit vectors. Shift by powers of p to realize every sufficiently large n."
    ],
    "prerequisites": [
-    "ProbabilisticAndMetricNumberTheory:PM.2",
-    "ProbabilisticAndMetricNumberTheory:PM.3",
+    "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+    "mathlib:MeasureTheory.ae_eventually_notMem",
     "PadicMeasuresIwasawaAlgebras:L0"
    ],
    "sources": [
@@ -3021,7 +2929,7 @@
  "requests": [
   {
    "supplier": "IntegralIwasawaTheory:I.1",
-   "need": "Existing arithmetic towers F_n, their coherent inclusions, open procyclic Galois subgroups and continuous completed actions, with the stated distinction between full cyclotomic exponent n and the Z_p-layer index. This is an import contract, not a reconstruction of towers.",
+   "need": "Planned same-roadmap supplier: arithmetic towers F_n, their coherent inclusions, open procyclic Galois subgroups and continuous completed actions, with the stated distinction between full cyclotomic exponent n and the Z_p-layer index. This is an import contract, not a reconstruction of towers.",
    "neededBy": [
     "IntegralIwasawaTheory:I.8/burns-flach-iwasawa-complex",
     "IntegralIwasawaTheory:I.8/cm-twist-minus-plus",
@@ -3034,7 +2942,7 @@
   },
   {
    "supplier": "IntegralIwasawaTheory:I.2",
-   "need": "Existing maximal abelian pro-p extensions with S-ramified/unramified universal properties in a common closure; canonical class-group norm-limit/Galois identifications, weak Leopoldt for cyclotomic towers, conjugation functoriality and reciprocity norm compatibility. L1 and L2 only specialize these carriers.",
+   "need": "Planned same-roadmap supplier: maximal abelian pro-p extensions with S-ramified/unramified universal properties in a common closure; canonical class-group norm-limit/Galois identifications, weak Leopoldt for cyclotomic towers, conjugation functoriality and reciprocity norm compatibility. L1 and L2 only specialize these carriers.",
    "neededBy": [
     "IntegralIwasawaTheory:I.8/burns-flach-iwasawa-complex",
     "IntegralIwasawaTheory:I.8/compact-complex-cohomology",
@@ -3050,7 +2958,7 @@
   },
   {
    "supplier": "IntegralIwasawaTheory:I.3",
-   "need": "Existing Deligne–Ribet pseudomeasure g in Q(Z_p[[Gal(F∞/k)]]) for any totally real base k and any prime p, with S-truncation, augmentation-pole ideal, interpolation uniqueness, restriction under finite abelian quotients and the arithmetic-Frobenius convention. No abelian-over-Q restriction may be added.",
+   "need": "Planned same-roadmap supplier: Deligne–Ribet pseudomeasure g in Q(Z_p[[Gal(F∞/k)]]) for any totally real base k and any prime p, with S-truncation, augmentation-pole ideal, interpolation uniqueness, restriction under finite abelian quotients and the arithmetic-Frobenius convention. No abelian-over-Q restriction may be added.",
    "neededBy": [
     "IntegralIwasawaTheory:I.8/stickelberger-deligne-ribet-square",
     "IntegralIwasawaTheory:I.9/integral-determinant-main-conjecture"
@@ -3059,7 +2967,7 @@
   },
   {
    "supplier": "IntegralIwasawaTheory:I.6",
-   "need": "Existing finite and infinite CM Selmer carriers, their Pontryagin-dual/cohomological comparison, S,T exact triangles, norm maps, minus quotient M/(1+ρ) and Stickelberger θ, including # and T-Euler factors. The finite Bernoulli/Kummer input used by Ferrero–Washington must be independent of the main conjecture and of μ-vanishing.",
+   "need": "Planned same-roadmap supplier: finite and infinite CM Selmer carriers, their Pontryagin-dual/cohomological comparison, S,T exact triangles, norm maps, minus quotient M/(1+ρ) and Stickelberger θ, including # and T-Euler factors. The finite Bernoulli/Kummer input used by Ferrero–Washington must be independent of the main conjecture and of μ-vanishing.",
    "neededBy": [
     "IntegralIwasawaTheory:I.8/cm-twist-minus-plus",
     "IntegralIwasawaTheory:I.8/stickelberger-deligne-ribet-square",
@@ -3147,7 +3055,7 @@
    "kind": "comparison-or-Part-II-extension"
   },
   {
-   "supplier": "ProbabilisticAndMetricNumberTheory:PM.2",
+   "supplier": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
    "need": "Existing Weyl criterion on a real torus, countable character tests and stability under translations/scaling, with half-open boxes. Needed to turn the p-adic additive-character L² bound into normalized truncation equidistribution; this part owns the arithmetic truncation and eventual-congruence adapter.",
    "neededBy": [
     "IntegralIwasawaTheory:L4/fw-digit-equidistribution"
@@ -3155,22 +3063,13 @@
    "kind": "existing-supplier-contract"
   },
   {
-   "supplier": "ProbabilisticAndMetricNumberTheory:PM.3",
-   "need": "Existing summable-exception/Borel–Cantelli criterion for almost-everywhere convergence along the square subsequence of character averages, on the Haar probability space. A measure-one set must meet every positive-measure p-adic congruence class.",
-   "neededBy": [
-    "IntegralIwasawaTheory:L4/fw-digit-equidistribution"
-   ],
-   "kind": "existing-supplier-contract"
-  },
-  {
    "supplier": "DiophantineApproximationAndTranscendence:DT.3",
-   "need": "The merged upstream §3.7 imports generic p-adic Siegel, Liouville, normal-series and deep exp/log tools from LinearFormsInLogarithms §§8.1–8.5; reuse them. Supply a Schwarz–Mahler interpolation adapter on the unit disc with jets at qℓ and q=p^a>exp(8D), plus the algebraic denominator/jet normalization. Yu’s auxiliary prime q≠p and integer-coefficient lower bound are not the Baker–Brumer algebraic-coefficient theorem. This part owns the minimal-relation/auxiliary-polynomial application, not those generic estimates.",
+   "need": "Reuse the existing deep-unit exp/log adapter in DT.3, identified with LinearFormsInLogarithms §8.1: for any finite family of algebraic p-adic units choose a common positive power M putting them in a strict exponential disc, and prove exp(M log α)=α^M and log(α^M)=M log α at every prime. Only this interface is needed here; qualitative Baker–Brumer and its entire auxiliary-function proof are owned by LinearFormsInLogarithms §8.10. Through DT.3’s current-main supplier matrix, import also the following existing upstream endpoint (LinearFormsInLogarithms is not a separate indexed atlas stage): Reuse Layer 8 §8.10 PadicBaker.eq_zero_of_add_sum_mul_eq_zero: a Q-independent finite family ℓ_i in C_p with ‖ℓ_i‖<p^(−1/(p−1)) and algebraic exp(ℓ_i) has no nonzero algebraic-coefficient relation, even allowing an algebraic constant term. The current merged DiophantineApproximationAndTranscendence README assigns qualitative p-adic Baker–Brumer to this supplier. Its source is the open TauCetiRoadmap PR #451, head fd8774c2080598d94958cced99dc25e11ca5530b; this is planned upstream work, not an implemented library theorem. The local comparison supplies deep powering and sets the constant term to zero.",
    "neededBy": [
     "IntegralIwasawaTheory:L4/leopoldt-defect",
-    "IntegralIwasawaTheory:L4/baker-brumer-auxiliary-polynomial",
-    "IntegralIwasawaTheory:L4/baker-brumer-extrapolation"
+    "IntegralIwasawaTheory:L4/baker-brumer-independence"
    ],
-   "kind": "comparison-or-Part-II-extension"
+   "kind": "existing-supplier-contract"
   },
   {
    "supplier": "DirichletPadicLFunctions:L2",
@@ -3192,7 +3091,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
-   "need": "Existing Layer 10 cyclotomic Galois, embeddings, ramification, discriminants and maximal-real-field arithmetic, together with the existing global unit representation and regulator API. Instantiate them on the coherent L0 tower. The current maximal-real-field fixed-field/even-character declarations are suppliers, not new generic targets.",
+   "need": "Reuse Layer 10 cyclotomic splitting, ramification and conductor-normalized ray-class/Galois arithmetic. Use Mathlib’s unit theorem, regulator and analytic class-number formula from the exact pinned declarations; the rational augmentation representation of units is proved in L4/abelian-unit-resolvents. The current Tau Ceti maximal-real-field fixed-point/even-character declarations are a separate existing library supplier, recorded in libraryChecks.",
    "neededBy": [
     "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
     "IntegralIwasawaTheory:L0/tower-galois-compatibility",
@@ -3200,9 +3099,7 @@
     "IntegralIwasawaTheory:L0/valuation-balance",
     "IntegralIwasawaTheory:L0/abelian-zeta-regulator-dictionary",
     "IntegralIwasawaTheory:L0/dyadic-prime-power-index",
-    "IntegralIwasawaTheory:L0/abelian-circular-unit-variant",
-    "IntegralIwasawaTheory:L4/leopoldt-defect",
-    "IntegralIwasawaTheory:L4/abelian-unit-resolvents"
+    "IntegralIwasawaTheory:L0/abelian-circular-unit-variant"
    ],
    "kind": "existing-supplier-contract"
   },
@@ -3220,7 +3117,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality",
-   "need": "Existing abelian character orthogonality, augmentation representation and group determinant with trivial-character row removed. L0 applies it to the explicit unit log matrix; L4 applies it to the abelian p-adic unit resolvents.",
+   "need": "Reuse abelian character orthogonality and idempotent completeness from Layer 3 for character decompositions. The reduced group-determinant calculation is the explicit finite Fourier calculation in L0/cyclotomic-regulator-determinant (Sharifi Proposition 1.5.18); the unit augmentation representation and rational descent are proved in L4/abelian-unit-resolvents, not claimed as an existing global-unit theorem of this supplier.",
    "neededBy": [
     "IntegralIwasawaTheory:L0/abelian-zeta-regulator-dictionary",
     "IntegralIwasawaTheory:L0/cyclotomic-regulator-determinant",
@@ -3264,7 +3161,8 @@
    "status": "planned",
    "remaining": [
     "Compare actual principal real closures with Coleman L4 and instantiate the existing compact compatible-lift theorem on the finite ray-class kernels.",
-    "Discharge I.2’s extension/reciprocity identifications; no generic maximal-extension construction is duplicated."
+    "Discharge I.2’s extension/reciprocity identifications; no generic maximal-extension construction is duplicated.",
+    "Use L4 abelian Leopoldt explicitly for the global closure rank; its proof uses the unit theorem and imported Baker–Brumer, not L1."
    ],
    "note": "Every target has a node or a named existing supplier; remaining items record proof/source/interface closure, not unplanned stages."
   },
@@ -3290,7 +3188,7 @@
    "status": "planned",
    "remaining": [
     "G3: verify the dependent-root lattice step, all-prime arithmetic reflection/descent and canonical analytic-content adapter in a full proof.",
-    "Discharge the DT.3 Schwarz–Mahler adapter and the metric/Weyl/Haar supplier contracts; these are precise interfaces to existing generic owners."
+    "Instantiate LinearFormsInLogarithms §8.10 through common deep powering and the existing DT.3 exp/log adapter; discharge the exact Weyl/Haar interfaces and pinned Borel–Cantelli input. No auxiliary-polynomial or Schwarz–Mahler development is owned here."
    ],
    "note": "Every target has a node or a named existing supplier; remaining items record proof/source/interface closure, not unplanned stages."
   }
@@ -3304,7 +3202,7 @@
     "IntegralIwasawaTheory:I.8/compact-complex-cohomology",
     "IntegralIwasawaTheory:I.9/integral-determinant-main-conjecture"
    ],
-   "detail": "Kurihara §4.1, pp. 24–25 explicitly uses Burns–Flach, Motivic L-functions and Galois module structures, Math. Ann. 305 (1996), 65–102, Proposition 1.20 and the model on p. 86 (DOI 10.1007/BF01444212). Kurihara’s statements and applications were read, but the original proposition/model was not obtained; no claim is made to have read it. The exact original bounded real-place construction and its all-prime perfectness/base-change comparison with the existing D7/Selmer cochains remain to be verified. This is not repaired by silently replacing it with a complete-Tate cone."
+   "detail": "Kurihara §4.1, pp. 22–23 explicitly uses Burns–Flach, Motivic L-functions and Galois module structures, Math. Ann. 305 (1996), 65–102, Proposition 1.20 and the model on p. 86 (DOI 10.1007/BF01444212). Kurihara’s statements and applications were read, but the original proposition/model was not obtained; no claim is made to have read it. The exact original bounded real-place construction and its all-prime perfectness/base-change comparison with the existing D7/Selmer cochains remain to be verified. This is not repaired by silently replacing it with a complete-Tate cone."
   },
   {
    "id": "G2",
@@ -3342,7 +3240,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The displayed unsmoothed telescoping product gives c, whereas γ contains a nontrivial root factor; multiplying the telescoping root factors gives the corrected γ identity. The intended cyclic-generation result survives.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E82",
@@ -3357,7 +3260,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Definition 13.12, p. 193, prints the degree d instead of d−1 and treats the whole local closure as a Z_p-module despite tame torsion. Dirichlet rank and the principal pro-p restriction give the stated correction.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E83",
@@ -3372,7 +3280,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Corollary 13.14’s proof, p. 193, reverses U/E in both quotient displays; Proposition 13.13 itself has the correct inclusion and exact sequence. The corrected quotient is U/E and then (U/C)/(E/C).",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E84",
@@ -3387,7 +3300,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Finite generation of compact Z_p-modules does not give stabilization of images: Z_p with multiplication-by-p transitions has images p^n Z_p. Nonempty compact compatible-lift fibres give the needed exactness without this claim.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E85",
@@ -3402,7 +3320,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Theorem A.3, p. 200, requires ν≥0, but its proof only produces an integer offset. The elementary Λ/(T^4−3) model gives offset −1 for n≥1; this refutes a general algebraic justification, not by itself an arithmetic class-group counterexample. The target correctly uses ν∈Z, as Sharifi Theorem 3.2.13 does.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E86",
@@ -3417,7 +3340,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At p=3 in Λ/(T−3), ω_1=63 while pω_0=9, so the printed element congruence fails although their ratio 7 is a unit. Sufficiently deep unit-factor ideal equality is the correct input, including extra dyadic depth.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E87",
@@ -3432,7 +3360,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At n=n0+1, the printed iteration would equate the next ideal with the preceding one. The exponent must be n−n0 for ω_(n+1) relative to ω_(n0+1); the multiplication-by-p quotient also needs the consistent index.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E88",
@@ -3447,7 +3380,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Corollary A.13, p. 207, inserts a distinguished-polynomial multiplicity twice in the displayed degree. Modulo p, f^k gives T^(k deg f), which is the single degree contribution needed for bounded p-rank.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E89",
@@ -3462,7 +3400,12 @@
    "searched": [
     "Read the author manuscript §4.1–§4.2, pp. 24–28 and its CM enlargement/descent.",
     "Searched research/errata/REGISTER.md for Kurihara, cyclotomic character, twist and real quotient, and the existing IntegralIwasawaTheory packets; no matching domain correction found."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Kurihara’s real quotient identifies ρ with 1 but κ(ρ)=−1. Thus σ↦κ(σ)^−1σ is not induced on that quotient directly. On the CM order it sends 1+ρ to 1−ρ and induces the required minus-to-plus map, as in the corrected nodes.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E90",
@@ -3477,7 +3420,12 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Conjecture A.15, p. 207, uses full class numbers and an unrestricted Z_p-extension. The class-module calculation controls p-primary orders; the standard Greenberg target is the cyclotomic tower over a totally real field. The correction makes no claim of a counterexample to any larger conjecture.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   },
   {
    "id": "IntegralIwasawaTheory/E91",
@@ -3492,7 +3440,52 @@
    "searched": [
     "Read arXiv:2309.15692v2 at the cited locator and collated the corresponding printed page of Essential Number Theory 4 (2025).",
     "Searched research/errata/REGISTER.md and the accepted PAPER-RODRIGUES-JACINTO-WILLIAMS-23 sourceIssues; existing findings are credited below, not claimed as new."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At odd p, principal restriction uses openness and real-part closure uses the norm followed by inverse squaring. These justify the omitted interchange. Inverse squaring is unavailable at p=2, so the source argument cannot be reused there.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
+  },
+  {
+   "id": "IntegralIwasawaTheory/E92",
+   "kind": "misprint",
+   "source": "SHARIFI",
+   "locator": "Lemma 4.3.4, proof, printed p. 110 of the 189-page author PDF",
+   "printed": "The proof assigns the value p^k to Φ_(p^k)(1) and reconstructs m using only the cyclotomic polynomial for the largest power of each prime dividing m.",
+   "correction": "For k≥1, Φ_(p^k)(1)=p. If m=∏p_i^k_i, reconstruct m as ∏_i∏_(j=1)^k_i Φ_(p_i^j)(1); then the full divisor-product identity proves Φ_m(1)=±1 when m has at least two distinct prime divisors.",
+   "reason": "Φ_9(X)=X^6+X^3+1 has value 3 at 1, not 9. For m=18 the prime-power divisor factors Φ_2(1)Φ_3(1)Φ_9(1)=2·3·3=18 are all needed. The lemma’s unit conclusion survives this repair.",
+   "affects": "the proof",
+   "known": "No matching correction located in the bounded search below; newly recorded in this review, with global novelty unestablished.",
+   "searched": [
+    "2026-10-18: checked the author PDF at https://www.math.ucla.edu/~sharifi/iwasawa.pdf and the corresponding author HTML chapter https://math.ucla.edu/~sharifi/notes/iwasawa-ch04.html; both retain the formula at the locator.",
+    "Checked the author’s notes page, searched for Sharifi Iwasawa errata/correction at these lemma numbers, and searched the atlas source-issue register and IntegralIwasawaTheory packets; no matching correction found."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Φ_9(X)=X^6+X^3+1 has value 3 at 1, not 9. For m=18 the prime-power divisor factors Φ_2(1)Φ_3(1)Φ_9(1)=2·3·3=18 are all needed. The lemma’s unit conclusion survives this repair.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
+  },
+  {
+   "id": "IntegralIwasawaTheory/E93",
+   "kind": "error",
+   "source": "SHARIFI",
+   "locator": "Lemma 4.3.5, statement and second branch, printed p. 110 of the 189-page author PDF",
+   "printed": "The norm formula is quantified for m≥1, including the coprime branch at m=1, where its denominator is zero.",
+   "correction": "State the displayed two-branch formula for m>1. Separately, for m=1 the norm N_(Q(μ_ℓ)/Q)(1−ζ_ℓ) is ℓ, including ℓ=2.",
+   "reason": "ζ_1=1 makes the coprime-branch quotient 0/0. For ℓ=3 the actual norm is (1−ζ_3)(1−ζ_3^2)=3. Thus the stated lower-conductor boundary needs a separate case.",
+   "affects": "a stated result",
+   "known": "No matching correction located in the bounded search below; newly recorded in this review, with global novelty unestablished.",
+   "searched": [
+    "2026-10-18: checked the author PDF at https://www.math.ucla.edu/~sharifi/iwasawa.pdf and the corresponding author HTML chapter https://math.ucla.edu/~sharifi/notes/iwasawa-ch04.html; both retain the formula at the locator.",
+    "Checked the author’s notes page, searched for Sharifi Iwasawa errata/correction at these lemma numbers, and searched the atlas source-issue register and IntegralIwasawaTheory packets; no matching correction found."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "ζ_1=1 makes the coprime-branch quotient 0/0. For ℓ=3 the actual norm is (1−ζ_3)(1−ζ_3^2)=3. Thus the stated lower-conductor boundary needs a separate case.",
+    "by": "REV-IntegralIwasawaTheory--I.8"
+   }
   }
  ],
  "restructure": [
@@ -3512,14 +3505,6 @@
    ],
    "detail": "The existing compact/real-place and derived-limit suppliers need the single bounded all-prime Burns–Flach arithmetic comparison in G1.",
    "proposal": "Within their Part II arithmetic/cochain directions, D7 owns the finite-layer bounded real-dyadic model comparison and perfectness; Selmer L3 owns its coherent Iwasawa inverse-limit and derived coefficient-change comparison. I.8 instantiates those results with Z_p(1), S and the arithmetic Galois action."
-  },
-  {
-   "action": "extend",
-   "roadmaps": [
-    "DiophantineApproximationAndTranscendence"
-   ],
-   "detail": "Merged §3.7 reuses the generic p-adic analytic tools but its Yu interpolation has a different auxiliary-prime parameter.",
-   "proposal": "Diophantine approximation and transcendence, Part II: provide the normal-series Schwarz–Mahler jet adapter with q=p^a and the algebraic row normalization, reusing LinearFormsInLogarithms §§8.1–8.5. Arithmetic Iwasawa L4 retains the Baker–Brumer minimal-relation application and abelian Leopoldt."
   }
  ],
  "sources": [
@@ -3566,7 +3551,7 @@
    "id": "SHARIFI",
    "title": "Iwasawa Theory",
    "authors": "Romyar Sharifi",
-   "edition": "Public author notes, 190-page PDF retrieved 18 October 2026; undated edition, numbered printed pages",
+   "edition": "Public author notes, 189-page PDF retrieved 18 October 2026; undated edition, numbered printed pages",
    "url": "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
    "sha256": "e5308be4c3d9ded6002cefb50df64b31f62b584b6ff68be7f21dc939f2508c26",
    "readSections": [
@@ -3611,42 +3596,42 @@
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
   },
   {
-   "kind": "author-or-journal-copy",
+   "kind": "published",
    "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-p.pdf",
    "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), 101–216, DOI 10.2140/ent.2025.4.101",
    "read": "2026-10-18",
    "sha256": "28850a4fdf8a8f263b0f24aa4d71ea9ec951dbe6b1dc6e37ffe37d717ea74f12"
   },
   {
-   "kind": "author-or-journal-copy",
+   "kind": "author copy",
    "url": "https://kurihara.math.keio.ac.jp/ClassGroupsIwasawaModules.pdf",
    "citation": "Masato Kurihara, On class groups and Iwasawa modules of CM-fields, Author manuscript of the contribution to Arithmetic of L-functions, EMS 2025, published pp. 149–183; locators below use the manuscript’s own pages 1–37",
    "read": "2026-10-18",
    "sha256": "22ebb98ed24bcebe814ea2f6ba6b4681d7dbafd309b55f06b02f5807fec8ff33"
   },
   {
-   "kind": "author-or-journal-copy",
+   "kind": "author copy",
    "url": "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
-   "citation": "Romyar Sharifi, Iwasawa Theory, Public author notes, 190-page PDF retrieved 18 October 2026; undated edition, numbered printed pages",
+   "citation": "Romyar Sharifi, Iwasawa Theory, Public author notes, 189-page PDF retrieved 18 October 2026; undated edition, numbered printed pages",
    "read": "2026-10-18",
    "sha256": "e5308be4c3d9ded6002cefb50df64b31f62b584b6ff68be7f21dc939f2508c26"
   },
   {
-   "kind": "author-or-journal-copy",
+   "kind": "published",
    "url": "https://www.numdam.org/article/STNB_1968-1969____A11_0.pdf",
    "citation": "Bernard Rousseau, Théorème de Baker–Brumer sur les unités d’un corps de nombres algébriques, Séminaire de théorie des nombres de Bordeaux, 1968–1969, exposé 11, printed pp. 11-01–11-08",
    "read": "2026-10-18",
    "sha256": "4e0b2b17ae4780a06da537a85ed194333273cc554aed172f5620456cf0bae4ae"
   },
   {
-   "kind": "author-or-journal-copy",
+   "kind": "published",
    "url": "https://www.numdam.org/article/SB_1978-1979__21__170_0.pdf",
    "citation": "Joseph Oesterlé, Travaux de Ferrero et Washington sur le nombre de classes d’idéaux des corps cyclotomiques, Séminaire Bourbaki, exposé 535 (1978–1979), volume 21 (1980), pp. 170–182",
    "read": "2026-10-18",
    "sha256": "003c5a2385bc637dab5244c1037932fd9c505688a553e15f313cb4db06b67920"
   }
  ],
- "sourceIssuePolicy": "The legacy field named printed contains an own-word diagnosis, not a quotation. This follows the session’s standing source-use rule. Findings already in the atlas register are credited; no new erratum search or published novelty claim is asserted.",
+ "sourceIssuePolicy": "The legacy field printed contains only an own-word diagnosis, never a quotation. Each source issue is scoped to the source version actually read. Existing atlas findings are credited. The independent review records bounded correction searches for its two additional author-note findings; global novelty is not asserted.",
  "upstreamNotes": [
   {
    "roadmap": "GlobalNumberFields",
@@ -3658,13 +3643,13 @@
   },
   {
    "roadmap": "PadicMeasuresIwasawaAlgebras",
-   "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
+   "commit": "9a305e195e7870e5136053897997f7538a01121e",
    "note": "The supplied read-only checkout predates the merged roadmap. Read the current GitHub-main individual README and Suggested.lean files at this commit: L4 structure/growth, L5 determinant/Nakayama and L6 Fitting/order interfaces. Import them; only the precise nonregular completed-order height-one extension is requested from Part II. L5’s rational characteristic-divisor comparison over the regular domain O[[T]] is not already the completed finite-group-order comparison."
   },
   {
    "roadmap": "DiophantineApproximationAndTranscendence",
-   "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
-   "note": "Read the merged current README §3.7 and corresponding Suggested Yu/deep-unit endpoints. They import LinearFormsInLogarithms §§8.1–8.5 and own the quantitative Yu argument with q≠p. Reuse those generic estimates and request a q=p^a interpolation adapter; the algebraic-coefficient Baker–Brumer application remains a named deliverable here."
+   "commit": "9a305e195e7870e5136053897997f7538a01121e",
+   "note": "Independent review read current-main README supplier matrix and §3.7 plus Suggested.lean. The matrix explicitly assigns qualitative p-adic Baker–Brumer to LinearFormsInLogarithms §8.10, not merely its §§8.1–8.5 estimates. The latter roadmap is in open PR #451 (head fd8774c2080598d94958cced99dc25e11ca5530b), whose README §§8.6–8.10 and exact PadicBaker endpoint were read. Remove local auxiliary/extrapolation nodes and the proposed DT Part II extension; import the qualitative endpoint through a deep-powering comparison. No claim that PR #451 is merged or implemented is made."
   },
   {
    "roadmap": "ColemanPowerSeries",
@@ -3673,13 +3658,17 @@
   {
    "roadmap": "ArithmeticKTheory",
    "note": "N.7 already imports Vandiver(p) from Iwasawa L3. Keep this predicate here and the K-theoretic consequences there; no ownership move or second definition is proposed."
+  },
+  {
+   "roadmap": "LocalGaloisGroups",
+   "note": "Independent review read the current checkout’s local cyclotomic orientation and deep-unit/rationalized-unit boundaries, alongside ProfiniteArithmetic and GlobalNumberFields. It does not supply the rational global unit augmentation representation; Mathlib’s unit theorem plus Sharifi Lemma 1.5.19 and Proposition 1.5.20 give that arithmetic proof in L4."
   }
  ],
  "libraryChecks": [
   {
    "library": "Mathlib",
    "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-   "method": "Read every listed declaration statement at the pin, including hypotheses; reviewed the IntegralIwasawaTheory entry in data/library-coverage.json.",
+   "method": "Independent reviewer reopened all 21 original Mathlib declaration statements at 082e2d37e8b0463410cdb532e111cd43d5a66174, then read the four added unit-lattice/rank/Borel–Cantelli declarations and the reviewed library audit. Checked hypotheses, not just names.",
    "result": "Existing norms, primitive roots, cyclotomic units, CM unit index, regulator, analytic residue and nonvanishing are reused. No Iwasawa class module, completed arithmetic Selmer module or all-prime BF complex was found in that audit; these are README targets."
   },
   {
@@ -3696,9 +3685,282 @@
   }
  ],
  "checks": {
-  "blueprint": "check_blueprint.py passed with zero errors; final warning-free run recorded in the handoff.",
-  "lean": "lean-check on the 99-line suggested file returned exit 0 at the pinned shared build; every warning was a proof-placeholder warning. All data definitions have bodies. No heavy arithmetic carrier is introduced in the prototype.",
-  "ownership": "All seven stage briefs checked against the accepted RS-16 boundary: L0 independent of Coleman; I.2 owns generic extensions; PM L4 owns generic structure/growth; no main-conjecture input into Ferrero–Washington.",
-  "sourceUse": "Only own-word mathematical statements, proof plans and diagnoses are committed. No source passages or book files are copied. No uncleared Washington or Sinnott book copy was used."
+  "blueprint": "Independent review: check_blueprint.py on the final packet passed with zero errors and zero warnings. Source-version and source-issue validators, complete per-node verdict coverage, definition/construction API/tests and the six-planet stage cap also passed.",
+  "lean": "Independent review: lean-check on the final 105-line suggested file returned exit 0 at the pinned shared build. Its 18 warnings were all proof-placeholder warnings. All data definitions have actual bodies; the added Φ_9(1)=3 example typechecks. No language server or library build was started.",
+  "ownership": "Independent review read the seven stage briefs, the reviewed library audit, actual supplier nodes and current upstream boundaries. L0 precedes Coleman; I.2 owns the generic arithmetic carriers; PM owns generic structure, growth and determinants; LinearFormsInLogarithms §8.10 owns Baker–Brumer. FW has no main-conjecture input. The L1→L4 Leopoldt dependency is acyclic.",
+  "sourceUse": "All committed mathematical statements, proof plans and source diagnoses are in our own words. Six public source PDFs were read and their recorded hashes checked. No source passage or book file was copied. No uncleared Washington copy was used; the original BF/Sinnott/FW proof limitations remain recorded in G1–G3."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-IntegralIwasawaTheory--I.8",
+  "date": "2026-10-18",
+  "notes": "Independent target-level review of all 55 input nodes and all six public source PDFs; 53 retained nodes after removing two duplicated Baker–Brumer proof targets. Corrected integral-unit membership, conductor-one/two norm compatibility, the closure-rank dependency, actual source numbering and overstated supplier contracts. Read all 24 original baseline statements and four added pinned declarations. Current upstream assigns qualitative Baker–Brumer to LinearFormsInLogarithms §8.10 (open PR #451); the local node is now its arithmetic comparison. Confirmed 11 inherited source findings and added two author-note findings with version-specific checks. G1–G3 remain explicit source/proof gaps; all seven stages are planned, none closed. Acceptance is of a complete planning pass, not proof closure or implementation.",
+  "checked": [
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
+    "verdict": "verified",
+    "note": "RJW §§10.2,11.3 fix compatible roots and conductor index; the positivity hypothesis makes division and intermediate-field inclusions valid. All four API items and four tests distinguish the actual tower from an arbitrary isomorphic family."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/tower-galois-compatibility",
+    "verdict": "verified",
+    "note": "Pinned norm_norm applies to the finite field tower; autEquivPow is used over Q with cyclotomic irreducibility, and unitsMap supplies actual restriction. Ideal/element norm compatibility is a GNF arithmetic specialization."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/real-subfield",
+    "verdict": "corrected",
+    "note": "Replaced the unrelated zeta-factorization locator by Sharifi Example 1.4.11, p. 26. Corrected norm compatibility at conductors 1 and 2 by the degree exponent, with the Q(ζ_8)/Q(√2) sign counterexample. Current fixed-field declarations are distinguished from the pin."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/cyclotomic-unit-group",
+    "verdict": "corrected",
+    "note": "Definition 11.6, p. 176, intersects circular numbers with integral units. Corrected the API from mere integrality to integrality of u and its inverse; the existing root-difference test now explicitly rejects this mistake."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit",
+    "verdict": "verified",
+    "note": "Checked the inverse-of-two exponent, conjugation and σ_bγ(a)=γ(ab)/γ(b) against Lemma 12.18. Pinned geom_sum_isUnit and the associated-elements theorem supply the integral-unit step, with integer exponents reduced modulo the order."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/prime-to-p-reduction",
+    "verdict": "verified",
+    "note": "The p^r conjugate factors have primitive exponents and the product has the stated sign because p is odd. This is the factorization in the proof of Lemma 12.18, p. 186."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/valuation-balance",
+    "verdict": "verified",
+    "note": "Association gives equal valuations, while cyclotomic ramification gives their unique support above p. The integral-unit condition forces the exponent sum to vanish; association alone would not prove this without the ramification input."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/cyclotomic-unit-generators",
+    "verdict": "verified",
+    "note": "Lemma 12.18 and the valuation reduction give the balanced ratios, then real smoothing. The torsion orders 2p^n and 2 agree with the real/full carriers; no nonunit root difference is declared a generator of an integral-unit group."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/cyclic-generation",
+    "verdict": "verified",
+    "note": "Corollary 12.19 follows after restoring the missing root multipliers in E81. The product over the real Galois group is −1, so the cyclic module includes sign torsion."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/unit-index-real-full",
+    "verdict": "corrected",
+    "note": "Corrected the source label to Lemma 4.2.17. Its prime-power Hasse index-one assertion, the pinned CM index API and the real/full cyclotomic-unit intersection give the quotient isomorphism."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/abelian-zeta-regulator-dictionary",
+    "verdict": "corrected",
+    "note": "Corrected 4.1.21 to Proposition. Read the primitive L-value and Gauss/conductor factors in Theorems 4.2.14 and 4.2.20; the imprimitive Euler corrections are retained. Narrowed the supplier claim so the pinned residue/regulator do not purport to supply the full character dictionary."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/cyclotomic-regulator-determinant",
+    "verdict": "verified",
+    "note": "Sharifi Theorem 4.3.3, pp. 108–110, and Proposition 1.5.18 give exactly the identity-omitted log matrix and determinant. Primitive-conductor reduction and the factor 1/2 are retained; the rank-zero determinant is 1."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/index-formula",
+    "verdict": "verified",
+    "note": "The regulator ratio and the common torsion yield h(F_n^+). The full-field equality uses Hasse index one rather than an unproved equality of full and real unit lattices."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/global-unit-norm-relations",
+    "verdict": "verified",
+    "note": "Checked the coherent root exponent under the p-fold norm and the quotient-of-differences formula in RJW §§10.2,12.3–12.4. The root smoothing norms agree for odd p; principal local adjustment remains Coleman’s work."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/dyadic-prime-power-index",
+    "verdict": "corrected",
+    "note": "Corrected the source label to Lemma 4.2.17. The integer half-exponent is valid for odd a; the index proof and its comparison of circular conventions remain explicitly in G2 rather than being presented as read and complete."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/abelian-circular-unit-variant",
+    "verdict": "verified",
+    "note": "The all-conductor norm definition has a different initial presentation from Sharifi Definition 4.3.1. The node states the required distribution comparison and G2 records its unverified proof. The three tests distinguish full-field, subfield and prime-power conventions."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L0/general-conductor-index",
+    "verdict": "verified",
+    "note": "The exponent in Theorem 4.7.1 has the correct one-prime boundary and multi-prime value. The source omits a lattice-index computation; G2 explicitly retains it and the general subfield correction, with no invented numerical formula."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.8/burns-flach-iwasawa-complex",
+    "verdict": "verified",
+    "note": "Kurihara §4.1, pp. 22–23, specifies the BF convention. Actual D7 and Selmer nodes have narrower real-place/perfectness hypotheses; G1 and the comparison requests correctly prevent treating their complete-Tate cone as the all-prime BF model."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.8/compact-complex-cohomology",
+    "verdict": "verified",
+    "note": "Kurihara p. 23 places X_S in degree 2 and trivial Z_p in degree 3. Both torsion/perfectness and these canonical identifications inherit G1; no everywhere-unramified replacement of X_S is used."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.8/cm-twist-minus-plus",
+    "verdict": "verified",
+    "note": "Checked κ(ρ)=−1 and τ(1+ρ)=1−ρ, including p=2. The map is on the CM completed order before the real quotient; neither a dyadic idempotent nor a cyclotomic character on the real quotient is assumed. Four tests cover these distinctions."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.8/stickelberger-deligne-ribet-square",
+    "verdict": "verified",
+    "note": "Kurihara equation (11) and Lemma 4.2(2) give the stated sharp/twist order and T-factor 1−Frob_v after twisting. I.3/I.6 are precise same-roadmap source contracts, not implemented libraries."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/selmer-modified-iwasawa-limit",
+    "verdict": "verified",
+    "note": "Equation (12), pp. 24–25, has the Z_p(−1) terms and norm transitions stated here. The compact-fibre inverse-limit engine exists in current Tau Ceti; arithmetic finite-layer square presentations remain the I.7 contract."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/dyadic-selmer-comparison",
+    "verdict": "verified",
+    "note": "Lemma 4.2(1), p. 25, gives the injection and finite Z/2 cokernel, not free Z_2. The dual kernel and odd-prime isomorphism are consistent with this direction; G1 records the cochain comparison still required."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/twisted-selmer-fitting",
+    "verdict": "verified",
+    "note": "Kurihara Theorem 2.12 and Lemma 4.2(2) give the twisted T-modified Fitting identity. The compatible square arithmetic presentation is an explicit I.7 contract, so projective dimension one is not inferred from torsion alone."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/height-one-determinant-comparison",
+    "verdict": "verified",
+    "note": "Read both branches of Kurihara’s proof, pp. 26–27: finite dyadic error vanishes, primes away from p are DVR cases, and Z_p-finite modules vanish at primes above p. Nonregular integral-order lattice detection is explicitly requested from PM Part II."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/integral-determinant-main-conjecture",
+    "verdict": "verified",
+    "note": "Theorem 4.1 permits every p, arbitrary totally real k and F=k. Integral invertible-lattice descent is a named PM Part II prerequisite; equality character by character over a fraction field is not claimed to finish the argument."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:I.9/arithmetic-two-term-presentation",
+    "verdict": "verified",
+    "note": "Corollary 4.3 produces the four-term arithmetic sequence and the stated Fitting ratio with projective-dimension-one middle terms. It depends on perfectness of the BF model, not a claim that all torsion modules have such presentations."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L1/cyclotomic-class-field-specialization",
+    "verdict": "corrected",
+    "note": "Replaced nonexistent Definition 13.7/Lemma A.3 locators by §13.2 and Definition A.2. These give the actual norm-limit and maximal-extension comparisons; I.2 remains their planned same-roadmap owner."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L1/conjugation-completed-action",
+    "verdict": "corrected",
+    "note": "Remark 13.7 spans pp. 191–192. Lift independence follows from the abelian kernel; joint continuity and the completed action use the planned I.1/I.2 and PM interfaces. Removed the erroneous Proposition 13.12 reference."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L1/principal-global-unit-closures",
+    "verdict": "corrected",
+    "note": "Added an explicit L4 abelian-Leopoldt prerequisite and rank API. The construction itself uses the principal preimage before closure, with Coleman’s exact carrier; finite rank does not itself prove the d−1 global closure rank."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L1/finite-ray-principal-sequence",
+    "verdict": "corrected",
+    "note": "Corrected Proposition 13.12 to Definition 13.12 and Proposition 13.13. Read the pinned finite residue/sign/ray exactness statements; the arithmetic pro-p ray limit and prime-to-p residue removal are still required, not supplied by surjectivity alone."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L1/four-term-cyclotomic-sequence",
+    "verdict": "verified",
+    "note": "Corrected source errors E83/E84 are already reflected in this node: U/E, compact compatible fibres, and then quotient by C. The current compact-lift theorem applies to nonempty compact fibres, without surjective transition maps on them."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/one-prime-inertia-control",
+    "verdict": "corrected",
+    "note": "Corrected Appendix A numbering to Propositions A.5–A.6, pp. 201–202. The inertia splitting and its chosen lift give the semidirect product; the class-group quotient is canonical although the splitting is not."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/class-module-finiteness-torsion",
+    "verdict": "corrected",
+    "note": "Replaced nonexistent Proposition A.4/Corollary A.9 by the actual compact Nakayama, finite-generation and torsion results. Finite coinvariants rule out the free Λ summand after structure theory; their finiteness alone is not misused as a torsion theorem with missing finite-generation hypotheses."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/general-inertia-control",
+    "verdict": "corrected",
+    "note": "Replaced Definition 3.2.1 mislabelled as a proposition by Proposition 3.2.11 and equation (3.2.1), with ramification from Proposition 3.1.9/Lemma 3.1.10. The inertia kernel has rank r−1, so it is not silently a finite control error."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/inertia-kernel-norm-relation",
+    "verdict": "corrected",
+    "note": "Pinned the source to Theorem 3.2.13, pp. 81–82. The source proves the norm-sum equality for the finite-index inertia kernel H_m; the factor #A_m and eventual cyclotomic cutoff remain in the growth argument."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/arithmetic-class-number-growth",
+    "verdict": "corrected",
+    "note": "Corrected Theorem A.10 and Lemma A.12 to Proposition A.10 and Corollary A.12, and identified Theorem A.3. The general extension proof is Sharifi Theorem 3.2.13; ν is an integer and the norm-sum kernel is retained."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L2/bounded-p-rank-mu-zero",
+    "verdict": "corrected",
+    "note": "Read Corollary A.13 with its multiplicity correction E88. General control is through Sharifi’s inertia kernel; the criterion is bounded F_p-rank, not bounded p-primary order or automatic λ=0."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L3/vandiver-condition",
+    "verdict": "verified",
+    "note": "Definition 13.10 and the existing maximal-real cyclotomic class-number carrier give the predicate. Three tests and the prototype distinguish the conditional predicate from an assertion of Vandiver for all primes."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L3/vandiver-unramified-vanishing",
+    "verdict": "verified",
+    "note": "Proposition 13.15 and compact Nakayama give Y∞^+=0 from the bottom p-class group; one-prime control then kills all finite layers. No unproved general control isomorphism is used."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L3/vandiver-unit-closure",
+    "verdict": "verified",
+    "note": "The p-prime cyclotomic-unit index descends to principal intersections, then their pro-p closures coincide. The necessary odd-p openness/norm/inverse-square comparison in E91 is acknowledged; Coleman’s actual principal subgroup is used."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L3/vandiver-cyclic-isomorphism",
+    "verdict": "verified",
+    "note": "Theorem 13.11 follows from the corrected four-term sequence and Coleman L4’s exact real principal quotient. The normalization of Iζ_p and topological Λ-linearity are part of the common supplier contract."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L3/vandiver-characteristic-components",
+    "verdict": "verified",
+    "note": "The trivial character keeps (γ−1)ζ and nontrivial even characters omit it. The explicit inversion/Tate-twist transport prevents replacing the S-ramified action by a dual action without a comparison."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/leopoldt-defect",
+    "verdict": "corrected",
+    "note": "Replaced the overstated GNF unit-representation supplier by the pinned finrank_modTorsion theorem. The logarithm is defined after deep powering, including p=2, and torsion is killed in its rational source; three tests reject full-unit injectivity."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/baker-brumer-independence",
+    "verdict": "corrected",
+    "note": "Replaced the local proof by an arithmetic comparison importing LinearFormsInLogarithms §8.10, whose exact open-PR statement was read. A common deep power supplies strict radius and algebraic exponential hypotheses; the algebraic coefficient field is not replaced by all of Q_p."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/abelian-unit-resolvents",
+    "verdict": "corrected",
+    "note": "Replaced the nonexistent imported global-unit representation theorem by the equivariant Dirichlet-log-lattice proof and explicit rational descent of Sharifi Lemma 1.5.19/Proposition 1.5.20. Nontrivial resolvent nonvanishing then follows from imported Baker–Brumer."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/abelian-leopoldt",
+    "verdict": "corrected",
+    "note": "Sharifi Theorem 1.5.21 uses the nonzero resolvents and character determinant. Corrected CM reduction to Lemma 1.4.12, p. 26. Its prerequisites do not use L1, so the added L1 rank dependency is acyclic."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/fw-digit-equidistribution",
+    "verdict": "corrected",
+    "note": "Replaced the unrelated PM.3 stage by pinned Borel–Cantelli, with Chebyshev exceptional sets and countably many thresholds. The exact PM.2 Weyl node supplies the torus criterion. Oesterlé Propositions 5–6 supply eventual congruence/divisibility, stronger than infinitely many visits."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/fw-digit-separation",
+    "verdict": "verified",
+    "note": "Oesterlé Proposition 4 and its p. 180 proof retain q=4 at p=2 and exactly one changed digit. G3 honestly records the source’s unproved dependent-root lattice arrangement, so the source is not credited with a complete formal proof."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/fw-bernoulli-obstruction",
+    "verdict": "verified",
+    "note": "Read Oesterlé Propositions 1–2 and relative class-number formula at pp. 174–175. The obstruction has the required universal α quantifier, character parity and coprime conductor; the base Q(i) case uses one-prime control, independent of a main conjecture."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/fw-analytic-mu-zero",
+    "verdict": "verified",
+    "note": "The branch is canonically normalized over its coefficient DVR and the trivial-character pole is removed first. G3/requested coefficient-trace comparison records the remaining content-to-Bernoulli step; scalar multiples and parity-zero branches are excluded."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
+    "verdict": "verified",
+    "note": "Oesterlé Theorems 2–3 give finite-abelian cyclotomic μ=0 at every prime. The proof route uses the obstruction and digit separation, with reflection/finite-extension descent in G3; no Iwasawa main conjecture is among its inputs."
+   },
+   {
+    "nodeId": "IntegralIwasawaTheory:L4/greenberg-p-primary-formulation",
+    "verdict": "verified",
+    "note": "The corrected conjecture concerns μ=λ=0 in the cyclotomic tower over a totally real field. Arithmetic growth proves equivalence with bounded p-primary orders. The three tests prevent promotion to full class-number boundedness or treating FW as a proof of λ=0."
+   }
+  ]
  }
 }

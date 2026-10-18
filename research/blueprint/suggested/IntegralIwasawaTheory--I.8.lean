@@ -8,13 +8,16 @@ import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 # Arithmetic Iwasawa theory: statements available at the library pins
 
 The reader document IntegralIwasawaTheory--I.8.md contains all targets of I.8, I.9 and L0–L4.
-This compact prototype states a few endpoints on existing carriers. It does not develop the
+This compact prototype states a few endpoints on existing carriers. The reviewed packet
+records the precise supplier contracts and corrections to be carried into the reader. It does not develop the
 missing arithmetic theory. In particular, the Burns–Flach complex, completed Selmer modules,
 integral determinant lattices, logarithm map and class-module invariants remain README targets;
 none is replaced here by an assumed structure or a proposition storing its expected theorem.
 
 The root and smoothing conventions are those of L0. The Vandiver predicate is L3's shared
-predicate on the existing maximal real cyclotomic field. Proof placeholders below assert only
+predicate on the existing maximal real cyclotomic field. Baker–Brumer is imported from
+LinearFormsInLogarithms §8.10 through deep powering; its proof is not developed here.
+Proof placeholders below assert only
 proposed theorems; every data definition has its actual body.
 -/
 
@@ -43,7 +46,7 @@ theorem Qmu_mono {m n : ℕ} (h : m ∣ n) (hn : 0 < n) : Qmu m ≤ Qmu n := sor
 theorem finrank_Qmu {m : ℕ} (hm : 0 < m) :
     Module.finrank ℚ (Qmu m) = Nat.totient m := sorry
 
-/-- L0 real-field comparison endpoint (RJW §10.2 and the existing GNF Layer 10 interface). -/
+/-- L0 real-field comparison (Sharifi Example 1.4.11, p. 26; current Tau Ceti fixed-field API). -/
 theorem mem_QmuPlus_iff {m : ℕ} (hm : 0 < m) (x : Qmu m) :
     (x : ℂ) ∈ QmuPlus m ↔ starRingEnd ℂ (x : ℂ) = (x : ℂ) := sorry
 
@@ -59,7 +62,7 @@ def gammaValue (m h a : ℕ) : ℂ :=
   zeta m ^ ((h : ℤ) * (1 - (a : ℤ))) * cValue m a
 
 /-- L0 unit endpoint: integrality of both directions expresses a unit in the integral closure,
-not merely a nonzero element of the ambient field (RJW Lemma 12.18, p. 63, corrected). -/
+not merely a nonzero element of the ambient field (RJW Lemma 12.18, journal p. 186, corrected). -/
 theorem cValue_integral_unit {m a : ℕ} (hm : 1 < m) (ha : a.Coprime m) :
     IsIntegral ℤ (cValue m a) ∧ IsIntegral ℤ ((cValue m a)⁻¹) ∧ cValue m a ≠ 0 := sorry
 
@@ -72,7 +75,7 @@ The class-group and maximal-real-field carriers already exist at the pins. -/
 def Vandiver (p : ℕ) : Prop :=
   ¬ p ∣ NumberField.classNumber (NumberField.maximalRealSubfield (CyclotomicField p ℚ))
 
-/-- L3's degree-one example (RJW Corollary 13.16, pp. 68–69). -/
+/-- L3's degree-one example (RJW Corollary 13.16, journal p. 194). -/
 theorem vandiver_three : Vandiver 3 := sorry
 
 -- Discriminating examples for the light definitions; the reader carries the full API/tests.
@@ -95,5 +98,8 @@ example : gammaValue 5 3 2 = -((1 + Real.sqrt 5 : ℝ) / 2 : ℂ) := sorry
 example : Vandiver 5 := sorry
 
 example : Vandiver 7 := sorry
+
+-- Sharifi Lemma 4.3.4, p. 110: a prime-power cyclotomic value is p, not p^k.
+example : Polynomial.eval (1 : ℚ) (Polynomial.cyclotomic 9 ℚ) = 3 := sorry
 
 end TauCeti.IntegralIwasawa
