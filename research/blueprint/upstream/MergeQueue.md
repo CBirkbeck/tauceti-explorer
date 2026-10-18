@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T09:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T09:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -130,6 +130,7 @@ Generated 2026-10-18T09:00Z from the README supplier graph of every open pull re
 - #1002 PadicDifferentialEquationsAndRigidCohomology — draft; waits on #785, #813, #814, #815, #849, #850, #854, #856, #857, #868, #873, #875, #879, #908, #913, #921, #929, #938, #940, #965
 - #1040 EtaleDualityAndPerverseSheaves — draft; waits on #848, #849, #850, #856, #873, #875, #908, #929, #938, #965, #896
 - #1070 PrismaticCohomologyPartIII — draft; waits on #1042, #1044, #1057, #1065, #814, #818, #820, #857, #868, #875, #879, #908, #940, #944
+- #1126 AnalyticNumberTheoryPartI — draft; waits on #792, #851, #856, #924, #925, #248, #253
 
 ## Wave 25
 - #933 ShimuraVarieties — ready; waits on #785, #792, #848, #849, #850, #852, #853, #871, #913, #931
