@@ -2648,6 +2648,11 @@
           "sourceId": "BP-RAPID",
           "locator": "§2.2, pp. 3–5",
           "match": "The source gives the exponential coefficients, Carlitz equation and period setting."
+        },
+        {
+          "sourceId": "PAP-v2",
+          "locator": "§1.2.2, p. 4",
+          "match": "The Carlitz logarithm is introduced as the inverse series of the Carlitz exponential, with the denominators (θ−θ^q)⋯(θ−θ^(q^i)), and is said to converge exactly where ‖z‖ is below ‖θ‖^(q/(q−1)); this supplies the disk of the inverse identity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2675,6 +2680,11 @@
           "name": "carlitzExp_log_one",
           "role": "example",
           "statement": "exp_C(log_C(1))=1."
+        },
+        {
+          "name": "carlitzExp_carlitzLog",
+          "role": "characterisation",
+          "statement": "For ‖z‖<‖θ‖^(q/(q−1)), which is q^(q/(q−1))=‖π_BP‖ under the normalization ‖θ‖=q, the series log_C(z) converges and exp_C(log_C(z))=z; log_C is the compositional inverse of exp_C on this open disk."
         }
       ],
       "tests": [
@@ -2702,6 +2712,10 @@
         {
           "where": "DM.8",
           "how": "Period and logarithm inputs."
+        },
+        {
+          "where": "DM.8/carlitz-deformation and DM.8/logarithm-division",
+          "how": "A small algebraic argument α with ‖α‖<q^(q/(q−1)) has a convergent logarithm with exp_C(log_C(α))=α; the deformation series specializes to it at θ and larger logarithms are divided down to it."
         }
       ],
       "planet": {
@@ -2729,6 +2743,11 @@
             "name": "carlitzExp_log_one",
             "form": "signature",
             "nativeName": "carlitzExp_log_one"
+          },
+          {
+            "name": "carlitzExp_carlitzLog",
+            "form": "signature",
+            "nativeName": "carlitzExp_carlitzLog"
           },
           {
             "name": "carlitzExp_test_coeff",
@@ -2881,7 +2900,7 @@
       "kind": "construction",
       "statement": "For the same root ρ, define Ω(t)=ρ^(−q)∏_{i≥1}(1−t/θ^(q^i)). It is entire in t and a unit of the radius-one Tate algebra. Coefficientwise inverse q-twist, fixing t, satisfies Ω^(−1)=(t−θ)Ω. Its simple zeros are θ^(q^i), i≥1, so Ω(θ)≠0 and Ω(θ)⁻¹=π_ND=−π_BP.",
       "hypotheses": [
-        "A=F[θ]; fixed ρ; inverse coefficient twist imported from DM.8; restricted-series algebra imported from Mathlib and the existing AdicSpaces roadmap."
+        "A=F[θ]; fixed ρ; inverse coefficient twist from DM.8/coefficient-twist, which sits in this layer; restricted-series algebra imported from Mathlib and the existing AdicSpaces roadmap."
       ],
       "proofSteps": [
         "Uniform convergence on every disk gives the entire product.",
@@ -8068,6 +8087,18 @@
         "§4, Theorem 4.1 and proof, pp. 22–24; §5 conventions, pp. 25–27; §6, Propositions 6.1, 6.4, 6.5 and Theorem 6.6 with proofs, pp. 28–35; §8, Corollary 8.1 and proof, p. 43. The §3 skew-field normal-form/Newton inputs are a supplier contract."
       ],
       "accessed": "2026-10-11"
+    },
+    {
+      "id": "PAP-v2",
+      "title": "Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms",
+      "authors": "Matthew A. Papanikolas",
+      "edition": "arXiv math/0506078v2, 29 June 2007; preprint of Invent. Math. 171 (2008), 123–174",
+      "url": "https://arxiv.org/pdf/math/0506078v2",
+      "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1.2, pp. 3–4: the Carlitz exponential, its kernel and the Carlitz logarithm with its disk of convergence. Read for the DM.2 logarithm interface consumed by DM.8; the rest of the paper is DM.8's source."
+      ]
     }
   ],
   "sourceVersions": [
@@ -8472,6 +8503,7 @@
       "stageId": "DrinfeldModulesAndTModules:DM.2",
       "status": "planned",
       "nodes": [
+        "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
         "DrinfeldModulesAndTModules:DM.2/c-infinity",
         "DrinfeldModulesAndTModules:DM.2/a-lattice",
         "DrinfeldModulesAndTModules:DM.2/lattice-exponential",
@@ -8537,7 +8569,8 @@
         "Register the existing AlgebraicVectorBundles imports: Current TauCetiRoadmap main 070dc2becd74419e76303ede84b465ed4a69461f already provides AlgebraicVectorBundles L0B finite locally free/invertible sheaves and the affine finite-projective equivalence, and L2B totalSpace(E)=linearSpec(E∨) and its section-valued universal property. These nine newer roadmaps are absent from the atlas stage registry. Exact owner references and contracts are retained in upstreamImports, not mislabelled as declarations at the pinned library commits. Register these existing roadmap layers and turn these catalogue endpoints into normal imports. This is bookkeeping, not a new mathematical plan.",
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras: Use the existing AdicSpaces Tate-algebra and restricted-series targets, together with Mathlib PowerSeries.IsRestricted.subring. Supply the nonarchimedean Weierstrass/Newton-polygon and normalized infinite-product arguments needed for lattice exponentials and Ω. This is an analytic extension contract, not a new Tate-algebra definition.",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge: Consume finite normalization over F[t], the Dedekind affine/holomorphy-ring bridge, and place/prime/residue equivalences. Apply the RR choice of a nonconstant function with only an infinity pole to identify A=Γ(C−∞,O_C), finite quotients and finite integral extensions; do not re-plan these in FA.1.",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components: Consume RR consequences and normalized completions of place DVRs, including the valuation ring, maximal ideal, residue field and chosen-uniformizer compatibility. Extra coefficient splittings, norm extensions and quotient-chart integration remain an explicit gap."
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components: Consume RR consequences and normalized completions of place DVRs, including the valuation ring, maximal ideal, residue field and chosen-uniformizer compatibility. Extra coefficient splittings, norm extensions and quotient-chart integration remain an explicit gap.",
+        "The pre-t-motive category (Papanikolas §§3.2–3.4): finite-dimensional k̄(t)-spaces with bijective σ-semilinear operator, rationalization of effective dual t-motives, tensor, internal Hom, duals, unit, the Carlitz object and scalar extension to the analytic fraction field. DM.8 consumes it (gap: The pre-t-motive category of DM.4); plan it as a DM.4 definition node."
       ],
       "note": "Every stage target is represented at target level. Exact existing-node imports and recorded gaps terminate the prerequisite chains; the remaining list prevents any closure claim."
     },
@@ -8825,7 +8858,7 @@
     },
     {
       "roadmap": "AdicSpaces",
-      "note": "Restricted-series and Tate-algebra foundations are imported here. DM.8/tate-analytic-interface currently has a coarse DM.2 prerequisite; point it to DM.2/c-infinity plus the existing AdicSpaces/native restricted-series input when reconciling the two parts. Uniformizability and its exponential are defined in DM.4; the rigid-triviality comparison is an outgoing DM.8 consumer, avoiding a cycle."
+      "note": "Restricted-series and Tate-algebra foundations are imported here. DM.8/tate-analytic-interface now cites DM.2/c-infinity and the AdicSpaces/native restricted-series input. The Weierstrass, zero-count and entire-product inputs requested from AdicSpaces Layer 0 are now owned on TauCetiRoadmap main by RestrictedPowerSeries and NewtonPolygons (upstreamImports). Uniformizability and its exponential are defined in DM.4; the rigid-triviality comparison is an outgoing DM.8 consumer, avoiding a cycle."
     },
     {
       "roadmap": "IntegralHeckeAndGaloisDeterminants",
@@ -8873,6 +8906,26 @@
         "DrinfeldModulesAndTModules:DM.3/generalized-drinfeld-module",
         "DrinfeldModulesAndTModules:DM.4/t-module",
         "DrinfeldModulesAndTModules:DM.4/contravariant-motive"
+      ]
+    },
+    {
+      "owner": "tauceti:TauCetiRoadmap/RestrictedPowerSeries#layer-4-weierstrass-theory-over-banach-rings",
+      "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
+      "provides": "Gauss norms at every positive radius (Layer 1), Weierstrass division and preparation with uniqueness (§§4.2–4.3), and the entire-series subring with evaluation and division by a polynomial (§7.2), all on native PowerSeries. These are the restricted-series inputs the lattice exponential, Ω and the t-module exponential need; they are imported, not planned here.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.2/lattice-exponential",
+        "DrinfeldModulesAndTModules:DM.2/omega",
+        "DrinfeldModulesAndTModules:DM.4/uniformizability"
+      ]
+    },
+    {
+      "owner": "tauceti:TauCetiRoadmap/NewtonPolygons#layer-5-convergence-and-entire-products",
+      "commit": "350e970ce49f707a327909beac0b7b7c782cc7ee",
+      "provides": "Exact zero counts in closed discs (§4.3) and entire factorisation (§5.3): an entire series over a complete algebraically closed field is the product of (1−X/α) over its nonzero zeros, a locally finite family defines an entire product with exactly that zero divisor, and entire units are the nonzero constants; with the product formula, a nonconstant entire series takes every value. This supplies the product formula and surjectivity of e_Λ and the zeros of Ω; the general-A kernel rank remains the recorded gap.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.2/lattice-exponential",
+        "DrinfeldModulesAndTModules:DM.2/uniformization",
+        "DrinfeldModulesAndTModules:DM.2/omega"
       ]
     }
   ],
