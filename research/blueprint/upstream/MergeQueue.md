@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T20:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T20:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -95,11 +95,11 @@ Generated 2026-10-18T20:00Z from the README supplier graph of every open pull re
 ## Wave 17
 - #869 SelmerIwasawaCohomology — draft; waits on #816, #849, #852, #858, #879, #940, #944, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #785, #848, #850, #852, #853, #938
-- #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #944, #1103, #1104
+- #873 LefschetzPencilsAndVanishingCycles — draft; waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #944, #1103, #1104
 - #914 FreeGroupsAndLimitGroups — ready; waits on #852
 
 ## Wave 18
-- #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
+- #875 ClassicalAdicEtaleCohomology — draft; waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
 - #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #785, #792, #813, #848, #849, #852, #853, #856, #871, #873, #908, #938, #944
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #785, #792, #813, #853, #856, #858, #869, #879
 
@@ -116,7 +116,7 @@ Generated 2026-10-18T20:00Z from the README supplier graph of every open pull re
 - #1057 PrismaticCohomology — draft; waits on #1042, #1044, #818, #857, #868, #908, #938, #944
 
 ## Wave 21
-- #921 ClassicalArithmeticCompletion — maintainer approved; waits on #785, #792, #851, #856, #924
+- #921 ClassicalArithmeticCompletion — draft; waits on #785, #792, #851, #856, #924
 - #925 AutomorphicSpectralTheory — draft; waits on #1037, #785, #792, #856, #858, #871, #924, #889
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
