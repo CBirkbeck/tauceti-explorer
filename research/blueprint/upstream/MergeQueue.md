@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T04:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T07:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -78,7 +78,7 @@ Generated 2026-10-18T04:40Z from the README supplier graph of every open pull re
 - #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #813, #849, #938, #248, #446
 
 ## Wave 15
-- #858 ArithmeticGaloisDuality — ready; waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
+- #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
 - #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #856, #871, #938, #934
 
 ## Wave 16
