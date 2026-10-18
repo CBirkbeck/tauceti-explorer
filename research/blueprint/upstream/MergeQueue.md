@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T21:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T21:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -135,7 +135,7 @@ Generated 2026-10-18T21:30Z from the README supplier graph of every open pull re
 - #1001 WeightsInEtaleCohomology — ready; waits on #1002, #849, #850, #852, #856, #857, #868, #873, #879, #908, #913, #928, #929, #931, #938, #940, #944
 - #1043 ColemanIntegration — draft; waits on #1002, #1039, #792, #813, #815, #851, #854, #944
 - #1062 PadicHodgeTheory — draft; waits on #1002, #1042, #1044, #1057, #785, #813, #814, #816, #818, #820, #849, #852, #856, #857, #858, #868, #869, #875, #879, #908, #923, #940, #944
-- #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #792, #924, #925, #248, #253
+- #1167 AnalyticNumberTheoryPartII — draft; waits on #1126, #792, #924, #925, #253
 
 ## Wave 24
 - #966 PELModuli — draft; waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #933, #938
@@ -150,6 +150,7 @@ Generated 2026-10-18T21:30Z from the README supplier graph of every open pull re
 - #1038 ShimuraData — ready; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
 - #1064 CohomologyComparisons — draft; waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #813, #814, #815, #818, #849, #853, #854, #857, #868, #875, #879, #908, #913, #938, #940, #944, #966
 - #1172 ArithmeticStatisticsPartIV — draft; waits on #1126, #1167, #1171
+- #1173 ArithmeticStatisticsPartII — draft; waits on #1167, #1171, #849, #851, #852, #853, #858, #869
 
 ## Wave 26
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #792, #848, #849, #852, #853, #856, #858, #879, #929, #933, #940, #966
