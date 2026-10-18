@@ -14,6 +14,8 @@ The commutative representation of a positive functional by a finite inner-regula
 
 Layer 5 owns the binary-cubic arithmetic needed by its analytic series: the determinant-inverse twist of row substitution, locally free cubic algebra correspondence, discriminant and trace-dual conditions, finite weighted coefficients and the uniform degree-at-most-three field count. Generic substitution on homogeneous polynomials is already `MvPolynomial.linearSubst` and `linearSubstRep` in `TauCeti.RingTheory.MvPolynomial.LinearSubst`; transpose its column convention for row variables, then add the determinant twist. It also owns the quadratic large sieve and its fourth-moment consequence.
 
+Hilbert-space projection convergence is supplied by Mathlib's `Submodule.starProjection_tendsto_closure_iSup` in `Mathlib.Analysis.InnerProductSpace.Projection.Submodule`. For decreasing closed subspaces, apply it to their increasing orthogonal complements and use `Submodule.starProjection_orthogonal` and `Submodule.orthogonal_orthogonal_eq_closure`. Layer 6 only identifies the finite-prime invariant subspaces and their limiting invariant space for the Bost–Connes measure.
+
 ## Conventions
 
 All number fields have characteristic zero. A finite Galois representation is finite-dimensional over ℂ and uses **arithmetic** Frobenius. At a ramified prime its local polynomial acts on inertia invariants. Positive real powers mean `exp(s log x)` with the real logarithm and require `x>0`. A complex parameter power uses a specified logarithm branch or a specified covering-space lift. Pole values of totalized Lean functions never stand for meromorphic germs.
@@ -75,6 +77,8 @@ OperatorAlgebraDynamics is a Tau Ceti roadmap; its generic crossed-product and e
 Consume [AmenableGroups Layers 5–6, open PR#821][R41]: the finite-test Følner criterion and amenability of arbitrary discrete abelian groups, specialized to Q_+×. OperatorAlgebraDynamics D2 turns this amenability into equality of full and reduced crossed products; no second amenability or norm-comparison theorem is planned.
 
 Consume [VonNeumannAlgebras, open PR#889][R42]: V0 for completed GNS, cyclic vector, recovery and uniqueness; V1/V4 for normal representations and their von Neumann closures; V2 for corners and central support; V8 for countable nonsingular group actions on standard σ-finite spaces, Radon–Nikodym unitaries, the regular crossed product, faithful normal expectation and center/free-ergodic factor criterion; V11 for the measured relation, modular-spectrum/ratio-set comparison and continuous-core/associated-flow type classification. These are general imported objects and theorems, not additional AN definitions. The local tasks are the pushforward-at-target convention comparison, the BC finite-adele action and its arithmetic ratio witnesses, and the GNS compression by p=1_Ẑ. In particular Neshveyev's arithmetic proof is not used as a proof of general modular classification.
+
+VonNeumannAlgebras V10.Hecke also supplies the general Hecke convolution representation, its row/column Schur bound, adjoint and coefficient-vector faithfulness. V10.AffineHecke supplies the positive-rational affine pair and its complex generator relations, normal form and Haar-state von Neumann corner. Use its matrix transport M(α,b)=[[1,b/α],[0,1/α]]: the present diagonal a is α⁻¹ and the present upper-right entry is b/α. On right cosets use the inversion unitary Jξ(gH)=ξ(Hg⁻¹), so the transported representing kernel is f(g⁻¹h), not V10's right-coset antirepresentation kernel f(h⁻¹g). Layer 6 adds the matrix-coordinate comparison, descent to rational coefficients, universal C⋆-norm and general-β states. V10.AffineType supplies the Haar/β=1 ergodicity and type-III model; the remaining arithmetic targets extend ergodicity to 0<β≤1 and establish the full ratio set and finer type III₁ conclusion. V11’s ITPFI block criterion uses finite matrix-coordinate eigenvalue lists; it does not supply the countably infinite geometric valuation-coordinate lemma needed here. The BC valuation-tail and unit-cylinder adapters are local targets.
 
 ### From ArithmeticLocallySymmetricSpaces
 
@@ -1132,6 +1136,10 @@ Apply the real/complex Fourier targets at u=2s, separate Gamma factors by reflec
 
 **Checks.**
 
+- At s=1/2 the real matrix is [[0,3/2],[1/2,0]]. Its unequal off-diagonal entries detect a transpose, a missing factor three and the zero matrix.
+- At s=3/2 the real matrix is [[0,−3/2],[−1/2,0]], fixing the sign across the next half-period.
+- At s=1/2 the complex coefficient is 3/4, since sin(π/3)sin(2π/3)=3/4. Replacing the complex coefficient by a real diagonal entry fails this check.
+- With two real places, both split-to-nonsplit, the global coefficient at s=1/2 is 9/4. With one such real place and one complex place it is 9/8; a sum instead of the product fails both checks.
 - Each real entry vanishes at s=1.
 - The complex entry vanishes to order2 at s=1.
 - Every global entry vanishes to order at least r1+2r2 at s=1.
@@ -1841,9 +1849,9 @@ Construct the rational ax+b Hecke algebra, its complex completion and the specif
 
 ### 6.1 The positive rational ax+b subgroup
 
-axbRat is the subgroup of GL₂(Q) consisting of matrices [1 b;0 a], with a,b rational and a>0. Its product is [1,b′+ba′;0,aa′], its inverse [1,−b/a;0,1/a]. Integral translations, the diagonal map and the two named matrix families are separate constructions.
+Transport V10.AffineHecke’s affine pair through M(α,b)=[[1,b/α],[0,1/α]]. The matrix-coordinate presentation axbRat is the subgroup of GL₂(Q) consisting of matrices [1 b;0 a], with a,b rational and a>0. Its product is [1,b′+ba′;0,aa′], its inverse [1,−b/a;0,1/a]. Integral translations, the diagonal map and the two named matrix families are separate constructions.
 
-Multiply/invert the displayed matrices to check closure and diagonal multiplicativity. Conjugating translation n by[1 b;0 a] gives translation n/a, proving both inclusion and the required conjugation formula.
+Use the imported group law through M, and check its matrix-coordinate product, inverse and diagonal multiplicativity. Conjugating translation n by[1 b;0 a] gives translation n/a, proving both inclusion and the required conjugation formula.
 
 - `TauCeti.BostConnes.axbRat`: P⁺_ℚ : Subgroup (GL (Fin 2) ℚ), the matrices [1 b; 0 a] with a > 0.
 - `TauCeti.BostConnes.axbInt`: P⁺_ℤ : Subgroup (GL (Fin 2) ℚ), the matrices [1 n; 0 1] with n ∈ ℤ.
@@ -1865,7 +1873,7 @@ P⁺_ℤ is not normal in P⁺_ℚ: conjugating [1 1; 0 1] by [1 0; 0 2] gives [
 
 See [112][R112], Ch. 3, §4.2, (3.61)–(3.65), p. 460; [113][R113], §4, notations (α), (β), p. 431 (PDF p. 21).
 
-*Needs:* `Matrix.GeneralLinearGroup`; `Matrix.GeneralLinearGroup.mkOfDetNeZero`; `Subgroup.Normal`.
+*Needs:* VonNeumannAlgebras V10.AffineHecke; `Matrix.GeneralLinearGroup`; `Matrix.GeneralLinearGroup.mkOfDetNeZero`; `Subgroup.Normal`.
 
 <a id="s6-2"></a>
 
@@ -2041,7 +2049,7 @@ See [112][R112], Ch.3 §4.2, pp.460–462.
 
 ### 6.9 Ergodicity of positive rationals on finite adeles
 
-For0<β≤1 the Q+× action on(A_Q,f,μβ) is ergodic: every invariant L² function on the compact integral slice is constant, and rational dilates cover the finite adeles.
+Extending V10.AffineType’s Haar/β=1 result, for0<β≤1 the Q+× action on(A_Q,f,μβ) is ergodic: every invariant L² function on the compact integral slice is constant, and rational dilates cover the finite adeles.
 
 For the trivial character compute the projection constant. For every nontrivial dense character use the zero projection limit. Pass by L² density and the rational-dilate exhaustion.
 
@@ -2084,9 +2092,11 @@ See [114][R114], Proposition proof, nontrivial character product and progression
 
 <a id="s6-9e"></a>
 
-**§6.9e Decreasing orthogonal projections.** Let Hn be a decreasing sequence of closed subspaces of a Hilbert space and H=intersection Hn. Their orthogonal projections Pn satisfy ‖Pn v−P v‖→0 for every v. In the finite-prime exhaustion, Hn consists of functions invariant under multiplication by all primes in its first n entries.
+**§6.9e Convergence of the finite-prime invariant projections.** For the canonical β-scaling measure with 0<β≤1, enumerate the primes and let Hn be the closed subspace of L²(Ẑ,μβ) satisfying f(px)=f(x) almost everywhere for the first n primes. Each pullback f↦f(p·) is well-defined and bounded, with norm at most p^(β/2), by the scaling identity. Identify the intersection of the Hn with the functions satisfying f(mx)=f(x) for every positive integer m. The finite-prime averages Pn of §6.9a then converge strongly to the projection onto that invariant space.
 
-For m≥n, orthogonality gives ‖Pn v−Pm v‖²=‖Pn v‖²−‖Pm v‖². The decreasing norm squares make Pn v Cauchy. Its limit lies in every Hn and has the defining projection orthogonality to H.
+Every prime occurs in the enumeration, so membership in the intersection is invariance under all primes and hence their finite products. Apply the Mathlib projection-convergence supplier in the boundaries section to these decreasing closed subspaces; no new general Hilbert-space convergence theorem is needed.
+
+**Checks.** Constants lie in every Hn and every Pn fixes 1. The empty prime set gives the identity projection. Enumerating only the prime 2 leaves the indicator of 3Ẑ invariant, although multiplication by 3 does not fix it. At β=1, pulling back the indicator of 2Ẑ by multiplication by 2 gives 1, increasing its squared norm from 1/2 to 1; these pullbacks are not isometries.
 
 See [114][R114], Projection exhaustion in the Proposition proof, p.2.
 
@@ -2241,6 +2251,8 @@ See [116][R116], §4 continuation argument, pp.13–15; Sarnak §1, p.603.
 **§6.12i Subtracting small-time heat coefficients.** Write H(t)=Σj≥0 exp(−tλj), including its simple zero mode. The positive spectral Mellin integral uses H(t)−1. If H(t)=Σk=0.N ak t^(k−1)+O(t^N), then subtract Σk=0.N ak t^(k−1)−1. Its integral on (0,1) is Σk=0.N ak/(s+k−1)−1/s. The remainder integral is holomorphic for Re s>−N under locally uniform remainder bounds; thus the coefficient at s=0 is a1−1, not a1.
 
 Use the [§6.12d](#s6-12d), with constants depending on this fixed surface and the subtraction order. Split the Mellin integral of H(t)−1 at 1; subtract the zero mode along with the finite heat expansion. Integrate the polynomial to Σ ak/(s+k−1)−1/s and dominate the remainder locally for Re s>−N.
+
+See [116][R116], §4 (4.1)–(4.6), pp.13–15; the displayed rational terms are the positive-spectrum, simple-zero-mode specialization.
 
 
 <a id="s6-12j"></a>
@@ -2698,6 +2710,8 @@ See [112][R112], Ch. 3, §4.1, Lemma 3.24, (3.60), p. 459; [112][R112], Ch. 3, �
 
 *Needs:* `B3`; [§6.18][R486]; `Complex.cpow`.
 
+<a id="s6-23"></a>
+
 ### 6.23 Operator constructions for the Bost–Connes completion
 
 The following constructions supply the analytic infrastructure used by the Bost–Connes branch. All algebras in this subsection are complex star algebras; completed algebras carry a C⋆-norm. Use Mathlib's Hilbert completions, bounded operators and completed C⋆-GNS representation where applicable. The extra step for an algebraic positive functional is boundedness of its generators before invoking those completed interfaces.
@@ -2762,7 +2776,7 @@ See Laca, [122][R122], Theorem 2.1.1 and Lemma 2.1.3, pp.5–7, Theorem 2.2.1, p
 
 Let πleft be convolution on l²(P_Q⁺/P_Z⁺), using the paper’s right-coset convention and the Tau Hecke product comparison. Define C_Q as the operator-norm closure of πleft(BCHecke C) in bounded operators, a unital star subalgebra. This is distinct from an individual πu on l²(N+), which is not the left regular carrier.
 
-Finite double-coset degrees bound convolution. Verify the faithful star representation and take its star-subalgebra closure. C⋆-completeness and universal/reduced comparison remain separate leaves.
+Transport V10.Hecke’s faithful star representation by the coset-inversion unitary J of the boundary contract and take its star-subalgebra closure. C⋆-completeness and universal/reduced comparison remain separate leaves.
 
 - `TauCeti.BostConnes.Completed.leftRegular`: Convolution on the l² right-coset carrier.
 - `TauCeti.BostConnes.Completed.algebra`: The operator-norm closure of the left regular image.
@@ -2777,7 +2791,7 @@ Finite double-coset degrees bound convolution. Verify the faithful star represen
 
 See [113][R113], §4, Proposition 18 and complete proof, pp.431–433.
 
-*Needs:* `B8`; `StarSubalgebra.topologicalClosure`; [§6.24f](#s6-24f).
+*Needs:* `B8`; VonNeumannAlgebras V10.Hecke; `StarSubalgebra.topologicalClosure`; [§6.24f](#s6-24f).
 
 <a id="s6-24a"></a>
 
@@ -2789,25 +2803,27 @@ See [112][R112], Ch.3 §4.2, pp.460–462.
 
 <a id="s6-24b"></a>
 
-**§6.24b Finite convolution row and column counts.** On Q=axbRat/axbInt use K_X(gH,hH)=1_X(g⁻¹h). Every row has L(X) nonzero entries and every column R(X)=L(X⁻¹). These counts are constant on quotient representatives.
+**§6.24b Matrix-coordinate row and column comparison.** Under J, V10.Hecke’s representing kernel becomes K_X(gH,hH)=1_X(g⁻¹h) on Q=axbRat/axbInt. For a diagonal n/m in lowest terms, its row count is m and its column count is n. This identifies the supplier’s L(X),R(X) with §6.24a’s matrix-coordinate degrees.
 
 Fix one quotient variable and identify the nonzero kernel entries with the appropriate left-coset decomposition of X. Interchanging variables replaces X by its inverse. Translation invariance proves independence of quotient representatives.
 
-See [113][R113], Proposition 3 and proof, p.414; finite support and Schur estimate refined explicitly here.
+See [113][R113], Proposition 3, p.414; the general representation and bound are supplied by VonNeumannAlgebras V10.Hecke.
 
 <a id="s6-24c"></a>
 
-**§6.24c Schur estimate for one double coset.** For finitely supported ξ on Q, ‖K_X ξ‖₂²≤L(X)R(X)‖ξ‖₂². Consequently K_X extends uniquely to l²(Q) with operator norm≤sqrt(L(X)R(X)).
+**§6.24c BC dilation norm witness.** For the class X_n of diag(1,n), the transported V10.Hecke operator is x_n=√n μ_n and has norm √n, not n or 1. Its row count is 1 and column count n; for X_n⁻¹ these counts are interchanged. This pins the imported Schur bound to the BC normalization rather than introducing another Schur theorem.
 
-Bound each row square by L times the sum of its entry squares using Cauchy–Schwarz. Sum the rows; every input entry occurs R times. Extend on the dense finite-support subspace with this exact bound.
+Use §6.24b and the imported bound, then μ_n*μ_n=1 for the matching lower bound. For n=2, the norm is √2, whereas the normalized μ₂ has norm 1. For n=1 both are the identity. The inverse class has the same norm by star.
 
+See [113][R113], Proposition 3, p.414 and Proposition 18, pp.431–433.
 
 <a id="s6-24d"></a>
 
-**§6.24d Bounded faithful left convolution.** For finite-support f, its left convolution on l²(Q) satisfies ‖λ(f)‖≤ΣX∈supp f |f(X)|sqrt(L(X)R(X)). This gives the bounded algebra homomorphism λ; no C*-closure is used to obtain the estimate.
+**§6.24d Rational-basis coefficient bound.** For a BC core expansion in the coprime double-coset normal form f=Σc_(n,m,γ)x_n e(γ)x′_m, the transported V10.Hecke representation satisfies ‖λ(f)‖≤Σ|c_(n,m,γ)|√(nm). Here n,m are coprime positive integers and γ runs over the finite support; the unnormalized rational basis differs from the supplier’s normalized complex monomials.
 
-Write f as the finite sum of its single-coset basis coefficients. Use the triangle inequality and the preceding operator bound. Kernel convolution on finite-support vectors proves multiplicativity; extend by density.
+Apply the imported representation to each basis term and use x_n=√n μ_n, unitarity of e(γ) and the triangle inequality. For a single x₂ this gives √2; for e(γ) it gives 1; a cancellation such as e(0)−1 has norm 0, so the estimate is not asserted to be equality for sums.
 
+See [113][R113], Proposition 18 and normal form (7), pp.431–433.
 
 <a id="s6-24e"></a>
 
@@ -2815,10 +2831,12 @@ Write f as the finite sum of its single-coset basis coefficients. Use the triang
 
 Evaluate the operator on the identity-coset unit vector. Only the identity input coordinate survives, recovering the coefficient at the inverse class. Vanishing of the operator therefore annihilates every coefficient.
 
+See [113][R113], §1, Proposition 3 and its proof, p.414; the inverse in the displayed coefficient formula follows from the transported kernel convention in §6.24b.
+
 
 <a id="s6-24f"></a>
 
-**§6.24f Convolution preserves the adjoint.** For f in the complex Hecke algebra, λ(f*)=λ(f)*, since K_(f*)(gH,hH)=conj K_f(hH,gH). Both sides are bounded, so equality on finite-support vectors suffices.
+**§6.24f Adjoint comparison in matrix coordinates.** The transported V10.Hecke adjoint sends x_n to x′_n and e(γ) to e(−γ). In the present coordinates K_(f*)(gH,hH)=conj K_f(hH,gH), so its involution agrees with §6.18’s coefficient-conjugate inverse. The general adjoint theorem is imported.
 
 Reverse the two quotient variables in the finite-support kernel and conjugate the coefficients. Inner products on finite-support vectors prove the adjoint equality; boundedness extends it to the Hilbert space.
 
@@ -3522,13 +3540,13 @@ See [117][R117], Theorem 2.1 proof, pp.4–5; §1 convention, p.2.
 
 **§6.42c Prime pairs with controlled unit residues.** For N≥1, λ>1 and ε>0, fixed-progression PNT supplies disjoint prime pairs p_n,q_n≡1(modN) with q_n/p_n→λ and Σp_n^(−1)=∞. Select primes in two disjoint proportional intervals inside successive geometric blocks, matching their counts with a fixed positive density. For 0<β≤1 the pair-swap source masses also have divergent sum.
 
-Apply PNT in the residue class 1 mod N to paired intervals [X,(1+δ)X] and [λX,λ(1+δ)X]. Choose δ small enough for the desired ratio tolerance; matching counts are bounded below by cX/logX. Separate successive blocks geometrically; each block contributes ≥c/logX to Σ1/p, so the block sum diverges. A diagonal tolerance choice preserves this divergence.
+Apply PNT in the residue class 1 mod N to paired intervals [X,(1+δ)X] and [λX,λ(1+δ)X]. Choose δ small enough for the desired ratio tolerance; matching counts are bounded below by cX/logX. Separate successive blocks geometrically; each block contributes ≥c/logX to Σ1/p, so the block sum diverges at each fixed tolerance. For tolerance 1/j take a finite batch of unused blocks with reciprocal sum at least 1 before moving to tolerance 1/(j+1). The batches give a convergent ratio and a divergent reciprocal sum simultaneously.
 
 See [117][R117], Lemma 2.3 and complete proof, p.4; Theorem 2.1 application p.5, with the stated fixed-progression refinement.
 
 <a id="s6-42d"></a>
 
-**§6.42d Independent tail swaps give essential ratios.** On a product of countable probability spaces, suppose mutually disjoint finite coordinate blocks have bijective swaps with cylinder mass ratios approaching λ>0 uniformly and a divergent sum of source cylinder masses. Then λ belongs to the ratio set of the finite-tail equivalence relation. The pushforward derivative of the inverse swap at its target equals the forward cylinder mass ratio.
+**§6.42d BC valuation-tail essential ratios.** In the BC product of countably infinite geometric valuation laws from §6.2, suppose the disjoint prime-pair swaps of §6.42a–c have cylinder mass ratios approaching λ>0 uniformly and source masses with divergent sum. Prove λ lies in the finite-tail ratio set by approximating a positive-measure set with cylinders and using independent swaps beyond their coordinates. The pushforward derivative of the inverse swap at its target equals the forward cylinder mass ratio. This countably infinite valuation-coordinate case is additional to V11’s finite-matrix ITPFI block criterion.
 
 Independent blocks and the divergent sum give arbitrarily distant successful swaps of positive total mass. Approximate any positive-measure set by a finite cylinder in relative measure, then select a tail block for which source and image both meet that set with positive mass. Apply the inverse swap so its target derivative has the stated mass ratio.
 
@@ -3569,7 +3587,7 @@ See [117][R117], §1 flow-of-weights/type criterion, p.2; Theorem 2.1, p.3.
 
 **§6.42i A nonzero full corner preserves factor type.** The GNS algebra of the diagonal-expectation KMS state is p(L∞(A_f,μβ)⋊Q+×)p, where p=1Ẑ and p≠0. A nonzero corner of a type III1 factor is again type III1. The C*-full corner identification and the von Neumann compression identification are separate requirements.
 
-Use the expectation-measure construction to identify the completed state GNS algebra with the integral projection compression of the group-measure factor. Normalization makes that projection nonzero. Use the [§6.41](#s6-41) in §6.41 with VonNeumannAlgebras V0/V4/V11.
+Use the expectation-measure construction to identify the completed state GNS algebra with the integral projection compression of the group-measure factor. Normalization makes that projection nonzero. Use [§6.41](#s6-41) with VonNeumannAlgebras V0/V4/V11.
 
 See [114][R114], Corollary proof, p.3; Neshveyev 2009 §1, p.2.
 
@@ -3861,7 +3879,7 @@ ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progres
 [R39]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/OperatorAlgebraDynamics#d2-regular-representations-reduced-products-and-amenability
 [R40]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/OperatorAlgebraDynamics#d7-analytic-dynamics-kms-states-and-modular-theory
 [R41]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/a4317b48d22a8317c89cf01e67b5c149055b08e1/TauCetiRoadmap/AmenableGroups/README.md#layer-5-følner-criteria-for-arbitrary-discrete-groups
-[R42]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/ae202ba66da9846bf5efd5a0a59c83bed7433032/TauCetiRoadmap/VonNeumannAlgebras/README.md
+[R42]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/35847ab4e112983b041cea50b15848e736f3264e/TauCetiRoadmap/VonNeumannAlgebras/README.md
 [R94]: https://link.springer.com/content/pdf/10.1186/s40687-015-0049-2.pdf
 [R95]: https://arxiv.org/pdf/1005.4967v2
 [R96]: https://dlmf.nist.gov/5.17
@@ -3893,7 +3911,7 @@ ExponentialSumsAndCircleMethod and AdditiveCombinatorics consume uniform progres
 [R122]: https://arxiv.org/pdf/math/9911135
 [R123]: https://arxiv.org/pdf/math/0002141
 [R124]: https://arxiv.org/pdf/0907.1456
-[R125]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/ae202ba66da9846bf5efd5a0a59c83bed7433032/TauCetiRoadmap/VonNeumannAlgebras/README.md#v11-weights-connes-invariants-and-continuous-cores
+[R125]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/35847ab4e112983b041cea50b15848e736f3264e/TauCetiRoadmap/VonNeumannAlgebras/README.md#v11-weights-connes-invariants-and-continuous-cores
 [R130]: #s5-3a
 [R136]: ../AnalyticNumberTheoryPartI/README.md#prerequisites-and-boundaries
 [R190]: ../AnalyticNumberTheoryPartI/README.md#s2-5

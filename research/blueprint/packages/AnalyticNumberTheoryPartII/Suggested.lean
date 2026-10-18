@@ -149,6 +149,21 @@ def cubicDiscriminant {A : Type*} [CommRing A] (a b c d : A) : A :=
   b ^ 2 * c ^ 2 - 4 * a * c ^ 3 - 4 * b ^ 3 * d - 27 * a ^ 2 * d ^ 2 +
     18 * a * b * c * d
 
+/-- The real cubic Fourier matrix has unequal off-diagonal entries at s = 1/2. -/
+example :
+    (3 / 2 : ℝ) * Real.sin (Real.pi / 2) = 3 / 2 ∧
+      (1 / 2 : ℝ) * Real.sin (Real.pi / 2) = 1 / 2 := by
+  norm_num [Real.sin_pi_div_two]
+
+/-- The complex-place factor is a product of three sines, giving 3/4 at s = 1/2. -/
+example :
+    Real.sin (Real.pi / 2) ^ 2 * Real.sin (Real.pi / 2 - Real.pi / 6) *
+      Real.sin (Real.pi / 2 + Real.pi / 6) = 3 / 4 := by
+  rw [show Real.pi / 2 - Real.pi / 6 = Real.pi / 3 by ring,
+    show Real.pi / 2 + Real.pi / 6 = Real.pi - Real.pi / 3 by ring,
+    Real.sin_pi_sub, Real.sin_pi_div_two]
+  nlinarith [Real.sq_sin_pi_div_three]
+
 /-- Covariance under diagonal matrices in the row-variable action. -/
 theorem cubicDiscriminant_diagonal {F : Type*} [Field F] (a b c d l m : F)
     (hl : l ≠ 0) (hm : m ≠ 0) :

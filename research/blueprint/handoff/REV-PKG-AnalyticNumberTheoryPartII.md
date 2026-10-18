@@ -1,0 +1,13 @@
+# REV-PKG-AnalyticNumberTheoryPartII — completed
+
+Codex, session `codex-mOT3lu`, reviewed issue #10373 independently on 2026-10-18. Verdict: **accepted with the committed fixes**. The full audit, including the 15 randomly sampled source locators, all 97 primary topics and their 195 subsidiaries, ten Lean signatures and supplier revisions, is in [the review report](../reviews/REV-PKG-AnalyticNumberTheoryPartII.md).
+
+The package is the Layers 4–6 split of AnalyticNumberTheory, as the maintainer decided on 2026-10-18. The unrelated effective-class-number packet is not its source plan. The maintainer's separate EffectiveClassNumbers packet/queue migration remains administrative follow-up; this review changes no packet, queue, atlas data or upstream roadmap.
+
+The fixes replace the general decreasing-projection theorem with the BC finite-prime comparison to Mathlib; import the current VonNeumannAlgebras V10.Hecke representation, Schur bound, adjoint and faithfulness; and import V10.AffineHecke's affine pair and complex/Haar model. The retained variants explicitly concern the matrix/inverse-slope coordinates, rational coefficients, exact dilation norm, universal Cstar completion and general-temperature family. No other target was removed and no higher-tier notion moved. The report records the precise supplier boundaries, including the distinction between finite-matrix ITPFI blocks and countably infinite valuation coordinates.
+
+Additional changes give nonzero archimedean matrix controls, fix inherited locators and navigation, and make the shrinking-tolerance/divergent-mass prime-pair construction explicit. Two sine controls are proved in Suggested.lean. All prior Check bullets remain.
+
+Validation: `lean-check` exits 0 with exactly 17 declaration-uses-sorry warnings and no other diagnostics, at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. `check_sorry_data.py` passes. Blueprint validation reports zero errors and warnings for the AnalyticNumberTheory, AnalyticNumberTheory--AN.0, AnalyticNumberTheory--AN.8 and existing AnalyticNumberTheoryPartII packets. Intake `check-files`, whitespace and local reference/anchor checks pass. The packet checks assert schema validity only, including for the unrelated ECN packet.
+
+No mathematical repair remains from this review. Resume with the maintainer's draft upstream package submission under the approved identity; the evidence needed for that step is committed here and in the report. Temporary source downloads and build logs are disposable. This run claims no second job.
