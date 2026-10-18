@@ -135420,9 +135420,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheoryPartII~adv.md",
-   "note": "claimed on GitHub issue #10301"
+   "note": "deliverables arrived from an external worker on issue #10301",
+   "finishedAt": "2026-10-18T20:17:34Z"
   },
   {
    "id": "FIX-PKG-AnalyticNumberTheoryPartI~adv",
