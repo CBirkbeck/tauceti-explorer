@@ -116,6 +116,30 @@
       "readSections": [
         "Read pinned unit filtration, power-series derivative and formal-point completion homomorphism/injectivity/range. Read current LocalFieldsRamification, EllipticCurves, LocalGaloisGroups, ProfiniteArithmetic and parent Coleman roadmap documents; searched the nine post-snapshot roadmap directories and current library. Read current completed group algebra Basic, compact-module action and procyclic power-series coordinate statements."
       ]
+    },
+    {
+      "id": "AbbesUllmo1996",
+      "title": "À propos de la conjecture de Manin pour les courbes elliptiques modulaires",
+      "authors": "Ahmed Abbes and Emmanuel Ullmo",
+      "edition": "Compositio Mathematica 103 (1996), 269–286; Numdam archive copy",
+      "url": "http://www.numdam.org/item/CM_1996__103_3_269_0.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "Introduction and Théorème A, p.269; location of the proof, pp.276–279, checked for scope"
+      ],
+      "sha256": "73fd473d7822b90b4cc4bebbd2b8ca2a05547b6a13e2c3f99210ef8f2ce83cf2"
+    },
+    {
+      "id": "Fesenko1998",
+      "title": "On deeply ramified extensions",
+      "authors": "Ivan B. Fesenko",
+      "edition": "J. London Math. Soc. 57 (1998), 325–335; author's copy",
+      "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/drm.pdf",
+      "accessed": "2026-10-18",
+      "readSections": [
+        "§1, Theorem 1.1 and Remarks 1.2–1.3; §2.5 (p-adic Lie extensions). Used only as a lead for gap G1."
+      ],
+      "sha256": "a1dc9404c83facfa153cb725adcab586bede5ceedb91ff166c3134af2f13a8ab"
     }
   ],
   "nodes": [
@@ -141,8 +165,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, pp.948–949",
-          "match": "For finite continuous χ:G⁻→Q̄_p×, define c(1)=0 and c(χ)=n+1 when Φ_n is its first Lubin–Tate level. Put Ξ⁺={χ:c(χ) even}, Ξ⁻={χ:c(χ) odd}. For a nontrivial character of exact order p^n on Gal(Ψ_n/Φ), c(χ)=n+1; the trivial character belongs to Ξ⁺."
+          "locator": "§2, p.948 (conductor convention) and p.949 (definition of Ξ⁺, Ξ⁻)",
+          "match": "BKO assign conductor p^(n+1) to a nontrivial anticyclotomic character whose first level of factorization is Gal(Φ_n/Φ), and conductor 1 to the trivial character; on p.949 they put a character in Ξ⁺ or Ξ⁻ according as its conductor is an even or an odd power of p. The node records this exponent and parity; since Gal(Ψ_n/Φ) is cyclic of order p^n, exact order p^n gives exponent n+1."
         }
       ],
       "acceptance": [
@@ -172,14 +196,17 @@
       "tests": [
         {
           "name": "trivial_plus",
+          "kind": "degenerate",
           "statement": "c(1)=0 and 1∈Ξ⁺."
         },
         {
           "name": "order_p_plus",
+          "kind": "computation",
           "statement": "A character of exact order p has exponent 2 and belongs to Ξ⁺."
         },
         {
           "name": "order_p_squared_minus",
+          "kind": "computation",
           "statement": "A character of exact order p² has exponent 3 and belongs to Ξ⁻."
         }
       ],
@@ -222,7 +249,12 @@
         {
           "sourceId": "BKO2021",
           "locator": "§2, p.948",
-          "match": "Let P_n be TauCeti.unitFiltration Φ_n 1, written additively via p-adic powering. Define Ũ_∞=lim_N(P_n⊗_{Z_p}O), with its compact inverse-limit topology and O[[Δ×Γ]] action. Let U_∞=e_ω Ũ_∞, where ω is the tame restriction of κ and e_ω=|Δ|⁻¹Σ ω(d)⁻¹d; Γ=G⁺×G⁻ and Λ₂=O[[Γ]]."
+          "match": "BKO take U_n to be the principal units of Φ_n, form the norm inverse limit of U_n⊗_(Z_p)O, and define U_∞ as the part on which Δ acts through ω. The node realises U_n as Tau Ceti's depth-one unit filtration and writes the ω-part with the explicit idempotent."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "§1, p.406",
+          "match": "Rubin makes the same definition, with Λ₂=O[[Gal(Φ_∞/Φ₀)]] acting on the ω-part of the norm limit."
         }
       ],
       "acceptance": [
@@ -233,6 +265,11 @@
         "name": "Norm-compatible local units"
       },
       "api": [
+        {
+          "name": "units_mk",
+          "role": "constructor",
+          "statement": "A norm-compatible family u=(u_n) of principal units and a∈O give u⊗a∈Ũ_∞. Since O is Z_p-free of rank two, Ũ_∞=(lim U_n)⊗_(Z_p)O, so every element is u⊗1+u′⊗θ for a Z_p-basis 1,θ of O."
+        },
         {
           "name": "units_projection",
           "role": "projection",
@@ -257,14 +294,17 @@
       "tests": [
         {
           "name": "unit_sequence",
+          "kind": "degenerate",
           "statement": "The sequence of multiplicative identities is additive zero at every level."
         },
         {
           "name": "broken_norm",
+          "kind": "non-example",
           "statement": "A family with N(u_(n+1))≠u_n at one level is excluded."
         },
         {
           "name": "wrong_tame_character",
+          "kind": "non-example",
           "statement": "An eigenvector for a distinct tame character has e_ω-image zero."
         }
       ],
@@ -304,8 +344,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, p.949",
-          "match": "For a compact O-module M with compatible Galois action, set M*=Hom_O(T_πF,M) with g·h=g_M∘h∘g_T⁻¹ and the compact topology after choosing a Tate basis. Define U_∞*=(Ũ_∞*)^Δ; evaluation at a basis identifies it with U_∞ and changes the Γ-action by κ⁻¹. This is a functorial comparison, not an identification of the original Γ-actions."
+          "locator": "§2, p.948",
+          "match": "BKO define M* as M tensored over O with the inverse of the π-adic Tate module, equivalently Hom_O(T_πF,M), with diagonal Galois action, observe that this twists the action by κ⁻¹, and define U*_∞ as the Δ-fixed part of the twisted full limit. The node adds the basis-change and functoriality bookkeeping."
         }
       ],
       "acceptance": [
@@ -340,14 +380,17 @@
       "tests": [
         {
           "name": "trivial_action",
+          "kind": "characterisation",
           "statement": "Twisting the κ-line makes its Galois action trivial."
         },
         {
           "name": "wrong_twist",
+          "kind": "non-example",
           "statement": "Using κ rather than κ⁻¹ fails the previous test for κ(g)²≠1."
         },
         {
           "name": "tame_comparison",
+          "kind": "compatibility",
           "statement": "A Δ-invariant inverse tensor has underlying ω-eigenvector, not an ω⁻¹-eigenvector."
         }
       ],
@@ -387,8 +430,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, pp.948–949",
-          "match": "For a topological generator σ of G⁺, put V_∞=U_∞/(σ−κ(σ))U_∞ and V_∞*=U_∞*/(σ−1)U_∞*. The images are compact and closed. The twist gives (V_∞)*≃V_∞* as Λ=O[[G⁻]] modules; replacing σ by another generator gives the same closed relation ideal."
+          "locator": "§2, p.948",
+          "match": "BKO define V_∞ as U_∞ modulo (σ−κ(σ)) for a generator σ of G⁺, remark that this ideal of Λ₂ does not depend on σ, and define V*_∞ as the quotient of U*_∞ by σ−1. The node states both quotients and their comparison through the twist."
         }
       ],
       "acceptance": [
@@ -423,14 +466,17 @@
       "tests": [
         {
           "name": "cyclotomic_relation",
+          "kind": "characterisation",
           "statement": "The images of σx and x agree in V_∞*."
         },
         {
           "name": "untwisted_relation",
+          "kind": "compatibility",
           "statement": "In V_∞, σu=κ(σ)u, which need not equal u."
         },
         {
           "name": "unit_generator_change",
+          "kind": "compatibility",
           "statement": "Replacing σ by σ^a, a∈Z_p×, gives inverse comparison maps."
         }
       ],
@@ -471,13 +517,13 @@
       "sources": [
         {
           "sourceId": "Rubin1987",
-          "locator": "Proposition 1.1, pp.406–407",
-          "match": "U_∞ is free of rank two over Λ₂. Consequently U_∞* is free of rank two over the twisted Λ₂, and V_∞* is free of rank two over Λ."
+          "locator": "Proposition 1.1, p.407",
+          "match": "Rubin states that U_∞ is free of rank two over Λ₂ and V_∞ free of rank two over Λ, deriving the first from Wintenberger and the second from it; BKO §2, p.948, repeats both facts."
         },
         {
           "sourceId": "Wintenberger1980",
-          "locator": "§4 Theorem (i),(iii), pp.91–92; §§5.1–5.5.3, pp.92–98",
-          "match": "The noncyclotomic, nontrivial tame component of the two-variable local multiplicative inverse limit is free of rank [Φ:Q_p]=2, and agrees with principal units."
+          "locator": "§4 Théorème (i),(iii), pp.91–92; proofs §§5.1–5.5.3, pp.92–98",
+          "match": "For an abelian tower with Galois group a prime-to-p group times Z_p², Wintenberger proves that the component of the completed multiplicative limit attached to a tame character is free of rank [K:Q_p], for every tame character other than the one through which the tame group acts on p-th roots of unity, and that away from the trivial character this component equals the principal-unit limit. With ω different from 1 and from ω^(p+1) this gives the node."
         }
       ],
       "acceptance": [
@@ -517,7 +563,12 @@
         {
           "sourceId": "BKO2021",
           "locator": "§2, p.948 and footnote 2",
-          "match": "For each norm-compatible u_n∈1+m_(Φ_n) and genuine basis v=(v_n) of T_πF with [π]v_(n+1)=v_n, there is a unique f_(u,v)∈O[[X]]× satisfying f_(u,v)(v_n)=u_n for all n≥0. It is fixed by the Coleman norm N_F defined by (N_F f)([π]X)=∏_{t∈F[π]}f(X+_F t). Extend its logarithmic derivative O-linearly to the tensor unit module; do not interpret a general tensor as a single multiplicative sequence."
+          "match": "BKO take for each norm-compatible u the Coleman power series f in O[[X]]× with f(v_n)=u_n, for a generator v of the π-adic Tate module, and footnote 2 warns that Coleman's theory fails for the p-adic Tate generator Rubin used. Coleman's existence, uniqueness and norm-fixedness are cited, not proved; the node states them for the π-basis."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "§2, p.407",
+          "match": "Rubin quotes Coleman's interpolation theorem for norm-compatible units, with the p-adic generator corrected in source issue E4."
         }
       ],
       "acceptance": [
@@ -552,14 +603,17 @@
       "tests": [
         {
           "name": "identity",
+          "kind": "degenerate",
           "statement": "The identity unit sequence has series 1."
         },
         {
           "name": "basis_rescaling",
+          "kind": "compatibility",
           "statement": "Evaluation at [b]v_n after composition with [b⁻¹] returns u_n."
         },
         {
           "name": "pi_recursion",
+          "kind": "non-example",
           "statement": "Replacing the genuine π-basis by a p-compatible basis requires the alternating sign correction; using it unchanged fails [π] compatibility."
         }
       ],
@@ -601,8 +655,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, pp.948–949",
-          "match": "For x=u⊗v⁻¹⊗a define δ(x)=a f′(0)/f(0)∈O and δ_n(x)=a f′(v_n)/(λ′(v_n)f(v_n))∈Φ_n, with λ′(0)=1. Extend through the balanced tensor relations to U_∞*. Both maps are independent of the choice of basis representation."
+          "locator": "§2, p.948",
+          "match": "For x=u⊗a⊗v^(⊗−1) BKO define δ(x)=a·f′(0)/f(0) and δ_n(x)=(a/λ′(v_n))·f′(v_n)/f(v_n), and state that both are well defined and Galois equivariant. The node gives the same formulas and makes the tensor balancing explicit."
         }
       ],
       "acceptance": [
@@ -637,14 +691,17 @@
       "tests": [
         {
           "name": "constant_series",
+          "kind": "degenerate",
           "statement": "A constant Coleman series has δ=δ_n=0."
         },
         {
           "name": "linear_coefficient",
+          "kind": "computation",
           "statement": "δ(u⊗v⁻¹)=coeff₁(f)/coeff₀(f)."
         },
         {
           "name": "basis_balance",
+          "kind": "compatibility",
           "statement": "For v′=bv, multiplying the unit tensor by b cancels the b⁻¹ chain-rule factor."
         }
       ],
@@ -683,8 +740,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, pp.948–949; compare Rubin Lemma 2.1(i)–(ii), p.407",
-          "match": "For x∈U_∞*, β∈Gal(Φ_∞/Φ) and n≥0, δ_n(βx)=β(δ_n(x)). Before the inverse twist the formula includes κ(β); twisting cancels exactly that factor. On G⁺-coinvariants the descended δ satisfies δ(λx)=aug(λ)δ(x) for λ∈Λ."
+          "locator": "§2, pp.948–949",
+          "match": "BKO state δ_n(γx)=δ_n(x)^γ for γ∈Gal(Φ_∞/Φ) on the twisted module."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 2.1(i), p.407",
+          "match": "Before twisting, Rubin's δ_n(u^γ)=κ(γ)δ_n(u)^γ; the inverse twist cancels the factor κ(γ), and at the origin it gives augmentation-linearity of δ."
         }
       ],
       "acceptance": [
@@ -718,7 +780,7 @@
         {
           "sourceId": "BKO2021",
           "locator": "§2, p.949",
-          "match": "For finite χ of Gal(Φ_∞/Φ) and n≥0 through which χ factors, set δ_χ(x)=π^(−n−1)Σ_{γ∈Gal(Φ_n/Φ)}χ(γ)·δ_n(x)^γ in a finite coefficient extension of Φ. It is independent of n and satisfies δ_χ(βx)=χ(β)⁻¹δ_χ(x). In particular no n=−1 evaluation is used to define δ₁."
+          "match": "BKO define δ_χ(x)=π^(−n−1)Σ_(γ∈Gal(Φ_n/Φ))χ(γ)δ_n(x)^γ for any n through which χ factors, note independence of n, and prove δ_χ(x^β)=χ(β)⁻¹δ_χ(x). The node states the same definition with π=−p and the inverse covariance."
         }
       ],
       "acceptance": [
@@ -753,14 +815,17 @@
       "tests": [
         {
           "name": "trivial_level_zero",
+          "kind": "computation",
           "statement": "δ₁=π⁻¹Tr_(Φ₀/Φ)δ₀, computed at n=0."
         },
         {
           "name": "inverse_character",
+          "kind": "non-example",
           "statement": "At a nonquadratic χ, the factor is χ(β)⁻¹, not χ(β)."
         },
         {
           "name": "one_level_up",
+          "kind": "compatibility",
           "statement": "The extra trace factor π cancels the extra denominator π in level n+1."
         }
       ],
@@ -770,7 +835,7 @@
           "how": "Define the signed derivative kernels."
         },
         {
-          "where": "AU.4/xi-character-value",
+          "where": "AU.4/xi-values",
           "how": "Match the normalized L-value formula."
         }
       ]
@@ -801,7 +866,7 @@
         {
           "sourceId": "BKO2021",
           "locator": "§2, p.949",
-          "match": "For χ factoring through G⁻, δ_χ kills (σ−1)U_∞*, hence gives a continuous O-linear map V_∞*→Φ(χ). The map δ also descends and is Λ-linear for the augmentation action on O."
+          "match": "Taking β=σ∈G⁺ and χ anticyclotomic in the covariance law, BKO conclude that δ_χ vanishes on (σ−1)U*_∞ and so is defined on V*_∞. The node adds the same descent for δ."
         }
       ],
       "acceptance": [
@@ -833,8 +898,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, p.949, together with the Coleman norm identity",
-          "match": "On U_∞* and V_∞*, δ₁=(1−π⁻¹)δ=(1+p⁻¹)δ as Φ-valued maps. Thus δ and δ₁ have the same kernel, although δ₁ need not be O-valued."
+          "locator": "§2, p.949 (δ_χ at χ=1, n=0); Proposition 3.3(1)–(2), p.953",
+          "match": "BKO's definition at the trivial character and level zero gives δ₁=π⁻¹Tr_(Φ₀/Φ)δ₀; their formulas (3.6)–(3.7) differ at χ=1 exactly by the Euler factor at p, which is the relation of the node."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 2.1(iv), p.407",
+          "match": "Rubin records δ=−(p/(p+1))δ_(χ₀) with his p^(−n−1) normalisation; with BKO's π^(−n−1)=(−p)^(−n−1) normalisation this is δ₁=(1+p⁻¹)δ."
         }
       ],
       "acceptance": [
@@ -869,7 +939,12 @@
         {
           "sourceId": "BKO2021",
           "locator": "§4, (4.1), p.954",
-          "match": "For each finite L in Θ_∞ or Ψ_∞ and k≥1, the multiplication-by-π^k sequence on F(m_(Φ̄)) yields 0→F(m_L)/π^k→H¹(L,F[π^k])→H¹(L,F(m_(Φ̄)))[π^k]→0. These sequences commute with restriction, corestriction/formal trace and k-transition maps."
+          "match": "BKO apply Galois cohomology over Θ_n to the multiplication-by-π^(n+1) sequence on F(Φ̄) and obtain the injection of F(Θ_n)/π^(n+1) into H¹(Θ_n,F[π^(n+1)]) with cokernel the π^(n+1)-torsion of H¹(Θ_n,F(Φ̄)). The node states this for every finite layer and every k, with transfer compatibilities."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "§5, sequence (6), p.411",
+          "match": "Rubin writes the same sequence with p^(n+1) in place of π^(n+1)."
         }
       ],
       "acceptance": [
@@ -895,7 +970,7 @@
       "proofSteps": [
         "Apply Hazewinkel Theorem 1.3 in a cofinal totally ramified Z_p direction and use transitivity/containment for the full two-variable tower.",
         "For a fixed ramified finite layer, use the ramified-base version of the height-two norm bound stated by Rubin Proposition 4.5; a depth tending to infinity forces the intersection to zero.",
-        "Use separatedness of the local-field filtration. Record the precise ramified-base estimate as gap G1 until its proof is supplied; the absolutely unramified base case alone does not prove every inverse-limit coordinate zero."
+        "Use separatedness of the local-field filtration. Record the precise ramified-base estimate as gap G1 until its proof is supplied; the absolutely unramified base case alone does not prove every inverse-limit coordinate zero. A lead for G1: Θ_∞ and Ψ_∞ are deeply ramified, and deeply ramified theory gives the direct-limit Kummer defect vanishing of formal-kummer-duality directly (see the G1 record)."
       ],
       "prerequisites": [
         "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/adic-points",
@@ -906,12 +981,12 @@
         {
           "sourceId": "Rubin1987",
           "locator": "Proposition 4.5, p.411",
-          "match": "For the totally ramified pro-p towers Θ_∞/Φ and Ψ_∞/Φ, lim_N F(m_(Θ_n))=0 and lim_N F(m_(Ψ_n))=0. Equivalently every finite-layer universal formal norm subgroup is zero."
+          "match": "For a height-two Lubin–Tate group over O and a ramified Z_p^d-extension of Φ, Rubin states that the norms from the layers to G(Φ) have zero intersection, attributing this to Hazewinkel, and that G has no torsion over the tower. Both statements concern the base Φ only."
         },
         {
           "sourceId": "Hazewinkel1977",
-          "locator": "Theorem 1.3, pp.305–306; §§3–4, pp.309–314",
-          "match": "At an absolutely unramified base the formal norm image has depth a_n=n−floor((n−1)/2), which tends to infinity."
+          "locator": "Theorem 1.3, pp.305–306; universal-norm consequence, p.307; proof §§3–4, pp.309–314",
+          "match": "For a totally ramified Z_p-extension of an absolutely unramified local field with perfect residue field and p>2, and a formal group of height h≥2, Hazewinkel shows that the norm image from the n-th layer is the a_n-th filtration step with a_n=n−[(n−1)/h], so universal norms at the base vanish. The ramified-layer coordinates of the node are not covered (gap G1, source issue E15)."
         }
       ],
       "acceptance": [
@@ -937,7 +1012,7 @@
       "proofSteps": [
         "Use the imported supersingular finite-field trace-class existence, lift a smooth Weierstrass equation to O, and apply LT.4/elliptic-honda-comparison with trace −2p.",
         "Use 0→B̂(m_L)→B(L)→B̃(k_L)→0 and the analogous separable-closure sequence; reduction terms have bounded finite p-primary contribution and disappear in the relevant tower comparison.",
-        "Apply the principal polarization and elliptic local Tate duality; track the O-action and its dual through the formal identification.",
+        "Apply local duality for abelian varieties over p-adic fields (ArithmeticGaloisDuality R02.4/abelian-variety-local-duality) to B, identified with its dual by the principal polarization; track the O-action and its adjoint through the formal identification.",
         "Pass to limits using ArithmeticGaloisDuality’s compact/discrete comparison and formal-norm-vanishing. Finite class-formation duality alone is not a proof of the elliptic comparison."
       ],
       "prerequisites": [
@@ -946,15 +1021,20 @@
         "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
         "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "ArithmeticGaloisDuality:R02.4/abelian-variety-local-duality",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
         "ArithmeticGaloisDuality:R02.1/tate-inverse-limit"
       ],
       "sources": [
         {
           "sourceId": "Rubin1987",
-          "locator": "Lemma 5.1, pp.411–412",
-          "match": "There is a good supersingular elliptic model B/O and an integral identification B̂≃F for π=−p. For each finite L in the pro-p towers, the p-primary local cohomology of its formal subgroup compares with that of B so that the direct-limit defect in the formal Kummer sequence is Pontryagin dual to lim_N F(m_L). In particular colim H¹(L,F(m_(Φ̄)))[π^∞]=0 in both towers."
+          "locator": "Lemma 5.1 and proof, p.411",
+          "match": "Rubin states that the direct limits over Θ_n and over Ψ_n of the p^(n+1)-torsion of H¹(·,E(Φ̄)) vanish. His proof replaces the formal group by an elliptic curve with isomorphic formal group, identifies the direct limit by Tate duality with the dual of the norm inverse limit of points, and quotes Proposition 4.5(i) for its vanishing; that last step is gap G1."
+        },
+        {
+          "sourceId": "BKO2021",
+          "locator": "§4, p.954",
+          "match": "BKO assert the same vanishing over Θ_n and Ψ_n from the vanishing of the inverse limit of F(Θ_n) by Tate duality, citing Hazewinkel."
         }
       ],
       "acceptance": [
@@ -989,8 +1069,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, pp.954–955; Rubin Proposition 5.2, p.412",
-          "match": "There is a continuous perfect O-bilinear Galois-compatible pairing F(m_(Θ_∞))⊗_O Φ/O × U_∞*→Φ/O. It is the Kummer map followed by the local Artin identification, then evaluation on the inverse Tate twist; equivalently F(m_(Θ_∞))⊗Φ/O≃Hom_O^cont(U_∞*,Φ/O)."
+          "locator": "§4, p.954",
+          "match": "BKO pass to the limit in (4.1) and identify F(Θ_∞)⊗Φ/O with H¹(Θ_∞,F[p^∞]), then with the Δ-invariant homomorphisms from Gal(Φ̄/Φ_∞) to F[p^∞], and by local class field theory with Hom_O(U_∞,F[p^∞]); this is the Kummer pairing with U*_∞ valued in Φ/O."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Proposition 5.2, p.412",
+          "match": "Rubin proves the untwisted version, a nondegenerate Galois-equivariant pairing of E(Θ_∞)⊗Q_p/Z_p with U_∞ valued in E[p^∞]."
         }
       ],
       "acceptance": [
@@ -1025,14 +1110,17 @@
       "tests": [
         {
           "name": "zero_point",
+          "kind": "degenerate",
           "statement": "The identity formal point pairs to zero with every unit."
         },
         {
           "name": "pi_balance",
+          "kind": "characterisation",
           "statement": "⟨[π]y⊗π⁻(k+1),x⟩=⟨y⊗π⁻k,x⟩."
         },
         {
           "name": "detect_nonzero",
+          "kind": "non-example",
           "statement": "Every nonzero divisible point has a nonzero pairing with some unit; the zero pairing fails."
         }
       ],
@@ -1073,8 +1161,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, pp.954–955; Rubin Proposition 5.4, pp.412–413",
-          "match": "The preceding pairing induces F(m_(Ψ_∞))⊗Φ/O × V_∞*→Φ/O and is perfect. In particular the G⁺-fixed part of F(m_(Θ_∞))⊗Φ/O is F(m_(Ψ_∞))⊗Φ/O, with its actual embedding."
+          "locator": "§4, p.954",
+          "match": "Using the vanishing of the Ψ-tower direct limit, BKO state that the pairing induces a nondegenerate pairing of F(Ψ_∞)⊗Φ/O with V*_∞, citing Rubin."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Proposition 5.4 and proof, p.412; Lemma 4.4, p.410",
+          "match": "Rubin identifies the G⁺-invariants of E(Θ_∞)⊗D_p with Hom_O(V_∞,E[p^∞]), and shows that they equal E(Ψ_∞)⊗D_p because the defect is H¹(G⁺,E(Θ_∞)) (Lemma 4.4), which inflation–restriction places inside the vanishing Ψ-tower group of Lemma 5.1(ii)."
         }
       ],
       "acceptance": [
@@ -1111,8 +1204,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, p.955; Rubin Theorem 5.3, p.412",
-          "match": "For y∈F(m_(Θ_r)), k≥0, x∈U_∞* and sufficiently large m≥r, the named Kummer pairing is ⟨y⊗π⁻k,x⟩=π^(−m−1−k)Tr_(Φ_m/Φ)(δ_m(x)λ(y)) modulo O. The expression is independent of sufficiently large m and represents the pairing with the arithmetic Artin and π-adic basis conventions."
+          "locator": "§4, p.955",
+          "match": "BKO quote Wiles's explicit reciprocity law in the form ⟨y⊗π^(−n),x⟩=π^(−(m+1+n))Tr_(Φ_m/Φ)(δ_m(x)λ(y)) modulo O for y∈F(Θ_n), x∈U*_∞ and m large. The node separates the field level r of y from the π-power k; the two agree through λ([π]y)=πλ(y)."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Theorem 5.3, p.412",
+          "match": "Rubin states the untwisted p-normalised formula, citing Wiles; no proof is given in either paper (gap G2)."
         }
       ],
       "acceptance": [
@@ -1148,8 +1246,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§3, passage (3.4) to (3.6), pp.952–953; cited Kato 1993, Chapter II, Theorem 2.1.7",
-          "match": "For an inverse-twisted norm-compatible Kummer class x with coefficients in R, a finite χ of Gal(Φ_n/Φ), and the invariant differential ω identified by λ′(0)=1, the character-sum dual exponential of loc(x) equals δ_χ(x)ω with the π^(−n−1) convention. This is the dual-exponential form used in BKO (3.6), separate from the modulo-O Kummer pairing formula."
+          "locator": "§3, (3.4)–(3.6), pp.952–953; cited Kato 1993, Chapter II, Theorem 2.1.7",
+          "match": "BKO deduce (3.6) for δ_χ(ξ_ν) from Kato's dual-exponential formula (3.4) for the zeta classes and Wiles's explicit reciprocity law in Kato's form, after identifying F with the formal group of E so that the invariant differential matches ω. The comparison they use implicitly, Σχ(γ)exp*(x_n^γ)=δ_χ(x)ω, is isolated as the node; its proof source is gap G2."
         }
       ],
       "acceptance": [
@@ -1182,8 +1280,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, p.955; Rubin Lemma 5.5(i)–(iv), pp.413–414",
-          "match": "For y∈F(m_(Ψ_∞)) and finite χ of G⁻ choose n with y∈F(m_(Ψ_n)) and χ factoring through Gal(Ψ_n/Φ). Define λ_χ(y)=p⁻nΣ_{γ∈Gal(Ψ_n/Φ)}χ(γ)⁻¹λ(y)^γ. It is independent of a common larger n, O-linear and satisfies λ_χ(βy)=χ(β)λ_χ(y)."
+          "locator": "§4, p.955",
+          "match": "BKO define λ_χ(y)=p^(−n)Σ_(γ∈Gal(Ψ_n/Φ))χ⁻¹(γ)λ(y)^γ for y∈F(Ψ_n) and χ of conductor dividing p^(n+1)."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "p.412 (definition) and Lemma 5.5(i)–(iv), p.413",
+          "match": "Rubin gives the same definition and lists its elementary properties: vanishing for characters of conductor beyond the layer of y, the Fourier expansion of λ, the covariance λ_χ(y^γ)=χ(γ)λ_χ(y), and the factor p^(m−n) under trace."
         }
       ],
       "acceptance": [
@@ -1218,14 +1321,17 @@
       "tests": [
         {
           "name": "base_point",
+          "kind": "computation",
           "statement": "For y∈F(m_Φ), λ₁(y)=λ(y) and λ_χ(y)=0 for nontrivial χ."
         },
         {
           "name": "new_character",
+          "kind": "computation",
           "statement": "A character not factoring through the point layer has λ_χ(y)=0 after passage to a common layer."
         },
         {
           "name": "positive_covariance",
+          "kind": "non-example",
           "statement": "The covariance factor is χ(β), inverse to that for δ_χ."
         }
       ],
@@ -1263,8 +1369,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, p.955; Definition 6.3, pp.960–961",
-          "match": "For ε∈{+,−}, define A^ε={y∈F(m_(Ψ_∞)):λ_χ(y)=0 for every χ∈Ξ^ε}, killing the same parity. Define F^ε(Ψ_n)=A^ε∩F(m_(Ψ_n)). Their inclusions are injective O-linear Galois maps and A^ε=⋃_n F^ε(Ψ_n); retain these finite groups as the signed local-condition exports."
+          "locator": "§4, p.955 (A^±); §6.0.2, p.962 (F^±(Ψ_n))",
+          "match": "BKO define A^ε as the points of F(Ψ_∞) killed by λ_χ for every χ∈Ξ^ε, and in §6.0.2 the finite-level groups F^±(Ψ_n) by the same equations for characters of Gal(Ψ_n/Φ) (the printed base field is corrected in E8)."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "p.413",
+          "match": "Rubin defines A⁺ and A⁻ in E(Ψ_∞) by the same equations."
         }
       ],
       "acceptance": [
@@ -1304,14 +1415,17 @@
       "tests": [
         {
           "name": "base_plus_zero",
+          "kind": "degenerate",
           "statement": "Since 1∈Ξ⁺ and λ is injective on the torsion-free pro-p tower, the plus base group is zero."
         },
         {
           "name": "base_minus_all",
+          "kind": "computation",
           "statement": "All formal Φ-points lie in the minus group."
         },
         {
           "name": "wrong_parity",
+          "kind": "non-example",
           "statement": "A nonzero pure character component of conductor p³ lies in A⁺ and is excluded from A⁻."
         }
       ],
@@ -1351,8 +1465,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, (2.1), p.949",
-          "match": "Define V_∞*,+=⋂_{χ∈Ξ⁻}ker δ_χ and V_∞*,−=⋂_{χ∈Ξ⁺}ker δ_χ as closed Λ-submodules of V_∞*. Thus the unit sign kills opposite parity, in contrast with the formal point sign."
+          "locator": "§2, displayed definition of V*,± , p.949",
+          "match": "BKO define V*,+ as the elements of V*_∞ killed by δ_χ for every χ∈Ξ⁻ and V*,− by the characters of Ξ⁺, and note that these are twists of Rubin's V^ε."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "§2, p.408",
+          "match": "Rubin's V⁺, V⁻ ⊂ V_∞ are defined by the same opposite-parity equations."
         }
       ],
       "acceptance": [
@@ -1381,20 +1500,23 @@
         {
           "name": "signed_units_base_change",
           "role": "compatibility",
-          "statement": "Finite flat coefficient extension commutes with the signed kernel intersection, through exactness and compact limits."
+          "statement": "For a finite extension R of O inside C_p, V_∞*,ε⊗_O R is the set of X∈V_∞*⊗_O R whose R-linearly extended derivatives (δ_χ⊗R)(X), evaluated in C_p, vanish for every χ of the opposite parity. Flatness of R gives this with values in Φ_n⊗_O R. Since τ∈Gal(Φ_n/Φ) carries δ_χ(x) to a nonzero multiple of δ_(τ∘χ)(x), the opposite-parity class is stable under such τ, and every embedding of Φ_n⊗_Φ Frac(R) into C_p over the given embedding of R is the given one composed with some τ⊗1, vanishing in C_p implies vanishing in Φ_n⊗_O R. Flatness and exactness alone do not give the C_p-valued statement."
         }
       ],
       "tests": [
         {
           "name": "trivial_character",
+          "kind": "non-example",
           "statement": "A vector with δ≠0 cannot belong to V_∞*,−."
         },
         {
           "name": "opposite_parity",
+          "kind": "characterisation",
           "statement": "A vector in V_∞*,+ must have zero derivative at every exact order p² character."
         },
         {
           "name": "generator_covariance",
+          "kind": "characterisation",
           "statement": "Multiplying by λ∈Λ preserves a sign, including when ev_(χ⁻¹)(λ)=0."
         }
       ],
@@ -1433,8 +1555,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, (4.2), p.955; Rubin Lemma 5.5(v)–(vi), pp.413–414",
-          "match": "For n≥0, p^nF(m_(Ψ_n))⊂F⁺(Ψ_n)+F⁻(Ψ_n) and F⁺(Ψ_n)∩F⁻(Ψ_n)=0. Consequently F(m_(Ψ_∞))⊗Φ/O=(A⁺⊗Φ/O)+(A⁻⊗Φ/O). The finite integral lattice sum is only finite index; no integral equality is asserted."
+          "locator": "§4, (4.2), p.955",
+          "match": "BKO state that F(Ψ_∞)⊗Φ/O is the sum of A⁺⊗Φ/O and A⁻⊗Φ/O, citing Rubin."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 5.5(v)–(vi) and (7), p.413",
+          "match": "Rubin states A⁺∩A⁻=0 and that the two finite-level signed subgroups together contain p^n E(Ψ_n), which gives the divisible sum (7)."
         }
       ],
       "acceptance": [
@@ -1469,8 +1596,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, (4.2), p.955; Rubin Proposition 5.8, p.414",
-          "match": "Both A⁺ and A⁻ have infinite O-rank. Their rational logarithm spans at finite levels are the sums of precisely the complementary conductor-parity character components, including the trivial component only for A⁻."
+          "locator": "§4, (4.2), p.955",
+          "match": "BKO state that A⁺ and A⁻ both have infinite O-rank."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "proof of Proposition 5.6, p.413; Corollary 5.8, p.414",
+          "match": "Rubin uses that E(Ψ_n) contains a finite-index submodule isomorphic to O[Gal(Ψ_n/Φ)], which supplies points with prescribed character components, and uses the infinite O-rank of A^± in Corollary 5.8."
         }
       ],
       "acceptance": [
@@ -1505,8 +1637,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, p.955; Rubin Proposition 5.6 and Corollary 5.7, pp.414–415",
-          "match": "Under the named perfect anticyclotomic Kummer pairing, Ann(A^ε⊗Φ/O)=V_∞*,ε for the same displayed sign ε. Hence A^ε⊗Φ/O is the continuous dual of V_∞*/V_∞*,ε."
+          "locator": "§4, p.955",
+          "match": "From the explicit reciprocity formula BKO conclude that V*,± is exactly the annihilator of A^±⊗Φ/O under the Kummer pairing and obtain the induced nondegenerate pairing of A^±⊗Φ/O with V*_∞/V*,±."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Proposition 5.6 and proof, p.413; Corollary 5.7, p.414",
+          "match": "Rubin expands the pairing by characters (his formula (8)) to show that V^± annihilates A^±⊗D_p and conversely, testing against points with a single nonzero character component; Corollary 5.7 is the induced nondegenerate pairing."
         }
       ],
       "acceptance": [
@@ -1545,8 +1682,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§4, p.955; Rubin Proposition 5.8, p.414",
-          "match": "V_∞*,+∩V_∞*,−=0 and rank_Λ V_∞*,ε≤1 for each sign. In particular neither freeness of a sign nor the integral sum is an input here."
+          "locator": "§4, p.955",
+          "match": "BKO deduce from (4.2) that V*,+∩V*,−=0 and that each sign has Λ-rank at most one."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Corollary 5.8 and proof, p.414",
+          "match": "Rubin derives the zero intersection from Proposition 5.4, 5.6 and (7), and the rank bound from Corollary 5.7 together with the infinite O-rank of A^±."
         }
       ],
       "acceptance": [
@@ -1569,18 +1711,18 @@
       "proofSteps": [
         "Choose 1≤m≤p−1 with (−m/p)=−1 and 0≤k≤7 with m+kp≡7 mod8. Remove the odd square factor from −(m+kp) to obtain D.",
         "Use ζ_K(s)=ζ_Q(s)L(s,χ_D) and the imported analytic residue formula to obtain h(D)=√|D| L(1,χ_D)/π_real (D<−4 here). Periodicity and zero mean give |Σ_(a≤t)χ_D(a)|≤|D|; split the L-series at |D| and use summation by parts on the tail to obtain L(1,χ_D)≤2+log|D|. The resulting bound is <p at p=53 and its ratio to p decreases for p≥53.",
-        "For primes 5 through47 use the reader’s table. Enumerate primitive reduced positive binary quadratic forms b²−4ac=D with |b|≤a≤c and a≤√(|D|/3), choosing b≥0 on the boundaries. The usual ideal-class correspondence, supplied by the number-field counting input, certifies the listed class numbers."
+        "For primes 5 through47 use the reader’s table. Enumerate primitive reduced positive binary quadratic forms b²−4ac=D with |b|≤a≤c and a≤√(|D|/3), choosing b≥0 on the boundaries. The reduced-form/ideal-class dictionary of ComplexMultiplicationAndExplicitReciprocity CM.1/quadratic-forms-dictionary, with Pic(O_D)=Cl(K) for fundamental D, certifies the listed class numbers."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume"
       ],
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Lemma 3.1, p.950",
-          "match": "For every p≥5 there exists an imaginary quadratic K of odd discriminant D≡1 mod 8 such that p is inert and p∤h_K. One may arrange |D|<8p; for p>47 the bound h_K≤√|D|·(2+log|D|)/π_real<p suffices, and p≤47 is checked by explicit reduced-form class numbers."
+          "locator": "Lemma 3.1 and proof, p.950",
+          "match": "BKO prove that some imaginary quadratic K has 2 split, p inert and p∤h_K: they choose m with (−m/p)=−1 and k with m+kp≡7 mod 8, take the squarefree part d of −(m+kp), and bound h(d) by √|d|(2+log|d|)/π<√(8p)(2+log 8p)/π, which is below p unless p≤47; the small primes are said to be easily checked. The node keeps this argument, replaces the cited L-value bound by an elementary one and lists the small-prime certificates."
         }
       ],
       "acceptance": [
@@ -1619,8 +1761,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§3.0.2–3.0.3, (3.1)–(3.5), (3.8)–(3.9), pp.951–954",
-          "match": "For the auxiliary K choose the canonical type-(1,0) Hecke character φ, a Gross Q-curve E/H with good reduction at p, a Néron differential ω and period Ω with lattice ΩO_K, and a split ℓ≥5 prime to h_K f_φ with p∤(ℓ−1). For ν of ℓ-power anticyclotomic order, import integral norm-compatible zeta classes z_(fℓ^m), their precise Kato (15.9) dual-exponential formula, the local splitting/disjointness comparisons, W(φ)=+1 and the unit theorem Ω⁻¹L_f(φ̄ν,1)∈W× for all but finitely many ν. Here Finis’s tower prime is ℓ, valuation prime is p; no ordinary CM type at p is assumed."
+          "locator": "§§3.0.1–3.0.3, (3.1)–(3.5), (3.8)–(3.9), pp.950–954",
+          "match": "BKO fix a canonical type-(1,0) Hecke character φ with a Gross Q-curve E over H with good reduction above p and properties (3.1)–(3.2), a split prime ℓ≥5 prime to h_K f with p∤ℓ−1, the zeta classes of Kato Proposition 15.9 with their dual-exponential formula (3.4) and comparison (3.5), the root-number equality W(φ̄ν)=W(φ), the canonical conductor support (3.8) with W(φ)=+1, and Finis's theorem (3.9) that Ω⁻¹L_f(φ̄ν,1) is a unit for all but finitely many ν. The node collects these imported inputs."
         }
       ],
       "acceptance": [
@@ -1655,8 +1797,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§3, displayed composite and (3.5), pp.952–953",
-          "match": "Let R/O contain φ and ν and let M_(n,m)=H(E[p^(n+1)])L_m. Define ξ_ν∈U_∞*⊗_O R by the composite: inverse of the untwisting isomorphism (3.5); corestriction from K(fℓ^m p^(n+1)) to M_(n,m); localization at p; the L_m group-ring splitting; evaluation at ν; projection R[Gal(H/K)]→R; Δ-invariants; and the Kummer identification. Its anticyclotomic image is denoted by the same symbol when the target is stated."
+          "locator": "§3.0.2, displayed composite and (3.5), pp.952–953",
+          "match": "BKO define ξ_ν as the image of z_(fℓ^m) under a seven-step composite (untwisting by (3.5), corestriction to M_(n,m), localization at p, splitting over Gal(L_m/K), evaluation at ν, projection from R[Gal(H/K)], Δ-invariants, Kummer identification) and note that it is Gal(Φ_∞/Φ₀)-equivariant. The node uses the conductor indexing of source issue E5."
         }
       ],
       "acceptance": [
@@ -1691,14 +1833,17 @@
       "tests": [
         {
           "name": "trivial_evaluation",
+          "kind": "degenerate",
           "statement": "For ν=1 the L_0 group-ring map is augmentation."
         },
         {
           "name": "nontrivial_evaluation",
+          "kind": "non-example",
           "statement": "For h∈Gal(L_(m−1)/K), for conductor exponent m≥2, evaluation sends [h] to ν(h), not ν(h)⁻¹."
         },
         {
           "name": "norm_projection_square",
+          "kind": "compatibility",
           "statement": "Computing at p-level n+1 then norming equals the level n composite."
         }
       ],
@@ -1738,8 +1883,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Proposition 3.3(1)–(2), (3.6)–(3.7), p.953",
-          "match": "For ξ_ν from the preceding construction, δ(ξ_ν)=Ω⁻¹L_(ℓ^m f)(φ̄ν,1), retaining the p-Euler factor, and δ_χ(ξ_ν)=Ω⁻¹L_(ℓ^m p f)(φ̄νχ,1) for every finite χ of Γ, including χ=1. Only φ is conjugated in these formulas; ν and χ are not silently inverted. At χ=1 the formulas agree through δ₁=(1+p⁻¹)δ."
+          "locator": "(3.6)–(3.7) and Proposition 3.3(1)–(2), p.953",
+          "match": "BKO state δ(ξ_ν)=Ω⁻¹L_(ℓ^m f)(φ̄ν,1) and δ_χ(ξ_ν)=Ω⁻¹L_(ℓ^m p f)(φ̄νχ,1) for every finite character χ of Gal(Φ_∞/Φ₀)."
         }
       ],
       "acceptance": [
@@ -1765,7 +1910,7 @@
       "proofSteps": [
         "Use the conjugation-stable conductor, χ(fℓ^m)=1 and the imported local root-number formula.",
         "Apply the functional equation at the central point and the derivative formula.",
-        "Handle χ=1 explicitly when the sign is minus, then use the signed kernel definition and finite-flat coefficient comparison."
+        "Handle χ=1 explicitly when the sign is minus (source issue E11). Pass from the vanishing of the C_p-valued derivatives of ξ_ν to membership in V_∞*,ε⊗R by AU.3/signed-units signed_units_base_change: Galois conjugation of the character values preserves conductor parity, so vanishing under the given embedding gives vanishing in Φ_n⊗_O R, and flatness of R identifies the common kernel with V_∞*,ε⊗R."
       ],
       "prerequisites": [
         "ColemanPowerSeriesPartII:AU.4/xi-values",
@@ -1776,8 +1921,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Proposition 3.3(3), p.953",
-          "match": "If ε=W(φ), the anticyclotomic image of ξ_ν belongs to V_∞*,ε⊗R. For a nontrivial anticyclotomic χ with conductor exponent c, W(φ̄νχ)=(−1)^cW(φ); opposite sign forces the central L-value and δ_χ to vanish. If ε=−, the required trivial-character vanishing follows separately from W(φ̄ν)=−1."
+          "locator": "Proposition 3.3(3) and proof, p.953",
+          "match": "BKO state that the image of ξ_ν in the anticyclotomic quotient belongs to V*,ε⊗R for ε the sign of W(φ), reducing it to W(φ̄νχ)=−1 for nontrivial χ of the wrong conductor parity, which follows from φ̄ν(pO_K)=−p, the conjugation-stable conductor and Greenberg's parity formula. The trivial-character case needed when ε=− is added in the node (source issue E11)."
         }
       ],
       "acceptance": [
@@ -1798,8 +1943,8 @@
         "The standing BKO local datum: p≥5, Φ/Q_p unramified quadratic, O=O_Φ, π=−p, a Lubin–Tate O-module F for π, and the specified π-adic Tate basis and towers."
       ],
       "proofSteps": [
-        "Take ν from the early Finis unit theorem and combine xi-values with W(φ)=+1. Then ξ_ν lies in V_∞*,+⊗W and δ(ξ_ν) is a W-unit.",
-        "Let I=δ(V_∞*,+)⊂O. Its base extension contains that unit, so IW=W; faithful flatness of the finite DVR extension gives I=O.",
+        "Take ν from the early Finis unit theorem and combine xi-values, xi-signed and W(φ)=+1. Then ξ_ν lies in V_∞*,+⊗R and δ(ξ_ν) is a unit of R; BKO write W, and any finite coefficient ring containing the values of φ and ν may be used.",
+        "Let I=δ(V_∞*,+)⊂O. Its extension IR contains a unit, so IR=R; since O→R is a finite extension of discrete valuation rings, I=O.",
         "Choose ξ* mapping to a unit. This avoids using Rubin Proposition 8.1 as an unexplained prior signed-freeness result."
       ],
       "prerequisites": [
@@ -1811,8 +1956,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Theorem 3.4, pp.953–954",
-          "match": "There exists ξ*∈V_∞*,+ with δ(ξ*)∈O×. This existence is established before any assertion that V_∞*,+ is Λ-free."
+          "locator": "Theorem 3.4 and proof, pp.953–954",
+          "match": "BKO choose ν as in (3.9), obtain ξ_ν in the plus part over W with δ(ξ_ν) a W-unit, and conclude, using Rubin's freeness V*,+≅Λ, that a generator has δ in O×. The node reaches the same existence statement through the image ideal of δ, without the freeness input."
         }
       ],
       "acceptance": [
@@ -1850,7 +1995,7 @@
         {
           "sourceId": "BKO2021",
           "locator": "§5.0.1, p.955",
-          "match": "For every p≥5 there is an elliptic curve E/Q with good reduction at p and a_p(E)=0. After replacing it by the optimal curve in its Q-isogeny class it still has good supersingular reduction and trace zero, and Ê⊗O≃F for π=−p."
+          "match": "BKO take an elliptic curve over Q with good reduction at p and a_p=0 (citing Cox for existence), note that its formal group is isomorphic to F over O, and replace it within its isogeny class so that its parametrization is strong Weil of conductor level. The node supplies an existence argument from a supersingular j-invariant in F_p."
         }
       ],
       "acceptance": [
@@ -1888,8 +2033,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§5.0.1, pp.955–956; the cited Mazur theorem is a requested supplier input",
-          "match": "For the optimal E of conductor N with p∤N, let f:X₀(N)→E be its strong Weil parametrization. It extends to the smooth Z_p models, and its reduction f̄ is nonconstant and separable: f*ω_E=c_E f_E(q)dq/q with c_E∈Z_p× and normalized q-coefficient 1. A prime-to-p scalar multiple of f retains separability and being unramified at a chosen point."
+          "locator": "§5.0.1, p.955",
+          "match": "BKO extend the parametrization to smooth models over Z_p by the Néron mapping property and assert that its reduction is separable because the Manin constant of a strong Weil parametrization is prime to p."
+        },
+        {
+          "sourceId": "AbbesUllmo1996",
+          "locator": "Théorème A, p.269",
+          "match": "Abbes and Ullmo prove that the Manin constant of a strong Weil curve of conductor N is not divisible by any prime p∤N, noting that odd p is already in Mazur's work. This is the p-unit statement requested from the supplier in R6."
         }
       ],
       "acceptance": [
@@ -1922,8 +2072,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Lemma 5.2(i), pp.956–957",
-          "match": "Let μ=[SL₂(Z):Γ₀(N)]=N∏_{ℓ∣N}(1+ℓ⁻¹). The number of geometric points where f̄:X₀(N)_(F_p)→E_(F_p) ramifies is at most 2g(X₀(N))−2≤μ/6. Count points without multiplicity; the different divisor supplies the multiplicities."
+          "locator": "Lemma 5.2(i) and proof, pp.956–957",
+          "match": "BKO bound the number of ramification points of the parametrization by 2g_N−2≤μ/6 from Riemann–Hurwitz and the genus formula of X₀(N) (citing Shimura, Propositions 1.40 and 1.43)."
         }
       ],
       "acceptance": [
@@ -1961,8 +2111,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Proof of Lemma 5.2, p.957",
-          "match": "For p≥5 and p∤N, the coarse Y₀(N)→A¹_j map is étale above j≠0,1728 and has μ geometric points in each such fibre. Above j=0 and1728 the stabilizer indices are at most3 and2, giving at least μ/3 and μ/2 points respectively. For an elliptic curve with scalar q-Frobenius [±p], every prime-to-p cyclic subgroup is Frobenius-stable, so the corresponding coarse moduli points are F_(p²)-rational. Scalar Frobenius does not make every torsion point rational."
+          "locator": "Lemma 5.1(i), p.956; proof of Lemma 5.2, p.957",
+          "match": "Lemma 5.1(i) shows that every finite subgroup of a curve over F_(p²) with trace ±2p is defined over F_(p²), since Frobenius acts as ±p on Tate modules. In the proof of Lemma 5.2 BKO use that Y₀(N)→Y(1) is étale over F_p away from j=0,1728 (citing Katz–Mazur Corollary 8.4.5), giving μ points in such fibres and at least μ/3, μ/2 over j=0, 1728, all F_(p²)-rational."
         }
       ],
       "acceptance": [
@@ -1996,8 +2146,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Lemma 5.2(ii), pp.956–957, with correction E2",
-          "match": "The number of points of X₀(N)(F_(p²)) represented by curves of trace ±2p with j≠0,1728 is at least μ( floor((p−1)/12)−3/2+(−3/p)+(1/2)(−1/p) ). This lower bound exceeds μ/6 for p≡1 mod12 or p≥31 with p≠47, so an unramified point of this kind exists in that range. At p=47 the bound is zero and proves no such conclusion."
+          "locator": "Lemma 5.2(ii), p.956, and proof, p.957, with correction E2",
+          "match": "BKO bound below the number of points of X₀(N)(F_(p²)) with trace ±2p and j≠0,1728 by μ(⌊(p−1)/12⌋−3/2+(−3/p)+½(−1/p)), using the Eichler–Deuring mass formula and Schoof's counts N(t), and infer an unramified such point when p≡1 mod 12 or p≥31; the inference fails at p=47 (E2)."
         }
       ],
       "acceptance": [
@@ -2034,8 +2184,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Lemma 5.2(iii), pp.956–957",
-          "match": "If p≡2 mod3, at least μ/3 points with j=0 in X₀(N)(F_(p²)) have trace ±2p representatives. If p≡3 mod4, at least μ/2 such points have j=1728. Each lower bound exceeds μ/6 and gives an unramified point for f̄. Combined with the generic count, an appropriate point exists for every p≥5, including p=47."
+          "locator": "Lemma 5.2(iii), p.956, and proof, p.957",
+          "match": "BKO show that for p≡2 mod 3 at least μ/3 points over j=0, and for p≡3 mod 4 at least μ/2 points over j=1728, have trace ±2p representatives (a model over F_p with a_p=0 has trace −2p over F_(p²)), and that one of them is unramified."
         }
       ],
       "acceptance": [
@@ -2073,8 +2223,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Formal CM point construction, pp.957–958",
-          "match": "Choose an unramified supersingular P∈X₀(N)(F_(p²)) with scalar Frobenius and prime-to-p auxiliary Γ₁(M) rigidification, giving P′ on the fine curve X₀(N;M). The forgetful map is unramified at P′. For exceptional j one may choose the auxiliary optimal curve at N=27 (j=0 case) or N=32 (j=1728 case) to remove the relevant elliptic stabilizer. After multiplying f by #E(F_(p²)), P maps to zero and the completed local morphism f′ at P′→0 is an O-isomorphism."
+          "locator": "§5.0.1, pp.957–958",
+          "match": "BKO compose with multiplication by #E(F_(p²)) so that the chosen point maps to the origin, add a Γ₁(M) level from a rational M-torsion point with M making the moduli fine and #Γ₀(M)/Γ₁(M) prime to p (possible since #A(F_(p²))=(p±1)²), take N=27 or 32 when j=0 or 1728, and conclude that the completed parametrization at the lifted point is an isomorphism."
         }
       ],
       "acceptance": [
@@ -2108,8 +2258,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§5, (5.1), p.958",
-          "match": "Choose Q∈Ê(m_Φ) with Q∉pÊ(m_Φ), using Ê(m_Φ)≃pO under the formal logarithm at the unramified base. Lift Q through the completed-local isomorphism at P′ to an O-point representing an elliptic scheme A/O with the prescribed prime-to-p levels. Its formal group has CM by O through the imported Honda comparison, while f(P)=Q. No global CM for A is asserted."
+          "locator": "§5.0.1, (5.1), p.958",
+          "match": "BKO choose Q in Ê(m) outside pÊ(m), lift it through the completed isomorphism to an O-point of the fine curve, and read off an elliptic curve A over O with Lubin–Tate formal group (Lemma 5.1(ii)), so A has formal (fake) CM."
         }
       ],
       "acceptance": [
@@ -2144,14 +2294,17 @@
       "tests": [
         {
           "name": "zero_rejected",
+          "kind": "degenerate",
           "statement": "Q=0 fails primitivity."
         },
         {
           "name": "p_multiple_rejected",
+          "kind": "non-example",
           "statement": "Q=[p]R fails primitivity for every R."
         },
         {
           "name": "unit_multiple",
+          "kind": "characterisation",
           "statement": "Multiplication by any b∈O× preserves primitivity, including b=p+1."
         }
       ],
@@ -2174,7 +2327,7 @@
       ],
       "kind": "comparison",
       "title": "Dedekind completion models",
-      "statement": "Choose the inert p-adic place of an auxiliary imaginary quadratic K and a compatible prime in each ring class field K(p^s). Then Φ is the completion K_p and Ψ′_s is the completion of K(p^s) at that selected prime, over the selected Hilbert-class-field prime. The local norm subgroup is Q_p×(1+p^sO) under local reciprocity, with inertia quotient (O/p^sO)×/(Z/p^sZ)×. For s≥1 its degree is p^(s−1)(p+1); Ψ′_0=Φ. These equivalences commute with inclusions, Galois actions and formal traces. No uniqueness of the prime above p in the entire global ring class field is asserted.",
+      "statement": "Choose the inert p-adic place of an auxiliary imaginary quadratic K and a compatible prime in each ring class field H_(p^s) of conductor p^s (the ring class field, not the ray class field written K(g) in BKO §3). Then Φ is the completion K_p and Ψ′_s is the completion of H_(p^s) at that selected prime, over the selected Hilbert-class-field prime. The local norm subgroup is Q_p×(1+p^sO) under local reciprocity, with inertia quotient (O/p^sO)×/(Z/p^sZ)×. For s≥1 its degree is p^(s−1)(p+1); Ψ′_0=Φ. These equivalences commute with inclusions, Galois actions and formal traces. No uniqueness of the prime above p in the entire global ring class field is asserted.",
       "hypotheses": [
         "The standing BKO local datum: p≥5, Φ/Q_p unramified quadratic, O=O_Φ, π=−p, a Lubin–Tate O-module F for π, and the specified π-adic Tate basis and towers."
       ],
@@ -2195,8 +2348,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§5.0.2, pp.958–959; local presentation made explicit for the pinned point map",
-          "match": "Choose the inert p-adic place of an auxiliary imaginary quadratic K and a compatible prime in each ring class field K(p^s). Then Φ is the completion K_p and Ψ′_s is the completion of K(p^s) at that selected prime, over the selected Hilbert-class-field prime. The local norm subgroup is Q_p×(1+p^sO) under local reciprocity, with inertia quotient (O/p^sO)×/(Z/p^sZ)×. For s≥1 its degree is p^(s−1)(p+1); Ψ′_0=Φ. These equivalences commute with inclusions, Galois actions and formal traces. No uniqueness of the prime above p in the entire global ring class field is asserted."
+          "locator": "§5.0.2, pp.958–959; §3.0.1, p.950",
+          "match": "BKO describe Ψ′_s through its Galois group (O/p^sO)×/(Z/p^sZ)× and call it the local ring class field of degree p^(s−1)(p+1) (citing Gross Proposition 5.3 and Yu Theorem 1); in §3 they note that the completion of the Hilbert class field at p is Φ because p splits completely in H. The global presentation needed by the pinned completion map is a planning addition, not a source claim."
         }
       ],
       "acceptance": [
@@ -2233,7 +2386,7 @@
         {
           "sourceId": "BKO2021",
           "locator": "§5.0.2, pp.958–959",
-          "match": "For the formally CM A/O and an O-basis t of T_pA set T_s=p⁻sZ_p t+T_pA and C_s=T_s/T_pA. Import the marked quotient A_s=A/C_s over O_(Ψ′_s), its formal order Z_p+p^sO, its reduction and the induced prime-to-p Γ₀(N),Γ₁(M) levels. These give moduli points z_s on X₀(N;M), and their coarse images on X₀(N), with z_0=P′. Define x_s=f′(z_s) as an actual elliptic point before identifying its formal parameter."
+          "match": "BKO set T_s=p^(−s)Z_p t+T, take the quotient A_s of A by T_s/T over the ring of integers of Ψ′_s, with formal endomorphism ring Z_p+p^sO (citing Gross p.325), let z_s be the resulting point of X₀(N) with the induced level, and let x_s be its image under the parametrization."
         }
       ],
       "acceptance": [
@@ -2268,14 +2421,17 @@
       "tests": [
         {
           "name": "conductor_zero",
+          "kind": "degenerate",
           "statement": "T_0=T and A_0=A with the original levels."
         },
         {
           "name": "first_degree",
+          "kind": "computation",
           "statement": "[Ψ′_1:Φ]=p+1, not p."
         },
         {
           "name": "shifted_layers",
+          "kind": "non-example",
           "statement": "The tame-fixed field (Ψ′_(n+1))^Δ′ equals Ψ_n, so the index shift cannot be removed."
         }
       ],
@@ -2318,8 +2474,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Definition 5.4 and its preceding construction, pp.958–959",
-          "match": "Each x_s specializes to zero on E and therefore has a unique formal parameter in Ê(m_(Ψ′_s)); x_0=Q. Through the completion models this parameter-to-point map is exactly WeierstrassCurve.formalPointHomAdicCompletion, with injectivity and range WeierstrassCurve.range_formalPointHomAdicCompletion. The formal, elliptic and Galois trace squares commute."
+          "locator": "§5.0.2 and Definition 5.4, p.959",
+          "match": "BKO place the traces of the x_s in Ê(m_(Ψ_s)) without comment, which presupposes that each x_s reduces to the origin. The node supplies the Frobenius-twist argument for that reduction and identifies the parameter map with the pinned completion homomorphism."
         }
       ],
       "acceptance": [
@@ -2353,7 +2509,7 @@
         {
           "sourceId": "BKO2021",
           "locator": "Definition 5.4, p.959",
-          "match": "Let Δ′ be the order-(p+1) tame subgroup in Gal(Ψ′_∞/Φ). Define y_s=Σ_{d∈Δ′}d·x_(s+1) in Ê(m_(Ψ_s))≃F(m_(Ψ_s)) and y=[p+1]Q∈F(m_Φ). The sum is formal addition, and Ψ_s=(Ψ′_(s+1))^Δ′ fixes it."
+          "match": "BKO define y_s as the sum of the Δ′-conjugates of x_(s+1), a point of Ê over Ψ_s, and y=(p+1)Q, where Δ′ is the torsion subgroup of Gal(Ψ′_∞/Φ) and Ψ_s⊂Ψ′_(s+1)."
         }
       ],
       "acceptance": [
@@ -2388,14 +2544,17 @@
       "tests": [
         {
           "name": "degree_p_plus_one",
+          "kind": "computation",
           "statement": "The tame trace has p+1 terms."
         },
         {
           "name": "index_shift",
+          "kind": "non-example",
           "statement": "The point at level Ψ_0 is traced from x_1, not x_0."
         },
         {
           "name": "formal_addition",
+          "kind": "compatibility",
           "statement": "Its parameter is obtained by iterated E.formalAddEval; ordinary parameter addition is not substituted."
         }
       ],
@@ -2434,8 +2593,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Theorem 5.5(i), p.959",
-          "match": "The base point y=[p+1]Q is not divisible by p in F(m_Φ); equivalently its O-span equals F(m_Φ), a free O-module of rank one."
+          "locator": "Theorem 5.5(i) and proof, p.959",
+          "match": "BKO state that y lies in Ê(m) but not in pÊ(m), which follows from the choice (5.1) of Q since p+1 is a unit."
         }
       ],
       "acceptance": [
@@ -2459,6 +2618,7 @@
         "The standing BKO local datum: p≥5, Φ/Q_p unramified quadratic, O=O_Φ, π=−p, a Lubin–Tate O-module F for π, and the specified π-adic Tate basis and towers."
       ],
       "proofSteps": [
+        "Write O=Z_p⊕Z_pθ. For s≥1 the index-p superlattices of T_s=p^(−s)Z_p t+T are the p forward lattices p^(−s−1)Z_p(1+ap^sθ)t+T=(1+ap^sθ)T_(s+1), a mod p, and the backward lattice p^(−s)Z_p t+p^(−1)T=p^(−1)T_(s−1). BKO's printed numerator 1+ap^s is a Z_p-unit, so their list would give the single lattice T_(s+1) (source issue E14).",
         "Import the marked index-p neighbour classification and Galois actions from LT.7/lattice-neighbors.",
         "Identify the geometric Hecke correspondence with the p-isogeny moduli problem, including inherited prime-to-p levels.",
         "Use the modular quotient’s Hecke eigenrelation f∘T_p=a_p(E)f and a_p(E)=0; only then pass from the lattice count to an elliptic-point equality."
@@ -2473,8 +2633,8 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Proof of Theorem 5.5(ii), p.959, with corrected Δ′ and s+1 indices",
-          "match": "For s≥1 the p forward marked neighbours of T_s form the Gal(Ψ′_(s+1)/Ψ′_s)-orbit of z_(s+1), and the single backward homothety class is z_(s−1). Thus the geometric T_p correspondence gives f(T_p z_s)=Σ_g g·x_(s+1)+x_(s−1)=a_p(E)x_s=0. At s=0 all p+1 neighbours are forward and form Gal(Ψ′_1/Φ)=Δ′. The statement concerns z_s before f and x_s after f; f is never applied a second time to x_s."
+          "locator": "proof of Theorem 5.5(ii), p.959, with corrections E3 and E14",
+          "match": "BKO split the index-p superlattices of T_s into p forward lattices permuted by Gal(Ψ′_(s+1)/Ψ′_s) and one lattice homothetic to T_(s−1), deduce T_p x_s=Σσx_(s+1)+x_(s−1) for s≥1 and T_p x_0=Σ over the tame group of σx_1, and use that T_p acts as a_p(E)=0 on E. The printed forward lattices and orbit indices need corrections E3 and E14."
         }
       ],
       "acceptance": [
@@ -2512,7 +2672,12 @@
         {
           "sourceId": "BKO2021",
           "locator": "Theorem 5.5(ii), p.959",
-          "match": "The system satisfies y_0=0, Tr_(Ψ_1/Φ)y_1=−y, and Tr_(Ψ_(s+1)/Ψ_s)y_(s+1)=−y_(s−1) for every s≥1. The first two equations are separate boundary statements, not instances of a recurrence with a fictitious y_(−1)."
+          "match": "BKO state Tr_(s+1/s)y_(s+1)=−y_(s−1) for s≥1, Tr_(1/0)y₁=−y and y₀=0."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Proposition 6.1, pp.415–416",
+          "match": "Rubin proves the same relations for his Heegner-point system by the same Hecke-operator argument."
         }
       ],
       "acceptance": [
@@ -2552,8 +2717,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Corollary 5.6, pp.959–960; Rubin §7, Propositions 7.3–7.4, pp.416–417",
-          "match": "For D⁻=A⁻⊗_O Φ/O one has (D⁻)^(G⁻)=F(m_Φ)⊗_O Φ/O≃Φ/O. For cofinal odd n≥1, H¹(Gal(Ψ_n/Φ),F⁻(Ψ_n))=0; its direct limit gives the equality of divisible invariants."
+          "locator": "Corollary 5.6 and proof, pp.959–960",
+          "match": "BKO state that the G⁻-invariants of A⁻⊗Φ/O are F(Φ)⊗Φ/O, deducing it from Theorem 5.5 and Rubin Proposition 7.4, whose proof uses only the trace relations of Rubin Proposition 6.1."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Corollary 6.2, p.416; Lemmas 7.1–7.2 and Propositions 7.3–7.4, pp.416–417",
+          "match": "Rubin shows y_n∈A⁻ for odd n, computes the Herbrand quotient p^(n−1) of A⁻∩E(Ψ_n) for odd n from a finite-index decomposition into group-ring pieces, bounds Ĥ⁰ by p^(n−1)[E(Φ):Oy] using the trace of y_n, obtains |H¹|≤[E(Φ):Oy], and concludes the invariant equality through Lemma 4.4 when y generates E(Φ)."
         }
       ],
       "acceptance": [
@@ -2592,8 +2762,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Corollary 5.6, pp.959–960",
-          "match": "The compact Λ-module Q⁻=V_∞*/V_∞*,− is free of rank one. Its augmentation coinvariants are O, through the dual of the preceding invariant theorem."
+          "locator": "proof of Corollary 5.6, p.960",
+          "match": "By Kummer duality and Nakayama's lemma BKO find V*_∞/V*,− cyclic, hence free of rank one or torsion, and exclude torsion because its rank is at least one."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 4.3, p.410",
+          "match": "If X has Λ-rank one and the Γ-invariants of Hom_O(X,E[p^∞]) are isomorphic to Φ/O, Rubin deduces that the twisted coinvariants of X are O, so that X is cyclic by Nakayama and hence free; the node uses the same route for the minus quotient."
         }
       ],
       "acceptance": [
@@ -2629,8 +2804,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Corollary 5.6, p.960; compare Rubin Lemma 4.1, p.410",
-          "match": "V_∞*,− is free of rank one over Λ."
+          "locator": "proof of Corollary 5.6, p.960",
+          "match": "BKO deduce freeness of V*,− from that of the quotient, rank V*_∞=2 and Λ being a UFD, citing Rubin Lemma 4.1."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 4.1, p.410",
+          "match": "A rank-one submodule of Λ² with torsion-free quotient is free. The node instead splits the sequence using the free quotient."
         }
       ],
       "acceptance": [
@@ -2669,8 +2849,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Proof of Theorem 5.8, p.960",
-          "match": "The map δ induces Q⁻→O with δ(λv)=aug(λ)δ(v), and δ(m_ΛQ⁻)⊂pO for m_Λ=(p,γ−1). Therefore the image of ξ* with δ(ξ*)∈O× generates Q⁻."
+          "locator": "proof of Theorem 5.8, p.960",
+          "match": "BKO identify V*_∞/V*,− with Λ, note that δ sends the maximal ideal of Λ into pO, and conclude that the plus element with unit δ generates the quotient."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 4.2, p.410, with correction E13",
+          "match": "Rubin's generation criterion for a functional with a unit value; as printed it relies on continuity alone, and needs the augmentation-linearity that δ has."
         }
       ],
       "acceptance": [
@@ -2706,8 +2891,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Theorem 2.1, p.949, and Theorem 5.8, p.960",
-          "match": "For every prime p≥5 and the standing unramified quadratic local datum, the addition map V_∞*,+⊕_Λ V_∞*,−→V_∞* is a Λ-linear homeomorphism. Equivalently V_∞*=V_∞*,+⊕V_∞*,− integrally over O[[G⁻]]."
+          "locator": "Theorem 2.1, p.949; Theorem 5.8 and proof, p.960",
+          "match": "BKO state Rubin's conjecture V*_∞=V*,+⊕V*,− and prove it by Rubin's argument from Theorem 3.4 and Corollary 5.6."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Conjecture 2.2, p.408; Theorem 8.4, pp.418–419",
+          "match": "Rubin conjectured the decomposition and proved it under his conditions P₊ and P₋ by the same generation argument."
         }
       ],
       "acceptance": [
@@ -2743,8 +2933,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "§2, p.949, with Theorem 5.8, p.960",
-          "match": "Both V_∞*,+ and V_∞*,− are Λ-free of rank one, and the chosen optimal ξ* generates V_∞*,+."
+          "locator": "§2, p.949; Theorem 5.8, p.960",
+          "match": "BKO quote Rubin's freeness of each sign; the node derives it from the decomposition and the free minus quotient."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Proposition 8.1, p.417",
+          "match": "Rubin proves V⁺≅V⁻≅Λ from the rank bounds, Lemma 4.1 and a power-series argument."
         }
       ],
       "acceptance": [
@@ -2781,8 +2976,13 @@
       "sources": [
         {
           "sourceId": "Rubin1987",
-          "locator": "Rubin Lemma 10.1 proof, pp.420–421; BKO Corollary 2.2, p.949",
-          "match": "For every finite anticyclotomic χ, δ_χ:V_∞*→Φ(χ) is not the zero map. This can be proved from Kummer duality before using the direct-sum conclusion."
+          "locator": "proof of Lemma 10.1, p.421",
+          "match": "If δ_χ vanished on a generator it would vanish on all of V, hence (Lemma 2.1(v)) for every character of the same conductor; Rubin then chooses a nonzero point whose character logarithms vanish off that conductor and whose norm to the previous layer is zero, and formula (8) makes it pair to zero with all of V, contradicting Proposition 5.4. The node isolates the nonvanishing on the full module."
+        },
+        {
+          "sourceId": "BKO2021",
+          "locator": "Corollary 2.2, p.949",
+          "match": "BKO state the generator nonvanishing as a consequence of Theorem 2.1, citing Rubin Lemma 10.1."
         }
       ],
       "acceptance": [
@@ -2816,8 +3016,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Corollary 2.2, p.949; Rubin Lemma 10.1, pp.420–421",
-          "match": "For ε∈{+,−}, every Λ-generator v_ε of V_∞*,ε and every χ∈Ξ^ε satisfy δ_χ(v_ε)≠0. For χ of opposite parity the derivative is zero. This includes χ=1 on the plus side."
+          "locator": "Corollary 2.2, p.949",
+          "match": "For ε∈{+,−}, a generator v of V*,ε and every χ∈Ξ^ε, BKO state δ_χ(v)≠0."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Lemma 10.1, p.421",
+          "match": "Rubin proves the same statement assuming his Conjecture 2.2."
         }
       ],
       "acceptance": [
@@ -2836,7 +3041,7 @@
       ],
       "kind": "application",
       "title": "Historical numerical range regression",
-      "statement": "Rubin’s previously checked range 5≤p≤1001 with p≢1 mod12 is a historical consistency check for the new universal theorem, not a proof input. The final theorem includes those primes, p≡1 mod12, and p=47 through the corrected exceptional construction.",
+      "statement": "Rubin’s previously checked range 5≤p≤1000 with p≢1 mod12 (Rubin p.418; BKO Remark 2.3 writes 1001, source issue E12) is a historical consistency check for the new universal theorem, not a proof input. The final theorem includes those primes, p≡1 mod12, and p=47 through the corrected exceptional construction.",
       "hypotheses": [
         "The standing BKO local datum: p≥5, Φ/Q_p unramified quadratic, O=O_Φ, π=−p, a Lubin–Tate O-module F for π, and the specified π-adic Tate basis and towers."
       ],
@@ -2851,8 +3056,13 @@
       "sources": [
         {
           "sourceId": "BKO2021",
-          "locator": "Remark 2.3, p.949; Rubin p.418",
-          "match": "Rubin’s previously checked range 5≤p≤1001 with p≢1 mod12 is a historical consistency check for the new universal theorem, not a proof input. The final theorem includes those primes, p≡1 mod12, and p=47 through the corrected exceptional construction."
+          "locator": "Remark 2.3, p.949, with correction E12",
+          "match": "BKO recall that Rubin had proved the conjecture for 5≤p≤1001 with p≢1 mod 12."
+        },
+        {
+          "sourceId": "Rubin1987",
+          "locator": "Computation, p.418; Theorem 8.4, pp.418–419",
+          "match": "Rubin's computation covers 5≤p≤1000 with p≢1 mod 12, placing those primes in P₊∩P₋, so that Theorem 8.4 applies."
         }
       ],
       "acceptance": [
@@ -2900,7 +3110,7 @@
     },
     {
       "supplier": "EllipticCurveModularity:R29.5",
-      "need": "Continuation in this direction: for an optimal strong Weil parametrization at an odd good prime p, the Manin constant is a p-unit; the optimal isogeny-class replacement preserves good reduction and a_p=0. The existing modular-parametrisation node only supplies a rational nonzero differential constant. Record the additional p-unit theorem as an extension, not as part of that node.",
+      "need": "Continuation in this direction: for an optimal strong Weil parametrization at an odd good prime p, the Manin constant is a p-unit; the optimal isogeny-class replacement preserves good reduction and a_p=0. The existing modular-parametrisation node only supplies a rational nonzero differential constant. Record the additional p-unit theorem as an extension, not as part of that node. A free source for the statement: Abbes–Ullmo 1996, Théorème A (p.269), proves that the Manin constant of a strong Weil curve of conductor N is prime to every p∤N.",
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.5/manin-separability"
       ]
@@ -2939,7 +3149,7 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
-      "need": "Reuse the current TauCeti.completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule implementation. Supply its scalar extension to O and finite coefficient DVR extensions, character evaluation, continuous twisting by κ⁻¹, and the closed-quotient universal property. No reconstruction of completed group algebras or their compact-module action is requested.",
+      "need": "Reuse the current TauCeti.completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule implementation. Supply its scalar extension to O and finite coefficient DVR extensions, character evaluation, continuous twisting by κ⁻¹, and the closed-quotient universal property. No reconstruction of completed group algebras or their compact-module action is requested. Status 2026-10-18: PadicMeasuresIwasawaAlgebras is now a Tau Ceti roadmap (merged on TauCetiRoadmap main 2026-10-14); its Layer 1 states the completed group algebra built on TauCeti.completedGroupAlgebra with coefficient extension. What remains is to check the κ⁻¹-twist on the two-variable algebra and the closed-quotient property against that text.",
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.0/units-limit",
         "ColemanPowerSeriesPartII:AU.0/inverse-tate-twist",
@@ -2949,7 +3159,7 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
-      "need": "Finite flat coefficient change for simultaneous derivative kernels and compact finitely generated modules; two-variable O[[Z_p²]] rank calculations, and one-variable O[[T]] local-algebra/Weierstrass consequences. Existing character-decomposition and regular-local node ids are already cited when sufficient.",
+      "need": "Two-variable O[[Z_p²]] rank calculations and one-variable O[[T]] Weierstrass consequences, which the upstream Layer 4 (Weierstrass theory and module structure, with base change of characteristic ideals) states for O[[T]]; the simultaneous-derivative-kernel base change is now proved inside this roadmap (AU.3/signed-units, signed_units_base_change). Existing character-decomposition and regular-local node ids are cited.",
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.0/units-free",
         "ColemanPowerSeriesPartII:AU.3/signed-rank-upper",
@@ -2958,7 +3168,7 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L5",
-      "need": "Compact Nakayama for a finitely generated O[[G⁻]]-module using augmentation coinvariants, compatible inverse limits and scalar extension; a cyclic module of positive rank over this domain is free rank one.",
+      "need": "Compact Nakayama for a finitely generated O[[G⁻]]-module using augmentation coinvariants, compatible inverse limits and scalar extension; a cyclic module of positive rank over this domain is free rank one. Status 2026-10-18: the upstream Layer 5, §5.2, states topological Nakayama for compact modules over O[[T]]; the remaining clause (a cyclic module of positive rank over the domain Λ is free of rank one) is routine.",
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.0/units-free",
         "ColemanPowerSeriesPartII:AU.8/minus-quotient-free"
@@ -3017,17 +3227,10 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-      "need": "Elliptic local Tate duality for a principally polarized good supersingular elliptic curve, compatible with finite Kummer images, formal reduction subgroups, O-action adjoints and norm/restriction; needed before passing to the infinite tower.",
+      "supplier": "ArithmeticGaloisDuality:R02.4",
+      "need": "Compatibility of the local abelian-variety duality of R02.4/abelian-variety-local-duality with restriction and corestriction along finite extensions, with finite Kummer images, and with the adjoint of an O-action, for a principally polarized elliptic curve with good supersingular reduction. Tau Ceti EllipticCurves Layer 7 lists local Tate duality only among stretch prerequisites, so it is not cited.",
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.2/formal-kummer-duality"
-      ]
-    },
-    {
-      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting",
-      "need": "Finite ideal-class counting and its primitive positive binary quadratic-form correspondence for negative fundamental D, including reduced representatives with |b|≤a≤c, boundary tie rule and a≤√(|D|/3), to certify the finite D,h(D) table.",
-      "neededBy": [
-        "ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic"
       ]
     },
     {
@@ -3075,7 +3278,7 @@
       "neededBy": [
         "ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing"
       ],
-      "detail": "Hazewinkel Theorem1.3 was read with its proof, but assumes an absolutely unramified base. Supply a valid ramified finite-base/cofinality estimate forcing every coordinate of lim_N F(m_(Ψ_n)) and lim_N F(m_(Θ_n)) to vanish. Rubin Proposition4.5 states the vanishing at Φ and cites Hazewinkel; that alone does not justify all finite coordinates. A uniform filtration depth tending to infinity at each fixed ramified layer would close this gap."
+      "detail": "Hazewinkel Theorem1.3 was read with its proof, but assumes an absolutely unramified base. Supply a valid ramified finite-base/cofinality estimate forcing every coordinate of lim_N F(m_(Ψ_n)) and lim_N F(m_(Θ_n)) to vanish. Rubin Proposition4.5 states the vanishing at Φ and cites Hazewinkel; that alone does not justify all finite coordinates. A uniform filtration depth tending to infinity at each fixed ramified layer would close this gap. Lead recorded by the review: Θ_∞ and Ψ_∞ are Galois p-adic Lie extensions with infinite inertia, hence deeply ramified (Fesenko 1998, §2.5 with Proposition 2.3, via Sen's theorem), and for a deeply ramified field Fesenko's Theorem 1.1(4) gives H¹(Gal(F′/F),M_F′)=0 for every finite F′. Coates–Greenberg (Invent. Math. 124, 1996, not read here) derive from this the vanishing of H¹ of formal-group points over deeply ramified fields; that would give the direct-limit Kummer defect vanishing needed in AU.2 directly, without the inverse-limit statement. Source issue E15 records the citation gap in Rubin and BKO."
     },
     {
       "id": "G2",
@@ -3085,6 +3288,26 @@
         "ColemanPowerSeriesPartII:AU.2/wiles-dual-exponential"
       ],
       "detail": "The BKO trace formula and Rubin Theorem5.3 were read. Wiles 1978, Higher explicit reciprocity laws, Annals107,235–254 (DOI10.2307/1971143) original proof was not obtained. Kato1993 ChapterII Theorem2.1.7 is not cleared in the supplied library and was not read. Supply a lawful original proof or a complete accessible replacement for height-two Lubin–Tate reciprocity, with arithmetic Artin sign, π=−p basis, π^(−m−1−k) trace formula and its character dual-exponential comparison. The height-one Coates–Wiles formula is not a replacement."
+    },
+    {
+      "id": "G3",
+      "title": "Supersingular finite-field counts not yet owned",
+      "neededBy": [
+        "ColemanPowerSeriesPartII:AU.5/supersingular-auxiliary",
+        "ColemanPowerSeriesPartII:AU.5/moduli-etale",
+        "ColemanPowerSeriesPartII:AU.5/generic-supersingular-count",
+        "ColemanPowerSeriesPartII:AU.5/exceptional-supersingular-count",
+        "ColemanPowerSeriesPartII:AU.2/formal-kummer-duality"
+      ],
+      "detail": "Deuring's supersingular j-count, Schoof's F_(p²) counts N(t) with twists, existence of a supersingular j in F_p and the j=0,1728 criteria are cited through Tau Ceti EllipticCurves Layer 3, which stops at the ordinary/supersingular dichotomy and the Hasse bound. The accepted BKO extraction routes them to Elliptic curves, Part II (design #3398), whose stages do not exist yet. Request R18 and the second restructure entry record the target; until then the input is unowned."
+    },
+    {
+      "id": "G4",
+      "title": "Early nonordinary CM special-value inputs not yet owned",
+      "neededBy": [
+        "ColemanPowerSeriesPartII:AU.4/early-cm-interface"
+      ],
+      "detail": "The zeta classes with Kato's dual-exponential formula, the canonical-character root number and period, the auxiliary prime ℓ and Finis's unit theorem at the inert prime are anchored at AutomorphicPadicLFunctions L3, which excludes nonordinary CM types. The accepted BKO extraction routes them to the nonordinary CM continuation (design #3350), whose stages do not exist yet. Request R3 and the first restructure entry record the target; until then the input is unowned."
     }
   ],
   "coverage": [
@@ -3123,10 +3346,11 @@
         "Discharge contract R16 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R20 (tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4); its exact statement and consumers are recorded in requests and the reader.",
+        "Discharge contract R20 (ArithmeticGaloisDuality:R02.4); its exact statement and consumers are recorded in requests and the reader.",
         "Resolve G1: Height-two universal norms over ramified finite bases.",
         "Resolve G2: Original height-two reciprocity proof and dual-exponential normalization.",
-        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation."
+        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation.",
+        "Gap G3: the supersingular finite-field counts are not yet owned by any published stage; rewire to EllipticCurvesPartII (#3398) when designed."
       ]
     },
     {
@@ -3143,7 +3367,7 @@
         "Discharge contract R16 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R20 (tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4); its exact statement and consumers are recorded in requests and the reader.",
+        "Discharge contract R20 (ArithmeticGaloisDuality:R02.4); its exact statement and consumers are recorded in requests and the reader.",
         "Resolve G1: Height-two universal norms over ramified finite bases.",
         "Resolve G2: Original height-two reciprocity proof and dual-exponential normalization.",
         "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation."
@@ -3165,12 +3389,12 @@
         "Discharge contract R16 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R20 (tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R21 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting); its exact statement and consumers are recorded in requests and the reader.",
+        "Discharge contract R20 (ArithmeticGaloisDuality:R02.4); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R23 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); its exact statement and consumers are recorded in requests and the reader.",
         "Resolve G1: Height-two universal norms over ramified finite bases.",
         "Resolve G2: Original height-two reciprocity proof and dual-exponential normalization.",
-        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation."
+        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation.",
+        "Gap G4: the early nonordinary CM special-value inputs are not yet owned by any published stage; rewire to the nonordinary continuation (#3350) when designed."
       ]
     },
     {
@@ -3185,7 +3409,8 @@
         "Discharge contract R24 (tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R25 (tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R26 (tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n); its exact statement and consumers are recorded in requests and the reader.",
-        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation."
+        "Check inherited proof obligations of the exact supplier nodes on this dependency chain; canonical Gross-character existence, when used, is still an external source obligation.",
+        "Gap G3: the supersingular finite-field counts are not yet owned by any published stage; rewire to EllipticCurvesPartII (#3398) when designed."
       ]
     },
     {
@@ -3198,7 +3423,6 @@
         "Discharge contract R17 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R21 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R22 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R23 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R24 (tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves); its exact statement and consumers are recorded in requests and the reader.",
@@ -3219,7 +3443,6 @@
         "Discharge contract R17 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R21 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R22 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R23 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R24 (tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves); its exact statement and consumers are recorded in requests and the reader.",
@@ -3248,8 +3471,7 @@
         "Discharge contract R17 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R20 (tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R21 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting); its exact statement and consumers are recorded in requests and the reader.",
+        "Discharge contract R20 (ArithmeticGaloisDuality:R02.4); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R22 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R23 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R24 (tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves); its exact statement and consumers are recorded in requests and the reader.",
@@ -3283,8 +3505,7 @@
         "Discharge contract R17 (tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R18 (tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R19 (tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R20 (tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4); its exact statement and consumers are recorded in requests and the reader.",
-        "Discharge contract R21 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting); its exact statement and consumers are recorded in requests and the reader.",
+        "Discharge contract R20 (ArithmeticGaloisDuality:R02.4); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R22 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R23 (tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters); its exact statement and consumers are recorded in requests and the reader.",
         "Discharge contract R24 (tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves); its exact statement and consumers are recorded in requests and the reader.",
@@ -3332,7 +3553,12 @@
       "searched": [
         "Published Annals PDF, Lemma5.1 and its proof",
         "Accepted BKO extraction and LubinTateFormalModulesAndQuasiCanonicalLifts packet source issues"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.956. For a_q=2sp Frobenius acts as [sp], and [sp] reduces to X^q on the formal group, so the Lubin–Tate parameter is sp; BKO's own claim on p.955 that Ê≅F for a_p=0 (a_q=−2p, parameter −p) contradicts the printed sign. Same as the confirmed extraction erratum E9.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E2",
@@ -3347,7 +3573,12 @@
       "searched": [
         "Published Annals PDF, Lemma5.2(ii)–(iii)",
         "Accepted BKO extraction correction notes"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Computed: at p=47 the printed coefficient is 3−3/2−1−1/2=0, and among primes p≥31 only 47 gives a nonpositive value; the true count μ⌊(p−1)/12⌋ and the j=0,1728 route both cover 47.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E3",
@@ -3362,14 +3593,19 @@
       "searched": [
         "Published Annals PDF, Theorem5.5 proof and Definition5.4",
         "Accepted extraction hecke-lattice-relation/optimal-point-boundary"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.959 (page image): the first-type lattices are said to be σx_s, while the displayed relation uses σx_(s+1); the s=0 orbit is said to be permuted by Δ, of order p²−1, while there are p+1 lattices.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E4",
       "kind": "misprint",
       "sourceId": "Rubin1987",
-      "locator": "Rubin Lemma2.1(ii), p.407; BKO footnote2, p.948",
-      "printed": "The recursion uses p while its endomorphism-basis interpretation uses π=−p.",
+      "locator": "Rubin §2, opening paragraph, p.407 (generator of T_p(E) used for Coleman's series); BKO footnote 2, p.948",
+      "printed": "Rubin fixes a generator of the p-adic Tate module, [p]v_(n+1)=v_n, and applies Coleman's interpolation to it; Coleman's theorem for this Lubin–Tate group needs a π-adic generator with π=−p.",
       "correction": "Use an actual π-adic Tate basis; the comparison with a p-compatible coordinate sequence has factor(−1)^n.",
       "reason": "[−p]v_(n+1)=v_n differs from [p]v_(n+1)=v_n by the alternating sign; the Coleman chain rule depends on the chosen basis.",
       "affects": "the proof",
@@ -3377,7 +3613,12 @@
       "searched": [
         "BKO2021 §2 footnote2",
         "Rubin1987 Lemma2.1(ii)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Rubin p.407 (page image). Lemma 2.1(ii) itself is not where the problem sits; the locator was moved to the opening of §2. With [p]v_(n+1)=v_n, the system w_n=(−1)^n v_n is π-compatible, and a single series cannot interpolate u at both systems in general; BKO footnote 2 records this.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E5",
@@ -3392,7 +3633,12 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.952–954. For split ℓ the ring class field of conductor ℓ^m contains only the degree ℓ^(m−1) layer of the anticyclotomic Z_ℓ-extension, so an order-ℓ^m character has conductor ℓ^(m+1); p.954 itself calls ℓ^m the conductor.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E6",
@@ -3407,11 +3653,16 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.959 (page image): the corollary prints V_∞/V_∞*,− without the star on the numerator.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E7",
-      "kind": "misprint",
+      "kind": "gap",
       "sourceId": "BKO2021",
       "locator": "Published Proof of Theorem5.8, p.960",
       "printed": "The augmentation derivative is used on the minus quotient without spelling out its descent.",
@@ -3422,7 +3673,12 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.960. The proof uses δ on V*/V*,− without saying why δ vanishes on V*,−; the reason is δ₁=(1+p⁻¹)δ with 1∈Ξ⁺. This is an omitted step rather than a misprint, so the kind is changed to gap, matching the accepted extraction erratum E7.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E8",
@@ -3437,7 +3693,12 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.962: the characters are said to factor through Gal(Ψ_n/Ψ), with Ψ undefined.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E9",
@@ -3452,7 +3713,12 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.957: the indices 2, 3 at elliptic points are attributed to the parametrization symbol π of §5; they belong to X₀(N)→X(1).",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     },
     {
       "id": "ColemanPowerSeriesPartII/E10",
@@ -3467,7 +3733,116 @@
       "searched": [
         "Reread published BKO at the cited locator",
         "Read the existing atlas erratum and its independent confirmed review; no new external correction search is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.958 (page image): the degree is written [Φ′_s:Φ], with Φ′_s undefined; Ψ′_s is meant.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
+    },
+    {
+      "id": "ColemanPowerSeriesPartII/E11",
+      "kind": "gap",
+      "sourceId": "BKO2021",
+      "locator": "Proof of Proposition 3.3(3), p.953, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e)",
+      "printed": "The proof reduces membership of the projection of ξ_ν in V*,ε to the vanishing of W(φ̄νχ) for nontrivial characters χ of the wrong conductor parity only.",
+      "correction": "When W(φ)=−1 the trivial character, which lies in Ξ⁺, must also be treated: W(φ̄ν)=W(φ)=−1 forces L(φ̄ν,1)=0, and then (2) gives δ₁(ξ_ν)=0.",
+      "reason": "V*,− is defined by the vanishing of δ_χ for every χ∈Ξ⁺, including χ=1 (conductor 1, an even power of p); the printed reduction considers only conductor >1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published BKO, §3, pp.951–954 (page images)",
+        "Accepted errata file of the BKO extraction (E1–E10)",
+        "AnticyclotomicLocalUnits packet source issues"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review; the omitted case is needed only for ε=−, and Theorem 3.4 uses ε=+.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
+    },
+    {
+      "id": "ColemanPowerSeriesPartII/E12",
+      "kind": "misprint",
+      "sourceId": "BKO2021",
+      "locator": "Remark 2.3, p.949, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e)",
+      "printed": "Rubin's earlier range is quoted as 5≤p≤1001 with p≢1 mod 12.",
+      "correction": "Rubin's computation (p.418) covers 5≤p≤1000 with p≢1 mod 12.",
+      "reason": "Rubin p.418 states the bound 1000; since 1001=7·11·13, the two prime ranges coincide.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Rubin 1987, p.418",
+        "Accepted errata file of the BKO extraction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review after reading Rubin p.418 (page image).",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
+    },
+    {
+      "id": "ColemanPowerSeriesPartII/E13",
+      "kind": "error",
+      "sourceId": "Rubin1987",
+      "locator": "Lemma 4.2 and proof, p.410",
+      "printed": "For a free rank-one Λ-module X and a continuous homomorphism φ:X→O, a unit value φ(x) is said to force x to generate X, because continuity sends 𝔪X into pO.",
+      "correction": "Assume in addition that φ(λx)=aug(λ)φ(x) for λ∈Λ (as for the Coates–Wiles derivative δ); then φ(𝔪X)⊂pO and the conclusion follows by Nakayama.",
+      "reason": "For X=Λ=O[[T]] the coefficient of T is continuous and O-linear, takes the value 1 at T, but T lies in 𝔪 and does not generate Λ.",
+      "affects": "nothing",
+      "known": "new to the reviewed atlas files; the unreviewed AnticyclotomicLocalUnits design records the same point as its E12",
+      "searched": [
+        "Rubin 1987, §4",
+        "BKO proof of Theorem 5.8, p.960, which uses the conclusion only for δ",
+        "Accepted errata file of the BKO extraction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review; the counterexample was checked directly. Rubin and BKO apply the lemma only to δ, which is augmentation-linear.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
+    },
+    {
+      "id": "ColemanPowerSeriesPartII/E14",
+      "kind": "misprint",
+      "sourceId": "BKO2021",
+      "locator": "Proof of Theorem 5.5(ii), forward-lattice list, p.959, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e)",
+      "printed": "The p forward superlattices of T_s are written ((1+ap^s)/p^(s+1))Z_p t+T for a=0,…,p−1.",
+      "correction": "With O=Z_p⊕Z_pθ use ((1+ap^sθ)/p^(s+1))Z_p t+T=(1+ap^sθ)T_(s+1).",
+      "reason": "1+ap^s is a unit of Z_p, so every printed lattice equals T_(s+1); the p distinct index-p superlattices of T_s other than p^(−1)T_(s−1) need a second coordinate.",
+      "affects": "nothing",
+      "known": "new to the reviewed atlas files; the unreviewed AnticyclotomicLocalUnits design records the same point as its E13",
+      "searched": [
+        "Published BKO, p.959 (page image)",
+        "Accepted errata file of the BKO extraction (E4, E5 concern other symbols on the same page)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review; the lattice computation was redone.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
+    },
+    {
+      "id": "ColemanPowerSeriesPartII/E15",
+      "kind": "gap",
+      "sourceId": "BKO2021",
+      "locator": "§4, p.954 (vanishing of the inverse limit of F(Θ_n), citing Hazewinkel), published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e); Rubin 1987, proof of Lemma 5.1, p.411",
+      "printed": "The vanishing of the norm inverse limit of F(Θ_n) (and of F(Ψ_n)) is attributed to Hazewinkel; Rubin derives it from his Proposition 4.5(i).",
+      "correction": "Hazewinkel's Theorem 1.3 and Rubin's Proposition 4.5(i) give the vanishing of universal norms at the base Φ only; the coordinates at the ramified layers need a separate argument (gap G1), for example the deeply ramified route recorded there.",
+      "reason": "A norm-compatible system with zero base coordinate need not vanish; Hazewinkel's theorem requires an absolutely unramified base, which Θ_n and Ψ_n are not for n≥1.",
+      "affects": "the proof",
+      "known": "new (the conclusion is expected to hold by Coates–Greenberg's theory of deeply ramified extensions, not read here)",
+      "searched": [
+        "Hazewinkel 1977, Theorem 1.3 and §§3–4",
+        "Rubin 1987, Proposition 4.5 and Lemma 5.1",
+        "BKO §4",
+        "Fesenko 1998, On deeply ramified extensions"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review; it records as a source issue the gap the design already lists as G1.",
+        "by": "REV-DESIGN-ColemanPowerSeriesPartII"
+      }
     }
   ],
   "restructure": [
@@ -3499,6 +3874,15 @@
       ],
       "detail": "R29.5/modular-parametrisation gives a rational nonzero Manin constant, not p-integrality or the good-prime p-unit theorem.",
       "proposal": "Add the precise optimal good-prime Manin p-unit theorem as a continuation in elliptic-curve modularity. AU.5 imports it and proves separability of its reduction; no duplication of modular parametrization."
+    },
+    {
+      "action": "merge",
+      "roadmaps": [
+        "ColemanPowerSeriesPartII",
+        "AnticyclotomicLocalUnits"
+      ],
+      "detail": "Two design jobs produced the same Part II of ColemanPowerSeries from the same BKO route: DESIGN-AnticyclotomicLocalUnits (issue #1688, PR #10354, nine layers ALU.0–ALU.8, review #1717) and DESIGN-ColemanPowerSeriesPartII (issue #3396, PR #10383, ten layers AU.0–AU.9). Both carry the title 'Coleman power series, local units, and cyclotomic-unit quotients, Part II: signed anticyclotomic local units' and plan the same targets; promoting both would give the same mathematics two owners.",
+      "proposal": "Keep one roadmap id and retire the other, carrying over what only the retired design has (for example its free Abbes–Ullmo locator, now also cited here, and its source issues on Rubin Lemma 4.2 and the forward-lattice list, now E13–E14 here). The orchestrator decides which id survives; this review does not prefer one design on mathematical grounds."
     }
   ],
   "routedItems": [
@@ -3906,5 +4290,332 @@
     "AnticyclotomicLocalUnits": "ColemanPowerSeriesPartII",
     "NonordinaryCMSpecialValues": "AutomorphicPadicLFunctionsPartII (grouped design #3350; no stages published here)",
     "EllipticCurvesPartIISupersingularFiniteFields": "EllipticCurvesPartII (grouped design #3398; no stages published here)"
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "citation": "BKO2021, Annals of Mathematics 194 (2021) 943–966, publisher PDF in the Caltech repository",
+      "read": "2026-10-18",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e"
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0088/LOG_0026.pdf",
+      "citation": "Rubin1987, Invent. Math. 88 (1987) 405–422, GDZ scan",
+      "read": "2026-10-18",
+      "sha256": "cda9c336ba0a3eb3017e531d352b9b6d9fa73f0f995c7897ef0e4504f34d3f07"
+    },
+    {
+      "kind": "published",
+      "url": "https://ir.cwi.nl/pub/10014/10014D.pdf",
+      "citation": "Hazewinkel1977, Duke Math. J. 44 (1977) 305–314",
+      "read": "2026-10-18",
+      "sha256": "5bbb94e03c8cbcb82b83bd1dbf28f6a0300a50f18b570668799190f4f268a3c8"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/CM_1980__42_1_89_0.pdf",
+      "citation": "Wintenberger1980, Compositio Math. 42 (1980) 89–103",
+      "read": "2026-10-18",
+      "sha256": "416f7390166f381296df594ed2050300aed0f3ecff6415bd8740a2bcc4b2d94f"
+    },
+    {
+      "kind": "published",
+      "url": "http://www.numdam.org/item/CM_1996__103_3_269_0.pdf",
+      "citation": "AbbesUllmo1996, Compositio Math. 103 (1996) 269–286",
+      "read": "2026-10-18",
+      "sha256": "73fd473d7822b90b4cc4bebbd2b8ca2a05547b6a13e2c3f99210ef8f2ce83cf2"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/drm.pdf",
+      "citation": "Fesenko1998, J. London Math. Soc. 57 (1998) 325–335",
+      "read": "2026-10-18",
+      "sha256": "a1dc9404c83facfa153cb725adcab586bede5ceedb91ff166c3134af2f13a8ab"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ColemanPowerSeriesPartII",
+    "date": "2026-10-18",
+    "notes": "Independent review by Claude (session claude-YdRIIh), which did no part of the design. Read in full: BKO 2021 (published, Caltech copy, formula pages as images), Rubin 1987 (all pages as images), Hazewinkel 1977 §1, Wintenberger 1980 §4, Abbes–Ullmo 1996 Théorème A, Fesenko 1998 §§1–2. All 55 nodes checked against their locators; every match field had copied the node statement and was rewritten as an own-words account of the source. Locators corrected: a nonexistent BKO Definition 6.3 and equation (2.1), BKO p.949→p.948 for M*, and eight Rubin page or numbering errors (Corollary 5.8 cited as Proposition 5.8; Proposition 5.6 and Corollary 5.7 on pp.413–414; Lemma 10.1 on p.421). Mathematics corrected: the coefficient-extension argument behind V*,ε⊗R (flatness alone does not handle C_p-valued derivatives), the forward-lattice list in the Hecke relation, the ring-class/ray-class notation in AU.6, Rubin's numerical range. Supplier rewiring: R21 replaced by ComplexMultiplicationAndExplicitReciprocity CM.1/quadratic-forms-dictionary and R20 by ArithmeticGaloisDuality R02.4/abelian-variety-local-duality, both accepted nodes; the Tau Ceti layers first cited do not state these. New gaps G3 (supersingular finite-field counts) and G4 (early nonordinary CM inputs) make explicit that no published stage owns them; G1 and G2 confirmed open, with a deeply ramified lead for G1. Requests R11–R13 updated: PadicMeasuresIwasawaAlgebras merged upstream on 2026-10-14. All five baseline declarations read at f790474/082e2d3 and confirmed. All 45 unit tests given kinds; one API constructor added. Source issues E1–E10 confirmed (E4 locator moved, E7 reclassified as a gap); E11–E15 added and confirmed. The p≤47 class-number table was re-enumerated by machine and is correct. check_blueprint: 0 errors, 0 warnings with the pinned index; lean-check of the unchanged suggested file: exit 0, with only the 17 expected placeholder-proof warnings. Structural note for the orchestrator: the separate AnticyclotomicLocalUnits design (PR #10354) plans the same Part II; a merge proposal is recorded and only one id should go live.",
+    "checked": [
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.0/conductor-parity",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Conductor p^(n+1) for exact order p^n checked against BKO p.948; tests given kinds."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.0/units-limit",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Added the constructor units_mk (Ũ_∞=(lim U_n)⊗O since O is Z_p-free of rank two); unitFiltration read at f790474."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.0/inverse-tate-twist",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Locator corrected from p.949 to p.948, where M* and U*_∞ are defined."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.0/anticyclotomic-quotient",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.0/units-free",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Proposition 1.1 is on p.407. Wintenberger Théorème (i),(iii) read: ω is neither trivial nor the cyclotomic tame character ω^(p+1)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/coleman-series",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Coleman's theorem is cited by BKO and Rubin, not proved; the request to the parent (R5) records the mechanism."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/coates-wiles",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Formula checked on the page image of p.948: δ_n carries the factor 1/λ′(v_n)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/derivative-covariance",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 2.1(i) added as the untwisted source."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/character-derivative",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). A uses entry named the nonexistent node AU.4/xi-character-value; now AU.4/xi-values."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/derivative-descent",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.1/delta-trivial-relation",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Recomputed: the π-torsion sum gives Tr_(Φ₀/Φ)δ₀=(π−1)δ, so δ₁=(1+p⁻¹)δ; agrees with Rubin Lemma 2.1(iv) after π=−p, added as a source."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/formal-kummer",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Gap G1 confirmed: Hazewinkel Theorem 1.3 and Rubin Proposition 4.5(i) concern the base Φ only (source issue E15 added). A deeply ramified lead (Fesenko 1998) is recorded in G1; the gap stays open."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/formal-kummer-duality",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 5.1 is on p.411. The elliptic local duality is now cited from ArithmeticGaloisDuality R02.4/abelian-variety-local-duality (accepted) instead of Tau Ceti EllipticCurves Layer 7, which lists local Tate duality only among stretch prerequisites; R20 rewired."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/formal-points-units-dual",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The chain F(Θ_∞)⊗Φ/O≅H¹(Θ_∞,F[p^∞])≅Hom_O(U_∞,F[p^∞]) checked on p.954."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/anticyclotomic-kummer",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Proposition 5.4 is on p.412 and uses Lemma 4.4 (p.410), now cited. Note: since F[π^∞](Θ_∞)=0, inflation–restriction gives the G⁺-invariant identification directly from the Ψ-tower Kummer isomorphism."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/wiles-pairing",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The separated indices r,k agree with BKO's single index through λ([π]y)=πλ(y); independence of m checked from Tr δ_(m+1)=πδ_m; consistent with Wiles's law (u,y)_m=[π^(−m−1)Tr(λ(y)δ_m(u))]v_m. G2 stays open."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.2/wiles-dual-exponential",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The isolated comparison is the step between (3.4) and (3.6); G2 stays open."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/character-logarithm",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 5.5(i)–(iv) is on p.413, not pp.413–414."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/signed-points",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The locator cited a nonexistent BKO Definition 6.3; the finite groups are defined in §6.0.2, p.962."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/signed-units",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The locator cited a nonexistent equation (2.1). The API item signed_units_base_change gave flatness as the reason; flatness alone does not handle C_p-valued derivatives, so it now uses the Galois-conjugation/embedding argument (needed for BKO Proposition 3.3(3) and Theorem 3.4)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/formal-points-parity-sum",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 5.5(v)–(vi) and (7) are on p.413. The p^n-denominator argument checked."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/formal-points-infinite-rank",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The locator 'Rubin Proposition 5.8' is Corollary 5.8, p.414."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/signed-annihilator",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Proposition 5.6 is on p.413 and Corollary 5.7 on p.414 (cited as pp.414–415). Saturation of A^ε in F(Ψ_∞) checked, so A^ε⊗Φ/O embeds."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.3/signed-rank-upper",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). 'Rubin Proposition 5.8' is Corollary 5.8. The O-torsion-freeness step that excludes Λ/(p) checked."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The p≤47 table re-enumerated by machine: every reduced form, class number, D≡1 mod 8 and inertness is correct; the bound at p=53 is 52.76<53 and the ratio decreases. The reduced-form/ideal-class input now cites ComplexMultiplicationAndExplicitReciprocity CM.1/quadratic-forms-dictionary (accepted) instead of Tau Ceti GlobalNumberFields Layer 3, which does not state it; R21 withdrawn."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/early-cm-interface",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Overbars on φ checked on the page images of pp.951–954. The inputs remain unowned (new gap G4)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/xi-nu",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Conductor re-indexing (E5) checked: the ring class field of conductor ℓ^m contains only the layer of degree ℓ^(m−1)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/xi-values",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). At χ=1 the formulas differ by the Euler factor 1+p⁻¹."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/xi-signed",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Proof step (3) now uses the corrected coefficient-extension argument; the trivial-character case for ε=−, missing in BKO, is recorded as E11."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.4/optimal-unit",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The image-ideal argument (no plus freeness needed) checked; coefficient ring written R (BKO's W must contain the values of φ as well)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/supersingular-auxiliary",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). p∣a_p and the Hasse bound force a_p=0 for p≥5; LT.4 gives parameter −p for a_(p²)=−2p, consistent with E1."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/manin-separability",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Abbes–Ullmo 1996, Théorème A (p.269), read and added: the Manin constant of a strong Weil curve is prime to every p∤N. R6 now names it."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/ramification-count",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). 2g−2=μ/6−ν₂/2−2ν₃/3−ν_∞≤μ/6; X₀(27), X₀(32) have genus one."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/moduli-etale",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/generic-supersingular-count",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Printed coefficient recomputed in all classes mod 12 (zero at 47); the sharper count μ⌊(p−1)/12⌋ checked: non-exceptional supersingular j have only traces ±2p over F_(p²)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/exceptional-supersingular-count",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/fine-level-unramified",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). M=p−s gives F_(p²)-rational M-torsion, M≥4, and every prime factor of M is below p; X₀(27), X₀(32) have no elliptic points."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.5/primitive-formal-cm-point",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The logarithm identifies Ê(pO) with pO for p≥3."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.6/dedekind-completion-models",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The statement wrote K(p^s) for the ring class field, clashing with BKO's K(g) for ray class fields; now H_(p^s). Local degree p^(s−1)(p+1) checked (pO_K principal, so p splits in H)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.6/quasicanonical-modular-points",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.6/formal-image-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The reduction argument checked: the connected subgroup of order p^s of a supersingular curve is ker F^s, so z_s reduces to a Frobenius twist of P and the Q-rational parametrization sends it to zero. Pinned map, injectivity and range read at f790474."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.7/optimal-point-system",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.7/optimal-point-primitive",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.7/hecke-lattice-relation",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). BKO's printed forward lattices all equal T_(s+1); the correct list (1+ap^sθ)T_(s+1) and the backward lattice p^(−1)T_(s−1) are now a proof step (source issue E14)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.7/optimal-point-trace",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Recomputed Tr_(Ψ_2/Ψ_1)y_2=0 and Tr_(Ψ_3/Φ)y_3=py."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.8/minus-point-invariants",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Checked against Rubin Lemmas 7.1–7.2 and Propositions 7.3–7.4: h_n=p^(n−1) uses |O/p|=p², and y_n∈A⁻ for odd n follows from the trace recurrence."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.8/minus-quotient-free",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 4.3 added as the parallel criterion."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.8/minus-kernel-free",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The splitting argument replaces Rubin Lemma 4.1 correctly."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/augmentation-unit-generation",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). The node correctly uses augmentation-linearity; Rubin Lemma 4.2, which relies on continuity alone, is false as printed (E13)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/rubin-decomposition",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/signed-free",
+        "verdict": "verified",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement)."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/delta-chi-nonzero",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 10.1 is on p.421. The conductor-orbit step checked: Galois conjugation of values carries δ_χ to a multiple of δ_(τ∘χ), and conjugates have the same conductor."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/generator-nonvanishing",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin Lemma 10.1 is on p.421."
+      },
+      {
+        "nodeId": "ColemanPowerSeriesPartII:AU.9/rubin-small-primes",
+        "verdict": "corrected",
+        "note": "Statement, hypotheses and proof sketch checked against the source at the locator; match rewritten in own words (it had copied the statement). Rubin p.418 states 1000, not 1001; statement corrected and the BKO misquote recorded as E12."
+      }
+    ]
   }
 }
