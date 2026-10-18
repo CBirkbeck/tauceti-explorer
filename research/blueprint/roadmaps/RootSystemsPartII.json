@@ -30,7 +30,7 @@
     {
       "key": "RS2.3",
       "title": "Adjacent folding and component cycles",
-      "description": "Construct the orbit-sum B_n model for A_(2n) reversal, including the doubled middle pairing and nonunique short-root lifts. Build diagonal transport for cycles of irreducible components and their return automorphisms, including norm scaling and unchanged Cartan pairings. Combine these with orthogonal folding and the existing finite Dynkin classification to obtain the fold for every based finite reduced crystallographic root-system automorphism.",
+      "description": "Construct the orbit-sum B_n model for A_(2n) reversal, including the doubled middle pairing and nonunique short-root lifts. Build diagonal transport for cycles of irreducible components and their return automorphisms, including norm scaling and unchanged Cartan pairings. Prove the case split for a based automorphism of an irreducible system: it is the identity on a nonsimply-laced type, and its simple orbits are orthogonal except for the reversal of A_(2n). Combine this, read off the existing finite Dynkin classification, with orthogonal folding to obtain the fold for every based finite reduced crystallographic root-system automorphism.",
       "requires": [
         "RootSystemsPartII:RS2.2",
         "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification",

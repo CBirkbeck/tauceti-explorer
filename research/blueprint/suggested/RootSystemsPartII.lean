@@ -3,6 +3,7 @@ import Mathlib.LinearAlgebra.RootSystem.Hom
 import Mathlib.LinearAlgebra.RootSystem.Finite.Lemmas
 import TauCeti.LinearAlgebra.RootSystem.Positive
 import TauCeti.LinearAlgebra.RootSystem.Chamber
+import TauCeti.LinearAlgebra.RootSystem.DynkinType
 
 /-!
 # Integral dominance and finite folding: suggested target statements
@@ -104,11 +105,37 @@ example [Fintype ι] (sig : P.Aut) (i : ι)
       (2 : ℕ) • orbitSum P sig i := by
   sorry
 
+/-! ## RS2.3: the case split for based automorphisms
+
+The folds themselves (orthogonal folds, adjacent A_(2n) -> B_n orbit-sum coordinates,
+component-cycle return maps) are heavy constructions specified in the reader, so no
+data definitions for them appear here. The case lemma that chooses between them is
+statable on the existing carriers.
+-/
+
+/-- Simple orbits of a based automorphism of an irreducible system are orthogonal,
+unless the type is `A_(2n)` (where the automorphism is then the reversal; see the reader). -/
+theorem simpleOrbit_pairing_eq_zero_or_typeA_even [Fintype ι] [Nonempty ι]
+    [P.IsRootSystem] [P.IsCrystallographic] [P.IsReduced] [P.IsIrreducible]
+    (sig : P.Aut)
+    (hbase : ∀ j, j ∈ b.support ↔ sig.indexEquiv j ∈ b.support) :
+    (∀ i ∈ b.support, ∀ k : ℕ, ((sig.indexEquiv : ι → ι)^[k]) i ≠ i →
+        P.pairing (((sig.indexEquiv : ι → ι)^[k]) i) i = 0) ∨
+      ∃ n : ℕ, 1 ≤ n ∧ TauCeti.HasCartanType P b (.A (2 * n)) := by
+  sorry
+
+/-- A based automorphism of an irreducible system with a multiple edge is the identity. -/
+theorem indexEquiv_eq_self_of_multiple_edge [Fintype ι] [Nonempty ι]
+    [P.IsRootSystem] [P.IsCrystallographic] [P.IsReduced] [P.IsIrreducible]
+    (sig : P.Aut)
+    (hbase : ∀ j, j ∈ b.support ↔ sig.indexEquiv j ∈ b.support)
+    (hmult : ∃ i ∈ b.support, ∃ j ∈ b.support,
+      2 ≤ P.pairingIn ℤ i j * P.pairingIn ℤ j i ∧ i ≠ j) :
+    ∀ i, sig.indexEquiv i = i := by
+  sorry
+
 /-! ## RS2.4: finite fold endpoint on its original carrier
 
-RS2.3 and the transport targets are specified in the reader: orthogonal folds,
-adjacent A_(2n) -> B_n orbit-sum coordinates, and component-cycle return maps.
-Those are heavy constructions, so no data definitions for them appear here.
 The endpoint can already be stated without introducing a folded carrier.
 -/
 
