@@ -7,7 +7,8 @@ import Mathlib.GroupTheory.Index
 import Mathlib.Tactic.NormNum
 import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 
-/-!+# Geometric Frey–Mazur: suggested signatures
+/-!
+# Geometric Frey–Mazur: suggested signatures
 
 This file is not the roadmap and is not an exhaustive checklist. The accompanying
 reader document specifies the mathematical targets, their APIs and all Checks.
@@ -22,7 +23,8 @@ at these pins. Their eventual declarations must express the full reader targets.
 
 The arithmetic witness signatures belong to GF.1, the signed reconstruction
 checks to GF.3, graph adapters to GF.4, symmetric multisets to GF.6, and the group
-milestones to GF.8. SL₂ perfectness is already in Mathlib and is reused below.
+milestones to GF.8, and the sign step of the GF.9 descent at the end. SL₂ perfectness is
+already in Mathlib and is reused below.
 -/
 
 open scoped MatrixGroups
@@ -216,7 +218,8 @@ example {F : Type*} [Field F] (a : F) (ha : a ≠ 0) (hasq : a ^ 2 ≠ 1) :
     commutator (Matrix.SpecialLinearGroup (Fin 2) F) = ⊤ := by
   exact Matrix.SL2.commutator_eq_top (F := F) (a := a) ha hasq
 
-/-- GF.8–GF.9: an actual invertible intertwiner kills the possible quadratic twist. -/
+/-- GF.8: an actual invertible intertwiner of a full-image representation kills a quadratic twist.
+The GF.9 descent does not need it: Hecke containment gives `f[p] = λ • Ψ` directly. -/
 theorem no_quadratic_self_twist {Gamma : Type*} [Group Gamma] (hp : 3 < p)
     (ρ : Gamma →* Matrix.SpecialLinearGroup (Fin 2) (ZMod p))
     (hρ : Function.Surjective ρ) (χ : Gamma →* (ZMod p)ˣ)
@@ -227,6 +230,12 @@ theorem no_quadratic_self_twist {Gamma : Type*} [Group Gamma] (hp : 3 < p)
   sorry
 
 example : (21 : ℚ) / 100 / 24 = 7 / 800 := by norm_num
+
+/-- GF.9 descent, sign step: if `σ(f) = s • f` for a sign `s` and `f[p]` is invertible, then
+`s • f[p] = f[p]` forces `s = 1` because `p` is odd. -/
+theorem descent_sign_trivial (hp : p ≠ 2) (A : Matrix.GeneralLinearGroup (Fin 2) (ZMod p))
+    (s : ℤˣ) (h : ((s : ℤ) : ZMod p) • A.val = A.val) : s = 1 := by
+  sorry
 
 end LinearMonodromy
 

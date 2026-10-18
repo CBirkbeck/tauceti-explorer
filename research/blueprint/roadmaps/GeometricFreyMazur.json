@@ -22,7 +22,7 @@
     {
       "key": "GF.0",
       "title": "Projective frames, quotient surface and special loci",
-      "description": "For a prime p>3 over an algebraically closed characteristic-zero field, form the projective-frame coarse curve Y(p) from the existing full-level curve by identifying bases φ:F_p²≃E[p] under φ↦aφ for a∈F_p×. Let X(p) be its imported smooth proper compactification. The Weil-pairing value on a basis, modulo squares, labels exactly two geometric connected components. G=PGL₂(F_p) acts by g·(E,[φ])=(E,[φ∘g⁻¹]); its component-preserving subgroup is PSL₂(F_p). The construction uses existing level moduli, rather than a new elliptic-curve or compactification object.\n\nLet S=X(p)×X(p) and Z(p)=S/G for the diagonal projective-frame action. This is a normal projective coarse surface, finite below S. Its smooth-level geometric points classify (E₁,E₂,[ψ]) with ψ:E₁[p]≃E₂[p] up to common scalar. The square class of det ψ labels its two components. For each determinant square class choose a fixed-pairing component presentation by a diagonal, possibly conjugated, PSL₂ action; changing the auxiliary nonsquare gives an equivariantly isomorphic presentation.\n\nA smooth-level pair (x,y) belongs to CM only when its two projective point stabilizers share a nonidentity element. Choose corresponding nontrivial automorphisms of E_x,E_y with matching characteristic polynomial, allowing a simultaneous sign adjustment. Put the pair in CM⁺ when their tangent eigenvalues agree and in CM⁻ when they are conjugate unequal eigenvalues. This definition is independent of the common generator, compatible lifts and projective frame representatives. Equal j-invariants alone do not define CM.\n\nSBC⊂S consists of pairs of cusps with a common nonidentity projective stabilizer. Each individual cusp stabilizer is cyclic of order p, so their nontrivial intersection means the same order-p subgroup. A pair of arbitrary cusps is not automatically singular. The notion is G-invariant and descends to Z.\n\nFor p>3, the nonfree locus of S→Z(p) is exactly CM⁺∪CM⁻∪SBC. Its effective stabilizers have orders 2,3,p respectively (the first two at their corresponding CM types). There is no mixed elliptic/cusp branch stratum.\n\nFor m≥1 with p∤m, use the existing cyclic-isogeny correspondence on X(p) to define T_m⊂S by [φ₂]=[f[p]φ₁] for a cyclic degree-m isogeny f. Let H_m be its finite image in Z; a Hecke curve is an irreducible component of H_m. On normalized correspondences with projections a,b define T_m* C=(id×a)_*(id×b)^*C as an effective one-cycle, including generic map degrees. Each projection degree is ψ(m)=m∏_{ℓ|m}(1+1/ℓ), so Deg(T_m*C)=ψ(m)Deg(C) and ψ(m)≪m². These are applications of R14.1, not a second general correspondence construction.",
+      "description": "This roadmap's X(p) is the projective level curve of ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient, taken over an algebraically closed characteristic-zero field: for a prime p>3, the coarse quotient of honest full level p by scalar change of frame, compactified by p-gons, with two geometric components labelled by the Weil-pairing value of a frame modulo squares and [−1] still an automorphism of every point. This node fixes the conventions used here: G=PGL₂(F_p) acts on the left by g·(E,[φ])=(E,[φ∘g̃⁻¹]) for any lift g̃, its component stabilizer is PSL₂(F_p), and one component is selected and identified with the fixed-pairing curve, the other being its transport by an element of nonsquare determinant. It constructs no new elliptic, level or compactified object.\n\nLet S=X(p)×X(p) and Z(p)=S/G for the diagonal projective-frame action. This is a normal projective coarse surface, finite below S. Its smooth-level geometric points classify (E₁,E₂,[ψ]) with ψ:E₁[p]≃E₂[p] up to common scalar. The square class of det ψ labels its two components. For each determinant square class choose a fixed-pairing component presentation by a diagonal, possibly conjugated, PSL₂ action; changing the auxiliary nonsquare gives an equivariantly isomorphic presentation.\n\nA smooth-level pair (x,y) belongs to CM only when its two projective point stabilizers share a nonidentity element. Choose corresponding nontrivial automorphisms of E_x,E_y with matching characteristic polynomial, allowing a simultaneous sign adjustment. Put the pair in CM⁺ when their tangent eigenvalues agree and in CM⁻ when they are conjugate unequal eigenvalues. This definition is independent of the common generator, compatible lifts and projective frame representatives. Equal j-invariants alone do not define CM.\n\nSBC⊂S consists of pairs of cusps with a common nonidentity projective stabilizer. Each individual cusp stabilizer is cyclic of order p, so their nontrivial intersection means the same order-p subgroup. A pair of arbitrary cusps is not automatically singular. The notion is G-invariant and descends to Z.\n\nFor p>3, the nonfree locus of S→Z(p) is exactly CM⁺∪CM⁻∪SBC. The effective stabilizer of a point of this locus is cyclic: of order 2 at CM points (of either sign) over j=1728, of order 3 at CM points over j=0, and of order p at singular bicusps. There is no mixed elliptic/cusp branch stratum.\n\nFor m≥1 with p∤m let T_m⊂S be the cyclic degree-m correspondence of ModularCurvesPartII:R14.1/projective-boundary-hecke-and-degree on the projective level curve, [φ₂]=[f[p]φ₁] for a cyclic isogeny f of degree m, with its p-gon boundary maps. Let H_m be its finite image in Z(p); a Hecke curve is an irreducible component of H_m. The weighted pull-push T_m*C=(id×a)_*(id×b)^*C of an effective one-cycle satisfies Deg(T_m*C)=ψ(m)Deg(C) with ψ(m)=m∏_{ℓ|m}(1+1/ℓ)≪m², as the owner node states. This node adds only H_m, the Hecke curves and the restrictions to S used here.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.2",
         "HyperbolicCurveVolumesAndGonality:HV.3",
@@ -31,15 +31,13 @@
         "ModularCurvesPartII:R12.4",
         "ModularCurvesPartII:R12.6",
         "ModularCurvesPartII:R13.1",
-        "ModularCurvesPartII:R13.2",
         "ModularCurvesPartII:R13.3",
         "ModularCurvesPartII:R13.4a",
         "ModularCurvesPartII:R14.1",
         "SchemeAndStackFoundations:SF.1",
         "SchemeAndStackFoundations:SF.5",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
-        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
-        "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ"
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing"
       ]
     },
     {
@@ -52,8 +50,8 @@
         "HyperbolicCurveVolumesAndGonality:HV.0",
         "HyperbolicCurveVolumesAndGonality:HV.2",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "ModularCurvesPartII:R12.2",
         "ModularCurvesPartII:R12.3",
-        "ModularCurvesPartII:R13.3",
         "ModularCurvesPartII:R13.4b",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
@@ -83,7 +81,6 @@
         "HyperbolicCurveVolumesAndGonality:HV.5",
         "ModularCurvesPartII:R12.1",
         "ModularCurvesPartII:R12.6",
-        "ModularCurvesPartII:R13.3",
         "ModularCurvesPartII:R14.1",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
       ]
@@ -119,11 +116,11 @@
         "HyperbolicCurveVolumesAndGonality:HV.5",
         "ModularCurvesPartII:R12.1",
         "ModularCurvesPartII:R12.2",
-        "ModularCurvesPartII:R13.3",
         "SchemeAndStackFoundations:SF.5",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
-        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications"
       ]
     },
     {
@@ -134,7 +131,6 @@
         "GeometricFreyMazur:GF.0",
         "GeometricFreyMazur:GF.4",
         "GeometricFreyMazur:GF.5",
-        "HyperbolicCurveVolumesAndGonality:HV.2",
         "HyperbolicCurveVolumesAndGonality:HV.6",
         "SchemeAndStackFoundations:SF.1",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
@@ -167,7 +163,7 @@
         "HyperbolicCurveVolumesAndGonality:HV.6",
         "HyperbolicCurveVolumesAndGonality:HV.7",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
-        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R13.4a",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
         "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
@@ -177,7 +173,7 @@
     {
       "key": "GF.9",
       "title": "Actual torsion, descent and characteristic-zero fields",
-      "description": "Let k be algebraically closed of characteristic zero, U/k a smooth connected curve, E,E′/U elliptic schemes and Ψ:E[p]≃E′[p] an isomorphism of finite étale F_p-module schemes. The triple gives a morphism f_Ψ:U→Z(p), with component determined by the Weil multiplier of Ψ modulo squares. Its projective class is used only to construct this map: the original Ψ remains part of the input. If E is nonisotrivial, f_Ψ is nonconstant. It extends uniquely from U to its smooth proper model because Z(p) is proper.\n\nLet K=k(U) with k algebraically closed of characteristic zero. For a nonisotrivial elliptic curve E/K, End(E over an algebraic closure of K)=Z. If E′ is geometrically isogenous to E, then Hom(E,E′ over that algebraic closure) is a free rank-one Z-module. A primitive generator f has Galois conjugates σ(f)=χ(σ)f for a continuous character χ:G_K→{±1}. If some geometric isogeny has degree prime to p, then p∤deg f.\n\nIf the classifying map f_Ψ is contained in H_m with p∤m, then E and E′ over the geometric generic point of U admit a cyclic degree-m isogeny. Consequently their primitive geometric Hom generator has degree prime to p. No isogeny over K is inferred from this coarse containment alone.\n\nLet K=k(U), p>3, E/K nonisotrivial, and Ψ:E[p]≃E′[p] an actual G_K-equivariant F_p-linear isomorphism. Assume the actual torsion image of E is SL₂(F_p) and that E,E′ admit a geometric isogeny of degree prime to p. Then a primitive geometric isogeny f:E→E′ is defined over K, so E and E′ are K-isogenous.\n\nFor elliptic schemes E,E′ over a smooth connected characteristic-zero curve U, every isogeny of their generic fibres extends uniquely to an isogeny E→E′ over U. The extension is a finite locally free surjective group morphism. This asserts an isogeny over U, not merely over a finite cover or an extension of its function field.\n\nThe geometric-rigidity threshold M_N^geom works unchanged for every algebraically closed characteristic-zero field k. Full actual p-torsion monodromy for a nonisotrivial elliptic scheme on U/k also holds for p>max(5,800N/7) when gon(U)<N. The quantifiers are uniform in k, U and the families; no embedding of all of k into C is required.\n\nFor every integer N>0 there exists M_N such that, for every algebraically closed characteristic-zero field k, prime p>M_N, smooth connected quasiprojective k-curve U with gon(U)<N, and nonisotrivial elliptic schemes E,E′/U, an actual isomorphism E[p]≃E′[p] of finite étale F_p-module schemes implies an isogeny E→E′ over U. One may take M_N larger than M_N^geom, 5 and 800N/7. There is no claimed explicit numerical final threshold.\n\nEquivalently, for every N>0 there is M_N such that for K=k(B), k algebraically closed of characteristic zero, B a smooth proper connected curve of gonality <N, and nonisotrivial elliptic curves E,E′/K, an actual G_K-equivariant F_p-linear isomorphism E[p]≃E′[p] for prime p>M_N implies a K-isogeny. Restricting to a common good-reduction open and extending its finite étale torsion data gives the family statement; taking generic fibres gives the converse.",
+      "description": "Let k be algebraically closed of characteristic zero, U/k a smooth connected curve, E,E′/U elliptic schemes and Ψ:E[p]≃E′[p] an isomorphism of finite étale F_p-module schemes. The triple gives a morphism f_Ψ:U→Z(p), with component determined by the Weil multiplier of Ψ modulo squares. Its projective class is used only to construct this map: the original Ψ remains part of the input. If E is nonisotrivial, f_Ψ is nonconstant. It extends uniquely from U to its smooth proper model because Z(p) is proper.\n\nLet K=k(U) with k algebraically closed of characteristic zero. For a nonisotrivial elliptic curve E/K, End(E over an algebraic closure of K)=Z. If E′ is geometrically isogenous to E, then Hom(E,E′ over that algebraic closure) is a free rank-one Z-module. A primitive generator f has Galois conjugates σ(f)=χ(σ)f for a continuous character χ:G_K→{±1}. If some geometric isogeny has degree prime to p, then p∤deg f.\n\nIf the classifying map f_Ψ is contained in H_m with p∤m, then over an algebraic closure of K=k(U) there is a cyclic isogeny f:E→E′ of degree m whose restriction to p-torsion is a scalar multiple of the given isomorphism: f[p]=λΨ for some λ∈F_p^×. Consequently the primitive generator of the geometric Hom lattice has degree prime to p.\n\nLet K=k(U) with k algebraically closed of characteristic zero, p an odd prime, E/K nonisotrivial, and Ψ:E[p]≃E′[p] an actual G_K-equivariant F_p-linear isomorphism. If an isogeny f:E→E′ defined over an algebraic closure of K satisfies f[p]=λΨ for some λ∈F_p^× (as Hecke containment provides), then f is defined over K, so E and E′ are K-isogenous. No hypothesis on the image of the p-torsion representation is needed.\n\nFor elliptic schemes E,E′ over a smooth connected characteristic-zero curve U, every isogeny of their generic fibres extends uniquely to an isogeny E→E′ over U. The extension is a finite locally free surjective group morphism. This asserts an isogeny over U, not merely over a finite cover or an extension of its function field.\n\nThe geometric-rigidity threshold M_N^geom works unchanged for every algebraically closed characteristic-zero field k: for p>M_N^geom, every nonconstant map to Z(p) from a smooth connected k-curve of gonality <N has image in an irreducible component of some H_m with p∤m, and for the classifying map of an actual torsion isomorphism the cyclic isogeny with f[p]=λΨ of GF.9/geometric-prime-to-p-isogeny exists over an algebraic closure of k(U). The quantifiers are uniform in k, the curves and the maps; no embedding of all of k into C is required.\n\nFor every algebraically closed characteristic-zero field k, every integer N>0, every smooth connected k-curve U with gon(U)<N and every nonisotrivial elliptic scheme E/U, the actual p-torsion monodromy image is SL₂(F_p) for every prime p>max(5,800N/7), after a choice of basis with fixed Weil pairing.\n\nFor every integer N>0 there exists M_N such that, for every algebraically closed characteristic-zero field k, prime p>M_N, smooth connected quasiprojective k-curve U with gon(U)<N, and nonisotrivial elliptic schemes E,E′/U, an actual isomorphism E[p]≃E′[p] of finite étale F_p-module schemes implies an isogeny E→E′ over U. One may take any M_N≥max(M_N^geom,5); no bound on the image of the torsion representation is used. There is no claimed explicit numerical threshold.\n\nEquivalently, for every N>0 there is M_N such that for K=k(B), k algebraically closed of characteristic zero, B a smooth proper connected curve of gonality <N, and nonisotrivial elliptic curves E,E′/K, an actual G_K-equivariant F_p-linear isomorphism E[p]≃E′[p] for prime p>M_N implies a K-isogeny. Restricting to a common good-reduction open and extending its finite étale torsion data gives the family statement; taking generic fibres gives the converse.",
       "requires": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A3",
@@ -188,13 +184,18 @@
         "GeometricFreyMazur:GF.8",
         "HyperbolicCurveVolumesAndGonality:HV.6",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
         "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.6",
         "ModularCurvesPartII:R13.4a",
         "ModularCurvesPartII:R14.1",
         "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
         "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
-        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+        "tauceti:TauCetiRoadmap/ModularCurves#2c-the-factorisation-dual"
       ]
     },
     {
@@ -202,7 +203,6 @@
       "title": "Bounded-genus and minimal-model consequences",
       "description": "For each integer N>0 there exists P_N such that every map from a smooth connected curve whose proper model has genus g<N to Z(p), for prime p>P_N, has image either a point or a Hecke curve. One may choose P_N=M_(N+1)^geom, using gon(B)≤g+1≤N<N+1. The same enlargement gives the actual-torsion isogeny theorem for nonisotrivial families on those bases.\n\nFor every sufficiently large prime p, every integral curve on Z(p) whose normalization has genus zero or one is a Hecke curve. A common threshold is M_3^geom: a rational normalization has gonality 1 and a genus-one normalization over an algebraically closed field has gonality 2.\n\nResolve the isolated cyclic quotient singularities of a determinant component of Z(p). At a CM or singular-bicusp point the local action is 1/n(1,a), n∈{2,3,p}, gcd(a,n)=1, with a determined by the tangent characters; import its Hirzebruch–Jung resolution. On the resulting smooth projective surface Z̃(p), define the known curves to be all exceptional components and all strict transforms of Hecke curves. The resolution is an application of the owning surface interface, not a new general resolution theory.\n\nFor prime p>M_3^geom, every integral rational curve on Z̃(p) is either an exceptional component or the strict transform of a Hecke curve. In particular every initial (−1)-curve belongs to the known set.\n\nFor every sufficiently large prime p, a smooth minimal model of each component of Z(p) can be obtained from Z̃(p) by finitely many contractions of smooth rational (−1)-curves. At every step, the contracted curve is the image of a known rational curve on the original resolution. Thus the required contractions are supported on the known Hecke and exceptional curves. The assertion does not identify every Hecke curve as contractible and does not say each subsequent centre was a (−1)-curve on the original surface.",
       "requires": [
-        "ComplexComparisonPartII:C4",
         "GeometricFreyMazur:GF.0",
         "GeometricFreyMazur:GF.7",
         "GeometricFreyMazur:GF.9",
