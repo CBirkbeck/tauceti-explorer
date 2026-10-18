@@ -42500,8 +42500,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9312"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -52605,8 +52605,9 @@
    ],
    "revisionOf": "PKG-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9836"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9836",
+   "finishedAt": "2026-10-18T05:21:26Z"
   },
   {
    "id": "REV-PKG-HeightsRationalPointsAndObstructions~2",
