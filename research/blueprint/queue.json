@@ -10723,8 +10723,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SmoothRepresentationsOfLocalGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3388"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3388",
+   "finishedAt": "2026-10-18T03:31:58Z"
   },
   {
    "id": "REV-DESIGN-SmoothRepresentationsOfLocalGroupsPartII",
@@ -11524,8 +11525,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ArcTopologyAndDescent.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3364"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3364",
+   "finishedAt": "2026-10-18T03:31:59Z"
   },
   {
    "id": "REV-DESIGN-ArcTopologyAndDescent",
@@ -12833,8 +12835,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ColemanPowerSeriesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3396"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3396",
+   "finishedAt": "2026-10-18T03:32:01Z"
   },
   {
    "id": "REV-DESIGN-ColemanPowerSeriesPartII",
@@ -13426,8 +13429,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ProbabilisticAndMetricNumberTheoryPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3404"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3404",
+   "finishedAt": "2026-10-18T03:32:02Z"
   },
   {
    "id": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -16452,8 +16456,9 @@
    "avoidAccountOf": "DESIGN-AbelianSurfacesPotentialModularity",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianSurfacesPotentialModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3485"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3485",
+   "finishedAt": "2026-10-18T03:32:03Z"
   },
   {
    "id": "DESIGN-AbelianSurfacesModularity",
@@ -16653,8 +16658,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DirectSummandsAndBigCohenMacaulay.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3479"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3479",
+   "finishedAt": "2026-10-18T03:32:05Z"
   },
   {
    "id": "REV-DESIGN-DirectSummandsAndBigCohenMacaulay",
@@ -107893,11 +107899,12 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #760"
+   "note": "deliverables arrived from an external worker on issue #760",
+   "finishedAt": "2026-10-18T03:32:07Z"
   },
   {
    "id": "REV-IntegralIwasawaTheory--I.8",
