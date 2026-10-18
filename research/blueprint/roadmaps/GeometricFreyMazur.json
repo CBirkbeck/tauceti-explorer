@@ -1,0 +1,267 @@
+{
+  "id": "GeometricFreyMazur",
+  "title": "Modular curves, following Katz–Mazur, Part II: geometric Frey–Mazur and bounded-gonality rigidity",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/ModularCurves",
+  "summary": "For bounded gonality and sufficiently large prime level, every curve on the diagonal modular quotient lies on a cyclic Hecke locus. The roadmap combines compact hyperbolic geometry, arithmetic repulsion and ramification estimates, and then proves the linear-torsion descent bridge for nonisotrivial elliptic families over every algebraically closed characteristic-zero field.",
+  "readme": "This extension begins with projective-frame quotients of the existing modular curves. It imports the comparison, compactification and correspondence objects from ModularCurvesPartII. The full reader fixes all targets, source corrections and supplier contracts. The final threshold depends only on gonality; it makes no numerical Frey–Mazur assertion over number fields.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "ModularCurvesPartII",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "HyperbolicCurveVolumesAndGonality",
+    "CongruenceSpectralGap",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "AbelianSchemesAndArithmeticModuli",
+    "NeronModelsAndSemistableAbelianVarieties"
+  ],
+  "stages": [
+    {
+      "key": "GF.0",
+      "title": "Projective frames, quotient surface and special loci",
+      "description": "For a prime p>3 over an algebraically closed characteristic-zero field, form the projective-frame coarse curve Y(p) from the existing full-level curve by identifying bases φ:F_p²≃E[p] under φ↦aφ for a∈F_p×. Let X(p) be its imported smooth proper compactification. The Weil-pairing value on a basis, modulo squares, labels exactly two geometric connected components. G=PGL₂(F_p) acts by g·(E,[φ])=(E,[φ∘g⁻¹]); its component-preserving subgroup is PSL₂(F_p). The construction uses existing level moduli, rather than a new elliptic-curve or compactification object.\n\nLet S=X(p)×X(p) and Z(p)=S/G for the diagonal projective-frame action. This is a normal projective coarse surface, finite below S. Its smooth-level geometric points classify (E₁,E₂,[ψ]) with ψ:E₁[p]≃E₂[p] up to common scalar. The square class of det ψ labels its two components. For each determinant square class choose a fixed-pairing component presentation by a diagonal, possibly conjugated, PSL₂ action; changing the auxiliary nonsquare gives an equivariantly isomorphic presentation.\n\nA smooth-level pair (x,y) belongs to CM only when its two projective point stabilizers share a nonidentity element. Choose corresponding nontrivial automorphisms of E_x,E_y with matching characteristic polynomial, allowing a simultaneous sign adjustment. Put the pair in CM⁺ when their tangent eigenvalues agree and in CM⁻ when they are conjugate unequal eigenvalues. This definition is independent of the common generator, compatible lifts and projective frame representatives. Equal j-invariants alone do not define CM.\n\nSBC⊂S consists of pairs of cusps with a common nonidentity projective stabilizer. Each individual cusp stabilizer is cyclic of order p, so their nontrivial intersection means the same order-p subgroup. A pair of arbitrary cusps is not automatically singular. The notion is G-invariant and descends to Z.\n\nFor p>3, the nonfree locus of S→Z(p) is exactly CM⁺∪CM⁻∪SBC. Its effective stabilizers have orders 2,3,p respectively (the first two at their corresponding CM types). There is no mixed elliptic/cusp branch stratum.\n\nFor m≥1 with p∤m, use the existing cyclic-isogeny correspondence on X(p) to define T_m⊂S by [φ₂]=[f[p]φ₁] for a cyclic degree-m isogeny f. Let H_m be its finite image in Z; a Hecke curve is an irreducible component of H_m. On normalized correspondences with projections a,b define T_m* C=(id×a)_*(id×b)^*C as an effective one-cycle, including generic map degrees. Each projection degree is ψ(m)=m∏_{ℓ|m}(1+1/ℓ), so Deg(T_m*C)=ψ(m)Deg(C) and ψ(m)≪m². These are applications of R14.1, not a second general correspondence construction.",
+      "requires": [
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R12.4",
+        "ModularCurvesPartII:R12.6",
+        "ModularCurvesPartII:R13.1",
+        "ModularCurvesPartII:R13.2",
+        "ModularCurvesPartII:R13.3",
+        "ModularCurvesPartII:R13.4a",
+        "ModularCurvesPartII:R14.1",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+        "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ"
+      ]
+    },
+    {
+      "key": "GF.1",
+      "title": "Compact modular metrics and systoles",
+      "description": "For prime p>5, the orbifold with underlying X(1) and cone orders (2,3,p) is uniformized by the orientation-preserving hyperbolic triangle group Δ(2,3,p). The quotient γ_p:PSL₂(Z)→Δ sends the standard cusp translation U to an order-p rotation. For Ξ(p)=γ_p(Γ(p)), the torsion-free compact quotient Ξ(p)\\H is a selected component X(p). Its deck group is PSL₂(F_p); obtain the other component by the projective-frame transport. The cusped quotient Γ(p)\\H and compact quotient Ξ(p)\\H have distinct universal covers/maps.\n\nNormalize the order-2, p and 3 vertices to i, i y_p and e^{iθ_p}. Then y_p=p/π+O(p⁻¹), θ_p=π/3+O(p⁻¹). Equivalently choose θ=π/p, c=cos θ, b=(1+√(1−4sin²θ))/2 and U_p=[[c,b],[b−1,c]], S=[[0,−1],[1,0]], L_p=S U_p⁻¹ S⁻¹. Their projective classes satisfy S²=U_p^p=(S U_p)³=1 and give the normalized faithful triangle representation; U_p→[[1,1],[0,1]], L_p→[[1,0],[1,1]]. Here y_p=√(b/(1−b)).\n\nFor sufficiently large prime p write p=3r+x with x∈{1,2}. The integral matrix M_p=[[1+xp,3p],[p(2−x²+2px)/3,1+2p²−xp]] belongs to Γ(p), has trace 2p²+2, and its image under the compact triangle representation has absolute trace (27/(4π²))p²+O(p). Thus its image in Ξ(p) is hyperbolic and nonidentity. Its cusped and compact geodesic lengths are both 4 log p+O(1), giving the required upper bounds for geodesics nontrivial after cusp filling.\n\nLet ρ_Y be half the infimum of cusped lengths of closed geodesics whose loops remain nontrivial in X(p). Then ρ_Y=2 log p+O(1). The ordinary nonperipheral cusped systole also has length 4 log p+O(1). The factor one-half is part of the radius convention.\n\nIn the compact metric, distinct cusps have distance at least 2 log p−C. A ball of radius log p−C around a cusp is an embedded hyperbolic disc built from its incident triangle tiles. C is independent of p and the selected component.\n\nOn Y(p), with r(x)=distance in h_X to the nearest cusp, tanh²(r(x)/2) h_Y(x)≤h_X(x)≤h_Y(x). On the part r≥R the length distortion is at most coth(R/2)=1+O(e^{−R}), and the pulled-back area distortion obeys the squared bound.\n\nFor each component of X(p), ρ_X=2 log p+O(1), where ρ_X is half the shortest noncontractible closed-geodesic length. In particular the shortest length is 4 log p+O(1), rather than 2 log p+O(1).\n\nFor a width-p cusp use q=exp(2πiz/p). The horoball Im z>y, y>1/p, gives an embedded disc D_y of Euclidean radius exp(−2πy/p), contained in B_X(c,2 artanh(exp(−2πy/p))). For log p+C<R<2 log p−C one has B_X(c,R)⊂D_{O(pe^{−R})}. For p∤m and log p+C<R with R+log m<2 log p−C, the inverse cyclic Hecke image of B_X(c,R) lies in the union of balls B_X(c_i,R+log m+C) at the corresponding cusps.",
+      "requires": [
+        "ComplexComparisonPartII:C4",
+        "GeometricFreyMazur:GF.0",
+        "HyperbolicCurveVolumesAndGonality:HV.0",
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "ModularCurvesPartII:R12.3",
+        "ModularCurvesPartII:R13.3",
+        "ModularCurvesPartII:R13.4b",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+      ]
+    },
+    {
+      "key": "GF.2",
+      "title": "Small-height lifts and cusp repulsion",
+      "description": "For an integral or real 2×2 matrix the paper’s height is max_{i,j}|M_ij|, exactly Mathlib’s entrywise supremum norm after the standard scalar embedding. It is not the operator or Frobenius norm. Use this existing norm with h(MN)≤2h(M)h(N), h(M⁻¹)=h(M) in SL₂, and entrywise bounds for integral minors.\n\nFix the image ι of i, or the image ϖ of the order-3 triangle vertex, in one component. For fixed 0<δ<1/2 and large p, a component-preserving g with d(ι,gι)<δρ_X (respectively d(ϖ,gϖ)<δρ_X) has a representative γ_p(M) modulo Ξ with M∈SL₂(Z) and h(M)≤C_δp^{4δ}. No nonsquare component-switching element is represented by an SL₂(Z) reduction on this component.\n\nFix the lift i y_p of a cusp c₀ and its order-p triangle stabilizer H. For fixed 0<δ<1/2 and large p, any lift z of a cusp c with d(i y_p,z)≤(1+δ)ρ_X can be written z=σ γ_p(M)i y_p for σ∈H and M∈SL₂(Z), h(M)=O_δ(p^{4δ}).\n\nUnder the same hypotheses, if d(c₀,gc₀)≤(1+δ)ρ_X for a component-preserving deck element g, then modulo Ξ, g∈H γ_p(M) H for some integral SL₂ matrix of height O_δ(p^{4δ}). The two H factors cannot be omitted.\n\nThere is δ₀>0 such that for 0<δ<δ₀ and sufficiently large p, fixed distinct cusps c₀,c in one component and a fixed lift z₀ of c₀ admit at most one lift z of c with d(z₀,z)≤(1+δ)ρ_X.\n\nFor sufficiently small fixed δ>0 and large p, distinct cusps c₀,c satisfy B(c₀,(1/2+δ)ρ_X)∩B(c,(1/2+δ)ρ_X)⊂B(u,δρ_X+C) for a suitable u. The constant is uniform in the cusps.\n\nFor sufficiently small fixed δ>0 and large p, every x∈X(p) lies within (1/2+δ)ρ_X of at most C_δp^{24δ} cusps in its component.",
+      "requires": [
+        "GeometricFreyMazur:GF.1",
+        "HyperbolicCurveVolumesAndGonality:HV.0",
+        "ModularCurvesPartII:R12.2"
+      ]
+    },
+    {
+      "key": "GF.3",
+      "title": "Heegner and bicusp arithmetic repulsion",
+      "description": "Fix A. A unique invertible projective 2×2 solution over F_p of integral linear equations with coefficients bounded by p^(Aδ) has a primitive integral representative Q of height p^(O_A(δ)), for sufficiently small δ and large p. Put m=|det Q|; then p∤m. If det Q>0 its Smith form gives a cyclic degree-m holomorphic isogeny; if det Q<0, composition with the fixed real reflection gives the corresponding conjugate Hecke locus after complex realization. On cusp data the two cases give the respective ordinary or conjugate Hecke boundary incidence. Uniqueness does not determine the sign, and multiplication by −1 cannot change it.\n\nIn the nearby distinct-Heegner setup let t₀=[[0,1],[-1,0]] or [[0,1],[-1,-1]], and let M_x,M_y be the short integral lifts. The simultaneous equations t₀g=gt₀ and t₀M_y⁻¹gM_x=M_y⁻¹gM_x t₀ have solution space of dimension at most one over F_p for sufficiently small δ. For the second t₀ use t₀²+t₀+I=0 and det(aI+bt₀)=a²−ab+b²; for the first use a²+b².\n\nThere are absolute δ₀,A>0 such that for fixed 0<δ<δ₀ and sufficiently large p, two distinct points of CM⁺ with the same image in X(1)² and intersecting radius-δρ_X max-product balls both lie on one T_m with m≤C_δp^{Aδ}, p∤m. There is no corresponding conclusion with T_m for CM⁻.\n\nIn the same smooth real product, let c₂ be complex conjugation on the second factor and put T̄_m=c₂(T_m). This is a real analytic, generally totally real locus for the original product complex structure, not an algebraic or complex analytic divisor. Conjugation transports CM⁺ to CM⁻ and Heegner repulsion to these loci. No intersection number C·T̄_m is defined here.\n\nFor p∤m one has T_m∩CM⁻=∅. The genuine cyclic isogeny intertwines the compatible automorphism on tangent spaces, so the CM signs agree. This does not imply that distinct anti-Heegner points repel in the ordinary Hecke sense.\n\nThere are δ₀,A>0 such that for fixed 0<δ<δ₀ and large p, if a point of S is within (1/2+δ)ρ_X of at least three distinct singular bicusps, every SBC point in that ball lies on one ordinary or conjugate Hecke locus of index m≤C_δp^(Aδ), p∤m. Two bicusps do not force the reconstruction. The positive-Hecke-only formulation is not used: its proof has an uncontrolled determinant sign, and the reader gives a negative-reflection cusp example. Moreover the original point is within Aδρ_X+C_δ of that signed locus and each of its coordinates has distance at least (1/2−Aδ)ρ_X−C_δ from every cusp. These strengthened outputs use the same height reconstruction, not a new repulsion premise.",
+      "requires": [
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.1",
+        "GeometricFreyMazur:GF.2",
+        "HyperbolicCurveVolumesAndGonality:HV.5",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.6",
+        "ModularCurvesPartII:R13.3",
+        "ModularCurvesPartII:R14.1",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
+      ]
+    },
+    {
+      "key": "GF.4",
+      "title": "Big diagonal overlap and reconstruction",
+      "description": "For g∈G define Δ_g={(gx,gy,x,y):(x,y)∈S}⊂S². For p∤m define τ_{g,m}=Δ_g restricted to (x,y)∈T_m. In the max-product distance, B(Δ_g,R) is exactly the locus d(x₁,gx₂)<2R and d(y₁,gy₂)<2R. Here Δ_g has complex codimension two in S²; multiplicity along it means the sum of local curve-point multiplicities at its finite intersection, not a Cartier divisor intersection. Also define the real analytic signed companion τ̄_(g,m) by restricting Δ_g to T̄_m. Only τ_(g,m) is a holomorphic small Hecke curve.\n\nFor a nonscalar rational 2×2 matrix N whose algebra Q[N] is reduced, the determinant-one integral elements in its centralizer with entrywise height ≤p^A have O_A(log p) possibilities, uniformly in N and its embedding. A nonreduced quadratic algebra is the unipotent case and must be returned to the cusp branch. Scalar common centralizers impose no rigidity and must be eliminated by additional intertwining equations.\n\nThere exist absolute constants A,C,δ₀>0 such that for fixed 0<δ<δ₀, all sufficiently large p and ξ∈S², membership in more than C log p distinct tubes B(Δ_g,δρ_X) forces one of: (a) ξ is within (1/2+Aδ)ρ_X+C of a point of SBC×SBC; (b) ξ is within Aδρ_X+C of an ordinary small Hecke curve τ_{g,m} or its real analytic conjugate companion τ̄_{g,m} with m≤C_δp^{Aδ}. All constants are independent of the curve integrated through ξ.\n\nIn the cusp branch of the overlap proof the relevant g lie in a single order-p stabilizer coset. At distance d>0 from its fixed cusp, the number moving a coordinate less than 2R is at most C min(p,1+p sinh(R)/sinh(d)). For a fixed pair of projected bicusp centres a₁,a₂ in the cusp-branch decomposition, the transformations carrying a₂ to a₁ form one order-p stabilizer coset. The short-displacement comparison can be made in either slot separately, by taking inverses; use the farther of that slot’s two cusp coordinates, so d=d_S(z_i,a_i). With R=O(δρ_X), this gives O(1+p^{1+Aδ}e^{−d}) for d≥1 and O(p) for d<1. At d=0 use p directly. The weaker shell bound with an exponential O(δρ_X) loss is sufficient for diagonal multiplicity.",
+      "requires": [
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.1",
+        "GeometricFreyMazur:GF.2",
+        "GeometricFreyMazur:GF.3",
+        "HyperbolicCurveVolumesAndGonality:HV.0",
+        "HyperbolicCurveVolumesAndGonality:HV.2"
+      ]
+    },
+    {
+      "key": "GF.5",
+      "title": "Four multiplicity bounds and cusped measures",
+      "description": "Use the imported effective curve cycles on X(p)^r. For a normalized map ν:D→X(p)^r, put Deg(ν_*[D])=deg_D ν* K_{X(p)^r}=Σ_j deg(pr_jν)(2g_X−2), with degree zero for a constant coordinate. Equivalently vol=2πDeg. Local multiplicities of a pushforward include the map degree over its image. Point-sums along a big diagonal and divisor intersection along a small diagonal remain different operations.\n\nFix δ₁>0 small and then δ₂>0 sufficiently small in terms of δ₁. For all sufficiently large p and every effective one-cycle C⊂S with no Hecke component, mult_CM⁺(C)≤C_{δ₁,δ₂}(p^{−2δ₂}+p^{3δ₁−1})Deg(C). Thus for some η>0, uniformly in C, mult_CM⁺(C)=O(p^{−η}Deg(C)).\n\nWith independent small δ₁,δ₂ chosen as above, every effective non-Hecke one-cycle C⊂S satisfies mult_CM⁻(C)≤C_{δ₁,δ₂}(p^{−2δ₂}+p^{3δ₁−1})Deg(C) for all sufficiently large p. In particular it is O(p^{−η}Deg(C)) for a fixed η>0. This estimate does not use an intersection product with a conjugate Hecke locus.\n\nChoose δ₃>0 small first, independently of δ₁,δ₂. Then choose δ₁>0 so small that 3δ₁<2δ₃, and δ₂>0 a sufficiently small positive multiple of δ₁ as required by bicusp repulsion. For d=p^{δ₁}, T=SBC∩⋃_{m<d}(T_m∪T̄_m) and S₀=SBC−T, every effective non-Hecke C⊂S satisfies mult_{S₀}(C)≪p^{−1−2δ₂}Deg(C) and mult_T(C)≪p^{−1−2δ₃+3δ₁}Deg(C). Consequently p mult_SBC(C)=O(p^{−η}Deg(C)) for any fixed 0<η<min(2δ₂,2δ₃−3δ₁).\n\nFor a normalized effective curve cycle ν:D→X(p)^r define its cusped area measure as the weighted sum of the extensions of (pr_jν)*ω_Y over each nonconstant coordinate. A constant coordinate contributes zero, including a coordinate constantly equal to a cusp. At a nonconstant cusp preimage use the integrable punctured-disc density, with no point atom. The compact area measure is defined by the analogous sum with ω_X. Their difference is a positive finite measure.\n\nFor every effective curve cycle C⊂X(p)^r and measurable A on its normalization, 0≤vol′(C∩A)−vol(C∩A)≤C₀p⁻¹ vol(C). On one component the index is p(p²−1)/2, the cusp count is s=(p²−1)/2, and g_X=1+(p²−1)(p−6)/24; thus Area(Y)/Area(X)=1+s/(2g_X−2)=1+O(p⁻¹). The estimate remains valid with constant cusp coordinates.\n\nPrime-to-p Hecke branches are local isometries for h_Y. Outside compact cusp balls of radius (1/2−Aδ)ρ_X, compact and cusped metrics have a uniform comparison sufficient to carry an O(δρ_X) compact Hecke tube to an O(δρ_X) cusped tube. Apply the Hecke pull-push and then replace cusped by compact volumes with the uniform O(p⁻¹) error. The resulting ordinary diagonal tube estimate requires that the projected curve have no Hecke component, so its pull-push has no diagonal component. For a conjugate Hecke tube use the same holomorphic pull-push followed by the imported relative conjugate-diagonal bound. It needs no false divisor intersection with the real analytic locus; the large-radius sinh denominator gives the same p^(−1) gain.\n\nThere exist η>0,C,p₀ such that for every prime p>p₀ and effective curve cycle C⊂S², if C has no component in any Δ_g and both projected cycles pr_i*C are nonconstant and have no Hecke component, then Σ_g mult_{Δ_g}(C)≤Cp^{−η}Deg(C). For the gonality pullback both projected cycles are nonconstant and non-Hecke. The unrestricted statement for every curve outside the big diagonals is not used and is false on T₁×T₁.",
+      "requires": [
+        "ComplexComparisonPartII:C2",
+        "ComplexComparisonPartII:C5",
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.1",
+        "GeometricFreyMazur:GF.2",
+        "GeometricFreyMazur:GF.3",
+        "GeometricFreyMazur:GF.4",
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.3",
+        "HyperbolicCurveVolumesAndGonality:HV.4",
+        "HyperbolicCurveVolumesAndGonality:HV.5",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R12.2",
+        "ModularCurvesPartII:R13.3",
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+      ]
+    },
+    {
+      "key": "GF.6",
+      "title": "Gonality pencils and normalized pullbacks",
+      "description": "For n≥1 construct SymⁿZ(p)=Z(p)^n/S_n as a projective finite quotient, with its geometric-point cycle interpretation and characteristic-zero base-change compatibility. This uses a surface finite quotient, not the curve symmetric powers of JacobianChallenge. At the point-set level it agrees with Mathlib Sym; its scheme structure and the cycle morphism are supplied by the finite-quotient contract.\n\nA nonconstant map from a smooth connected curve B of gonality n to projective Z extends from its smooth completion and factors through the smooth projective normalization D of its integral image. One has gon(D)≤n, so it suffices to prove rigidity for a map birational onto its image. This includes nonproper B and maps of generic degree greater than one.\n\nLet B be smooth projective connected, f:B→Z birational onto its image, and h:B→P¹ a finite degree-n gonality pencil, n≥1. The fibre cycles f_*h⁻¹(t), with scheme multiplicities, define φ:P¹→SymⁿZ. It is nonconstant and generically degree one onto its image.\n\nLet W=G^n⋊S_n act on S^n and let q:S^n→SymⁿZ be its finite quotient. For φ as above normalize an irreducible component of P¹×_{SymⁿZ}S^n dominating P¹, obtaining a smooth projective connected curve C with ψ:C→S^n and finite α:C→P¹. If H≤W stabilizes the chosen component, the induced action on its normalization has C/H≅P¹. Remove its action kernel when discussing effective local inertia. The component and H are choices; degree-weighted conclusions are independent of them.\n\nAssume the image of B is not Hecke. Define C_i=(pr_iψ)_*[C] and C_ij=(pr_ijψ)_*[C] as weighted effective one-cycles, with multiplicity equal to generic map degree times image multiplicity. Every C_i is nonconstant and has no Hecke component, and every C_ij is contained in no Δ_g. One has Deg(C)=Σ_i Deg(C_i) and Σ_{i<j}Deg(C_ij)=(n−1)Deg(C). These facts hold for the actual chosen component and its stabilizer.",
+      "requires": [
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.4",
+        "GeometricFreyMazur:GF.5",
+        "HyperbolicCurveVolumesAndGonality:HV.2",
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "SchemeAndStackFoundations:SF.1",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ]
+    },
+    {
+      "key": "GF.7",
+      "title": "Ramification decay and geometric rigidity",
+      "description": "In the normalized pullback, every ramification point of α lies over either a CM⁺, CM⁻ or SBC point in some slot, or Δ_g^{ij} in two distinct slots for some g∈G. Here Δ_g^{ij} means simultaneous equality of both matched X coordinates. The list exhausts the finite wreath quotient inertia.\n\nFor fixed n and prime p>max(5,n), effective local inertia of α is cyclic and has order ≤6n!p. If no slot is an SBC point its order is ≤6n!. The bound is linear in p, rather than p^n, even when several slots are bicusps.\n\nFor fixed n and non-Hecke B as above, there are η_n>0,C_n,p_n such that Ram(α)≤C_np^{−η_n}Deg(C) for p>p_n. More precisely Ram(α)≪_n pΣ_i mult_SBC(C_i)+Σ_i(mult_CM⁺(C_i)+mult_CM⁻(C_i))+Σ_{i<j,g}mult_{Δ_g}(C_ij).\n\nWith D=Deg(C)>0, Riemann–Hurwitz for α is the exact equality 2g(C)−2=−2deg α+Ram(α)≤C_np^{−η_n}D. If d is the largest degree of the 2n coordinate maps C→X(p), then D≤2nd(2g_X−2), while Riemann–Hurwitz for that nonconstant projection gives 2g(C)−2≥d(2g_X−2)≥D/(2n). Choosing p so C_np^{−η_n}<1/(2n) is impossible.\n\nFor every positive integer N there is M_N^geom such that for every prime p>M_N^geom, every smooth connected complex curve B with gon(B)<N and every nonconstant morphism B→Z(p) factors through an irreducible component of H_m for some m≥1 prime to p. Gonality means that of the smooth proper model. The statement covers both determinant components.",
+      "requires": [
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.1",
+        "GeometricFreyMazur:GF.4",
+        "GeometricFreyMazur:GF.5",
+        "GeometricFreyMazur:GF.6",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications"
+      ]
+    },
+    {
+      "key": "GF.8",
+      "title": "Modular gonality and full linear monodromy",
+      "description": "For every congruence subgroup Γ≤PSL₂(Z) of finite index D, the compactified complex modular curve satisfies gon(X_Γ)≥7D/800. Interpret λ′₁=min(λ₁,1/4) by the supplied Friedrichs/continuous-spectrum convention, including no discrete eigenvalue below 1/4.\n\nFor prime p≥5 and every proper subgroup H<SL₂(F_p), [SL₂(F_p):H]≥p. The same conclusion holds for proper subgroups of PSL₂(F_p). In particular the minimum proper-subgroup index tends to infinity.\n\nFor each N>0, every nonisotrivial elliptic scheme E/U over C with gon(U)<N has actual p-torsion image SL₂(F_p) whenever p>max(5,800N/7). The determinant is exactly one after choosing a Weil-pairing basis, because all pth roots of unity are constant. Changing the basis conjugates the image and does not change this conclusion.\n\nLet p>3 and ρ:Π→SL₂(F_p) be surjective. If χ:Π→{±1} and an invertible linear A satisfy Aρ(γ)=χ(γ)ρ(γ)A for all γ, then χ is trivial. This is a statement about an actual intertwiner, not equality of projectivizations.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "CongruenceSpectralGap:CSG.5",
+        "GeometricFreyMazur:GF.0",
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "HyperbolicCurveVolumesAndGonality:HV.7",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "ModularCurvesPartII:R12.2",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+        "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+        "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ"
+      ]
+    },
+    {
+      "key": "GF.9",
+      "title": "Actual torsion, descent and characteristic-zero fields",
+      "description": "Let k be algebraically closed of characteristic zero, U/k a smooth connected curve, E,E′/U elliptic schemes and Ψ:E[p]≃E′[p] an isomorphism of finite étale F_p-module schemes. The triple gives a morphism f_Ψ:U→Z(p), with component determined by the Weil multiplier of Ψ modulo squares. Its projective class is used only to construct this map: the original Ψ remains part of the input. If E is nonisotrivial, f_Ψ is nonconstant. It extends uniquely from U to its smooth proper model because Z(p) is proper.\n\nLet K=k(U) with k algebraically closed of characteristic zero. For a nonisotrivial elliptic curve E/K, End(E over an algebraic closure of K)=Z. If E′ is geometrically isogenous to E, then Hom(E,E′ over that algebraic closure) is a free rank-one Z-module. A primitive generator f has Galois conjugates σ(f)=χ(σ)f for a continuous character χ:G_K→{±1}. If some geometric isogeny has degree prime to p, then p∤deg f.\n\nIf the classifying map f_Ψ is contained in H_m with p∤m, then E and E′ over the geometric generic point of U admit a cyclic degree-m isogeny. Consequently their primitive geometric Hom generator has degree prime to p. No isogeny over K is inferred from this coarse containment alone.\n\nLet K=k(U), p>3, E/K nonisotrivial, and Ψ:E[p]≃E′[p] an actual G_K-equivariant F_p-linear isomorphism. Assume the actual torsion image of E is SL₂(F_p) and that E,E′ admit a geometric isogeny of degree prime to p. Then a primitive geometric isogeny f:E→E′ is defined over K, so E and E′ are K-isogenous.\n\nFor elliptic schemes E,E′ over a smooth connected characteristic-zero curve U, every isogeny of their generic fibres extends uniquely to an isogeny E→E′ over U. The extension is a finite locally free surjective group morphism. This asserts an isogeny over U, not merely over a finite cover or an extension of its function field.\n\nThe geometric-rigidity threshold M_N^geom works unchanged for every algebraically closed characteristic-zero field k. Full actual p-torsion monodromy for a nonisotrivial elliptic scheme on U/k also holds for p>max(5,800N/7) when gon(U)<N. The quantifiers are uniform in k, U and the families; no embedding of all of k into C is required.\n\nFor every integer N>0 there exists M_N such that, for every algebraically closed characteristic-zero field k, prime p>M_N, smooth connected quasiprojective k-curve U with gon(U)<N, and nonisotrivial elliptic schemes E,E′/U, an actual isomorphism E[p]≃E′[p] of finite étale F_p-module schemes implies an isogeny E→E′ over U. One may take M_N larger than M_N^geom, 5 and 800N/7. There is no claimed explicit numerical final threshold.\n\nEquivalently, for every N>0 there is M_N such that for K=k(B), k algebraically closed of characteristic zero, B a smooth proper connected curve of gonality <N, and nonisotrivial elliptic curves E,E′/K, an actual G_K-equivariant F_p-linear isomorphism E[p]≃E′[p] for prime p>M_N implies a K-isogeny. Restricting to a common good-reduction open and extending its finite étale torsion data gives the family statement; taking generic fibres gives the converse.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ComplexComparisonPartII:C4",
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.7",
+        "GeometricFreyMazur:GF.8",
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "ModularCurvesPartII:R12.1",
+        "ModularCurvesPartII:R13.4a",
+        "ModularCurvesPartII:R14.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
+      ]
+    },
+    {
+      "key": "GF.10",
+      "title": "Bounded-genus and minimal-model consequences",
+      "description": "For each integer N>0 there exists P_N such that every map from a smooth connected curve whose proper model has genus g<N to Z(p), for prime p>P_N, has image either a point or a Hecke curve. One may choose P_N=M_(N+1)^geom, using gon(B)≤g+1≤N<N+1. The same enlargement gives the actual-torsion isogeny theorem for nonisotrivial families on those bases.\n\nFor every sufficiently large prime p, every integral curve on Z(p) whose normalization has genus zero or one is a Hecke curve. A common threshold is M_3^geom: a rational normalization has gonality 1 and a genus-one normalization over an algebraically closed field has gonality 2.\n\nResolve the isolated cyclic quotient singularities of a determinant component of Z(p). At a CM or singular-bicusp point the local action is 1/n(1,a), n∈{2,3,p}, gcd(a,n)=1, with a determined by the tangent characters; import its Hirzebruch–Jung resolution. On the resulting smooth projective surface Z̃(p), define the known curves to be all exceptional components and all strict transforms of Hecke curves. The resolution is an application of the owning surface interface, not a new general resolution theory.\n\nFor prime p>M_3^geom, every integral rational curve on Z̃(p) is either an exceptional component or the strict transform of a Hecke curve. In particular every initial (−1)-curve belongs to the known set.\n\nFor every sufficiently large prime p, a smooth minimal model of each component of Z(p) can be obtained from Z̃(p) by finitely many contractions of smooth rational (−1)-curves. At every step, the contracted curve is the image of a known rational curve on the original resolution. Thus the required contractions are supported on the known Hecke and exceptional curves. The assertion does not identify every Hecke curve as contractible and does not say each subsequent centre was a (−1)-curve on the original surface.",
+      "requires": [
+        "ComplexComparisonPartII:C4",
+        "GeometricFreyMazur:GF.0",
+        "GeometricFreyMazur:GF.7",
+        "GeometricFreyMazur:GF.9",
+        "HyperbolicCurveVolumesAndGonality:HV.6",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.5",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BT16",
+      "title": "p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "edition": "Annals of Mathematics 184 (2016), no. 3, 709–744; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "read": "2026-10-18",
+      "readSections": [
+        "Entire published article, §§1–7, pp. 709–744; formula images checked at p. 720."
+      ]
+    },
+    {
+      "id": "BTE",
+      "title": "Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields",
+      "authors": "Benjamin Bakker and Jacob Tsimerman",
+      "edition": "Five-page author erratum, including Propositions 2.1, 3.1, 4.1, 4.2",
+      "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1",
+      "read": "2026-10-18",
+      "readSections": [
+        "Entire erratum, §§1–5, pp. 1–5; formula images checked at pp. 3–4."
+      ]
+    },
+    {
+      "id": "ABR96",
+      "title": "A linear lower bound on the gonality of modular curves",
+      "authors": "Dan Abramovich",
+      "edition": "Author preprint alg-geom/9609012, corresponding to IMRN 1996, 1005–1011; locators below use the five-page preprint",
+      "url": "https://arxiv.org/pdf/alg-geom/9609012",
+      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779",
+      "read": "2026-10-18",
+      "readSections": [
+        "Entire preprint, Theorem 0.1 and §§1.1–1.7, pp. 1–5."
+      ]
+    },
+    {
+      "id": "BLR90",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud",
+      "edition": "Ergebnisse der Mathematik 21, Springer, 1990; maintainer-cleared original read in place",
+      "url": "https://doi.org/10.1007/978-3-642-51438-8",
+      "read": "2026-10-18",
+      "readSections": [
+        "§1.2, Proposition 8 and proof, p. 15; §1.4, Proposition 2, p. 19. No other chapter used."
+      ]
+    }
+  ],
+  "status": "complete"
+}
