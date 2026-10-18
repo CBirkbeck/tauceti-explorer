@@ -23,119 +23,119 @@
         "kind": "def",
         "module": "Mathlib/Analysis/Normed/Algebra/Spectrum.lean",
         "provides": "Native spectral radius takes values in ℝ≥0∞ and is defined from quasispectrum; comparisons here coerce finite real bounds.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:spectrum.gelfand_formula",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Normed/Algebra/GelfandFormula.lean",
         "provides": "In a complex Banach algebra the n-th roots of power nnnorms tend to spectralRadius in ℝ≥0∞.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:spectrum.nonempty",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Normed/Algebra/GelfandFormula.lean",
         "provides": "The spectrum of an element of a nontrivial complex Banach algebra is nonempty.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:spectrum.hasFDerivAt_resolvent",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Normed/Algebra/GelfandFormula.lean",
         "provides": "Differentiability of the operator argument of the resolvent at a resolvent point; inversion gives local holomorphy after the one-variable Cauchy theorem.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:Real.summable_one_div_nat_rpow",
         "kind": "theorem",
         "module": "Mathlib/Analysis/PSeries.lean",
         "provides": "Summability of n↦1/n^p for real p is equivalent to 1<p, with the native n=0 convention.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:Complex.summable_one_div_nat_cpow",
         "kind": "theorem",
         "module": "Mathlib/Analysis/PSeriesComplex.lean",
         "provides": "Summability of n↦1/n^s for complex s is equivalent to 1<Re s.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:BoundedContinuousFunction.arzela_ascoli",
         "kind": "theorem",
         "module": "Mathlib/Topology/ContinuousMap/Bounded/ArzelaAscoli.lean",
         "provides": "An equicontinuous family on a compact domain with values in a common compact set has compact closure.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:ImplicitFunctionData.differentiableAt_implicitFunction",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Calculus/Implicit.lean",
         "provides": "The implicit function determined by strict Fréchet derivative data is differentiable at its basepoint, over the general normed scalar field.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:DifferentiableOn.analyticOnNhd",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
         "provides": "Complex differentiability on an open subset of ℂ gives analytic germs for Banach-valued maps.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:MeasureTheory.ProbabilityMeasure.continuous_integral_continuousMap",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Measure/ProbabilityMeasure.lean",
         "provides": "On a compact space with measurable opens, integrals of each real continuous map depend continuously on a probability measure.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:isCompact_setOfPred_probabilityMeasure_mass_eq_compl_isCompact_le",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Measure/Prokhorov.lean",
         "provides": "A family of probabilities with uniformly small mass outside an increasing sequence of compact sets is compact; use the constant set Δ and zero bounds.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Measure/FiniteMeasure.lean",
         "provides": "Finite Borel measures on a space with outer approximation by closed sets are equal when their integrals of every bounded continuous real function agree; compact metric Δ satisfies these hypotheses.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:mellin",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "The native Mellin transform is ∫_{t>0}t^{s−1}•f(t)dt.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:MellinConvergent",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Integrability of the Mellin integrand, independently of the totalized integral value.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:MeasureTheory.integral_tsum",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
         "provides": "Termwise Bochner integration of a countable series requires strong measurability and finite sum of norm integrals.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:MeasureTheory.tendsto_integral_filter_of_dominated_convergence",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
         "provides": "A countably generated filter, a.e. convergence and an integrable common norm majorant imply convergence of integrals.",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       },
       {
         "ref": "mathlib:Real.tendsto_integral_exp_smul_cocompact",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean",
         "provides": "Banach-valued Fourier integrals tend to zero at infinity; its native frequency convention uses exp(−2πivw).",
-        "checked": "Actual statement and ambient hypotheses read at the recorded pinned git object on 2026-10-18."
+        "checked": "Independently re-read the declaration and its ambient hypotheses at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18 for REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII; its use and conventions agree with the citing targets."
       }
     ]
   },
@@ -988,7 +988,7 @@
       "sources": [
         {
           "sourceId": "GMR19",
-          "locator": "Proof of Proposition 43, §4.5, p.800; Lemma 35 p.792",
+          "locator": "Proof of Proposition 43, §4.5, p.799; Lemma 35 p.792",
           "match": "The corrected upper p-series estimate and its lower counterpart establish the two pressure limits directly."
         }
       ],
@@ -1437,7 +1437,7 @@
         {
           "name": "noncompact.compactPerturbation",
           "role": "relation",
-          "statement": "Adding a relatively compact set does not change χ; adding a compact operator does not change r_χ."
+          "statement": "For bounded A and nonempty relatively compact K, χ(A+K)=χ(A); adding a compact operator does not change r_χ."
         },
         {
           "name": "noncompact.powers",
@@ -1460,6 +1460,11 @@
           "name": "noncompact_scaling",
           "kind": "compatibility",
           "statement": "For c∈ℂ, r_χ(cT)=|c|r_χ(T)."
+        },
+        {
+          "name": "noncompact_empty_sum",
+          "kind": "non-example",
+          "statement": "χ(∅)=0 and A+∅=∅. Thus on an infinite-dimensional Banach space χ(B₁+∅)=0≠1=χ(B₁); the compact-set addition rule needs nonemptiness."
         }
       ],
       "uses": [
@@ -1918,7 +1923,7 @@
       "sources": [
         {
           "sourceId": "GMR19",
-          "locator": "Theorem 41 p.794 and Proposition 42 pp.795–796; Lemma 46 pp.798–799",
+          "locator": "Theorem 41 p.795 and Proposition 42 pp.795–796; Lemma 46 pp.798–799",
           "match": "The generalized Wielandt argument is made explicit using the two-norm spectral criterion and the fixed-point test."
         }
       ],
@@ -1960,7 +1965,7 @@
       "sources": [
         {
           "sourceId": "GMR19",
-          "locator": "Proposition 43 pp.796,800; Lemma 35 p.792",
+          "locator": "Proposition 43 pp.796,799–800; Lemma 35 p.792",
           "match": "The real analytic pressure and large-parameter estimate are strengthened by the lower p-series bound to prove existence without the arithmetic comparison."
         }
       ],
@@ -2097,8 +2102,8 @@
         },
         {
           "sourceId": "LAL89",
-          "locator": "Proposition 7.2 pp.25–26; coefficient in Theorem 1 (2.5) p.9",
-          "match": "The renewal coefficient contains the pressure derivative and the exponential abscissa."
+          "locator": "Proposition 7.2, (7.7), p.25; coefficient in Theorem 1 (2.5) p.9",
+          "match": "The renewal coefficient contains the pressure derivative and the exponential abscissa. Formula (7.7) has the same full-remainder double-counting defect as GMR19; the node states the corrected identity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2411,13 +2416,13 @@
       ],
       "title": "Numerical n=4 diagnostic",
       "kind": "application",
-      "statement": "Use piecewise affine collocation on Δ₄ with vertices (0,0,1),(0,1/2,1/2),(1/3,1/3,1/3), both branch indices and A=0,…,B. Power iteration estimates the Perron eigenvalue of the resulting finite positive matrix. A fresh diagnostic gives, for mesh m=16,B=100: λ(2.42)≈1.02201312, λ(2.44)≈1.00155870, λ(2.46)≈0.98166645; for m=32,B=300: 1.02398743,1.00333699,0.98326670 respectively. These support a crossing near 2.44, but are not certified enclosures of β or λ.",
+      "statement": "Use piecewise affine collocation on Δ₄ with vertices (0,0,1),(0,1/2,1/2),(1/3,1/3,1/3), both branch indices and A=0,…,B. Power iteration estimates the Perron eigenvalue of the resulting finite nonnegative matrix. A fresh diagnostic gives, for mesh m=16,B=100: λ(2.42)≈1.02201312, λ(2.44)≈1.00155870, λ(2.46)≈0.98166645; for m=32,B=300: 1.02398743,1.00333699,0.98326670 respectively. These support a crossing near 2.44, but are not certified enclosures of β or λ.",
       "hypotheses": [
         "The standing conventions in the introduction apply."
       ],
       "proofSteps": [
         "Use mesh points w=(j/(3m),i/(2m)+j/(3m),1−i/(2m)−2j/(3m)) with nonnegative integers i,j,i+j≤m. For each branch image convert back to coordinates u=2m(w₂−w₁),v=3mw₁, and linearly interpolate on the two triangles in each lattice square.",
-        "Build positive row contributions q^{−s} times interpolation weights. Start f=1, repeatedly compute g=Lf and normalize by max g; stop when the maximum coordinate change is<10⁻¹¹ (20–21 iterations in these runs). The final normalization factor is the displayed finite-matrix estimate.",
+        "Build nonnegative row contributions q^{−s} times interpolation weights. Start f=1, repeatedly compute g=Lf and normalize by max g; stop when the maximum coordinate change is<10⁻¹¹ (20–21 iterations in these runs). The final normalization factor is the displayed finite-matrix estimate.",
         "The explicit tail bound controls the omitted operator in C⁰, but without an interpolation error estimate and a spectral enclosure it does not certify the true eigenvalue. Retain the values, method and this limitation as an acceptance diagnostic, never as the proof of existence or uniqueness."
       ],
       "acceptance": [
@@ -2563,7 +2568,7 @@
       "printed": "In our words: The image of all infinite codes is treated as compact.",
       "correction": "Define K as the closure of that image.",
       "reason": "Already for n=3 the branch fixed points tend to 0 while every code gives a strictly positive coordinate; a countable alphabet is not compact.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "a stated result",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2572,16 +2577,22 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at journal p.794. In n=3, the fixed points of branches A tend to the endpoint 0 in the Gauss coordinate; no infinite code with a finite first letter maps to that endpoint. Closing the coding image is necessary.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E2",
       "kind": "misprint",
-      "locator": "Annals §4.5 p.800, final p-series bound; extraction E8",
+      "locator": "Annals §4.5 p.799, final p-series bound; extraction E8",
       "printed": "In our words: The scalar numerator in the spectral upper bound is 2.",
       "correction": "Use 2^σ(n−2)Σ(A+3)^(−σ).",
       "reason": "Raising q≥(A+3)/2 to the power −σ produces 2^σ.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "the proof",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2590,7 +2601,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at journal p.799, not p.800. The bound q≥(A+3)/2 gives q^(−σ)≤2^σ(A+3)^(−σ). For n=3 and w=(1/2,1/2), q=(A+3)/2, so the printed factor 2 already fails when σ>1.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E3",
@@ -2599,7 +2616,7 @@
       "printed": "In our words: The complex transfer operator is used on the right of an ordered derivative inequality.",
       "correction": "Use L_{Re s} for both nonnegative majorants.",
       "reason": "Absolute values of complex weights are q^{−Re s}; the original right side need not be real.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "a stated result",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2608,7 +2625,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 46 orders a generally complex right side. Taking absolute values of each weight gives exactly the real operator L_{Re s} in both majorants.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E4",
@@ -2617,7 +2640,7 @@
       "printed": "In our words: The full inverse is split into (1−λ)⁻¹P plus the full remainder inverse.",
       "correction": "Use λ/(1−λ)P+(1−R)⁻¹, or (1−λ)⁻¹P+(1−R)⁻¹(1−P).",
       "reason": "The printed full-remainder formula applied to h adds an erroneous extra h.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "a stated result",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2626,7 +2649,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by applying the printed identity to the normalized eigenfunction: R h=0 makes the full remainder inverse contribute an additional h. Either correction stated in the node removes it.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E5",
@@ -2635,7 +2664,7 @@
       "printed": "In our words: The normalized h_β is used as the counting coefficient without the derivative and abscissa factors.",
       "correction": "Use B=h_β/(β|λ′_β|) when ν_β1=ν_βh_β=1.",
       "reason": "Residue extraction in s⁻¹(1−L_s)⁻¹1 gives this factor. Theorem 13 permits the resulting rescaled h.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "a stated result",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2644,7 +2673,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed relative to Theorem 39’s probability and eigenfunction normalizations. The simple zero 1−λ_s=−λ′_β(s−β)+O((s−β)²) and the prefactor 1/s give B=h_β/(β|λ′_β|). Theorem 13 itself allows this rescaling.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E6",
@@ -2653,7 +2688,7 @@
       "printed": "In our words: The rational denominator is displayed without its square.",
       "correction": "Use (3+b−2w_j)² and (5+b−4w_{n−2})² respectively.",
       "reason": "Differentiate the composed linear-fractional map by the quotient rule; the squared denominator gives the claimed final bounds.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "the proof",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2662,7 +2697,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: direct quotient differentiation and the arXiv Jacobians have squared denominators. Exact rational composite-Jacobian checks support all ten corrected bounds, including boundary points.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E7",
@@ -2680,7 +2721,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with version distinction. Equality belongs to the closed cusp (for example n=4, w=(1/5,1/5,3/5)); the arXiv strict index range omits i=n−2, whereas the Annals list includes it.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E8",
@@ -2689,7 +2736,7 @@
       "printed": "In our words: The third surviving-coordinate row repeats w₂ in its special derivative entry.",
       "correction": "Use the coordinate of that row, w₃ when it precedes the deleted index.",
       "reason": "∂[w_k/(2−w_i)]/∂w_i=w_k/(2−w_i)² for k≠i. The bound is unchanged.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "the proof",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2698,17 +2745,23 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the journal table. The derivative in the row for a surviving coordinate w_k is w_k/(2−w_i)², so the third such row cannot repeat the numerator w₂.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E9",
       "kind": "misprint",
       "locator": "Annals Proposition 42 p.795; arXiv Proposition 40 p.38",
-      "printed": "In our words: The fixed vector with several zero coordinates is described as strictly positive.",
-      "correction": "It is a nonzero nonnegative vector in H; its projective point belongs to K.",
+      "printed": "In our words: The displayed eigenvector has leading zero coordinates and is followed by the notation v₊>0.",
+      "correction": "Make the convention explicit as nonzero nonnegative; no correction to the fixed-ray argument is needed.",
       "reason": "For n>3 the displayed initial coordinates vanish; no interior hypothesis is needed for periodic coding.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
-      "affects": "the proof",
+      "known": "Rejected as a source-error claim in this independent review; retained to explain the nonnegative boundary convention.",
+      "affects": "nothing",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
         "arXiv:1603.06267v3 and the reviewed extraction source-issue ledger, read 2026-10-18",
@@ -2716,7 +2769,13 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMR19",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as an allegation that the source explicitly requires strict coordinatewise positivity. It displays v₊>0 but does not say all coordinates are strictly positive; this notation can mean a nonzero element of the positive cone. The zeros are displayed openly and the proof uses a boundary fixed ray correctly. Keep the node’s explicit nonnegative convention.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheoryPartII/E10",
@@ -2725,7 +2784,7 @@
       "printed": "In our words: The comparison of C₁ with other ordinary columns has the inequality reversed; the final numerator bound also changes the coordinate subscript.",
       "correction": "For ordinary columns use C₁≥C_k because −2w₁≥−2w_k; retain −2w₁ in the displayed numerator. If j=1, use the same expression as a common upper bound, not an equality for the exceptional column.",
       "reason": "The formula C_k=(4+2b−3w_j−2w_k)/(3+b−2w_j)² is decreasing in w_k. All coordinates are nonnegative, so the subsequent upper bound by 5 is unaffected.",
-      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18; findings await independent review.",
+      "known": "No separate correction located in the bounded search of the journal landing page, author publication list and arXiv version history on 2026-10-18. Independent source check recorded in this review; this bounded search is not a claim of novelty.",
       "affects": "the proof",
       "searched": [
         "Annals published PDF (2019), read 2026-10-18",
@@ -2734,7 +2793,79 @@
         "https://www.mmagee.net/papers.html",
         "https://arxiv.org/abs/1603.06267",
         "Web searches for the authors plus erratum, and the paper title plus corrections/corrigendum, 2026-10-18"
-      ]
+      ],
+      "source": "GMRv3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against arXiv v3 p.49. The ordinary-column formula decreases with w_k, so the comparison sign is reversed. For j=1 the same expression is a common upper bound rather than the actual exceptional-column sum; the final 4/5 bound remains correct.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
+    },
+    {
+      "source": "HEN95",
+      "kind": "misprint",
+      "locator": "§5, Proposition 5.1(v) and its proof, p.19",
+      "printed": "In our words: Adding any compact set is asserted to preserve the ball-cover measure of noncompactness, without stating nonemptiness.",
+      "correction": "For bounded A and nonempty relatively compact K, χ(A+K)=χ(A).",
+      "reason": "K=∅ makes A+K empty, so the assertion fails for the unit ball of an infinite-dimensional Banach space. The source’s proof explicitly assumes the compact set nonempty.",
+      "affects": "a stated result",
+      "known": "No separate correction located in the bounded Numdam record and title/author errata search on 2026-10-18; no novelty claim.",
+      "searched": [
+        "https://www.numdam.org/item/PSMIR_1995___2_A6_0/",
+        "HEN95 §5 Proposition 5.1 and proof, p.19",
+        "Web query for Hennion, Quasi-compacité, 1995, corrigendum/errata, 2026-10-18"
+      ],
+      "id": "ProbabilisticAndMetricNumberTheoryPartII/E11",
+      "addedBy": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "K=∅ makes A+K empty, so the assertion fails for the unit ball of an infinite-dimensional Banach space. The source’s proof explicitly assumes the compact set nonempty.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
+    },
+    {
+      "source": "LAL89",
+      "kind": "error",
+      "locator": "§7, Proposition 7.2, (7.3)–(7.7), p.25",
+      "printed": "In our words: Formula (7.7) adds (1−λ)⁻¹P to the full inverse of 1−R, where R=L−λP.",
+      "correction": "Use λ/(1−λ)P+(1−R)⁻¹, or (1−λ)⁻¹P+(1−R)⁻¹(1−P).",
+      "reason": "On h, Rh=0 and Ph=h, so the printed sum gives (1−λ)⁻¹h+h instead of (1−λ)⁻¹h. The same error appears in GMR19 and is already corrected in TO.6/pole.",
+      "affects": "a stated result",
+      "known": "No separate correction located in the bounded author-page and title/author errata search on 2026-10-18; no novelty claim.",
+      "searched": [
+        "https://www.stat.uchicago.edu/~lalley/",
+        "LAL89 published journal copy, §7 p.25",
+        "Web query for Lalley, renewal theorems, symbolic dynamics, corrections/errata, 2026-10-18"
+      ],
+      "id": "ProbabilisticAndMetricNumberTheoryPartII/E12",
+      "addedBy": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On h, Rh=0 and Ph=h, so the printed sum gives (1−λ)⁻¹h+h instead of (1−λ)⁻¹h. The same error appears in GMR19 and is already corrected in TO.6/pole.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
+    },
+    {
+      "source": "LAL89",
+      "kind": "misprint",
+      "locator": "§7, paragraphs preceding Proposition 7.2 and Proposition 7.3, p.25",
+      "printed": "In our words: The persistence of a strict spectral-radius upper bound is attributed twice to lower semicontinuity.",
+      "correction": "Use upper semicontinuity, or choose a finite power whose norm is strictly below the desired power bound and preserve that inequality by continuity.",
+      "reason": "Lower semicontinuity does not keep nearby values below a given bound. The finite-power Gelfand argument in TO.4/perturbation supplies the required upper bound; local resolvent openness handles the other boundary points.",
+      "affects": "the proof",
+      "known": "No separate correction located in the bounded author-page and title/author errata search on 2026-10-18; no novelty claim.",
+      "searched": [
+        "https://www.stat.uchicago.edu/~lalley/",
+        "LAL89 published journal copy, §7 p.25",
+        "Web query for Lalley, renewal theorems, symbolic dynamics, corrections/errata, 2026-10-18"
+      ],
+      "id": "ProbabilisticAndMetricNumberTheoryPartII/E13",
+      "addedBy": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lower semicontinuity does not keep nearby values below a given bound. The finite-power Gelfand argument in TO.4/perturbation supplies the required upper bound; local resolvent openness handles the other boundary points.",
+        "by": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII"
+      }
     }
   ],
   "restructure": [],
@@ -2924,5 +3055,271 @@
         "ProbabilisticAndMetricNumberTheoryPartII:TO.6/transform"
       ]
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "GMR19",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p02-s.pdf",
+      "citation": "An asymptotic formula for integer points on Markoff–Hurwitz varieties, Annals of Mathematics 190(3) (2019), 751–809",
+      "read": "2026-10-18",
+      "sha256": "c5e7ebb5322cdfd455735f13c2b420dba318089b382a3f78f40628efc838215a"
+    },
+    {
+      "sourceId": "GMRv3",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1603.06267v3",
+      "citation": "An asymptotic formula for integer points on Markoff–Hurwitz varieties, arXiv version 3, arXiv:1603.06267v3 (2018); numbering differs from journal",
+      "read": "2026-10-18",
+      "sha256": "965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a"
+    },
+    {
+      "sourceId": "LAL89",
+      "kind": "published",
+      "url": "https://www.stat.uchicago.edu/~lalley/Papers/acta.pdf",
+      "citation": "Renewal theorems in symbolic dynamics, with applications to geodesic flows, non-Euclidean tessellations and their fractal limits, Acta Mathematica 163 (1989), 1–55",
+      "read": "2026-10-18",
+      "sha256": "f6f04148aa28d43c1684a49b746fb6ecd6393835de35ce9d487e6df952a83f55"
+    },
+    {
+      "sourceId": "LIV95",
+      "kind": "preprint",
+      "url": "https://carlangelo-liverani.github.io/Lavori/live9502.ps.gz",
+      "citation": "Decay of correlations, Annals of Mathematics 142 (1995), 239–301; author preprint dated 1993; locators use preprint pages",
+      "read": "2026-10-18",
+      "sha256": "8df257369551b64632adaa3c55e53f0d484931bd5b17d1b952a8223c0535ac18"
+    },
+    {
+      "sourceId": "MN75",
+      "kind": "author copy",
+      "url": "https://www.sidneymorris.net/Morris34.pdf",
+      "citation": "The Schauder–Tychonoff fixed point theorem and applications, Matematický časopis 25(2) (1975), 165–172; author-hosted copy; locators use printed page numbers",
+      "read": "2026-10-18",
+      "sha256": "81ca799d39a2eeb7a9cbb41df1d7c0ebe77999f922db5cbb16768ca01bc45e35"
+    },
+    {
+      "sourceId": "KLO19",
+      "kind": "published",
+      "url": "https://jot.theta.ro/jot/archive/2019-081-001/2019-081-001-008.pdf",
+      "citation": "Effective perturbation theory for simple isolated eigenvalues of linear operators, Journal of Operator Theory 81(1) (2019), 175–194",
+      "read": "2026-10-18",
+      "sha256": "c21ab145cd98ca11a01dc4c700bc203a055917fdd1ff700406df27a996ba3788"
+    },
+    {
+      "sourceId": "HEN95",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PSMIR_1995___2_A6_0.pdf",
+      "citation": "Quasi-compacité. Cas des noyaux lipschitziens et des noyaux markoviens, Publications mathématiques et informatiques de Rennes (1995), fascicule 2, pp.1–50",
+      "read": "2026-10-18",
+      "sha256": "a574a1be8a917c8290ca34444e22a0b5fecf4f98f0071b034203ef494a002490"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
+    "date": "2026-10-18",
+    "notes": "Independent review of all 40 targets, all 17 pinned baseline declarations, source and supplier statements, closure, API/tests, suggested Lean and current upstream ownership. Corrected the nonempty compact-set hypothesis, sparse nonnegative collocation terminology and source locators; added a discriminating test and three source findings, rejected the overclaim E9, and recorded all seven source versions. All six numerical diagnostics reproduced and all ten derivative bounds checked algebraically and on exact rational samples. G1 and the finite-matrix specialization remain honestly recorded packaging obligations; no implementation is claimed.",
+    "checked": [
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.0/simplex",
+        "verdict": "verified",
+        "note": "Normalization, affine dimension n−2, nonzero cone and three examples checked against GMR19 pp.755–757."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.0/branches",
+        "verdict": "verified",
+        "note": "Accelerated numerator, q bounds, delay floor, real logarithm and the three arithmetic examples checked directly; GMR19 pp.791–792 agrees."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.0/words-count",
+        "verdict": "verified",
+        "note": "Chronological composition, bounded length/letters, empty word and renewal partition checked; generic inverse deletion proves freeness without imposing boundary injectivity."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.0/c1",
+        "verdict": "verified",
+        "note": "The segment identity gives a closed Banach subspace, derivative uniqueness by interior density and the stated sum norm; zero-dimensional and wrong-jet tests discriminate."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.0/pullback",
+        "verdict": "verified",
+        "note": "Boundary chain rule follows from segment calculus and interior approximation; scalar Arzelà–Ascoli gives compact value inclusion; Leibniz norm bound checked."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.1/regions",
+        "verdict": "verified",
+        "note": "Closed core/cusp inequalities, equality boundary and both projective image inclusions checked against GMR19 pp.800–801."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.1/ten-bounds",
+        "verdict": "verified",
+        "note": "All ten expressions checked with the journal list and arXiv derivative supplement; quotient/column calculations and 10,080 exact rational inequalities on 315 points (n=4..8) support the corrected squares and boundary ranges."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.1/contraction",
+        "verdict": "verified",
+        "note": "The short-block estimates yield 24/25 on Δ₀ and a uniform initial factor; the n=3 two-branch Gauss estimate supplies its separate case."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.1/attractor",
+        "verdict": "verified",
+        "note": "Outer-prefix composition is distinct from chronological words; contraction gives coding limits, closed invariant K, fixed rays and attraction. Closure is essential for a countable alphabet."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.2/operator",
+        "verdict": "verified",
+        "note": "P-series and uniform derivative majorants give genuine bounded operators and absolute word sums, rather than relying on totalized sums."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.2/c0-bounds",
+        "verdict": "corrected",
+        "note": "All lower/upper and tail bounds checked directly, including 2^σ and the integral-test cutoff. Corrected the source page to 799."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.2/two-norm",
+        "verdict": "verified",
+        "note": "Chain differentiation of word weights and the geometric derivative bound give the real L_{Re s} majorants; constants uniform on compact parameter sets."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.2/holomorphic",
+        "verdict": "verified",
+        "note": "Log-power derivatives are dominated by a p-series with a positive exponent margin; uniform operator convergence yields Banach-valued holomorphy."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.2/bilateral",
+        "verdict": "verified",
+        "note": "Ordinary absolutely convergent bilateral Laplace and native Mellin conventions checked, with substitution u=exp t giving parameter −s."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/schauder",
+        "verdict": "verified",
+        "note": "Read MN75 Theorem 2.6 pp.166–168 and current DifferentialGeometry Brouwer. Finite hull projection and the shrinking-neighborhood net prove this locally convex version; G1 honestly records the absent atlas index."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/eigenprobability",
+        "verdict": "verified",
+        "note": "Weighted pushforwards, positivity of normalization, weak continuity, compact probabilities via Prokhorov and embedding in a real locally convex product checked; scalar eigenvalue bounded by Lσ1."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/cones",
+        "verdict": "verified",
+        "note": "Proper cone metric, Grönwall positivity, explicit C_{κa} diameter and the finite-vector specialization checked against Liverani and the OptimalTransport owner."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/noncompactness",
+        "verdict": "corrected",
+        "note": "Corrected compact-set addition to require nonemptiness and added the empty-sum counterexample. Finite ambient ball covers, root infimum, finite-dimensional and identity tests agree with HEN95 §5."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/itm",
+        "verdict": "verified",
+        "note": "Read HEN95 two-norm argument and Appendix A. Weak compactness gives rχ≤r without approximation properties; exterior generalized eigenspaces and the radius<1 alternative are retained."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/cone-rpf",
+        "verdict": "verified",
+        "note": "General Birkhoff contraction is proved within this target; normalized cone order controls the full C¹ norm, and shifting real functions then complexifying gives the exponential operator bound for countably many branches."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.3/real-rpf",
+        "verdict": "verified",
+        "note": "Cone convergence gives simple leading eigenvalue and decaying remainder; density of C¹ in C gives uniqueness of the probability and contraction/coding gives support K."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.4/simple-data",
+        "verdict": "verified",
+        "note": "Rank-one normalization, invertibility on ker φ and the reduced inverse are equivalent under the explicit decomposition; finite matrix and degenerate tests checked."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.4/perturbation",
+        "verdict": "verified",
+        "note": "Kloeckner’s public implicit-function proof applies to complex Banach operators; native strict derivative data, dual normalization, λ′=φT′h and finite-power gap stability checked. No uncleared Kato text used."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.4/uniform-gap",
+        "verdict": "verified",
+        "note": "Local analytic normalized data patch by uniqueness on the real interval; finite covering and common powers yield compact-parameter constants θ<1."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.5/nonlattice",
+        "verdict": "verified",
+        "note": "The bounded argument/circle phase equivalence has the stated signs and common coset phase; constant and arithmetic-coset tests distinguish the definition."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.5/fixed-delays",
+        "verdict": "verified",
+        "note": "The last two-coordinate matrix and quadratic root give nonnegative boundary fixed rays in K; positive logarithmic gaps tend to zero. E9 rejected as an overclaim about source wording."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.5/wielandt",
+        "verdict": "corrected",
+        "note": "Checked weak domination, two-norm quasi-compactness and equality phases on K; non-lattice rules out unit eigenvalues. Corrected Theorem 41 locator to p.795."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.5/pressure",
+        "verdict": "corrected",
+        "note": "Derivative has the quantitative negative delay bound; lower p-series divergence and dominated large-σ decay prove a unique zero independently of arithmetic counting. Corrected proof-page locator."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/growth",
+        "verdict": "verified",
+        "note": "The h-normalized probability recurrence on intervals of width log(3/2) bounds growth by a convergent geometric forcing sum before smoothing is used."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/transform",
+        "verdict": "verified",
+        "note": "Uniform growth justifies integration and 1/s; spectral-radius bound yields Neumann convergence and Mellin identification without assuming pointwise count continuity in w."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/pole",
+        "verdict": "corrected",
+        "note": "Checked both exact resolvent identities on range P and ker P, the factor β|λ′|, and only local boundary germs. Added the previously missed same error in Lalley (7.7) to its source match and E12."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/smoothing",
+        "verdict": "verified",
+        "note": "Read Lalley pp.30–32; the band-limited kernel, damped symmetric transform, Poisson pole mass and compact-frequency integration by parts give a sup-norm limit, without a global strip."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/uniform-tauberian",
+        "verdict": "verified",
+        "note": "Both shifted-kernel inequalities and tail control squeeze uniformly; scalar supplier constants agree for k=0,A=B(x)>0, with direct treatment when B(x)=0."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/count-asymptotic",
+        "verdict": "verified",
+        "note": "Growth, transform and local boundary poles meet the uniform adapter; min B>0 converts to relative error, and homogeneous pullback has the claimed degree and eigenrelation."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.6/conformal",
+        "verdict": "verified",
+        "note": "Determinants of homogeneous branches are ±1; projective Jacobian exponent is dimension+1=n−1. Evaluating against h identifies λ_s=1 and probability uniqueness without a dimension claim."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.7/gauss",
+        "verdict": "verified",
+        "note": "The x=w₁/w₂ coordinate and multiplication by (1+x)^s give the exact conjugacy and its weight; PM.4 branch/transfer statements and endpoint conventions read."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.7/gauss-spectrum",
+        "verdict": "verified",
+        "note": "Imported PM.4 density/telescoping gives G₂(1/(1+x))=1/(1+x), hence β(3)=2; raw and probability/eigenfunction normalizations are distinct."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.7/rauzy",
+        "verdict": "verified",
+        "note": "The three matrices become the fully subtractive inverse branches after the specified row permutations; sorting, permutation saturation and closure of parabolic tails checked."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.7/numeric",
+        "verdict": "corrected",
+        "note": "Reproduced all six eight-decimal values with both meshes and cutoffs (20–21 iterations). Corrected positive matrix/contributions to nonnegative; sparse interpolation supplies zero entries. No spectral enclosure claimed."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheoryPartII:TO.7/dimension-monotonicity",
+        "verdict": "verified",
+        "note": "Prepending zero and shifting j to j+1 preserve q, branch action and delays; the word injection and positive counting constants imply β(n)≥β(n−1)."
+      }
+    ]
+  }
 }
