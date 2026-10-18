@@ -13,7 +13,8 @@ light definitions, layer milestones and end theorems of the roadmap that can be 
 the pinned Mathlib and Tau Ceti, together with `example` checks named in the README, so that
 contributors and reviewers converge on names and signatures. Docstrings cite the README's
 subsections as §k.n. Heavy constructions (the Hardy function of an odd character, the
-symmetric-square L-function, certificate formats, Heegner points) are README targets only.
+symmetric-square L-function, Heegner points) are README targets only. Numerical inputs are
+stated as explicit inequalities; the computations that prove them are not targets.
 
 Design choices made explicit here:
 * imaginary quadratic fields are number fields `K` with `Module.finrank ℚ K = 2` and
@@ -304,9 +305,8 @@ multiplicative reduction of `curve5077` at `5077`. -/
 theorem curve_local_data : curve139.LFunction 139 = 0 ∧ curve5077.LFunction 5077 = -1 := by
   sorry
 
-/-- §2.4: arithmetic ranks: both curves have Mordell–Weil rank `3`, and `curve5077(ℚ)` is
-torsion-free. -/
-theorem arithmeticRank_certificates :
+/-- §2.4: Mordell–Weil ranks: both curves have rank `3`, and `curve5077(ℚ)` is torsion-free. -/
+theorem mordellWeilRank_eq_three :
     Module.finrank ℤ curve139.toAffine.PointModTorsion = 3 ∧
       Module.finrank ℤ curve5077.toAffine.PointModTorsion = 3 ∧
       Submodule.torsion ℤ curve5077.toAffine.Point = ⊥ := by
@@ -383,6 +383,14 @@ theorem rankThree_139 (L : ℂ → ℂ) (hentire : Differentiable ℂ L)
     (hseries : ∀ s : ℂ, 3 / 2 < s.re → L s = curve139.LSeries s) :
     analyticOrderAt L 1 ≠ ⊤ ∧ analyticOrderNatAt L 1 = 3 ∧
       Module.finrank ℤ curve139.toAffine.PointModTorsion = 3 := by
+  sorry
+
+/-- §2.7: the third central derivative of `curve139`: `1842/100 < L'''(1)/3! < 1844/100`, for the
+entire continuation `L` of its Euler series. -/
+theorem curve139_third_deriv_bounds (L : ℂ → ℂ) (hentire : Differentiable ℂ L)
+    (hseries : ∀ s : ℂ, 3 / 2 < s.re → L s = curve139.LSeries s) :
+    (1842 / 100 : ℝ) < (iteratedDeriv 3 L 1).re / 6 ∧
+      (iteratedDeriv 3 L 1).re / 6 < (1844 / 100 : ℝ) := by
   sorry
 
 /-- §2.13: Buhler–Gross–Zagier's example, with `173/100 < L'''(1)/3! < 174/100`. -/
@@ -570,6 +578,28 @@ theorem montgomeryWeinberger (K : Type) [Field K] [NumberField K]
     NumberField.classNumber K ≠ 3 := by
   sorry
 
+/-- §5.5: `p` is `x`-inert: `p ≡ 3 mod 8` is prime and `(-p/q) = -1` for every odd prime `q ≤ x`,
+so that every prime `q ≤ x` is inert in `ℚ(√-p)`. -/
+def IsInertPrime (x p : ℕ) : Prop :=
+  p.Prime ∧ p % 8 = 3 ∧
+    ∀ q : ℕ, (hq : q.Prime) → 2 < q → q ≤ x → @legendreSym q ⟨hq⟩ (-(p : ℤ)) = -1
+
+/-- §5.5: the least `43`-inert prime is `1333963` (Lehmer–Lehmer–Shanks, Table III). -/
+theorem leastInertPrime_43 : IsLeast {p : ℕ | IsInertPrime 43 p} 1333963 := by
+  sorry
+
+/-- §5.5: the least `67`-inert prime is `51599563`. -/
+theorem leastInertPrime_67 : IsLeast {p : ℕ | IsInertPrime 67 p} 51599563 := by
+  sorry
+
+/-- §5.5: the least `163`-inert prime is `1432817816347`. -/
+theorem leastInertPrime_163 : IsLeast {p : ℕ | IsInertPrime 163 p} 1432817816347 := by
+  sorry
+
+-- §5.5 Check: the least integer `N ≡ 3 mod 8` with the `43`-pattern, `77683 = 131 · 593`, is not
+-- a prime, so it is not `43`-inert.
+example : ¬ IsInertPrime 43 77683 := fun h ↦ absurd h.1 (by norm_num)
+
 /-- §5.6: no class number three for `907 < d < 10¹²`. -/
 theorem smallRange_sieve (K : Type) [Field K] [NumberField K]
     (hdeg : Module.finrank ℚ K = 2) (hneg : NumberField.discr K < 0)
@@ -607,13 +637,15 @@ end Layer5
 /-!
 README targets without a declaration here: the radicand of a quadratic field and the
 discriminant formula (§0.1), the count of the class number by Tau Ceti's `reducedForms`, which
-postdates the pinned library (§0.2), the reduced-form
-decomposition of `ζ_K(s)/ζ(2s)` and the nonaxial lattice estimate (§§0.6–0.7), the tail
-estimates `J₁, J₂, J₃` (§1.7), the twist description and local data of the curves (§§2.1, 2.3),
-kernel and central-value enclosures (§§2.5, 2.7), the modular unit on `X₀(37)` and its CM values
-(§§2.9–2.10), the symmetric-square factorization and the modular systems (§§3.1–3.3), the
-certificate datasets for `7000` and `55` (§3.4), the comparison with Siegel's theorem (§4.9),
-Hardy functions of odd characters (§5.2) and pattern-sieve certificates (§5.5).
+postdates the pinned library, and the inequalities `3a² ≤ d < 4c²` for its members (§0.2), the
+reduced-form decomposition of `ζ_K(s)/ζ(2s)` and the nonaxial lattice estimate (§§0.6–0.7), the
+tail estimates `J₁, J₂, J₃` (§1.7), the twist description and local data of the curves
+(§§2.1, 2.3), the kernel remainder bounds and the numerical values other than those of `curve139`
+and `curve5077` stated above (§§2.5, 2.7), the modular unit on `X₀(37)` and its CM values
+(§§2.9–2.10), the symmetric-square factorization and the modular systems (§§3.1–3.3), the explicit
+evaluation of Oesterlé's constant (§3.4), the comparison with Siegel's theorem (§4.9), and Hardy
+functions of odd characters with their Stirling and approximate-functional-equation bounds
+(§5.2).
 -/
 
 end
