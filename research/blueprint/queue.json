@@ -53247,7 +53247,9 @@
    ],
    "revisionOf": "PKG-InductionRestrictionPartII",
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10390",
+   "finishedAt": "2026-10-18T09:48:03Z"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII~2",
@@ -135478,8 +135480,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md",
+   "note": "claimed on GitHub issue #10389"
   }
  ]
 }
