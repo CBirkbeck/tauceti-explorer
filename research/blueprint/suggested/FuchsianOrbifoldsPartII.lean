@@ -174,6 +174,14 @@ theorem cyclePolygon_mem (ns : List ℕ) (z : ℍ) :
       ∀ k ≤ ns.length, 1 ≤ Complex.normSq ((z : ℂ) - (cyclePrefix ns k : ℂ)) := by
   sorry
 
+/-- The D=28 first supporting arc has center 3/2 and squared radius 7/4.
+This height>1 point is in the Ford polygon but below that arc, hence outside the core.
+The full core cusp strip needs a cutoff above all retained arcs. -/
+example : let z : ℍ := ⟨⟨3 / 2, 6 / 5⟩, by norm_num⟩
+    z ∈ cyclePolygon [3, 6] ∧
+      Complex.normSq ((z : ℂ) - (3 / 2 : ℂ)) < 7 / 4 := by
+  sorry
+
 theorem cyclePolygon_measurable (ns : List ℕ) : MeasurableSet (cyclePolygon ns) := by
   sorry
 
@@ -223,7 +231,7 @@ example : dist (heightOne 0) (heightOne 3) = liftSpacing 3 := by
 example : liftSpacing 3 < liftSpacing 6 := by
   sorry
 
-/-- N.2/small-discriminants: the SL matrix for [3,6], including its sign convention. -/
+/-- N.4/small-discriminants: the SL matrix for [3,6], including its sign convention. -/
 example : (((ModularGroup.T ^ (3 : ℕ) * ModularGroup.S) *
     (ModularGroup.T ^ (6 : ℕ) * ModularGroup.S) : SL(2, ℤ)) :
       Matrix (Fin 2) (Fin 2) ℤ) = !![17, -3; 6, -1] := by

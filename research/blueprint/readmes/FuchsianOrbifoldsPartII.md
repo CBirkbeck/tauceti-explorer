@@ -29,12 +29,13 @@ The worked D=12 and D=28 application is placed in N.4 because its last assertion
 
 ## Baseline and supplier contracts
 
-The implementation baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Actual declarations were read at these pins and checked against the installed declaration index. The packet records 20 baseline references with modules and exact scope: the invariant volume density, upper-half-plane distance, S and T matrices, imaginary-part action formula, open modular domain and its effective a.e. fundamental-domain theorem, generated subgroups, measurable pushforward and its integral identity, effective real/integral projective actions, boundary-null transfer, the proper projective action, finite cyclic stabilizers, narrow class-group finiteness and principal-class squaring.
+The implementation baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Actual declarations were read at these pins and checked against the installed declaration index. The packet records 22 baseline references with modules and exact scope: the invariant volume density, upper-half-plane distance, S and T matrices, imaginary-part action formula, open modular domain and its effective a.e. fundamental-domain theorem, generated subgroups, measurable pushforward and its integral identity, effective real/integral projective actions, boundary-null transfer, the proper projective action, finite cyclic stabilizers, narrow class-group finiteness and principal-class squaring, ordinary covering lifts and over-base deck conjugation.
 
 The reviewed library audit for parent F.0–F.6 was read before planning. The newer upstream checkout was also read at TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27`, together with current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. New polygon, quotient and cusp code stays with the parent. No limit-set or Nielsen-core API was found. Current `DifferentialGeometry` Layer 5.3/5.5 already owns ordinary and corners Stokes and its comparison with curve integrals, so N.5 imports that material. Its absence from the older atlas snapshot is not permission to plan it again.
 
-For readability the node inputs use F.1, F.2, F.3, F.4 and F.6 for the corresponding parent layers, CM.L2/CM.L4 for ConformalMapping, UC.2 for UniversalCovers and AT.1/AT.7 for AlgebraicTopology. Their exact atlas IDs and precise requested statements follow. Requests describe interface obligations; they do not authorize changes to another roadmap in this job.
+For readability the node inputs use F.0, F.1, F.2, F.3, F.4 and F.6 for the corresponding parent layers, CM.L2/CM.L4 for ConformalMapping and AT.1/AT.7 for AlgebraicTopology. Their exact atlas IDs and precise requested statements follow. Requests describe interface obligations; they do not authorize changes to another roadmap in this job.
 
+- `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action` — Consume the canonical PSL₂(ℝ) action on OnePoint ℝ and its compatibility with SL representatives. This is the parent’s pslBoundaryAction interface, already implemented in current Tau Ceti by OnePoint.instMulActionPSL and OnePoint.pslMk_smul; N.0 proves only its Cayley compactification compatibility. Do not construct a competing action.
 - `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts` — Restriction of the existing free quotient and cone charts to invariant closed regions; finite cyclic cone orders and regular quotient charts. The half-disc boundary charts are constructed here.
 - `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups` — Hyperbolic geodesics/axes, polygon side-pairing and cycle theorem, angle-defect area and a.e. fundamental-domain/index measure comparison. Apply the local polygon theorem to the explicit finite-sided infinite-area Ford polygon, without a cofinite converse.
 - `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates` — Full parabolic stabilizers, cusp scaling and precisely invariant horodiscs, with punctured q charts; retain the full stabilizer equality in every width normalization.
@@ -42,22 +43,23 @@ For readability the node inputs use F.1, F.2, F.3, F.4 and F.6 for the correspon
 - `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order` — The level-one effective modular quotient, its locally finite cone set and invariant area measure of mass π/3, with a.e. representatives and regular connected locus.
 - `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions` — Classification of biholomorphic self-maps of ℍ by PSL₂(ℝ), transported from the unit-disc automorphism and Schwarz–Pick equality statements.
 - `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle` — Schwarz reflection across analytic boundary arcs and removable singularities for bounded holomorphic lifts in local disc charts.
-- `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence` — Lifting criterion for connected covers, equivariance of universal-cover lifts and deck-conjugacy, applied to the cone-punctured doubled orbifolds.
 - `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions` — Finite-CW Euler characteristic, invariance and gluing along boundary circles; genus and capped-surface Euler characteristic with explicit finite-type hypotheses.
-- `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid` — Finite-cover van Kampen presentations and injective normal forms for incompressible surface exhaustions; these give the finite-type step in the two-dimensional geometric-finiteness proof.
+- `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid` — Finite-cover van Kampen and its group-presentation corollaries. N.0 proves the surface-exhaustion and incompressible-boundary normal-form argument locally; that surface theorem is not attributed to the generic van Kampen supplier.
 - `AutomorphicSpectralTheory:AS.2` — From the existing completed Eisenstein Fourier series, export C¹ termwise differentiation on high strips, exponential nonconstant-mode bounds and the constant-term bounds O(√Y log Y), derivative O(Y⁻¹/² log Y) for each fixed critical-line t, including t=0 by holomorphic cancellation.
 - `AutomorphicSpectralTheory:AS.4` — Export smooth modular-invariant weight-zero cusp eigenfunctions with zero horizontal constant term and C¹ exponentially decaying Fourier tails on high strips. No Hecke or first-Fourier-coefficient normalization is needed.
-- `GeometryOfNumbersAndQuadraticArithmetic:GN.3` — Export the oriented norm-form/narrow-ideal dictionary at fundamental D, including [a,−b,c]↔A⁻¹ and [−a,−b,−c]=−Q↔JA⁻¹ (DIT (2.3)–(2.5), p.952). Existing reduced-cycle and Pell nodes use this dictionary but do not state these sign identities. Combined with the bottom GN.4 form-reversal node, it gives the exact class involution required by complementarity.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.3` — Consume IntegralLattices Layer B2–B3 for the oriented form/ideal dictionary and GlobalNumberFields Layer 11 for its order/NarrowPic carriers. For positive fundamental D>1, specialize to the maximal order and identify NarrowPic with the pinned NumberField.NarrowClassGroup, preserving principal representatives. Export only the DIT convention adapter and coefficient actions (2.3)–(2.5), p.952: [a,−b,c]↔A⁻¹, [−a,b,−c]↔JA and −Q↔JA⁻¹. Retain the oriented sign clause for a<0. This is the same adapter requested by MultiquadraticPartII:RQ.3; do not rebuild the dictionary, binary forms, composition or a narrow quotient.
 
 The current upstream Stokes import is recorded separately, because its roadmap is newer than the atlas snapshot: `DifferentialGeometry`, Layer 5.3 and 5.5 at the commit above. The required input is compact C¹ Stokes with boundary orientation, the planar corners adapter, and top-form/curve-integral comparison.
 
+A second current-upstream import is IntegralLattices Layer B2–B3: the oriented form/ideal dictionary with its sign clause. Its order and NarrowPic carriers belong to GlobalNumberFields Layer 11. GN.3 supplies only the maximal-order/DIT convention adapter already requested by MultiquadraticPartII:RQ.3. The general dictionary is not planned again. Completed/UniversalCovers Stage 2 already provides covering theory: the two exact baseline declarations listed in the N.3 lift inputs replace its prospective request.
+
 ## Proof safeguards and source corrections
 
-Four findings are recorded against the version of record, with no self-review verdict. They were already identified in the source extraction; this job rechecked the relevant geometry and supplies the corrected proof routes.
+Four findings against the version of record, already identified in the source extraction, now have independent confirmation in this review. The two proof gaps concern omitted justifications; they do not refute the final theorem. Corrected proof routes follow.
 
 1. **Half-plane and infinity convention (E1; DIT §2 p.952, extraction E17).** Keep the supporting side away from the complementary ideal interval. The word “above” is valid after a normalization with ∞ in the limit set; it is not an invariant rule for arbitrary conjugates.
 2. **Finite cutting arcs (E2; DIT Theorem 1 proof pp.958–959, extraction E19).** Ordering the complete axes does not prove that a finite subarc reaches its next circle. The descending endpoint-disc induction in `axis-cutting` establishes that crossing, including the one-digit endpoint case.
-3. **Conformal recovery (E3; DIT p.959, extraction E20).** Selected lift distances need not equal quotient distances. The double and covering lift put a conformal equivalence in PSL₂(ℝ). After fixing the unique cusp, the largest elliptic height forces its dilation to be one. The cyclic gaps then recover the digits. Cone orders remain part of the input throughout.
+3. **Conformal recovery (E3; DIT p.959, extraction E20).** The closest-footpoint ordering does not by itself justify the selected successive lifts. Their distances need not equal ordinary quotient distances. The double and covering lift put a conformal equivalence in PSL₂(ℝ). After fixing the unique cusp, the largest elliptic height forces its dilation to be one. The cyclic gaps then recover the digits. Cone orders remain part of the input throughout.
 4. **Laplacian exponent (E4; DIT p.961, extraction E1).** The operator is −y²(∂x²+∂y²), as in the paper’s (7.10) on p.972. The earlier display’s inverse-square factor fails even on y^s.
 
 The journal article page, linked final PDF, author publication page and title/erratum search were checked on 2026-10-18; no published correction was located. The packet records the exact PDF hash and version. These findings correct the statements used below. The Stokes integral under the general flux hypothesis is explicitly a **height-truncated limit**; absolute integrability is proved separately for the spectral inputs.
@@ -75,7 +77,7 @@ Target `N.0/limit-set` (definition). For a discrete Γ≤PSL₂(ℝ), ΛΓ is th
 **Proof route.**
 
 1. Use the Cayley embedding z↦(z−i)/(z+i), take the closure of the orbit in the closed unit disc and intersect the unit circle.
-2. Bounded hyperbolic distance implies the same boundary limit, proving independence of z₀. Continuity of each extended Möbius map proves conjugacy equivariance. Extend each matrix action to the ideal circle by its fractional-linear formula, using the value ∞ at a zero denominator and the Cayley chart at infinity.
+2. Import the parent F.0 canonical action on OnePoint ℝ; its projective action is already implemented in current Tau Ceti as OnePoint.instMulActionPSL and OnePoint.pslMk_smul. Prove compatibility with the Cayley boundary identification and continuity at infinity. Bounded hyperbolic distance gives the same boundary limit, proving basepoint independence; continuity of the extended action gives conjugacy equivariance. No new ideal-boundary action is constructed here.
 3. For a nonelementary group, use attracting/repelling limits of hyperbolic words to obtain perfection and the first/second-kind dichotomy.
 
 **Public API.**
@@ -93,7 +95,7 @@ Target `N.0/limit-set` (definition). For a discrete Γ≤PSL₂(ℝ), ΛΓ is th
 - `hyperbolic_limit`: For a cyclic hyperbolic group, Λ is exactly its two fixed points, so nonelementarity fails.
 - `modular_limit`: For PSL₂(ℤ), Λ=OnePoint ℝ, agreeing with the parent’s cofinite group.
 
-**Inputs.** `tauceti:UpperHalfPlane.pslMk_smul`, `mathlib:UpperHalfPlane.dist_eq`, `tauceti:TauCeti.UpperHalfPlane.isProperMap_psl_smul_I`.
+**Inputs.** `tauceti:UpperHalfPlane.pslMk_smul`, `mathlib:UpperHalfPlane.dist_eq`, `tauceti:TauCeti.UpperHalfPlane.isProperMap_psl_smul_I`, `F.0`.
 
 **Source.** [DIT16] §2 p.952, limit-set paragraph. The source introduces the limit set and kind; the full ideal circle and away-side convention correct E17. [LU23] §3.1 pp.194–195. Elementary cases and the second-kind limit-set complement are stated here.
 
@@ -147,7 +149,7 @@ Target `N.0/geometric-finiteness` (theorem). If Γ≤PSL₂(ℝ) is discrete, no
 
 **Inputs.** `N.0/nielsen-core`, `F.2`, `F.3`, `AT.1`.
 
-**Source.** [LU23] §3.1 pp.194–195, Proposition 3.5; §3.3 p.198. Finite generation, finite-sided polygons and finite-area Nielsen intersections are the key input, with cusp surgery described in §3.2. The surgery discussions in §3.2–§3.3 first treat torsion-free groups; here cusp isolation comes from F.3 and the cone points remain in the compact part using F.1, so no torsion-free hypothesis is silently dropped. [SERIES05] p.33, Fuchsian paragraph following Proposition 4.60. Supporting axes project to boundary geodesics cutting off funnels.
+**Source.** [LU23] §3.1 pp.194–195, Proposition 3.5; §3.3 p.198. Finite generation, finite-sided polygons and finite-area Nielsen intersections are the key input, with cusp surgery described in §3.2. The surgery discussions in §3.2–§3.3 first treat torsion-free groups; here cusp isolation comes from F.3 and the cone points remain in the compact part using F.1, so no torsion-free hypothesis is silently dropped. [SERIES05] Theorem 3.33 p.21; p.33, Fuchsian paragraph following Proposition 4.60. Theorem 3.33 supplies finite generation iff geometric finiteness for Fuchsian groups; the p.33 paragraph identifies boundary axes and funnels. The finite-type surface argument is developed in this node, consuming only generic van Kampen from AT.1.
 
 **Check.** The finite-generation hypothesis is retained; an arbitrary infinite-index subgroup is not asserted to be of second kind. The output polygon and end decomposition are constructed, not fields assumed in a core record.
 
@@ -214,7 +216,7 @@ Target `N.0/boundary-geodesic` (theorem). Each funnel peripheral free homotopy c
 2. The two fixed endpoints determine the unique invariant axis. A second geodesic in that class lifts to the same axis by uniqueness of a hyperbolic element’s axis.
 3. Supporting lines are disjoint and boundary stabilizers are cyclic without elliptics; hence the quotient boundary circle is simple. A parabolic element has only one ideal fixed point and no axis.
 
-**Inputs.** `N.0/geometric-finiteness`, `F.2`, `UC.2`.
+**Inputs.** `N.0/geometric-finiteness`, `F.2`, `F.1`.
 
 **Source.** [DIT16] §2 pp.952–953, paragraph across the page break. The claimed boundary representative is interpreted for funnel circles; cusp and cone exceptions are made explicit.
 
@@ -409,14 +411,14 @@ Target `N.2/axis-cutting` (construction). For the data in word-endpoints, let z 
 
 ### Quadratic-class surface
 
-Target `N.2/class-core` (construction). For a real quadratic field K of positive fundamental discriminant D>1 and A∈Cl⁺(K), define F_A=Core(Γ_A), including its genuine geodesic boundary and all cone points with order. A fundamental core polygon is Q_A=P(n)∩CΓ_A. The canonical map p_A:F_A→M=PSL₂(ℤ)\ℍ is induced by subgroup inclusion; it is an orientation-preserving local orbifold isometry, may overlap itself, and is proper. Choices of reduced representative produce canonically conjugate maps over M.
+Target `N.2/class-core` (construction). For a real quadratic field K of positive fundamental discriminant D>1 and A∈Cl⁺(K), define F_A=Core(Γ_A), including its genuine geodesic boundary and all cone points with order. A fundamental core polygon is Q_A=P(n)∩CΓ_A. The canonical map p_A:F_A→M=PSL₂(ℤ)\ℍ is induced by subgroup inclusion; it is an orientation-preserving local orbifold isometry on the interior and an isometric half-disc map along the genuine boundary. It may overlap itself and is proper. Choices of reduced representative produce canonically conjugate maps over M.
 
 **Hypotheses.** Use a primitive minus period supplied by GN.3; all arithmetic actions and the modular quotient use the effective projective group.
 
 **Proof route.**
 
 1. Apply the general core construction to the explicit second-kind subgroup, restricting the actual orbit relation and quotient charts.
-2. Identify Q_A by the supporting retained arcs from axis-cutting. Its portion above height 1 is the full width-m cusp strip.
+2. Identify Q_A by the supporting retained arcs from axis-cutting. Choose Y₀>1 above all those finitely many compact arcs. Above Y₀ the core polygon is the full width-m cusp strip. The cutoff 1 works for P(n), but need not work for Q_A.
 3. Inclusion of orbit relations gives p_A. Above a sufficiently high standard modular horodisc it is the width-m cusp cover; the complement of that cusp tail in F_A is compact. This proves properness, hence finiteness of preimages away from the projected boundary and cone set.
 4. Use rotation-conjugacy for independence; do not replace the surface by a record of signature, area and length.
 
@@ -427,6 +429,7 @@ Target `N.2/class-core` (construction). For a real quadratic field K of positive
 - `classCore_projection`: p_A([z])=[z], well defined by subgroup inclusion.
 - `classCore_rotation`: Changing the reduced representative gives an oriented orbifold isometry over M.
 - `classCore_projection_proper`: Inverse images of compact subsets of M are compact.
+- `classCore_cuspStrip`: There is Y₀>1 such that Q_A∩{Im z>Y₀}={z:0≤Re z≤m, Im z>Y₀}; the cutoff is chosen above all retained boundary arcs.
 
 **Uses.** N.3/conformal-class and N.4/core-measure: Supply the actual bordered orbifold with cone orders, and its map whose pushforward retains overlapping sheets.
 
@@ -435,12 +438,13 @@ Target `N.2/class-core` (construction). For a real quadratic field K of positive
 - `D12_core`: The principal period [4] has one cone point; [3,2] has two. The resulting cores cannot be identified merely because their boundary lengths agree.
 - `D28_overlap`: For D=28, the principal core area is 2π, larger than area(M)=π/3; p_A therefore cannot be an isometric embedding.
 - `cusp_boundary_distinction`: The width-m cusp contributes one end and no geodesic boundary component; Q_A’s vertical sides are paired.
+- `D28_cusp_cutoff`: For [3,6], the first retained boundary arc lies on (x−3/2)²+y²=7/4, from x=1/2 to x=5/2. Its maximum height is √7/2>1. The point 3/2+(6/5)i belongs to P but is below that arc and outside Q_A; height>1 alone does not identify the core cusp strip.
 
 **Inputs.** `N.0/nielsen-core`, `N.1/second-kind`, `N.1/rotation-conjugacy`, `N.2/axis-cutting`, `F.1`, `F.3`, `F.6`.
 
 **Source.** [DIT16] §3 p.954, definition of N_A and F_A; Theorem 1 p.957; Figure 6 p.957. The arithmetic surface is the core, and its modular projection can have overlapping sheets.
 
-**Check.** The map is locally isometric in orbifold charts, not a globally embedded subset of M. The cusp is retained as a noncompact end.
+**Check.** Interior maps are local orbifold isometries; boundary maps are isometric half-disc maps into full target charts. No global embedding or open local homeomorphism at the genuine boundary is asserted. The cusp is retained as a noncompact end.
 
 ### Quadratic-core signature and area
 
@@ -559,12 +563,12 @@ Target `N.3/conformal-lift` (theorem). An orientation-preserving conformal orbif
 
 **Proof route.**
 
-1. Double f by reflection using the analytic boundary charts. Remove the cone points and apply the ordinary covering lifting criterion to the covers obtained from the reflected polygon groups.
+1. Double f by reflection using the analytic boundary charts. Remove the cone points and apply the pinned ordinary covering lifting criterion to the covers obtained from the reflected polygon groups, after rebasing the target cover by the doubled f. These punctured surfaces and covering spaces are path connected and locally path connected; choose matching lifted basepoints.
 2. The subgroup defining the orbifold universal cover is the normal closure of the mⱼth powers of small cone meridians. Cone-order preservation carries this subgroup to the matching subgroup, so the lift exists in both directions. Local maps extend across removed lifts by the removable-singularity theorem in disc coordinates.
-3. Choose matching lifted basepoints in the first halves of the doubles. The two inverse lifts give a biholomorphism ℍ→ℍ; by the imported disc automorphism/Schwarz–Pick equality classification it is a PSL₂(ℝ) isometry. The corresponding connected preimage halves are the convex, hence simply connected, cores CΓ_A and CΓ_B; their stabilizers in the doubled polygon groups are exactly the original Γ_A and Γ_B. Thus the lift maps these halves onto each other and conjugates their stabilizers. This proves the required core-group conjugacy, not only conjugacy of the larger doubled groups.
+3. Choose matching lifted basepoints in the first halves of the doubles. Uniqueness of based lifts makes the two chosen lifts inverse and supplies deck equivariance; the pinned deck conjugation API packages the resulting cover isomorphism. The inverse lifts extend to a biholomorphism ℍ→ℍ; by the imported disc automorphism/Schwarz–Pick equality classification it is a PSL₂(ℝ) isometry. The corresponding connected preimage halves are the convex, hence simply connected, cores CΓ_A and CΓ_B; their stabilizers in the doubled polygon groups are exactly the original Γ_A and Γ_B. Thus the lift maps these halves onto each other and conjugates their stabilizers. This proves the required core-group conjugacy, not only conjugacy of the larger doubled groups.
 4. Conjugacy sends parabolics and their fixed points to parabolics. Since Γ_B has one cusp orbit, compose by its deck element to fix ∞. The real projective normal form is az+b with positive a.
 
-**Inputs.** `N.3/core-double`, `N.1/ford-domain`, `CM.L2`, `CM.L4`, `UC.2`, `F.1`.
+**Inputs.** `N.3/core-double`, `N.1/ford-domain`, `CM.L2`, `CM.L4`, `mathlib:IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le`, `tauceti:TauCeti.Deck.conjMulEquiv`, `F.1`.
 
 **Source.** [DIT16] Final proof paragraph p.959, E20 correction. This supplies the omitted intrinsic-to-lift passage; the printed selected-lift-distance argument is not used.
 
@@ -721,12 +725,12 @@ Target `N.4/complementarity` (theorem). Let J be the narrow class of the differe
 
 **Proof route.**
 
-1. Import the oriented geodesic-reversal identity from GN.4 and the full once-traversed boundary identification from N.2. Thus the pushed-forward oriented boundary one-currents cancel with multiplicity, even when their images retrace.
+1. Import the oriented geodesic-reversal identity from GN.4 and the full once-traversed boundary identification from N.2/boundary-length. Thus the pushed-forward oriented boundary arcs cancel with signed multiplicity, even when their images retrace.
 2. By properness and the local isometry charts, each ν has a finite integer local density on the regular modular surface away from the locally finite projected boundary. It is constant on each chamber; crossing an oriented smooth boundary arc changes it by its signed number of preimages.
-3. Opposite parametrized boundary currents make all jumps of the sum zero. Join generic regular points by paths transverse to smooth arcs and avoiding the finitely many exceptional crossings in a compact segment; approximation handles coincident arcs. The regular modular surface is connected, so the sum density is one constant almost everywhere.
+3. Opposite parametrized boundary arcs make all jumps of the sum zero. Join generic regular points by paths transverse to smooth arcs and avoiding the finitely many exceptional crossings in a compact segment; approximation handles coincident arcs. The regular modular surface is connected, so the sum density is one constant almost everywhere.
 4. Projected boundary and cone sets are area-null. Compare total masses π(ℓ_A+ℓ_ιA) and π/3 to determine the constant. The cusp width computation gives the independent check m_A+m_ιA=3(ℓ_A+ℓ_ιA), since high in the cusp both cores are full strips.
 
-**Inputs.** `N.4/core-measure`, `N.2/core-invariants`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/geodesic-orientation-reversal`, `F.6`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `tauceti:NumberField.NarrowClassGroup.mkPrincipal_sq`.
+**Inputs.** `N.4/core-measure`, `N.2/core-invariants`, `N.2/boundary-length`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4/geodesic-orientation-reversal`, `F.6`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `tauceti:NumberField.NarrowClassGroup.mkPrincipal_sq`.
 
 **Source.** [DIT16] §4 p.960, paragraph after (4.4). The source asserts even complementary covering. The local-density argument supplies a precise proof for pushforward measures rather than a union of sets.
 
@@ -816,10 +820,10 @@ Target `N.5/core-stokes` (theorem). Let F:ℍ→ℂ be C², Γ_A-invariant and s
 
 **Proof route.**
 
-1. In real coordinates d(i∂zF dz)=−(F_xx+F_yy)dx∧dy/2=(λ/2)F dμ. Apply imported ordinary/corners Stokes to Q_A(Y); the one-form is C¹ and all side/cone cancellations are given by core-truncation.
+1. In real coordinates d(i∂zF dz)=−(F_xx+F_yy)dx∧dy/2=(λ/2)F dμ. Apply imported ordinary/corners Stokes to the real and imaginary parts on Q_A(Y), multiplying by a smooth cutoff equal to one on a neighborhood of this compact polygon to meet the supplier’s compact-support hypothesis; the one-form is C¹ and all side/cone cancellations are given by core-truncation.
 2. The exact finite identity is (λ/2)∫_{Q_A(Y)}F dμ=∮_{∂F_A}α_F−i∫₀ᵐ∂zF(x+iY)dx. For λ≠0 the assumed flux convergence gives existence and the limit formula.
 3. For λ=0, write a(Y)=∫₀ᵐF(x+iY)dx. Translation periodicity and the harmonic equation give a″=0; integrating F_x over a period gives zero, so the flux is −ia′/2. Its limit zero forces a′=0, and the tail integral ∫a(Y)Y⁻²dY converges. Thus the height-truncated integral exists in this case as well.
-4. For L¹ functions use exhaustion/dominated convergence to compare with the measure integral. Use boundaryCut_isometry and full modular invariance to replace the boundary by C_A; Γ_A-invariance alone does not allow those modular cutting maps.
+4. For L¹ functions use exhaustion/dominated convergence to compare with the measure integral. Γ_A-invariance already permits all the cutting maps Sₖ and T^m, so boundaryCut_isometry identifies the boundary integral with the integral on the selected axis segment in ℍ. Full modular invariance is needed to descend the form to M and interpret this intrinsically as an integral along the complete parametrized modular cycle C_A.
 
 **Inputs.** `N.5/core-truncation`, `N.2/axis-cutting`, `mathlib:UpperHalfPlane.volume_def`.
 
@@ -852,11 +856,11 @@ Target `N.5/spectral-stokes` (theorem). For a smooth level-one weight-zero Maass
 
 ## Suggested Lean projection and validation
 
-The companion file follows the newer streamlined shape rule in WORKERS.md. Its 258 lines contain real-bodied scalar area, list admissibility/prefix, projective matrix/group, polygon, lift-spacing and half-open modular-domain expressions. The translation and height-one point helpers use existing carriers. Statements include area normalizations, cyclic conjugacy, the boundary-word identity, the integral height bound, lift distances and the null-boundary comparison; examples cover the excluded all-2 and empty cycles, [4], [3,6], the modular signature and boundary ties.
+The companion file follows the newer streamlined shape rule in WORKERS.md. Its 266 lines contain real-bodied scalar area, list admissibility/prefix, projective matrix/group, polygon, lift-spacing and half-open modular-domain expressions. The translation and height-one point helpers use existing carriers. Statements include area normalizations, cyclic conjugacy, the boundary-word identity, the integral height bound, lift distances and the null-boundary comparison; examples cover the excluded all-2 and empty cycles, [4], [3,6], the modular signature and boundary ties.
 
 The ideal hull, quotient orbifold, double, class-indexed measures and cusp-truncation targets have their full statements, API and tests above. They have no invented Lean substitute carriers or records whose assumed fields encode the desired theorem. Their signatures await the carriers owned by the suppliers. This is the explicit reader-only projection required by the current roadmap shape, not a claim that the compact file is exhaustive.
 
-`lean-check` elaborated the suggested file in the shared build at the two baseline pins; its only warnings are the intended unproved theorem/example placeholders. No data definition uses such a placeholder. `check_blueprint.py` reports zero errors and zero warnings against the installed pinned declaration index. All 27 source-route items are mapped to nodes in `extractionCoverage`; every stage is planned and the complete packet has zero gaps, 13 atlas-stage import requests and one current-upstream Stokes import. The independent review must assess the proof repairs and supplier interfaces before implementation begins.
+`lean-check` elaborated the suggested file in the shared build at the two baseline pins; its only warnings are the intended unproved theorem/example placeholders. No data definition uses such a placeholder. `check_blueprint.py` reports zero errors and zero warnings against the installed pinned declaration index. All 27 source-route items are mapped to nodes in `extractionCoverage`; every stage remains planned. The independently reviewed complete target-level pass has zero recorded proof gaps, 13 atlas-stage requests and two current-upstream imports (Stokes and the oriented form/ideal dictionary). Supplier interfaces remain implementation obligations; no stage is certified as implemented or closed.
 
 ## References
 
@@ -864,8 +868,6 @@ The ideal hull, quotient orbifold, double, class-indexed measures and cusp-trunc
 
 - **[LU23]** Zhipeng Lu, *Geodesic cover of Fuchsian groups*. Annales mathématiques Blaise Pascal 30 (2023), no. 2, 189–199; DOI 10.5802/ambp.421. [Source](https://www.numdam.org/item/10.5802/ambp.421.pdf). Read: §3.1 pp.194–195, geometric finiteness, second-kind hypothesis, Nielsen region and Proposition 3.5; §3.2 pp.196–197, horocyclic truncation; §3.3 p.198, finite-sided Nielsen intersections and funnels.
 
-- **[SERIES05]** Caroline Series, *A Crash Course on Kleinian Groups*. Rendiconti dell’Istituto di Matematica dell’Università di Trieste 37 (2005), 1–38; journal-hosted notes. [Source](https://rendiconti.dmi.units.it/volumi/37/01.pdf). Read: The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60.
+- **[SERIES05]** Caroline Series, *A Crash Course on Kleinian Groups*. Rendiconti dell’Istituto di Matematica dell’Università di Trieste 37 (2005), 1–38; journal-hosted notes. [Source](https://rendiconti.dmi.units.it/volumi/37/01.pdf). Read: The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60; Theorem 3.33 p.21, finite generation and geometric finiteness for Fuchsian groups.
 
-- **[UPSTREAM]** The Tau Ceti roadmap contributors, *Current Fuchsian, conformal and differential-geometric supplier roadmaps*. 0d144d044dacebca17b654695b6f1ad58f159b27. [Source](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap). Read: FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README, L2 and L4; DifferentialGeometry README Layer 5 and Suggested.lean Stokes signatures; UniversalCovers Stage 2 and AlgebraicTopology Stage 7; Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or core API found.
-
-All mathematical statements and source matches in this roadmap are written in our own words. No book copy was needed: the geometric background used here is in the openly hosted Lu and Series papers, together with the existing roadmap supplier contracts.
+- **[UPSTREAM]** The Tau Ceti roadmap contributors, *Current supplier roadmaps and completed covering theory*. 0d144d044dacebca17b654695b6f1ad58f159b27. [Source](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27). Read: FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README L2/L4; DifferentialGeometry README Layer 5.3/5.5 and Suggested.lean Stokes signatures; AlgebraicTopology Stages 1/7; Completed/UniversalCovers README Stage 2, STATUS and Suggested.lean: ordinary lifting and deck conjugation are already implemented, including at the packet baseline; IntegralLattices README Layer B2–B3 and Suggested.lean LayerBContract; GlobalNumberFields owns the consumed order/NarrowPic carriers; Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: OnePoint projective action, UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or Nielsen-core API found.

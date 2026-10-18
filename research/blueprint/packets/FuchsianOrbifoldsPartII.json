@@ -137,6 +137,18 @@
         "module": "TauCeti/Analysis/Complex/Fuchsian/Stabilizer.lean",
         "provides": "For a discrete subgroup Γ≤PSL₂(ℝ) and z∈ℍ, the existing point stabilizer is cyclic; combined with finite_stabilizer it is finite cyclic.",
         "checked": "Actual declaration and hypotheses read at the recorded library pin on 2026-10-18; current-only additions are separately treated as supplier material."
+      },
+      {
+        "ref": "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le",
+        "module": "Mathlib/Topology/Homotopy/Lifting.lean",
+        "provides": "For a covering p:E→X, path-connected locally path-connected source A, continuous f:A→X, a chosen compatible lifted basepoint and inclusion of the induced fundamental-group ranges, there is a unique continuous basepoint-preserving lift.",
+        "checked": "Independent reviewer read the declaration, namespace and all hypotheses at the recorded pin on 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.Deck.conjMulEquiv",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Deck/Conjugation.lean",
+        "provides": "An over-base homeomorphism h:E≃ₜF with q∘h=p induces a multiplicative equivalence of deck groups by conjugation; rebase the target cover along the base equivalence before applying it.",
+        "checked": "Independent reviewer read the declaration, namespace and all hypotheses at the recorded pin on 2026-10-18."
       }
     ],
     "instancesRead": [
@@ -185,20 +197,23 @@
       "sha256": "4eb1f4c626d58673afdcd7b5769854d288e860d951af76695a4129a0d70e28c8",
       "accessed": "2026-10-18",
       "readSections": [
-        "The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60"
+        "The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60",
+        "Theorem 3.33 p.21, finite generation and geometric finiteness for Fuchsian groups"
       ]
     },
     {
       "id": "UPSTREAM",
-      "title": "Current Fuchsian, conformal and differential-geometric supplier roadmaps",
+      "title": "Current supplier roadmaps and completed covering theory",
       "authors": "The Tau Ceti roadmap contributors",
       "edition": "0d144d044dacebca17b654695b6f1ad58f159b27",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27",
       "accessed": "2026-10-18",
       "readSections": [
-        "FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README, L2 and L4",
-        "DifferentialGeometry README Layer 5 and Suggested.lean Stokes signatures; UniversalCovers Stage 2 and AlgebraicTopology Stage 7",
-        "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or core API found"
+        "FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README L2/L4",
+        "DifferentialGeometry README Layer 5.3/5.5 and Suggested.lean Stokes signatures; AlgebraicTopology Stages 1/7",
+        "Completed/UniversalCovers README Stage 2, STATUS and Suggested.lean: ordinary lifting and deck conjugation are already implemented, including at the packet baseline",
+        "IntegralLattices README Layer B2–B3 and Suggested.lean LayerBContract; GlobalNumberFields owns the consumed order/NarrowPic carriers",
+        "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: OnePoint projective action, UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or Nielsen-core API found"
       ]
     }
   ],
@@ -217,13 +232,14 @@
       ],
       "proofSteps": [
         "Use the Cayley embedding z↦(z−i)/(z+i), take the closure of the orbit in the closed unit disc and intersect the unit circle.",
-        "Bounded hyperbolic distance implies the same boundary limit, proving independence of z₀. Continuity of each extended Möbius map proves conjugacy equivariance. Extend each matrix action to the ideal circle by its fractional-linear formula, using the value ∞ at a zero denominator and the Cayley chart at infinity.",
+        "Import the parent F.0 canonical action on OnePoint ℝ; its projective action is already implemented in current Tau Ceti as OnePoint.instMulActionPSL and OnePoint.pslMk_smul. Prove compatibility with the Cayley boundary identification and continuity at infinity. Bounded hyperbolic distance gives the same boundary limit, proving basepoint independence; continuity of the extended action gives conjugacy equivariance. No new ideal-boundary action is constructed here.",
         "For a nonelementary group, use attracting/repelling limits of hyperbolic words to obtain perfection and the first/second-kind dichotomy."
       ],
       "prerequisites": [
         "tauceti:UpperHalfPlane.pslMk_smul",
         "mathlib:UpperHalfPlane.dist_eq",
-        "tauceti:TauCeti.UpperHalfPlane.isProperMap_psl_smul_I"
+        "tauceti:TauCeti.UpperHalfPlane.isProperMap_psl_smul_I",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action"
       ],
       "sources": [
         {
@@ -415,8 +431,8 @@
         },
         {
           "sourceId": "SERIES05",
-          "locator": "p.33, Fuchsian paragraph following Proposition 4.60",
-          "match": "Supporting axes project to boundary geodesics cutting off funnels."
+          "locator": "Theorem 3.33 p.21; p.33, Fuchsian paragraph following Proposition 4.60",
+          "match": "Theorem 3.33 supplies finite generation iff geometric finiteness for Fuchsian groups; the p.33 paragraph identifies boundary axes and funnels. The finite-type surface argument is developed in this node, consuming only generic van Kampen from AT.1."
         }
       ],
       "acceptance": [
@@ -567,7 +583,7 @@
       "prerequisites": [
         "FuchsianOrbifoldsPartII:N.0/geometric-finiteness",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts"
       ],
       "sources": [
         {
@@ -1019,13 +1035,13 @@
       "realises": [
         "FuchsianOrbifoldsPartII:N.2"
       ],
-      "statement": "For a real quadratic field K of positive fundamental discriminant D>1 and A∈Cl⁺(K), define F_A=Core(Γ_A), including its genuine geodesic boundary and all cone points with order. A fundamental core polygon is Q_A=P(n)∩CΓ_A. The canonical map p_A:F_A→M=PSL₂(ℤ)\\ℍ is induced by subgroup inclusion; it is an orientation-preserving local orbifold isometry, may overlap itself, and is proper. Choices of reduced representative produce canonically conjugate maps over M.",
+      "statement": "For a real quadratic field K of positive fundamental discriminant D>1 and A∈Cl⁺(K), define F_A=Core(Γ_A), including its genuine geodesic boundary and all cone points with order. A fundamental core polygon is Q_A=P(n)∩CΓ_A. The canonical map p_A:F_A→M=PSL₂(ℤ)\\ℍ is induced by subgroup inclusion; it is an orientation-preserving local orbifold isometry on the interior and an isometric half-disc map along the genuine boundary. It may overlap itself and is proper. Choices of reduced representative produce canonically conjugate maps over M.",
       "hypotheses": [
         "Use a primitive minus period supplied by GN.3; all arithmetic actions and the modular quotient use the effective projective group."
       ],
       "proofSteps": [
         "Apply the general core construction to the explicit second-kind subgroup, restricting the actual orbit relation and quotient charts.",
-        "Identify Q_A by the supporting retained arcs from axis-cutting. Its portion above height 1 is the full width-m cusp strip.",
+        "Identify Q_A by the supporting retained arcs from axis-cutting. Choose Y₀>1 above all those finitely many compact arcs. Above Y₀ the core polygon is the full width-m cusp strip. The cutoff 1 works for P(n), but need not work for Q_A.",
         "Inclusion of orbit relations gives p_A. Above a sufficiently high standard modular horodisc it is the width-m cusp cover; the complement of that cusp tail in F_A is compact. This proves properness, hence finiteness of preimages away from the projected boundary and cone set.",
         "Use rotation-conjugacy for independence; do not replace the surface by a record of signature, area and length."
       ],
@@ -1046,7 +1062,7 @@
         }
       ],
       "acceptance": [
-        "The map is locally isometric in orbifold charts, not a globally embedded subset of M.",
+        "Interior maps are local orbifold isometries; boundary maps are isometric half-disc maps into full target charts. No global embedding or open local homeomorphism at the genuine boundary is asserted.",
         "The cusp is retained as a noncompact end."
       ],
       "implementationStatus": "unchecked",
@@ -1075,6 +1091,11 @@
           "name": "classCore_projection_proper",
           "statement": "Inverse images of compact subsets of M are compact.",
           "role": "structure"
+        },
+        {
+          "name": "classCore_cuspStrip",
+          "statement": "There is Y₀>1 such that Q_A∩{Im z>Y₀}={z:0≤Re z≤m, Im z>Y₀}; the cutoff is chosen above all retained boundary arcs.",
+          "role": "structure"
         }
       ],
       "tests": [
@@ -1089,6 +1110,10 @@
         {
           "name": "cusp_boundary_distinction",
           "statement": "The width-m cusp contributes one end and no geodesic boundary component; Q_A’s vertical sides are paired."
+        },
+        {
+          "name": "D28_cusp_cutoff",
+          "statement": "For [3,6], the first retained boundary arc lies on (x−3/2)²+y²=7/4, from x=1/2 to x=5/2. Its maximum height is √7/2>1. The point 3/2+(6/5)i belongs to P but is below that arc and outside Q_A; height>1 alone does not identify the core cusp strip."
         }
       ],
       "uses": [
@@ -1363,9 +1388,9 @@
         "A and B belong to the same fixed real quadratic field. The equivalence is holomorphic on the interior in orbifold charts and preserves its orientation and cone orders."
       ],
       "proofSteps": [
-        "Double f by reflection using the analytic boundary charts. Remove the cone points and apply the ordinary covering lifting criterion to the covers obtained from the reflected polygon groups.",
+        "Double f by reflection using the analytic boundary charts. Remove the cone points and apply the pinned ordinary covering lifting criterion to the covers obtained from the reflected polygon groups, after rebasing the target cover by the doubled f. These punctured surfaces and covering spaces are path connected and locally path connected; choose matching lifted basepoints.",
         "The subgroup defining the orbifold universal cover is the normal closure of the mⱼth powers of small cone meridians. Cone-order preservation carries this subgroup to the matching subgroup, so the lift exists in both directions. Local maps extend across removed lifts by the removable-singularity theorem in disc coordinates.",
-        "Choose matching lifted basepoints in the first halves of the doubles. The two inverse lifts give a biholomorphism ℍ→ℍ; by the imported disc automorphism/Schwarz–Pick equality classification it is a PSL₂(ℝ) isometry. The corresponding connected preimage halves are the convex, hence simply connected, cores CΓ_A and CΓ_B; their stabilizers in the doubled polygon groups are exactly the original Γ_A and Γ_B. Thus the lift maps these halves onto each other and conjugates their stabilizers. This proves the required core-group conjugacy, not only conjugacy of the larger doubled groups.",
+        "Choose matching lifted basepoints in the first halves of the doubles. Uniqueness of based lifts makes the two chosen lifts inverse and supplies deck equivariance; the pinned deck conjugation API packages the resulting cover isomorphism. The inverse lifts extend to a biholomorphism ℍ→ℍ; by the imported disc automorphism/Schwarz–Pick equality classification it is a PSL₂(ℝ) isometry. The corresponding connected preimage halves are the convex, hence simply connected, cores CΓ_A and CΓ_B; their stabilizers in the doubled polygon groups are exactly the original Γ_A and Γ_B. Thus the lift maps these halves onto each other and conjugates their stabilizers. This proves the required core-group conjugacy, not only conjugacy of the larger doubled groups.",
         "Conjugacy sends parabolics and their fixed points to parabolics. Since Γ_B has one cusp orbit, compose by its deck element to fix ∞. The real projective normal form is az+b with positive a."
       ],
       "prerequisites": [
@@ -1373,8 +1398,9 @@
         "FuchsianOrbifoldsPartII:N.1/ford-domain",
         "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
         "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts"
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "mathlib:IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le",
+        "tauceti:TauCeti.Deck.conjMulEquiv"
       ],
       "sources": [
         {
@@ -1742,14 +1768,15 @@
         "D>1 is positive fundamental; ν_A is the multiplicity-preserving pushforward and μ_mod has mass π/3."
       ],
       "proofSteps": [
-        "Import the oriented geodesic-reversal identity from GN.4 and the full once-traversed boundary identification from N.2. Thus the pushed-forward oriented boundary one-currents cancel with multiplicity, even when their images retrace.",
+        "Import the oriented geodesic-reversal identity from GN.4 and the full once-traversed boundary identification from N.2/boundary-length. Thus the pushed-forward oriented boundary arcs cancel with signed multiplicity, even when their images retrace.",
         "By properness and the local isometry charts, each ν has a finite integer local density on the regular modular surface away from the locally finite projected boundary. It is constant on each chamber; crossing an oriented smooth boundary arc changes it by its signed number of preimages.",
-        "Opposite parametrized boundary currents make all jumps of the sum zero. Join generic regular points by paths transverse to smooth arcs and avoiding the finitely many exceptional crossings in a compact segment; approximation handles coincident arcs. The regular modular surface is connected, so the sum density is one constant almost everywhere.",
+        "Opposite parametrized boundary arcs make all jumps of the sum zero. Join generic regular points by paths transverse to smooth arcs and avoiding the finitely many exceptional crossings in a compact segment; approximation handles coincident arcs. The regular modular surface is connected, so the sum density is one constant almost everywhere.",
         "Projected boundary and cone sets are area-null. Compare total masses π(ℓ_A+ℓ_ιA) and π/3 to determine the constant. The cusp width computation gives the independent check m_A+m_ιA=3(ℓ_A+ℓ_ιA), since high in the cusp both cores are full strips."
       ],
       "prerequisites": [
         "FuchsianOrbifoldsPartII:N.4/core-measure",
         "FuchsianOrbifoldsPartII:N.2/core-invariants",
+        "FuchsianOrbifoldsPartII:N.2/boundary-length",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.4/geodesic-orientation-reversal",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
@@ -1946,10 +1973,10 @@
         "The differential operator is curvature −1 with the minus sign and factor y². The complex-valued integral is in the orientation of N.2."
       ],
       "proofSteps": [
-        "In real coordinates d(i∂zF dz)=−(F_xx+F_yy)dx∧dy/2=(λ/2)F dμ. Apply imported ordinary/corners Stokes to Q_A(Y); the one-form is C¹ and all side/cone cancellations are given by core-truncation.",
+        "In real coordinates d(i∂zF dz)=−(F_xx+F_yy)dx∧dy/2=(λ/2)F dμ. Apply imported ordinary/corners Stokes to the real and imaginary parts on Q_A(Y), multiplying by a smooth cutoff equal to one on a neighborhood of this compact polygon to meet the supplier’s compact-support hypothesis; the one-form is C¹ and all side/cone cancellations are given by core-truncation.",
         "The exact finite identity is (λ/2)∫_{Q_A(Y)}F dμ=∮_{∂F_A}α_F−i∫₀ᵐ∂zF(x+iY)dx. For λ≠0 the assumed flux convergence gives existence and the limit formula.",
         "For λ=0, write a(Y)=∫₀ᵐF(x+iY)dx. Translation periodicity and the harmonic equation give a″=0; integrating F_x over a period gives zero, so the flux is −ia′/2. Its limit zero forces a′=0, and the tail integral ∫a(Y)Y⁻²dY converges. Thus the height-truncated integral exists in this case as well.",
-        "For L¹ functions use exhaustion/dominated convergence to compare with the measure integral. Use boundaryCut_isometry and full modular invariance to replace the boundary by C_A; Γ_A-invariance alone does not allow those modular cutting maps."
+        "For L¹ functions use exhaustion/dominated convergence to compare with the measure integral. Γ_A-invariance already permits all the cutting maps Sₖ and T^m, so boundaryCut_isometry identifies the boundary integral with the integral on the selected axis segment in ℍ. Full modular invariance is needed to descend the form to M and interpret this intrinsically as an integral along the complete parametrized modular cycle C_A."
       ],
       "prerequisites": [
         "FuchsianOrbifoldsPartII:N.5/core-truncation",
@@ -2030,41 +2057,48 @@
       "stageId": "FuchsianOrbifoldsPartII:N.0",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     },
     {
       "stageId": "FuchsianOrbifoldsPartII:N.1",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     },
     {
       "stageId": "FuchsianOrbifoldsPartII:N.2",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     },
     {
       "stageId": "FuchsianOrbifoldsPartII:N.3",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     },
     {
       "stageId": "FuchsianOrbifoldsPartII:N.4",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     },
     {
       "stageId": "FuchsianOrbifoldsPartII:N.5",
       "status": "planned",
       "remaining": [],
-      "detail": "All target-level definitions and key results are covered, with explicit import contracts and repaired geometric arguments. Implementation and independent review are not claimed."
+      "detail": "Every target-level definition and key theorem has a node and explicit inputs. Independent review corrected the cusp cutoff and supplier ownership; stages remain planned and implementation is not claimed."
     }
   ],
   "gaps": [],
   "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+      "need": "Consume the canonical PSL₂(ℝ) action on OnePoint ℝ and its compatibility with SL representatives. This is the parent’s pslBoundaryAction interface, already implemented in current Tau Ceti by OnePoint.instMulActionPSL and OnePoint.pslMk_smul; N.0 proves only its Cayley compactification compatibility. Do not construct a competing action.",
+      "neededBy": [
+        "FuchsianOrbifoldsPartII:N.0/limit-set"
+      ]
+    },
     {
       "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
       "need": "Restriction of the existing free quotient and cone charts to invariant closed regions; finite cyclic cone orders and regular quotient charts. The half-disc boundary charts are constructed here.",
@@ -2134,14 +2168,6 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
-      "need": "Lifting criterion for connected covers, equivariance of universal-cover lifts and deck-conjugacy, applied to the cone-punctured doubled orbifolds.",
-      "neededBy": [
-        "FuchsianOrbifoldsPartII:N.0/boundary-geodesic",
-        "FuchsianOrbifoldsPartII:N.3/conformal-lift"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions",
       "need": "Finite-CW Euler characteristic, invariance and gluing along boundary circles; genus and capped-surface Euler characteristic with explicit finite-type hypotheses.",
       "neededBy": [
@@ -2152,7 +2178,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid",
-      "need": "Finite-cover van Kampen presentations and injective normal forms for incompressible surface exhaustions; these give the finite-type step in the two-dimensional geometric-finiteness proof.",
+      "need": "Finite-cover van Kampen and its group-presentation corollaries. N.0 proves the surface-exhaustion and incompressible-boundary normal-form argument locally; that surface theorem is not attributed to the generic van Kampen supplier.",
       "neededBy": [
         "FuchsianOrbifoldsPartII:N.0/geometric-finiteness"
       ]
@@ -2173,9 +2199,13 @@
     },
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
-      "need": "Export the oriented norm-form/narrow-ideal dictionary at fundamental D, including [a,−b,c]↔A⁻¹ and [−a,−b,−c]=−Q↔JA⁻¹ (DIT (2.3)–(2.5), p.952). Existing reduced-cycle and Pell nodes use this dictionary but do not state these sign identities. Combined with the bottom GN.4 form-reversal node, it gives the exact class involution required by complementarity.",
+      "need": "Consume IntegralLattices Layer B2–B3 for the oriented form/ideal dictionary and GlobalNumberFields Layer 11 for its order/NarrowPic carriers. For positive fundamental D>1, specialize to the maximal order and identify NarrowPic with the pinned NumberField.NarrowClassGroup, preserving principal representatives. Export only the DIT convention adapter and coefficient actions (2.3)–(2.5), p.952: [a,−b,c]↔A⁻¹, [−a,b,−c]↔JA and −Q↔JA⁻¹. Retain the oriented sign clause for a<0. This is the same adapter requested by MultiquadraticPartII:RQ.3; do not rebuild the dictionary, binary forms, composition or a narrow quotient.",
       "neededBy": [
         "FuchsianOrbifoldsPartII:N.4/complementarity"
+      ],
+      "currentSuppliers": [
+        "tauceti:TauCetiRoadmap/IntegralLattices#layer-b-binary-lattices-and-quadratic-orders",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups"
       ]
     }
   ],
@@ -2194,7 +2224,12 @@
         "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
         "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
       ],
-      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E17"
+      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the final PDF p.952: the written real-line/above convention is not equivariant for a complement interval containing infinity. The full-circle away-side hull repairs it; the arithmetic cusp-normalized examples remain valid.",
+        "by": "REV-DESIGN-FuchsianOrbifoldsPartII"
+      }
     },
     {
       "id": "FuchsianOrbifoldsPartII/E2",
@@ -2210,7 +2245,12 @@
         "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
         "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
       ],
-      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E19"
+      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted justification at pp.958–959: (3.5) orders complete-axis endpoints, whereas the cuts concern finite arcs. The packet’s descending disc endpoint induction establishes those finite crossings, with equality at the last one-digit endpoint.",
+        "by": "REV-DESIGN-FuchsianOrbifoldsPartII"
+      }
     },
     {
       "id": "FuchsianOrbifoldsPartII/E3",
@@ -2219,14 +2259,19 @@
       "locator": "Version of record, last proof paragraph of Theorem 1 p.959",
       "printed": "Distances between successive fixed points in a selected upper-half-plane polygon are treated as quantities determined by the quotient conformal surface.",
       "correction": "Retain the orbifold cone orders; double and lift a conformal equivalence to PSL₂(ℝ). Normalize the unique cusp and use the maximal-height elliptic lifts to remove dilation. Their successive gaps recover the cyclic period. The V(n) values are lift distances, not intrinsic distances between quotient cone points.",
-      "reason": "For ℓ=2 there is one intrinsic distance between two quotient cone points, whereas a cycle such as [3,6] has two different lift distances. The maximal-height proof supplies an intrinsic normalization without this inference.",
+      "reason": "The source orders cone points by their closest boundary footpoints, but does not justify which relative homotopy classes select the displayed successive lifts. For [3,6], two unequal lift distances cannot both mean the single intrinsic metric distance between its two quotient cone points; for [4], successive lifts represent the same cone point. These checks identify the missing bridge, not a counterexample to the theorem.",
       "affects": "the proof",
       "known": "Already recorded in the atlas extraction as PAPER-DUKE-IMAMOGLU-TOTH-16/E20; no published correction located.",
       "searched": [
         "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
         "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
       ],
-      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E20"
+      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as a missing lift-selection justification in the p.959 proof. Ordering cone points by closest footpoints alone does not prove invariance of the particular lift spacings. The one-cone and unequal two-gap examples rule out interpreting them as ordinary quotient distances. The doubled-cover and maximal-height argument supplies the bridge; the conformal rigidity theorem is not refuted.",
+        "by": "REV-DESIGN-FuchsianOrbifoldsPartII"
+      }
     },
     {
       "id": "FuchsianOrbifoldsPartII/E4",
@@ -2242,7 +2287,12 @@
         "Annals article DOI page and linked final PDF checked 2026-10-18; no correction link found.",
         "Author publication page for the article and web search for the exact title with erratum/correction checked 2026-10-18; no published correction located."
       ],
-      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1"
+      "relatedFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on p.961 and checked against (7.10), p.972: the inverse-square display fails the y^s eigenfunction test, while the square factor has the printed eigenvalue. This is a local misprint, not an error in the spectral identity.",
+        "by": "REV-DESIGN-FuchsianOrbifoldsPartII"
+      }
     }
   ],
   "restructure": [
@@ -2268,6 +2318,19 @@
         "FuchsianOrbifoldsPartII:N.5/core-stokes"
       ],
       "location": "TauCetiRoadmap/DifferentialGeometry/README.md, Layer 5.3 and 5.5; Suggested.lean integralTopForm_mextDeriv and corners interfaces."
+    },
+    {
+      "supplier": "IntegralLattices",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "layers": [
+        "B2",
+        "B3"
+      ],
+      "need": "Consume the oriented primitive binary form/ideal class dictionary, its mandatory sign clause at positive discriminant, and compatibility with inversion and composition. GN.3 supplies only the maximal-order/DIT convention adapter to the pinned NarrowClassGroup.",
+      "neededBy": [
+        "FuchsianOrbifoldsPartII:N.4/complementarity"
+      ],
+      "location": "TauCetiRoadmap/IntegralLattices/README.md, Layer B2–B3; Suggested.lean LayerBContract. GlobalNumberFields Layer 11 owns the consumed order and NarrowPic carriers."
     }
   ],
   "upstreamNotes": [],
@@ -2493,7 +2556,7 @@
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
       "evidence": "Read minus-continued-fraction, reduced-cycle-class-invariant and pell-automorph node statements.",
-      "decision": "Import primitive periods, cyclic class bijection, arithmetic units and word/Pell correspondence."
+      "decision": "Import primitive periods, cyclic class bijection, arithmetic units and word/Pell correspondence. Its maximal-order/DIT coefficient-sign adapter consumes the current IntegralLattices B2–B3 dictionary and GlobalNumberFields order/NarrowPic carriers, as already requested by MultiquadraticPartII:RQ.3."
     },
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
@@ -2513,7 +2576,7 @@
     {
       "supplier": "Current upstream roadmaps and library",
       "evidence": "TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27; Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; Mathlib current 6b7abb3c7686292736be2955bd3eb9ebf63b456a. Reviewed library-coverage entries F.0–F.6 and their individual targets were read at the job start.",
-      "decision": "Retain FuchsianOrbifolds ownership of actions, quotients, polygons, cusp charts and cofinite signatures. Import DifferentialGeometry Layer 5 ordinary/corners Stokes, ConformalMapping L2/L4, UniversalCovers Stage 2 and AlgebraicTopology Stages 1/7. Current library searches found no limit-set/Nielsen-core API; newly added polygon and cusp code is supplier material, not replanned."
+      "decision": "Retain FuchsianOrbifolds ownership of actions, quotients, polygons, cusps and cofinite signatures. Import DifferentialGeometry Layer 5 Stokes, ConformalMapping L2/L4 and AlgebraicTopology Stages 1/7. Completed/UniversalCovers Stage 2 is implemented: use the exact pinned lifting and deck-conjugation declarations rather than a new request. IntegralLattices B2–B3 owns the general form/ideal dictionary. Current library searches found no Nielsen-core API; parent polygon and cusp code is not replanned."
     }
   ],
   "suggestedProjection": {
@@ -2534,7 +2597,165 @@
   },
   "validation": {
     "blueprint": "check_blueprint.py: zero errors and zero warnings against the installed pinned declaration index, 2026-10-18.",
-    "lean": "lean-check: elaborated at the shared pinned build with only declaration-uses-placeholder-proof warnings, 2026-10-18; 258 lines, no missing data bodies.",
-    "scope": "Exactly the two new JSON files, reader, suggested file and this job’s handoff; no other roadmap or source-extraction file changed."
+    "lean": "Independent lean-check passed on the final 266-line file with only admitted-proof warnings, 2026-10-18; all data definitions have real bodies.",
+    "scope": "Only the four design deliverables, independent review report and this review job’s handoff are changed; no supplier, extraction, atlas or promotion file is edited."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-FuchsianOrbifoldsPartII",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 30 nodes, every source locator, 22 exact pinned baseline declarations, current suppliers, 62 API items, 40 tests and 29 planets. Seven nodes corrected in place; no nodes added or unresolved contradictions. All six layers remain planned and implementationStatus remains unchecked. Four source issues confirmed with their limited scope. Suggested Lean elaborates with only admitted-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/limit-set",
+        "verdict": "corrected",
+        "note": "Import the parent’s canonical ideal-boundary action, already implemented in current Tau Ceti. Retain only the Cayley compatibility and orbit-limit arguments here; include infinity and check the elementary examples."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/nielsen-core",
+        "verdict": "verified",
+        "note": "DIT §2 pp.952–953 and Series pp.32–33 support the closed hull quotient. The away-side convention, boundary half-discs and exclusion of elliptic stabilizers at the boundary are consistent."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/geometric-finiteness",
+        "verdict": "corrected",
+        "note": "Add Series Theorem 3.33 p.21 to the source support. Narrow AT.1 to generic van Kampen; the finite-type surface argument is local work of this target, with finite cone data proved rather than assumed."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/bordered-signature",
+        "verdict": "verified",
+        "note": "Capped genus, cone orders, cusps and genuine boundary circles give the stated signature. The three scalar tests distinguish the sign of the boundary contribution and the curvature normalization."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/core-gauss-bonnet",
+        "verdict": "verified",
+        "note": "The finite polygon and truncation proof gives 2π(2g−2+s+t+Σ(1−1/m)); cusp truncations and paired sides do not add genuine boundary terms."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.0/boundary-geodesic",
+        "verdict": "corrected",
+        "note": "Replace the unneeded future UniversalCovers request by the parent free quotient charts. Primitive supporting-axis stabilizers give simple cone-free funnel boundaries; arbitrary hyperbolic classes retain the orbifold qualification."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/cycle-group",
+        "verdict": "verified",
+        "note": "The two finite generating sets agree by Sℓ=T^mS₀T^−m. Effective projective involutions have order two, whereas their integral lifts square to −I; raw empty lists and geometric admissibility are distinguished."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/cycle-polygon",
+        "verdict": "verified",
+        "note": "Closed Ford inequalities, split half-turn sides and unit-disc tangencies agree with DIT §3 pp.954–956. A digit two makes an empty ideal interval without a zero arc in the upper half-plane."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/ford-domain",
+        "verdict": "verified",
+        "note": "Height reduction and disjoint-disc normal form justify tiling, the free product, the full cusp stabilizer and genus-zero one-funnel topology. The parent’s cofinite converse is not used."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/rotation-conjugacy",
+        "verdict": "verified",
+        "note": "Subtracting the prefix Nᵣ from centers modulo m gives precisely T^−Nᵣ conjugacy; modular projection compatibility uses an integral translation."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/word-endpoints",
+        "verdict": "verified",
+        "note": "The matrix product telescopes in the stated order and the GN.3 Pell interface supplies primitivity and attracting orientation. DIT (3.5), p.958, has the allowed middle equality for digit two."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.1/second-kind",
+        "verdict": "verified",
+        "note": "A free ideal interval proves second kind directly. Its shallow strip has infinite area, implying infinite modular index in the valid direction; finite core area comes separately from geometric finiteness."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.2/axis-cutting",
+        "verdict": "verified",
+        "note": "DIT pp.958–959 and Figure 7 were checked visually. Descending endpoint discs prove finite-arc crossings, including the one-digit endpoint case; normal form and boundary-axis uniqueness give one primitive traversal."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.2/class-core",
+        "verdict": "corrected",
+        "note": "Replace the false universal height-one core cutoff by a cutoff above all retained arcs, with a named API and D=28 discriminator. Qualify local isometry at genuine boundary points as a half-disc map; properness and rotation compatibility remain valid."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.2/core-invariants",
+        "verdict": "verified",
+        "note": "The constructed core has signature (0;2 repeated ℓ;1;1), hence area πℓ. This follows from its quotient charts and end decomposition, rather than defining a surface by scalar invariants."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.2/boundary-length",
+        "verdict": "verified",
+        "note": "The finite cutting maps preserve the full oriented primitive cycle. The imported GN.4 length is 2log of the least norm-one unit, with a negative-norm fundamental unit squared."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.2/lift-spacing",
+        "verdict": "verified",
+        "note": "Curvature −1 distance between height-one lifts is 2arsinh(|x−y|/2); the logarithmic formula is valid for nonnegative arguments. The examples rule out confusing selected lift spacing with quotient cone-point distance."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.3/core-double",
+        "verdict": "verified",
+        "note": "Reflection of actual boundary charts produces the hyperbolic double with genus 2g+t−1, doubled cusps and cone list, and twice the area. The t≥1 hypothesis excludes a disconnected double."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.3/conformal-lift",
+        "verdict": "corrected",
+        "note": "Use the exact pinned based covering-lift and deck-conjugation declarations instead of a future request. State rebasing, connectedness, local path connectedness and compatible lifted basepoints; cone-meridian powers and removable extensions handle the orbifold lift."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.3/highest-elliptics",
+        "verdict": "verified",
+        "note": "The integral imaginary-part denominator is a positive sum of squares, so heights are at most one. Equality reduces to a translation after the appropriate elliptic stabilizer; the full cusp stabilizer identifies the complete maximal-height set."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.3/conformal-class",
+        "verdict": "verified",
+        "note": "A cusp-fixing lift is az+b with a>0. Maximal elliptic height forces a=1; least translation period and successive cyclic gaps recover the primitive digits. The theorem fixes the field and retains orientation and cone orders."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/dit-domain",
+        "verdict": "verified",
+        "note": "The half-open convention chooses the left arc and vertical tie representatives. Its difference from the pinned open modular domain is null, so it adapts rather than replaces the existing fundamental-domain theorem."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/core-measure",
+        "verdict": "verified",
+        "note": "Pushforward of the actual upstairs measure has mass πℓ and counts all sheets. Properness supplies finite local density off boundaries and cone points; image area alone would fail the overlap test."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/family-probability",
+        "verdict": "verified",
+        "note": "A nonempty finite family is normalized by πΣℓ. The whole-group and narrow-genus cases use existing finite narrow class groups and square cosets, with modular probability 3μmod/π."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/complementarity",
+        "verdict": "corrected",
+        "note": "Add the full boundary-length identification as a direct input and express cancellation through oriented arc multiplicities. IntegralLattices B2–B3 owns the general form/ideal dictionary; GN.3 supplies only the maximal-order/DIT sign adapter already requested by RQ.3."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/exact-cover",
+        "verdict": "verified",
+        "note": "The involution A↦JA⁻¹ preserves the whole narrow class group, a genus when J is a square, and a singleton when A²=J. Summing complementarity gives the exact normalized modular measure; RQ.2 supplies the sum-of-two-squares criterion."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.4/small-discriminants",
+        "verdict": "verified",
+        "note": "Exact quadratic recurrence checks all four stated periods; their matrices have determinant one and traces twice the least positive Pell units. Explicit ideal generators have the required norm signs; area sums give multiplicities 9 and 21. D=12 is correctly labeled an additional calculation."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.5/core-truncation",
+        "verdict": "verified",
+        "note": "A cutoff above all compact boundary arcs leaves a full width-m strip. Paired sides cancel, finite cone-circle contributions vanish, and the top horizontal segment has the required reversed orientation."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.5/core-stokes",
+        "verdict": "corrected",
+        "note": "Specify real and imaginary parts and a smooth cutoff near the compact polygon to satisfy the current Stokes supplier’s support hypothesis. Check dα=(λ/2)F dμ, the top-flux sign, the separate harmonic branch and the distinction between truncated and absolutely convergent integrals. All cutting maps lie in Γ_A; full modular invariance is required for descent to M, not for those cutting identities."
+      },
+      {
+        "nodeId": "FuchsianOrbifoldsPartII:N.5/spectral-stokes",
+        "verdict": "verified",
+        "note": "AS completed Eisenstein and smooth cusp inputs give integrability and vanishing differentiated flux. At t=0 use cancellation of the completed constant-term poles and the permitted √Y log Y bound; no Hecke normalization is imposed."
+      }
+    ]
   }
 }
