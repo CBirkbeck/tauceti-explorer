@@ -937,7 +937,8 @@
         "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
         "StableReductionPartII:MC.2/relative-arbitrary-base-change",
         "SchemeAndStackFoundations:SF.0/finite-presentation-limits",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.0/arbitrary-base-duality"
       ],
       "proofSteps": [
         "Use the local Gorenstein theorem at each point on Δ and invertibility of J off Δ. Localize the canonical dual exchange maps on affine charts.",
@@ -1180,7 +1181,8 @@
         "SchemeAndStackFoundations:SF.0/finite-presentation-limits",
         "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.0/pointed-approximation"
       ],
       "proofSteps": [
         "On an affine base descend the finitely presented curve, all sections and the invertible log-dual line. Use the limit property theorems for properness, flatness, syntomic nodality and disjoint smooth markings, and the parent fibre/ample criteria for genus and stability.",
@@ -2236,5 +2238,32 @@
         "note": "The four persistent gluing nodes are fixed; the fifth cusp node of a nodal elliptic component stays free. The family/deformation-groupoid recovery supports the equations, with an explicit inherited formal-to-étale requirement."
       }
     ]
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [
+      {
+        "target": "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+        "added": "StableReductionPartII:MC.0/pointed-approximation",
+        "reason": "The pointed-family finite-diagram approximation is established in MC.0"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "reason": "The marking twist and log line use the coherent arbitrary-base duality interface"
+      }
+    ],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC2",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }

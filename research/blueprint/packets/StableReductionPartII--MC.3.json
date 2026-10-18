@@ -1078,5 +1078,21 @@
         "note": "Verified retained-marking differentials, smooth-section conormal and Knudsen III Theorem4.1(c), pp.201–203. Separated the line-bundle isomorphism from the contraction map with a simple zero; corrected ownership of arbitrary-base approximation and kept the forgetful sign and constant-boundary pullback test."
       }
     ]
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC3",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }

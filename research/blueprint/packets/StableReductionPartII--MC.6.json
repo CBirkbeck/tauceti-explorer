@@ -1143,5 +1143,21 @@
         "note": "Reduction of geometric components, finite normalization, positive generic multiplicities and SF.5 field-extension detection are all explicit. The plan does not assume geometric integrality or reducedness over imperfect fields."
       }
     ]
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC6",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }

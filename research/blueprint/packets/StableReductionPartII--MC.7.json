@@ -200,7 +200,8 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.4/fine-level-scheme",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.0/arbitrary-base-genus"
       ],
       "proofSteps": [
         "Apply the imported universal-functions statement for prestable curves, or its independent proper-flat-finite-presentation criterion in Stacks Lemma36.32.6. Smooth connected geometric curve fibres are geometrically reduced and connected.",
@@ -1693,5 +1694,27 @@
         "note": "Checked every similitude component and inverse frame change, the algebraically closed triple-class comparison, finite-cover stable extension and algebraic Hodge scope. Metric and inherited supplier obligations remain explicit."
       }
     ]
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [
+      {
+        "target": "StableReductionPartII:MC.7/fine-family-functions",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "reason": "Universal O pushforward for arbitrary scheme bases"
+      }
+    ],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC7",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }

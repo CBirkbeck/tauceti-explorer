@@ -2541,7 +2541,9 @@
       "prerequisites": [
         "SchemeAndStackFoundations:SF.1",
         "mathlib:AlgebraicGeometry.Scheme",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "StableReductionPartII:MC.0/arbitrary-base-duality"
       ],
       "proofSteps": [
         "Use the parent’s stable-pointed and smooth-curve family data, without redefining stability.",
@@ -2705,7 +2707,8 @@
         "mathlib:CategoryTheory.Limits.pullbackLeftPullbackSndIso_hom_snd",
         "mathlib:CategoryTheory.Limits.pullback.hom_ext",
         "mathlib:CategoryTheory.Limits.pullback_fst_iso_of_right_iso",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.0/native-family-realization"
       ],
       "proofSteps": [
         "Use the native scheme pullbacks and pullbackLeftPullbackSndIso with its two projection formulas. For identity base change use the first pullback projection with an identity right leg. Equal projections give equality by pullback.hom_ext, so the pentagon, unit and marking coherence follow by uniqueness.",
@@ -2746,7 +2749,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3",
         "mathlib:CategoryTheory.Pseudofunctor.IsStack",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
+        "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+        "StableReductionPartII:MC.0/polarized-descent-comparison"
       ],
       "proofSteps": [
         "Descend the relatively ample log-dualizing line with the family by polarized-scheme descent.",
@@ -2784,7 +2788,8 @@
       "prerequisites": [
         "StableReductionPartII:key/moduli-curves",
         "StableReductionPartII:MC.0/pullback-coherence",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "StableReductionPartII:MC.0/universal-evaluation"
       ],
       "proofSteps": [
         "The groupoid of pairs (T→S, a section of C_T/T) is the representable fibre category of C.",
@@ -2898,7 +2903,8 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.1",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.1/refinement-arbitrary-base"
       ],
       "proofSteps": [
         "Use the parent’s m≥2 vanishing and m≥3 very-ampleness, and the requested arbitrary-base extension, to obtain locally free direct images and their compatible evaluation embedding.",
@@ -2937,7 +2943,10 @@
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "AlgebraicModuliForArithmeticGeometry:R09.3"
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "StableReductionPartII:MC.1/refinement-polarization-locus",
+        "StableReductionPartII:MC.1/refinement-complete-series",
+        "StableReductionPartII:MC.1/refinement-frame-comparison"
       ],
       "proofSteps": [
         "Use the parent tricanonical evaluation embedding C→P_S(f_*ω³) and the fixed-polynomial universal flat Hilbert family.",
@@ -3043,7 +3052,9 @@
         "StableReductionPartII:MC.1/tricanonical-hilbert",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
         "StableReductionPartII:key/moduli-curves",
-        "StableReductionPartII:MC.0/effective-descent"
+        "StableReductionPartII:MC.0/effective-descent",
+        "StableReductionPartII:MC.1/refinement-frame-comparison",
+        "SchemeAndStackFoundations:SF.1/torsor-representability"
       ],
       "proofSteps": [
         "Use the framed representing property and locally free base change.",
@@ -3082,7 +3093,11 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/frame-torsor",
         "StableReductionPartII:MC.0/effective-descent",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "StableReductionPartII:MC.1/refinement-action-groupoid",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "SchemeAndStackFoundations:SF.1/stack-presentation",
+        "SchemeAndStackFoundations:SF.4/stable-curve-stack"
       ],
       "proofSteps": [
         "An equivariant family descends through the projective-frame torsor by effective descent.",
@@ -3123,7 +3138,11 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "StableReductionPartII:MC.1/refinement-source-valuative",
+        "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
       ],
       "proofSteps": [
         "Apply polarized relative Isom representability to the canonical polarization.",
@@ -3162,7 +3181,9 @@
         "StableReductionPartII:MC.1/isom-representable",
         "SchemeAndStackFoundations:SF.0",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "mathlib:AlgebraicGeometry.FormallyUnramified.of_hom_ext"
+        "mathlib:AlgebraicGeometry.FormallyUnramified.of_hom_ext",
+        "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "SchemeAndStackFoundations:SF.0/unramified-criteria"
       ],
       "proofSteps": [
         "At a geometric isomorphism identify its tangent vectors with H⁰(C,T_C); import the parent’s vanishing for stable geometric curves in every characteristic.",
@@ -3203,7 +3224,8 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
         "StableReductionPartII:MC.1/versal-node-parameters",
         "StableReductionPartII:MC.1/frame-torsor",
-        "StableReductionPartII:MC.1/hilbert-quotient"
+        "StableReductionPartII:MC.1/hilbert-quotient",
+        "StableReductionPartII:MC.1/refinement-source-valuative"
       ],
       "proofSteps": [
         "Reduce locally on S to the universal pair of Hilbert families over U_g×U_g using tricanonical projective frames. Under the framed representing property, the scheme of isomorphisms between that universal pair is U_g×PGL_r, r=5g−5: an isomorphism φ:C₁→C₂ induces P(E₁)→P(E₂), and its unique frame change is α₂ P(φ) α₁⁻¹; conversely a frame change gives the corresponding embedded isomorphism. This is the action-groupoid description, not just a statement about orbit classes or the density of U_g×U_g.",
@@ -3252,7 +3274,10 @@
         "StableReductionPartII:MC.1/isom-proper",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
         "SchemeAndStackFoundations:SF.0",
-        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite",
+        "StableReductionPartII:MC.1/refinement-source-valuative",
+        "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack"
       ],
       "proofSteps": [
         "The requested finite-type unramified-to-locally-quasi-finite criterion gives LocallyQuasiFinite for each scheme Isom fibre of the diagonal. Apply the native IsFinite.of_isProper_of_locallyQuasiFinite to its already proved properness; this generic finiteness theorem is not rebuilt.",
@@ -3293,7 +3318,8 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.6",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.1/refinement-deformation-sequence"
       ],
       "proofSteps": [
         "Use the lci nodal two-term resolution and local Ext sheaves supported at finitely many nodes.",
@@ -3334,7 +3360,10 @@
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "AlgebraicModuliForArithmeticGeometry:R09.6",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.1/refinement-deformation-sequence",
+        "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "SchemeAndStackFoundations:SF.4/node-versal-deformation"
       ],
       "proofSteps": [
         "The local node deformation has one smoothing coordinate per node.",
@@ -3377,7 +3406,10 @@
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
         "StableReductionPartII:MC.1/versal-node-parameters",
         "AlgebraicModuliForArithmeticGeometry:R09.6",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
         "Translate the versal smooth formal rings to atlas smoothness by the finite-presentation formal criterion.",
@@ -3416,7 +3448,9 @@
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.1/versal-node-parameters",
         "SchemeAndStackFoundations:SF.0",
-        "AlgebraicModuliForArithmeticGeometry:R09.6"
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "StableReductionPartII:MC.1/refinement-labelled-branches",
+        "StableReductionPartII:MC.1/refinement-relative-boundary"
       ],
       "proofSteps": [
         "In the node charts the family is singular exactly when one of the smoothing parameters vanishes.",
@@ -3458,7 +3492,10 @@
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-        "StableReductionPartII:MC.1/smooth-dimension"
+        "StableReductionPartII:MC.1/smooth-dimension",
+        "StableReductionPartII:MC.1/refinement-source-valuative",
+        "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
         "Use smooth-dimension to identify the dense open smooth-curve substack M_g of the separated finite-type stack M̄_g.",
@@ -5329,7 +5366,10 @@
         "StableReductionPartII:MC.2/finite-hom-evaluation",
         "StableReductionPartII:MC.2/hom-completion-ring-projection",
         "StableReductionPartII:MC.2/hom-completion-hom-equivalence",
-        "StableReductionPartII:MC.2/hom-completion-hom-source-naturality"
+        "StableReductionPartII:MC.2/hom-completion-hom-source-naturality",
+        "StableReductionPartII:MC.2/polynomial-relative-criterion",
+        "StableReductionPartII:MC.2/section-ideal-local-theorem",
+        "StableReductionPartII:MC.2/section-dual-sheaf-gluing"
       ],
       "proofSteps": [
         "Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion.",
@@ -5496,7 +5536,9 @@
         "StableReductionPartII:MC.2/dual-section-ideal",
         "StableReductionPartII:MC.2/section-dual-presentation",
         "AlgebraicModuliForArithmeticGeometry:R09.6",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+        "StableReductionPartII:MC.2/collision-chart-flatness"
       ],
       "proofSteps": [
         "Use the actual signed dual presentation to write Sym J∨ as the homogeneous quotient and eliminate u or v on its two Proj charts. The coefficients of the leading vy² term and of the localized linear u term give the displayed basis and localization, respectively.",
@@ -5675,7 +5717,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/expansion-stable",
         "StableReductionPartII:MC.2/forget",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "StableReductionPartII:MC.2/contraction-recovery-comparison",
+        "StableReductionPartII:MC.2/universal-curve-coherent-equivalence"
       ],
       "proofSteps": [
         "The parent contraction of an expanded tail or bridge recovers the original family with its arbitrary section.",
@@ -5802,7 +5846,9 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "StableReductionPartII:MC.1/normal-crossing-boundary"
+        "StableReductionPartII:MC.1/normal-crossing-boundary",
+        "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+        "StableReductionPartII:MC.2/triangle-smoothing-comparison"
       ],
       "proofSteps": [
         "Use the parent external clutching pushout to attach F to E at its first marking; the triangle has Betti number one, so the glued genus is two. Each rational triangle component has exactly three special flags.",
@@ -5842,7 +5888,9 @@
       "prerequisites": [
         "StableReductionPartII:MC.2/rigid-triangle-embedding",
         "StableReductionPartII:MC.2/higher-genus-pointed",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+        "StableReductionPartII:MC.2/triangle-smoothing-comparison"
       ],
       "proofSteps": [
         "Obtain the genus-at-least-two pointed stacks first by universal-curve induction, so the ambient M̄₂,₂ does not depend on this genus-one theorem.",
@@ -5886,7 +5934,9 @@
         "StableReductionPartII:MC.1/proper-moduli",
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.1/normal-crossing-boundary",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "StableReductionPartII:MC.2/pointed-stack-induction-step",
+        "StableReductionPartII:MC.2/pointed-boundary-induction"
       ],
       "proofSteps": [
         "Induct on n using the universal-curve equivalence.",
@@ -6168,7 +6218,9 @@
         "StableReductionPartII:MC.3/nonseparating-clutching",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "StableReductionPartII:MC.3/persistent-node-incidence",
+        "StableReductionPartII:MC.3/decorated-node-fibre-equivalence"
       ],
       "proofSteps": [
         "An automorphism of the input mapping to the identity of the target restricts to the identity on its partial normalization, giving injectivity on stabilizers. Use the exact DM-stack representability criterion from the requested supplier.",
@@ -6313,7 +6365,9 @@
         "StableReductionPartII:MC.3/clutching-finite-unramified",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
         "StableReductionPartII:MC.1/normal-crossing-boundary",
-        "AlgebraicModuliForArithmeticGeometry:R09.5"
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "StableReductionPartII:MC.3/boundary-normalization-comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization"
       ],
       "proofSteps": [
         "Use finite representable clutching and its invariant descent through the constant graph automorphism group. The product of vertex stacks is smooth and normal; its finite-group quotient is normal as a stack because the torsor atlas is étale, including in characteristic two.",
@@ -6498,7 +6552,8 @@
         "StableReductionPartII:MC.3/cotangent-line",
         "StableReductionPartII:MC.3/boundary-normalization",
         "StableReductionPartII:MC.1/versal-node-parameters",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "StableReductionPartII:MC.3/smoothing-conormal-descent"
       ],
       "proofSteps": [
         "Work on a versal nodal deformation chart xy=t with the selected boundary branch t=0. Its conormal is generated by t modulo t².",
@@ -6684,7 +6739,8 @@
         "StableReductionPartII:MC.1/tricanonical-cohomology",
         "StableReductionPartII:MC.1/tricanonical-hilbert",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.4/integral-hilbert-kernel"
       ],
       "proofSteps": [
         "Apply relative Serre vanishing to the ideal sheaf of the tricanonical embedding over the noetherian family base.",
@@ -6764,7 +6820,8 @@
         "StableReductionPartII:MC.4/moduli-determinant-ample",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
         "SchemeAndStackFoundations:SF.0",
-        "StableReductionPartII:MC.4/finite-degree-equations"
+        "StableReductionPartII:MC.4/finite-degree-equations",
+        "StableReductionPartII:MC.4/fixed-degree-ample-descent"
       ],
       "proofSteps": [
         "Use the generic finite scheme-cover theorem for a finite-type DM stack, retaining representability.",
@@ -7094,7 +7151,8 @@
         "StableReductionPartII:MC.1/proper-moduli",
         "StableReductionPartII:MC.1/normal-crossing-boundary",
         "AbelianSchemesAndArithmeticModuli:A3",
-        "AlgebraicModuliForArithmeticGeometry:R09.5"
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "StableReductionPartII:MC.4/complex-level-orbits"
       ],
       "proofSteps": [
         "Normalize stable moduli in the finite level cover and apply tame local Kummer normal forms along the normal-crossings boundary to compare component counts in characteristic zero and positive characteristic.",
@@ -7133,7 +7191,9 @@
         "StableReductionPartII:MC.0/universal-curve",
         "StableReductionPartII:MC.2/pointed-dm-theorem",
         "SchemeAndStackFoundations:SF.1",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "StableReductionPartII:MC.0/arbitrary-base-duality"
       ],
       "proofSteps": [
         "Relative duality identifies f_*ω with the dual of R¹f_*O_C, whose locally free genus-g and base-change API is supplied by the parent.",
@@ -7243,7 +7303,7 @@
       ],
       "prerequisites": [
         "StableReductionPartII:MC.5/hodge-bundle",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack"
       ],
       "proofSteps": [
         "On a scheme atlas, apply the existing AlgebraicVectorBundles L0C fixed-rank determinant functor to the rank-g Hodge bundle, including its rank-zero convention and coherent pullback comparisons.",
@@ -7592,7 +7652,9 @@
         "StableReductionPartII:MC.5/boundary-divisor",
         "StableReductionPartII:MC.1/versal-node-parameters",
         "SchemeAndStackFoundations:SF.5",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli"
       ],
       "proofSteps": [
         "Work on the characteristic-zero smooth tricanonical moduli charts with the equivariant descent needed for the stack. The universal curve is regular; its relative nodal morphism is lci, with its cotangent complex and virtual relative tangent convention specified.",
@@ -7631,7 +7693,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.1/finite-unramified-diagonal",
         "StableReductionPartII:MC.1/normal-crossing-boundary",
-        "AlgebraicModuliForArithmeticGeometry:R09.4"
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy"
       ],
       "proofSteps": [
         "The proof uses connected simply connected Teichmüller space, the analytic presentation of the smooth stack and generation by Dehn twists. These general analytic inputs have no verified atlas supplier and are recorded as gaps.",
@@ -7710,7 +7773,9 @@
         "StableReductionPartII:MC.1/smooth-dimension",
         "StableReductionPartII:MC.4/irreducible-geometric-fibres",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli"
       ],
       "proofSteps": [
         "Use coherent proper base change to descend a nonzero trivializing section to the rational generic fibre.",
@@ -7752,7 +7817,9 @@
         "StableReductionPartII:MC.5/integral-picard-injection",
         "StableReductionPartII:MC.5/hodge-determinant",
         "StableReductionPartII:MC.5/boundary-divisor",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "StableReductionPartII:MC.5/noether-defect-line",
+        "StableReductionPartII:MC.5/rational-defect-torsion"
       ],
       "proofSteps": [
         "Use the generic integral Deligne-pairing construction, its base-change cocycle and c₁ comparison; this line-valued input remains an owner-extension gap.",
@@ -7833,7 +7900,8 @@
       "prerequisites": [
         "StableReductionPartII:MC.5/integral-noether",
         "StableReductionPartII:MC.5/universal-units",
-        "StableReductionPartII:MC.5/boundary-divisor"
+        "StableReductionPartII:MC.5/boundary-divisor",
+        "StableReductionPartII:MC.5/noether-arbitrary-base-pullback"
       ],
       "proofSteps": [
         "Specify the universal source of the chosen line isomorphism and pull it back along the classifying morphism.",
@@ -8696,7 +8764,10 @@
       "prerequisites": [
         "StableReductionPartII:MC.7/level-picard-parameter",
         "StableReductionPartII:MC.4/level-rigidity",
-        "JacobianChallengePartII:JC4/actual-to-relative-obstruction"
+        "JacobianChallengePartII:JC4/actual-to-relative-obstruction",
+        "StableReductionPartII:MC.7/actual-triples-groupoid",
+        "StableReductionPartII:MC.7/lift-obstruction",
+        "StableReductionPartII:MC.7/lift-torsor"
       ],
       "proofSteps": [
         "Use the represented degree-d relative sheaf and JC4/actual-to-relative-obstruction. Over algebraically closed k a local fppf representative lifts to an actual line by choosing a k-point in a nonempty finite-type open of its covering scheme. Hence its Leray boundary vanishes. Pic(k)=0 makes the actual line class unique. This gives the bijection without reconstructing general Brauer cohomology theory here.",
@@ -31814,7 +31885,7 @@
       ]
     },
     {
-      "supplier": "SchemeAndStackFoundations:SF.5",
+      "supplier": "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
       "need": "Import the ordinary finite-locally-free determinant and its coherent pullback comparisons from current upstream AlgebraicVectorBundles L0B–L0C. Supply only the remaining atlas/stack line descent and ordered short-exact-sequence determinant comparison det E≅det E₁⊗det E₂, with exchange sign (−1)^{rs}; use this comparison for clutching. SF.5 does not supply the missing line-valued determinant-of-cohomology or Deligne pairing. No ordinary determinant functor is requested anew.",
       "neededBy": [
         "StableReductionPartII:MC.5/hodge-determinant"
@@ -32196,77 +32267,188 @@
   "coverage": [
     {
       "stageId": "StableReductionPartII:MC.0",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve stable-family/descent types and the locally Noetherian-to-arbitrary-scheme extension; supply the real Lean moduli-pseudofunctor signatures.",
-        "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; the mathematical owner obligations remain open.",
-        "Supply the actual marking/projection/smooth-restriction geometric Lean types for the four added universal-curve API/test omissions. Native scheme pullback/topology primitives are read and imported; they do not provide effective fppf object descent."
+        "Resolve the three precise SF supplier extensions recorded in requests/gaps; the existing StableReduction contracts stay imported.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.0/pointed-approximation",
+        "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "StableReductionPartII:MC.0/native-family-realization",
+        "StableReductionPartII:MC.0/polarized-descent-comparison",
+        "StableReductionPartII:MC.0/universal-evaluation",
+        "StableReductionPartII:MC.0/smooth-base-restriction"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Finish generic proofs/supplier closure for the DM §4 atlas and stack valuative criteria, which the source explicitly states without proofs. The relevant §1 and §4 statements and §5.1–5.2 application have fresh bounded source receipts; DM §§2–3 and transitive inputs are not wholly re-reviewed.",
-        "Resolve Hilbert/Isom/deformation suppliers and separate each nonroutine formal-to-algebraic criterion.",
-        "Construct the canonical relative-polarization Hilbert locus with its projective-frame/base-line twist and prove its representing property.",
-        "Discharge the coherent Ext/deformation supplier scope and the arbitrary-base extension; source verification of MC.1 alone does not close either obligation.",
-        "Discharge the universal Isom action-groupoid comparison, refined Noetherian source-dense scheme criterion, geometric-fibre infinitesimal criterion and formal-to-étale normal-crossings detection at their exact owner contracts; generic baseline names do not supply those intermediate inputs."
+        "Q1–Q2: supply the arbitrary-base dualizing/very-ampleness comparison and the relative PGL/projective-frame line-twist theorem in R09.1.",
+        "Q3: provide the coherent local-to-global Ext contract in SF.2; retain the continuous completion comparison recorded by SF.4/node-versal-deformation.",
+        "Q4: finish the existing-atlas coefficient-completion, dimension and branch-intersection descent contracts in R09.6.",
+        "Q5–Q6: supply finite-unramified splitting in SF.0 and relative normal-crossing coordinate/descent criteria with SF.4/SF.1.",
+        "Q7–Q8: prove the precise dense-open stack valuative criterion and smooth-atlas stack dimension formula in SF.1.",
+        "Resolve the SF.4 versus MC.1 terminal-target ownership overlap at assembly, using these refinements without making the foundations packet depend on its own terminal stable-curve results.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.1/refinement-polynomial",
+        "StableReductionPartII:MC.1/refinement-arbitrary-base",
+        "StableReductionPartII:MC.1/refinement-polarization-locus",
+        "StableReductionPartII:MC.1/refinement-complete-series",
+        "StableReductionPartII:MC.1/refinement-frame-comparison",
+        "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "StableReductionPartII:MC.1/refinement-action-groupoid",
+        "StableReductionPartII:MC.1/refinement-deformation-sequence",
+        "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "StableReductionPartII:MC.1/refinement-labelled-branches",
+        "StableReductionPartII:MC.1/refinement-relative-boundary",
+        "StableReductionPartII:MC.1/refinement-source-valuative"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Supply the reusable owner-level relative stable-reflexivity interface for a flat noetherian coefficient map. The polynomial ordinary bidual, arbitrary-coefficient Hom exchange, projective resolutions and positive Ext calculations are specified; their general relative and completed-local applications still need the exact source hypotheses.",
-        "Prove Knudsen Appendix Proposition 6 with both coefficient and chart completions, including arbitrary completed-coefficient modules; inspect and discharge the cited Bourbaki III.5.4.4 input and Proposition 7 exercise. Finite-projective tensor/limit interchange and the existing Hom_R comparison do not establish arbitrary-module Hom/Ext or universally acyclic completion.",
-        "Identify Hom over the completed chart ring from the completed section ideal and its dual, and prove the actual change-of-rings comparison with the existing Hom_R compatible quotient families. Supply the justified higher Ext comparison and exact hypotheses for faithful reflection.",
-        "Keep the surjective map from the completed chart tensor over the original coefficient ring to the tensor over the completed coefficient ring distinct; establish injectivity only under justified hypotheses. The finite quotient equivalences and finite-projective limit comparisons do not prove it for arbitrary completed-coefficient modules.",
-        "Identify the pointed completed-local hull, including collision and node charts and the rigid genus-one embedding, with the polynomial model. Prove the stated family comparison contracts with their exact hypotheses; smaller proof steps remain in their sketches.",
-        "Globalize the actual section-ideal, dual and quotient constructions by coefficient-compatible sheaf descent, and prove finite-presentation/noetherian approximation over arbitrary schemes before applying contraction/expansion to all families.",
-        "Supply the missing pointed-family and moduli type interfaces, contraction/expansion inverse and base-change coherence, all stable-pair smooth/proper Deligne–Mumford conclusions, genus-zero cross-ratio and compactification, genus-one base and rational-tail contraction. All parent and foundational requests and source-version/locator obligations remain required.",
-        "Discharge the explicit formal-Proj/flatness transfer and old-mark collision contracts; prove the rigid triangle family recovery with four fixed smoothing parameters and the fifth elliptic boundary parameter. Added higher-genus boundary divisors include old-section collisions, not only the old-boundary inverse image."
+        "Resolve the explicitly scoped generic commutative-algebra supplier contract at DeformationAndDerivedPatchingAlgebra:R03.3; its accepted flat-fibre injection lemma alone does not supply every required comparison. Reuse the existing StablePeriodicCurved Layer 2 ordinary complete-resolution infrastructure; discharge only its new relative coefficient-universality comparison here.",
+        "Retain and discharge the inherited MC.0/MC.1 stack, atlas and formal-to-étale boundary contracts; this part supplies no replacement unpointed algebraicity or formal-to-étale theorem.",
+        "Directly collate the cited Bourbaki completion input from an authorized source if retaining that citation. The two-base completion theorem has a public-source proof route independent of it.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+        "StableReductionPartII:MC.2/relative-stable-reflexivity",
+        "StableReductionPartII:MC.2/universal-complete-hull",
+        "StableReductionPartII:MC.2/relative-universal-criterion",
+        "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+        "StableReductionPartII:MC.2/ambient-relative-reflection",
+        "StableReductionPartII:MC.2/two-base-completion",
+        "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+        "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+        "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+        "StableReductionPartII:MC.2/polynomial-relative-criterion",
+        "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+        "StableReductionPartII:MC.2/section-ideal-local-theorem",
+        "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+        "StableReductionPartII:MC.2/old-mark-collision-chart",
+        "StableReductionPartII:MC.2/collision-chart-flatness",
+        "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+        "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+        "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+        "StableReductionPartII:MC.2/contraction-recovery-comparison",
+        "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+        "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+        "StableReductionPartII:MC.2/pointed-stack-induction-step",
+        "StableReductionPartII:MC.2/pointed-boundary-induction",
+        "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+        "StableReductionPartII:MC.2/triangle-smoothing-comparison"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Discharge the exact integral relative node-choice, stack-normalization and smoothing-conormal descent contracts; characteristic-zero source statements and consumer graph-invariant calculations are now read but do not prove the Z-interface.",
-        "Supply actual stack, marking-line and clutching Lean interfaces, including the ten added API contracts and empty-boundary test in their specified bases. Discharge the listed integral owner contracts and transitive mathematical inputs; the integral owner contracts and geometric type interfaces remain open."
+        "R1–R2 request parent local-chart and relative-cut refinements; R3 imports its locally Noetherian duality contract only. Part II’s inherited MC.0 foundations gap, detailed in MC3-G2, owns extension of the needed family, cut, genus and line comparisons to arbitrary bases. MC.3 deductions remain conditional on these inputs.",
+        "The geometric carriers are not in the pinned libraries. Under the current WORKERS Suggested-file rule all six new geometric targets and the original stack APIs remain precise README contracts; the compact file checks representative native local-algebra statements only.",
+        "Discharge the imported MC.0–MC.2 and foundational supplier packets’ recorded gaps before calling the stage closed. SF.1 is needs_changes; only its specified representability, quotient and QCoh-descent interfaces are consumed.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.3/persistent-node-incidence",
+        "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "StableReductionPartII:MC.3/node-atlas-branch-comparison",
+        "StableReductionPartII:MC.3/boundary-normalization-comparison",
+        "StableReductionPartII:MC.3/smoothing-conormal-descent",
+        "StableReductionPartII:MC.3/marking-line-clutching-coherence"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Read DM component/tame-cover proof and Serre rigidity sources.",
-        "Read generic CLM positivity background and acquire/decompose the surface inputs; resolve owner extensions and all coarse-cover prerequisites.",
-        "Discharge the integral parameter-family relative Serre generation/vanishing and flat fibre-ideal comparison used to choose one fixed determinant degree over Z; do not take a maximum of degrees whose ample neighbourhoods may differ."
+        "Export and source-check the generic supplier contracts MC4-R1–R10, with the seven precise gap groups; the existing polarized rigidity node needs no duplicate plan.",
+        "Close the unstable pointed-model transport step, including colliding markings after contraction and direct-image exactness.",
+        "Acquire the missing original Weil/Manger and surface references and check the corrected non-tame coarse-power norm proof before claiming proof closure.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.4/integral-hilbert-kernel",
+        "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+        "StableReductionPartII:MC.4/jacobi-teichmueller-comparison",
+        "StableReductionPartII:MC.4/boundary-level-normalization",
+        "StableReductionPartII:MC.4/complex-level-orbits"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.5",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Acquire generic integral Deligne-pairing/determinant constructions and comparison source.",
-        "Resolve topology/Picard injection inputs and supply stack-valued line signatures; retain the rational-versus-integral distinction."
+        "Assign and plan the proposed GDET/GPAIR foundational extension; sources and exact contracts are acquired here.",
+        "Close NODAL-BC, CHOW-PIC, TOPOLOGY, DESCENT and DIVISORS with exact supplier nodes and their recorded generality.",
+        "Assemble the thirteen imported targets and nine support nodes, retaining AV-L0A/L0B/L0C current-main prerequisites and the five total planets.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/noether-defect-line",
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+        "StableReductionPartII:MC.5/rational-defect-torsion",
+        "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy",
+        "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli",
+        "StableReductionPartII:MC.5/noether-arbitrary-base-pullback"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.6",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Finish exact JC1/JC6 and stable R11.4 supplier composition, the regular-component criterion and atlas descent; strong Torelli and all-characteristic minimal ppav compactification remain separate owner gaps.",
-        "Complete formal signatures and generic finite-pullback nef/big dependencies; graph closure is specified with both the base and K(W₀)."
+        "Discharge the five precise supplier requests and four transitive gaps before claiming proof closure; the regular-component and finite-normalization prerequisites now have exact SF.0 node imports.",
+        "Formalize the heavy moduli/Picard/minimal-space carriers and targets in their owners. The compact suggested file checks only the native scheme map retaining the base, with explicit named omissions; it does not formalize the moduli theorems.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.6/stable-input-compactification",
+        "StableReductionPartII:MC.6/torelli-family-composition",
+        "StableReductionPartII:MC.6/regular-component-hodge-pullback",
+        "StableReductionPartII:MC.6/signed-level-fibres",
+        "StableReductionPartII:MC.6/stable-picard-atlas-comparison",
+        "StableReductionPartII:MC.6/boundary-abelian-part",
+        "StableReductionPartII:MC.6/minimal-torelli-descent",
+        "StableReductionPartII:MC.6/minimal-hodge-power",
+        "StableReductionPartII:MC.6/maximal-variation-generic-finiteness",
+        "StableReductionPartII:MC.6/hodge-nef-big-application",
+        "StableReductionPartII:MC.6/finite-cover-hodge-descent",
+        "StableReductionPartII:MC.6/arbitrary-field-hodge-positivity"
       ]
     },
     {
       "stageId": "StableReductionPartII:MC.7",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Finish transitive JC0 degree-component/representability/torsor and JC4 cohomological obstruction supplier proofs and their actual types; verify universal global functions on arbitrary test bases. The exact supplier statements are now imported, not missing owner plans.",
-        "Supply actual sheaf/groupoid Lean signatures, including Pic(T)-torsors of lifts and infinitesimal points. The six consumer contracts have fresh bounded source/export receipts; their global composition and routed Yuan/DGH closure remain unverified."
+        "Discharge the exact R09.3 proper-flat quotient request and inherited category-valued moduli, level/Torelli, stable-extension/projective-coarse and stable-Hodge supplier proof obligations.",
+        "Supply the native carrier/comparison interfaces listed by name in prototypeCoverage before extending the compact suggested signatures to full relative Picard lift torsors and infinitesimal points.",
+        "Collate the named author/preprint consumer passages with their published versions if published-version equality is needed; this pass certifies only the versions read.",
+        "Retain the inherited supplier contracts and gap dispositions together with this part’s precise requests/gaps. Planning completion is not source, proof or implementation closure."
+      ],
+      "refinedBy": [
+        "StableReductionPartII:MC.7/fine-family-functions",
+        "StableReductionPartII:MC.7/level-picard-sheaf-comparison",
+        "StableReductionPartII:MC.7/actual-triples-groupoid",
+        "StableReductionPartII:MC.7/lift-gerbe",
+        "StableReductionPartII:MC.7/lift-obstruction",
+        "StableReductionPartII:MC.7/lift-torsor",
+        "StableReductionPartII:MC.7/infinitesimal-points",
+        "StableReductionPartII:MC.7/consumer-av",
+        "StableReductionPartII:MC.7/consumer-clp",
+        "StableReductionPartII:MC.7/consumer-chen",
+        "StableReductionPartII:MC.7/consumer-dgh",
+        "StableReductionPartII:MC.7/consumer-landesman-litt",
+        "StableReductionPartII:MC.7/consumer-yuan"
       ]
     }
   ],
@@ -32348,7 +32530,8 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "Every such use has a precise request naming the real supplier stage and consuming proof. Stage descriptions are specifications, not built declarations. Closure requires verified supplier nodes or pinned declarations; the parent roadmap is not replanned here. The 2026-10-05 MC.0/MC.1 audit confirms only stage contracts, not all supplier implementations: the accepted SF.1 nodes inspected concern set-valued algebraic spaces and Galois gerbs, not a geometric category-valued stable-curve stack. The generic DM §4 atlas and stack valuative criteria are stated without proofs. Exact geometric-fibre infinitesimal, unramified-to-quasi-finite, Noetherian source-dense valuative and strict-completion-to-étale criteria remain owner obligations. Native pullback comparisons, the fppf topology and proper-plus-locally-quasi-finite finiteness are now explicit pinned references."
+      "detail": "Every such use has a precise request naming the real supplier stage and consuming proof. Stage descriptions are specifications, not built declarations. Closure requires verified supplier nodes or pinned declarations; the parent roadmap is not replanned here. The 2026-10-05 MC.0/MC.1 audit confirms only stage contracts, not all supplier implementations: the accepted SF.1 nodes inspected concern set-valued algebraic spaces and Galois gerbs, not a geometric category-valued stable-curve stack. The generic DM §4 atlas and stack valuative criteria are stated without proofs. Exact geometric-fibre infinitesimal, unramified-to-quasi-finite, Noetherian source-dense valuative and strict-completion-to-étale criteria remain owner obligations. Native pullback comparisons, the fppf topology and proper-plus-locally-quasi-finite finiteness are now explicit pinned references.",
+      "assemblyDisposition": "MC.0 and MC.1 now give the arbitrary-base and geometric-stack proof comparisons. Their exact foundation requests, including Q1–Q8, remain incoming conditions; no supplier implementation is certified."
     },
     {
       "title": "Picard supplier composition and arbitrary-base descent",
@@ -32361,7 +32544,8 @@
         "StableReductionPartII:MC.7/picard-triples-comparison",
         "StableReductionPartII:MC.4/level-rigidity"
       ],
-      "detail": "Exact JC0/JC1/JC4/JC6 nodes in the accepted JacobianChallengePartII packet now supply Noetherian smooth-family Picard components, ppav Jacobians, arbitrary pullback, canonical polarization, the cohomological H² obstruction and the integral Noetherian stable-family Hodge comparison. Exact accepted R11.4/stable-family-picard and normalization-exact-sequence nodes supply the stable semiabelian and geometric abelian-quotient targets. Their transitive proof/type gaps remain open. Full-level construction still requires the explicit R09.4 Noetherian-atlas-to-arbitrary-base polarized descent bridge. Hodge specialization requires the SF.0 regular-component criterion; line lifting requires the universal global-functions contract. The R11.4 normalization node has a DVR-only direct predecessor, not a proof for all geometric nodal curves; preserve its G-normalization-cohomology boundary. Import early JC0/JC1/JC4/JC6 nodes, never JC7/universal-level-jacobian into this roadmap’s fine-level foundations, which would create a cycle. BLR selected statements and proofs were acquired/read in this pass; no full FGA, MFK or BLR transitive-proof review is claimed."
+      "detail": "Exact JC0/JC1/JC4/JC6 nodes in the accepted JacobianChallengePartII packet now supply Noetherian smooth-family Picard components, ppav Jacobians, arbitrary pullback, canonical polarization, the cohomological H² obstruction and the integral Noetherian stable-family Hodge comparison. Exact accepted R11.4/stable-family-picard and normalization-exact-sequence nodes supply the stable semiabelian and geometric abelian-quotient targets. Their transitive proof/type gaps remain open. Full-level construction still requires the explicit R09.4 Noetherian-atlas-to-arbitrary-base polarized descent bridge. Hodge specialization requires the SF.0 regular-component criterion; line lifting requires the universal global-functions contract. The R11.4 normalization node has a DVR-only direct predecessor, not a proof for all geometric nodal curves; preserve its G-normalization-cohomology boundary. Import early JC0/JC1/JC4/JC6 nodes, never JC7/universal-level-jacobian into this roadmap’s fine-level foundations, which would create a cycle. BLR selected statements and proofs were acquired/read in this pass; no full FGA, MFK or BLR transitive-proof review is claimed.",
+      "assemblyDisposition": "MC.6 and MC.7 now specify the stable-Picard, normalized Torelli, represented degree-sheaf and actual-lift compositions. Their transitive Picard and stack-descent gaps remain explicit. Early JC0/JC1/JC4/JC6 routing is unchanged."
     },
     {
       "title": "Strong Torelli owner extension",
@@ -32369,7 +32553,8 @@
         "StableReductionPartII:MC.6/torelli-finite-fibres",
         "StableReductionPartII:MC.4/level-rigidity"
       ],
-      "detail": "Milne §§12–13 were read in full at the scoped pages, including the theta/symmetric-power reconstruction proof. Strong Torelli, hyperelliptic sign realization, nonhyperelliptic sign exclusion and the genus-two hyperelliptic theorem need declaration-level planning in JacobianChallenge Part II. Do not duplicate those foundational proofs inside the curve-moduli owner."
+      "detail": "Milne §§12–13 were read in full at the scoped pages, including the theta/symmetric-power reconstruction proof. Strong Torelli, hyperelliptic sign realization, nonhyperelliptic sign exclusion and the genus-two hyperelliptic theorem need declaration-level planning in JacobianChallenge Part II. Do not duplicate those foundational proofs inside the curve-moduli owner.",
+      "assemblyDisposition": "MC.4 and MC.6 retain strong Torelli and curve-automorphism faithfulness with the Jacobian owner. MC.6 records only the bounded Milne reading in its own version receipt, independently of the earlier broader receipt."
     },
     {
       "title": "Full-level rigidity source",
@@ -32377,7 +32562,8 @@
         "StableReductionPartII:MC.4/level-rigidity",
         "StableReductionPartII:MC.4/fine-level-scheme"
       ],
-      "detail": "Acquire and decompose Serre, Séminaire Cartan 1960/61, exposé17 Appendix, including odd-prime and level-four cases in prime-to-characteristic geometry. DM §5.14 is a citation of this result, not its proof. Oort–Steenbrink Theorem1.8/Lemma1.11 remain unacquired."
+      "detail": "Acquire and decompose Serre, Séminaire Cartan 1960/61, exposé17 Appendix, including odd-prime and level-four cases in prime-to-characteristic geometry. DM §5.14 is a citation of this result, not its proof. Oort–Steenbrink Theorem1.8/Lemma1.11 remain unacquired.",
+      "assemblyDisposition": "The MC.4 source receipt now includes Serre’s Appendix, pp.17-18–17-20, and its odd-prime and level-four proof routes. The source-acquisition subtask for Serre is superseded; the generic abelian-owner implementation and cohomological comparisons are still required. No newly acquired Oort–Steenbrink source is asserted."
     },
     {
       "title": "Teichmüller and mapping-class inputs",
@@ -32385,14 +32571,16 @@
         "StableReductionPartII:MC.4/level-connectedness",
         "StableReductionPartII:MC.5/complex-picard-torsion-free"
       ],
-      "detail": "DM §§5.13–5.16 and Mumford1977 Lemma5.14 require connected/simply connected Teichmüller space, the analytic moduli presentation, generation by Dehn twists, boundary-loop monodromy and Sp(Z/N) surjectivity. No verified atlas owner was found. Propose an owner extension before creating these generic nodes; do not attribute them to scheme deformation theory."
+      "detail": "DM §§5.13–5.16 and Mumford1977 Lemma5.14 require connected/simply connected Teichmüller space, the analytic moduli presentation, generation by Dehn twists, boundary-loop monodromy and Sp(Z/N) surjectivity. No verified atlas owner was found. Propose an owner extension before creating these generic nodes; do not attribute them to scheme deformation theory.",
+      "assemblyDisposition": "MC.4 specifies complex-level orbit and reduction comparisons; MC.5 specifies the action-groupoid, twist and algebraization route. Their TOPOLOGY and MC4-R10 supplier contracts retain generic analytic and mapping-class ownership."
     },
     {
       "title": "Tame normalized-level component comparison",
       "neededBy": [
         "StableReductionPartII:MC.4/level-connectedness"
       ],
-      "detail": "Read DM §§2–4 in full, especially Theorem4.19 and all normalization/tame-cover arguments used by5.9/5.13. Only §§1,5 and the stated pages were fully read. These dependencies prevent source_decomposed coverage of MC.4."
+      "detail": "Read DM §§2–4 in full, especially Theorem4.19 and all normalization/tame-cover arguments used by5.9/5.13. Only §§1,5 and the stated pages were fully read. These dependencies prevent source_decomposed coverage of MC.4.",
+      "assemblyDisposition": "MC.4 adds the exact tame Kummer normal-fibre contract and reads DM §4 pp.96–104 and §5 pp.104–109 at its recorded scope. This refines the old acquisition instruction; it does not certify every transitive proof in DM §§2–3."
     },
     {
       "title": "Generic positivity and ampleness supplier extension",
@@ -32404,7 +32592,8 @@
         "StableReductionPartII:MC.6/maximal-variation-hodge",
         "StableReductionPartII:MC.4/dualizing-section-degree"
       ],
-      "detail": "SF.5 currently plans intersection/GRR and surface Riemann–Roch, not nef vector bundles. Propose SchemeAndStackFoundations Part II: curve-test nefness of locally free sheaves, quotients/extensions/symmetric powers, finite pullback/descent, classifying Grassmannian/frame maps and the precise Kollár ampleness lemma. CLM author §§2–4 (PDF6–17) remain unread; the §5 proof was read. The section-degree application uses positivity of the locally free evaluation image and an effective-divisor degree correction. This avoids the invalid blanket special-fibre vanishing on unstable nodal fibres."
+      "detail": "SF.5 currently plans intersection/GRR and surface Riemann–Roch, not nef vector bundles. Propose SchemeAndStackFoundations Part II: curve-test nefness of locally free sheaves, quotients/extensions/symmetric powers, finite pullback/descent, classifying Grassmannian/frame maps and the precise Kollár ampleness lemma. CLM author §§2–4 (PDF6–17) remain unread; the §5 proof was read. The section-degree application uses positivity of the locally free evaluation image and an effective-divisor degree correction. This avoids the invalid blanket special-fibre vanishing on unstable nodal fibres.",
+      "assemblyDisposition": "MC.4 records a full CLM author-manuscript reading, pp.1–33, superseding the earlier unread-§§2–4 note. Generic vector positivity, Grassmann ampleness and the unstable pointed transport step remain the precise MC4 supplier frontier."
     },
     {
       "title": "Surface positivity inputs",
@@ -32412,7 +32601,8 @@
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
         "StableReductionPartII:MC.4/pointed-normalization-nef"
       ],
-      "detail": "Acquire Mumford/Ekedahl vanishing with the characteristic-two,m=2 bound≤1, Frobenius negative-quotient contradiction, rational-double-point resolutions and pluricanonical pushforward invariance, elliptic canonical bundle formula (Bombieri–Mumford1977), and Lang1980 Euler bound. Assign generic surface facts to an owner extension; do not put them in parent StableReduction without verifying its exact scope."
+      "detail": "Acquire Mumford/Ekedahl vanishing with the characteristic-two,m=2 bound≤1, Frobenius negative-quotient contradiction, rational-double-point resolutions and pluricanonical pushforward invariance, elliptic canonical bundle formula (Bombieri–Mumford1977), and Lang1980 Euler bound. Assign generic surface facts to an owner extension; do not put them in parent StableReduction without verifying its exact scope.",
+      "assemblyDisposition": "MC.4 records bounded Ekedahl and Chen–Zhang readings, with the characteristic-two bound, while retaining missing original Weil/Manger and surface references and the generic surface-owner/unstable-transport obligations."
     },
     {
       "title": "Line-valued determinants and Deligne pairing",
@@ -32421,7 +32611,8 @@
         "StableReductionPartII:MC.5/integral-noether",
         "StableReductionPartII:MC.5/semi-canonical-noether"
       ],
-      "detail": "A generic determinant-of-cohomology/Deligne-pairing construction on proper flat nodal curves, pullback and its c₁ pushforward identity are required in addition to SF.5 rational Chow GRR. Deligne’s determinant paper and Moret-Bailly Noether1989 were not acquired. Propose a foundational/Arakelov Part II with an unmetrized algebraic core, retaining exact integral tensor powers. Ordinary finite-locally-free exterior powers and determinants with scheme pullback comparisons are already owned by current upstream AlgebraicVectorBundles L0C. Only their stack descent/ordered exact-sequence comparison and the distinct determinant-of-cohomology/Deligne-pairing input remain here."
+      "detail": "A generic determinant-of-cohomology/Deligne-pairing construction on proper flat nodal curves, pullback and its c₁ pushforward identity are required in addition to SF.5 rational Chow GRR. Deligne’s determinant paper and Moret-Bailly Noether1989 were not acquired. Propose a foundational/Arakelov Part II with an unmetrized algebraic core, retaining exact integral tensor powers. Ordinary finite-locally-free exterior powers and determinants with scheme pullback comparisons are already owned by current upstream AlgebraicVectorBundles L0C. Only their stack descent/ordered exact-sequence comparison and the distinct determinant-of-cohomology/Deligne-pairing input remain here.",
+      "assemblyDisposition": "MC.5 acquires the specified Deligne and Knudsen–Mumford determinant/pairing sources and gives GDET/GPAIR contracts. The earlier blanket Deligne-acquisition instruction is superseded. Assignment and implementation of those contracts remain open; no new Moret-Bailly acquisition is asserted."
     },
     {
       "title": "All-characteristic compactified Torelli",
@@ -32429,7 +32620,8 @@
         "StableReductionPartII:MC.6/compactified-torelli",
         "StableReductionPartII:MC.6/maximal-variation-hodge"
       ],
-      "detail": "KnudsenIII §6 is a characteristic-zero proof. Yuan p.56 cites an all-field minimal ppav/Hodge result. The existing C5 good-prime level scope does not alone prove the unlevel all-characteristic statement. Read Faltings–Chai V Theorem2.3 or a public primary replacement and prove compatible prime-to-characteristic level descent and boundary extension."
+      "detail": "KnudsenIII §6 is a characteristic-zero proof. Yuan p.56 cites an all-field minimal ppav/Hodge result. The existing C5 good-prime level scope does not alone prove the unlevel all-characteristic statement. Read Faltings–Chai V Theorem2.3 or a public primary replacement and prove compatible prime-to-characteristic level descent and boundary extension.",
+      "assemblyDisposition": "MC.6 records the cleared Faltings–Chai IV/V reading and separates boundary extension, minimal descent and Hodge-power comparison. The source-acquisition subtask is refined; the all-characteristic supplier extension and its proof remain open."
     },
     {
       "title": "Pointed noetherian-to-arbitrary-base passage",
@@ -32440,7 +32632,8 @@
         "StableReductionPartII:MC.2/expansion-stable",
         "StableReductionPartII:MC.2/expansion-contraction-inverses"
       ],
-      "detail": "Knudsen II Appendix Theorem 2 and Proposition 6 require the exact relative stable-reflexivity and two-base completion hypotheses. The polynomial bidual, coefficient-universal Hom exchange, augmented projective resolutions and positive Ext vanishings are already specified. The finite-projective completed tensor and Hom_R compatible-family comparisons are also specified. None identifies the pointed completed-local hull or establishes arbitrary completed-coefficient Hom/Ext, faithful reflection, sheaf globalization or arbitrary-base approximation. Bourbaki III.5.4.4 remains an unread input and Proposition 7 an exercise. Supply these exact inputs before closing dual-section-ideal; generic relative stable-reflexivity ownership remains a proposed extension."
+      "detail": "Knudsen II Appendix Theorem 2 and Proposition 6 require the exact relative stable-reflexivity and two-base completion hypotheses. The polynomial bidual, coefficient-universal Hom exchange, augmented projective resolutions and positive Ext vanishings are already specified. The finite-projective completed tensor and Hom_R compatible-family comparisons are also specified. None identifies the pointed completed-local hull or establishes arbitrary completed-coefficient Hom/Ext, faithful reflection, sheaf globalization or arbitrary-base approximation. Bourbaki III.5.4.4 remains an unread input and Proposition 7 an exercise. Supply these exact inputs before closing dual-section-ideal; generic relative stable-reflexivity ownership remains a proposed extension.",
+      "assemblyDisposition": "MC.2 now specifies the complete-hull, completed-ring Hom/Ext, formal pointed chart, sheaf gluing and arbitrary-base proof routes. The Bourbaki citation remains uncollated; an independent public-source route is supplied. These specifications do not assert proof closure."
     },
     {
       "title": "Rigid genus-one locus and boundary normalization details",
@@ -32450,7 +32643,8 @@
         "StableReductionPartII:MC.3/boundary-normalization",
         "StableReductionPartII:MC.3/clutching-finite-unramified"
       ],
-      "detail": "Prove the specific labelled triangle recovery as a family-level closed immersion, including the irreducible nodal genus-one fibre. The correct local codimension is four: three internal triangle nodes plus the attachment node, with a fifth parameter for the genus-one boundary; Knudsen II p.179 states this correctly. Do not use the false general Corollary 3.9(b). Characteristic-zero normalized-boundary and conormal references have been acquired/read (Hacking pp.813–814, CLP v3 pp.4–5); the integral stack normalization/deformation-line contract remains the separately recorded gap. This is target-level refinement, not a requirement to add lemma nodes beyond the inherited budget."
+      "detail": "Prove the specific labelled triangle recovery as a family-level closed immersion, including the irreducible nodal genus-one fibre. The correct local codimension is four: three internal triangle nodes plus the attachment node, with a fifth parameter for the genus-one boundary; Knudsen II p.179 states this correctly. Do not use the false general Corollary 3.9(b). Characteristic-zero normalized-boundary and conormal references have been acquired/read (Hacking pp.813–814, CLP v3 pp.4–5); the integral stack normalization/deformation-line contract remains the separately recorded gap. This is target-level refinement, not a requirement to add lemma nodes beyond the inherited budget.",
+      "assemblyDisposition": "MC.2 now supplies labelled-triangle recovery, the one-gon comparison, smoothing and pointed-boundary induction; MC.3 supplies integral node-choice and smoothing-line descent comparisons. Their parent and foundation contracts remain explicit."
     },
     {
       "title": "Suggested Lean type interfaces",
@@ -32535,7 +32729,8 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. The current exact inventory has 450 expressed/78 omitted nodes, 365 expressed/97 omitted unique APIs and 356 expressed/76 omitted unique tests, with 251 named omissions in total; all omissions occur explicitly in the suggested-file comments. The 79-node neededBy list also includes the partially expressed matrix-exactness node. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Elaboration checks types only; no completed-local or general-family comparison is supplied. Preserve the four-node triangle, unsigned conormal, actual Pic(T)-torsor and genus-two dual-number contracts until the required geometric types are supplied."
+      "detail": "The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. The current exact inventory has 450 expressed/78 omitted nodes, 365 expressed/97 omitted unique APIs and 356 expressed/76 omitted unique tests, with 251 named omissions in total; all omissions occur explicitly in the suggested-file comments. The 79-node neededBy list also includes the partially expressed matrix-exactness node. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Elaboration checks types only; no completed-local or general-family comparison is supplied. Preserve the four-node triangle, unsigned conormal, actual Pic(T)-torsor and genus-two dual-number contracts until the required geometric types are supplied.",
+      "assemblyDisposition": "The historical 450/78 prototype inventory describes the pre-assembly file only. The present compact file keeps representative native-carrier statements; all 618 target contracts and their API/tests are in this reader. Geometric type and implementation obligations remain open."
     },
     {
       "title": "Source-locator and published-version collation",
@@ -32624,14 +32819,16 @@
         "StableReductionPartII:MC.4/pointed-normalization-nef",
         "StableReductionPartII:MC.4/persistent-node-residue-sequence"
       ],
-      "detail": "The cumulative independent-review receipts cover every node at their stated bounded scopes; the final pass freshly corroborates all 14 sourceIssue verdicts in the named public copies and reconciles their byte hashes. These receipts do not justify unread generic proof inputs or uncollated publisher wording. Source-qualified integral/arbitrary-base geometric deductions still need exact hypotheses and owner proofs, particularly the completed-local hull, integral boundary descent, generic positivity, determinant/Deligne pairing and all-characteristic compactified Torelli. Keep the public author/preprint copies and published scans separately identified. Published Yuan/DGH and Ile full-text collation and CLM publisher identification remain pending; novelty of E1–E14 is not certified."
+      "detail": "The cumulative independent-review receipts cover every node at their stated bounded scopes; the final pass freshly corroborates all 14 sourceIssue verdicts in the named public copies and reconciles their byte hashes. These receipts do not justify unread generic proof inputs or uncollated publisher wording. Source-qualified integral/arbitrary-base geometric deductions still need exact hypotheses and owner proofs, particularly the completed-local hull, integral boundary descent, generic positivity, determinant/Deligne pairing and all-characteristic compactified Torelli. Keep the public author/preprint copies and published scans separately identified. Published Yuan/DGH and Ile full-text collation and CLM publisher identification remain pending; novelty of E1–E14 is not certified.",
+      "assemblyDisposition": "Every part retains its own version/hash and bounded-reading receipts. The assembled bibliography distinguishes common works from different snapshots. Source findings keep their independent verdicts, including the rejected MC.5 E15 allegation; no blanket publisher collation or novelty claim is added."
     },
     {
       "title": "Reusable stable-reflexivity interface and two-base completion",
       "neededBy": [
         "StableReductionPartII:MC.2/dual-section-ideal"
       ],
-      "detail": "Supply the reusable owner-level relative stable-reflexivity interface for a flat noetherian coefficient map. The polynomial ordinary bidual, arbitrary-coefficient Hom exchange, projective resolutions and positive Ext calculations are specified; their general relative and completed-local applications still need the exact source hypotheses. Prove Knudsen Appendix Proposition 6 with both coefficient and chart completions, including arbitrary completed-coefficient modules; inspect and discharge the cited Bourbaki III.5.4.4 input and Proposition 7 exercise. Finite-projective tensor/limit interchange and the existing Hom_R comparison do not establish arbitrary-module Hom/Ext or universally acyclic completion. Identify Hom over the completed chart ring from the completed section ideal and its dual, and prove the actual change-of-rings comparison with the existing Hom_R compatible quotient families. Supply the justified higher Ext comparison and exact hypotheses for faithful reflection. Keep the surjective map from the completed chart tensor over the original coefficient ring to the tensor over the completed coefficient ring distinct; establish injectivity only under justified hypotheses. The finite quotient equivalences and finite-projective limit comparisons do not prove it for arbitrary completed-coefficient modules. Ile §2.3’s general stable-Hom/Ext formula is not a substitute without the additional hypotheses recorded in source issue E11."
+      "detail": "Supply the reusable owner-level relative stable-reflexivity interface for a flat noetherian coefficient map. The polynomial ordinary bidual, arbitrary-coefficient Hom exchange, projective resolutions and positive Ext calculations are specified; their general relative and completed-local applications still need the exact source hypotheses. Prove Knudsen Appendix Proposition 6 with both coefficient and chart completions, including arbitrary completed-coefficient modules; inspect and discharge the cited Bourbaki III.5.4.4 input and Proposition 7 exercise. Finite-projective tensor/limit interchange and the existing Hom_R comparison do not establish arbitrary-module Hom/Ext or universally acyclic completion. Identify Hom over the completed chart ring from the completed section ideal and its dual, and prove the actual change-of-rings comparison with the existing Hom_R compatible quotient families. Supply the justified higher Ext comparison and exact hypotheses for faithful reflection. Keep the surjective map from the completed chart tensor over the original coefficient ring to the tensor over the completed coefficient ring distinct; establish injectivity only under justified hypotheses. The finite quotient equivalences and finite-projective limit comparisons do not prove it for arbitrary completed-coefficient modules. Ile §2.3’s general stable-Hom/Ext formula is not a substitute without the additional hypotheses recorded in source issue E11.",
+      "assemblyDisposition": "MC.2 specifies both base completions and all completed coefficients, separates the original-ring and completed-ring Hom comparisons and retains the balancing counterexample. Reuse current totally acyclic/Gorenstein-projective infrastructure. Generic coefficient exchange remains requested; Bourbaki is a bibliographical gap."
     },
     {
       "title": "Arbitrary-base moduli foundations and tricanonical frame comparison",
@@ -32659,7 +32856,8 @@
         "StableReductionPartII:MC.5/separating-hodge",
         "StableReductionPartII:MC.5/nonseparating-hodge"
       ],
-      "detail": "The parent StableReduction has locally Noetherian coherent pushforward, relative duality and polarized descent scope. Establish finite-presentation approximation/spreading for stable pointed families, the dualizing polarization, tricanonical locally free pushforward/evaluation and their coherent arbitrary-base pullbacks before asserting the MC.0/MC.1 conclusions for every scheme. For U_g construct the complete-canonical-polarization locally closed Hilbert locus and its projective-frame representing property, including the base-line twist; generic Hilbert representability and equal Hilbert polynomials do not by themselves prove this locus comparison. These owner extensions are mathematical input obligations, not compilation failures. The arbitrary-base Hodge bundle/determinant and forgetting/clutching comparisons also consume this extension; parent cohomology over locally Noetherian bases alone does not establish them for every scheme. The universal Isom source is specified as the projective-frame action groupoid U_g×PGL_r; proving that functor identification uses the actual canonical frame locus and must preserve its base-line twist. Its smooth-curve source density, not density only on U_g×U_g, feeds the refined Noetherian test. The named general criteria and descent interfaces must still be supplied."
+      "detail": "The parent StableReduction has locally Noetherian coherent pushforward, relative duality and polarized descent scope. Establish finite-presentation approximation/spreading for stable pointed families, the dualizing polarization, tricanonical locally free pushforward/evaluation and their coherent arbitrary-base pullbacks before asserting the MC.0/MC.1 conclusions for every scheme. For U_g construct the complete-canonical-polarization locally closed Hilbert locus and its projective-frame representing property, including the base-line twist; generic Hilbert representability and equal Hilbert polynomials do not by themselves prove this locus comparison. These owner extensions are mathematical input obligations, not compilation failures. The arbitrary-base Hodge bundle/determinant and forgetting/clutching comparisons also consume this extension; parent cohomology over locally Noetherian bases alone does not establish them for every scheme. The universal Isom source is specified as the projective-frame action groupoid U_g×PGL_r; proving that functor identification uses the actual canonical frame locus and must preserve its base-line twist. Its smooth-curve source density, not density only on U_g×U_g, feeds the refined Noetherian test. The named general criteria and descent interfaces must still be supplied.",
+      "assemblyDisposition": "MC.0 supplies the finite-diagram and arbitrary-base family comparisons; MC.1 supplies the complete-series/projective-frame locus with its base-line twist and action-groupoid relation. Q1–Q8 and NODAL-BC retain the exact supplier limits."
     },
     {
       "title": "Coherent deformation Ext supplier scope",
@@ -32667,7 +32865,8 @@
         "StableReductionPartII:MC.1/obstruction-vanishing",
         "StableReductionPartII:MC.1/versal-node-parameters"
       ],
-      "detail": "R09.6 promises comparison of deformation functors with completed local rings and algebraization; its present stage description does not itself specify the coherent-sheaf Ext local-to-global spectral sequence, nodal differential resolution, H² vanishing or finite-support H¹ vanishing used here. Identify exact supplier nodes or an owner extension for that package and its source hypotheses. DM Lemma1.3/Proposition1.5 verifies this curve application, but naming generic formal deformation theory is not a proof of these inputs."
+      "detail": "R09.6 promises comparison of deformation functors with completed local rings and algebraization; its present stage description does not itself specify the coherent-sheaf Ext local-to-global spectral sequence, nodal differential resolution, H² vanishing or finite-support H¹ vanishing used here. Identify exact supplier nodes or an owner extension for that package and its source hypotheses. DM Lemma1.3/Proposition1.5 verifies this curve application, but naming generic formal deformation theory is not a proof of these inputs.",
+      "assemblyDisposition": "MC.1 gives the nodal local-to-global deformation sequence and explicit source-scope refinements. Its coherent Ext and completed-atlas comparisons remain Q3–Q4 rather than being inferred from a generic formal-deformation label."
     },
     {
       "title": "Expansion formal-Proj and flatness transfer",
@@ -32675,7 +32874,8 @@
         "StableReductionPartII:MC.2/expansion-flat",
         "StableReductionPartII:MC.2/expansion-stable"
       ],
-      "detail": "Knudsen 2012 pp.15–16 identify completion along the exceptional fibre with the completed polynomial Proj model before reflecting flatness. R09.6 states generic versality/algebraization, not compatibility of completion of relative Proj Sym K with completed cokernels and section quotients. Require this exact owner-level interface with local Noetherian and faithful flatness hypotheses, the old-mark collision comparison, and the existing arbitrary-base approximation input. The polynomial flat chart calculation alone is insufficient."
+      "detail": "Knudsen 2012 pp.15–16 identify completion along the exceptional fibre with the completed polynomial Proj model before reflecting flatness. R09.6 states generic versality/algebraization, not compatibility of completion of relative Proj Sym K with completed cokernels and section quotients. Require this exact owner-level interface with local Noetherian and faithful flatness hypotheses, the old-mark collision comparison, and the existing arbitrary-base approximation input. The polynomial flat chart calculation alone is insufficient.",
+      "assemblyDisposition": "MC.2 separates the formal-Proj completion/flatness transfer and old-mark collision comparison, with the exact R09.6 and local-flatness supplier inputs. Their proof route is now specified, not implemented."
     },
     {
       "title": "Integral boundary normalization and deformation-line descent",
@@ -32684,14 +32884,16 @@
         "StableReductionPartII:MC.3/clutching-finite-unramified",
         "StableReductionPartII:MC.3/node-conormal"
       ],
-      "detail": "Obtain precise owner contracts for finite relative node-choice/branch data in a nodal family and finite normalization of reduced DM stacks through étale atlases; SF.1/R09.5 generic descriptions and the parent finite-étale field theorem do not alone state them. For the conormal, prove the first-order smoothing line is the tensor of branch cotangent lines under arbitrary higher-order parameter changes, with unsigned branch-exchange and all atlas/graph/base-change cocycles over Z. Hacking 2008 pp.813–814 supplies the characteristic-zero normalization and conormal description; CLP v3 pp.4–5 supplies consumer graph-invariant usage, not the integral proof. Do not substitute Knudsen II Theorem 3.5 torsion differentials for the moduli conormal."
+      "detail": "Obtain precise owner contracts for finite relative node-choice/branch data in a nodal family and finite normalization of reduced DM stacks through étale atlases; SF.1/R09.5 generic descriptions and the parent finite-étale field theorem do not alone state them. For the conormal, prove the first-order smoothing line is the tensor of branch cotangent lines under arbitrary higher-order parameter changes, with unsigned branch-exchange and all atlas/graph/base-change cocycles over Z. Hacking 2008 pp.813–814 supplies the characteristic-zero normalization and conormal description; CLP v3 pp.4–5 supplies consumer graph-invariant usage, not the integral proof. Do not substitute Knudsen II Theorem 3.5 torsion differentials for the moduli conormal.",
+      "assemblyDisposition": "MC.3 supplies persistent-node incidence, decorated-node fibres, normalization, nonlinear smoothing-line and marking-line coherence. Parent relative cut/glue and arbitrary-base contracts remain conditional. Later coherence exports are not prerequisites of the earlier clutching definitions."
     },
     {
       "title": "Integral parameter-family generation and fixed-line ampleness",
       "neededBy": [
         "StableReductionPartII:MC.4/projective-coarse"
       ],
-      "detail": "The local logical route is repaired by the direct finite-degree-equations prerequisite. Its exact relative Serre generation/vanishing, fibre-ideal flatness, pluricanonical base-change and fixed-line openness interfaces still need verified SF.0/parent suppliers, as in the existing foundational gap. On one quasi-compact noetherian integral parameter family over Z, relative Serre generation and vanishing for the ideal sheaf of the relative tricanonical embedding give a common degree d. The ambient projective bundle and curve are flat, hence the ideal pulls back to each fibre ideal; the degree-d equations generate it. The multiplication quotient is surjective and the stable pluricanonical direct images have arbitrary-base-change comparisons. After applying the fixed-degree determinant criterion on every geometric fibre, fixed-line openness of relative ampleness spreads this one determinant over Spec Z. Preserve these qualifications; do not replace them by a maximum of varying fibrewise exponents."
+      "detail": "The local logical route is repaired by the direct finite-degree-equations prerequisite. Its exact relative Serre generation/vanishing, fibre-ideal flatness, pluricanonical base-change and fixed-line openness interfaces still need verified SF.0/parent suppliers, as in the existing foundational gap. On one quasi-compact noetherian integral parameter family over Z, relative Serre generation and vanishing for the ideal sheaf of the relative tricanonical embedding give a common degree d. The ambient projective bundle and curve are flat, hence the ideal pulls back to each fibre ideal; the degree-d equations generate it. The multiplication quotient is surjective and the stable pluricanonical direct images have arbitrary-base-change comparisons. After applying the fixed-degree determinant criterion on every geometric fibre, fixed-line openness of relative ampleness spreads this one determinant over Spec Z. Preserve these qualifications; do not replace them by a maximum of varying fibrewise exponents.",
+      "assemblyDisposition": "MC.4 supplies one integral relative Hilbert kernel and fixed-degree ample descent with finite-cover and wild-power qualifications. The common degree is fixed over the integer parameter family; its generic supplier contracts remain open."
     }
   ],
   "sourceIssues": [
@@ -33736,6 +33938,46 @@
     }
   ],
   "prototypeCoverage": {
+    "status": "partial",
+    "compiled": true,
+    "file": "research/blueprint/suggested/StableReductionPartII.lean",
+    "shape": "Compact union of the eight reviewed native-carrier prototypes, with the light nodal form and its two matrices from the inherited file. Heavy algebraic development and unavailable geometric carriers remain reader targets.",
+    "nativeFragments": [
+      "MC.0: native slice-section evaluation and three examples.",
+      "MC.1: integer tricanonical Hilbert polynomial, five numerical formulas and four examples.",
+      "MC.2: binary nodal form, two matrices and their product; absolute canonical biduality/positive-Ext predicate and representative projective, dual and completion statements.",
+      "MC.3: native nodal quotient, nonlinear parameter and tensor/conormal examples; current post-pin node implementations are imported in the reader.",
+      "MC.4: abelian-owner Serre supplier statements, the level-two control and transvection order.",
+      "MC.5: native invertible-sheaf class/isomorphism/pullback comparisons and determinant/residue sign checks.",
+      "MC.6: finite retained-base graph map and projection/specialization examples.",
+      "MC.7: represented fppf point/fibre carriers and the core of native line bundles, with class/tensor comparisons and examples."
+    ],
+    "readerCoverage": "All 618 complete mathematical target contracts, including their APIs and tests, appear in the assembled reader. A native fragment does not express the whole geometric target.",
+    "partReceipts": [
+      "research/blueprint/packets/StableReductionPartII--MC.0.json",
+      "research/blueprint/packets/StableReductionPartII--MC.1.json",
+      "research/blueprint/packets/StableReductionPartII--MC.2.json",
+      "research/blueprint/packets/StableReductionPartII--MC.3.json",
+      "research/blueprint/packets/StableReductionPartII--MC.4.json",
+      "research/blueprint/packets/StableReductionPartII--MC.5.json",
+      "research/blueprint/packets/StableReductionPartII--MC.6.json",
+      "research/blueprint/packets/StableReductionPartII--MC.7.json"
+    ],
+    "compilation": {
+      "date": "2026-10-18",
+      "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+      "result": "success",
+      "errors": 0,
+      "admittedProofWarnings": 71,
+      "otherWarnings": 0,
+      "sha256": "22f6634010a7734a83ece99e93af50986eb7956b8f0019527aa7c86b8b098427",
+      "lines": 659,
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "limit": "Signature elaboration only; admitted statements and incoming supplier contracts are not proved."
+    }
+  },
+  "historicalPrototypeCoverage": {
     "status": "partial",
     "compiled": true,
     "reason": "The expressed signatures and all 251 named geometric omissions are preserved. The inventory remains450 expressed/78 omitted nodes,365/97 unique APIs and356/76 unique tests. Reader and suggested comment contracts now agree on the corrected geometry and exact supplier scopes. Fresh revision compilation is recorded separately; historical native proof and signature receipts keep their original attribution. Elaboration does not prove admitted bodies, supply omitted geometry or establish transitive closure.",
@@ -48342,6 +48584,597 @@
       "preservation": "All mathematical node contracts, requests, coverage/gaps, source versions, consumer/key coverage, planning status and historical audit/revision records compared with incoming HEAD and preserved; only 21 baseline provides fields changed. Reader and Lean hashes unchanged.",
       "readerCorrespondence": "Fresh final comparison: all 528 target blocks and all compared fields match; zero missing fields.",
       "prototypePartitions": "Fresh final native inventory: all node/API/test partitions complete, no missing bindings/signatures/test labels."
+    }
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [
+      {
+        "target": "StableReductionPartII:key/moduli-curves",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "reason": "Arbitrary-base hypotheses of the moduli definition"
+      },
+      {
+        "target": "StableReductionPartII:key/moduli-curves",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "reason": "Arbitrary-base hypotheses of the moduli definition"
+      },
+      {
+        "target": "StableReductionPartII:MC.0/pullback-coherence",
+        "added": "StableReductionPartII:MC.0/native-family-realization",
+        "reason": "Native slice pullback and marked-family coherence"
+      },
+      {
+        "target": "StableReductionPartII:MC.0/effective-descent",
+        "added": "StableReductionPartII:MC.0/polarized-descent-comparison",
+        "reason": "Effective fppf descent with the canonical polarization cocycle"
+      },
+      {
+        "target": "StableReductionPartII:MC.0/universal-curve",
+        "added": "StableReductionPartII:MC.0/universal-evaluation",
+        "reason": "Represented two-fibre product and unrestricted section"
+      },
+      {
+        "target": "StableReductionPartII:MC.1/tricanonical-cohomology",
+        "added": "StableReductionPartII:MC.1/refinement-arbitrary-base",
+        "reason": "The arbitrary-base extension supplies exactly the rank, evaluation and base-change comparison missing from the old locally Noetherian curve cohomology scope."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/tricanonical-hilbert",
+        "added": "StableReductionPartII:MC.1/refinement-polarization-locus",
+        "reason": "The locally closed rank/evaluation locus followed by the determinant open represents complete projective tricanonical frames, allowing base-line twists."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/tricanonical-hilbert",
+        "added": "StableReductionPartII:MC.1/refinement-complete-series",
+        "reason": "The locally closed rank/evaluation locus followed by the determinant open represents complete projective tricanonical frames, allowing base-line twists."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/tricanonical-hilbert",
+        "added": "StableReductionPartII:MC.1/refinement-frame-comparison",
+        "reason": "The locally closed rank/evaluation locus followed by the determinant open represents complete projective tricanonical frames, allowing base-line twists."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/frame-torsor",
+        "added": "StableReductionPartII:MC.1/refinement-frame-comparison",
+        "reason": "The fibre over C is the smooth PGL_r projective-frame torsor, not a GL_r basis torsor."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/frame-torsor",
+        "added": "SchemeAndStackFoundations:SF.1/torsor-representability",
+        "reason": "The fibre over C is the smooth PGL_r projective-frame torsor, not a GL_r basis torsor."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/hilbert-quotient",
+        "added": "StableReductionPartII:MC.1/refinement-action-groupoid",
+        "reason": "Effective fppf descent is the existing MC.0 input; the smooth action-groupoid presentation identifies the quotient with the already defined stack. Only the smooth-groupoid case of stack-presentation is used."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/hilbert-quotient",
+        "added": "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "reason": "Effective fppf descent is the existing MC.0 input; the smooth action-groupoid presentation identifies the quotient with the already defined stack. Only the smooth-groupoid case of stack-presentation is used."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/hilbert-quotient",
+        "added": "SchemeAndStackFoundations:SF.1/stack-presentation",
+        "reason": "Effective fppf descent is the existing MC.0 input; the smooth action-groupoid presentation identifies the quotient with the already defined stack. Only the smooth-groupoid case of stack-presentation is used."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/hilbert-quotient",
+        "added": "SchemeAndStackFoundations:SF.4/stable-curve-stack",
+        "reason": "Effective fppf descent is the existing MC.0 input; the smooth action-groupoid presentation identifies the quotient with the already defined stack. Only the smooth-groupoid case of stack-presentation is used."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-representable",
+        "added": "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "reason": "The fixed graph polynomial gives compatible locally quasi-projective representing schemes of finite presentation. The later properness and unramifiedness results make Isom finite over S, hence globally quasi-projective, completing the parent conclusion. Ordered marking conditions, if imposed, are closed equalizers of section evaluations because the target curve is separated. No polarization-line isomorphism is added."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-representable",
+        "added": "StableReductionPartII:MC.1/refinement-source-valuative",
+        "reason": "The fixed graph polynomial gives compatible locally quasi-projective representing schemes of finite presentation. The later properness and unramifiedness results make Isom finite over S, hence globally quasi-projective, completing the parent conclusion. Ordered marking conditions, if imposed, are closed equalizers of section evaluations because the target curve is separated. No polarization-line isomorphism is added."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-representable",
+        "added": "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "reason": "The fixed graph polynomial gives compatible locally quasi-projective representing schemes of finite presentation. The later properness and unramifiedness results make Isom finite over S, hence globally quasi-projective, completing the parent conclusion. Ordered marking conditions, if imposed, are closed equalizers of section evaluations because the target curve is separated. No polarization-line isomorphism is added."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-representable",
+        "added": "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite",
+        "reason": "The fixed graph polynomial gives compatible locally quasi-projective representing schemes of finite presentation. The later properness and unramifiedness results make Isom finite over S, hence globally quasi-projective, completing the parent conclusion. Ordered marking conditions, if imposed, are closed equalizers of section evaluations because the target curve is separated. No polarization-line isomorphism is added."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-unramified",
+        "added": "StableReductionPartII:MC.1/refinement-bounded-graphs",
+        "reason": "For each geometric Isom point, transport its tangent space to H⁰(C,T_C)=0. The imported locally-finite-type geometric criterion then gives unramifiedness and locally quasi-finiteness. The native all-square-zero hom-ext theorem alone would not prove this step."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-unramified",
+        "added": "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "reason": "For each geometric Isom point, transport its tangent space to H⁰(C,T_C)=0. The imported locally-finite-type geometric criterion then gives unramifiedness and locally quasi-finiteness. The native all-square-zero hom-ext theorem alone would not prove this step."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/isom-proper",
+        "added": "StableReductionPartII:MC.1/refinement-source-valuative",
+        "reason": "Apply the source-generic trait criterion to the universal relation before descending to every pair of curves."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "added": "StableReductionPartII:MC.1/refinement-source-valuative",
+        "reason": "Proper plus locally quasi-finite gives a finite diagonal; the existing smooth quotient atlas and the unramified-diagonal criterion give an étale atlas. The Hilbert atlas itself is not étale."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "added": "SchemeAndStackFoundations:SF.0/unramified-criteria",
+        "reason": "Proper plus locally quasi-finite gives a finite diagonal; the existing smooth quotient atlas and the unramified-diagonal criterion give an étale atlas. The Hilbert atlas itself is not étale."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "added": "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+        "reason": "Proper plus locally quasi-finite gives a finite diagonal; the existing smooth quotient atlas and the unramified-diagonal criterion give an étale atlas. The Hilbert atlas itself is not étale."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/obstruction-vanishing",
+        "added": "StableReductionPartII:MC.1/refinement-deformation-sequence",
+        "reason": "The Ext² vanishing and local-to-global surjection hold for every proper geometrically connected nodal curve of pure dimension one, as in the parent target. Stability is needed only for the additional Ext⁰ vanishing and 3g−3 dimension computation."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/versal-node-parameters",
+        "added": "StableReductionPartII:MC.1/refinement-deformation-sequence",
+        "reason": "Import the existing miniversal curve hull; identify the actual framed Hilbert completion and its extra r²−1 variables."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/versal-node-parameters",
+        "added": "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "reason": "Import the existing miniversal curve hull; identify the actual framed Hilbert completion and its extra r²−1 variables."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/versal-node-parameters",
+        "added": "SchemeAndStackFoundations:SF.4/node-versal-deformation",
+        "reason": "Import the existing miniversal curve hull; identify the actual framed Hilbert completion and its extra r²−1 variables."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/smooth-dimension",
+        "added": "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "reason": "Smoothness descends along the smooth PGL_r atlas. Q8 applies the stack dimension formula on geometric fibres and subtracts r²−1 to give relative dimension 3g−3; density descends from U^sm. No finite-diagonal hypothesis is used to establish U smoothness, so the Isom properness route is acyclic."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/smooth-dimension",
+        "added": "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "reason": "Smoothness descends along the smooth PGL_r atlas. Q8 applies the stack dimension formula on geometric fibres and subtracts r²−1 to give relative dimension 3g−3; density descends from U^sm. No finite-diagonal hypothesis is used to establish U smoothness, so the Isom properness route is acyclic."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/smooth-dimension",
+        "added": "SchemeAndStackFoundations:SF.1",
+        "reason": "Smoothness descends along the smooth PGL_r atlas. Q8 applies the stack dimension formula on geometric fibres and subtracts r²−1 to give relative dimension 3g−3; density descends from U^sm. No finite-diagonal hypothesis is used to establish U smoothness, so the Isom properness route is acyclic."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/normal-crossing-boundary",
+        "added": "StableReductionPartII:MC.1/refinement-labelled-branches",
+        "reason": "Algebraic branch ideals, coefficient-completion descent and relative coordinates prove the relative NC assertion, with branch permutation allowed."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/normal-crossing-boundary",
+        "added": "StableReductionPartII:MC.1/refinement-relative-boundary",
+        "reason": "Algebraic branch ideals, coefficient-completion descent and relative coordinates prove the relative NC assertion, with branch permutation allowed."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/proper-moduli",
+        "added": "StableReductionPartII:MC.1/refinement-source-valuative",
+        "reason": "The stack is separated by its proper diagonal, and finite type by U. Its smooth-curve open is finite type and dense. Q7 reduces existence to DVR diagrams with smooth generic curve; upstream stable reduction supplies an extension after a finite fraction-field extension and a dominating DVR. Uniqueness is supplied separately by separatedness; no universal stable model over the original trait is asserted."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/proper-moduli",
+        "added": "StableReductionPartII:MC.1/refinement-completed-atlas",
+        "reason": "The stack is separated by its proper diagonal, and finite type by U. Its smooth-curve open is finite type and dense. Q7 reduces existence to DVR diagrams with smooth generic curve; upstream stable reduction supplies an extension after a finite fraction-field extension and a dominating DVR. Uniqueness is supplied separately by separatedness; no universal stable model over the original trait is asserted."
+      },
+      {
+        "target": "StableReductionPartII:MC.1/proper-moduli",
+        "added": "SchemeAndStackFoundations:SF.1",
+        "reason": "The stack is separated by its proper diagonal, and finite type by U. Its smooth-curve open is finite type and dense. Q7 reduces existence to DVR diagrams with smooth generic curve; upstream stable reduction supplies an extension after a finite fraction-field extension and a dominating DVR. Uniqueness is supplied separately by separatedness; no universal stable model over the original trait is asserted."
+      },
+      {
+        "target": "StableReductionPartII:MC.2/dual-section-ideal",
+        "added": "StableReductionPartII:MC.2/polynomial-relative-criterion",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/dual-section-ideal",
+        "added": "StableReductionPartII:MC.2/section-ideal-local-theorem",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/dual-section-ideal",
+        "added": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/expansion-flat",
+        "added": "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/expansion-flat",
+        "added": "StableReductionPartII:MC.2/collision-chart-flatness",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/expansion-contraction-inverses",
+        "added": "StableReductionPartII:MC.2/contraction-recovery-comparison",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/expansion-contraction-inverses",
+        "added": "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/genus-one-base",
+        "added": "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/genus-one-base",
+        "added": "StableReductionPartII:MC.2/triangle-smoothing-comparison",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/rigid-triangle-embedding",
+        "added": "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/rigid-triangle-embedding",
+        "added": "StableReductionPartII:MC.2/triangle-smoothing-comparison",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/pointed-dm-theorem",
+        "added": "StableReductionPartII:MC.2/pointed-stack-induction-step",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.2/pointed-dm-theorem",
+        "added": "StableReductionPartII:MC.2/pointed-boundary-induction",
+        "reason": "Accepted MC.2 assembly proof route"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/clutching-finite-unramified",
+        "added": "StableReductionPartII:MC.3/persistent-node-incidence",
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/clutching-finite-unramified",
+        "added": "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/boundary-normalization",
+        "added": "StableReductionPartII:MC.3/boundary-normalization-comparison",
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/boundary-normalization",
+        "added": "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization",
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/node-conormal",
+        "added": "StableReductionPartII:MC.3/smoothing-conormal-descent",
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/hodge-determinant",
+        "removed": "SchemeAndStackFoundations:SF.5",
+        "reason": "Ordinary determinants belong to current AlgebraicVectorBundles L0B–L0C"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/hodge-determinant",
+        "added": "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/rational-noether",
+        "added": "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/rational-noether",
+        "added": "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/complex-picard-torsion-free",
+        "added": "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/integral-picard-injection",
+        "added": "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/integral-picard-injection",
+        "added": "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/integral-noether",
+        "added": "StableReductionPartII:MC.5/noether-defect-line",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/integral-noether",
+        "added": "StableReductionPartII:MC.5/rational-defect-torsion",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/semi-canonical-noether",
+        "added": "StableReductionPartII:MC.5/noether-arbitrary-base-pullback",
+        "reason": "Accepted MC.5 imported-target refinement"
+      },
+      {
+        "target": "StableReductionPartII:MC.4/finite-degree-equations",
+        "added": "StableReductionPartII:MC.4/integral-hilbert-kernel",
+        "reason": "Integral relative Serre bound before descent of a single fixed-degree line"
+      },
+      {
+        "target": "StableReductionPartII:MC.4/projective-coarse",
+        "added": "StableReductionPartII:MC.4/fixed-degree-ample-descent",
+        "reason": "One determinant degree and power over the entire integer base"
+      },
+      {
+        "target": "StableReductionPartII:MC.4/level-connectedness",
+        "added": "StableReductionPartII:MC.4/complex-level-orbits",
+        "reason": "Fixed-pairing complex orbit calculation and tame boundary normalization"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/hodge-bundle",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "reason": "Actual all-base Hodge inputs; NODAL-BC still contains the normalization exact sequences"
+      },
+      {
+        "target": "StableReductionPartII:MC.5/hodge-bundle",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "reason": "Actual all-base Hodge inputs; NODAL-BC still contains the normalization exact sequences"
+      },
+      {
+        "target": "StableReductionPartII:MC.7/picard-triples-comparison",
+        "added": "StableReductionPartII:MC.7/actual-triples-groupoid",
+        "reason": "Compare the actual triple groupoid with its relative sheaf of classes"
+      },
+      {
+        "target": "StableReductionPartII:MC.7/picard-triples-comparison",
+        "added": "StableReductionPartII:MC.7/lift-obstruction",
+        "reason": "Compare the actual triple groupoid with its relative sheaf of classes"
+      },
+      {
+        "target": "StableReductionPartII:MC.7/picard-triples-comparison",
+        "added": "StableReductionPartII:MC.7/lift-torsor",
+        "reason": "Compare the actual triple groupoid with its relative sheaf of classes"
+      }
+    ],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids.",
+    "parts": [
+      "research/blueprint/packets/StableReductionPartII.json",
+      "research/blueprint/packets/StableReductionPartII--MC.0.json",
+      "research/blueprint/packets/StableReductionPartII--MC.1.json",
+      "research/blueprint/packets/StableReductionPartII--MC.2.json",
+      "research/blueprint/packets/StableReductionPartII--MC.3.json",
+      "research/blueprint/packets/StableReductionPartII--MC.4.json",
+      "research/blueprint/packets/StableReductionPartII--MC.5.json",
+      "research/blueprint/packets/StableReductionPartII--MC.6.json",
+      "research/blueprint/packets/StableReductionPartII--MC.7.json"
+    ],
+    "inventory": {
+      "targets": 618,
+      "inheritedTargets": 528,
+      "refinementTargets": 90,
+      "requests": 200,
+      "gaps": 50,
+      "landmarks": 44,
+      "restructureProposals": 12
+    },
+    "inheritedCoverage": [
+      {
+        "stageId": "StableReductionPartII:MC.0",
+        "status": "partial",
+        "remaining": [
+          "Resolve stable-family/descent types and the locally Noetherian-to-arbitrary-scheme extension; supply the real Lean moduli-pseudofunctor signatures.",
+          "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; the mathematical owner obligations remain open.",
+          "Supply the actual marking/projection/smooth-restriction geometric Lean types for the four added universal-curve API/test omissions. Native scheme pullback/topology primitives are read and imported; they do not provide effective fppf object descent."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.1",
+        "status": "partial",
+        "remaining": [
+          "Finish generic proofs/supplier closure for the DM §4 atlas and stack valuative criteria, which the source explicitly states without proofs. The relevant §1 and §4 statements and §5.1–5.2 application have fresh bounded source receipts; DM §§2–3 and transitive inputs are not wholly re-reviewed.",
+          "Resolve Hilbert/Isom/deformation suppliers and separate each nonroutine formal-to-algebraic criterion.",
+          "Construct the canonical relative-polarization Hilbert locus with its projective-frame/base-line twist and prove its representing property.",
+          "Discharge the coherent Ext/deformation supplier scope and the arbitrary-base extension; source verification of MC.1 alone does not close either obligation.",
+          "Discharge the universal Isom action-groupoid comparison, refined Noetherian source-dense scheme criterion, geometric-fibre infinitesimal criterion and formal-to-étale normal-crossings detection at their exact owner contracts; generic baseline names do not supply those intermediate inputs."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.2",
+        "status": "partial",
+        "remaining": [
+          "Supply the reusable owner-level relative stable-reflexivity interface for a flat noetherian coefficient map. The polynomial ordinary bidual, arbitrary-coefficient Hom exchange, projective resolutions and positive Ext calculations are specified; their general relative and completed-local applications still need the exact source hypotheses.",
+          "Prove Knudsen Appendix Proposition 6 with both coefficient and chart completions, including arbitrary completed-coefficient modules; inspect and discharge the cited Bourbaki III.5.4.4 input and Proposition 7 exercise. Finite-projective tensor/limit interchange and the existing Hom_R comparison do not establish arbitrary-module Hom/Ext or universally acyclic completion.",
+          "Identify Hom over the completed chart ring from the completed section ideal and its dual, and prove the actual change-of-rings comparison with the existing Hom_R compatible quotient families. Supply the justified higher Ext comparison and exact hypotheses for faithful reflection.",
+          "Keep the surjective map from the completed chart tensor over the original coefficient ring to the tensor over the completed coefficient ring distinct; establish injectivity only under justified hypotheses. The finite quotient equivalences and finite-projective limit comparisons do not prove it for arbitrary completed-coefficient modules.",
+          "Identify the pointed completed-local hull, including collision and node charts and the rigid genus-one embedding, with the polynomial model. Prove the stated family comparison contracts with their exact hypotheses; smaller proof steps remain in their sketches.",
+          "Globalize the actual section-ideal, dual and quotient constructions by coefficient-compatible sheaf descent, and prove finite-presentation/noetherian approximation over arbitrary schemes before applying contraction/expansion to all families.",
+          "Supply the missing pointed-family and moduli type interfaces, contraction/expansion inverse and base-change coherence, all stable-pair smooth/proper Deligne–Mumford conclusions, genus-zero cross-ratio and compactification, genus-one base and rational-tail contraction. All parent and foundational requests and source-version/locator obligations remain required.",
+          "Discharge the explicit formal-Proj/flatness transfer and old-mark collision contracts; prove the rigid triangle family recovery with four fixed smoothing parameters and the fifth elliptic boundary parameter. Added higher-genus boundary divisors include old-section collisions, not only the old-boundary inverse image."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.3",
+        "status": "partial",
+        "remaining": [
+          "Discharge the exact integral relative node-choice, stack-normalization and smoothing-conormal descent contracts; characteristic-zero source statements and consumer graph-invariant calculations are now read but do not prove the Z-interface.",
+          "Supply actual stack, marking-line and clutching Lean interfaces, including the ten added API contracts and empty-boundary test in their specified bases. Discharge the listed integral owner contracts and transitive mathematical inputs; the integral owner contracts and geometric type interfaces remain open."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.4",
+        "status": "partial",
+        "remaining": [
+          "Read DM component/tame-cover proof and Serre rigidity sources.",
+          "Read generic CLM positivity background and acquire/decompose the surface inputs; resolve owner extensions and all coarse-cover prerequisites.",
+          "Discharge the integral parameter-family relative Serre generation/vanishing and flat fibre-ideal comparison used to choose one fixed determinant degree over Z; do not take a maximum of degrees whose ample neighbourhoods may differ."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.5",
+        "status": "partial",
+        "remaining": [
+          "Acquire generic integral Deligne-pairing/determinant constructions and comparison source.",
+          "Resolve topology/Picard injection inputs and supply stack-valued line signatures; retain the rational-versus-integral distinction."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.6",
+        "status": "partial",
+        "remaining": [
+          "Finish exact JC1/JC6 and stable R11.4 supplier composition, the regular-component criterion and atlas descent; strong Torelli and all-characteristic minimal ppav compactification remain separate owner gaps.",
+          "Complete formal signatures and generic finite-pullback nef/big dependencies; graph closure is specified with both the base and K(W₀)."
+        ]
+      },
+      {
+        "stageId": "StableReductionPartII:MC.7",
+        "status": "partial",
+        "remaining": [
+          "Finish transitive JC0 degree-component/representability/torsor and JC4 cohomological obstruction supplier proofs and their actual types; verify universal global functions on arbitrary test bases. The exact supplier statements are now imported, not missing owner plans.",
+          "Supply actual sheaf/groupoid Lean signatures, including Pic(T)-torsors of lifts and infinitesimal points. The six consumer contracts have fresh bounded source/export receipts; their global composition and routed Yuan/DGH closure remain unverified."
+        ]
+      }
+    ],
+    "historicalPrototypeCoverageRef": "historicalPrototypeCoverage",
+    "historicalReceiptPolicy": "Existing planningPass, continuation and independent-audit compilation receipts describe their original files and versions. The live prototypeCoverage above describes this joined file.",
+    "forwardApiReferences": [
+      {
+        "target": "StableReductionPartII:MC.3/separating-clutching",
+        "dependency": "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "cycle": [
+          "StableReductionPartII:MC.3/separating-clutching",
+          "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+          "StableReductionPartII:MC.3/separating-clutching"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/separating-clutching",
+        "dependency": "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+        "cycle": [
+          "StableReductionPartII:MC.3/separating-clutching",
+          "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+          "StableReductionPartII:MC.3/forget-cotangent-line",
+          "StableReductionPartII:MC.3/boundary-types",
+          "StableReductionPartII:MC.3/separating-clutching"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/nonseparating-clutching",
+        "dependency": "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "cycle": [
+          "StableReductionPartII:MC.3/nonseparating-clutching",
+          "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+          "StableReductionPartII:MC.3/nonseparating-clutching"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/nonseparating-clutching",
+        "dependency": "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+        "cycle": [
+          "StableReductionPartII:MC.3/nonseparating-clutching",
+          "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+          "StableReductionPartII:MC.3/forget-cotangent-line",
+          "StableReductionPartII:MC.3/boundary-types",
+          "StableReductionPartII:MC.3/nonseparating-clutching"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/boundary-types",
+        "dependency": "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "cycle": [
+          "StableReductionPartII:MC.3/boundary-types",
+          "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+          "StableReductionPartII:MC.3/boundary-types"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/cotangent-line",
+        "dependency": "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+        "cycle": [
+          "StableReductionPartII:MC.3/cotangent-line",
+          "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+          "StableReductionPartII:MC.3/cotangent-line"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      },
+      {
+        "target": "StableReductionPartII:MC.3/forget-cotangent-line",
+        "dependency": "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+        "cycle": [
+          "StableReductionPartII:MC.3/forget-cotangent-line",
+          "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+          "StableReductionPartII:MC.3/forget-cotangent-line"
+        ],
+        "reason": "Accepted MC.3 target coverage"
+      }
+    ],
+    "reroutedRequests": [
+      {
+        "request": "Base-R87",
+        "from": "SchemeAndStackFoundations:SF.5",
+        "to": "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "reason": "Ordinary determinants are imported from AlgebraicVectorBundles; the remaining stack line descent belongs to SF.1."
+      }
+    ],
+    "terminalOwnership": {
+      "policy": "SF.4 retains its existing terminal stable-curve stack, finite Isom, algebraicity/properness and smoothness targets. MC.1 targets are their unpointed specializations with explicit tricanonical and boundary proof refinements; no duplicate terminal declaration is proposed.",
+      "imports": [
+        "SchemeAndStackFoundations:SF.4/stable-curve-stack",
+        "SchemeAndStackFoundations:SF.4/isom-stable-curves",
+        "SchemeAndStackFoundations:SF.4/stable-curve-stack-algebraic",
+        "SchemeAndStackFoundations:SF.4/stable-curve-stack-smooth"
+      ],
+      "cycleBoundary": "Use generic SF.0/SF.1/SF.2/SF.4 deformation inputs to establish the MC.1 proof refinements. Do not use a terminal stable-curve theorem as a premise in its own proof. The stable-curve-stack reference in the quotient comparison names the pre-existing family object, not its later algebraicity theorem."
+    },
+    "currentReadOnlyComparison": {
+      "roadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "roadmapsRead": [
+        "StableReduction/README.md",
+        "AlgebraicVectorBundles/README.md"
+      ],
+      "libraryRead": [
+        "TauCeti/RingTheory/Node/Basic.lean",
+        "TauCeti/RingTheory/Node/Jacobian/Locus.lean",
+        "TauCeti/AlgebraicGeometry/Curves/Node/SingularLocus.lean",
+        "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
+        "TauCeti/Algebra/Homology/TotallyAcyclic.lean"
+      ],
+      "reuse": "NodeAlgebra quotient and Jacobian/singular-locus comparisons, current line-bundle class group and totally acyclic/Gorenstein-projective infrastructure are existing implementations, not new target developments."
     }
   }
 }
