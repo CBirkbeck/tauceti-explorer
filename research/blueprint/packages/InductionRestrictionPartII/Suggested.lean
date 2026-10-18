@@ -223,19 +223,13 @@ theorem rank_parity_count {V W : Type} [AddCommGroup V] [Module (ZMod 2) V] [Fin
       2 ^ (Module.finrank (ZMod 2) V - Module.finrank (ZMod 2) (LinearMap.range L)) := by
   sorry
 
-/-- **The weight enumerator of a surviving parity coset** (RS.4.18): for a set `C` of parity
-vectors and a lower bound `N₀`, `Σ_{ε ∈ C} X ^ wt(ε + N₀ · 1)`. -/
-def parityWeightEnumerator {N : ℕ} (C : Finset (Fin N → ZMod 2)) (N₀ : ℕ) : Polynomial ℕ :=
-  ∑ ε ∈ C, Polynomial.X ^ (Finset.univ.filter fun i => ε i + (N₀ : ZMod 2) ≠ 0).card
-
-/-- `parityWeightEnumerator_test_2`: for `N = 1`, `N₀ = 0`, the coset `{1}` gives `X`. -/
-example : parityWeightEnumerator ({fun _ => 1} : Finset (Fin 1 → ZMod 2)) 0 = Polynomial.X := by
-  sorry
-
-/-- `parityWeightEnumerator_test_3`: the cosets `{0}` and `{1}` have equal size but different
-enumerators (`1` and `X`). -/
-example : parityWeightEnumerator ({fun _ => 0} : Finset (Fin 1 → ZMod 2)) 0 ≠
-    parityWeightEnumerator ({fun _ => 1} : Finset (Fin 1 → ZMod 2)) 0 := by
+/-- The fixed-fiber sign (RS.4.3), in the central marked model `C₁₄ → C₂`:
+`b = a⁻²` in the kernel `C₇` gives `h² = a²`, solved by `a`, not `a⁻¹`. -/
+example :
+    (Multiplicative.ofAdd (1 : ZMod 7)) ^ 2 =
+        (Multiplicative.ofAdd (-2 : ZMod 7))⁻¹ ∧
+      (Multiplicative.ofAdd (-1 : ZMod 7)) ^ 2 ≠
+        (Multiplicative.ofAdd (-2 : ZMod 7))⁻¹ := by
   sorry
 
 end RS4
@@ -366,8 +360,11 @@ end RS6
 * RS.4: `squareObstruction`, `involution_square_central`, `fixed_fiber_equation`,
   `all_fixed_fibers`, `odd_parity_fiber`, `even_parity_fiber`, `lift_square_columns`,
   `paritySquareMap`, `affine_compatible_parities`, `surviving_parities`, `independent_classes`.
+  The lower-bound adapter `parity_lowerBound_translation` and `parity_degree_generatingSeries`
+  consume the current library's weight polynomial, which is absent at the pins.
 * RS.6: `ReductionCertificate`, `finiteParityAlgorithm`, `centralizer_generator_relations`,
-  the graph models, `antidiagonal_reduced_multiplier`, `order96_reduced_multiplier`, and all
+  the graph models, `multiplier_prod_abelian`, `abelian_multiplier_exteriorSquare`,
+  `antidiagonal_reduced_multiplier`, `order96_reduced_multiplier`, and all
   thirty-one `table_row_k` statements. The light `sumKernelModel` specializes to `order96Type`
   at `A₄` and to `antidiagonalModel` for abelian groups; `outsideInvolutions` retains their marking.
 
