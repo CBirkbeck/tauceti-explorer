@@ -170,7 +170,7 @@
       "authors": "Taira Honda",
       "edition": "Osaka Journal of Mathematics 5 (1968), 199–213",
       "url": "https://ir.library.osaka-u.ac.jp/repo/ouka/all/8997/ojm05_02_05.pdf",
-      "sha256": "e8179bad5a6649f06e52acf45dfbb5b87cf99d30d0edf0b37768e39ef06245c1",
+      "sha256": "d2ba2d8a39e26798d8ea779dd5aa503187c69507b45faa73790fc4fdc8de4e6c",
       "accessed": "2026-10-18",
       "readSections": [
         "§1 and §2, pp.199–206, and §4, pp.209–213; Theorem 2 and Corollary 4 checked against the subsequent functional-equation proof."
@@ -262,8 +262,8 @@
       "sources": [
         {
           "sourceId": "H70",
-          "locator": "§1, Proposition 1.6, p.220",
-          "match": "Homomorphisms and their tangent maps; logarithms determine characteristic-zero homomorphisms."
+          "locator": "§1.1, pp.214–215; Proposition 1.6, pp.219–220",
+          "match": "The general homomorphism, addition and composition definitions are in §1.1; Proposition 1.6 identifies characteristic-zero homomorphisms by their tangent maps."
         },
         {
           "sourceId": "VZ07",
@@ -273,6 +273,31 @@
       ],
       "implementationStatus": "unchecked",
       "api": [
+        {
+          "name": "FormalGroupHom.mk",
+          "role": "constructor",
+          "statement": "A zero-constant series satisfying the formal homomorphism identity defines a homomorphism, with that series as its underlying coefficient data."
+        },
+        {
+          "name": "FormalGroupHom.id",
+          "role": "structure",
+          "statement": "The series X is the identity homomorphism; its left and right composition identities hold."
+        },
+        {
+          "name": "FormalGroupHom.zero",
+          "role": "structure",
+          "statement": "The zero series is the zero homomorphism and is preserved by coefficient base change."
+        },
+        {
+          "name": "FormalGroupHom.add",
+          "role": "structure",
+          "statement": "For h,k:F→G the sum has underlying series G(h(X),k(X)); it gives Hom(F,G) its additive commutative group structure."
+        },
+        {
+          "name": "FormalGroupHom.comp",
+          "role": "structure",
+          "statement": "Composition is formal substitution with the declared source and target; it is associative, distributes over hom addition, and has the derivative product formula."
+        },
         {
           "name": "FormalGroupHom.ext",
           "role": "extensionality",
@@ -423,7 +448,7 @@
         {
           "name": "tangent_action_required",
           "kind": "non-example",
-          "statement": "Over Q, sending a to [conjugate(a)] with a different algebra embedding does not give the specified A-module."
+          "statement": "Take A=R=Q(i) with the identity A-algebra structure and the additive formal law. The unital action [a](X)=conjugate(a)X fails the required tangent condition at a=i, so it is not a formal A-module for this structure map."
         }
       ],
       "uses": [
@@ -541,7 +566,7 @@
         {
           "name": "wrong_points_rejected",
           "kind": "non-example",
-          "statement": "A scalar x∈m_L is not silently treated as an element of FormalGroup.Point σ, whose carrier is a power-series ring."
+          "statement": "For prime p and R=Z_p, Mathlib FormalGroup.Point with no power-series variables has only the zero parameter, since R is reduced and its constant must be nilpotent. The evaluated additive group G_a(pZ_p) contains the nonzero parameter p; these point constructions cannot be identified."
         },
         {
           "name": "dedekind_point_map",
@@ -1070,7 +1095,7 @@
       "statement": "For F_f over O_K and m≥1, its primitive π^m-torsion consists of the O_K/π^m-module generators. For any generator t_m, K(t_m)=K(F_f[π^m]) is totally ramified of degree (q−1)q^(m−1). The action identifies its Galois group with (O_K/π^m)× and sends t_m to [a]t_m. Consecutive generators can be chosen with [π]t_(m+1)=t_m.",
       "hypotheses": [],
       "proofSteps": [
-        "For πX+X^q the first primitive equation is π+X^(q−1); subsequent division equations over the preceding field are Eisenstein after translating to a compatible primitive point.",
+        "For the standard series πX+X^q, the first primitive point t_1 satisfies the Eisenstein polynomial π+X^(q−1), so it is a uniformizer of K(t_1). Given a uniformizer t_m, the polynomial X^q+πX−t_m is Eisenstein over O_(K(t_m)); a root t_(m+1) is again a uniformizer and satisfies [π]t_(m+1)=t_m.",
         "Prove the primitive degree and total ramification inductively. The torsion action injects the finite Galois group into (O/π^m)×; equality follows from the computed degree.",
         "Transfer arbitrary admissible f by the same-π coordinate isomorphism."
       ],
@@ -1969,8 +1994,8 @@
       "sources": [
         {
           "sourceId": "H70",
-          "locator": "Theorem 9, pp.240–241",
-          "match": "The elliptic formal logarithm has type p−a_pT+T²."
+          "locator": "Theorem 9 and its proof, pp.240–241; Lemma 4.2, p.231",
+          "match": "Theorem 9 treats elliptic curves over Q; its proof derives the logarithm type p−a_pT+T² from the local Frobenius polynomial using Lemma 4.2. The local O=W(F_p²) comparison here is proved by the preceding unramified Honda node and the imported elliptic Frobenius theorem, rather than by broadening Theorem 9."
         },
         {
           "sourceId": "H68",
@@ -3047,10 +3072,7 @@
           "match": "The multiplier-order formula persists for integral homomorphisms in the geometric isogeny class."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Ramified Honda boundary test"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/lattice-neighbors",
@@ -3501,7 +3523,7 @@
       "statement": "For a formal O0-module G over O_K and a finite Galois extension L/K, define Tr^G_(L/K):G(m_L)→G(m_K) by the finite formal sum of σx over Gal(L/K). More generally the same formula on embeddings gives the finite separable trace. It is O0-linear, natural for coefficient-defined formal homomorphisms, compatible with towers, coefficient field isomorphisms and coordinate transport. Its value is invariant and lies in m_K; logarithms carry it to the usual field trace.",
       "hypotheses": [],
       "proofSteps": [
-        "Evaluate the finite formal sum in G(m_L), use permutation invariance to prove it is Galois fixed, and identify the fixed maximal-ideal parameters with m_K.",
+        "For Galois L/K, evaluate the finite sum in G(m_L), use permutation invariance to prove it is fixed, and identify fixed maximal-ideal parameters with m_K. For finite separable L/K choose a finite Galois normal closure N/K and sum over the K-embeddings L→N in G(m_N); invariance descends the sum to m_K, and further enlargement of N leaves it unchanged.",
         "Prove O0-linearity and functoriality from the actual group action. Partition a tower’s embeddings to prove transitivity.",
         "Use coordinate-isomorphism and convergent logarithm compatibility term by term. For a Galois base change disjoint from L/K, compare the same embeddings; state this disjointness hypothesis explicitly."
       ],
@@ -3781,7 +3803,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-      "need": "The existing elliptic isogeny/dual and invariant-differential API, integral elliptic formal logarithm/exponential, and their completion compatibility. Compare the general formal-module logarithm and the pinned formal law with this specific elliptic construction; do not rebuild elliptic formal geometry.",
+      "need": "The existing elliptic isogeny/dual and invariant-differential API, elliptic formal logarithm/exponential over a Q-algebra, and their completion compatibility. For an integral law over a local-field integer ring, request convergence of the rational logarithm on the maximal ideal and a mutually inverse exponential on a sufficiently deep ideal, not integral logarithm coefficients. Compare the general formal-module logarithm and the pinned formal law with this specific elliptic construction; do not rebuild elliptic formal geometry.",
       "neededBy": [
         "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/formal-log",
         "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/elliptic-deformation-comparison",
@@ -3943,7 +3965,12 @@
       "searched": [
         "Read the existing atlas errata file and its confirmed E9 review; its earlier Annals/Crossref search is not represented as a new search in this run.",
         "Reread the publisher PDF Lemma 5.1 and subsequent π=−p application, and checked the correction directly against Honda70."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked published Lemma 5.1(ii), p.956, against Honda70 Lemma 4.2, p.231. Reduction [s p]=X^(p²) gives s pℓ−ℓ(X^(p²))∈pO[[X]], hence type p−sT² and parameter s p. The explicit normalized logarithm Σ(s p)^(-j)X^(p^(2j)) satisfies pℓ−sℓ(X^(p²))=pX. For s=−1 this agrees with BKO’s subsequent parameter −p; the printed opposite signs cannot agree with scalar Frobenius.",
+        "by": "REV-DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts"
+      }
     }
   ],
   "restructure": [
@@ -3956,5 +3983,268 @@
       "detail": "The live available issue #1687 specifies this independent formal-module direction. PAPER-BURUNGALE-KOBAYASHI-OTA-21 route 2 also records that grouped issue #3355 supersedes its original per-route scheduling. No grouped roadmap definition or packet is present at this baseline; the grouped issue remains available. Their Lubin–Tate and quadratic quasi-canonical foundations overlap completely.",
       "proposal": "Retain LT.0–LT.9 here as the common formal-module foundation and have the grouped Part II import these stage/node ids. Its AGHMP18 rank-one Breuil–Kisin realization, conjugate-semilinear special endomorphisms, denominator torsors, wild obstruction and lifting-depth branch remains in that grouped continuation. If the orchestrator instead consolidates the names, migrate these stable nodes and rewrite incoming links once; do not develop a second Lubin–Tate/Artin/quasi-canonical theory."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
+    "date": "2026-10-18",
+    "notes": "Independent session codex-XzJK4T checked all 51 nodes against the public source locators, all 15 actual pinned baseline declarations, the five distinct parent supplier statements, all 15 existing-roadmap contracts, current upstream ownership and the reviewed adjacent library audit. Corrected seven nodes (including two discriminating tests, hom API/source, Eisenstein and separable-trace proof details, a source-domain qualification and a boundary-test planet), clarified the rational elliptic logarithm request, refreshed the inspected Honda68 file hash, and independently confirmed source issue E1. No new nodes or gaps; all ten stages remain planned with external requests. Suggested Lean and structural-check results are recorded in the review report.",
+    "checked": [
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/formal-hom",
+        "verdict": "corrected",
+        "note": "Checked Honda70 §1.1 pp.214–215 and Proposition 1.6 pp.219–220. Added the general-definition locator and explicit constructor, identity, zero, formal addition and composition API; the tangent criterion remains restricted to characteristic zero."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/formal-module",
+        "verdict": "corrected",
+        "note": "VZ07 Definition 1.1 and field-height calculation pp.57–60 support the action and tangent convention. Replaced the impossible Q-conjugation test by the conjugate action on Q(i) with its fixed identity structure map."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/adic-points",
+        "verdict": "corrected",
+        "note": "Verified evaluation hypotheses and the separate pinned elliptic point carrier, auxiliary hypothesis and Dedekind-completion range. Replaced a type-only non-example with the empty-variable nilpotent-constant versus nonzero p-adic parameter test."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/formal-log",
+        "verdict": "verified",
+        "note": "Honda70 Theorem 1 pp.218–219 and Proposition 1.6 p.220 give the normalized logarithm over Q-algebras and its derivative factor. No integral-coefficient logarithm or unrestricted analytic inverse is claimed; the elliptic supplier request is now explicit about this."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log",
+        "verdict": "verified",
+        "note": "The integral invariant differential gives logarithm coefficients with denominator n. Their valuations prove convergence on maximal ideals and invertibility only on deep ideals; the torsion-kernel example correctly rules out global injectivity."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1/admissible-series",
+        "verdict": "verified",
+        "note": "LT65 condition (1), p.380, fixes constant zero, linear coefficient π and reduction X^q. Standard and cyclotomic examples distinguish these conditions, and coordinate comparison retains the same uniformizer."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1/interpolation",
+        "verdict": "verified",
+        "note": "LT65 Lemma 1 pp.381–382 proves the finite-arity coefficient induction: the error is π-divisible and π−π^r supplies the correction for r>1. Uniqueness is over the fraction field and no extra commutation assumption is needed."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1/lt-module",
+        "verdict": "verified",
+        "note": "LT65 Theorem 1 pp.382–383 constructs addition and every scalar map by interpolation; uniqueness proves all ring-action identities and recognition. It extends the existing law carrier rather than replacing it."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1/lt-coordinate-comparison",
+        "verdict": "verified",
+        "note": "LT65 equations (8)–(11) pp.382–383 give the same-π tangent-specified comparison, its inverse and coherence. Strict coordinate transport and reduction marking are kept separate."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/finite-height-torsion",
+        "verdict": "verified",
+        "note": "Pinned Weierstrass preparation and quotient equivalence give finite locally free rank q^(hm); differentiation gives generic separability. The actual parent p-divisible carrier is used with underlying height h[K:Q_p], and connectedness is a special-fiber condition."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/tate-module-comparison",
+        "verdict": "verified",
+        "note": "LT65 Theorem 2 pp.383–384 and Yu95 §3 p.295 support rank h over O_K. Restriction to the imported Z_p Tate module accounts for p=uπ^e and has rank h[K:Q_p]; no rank-one claim is made at general height."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/primitive-division",
+        "verdict": "corrected",
+        "note": "LT65 Theorem 2 pp.383–384 supports the degree and Galois calculation. Replaced the vague translated-equation step by the explicit Eisenstein tower X^q+πX−t_m and its uniformizer induction."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/lt-character",
+        "verdict": "verified",
+        "note": "LT65 Theorem 2 pp.383–384 identifies the rank-one torsion action with finite unit quotients. The inverse limit is continuous and independent of a Tate basis because the coefficient action is commutative."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/reciprocity-comparison",
+        "verdict": "verified",
+        "note": "Read LT65 §2 Theorem 3 and proof pp.385–387 and the existing ClassFieldTheory conventions. Arithmetic Artin sends a unit to its inverse on torsion; norm kernels and the uniformizer direction identify the existing map without constructing a second one."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/uniformizer-twist",
+        "verdict": "verified",
+        "note": "LT65 Lemma 2 and Theorem 3 pp.385–387 justify the unramified coordinate comparison. For π′=uπ, the arithmetic Frobenius twist has value u; it is not the inverse twist, and the proof does not depend on this node circularly."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/marked-deformation",
+        "verdict": "verified",
+        "note": "LT66 Theorem 3.1 pp.56–57 and Yu95 §2 pp.294–295 support a specified coefficient ring and nonclosed residue field. Marked isomorphisms preserve the full special fiber; the strict [1+p] multiplicative example is correctly nonmarked."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/formal-module-coefficient-ring",
+        "verdict": "verified",
+        "note": "VZ07 Theorem 1.4 pp.58–59 gives the polynomial coefficient algebra with one generator per positive weight, including the distinguished q-power π-coefficients. Its universal law is distinguished from the finite-height moduli ring."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/deformation-cocycles",
+        "verdict": "verified",
+        "note": "VZ07 equations (3.1)–(3.7), p.62, require both law and scalar-action corrections with fixed tangent. Allowing a linear coordinate correction is necessary for marked equivalence and does not impose strictness."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/deformation-lifting",
+        "verdict": "verified",
+        "note": "VZ07 Lemma 2.6 p.61 and Proposition 3.2/Lemma 3.3 pp.62–63 supply finite-height rigidity and the small-extension calculation. Polynomial coefficient lifts give existence, the cocycle quotient gives the torsor, and unique comparisons pass to complete bases."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/finiteheight-tangent",
+        "verdict": "verified",
+        "note": "Checked VZ07 Corollary 3.4 through Proposition 3.6 pp.63–65 and LT66 Proposition 2.6 pp.54–55. The separable normalization calculation is followed by finite-jet linear descent and stabilization before inverse limits; it is not an unjustified tensor identity for infinite products."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/universal-deformation",
+        "verdict": "verified",
+        "note": "LT66 Theorem 3.1 pp.56–57 and VZ07 Theorem 3.8 p.65 give h−1 parameters after the chosen coefficient lift. Small-extension surjectivity, tangent injectivity and rigidity prove the representing property; coordinates and imperfect-field Cohen rings are not called canonical."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/elliptic-deformation-comparison",
+        "verdict": "verified",
+        "note": "Read the actual ModularCurves 7C–7F and parent connected formal/p-divisible equivalence. The comparison is restricted to their domain and retains markings. LT66 §3.5 pp.58–59 supports the warning that formal CM need not lift to global elliptic CM."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/honda-type",
+        "verdict": "verified",
+        "note": "Honda70 §2 pp.220–223 defines the special skew operator and condition (F). The specified Frobenius lift acts on coefficients as well as exponents, zero constants ensure local finiteness, and q is allowed to differ from the full residue cardinality."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/functional-equation-integrality",
+        "verdict": "verified",
+        "note": "Honda70 Lemmas 2.3–2.4 and Theorems 2–3 pp.222–225 give integrality and the homomorphism criterion. Proposition 3.3, Theorem 4 and Proposition 3.5 pp.226–230 support the converse only with the recorded unramified hypotheses."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/unramified-honda-comparison",
+        "verdict": "verified",
+        "note": "Honda70 Lemma 4.2 p.231 applied to [s p] and X^(p²) gives type p−sT². The explicit same-type logarithm and σ²=1 yield the integral O-action and parameter s p. Honda68 Theorem 2 pp.204–205 was reread and the BKO sign correction independently confirmed."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison",
+        "verdict": "corrected",
+        "note": "Retained the valid scalar-Frobenius proof using the elliptic characteristic polynomial and absence of nilpotents in the elliptic endomorphism ring. Qualified the Honda70 Theorem 9 citation: it treats curves over Q, while the local theorem here follows from its stated local prerequisites."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5/tate-lattice",
+        "verdict": "verified",
+        "note": "Yu95 §3 pp.295–296 identifies finite O0-stable torsion kernels with superlattices of the rank-one CM Tate lattice. Setwise Galois stability is correctly weaker than pointwise rationality, and lattice extensionality/base change are specified."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5/lattice-quotient",
+        "verdict": "verified",
+        "note": "Yu95 §3 pp.295–296 and Gross86 §5 pp.324–325 give the integral Serre product. The packet treats it as a power series, proves its invariant-subring factorization and Frobenius reduction, and imports the finite-flat quotient instead of replanning it."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5/lattice-homs",
+        "verdict": "verified",
+        "note": "Yu95 §3 p.296 proves Hom(H_L1,H_L2)={a:aL1⊂L2} inside this known CM isogeny class by clearing quotient isogenies. This is not an unrestricted Tate full-faithfulness claim; integrality and coefficient descent are separate steps."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5/lattice-descent",
+        "verdict": "verified",
+        "note": "Yu95 §§3–4 pp.295–297 give coefficient descent from a setwise stable kernel and transport of the relative-Frobenius marking. The finite-flat descent request is explicit and individual kernel points are not assumed rational."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.5/elliptic-isogeny-comparison",
+        "verdict": "verified",
+        "note": "Actual ModularCurves 2B/7C and EllipticCurves Layer 1 supply the elliptic quotient and completion maps. The formal quotient is compared through their universal property, retaining the pinned map hypotheses and the actual reduced marking."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/canonical-lift",
+        "verdict": "verified",
+        "note": "Gross86 Proposition 2.1 p.322 and Yu95 §4 pp.296–297 agree with height-one uniqueness for the specified residual O_F-action. Restriction gives height [F:F0], while coefficient base and residual embedding remain explicit."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quasi-canonical-lift",
+        "verdict": "verified",
+        "note": "Yu95 §4 pp.296–298 supports the π_F-homothety and Frobenius-twist marking. The endomorphism-order proof first identifies the canonical full ring using derivative injectivity and its rank-one Tate action, then applies the lattice-hom calculation."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/marked-lattice-classification",
+        "verdict": "verified",
+        "note": "Yu95 §4 Propositions 1–2 p.297 and corollary p.298 distinguish F×-homothety for unmarked objects from π_F^Z classes in a compatible marked twist component. Outside the quadratic case an order alone is not claimed to classify lattices."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quadratic-order",
+        "verdict": "verified",
+        "note": "Gross86 Proposition 5.3 p.325 and a rank-two integral basis yield every O_s. The smaller-field uniformizer gives conductor valuation 2s when ramified; the positive-level unit formula excludes s=0."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quadratic-level-classification",
+        "verdict": "verified",
+        "note": "Yu95 Proposition 4 p.300 supplies the Gorenstein proper-lattice argument; quadratic orders satisfy it, including residue characteristic two. The direct basis calculation and Gross86 Proposition 5.3 give the standard representative and unit-stabilizer torsor."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/marked-minimal-field",
+        "verdict": "verified",
+        "note": "Yu95 Theorem 1 and proof p.297 is explicitly over the finite residue field, with subgroup π_F^Z O_L×. The field is smallest among fields containing F for the marked deformation. The coefficient base O_(F^ur) embeds there, so the coordinate-independence argument is legitimate."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/quadratic-degree",
+        "verdict": "verified",
+        "note": "Gross86 Proposition 5.3(2) p.325 and Yu95 Theorem 1 p.297 give the unit quotient. Counting ramified and unramified residue units yields q0^s and q0^(s−1)(q0+1) for s≥1; level zero is handled separately."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/deformation-uniformizer",
+        "verdict": "verified",
+        "note": "Gross86 Proposition 5.3(3) and proof pp.325–326 agree with Yu95 Theorem 2′ pp.301–302 and §§9–10 pp.305–309. The parameter is over O_(F^ur); positive-level valuation is smaller than that of its maximal ideal, so allowed coordinate changes preserve it."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/bko-quasi-fields",
+        "verdict": "verified",
+        "note": "BKO21 §5.0.2 pp.958–959, Gross86 Proposition 5.3 and Yu95 Theorem 1 identify the primed field and exact order. The degree p^(s−1)(p+1), s≥1, primitive-generator invariance of the field, and separate canonical level are consistent."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/ringclass-galois",
+        "verdict": "verified",
+        "note": "BKO21 §5.0.2 pp.958–959 and the actual LocalFieldsRamification Layer 1 unit/log interface give O×/Z_p×. The tame factor is canonical, whereas its generator and a Z_p-coordinate on the negative line require choices."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/honda-ramified-test",
+        "verdict": "corrected",
+        "note": "Verified the level-one proper-order example from Gross86 Proposition 5.3 p.325 and Yu95 §§3–4. It blocks extension of the unramified Honda theorem to this ramified base. Removed its planet: section 14 excludes boundary checks from the atlas, while the theorem remains a target-level acceptance test."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/lattice-neighbors",
+        "verdict": "verified",
+        "note": "Gross86 §5 p.325 and BKO21 §§5.0.1–5.0.2 pp.957–959 support the elementary rank-two lattice calculation: one inward/p outward neighbors at positive level and p+1 outward at zero. Recurrences and distinguished local-point choices remain with their consumer."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/bko-character-data",
+        "verdict": "verified",
+        "note": "BKO21 §2 pp.947–948 uses π=−p and Φ_n from π^(n+1)-torsion. Tame character and Δ order p²−1 agree with LT65; Θ_0=Φ and the first positive degree distinguishes both directions."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/quadratic-directions",
+        "verdict": "verified",
+        "note": "BKO21 §2 pp.947–948 and deep-unit log split pO into the ± lines for p≥5. The anti-line action over Q_p is inversion, yielding the stated semidirect group rather than an abelian pro-p group over Q_p."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/bko-fields",
+        "verdict": "verified",
+        "note": "Checked BKO21 §§2 and 5 pp.947–948, 955–959. Closed character kernels, fixed fields and quotient degrees retain the π^(n+1) indexing. The cyclotomic and anticyclotomic directions are identified by their subgroups, not by degree alone."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/field-generator-comparisons",
+        "verdict": "verified",
+        "note": "BKO21 §5.0.2 pp.958–959 and Yu95 Theorem 1 p.297 give Ψ_n=(Ψ′_(n+1))^Δ′. The n+1 shift, intersection Ψ′_s∩Ψ_s=Ψ_(s−1) for s≥1, and compositum rectangle all follow from the actual unit subgroups."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/sign-generator-comparison",
+        "verdict": "verified",
+        "note": "BKO21 §2 footnote 2 p.948 and §§5.0.1–5.0.2 pp.957–959 agree with w_n=[(−1)^n]v_n. This intertwines [−p] and [p] transitions. A trace between sign-labeled levels has factor (−1)^(n+m), which the packet retains."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/formal-trace",
+        "verdict": "corrected",
+        "note": "BKO21 §§4–5 pp.954–959 and LT65 p.383 support finite formal sums. Made the finite-separable construction explicit in a Galois normal closure and proved invariance and independence before descent; tower, coordinate, logarithm and disjoint-base-change identities retain their hypotheses."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/tame-descent",
+        "verdict": "verified",
+        "note": "BKO21 §5.0.2 pp.958–959 identifies the actual degree-p+1 extension. Its unnormalized trace multiplies fixed points by p+1 and has the integral section [(p+1)^−1]; the normalized projector is a different map."
+      },
+      {
+        "nodeId": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/trace-compatible-exports",
+        "verdict": "verified",
+        "note": "BKO21 §5.0.2 pp.958–959 and the proved field rectangle identify both composites as the same formal trace. Logarithm and coefficient-defined coordinate comparisons preserve it; alternating sign coordinates retain their correction. Higher geometric realizations and local-unit recurrences are exported interfaces, not new conclusions."
+      }
+    ]
+  }
 }
