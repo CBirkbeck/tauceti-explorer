@@ -7,7 +7,9 @@ This file is not the roadmap and is not exhaustive. The roadmap document is defi
 These statements suggest Lean forms so contributors and reviewers converge on names and
 signatures. All proof holes are planning obligations, not implementations.
 
-The typed frontier is HL.0's equal-characteristic coefficient-box topology.
+The typed frontier is HL.0's additive Laurent coefficient-box topology.
+The characteristic-qualified multiplicative topology and its non-Hausdorff pullback branch
+are reader targets; none of these additive definitions supplies that construction.
 Auxiliary API and all heavier targets are specified in the reader, not developed here. The remaining
 source obligations need the canonical residue-tower, Milnor, wild-coefficient, and scheme
 interfaces recorded in the packet's gaps. No True-valued substitute stands for those objects.
