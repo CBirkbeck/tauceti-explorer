@@ -7,7 +7,9 @@ import Mathlib.Data.ZMod.Basic
 This is a suggested interface, not an implementation. The declarations below
 state checks against the pinned libraries; their proofs are deliberately omitted.
 
-The complete mathematical targets, hypotheses, APIs and worked examples are in
+This file is not exhaustive and is not the roadmap. Discharging these statements
+does not finish MC.5. The reader is definitive for the complete mathematical
+targets, hypotheses, APIs and worked examples, in
 `research/blueprint/readmes/StableReductionPartII--MC.5.md`.
 
 The pins have actual scheme modules, invertible sheaves, tensor products and
