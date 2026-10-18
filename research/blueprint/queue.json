@@ -135461,6 +135461,25 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatisticsPartV~adv.md",
    "note": "deliverables arrived from an external worker on issue #10306",
    "finishedAt": "2026-10-18T00:30:03Z"
+  },
+  {
+   "id": "FIX-PKG-InductionRestrictionPartII~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "InductionRestrictionPartII"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-InductionRestrictionPartII~adv.md",
+    "research/blueprint/packages/InductionRestrictionPartII/review.json",
+    "research/blueprint/packages/InductionRestrictionPartII/README.md",
+    "research/blueprint/packages/InductionRestrictionPartII/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-InductionRestrictionPartII~adv.md"
   }
  ]
 }
