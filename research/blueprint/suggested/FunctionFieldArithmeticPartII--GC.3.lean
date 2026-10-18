@@ -20,26 +20,31 @@ here, over carriers that exist at the pinned Mathlib and Tau Ceti:
   action of `Equiv.Perm (Fin d)` on `⨂[K]^d V`, the sign twist of Tau Ceti's
   `PiTensorProduct.reindexRepresentation`; it is the action on the degree-`d`
   part of the graded tensor power of a space concentrated in degree one;
-* `antisymmetrization`, `exteriorProjection`: the maps between `⋀[K]^d V` and
+* Private `antisymmetrization`, `exteriorProjection`: light models at the old
+  pins of maps already in current Mathlib/Tau Ceti, between `⋀[K]^d V` and
   `⨂[K]^d V`, and the comparison of the Koszul-signed invariants with the
-  exterior power when `d!` is invertible (`antisymmetrization.bijective`);
+  exterior power when `d!` is invertible (`antisymmetrization.bijective`).
+  The maps, factorial identities and naturality are imports, not new roadmap
+  targets; see currentLibraryImports in the packet (Tau Ceti a91d3aa);
 * `invariants_map_surjective`: invariants of a finite group are exact when its
   order is invertible (rational averaging);
 * `groupCohomology_isZero_of_invertible`: rational acyclicity of a finite group;
 * `prod_character_eq_comp_prod`, `prod_character_eq_one_of_prod_eq_one`,
   `prod_character_perm`: the tensor character on `A^m` factors through
-  multiplication and is invariant under permuting the factors.
+  multiplication and is invariant under permuting the factors. This algebra
+  needs no finiteness. The README cohomological corollary requires finite `A`;
+  its geometric pushforward interpretation is deferred to the explicit stack gap.
 
 Geometric omission ledger (README targets; their carriers are absent at the
 pins, and no stand-in type, predicate field or admitted data definition is
 used for them):
 * monodromySymmetricLocalSystem (GC.3/monodromy-symmetric-local-system):
   restrictDistinct, uniqueExtension, zero, one, monodromy, stalk,
-  multiplicative; tests test_zero, test_one, test_constant, test_order_three,
-  test_koszul_sign_obstructs, test_stabilizer_character.
+  multiplicative, map, map_id, map_comp; tests test_zero, test_one, test_constant, test_order_three,
+  test_koszul_sign_obstructs, test_stabilizer_character, test_scalar_map.
 * symmetricCoarseModel (GC.3/symmetric-coarse-model): stalk,
-  restrictDistinct, zero, one, subsheaf; tests test_zero, test_one,
-  test_kummer_stalks, test_not_lisse.
+  restrictDistinct, zero, one, subsheaf, map, map_id, map_comp; tests test_zero, test_one,
+  test_kummer_stalks, test_not_lisse, test_scalar_map.
 * The theorems GC.3/root-curve-character-dictionary,
   GC.3/rational-coarse-comparison, GC.3/symmetric-power-cohomology,
   GC.3/twisted-curve-cohomology and GC.3/pushforward-description-comparison.
@@ -119,39 +124,25 @@ def koszulRepresentation (d : ℕ) : Representation K (Perm (Fin d)) (⨂[K]^d V
   map_one' := koszulPermAction.one K V d
   map_mul' := koszulPermAction.mul K V d
 
-/-- The antisymmetrization map `v₁ ∧ ⋯ ∧ v_d ↦ ∑_σ sign σ · v_{σ 1} ⊗ ⋯ ⊗ v_{σ d}`. -/
-def antisymmetrization (d : ℕ) : ⋀[K]^d V →ₗ[K] ⨂[K]^d V :=
+/-- Pin-only model of the existing antisymmetrization map `v₁ ∧ ⋯ ∧ v_d ↦ ∑_σ sign σ · v_{σ 1} ⊗ ⋯ ⊗ v_{σ d}`. -/
+private def antisymmetrization (d : ℕ) : ⋀[K]^d V →ₗ[K] ⨂[K]^d V :=
   exteriorPower.alternatingMapLinearEquiv
     (MultilinearMap.alternatization
       (PiTensorProduct.tprod K : MultilinearMap K (fun _ : Fin d => V) (⨂[K]^d V)))
 
-/-- The quotient map `v₁ ⊗ ⋯ ⊗ v_d ↦ v₁ ∧ ⋯ ∧ v_d`. -/
-def exteriorProjection (d : ℕ) : ⨂[K]^d V →ₗ[K] ⋀[K]^d V :=
+/-- Pin-only model of the existing quotient map `v₁ ⊗ ⋯ ⊗ v_d ↦ v₁ ∧ ⋯ ∧ v_d`. -/
+private def exteriorProjection (d : ℕ) : ⨂[K]^d V →ₗ[K] ⋀[K]^d V :=
   PiTensorProduct.lift (exteriorPower.ιMulti K d).toMultilinearMap
 
 namespace antisymmetrization
 
 variable {K V}
 
-theorem apply_ιMulti (d : ℕ) (v : Fin d → V) :
-    antisymmetrization K V d (exteriorPower.ιMulti K d v) =
-      ∑ σ : Perm (Fin d), ((Perm.sign σ : ℤ)) • PiTensorProduct.tprod K (fun i => v (σ i)) := by
-  sorry
-
 variable (K V)
 
-/-- Projecting back multiplies by `d!`. -/
-theorem exteriorProjection_comp (d : ℕ) :
-    exteriorProjection K V d ∘ₗ antisymmetrization K V d = (d.factorial : K) • LinearMap.id := by
-  sorry
-
+/-- The new compatibility of the imported map with the Koszul action. -/
 theorem mem_invariants (d : ℕ) (x : ⋀[K]^d V) :
     antisymmetrization K V d x ∈ (koszulRepresentation K V d).invariants := by
-  sorry
-
-theorem naturality {W : Type*} [AddCommGroup W] [Module K W] (f : V →ₗ[K] W) (d : ℕ) :
-    antisymmetrization K W d ∘ₗ exteriorPower.map d f =
-      PiTensorProduct.map (fun _ : Fin d => f) ∘ₗ antisymmetrization K V d := by
   sorry
 
 /-- With `d!` invertible, antisymmetrization is a bijection onto the Koszul-signed
@@ -216,6 +207,12 @@ example (x : ⋀[K]^0 V) :
 -- antisymmetrization.test_projection_factor: projecting back multiplies by `3! = 6`; a
 -- definition normalized by `1/d!` would give the identity.
 example : exteriorProjection K V 3 ∘ₗ antisymmetrization K V 3 = (6 : K) • LinearMap.id := by
+  sorry
+
+-- Existing norm-composite identity: checks the private models and permutation convention.
+example (d : ℕ) :
+    antisymmetrization K V d ∘ₗ exteriorProjection K V d =
+      ∑ σ : Perm (Fin d), koszulPermAction K V d σ := by
   sorry
 
 -- antisymmetrization.test_char_two: over `ZMod 2`, `α₂ = 0` on `⋀²(ZMod 2) = 0`, yet the

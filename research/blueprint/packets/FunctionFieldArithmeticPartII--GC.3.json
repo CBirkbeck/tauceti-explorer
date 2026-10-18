@@ -6,7 +6,7 @@
   "FunctionFieldArithmeticPartII:GC.3"
  ],
  "status": "complete",
- "summary": "Follow-up of the accepted parent plan for GC.3 (symmetric local systems on root symmetric powers, after Yun–Zhang Appendix A.2.1). It discharges the parent gap EXTERIOR-COMP with the Koszul-signed permutation action on Tau Ceti's reindexRepresentation, antisymmetrization and the comparison of Koszul-signed invariants with the exterior power, all stated in Lean at the pins, together with rational averaging, finite-group acyclicity and the tensor-character lemma. It replaces the parent's stack sheaf operations by two routes: the symmetric local system is built from its monodromy on the distinct-point locus and extended by purity, and its cohomology is computed on the coarse symmetric power, where Künneth, duality and curve bounds are scheme statements with accepted suppliers. The stack inputs that remain are narrowed to three precise gaps for the proposed stacks Part II of EtaleDualityAndPerverseSheaves. The twelve parent GC.3 nodes are imported unchanged by id. This is a complete planning pass; GC.3 is planned, not closed.",
+ "summary": "Follow-up of the accepted parent plan for GC.3 (symmetric local systems on root symmetric powers, after Yun–Zhang Appendix A.2.1). It discharges the parent gap EXTERIOR-COMP with the Koszul-signed permutation action on Tau Ceti's reindexRepresentation, compatibility of the existing antisymmetrization with that action and the comparison of Koszul-signed invariants with the exterior power, all stated in Lean at the pins, together with rational averaging, finite-group acyclicity and the tensor-character lemma. It replaces the parent's stack sheaf operations by two routes: the symmetric local system is built from its monodromy on the distinct-point locus and extended by purity, and its cohomology is computed on the coarse symmetric power, where Künneth, duality and curve bounds are scheme statements with accepted suppliers. The stack inputs that remain are narrowed to three precise gaps for the proposed stacks Part II of EtaleDualityAndPerverseSheaves. The twelve parent GC.3 nodes are imported unchanged by id. This is a complete planning pass; GC.3 is planned, not closed. Current-library imports are recorded separately from the older pinned baseline: the exterior projection, factorial identities and naturality are already implemented and are not new construction targets.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,175 +16,175 @@
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
     "provides": "The n-th exterior power ⋀[R]^n M as a submodule of the exterior algebra.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:exteriorPower.ιMulti",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
     "provides": "The alternating map (v_i)↦v_1∧⋯∧v_n into ⋀[R]^n M.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:exteriorPower.alternatingMapLinearEquiv",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
     "provides": "Universal property: alternating maps out of M^n are linear maps out of ⋀[R]^n M.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:exteriorPower.map",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
     "provides": "Functoriality ⋀^n f of the exterior power.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:exteriorPower.finrank_eq",
     "kind": "lemma",
     "module": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
     "provides": "For M finite free of rank r over a nontrivial ring, finrank ⋀^n M = choose r n.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:MultilinearMap.alternatization",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
     "provides": "The alternating map Σ_σ sign σ • m∘σ obtained from a multilinear map.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:AlternatingMap.coe_alternatization",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
     "provides": "Alternatizing an alternating map multiplies it by n!.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:PiTensorProduct.reindex",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
     "provides": "Reindexing a tensor product along an equivalence of index types.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:PiTensorProduct.map_reindex",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
     "provides": "Reindexing commutes with applying linear maps factorwise.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:PiTensorProduct.lift",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
     "provides": "Universal property of the tensor product: multilinear maps are linear maps out of it.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:PiTensorProduct.tprod",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
     "provides": "The multilinear map (v_i)↦⊗v_i.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:TensorPower",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/TensorPower/Basic.lean",
     "provides": "The tensor power ⨂[R]^n M indexed by Fin n.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:Equiv.Perm.sign",
     "kind": "def",
     "module": "Mathlib/GroupTheory/Perm/Sign.lean",
     "provides": "The sign homomorphism Perm α →* ℤˣ.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:GroupAlgebra.average",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "The averaging element |G|⁻¹Σg of k[G] when |G| is invertible.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:Representation.averageMap",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "The action of the averaging element on a representation.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:Representation.isProj_averageMap",
     "kind": "theorem",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "averageMap is a projection onto the invariants.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:Representation.invariants",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "The submodule of G-invariant vectors.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:groupCohomology",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
     "provides": "Group cohomology of a k-linear representation as homology of the inhomogeneous cochains.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:CategoryTheory.IsIdempotentComplete",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Idempotents/Basic.lean",
     "provides": "Categories in which every idempotent splits.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:CategoryTheory.Idempotents.isIdempotentComplete_iff_idempotents_have_kernels",
     "kind": "theorem",
     "module": "Mathlib/CategoryTheory/Idempotents/Basic.lean",
     "provides": "A preadditive category is idempotent complete iff every idempotent has a kernel; in particular abelian categories are.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "mathlib:map_prod",
     "kind": "theorem",
     "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
     "provides": "A monoid homomorphism carries a finite product to the product of the images.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "tauceti:PiTensorProduct.reindexRepresentation",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Basic.lean",
     "provides": "The unsigned representation of Perm ι on ⨂[R] (_ : ι), M by reindexing the factors.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "tauceti:PiTensorProduct.commute_reindexRepresentation_map",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Basic.lean",
-    "provides": "Permuting factors commutes with applying the same linear map in every factor.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "provides": "An endomorphism f:V→V applied in every factor commutes with the unsigned permutation action. Naturality for a map V→W uses Mathlib PiTensorProduct.map_reindex.",
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "tauceti:PiTensorProduct.invariants_reindexRepresentation",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Invariants.lean",
     "provides": "With (#ι)! invertible, the invariants of the unsigned permutation action are spanned by the pure powers ⊗x.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    },
    {
     "ref": "tauceti:Representation.range_norm_eq_invariants",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/Invariants.lean",
     "provides": "With |G| invertible, the range of the group sum Σ_g ρ(g) is the invariants.",
-    "checked": "Statement read at the pinned commit on 2026-10-18 and its name and signature confirmed with lean-check (#check) in the pinned build."
+    "checked": "Independently read at the recorded pinned commit on 2026-10-18; declaration, hypotheses and conventions confirmed. The suggested file elaborates at those pins."
    }
   ]
  },
@@ -199,7 +199,7 @@
    "accessed": "2026-10-18",
    "readSections": [
     "Appendix A.1–A.2.1, printed pp. 514–521: Definitions A.1–A.3, Lemma A.4, A.1.4–A.1.5, Lemma A.5 and Lemmas A.6–A.9 with proofs.",
-    "Page images of printed pp. 518–519 checked against the extracted text.",
+    "Page images of printed pp. 506, 519–520 independently checked; the source issues are recorded in our own words.",
     "arXiv v2 pp. 85–86, the passage of A.2.1 and Lemma A.6, collated."
    ]
   },
@@ -248,7 +248,8 @@
    "accessed": "2026-10-18",
    "readSections": [
     "§§2–5, pp. 1–20, including (4.1) and the discussion of skew-symmetric tensors on p. 13."
-   ]
+   ],
+   "sha256": "95c48ea826b3c74d5bdbb36ea002f46dd747c7c42e164ce2fee5f95b1fae62e1"
   },
   {
    "id": "MILNE-CFT",
@@ -295,7 +296,29 @@
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/651c49797943811c7dd6d8ab4b5771b7ede1ec0d/TauCetiRoadmap/EtaleCohomologyFoundations/README.md",
    "accessed": "2026-10-18",
    "readSections": [
-    "Scope and ownership; Conventions; §§F.0.2, F.2.1, F.2.6, F.2.7, F.4.5, F.10.4–F.10.5. No section treats Deligne–Mumford stacks."
+    "Scope and ownership; §§F.2.1, F.2.6–F.2.7, F.3, F.4.5–F.4.6. Scheme-only; the normality and finite coefficient-field restrictions in F.4.5 are retained."
+   ]
+  },
+  {
+   "id": "TC-CurrentExterior",
+   "title": "Existing tensor/exterior comparison in current Tau Ceti",
+   "authors": "The Tau Ceti contributors",
+   "edition": "Current library commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; postdates the pinned baseline",
+   "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/LinearAlgebra/ExteriorPower/Basic.lean",
+   "accessed": "2026-10-18",
+   "readSections": [
+    "fromTensorPower, fromTensorPower_tprod, fromTensorPower_surjective, fromTensorPower_comp_toTensorPower, toTensorPower_injective, toTensorPower_comp_fromTensorPower, toTensorPower_comp_map, map_comp_fromTensorPower and range_toTensorPower; lines 170–247."
+   ]
+  },
+  {
+   "id": "TC-CurrentCorestriction",
+   "title": "Existing ordinary corestriction and finite-group annihilation in current Tau Ceti",
+   "authors": "The Tau Ceti contributors",
+   "edition": "Current library commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; postdates the pinned baseline",
+   "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/RepresentationTheory/Homological/GroupCohomology/Corestriction.lean",
+   "accessed": "2026-10-18",
+   "readSections": [
+    "map_subtype_id_comp_corestriction and index_nsmul_eq_zero_of_map_eq_zero, lines 153–169; natCard_nsmul_eq_zero, lines 430–445."
    ]
   }
  ],
@@ -316,7 +339,7 @@
    "proofSteps": [
     "P_σ is the reindexing of the tensor factors along σ, and σ↦P_σ is already a representation (tauceti:PiTensorProduct.reindexRepresentation).",
     "sgn:S_d→{±1} is a homomorphism with values in the centre of End_K(V^{⊗d}), so σ↦sgn(σ)P_σ is again a representation.",
-    "For a K-linear f:V→W, f^{⊗d} commutes with every P_σ (tauceti:PiTensorProduct.commute_reindexRepresentation_map and mathlib:PiTensorProduct.map_reindex), hence with sgn(σ)P_σ."
+    "For a K-linear f:V→W, use mathlib:PiTensorProduct.map_reindex to commute f^{⊗d} with P_σ, then with its sign twist. The Tau Ceti commute_reindexRepresentation_map citation covers the endomorphism case only."
    ],
    "acceptance": [
     "For d=2 and V=K the transposition acts on K⊗K≅K by −1, while P_σ alone acts by +1.",
@@ -426,7 +449,7 @@
     {
      "sourceId": "TC-TensorAction",
      "locator": "TauCeti/RepresentationTheory/Symmetric/TensorAction/Basic.lean, reindexRepresentation and commute_reindexRepresentation_map",
-     "match": "The unsigned permutation representation of S_d on the tensor power and its commutation with f^{⊗d}; the Koszul action is its sign twist."
+     "match": "Supplies the unsigned permutation representation and its commutation with tensor powers of endomorphisms. Mathlib map_reindex supplies naturality between different modules; the proposed action is the sign twist."
     }
    ],
    "implementationStatus": "unchecked"
@@ -437,18 +460,15 @@
    "realises": [
     "FunctionFieldArithmeticPartII:GC.3"
    ],
-   "title": "Antisymmetrization and the exterior projection",
-   "kind": "construction",
-   "statement": "For a commutative ring K, a K-module V and d≥0, the antisymmetrization α_d:∧^dV→V^{⊗d} is the K-linear map with α_d(v_1∧⋯∧v_d)=Σ_{σ∈S_d}sgn(σ)·v_{σ(1)}⊗⋯⊗v_{σ(d)}, obtained from the alternatization of the multilinear map (v_i)↦v_1⊗⋯⊗v_d through the universal property of ∧^d. The exterior projection π_d:V^{⊗d}→∧^dV is v_1⊗⋯⊗v_d↦v_1∧⋯∧v_d. Then π_d∘α_d=d!·id, α_d is natural in V, and α_d takes values in the invariants of the Koszul-signed action.",
+   "title": "Existing antisymmetrization takes values in the Koszul invariants",
+   "kind": "lemma",
+   "statement": "Use the existing antisymmetrization α_d=exteriorPower.toTensorPower and exterior projection π_d=exteriorPower.fromTensorPower, for a commutative ring K, a K-module V and d≥0. The current library already supplies their generator formulas, π_d∘α_d=d!·id, α_d∘π_d=Σ_σ sgn(σ)P_σ, and naturality. The additional compatibility target here is that every α_d(ω) is invariant for the Koszul-signed action of GC.3/koszul-sign-action. No factorial invertibility is needed for this compatibility. These maps are imports, not new constructions in GC.3; the suggested file uses private light models only because the imports postdate its mandatory pins.",
    "hypotheses": [
     "K commutative ring; V a K-module; d≥0. No invertibility is assumed for the construction; d! invertible is needed only in GC.3/alternating-invariants-exterior."
    ],
    "proofSteps": [
-    "The alternatization of a multilinear map is alternating (mathlib:MultilinearMap.alternatization), so it factors uniquely through ∧^dV (mathlib:exteriorPower.alternatingMapLinearEquiv).",
-    "π_d is the linear map induced by the alternating map ιMulti (mathlib:PiTensorProduct.lift, mathlib:exteriorPower.ιMulti).",
-    "π_d∘α_d sends v_1∧⋯∧v_d to Σ_σ sgn(σ)²·v_1∧⋯∧v_d=d!·v_1∧⋯∧v_d (mathlib:AlternatingMap.coe_alternatization; Conrad, §4, p. 13).",
-    "For τ∈S_d, τ·α_d(ω)=Σ_σ sgn(τ)sgn(σ)·(reindexed tensor), and substituting σ′=στ⁻¹ returns α_d(ω); so α_d lands in the invariants.",
-    "Naturality: f^{⊗d}∘α_d=α_d∘∧^df on generators (mathlib:exteriorPower.map)."
+    "Reuse exteriorPower.toTensorPower from current Mathlib and exteriorPower.fromTensorPower from Tau Ceti LinearAlgebra/ExteriorPower/Basic.lean, with the factorial and naturality API listed in currentLibraryImports. At the old pins the same maps are represented by the alternating-map universal property and PiTensorProduct.lift; these are private signature models, not proposed replacements.",
+    "On a pure wedge, α_d is the signed sum of the permuted pure tensors. Acting by τ in the Koszul representation and reindexing the sum by σ↦στ⁻¹ returns α_d; generation by pure wedges gives the assertion for every ω."
    ],
    "acceptance": [
     "For d=2: α_2(v∧w)=v⊗w−w⊗v and π_2(v⊗w−w⊗v)=2·v∧w.",
@@ -461,7 +481,7 @@
     },
     {
      "where": "FunctionFieldArithmeticPartII:GC.3/koszul-exterior",
-     "how": "supplies the native comparison map with ∧^d requested by the parent gap EXTERIOR-COMP"
+     "how": "Supplies the signed-action compatibility for the existing map; the maps and their generic identities are imported from the current library."
     },
     {
      "where": "Conrad, Exterior powers, §4, (4.1), pp. 12–13",
@@ -470,34 +490,9 @@
    ],
    "api": [
     {
-     "name": "TauCeti.RamifiedClassField.antisymmetrization",
-     "role": "constructor",
-     "statement": "α_d:∧^dV→V^{⊗d}."
-    },
-    {
-     "name": "TauCeti.RamifiedClassField.exteriorProjection",
-     "role": "data",
-     "statement": "π_d:V^{⊗d}→∧^dV."
-    },
-    {
-     "name": "TauCeti.RamifiedClassField.antisymmetrization.apply_ιMulti",
-     "role": "simp",
-     "statement": "α_d(v_1∧⋯∧v_d)=Σ_σ sgn(σ)·v_{σ(1)}⊗⋯⊗v_{σ(d)}."
-    },
-    {
-     "name": "TauCeti.RamifiedClassField.antisymmetrization.exteriorProjection_comp",
-     "role": "relation",
-     "statement": "π_d∘α_d=d!·id."
-    },
-    {
      "name": "TauCeti.RamifiedClassField.antisymmetrization.mem_invariants",
      "role": "characterisation",
      "statement": "α_d(ω) is invariant under the Koszul-signed action for every ω."
-    },
-    {
-     "name": "TauCeti.RamifiedClassField.antisymmetrization.naturality",
-     "role": "functoriality",
-     "statement": "For K-linear f:V→W, α_d∘∧^df=f^{⊗d}∘α_d; a K-linear Frobenius commutes with α_d."
     }
    ],
    "tests": [
@@ -531,7 +526,8 @@
     "mathlib:MultilinearMap.alternatization",
     "mathlib:AlternatingMap.coe_alternatization",
     "mathlib:PiTensorProduct.lift",
-    "mathlib:PiTensorProduct.tprod"
+    "mathlib:PiTensorProduct.tprod",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality"
    ],
    "library": {
     "module": "TauCeti/LinearAlgebra/TensorPower/Koszul",
@@ -547,6 +543,11 @@
      "sourceId": "YZ19",
      "locator": "Proof of Lemma A.6, p. 519",
      "match": "Identifies the Koszul-signed invariants of a tensor power of a degree-one space with the exterior power; this node supplies the explicit map."
+    },
+    {
+     "sourceId": "TC-CurrentExterior",
+     "locator": "LinearAlgebra/ExteriorPower/Basic.lean, fromTensorPower through range_toTensorPower (lines 170–247 at the recorded commit)",
+     "match": "Already implements the exterior projection, both factorial/norm composites, injectivity when d! is a unit, naturality and the image identity. Only compatibility with the new Koszul-signed action is planned here."
     }
    ],
    "implementationStatus": "unchecked"
@@ -566,7 +567,7 @@
    ],
    "proofSteps": [
     "α_d lands in the invariants and π_d∘α_d=d!·id (GC.3/antisymmetrization), so α_d is injective when d! is a unit.",
-    "For an invariant t, α_d(π_d(t))=Σ_σ sgn(σ)·σ_unsigned(t)=Σ_σ σ_Koszul(t)=d!·t, since α_d∘π_d is the sum of the Koszul-signed permutations; hence α_d((d!)⁻¹π_d(t))=t and α_d is onto the invariants.",
+    "Reuse the current-library identity α_d∘π_d=Σ_σ sgn(σ)P_σ (currentLibraryImports). For an invariant tensor t this is Σ_σ σ_Koszul(t)=d!·t, giving the inverse (d!)⁻¹π_d. The companion identity π_d∘α_d=d!·id proves injectivity.",
     "Naturality is that of α_d and π_d; the rank follows from mathlib:exteriorPower.finrank_eq, C(n,d)=0 for d>n."
    ],
    "acceptance": [
@@ -577,7 +578,8 @@
    "prerequisites": [
     "FunctionFieldArithmeticPartII:GC.3/antisymmetrization",
     "FunctionFieldArithmeticPartII:GC.3/koszul-sign-action",
-    "mathlib:exteriorPower.finrank_eq"
+    "mathlib:exteriorPower.finrank_eq",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality"
    ],
    "library": {
     "module": "TauCeti/LinearAlgebra/TensorPower/Koszul",
@@ -587,7 +589,7 @@
     {
      "sourceId": "CONRAD-EXT",
      "locator": "§4, p. 13",
-     "match": "For a vector space over a field in which k! is nonzero, the rescaled antisymmetrization embeds ∧^k(V) in V^{⊗k} as the skew-symmetric tensors and the projection back is the identity."
+     "match": "The cited discussion treats finite-dimensional vector spaces and the factorial normalization. The all-module statement here follows by the two composite identities, already implemented in the current library, and the explicit invariant argument in proofSteps; it is not attributed verbatim to Conrad."
     },
     {
      "sourceId": "YZ19",
@@ -635,7 +637,7 @@
     {
      "sourceId": "ETINGOF",
      "locator": "Proof of Theorem 3.8, p. 37 (arXiv v5)",
-     "match": "The element P=|G|⁻¹Σg acts on any representation as the G-invariant projector onto the invariants."
+     "match": "In the complex-representation setting, the proof identifies the group average as the projector onto invariants. The general ring case here follows from the same finite-sum calculation with |G| invertible, using the pinned averaging API."
     },
     {
      "sourceId": "AV99",
@@ -645,7 +647,7 @@
     {
      "sourceId": "STACKS",
      "locator": "Section 12.4 (tag 09SF), Karoubian categories",
-     "match": "Idempotents split in a Karoubian category; additive functors carry split idempotents and their images to split idempotents and images."
+     "match": "Gives the splitting characterization for idempotents. Preservation of a chosen splitting by a functor, and hence the K-linear averaging consequence here, follows by applying the functor to the splitting identities."
     },
     {
      "sourceId": "YZ19",
@@ -668,7 +670,7 @@
     "G finite; |G| acts bijectively on M. No condition relating |G| to ℓ is needed for Q̄ℓ-vector spaces."
    ],
    "proofSteps": [
-    "For the trivial subgroup, Cor∘Res:H^r(G,M)→H^r(1,M)→H^r(G,M) is multiplication by |G| (Milne, CFT II.1.30; upstream ProfiniteCohomology Layer 10, corestriction_comp_res).",
+    "Reuse the ordinary all-degree annihilation theorem groupCohomology.natCard_nsmul_eq_zero from current Tau Ceti (currentLibraryImports). Its transfer input is TauCeti.groupCohomology.map_subtype_id_comp_corestriction: Cor∘Res through the trivial subgroup is multiplication by |G| (Milne, CFT II.1.30–1.31). ProfiniteCohomology Layer 10 is the existing owner of transfer; the proof here uses the implemented ordinary theorem directly. Layer 3 only compares degrees 0–2, so it is not an all-degree comparison input.",
     "H^r(1,M)=0 for r>0, so |G| kills H^r(G,M) (Milne, CFT II.1.31); |G| also acts bijectively on H^r(G,M) because it does on M, so H^r(G,M)=0.",
     "Degree zero is GC.3/averaging-exactness."
    ],
@@ -695,6 +697,11 @@
      "sourceId": "YZ19",
      "locator": "Proof of Lemma A.7, pp. 519–520",
      "match": "Computes the pushforward along [pt/μ₂]^d→[pt/μ₂] as coinvariants of the kernel of multiplication, which uses the vanishing of higher rational cohomology of that kernel."
+    },
+    {
+     "sourceId": "TC-CurrentCorestriction",
+     "locator": "Corestriction.lean, lines 153–169 and 430–445",
+     "match": "Implements ordinary restriction/corestriction and all-degree finite-group annihilation over a commutative coefficient ring. The invertible-order consequence is the additional target here."
     }
    ],
    "implementationStatus": "unchecked"
@@ -707,19 +714,21 @@
    ],
    "title": "The tensor character factors through multiplication",
    "kind": "lemma",
-   "statement": "Let A be a commutative group (in GC.3, A=μ₂(k̄)), χ:A→Q̄ℓ^× a character and m≥1. The character (a_1,…,a_m)↦∏χ(a_i) of A^m equals χ∘μ_m, where μ_m:A^m→A is multiplication; hence it is trivial on N_m=ker μ_m, and it is invariant under permutations of the factors. Consequently the derived pushforward along B(A^m)→B(A) induced by μ_m of the line χ^{⊠m} is the line with character χ in degree zero. With the trivial action of a permutation on a tensor power of a degree-zero line, the stalk of the symmetric local system at n·x, x∈R, is one-dimensional and the stabilizer μ₂ acts on it by the inertia character of L at x (not by its n-th power).",
+   "statement": "Let A be a commutative group, χ:A→Q̄ℓ^× a character and m≥1. The character (a_i)↦∏χ(a_i) of A^m is χ∘μ_m, where μ_m is multiplication, so it is trivial on N_m=ker μ_m and invariant under permutations. This algebraic assertion needs no finiteness. If A is finite, the derived N_m-invariants of this line are concentrated in degree zero and the quotient A^m/N_m≅A acts by χ. In GC.3 use A=μ₂(k̄). The translation into pushforward along B(A^m)→B(A), and the geometric stalk at n·x, is made only in GC.3/pushforward-description-comparison, using GC3-STACK-PUSHFORWARD; it is not a consequence of character algebra alone.",
    "hypotheses": [
-    "A commutative; χ a homomorphism. The conclusion about pushforward uses Q̄ℓ coefficients (finite-group-rational-acyclicity)."
+    "A is a commutative group and χ a homomorphism; m≥1.",
+    "The cohomological corollary assumes A finite and Q̄ℓ coefficients. Without finiteness, rational higher group cohomology need not vanish."
    ],
    "proofSteps": [
     "Because χ is a homomorphism and A is commutative, ∏χ(a_i)=χ(∏a_i) (mathlib:map_prod).",
-    "N_m therefore acts trivially on the line, so its invariants are the whole line and its higher rational cohomology vanishes (GC.3/finite-group-rational-acyclicity); the quotient A^m/N_m≅A acts by χ.",
+    "For finite A, N_m is finite and acts trivially on the line. Its invariants are that line and its higher rational cohomology vanishes by GC.3/finite-group-rational-acyclicity; the surjection μ_m (m≥1) identifies the quotient action with χ.",
     "A permutation of the factors fixes ∏χ(a_i), and on L_x^{⊗n} it acts by the identity because the line is in degree zero."
    ],
    "acceptance": [
     "A=μ₂, χ the sign, m=2: (−1,−1)∈N_2 and χ(−1)χ(−1)=1.",
     "If the two factors carried different characters (sign and trivial), the element (−1,−1)∈N_2 would act by −1: the kernel acts trivially only because every factor carries the same character.",
-    "At 2x with sign inertia the stabilizer acts on the stalk by the sign; the square of the sign would be trivial."
+    "At 2x with sign inertia the stabilizer acts on the stalk by the sign; the square of the sign would be trivial.",
+    "Finiteness is essential for the cohomological corollary: for the infinite discrete group A=ℤ, trivial χ and m=2, N_m≅ℤ has H¹(N_m,Q̄ℓ)=Hom(ℤ,Q̄ℓ)≠0."
    ],
    "prerequisites": [
     "mathlib:map_prod",
@@ -749,11 +758,11 @@
    "statement": "Let 𝒳=X_1^√R and let ū be a geometric point of U⊂𝒳. Restriction to U is fully faithful from Q̄ℓ-local systems on 𝒳 to Q̄ℓ-local systems on U. Its essential image consists of the local systems whose monodromy, restricted to the inertia subgroup I_x̄⊂π1(U,ū) of every geometric point x̄ of X above R (for one, equivalently every, path), has order dividing two. In rank one: rank-one local systems on 𝒳 correspond to continuous characters χ:π1(U,ū)→Q̄ℓ^× of the arithmetic fundamental group over k with χ(τ)²=1 for all τ in every I_x̄. Such χ is tamely ramified at R, since the wild inertia is pro-p with p odd. The global monodromy is unrestricted: an unramified χ of order three, or of infinite order, is allowed. At a geometric point of 𝒳 over x∈R the stabilizer μ₂ acts on the stalk through χ|I_x̄, which is trivial or the character of order two; χ|I_x̄ is trivial for every x exactly when the local system descends to X.",
    "hypotheses": [
     "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.",
-    "Local systems are lisse Q̄ℓ-sheaves of finite rank. π1(𝒳) is the fundamental group of the Galois category of representable finite étale covers of the Deligne–Mumford curve 𝒳 (Noohi §4), and local systems on 𝒳 are continuous representations of it (gap GC3-STACK-PI1)."
+    "Local systems are lisse Q̄ℓ-sheaves of finite rank. π1(𝒳) is the fundamental group of the Galois category of representable finite étale covers of the Deligne–Mumford curve 𝒳 (Noohi §4), and local systems on 𝒳 are continuous representations of it (gap GC3-STACK-PI1). The stacks and atlas charts used here are normal. Coefficient objects are defined over a finite extension E/Qℓ before scalar extension to Q̄ℓ; no representation dictionary is asserted for arbitrary nonnormal stacks."
    ],
    "proofSteps": [
     "U is a dense open substack of the connected normal Deligne–Mumford curve 𝒳 (RS.1/regular-dm), so π1(U,ū)→π1(𝒳,ū) is surjective (IG.5/finite-cover-image-lemmas); restriction of continuous representations along a surjection is fully faithful.",
-    "Étale-locally at x∈R with local equation s, 𝒳 is [Spec A[t]/(t²−s)/μ₂] (RS.1/affine-chart, SchemeAndStackFoundations:SF.1/root-stack). A local system on U extends over this chart exactly when its pullback to the double cover t²=s extends; the tame inertia of the double cover at t=0 is the subgroup of squares of the tame inertia at x (IG.1/tame-and-prime-to-p, IG.1/decomposition-inertia), so the pullback is unramified in codimension one exactly when the inertia character has order dividing two (Abhyankar's lemma, Stacks 0EYG).",
+    "Étale-locally at x∈R with local equation s, 𝒳 is [Spec A[t]/(t²−s)/μ₂] (RS.1/affine-chart, SchemeAndStackFoundations:SF.1/root-stack). A local system on U extends over this chart exactly when its pullback to the double cover t²=s extends; the tame inertia of the double cover at t=0 is the subgroup of squares of the tame inertia at x (IG.1/tame-and-prime-to-p, IG.1/decomposition-inertia), so the pullback is unramified in codimension one exactly when the inertia image has order dividing two (Abhyankar's lemma, Stacks 0EYG).",
     "A finite étale cover of the punctured regular chart that is unramified in codimension one extends uniquely to a finite étale cover of the chart (Stacks 0H2W); the extension is μ₂-equivariant by uniqueness and descends along the atlas (gap GC3-STACK-PI1).",
     "The stabilizer μ₂ at x is the image of the local inertia, so it acts on the stalk by χ|I_x̄. By Noohi Theorem 7.11 the quotient of π1(𝒳) by the closed normal subgroup generated by the stabilizers is π1(X), which gives the descent criterion."
    ],
@@ -804,7 +813,7 @@
    ],
    "title": "Symmetric local systems by descent and lisse extension",
    "kind": "construction",
-   "statement": "Let L be a rank-one Q̄ℓ-local system on X_1^√R with character χ (GC.3/root-curve-character-dictionary) and d≥0. (i) The external product L^{⊠d}=pr_1^*L⊗⋯⊗pr_d^*L on (U^d)°, with the S_d-linearization that permutes tensor factors without sign, descends along the finite étale Galois S_d-cover (U^d)°→U_d° to a rank-one local system L_d° on U_d°. Over k̄ its monodromy is YZ19 (A.6): π1(U_d°)→π1(U)^d⋊S_d→Q̄ℓ^×, (g_1,…,g_d;σ)↦∏χ(g_i), with χ valued in Q̄ℓ^× (EGC3-4). (ii) L_d° extends to a rank-one local system 𝕃_d on the smooth connected Deligne–Mumford stack X_d^√R, and the extension with its identification on U_d° is unique up to unique isomorphism. 𝕃_0 is the constant line on Spec k, 𝕃_1=L, and 𝕃_d carries the Frobenius descent datum of the construction over k. At a geometric point D=Σn_x x the stalk is one-dimensional and the stabilizer factor μ₂ at x∈R∩supp D acts through the inertia character of L at x. Notation: U=X−R with j:U→X; X_d=Sym^dX with the finite quotient map q_d:X^d→X_d; U_d°⊂X_d is the open of multiplicity-free divisors supported in U and (U^d)°=q_d⁻¹(U_d°) the ordered distinct points of U; ω_d:X_d^√R→X_d is the coarse map (GC.1/root-symmetric-coarse), an isomorphism over Sym^dU, so U_d° is open in X_d^√R.",
+   "statement": "Let L be a rank-one Q̄ℓ-local system on X_1^√R with character χ (GC.3/root-curve-character-dictionary) and d≥0. (i) The external product L^{⊠d}=pr_1^*L⊗⋯⊗pr_d^*L on (U^d)°, with the S_d-linearization that permutes tensor factors without sign, descends along the finite étale Galois S_d-cover (U^d)°→U_d° to a rank-one local system L_d° on U_d°. Over k̄ its monodromy is YZ19 (A.6): π1((U_d°)_k̄)→π1(U_k̄)^d⋊S_d→Q̄ℓ^×, (g_1,…,g_d;σ)↦∏χ(g_i), with χ valued in Q̄ℓ^× (EGC3-4). (ii) L_d° extends to a rank-one local system 𝕃_d on the smooth connected Deligne–Mumford stack X_d^√R, and the extension with its identification on U_d° is unique up to unique isomorphism. 𝕃_0 is the constant line on Spec k, 𝕃_1=L, and 𝕃_d carries the Frobenius descent datum of the construction over k. At a geometric point D=Σn_x x the stalk is one-dimensional and the stabilizer factor μ₂ at x∈R∩supp D acts through the inertia character of L at x. Notation: U=X−R with j:U→X; X_d=Sym^dX with the finite quotient map q_d:X^d→X_d; U_d°⊂X_d is the open of multiplicity-free divisors supported in U and (U^d)°=q_d⁻¹(U_d°) the ordered distinct points of U; ω_d:X_d^√R→X_d is the coarse map (GC.1/root-symmetric-coarse), an isomorphism over Sym^dU, so U_d° is open in X_d^√R.",
    "hypotheses": [
     "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.",
     "No pushforward along the nonrepresentable ordered map p_d is used; the comparison with the definition (p_{d,!}L^{⊠d})^{S_d} is GC.3/pushforward-description-comparison."
@@ -815,7 +824,8 @@
     "Along Δ: near a generic point the S_d-cover is the quotient by one transposition of a smooth neighbourhood of the diagonal, and the transposition exchanges two equal lines L_y⊗L_y without sign, hence acts trivially; L_d° is unramified along Δ.",
     "Along D_x: near a generic point, X_d^√R is étale-locally X_1^√R near x times U_{d−1}°, and L_d° is L⊠L_{d−1}°; L is a local system on X_1^√R, so L_d° extends over the generic point of D_x.",
     "On an étale atlas of X_d^√R by a smooth scheme (GC.1/root-symmetric-smooth), the finite étale covers trivializing the finite-level reductions of L_d° are unramified in codimension one, so they extend (Stacks 0H2W, purity 0BMB); uniqueness of such extensions gives descent data on the atlas (gap GC3-STACK-PI1).",
-    "Uniqueness: restriction to the dense open U_d° of the connected normal stack X_d^√R is fully faithful (IG.5/finite-cover-image-lemmas). The stalk statement is GC.3/tensor-character-kernel."
+    "Uniqueness follows from full faithfulness on the dense open of the connected normal stack (IG.5/finite-cover-image-lemmas). For the stabilizer character, the boundary divisor of divisors containing a fixed geometric x is smooth and connected (GC.1/root-symmetric-smooth, YZ19 Lemma A.4, pp. 516–517). Its μ₂-action on a lisse line is locally constant, so is determined at the generic boundary point, where the product chart L⊠L_{d−1}° gives exactly χ|I_x. This remains true at n·x and at intersections of boundary divisors. This argument uses no pushforward comparison.",
+    "For f:L→L′, descend f^{⊠d} on the distinct-point locus and extend the map by full faithfulness. This gives map, identity and composition, with scalar a acting by a^d. The empty tensor power gives the identity when d=0, even for f=0."
    ],
    "acceptance": [
     "𝕃_0=Q̄ℓ on X_0^√R=Spec k and 𝕃_1=L.",
@@ -838,6 +848,10 @@
     {
      "where": "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
      "how": "both sides of add^*L_{d+e}≅L_d⊠L_e are compared on the distinct-point open, where they are given by this descent"
+    },
+    {
+     "where": "Morphisms of the input rank-one local system and the cohomology comparison",
+     "how": "Naturality on distinct-point restrictions and stalks extends by full faithfulness for the lisse construction, and by q_* and the averaging projector for the coarse construction; identity/composition are inherited from external tensor powers."
     }
    ],
    "api": [
@@ -881,6 +895,21 @@
      "role": "compatibility",
      "statement": "add_{d,e}^*𝕃_{d+e}≅𝕃_d⊠𝕃_e, associative, commutative and unital.",
      "promotedTo": "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity"
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.monodromySymmetricLocalSystem.map",
+     "role": "functoriality",
+     "statement": "For a morphism f:L→L′, the map on degree d is induced by f^{⊠d}; on distinct points it is the descended tensor power, on stalks the corresponding tensor power."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.monodromySymmetricLocalSystem.map_id",
+     "role": "simp",
+     "statement": "The map induced by the identity of L is the identity in every degree."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.monodromySymmetricLocalSystem.map_comp",
+     "role": "functoriality",
+     "statement": "The map induced by g∘f is map(g)∘map(f); these identifications commute with restriction, stalks and Frobenius."
     }
    ],
    "tests": [
@@ -913,11 +942,15 @@
      "name": "TauCeti.RamifiedClassField.monodromySymmetricLocalSystem.test_stabilizer_character",
      "kind": "characterisation",
      "statement": "At 2x for x∈R with sign inertia, the stabilizer μ₂ acts on the stalk by the sign, not by its square."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.monodromySymmetricLocalSystem.test_scalar_map",
+     "kind": "computation",
+     "statement": "For L constant and f=2·id, map(f) is 2^d·id. For the zero endomorphism it is zero for d≥1 and identity for d=0; this distinguishes tensor-power functoriality from an additive rule."
     }
    ],
    "prerequisites": [
     "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
-    "FunctionFieldArithmeticPartII:GC.3/tensor-character-kernel",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-local-systems",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/finite-cover-image-lemmas",
@@ -958,9 +991,10 @@
    ],
    "proofSteps": [
     "q_d is finite and S_d-invariant, and F^{⊠d} is S_d-equivariant by permuting factors; take the image of the averaging idempotent in the abelian category of constructible Q̄ℓ-sheaves on X_d (GC.3/averaging-exactness).",
-    "Stalks: proper base change for the finite q_d identifies (q_{d*}F^{⊠d})_D with the sum over the ordered preimages of D; S_d permutes them transitively with stabilizer ∏_x S_{n_x}, and a permutation acts trivially on a tensor power of a line, so the invariants are ⊗_xF_x^{⊗n_x}.",
+    "Stalks: proper base change for the finite q_d identifies (q_{d*}F^{⊠d})_D with the sum over the reduced ordered preimages of D (étale cohomology ignores the nilpotent structure of the finite fibre); S_d permutes them transitively with stabilizer ∏_x S_{n_x}, and a permutation acts trivially on a tensor power of a line, so the invariants are ⊗_xF_x^{⊗n_x}.",
     "F_x for x∈R is the inertia invariants of L_x̄, which is the whole line or zero (IG.1/decomposition-inertia; GC.3/root-curve-character-dictionary).",
-    "Over U_d° the map q_d is the S_d-torsor and F=L, so 𝓜_d|U_d° is the descent L_d°."
+    "Over U_d° the map q_d is the S_d-torsor and F=L, so 𝓜_d|U_d° is the descent L_d°.",
+    "For the subsheaf assertion, use local finite quadratic root charts f:Y→X: the pullback of L is lisse on the regular chart Y, and F=j_*L is the μ₂-invariant summand of f_*L_Y. On products of these charts, the same finite-pushforward and commuting-projector description applies to F^{⊠d}. Restriction of a lisse sheaf on a normal chart to the dense distinct-point open is injective; finite pushforward and invariant summands preserve this injection. Hence F^{⊠d} and then 𝓜_d inject into the direct images of their distinct-point restrictions. Maps f^{⊠d}, followed by q_* and the invariant projector, give functoriality and its identity/composition laws."
    ],
    "acceptance": [
     "𝓜_0=Q̄ℓ on X_0=Spec k and 𝓜_1=j_*L.",
@@ -979,6 +1013,10 @@
     {
      "where": "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology",
      "how": "its cohomology is the Koszul-signed invariants of the tensor power of H*(X⊗k̄,j_*L)"
+    },
+    {
+     "where": "Morphisms of the input rank-one local system and the cohomology comparison",
+     "how": "Naturality on distinct-point restrictions and stalks extends by full faithfulness for the lisse construction, and by q_* and the averaging projector for the coarse construction; identity/composition are inherited from external tensor powers."
     }
    ],
    "api": [
@@ -1011,6 +1049,21 @@
      "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.subsheaf",
      "role": "other",
      "statement": "The restriction map 𝓜_d→j′_*(L_d°), for j′:U_d°→X_d, is injective: 𝓜_d has no nonzero sections supported off U_d°."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.map",
+     "role": "functoriality",
+     "statement": "For a morphism f:L→L′, the map on degree d is induced by f^{⊠d}; on distinct points it is the descended tensor power, on stalks the corresponding tensor power."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.map_id",
+     "role": "simp",
+     "statement": "The map induced by the identity of L is the identity in every degree."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.map_comp",
+     "role": "functoriality",
+     "statement": "The map induced by g∘f is map(g)∘map(f); these identifications commute with restriction, stalks and Frobenius."
     }
    ],
    "tests": [
@@ -1033,6 +1086,11 @@
      "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.test_not_lisse",
      "kind": "non-example",
      "statement": "If the inertia at some x∈R is the sign, 𝓜_d (d≥1) vanishes on the image of D_x but not on U_d°, so it is not lisse, while 𝕃_d on the stack is; the coarse model carries cohomology, not descent."
+    },
+    {
+     "name": "TauCeti.RamifiedClassField.symmetricCoarseModel.test_scalar_map",
+     "kind": "computation",
+     "statement": "For L constant and f=2·id, map(f) is 2^d·id. For the zero endomorphism it is zero for d≥1 and identity for d=0; this distinguishes tensor-power functoriality from an additive rule."
     }
    ],
    "prerequisites": [
@@ -1074,7 +1132,7 @@
     "The étale cohomology of the tame Deligne–Mumford stack X_d^√R, its coarse pushforward with the stalk formula and the Leray comparison are gap GC3-COARSE-STALKS."
    ],
    "proofSteps": [
-    "Étale-locally on X_d, X_d^√R is a quotient [Y/G_D] by a finite 2-group, the stabilizer ∏_{x∈R∩supp D}μ₂ of a geometric point D (AV99 Lemma 2.2.3; SchemeAndStackFoundations:SF.1/tame-local-structure; GC.1/root-symmetric-coarse), and (R^iω_{d*}𝕃_d)_D=H^i(G_D,(𝕃_d)_D̃) (gap GC3-COARSE-STALKS).",
+    "Étale-locally on X_d, X_d^√R is a quotient [Y/G_D] by a finite 2-group, the stabilizer ∏_{x∈R∩supp D}μ₂ of a geometric point D (AV99 Lemma 2.2.3; SchemeAndStackFoundations:SF.1/tame-local-structure; GC.1/root-symmetric-coarse), and (R^iω_{d*}𝕃_d)_D=H^i(G_D,(𝕃_d)_D̃) (gap GC3-COARSE-STALKS). The full geometric fibre may be nonreduced; first use invariance of the étale theory under nilpotent thickenings to pass to its reduced residual gerbe BG_D (RS.1/closed-fibre, source issue EGC3-5). This invariance is included in GC3-COARSE-STALKS.",
     "With Q̄ℓ coefficients these vanish for i>0 and give the G_D-invariants for i=0 (GC.3/finite-group-rational-acyclicity); by the stalk description of 𝕃_d the invariants are a line exactly when every inertia character at R∩supp D is trivial, and zero otherwise.",
     "Both ω_{d*}𝕃_d and 𝓜_d restrict to L_d° on U_d° and inject into j′_*(L_d°) (𝕃_d is lisse on the normal stack X_d^√R; GC.3/symmetric-coarse-model for 𝓜_d). The stalks of j′_*(L_d°) have dimension at most one, and the two subsheaves have stalks of equal dimension at every D, so they coincide.",
     "The Leray spectral sequence for ω_d degenerates, giving the cohomology comparison (gap GC3-COARSE-STALKS)."
@@ -1091,7 +1149,8 @@
     "FunctionFieldArithmeticPartII:GC.3/tensor-character-kernel",
     "SchemeAndStackFoundations:SF.1/tame-local-structure",
     "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
-    "FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse"
+    "FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse",
+    "FunctionFieldArithmeticPartII:RS.1/closed-fibre"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/RootStacks/GC3",
@@ -1100,8 +1159,8 @@
    "sources": [
     {
      "sourceId": "AV99",
-     "locator": "Lemma 2.2.3, p. 4; proof of Lemma 2.3.3 and Lemma 2.3.4, pp. 5–6",
-     "match": "Local quotient structure over the coarse space and, for tame stacks, exactness of the coarse pushforward by averaging; the étale Q̄ℓ version used here has the same proof with group cohomology of the stabilizers."
+     "locator": "Lemma 2.2.3, p. 4; Lemmas 2.3.3–2.3.4, p. 5",
+     "match": "Lemma 2.2.3 supplies the étale-local finite-quotient geometry. Lemmas 2.3.3–2.3.4 concern invariants and quasi-coherent pushforward, not constructible étale Q̄ℓ-sheaves. The needed étale stalk formula and Leray remain explicitly GC3-COARSE-STALKS."
     },
     {
      "sourceId": "YZ19",
@@ -1175,7 +1234,9 @@
    ],
    "proofSteps": [
     "H⁰(X_k̄,j_*L)=H⁰(U_k̄,L) is the invariants of π1(U_k̄) on a line on which it acts by the nontrivial character χ, hence zero (IG.0/etale-fundamental-group).",
-    "Poincaré duality for j_* coefficients on the smooth projective curve X_k̄ (EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement) pairs H²(X_k̄,j_*L) perfectly with H⁰(X_k̄,j_*L^∨(1)); L^∨ has the geometrically nontrivial character χ⁻¹, so this group vanishes."
+    "Poincaré duality for j_* coefficients on the smooth projective curve X_k̄ (EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement) pairs H²(X_k̄,j_*L) perfectly with H⁰(X_k̄,j_*L^∨(1)); L^∨ has the geometrically nontrivial character χ⁻¹, so this group vanishes.",
+    "The scheme cohomological-dimension bound gives H^i(X_k̄,j_*L)=0 for i>2, and negative degrees vanish for an ordinary sheaf (SF.2, integrating EtaleCohomologyFoundations §F.3 and §F.4.5). The cited duality statement is used over a finite coefficient field E/Qℓ and extended flatly to Q̄ℓ; no integral or torsion duality is used.",
+    "Apply GC.3/rational-coarse-comparison for d=1 to transfer the concentration statement to the root curve."
    ],
    "acceptance": [
     "The constant sheaf is excluded: on P¹ it has H⁰ and H² nonzero.",
@@ -1185,7 +1246,9 @@
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
     "EtaleDualityAndPerverseSheaves:EDC.2/curve-poincare-duality-with-j-star-statement",
-    "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary"
+    "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
+    "FunctionFieldArithmeticPartII:GC.3/rational-coarse-comparison",
+    "SchemeAndStackFoundations:SF.2"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/RootStacks/GC3",
@@ -1196,6 +1259,11 @@
      "sourceId": "YZ19",
      "locator": "Proof of Lemma A.6, p. 519",
      "match": "Uses that the cohomology of a geometrically nontrivial L on the root curve over k̄ is concentrated in degree one."
+    },
+    {
+     "sourceId": "UP-ECF",
+     "locator": "§F.3 (geometric cohomological dimension), §F.4.5 (rational coefficients)",
+     "match": "Supplies the scheme bound above degree two for a geometric curve and finite coefficient-field extension; these inputs are explicitly requested from SF.2 for integration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1215,8 +1283,8 @@
    ],
    "proofSteps": [
     "p_d^*𝕃_d and L^{⊠d} are rank-one local systems on the connected normal stack (X_1^√R)^d that agree on the dense open (U^d)°, S_d-equivariantly, so they are isomorphic (IG.5/finite-cover-image-lemmas); adjunction gives an S_d-invariant map 𝕃_d→p_{d*}L^{⊠d}=p_{d,!}L^{⊠d}.",
-    "At a geometric point D=Σn_x x, proper base change (gap GC3-STACK-PUSHFORWARD) computes the stalk of p_{d,!}L^{⊠d} from the fibre, a product over x of the maps [pt/μ₂]^{n_x}→[pt/μ₂] for x∈R and of finite sets for x∈U; GC.3/tensor-character-kernel and GC.3/finite-group-rational-acyclicity show that its S_d-invariant part is one line in degree zero, the stalk of 𝕃_d.",
-    "So the map 𝕃_d→(p_{d,!}L^{⊠d})^{S_d} is an isomorphism on all stalks."
+    "At D=Σn_xx, proper base change and nilpotent invariance (GC3-STACK-PUSHFORWARD) reduce the geometric fibre to a finite groupoid. Each orbit of orderings has relative stabilizer ∏_{x∈R∩supp D}ker(μ₂^{n_x}→μ₂); the residual-gerbe maps are the products [pt/μ₂]^{n_x}→[pt/μ₂]. The unreduced fibre is not asserted to equal these gerbes (RS.1/closed-fibre; EGC3-5). The tensor character is trivial on this finite kernel, so higher cohomology vanishes; S_d acts transitively on the orderings, with unsigned tensor permutation acting trivially on their lines. Thus the invariant stalk is one line in degree zero.",
+    "The adjunction unit on this invariant stalk identifies the source line with the same kernel-invariant line, hence is nonzero and is an isomorphism. The higher target stalks vanish, so the map is an isomorphism of complexes, compatibly with Frobenius."
    ],
    "acceptance": [
     "d=1: p_1 is the identity and both sides are L.",
@@ -1230,7 +1298,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/finite-cover-image-lemmas",
     "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
     "FunctionFieldArithmeticPartII:GC.1/ordered-proper",
-    "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system"
+    "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system",
+    "FunctionFieldArithmeticPartII:RS.1/closed-fibre"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/RootStacks/GC3",
@@ -1378,17 +1447,26 @@
  "requests": [
   {
    "supplier": "SchemeAndStackFoundations:SF.2",
-   "need": "For proper schemes Y,Z of finite type over k and constructible Q̄ℓ-sheaves F,G: the Künneth isomorphism H*(Y_k̄×Z_k̄,F⊠G)≅H*(Y_k̄,F)⊗H*(Z_k̄,G), Frobenius-equivariant, under which the exchange of the factors of Y×Y is the Koszul-signed exchange of graded factors; exactness of pushforward along finite morphisms and proper base change for them. The upstream owner of these scheme statements is EtaleCohomologyFoundations (TauCetiRoadmap pull request #938, §§F.2.1, F.2.6, F.2.7, F.4.5); this request asks only for its integration, not for a second plan.",
+   "need": "For proper schemes Y,Z of finite type over k and constructible Q̄ℓ-sheaves F,G: the Künneth isomorphism H*(Y_k̄×Z_k̄,F⊠G)≅H*(Y_k̄,F)⊗H*(Z_k̄,G), Frobenius-equivariant, under which the exchange of the factors of Y×Y is the Koszul-signed exchange of graded factors; exactness of pushforward along finite morphisms and proper base change for them. The upstream owner of these scheme statements is EtaleCohomologyFoundations (TauCetiRoadmap pull request #938, §§F.2.1, F.2.6, F.2.7, F.4.5); this request asks only for its integration, not for a second plan. Also integrate the geometric cohomological-dimension bound for a curve (F.3), extension from finite E/Qℓ to Q̄ℓ (F.4.5), and continuity/Frobenius compatibility of these operations (F.4.6).",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/symmetric-coarse-model",
-    "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology"
+    "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology",
+    "FunctionFieldArithmeticPartII:GC.3/twisted-curve-cohomology"
    ]
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-   "need": "Use the existing statement corestriction_comp_res (cor∘res is multiplication by the index in every degree) for a finite discrete group and its trivial open subgroup. No new target is requested.",
+   "need": "Reuse ordinary transfer and the all-degree finite-group annihilation theorem already implemented in current Tau Ceti (currentLibraryImports). Layer 10 owns transfer; no new corestriction target or all-degree ordinary/continuous comparison is requested. The additional target here is only vanishing when |G| acts invertibly.",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/finite-group-rational-acyclicity"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
+   "need": "Reuse the already implemented tensor/exterior maps and identities listed in currentLibraryImports, consumed by the one-column Schur-functor comparison. No reconstruction of antisymmetrization, exteriorProjection, factorial composites or their naturality is requested. The current implementations work over an arbitrary commutative ring and module, beyond the complex finite-dimensional Schur-Weyl specialization.",
+   "neededBy": [
+    "FunctionFieldArithmeticPartII:GC.3/antisymmetrization",
+    "FunctionFieldArithmeticPartII:GC.3/alternating-invariants-exterior"
    ]
   }
  ],
@@ -1396,7 +1474,7 @@
   {
    "id": "GC3-STACK-PI1",
    "title": "Étale fundamental groups and lisse Q̄ℓ-sheaves on Deligne–Mumford stacks",
-   "detail": "For a connected locally noetherian Deligne–Mumford stack: the Galois category of representable finite étale covers and its fundamental group (Noohi §4), the equivalence between lisse Q̄ℓ-sheaves of finite rank and continuous Q̄ℓ-representations of π1, and descent of local systems along an étale atlas. The accepted IG.5/finite-cover-image-lemmas already presupposes this fundamental group. The intended owner is the stacks Part II of EtaleDualityAndPerverseSheaves (route EtaleDualityAndPerverseSheavesPartIIStacks of RT-AREA-etale/3, layers ST.0 and ST.2, grouped into DESIGN-EtaleDualityAndPerverseSheavesPartII); it has no registered stage ids, so no prerequisite points to it. This replaces, for GC.3, the parent's ST-LISSE. It overlaps the sibling gap GC4-LISSE-ADAPTER of the GC.4 follow-up (finite locally constant sheaves on tame Deligne–Mumford stacks, comparison with representable finite étale covers, smooth descent of lisse sheaves); the assembly should merge the two into one gap with one owner.",
+   "detail": "For a connected normal locally noetherian Deligne–Mumford stack: the Galois category of representable finite étale covers and its fundamental group (Noohi §4), the equivalence between lisse Q̄ℓ-sheaves of finite rank and continuous Q̄ℓ-representations of π1 defined over a finite E/Qℓ, and descent of local systems along an étale atlas. The accepted IG.5/finite-cover-image-lemmas already presupposes this fundamental group. The intended owner is the stacks Part II of EtaleDualityAndPerverseSheaves (route EtaleDualityAndPerverseSheavesPartIIStacks of RT-AREA-etale/3, layers ST.0 and ST.2, grouped into DESIGN-EtaleDualityAndPerverseSheavesPartII); it has no registered stage ids, so no prerequisite points to it. This replaces, for GC.3, the parent's ST-LISSE. It overlaps the sibling gap GC4-LISSE-ADAPTER of the GC.4 follow-up (finite locally constant sheaves on tame Deligne–Mumford stacks, comparison with representable finite étale covers, smooth descent of lisse sheaves); the assembly should merge the two into one gap with one owner. Normality is essential for the profinite representation formulation; no claim is made for general rational lisse sheaves on nonnormal stacks. See UP-ECF §F.4.5 for the scheme boundary.",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
     "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system"
@@ -1405,7 +1483,7 @@
   {
    "id": "GC3-COARSE-STALKS",
    "title": "Coarse pushforward of Q̄ℓ-sheaves on tame Deligne–Mumford stacks",
-   "detail": "For a separated tame Deligne–Mumford stack of finite type over a field with coarse space ω: the étale topos and constructible Q̄ℓ-sheaves, Rω_* with the stalk formula (R^iω_*F)_ȳ=H^i(G_ȳ,F_ỹ) obtained from an étale-local quotient [V/G] (AV99 Lemma 2.2.3), and the Leray comparison H*(𝒴,F)≅H*(Y,Rω_*F), compatibly with Frobenius. This is the only stack input of the cohomology computation; Künneth, duality and curve bounds are then scheme statements. Intended owner: ST.0–ST.2 of the same stacks Part II. This replaces, for the cohomology targets of GC.3, the parent's ST-OPS.",
+   "detail": "For a separated tame Deligne–Mumford stack of finite type over a field with coarse space ω: the étale topos and constructible Q̄ℓ-sheaves, Rω_* with the stalk formula (R^iω_*F)_ȳ=H^i(G_ȳ,F_ỹ) obtained from an étale-local quotient [V/G] (AV99 Lemma 2.2.3), and the Leray comparison H*(𝒴,F)≅H*(Y,Rω_*F), compatibly with Frobenius. This is the only stack input of the cohomology computation; Künneth, duality and curve bounds are then scheme statements. Intended owner: ST.0–ST.2 of the same stacks Part II. This replaces, for the cohomology targets of GC.3, the parent's ST-OPS. Include invariance under nilpotent thickenings, by atlas descent, before replacing full geometric fibres by their reduced finite gerbes/groupoids (EGC3-5).",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/rational-coarse-comparison"
    ]
@@ -1413,7 +1491,7 @@
   {
    "id": "GC3-STACK-PUSHFORWARD",
    "title": "Proper base change for proper quasi-finite morphisms of tame Deligne–Mumford stacks",
-   "detail": "Proper base change for Rf_! along a proper quasi-finite, not necessarily representable, morphism of tame Deligne–Mumford stacks with Q̄ℓ coefficients, as for the ordered map p_d at collisions of branch points. Needed only to identify 𝕃_d with YZ19's pushforward description; the consumers of GC.3 can use 𝕃_d instead. Intended owner: ST.1 of the stacks Part II (Liu–Zheng base change). The degree-zero proper base change for proper tame Deligne–Mumford morphisms named in the sibling gap GC4-LISSE-ADAPTER is the same kind of input; the higher degrees vanish here by GC.3/finite-group-rational-acyclicity.",
+   "detail": "Proper base change for Rf_! along a proper quasi-finite, not necessarily representable, morphism of tame Deligne–Mumford stacks with Q̄ℓ coefficients, as for the ordered map p_d at collisions of branch points. Needed only to identify 𝕃_d with YZ19's pushforward description; the consumers of GC.3 can use 𝕃_d instead. Intended owner: ST.1 of the stacks Part II (Liu–Zheng base change). The degree-zero proper base change for proper tame Deligne–Mumford morphisms named in the sibling gap GC4-LISSE-ADAPTER is the same kind of input; the higher degrees vanish here by GC.3/finite-group-rational-acyclicity. Include invariance under nilpotent thickenings, by atlas descent, before replacing full geometric fibres by their reduced finite gerbes/groupoids (EGC3-5).",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/pushforward-description-comparison"
    ]
@@ -1438,9 +1516,9 @@
    "stageId": "FunctionFieldArithmeticPartII:GC.3",
    "status": "planned",
    "remaining": [
-    "Discharge GC3-STACK-PI1 through the stacks Part II of EtaleDualityAndPerverseSheaves (ST.0, ST.2) once it has stage ids: Noohi's fundamental group of a Deligne–Mumford stack, lisse Q̄ℓ-sheaves as its representations, and atlas descent.",
+    "Discharge GC3-STACK-PI1 through the stacks Part II of EtaleDualityAndPerverseSheaves (ST.0, ST.2) once it has stage ids: Noohi's fundamental group of a connected normal Deligne–Mumford stack, lisse Q̄ℓ-sheaves as its representations, and atlas descent.",
     "Discharge GC3-COARSE-STALKS (ST.0–ST.2 of the same Part II): the stalk formula for the coarse pushforward of a tame Deligne–Mumford stack and the Leray comparison with Q̄ℓ coefficients.",
-    "Discharge GC3-STACK-PUSHFORWARD (ST.1) only if a consumer needs YZ19's pushforward description of L_d; the monodromy construction does not.",
+    "Discharge GC3-STACK-PUSHFORWARD for the pushforward-description-comparison target, including nilpotent invariance of its fibres. Consumers using only the monodromy construction do not need this comparison.",
     "When stack and sheaf carriers exist, state the geometric declarations of the README in the suggested file (GC3-LEAN-CARRIERS).",
     "Assembly: apply the prerequisite edits of the restructure entry to the twelve imported parent GC.3 nodes, retire the parent gaps EXTERIOR-COMP and, for GC.3, ST-LISSE and ST-OPS in favour of the narrower gaps above, and merge GC3-STACK-PI1 with the sibling gap GC4-LISSE-ADAPTER."
    ]
@@ -1464,7 +1542,7 @@
   },
   {
    "item": "EXTERIOR-COMP: graded antisymmetrization with Koszul signs, Frobenius-equivariant comparison with the exterior power, d=0 and the vanishing range",
-   "disposition": "Planned and stated in Lean at the pins: GC.3/koszul-sign-action (on Tau Ceti's reindexRepresentation), GC.3/antisymmetrization and GC.3/alternating-invariants-exterior, with naturality, d=0, d=1 and the rank C(n,d).",
+   "disposition": "The missing signed action and its exterior comparison are fully planned; the tensor/exterior maps and generic identities are imported from the current library. Private light models at the old pins make the additional algebraic signatures reviewable without duplicating existing construction work.",
    "status": "closed"
   },
   {
@@ -1488,7 +1566,12 @@
     "Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and the authors' pages https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html, looked at on 18 October 2026: no erratum linked for these passages.",
     "arXiv https://arxiv.org/abs/1712.08026, version v2 (the latest) downloaded on 18 October 2026: the passage is unchanged there (pp. 85–86).",
     "The extraction PAPER-YUN-ZHANG-19 and the parent packet's sourceIssues E1–E12 do not record it."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the published p. 519 image and arXiv v2 pp. 85–86: the geometric base change is omitted twice in the proof. The lemma itself and its conclusion have the required base change. An unramified twist can make a nonzero geometric H¹ have a Frobenius-fixed vector, so arithmetic cohomology need not have the asserted concentration.",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.3"
+   }
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC3-2",
@@ -1504,14 +1587,19 @@
     "Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and the authors' pages https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html, looked at on 18 October 2026: no erratum linked for these passages.",
     "arXiv https://arxiv.org/abs/1712.08026, version v2 (the latest) downloaded on 18 October 2026: the passage is unchanged there (pp. 85–86).",
     "The extraction PAPER-YUN-ZHANG-19 and the parent packet's sourceIssues E1–E12 do not record it."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the standard representable convention for finite morphisms. The source itself identifies μ₂^m→μ₂ on stabilizers; its kernel is nontrivial for m≥2. This is a missing qualification/theorem for the pushforward argument, not a counterexample to the claimed local system. The plan records the needed nonrepresentable base-change input.",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.3"
+   }
   },
   {
    "kind": "misprint",
    "locator": "§7.1.1, p. 506; §A.2.1 and Lemma A.7, p. 519 (same in arXiv v2)",
    "printed": "The normalized IC object is shifted back by its dimension and then given a perverse label.",
    "correction": "Call K the normalized unshifted IC complex; K[d] is perverse. Apply the same normalization discipline to Lhat_d.",
-   "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. The intended normalization/character range is fixed by the surrounding statements; this does not alter the conclusions.",
    "affects": "nothing",
    "source": "YZ19",
    "id": "FunctionFieldArithmeticPartII/EGC3-3",
@@ -1520,14 +1608,19 @@
    "searched": [
     "Parent packet sourceIssues and their recorded searches (Annals page, authors' pages, arXiv v2), inherited rather than repeated.",
     "Published passage re-read on the page image of printed p. 519 on 18 October 2026."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as terminology/shift normalization: published p. 506 explicitly uses j_!*(L[d])[−d], and p. 519 treats L_d as an unshifted local system. With the usual perverse t-structure it is L_d[d] that is perverse; the displayed normalizations determine the intended object.",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.3"
+   }
   },
   {
    "kind": "misprint",
    "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
    "printed": "The proof restricts the global character of the arbitrary rank-one input to signs.",
    "correction": "Use χ:π1(U)→Qℓbar× for the stated arbitrary rank-one local system; inertia at R has order dividing two.",
-   "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
+   "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. The intended normalization/character range is fixed by the surrounding statements; this does not alter the conclusions.",
    "affects": "nothing",
    "source": "YZ19",
    "id": "FunctionFieldArithmeticPartII/EGC3-4",
@@ -1535,8 +1628,33 @@
    "known": "Inherited finding of the accepted parent packet (E3, from PAPER-YUN-ZHANG-19), re-read in the published passage on 18 October 2026; not a new finding.",
    "searched": [
     "Parent packet sourceIssues and their recorded searches (Annals page, authors' pages, arXiv v2), inherited rather than repeated.",
-    "Published passage re-read on the page image of printed p. 519 on 18 October 2026."
-   ]
+    "Published p. 520 image and arXiv v2 p. 86 independently re-read on 18 October 2026."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on published p. 520 and arXiv v2 p. 86. The A.2 input is arbitrary rank one with quadratic local inertia. A geometrically constant arithmetic character with Frobenius ζ₃ is permitted and rules out a globally sign-valued character. The proof works with Q̄ℓ× throughout.",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.3"
+   }
+  },
+  {
+   "id": "FunctionFieldArithmeticPartII/EGC3-5",
+   "source": "YZ19",
+   "kind": "misprint",
+   "origin": "FunctionFieldArithmeticPartII/E2",
+   "locator": "§A.1.3, pp. 515–516; residual-gerbe calculation in Lemma A.7, pp. 519–520",
+   "printed": "The zero-section geometric fibre is described as the classifying gerbe Bμ₂.",
+   "correction": "The full zero-section fibre is [Spec K[t]/(t²)/μ₂]; only its reduction is Bμ₂. Fibre-cohomology calculations first use invariance under nilpotent thickenings.",
+   "reason": "Base change of the root-stack affine chart keeps the equation t²=0. The nilpotent coordinate survives before reduction. This does not change the étale cohomology after invoking the proper invariance statement.",
+   "affects": "nothing",
+   "known": "Inherited E2 of the accepted parent; independently checked here because the coarse and ordered fibre arguments use its reduced gerbes.",
+   "searched": [
+    "Parent sourceIssues E2 and RS.1/closed-fibre; published §A.1.3 and the current upstream SchemeAndStackFoundations §1.21 nonreduced-fibre test."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The chart calculation gives the full fibre directly. The geometric stalk argument may use the reduced gerbe only after nilpotent invariance; this condition has been added to both affected stack-operation gaps.",
+    "by": "REV-FunctionFieldArithmeticPartII--GC.3"
+   }
   }
  ],
  "sourceVersions": [
@@ -1571,28 +1689,29 @@
     "FunctionFieldArithmeticPartII"
    ],
    "detail": "Consumer needs of GC.3 for the proposed stacks Part II of EtaleDualityAndPerverseSheaves (route EtaleDualityAndPerverseSheavesPartIIStacks, RT-AREA-etale/3, layers ST.0–ST.6, to be designed under DESIGN-EtaleDualityAndPerverseSheavesPartII). That fix moves the Yun–Zhang stack items there; this packet records which statements GC.3 actually needs, so the design can give them exact hypotheses.",
-   "proposal": "For GC.3 the stacks Part II should state, for tame Deligne–Mumford stacks of finite type over a field and Q̄ℓ coefficients: (a) in ST.0/ST.2, the étale fundamental group of a connected Deligne–Mumford stack (Noohi §4) and the equivalence of lisse Q̄ℓ-sheaves with its continuous representations, with atlas descent (GC3-STACK-PI1); (b) in ST.0–ST.2, the coarse pushforward Rω_* with stalks H^i(G_ȳ,F_ỹ) and the Leray comparison (GC3-COARSE-STALKS); (c) in ST.1, proper base change for proper quasi-finite non-representable morphisms (GC3-STACK-PUSHFORWARD). Intermediate extension, perverse sheaves and a decomposition theorem on stacks are not needed by GC.3. The same coarse comparison is requested by DeligneWeightsAndPurity (DWP.7/purity-of-smooth-proper-dm-stacks, from SF.1) and WeilConjectures WC.6, so one owner serves all three."
+   "proposal": "For GC.3 the stacks Part II should state, for tame Deligne–Mumford stacks of finite type over a field and Q̄ℓ coefficients: (a) in ST.0/ST.2, the étale fundamental group of a connected normal Deligne–Mumford stack (Noohi §4) and the equivalence of lisse Q̄ℓ-sheaves with its continuous representations, with atlas descent (GC3-STACK-PI1); (b) in ST.0–ST.2, the coarse pushforward Rω_* with stalks H^i(G_ȳ,F_ỹ) and the Leray comparison (GC3-COARSE-STALKS); (c) in ST.1, proper base change for proper quasi-finite non-representable morphisms (GC3-STACK-PUSHFORWARD). Intermediate extension, perverse sheaves and a decomposition theorem on stacks are not needed by GC.3. The same coarse comparison is requested by DeligneWeightsAndPurity (DWP.7/purity-of-smooth-proper-dm-stacks, from SF.1) and WeilConjectures WC.6, so one owner serves all three. Include nilpotent invariance in the coarse and proper-pushforward inputs; the classifying-gerbe descriptions refer to reduced fibres."
   },
   {
    "action": "rescope",
    "roadmaps": [
     "FunctionFieldArithmeticPartII"
    ],
-   "detail": "GC.3/koszul-sign-action, GC.3/antisymmetrization, GC.3/alternating-invariants-exterior, GC.3/averaging-exactness and GC.3/finite-group-rational-acyclicity are generic algebra. No atlas roadmap plans them: ArithmeticGaloisRepresentations G7/symmetric-and-exterior-powers plans exterior powers of continuous representations, not the comparison with Koszul-signed invariants, and RefinedTraceMethods RT.1/hkr-map is the Hochschild antisymmetrization. They build on Tau Ceti's reindexRepresentation and Mathlib's averaging.",
-   "proposal": "Keep them in GC.3, under a linear-algebra library home (TauCeti/LinearAlgebra/TensorPower/Koszul), and move them to a generic owner if one is designated; GC.3 would then import them by id."
+   "detail": "The generic maps α_d and π_d, their factorial/norm composites and naturality already exist in current Tau Ceti and Mathlib (currentLibraryImports). GC.3/antisymmetrization is narrowed to compatibility with the Koszul-signed action, not their reconstruction. The signed-action comparison, general categorical averaging and invertible-order vanishing are the additional targets; ordinary corestriction and finite-group cohomology annihilation are existing inputs.",
+   "proposal": "Reuse the current-library maps and API. Keep only the additional signed-action compatibility/comparison and averaging/vanishing targets in GC.3 under a generic linear-algebra home; if a generic owner is designated, import those targets from it. Do not plan new RamifiedClassField versions of the existing tensor/exterior maps."
   }
  ],
  "upstreamImports": [
   {
    "ref": "UPSTREAM:EtaleCohomologyFoundations:F.2.6",
    "roadmap": "tauceti:TauCetiRoadmap/EtaleCohomologyFoundations",
-   "layer": "§§F.2.1, F.2.6, F.2.7, F.4.5",
+   "layer": "§§F.2.1, F.2.6–F.2.7, F.3, F.4.5–F.4.6",
    "integrationOwner": "SchemeAndStackFoundations:SF.2",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/651c49797943811c7dd6d8ab4b5771b7ede1ec0d/TauCetiRoadmap/EtaleCohomologyFoundations/README.md",
-   "need": "Proper base change, finite pushforward, ordinary and compact-support Künneth and rational realization for schemes, used on X^d and Sym^dX.",
+   "need": "Proper base change, finite pushforward, ordinary and compact-support Künneth and rational realization for schemes, used on X^d and Sym^dX. Geometric curve cohomological dimension, finite coefficient-field scalar extension and Frobenius compatibility.",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/symmetric-coarse-model",
-    "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology"
+    "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology",
+    "FunctionFieldArithmeticPartII:GC.3/twisted-curve-cohomology"
    ],
    "snapshotBoundary": "Open pull request #938, head read 18 October 2026; not in the atlas snapshot. Scheme-only: no section treats Deligne–Mumford stacks."
   },
@@ -1628,7 +1747,7 @@
    "layer": "Layer 10",
    "integrationOwner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/350e970ce49f707a327909beac0b7b7c782cc7ee/TauCetiRoadmap/ProfiniteCohomology/README.md",
-   "need": "corestriction_comp_res for a finite group and its trivial subgroup.",
+   "need": "Existing transfer direction. The proof uses the implemented ordinary all-degree finite-group annihilation theorem directly (currentLibraryImports), without assuming an all-degree ordinary/continuous comparison from Layer 3.",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/finite-group-rational-acyclicity"
    ],
@@ -1645,14 +1764,122 @@
   }
  ],
  "ownershipChecks": {
-  "upstream": "TauCetiRoadmap main 350e970 listed through the GitHub API (the local checkout is on a pull-request branch). Read: SchemeAndStackFoundations §§1.19–1.23 and 2.23; ProfiniteCohomology Layers 6 and 10. Open pull requests read at their heads: EtaleCohomologyFoundations #938, EtaleDualityAndPerverseSheaves #1040, InverseGaloisAndArithmeticFundamentalGroups #850, EnhancedDerivedSheaves #908. None plans étale sheaves, fundamental groups or coarse pushforward for Deligne–Mumford stacks.",
-  "library": "Tau Ceti f790474 searched for permutation actions on tensor powers, alternatization and group cohomology: it has the unsigned reindexRepresentation, its invariants and range_norm_eq_invariants, but no Koszul-signed action, no comparison with the exterior power and no vanishing of finite-group cohomology with invertible order. Mathlib 082e2d3 has exteriorPower, alternatization, averageMap and groupCohomology, and only the subsingleton case of the vanishing.",
+  "upstream": "TauCetiRoadmap main 350e970 listed through the GitHub API (the local checkout is on a pull-request branch). Read: SchemeAndStackFoundations §§1.19–1.23 and 2.23; ProfiniteCohomology Layers 6 and 10. Open pull requests read at their heads: EtaleCohomologyFoundations #938, EtaleDualityAndPerverseSheaves #1040, InverseGaloisAndArithmeticFundamentalGroups #850, EnhancedDerivedSheaves #908. None plans étale sheaves, fundamental groups or coarse pushforward for Deligne–Mumford stacks. Independent check used read-only origin/main at 350e970, including the nine post-snapshot roadmaps. SchurWeyl Layer 8 supplies the one-column/exterior comparison context; the current library supplies the general-ring maps. The scheme supplier F.4.5 explicitly requires normality for the unrestricted profinite representation formulation.",
+  "library": "Tau Ceti f790474 searched for permutation actions on tensor powers, alternatization and group cohomology: it has the unsigned reindexRepresentation, its invariants and range_norm_eq_invariants, but no Koszul-signed action, no comparison with the exterior power and no vanishing of finite-group cohomology with invertible order. Mathlib 082e2d3 has exteriorPower, alternatization, averageMap and groupCohomology, and only the subsingleton case of the vanishing. Independent current-library check at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: exteriorPower.fromTensorPower and the factorial/naturality/image identities already exist in LinearAlgebra/ExteriorPower/Basic.lean. The construction target has therefore been narrowed to signed-action compatibility, with these imports kept separate from the older pins. Corestriction.lean already has groupCohomology.natCard_nsmul_eq_zero, but no invertible-order vanishing theorem was found in the current group-cohomology modules.",
   "atlas": "Accepted atlas nodes cited for the scheme inputs: IG.0/etale-fundamental-group, IG.0/adic-local-systems, IG.1/tame-and-prime-to-p, IG.1/decomposition-inertia, IG.5/finite-cover-image-lemmas, EDC.2/curve-poincare-duality-with-j-star-statement. Searched all packets for Koszul-sign and antisymmetrization targets (G7/symmetric-and-exterior-powers, MC.2/graded-vector-spaces-koszul, RT.1/hkr-map, Z.3/koszul-sign): none plans the comparison used here. The stack sheaf theory is routed to EtaleDualityAndPerverseSheavesPartIIStacks (RT-AREA-etale/3), which has no stage ids yet.",
-  "audit": "No accepted library audit covers FunctionFieldArithmeticPartII GC.3; the parent's audit evidence was read."
+  "audit": "Read all eight reviewed FunctionFieldArithmetic FA.0–FA.7 entries, including targets, declaration evidence and duplication notes. Their built divisor/function-field arithmetic is not planned here. There is no reviewed audit entry for FunctionFieldArithmeticPartII GC.3; the current-library inspection found the additional tensor/exterior imports above."
  },
  "validation": {
-  "packet": "check_blueprint.py with the pinned declaration index: 0 errors, 0 warnings; all 25 baseline references found in the index and confirmed by #check in the pinned build.",
-  "lean": "lean-check exits 0 at Mathlib 082e2d3 and Tau Ceti f790474 with only the 27 warnings for proof placeholders; the admitted-data check of scripts/ passes: the four definitions have real bodies. The geometric declarations are an omission ledger, not compiled.",
-  "implementationStatus": "unchecked"
+  "packet": "Independent check_blueprint.py run: 0 errors, 0 warnings. All 25 baseline declarations were independently read at the mandatory pins.",
+  "lean": "Independent lean-check exits 0 at Mathlib 082e2d3 and Tau Ceti f790474 with 25 warnings, all for admitted proofs. The four light definitions have real bodies, including the two private pin-only models. Geometric declarations remain a documented omission ledger.",
+  "implementationStatus": "unchecked",
+  "files": "intake.py check-files accepts all five deliverables; check_sorry_data.py reports no admitted data definitions; git diff --check is clean."
+ },
+ "currentLibraryImports": [
+  {
+   "library": "TauCeti",
+   "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "module": "TauCeti/LinearAlgebra/ExteriorPower/Basic.lean",
+   "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/LinearAlgebra/ExteriorPower/Basic.lean",
+   "declarations": [
+    "exteriorPower.fromTensorPower",
+    "exteriorPower.fromTensorPower_tprod",
+    "exteriorPower.fromTensorPower_surjective",
+    "exteriorPower.fromTensorPower_comp_toTensorPower",
+    "exteriorPower.toTensorPower_injective",
+    "exteriorPower.toTensorPower_comp_fromTensorPower",
+    "exteriorPower.toTensorPower_comp_map",
+    "exteriorPower.map_comp_fromTensorPower",
+    "exteriorPower.range_toTensorPower"
+   ],
+   "provides": "The exterior projection and its relations with Mathlib exteriorPower.toTensorPower, including both composites, naturality and injectivity. These are existing work, not new GC.3 construction targets.",
+   "pinBoundary": "These declarations and the current Mathlib toTensorPower are absent at the mandatory atlas pins. They are not falsely listed as pinned baseline declarations; the suggested file uses private real-bodied models to state the additional signed-action compatibility and comparison."
+  },
+  {
+   "library": "TauCeti",
+   "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "module": "TauCeti/RepresentationTheory/Homological/GroupCohomology/Corestriction.lean",
+   "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/RepresentationTheory/Homological/GroupCohomology/Corestriction.lean",
+   "declarations": [
+    "TauCeti.groupCohomology.map_subtype_id_comp_corestriction",
+    "TauCeti.groupCohomology.index_nsmul_eq_zero_of_map_eq_zero",
+    "groupCohomology.natCard_nsmul_eq_zero"
+   ],
+   "provides": "Ordinary restriction/corestriction and annihilation of every positive cohomology group of a finite group by its order. Only the invertible-order vanishing consequence is an additional GC.3 target.",
+   "pinBoundary": "The current all-degree annihilation theorem is absent at the mandatory atlas pins. The suggested file states the vanishing consequence at those pins with an admitted proof; it does not rebuild transfer."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.3",
+  "date": "2026-10-18",
+  "notes": "Independently reviewed all 13 nodes, all 25 pinned baseline declarations, source locators, imported parent targets and actual supplier statements. Corrected library duplication, coefficient/normality restrictions, cohomology boundaries, fibre reductions, API functoriality and tests; confirmed five source qualifications. No new node was needed. The planning pass is accepted with four explicit gaps; GC.3 remains planned, not closed. Suggested Lean elaborates at the pins with warnings only for admitted proofs.",
+  "checked": [
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/koszul-sign-action",
+    "verdict": "corrected",
+    "note": "Confirmed the signed action and five discriminating tests; distinguished Tau Ceti's endomorphism-only commutation lemma from Mathlib map_reindex for general V→W."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/antisymmetrization",
+    "verdict": "corrected",
+    "note": "Narrowed the former construction to the missing invariant-image compatibility. Imported existing current-library exterior maps, both composites and naturality; private light models only at the older pins."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/alternating-invariants-exterior",
+    "verdict": "corrected",
+    "note": "Checked the two-composite proof for every module when d! is a unit. Qualified Conrad's finite-dimensional source and imported current-library identities instead of replanning them."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/averaging-exactness",
+    "verdict": "corrected",
+    "note": "Verified exactness and functorial split-idempotent argument. Qualified the complex-vector-space and quasi-coherent source statements; the general algebraic claim follows from the pinned projector API."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/finite-group-rational-acyclicity",
+    "verdict": "corrected",
+    "note": "Reused current ordinary all-degree annihilation; retained only the invertible-order consequence. Layer 3's degree-0–2 comparison is not an all-degree supplier."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/tensor-character-kernel",
+    "verdict": "corrected",
+    "note": "Separated unrestricted character algebra from the finite-group cohomological corollary and the geometric pushforward gap. Added the infinite cyclic kernel counterexample."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
+    "verdict": "corrected",
+    "note": "Restricted the rational representation dictionary to normal stacks and objects over finite E/Qℓ. Checked the root chart, tame inertia, extension and coarse descent suppliers."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
+    "verdict": "corrected",
+    "note": "Corrected geometric π₁ notation and gave a boundary-character proof independent of stack pushforward. Added induced maps, identity/composition and scalar/zero-map tests."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/symmetric-coarse-model",
+    "verdict": "corrected",
+    "note": "Made the subsheaf argument explicit; added induced maps, identity/composition and scalar/zero-map tests. Corrected the positive-degree qualifier in the non-lisse example."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/rational-coarse-comparison",
+    "verdict": "corrected",
+    "note": "Distinguished the reduced gerbe from the possibly nonreduced full fibre and requested nilpotent invariance. AV99 gives local quotients/quasi-coherent exactness; the étale stalk comparison remains an explicit gap."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology",
+    "verdict": "verified",
+    "note": "Verified the coarse finite quotient, Künneth and split-projector proof, its Koszul action, and Frobenius compatibility against the actual scheme suppliers."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/twisted-curve-cohomology",
+    "verdict": "corrected",
+    "note": "Added direct coarse-comparison and SF.2 prerequisites, the geometric degree bound, and finite coefficient-field extension. Checked the rational j_* duality statement."
+   },
+   {
+    "nodeId": "FunctionFieldArithmeticPartII:GC.3/pushforward-description-comparison",
+    "verdict": "corrected",
+    "note": "Computed reduced finite-groupoid fibres with kernel stabilizers; added nilpotent invariance and identified the nonzero adjunction map. Nonrepresentable proper base change remains explicit."
+   }
+  ]
  }
 }
