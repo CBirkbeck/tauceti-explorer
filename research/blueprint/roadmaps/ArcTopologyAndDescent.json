@@ -31,7 +31,7 @@
     {
       "key": "AT.1",
       "title": "The scheme v- and h-topologies",
-      "description": "Scheme v-covers, the finitely presented h-site and universal descent; Rydh refinement; the converse h-descent criterion using the imported finite-inductive-level and forward blowup theorems; comparison on perfect schemes.",
+      "description": "Scheme v-covers, the finitely presented h-site and universal descent; Rydh refinement over affine targets, used Zariski locally; the converse h-descent criterion using the imported finite-inductive-level and forward blowup theorems; comparison on perfect schemes.",
       "requires": [
         "ArcTopologyAndDescent:AT.0",
         "DiamondsAndVStacks:D0",
@@ -60,7 +60,7 @@
     {
       "key": "AT.3",
       "title": "Finitary descent and valuation detection",
-      "description": "Define finitariness and universal descent with coherent totalizations, compact generation by cotruncated objects and descent-detecting families. Establish the filtered-totalization interchange and ultraproduct/aic-valuation detection, with the valuation-product component calculation. The continuous v-descent criterion follows here after filtered-totalization interchange. The valuation-product description also proves the infinite-chain non-quotient example and the obstruction to affine covers with only rank-one components.",
+      "description": "Define finitariness and universal descent with coherent totalizations, compact generation by cotruncated objects and descent-detecting families. Impose compact cotruncated generation on the affine finitary criterion and compact generation on Boolean stalk detection. Establish the filtered-totalization interchange and ultraproduct/aic-valuation detection, with the valuation-product component calculation. The continuous v-descent criterion follows here after filtered-totalization interchange. The valuation-product description also proves the infinite-chain non-quotient example and the obstruction to affine covers with only rank-one components.",
       "requires": [
         "ArcTopologyAndDescent:AT.0",
         "ArcTopologyAndDescent:AT.1",
@@ -75,7 +75,7 @@
     {
       "key": "AT.4",
       "title": "The arc-descent criterion",
-      "description": "Define excisiveness and aic-v-excision using the imported Milnor-square interface. Prove universal aic splitting with the corrected prime-extension lemma, interval induction, the equivalence of arc-descent and excision for finitary v-sheaves, and rank-at-most-one detection of equivalences.",
+      "description": "Define excisiveness and aic-v-excision using the imported Milnor-square interface. Prove universal aic splitting with the corrected prime-extension lemma, interval induction, the equivalence of arc-descent and excision for finitary v-sheaves, and rank-at-most-one detection of equivalences. The space-valued contractibility test carries a fixed global finite truncation bound.",
       "requires": [
         "ArcTopologyAndDescent:AT.0",
         "ArcTopologyAndDescent:AT.1",
@@ -124,7 +124,7 @@
     {
       "key": "AT.7",
       "title": "Constructible complexes, differentials and perfect schemes",
-      "description": "Prove continuity and arc-hyperdescent of bounded constructible complexes over a finite coefficient ring; compute their finite-rank valuation model. Establish characteristic-zero h-differential and h-de Rham arc-descent, and upgrade imported perfect-complex v-hyperdescent to arc-hyperdescent on perfect schemes, with the universally-effective-epimorphism criterion.",
+      "description": "Prove continuity and arc-hyperdescent of bounded constructible complexes over a finite coefficient ring; compute their finite-rank valuation model. State the smooth h/Zariski differential-form comparison, then establish characteristic-zero h-differential and h-de Rham arc-descent, and upgrade imported perfect-complex v-hyperdescent to arc-hyperdescent on perfect schemes, with the universally-effective-epimorphism criterion.",
       "requires": [
         "ArcTopologyAndDescent:AT.0",
         "ArcTopologyAndDescent:AT.1",
@@ -189,7 +189,7 @@
     {
       "key": "AT.10",
       "title": "Künneth and affinoid vanishing",
-      "description": "Prove generic-fibre and affinoid Künneth for coefficients of residue-invertible prime order, rational Mayer–Vietoris, shrinking-tube continuity and rational-domain vanishing. Deduce the d+1 bound for arbitrary torsion and the d bound for residue-prime-to-characteristic torsion on a d-dimensional affinoid over an algebraically closed nonarchimedean field.",
+      "description": "Prove generic-fibre and affinoid Künneth for coefficients of residue-invertible prime order, rational Mayer–Vietoris, shrinking-tube continuity and rational-domain vanishing. Deduce the d+1 bound for arbitrary torsion and the d bound for residue-prime-to-characteristic torsion on a d-dimensional affinoid over a complete algebraically closed nonarchimedean field with nontrivial valuation.",
       "requires": [
         "AdicSpacesPartII:R0",
         "AdicSpacesPartII:R1",
@@ -264,7 +264,7 @@
       "edition": "arXiv:1507.06490v3, 27 July 2017; Invent. Math. 209 (2017)",
       "url": "https://arxiv.org/abs/1507.06490v3",
       "readSections": [
-        "§2 pp. 4–10; §4 pp. 15–16; §6 pp. 21–22; §11 pp. 39, 45–47"
+        "§2 pp. 4–10; Lemma 3.16 p. 14; §4 pp. 15–16; §6 pp. 21–22; Theorem 11.2 p. 40, Theorem 11.15 p. 43 and proof pp. 45–47"
       ],
       "accessed": "2026-10-18",
       "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e"
@@ -348,7 +348,7 @@
       "edition": "Online version read 18 October 2026",
       "url": "https://stacks.math.columbia.edu/tag/09Z8",
       "readSections": [
-        "§59.82, Lemmas 59.82.1–6 and Theorem 59.82.7 (09ZI); HTML has no page numbers"
+        "§59.82, Lemmas 59.82.1–4 and 59.82.6, Example 59.82.5 and Theorem 59.82.7 (09ZI); HTML has no page numbers"
       ],
       "accessed": "2026-10-18"
     },
@@ -359,10 +359,46 @@
       "edition": "Aspects of Mathematics E30, Vieweg, 1996; maintainer-cleared copy",
       "url": "https://doi.org/10.1007/978-3-663-09991-8",
       "readSections": [
-        "Corollary 3.2.2, printed p. 174 (the book PDF p. 184); Corollary 4.2.7, printed pp. 244–245 (PDF pp. 254–255)"
+        "Corollary 3.2.2 printed p. 174; §3.2 pp. 178–181 including Theorems 3.2.9–3.2.10; Corollary 4.2.7 printed pp. 244–245"
       ],
       "accessed": "2026-10-18",
       "sha256": "b40a5c2ef56784d888206011ecb31bdc5e2e6120721a8c38b78b6cf2cd8d7e1a"
+    },
+    {
+      "id": "BH16",
+      "title": "Algebraization and Tannaka duality",
+      "authors": "Bhargav Bhatt",
+      "edition": "arXiv:1404.7483v1, 29 April 2014; published Camb. J. Math. 4 (2016)",
+      "url": "https://arxiv.org/abs/1404.7483v1",
+      "readSections": [
+        "Theorem 1.5 p. 2; Corollary 1.6 p. 3; conventions pp. 4–5"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "b486fd47dea03a4691e8d75144a54f31f7c65ffb23f57ffae76e42e229141cb3"
+    },
+    {
+      "id": "HJ14",
+      "title": "Differential forms in the h-topology",
+      "authors": "Annette Huber and Clemens Jörder",
+      "edition": "Algebraic Geometry 1 (4) (2014), 449–478; published open-access version",
+      "url": "https://algebraicgeometry.nl/2014-4/2014-4-020.pdf",
+      "readSections": [
+        "Introduction and conventions pp. 451–452; §6.1–6.2 pp. 464–466, especially Corollary 6.5 p. 465"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "395cc275b6aa8d644bd58e46cfa214cfda9d4657987b804abcfb7ffff1bbe72d"
+    },
+    {
+      "id": "HA",
+      "title": "Higher Algebra",
+      "authors": "Jacob Lurie",
+      "edition": "Online version dated 18 September 2017",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "readSections": [
+        "Corollary 4.7.5.3 and its proof, p. 705; adjacent Theorem 4.7.5.2 pp. 704–706"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3"
     }
   ],
   "status": "draft"

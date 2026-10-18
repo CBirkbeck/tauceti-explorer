@@ -101,6 +101,7 @@ example : IsAbsolutelyIntegrallyClosed (ZMod 1) := by
 /-! ## Layer 1: the scheme v- and h-topologies -/
 
 /- The scheme v-site, finitely presented h-site and universal descent live in the roadmap.
+Rydh refinement is used over affine targets and then Zariski locally.
 Finite inductive level and the forward abstract-blowup theorem are supplied by EnhancedDerivedSheaves.
 -/
 
@@ -170,7 +171,9 @@ example : ¬ IsSpectralSubmersion (Empty.elim : Empty → PUnit) := by
 /-! ## Layer 3: finitary descent and valuation detection -/
 
 /- Finitary functors, cotruncated compact generators, the Boolean sheaf on an ultrafilter space
-and descent-detecting families require the enhanced carriers specified in the roadmap. -/
+and descent-detecting families require the enhanced carriers specified in the roadmap.
+The affine finitary criterion assumes compact generation by cotruncated objects; Boolean stalk
+detection assumes a compactly generated presentable target. -/
 
 /-! ## Layer 4: the arc-descent criterion -/
 
@@ -209,7 +212,10 @@ The finite-chain model has injective transition maps, but all natural transforma
 /-! ## Layer 7: constructible complexes, differentials and perfect schemes -/
 
 /- The h-differential functor and the constructible/perfect categories are roadmap targets.
-The algebraic-space Hom theorem additionally requires the stated Perf-Tannaka supplier.
+The smooth h/Zariski differential comparison is a separate target (HJ14 Corollary 6.5, p. 465).
+Constructible v-descent requests the categorical form of Barr–Beck, HA Corollary 4.7.5.3, p. 705.
+The algebraic-space Hom theorem uses the verified BH16 Theorem 1.5, p. 2; its supplier still needs
+a registered owner as recorded in the roadmap gap.
 -/
 
 /-! ## Layer 8: formal glueing and henselian rigidity -/

@@ -28,25 +28,25 @@ For the affinoid layer K is complete, algebraically closed and nontrivially nona
 
 The baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The current library and current upstream roadmaps are used to determine ownership; the representative signatures use these pins.
 
-- `mathlib:ValuationRing` in `Mathlib/RingTheory/Valuation/ValuationRing.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:IsLocalHom` in `Mathlib/Algebra/Group/Units/Hom.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:Ring.KrullDimLE` in `Mathlib/RingTheory/KrullDimension/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:IsAlgClosed` in `Mathlib/FieldTheory/IsAlgClosed/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:IsAlgClosed.exists_root` in `Mathlib/FieldTheory/IsAlgClosed/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:SpectralSpace` in `Mathlib/Topology/Spectral/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:IsSpectralMap` in `Mathlib/Topology/Spectral/Hom.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:CategoryTheory.GrothendieckTopology` in `Mathlib/CategoryTheory/Sites/Grothendieck.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:AlgebraicGeometry.Scheme` in `Mathlib/AlgebraicGeometry/Scheme.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:AlgebraicGeometry.Scheme.etaleTopology` in `Mathlib/AlgebraicGeometry/Sites/Etale.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:IsAdicComplete` in `Mathlib/RingTheory/AdicCompletion/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:AdicCompletion` in `Mathlib/RingTheory/AdicCompletion/Basic.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:DerivedCategory` in `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`: Ordinary localized derived category; no enhanced-limit claim.
-- `mathlib:PerfectClosure` in `Mathlib/FieldTheory/PerfectClosure.lean`: Direct Frobenius perfection of an F_p-algebra; not the inverse-limit Perfection carrier.
-- `mathlib:FirstOrder.Language.Ultraproduct.sentence_realize` in `Mathlib/ModelTheory/Ultraproducts.lean`: Łoś theorem for sentences; the valuation axioms and monic-root sentence for each degree are the local application.
-- `tauceti:TauCeti.CommAlgCat.fppfTopology` in `TauCeti/Algebra/Category/CommAlgCat/Fppf.lean`: Existing carrier or predicate used with exactly the hypotheses in the pinned declaration.
-- `mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout` in `Mathlib/RingTheory/Flat/TorsionFree.lean`: Flatness over a valuation domain follows from Bezout torsion-freeness; a flat local map of local rings is faithfully flat.
-- `mathlib:ValuationRing.iff_local_bezout_domain` in `Mathlib/RingTheory/Valuation/ValuationRing.lean`: Flatness over a valuation domain follows from Bezout torsion-freeness; a flat local map of local rings is faithfully flat.
-- `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom` in `Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean`: Flatness over a valuation domain follows from Bezout torsion-freeness; a flat local map of local rings is faithfully flat.
+- `mathlib:ValuationRing` in `Mathlib/RingTheory/Valuation/ValuationRing.lean`: For a commutative integral domain, the valuation-ring class asserts total divisibility: for a,b, either a divides b or b divides a.
+- `mathlib:IsLocalHom` in `Mathlib/Algebra/Group/Units/Hom.lean`: For a monoid homomorphism, reflects units: if the image of a is a unit, a is a unit. Ring-hom locality is this predicate; preservation of units alone is automatic.
+- `mathlib:Ring.KrullDimLE` in `Mathlib/RingTheory/KrullDimension/Basic.lean`: The predicate that the prime spectrum of a commutative ring has Krull dimension at most the given natural number. Nontriviality is a separate assumption for valuation domains.
+- `mathlib:IsAlgClosed` in `Mathlib/FieldTheory/IsAlgClosed/Basic.lean`: For a field, every polynomial splits. This is a field predicate, whereas the planned aic predicate also permits rings with zero divisors and the zero ring.
+- `mathlib:IsAlgClosed.exists_root` in `Mathlib/FieldTheory/IsAlgClosed/Basic.lean`: Over an algebraically closed field, a polynomial of nonzero degree has a root. The positive-degree monic condition in the ring-level aic predicate supplies this nonconstancy.
+- `mathlib:SpectralSpace` in `Mathlib/Topology/Spectral/Basic.lean`: The typeclass combines T0, compactness, quasi-sobriety, quasi-separatedness and a basis of compact opens. It does not assert the spectral-submersion lifting condition.
+- `mathlib:IsSpectralMap` in `Mathlib/Topology/Spectral/Hom.lean`: A continuous map between topological spaces for which inverse images of compact open sets are compact. Universal submersiveness is additional data planned here.
+- `mathlib:CategoryTheory.GrothendieckTopology` in `Mathlib/CategoryTheory/Sites/Grothendieck.lean`: A collection of covering sieves with maximal-sieve, pullback and transitivity axioms on a category. The particular scheme and formal arc-cover conditions are new targets.
+- `mathlib:AlgebraicGeometry.Scheme` in `Mathlib/AlgebraicGeometry/Scheme.lean`: A locally ringed space locally isomorphic to spectra of commutative rings. The roadmap uses this existing scheme carrier.
+- `mathlib:AlgebraicGeometry.Scheme.etaleTopology` in `Mathlib/AlgebraicGeometry/Sites/Etale.lean`: For a scheme S, the big étale topology on schemes over S. It is not the small étale site, nor an enhanced derived-sections construction; those are requested separately from SF.2.
+- `mathlib:IsAdicComplete` in `Mathlib/RingTheory/AdicCompletion/Basic.lean`: For an ideal I and a module M, combines I-adic Hausdorffness and precompleteness. The ideal and module, including the zero-ideal boundary case, remain explicit.
+- `mathlib:AdicCompletion` in `Mathlib/RingTheory/AdicCompletion/Basic.lean`: The inverse-limit module of quotients by powers of the ideal. Existence of this carrier does not imply that every such completion is complete without the required ideal hypotheses, nor that ordinary completion equals derived completion.
+- `mathlib:DerivedCategory` in `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`: The ordinary localization of the homotopy category of cochain complexes at quasi-isomorphisms. Enhanced categories and coherent totalizations are imported from EnhancedDerivedSheaves.
+- `mathlib:PerfectClosure` in `Mathlib/FieldTheory/PerfectClosure.lean`: The direct Frobenius perfection, built from pairs consisting of a natural number and a ring element modulo the Frobenius relation. It is not the inverse-limit tilt of a perfectoid ring.
+- `mathlib:FirstOrder.Language.Ultraproduct.sentence_realize` in `Mathlib/ModelTheory/Ultraproducts.lean`: For an ultrafilter and a family of nonempty first-order structures, a sentence holds in the ultraproduct exactly when it holds on an ultrafilter-large set of factors. Valuation axioms and each positive-degree monic-root sentence are applications.
+- `tauceti:TauCeti.CommAlgCat.fppfTopology` in `TauCeti/Algebra/Category/CommAlgCat/Fppf.lean`: The fppf Grothendieck topology on the opposite category of commutative R-algebras, induced by the relative spectrum functor; this affine topology is subcanonical. It does not supply scheme v- or arc-descent.
+- `mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout` in `Mathlib/RingTheory/Flat/TorsionFree.lean`: For a module over a commutative Bézout domain, flatness is equivalent to vanishing torsion submodule. Together with the valuation-domain Bézout result, an injective extension is flat.
+- `mathlib:ValuationRing.iff_local_bezout_domain` in `Mathlib/RingTheory/Valuation/ValuationRing.lean`: With a commutative integral-domain structure fixed, the valuation-ring property is equivalent to the conjunction of locality and the Bézout property. This supplies the Bézout hypothesis for the flatness citation.
+- `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom` in `Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean`: For a ring algebra between local commutative rings, flatness and a local algebra map imply faithful flatness. Flatness must first be obtained from the separate torsion-free/Bézout theorem.
 
 In particular, the existing ordinary DerivedCategory does not supply coherent totalizations, and direct Frobenius PerfectClosure is not the inverse-limit tilt. The Łoś theorem is already in Mathlib; only its valuation and positive-degree monic-root applications occur here.
 
@@ -54,15 +54,16 @@ In particular, the existing ordinary DerivedCategory does not supply coherent to
 
 The exact node references in each target specify the supplied variant. The following contracts state the inputs for which a stage-level extension is required. They are mathematical requirements for the named owner; they are not assumed to have Lean implementations.
 
-- **AdicEtaleGeometry:A1**: Affine algebraic/adic torsion étale-cohomology comparison under Huber Corollary 3.2.2 p. 174 and Theorem 3.2.10, with noetherian or strongly-noetherian analytic hypotheses, and the affinoid perfectoid Tate comparison used by BS22 Theorem 9.1. Supply analytification of proper generic-fibre models and compatibility with open restriction and proper base change; do not claim equivalence of all scheme and adic étale sites.
+- **AdicEtaleGeometry:A1**: Supply Huber’s algebraic/adic comparison with its exact variants: Corollary 3.2.2 p. 174 is for constant coefficients; Theorem 3.2.9 p. 180 gives the pro-special affinoid sheaf comparison, and Theorem 3.2.10 pp. 180–181 treats finite-type algebraic generic fibres with properness at the relevant generic points. In AT.9 use a proper generic-fibre model. Retain the analytic noetherian/strongly-noetherian conditions and open-restriction/proper-base-change compatibilities. Also supply the affinoid perfectoid Tate comparison in BS22 Theorem 9.1. These do not identify all scheme and adic étale sites.
 - **DiamondsAndVStacks:D0**: Stone–Čech spaces, clopen idempotents and ultrafilter spectra of products of rings; spectral-map constructible-topology facts, valuative specialization lifting and universal subtrusiveness for qcqs scheme morphisms. This is the ordinary scheme/spectral interface, not a redefinition of perfectoid v-sites.
+- **EnhancedDerivedSheaves:E5:abstract**: Supply the categorical descent form of Barr–Beck, HA Corollary 4.7.5.3 p. 705, beyond E5:abstract/barr-beck-lurie. For an augmented cosimplicial infinity-category, assume the augmentation functor G is conservative, its G-split geometric realizations exist and are preserved, and every d⁰ square, including the augmentation, is left adjointable; then augmentation to the totalization is an equivalence. Apply this left-adjointable form to the opposite fixed-amplitude constructible-complex categories; equivalently, use right-adjointable squares and preserved G-split totalizations in the original categories.
 - **EtaleDualityAndPerverseSheaves:EDC.0**: Extend EDC.0/constructible-ctf-complexes from noetherian schemes with coefficient order invertible to all qcqs schemes with an arbitrary finite coefficient ring Λ. D^b_cons means bounded constructible cohomology and does not impose finite Λ-Tor dimension. Supply enhanced pullbacks, finite étale local trivializations and fixed cohomological-amplitude subcategories. The Z/4-module Z/2 in degree zero is allowed even though its Tor dimension is infinite.
 - **GeneralAlgebraicKTheory:K.5**: Milnor/excision data A=B×_(B/J)A/I with I→J an isomorphism of ideals, including arbitrary nonnoetherian commutative rings and stability under the pullback constructions used in the arc criterion. This imports the datum, not a K-excision assertion for every Milnor square.
 - **PerfectoidSpaces:P3**: Beyond P3/henselian-finite-etale-approximation, extend finite étale approximation to bounded t-power torsion and noetherian finite-ideal punctured spectra, with descent on the finite union of principal opens, as in CS24 Lemma 3.1.2 p. 30. Supply the finite-étale support/localization compatibility needed by its cohomological variant.
 - **SchemeAndStackFoundations:SF.0**: Valuation extension to an algebraic closure, integral closures, cardinal-bounded algebraic subrings, localization/quotient prime spectra, finite presentation and affine approximation. Supply formal schemes and continuous affine maps for p-adic formal spectra, including nonnoetherian bases. The already planned perfection, henselian-pair and inverse-limit results are used by exact node id; this request concerns the remaining general scheme/ring interfaces.
 - **SchemeAndStackFoundations:SF.1**: Fppf descent for spaces-valued presheaves, effective étale-scheme/algebraic-space descent, and the equivalence between constructible finite-set étale sheaves and qcqs étale algebraic spaces. Supply locally finitely presented étale maps over arbitrary qcqs bases; separated objects are a distinguished subcategory, not all étale algebraic spaces.
-- **SchemeAndStackFoundations:SF.2**: Small étale topoi and strict henselization points on arbitrary qcqs schemes; filtered-limit continuity for torsion étale cohomology and constructible étale sheaves; enhanced proper base change without order-invertibility for torsion coefficients; localization/support triangles, enough points, filtered-colimit continuity, field Künneth for residue-invertible coefficients, trace and finite-cover effacement. Extend coherent-topos theory by the coherence/quasicompactness criteria, Deligne enough points and pushouts along coherent monomorphisms used in BM21 Propositions 4.19–4.23. For rational-domain vanishing, also supply affine Artin–Schreier vanishing for characteristic-primary constant coefficients, beyond the imported prime-to-characteristic affine theorem.
-- **SchemeAndStackFoundations:SF.4**: Rydh refinement and noetherian approximation: a finitely presented universally subtrusive cover admits a qc open/proper-surjective-finitely-presented refinement, and affine v-covers are limits of finitely presented v-covers. Supply proper models by Nagata compactification, Zariski main theorem for quasi-finite maps, alterations/ind-smoothness of characteristic-zero valuations.
+- **SchemeAndStackFoundations:SF.2**: Small étale topoi and strict henselization points on arbitrary qcqs schemes; filtered-limit continuity for torsion étale cohomology and constructible étale sheaves; enhanced proper base change without order-invertibility for torsion coefficients; localization/support triangles, enough points, filtered-colimit continuity, field Künneth for residue-invertible coefficients, trace and finite-cover effacement. Extend coherent-topos theory by the coherence/quasicompactness criteria, Deligne enough points and pushouts along coherent monomorphisms used in BM21 Propositions 4.19–4.23. For rational-domain vanishing, also supply affine Artin–Schreier vanishing for characteristic-primary constant coefficients, beyond the imported prime-to-characteristic affine theorem. On finite-type schemes over Spec Z, proper pushforwards preserve constructibility for finite coefficients, and their truncations are right adjoints on each cohomological-amplitude stratum; the proper-base-change maps must remain compatible with these truncations. Supply affine acyclicity for quasi-coherent Zariski sheaves and its finite affine-cover computation for the smooth differential-form comparison.
+- **ArcTopologyAndDescent:AT.0/valuation-prime-square**: Rydh refinement and noetherian approximation: a finitely presented v-cover of an affine target admits a qc open/proper-surjective-finitely-presented refinement, and affine v-covers are limits of finitely presented v-covers. Supply proper models by Nagata compactification, Zariski main theorem for quasi-finite maps, alterations/ind-smoothness of characteristic-zero valuations. Supply resolution of singularities over characteristic-zero fields and its abstract-blowup descent refinements for the smooth h-differential comparison.
 - **tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras**: Existing TauCetiRoadmap.AdicSpaces Layer 0: Huber and Tate topological rings, rings of definition, completion, pseudouniformizers and continuous maps. Imported as existing work, no extension requested.
 - **tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations**: Existing TauCetiRoadmap.AdicSpaces Layer 1: continuous valuations, equivalence of valuations and adic spectra. Imported as existing work, no extension requested.
 
@@ -70,7 +71,7 @@ The exact existing nodes used repeatedly are EnhancedDerivedSheaves E0/coherent-
 
 SchemeAndStackFoundations SF.0/scheme-perfection, /affine-transition-limits, /henselian-pair-characterisations and /henselian-finite-etale-equivalence provide the named scheme and henselian comparisons. PerfectoidQuotients Q0:integral-algebra supplies /semiperfectoid-quasisyntomic-and-qrsp-rings, /perfectoid-bounded-p-torsion, /products-of-perfectoid-rings and /completely-etale-and-henselian-perfectoid. PrismaticCohomology PR.0/ainf-prism gives a distinguished regular generator ξ of ker θ and classical (p,ξ)-completeness; /perfect-prisms-perfectoid-rings gives the integral equivalence. The field tests use PerfectoidSpaces P1/tilt-of-perfectoid-field and /continuous-valuations-under-tilting; the étale-site comparison is P3/etale-site-tilting-equivalence.
 
-**An unregistered input.** The algebraic-space Hom target in Layer 7 needs Hom(X,Y)≃Fun^⊗_exact(Perf(Y),Perf(X)) in the qcqs algebraic-space form used in BM21 Theorem 5.17, citing Bhatt (2016), Theorem 1.5. The proposed SchemeAndStackFoundationsPartIIAlgebraicSpaceTannaka has no registered supplier stage in the atlas. Register and verify that exact contract to close this target. SF.1 alone does not supply it. No other theorem below uses this reconstruction input; formal-target representable descent in Layer 12 has a separate proof.
+**An unregistered input.** The algebraic-space Hom target in Layer 7 uses the verified equivalence Hom(X,Y)≃Fun^⊗_exact(Perf(Y),Perf(X)) of BH16 Theorem 1.5 p. 2, with Y a qcqs algebraic space and X any algebraic space. Its proposed Part II has no registered supplier stage. Register the owner and the exact contract to close this target; SF.1 alone does not supply it. No other theorem below uses this reconstruction input; formal-target representable descent in Layer 12 has a separate proof.
 
 ## How to read the build
 
@@ -115,7 +116,7 @@ The interface supports the following uses: Reduce arbitrary-rank lifting rings i
 - `IsValuationExtension.iff_faithfullyFlat`: For maps between valuation domains, extension is equivalent to faithful flatness.
 - `IsValuationExtension.comp`: Extensions compose; the identity is an extension.
 - `IsValuationExtension.isLocalHom`: The second component is exactly Mathlib IsLocalHom, not preservation of units alone.
-- `IsValuationExtension.lift_rankOne`: A lift from a rank-at-most-one source through an arbitrary valuation extension can be replaced by a rank-at-most-one lifting ring, retaining the chosen finite-rank interval.
+- `IsValuationExtension.lift_rankOne`: A lift from a rank-at-most-one valuation domain V into an arbitrary extension W can be passed through a suitable localization and prime quotient of W to a rank-at-most-one valuation domain W′, with V→W′ still an injective local extension.
 
 **Checks.**
 
@@ -125,7 +126,7 @@ The interface supports the following uses: Reduce arbitrary-rank lifting rings i
 
 A nontrivial DVR embeds in its fraction field injectively but not locally.
 
-(BM21, §2, Proposition 2.1 and Remark 2.2, pp. 8–9.) *Needs:* `mathlib:ValuationRing`, `mathlib:IsLocalHom`, `mathlib:Ring.KrullDimLE`, `mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout`, `mathlib:ValuationRing.iff_local_bezout_domain`, `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`.
+(BM21, §2, Proposition 2.1 and Remark 2.2, p. 9.) *Needs:* `mathlib:ValuationRing`, `mathlib:IsLocalHom`, `mathlib:Ring.KrullDimLE`, `mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout`, `mathlib:ValuationRing.iff_local_bezout_domain`, `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`.
 
 ### 0.3 Aic extensions and cardinal bounds
 
@@ -145,7 +146,7 @@ Take fraction fields of finitely generated subalgebras and use finite transcende
 
 Rank is finite at each stage, without a common rank bound for the diagram.
 
-(BM21, Lemmas 2.21–2.22, pp. 14–15; BS17 proof of Lemma 6.4, p. 22.) *Needs:* `IsValuationExtension` (Layer 0), `aic_extension_and_size` (Layer 0), `SchemeAndStackFoundations:SF.0/affine-transition-limits`.
+(BM21, Lemmas 2.21–2.22, p. 14.) (BS17, Proof of Lemma 6.4, p. 22.) *Needs:* `IsValuationExtension` (Layer 0), `aic_extension_and_size` (Layer 0), `SchemeAndStackFoundations:SF.0/affine-transition-limits`.
 
 ### 0.5 The prime-splitting square
 
@@ -159,7 +160,7 @@ For p=0 or p=m the square has an identity side; for rank two and the middle prim
 
 ### 0.6 Prime intervals of a valuation ring
 
-Construct `ValuationInterval`. For p⊆q in Spec V, put V_[p,q]=(V/p)_q. Its spectrum is the closed interval [p,q], its maximal ideal is q/p, and its fraction field is κ(p). Inclusion of intervals reverses the direction of the associated ring maps. Intersections of nested intervals correspond to filtered colimits of these rings.
+Construct `ValuationInterval`. For p⊆q in Spec V, put V_[p,q]=(V/p)_q. Its spectrum is the closed interval [p,q], its maximal ideal is the localized ideal (q/p)(V/p)_q, and its fraction field is κ(p). Inclusion of intervals reverses the direction of the associated ring maps. Intersections of nested intervals correspond to filtered colimits of these rings.
 
 Construct quotient and localization with their existing universal properties. Use total order on primes to identify spectra, and check endpoint intersections/unions in filtered diagrams.
 
@@ -190,7 +191,7 @@ For a nonfield valuation domain V, V→Frac(V) is injective but sends a nonunit 
 
 ## Layer 1: The scheme v- and h-topologies
 
-Scheme v-covers, the finitely presented h-site and universal descent; Rydh refinement; the converse h-descent criterion using the imported finite-inductive-level and forward blowup theorems; comparison on perfect schemes.
+Scheme v-covers, the finitely presented h-site and universal descent; Rydh refinement over affine targets, used Zariski locally; the converse h-descent criterion using the imported finite-inductive-level and forward blowup theorems; comparison on perfect schemes.
 
 ### 1.1 Universal descent for a scheme presheaf
 
@@ -209,11 +210,11 @@ The interface supports the following uses: Use base change, limits and interval 
 
 - Identity maps have a split augmented Cech nerve.
 - For sets, compute the matching equalizer and recover ordinary descent data.
-- For a derived-valued functor an equalizer of only levels zero and one cannot substitute for the full totalization.
+- For the identity cover with constant value Z[0] in D(Z), full Cech totalization is Z[0], while the homotopy equalizer of just id,id:Z[0]⇉Z[0] is Z[0]⊕Z[−1], with nonzero H¹. Keeping only those two arrows gives the wrong answer.
 
 For set-valued F this reduces to the usual equalizer condition.
 
-(BM21, Definition 3.2 p. 16 and Lemma 3.4 pp. 16–17; BS17 proof of Theorem 2.9 and Lemma 2.10 pp. 7–8.) *Needs:* `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `SchemeAndStackFoundations:SF.0`.
+(BM21, Definition 3.2 p. 16 and Lemma 3.4 pp. 16–17.) (BS17, Proof of Theorem 2.9 and Lemma 2.10, pp. 7–8.) *Needs:* `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `SchemeAndStackFoundations:SF.0`.
 
 ### 1.2 Scheme v-covers and refinements
 
@@ -237,7 +238,7 @@ The interface supports the following uses: Refine finitely presented covers to p
 
 All valuation ranks occur in the test.
 
-(BM21, Definition 1.1 pp. 1–2; BS17 Definitions 2.1, 2.13 pp. 4, 9.) *Needs:* `IsValuationExtension` (Layer 0), `mathlib:AlgebraicGeometry.Scheme`, `mathlib:CategoryTheory.GrothendieckTopology`.
+(BM21, Definition 1.1, p. 2.) (BS17, Definitions 2.1 p. 4 and 2.13 p. 9.) *Needs:* `IsValuationExtension` (Layer 0), `mathlib:AlgebraicGeometry.Scheme`, `mathlib:CategoryTheory.GrothendieckTopology`.
 
 ### 1.3 The h-site and abstract blowup squares
 
@@ -261,17 +262,17 @@ The interface supports the following uses: Reduce all h-descent to fppf descent 
 
 The identity modification with arbitrary Z is included.
 
-(BS17, BS17 Definition 2.7 and Proposition 2.8, pp. 6–7.) *Needs:* `VCover` (Layer 1), `SchemeAndStackFoundations:SF.0`, `mathlib:CategoryTheory.GrothendieckTopology`.
+(BS17, Definition 2.7 and Proposition 2.8, p. 6.) *Needs:* `VCover` (Layer 1), `SchemeAndStackFoundations:SF.0`, `mathlib:CategoryTheory.GrothendieckTopology`.
 
 ### 1.4 Abstract blowup criterion for h-descent
 
 Prove `h_descent_criterion`. A set- or space-valued presheaf on finitely presented S-schemes is an h-sheaf if it is an fppf sheaf and sends abstract blowup squares with affine X to pullbacks. The reverse implication, nilimmersion invariance and blowup pullbacks are imported from EnhancedDerivedSheaves:E2/abstract-blowup-squares. Consequently proper surjections are of universal descent and the corresponding square of sheafified representables is a pushout.
 
-Import finite inductive level and the forward blowup theorem. For the new converse, induct on the level of a proper finitely presented surjection; use fppf descent at level zero and the blowup pullback to pass the induction across its centre. Apply the statement after every base change; Yoneda turns the sheaf pullbacks into the representable pushout.
+Import finite inductive level and the forward blowup theorem. For the new converse, induct on the level of a proper finitely presented surjection; use fppf descent at level zero and the blowup pullback to pass the induction across its centre. Localize the target on affine opens before applying Rydh refinement. Apply the statement after every base change; Yoneda turns the sheaf pullbacks into the representable pushout.
 
 The pushout uses sheafified representables: neither scheme v nor arc is subcanonical.
 
-(BS17, BS17 Proposition 2.8 and Theorem 2.9, pp. 6–8.) *Needs:* `HSite` (Layer 1), `EnhancedDerivedSheaves:E2/proper-surjection-inductive-level`, `UniversalDescent` (Layer 1), `SchemeAndStackFoundations:SF.1`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E2/abstract-blowup-squares`.
+(BS17, BS17 Proposition 2.8 and Theorem 2.9, pp. 6–8.) *Needs:* `HSite` (Layer 1), `EnhancedDerivedSheaves:E2/proper-surjection-inductive-level`, `UniversalDescent` (Layer 1), `SchemeAndStackFoundations:SF.1`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E2/abstract-blowup-squares`, `rydh_refinement` (Layer 1).
 
 ### 1.5 Perfection and restricted subcanonicity
 
@@ -285,13 +286,13 @@ This subcanonicity does not extend to arbitrary schemes.
 
 ### 1.6 Rydh refinement and approximation
 
-Prove `rydh_refinement`. A finitely presented v-cover of a qcqs scheme has a refinement factoring as a quasi-compact open cover of a proper surjective finitely presented morphism. An affine v-cover Spec B→Spec A is a cofiltered limit of affine finitely presented v-covers of Spec A.
+Prove `rydh_refinement`. A finitely presented v-cover of an affine scheme has a refinement factoring as a quasi-compact open cover of a proper surjective finitely presented morphism. An affine v-cover Spec B→Spec A is a cofiltered limit of affine finitely presented v-covers of Spec A. For a general qcqs target, apply the first assertion on affine opens before gluing descent.
 
-Use the imported noetherian approximation and flattening theorem in the Rydh refinement step. Approximate B by finitely presented A-algebras; right cancellation preserves the covering property and flattening yields cofinal affine h-covers.
+Apply the imported Rydh refinement theorem to the affine target. Write B as a filtered colimit of finitely presented A-algebras mapping to B. Each Spec B_i→Spec A is a v-cover by right cancellation against Spec B→Spec A; its affine-target refinement is an h-cover.
 
 Finite presentation belongs to the approximating covers; it is not imposed on B.
 
-(BS17, BS17 Theorem 2.4 pp. 4–5 and Lemma 2.12 pp. 8–9.) *Needs:* `VCover` (Layer 1), `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.0/affine-transition-limits`.
+(BS17, Theorem 2.4 p. 5 and Lemma 2.12 p. 9.) *Needs:* `VCover` (Layer 1), `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.0/affine-transition-limits`.
 
 ### 1.7 Geometry and adic detection of v-covers
 
@@ -301,7 +302,7 @@ Apply the valuative criterion to lift specializations after arbitrary base chang
 
 A universally submersive map need not be a v-cover; the rank-two split is a counterexample.
 
-(BS17, BS17 Remark 2.2, Example 2.3 and paragraph after Definition 2.1, p. 4; BM21 Proposition 2.13 pp. 11–12.) *Needs:* `VCover` (Layer 1), `DiamondsAndVStacks:D0`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`, `SchemeAndStackFoundations:SF.0`.
+(BS17, Remark 2.2 and Example 2.3, pp. 4–5.) (BM21, Proposition 2.13, p. 11.) *Needs:* `VCover` (Layer 1), `DiamondsAndVStacks:D0`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`, `SchemeAndStackFoundations:SF.0`.
 
 ### Examples
 
@@ -309,7 +310,7 @@ Blowing up the origin of A²_k is proper and surjective, hence a v-cover. Deleti
 
 ### Dependencies
 
-`ArcTopologyAndDescent:AT.0`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.4`, `SchemeKTheoryOperations:S.4`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`.
+`ArcTopologyAndDescent:AT.0`, `DiamondsAndVStacks:D0`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `ArcTopologyAndDescent:AT.0/valuation-prime-square`, `SchemeKTheoryOperations:S.4`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`.
 
 ## Layer 2: Arc-covers and spectral submersions
 
@@ -338,7 +339,7 @@ The interface supports the following uses: The lifting test is converted to exci
 
 Rank zero fields are included; valuation rings need not be discrete.
 
-(BM21, Definition 1.2 pp. 1–2; Remark 1.4 p. 3.) *Needs:* `IsValuationExtension` (Layer 0), `VCover` (Layer 1).
+(BM21, Definition 1.2 and Remark 1.4, p. 3.) *Needs:* `IsValuationExtension` (Layer 0), `VCover` (Layer 1).
 
 ### 2.2 Comparing arc- and v-covers
 
@@ -348,7 +349,7 @@ Reduce a valuation extension over a rank-one source to its relevant prime interv
 
 A nonnoetherian scheme over a noetherian base is not covered by the noetherian-target hypothesis.
 
-(BM21, Proposition 2.1, Corollary 2.5 and Proposition 2.6, pp. 8–10.) *Needs:* `ArcCover` (Layer 2), `VCover` (Layer 1), `IsValuationExtension` (Layer 0), `SchemeAndStackFoundations:SF.0`.
+(BM21, Proposition 2.1 p. 9, Corollary 2.5 and Proposition 2.6 p. 10.) *Needs:* `ArcCover` (Layer 2), `VCover` (Layer 1), `IsValuationExtension` (Layer 0), `SchemeAndStackFoundations:SF.0`.
 
 ### 2.3 Milnor squares give arc-covers
 
@@ -358,7 +359,7 @@ Given A→V of rank one, separate I mapping to zero from a nonzero ideal; the la
 
 When I=0 or I=A the resulting split cover is trivial.
 
-(BM21, Lemma 2.7, Corollary 2.9 and Example 1.3, pp. 2, 10–11.) *Needs:* `ArcCover` (Layer 2), `valuation_prime_square` (Layer 0), `GeneralAlgebraicKTheory:K.5`.
+(BM21, Lemma 2.7 and Corollary 2.9 p. 10; Example 1.3 p. 3.) *Needs:* `ArcCover` (Layer 2), `valuation_prime_square` (Layer 0), `GeneralAlgebraicKTheory:K.5`.
 
 ### 2.4 Specialization lifting over a rank-one valuation
 
@@ -412,11 +413,11 @@ Show the compact-open reflection property after valuation base changes and desce
 
 Ordinary universal quotient maps are not asserted stable under these limits.
 
-(BM21, Lemma 2.17, Proposition 2.19 and Corollary 2.20, pp. 12–14.) *Needs:* `ArcCover` (Layer 2), `IsSpectralSubmersion` (Layer 2), `rank_one_specialization` (Layer 2), `arc_v_comparison` (Layer 2), `SchemeAndStackFoundations:SF.0/affine-transition-limits`, `DiamondsAndVStacks:D0`.
+(BM21, Lemma 2.17 pp. 12–13, Proposition 2.19 pp. 14–15 and Corollary 2.20 p. 14.) *Needs:* `ArcCover` (Layer 2), `IsSpectralSubmersion` (Layer 2), `rank_one_specialization` (Layer 2), `arc_v_comparison` (Layer 2), `SchemeAndStackFoundations:SF.0/affine-transition-limits`, `DiamondsAndVStacks:D0`.
 
 ### Examples
 
-For Spec V={0,p,m}, the split Spec V_p⊔Spec V/p→Spec V lifts each rank-one interval and is an arc-cover. The identity valuation of V cannot lift faithfully through either factor, so it is not a v-cover. If the target is noetherian the two topologies agree; a scheme merely lying over a noetherian base need not have that property (BM21 Example 1.3, p. 2; Proposition 2.6, p. 10).
+For Spec V={0,p,m}, the split Spec V_p⊔Spec V/p→Spec V lifts each rank-one interval and is an arc-cover. The identity valuation of V cannot lift faithfully through either factor, so it is not a v-cover. If the target is noetherian the two topologies agree; a scheme merely lying over a noetherian base need not have that property (BM21 Example 1.3, p. 3; Proposition 2.6, p. 10).
 
 ### Dependencies
 
@@ -424,7 +425,7 @@ For Spec V={0,p,m}, the split Spec V_p⊔Spec V/p→Spec V lifts each rank-one i
 
 ## Layer 3: Finitary descent and valuation detection
 
-Define finitariness and universal descent with coherent totalizations, compact generation by cotruncated objects and descent-detecting families. Establish the filtered-totalization interchange and ultraproduct/aic-valuation detection, with the valuation-product component calculation. The continuous v-descent criterion follows here after filtered-totalization interchange. The valuation-product description also proves the infinite-chain non-quotient example and the obstruction to affine covers with only rank-one components.
+Define finitariness and universal descent with coherent totalizations, compact generation by cotruncated objects and descent-detecting families. Impose compact cotruncated generation on the affine finitary criterion and compact generation on Boolean stalk detection. Establish the filtered-totalization interchange and ultraproduct/aic-valuation detection, with the valuation-product component calculation. The continuous v-descent criterion follows here after filtered-totalization interchange. The valuation-product description also proves the infinite-chain non-quotient example and the obstruction to affine covers with only rank-one components.
 
 ### 3.1 Compact generation by cotruncated objects
 
@@ -447,17 +448,17 @@ The interface supports the following uses: Commute filtered colimits with Cech t
 
 Cohomological degrees are used for D(Λ)^{≥0}.
 
-(BM21, Definition 3.5 and Example 3.6, pp. 16–17.) *Needs:* `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
+(BM21, Definition 3.5 and Example 3.6, p. 17.) *Needs:* `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
 
 ### 3.2 Finitary scheme functors
 
-Define `Finitary`. A functor F:Sch_qcqs,R^op→C is finitary when for each cofiltered inverse system X_i with affine transition maps and limit X, colim_i F(X_i)→F(X) is an equivalence. For Zariski sheaves it suffices to impose this for affine schemes, equivalently filtered colimits of R-algebras.
+Define `Finitary`. A functor F:Sch_qcqs,R^op→C is finitary when for each cofiltered inverse system X_i with affine transition maps and limit X, colim_i F(X_i)→F(X) is an equivalence. If C is compactly generated by cotruncated objects and F is a Zariski sheaf, this is equivalent to filtered-colimit continuity on affine R-algebras.
 
-Use the existing affine-transition scheme limit. Use finite affine covers and intersections to reduce a Zariski sheaf to the affine formulation.
+Use the existing affine-transition scheme limit. For the affine criterion, map out of compact cotruncated generators, use finite affine covers of qcqs schemes and their intersections, and commute filtered colimits with the resulting bounded space-valued descent limits.
 
 The interface supports the following uses: Pass from products to ultraproduct stalks. (BM21 Proposition 3.30). Approximate arbitrary arc-covers by finite presentation. (BM21 Theorem 4.1).
 
-- `Finitary.affine_iff`: For a Zariski sheaf, ring filtered-colimit continuity is equivalent to scheme finitariness.
+- `Finitary.affine_iff`: If C is compactly generated by cotruncated objects and F is a Zariski sheaf, ring filtered-colimit continuity is equivalent to scheme finitariness.
 - `Finitary.limitComparison`: Export the canonical comparison and its naturality in diagrams.
 - `Finitary.finiteLimits`: Finite limits of finitary functors remain finitary when filtered colimits commute with finite limits in the target.
 - `Finitary.etaleCohomology`: The finitary comparison for torsion étale cohomology is the scheme-cohomology continuity map, not a new cohomology construction.
@@ -466,11 +467,11 @@ The interface supports the following uses: Pass from products to ultraproduct st
 
 - The terminal presheaf is finitary.
 - For finitely presented affine T over R, Hom_R(Spec A,T) commutes with filtered colimits of A.
-- The representable functor of Spec R[x₁,x₂,…] fails finitariness: the identity over R[x₁,x₂,…] does not factor through any finite-variable subring.
+- For nonzero R, the representable functor of Spec R[x₁,x₂,…] fails finitariness: the identity over R[x₁,x₂,…] does not factor through any finite-variable subring.
 
 Finite products are a separate property and are not inferred from finitariness.
 
-(BM21, Definition 3.1, p. 15.) *Needs:* `SchemeAndStackFoundations:SF.0/affine-transition-limits`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
+(BM21, Definition 3.1 p. 16; Definition 3.5 p. 17 for the target hypothesis on the affine criterion.) *Needs:* `SchemeAndStackFoundations:SF.0/affine-transition-limits`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `CotruncatedTarget` (Layer 3).
 
 ### 3.3 Filtered colimits and totalizations
 
@@ -523,7 +524,7 @@ Use idempotents to identify the clopen subsets from subsets of I. Identify the l
 
 No assertion of preservation of rank one by arbitrary ultraproducts is made.
 
-(BM21, Lemmas 3.16–3.17 pp. 19–20 and Lemma 3.27 p. 22; BS17 Lemma 6.2 p. 21.) *Needs:* `DiamondsAndVStacks:D0`, `mathlib:FirstOrder.Language.Ultraproduct.sentence_realize`, `mathlib:ValuationRing`, `IsAbsolutelyIntegrallyClosed` (Layer 0).
+(BM21, Remark 3.16 and Construction 3.17 p. 20; Lemma 3.27 p. 22.) (BS17, Lemma 6.2, p. 21.) *Needs:* `DiamondsAndVStacks:D0`, `mathlib:FirstOrder.Language.Ultraproduct.sentence_realize`, `mathlib:ValuationRing`, `IsAbsolutelyIntegrallyClosed` (Layer 0).
 
 ### 3.7 Infinite-chain and component counterexamples
 
@@ -537,7 +538,7 @@ Products of rank-one factors can have higher-rank ultraproduct components; they 
 
 ### 3.8 The Boolean sheaf of a finitary functor
 
-Construct `BooleanSheaf`. For a filtered-colimit- and finite-product-preserving functor F on R-algebras and a family (A_i), the assignment J⊂I↦F(∏_{i∈J}A_i) is a C-valued sheaf on the clopen site of βI, whose stalk at U is F(∏_U A_i). With a fixed ∏A_i-algebra B, replace each product by B⊗_{∏A_i}∏_J A_i and obtain the corresponding base-changed stalk formula.
+Construct `BooleanSheaf`. Let C be a compactly generated presentable infinity-category. For a filtered-colimit- and finite-product-preserving functor F:Ring_R→C and a family (A_i), the assignment J⊂I↦F(∏_{i∈J}A_i) is a C-valued sheaf on the clopen site of βI, whose stalk at U is F(∏_U A_i). With a fixed ∏A_i-algebra B, replace each product by B⊗_{∏A_i}∏_J A_i and obtain the corresponding base-changed stalk formula. Compact generation also permits detection of equivalences on these stalks.
 
 Finite product preservation supplies descent on finite clopen partitions. Compute the stalk as a filtered colimit over U and use finitariness. Test compact mapping objects to detect equivalences and bounded truncation stalkwise.
 
@@ -588,7 +589,7 @@ For two factors A₁,A₂, β{1,2} has two points and F(A₁×A₂)=F(A₁)×F(A
 
 ## Layer 4: The arc-descent criterion
 
-Define excisiveness and aic-v-excision using the imported Milnor-square interface. Prove universal aic splitting with the corrected prime-extension lemma, interval induction, the equivalence of arc-descent and excision for finitary v-sheaves, and rank-at-most-one detection of equivalences.
+Define excisiveness and aic-v-excision using the imported Milnor-square interface. Prove universal aic splitting with the corrected prime-extension lemma, interval induction, the equivalence of arc-descent and excision for finitary v-sheaves, and rank-at-most-one detection of equivalences. The space-valued contractibility test carries a fixed global finite truncation bound.
 
 ### 4.1 Prime extension in the nondegenerate case
 
@@ -661,17 +662,17 @@ Arc-descent gives splitting descent; unwind the valuation-split Cech nerve to ob
 
 Neither finitariness nor the target condition can be discarded in this proof; the unrestricted result comes from the coherent arc-topos.
 
-(BM21, Theorem 4.1, Propositions 4.2, 4.8 and 4.15, pp. 25–31.) *Needs:* `Excision` (Layer 4), `universal_aic_splitting` (Layer 4), `eventual_v_cover` (Layer 4), `interval_induction` (Layer 4), `aic_valuation_detection` (Layer 3), `filtered_totalization` (Layer 3), `arc_v_comparison` (Layer 2).
+(BM21, Theorem 4.1 and Proposition 4.2 p. 25; Proposition 4.8 pp. 28–29; Proposition 4.15 p. 32.) *Needs:* `Excision` (Layer 4), `universal_aic_splitting` (Layer 4), `eventual_v_cover` (Layer 4), `interval_induction` (Layer 4), `aic_valuation_detection` (Layer 3), `filtered_totalization` (Layer 3), `arc_v_comparison` (Layer 2).
 
 ### 4.7 Rank-one detection of equivalences
 
-Prove `rank_one_detection`. For finitary arc-sheaves F,G with cotruncated-compact target, a natural transformation is an equivalence if and only if it is an equivalence on aic valuation domains of rank at most one. It suffices that each such test admits an aic rank-at-most-one extension on which the map is an equivalence. For space-valued sheaves, contractibility and n-truncatedness are detected by these tests.
+Prove `rank_one_detection`. For finitary arc-sheaves F,G with target compactly generated by cotruncated objects, a natural transformation is an equivalence if and only if it is an equivalence on aic valuation domains of rank at most one. It suffices that each such test admits an aic rank-at-most-one extension on which the map is an equivalence. For a finitary space-valued arc-sheaf whose values are all n-truncated for one fixed finite n, contractibility can be tested on these valuation domains; arbitrary unbounded spaces are not covered by this last assertion.
 
-Use splitting and interval induction to propagate contractibility from rank-one intervals to all aic valuation rings. Apply the same argument to iterated diagonals for truncatedness and to fibres for equivalences. For the extension variant use v-descent along a cofinal tower of faithful extensions.
+For a space-valued sheaf with a fixed finite truncation bound, use descending induction on that bound: its diagonal fibres have a smaller bound, and the discrete case follows by interval induction as in Lemmas 4.9–4.10. For C-valued equivalences, map out of compact cotruncated generators and apply the bounded space-valued result to fibres, followed by aic-valuation detection. For the extension variant, first descend the diagonal and its lower-truncated fibres; then use the resulting Cech descent along the faithful rank-one extension, as in Corollary 4.12.
 
 This is a statement about sheaves, not a cover by a scheme all of whose components have rank one.
 
-(BM21, Lemmas 4.9–4.10 and Corollaries 4.11–4.12, pp. 29–30.) *Needs:* `arc_descent_criterion` (Layer 4), `interval_induction` (Layer 4), `aic_valuation_detection` (Layer 3), `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
+(BM21, Lemmas 4.9–4.10 and Corollaries 4.11–4.12, pp. 29–31.) *Needs:* `arc_descent_criterion` (Layer 4), `interval_induction` (Layer 4), `aic_valuation_detection` (Layer 3), `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
 
 ### Examples
 
@@ -756,11 +757,11 @@ Compute all iterated fibre products of the quotient closed immersion. Evaluate h
 
 This counterexample accompanies all uses of sheafified representables.
 
-(BM21, Example 1.5 p. 3 and Warning 4.20 p. 33.) *Needs:* `arc_v_comparison` (Layer 2), `v_cover_geometry` (Layer 1), `SchemeKTheoryOperations:S.4/perfect-scheme-h-and-v-sites`.
+(BM21, Warning 4.20, p. 33; the nilpotent affine-line counterexample is the direct sheaf-condition check below.) *Needs:* `arc_v_comparison` (Layer 2), `v_cover_geometry` (Layer 1), `SchemeKTheoryOperations:S.4/perfect-scheme-h-and-v-sites`.
 
 ### Examples
 
-For k[ε]/ε²→k, the associated monomorphism of schemes is already a v-cover. Its Cech nerve is constant at Spec k. Sections of the affine-line representable would require k[ε]/ε²≃k, which fails because ε is nonzero. The full scheme v- and arc-sites are therefore not subcanonical (BM21 Remark 4.20, p. 33).
+For k[ε]/ε²→k, the associated monomorphism of schemes is already a v-cover. Its Cech nerve is constant at Spec k. Sections of the affine-line representable would require k[ε]/ε²≃k, which fails because ε is nonzero. The full scheme v- and arc-sites are therefore not subcanonical (BM21 Warning 4.20, p. 33).
 
 ### Dependencies
 
@@ -778,7 +779,7 @@ Use splitting of monic polynomials and lifting of coprime factors to obtain hens
 
 The stalk at the closed point, not at an arbitrary point, computes sections.
 
-(BM21, Lemmas 5.1–5.3, pp. 36–37.) *Needs:* `IsAbsolutelyIntegrallyClosed` (Layer 0), `SchemeAndStackFoundations:SF.0/henselian-pair-characterisations`, `SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence`, `SchemeAndStackFoundations:SF.2`.
+(BM21, Lemma 5.1 p. 37, Proposition 5.2 pp. 37–38 and Lemma 5.3 p. 38.) *Needs:* `IsAbsolutelyIntegrallyClosed` (Layer 0), `SchemeAndStackFoundations:SF.0/henselian-pair-characterisations`, `SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence`, `SchemeAndStackFoundations:SF.2`.
 
 ### 6.2 Strict-henselization detection of descent
 
@@ -788,7 +789,7 @@ Regard the two sides of the Cech comparison as sheaves on the small étale site 
 
 Ordinary F-descent alone is not asserted to be preserved by arbitrary base change.
 
-(BM21, Lemma 5.1, pp. 36–37.) *Needs:* `UniversalDescent` (Layer 1), `filtered_totalization` (Layer 3), `SchemeAndStackFoundations:SF.2`.
+(BM21, Lemma 5.1, p. 37.) *Needs:* `UniversalDescent` (Layer 1), `filtered_totalization` (Layer 3), `SchemeAndStackFoundations:SF.2`.
 
 ### 6.3 Torsion étale cohomology is a finitary v-sheaf
 
@@ -798,7 +799,7 @@ Use scheme étale continuity to prove finitariness. Use proper base change and �
 
 No invertibility condition on the torsion orders is needed for this algebraic assertion.
 
-(BM21, Proposition 5.2, pp. 36–37.) *Needs:* `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `Finitary` (Layer 3), `continuous_v_criterion` (Layer 3), `h_descent_criterion` (Layer 1), `CotruncatedTarget` (Layer 3), `strict_henselization_descent` (Layer 6).
+(BM21, Proposition 5.2, pp. 37–38.) *Needs:* `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `Finitary` (Layer 3), `continuous_v_criterion` (Layer 3), `h_descent_criterion` (Layer 1), `CotruncatedTarget` (Layer 3), `strict_henselization_descent` (Layer 6).
 
 ### 6.4 Arc-hyperdescent of torsion étale cohomology
 
@@ -808,7 +809,7 @@ Identify all four terms on the aic prime square with appropriate closed-point st
 
 Coefficients may have residue-characteristic torsion; this is distinct from the stronger analytic d-dimensional vanishing bound.
 
-(BM21, Theorem 5.4 and Remark 5.5, pp. 37–38.) *Needs:* `torsion_v_descent` (Layer 6), `strict_henselian_tests` (Layer 6), `arc_descent_criterion` (Layer 4), `milnor_sheafified_pushout` (Layer 5), `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`.
+(BM21, Theorem 5.4 p. 38 and Remark 5.5 p. 39.) *Needs:* `torsion_v_descent` (Layer 6), `strict_henselian_tests` (Layer 6), `arc_descent_criterion` (Layer 4), `milnor_sheafified_pushout` (Layer 5), `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`.
 
 ### 6.5 Étale objects over aic valuations
 
@@ -836,11 +837,11 @@ At an algebraically closed field, separated qcqs étale schemes form FinSet, inc
 
 ### Dependencies
 
-`ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.5`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`.
+`ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.5`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`, `ArcTopologyAndDescent:AT.0/valuation-prime-square`.
 
 ## Layer 7: Constructible complexes, differentials and perfect schemes
 
-Prove continuity and arc-hyperdescent of bounded constructible complexes over a finite coefficient ring; compute their finite-rank valuation model. Establish characteristic-zero h-differential and h-de Rham arc-descent, and upgrade imported perfect-complex v-hyperdescent to arc-hyperdescent on perfect schemes, with the universally-effective-epimorphism criterion.
+Prove continuity and arc-hyperdescent of bounded constructible complexes over a finite coefficient ring; compute their finite-rank valuation model. State the smooth h/Zariski differential-form comparison, then establish characteristic-zero h-differential and h-de Rham arc-descent, and upgrade imported perfect-complex v-hyperdescent to arc-hyperdescent on perfect schemes, with the universally-effective-epimorphism criterion.
 
 ### 7.1 Continuity of bounded constructible complexes
 
@@ -856,11 +857,11 @@ Descend constructible sheaves and extensions from finite-presentation stages. Fo
 
 Prove `constructible_v_hyperdescent`. For finite Λ, Dᵇ_cons(−,Λ) and every subcategory of amplitude [−n,n] are hypercomplete v-sheaves. The fixed-amplitude category lies in Cat_(2n+1); a uniform bound is recovered from level zero of a descent datum.
 
-For a proper surjection use conservative pullback and the right-adjointable base-change squares furnished by proper base change in the enhanced derived category. Apply the categorical Barr–Beck descent theorem on each fixed-amplitude stratum, then h/v approximation. The bounded union satisfies hyperdescent because pullback along a surjection detects amplitude at level zero.
+For a proper surjection of finite-type schemes over Spec Z, pullback is conservative and t-exact. On amplitude [−n,n], its right adjoint is the truncated derived pushforward; proper base change gives the right-adjointable Cech squares. Use the requested dual of HA Corollary 4.7.5.3. Finite limits in the fixed-amplitude category are computed by truncating derived limits, and exact pullback commutes with them; totalizations are finite for this (2n+1)-category. Then apply the h-descent criterion and finitary v-approximation. For the bounded union, any hyperdescent datum has a common cohomological-amplitude bound detected by pullback to level zero. This reduces it to one fixed-amplitude stratum.
 
 Do not commute an arbitrary filtered union with an arbitrary infinite limit; the uniform bound is essential.
 
-(BM21, Proposition 5.11, pp. 41–42.) *Needs:* `constructible_continuity` (Layer 7), `h_descent_criterion` (Layer 1), `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
+(BM21, Proposition 5.11, pp. 41–42.) (HA, Corollary 4.7.5.3 and its proof, p. 705.) *Needs:* `constructible_continuity` (Layer 7), `h_descent_criterion` (Layer 1), `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov`, `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E5:abstract/barr-beck-lurie`, `EnhancedDerivedSheaves:E5:abstract`.
 
 ### 7.3 Arc-hyperdescent of constructible complexes
 
@@ -893,19 +894,29 @@ The interface supports the following uses: Verify prime-square splitting by flat
 
 The construction is cohomological h-sheafification, not the naive module Ω^i_A on every singular affine.
 
-(BM21, §5.3, Theorem 5.14 and Corollary 5.15, pp. 43–44.) *Needs:* `Finitary` (Layer 3), `HSite` (Layer 1), `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`.
+(BM21, §5.3, Theorem 5.14 and Corollary 5.15, pp. 43–44.) (HJ14, Corollary 6.5 p. 465 and Proposition 6.10 p. 466.) *Needs:* `Finitary` (Layer 3), `HSite` (Layer 1), `SchemeAndStackFoundations:SF.2`, `EnhancedDerivedSheaves:E0/coherent-functors`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/accessible-and-presentable`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison`, `DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`.
 
-### 7.5 Arc-descent of characteristic-zero differential cohomology
+### 7.5 Smooth h/Zariski comparison for differential forms
+
+Prove `smooth_h_differential_comparison`. Let k have characteristic zero, i≥0 and X be a smooth separated finite-type k-scheme. The natural comparison RΓ_Zar(X,Ω^i_X/k)→RΓ_h(X,Ω^i_h) is an equivalence. By Zariski descent the same comparison holds for smooth finite-type qcqs k-schemes. Consequently the finitary h-form functor on an ind-smooth affine k-algebra A is Ω^i_A/k in degree zero.
+
+Use characteristic-zero resolution to refine h-covers by smooth covers and abstract blowup diagrams. Rational coefficients permit finite Galois descent, so comparison with the étale/abstract-blowup (eh) topology preserves cohomology, as in HJ14 Proposition 6.1. For smooth schemes, ordinary differential forms satisfy the eh comparison with Zariski cohomology; the resolution/blowup and étale descent argument gives HJ14 Corollary 6.5. Apply it to the natural comparison, then glue affine opens by Zariski descent. On smooth affines, quasi-coherence kills positive Zariski cohomology. Pass to filtered colimits using the defined finitary extension and the cotangent/exterior-power colimit interfaces.
+
+For A=k[t], degree-one h-form cohomology is k[t]dt in degree zero. The smoothness hypothesis cannot be replaced by an assertion identifying naive Kähler forms on all singular rings.
+
+(HJ14, Setting and Notation p. 452; Proposition 6.1 pp. 464–465 and Corollary 6.5 p. 465.) (BM21, §5.3 and proof of Theorem 5.14, p. 43.) *Needs:* `HDifferentialFunctor` (Layer 7), `SchemeAndStackFoundations:SF.4`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`, `SchemeAndStackFoundations:SF.2`.
+
+### 7.6 Arc-descent of characteristic-zero differential cohomology
 
 Prove `h_differential_arc_descent`. The functors F_i and F_dR above are arc-sheaves on qcqs k-schemes. On an aic valuation k-algebra V, Ω^i_V/k is flat, p=p² for each prime p and Ω^i_(V/p)/k=Ω^i_V/k⊗V/p, so the differential prime square is a homotopy pullback.
 
-Import the smooth h/Zariski comparison and characteristic-zero local uniformization to identify valuation values with ordinary forms. Tensor the valuation square with the flat exterior-power module; use idempotence of p for quotient compatibility. For de Rham use the Hodge filtration on each finite-dimensional approximation; extend the resulting h-sheaf functor finitarily as in the forms construction.
+Apply AT.7/smooth-h-differential-comparison and the imported characteristic-zero local uniformization to identify valuation values with ordinary forms. Tensor the valuation square with the flat exterior-power module; use idempotence of p for quotient compatibility. For de Rham use the Hodge filtration on each finite-dimensional approximation; extend the resulting h-sheaf functor finitarily as in the forms construction.
 
 Characteristic zero is retained; no assertion of naive Kähler arc-descent on arbitrary rings is made.
 
-(BM21, Theorem 5.14 and Corollary 5.15, pp. 43–44.) *Needs:* `HDifferentialFunctor` (Layer 7), `arc_descent_criterion` (Layer 4), `valuation_prime_square` (Layer 0), `SchemeAndStackFoundations:SF.4`, `DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison`, `DerivedDeRhamCohomology:DD.0/cotangent-transitivity`, `DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits`, `DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`.
+(BM21, Theorem 5.14 and Corollary 5.15, pp. 43–44.) *Needs:* `HDifferentialFunctor` (Layer 7), `smooth_h_differential_comparison` (Layer 7), `arc_descent_criterion` (Layer 4), `valuation_prime_square` (Layer 0), `SchemeAndStackFoundations:SF.4`, `DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison`, `DerivedDeRhamCohomology:DD.0/cotangent-transitivity`, `DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits`, `DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`.
 
-### 7.6 Perfect complexes on perfections satisfy arc-hyperdescent
+### 7.7 Perfect complexes on perfections satisfy arc-hyperdescent
 
 Prove `perfect_arc_hyperdescent`. For p prime, X↦Perf(X^perf) on qcqs F_p-schemes is a hypercomplete arc-sheaf of symmetric monoidal stable infinity-categories. The same holds for every fixed Tor-amplitude stratum.
 
@@ -913,9 +924,9 @@ Reuse, rather than reprove, perfect-scheme v-hyperdescent and its bounded-stratu
 
 D_qc hyperdescent is not inferred; Tor-amplitude replaces cohomological amplitude here.
 
-(BM21, Theorem 5.16, pp. 44–45; BS17 Lemma 3.16 p. 13 and Theorems 11.2, 11.15 pp. 39, 46.) *Needs:* `SchemeKTheoryOperations:S.4/perfect-v-hyperdescent`, `SchemeAndStackFoundations:SF.0/scheme-perfection`, `arc_descent_criterion` (Layer 4), `valuation_prime_square` (Layer 0), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `EnhancedDerivedSheaves:E1/perfect-ring-tor`, `EnhancedDerivedSheaves:E5:abstract/descendable-algebras`, `EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality`.
+(BM21, Theorem 5.16, pp. 44–45.) (BS17, Lemma 3.16 p. 14; Theorem 11.2 p. 40 and Theorem 11.15 p. 43, with proof pp. 46–47.) *Needs:* `SchemeKTheoryOperations:S.4/perfect-v-hyperdescent`, `SchemeAndStackFoundations:SF.0/scheme-perfection`, `arc_descent_criterion` (Layer 4), `valuation_prime_square` (Layer 0), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward`, `EnhancedDerivedSheaves:E1/perfect-ring-tor`, `EnhancedDerivedSheaves:E5:abstract/descendable-algebras`, `EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality`.
 
-### 7.7 Canonical covers of perfect schemes
+### 7.8 Canonical covers of perfect schemes
 
 Prove `perfect_effective_epimorphisms`. For a qcqs algebraic space Y/F_p, the set-valued functor X↦Hom(X^perf,Y) is an arc-sheaf. A morphism of qcqs perfect F_p-schemes is an arc-cover if and only if it is a universally effective epimorphism in that category. The Hom functor is finitary when Y is finite type.
 
@@ -923,7 +934,7 @@ Use the algebraic-space Tannaka equivalence Hom(T,Y)=Fun^⊗_ex(Perf(Y),Perf(T))
 
 The canonical-topology characterization concerns singleton qcqs maps, not a claim that its arbitrary families admit finite subcovers.
 
-(BM21, Theorem 5.17 and Remark 5.18, pp. 45–46.) *Needs:* `perfect_arc_hyperdescent` (Layer 7), `coherent_valuation_test` (Layer 5), `aic_valuation_detection` (Layer 3), `SchemeAndStackFoundations:SF.1`.
+(BM21, Theorem 5.17 and Remark 5.18, pp. 45–46.) (BH16, Theorem 1.5, p. 2; conventions pp. 4–5.) *Needs:* `perfect_arc_hyperdescent` (Layer 7), `coherent_valuation_test` (Layer 5), `aic_valuation_detection` (Layer 3), `SchemeAndStackFoundations:SF.1`.
 
 ### Examples
 
@@ -931,7 +942,7 @@ With Λ=Z/4, the constant constructible sheaf Z/2 in degree zero belongs to Dᵇ
 
 ### Dependencies
 
-`ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.5`, `ArcTopologyAndDescent:AT.6`, `DerivedDeRhamCohomology:DD.0`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E5:abstract`, `EtaleDualityAndPerverseSheaves:EDC.0`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `SchemeKTheoryOperations:S.4`.
+`ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.5`, `ArcTopologyAndDescent:AT.6`, `DerivedDeRhamCohomology:DD.0`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E5:abstract`, `EtaleDualityAndPerverseSheaves:EDC.0`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`, `ArcTopologyAndDescent:AT.0/valuation-prime-square`, `SchemeKTheoryOperations:S.4`.
 
 ## Layer 8: Formal glueing and henselian rigidity
 
@@ -967,11 +978,11 @@ For I=(f₁,…,f_r), U is the union of D(f_i), not the intersection and not one
 
 Prove `gabber_degree_zero`. For a henselian pair (A,I) and any étale sheaf of sets F on Spec A, F(A)→F(A/I) is bijective. For abelian sheaves this is the degree-zero part of affine proper base change.
 
-Reduce a section and its equality relation to a quasi-compact étale presentation near the closed fibre. Use finite-algebra henselian lifting and the connected-component comparison to extend the section uniquely.
+For each point of Spec A, henselianity makes the intersection of its closure with Spec(A/I) connected and nonempty. Stacks Lemmas 59.82.3–4 then identify global sections for every Zariski sheaf. The same argument applies to every finite A-algebra because its induced pair is henselian. Lemma 59.82.2 passes these finite-level Zariski comparisons to arbitrary étale sheaves of sets, giving Lemma 59.82.6.
 
 This is the global henselian-pair theorem; it is stronger than checking only a henselian-local base.
 
-(STACKS, Stacks §59.82, Lemmas 59.82.1–3, especially 59.82.3; HTML, no pages.) *Needs:* `SchemeAndStackFoundations:SF.0/henselian-pair-characterisations`, `SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`.
+(STACKS, Stacks §59.82, Lemma 59.82.6 (09ZH), using Lemmas 59.82.2–4; HTML, no pages.) *Needs:* `SchemeAndStackFoundations:SF.0/henselian-pair-characterisations`, `SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`.
 
 ### 8.3 Gabber–Huber affine proper base change
 
@@ -1054,7 +1065,7 @@ Import the bounded-torsion henselian approximation for the open U, including the
 
 U need not equal D(a); the support Z can be any closed subset of the special fibre.
 
-(CS24, Lemma 3.1.2 p. 30; BC22, Theorem 2.3.4 and Corollary 2.3.5(e), pp. 29–31.) *Needs:* `punctured_rigidity` (Layer 8), `gabber_affine_proper_base_change` (Layer 8), `SchemeAndStackFoundations:SF.2`, `PerfectoidSpaces:P3/henselian-finite-etale-approximation`, `PerfectoidSpaces:P3/etale-site-tilting-equivalence`, `PerfectoidSpaces:P3`.
+(CS24, Lemma 3.1.2 p. 30.) (BC22, Theorem 2.3.4 and Corollary 2.3.5(e), pp. 29–31.) *Needs:* `punctured_rigidity` (Layer 8), `gabber_affine_proper_base_change` (Layer 8), `SchemeAndStackFoundations:SF.2`, `PerfectoidSpaces:P3/henselian-finite-etale-approximation`, `PerfectoidSpaces:P3/etale-site-tilting-equivalence`, `PerfectoidSpaces:P3`.
 
 ### Examples
 
@@ -1169,7 +1180,7 @@ Extend X to a proper A-model by Nagata compactification and extend the torsion s
 
 The analytic comparison is an explicit supplier input under the stated noetherian/strong-noetherian assumptions.
 
-(BM21, Corollary 6.18, p. 52; HUB96 Corollary 3.2.2 p. 174 and Theorem 3.2.10.) *Needs:* `formal_glueing` (Layer 8), `punctured_rigidity` (Layer 8), `AdicEtaleGeometry:A1`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `adic_generic_point_cover` (Layer 9).
+(BM21, Corollary 6.18, p. 52.) (HUB96, Corollary 3.2.2 p. 174; Theorems 3.2.9–3.2.10 pp. 180–181.) *Needs:* `formal_glueing` (Layer 8), `punctured_rigidity` (Layer 8), `AdicEtaleGeometry:A1`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `adic_generic_point_cover` (Layer 9).
 
 ### 9.7 Total integral closure in a principal localization
 
@@ -1231,15 +1242,15 @@ For a complete aic rank-one V with t a pseudouniformizer, E_t(V,Λ)=Λ in degree
 
 ### Dependencies
 
-`AdicEtaleGeometry:A1`, `AdicSpacesPartII:R0`, `ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.2`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.5`, `ArcTopologyAndDescent:AT.6`, `ArcTopologyAndDescent:AT.8`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`.
+`AdicEtaleGeometry:A1`, `AdicSpacesPartII:R0`, `ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.1`, `ArcTopologyAndDescent:AT.2`, `ArcTopologyAndDescent:AT.3`, `ArcTopologyAndDescent:AT.5`, `ArcTopologyAndDescent:AT.6`, `ArcTopologyAndDescent:AT.8`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`, `ArcTopologyAndDescent:AT.0/valuation-prime-square`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations`.
 
 ## Layer 10: Künneth and affinoid vanishing
 
-Prove generic-fibre and affinoid Künneth for coefficients of residue-invertible prime order, rational Mayer–Vietoris, shrinking-tube continuity and rational-domain vanishing. Deduce the d+1 bound for arbitrary torsion and the d bound for residue-prime-to-characteristic torsion on a d-dimensional affinoid over an algebraically closed nonarchimedean field.
+Prove generic-fibre and affinoid Künneth for coefficients of residue-invertible prime order, rational Mayer–Vietoris, shrinking-tube continuity and rational-domain vanishing. Deduce the d+1 bound for arbitrary torsion and the d bound for residue-prime-to-characteristic torsion on a d-dimensional affinoid over a complete algebraically closed nonarchimedean field with nontrivial valuation.
 
 ### 10.1 Vanishing on finite étale rational domains
 
-Prove `rational_domain_vanishing`. Let f₁,…,f_m,g generate the unit ideal of the n-variable Tate algebra T_n over K. If A is finite étale over T_n⟨f₁/g,…,f_m/g⟩, then for every constant torsion abelian group Λ, H^q(Spec A,Λ)=0 for q>n.
+Prove `rational_domain_vanishing`. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Let f₁,…,f_m,g generate the unit ideal of the n-variable Tate algebra T_n over K. If A is finite étale over T_n⟨f₁/g,…,f_m/g⟩, then for every constant torsion abelian group Λ, H^q(Spec A,Λ)=0 for q>n.
 
 Use a positive uniform lower bound for max(|f₁|,…,|f_m|,|g|), approximate by polynomials, and include a power of π among the numerators. The algebraic model R₀ has generic fibre K[X₁,…,X_n,1/g] and bounded π-power torsion; descend A through henselization using the imported finite étale approximation. Apply Fujiwara–Gabber and express the descended algebra as a filtered colimit of n-dimensional finite-type K-algebras. Use affine Artin–Grothendieck vanishing, including its characteristic-primary Artin–Schreier case.
 
@@ -1249,7 +1260,7 @@ The regression pair (X,1) at X=0 makes min zero although the ideal is the unit i
 
 ### 10.2 Rational Mayer–Vietoris
 
-Prove `rational_mayer_vietoris`. For A topologically finite type over K, f,g∈A generating the unit ideal and any torsion étale sheaf F, the rational localizations A⟨f/g⟩, A⟨g/f⟩ and A⟨f/g,g/f⟩ give the corresponding homotopy-pullback square of algebraic étale cohomology.
+Prove `rational_mayer_vietoris`. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. For A topologically finite type over K, f,g∈A generating the unit ideal and any torsion étale sheaf F, the rational localizations A⟨f/g⟩, A⟨g/f⟩ and A⟨f/g,g/f⟩ give the corresponding homotopy-pullback square of algebraic étale cohomology.
 
 Choose a common bounded model A₀ with f,g generating an open ideal. Use the arc_π-cover A₀→A₀[T]/(fT−g)×A₀[U]/(gU−f). The two self-intersection multiplications are arc_π-equivalences, reducing Cech descent to the four-term square.
 
@@ -1259,7 +1270,7 @@ The unit-ideal condition is on A, while the rescaled model generators need only 
 
 ### 10.3 Cohomology of shrinking rational tubes
 
-Prove `shrinking_tube_continuity`. For R topologically finite type over K, f∈R and torsion étale F on Spec R, colim_r RΓ(Spec R⟨f/π^r⟩,F)≃RΓ(Spec R/f,F).
+Prove `shrinking_tube_continuity`. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Fix a nonzero topologically nilpotent π∈K. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Fix a nonzero topologically nilpotent π∈K. For R topologically finite type over K, f∈R and torsion étale F on Spec R, colim_r RΓ(Spec R⟨f/π^r⟩,F)≃RΓ(Spec R/f,F).
 
 Rescale f into a bounded integral model R₀. Use S_r=R₀[U_r]/(π^rU_r−f), with U_r↦πU_(r+1). Every map colim S_r→a complete rank-one π-test kills f and U_r by π-adic separatedness; thus colim S_r→R₀/f is an arc_π-equivalence. Apply finitariness and invariance of E_π.
 
@@ -1299,7 +1310,7 @@ The analytic completed tensor product is owned by the Huber-algebra supplier.
 
 ### 10.7 Constant-coefficient affinoid vanishing
 
-Prove `constant_affinoid_vanishing`. For a d-dimensional topologically finite-type K-algebra A, constant torsion coefficients have no cohomology above d+1. For ℓ-power torsion with ℓ prime to the residue characteristic, they have no cohomology above d.
+Prove `constant_affinoid_vanishing`. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. Fix a complete algebraically closed nonarchimedean field K with nontrivial valuation. For a d-dimensional topologically finite-type K-algebra A, constant torsion coefficients have no cohomology above d+1. For ℓ-power torsion with ℓ prime to the residue characteristic, they have no cohomology above d.
 
 Induct on d using analytic Noether normalization; after a Frobenius twist and reduction in characteristic p, choose f so that A[1/f] is finite étale over a localized Tate algebra. Apply rational Mayer–Vietoris for the large and small tubes; the finite étale corners have the rational-domain bound and the shrinking-tube colimit reduces dimension. For F_ℓ, a nonzero H^(d+1) yields nonzero H^(2d+2) on A completed-tensor A by Künneth. Apply imported Noether normalisation to both factors: the completed tensor is finite over a Tate algebra in 2d variables, so its dimension is at most 2d by the imported Tate dimension and finite-algebra results. The already proved general bound gives vanishing above 2d+1, a contradiction. Use torsion filtrations to pass from prime-order to arbitrary constant coefficients.
 
@@ -1309,7 +1320,7 @@ Analytic Noether normalisation and Tate dimension are exact imported nodes. The 
 
 ### 10.8 Artin–Grothendieck vanishing for affinoids
 
-Prove `affinoid_artin_grothendieck`. For K complete algebraically closed nonarchimedean and A topologically finite type of dimension d, every torsion abelian étale sheaf F on Spec A has H^q=0 for q>d+1. If F is ℓ-power torsion for a prime ℓ different from the residue characteristic, H^q=0 for q>d.
+Prove `affinoid_artin_grothendieck`. For K complete algebraically closed nonarchimedean with nontrivial valuation and A topologically finite type of dimension d, every torsion abelian étale sheaf F on Spec A has H^q=0 for q>d+1. If F is ℓ-power torsion for a prime ℓ different from the residue characteristic, H^q=0 for q>d.
 
 Reduce by filtered-colimit continuity to constructible prime-torsion sheaves. Choose a dense open where the sheaf is lisse; the complementary support has smaller dimension. Use a finite étale cover of degree prime to ℓ making the local system an iterated extension of constants, apply trace, and compactify the cover by Zariski main theorem. Reduce to constant cohomology on finite A-algebras and the lower-dimensional induction.
 
@@ -1323,7 +1334,7 @@ The unit-ideal generators (X,1) in K⟨X⟩ have max(|X|,1)≥1 everywhere but m
 
 ### Dependencies
 
-`AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.8`, `ArcTopologyAndDescent:AT.9`, `EnhancedDerivedSheaves:E1`, `EtaleDualityAndPerverseSheaves:EDC.0`, `EtaleDualityAndPerverseSheaves:EDC.4`, `PerfectoidSpaces:P3`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`.
+`AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `ArcTopologyAndDescent:AT.0`, `ArcTopologyAndDescent:AT.4`, `ArcTopologyAndDescent:AT.8`, `ArcTopologyAndDescent:AT.9`, `EnhancedDerivedSheaves:E1`, `EtaleDualityAndPerverseSheaves:EDC.0`, `EtaleDualityAndPerverseSheaves:EDC.4`, `PerfectoidSpaces:P3`, `SchemeAndStackFoundations:SF.2`, `ArcTopologyAndDescent:AT.0/valuation-prime-square`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`.
 
 ## Layer 11: I-complete arc-covers and formal schemes
 
@@ -1437,7 +1448,7 @@ Import the affinoid algebraic/adic étale-cohomology comparison for the perfecto
 
 The coefficient is constant Z/p^n here; no blanket equivalence between the scheme and adic étale sites is claimed.
 
-(BS22, BS22 proof of Theorem 9.1 pp. 71–73; GR24 proof of Theorem 6.1 pp. 55–56; HUB96 Corollary 3.2.2 p. 174.) *Needs:* `generic_fibre_arc_t_hyperdescent` (Layer 9), `perfectoid_formal_basis` (Layer 12), `complete_valuation_product_basis` (Layer 11), `PerfectoidSpaces:P3/henselian-finite-etale-approximation`, `PerfectoidSpaces:P3/etale-site-tilting-equivalence`, `AdicEtaleGeometry:A1`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/continuous-valuations-under-tilting`, `PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings`.
+(BS22, Proof of Theorem 9.1, pp. 71–73.) (GR24, Proof of Theorem 6.1, pp. 55–56.) (HUB96, Corollary 3.2.2, p. 174.) *Needs:* `generic_fibre_arc_t_hyperdescent` (Layer 9), `perfectoid_formal_basis` (Layer 12), `complete_valuation_product_basis` (Layer 11), `PerfectoidSpaces:P3/henselian-finite-etale-approximation`, `PerfectoidSpaces:P3/etale-site-tilting-equivalence`, `AdicEtaleGeometry:A1`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/continuous-valuations-under-tilting`, `PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings`.
 
 ### 12.3 Perfectoid structure-sheaf descent and acyclicity
 
@@ -1503,17 +1514,20 @@ PrismaticCohomology uses the formal arc-site, its perfectoid basis, structure-sh
 
 ## Source conventions and corrected statements
 
-Numbering and pages refer to the versions listed below. BM21 is read as arXiv v4; findings about that text do not assert that the journal version has identical wording. The corrected prime lemma retains kernel containment and the largest prime over p. The finite-chain étale category keeps all natural transformations. Boolean disjoint unions give products; the natural-transformation detection target is G(S). The rational-domain estimate uses a maximum, and the affinoid theorem keeps the proved d+1 versus residue-invertible d bounds. In the total-integral-closure proof only an elementwise nil kernel is used, with no uniform exponent asserted. These corrections and their checks are recorded with locators in the accompanying packet.
+Numbering and pages refer to the versions listed below. BM21 is read as arXiv v4; findings about that text do not assert that the journal version has identical wording. The corrected prime lemma retains kernel containment and the largest prime over p. The finite-chain étale category keeps all natural transformations. The aic root obligation is explicitly restricted to positive degree (Definition 3.26 omits that qualification). Boolean disjoint unions give products; the natural-transformation detection target is G(S). The rational-domain estimate uses a maximum, and the affinoid theorem keeps the proved d+1 versus residue-invertible d bounds. In the total-integral-closure proof only an elementwise nil kernel is used, with no uniform exponent asserted. These corrections and their checks are recorded with locators in the accompanying packet.
 
 ## References
 
 - **BM21.** Bhargav Bhatt and Akhil Mathew, *The arc-topology*. arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021). [Source](https://arxiv.org/abs/1807.04725v4). Read: Entire paper, printed pp. 1–64.
-- **BS17.** Bhargav Bhatt and Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*. arXiv:1507.06490v3, 27 July 2017; Invent. Math. 209 (2017). [Source](https://arxiv.org/abs/1507.06490v3). Read: §2 pp. 4–10; §4 pp. 15–16; §6 pp. 21–22; §11 pp. 39, 45–47.
+- **BS17.** Bhargav Bhatt and Peter Scholze, *Projectivity of the Witt vector affine Grassmannian*. arXiv:1507.06490v3, 27 July 2017; Invent. Math. 209 (2017). [Source](https://arxiv.org/abs/1507.06490v3). Read: §2 pp. 4–10; Lemma 3.16 p. 14; §4 pp. 15–16; §6 pp. 21–22; Theorem 11.2 p. 40, Theorem 11.15 p. 43 and proof pp. 45–47.
 - **BS22.** Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*. arXiv:1905.08229v4, 12 January 2022; Ann. Math. 196 (2022). [Source](https://arxiv.org/abs/1905.08229v4). Read: §8.2 pp. 67–69; proof of Theorem 9.1 pp. 71–73.
 - **CS24.** Kęstutis Česnavičius and Peter Scholze, *Purity for flat cohomology*. arXiv:1912.10932v3, 2023; Ann. Math. 199 (2024). [Source](https://arxiv.org/abs/1912.10932v3). Read: §2.2 pp. 18–22; Lemma 3.1.2 p. 30; Lemma 4.2.6 p. 42.
 - **GR24.** Haoyang Guo and Emanuel Reinecke, *A prismatic approach to crystalline local systems*. arXiv:2203.09490v3; Invent. Math. (2024). [Source](https://arxiv.org/abs/2203.09490v3). Read: Theorem 6.1 and its proof, pp. 55–56.
 - **CMM21.** Dustin Clausen, Akhil Mathew and Matthew Morrow, *K-theory and topological cyclic homology of henselian pairs*. arXiv:1803.10897v2; J. Amer. Math. Soc. 34 (2021). [Source](https://arxiv.org/abs/1803.10897v2). Read: Proof of Theorem 6.3, p. 51.
 - **MAT22.** Akhil Mathew, *Faithfully flat descent of almost perfect complexes in rigid geometry*. arXiv:1912.10968v3; J. Pure Appl. Algebra 226 (2022), 106938. [Source](https://arxiv.org/abs/1912.10968v3). Read: Definition 5.17, Remark 5.18 and Theorem 5.19, pp. 19–22.
 - **BC22.** Alexis Bouthier and Kęstutis Česnavičius, *Torsors on loop groups and the Hitchin fibration*. arXiv:1908.07480v4, 1 June 2022. [Source](https://arxiv.org/abs/1908.07480v4). Read: Theorem 2.3.4 and Corollary 2.3.5, pp. 29–31.
-- **STACKS.** The Stacks Project Authors, *The Stacks Project: affine analogue of proper base change*. Online version read 18 October 2026. [Source](https://stacks.math.columbia.edu/tag/09Z8). Read: §59.82, Lemmas 59.82.1–6 and Theorem 59.82.7 (09ZI); HTML has no page numbers.
-- **HUB96.** Roland Huber, *Étale Cohomology of Rigid Analytic Varieties and Adic Spaces*. Aspects of Mathematics E30, Vieweg, 1996; maintainer-cleared copy. [Source](https://doi.org/10.1007/978-3-663-09991-8). Read: Corollary 3.2.2, printed p. 174 (the book PDF p. 184); Corollary 4.2.7, printed pp. 244–245 (PDF pp. 254–255).
+- **STACKS.** The Stacks Project Authors, *The Stacks Project: affine analogue of proper base change*. Online version read 18 October 2026. [Source](https://stacks.math.columbia.edu/tag/09Z8). Read: §59.82, Lemmas 59.82.1–4 and 59.82.6, Example 59.82.5 and Theorem 59.82.7 (09ZI); HTML has no page numbers.
+- **HUB96.** Roland Huber, *Étale Cohomology of Rigid Analytic Varieties and Adic Spaces*. Aspects of Mathematics E30, Vieweg, 1996; maintainer-cleared copy. [Source](https://doi.org/10.1007/978-3-663-09991-8). Read: Corollary 3.2.2 printed p. 174; §3.2 pp. 178–181 including Theorems 3.2.9–3.2.10; Corollary 4.2.7 printed pp. 244–245.
+- **BH16.** Bhargav Bhatt, *Algebraization and Tannaka duality*. arXiv:1404.7483v1, 29 April 2014; published Camb. J. Math. 4 (2016). [Source](https://arxiv.org/abs/1404.7483v1). Read: Theorem 1.5 p. 2; Corollary 1.6 p. 3; conventions pp. 4–5.
+- **HJ14.** Annette Huber and Clemens Jörder, *Differential forms in the h-topology*. Algebraic Geometry 1 (4) (2014), 449–478; published open-access version. [Source](https://algebraicgeometry.nl/2014-4/2014-4-020.pdf). Read: Introduction and conventions pp. 451–452; §6.1–6.2 pp. 464–466, especially Corollary 6.5 p. 465.
+- **HA.** Jacob Lurie, *Higher Algebra*. Online version dated 18 September 2017. [Source](https://www.math.ias.edu/~lurie/papers/HA.pdf). Read: Corollary 4.7.5.3 and its proof, p. 705; adjacent Theorem 4.7.5.2 pp. 704–706.
