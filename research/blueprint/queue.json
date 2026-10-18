@@ -14453,7 +14453,8 @@
    "avoidAccountOf": "DESIGN-ArithmeticStatisticsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArithmeticStatisticsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3499"
   },
   {
    "id": "DESIGN-SelmerIwasawaCohomologyPartII",
@@ -39511,7 +39512,8 @@
     "DESIGN-AnalyticNumberTheoryPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-AnalyticNumberTheoryPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8933"
   },
   {
    "kind": "design",
@@ -44945,7 +44947,8 @@
     "REV-ColemanPowerSeries--L1"
    ],
    "prompt": "research/blueprint/prompts/ASM-ColemanPowerSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6416"
   },
   {
    "id": "ASM-DirichletPadicLFunctions",
@@ -45647,7 +45650,8 @@
     "REV-FiniteFieldsAndCharacterSums--FF.4"
    ],
    "prompt": "research/blueprint/prompts/ASM-FiniteFieldsAndCharacterSums.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6279"
   },
   {
    "id": "ASM-GeometryOfNumbersAndQuadraticArithmetic",
@@ -45737,7 +45741,8 @@
     "REV-ProbabilisticAndMetricNumberTheory--PM.4"
    ],
    "prompt": "research/blueprint/prompts/ASM-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6280"
   },
   {
    "id": "ASM-StableReductionPartII",
@@ -70166,7 +70171,9 @@
     "FIX-RT-RS-01~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-01~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8932",
+   "finishedAt": "2026-10-18T00:29:56Z"
   },
   {
    "id": "RT-RS-02",
@@ -80374,7 +80381,9 @@
     "FIX-RT-BP-K2SymbolsBrauer--T.3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7020",
+   "finishedAt": "2026-10-18T00:30:00Z"
   },
   {
    "id": "RT-BP-KTheoryLowDegrees--U.3",
@@ -86836,7 +86845,8 @@
     "FIX-RT-BP-ArithmeticKTheory--N.7~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7283"
   },
   {
    "id": "RT-BP-AutomorphicBundles--B0",
@@ -96714,7 +96724,8 @@
     "FIX-RT-AREA-iwasawa-3~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8926"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -97660,7 +97671,8 @@
     "FIX-RT-AREA-langlands-3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7019"
   },
   {
    "id": "RT-AREA-modeltheory",
@@ -112761,7 +112773,8 @@
     "REV-DrinfeldModulesAndTModules--DM.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DrinfeldModulesAndTModules.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #225"
   },
   {
    "id": "ASM-OverconvergentAutomorphicForms",
@@ -133377,9 +133390,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatisticsPartV~adv.md",
-   "note": "claimed on GitHub issue #10306"
+   "note": "deliverables arrived from an external worker on issue #10306",
+   "finishedAt": "2026-10-18T00:30:03Z"
   }
  ]
 }
