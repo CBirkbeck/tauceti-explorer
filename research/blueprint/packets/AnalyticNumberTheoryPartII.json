@@ -22,189 +22,189 @@
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "For a number field K, the finite cardinality of ClassGroup (𝓞 K); this is the h used throughout.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:NumberField.classNumber_pos",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "0 < classNumber K for every number field.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:NumberField.discr",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
         "provides": "The integer discriminant of the ring of integers, using its integral basis; not the discriminant of a chosen quadratic order.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "The complex LSeries with coefficients counting integral ideals of each norm; only used in its convergence region.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "The real right-hand residue limit, with factors 2^r₁(2π)^r₂ Reg(K)h(K)/(w(K)√|discr K|); it does not itself supply meromorphic continuation.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant",
         "kind": "def",
         "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Basic.lean",
         "provides": "D is squarefree and 1 modulo 4, or D=4m with m squarefree and 2 or 3 modulo 4; the negative hypothesis excludes the included value 1.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:NumberField.mem_ramifiedPrimes_iff_dvd_discr",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/RamifiedPrimes.lean",
         "provides": "For a natural prime p, p ramifies in K exactly when its integer image divides discr K.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Multiquadratic.ncard_ramifiedPrimes_sub_one_le_twoRank",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/RamifiedPrime/Independence.lean",
         "provides": "For squarefree d < −1 and an integral generator θ with minpoly X²−d and ℚ-adjoin equal to K, ramified-prime cardinality minus one is at most the class-group 2-rank. The exceptional squarefree radicand −1 is handled directly.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:NumberField.two_pow_classGroupTwoRank_dvd_classNumber",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/ClassGroupElementaryTwoQuotient.lean",
         "provides": "2 raised to the existing elementary-two-quotient rank divides classNumber K.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:WeierstrassCurve",
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "Five coefficients a₁,a₂,a₃,a₄,a₆ in the native generalized Weierstrass equation; IsElliptic means the discriminant is a unit.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:WeierstrassCurve.Affine.Equation",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
         "provides": "The native affine Weierstrass equation predicate, equivalent to y²+a₁xy+a₃y=x³+a₂x²+a₄x+a₆.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:WeierstrassCurve.LFunction",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
         "provides": "Integer arithmetic-function coefficients from all local Euler factors of a number-field elliptic curve.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:WeierstrassCurve.LSeries",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
         "provides": "Raw complex tsum of the coefficients; at the center this is replaced by the entire extension imported from BSD.0.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:LSeries.HasEntireExtension",
         "kind": "def",
         "module": "TauCeti/NumberTheory/LSeries/EntireExtension.lean",
         "provides": "Finite absolute-convergence abscissa together with an entire function agreeing on the convergence half-plane, and its proved uniqueness API.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:analyticOrderNatAt",
         "kind": "def",
         "module": "Mathlib/Analysis/Analytic/Order.lean",
         "provides": "Natural-valued analytic order; finite-order side conditions prevent converting an identically zero germ from top to zero.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
         "provides": "Canonical height lim h_x(2ⁿP)/(2·4ⁿ), normalized for (O); ellipticity and Northcott side conditions in its torsion API are retained.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:WeierstrassCurve.Affine.PointModTorsion",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
         "provides": "The native point group modulo its ℤ-torsion submodule; its ℤ-finrank is the arithmetic rank used here.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:ArithmeticFunction.liouville",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ArithmeticFunction/Liouville.lean",
         "provides": "Liouville multiplicative arithmetic function, with (−1) raised to the number of prime factors counted with multiplicity.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:Nat.prime_nth_prime",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/PrimeCounting.lean",
         "provides": "Nat.nth Nat.Prime n is prime for every n; indexing begins with p₀=2.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:Nat.add_two_le_nth_prime",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/PrimeCounting.lean",
         "provides": "n+2 ≤ the n-th natural prime, used in the elementary effective majorant.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:mellinInv_mellin_eq",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinInversion.lean",
         "provides": "For x>0, Mellin convergence on the line, vertical integrability of the transform, and continuity at x imply Mellin inversion.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Contour.residue",
         "kind": "def",
         "module": "TauCeti/Analysis/Contour/Residue/Basic.lean",
         "provides": "The Laurent coefficient of degree −1 for the native meromorphic germ, with characteristic evaluation by iterated derivatives.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Contour.Cycle.classicalResidueTheorem_nullHomologous",
         "kind": "theorem",
         "module": "TauCeti/Analysis/Contour/Cycle/Residue.lean",
         "provides": "A cycle contained in an open domain and null-homologous there, avoiding its finite poles, integrates to 2πi times the winding-weighted residue sum, assuming holomorphy off the poles and meromorphicity at them.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "The native continued complex L-function of a Dirichlet character, equal to its LSeries on Re(s)>1 and entire for nontrivial characters.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:legendreSym",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
         "provides": "For a prime p with its Fact instance, legendreSym p a is 0 at a divisible by p, +1 at a nonzero square and −1 at a nonsquare; it does not give the primitive discriminant character at 2.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "mathlib:ZMod.χ₈",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean",
         "provides": "The native multiplicative character of ZMod 8 with values 0 on even residues, +1 on 1,7 and −1 on 3,5; evaluates χ_D(2) for odd fundamental D.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       },
       {
         "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
         "provides": "The native twist by trace t and norm n, with twist discriminant parameter t²−4n and discriminant (t²−4n)^6 Δ(E). For the −7 auxiliary twist use t=1,n=2.",
-        "checked": "Actual declaration statement independently read at the pinned commit on 2026-10-11 (REV-DESIGN-AnalyticNumberTheoryPartII)"
+        "checked": "Actual declaration and its surrounding hypotheses independently reread at the pinned commit on 2026-10-18 (REV-DESIGN-AnalyticNumberTheoryPartII~2); provides and conventions confirmed."
       }
     ]
   },
@@ -217,9 +217,9 @@
       "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
       "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
       "readSections": [
-        "I §§7–8, pp. 230–232"
+        "I §6, formulas (6.3)–(6.5), p. 230; §§7–8, Proposition (7.4), Theorem (8.1) and bound (8.2), pp. 230–232"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-18"
     },
     {
       "id": "GZ83",
@@ -231,7 +231,7 @@
       "readSections": [
         "Theorem 1 and Corollaries 2–6, pp. 85–87"
       ],
-      "accessed": "2026-10-17"
+      "accessed": "2026-10-18"
     },
     {
       "id": "O85",
@@ -246,7 +246,7 @@
         "§3, conditions C1–C4 and Theorem 2, pp. 314–319",
         "§§4–5, pp. 319–323"
       ],
-      "accessed": "2026-10-17"
+      "accessed": "2026-10-18"
     },
     {
       "id": "O88",
@@ -258,8 +258,8 @@
         "II §§3–9, pp. 56–67, publisher page images",
         "§9, pp. 66–67, reported constants and class-number-three consequence"
       ],
-      "accessed": "2026-10-11",
-      "accessNote": "Read the publisher’s page images through the DOI viewer; no successful PDF download. The article reports the improved constants and refers back to the Bourbaki argument."
+      "accessed": "2026-10-18",
+      "accessNote": "Read printed pp. 56–67 as public publisher IIIF page images, reached through https://www.e-periodica.ch/digbib/view?pid=ens-001:1988:34::51 (image identifiers ens-001_1988_034_00060.jpg through ens-001_1988_034_00071.jpg). The DOI PDF endpoint did not supply a PDF. The article reports the improved constants and refers back to the Bourbaki argument."
     },
     {
       "id": "BGZ85",
@@ -273,7 +273,7 @@
         "§§3–4, pp. 477–480, formulas (10)–(14)",
         "§5 and note added in proof, pp. 480–481"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-18"
     },
     {
       "id": "MW74",
@@ -287,7 +287,8 @@
         "§§2–4, Lemmas 1–9 and Table I, pp. 530–539",
         "§5, approximate functional equation and numerical error bounds, pp. 539–542"
       ],
-      "accessed": "2026-10-17"
+      "accessed": "2026-10-18",
+      "accessNote": "The listed IMPAN endpoint returned HTTP 403. Read the identical public journal PDF at https://matwbn.icm.edu.pl/ksiazki/aa/aa24/aa2457.pdf, linked by https://eudml.org/doc/205246; its SHA-256 agrees with the recorded version."
     },
     {
       "id": "LLS70",
@@ -298,11 +299,10 @@
       "sha256": "2e35401eecf25293190f7a62f1225fc2e098dbbf76f48a97c2d064ca333f2c83",
       "readSections": [
         "Introduction, pp. 433–434",
-        "Sieve construction and tables, pp. 438–444",
-        "Class number three application, pp. 445–447",
-        "Table I continuation, pp. 448–451"
+        "Prescribed-character search and tables, pp. 433–444",
+        "Class number three application, pp. 445–447"
       ],
-      "accessed": "2026-10-17",
+      "accessed": "2026-10-18",
       "accessNote": "The identical PDF was accessed at the source URL with ?download=1; its SHA-256 agrees with the recorded version."
     },
     {
@@ -315,7 +315,7 @@
       "readSections": [
         "§§1–5, Theorems 1–3, pp. 219–225"
       ],
-      "accessed": "2026-10-11"
+      "accessed": "2026-10-18"
     }
   ],
   "nodes": [
@@ -1302,7 +1302,7 @@
       ],
       "title": "The truncated Euler-product residue",
       "kind": "theorem",
-      "statement": "Assume C4: Ψ is holomorphic on an open neighborhood of Re(s)≥1 with Ψ(1)=0 and Ψ′(1)≠0. Let G_U=∏_{p≤U}G_p with the C2 local roots, U≥1. Set γ(s)=M^sΓ(s)^2 and H(s)=γ(s)Ψ(s)/(s−1), with its removable value at 1; c₁=H(1)≠0,c₂=H′(1)/H(1). The residue at 1 of d^(s−1)γ(s)Ψ(s)G_U(s)/(s−1)^3 is c₁G_U(1)[log d+G_U′(1)/G_U(1)+c₂]. A contour Δ making the source indentation just to the left of 1 gives J(U) equal to this residue plus the Δ integral; the latter has absolute value at most c₃ sup_Δ |G_U|, where c₃ depends only on Ψ,M and the fixed indentation.",
+      "statement": "Assume C4: Ψ is holomorphic on an open neighborhood of Re(s)≥1 with Ψ(1)=0 and Ψ′(1)≠0. Let G_U=∏_{p<U}G_p with the C2 local roots, U≥1. Set γ(s)=M^sΓ(s)^2 and H(s)=γ(s)Ψ(s)/(s−1), with its removable value at 1; c₁=H(1)≠0,c₂=H′(1)/H(1). The residue at 1 of d^(s−1)γ(s)Ψ(s)G_U(s)/(s−1)^3 is c₁G_U(1)[log d+G_U′(1)/G_U(1)+c₂]. A contour Δ making the source indentation just to the left of 1 gives J(U) equal to this residue plus the Δ integral; the latter has absolute value at most c₃ sup_Δ |G_U|, where c₃ depends only on Ψ,M and the fixed indentation.",
       "hypotheses": [
         "d>4,M>0,U≥1; all roots of each C2 numerator and denominator have norm at most √p.",
         "Choose the indentation in the holomorphy neighborhood and avoid all local-factor poles; its near-center half-width is at most 1/4."
@@ -1320,8 +1320,8 @@
       "sources": [
         {
           "sourceId": "O85",
-          "locator": "§3.2, formulas (3.2.1)–(3.2.2), p. 315",
-          "match": "The source separates the central residue from a bounded indented contour integral."
+          "locator": "§3.1, formula (3.1.2), and §3.2, formulas (3.2.1)–(3.2.2), p. 315",
+          "match": "The source uses p<U in the finite product, leaving p≥U in the complementary tail, and separates the central residue from a bounded indented contour integral."
         }
       ],
       "acceptance": [
@@ -2411,7 +2411,7 @@
       "sources": [
         {
           "sourceId": "LLS70",
-          "locator": "Class number three application, pp. 445–447; Table III, p. 440; sieve construction and tables, pp. 438–444,448–451",
+          "locator": "Class number three application, pp. 445–447; Table III, p. 440; prescribed-character search and tables, pp. 433–444",
           "match": "Successive complete least-pattern bounds rule out the small range; the finite certificates must be regenerated."
         }
       ],
@@ -2708,7 +2708,7 @@
   "upstreamNotes": [
     {
       "topic": "Current Tau Ceti non-duplication audit",
-      "detail": "Read the current Completed/EffectiveBounds, Completed/ContourIntegration and Completed/Multiquadratic documents plus the EllipticCurves roadmap. The current nine snapshot-postdating roadmaps and current Tau Ceti library were searched for Goldfeld, Oesterlé, the two conductors and effective class-number lower bounds. Their general class-number upper bounds, genus theory, contour residues, elliptic heights and lattice APIs are imported rather than replanned. Relevant existing declarations were also confirmed at the pinned baseline; no current environment build was run."
+      "detail": "Read the current Completed/EffectiveBounds, Completed/ContourIntegration and Completed/Multiquadratic documents plus the EllipticCurves roadmap. The current nine snapshot-postdating roadmaps and current Tau Ceti library were searched for Goldfeld, Oesterlé, the two conductors and effective class-number lower bounds. Their general class-number upper bounds, genus theory, contour residues, elliptic heights and lattice APIs are imported rather than replanned. Relevant existing declarations were also confirmed at the pinned baseline; no current environment build was run. Independently rechecked on 2026-10-18 at TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27 and Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, including the nine newer roadmaps and IntegralLattices B1/B2/B5."
     },
     {
       "topic": "Canonical-height normalization in the existing elliptic roadmap",
@@ -2720,7 +2720,7 @@
     },
     {
       "topic": "Current binary-form dictionary and enumeration ownership",
-      "detail": "At TauCetiRoadmap 070dc2b, IntegralLattices README Layer B, B1/B2/B5 already plans quadratic orders, proper primitive binary forms equivalent to invertible ideal classes and finite negative-discriminant reduced-form enumeration. Its Suggested.lean was also read. GN.3 must consume those targets and supply only the native maximal-order class-group, explicit boundary/counting and discriminant/genus adapters needed here, plus O85’s integrated nonaxial estimate. The proper form-class dictionary and general enumeration are not replanned by this continuation."
+      "detail": "At TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27, IntegralLattices README Layer B, B1/B2/B5 already plans quadratic orders, proper primitive binary forms equivalent to invertible ideal classes and finite negative-discriminant reduced-form enumeration. Its Suggested.lean was also read. GN.3 must consume those targets and supply only the native maximal-order class-group, explicit boundary/counting and discriminant/genus adapters needed here, plus O85’s integrated nonaxial estimate. The proper form-class dictionary and general enumeration are not replanned by this continuation."
     }
   ],
   "routedTargets": [
@@ -2762,205 +2762,205 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-DESIGN-AnalyticNumberTheoryPartII",
-    "date": "2026-10-11",
-    "notes": "Independently checked all 39 nodes, 27 pinned baseline statements, 45 definition API items, 31 tests, 27 planets, supplier statements, current upstream ownership and all cited source passages. Corrected integrated Mellin domination/nonaxial closure, Hilbert-class-field roots of unity, impossible discriminant −5077, MW odd negative-discriminant characters and LLS 67-pattern threshold. All authorized mathematical corrections are applied; suggested Lean elaborates with only planning-placeholder warnings. Needs_changes is solely for the existing reader, which repeats these errors but is outside this issue's deliverables and would be automatically copied on promotion. Synchronize it from the corrected packet before acceptance. The two original explicit certificate gaps are compatible with the complete planned pass and are not reasons for this verdict.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AnalyticNumberTheoryPartII~2",
+    "date": "2026-10-18",
+    "notes": "Independently reviewed all 39 targets, 27 pinned declarations, eight public primary sources, 45 definition API items, 31 tests, 27 planets and 12 supplier requests. Confirmed every previous correction and reader synchronization. Corrected the strict finite-Euler-product cutoff and the LLS source locator; refreshed source access and current upstream checks. All six layers are planned, none closed; the two explicit certificate gaps remain honest obligations. Suggested Lean elaborates at the pins with only 112 planning-placeholder warnings. See the round-two review report.",
     "checked": [
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.0/ramified-weight",
         "verdict": "verified",
-        "note": "Verified distinct prime support, deletion of the largest prime, floor convention, empty products and all four tests; the smooth reciprocal bound stays separate."
+        "note": "Confirmed distinct-prime support, largest-prime deletion, floor rather than smooth factors, empty product and all four tests; exact theta values checked independently."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/degree-four-completion",
         "verdict": "verified",
-        "note": "Verified center-1 scaling d^(s−1)M^sΓ(s)^2ΨG, reflection/entireness hypotheses, API and normalization tests against O85 C3."
+        "note": "O85 C3 fixes the center-1 scaling, both gamma factors and conductor divided by d. Reflection, entireness and model normalization tests agree."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/inverse-mellin-kernel",
         "verdict": "verified",
-        "note": "Verified factorial, x^−a and support conventions, positivity/convexity for a≥0,m≥2, inversion conditions and all four tests."
+        "note": "O85 Lemmas 1–2 give the stated supported factorial-normalized kernel. Positivity and convexity use a≥0 and m≥2; inversion retains its convergence conditions."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/curve-139",
         "verdict": "verified",
-        "note": "Verified native coefficients, Δ=37·139^6 and the rational coordinate map to −139y²=x³+10x²−20x+8; independently expanded the map and checked its inverse."
+        "note": "Confirmed GZ86 Proposition (7.4), the native coefficients and O85 source model. Exact discriminant and cleared-denominator coordinate identity checked independently."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/curve-5077",
         "verdict": "verified",
-        "note": "Verified plus-y model, Δ=5077, source minus-y isomorphism, three point coordinates and wrong-sign non-example."
+        "note": "Confirmed BGZ equation (2), native plus-y model, discriminant and rational points. Changing y to −y gives the printed minus-y model."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/bgz-kernel",
         "verdict": "verified",
-        "note": "Verified G₀=e^−x, factorial-normalized positive integral for r≥1, recursion and exponential majorant from BGZ (12)–(14); x≤0 convention is explicit."
+        "note": "BGZ (12)–(14) supply the positive factorial-normalized integral, recursion and tail majorant. G0 and the nonpositive-input convention are explicit."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/prime-majorant",
         "verdict": "verified",
-        "note": "Verified zero-based nth-prime indexing, t−1 product and empty cases; tests distinguish smooth reciprocal factors from nonmonotone floor factors."
+        "note": "Confirmed t−1 factors with zero-based nth-prime indexing, positive denominators and empty cases; tests distinguish the smooth majorant from theta."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/effective-kappa",
         "verdict": "verified",
-        "note": "Verified rational witness, ceiling convention, q/(1−q), and q=1/2,1/4 tests; elementary exponential comparison suffices after the recorded global-constant gap is discharged."
+        "note": "Confirmed rational branches, ceiling, δ=q/(1−q), and spare power of two for strictness; half and quarter exponents independently checked."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.0/split-prime-size",
         "verdict": "verified",
-        "note": "Verified ideal-principalization argument, nonreal generator and d>4 unit exception; GN.3 supplies proper ideal/form correspondence."
+        "note": "O85 §1.4(a) uses principalization of the hth power and a nonreal generator; d>4 and the GN.3 ideal/form bridge are retained."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.0/liouville-agreement",
         "verdict": "verified",
-        "note": "Verified coefficient equality for positive n below d/4 via inert primes; ramified primes and the support threshold remain explicit."
+        "note": "Confirmed the inert-prime coefficient argument below d/4 and explicit treatment of ramified support and positive indices."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison",
-        "verdict": "corrected",
-        "note": "Corrected pointwise to integrated cumulative domination from O85 Lemma 3. Added positive hinge proof, pointwise corollary and distinguishing measure example; native signature elaborates. Clarified that absolute line integrability concerns the completed products, allowing the atomic regression example."
+        "verdict": "verified",
+        "note": "Reread O85 Lemma 3: integrated cumulative domination is correct. Hinge decomposition handles the m=2 atom; the displayed atomic example distinguishes pointwise domination."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/fundamental-contour",
         "verdict": "verified",
-        "note": "Verified entireness, plus reflection, central order≥3 and rapid strip decay; reflection makes the zero even, removing the cubic central denominator before contour shifting."
+        "note": "Confirmed C3, central order≥3, plus reflection and strip decay. Evenness removes the apparent central pole; limiting contour conditions are stated."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/truncated-residue",
-        "verdict": "verified",
-        "note": "Verified orientation, pole order, c₁ and log-derivative terms against O85 (3.2.1)–(3.2.2); native residue hypotheses and strip bounds remain explicit."
+        "verdict": "corrected",
+        "note": "Corrected the finite Euler product to p<U, as in O85 (3.1.2), with complementary primes p≥U. The removable extension, residue expansion and contour estimate agree with §3.2."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/tail-three-pieces",
-        "verdict": "corrected",
-        "note": "Corrected comparison to integrated domination and supplied the explicit nonaxial majorant. Verified J₁,J₂,J₃ constants and coefficientwise/Fubini conditions against O85 (3.4.2)–(3.4.9)."
+        "verdict": "verified",
+        "note": "O85 §3.4 supports the three-piece split. Checked nonaxial support, boundary atom and Mellin transform against the integrated GN.3 estimate and the strict cutoff."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/oesterle-technical-bound",
         "verdict": "verified",
-        "note": "Verified C1–C4, uniform dependence only on certified fixed Ψ,M, local-product minimum and genus/logarithmic comparison from O85 Theorem 2; no computed constant is claimed."
+        "note": "O85 Theorem 2 gives a uniform effectively computable bound under C1–C4; small discriminants and explicit constant-certification obligations are not suppressed."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/curve-local-data",
         "verdict": "verified",
-        "note": "Verified conductors 714877/5077, root numbers −1 and bad Euler-factor conventions; existing EllipticCurves Layer 4 and R29.4 own general reduction/conductor interfaces."
+        "note": "Confirmed conductor, root-number and multiplicative bad-factor conventions against O85 and BGZ. R29.4 and BSD.0 requests supply ramified comparisons rather than assume coprimality."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/arithmetic-rank-certificates",
         "verdict": "verified",
-        "note": "Verified independent descent upper bound/point independence lower bound and native height normalization; missing E₁₃₉ witness remains an explicit gap, not an analytic-rank inference."
+        "note": "BGZ supplies E5077 rank and height data; GZ86 states E139 rank. The missing complete E139 descent/independence witnesses remain an explicit certificate gap, not an inferred arithmetic rank."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/central-derivative-enclosures",
         "verdict": "verified",
-        "note": "Verified odd derivative normalization, coefficient/tail bounds and outward enclosures from BGZ (10)–(14); r=3 interval is for L‴/3!, not L‴."
+        "note": "BGZ (10)–(14) give the odd-root derivative kernels after lower-order vanishings. Factorials, Fricke sign, tail controls and continuation hypotheses are preserved."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/heegner-height-gap",
         "verdict": "verified",
-        "note": "Verified exact Gross–Zagier equality, nonzero auxiliary twist and positive native height gap are needed for exact zero; −7 twist and factor-of-two height conversion are specified."
+        "note": "Confirmed BGZ/O88 height-gap route, auxiliary discriminant −7 and positive twist value enclosure; native canonical-height normalization requires the stated factor of one half."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139",
-        "verdict": "corrected",
-        "note": "Corrected roots-of-unity argument in H using [H:K]=3 to exclude order-3/4 roots before descending u(x)=±λ. Tightened CN.3 CM/divisor request; GZ83 Corollary 6 supplies the argument."
+        "verdict": "verified",
+        "note": "GZ83 Corollary 6 puts u in H with u^12=λ^12. Degree three excludes the quadratic extensions carrying extra twelfth roots; Galois equivariance and divisor multiplicities give the trace."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/rank-three-139",
         "verdict": "verified",
-        "note": "Verified trace vanishing, parity and nonzero third derivative prove analytic rank 3 independently of the arithmetic descent gap; actual entire Euler continuation and finite order remain."
+        "note": "GZ86 Proposition (7.4) supports analytic rank three via exact first-derivative vanishing and a nonzero third derivative; arithmetic certification remains a separate prerequisite and gap."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.2/rank-three-5077",
         "verdict": "verified",
-        "note": "Verified exact first derivative zero via height gap, analytic order 3 via third derivative and independent arithmetic basis; no full rank-three BSD/Sha theorem is inferred."
+        "note": "Confirmed BGZ §§2,4–5 analytic argument and independent arithmetic target; numerical smallness is upgraded by a height gap before claiming exact vanishing."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.3/liouville-system",
         "verdict": "verified",
-        "note": "Verified motivic symmetric-square/Liouville identity, bad factors and simple zero of Ψ; AL.3 unitary Rankin–Selberg pole criterion alone is correctly declared insufficient."
+        "note": "O85 §2.3 and Proposition 2 fix the Euler-factor identity and C1–C4 route; entire L-functions and unitary-to-motivic symmetric-square normalization are explicit requests."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.3/ramified-twist-systems",
         "verdict": "verified",
-        "note": "Verified genuine primitive twist, scale √(NNχ)/(4π²d), all 37/139 overlaps and both corrected 139-factor signs; coprime coefficient formulas are not extended into shared ramification."
+        "note": "O85 §4.2 requires every overlap with the conductor. Finite local corrections and finitely many scales are targets, not applications of the coprime twist formula."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.3/global-7000",
         "verdict": "verified",
-        "note": "Verified target for all negative fundamental discriminants and every ramified case; numerical comparison certificates remain the recorded gap, with finite source scales retained."
+        "note": "The published bound is correctly stated for all negative fundamental discriminants; the complete rational numerical comparison dataset remains explicitly missing."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.3/coprime-55",
         "verdict": "verified",
-        "note": "Verified coprimality, inert/split branches and distinct strict prime-discriminant endpoint; a strict bound is not inferred from a non-strict numerical certificate."
+        "note": "O85/O88/GZ86 support the reported coprime bound. The constant certificate and strict prime-discriminant margin remain recorded obligations."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.3/exceptional-5077",
-        "verdict": "corrected",
-        "note": "Replaced false mod-8 splitting proof by nonfundamentality: (−5077)%4=3 and 4∤−5077. Removed h=3 and AN.4/split-prime dependencies; added GN.3 field-discriminant bridge."
+        "verdict": "verified",
+        "note": "Confirmed the stronger congruence exclusion: −5077 is 3 modulo 4 and cannot be an odd fundamental discriminant. No h=3 or false split-prime argument is used."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/prime-product-bound",
         "verdict": "verified",
-        "note": "Verified smooth-factor logarithmic estimate and explicit log c+16√t bound using n+2≤p_n; floor-factor monotonicity is never assumed."
+        "note": "Compared the floor factors with the monotone smooth reciprocal factors and ordered distinct primes; only the specified all-discriminant or coprime families are asserted."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/explicit-t-bound",
         "verdict": "verified",
-        "note": "Verified ordered ramified-prime comparison after erasing the largest, empty t≤1 cases and separate coprime-family use of C₅₅."
+        "note": "GZ86 (8.2) gives the coarse log-majorant bound. Constants, small t and zero-based product endpoints agree with the effective cutoff argument."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/asymptotic-constant",
         "verdict": "verified",
-        "note": "Verified log C_c(t)∼4√(t/log t), with PNT/weighted summation precisely requested from AN.2; current general Tauberian/prime-boundary theorems are imported."
+        "note": "GZ86 p.232 gives constant 4; logarithmic expansion plus the requested nth-prime and weighted partial-sum consequences yield the stated asymptotic."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/effective-logarithmic-bound",
         "verdict": "verified",
-        "note": "Verified constructive strict logarithmic bound for all ε>0 including ε≥1, and rational witness transport; stronger Siegel power statement stays existential."
+        "note": "Confirmed rational κ witness and ε≥1 branch, genus bound on t, exponential comparison and strictness. The global numerical constant gap remains inherited."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/effective-cutoff",
         "verdict": "verified",
-        "note": "Verified q=1/2 gives |D|<exp(2^604 H²) and larger integer cutoff 2^(2^605 H²); enumeration uses only field discriminants and GN.3 completeness."
+        "note": "Checked inversion of the half-exponent bound, the integer power-of-two cutoff and finite-search bridge. Effective computability is not attributed to Siegel."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.4/siegel-comparison",
         "verdict": "verified",
-        "note": "Verified existential cη>0 power bound and ineffective status; imported comparison is not a claimed algorithm or substitute for the logarithmic theorem."
+        "note": "G77 §1 and O85 introduction distinguish the stronger ineffective power bound from this effective logarithmic bound; parent AN.4 supplies the imported result."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/class-three-prime",
         "verdict": "verified",
-        "note": "Verified genus forces one distinct ramified prime, exact h=1 exclusion of −4,−8, and remaining D=−p,p≡3 mod4; −243 fails the field-discriminant filter."
+        "note": "Genus divisibility and fundamental-discriminant congruences force a prime discriminant apart from the handled tiny cases; the split-prime cubic bound is then valid."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets",
-        "verdict": "corrected",
-        "note": "Corrected primitive real odd χ_{−k}, signed prime/2-adic evaluations and Γ((s+1)/2); retained source brackets, endpoint-sign proof and no least-zero/GRH claim."
+        "verdict": "verified",
+        "note": "MW Table I and §5 use primitive odd characters of signed negative discriminants. Checked parity, gamma phase and 2-adic signs; brackets assert existence rather than least zeros."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/mw-phase-exclusion",
-        "verdict": "corrected",
-        "note": "Corrected inherited auxiliary-character parity; verified complete phase ranges, exceptional windows, endpoint overlap and uniform certified inequalities."
+        "verdict": "verified",
+        "note": "MW Lemmas 1–9 give the stated exclusion strategy; uniform phase and endpoint certificates over the entire interval remain required, with the same odd-character convention."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/small-range-sieve",
         "verdict": "corrected",
-        "note": "Corrected 67-pattern threshold to 51599563 and locator Table III p.440. Independently enumerated fundamental d≤318028 and checked candidate primality/signs; large-pattern minimality remains a planned complete sieve."
+        "note": "Corrected the source locator: pp.448–451 are other character problems and references, not a Table I continuation. Table III p.440 and class-number argument pp.445–447 support the thresholds; minimality still requires complete sieve certificates."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/class-three-cutoff",
         "verdict": "verified",
-        "note": "Verified corrected exception gives coprimality, θ=1 gives log d≤165 and d<10^72, and complementary exclusions cover all d>907."
+        "note": "The coprime-55 bound with its recorded strict margin excludes d≥10^2500; MW and LLS cover the lower intervals. No numerical gap is silently treated as a proof."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.5/class-three-enumeration",
         "verdict": "verified",
-        "note": "Verified sixteen field discriminants and three reduced representatives for −907 by independent bounded primitive-form enumeration; global completeness remains a target, not an implementation claim."
+        "note": "Independent primitive reduced-form enumeration through 318028 yields exactly the sixteen fields and the three −907 representatives. The global result retains the analytic cutoff prerequisites."
       }
     ]
   }
