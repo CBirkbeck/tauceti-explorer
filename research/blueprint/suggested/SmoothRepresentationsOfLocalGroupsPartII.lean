@@ -221,7 +221,7 @@ def smoothVectors (π : ContRepresentation ℂ G H) : Submodule ℂ H :=
 
 /-- Smooth vectors are dense for strongly continuous representations of locally profinite
 groups (`SRU.0/smooth-vectors-unitary`). -/
-theorem smoothVectors_dense [IsTopologicalGroup G] [LocallyCompactSpace G] [T2Space G]
+theorem smoothVectors_dense [CompleteSpace H] [IsTopologicalGroup G] [LocallyCompactSpace G] [T2Space G]
     [TotallyDisconnectedSpace G] (π : ContRepresentation ℂ G H) (hπ : IsStronglyContinuous π)
     (hu : TauCeti.ContRepresentation.IsUnitary π) :
     (smoothVectors π).topologicalClosure = ⊤ := by
@@ -357,7 +357,8 @@ example : IsUnitarizable (Representation.trivial ℂ G ℂ) := by
 
 /-- Uniqueness of the unitary structure on an irreducible admissible smooth representation
 ([Ber92] Lemma 38; [Cas95] Proposition 2.1.15). Smoothness and admissibility are explicit. -/
-theorem unitaryStructure_unique (ρ : Representation ℂ G V) (hirr : Representation.IsIrreducible ρ)
+theorem unitaryStructure_unique [IsTopologicalGroup G] [LocallyCompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] (ρ : Representation ℂ G V) (hirr : Representation.IsIrreducible ρ)
     (hsmooth : ∀ x : V, ∃ K : OpenSubgroup G, IsCompact (K : Set G) ∧ ∀ k ∈ K, ρ k x = x)
     (hadm : ∀ K : OpenSubgroup G, IsCompact (K : Set G) →
       FiniteDimensional ℂ (invariantsOf ρ (K : Subgroup G)))
@@ -369,7 +370,8 @@ theorem unitaryStructure_unique (ρ : Representation ℂ G V) (hirr : Representa
 
 /-- Admissible unitarizable representations are semisimple: every subrepresentation has an
 invariant complement ([Cas95] Proposition 2.1.5). -/
-theorem exists_invariant_isCompl_of_unitarizable (ρ : Representation ℂ G V)
+theorem exists_invariant_isCompl_of_unitarizable [IsTopologicalGroup G] [LocallyCompactSpace G]
+    [T2Space G] [TotallyDisconnectedSpace G] (ρ : Representation ℂ G V)
     (hu : IsUnitarizable ρ)
     (hadm : ∀ K : OpenSubgroup G, IsCompact (K : Set G) →
       FiniteDimensional ℂ (invariantsOf ρ (K : Subgroup G)))
