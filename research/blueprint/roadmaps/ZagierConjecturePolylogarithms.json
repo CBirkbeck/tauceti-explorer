@@ -22,7 +22,6 @@
       "title": "Specialized weight-three and weight-four relations",
       "description": "Construct the rational raw symbol modules and their full one-parameter specialization relations Q₃ and Q₄; identify L₃ with the supplier’s explicit trilogarithm group and descend δ₃. Keep L₄ as a quotient before proving δ₄ descends.",
       "requires": [
-        "Polylogarithms:P.1",
         "Polylogarithms:P.3"
       ]
     },
@@ -31,31 +30,36 @@
       "title": "Associahedra and cluster polylogarithms",
       "description": "Construct oriented type-A Stasheff cell complexes, triangle two-forms and the weight-four maps on vertices, edges, pentagons, squares and three-cells. Prove their boundary identities; express the K₄ top boundary as Q₄. No general cluster-variety conjecture is used.",
       "requires": [
-        "ZagierConjecturePolylogarithms:Z.1"
+        "ZagierConjecturePolylogarithms:Z.1",
+        "Polylogarithms:P.3",
+        "K3BlochGroups:V.3"
       ]
     },
     {
       "key": "Z.3",
       "title": "Lie coalgebra and motivic correlators",
-      "description": "Descend δ₄ and prove co-Jacobi, construct B₄-combinatorial as the span of single symbols and prove the extension by Λ²B₂. Construct and realize correlators on punctured P¹, establish collision continuity, change of base point and weight-four depth reduction; prove the motivic realization homomorphism. Import the generic mixed Tate category and its fundamental group by precise requests. Use the reduced cyclic-word carrier with its pure-puncture kernel removed, and separate the base-point change theorem from the weight-four depth reduction. The reduction threshold counts arguments, not motivic weight.",
+      "description": "Descend δ₄ and prove co-Jacobi, construct B₄-combinatorial as the span of single symbols and prove the extension by Λ²B₂. Construct and realize correlators on punctured P¹, establish collision continuity, change of base point and weight-four depth reduction; prove the motivic realization homomorphism. Import the generic mixed Tate category and its fundamental group by precise requests (MT-1 to MotivesAndAlgebraicCycles:MC.4, MT-2 to PeriodsAndSpecialValues:PS.9). Use the reduced cyclic-word carrier with its pure-puncture kernel removed, and separate the base-point change theorem from the weight-four depth reduction. The reduction threshold counts arguments, not motivic weight.",
       "requires": [
         "ZagierConjecturePolylogarithms:Z.1",
         "ZagierConjecturePolylogarithms:Z.2",
         "MotivesAndAlgebraicCycles:MC.4",
         "MotivesAndAlgebraicCycles:MC.6",
         "HodgeStructuresPartII:H.2",
-        "Polylogarithms:P.4",
         "AnabelianGeometryAndNonabelianChabauty:NC.2",
-        "PeriodsAndSpecialValues:PS.9"
+        "PeriodsAndSpecialValues:PS.9",
+        "K3BlochGroups:V.3",
+        "Polylogarithms:P.1",
+        "BorelRegulators:R.4"
       ]
     },
     {
       "key": "Z.4",
       "title": "Grassmannian configurations and decorated flags",
-      "description": "Import generic configurations, projection, duality and explicit B₃ from Polylogarithms:P.3. Construct the weight-four truncation, decorated-flag comparison, Grassmannian G₄ and the normalized chain map with its Λ²B₂ diagonal. Give finite symbolic proofs retaining constants and the corrected scalar in Theorem 10.15.",
+      "description": "Import generic configurations, projection, duality and explicit B₃ from Polylogarithms:P.3. Construct the weight-four truncation, decorated-flag comparison, Grassmannian G₄ and the normalized chain map with its Λ²B₂ diagonal. Give finite symbolic proofs of every square, including the degree-eight cancellation R₇³∂+R₇²p=0 that replaces GR Lemma 7.9, and the corrected scalar in Theorem 10.15.",
       "requires": [
-        "ZagierConjecturePolylogarithms:Z.3",
-        "Polylogarithms:P.3"
+        "Polylogarithms:P.3",
+        "GeneralAlgebraicKTheory:K.2",
+        "K3BlochGroups:V.3"
       ]
     },
     {
@@ -66,7 +70,16 @@
         "ZagierConjecturePolylogarithms:Z.4",
         "Polylogarithms:P.5",
         "MotivicEtaleKTheory:M.8",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2",
+        "ZagierConjecturePolylogarithms:Z.3",
+        "Polylogarithms:P.1",
+        "ZagierConjecturePolylogarithms:Z.1",
+        "Polylogarithms:P.4",
+        "Polylogarithms:P.2",
+        "Polylogarithms:P.3",
+        "K3BlochGroups:V.3",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "PeriodsAndSpecialValues:PS.9"
       ]
     },
     {
@@ -80,7 +93,13 @@
         "BorelRegulators:R.4",
         "BorelRegulators:R.5",
         "BorelRegulators:R.7",
-        "Polylogarithms:P.4"
+        "Polylogarithms:P.4",
+        "ZagierConjecturePolylogarithms:Z.4",
+        "MotivicEtaleKTheory:M.8",
+        "ZagierConjecturePolylogarithms:Z.3",
+        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "HodgeStructuresPartII:H.2"
       ]
     }
   ],

@@ -60,6 +60,14 @@ example (a₁ a₂ a₃ : ℚ) :
     (1 / 2 : ℚ) * (-3 * a₁ + 6 * a₃) - (a₁ - 2 * a₂ - a₃) +
       (-2 * a₂ - 4 * a₃) = -(5 / 2 : ℚ) * a₁ := by sorry
 
+/-- Z.4/configuration-identities, degree eight: on C₈(3) the wedge from R₇³∂ (coefficient −3/28)
+and the wedge from R₇²p (coefficient −1/84, equal to −9 times the first wedge) cancel. -/
+example : -(3 / 28 : ℚ) * 1 + (-(1 / 84 : ℚ)) * (-9) = 0 := by sorry
+
+/-- Z.5/scissors-trilogarithm-map: built from the class normalized by GR (167), which is three
+times Goncharov's r₃, the coefficient 1/18 reproduces Goncharov's coefficient 1/6. -/
+example : (1 / 18 : ℚ) * 3 = 1 / 6 := by sorry
+
 /-- Z.6 acceptance: rational coordinate change gives the determinant ratio.
 This is only the finite-matrix implication; the K₇ and cycle comparisons are
 precise mathematical targets in the reader document. -/
