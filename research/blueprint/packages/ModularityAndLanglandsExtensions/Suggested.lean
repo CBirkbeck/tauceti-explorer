@@ -266,6 +266,23 @@ end SymmetricPower
 
 /-! ## Numerical convention witnesses -/
 
+/-- The symmetric Heisenberg cocycle becomes the polarized law under `z = t + xy/2`
+(README §3.1); doubling the cocycle already fails on the two coordinate vectors. -/
+example (x y x' y' t t' : ℚ) :
+    (t + t' + (x * y' - x' * y) / 2) + (x + x') * (y + y') / 2 =
+      (t + x * y / 2) + (t' + x' * y' / 2) + x * y' ∧
+    (1 / 2 + (1 + 0) * (0 + 1) / 2 : ℚ) = 1 ∧
+    (1 + (1 + 0) * (0 + 1) / 2 : ℚ) ≠ 1 := by
+  constructor
+  · ring
+  · norm_num
+
+/-- Halving the oscillator eigenvalue gives the even/odd lowest metaplectic weights
+(README §3.1); the unhalved odd value is different. -/
+example : ((2 * 0 + 1) / 2 : ℚ) = 1 / 2 ∧
+    ((2 * 1 + 1) / 2 : ℚ) = 3 / 2 ∧
+    ((2 * 1 + 1) / 2 : ℚ) ≠ 2 * 1 + 1 := by norm_num
+
 /-- Ramification scaling preserves the rational rank-two nilpotence index (README §2.10). -/
 example :
     (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 ∧
