@@ -11,8 +11,9 @@ Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 The file imports Mathlib only. Round three replaces the auxiliary cyclotomic
 route by direct Tate descent for ℚ(√5), with a norm-thirty-three cutoff and
 eleven exact finite residue-step certificates in the packet. These are planned
-proofs; no implementation or independent acceptance is claimed. The current
-negative review and its history are preserved pending independent review.
+proofs. The round-three independent review accepts the repaired contracts and
+N.8 generation route; three separate N.7 proof-source/interface gaps remain.
+No implementation is claimed, and prior review verdicts remain in the packet history.
 Unavailable imports, heavy constructions and their APIs/tests are mathematical
 comments with exact suppliers. In particular no data definition is supplied by
 `sorry` in place of N.4's unavailable w-invariant.
