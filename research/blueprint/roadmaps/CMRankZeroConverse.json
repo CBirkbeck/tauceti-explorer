@@ -64,7 +64,7 @@
     {
       "key": "C.3",
       "title": "The rational rank-zero newform converse",
-      "description": "Use the actual Kato reciprocity formula, with f*, the critical period sign and the p-omitted Euler factor, to deduce central nonvanishing. State the non-CM result conditionally on rational Kato equality. Obtain the all-prime CM newform result from the separately owned CM equality; GAP-CM records its absent registered endpoint.",
+      "description": "Use the actual Kato reciprocity formula, with f*, the critical period sign and the p-omitted Euler factor, to deduce central nonvanishing; apply the complex period comparison to Hecke-field basis vectors before extending by completed-coefficient linearity. State the non-CM result conditionally on rational Kato equality. Obtain the all-prime CM newform result from the separately owned CM equality; GAP-CM records its absent registered endpoint.",
       "requires": [
         "AutomorphicGaloisRepresentations:R19.4",
         "CMRankZeroConverse:C.1",
