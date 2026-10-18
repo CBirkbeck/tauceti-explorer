@@ -334,7 +334,7 @@
         {
           "name": "PointedCurves.Moduli.obj",
           "role": "data",
-          "statement": "The fibre over S is the core of the geometric pointed full subcategory of Over S."
+          "statement": "The fibre over S is the core of the full subcategory cut out by the geometric predicates inside the category of ordered n-pointed objects of Over S; its arrows preserve every marking."
         },
         {
           "name": "PointedCurves.Moduli.isoEquiv",
@@ -581,7 +581,7 @@
         {
           "name": "PointedCurves.Universal.collisionAllowed",
           "kind": "degenerate",
-          "statement": "For any pointed family, choosing Δ=σ_1 defines an object of Z̄; it does not define a disjoint n+1-st marking on the same total curve."
+          "statement": "For any pointed family with n≥1, choosing Δ=σ_1 defines an object of Z̄; it does not define a disjoint n+1-st marking on the same total curve."
         },
         {
           "name": "PointedCurves.Universal.nodalProjection",
@@ -674,7 +674,7 @@
       },
       {
         "ref": "mathlib:CategoryTheory.Core",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/CategoryTheory/Core.lean",
         "provides": "The native groupoid with the same objects as a category and invertible arrows.",
         "checked": "Statement read at the pinned commit on 2026-10-18."
@@ -702,7 +702,7 @@
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
         "provides": "The scheme fppf Grothendieck topology, induced by flat locally finitely presented jointly surjective covering families.",
         "checked": "Statement read at the pinned commit on 2026-10-18."
@@ -808,7 +808,7 @@
       "accessed": "2026-10-18",
       "sha256": "ab59074f91c60e44908903b839e709857dda0daf36c030e898b5bf55cdcda304",
       "readSections": [
-        "48.12.4–48.12.5, pp. 29–30; 48.28, pp. 72–75"
+        "48.12.4–48.12.5, pp. 29–30; 48.28, pp. 72–75; Lemma 48.28.10 (0E30), proof, p. 76"
       ]
     },
     {
@@ -856,14 +856,19 @@
       "locator": "Lemma 53.20.11 (0CBX), proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18",
       "printed": "The displayed residue power-series map assigns the variable x twice, once to each of the two branch parameters.",
       "correction": "The second assignment has source variable y, so x maps to the first branch parameter and y to the second.",
-      "reason": "A map from the two-variable power-series ring is determined by separate images of x and y; the subsequent kernel (xy) and the final lifted map use those separate branch parameters.",
+      "reason": "A map from the two-variable power-series ring needs separate images of x and y. The subsequent kernel (xy) requires those separate branch parameters; the final lifted map has an additional source-variable slip recorded separately below.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "The live tag 0CBX and its comments, accessed 2026-10-18.",
         "The live parent section 0C58 and its comments, accessed 2026-10-18.",
         "The public chapter PDF ed88ff78, compiled 2026-07-14, p. 52."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently in the rendered ed88ff78 PDF p. 52 and live tag 0CBX: the residue map needs y as its second source variable.",
+        "by": "REV-StableReductionPartII--MC.0"
+      }
     },
     {
       "id": "StableReductionPartII/E-MC0-2",
@@ -879,7 +884,12 @@
         "Live tag 0E2X and its comments, accessed 2026-10-18.",
         "Live Section 48.28 (0E2S) and its two comments, accessed 2026-10-18; these discuss Definition 48.28.1 rather than these indices.",
         "Public chapter PDF ed88ff78, compiled 2026-07-14, at the stated page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently in ed88ff78 p. 73 and live tag 0E2X: the intermediate object is K_U′, so the restriction-composition index must be U′, not a base open V.",
+        "by": "REV-StableReductionPartII--MC.0"
+      }
     },
     {
       "id": "StableReductionPartII/E-MC0-3",
@@ -895,7 +905,54 @@
         "Live tag 0E2Y and its comments, accessed 2026-10-18.",
         "Live Section 48.28 (0E2S) and its two comments, accessed 2026-10-18; these discuss Definition 48.28.1 rather than these indices.",
         "Public chapter PDF ed88ff78, compiled 2026-07-14, at the stated page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently in ed88ff78 p. 74 and live tag 0E2Y: the base-changed diagonal and the following structure sheaf have source X′.",
+        "by": "REV-StableReductionPartII--MC.0"
+      }
+    },
+    {
+      "id": "StableReductionPartII/E-MC0-4",
+      "source": "STACKS-CURVES",
+      "kind": "misprint",
+      "locator": "Lemma 53.20.11 (0CBX), final lifted map in the proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18",
+      "printed": "The map out of the quotient of A[[x,y]] labels its second source generator v.",
+      "correction": "The second source generator is y; its image is the constructed lift v∞.",
+      "reason": "The displayed source ring has generators x and y; v occurs only as a branch parameter before lifting. This is independent of the earlier duplicate x assignment.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Live tag 0CBX and parent section 0C58, including their comments, accessed 2026-10-18.",
+        "Public chapter PDF ed88ff78, compiled 2026-07-14, rendered p. 52."
+      ],
+      "addedBy": "REV-StableReductionPartII--MC.0",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed source ring has generators x and y; v occurs only as a branch parameter before lifting. This is independent of the earlier duplicate x assignment.",
+        "by": "REV-StableReductionPartII--MC.0"
+      }
+    },
+    {
+      "id": "StableReductionPartII/E-MC0-5",
+      "source": "STACKS-DUALITY",
+      "kind": "misprint",
+      "locator": "Lemma 48.28.10 (0E30), proof, last sentence of the separated case, p. 76; ed88ff78 PDF and live tag checked 2026-10-18",
+      "printed": "The object identified by the rigidity map η is written as a diagonal pushforward of O_X, with a repeated pushforward asterisk.",
+      "correction": "Use the pushforward of O_Y along Δ_{Y/X}, with one pushforward asterisk.",
+      "reason": "The diagonal has source Y. The rigidity map η identifies the displayed derived Hom on Y×_X Y with Δ_{Y/X,*}O_Y, rather than the structure sheaf of X. The composition theorem is not a prerequisite of an MC.0 target.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Live tag 0E30 and parent section 0E2S, including comments, accessed 2026-10-18; the parent comments concern Definition 48.28.1.",
+        "Public chapter PDF ed88ff78, compiled 2026-07-14, rendered p. 76."
+      ],
+      "addedBy": "REV-StableReductionPartII--MC.0",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The diagonal has source Y. The rigidity map η identifies the displayed derived Hom on Y×_X Y with Δ_{Y/X,*}O_Y, rather than the structure sheaf of X. The composition theorem is not a prerequisite of an MC.0 target.",
+        "by": "REV-StableReductionPartII--MC.0"
+      }
     }
   ],
   "sourceVersions": [
@@ -1196,7 +1253,7 @@
     "represented": [
       {
         "node": "StableReductionPartII:MC.0/universal-evaluation",
-        "portion": "Native slice-section universal property, evaluation formula, marking graph and arbitrary base-change comparison."
+        "portion": "Native slice-section universal property and evaluation formula, graphs of a marking or any map into the total curve, and injectivity of section evaluation."
       }
     ],
     "omitted": [
@@ -1222,14 +1279,14 @@
       },
       {
         "node": "StableReductionPartII:MC.0/universal-evaluation",
-        "reason": "Only the native slice portion is present; the two-fibre product with the actual moduli object, geometric projection properties and the listed geometric tests require absent carriers."
+        "reason": "Only the raw native slice equivalence and evaluation checks are present. Naturality and coherent base-change comparisons are not stated in the suggested file; the two-fibre product with the actual moduli object, geometric projection properties and the listed geometric tests require absent carriers."
       },
       {
         "node": "StableReductionPartII:MC.0/smooth-base-restriction",
         "reason": "The geometric pointed family, genus, dualizing, polarized descent and moduli carriers are not available at the pins; the full statement and tests are reader targets, with their exact geometric contracts here."
       }
     ],
-    "note": "The raw slice comparison represents a portion of universal-evaluation only. It does not instantiate a moduli pseudofunctor or supply object descent."
+    "note": "The raw slice comparison represents a portion of universal-evaluation only. It does not state naturality or a coherent base-change comparison, instantiate a moduli pseudofunctor, or supply object descent."
   },
   "upstreamImports": [
     {
@@ -1245,7 +1302,7 @@
         "L0A",
         "L0B"
       ],
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
       "need": "Existing tensor, unit and strong symmetric monoidal pullback interfaces for scheme modules and invertible sheaves; use them when identifying the log line under base change, without constructing generic sheaf tensor theory again.",
       "neededBy": [
         "StableReductionPartII:MC.0/arbitrary-base-duality"
@@ -1255,5 +1312,48 @@
     }
   ],
   "upstreamNotes": [],
-  "restructure": []
+  "restructure": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-StableReductionPartII--MC.0",
+    "date": "2026-10-18",
+    "notes": "Independent review of all seven nodes, all source locators, twelve pinned declarations, current upstream ownership, API/tests, parent/MC.2 routing and three precise supplier gaps. Corrected pointed-category wording, collision-test hypothesis, prototype coverage, two declaration kinds and one upstream URL. Confirmed three existing source slips and recorded two additional harmless notation slips. Complete planning pass accepted; coverage stays planned with three explicit gaps. Suggested Lean file elaborates at the pins with four proof-placeholder warnings and no other warnings.",
+    "checked": [
+      {
+        "nodeId": "StableReductionPartII:MC.0/pointed-approximation",
+        "verdict": "verified",
+        "note": "Finite diagrams and comparison equations descend by the stated SF.0 suppliers and Stacks 32.10.1–2, 53.20.10; the general-base assertion is affine-local. StableReduction Layers 0–3 supply the existing geometric predicates."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "verdict": "verified",
+        "note": "Stacks 53.20.12 and 36.30.4, 36.32.5 support universal H⁰ and locally free R¹. The missing perfection/amplitude supplier remains explicit; no canonical derived splitting is claimed."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "verdict": "verified",
+        "note": "Rigid arbitrary-base duality, marking Cartier divisors and component degree give the log line. The SF.2 module-concentration extension remains explicit; tensor/pullback theory is imported from AlgebraicVectorBundles."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/native-family-realization",
+        "verdict": "corrected",
+        "note": "Corrected Moduli.obj: the ambient category is ordered pointed slice objects with marking-preserving arrows, then a geometric full subcategory and its core. Checked groupoid fibres, coherence, automorphisms and all five tests."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/polarized-descent-comparison",
+        "verdict": "verified",
+        "note": "The canonical log-line isomorphisms lift the cocycle. Scheme effectivity needs the stated polarized supplier, shared with R09.3, rather than an invariant Picard class. Checked Stacks 74.13.1 and 99.14.3."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/universal-evaluation",
+        "verdict": "corrected",
+        "note": "Added n≥1 to the collision test and narrowed prototype coverage to the four actual slice statements. The geometric two-fibre product, unrestricted extra section, marking recovery and coherent base-change targets remain in the reader."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.0/smooth-base-restriction",
+        "verdict": "verified",
+        "note": "Properness makes the image of the nonsmooth locus closed; the resulting base open classifies whole smooth fibres, while the relative smooth locus of the stable universal curve can omit nodes."
+      }
+    ]
+  }
 }
