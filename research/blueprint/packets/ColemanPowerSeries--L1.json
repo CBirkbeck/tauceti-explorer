@@ -2458,7 +2458,25 @@
       ]
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "id": "ColemanPowerSeries:L1/G1",
+      "title": "Relative arithmetic specialization of the exact L0 suppliers",
+      "neededBy": [
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+        "ColemanPowerSeries:L1/unramified-norm-evaluation",
+        "ColemanPowerSeries:L1/unramified-trace-evaluation",
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
+        "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
+        "ColemanPowerSeries:L1/unramified-interpolation-existence",
+        "ColemanPowerSeries:L1/unramified-interpolation-homeomorphism",
+        "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant"
+      ],
+      "detail": "The exact L0 node prerequisites supply the coefficient tower, absolute integral basis, relative field polynomial and degree, unit norm equalizer, fixed-root Frobenius and topologically nilpotent evaluation points. They leave the residual specialization listed in the L0 request: coherent integralClosure O E_n receiving structures and continuous native evaluation; the relative integral basis rho_(n+1)^i (i<p); integral/field norm and trace comparison and Frobenius/norm commutation; polynomial unit lifts. These are the consuming L1 part of L0/G1, not an assumed norm-evaluation or interpolation square. The ten stage-level L0 edges refer only to these residual adapters, alongside the explicit supplied node ids. No reviewed theorem is strengthened."
+    }
+  ],
   "upstreamNotes": [
     {
       "roadmaps": [
@@ -2546,6 +2564,19 @@
       "url": "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
       "read": "2026-10-10",
       "sha256": "99b3a36201cecf55045da6913d462cacdb8dff83bff5860c5883ab7ea824bd32"
+    },
+    {
+      "kind": "assembly focal reread",
+      "url": "https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002095289",
+      "read": "2026-10-18",
+      "scope": "Original printed pp.98 and 102–106: Theorem 4, Corollary 5(i), Theorem 11, Corollary 12(ii), Lemma 13 and equation (2), Proposition 14, Theorems 15–16 and Corollary 17. Source locators and the direction of the coefficient twist checked; no fresh whole-article claim."
+    },
+    {
+      "kind": "author copy, assembly snapshot",
+      "url": "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+      "read": "2026-10-18",
+      "sha256": "e5308be4c3d9ded6002cefb50df64b31f62b584b6ff68be7f21dc939f2508c26",
+      "scope": "Complete section 5.4 through Corollary 5.4.13, printed pp.143–147. These newly served PDF bytes differ from the reviewed 10 October snapshot; the indexing, omitted identity-root factor and dropped coefficient-action issues persist at the same locators. Historical finding versions and verdicts are retained."
     }
   ],
   "review": {
