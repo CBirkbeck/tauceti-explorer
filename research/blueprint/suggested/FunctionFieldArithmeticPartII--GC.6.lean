@@ -1,4 +1,5 @@
 import Mathlib.Algebra.Group.Subgroup.Ker
+import Mathlib.Algebra.Ring.PUnit
 import Mathlib.LinearAlgebra.PiTensorProduct.Finite
 import Mathlib.LinearAlgebra.Trace
 import Mathlib.Logic.Equiv.Fin.Rotate
@@ -52,7 +53,14 @@ theorem rootUnitCoordinates_empty_residue (r : A →+* B) [Subsingleton B] :
     rootUnitCoordinates r = ⊤ :=
   sorry
 
+/-- The zero residue ring imposes no constraint on the ordinary units. -/
+example : rootUnitCoordinates (Int.castRingHom PUnit) = ⊤ :=
+  sorry
+
 /-- Both residue roots are retained, even when the ordinary unit is fixed. -/
+example : ((1 : ℤˣ), (1 : ℤˣ)) ∈ rootUnitCoordinates (RingHom.id ℤ) :=
+  sorry
+
 example : ((1 : ℤˣ), (-1 : ℤˣ)) ∈ rootUnitCoordinates (RingHom.id ℤ) :=
   sorry
 
@@ -78,7 +86,9 @@ theorem exists_unit_with_residues {ι : Type*} [Finite ι]
       ∀ i, IsLocalRing.residue (P i).integers ⟨(g : F), hg i⟩ = (y i : (P i).ResidueField) :=
   sorry
 
-example : ∃ g : Fˣ, (g : F) = 1 :=
+example (P : Empty → TauCeti.Place k F) (y : ∀ i, (P i).ResidueFieldˣ) :
+    ∃ g : Fˣ, ∃ hg : ∀ i, (g : F) ∈ (P i).integers,
+      ∀ i, IsLocalRing.residue (P i).integers ⟨(g : F), hg i⟩ = (y i : (P i).ResidueField) :=
   sorry
 
 end Approximation

@@ -44,7 +44,7 @@
       {
         "ref": "tauceti:CategoryTheory.Sheaf.additiveUnitsFunctor",
         "module": "TauCeti/CategoryTheory/Sites/Units.lean",
-        "provides": "For any ring sheaf on a site, its multiplicative units form an abelian sheaf after Additive. Generic units sheaves are already supplied.",
+        "provides": "For any commutative ring sheaf on a site, its multiplicative units form an abelian sheaf after Additive. Generic units sheaves are already supplied.",
         "checked": "Actual declaration and ambient hypotheses read at the recorded pin on 2026-10-18. The Tau Ceti approximation, line-bundle and units-sheaf source files were also compared with the raw files at f790474; no current-main declaration is substituted for a pinned one."
       },
       {
@@ -144,7 +144,7 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Definition21.4.1, Lemmas21.4.2–21.4.3 (03AG): torsors, triviality and H1.",
-        "Subsection95.14.1 (04UJ), Lemma95.14.2: descent of torsors and their arrows.",
+        "Subsection 95.14.1 (04UJ), Lemma 95.14.2: big-fppf torsor descent. For the small etale site here, use its sheaf/action gluing proof through SF.1/sheaf-stack.",
         "Section21.11 (0CJZ), Lemma21.11.1: local cocycle obstruction; its extra cofinal-acyclicity hypotheses are not silently assumed here."
       ]
     },
@@ -156,7 +156,7 @@
       "url": "https://stacks.math.columbia.edu/tag/0BCX",
       "accessed": "2026-10-18",
       "readSections": [
-        "Lemmas31.18.1–31.18.3, tags0BCY,0BCZ,0BD0: preimage trivializations, line norms and morphisms.",
+        "Lemmas 31.18.1–31.18.3, tags 0BUT,0BCY,0BCZ: inverse-image trivializations, line norms and morphisms.",
         "Lemma31.18.6, tag0BD2: finite locally free determinant norm and arbitrary base change. Stable tags identify the results when section numbering changes."
       ]
     },
@@ -169,7 +169,7 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Section9 opening properties(a)–(c), printed p.64, Remark9.3 p.65 and Example9.5 p.66: functorial cohomology sequences and Ext carrier.",
-        "Section11, printed pp.76–79, Proposition11.1 and Theorem11.4: torsor cocycles and the line-bundle comparison."
+        "Section11, printed pp.76–79, Proposition11.1 p.77 and Theorem11.4: torsor cocycles and the line-bundle comparison."
       ]
     },
     {
@@ -249,6 +249,16 @@
           "name": "TauCeti.RamifiedClassField.GC6.rootUnitCoordinates_empty_residue",
           "role": "compatibility",
           "statement": "If B0 is a subsingleton ring, the subgroup is the entire product. Consequently its first projection is the canonical equivalence with A0^units; the suggested signature states the subgroup equality."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GC6.rootUnitCoordinates_mk",
+          "role": "constructor",
+          "statement": "Given units u,v and h:Units.map(r)(u)=v^2, bundle (u,v) as a coordinate; both projections recover the given units. The multiplication, inverse, identity and their projection formulas are inherited from the native subgroup."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.GC6.rootUnitCoordinates_map",
+          "role": "functoriality",
+          "statement": "For ring maps f:A0 to A1 and g:B0 to B1 with g composed with r = r1 composed with f, map (u,v) to (Units.map(f)(u),Units.map(g)(v)). This is a group homomorphism, with identity and composition laws and both projection formulas. It supplies restriction between framed charts."
         }
       ],
       "tests": [
@@ -278,7 +288,7 @@
           "how": "Separates the root-unit group from its image in ordinary ideles."
         }
       ],
-      "leanDisposition": "Native real-bodied subgroup, with all four API statements and the three discriminating checks in the suggested file."
+      "leanDisposition": "Native real-bodied subgroup with four representative API signatures and examples for all three tests. The constructor and chart-change API are specified here in the README; native subgroup operations are inherited."
     },
     {
       "id": "FunctionFieldArithmeticPartII:GC.6/root-torsor-comparison",
@@ -312,7 +322,7 @@
       "proofSteps": [
         "Choose local frames of the two lines. The discrepancy in alpha is a unit on R_T; after an etale refinement lift its square root, using 2 invertible, to obtain simultaneous frames. This proves local nonemptiness of the frame sheaf.",
         "The coordinate subgroup acts simply transitively on simultaneous frames. Conversely extend a C-torsor through the two projections and glue the two trivial lines; the defining equality gives alpha. Cocycle descent makes these inverse on objects and arrows.",
-        "For B use frames of a line over nu inverse images: a finite locally free algebra over a strictly henselian local ring is a finite product of local rings, so its rank-one projective modules are free. Thus an etale refinement on the base suffices.",
+        "For B, apply Stacks Lemma 31.18.1 (0BUT): a line on the inverse image of a finite morphism becomes trivial over the inverse image of a Zariski neighbourhood on the base. Thus its B-frame sheaf is already locally nonempty in the etale topology, for arbitrary T.",
         "Tensor the frame torsors and compare both constructions locally to get monoidal and base-change coherence. Import general descent, never re-plan it."
       ],
       "acceptance": [
@@ -329,12 +339,17 @@
         {
           "sourceId": "STACKS-TORSORS",
           "locator": "Definition 21.4.1 and Lemma 95.14.2, tags 03AG and04UJ",
-          "match": "These supply the torsor and effective-descent interfaces; the root-frame application is authored."
+          "match": "Tag 03AG supplies torsor local triviality. Lemma 95.14.2 (04UJ) is stated on the big fppf site; its gluing proof is applied here on the small etale site through the generic SF.1/sheaf-stack contract, descending the sheaf, action and local torsor condition. The root-frame and based-fibre comparisons are authored deductions."
         },
         {
           "sourceId": "MILNE-LEC",
           "locator": "Theorem 11.4, pp. 78–79",
           "match": "Rank-one locally free modules and G_m torsors agree; the finite-cover frame argument supplies the direct-image version."
+        },
+        {
+          "sourceId": "STACKS-NORMS",
+          "locator": "Lemma 31.18.1, tag 0BUT",
+          "match": "Line bundles over a finite inverse image trivialize over inverse images of base Zariski neighbourhoods; this proves local nonemptiness of the B-frame torsor without a limit argument."
         }
       ],
       "implementationStatus": "unchecked",
@@ -367,7 +382,7 @@
       "proofSteps": [
         "In the basis (1,t), multiplication by c+d*t has matrix with rows (c,a*d) and (d,c); compute its determinant.",
         "Reduce modulo a and use t=0 for the specified Rprime section, retaining the nonreduced inverse-image algebra with t^2=0. Apply the formula to transition units of Mprime, not just to one trivial line.",
-        "The residue of w is2. The identity sigma(u)=u inverse gives sigma(w)=w/u, hence the kernel calculation near R. Away from R split the etale double cover. These local calculations verify the parent exact sheaf complex.",
+        "The residue of w is2. The identity sigma(u)=u inverse gives sigma(w)=w/u, hence local surjectivity of q onto K near R. Away from R split the etale double cover. For ker q, write b=c+d*t: sigma(b)=b forces 2*d=0 and hence d=0, so b is an invariant unit; this remains true after nonflat base change. The invariant inclusion is injective because the chart is free with basis (1,t). Together these calculations give exactness at every term of the parent sheaf complex.",
         "For a target (u,v) in C, choose etale-locally a square root z of u whose restriction along R is v. Such a branch choice extends etale-locally because z squared=u is etale with 2 and u invertible. Then the invariant unit nu^*z has norm u and branch residue v. Away from R the split cover gives surjectivity directly. This proves epimorphism of sheaves, not global sections."
       ],
       "acceptance": [
@@ -379,7 +394,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.3.1 and A.3.3, p. 524",
+          "locator": "A.3.1 and A.3.3, pp. 524–525",
           "match": "The residue-square and sheaf exactness assertions are expanded by this chart calculation."
         },
         {
@@ -441,7 +456,7 @@
         },
         {
           "sourceId": "STACKS-NORMS",
-          "locator": "Lemmas31.18.2–31.18.3 and31.18.6, tags 0BCZ,0BD0,0BD2",
+          "locator": "Lemmas31.18.2–31.18.3 and31.18.6, tags 0BCY,0BCZ,0BD2",
           "match": "Norms of line transition maps and sections provide the ordinary construction and base change."
         }
       ],
@@ -486,7 +501,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.3.3, p. 525, four-term sheaf complex before(A.11)",
+          "locator": "A.3.3, pp. 524–525, four-term sheaf complex before (A.11)",
           "match": "The sheaf maps give N composed with(1-sigma)=1. This node supplies the compatible line-level nullhomotopy missing from an unqualified exactness claim."
         }
       ],
@@ -590,11 +605,11 @@
         {
           "sourceId": "STACKS-TORSORS",
           "locator": "Definition 21.4.1, Lemmas21.4.2–21.4.3 and Lemma 95.14.2, tags 03AG/04UJ",
-          "match": "Torsor local triviality and descent give the inverse-image-of-unit proof; the two fibre comparisons are an authored deduction."
+          "match": "Tag 03AG supplies torsor local triviality. Lemma 95.14.2 (04UJ) is stated on the big fppf site; its gluing proof is applied here on the small etale site through the generic SF.1/sheaf-stack contract, descending the sheaf, action and local torsor condition. The root-frame and based-fibre comparisons are authored deductions."
         },
         {
           "sourceId": "YZ19",
-          "locator": "A.3.3, p. 525, sheaf complex and(A.11)",
+          "locator": "A.3.3, pp. 524–525, sheaf complex and (A.11)",
           "match": "Replace the ambiguous displayed stack exactness by these precisely based fibres."
         }
       ],
@@ -643,7 +658,7 @@
       "sources": [
         {
           "sourceId": "MILNE-LEC",
-          "locator": "Section9 property(c), p. 64, Remark 9.3 p. 65, Example 9.5 p. 66; Proposition 11.1 p. 76",
+          "locator": "Section9 property(c), p. 64, Remark 9.3 p. 65, Example 9.5 p. 66; Proposition 11.1 p. 77",
           "match": "The long exact sequence and torsor cocycle interpretation supply the maps and exactness; this is their specialization to the two norm sequences."
         },
         {
@@ -836,9 +851,9 @@
       "kind": "application",
       "title": "The double projective line degree test",
       "declarationName": "TauCeti.RamifiedClassField.GC6.degree_descent_counterexample",
-      "statement": "Let k have odd characteristic and nu:P1_k to P1_k be t mapped to t^2, with sigma(t)=-t and R={0,infinity}. The line O(1) upstairs is sigma-invariant but is not pulled back from the base: pullback multiplies degree by2. Hence q_*[O(1)] is nonzero although j_*q_*[O(1)]=0, and lies in image(delta_N^0). The same holds for O(-1). Norm preserves degree and sends O(1) to O(1); these statements do not contradict the obstruction-sensitive torsor fibres.",
+      "statement": "Let k be finite of odd characteristic and nu:P1_k to P1_k be t mapped to t^2, with sigma(t)=-t and R={0,infinity}. The line O(1) upstairs is sigma-invariant but is not pulled back from the base: pullback multiplies degree by2. Hence q_*[O(1)] is nonzero although j_*q_*[O(1)]=0, and lies in image(delta_N^0). The same holds for O(-1). Norm preserves degree and sends O(1) to O(1); these statements do not contradict the obstruction-sensitive torsor fibres.",
       "hypotheses": [
-        "k is a field of characteristic different from2; both projective lines and the displayed finite flat double cover are defined over k."
+        "k is a finite field of characteristic different from2; both projective lines and the displayed finite flat double cover are defined over k."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.6/invariance-versus-descent",
@@ -864,8 +879,8 @@
         },
         {
           "sourceId": "STACKS-NORMS",
-          "locator": "Lemmas31.18.2 and31.18.6, tags 0BCZ/0BD2",
-          "match": "The line norm agrees with divisor pushforward."
+          "locator": "Lemmas31.18.2 and31.18.6, tags 0BCY/0BD2",
+          "match": "These give the ordinary line norm and its determinant. The divisor-pushforward comparison is imported from SF.3/line-bundle-norm through GC6-CURVE-DICTIONARY; it is not asserted in these two Stacks lemmas."
         }
       ],
       "implementationStatus": "unchecked",
@@ -910,8 +925,8 @@
         },
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.5, pp. 517–518, justification of(A.4)",
-          "match": "The source uses approximation to move representatives; this node identifies the actual native input instead of planning weak approximation again."
+          "locator": "Lemma A.5 and (A.4), p. 518",
+          "match": "The adelic presentation fixes the root framing and inverse-uniformizer convention. The nonzero residue corollary and its support-moving use are authored deductions from native approximation, not statements of Lemma A.5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -956,8 +971,8 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.5 and(A.4), pp. 517–518; A.3.4, p. 525",
-          "match": "The root-framed divisor presentation and the use of approximation are made explicit; signed support and exact root frames are retained."
+          "locator": "Lemma A.5 and (A.4), p. 518; A.3.4, p. 525",
+          "match": "Lemma A.5 gives the root-framed adelic presentation. The signed divisor representative with support away from R is an authored deduction using native approximation; the root frames and their prescribed values are retained."
         },
         {
           "sourceId": "NATIVE-PINS",
@@ -1007,7 +1022,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Lemma A.5,(A.4), pp. 517–518; A.3.4, p. 525",
+          "locator": "Lemma A.5 and (A.4), p. 518; A.3.4, p. 525",
           "match": "The adelic root quotient and approximation justify the determination step; the statement keeps the actual unit image rather than forgetting its branch condition."
         }
       ],
@@ -1034,7 +1049,6 @@
         "Use arithmetic local Artin maps in FA.4, so an inverse uniformizer corresponds to geometric Frobenius. Values are mapped from {+1,-1} into Qbar_ell^units with ell different from p."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:GC.6/quadratic-input",
         "FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism",
         "FunctionFieldArithmetic:FA.4/local-abelian-existence",
         "FunctionFieldArithmetic:FA.4",
@@ -1044,7 +1058,7 @@
       "proofSteps": [
         "Import the finite global Artin norm quotient, which supplies principal triviality. The quadratic representation takes its values in the two signs.",
         "At unramified places integral units act trivially. At a tame ramified place the determinant chart shows that the residue of the norm of a unit is a square. Conversely a square-residue unit is a square in the complete local field by Hensel with 2 invertible, hence is the norm of its invariant square root. A unit norm can only come from a unit in this totally ramified degree-two extension. The local norm quotient from FA.4 therefore gives exactly the residue quadratic character. Request the completion/Hensel/residue adapter there.",
-        "Multiply the local values in the finite quotient; only finitely many are nontrivial. Invert the arithmetic uniformizer action to get geometric Frobenius."
+        "Multiply the local values in the finite quotient; only finitely many are nontrivial. Invert the arithmetic uniformizer action to get geometric Frobenius. On the two geometric points above an unramified x this action is the identity in the split case and exchanges the points in the inert case, hence acts on their anti-invariant line by +1 and -1 respectively. This argument does not assume the parent quadratic-input conclusion that eta kills H."
       ],
       "acceptance": [
         "An ordinary local unit with nonsquare residue at a branch point has value-1 and cannot be added to H.",
@@ -1245,7 +1259,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.3.4, Proposition A.12 proof, pp. 525–526; (A.4), p. 517",
+          "locator": "A.3.4, Proposition A.12 proof, pp. 525–526; (A.4), p. 518",
           "match": "The source proves the quadratic trace identity by local evaluations and character determination. This target records the all-degree and actual-unit-image conditions explicitly."
         }
       ],
@@ -1442,7 +1456,12 @@
       "id": "FunctionFieldArithmeticPartII/E8",
       "from": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
       "locator": "YZ19, version of record, A.3.3,(A.11), p.525",
-      "disposition": "The parent confirmed interpretation/proof gap is retained. This pass supplies two specifically based torsor fibres, compatible norm nullhomotopy and exact cohomological lift obstructions. It makes no assertion that these recover every possible intended notion of exact Picard stacks. The quadratic trace proof does not depend on that display. The published author-hosted copy was reread on2026-10-18; the parent correction search dated2026-10-02 is inherited, not claimed to have been repeated."
+      "disposition": "The parent confirmed interpretation/proof gap is retained. This pass supplies two specifically based torsor fibres, compatible norm nullhomotopy and exact cohomological lift obstructions. It makes no assertion that these recover every possible intended notion of exact Picard stacks. The quadratic trace proof does not depend on that display. The published author-hosted copy was reread on2026-10-18; the parent correction search dated2026-10-02 is inherited, not claimed to have been repeated.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread A.3.3 pp.524–525 and checked the odd-degree P1 example: ordinary Picard-class kernel/image exactness fails. This confirms the inherited interpretation gap only, and makes no claim against every possible coherent Picard-stack interpretation. No new correction search is asserted.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.6"
+      }
     }
   ],
   "sourceVersions": [
@@ -1464,9 +1483,107 @@
     "finding": "The reviewed audits leave the family geometry and function-field idele/reciprocity integrations open. Direct inspection additionally locates pinned Place approximation and the units-sheaf functor; they are baseline imports. SF.3 supplier packet currently has a needs_changes review, so its exact mathematically checked contracts are plans, never implementation or accepted-review claims."
   },
   "leanCheck": {
-    "result": "Elaborated successfully at the recorded pins on2026-10-18; exit0; twelve declaration warnings, all from unproved target proofs.",
-    "lines": 122,
-    "scope": "One real-bodied native subgroup definition, four API statements, three root-coordinate examples, nonzero residue corollary/empty case, native rank-one cyclic trace and two tensor examples. README carries every geometric target and omitted construction API/test.",
+    "result": "Independently elaborated with lean-check on 2026-10-18 at the recorded pins; exit 0; fourteen warnings, all from unproved target proofs.",
+    "lines": 132,
+    "scope": "One real-bodied native subgroup; four representative API signatures; five coordinate examples covering the three tests; the nonzero residue corollary and its actual empty-family specialization; the native rank-one cyclic trace and two tensor examples. All geometric targets and the constructor/chart-change API remain README specifications.",
     "implementationClaim": false
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.6",
+    "date": "2026-10-18",
+    "notes": "Independent review by Codex — codex-YxTavn. All 18 targets and all 18 pinned baseline declarations checked. Corrected locators, one baseline generality description, topology attribution, the P1 hypothesis boundary and norm-source attribution; made invariant-kernel and noncircular reciprocity proofs explicit; added two coordinate API items and completed the representative Lean tests. No nodes added or removed. Accepted as a complete planning pass: GC.6 remains planned with three honest gaps and two supplier requests, not closed or implemented. The inherited E8 interpretation gap is independently confirmed without a duplicate source finding. See the review report and handoff for validation and assembly notes.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/root-unit-coordinates",
+        "verdict": "corrected",
+        "note": "Confirmed the native equalizer and its hypotheses; added constructor and commuting-chart group-homomorphism API, and Lean examples for the zero residue ring and both roots."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/root-torsor-comparison",
+        "verdict": "corrected",
+        "note": "Verified simultaneous frames and all-arrow descent. Distinguished big-fppf tag 04UJ from the generic small-etale sheaf-stack argument, and used the exact finite-inverse-image trivialization lemma 0BUT."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/ramified-determinant-chart",
+        "verdict": "corrected",
+        "note": "Checked the determinant, square residue, prescribed-root etale lifts and residue-one Hilbert-90 calculation; made invariant-kernel injectivity explicit even after nonflat base change and corrected the sheaf-complex page span."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/norm-section-comparison",
+        "verdict": "corrected",
+        "note": "Verified transition cocycles and section norms including zero sections and arbitrary base change; corrected the Stacks line-norm and morphism tags to 0BCY and 0BCZ."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/difference-norm-nullhomotopy",
+        "verdict": "corrected",
+        "note": "Checked norm cancellation and the branch identity as compatible natural tensor/pullback trivializations; corrected the sheaf-complex locator to pp.524–525."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/torsor-fibre-sequences",
+        "verdict": "corrected",
+        "note": "Checked both inverse-image-of-unit equivalences, arrows and automorphisms; made the etale descent argument through SF.1 explicit and corrected the source page span."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/connecting-maps",
+        "verdict": "corrected",
+        "note": "Verified native Ext postcomposition, degree-zero torsor fibres and the sign convention, degree-one lifts and naturality; corrected Milne Proposition 11.1 to p.77."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/norm-descent-obstruction",
+        "verdict": "verified",
+        "note": "Exactness gives the H2(K) norm-lift and H2(A) fixed-trivialization criteria. Changing tau to c inverse times tau adds delta_N(c), giving the stated quotient obstruction and underlying-class criterion."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/invariance-versus-descent",
+        "verdict": "verified",
+        "note": "Both H1 exact sequences give precisely the stated distinct invariance, descent and pullback-kernel conditions, with the correct full fibre groupoid and H0(A) automorphisms."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/degree-descent-counterexample",
+        "verdict": "corrected",
+        "note": "Verified the odd-degree P1 test and norm degree. Kept its hypotheses within the finite-field suppliers and attributed the divisor-pushforward comparison to SF.3 rather than the cited Stacks lemmas."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/unit-residue-approximation",
+        "verdict": "corrected",
+        "note": "Confirmed both native approximation theorems, the nonzero-residue and empty-family arguments, and the genuine empty-family Lean specialization. Corrected A.5 to p.518 and identified the corollary as authored."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/root-framed-support-moving",
+        "verdict": "corrected",
+        "note": "Finite precision approximation in rational frames gives order zero and the prescribed root-framed residues, with no effective-degree or rational-point assumption. Corrected A.5 to p.518 and separated this authored deduction from its source."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/actual-unit-image-determination",
+        "verdict": "corrected",
+        "note": "Support moving gives surjectivity of signed away divisors onto Q using inverse uniformizers; verified branch square residues and retained kernel root labels. Corrected A.5 to p.518."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/reciprocity-root-unit-triviality",
+        "verdict": "corrected",
+        "note": "Verified principal and unramified-unit triviality, the tame unit norm/residue argument and arithmetic/geometric normalization; removed the parent H-triviality conclusion from its own proof prerequisites and computed the unramified signs directly."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/rank-one-cyclic-tensor-trace",
+        "verdict": "verified",
+        "note": "The inverse finRotate reindex gives the left shift and the map applies the scalar once on the last factor. The rank-one trace is a, including zero, and the degree-two/three signatures elaborate."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/signed-divisor-trace",
+        "verdict": "verified",
+        "note": "Read both exact GC.5 suppliers; full local Frobenius, all conjugate factors, duals for negative coefficients and the normalized unit give the signed product formula."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/quadratic-local-values",
+        "verdict": "verified",
+        "note": "The anti-invariant two-point permutation line has signs +1 and -1 in every residue degree, also for ell=2 over characteristic-zero coefficients. Its lisse extension remains an explicit supplier frontier."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.6/all-degree-character-identification",
+        "verdict": "corrected",
+        "note": "The signed trace formula and the actual quotient surjection determine characters on every degree component; verified the quadratic specialization and corrected the A.4 locator to p.518."
+      }
+    ]
   }
 }
