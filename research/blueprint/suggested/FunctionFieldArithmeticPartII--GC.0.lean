@@ -89,10 +89,16 @@ theorem section_square_covariance (A : Type*) [CommRing A] (u : Aˣ) (a : A) :
     ((u : A) * a) ^ 2 = (u : A) ^ 2 * a ^ 2 := by
   sorry
 
-/-- Over a fixed underlying line, square compatibility is the mu-two condition. -/
-theorem relative_stabilizer_iff (A : Type*) [CommRing A] (v : Aˣ) (a : A) :
-    ((v : A) ^ 2 = 1 ∧ (v : A) * a = a) ↔
-      (v ^ 2 = 1 ∧ (v : A) * a = a) := by
+/-- A frame section kills the relative stabilizer over any commutative ring. -/
+theorem frame_relative_stabilizer_iff (A : Type*) [CommRing A] (v a : Aˣ) :
+    (v ^ 2 = 1 ∧ v * a = a) ↔ v = 1 := by
+  sorry
+
+/-- Nonempty split root loci with frame sections also kill the ordinary scalar. -/
+theorem frame_full_stabilizer_iff (A : Type*) [CommRing A]
+    (r : ℕ) (hr : 0 < r) (c : Aˣ) (v a : Fin r → Aˣ) :
+    (∀ j, v j ^ 2 = c ∧ v j * a j = a j) ↔
+      c = 1 ∧ v = fun _ => 1 := by
   sorry
 
 example (a : RootPicardData i) : (RootPicardSectionData.zero a).root = a := by
@@ -111,6 +117,12 @@ example : (DualNumber.eps : DualNumber (ZMod 5)) ≠ 0 ∧
 example : (2 : ZMod 5) ^ 2 = 4 ∧ (2 : ZMod 5) * 1 = 2 := by
   sorry
 
+/-- With no root coordinates, the stabilizer equations leave a nontrivial scalar. -/
+example : ∃ c : (ZMod 5)ˣ, c ≠ 1 ∧
+    ∀ j : Fin 0, (1 : (ZMod 5)ˣ) ^ 2 = c ∧
+      (1 : (ZMod 5)ˣ) * 1 = 1 := by
+  sorry
+
 /-!
 Geometric omission ledger; all names denote README targets, not simulated data:
 * native-root-fibres: nativeFibres, nativeIso, pullback, baseChange,
@@ -125,10 +137,12 @@ Geometric omission ledger; all names denote README targets, not simulated data:
 * relative-root-gerbe: relativeGerbe, relativeInertia and localNeutrality.
 * native-root-section-fibres: nativeSectionFibres, sectionIso, forgetSection,
   RootPicardSectionData.zero, sectionPullback, squareEvaluation, sectionTensor;
-  tests negative, zero, nilpotent, empty.
+  tests negative, zero, nilpotent, empty, emptyBase.
 * section-quotient-comparison: sectionQuotient, sectionAffineCharts,
   zeroSection and its compatibility with the two quotient maps.
-* root-stabilizers: fullStabilizer, relativeStabilizer, sectionStabilizer.
+* root-stabilizers: fullStabilizer, relativeStabilizer, sectionStabilizer;
+  only the coordinate frame consequences are stated above. Full triviality
+  requires a nonempty root locus; the Fin 0 example retains ordinary scalars.
 
 The absent ingredients are the actual scheme-site stack/quotient adapters,
 finite-etale restriction-of-scalars/frame functors, coherent invertible-sheaf
