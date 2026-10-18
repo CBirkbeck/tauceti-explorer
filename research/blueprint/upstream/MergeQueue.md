@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T11:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T11:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -84,7 +84,7 @@ Generated 2026-10-18T11:00Z from the README supplier graph of every open pull re
 ## Wave 16
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #785, #792, #814, #848, #849, #853, #856, #858, #908, #938
 - #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #785, #792, #858, #908, #248, #280, #284, #286, #417, #894, #947
-- #872 DeformationAndDerivedPatchingAlgebraPartII — ready; waits on #858, #944
+- #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #858, #944
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #785, #818, #849, #856, #857, #858, #868, #938, #940, #944
 
 ## Wave 17
