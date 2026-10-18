@@ -7,7 +7,7 @@
     "ArithmeticKTheory:N.7",
     "ArithmeticKTheory:N.8"
   ],
-  "summary": "A 23-node plan for N.7 (regular primes and Bernoulli numbers) and N.8 (certified examples). Round-three fixes replace the unverified fifth-cyclotomic route by direct Tate descent for ℚ(√5): small-fraction geometry handles norm>33 and eleven stored exact certificates handle the remaining primes. The reader and suggested signatures describe the same route. The negative independent review and review history remain unchanged pending the next independent review. N.7 retains its separate proof-source and finite-coefficient gaps.",
+  "summary": "A 23-node plan for N.7 (regular primes and Bernoulli numbers) and N.8 (certified examples). Independently reviewed round-three fixes replace the unverified fifth-cyclotomic route by direct Tate descent for ℚ(√5): small-fraction geometry handles norm>33 and eleven stored exact certificates handle the remaining primes. The reader and suggested signatures describe that route. The two confirmed red-team findings and the previously missing N.8 generation proof are repaired. N.7 remains planned, with three explicit proof-source and finite-coefficient interface obligations; acceptance of these fixes does not close those gaps or claim implementation.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1039,6 +1039,10 @@
       ],
       "prerequisites": [
         "ArithmeticKTheory:N.6/order-certificate",
+        "ArithmeticKTheory:N.4/the-w-invariant",
+        "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "K2SymbolsBrauer:T.5/unramified-subgroup",
+        "K2SymbolsBrauer:T.5/tame-kernel-sequence",
         "mathlib:NumberField.classNumber",
         "mathlib:NumberField.Units.rank",
         "mathlib:NumberField.InfinitePlace.nrRealPlaces",
@@ -13185,15 +13189,19 @@
   "coverage": [
     {
       "stageId": "ArithmeticKTheory:N.7",
-      "status": "source_decomposed",
-      "remaining": [],
-      "note": "Nine nodes. The arithmetic residue-unit lemma is separated from the tame-kernel application and needs only primality. Vandiver's predicate is imported from IntegralIwasawaTheory L3, not duplicated. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; N.4’s imported invariant w_i with the Bernoulli-denominator comparison over the rationals in both parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver. The three N.7 gaps below remain; source_decomposed records the target statements and imports, not full proof-source closure."
+      "status": "planned",
+      "remaining": [
+        "Decompose proofs of Kummer’s criterion and Kummer congruences from an obtained, permitted source; the current K-book citation supplies statements only.",
+        "Decompose the Herbrand–Ribet proof, including the modular-form input to Ribet’s direction, from an obtained source.",
+        "Assign the finite-coefficient K-theory product/Bott-module supplier and decompose the VI.10.6 regular-prime graded-module consequence against its actual interface."
+      ],
+      "note": "Nine nodes. The arithmetic residue-unit lemma is separated from the tame-kernel application and needs only primality. Vandiver's predicate is imported from IntegralIwasawaTheory L3, not duplicated. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; N.4’s imported invariant w_i with the Bernoulli-denominator comparison over the rationals in both parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver. The three N.7 gaps below remain and are listed in remaining. Independent acceptance of the round-three fixes does not certify proof-source closure of this layer."
     },
     {
       "stageId": "ArithmeticKTheory:N.8",
       "status": "source_decomposed",
       "remaining": [],
-      "note": "Fourteen target nodes. The Gaussian certificate uses the verified norm-filtration argument; the real-quadratic certificate now uses the direct golden-field descent with cutoff33 and eleven exact finite certificates. The format still instantiates N.6/order-certificate. Low-degree computations are imported from their owners; N.8 owns the two independent tame-kernel certificates and exports the real-quadratic one to SpecialValuesBirchTate B.3. NumberFieldArithmetic supplies the field arithmetic. The auxiliary cyclotomic vanishing node and its unused Skalba input are removed. The packet proposes closure of the certificate gap; independent review is still required and its current verdict is preserved."
+      "note": "Fourteen target nodes. The Gaussian certificate uses the verified norm-filtration argument; the real-quadratic certificate now uses the direct golden-field descent with cutoff33 and eleven exact finite certificates. The format still instantiates N.6/order-certificate. Low-degree computations are imported from their owners; N.8 owns the two independent tame-kernel certificates and exports the real-quadratic one to SpecialValuesBirchTate B.3. NumberFieldArithmetic supplies the field arithmetic. The auxiliary cyclotomic vanishing node and its unused Skalba input are removed. The round-three independent review verified the geometric descent and every stored finite witness, closing this packet’s certificate-generation gap at the planning level. This status does not implement the K-theory suppliers or certify other packets’ gaps."
     }
   ],
   "gaps": [
@@ -13328,10 +13336,10 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
-    "date": "2026-10-10",
-    "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped needs_changes verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~3",
+    "date": "2026-10-18",
+    "notes": "Codex session codex-KAtZYI, independent of fixer codex-ydlF4b. Follows independent-review-REV-FIX-RT-AREA-ktheory-1~2 and the round-two packet review, all preserved in reviewHistory. Both confirmed RT-BP findings remain repaired: genuine suggested signatures without admitted data and sole Vandiver ownership in IntegralIwasawaTheory L3. Independently checked the retained Gaussian proof and the replacement golden-field geometry, tied-prime descent, all 173 exact relation witnesses and 23 selected minors; a separate regular-representation and full relation-lattice calculation reproduces all eleven indices. The direct generation proof closes this packet’s former N.8 certificate obstruction without Birch–Tate. Read all 44 baseline statements at the pins and current upstream arithmetic ownership. Corrected N.7 coverage to planned with three precise remaining obligations, added missing N.4/T.5 dependencies to the certificate format, and updated stale review prose. The scoped fixes are accepted; the three separate N.7 gaps and ten supplier requests are retained, and no other area-review output is certified. Packet checker: zero errors/warnings; suggested file elaborates with 27 admitted-proof warnings only. Report: research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md."
   },
   "sourceVersions": [
     {
@@ -13468,6 +13476,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
       "date": "2026-10-10",
       "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the retained cyclotomic-generation and real-quadratic transfer dependencies. Finding /11 still needs U_m-compatible representatives and verified finite tables; the norm-11 diagnostic is reproduced independently. The Zhang–Xu AMS full-text URL again refused access. This review does not certify that unread proof or the Skalba input. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+      "date": "2026-10-10",
+      "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped needs_changes verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
     }
   ],
   "upstreamNotes": [
