@@ -11555,8 +11555,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArcTopologyAndDescent.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3494",
-   "finishedAt": "2026-10-18T21:45:40Z"
+   "finishedAt": "2026-10-18T21:45:40Z",
+   "note": "deliverables arrived from an external worker on issue #3494"
   },
   {
    "id": "DESIGN-PrismaticCohomologyPartII",
@@ -17061,8 +17061,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllAdicHomotopyTypesAndWeights.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4593",
-   "finishedAt": "2026-10-18T21:45:43Z"
+   "finishedAt": "2026-10-18T21:45:43Z",
+   "note": "deliverables arrived from an external worker on issue #4593"
   },
   {
    "id": "DESIGN-AnalyticNumberTheoryPartII",
@@ -47749,8 +47749,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10373",
-   "finishedAt": "2026-10-18T21:02:35Z"
+   "finishedAt": "2026-10-18T21:02:35Z",
+   "note": "deliverables arrived from an external worker on issue #10373"
   },
   {
    "id": "PKG-AnalyticToricGeometryPartII",
@@ -47841,6 +47841,49 @@
    "state": "done",
    "finishedAt": "2026-10-14T18:03:06Z",
    "note": "deliverables arrived from an external worker on issue #9772"
+  },
+  {
+   "id": "PKG-ArcTopologyAndDescent",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ArcTopologyAndDescent"
+   ],
+   "outputs": [
+    "research/blueprint/packages/ArcTopologyAndDescent/README.md",
+    "research/blueprint/packages/ArcTopologyAndDescent/Suggested.lean",
+    "research/blueprint/packages/ArcTopologyAndDescent/metadata.toml",
+    "research/blueprint/handoff/PKG-ArcTopologyAndDescent.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-ArcTopologyAndDescent.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-ArcTopologyAndDescent",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ArcTopologyAndDescent"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArcTopologyAndDescent.md",
+    "research/blueprint/packages/ArcTopologyAndDescent/review.json",
+    "research/blueprint/packages/ArcTopologyAndDescent/README.md",
+    "research/blueprint/packages/ArcTopologyAndDescent/Suggested.lean",
+    "research/blueprint/packages/ArcTopologyAndDescent/metadata.toml"
+   ],
+   "after": [
+    "PKG-ArcTopologyAndDescent"
+   ],
+   "avoidAccountOf": "PKG-ArcTopologyAndDescent",
+   "independentOf": [
+    "PKG-ArcTopologyAndDescent"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-ArcTopologyAndDescent.md",
+   "state": "pending"
   },
   {
    "id": "PKG-ArithmeticDirichletSeriesPartII",
@@ -48311,8 +48354,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticStatisticsPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10374",
-   "finishedAt": "2026-10-18T21:02:38Z"
+   "finishedAt": "2026-10-18T21:02:38Z",
+   "note": "deliverables arrived from an external worker on issue #10374"
   },
   {
    "id": "PKG-AutomorphicBundles",
@@ -50459,6 +50502,49 @@
    "state": "done",
    "finishedAt": "2026-10-17T00:15:54Z",
    "note": "deliverables arrived from an external worker on issue #10087"
+  },
+  {
+   "id": "PKG-EllAdicHomotopyTypesAndWeights",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EllAdicHomotopyTypesAndWeights"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/README.md",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/Suggested.lean",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/metadata.toml",
+    "research/blueprint/handoff/PKG-EllAdicHomotopyTypesAndWeights.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-EllAdicHomotopyTypesAndWeights.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-EllAdicHomotopyTypesAndWeights",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EllAdicHomotopyTypesAndWeights"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EllAdicHomotopyTypesAndWeights.md",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/review.json",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/README.md",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/Suggested.lean",
+    "research/blueprint/packages/EllAdicHomotopyTypesAndWeights/metadata.toml"
+   ],
+   "after": [
+    "PKG-EllAdicHomotopyTypesAndWeights"
+   ],
+   "avoidAccountOf": "PKG-EllAdicHomotopyTypesAndWeights",
+   "independentOf": [
+    "PKG-EllAdicHomotopyTypesAndWeights"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-EllAdicHomotopyTypesAndWeights.md",
+   "state": "pending"
   },
   {
    "id": "PKG-EllipticCurveModularity",
@@ -68262,6 +68348,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-DESIGN-ArcTopologyAndDescent",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 478,
+   "name": "new roadmap DESIGN-ArcTopologyAndDescent: The arc-topology and descent for étale cohomology",
+   "target": "DESIGN-ArcTopologyAndDescent",
+   "roadmapIds": [
+    "ArcTopologyAndDescent"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ArcTopologyAndDescent.result.json",
+    "research/blueprint/redteam/RT-DESIGN-ArcTopologyAndDescent.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-ArcTopologyAndDescent",
+    "REV-DESIGN-ArcTopologyAndDescent"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-ArcTopologyAndDescent.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-ArcTopologyAndDescent",
+   "kind": "review",
+   "priority": 2,
+   "order": 478,
+   "name": "new roadmap DESIGN-ArcTopologyAndDescent: The arc-topology and descent for étale cohomology",
+   "roadmapIds": [
+    "ArcTopologyAndDescent"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-ArcTopologyAndDescent.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-ArcTopologyAndDescent.md"
+   ],
+   "after": [
+    "RT-DESIGN-ArcTopologyAndDescent"
+   ],
+   "avoidAccountOf": "RT-DESIGN-ArcTopologyAndDescent",
+   "independentOf": [
+    "RT-DESIGN-ArcTopologyAndDescent",
+    "DESIGN-ArcTopologyAndDescent",
+    "REV-DESIGN-ArcTopologyAndDescent"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-ArcTopologyAndDescent.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-DESIGN-HodgeStructuresPartII",
    "kind": "redteam",
    "priority": 2,
@@ -69343,6 +69476,53 @@
     "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 600,
+   "name": "new roadmap DESIGN-EllAdicHomotopyTypesAndWeights: ℓ-adic homotopy types of varieties and their weights",
+   "target": "DESIGN-EllAdicHomotopyTypesAndWeights",
+   "roadmapIds": [
+    "EllAdicHomotopyTypesAndWeights"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-EllAdicHomotopyTypesAndWeights.result.json",
+    "research/blueprint/redteam/RT-DESIGN-EllAdicHomotopyTypesAndWeights.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-EllAdicHomotopyTypesAndWeights",
+    "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-EllAdicHomotopyTypesAndWeights.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "kind": "review",
+   "priority": 2,
+   "order": 600,
+   "name": "new roadmap DESIGN-EllAdicHomotopyTypesAndWeights: ℓ-adic homotopy types of varieties and their weights",
+   "roadmapIds": [
+    "EllAdicHomotopyTypesAndWeights"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-EllAdicHomotopyTypesAndWeights.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-EllAdicHomotopyTypesAndWeights.md"
+   ],
+   "after": [
+    "RT-DESIGN-EllAdicHomotopyTypesAndWeights"
+   ],
+   "avoidAccountOf": "RT-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "independentOf": [
+    "RT-DESIGN-EllAdicHomotopyTypesAndWeights",
+    "DESIGN-EllAdicHomotopyTypesAndWeights",
+    "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-EllAdicHomotopyTypesAndWeights.md",
    "state": "pending"
   },
   {
