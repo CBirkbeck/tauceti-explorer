@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T23:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T23:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -176,6 +176,7 @@ Generated 2026-10-18T23:00Z from the README supplier graph of every open pull re
 ## Wave 29
 - #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #856, #879, #920, #923, #928, #931, #970
 - #1084 HodgeTateAndCanonicalSubgroups — draft; waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #813, #814, #815, #818, #820, #849, #852, #853, #857, #875, #879, #908, #922, #933, #944, #966
+- #1178 ArithmeticStatisticsPartVII — draft; waits on #1017, #1126, #1167, #1171, #1172, #1174, #1175, #1176, #792, #849, #853, #858, #869
 
 ## Wave 30
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1013, #1020, #852, #856, #879, #913, #928
