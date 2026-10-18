@@ -50,6 +50,13 @@
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "The full category of rank-one locally free modules on a scheme; it does not provide marking lines or their stack descent.",
         "checked": "Actual statement read in the source at the recorded pin on 2026-10-18."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+        "provides": "A scheme morphism that is proper and locally quasi-finite is finite, with no Noetherian hypothesis. Apply to the singular-scheme map on every family base.",
+        "checked": "Statement and surrounding variables independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-18."
       }
     ],
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -162,11 +169,12 @@
       "statement": "For stable g,n, define N_{g,n} over M̄_{g,n}: its objects over S are stable ordered n-pointed families C/S together with a section q:S→Sing(C/S) of the scheme-theoretic relative singular locus. Arrows preserve q. Its pullback along a family C/S is canonically Sing(C/S), so N→M̄ is representable by schemes, finite and unramified, with empty pullback for a smooth family. Over N there is a finite étale degree-two scheme B→N of branches at the chosen node, and its ordering torsor is a torsor under the constant group C₂. This étaleness is over N, not over M̄ or an arbitrary smoothing base.",
       "hypotheses": [
         "g,n≥0, 2g−2+n>0; base schemes are arbitrary; family, singular-scheme and gluing inputs are the parent contracts R1 and R2 below.",
-        "A chosen node is a section of Sing as a scheme, including its nilpotents. It need not exist on the whole base of a family with singular geometric fibres."
+        "A chosen node is a section of Sing as a scheme, including its nilpotents. It need not exist on the whole base of a family with singular geometric fibres.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "Pull back the parent relative singular scheme of the universal curve and use its formation under arbitrary base change to define the stack of pairs. The identification S×_{M̄}N=Sing(C/S) includes its structure sheaf.",
-        "The singular locus is closed in a proper curve, of finite presentation, and has finite geometric fibres. Proper and quasi-finite gives finite; nodality makes it unramified. On xy=a over R, it is Spec(R/(a)), since the relative Jacobian ideal is (x,y).",
+        "The singular locus is closed in a proper curve, of finite presentation, and has finite geometric fibres. Apply AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite to obtain finiteness; nodality makes it unramified. On xy=a over R, it is Spec(R/(a)), since the relative Jacobian ideal is (x,y).",
         "On the base of a chosen persistent node, use the parent local gluing/normalization contract: split xy=0 has two branches, and their permutations are étale transition data. Descend the two-element scheme and its ordering torsor. Every change of split nodal chart permutes the two branches and satisfies the cocycle."
       ],
       "acceptance": [
@@ -181,7 +189,8 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
         "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
         "SchemeAndStackFoundations:SF.1/representable-stack-morphism",
-        "mathlib:Ideal.Quotient.mk"
+        "mathlib:Ideal.Quotient.mk",
+        "mathlib:AlgebraicGeometry.IsFinite.of_isProper_of_locallyQuasiFinite"
       ],
       "sources": [
         {
@@ -230,6 +239,11 @@
           "name": "PersistentNode.branchOrdering",
           "role": "structure",
           "statement": "The Isom({a,b},B) ordering cover is a torsor under the constant permutation group of a two-element set; its quotient is N."
+        },
+        {
+          "name": "PersistentNode.isoEquiv",
+          "role": "extensionality",
+          "statement": "Isomorphisms from (C,q) to (C′,q′) over S are exactly marked-family isomorphisms carrying q to q′. Forgetting the chosen node is faithful on arrows; identities and composition are inherited from families."
         }
       ],
       "tests": [
@@ -281,7 +295,8 @@
       "statement": "For a stable connected one-edge graph Γ with labelled external legs, let PΓ be the existing compactified vertex product and GΓ its constant finite label-preserving automorphism group. Let NΓ⊂N_{g,n} be the open-and-closed substack where partial normalization at the chosen node, with all other nodes retained, has the connected-component genera and external marking sets prescribed by Γ. Cutting and parent gluing give an equivalence [PΓ/GΓ]≃NΓ over M̄_{g,n}. The map PΓ→NΓ is a finite étale GΓ-torsor in the sense of stacks, even when GΓ acts with fixed isomorphism classes. For any C/S, S×_{M̄}PΓ is the scheme of Γ-decorated node choices on C/S; forgetting the decoration is finite étale over the corresponding open-and-closed subspace of Sing(C/S). Consequently both ordered clutching maps are representable finite unramified, without a global closed-immersion assertion.",
       "hypotheses": [
         "The family-level inverse to gluing is supplied by R2: partial normalization at a persistent node, compatible with arbitrary base change and retaining every other node.",
-        "The original definitions of PΓ, GΓ and both clutching functors are imported without new copies. Γ has exactly one edge, and all its vertex types are stable."
+        "The original definitions of PΓ, GΓ and both clutching functors are imported without new copies. Γ has exactly one edge, and all its vertex types are stable.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "Over the branch-ordering cover use relative partial normalization, locally R[x,y]/(xy)→R[x]×R[y], with equal constants giving the original ring. Replace only the selected node. For an external edge the result has two connected components; for a loop it is connected. In either case its new smooth sections carry the two flags. The parent genus and stability formulas give exactly the vertex types.",
@@ -341,7 +356,8 @@
       "statement": "Let U→M̄_{g,n} be a sufficiently small étale scheme chart at a geometric stable curve with r nodes, with the independent smoothing coordinates t₁,…,tᵣ of the pointed normal-crossing chart. After further étale localization, U×_{M̄}N_{g,n}≅⨿_{j=1}^r V(tⱼ). The universal curve near the jth selected node has equation xⱼyⱼ=tⱼ after étale localization on curve and base. The chosen-node map V(tⱼ)→U is a regular codimension-one immersion and its conormal is (tⱼ)/(tⱼ²). On overlaps nodes can be permuted, and the corresponding local conormal lines identify coherently. For a map S→U, the node-incidence formula pulls back to ⨿V(tⱼ|S); that pullback need not be normal or Cartier.",
       "hypotheses": [
         "U is an étale chart of the moduli stack itself over Z, not an arbitrary family base.",
-        "The pointed DM, universal-curve and normal-crossing results are imported from MC.2; the underlying unpointed versal parameters are MC.1. Parameters are local near a fixed finite set of nodes, after shrinking."
+        "The pointed DM, universal-curve and normal-crossing results are imported from MC.2; the underlying unpointed versal parameters are MC.1. Parameters are local near a fixed finite set of nodes, after shrinking.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "Start with the imported MC.1 versal node coordinates for g≥2. Extend to pointed types using the MC.2 universal-curve equivalence: adding a point at an old node replaces t by uv in the total base, while at a smooth point it adds a smooth coordinate; the new expanded curve has the corresponding two node parameters. Start separately at (0,3) and (1,1), as in the imported pointed DM proof. This is the chart form of that existing theorem, not a new moduli representability argument.",
@@ -397,7 +413,8 @@
       "statement": "Let Δ be the reduced total boundary of M̄_{g,n} over Z. Its normalization, in the sense of the imported DMNormalization construction, is canonically N_{g,n}. More explicitly, ⨿_{[Γ]}[PΓ/GΓ]≃N_{g,n}≃Δ^ν, compatibly with the maps to M̄_{g,n}. The normalization map is representable finite unramified and is an equivalence over the one-node boundary locus. The statement is about stacks: inertia that fixes a selected node remains, while automorphisms permuting distinct nodes act between different lifts. The construction agrees with R09.5 normalization on every smooth chart; no normalization/base-change claim for an arbitrary family base is included.",
       "hypotheses": [
         "g,n≥0 in the stable range; Δ is the reduced relative normal-crossings boundary over Z.",
-        "Ordinary normalization means normalization of the reduction in its total rings of fractions. Z is an excellent Nagata base."
+        "Ordinary normalization means normalization of the reduction in its total rings of fractions. Z is an excellent Nagata base.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "By node-atlas-branch-comparison, the incidence over U is ⨿V(tⱼ) and the reduced boundary has equation ∏tⱼ. These branches are normal; their disjoint union is the normalization of V(∏tⱼ), including when several j have the same global boundary type.",
@@ -452,7 +469,8 @@
       "hypotheses": [
         "j is the finite unramified chosen-node map; its local closed-immersion charts are supplied by node-atlas-branch-comparison.",
         "L_a,L_b are the imported marking cotangent lines on the cut curve, using their identification with branch differentials. The coordinates are formal parameters along the two smooth sections; their linear coefficients are units in the base ring.",
-        "This concerns the conormal of the chosen branch in the moduli stack. It is not the ideal of an arbitrary pulled-back boundary family, or the torsion differential on the singular curve."
+        "This concerns the conormal of the chosen branch in the moduli stack. It is not the ideal of an arbitrary pulled-back boundary family, or the torsion differential on the singular curve.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "On each pointed nodal moduli chart use the conormal of V(t) in U, and descend on common étale refinements. This produces a line because t is regular on the moduli chart. The native module for an affine ideal quotient is Ideal.Cotangent; scheme and stack sheafification remain supplier operations.",
@@ -467,6 +485,7 @@
         "For a change x′=x+cx² on a branch, its slope is1, hence the induced conormal multiplier is1; nonlinear terms cannot create an extra factor."
       ],
       "prerequisites": [
+        "StableReductionPartII:MC.3/boundary-normalization-comparison",
         "StableReductionPartII:MC.3/node-atlas-branch-comparison",
         "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
         "StableReductionPartII:MC.3/cotangent-line",
@@ -537,6 +556,11 @@
           "name": "SmoothingConormal.normal",
           "role": "data",
           "statement": "The dual line, with its canonical comparison to L_a^∨⊗L_b^∨ on every vertex cover."
+        },
+        {
+          "name": "SmoothingConormal.hom_ext",
+          "role": "extensionality",
+          "statement": "Two morphisms between the descended conormal lines agree if their pullbacks agree on a jointly surjective étale selected-node atlas. In particular the chart and branchTensor comparisons determine the descended comparison uniquely, also in characteristic two."
         }
       ],
       "tests": [
@@ -588,11 +612,12 @@
       ],
       "title": "Marking lines under clutching and forgetting",
       "kind": "theorem",
-      "statement": "For every retained external label i, separating or nonseparating clutching pulls L_i on the target back canonically to the marking cotangent line on the vertex factor carrying i. These isomorphisms commute with marked-family isomorphisms, relabelling, iterated arbitrary base change, and permitted graph permutations. The marking-line conormal comparison L_i≅s_i*(I_i/I_i²) uses the smooth section; its dual is the section normal line. For π:M̄_{g,n+1}→M̄_{g,n} the imported forgetful comparison π*L_i≅L_i(−D_{i,n+1}) is the morphism induced by contraction, with a simple zero along the rational-tail divisor. Its identity away from D and divisor description are compatible with the same pullback and relabelling conventions.",
+      "statement": "For every retained external label i, separating or nonseparating clutching pulls L_i on the target back canonically to the marking cotangent line on the vertex factor carrying i. These isomorphisms commute with marked-family isomorphisms, relabelling, iterated arbitrary base change, and permitted graph permutations. The marking-line conormal comparison L_i≅s_i*(I_i/I_i²) uses the smooth section; its dual is the section normal line. For π:M̄_{g,n+1}→M̄_{g,n} the contraction-induced morphism π*L_i→L_i factors through the imported isomorphism π*L_i≅L_i(−D_{i,n+1}) followed by the canonical inclusion L_i(−D_{i,n+1})→L_i. This morphism has a simple zero along the rational-tail divisor. Its identity away from D and divisor description are compatible with the same pullback and relabelling conventions.",
       "hypotheses": [
         "2g−2+n>0 for the forgetful target; i is retained, and all source vertex types of a clutching map are stable.",
         "D_{i,n+1} is the rational tail with marks i,n+1 and the attaching node, a Cartier divisor on the moduli stack. The comparison is pulled back as a line-bundle isomorphism even when a family maps into D.",
-        "The parent relative dualizing and Cartier-section inputs have locally Noetherian scope before the arbitrary-base extension R3; the final family interface requires that extension."
+        "The parent relative dualizing and Cartier-section inputs in R3 have locally Noetherian scope. Their arbitrary-base extension belongs to Part II’s existing MC.0 foundations gap, as specified in MC3-G2, and is required for the final family interface.",
+        "All arbitrary-base conclusions consume the inherited Part II approximation and coherence obligation MC3-G2 in addition to R1–R3; the parent’s locally Noetherian theorems alone do not establish them."
       ],
       "proofSteps": [
         "The parent gluing morphism is an isomorphism near every retained smooth section. Pull back relative differentials along that section and use the imported canonical identification s_i*ω≅s_i*Ω. This gives the retained-line comparison without choices of local coordinates.",
@@ -663,7 +688,7 @@
     {
       "id": "MC3-R3",
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-      "need": "Import the invertible nodal dualizing sheaf, its smooth-locus differential identification, smooth-section Cartier/conormal comparison, genus/cohomology base change and their canonical coherence. Extend the locally Noetherian construction to arbitrary family bases by finite-presentation approximation with descent independent of the Noetherian model. Ordinary scheme line tensor/dual/pullback operations must use the current AlgebraicVectorBundles L0A–L0C and Jacobian ownership; MC.3 adds only moduli descent and comparisons.",
+      "need": "Import, over locally Noetherian bases and with base change between such bases, the invertible nodal dualizing sheaf, its smooth-locus differential identification, smooth-section Cartier/conormal comparison, genus/cohomology base change and their canonical coherence. The extension to arbitrary family bases is outside the parent’s stated scope and belongs to Part II’s inherited MC.0 foundations obligation in MC3-G2. Ordinary scheme line tensor/dual/pullback operations must use the current AlgebraicVectorBundles L0A–L0C and Jacobian ownership; MC.3 adds only moduli descent and comparisons.",
       "neededBy": [
         "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
         "StableReductionPartII:MC.3/smoothing-conormal-descent",
@@ -676,7 +701,7 @@
       "stageId": "StableReductionPartII:MC.3",
       "status": "planned",
       "remaining": [
-        "R1–R3 are exact imports from the parent roadmap, with its arbitrary-base extension and relative cut/component statement still to be supplied. The present pass gives the moduli incidence, normalization and integral transition deductions conditional on those imports.",
+        "R1–R2 request parent local-chart and relative-cut refinements; R3 imports its locally Noetherian duality contract only. Part II’s inherited MC.0 foundations gap, detailed in MC3-G2, owns extension of the needed family, cut, genus and line comparisons to arbitrary bases. MC.3 deductions remain conditional on these inputs.",
         "The geometric carriers are not in the pinned libraries. Under the current WORKERS Suggested-file rule all six new geometric targets and the original stack APIs remain precise README contracts; the compact file checks representative native local-algebra statements only.",
         "Discharge the imported MC.0–MC.2 and foundational supplier packets’ recorded gaps before calling the stage closed. SF.1 is needs_changes; only its specified representability, quotient and QCoh-descent interfaces are consumed."
       ]
@@ -685,8 +710,8 @@
   "gaps": [
     {
       "id": "MC3-G1",
-      "title": "Parent family contracts over arbitrary bases",
-      "detail": "R1 needs the arbitrary-ring nodal chart, R2 the relative inverse to gluing and component/genus constancy, and R3 the arbitrary-base duality/marking-line extension. Their sources and local formulas are specified, but no exact parent node at these pins supplies all of them. They remain explicit requested-stage endpoints; the moduli statements above are conditional on these contracts.",
+      "title": "Parent local chart and relative-cut refinements",
+      "detail": "R1 needs the arbitrary-ring étale nodal chart and globally coherent singular-scheme base change; R2 needs the relative inverse to gluing, keeping other nodes, and component/genus constancy. The current library already implements the affine node algebra and its singular subscheme, so those local calculations are reused. No exact parent target yet gives the complete R1/R2 interfaces. R3 imports only the parent’s locally Noetherian duality and marking-section contract. Arbitrary-base extension is the separate inherited Part II obligation MC3-G2, not a new demand on the parent.",
       "neededBy": [
         "StableReductionPartII:MC.3/persistent-node-incidence",
         "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
@@ -699,7 +724,7 @@
     {
       "id": "MC3-G2",
       "title": "Inherited geometric and foundational interfaces",
-      "detail": "The imported MC.0–MC.2 stable moduli and pointed chart targets still carry the original packet’s arbitrary-base cohomology, algebraization and representability obligations. SF.1 is not accepted at this checkout; stack-QCoh descent, quotient-stack and representability interfaces are imported as plans, never certified implementations. R09.5 normalization is an accepted plan but is also unimplemented. No stand-in Prop structure or geometric Lean axiom is used.",
+      "detail": "Part II’s existing gap “Arbitrary-base moduli foundations and tricanonical frame comparison” in StableReductionPartII.json owns finite-presentation approximation/spreading of stable pointed families, dualizing polarization and coherent arbitrary-base pullbacks. MC.3 also needs its extension for the relative cuts, component genera and marking-line comparisons: descend from Noetherian models, prove independence of models and compatibility with arbitrary base change, preserving smooth-section conormals. The parent’s Base convention expressly excludes this extension. Imported MC.0–MC.2 algebraization and representability obligations also remain. SF.1 is needs_changes; only its specified stack-QCoh, quotient and representability plans are consumed. R09.5 normalization is accepted but unimplemented. These are mathematical gaps, not supplied geometric Lean axioms.",
       "neededBy": [
         "StableReductionPartII:MC.3/persistent-node-incidence",
         "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
@@ -725,7 +750,12 @@
         "Fresh visual check of the journal p.190 on 2026-10-18.",
         "Bounded public searches on 2026-10-18 for Knudsen Corollary3.9(b), clutching, closed immersion and erratum did not locate an exact published correction.",
         "The inherited independent review explicitly distinguishes this statement counterexample from Ile’s repair to the proof of3.7."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the published 1983 p.190 scan. The three elliptic components with distinct j-invariants and a mark on the middle one give two nonisomorphic preimages under the same ordered separating map. Both satisfy the printed genus/marking alternative, contradicting a closed immersion. Corollary 3.9(a)’s finite-unramified assertion survives. This confirms the inherited finding; it asserts no new discovery.",
+        "by": "REV-StableReductionPartII--MC.3"
+      }
     }
   ],
   "imports": [
@@ -841,7 +871,7 @@
   "upstreamNotes": [
     {
       "roadmap": "StableReduction",
-      "detail": "Current Layer1 explicitly displays DVR local node charts and field normalization. R1 asks for the arbitrary-base chart, and R2 spells out the reverse relative one-node cut needed by its Layer3 gluing/normalization promise. These are supplier refinements, not a second definition of nodal curves or scheme gluing."
+      "detail": "Current Layer1 explicitly displays DVR local node charts and field normalization. R1 asks for the arbitrary-base chart, and R2 spells out the reverse relative one-node cut needed by its Layer3 gluing/normalization promise. These are supplier refinements, not a second definition of nodal curves or scheme gluing. The Base convention excludes extending coherent/duality results by Noetherian approximation to arbitrary bases; that extension stays in the existing Part II MC.0 gap, not in R3’s parent request."
     },
     {
       "roadmap": "AlgebraicVectorBundles",
@@ -858,12 +888,38 @@
       "JacobianChallenge/README.md",
       "AlgebraicVectorBundles/Suggested.lean: L0A–L0C"
     ],
-    "searchScope": "Pinned and current TauCeti trees searched for clutching, stable curves/families, Deligne–Mumford and cotangent-line names. Current AlgebraicVectorBundles L0A–L0C statements read. The other eight post-snapshot roadmap Suggested files and OperatorTheory subroadmaps screened for these geometric targets; the four Completed roadmap names were checked against the actual upstream tree. No geometric carrier was found; absence is limited to this search, not a proof of library-wide nonexistence.",
-    "result": "Reuse native ideal quotients, ungraded tensor symmetry and scheme invertible sheaves. Existing upstream StableReduction owns all family/graph/gluing data. No current moduli-clutching or stack conormal implementation was found."
+    "searchScope": "Independently searched pinned and current TauCeti for clutching, nodal/stable curve, singular-locus, marking-cotangent and DM-stack names. Read current NodeAlgebra, jacobianQuotientEquiv, Scheme.singularLocus and singularLocusIso statements. Screened all nine post-snapshot roadmap Suggested files (including nested OperatorTheory files) and the actual Completed tree; read AlgebraicVectorBundles L0A–L0C, StableReduction and JacobianChallenge ownership contracts. Searches found new local node/singular-scheme implementations, but no stack-clutching or chosen-conormal carrier.",
+    "result": "Reuse the current node algebra, Jacobian quotient and affine-base singular-scheme implementations through the parent. They are absent at f790474 and are not new MC.3 targets. MC.3 still needs moduli incidence, relative cutting and stack line descent. The pinned Suggested file uses native polynomial presentations solely as examples of the already implemented local calculation.",
+    "implementedInputs": [
+      {
+        "declaration": "TauCeti.NodeAlgebra",
+        "module": "TauCeti/RingTheory/Node/Basic.lean",
+        "provides": "The algebra R[x,y]/(xy−a) for every commutative ring, its coordinates and evaluation API.",
+        "checked": "Statement read at current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; module absent at pinned f790474."
+      },
+      {
+        "declaration": "TauCeti.NodeAlgebra.jacobianQuotientEquiv",
+        "module": "TauCeti/RingTheory/Node/Jacobian/Locus.lean",
+        "provides": "An R-algebra equivalence of the quotient by both coordinates with R/(a), for arbitrary commutative R.",
+        "checked": "Statement read at current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; module absent at pinned f790474."
+      },
+      {
+        "declaration": "AlgebraicGeometry.Scheme.singularLocus",
+        "module": "TauCeti/AlgebraicGeometry/Curves/SingularLocus.lean",
+        "provides": "The first-Fitting-ideal singular subscheme for flat locally finitely presented pure-relative-dimension-one X over Spec R; not yet the full arbitrary-scheme family interface.",
+        "checked": "Statement read at current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; module absent at pinned f790474."
+      },
+      {
+        "declaration": "TauCeti.NodeAlgebra.singularLocusIso",
+        "module": "TauCeti/AlgebraicGeometry/Curves/Node/SingularLocus.lean",
+        "provides": "Its canonical identification on the node chart with Spec R/(a), including nilpotent parameters, and compatibility with the map to Spec R.",
+        "checked": "Statement read at current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; module absent at pinned f790474."
+      }
+    ]
   },
   "leanPrototype": {
     "path": "research/blueprint/suggested/StableReductionPartII--MC.3.lean",
-    "shape": "Light real-bodied polynomial quotient abbreviations, local Jacobian end statements, six tensor/degenerate examples. No data hole and no new theory or auxiliary lemma chain.",
+    "shape": "Two light polynomial-quotient fixtures and nine admitted examples, including the already implemented current node calculation in a presentation available at the pins. No proposed duplicate local-algebra theorem, data hole or auxiliary theory chain.",
     "omittedTargets": [
       "StableReductionPartII:MC.3/persistent-node-incidence",
       "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
@@ -881,8 +937,8 @@
       "errors": 0,
       "admissionWarnings": 9,
       "otherWarnings": 0,
-      "lines": 105,
-      "sha256": "a13bfac85cfd928ba891760ed72d61ce45b056d6da975a1a3833e8080d134807"
+      "lines": 108,
+      "sha256": "ca8506d400d25136518682d86c27160e71a26544d79a9a0537f6af9d73b80653"
     },
     "inheritedAddedApiOmissions": [
       {
@@ -969,11 +1025,58 @@
     "combinedCount": 6
   },
   "validation": {
-    "command": "python3 scripts/check_blueprint.py research/blueprint/packets/StableReductionPartII--MC.3.json --index <pinned declaration index> --json",
+    "command": "python3 scripts/check_blueprint.py research/blueprint/packets/StableReductionPartII--MC.3.json --index <source-verified pinned declaration subset> --json",
     "exitCode": 0,
     "errors": [],
     "warnings": [],
     "date": "2026-10-18",
-    "readerAgreement": "All six new statements, thirteen API names, ten unit tests and eight inherited target references checked against the reader."
+    "readerAgreement": "All six new statements, fifteen API names, ten unit tests, hypotheses, direct prerequisites and eight inherited target references independently checked against the reader."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "citation": "Knudsen, Math. Scand. 52 (1983), 161–199, Corollary 3.9(b), p.190.",
+      "read": "2026-10-18",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-StableReductionPartII--MC.3",
+    "date": "2026-10-18",
+    "notes": "Independent review of all six nodes and their source locators, six original plus one added pinned baseline declarations, eight imported MC.3 targets, exact R09.5 and SF.1 suppliers, current upstream ownership, APIs, unit tests and the Lean file. Corrected parent/Part II scope ownership, two direct dependencies, extensionality APIs, the forgetful map/isomorphism distinction, current-library reuse and source-version/erratum verification. No node added or removed. Complete target-level pass accepted as planned, not closed; both explicit gaps and all three supplier requests remain. Lean elaborates with nine admission warnings only; source and reader checks pass.",
+    "checked": [
+      {
+        "nodeId": "StableReductionPartII:MC.3/persistent-node-incidence",
+        "verdict": "corrected",
+        "note": "Verified the scheme-theoretic Jacobian calculation, nilpotent-parameter test and constant étale branch torsor using Stacks 53.21.1 and Knudsen II p.190. Added the native proper/quasi-finite finiteness dependency and arrow extensionality; current local node APIs are reused, and arbitrary-base foundations are explicitly conditional."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.3/decorated-node-fibre-equivalence",
+        "verdict": "corrected",
+        "note": "Verified the relative one-node cut/glue inverse contract, target-fixed fibre products and graph torsor, using Knudsen II p.190 and Edidin–Fulghesu §§3–4 pp.175–180 without extending their hypotheses silently. Relative component/genus constancy remains the precise R2 obligation; arbitrary-base extension is assigned to Part II."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.3/node-atlas-branch-comparison",
+        "verdict": "corrected",
+        "note": "Verified disjoint local chosen-node divisors from the imported pointed DM/normal-crossing charts, with separate small-genus bases and regularity over Z. Stacks 53.21.1 and 41.21.6 support the local comparison. Explicitly retained the inherited arbitrary-base foundation condition, rather than treating arbitrary family pullbacks as Cartier or normal."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.3/boundary-normalization-comparison",
+        "verdict": "corrected",
+        "note": "Verified the smooth-chart identification with the accepted R09.5 normalization and Nagata-finiteness contracts, Stacks 101.46.1–3 and 41.21.6, and Edidin–Fulghesu Theorem4.7. Checked empty, three-section and BC₂ cases and preservation of inertia. Inherited arbitrary-base foundations remain explicit; ordinary normalization is not asserted to commute with arbitrary base change."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.3/smoothing-conormal-descent",
+        "verdict": "corrected",
+        "note": "Verified the integral hypersurface Jacobian argument, product-of-slopes law, unsigned symmetry and descent without averaging, checked against Polishchuk Proposition3.5 and Lemma4.6 and Hacking Lemma4.2 in its characteristic-zero scope. Added the directly used boundary-normalization comparison and descent extensionality; preserved explicit foundation gaps."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.3/marking-line-clutching-coherence",
+        "verdict": "corrected",
+        "note": "Verified retained-marking differentials, smooth-section conormal and Knudsen III Theorem4.1(c), pp.201–203. Separated the line-bundle isomorphism from the contraction map with a simple zero; corrected ownership of arbitrary-base approximation and kept the forgetful sign and constant-boundary pullback test."
+      }
+    ]
   }
 }
