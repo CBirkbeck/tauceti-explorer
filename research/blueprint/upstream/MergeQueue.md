@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T01:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T01:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -19,7 +19,6 @@ Generated 2026-10-18T01:20Z from the README supplier graph of every open pull re
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
-- #1015 NoncompactQuantumSymmetry (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
 - #1041 VonNeumannAlgebras (kim-em, other author)
 
@@ -75,10 +74,10 @@ Generated 2026-10-18T01:20Z from the README supplier graph of every open pull re
 
 ## Wave 14
 - #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #813, #849, #938, #248, #446
-- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #871, #938, #1015, #934
 
 ## Wave 15
 - #858 ArithmeticGaloisDuality — ready; waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
+- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #856, #871, #938, #934
 
 ## Wave 16
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #785, #792, #848, #849, #853, #856, #858, #908, #938
@@ -149,7 +148,7 @@ Generated 2026-10-18T01:20Z from the README supplier graph of every open pull re
 ## Wave 27
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #792, #848, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
 - #1005 HilbertModularVarietiesAndShimuraCurves — draft; waits on #1001, #1034, #1038, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #928, #929, #931, #933, #938, #966, #934
-- #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #966, #970, #999
+- #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #1037, #785, #815, #820, #854, #856, #857, #858, #871, #873, #879, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #966, #970, #999
 - #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #785, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
 - #1063 MetaplecticAutomorphicForms — draft; waits on #1037, #785, #792, #851, #856, #924, #925, #931, #999
 
