@@ -8,12 +8,15 @@ import Mathlib.Data.ZMod.Basic
 # MC.3: local algebra for clutching and the smoothing conormal
 
 The accompanying README is the definitive roadmap. This file records suggested forms
-only for targets whose carriers exist at the pinned libraries. Each `sorry` marks a
-proposed theorem, not a formalisation claim. There are no axioms for moduli stacks,
+using carriers that exist at the pinned libraries. Each `sorry` is an admitted
+example, not a formalisation claim. There are no axioms for moduli stacks,
 nodal families, partial normalization or their line bundles: those are README targets.
 
 The two abbreviations below are ordinary polynomial quotients. They serve the local
 calculation in `MC.3/persistent-node-incidence`; they do not define a nodal family.
+Current Tau Ceti already has `NodeAlgebra`, `NodeAlgebra.jacobianQuotientEquiv`
+and `NodeAlgebra.singularLocusIso` (a91d3aaf). Those modules are absent at f790474.
+These are pinned-presentation examples, not targets to redevelop that existing API.
 The tensor examples check the unsigned transition convention of
 `MC.3/smoothing-conormal-descent` using Mathlib's existing symmetry and map.
 -/
@@ -37,20 +40,20 @@ abbrev branchCoordinate (R : Type u) [CommRing R] (q : R) (i : Fin 2) :
   Ideal.Quotient.mk (Ideal.span {X 0 * X 1 - C q}) (X i)
 
 /-- The Jacobian singular scheme has base ring `R/(q)`, including nilpotent bases. -/
-theorem node_jacobian_quotient (R : Type u) [CommRing R] (q : R) :
+example (R : Type u) [CommRing R] (q : R) :
     Nonempty ((NodeChart R q ⧸
       Ideal.span {branchCoordinate R q 0, branchCoordinate R q 1}) ≃ₐ[R]
         (R ⧸ Ideal.span {q})) := by
   sorry
 
 /-- A persistent split node has one copy of the base in its singular scheme. -/
-theorem persistent_node_jacobian (R : Type u) [CommRing R] :
+example (R : Type u) [CommRing R] :
     Nonempty ((NodeChart R 0 ⧸
       Ideal.span {branchCoordinate R 0 0, branchCoordinate R 0 1}) ≃ₐ[R] R) := by
   sorry
 
 /-- A unit smoothing parameter leaves no singular scheme. -/
-theorem unit_parameter_no_node (R : Type u) [CommRing R] (q : R) (hq : IsUnit q) :
+example (R : Type u) [CommRing R] (q : R) (hq : IsUnit q) :
     Subsingleton (NodeChart R q ⧸
       Ideal.span {branchCoordinate R q 0, branchCoordinate R q 1}) := by
   sorry
