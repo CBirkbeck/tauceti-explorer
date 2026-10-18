@@ -6,13 +6,13 @@ The four layers cover integral dominance, orthogonal folding, the adjacent even-
 
 ## Conventions and library boundary
 
-In RS2.1–RS2.4, Φ is a finite reduced crystallographic root system in its real span E, with base Δ={α_i}. Its coroot evaluations are those of the pinned `RootPairing`. Write Q for the integer root span, Q⁺ for the **existing** `TauCeti.posRootCone`, and L for a specified subgroup with Q⊆L and integral coroot evaluations. No choice of the full weight lattice is forced. Dominant means membership in `TauCeti.dominantChamber`, including its walls. Root and coroot conventions are interchanged by `RootPairing.Base.flip`. The Cartan convention is row root and column coroot: a_ij=⟨α_i,α_j∨⟩.
+In RS2.1–RS2.4, Φ is a finite reduced crystallographic root system in its real span E, with base Δ={α\_i}. Its coroot evaluations are those of the pinned `RootPairing`. Write Q for the integer root span, Q⁺ for the **existing** `TauCeti.posRootCone`, and L for a specified subgroup with Q⊆L and integral coroot evaluations. No choice of the full weight lattice is forced. Dominant means membership in `TauCeti.dominantChamber`, including its walls. Root and coroot conventions are interchanged by `RootPairing.Base.flip`. The Cartan convention is row root and column coroot: a_ij=⟨α\_i,α\_j∨⟩.
 
 A based automorphism σ is the existing `RootPairing.Aut` preserving the simple support; on E it has finite order because it permutes a finite spanning root set. The form on E is the canonical positive form, obtained from the sum of products of coroot evaluations. Its σ-invariance follows by reindexing that sum. When length formulas use squared length 2 for original simply-laced roots, rescale positively on each component, with the same scale on a σ-cycle; this changes no coroot pairing. Root orbits are finite SETS of distinct elements. Orbit sums, orbit averages, and roots restricted to a fixed subspace need not have the same normalization. No root multiplicities or nonreduced relative roots enter the finite fold.
 
 The rank-zero system is allowed. The last target removes the spanning assumption on the ambient weight space; its central directions are retained in the conclusion. For reductive cocharacters use Φ equal to the **coroot** system. Positivity then tests against the original simple roots, and Q is the actual coroot lattice inside the cocharacter lattice.
 
-General weight lattices, fundamental weights and their dictionary with Lie highest-weight theory remain upstream interfaces. This plan does not recreate those structures, the finite Dynkin classification, the numbered diagram automorphisms, dominant representatives, the positive cone or chambers. The exact pinned declarations used below already supply them to the extent needed here. In particular, finite dominant intervals are available from `TauCeti.finite_setOf_dominant_sub_mem_posRootCone`; finiteness of an entire translated positive cone is never asserted.
+General weight lattices, fundamental weights and their dictionary with Lie highest-weight theory remain upstream interfaces. This plan does not recreate those structures, the finite Dynkin classification, the numbered diagram automorphisms, the pinned type-A model, dominant representatives, the positive cone or chambers. The exact pinned declarations used below already supply them to the extent needed here. In particular, finite dominant intervals are available from `TauCeti.finite_setOf_dominant_sub_mem_posRootCone`; finiteness of an entire translated positive cone is never asserted. The coweight dominance order of ReductiveGroupsPartII (RG2.1, used on the inertia coinvariants X_\*(T)\_I in RG2.4) is the same flipped cone, so RS2.1 gives it its API and no second order; that roadmap plans neither the Stembridge step nor folding.
 
 The mathematical baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed library audit has no dedicated RootSystems or LieHighestWeight layer audit; its silence is not evidence of absence. The pinned statements, current library and current upstream RootSystems and LieHighestWeight documents were inspected. Their lattice-ownership wording differs, as already recorded in the reviewed RootSystems link packet. The explicit subgroup/pointwise-integrality formulation here requires no new general lattice owner.
 
@@ -22,7 +22,7 @@ The mathematical baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` 
 |---|---|---|
 | RS2.1 | Integral order API and ordinary Stembridge step | Existing positive cone, chamber, finite roots, obtuse-sum and Cartan signs |
 | RS2.2 | Orthogonal orbit-sum fold and fixed Weyl group | RS2.1; existing finite root and inversion APIs |
-| RS2.3 | Adjacent A_(2n), component cycles and the general finite fold | RS2.2; existing finite Dynkin classification and numbered diagrams |
+| RS2.3 | Adjacent A_(2n), component cycles, the case split for based automorphisms and the general finite fold | RS2.2; existing finite Dynkin classification, diagram trees and pinned type-A model |
 | RS2.4 | Invariant chamber/cone transport and existential coroot step | RS2.1 and RS2.3 |
 
 Every target below is a mathematical goal, with implementation status unchecked. “Closed” in the packet records a complete target-level prerequisite chain, not a proof in Lean. The suggested file follows the compact statement-only shape: real-bodied light definitions over existing carriers, endpoint theorem statements and examples. The folded root systems and their full APIs remain targets in this reader; the suggested file introduces no placeholder folded data or preliminary theory merely to state them.
@@ -50,22 +50,23 @@ Construction or proof:
 2. Pointedness gives antisymmetry. Simple-root independence gives the coefficientwise criterion when both differences are in Q.
 3. Restrict to L or its σ-fixed subgroup without changing the cone. The rational cone is used only for a comparison implication.
 
-Uses: Rapoport Lemma 2.3, pp. 157–158 — Specifies the integer coefficient budgets for an eligible root.; KZ25 Proposition 5.2.3, pp. 49–50; KPZ26 routed R01 — One shared integral coroot order for both continuations.
+Uses: Rapoport Lemma 2.3, pp. 157–158 — Specifies the integer coefficient budgets for an eligible root.; KZ25 Proposition 5.2.3, pp. 49–50; KPZ26 routed R01 — One shared integral coroot order for both continuations.; ReductiveGroupsPartII RG2.1 (minuscule coweights and the dominance order) and RG2.4 (dominant inertia-coinvariant cocharacters) — Their coweight order is membership of the difference in the posRootCone of the flipped base, that is RootLE for the flipped pairing; RG2.4 applies it on X_\*(T)\_I, the carrier of Kisin–Zhou §5.2.
 
 API:
 
-- `rootLE_iff` (characterisation): RootLE(Δ,x,y) iff y−x=Σ_i n_i α_i for natural n_i.
+- `rootLE_iff` (characterisation): RootLE(Δ,x,y) iff y−x=Σ\_i n_i α\_i for natural n_i.
 - `rootLE_partialOrder` (relation): The relation is reflexive, transitive and antisymmetric; use an explicit relation or a wrapper type.
 - `rootLE_add_right` (compatibility): RootLE(x+z,y+z) iff RootLE(x,y).
 - `rootLE_map` (functoriality): A based root-pairing equivalence transports RootLE in both directions.
-- `rootLE_coefficients` (characterisation): For x=Σ a_i α_i and y=Σ b_i α_i with integer coordinates, RootLE(x,y) iff a_i≤b_i for every i.
+- `rootLE_coefficients` (characterisation): For x=Σ a_i α\_i and y=Σ b_i α\_i with integer coordinates, RootLE(x,y) iff a_i≤b_i for every i.
 - `rootLE_rational` (compatibility): Integral dominance implies rational-cone dominance; the converse requires the integral simple coefficients, not just membership of the ambient lattice.
+- `rootLE_flip_iff_coweight_dominance` (compatibility): For the flipped pairing and flipped base, RootLE(λ,μ) holds iff μ−λ is a natural combination of simple coroots: the coweight dominance order that ReductiveGroupsPartII RG2.1 fixes as its convention. No second order is defined.
 
 Discriminating unit tests:
 
-- **rootLE_PGL2_parity**: In X_*=Z with the positive coroot 2, 0≤_Q 2 but 0 is not ≤_Q 1, although 1 is in the positive rational coroot cone.
+- **rootLE_PGL2_parity**: In X_\*=Z with the positive coroot 2, 0≤\_Q 2 but 0 is not ≤\_Q 1, although 1 is in the positive rational coroot cone.
 - **rootLE_zero_rank**: With Δ empty, RootLE(x,y) iff x=y, including any independent central directions.
-- **rootLE_A2**: In A2 root coordinates, (0,1)≤_Q(1,1), whereas (1,0) and (0,1) are incomparable.
+- **rootLE_A2**: In A2 root coordinates, (0,1)≤\_Q(1,1), whereas (1,0) and (0,1) are incomparable.
 - **rootLE_existing_cone**: For every x,y the relation agrees literally with membership in the pinned posRootCone; no real cone closure is taken.
 
 Checks:
@@ -81,7 +82,7 @@ Sources: [Rap00] §1, pp. 153–154; rank-one cases in §2, pp. 156–157. The o
 
 Target `RootSystemsPartII:stembridge-step` (theorem).
 
-For distinct dominant integral λ,μ∈L with RootLE(λ,μ), there is β∈Φ⁺ with λ+β dominant and RootLE(λ+β,μ). Consequently λ<_Qλ+β≤_Qμ. This assertion remains valid in an ambient weight space with central directions: its proof uses only the simple-coroot tests.
+For distinct dominant integral λ,μ∈L with RootLE(λ,μ), there is β∈Φ⁺ with λ+β dominant and RootLE(λ+β,μ). Consequently λ<\_Qλ+β≤\_Qμ. This assertion remains valid in an ambient weight space with central directions: its proof uses only the simple-coroot tests.
 
 Hypotheses:
 
@@ -90,9 +91,9 @@ Hypotheses:
 
 Construction or proof:
 
-1. Write μ−λ=Σ n_i α_i. Positive roots with coordinates m_i≤n_i form a finite nonempty set: a simple root with n_i>0 belongs to it. Choose a maximal member β in the integral root order.
-2. For each simple α_i, maximality implies either β+α_i is not a root or m_i=n_i. If the sum is not a root, the contrapositive of the obtuse-sum lemma, with the nonopposite-root hypothesis checked, gives ⟨β,α_i∨⟩≥0.
-3. If m_i=n_i, write λ+β=μ−Σ_(j≠i)(n_j−m_j)α_j and use dominance of μ and nonpositive off-diagonal Cartan entries. This proves every simple-coroot inequality.
+1. Write μ−λ=Σ n_i α\_i. Positive roots with coordinates m_i≤n_i form a finite nonempty set: a simple root with n_i>0 belongs to it. Choose a maximal member β in the integral root order.
+2. For each simple α\_i, maximality implies either β+α\_i is not a root or m_i=n_i. If the sum is not a root, the contrapositive of the obtuse-sum lemma, with the nonopposite-root hypothesis checked, gives ⟨β,α\_i∨⟩≥0.
+3. If m_i=n_i, write λ+β=μ−Σ\_(j≠i)(n_j−m_j)α\_j and use dominance of μ and nonpositive off-diagonal Cartan entries. This proves every simple-coroot inequality.
 4. The remaining coefficients n_i−m_i give the upper bound; β is positive and nonzero, so pointedness makes the lower bound strict. Integrality and membership in L follow from Q⊆L.
 
 Checks:
@@ -115,7 +116,7 @@ Stage dependencies: `RootSystemsPartII:RS2.1`, `tauceti:TauCetiRoadmap/Represent
 
 Target `RootSystemsPartII:orbit-sum` (definition).
 
-For a based automorphism σ of Φ and α∈Φ, OrbitSum(σ,α)=Σ_(β∈Oσ(α)) β, where Oσ(α) is the SET of distinct iterates. It lies in E^σ. Repeated elements of a chosen period are discarded before summation. For simple orbits O write β_O=Σ_(α_i∈O)α_i.
+For a based automorphism σ of Φ and α∈Φ, OrbitSum(σ,α)=Σ\_(β∈Oσ(α)) β, where Oσ(α) is the SET of distinct iterates. It lies in E^σ. Repeated elements of a chosen period are discarded before summation. For simple orbits O write β\_O=Σ\_(α\_i∈O)α\_i.
 
 Hypotheses:
 
@@ -154,13 +155,13 @@ Checks:
 
 Direct prerequisites: `mathlib:RootPairing.Aut`, `mathlib:RootPairing.Base`, `tauceti:TauCeti.exists_root_eq_sum_nat_of_mem_posRoots`, `tauceti:TauCeti.isPointed_posRootCone`.
 
-Sources: [Stem08] definition of β_j, p. 1, and Claim 4, p. 3. The simple folded roots use sums over blocks of the orbit partition. [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The consumer requires an invariant positive-coroot increment. The explicit folding adapters and the existential strengthening below are derived here, rather than attributed as statements proved at this locator.
+Sources: [Stem08] definition of β\_j, p. 1, and Claim 4, p. 3. The simple folded roots use sums over blocks of the orbit partition. [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The consumer requires an invariant positive-coroot increment. The explicit folding adapters and the existential strengthening below are derived here, rather than attributed as statements proved at this locator.
 
 ### Folding with orthogonal simple orbits
 
 Target `RootSystemsPartII:orthogonal-fold` (construction).
 
-Assume Φ is finite and simply laced and any two distinct simple roots in one σ-orbit are orthogonal. On E^σ, the set Ψ={OrbitSum(σ,α):α∈Φ}, with duplicates removed, is a finite reduced crystallographic root system with base B={β_O:O a simple orbit}. The form is the restricted canonical positive form, with positive componentwise rescaling constant on σ-cycles when normalizing lengths. Such rescaling leaves all coroot pairings unchanged. With original roots normalized to squared length 2, (β_O,β_O)=2|O| and ⟨β_O,β_T∨⟩=−N_OT/|T| for O≠T, where N_OT counts edges between the two blocks.
+Assume Φ is finite and simply laced and any two distinct simple roots in one σ-orbit are orthogonal. On E^σ, the set Ψ={OrbitSum(σ,α):α∈Φ}, with duplicates removed, is a finite reduced crystallographic root system with base B={β\_O:O a simple orbit}. The form is the restricted canonical positive form, with positive componentwise rescaling constant on σ-cycles when normalizing lengths. Such rescaling leaves all coroot pairings unchanged. With original roots normalized to squared length 2, (β\_O,β\_O)=2|O| and ⟨β\_O,β\_T∨⟩=−N_OT/|T| for O≠T, where N_OT counts edges between the two blocks.
 
 Hypotheses:
 
@@ -171,9 +172,9 @@ Hypotheses:
 
 Construction or proof:
 
-1. The sums β_O are linearly independent and span the fixed space: invariant simple coefficients are constant on orbits. Counting neighbors at a fixed node of T proves the displayed Cartan entries are integers and nonpositive.
-2. For each O, the commuting product ∏_(i∈O)s_i restricts to reflection in β_O. These products preserve the set of root-orbit sums.
-3. Descend the positive height of a root-orbit sum by such reflections using positive definiteness. If all resulting orbit roots become negative, the original orbit consists of the simple roots of that block. Thus every orbit sum is in the reflection orbit of a β_O.
+1. The sums β\_O are linearly independent and span the fixed space: invariant simple coefficients are constant on orbits. Counting neighbors at a fixed node of T proves the displayed Cartan entries are integers and nonpositive.
+2. For each O, the commuting product ∏\_(i∈O)s_i restricts to reflection in β\_O. These products preserve the set of root-orbit sums.
+3. Descend the positive height of a root-orbit sum by such reflections using positive definiteness. If all resulting orbit roots become negative, the original orbit consists of the simple roots of that block. Thus every orbit sum is in the reflection orbit of a β\_O.
 4. Conversely those reflection orbits are orbit sums. This gives the generated finite root system, its base, reducedness and crystallographic axiom; Stembridge Claim 4 also proves all original root orbits are orthogonal under these finite hypotheses.
 
 Uses: RS2.4 invariant step — Supplies a finite root system to which the ordinary Stembridge lemma applies.; Stem08 Claim 3, pp. 2–3 — Its simple-reflection comparison is the input to the fixed-Weyl-group theorem.
@@ -181,16 +182,16 @@ Uses: RS2.4 invariant step — Supplies a finite root system to which the ordina
 API:
 
 - `orthogonalFold_roots` (characterisation): Ψ is exactly the image of the root-orbit sum map; positivity is the image of Φ⁺.
-- `orthogonalFold_base` (data): The simple roots are exactly the distinct sums β_O, indexed by simple orbits.
+- `orthogonalFold_base` (data): The simple roots are exactly the distinct sums β\_O, indexed by simple orbits.
 - `orthogonalFold_cartan` (compatibility): The Cartan entries and squared norms are those in the statement, for the row-root/column-coroot convention.
-- `orthogonalFold_reflection` (compatibility): Reflection in β_O agrees on E^σ with the product of the commuting simple reflections in O.
+- `orthogonalFold_reflection` (compatibility): Reflection in β\_O agrees on E^σ with the product of the commuting simple reflections in O.
 - `orthogonalFold_identity` (equivalence): For σ=id the resulting based root system is the original one on E.
 - `orthogonalFold_equiv` (functoriality): Based isometries conjugating the automorphisms induce based equivalences of the folds.
 
 Discriminating unit tests:
 
 - **orthogonalFold_A3**: A3 reversal has β1=α1+α3, β2=α2 with norms 4 and 2; their off-diagonal Cartan entries are −2 and −1 respectively, and Ψ has eight roots.
-- **orthogonalFold_D4**: For D4 triality, let β_o be the outer sum and β_c the central root. Their off-diagonal pairings are −3 and −1 respectively, with norms 6 and 2; Ψ has twelve roots of type G2.
+- **orthogonalFold_D4**: For D4 triality, let β\_o be the outer sum and β\_c the central root. Their off-diagonal pairings are −3 and −1 respectively, with norms 6 and 2; Ψ has twelve roots of type G2.
 - **orthogonalFold_A2_excluded**: A2 reversal violates the simple-orbit orthogonality hypothesis and must use the adjacent adapter.
 - **orthogonalFold_identity**: An identity automorphism returns the original positive roots and simple roots, including the empty root system.
 
@@ -199,7 +200,7 @@ Checks:
 - This construction is not applied to adjacent simple orbits, nor to affine or indefinite systems.
 - The Cartan denominator is |T| (column-coroot convention), not |O|.
 
-Direct prerequisites: `RootSystemsPartII:orbit-sum`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.IsPos.induction_on_reflect`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`, `mathlib:RootPairing.Base.cartanMatrix_le_zero_of_ne`, `tauceti:RootPairing.weylGroupToPerm_injective`.
+Direct prerequisites: `RootSystemsPartII:orbit-sum`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.IsPos.induction_on_reflect`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`, `mathlib:RootPairing.Base.cartanMatrix_le_zero_of_ne`, `tauceti:RootPairing.weylGroupToPerm_injective`, `tauceti:TauCeti.heightLinearMap_sum_nsmul_root`.
 
 Sources: [Stem08] condition (1), p. 1; Claims 1 and 3, pp. 2–3; Claim 4, p. 3. Under orthogonality of simple orbits, orbit sums give the finite folded roots and their reflection group is the fixed Weyl subgroup.
 
@@ -207,7 +208,7 @@ Sources: [Stem08] condition (1), p. 1; Claims 1 and 3, pp. 2–3; Claim 4, p. 3.
 
 Target `RootSystemsPartII:fixed-weyl-group` (theorem).
 
-For the orthogonal fold, restriction gives an isomorphism W(Φ)^σ ≃ W(Ψ). Its inverse sends the simple reflection of β_O to ∏_(i∈O)s_i. Here W(Φ)^σ is the fixed subgroup under conjugation by σ, not the pointwise stabilizer of E^σ.
+For the orthogonal fold, restriction gives an isomorphism W(Φ)^σ ≃ W(Ψ). Its inverse sends the simple reflection of β\_O to ∏\_(i∈O)s_i. Here W(Φ)^σ is the fixed subgroup under conjugation by σ, not the pointwise stabilizer of E^σ.
 
 Hypotheses:
 
@@ -232,7 +233,7 @@ Sources: [Stem08] condition (1), p. 1; Claims 1 and 3, pp. 2–3; Claim 4, p. 3.
 
 ## RS2.3: Adjacent folding and component cycles
 
-Construct the orbit-sum B_n model for A_(2n) reversal, including the doubled middle pairing and nonunique short-root lifts. Build diagonal transport for cycles of irreducible components and their return automorphisms, including norm scaling and unchanged Cartan pairings. Combine these with orthogonal folding and the existing finite Dynkin classification to obtain the fold for every based finite reduced crystallographic root-system automorphism.
+Construct the orbit-sum B_n model for A_(2n) reversal, including the doubled middle pairing and nonunique short-root lifts. Build diagonal transport for cycles of irreducible components and their return automorphisms, including norm scaling and unchanged Cartan pairings. Prove the case split for a based automorphism of an irreducible system: it is the identity on a nonsimply-laced type, and its simple orbits are orthogonal except for the reversal of A_(2n). Combine this, read off the existing finite Dynkin classification, with orthogonal folding to obtain the fold for every based finite reduced crystallographic root-system automorphism.
 
 Stage dependencies: `RootSystemsPartII:RS2.2`, `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-5-dynkin-diagrams-and-the-cartan-killing-classification`, `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data`.
 
@@ -250,9 +251,9 @@ Hypotheses:
 
 Construction or proof:
 
-1. Use the existing type-A realization and its diagram automorphism. A root e_a−e_b with neither index central gives either ±(f_i−f_j), ±(f_i+f_j), or the fixed root ±f_i. A pair of roots meeting the central index n+1 also sums to ±f_i. These cases exhaust all roots.
+1. Transport (Φ,Δ,σ) to the pinned model. By diagram-automorphism-orbits Φ has type A_(2n) and σ reverses the numbered simple roots. RootPairing.Base.equivOfCartanMatrixEq along that numbering identifies Φ with the real base change of TauCeti.DynkinType.typeASimplyConnectedRootDatum (2n), base to base. Over ℝ that base change spans, its simple roots being the rows of the invertible Cartan matrix, and its base and reducedness come from the pinned base-change lemmas. It carries σ to the base change of TauCeti.DynkinType.typeAGraphAut (2n): both are based automorphisms reversing the simple roots, and an automorphism of a spanning system is determined by the simple roots. In that model the roots are e_a−e_b and the graph automorphism is the displayed σ. A root e_a−e_b with neither index central gives ±(f_i−f_j), ±(f_i+f_j) or the fixed root ±f_i. A pair of roots meeting the central index n+1 also sums to ±f_i. These cases exhaust all roots.
 2. The f_i are orthogonal. Thus the listed set is closed under its reflections, has the B_n Cartan matrix, and the stated base has the required signed integral expansions. This verifies the finite reduced crystallographic root axioms directly.
-3. For i<n the simple orbit is orthogonal. For the middle adjacent orbit, α_n+α_(n+1)=f_n has squared norm 2 rather than 4. Compute its coroot by the Euclidean pairing formula.
+3. For i<n the simple orbit is orthogonal. For the middle adjacent orbit, α\_n+α\_(n+1)=f_n has squared norm 2 rather than 4. Compute its coroot by the Euclidean pairing formula.
 4. For an invariant weight with original simple-coroot values d_i=d_(2n+1−i), the folded simple-coroot values are d_i (i<n) and 2d_n.
 
 Uses: RS2.3 general fold — Handles precisely the irreducible component type not covered by orthogonal folding.; KZ25 Proposition 5.2.3, p. 50 — Supplies the two-member lift when a short restricted-root representative is needed; group root-subgroup normalization remains the geometric consumer’s obligation.
@@ -263,7 +264,7 @@ API:
 - `evenAFold_base` (data): Its simple roots are f_i−f_(i+1) and f_n; each is the sum of the corresponding simple σ-orbit.
 - `evenAFold_pairings` (compatibility): Invariant original simple-coroot values d_i become d_i off the middle and 2d_n at the middle.
 - `evenAFold_lifts` (constructor): For f_i choose either the fixed root e_i−e_(2n+2−i) or the orbit of e_i−e_(n+1); the latter has two distinct members.
-- `evenAFold_transport` (functoriality): A based equivalence to the numbered A_(2n) model transports the fold and its root set; the resulting datum is independent up to the induced based equivalence.
+- `evenAFold_transport` (functoriality): A based equivalence to the real base change of the pinned type-A_(2n) datum, intertwining σ with its graph automorphism, transports the fold and its root set; the result is independent of the equivalence up to the induced based equivalence.
 
 Discriminating unit tests:
 
@@ -277,7 +278,7 @@ Checks:
 - The orbit-sum root system has type B_n in these coordinates; the reduced restricted-root or orbit-average normalization can give a different convention.
 - A fixed root and a two-member root orbit can both lift the same short folded root.
 
-Direct prerequisites: `RootSystemsPartII:orbit-sum`, `mathlib:RootPairing.Base`, `tauceti:TauCeti.DynkinType.rationalDiagramAut`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`.
+Direct prerequisites: `RootSystemsPartII:orbit-sum`, `RootSystemsPartII:diagram-automorphism-orbits`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.equivOfCartanMatrixEq`, `tauceti:TauCeti.DynkinType.typeASimplyConnectedRootDatum`, `tauceti:TauCeti.DynkinType.hasCartanType_typeASimplyConnectedRootDatum`, `tauceti:TauCeti.DynkinType.typeAGraphAut`, `tauceti:TauCeti.DynkinType.indexEquiv_typeAGraphAut_typeASimpleIndex`, `tauceti:TauCeti.rootPairingBaseChange`, `tauceti:TauCeti.rootPairingBaseChangeBase`, `tauceti:TauCeti.isReduced_rootPairingBaseChange`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`.
 
 Sources: [Stem08] condition (1), p. 1, delimiting the scope of Claims 1–4, pp. 2–3. The adjacent middle pair violates the orthogonality hypothesis; the coordinate proof in this node supplies the missing case rather than citing those claims outside their hypotheses. [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The consumer requires an invariant positive-coroot increment. The explicit folding adapters and the existential strengthening below are derived here, rather than attributed as statements proved at this locator.
 
@@ -285,7 +286,7 @@ Sources: [Stem08] condition (1), p. 1, delimiting the scope of Claims 1–4, pp.
 
 Target `RootSystemsPartII:component-cycle` (construction).
 
-Let C,σC,…,σ^(c−1)C be a cycle of irreducible components, c≥1, and τ=σ^c|C. The map D(u)=Σ_(r=0)^(c−1)σ^r u is a linear equivalence E_C^τ → (⊕_(r<c)E_(σ^r C))^σ, inverse to projection to E_C. It takes τ-orbit sums to σ-orbit sums and multiplies squared norms by c. It identifies the simple-orbit cones and preserves all resulting Cartan pairings.
+Let C,σC,…,σ^(c−1)C be a cycle of irreducible components, c≥1, and τ=σ^c|C. The map D(u)=Σ\_(r=0)^(c−1)σ^r u is a linear equivalence E_C^τ → (⊕\_(r<c)E_(σ^r C))^σ, inverse to projection to E_C. It takes τ-orbit sums to σ-orbit sums and multiplies squared norms by c. It identifies the simple-orbit cones and preserves all resulting Cartan pairings.
 
 Hypotheses:
 
@@ -296,7 +297,7 @@ Hypotheses:
 
 Construction or proof:
 
-1. Distinct connected simple blocks are orthogonal. Positive-root descent shows every root belongs to one block: reflecting a simple root never leaves its connected block. The blocks span E, so they give an orthogonal direct sum of irreducible root systems.
+1. Distinct connected simple blocks are orthogonal. Positive-root descent shows every root belongs to one block: reflecting a simple root never leaves its connected block. The blocks span E, so they give an orthogonal direct sum of root systems, each irreducible by the connected-diagram criterion.
 2. A fixed vector is determined by its projection u onto the first block; the other projections are σ^r u and the closing condition is τu=u. This proves the formula, inverse and equivariance.
 3. A τ-root orbit of size d yields a σ-orbit of size cd because roots in distinct components are distinct. Regroup that orbit sum to obtain D of the τ-orbit sum.
 4. Orthogonality and σ-isometry give (D u,D v)=c(u,v); the common factor cancels from the coroot pairing formula. Simple coefficients transport without division.
@@ -324,15 +325,47 @@ Checks:
 - This construction permits nonsimply-laced components, including exchange of two identical B2 components.
 - A component cycle is reduced using its RETURN map, not by assuming σ is identity on the chosen component.
 
-Direct prerequisites: `RootSystemsPartII:orbit-sum`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.IsPos.induction_on_reflect`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`.
+Direct prerequisites: `RootSystemsPartII:orbit-sum`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.IsPos.induction_on_reflect`, `mathlib:RootPairing.RootForm`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`, `tauceti:RootPairing.isIrreducible_of_connected_diagramGraph_cartanMatrix`.
 
 Sources: [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The consumer requires an invariant positive-coroot increment. The explicit folding adapters and the existential strengthening below are derived here, rather than attributed as statements proved at this locator.
+
+### Simple orbits of a based automorphism
+
+Target `RootSystemsPartII:diagram-automorphism-orbits` (theorem). Added by the independent review.
+
+Let Φ be a nonempty irreducible finite reduced crystallographic real root system with base Δ, and τ a based automorphism, so that τ permutes Δ preserving every Cartan entry. (a) If Φ is not simply laced, τ fixes every simple root and is therefore the identity. (b) If Φ is simply laced, either every simple τ-orbit consists of pairwise orthogonal simple roots, or Φ has type A_(2n) for some n≥1 and τ acts on the Bourbaki-numbered simple roots as the reversal α\_i ↦ α\_(2n+1−i). In the second case {α\_n,α\_(n+1)} is the only simple orbit containing two nonorthogonal roots, and the other orbits {α\_i,α\_(2n+1−i)} are orthogonal.
+
+Hypotheses:
+
+- Finite reduced crystallographic real root system Φ spanning E, irreducible and nonempty, with base Δ.
+- τ is a root-pairing automorphism whose index permutation maps the simple support onto itself.
+
+Construction or proof:
+
+1. On Δ, τ is an automorphism of the Dynkin diagram preserving all Cartan entries, hence root lengths; the diagram is a finite tree. Distinct nonadjacent simple roots have Cartan entry zero and are orthogonal.
+2. Part (a): in types B_n, C_n, F4 and G2 the diagram is a path, whose only automorphisms are the identity and the reversal. The reversal either moves the unique multiple edge onto a simple edge or exchanges its two endpoints of different lengths, so it is not Cartan-preserving. Hence τ fixes Δ, which spans E, so τ is the identity.
+3. Part (b): a tree automorphism preserves the center of the tree, a vertex or an edge. If τ fixes a vertex c, it preserves the distance to c; adjacent vertices of a tree lie at distances from c that differ by one, so no τ-orbit contains two adjacent simple roots, and every simple orbit is orthogonal.
+4. Otherwise the center is an edge whose endpoints τ exchanges, and the diagram is two exchanged isomorphic halves joined by it. Every valid type other than A has exactly one branch node (D, E) or exactly one multiple edge (B, C, F4, G2), which such a symmetry would duplicate. So the type is A_m, the path has a central edge only for m=2n, and the only path automorphism exchanging it is the reversal.
+5. The type is read off through existsUnique_dynkinType and its relabelling; under any relabelling, τ becomes a member of the numbered symmetry group, by the entrywise criterion. The reversal commutes with itself, so the conclusion does not depend on the relabelling chosen.
+
+Checks:
+
+- A3 reversal fixes the central vertex: its orbits {α1,α3} and {α2} are orthogonal.
+- A4 reversal exchanges the central edge {α2,α3}, the one nonorthogonal orbit; {α1,α4} is orthogonal.
+- D4 triality, the D_n fork exchange and the E6 symmetry fix the branch node, so all their orbits are orthogonal.
+- In B2 and G2 the exchange of the two nodes transposes the Cartan matrix, so it is not a based automorphism.
+
+Direct prerequisites: `mathlib:RootPairing.Aut`, `mathlib:RootPairing.Base`, `tauceti:TauCeti.isTree_diagramGraph_cartanMatrix`, `tauceti:TauCeti.diagramGraph_adj`, `tauceti:TauCeti.existsUnique_dynkinType`, `tauceti:TauCeti.HasCartanType`, `tauceti:TauCeti.DynkinType.cartanMatrix`, `tauceti:TauCeti.DynkinType.mem_diagramSymmetry_iff`.
+
+The suggested file states part (a) as `indexEquiv_eq_self_of_multiple_edge` and the dichotomy of part (b) as `simpleOrbit_pairing_eq_zero_or_typeA_even`; the reversal in the exceptional case is stated here only.
+
+Sources: [Stem08] p. 1: definition of a diagram automorphism and condition (1). Stembridge defines a diagram automorphism as a permutation of the simple roots preserving their inner products and isolates orthogonality of simple orbits as condition (1). The determination of which automorphisms of finite irreducible types satisfy it is derived here from the pinned numbered Cartan matrices; it is not stated in the note. [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The finite fold that repairs the inference needs this case split; it is derived here, not attributed to the paper.
 
 ### Finite folding for every based diagram automorphism
 
 Target `RootSystemsPartII:general-fold` (construction).
 
-For any finite reduced crystallographic Φ and based automorphism σ, the SET Ψ of distinct root-orbit sums in E^σ, with simple roots the simple-orbit sums β_O, is a finite reduced crystallographic root system. It is the orthogonal direct sum of the return-map folds transported by D on component cycles. Every positive folded root is the sum of a positive root orbit. This is a theorem about orbit sums, with no assertion that orbit averages or restricted roots use the same normalization.
+For any finite reduced crystallographic Φ and based automorphism σ, the SET Ψ of distinct root-orbit sums in E^σ, with simple roots the simple-orbit sums β\_O, is a finite reduced crystallographic root system. It is the orthogonal direct sum of the return-map folds transported by D on component cycles. Every positive folded root is the sum of a positive root orbit. This is a theorem about orbit sums, with no assertion that orbit averages or restricted roots use the same normalization.
 
 Hypotheses:
 
@@ -342,9 +375,9 @@ Hypotheses:
 
 Construction or proof:
 
-1. Use component-cycle to reduce to one irreducible return-map automorphism. Import the existing finite Dynkin classification and numbered diagram automorphisms.
-2. Inspect the oriented finite Dynkin diagrams: irreducible B,C,F4,G2 have trivial based automorphism group. Nonidentity possibilities in A,D,E6 have orthogonal simple orbits except the reversal of A_(2n). D4 includes transpositions and three-cycles. For the identity on any nonsimply-laced type retain the original root system.
-3. Apply orthogonal-fold in the first cases and adjacent-even-A-fold in the exceptional case. The elementary diagram inspection is part of this proof; it neither constructs a new classification nor changes the numbered automorphism API.
+1. Use component-cycle to reduce to one irreducible system with its return-map automorphism.
+2. Apply diagram-automorphism-orbits to the return map. On a nonsimply-laced component it is the identity, and the fold is the original system. On a simply-laced component its simple orbits are orthogonal, except for the reversal of A_(2n). D4 transpositions and three-cycles fall in the orthogonal case.
+3. Apply orthogonal-fold in the orthogonal cases and adjacent-even-A-fold in the exceptional case.
 4. Transport along D, then take the orthogonal direct sum. The roots of an orthogonal direct sum are the union of the roots of its summands, not arbitrary sums across unrelated component cycles. Positivity and the stated base follow from the transported simple coefficients.
 
 Uses: RS2.4 invariant orbit-sum step — Provides the single finite folded root system for all allowed σ.; KZ25 Proposition 5.2.3, pp. 49–50 — Closes the combinatorial choice before any relative root subgroup or finite-field geometry is invoked.
@@ -352,7 +385,7 @@ Uses: RS2.4 invariant orbit-sum step — Provides the single finite folded root 
 API:
 
 - `generalFold_roots` (characterisation): The folded root set is exactly the image of distinct orbit sums; every positive folded root has a positive original-root lift.
-- `generalFold_base` (data): The base is indexed by simple σ-orbits with β_O as its root vector.
+- `generalFold_base` (data): The base is indexed by simple σ-orbits with β\_O as its root vector.
 - `generalFold_cases` (compatibility): The fold agrees, under the indicated based equivalences, with the orthogonal, adjacent-A, identity or component-cycle models.
 - `generalFold_equiv` (functoriality): Based equivalences intertwining automorphisms induce based equivalences of the folds, preserving the orbit-sum vectors.
 - `generalFold_empty` (simp): The fold of the empty system is the empty system on zero space.
@@ -370,7 +403,7 @@ Checks:
 - Covers rank zero, identity, component permutations, D4 triality and adjacent even-A reversal.
 - Swapping long and short vertices of B2, G2 or F4 is not an allowed based Cartan automorphism.
 
-Direct prerequisites: `RootSystemsPartII:orthogonal-fold`, `RootSystemsPartII:adjacent-even-A-fold`, `RootSystemsPartII:component-cycle`, `tauceti:TauCeti.existsUnique_dynkinType`, `tauceti:TauCeti.DynkinType.rationalDiagramAut`.
+Direct prerequisites: `RootSystemsPartII:orthogonal-fold`, `RootSystemsPartII:adjacent-even-A-fold`, `RootSystemsPartII:component-cycle`, `RootSystemsPartII:diagram-automorphism-orbits`.
 
 Sources: [Stem08] condition (1), p. 1; Claims 1 and 3, pp. 2–3; Claim 4, p. 3. Under orthogonality of simple orbits, orbit sums give the finite folded roots and their reflection group is the fixed Weyl subgroup. [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacement for its orbit-sum inference. The consumer requires an invariant positive-coroot increment. The explicit folding adapters and the existential strengthening below are derived here, rather than attributed as statements proved at this locator.
 
@@ -384,7 +417,7 @@ Stage dependencies: `RootSystemsPartII:RS2.1`, `RootSystemsPartII:RS2.3`.
 
 Target `RootSystemsPartII:invariant-weight-transport` (theorem).
 
-If λ∈E^σ has integral original simple-coroot values, then it is integral for the folded system Ψ. Its folded simple-coroot value at β_O is the common original value d_O when the simple orbit is orthogonal, and 2d_O in the transported adjacent-middle even-A case. Therefore λ is original-dominant iff it is folded-dominant. The image of the invariant original weight lattice need not equal the full folded weight lattice.
+If λ∈E^σ has integral original simple-coroot values, then it is integral for the folded system Ψ. Its folded simple-coroot value at β\_O is the common original value d_O when the simple orbit is orthogonal, and 2d_O in the transported adjacent-middle even-A case. Therefore λ is original-dominant iff it is folded-dominant. The image of the invariant original weight lattice need not equal the full folded weight lattice.
 
 Hypotheses:
 
@@ -395,7 +428,7 @@ Hypotheses:
 Construction or proof:
 
 1. σ-invariance makes the original coroot evaluations constant on each simple orbit.
-2. For an orthogonal orbit O with common squared root length l², (β_O,β_O)=|O|l² and 2(λ,β_O)=|O|l²d_O. The ratio is d_O.
+2. For an orthogonal orbit O with common squared root length l², (β\_O,β\_O)=|O|l² and 2(λ,β\_O)=|O|l²d_O. The ratio is d_O.
 3. For the adjacent even-A orbit use the explicit doubled pairing. Component cycles scale numerator and denominator equally.
 4. The multiplier is always a positive integer (1 or 2). This proves forward integrality and equivalence of signs, and hence equivalence of closed chambers. It does not divide a folded integral value by 2.
 
@@ -412,7 +445,7 @@ Sources: [Stem08] condition (1), p. 1; Claims 1 and 3, pp. 2–3; Claim 4, p. 3.
 
 Target `RootSystemsPartII:invariant-cone-transport` (theorem).
 
-For δ∈E^σ, δ∈Q⁺(Φ,Δ) iff δ=Σ_O n_O β_O with n_O∈N, equivalently δ∈Q⁺(Ψ,B). The coefficients are unique. In particular, for original-integral invariant endpoints, integral dominance agrees with folded integral dominance. Also Q(Φ)^σ is exactly the embedded folded root lattice.
+For δ∈E^σ, δ∈Q⁺(Φ,Δ) iff δ=Σ\_O n_O β\_O with n_O∈N, equivalently δ∈Q⁺(Ψ,B). The coefficients are unique. In particular, for original-integral invariant endpoints, integral dominance agrees with folded integral dominance. Also Q(Φ)^σ is exactly the embedded folded root lattice.
 
 Hypotheses:
 
@@ -424,7 +457,7 @@ Construction or proof:
 
 1. Expand δ in the linearly independent original simples. Applying σ permutes these coefficients; invariance and uniqueness force them to be constant on each orbit.
 2. Regroup the sum once per distinct simple orbit; n_O is that common coefficient, with no division by |O|.
-3. Conversely expand each β_O as its defining sum; natural coefficients stay natural. The same argument with integer coefficients gives the root-lattice equality.
+3. Conversely expand each β\_O as its defining sum; natural coefficients stay natural. The same argument with integer coefficients gives the root-lattice equality.
 
 Checks:
 
@@ -440,7 +473,7 @@ Sources: [KZ25] §5.2, proof of Proposition 5.2.3, pp. 49–50; derived replacem
 
 Target `RootSystemsPartII:invariant-step` (theorem).
 
-Let λ,μ∈L be distinct σ-fixed dominant integral weights with RootLE(λ,μ). There exists α∈Φ⁺ such that β=OrbitSum(σ,α) is nonzero, λ+β is σ-fixed, dominant and in L, and λ<_Qλ+β≤_Qμ. The choice is existential; it is not valid to sum an arbitrary orbit of individually allowable roots.
+Let λ,μ∈L be distinct σ-fixed dominant integral weights with RootLE(λ,μ). There exists α∈Φ⁺ such that β=OrbitSum(σ,α) is nonzero, λ+β is σ-fixed, dominant and in L, and λ<\_Qλ+β≤\_Qμ. The choice is existential; it is not valid to sum an arbitrary orbit of individually allowable roots.
 
 Hypotheses:
 
@@ -469,7 +502,7 @@ Sources: [Rap00] §2, Lemma 2.3 and equations (2.10)–(2.13), pp. 157–158. Do
 
 Target `RootSystemsPartII:ambient-coroot-export` (theorem).
 
-Let P be a finite reduced crystallographic real root pairing in finite-dimensional perfectly paired weight spaces V,V*, not necessarily spanned by the roots. Let σ be a P-automorphism preserving the base, and let λ,μ in a σ-stable subgroup L⊆V be fixed, dominant, integral on simple coroots, and distinct with μ−λ∈Q⁺. Assume Q⊆L. Then the conclusion of invariant-step holds in V. Apply P=the flipped real root pairing of a reductive root datum to obtain the integral positive-COROOT orbit step on its actual cocharacter lattice, preserving the common central component.
+Let P be a finite reduced crystallographic real root pairing in finite-dimensional perfectly paired weight spaces V,V\*, not necessarily spanned by the roots. Let σ be a P-automorphism preserving the base, and let λ,μ in a σ-stable subgroup L⊆V be fixed, dominant, integral on simple coroots, and distinct with μ−λ∈Q⁺. Assume Q⊆L. Then the conclusion of invariant-step holds in V. Apply P=the flipped real root pairing of a reductive root datum to obtain the integral positive-COROOT orbit step on its actual cocharacter lattice, preserving the common central component.
 
 Hypotheses:
 
@@ -483,12 +516,14 @@ Construction or proof:
 3. Apply invariant-step on E with its full integral weight subgroup. The projected endpoints need not belong to the original L; their integral coroot values are all that is used.
 4. The resulting increment β is in Q⊆L. Adding it to the ORIGINAL λ keeps the Z-component and lies below the ORIGINAL μ with the same integral difference budget. All simple-coroot values agree with those on E.
 5. For a cocharacter lattice apply the entire construction to the dual pairing and the dual base. Work on the real span only inside this proof; the output is the sum of actual coroots in the original lattice.
+6. For a σ-stable lattice with torsion, such as the inertia coinvariants X_\*(T)\_I that ReductiveGroupsPartII RG2.4 orders by its coweight dominance, apply the theorem to the image modulo torsion in X_\*(T)\_I⊗R. The coefficient budget of μ−λ lies in the free coroot lattice, which maps injectively to the real span, and the increment is a sum of actual coroots. So λ plus that increment lies in the original lattice, is σ-fixed and dominant, and satisfies both cone comparisons there.
 
 Checks:
 
 - A torus has no distinct comparable endpoints: with no coroots the order is equality, even if σ acts nontrivially on its cocharacter lattice.
 - For GL2, λ=(c,c), μ=(c+1,c−1) differ by the coroot (1,−1); the step retains sum of coordinates 2c. No quotient by the center is substituted for the integral cocharacter lattice.
-- For PGL2, the positive coroot remains 2 in X_*=Z; the adapter does not admit the rational half-coroot.
+- For PGL2, the positive coroot remains 2 in X_\*=Z; the adapter does not admit the rational half-coroot.
+- Torsion: the step lifts from the image of X_\*(T)\_I in X_\*(T)\_I⊗R to X_\*(T)\_I itself. No claim is made that the real displacement determines a class with torsion.
 
 Direct prerequisites: `RootSystemsPartII:invariant-step`, `mathlib:RootPairing.posRootForm_rootFormIn_posDef`, `mathlib:RootPairing.Base`, `mathlib:RootPairing.Base.flip`.
 
@@ -498,7 +533,7 @@ Sources: [Rap00] §2, Lemma 2.3 and equations (2.10)–(2.13), pp. 157–158. Do
 
 **A2 with reversal.** With α1 and α2 of squared norm 2 and mutual pairing −1, the simple orbit sum f=α1+α2 has squared norm 2. An invariant weight with original simple-coroot values (d,d) pairs to 2d with f∨. Thus an invariant original-integral weight lands in the even part of the folded weight lattice; surjectivity onto the full A1 weight lattice fails. For endpoints 0 and f, the folded Stembridge step is f. It can be lifted either by the fixed highest root or by the adjacent simple pair. The second lift is available when the geometric short restricted-root convention calls for it.
 
-**D4 with triality.** Number the central node 2 and cycle the outer nodes 1,3,4. The folded simple roots β_o=α1+α3+α4 and β_c=α2 have squared norms 6 and 2. Their off-diagonal pairings are −3 and −1 in that order. This is the twelve-root G2 fold. A supplied period six is harmless only if distinct orbit elements are used: summing six iterates instead would double β_o.
+**D4 with triality.** Number the central node 2 and cycle the outer nodes 1,3,4. The folded simple roots β\_o=α1+α3+α4 and β\_c=α2 have squared norms 6 and 2. Their off-diagonal pairings are −3 and −1 in that order. This is the twelve-root G2 fold. A supplied period six is harmless only if distinct orbit elements are used: summing six iterates instead would double β\_o.
 
 For a regression against the erroneous generic summation inference, let λ=2ρ, μ=λ+θ, θ=α1+2α2+α3+α4. All simple-coroot values of λ equal 2; θ has values (0,1,0,0), so both endpoints are dominant and triality-fixed. The root α1+α2 has values (1,1,−1,−1); after adding to λ the values are (3,3,1,1), all nonnegative. Its three translates are individually eligible and bounded by θ. Their sum has coordinates (1,3,1,1), exceeding the central budget 2. The fixed root θ itself gives a suitable orbit. The endpoint theorem selects an orbit; it does not certify all individually eligible choices.
 
@@ -521,23 +556,36 @@ Each name in this table was checked in its source at the stated pin. `RootPairin
 | [`tauceti:TauCeti.heightLinearMap_sum_nsmul_root`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Positive.lean) | Height of a natural simple-root sum is its total coefficient sum. |
 | [`tauceti:TauCeti.exists_intCast_eq_coroot'_of_mem_posRootCone`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Positive.lean) | Integral simple-root sums have integral coroot evaluations. |
 | [`tauceti:TauCeti.dominantChamber`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Chamber.lean) | Existing closed chamber; it is tested by nonnegative simple-coroot evaluations. |
-| [`tauceti:TauCeti.finite_setOf_dominant_sub_mem_posRootCone`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DominantCone.lean) | Finiteness of dominant integral weights below a fixed weight, under finite crystallographic spanning hypotheses. |
+| [`tauceti:TauCeti.finite_setOf_dominant_sub_mem_posRootCone`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DominantCone.lean) | Finiteness of the dominant integral weights below a fixed weight in the integral cone. Cited by the reader as the existing finite-interval interface; no node needs it as a prerequisite. |
 | [`mathlib:RootPairing.Base`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean) | A finite base, its linearly independent simple roots/coroots and signed integral expansions. |
 | [`mathlib:RootPairing.Base.flip`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean) | The base of the dual pairing with unchanged simple index support. |
 | [`mathlib:RootPairing.Base.IsPos.induction_on_reflect`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean) | Positive-root descent to a simple root; used in folding and in reducing to a connected component. |
 | [`mathlib:RootPairing.root_add_root_mem_of_pairingIn_neg`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Finite/Lemmas.lean) | Two nonopposite roots with negative integral Cartan pairing have a root as their sum; positivity excludes the opposite-root exception. |
 | [`mathlib:RootPairing.Base.cartanMatrix_le_zero_of_ne`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/CartanMatrix.lean) | Distinct simple roots have nonpositive Cartan pairing; finite crystallographic hypotheses retained. |
 | [`mathlib:RootPairing.Aut`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Hom.lean) | Existing root-pairing automorphisms with weightMap and indexEquiv; a based automorphism is one preserving the base support. |
-| [`mathlib:RootPairing.RootForm`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Finite/CanonicalBilinear.lean) | Canonical sum of products of coroot evaluations; invariant under based automorphisms by permutation of the finite index set. |
+| [`mathlib:RootPairing.RootForm`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Finite/CanonicalBilinear.lean) | Canonical form: the sum over all roots of products of coroot evaluations. Its invariance under a root-pairing automorphism is derived by reindexing that finite sum; no pinned lemma states it. |
 | [`mathlib:RootPairing.posRootForm_rootFormIn_posDef`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Finite/Nondegenerate.lean) | Positive definiteness of the canonical form on the real root span; no nondegeneracy assertion on additional central directions. |
 | [`tauceti:RootPairing.finite_weylGroup`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Weyl/Group.lean) | Finite Weyl group on a finite spanning root system. |
 | [`tauceti:RootPairing.weylGroupToPerm_injective`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Weyl/Group.lean) | Faithfulness on the root indices when roots span; used only on the semisimple span. |
 | [`tauceti:TauCeti.existsUnique_dynkinType`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FiniteType/Classification.lean) | Classification of a nonempty irreducible finite reduced crystallographic spanning root system by a valid Dynkin type. |
-| [`tauceti:TauCeti.DynkinType.rationalDiagramAut`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/DiagramAutomorphism.lean) | Existing lift of a Cartan-matrix symmetry of the numbered finite-type model. No second construction of diagram automorphisms. |
 | [`tauceti:TauCeti.exists_mem_support_mem_inversions_of_ne_one`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Inversions/StrongExchange.lean) | A nonidentity finite Weyl-group element has a simple inversion. |
 | [`tauceti:TauCeti.ncard_inversions_mul_ofIdx_of_mem`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Inversions/Exchange.lean) | Multiplying on the right by an inverted simple reflection decreases inversion cardinality by one. |
 | [`tauceti:TauCeti.stabilizer_eq_closure_wallReflections`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean) | Stabilizer of a dominant vector is generated by its wall reflections. |
 | [`tauceti:TauCeti.wallReflections_eq_empty_of_mem_openDominantChamber`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean) | An interior chamber point has no wall reflections, hence has trivial Weyl stabilizer. |
+| [`tauceti:TauCeti.isTree_diagramGraph_cartanMatrix`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FiniteType/Diagram.lean) | For a nonempty irreducible finite reduced crystallographic spanning root system over a characteristic-zero domain, the Dynkin diagram of a base is a tree. |
+| [`tauceti:TauCeti.diagramGraph_adj`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FiniteType/Diagram.lean) | Two indices are adjacent in the diagram of an integer matrix exactly when they are distinct and both entries between them are nonzero; for a base, distinct nonadjacent simple roots have zero Cartan entry. |
+| [`tauceti:TauCeti.DynkinType.cartanMatrix`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DynkinType.lean) | The Bourbaki-numbered Cartan matrix of each Dynkin type, read for the case inspection of diagram symmetries. |
+| [`tauceti:TauCeti.HasCartanType`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DynkinType.lean) | A base has Cartan type t when one simultaneous relabelling of its simple roots by Fin t.rank matches its Cartan matrix with that of t. |
+| [`tauceti:TauCeti.DynkinType.mem_diagramSymmetry_iff`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DiagramPermutations.lean) | A node permutation lies in the symmetry group of a numbered Dynkin type exactly when it preserves every entry of the numbered Cartan matrix. |
+| [`tauceti:RootPairing.isIrreducible_of_connected_diagramGraph_cartanMatrix`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FiniteType/Irreducible.lean) | A spanning crystallographic root pairing over a characteristic-zero field whose base has a connected Dynkin diagram is irreducible. |
+| [`tauceti:TauCeti.DynkinType.typeASimplyConnectedRootDatum`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/A.lean) | The pinned integral root datum of type A_n on Fin n → ℤ with the dot-product pairing; its roots are the classical e_a − e_b (a ≠ b), simple roots first. |
+| [`tauceti:TauCeti.DynkinType.hasCartanType_typeASimplyConnectedRootDatum`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/A.lean) | The pinned type-A_n datum with its Bourbaki-numbered base has Cartan type A n. |
+| [`tauceti:TauCeti.DynkinType.typeAGraphAut`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/A.lean) | The graph automorphism of the pinned type-A_n datum: e_a ↦ −e_(rev a) on the classical model, hence e_a − e_b ↦ e_(rev b) − e_(rev a). |
+| [`tauceti:TauCeti.DynkinType.indexEquiv_typeAGraphAut_typeASimpleIndex`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/SimplyConnectedRootDatum/A.lean) | On the Bourbaki-numbered simple root indices the graph automorphism is the reversal i ↦ rev i. |
+| [`tauceti:TauCeti.rootPairingBaseChange`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/BaseChange.lean) | Base change of a dot-product root pairing on the standard lattices along an injective algebra map (here ℤ → ℝ), keeping the reflection permutation. |
+| [`tauceti:TauCeti.rootPairingBaseChangeBase`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/BaseChange.lean) | The base of a base-changed pairing, supported on the same indices as the original base. |
+| [`tauceti:TauCeti.isReduced_rootPairingBaseChange`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/BaseChange.lean) | Base change along an injective map into a domain preserves reducedness. |
+| [`mathlib:RootPairing.Base.equivOfCartanMatrixEq`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/CartanMatrix.lean) | An equivalence of root pairings built from a relabelling of simple roots that preserves the Cartan matrix, the target being finite, spanning and reduced. |
 
 ## Independent continuation briefs
 
@@ -545,17 +593,17 @@ The five routes share the integral order but have three distinct outputs. The fi
 
 ### Dominant subtraction, Demazure products and affine Newton reduction
 
-Retain the routed candidate id RootSystemsPartIIDominanceAndDemazure for the affine/normalized-subtraction continuation, parent tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems, area grouptheory. Import RS2.1 integral dominance once, the upstream RootSystems and LieHighestWeight interfaces where actually supplied, and the proposed ReductiveGroupsPartII RG2.1/RG2.4 full affine-action/relative-root adapters. Design DA.1 parabolic representatives, support and shrunken chambers (He21 /9,/22,/28); DA.2 the feasible-set construction and least dominant normalized subtraction on the FULL coweight lattice P∨, with ordinary-difference comparison, dominant representative bound, iterated law and auxiliary coweights (/53–/60,/62); DA.3 Demazure product, associativity/unit, Bruhat monotonicity, support/length factorization and support preservation (/37–/40,/81), plus Zhu H04 longest double-coset involution indexing; DA.4 twisted reduction, RedMin, twisted Coxeter and minimal finite-Coxeter-part classes (/29,/30,/114–/116), together with all 21 He18 items: κ in Ω/(1−θ)Ω, Newton by twisted powers, straight classes, standard triples, axis/gradient and partial-conjugation reductions, guarded finite minima and unguarded finite class fibres via Ω-transport; DA.5 the shrunken sign/length identities and numerical Newton tests (/71,/73,/74,/96,/98,/101). Full affine central translations and possible torsion kernels must survive. Do not assume a semidirect splitting or faithful affine action. Enforce the Ω finite-fibre guard only on finite-minima claims, not on finite-class-fibre claims. Keep arithmetic B(G) comparison with BunG, and generic Hecke/KL module theory with SmoothRepresentationsPartIIParahoricCenters. Essential tests: s*s=s, singular A2, A1 lattice parity, central GL2 length zero, ordinary/inverted Gm, affine s0 nonstraight, empty/infinite parabolics, the stated minuscule exception, and the ^2A2 obstruction to lifting a normalized subtraction to the original lattice. Read source proofs and existing suppliers afresh in that design job; this brief certifies no supplier implementation.
+Retain the routed candidate id RootSystemsPartIIDominanceAndDemazure for the affine/normalized-subtraction continuation, parent tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems, area grouptheory. Import RS2.1 integral dominance once, the upstream RootSystems and LieHighestWeight interfaces where actually supplied, and the proposed ReductiveGroupsPartII RG2.1/RG2.4 full affine-action/relative-root adapters. Design DA.1 parabolic representatives, support and shrunken chambers (He21 /9,/22,/28); DA.2 the feasible-set construction and least dominant normalized subtraction on the FULL coweight lattice P∨, with ordinary-difference comparison, dominant representative bound, iterated law and auxiliary coweights (/53–/60,/62); DA.3 Demazure product, associativity/unit, Bruhat monotonicity, support/length factorization and support preservation (/37–/40,/81), plus Zhu H04 longest double-coset involution indexing; DA.4 twisted reduction, RedMin, twisted Coxeter and minimal finite-Coxeter-part classes (/29,/30,/114–/116), together with all 21 He18 items: κ in Ω/(1−θ)Ω, Newton by twisted powers, straight classes, standard triples, axis/gradient and partial-conjugation reductions, guarded finite minima and unguarded finite class fibres via Ω-transport; DA.5 the shrunken sign/length identities and numerical Newton tests (/71,/73,/74,/96,/98,/101). Full affine central translations and possible torsion kernels must survive. Do not assume a semidirect splitting or faithful affine action. Enforce the Ω finite-fibre guard only on finite-minima claims, not on finite-class-fibre claims. Keep arithmetic B(G) comparison with BunG, and generic Hecke/KL module theory with SmoothRepresentationsPartIIParahoricCenters. Essential tests: s\*s=s, singular A2, A1 lattice parity, central GL2 length zero, ordinary/inverted Gm, affine s0 nonstraight, empty/infinite parabolics, the stated minuscule exception, and the ^2A2 obstruction to lifting a normalized subtraction to the original lattice. Read source proofs and existing suppliers afresh in that design job; this brief certifies no supplier implementation. A sixth paper, Le–Le Hung–Levin–Morra (PAPER-LE-LEHUNG-LEVIN-ETAL-23), routes 26 further items to this candidate (M10, N02–N21, N24, N26, N75, N76, N80: extended affine Weyl group, admissible pairs and opposition). Its paper review was still open when this design ran, so they are not in routingAssignment; the affine design takes them once that review accepts the route.
 
 ### Minuscule weights and modular representation bounds
 
-Propose RootSystemsPartIIMinusculeBounds, parent tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems, area grouptheory. Import RootSystemsPartII:RS2.1 for KPZ R01, all finite root/classical coordinate data from upstream, and group-root-vector/modular-action interfaces from ReductiveGroups and its integral-representation continuation after checking their exact scopes. Design MB.1 root-datum minuscule weights, lifted fundamental weights and independence of lifts, geodesic weights, mod-p abelian-type coweights and dominance-detecting minuscule test sets in types A,B,C,D-real,D-quaternionic (R02,R13–R18,R31 and the three named lattice/geodesic items); MB.2 signed representation bounds and Cartan bounds (R11,R20–R24, l-alpha-reflection-identity, k-le-l-inequality), including the off-derived vanishing and end-wall case; MB.3 root-curve bound R05 and the D4 FM-versus-curve Cartan gap R27. Account for every item through routingAssignment. Preserve the distinction between actual weight incidence and modular root-operator action, signs in k_(−α), and characteristic-dependent l_α. Repair the source/extraction issues identified in the KPZ brief: dominant minuscule sums, the missing D end-weight family for α_j with j≤n−4, and the incorrect equivalence of weight incidence with nonzero modular action. Essential tests: A1 signed bounds, half-integral B spin weights, both D end nodes, D4 bound 3 versus 2, and failure of the source B-type μ=(2,1,1) test set. These are design requirements, not an assertion that the routed source claims have all been verified in this finite-folding job.
+Propose RootSystemsPartIIMinusculeBounds, parent tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems, area grouptheory. Import RootSystemsPartII:RS2.1 for KPZ R01, all finite root/classical coordinate data from upstream, and group-root-vector/modular-action interfaces from ReductiveGroups and its integral-representation continuation after checking their exact scopes. Design MB.1 root-datum minuscule weights, lifted fundamental weights and independence of lifts, geodesic weights, mod-p abelian-type coweights and dominance-detecting minuscule test sets in types A,B,C,D-real,D-quaternionic (R02,R13–R18,R31 and the three named lattice/geodesic items); MB.2 signed representation bounds and Cartan bounds (R11,R20–R24, l-alpha-reflection-identity, k-le-l-inequality), including the off-derived vanishing and end-wall case; MB.3 root-curve bound R05 and the D4 FM-versus-curve Cartan gap R27. Account for every item through routingAssignment. Preserve the distinction between actual weight incidence and modular root-operator action, signs in k_(−α), and characteristic-dependent l_α. Repair the source/extraction issues identified in the KPZ brief: dominant minuscule sums, the missing D end-weight family for α\_j with j≤n−4, and the incorrect equivalence of weight incidence with nonzero modular action. Essential tests: A1 signed bounds, half-integral B spin weights, both D end nodes, D4 bound 3 versus 2, and failure of the source B-type μ=(2,1,1) test set. These are design requirements, not an assertion that the routed source claims have all been verified in this finite-folding job.
 
 The broad candidate name `RootSystemsPartIIDominanceAndDemazure` is retained for the proposed affine direction. The assigned `RootSystemsPartII` id and filenames remain those of this job. The older `RootSystemsDominancePartII` alias is consolidated into the single RS2.1 order. The maintainer applies the split and aliases; no independent supplier is created merely by naming it here.
 
 ### Complete routing ledger
 
-The five input routes contain 80 stable items. Nine are covered here (eight Kisin–Zhou items and the shared KPZ integral order), fifty belong to the affine proposal and twenty-one to the modular proposal. All source items are assigned exactly once; several source items can use the same current node. The other direction briefs are requirements for their own source-proof and supplier audits, not a claim of mathematical closure for those directions.
+The five input routes contain 80 stable items. Nine are covered here (eight Kisin–Zhou items and the shared KPZ integral order), fifty belong to the affine proposal and twenty-one to the modular proposal. All source items are assigned exactly once; several source items can use the same current node. The 26 items that Le–Le Hung–Levin–Morra route to the affine candidate are outside the five briefed routes and are listed with the affine brief above. The other direction briefs are requirements for their own source-proof and supplier audits, not a claim of mathematical closure for those directions.
 
 | Source item | Owner / target |
 |---|---|
@@ -638,7 +686,7 @@ The five input routes contain 80 stable items. Nine are covered here (eight Kisi
 | `PAPER-KISIN-PAPPAS-ZHOU-26/k-le-l-inequality` | `RootSystemsPartIIMinusculeBounds` — Inequality (4.2.12): k_α ≤ l_α |
 | `PAPER-KISIN-PAPPAS-ZHOU-26/lifted-fundamental-weights` | `RootSystemsPartIIMinusculeBounds` — Lattices P, P^∨ and lifted fundamental weights Ω, Ω^min |
 | `PAPER-KISIN-PAPPAS-ZHOU-26/dominance-via-fundamental-weights` | `RootSystemsPartIIMinusculeBounds` — Remark 4.2.14: independence of lifts and dominance criterion |
-| `PAPER-KISIN-PAPPAS-ZHOU-26/geodesic-weights` | `RootSystemsPartIIMinusculeBounds` — Dynkin geodesics and the weights ϖ_α |
+| `PAPER-KISIN-PAPPAS-ZHOU-26/geodesic-weights` | `RootSystemsPartIIMinusculeBounds` — Dynkin geodesics and the weights ϖ\_α |
 
 ## Sources and completion tests
 
@@ -646,6 +694,6 @@ The five input routes contain 80 stable items. Nine are covered here (eight Kisi
 - **[Stem08]** John R. Stembridge. [Folding by Automorphisms](https://websites.umich.edu/~jrs/papers/folding.pdf). Author note dated 20 August 2008, 4 pages; read 18 October 2026. Read: pp. 1–3: condition (1), equations (2)–(4), Claims 1, 3 and 4 with their proofs; finite case only used.
 - **[KZ25]** Mark Kisin and Rong Zhou. [Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties](https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf). 63-page revised author preprint l-indep_v2.pdf; bibliographic final: Annals of Mathematics 202 (2025), 1077–1156. All locators here refer to the author preprint, not the uninspected final text. Read 18 October 2026. Read: §5.2, Proposition 5.2.3 and its proof, pp. 49–52; Corollary 5.2.7, pp. 52–53. Combinatorial step read directly, geometric statements used only to identify the interface.
 
-A completed implementation must provide the six definition/construction APIs and all twenty-four discriminating tests above, the six theorem targets, and their compatibility with the pinned root-pairing vocabulary. In particular it must pass the adjacent-A factor-of-two, D4 period-six, component-return-map, central-lattice and arbitrary-orbit rejection checks. No theorem is accepted with a rationalized cone, an averaged orbit sum, an unjustified surjection of weight lattices, or a faithful-action assumption on an unrelated central quotient.
+A completed implementation must provide the six definition/construction APIs and all twenty-four discriminating tests above, the seven theorem targets, and their compatibility with the pinned root-pairing vocabulary. In particular it must pass the adjacent-A factor-of-two, D4 period-six, component-return-map, central-lattice and arbitrary-orbit rejection checks. No theorem is accepted with a rationalized cone, an averaged orbit sum, an unjustified surjection of weight lattices, or a faithful-action assumption on an unrelated central quotient.
 
-The planet set is the named target list in the packet: two planets in RS2.1, three in RS2.2, three in RS2.3 and three in RS2.4. The ambient coroot export is a target of RS2.4 accompanying its three central planets. Each finite layer is planned with no unresolved mathematical gap or external request. The two independent directions require their own design jobs if the split is accepted.
+The planet set is the named target list in the packet: two planets in RS2.1, three in RS2.2, three in RS2.3 and three in RS2.4. The RS2.3 case split for based automorphisms is a supporting theorem, not a planet. The ambient coroot export is a target of RS2.4 accompanying its three central planets. Each finite layer is planned with no unresolved mathematical gap or external request. The two independent directions require their own design jobs if the split is accepted.
