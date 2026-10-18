@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T00:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T00:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -159,7 +159,7 @@ Generated 2026-10-18T00:20Z from the README supplier graph of every open pull re
 
 ## Wave 29
 - #1007 AutomorphicGaloisRepresentations — ready (approved at an earlier head); waits on #1001, #1005, #1006, #1013, #785, #854, #856, #857, #873, #879, #913, #920, #923, #924, #928, #929, #931, #933, #938, #940, #966, #970, #999, #934
-- #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #1039, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968, #934
+- #1019 PadicFamilies — draft; waits on #1001, #1005, #1013, #1034, #1039, #785, #813, #854, #858, #869, #879, #913, #920, #928, #931, #944, #968, #934
 - #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
 - #1069 AutomorphicBundles — draft; waits on #1005, #1038, #1040, #1053, #1062, #1064, #1080, #785, #792, #813, #814, #816, #818, #848, #849, #853, #868, #871, #875, #879, #908, #928, #933, #938, #940, #944, #965, #966
 
