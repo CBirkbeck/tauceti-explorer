@@ -2011,7 +2011,7 @@
       "stageId": "DiophantineApproximationAndTranscendencePartII:AA.5",
       "status": "planned",
       "remaining": [
-        "G1: establish a valid arbitrary-compact replacement, or remove that false source target after independent review. The centred versions and the obstruction are fully planned."
+        "G1: establish a valid arbitrary-compact replacement sensitive to the fixed base point, or obtain a maintainer decision to remove the refuted general target. E2 is independently confirmed; the centred versions and the obstruction are fully planned."
       ]
     }
   ],
@@ -2037,7 +2037,7 @@
       "printed": "The source defines V as the ℚ(x)-span of H but bounds its dimension over ℚ(p) under a rational tangent-to-identity coordinate change.",
       "correction": "Bound the smaller ℚ(p)-span W by B=eJ(p∘φ)/log|φ′(0)|. Then dim_(ℚ(x))V≤B and dim_(ℚ(p))V≤[ℚ(x):ℚ(p)]B. With the added hypothesis χ∈ℤ[[t]], W=V and the original sharper bound is valid.",
       "reason": "Take U=ℂ, p=x+x⁴/32, χ=p⁻¹ at zero and φ=2z. The printed hypotheses hold, but V contains ℚ(x) of degree 4 over ℚ(p). Its proposed upper bound is at most e log(5/2)/log2<4. Full verification is AA.4/scalar-span-counterexample. The proof on p.636 controls independent H generators over ℚ(p), which gives W rather than the scalar extension V.",
-      "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+      "known": "new; no applicable published correction located in the recorded bounded search, repeated during independent review on 2026-10-18. The mathematical finding is independently confirmed; this is not a claim of exhaustive novelty.",
       "searched": [
         "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
         "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
@@ -2049,7 +2049,12 @@
         "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
         "DiophantineApproximationAndTranscendencePartII:AA.4/scalar-span-counterexample"
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Definition 2.0.4, p.635 and Corollary 2.0.5, p.636, on the published page images. The inverse of x+x⁴/32 is a rational tangent series with p∘χ=t. Since 1 belongs to H, V contains ℚ(x), whose degree over ℚ(p) is four. The boundary bound |p(2z)|≤5/2 gives B<4 using e<3 and (5/2)^3<2^4. The proof bounds the ℚ(p)-span W; adjoining ℚ(x) requires the recorded degree factor unless W=V.",
+        "by": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendencePartII/E2",
@@ -2059,7 +2064,7 @@
       "printed": "The proposed capacity version replaces circle averaging by equilibrium averaging on any compact K in the unit disc, adding log cap(K) to the derivative denominator.",
       "correction": "The formula is proved here only for circles or discs centred at the parameter base point, with positive denominator. A valid arbitrary-compact replacement needs additional hypotheses or different terms; it is not supplied by the printed argument.",
       "reason": "Set K=closedDisk(1/2,1/4), p=x, χ=t, U=ℂ and φ(z)=8z exp(−20z). On K, |φ|≤6e^(−5)<1, so the numerator is zero. The denominator is log8+log(1/4)=log2>0, while the space contains 1 and has rank at least 1. See AA.5/compact-counterexample. This failure is independent of E1 since p=x and χ=t.",
-      "known": "new; no applicable published correction located by the bounded search recorded here. This is a worker finding awaiting independent mathematical review.",
+      "known": "new; no applicable published correction located in the recorded bounded search, repeated during independent review on 2026-10-18. The mathematical finding is independently confirmed; this is not a claim of exhaustive novelty.",
       "searched": [
         "Author publication page https://math.uchicago.edu/~fcale/research.html and its published UDC.pdf, checked 2026-10-18; downloaded offprint has the SHA-256 in sources.",
         "arXiv https://arxiv.org/abs/2109.09040 lists v4, 16 September 2024, as latest on 2026-10-18; no later correction listed.",
@@ -2070,7 +2075,12 @@
         "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity",
         "DiophantineApproximationAndTranscendencePartII:AA.5/compact-counterexample"
       ],
-      "source": "CDT25"
+      "source": "CDT25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §2.5.27 and (2.5.28), p.649, on the published page image. The source imposes no centring condition on K. For the displayed disc, Re z≥1/4 and |z|≤3/4 imply |φ(z)|≤6exp(−5)<1. Thus the proposed numerator is zero, the denominator is log2>0, and the arithmetic space still contains 1. Here p=x and χ=t, so the scalar-span error E1 cannot account for the failure.",
+        "by": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII"
+      }
     }
   ],
   "restructure": [],
@@ -2106,7 +2116,14 @@
     "result": "No existing arithmetic-algebraization roadmap or implementation found. Generic power series, analytic continuation, contour integration and existing discrepancy/potential-theory plans remain imports. The parent atlas package exists but the parent roadmap directory was not present in the current upstream checkout; its DT.5 packet supplies the cited exact interface. A missing checkout directory is not treated as missing mathematics.",
     "upstreamNotes": [
       "No upstream roadmap is edited or replanned. Supplier acceptance is an interface dependency; its own recorded proof gaps and requests remain with that supplier."
-    ]
+    ],
+    "independentReview": {
+      "by": "REV-DESIGN-DiophantineApproximationAndTranscendencePartII",
+      "date": "2026-10-18",
+      "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "detail": "Read ConformalMapping and Completed/ContourIntegration, checked the ModularForms scope, and searched Suggested.lean files in all nine newer roadmap families, including the eight OperatorTheory subroadmaps. Current library matches for Hadamard factorization, matrix entrywise products and integer Vandermonde identities do not provide the arithmetic targets or circle determinant norm/equality theorem. No duplicated target found. Re-read all consumed supplier statements; their own gaps remain with their owners."
+    }
   },
   "sourceItemCoverage": [
     {
@@ -2273,5 +2290,188 @@
       "read": "2026-10-18",
       "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-DiophantineApproximationAndTranscendencePartII",
+    "date": "2026-10-18",
+    "notes": "Independent review of all 35 targets, all cited source locators, 20 pinned baseline declarations, exact supplier statements, closure, 33 API entries, 20 definition tests, 23 planets and all suggested Lean signatures. Both source findings E1 and E2 are confirmed against the published author offprint. No mathematical target or baseline citation needed replacement. Updated review/provenance metadata and the reader; retained the honest arbitrary-compact follow-up G1 and planned AA.5 coverage. The 250-line suggested file elaborates with only admitted-proof warnings. The one blueprint warning is the documented product-measure namespace index discrepancy.",
+    "checked": [
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.0/integral-scale",
+        "verdict": "verified",
+        "note": "The powers M^n and M^(n−1) express different lattices; the constant-term and inverse-coordinate tests distinguish them. Native rescaling has exactly the first convention."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.0/uniformized-germs",
+        "verdict": "verified",
+        "note": "Checked CDT25 pp.630–631,635,637 and the native Lean predicate: realization is a Taylor germ, with holomorphic pullback near the closed disc; map hypotheses are supplied separately in the theorem signatures."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.0/integral-radius-polynomial",
+        "verdict": "verified",
+        "note": "CDT25 Lemma 1.1.2, p.629 and the pinned Cauchy estimate give eventual coefficient norm below one. Radius strictly greater than one is necessary."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.0/eisenstein",
+        "verdict": "verified",
+        "note": "Read BB11 §1, Theorem 6.1 and proof, and the opening of §8. The explicit tail-series reduction and implicit coefficient recursion prove the qualitative claim; the scalar c is retained for a nonintegral constant."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.0/inverse-denominators",
+        "verdict": "verified",
+        "note": "Checked the normalized Puiseux inverse and binomial denominator calculation in CDT25 pp.637–638. The scale depends on p, not the admissible family; tangent normalization is sufficient for integral inverse substitution."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.1/tensor-independence",
+        "verdict": "verified",
+        "note": "Finite coefficient functionals separate each independent finite family; tensoring these injective finite matrices proves independence in separate variables. This avoids evaluating arbitrary formal series away from zero."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.1/auxiliary-function",
+        "verdict": "verified",
+        "note": "Checked CDT25 Lemma 2.1.2 and the pinned integral Siegel bound. The total-order constraint count, row-to-surplus ratio and cofinal d bound make C uniform in d and κ; fixed-family norms disappear after α tends to infinity."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.1/integral-lowest-jet",
+        "verdict": "verified",
+        "note": "Tangent substitution preserves the lowest homogeneous part. Its nonzero integral coefficient has norm at least one, and analytic substitution multiplies it by a^β; a normalized multiplier preserves it."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.1/cauchy-extrapolation",
+        "verdict": "verified",
+        "note": "CDT25 (2.2.1)–(2.2.3) and the native Cauchy derivative bound support the polydisc coefficient estimate. h(0)=1 forces A≥0; the proof uses the exact order β≥α."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.1/multiplier-bound",
+        "verdict": "verified",
+        "note": "The limits α, then d, then κ give the stated factor e by Stirling. The logarithmic supremum and mean conventions agree with Lemma 2.0.8, p.636."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.2/mean-rank-bound",
+        "verdict": "verified",
+        "note": "Read Theorem 2.0.1 and §2.3. The corrected supplier quotient theorem has exactly h(0)=1 and logarithmic bound J+ε, so letting ε decrease proves this interface."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.2/algebraicity",
+        "verdict": "verified",
+        "note": "If f were transcendental over ℚ(p), arbitrarily long lists of its powers would be independent and admissible, contradicting the fixed mean rank bound. No rationality conclusion is inferred."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.2/andre-criterion",
+        "verdict": "verified",
+        "note": "Shrinking by r<1 with r|φ′(0)|>1 supplies the closed-disc hypotheses with p=x and χ=t. Checked the binomial example and the two equality-threshold benchmarks against CDT25 pp.630–631."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.2/lexicographic-coefficient",
+        "verdict": "verified",
+        "note": "Checked Lemma 2.4.2, p.642. Iterated Jensen after removing the first lexicographic exponent gives the inequality; the bounded positive part and integrable slice lower bound justify Fubini and zero-set nullness."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.2/plurisubharmonic-proof",
+        "verdict": "verified",
+        "note": "The least lexicographic coefficient survives separate tangent substitutions, even when its total degree exceeds the least total order. Integrating the triangle bound and taking the stated limits reproduces the same constant."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-discrepancy",
+        "verdict": "verified",
+        "note": "The supremum over all rotated strict cuts is the half-open arc discrepancy. Multiplicities, empty totalization, rotation and the regular-polygon tests match the planned interval adapter and the Lean body."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/discrepancy-weak-limit",
+        "verdict": "verified",
+        "note": "The finite mesh may avoid the countably many atoms of any limit law. Portmanteau applies on these mesh arcs; enclosing and inscribing arcs bounds the error by Haar mesh length, including at atomic limits."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-koksma",
+        "verdict": "verified",
+        "note": "Read the PM.2 Koksma interface. Pullback along one turn gives its native eVariationOn and normalized integral, while star discrepancy at any fixed cut is at most circular discrepancy. Supplier proof gaps remain with PM.2."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/circle-erdos-turan",
+        "verdict": "verified",
+        "note": "The PM.2 constant is 3 for every rotated star discrepancy. Rotation changes each Fourier mean by a unit scalar, so taking the supremum gives the same constant without an additional factor."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/positive-log-variation",
+        "verdict": "verified",
+        "note": "The map w↦log(max(1,|w|)) is 1-Lipschitz; native bounded variation therefore applies to a C¹ circle map. Turns and arclength derivatives have the stated normalization."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/fekete-circle",
+        "verdict": "verified",
+        "note": "Read Lemma 2.5.3 and the native determinant and Gram–Schmidt statements. Orthogonal Vandermonde columns give the bound; equality forces all distinct pair ratios to be nontrivial dth roots, hence a rotated regular polygon."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/haar-equilibrium",
+        "verdict": "verified",
+        "note": "The LP energy and equilibrium interfaces use the correct extended kernel. Rotation invariance and uniqueness identify Haar; the circle Fekete values give capacity one and zero minimal energy. Atomic self-energy stays infinite."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/vandermonde-discrepancy-gap",
+        "verdict": "verified",
+        "note": "Checked Lemma 2.5.9 and native compactness/product continuity. The truncated kernel contributes A/d on the empirical diagonal; take d to infinity before removing the cutoff. A non-Haar weak limit contradicts zero minimum energy."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/damped-cauchy",
+        "verdict": "verified",
+        "note": "Read CDT25 pp.647–648. The chosen ceiling M suppresses bad tuples, Koksma controls good tuples, and the Fekete remainder is negligible in the dimension limit. The lower coefficient uses β, without adding the Vandermonde degree to the derivative exponent."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.3/equidistribution-proof",
+        "verdict": "verified",
+        "note": "The limit order α,d,κ,ε is compatible with both cofinal thresholds and the damping remainder. It yields exactly the AA.2 mean bound, without invoking the other two analytic interiors."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring",
+        "verdict": "verified",
+        "note": "Read Definition 2.0.4 and its convention on pp.635–636. Membership requires a full meromorphic local basis for some annihilator over ℚ̄(x), not merely identity topological monodromy; the essential-singularity test detects the distinction."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure",
+        "verdict": "verified",
+        "note": "Parent finite derivative spans give sum and tensor modules. Full meromorphic horizontal frames pass to their differential subquotients, including apparent singularities. Arithmetic closure uses integral pullbacks and asserts no unjustified derivative closure."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans",
+        "verdict": "verified",
+        "note": "Both spans lie in the same Laurent-series field, and their scalar fields are explicit. Ring closure makes them subalgebras. The 1/x and degree-four tests prevent replacing them by a power-series carrier or identifying W with V prematurely."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/pole-clearing",
+        "verdict": "verified",
+        "note": "Read the exact O0 continuation and simultaneous-pole-clearing suppliers. A rational polynomial in p can clear the finite algebraic images using minimal polynomials even for an unsaturated set; integer coefficients preserve the arithmetic pullback."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound",
+        "verdict": "verified",
+        "note": "Every finite independent family in the generator span reduces to independent H generators. The common nonzero q(p) preserves independence and produces the holomorphic realizations needed by Theorem 2.0.1. This proves the bound for W."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/span-comparison",
+        "verdict": "verified",
+        "note": "An independent finite-field argument gives W a field structure, bounds the ℚ(x)-span by the ℚ(p)-generator count, and then uses the native rational-function extension degree. Integral χ places x in H and forces W=V."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/integral-coordinate-finiteness",
+        "verdict": "verified",
+        "note": "The p=x specialization applies for integral χ after shrinking the open disc. Read the U0 conformal-radius and extremality interfaces: the radius equivalence is restricted to connected hyperbolic domains; other domains use an explicit map."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.4/scalar-span-counterexample",
+        "verdict": "verified",
+        "note": "Confirmed E1 on the published page images. The tangent inverse exists with fourth coefficient −1/32; V contains ℚ(x) of degree four over ℚ(p), while e log(5/2)/log2<4 since e<3 and (5/2)^3<2^4."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.5/centred-capacity",
+        "verdict": "verified",
+        "note": "Replacing φ by z↦φ(rz) changes the derivative to rφ′(0) and Haar averaging to equilibrium averaging on the centred radius-r boundary. The positive denominator and the W/V scalar distinctions are preserved."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendencePartII:AA.5/compact-counterexample",
+        "verdict": "verified",
+        "note": "Confirmed E2 independently of E1: Re z≥1/4 and |z|≤3/4 on K give |8z exp(−20z)|≤6exp(−5)<1, yet cap K=1/4 and the denominator is log2>0. The arbitrary-compact replacement remains explicit G1."
+      }
+    ]
+  }
 }
