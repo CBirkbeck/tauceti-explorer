@@ -47709,8 +47709,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnalyticNumberTheoryPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10371"
+   "state": "done",
+   "note": "delivered on PR #10386 under the maintainer-assigned identity EffectiveClassNumbers (packages/EffectiveClassNumbers/); AnalyticNumberTheoryPartII remains the Layers 4-6 split package"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheoryPartII",
@@ -48269,8 +48269,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatisticsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10372"
+   "state": "done",
+   "note": "the accepted split package already occupies packages/ArithmeticStatisticsPartII/; the random Gamma-group plan is to be re-filed under ArithmeticStatisticsPartIIRandomGammaGroups (checkpoint handoff merged on #10382)"
   },
   {
    "id": "REV-PKG-ArithmeticStatisticsPartII",
