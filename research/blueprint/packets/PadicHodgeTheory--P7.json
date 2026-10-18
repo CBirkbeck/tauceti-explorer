@@ -12600,8 +12600,8 @@
           "how": "D_st(V) is weakly admissible for semistable V"
         },
         {
-          "where": "Colmez–Fontaine theorem (R06.2/colmez-fontaine-theorem)",
-          "how": "the essential image of D_st"
+          "where": "Colmez–Fontaine proof (R06.3/colmez-fontaine-perfect-residue; R06.2/colmez-fontaine-theorem is the proposition interface)",
+          "how": "the general proof identifies the essential image of D_st with weakly admissible filtered modules"
         },
         {
           "where": "MordellLawrenceVenkatesh LV.6, LV.7",
@@ -17458,15 +17458,15 @@
       ],
       "title": "Descent and restriction properties of WD(V): semistable and crystalline criteria, recovery of D_dR",
       "kind": "theorem",
-      "statement": "Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 = W(k)[1/p], K_n = K(μ_{p^n}), K_∞ = ∪K_n, H_K = Gal(K̄/K_∞), Γ_K = G_K/H_K identified with an open subgroup of Z_p^× by χ, F'_K = K_∞ ∩ K_0^nr (the maximal unramified extension of K_0 in K_∞), r_n = p^{n−1}(p−1), n(r) the least n with r ≤ r_n, π = [ε] − 1 ∈ A_inf, q = φ(π)/π, π̄ = ε − 1 ∈ O_{C^♭}, t = log(1+π) = log[ε]. For w in the Weil group W_K let α(w) ∈ Z be defined by: the image of w in Gal(k̄/F_p) is the α(w)-th power of the absolute arithmetic Frobenius x ↦ x^p (so α(W_K) = f_K·Z with q_K = p^{f_K}, and α(Φ) = f_K for an arithmetic Frobenius lift Φ). A Weil–Deligne representation over a field Ω of characteristic 0 is a pair (r, N) with r: W_K → GL(D) of open kernel on I_K and N nilpotent with r(w)Nr(w)^{−1} = p^{α(w)}N, i.e. r(Φ)Nr(Φ)^{−1} = q_K·N for arithmetic Φ (Deligne 8.4.1, ArithmeticGaloisRepresentations:R01.2). Let V be de Rham. (a) For K'/K finite, WD(V|_{G_{K'}}) ≅ WD(V)|_{W_{K'}}. (b) For L/K finite, V|_{G_L} is semistable iff I_L acts trivially on WD(V), and crystalline iff moreover N = 0; in particular V is semistable iff WD(V)|_{I_K} is trivial, and potentially crystalline iff N = 0. (c) N is nilpotent on WD(V), and for an arithmetic Frobenius lift Φ, r(Φ) acts on D_τ as Φ̄∘φ^{−f_K}; in particular, when V is semistable (L = K), the characteristic polynomial of r(Φ) on WD(V) is that of the K_0 ⊗ E-linear map φ^{−f_K} on any factor D_τ of D_st(V). (d) Descent of the filtration: D_dR(V) = (L ⊗_{L_0} D_st,L(V))^{Gal(L/K)} as filtered K ⊗ E-modules, so the filtered (φ,N,Gal(L/K))-module D_st,L(V) determines V (with R06.2/colmez-fontaine-theorem: V ↦ D_st,L(V) is an equivalence from representations semistable over L to admissible filtered (φ,N,Gal(L/K))-modules).",
+      "statement": "Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 = W(k)[1/p], K_n = K(μ_{p^n}), K_∞ = ∪K_n, H_K = Gal(K̄/K_∞), Γ_K = G_K/H_K identified with an open subgroup of Z_p^× by χ, F'_K = K_∞ ∩ K_0^nr (the maximal unramified extension of K_0 in K_∞), r_n = p^{n−1}(p−1), n(r) the least n with r ≤ r_n, π = [ε] − 1 ∈ A_inf, q = φ(π)/π, π̄ = ε − 1 ∈ O_{C^♭}, t = log(1+π) = log[ε]. For w in the Weil group W_K let α(w) ∈ Z be defined by: the image of w in Gal(k̄/F_p) is the α(w)-th power of the absolute arithmetic Frobenius x ↦ x^p (so α(W_K) = f_K·Z with q_K = p^{f_K}, and α(Φ) = f_K for an arithmetic Frobenius lift Φ). A Weil–Deligne representation over a field Ω of characteristic 0 is a pair (r, N) with r: W_K → GL(D) of open kernel on I_K and N nilpotent with r(w)Nr(w)^{−1} = p^{α(w)}N, i.e. r(Φ)Nr(Φ)^{−1} = q_K·N for arithmetic Φ (Deligne 8.4.1, ArithmeticGaloisRepresentations:R01.2). Let V be de Rham. (a) For K'/K finite, WD(V|_{G_{K'}}) ≅ WD(V)|_{W_{K'}}. (b) For L/K finite, V|_{G_L} is semistable iff I_L acts trivially on WD(V), and crystalline iff moreover N = 0; in particular V is semistable iff WD(V)|_{I_K} is trivial, and potentially crystalline iff N = 0. (c) N is nilpotent on WD(V), and for an arithmetic Frobenius lift Φ, r(Φ) acts on D_τ as Φ̄∘φ^{−f_K}; in particular, when V is semistable (L = K), the characteristic polynomial of r(Φ) on WD(V) is that of the K_0 ⊗ E-linear map φ^{−f_K} on any factor D_τ of D_st(V). (d) Descent of the filtration: D_dR(V) = (L ⊗_{L_0} D_st,L(V))^{Gal(L/K)} as filtered K ⊗ E-modules, so the filtered (φ,N,Gal(L/K))-module D_st,L(V) determines V (R06.2 supplies full faithfulness on the admissible category; R06.3/colmez-fontaine-proof-via-robba identifies weak admissibility with admissibility for finite K/Q_p, compatibly with descent data).",
       "hypotheses": [
-        "(d) relies on the Colmez–Fontaine theorem of R06.2 for essential surjectivity; full faithfulness holds without it (Fontaine–Ouyang Exercise 6.54)."
+        "In (d), reconstruction on the admissible category uses early full faithfulness. Identifying the weakly admissible category with it uses R06.3/colmez-fontaine-proof-via-robba at the stated finite-K/Q_p scope; R06.2/colmez-fontaine-theorem supplies only the proposition interface."
       ],
       "proofSteps": [
         "(a): choose L ⊃ K' with V|_{G_L} semistable; D_st,L(V) is the same object, with Gal(L/K') ⊂ Gal(L/K) and the same α(w) for w ∈ W_{K'}.",
         "(b) ⇒: I_L acts trivially on D_st,L(V) by definition and α|_{I_L} = 0. ⇐: if I_{L'} acts trivially on WD(V) = WD(D_st,L(V)) with L ⊇ L', then Gal(L/L') acts on D_st,L(V) through its unramified quotient Gal(L_0/L'_0); Hilbert 90 for this semilinear action gives an L'_0-form of full rank, contained in D_st,L'(V) (B_st^{G_{L'}} = L'_0, R06.1/period-ring-invariants), so V|_{G_{L'}} is semistable. Crystalline: D_cris,L'(V) = D_st,L'(V)^{N=0}.",
         "(c): Nφ = pφN (Brinon–Conrad Lemma 8.2.8: N nilpotent); r(Φ) = Φ̄φ^{−f} on each D_τ.",
-        "(d): Fontaine–Ouyang §6.5.2 comment (1) and Proposition 6.62; essential surjectivity from R06.2/colmez-fontaine-theorem."
+        "(d): Fontaine–Ouyang §6.5.2 comment (1) and Proposition 6.62; essential surjectivity for the weakly admissible description from the already-listed R06.3/colmez-fontaine-proof-via-robba prerequisite."
       ],
       "acceptance": [
         "V = E(ψ), ψ ramified of finite order: WD(V)|_{I_K} = ψ|_{I_K} is nontrivial, so V is not semistable over K but is over L = K̄^{ker ψ}.",
@@ -17705,7 +17705,7 @@
       ],
       "title": "Sign and covariance dictionary between Fontaine–Laffaille filtration indices and Hodge–Tate weights",
       "kind": "lemma",
-      "statement": "Let K = K_0 = W(k)[1/p] be absolutely unramified (e = 1), σ its Frobenius. A filtered φ-module D over K is weakly admissible in the sense of R06.2/weak-admissibility; its jumps are the i with gr^i D ≠ 0. For Fontaine–Laffaille (FL) objects we use the notation of FL 1982: MF_tor^{f,p} (finite-length W(k)-modules M with M^0 = M, M^p = 0 and φ^i: M^i → M), strongly divisible lattices (FL 7.7), the ring Ŝ and Ŝ_K = K ⊗ Ŝ, and the contravariant functors U_S(M) = Hom_{MF}(M, Ŝ) (lattices), U_S(M) = Ext^1(M, S) (torsion) and U_{S_K}(Δ) = Hom_{MF_K}(Δ, Ŝ_K) (rational), all supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Let D be a weakly admissible filtered φ-module over K with jumps in [a, b], and V := V_cris(D) the crystalline representation with D_cris(V) = D (covariant; R06.2). Then: (1) HT(V) = {−i : gr^iD ≠ 0} ⊂ [−b, −a]; (2) FL's contravariant U_{S_K}(D) ≅ V^* has HT(U_{S_K}(D)) = {i : gr^iD ≠ 0} ⊂ [a, b], with multiplicities dim gr^i D; (3) for a strongly divisible lattice M with jumps in [0, p−2], the contravariant lattice U_S(M) has HT weights in [0, p−2] (FL index i ↔ weight +i), and the covariant lattice U_S(M)^∨ = Hom_{Z_p}(U_S(M), Z_p) ⊂ V_cris(M[1/p]) has HT weights in [−(p−2), 0] (index i ↔ weight −i); (4) common Tate shift: if V has HT weights in [c, c + p − 2], then V(−c) has HT weights in [0, p − 2] and its contravariant module D*_cris(V(−c)) = D_cris(V(−c))^∨ has FL indices in [0, p − 2]; so every statement for the interval [0, p − 2] applies to [c, c + p − 2] after the twist T ↦ T(−c), which lowers every FL index of the contravariant module by c; (5) on rank one: U_S(M(1; n)) ≅ F_p(ω^n) (ω the mod p cyclotomic character) for 0 ≤ n ≤ p − 1, consistent with (2): Hodge–Tate weight n ↔ ω^n.",
+      "statement": "Let K = K_0 = W(k)[1/p] be absolutely unramified (e = 1), σ its Frobenius. A filtered φ-module D over K is weakly admissible in the sense of R06.2/weak-admissibility; its jumps are the i with gr^i D ≠ 0. For Fontaine–Laffaille (FL) objects we use the notation of FL 1982: MF_tor^{f,p} (finite-length W(k)-modules M with M^0 = M, M^p = 0 and φ^i: M^i → M), strongly divisible lattices (FL 7.7), the ring Ŝ and Ŝ_K = K ⊗ Ŝ, and the contravariant functors U_S(M) = Hom_{MF}(M, Ŝ) (lattices), U_S(M) = Ext^1(M, S) (torsion) and U_{S_K}(Δ) = Hom_{MF_K}(Δ, Ŝ_K) (rational), all supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Let D be an admissible filtered φ-module over K with jumps in [a, b], and V := V_cris(D) the crystalline representation with D_cris(V) = D (covariant; R06.2). Admissibility follows from R07.3 for weakly admissible D of filtration span <p; outside that range it is assumed. For (2), require b−a ≤ p−1 and interpret the FL functor after a common Tate shift to [0,p−1]. Then: (1) HT(V) = {−i : gr^iD ≠ 0} ⊂ [−b, −a]; (2) FL's contravariant U_{S_K}(D) ≅ V^* has HT(U_{S_K}(D)) = {i : gr^iD ≠ 0} ⊂ [a, b], with multiplicities dim gr^i D; (3) for a strongly divisible lattice M with jumps in [0, p−2], the contravariant lattice U_S(M) has HT weights in [0, p−2] (FL index i ↔ weight +i), and the covariant lattice U_S(M)^∨ = Hom_{Z_p}(U_S(M), Z_p) ⊂ V_cris(M[1/p]) has HT weights in [−(p−2), 0] (index i ↔ weight −i); (4) common Tate shift: if V has HT weights in [c, c + p − 2], then V(−c) has HT weights in [0, p − 2] and its contravariant module D*_cris(V(−c)) = D_cris(V(−c))^∨ has FL indices in [0, p − 2]; so every statement for the interval [0, p − 2] applies to [c, c + p − 2] after the twist T ↦ T(−c), which lowers every FL index of the contravariant module by c; (5) on rank one: U_S(M(1; n)) ≅ F_p(ω^n) (ω the mod p cyclotomic character) for 0 ≤ n ≤ p − 1, consistent with (2): Hodge–Tate weight n ↔ ω^n.",
       "hypotheses": [
         "FL work with contravariant functors throughout (U_S, U_{S_K}, V_B^*); this node fixes the translation used by every R06.4 statement.",
         "For (1), D is already known admissible; inside filtration span <p this is supplied by R07.3, and outside that range it is an explicit assumption. The U_{S_K} comparison in (2) is used only in the rational FL range, after a common Tate shift to [0,p−1]; (3)–(4) use the lattice range [0,p−2]. No U_{S_K} comparison outside the shifted FL range is asserted."
@@ -17768,7 +17768,7 @@
       "acceptance": [
         "D_cris(Q_p(n)) for every n (length 0).",
         "D = D_cris(V_p(E)) for E/Q_p with good reduction: jumps {−1, 0}, length 1 < p for every p.",
-        "Modular weight p: jumps {0, p − 1} (length p − 1 < p) — covered; modular weight p + 1: jumps {0, p} — not covered (needs R06.2/colmez-fontaine-theorem or Breuil–Kisin, PadicHodgeTheory:R06.4/weight-p-plus-one-branch)."
+        "Modular weight p: jumps {0, p − 1} (length p − 1 < p) — covered; modular weight p + 1: jumps {0, p} — not covered (needs the actual R06.3/colmez-fontaine-perfect-residue theorem, the finite-K/Q_p R06.3/colmez-fontaine-proof-via-robba theorem, or Breuil–Kisin, PadicHodgeTheory:R06.4/weight-p-plus-one-branch)."
       ],
       "prerequisites": [
         "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
@@ -21240,7 +21240,7 @@
       "sources": [
         {
           "sourceId": "colmez-fontaine-2000-author",
-          "locator": "Theorem A, author p. 2; Theorem 4.3 and Proposition 4.5, pp. 23–25; Propositions 5.1–5.3 and 5.6–5.8, pp. 26–31; §6.1, Propositions 6.1–6.2, Corollary 6.3 and first proof of Theorem A, pp. 31–33",
+          "locator": "Theorem A, author p. 2; Propositions 3.2 and 3.5, pp. 19 and 22; Theorem 4.3 and Proposition 4.5, pp. 23–25; Propositions 5.1–5.3 and 5.6–5.8, pp. 26–31; §6.1, Propositions 6.1–6.2, Corollary 6.3 and first proof of Theorem A, pp. 31–33",
           "match": "Perfect-residue theorem and noncircular first proof, with the independent FL input explicit."
         },
         {
@@ -23440,1510 +23440,1556 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-PadicHodgeTheory--P7",
-    "date": "2026-10-14",
-    "notes": "Independent review by Claude (session claude-N66Hwr), 14 October 2026. The session wrote none of BP-PadicHodgeTheory--P7 (Codex codex-gqQ5AR; earlier checkpoint cc-442dc5) and none of the parallel whole-roadmap packet. Verdicts: all 300 nodes, 189 verified and 111 corrected (44 substantive, 67 locator clean-ups only), none added. Sources: 40 public copies fetched; 37 match the recorded SHA-256 (GLX and Heuer were read in their arXiv versions; Berger's errata has a newer version dated 13 October 2026). The cited passages of all 58 nodes new in this pass were read, as were 88 citations of inherited planets and key theorems; the labels and pages of the 586 labelled locators were audited against the text layers. Baseline: all 75 declarations exist in the cited modules at Mathlib 082e2d3 and Tau Ceti f790474, and their signatures provide what the citing nodes use. Substantive corrections: (1) The two R06.2 ordinarity criteria cited the R06.3 Colmez–Fontaine proof, which closed the stage cycle R06.2 ↔ R06.3. They need only the admissible-subobject lemma, which follows from the R06.2 bigness criterion; rewired, and the node graph is now acyclic at stage level. (2) A false unit test: ξ is a unit of B_cris, since t/ξ ∈ p^{−1}A_cris. (3) The annulus-derivation image statement holds only for open intervals; a counterexample test was added. (4) The ramification supplier (LocalFieldsRamification layer 3) was missing from Tate's trace nodes. (5) Locator and attribution corrections (Scholze, Zavyalov, Berger, BIP/Conrad, Colmez–Nizioł, CDN, Disegni–Liu, Fontaine 2004, KL, Brinon–Conrad, Fontaine–Ouyang); 83 private 'extraction lines' references were removed. (6) Statement precision: Scholze's Theorem 5.1 form, the CDN type definitions, and 'trivial' instead of 'flat' for D_dif. Source issues: 44 entries, 43 confirmed and E11 rejected; E44 was added by this review (Berger 2008 Théorème III.2.3, recorded in the October 2026 errata). PDF-artefact and fragment wording in the 'printed' fields was rewritten. Assigned red-team findings RT-AREA-langlands-2/17, RT-AREA-padic-1/20, 1/24, 2/3, 2/18, 2/19, 2/20 and 2/21 are reflected in the nodes and restructure records. The suggested Lean file elaborates at the pins with no errors; its only warnings (18) mark unproved declarations. It gains the real-bodied thetaDR with thetaDR_coe, thetaDR_surjective and the test thetaDR_teichmuller. Status stays complete: P7 and P8 remain partial and the other six stages planned, with precise remaining lists. Open matters for the orchestrator, recorded in the report and not blocking: the accepted parallel whole-roadmap packet PadicHodgeTheory.json covers the same eight stages with different node ids; upward citations of CohomologyComparisons CP.3/CP.4 (tier 14) and GL2AutomorphicRepresentationsAndTransfer R16.3 (tier 15), and citations of roadmaps outside the 94 (PhiGamma, RelativeFarguesFontaine, VectorBundlesAndIsocrystals, BunGAndNewtonStrata) must be resolved at packaging; and atlas edges P7 → R06.3, P7:annulus-foundations → R06.3 and R06.3 → R06.4 are still undeclared.",
+    "reviewer": "independent-review-REV-FIX-RT-RS-01~2",
+    "date": "2026-10-18",
+    "notes": "Independent review of FIX-RT-RS-01~2 by Codex, session codex-7AYw97, issue #8932, following REV-FIX-RT-RS-01. Accepted the ownership repair for RT-RS-01/30: early R07.3 owns rational Fontaine–Laffaille Theorem 8.4 and its period comparison; R06.4 imports it. R06.3 owns the original perfect-residue Colmez–Fontaine proof; R07.4 imports it and retains Kisin’s finite-height construction/comparison. R06.2 remains the proposition and early-formalism interface. Independently checked the FL/CF public proof passages, lifting hypotheses, source scopes, pinned carriers, consumer forwarding and dependency graphs. The other 31 finding dispositions remain as independently reviewed on 10 October; their 22 layer decisions, 21 owner records and 31 links are unchanged. Corrected stale proof-supplier references, made the sign dictionary’s admissibility/range assumptions explicit in its statement, and completed the CF filtration locators. All checkers pass. See REV-FIX-RT-RS-01~2.md for per-finding evidence and limitations. This accepts the fix, preserving P7’s 25 proof gaps, the existing VB-stage cycle and the external-packet/document synchronization obligations; no stage or Lean proof is certified complete.",
     "checked": [
       {
-        "nodeId": "PadicHodgeTheory:R06.1/cp-integers-p-adically-complete",
-        "verdict": "corrected",
-        "note": "Acceptance corrected: Mathlib’s BDeRham has no ring instance at the pins (checked with lean-check); BDeRhamPlus elaborates and carries the real-bodied thetaDR in the suggested file."
+        "item": "RT-RS-01/30: Fontaine–Laffaille",
+        "result": "FL Theorem 8.4(i)–(ii), pp. 595–596, permits all primes and arbitrary perfect k at e=1, Fil^j D=D and Fil^{j+p}D=0. The normalized functor is contravariant and dual to covariant V_cris. Proposition 7.17, p. 594, does not prove the all-stable-lattice essential-image claim."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/galois-action-on-cp",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        "item": "RT-RS-01/30: general Colmez–Fontaine",
+        "result": "CF author Theorem A, p. 2; Proposition 2.1/Corollary 2.6, pp. 12–17; Propositions 3.2/3.5, pp. 19/22; Proposition 4.5, pp. 24–25; Propositions 5.1–5.3/5.6–5.8, pp. 26–31; §6.1, pp. 31–33. The first proof uses early FL and covers perfect residue fields without [K:Q_p]<∞."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/semilinear-galois-descent",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        "item": "Kisin comparison retained",
+        "result": "Brinon–Conrad Proposition 11.3.3 and Remark 11.3.4, pp. 182–183, distinguish the finite-height comparison map from its general admissibility consequence. R07.4 keeps the former with its scope."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/ax-sen-lemma",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        "item": "Prior dispositions",
+        "result": "Compared every raw finding with its verification and the previous independent review. All 22 pre-fix layer records, 21 owners and 31 links remain equal as JSON values; /25, /26 and /29 remain rejected."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/ax-sen-tate-invariants",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        "item": "Carriers and current upstream",
+        "result": "Re-read pinned Isocrystal/IsocrystalHom, WittVector.map, FontaineTheta, BDeRham and the presentation cotangent map; checked AUDIT-37/38 and coverage bookkeeping. Current AdicSpaces/LocalGaloisGroups and cyclotomic character work remain imported. No new baseline declaration is claimed."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/tate-trace-almost-surjective",
-        "verdict": "corrected",
-        "note": "Prerequisites were empty although the proof uses upper numbering, Herbrand’s theorem and the different; added Tau Ceti LocalFieldsRamification layer 3, which the packet’s own request already named for this node."
+        "item": "Graph and forwarding",
+        "result": "Read-only full assembly: 5,054 edge-incident vertices, 15,132 edges, acyclic; all 50 RS links carry application evidence, none skipped. All 6 R06.4 and 12 R07.4 direct consumers have direct supplier edges. Raw proposal union: 5,103 vertices, 15,359 edges, acyclic."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/tate-sen-axioms-cyclotomic",
-        "verdict": "corrected",
-        "note": "Added the LocalFieldsRamification layer-3 prerequisite named by the packet’s request."
+        "item": "Projected draft dependencies",
+        "result": "P7 already has VB3:general-BC → VB4 → R06.2 → VB3:general-BC before the fix. No new cyclic edge or R06.4→R07.3 / R06.3→R06.2 return path. The early external FL closure also imports R07.2/dieudonne-ring, in addition to R06.1/R06.2 and libraries; it imports no later proof stage."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/tate-sen-vanishing-on-hk",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        "item": "API and tests",
+        "result": "All 300 pre-fix node ids, existing API items and definition tests are preserved. The 2 added key theorem targets have source-specific proof sketches and acceptance cases; no new definition requires an API. Final totals: 302 nodes, 640 API items, 373 definition tests."
       },
       {
-        "nodeId": "PadicHodgeTheory:R06.1/tate-sen-theorem",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/tilt-of-cp-and-special-elements",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/explicit-generator-of-ker-theta",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/de-rham-period-ring",
-        "verdict": "corrected",
-        "note": "Acceptance corrected (BDeRham has no ring instance at the pins). thetaDR, thetaDR_coe, thetaDR_surjective and the test thetaDR_teichmuller are now stated in the suggested file on Mathlib’s carrier."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bdr-plus-complete-dvr",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bdr-natural-topology",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/algebraic-closure-in-bdr-plus",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/fontaine-element-t",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/hodge-tate-period-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bdr-filtration-and-graded",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/de-rham-invariants",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/acris-embedding-into-bdr-plus",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/frobenius-kernel-ideals-of-ainf",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/t-in-acris",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/frobenius-on-acris",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/acris-completed-tensor-description",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/acris-embedding-injective",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/crystalline-period-ring",
-        "verdict": "corrected",
-        "note": "Test Bcris_not_field was false: t/ξ lies in p^{−1}A_cris, so ξ is a unit of B_cris. Replaced by Bcris_xi_unit_not_plus (ξ a non-unit of B_cris^+ but a unit of B_cris)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/galois-action-on-acris-continuous",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/filtration-i-r-of-acris",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/divided-frobenius-exact-sequence",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bcris-twisted-frobenius-sequences",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/fundamental-exact-sequence",
-        "verdict": "corrected",
-        "note": "Brinon–Conrad Theorem 9.1.10 gives only (Fil^0 B_cris)^{φ=1} = Q_p; the match now credits the exact sequences to Fontaine–Ouyang Theorem 6.26."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bmax-period-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bmax-injective",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bcris-injective",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/crystalline-logarithm",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/semistable-period-ring",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/log-extension-to-kbar",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/bst-embedding-into-bdr",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/log-p-flat-transcendental",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bst-injective",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/crystalline-semistable-invariants",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/period-ring-invariants",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/arithmetic-and-perfectoid-constructions-agree",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-laurent-ring",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-multiplicative",
-        "verdict": "corrected",
-        "note": "Kedlaya–Liu Definition 2.2.15 is on p. 33, not p. 28; content confirmed."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-maximum-principle",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/frechet-topology",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/restriction-maps",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-limit-comparison",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/evaluation-at-points",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-is-spectral-norm",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/identity-principle",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/newton-polygon-breaks",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/weierstrass-preparation-on-circles",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/robba-ring",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/amice-ring",
-        "verdict": "corrected",
-        "note": "Kedlaya–Liu Definition 4.1.3(a) is on p. 103."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/bounded-robba-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/coefficient-extension",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-factor-theorem",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-derivation",
-        "verdict": "corrected",
-        "note": "The image statement holds for open I only; on I = {1}, Σ p^k T^{p^k−1} has no primitive. Statement qualified; non-example test added."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/amice-ring-complete-dvf",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/completed-base-change",
-        "verdict": "corrected",
-        "note": "Kedlaya–Liu Definition 2.2.15 is on p. 33."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/overconvergent-cyclotomic-rings",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-frobenius",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-gamma-action",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-log-element-t",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-derivation",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/localisation-at-roots-of-unity",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-log-robba-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/toric-charts-for-smooth-spaces",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/integral-elements-via-valuations",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/rational-acyclicity-of-de-rham-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-profinite-products",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/graded-de-rham-period-sheaf-tate-twist",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-de-rham-sheaf-connection",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/bdr-plus-power-series-extension-lemma",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/etale-algebras-over-torus-models",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-algebra-structure-on-bdr-power-series",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/connection-and-filtration-in-local-coordinates",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-de-rham-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/formal-poincare-lemma",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/faltings-extension",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/graded-structural-de-rham-sheaf-local-description",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/relative-poincare-lemma",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/gamma-action-on-log-coordinates",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/perfectoid-torus-cover-completed-tensor",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/tate-descent-for-completed-cyclotomic-tensor",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf-over-cyclotomic-base",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/pushforward-of-structural-de-rham-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/higher-direct-images-of-twisted-completed-structure-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/almost-limit-lemma-for-acris-modules",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-period-sheaves-on-affinoid-perfectoids",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/frobenius-on-crystalline-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-to-de-rham-period-sheaf-embedding",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-crystalline-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-poincare-lemma",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-sheaf-on-affinoid-perfectoids",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/frobenius-on-structural-crystalline-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-to-de-rham-embedding",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/semistable-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/structural-semistable-period-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/bdr-plus-local-system",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/bdr-plus-local-systems-and-integrable-connections",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/vector-bundles-on-analytic-etale-and-proetale-sites",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/filtered-module-with-integrable-connection",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/associated-bdr-plus-local-system",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/boundary-map-of-associated-local-system",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/position-of-associated-local-system",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/tensor-compatibility-of-associated-local-systems",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/coherent-cohomology-against-graded-structural-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/proper-smooth-bdr-local-system-comparison",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/affinoid-k-pi-one-for-p-torsion",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/lisse-zp-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/lisse-sheaves-etale-proetale-equivalence",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/de-rham-lisse-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/etale-to-bdr-plus-comparison-for-lisse-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/de-rham-comparison-for-de-rham-lisse-sheaves",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-completed-structure-sheaf-computations",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-pushforward-of-graded-structural-sheaf",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-bdr-plus-local-system-comparison",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-de-rham-comparison",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/degree-one-abelian-comparison",
-        "verdict": "corrected",
-        "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/regular-period-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/admissibility-dimension-bound",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/admissible-category-tannakian",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/period-rings-are-regular",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/filtered-vector-spaces",
-        "verdict": "corrected",
-        "note": "The dual filtration now cites mathlib:Submodule.dualAnnihilator, a baseline declaration that no node used."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/period-functors",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/admissible-representations",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/serre-tate-injectivity",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-decomposition-tate",
-        "verdict": "corrected",
-        "note": "Match made precise: Brinon–Conrad Example 2.3.5 gives part (3)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-base-change",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-graded-equivalence",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-number-tH",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/ddr-of-tate-twists",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/de-rham-implies-hodge-tate",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/de-rham-base-change",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/induction-and-restriction-of-scalars",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/extension-with-separated-weights-de-rham",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
-        "verdict": "corrected",
-        "note": "Brinon–Conrad has no Remark 8.2.5; the formulas follow Definition 8.2.5, pp. 112–113."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/monodromy-nilpotent",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/newton-number-tN",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/slope-decomposition",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/weak-admissibility",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/weakly-admissible-two-out-of-three",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/weakly-admissible-category-abelian",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/rank-one-filtered-modules",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/filtered-phi-n-modules-with-descent-data",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/dcris-dst-filtered-phi-n-modules",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-subobjects-strict",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-semistable-base-change",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/frobenius-twisted-units-surjective",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/potentially-unramified-and-characters",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/coefficient-field-base-change",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/period-functors-transport-of-structure",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
-        "verdict": "corrected",
-        "note": "Fontaine–Ouyang Proposition A1 is stated on p. 140; its proof ends in §7.2.7, p. 157. Locator corrected."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/vst-rank-one",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/vst-continuity",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/colmez-fontaine-bigness-criterion",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/robba-ring-of-p-adic-field",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/extended-robba-ring-with-galois-action",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/berger-robba-identification",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/robba-ring-tensor-identity",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/extended-localisation-maps",
-        "verdict": "corrected",
-        "note": "Berger 2002 Proposition 2.11 is on p. 19."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/nabla-operator-on-robba-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/extended-robba-plus-decomposition",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/log-extended-period-rings",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/frobenius-regularisation",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/robba-realisation-comparison",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/decompletion-operators",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/theta-iota-kernel",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/t-divisibility-criterion",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/cyclotomic-eigenvectors-in-log-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/semistable-periods-in-extended-robba-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/berger-dcris-dst-dictionary",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/berger-comparison-isomorphisms",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/connection-on-robba-realisation",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/antiderivatives-on-log-robba-ring",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/unipotent-crystal",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/unipotent-connection-criterion",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/semistability-criterion-unipotent-connection",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/theta-iota-surjective-onto-Kn",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/sen-module",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/fontaine-dif-module",
-        "verdict": "corrected",
-        "note": "Test said the connection on D_dif(V) is \"not flat\"; every one-variable connection is integrable. Corrected to \"not trivial\"."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/ddr-via-robba-realisation",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/wach-dcris-comparison",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/integral-dcris-lattice",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/principal-parts-interpolation",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/ideals-dividing-powers-of-t",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/closed-submodules-of-free-robba-modules",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/lie-algebra-trivial-gamma-action",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/de-rham-iff-dif-connection-trivial",
-        "verdict": "corrected",
-        "note": "\"trivial (flat)\" corrected to \"trivial (has a full set of horizontal sections)\"."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/approximation-in-dif-module",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/de-rham-lattice-Ns",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/determinant-of-stable-submodule",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/de-rham-differential-equation",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/robba-lattice-implies-de-rham",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/de-rham-differential-equation-has-frobenius-structure",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-independence-of-choices",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-parameter",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-descent",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/convention-comparison-with-r01",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/hodge-and-inertial-type-do-not-determine-frobenius",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/small-weight-admissibility",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/ordinary-representation",
-        "verdict": "corrected",
-        "note": "Brinon–Conrad Theorem 8.3.6 is on pp. 120–121."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/ordinary-implies-semistable",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
-        "verdict": "corrected",
-        "note": "Brinon–Conrad Theorem 8.3.6 is on pp. 120–121. The slopes −(r±1)/2 and the r = 1 criterion were rechecked by weak admissibility."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/weight-p-endpoint-branch",
-        "verdict": "verified",
-        "note": "Statement and prerequisites checked; the cited statement was read at its locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.4/weight-p-plus-one-branch",
-        "verdict": "corrected",
-        "note": "Brinon–Conrad Theorem 8.3.6 parametrises all r > 0; it has no separate r = p existence statement. Match corrected."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/nested-affinoid-covers",
-        "verdict": "corrected",
-        "note": "Scholze Lemma 5.3 is on p. 28; its proof is on p. 29."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/finite-image-spectral-sequence",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-local-cohomology",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-global-almost-finiteness",
-        "verdict": "corrected",
-        "note": "Scholze Lemma 5.8 is on p. 33 (arXiv v2)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-comparison-mod-p",
-        "verdict": "corrected",
-        "note": "Aligned with Scholze Theorem 5.1: étale cohomology with C^+/p coefficients, then the pro-étale form and O_C/p up to almost isomorphism."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/relative-primitive-comparison",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/integral-etale-finiteness",
-        "verdict": "corrected",
-        "note": "Zavyalov’s statement is Lemma 5.5.1, not Proposition 5.5.1."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-ainf-comparison",
-        "verdict": "corrected",
-        "note": "Scholze Theorem 8.4 has no part (i); the A_inf step is the first step of its proof, p. 49."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-bdr-plus-comparison",
-        "verdict": "corrected",
-        "note": "Scholze Theorem 8.4 has no part (i); the locator now names the B_dR^+ step of the proof."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/etale-proetale-torsion-comparison",
-        "verdict": "corrected",
-        "note": "Proposition 3.15 is on p. 19 and Corollary 3.17 on pp. 20–21."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-comparison-proper-singular",
-        "verdict": "corrected",
-        "note": "Zavyalov Lemma 5.5.1, not Proposition."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8:local-rational/geometric-hodge-tate-pushforward",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/breuil-completed-semistable-rings",
-        "verdict": "corrected",
-        "note": "P_l is Kato’s (3.2) or Tsuji’s §1.6 construction, and the explicit description is Breuil’s §§2, 4. Locator and match corrected; Disegni–Liu’s footnote 39 is recorded."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/completed-bst-nilpotent-part",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.1/frobenius-restricted-monodromy-edge",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/regular-ordinary-representation",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-ordinary-slope-criterion",
-        "verdict": "corrected",
-        "note": "Removed the R06.3 Colmez–Fontaine proof, which closed the stage cycle R06.2 ↔ R06.3. The admissible-subobject lemma follows from the bigness criterion and abelianness of MF^wa by a dimension count, so V given suffices."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/maximal-monodromy-ordinary-criterion",
-        "verdict": "corrected",
-        "note": "The same cycle repair. BLGHT Lemma 2.2(2) states the jumps 0,…,n−1 case; the general consecutive range follows by twisting."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/regular-ordinarity-descent",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-character-classification",
-        "verdict": "corrected",
-        "note": "BIP cite Conrad Proposition B.4, not Theorem B.4."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-character-torsion-interpolation",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/g-valued-filtered-functor",
-        "verdict": "corrected",
-        "note": "Published pages not accessible; content read in arXiv:2208.07195 §5.1, pp. 31–32 and added to the locator."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/crystalline-equivalence-over-breve-base",
-        "verdict": "corrected",
-        "note": "The arXiv location is added (GLX §5.1, p. 31)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/fixed-bound-fiber-functor-triviality",
-        "verdict": "corrected",
-        "note": "The arXiv location is added (GLX p. 32, paragraph before Definition 5.1)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/classical-fundamental-complex",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/filtered-hardernarasimhan-interface",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/classical-b-pair",
-        "verdict": "corrected",
-        "note": "Ding §2.1 only uses B-pairs. Added the defining source Kedlaya–Liu Definition 9.3.11 and Theorem 9.5.8(c)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/labelled-bdr-realisation",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/b-pair-robba-equivalence",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/b-pair-herr-comparison",
-        "verdict": "corrected",
-        "note": "Ding Lemma 2.1 is on p. 10 and is an H^0 comparison, as the match says; the Herr comparison remains a supplier contract (coverage)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P7/fontaine-bdr-classification",
-        "verdict": "corrected",
-        "note": "Fontaine 2004 Théorème 3.17 is on p. 66. Pages of 3.18–3.20 confirmed; the division-algebra simple blocks match Prop. 3.18 and Théorème 3.19."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/filtered-module-robba-modification",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/filtered-module-robba-equivalence",
-        "verdict": "corrected",
-        "note": "Added an acceptance item: the lattice-recovery step uses the lemma that Berger’s October 2026 errata adds to Théorème III.2.3 (new source issue E44)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/weak-admissibility-robba-slope-zero",
-        "verdict": "corrected",
-        "note": "Berger 2008 IV.2.2 is a Proposition, not a Théorème."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/sen-zero-finite-inertia",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/de-rham-purity-predicate",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.3/rank-two-potentially-semistable-types",
-        "verdict": "corrected",
-        "note": "CDN23 build the slopes into their definitions (footnotes 12–13, not 15). CDN20b’s shift convention is footnote 4, p. 4. Statement and locators corrected."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/de-rham-pair",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/completion-descent-for-horizontal-morphisms",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/proper-smooth-pushforward-de-rham-pairs",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/de-rham-pushforward-cup-and-base-change",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/algebraic-analytic-period-comparison",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/analytic-diamond-bdr-local-systems",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/coherent-coefficients-geometric-pushforward",
-        "verdict": "corrected",
-        "note": "Published pagination not accessible; checked against arXiv:2307.01303v3, Proposition 2.9 (pro-étale ν, as stated); location added."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/proper-proetale-coherent-base-change",
-        "verdict": "corrected",
-        "note": "Checked against arXiv v3, equation (6), p. 10 (⊗_K with K the algebraically closed base field); location added."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-hodge-tate-filtration",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:R06.2/admissible-fundamental-sequence",
-        "verdict": "corrected",
-        "note": "Colmez–Nizioł state it in Remark 5.5(iii)–(iv) of §5.1.3, not §5.2.1. CDN20b §§0.2–0.4 do not state it; that source is recorded as a consumer (Théorème 0.8, §0.4)."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-witt-robba-period-sheaves",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-phi-module",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-pure-locus",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-integral-etale-equivalence",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-rational-etale-equivalence",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-b-pair",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-all-module-bundle-b-pair-equivalence",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-phi-cohomology",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-b-pair-cohomology",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
-      },
-      {
-        "nodeId": "PadicHodgeTheory:P8/relative-period-cohomology-comparison",
-        "verdict": "verified",
-        "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        "item": "Validation",
+        "result": "check_blueprint at the pinned declaration index: 0 errors, 0 warnings. check_restructure, intake check-files and git diff --check pass. No Lean deliverable is changed; no compilation was run."
       }
     ]
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-PadicHodgeTheory--P7",
+      "date": "2026-10-14",
+      "notes": "Independent review by Claude (session claude-N66Hwr), 14 October 2026. The session wrote none of BP-PadicHodgeTheory--P7 (Codex codex-gqQ5AR; earlier checkpoint cc-442dc5) and none of the parallel whole-roadmap packet. Verdicts: all 300 nodes, 189 verified and 111 corrected (44 substantive, 67 locator clean-ups only), none added. Sources: 40 public copies fetched; 37 match the recorded SHA-256 (GLX and Heuer were read in their arXiv versions; Berger's errata has a newer version dated 13 October 2026). The cited passages of all 58 nodes new in this pass were read, as were 88 citations of inherited planets and key theorems; the labels and pages of the 586 labelled locators were audited against the text layers. Baseline: all 75 declarations exist in the cited modules at Mathlib 082e2d3 and Tau Ceti f790474, and their signatures provide what the citing nodes use. Substantive corrections: (1) The two R06.2 ordinarity criteria cited the R06.3 Colmez–Fontaine proof, which closed the stage cycle R06.2 ↔ R06.3. They need only the admissible-subobject lemma, which follows from the R06.2 bigness criterion; rewired, and the node graph is now acyclic at stage level. (2) A false unit test: ξ is a unit of B_cris, since t/ξ ∈ p^{−1}A_cris. (3) The annulus-derivation image statement holds only for open intervals; a counterexample test was added. (4) The ramification supplier (LocalFieldsRamification layer 3) was missing from Tate's trace nodes. (5) Locator and attribution corrections (Scholze, Zavyalov, Berger, BIP/Conrad, Colmez–Nizioł, CDN, Disegni–Liu, Fontaine 2004, KL, Brinon–Conrad, Fontaine–Ouyang); 83 private 'extraction lines' references were removed. (6) Statement precision: Scholze's Theorem 5.1 form, the CDN type definitions, and 'trivial' instead of 'flat' for D_dif. Source issues: 44 entries, 43 confirmed and E11 rejected; E44 was added by this review (Berger 2008 Théorème III.2.3, recorded in the October 2026 errata). PDF-artefact and fragment wording in the 'printed' fields was rewritten. Assigned red-team findings RT-AREA-langlands-2/17, RT-AREA-padic-1/20, 1/24, 2/3, 2/18, 2/19, 2/20 and 2/21 are reflected in the nodes and restructure records. The suggested Lean file elaborates at the pins with no errors; its only warnings (18) mark unproved declarations. It gains the real-bodied thetaDR with thetaDR_coe, thetaDR_surjective and the test thetaDR_teichmuller. Status stays complete: P7 and P8 remain partial and the other six stages planned, with precise remaining lists. Open matters for the orchestrator, recorded in the report and not blocking: the accepted parallel whole-roadmap packet PadicHodgeTheory.json covers the same eight stages with different node ids; upward citations of CohomologyComparisons CP.3/CP.4 (tier 14) and GL2AutomorphicRepresentationsAndTransfer R16.3 (tier 15), and citations of roadmaps outside the 94 (PhiGamma, RelativeFarguesFontaine, VectorBundlesAndIsocrystals, BunGAndNewtonStrata) must be resolved at packaging; and atlas edges P7 → R06.3, P7:annulus-foundations → R06.3 and R06.3 → R06.4 are still undeclared.",
+      "checked": [
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/cp-integers-p-adically-complete",
+          "verdict": "corrected",
+          "note": "Acceptance corrected: Mathlib’s BDeRham has no ring instance at the pins (checked with lean-check); BDeRhamPlus elaborates and carries the real-bodied thetaDR in the suggested file."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/galois-action-on-cp",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/semilinear-galois-descent",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/ax-sen-lemma",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/ax-sen-tate-invariants",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/tate-trace-almost-surjective",
+          "verdict": "corrected",
+          "note": "Prerequisites were empty although the proof uses upper numbering, Herbrand’s theorem and the different; added Tau Ceti LocalFieldsRamification layer 3, which the packet’s own request already named for this node."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/tate-sen-axioms-cyclotomic",
+          "verdict": "corrected",
+          "note": "Added the LocalFieldsRamification layer-3 prerequisite named by the packet’s request."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/tate-sen-vanishing-on-hk",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/tate-sen-theorem",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/tilt-of-cp-and-special-elements",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/explicit-generator-of-ker-theta",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/de-rham-period-ring",
+          "verdict": "corrected",
+          "note": "Acceptance corrected (BDeRham has no ring instance at the pins). thetaDR, thetaDR_coe, thetaDR_surjective and the test thetaDR_teichmuller are now stated in the suggested file on Mathlib’s carrier."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bdr-plus-complete-dvr",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bdr-natural-topology",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/algebraic-closure-in-bdr-plus",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/fontaine-element-t",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/hodge-tate-period-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bdr-filtration-and-graded",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/de-rham-invariants",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/acris-embedding-into-bdr-plus",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/frobenius-kernel-ideals-of-ainf",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/t-in-acris",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/frobenius-on-acris",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/acris-completed-tensor-description",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/acris-embedding-injective",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/crystalline-period-ring",
+          "verdict": "corrected",
+          "note": "Test Bcris_not_field was false: t/ξ lies in p^{−1}A_cris, so ξ is a unit of B_cris. Replaced by Bcris_xi_unit_not_plus (ξ a non-unit of B_cris^+ but a unit of B_cris)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/galois-action-on-acris-continuous",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/filtration-i-r-of-acris",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/divided-frobenius-exact-sequence",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bcris-twisted-frobenius-sequences",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/fundamental-exact-sequence",
+          "verdict": "corrected",
+          "note": "Brinon–Conrad Theorem 9.1.10 gives only (Fil^0 B_cris)^{φ=1} = Q_p; the match now credits the exact sequences to Fontaine–Ouyang Theorem 6.26."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bmax-period-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bmax-injective",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bcris-injective",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/crystalline-logarithm",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/semistable-period-ring",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/log-extension-to-kbar",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/bst-embedding-into-bdr",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/log-p-flat-transcendental",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/k-tensor-bst-injective",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/crystalline-semistable-invariants",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/period-ring-invariants",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/arithmetic-and-perfectoid-constructions-agree",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-laurent-ring",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-multiplicative",
+          "verdict": "corrected",
+          "note": "Kedlaya–Liu Definition 2.2.15 is on p. 33, not p. 28; content confirmed."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-maximum-principle",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/frechet-topology",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/restriction-maps",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-limit-comparison",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/evaluation-at-points",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/gauss-norm-is-spectral-norm",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/identity-principle",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/newton-polygon-breaks",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/weierstrass-preparation-on-circles",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/robba-ring",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/amice-ring",
+          "verdict": "corrected",
+          "note": "Kedlaya–Liu Definition 4.1.3(a) is on p. 103."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/bounded-robba-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/coefficient-extension",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-factor-theorem",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/annulus-derivation",
+          "verdict": "corrected",
+          "note": "The image statement holds for open I only; on I = {1}, Σ p^k T^{p^k−1} has no primitive. Statement qualified; non-example test added."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/amice-ring-complete-dvf",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/completed-base-change",
+          "verdict": "corrected",
+          "note": "Kedlaya–Liu Definition 2.2.15 is on p. 33."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/overconvergent-cyclotomic-rings",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-frobenius",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-gamma-action",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-log-element-t",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-derivation",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/localisation-at-roots-of-unity",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7:annulus-foundations/cyclotomic-log-robba-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/toric-charts-for-smooth-spaces",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/proetale-structure-sheaves-and-valuations",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/integral-elements-via-valuations",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/affinoid-perfectoid-objects-and-etale-pullbacks",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/rational-acyclicity-of-de-rham-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/period-sheaves-on-profinite-products",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/graded-de-rham-period-sheaf-tate-twist",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/corrected-structural-de-rham-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-de-rham-sheaf-connection",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/bdr-plus-power-series-extension-lemma",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/etale-algebras-over-torus-models",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-algebra-structure-on-bdr-power-series",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/connection-and-filtration-in-local-coordinates",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-de-rham-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/formal-poincare-lemma",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/faltings-extension",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/graded-structural-de-rham-sheaf-local-description",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/relative-poincare-lemma",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/gamma-action-on-log-coordinates",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/perfectoid-torus-cover-completed-tensor",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/tate-descent-for-completed-cyclotomic-tensor",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf-over-cyclotomic-base",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/cohomology-of-graded-structural-de-rham-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/pushforward-of-structural-de-rham-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/higher-direct-images-of-twisted-completed-structure-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/almost-limit-lemma-for-acris-modules",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-period-sheaves-on-affinoid-perfectoids",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/frobenius-on-crystalline-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-to-de-rham-period-sheaf-embedding",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-crystalline-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/crystalline-poincare-lemma",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-sheaf-on-affinoid-perfectoids",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/frobenius-on-structural-crystalline-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-crystalline-to-de-rham-embedding",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/semistable-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/structural-semistable-period-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/bdr-plus-local-system",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/bdr-plus-local-systems-and-integrable-connections",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/vector-bundles-on-analytic-etale-and-proetale-sites",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/filtered-module-with-integrable-connection",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/associated-bdr-plus-local-system",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/boundary-map-of-associated-local-system",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/position-of-associated-local-system",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/tensor-compatibility-of-associated-local-systems",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/coherent-cohomology-against-graded-structural-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/proper-smooth-bdr-local-system-comparison",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/affinoid-k-pi-one-for-p-torsion",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/lisse-zp-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/lisse-sheaves-etale-proetale-equivalence",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/de-rham-lisse-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/etale-to-bdr-plus-comparison-for-lisse-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/de-rham-comparison-for-de-rham-lisse-sheaves",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-completed-structure-sheaf-computations",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-pushforward-of-graded-structural-sheaf",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-bdr-plus-local-system-comparison",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; locator label and page confirmed by the text-layer audit."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-de-rham-comparison",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/degree-one-abelian-comparison",
+          "verdict": "corrected",
+          "note": "Private extraction-line references removed from the locator. Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/regular-period-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/admissibility-dimension-bound",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/admissible-category-tannakian",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/period-rings-are-regular",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/filtered-vector-spaces",
+          "verdict": "corrected",
+          "note": "The dual filtration now cites mathlib:Submodule.dualAnnihilator, a baseline declaration that no node used."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/period-functors",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/admissible-representations",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/serre-tate-injectivity",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-decomposition-tate",
+          "verdict": "corrected",
+          "note": "Match made precise: Brinon–Conrad Example 2.3.5 gives part (3)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-base-change",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-graded-equivalence",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-number-tH",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/ddr-of-tate-twists",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/de-rham-implies-hodge-tate",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/de-rham-base-change",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/induction-and-restriction-of-scalars",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/extension-with-separated-weights-de-rham",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
+          "verdict": "corrected",
+          "note": "Brinon–Conrad has no Remark 8.2.5; the formulas follow Definition 8.2.5, pp. 112–113."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/monodromy-nilpotent",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/newton-number-tN",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/slope-decomposition",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/weak-admissibility",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/weakly-admissible-two-out-of-three",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/weakly-admissible-category-abelian",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/rank-one-filtered-modules",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/filtered-phi-n-modules-with-descent-data",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/dcris-dst-filtered-phi-n-modules",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-subobjects-strict",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-semistable-base-change",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/frobenius-twisted-units-surjective",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/potentially-unramified-and-characters",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/coefficient-field-base-change",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/period-functors-transport-of-structure",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
+          "verdict": "corrected",
+          "note": "Fontaine–Ouyang Proposition A1 is stated on p. 140; its proof ends in §7.2.7, p. 157. Locator corrected."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/vst-rank-one",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/vst-continuity",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/colmez-fontaine-bigness-criterion",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/robba-ring-of-p-adic-field",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/extended-robba-ring-with-galois-action",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/berger-robba-identification",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/robba-ring-tensor-identity",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/extended-localisation-maps",
+          "verdict": "corrected",
+          "note": "Berger 2002 Proposition 2.11 is on p. 19."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/nabla-operator-on-robba-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/extended-robba-plus-decomposition",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/log-extended-period-rings",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/frobenius-regularisation",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/robba-realisation-comparison",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/decompletion-operators",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/theta-iota-kernel",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/t-divisibility-criterion",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/cyclotomic-eigenvectors-in-log-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/semistable-periods-in-extended-robba-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/berger-dcris-dst-dictionary",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/berger-comparison-isomorphisms",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/connection-on-robba-realisation",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/antiderivatives-on-log-robba-ring",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/unipotent-crystal",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/unipotent-connection-criterion",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/semistability-criterion-unipotent-connection",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/theta-iota-surjective-onto-Kn",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/sen-module",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/fontaine-dif-module",
+          "verdict": "corrected",
+          "note": "Test said the connection on D_dif(V) is \"not flat\"; every one-variable connection is integrable. Corrected to \"not trivial\"."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/ddr-via-robba-realisation",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/wach-dcris-comparison",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/integral-dcris-lattice",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/principal-parts-interpolation",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/ideals-dividing-powers-of-t",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/closed-submodules-of-free-robba-modules",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/lie-algebra-trivial-gamma-action",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/de-rham-iff-dif-connection-trivial",
+          "verdict": "corrected",
+          "note": "\"trivial (flat)\" corrected to \"trivial (has a full set of horizontal sections)\"."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/approximation-in-dif-module",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/de-rham-lattice-Ns",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/determinant-of-stable-submodule",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/de-rham-differential-equation",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/robba-lattice-implies-de-rham",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/de-rham-differential-equation-has-frobenius-structure",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/p-adic-monodromy-theorem",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-independence-of-choices",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/weil-deligne-descent",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/convention-comparison-with-r01",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/hodge-and-inertial-type-do-not-determine-frobenius",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/small-weight-admissibility",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example",
+          "verdict": "verified",
+          "note": "Statement, hypotheses and prerequisites checked; locator labels and pages confirmed by the text-layer audit where they carry a numbered label."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/ordinary-representation",
+          "verdict": "corrected",
+          "note": "Brinon–Conrad Theorem 8.3.6 is on pp. 120–121."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/ordinary-implies-semistable",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion",
+          "verdict": "corrected",
+          "note": "Brinon–Conrad Theorem 8.3.6 is on pp. 120–121. The slopes −(r±1)/2 and the r = 1 criterion were rechecked by weak admissibility."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/weight-p-endpoint-branch",
+          "verdict": "verified",
+          "note": "Statement and prerequisites checked; the cited statement was read at its locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.4/weight-p-plus-one-branch",
+          "verdict": "corrected",
+          "note": "Brinon–Conrad Theorem 8.3.6 parametrises all r > 0; it has no separate r = p existence statement. Match corrected."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/nested-affinoid-covers",
+          "verdict": "corrected",
+          "note": "Scholze Lemma 5.3 is on p. 28; its proof is on p. 29."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/finite-image-spectral-sequence",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-local-cohomology",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-global-almost-finiteness",
+          "verdict": "corrected",
+          "note": "Scholze Lemma 5.8 is on p. 33 (arXiv v2)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-comparison-mod-p",
+          "verdict": "corrected",
+          "note": "Aligned with Scholze Theorem 5.1: étale cohomology with C^+/p coefficients, then the pro-étale form and O_C/p up to almost isomorphism."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/relative-primitive-comparison",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/integral-etale-finiteness",
+          "verdict": "corrected",
+          "note": "Zavyalov’s statement is Lemma 5.5.1, not Proposition 5.5.1."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-ainf-comparison",
+          "verdict": "corrected",
+          "note": "Scholze Theorem 8.4 has no part (i); the A_inf step is the first step of its proof, p. 49."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-bdr-plus-comparison",
+          "verdict": "corrected",
+          "note": "Scholze Theorem 8.4 has no part (i); the locator now names the B_dR^+ step of the proof."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/etale-proetale-torsion-comparison",
+          "verdict": "corrected",
+          "note": "Proposition 3.15 is on p. 19 and Corollary 3.17 on pp. 20–21."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/primitive-comparison-proper-singular",
+          "verdict": "corrected",
+          "note": "Zavyalov Lemma 5.5.1, not Proposition."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8:local-rational/geometric-hodge-tate-pushforward",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/breuil-completed-semistable-rings",
+          "verdict": "corrected",
+          "note": "P_l is Kato’s (3.2) or Tsuji’s §1.6 construction, and the explicit description is Breuil’s §§2, 4. Locator and match corrected; Disegni–Liu’s footnote 39 is recorded."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/completed-bst-nilpotent-part",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.1/frobenius-restricted-monodromy-edge",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/regular-ordinary-representation",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-ordinary-slope-criterion",
+          "verdict": "corrected",
+          "note": "Removed the R06.3 Colmez–Fontaine proof, which closed the stage cycle R06.2 ↔ R06.3. The admissible-subobject lemma follows from the bigness criterion and abelianness of MF^wa by a dimension count, so V given suffices."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/maximal-monodromy-ordinary-criterion",
+          "verdict": "corrected",
+          "note": "The same cycle repair. BLGHT Lemma 2.2(2) states the jumps 0,…,n−1 case; the general consecutive range follows by twisting."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/regular-ordinarity-descent",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-character-classification",
+          "verdict": "corrected",
+          "note": "BIP cite Conrad Proposition B.4, not Theorem B.4."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-character-torsion-interpolation",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/g-valued-filtered-functor",
+          "verdict": "corrected",
+          "note": "Published pages not accessible; content read in arXiv:2208.07195 §5.1, pp. 31–32 and added to the locator."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/crystalline-equivalence-over-breve-base",
+          "verdict": "corrected",
+          "note": "The arXiv location is added (GLX §5.1, p. 31)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/fixed-bound-fiber-functor-triviality",
+          "verdict": "corrected",
+          "note": "The arXiv location is added (GLX p. 32, paragraph before Definition 5.1)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/classical-fundamental-complex",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/filtered-hardernarasimhan-interface",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/classical-b-pair",
+          "verdict": "corrected",
+          "note": "Ding §2.1 only uses B-pairs. Added the defining source Kedlaya–Liu Definition 9.3.11 and Theorem 9.5.8(c)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/labelled-bdr-realisation",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/b-pair-robba-equivalence",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/b-pair-herr-comparison",
+          "verdict": "corrected",
+          "note": "Ding Lemma 2.1 is on p. 10 and is an H^0 comparison, as the match says; the Herr comparison remains a supplier contract (coverage)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P7/fontaine-bdr-classification",
+          "verdict": "corrected",
+          "note": "Fontaine 2004 Théorème 3.17 is on p. 66. Pages of 3.18–3.20 confirmed; the division-algebra simple blocks match Prop. 3.18 and Théorème 3.19."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/filtered-module-robba-modification",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/filtered-module-robba-equivalence",
+          "verdict": "corrected",
+          "note": "Added an acceptance item: the lattice-recovery step uses the lemma that Berger’s October 2026 errata adds to Théorème III.2.3 (new source issue E44)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/weak-admissibility-robba-slope-zero",
+          "verdict": "corrected",
+          "note": "Berger 2008 IV.2.2 is a Proposition, not a Théorème."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/sen-zero-finite-inertia",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/de-rham-purity-predicate",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.3/rank-two-potentially-semistable-types",
+          "verdict": "corrected",
+          "note": "CDN23 build the slopes into their definitions (footnotes 12–13, not 15). CDN20b’s shift convention is footnote 4, p. 4. Statement and locators corrected."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/de-rham-pair",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/completion-descent-for-horizontal-morphisms",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/proper-smooth-pushforward-de-rham-pairs",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/de-rham-pushforward-cup-and-base-change",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/algebraic-analytic-period-comparison",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/analytic-diamond-bdr-local-systems",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/coherent-coefficients-geometric-pushforward",
+          "verdict": "corrected",
+          "note": "Published pagination not accessible; checked against arXiv:2307.01303v3, Proposition 2.9 (pro-étale ν, as stated); location added."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/proper-proetale-coherent-base-change",
+          "verdict": "corrected",
+          "note": "Checked against arXiv v3, equation (6), p. 10 (⊗_K with K the algebraically closed base field); location added."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-hodge-tate-filtration",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:R06.2/admissible-fundamental-sequence",
+          "verdict": "corrected",
+          "note": "Colmez–Nizioł state it in Remark 5.5(iii)–(iv) of §5.1.3, not §5.2.1. CDN20b §§0.2–0.4 do not state it; that source is recorded as a consumer (Théorème 0.8, §0.4)."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-witt-robba-period-sheaves",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-phi-module",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-pure-locus",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-integral-etale-equivalence",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-rational-etale-equivalence",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-b-pair",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-all-module-bundle-b-pair-equivalence",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-phi-cohomology",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-b-pair-cohomology",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        },
+        {
+          "nodeId": "PadicHodgeTheory:P8/relative-period-cohomology-comparison",
+          "verdict": "verified",
+          "note": "The cited passages were read at their locators. Statement, hypotheses and prerequisites agree."
+        }
+      ]
+    }
+  ]
 }

@@ -579,10 +579,48 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-RS-01",
-    "date": "2026-10-10",
-    "notes": "Independent review of FIX-RT-RS-01 following REV-RS-01 and the verification REV-RT-RS-01. Checked all 32 findings, public sources, pinned declarations and dependency graphs. Corrected the index-1 Witt criterion, μ non-generator test, rational-freeness hypotheses, classical versus derived A_inf sheaves, coefficient primitive comparison, quotient-unit logarithm and Hodge–Tate-compatible uniqueness. Finding /30 remains unresolved: neither Fontaine–Laffaille proof ownership across R07.3/R06.4 nor the general Colmez–Fontaine supplier for R07.4 is settled. Both are now explicitly referred to the R07 family without the contradictory unconditional R06.4 assignment. See REV-FIX-RT-RS-01.md for the exact remaining decisions. This review does not certify completion of the partial P7 blueprint."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-RS-01~2",
+    "date": "2026-10-18",
+    "notes": "Independent review of FIX-RT-RS-01~2 by Codex, session codex-7AYw97, issue #8932, following REV-FIX-RT-RS-01. Accepted the ownership repair for RT-RS-01/30: early R07.3 owns rational Fontaine–Laffaille Theorem 8.4 and its period comparison; R06.4 imports it. R06.3 owns the original perfect-residue Colmez–Fontaine proof; R07.4 imports it and retains Kisin’s finite-height construction/comparison. R06.2 remains the proposition and early-formalism interface. Independently checked the FL/CF public proof passages, lifting hypotheses, source scopes, pinned carriers, consumer forwarding and dependency graphs. The other 31 finding dispositions remain as independently reviewed on 10 October; their 22 layer decisions, 21 owner records and 31 links are unchanged. Corrected stale proof-supplier references, made the sign dictionary’s admissibility/range assumptions explicit in its statement, and completed the CF filtration locators. All checkers pass. See REV-FIX-RT-RS-01~2.md for per-finding evidence and limitations. This accepts the fix, preserving P7’s 25 proof gaps, the existing VB-stage cycle and the external-packet/document synchronization obligations; no stage or Lean proof is certified complete.",
+    "checked": [
+      {
+        "item": "RT-RS-01/30: Fontaine–Laffaille",
+        "result": "FL Theorem 8.4(i)–(ii), pp. 595–596, permits all primes and arbitrary perfect k at e=1, Fil^j D=D and Fil^{j+p}D=0. The normalized functor is contravariant and dual to covariant V_cris. Proposition 7.17, p. 594, does not prove the all-stable-lattice essential-image claim."
+      },
+      {
+        "item": "RT-RS-01/30: general Colmez–Fontaine",
+        "result": "CF author Theorem A, p. 2; Proposition 2.1/Corollary 2.6, pp. 12–17; Propositions 3.2/3.5, pp. 19/22; Proposition 4.5, pp. 24–25; Propositions 5.1–5.3/5.6–5.8, pp. 26–31; §6.1, pp. 31–33. The first proof uses early FL and covers perfect residue fields without [K:Q_p]<∞."
+      },
+      {
+        "item": "Kisin comparison retained",
+        "result": "Brinon–Conrad Proposition 11.3.3 and Remark 11.3.4, pp. 182–183, distinguish the finite-height comparison map from its general admissibility consequence. R07.4 keeps the former with its scope."
+      },
+      {
+        "item": "Prior dispositions",
+        "result": "Compared every raw finding with its verification and the previous independent review. All 22 pre-fix layer records, 21 owners and 31 links remain equal as JSON values; /25, /26 and /29 remain rejected."
+      },
+      {
+        "item": "Carriers and current upstream",
+        "result": "Re-read pinned Isocrystal/IsocrystalHom, WittVector.map, FontaineTheta, BDeRham and the presentation cotangent map; checked AUDIT-37/38 and coverage bookkeeping. Current AdicSpaces/LocalGaloisGroups and cyclotomic character work remain imported. No new baseline declaration is claimed."
+      },
+      {
+        "item": "Graph and forwarding",
+        "result": "Read-only full assembly: 5,054 edge-incident vertices, 15,132 edges, acyclic; all 50 RS links carry application evidence, none skipped. All 6 R06.4 and 12 R07.4 direct consumers have direct supplier edges. Raw proposal union: 5,103 vertices, 15,359 edges, acyclic."
+      },
+      {
+        "item": "Projected draft dependencies",
+        "result": "P7 already has VB3:general-BC → VB4 → R06.2 → VB3:general-BC before the fix. No new cyclic edge or R06.4→R07.3 / R06.3→R06.2 return path. The early external FL closure also imports R07.2/dieudonne-ring, in addition to R06.1/R06.2 and libraries; it imports no later proof stage."
+      },
+      {
+        "item": "API and tests",
+        "result": "All 300 pre-fix node ids, existing API items and definition tests are preserved. The 2 added key theorem targets have source-specific proof sketches and acceptance cases; no new definition requires an API. Final totals: 302 nodes, 640 API items, 373 definition tests."
+      },
+      {
+        "item": "Validation",
+        "result": "check_blueprint at the pinned declaration index: 0 errors, 0 warnings. check_restructure, intake check-files and git diff --check pass. No Lean deliverable is changed; no compilation was run."
+      }
+    ]
   },
   "reviewHistory": [
     {
@@ -591,6 +629,12 @@
       "date": "2026-09-23",
       "notes": "The proposal keeps all seven roadmaps and 61 stages, narrows only CP.0 (it imports four coefficient packages) and CP.5 (it imports the generic BMS §4.2 specialization package from AI.5), and names five owners. The report resolves all 95 unordered evidence pairs in one table, as construction-versus-comparison or construction-versus-application relations. Spot checks of the stage texts support this: Q2 imports PR.2 derived prismatic extension, PR.0 compares its envelopes with CR.0 PD envelopes, AI.1 exports Lη to CR.4, and CR.3 keeps only its corrected tower application. Both narrowed layers forward to all consumers. With the twelve accepted restructurings applied, all 16 new links apply and none closes a cycle; the one new reachability, CP.3 -> CP.2, is justified in the report. See REV-RS-01.md.",
       "corrections": []
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-RS-01",
+      "date": "2026-10-10",
+      "notes": "Independent review of FIX-RT-RS-01 following REV-RS-01 and the verification REV-RT-RS-01. Checked all 32 findings, public sources, pinned declarations and dependency graphs. Corrected the index-1 Witt criterion, μ non-generator test, rational-freeness hypotheses, classical versus derived A_inf sheaves, coefficient primitive comparison, quotient-unit logarithm and Hodge–Tate-compatible uniqueness. Finding /30 remains unresolved: neither Fontaine–Laffaille proof ownership across R07.3/R06.4 nor the general Colmez–Fontaine supplier for R07.4 is settled. Both are now explicitly referred to the R07 family without the contradictory unconditional R06.4 assignment. See REV-FIX-RT-RS-01.md for the exact remaining decisions. This review does not certify completion of the partial P7 blueprint."
     }
   ],
   "fix": {
