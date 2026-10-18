@@ -13,7 +13,6 @@
   "DerivedDeRhamCohomology",
   "EnhancedDerivedSheaves",
   "SchemeAndStackFoundations",
-  "AdicSpacesPartII",
   "tauceti:TauCetiRoadmap/StableReduction"
  ],
  "stages": [
@@ -74,7 +73,7 @@
   {
    "key": "DS.4",
    "title": "Big Cohen–Macaulay algebras",
-   "description": "Existence of balanced big Cohen–Macaulay algebras for every Noetherian local ring, and weak functoriality from almost Cohen–Macaulay squares. Targets:\n\n- **Almost Cohen–Macaulay algebras** for (B, x, π^{1/p^∞}) (André B Définition 4.1.1(3)) and their **criteria** by almost isomorphism with faithfully flat algebras (Lemme 4.1.3).\n- **Hochster's partial algebra modifications**, his **modification criterion** (a big Cohen–Macaulay square exists iff no double sequence is bad) and his **key lemma** extending maps with controlled denominators.\n- **Almost Cohen–Macaulay ⇒ balanced big Cohen–Macaulay** (Proposition 4.1.2) and **weak functoriality from almost Cohen–Macaulay squares** (Proposition 4.4.1).\n- **Reductions** (completion, minimal primes, reduced quotient, perfect residue field).\n- **Existence**: André in mixed characteristic (Théorème 0.7.1), Hochster–Huneke in characteristic p (R⁺ is balanced big Cohen–Macaulay) and in equal characteristic 0.",
+   "description": "Existence of balanced big Cohen–Macaulay algebras for every Noetherian local ring, and weak functoriality from almost Cohen–Macaulay squares. Targets:\n\n- **Almost Cohen–Macaulay algebras** for (B, x, π^{1/p^∞}) (André B Définition 4.1.1(3)) and their **criteria** by almost isomorphism with faithfully flat algebras (Lemme 4.1.3).\n- **Hochster's pointed partial algebra modifications** (E21–E22; finite-witness comparison G4), his **modification criterion** (a big Cohen–Macaulay square exists iff no double sequence is bad) and his **key lemma** extending maps with controlled denominators.\n- **Almost Cohen–Macaulay ⇒ balanced big Cohen–Macaulay** (Proposition 4.1.2) and **weak functoriality from almost Cohen–Macaulay squares** (Proposition 4.4.1).\n- **Reductions** (completion, minimal primes, reduced quotient, perfect residue field).\n- **Existence**: André in mixed characteristic (Théorème 0.7.1), Hochster–Huneke in characteristic p (R⁺ is balanced big Cohen–Macaulay) and in equal characteristic 0.",
    "requires": [
     "DirectSummandsAndBigCohenMacaulay:DS.0",
     "PerfectoidSpacesPartII:RA.5",
@@ -87,7 +86,7 @@
   {
    "key": "DS.5",
    "title": "The direct summand theorem and flat domination",
-   "description": "The final theorems for regular rings. Targets:\n\n- **The direct summand theorem**: every Noetherian regular ring is a splinter (André Théorème 0.1.1, Bhatt Theorem 1.1), with André's and Bhatt's mixed characteristic proofs as alternative routes.\n- **Products of flat modules over a Noetherian ring are flat** (needed for the global product).\n- **Flat domination of finite covers**: every finite extension of a Noetherian regular ring is dominated by a faithfully flat algebra (Théorème 0.7.2, corrected to dominating components).\n- **R → R⁺ splits** for complete regular local rings.\n- **Contracted ideals and the monomial theorem** as consequences.",
+   "description": "The final theorems for regular rings. Targets:\n\n- **The direct summand theorem**: every Noetherian regular ring is a splinter (André Conjecture 0.1.1, proved in the paper, Bhatt Theorem 1.1), with André's and Bhatt's mixed characteristic proofs as alternative routes.\n- **Products of flat modules over a Noetherian ring are flat** (needed for the global product).\n- **Flat domination of finite covers**: every finite extension of a Noetherian regular ring is dominated by a faithfully flat algebra (Théorème 0.7.2, corrected to dominating components).\n- **R → R⁺ splits** for complete regular local rings.\n- **Contracted ideals and the monomial theorem** as consequences.",
    "requires": [
     "DirectSummandsAndBigCohenMacaulay:DS.0",
     "DirectSummandsAndBigCohenMacaulay:DS.1",
@@ -102,7 +101,7 @@
   {
    "key": "DS.6",
    "title": "Cohen–Macaulayness of pure subrings of regular rings",
-   "description": "André's Théorème 4.4.2. Targets:\n\n- **Purity survives completion and passage to perfect residue fields** (Lemme A.2.2).\n- **Weak functoriality for regular targets**: an injective local map of complete local domains of mixed characteristic with separable residue extension and regular target fits in a square of balanced big Cohen–Macaulay algebras (§4.4, using the ramified-base form of André's flatness theorem from PerfectoidSpacesPartII RA.5).\n- **Descent of Cohen–Macaulayness** through such a square and purity.\n- **Pure subrings of regular local rings of mixed characteristic are Cohen–Macaulay** (separable residue extension).",
+   "description": "André's Théorème 4.4.2. Targets:\n\n- **Purity survives completion and passage to perfect residue fields** (Lemme A.2.2); request R2 isolates the relative Cohen-extension comparison needed for the second part.\n- **Weak functoriality for regular targets**: an injective local map of complete local domains of mixed characteristic with separable residue extension and regular target fits in a square of balanced big Cohen–Macaulay algebras (§4.4, using the ramified-base form of André's flatness theorem from PerfectoidSpacesPartII RA.5).\n- **Descent of Cohen–Macaulayness** through such a square and purity.\n- **Pure subrings of regular local rings of mixed characteristic are Cohen–Macaulay** (separable residue extension).",
    "requires": [
     "DirectSummandsAndBigCohenMacaulay:DS.0",
     "DirectSummandsAndBigCohenMacaulay:DS.4",
@@ -115,7 +114,7 @@
   {
    "key": "DS.7",
    "title": "The derived direct summand theorem",
-   "description": "Bhatt's Theorem 1.2: for a Noetherian regular ring A_0 and a proper surjective X_0 → Spec A_0, A_0 → RΓ(X_0, O) splits in D(A_0). Targets:\n\n- **Derived splinters**.\n- **Perfectness of proper coherent cohomology** over regular local rings, with flat base change.\n- **Reductions** of the derived obstruction to complete regular local rings and generically finite integral covers.\n- **Almost splitting of proper maps over integral perfectoid algebras** that are finite étale and surjective after inverting p (Proposition 6.2, corrected).\n- **Characteristic p**: killing higher coherent cohomology by finite covers and the equality of splinters and derived splinters (Bhatt 2012).\n- **Characteristic 0**: Kovács' theorem through Néron–Popescu approximation.\n- **The derived direct summand theorem**.",
+   "description": "Bhatt's Theorem 1.2: for a Noetherian regular ring A_0 and a proper surjective X_0 → Spec A_0, A_0 → RΓ(X_0, O) splits in D(A_0). Targets:\n\n- **Derived splinters**.\n- **Perfectness of proper coherent cohomology** over regular local rings, with flat base change; coherence is imported from current StableReduction and boundedness comes from a finite affine Čech cover.\n- **Reductions** of the derived obstruction to complete regular local rings and generically finite integral covers.\n- **Almost splitting of proper maps over integral perfectoid algebras** that are finite étale and surjective after inverting p (Proposition 6.2, corrected).\n- **Characteristic p**: killing higher coherent cohomology by finite covers and the equality of splinters and derived splinters (Bhatt 2012).\n- **Characteristic 0**: the rational-singularity route, with Kovács' exact projective hypotheses and the missing extensions recorded in G2.\n- **The derived direct summand theorem**.",
    "requires": [
     "DirectSummandsAndBigCohenMacaulay:DS.0",
     "DirectSummandsAndBigCohenMacaulay:DS.1",
@@ -129,7 +128,6 @@
     "SchemeAndStackFoundations:SF.0",
     "SchemeAndStackFoundations:SF.2",
     "SchemeAndStackFoundations:SF.4",
-    "AdicSpacesPartII:R2",
     "EnhancedDerivedSheaves:E1",
     "DeformationAndDerivedPatchingAlgebra:P7",
     "DeformationAndDerivedPatchingAlgebra:R03.1",
@@ -183,7 +181,7 @@
    "edition": "arXiv:1703.08281v2 (18 March 2018); published in Algebra & Number Theory 12 (2018)",
    "url": "https://arxiv.org/pdf/1703.08281v2",
    "readSections": [
-    "§1 including §1.2 (partial algebra modifications, Theorem 1.6), pp. 1–3"
+    "§1, including §1.2 and Theorem 1.6 with the completion discussion, pp. 1–4"
    ]
   },
   {
@@ -204,7 +202,7 @@
    "edition": "arXiv:2007.10383v1",
    "url": "https://arxiv.org/pdf/2007.10383v1",
    "readSections": [
-    "Proposition 5.4.1 and the surrounding discussion of solidity, pp. 28–29 (statement checked against the extraction's reading)"
+    "Proposition 5.4.1 and its proof, with the discussion of solidity, pp. 28–29 (independently read)"
    ]
   },
   {
@@ -224,7 +222,7 @@
    "edition": "version of January 6, 2011, from the author's page",
    "url": "https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf",
    "readSections": [
-    "§5, Theorem (5.4) (Matlis duality), p. 19"
+    "§5, Theorem 5.1 (endomorphisms of the injective hull), p. 19, and Theorem 5.4 (Matlis duality), p. 21; surrounding argument pp. 19–22"
    ]
   },
   {
@@ -234,18 +232,19 @@
    "edition": "arXiv:1109.0354v1 (2 September 2011); published in Compositio Mathematica 148 (2012), 1757–1786",
    "url": "https://arxiv.org/pdf/1109.0354v1",
    "readSections": [
-    "Introduction, Definitions 0.1–0.2, Theorems 0.3–0.4, pp. 1–2",
-    "§1, Examples 1.1–1.3, pp. 2–3"
+    "Introduction and Examples 1.1–1.3, pp. 1–4",
+    "§§2–3, including Lemma 2.2, Propositions 3.1–3.2, Corollary 3.5 and proof of Theorem 0.3, pp. 5–9"
    ]
   },
   {
    "id": "HOCHSTER73",
    "title": "Contracted ideals from integral extensions of regular rings",
    "authors": "Melvin Hochster",
-   "edition": "Nagoya Mathematical Journal 51 (1973), 25–43. Not reread in this job: cited through André B §3.4 and A.3 and through the extraction PAPER-ANDRE-18-B, which read p. 30.",
-   "url": "https://doi.org/10.1017/S0027763000015701",
+   "edition": "Nagoya Mathematical Journal 51 (1973), 25–43; public journal copy from Cambridge University Press. Journal page numbers.",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/82D140341FC0DE224799A1FB5468DC45/S0027763000015701a.pdf/contracted-ideals-from-integral-extensions-of-regular-rings.pdf",
    "readSections": [
-    "not read in this job"
+    "§1, Theorem 1 and its inverse-limit/coset proof, pp. 29–30",
+    "§1, Theorem 2, statement p. 31 and first characteristic-p proof p. 32"
    ]
   },
   {
@@ -262,10 +261,22 @@
    "id": "KOVACS00",
    "title": "A characterization of rational singularities",
    "authors": "Sándor J. Kovács",
-   "edition": "Duke Mathematical Journal 102 (2000), 187–191. Not read in this job: cited as Bhatt [Bhatt18, Theorem 1.2] and Bhatt [Bhatt12, Example 1.2] cite it.",
-   "url": "https://doi.org/10.1215/S0012-7094-00-10221-9",
+   "edition": "Duke Mathematical Journal 102 (2000), 187–191; public author copy; journal page numbers.",
+   "url": "https://sites.math.washington.edu/~kovacs/current/papers/Kovacs__A_characterization_of_rtl_singularities.pdf",
    "readSections": [
-    "not read in this job"
+    "Complete: Theorems 1–2 and proofs, pp. 187–191"
+   ]
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online version accessed 2026-10-18; tags are stable locators.",
+   "url": "https://stacks.math.columbia.edu",
+   "readSections": [
+    "Tag 0A6A: derived Hom and flat base change",
+    "Section 30.4, tag 01XH: Lemmas 30.4.2 and 30.4.5 (Čech cohomological bounds)",
+    "Section 30.19, tag 02O3: Proposition 30.19.1 and Lemma 30.19.2 (proper coherent cohomology)"
    ]
   }
  ],
