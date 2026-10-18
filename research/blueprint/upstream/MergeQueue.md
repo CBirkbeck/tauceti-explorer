@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T19:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T19:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -65,7 +65,7 @@ Generated 2026-10-18T19:10Z from the README supplier graph of every open pull re
 - #868 DerivedDeRhamCohomology — ready; waits on #818, #908, #940, #944
 
 ## Wave 11
-- #857 CrystallineCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #868, #908, #940, #944, #1102, #1103, #1104
+- #857 CrystallineCohomology — draft; waits on #813, #814, #815, #818, #820, #868, #908, #940, #944, #1102, #1103, #1104
 
 ## Wave 12
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
@@ -80,7 +80,7 @@ Generated 2026-10-18T19:10Z from the README supplier graph of every open pull re
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848, #938, #944
 
 ## Wave 15
-- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #813, #849, #938, #248, #446
+- #856 ArithmeticGaloisRepresentations — draft; waits on #785, #792, #813, #849, #938, #248, #446
 
 ## Wave 16
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
@@ -98,7 +98,7 @@ Generated 2026-10-18T19:10Z from the README supplier graph of every open pull re
 - #1154 InductionRestrictionPartII — draft; waits on #850
 
 ## Wave 19
-- #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #816, #849, #852, #858, #879, #940, #944, #248
+- #869 SelmerIwasawaCohomology — draft; waits on #816, #849, #852, #858, #879, #940, #944, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #785, #848, #850, #852, #853, #938
 - #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #944, #1103, #1104
 - #914 FreeGroupsAndLimitGroups — ready; waits on #852
