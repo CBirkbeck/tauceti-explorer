@@ -2969,210 +2969,218 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-PeriodsAndSpecialValues--PS.8",
-    "date": "2026-10-11",
-    "notes": "Independent complete target-level review: all 40 nodes, 63 API items, 63 unit tests, sources, 20 actual pinned baseline statements, nine supplier contracts and current upstream ownership checked. Corrected 23 nodes, added no nodes, confirmed E1/E2 and added version-scoped E3/E4. Lean elaborates with only placeholder-proof warnings; rational determinant and branch-conjugacy checks are proved. G1–G4 remain explicit mathematical proof/interface obligations and G5 is the current-upstream catalogue link. Both stages are planned, neither closed. Acceptance does not assert that supplier requests, mathematical proofs or omitted supplier-dependent Lean signatures are implemented.",
-    "checked": [
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-pencil",
-        "verdict": "corrected",
-        "note": "Checked the order-16 quotient, invariant equation, six A₃ resolutions and smooth/excluded fibres against H §4.1, pp.10–11. Corrected irrelevant section references; generic relative geometry remains G4."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-residue",
-        "verdict": "corrected",
-        "note": "Checked H Propositions 4.6–4.7, pp.12–13, including the 2πi tube convention, chart restriction and crepant extension. Replaced the Picard–Fuchs section locator."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-picard-fuchs",
-        "verdict": "verified",
-        "note": "Verified H Proposition 4.14 and independently expanded the corrected E1 pullback. Ω and tΩ have the distinct stated equations; no missing scale is absorbed into an integral marking."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-lattice",
-        "verdict": "corrected",
-        "note": "Verified the primitive rank-19 polarization, rank-three complement and rational splitting. Corrected Theorem 4.12 attribution and its ambient hypothesis (E3), imported existing current IntegralLattices 5H/6A, and recorded G5 catalogue linkage."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-monodromy",
-        "verdict": "verified",
-        "note": "Verified all five cycle matrices, Gram preservation and ordered product exactly. Their Gram-conjugated period-row action gives the stated infinity translation and γ₁ reflection; γ₄ is translation-conjugate, as used in E4."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-frobenius-series",
-        "verdict": "verified",
-        "note": "Verified the harmonic-number Frobenius coefficients and logarithmic basis against H §4.7. Independent exact calculation gives the stated q coefficients after the tΩ normalization."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-symmetric-square",
-        "verdict": "verified",
-        "note": "Verified LYH Proposition 3.1 at λ=256,ν=1/4 and independently squared the first five ₂F₁ coefficients. Existing Mathlib provides only ordinary ₂F₁; the symmetric-square target is not duplicated."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-mirror-coordinate",
-        "verdict": "corrected",
-        "note": "Verified zero constant term, unit linear coefficient and formal inverse. Corrected the geometric normalization proof to pull the local formula to t=i rather than equate the γ₁ and γ₄ based paths (E4)."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-modular-relation",
-        "verdict": "corrected",
-        "note": "Checked every coefficient of LYA equation (5.19), printed p.21, and x=1/j versus J=j/1728. Corrected page numbers; the analytic Schwarzian supplier is explicitly requested."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-integrality",
-        "verdict": "corrected",
-        "note": "Checked LYA equations (6.1)–(6.4), printed p.22, and its quartic application. ℓ=2,m=1 gives integral coefficients; degree-four integrality does not use the prime-degree theorem. Tightened the locator."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-pencil",
-        "verdict": "verified",
-        "note": "Verified SH §§3.1–3.3: Γ has order 125, smoothness excludes λ=0 and 1+5⁵λ⁵=0, and invariant rank four is distinguished from full H³ rank 204."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-formal-connection",
-        "verdict": "corrected",
-        "note": "Verified SH Definition 4.2 and Lemma 4.12, including homogeneity, δ and its (24,50,35,10) relation. Separated SS’s affine comparison citation; no integral formal lattice is asserted and G1 remains explicit."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-dwork-frobenius",
-        "verdict": "verified",
-        "note": "Verified the exponential correction, p⁻² normalization, parameter semilinearity and δF=pFδ. Cup-pairing scaling is retained with its comparison hypotheses; CR.7 is not treated as a proved Dwork comparison."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/dwork-coefficients",
-        "verdict": "corrected",
-        "note": "Verified the Dwork exponential and harmonic-weighted sums. Corrected the nonexistent SH Theorem 6.1 to Definition 6.1, Lemmas 6.2–6.3 and §§6.1–6.4. Convergence is a genuine premise (G2)."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-boundary-matrix",
-        "verdict": "corrected",
-        "note": "Verified the diagonal p³,p²,p,1 and row-3/column-0 correction 24p³Δ₃/25 against SH’s reductions. Corrected the theorem locator. Exact matrix checks give NF=pFN and FᵀJF=p³J without interpreting numerical L-value evidence as a theorem."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-crystalline-comparison",
-        "verdict": "corrected",
-        "note": "Checked SS §§2–3 and its explicit comparison limitation. The projective/completed, integral and semistable bridge is a precise target with G1, rather than a claim already proved by SH or CR.5–CR.7. Separated the two source references."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/mzv-indices",
-        "verdict": "corrected",
-        "note": "Verified descending positive-index convergence, the empty value and non-example [1]. Separated Brown’s reverse convention from the IKZ citation; no ordinary value is assigned to the divergent series."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/word-products",
-        "verdict": "verified",
-        "note": "Verified both recursive products, multiplicities, units and the 0/1 encoding. Pinned TauCeti supplies pure words and all-cut deconcatenation, including outer cuts, but not shuffle multiplication."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/iterated-integrals",
-        "verdict": "corrected",
-        "note": "Verified the largest-time head convention, interval integrability conditions and endpoint/tangential treatment. Separated the DG tangential source from IKZ. The increasing-time motivic word is explicitly reversed."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/convergent-double-shuffle",
-        "verdict": "corrected",
-        "note": "Verified the two admissible product decompositions and their ζ(3,1),ζ(2,2) consequences. Removed the forward ζ(2,1)=ζ(3) claim from this prerequisite; the existing later regularization node owns that corollary."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/polynomial-regularizations",
-        "verdict": "verified",
-        "note": "Verified IKZ Proposition 1 and its polynomial decomposition/uniqueness proof. T is the formal divergence parameter, with separate shuffle and stuffle algebra structures; each has three discriminating tests."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/regularization-operator",
-        "verdict": "corrected",
-        "note": "Verified the linear triangular operator, factorial coefficient formula and inverse. Corrected equations (2.1)–(2.2); the T² and T³ tests exclude a ring-homomorphism interpretation."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/regularized-double-shuffle",
-        "verdict": "verified",
-        "note": "Verified IKZ Theorems 1–2 and the asymptotic comparison proof. The admissible factor in the extended relation is retained; the [1,2] corollary and [1,1] polynomial check use no numerical ζ(1). Completeness is not asserted."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-z",
-        "verdict": "verified",
-        "note": "Verified the number-field mixed-Tate t-structure input, adjacent Kummer unramifiedness criterion over Z and exact graded fibre functor in DG §§1–2. The general category of all mixed motives is not a premise."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-galois",
-        "verdict": "corrected",
-        "note": "Verified the Ext computations, noncanonical free negative-odd Lie generators and regulator/Hodge injection. Added DG Proposition 2.3 for freeness and separated Brown’s grading convention. The actual neutral reconstruction supplier is used."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-path-torsor",
-        "verdict": "corrected",
-        "note": "Verified DG finite path construction, tangential groupoid and unramifiedness. Corrected Theorem 4.4 page range and identified Betti/bar/tangential comparison as an open NC.2 extension, rather than its current export."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
-        "verdict": "verified",
-        "note": "Verified Brown’s largest graded stable ideal construction and period map. The whole numerical kernel is not substituted, and ζᵐ(2) stays nonzero. Word reversal matches the numerical encoding."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-coaction",
-        "verdict": "verified",
-        "note": "Verified Brown Theorem 2.4: cut-segment products are in the first A factor and the retained motivic word is second; empty cuts/segments are retained. Coassociativity and algebra compatibility are correctly required."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-f-alphabet",
-        "verdict": "verified",
-        "note": "Verified the noncanonical f-alphabet comodule embedding and Hilbert series 1/(1−t²−t³). The dimension result is an upper bound before the basis theorem and does not assume freeness of the MZV generators."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/coaction-derivation-kernel",
-        "verdict": "verified",
-        "note": "Verified Brown Theorem 3.3 with the strict odd range 3≤r<N and N≥2. The joint kernel is the single ζᵐ(N) line, not automatically zero. Projection to indecomposables yields contiguous cuts."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-double-shuffle",
-        "verdict": "corrected",
-        "note": "Verified SO’s convergent frame-preserving products, correcting the stuffle section to §4.4, pp.23–26. Replaced the invented divergent-extension obligation by Brown’s exact shifted all-two formulas, equation (3.8) and Lemma 3.8; G3 remains presentation transport."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-coefficients",
-        "verdict": "corrected",
-        "note": "Verified the descending coefficient by whole-word reversal and all three low-weight tests. Corrected Zagier Theorem 1 to p.981 and gave Brown’s dyadic estimates their own source id."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-evaluation",
-        "verdict": "corrected",
-        "note": "Verified Zagier Theorem 1, p.981, and all-two identities, p.979. Expanded integer/diagonal interpolation and directional exponential growth, with the pinned horizontal-strip theorem and Liouville step; no unsupported numerical interpolation heuristic remains."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-zagier-evaluation",
-        "verdict": "corrected",
-        "note": "Verified Brown’s motivic coaction induction and joint-kernel argument. Replaced the misleading leading-one premise by the shifted integral identity; positivity of one odd numerical zeta kills the final scalar without period-map injectivity."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-level",
-        "verdict": "corrected",
-        "note": "Verified the free enumeration and level span before independence, including empty/weight-five/weight-six tests. Corrected level lowering to parity of contiguous cuts (Lemma 5.5), and added the direct coaction prerequisite."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-cut-matrix",
-        "verdict": "corrected",
-        "note": "Verified Brown Definitions 5.8–5.9 and Theorem 6.1/Corollary 6.2. Pinned source rows, target columns and the descending prefix-deletion bijection. Strengthened the weight-five test to actual coefficients, determinant 5/2 and mod-2 column rescaling."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-matrix-invertible",
-        "verdict": "verified",
-        "note": "Verified Brown Lemma 7.1 and Theorem 7.3: below-diagonal valuations ≥1 and diagonal column minima ≤0 imply determinant nonzero after column scaling. The corrected matrix orientation supports that argument; original determinant need not be a unit."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis",
-        "verdict": "verified",
-        "note": "Verified Brown Theorem 7.4’s weight/level induction, nonzero level-zero period and word count matching the earlier Hilbert upper bound. Weight zero/one conventions are included; numerical independence is not inferred."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.9/numerical-spanning",
-        "verdict": "verified",
-        "note": "Verified the actual period-map transfer and Brown Corollary 7.5. PS.2 supplies the localized Tate algebra, including L⁻¹→(2πi)⁻¹, so the confirmed RT finding is respected. Numerical spanning and dimension upper bounds are distinguished from conjectural independence."
-      },
-      {
-        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-local-continuation",
-        "verdict": "corrected",
-        "note": "Verified NS formula (26) and reflection (39). Corrected the local branch to the marked γ₁ root t=i via s=−it, kept the γ₄ centred coordinate separate, and confirmed E2/E4 against the preprint and exact monodromy maps."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~4",
+    "date": "2026-10-18",
+    "notes": "Bounded independent fix review following independent-review-REV-PeriodsAndSpecialValues--PS.8; its accepted verdict is archived intact in reviewHistory. Checked RT-AREA-iwasawa-3/8: PS.9 imports the actual full MC.6 comparison equivalence and same period point through PS.2, including inverse Tate evaluation. Brown source check preserves nonnegative H, nonzero motivic zeta(2), A tensor H coaction and numerical spanning without conjectural injectivity. PS.2 integration remains with its existing owner. Relevant pinned declarations checked; no further mathematical correction. Full packet checker passes and complete suggested file freshly elaborates with admitted-proof warnings only. This accepts the fixes, not a new review of unrelated targets or proof closure. See reviews/REV-FIX-RT-AREA-iwasawa-3~4.md."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-PeriodsAndSpecialValues--PS.8",
+      "date": "2026-10-11",
+      "notes": "Independent complete target-level review: all 40 nodes, 63 API items, 63 unit tests, sources, 20 actual pinned baseline statements, nine supplier contracts and current upstream ownership checked. Corrected 23 nodes, added no nodes, confirmed E1/E2 and added version-scoped E3/E4. Lean elaborates with only placeholder-proof warnings; rational determinant and branch-conjugacy checks are proved. G1–G4 remain explicit mathematical proof/interface obligations and G5 is the current-upstream catalogue link. Both stages are planned, neither closed. Acceptance does not assert that supplier requests, mathematical proofs or omitted supplier-dependent Lean signatures are implemented.",
+      "checked": [
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-pencil",
+          "verdict": "corrected",
+          "note": "Checked the order-16 quotient, invariant equation, six A₃ resolutions and smooth/excluded fibres against H §4.1, pp.10–11. Corrected irrelevant section references; generic relative geometry remains G4."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-residue",
+          "verdict": "corrected",
+          "note": "Checked H Propositions 4.6–4.7, pp.12–13, including the 2πi tube convention, chart restriction and crepant extension. Replaced the Picard–Fuchs section locator."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-picard-fuchs",
+          "verdict": "verified",
+          "note": "Verified H Proposition 4.14 and independently expanded the corrected E1 pullback. Ω and tΩ have the distinct stated equations; no missing scale is absorbed into an integral marking."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-lattice",
+          "verdict": "corrected",
+          "note": "Verified the primitive rank-19 polarization, rank-three complement and rational splitting. Corrected Theorem 4.12 attribution and its ambient hypothesis (E3), imported existing current IntegralLattices 5H/6A, and recorded G5 catalogue linkage."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-monodromy",
+          "verdict": "verified",
+          "note": "Verified all five cycle matrices, Gram preservation and ordered product exactly. Their Gram-conjugated period-row action gives the stated infinity translation and γ₁ reflection; γ₄ is translation-conjugate, as used in E4."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-frobenius-series",
+          "verdict": "verified",
+          "note": "Verified the harmonic-number Frobenius coefficients and logarithmic basis against H §4.7. Independent exact calculation gives the stated q coefficients after the tΩ normalization."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-symmetric-square",
+          "verdict": "verified",
+          "note": "Verified LYH Proposition 3.1 at λ=256,ν=1/4 and independently squared the first five ₂F₁ coefficients. Existing Mathlib provides only ordinary ₂F₁; the symmetric-square target is not duplicated."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-mirror-coordinate",
+          "verdict": "corrected",
+          "note": "Verified zero constant term, unit linear coefficient and formal inverse. Corrected the geometric normalization proof to pull the local formula to t=i rather than equate the γ₁ and γ₄ based paths (E4)."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-modular-relation",
+          "verdict": "corrected",
+          "note": "Checked every coefficient of LYA equation (5.19), printed p.21, and x=1/j versus J=j/1728. Corrected page numbers; the analytic Schwarzian supplier is explicitly requested."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-integrality",
+          "verdict": "corrected",
+          "note": "Checked LYA equations (6.1)–(6.4), printed p.22, and its quartic application. ℓ=2,m=1 gives integral coefficients; degree-four integrality does not use the prime-degree theorem. Tightened the locator."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-pencil",
+          "verdict": "verified",
+          "note": "Verified SH §§3.1–3.3: Γ has order 125, smoothness excludes λ=0 and 1+5⁵λ⁵=0, and invariant rank four is distinguished from full H³ rank 204."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-formal-connection",
+          "verdict": "corrected",
+          "note": "Verified SH Definition 4.2 and Lemma 4.12, including homogeneity, δ and its (24,50,35,10) relation. Separated SS’s affine comparison citation; no integral formal lattice is asserted and G1 remains explicit."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-dwork-frobenius",
+          "verdict": "verified",
+          "note": "Verified the exponential correction, p⁻² normalization, parameter semilinearity and δF=pFδ. Cup-pairing scaling is retained with its comparison hypotheses; CR.7 is not treated as a proved Dwork comparison."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/dwork-coefficients",
+          "verdict": "corrected",
+          "note": "Verified the Dwork exponential and harmonic-weighted sums. Corrected the nonexistent SH Theorem 6.1 to Definition 6.1, Lemmas 6.2–6.3 and §§6.1–6.4. Convergence is a genuine premise (G2)."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-boundary-matrix",
+          "verdict": "corrected",
+          "note": "Verified the diagonal p³,p²,p,1 and row-3/column-0 correction 24p³Δ₃/25 against SH’s reductions. Corrected the theorem locator. Exact matrix checks give NF=pFN and FᵀJF=p³J without interpreting numerical L-value evidence as a theorem."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-crystalline-comparison",
+          "verdict": "corrected",
+          "note": "Checked SS §§2–3 and its explicit comparison limitation. The projective/completed, integral and semistable bridge is a precise target with G1, rather than a claim already proved by SH or CR.5–CR.7. Separated the two source references."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/mzv-indices",
+          "verdict": "corrected",
+          "note": "Verified descending positive-index convergence, the empty value and non-example [1]. Separated Brown’s reverse convention from the IKZ citation; no ordinary value is assigned to the divergent series."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/word-products",
+          "verdict": "verified",
+          "note": "Verified both recursive products, multiplicities, units and the 0/1 encoding. Pinned TauCeti supplies pure words and all-cut deconcatenation, including outer cuts, but not shuffle multiplication."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/iterated-integrals",
+          "verdict": "corrected",
+          "note": "Verified the largest-time head convention, interval integrability conditions and endpoint/tangential treatment. Separated the DG tangential source from IKZ. The increasing-time motivic word is explicitly reversed."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/convergent-double-shuffle",
+          "verdict": "corrected",
+          "note": "Verified the two admissible product decompositions and their ζ(3,1),ζ(2,2) consequences. Removed the forward ζ(2,1)=ζ(3) claim from this prerequisite; the existing later regularization node owns that corollary."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/polynomial-regularizations",
+          "verdict": "verified",
+          "note": "Verified IKZ Proposition 1 and its polynomial decomposition/uniqueness proof. T is the formal divergence parameter, with separate shuffle and stuffle algebra structures; each has three discriminating tests."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/regularization-operator",
+          "verdict": "corrected",
+          "note": "Verified the linear triangular operator, factorial coefficient formula and inverse. Corrected equations (2.1)–(2.2); the T² and T³ tests exclude a ring-homomorphism interpretation."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/regularized-double-shuffle",
+          "verdict": "verified",
+          "note": "Verified IKZ Theorems 1–2 and the asymptotic comparison proof. The admissible factor in the extended relation is retained; the [1,2] corollary and [1,1] polynomial check use no numerical ζ(1). Completeness is not asserted."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-z",
+          "verdict": "verified",
+          "note": "Verified the number-field mixed-Tate t-structure input, adjacent Kummer unramifiedness criterion over Z and exact graded fibre functor in DG §§1–2. The general category of all mixed motives is not a premise."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-galois",
+          "verdict": "corrected",
+          "note": "Verified the Ext computations, noncanonical free negative-odd Lie generators and regulator/Hodge injection. Added DG Proposition 2.3 for freeness and separated Brown’s grading convention. The actual neutral reconstruction supplier is used."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-path-torsor",
+          "verdict": "corrected",
+          "note": "Verified DG finite path construction, tangential groupoid and unramifiedness. Corrected Theorem 4.4 page range and identified Betti/bar/tangential comparison as an open NC.2 extension, rather than its current export."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
+          "verdict": "verified",
+          "note": "Verified Brown’s largest graded stable ideal construction and period map. The whole numerical kernel is not substituted, and ζᵐ(2) stays nonzero. Word reversal matches the numerical encoding."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-coaction",
+          "verdict": "verified",
+          "note": "Verified Brown Theorem 2.4: cut-segment products are in the first A factor and the retained motivic word is second; empty cuts/segments are retained. Coassociativity and algebra compatibility are correctly required."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-f-alphabet",
+          "verdict": "verified",
+          "note": "Verified the noncanonical f-alphabet comodule embedding and Hilbert series 1/(1−t²−t³). The dimension result is an upper bound before the basis theorem and does not assume freeness of the MZV generators."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/coaction-derivation-kernel",
+          "verdict": "verified",
+          "note": "Verified Brown Theorem 3.3 with the strict odd range 3≤r<N and N≥2. The joint kernel is the single ζᵐ(N) line, not automatically zero. Projection to indecomposables yields contiguous cuts."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-double-shuffle",
+          "verdict": "corrected",
+          "note": "Verified SO’s convergent frame-preserving products, correcting the stuffle section to §4.4, pp.23–26. Replaced the invented divergent-extension obligation by Brown’s exact shifted all-two formulas, equation (3.8) and Lemma 3.8; G3 remains presentation transport."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-coefficients",
+          "verdict": "corrected",
+          "note": "Verified the descending coefficient by whole-word reversal and all three low-weight tests. Corrected Zagier Theorem 1 to p.981 and gave Brown’s dyadic estimates their own source id."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-evaluation",
+          "verdict": "corrected",
+          "note": "Verified Zagier Theorem 1, p.981, and all-two identities, p.979. Expanded integer/diagonal interpolation and directional exponential growth, with the pinned horizontal-strip theorem and Liouville step; no unsupported numerical interpolation heuristic remains."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-zagier-evaluation",
+          "verdict": "corrected",
+          "note": "Verified Brown’s motivic coaction induction and joint-kernel argument. Replaced the misleading leading-one premise by the shifted integral identity; positivity of one odd numerical zeta kills the final scalar without period-map injectivity."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-level",
+          "verdict": "corrected",
+          "note": "Verified the free enumeration and level span before independence, including empty/weight-five/weight-six tests. Corrected level lowering to parity of contiguous cuts (Lemma 5.5), and added the direct coaction prerequisite."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-cut-matrix",
+          "verdict": "corrected",
+          "note": "Verified Brown Definitions 5.8–5.9 and Theorem 6.1/Corollary 6.2. Pinned source rows, target columns and the descending prefix-deletion bijection. Strengthened the weight-five test to actual coefficients, determinant 5/2 and mod-2 column rescaling."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-matrix-invertible",
+          "verdict": "verified",
+          "note": "Verified Brown Lemma 7.1 and Theorem 7.3: below-diagonal valuations ≥1 and diagonal column minima ≤0 imply determinant nonzero after column scaling. The corrected matrix orientation supports that argument; original determinant need not be a unit."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis",
+          "verdict": "verified",
+          "note": "Verified Brown Theorem 7.4’s weight/level induction, nonzero level-zero period and word count matching the earlier Hilbert upper bound. Weight zero/one conventions are included; numerical independence is not inferred."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.9/numerical-spanning",
+          "verdict": "verified",
+          "note": "Verified the actual period-map transfer and Brown Corollary 7.5. PS.2 supplies the localized Tate algebra, including L⁻¹→(2πi)⁻¹, so the confirmed RT finding is respected. Numerical spanning and dimension upper bounds are distinguished from conjectural independence."
+        },
+        {
+          "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-local-continuation",
+          "verdict": "corrected",
+          "note": "Verified NS formula (26) and reflection (39). Corrected the local branch to the marked γ₁ root t=i via s=−it, kept the γ₄ centred coordinate separate, and confirmed E2/E4 against the preprint and exact monodromy maps."
+        }
+      ]
+    }
+  ]
 }
