@@ -805,7 +805,7 @@
       "title": "Inertia of the ordered divisor morphism",
       "kind": "theorem",
       "declarationName": "TauCeti.RamifiedClassField.orderedInertia",
-      "statement": "Let q=(q_1,...,q_d) be a geometric point of the product of d root curves and let its coarse divisor be D=sum m_x x. On geometric inertia the parent orderedRootDivisors map is the product, over branch points x with m_x>0, of multiplication homomorphisms mu_2^{m_x}→mu_2. The relative inertia is the product of their kernels. On every commutative K-algebra B, each kernel for m=n+1 is naturally isomorphic to (Fin n→rootsOfUnity 2 B) by discarding coordinate zero; the inverse inserts the inverse of the product in coordinate zero. This description is natural in B and in reordering the factors, without choosing geometric signs as the definition of mu_2. Consequently a collision with m_x at least two makes the ordered morphism nonrepresentable in odd characteristic. A divisor containing a branch once has no kernel at that branch.",
+      "statement": "Let q=(q_1,...,q_d) be a geometric point of the product of d root curves and let its coarse divisor be D=sum m_x x. On geometric inertia the parent orderedRootDivisors map is the product, over branch points x with m_x>0, of multiplication homomorphisms mu_2^{m_x}→mu_2. The relative inertia is the product of their kernels. On every commutative K-algebra B, each kernel for m=n+1 is naturally isomorphic to (Fin n→rootsOfUnity 2 B) by discarding coordinate zero; the inverse inserts the inverse of the product in coordinate zero. The multiplication homomorphism and its kernel are canonical under reindexing, and the coordinate isomorphism is natural in B. Its permutation compatibility transports the distinguished omitted index as well as the other indices: if that index is kept fixed, use the action conjugated through this isomorphism, which need not be a permutation of the remaining coordinates. No geometric signs are chosen as the definition of mu_2. Consequently a collision with m_x at least two makes the ordered morphism nonrepresentable in odd characteristic. A divisor containing a branch once has no kernel at that branch.",
       "hypotheses": [
         "k is a finite field of characteristic different from 2; X/k is a smooth projective geometrically connected curve.",
         "R is a reduced finite effective divisor on X, possibly empty; rho is its degree, so after algebraic closure there are rho distinct branch points.",
@@ -829,13 +829,15 @@
         "Use the coordinate addition comparison to show that each branch sign acts on the output root line by the product of all signs over that branch. The output has one inertia factor per distinct branch by rootFullFibre_inertia.",
         "The fibre automorphism group is the kernel of this actual inertia homomorphism; separated branch factors give a product of kernels.",
         "In native rootsOfUnity the kernel coordinate formula and its inverse are finite-product identities in a commutative group. Natural algebra change follows from restrictRootsOfUnity and map_prod, and agrees with the existing schemePointsMulEquiv comparison.",
+        "Finite products are invariant under reindexing. For an omitted index j, a permutation sigma intertwines the coordinate map omitting j with the one omitting sigma(j). Keeping j fixed instead gives the conjugated action on the remaining coordinates. For three factors and omission of zero, swapping factors zero and one sends (zeta,eta) to ((zeta eta) inverse,eta).",
         "For m at least two the element with -1 in two coordinates and 1 elsewhere is a nonidentity kernel point. A morphism representable by algebraic spaces has injective maps of geometric stabilizers, so it cannot have this kernel."
       ],
       "acceptance": [
         "For d=0 both source and target inertia are trivial, and for d=1 each inertia map is the identity.",
         "At two equal branch points the source has mu_2 squared, the target has mu_2, and the relative kernel is diagonal mu_2.",
         "At a double collision away from R both inertia groups are trivial; any symmetric-group ramification of the coarse ordered map is a different phenomenon.",
-        "No invertibility of d! is used, including when the characteristic divides d!."
+        "No invertibility of d! is used, including when the characteristic divides d!.",
+        "For a block of three factors, write its kernel element as ((zeta eta) inverse,zeta,eta). The transposition of factors zero and one induces (zeta,eta) mapped to ((zeta eta) inverse,eta) in the fixed omitted-zero coordinates, rather than the transposition of zeta and eta."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/GC1.lean",
@@ -1242,7 +1244,12 @@
         "agent": "Codex — codex-j5HIy4",
         "date": "2026-10-11"
       },
-      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a."
+      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked A.1.3 on printed pp. 515–516 and its squaring diagram. Setting the evaluated section to zero leaves the equation t squared=0 on arbitrary test algebras. The dual-number root epsilon survives; only the reduction is the classifying stack.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.1"
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII/E5",
@@ -1266,7 +1273,12 @@
         "agent": "Codex — codex-j5HIy4",
         "date": "2026-10-11"
       },
-      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a."
+      "localRecheck": "The equation iota(alpha squared)=a restricted to R is used. For E2, the nonzero root alpha=epsilon over dual numbers detects the full fibre thickening. For E5, the restricted section is the restriction of the preceding global section a.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the printed p. 515 page image at Definition A.2. The global section is introduced before the restriction clause, so the restricted section must come from that global section. This corrects the reference without changing the moduli condition.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.1"
+      }
     }
   ],
   "restructure": [],
@@ -1437,6 +1449,79 @@
   ],
   "sourceConventions": {
     "orderedMap": "The finite-map wording in YZ19 A.2.1 p.519 is used through the explicitly stated proper quasi-finite nonrepresentable stack convention, as in the parent. It is not read as a representably finite morphism theorem.",
-    "noNewErratumClaim": "E2 and E5 are inherited confirmed findings, locally rechecked against the same published PDF. This follow-up claims neither a new correction search nor an independent review verdict."
+    "noNewErratumClaim": "E2 and E5 are inherited confirmed findings, rechecked against the same published PDF. The planning pass claimed no independent review verdict or new correction search. REV-FunctionFieldArithmeticPartII--GC.1 independently confirms both findings in their review fields without asserting a new erratum search."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.1",
+    "date": "2026-10-18",
+    "notes": "Independent review by Codex (GPT-6), session codex-90LXMA. All 13 nodes, source locators, 11 exact-pin baseline statements, direct supplier contracts, current upstream ownership, APIs, tests and target coverage checked. Clarified the distinguished-coordinate permutation action in ordered inertia; confirmed both inherited source issues; repaired reader notation and locators. Coverage remains planned with four precise supplier requests and GC1-NATIVE-GEOMETRY open. The compact native Lean fragment elaborates with admitted-proof warnings only; it does not implement the geometric targets.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/relative-evaluation-equivalence",
+        "verdict": "verified",
+        "note": "Verified the object and arrow equations against YZ19 Definition A.2 p. 515 and the Cartesian evaluation diagram p. 516. The inverse retains the comparison isomorphism; finite-etale restriction and Galois/pullback coherence are precisely request GC1-RESTRICTION. Four tests include nilpotent roots and actual automorphisms."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/effective-open-base-change",
+        "verdict": "verified",
+        "note": "Verified the fibrewise nonzero condition, arbitrary pullback and finite-flat Cartier divisor through YZ19 Definition A.2 p. 515 and Stacks 44.3.1–44.3.6. The nilpotent example excludes elementwise nonzero as the definition; GC1-CURVE-FAMILY keeps the section functor distinct from a small-degree vector bundle."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/incidence-residual-equivalence",
+        "verdict": "verified",
+        "note": "Verified scheme-theoretic addition/subtraction of the distinct fixed branch divisor, including nonreduced test schemes, using Stacks 44.3.3–44.3.6 and the incidence argument in YZ19 Lemma A.4 pp. 516–517. Negative residual degree gives the empty intersection. Five API items and four boundary tests are adequate."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/evaluation-atlas-differential",
+        "verdict": "verified",
+        "note": "Verified the frame-torsor atlas and differential lambda_i df_i+f_i d lambda_i. Nonzero coordinates are supplied vertically; zero-coordinate rank is the prescribed-covector criterion requested from SF.0. This proves the YZ19 Lemma A.4(1) claim p. 516 without an assumption on d!."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/root-normal-crossing-chart",
+        "verdict": "verified",
+        "note": "Verified the etale normal-crossing root chart from the residual intersections and prescribed coordinates, matching YZ19 Lemma A.4 pp. 516–517. Its finite-etale sign quotient gives smooth separated DM geometry of dimension d on the effective open; it does not assert smoothness of the hat space."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/root-coarse-chart",
+        "verdict": "verified",
+        "note": "Verified the squarefree monomial basis, coefficient invariants and arbitrary algebra base change against the parent RS.1 invariant/coarse contracts and YZ19 A.1.3 pp. 515–516. Properness of the finite sign quotient is explicitly requested from SF.1; the coarse map is allowed to be nonrepresentable."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/full-fibre-inertia",
+        "verdict": "verified",
+        "note": "Verified the full nilpotent root quotient, its reduced gerbe and its one sign factor per distinct branch. The dual-number object detects the inherited E2 error in YZ19 A.1.3 pp. 515–516. Multiplicity at one branch does not create additional target inertia factors."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/addition-chart-map",
+        "verdict": "verified",
+        "note": "Verified u mapped to st, the square relation and multiplication of sign factors against YZ19 (A.2) p. 517 and imported tensor coherence. Arbitrary coefficient change is valid. Five APIs and four tests cover the effective unit, nilpotent product, signs and ordinary divisor comparison."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/ordered-inertia-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the permutation claim for the coordinate isomorphism: the omitted index moves with a permutation, or a fixed omitted index uses the conjugated action. Added the three-factor transposition check and a native reindexing milestone. Verified multiplication, the kernel and collision nonrepresentability from YZ19 (A.3) p. 517 and Lemma A.7 pp. 519–520; all cited native group ingredients have the stated scope."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/ordered-geometric-fibres",
+        "verdict": "verified",
+        "note": "Verified the ordering count, relative stabilizer kernels and reduced residual-gerbe decomposition, retaining nonreduced full fibres. Stacks 44.3.6 supplies the characteristic-independent coarse ordering map; 101.21.4 and 101.31.2 support the requested gerbe adapter. Properness and nonrepresentable quasi-finiteness use the explicit 101.37.5(2), 101.23.2 and 101.24.1 contracts, not representable finiteness."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/ordered-block-permutation-coherence",
+        "verdict": "verified",
+        "note": "Verified permutation, block, unit and arbitrary-pullback comparisons against YZ19 A.1.4 p. 517 and the current AlgebraicVectorBundles L0A–L0B tensor/pullback contracts. Root data introduce no independent associator or chosen basepoint."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/refined-abel-jacobi-fibre",
+        "verdict": "verified",
+        "note": "Verified the affine evaluation equation over a fixed stack object, the effective puncture and the possibly empty small-degree fibre using YZ19 A.1.5 p. 517 and the equation in Lemma A.9 p. 521. Four tests distinguish this fibre from a scalar quotient. Five APIs specify transport, restriction, translation and forgetting the root section; general-base cohomology is explicitly requested."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.1/abel-jacobi-relative-compatibility",
+        "verdict": "verified",
+        "note": "Verified all four forgetful maps and identity-component restriction squares from YZ19 A.1.4–A.1.5 p. 517. Tensor/pullback comparisons use the parent Picard stacks and existing general tensor contracts. The empty-R degree-zero fixed-object fibre and nilpotent retained root section are consistent."
+      }
+    ]
   }
 }

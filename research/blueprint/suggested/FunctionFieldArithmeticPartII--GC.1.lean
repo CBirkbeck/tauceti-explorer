@@ -33,7 +33,8 @@ noncomputable abbrev orderedInertiaProduct (m : ℕ) :
   ∏ i : Fin m, Pi.evalMonoidHom (fun _ : Fin m => rootsOfUnity 2 B) i
 
 /-- The coordinate part of `orderedInertia`: discard coordinate zero in the kernel.
-The inverse inserts the inverse product in coordinate zero. -/
+The inverse inserts the inverse product in coordinate zero. A permutation transports this
+distinguished index; keeping it fixed requires the conjugated action on the other coordinates. -/
 theorem orderedInertia_kernel (n : ℕ) :
     ∃ e : (orderedInertiaProduct B (n + 1)).ker ≃* (Fin n → rootsOfUnity 2 B),
       ∀ ζ i, e ζ i = ζ.val i.succ := by
@@ -44,6 +45,12 @@ theorem orderedInertia_naturality {C : Type u} [CommRing C]
     (φ : B →+* C) (m : ℕ) (ζ : Fin m → rootsOfUnity 2 B) :
     restrictRootsOfUnity φ 2 (orderedInertiaProduct B m ζ) =
       orderedInertiaProduct C m (fun i => restrictRootsOfUnity φ 2 (ζ i)) := by
+  sorry
+
+/-- Multiplication and its kernel are canonical under reindexing all factors. -/
+theorem orderedInertia_reindex (m : ℕ) (σ : Fin m ≃ Fin m)
+    (ζ : Fin m → rootsOfUnity 2 B) :
+    orderedInertiaProduct B m (fun i => ζ (σ i)) = orderedInertiaProduct B m ζ := by
   sorry
 
 -- No branch factor is present at multiplicity zero.
