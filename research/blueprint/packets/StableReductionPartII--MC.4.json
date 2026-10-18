@@ -1136,5 +1136,21 @@
       "lean": "lean-check elaborated the unchanged suggested file at the pins: six admitted-proof warnings, no errors or other warnings."
     },
     "sourceReading": "Read each of the five node locators, CLM positivity and pointed proof passages, Serre appendix pp.17-18–17-20 (last page inspected as an image), EHKV Theorem 2.7 and proof, Ekedahl II 1.7 pp.126–127, Chen–Zhang v1 Theorem 1.3 and §4, and the listed Stacks statements. Original sources explicitly left open by the packet remain unread; their proof closure is not certified."
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC4",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }

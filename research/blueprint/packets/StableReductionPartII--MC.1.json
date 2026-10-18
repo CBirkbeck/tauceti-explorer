@@ -272,7 +272,9 @@
         "AlgebraicModuliForArithmeticGeometry:A0-extension/single-degree-free-locus",
         "SchemeAndStackFoundations:SF.0/noetherian-approximation",
         "SchemeAndStackFoundations:SF.5/projective-bundle",
-        "AlgebraicModuliForArithmeticGeometry:R09.1"
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "StableReductionPartII:MC.0/arbitrary-base-duality"
       ],
       "sources": [
         {
@@ -1363,5 +1365,32 @@
         "note": "Read the proof of 32.15.3 and checked the actual source-generic DVR quantifiers. Smooth-source density permits same-DVR stable-model uniqueness without a field extension; universal properness then descends to all pairs. Stack properness uses the separate extension-permitting Q7 criterion."
       }
     ]
+  },
+  "assembly": {
+    "job": "ASM-StableReductionPartII",
+    "issue": 9247,
+    "agent": "Codex",
+    "session": "codex-VhiQEb",
+    "date": "2026-10-18",
+    "status": "complete",
+    "reader": "research/blueprint/readmes/StableReductionPartII.md",
+    "suggested": "research/blueprint/suggested/StableReductionPartII.lean",
+    "handoff": "research/blueprint/handoff/ASM-StableReductionPartII.md",
+    "reviewPolicy": "All independent review verdicts and node ids are preserved. Node statements, hypotheses, proof steps, APIs, tests and source matches are unchanged. Dependency wiring and compact-prototype coverage are assembly changes for independent re-review.",
+    "proofStatus": "Conditional target-level plan. Existing supplier gaps and source/version limitations remain; no admitted theorem or new geometric implementation is certified.",
+    "prerequisiteEdits": [
+      {
+        "target": "StableReductionPartII:MC.1/refinement-arbitrary-base",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-genus",
+        "reason": "Cohomology and duality of the actual arbitrary-base curve family"
+      },
+      {
+        "target": "StableReductionPartII:MC.1/refinement-arbitrary-base",
+        "added": "StableReductionPartII:MC.0/arbitrary-base-duality",
+        "reason": "Cohomology and duality of the actual arbitrary-base curve family"
+      }
+    ],
+    "nativeNamespace": "TauCetiRoadmap.StableReductionPartII.MC1",
+    "collectionPolicy": "Targets remain in their original nine packets; the reader assembles the union without duplicating node ids."
   }
 }
