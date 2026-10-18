@@ -145,7 +145,7 @@ Let B be Spec Z or Spec k for an arbitrary field k, S an integral quasi-projecti
 
 **Hypotheses and conventions.** Integral means reduced and irreducible; finite type is included in quasi-projective. A compactification is over the same B. The finite projective cover V→M̄_g is a representable finite surjective map to the stack, carrying the universal stable family.
 
-**Prerequisites.** `StableReductionPartII:MC.6/graph-closure`; `StableReductionPartII:MC.4/finite-projective-cover`; `SchemeAndStackFoundations:SF.0/nagata-normalization-finite`; `mathlib:AlgebraicGeometry.IsFinite.of_comp`; `mathlib:CategoryTheory.Limits.pullback.lift`.
+**Prerequisites.** `StableReductionPartII:MC.6/graph-closure`; `StableReductionPartII:MC.4/finite-projective-cover`; `StableReductionPartII:MC.1/finite-unramified-diagonal`; `SchemeAndStackFoundations:SF.0/nagata-normalization-finite`; `mathlib:AlgebraicGeometry.IsFinite.of_comp`; `mathlib:CategoryTheory.Limits.pullback.lift`.
 
 **Construction or proof.**
 
@@ -194,7 +194,7 @@ Fix g≥2, N≥3 and B_N=Spec Z[1/N,ζ_N] with the chosen primitive root specify
 
 - `SmoothTorelli.noSection` (non-example): A smooth family with no global section is allowed; replacing Pic⁰ by a pointed Abel–Jacobi construction fails.
 - `SmoothTorelli.infinitesimal` (compatibility): The construction on a dual-number test scheme is the pullback abelian scheme with its level, including nilpotent directions.
-- `SmoothTorelli.pairing` (non-example): A level with Weil pairing ζ_N^a for a≠1 does not lie in the fixed ζ_N component until the base/pairing convention changes.
+- `SmoothTorelli.pairing` (non-example): A level with Weil pairing ζ_N^a for a∈(Z/NZ)× with a≠1 in Z/NZ does not lie in the fixed ζ_N component until the base/pairing convention changes. Taking a=1+N leaves the pairing unchanged and is not a counterexample.
 
 **Acceptance checks.**
 
@@ -310,11 +310,11 @@ For every algebraically closed field k and g≥2 construct t̄_g:M̄_g^coarse→
 
 **Hypotheses and conventions.** A_g^min is the fixed-field unlevelled Siegel coarse minimal space requested from C5, supported by FC V2.3 over Z and a proved fixed-field comparison. A literal identification with a geometric fibre of the integral model is not assumed; a characteristic-zero Satake theorem alone does not supply this target. The C5 normal-base semiabelian extension and Hodge-power contract is an explicit supplier gap. No use is made of FC V6.7 in characteristic p. Coarse formation is used over fixed k and permitted flat field extension; no arbitrary nonflat base-change theorem is asserted.
 
-**Prerequisites.** `StableReductionPartII:MC.6/compactified-torelli`; `StableReductionPartII:MC.6/torelli-family-composition`; `StableReductionPartII:MC.6/stable-picard-atlas-comparison`; `StableReductionPartII:MC.6/boundary-abelian-part`; `StableReductionPartII:MC.4/coarse-space`; `SchemeAndStackFoundations:SF.1/coarse-moduli-space`; `ShimuraCompactifications:C5`.
+**Prerequisites.** `StableReductionPartII:MC.6/compactified-torelli`; `StableReductionPartII:MC.6/torelli-family-composition`; `StableReductionPartII:MC.6/stable-picard-atlas-comparison`; `StableReductionPartII:MC.6/boundary-abelian-part`; `StableReductionPartII:MC.1/smooth-dimension`; `StableReductionPartII:MC.1/normal-crossing-boundary`; `StableReductionPartII:MC.4/coarse-space`; `SchemeAndStackFoundations:SF.1/coarse-moduli-space`; `ShimuraCompactifications:C5`.
 
 **Construction or proof.**
 
-1. On each integral regular atlas component use its stable Picard semiabelian scheme, generically a canonically polarized abelian scheme. Request the C5 extension of the generic classifying map to the minimal space, together with its Hodge-power comparison.
+1. Choose a quasi-compact smooth scheme atlas of M̄_g over the fixed field k. MC.1 smoothness over k makes the atlas and its scheme double overlaps regular, and the dense smooth-curve locus meets every integral component by the boundary theorem. On each component use its stable Picard semiabelian scheme, generically a canonically polarized abelian scheme. Invoke the requested C5 stable-Jacobian polarized-trait compatibility from R11.3 before applying the normal-base minimal-extension/Hodge-power contract. Both this trait identification and the minimal contraction remain in G-minimal-extension; semiabelianity alone is not the asserted input.
 2. Uniqueness and the canonical Picard overlap isomorphisms make these maps agree on double overlaps. Descend the stack map; the categorical coarse universal property factors it uniquely through M̄_g^coarse.
 3. At geometric boundary points apply the abelian-part stratum rule. On the smooth open this is the JC1 Jacobian, so the result extends smooth Torelli.
 4. FC IV5.1 requires a common toroidal cone on a general normal base. Independence after contraction to the minimal space must be proved by the supplier; a direct toroidal lift is not silently assumed.
@@ -437,7 +437,7 @@ Let p:Y→X be a finite surjective morphism of normal integral projective scheme
 
 **Acceptance checks.**
 
-- For Frobenius on a smooth projective curve in characteristic p, Hodge degree scales by p; an étale-only proof fails.
+- For relative Frobenius F_{Y/k}:Y→Y^(p) on a smooth geometrically integral projective k-curve in characteristic p, pull a stable family on X=Y^(p) back to Y. This finite k-morphism has degree p, so deg λ_Y=p·deg λ_X; an étale-only proof fails. Absolute Frobenius need not be a k-morphism.
 - For a finite nonflat cover of a singular normal projective base over k, the equality uses the full generic field degree; no flat pullback of Chow cycles is assumed.
 - A positive-dimensional constant family stays nonbig under any finite surjective cover; a cover cannot manufacture maximal variation.
 
@@ -483,7 +483,8 @@ extend the owning plans without modifying their packets.
 
 Four proof leaves remain: strong Torelli; stable Picard descent with the
 early semiabelian and normalization comparisons; minimal extension with the
-all-characteristic Hodge-power comparison; and numerical transfer including
+all-characteristic Hodge-power comparison and the stable-Jacobian polarized-trait
+identification via R11.3; and numerical transfer including
 the supplier's asymptotic positivity inputs and the field-extension step.
 The normal-component and finite-normalization requests from the parent are
 resolved by exact imports. Reading BLR here confirms the stable Picard
@@ -561,7 +562,7 @@ it. Quasi-finiteness suffices for the proof: it gives generic finiteness of
 the maximal-variation composite. The author publications page and Annals
 article page were checked for a correction; none was located. The full
 published text was not collated, so this finding makes no assertion about
-the published wording. Its independent errata verdict remains open.
+the published wording. The independent review confirms this finding only under the proper-finiteness reading and only against this author manuscript. In the genus2 example, the product has a reducible theta divisor, whereas the smooth Jacobian theta divisor is the irreducible curve. The review does not make a claim about the published wording.
 
 - **Yuan2024.** Xinyi Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*. Author manuscript dated 21 August 2024; printed page = PDF page. Published Annals 203 (2026), pp.15–119, not collated. [Source](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf).
 - **DGHv3.** Vesselin Dimitrov, Ziyang Gao, Philipp Habegger, *Uniformity in Mordell–Lang for curves*. arXiv:2001.10276v3; locators use this version. [Source](https://arxiv.org/pdf/2001.10276v3).
