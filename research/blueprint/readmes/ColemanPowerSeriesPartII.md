@@ -37,7 +37,7 @@ AU.0–AU.3 provide the unit module, derivatives and duality. AU.4 gives the opt
 
 For the independent auxiliary split prime ℓ, write conductor(ν)=ℓ^m; then a nontrivial ℓ-power character has orderℓ^(m−1) and factors through L_(m−1), where L_j has degreeℓ^j. The localization tower and z_(fℓ^m) use this conductor convention throughout.
 
-The alias AnticyclotomicLocalUnits in the accepted extraction is this ColemanPowerSeriesPartII design. NonordinaryCMSpecialValues belongs to grouped AutomorphicPadicLFunctionsPartII design #3350; EllipticCurvesPartIISupersingularFiniteFields belongs to grouped EllipticCurvesPartII design #3398. Their stage ids are not present in this checkout. The requests below use existing parent stages as explicit ownership anchors, and the restructure proposals require rewiring to the exact continuation nodes when those designs exist. In particular ordinary Katz L3 is not asserted to supply an inert nonordinary CM theorem. The early zeta-class/Finis result must precede the downstream Rubin p-adic L-function.
+The alias AnticyclotomicLocalUnits in the accepted extraction is this ColemanPowerSeriesPartII design. A second design of the same Part II from the same route, AnticyclotomicLocalUnits (nine layers ALU.0–ALU.8), was also written; the merge proposal in the packet asks the orchestrator to keep one of the two ids. NonordinaryCMSpecialValues belongs to grouped AutomorphicPadicLFunctionsPartII design #3350; EllipticCurvesPartIISupersingularFiniteFields belongs to grouped EllipticCurvesPartII design #3398. Their stage ids are not present in this checkout. The requests below use existing parent stages as explicit ownership anchors, and the restructure proposals require rewiring to the exact continuation nodes when those designs exist. In particular ordinary Katz L3 is not asserted to supply an inert nonordinary CM theorem. The early zeta-class/Finis result must precede the downstream Rubin p-adic L-function.
 
 ## Library baseline and reuse
 
@@ -55,9 +55,9 @@ The suggested Lean file contains only light definitions and conditional algebrai
 
 ## Source discipline and open closure
 
-The complete published BKO paper and Rubin1987 article were read. Hazewinkel’s original norm proof and Wintenberger’s local-unit freeness proof were read. The source records give versions, public URLs, hashes and sections actually used. All statements and proof outlines below are in the roadmap’s own words. Wiles’s original height-two reciprocity proof was not obtained; the Kato1993 chapter cited for its normalization is not cleared and was not read. Cox and Narkiewicz are not used as read sources. The auxiliary quadratic-field estimate instead uses an explicit character-series bound and a finite reduced-form certificate, with the analytic residue and ideal-class comparisons imported under named contracts.
+The complete published BKO paper and Rubin1987 article were read. Hazewinkel’s original norm proof and Wintenberger’s local-unit freeness proof were read. The source records give versions, public URLs, hashes and sections actually used. All statements and proof outlines below are in the roadmap’s own words. Wiles’s original height-two reciprocity proof was not obtained; the Kato1993 chapter cited for its normalization is not cleared and was not read. Cox and Narkiewicz are not used as read sources. Abbes–Ullmo (Compositio 1996, Théorème A) is read for the Manin-constant p-unit statement requested in R6, and Fesenko's paper on deeply ramified extensions is read as a lead for G1. The auxiliary quadratic-field estimate instead uses an explicit character-series bound and a finite reduced-form certificate, with the analytic residue and ideal-class comparisons imported under named contracts.
 
-This is a complete target-level planning pass, with all ten layers planned. It is not proof-closed: G1 is the ramified finite-base norm estimate, G2 is the original reciprocity proof/dual-exponential normalization, and precise external requests remain. Existing supplier packets can have their own proof gaps, notably canonical Gross-character existence. Those gaps are inherited, not repaired by an ownership citation. Every declaration below remains unchecked for implementation.
+This is a complete target-level planning pass, with all ten layers planned. It is not proof-closed: G1 is the ramified finite-base norm estimate, G2 is the original reciprocity proof/dual-exponential normalization, G3 and G4 are the supersingular finite-field counts and the early nonordinary CM inputs, which no published stage owns yet, and precise external requests remain. Existing supplier packets can have their own proof gaps, notably canonical Gross-character existence. Those gaps are inherited, not repaired by an ownership citation. Every declaration below remains unchecked for implementation.
 
 ## AU.0. Lubin–Tate local units and the inverse twist
 
@@ -73,7 +73,7 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Direct inputs:** LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/bko-character-data.
 
-**Source:** BKO2021, §2, pp.948–949.
+**Source:** BKO2021, §2, p.948 (conductor convention) and p.949 (definition of Ξ⁺, Ξ⁻).
 
 **Uses.** AU.3/signed-units: Select the opposite parity kernels. AU.3/signed-points: Select the same parity logarithm kernels.
 
@@ -85,9 +85,9 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Unit tests.**
 
-- **trivial_plus**: c(1)=0 and 1∈Ξ⁺.
-- **order_p_plus**: A character of exact order p has exponent 2 and belongs to Ξ⁺.
-- **order_p_squared_minus**: A character of exact order p² has exponent 3 and belongs to Ξ⁻.
+- **trivial_plus** (degenerate): c(1)=0 and 1∈Ξ⁺.
+- **order_p_plus** (computation): A character of exact order p has exponent 2 and belongs to Ξ⁺.
+- **order_p_squared_minus** (computation): A character of exact order p² has exponent 3 and belongs to Ξ⁻.
 
 **Acceptance:** Check exact orderp and exact orderp² characters give opposite signs; the trivial conductor is0.
 
@@ -101,12 +101,13 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Direct inputs:** tauceti:TauCeti.unitFiltration; ColemanPowerSeries:L0; PadicMeasuresIwasawaAlgebras:L1; PadicMeasuresIwasawaAlgebras:L4/character-decomposition; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/quadratic-directions.
 
-**Source:** BKO2021, §2, p.948.
+**Source:** BKO2021, §2, p.948; Rubin1987, §1, p.406.
 
 **Uses.** AU.0/units-free: Apply the local-unit module structure theorem. AU.1/coleman-series: Interpolate the underlying norm-compatible systems.
 
 **API.**
 
+- **units_mk** (constructor): A norm-compatible family u=(u_n) of principal units and a∈O give u⊗a∈Ũ_∞. Since O is Z_p-free of rank two, Ũ_∞=(lim U_n)⊗_(Z_p)O, so every element is u⊗1+u′⊗θ for a Z_p-basis 1,θ of O.
 - **units_projection** (projection): Ũ_∞→P_n⊗O is continuous, O-linear and commutes with norm.
 - **units_ext** (extensionality): Equality holds if all finite projections agree.
 - **omega_projector** (characterisation): d·u=ω(d)u characterizes U_∞; the complementary tame eigenspaces map to zero.
@@ -114,9 +115,9 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Unit tests.**
 
-- **unit_sequence**: The sequence of multiplicative identities is additive zero at every level.
-- **broken_norm**: A family with N(u_(n+1))≠u_n at one level is excluded.
-- **wrong_tame_character**: An eigenvector for a distinct tame character has e_ω-image zero.
+- **unit_sequence** (degenerate): The sequence of multiplicative identities is additive zero at every level.
+- **broken_norm** (non-example): A family with N(u_(n+1))≠u_n at one level is excluded.
+- **wrong_tame_character** (non-example): An eigenvector for a distinct tame character has e_ω-image zero.
 
 **Acceptance:** Use the existing principal-unit filtration at every coordinate, and reject a family failing one norm square.
 
@@ -130,7 +131,7 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.0/units-limit; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/lt-character; PadicMeasuresIwasawaAlgebras:L1.
 
-**Source:** BKO2021, §2, p.949.
+**Source:** BKO2021, §2, p.948.
 
 **Uses.** AU.0/anticyclotomic-quotient: Turn σ−κ(σ) into σ−1. AU.2/formal-points-units-dual: Obtain a scalar-valued Kummer pairing.
 
@@ -143,9 +144,9 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Unit tests.**
 
-- **trivial_action**: Twisting the κ-line makes its Galois action trivial.
-- **wrong_twist**: Using κ rather than κ⁻¹ fails the previous test for κ(g)²≠1.
-- **tame_comparison**: A Δ-invariant inverse tensor has underlying ω-eigenvector, not an ω⁻¹-eigenvector.
+- **trivial_action** (characterisation): Twisting the κ-line makes its Galois action trivial.
+- **wrong_twist** (non-example): Using κ rather than κ⁻¹ fails the previous test for κ(g)²≠1.
+- **tame_comparison** (compatibility): A Δ-invariant inverse tensor has underlying ω-eigenvector, not an ω⁻¹-eigenvector.
 
 **Acceptance:** The κ-line becomes trivial after inverse twisting; the resulting tame invariant corresponds to ω, not ω⁻¹.
 
@@ -159,7 +160,7 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.0/inverse-tate-twist; PadicMeasuresIwasawaAlgebras:L1; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/quadratic-directions.
 
-**Source:** BKO2021, §2, pp.948–949.
+**Source:** BKO2021, §2, p.948.
 
 **Uses.** AU.1/derivative-descent: Descend anticyclotomic character derivatives. AU.2/anticyclotomic-kummer: Pair invariants with coinvariants.
 
@@ -172,9 +173,9 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Unit tests.**
 
-- **cyclotomic_relation**: The images of σx and x agree in V_∞*.
-- **untwisted_relation**: In V_∞, σu=κ(σ)u, which need not equal u.
-- **unit_generator_change**: Replacing σ by σ^a, a∈Z_p×, gives inverse comparison maps.
+- **cyclotomic_relation** (characterisation): The images of σx and x agree in V_∞*.
+- **untwisted_relation** (compatibility): In V_∞, σu=κ(σ)u, which need not equal u.
+- **unit_generator_change** (compatibility): Replacing σ by σ^a, a∈Z_p×, gives inverse comparison maps.
 
 **Acceptance:** Changing the G⁺ generator by a Z_p-unit preserves the closed quotient; the untwisted relation remains σ=κ(σ).
 
@@ -188,7 +189,7 @@ Fix the imported quadratic Lubin–Tate tower, distinguish conductor from order,
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.0/anticyclotomic-quotient; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity; PadicMeasuresIwasawaAlgebras:L4; PadicMeasuresIwasawaAlgebras:L5.
 
-**Source:** Rubin1987, Proposition 1.1, pp.406–407; Wintenberger1980, §4 Theorem (i),(iii), pp.91–92; §§5.1–5.5.3, pp.92–98.
+**Source:** Rubin1987, Proposition 1.1, p.407; Wintenberger1980, §4 Théorème (i),(iii), pp.91–92; proofs §§5.1–5.5.3, pp.92–98.
 
 **Acceptance:** Show why ω is different from the tame cyclotomic character; do not assume the exceptional character component is free. Exhibit a Λ-module equivalence V_∞*≃Λ², including the quotient topology.
 
@@ -208,7 +209,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.0/units-limit; ColemanPowerSeries:L1; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.1/lt-module; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/primitive-division; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/sign-generator-comparison.
 
-**Source:** BKO2021, §2, p.948 and footnote 2.
+**Source:** BKO2021, §2, p.948 and footnote 2; Rubin1987, §2, p.407.
 
 **Uses.** AU.1/coates-wiles: Take the invariant logarithmic derivative. AU.2/wiles-pairing: Compute the Kummer symbol.
 
@@ -221,9 +222,9 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Unit tests.**
 
-- **identity**: The identity unit sequence has series 1.
-- **basis_rescaling**: Evaluation at [b]v_n after composition with [b⁻¹] returns u_n.
-- **pi_recursion**: Replacing the genuine π-basis by a p-compatible basis requires the alternating sign correction; using it unchanged fails [π] compatibility.
+- **identity** (degenerate): The identity unit sequence has series 1.
+- **basis_rescaling** (compatibility): Evaluation at [b]v_n after composition with [b⁻¹] returns u_n.
+- **pi_recursion** (non-example): Replacing the genuine π-basis by a p-compatible basis requires the alternating sign correction; using it unchanged fails [π] compatibility.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -237,7 +238,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.1/coleman-series; ColemanPowerSeriesPartII:AU.0/inverse-tate-twist; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/formal-log; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log; mathlib:PowerSeries.derivative.
 
-**Source:** BKO2021, §2, pp.948–949.
+**Source:** BKO2021, §2, p.948.
 
 **Uses.** AU.1/character-derivative: Average finite-level derivatives. AU.4/optimal-unit: Detect integrality at augmentation.
 
@@ -250,9 +251,9 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Unit tests.**
 
-- **constant_series**: A constant Coleman series has δ=δ_n=0.
-- **linear_coefficient**: δ(u⊗v⁻¹)=coeff₁(f)/coeff₀(f).
-- **basis_balance**: For v′=bv, multiplying the unit tensor by b cancels the b⁻¹ chain-rule factor.
+- **constant_series** (degenerate): A constant Coleman series has δ=δ_n=0.
+- **linear_coefficient** (computation): δ(u⊗v⁻¹)=coeff₁(f)/coeff₀(f).
+- **basis_balance** (compatibility): For v′=bv, multiplying the unit tensor by b cancels the b⁻¹ chain-rule factor.
 
 **Acceptance:** A constant series has zero derivative, and the origin value agrees with coeff₁(f)/coeff₀(f); rescaling the Tate basis cancels.
 
@@ -266,7 +267,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.1/coates-wiles; PadicMeasuresIwasawaAlgebras:L1.
 
-**Source:** BKO2021, §2, pp.948–949; compare Rubin Lemma 2.1(i)–(ii), p.407.
+**Source:** BKO2021, §2, pp.948–949; Rubin1987, Lemma 2.1(i), p.407.
 
 **Acceptance:** Before twisting retain the κ(β) factor; after twisting show genuine finite-field Galois covariance and augmentation action at zero.
 
@@ -280,7 +281,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Source:** BKO2021, §2, p.949.
 
-**Uses.** AU.3/signed-units: Define the signed derivative kernels. AU.4/xi-character-value: Match the normalized L-value formula.
+**Uses.** AU.3/signed-units: Define the signed derivative kernels. AU.4/xi-values: Match the normalized L-value formula.
 
 **API.**
 
@@ -291,9 +292,9 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Unit tests.**
 
-- **trivial_level_zero**: δ₁=π⁻¹Tr_(Φ₀/Φ)δ₀, computed at n=0.
-- **inverse_character**: At a nonquadratic χ, the factor is χ(β)⁻¹, not χ(β).
-- **one_level_up**: The extra trace factor π cancels the extra denominator π in level n+1.
+- **trivial_level_zero** (computation): δ₁=π⁻¹Tr_(Φ₀/Φ)δ₀, computed at n=0.
+- **inverse_character** (non-example): At a nonquadratic χ, the factor is χ(β)⁻¹, not χ(β).
+- **one_level_up** (compatibility): The extra trace factor π cancels the extra denominator π in level n+1.
 
 **Acceptance:** Compute χ=1 at n=0 and a nonquadratic χ at n+1; the π trace factor cancels one extra π denominator and the covariance is inverse.
 
@@ -319,7 +320,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.1/character-derivative; ColemanPowerSeriesPartII:AU.1/derivative-descent.
 
-**Source:** BKO2021, §2, p.949, together with the Coleman norm identity.
+**Source:** BKO2021, §2, p.949 (δ_χ at χ=1, n=0); Proposition 3.3(1)–(2), p.953; Rubin1987, Lemma 2.1(iv), p.407.
 
 **Acceptance:** Keep the p-Euler-factor correction at χ=1; do not assert δ₁=δ.
 
@@ -327,7 +328,7 @@ Construct the Lubin–Tate Coleman series from the imported norm-operator mechan
 
 Apply height-two norm vanishing and elliptic Tate duality to the actual formal module. Construct the full and anticyclotomic perfect Kummer pairings, retaining the inverse/direct limits and the vanishing needed for descent. State both Wiles’s trace formula and the distinct dual-exponential comparison. Targets: Formal Kummer exact sequence; Height-two universal norm vanishing; Formal-to-elliptic Tate duality comparison; Full-tower Kummer pairing; Anticyclotomic Kummer duality; Wiles’s explicit Kummer formula; Wiles’s dual-exponential comparison. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.
 
-**Dependencies:** LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9; ArithmeticGaloisDuality:R02.1; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1; tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv; tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ColemanPowerSeriesPartII:AU.0; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity; ArithmeticGaloisDuality:R02.2; ColemanPowerSeriesPartII:AU.1; PadicHodgeRegulators:L1.
+**Dependencies:** LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9; ArithmeticGaloisDuality:R02.1; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1; tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv; ArithmeticGaloisDuality:R02.4; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ColemanPowerSeriesPartII:AU.0; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity; ArithmeticGaloisDuality:R02.2; ColemanPowerSeriesPartII:AU.1; PadicHodgeRegulators:L1.
 
 ### Formal Kummer exact sequence
 
@@ -337,7 +338,7 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Direct inputs:** LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/adic-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/primitive-division; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/formal-trace; ArithmeticGaloisDuality:R02.1.
 
-**Source:** BKO2021, §4, (4.1), p.954.
+**Source:** BKO2021, §4, (4.1), p.954; Rubin1987, §5, sequence (6), p.411.
 
 **Acceptance:** Track the connecting map on an actual π^k-division point and verify that corestriction is formal trace, not coordinate addition.
 
@@ -347,11 +348,11 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Target ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing (theorem).** For the totally ramified pro-p towers Θ_∞/Φ and Ψ_∞/Φ, lim_N F(m_(Θ_n))=0 and lim_N F(m_(Ψ_n))=0. Equivalently every finite-layer universal formal norm subgroup is zero.
 
-**Construction or proof.** (1) Apply Hazewinkel Theorem 1.3 in a cofinal totally ramified Z_p direction and use transitivity/containment for the full two-variable tower. (2) For a fixed ramified finite layer, use the ramified-base version of the height-two norm bound stated by Rubin Proposition 4.5; a depth tending to infinity forces the intersection to zero. (3) Use separatedness of the local-field filtration. Record the precise ramified-base estimate as gap G1 until its proof is supplied; the absolutely unramified base case alone does not prove every inverse-limit coordinate zero.
+**Construction or proof.** (1) Apply Hazewinkel Theorem 1.3 in a cofinal totally ramified Z_p direction and use transitivity/containment for the full two-variable tower. (2) For a fixed ramified finite layer, use the ramified-base version of the height-two norm bound stated by Rubin Proposition 4.5; a depth tending to infinity forces the intersection to zero. (3) Use separatedness of the local-field filtration. Record the precise ramified-base estimate as gap G1 until its proof is supplied; the absolutely unramified base case alone does not prove every inverse-limit coordinate zero. A lead for G1: Θ_∞ and Ψ_∞ are deeply ramified, and deeply ramified theory gives the direct-limit Kummer defect vanishing of formal-kummer-duality directly (see the G1 record).
 
 **Direct inputs:** LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/adic-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/formal-trace; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/bko-fields.
 
-**Source:** Rubin1987, Proposition 4.5, p.411; Hazewinkel1977, Theorem 1.3, pp.305–306; §§3–4, pp.309–314.
+**Source:** Rubin1987, Proposition 4.5, p.411; Hazewinkel1977, Theorem 1.3, pp.305–306; universal-norm consequence, p.307; proof §§3–4, pp.309–314.
 
 **Acceptance:** Supply G1’s ramified finite-base/cofinality argument before calling this proof closed.
 
@@ -361,11 +362,11 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Target ColemanPowerSeriesPartII:AU.2/formal-kummer-duality (theorem).** There is a good supersingular elliptic model B/O and an integral identification B̂≃F for π=−p. For each finite L in the pro-p towers, the p-primary local cohomology of its formal subgroup compares with that of B so that the direct-limit defect in the formal Kummer sequence is Pontryagin dual to lim_N F(m_L). In particular colim H¹(L,F(m_(Φ̄)))[π^∞]=0 in both towers.
 
-**Construction or proof.** (1) Use the imported supersingular finite-field trace-class existence, lift a smooth Weierstrass equation to O, and apply LT.4/elliptic-honda-comparison with trace −2p. (2) Use 0→B̂(m_L)→B(L)→B̃(k_L)→0 and the analogous separable-closure sequence; reduction terms have bounded finite p-primary contribution and disappear in the relevant tower comparison. (3) Apply the principal polarization and elliptic local Tate duality; track the O-action and its dual through the formal identification. (4) Pass to limits using ArithmeticGaloisDuality’s compact/discrete comparison and formal-norm-vanishing. Finite class-formation duality alone is not a proof of the elliptic comparison.
+**Construction or proof.** (1) Use the imported supersingular finite-field trace-class existence, lift a smooth Weierstrass equation to O, and apply LT.4/elliptic-honda-comparison with trace −2p. (2) Use 0→B̂(m_L)→B(L)→B̃(k_L)→0 and the analogous separable-closure sequence; reduction terms have bounded finite p-primary contribution and disappear in the relevant tower comparison. (3) Apply local duality for abelian varieties over p-adic fields (ArithmeticGaloisDuality R02.4/abelian-variety-local-duality) to B, identified with its dual by the principal polarization; track the O-action and its adjoint through the formal identification. (4) Pass to limits using ArithmeticGaloisDuality’s compact/discrete comparison and formal-norm-vanishing. Finite class-formation duality alone is not a proof of the elliptic comparison.
 
-**Direct inputs:** ColemanPowerSeriesPartII:AU.2/formal-kummer; ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1; tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv; tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ArithmeticGaloisDuality:R02.1/tate-inverse-limit.
+**Direct inputs:** ColemanPowerSeriesPartII:AU.2/formal-kummer; ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1; tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv; ArithmeticGaloisDuality:R02.4/abelian-variety-local-duality; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ArithmeticGaloisDuality:R02.1/tate-inverse-limit.
 
-**Source:** Rubin1987, Lemma 5.1, pp.411–412.
+**Source:** Rubin1987, Lemma 5.1 and proof, p.411; BKO2021, §4, p.954.
 
 **Acceptance:** Identify the polarization pairing and the formal reduction maps, not an arbitrary nondegenerate pairing. Use one explicit compatible comparison in both Θ and Ψ towers.
 
@@ -377,7 +378,7 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.2/formal-kummer-duality; ColemanPowerSeriesPartII:AU.0/inverse-tate-twist; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity; ArithmeticGaloisDuality:R02.2/five-term-transgression.
 
-**Source:** BKO2021, §4, pp.954–955; Rubin Proposition 5.2, p.412.
+**Source:** BKO2021, §4, p.954; Rubin1987, Proposition 5.2, p.412.
 
 **Uses.** AU.2/anticyclotomic-kummer: Descend from G⁺-invariants to G⁺-coinvariants. AU.3/signed-annihilator: Identify signed kernels as orthogonal complements.
 
@@ -390,9 +391,9 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Unit tests.**
 
-- **zero_point**: The identity formal point pairs to zero with every unit.
-- **pi_balance**: ⟨[π]y⊗π⁻(k+1),x⟩=⟨y⊗π⁻k,x⟩.
-- **detect_nonzero**: Every nonzero divisible point has a nonzero pairing with some unit; the zero pairing fails.
+- **zero_point** (degenerate): The identity formal point pairs to zero with every unit.
+- **pi_balance** (characterisation): ⟨[π]y⊗π⁻(k+1),x⟩=⟨y⊗π⁻k,x⟩.
+- **detect_nonzero** (non-example): Every nonzero divisible point has a nonzero pairing with some unit; the zero pairing fails.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -406,7 +407,7 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.2/formal-points-units-dual; ColemanPowerSeriesPartII:AU.0/anticyclotomic-quotient; ColemanPowerSeriesPartII:AU.2/formal-kummer-duality; ArithmeticGaloisDuality:R02.2/five-term-transgression.
 
-**Source:** BKO2021, §4, pp.954–955; Rubin Proposition 5.4, pp.412–413.
+**Source:** BKO2021, §4, p.954; Rubin1987, Proposition 5.4 and proof, p.412; Lemma 4.4, p.410.
 
 **Acceptance:** Prove the divisible-invariant comparison using the Ψ-tower Kummer defect; do not commute invariants with tensor products without this argument.
 
@@ -420,7 +421,7 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.2/formal-points-units-dual; ColemanPowerSeriesPartII:AU.1/coates-wiles; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/sign-generator-comparison; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity.
 
-**Source:** BKO2021, §4, p.955; Rubin Theorem 5.3, p.412.
+**Source:** BKO2021, §4, p.955; Rubin1987, Theorem 5.3, p.412.
 
 **Acceptance:** Resolve G2 before closing the reciprocity proof; a height-one cyclotomic formula is insufficient.
 
@@ -434,7 +435,7 @@ Apply height-two norm vanishing and elliptic Tate duality to the actual formal m
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.2/wiles-pairing; ColemanPowerSeriesPartII:AU.1/character-derivative; PadicHodgeRegulators:L1.
 
-**Source:** BKO2021, §3, passage (3.4) to (3.6), pp.952–953; cited Kato 1993, Chapter II, Theorem 2.1.7.
+**Source:** BKO2021, §3, (3.4)–(3.6), pp.952–953; cited Kato 1993, Chapter II, Theorem 2.1.7.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -452,7 +453,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.0/conductor-parity; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/bko-fields.
 
-**Source:** BKO2021, §4, p.955; Rubin Lemma 5.5(i)–(iv), pp.413–414.
+**Source:** BKO2021, §4, p.955; Rubin1987, p.412 (definition) and Lemma 5.5(i)–(iv), p.413.
 
 **Uses.** AU.3/signed-points: Select the signed point subgroups. AU.3/signed-annihilator: Perform Fourier expansion of the reciprocity formula.
 
@@ -465,9 +466,9 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Unit tests.**
 
-- **base_point**: For y∈F(m_Φ), λ₁(y)=λ(y) and λ_χ(y)=0 for nontrivial χ.
-- **new_character**: A character not factoring through the point layer has λ_χ(y)=0 after passage to a common layer.
-- **positive_covariance**: The covariance factor is χ(β), inverse to that for δ_χ.
+- **base_point** (computation): For y∈F(m_Φ), λ₁(y)=λ(y) and λ_χ(y)=0 for nontrivial χ.
+- **new_character** (computation): A character not factoring through the point layer has λ_χ(y)=0 after passage to a common layer.
+- **positive_covariance** (non-example): The covariance factor is χ(β), inverse to that for δ_χ.
 
 **Acceptance:** For a base point only the trivial character logarithm survives; taking a common larger layer leaves its value unchanged.
 
@@ -481,7 +482,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.3/character-logarithm.
 
-**Source:** BKO2021, §4, p.955; Definition 6.3, pp.960–961.
+**Source:** BKO2021, §4, p.955 (A^±); §6.0.2, p.962 (F^±(Ψ_n)); Rubin1987, p.413.
 
 **Uses.** AU.8/minus-point-invariants: Control the minus divisible-point invariants. InertAnticyclotomicCMMainConjecture and Selmer consumers: Use these finite local subgroups rather than redefining their signs.
 
@@ -495,9 +496,9 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Unit tests.**
 
-- **base_plus_zero**: Since 1∈Ξ⁺ and λ is injective on the torsion-free pro-p tower, the plus base group is zero.
-- **base_minus_all**: All formal Φ-points lie in the minus group.
-- **wrong_parity**: A nonzero pure character component of conductor p³ lies in A⁺ and is excluded from A⁻.
+- **base_plus_zero** (degenerate): Since 1∈Ξ⁺ and λ is injective on the torsion-free pro-p tower, the plus base group is zero.
+- **base_minus_all** (computation): All formal Φ-points lie in the minus group.
+- **wrong_parity** (non-example): A nonzero pure character component of conductor p³ lies in A⁺ and is excluded from A⁻.
 
 **Acceptance:** At level0 the plus group is0 and the minus group is the full formal point lattice; a conductor3 component has the opposite point sign.
 
@@ -511,7 +512,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.1/derivative-descent; ColemanPowerSeriesPartII:AU.1/delta-trivial-relation; ColemanPowerSeriesPartII:AU.0/conductor-parity.
 
-**Source:** BKO2021, §2, (2.1), p.949.
+**Source:** BKO2021, §2, displayed definition of V*,± , p.949; Rubin1987, §2, p.408.
 
 **Uses.** AU.4/optimal-unit: Locate ξ* in the plus module. AU.9/rubin-decomposition: State the integral direct sum.
 
@@ -520,13 +521,13 @@ Define character logarithms, finite and infinite signed formal points and opposi
 - **signed_units_mem** (characterisation): v is in sign ε iff every derivative of opposite parity vanishes.
 - **signed_units_closed** (structure): Each sign is a closed compact Λ-submodule.
 - **minus_delta_zero** (relation): δ vanishes on V_∞*,− because the trivial character is plus.
-- **signed_units_base_change** (compatibility): Finite flat coefficient extension commutes with the signed kernel intersection, through exactness and compact limits.
+- **signed_units_base_change** (compatibility): For a finite extension R of O inside C_p, V_∞*,ε⊗_O R is the set of X∈V_∞*⊗_O R whose R-linearly extended derivatives (δ_χ⊗R)(X), evaluated in C_p, vanish for every χ of the opposite parity. Flatness of R gives this with values in Φ_n⊗_O R. Since τ∈Gal(Φ_n/Φ) carries δ_χ(x) to a nonzero multiple of δ_(τ∘χ)(x), the opposite-parity class is stable under such τ, and every embedding of Φ_n⊗_Φ Frac(R) into C_p over the given embedding of R is the given one composed with some τ⊗1, vanishing in C_p implies vanishing in Φ_n⊗_O R. Flatness and exactness alone do not give the C_p-valued statement.
 
 **Unit tests.**
 
-- **trivial_character**: A vector with δ≠0 cannot belong to V_∞*,−.
-- **opposite_parity**: A vector in V_∞*,+ must have zero derivative at every exact order p² character.
-- **generator_covariance**: Multiplying by λ∈Λ preserves a sign, including when ev_(χ⁻¹)(λ)=0.
+- **trivial_character** (non-example): A vector with δ≠0 cannot belong to V_∞*,−.
+- **opposite_parity** (characterisation): A vector in V_∞*,+ must have zero derivative at every exact order p² character.
+- **generator_covariance** (characterisation): Multiplying by λ∈Λ preserves a sign, including when ev_(χ⁻¹)(λ)=0.
 
 **Acceptance:** A nonzero augmentation derivative excludes the minus unit module; the χ=1 normalization must be inserted before that inference.
 
@@ -540,7 +541,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.3/signed-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log.
 
-**Source:** BKO2021, §4, (4.2), p.955; Rubin Lemma 5.5(v)–(vi), pp.413–414.
+**Source:** BKO2021, §4, (4.2), p.955; Rubin1987, Lemma 5.5(v)–(vi) and (7), p.413.
 
 **Acceptance:** Check levels0 and1 and retain the p^n denominator bound: the integral finite sum is not asserted to be the full lattice.
 
@@ -554,7 +555,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.3/signed-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log.
 
-**Source:** BKO2021, §4, (4.2), p.955; Rubin Proposition 5.8, p.414.
+**Source:** BKO2021, §4, (4.2), p.955; Rubin1987, proof of Proposition 5.6, p.413; Corollary 5.8, p.414.
 
 **Acceptance:** At arbitrarily large alternate conductor levels produce actual independent points using a deep logarithm lattice, not merely abstract character vectors.
 
@@ -566,7 +567,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.2/anticyclotomic-kummer; ColemanPowerSeriesPartII:AU.2/wiles-pairing; ColemanPowerSeriesPartII:AU.3/signed-units; ColemanPowerSeriesPartII:AU.3/character-logarithm; ColemanPowerSeriesPartII:AU.3/formal-points-infinite-rank.
 
-**Source:** BKO2021, §4, p.955; Rubin Proposition 5.6 and Corollary 5.7, pp.414–415.
+**Source:** BKO2021, §4, p.955; Rubin1987, Proposition 5.6 and proof, p.413; Corollary 5.7, p.414.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -580,7 +581,7 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.3/signed-annihilator; ColemanPowerSeriesPartII:AU.3/formal-points-parity-sum; ColemanPowerSeriesPartII:AU.3/formal-points-infinite-rank; ColemanPowerSeriesPartII:AU.0/units-free; PadicMeasuresIwasawaAlgebras:L4; PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local.
 
-**Source:** BKO2021, §4, p.955; Rubin Proposition 5.8, p.414.
+**Source:** BKO2021, §4, p.955; Rubin1987, Corollary 5.8 and proof, p.414.
 
 **Acceptance:** Exclude the counterexample Λ/(p) from the torsion-rank argument by proving that these specific quotients are O-torsion-free.
 
@@ -588,17 +589,17 @@ Define character logarithms, finite and infinite signed formal points and opposi
 
 Choose the auxiliary quadratic field and import the early canonical CM character, elliptic zeta classes, functional equation and Finis unit-value theorem. Construct the exact localized and projected element ξ_ν, compute δ and δ_χ, and descend a unit derivative to ξ*∈V_∞*,+. The early analytic supplier must be independent of Rubin’s decomposition and final p-adic L-function. Targets: Auxiliary imaginary quadratic field; Early CM special-value input; Localized auxiliary elliptic unit; Auxiliary-unit derivative formulas; Auxiliary-unit sign; Optimal signed unit. Exact statements, source locators, APIs, tests and proof steps are in the matching reader and packet.
 
-**Dependencies:** tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting; AutomorphicLFunctionsAndLocalFactors:AL.1; ComplexMultiplicationAndExplicitReciprocity:CM.4; AutomorphicPadicLFunctions:L3; ColemanPowerSeriesPartII:AU.0; ColemanPowerSeriesPartII:AU.2; ArithmeticGaloisDuality:R02.1; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ColemanPowerSeriesPartII:AU.1; ColemanPowerSeriesPartII:AU.3; PadicMeasuresIwasawaAlgebras:L4.
+**Dependencies:** tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; ComplexMultiplicationAndExplicitReciprocity:CM.1; AutomorphicLFunctionsAndLocalFactors:AL.1; ComplexMultiplicationAndExplicitReciprocity:CM.4; AutomorphicPadicLFunctions:L3; ColemanPowerSeriesPartII:AU.0; ColemanPowerSeriesPartII:AU.2; ArithmeticGaloisDuality:R02.1; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; ColemanPowerSeriesPartII:AU.1; ColemanPowerSeriesPartII:AU.3; PadicMeasuresIwasawaAlgebras:L4.
 
 ### Auxiliary imaginary quadratic field
 
 **Target ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic (theorem).** For every p≥5 there exists an imaginary quadratic K of odd discriminant D≡1 mod 8 such that p is inert and p∤h_K. One may arrange |D|<8p; for p>47 the bound h_K≤√|D|·(2+log|D|)/π_real<p suffices, and p≤47 is checked by explicit reduced-form class numbers.
 
-**Construction or proof.** (1) Choose 1≤m≤p−1 with (−m/p)=−1 and 0≤k≤7 with m+kp≡7 mod8. Remove the odd square factor from −(m+kp) to obtain D. (2) Use ζ_K(s)=ζ_Q(s)L(s,χ_D) and the imported analytic residue formula to obtain h(D)=√|D| L(1,χ_D)/π_real (D<−4 here). Periodicity and zero mean give |Σ_(a≤t)χ_D(a)|≤|D|; split the L-series at |D| and use summation by parts on the tail to obtain L(1,χ_D)≤2+log|D|. The resulting bound is <p at p=53 and its ratio to p decreases for p≥53. (3) For primes 5 through47 use the reader’s table. Enumerate primitive reduced positive binary quadratic forms b²−4ac=D with |b|≤a≤c and a≤√(|D|/3), choosing b≥0 on the boundaries. The usual ideal-class correspondence, supplied by the number-field counting input, certifies the listed class numbers.
+**Construction or proof.** (1) Choose 1≤m≤p−1 with (−m/p)=−1 and 0≤k≤7 with m+kp≡7 mod8. Remove the odd square factor from −(m+kp) to obtain D. (2) Use ζ_K(s)=ζ_Q(s)L(s,χ_D) and the imported analytic residue formula to obtain h(D)=√|D| L(1,χ_D)/π_real (D<−4 here). Periodicity and zero mean give |Σ_(a≤t)χ_D(a)|≤|D|; split the L-series at |D| and use summation by parts on the tail to obtain L(1,χ_D)≤2+log|D|. The resulting bound is <p at p=53 and its ratio to p decreases for p≥53. (3) For primes 5 through47 use the reader’s table. Enumerate primitive reduced positive binary quadratic forms b²−4ac=D with |b|≤a≤c and a≤√(|D|/3), choosing b≥0 on the boundaries. The reduced-form/ideal-class dictionary of ComplexMultiplicationAndExplicitReciprocity CM.1/quadratic-forms-dictionary, with Pic(O_D)=Cl(K) for fundamental D, certifies the listed class numbers.
 
-**Direct inputs:** tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting; AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume.
+**Direct inputs:** tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters; ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary; AutomorphicLFunctionsAndLocalFactors:AL.1/idele-class-volume.
 
-**Source:** BKO2021, Lemma 3.1, p.950.
+**Source:** BKO2021, Lemma 3.1 and proof, p.950.
 
 **Acceptance:** For p=5 use D=−7,h=1; for p=7 use D=−15,h=2. Check D≡1mod8 and inertness on every finite table row.
 
@@ -612,7 +613,7 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic; ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character; ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction; AutomorphicPadicLFunctions:L3; AutomorphicLFunctionsAndLocalFactors:AL.1; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters.
 
-**Source:** BKO2021, §3.0.2–3.0.3, (3.1)–(3.5), (3.8)–(3.9), pp.951–954.
+**Source:** BKO2021, §§3.0.1–3.0.3, (3.1)–(3.5), (3.8)–(3.9), pp.950–954.
 
 **Acceptance:** Check ℓ is the character-tower prime and p the valuation prime in the Finis input. No decomposition or final Rubin p-adic L-function occurs in the input graph.
 
@@ -624,7 +625,7 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/early-cm-interface; ColemanPowerSeriesPartII:AU.0/anticyclotomic-quotient; ColemanPowerSeriesPartII:AU.2/formal-points-units-dual; ArithmeticGaloisDuality:R02.1/completed-tensor-comparison; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality.
 
-**Source:** BKO2021, §3, displayed composite and (3.5), pp.952–953.
+**Source:** BKO2021, §3.0.2, displayed composite and (3.5), pp.952–953.
 
 **Uses.** AU.4/xi-values: Compute its two distinct derivative formulas. AU.4/xi-signed: Use the functional equation to place its projection in a sign.
 
@@ -637,9 +638,9 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Unit tests.**
 
-- **trivial_evaluation**: For ν=1 the L_0 group-ring map is augmentation.
-- **nontrivial_evaluation**: For h∈Gal(L_(m−1)/K), for conductor exponent m≥2, evaluation sends [h] to ν(h), not ν(h)⁻¹.
-- **norm_projection_square**: Computing at p-level n+1 then norming equals the level n composite.
+- **trivial_evaluation** (degenerate): For ν=1 the L_0 group-ring map is augmentation.
+- **nontrivial_evaluation** (non-example): For h∈Gal(L_(m−1)/K), for conductor exponent m≥2, evaluation sends [h] to ν(h), not ν(h)⁻¹.
+- **norm_projection_square** (compatibility): Computing at p-level n+1 then norming equals the level n composite.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -653,7 +654,7 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/xi-nu; ColemanPowerSeriesPartII:AU.2/wiles-dual-exponential; ColemanPowerSeriesPartII:AU.1/delta-trivial-relation.
 
-**Source:** BKO2021, Proposition 3.3(1)–(2), (3.6)–(3.7), p.953.
+**Source:** BKO2021, (3.6)–(3.7) and Proposition 3.3(1)–(2), p.953.
 
 **Acceptance:** At χ=1 compare the two formulas by the factor1+p⁻¹, and conjugate only φ; the nontrivial ν has conductorℓ^m and orderℓ^(m−1).
 
@@ -663,11 +664,11 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Target ColemanPowerSeriesPartII:AU.4/xi-signed (theorem).** If ε=W(φ), the anticyclotomic image of ξ_ν belongs to V_∞*,ε⊗R. For a nontrivial anticyclotomic χ with conductor exponent c, W(φ̄νχ)=(−1)^cW(φ); opposite sign forces the central L-value and δ_χ to vanish. If ε=−, the required trivial-character vanishing follows separately from W(φ̄ν)=−1.
 
-**Construction or proof.** (1) Use the conjugation-stable conductor, χ(fℓ^m)=1 and the imported local root-number formula. (2) Apply the functional equation at the central point and the derivative formula. (3) Handle χ=1 explicitly when the sign is minus, then use the signed kernel definition and finite-flat coefficient comparison.
+**Construction or proof.** (1) Use the conjugation-stable conductor, χ(fℓ^m)=1 and the imported local root-number formula. (2) Apply the functional equation at the central point and the derivative formula. (3) Handle χ=1 explicitly when the sign is minus (source issue E11). Pass from the vanishing of the C_p-valued derivatives of ξ_ν to membership in V_∞*,ε⊗R by AU.3/signed-units signed_units_base_change: Galois conjugation of the character values preserves conductor parity, so vanishing under the given embedding gives vanishing in Φ_n⊗_O R, and flatness of R identifies the common kernel with V_∞*,ε⊗R.
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/xi-values; ColemanPowerSeriesPartII:AU.4/early-cm-interface; ColemanPowerSeriesPartII:AU.3/signed-units; AutomorphicLFunctionsAndLocalFactors:AL.1.
 
-**Source:** BKO2021, Proposition 3.3(3), p.953.
+**Source:** BKO2021, Proposition 3.3(3) and proof, p.953.
 
 **Acceptance:** For root sign− include the trivial-character vanishing; for root sign+ the trivial character is allowed to have a nonzero value.
 
@@ -675,11 +676,11 @@ Choose the auxiliary quadratic field and import the early canonical CM character
 
 **Target ColemanPowerSeriesPartII:AU.4/optimal-unit (theorem).** There exists ξ*∈V_∞*,+ with δ(ξ*)∈O×. This existence is established before any assertion that V_∞*,+ is Λ-free.
 
-**Construction or proof.** (1) Take ν from the early Finis unit theorem and combine xi-values with W(φ)=+1. Then ξ_ν lies in V_∞*,+⊗W and δ(ξ_ν) is a W-unit. (2) Let I=δ(V_∞*,+)⊂O. Its base extension contains that unit, so IW=W; faithful flatness of the finite DVR extension gives I=O. (3) Choose ξ* mapping to a unit. This avoids using Rubin Proposition 8.1 as an unexplained prior signed-freeness result.
+**Construction or proof.** (1) Take ν from the early Finis unit theorem and combine xi-values, xi-signed and W(φ)=+1. Then ξ_ν lies in V_∞*,+⊗R and δ(ξ_ν) is a unit of R; BKO write W, and any finite coefficient ring containing the values of φ and ν may be used. (2) Let I=δ(V_∞*,+)⊂O. Its extension IR contains a unit, so IR=R; since O→R is a finite extension of discrete valuation rings, I=O. (3) Choose ξ* mapping to a unit. This avoids using Rubin Proposition 8.1 as an unexplained prior signed-freeness result.
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/xi-signed; ColemanPowerSeriesPartII:AU.4/early-cm-interface; ColemanPowerSeriesPartII:AU.3/signed-units; PadicMeasuresIwasawaAlgebras:L4.
 
-**Source:** BKO2021, Theorem 3.4, pp.953–954.
+**Source:** BKO2021, Theorem 3.4 and proof, pp.953–954.
 
 **Acceptance:** The image ideal I=δ(V_∞*,+) satisfies IW=W, hence I=O. No choice of a plus-module Λ-generator is an input.
 
@@ -713,7 +714,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/supersingular-auxiliary; EllipticCurveModularity:R29.5/modular-parametrisation; tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv; ModularCurvesPartII:R13.4; EllipticCurveModularity:R29.5.
 
-**Source:** BKO2021, §5.0.1, pp.955–956; the cited Mazur theorem is a requested supplier input.
+**Source:** BKO2021, §5.0.1, p.955; AbbesUllmo1996, Théorème A, p.269.
 
 **Acceptance:** A merely rational nonzero differential constant could reduce to0. Show the actual optimal Manin constant is a p-unit before claiming separability.
 
@@ -725,7 +726,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/manin-separability; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula; ModularCurvesPartII:R13.4.
 
-**Source:** BKO2021, Lemma 5.2(i), pp.956–957.
+**Source:** BKO2021, Lemma 5.2(i) and proof, pp.956–957.
 
 **Acceptance:** For N=27 and32 the modular curve has genus1, so the separable parametrization has no ramification; the different formula must reproduce this case.
 
@@ -739,7 +740,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients; tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n; ModularCurvesPartII:R13.4; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1.
 
-**Source:** BKO2021, Proof of Lemma 5.2, p.957.
+**Source:** BKO2021, Lemma 5.1(i), p.956; proof of Lemma 5.2, p.957.
 
 **Acceptance:** Scalar Frobenius preserves every cyclic subgroup, but need not fix every torsion point. Keep μ fibres away from the two exceptional j-values.
 
@@ -751,7 +752,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/ramification-count; ColemanPowerSeriesPartII:AU.5/moduli-etale; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1.
 
-**Source:** BKO2021, Lemma 5.2(ii), pp.956–957, with correction E2.
+**Source:** BKO2021, Lemma 5.2(ii), p.956, and proof, p.957, with correction E2.
 
 **Acceptance:** At p=47 the weaker coefficient is0 and the sharper coefficient is3; no existence claim is deduced from a zero lower bound.
 
@@ -765,7 +766,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/moduli-etale; ColemanPowerSeriesPartII:AU.5/ramification-count; ColemanPowerSeriesPartII:AU.5/generic-supersingular-count; tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1.
 
-**Source:** BKO2021, Lemma 5.2(iii), pp.956–957.
+**Source:** BKO2021, Lemma 5.2(iii), p.956, and proof, p.957.
 
 **Acceptance:** At p=5 use j=0 and the μ/3 bound; at p=7 use j=1728 and the μ/2 bound. At47 both exceptional routes are available.
 
@@ -779,7 +780,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/exceptional-supersingular-count; ColemanPowerSeriesPartII:AU.5/manin-separability; tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves; tauceti:TauCetiRoadmap/ModularCurves#9c-axiomatic-regularity-of-quotients; ModularCurvesPartII:R13.4.
 
-**Source:** BKO2021, Formal CM point construction, pp.957–958.
+**Source:** BKO2021, §5.0.1, pp.957–958.
 
 **Acceptance:** Verify exact-order M=p−s rational level for scalar Frobenius[s p], prime-to-p cover degree, and the N=27/32 stabilizer checks at the exceptional points.
 
@@ -791,7 +792,7 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.5/fine-level-unramified; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.4/elliptic-honda-comparison; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3/elliptic-deformation-comparison; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.0/analytic-log.
 
-**Source:** BKO2021, §5, (5.1), p.958.
+**Source:** BKO2021, §5.0.1, (5.1), p.958.
 
 **Uses.** AU.6/quasicanonical-modular-points: Start the marked quasi-canonical quotient system. AU.7/optimal-point-system: Define y=(p+1)Q and its primitive trace system.
 
@@ -804,9 +805,9 @@ Import general supersingular finite-field arithmetic and modular parametrization
 
 **Unit tests.**
 
-- **zero_rejected**: Q=0 fails primitivity.
-- **p_multiple_rejected**: Q=[p]R fails primitivity for every R.
-- **unit_multiple**: Multiplication by any b∈O× preserves primitivity, including b=p+1.
+- **zero_rejected** (degenerate): Q=0 fails primitivity.
+- **p_multiple_rejected** (non-example): Q=[p]R fails primitivity for every R.
+- **unit_multiple** (characterisation): Multiplication by any b∈O× preserves primitivity, including b=p+1.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -820,13 +821,13 @@ Present Φ and the local ring-class tower as selected Dedekind completions so th
 
 ### Dedekind completion models
 
-**Target ColemanPowerSeriesPartII:AU.6/dedekind-completion-models (comparison).** Choose the inert p-adic place of an auxiliary imaginary quadratic K and a compatible prime in each ring class field K(p^s). Then Φ is the completion K_p and Ψ′_s is the completion of K(p^s) at that selected prime, over the selected Hilbert-class-field prime. The local norm subgroup is Q_p×(1+p^sO) under local reciprocity, with inertia quotient (O/p^sO)×/(Z/p^sZ)×. For s≥1 its degree is p^(s−1)(p+1); Ψ′_0=Φ. These equivalences commute with inclusions, Galois actions and formal traces. No uniqueness of the prime above p in the entire global ring class field is asserted.
+**Target ColemanPowerSeriesPartII:AU.6/dedekind-completion-models (comparison).** Choose the inert p-adic place of an auxiliary imaginary quadratic K and a compatible prime in each ring class field H_(p^s) of conductor p^s (the ring class field, not the ray class field written K(g) in BKO §3). Then Φ is the completion K_p and Ψ′_s is the completion of H_(p^s) at that selected prime, over the selected Hilbert-class-field prime. The local norm subgroup is Q_p×(1+p^sO) under local reciprocity, with inertia quotient (O/p^sO)×/(Z/p^sZ)×. For s≥1 its degree is p^(s−1)(p+1); Ψ′_0=Φ. These equivalences commute with inclusions, Galois actions and formal traces. No uniqueness of the prime above p in the entire global ring class field is asserted.
 
 **Construction or proof.** (1) Use that the inert ideal pO_K is principal and hence splits completely in H/K, then select a prime of H once. (2) Apply global/local Artin compatibility and the ring-class idele subgroup to identify the local decomposition quotient and its norm subgroup. (3) Match the quotient with LT.7/bko-quasi-fields and LT.8/field-generator-comparisons, retaining the marking. (4) Transport the valuation ring and maximal ideal to the height-one Dedekind adic-completion carrier in the pinned point-map statement.
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/bko-quasi-fields; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.8/field-generator-comparisons; ComplexMultiplicationAndExplicitReciprocity:CM.3/ring-class-generator; tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence.
 
-**Source:** BKO2021, §5.0.2, pp.958–959; local presentation made explicit for the pinned point map.
+**Source:** BKO2021, §5.0.2, pp.958–959; §3.0.1, p.950.
 
 **Acceptance:** The degree at s=1 is p+1 and at s=0 is1; keep a selected prime rather than asserting a unique global prime above p.
 
@@ -851,9 +852,9 @@ Present Φ and the local ring-class tower as selected Dedekind completions so th
 
 **Unit tests.**
 
-- **conductor_zero**: T_0=T and A_0=A with the original levels.
-- **first_degree**: [Ψ′_1:Φ]=p+1, not p.
-- **shifted_layers**: The tame-fixed field (Ψ′_(n+1))^Δ′ equals Ψ_n, so the index shift cannot be removed.
+- **conductor_zero** (degenerate): T_0=T and A_0=A with the original levels.
+- **first_degree** (computation): [Ψ′_1:Φ]=p+1, not p.
+- **shifted_layers** (non-example): The tame-fixed field (Ψ′_(n+1))^Δ′ equals Ψ_n, so the index shift cannot be removed.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -867,7 +868,7 @@ Present Φ and the local ring-class tower as selected Dedekind completions so th
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.6/quasicanonical-modular-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/trace-compatible-exports; tauceti:WeierstrassCurve.formalPointHomAdicCompletion; tauceti:WeierstrassCurve.formalPointHomAdicCompletion_injective; tauceti:WeierstrassCurve.range_formalPointHomAdicCompletion.
 
-**Source:** BKO2021, Definition 5.4 and its preceding construction, pp.958–959.
+**Source:** BKO2021, §5.0.2 and Definition 5.4, p.959.
 
 **Acceptance:** Allow alternating Frobenius-twisted coarse reductions and moving fine markings. The target image still reduces to zero and the existing parameter map compares all trace sums.
 
@@ -898,9 +899,9 @@ Define y_s as the Δ′-formal trace of x_(s+1), and y=(p+1)Q. Prove primitivity
 
 **Unit tests.**
 
-- **degree_p_plus_one**: The tame trace has p+1 terms.
-- **index_shift**: The point at level Ψ_0 is traced from x_1, not x_0.
-- **formal_addition**: Its parameter is obtained by iterated E.formalAddEval; ordinary parameter addition is not substituted.
+- **degree_p_plus_one** (computation): The tame trace has p+1 terms.
+- **index_shift** (non-example): The point at level Ψ_0 is traced from x_1, not x_0.
+- **formal_addition** (compatibility): Its parameter is obtained by iterated E.formalAddEval; ordinary parameter addition is not substituted.
 
 **Acceptance:** Establish the stated integral assertion with all standing conventions and the listed comparison maps.
 
@@ -914,7 +915,7 @@ Define y_s as the Δ′-formal trace of x_(s+1), and y=(p+1)Q. Prove primitivity
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.7/optimal-point-system; ColemanPowerSeriesPartII:AU.5/primitive-formal-cm-point.
 
-**Source:** BKO2021, Theorem 5.5(i), p.959.
+**Source:** BKO2021, Theorem 5.5(i) and proof, p.959.
 
 **Acceptance:** The base point lies outside pF(m_Φ), not just outside p times an arbitrarily deep sublattice; its logarithm is p times a unit.
 
@@ -924,11 +925,11 @@ Define y_s as the Δ′-formal trace of x_(s+1), and y=(p+1)Q. Prove primitivity
 
 **Target ColemanPowerSeriesPartII:AU.7/hecke-lattice-relation (theorem).** For s≥1 the p forward marked neighbours of T_s form the Gal(Ψ′_(s+1)/Ψ′_s)-orbit of z_(s+1), and the single backward homothety class is z_(s−1). Thus the geometric T_p correspondence gives f(T_p z_s)=Σ_g g·x_(s+1)+x_(s−1)=a_p(E)x_s=0. At s=0 all p+1 neighbours are forward and form Gal(Ψ′_1/Φ)=Δ′. The statement concerns z_s before f and x_s after f; f is never applied a second time to x_s.
 
-**Construction or proof.** (1) Import the marked index-p neighbour classification and Galois actions from LT.7/lattice-neighbors. (2) Identify the geometric Hecke correspondence with the p-isogeny moduli problem, including inherited prime-to-p levels. (3) Use the modular quotient’s Hecke eigenrelation f∘T_p=a_p(E)f and a_p(E)=0; only then pass from the lattice count to an elliptic-point equality.
+**Construction or proof.** (1) Write O=Z_p⊕Z_pθ. For s≥1 the index-p superlattices of T_s=p^(−s)Z_p t+T are the p forward lattices p^(−s−1)Z_p(1+ap^sθ)t+T=(1+ap^sθ)T_(s+1), a mod p, and the backward lattice p^(−s)Z_p t+p^(−1)T=p^(−1)T_(s−1). BKO's printed numerator 1+ap^s is a Z_p-unit, so their list would give the single lattice T_(s+1) (source issue E14). (2) Import the marked index-p neighbour classification and Galois actions from LT.7/lattice-neighbors. (3) Identify the geometric Hecke correspondence with the p-isogeny moduli problem, including inherited prime-to-p levels. (4) Use the modular quotient’s Hecke eigenrelation f∘T_p=a_p(E)f and a_p(E)=0; only then pass from the lattice count to an elliptic-point equality.
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.6/quasicanonical-modular-points; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/lattice-neighbors; ModularCurvesPartII:R14.1; ModularCurvesPartII:R14.5; EllipticCurveModularity:R29.5/modular-parametrisation.
 
-**Source:** BKO2021, Proof of Theorem 5.5(ii), p.959, with corrected Δ′ and s+1 indices.
+**Source:** BKO2021, proof of Theorem 5.5(ii), p.959, with corrections E3 and E14.
 
 **Acceptance:** Count p forward plus one backward neighbour for s≥1, and p+1 forward neighbours at s=0, before applying f to the correspondence.
 
@@ -942,7 +943,7 @@ Define y_s as the Δ′-formal trace of x_(s+1), and y=(p+1)Q. Prove primitivity
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.7/optimal-point-system; ColemanPowerSeriesPartII:AU.7/hecke-lattice-relation; ColemanPowerSeriesPartII:AU.6/formal-image-comparison; LubinTateFormalModulesAndQuasiCanonicalLifts:LT.9/trace-compatible-exports.
 
-**Source:** BKO2021, Theorem 5.5(ii), p.959.
+**Source:** BKO2021, Theorem 5.5(ii), p.959; Rubin1987, Proposition 6.1, pp.415–416.
 
 **Acceptance:** Compute y_0=0 and Tr y_1=−y separately; then the recurrence gives Tr_(Ψ_2/Ψ_1)y_2=0 and Tr_(Ψ_3/Φ)y_3=p y.
 
@@ -962,7 +963,7 @@ Use the primitive trace system to prove the signed minus invariant theorem by cy
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.7/optimal-point-trace; ColemanPowerSeriesPartII:AU.7/optimal-point-primitive; ColemanPowerSeriesPartII:AU.3/signed-points; ColemanPowerSeriesPartII:AU.3/character-logarithm; ArithmeticGaloisDuality:R02.2/five-term-transgression; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality.
 
-**Source:** BKO2021, Corollary 5.6, pp.959–960; Rubin §7, Propositions 7.3–7.4, pp.416–417.
+**Source:** BKO2021, Corollary 5.6 and proof, pp.959–960; Rubin1987, Corollary 6.2, p.416; Lemmas 7.1–7.2 and Propositions 7.3–7.4, pp.416–417.
 
 **Acceptance:** At odd n=1 the Herbrand quotient and Hhat⁰ bound are both1. For general odd n use residue cardinalp² to obtain exponentn−1, not2(n−1).
 
@@ -976,7 +977,7 @@ Use the primitive trace system to prove the signed minus invariant theorem by cy
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.8/minus-point-invariants; ColemanPowerSeriesPartII:AU.3/signed-annihilator; ColemanPowerSeriesPartII:AU.3/signed-rank-upper; ColemanPowerSeriesPartII:AU.0/units-free; PadicMeasuresIwasawaAlgebras:L5; PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local.
 
-**Source:** BKO2021, Corollary 5.6, pp.959–960.
+**Source:** BKO2021, proof of Corollary 5.6, p.960; Rubin1987, Lemma 4.3, p.410.
 
 **Acceptance:** From coinvariants O deduce a cyclic Λ-module, then use positive Λ-rank to rule out a nonzero annihilator ideal; O-cyclic coinvariants alone do not imply freeness.
 
@@ -990,7 +991,7 @@ Use the primitive trace system to prove the signed minus invariant theorem by cy
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.8/minus-quotient-free; ColemanPowerSeriesPartII:AU.0/units-free; PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local.
 
-**Source:** BKO2021, Corollary 5.6, p.960; compare Rubin Lemma 4.1, p.410.
+**Source:** BKO2021, proof of Corollary 5.6, p.960; Rubin1987, Lemma 4.1, p.410.
 
 **Acceptance:** Use the splitting of the already-free quotient and finite projectivity over local Λ; neither arbitrary submodule freeness nor UFD principality is assumed.
 
@@ -1010,7 +1011,7 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.4/optimal-unit; ColemanPowerSeriesPartII:AU.8/minus-quotient-free; ColemanPowerSeriesPartII:AU.1/delta-trivial-relation; ColemanPowerSeriesPartII:AU.1/derivative-covariance; ColemanPowerSeriesPartII:AU.3/signed-units; PadicMeasuresIwasawaAlgebras:L4/iwasawa-maximal-ideal.
 
-**Source:** BKO2021, Proof of Theorem 5.8, p.960.
+**Source:** BKO2021, proof of Theorem 5.8, p.960; Rubin1987, Lemma 4.2, p.410, with correction E13.
 
 **Acceptance:** The maximal ideal(p,γ−1) maps under δ into pO. A quotient coordinate with unit derivative is outside that ideal and is a unit of Λ.
 
@@ -1024,7 +1025,7 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.9/augmentation-unit-generation; ColemanPowerSeriesPartII:AU.3/signed-rank-upper; ColemanPowerSeriesPartII:AU.8/minus-kernel-free.
 
-**Source:** BKO2021, Theorem 2.1, p.949, and Theorem 5.8, p.960.
+**Source:** BKO2021, Theorem 2.1, p.949; Theorem 5.8 and proof, p.960; Rubin1987, Conjecture 2.2, p.408; Theorem 8.4, pp.418–419.
 
 **Acceptance:** Establish the equality before tensoring with Φ or passing to the fraction field of Λ. Cover p=47 by the exceptional point construction; no unverified numerical small-prime theorem is an input.
 
@@ -1038,7 +1039,7 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.9/rubin-decomposition; ColemanPowerSeriesPartII:AU.8/minus-kernel-free.
 
-**Source:** BKO2021, §2, p.949, with Theorem 5.8, p.960.
+**Source:** BKO2021, §2, p.949; Theorem 5.8, p.960; Rubin1987, Proposition 8.1, p.417.
 
 **Acceptance:** Identify the plus module with the already-free minus quotient only after the integral direct sum; retain ξ* as an actual plus generator.
 
@@ -1052,7 +1053,7 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.3/character-logarithm; ColemanPowerSeriesPartII:AU.2/wiles-pairing; ColemanPowerSeriesPartII:AU.2/anticyclotomic-kummer; ColemanPowerSeriesPartII:AU.3/formal-points-infinite-rank.
 
-**Source:** Rubin1987, Rubin Lemma 10.1 proof, pp.420–421; BKO Corollary 2.2, p.949.
+**Source:** Rubin1987, proof of Lemma 10.1, p.421; BKO2021, Corollary 2.2, p.949.
 
 **Acceptance:** The contradiction uses the full module and every conjugate conductor component, not nonvanishing assumed for a signed generator.
 
@@ -1064,7 +1065,7 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.9/signed-free; ColemanPowerSeriesPartII:AU.9/delta-chi-nonzero; ColemanPowerSeriesPartII:AU.1/character-derivative; ColemanPowerSeriesPartII:AU.3/signed-units.
 
-**Source:** BKO2021, Corollary 2.2, p.949; Rubin Lemma 10.1, pp.420–421.
+**Source:** BKO2021, Corollary 2.2, p.949; Rubin1987, Lemma 10.1, p.421.
 
 **Acceptance:** Include χ=1 on the plus side and opposite-parity vanishing. A vanishing matching-generator derivative would kill that entire sign and hence the full module.
 
@@ -1072,13 +1073,13 @@ Use δ at augmentation and the optimal plus unit to generate the rank-one minus 
 
 ### Historical numerical range regression
 
-**Target ColemanPowerSeriesPartII:AU.9/rubin-small-primes (application).** Rubin’s previously checked range 5≤p≤1001 with p≢1 mod12 is a historical consistency check for the new universal theorem, not a proof input. The final theorem includes those primes, p≡1 mod12, and p=47 through the corrected exceptional construction.
+**Target ColemanPowerSeriesPartII:AU.9/rubin-small-primes (application).** Rubin’s previously checked range 5≤p≤1000 with p≢1 mod12 (Rubin p.418; BKO Remark 2.3 writes 1001, source issue E12) is a historical consistency check for the new universal theorem, not a proof input. The final theorem includes those primes, p≡1 mod12, and p=47 through the corrected exceptional construction.
 
 **Construction or proof.** (1) Read Rubin p.418’s computed range and BKO Remark2.3. (2) Observe that 1001 is composite, so the prime ranges ≤1000 and≤1001 coincide. (3) Check the proof graph has no edge from the decomposition to a numerical verification claim.
 
 **Direct inputs:** ColemanPowerSeriesPartII:AU.9/rubin-decomposition.
 
-**Source:** BKO2021, Remark 2.3, p.949; Rubin p.418.
+**Source:** BKO2021, Remark 2.3, p.949, with correction E12; Rubin1987, Computation, p.418; Theorem 8.4, pp.418–419.
 
 **Acceptance:** The prime sets≤1000 and≤1001 agree because1001 is composite; the universal proof graph has no numerical-range assumption.
 
@@ -1104,7 +1105,7 @@ For p>47 choose a nonsquare −m modulo p and adjust m by kp, 0≤k≤7, so that
 | 43 | -87 | 6 | (1, 1, 22); (2, -1, 11); (2, 1, 11); (3, 3, 8); (4, -3, 6); (4, 3, 6) |
 | 47 | -95 | 8 | (1, 1, 24); (2, -1, 12); (2, 1, 12); (3, -1, 8); (3, 1, 8); (4, -1, 6); (4, 1, 6); (5, 5, 6) |
 
-The finite enumeration uses a≤√(|D|/3), so these lists can be checked without a class-number database. The ideal-class correspondence is an explicit number-field supplier contract. All rows have h(D)<p, the stated discriminant parity, and inert p.
+The finite enumeration uses a≤√(|D|/3), so these lists can be checked without a class-number database. The reduced-form/ideal-class correspondence is ComplexMultiplicationAndExplicitReciprocity CM.1/quadratic-forms-dictionary, with Pic(O_D)=Cl(K) for fundamental D. All rows have h(D)<p, the stated discriminant parity, and inert p.
 
 ### Conductor signs and initial trace boundaries
 
@@ -1152,7 +1153,7 @@ The finite-free substitution/determinant-norm mechanism, continuity and norm-con
 
 ### R6. EllipticCurveModularity:R29.5
 
-Continuation in this direction: for an optimal strong Weil parametrization at an odd good prime p, the Manin constant is a p-unit; the optimal isogeny-class replacement preserves good reduction and a_p=0. The existing modular-parametrisation node only supplies a rational nonzero differential constant. Record the additional p-unit theorem as an extension, not as part of that node.
+Continuation in this direction: for an optimal strong Weil parametrization at an odd good prime p, the Manin constant is a p-unit; the optimal isogeny-class replacement preserves good reduction and a_p=0. The existing modular-parametrisation node only supplies a rational nonzero differential constant. Record the additional p-unit theorem as an extension, not as part of that node. A free source for the statement: Abbes–Ullmo 1996, Théorème A (p.269), proves that the Manin constant of a strong Weil curve of conductor N is prime to every p∤N.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.5/manin-separability.
 
@@ -1182,19 +1183,19 @@ Exponential/dual-exponential adjunction for the Lubin–Tate inverse-twisted CM 
 
 ### R11. PadicMeasuresIwasawaAlgebras:L1
 
-Reuse the current TauCeti.completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule implementation. Supply its scalar extension to O and finite coefficient DVR extensions, character evaluation, continuous twisting by κ⁻¹, and the closed-quotient universal property. No reconstruction of completed group algebras or their compact-module action is requested.
+Reuse the current TauCeti.completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule implementation. Supply its scalar extension to O and finite coefficient DVR extensions, character evaluation, continuous twisting by κ⁻¹, and the closed-quotient universal property. No reconstruction of completed group algebras or their compact-module action is requested. Status 2026-10-18: PadicMeasuresIwasawaAlgebras is now a Tau Ceti roadmap (merged on TauCetiRoadmap main 2026-10-14); its Layer 1 states the completed group algebra built on TauCeti.completedGroupAlgebra with coefficient extension. What remains is to check the κ⁻¹-twist on the two-variable algebra and the closed-quotient property against that text.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.0/units-limit; ColemanPowerSeriesPartII:AU.0/inverse-tate-twist; ColemanPowerSeriesPartII:AU.0/anticyclotomic-quotient; ColemanPowerSeriesPartII:AU.1/derivative-covariance.
 
 ### R12. PadicMeasuresIwasawaAlgebras:L4
 
-Finite flat coefficient change for simultaneous derivative kernels and compact finitely generated modules; two-variable O[[Z_p²]] rank calculations, and one-variable O[[T]] local-algebra/Weierstrass consequences. Existing character-decomposition and regular-local node ids are already cited when sufficient.
+Two-variable O[[Z_p²]] rank calculations and one-variable O[[T]] Weierstrass consequences, which the upstream Layer 4 (Weierstrass theory and module structure, with base change of characteristic ideals) states for O[[T]]; the simultaneous-derivative-kernel base change is now proved inside this roadmap (AU.3/signed-units, signed_units_base_change). Existing character-decomposition and regular-local node ids are cited.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.0/units-free; ColemanPowerSeriesPartII:AU.3/signed-rank-upper; ColemanPowerSeriesPartII:AU.4/optimal-unit.
 
 ### R13. PadicMeasuresIwasawaAlgebras:L5
 
-Compact Nakayama for a finitely generated O[[G⁻]]-module using augmentation coinvariants, compatible inverse limits and scalar extension; a cyclic module of positive rank over this domain is free rank one.
+Compact Nakayama for a finitely generated O[[G⁻]]-module using augmentation coinvariants, compatible inverse limits and scalar extension; a cyclic module of positive rank over this domain is free rank one. Status 2026-10-18: the upstream Layer 5, §5.2, states topological Nakayama for compact modules over O[[T]]; the remaining clause (a cyclic module of positive rank over the domain Λ is free of rank one) is routine.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.0/units-free; ColemanPowerSeriesPartII:AU.8/minus-quotient-free.
 
@@ -1234,17 +1235,15 @@ Good-reduction formal subgroup sequence, reduction kernel, Néron mapping proper
 
 **Consumers:** ColemanPowerSeriesPartII:AU.2/formal-kummer-duality; ColemanPowerSeriesPartII:AU.5/supersingular-auxiliary; ColemanPowerSeriesPartII:AU.5/manin-separability.
 
-### R20. tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4
+### R20. ArithmeticGaloisDuality:R02.4
 
-Elliptic local Tate duality for a principally polarized good supersingular elliptic curve, compatible with finite Kummer images, formal reduction subgroups, O-action adjoints and norm/restriction; needed before passing to the infinite tower.
+Compatibility of the local abelian-variety duality of R02.4/abelian-variety-local-duality with restriction and corestriction along finite extensions, with finite Kummer images, and with the adjoint of an O-action, for a principally polarized elliptic curve with good supersingular reduction. Tau Ceti EllipticCurves Layer 7 lists local Tate duality only among stretch prerequisites, so it is not cited.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.2/formal-kummer-duality.
 
-### R21. tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting
+### R21. Withdrawn
 
-Finite ideal-class counting and its primitive positive binary quadratic-form correspondence for negative fundamental D, including reduced representatives with |b|≤a≤c, boundary tie rule and a≤√(|D|/3), to certify the finite D,h(D) table.
-
-**Consumers:** ColemanPowerSeriesPartII:AU.4/auxiliary-quadratic.
+The reduced-form census of the auxiliary-field certificate was first requested from tauceti:TauCetiRoadmap/GlobalNumberFields#layer-3-geometry-of-numbers-and-ray-class-ideal-counting, which does not state it. It is supplied by ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary, now a direct input of AU.4/auxiliary-quadratic.
 
 ### R22. tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles
 
@@ -1278,7 +1277,7 @@ The coarse Y₀(N) j-map for general N prime to p is étale away from 0,1728, wi
 
 ### G1. Height-two universal norms over ramified finite bases
 
-Hazewinkel Theorem1.3 was read with its proof, but assumes an absolutely unramified base. Supply a valid ramified finite-base/cofinality estimate forcing every coordinate of lim_N F(m_(Ψ_n)) and lim_N F(m_(Θ_n)) to vanish. Rubin Proposition4.5 states the vanishing at Φ and cites Hazewinkel; that alone does not justify all finite coordinates. A uniform filtration depth tending to infinity at each fixed ramified layer would close this gap.
+Hazewinkel Theorem1.3 was read with its proof, but assumes an absolutely unramified base. Supply a valid ramified finite-base/cofinality estimate forcing every coordinate of lim_N F(m_(Ψ_n)) and lim_N F(m_(Θ_n)) to vanish. Rubin Proposition4.5 states the vanishing at Φ and cites Hazewinkel; that alone does not justify all finite coordinates. A uniform filtration depth tending to infinity at each fixed ramified layer would close this gap. Lead recorded by the review: Θ_∞ and Ψ_∞ are Galois p-adic Lie extensions with infinite inertia, hence deeply ramified (Fesenko 1998, §2.5 with Proposition 2.3, via Sen's theorem), and for a deeply ramified field Fesenko's Theorem 1.1(4) gives H¹(Gal(F′/F),M_F′)=0 for every finite F′. Coates–Greenberg (Invent. Math. 124, 1996, not read here) derive from this the vanishing of H¹ of formal-group points over deeply ramified fields; that would give the direct-limit Kummer defect vanishing needed in AU.2 directly, without the inverse-limit statement. Source issue E15 records the citation gap in Rubin and BKO.
 
 **Consumers:** ColemanPowerSeriesPartII:AU.2/formal-norm-vanishing.
 
@@ -1288,18 +1287,35 @@ The BKO trace formula and Rubin Theorem5.3 were read. Wiles 1978, Higher explici
 
 **Consumers:** ColemanPowerSeriesPartII:AU.2/wiles-pairing; ColemanPowerSeriesPartII:AU.2/wiles-dual-exponential.
 
+### G3. Supersingular finite-field counts not yet owned
+
+Deuring's supersingular j-count, Schoof's F_(p²) counts N(t) with twists, existence of a supersingular j in F_p and the j=0,1728 criteria are cited through Tau Ceti EllipticCurves Layer 3, which stops at the ordinary/supersingular dichotomy and the Hasse bound. The accepted BKO extraction routes them to Elliptic curves, Part II (design #3398), whose stages do not exist yet. Request R18 and the second restructure entry record the target; until then the input is unowned.
+
+**Consumers:** ColemanPowerSeriesPartII:AU.5/supersingular-auxiliary; ColemanPowerSeriesPartII:AU.5/moduli-etale; ColemanPowerSeriesPartII:AU.5/generic-supersingular-count; ColemanPowerSeriesPartII:AU.5/exceptional-supersingular-count; ColemanPowerSeriesPartII:AU.2/formal-kummer-duality.
+
+### G4. Early nonordinary CM special-value inputs not yet owned
+
+The zeta classes with Kato's dual-exponential formula, the canonical-character root number and period, the auxiliary prime ℓ and Finis's unit theorem at the inert prime are anchored at AutomorphicPadicLFunctions L3, which excludes nonordinary CM types. The accepted BKO extraction routes them to the nonordinary CM continuation (design #3350), whose stages do not exist yet. Request R3 and the first restructure entry record the target; until then the input is unowned.
+
+**Consumers:** ColemanPowerSeriesPartII:AU.4/early-cm-interface.
+
 ## Source corrections
 
-- **ColemanPowerSeriesPartII/E1**, BKO2021, Published Lemma5.1(ii), p.956: For q-Frobenius [s p] and trace2s p, a Lubin–Tate parameter compatible with q-power reduction is s p; the target trace−2p gives parameter−p. A Lubin–Tate π-endomorphism reduces to the q-power Frobenius, so its derivative parameter must correspond to that scalar. The imported LT.4 comparison uses this convention. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9; the LT supplier already uses this correction.
-- **ColemanPowerSeriesPartII/E2**, BKO2021, Published Lemma5.2(ii), p.956, last inference: The stated lower bound is zero at p=47 and does not establish the existence inference there. Use the exceptional j=0 or1728 bounds at47; the universal theorem is unaffected. floor(46/12)−3/2+(−3/47)+(1/2)(−1/47)=3−3/2−1−1/2=0. This does not disprove the generic existence statement itself. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E1. Its sharper count also proves the generic existence statement at47.
-- **ColemanPowerSeriesPartII/E3**, BKO2021, Published proof of Theorem5.5(ii), p.959: Forward neighbours are conjugates of x_(s+1), and at conductor zero the orbit group is Δ′ of orderp+1. The displayed Hecke equality immediately below uses x_(s+1); Φ′_1/Φ has degreep+1, whereas the full Lubin–Tate tame Δ has orderp²−1. Status: Confirmed atlas errata PAPER-BURUNGALE-KOBAYASHI-OTA-21/E4 and/E5; not a new discovery.
-- **ColemanPowerSeriesPartII/E4**, Rubin1987, Rubin Lemma2.1(ii), p.407; BKO footnote2, p.948: Use an actual π-adic Tate basis; the comparison with a p-compatible coordinate sequence has factor(−1)^n. [−p]v_(n+1)=v_n differs from [p]v_(n+1)=v_n by the alternating sign; the Coleman chain rule depends on the chosen basis. Status: BKO2021 footnote2 explicitly records the correction.
-- **ColemanPowerSeriesPartII/E5**, BKO2021, Published §3.0.2–3.0.3, pp.952–954: Use conductor(ν)=ℓ^m, orderℓ^(m−1), and the degreeℓ^(m−1) layer L_(m−1); equivalently keep orderℓ^m and replace the conductor everywhere byℓ^(m+1). At split ℓ≥5 the ℓ-primary ring-class quotient at conductorℓ^m has orderℓ^(m−1). Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E2
-- **ColemanPowerSeriesPartII/E6**, BKO2021, Published Corollary5.6, p.959: Use V_∞*/V_∞*,− throughout. The duality and the proof of Theorem5.8 concern the starred module. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E6
-- **ColemanPowerSeriesPartII/E7**, BKO2021, Published Proof of Theorem5.8, p.960: Insert δ₁=(1+p⁻¹)δ and use 1∈Ξ⁺ to obtain δ(V_∞*,−)=0. The trivial-character equation is part of the minus-unit definition and the factor is nonzero. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E7
-- **ColemanPowerSeriesPartII/E8**, BKO2021, Published §6.0.2, p.962: Use Gal(Ψ_n/Φ). The finite point exports use the degreep^n anticyclotomic layer overΦ. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E8
-- **ColemanPowerSeriesPartII/E9**, BKO2021, Published Proof of Lemma5.2, p.957: Attach indices2,3 to X₀(N)→X(1), not f:X₀(N)→E. Those indices come from the j-map stabilizers; f has its separate different divisor bound. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E10
-- **ColemanPowerSeriesPartII/E10**, BKO2021, Published Quasi-canonical field degree, p.958: Use [Ψ′_s:Φ]=(p+1)p^(s−1). The preceding quotient defines Ψ′_s. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E3
+- **ColemanPowerSeriesPartII/E1** (misprint), BKO2021, Published Lemma5.1(ii), p.956: For q-Frobenius [s p] and trace2s p, a Lubin–Tate parameter compatible with q-power reduction is s p; the target trace−2p gives parameter−p. A Lubin–Tate π-endomorphism reduces to the q-power Frobenius, so its derivative parameter must correspond to that scalar. The imported LT.4 comparison uses this convention. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9; the LT supplier already uses this correction.. Review: confirmed.
+- **ColemanPowerSeriesPartII/E2** (gap), BKO2021, Published Lemma5.2(ii), p.956, last inference: The stated lower bound is zero at p=47 and does not establish the existence inference there. Use the exceptional j=0 or1728 bounds at47; the universal theorem is unaffected. floor(46/12)−3/2+(−3/47)+(1/2)(−1/47)=3−3/2−1−1/2=0. This does not disprove the generic existence statement itself. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E1. Its sharper count also proves the generic existence statement at47.. Review: confirmed.
+- **ColemanPowerSeriesPartII/E3** (misprint), BKO2021, Published proof of Theorem5.5(ii), p.959: Forward neighbours are conjugates of x_(s+1), and at conductor zero the orbit group is Δ′ of orderp+1. The displayed Hecke equality immediately below uses x_(s+1); Φ′_1/Φ has degreep+1, whereas the full Lubin–Tate tame Δ has orderp²−1. Status: Confirmed atlas errata PAPER-BURUNGALE-KOBAYASHI-OTA-21/E4 and/E5; not a new discovery.. Review: confirmed.
+- **ColemanPowerSeriesPartII/E4** (misprint), Rubin1987, Rubin §2, opening paragraph, p.407 (generator of T_p(E) used for Coleman's series); BKO footnote 2, p.948: Use an actual π-adic Tate basis; the comparison with a p-compatible coordinate sequence has factor(−1)^n. [−p]v_(n+1)=v_n differs from [p]v_(n+1)=v_n by the alternating sign; the Coleman chain rule depends on the chosen basis. Status: BKO2021 footnote2 explicitly records the correction.. Review: confirmed.
+- **ColemanPowerSeriesPartII/E5** (misprint), BKO2021, Published §3.0.2–3.0.3, pp.952–954: Use conductor(ν)=ℓ^m, orderℓ^(m−1), and the degreeℓ^(m−1) layer L_(m−1); equivalently keep orderℓ^m and replace the conductor everywhere byℓ^(m+1). At split ℓ≥5 the ℓ-primary ring-class quotient at conductorℓ^m has orderℓ^(m−1). Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E2. Review: confirmed.
+- **ColemanPowerSeriesPartII/E6** (misprint), BKO2021, Published Corollary5.6, p.959: Use V_∞*/V_∞*,− throughout. The duality and the proof of Theorem5.8 concern the starred module. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E6. Review: confirmed.
+- **ColemanPowerSeriesPartII/E7** (gap), BKO2021, Published Proof of Theorem5.8, p.960: Insert δ₁=(1+p⁻¹)δ and use 1∈Ξ⁺ to obtain δ(V_∞*,−)=0. The trivial-character equation is part of the minus-unit definition and the factor is nonzero. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E7. Review: confirmed.
+- **ColemanPowerSeriesPartII/E8** (misprint), BKO2021, Published §6.0.2, p.962: Use Gal(Ψ_n/Φ). The finite point exports use the degreep^n anticyclotomic layer overΦ. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E8. Review: confirmed.
+- **ColemanPowerSeriesPartII/E9** (misprint), BKO2021, Published Proof of Lemma5.2, p.957: Attach indices2,3 to X₀(N)→X(1), not f:X₀(N)→E. Those indices come from the j-map stabilizers; f has its separate different divisor bound. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E10. Review: confirmed.
+- **ColemanPowerSeriesPartII/E10** (misprint), BKO2021, Published Quasi-canonical field degree, p.958: Use [Ψ′_s:Φ]=(p+1)p^(s−1). The preceding quotient defines Ψ′_s. Status: Confirmed atlas erratum PAPER-BURUNGALE-KOBAYASHI-OTA-21/E3. Review: confirmed.
+- **ColemanPowerSeriesPartII/E11** (gap), BKO2021, Proof of Proposition 3.3(3), p.953, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e): When W(φ)=−1 the trivial character, which lies in Ξ⁺, must also be treated: W(φ̄ν)=W(φ)=−1 forces L(φ̄ν,1)=0, and then (2) gives δ₁(ξ_ν)=0. V*,− is defined by the vanishing of δ_χ for every χ∈Ξ⁺, including χ=1 (conductor 1, an even power of p); the printed reduction considers only conductor >1. Status: new. Review: confirmed.
+- **ColemanPowerSeriesPartII/E12** (misprint), BKO2021, Remark 2.3, p.949, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e): Rubin's computation (p.418) covers 5≤p≤1000 with p≢1 mod 12. Rubin p.418 states the bound 1000; since 1001=7·11·13, the two prime ranges coincide. Status: new. Review: confirmed.
+- **ColemanPowerSeriesPartII/E13** (error), Rubin1987, Lemma 4.2 and proof, p.410: Assume in addition that φ(λx)=aug(λ)φ(x) for λ∈Λ (as for the Coates–Wiles derivative δ); then φ(𝔪X)⊂pO and the conclusion follows by Nakayama. For X=Λ=O[[T]] the coefficient of T is continuous and O-linear, takes the value 1 at T, but T lies in 𝔪 and does not generate Λ. Status: new to the reviewed atlas files; the unreviewed AnticyclotomicLocalUnits design records the same point as its E12. Review: confirmed.
+- **ColemanPowerSeriesPartII/E14** (misprint), BKO2021, Proof of Theorem 5.5(ii), forward-lattice list, p.959, published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e): With O=Z_p⊕Z_pθ use ((1+ap^sθ)/p^(s+1))Z_p t+T=(1+ap^sθ)T_(s+1). 1+ap^s is a unit of Z_p, so every printed lattice equals T_(s+1); the p distinct index-p superlattices of T_s other than p^(−1)T_(s−1) need a second coordinate. Status: new to the reviewed atlas files; the unreviewed AnticyclotomicLocalUnits design records the same point as its E13. Review: confirmed.
+- **ColemanPowerSeriesPartII/E15** (gap), BKO2021, §4, p.954 (vanishing of the inverse limit of F(Θ_n), citing Hazewinkel), published version, Annals of Mathematics 194 (2021), Caltech repository copy (SHA-256 77ff3290…790e); Rubin 1987, proof of Lemma 5.1, p.411: Hazewinkel's Theorem 1.3 and Rubin's Proposition 4.5(i) give the vanishing of universal norms at the base Φ only; the coordinates at the ramified layers need a separate argument (gap G1), for example the deeply ramified route recorded there. A norm-compatible system with zero base coordinate need not vanish; Hazewinkel's theorem requires an absolutely unramified base, which Θ_n and Ψ_n are not for n≥1. Status: new (the conclusion is expected to hold by Coates–Greenberg's theory of deeply ramified extensions, not read here). Review: confirmed.
 
 ## Routed-item coverage
 
@@ -1372,3 +1388,5 @@ All57 routed items are accounted for below. Grouping means one target proves mul
 - **Hazewinkel1977**. Michiel Hazewinkel, [On norm maps for one dimensional formal groups III](https://ir.cwi.nl/pub/10014/10014D.pdf), Duke Mathematical Journal44(1977),305–314. Read2026-10-18. Entire article §§1–4, pp.305–314, including Theorem1.3, formal norm estimates and proof. Its absolute-unramified-base hypothesis is retained; see G1.
 - **Wintenberger1980**. Jean-Pierre Wintenberger, [Structure galoisienne de limites projectives d’unités locales](https://www.numdam.org/item/CM_1980__42_1_89_0.pdf), Compositio Mathematica42(1980 archive volume; printed heading1981),89–103. Read2026-10-18. §4 theorem, pp.91–92, and its proof §§5.1–5.5.3, pp.92–98; remainder inspected for scope. Nontrivial, noncyclotomic tame components are the freeness input.
 - **LIB**. Mathlib and Tau Ceti contributors, [Pinned declarations and current roadmap ownership](https://github.com/TauCetiProject/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369), Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; TauCetif790474821cf4256814db967cb154e7af3d0c369; roadmap0d144d044dacebca17b654695b6f1ad58f159b27. Read2026-10-18. Read pinned unit filtration, power-series derivative and formal-point completion homomorphism/injectivity/range. Read current LocalFieldsRamification, EllipticCurves, LocalGaloisGroups, ProfiniteArithmetic and parent Coleman roadmap documents; searched the nine post-snapshot roadmap directories and current library. Read current completed group algebra Basic, compact-module action and procyclic power-series coordinate statements.
+- **AbbesUllmo1996**. Ahmed Abbes and Emmanuel Ullmo, [À propos de la conjecture de Manin pour les courbes elliptiques modulaires](http://www.numdam.org/item/CM_1996__103_3_269_0.pdf), Compositio Mathematica 103 (1996), 269–286; Numdam archive copy. Read2026-10-18. Introduction and Théorème A, p.269; location of the proof, pp.276–279, checked for scope
+- **Fesenko1998**. Ivan B. Fesenko, [On deeply ramified extensions](https://ivanfesenko.org/wp-content/uploads/2021/10/drm.pdf), J. London Math. Soc. 57 (1998), 325–335; author's copy. Read2026-10-18. §1, Theorem 1.1 and Remarks 1.2–1.3; §2.5 (p-adic Lie extensions). Used only as a lead for gap G1.
