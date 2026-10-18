@@ -9669,8 +9669,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-    "date": "2026-10-17",
-    "notes": "Bounded independent review of finding /11 by Codex (GPT-6), codex-BsNNY8. Checked the six formal, analytic and arithmetic exports against GSWZ v2 Theorems 3/5, p.14, section 1.8 pp.16-17, (110)-(111) p.28, Definition 2.11 and (117)-(119) pp.29-30, (126) p.31, Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Retain invertible formal Hessians versus positive-definite analytic data, odd coprime orders, Laurent coefficients before t-completion and the restricted coefficient-line membership. HB.4 follow-up retains coefficientwise Kummer and normalization gaps; HB.10 retains scalar-change, gluing and global-line gaps. Neither module membership nor its numerical examples establish knot invariance, analytic state integrals or quantum modularity. No mathematical payload changed; this is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
+    "date": "2026-10-18",
+    "notes": "Codex, session codex-sP1hgJ: independent bounded review of FIX-RT-AREA-topology~4, issue #6521. Finding /11: accept the six-export ownership contract, retaining all its qualifications. Re-read GSWZ v2 Theorems 3/5 p.14, section 1.8 pp.16-17, Definition 2.11 and equations (117)-(119) pp.29-30, equation (126) p.31, and Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Invertible formal Hessians do not require positive definiteness; the analytic theorem does, with odd coprime orders and branch/remainder conditions. Keep HB.8 refined-Gaussian comparison gaps, HB.9 Kummer/gluing obligations, HB.4 coefficientwise descent/normalization gaps and HB.10 scalar-change/global-line/cohomology qualifications. Restricted module membership proves no knot invariance or quantum modularity. The reader introduction still mislocates Theorem 3 on p.13 instead of p.14; its path is outside the live issue. No mathematical payload or suggested signature changed. All seven queue packets pass the checker with zero errors/warnings; all seven suggested files elaborate serially through lean-check at pinned Mathlib with only admitted-declaration warnings. Follows codex-BsNNY8, 17 October 2026, whose complete review is retained in reviewHistory. This is not a new whole-plan audit. Completion remains blocked by the live issue/queue scope mismatch; see the report and handoff."
   },
   "reviewHistory": [
     {
@@ -10387,6 +10387,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /11: all six supplier exports retain their formal, analytic or arithmetic domains. Read GSWZ v2 equations (110)-(111), p.28, Definition 2.11 and (117)-(119), pp.29-30, (126), p.31, Theorems 3/5, p.14, and Theorem 8, pp.35-36; GZ v1 analytic datum, pp.2-3, and Theorem 3.1, pp.5-6. Nondegeneracy, the completed Gaussian domain, coprime auxiliary orders, Laurent coefficients before the t-completion, the quadratic discriminant algebra and excluded orders are retained. Follow-up prefactor, regularity, Kummer and gluing gaps remain qualifications of the exports. The suggested h=1 real-polynomial bracket is narrower than the completed operator. No knot identification follows from module membership. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-17",
+      "notes": "Bounded independent review of finding /11 by Codex (GPT-6), codex-BsNNY8. Checked the six formal, analytic and arithmetic exports against GSWZ v2 Theorems 3/5, p.14, section 1.8 pp.16-17, (110)-(111) p.28, Definition 2.11 and (117)-(119) pp.29-30, (126) p.31, Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Retain invertible formal Hessians versus positive-definite analytic data, odd coprime orders, Laurent coefficients before t-completion and the restricted coefficient-line membership. HB.4 follow-up retains coefficientwise Kummer and normalization gaps; HB.10 retains scalar-change, gluing and global-line gaps. Neither module membership nor its numerical examples establish knot invariance, analytic state integrals or quantum modularity. No mathematical payload changed; this is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
     }
   ]
 }
