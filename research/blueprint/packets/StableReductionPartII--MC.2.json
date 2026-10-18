@@ -1004,8 +1004,8 @@
         },
         {
           "sourceId": "Knudsen-pointed-node",
-          "locator": "Theorem 5.1, pp. 13–16, smooth-point case",
-          "match": "Reduces the smooth and collision cases to local computations in the symmetric-algebra presentation."
+          "locator": "Theorem 5.1 and opening of its proof, pp. 13–14",
+          "match": "States stable pointed expansion but leaves the smooth and collision calculations to the reader and refers to the original proof. The displayed signed chart is derived here from the diagonal cokernel in Knudsen II Definition 2.3 and Theorem 2.4, pp. 176–177."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1105,8 +1105,8 @@
         },
         {
           "sourceId": "Knudsen-pointed-node",
-          "locator": "Theorem 5.1, pp. 13–16",
-          "match": "The smooth collision case is an elementary local symmetric-algebra calculation."
+          "locator": "Theorem 5.1 and opening of its proof, pp. 13–14",
+          "match": "Asserts the stable-family result and omits the smooth-point calculation. The explicit coefficient-free affine cover and normal-form flatness proof are deductions here from the preceding collision presentation, rather than calculations printed in this theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1275,13 +1275,14 @@
       ],
       "proofSteps": [
         "Use the parent contraction and componentwise log-dual degrees to classify its exceptional fibre: collision tail, nodal bridge, or none.",
-        "As in the source recovery lemma, identify q_*O_Y(last−old) with J∨(−old). The source local charts and the contraction structure-sheaf property identify its evaluation quotient with the parent K, giving Y→Proj_C Sym K.",
-        "The map preserves all quotient lines and is an isomorphism on geometric fibres. Properness makes it quasi-finite and finite; for a finite map between S-flat finitely presented curves, fibrewise isomorphism makes its structure-sheaf map an isomorphism by Nakayama and coefficient-flatness.",
+        "Write D for the old divisor on C, D_Y for the retained divisor on Y and l for the last section. The fibrewise tail/bridge calculations and cohomology/base change give q_*O_Y(l−D_Y)≃J∨(−D). The evaluation diagram identifies q_*O_Y(l) with K(−D), not K itself, and gives q^*K(−D)→O_Y(l) surjective. Tensor by q^*O_C(D), or use Proj Sym K(−D)≃Proj Sym K, to obtain the map Y→C^s with the specified quotient lines. Keep the signs compatible with the positive diagonal.",
+        "The map preserves all quotient lines and is an isomorphism on geometric fibres, hence is quasi-finite. It is proper because Y is proper over S and C^s is separated over S, and is therefore finite. For a finite map between S-flat finitely presented curves, fibrewise isomorphism makes its structure-sheaf map an isomorphism by Nakayama and coefficient-flatness.",
         "The quotient universal property and the contraction factorization property give uniqueness. Prove over Noetherian models and descend to arbitrary S."
       ],
       "acceptance": [
         "Verify the sheaf comparison and the induced evaluation quotient, not only a bijection on geometric points.",
-        "Include an omitted marking on a rational bridge and one colliding with an old marking."
+        "Include an omitted marking on a rational bridge and one colliding with an old marking.",
+        "Retain the twist K(−D) in the recovery evaluation diagram; its Proj is canonically the same as that of K."
       ],
       "sources": [
         {
@@ -1292,7 +1293,7 @@
         {
           "sourceId": "Knudsen-pointed-node",
           "locator": "Theorem 5.2, p. 16",
-          "match": "The expansion and contraction operations define natural inverse functors."
+          "match": "States functoriality of stabilization. The inverse comparison comes from Knudsen II Lemma 2.5 and Corollary 2.6, not from this later theorem alone."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1337,7 +1338,7 @@
         {
           "sourceId": "Knudsen-pointed-node",
           "locator": "Theorem 5.2, p. 16",
-          "match": "Functorial formulation of the inverse stable-family operations."
+          "match": "Supplies the functorial stabilization operation. Its coherent inverse is justified here by the original recovery lemma and Corollary 2.6 together with uniqueness, rather than attributed to this theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2097,5 +2098,143 @@
     "allTargetsAccountedFor": true,
     "mathematicalClosure": "Prerequisite chains end in read baseline declarations, imported blueprint targets, current upstream roadmap contracts, or the seven explicit requested stages. A planned stage is not an implemented or supplier-closed stage.",
     "sourceLanguage": "All source descriptions, proofs and tests are written in the worker’s own words; no source excerpts or section-by-section source summary is stored."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-StableReductionPartII--MC.2",
+    "date": "2026-10-18",
+    "notes": "Independently checked every target, source locator/match, nine pinned baseline declarations, supplier statements, current upstream ownership, API/tests and reader. Corrected four nodes: omitted smooth-case attribution in the 2012 paper, the recovery evaluation twist and proper/quasi-finite argument, and the inverse-functor attribution. All 26 nodes are verified or corrected. MC.2 remains planned, not closed or implemented, with seven explicit supplier-stage contracts and one bibliographical source-access gap. Suggested Lean elaborates at the pins with nine admitted-proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "StableReductionPartII:MC.2/absolute-stable-reflexivity",
+        "verdict": "verified",
+        "note": "Canonical evaluation and both native positive Ext families agree with Ile Definition 3.1; finite-Noetherian compatibility imports the existing Gorenstein-projective owner. Four discriminating tests and the finite-term restriction are retained."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/relative-stable-reflexivity",
+        "verdict": "verified",
+        "note": "Ile Definition 3.4 tests contractions of maximal chart ideals, including nonclosed coefficient points; coefficient flatness and the local closed-fibre specialization are correct."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/universal-complete-hull",
+        "verdict": "verified",
+        "note": "Ile Definition 4.1, Proposition 4.3 and Remark 4.4 support the shifted dual, augmentation and all-coefficient exactness. The degree-one shift to the current supplier cycle convention is correct; finite terms and flat cycles are explicit."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/relative-universal-criterion",
+        "verdict": "verified",
+        "note": "Ile Proposition 3.5 and Remark 3.6 and Knudsen Appendix Theorem 2 support both canonical exchange maps, both positive Ext families and the converse deriving flatness. The generic exchange input is an explicit supplier request."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/relative-arbitrary-base-change",
+        "verdict": "verified",
+        "note": "Arbitrary coefficient-ring change follows termwise from the universally exact finite-projective hull, including noncoherent targets and nonflat coefficients; it matches Ile Proposition 3.5."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/ambient-relative-reflection",
+        "verdict": "verified",
+        "note": "Degreewise finite-free Hom/Ext comparison proves preservation and faithfully flat reflection. Finiteness and faithful flatness are retained exactly where needed."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/two-base-completion",
+        "verdict": "verified",
+        "note": "Knudsen Appendix Proposition 6 states the three-way equivalence. The public replacement proof changes flatness of every finite completed-chart cycle using Stacks 00MK and unchanged residue fields; no tensor/limit interchange is used. Bourbaki collation remains openly unverified."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/infinitesimal-relative-criterion",
+        "verdict": "verified",
+        "note": "Knudsen Appendix Proposition 7 is used only in the local target scope. Stacks 0523 supplies infinitesimal flatness there; the displayed nonlocal counterexample rules out the stronger assertion."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/completed-ring-hom-ext-adjunction",
+        "verdict": "verified",
+        "note": "Flat scalar extension takes projective resolutions to projective resolutions and gives the stated Hom/Ext adjunction for arbitrary modules. The compatible-family comparison retains its separate finite-projective-coefficient restriction."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/completed-coefficient-hom-ext",
+        "verdict": "verified",
+        "note": "Apply the verified two-base criterion to actual completed-ring Hom and Ext with every completed coefficient module. The two coefficient tensor products and ring of linearity are kept distinct."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/polynomial-relative-criterion",
+        "verdict": "verified",
+        "note": "The parent canonical coefficient-Hom and derived-Ext nodes supply exactly this criterion. Their broader polynomial identities are distinguished from the finite-Noetherian relative theorem."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/pointed-formal-chart-comparison",
+        "verdict": "verified",
+        "note": "Knudsen 2012 Proposition 2.1 supplies a hull and the small-extension argument, not a fine moduli ring. Compatible formal choices identify the actual section and completed dual; nonsplit quadratic forms and both completions are retained."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/section-ideal-local-theorem",
+        "verdict": "verified",
+        "note": "Ile Theorem 6.1 supplies the local Gorenstein theorem and rank-one residue quotient. The moving-section pairing restriction follows from Remark 6.4/Example 6.5; no unrestricted rank-two family conclusion is used."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/section-dual-sheaf-gluing",
+        "verdict": "verified",
+        "note": "Canonical local duals and flat residue quotients glue to the actual sheaf Hom and residue line. Arbitrary base change uses the special coefficient theorem, not generic nonflat internal-Hom pullback."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/old-mark-collision-chart",
+        "verdict": "corrected",
+        "note": "Checked both dehomogenized charts, positive-diagonal signs, lifted sections and all four tests. Corrected the 2012 locator/match: it omits the smooth calculation; the signed presentation is the packet deduction from the original diagonal cokernel."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/collision-chart-flatness",
+        "verdict": "corrected",
+        "note": "The normal-form free chart and complementary polynomial localization cover the Proj over arbitrary rings. Corrected the source match to distinguish this explicit deduction from the smooth case omitted in the 2012 proof."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/formal-proj-flatness-transfer",
+        "verdict": "verified",
+        "note": "Completion is taken on actual affine Proj charts, then localized/completed at the point tested. The explicit flat polynomial charts and faithful flatness justify descent without excellence or algebraization."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/arbitrary-base-family-approximation",
+        "verdict": "verified",
+        "note": "Read the exact SF.0 approximation/limit statements and upstream sheaf/Veronese contracts. They support descent of this finite family diagram and its properties; the special dual exchange supplies the otherwise missing arbitrary pullback."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/expansion-over-arbitrary-bases",
+        "verdict": "verified",
+        "note": "Collision, nodal and disjoint charts supply the three cases; approximation and the canonical sheaf/Proj comparisons give the stable family and coherent arbitrary base change. No unfinished parent flatness conclusion is used as its own premise."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/contraction-recovery-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the evaluation step to use K(−D), then its canonical Proj twist comparison; separated the fibrewise quasi-finiteness argument from properness. Corrected Theorem 5.2 attribution: original Lemma 2.5/Corollary 2.6 prove recovery and inverse comparison."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/universal-curve-coherent-equivalence",
+        "verdict": "corrected",
+        "note": "Original Corollary 2.6 plus unique pointed recovery gives the inverse maps, triangles and pullback coherence on groupoids. Corrected the later Theorem 5.2 source match to claim functorial stabilization only."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/stable-onepointed-onegon-comparison",
+        "verdict": "verified",
+        "note": "The total log degree one forces irreducible smooth-or-one-gon fibres. Read the four exact arithmetic-moduli supplier statements, including integral Weierstrass smoothness/properness and cusp B(C2); this gives a noncircular genus-one base."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/pointed-stack-induction-step",
+        "verdict": "verified",
+        "note": "The universal curve raises dimension by one; eliminating an independent old smoothing parameter proves smoothness of the total stack. All base cases and the inherited formal-to-étale boundary contract are retained."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/pointed-boundary-induction",
+        "verdict": "verified",
+        "note": "Knudsen Theorem 2.7 gives the old-boundary and collision-section loci; the local equations verify multiplicity one and relative normal crossings, without a globally simple-boundary claim."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/labelled-triangle-family-recovery",
+        "verdict": "verified",
+        "note": "Checked labelled graph rigidity, equality of persistent singular sections using Stacks 0C58/02GE, and End(I) partial cutting in the persistent split chart. Source properness is independent of the triangle; general clutching E3 is not used."
+      },
+      {
+        "nodeId": "StableReductionPartII:MC.2/triangle-smoothing-comparison",
+        "verdict": "verified",
+        "note": "The four persistent gluing nodes are fixed; the fifth cusp node of a nodal elliptic component stays free. The family/deformation-groupoid recovery supports the equations, with an explicit inherited formal-to-étale requirement."
+      }
+    ]
   }
 }
