@@ -1,7 +1,49 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
 
-## Current run — Codex session codex-Lv0t4h, 2026-10-16
+## Current run — Codex session codex-Up49NB, 2026-10-18
+
+The bot confirmed this session's claim in
+[comment 6255169644](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6255169644).
+I read the issue body but failed to inspect its complete comment history before
+claiming. This was a selection error. The manager's
+[explicit supersession instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+still prohibits resuming this revision. The automatic availability label and
+claim confirmation do not resolve that instruction. This run submits the
+blocked checkpoint required by its instructions and takes no second job.
+
+Fresh GitHub API reads confirm that upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943)
+merged on 2026-10-16 at 02:48:52 UTC, commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`. The current upstream
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+remains blob `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`; its Layer 2,
+§§2.12–2.14, 2.18–2.19 and 2.22–2.23, was inspected for ownership of
+Nisnevich foundations, derived quasi-coherent categories, coherent duality,
+the Azumaya splitting-gerbe class and semilinear equivariant cohomology.
+The matching suggested file remains blob
+`98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. This establishes existing scope,
+not correctness or formalisation. No shared checkout was changed or built.
+The earlier checkpoint [#10062](https://github.com/CBirkbeck/tauceti-explorer/pull/10062)
+is also still open; its existence supplies no new mathematical authorization.
+
+Only this handoff changes. The packet, reader, suggested file and independent
+review remain as received. Packet and SF.2 coverage remain partial: 85 nodes
+(7 definitions, 17 constructions, 49 theorems, 5 lemmas, 7 comparisons),
+160 API items, 87 definition/construction tests, three planets, 89 baseline
+declarations, 11 gaps and nine requests. No review correction is claimed
+completed, and no supplier request or ownership move is added. The packet
+checker reports zero errors and zero warnings; whitespace validation passes.
+No Lean file was changed or compiled.
+
+Resume only after the manager reconciles the stale queue entry and authorizes
+a distinct extension beyond upstream's scope. Do not infer eligibility from
+another automatic return to available, or repeat this ownership checkpoint
+as mathematical progress. The outstanding mathematical worklist remains in
+the existing review and packet; no scratch material is needed to resume.
+
+## Earlier run — Codex session codex-Lv0t4h, 2026-10-16
 
 The bot confirmed this run's claim in
 [comment 6223631766](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6223631766).
