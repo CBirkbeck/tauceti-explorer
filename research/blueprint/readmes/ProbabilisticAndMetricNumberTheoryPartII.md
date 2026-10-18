@@ -12,7 +12,7 @@ Import PM.4’s exact nodes `gauss-map`, `gauss-branch-derivative`, `gauss-densi
 
 Current upstream DifferentialGeometry, Layer 10 §10.5, owns Brouwer’s theorem. Its `exists_fixedPoint_closedBall` statement and README were read at commit `0d144d044dacebca17b654695b6f1ad58f159b27`. [The owner](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/DifferentialGeometry/README.md#layer-10-the-brouwer-mapping-degree) is absent from the atlas snapshot. G1 records the indexing bridge needed at packaging; no Brouwer node is created here.
 
-Packets use the pinned native `spectralRadius`, valued in ℝ≥0∞; real bounds are coerced explicitly. The baseline table records 16 declarations whose actual statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti is pinned at `f790474821cf4256814db967cb154e7af3d0c369`. General cone contraction, this affine C¹ carrier, the two-norm spectral decomposition and analytic simple eigendata were not found at either pin. Existing resolvent, real-measure Laplace, scalar Cauchy and Gauss APIs are retained as imports, not re-planned.
+Packets use the pinned native `spectralRadius`, valued in ℝ≥0∞; real bounds are coerced explicitly. The baseline table records 17 declarations whose actual statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti is pinned at `f790474821cf4256814db967cb154e7af3d0c369`. General cone contraction, this affine C¹ carrier, the two-norm spectral decomposition and analytic simple eigendata were not found at either pin. Existing resolvent, real-measure Laplace, scalar Cauchy and Gauss APIs are retained as imports, not re-planned.
 
 ## TO.0 — Affine carriers and branch counting
 
@@ -331,7 +331,7 @@ Acceptance: As σ↓1 the lower sum diverges. As σ→∞ the upper bound tends 
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheoryPartII:TO.2/operator`.
 
-Source: GMR19, Proof of Proposition 43, §4.5, p.800; Lemma 35 p.792. The corrected upper p-series estimate and its lower counterpart establish the two pressure limits directly.
+Source: GMR19, Proof of Proposition 43, §4.5, p.799; Lemma 35 p.792. The corrected upper p-series estimate and its lower counterpart establish the two pressure limits directly.
 
 ### Ionescu–Tulcea–Marinescu inequality
 
@@ -505,7 +505,7 @@ Proof or construction:
 API:
 
 - `noncompact.zero` — χ(A)=0 iff closure A is compact, for bounded A in a Banach space.
-- `noncompact.compactPerturbation` — Adding a relatively compact set does not change χ; adding a compact operator does not change r_χ.
+- `noncompact.compactPerturbation` — For bounded A and nonempty relatively compact K, χ(A+K)=χ(A); adding a compact operator does not change r_χ.
 - `noncompact.powers` — χ(T^{m+k})≤χ(T^m)χ(T^k), and r_χ(T)≤spectralRadius ℂ T after coercion to ℝ≥0∞.
 
 Checks:
@@ -513,6 +513,7 @@ Checks:
 - `noncompact_finite` — A finite set and any bounded set in finite dimension have χ=0.
 - `noncompact_identity` — On an infinite-dimensional Banach space, χ(B₁)=1 and r_χ(id)=1.
 - `noncompact_scaling` — For c∈ℂ, r_χ(cT)=|c|r_χ(T).
+- `noncompact_empty_sum` — χ(∅)=0 and A+∅=∅. Thus on an infinite-dimensional Banach space χ(B₁+∅)=0≠1=χ(B₁); the compact-set addition rule needs nonemptiness.
 
 Uses: TO.3/itm: Weak compactness and a two-norm inequality yield a bound on the noncompact spectral part without assuming an approximation property.
 
@@ -716,7 +717,7 @@ Acceptance: A domination inequality alone does not give strict separation; both 
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheoryPartII:TO.3/itm`, `ProbabilisticAndMetricNumberTheoryPartII:TO.3/real-rpf`, `ProbabilisticAndMetricNumberTheoryPartII:TO.2/two-norm`, `ProbabilisticAndMetricNumberTheoryPartII:TO.5/fixed-delays`.
 
-Source: GMR19, Theorem 41 p.794 and Proposition 42 pp.795–796; Lemma 46 pp.798–799. The generalized Wielandt argument is made explicit using the two-norm spectral criterion and the fixed-point test.
+Source: GMR19, Theorem 41 p.795 and Proposition 42 pp.795–796; Lemma 46 pp.798–799. The generalized Wielandt argument is made explicit using the two-norm spectral criterion and the fixed-point test.
 
 ### Pressure and the unique exponent
 
@@ -734,7 +735,7 @@ Acceptance: Strict monotonicity alone is not used to infer a nonzero derivative 
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheoryPartII:TO.4/uniform-gap`, `ProbabilisticAndMetricNumberTheoryPartII:TO.2/c0-bounds`, `ProbabilisticAndMetricNumberTheoryPartII:TO.0/branches`.
 
-Source: GMR19, Proposition 43 pp.796,800; Lemma 35 p.792. The real analytic pressure and large-parameter estimate are strengthened by the lower p-series bound to prove existence without the arithmetic comparison.
+Source: GMR19, Proposition 43 pp.796,799–800; Lemma 35 p.792. The real analytic pressure and large-parameter estimate are strengthened by the lower p-series bound to prove existence without the arithmetic comparison.
 
 ## TO.6 — Uniform renewal and conformal measures
 
@@ -792,7 +793,7 @@ Acceptance: Evaluate the decomposition on h_s; the uncorrected source formula fa
 
 Direct prerequisites: `ProbabilisticAndMetricNumberTheoryPartII:TO.6/transform`, `ProbabilisticAndMetricNumberTheoryPartII:TO.4/perturbation`, `ProbabilisticAndMetricNumberTheoryPartII:TO.5/wielandt`, `ProbabilisticAndMetricNumberTheoryPartII:TO.5/pressure`.
 
-Source: GMR19, §4.3, item (1), p.797. The perturbation decomposition must include the λ numerator or the complementary projection; this leaves the pole but changes the displayed exact identity.; LAL89, Proposition 7.2 pp.25–26; coefficient in Theorem 1 (2.5) p.9. The renewal coefficient contains the pressure derivative and the exponential abscissa.
+Source: GMR19, §4.3, item (1), p.797. The perturbation decomposition must include the λ numerator or the complementary projection; this leaves the pole but changes the displayed exact identity.; LAL89, Proposition 7.2, (7.7), p.25; coefficient in Theorem 1 (2.5) p.9. The renewal coefficient contains the pressure derivative and the exponential abscissa. Formula (7.7) has the same full-remainder double-counting defect as GMR19; the node states the corrected identity.
 
 ### Uniform band-limited smoothing
 
@@ -927,12 +928,12 @@ Source: GMR19, Example 9, pp.757–758. The three matrices and permutation modif
 
 Target `ProbabilisticAndMetricNumberTheoryPartII:TO.7/numeric` (application).
 
-Use piecewise affine collocation on Δ₄ with vertices (0,0,1),(0,1/2,1/2),(1/3,1/3,1/3), both branch indices and A=0,…,B. Power iteration estimates the Perron eigenvalue of the resulting finite positive matrix. A fresh diagnostic gives, for mesh m=16,B=100: λ(2.42)≈1.02201312, λ(2.44)≈1.00155870, λ(2.46)≈0.98166645; for m=32,B=300: 1.02398743,1.00333699,0.98326670 respectively. These support a crossing near 2.44, but are not certified enclosures of β or λ.
+Use piecewise affine collocation on Δ₄ with vertices (0,0,1),(0,1/2,1/2),(1/3,1/3,1/3), both branch indices and A=0,…,B. Power iteration estimates the Perron eigenvalue of the resulting finite nonnegative matrix. A fresh diagnostic gives, for mesh m=16,B=100: λ(2.42)≈1.02201312, λ(2.44)≈1.00155870, λ(2.46)≈0.98166645; for m=32,B=300: 1.02398743,1.00333699,0.98326670 respectively. These support a crossing near 2.44, but are not certified enclosures of β or λ.
 
 Proof or construction:
 
 1. Use mesh points w=(j/(3m),i/(2m)+j/(3m),1−i/(2m)−2j/(3m)) with nonnegative integers i,j,i+j≤m. For each branch image convert back to coordinates u=2m(w₂−w₁),v=3mw₁, and linearly interpolate on the two triangles in each lattice square.
-2. Build positive row contributions q^{−s} times interpolation weights. Start f=1, repeatedly compute g=Lf and normalize by max g; stop when the maximum coordinate change is<10⁻¹¹ (20–21 iterations in these runs). The final normalization factor is the displayed finite-matrix estimate.
+2. Build nonnegative row contributions q^{−s} times interpolation weights. Start f=1, repeatedly compute g=Lf and normalize by max g; stop when the maximum coordinate change is<10⁻¹¹ (20–21 iterations in these runs). The final normalization factor is the displayed finite-matrix estimate.
 3. The explicit tail bound controls the omitted operator in C⁰, but without an interpolation error estimate and a spectral enclosure it does not certify the true eigenvalue. Retain the values, method and this limitation as an acceptance diagnostic, never as the proof of existence or uniqueness.
 
 Acceptance: Repeat with a larger cutoff/mesh and reproduce the trend; record both discretizations, not an unsupported decimal for β.
@@ -960,33 +961,41 @@ Source: GMR19, Remark 14, p.761. Compatible embeddings of the ordered cones comp
 
 ## Source corrections and acceptance discipline
 
-- **E1** (Annals §4.2 p.794, coding-image compactness). Define K as the closure of that image. Already for n=3 the branch fixed points tend to 0 while every code gives a strictly positive coordinate; a countable alphabet is not compact.
+Independent review confirmed twelve findings and rejected E9 as a source-error claim. Version-specific locators and reasons follow; the packet records the source versions and file hashes.
 
-- **E2** (Annals §4.5 p.800, final p-series bound; extraction E8). Use 2^σ(n−2)Σ(A+3)^(−σ). Raising q≥(A+3)/2 to the power −σ produces 2^σ.
+- **E1 — confirmed** (Annals §4.2 p.794, coding-image compactness). Define K as the closure of that image. Confirmed at journal p.794. In n=3, the fixed points of branches A tend to the endpoint 0 in the Gauss coordinate; no infinite code with a finite first letter maps to that endpoint. Closing the coding image is necessary.
 
-- **E3** (Annals Lemma 46 p.798; extraction E15). Use L_{Re s} for both nonnegative majorants. Absolute values of complex weights are q^{−Re s}; the original right side need not be real.
+- **E2 — confirmed** (Annals §4.5 p.799, final p-series bound; extraction E8). Use 2^σ(n−2)Σ(A+3)^(−σ). Confirmed at journal p.799, not p.800. The bound q≥(A+3)/2 gives q^(−σ)≤2^σ(A+3)^(−σ). For n=3 and w=(1/2,1/2), q=(A+3)/2, so the printed factor 2 already fails when σ>1.
 
-- **E4** (Annals §4.3 p.797, exact resolvent decomposition; extraction E16). Use λ/(1−λ)P+(1−R)⁻¹, or (1−λ)⁻¹P+(1−R)⁻¹(1−P). The printed full-remainder formula applied to h adds an erroneous extra h.
+- **E3 — confirmed** (Annals Lemma 46 p.798; extraction E15). Use L_{Re s} for both nonnegative majorants. Confirmed: Lemma 46 orders a generally complex right side. Taking absolute values of each weight gives exactly the real operator L_{Re s} in both majorants.
 
-- **E5** (Annals §4.3 p.797, leading renewal coefficient; extraction E16). Use B=h_β/(β|λ′_β|) when ν_β1=ν_βh_β=1. Residue extraction in s⁻¹(1−L_s)⁻¹1 gives this factor. Theorem 13 permits the resulting rescaled h.
+- **E4 — confirmed** (Annals §4.3 p.797, exact resolvent decomposition; extraction E16). Use λ/(1−λ)P+(1−R)⁻¹, or (1−λ)⁻¹P+(1−R)⁻¹(1−P). Confirmed by applying the printed identity to the normalized eigenfunction: R h=0 makes the full remainder inverse contribute an additional h. Either correction stated in the node removes it.
 
-- **E6** (Annals (5.5) p.801 and (5.9) p.802; arXiv supplement corresponding formulas; extraction E17). Use (3+b−2w_j)² and (5+b−4w_{n−2})² respectively. Differentiate the composed linear-fractional map by the quotient rule; the squared denominator gives the claimed final bounds.
+- **E5 — confirmed** (Annals §4.3 p.797, leading renewal coefficient; extraction E16). Use B=h_β/(β|λ′_β|) when ν_β1=ν_βh_β=1. Confirmed relative to Theorem 39’s probability and eigenfunction normalizations. The simple zero 1−λ_s=−λ′_β(s−β)+O((s−β)²) and the prefactor 1/s give B=h_β/(β|λ′_β|). Theorem 13 itself allows this rescaling.
 
-- **E7** (Annals §5.1 p.801; arXiv (5.1) p.44; extraction E9/E17). Use w_{n−1}≥(1+w_{n−2})/2 on cusp; (5.1) applies through i=n−2. The cusp is closed and includes equality. The same column computation covers i=n−2.
+- **E6 — confirmed** (Annals (5.5) p.801 and (5.9) p.802; arXiv supplement corresponding formulas; extraction E17). Use (3+b−2w_j)² and (5+b−4w_{n−2})² respectively. Confirmed: direct quotient differentiation and the arXiv Jacobians have squared denominators. Exact rational composite-Jacobian checks support all ten corrected bounds, including boundary points.
 
-- **E8** (Annals Table 1 p.804 and arXiv §5.3 derivative table; extraction E18). Use the coordinate of that row, w₃ when it precedes the deleted index. ∂[w_k/(2−w_i)]/∂w_i=w_k/(2−w_i)² for k≠i. The bound is unchanged.
+- **E7 — confirmed** (Annals §5.1 p.801; arXiv (5.1) p.44; extraction E9/E17). Use w_{n−1}≥(1+w_{n−2})/2 on cusp; (5.1) applies through i=n−2. Confirmed with version distinction. Equality belongs to the closed cusp (for example n=4, w=(1/5,1/5,3/5)); the arXiv strict index range omits i=n−2, whereas the Annals list includes it.
 
-- **E9** (Annals Proposition 42 p.795; arXiv Proposition 40 p.38). It is a nonzero nonnegative vector in H; its projective point belongs to K. For n>3 the displayed initial coordinates vanish; no interior hypothesis is needed for periodic coding.
+- **E8 — confirmed** (Annals Table 1 p.804 and arXiv §5.3 derivative table; extraction E18). Use the coordinate of that row, w₃ when it precedes the deleted index. Confirmed in the journal table. The derivative in the row for a surviving coordinate w_k is w_k/(2−w_i)², so the third such row cannot repeat the numerator w₂.
 
-- **E10** (arXiv v3 §5.3, proof of (5.5), p.49). For ordinary columns use C₁≥C_k because −2w₁≥−2w_k; retain −2w₁ in the displayed numerator. If j=1, use the same expression as a common upper bound, not an equality for the exceptional column. The formula C_k=(4+2b−3w_j−2w_k)/(3+b−2w_j)² is decreasing in w_k. All coordinates are nonnegative, so the subsequent upper bound by 5 is unaffected.
+- **E9 — rejected** (Annals Proposition 42 p.795; arXiv Proposition 40 p.38). Make the convention explicit as nonzero nonnegative; no correction to the fixed-ray argument is needed. Rejected as an allegation that the source explicitly requires strict coordinatewise positivity. It displays v₊>0 but does not say all coordinates are strictly positive; this notation can mean a nonzero element of the positive cone. The zeros are displayed openly and the proof uses a boundary fixed ray correctly. Keep the node’s explicit nonnegative convention.
 
-The packet’s source-issue descriptions are paraphrases, including its schema-required `printed` fields. No source excerpt is recorded. A bounded search of the journal landing page, Magee’s publication list and arXiv history located no separate correction; the arXiv index range correction already appears in Annals. The contraction estimates are exact mathematical obligations, while the n=4 collocation values are explicitly uncertified diagnostics.
+- **E10 — confirmed** (arXiv v3 §5.3, proof of (5.5), p.49). For ordinary columns use C₁≥C_k because −2w₁≥−2w_k; retain −2w₁ in the displayed numerator. If j=1, use the same expression as a common upper bound, not an equality for the exceptional column. Confirmed against arXiv v3 p.49. The ordinary-column formula decreases with w_k, so the comparison sign is reversed. For j=1 the same expression is a common upper bound rather than the actual exceptional-column sum; the final 4/5 bound remains correct.
+
+- **E11 — confirmed** (HEN95, §5, Proposition 5.1(v) and its proof, p.19). For bounded A and nonempty relatively compact K, χ(A+K)=χ(A). K=∅ makes A+K empty, so the assertion fails for the unit ball of an infinite-dimensional Banach space. The source’s proof explicitly assumes the compact set nonempty.
+
+- **E12 — confirmed** (LAL89, §7, Proposition 7.2, (7.3)–(7.7), p.25). Use λ/(1−λ)P+(1−R)⁻¹, or (1−λ)⁻¹P+(1−R)⁻¹(1−P). On h, Rh=0 and Ph=h, so the printed sum gives (1−λ)⁻¹h+h instead of (1−λ)⁻¹h. The same error appears in GMR19 and is already corrected in TO.6/pole.
+
+- **E13 — confirmed** (LAL89, §7, paragraphs preceding Proposition 7.2 and Proposition 7.3, p.25). Use upper semicontinuity, or choose a finite power whose norm is strictly below the desired power bound and preserve that inequality by continuity. Lower semicontinuity does not keep nearby values below a given bound. The finite-power Gelfand argument in TO.4/perturbation supplies the required upper bound; local resolvent openness handles the other boundary points.
+
+These findings are stated in our own words. A bounded search of the journal record, Magee’s publication list, arXiv history, Numdam record and Lalley’s author page found no separate correction; the arXiv index-range correction already appears in Annals. No claim of novelty is made. The contraction estimates are exact mathematical obligations; the reproduced n=4 collocation values remain uncertified diagnostics.
 
 ## Suggested file and planning status
 
 The suggested file uses existing native carriers only. Heavy C¹, cone, spectral and coding constructions stay as the explicit targets above. It contains real-bodied finite-coordinate formulas and pointwise weights, statements of basic branch and Gauss identities, and an end-counting milestone phrased in native functions. It does not assert that a totalized infinite sum is a bounded operator without convergence. The omission ledger in the packet records the missing carriers.
 
-The packet is complete at target level. TO.0–TO.2 are closed; TO.3–TO.7 are planned because G1 and the finite-matrix compatibility request must be reconciled at packaging. There is no missing mathematical target or second job claimed by this submission. Independent review must inspect the cone-to-C¹ norm argument, Appendix-A spectral decomposition, uniform Tauberian squeeze, freeness and Rauzy permutation comparison, and then resolve the owner-index bridge without duplicating upstream Brouwer.
+The packet is complete at target level. TO.0–TO.2 are closed; TO.3–TO.7 are planned because G1 and the finite-matrix compatibility request must be reconciled at packaging. There is no missing mathematical target or second job claimed by this submission. Independent review accepted all 40 targets after checking the cone-to-C¹ norm argument, Appendix-A spectral decomposition, uniform Tauberian squeeze, freeness and Rauzy permutation comparison. All 17 baseline citations were confirmed. The suggested Lean file elaborated at the pinned build with only sorry warnings. G1 remains a packaging dependency-index task: import the existing upstream Brouwer owner without duplicating it; reconcile the finite-matrix specialization with OptimalTransport.
 
 ## Routed-item crosswalk
 
