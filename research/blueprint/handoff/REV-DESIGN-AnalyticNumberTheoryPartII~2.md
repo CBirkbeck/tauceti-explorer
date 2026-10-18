@@ -1,0 +1,13 @@
+# Handoff: REV-DESIGN-AnalyticNumberTheoryPartII~2
+
+Issue #8933; Codex session codex-1Roz5J; completed 2026-10-18. Independent of both design sessions. Accepted review: 39 nodes, 37 verified and two corrected; all 27 baseline declarations confirmed. No nodes or baseline citations added or removed.
+
+The revision resolved every synchronization item from the previous review. This session independently checked all nodes, source passages, baseline statements, APIs/tests, suppliers, ownership and current upstream coverage. Corrected the finite Euler product from p≤U to p<U (O85 (3.1.2), p.315), and corrected LLS source locations and inaccurate Table I metadata. Reader and packet agree. Source access notes identify the public MW alternate PDF and O88 IIIF pages. The roadmap definition and suggested file needed no change.
+
+Checks: packet checker zero errors/warnings; suggested file elaborated via lean-check at Mathlib 082e2d3 and Tau Ceti f790474, exit 0, only 112 sorry warnings. Eight light definitions have actual bodies. Exact integer/rational checks enumerated 16,772,606 primitive reduced forms through |D|=318028, yielding the sixteen listed class-number-three fields and the three −907 representatives. Curve discriminants/coordinate map, MW signs and LLS candidate primality/character patterns also passed. These are review calculations, not formal certificates or minimality proofs.
+
+Two explicit gaps remain in the accepted plan: reconstruct E139 arithmetic descent/independent-point witnesses, and regenerate complete rational 7000/55 comparison certificates for every local case with the strict 55 margin. Six layers remain planned, none closed, and all implementation statuses unchecked; 12 supplier requests remain. The report explains these obligations and the future MW/LLS certificates. No additional review revision is requested.
+
+Current ownership was checked at TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27 and Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 without building there. IntegralLattices B1/B2/B5 owns the form/Picard dictionary and general finite enumeration; GN.3 supplies the native class-group/counting adapters. Existing PNT transfer and Wiener–Ikehara are inputs, not new targets. No ownership move was made. The upstream elliptic height prose still needs reconciliation with the native (O) normalization; no upstream file was edited.
+
+The report and packet preserve all necessary locators and conclusions. No source files or passages were copied into the repository. Scratch files can be deleted after submission. This completes the single claimed job; do not claim a second job in this session.
