@@ -311,15 +311,15 @@
     },
     {
       "id": "morrow",
-      "title": "An introduction to higher dimensional local fields",
+      "title": "An introduction to higher dimensional local fields and adeles",
       "authors": "Matthew Morrow",
       "edition": "arXiv:1204.0586v2 (2012), 72 PDF pages; printed page locators",
       "url": "https://arxiv.org/pdf/1204.0586v2",
       "sha256": "c996cd77420a87bc1b657d7216f71f659f343cffe26046d171fade0eecf8b141",
       "accessed": "2026-10-18",
       "readSections": [
-        "§§2–4: the cited classification/parameters/extensions, rank-ring and topology statements, pp. 10–29.",
-        "§5, pp. 30–37, in full; §6 regular chains, pp. 37–40; §7.1, pp. 44–46.",
+        "§2, pp. 9–16, and §§3–4, pp. 18–30: the cited classification/parameters/extensions, rank-ring and topology statements; issue-bearing formulas checked visually.",
+        "§5, pp. 30–37, in full; §6 regular chains, pp. 37–43; §7.1, pp. 44–46. The four misprints reported in E7–E10 are scoped to arXiv v2 and the limited author-copy comparison.",
         "§§8.1–8.3, pp. 53–60, in full; dimension-one comparison §8.4, p. 62; surface description §8.5, pp. 63–65. Huber’s primary construction and resolution proof remain G11."
       ]
     },
@@ -677,8 +677,8 @@
       "sources": [
         {
           "sourceId": "morrow",
-          "locator": "§2.3, Examples 2.13–2.16, pp. 11–12",
-          "match": "Mixed-series construction and valuation."
+          "locator": "§2, Examples 2.6 and 2.8, pp. 9–10",
+          "match": "The mixed-series construction, its coefficient conditions and its iterated standard examples."
         },
         {
           "sourceId": "inv",
@@ -755,7 +755,8 @@
       ],
       "proofSteps": [
         "Apply equal-characteristic complete-DVR structure successively. In the transition case lift residue parameters over the Cohen/Witt coefficient field to obtain a finite standard subextension.",
-        "The final standardization uses elimination of wild ramification by Epp; its exact primary proof input remains G01."
+        "The final standardization uses elimination of wild ramification by Epp; its exact primary proof input remains G01.",
+        "In the intermediate characteristic pattern let r be the depth of the remaining mixed tower and use K=F^(n−r), in Morrow’s successive-residue notation. The standard field K′ embeds in K with finite degree. These are the two index/name corrections recorded in E8."
       ],
       "prerequisites": [
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/standard-mixed-series",
@@ -766,8 +767,8 @@
       "sources": [
         {
           "sourceId": "morrow",
-          "locator": "§2.3, Theorem 2.18, p. 13",
-          "match": "All three characteristic patterns, including intermediate transitions."
+          "locator": "§2.1, Theorem 2.18, p. 13, and Remark 2.19, p. 14",
+          "match": "The classification in each characteristic pattern; use the corrected residue-depth index in source issue E8."
         },
         {
           "sourceId": "inv",
@@ -910,7 +911,7 @@
       "sources": [
         {
           "sourceId": "morrow",
-          "locator": "§2.4, Definition 2.23, Proposition 2.28, pp. 15–16",
+          "locator": "§2.3, Definition 2.23, p. 15, and Proposition 2.28, p. 16",
           "match": "Tower-continuous embeddings and product of residue ramification indices."
         },
         {
@@ -954,7 +955,7 @@
         },
         {
           "sourceId": "morrow",
-          "locator": "§4.3, pp. 28–29",
+          "locator": "§4.3, Theorem 4.10(v), pp. 25–26",
           "match": "Higher series and admissibility."
         }
       ],
@@ -1004,13 +1005,15 @@
       ],
       "title": "Sequential multiplicative topology",
       "kind": "construction",
-      "statement": "For a parameter splitting F×≃O_rank××Z^n, give the unit factor its induced higher topology and Z^n the discrete topology, then take sequential saturation. Equivalently, saturate the topology induced by x↦(x,x⁻¹) in F×F; assert equality after saturation. The resulting λ_* has continuous inversion, sequentially continuous multiplication and closed principal units.",
+      "statement": "Use the Zhukov/Fesenko multiplicative topology τ and let λ_* be its sequential saturation. If char F_{n−1}=p, τ comes from the parameter splitting F×≃O_rank××Z^n, with the induced higher topology on the unit factor and discrete parameter factors; its saturated graph description x↦(x,x⁻¹) agrees. If char F_{n−1}=0, pull the rank-unit topology back from the first lower mixed-characteristic field in the residue tower, keeping the parameter factors discrete. This latter topology need not be Hausdorff and is not identified with the graph topology. In both cases λ_* has continuous inversion, sequentially continuous multiplication and closed rank principal units.",
       "hypotheses": [
-        "Finite residue tower. The higher topology on F× as an open subset of F alone is not substituted for this topology."
+        "Finite residue tower, with a fixed compatible higher coefficient structure where the additive topology requires one. Distinguish the outer first residue F_{n−1} from the one-local bottom F_1.",
+        "In the characteristic-zero first-residue case the recursive pullback kills a uniquely divisible principal-unit subgroup; in particular 1+m_F lies in the intersection of the neighborhoods of 1. The graph topology remains a separate Hausdorff convention."
       ],
       "proofSteps": [
-        "Compare the convergent sequences in the parameter-product and graph descriptions. Show parameter changes preserve those sequences, then use the definition of sequential saturation.",
-        "The source proves sequential continuity, which does not supply joint continuity of an unsaturated group topology."
+        "For positive first-residue characteristic compare parameter-product and graph convergent sequences, then sequentially saturate. Check compatible parameter changes within the specified higher structure.",
+        "For characteristic-zero first residue, follow the residue projection on rank units down to the first mixed-characteristic field and pull back its multiplicative topology. Combine it with the discrete parameter lattice, then saturate; do not replace the pullback by an induced topology from F.",
+        "Use Zhukov §1.4.2 and Fesenko §6.2 for inversion and sequential multiplication. Fesenko §6.3 identifies λ_1=λ_* and records the nontrivial principal-unit kernel when char F_{n−1}=0."
       ],
       "prerequisites": [
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-topology",
@@ -1019,17 +1022,18 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §1.4, pp. 16–18; I §6.2, pp. 62–63",
-          "match": "Multiplicative sequences and sequential saturation."
+          "locator": "I §1.4.1–1.4.2, pp. 14–16; I §6.2–6.3, pp. 63–64",
+          "match": "The multiplicative topology, its recursive characteristic-zero pullback, sequential saturation and the nontrivial K_1 quotient in that case."
         },
         {
           "sourceId": "morrow",
-          "locator": "§4.4, pp. 29–30",
-          "match": "Multiplicative topology warning."
+          "locator": "§4.4.1, p. 27; §4.4.3, p. 29",
+          "match": "Graph and parameter-product descriptions are used here in positive first-residue characteristic. Their Hausdorff construction is kept distinct from the characteristic-zero pullback in Zhukov/Fesenko."
         }
       ],
       "acceptance": [
-        "At n=1 recover the ordinary topology on F×."
+        "At n=1 recover the ordinary topology on F×.",
+        "For Q_p((t)), retain the non-Hausdorff principal-unit direction; for positive first-residue characteristic retain the graph comparison. These conventions feed different topological K_1 quotients."
       ],
       "implementationStatus": "unchecked",
       "planningStatus": "target-planned",
@@ -1037,22 +1041,27 @@
         {
           "name": "HigherMultiplicativeTopology.lambda",
           "role": "constructor",
-          "statement": "Sequentially saturated multiplicative topology."
+          "statement": "Sequentially saturate the characteristic-qualified Zhukov/Fesenko multiplicative topology τ."
         },
         {
           "name": "HigherMultiplicativeTopology.graphSequences",
           "role": "characterisation",
-          "statement": "The graph embedding detects exactly its convergent sequences."
+          "statement": "When char F_{n−1}=p, convergence agrees with the graph embedding into the product of the higher additive spaces. This assertion is not made for the characteristic-zero pullback."
         },
         {
           "name": "HigherMultiplicativeTopology.parameterIndependent",
           "role": "compatibility",
-          "statement": "Parameter changes give identical saturated topologies."
+          "statement": "Compatible parameter changes preserve the saturated topology within the specified higher coefficient structure; the characteristic-zero branch uses the recursive pullback."
         },
         {
           "name": "HigherMultiplicativeTopology.inversion",
           "role": "compatibility",
           "statement": "Inversion is continuous."
+        },
+        {
+          "name": "HigherMultiplicativeTopology.principalUnits_indistinguishable",
+          "role": "characterisation",
+          "statement": "If char F_{n−1}=0, each element of 1+m_F lies in every λ_* neighborhood of 1; its image in K_1^top(F) is the neutral class."
         }
       ],
       "tests": [
@@ -1069,7 +1078,7 @@
         {
           "name": "check_3",
           "kind": "characterisation",
-          "statement": "At n>1 do not infer that the induced unsaturated multiplication is jointly continuous from the sequential continuity theorem."
+          "statement": "For F=Q_p((t)), the constant sequence with value 1+t converges to 1 in the Zhukov/Fesenko pullback topology and hence in λ_*. It does not converge to 1 in the Hausdorff graph topology. Thus 1+t has trivial image in K_1^top(F)."
         }
       ],
       "uses": [
@@ -1228,7 +1237,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.4.1, pp. 63–64",
+          "locator": "I §6.4.1, p. 65",
           "match": "Iterated valuation normalization."
         },
         {
@@ -1354,7 +1363,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.2–6.3, pp. 62–63; §6.6, Theorems 2–3, pp. 68–70",
+          "locator": "I §6.2–6.3, pp. 63–64; §6.6, Theorems 2–3, pp. 68–70",
           "match": "Sequential symbol topology, quotient and divisible kernel."
         }
       ],
@@ -1479,7 +1488,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.3, §6.5–6.6, pp. 63, 66–70",
+          "locator": "I §6.3, p. 64; §6.5–6.6, pp. 66–70",
           "match": "Principal-unit subgroups and their topology."
         },
         {
@@ -1565,7 +1574,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.4.1–6.4.2, pp. 63–64",
+          "locator": "I §6.4.1–6.4.2, p. 65",
           "match": "Valuation and tame-pairing normalization."
         }
       ],
@@ -2021,7 +2030,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §5.1, pp. 53–55; I §6.4.3, pp. 64–65; Kato existence §5, pp. 191–194",
+          "locator": "I §5.1, pp. 53–55; I §6.4.3, p. 66; Kato existence §5, pp. 191–194",
           "match": "Logarithmic coefficients and finite-length pairings."
         }
       ],
@@ -2100,7 +2109,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.4.3, pp. 64–65; I §5.2, p. 56",
+          "locator": "I §6.4.3, p. 66; I §5.2, p. 56",
           "match": "Residue/trace computation."
         }
       ],
@@ -2418,8 +2427,8 @@
         },
         {
           "sourceId": "inv",
-          "locator": "I §10.5, Theorem 3, p. 100",
-          "match": "Topological formulation with an independent proof route."
+          "locator": "I §10.5, unnumbered Existence Theorem, p. 100",
+          "match": "The norm-subgroup existence statement; the nearby Theorem 3 concerns residue compatibility instead."
         }
       ],
       "acceptance": [
@@ -2455,7 +2464,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §10.5, Corollary 1 and Theorem 3, p. 100, with source issue E4",
+          "locator": "I §10.5, Corollary 1 and the unnumbered Existence Theorem, p. 100, with source issue E4",
           "match": "Absolute target, density, injectivity after the topological quotient."
         },
         {
@@ -2582,13 +2591,13 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.4.2, p. 64",
+          "locator": "I §6.4.2, p. 65",
           "match": "Higher tame pairing and final residue exponent; argument order calibrated here."
         },
         {
           "sourceId": "inv",
-          "locator": "I §8.1, p. 81",
-          "match": "Arithmetic Hilbert-symbol definition."
+          "locator": "I §8.2.1, p. 83; §8.4, p. 87",
+          "match": "The higher Hilbert-symbol definition and its reciprocity interpretation; §8.1, p. 81, treats ordinary local fields only."
         }
       ],
       "acceptance": [
@@ -2674,8 +2683,8 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §8.1, p. 81",
-          "match": "Arithmetic norm-residue definition."
+          "locator": "I §8.2.1, p. 83; §8.4, p. 87",
+          "match": "Higher-dimensional Hilbert pairing and its identification with reciprocity."
         },
         {
           "sourceId": "inv",
@@ -2764,7 +2773,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §8.3–8.4, pp. 83–87, Theorems 1–2",
+          "locator": "I §8.3, Theorems 1–2, pp. 85–86; §8.4, p. 87",
           "match": "Explicit Φ formula, well-definedness and finite annihilator theorem."
         }
       ],
@@ -2850,7 +2859,7 @@
         {
           "name": "check_3",
           "kind": "characterisation",
-          "statement": "At a jump the strict defining valuation inequality must be reconciled with the chosen right/left continuity before quotient compatibility is asserted."
+          "statement": "In the standard ferocious case, if v(σt−t)=r₀>0, then σ is excluded from G_(i,r₀) and belongs to G_(i,r) for 0<r<r₀. Replacing the defining strict inequality by ≥ fails this boundary test."
         }
       ],
       "uses": [
@@ -2980,7 +2989,7 @@
       "sources": [
         {
           "sourceId": "inv",
-          "locator": "I §6.4.3, pp. 64–65; I §7.3, p. 77",
+          "locator": "I §6.4.3, p. 66; I §7.3, p. 77",
           "match": "Finite-length Witt pairing, trace, residue and compatibility."
         }
       ],
@@ -3066,7 +3075,7 @@
       "sources": [
         {
           "sourceId": "kerz",
-          "locator": "§2–§3, Definitions 2.2–2.3 and 3.1–3.2, pp. 2–4",
+          "locator": "§3, Definitions 3.1–3.2 and recursive henselization, pp. 4–5",
           "match": "Dimension functions, relative chains and iterated henselization."
         },
         {
@@ -3290,7 +3299,7 @@
       "sources": [
         {
           "sourceId": "kerz",
-          "locator": "§3–§5, pp. 3–6",
+          "locator": "§3–§5, pp. 4–7",
           "match": "Branchwise henselian residues and finite pushforward."
         },
         {
@@ -3382,7 +3391,7 @@
       "sources": [
         {
           "sourceId": "kerz",
-          "locator": "§4 Definitions 4.2–4.3 pp. 4–5; §5 Definition 5.2 p. 6; §6 Definitions 6.1–6.3 pp. 7–8",
+          "locator": "§4, Definitions 4.2–4.3, p. 5; §5, Definition 5.2, p. 6; §6, Definitions 6.1–6.3, pp. 7–8",
           "match": "Milnor ideles, canonical topology and Q-chain quotient."
         }
       ],
@@ -3547,8 +3556,8 @@
       "sources": [
         {
           "sourceId": "morrow",
-          "locator": "§8.4 Proposition 8.16, p. 62; §8.5 Proposition 8.19 and proof, pp. 63–65; Example 6.6, p. 40",
-          "match": "Dimension-one and explicit surface restrictions."
+          "locator": "§8.4, Proposition 8.16, p. 62; §8.5, Proposition 8.19 and proof, pp. 63–65; §6, Example 6.10, pp. 41–42",
+          "match": "Curve and surface restrictedness, and the horizontal/vertical arithmetic-surface flag calculations."
         }
       ],
       "acceptance": [
@@ -4030,7 +4039,7 @@
         },
         {
           "sourceId": "jannsen",
-          "locator": "Introduction, Theorem 0.4, pp. 3–4",
+          "locator": "Introduction, Theorem 0.4 and finite-coefficient reduction, pp. 2–3",
           "match": "Completed-constant fields in the Hasse theorem."
         }
       ],
@@ -4112,7 +4121,7 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "§2, pp. 3–4, assumption Res(F₂) and Fact 2.3",
+          "locator": "§2, assumption Res(F₂) and Fact 2.3, p. 5",
           "match": "Two separate resolution assumptions and their conditional use."
         }
       ],
@@ -4191,7 +4200,7 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "§2, pp. 3–5; local cohomology bounds used in Proposition 3.2",
+          "locator": "§2, pp. 3–5; §3, Proposition 3.2, local cohomological-dimension step, p. 7",
           "match": "Local constants and the dimension bound required by the routed consumer; proof input remains G13."
         }
       ],
@@ -4227,7 +4236,7 @@
       "sources": [
         {
           "sourceId": "jannsen",
-          "locator": "Introduction, Theorem 0.4, pp. 3–4; Theorem 2.10 and proof, pp. 24–25",
+          "locator": "Introduction, Theorem 0.4 and finite-coefficient reduction, pp. 2–3; Theorem 2.10 and proof, pp. 24–25",
           "match": "Finite-coefficient statement and alteration/weight route."
         },
         {
@@ -4274,7 +4283,7 @@
         },
         {
           "sourceId": "dp",
-          "locator": "§2, Fact 2.2, p. 4",
+          "locator": "§2, Fact 2.2, p. 5",
           "match": "Proper regular good-model restriction statement."
         }
       ],
@@ -4309,7 +4318,7 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "§2, Fact 2.3 and discussion, pp. 4–5",
+          "locator": "§2, Fact 2.3 and resolution assumptions, p. 5",
           "match": "Characteristic-two injectivity and the exact d>3 conditional assumption."
         },
         {
@@ -4397,8 +4406,8 @@
         },
         {
           "sourceId": "morrow",
-          "locator": "§5, Theorem 5.3, pp. 30–31",
-          "match": "Ordinary compatibility in higher reciprocity."
+          "locator": "§5, introduction, pp. 30–31; §5.2, Theorem 5.8, pp. 34–35",
+          "match": "The degree-one starting case and higher reciprocity theorem; Example 5.3 is not an ordinary Artin comparison theorem."
         }
       ],
       "acceptance": [
@@ -4440,7 +4449,7 @@
         },
         {
           "sourceId": "morrow",
-          "locator": "§5.2, pp. 32–34",
+          "locator": "§5.2, Remark 5.10, pp. 35–36",
           "match": "Cohomological description of higher reciprocity."
         }
       ],
@@ -4480,7 +4489,7 @@
         },
         {
           "sourceId": "inv",
-          "locator": "Kato existence paper, §1, Theorems 1–2, pp. 166–168",
+          "locator": "Kato existence paper, introduction, Theorems 1–2, pp. 165–166; §1, Lemma 2, p. 171",
           "match": "Different wild categorical duality statement."
         }
       ],
@@ -4503,7 +4512,7 @@
         "Use only coefficient and regularity regimes supported by the imported norm-residue/localization theorem. Mixed wild steps remain G03/G12."
       ],
       "proofSteps": [
-        "Import the generic complete norm-residue theorem from K2SymbolsBrauer:T.4 and the motivic/étale localization comparison. Identify one residue square by the boundary of the uniformizer symbol.",
+        "Import the full invertible-coefficient norm-residue isomorphism from MotivicEtaleKTheory:M.5/KU-normresidue and the motivic/étale localization comparison. K2SymbolsBrauer:T.4/complete-norm-residue supplies commutation of Milnor transfer with DVR residue, not the Galois-cohomological norm-residue isomorphism. Identify the residue square on uniformizer symbols.",
         "Compose the squares along the chosen residue tower, adding the branch corestrictions for a scheme flag."
       ],
       "prerequisites": [
@@ -4512,13 +4521,14 @@
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/norm-residue-and-the-symbol-identification",
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/residue-maps-along-a-flag",
         "K2SymbolsBrauer:T.3",
-        "EtaleDualityAndPerverseSheaves:EDC.3"
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "MotivicEtaleKTheory:KU-normresidue"
       ],
       "sources": [
         {
           "sourceId": "morrow",
-          "locator": "§5.2, pp. 32–34; §7.1, pp. 44–46",
-          "match": "Symbol/cohomological reciprocity and residue construction."
+          "locator": "§5.1, Proposition 5.5, p. 33; §5.2, Remark 5.10, pp. 35–36; §7.1, pp. 44–46",
+          "match": "Milnor boundaries, cohomological reciprocity and branch fields motivate the comparison. The generic isomorphism and localization-purity square come from the separately named suppliers, not a proof in this survey."
         },
         {
           "sourceId": "ks",
@@ -5467,11 +5477,12 @@
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/G02",
       "title": "Three different higher openness notions",
-      "detail": "Kato §1 Lemma 2 proves presentation independence for finite quotients. It does not by itself identify categorical openness with every raw higher or λ_n topology. Morrow Theorem 4.17, p. 30, states a saturated ind/pro comparison in positive first-residue characteristic but reports its proof unpublished. Need a verified comparison for the exact finite-index subgroup class used in HL.3, with the characteristic-zero section dependence retained.",
+      "detail": "Kato §1 Lemma 2 proves presentation independence for finite quotients. It does not by itself identify categorical openness with every raw higher or λ_n topology. Morrow Theorem 4.17, p. 30, states a saturated ind/pro comparison in positive first-residue characteristic but reports its proof unpublished. Need a verified comparison for the exact finite-index subgroup class used in HL.3, with the characteristic-zero section dependence retained. The multiplicative comparison must distinguish positive first-residue characteristic from the Zhukov/Fesenko characteristic-zero pullback (I §1.4.2, pp. 14–16; §6.3, p. 64). In Q_p((t)), 1+t is indistinguishable from 1 for that pullback and survives as a distinct point for the Hausdorff graph convention. A comparison that identifies these conventions is false.",
       "neededBy": [
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/pro-ind-finite-objects",
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-topology",
-        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/existence-theorem"
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/existence-theorem",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/topology-on-the-multiplicative-group"
       ]
     },
     {
@@ -5668,7 +5679,8 @@
       "supplier": "MotivicEtaleKTheory:KU-normresidue",
       "need": "The full invertible-coefficient norm-residue isomorphism for fields, with product and transfer compatibility, not just degree-two or prime-exponent special cases.",
       "neededBy": [
-        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/norm-residue-and-the-symbol-identification"
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/norm-residue-and-the-symbol-identification",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.7/motivic-residue-comparison"
       ]
     },
     {
@@ -5862,6 +5874,20 @@
       "read": "2026-09-27",
       "sha256": "8f77bc14ef071294573295c7f65a5e08cad0fa26bba592b8fd89f4ae2e556d5a",
       "citation": "Author-hosted Part I, 206 physical pages. Title, introductory physical p. 6 and the issue-bearing passages at printed pp. 6, 55, 56 and 100 checked. All four printed problems remain in this copy; no claim that the entire copy was read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1204.0586v2",
+      "read": "2026-10-18",
+      "sha256": "c996cd77420a87bc1b657d7216f71f659f343cffe26046d171fade0eecf8b141",
+      "citation": "Morrow, arXiv:1204.0586v2, 1 August 2012; sourceIssues E7–E10 concern this version of the introductory notes, not an independently inspected journal version. The readSections entry records the reading extent."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/Morrow%2C%20M.%2C%20Introduction%20to%20HLF.pdf",
+      "read": "2026-10-18",
+      "sha256": "4d035eb5ec4a4b77d91b968cd6fb235e1a674ff988ebc854805fa3abcfc8317c",
+      "citation": "Limited comparison of the proof of Theorem 2.18, printed p. 14, Proposition 3.8, printed p. 21, and the display preceding Proposition 5.5 and Remark 5.6, printed p. 34. The same index, degree and tame-formula problems persist at these passages. This later author copy has shifted pagination and is not used to relabel arXiv-v2 locators."
     }
   ],
   "sourceIssues": [
@@ -5880,7 +5906,12 @@
         "arXiv https://arxiv.org/abs/math/0012132 submission history lists only v1; checked 2026-09-27.",
         "Author publication profile https://www.mathnet.ru/eng/person13714 and title/author/Teichmüller/errata searches, 2026-09-27; no correction located. This search does not establish priority.",
         "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 6: Q_3 satisfies the stated residue-characteristic assumption, but its Teichmüller representatives are not additively closed. Equal characteristic is required for the field assertion.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     },
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/E2",
@@ -5897,7 +5928,12 @@
         "arXiv https://arxiv.org/abs/math/0012136 history checked 2026-09-27; only v1 listed.",
         "Title/author/errata and correction searches on 2026-09-27 found no correction. The attempted author homepage https://www.math.keio.ac.jp/~kurihara/ was unavailable to the fetcher; this is not a negative search of that page.",
         "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 55: the lifted character has cohomological degree one, and its q−1 Kummer factors give total degree q and twist q−1.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     },
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/E3",
@@ -5914,7 +5950,12 @@
         "arXiv https://arxiv.org/abs/math/0012136 history checked 2026-09-27; only v1 listed.",
         "Title/author/errata and correction searches on 2026-09-27 found no correction. The attempted author homepage https://www.math.keio.ac.jp/~kurihara/ was unavailable to the fetcher; this is not a negative search of that page.",
         "Author-hosted Part I https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27 at the issue-bearing page; the same printed statement remains. Exact hash and limited reading extent are recorded in sourceVersions."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 56: the adjacent invariant display and corestriction square both use degree d+1; the one-local case is Br=H².",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     },
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/E4",
@@ -5931,7 +5972,12 @@
         "https://arxiv.org/abs/math/0012141 history checked 2026-09-27; only v1 is listed.",
         "Author research page https://ivanfesenko.org/?page_id=126 and its linked Part I PDF https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf checked 2026-09-27. The same target remains on printed p. 100; exact hash is recorded in sourceVersions.",
         "Title/author/errata searches on 2026-09-27 found no correction. This finding awaits independent review and makes no priority claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 100: the named map is absolute reciprocity. Taking L=F contradicts the printed finite target; a finite target needs the norm quotient.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     },
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/E5",
@@ -5946,7 +5992,12 @@
       "searched": [
         "Title/author/errata searches on 2026-10-18 located no correction; this limited search makes no priority claim.",
         "arXiv math/0012140 submission history, checked 2026-10-18, lists only v1. The attempted MSP article XHTML fetch failed and is not counted as a negative search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 92: the formula has q−1 logarithmic inputs, and q=1 must recover the exponential on scalars. The correction is already used by the node.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     },
     {
       "id": "HigherLocalFieldsAndHigherClassFieldTheory/E6",
@@ -5961,7 +6012,96 @@
       "searched": [
         "Fesenko/Artin–Schreier-tree/errata and strong-tree/correction searches on 2026-10-18 found no correction; this is not a priority claim.",
         "arXiv math/0012141 history checked 2026-10-18 lists only v1. The published MSP volume remains reversed at the cited page; the earlier-worker author-copy check did not cover this passage."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published printed p. 98: M/E has degree p, so the larger field must be generated over E with the Artin–Schreier coefficient in E.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+    },
+    {
+      "id": "HigherLocalFieldsAndHigherClassFieldTheory/E7",
+      "source": "morrow",
+      "kind": "misprint",
+      "locator": "§3, Proposition 3.8, printed p. 20 in arXiv:1204.0586v2; compare printed p. 21 of the author copy.",
+      "printed": "The localization formula uses n−1−i for the higher rank, and the unit decomposition repeats rank n−i on both sides.",
+      "correction": "For 1≤i≤n, write O_F^(n+1−i)[t_i⁻¹]=O_F^(n−i), with O_F^(0)=F, and (O_F^(n−i))×≃(O_F^(n+1−i))××t_i^Z. Use rank n+1−i in the corresponding proof step.",
+      "reason": "With n=2 and F=Q_p((t)), t_1=p: O_F^(2)=Z_p+t Q_p[[t]], and inverting p gives O_F^(1)=Q_p[[t]]. The printed n−1−i would invert p in rank zero F and incorrectly obtain its proper rank-one subring. The complementary unit factors are forced by the p-valuation.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1204.0586 checked 2026-10-18: v1 (3 April 2012), v2 (1 August 2012), with no later revision or journal-version link listed.",
+        "Author page https://www.imo.universite-paris-saclay.fr/~matthew.morrow/ and its linked introductory-notes PDF inspected 2026-10-18. The issue-bearing passages were compared in the actual downloaded PDF, with version hash and limited reading extent in sourceVersions; the problems remain there.",
+        "Title/author/errata, Proposition 3.8/correction and Remark 5.6/tame-symbol searches on 2026-10-18 found no separate author correction. This limited search makes no priority claim; search-result renderings are not treated as the PDF text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the arXiv-v2 PDF and at the corresponding passage of the downloaded author copy. With n=2 and F=Q_p((t)), t_1=p: O_F^(2)=Z_p+t Q_p[[t]], and inverting p gives O_F^(1)=Q_p[[t]]. The printed n−1−i would invert p in rank zero F and incorrectly obtain its proper rank-one subring. The complementary unit factors are forced by the p-valuation.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+    },
+    {
+      "id": "HigherLocalFieldsAndHigherClassFieldTheory/E8",
+      "source": "morrow",
+      "kind": "misprint",
+      "locator": "§2.1, proof of Theorem 2.18, printed p. 13 in arXiv:1204.0586v2; compare printed p. 14 of the author copy.",
+      "printed": "In the intermediate characteristic case the proof sets K=F^(r) although r is the remaining mixed depth, and its concluding finite-extension assertion repeats K as both fields.",
+      "correction": "Use K=F^(n−r), where superscripts count successive residues. The final assertion is that K is a finite extension of the standard subfield K′.",
+      "reason": "The proof next applies induction to the first residue of K as an (r−1)-local field. F^(n−r) has dimension r; F^(r) instead has dimension n−r. For n=3,r=2 the latter is one-local and cannot have the required one-local first residue. A finite-extension conclusion must name the previously constructed embedded standard field K′.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1204.0586 checked 2026-10-18: v1 (3 April 2012), v2 (1 August 2012), with no later revision or journal-version link listed.",
+        "Author page https://www.imo.universite-paris-saclay.fr/~matthew.morrow/ and its linked introductory-notes PDF inspected 2026-10-18. The issue-bearing passages were compared in the actual downloaded PDF, with version hash and limited reading extent in sourceVersions; the problems remain there.",
+        "Title/author/errata, Proposition 3.8/correction and Remark 5.6/tame-symbol searches on 2026-10-18 found no separate author correction. This limited search makes no priority claim; search-result renderings are not treated as the PDF text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the arXiv-v2 PDF and at the corresponding passage of the downloaded author copy. The proof next applies induction to the first residue of K as an (r−1)-local field. F^(n−r) has dimension r; F^(r) instead has dimension n−r. For n=3,r=2 the latter is one-local and cannot have the required one-local first residue. A finite-extension conclusion must name the previously constructed embedded standard field K′.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+    },
+    {
+      "id": "HigherLocalFieldsAndHigherClassFieldTheory/E9",
+      "source": "morrow",
+      "kind": "misprint",
+      "locator": "§5.1, display preceding Proposition 5.5, printed p. 33 in arXiv:1204.0586v2; compare printed p. 34 of the author copy.",
+      "printed": "The introductory boundary display retains degree n in the residue-field target.",
+      "correction": "The DVR boundary is ∂:K_n^M(F)→K_{n−1}^M(κ(F)), as the following Proposition 5.5 states correctly.",
+      "reason": "A last uniformizer is removed. In degree one this map is the valuation F×→Z=K_0^M(κ(F)); a target K_1^M(κ(F)) has the wrong degree.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1204.0586 checked 2026-10-18: v1 (3 April 2012), v2 (1 August 2012), with no later revision or journal-version link listed.",
+        "Author page https://www.imo.universite-paris-saclay.fr/~matthew.morrow/ and its linked introductory-notes PDF inspected 2026-10-18. The issue-bearing passages were compared in the actual downloaded PDF, with version hash and limited reading extent in sourceVersions; the problems remain there.",
+        "Title/author/errata, Proposition 3.8/correction and Remark 5.6/tame-symbol searches on 2026-10-18 found no separate author correction. This limited search makes no priority claim; search-result renderings are not treated as the PDF text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the arXiv-v2 PDF and at the corresponding passage of the downloaded author copy. A last uniformizer is removed. In degree one this map is the valuation F×→Z=K_0^M(κ(F)); a target K_1^M(κ(F)) has the wrong degree.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
+    },
+    {
+      "id": "HigherLocalFieldsAndHigherClassFieldTheory/E10",
+      "source": "morrow",
+      "kind": "misprint",
+      "locator": "§5.1, Remark 5.6, printed p. 33 in arXiv:1204.0586v2; compare printed p. 34 of the author copy.",
+      "printed": "The tame-symbol formula uses the residue of u v⁻¹ without the valuation exponents and includes an unexplained extra t in the second input.",
+      "correction": "For u,v∈O_F×, r,s∈Z and a uniformizer π, the last-uniformizer convention gives ∂{uπ^r,vπ^s}=(−1)^(rs) ū^s v̄^(−r). The inputs are uπ^r and vπ^s.",
+      "reason": "Setting r=s=0 must give 1 for two units, while the printed formula need not. Setting r=0,s=1 must give ū. Multilinearity and ∂{π,π}=−1 supply the stated exponents and sign, consistent with Proposition 5.5.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1204.0586 checked 2026-10-18: v1 (3 April 2012), v2 (1 August 2012), with no later revision or journal-version link listed.",
+        "Author page https://www.imo.universite-paris-saclay.fr/~matthew.morrow/ and its linked introductory-notes PDF inspected 2026-10-18. The issue-bearing passages were compared in the actual downloaded PDF, with version hash and limited reading extent in sourceVersions; the problems remain there.",
+        "Title/author/errata, Proposition 3.8/correction and Remark 5.6/tame-symbol searches on 2026-10-18 found no separate author correction. This limited search makes no priority claim; search-result renderings are not treated as the PDF text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in the arXiv-v2 PDF and at the corresponding passage of the downloaded author copy. Setting r=s=0 must give 1 for two units, while the printed formula need not. Setting r=0,s=1 must give ū. Multilinearity and ∂{π,π}=−1 supply the stated exponents and sign, consistent with Proposition 5.5.",
+        "by": "REV-HigherLocalFieldsAndHigherClassFieldTheory"
+      }
     }
   ],
   "researchNotes": [
@@ -5992,6 +6132,10 @@
     {
       "title": "Independent implementation leads",
       "statement": "The external NYLL source at commit 431143bad96b10a8f80381346ed1631ce463b055 defines ValuationTheory.IsHigherLocalField by actual complete-DVR residue recursion and proves finite-extension permanence (https://github.com/n-yamaguchi-0729/NYLL/blob/431143bad96b10a8f80381346ed1631ce463b055/Nyll/Yamaguchi26AbfaithfulGalois/HigherLocalField/Basic.lean). Basic, PositiveCharacteristic and Properties were read as design references. This is an existential predicate over NYLL CompleteDVF, whereas the target here carries a compatible chosen tower and topology; no equivalence to the pinned native carriers is presumed. Its imported dependency graph has not been audited or elaborated at the pins. Robin Carlier’s KMilnorWitt project (https://github.com/robin-carlier/KMilnorWitt) formalizes Milnor–Witt ring presentations; its README lists ordinary Milnor K as a further quotient still to construct. These are independent implementation leads, not baseline declarations. No code is integrated or copied; any proposed port requires author coordination and a license/interface audit."
+    },
+    {
+      "title": "Independent review corrections, 2026-10-18",
+      "statement": "All 85 nodes, all 45 pinned baseline citations, APIs, tests and source locators were checked independently. The multiplicative topology now distinguishes positive first-residue characteristic from the characteristic-zero Zhukov/Fesenko pullback; G02 includes its Q_p((t)) rejection case. HL.7 imports the full norm-residue isomorphism from M.5/KU-normresidue, while K2 T.4 retains transfer/residue compatibility. Six existing source issues are confirmed and four Morrow-note misprints are added. Fifteen gaps and eight planned, unclosed layers remain. The independent review does not claim that the earlier worker’s external implementation leads or their dependency graphs were independently audited."
     }
   ],
   "paperCoverage": [
@@ -6100,5 +6244,438 @@
       "note": "Routed source target covered; coefficient and model hypotheses are retained, with proof inputs in the named gaps."
     }
   ],
-  "upstreamNotes": []
+  "upstreamNotes": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HigherLocalFieldsAndHigherClassFieldTheory",
+    "date": "2026-10-18",
+    "notes": "Independent review of all 85 nodes, 45 pinned baseline citations, the source locators/matches, prerequisite routes, 139 API items, 101 tests and 28 planets. Corrected 32 nodes, chiefly citation locators, the multiplicative topology characteristic split and the HL.7 norm-residue supplier. Confirmed six inherited source issues and added four independently confirmed Morrow-note misprints. All eight layers remain planned and none closed, with 15 exact proof/ownership gaps and 27 supplier requests. Suggested Lean elaborated at the pins with only eight theorem/example proof-hole warnings. The reader is synchronized.",
+    "checked": [
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/n-dimensional-local-field",
+        "verdict": "verified",
+        "note": "Finite-end residue towers are distinguished from the existing one-step local-field predicate; the recursive DVR and residue hypotheses match Definition 2.12 and Zhukov p. 5."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/local-parameters",
+        "verdict": "verified",
+        "note": "Inner-first parameters reduce recursively and the unit/outer-uniformizer tests match the source; no canonical lift is asserted."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/rank-valuation-ring",
+        "verdict": "verified",
+        "note": "The rank valuation ring, last-coordinate ordering and quotient lattice match Propositions 3.5 and 3.7. The adjacent Proposition 3.8 misprint is recorded separately as E7."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/standard-mixed-series",
+        "verdict": "corrected",
+        "note": "Replaced the misplaced examples/section citation by Examples 2.6 and 2.8, pp. 9–10; coefficient boundedness and decay, residue field and valuation agree."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/classification-and-standard-fields",
+        "verdict": "corrected",
+        "note": "Corrected the classification locator and made the residue-depth and standard-subfield corrections E8 explicit. Finite standardization remains dependent on G01."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-topology",
+        "verdict": "verified",
+        "note": "The additive constructions distinguish Laurent and mixed series, retain characteristic-zero section dependence, and use native Laurent carriers for the fine component; G01/G02 remain explicit."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/extensions-and-ramification-matrix",
+        "verdict": "corrected",
+        "note": "Corrected §2.4 to §2.3. Proposition 2.28 supplies the product degree formula; inseparable residue degree is retained."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/teichmueller-representatives-and-expansions",
+        "verdict": "corrected",
+        "note": "Corrected the expansion locator to Theorem 4.10(v), pp. 25–26; admissible supports and multiplicative representatives do not require a false mixed-characteristic coefficient field."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/two-dimensional-examples",
+        "verdict": "verified",
+        "note": "The three field models and the ferocious Artin–Schreier extension have the stated residue towers and degrees; γ=tβ detects the inseparable residue."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/topology-on-the-multiplicative-group",
+        "verdict": "corrected",
+        "note": "Split positive first-residue characteristic from the Zhukov/Fesenko characteristic-zero pullback, restricted the graph API, and added the Q_p((t)) non-Hausdorff rejection test and G02 consumer."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/perfect-and-quasi-finite-variants",
+        "verdict": "verified",
+        "note": "Perfect and quasi-finite variants keep their separate end-field/Frobenius data; finiteness-dependent conclusions are not transferred automatically."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/pro-ind-finite-objects",
+        "verdict": "verified",
+        "note": "Kato §1 Proposition 2 and Lemma 2 support the finite-quotient ind/pro criterion. Raw/sequential topology identification remains G02 rather than an assumed equivalence."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/iterated-residue-with-signs",
+        "verdict": "corrected",
+        "note": "Corrected the valuation-map locator to p. 65. The imported uniformizer-last boundary lowers degree, with parameter symbol +1 and the required swap sign."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/norms-and-projection-formulas",
+        "verdict": "verified",
+        "note": "Tower norm descent and projection formulas use the actual imported algebraic transfers; sequential closed-norm and Hilbert-90 work remains G05."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/topological-milnor-k-groups",
+        "verdict": "corrected",
+        "note": "Corrected the sequential-topology pages to 63–64. The quotient uses the intersection of all zero-neighborhoods, with a separate universal property and divisible-kernel gap."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/parshin-structure-of-the-topological-k-group",
+        "verdict": "verified",
+        "note": "Parshin generators and the topological product description retain characteristic-p, admissibility and p-divisibility restrictions; no unrestricted direct sum is substituted."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/filtration-on-milnor-k-groups",
+        "verdict": "corrected",
+        "note": "Corrected the λ_m/principal-unit locator to p. 64. Outer valuation filtration and higher rank principal units are distinguished, including the ordinary unit-filtration import."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/acceptance-computation-of-an-iterated-residue",
+        "verdict": "corrected",
+        "note": "Corrected the tame/valuation locator to p. 65. Both residue signs and the final residue-degree norm factor agree with the imported boundary/transfer identities."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1/topological-versus-algebraic-k-groups",
+        "verdict": "verified",
+        "note": "The divisible kernel is separated from the profinite completion. The all-prime mixed-characteristic argument and its p=2 input are honestly G05."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/finite-kato-coefficient-complex",
+        "verdict": "verified",
+        "note": "The coefficient complex uses the logarithmic Witt shift in characteristic p and the coprime direct sum; the degree-zero and degree-one tests reject ordinary μ_p substitutes."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/kato-cohomology-groups",
+        "verdict": "verified",
+        "note": "The torsion colimit has twist q−1 and includes wild Artin–Schreier–Witt and Brauer classes. Generic continuous cohomology remains imported."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/restriction-corestriction",
+        "verdict": "verified",
+        "note": "Restriction/corestriction and multiplication by extension degree give the odd-degree mod-two injection; no prime-to-degree alteration theorem is inferred from arbitrary alterations."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/low-degree-identifications",
+        "verdict": "verified",
+        "note": "The character and Brauer identifications use shifted wild coefficients; the perfect-residue L.5 limitation remains an explicit supplier gap."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/kato-residue-theorem-and-the-invariant-map",
+        "verdict": "verified",
+        "note": "Invariant degree n+1, residue scope and degree-free corestriction normalization match Kurihara and Milne; no universal wild tame splitting is claimed."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/cohomological-dimension-and-tate-twists",
+        "verdict": "verified",
+        "note": "Milne’s ℓ restriction is tested at the one-local bottom F_1. Ordinary cd_p and logarithmic top-degree cohomology remain different invariants."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/norm-residue-and-the-symbol-identification",
+        "verdict": "verified",
+        "note": "The invertible norm-residue theorem is assigned to M.5/KU-normresidue; the finite-length BGK/imperfect-residue request is kept separate from M.5d reductions."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/logarithmic-de-rham-witt-coefficients",
+        "verdict": "corrected",
+        "note": "Corrected the AS–Witt pairing locator to p. 66. CR.4 carriers, the actual L.5 scope and the missing imperfect-residue comparison remain distinct."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/finite-coefficient-duality",
+        "verdict": "verified",
+        "note": "Milne’s finite duality retains ℓ≠char F_1; Kato’s wild categorical character theorem is not replaced by finite-group perfectness. G03/G04 retain the missing proof interfaces."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/two-dimensional-residue-pairing-acceptance",
+        "verdict": "corrected",
+        "note": "Corrected the explicit pairing locator to p. 66. Iterated oriented residues and the finite-field trace give the parameter/Witt tests with the stated signs."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/reciprocity-map",
+        "verdict": "verified",
+        "note": "The higher Artin map is defined by invariant evaluation against finite characters, with arithmetic Frobenius and norm/residue functoriality; ordinary maps are imported."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/isomorphism-theorem",
+        "verdict": "verified",
+        "note": "The finite abelian norm quotient and Galois target agree in degree and normalization. The wild proof chain is represented by the recorded gaps rather than hidden assumptions."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/parshin-reciprocity-in-characteristic-p",
+        "verdict": "verified",
+        "note": "Parshin reciprocity retains equal-characteristic hypotheses, Witt characters, coefficient transitions and the actual inverse-limit target."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/artin-schreier-trees-and-the-explicit-construction",
+        "verdict": "verified",
+        "note": "The strong-tree orientation already incorporates E6; the norm-class construction uses admissible Frobenius lifts and only claims independence after the norm quotient. G06 is explicit."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/existence-theorem",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated Theorem 3 citation by the unnumbered Existence Theorem on p. 100; categorical finite-index openness remains the exact Kato target."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/kernel-and-completion-statements",
+        "verdict": "corrected",
+        "note": "Corrected the p. 100 theorem reference while retaining the absolute-target correction E4. Density, absolute kernel, finite norm kernels and completion are distinguished."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3/unramified-acceptance-case",
+        "verdict": "verified",
+        "note": "The unramified square uses the Milnor residue and arithmetic Frobenius. The finite quotient is not confused with an absolute surjectivity statement."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/higher-tame-symbol",
+        "verdict": "corrected",
+        "note": "Corrected the tame page and replaced the ordinary-only Hilbert locator by §8.2.1/§8.4. Prepending the Kummer entry gives the positive arithmetic unit normalization."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/explicit-formulas-for-the-hilbert-symbol",
+        "verdict": "corrected",
+        "note": "Replaced the ordinary-only §8.1 citation by the higher pairing and reciprocity locators; root independence, norm adjunction and coefficient restrictions are preserved."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/vostokov-pairing-and-the-wild-existence-case",
+        "verdict": "corrected",
+        "note": "Located the explicit formula and theorems at pp. 85–87. Odd p, roots of unity and sign comparison remain explicit; G07 prevents an unsupported all-prime claim."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/ramification-filtrations-and-their-indexing",
+        "verdict": "corrected",
+        "note": "Replaced a methodological third test by an exact strict-inequality jump test. Constant, ferocious and refined labels, their normalizations and rational-index gap G08 remain scoped to the source."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/kurihara-exponential-and-differential-forms",
+        "verdict": "verified",
+        "note": "The exponential domain has differential degree q−1, including the q=1 scalar test. The completed T-residue in E{{T}} is distinguished from the outer DVR boundary; G09 remains."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.4/artin-schreier-witt-acceptance-computation",
+        "verdict": "corrected",
+        "note": "Corrected the AS–Witt locator to p. 66. Finite Witt length, Frobenius quotient, trace and parameter orientation are retained in the explicit nonzero example."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/parshin-chains",
+        "verdict": "corrected",
+        "note": "Replaced nonexistent Kerz §2 definition numbers by §3 Definitions 3.1–3.2, pp. 4–5. Henselian and completed branch products remain separate constructions."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/higher-adeles",
+        "verdict": "verified",
+        "note": "The recursive adelic functor, product embedding and colimit interface match A1–A4 and Lemma 8.4. The surface tests require both restrictedness conditions; primary proof G11 remains."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/adelic-resolution",
+        "verdict": "verified",
+        "note": "The adelic resolution uses the sheaf and quasi-coherent hypotheses of Theorem 8.12/Corollary 8.13; exactness and flasqueness are proof obligations in G11."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/residue-maps-along-a-flag",
+        "verdict": "corrected",
+        "note": "Adjusted the Kerz page interval to 4–7. Branch normalization, corestrictions and finite support match the residue/niveau construction; codimension-two compatibility remains G12."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/higher-idelic-and-cycle-complex-input",
+        "verdict": "corrected",
+        "note": "Corrected the canonical topology and chain definition pages. The Q-chain map changes between inclusion and degree-lowering residue; maximal-chain modulus generators use integral-unit entries."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/nisnevich-class-group-comparison",
+        "verdict": "verified",
+        "note": "The Nisnevich comparison retains Kerz’s regularity and smoothness/base scope and relative Milnor sheaf input; it is not asserted for arbitrary singular schemes."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/functoriality-and-direct-images",
+        "verdict": "verified",
+        "note": "Finite pushforwards use the actual residue/transfer maps, dimension compatibility and degree laws. They do not replan generic Milnor norms."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5/acceptance-recover-ideles-and-list-surface-flags",
+        "verdict": "corrected",
+        "note": "Corrected the arithmetic flag computation to Example 6.10, pp. 41–42. Curve ideles and the two independent surface restrictedness conditions agree with §8.4–§8.5."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/reciprocity-relations",
+        "verdict": "verified",
+        "note": "Local reciprocity assembles through Q-chain relations using branch residue reciprocity; G12/G14 name the missing primary factorization proofs."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/global-reciprocity-for-arithmetic-schemes",
+        "verdict": "verified",
+        "note": "The arithmetic scheme and function-field class groups retain the totally imaginary characteristic-zero condition and the finite norm quotient/modulus completion scope of Kerz §9."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/wiesend-class-group",
+        "verdict": "verified",
+        "note": "The Wiesend quotient uses truncated chains and the connected component kernel. Continuity is asserted for the class-group comparison, without the unsupported idele-map inference."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/tame-and-wild-proper-and-open-variants",
+        "verdict": "verified",
+        "note": "Proper, boundary, unramified and tame quotients retain distinct Galois targets. The affine-line Artin–Schreier test detects wild inertia at the omitted place."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/reduction-of-the-curve-case",
+        "verdict": "verified",
+        "note": "Ordinary global comparisons use separate number-field and finite-field-curve suppliers, and take the unit/inertia quotient appropriate to a scheme."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/kato-complexes-and-boundary-square-zero",
+        "verdict": "verified",
+        "note": "The Kato differential is specified by the actual niveau row and all branch corestrictions. Its square is zero by the spectral-sequence comparison, with wild input isolated as G12."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/constant-place-fields",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 0.4 to pp. 2–3. The constant-place compositum differs from the completed-constant function field; only the required implication between restrictions is used."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/resolution-f2",
+        "verdict": "corrected",
+        "note": "Corrected Res(F₂)/Fact 2.3 to p. 5. Resolution and SNC compactification are two conditional clauses, not an unconditional characteristic-two theorem."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2/nonreal-local-cd-bound",
+        "verdict": "corrected",
+        "note": "Added the precise p. 7 locator for the already routed nonreal local-cd correction. The proof uses local constants and transcendence degree, without the false cd monotonicity through a real global field."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/lgp-global-base",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 0.4’s page range. Finite coefficients, primary extension, all constant places and the odd-degree/Gabber reduction retain their distinct hypotheses; G13 remains."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/lgp-good-model",
+        "verdict": "corrected",
+        "note": "Corrected Fact 2.2 to p. 5. Properness, flatness, regularity, positive dimension and residue characteristic different from two match the good-model Kato-homology route."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/lgp-characteristic-two",
+        "verdict": "corrected",
+        "note": "Corrected Fact 2.3 to p. 5. Logarithmic coefficients, a supplied smooth projective model and the high-dimensional Res(F₂) branch remain explicit; low-dimensional inputs stay G13."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6/kato-hasse-global-models",
+        "verdict": "verified",
+        "note": "The global-base Kato complexes use henselian local factors, with the stated homological cone shift. Prime-to-characteristic, real-place and proper regular model restrictions match Theorems 8.3–8.4."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7/dimension-one-artin-map-comparison",
+        "verdict": "corrected",
+        "note": "Replaced the nonexistent Theorem 5.3 by the §5 introduction and Theorem 5.8. Equality is of the two maps to the same Galois target, using the ordinary wild suppliers in their exact scopes."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7/brauer-invariant-comparison",
+        "verdict": "corrected",
+        "note": "Relocated the cohomological comparison to Remark 5.10, pp. 35–36; the ordinary Brauer invariant and only admissible residue squares are compared."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7/finite-duality-comparison",
+        "verdict": "corrected",
+        "note": "Corrected Kato’s Theorems 1–2 to the introduction, pp. 165–166, and the categorical criterion to Lemma 2 p. 171. Milne’s bottom-field coefficient restriction remains intact."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7/motivic-residue-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the generic norm-residue supplier to M.5/KU-normresidue and its direct request, while keeping K2 T.4 only for norm/residue commutation. Corrected the survey locators and their limited supporting role."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-box",
+        "verdict": "verified",
+        "note": "The box constrains every native Laurent coefficient and is an additive subgroup. No positive-tail condition is imposed until selecting a filter-basis set."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-box-membership",
+        "verdict": "verified",
+        "note": "Membership is precisely the universal coefficient condition, with no restriction to nonnegative exponents."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-box-single",
+        "verdict": "verified",
+        "note": "The native single coefficient formula gives monomial membership for every integer exponent, including negative ones."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-box-intersection",
+        "verdict": "verified",
+        "note": "Pointwise infima of open additive subgroups give exactly the intersection of coefficient boxes, as required for filter directedness."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-box-tail",
+        "verdict": "verified",
+        "note": "An eventually full positive coefficient tail contains the stated outer valuation ball; the boundary at N uses the pinned valuation/coefficient convention."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-filter-basis",
+        "verdict": "verified",
+        "note": "The filter basis uses eventually full positive tails, not all boxes. The real Lean body supplies nonempty, directed, zero, addition and negation axioms on native Laurent series."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/coefficient-filter-basis-membership",
+        "verdict": "verified",
+        "note": "The basis-set membership statement includes both an admissible family witness and set equality; the constant proper-subgroup box fails the stated tail criterion."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/equal-characteristic-higher-topology",
+        "verdict": "verified",
+        "note": "The topology is explicitly the native additive filter-basis topology and is never installed as a competing global Laurent-series instance."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-topology-basis-specification",
+        "verdict": "verified",
+        "note": "The specification theorem refers to the same explicit topology and basis, so there is no private replacement carrier."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-topological-add-group",
+        "verdict": "verified",
+        "note": "Continuity of the additive group follows from the actual filter-basis axioms. No multiplication continuity is inferred from the additive construction."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-neighborhood-basis",
+        "verdict": "verified",
+        "note": "The zero-neighborhood criterion is containment of an admissible box; it is not equality with a box or a finite-coordinate product neighborhood."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/open-subgroup-boxes-cofinal",
+        "verdict": "verified",
+        "note": "Open additive subgroup boxes are cofinal under NonarchimedeanAddGroup; the comparison does not silently impose that hypothesis on arbitrary topological coefficients."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-coefficient-continuity",
+        "verdict": "verified",
+        "note": "Every fixed coefficient projection is continuous under the nonarchimedean coefficient hypothesis; boxes can restrict an arbitrary integer exponent."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-single-induced-topology",
+        "verdict": "verified",
+        "note": "The single-monomial map induces precisely the coefficient topology, using continuity both ways. It detects constant-series convergence missed by the outer topology."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-hausdorff",
+        "verdict": "verified",
+        "note": "Hausdorffness requires a Hausdorff nonarchimedean coefficient space and coefficient separation; it does not assert Hausdorffness of the distinct Fesenko multiplicative pullback."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-versus-outer-topology",
+        "verdict": "verified",
+        "note": "Every admissible box contains an outer tail, giving the stated coarser-topology relation with Mathlib’s reversed lattice ordering accounted for."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-equals-outer-iff-discrete",
+        "verdict": "verified",
+        "note": "Discrete coefficients recover the outer topology; conversely openness of an outer tail and the monomial-induced topology force a discrete coefficient field."
+      },
+      {
+        "nodeId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.0/higher-strictly-coarser",
+        "verdict": "verified",
+        "note": "The strict comparison follows from the equality characterization, with a nonzero null sequence and the outer-ball rejection tests stated conditionally in the correct coefficient regime."
+      }
+    ]
+  }
 }
