@@ -226,6 +226,13 @@
     "module": "TauCeti/Algebra/Lie/UniversalEnveloping/Casimir.lean",
     "provides": "The Casimir element of U(L) for the Killing form, central (casimirElement_mem_center)",
     "checked": "statement read at the pinned commit (Tau Ceti f790474), declaration index and source file"
+   },
+   {
+    "ref": "tauceti:TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration",
+    "kind": "theorem",
+    "module": "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Ordered.lean",
+    "provides": "For a linearly ordered spanning family e of a Lie algebra L over a commutative ring R, the ordered monomials of length at most k span the k-th PBW filtration step of U(L): the spanning half of PBW, over any commutative ring",
+    "checked": "statement read at the pinned commit (TauCeti/Algebra/Lie/UniversalEnveloping/PBW/Ordered.lean, line 118)"
    }
   ]
  },
@@ -450,6 +457,13 @@
    "kind": "published",
    "citation": "P. Schneider, p-Adic Lie Groups, Grundlehren 344, Springer 2011 (maintainer's cleared copy)",
    "read": "2026-10-18"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.uni-muenster.de/FB10/mjm/vol_7/mjm_vol_7_02.pdf",
+   "read": "2026-10-18",
+   "sha256": "9385d0828e0fbc4c8c31e595fc7209d71075942ab08172079d8260b237c4e23f",
+   "note": "Ardakov–Wadsley, Münster J. Math. 7 (2014), 5–26; consulted by the review at Lemma 5.2 (p. 20) only, for source issue E7."
   }
  ],
  "nodes": [
@@ -567,7 +581,7 @@
     {
      "name": "not_pValuation_torsion",
      "kind": "non-example",
-     "statement": "A group with a nontrivial element of order p carries no p-valuation: ω(g^p) = ω(g) + 1 would give ∞ = ω(g) + 1. So ℤ/p and SL_2(ℤ_p) itself (which contains elements of order p for p = 3, or −1 of order 2 for p = 2) are not p-valued."
+     "statement": "A p-valued group is torsion-free. If g ≠ 1 had order p, then ω(g^p) = ω(1) = ∞ would equal the finite value ω(g) + 1. If g ≠ 1 had finite order m prime to p, then g = (g^p)^k with pk ≡ 1 mod m, so ω(g) ≥ ω(g^p) = ω(g) + 1, again impossible. Hence ℤ/p is not p-valued, and neither is SL_2(ℤ_p) for any p, since −1 has order 2 (for p = 3 it also contains elements of order 3)."
     },
     {
      "name": "not_isSaturated_shift",
@@ -596,7 +610,7 @@
     "Completeness and finite rank are both needed: an infinite product of copies of ℤ_p with ω = v_p is p-valued but not of finite rank, and has no finite ordered basis."
    ],
    "proofSteps": [
-    "Schneider Lemma 26.1 shows that ω takes discrete values on a finite-rank group, so the filtration is countable and separated; completeness makes G = lim G/G_ν pro-p (Lazard II.1.1.5 as cited in ST03 p. 15).",
+    "Finite rank makes every graded piece gr_ν G finite and puts the values of ω in finitely many progressions ν_j + ℕ_0 (Schneider §26, the discussion after Lemma 26.1, drawn there for a profinite G whose topology ω defines); so the filtration is countable and separated with finite p-group quotients G/G_ν, and completeness makes G = lim G/G_ν a pro-p group (Lazard II.1.1.5 as cited in ST03 p. 15).",
     "An ordered basis is obtained by lifting an 𝔽_p[ε]-basis of gr G and ordering by ω (Schneider Proposition 26.6); Proposition 26.5 proves the equivalence of the basis condition and the ordered-product description.",
     "The ordered-product map is continuous and bijective, by successive approximation along the filtration, and ω of an ordered product is the minimum of the ω(h_i^{x_i}) = ω(h_i) + v_p(x_i) (Schneider Proposition 26.5; ST03 p. 15 citing Lazard III.2.2.5/6). A continuous bijection from a compact space to a Hausdorff space is a homeomorphism.",
     "The p-power subgroups are treated in Schneider Proposition 26.15 and Remark 26.9."
@@ -1010,14 +1024,15 @@
    ],
    "title": "The distribution algebra D(G, K) under convolution",
    "kind": "construction",
-   "statement": "Let ℚ_p ⊆ L ⊆ K be complete fields with L/ℚ_p finite and K spherically complete (for instance discretely valued), and G a compact locally L-analytic group with multiplication m : G × G → G. D(G, K) := C^an(G, K)′_b is the nuclear Fréchet space of LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear. Define the convolution λ ∗ μ := m_*(λ ⊗ μ), using D(G × G, K) ≅ D(G, K) ⊗̂ D(G, K); explicitly (λ ∗ μ)(f) = λ(g ↦ μ(h ↦ f(gh))). Then (D(G, K), ∗) is an associative unital K-algebra with unit δ_1, convolution is jointly continuous, so D(G, K) is a Fréchet algebra; δ_g ∗ δ_h = δ_{gh}, so g ↦ δ_g is a group homomorphism G → D(G, K)^×; the induced map K[G] → D(G, K) is injective with dense image. D(G, K) is commutative iff G is.",
+   "statement": "Let ℚ_p ⊆ L ⊆ K be complete fields with L/ℚ_p finite and K spherically complete (for instance discretely valued), and G a compact locally L-analytic group with multiplication m : G × G → G. D(G, K) := C^an(G, K)′_b is the nuclear Fréchet space of LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear, and its product is the convolution of LocallyAnalyticDistributions:L1/distribution-convolution: λ ∗ μ := m_*(λ ⊗ μ), using D(G × G, K) ≅ D(G, K) ⊗̂ D(G, K); explicitly (λ ∗ μ)(f) = λ(g ↦ μ(h ↦ f(gh))), which equals the iterated integral μ(h ↦ λ(g ↦ f(gh))) written there. That layer constructs the product, its associativity and its unit for K finite over ℚ_p and G compact ℚ_p-analytic; the same construction runs over L and any spherically complete K. In this generality (D(G, K), ∗) is an associative unital K-algebra with unit δ_1, convolution is jointly continuous, so D(G, K) is a Fréchet algebra; δ_g ∗ δ_h = δ_{gh}, so g ↦ δ_g is a group homomorphism G → D(G, K)^×; the induced map K[G] → D(G, K) is injective with dense image. D(G, K) is commutative iff G is.",
    "hypotheses": [
+    "The convolution product itself is owned by LocallyAnalyticDistributions:L1/distribution-convolution and is not constructed again; what this node adds is the generality (locally L-analytic G, spherically complete K), joint continuity and the Fréchet-algebra structure, the Dirac homomorphism with injectivity and density, functoriality and the commutativity criterion.",
     "Compactness of G gives joint continuity; for a general locally analytic group D(G, K) is an algebra with separately continuous multiplication (ST02 Proposition 2.3), which this roadmap does not use.",
     "The first factor is paired with the left variable of the product gh. Integrating in the other order gives the same element (Fubini, through D(G × G) ≅ D(G) ⊗̂ D(G)); pairing the first factor with the right variable instead gives the opposite algebra, which the tests distinguish."
    ],
    "proofSteps": [
-    "The external product C^an(G) ⊗̂ C^an(G) ≅ C^an(G × G) (LocallyAnalyticDistributions:L0/locally-analytic-product) dualises to D(G × G) ≅ D(G) ⊗̂ D(G) (LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear), and m_* = (m^*)′ is continuous (LocallyAnalyticDistributions:L0/locally-analytic-pullback). The composite is the convolution of ST02 §2, p. 8.",
-    "Associativity and the unit follow on Dirac distributions from associativity of m and extend by continuity and density of the span of Dirac distributions (ST02 Proposition 2.3, p. 9, and Lemma 3.1, p. 13).",
+    "The external product C^an(G) ⊗̂ C^an(G) ≅ C^an(G × G) (LocallyAnalyticDistributions:L0/locally-analytic-product) dualises to D(G × G) ≅ D(G) ⊗̂ D(G) (LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear), and m_* = (m^*)′ is continuous (LocallyAnalyticDistributions:L0/locally-analytic-pullback). The composite is the convolution of ST02 §2, p. 8, and for K finite over ℚ_p and L = ℚ_p it is LocallyAnalyticDistributions:L1/distribution-convolution; the stagewise construction there runs unchanged over L and any spherically complete K.",
+    "Associativity and the unit are part of LocallyAnalyticDistributions:L1/distribution-convolution; in the general setting they follow on Dirac distributions from associativity of m and extend by continuity and density of the span of Dirac distributions (ST02 Proposition 2.3, p. 9, and Lemma 3.1, p. 13).",
     "Injectivity of K[G] → D(G, K): distinct points are separated by locally constant, hence locally analytic, functions. Density: a continuous linear form on D(G, K) vanishing on all δ_g is, by reflexivity, a locally analytic function vanishing everywhere (ST02 Lemma 3.1 and its proof)."
    ],
    "acceptance": [
@@ -1025,6 +1040,7 @@
    ],
    "prerequisites": [
     "LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear",
+    "LocallyAnalyticDistributions:L1/distribution-convolution",
     "LocallyAnalyticDistributions:L0/locally-analytic-product",
     "LocallyAnalyticDistributions:L0/locally-analytic-pullback",
     "LocallyAnalyticDistributions:L0/locally-analytic-function-space",
@@ -1045,6 +1061,11 @@
      "sourceId": "FU24",
      "locator": "§4, p. 13",
      "match": "Recalls the K-Fréchet algebra D(G, K) of Schneider–Teitelbaum for a uniform G and its relation to K[[G]]."
+    },
+    {
+     "sourceId": "ST02",
+     "locator": "§2, p. 8, the separately continuous external product and m_*",
+     "match": "Builds λ ⊗̂ μ ∈ D(G × G, K) with (λ ⊗̂ μ)(f_1 × f_2) = λ(f_1)μ(f_2), jointly continuous for compact G, and defines ∗ as m_* composed with it; this is the product that LocallyAnalyticDistributions L1 constructs stagewise."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1070,7 +1091,7 @@
     {
      "name": "TauCeti.DistributionAlgebra.D",
      "role": "constructor",
-     "statement": "D(G, K) := C^an(G, K)′_b as a K-algebra under convolution, for a compact locally L-analytic group G."
+     "statement": "D(G, K) := C^an(G, K)′_b as a K-algebra under the convolution of LocallyAnalyticDistributions L1 (TauCeti.AnalyticDistributions.distributionConvolution), for a compact locally L-analytic group G."
     },
     {
      "name": "TauCeti.DistributionAlgebra.convolution_apply",
@@ -1128,6 +1149,11 @@
      "name": "convolution_order",
      "kind": "non-example",
      "statement": "The rule (λ ∗^op μ)(f) = λ(g ↦ μ(h ↦ f(hg))) gives δ_a ∗^op δ_b = δ_{ba}: it is the opposite algebra, different from ∗ on δ_{exp(pe)}, δ_{exp(pf)} in D(G_1, ℚ_p), and for it x̃ ∗^op ỹ − ỹ ∗^op x̃ = −[x, y]~, so U(g_K) → D(G, K) would be an anti-homomorphism. By contrast μ(h ↦ λ(g ↦ f(gh))) equals (λ ∗ μ)(f) by Fubini."
+    },
+    {
+     "name": "convolution_eq_distributionConvolution",
+     "kind": "compatibility",
+     "statement": "For K finite over ℚ_p and G compact ℚ_p-analytic, λ ∗ μ = TauCeti.AnalyticDistributions.distributionConvolution λ μ, the convolution of LocallyAnalyticDistributions L1, whose defining iterated integral μ(h ↦ λ(g ↦ f(gh))) agrees with λ(g ↦ μ(h ↦ f(gh))) by Fubini."
     }
    ],
    "planet": {
@@ -1265,7 +1291,7 @@
    ],
    "title": "The rational Iwasawa algebra K[[G]] inside D(G, K)",
    "kind": "construction",
-   "statement": "Let G be a compact locally ℚ_p-analytic group, o_L the integers of a finite extension L ⊆ K. Let o_L[[G]] = lim_N o_L[G/N] (N open normal) be the completed group ring of PadicMeasuresIwasawaAlgebras L1 (the integral measures on G), and L[[G]] := L ⊗_{o_L} o_L[[G]] (the bounded L-valued measures). Restricting a measure to locally analytic test functions defines an injective continuous K-algebra-compatible map L[[G]] → D(G, K), extending g ↦ δ_g; its image is dense. When (G, ω) is p-valued with an ordered basis h_1, …, h_d and b_i = h_i − 1, b^α = b_1^{α_1} ⋯ b_d^{α_d} (ordered product), every λ ∈ D(G, K) has a unique convergent expansion λ = Σ_α d_α b^α with d_α ∈ K and sup_α |d_α| r^{τ_α} < ∞ for every 0 < r < 1, where τ_α = Σ_i α_i ω(h_i); conversely every such series converges in D(G, K). The coefficient d_α is the α-th Mahler coefficient pairing: b^α(f) = c_α(ψ^*f), so d_α is determined by λ on the Mahler basis binom(x, α) in the coordinates ψ. A distribution lies in ℤ_p[[G]] iff all d_α ∈ ℤ_p, and in L[[G]] iff the d_α are bounded.",
+   "statement": "Let G be a compact locally ℚ_p-analytic group, o_L the integers of a finite extension L ⊆ K. Let o_L[[G]] = lim_N o_L[G/N] (N open normal) be the completed group ring of PadicMeasuresIwasawaAlgebras L1 (the integral measures on G), and L[[G]] := L ⊗_{o_L} o_L[[G]] (the bounded L-valued measures). Restricting a measure to locally analytic test functions defines an injective continuous K-algebra-compatible map L[[G]] → D(G, K), extending g ↦ δ_g; its image is dense. When (G, ω) is p-valued with an ordered basis h_1, …, h_d and b_i = h_i − 1, b^α = b_1^{α_1} ⋯ b_d^{α_d} (ordered product), every λ ∈ D(G, K) has a unique convergent expansion λ = Σ_α d_α b^α with d_α ∈ K and sup_α |d_α| r^{τ_α} < ∞ for every 0 < r < 1, where τ_α = Σ_i α_i ω(h_i); conversely every such series converges in D(G, K). The coefficient d_α is the α-th Mahler coefficient pairing: b^α(f) = c_α(ψ^*f), so d_α is determined by λ on the Mahler basis binom(x, α) in the coordinates ψ. A distribution lies in ℤ_p[[G]] iff all d_α ∈ ℤ_p, and in L[[G]] iff the d_α lie in L and are bounded.",
    "hypotheses": [
     "The coefficient description uses the chart ψ of ND.0/ordered-basis-chart; it depends on the ordered basis, but the norms built from it do not (ND.2/banach-steps).",
     "L[[G]] is not lim_N L[G/N]: bounded measures are o_L[[G]][1/p] (PadicMeasuresIwasawaAlgebras L1)."
@@ -1353,7 +1379,7 @@
     {
      "name": "TauCeti.DistributionAlgebra.mem_range_ofMeasure_iff",
      "role": "characterisation",
-     "statement": "λ comes from ℤ_p[[G]] iff all d_α ∈ ℤ_p, and from L[[G]] iff (d_α) is bounded."
+     "statement": "λ comes from ℤ_p[[G]] iff all d_α ∈ ℤ_p, and from L[[G]] iff every d_α lies in L and (d_α) is bounded."
     }
    ],
    "tests": [
@@ -1990,7 +2016,7 @@
    ],
    "title": "Faithful flatness of D(G, K) over the Iwasawa algebra",
    "kind": "theorem",
-   "statement": "Let L ⊆ K be finite over ℚ_p, K discretely valued. (i) Under (HYP), the maps ℤ_p[[G]] → L[[G]] → D_r(G, K) are flat (both sides) for every 1/p ≤ r < 1 with r ∈ p^ℚ. (ii) Under (HYP), L[[G]] → D(G, K) is faithfully flat: D(G, K) is faithfully flat as a left and as a right L[[G]]-module. (iii) For an arbitrary compact locally ℚ_p-analytic group G_0, L[[G_0]] → D(G_0, K) is faithfully flat. In particular, for a finitely generated K[[G]]-module M, D(G, K) ⊗_{K[[G]]} M = 0 implies M = 0, and the functor is exact.",
+   "statement": "Let L ⊆ K be finite over ℚ_p, K discretely valued. (i) Under (HYP), the maps ℤ_p[[G]] → L[[G]] → D_r(G, K) are flat (both sides) for every 1/p ≤ r < 1 with r ∈ p^ℚ. (ii) Under (HYP), L[[G]] → D(G, K) is faithfully flat: D(G, K) is faithfully flat as a left and as a right L[[G]]-module. (iii) For an arbitrary compact locally ℚ_p-analytic group G_0, L[[G_0]] → D(G_0, K) is faithfully flat. In particular, for K finite over ℚ_p (taking L = K) and a finitely generated K[[G]]-module M, D(G, K) ⊗_{K[[G]]} M = 0 implies M = 0, and the functor is exact.",
    "hypotheses": [
     "Flatness of D_r over ℤ_p[[G]] uses the graded criterion ST03 Proposition 1.2 and r ∈ p^ℚ (or r = 1/p via Remark 4.6)."
    ],
@@ -2043,7 +2069,7 @@
    ],
    "title": "The p-adically completed enveloping algebra Û(h)_K",
    "kind": "construction",
-   "statement": "Let R be a complete discrete valuation ring with uniformiser π and fraction field K, and h an R-Lie algebra which is free of finite rank as an R-module, with R-basis u_1, …, u_d. The π-adic completion Û(h) := lim_a U(h)/π^a U(h) is an R-lattice in the K-Banach algebra Û(h)_K := Û(h) ⊗_R K, whose norm has unit ball Û(h). By the PBW theorem every element of Û(h)_K is uniquely a convergent sum Σ_α c_α u^α (ordered monomials, c_α ∈ K, c_α → 0), and ‖Σ c_α u^α‖ = sup |c_α|. For n ≥ 0 put Û(h)_{n,K} := Û(π^n h)_K (the n-th deformation). Each Û(h)_{n,K} is a left and right noetherian K-Banach algebra (an almost commutative affinoid algebra in the sense of AW13 §3.8) with Gr(Û(h)_{n,K}) ≅ gr U(h)/π gr U(h) ≅ Sym(h ⊗ k); the inclusions U(h_K) ⊂ Û(h)_{n+1,K} ⊂ Û(h)_{n,K} are dense. For a complete finitely ramified extension K′/K with integers R′, Û(R′ ⊗ h)_{K′} ≅ K′ ⊗_K Û(h)_K.",
+   "statement": "Let R be a complete discrete valuation ring with uniformiser π and fraction field K, and h an R-Lie algebra which is free of finite rank as an R-module, with R-basis u_1, …, u_d. The π-adic completion Û(h) := lim_a U(h)/π^a U(h) is an R-lattice in the K-Banach algebra Û(h)_K := Û(h) ⊗_R K, whose norm has unit ball Û(h). By the PBW theorem every element of Û(h)_K is uniquely a convergent sum Σ_α c_α u^α (ordered monomials, c_α ∈ K, c_α → 0), and ‖Σ c_α u^α‖ = sup |c_α|. For n ≥ 0 put Û(h)_{n,K} := Û(π^n h)_K (the n-th deformation). Each Û(h)_{n,K} is a left and right noetherian K-Banach algebra (an almost commutative affinoid algebra in the sense of AW13 §3.8) with Gr(Û(h)_{n,K}) ≅ gr U(h)/π gr U(h) ≅ Sym(h ⊗ k); the inclusions U(h_K) ⊂ Û(h)_{n+1,K} ⊂ Û(h)_{n,K} are dense. For a finite extension K′/K with integers R′ and ramification index e, K′ ⊗_K Û(h)_{n,K} ≅ Û(R′ ⊗_R h)_{en,K′}; in particular Û(R′ ⊗_R h)_{K′} ≅ K′ ⊗_K Û(h)_K.",
    "hypotheses": [
     "h must be free of finite rank over R; for the Lie algebras of uniform groups this holds with h = g_R = (1/p) R L_G (ND.0/lazard-lie-lattice).",
     "The base change statement is for finite extensions K′/K, as used for coefficient extension in ND.4/microlocal-coefficient-extension and ND.5/central-injectivity-theorem."
@@ -2051,8 +2077,8 @@
    "proofSteps": [
     "U(h) is a deformable R-algebra (AW13 Example 3.4(c)) because gr U(h) ≅ Sym(h) is flat over R; the π-adic completion of a deformable algebra is a complete doubly filtered K-algebra with Gr ≅ gr A/π gr A (AW13 §3.7, Lemma and Corollary).",
     "Noetherianity: an almost commutative affinoid algebra is noetherian by Li–Van Oystaeyen II.2.2.1 (AW13 §3.8, Proposition and the remark before it).",
-    "PBW description: the PBW basis theorem over R (LieHighestWeight Layer 3 for the field case, and its integral form for free h, which follows from Sym(h) ≅ gr U(h)) gives the basis u^α of U(h); π-adic completion turns finite sums into null sequences.",
-    "Base change: AW13 Lemma 3.9."
+    "PBW description: the ordered monomials u^α span U(h) over R (the spanning half of PBW at the pinned Tau Ceti, TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration, valid over any commutative ring) and are R-linearly independent because their images in U(h_K) are (the PBW basis theorem over the field K, LieHighestWeight Layer 3); so they form an R-basis of U(h) and gr U(h) ≅ Sym(h); π-adic completion turns finite sums into null sequences.",
+    "Base change: AW13 Lemma 3.9(c), which needs [K′ : K] < ∞ and multiplies the deformation index by e."
    ],
    "acceptance": [
     "For h = R·u abelian of rank one, Û(h)_K = K⟨u⟩ is the Tate algebra in one variable, and Û(π^n h)_K = K⟨π^n u⟩ is the Tate algebra of the disc of radius |π|^{−n}."
@@ -2060,6 +2086,7 @@
    "prerequisites": [
     "mathlib:UniversalEnvelopingAlgebra",
     "tauceti:TauCeti.UniversalEnvelopingAlgebra.pbwFiltration",
+    "tauceti:TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
     "NoncommutativeAndEquivariantIwasawa:NE.0/zariskian-noetherian"
    ],
@@ -2137,7 +2164,7 @@
     {
      "name": "TauCeti.CompletedEnveloping.baseChange",
      "role": "functoriality",
-     "statement": "Û(R′ ⊗ h)_{K′} ≅ K′ ⊗_K Û(h)_K for K′/K finite, compatible with the maps from U(h)."
+     "statement": "Û(R′ ⊗ h)_{K′} ≅ K′ ⊗_K Û(h)_K for K′/K finite, compatible with the maps from U(h); more generally K′ ⊗_K Û(h)_{n,K} ≅ Û(R′ ⊗ h)_{en,K′}, e the ramification index of K′/K."
     },
     {
      "name": "TauCeti.CompletedEnveloping.ofEnveloping_injective",
@@ -2338,7 +2365,7 @@
     "The crossed product is not a tensor product with the group algebra of G/G^{p^n}: the twisting cocycle is nontrivial whenever G/G^{p^n} does not lift to a subgroup."
    ],
    "proofSteps": [
-    "(i): ‖log(1 + b_i)‖_r = max_k r^{p^k}/|p^k| = max_k p^{k − p^{k−n}}, which equals p^{n−1} at k = n and is strictly smaller for every other k ≥ 0 (k − p^{k−n} < n − 1 for k ≠ n when p ≥ 3) (Fu, proof of Proposition 5.3, p. 17; Dospinescu–Le Bras record the same normalisation as Frommer's constant).",
+    "(i): ‖log(1 + b_i)‖_r = max_k r^{p^k}/|p^k| = max_k p^{k − p^{k−n}}, which equals p^{n−1} at k = n and is strictly smaller for every other k ≥ 0 (k − p^{k−n} < n − 1 for k ≠ n when p ≥ 3) (Fu, proof of Proposition 5.3, p. 17).",
     "(ii): ‖x_i^k‖_{r_n} = p^{(n−1)k} by multiplicativity (ND.2/banach-step-structure) and |p^{nk}/k!| p^{(n−1)k} ≤ p^{k/(p−1)} p^{−k} → 0, so exp(p^n x_i) converges in U_{r_n}(g), and it equals g_i^{p^n}; products of such elements give all of G^{p^n} by ordered coordinates.",
     "(iii): Frommer's freeness (ND.3/frommer-theorem) with ℓ_i = p^n, the elements b^α, α_i < p^n, span the same right U_{r_n}-module as the δ_γ for coset representatives; U_{r_n} is stable under conjugation (ND.3/radius-enveloping-closure).",
     "(iv): Z(g) is central in D_r (ND.1/central-enveloping-distributions) and contained in U_{r_n}(g), so the crossed-product structure passes to the quotient by the central ideal."
@@ -3027,9 +3054,9 @@
    ],
    "title": "Lie modules: semisimplicity and the equivalence with finite-dimensional g-modules",
    "kind": "theorem",
-   "statement": "Let R be unramified with uniformiser p, G a uniform group which is a congruence kernel ker(𝔾(ℤ_p) → 𝔾(ℤ/p^{m+1})) of a semisimple group scheme 𝔾 over R with Lie algebra 𝔤, p^{m+1}𝔤 = R ⊗ L_G, p very good for 𝔾, and U_n = Q_{gr p}(R[[G^{p^n}]]) ≅ Û(𝔤)_{n+m,K} with crossed products U_n ∗ H_n, H_n = G/G^{p^n}. Let ℳ be the category of K[[G]]-modules finite-dimensional over K. (P) If M ∈ ℳ is S_n-torsion-free, η_M : M → (U_n ∗ H_n) ⊗_{K[[G]]} M is an isomorphism; every M ∈ ℳ is S_n-torsion-free for n large. (a) ℳ is semisimple. (b) The Lie modules ℒ ⊆ ℳ (restrictions of finite-dimensional U_0-modules along K[[G]] → U_0) are equivalent, via U_0 ⊗_{K[[G]]} −, to finite-dimensional U(𝔤_K)-modules; a simple Lie module V has End_{K[[G]]}(V) = K. (c) Every simple M ∈ ℳ is V ⊗ ρ with V a simple Lie module and ρ a simple Artin module (some open subgroup acts trivially).",
+   "statement": "Let R be unramified with uniformiser p, G a uniform group which is a congruence kernel ker(𝔾(ℤ_p) → 𝔾(ℤ/p^{m+1})) of a semisimple group scheme 𝔾 over R with Lie algebra 𝔤, p^{m+1}𝔤 = R ⊗ L_G, and U_n = Q_{gr p}(R[[G^{p^n}]]) ≅ Û(𝔤)_{n+m,K} with crossed products U_n ∗ H_n, H_n = G/G^{p^n}. Let ℳ be the category of K[[G]]-modules finite-dimensional over K. (P) If M ∈ ℳ is S_n-torsion-free, η_M : M → (U_n ∗ H_n) ⊗_{K[[G]]} M is an isomorphism; every M ∈ ℳ is S_n-torsion-free for n large. (a) ℳ is semisimple. (b) The Lie modules ℒ ⊆ ℳ (restrictions of finite-dimensional U_0-modules along K[[G]] → U_0) are equivalent, via U_0 ⊗_{K[[G]]} −, to finite-dimensional U(𝔤_K)-modules; a simple Lie module V has End_{K[[G]]}(V) = K. (c) Every simple M ∈ ℳ is V ⊗ ρ with V a simple Lie module and ρ a simple Artin module (some open subgroup acts trivially).",
    "hypotheses": [
-    "The semisimple, congruence-kernel and very-good-prime hypotheses of AW13 §10.12 are part of the statement; for a uniform group with nonsemisimple Lie algebra (for example ℤ_p), ℳ is not semisimple (tests)."
+    "The semisimplicity and lattice hypotheses of AW13 §10.12 are part of the statement. The very-good-prime restriction of §10.12 is not needed: AW13 §11.1 drops it. For a uniform group with nonsemisimple Lie algebra the conclusion (a) fails: for G = ℤ_p with topological generator γ, K[[G]]/((γ − 1)²) is a nonsplit extension of the trivial module by itself."
    ],
    "proofSteps": [
     "(P) for n = 0: a finite-dimensional S-torsion-free module is unchanged by localisation at S, because s acts injectively hence bijectively, and its R-lattice is already p-adically complete (AW13 Proposition 11.1, proof, using Li–Van Oystaeyen I.5.5 for separation); general n by restriction to G^{p^n} and the crossed-product identity (U_n ∗ H_n) ⊗ M ≅ U_n ⊗_{R G^{p^n}} M (AW13 Proposition 10.6(d)). Torsion-freeness for n large: AW13 Corollary 10.11.",
@@ -3186,7 +3213,7 @@
    ],
    "proofSteps": [
     "U(g_K)/Ann(W) ≅ End_K(W) by the density theorem for the absolutely irreducible module W over the split semisimple g_K (Fu (19), citing Bourbaki VIII §6.2), and U(g_K) is dense in Û(g_K), which acts through the same finite-dimensional quotient.",
-    "Apply the flat functor M ↦ M̂ to 0 → Ãnn(W)M → M → M_W → 0. M_W is a finite sum of W, hence S_0-torsion-free with S_0 acting invertibly (S_0 consists of units of Û(g_K)), so by ND.4/lie-modules (P) with n = 0, M_W ≅ Û ⊗ M_W, compatibly with the reverse Û-linear map (Fu, proof of Theorem 4.3, p. 15).",
+    "Apply the flat functor M ↦ M̂ to 0 → Ãnn(W)M → M → M_W → 0. M_W is a finite sum of W, hence S_0-torsion-free with S_0 acting invertibly (S_0 consists of units of Û(g_K)), so by ND.4/lie-modules (P) with n = 0, M_W ≅ Û ⊗ M_W, compatibly with the reverse Û-linear map (Fu, proof of Theorem 4.3, p. 15). For ramified K, (P) is applied over ℚ_p: by ND.4/microlocal-coefficient-extension, Û(g_K) ⊗_{K[[G]]} M_W ≅ Û(g_{ℤ_p})_{ℚ_p} ⊗_{ℚ_p[[G]]} M_W, and M_W restricted to ℚ_p[[G]] is finite-dimensional and S_0-torsion-free.",
     "Maximality of M̂_W gives Ânn(W)M̂ ⊆ Û ⊗ Ãnn(W)M, and Û·Ãnn(W) ⊆ Ânn(W) gives the reverse inclusion; hence M̂_W = M_W."
    ],
    "acceptance": [
@@ -3195,6 +3222,7 @@
    "prerequisites": [
     "LocallyAnalyticDistributionsPartII:ND.4/lie-module-of-representation",
     "LocallyAnalyticDistributionsPartII:ND.4/microlocal-module",
+    "LocallyAnalyticDistributionsPartII:ND.4/microlocal-coefficient-extension",
     "LocallyAnalyticDistributionsPartII:ND.4/lie-modules",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem"
    ],
@@ -3222,7 +3250,7 @@
    ],
    "title": "Central specialisations of distribution and enveloping algebras",
    "kind": "construction",
-   "statement": "Let G be a compact open subgroup of 𝔾(ℚ_p) for a connected split reductive ℚ_p-group 𝔾 with Lie algebra g, Z(g) the centre of U(g), K/ℚ_p finite and λ : Z(g) → K a character with kernel generated by z_1, …, z_n − λ(z_n) (finitely many generators, Z(g) being a polynomial ring). Define: D(G, K)_λ := D(G, K) ⊗_{Z(g), λ} K = D(G, K)/Σ_i D(G, K)(z_i − λ(z_i)); C^la(G, K)[λ] := {f ∈ C^an(G, K) : z f = λ(z) f for all z ∈ Z(g)}, z acting through ND.1/central-enveloping-distributions; and similarly D^λ_r(G, K) := D_r(G, K)/D_r(G, K)·ker λ, U^λ_r(g) := U_r(g)/U_r(g)·ker λ and Û(g)_λ := Û(g_K)/Û(g_K)·ker λ. The ideal Σ D(G, K)(z_i − λ(z_i)) is a closed two-sided ideal, so D(G, K)_λ is a Fréchet–Stein algebra and a coadmissible D(G, K)-module, and C^la(G, K)[λ] is a closed G-stable subspace of C^an(G, K), of compact type. For 𝔾 = SL_2^m, Z(g) = K[Δ_1, …, Δ_m] with Δ_i = ½h_i² − h_i + 2e_if_i, and λ is determined by λ = (λ(Δ_i))_i ∈ K^m.",
+   "statement": "Let G be a compact open subgroup of 𝔾(ℚ_p) for a connected split reductive ℚ_p-group 𝔾 with Lie algebra g, Z(g) the centre of U(g), K/ℚ_p finite and λ : Z(g) → K a character; for generators z_1, …, z_n of the polynomial ring Z(g), ker λ is generated by z_1 − λ(z_1), …, z_n − λ(z_n). Define: D(G, K)_λ := D(G, K) ⊗_{Z(g), λ} K = D(G, K)/Σ_i D(G, K)(z_i − λ(z_i)); C^la(G, K)[λ] := {f ∈ C^an(G, K) : z f = λ(z) f for all z ∈ Z(g)}, z acting through ND.1/central-enveloping-distributions; and similarly D^λ_r(G, K) := D_r(G, K)/D_r(G, K)·ker λ, U^λ_r(g) := U_r(g)/U_r(g)·ker λ and Û(g)_λ := Û(g_K)/Û(g_K)·ker λ. The ideal Σ D(G, K)(z_i − λ(z_i)) is a closed two-sided ideal, so D(G, K)_λ is a Fréchet–Stein algebra and a coadmissible D(G, K)-module, and C^la(G, K)[λ] is a closed G-stable subspace of C^an(G, K), of compact type. For 𝔾 = SL_2^m, Z(g) = K[Δ_1, …, Δ_m] with Δ_i = ½h_i² − h_i + 2e_if_i, and λ is determined by λ = (λ(Δ_i))_i ∈ K^m.",
    "hypotheses": [
     "Fu writes the kernel of λ on Z(g) through p²Δ + λ_0, so that λ_0 = −p²λ(Δ) in his notation; this roadmap writes λ = λ(Δ) directly.",
     "Closedness of the ideal uses that it is finitely generated and two-sided (z_i central); a non-closed ideal would not give a Fréchet quotient."
@@ -3667,9 +3695,10 @@
    ],
    "title": "Central quotients D^λ_r(G_1^m, ℚ_p) are domains for integral λ",
    "kind": "theorem",
-   "statement": "Let p be odd, G = G_1^m, λ ∈ ℤ_p^m and 1/p < r < 1. Put Δ′_i = p²Δ_i, expressed in the coordinates F_i, H_i, E_i (ND.0/first-congruence-sl2) through pf_i = log(1 + F_i), ph_i = log(1 + H_i), pe_i = log(1 + E_i). (i) For 1/p < r′ < p^{−1/2}, the principal symbol of Δ′_i − p²λ_i for the norm ‖·‖_{r′} is ½H_i² + 2E_iF_i, and gr_{r′} D_{r′}(G, ℚ_p)/(Δ′_i − p²λ_i)_i ≅ 𝔽_p[ε, ε⁻¹][F_i, H_i, E_i]/(½H_i² + 2E_iF_i)_i, an integral domain. (ii) Consequently D^λ_r(G, ℚ_p) is an integral domain for every 1/p < r < p^{−1/2} (taking r′ = r). (iii) For p^{−1/2} ≤ r < 1, in particular for the radii r_n = p^{−1/p^n} used in ND.5/fu-direct-injectivity, the same conclusion holds provided the filtration induced by ‖·‖_{r′} on D_r/D_r·ker λ is separated, i.e. D_r ∩ D_{r′}·ker λ = D_r·ker λ inside D_{r′}; this separatedness is a recorded gap. (iv) For non-integral parameters the statement fails: for r = p^{−2/3} and λ(Δ) = p^{−1}, D^λ_r(G_1, ℚ_p) = 0.",
+   "statement": "Let p be odd, G = G_1^m, λ ∈ ℤ_p^m and 1/p < r < 1. Put Δ′_i = p²Δ_i, expressed in the coordinates F_i, H_i, E_i (ND.0/first-congruence-sl2) through pf_i = log(1 + F_i), ph_i = log(1 + H_i), pe_i = log(1 + E_i). (i) For 1/p < r′ < p^{−1/2}, the principal symbol of Δ′_i − p²λ_i for the norm ‖·‖_{r′} is ½H_i² + 2E_iF_i, and gr_{r′} D_{r′}(G, ℚ_p)/(Δ′_i − p²λ_i)_i ≅ 𝔽_p[ε, ε⁻¹][F_i, H_i, E_i]/(½H_i² + 2E_iF_i)_i, an integral domain. (ii) Consequently D^λ_r(G, ℚ_p) is an integral domain for every 1/p < r < p^{−1/2} (taking r′ = r). (iii) For p^{−1/2} ≤ r < 1, in particular for the radii r_n = p^{−1/p^n} used in ND.5/fu-direct-injectivity, the same conclusion holds provided the filtration induced by ‖·‖_{r′} on D_r/D_r·ker λ is separated, i.e. D_r ∩ D_{r′}·ker λ = D_r·ker λ inside D_{r′}; this separatedness is a recorded gap. For p ≥ 5 the radii p^{−1/2} ≤ r < p^{−1/(p−1)} are covered directly by ND.5/small-radius-central, so the open range is p^{−1/(p−1)} ≤ r < 1, which contains every r_n. (iv) For non-integral parameters the statement fails: for r = p^{−2/3} and λ(Δ) = p^{−1}, D^λ_r(G_1, ℚ_p) = 0.",
    "hypotheses": [
-    "Integrality of λ (v_p(p²λ) ≥ 2) is necessary: Fu Theorem 5.7 states the domain property for all λ and all 1/p < r < 1 (sourceIssues E7)."
+    "Integrality of λ (v_p(p²λ) ≥ 2) is necessary: Fu Theorem 5.7 states the domain property for all λ and all 1/p < r < 1 (sourceIssues E7).",
+    "At the radius r = r_n itself the direct graded argument fails: there the logarithm log(1 + X) has principal symbol p^{−n}σ(X)^{p^n}, so the symbol of p²Δ − p²λ for ‖·‖_{r_n} is a unit times (½H² + 2EF)^{p^n} (Frobenius is additive in characteristic p), and the graded ring of D^λ_{r_n} has nilpotents. This is why the source passes to a weaker norm."
    ],
    "proofSteps": [
     "gr_{r′} D_{r′}(G_1, ℚ_p) ≅ 𝔽_p[ε, ε⁻¹][F, H, E] (ND.2/banach-step-structure, using ST03 Theorem 4.5 under (HYP)), and for r′ < p^{−1/2} the logarithms log(1 + X) have principal symbol X, since max_k r′^k/|k| = r′ (Fu, proof of Theorem 5.7).",
@@ -3684,7 +3713,8 @@
     "LocallyAnalyticDistributionsPartII:ND.2/banach-step-structure",
     "LocallyAnalyticDistributionsPartII:ND.5/infinitesimal-character-quotients",
     "LocallyAnalyticDistributionsPartII:ND.0/first-congruence-sl2",
-    "LocallyAnalyticDistributionsPartII:ND.4/microlocalisation"
+    "LocallyAnalyticDistributionsPartII:ND.4/microlocalisation",
+    "LocallyAnalyticDistributionsPartII:ND.5/small-radius-central"
    ],
    "sources": [
     {
@@ -3715,7 +3745,7 @@
    "proofSteps": [
     "For r < p^{−1/(p−1)}, ‖log(1 + b) − b‖_r < ‖b‖_r and exp(px) − 1 converges, so log(1 + b_i) and b_i have the same norm r and the coordinate changes are mutually inverse isometries (compare Fu (27) and (30)); the ρ = pr normalisation accounts for x = p^{−1} log(1 + b).",
     "Normal form: in B_ρ divide by Δ − λ using h² = 2(Δ − λ) + 2λ + 2h − 4ef; for |λ| ≤ 1 ≤ ρ² each reduction step does not increase the weighted norm, so division has bounded quotient and remainder, the ideal is closed and the normal forms give a topological basis (cf. Fu Lemma 3.3, first part, for the algebraic basis).",
-    "Domain: the graded ring for |·|_ρ is 𝔽_p[ε, ε⁻¹][e, f, h]/(½h² + 2ef) (rescaled), a domain."
+    "Domain: for ρ > 1 the graded ring for |·|_ρ is 𝔽_p[ε, ε⁻¹][e, f, h]/(½h² + 2ef) (rescaled), a domain, and the ideal is closed, so the induced filtration is separated and Fu Lemma 2.2 transfers the domain property; at ρ = 1 (r = 1/p) the quotient is Û(sl_2(ℤ_p)^m)_λ, a domain by Fu Lemma 3.3 (last part)."
    ],
    "acceptance": [
     "At r = p^{−1}, ρ = 1 and B_1 = Û(sl_2(ℤ_p)^m)_{ℚ_p}, recovering ND.4/d-one-over-p for G_1^m."
@@ -4022,7 +4052,7 @@
    "proofSteps": [
     "(i): o[[G]] is compact and noetherian, so a finite presentation gives the canonical topology (ST02B Proposition 3.1).",
     "(ii): if E′ is finitely generated, its unit ball is a finitely generated compact o[[G]]-module and the cofinite-type condition follows from topological Nakayama (NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama); conversely the cofinite-type condition makes the Pontryagin dual of E/L a finitely generated o[[G]]-module (ST02B Lemma 3.4).",
-    "(iii): the anti-equivalence between o-torsion-free compact o[[G]]-modules up to isogeny and Banach representations (ST02B Theorem 2.3), restricted by (i)–(ii) (ST02B Theorem 3.5).",
+    "(iii): the anti-equivalence between o-torsion-free compact o[[G]]-modules up to isogeny and Banach representations (ST02B Theorem 2.3) is the G-equivariant form of Schikhof duality; its biduality isomorphisms for torsion-free compact o-modules and for o-lattices are planned in CompletedCohomologyPartII:CC.3/qualified-biduality and imported from there. Restricted by (i)–(ii) it gives ST02B Theorem 3.5.",
     "(iv) is the restriction of (iii) to finite-dimensional objects together with adjunction."
    ],
    "acceptance": [
@@ -4031,6 +4061,7 @@
    ],
    "prerequisites": [
     "LocallyAnalyticDistributionsPartII:ND.1/iwasawa-to-distributions",
+    "CompletedCohomologyPartII:CC.3/qualified-biduality",
     "PadicMeasuresIwasawaAlgebras:L0",
     "PadicMeasuresIwasawaAlgebras:L1",
     "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
@@ -4241,7 +4272,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
-   "need": "The PBW basis theorem for U(g) of a finite-dimensional Lie algebra over a field of characteristic zero (and over ℤ_p for a free Lie lattice), and Verma modules M(λ) = U(g) ⊗_{U(b)} K_λ with their highest weight vectors; used for the PBW description of Û(h)_K, the injectivity of U(g_K) → D(G, K) and the affinoid Verma modules.",
+   "need": "The PBW basis theorem for U(g) of a finite-dimensional Lie algebra over a field, as Layer 3 states it (the integral form for a free R-Lie lattice is not requested: ND.3/completed-enveloping-algebra derives it from the field case and Tau Ceti's spanning theorem TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration), and Verma modules M(λ) = U(g) ⊗_{U(b)} K_λ with their highest weight vectors; used for the PBW description of Û(h)_K, the injectivity of U(g_K) → D(G, K) and the affinoid Verma modules.",
    "neededBy": [
     "LocallyAnalyticDistributionsPartII:ND.1/lie-algebra-in-distributions",
     "LocallyAnalyticDistributionsPartII:ND.3/completed-enveloping-algebra",
@@ -4318,14 +4349,14 @@
    "stageId": "LocallyAnalyticDistributionsPartII:ND.5",
    "status": "planned",
    "remaining": [
-    "Close the gap of ND.5/radius-central-domain (iii): separatedness of the ‖·‖_{r′}-filtration on D_r/D_r·ker λ for p^{−1/2} ≤ r < 1, which Fu's direct route (ND.5/fu-direct-injectivity) needs at r_n = p^{−1/p^n}; the endpoint ND.5/central-injectivity-theorem does not depend on it."
+    "Close the gap of ND.5/radius-central-domain (iii): separatedness of the ‖·‖_{r′}-filtration on D_r/D_r·ker λ for p^{−1/(p−1)} ≤ r < 1 (p^{−1/2} ≤ r < 1 when p = 3), which Fu's direct route (ND.5/fu-direct-injectivity) needs at r_n = p^{−1/p^n}; the endpoint ND.5/central-injectivity-theorem does not depend on it."
    ]
   },
   {
    "stageId": "LocallyAnalyticDistributionsPartII:ND.6",
    "status": "planned",
    "remaining": [
-    "At lemma level, state the Schikhof duality between compact o-torsion-free o[[G]]-modules and Banach representations (ST02B Theorem 2.3) as its own node inside ND.6/banach-iwasawa-duality."
+    "At lemma level, state ST02B Theorem 2.3, the G-equivariant Schikhof anti-equivalence, as a lemma node inside ND.6/banach-iwasawa-duality, built on the Schikhof biduality imported from CompletedCohomologyPartII:CC.3/qualified-biduality (planned there, not planned again here)."
    ]
   }
  ],
@@ -4336,7 +4367,7 @@
     "LocallyAnalyticDistributionsPartII:ND.5/radius-central-domain",
     "LocallyAnalyticDistributionsPartII:ND.5/fu-direct-injectivity"
    ],
-   "detail": "Fu's proof of Theorem 5.7 computes gr_{r′} of D_r/D_r(p²Δ + λ_0) for a weaker norm ‖·‖_{r′}, r′ < p^{−1/2}, and needs the induced filtration to be separated, i.e. D_r ∩ D_{r′}·(p²Δ − p²λ) = D_r·(p²Δ − p²λ) inside D_{r′}. This is proved here only for r < p^{−1/2} (take r′ = r). The radii r_n = p^{−1/p^n} used in the proof of Theorem 5.1 all exceed p^{−1/2}. Density of D_r in D_{r′} and the domain property of the graded ring do not imply separatedness. The roadmap's endpoint (ND.5/central-injectivity-theorem) is proved by the Verma-module route and does not use this step; the gap concerns only Fu's direct route for induced characters."
+   "detail": "Fu's proof of Theorem 5.7 computes gr_{r′} of D_r/D_r(p²Δ + λ_0) for a weaker norm ‖·‖_{r′}, r′ < p^{−1/2}, and needs the induced filtration to be separated, i.e. D_r ∩ D_{r′}·(p²Δ − p²λ) = D_r·(p²Δ − p²λ) inside D_{r′}. It holds for r < p^{−1/2} (take r′ = r), and ND.5/small-radius-central gives the domain property directly for r < p^{−1/(p−1)}; at the radius r_n itself the graded ring of D^λ_{r_n} is not a domain (the symbol of p²Δ − p²λ is a p^n-th power), so the weaker norm cannot be avoided. The radii r_n = p^{−1/p^n} used in the proof of Theorem 5.1 all exceed p^{−1/2}. Density of D_r in D_{r′} and the domain property of the graded ring do not imply separatedness. The roadmap's endpoint (ND.5/central-injectivity-theorem) is proved by the Verma-module route and does not use this step; the gap concerns only Fu's direct route for induced characters."
   }
  ],
  "sourceIssues": [
@@ -4354,7 +4385,12 @@
     "arXiv 2201.11190 v1 and v2",
     "the paper extraction research/blueprint/papers/PAPER-FU-24.result.json, sourceIssues",
     "Crossref record of DOI 10.4007/annals.2024.200.1.3 (no update relation, per the extraction)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 (16), arXiv v2 p. 14: the display describes D_r(G, K) by bounded weighted coefficients, while the completion for ‖·‖_r (ST03 p. 19) is the null-sequence condition; the example λ_{pj} = p^{−j} at r = p^{−1/p} separates the two. Nothing downstream uses the bounded description.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E2",
@@ -4369,7 +4405,12 @@
    "searched": [
     "arXiv 2201.11190 v1 and v2",
     "research/blueprint/papers/PAPER-FU-24.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 Theorem 4.2, p. 14 against ST03 Theorem 4.5 and Remark 4.6, pp. 22: noetherianity is proved there for r ∈ p^ℚ and for r = 1/p only; multiplicativity and the domain property hold for every 1/p < r < 1. Kind gap is right: the assertion lacks a proof, not a counterexample.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E3",
@@ -4384,7 +4425,12 @@
    "searched": [
     "arXiv 2201.11190 v1 and v2",
     "research/blueprint/papers/PAPER-FU-24.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 §4, (17), p. 14: R is the integers of an arbitrary finite extension K of ℚ_p, while AW13 §10.1 assumes p is a uniformiser. For ramified R, p ∈ m² and 0 ∈ p + m², so the displayed set is not the microlocal Ore set of the powers of gr p (whose degree is e, not 1).",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E4",
@@ -4399,7 +4445,12 @@
    "searched": [
     "arXiv 2201.11190 v1 and v2",
     "research/blueprint/papers/PAPER-FU-24.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 Theorem 5.7, p. 20: λ is an arbitrary infinitesimal character and the conclusion is \"integral domain\"; the proof itself reaches the zero quotient when v(λ_0) ≤ 1, and the zero ring is not a domain. Recomputed the counterexample: at r = p^{−2/3}, ‖h‖_r = p^{1/3}, so ‖Δ‖_r ≤ p^{2/3} < p = |p^{−1}|.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E5",
@@ -4414,7 +4465,12 @@
    "searched": [
     "arXiv 2201.11190 v1 and v2",
     "research/blueprint/papers/PAPER-FU-24.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 proof of Theorem 5.7, p. 20, and its use on p. 21. Separatedness of the ‖·‖_{r′}-filtration on D_r/D_r a is equivalent to D_r ∩ D_{r′}a = D_r a; D_r → D_{r′} is flat but not faithfully flat (for G = ℤ_p, T − t with r′ < |t| ≤ r becomes a unit in D_{r′}), so this does not follow formally. At r_n itself the graded ring is not a domain (the symbol is a p^n-th power), so the weaker norm is needed. The endpoint is unaffected (AW14 route).",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E6",
@@ -4429,22 +4485,32 @@
    "searched": [
     "arXiv 2201.11190 v1 and v2",
     "research/blueprint/papers/PAPER-FU-24.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at FU24 Remark 5.8, p. 21. For χ(diag(t, t⁻¹)) = t^c, c ∈ ℤ_p, HC(Δ) = ½h² ± h gives λ(Δ) = ½c² ± c and 2λ + 1 = (c ± 1)²; conversely a square root s ∈ ℤ_p gives c = s ∓ 1. At p = 3, λ = 1 has v_3(λ_0) = 2 but 2λ + 1 = 3 is not a square.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E7",
    "source": "AW14",
    "kind": "misprint",
-   "locator": "§5.2, proof of the Lemma, p. 14 (arXiv v1)",
+   "locator": "§5.2, proof of the Lemma, p. 14 (arXiv v1); the same text in the published version, Münster J. Math. 7 (2014), p. 20",
    "printed": "D_{1/p}(G, K) is described as the formal power series Σ λ_α b^α for which the supremum of |λ_α|(1/p)^{|α|} is finite.",
    "correction": "As the completion of D(G, K) for ‖·‖_{1/p}, D_{1/p}(G, K) consists of the series with |λ_α| p^{−|α|} → 0; this is also what matches Û(g)_K, whose elements are null sequences in the PBW basis.",
-   "reason": "Under b_i ↦ exp(pu_i) − 1 ≡ pu_i, Σ λ_α b^α corresponds to Σ λ_α p^{|α|} u^α + (higher order), which lies in Û(g)_K iff |λ_α| p^{−|α|} → 0; the bounded series λ_{α} = p^{|α|} at α = (n, 0, …, 0) gives Σ u_1^n, not in Û(g)_K.",
+   "reason": "Under b_i ↦ exp(pu_i) − 1 ≡ pu_i, Σ λ_α b^α corresponds to Σ λ_α p^{|α|} u^α + (higher order), which lies in Û(g)_K iff |λ_α| p^{−|α|} → 0; the bounded series λ_α = p^{−|α|} at α = (n, 0, …, 0) (so |λ_α| p^{−|α|} = 1) gives Σ u_1^n plus higher-order terms, not in Û(g)_K.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "arXiv 1308.5104 (only v1 listed)",
-    "the published version in Münster J. Math. 7 (2014) was not consulted"
-   ]
+    "the published version, Münster J. Math. 7 (2014), 5–26, from the journal site (read 2026-10-18 by REV-DESIGN-LocallyAnalyticDistributionsPartII): Lemma 5.2 on p. 20 prints the same condition"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at AW14 §5.2, proof of the Lemma, arXiv v1 p. 14 and the published version (Münster J. Math. 7 (2014), p. 20), which prints the same condition. The completion D_{1/p}(G, K) of ST03 §4 is the null-sequence space; with λ_α = p^{−|α|} at α = (n, 0, …, 0) the bounded series maps to Σ u_1^n + (higher order), which is not in Û(g)_K. The proof is unaffected because the comparison maps are isometric.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   },
   {
    "id": "LocallyAnalyticDistributionsPartII/E8",
@@ -4459,7 +4525,33 @@
    "searched": [
     "arXiv 2502.20645 (v1 only)",
     "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-PILLONI-25.result.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at BCGP25 Definition 2.2.31, arXiv v1 p. 24: M_{r+1} ⊗_{Û(g)_{r+1}} Û(g)_r is printed for a left module; ST03 §3 (p. 8) writes A_{q_n} ⊗_{A_{q_{n+1}}} M_{n+1}. Agrees with PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E002.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
+  },
+  {
+   "id": "LocallyAnalyticDistributionsPartII/E9",
+   "source": "FU24",
+   "kind": "misprint",
+   "locator": "§6, the paragraph identifying the degree-k graded piece with W_k ⊗ W_k^*, p. 22 (arXiv v2)",
+   "printed": "The function x^k (x the upper-left matrix entry) is said to be left invariant under the lower triangular unipotent subgroup and right invariant under a subgroup called the \"lower upper triangular\" nilpotent subgroup.",
+   "correction": "x^k is right invariant under the upper triangular unipotent subgroup: (gn)_{11} = g_{11} for n upper unipotent.",
+   "reason": "For n = (1 a; 0 1), the (1,1) entry of gn is g_{11}; for the lower unipotent n = (1 0; a 1) it is g_{11} + a g_{12}, which is not invariant. Left invariance under the lower unipotent subgroup holds because the first row of (1 0; a 1) is (1, 0).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2201.11190v2",
+    "research/blueprint/papers/PAPER-FU-24.result.json (its E1–E10 do not record it)",
+    "the NSF PAR copy of the published version (par.nsf.gov) could not be reached on 2026-10-18"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found by REV-DESIGN-LocallyAnalyticDistributionsPartII while checking ND.6/algebraic-peter-weyl; the node already uses the corrected statement.",
+    "by": "REV-DESIGN-LocallyAnalyticDistributionsPartII"
+   }
   }
  ],
  "restructure": [
@@ -4498,7 +4590,7 @@
     "CompletedCohomologyPartII"
    ],
    "detail": "FIX-RT-AREA-automorphic-1/17 proposed a sub-stage PadicMeasuresIwasawaAlgebras:L1:banach-representations for the Schneider–Teitelbaum duality between admissible Banach representations and finitely generated Iwasawa modules (ST02B Lemma 3.4, Theorem 3.5). That proposal was not applied, and PadicMeasuresIwasawaAlgebras has since gone upstream to Tau Ceti without it.",
-   "proposal": "ND.6/banach-iwasawa-duality owns the duality; CompletedCohomologyPartII (CC.2, CC.5) and the p-adic local Langlands consumers (R30.2) import it from ND.6."
+   "proposal": "ND.6/banach-iwasawa-duality owns the duality (ST02B Lemma 3.4, Theorem 3.5). CompletedCohomologyPartII:CC.5/banach-admissibility, which cites ST02B Theorem 3.5 as a source, and the p-adic local Langlands consumers (R30.2) import it from ND.6. ND.6 in turn imports the Schikhof biduality that CompletedCohomologyPartII:CC.3/qualified-biduality already plans (ST02B §§1–2). CC.2 must not import ND.6: CC.3 builds on CC.2, so that import would close the stage cycle CC.2 → CC.3 → ND.6 → CC.2. If the orchestrator prefers the Schikhof biduality to sit with the foundational duality, it moves into ND.6 and CC.3 imports it; either way it is planned once."
   }
  ],
  "upstreamNotes": [
@@ -4509,5 +4601,268 @@
    ],
    "note": "Checked against TauCetiRoadmap main on 2026-10-18: PadicMeasuresIwasawaAlgebras (now merged) builds completed group rings and convolution for nonabelian profinite groups but contains neither the Schneider–Teitelbaum duality for admissible Banach representations nor any distribution algebra of a noncommutative p-adic Lie group; PadicFunctionalAnalysis treats locally analytic distributions on ℤ_p only. LocallyAnalyticDistributionsPartII therefore plans D(G, K), its Fréchet–Stein structure and the Banach duality without duplicating either."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-LocallyAnalyticDistributionsPartII",
+  "date": "2026-10-18",
+  "notes": "Independent review of the new roadmap definition, packet, reader document and suggested file. All eleven sources were opened at every locator (the ten public PDFs match the packet hashes; Schneider's book in the maintainer's cleared copy; the published AW14 text checked for E7). All 31 baseline declarations were read at Mathlib 082e2d3 and Tau Ceti f790474. Duplication was checked against TauCetiRoadmap main (a08dc283; PadicMeasuresIwasawaAlgebras, PadicFunctionalAnalysis, ProfiniteProPGroups, BanachSpaceTheory, RestrictedPowerSeries, RepresentationTheory/LieHighestWeight) and the atlas packets. Corrections: (1) ND.1/distribution-algebra duplicated the convolution of LocallyAnalyticDistributions:L1/distribution-convolution, which is now imported; (2) ND.6/banach-iwasawa-duality imports the Schikhof biduality planned in CompletedCohomologyPartII:CC.3/qualified-biduality, and restructure[3] no longer lets CC.2 import ND.6 (that would close a stage cycle); (3) the integral PBW basis behind Û(h) is derived from the field PBW theorem and the pinned Tau Ceti spanning theorem (new baseline declaration), and the LieHighestWeight Layer 3 request is narrowed to what that layer states; (4) base change of Û(h) follows AW13 Lemma 3.9(c) (finite extensions, index en); (5) AW13 §11.1 does not need a very good prime; (6) smaller statement, test and proof fixes in 9 further nodes. The gap (separatedness at the radii r_n) is genuine and is now located more precisely; the endpoint does not use it. All 8 source issues confirmed (E7: example corrected, published version checked); one new misprint E9 added. check_blueprint: 0 errors, 0 warnings with the pinned index; lean-check: the suggested file elaborates, its only warnings being the 12 unproved placeholders; dry atlas assembly: 33 new stages, 69 new stage edges, no skipped links.",
+  "checked": [
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/p-valuation",
+    "verdict": "corrected",
+    "note": "Axioms, G_ν, gr G over 𝔽_p[ε], ordered bases, saturation and (HYP) checked against Schneider §23 p. 169, §26 pp. 181–187 and ST03 §4 pp. 14–15, 20; tests recomputed. The torsion non-example now proves torsion-freeness for orders prime to p as well; its old reason did not cover SL_2(ℤ_p) for p ≥ 5."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/ordered-basis-chart",
+    "verdict": "corrected",
+    "note": "Statement checked against Schneider Lemma 26.1, Propositions 26.5, 26.6, 26.15 (pp. 181–191) and ST03 p. 15; completeness plus finite rank does give a pro-p group. Proof step 1 now attributes the discreteness to finite rank as Schneider argues after Lemma 26.1 (his §26 assumes G profinite with ω defining the topology)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/uniform-groups-p-valued",
+    "verdict": "verified",
+    "note": "AW13 §10.2–10.3 pp. 68–69 (ω(g) = i + 1 on G^{p^i} ∖ G^{p^{i+1}}), ST03 Remark after Lemma 4.3 p. 20 (p odd, both directions) and Fu (15) p. 13 agree with the statement."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/p-valued-analytic-structure",
+    "verdict": "verified",
+    "note": "Schneider Theorem 27.1 p. 192, Proposition 29.2, Corollaries 29.4–29.6 and Theorem 29.8 pp. 202–206; ST03 p. 14 for open normal uniform subgroups."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/lazard-lie-lattice",
+    "verdict": "verified",
+    "note": "AW13 §10.2 p. 68 (operations, powerful lattice, (1/p)R L_G), Fu (10)–(12) p. 12; tests recomputed ([pe, pf] = p·(ph) ∈ pL_G ∖ p²L_G)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/first-congruence-subgroup",
+    "verdict": "verified",
+    "note": "Fu pp. 3 and 19; tests checked (−1 − 1 = −2 a unit for p odd)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.0/first-congruence-sl2",
+    "verdict": "verified",
+    "note": "Fu Lemma 4.1 p. 12 and Lemma 5.6 p. 19, AW14 §5.4 p. 16 (n = 0). Δ = 4·(Killing Casimir) recomputed: κ(h,h) = 8, κ(e,f) = 4, dual basis (h/8, f/4, e/4)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.1/distribution-algebra",
+    "verdict": "corrected",
+    "note": "Duplication found: LocallyAnalyticDistributions:L1/distribution-convolution (accepted and promoted) already constructs this convolution, its associativity and unit, for K finite over ℚ_p and compact ℚ_p-analytic G (iterated integral in the other order, equal by Fubini). The node now imports it and plans only its generalisation and the further structure; prerequisite, compatibility test, hypothesis and the ST02 p. 8 source added. Conventions checked against ST02 §2 pp. 8–9 and Lemma 3.1 p. 13."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.1/lie-algebra-in-distributions",
+    "verdict": "verified",
+    "note": "ST02 §2 pp. 9–12: the image of x is xδ_1 with (xλ)(f) = λ((−x)f), i.e. f ↦ (d/dt)f(exp(tx))|₀, matching this node; the commutator sign was recomputed for the convolution convention. Fu (22)–(23) p. 15 and the conjugation identity p. 17."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.1/iwasawa-to-distributions",
+    "verdict": "corrected",
+    "note": "ST03 pp. 15–17 and Fu p. 13 checked. Corrected: a distribution lies in L[[G]] iff its coefficients lie in L and are bounded (bounded K-coefficients describe K[[G]]); the API item mem_range_ofMeasure_iff likewise."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.1/open-subgroup-decomposition",
+    "verdict": "verified",
+    "note": "ST02 proof of Lemma 3.1 p. 13, ST03 Theorem 5.1 step 1 pp. 29–30, AW13 §10.6 p. 72 (crossed products)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.1/central-enveloping-distributions",
+    "verdict": "verified",
+    "note": "ST02 Proposition 3.7 p. 16; the O(2) counterexample recomputed."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/frechet-stein-algebra",
+    "verdict": "verified",
+    "note": "ST03 §3 pp. 7–8 (right flatness of A_{q_n} over A_{q_{n+1}}); tests recomputed, including the K[[T]] non-example (a flat module over an Artinian local ring is free)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/coadmissible-module",
+    "verdict": "verified",
+    "note": "ST03 p. 8 and p. 11; the product/direct-sum non-example checked against ST03 Lemma 3.6."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/coadmissible-theorems",
+    "verdict": "verified",
+    "note": "ST03 Theorem (A and B) p. 9, Corollaries 3.1–3.5, Lemma 3.6, Proposition 3.7, Lemma 3.8, pp. 9–13."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/banach-steps",
+    "verdict": "verified",
+    "note": "ST03 pp. 16–19 (norms, Lemma 4.1, Proposition 4.2, D_r as null sequences, D_{<r}) and pp. 24–25 (basis independence); KOH07 §1.4 p. 15; tests recomputed (‖T^p‖ at r = p^{−1/p} is 1/p; the bounded non-null series)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/banach-step-structure",
+    "verdict": "verified",
+    "note": "ST03 Lemma 4.3 p. 20, Lemma 4.4 p. 21, Theorem 4.5 and Remark 4.6 p. 22; Schneider Theorem 28.3 and Corollary 28.5 pp. 199–200."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/frechet-stein-distribution",
+    "verdict": "verified",
+    "note": "ST03 Lemma 4.8, Theorems 4.9–4.10 pp. 23–24 and Theorem 5.1 with both steps pp. 29–30."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.2/faithful-flatness",
+    "verdict": "corrected",
+    "note": "ST03 Proposition 4.7 p. 22, Theorem 4.11 pp. 25–28, Theorem 5.2 p. 30 (L[[G]] → D(G_0, K), as stated). The final consequence for K[[G]]-modules now says K finite over ℚ_p (L = K)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.3/completed-enveloping-algebra",
+    "verdict": "corrected",
+    "note": "AW13 §§3.4–3.9 pp. 14–17. Base change corrected to AW13 Lemma 3.9(c): it needs [K′ : K] < ∞ and sends the n-th deformation to the en-th. The integral PBW basis is now derived from the field PBW theorem and the pinned Tau Ceti spanning theorem span_orderedPBWMonomials_eq_pbwFiltration (added as a baseline declaration), instead of from gr U(h) ≅ Sym(h), which is the statement to be proved."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.3/radius-enveloping-closure",
+    "verdict": "verified",
+    "note": "KOH07 §1.4 p. 15 and Fu p. 17; ‖log(1 + T)‖ at r_1 = p^{−1/p} recomputed (1, attained only at k = 1)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.3/frommer-theorem",
+    "verdict": "verified",
+    "note": "KOH07 §1.4, Theorem (Frommer), Corollary 1.4.1 and its proof, pp. 15–16, including the formula for ℓ_i; ℓ_i = p^n at r_n checked for p odd."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.3/crossed-product-radius",
+    "verdict": "corrected",
+    "note": "Fu Proposition 5.3 pp. 17–18; the norm and convergence estimates recomputed. Removed an unsourced parenthetical citing Dospinescu–Le Bras, which is not a source of this packet."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.3/arens-michael-envelope",
+    "verdict": "verified",
+    "note": "BCGP §2.2.29–2.2.35 pp. 23–24 (BCGP map g → Û(g) differentiates along exp(−tX); this roadmap fixes its own sign), ST02 Lemmas 2.4–2.5, Schmidt Propositions 3.2.1, 3.2.3 and Theorem 4.3.3; tests recomputed."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/microlocalisation",
+    "verdict": "verified",
+    "note": "AW13 §2.1–2.4 pp. 7–9 (Lemma and Corollary) and Fu §2 pp. 5–6; the ℚ_p⟨X/p⟩ test recomputed."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/m-adic-filtration",
+    "verdict": "verified",
+    "note": "AW13 §10.1 (p is the uniformiser), Lemma 10.2, Theorem and Corollary 10.3, pp. 67–69; Schneider Theorem 28.3."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/microlocal-ore-set",
+    "verdict": "verified",
+    "note": "AW13 §10.4 p. 70 and §10.6 p. 71; the ramified non-example recomputed (0 ∈ p + m² for ℤ_p[√p])."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/lazard-microlocalisation",
+    "verdict": "verified",
+    "note": "AW13 Theorem 10.4 and its proof pp. 70–71, Remarks 10.5, Proposition 10.6(a)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/d-one-over-p",
+    "verdict": "verified",
+    "note": "AW14 Lemma 5.2 p. 14 (published p. 20), with the decay correction E7; the ℚ_p⟨u⟩ example recomputed."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/microlocal-coefficient-extension",
+    "verdict": "verified",
+    "note": "AW13 Lemma 3.9(c) with n = 0 and K finite over ℚ_p; the tensor associativity argument checked."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/microlocal-module",
+    "verdict": "verified",
+    "note": "Fu p. 14, AW13 Remark 10.5(d) and Proposition 10.6(e); the Artin-module test recomputed (exp(p²u) − 1 = p²u·unit, M̂ one-dimensional)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/lie-modules",
+    "verdict": "corrected",
+    "note": "AW13 §10.12 p. 77, Proposition and Theorem 11.1, Corollary 11.1, Lemma and Theorem 11.2, pp. 78–81. AW13 §11.1 drops the very-good-prime restriction, so it was removed from the statement and the hypothesis now says so; the nonsemisimple counterexample is spelt out."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/lie-module-of-representation",
+    "verdict": "verified",
+    "note": "Fu p. 14 and AW13 §9.2, §11.1; tests checked (exp(pe) acts by (1 p; 0 1); one-dimensional Lie modules are trivial since sl_2 is perfect)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.4/isotypic-comparison",
+    "verdict": "corrected",
+    "note": "Fu (19)–(20) and Theorem 4.3 with proof pp. 14–15. For ramified K the step through AW13 Proposition 11.1 (stated for R with uniformiser p) now runs over ℚ_p by ND.4/microlocal-coefficient-extension, which was added as a prerequisite."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/infinitesimal-character-quotients",
+    "verdict": "corrected",
+    "note": "Fu pp. 7–8, 16–17 and ST03 Proposition 3.7. Fixed the garbled description of the generators of ker λ. Tests recomputed (Δ on Sym^k; ‖Δ‖_r ≤ p^{2/3} at r = p^{−2/3})."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/induced-infinitesimal-characters",
+    "verdict": "verified",
+    "note": "Fu (24) p. 16 and Remark 5.8 p. 21. Recomputed HC(Δ) = ½h² ± h, λ(Δ) = ½c² ± c, so induced iff 2λ + 1 ∈ (ℤ_p)²; the p = 3, λ = 1 counterexample to Fu is correct."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/central-strong-duality",
+    "verdict": "verified",
+    "note": "Fu Theorem 5.2 and (25)–(26) p. 16; the annihilator argument through closed finitely generated ideals is a valid replacement for ST03 Theorem 6.3."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/principal-series-eigenfunction",
+    "verdict": "verified",
+    "note": "Fu p. 16 and the proof of Theorem 5.2 p. 17; for G_1 the section can be taken global (G_1 = N̄_1 T_1 N_1)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/eigenspace-density-injectivity",
+    "verdict": "verified",
+    "note": "Fu Theorem 5.2, second part, pp. 16–17."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/central-projective-limit",
+    "verdict": "verified",
+    "note": "Fu Proposition 5.5 pp. 18–19; the route through ST03 Proposition 3.7 checked (finitely generated ideals of noetherian Banach steps are closed)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/radius-central-domain",
+    "verdict": "corrected",
+    "note": "Fu Theorem 5.7 p. 20, Lemma 2.2 p. 6, Lemma 3.3 p. 9. The symbol computation for r′ < p^{−1/2} recomputed. Added: at r_n itself the symbol is a unit times (½H² + 2EF)^{p^n}, so the weaker norm is unavoidable; and ND.5/small-radius-central already covers r < p^{−1/(p−1)}, which narrows the open range for p ≥ 5 (prerequisite added). The gap stays."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/small-radius-central",
+    "verdict": "corrected",
+    "note": "Derived statement; checked the isometry with the weighted completion for r < p^{−1/(p−1)} and the bounded division. The domain step at ρ = 1 now uses Fu Lemma 3.3 (last part), since the graded ring there is not the commutative one."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/crossed-product-ext-comparison",
+    "verdict": "verified",
+    "note": "AB07 §5.4, Lemma, proof and Corollary, pp. 16–17."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/central-radius-normal-form",
+    "verdict": "verified",
+    "note": "Fu proof of Theorem 5.1 p. 21 and Lemma 3.3; the weight p^n follows from ‖x_i‖_{r_n} = p^{n−1} and x_i = p·(h, e, f); injectivity by uniqueness of normal forms."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/fu-direct-injectivity",
+    "verdict": "verified",
+    "note": "Fu Theorem 5.1 and proof pp. 16, 21; the Auslander–Gorenstein and grade argument checked (AW13 Proposition 2.5); depends on the recorded gap, as stated."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/integral-casimir-roots",
+    "verdict": "verified",
+    "note": "Recomputed Δv = ½a(a + 2)v on a highest weight vector and integrality of −1 + √(1 + 2λ)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/affinoid-verma-faithfulness",
+    "verdict": "verified",
+    "note": "AW14 Theorem 4.4, Lemma 4.5, Lemma and Theorem 4.6 pp. 10–11; §5.1–5.4 and Theorem 5.4 pp. 13–16 (p odd, simply connected, very good p, p^n g = (1/p)R ⊗ L_G)."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.5/central-injectivity-theorem",
+    "verdict": "verified",
+    "note": "Fu Theorem 1.5 and the following paragraph p. 4; the descent along the faithfully flat K/ℚ_p and the agreement of the two maps K[[G]] → Û(g_R)_K checked."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.6/banach-iwasawa-duality",
+    "verdict": "corrected",
+    "note": "ST02B §3 pp. 12–15 (definition of admissibility, Proposition 3.1, Lemma 3.4, Theorem 3.5, Corollary 3.6). The Schikhof biduality behind ST02B Theorem 2.3 is already planned in CompletedCohomologyPartII:CC.3/qualified-biduality (accepted); it is now imported instead of being left implicit or planned again, and restructure[3] is amended so that CC.2 does not import ND.6."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.6/algebraic-matrix-coefficients",
+    "verdict": "verified",
+    "note": "Fu §6 pp. 21–22; the graded dimension (n + 1)² and the tests recomputed."
+   },
+   {
+    "nodeId": "LocallyAnalyticDistributionsPartII:ND.6/algebraic-peter-weyl",
+    "verdict": "verified",
+    "note": "Fu §6 pp. 21–22 and (32), AW13 §11.2–11.3; the invariance of x^k checked (this uncovered the misprint recorded as E9)."
+   }
+  ]
+ }
 }
