@@ -5008,5 +5008,7 @@
  "PKG-ArithmeticStatisticsPartII": 10372,
  "REV-PKG-AnalyticNumberTheoryPartII": 10373,
  "REV-PKG-ArithmeticStatisticsPartII": 10374,
- "FIX-PKG-InductionRestrictionPartII~adv": 10389
+ "FIX-PKG-InductionRestrictionPartII~adv": 10389,
+ "PKG-InductionRestrictionPartII~2": 10390,
+ "REV-PKG-InductionRestrictionPartII~2": 10391
 }
