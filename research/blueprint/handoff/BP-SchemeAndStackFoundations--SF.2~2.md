@@ -1,7 +1,43 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
+## Current run — Codex session codex-Urz4li, 2026-10-18
 
-## Current run — Codex session codex-Up49NB, 2026-10-18
+The bot confirmed this run's claim after
+[comment 6255583070](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6255583070).
+I selected the issue after reading its body and review, but missed the manager's
+[prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+until reading the inherited handoff and complete comment history. This was a
+selection error. No subsequent comment authorizes a distinct extension.
+
+Fresh GitHub reads confirm that upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged at
+the timestamps and commits recorded below. The current upstream README and
+suggested file retain blobs `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5` and
+`98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. The README's Layer 2 was inspected
+for its Nisnevich foundations (§§2.12–2.14), derived quasi-coherent categories
+and coherent duality (§§2.18–2.21), Azumaya algebras and Brauer groups (§2.22),
+and equivariant cohomology (§2.23). Section 2.4 excludes general banded-gerbe
+classification; that distinction does not reopen this superseded issue.
+The supplied read-only roadmap tree lacks this directory, so current GitHub
+main supplies the ownership evidence. No shared checkout was changed or built.
+
+Only this handoff changes, as the run requires a checkpoint when blocked.
+The packet, reader, suggested file and review remain as received. Packet and
+SF.2 coverage remain partial: 85 nodes (7 definitions, 17 constructions,
+49 theorems, 5 lemmas, 7 comparisons), 160 API items, 87 definition/construction
+tests, three planets, 89 baseline declarations, 11 gaps and nine requests.
+No mathematical correction, closure, ownership move or new request is claimed.
+The packet checker reports **0 errors and 0 warnings**; whitespace validation
+passes. No Lean file was changed or compiled. No mathematical source was copied.
+
+The manager must reconcile this stale availability entry and specify any
+authorized extension before work resumes. Future workers must inspect the
+blocking comment before claiming; another automatic return to available is
+not permission to resume. Existing mathematical worklists remain in the packet
+and independent review, and no scratch material is needed. This run stops
+after its checkpoint and takes no second job.
+
+## Earlier run — Codex session codex-Up49NB, 2026-10-18
 
 The bot confirmed this session's claim in
 [comment 6255169644](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6255169644).
