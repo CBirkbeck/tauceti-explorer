@@ -35,7 +35,7 @@
     {
       "key": "EH.2",
       "title": "Simplicial cohomology and rational stabilization",
-      "description": "Construct compatible forms on simplicial sets, compute normalized coefficient homotopy and triangular cohomology with binomial cup-product factors, prove the off-diagonal quotient-coefficient theorem, and compare to Sullivan polynomial forms after rational t-stabilization.\n\nTargets: Divided-power forms on a simplicial set; Homotopy of the simplicial coefficient modules; The triangular integral cohomology comparison; Quotient coefficients and the exceptional diagonal; Sullivan polynomial forms; Rational comparison after t-stabilization.\n\nChecks: Restriction to a representable simplex recovers its coefficient algebra by Yoneda. For p=n=0 the simplicial coefficient module is constant R with H₀=R. For the simplicial circle H¹Ω_n≃R for n≥1 and H¹Ω₀=0. Test reduction Z/l^(r+1)→Z/l^r off the diagonal. On a point A_PL=K in degree zero. For a point the degree-n relative piece is K·γ_n but A_PL⊗K[t] has a full copy of K in every t-degree.",
+      "description": "Construct compatible forms on simplicial sets, compute normalized coefficient homotopy and triangular cohomology with binomial cup-product factors, prove the off-diagonal quotient-coefficient theorem, and compare to Sullivan polynomial forms after rational t-stabilization.\n\nTargets: Divided-power forms on a simplicial set; Homotopy of the simplicial coefficient modules; The triangular integral cohomology comparison; Quotient coefficients and the exceptional diagonal; Sullivan polynomial forms; Rational comparison after t-stabilization.\n\nChecks: Restriction to a representable simplex recovers its coefficient algebra by Yoneda. For p=n=0 the simplicial coefficient module is constant R with H₀=R. For the simplicial circle H¹Ω_n≃R for n≥1 and H¹Ω₀=0. Test reduction Z/l^(r+1)→Z/l^r off the diagonal. On a point A_PL=K in degree zero. For a point the degree-n comparison is an isomorphism K·γ_n→K·t^n sending γ_n to t^n/n!; non-surjectivity before stabilization is detected on an edge, not on a point.",
       "requires": [
         "EllAdicHomotopyTypesAndWeights:EH.0",
         "EllAdicHomotopyTypesAndWeights:EH.1",
@@ -68,7 +68,7 @@
     {
       "key": "EH.5",
       "title": "Geometric cohomology and Frobenius weights",
-      "description": "Isolate the geometric cohomology weight realization needed by the homotopy proof, including normal H¹ weights and smooth/proper bounds. Compare the Hodge weight filtration over C with generalized Frobenius weight spaces of good spreads. Import abstract MHS and existing log forms; request the missing geometric Hodge realization in its own direction.\n\nTargets: Geometric cohomology weight filtrations; Arithmetic Frobenius splitting of Hodge weights.\n\nChecks: For G_m, H¹ has weight 2; for an elliptic curve, H¹ has weight 1. For geometric Frobenius on H²(P¹), eigenvalue q has weight 2, fixing the dual/Tate convention.",
+      "description": "Isolate the geometric cohomology weight realization needed by the homotopy proof, including normal H¹ weights and smooth/proper bounds. Compare the Hodge weight filtration over C with generalized Frobenius weight spaces of good spreads. Import abstract MHS and existing log forms; request the missing geometric Hodge realization in its own direction.\n\nTargets: Geometric cohomology weight filtrations; Geometric Frobenius splitting of Hodge weights.\n\nChecks: For G_m, H¹ has weight 2; for an elliptic curve, H¹ has weight 1. For geometric Frobenius on H²(P¹), eigenvalue q has weight 2, fixing the dual/Tate convention.",
       "requires": [
         "ComplexComparisonPartII:C5",
         "DeligneWeightsAndPurity:DWP.0",
@@ -174,7 +174,7 @@
       "sha256": "75d32559e32f59ad17230fb66ab37404585a4e702f013ff175bd6e06b25414b7",
       "accessed": "2026-10-18",
       "readSections": [
-        "§1, pp. 246–250; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271"
+        "§1, pp. 248–253; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "sha256": "4adb0a4d7d12f41f92e24fe4d02897ca38695237599e44ae42fb0100abce5a5f",
       "accessed": "2026-10-18",
       "readSections": [
-        "Entire article, pp. 79–85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images"
+        "§§1–17, pp. 79–84; bibliography p. 85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "sha256": "d78d4f46742916cd669279e7db365e4db6a43f38d2dcdec6862c6d27d07216b3",
       "accessed": "2026-10-18",
       "readSections": [
-        "§6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.14, pp. 28–31; §8.1.18–8.1.20, pp. 34–35; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40"
+        "§6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.20, pp. 28–35, including Theorem 8.1.15, pp. 32–33; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40"
       ]
     }
   ],

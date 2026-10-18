@@ -24,77 +24,77 @@
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
         "provides": "The universal divided-power algebra as a quotient of a multivariate polynomial ring. No basis identification with a subring of Q[t] is assumed.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:DividedPowerAlgebra.dp",
         "kind": "def",
         "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
         "provides": "The universal element γ_n(m).",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:DividedPowerAlgebra.dp_mul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/DividedPowerAlgebra/Init.lean",
         "provides": "The binomial-coefficient product relation at a fixed module element.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:ExteriorAlgebra",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
         "provides": "The quotient with every generator square zero, also in characteristic 2; its lift universal property is available.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:SSet",
         "kind": "abbrev",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean",
         "provides": "The category of simplicial sets as simplicial objects in types.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.DoldKan.equivalence",
         "kind": "def",
         "module": "Mathlib/AlgebraicTopology/DoldKan/Equivalence.lean",
         "provides": "The equivalence of simplicial objects in an abelian category and nonnegative chain complexes; it does not itself compute exterior powers or décalage.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.IsMittagLeffler",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
         "provides": "Eventual stabilization of ranges for a type-valued cofiltered functor; no commutation of homology and inverse limit is included.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "tauceti:TauCeti.IsDGAlgebra",
         "kind": "structure",
         "module": "TauCeti/Algebra/Homology/DG/Algebra/Defs.lean",
         "provides": "A differential of degree +1, square zero and the graded Leibniz rule on an existing internally Z-graded algebra.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "tauceti:TauCeti.DGAlgHom",
         "kind": "structure",
         "module": "TauCeti/Algebra/Homology/DG/Algebra/Hom/Basic.lean",
         "provides": "Existing graded algebra morphisms commuting with d, with identity and composition.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "tauceti:TauCeti.IsDGAlgebra.Cohomology",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/Homology/DG/Algebra/Cohomology.lean",
         "provides": "Cycles modulo the boundary ideal, with inherited grading and an algebra equivalence for zero differential.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure",
         "kind": "structure",
         "module": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
         "provides": "An abstract finite increasing rational W and decreasing complex F, with pure graded pieces and integral/rational/complex base-change models. This does not supply geometric cohomology MHS.",
-        "checked": "Actual declaration and surrounding statement read at the recorded pinned commit; current-library additions distinguished below."
+        "checked": "Independently read at the recorded pinned commit for REV-DESIGN-EllAdicHomotopyTypesAndWeights: declaration name, module, hypotheses and conventions confirmed. The provides field describes only the actual carrier/API, not downstream comparison or exactness theorems."
       }
     ]
   },
@@ -156,7 +156,7 @@
       "sha256": "75d32559e32f59ad17230fb66ab37404585a4e702f013ff175bd6e06b25414b7",
       "accessed": "2026-10-18",
       "readSections": [
-        "§1, pp. 246–250; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271"
+        "§1, pp. 248–253; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "sha256": "4adb0a4d7d12f41f92e24fe4d02897ca38695237599e44ae42fb0100abce5a5f",
       "accessed": "2026-10-18",
       "readSections": [
-        "Entire article, pp. 79–85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images"
+        "§§1–17, pp. 79–84; bibliography p. 85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "sha256": "d78d4f46742916cd669279e7db365e4db6a43f38d2dcdec6862c6d27d07216b3",
       "accessed": "2026-10-18",
       "readSections": [
-        "§6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.14, pp. 28–31; §8.1.18–8.1.20, pp. 34–35; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40"
+        "§6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.20, pp. 28–35, including Theorem 8.1.15, pp. 32–33; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40"
       ]
     }
   ],
@@ -439,6 +439,11 @@
           "name": "OneMinimalModel.cohomology",
           "role": "characterisation",
           "statement": "The map is an isomorphism on H¹ and injective on H²; the full model notion retains all degrees."
+        },
+        {
+          "name": "HirschExtension.hom_ext",
+          "role": "extensionality",
+          "statement": "Two DG maps from a Hirsch extension agreeing on its base and each new generator are equal."
         }
       ],
       "tests": [
@@ -495,7 +500,7 @@
         },
         {
           "sourceId": "dgms",
-          "locator": "§1, Theorems 1.1–1.2 and Lemma 1.6, pp. 246–250",
+          "locator": "§1, Theorems 1.1–1.2, pp. 251–252, and Corollary 1.6, p. 253",
           "match": "Provides the lifting mechanism; Morgan supplies the general connected full-model statement beyond the simply connected case treated first here."
         }
       ],
@@ -572,6 +577,11 @@
           "name": "DPCoordinate.rationalEquiv",
           "role": "compatibility",
           "statement": "For a Q-algebra the map γ_n↦t^n/n! gives R{t}≃R[t]."
+        },
+        {
+          "name": "DPCoordinate.hom_ext",
+          "role": "extensionality",
+          "statement": "Two R-algebra maps from R{t} agreeing on every γ_n are equal; γ_1 alone does not suffice over general R."
         }
       ],
       "tests": [
@@ -751,6 +761,11 @@
           "name": "SimplexForms.odd_square",
           "role": "structure",
           "statement": "The exterior factor uses Mathlib.ExteriorAlgebra, so every degree-one differential squares to zero."
+        },
+        {
+          "name": "SimplexForms.hom_ext",
+          "role": "extensionality",
+          "statement": "Two relative DG maps agreeing on all γ_r(x_i) and dx_i are equal; agreement on x_i alone is insufficient integrally."
         }
       ],
       "tests": [
@@ -1153,7 +1168,7 @@
         "Use exactness of filtered module colimits and the polynomial de Rham theorem; no claim of a uniform degree bound on arbitrary compatible forms is required."
       ],
       "acceptance": [
-        "For a point the degree-n relative piece is K·γ_n but A_PL⊗K[t] has a full copy of K in every t-degree.",
+        "For a point the degree-n comparison is an isomorphism K·γ_n→K·t^n sending γ_n to t^n/n!; non-surjectivity before stabilization is detected on an edge, not on a point.",
         "On an edge, t⁰x₁ in A_PL⊗K[t] is absent from the t-degree-zero image; this detects the source’s misleading isomorphism wording."
       ],
       "implementationStatus": "unchecked",
@@ -1220,6 +1235,11 @@
           "name": "ProForms.cohomology",
           "role": "compatibility",
           "statement": "The triangular comparison is the colimit of the ordinary comparisons, with the same binomial factors."
+        },
+        {
+          "name": "ProForms.desc",
+          "role": "universal-property",
+          "statement": "Compatible DG maps from the finite-coefficient stages determine a unique map from their filtered colimit, bidegree by bidegree."
         }
       ],
       "tests": [
@@ -1437,6 +1457,11 @@
           "name": "CompletedForms.pullback",
           "role": "functoriality",
           "statement": "Maps of pro-simplicial objects induce completed DG maps."
+        },
+        {
+          "name": "CompletedForms.lift",
+          "role": "universal-property",
+          "statement": "A compatible family of bidegree-preserving DG maps into all finite-coefficient levels determines a unique map into the bidegreewise completion; equality is checked after every reduction."
         }
       ],
       "tests": [
@@ -1527,6 +1552,11 @@
           "name": "EllAdicHomotopyAlgebra.quasiIso_of_cohomology",
           "role": "characterisation",
           "statement": "A finite-coefficient cohomology equivalence between systems satisfying (F) gives a quasi-isomorphism of A_l."
+        },
+        {
+          "name": "EllAdicHomotopyAlgebra.desc",
+          "role": "universal-property",
+          "statement": "Chain maps from the rationalized t-degree complexes, compatible with multiplication by t and with products under addition of t-degrees, and sending the t-degree-zero unit to the unit, determine a unique DG map from A_l."
         }
       ],
       "tests": [
@@ -1818,7 +1848,7 @@
       "realises": [
         "EllAdicHomotopyTypesAndWeights:EH.5"
       ],
-      "title": "Arithmetic Frobenius splitting of Hodge weights",
+      "title": "Geometric Frobenius splitting of Hodge weights",
       "kind": "theorem",
       "declaration": "TauCeti.EllAdicHomotopy.frobenius_hodge_weight_comparison",
       "statement": "Let X be a complex variety defined over k₀ finitely generated over Q, and choose an integral finite-type Z-model with l inverted. After shrinking that model there are good closed points s with residue cardinality q>1 and geometric Frobenius lifts σ such that the eigenvalues of σ on H^i(X(C),Q)⊗Q_l are algebraic Weil q-numbers. The sum of their generalized eigenspaces of weights at most m is W_m H^i(X(C),Q)⊗Q_l. Thus the Weil weight homomorphism used on the minimal model splits the scalar extension of the geometric Hodge weight filtration. The splitting depends on σ; the cohomological filtration does not.",
@@ -1916,6 +1946,11 @@
           "name": "ModelFiltration.refinement",
           "role": "functoriality",
           "statement": "Cofinal increasing reindexing preserves the admissible filtration and its stability."
+        },
+        {
+          "name": "ModelFiltration.ext",
+          "role": "extensionality",
+          "statement": "Filtrations with equal sub-DG-algebras at each index are equal; exhaustive and finite-type witnesses carry no additional choices."
         }
       ],
       "tests": [
@@ -2050,6 +2085,11 @@
           "name": "EigenvalueGrading.finitePiece",
           "role": "compatibility",
           "statement": "Restriction to each finite invariant piece is its ordinary primary decomposition; the construction agrees with DWP.0 generalized eigenspaces."
+        },
+        {
+          "name": "EigenvalueGrading.ext",
+          "role": "extensionality",
+          "statement": "Two generalized-eigenvalue decompositions with the same component subspaces for every nonzero eigenvalue agree."
         }
       ],
       "tests": [
@@ -2180,6 +2220,11 @@
           "name": "WeightGrading.descent",
           "role": "compatibility",
           "statement": "A Galois-invariant extension of v descends the grading to K; its scalar extension is the original grading."
+        },
+        {
+          "name": "WeightGrading.ext",
+          "role": "extensionality",
+          "statement": "Two weight gradings are equal when their subspaces M_w^n agree for every cochain degree n and weight w."
         }
       ],
       "tests": [
@@ -2317,6 +2362,11 @@
           "name": "WeightExtension.kernelAction",
           "role": "characterisation",
           "statement": "U consists exactly of filtered model automorphisms inducing identity on Gr^W H*."
+        },
+        {
+          "name": "FilteredAutomorphisms.ext",
+          "role": "extensionality",
+          "statement": "Two points of the automorphism pro-group over any coefficient algebra are equal if their finite-stage restrictions agree; compatible stage points determine a unique limit point."
         }
       ],
       "tests": [
@@ -2800,7 +2850,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "For separated finite-type schemes over algebraically closed fields with l invertible: finite Z/l^r étale cohomology, computation by a cofinal étale hypercover pro-system, invariance under algebraically closed field extension, and étale–analytic comparison over C as in SGA4 XVI 4.1. Proper hypercover descent is a different theorem and cannot discharge this request. Supply the usual compatible Galois cohomology action as well.",
+      "need": "Atlas compatibility handle for current upstream SchemeAndStackFoundations layer 2 (sites and scheme cohomology). Use its generic site, field/curve cohomology and proper-hypercover APIs only in their stated scope. The following full contract is unmet here and recorded in G8: For separated finite-type schemes over algebraically closed fields with l invertible: finite Z/l^r étale cohomology, computation by a cofinal étale hypercover pro-system, invariance under algebraically closed field extension, and étale–analytic comparison over C as in SGA4 XVI 4.1. Proper hypercover descent is a different theorem and cannot discharge this request. Supply the usual compatible Galois cohomology action as well. Current upstream explicitly leaves finite-coefficient/adic theory and Artin comparison downstream; this request does not assert that layer 2 supplies them.",
       "neededBy": [
         "EllAdicHomotopyTypesAndWeights:EH.4/variety-realization",
         "EllAdicHomotopyTypesAndWeights:EH.4/galois-action",
@@ -2812,7 +2862,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.4",
-      "need": "Characteristic-zero resolution and proper compactification, with SNC boundary and common refinements sufficient for the geometric normal-crossing hyperresolution construction of Hodge III 6.2.8. Positive-characteristic strata comparisons use the alterations/descent inputs of DWP.7 rather than assuming resolution there.",
+      "need": "Atlas compatibility handle for current upstream SchemeAndStackFoundations layer 4. Use §4.17 SNC divisor API and §4.19 projective regular SNC alterations in their actual scope. The geometric Hodge construction in G4 additionally needs compatible proper smooth/SNC hyperresolutions and refinements. A proof may use alterations with rational proper descent; if it instead uses characteristic-zero birational resolution and SNC compactification, that stronger input must be sourced separately. Curve resolution (§4.13) and a general alteration do not establish it. No positive-characteristic resolution is assumed.",
       "neededBy": [
         "EllAdicHomotopyTypesAndWeights:EH.5/geometric-cohomology-weight-bridge"
       ]
@@ -2855,7 +2905,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Finite-dimensional characteristic-zero Levi splitting and conjugacy over the base field, in the precise extension-by-unipotent case. The current stage names Levi decomposition in a broader structure-theory list; G6 and the Part II proposal identify the solvable-extension clarification needed here.",
+      "need": "Finite-dimensional characteristic-zero Levi splitting and conjugacy over the base field, in the precise extension-by-unipotent case. The current stage names Levi decomposition in a broader structure-theory list; G6 and the Part III proposal identify the solvable-extension clarification needed here.",
       "neededBy": [
         "EllAdicHomotopyTypesAndWeights:EH.7/prounipotent-extension-splitting"
       ]
@@ -2915,7 +2965,7 @@
         "EllAdicHomotopyTypesAndWeights:EH.5/frobenius-hodge-weight-comparison",
         "EllAdicHomotopyTypesAndWeights:EH.8/algebraically-closed-weight-splitting"
       ],
-      "detail": "The pinned MixedHodgeStructure carrier and Completed/HodgeStructures L2 supply abstract linear algebra only. Hodge III 6.2.8 and 8.1.19–8.2.4 give geometric realization through proper SNC hyperresolutions; Poids 13–14 identify its W with arithmetic Frobenius weights. Plan the missing mixed Hodge complexes, rational/complex filtered comparison, shifted cohomology weight convention, strict descent and common-refinement independence in HodgeStructures, Part III (Part II is already occupied). For arbitrary algebraically closed bases verify the spread-independent étale weight filtration, not merely the decomposition for one Frobenius. This packet owns the realization comparison bridge, not another abstract MHS definition."
+      "detail": "The pinned MixedHodgeStructure carrier and Completed/HodgeStructures L2 supply abstract linear algebra only. Hodge III 6.2.8 and 8.1.19–8.2.4 give geometric realization through proper SNC hyperresolutions; Poids 13–14 identify its W with the weights of geometric Frobenius (the inverse of arithmetic Frobenius). Plan the missing mixed Hodge complexes, rational/complex filtered comparison, shifted cohomology weight convention, strict descent and common-refinement independence in HodgeStructures, Part III (Part II is already occupied). For arbitrary algebraically closed bases verify the spread-independent étale weight filtration, not merely the decomposition for one Frobenius. This packet owns the realization comparison bridge, not another abstract MHS definition. Current upstream scheme foundations §4.19 supplies SNC alterations, while §4.13 supplies curve resolution. Establish the hyperresolution/refinement construction from those alterations and rational proper descent, or source the stronger characteristic-zero resolution/compactification theorem separately; neither is an implicit consequence of the SNC-divisor definition."
     },
     {
       "id": "G5",
@@ -2946,6 +2996,19 @@
         "EllAdicHomotopyTypesAndWeights:EH.8/normal-variety-lie-presentation"
       ],
       "detail": "Prove the comparison of the finite-stage 1-minimal Lie tower of A_l(X) with the continuous Q_l pro-unipotent étale fundamental group for general connected normal separated finite-type X. Weil II 5.3.8 is an announcement; Poids §10 p. 83 gives the presentation argument but leaves this comparison implicit. Sullivan 8.1(ii) is a rational topological realization theorem, not an étale theorem. Extend the NC.2 supplier scope where necessary, then check pointed fiber functors and H¹/H² extension-obstruction compatibility at every finite unipotence depth."
+    },
+    {
+      "id": "G8",
+      "title": "Finite-coefficient étale realization supplier contract",
+      "neededBy": [
+        "EllAdicHomotopyTypesAndWeights:EH.4/variety-realization",
+        "EllAdicHomotopyTypesAndWeights:EH.4/galois-action",
+        "EllAdicHomotopyTypesAndWeights:EH.4/analytic-cover-comparison",
+        "EllAdicHomotopyTypesAndWeights:EH.4/complex-minimal-model-comparison",
+        "EllAdicHomotopyTypesAndWeights:EH.5/geometric-cohomology-weight-bridge",
+        "EllAdicHomotopyTypesAndWeights:EH.5/frobenius-hodge-weight-comparison"
+      ],
+      "detail": "The current SchemeAndStackFoundations README, layer 2 conventions at upstream commit a08dc283184a9ec4d6c7fab2fb2b41866801994a, explicitly leaves finite-coefficient/adic étale theory and Artin comparison downstream. Its generic site cohomology, curve computations and proper hypercover descent do not supply the complete EH.4 contract. Locate and match the existing downstream finite-coefficient contracts before packaging: ordinary H^i_et(X,Z/l^r) finiteness for separated finite-type X, invariance under algebraically closed extension, cofinal étale-hypercover computation, compatible Galois action and SGA4 XVI 4.1 analytic comparison. Weil II 5.2.2–5.2.5, pp. 238–239, invokes these inputs; their general proofs were not independently verified here. The EDC.0 supplier inventory names EtaleBaseChange/EllAdicRealization in the CohomologicalPointCounting direction; those names alone are not a verified replacement. Preserve existing owners when locating them, and request only any genuinely absent comparison theorem. This gap is separate from G3 good covers, G2 completion and G4 Hodge realization."
     }
   ],
   "coverage": [
@@ -2985,6 +3048,7 @@
       "remaining": [
         "G1: Integral coefficient resolution and finite-width proof",
         "G3: Analytic good covers and finite CW comparison",
+        "G8: Finite-coefficient étale realization supplier contract",
         "Resolve the exact supplier contracts listed in requests before claiming library closure."
       ]
     },
@@ -2993,6 +3057,7 @@
       "status": "planned",
       "remaining": [
         "G4: Geometric Hodge realization and spread independence",
+        "G8: Finite-coefficient étale realization supplier contract",
         "Resolve the exact supplier contracts listed in requests before claiming library closure."
       ]
     },
@@ -3037,7 +3102,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p. 235 comparison is labelled an isomorphism, but its bounded-degree image excludes x_1 in t-degree zero on an edge. The point comparison is an isomorphism and is now stated accurately.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E2",
@@ -3052,7 +3122,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The image of p. 237 (5.2.1.3) uses a nonbold X on the right where the definition and surrounding formulas concern the bold pro-system.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E3",
@@ -3067,7 +3142,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page 238 paragraph invokes countability of k although only k_1 is countable, and its cofinal covers are over X_1. The corrections preserve the construction.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E4",
@@ -3082,7 +3162,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page 238 fiber-product notation and (5.2.2.1) exchange cover/base subscripts and superscripts. The initially declared cover X_1^alpha fixes the intended indices.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E5",
@@ -3097,7 +3182,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unfinished sentence on p. 239 is followed by Construction 5.2.5 and its comparison proof; supplying that object is consistent with both.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E6",
@@ -3112,7 +3202,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p. 240 image changes the algebraic-closure letter and writes a multiplicative-group star as a tensor factor. The coefficient tensor must use the field; only the eigenvalue index is nonzero.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E7",
@@ -3127,7 +3222,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p. 241 image has W_n on the left and j≤m on the right. Matching the bound n is the stated increasing-filtration splitting and leaves the theorem intact.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E8",
@@ -3142,7 +3242,12 @@
       "searched": [
         "Published Numdam page images of Weil II pp. 235 and 237–242, and its article record; no publisher erratum was found in that record.",
         "Atlas PAPER-DELIGNE-80.result.json E61–E68 and its independent REV-PAPER-DELIGNE-80 confirmations; these are existing atlas findings, not new claims of discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page 241 explicitly omits the proof of Lemma 5.3.5. This confirms an unfilled proof obligation, not a counterexample to the lemma. G5 and the common-filtration node retain it.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E9",
@@ -3157,7 +3262,12 @@
       "searched": [
         "The Numdam original article record and its correction link.",
         "The published 1986 correction, read in full."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The official 1986 correction p. 185 replaces the failed rigidity assertion, qualifies the Hodge-filtration conclusion by inner automorphisms and preserves Theorem 9.4. No rejected indecomposable functoriality is used.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     },
     {
       "id": "EllAdicHomotopyTypesAndWeights/E10",
@@ -3168,12 +3278,17 @@
       "correction": "Restrict this roadmap to principal ideal quotients, including the l-power transitions it needs; do not use the assertion for an infinitely generated quotient ideal on an infinite simplicial set.",
       "reason": "Take the discrete simplicial set N, R=Q[x_1,x_2,...], I=(x_1,x_2,...) and B=R/I. At (p,n)=(0,1), the mapping definition gives Ω_1^0(N,R)=product_N R times γ_1. The tensor map is (product R)/I(product R)→product(R/I). The sequence (x_i) is in its kernel but not I(product R): a finite expression using elements of I lies in a finite-variable ideal, which cannot contain every x_i. Thus the map is not injective although n≠p. The principal-quotient target and its full coefficient-resolution proof remain in G1.",
       "affects": "a stated result",
-      "known": "No published correction located in the Numdam article record or targeted search; this counterexample requires independent review.",
+      "known": "Independently confirmed by REV-DESIGN-EllAdicHomotopyTypesAndWeights; no published correction located in the searched public records.",
       "searched": [
         "Published Numdam page image p. 235, read directly, and mapping definition 5.1.8 on p. 236.",
         "Atlas PAPER-DELIGNE-80 extraction and existing source issues: the unrestricted assertion is routed there without this counterexample.",
         "Targeted public search for Weil II 5.1.5 quotient-coefficient errata; no relevant correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked: every element of I(product R) uses finitely many scalar polynomials of I and hence finitely many variables; a fresh variable is outside their generated ideal. Thus (x_i) gives a nonzero tensor-kernel class. The unrestricted assertion on p. 235 fails; the principal-quotient target remains a separate proof obligation G1.",
+        "by": "REV-DESIGN-EllAdicHomotopyTypesAndWeights"
+      }
     }
   ],
   "sourceVersions": [
@@ -3223,8 +3338,8 @@
       ]
     },
     {
-      "proposal": "ReductiveGroups, Part II: characteristic-zero unipotent extensions",
-      "reason": "Clarify the base-field splitting/conjugacy theorem for extensions of a torus by a unipotent group. The atlas layer 7 names Levi decomposition next to parabolic structure, while this proof needs the solvable algebraic-group extension version. Keep the compatible pro-limit theorem specific to the minimal-model tower here.",
+      "proposal": "ReductiveGroups, Part III: characteristic-zero unipotent extensions",
+      "reason": "Clarify the base-field splitting/conjugacy theorem for extensions of a torus by a unipotent group. The atlas layer 7 names Levi decomposition next to parabolic structure, while this proof needs the solvable algebraic-group extension version. Keep the compatible pro-limit theorem specific to the minimal-model tower here. The existing ReductiveGroupsPartII roadmap concerns local structure, buildings and arithmetic models; the new successor name avoids that occupied scope.",
       "supplies": [
         "finite-dimensional input to G6"
       ],
@@ -3534,15 +3649,21 @@
       "Completed/HodgeStructures/README.md, especially L0–L3",
       "TauCetiRoadmap/AlgebraicTopology/README.md, stages 5–6",
       "TauCetiRoadmap/ReductiveGroups/README.md, layers 5–7",
-      "TauCetiRoadmap/RealAlgebraicGeometry/README.md, scope exclusions"
+      "TauCetiRoadmap/RealAlgebraicGeometry/README.md, scope exclusions",
+      "TauCetiRoadmap/SchemeAndStackFoundations/README.md and Suggested.lean at a08dc283184a9ec4d6c7fab2fb2b41866801994a, especially layers 2 and 4",
+      "TauCetiRoadmap/ReductiveGroupsPartII/README.md, scope and ownership",
+      "ComplexComparisonPartII:C5/log-de-rham-complex and AnabelianGeometryAndNonabelianChabauty NC.2 supplier statements"
     ],
     "findings": [
       "DGAInfinity’s transferred A∞ minimal models are not Sullivan models. Layer 3 is consumed as the existing homological-transfer direction, not replanned or used as a proof of Sullivan existence.",
       "Abstract Hodge structures already have a pinned TauCeti carrier; geometric variety cohomology requires a separate input.",
       "Current TauCeti.AlgebraicTopology.Cohomology.Basic implements singularCochainComplex using SSet.chainComplex and linearYonedaObj, and Cup.lean supplies the singular cup product, but Basic.lean is absent at the TauCeti pin. Use the existing topological direction for ordinary cohomology and do not create a competing carrier.",
       "The current RealAlgebraicGeometry roadmap explicitly excludes triangulation.",
-      "SchemeAndStackFoundations:SF.2/proper-hypercover-descent in its reviewed Part II is not an étale hypercover theorem; no such substitution is made."
-    ]
+      "SchemeAndStackFoundations:SF.2/proper-hypercover-descent in its reviewed Part II is not an étale hypercover theorem; no such substitution is made.",
+      "The atlas SF.2/SF.4 IDs are retained as compatibility handles. Current merged SchemeAndStackFoundations layer 2 explicitly excludes the full finite-coefficient/Artin-comparison contract: G8 records the unmatched downstream inputs. Its layer 4 supplies SNC alterations, not general birational resolution; G4 records the precise additional hyperresolution argument.",
+      "ReductiveGroupsPartII already owns local structure and arithmetic models. The characteristic-zero unipotent-extension proposal is renamed Part III; no existing layer is replanned."
+    ],
+    "upstreamSchemeFoundationsCommit": "a08dc283184a9ec4d6c7fab2fb2b41866801994a"
   },
   "upstreamNotes": [
     {
@@ -3552,6 +3673,10 @@
     {
       "roadmap": "tauceti:TauCetiRoadmap/HodgeStructures",
       "note": "The current Completed roadmap and pinned library handle abstract MHS. No geometric cohomology MHS construction was found; the Part III proposal carries that missing general input."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/SchemeAndStackFoundations",
+      "note": "At a08dc283184a9ec4d6c7fab2fb2b41866801994a, atlas SF.2/SF.4 names are stale ownership handles. Layer 2 explicitly excludes finite-coefficient/adic theory and Artin comparison; identify the downstream contract owners before packaging (G8). Layer 4.19 supplies SNC alterations; hyperresolution refinements and any stronger resolution input remain explicit in G4. Upstream files are unchanged."
     }
   ],
   "openQuestions": [
@@ -3563,5 +3688,213 @@
       "locator": "Weil II 5.3.10, p. 242",
       "question": "Conjugacy of induced filtrations under automorphisms homotopic to identity, and a rational orbit of such filtrations; no theorem target."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 40 nodes and locators in seven public sources; all 11 pinned declarations confirmed. Corrected the geometric-Frobenius title, DGMS locator, source read extents and point-comparison check; added 10 API uniqueness/universal-property items, updated current upstream ownership and renamed the occupied reductive-group successor. Added G8 for the unmatched finite-coefficient/Artin supplier, refined G4, and confirmed all 10 source issues, including the E10 counterexample. Nine stages remain planned, none closed; complete denotes a finished planning pass with eight honest gaps and twelve requests. Suggested Lean file unchanged and lean-check passed with only 18 expected proof-placeholder warnings. Reader and roadmap metadata synchronized.",
+    "checked": [
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.0/commutative-dg-refinement",
+        "verdict": "verified",
+        "note": "Checked Weil II 5.1.1 against the pinned IsDGAlgebra carrier. The separate odd-square axiom correctly retains characteristic 2; the exterior versus symmetric tests detect its omission."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.0/sullivan-homotopy",
+        "verdict": "verified",
+        "note": "Checked Morgan §5 and DGMS §1. Interval evaluations kill dt, cohomology homotopy is valid in characteristic zero, and transitivity is restricted to Sullivan sources."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.0/sullivan-minimal-model",
+        "verdict": "corrected",
+        "note": "Checked Morgan 5.1–5.6 and Sullivan 2.2/5.1: decomposable ordered Hirsch extensions, full versus 1-minimal models and nonunique model equivalence. Added generator extensionality."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.0/existence-and-lifting",
+        "verdict": "corrected",
+        "note": "Morgan 5.6–5.9 supports the connected full-model scope. Corrected the supporting DGMS locator to Theorems 1.1–1.2 pp. 251–252 and Corollary 1.6 p. 253; it was mislabelled a lemma on pp. 246–250."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.1/divided-power-coordinate",
+        "verdict": "corrected",
+        "note": "Checked Weil II 5.1.3, the pinned dp_mul and integral/rational normalization. Added extensionality on all divided powers, since the first coordinate alone is insufficient integrally."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.1/t-graded-dg-refinement",
+        "verdict": "verified",
+        "note": "Checked Weil II 5.1.4. Cochain and divided-power degrees are separate, d has (+1,0), products add both, and the total uses finite support."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.1/relative-simplex-forms",
+        "verdict": "corrected",
+        "note": "Checked Weil II 5.1.6.1–3 and the pinned exterior quotient: dt is killed while t survives, and dγ_r=γ_(r−1)dx. Added extensionality on every divided-power coordinate and exterior differential."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.1/simplex-pullback",
+        "verdict": "verified",
+        "note": "Checked the finite-set formulas in 5.1.6.4: inverse-image sums produce both faces and degeneracies, preserve the diagonal coordinate and obey composition."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/simplicial-divided-power-forms",
+        "verdict": "verified",
+        "note": "Checked 5.1.8 against simplicial-map/Yoneda conventions: compatible evaluations include degeneracies; scalar extension is simplexwise, not an unjustified global tensor equivalence."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/coefficient-homotopy-calculation",
+        "verdict": "verified",
+        "note": "Checked 5.1.9(b), including the constant (p,n)=(0,0) case. The nonlinear exterior-power décalage and extension argument is explicitly G1, not inferred from Dold–Kan."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/integral-cohomology-comparison",
+        "verdict": "verified",
+        "note": "Checked 5.1.4.2 and 5.1.9(b): H^p occurs precisely when n≥p and products carry the binomial factor. The two-torus mod-2 test separates this from the ordinary cohomology ring. G1 remains explicit."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/quotient-coefficient-change",
+        "verdict": "verified",
+        "note": "Checked 5.1.5 and independently confirmed E10. The target is restricted to principal quotients and excludes the exceptional diagonal; its resolution proof remains G1."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/polynomial-sullivan-forms",
+        "verdict": "verified",
+        "note": "Checked Sullivan §7 and Weil II 5.1.9(a): barycentric sum 1, exterior differentials, and compatible polynomial forms give ordinary cohomology over characteristic-zero coefficients."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.2/rational-stabilized-comparison",
+        "verdict": "corrected",
+        "note": "Checked bounded-degree homogenization in 5.1.5 and invertible t-transition factors. Corrected the point check to the actual isomorphism γ_n↦t^n/n!; the edge witnesses non-surjectivity and infinite X need not have a uniform bound."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.3/pro-simplicial-forms",
+        "verdict": "corrected",
+        "note": "Checked 5.2.1.1–2: the finite-coefficient filtered colimit precedes the exponent inverse limit. Added the colimit universal property; cofinal invariance does not interchange the limits."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.3/finite-mod-ell-cohomology",
+        "verdict": "verified",
+        "note": "Checked condition (F) and 5.2.1.3/6: finiteness is degreewise, with no bounded cohomological-dimension hypothesis. The infinite-wedge and unbounded-degree tests distinguish these conditions."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.3/ell-adic-universal-coefficients",
+        "verdict": "verified",
+        "note": "Checked 5.2.1.3: finite generation and the Tor contribution from H^(i+1) are the intended assertions. The referenced SGA5 proof and exactness remain G2."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.3/bigraded-ell-adic-completion",
+        "verdict": "corrected",
+        "note": "Checked 5.2.1.4–5: completion is within each bidegree, with the exceptional diagonal handled by the cohomology exact sequence. Added inverse-limit lifting/uniqueness; cycle/boundary ML exactness remains G2."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.3/ell-adic-homotopy-algebra",
+        "verdict": "corrected",
+        "note": "Checked 5.2.1.6–8: rationalize before t-stabilization and normalize γ_n by 1/n! to obtain the ordinary cup product. Added the compatible-chain-map universal property with product compatibility."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.4/variety-realization",
+        "verdict": "verified",
+        "note": "Checked 5.2.2 and its corrected countable-field/cover indices. The construction is in the quasi-isomorphism localization with the finite-coefficient étale comparison input explicitly isolated in G8."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.4/galois-action",
+        "verdict": "verified",
+        "note": "Checked 5.2.3 and the finite-width discussion in 5.2.6. It asserts finite-coefficient component continuity, not continuity of the full homotopy-automorphism action. G1 and G8 identify the remaining inputs."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.4/analytic-cover-comparison",
+        "verdict": "verified",
+        "note": "Checked 5.2.4–5: the étale/analytic comparison, compatible good covers and nerve refinements are distinct inputs. G3 covers the general singular/noncompact topological bridge and G8 the étale supplier."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.4/complex-minimal-model-comparison",
+        "verdict": "verified",
+        "note": "Checked 5.2.5–6 and 5.3.3: the rational model is extended to Q_l and compared up to homotopy, without claiming a rational form for arbitrary finite-field varieties. G3/G8 remain explicit."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.5/geometric-cohomology-weight-bridge",
+        "verdict": "verified",
+        "note": "Checked Hodge III 6.2.8, 8.1.15/19–20 and 8.2.1–4; Poids 8.3 handles normal H¹. The imported log complex supplies SNC forms only. G4 distinguishes geometric realization from abstract MHS and now records the alteration/resolution interface; G8 covers finite coefficients."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.5/frobenius-hodge-weight-comparison",
+        "verdict": "corrected",
+        "note": "Checked Weil II 5.3.2–3 and Poids 13–14. Corrected the title to geometric Frobenius, consistently with eigenvalue q on H²(P¹); G4/G8 retain spread and realization proofs."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/finite-type-model-filtration",
+        "verdict": "corrected",
+        "note": "Checked Weil II 5.3.1 and Morgan §5 p. 168. Finite blocks, rather than all of M^i, carry linear algebra. Added filtration extensionality; the existence argument is separate in G5."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/filtration-preserving-representative",
+        "verdict": "verified",
+        "note": "Checked the precise homotopy-adapted claim in 5.3.1: replacing an automorphism by a homotopic one is allowed here. The general connected finite-block proof is explicitly G5."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/multiplicative-eigenvalue-grading",
+        "verdict": "corrected",
+        "note": "Checked 5.3.1 generalized kernels on finite invariant pieces. Their union decomposes the model, products multiply nonzero eigenvalues and d preserves them. Added component extensionality; no semisimplicity is assumed."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/minimal-model-eigenvalue-products",
+        "verdict": "verified",
+        "note": "Checked the cohomology eigenvalue product argument in 5.3.1 and its sum-of-cohomological-degrees ≥ model-degree inequality; the even-sphere example fixes its direction. Finite-block proof is G5."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/integer-weight-grading",
+        "verdict": "corrected",
+        "note": "Checked 5.3.1–2: coarsen by a multiplicative-group homomorphism, use its Galois-invariant extension for descent, and retain the lower-bound implication. Added component extensionality."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.6/common-stable-filtration",
+        "verdict": "verified",
+        "note": "Checked Lemma 5.3.5 p. 241 and the omitted proof. It concerns the actual finite collection of automorphisms, not their homotopy replacements; the dense-scalar use and full proof are G5."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.7/filtered-automorphism-tower",
+        "verdict": "corrected",
+        "note": "Checked the equations defining G_1 and G_2 in 5.3.4, algebraic sections versus point homomorphisms, and the kernel action on Gr^W. Added finite-stage point extensionality; finite algebraicity/unipotence is retained in G6."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.7/prounipotent-extension-splitting",
+        "verdict": "verified",
+        "note": "Checked 5.3.4 and Sullivan §6/Appendix. Finite Levi splitting is separated from compatible sections/conjugators for pro-limits in G6; the finite supplier clarification is renamed Part III to avoid existing Part II."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.7/rational-weight-splitting",
+        "verdict": "verified",
+        "note": "Checked Theorem 5.3.4: Q_l provides a section, faithful scalar descent gives surjectivity over Q, and the split prounipotent extension gives a rational grading. G4/G5/G6 are explicit inputs."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.7/rational-grading-conjugacy",
+        "verdict": "verified",
+        "note": "Checked the restricted conjugacy argument and why Lemma 5.3.5 is needed for unrestricted gradings. The conjugator acts identically on Gr^W H*, with no homotopic-to-identity strengthening; G5/G6 remain explicit."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.8/algebraically-closed-weight-splitting",
+        "verdict": "verified",
+        "note": "Checked 5.3.6: the grading is over Q_l for arbitrary algebraically closed bases, with spread-independent cohomological W retained as G4. No rational-topological assertion is imported outside the complex case."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.8/proper-smooth-formality",
+        "verdict": "verified",
+        "note": "Checked Corollary 5.3.7 and the diagonal argument. Model weight≥degree makes diagonal elements closed and permits the quasi-isomorphism to cohomology; it does not force the minimal differential to vanish. Purity is not restricted to projective varieties."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.8/one-minimal-lie-tower",
+        "verdict": "verified",
+        "note": "Checked Morgan §5 pp. 168–169 and Sullivan 8.1(ii): finite degree-one Hirsch stages dualize to nilpotent Lie quotients, with bracket from d and Jacobi from d². Lie weights have the opposite sign; nilpotence depth is separate from weight."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.8/unipotent-etale-comparison",
+        "verdict": "verified",
+        "note": "Checked the announcement 5.3.8 and Poids §10 against the actual curve-scoped NC.2 supplier. General normal-variety group scope and the H¹/H² fiber-functor comparison are explicit G7, not claimed from Sullivan’s topological theorem."
+      },
+      {
+        "nodeId": "EllAdicHomotopyTypesAndWeights:EH.8/normal-variety-lie-presentation",
+        "verdict": "verified",
+        "note": "Checked Poids §10 and Morgan 9.4 with the official correction. Normal H¹ gives generator weights −1,−2, while relation weights are −2,−3,−4; nilpotent truncation relations are distinguished. G7 records the general étale identification."
+      }
+    ]
+  }
 }

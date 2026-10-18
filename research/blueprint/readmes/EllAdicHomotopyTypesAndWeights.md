@@ -65,9 +65,10 @@ predicate; it is not an exactness theorem for completed complexes.
 and cohomology. `TauCeti.Hodge.MixedHodgeStructure` is already the abstract
 mixed Hodge carrier; it does not put a geometric MHS on variety cohomology.
 
-The current upstream roadmaps provide the following contracts. A named
-supplier is consumed through its own API, and the new theory only supplies the
-refinements and comparisons listed in the layers.
+The following list records supplier contracts, including extensions still to
+establish. It does not assert that each supplier already provides the entire
+request. A named supplier is consumed through its own API; G1–G8 identify
+unproved interfaces and arguments.
 
 - **DGAInfinity, layer 1** (`tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules`): Use the existing DG category, tensor product, quasi-isomorphisms and localization with the cohomological +1 differential convention; the new commutative refinement must forget to its existing carrier.
 
@@ -75,9 +76,9 @@ refinements and comparisons listed in the layers.
 
 - **AlgebraicTopology, stage 5** (`tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`): Use the finite-cover descent machinery for analytic comparison. The compatible good-cover nerve theorem and finite CW type for singular complex varieties are separately isolated in G3, since this layer’s finite Cech-small-chain descent does not prove them.
 
-- **SchemeAndStackFoundations, SF.2** (`SchemeAndStackFoundations:SF.2`): For separated finite-type schemes over algebraically closed fields with l invertible: finite Z/l^r étale cohomology, computation by a cofinal étale hypercover pro-system, invariance under algebraically closed field extension, and étale–analytic comparison over C as in SGA4 XVI 4.1. Proper hypercover descent is a different theorem and cannot discharge this request. Supply the usual compatible Galois cohomology action as well.
+- **SchemeAndStackFoundations, SF.2** (`SchemeAndStackFoundations:SF.2`): Atlas compatibility handle for current upstream SchemeAndStackFoundations layer 2 (sites and scheme cohomology). Use its generic site, field/curve cohomology and proper-hypercover APIs only in their stated scope. The following full contract is unmet here and recorded in G8: For separated finite-type schemes over algebraically closed fields with l invertible: finite Z/l^r étale cohomology, computation by a cofinal étale hypercover pro-system, invariance under algebraically closed field extension, and étale–analytic comparison over C as in SGA4 XVI 4.1. Proper hypercover descent is a different theorem and cannot discharge this request. Supply the usual compatible Galois cohomology action as well. Current upstream explicitly leaves finite-coefficient/adic theory and Artin comparison downstream; this request does not assert that layer 2 supplies them.
 
-- **SchemeAndStackFoundations, SF.4** (`SchemeAndStackFoundations:SF.4`): Characteristic-zero resolution and proper compactification, with SNC boundary and common refinements sufficient for the geometric normal-crossing hyperresolution construction of Hodge III 6.2.8. Positive-characteristic strata comparisons use the alterations/descent inputs of DWP.7 rather than assuming resolution there.
+- **SchemeAndStackFoundations, SF.4** (`SchemeAndStackFoundations:SF.4`): Atlas compatibility handle for current upstream SchemeAndStackFoundations layer 4. Use §4.17 SNC divisor API and §4.19 projective regular SNC alterations in their actual scope. The geometric Hodge construction in G4 additionally needs compatible proper smooth/SNC hyperresolutions and refinements. A proof may use alterations with rational proper descent; if it instead uses characteristic-zero birational resolution and SNC compactification, that stronger input must be sourced separately. Curve resolution (§4.13) and a general alteration do not establish it. No positive-characteristic resolution is assumed.
 
 - **DeligneWeightsAndPurity, DWP.0** (`DeligneWeightsAndPurity:DWP.0`): Weil q-numbers with integral weights defined using all complex embeddings; multiplicative Weil weight homomorphism, coefficient-field Galois invariance and generalized eigenspace tensor/dual rules, without a semisimplicity assumption.
 
@@ -87,7 +88,7 @@ refinements and comparisons listed in the layers.
 
 - **ReductiveGroups, layer 6** (`tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`): Characteristic-zero complete reducibility for finite-dimensional rational G_m representations, used to split finite-stage central unipotent extension obstructions.
 
-- **ReductiveGroups, layer 7** (`tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`): Finite-dimensional characteristic-zero Levi splitting and conjugacy over the base field, in the precise extension-by-unipotent case. The current stage names Levi decomposition in a broader structure-theory list; G6 and the Part II proposal identify the solvable-extension clarification needed here.
+- **ReductiveGroups, layer 7** (`tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`): Finite-dimensional characteristic-zero Levi splitting and conjugacy over the base field, in the precise extension-by-unipotent case. The current stage names Levi decomposition in a broader structure-theory list; G6 and the Part III proposal identify the solvable-extension clarification needed here.
 
 - **DGAInfinity, layer 8** (`tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality`): Import the existing DG/A∞ formality predicates and the vanishing-of-Massey consequence. This roadmap proves only the new geometric commutative quasi-isomorphism and its compatibility with that formality predicate.
 
@@ -256,6 +257,7 @@ A Sullivan algebra over K is a free graded-commutative algebra ΛV on positive-d
 - `SullivanMinimalModel.indecomposables` (data): The quotient M⁺/(M⁺)² records generators with the differential induced by decomposability equal to zero.
 - `SullivanMinimalModel.baseChange` (compatibility): Scalar extension between characteristic-zero fields preserves a minimal model when cohomology base change is valid.
 - `OneMinimalModel.cohomology` (characterisation): The map is an isomorphism on H¹ and injective on H²; the full model notion retains all degrees.
+- `HirschExtension.hom_ext` (extensionality): Two DG maps from a Hirsch extension agreeing on its base and each new generator are equal.
 
 **Unit tests.**
 
@@ -297,7 +299,7 @@ Every connected nonnegative commutative DG algebra over a characteristic-zero fi
 - Do not replace the connected hypothesis by simple connectivity.
 - Nonunique automorphisms inducing the same cohomology map are allowed.
 
-**Sources:** [morgan](#source-morgan), Theorems 5.6–5.7 and Proposition 5.9, pp. 164–167 — Degreewise Hirsch extensions kill obstructions and prove uniqueness in the homotopy category; [dgms](#source-dgms), §1, Theorems 1.1–1.2 and Lemma 1.6, pp. 246–250 — Provides the lifting mechanism; Morgan supplies the general connected full-model statement beyond the simply connected case treated first here.
+**Sources:** [morgan](#source-morgan), Theorems 5.6–5.7 and Proposition 5.9, pp. 164–167 — Degreewise Hirsch extensions kill obstructions and prove uniqueness in the homotopy category; [dgms](#source-dgms), §1, Theorems 1.1–1.2, pp. 251–252, and Corollary 1.6, p. 253 — Provides the lifting mechanism; Morgan supplies the general connected full-model statement beyond the simply connected case treated first here.
 
 ## EH.1. Relative divided-power simplex forms
 
@@ -336,6 +338,7 @@ Identify the existing divided-power algebra Γ_Z(Z) with the subring of Q[t] con
 - `DPCoordinate.mul` (relation): γ_mγ_n=binom(m+n,m)γ_(m+n), agreeing with DividedPowerAlgebra.dp_mul.
 - `DPCoordinate.t_mul` (simp): tγ_n=(n+1)γ_(n+1).
 - `DPCoordinate.rationalEquiv` (compatibility): For a Q-algebra the map γ_n↦t^n/n! gives R{t}≃R[t].
+- `DPCoordinate.hom_ext` (extensionality): Two R-algebra maps from R{t} agreeing on every γ_n are equal; γ_1 alone does not suffice over general R.
 
 **Unit tests.**
 
@@ -432,6 +435,7 @@ For a finite nonempty set σ put L=R^σ and Q=L/R·(1,…,1). Define Ω(σ,R)=Γ
 - `SimplexForms.sum_dx` (relation): Σ_i dx_i=0 and the sum of coordinates is the unchanged divided-power t-coordinate.
 - `SimplexForms.baseChange` (compatibility): Ω(σ,Z)⊗R≃Ω(σ,R) as t-graded commutative DG algebras.
 - `SimplexForms.odd_square` (structure): The exterior factor uses Mathlib.ExteriorAlgebra, so every degree-one differential squares to zero.
+- `SimplexForms.hom_ext` (extensionality): Two relative DG maps agreeing on all γ_r(x_i) and dx_i are equal; agreement on x_i alone is insufficient integrally.
 
 **Unit tests.**
 
@@ -685,7 +689,7 @@ There is a natural t-graded DG injection Ω(X,K)→A_PL(X;K)⊗K[t], sending x_i
 
 **Checks.**
 
-- For a point the degree-n relative piece is K·γ_n but A_PL⊗K[t] has a full copy of K in every t-degree.
+- For a point the degree-n comparison is an isomorphism K·γ_n→K·t^n sending γ_n to t^n/n!; non-surjectivity before stabilization is detected on an edge, not on a point.
 - On an edge, t⁰x₁ in A_PL⊗K[t] is absent from the t-degree-zero image; this detects the source’s misleading isomorphism wording.
 
 **Sources:** [weil-II](#source-weil-II), §5 (5.1.5), p. 235; (5.1.9)(a), p. 236; (5.2.5), p. 239 — The comparison is a bounded-degree embedding before stabilization and a cohomology equivalence afterwards.
@@ -729,6 +733,7 @@ Let X=(X_α) be a small cofiltered system of simplicial sets and l a prime. For 
 - `ProForms.pullback` (functoriality): Pro-morphisms induce maps opposite to the direction of spaces.
 - `ProForms.coefficientReduction` (compatibility): Reduction r+1→r commutes with the α-colimit and the product.
 - `ProForms.cohomology` (compatibility): The triangular comparison is the colimit of the ordinary comparisons, with the same binomial factors.
+- `ProForms.desc` (universal-property): Compatible DG maps from the finite-coefficient stages determine a unique map from their filtered colimit, bidegree by bidegree.
 
 **Unit tests.**
 
@@ -853,6 +858,7 @@ For a pro-simplicial set satisfying (F), define Ω_n^p(X,Z_l)=lim_r Ω_n^p(X,Z/l
 - `CompletedForms.d` (structure): The completed differential raises cochain degree, fixes t-degree and squares to zero.
 - `CompletedForms.cohomology` (compatibility): The comparison is the inverse limit of finite-coefficient comparisons, with explicit ML hypotheses discharged.
 - `CompletedForms.pullback` (functoriality): Maps of pro-simplicial objects induce completed DG maps.
+- `CompletedForms.lift` (universal-property): A compatible family of bidegree-preserving DG maps into all finite-coefficient levels determines a unique map into the bidegreewise completion; equality is checked after every reduction.
 
 **Unit tests.**
 
@@ -901,6 +907,7 @@ For X satisfying (F), put A_l(X)=colim_n (Ω_n(X,Z_l)⊗_(Z_l)Q_l), where the ma
 - `EllAdicHomotopyAlgebra.cohomologyEquiv` (equivalence): H*(A_l)≃H*(X,Q_l) as graded rings, with γ_n normalized by 1/n!.
 - `EllAdicHomotopyAlgebra.cofinalEquiv` (compatibility): Cofinal reindexing of the original pro-system does not change the algebra up to its canonical comparison.
 - `EllAdicHomotopyAlgebra.quasiIso_of_cohomology` (characterisation): A finite-coefficient cohomology equivalence between systems satisfying (F) gives a quasi-isomorphism of A_l.
+- `EllAdicHomotopyAlgebra.desc` (universal-property): Chain maps from the rationalized t-degree complexes, compatible with multiplication by t and with products under addition of t-degrees, and sending the t-degree-zero unit to the unit, determine a unique DG map from A_l.
 
 **Unit tests.**
 
@@ -1095,7 +1102,7 @@ For a separated finite-type complex variety X, take the geometric mixed Hodge st
 
 <a id="frobenius-hodge-weight-comparison"></a>
 
-### Arithmetic Frobenius splitting of Hodge weights
+### Geometric Frobenius splitting of Hodge weights
 
 Proposed declaration: `TauCeti.EllAdicHomotopy.frobenius_hodge_weight_comparison`.
 
@@ -1161,6 +1168,7 @@ An admissible filtration of a Sullivan minimal algebra M is an increasing sequen
 - `ModelFiltration.stable` (characterisation): Stability means equality σ(M_n)=M_n for each n.
 - `ModelFiltration.locallyFinite` (compatibility): A stable automorphism acts locally finitely on M^i for every i.
 - `ModelFiltration.refinement` (functoriality): Cofinal increasing reindexing preserves the admissible filtration and its stability.
+- `ModelFiltration.ext` (extensionality): Filtrations with equal sub-DG-algebras at each index are equal; exhaustive and finite-type witnesses carry no additional choices.
 
 **Unit tests.**
 
@@ -1238,6 +1246,7 @@ Let σ be an automorphism of a minimal commutative DG K-algebra M preserving an 
 - `EigenvalueGrading.mul` (compatibility): Products of a and b components lie in the ab component.
 - `EigenvalueGrading.d` (compatibility): The differential preserves generalized eigenvalue.
 - `EigenvalueGrading.finitePiece` (compatibility): Restriction to each finite invariant piece is its ordinary primary decomposition; the construction agrees with DWP.0 generalized eigenspaces.
+- `EigenvalueGrading.ext` (extensionality): Two generalized-eigenvalue decompositions with the same component subspaces for every nonzero eigenvalue agree.
 
 **Unit tests.**
 
@@ -1316,6 +1325,7 @@ Let Γ⊂Kbar× contain all eigenvalues of σ on M and let v:Γ→Z be a group h
 - `WeightGrading.cohomology` (compatibility): The induced grading on H*(M) is the coarsening of its generalized eigenspaces by the same v.
 - `WeightGrading.lowerBound` (characterisation): Cohomology weight≥degree implies M_w^n=0 for w<n.
 - `WeightGrading.descent` (compatibility): A Galois-invariant extension of v descends the grading to K; its scalar extension is the original grading.
+- `WeightGrading.ext` (extensionality): Two weight gradings are equal when their subspaces M_w^n agree for every cochain degree n and weight w.
 
 **Unit tests.**
 
@@ -1400,6 +1410,7 @@ Fix an admissible filtration of M over a characteristic-zero field K. Let G₁ b
 - `WeightExtension.sectionEquiv` (equivalence): Algebraic sections correspond to compatible Z-gradings splitting W on cohomology.
 - `WeightExtension.baseChange` (compatibility): Finite-stage equations and their inverse limits commute with the characteristic-zero field extensions used here.
 - `WeightExtension.kernelAction` (characterisation): U consists exactly of filtered model automorphisms inducing identity on Gr^W H*.
+- `FilteredAutomorphisms.ext` (extensionality): Two points of the automorphism pro-group over any coefficient algebra are equal if their finite-stage restrictions agree; compatible stage points determine a unique limit point.
 
 **Unit tests.**
 
@@ -1456,7 +1467,7 @@ For a connected separated finite-type complex variety X and a Sullivan rational 
 
 - X connected separated finite type over C; geometric mixed Hodge weight filtration supplied as in EH.5.
 
-**Requires:** [Stable representatives of homotopy automorphisms](#filtration-preserving-representative); [Integer weight gradings and their lower bounds](#integer-weight-grading); [Arithmetic Frobenius splitting of Hodge weights](#frobenius-hodge-weight-comparison); [Filtered automorphism schemes and the weight extension](#filtered-automorphism-tower); [Splitting and conjugacy for the weight extension](#prounipotent-extension-splitting).
+**Requires:** [Stable representatives of homotopy automorphisms](#filtration-preserving-representative); [Integer weight gradings and their lower bounds](#integer-weight-grading); [Geometric Frobenius splitting of Hodge weights](#frobenius-hodge-weight-comparison); [Filtered automorphism schemes and the weight extension](#filtered-automorphism-tower); [Splitting and conjugacy for the weight extension](#prounipotent-extension-splitting).
 
 
 **Construction or proof.**
@@ -1750,7 +1761,7 @@ carrier’s presence in Mathlib or of a nearby theorem for curves.
 
 **G3. Analytic good covers and finite CW comparison.** Weil II 5.2.4–5.2.5, p. 239, invokes compatible good covers. Verify a proof for arbitrary separated finite-type complex varieties, including singular and noncompact ones, a nerve theorem compatible with refinements, and finite CW type sufficient for integral/Z_l cohomology comparison. Current RealAlgebraicGeometry explicitly excludes triangulation, and AlgebraicTopology stage 5 finite-cover chain descent is weaker. Place the missing general topological results in AlgebraicTopology, Part II; do not assume an arbitrary good cover is finite.
 
-**G4. Geometric Hodge realization and spread independence.** The pinned MixedHodgeStructure carrier and Completed/HodgeStructures L2 supply abstract linear algebra only. Hodge III 6.2.8 and 8.1.19–8.2.4 give geometric realization through proper SNC hyperresolutions; Poids 13–14 identify its W with arithmetic Frobenius weights. Plan the missing mixed Hodge complexes, rational/complex filtered comparison, shifted cohomology weight convention, strict descent and common-refinement independence in HodgeStructures, Part III (Part II is already occupied). For arbitrary algebraically closed bases verify the spread-independent étale weight filtration, not merely the decomposition for one Frobenius. This packet owns the realization comparison bridge, not another abstract MHS definition.
+**G4. Geometric Hodge realization and spread independence.** The pinned MixedHodgeStructure carrier and Completed/HodgeStructures L2 supply abstract linear algebra only. Hodge III 6.2.8 and 8.1.19–8.2.4 give geometric realization through proper SNC hyperresolutions; Poids 13–14 identify its W with the weights of geometric Frobenius (the inverse of arithmetic Frobenius). Plan the missing mixed Hodge complexes, rational/complex filtered comparison, shifted cohomology weight convention, strict descent and common-refinement independence in HodgeStructures, Part III (Part II is already occupied). For arbitrary algebraically closed bases verify the spread-independent étale weight filtration, not merely the decomposition for one Frobenius. This packet owns the realization comparison bridge, not another abstract MHS definition. Current upstream scheme foundations §4.19 supplies SNC alterations, while §4.13 supplies curve resolution. Establish the hyperresolution/refinement construction from those alterations and rational proper descent, or source the stronger characteristic-zero resolution/compactification theorem separately; neither is an implicit consequence of the SNC-divisor definition.
 
 **G5. Full finite-type and common-filtration arguments.** Supply a complete proof of the finite-block filtration and homotopy-adapted representative in Weil II 5.3.1, and especially the actual-automorphism common filtration of Lemma 5.3.5, p. 241, explicitly left to the reader. Closure under finitely many automorphisms and their inverses does not itself establish finite generation of a block. Morgan §5 p. 168 warns that canonical higher-degree Hirsch blocks can be infinite-dimensional. Cover the general connected finite-cohomology case, not just simply connected or finite-generator models. For conjugacy of two G_m actions prove the dense-scalar argument after the lemma.
 
@@ -1758,10 +1769,12 @@ carrier’s presence in Mathlib or of a nearby theorem for curves.
 
 **G7. General étale 1-minimal/Tannakian comparison.** Prove the comparison of the finite-stage 1-minimal Lie tower of A_l(X) with the continuous Q_l pro-unipotent étale fundamental group for general connected normal separated finite-type X. Weil II 5.3.8 is an announcement; Poids §10 p. 83 gives the presentation argument but leaves this comparison implicit. Sullivan 8.1(ii) is a rational topological realization theorem, not an étale theorem. Extend the NC.2 supplier scope where necessary, then check pointed fiber functors and H¹/H² extension-obstruction compatibility at every finite unipotence depth.
 
+**G8. Finite-coefficient étale realization supplier contract.** The current SchemeAndStackFoundations README, layer 2 conventions at upstream commit a08dc283184a9ec4d6c7fab2fb2b41866801994a, explicitly leaves finite-coefficient/adic étale theory and Artin comparison downstream. Its generic site cohomology, curve computations and proper hypercover descent do not supply the complete EH.4 contract. Locate and match the existing downstream finite-coefficient contracts before packaging: ordinary H^i_et(X,Z/l^r) finiteness for separated finite-type X, invariance under algebraically closed extension, cofinal étale-hypercover computation, compatible Galois action and SGA4 XVI 4.1 analytic comparison. Weil II 5.2.2–5.2.5, pp. 238–239, invokes these inputs; their general proofs were not independently verified here. The EDC.0 supplier inventory names EtaleBaseChange/EllAdicRealization in the CohomologicalPointCounting direction; those names alone are not a verified replacement. Preserve existing owners when locating them, and request only any genuinely absent comparison theorem. This gap is separate from G3 good covers, G2 completion and G4 Hodge realization.
+
 The geometric MHS realization belongs in HodgeStructures, Part III; the
 existing Part II has a different scope. The general good-cover/CW comparison
 belongs in AlgebraicTopology, Part II. The finite-dimensional unipotent
-extension contract belongs in ReductiveGroups, Part II, and the general-base
+extension contract belongs in ReductiveGroups, Part III, and the general-base
 Tannakian group scope in AnabelianGeometryAndNonabelianChabauty, Part II.
 Generic countable inverse-limit exactness belongs in the DG foundations
 direction. The packet’s restructuring proposals preserve these boundaries.
@@ -1780,8 +1793,8 @@ finitely many elements of I, whose finitely many variables cannot generate
 every x_i. Thus unrestricted quotient base change fails even at (p,n)=(0,1).
 The target is limited to principal ideal quotients, which cover every
 l-power transition used by completion; G1 retains their resolution proof.
-This is a proposed source correction for independent review, not a claim of a
-published erratum.
+The independent review confirms this counterexample. No published erratum
+was located.
 
 The bounded-degree rational comparison in Weil II 5.1.5 is a morphism with a
 proper image before stabilization. Its description as an isomorphism cannot
@@ -1830,15 +1843,15 @@ and explanations above are authored mathematical specifications.
 
 <a id="source-dgms"></a>
 
-- **dgms**: Pierre Deligne, Phillip Griffiths, John Morgan and Dennis Sullivan, [Real homotopy theory of Kähler manifolds](https://publications.ias.edu/sites/default/files/realhomotopytheory.pdf), Published, Inventiones mathematicae 29 (1975), 245–274; IAS-hosted scan. Read: §1, pp. 246–250; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271.
+- **dgms**: Pierre Deligne, Phillip Griffiths, John Morgan and Dennis Sullivan, [Real homotopy theory of Kähler manifolds](https://publications.ias.edu/sites/default/files/realhomotopytheory.pdf), Published, Inventiones mathematicae 29 (1975), 245–274; IAS-hosted scan. Read: §1, pp. 248–253; §2, pp. 254–255; §6, Main Theorem and first proof, pp. 270–271.
 
 <a id="source-poids"></a>
 
-- **poids**: Pierre Deligne, [Poids dans la cohomologie des variétés algébriques](https://publications.ias.edu/sites/default/files/29_Poidsdansla.pdf), ICM Vancouver 1974, Proceedings vol. 1 (1975), 79–85; IAS-hosted scan. Read: Entire article, pp. 79–85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images.
+- **poids**: Pierre Deligne, [Poids dans la cohomologie des variétés algébriques](https://publications.ias.edu/sites/default/files/29_Poidsdansla.pdf), ICM Vancouver 1974, Proceedings vol. 1 (1975), 79–85; IAS-hosted scan. Read: §§1–17, pp. 79–84; bibliography p. 85; in particular §8.3 p. 82, §10 p. 83, §§12–14 pp. 83–84; read from page images.
 
 <a id="source-hodge-III"></a>
 
-- **hodge-III**: Pierre Deligne, [Théorie de Hodge : III](https://www.numdam.org/item/PMIHES_1974__44__5_0.pdf), Published, Publications mathématiques de l’IHÉS 44 (1974), 5–77. Read: §6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.14, pp. 28–31; §8.1.18–8.1.20, pp. 34–35; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40.
+- **hodge-III**: Pierre Deligne, [Théorie de Hodge : III](https://www.numdam.org/item/PMIHES_1974__44__5_0.pdf), Published, Publications mathématiques de l’IHÉS 44 (1974), 5–77. Read: §6.2.4–6.2.8, pp. 19–21; §6.4, pp. 22–23; §8.1.1–8.1.20, pp. 28–35, including Theorem 8.1.15, pp. 32–33; §8.2.1–8.2.4, pp. 38–39; §8.2.10–8.2.11, p. 40.
 
 Miller’s *De Rham cohomology with arbitrary coefficients*, Topology 17 (1978),
 193–203, and SGA5 V 5.3.1 are references named by Weil II, not sources whose
