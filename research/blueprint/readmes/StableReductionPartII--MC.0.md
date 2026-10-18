@@ -23,7 +23,7 @@ The family, node and stability notions belong to StableReduction Layers 0–3. T
 
 The original StableReduction coherent-theory convention restricts its duality and cohomology statements to locally Noetherian bases. Its polarized scheme descent is étale descent. Those contracts alone do not establish the assertions over all schemes and fppf covers below. The finite-stage comparison and the three explicit foundation extensions isolate exactly the extra input.
 
-The pinned baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Mathlib supplies the native slice pullback, its identity/composition comparisons, categorical cores, Cat-valued pseudofunctors, the fppf topology and the relative smooth locus. Tau Ceti supplies scheme-module cohomology and invertible sheaves, including their tensor-product object. None of these declarations supplies the stable-family moduli carrier or effective object descent for it. Current TauCetiRoadmap StableReduction and AlgebraicVectorBundles are imported at their stated boundaries; the newer current library family carrier is not silently treated as present at the pins.
+The pinned baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Mathlib supplies the native slice pullback, its identity/composition comparisons, categorical cores, Cat-valued pseudofunctors, the fppf topology and the relative smooth locus. Tau Ceti supplies scheme-module cohomology and invertible sheaves, including their tensor-product object. None of these declarations supplies the stable-family moduli carrier or effective object descent for it. Current TauCetiRoadmap StableReduction and AlgebraicVectorBundles are imported at their stated boundaries; the current library’s `TauCeti.AlgebraicGeometry.FamilyOfCurves` (`TauCeti/AlgebraicGeometry/Curves/Family.lean`, commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`) already supplies the proper, flat, locally finitely presented relative-dimension-at-most-one carrier and pullback instances, and is reused rather than replanned. It is not silently treated as present at the compilation pins; genus, pure dimension one and geometric connectedness are additional conditions here.
 
 Algebraicity, Deligne–Mumford structure, smoothness over Z, properness of the moduli stack, dimension and the identification with an additional stable marking belong to MC.1–MC.2. They are not hypotheses used to construct this moduli problem or to prove its descent.
 
@@ -179,7 +179,7 @@ For naturals g,n with 2g−2+n>0 computed in Z, realize StableReductionPartII:ke
 
 | Name | Contract |
 | --- | --- |
-| `PointedCurves.Moduli.obj` | The fibre over S is the core of the geometric pointed full subcategory of Over S. |
+| `PointedCurves.Moduli.obj` | The fibre over S is the core of the full subcategory cut out by the geometric predicates inside the category of ordered n-pointed objects of Over S; its arrows preserve every marking. |
 | `PointedCurves.Moduli.isoEquiv` | Arrows are precisely marking-preserving scheme isomorphisms over the fixed base. |
 | `PointedCurves.Moduli.pullback` | A scheme map induces the actual fibre-product functor on pointed families and isomorphisms. |
 | `PointedCurves.Moduli.pullbackId` | The native identity-pullback isomorphism identifies every marking with its original section. |
@@ -288,7 +288,7 @@ Realize the parent MC.0/universal-curve construction by the pseudofunctor Z̄_{g
 **Checks.**
 
 - `PointedCurves.Universal.nodeAllowed` (non-example): For a stable genus-zero four-pointed curve with two rational components carrying two marks each, the node defines a geometric point of the universal fibre.
-- `PointedCurves.Universal.collisionAllowed` (degenerate): For any pointed family, choosing Δ=σ_1 defines an object of Z̄; it does not define a disjoint n+1-st marking on the same total curve.
+- `PointedCurves.Universal.collisionAllowed` (degenerate): For any pointed family with n≥1, choosing Δ=σ_1 defines an object of Z̄; it does not define a disjoint n+1-st marking on the same total curve.
 - `PointedCurves.Universal.nodalProjection` (non-example): The universal projection has a nonsmooth fibre at that node, so it is not smooth over the entire stable moduli problem.
 - `PointedCurves.Universal.markingPullbackTest` (compatibility): Under h_S×_{M̄}Z̄≃h_C, each marking map is precisely the given section σ_i.
 - `PointedCurves.Universal.identifiedFibre` (characterisation): For an elliptic pointed curve with nontrivial automorphisms, an automorphism in the represented two-fibre fibre compatible with a fixed identification must be the identity.
@@ -393,7 +393,7 @@ The statements in this layer reduce to the imported contracts above and the foll
 
 The first extension is about perfection and fibre amplitude, beyond the existing statement that a derived pushforward preserves quasi-coherent cohomology. The second reuses the already arbitrary-base rigid complex and extends only its Cohen–Macaulay module interface. The third reuses the outstanding R09.3 polarized-descent supplier and its algebraic-space and module descent inputs. In particular, neither an invariant Picard class nor subcanonicity of schemes proves effectivity of a curve object.
 
-The suggested signatures cover the native slice-section universal property and its evaluation checks. The geometric family, genus, dualizing, moduli and polarized-descent carriers are absent at the pins, so their full statements, API and checks remain the mathematical targets above. A generic pseudofunctor variable with an assumed descent property would not instantiate this moduli problem.
+The suggested signatures cover the raw native slice-section equivalence and evaluation formula, graphs of a marking or an arbitrary map into the total curve, and injectivity of section evaluation. They do not state naturality or a coherent base-change comparison. Those remain targets of `sectionEquiv` and `baseChange` above. The geometric family, genus, dualizing, moduli and polarized-descent carriers are absent at the pins, so their full statements, API and checks remain the mathematical targets above. A generic pseudofunctor variable with an assumed descent property would not instantiate this moduli problem.
 
 ## Sources and corrections
 
@@ -409,7 +409,7 @@ All statements above are expressed independently of the source wording. Stacks p
 
 - **[STACKS-MODULI]** The Stacks Project Authors, [Moduli of Curves](https://stacks.math.columbia.edu/download/moduli-curves.pdf). Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers. Read: 109.3–109.4, pp. 2–4; 109.9, pp. 10–11; 109.16.1, p. 16; 109.19–109.20, pp. 19–22.
 
-- **[STACKS-DUALITY]** The Stacks Project Authors, [Duality for Schemes](https://stacks.math.columbia.edu/download/duality.pdf). Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers. Read: 48.12.4–48.12.5, pp. 29–30; 48.28, pp. 72–75.
+- **[STACKS-DUALITY]** The Stacks Project Authors, [Duality for Schemes](https://stacks.math.columbia.edu/download/duality.pdf). Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers. Read: 48.12.4–48.12.5, pp. 29–30; 48.28, pp. 72–75; Lemma 48.28.10 (0E30), proof, p. 76.
 
 - **[STACKS-PERFECT]** The Stacks Project Authors, [Derived Categories of Schemes](https://stacks.math.columbia.edu/download/perfect.pdf). Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers. Read: 36.30.4, p. 74; 36.32.3–36.32.5, pp. 79–80.
 
@@ -417,10 +417,14 @@ All statements above are expressed independently of the source wording. Stacks p
 
 - **[STACKS-QUOT]** The Stacks Project Authors, [Quot and Hilbert Spaces](https://stacks.math.columbia.edu/download/quot.pdf). Version ed88ff78, compiled 14 July 2026; chapter-local PDF page numbers. Read: 99.14.1–99.14.3, pp. 37–39; 99.14.8, p. 40; 99.15.1, p. 44.
 
-Three harmless notation slips were encountered. Each correction preserves the mathematical statement, and no correction was found in the live tag comments, the relevant parent-section comments or the chapter PDFs checked on the access date:
+Five harmless notation slips were independently confirmed by this review (`REV-StableReductionPartII--MC.0`). Each correction preserves the mathematical statement, and no correction was found in the live tag comments, the relevant parent-section comments or the chapter PDFs checked on the access date:
 
-- **StableReductionPartII/E-MC0-1**, Lemma 53.20.11 (0CBX), proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18. The displayed residue power-series map assigns the variable x twice, once to each of the two branch parameters. The second assignment has source variable y, so x maps to the first branch parameter and y to the second. A map from the two-variable power-series ring is determined by separate images of x and y; the subsequent kernel (xy) and the final lifted map use those separate branch parameters.
+- **StableReductionPartII/E-MC0-1**, Lemma 53.20.11 (0CBX), proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18. The displayed residue power-series map assigns the variable x twice, once to each of the two branch parameters. The second assignment has source variable y, so x maps to the first branch parameter and y to the second. A map from the two-variable power-series ring needs separate images of x and y. The subsequent kernel (xy) requires those separate branch parameters; the final lifted map has an additional source-variable slip recorded separately below.
 
 - **StableReductionPartII/E-MC0-2**, Lemma 48.28.5, proof, p. 73; ed88ff78 PDF and live tag 0E2X checked 2026-10-18. The restriction-cocycle equation uses a transition indexed by V as its upper source, although V was an affine open of the base and the intermediate curve open is U′. Replace that upper source index by U′. The composite then runs from K_U restricted to U″ through K_U′ restricted to U″ to K_U″. The preceding definition gives transition maps indexed by inclusions of opens of X. The stated composition has intermediate object K_U′, so the first factor must have upper index U′.
 
 - **StableReductionPartII/E-MC0-3**, Lemma 48.28.6, proof, p. 74; ed88ff78 PDF and live tag 0E2Y checked 2026-10-18. The closed immersion factoring the base-changed diagonal is given source X even though the displayed cartesian square has source X′. The source of the primed closed immersion must be X′. The immersion factors the diagonal of X′ over S′; the subsequent pushforward uses O_X′, which requires source X′.
+
+- **StableReductionPartII/E-MC0-4**, Lemma 53.20.11 (0CBX), final lifted map in the proof, p. 52; ed88ff78 PDF and live tag checked 2026-10-18. The map out of the quotient of A[[x,y]] labels its second source generator v. The second source generator is y; its image is the constructed lift v∞. The displayed source ring has generators x and y; v occurs only as a branch parameter before lifting. This is independent of the earlier duplicate x assignment.
+
+- **StableReductionPartII/E-MC0-5**, Lemma 48.28.10 (0E30), proof, last sentence of the separated case, p. 76; ed88ff78 PDF and live tag checked 2026-10-18. The object identified by the rigidity map η is written as a diagonal pushforward of O_X, with a repeated pushforward asterisk. Use the pushforward of O_Y along Δ_{Y/X}, with one pushforward asterisk. The diagonal has source Y. The rigidity map η identifies the displayed derived Hom on Y×_X Y with Δ_{Y/X,*}O_Y, rather than the structure sheaf of X. The composition theorem is not a prerequisite of an MC.0 target.

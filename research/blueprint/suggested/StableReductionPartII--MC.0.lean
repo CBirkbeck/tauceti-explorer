@@ -28,6 +28,8 @@ Omission inventory (identifiers have prefix StableReductionPartII:MC.0/):
   collisionAllowed, nodalProjection, markingPullbackTest and identifiedFibre
   require the actual extra-section moduli object. The sectionEquiv_spec below
   expresses only its raw slice universal property, not these geometric targets.
+  Naturality and coherent base-change comparisons are also reader targets;
+  the examples below state only graph and evaluation checks.
 * smooth-base-restriction: the smooth and stable moduli carriers are absent.
 
 The parent owned definition StableReductionPartII:key/moduli-curves and the
