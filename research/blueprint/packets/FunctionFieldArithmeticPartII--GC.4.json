@@ -673,7 +673,7 @@
       "proofSteps": [
         "For each smooth locally finite type scheme atlas T->P_d, construct M_b and its comparison using chart-descent-line. This uses a proper DM map Q_b->T, not properness or a homotopy exact sequence for the nonproper AJ_d.",
         "By family-fibre-presentation, the actual f_b:C_b->T is smooth surjective with geometrically connected fibres. Pulling back any connected finite etale cover of connected T leaves a connected space: the projection to that cover is an open surjection with connected geometric fibres. The finite-cover/fibre-functor comparison therefore gives a surjection on pi1, so f_b^* is fully faithful on finite locally constant sheaves. The local adic formalism gives the same full faithfulness for rank-one lisse sheaves.",
-        "On T x_{P_d} T the two M_b pull back to the same F on its actual Abel–Jacobi fibre product. Full faithfulness supplies the unique overlap isomorphism compatible with those comparisons. On the triple overlap the cocycle holds because its pullback holds. Effective smooth descent for lisse sheaves glues M and theta on the Artin stack P_d.",
+        "The double and triple overlaps of the scheme atlas over the Artin stack P_d may be algebraic spaces. Choose etale scheme covers of these overlaps and apply the preceding scheme-chart full-faithfulness argument after each refinement. On the double overlap the two M_b pull back to the same F on its actual Abel–Jacobi fibre product, so this supplies the unique overlap isomorphism compatible with those comparisons. Uniqueness makes these isomorphisms descend from the refinements. On the triple overlap the cocycle holds because its pullback holds. Effective smooth descent for lisse sheaves glues M and theta on P_d; no scheme fundamental-group statement is applied directly to an algebraic stack or algebraic space.",
         "Check arbitrary morphisms on the atlas and its overlaps by the same full faithfulness; this proves full faithfulness globally and normalized uniqueness. It also identifies this construction with parent high-degree-descent for the specific symmetric L_d, without assuming that parent end theorem to prove itself.",
         "Apply the comparisons to tensor products, units and any Frobenius pullback; uniqueness makes their coherence diagrams descend. Carry out the same argument using P(E) when R is empty."
       ],
@@ -899,5 +899,38 @@
       "sha256": "b5798205e731db7758c74e3b69cd04545d180a729be288bd2f143f2b2ffcf3ef",
       "citation": "Online tags read 18 October 2026"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.4",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all five nodes, eight parent imports, sources at every locator, seven exact-pin baseline declarations, supplier statements, current library/upstream ownership, 27 API entries, 21 tests and four planets. Clarified scheme refinements on algebraic-space atlas overlaps in the end proof and synchronized the reader. No nodes, APIs or tests added; no baseline citation removed or replaced. Accepted as a complete planning pass, not geometric closure or implementation: coverage remains planned with two gaps and one precise supplier request. See the independent review report for evidence and integration questions.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.4/quadratic-section-coordinates",
+        "verdict": "verified",
+        "note": "The native polynomial map, reducedness hypothesis and five discriminating coordinate tests agree with YZ19 A.9 and the pinned declarations."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.4/family-fibre-presentation",
+        "verdict": "verified",
+        "note": "Relative ranks, arbitrary base change, the full two-fibre and the nilpotent-safe effective open agree with the cited coherent inputs; the root coordinate is retained."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.4/relative-projective-quotient",
+        "verdict": "verified",
+        "note": "The scalar 2-equivariance, distinct Picard twisting, ordinary empty-R branch, proper tame DM quotient and ramified square-cover proof are sound; projective simple connectivity remains an explicit request."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.4/chart-descent-line",
+        "verdict": "verified",
+        "note": "ACV01 A.0.8 supplies degree-zero proper base change. The counit and smooth-local sections prove lissity; stack finite-cover and local adic adapters remain explicit gaps."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent",
+        "verdict": "corrected",
+        "note": "Made scheme refinements of algebraic-space overlaps explicit before invoking the scheme finite-cover comparison. Full faithfulness, effective gluing and normalized uniqueness are otherwise verified; no parent end theorem is assumed in its own proof."
+      }
+    ]
+  }
 }
