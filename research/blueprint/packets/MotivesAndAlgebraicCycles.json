@@ -15653,11 +15653,10 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
-  "date": "2026-10-17",
-  "session": "codex-HPeDsW",
-  "notes": "Codex (GPT-6), session codex-HPeDsW: independently checked the eight confirmed findings, their verified evidence and round-three fix against public HMS v5, Kato and BDP. Follows codex-BIjxwP, whose review is preserved exactly in reviewHistory. Corrected the MC.6 coverage remaining item and C5 supplier request: comparison on all pairs respects both edge types, unit and product pairings; the graded multiplicative tensor structure is asserted only after restriction to good pairs, matching HMS Definition 1.1/Theorem 1.6 pp.4–5 and Definition B.14 pp.20–21. The existing node and Lean contracts already make this distinction. Retain needs_changes for the explicit full localized comparison/fibre-functor/heap/action adapter gap; effective ring localization alone does not identify the full Nori torsor. Preserve all other gaps, coverage statuses and the independent geomlanglands~2 obligation. This bounded fix review does not certify the other 182-node planning obligations or arithmetic owners. Fresh packet checks have zero errors/warnings; the unchanged Motives prototype elaborates with admitted-proof warnings only. The report records the remaining Kato Hecke exponent and GH.1 good-model ambiguity inspected read-only. Intake requires their packet/suggested pairs although the live issue authorizes only Motives; their genuine review markers were not replaced without scope authorization."
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~4",
+  "date": "2026-10-18",
+  "notes": "Bounded independent fix review following independent-review-REV-FIX-RT-AREA-iwasawa-3~3; its needs_changes verdict is archived intact in reviewHistory. Checked RT-AREA-iwasawa-3/8: the full Nori bridge now specifies finite coefficient inclusion, localization of the actual full comparison algebra, extended fibres and complex comparison, both actions, full point and distinguishing tests. The preceding missing mathematical supplier is now specified. Existing implementation, product-edge/universal-property, relative Beck/reconstruction, Artin/Tate and separate geomlanglands obligations remain; legacy package shape is not approved. Relevant pinned declarations checked; no further mathematical correction. Full packet checker passes and complete suggested file freshly elaborates with admitted-proof warnings only. This accepts the fixes, not a new review of unrelated targets or proof closure. See reviews/REV-FIX-RT-AREA-iwasawa-3~4.md."
  },
  "reviewHistory": [
   {
@@ -16782,6 +16781,13 @@
    "date": "2026-10-11",
    "session": "codex-BIjxwP",
    "notes": "Codex (GPT-6), session codex-BIjxwP: independently checked the eight confirmed findings and their corrections against public HMS v5, published Kato and BDP, following codex-R4MNK8 whose review is preserved exactly in reviewHistory. Corrected MC.6/period-point hypothesis 0 to distinguish the natural unital product-compatible comparison on all effective pairs from the graded multiplicative representation on good pairs, with Definition 1.1/Theorem 1.6 and Definition B.14 locators. Existing edge laws, shared Künneth signs, Tate inverse and effective evaluation contracts are retained. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. Fresh Motives Lean check: exit 0, 817 admitted-proof-only warnings, no errors or other warnings. This is a bounded review of the assigned fixes, not an exhaustive audit of all 182 nodes. Kato and GH.0 were inspected read-only: their corrections and remaining Hecke-normalization/model-hypothesis errors are recorded in the report. Their four packet/suggested paths are required by intake but excluded by the live issue; no scope extension has been received and their review markers remain unchanged."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-17",
+   "session": "codex-HPeDsW",
+   "notes": "Codex (GPT-6), session codex-HPeDsW: independently checked the eight confirmed findings, their verified evidence and round-three fix against public HMS v5, Kato and BDP. Follows codex-BIjxwP, whose review is preserved exactly in reviewHistory. Corrected the MC.6 coverage remaining item and C5 supplier request: comparison on all pairs respects both edge types, unit and product pairings; the graded multiplicative tensor structure is asserted only after restriction to good pairs, matching HMS Definition 1.1/Theorem 1.6 pp.4–5 and Definition B.14 pp.20–21. The existing node and Lean contracts already make this distinction. Retain needs_changes for the explicit full localized comparison/fibre-functor/heap/action adapter gap; effective ring localization alone does not identify the full Nori torsor. Preserve all other gaps, coverage statuses and the independent geomlanglands~2 obligation. This bounded fix review does not certify the other 182-node planning obligations or arithmetic owners. Fresh packet checks have zero errors/warnings; the unchanged Motives prototype elaborates with admitted-proof warnings only. The report records the remaining Kato Hecke exponent and GH.1 good-model ambiguity inspected read-only. Intake requires their packet/suggested pairs although the live issue authorizes only Motives; their genuine review markers were not replaced without scope authorization."
   }
  ],
  "fixes": {
