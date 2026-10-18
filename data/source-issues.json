@@ -170422,9 +170422,9 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed in Lemma 4.3 pp. 25–26 of arXiv v4: the quotient V→V/q for p⊊q has pW=0 but contraction q. Kernel containment repairs that assertion, and the localization is at the largest prime over p."
   },
   {
    "id": "ArcTopologyAndDescent/E2",
@@ -170442,9 +170442,9 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed in the proof of Lemma 4.4 pp. 26–27: if p⊊ker(V→W), choose s in the kernel outside p. Total divisibility gives pW=0, and localization at s kills both tensor terms. The remaining case satisfies the corrected lemma’s kernel condition."
   },
   {
    "id": "ArcTopologyAndDescent/E3",
@@ -170462,14 +170462,14 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed on p. 40: the stated category excludes the fold map of two points to one, which is a legitimate étale morphism over an algebraically closed field. Use a chain with n+1 vertices for rank n, injective object transitions, and unrestricted natural transformations."
   },
   {
    "id": "ArcTopologyAndDescent/E4",
    "kind": "misprint",
-   "locator": "Example 3.10, p. 18 (arXiv:1807.04725v4 only)",
+   "locator": "Proof of Proposition 3.10, p. 19 (arXiv:1807.04725v4 only)",
    "printed": "The Boolean assignment is described by a coproduct condition.",
    "correction": "The value on disjoint clopens is a product, including the terminal value on the empty clopen.",
    "reason": "The sheaf condition on a disjoint covering family is the product comparison.",
@@ -170482,9 +170482,9 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed in the proof of Proposition 3.10 p. 19, not an Example 3.10: a disjoint clopen covering imposes the product comparison, including terminal value on the empty clopen. The erroneous coproduct wording is a proof-level typographical slip."
   },
   {
    "id": "ArcTopologyAndDescent/E5",
@@ -170502,14 +170502,14 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed in the proof display of Proposition 3.32 p. 24: the transformation has codomain G, so its tested target must be G(S). The proposition statement already has the correct codomain."
   },
   {
    "id": "ArcTopologyAndDescent/E6",
    "kind": "misprint",
-   "locator": "Lemma 7.8 proof, p. 59 (arXiv:1807.04725v4 only)",
+   "locator": "Lemma 7.8 proof, p. 58 (arXiv:1807.04725v4 only)",
    "printed": "The lower bound is expressed using the minimum of absolute values of unit-ideal generators.",
    "correction": "Use their maximum.",
    "reason": "The unit-ideal pair (X,1) has minimum zero at X=0 but maximum one.",
@@ -170522,9 +170522,9 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed in the proof of Lemma 7.8 p. 58: at X=0 the unit-ideal pair (X,1) has minimum zero. The lower-bound argument needs the maximum, as used in the corrected node."
   },
   {
    "id": "ArcTopologyAndDescent/E7",
@@ -170542,9 +170542,28 @@
    "owner": "ArcTopologyAndDescent",
    "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
    "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed as a mismatch between the introduction p. 7 and the proved body pp. 56–57, 60–61. The body proves the general d+1 bound and the residue-invertible d bound; its smooth improvement in Remark 7.4 concerns constant coefficients. This does not establish that the stronger introduction statement is false."
+  },
+  {
+   "id": "ArcTopologyAndDescent/E8",
+   "kind": "misprint",
+   "locator": "Definition 3.26, p. 22 (arXiv:1807.04725v4 only)",
+   "printed": "The monic-root definition does not explicitly exclude degree zero.",
+   "correction": "Require the monic polynomial to have positive degree; the packet and suggested predicate already do so.",
+   "reason": "The constant polynomial 1 is monic and has no root in any nonzero ring. The positive-degree convention is therefore necessary for the intended aic examples.",
+   "affects": "nothing",
+   "known": "A literal degree-qualification omission, independently noticed in this review; no claim of a journal error or corrigendum.",
+   "searched": [
+    "Definition 3.26 and the following domain comparison in arXiv v4 p. 22"
+   ],
+   "owner": "ArcTopologyAndDescent",
+   "file": "research/blueprint/packets/ArcTopologyAndDescent.json",
+   "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv:1807.04725v4, 14 December 2020; Duke Math. J. 170 (2021)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-ArcTopologyAndDescent",
+   "reviewReason": "Confirmed as a missing explicit degree qualification in the definition, rather than a new mathematical obstruction. Excluding constant monic 1 agrees with the intended algebraically closed-field examples and the already corrected ring predicate."
   },
   {
    "id": "ArithmeticDynamics/E801",
@@ -197702,9 +197721,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The p. 235 comparison is labelled an isomorphism, but its bounded-degree image excludes x_1 in t-degree zero on an edge. The point comparison is an isomorphism and is now stated accurately."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E2",
@@ -197722,9 +197741,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The image of p. 237 (5.2.1.3) uses a nonbold X on the right where the definition and surrounding formulas concern the bold pro-system."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E3",
@@ -197742,9 +197761,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The page 238 paragraph invokes countability of k although only k_1 is countable, and its cofinal covers are over X_1. The corrections preserve the construction."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E4",
@@ -197762,9 +197781,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The page 238 fiber-product notation and (5.2.2.1) exchange cover/base subscripts and superscripts. The initially declared cover X_1^alpha fixes the intended indices."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E5",
@@ -197782,9 +197801,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The unfinished sentence on p. 239 is followed by Construction 5.2.5 and its comparison proof; supplying that object is consistent with both."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E6",
@@ -197802,9 +197821,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The p. 240 image changes the algebraic-closure letter and writes a multiplicative-group star as a tensor factor. The coefficient tensor must use the field; only the eigenvalue index is nonzero."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E7",
@@ -197822,9 +197841,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The p. 241 image has W_n on the left and j≤m on the right. Matching the bound n is the stated increasing-filtration splitting and leaves the theorem intact."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E8",
@@ -197842,9 +197861,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "Page 241 explicitly omits the proof of Lemma 5.3.5. This confirms an unfilled proof obligation, not a counterexample to the lemma. G5 and the common-filtration node retain it."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E9",
@@ -197862,9 +197881,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "John W. Morgan, The algebraic topology of smooth algebraic varieties, Published, Publications mathématiques de l’IHÉS 48 (1978), 137–204",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "The official 1986 correction p. 185 replaces the failed rigidity assertion, qualifies the Hodge-filtration conclusion by inner automorphisms and preserves Theorem 9.4. No rejected indecomposable functoriality is used."
   },
   {
    "id": "EllAdicHomotopyTypesAndWeights/E10",
@@ -197874,7 +197893,7 @@
    "correction": "Restrict this roadmap to principal ideal quotients, including the l-power transitions it needs; do not use the assertion for an infinitely generated quotient ideal on an infinite simplicial set.",
    "reason": "Take the discrete simplicial set N, R=Q[x_1,x_2,...], I=(x_1,x_2,...) and B=R/I. At (p,n)=(0,1), the mapping definition gives Ω_1^0(N,R)=product_N R times γ_1. The tensor map is (product R)/I(product R)→product(R/I). The sequence (x_i) is in its kernel but not I(product R): a finite expression using elements of I lies in a finite-variable ideal, which cannot contain every x_i. Thus the map is not injective although n≠p. The principal-quotient target and its full coefficient-resolution proof remain in G1.",
    "affects": "a stated result",
-   "known": "No published correction located in the Numdam article record or targeted search; this counterexample requires independent review.",
+   "known": "Independently confirmed by REV-DESIGN-EllAdicHomotopyTypesAndWeights; no published correction located in the searched public records.",
    "searched": [
     "Published Numdam page image p. 235, read directly, and mapping definition 5.1.8 on p. 236.",
     "Atlas PAPER-DELIGNE-80 extraction and existing source issues: the unrestricted assertion is routed there without this counterexample.",
@@ -197883,9 +197902,9 @@
    "owner": "EllAdicHomotopyTypesAndWeights",
    "file": "research/blueprint/packets/EllAdicHomotopyTypesAndWeights.json",
    "citation": "Pierre Deligne, La conjecture de Weil : II, Published, Publications mathématiques de l’IHÉS 52 (1980), 137–252",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
+   "reviewReason": "Independently checked: every element of I(product R) uses finitely many scalar polynomials of I and hence finitely many variables; a fresh variable is outside their generated ideal. Thus (x_i) gives a nonzero tensor-kernel class. The unrestricted assertion on p. 235 fails; the principal-quotient target remains a separate proof obligation G1."
   },
   {
    "id": "EllipticCurveModularityImaginaryQuadratic/E4",
