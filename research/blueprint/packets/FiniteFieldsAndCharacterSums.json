@@ -11,7 +11,7 @@
   "FiniteFieldsAndCharacterSums:FF.5"
  ],
  "status": "complete",
- "summary": "Complete budget-limited planning pass under PROTOCOL section 0 and accepted RS-03; mathematical closure is not claimed. Preserve the inherited 354 declaration-sized nodes (already above the 300-node planning budget), 562 API items, 377 tests (including the independent F5 normalization and non-domain character regressions), 32 planets, 461 baseline declarations (including two independent tensor and two tangent adapters), 32 sources, 82 source issue records (including forty-eight independently added records, three of which carry known paper-extraction findings, and one rejected terminology-only record), eight gaps, 31 supplier requests and five structural proposals. FF.0 retains source decomposition and FF.5 remains target-planned; FF.1, FF.2, FF.3 and FF.4 have explicit remaining work. FF.3 is reopened for the routed Bergstrom–Faber–Payne square-free counting target, which its square-free decomposition algorithm does not supply. FF.1 also lacks that paper's two-point character-sum interpolation target. Existing character conventions, degenerate Weil-bound cases, factorization and point-count certificates, complexity contracts and finite-ring/code interfaces are retained. Source-version records identify the predecessor's actual texts without treating preprints or author drafts as published-version checks. Independent review has checked all nodes, pinned baseline statements, source findings and supplier requests, correcting the packet and its prototype while preserving the honest frontier for stage follow-ups. No mathematical closure or formalization is claimed.",
+ "summary": "Assembly of the reviewed parent and FF.1–FF.4 follow-ups; mathematical closure is not claimed. The parent retains its 354 declaration-sized nodes, 562 API items, 377 tests, 461 baseline declarations and source-version records. Its 27 selected planets combine with five follow-up planets to give at most six per layer across the complete roadmap. The five packets together contain 452 targets, 691 API items and 475 tests. Exact cross-part edges connect the parent milestones to their reviewed completion routes; seven parent gaps and thirty parent supplier requests remain, alongside the follow-ups’ more precise obligations. The FF.1 two-point interpolation and FF.3 squarefree/hyperelliptic counting targets are supplied by their follow-ups. The dyadic principal-unit torsion argument is supplied in FF.4; Hasse–Davenport analytic inputs, family cohomology, geometric conductors, uniform Lang–Weil, executable algorithm semantics and norm-one/spectral interfaces retain explicit frontiers. The linearized-evaluation target is generalized to compatible commutative coefficient algebras and requires independent re-review. Existing review verdicts are preserved as provenance, not extended to the assembly edits. No mathematical closure or formalization is claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -5938,7 +5938,9 @@
     "At x = 0 both sides vanish."
    ],
    "prerequisites": [
-    "AdditiveCombinatorics:AC.0",
+    "AdditiveCombinatorics:AC.0/fourier-transform",
+    "AdditiveCombinatorics:AC.0/fourier-parseval",
+    "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
     "FiniteFieldsAndCharacterSums:FF.1/additive-characters-are-shifts",
     "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-transport",
     "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-absolute-value",
@@ -6547,10 +6549,7 @@
      "kind": "compatibility",
      "statement": "For every nonzero y, teichmuller y is a (q − 1)-th root of unity reducing to y: Ideal.Quotient.mk 𝔓 (teichmuller y) = y."
     }
-   ],
-   "planet": {
-    "name": "Teichmüller character"
-   }
+   ]
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.1/prime-above-p-in-cyclotomic-compositum",
@@ -7102,10 +7101,7 @@
     "module": "TauCeti/NumberTheory/FiniteField/Stickelberger",
     "namespace": "TauCeti.FiniteFieldSums"
    },
-   "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Stickelberger's theorem on Gauss sums"
-   }
+   "implementationStatus": "unchecked"
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.1/prime-factorisation-of-jacobi-sums",
@@ -7158,10 +7154,10 @@
     "n ∣ q − 1 (so n is prime to p and χ(n) ≠ 0); λ of order n; ψ ≠ 1."
    ],
    "proofSteps": [
-    "Reduction to one additive character: replacing ψ by ψ(a·) multiplies both sides by the same power of χ(a)⁻¹λ(a)⁻¹ (shift identity, FiniteFieldsAndCharacterSums:FF.1/gauss-sum-transport); so take ψ = ζ_p^Tr and realise F as the residue field of a prime 𝔓 of L = Q(ζ_(p(q−1))), with χ = ω^(−a), λ = ω^(−b(q−1)/n) for some b prime to n; reindex j modulo n to replace b by 1 in the products (FiniteFieldsAndCharacterSums:FF.1/teichmuller-character).",
-    "Let ρ be the ratio of the two sides. Every Gauss sum of a nontrivial character has absolute value √q at every complex embedding, and g(1) = −1 (FiniteFieldsAndCharacterSums:FF.1/gauss-sum-absolute-value); counting trivial characters on both sides shows |ρ| = 1 at every embedding.",
-    "ρ is a unit: only primes above p divide the Gauss sums, and at each of them the valuations agree by the digit-sum formula (FiniteFieldsAndCharacterSums:FF.1/gauss-sum-valuation-digit-sum, FiniteFieldsAndCharacterSums:FF.1/prime-factorisation-of-gauss-sums) together with the multiplication formula for fractional parts Σ_{j<n}{x + j/n} = {nx} + (n − 1)/2 (Katre's Lemma 4 form of s).",
-    "OPEN PROOF GAP, not a closure step: the unit ratio has all conjugate absolute values 1, hence is a root of unity (Kronecker). Comparing leading Stickelberger terms additionally needs a digit-factorial multiplication formula. Even after identifying its reduction as 1, reduction modulo 𝔓 does not distinguish p-power roots of unity: a further argument eliminating that residual factor is required. No complete public proof of either step was read; retain this target as partial and its explicit gap."
+    "Use FF.1/hasse-davenport-product-completion for the exact product identity, with its chosen-root Gross–Koblitz comparison and exact Morita Gamma multiplication input. The completion is the single proof route for this target, not a second independent product theorem.",
+    "The completion retains two analytic supplier obligations: the coefficient norm estimate for the actual Robert-sign Dwork series and the actual trace-character splitting identity for compatible pi, zeta and Teichmuller lifts, including p=2. Consult the FF.1 gap and its two precise RD.6 requests.",
+    "Do not conclude from a root-of-unity ratio and its residue alone: reduction does not detect a p-power root of unity. Exact Gamma multiplication is what removes that ambiguity.",
+    "Recover n=2 from the duplication formula and check the trivial-character factors using g(1)=-1."
    ],
    "acceptance": [
     "n = 2: the duplication formula.",
@@ -7174,20 +7170,24 @@
     "FiniteFieldsAndCharacterSums:FF.1/prime-factorisation-of-gauss-sums",
     "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-absolute-value",
     "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-transport",
-    "FiniteFieldsAndCharacterSums:FF.1/teichmuller-character"
+    "FiniteFieldsAndCharacterSums:FF.1/teichmuller-character",
+    "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion"
    ],
    "sources": [
     {
      "sourceId": "conrad-gauss-jacobi-sums",
      "locator": "(A.6), p. 19",
-     "match": "The statement; Conrad adds that 'its proof uses algebraic number theory (Stickelberger's congruence for Gauss sums on finite fields)' and cites Berndt–Evans–Williams §11.3, which is not public."
+     "match": "Statement of the product relation; the exact proof route is supplied by the reviewed completion node and its cited Gamma comparison, with two explicit analytic obligations."
     }
    ],
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/Stickelberger",
     "namespace": "TauCeti.FiniteFieldSums"
    },
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Hasse–Davenport product formula"
+   }
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure",
@@ -10363,9 +10363,6 @@
     "FiniteFieldsAndCharacterSums:FF.2/additive-l-function-root-bound",
     "FiniteFieldsAndCharacterSums:FF.2/additive-companion-sum"
    ],
-   "planet": {
-    "name": "Weil bound for additive character sums"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/WeilBound.lean",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -11839,7 +11836,8 @@
    "prerequisites": [
     "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
     "FiniteFieldsAndCharacterSums:FF.2/modified-pole-order",
-    "ArithmeticGaloisRepresentations:R01.3"
+    "ArithmeticGaloisRepresentations:R01.3",
+    "FiniteFieldsAndCharacterSums:FF.2/geometric-artin-schreier-break"
    ],
    "upstreamPrerequisites": [
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
@@ -11938,9 +11936,6 @@
     "SchemeAndStackFoundations:SF.2",
     "DeligneWeightsAndPurity:DWP.7"
    ],
-   "planet": {
-    "name": "Deligne's bound for trace functions"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/Sheaf/DeligneBound.lean",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -12153,9 +12148,6 @@
     "FiniteFieldsAndCharacterSums:FF.2/l-function-reciprocal-roots",
     "FiniteFieldsAndCharacterSums:FF.2/multiplicative-companion-sum"
    ],
-   "planet": {
-    "name": "Weil bound for multiplicative character sums"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/Sheaf/RankOne.lean",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -12477,9 +12469,6 @@
     "FiniteFieldsAndCharacterSums:FF.2/rank-one-sheaf-root-bound",
     "FiniteFieldsAndCharacterSums:FF.2/kloosterman-sum"
    ],
-   "planet": {
-    "name": "Weil bound for Kloosterman sums"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/Kloosterman.lean",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -12640,7 +12629,8 @@
     "FiniteFieldsAndCharacterSums:FF.2/lisse-sheaf-extremal-cohomology-on-curve",
     "FiniteFieldsAndCharacterSums:FF.2/swan-conductor-of-artin-schreier-sheaf",
     "SchemeAndStackFoundations:SF.2",
-    "EtaleDualityAndPerverseSheaves:EDC.2"
+    "EtaleDualityAndPerverseSheaves:EDC.2",
+    "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/NVariable.lean",
@@ -12679,7 +12669,8 @@
    "prerequisites": [
     "FiniteFieldsAndCharacterSums:FF.2/deligne-cohomology-of-polynomial-sheaf",
     "EtaleDualityAndPerverseSheaves:EDC.2",
-    "SchemeAndStackFoundations:SF.2"
+    "SchemeAndStackFoundations:SF.2",
+    "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/NVariable.lean",
@@ -12735,7 +12726,10 @@
      "match": "The statement."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Deligne's several-variable estimate"
+   }
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.2/fourier-deligne-transform",
@@ -12949,9 +12943,6 @@
     "DeligneWeightsAndPurity:DWP.7",
     "WeilConjectures:WC.0"
    ],
-   "planet": {
-    "name": "Lang–Weil estimate"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/LangWeil.lean",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -12992,7 +12983,9 @@
     "d = 1 (a linear subspace): the error term q^{n−1/2} vanishes."
    ],
    "prerequisites": [
-    "FiniteFieldsAndCharacterSums:FF.2/lang-weil-estimate"
+    "FiniteFieldsAndCharacterSums:FF.2/lang-weil-estimate",
+    "FiniteFieldsAndCharacterSums:FF.2/explicit-projective-betti-bound",
+    "FiniteFieldsAndCharacterSums:FF.2/top-weight-albanese-comparison"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/LangWeil.lean",
@@ -13005,7 +12998,10 @@
      "match": "The statement (projective case; Remark 11.3 gives the affine case)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Uniform Lang–Weil estimate"
+   }
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.2/dimension-from-point-counts",
@@ -19720,8 +19716,9 @@
     "n≥3 and r≥1. Separately, n=1 has trivial principal units, and n=2 has principal units (ZMod 2)^r; do not extend the n≥3 formula merely by dropping factors with nonpositive exponents."
    ],
    "proofSteps": [
-    "Case r = 1 (Goresky–Klapper Proposition 4.2.1): 5 has order 2^{n−2} since 5^{2^{n−3}} ≡ 1 + 2^{n−1} mod 2^n, and −1 is not a power of 5 mod 4; the product ⟨−1⟩⟨5⟩ has 2^{n−1} elements.",
-    "General r: the truncated exponential a ↦ exp(4a) is an isomorphism (S/2^{n−2}S, +) ≅ 1 + 4S, and 1 + 2S/(1 + 4S) ≅ (S/2S, +) = F_{2^r}; the isomorphism type is then fixed by counting, for each k, the elements of 1 + 2S of order dividing 2^k (a finite abelian 2-group is determined by these counts). This counting step is recorded as a gap: the source states the result without proof and refers to McDonald's book, which is not public."
+    "Use FF.4/principal-two-unit-torsion-count. For 1<=k<=n-2, the kernel of raising principal units to 2^k has order 2^(r*k+1); the k=0 and k>=n-1 boundary counts are part of that node.",
+    "Apply the baseline finite abelian classification and subtract consecutive logarithmic kernel sizes. The resulting cyclic factors have orders 2, 2^(n-2), and r-1 copies of 2^(n-1).",
+    "For r=1 this agrees with the direct generators -1 and 5. The general-r counting argument uses finite-local-ring Hensel lifting and the existing p-adic digit expansion, not an unread restricted book."
    ],
    "acceptance": [
     "(ZMod 8)^× ≅ ZMod 2 × ZMod 2 (r = 1, n = 3): it has no element of order 4.",
@@ -19730,7 +19727,8 @@
    "prerequisites": [
     "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
     "FiniteFieldsAndCharacterSums:FF.4/galois-ring-is-local",
-    "FiniteFieldsAndCharacterSums:FF.4/units-of-galois-ring"
+    "FiniteFieldsAndCharacterSums:FF.4/units-of-galois-ring",
+    "FiniteFieldsAndCharacterSums:FF.4/principal-two-unit-torsion-count"
    ],
    "sources": [
     {
@@ -20278,9 +20276,9 @@
    ],
    "title": "Evaluation of a q-polynomial is F_q-linear",
    "kind": "lemma",
-   "statement": "Let p be prime, q = p^e (e ≥ 1), F a finite field with q elements, K an F-algebra that is a field, E a commutative K-algebra, and L ∈ K[X] q-linearized. Then x ↦ aeval x L is additive on E and satisfies L(c·x) = c·L(x) for c ∈ F; hence it is an F-linear map IsLinearized.toLinearMap : E →ₗ[F] E.",
+   "statement": "Let F be a finite field with q elements, K a commutative F-algebra, E a commutative K-algebra equipped with the compatible F-algebra structure (IsScalarTower F K E), and L in K[X] q-linearized. Then x maps to aeval x L is additive on E and satisfies L(c*x)=c*L(x) for c in F, hence defines the F-linear map IsLinearized.toLinearMap : E ->_F E. K and E need not be fields; the compatible scalar tower is required.",
    "hypotheses": [
-    "F finite with Fintype.card F = q = p^e; CharP K p; E a commutative K-algebra (so of characteristic p)."
+    "F is a finite field, q=#F; K and E are commutative rings with Algebra F K, Algebra K E, Algebra F E and IsScalarTower F K E."
    ],
    "proofSteps": [
     "(x + y)^{q^i} = x^{q^i} + y^{q^i} in a commutative ring of characteristic p (iterated frobenius, add_pow_char_pow); sum over the monomials of L.",
@@ -20971,9 +20969,6 @@
      "statement": "The number of permutation polynomials of degree < q is q!."
     }
    ],
-   "planet": {
-    "name": "Permutation polynomials"
-   },
    "library": {
     "module": "TauCeti/FieldTheory/Finite/PermutationPolynomial",
     "namespace": "TauCeti.FiniteFieldSums"
@@ -21163,7 +21158,7 @@
     "FiniteFieldsAndCharacterSums:FF.4/permutation-polynomial",
     "mathlib:AddChar.sum_eq_zero_of_ne_one",
     "mathlib:AddChar.sum_eq_ite",
-    "FiniteFieldsAndCharacterSums:FF.1"
+    "FiniteFieldsAndCharacterSums:FF.1/additive-characters-are-shifts"
    ],
    "sources": [
     {
@@ -24928,8 +24923,10 @@
     "As in finite-upper-half-plane; a ∉ {0, 4δ}."
    ],
    "proofSteps": [
-    "The adjacency operators are simultaneously diagonalised by the spherical functions of the Gelfand pair (finite-upper-half-plane-gelfand-pair); the eigenvalues are character sums (Soto-Andrade sums, computed by Evans, Terras and Kuang).",
-    "The bound |λ| ≤ 2√q is Katz's estimate for Soto-Andrade sums (J. reine angew. Math. 438 (1993)), obtained by ℓ-adic methods; it is recorded as a gap: the paper is not public and its proof has not been decomposed. It would rest on the Weil/Deligne estimates of FiniteFieldsAndCharacterSums:FF.2."
+    "Apply FF.4/terras-spectral-character-transfer after the parent Gelfand-pair diagonalization. Its principal-series mixed Kummer sums and cuspidal quadratic norm-one sums cover the nontrivial spectrum under the chosen normalization.",
+    "The principal-series route uses the exact FF.2 trace/weight/conductor targets; the cuspidal route uses FF.4/katz-quadratic-torus-estimate. The latter imports weights at most one from DWP.7/cohomological-bounds-3-3-2-3-3-6.",
+    "Retain the bounded normalization/exhaustiveness, norm-one Lang-sheaf trace formula and tame Euler-characteristic gaps in FF.4. The estimate is decomposed, but these inputs are not declared established.",
+    "The excluded parameters a=0,4delta are exactly where the graph and character geometry degenerate."
    ],
    "acceptance": [
     "q = 3: the nontrivial eigenvalues of the 4-regular graph X₃(−1, 1) have absolute value ≤ 2√3.",
@@ -24938,7 +24935,7 @@
    "prerequisites": [
     "FiniteFieldsAndCharacterSums:FF.4/finite-upper-half-plane-gelfand-pair",
     "FiniteFieldsAndCharacterSums:FF.4/terras-graph-regular",
-    "FiniteFieldsAndCharacterSums:FF.2"
+    "FiniteFieldsAndCharacterSums:FF.4/terras-spectral-character-transfer"
    ],
    "sources": [
     {
@@ -25841,13 +25838,6 @@
  ],
  "requests": [
   {
-   "supplier": "AdditiveCombinatorics:AC.0",
-   "need": "For a finite abelian group G (written additively) and f : G → ℂ: the normalised Fourier transform f̂(ψ) = (1/|G|) Σ_{x ∈ G} f(x)·conj(ψ(x)) on Mathlib's dual AddChar G ℂ, with Fourier inversion f = Σ_ψ f̂(ψ)·ψ and Parseval (1/|G|) Σ_x |f(x)|² = Σ_ψ |f̂(ψ)|²; the comparison with Mathlib's unnormalised ZMod.dft, (ZMod.dft Φ) k = N · Φ̂(ZMod.stdAddChar.mulShift k) for G = ZMod N; and the transport of f̂ along an isomorphism of G with its dual (so that FF.1 indexes the dual of (F_q, +) by a ↦ ψ.mulShift a). FF.1 specialises this to finite fields and exhibits Gauss sums as q times normalised Fourier coefficients of multiplicative characters.",
-   "neededBy": [
-    "FiniteFieldsAndCharacterSums:FF.1/fourier-expansion-of-multiplicative-character"
-   ]
-  },
-  {
    "supplier": "WeilConjectures:WC.3",
    "need": "The Riemann hypothesis for curves in its all-conjugates form: for a smooth projective geometrically connected curve C over F_q of genus g (in particular the curve attached, through the function-field/curve dictionary, to a one-variable function field over F_q with exact constant field F_q), Z(C, T) = P₁(T)/((1 − T)(1 − qT)) with P₁ ∈ ℤ[T] of degree 2g and P₁(0) = 1, and every reciprocal root α of P₁, counted with multiplicity, is an algebraic integer with |ι(α)| = q^{1/2} for every field embedding ι : ℚ̄ → ℂ. FF.2 uses it only for the Artin–Schreier and Kummer curves y^q − y = f(x), y^d = g(x).",
    "neededBy": [
@@ -26143,56 +26133,48 @@
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.1",
    "status": "partial",
-   "note": "FF.1 is planned from Kowalski's elementary notes, Conrad's three texts on Gauss and Jacobi sums, Katre's article and the BKK paper (route 3, items 8, 13, 14, 15, 20, 21, 25). Built identities (row orthogonality, the Gauss norm identity, quadratic Gauss sums, Jacobi–Gauss relations, trivial-character values) are baseline citations; the column relation is Tau Ceti's. New: the canonical trace character and its comparison with Mathlib's primitiveChar, the parametrisation of additive characters, norm and trace lifts, the trivial-character and sign conventions (the CA.1 request), transport and Galois conjugation of Gauss sums, absolute values, MulChar column orthogonality and the d-th power count, the Fourier expansion of χ (with AC.0), Frobenius invariance, the duplication formula, the Hasse–Davenport lifting relation for Gauss and Jacobi sums (fully decomposed after Conrad), Stickelberger's congruence and the prime factorisation of Gauss and Jacobi sums (Conrad 1995, Katre), and the harmonic analysis on F_q((1/T)) that BKK route 3 assigns here.",
+   "note": "The field Fourier transport, all-character boundary coefficients, projective two-point interpolation and finite-product Gauss factorization are supplied by the FF.1 follow-up. Hasse–Davenport has one exact-Gamma proof route with the two explicit Dwork inputs still recorded as supplier obligations.",
    "remaining": [
-    "Decompose the proof of the Hasse–Davenport product relation (Conrad, Gauss and Jacobi sums, (A.6)) from a public source: in particular the congruence modulo 𝔓 identifying the root of unity (the multiplication formula for Π a_i! modulo p); see the gap.",
-    "The AdditiveCombinatorics packet now contains AC.0/fourier-transform and AC.0/fourier-parseval: the former is dual-indexed and normalized by 1/|G|, with a ZMod.dft comparison. Check the precise finite-field carrier and dual transport needed by FF.1/fourier-expansion-of-multiplicative-character, then replace the stage prerequisite and narrow or discharge the existing AC.0 request. The presence of these nodes alone is not a completed cross-roadmap proof.",
-    "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation (Lemma 5.2 proof, arXiv v2 pp. 8–9) has no target node here: for odd q, d ≥ 2 and distinct x,y in P¹(F_q), the sum over polynomials of degree at most d of χ(f(x))χ(f(y)) is zero, with evaluation at infinity the degree-d coefficient. Supply the two-evaluation surjectivity and character-orthogonality prerequisites through existing owners, retaining this field-specific target in FF.1."
+    "The inspected L3/robert-gross-koblitz-comparison requires both the coefficient bound and the actual chosen-root trace-character splitting equality. RD.6/dwork-isocrystal does not export either precise native coefficient interface. The exact Gamma multiplication import resolves the arbitrary-root ambiguity, but it does not prove these analytic inputs. The two requests spell out K, its normalized Q_p embedding, actual formal coefficients, compatible pi and zeta, Teichmuller lifts, trace, sign and binary boundary. Until supplied the unconditional product target has a recorded dependency gap; no source closure is claimed."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.2",
    "status": "partial",
-   "note": "FF.2 is decomposed along three routes to the one-variable Weil bounds — elementary (Kowalski: L-functions of monic L-series, Stepanov–Bombieri point counts, power-sum converse), curves (Artin–Schreier and Kummer function fields, zeta factorisation, WC.3) and ℓ-adic (character sheaves, trace formula, weights, with the elementary L-function degree replacing the Euler–Poincaré formula) — plus Deligne's framework for general trace functions with the H²_c main term, the degenerate cases, Deligne's n-variable bounds, the Browning–Sawin route-2 items (Artin–Schreier sheaf, cancellation by translation, Fourier–Deligne transform with inversion and the Fourier input, Lang–Weil and dimension from point counts) and the red-team additions (uniform Lang–Weil, geometric Chebotarev). The interface ids weil-bound-additive, weil-bound-multiplicative, kloosterman-bound and artin-schreier-sheaf are nodes. The additive Weil-bound route imports its recorded WC.5 power-sum input; the multiplicative bound in full generality, the mixed and Kloosterman bounds rest on DWP.7 and SF.2.",
+   "note": "The follow-up supplies primitive nonreduced-modulus pairing, geometric Artin–Schreier breaks, universal polynomial family/lissity/cohomology, hyper-Kloosterman geometry, explicit Betti/Albanese route, constant-field-coset Chebotarev and correlation/isotypic targets. Its ten named gaps specify the remaining geometric, conductor, Euler-characteristic and native-carrier inputs; target coverage is not source closure.",
    "remaining": [
-    "Grothendieck–Ogg–Shafarevich formula: no atlas owner (gap and restructure proposal); FF.2/h1c-conductor-bound, FF.2/artin-schreier-sum-on-curve-bound and FF.2/deligne-cohomology-of-polynomial-sheaf rest on the EDC.2 request for it. The classical one-variable bounds (additive, multiplicative, mixed, Kloosterman) do not.",
-    "Weil I Lemma 8.5: the relative compactification by Zariski's procedure and the local constancy of R^i f_! over the space of polynomials with smooth leading form (Weil I 8.6-8.10) have no supplier (gap); decompose them, or find and decompose an alternative proof of 8.5(i)-(ii), before FF.2/deligne-n-variable-bound can close.",
-    "Uniform Lang–Weil (FF.2/uniform-lang-weil-estimate): read Katz, 'Sums of Betti numbers in arbitrary characteristic', and Ghorpade–Lachaud sections 8-10, and decompose their Theorem 10.7 and the Betti-number bound or obtain an owner for them (gap).",
-    "Geometric Chebotarev (FF.2/geometric-chebotarev): Ekedahl's Lemma 1.2 (1990, not public) was not read; add the variant for Y₀ geometrically connected only over a constant extension, where Frobenius classes lie in a coset of the geometric monodromy group (FA.5's constant-field convention), as RT-AREA-etale/7 asks.",
-    "Sommes trig. sections 4-7 were not read in this pass. Section 7 (hyper-Kloosterman sums Kl_n: the Kloosterman sheaf of rank n on G_m, pure of weight n − 1, tame at 0 with Swan conductor 1 at ∞, and Deligne's bound |Kl_n(a; q)| ≤ n q^{(n−1)/2}; FKMS Theorem 4.4) is a Deligne bound in this stage's scope and is not yet planned. Section 4 (Gauss sums over étale algebras, the sign e(k), Hasse–Davenport as a twisted form) is FF.1's except for its cohomological realisation, of which FF.2/gauss-sum-frobenius-eigenvalue is the first node.",
-    "FKMS section 5 (quasi-orthogonality: correlation sums (1/q) Σ K_F K̄_G via F ⊗ D(G)) and the automorphism-group correlations of section 7 are not planned; they are direct corollaries of FF.2/deligne-bound-for-trace-functions and should be added here (with ExponentialSumsAndCircleMethod:ES.0 as consumer) or requested by ES.0.",
-    "The Lean prototype states the ℓ-adic objects on open subsets of the line through their Galois characters (FKMS Definition 3.1); the cohomological statements (H^i_c, Frobenius eigenvalues, Fourier–Deligne at sheaf level) are omitted there because the carriers are supplied by SchemeAndStackFoundations:SF.2 and EtaleDualityAndPerverseSheaves:EDC.0 and are absent from Mathlib.",
-    "PAPER-DELIGNE-80, Weil II §§3.7.2–3.7.3: the universal polynomial family with smooth leading form and the required lissity statement do not yet have distinct target nodes. Compare the routed family construction with FF.2/deligne-cohomology-of-polynomial-sheaf and the existing Weil I 8.5 gap; distinguish target coverage from the deeper compactification and local-constancy proof leaves.",
-    "Reconcile all twenty PAPER-DELIGNE-74 route items with the existing polynomial-sheaf concentration, duality and n-variable bound nodes. Weil I 8.4 is represented by the duality node; 8.5 is represented by the concentration node but its non-routine relative compactification, Zariski resolution and local-constancy inputs remain gaps, rather than newly established nodes.",
-    "RT-AREA-etale/14: compare FF.2/artin-schreier-sheaf and the global Fourier–Deligne transform/inversion against the exact EtaleDualityAndPerverseSheaves global/local Fourier targets and Kloosterman consumers. Record one canonical owner and genuine comparison maps; this pass does not authorize edits to foreign packets or treat the local transform as the same construction.",
-    "The Browning–Sawin route has named Artin–Schreier, translation cancellation, global Fourier–Deligne and Lang–Weil targets, but supplying actual cohomological carriers and the uniform family hypotheses is still required; do not infer full route closure from target names.",
-    "The general primitive Dirichlet-modulus functional equation of Kowalski Proposition 4.11 for non-square-free g is not supplied by the planned square-free ring Gauss-sum norm. FF.2/multiplicative-l-function-functional-equation now explicitly keeps the square-free case; decompose a public proof of the general primitive-ring Gauss-sum vanishing/norm and its coefficient pairing before extending it. No second carrier or private-source proof is claimed."
+    "One geometric GOS owner still needs registration: The parent request and PAPER-DELIGNE-74 route 6 identify one Part II extension after EDC.2. No registered stage/node presently states the theorem. The Raynaud source read is finite torsion; its complete E_λ passage must be proved at that owner. The genus, boundary count and Swan terms remain explicit. The parent’s cohomological curve bounds remain conditional on this shared input.",
+    "Geometric conductor generality is an extension, not an existing export: Current Tau Ceti already proves the function-field Place uniformizer displacement for prime-to-p Artin–Schreier poles. Reuse it and supply normalized-order/completion compatibility; the displayed valuation calculation also covers perfect-residue Laurent series. The actual ℓ-adic Swan definition and tensor/break API over k̄((t)) still need AGR’s equal-characteristic extension. No finite-residue-field upper ramification theorem is assumed at geometric residues.",
+    "Relative surface-product resolution and boundary calculation: Weil I 8.9/8.10 needs termination, equivariance and étale/product-compatible resolution of the specific normalized surface pair; a relative normal-crossings boundary makes ordinary and compact cohomology locally constant. Duality is checked at the clean one-variable Fermat fiber and transported through this family, rather than asserting inertia vanishing along every exceptional boundary divisor. SF.4 does not yet provide this contract. The Weil II lissity proof does not depend on this historical route.",
+    "General-base local acyclicity and family weights: LPV.0’s trait contract does not provide all of Weil II 3.7.3 over the coefficient scheme. Its requested locally constant-product/proper-pushforward theorem and DWP.5’s 1.8.12 family-weight constancy must be exported with actual carriers before the relative nodes can be closed.",
+    "Affine weak Lefschetz is outside the existing EDC.4 scope: Katz’s smooth affine induction uses a generic affine hyperplane with isomorphism/injection in the specified ordinary-cohomology degrees. Projective smooth weak Lefschetz is a near miss. A single Part II extension at the duality/Lefschetz owner is requested.",
+    "The explicit Adolphson–Sperber Euler bound requires its p-adic proof: Katz supplies the target formula and the Betti-number deductions, but the full Dwork/Newton-polytope degree and ℓ-adic Euler comparison proof of |χ_c|≤2^r(r+1+rδ)^N was not decomposed. The RD.6 extension request states that exact theorem. This gap propagates through A,B and the projective constant to uniform Lang–Weil.",
+    "Rational Albanese and singular-section genus: The existing abelian-scheme A2 stage does not construct Alb_w of a general singular variety; SF.3’s smooth-plane-curve formula does not prove the normalized singular-section inequality. Their Part II contracts, together with Picard/Tate and surface comparisons, are needed to close the parent uniform Lang–Weil proof.",
+    "Uniform pencils, projective closure and equivariant twist presentations: For the fixed-X pencil proof, bound the center, bad fibers and their cohomology uniformly using fixed embedding data. For arbitrary affine bounded equations, supply quantitative saturation/homogenization bounds rather than taking an unchecked projective closure. For Chebotarev twists, descend a finite G-stable generating linear system and its bounded boundary presentation. These are separate precise SF.0/SF.1 requested extensions.",
+    "Local/global Fourier comparison and coefficient scope: The global FT and L_ψ stay at their accepted parent FF.2 owner; the unregistered GeneralBasesFourier Part II owns local kernels/vanishing cycles. The LPV.0 request specifies the stationary-phase comparison and normalization. Laumon §§2.3–2.4 were read for this contract, not fully decomposed. Abe A19’s torsion/local-regular-finite-Z_ℓ coefficients exceed the parent’s E-field character sheaf: commission the shared coefficient-change API at SF.2/EDC.0 before marking those entire items supplied.",
+    "Missing Lean carriers are listed, not replaced: The pinned libraries lack the actual smooth-leading open coefficient scheme with its étale sheaf category, Rf!, local conductors, Alb_w comparison objects and Möbius sheaf pullback stabilizer. Their signatures/API/tests are documented in the prototype name ledger and intentionally omitted from executable Lean under protocol §13. The two representable definitions use baseline MulChar and finite-field sum carriers; no theorem is replaced by a Prop-valued placeholder."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.3",
    "status": "partial",
-   "note": "RS-03 narrowing followed: certified finite-field factorization (square-free decomposition, distinct-degree factorization, Algorithm IPT, Cantor–Zassenhaus with the equal-degree splitting probability analysis, Berlekamp's subalgebra, matrix and splitting algorithm, Algorithm RIP), certificates (Rabin certificate generation, factorization certificates; the Rabin criterion and certificate format are FF.0's), Hensel lifting of coprime factorizations modulo I^k, over I-adically complete rings and modulo p^k, with uniqueness and the linear lifting algorithm (Milne, Theorem 7.33), the count of irreducible polynomials (Gauss, Möbius, the bounds of Shoup and Bary-Soroker–Koukoulopoulos–Kozma items 73 and 130), and certified point counting (enumeration, the character-sum formula, point-count certificates, the Hasse and Weil error bounds, and Schoof's algorithm through division-polynomial representatives). Correctness, termination/failure probability and cost are separate nodes; costs are stated in ComputationalNumberTheory CN.0's model (requested). The elliptic trace convention, the Hasse bound and the Frobenius relation are imported from Tau Ceti EllipticCurves layer 3, the structure of E[ℓ] from layer 2. Every definition and key theorem of Shoup §§19.1-19.2 and Chapter 20 used on the way is a node or a baseline citation; root finding (Sutherland, Lecture 3 §3.10) is the case k = 1 of equal-degree factorization; the Exercises of §20.6 (deterministic factorization for small characteristic) and the fast-arithmetic refinements of Exercises 20.1, 20.8-20.9, 20.13 are variants of the planned algorithms with other cost bounds and are not separate targets of the narrowed stage; §20.2 (minimal polynomials in F[X]/(f) from the conjugates) and Exercises 20.5 and 20.10 (trace values, normal bases) are Frobenius, trace and normal-basis constructions, which RS-03 keeps in FF.0. The algorithm targets are inherited unchanged, but the subsequently routed square-free counting theorem is absent, so source decomposition no longer describes the whole current route frontier.",
+   "note": "The follow-up supplies the unique monic squarefree-times-square decomposition, exact monic squarefree and hyperelliptic presentation counts, all-extension certificate reconstruction interface and separated Schoof cost target. The operational CN.0 and general WC.5 model-comparison inputs remain precise requests, together with the prime-product estimate.",
    "remaining": [
-    "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count (§5, arXiv v2 p. 8): monic square-free counts s₀=1, s₁=q and sₙ=qⁿ−qⁿ⁻¹ for n≥2, and #P₀=q²(q−1), #P_g=(q−1)(q^(2g+2)−q^(2g)) for g≥1. Specify P_g as the square-free polynomials of degree 2g+1 or 2g+2 with nonzero leading coefficient. The unique f=h·m² decomposition and generating-function recurrence need an exact prerequisite route. Reuse FF.3 square-free factorization and provide this counting result once for the statistics consumer.",
-    "Reconcile the routed Bary-Soroker–Koukoulopoulos–Kozma prime-polynomial counts with FF.3's existing exact and asymptotic nodes, preserving degree-one cases and all field-size hypotheses. Independent review checked the relevant source statements and supplied arguments, including BKK degree-zero and degree-one exceptions; no formalization is claimed.",
-    "Retain the two CN.0 cost/randomness and executable-presentation requests and the CN.5 certificate request; the independent review read the current supplier CN.0/CN.5 statements; replace stage references only when exact exported services exist. Do not equate a checked product with irreducibility certificates, or correctness with a cost bound.",
-    "RT-AREA-finitefields/1, /11 and /12: reconcile the raw atlas stage chain with FF.0/CA.3 factorization inputs, FF.2's hyperelliptic error bound and the imported elliptic Hasse contract. Factorization remains FF.3's service for CN.1 and FA.7; foreign duplication and stage-edge edits require the appropriate ownership/restructuring job. A general-curve point-count contract would need the precise WC.5 input; the existing hyperelliptic affine count is not that contract."
+    "General-model certificate comparison: WC.5 states the required all-extension bounds, but the accepted FF.3 certificate prototype is for affine y²=f and Schoof is elliptic. Extension to arbitrary smooth projective models needs a concrete computable rational-point representation, inclusion of points at infinity and its cardinality comparison with WC.5 N_r. The WC.5 request pins that contract; the parent algorithms are not advertised as general-variety algorithms.",
+    "Schoof prime-growth estimate and instantiated operational cost model: Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field."
    ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.4",
    "status": "partial",
-   "note": "All six FF.4 targets are planned from public sources (Goresky–Klapper for Galois rings, LFSR sequences, m-sequences and correlations; Shallue, Bluher, Wu–Liu and Ben-Sasson–Etzion–Gabizon–Raviv for linearized and permutation polynomials; Guruswami–Rudra–Sudan and Couvreur–Randriambololona for evaluation, BCH and AG codes over Tau Ceti's built function-field library; Kuang, Vinh–Dung and DeDeo–Velasquez for the finite upper half-plane). The Bary-Soroker–Koukoulopoulos–Kozma route-3 items (Fourier analysis on ℤ and on the Laurent torus) are planned in FF.1 and are not repeated here. Two recorded gaps remain.",
+   "note": "The follow-up supplies dyadic unit torsion counts, native Ore/linearized comparison, Dickson and trace forms, bent/geometric/Gold/Kasami/GMW sequence targets, cyclic-code ideals and BCH comparison, native AG evaluation/residue bindings, Hermitian model/parameters and decomposed norm-one/spectral estimates. Its six gaps remain; the principal-unit count is a supplied proof route, not an unresolved gap.",
    "remaining": [
-    "Decompose the p = 2, r ≥ 2 unit-group structure of Galois rings (gap 1).",
-    "Decompose or import Katz's Soto-Andrade estimate behind terras-graph-ramanujan (gap 2), through FF.2's Weil/Deligne handoff.",
-    "Wu–Liu §§3, 5–6 (composition-algebra isomorphism, trace representations of linearized polynomials, the subalgebras L_n(F_{q^m})) are read but not decomposed into nodes.",
-    "Goresky–Klapper §13.3–13.4 (interleaved structure, Fourier transforms and bent sequences) and §14.1–14.7 (Gold, Kasami, geometric, GMW and d-form families) are not decomposed; only the decimation identity and the Legendre/Dirichlet sequences are planned.",
-    "ECT Exercise 5.23 (the Hermitian-curve AG code over F_{p²}) is not planned as an explicit example node.",
-    "Resolve the finite-field polynomial-composition versus DM.0 Ore-ring ownership comparison using the retained structural proposal, not a second carrier. Correct any remaining raw FF.3→FF.4 blanket prerequisite only through evidence-backed stage restructuring; family-specific code and character-sum dependencies remain distinct.",
-    "Collate the Goresky–Klapper author draft's quoted stated-result findings with the 2012 version of record, and the Shallue and other preprint findings with any published versions. The sourceVersions entries below record historical draft readings, not completed publication collation.",
-    "Replace all TC function-field/divisor/place/differential stand-in roles in the Mathlib-only prototype by the actual pinned Tau Ceti and AlgebraicCurves supplier interfaces before implementation or closure. Expanded function-field/exact-constant guards, maximal-ideal evaluation, distinct-place kernels and actual RatFunc places are required; the elaboration run does not certify these Tau Ceti interfaces."
+    "Norm-one Lang character sheaf and trace formula: FF.1 must add or import the rank-one Lang-torsor sheaf for a character of the quadratic norm-one torus, including its rational-point Frobenius trace, finite monodromy and tameness. The accepted EXT-08 external packet has a Lang-torsor node, but it was not integrated and is not a resolvable parent ID. FF.2 must extend its AS/Kummer trace formula to this sheaf; the ordinary G_m Kummer sheaf alone does not provide ω on the nonsplit torus. Supplier contract recorded under sameRoadmapNeeds.",
+    "Genus-zero tame Euler characteristic and extremal cohomology: The EDC.2 request remains an owner decision for the exact genus-zero tame Euler characteristic and H⁰_c/H²_c vanishing contract. The accepted DWP.7/cohomological-bounds-3-3-2-3-3-6 supplies weights ≤1 on H¹_c once the finite-monodromy weight-zero Lang/Kummer sheaf has been constructed; a separate DWP request and a pure weight-one assertion are unnecessary. Resolve the EXT-08 Euler–Poincaré owner before declaring the Katz estimate closed.",
+    "Odd-characteristic spherical normalization and exhaustiveness: Read the complete odd-q Evans/Kuang representation-theoretic derivation, match adjacency to the parent distance a and root δ, and establish that every nontrivial spherical summand is exactly, up to sign, Jχ or the stated Soto–Andrade sum, including the quadratic twist of Steinberg. Kuang’s brief preprint and the q=3 computation do not certify this exhaustive transfer. The inherited Kuang normalization source issue E748 remains owned by the parent.",
+    "Native Hermitian model export: The AC layer-10 request requires actual coordinate functions, places and pole orders on a native function field, rather than a structure with asserted curve facts. The affine polynomial code and its elementary length/message dimension are independently defined. The Riemann–Roch comparison and distance route consume the requested geometric export.",
+    "Bent-character cyclotomic transport: For a prime output field, export the native cyclotomic automorphism sending ζ_p to ζ_p^a, prove that it commutes with complex conjugation on character sums, and transports an integral squared norm. This is the exact use of GK09 Lemma 3.2.12. The suggested prime-character signature is stated; a proved transport API was not established. No claim is made for an arbitrary extension output field.",
+    "Source collation at the versions of record: Public GK09/GK11 drafts and WU12 v2 were read and compared at the locators recorded in sourceIssues. The Cambridge 2012 text and Wu–Liu version of record were not served in the bounded publisher search; do not promote draft findings to published errata. Parent Shallue/Bluher and other preprint collation remains owned by its earlier coverage. The ECT25 finding is scoped to the recorded 2025 draft; the 2026 accessibility revision was read and the same formula persists; neither is a publisher version of record."
    ]
   },
   {
@@ -26206,11 +26188,11 @@
  ],
  "gaps": [
   {
-   "title": "Hasse–Davenport product relation: no public proof read",
+   "title": "Exact Dwork inputs for the Hasse–Davenport product route",
    "neededBy": [
     "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-relation"
    ],
-   "detail": "The statement is taken from Conrad, Gauss and Jacobi sums, (A.6) p. 19, which says its proof uses Stickelberger's congruence and cites Berndt–Evans–Williams §11.3 (not public). The node records the standard route: reduce to Teichmüller characters, show the ratio of the two sides is a unit of absolute value 1 at every embedding (digit-sum valuations and absolute values of Gauss sums, both planned here), hence a root of unity, and identify it as 1 through Stickelberger's congruence. The last step needs the multiplication formula for the digit factorials h(a) modulo p (the Gauss multiplication formula for the p-adic Gamma function modulo p); no public source with a complete proof was read (Washington's Cyclotomic Fields and Lang's Cyclotomic Fields are not public; a public SGA 4½ copy was acquired and its Gauss-sum lifting passage personally read during independent review, but no complete product-relation proof was established from that passage). The case n = 2 is fully planned (FF.1/gauss-sum-duplication-formula, Kowalski Proposition 2.17). Independent review: identifying a root of unity from its reduction is not valid for the p-power roots in L. A complete proof must also eliminate that residual root-of-unity factor; the present outline does not close the target, even if the missing digit-factorial formula is supplied."
+   "detail": "The inspected L3/robert-gross-koblitz-comparison requires both the coefficient bound and the actual chosen-root trace-character splitting equality. RD.6/dwork-isocrystal does not export either precise native coefficient interface. The exact Gamma multiplication import resolves the arbitrary-root ambiguity, but it does not prove these analytic inputs. The two requests spell out K, its normalized Q_p embedding, actual formal coefficients, compatible pi and zeta, Teichmuller lifts, trace, sign and binary boundary. Until supplied the unconditional product target has a recorded dependency gap; no source closure is claimed."
   },
   {
    "title": "No atlas stage owns the Grothendieck–Ogg–Shafarevich Euler characteristic formula",
@@ -26219,7 +26201,7 @@
     "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sum-on-curve-bound",
     "FiniteFieldsAndCharacterSums:FF.2/deligne-cohomology-of-polynomial-sheaf"
    ],
-   "detail": "The conductor bound dim H¹_c ≤ C(𝓕)² of FKMS (4.3), the exact dimension 2g − 2 + Σ(1 + v*_x(f)) of Sommes trig. (3.5.5) and χ_c(A¹, L_ψ(x^d)) = 1 − d in Weil I 8.11 all use χ_c(X, F) = rk F·χ(X) − Σ Sw_s(F). A search of all atlas stage texts for Ogg, Shafarevich, Euler–Poincaré and Swan finds only local conductors (ArithmeticGaloisRepresentations:R01.3) and the Néron–Ogg–Shafarevich criterion. The red team (RT-AREA-finitefields/3, confirmed) asks for a new layer of EtaleDualityAndPerverseSheaves after EDC.2. The classical one-variable Weil bounds of this stage do not need it: their H¹_c dimensions come from the elementary L-function degrees (FF.2/rank-one-sheaf-l-function). The public source to read is Raynaud's Séminaire Bourbaki exposé 286 (Numdam)."
+   "detail": "The parent request and PAPER-DELIGNE-74 route 6 identify one Part II extension after EDC.2. No registered stage/node presently states the theorem. The Raynaud source read is finite torsion; its complete E_λ passage must be proved at that owner. The genus, boundary count and Swan terms remain explicit. The parent’s cohomological curve bounds remain conditional on this shared input."
   },
   {
    "title": "Weil I Lemma 8.5 rests on a relative compactification by Zariski's resolution procedure and on local constancy in the family of polynomials with smooth leading form",
@@ -26234,28 +26216,21 @@
    "neededBy": [
     "FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-estimate"
    ],
-   "detail": "Ghorpade–Lachaud's Theorem 11.1 bounds the error by (d − 1)(d − 2)q^{n−1/2} + C₊(V)q^{n−1} using (i) b₊_{2n−1} = 2 dim Alb_w(V) ≤ 2g(Ỹ) ≤ (d − 1)(d − 2) for a general curve section (their Theorem 10.7, Proposition 9.4), and (ii) Katz, 'Sums of Betti numbers in arbitrary characteristic' (Finite Fields Appl. 7 (2001)) for C₊(V). Neither input is planned in the atlas and neither was read here (Katz's paper was not located in public form in this session). The non-uniform FF.2/lang-weil-estimate, which is what Browning–Sawin use, does not depend on them."
+   "detail": "The Betti and Albanese targets are supplied by FF.2/explicit-projective-betti-bound, arbitrary-affine-betti-bound, albanese-linear-section-bound, bombieri-sperber-albanese-expansion and top-weight-albanese-comparison. Remaining inputs are the FF.2 affine weak-Lefschetz/explicit Euler comparison, rational-map Albanese and singular-curve genus contracts, and bounded projective-closure/pencil/twist complexity. These are specified in the consuming follow-up gaps and requests; no uniformity is inferred from the non-uniform theorem alone."
   },
   {
-   "title": "Structure of the principal units 1 + 2·GR(2^n, r) for r ≥ 2",
-   "neededBy": [
-    "FiniteFieldsAndCharacterSums:FF.4/principal-units-of-galois-ring-two"
-   ],
-   "detail": "Goresky–Klapper §4.5 states (1 + 2S) ≅ (Z/2^{n−1})^{r−1} × Z/2^{n−2} × Z/2 without proof and refers to McDonald's Finite Rings with Identity, which is not public. The case r = 1 is proved in the source (Proposition 4.2.1). The decomposition for r ≥ 2 (via exp(4a) on 1 + 4S and the counts of elements of order dividing 2^k) has not been carried out."
-  },
-  {
-   "title": "Katz's estimate for Soto-Andrade sums (Ramanujan property of the Terras graphs)",
+   "title": "Remaining inputs for the finite-plane spectral character transfer",
    "neededBy": [
     "FiniteFieldsAndCharacterSums:FF.4/terras-graph-ramanujan"
    ],
-   "detail": "The bound |λ| ≤ 2√q for the nontrivial eigenvalues of X_q(δ, a) is due to Katz (J. reine angew. Math. 438 (1993), 143–161) and Li; the eigenvalues are Soto-Andrade character sums whose estimate needs ℓ-adic methods (FiniteFieldsAndCharacterSums:FF.2 / DeligneWeightsAndPurity). No public proof was available and the step is not decomposed."
+   "detail": "The proof is decomposed by FF.4/terras-spectral-character-transfer and katz-quadratic-torus-estimate. The remaining inputs are the norm-one Lang character sheaf and its compact-support trace formula, genus-zero tame Euler characteristic/vanishing, and the odd-characteristic spherical normalization and spectral exhaustiveness. The accepted DWP.7 cohomological-bounds-3-3-2-3-3-6 supplies weights <=1; no purity-one theorem is required. See the three precise FF.4 gaps rather than a blanket undecomposed Katz estimate."
   },
   {
    "title": "Equal-characteristic Swan computation over an infinite residue field",
    "neededBy": [
     "FiniteFieldsAndCharacterSums:FF.2/swan-conductor-of-artin-schreier-sheaf"
    ],
-   "detail": "The geometric local field is F̄_q((t)), not a nonarchimedean local field with finite residue field. AlgebraicCurves Layer 8 supplies lower-numbering groups and a general complete-DVR completion bridge, but expressly scopes the sibling LocalFieldsRamification upper-numbering/Herbrand/Hasse–Arf export to finite residue fields. ArithmeticGaloisRepresentations:R01.3 is an arithmetic conductor stage; requesting a generalization is not closure. To close this node, prove the cyclic Artin–Schreier degree-p break/Swan calculation directly over a perfect or algebraically closed residue field, or prove the finite-residue calculation is invariant under the requisite unramified residue extension. The rank-one Swan value m must be obtained from an actual filtration and conductor definition, not supplied as a record field."
+   "detail": "Current Tau Ceti already proves the function-field Place uniformizer displacement for prime-to-p Artin–Schreier poles. Reuse it and supply normalized-order/completion compatibility; the displayed valuation calculation also covers perfect-residue Laurent series. The actual ℓ-adic Swan definition and tensor/break API over k̄((t)) still need AGR’s equal-characteristic extension. No finite-residue-field upper ramification theorem is assumed at geometric residues."
   },
   {
    "title": "Schoof prime-growth estimate and instantiated operational cost model",

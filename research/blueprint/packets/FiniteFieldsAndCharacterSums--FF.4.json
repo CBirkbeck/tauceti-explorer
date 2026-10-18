@@ -1856,10 +1856,7 @@
         "module": "TauCeti/NumberTheory/FiniteFields/Applications",
         "namespace": "TauCeti.FF4"
       },
-      "leanName": "gold_binary_corr_values",
-      "planet": {
-        "name": "Gold sequences"
-      }
+      "leanName": "gold_binary_corr_values"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.4/small-kasami-family",
@@ -1943,10 +1940,7 @@
           "where": "GK09 §14.4, Lemma 14.4.1 and correlation calculation",
           "how": "Uses the norm’s base-field values to avoid redundant or ill-typed parameters."
         }
-      ],
-      "planet": {
-        "name": "Kasami sequences"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.4/kasami-quadratic-correlation",
@@ -2227,10 +2221,7 @@
           "where": "GK09 Theorem 14.6.1",
           "how": "Power permutation proves symbol/block balance and the base-feed autocorrelation; trace transitivity identifies the linear-feed case."
         }
-      ],
-      "planet": {
-        "name": "Gordon–Mills–Welch sequences"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.4/gmw-period-autocorrelation",
@@ -2755,10 +2746,7 @@
           "where": "SZONYI generator proposition, p. 2",
           "how": "Pull ideals back to F[X] to obtain the unique monic divisor and the membership test."
         }
-      ],
-      "planet": {
-        "name": "Cyclic codes"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.4/cyclic-generator-polynomial",
@@ -3463,7 +3451,6 @@
       ],
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/soto-andrade-norm-one-sum",
-        "FiniteFieldsAndCharacterSums:FF.1",
         "FiniteFieldsAndCharacterSums:FF.2/kummer-sheaf",
         "FiniteFieldsAndCharacterSums:FF.2/lisse-sheaf-extremal-cohomology-on-curve",
         "FiniteFieldsAndCharacterSums:FF.2/h1c-conductor-bound",
@@ -3482,10 +3469,7 @@
         "module": "TauCeti/NumberTheory/FiniteFields/Applications",
         "namespace": "TauCeti.FF4"
       },
-      "leanName": "sotoAndrade_norm_le",
-      "planet": {
-        "name": "Soto–Andrade estimate"
-      }
+      "leanName": "sotoAndrade_norm_le"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.4/terras-spectral-character-transfer",
@@ -3513,7 +3497,10 @@
         "FiniteFieldsAndCharacterSums:FF.4/finite-upper-half-plane-gelfand-pair",
         "FiniteFieldsAndCharacterSums:FF.4/terras-graph-regular",
         "FiniteFieldsAndCharacterSums:FF.4/katz-quadratic-torus-estimate",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/character-sheaf-trace-formula",
+        "FiniteFieldsAndCharacterSums:FF.2/deligne-estimate-for-character-sums",
+        "FiniteFieldsAndCharacterSums:FF.2/lisse-sheaf-extremal-cohomology-on-curve",
+        "FiniteFieldsAndCharacterSums:FF.2/h1c-conductor-bound"
       ],
       "sources": [
         {

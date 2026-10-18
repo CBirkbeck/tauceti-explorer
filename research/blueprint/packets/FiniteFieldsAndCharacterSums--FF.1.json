@@ -506,10 +506,7 @@
           "match": "Public Gamma/Gross–Koblitz proof for all finite fields and all characters. The two analytic inputs inherited through L3 remain a gap, rather than claiming source closure."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Hasse–Davenport product formula"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
@@ -626,10 +623,7 @@
           "statement": "Over ZMod 3 at d=2, E₂(some 2,X)=2. A rule evaluating every finite point at zero fails.",
           "addedBy": "REV-FiniteFieldsAndCharacterSums--FF.1"
         }
-      ],
-      "planet": {
-        "name": "Projective polynomial evaluation"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
@@ -718,10 +712,7 @@
       "implementationStatus": "unchecked",
       "additionalDeclarations": [
         "TauCeti.FiniteFieldSums.projectiveEval_character_correlation_all"
-      ],
-      "planet": {
-        "name": "Two-point character orthogonality"
-      }
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-finite-product-factorisation",
