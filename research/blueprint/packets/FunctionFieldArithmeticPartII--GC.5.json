@@ -730,7 +730,7 @@
     {
       "id": "GC5-DESCENT",
       "title": "Inherited effective root-Picard lisse descent",
-      "detail": "Parent ST-LISSE remains a proof/type leaf behind GC.4/high-degree-descent. Require the actual nonproper high-degree Abel–Jacobi locally trivial-fibration descent and full-faithfulness theorem for these tame DM stacks, including the affine fibre charts. Connected geometric fibres alone do not provide effective descent. No provisional ST.0–ST.6 stage of an unregistered stacks proposal is cited as an existing supplier.",
+      "detail": "Inherited effective root-Picard lisse descent is supplied by GC.4/high-degree-effective-descent, through its proper scalar quotient, chart descent line and normalized smooth gluing. Its generic infrastructure remains ASM-STACK-LISSE (GC4-LISSE-ADAPTER and GC3-STACK-PI1). Connected geometric fibres alone do not prove effective descent; no general nonproper Abel–Jacobi descent theorem is requested.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
         "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
@@ -914,5 +914,10 @@
         "note": "Verified the whole-space forgetful square, inverse-image/external-tensor comparison and inherited coherence for d,e>=0. The effective empty divisor has section 1; zero-section stalks stay rank one. The consumer in §6.2.1 uses the whole-space pullback. Made geometric Frobenius explicit."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

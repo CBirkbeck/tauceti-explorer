@@ -1478,7 +1478,8 @@
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
     "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system"
-   ]
+   ],
+   "assemblyInterface": "ASM-STACK-LISSE: one intended owner, with these two exact facets and all their hypotheses retained."
   },
   {
    "id": "GC3-COARSE-STALKS",
@@ -1499,7 +1500,7 @@
   {
    "id": "GC3-LEAN-CARRIERS",
    "title": "Geometric carriers for the GC.3 end statements",
-   "detail": "The suggested file states the algebra of GC.3 at the pins: Koszul-signed action, antisymmetrization and its comparison, rational averaging, finite-group acyclicity and the tensor character. Étale sites, constructible and lisse Q̄ℓ-sheaves, root stacks and fundamental groups of Deligne–Mumford stacks are absent at both pins, so the geometric declarations are README targets with an omission ledger in the file. State them once these carriers exist; do not replace them by arbitrary types or predicate fields.",
+   "detail": "The aggregate suggested file states the Koszul-signed native tensor action, rational averaging, finite-group acyclicity and the tensor character at the pins. Existing tensor/exterior maps, their new signed-invariant comparison and the full geometric targets remain in the reader. Étale sites, constructible and lisse Q̄ℓ-sheaves, root-divisor stacks, coarse spaces, monodromy classification, symmetric cohomology and Frobenius-compatible six-operation carriers are not supplied by these coordinate statements. Their actual native signatures and exact supplier hypotheses remain mandatory; no arbitrary geometric predicate replaces them.",
    "neededBy": [
     "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary",
     "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
@@ -1881,5 +1882,10 @@
     "note": "Computed reduced finite-groupoid fibres with kernel stabilizers; added nilpotent invariance and identified the nonzero adjunction map. Nonrepresentable proper base change remains explicit."
    }
   ]
+ },
+ "assembly": {
+  "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+  "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+  "job": "ASM-FunctionFieldArithmeticPartII"
  }
 }

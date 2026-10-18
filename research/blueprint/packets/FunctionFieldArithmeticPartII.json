@@ -3207,7 +3207,13 @@
       "upstreamPrerequisites": [
         "UPSTREAM:AlgebraicVectorBundles:L0A",
         "UPSTREAM:AlgebraicVectorBundles:L0B"
-      ]
+      ],
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/section-power",
@@ -3296,7 +3302,13 @@
       "upstreamPrerequisites": [
         "UPSTREAM:AlgebraicVectorBundles:L0A",
         "UPSTREAM:AlgebraicVectorBundles:L0B"
-      ]
+      ],
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/root-object",
@@ -3387,7 +3399,13 @@
       "upstreamPrerequisites": [
         "UPSTREAM:AlgebraicVectorBundles:L0A",
         "UPSTREAM:AlgebraicVectorBundles:L0B"
-      ]
+      ],
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-action",
@@ -3487,8 +3505,8 @@
         "mathlib:CategoryTheory.Pseudofunctor.Grothendieck",
         "mathlib:CategoryTheory.Pseudofunctor.IsStack",
         "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack"
       ],
       "proofSteps": [
         "Use the supplier’s line-bundle pullback and descent, retaining the root isomorphism and section equation.",
@@ -3635,7 +3653,13 @@
       "upstreamPrerequisites": [
         "UPSTREAM:AlgebraicVectorBundles:L0A",
         "UPSTREAM:AlgebraicVectorBundles:L0B"
-      ]
+      ],
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -3652,8 +3676,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "SchemeAndStackFoundations:SF.1",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack"
       ],
       "proofSteps": [
         "Unpack a two-pullback object: (x,(M,t),φ) with φ identifying (Mⁿ,tⁿ) and (L_x,s_x).",
@@ -3674,7 +3698,13 @@
           "match": "The final B.2 display identifies the scheme-base root construction as this fibre product; the stack-base version uses the requested geometric descent interface."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.1/base-change",
@@ -3709,7 +3739,13 @@
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.1/affine-chart",
@@ -3732,8 +3768,8 @@
         "FunctionFieldArithmeticPartII:RS.0/native-point-action",
         "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
         "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "AlgebraicModuliForArithmeticGeometry:R09.4",
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-unit-inverse"
       ],
@@ -3763,8 +3799,16 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Affine root-stack charts"
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      },
+      "assemblyPlanetDisposition": {
+        "previousName": "Affine root-stack charts",
+        "disposition": "supporting contract",
+        "reason": "The unified RS.1 roster keeps Root stacks and the five accepted native comparison/coarse/regularity milestones. This supporting finite-root chart, fibre, invariant or descent contract remains fully specified; retaining every part roster would give ten planets, above the six-per-layer limit."
       }
     },
     {
@@ -3783,8 +3827,8 @@
         "FunctionFieldArithmeticPartII:RS.1/base-change",
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
         "SchemeAndStackFoundations:SF.1",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack"
       ],
       "proofSteps": [
         "Pull the chart back to the geometric field, keeping the quotient ring tⁿ.",
@@ -3806,8 +3850,16 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Root-stack fibres"
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      },
+      "assemblyPlanetDisposition": {
+        "previousName": "Root-stack fibres",
+        "disposition": "supporting contract",
+        "reason": "The unified RS.1 roster keeps Root stacks and the five accepted native comparison/coarse/regularity milestones. This supporting finite-root chart, fibre, invariant or descent contract remains fully specified; retaining every part roster would give ten planets, above the six-per-layer limit."
       }
     },
     {
@@ -3977,7 +4029,13 @@
       "upstreamPrerequisites": [
         "UPSTREAM:AlgebraicVectorBundles:L0A",
         "UPSTREAM:AlgebraicVectorBundles:L0B"
-      ]
+      ],
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
@@ -3994,8 +4052,9 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.2/transition",
         "mathlib:CategoryTheory.Pseudofunctor.IsStack",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "SchemeAndStackFoundations:SF.1",
         "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
         "AlgebraicModuliForArithmeticGeometry:R09.4/limit-stack-descent"
       ],
@@ -4252,8 +4311,8 @@
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "SchemeAndStackFoundations:SF.3",
         "SchemeAndStackFoundations:SF.1",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack"
       ],
       "proofSteps": [
         "Import the ordinary line-bundle Picard stack and restriction to R.",
@@ -4345,8 +4404,8 @@
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "SchemeAndStackFoundations:SF.1",
         "SchemeAndStackFoundations:SF.3",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack"
       ],
       "proofSteps": [
         "Trivialize K_R fppf-locally; ι supplies the rigidification γ.",
@@ -5282,7 +5341,8 @@
         "FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth",
         "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "FunctionFieldArithmeticPartII:GC.3/root-curve-character-dictionary"
       ],
       "proofSteps": [
         "Use local root charts to identify tame inertia with the residual μ₂ action.",
@@ -5416,7 +5476,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.1/ordered-divisors",
         "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
-        "FunctionFieldArithmeticPartII:RS.1/closed-fibre"
+        "FunctionFieldArithmeticPartII:RS.1/closed-fibre",
+        "FunctionFieldArithmeticPartII:GC.3/tensor-character-kernel"
       ],
       "proofSteps": [
         "Describe root tensor addition on the stabilizer groups as multiplication.",
@@ -5491,7 +5552,9 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.3/collision-kernel",
-        "FunctionFieldArithmeticPartII:GC.3/middle-extension"
+        "FunctionFieldArithmeticPartII:GC.3/middle-extension",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
+        "FunctionFieldArithmeticPartII:GC.3/pushforward-description-comparison"
       ],
       "proofSteps": [
         "Apply proper base change at a geometric divisor and factor the ordered fibre by its multiplicities.",
@@ -5531,12 +5594,12 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
-        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
+        "FunctionFieldArithmeticPartII:GC.3/rational-coarse-comparison",
+        "FunctionFieldArithmeticPartII:GC.3/twisted-curve-cohomology"
       ],
       "proofSteps": [
-        "Global invariant sections vanish for a geometrically nontrivial rank-one character.",
-        "The corresponding dual character is geometrically nontrivial, so smooth-DM Poincaré duality kills H².",
-        "Use the curve cohomological-dimension bound through the tame coarse-space comparison; its stack extension is recorded in ST-OPS."
+        "Use GC.3/rational-coarse-comparison to compute root-curve cohomology on its coarse curve.",
+        "Apply GC.3/twisted-curve-cohomology, including the nontrivial-character local stalks and scheme duality, to obtain H⁰=H²=0. These comparisons preserve geometric Frobenius."
       ],
       "acceptance": [
         "The constant sheaf is excluded: on P¹ it has nonzero H⁰ and H²."
@@ -5568,7 +5631,8 @@
       ],
       "prerequisites": [
         "mathlib:ExteriorAlgebra.exteriorPower",
-        "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing"
+        "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing",
+        "FunctionFieldArithmeticPartII:GC.3/alternating-invariants-exterior"
       ],
       "proofSteps": [
         "A transposition acts by minus the ordinary flip on degree-one factors.",
@@ -5606,12 +5670,15 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.3/collision-descent",
         "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing",
-        "FunctionFieldArithmeticPartII:GC.3/koszul-exterior"
+        "FunctionFieldArithmeticPartII:GC.3/koszul-exterior",
+        "FunctionFieldArithmeticPartII:GC.3/rational-coarse-comparison",
+        "FunctionFieldArithmeticPartII:GC.3/symmetric-power-cohomology",
+        "FunctionFieldArithmeticPartII:GC.3/twisted-curve-cohomology",
+        "FunctionFieldArithmeticPartII:GC.3/alternating-invariants-exterior"
       ],
       "proofSteps": [
-        "Apply the stack Künneth theorem and proper-pushforward cohomology comparison to the ordered product.",
-        "The rational invariant projector commutes with cohomology.",
-        "Identify the resulting graded invariants by the Koszul lemma."
+        "Use GC.3/rational-coarse-comparison and symmetric-power-cohomology to reduce to rational symmetric invariants on the coarse symmetric power.",
+        "GC.3/twisted-curve-cohomology concentrates the curve complex in degree one. Apply alternating-invariants-exterior to its Koszul action. All comparisons commute with Frobenius; include the empty tensor power and the exterior vanishing range."
       ],
       "acceptance": [
         "At d=0 the result is H⁰=Q̄ℓ; it does not contradict input H⁰ vanishing."
@@ -5993,7 +6060,7 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart",
         "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
-        "FunctionFieldArithmeticPartII:GC.3/collision-descent"
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system"
       ],
       "proofSteps": [
         "The map M→X_d^√R factors through the weighted quotient by the scalar root-Picard automorphisms.",
@@ -6029,7 +6096,7 @@
         "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:GC.3/collision-descent",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
         "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
         "SchemeAndStackFoundations:SF.3",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
@@ -6071,12 +6138,13 @@
         "FunctionFieldArithmeticPartII:GC.4/evaluation-surjective",
         "FunctionFieldArithmeticPartII:GC.4/fibre-triviality",
         "FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent",
-        "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi"
+        "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+        "FunctionFieldArithmeticPartII:GC.4/high-degree-effective-descent"
       ],
       "proofSteps": [
-        "The evaluation vector-bundle charts prove AJ_d is a locally trivial fibration with geometrically connected fibres.",
-        "For nonempty R use fibre triviality; for empty R use ordinary descent.",
-        "Apply effective lisse descent and full faithfulness on this fibration. The precise nonproper affine-fibre theorem is requested in ST-LISSE; connected fibres alone are not silently treated as sufficient."
+        "Apply the family chart and proper scalar quotient of GC.4/family-fibre-presentation and relative-projective-quotient, with the ordinary weight-one projective quotient when R is empty.",
+        "GC.4/chart-descent-line supplies a lisse line by degree-zero proper base change and smooth-local lissity. GC.4/high-degree-effective-descent glues these normalized lines: refine algebraic-space overlaps by étale scheme charts, use full faithfulness there, and descend the unique comparisons and their cocycle.",
+        "No general effective descent theorem for a nonproper map is inferred from connected fibres. The stack-lisse and proper-base-change adapter remains an explicit supplier frontier."
       ],
       "acceptance": [
         "Retain the threshold including ρ and the max with one."
@@ -6147,7 +6215,7 @@
         "For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
         "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
         "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid"
       ],
@@ -6166,7 +6234,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.2 p. 521 and A.2.3 p. 523",
+          "locator": "A.2.2, pp. 521–523; Proposition A.11 and its proof, pp. 522–523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6251,7 +6319,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.2–A.2.3 pp. 521–523",
+          "locator": "A.2.2, pp. 521–523; Proposition A.11 and its proof, pp. 522–523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6376,7 +6444,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.2 p. 522 independence exercise; A.2.3 p. 523",
+          "locator": "A.2.2, pp. 521–523; Proposition A.11 and its proof, pp. 522–523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6414,7 +6482,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "A.2.2 pp. 521–522 and A.2.3 p. 523 coherence exercises",
+          "locator": "A.2.2, pp. 521–523; Proposition A.11 and its proof, pp. 522–523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -6476,7 +6544,7 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
-        "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system",
+        "FunctionFieldArithmeticPartII:GC.3/monodromy-symmetric-local-system",
         "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi"
       ],
       "proofSteps": [
@@ -7087,7 +7155,9 @@
         "FunctionFieldArithmeticPartII:GC.6/exact-sheaf-complex",
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "SchemeAndStackFoundations:SF.1",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3",
+        "FunctionFieldArithmeticPartII:GC.6/norm-descent-obstruction",
+        "FunctionFieldArithmeticPartII:GC.6/invariance-versus-descent"
       ],
       "proofSteps": [
         "Apply the supplier’s derived torsor/cohomology comparison to each short sequence separately.",
@@ -7207,7 +7277,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
         "FunctionFieldArithmeticPartII:GC.2/root-units",
-        "FunctionFieldArithmetic:FA.4"
+        "FunctionFieldArithmetic:FA.4",
+        "FunctionFieldArithmeticPartII:GC.6/reciprocity-root-unit-triviality"
       ],
       "proofSteps": [
         "Use the idempotents (1±σ)/2 on rational coefficients, including ℓ=2.",
@@ -7307,7 +7378,7 @@
       "sources": [
         {
           "sourceId": "YZ19",
-          "locator": "Proposition A.11, pp. 522–523, and the proof of Proposition A.12, p. 525. A.2.3 is on pp. 522–523, not p. 520.",
+          "locator": "A.2.2, pp. 521–523; Proposition A.11 and its proof, pp. 522–523.",
           "match": "The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit."
         }
       ],
@@ -7327,7 +7398,8 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line",
-        "FunctionFieldArithmeticPartII:GC.5/effective-pullback"
+        "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+        "FunctionFieldArithmeticPartII:GC.6/rank-one-cyclic-tensor-trace"
       ],
       "proofSteps": [
         "Use the symmetric stalk description for the divisor [x].",
@@ -7365,7 +7437,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
         "FunctionFieldArithmetic:FA.2",
-        "FunctionFieldArithmetic:FA.4"
+        "FunctionFieldArithmetic:FA.4",
+        "FunctionFieldArithmeticPartII:GC.6/actual-unit-image-determination"
       ],
       "proofSteps": [
         "Use strong approximation with prescribed residue-square root frames at the finite set R to move a root-Picard object away from R.",
@@ -7974,8 +8047,10 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Affine root invariants"
+      "assemblyPlanetDisposition": {
+        "previousName": "Affine root invariants",
+        "disposition": "supporting contract",
+        "reason": "The unified RS.1 roster keeps Root stacks and the five accepted native comparison/coarse/regularity milestones. This supporting finite-root chart, fibre, invariant or descent contract remains fully specified; retaining every part roster would give ten planets, above the six-per-layer limit."
       }
     },
     {
@@ -8323,8 +8398,16 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Fpqc root descent"
+      "assemblyOwnership": {
+        "disposition": "import-and-compare",
+        "supplier": "SchemeAndStackFoundations §§1.18, 1.21, 3.4; AlgebraicVectorBundles L0A–L0B",
+        "upstream": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md",
+        "scope": "The generic finite object/construction is imported, not planned again. This stable local contract records its native InvertibleSheaf/section/arrows specialization and compatibility with the chosen affine coordinates; RS.2 owns the coherent infinite diagram and its constraints."
+      },
+      "assemblyPlanetDisposition": {
+        "previousName": "Fpqc root descent",
+        "disposition": "supporting contract",
+        "reason": "The unified RS.1 roster keeps Root stacks and the five accepted native comparison/coarse/regularity milestones. This supporting finite-root chart, fibre, invariant or descent contract remains fully specified; retaining every part roster would give ten planets, above the six-per-layer limit."
       }
     },
     {
@@ -8719,13 +8802,13 @@
         "Infinite torsors are fpqc; finite μ_n torsors may be computed fppf."
       ],
       "prerequisites": [
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "AlgebraicModuliForArithmeticGeometry:R09.4/classifying-abelian-gerbe",
         "AlgebraicModuliForArithmeticGeometry:R09.4/nonempty-affine-limit-gerbe",
         "AlgebraicModuliForArithmeticGeometry:R09.4/neutralization-equivalence",
         "SchemeAndStackFoundations:SF.1",
-        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
-        "DiamondsAndVStacks:D0"
+        "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit"
       ],
       "proofSteps": [
         "The compatible trivial finite torsors give an actual k-object of the two-limit; nonemptiness is supplied rather than assumed away.",
@@ -8850,9 +8933,9 @@
         "FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat",
         "FunctionFieldArithmeticPartII:RS.2/infinite-root-stack",
         "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "SchemeAndStackFoundations:SF.1",
-        "DiamondsAndVStacks:D0",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-tower",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-cocone-is-colimit",
         "FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root",
@@ -41879,7 +41962,7 @@
     {
       "id": "STACK-GEOM",
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply the algebraic-space representable-diagonal and atlas interface, scheme/space chart fibre products and effective fpqc descent of affine schemes and their morphisms. Identify faithful flatness of an affine ring map with flatness and surjectivity of its Spec map. Ordinary quotient stacks/two-fibre products are imported from D0; algebraicity of finite root quotients is requested from R09.4 and their coarse universal property from R09.5. No foundational stack carrier or root stack is rebuilt here.",
+      "need": "Integrate the current SchemeAndStackFoundations §§1.18–1.23 stackification, two-fibre product, quotient, algebraic-stack, diagonal/atlas and finite-root interfaces on the actual native scheme site. Reuse its ordinary affine fpqc descent and the flat-surjective Spec criterion. The remaining contract is compatibility of those carriers, charts and arrows with native root data and big-site universes; the exact nonreduced finite-diagonalizable coarse extension is RS1-DIAGONALIZABLE-COARSE. No foundational stack carrier, finite root or general quotient theorem is replanned here.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -41932,7 +42015,8 @@
         "FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid",
         "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation",
         "FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid"
-      ]
+      ],
+      "assemblyDisposition": "Native places, valuation completions, residue maps, divisors, restricted products and finite-precision weak approximation are existing inputs, not new targets. The live application boundary is GC2-COMPLETED-LATTICES and GC6-CURVE-DICTIONARY, including weighted curve degrees and root frames."
     },
     {
       "id": "FA-RECIPROCITY",
@@ -41948,27 +42032,24 @@
       "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
       "need": "Supply the scheme finite-étale-cover/fibre-functor equivalence and projective-space simple connectivity in the stated geometric setting. The packet’s existing IG.2 specialization nodes do not provide IG.0. Root-stack extensions are separately gap ST-LISSE, not silently asserted by this scheme request.",
       "neededBy": [
-        "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
-        "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
         "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
         "FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent"
-      ]
+      ],
+      "assemblyDisposition": "GC.3 consumers now use their exact accepted follow-up node ids. Remaining scheme projective-space input is GC4-PROJECTIVE-PI1; this record is historical where neededBy is empty."
     },
     {
       "id": "TAME-INERTIA",
       "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
       "need": "Supply geometric/arithmetic scheme fundamental-group exact sequences and tame local inertia for punctured smooth curves, with the arithmetic/geometric Frobenius conventions. The root-stack inertia comparison is separately gap ST-LISSE.",
-      "neededBy": [
-        "FunctionFieldArithmeticPartII:GC.3/tame-local-systems"
-      ]
+      "neededBy": [],
+      "assemblyDisposition": "GC.3 consumers now use their exact accepted follow-up node ids. Remaining scheme projective-space input is GC4-PROJECTIVE-PI1; this record is historical where neededBy is empty."
     },
     {
       "id": "DUALITY-SCHEME",
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
       "need": "Supply the scheme graded Poincaré pairing and its rank-one/dual-character vanishing interface. The smooth-DM and rational tame-coarse comparisons consumed here require the shared stacks Part II and remain gap ST-OPS.",
-      "neededBy": [
-        "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing"
-      ]
+      "neededBy": [],
+      "assemblyDisposition": "GC.3 consumers now use their exact accepted follow-up node ids. Remaining scheme projective-space input is GC4-PROJECTIVE-PI1; this record is historical where neededBy is empty."
     },
     {
       "id": "JAC-A",
@@ -41991,8 +42072,8 @@
     },
     {
       "id": "ORDINARY-STACKS",
-      "supplier": "DiamondsAndVStacks:D0",
-      "need": "On the fixed fpqc scheme site, use the existing ordinary quotient/two-fibre-product node and supply [A1/Gm] as the stack of native invertible modules with sections, with its monoidal power maps. The inverse-system carrier must retain transition isomorphisms and cocycles. Infinite affine-group quotients use fpqc torsors and do not assert algebraic finite presentation.",
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Import generic stackification/two-fibre products and site-independent quotients from current SchemeAndStackFoundations §§1.18 and 1.21, and the line-with-section classifier and finite roots from §1.21. DiamondsAndVStacks D0 is the Perf/v instance, not the generic scheme-site owner. Native coherent-root limit carriers remain the RS2-LIMIT-TYPING contract; big-site universe adapters remain explicit.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -42012,7 +42093,8 @@
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.1/affine-chart",
         "FunctionFieldArithmeticPartII:RS.1/regular-dm"
-      ]
+      ],
+      "assemblyDisposition": "Current generic owner is SchemeAndStackFoundations §§1.19–1.23. Reuse that roadmap. RS1-DIAGONALIZABLE-COARSE retains the nonreduced diagonalizable coarse generality; the relative/native comparisons stay local."
     },
     {
       "id": "ROOT-COARSE",
@@ -42020,17 +42102,19 @@
       "need": "For a finite diagonalizable group acting on an affine scheme, give the quotient stack’s coarse-space universal property from its invariant algebra, with compatibility under arbitrary base change in this linearly reductive case. Distinguish it from general finite-inertia flat/tame base-change statements and from a fine moduli object.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.1/coarse-space"
-      ]
+      ],
+      "assemblyDisposition": "Current generic owner is SchemeAndStackFoundations §§1.19–1.23. Reuse that roadmap. RS1-DIAGONALIZABLE-COARSE retains the nonreduced diagonalizable coarse generality; the relative/native comparisons stay local."
     },
     {
       "id": "TOWER-AFF",
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "For a positive-divisibility system of finite μ_n frame torsors over any test scheme T, with affine faithfully flat transition maps inducing μ_(nm)→μ_n, prove the affine inverse limit is faithfully flat over T and an fpqc lim μ_n torsor. Finite quotient gives the original torsors, with all comparisons and arrows; filtered colimit commutes with the tensor products in the torsor equation. Supply the finite-type affine-chart/closed-point residue-field comparison over Q used in the non-fppf example.",
+      "need": "Integrate the ordinary affine inverse-limit carrier and its finite projections with the locally owned RS.2/flat-torsor-tower-limit statement, coframe-inverse-limit and coframe-fpqc-torsor. Its finite-flat torsors, affine faithfully flat transitions, tensor-product comparison, finite quotient recoveries and arrows are specified by those exact nodes; do not commission a second generic torsor-tower theorem. Supply the finite-type affine-chart/closed-point residue-field comparison over Q used by RS.2/non-fppf-torsor.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
         "FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient",
         "FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf"
-      ]
+      ],
+      "assemblyDisposition": "Generic torsor-tower statement is now planned locally by RS.2/flat-torsor-tower-limit; RS2-TOWER-AFF retains only its affine-limit/finite-projection integration. Do not commission a duplicate theorem."
     },
     {
       "id": "KUMMER-FINITE",
@@ -42045,94 +42129,82 @@
   "coverage": [
     {
       "stageId": "FunctionFieldArithmeticPartII:RS.0",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Complete JAC-A’s native invertible-sheaf integration and section/unit coordinate comparisons, importing AlgebraicVectorBundles L0A–L0B tensorSection and coherent module pullback; prove the root-specific section-power laws recorded by LEAN-SECTION-COMP.",
-        "Construct the actual native sheaf RootObject-to-FramedRoot comparison, with both section and power-identification equations and every unit-labelled arrow. Prove local line-frame existence and compatibility with arbitrary test-algebra change.",
-        "Use the specified positive-exponent normalization fppf covers to compare locally trivial root data and stackify. Retain zero-section stabilizers, nonzero nilpotents, wild exponents and nonflat coefficient maps; a faithful normalization functor does not make coefficient change faithful.",
-        "Supply general root-object pullback and tensor-power coherence and the higher-universe adapters, beyond the existing two- and three-step chosen affine normalization comparisons. Finish the omitted native geometric signatures recorded by LEAN-GEOMETRY; the current admitted native file elaborates at the exact pins."
+        "Implement the accepted parent targets and RS.0 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:RS.1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve STACK-GEOM, JAC-A and ORDINARY-STACKS for the actual scheme/stack-base root groupoid, its universal root and two-fibre-product presentation; retain the single canonical reserved owner FunctionFieldArithmeticPartII:key/root-stacks.",
-        "Complete the native arbitrary-QCoh fpqc descent equivalence with tensor/unit comparisons and apply it effectively to root objects and arrows in root-fpqc-descent. An affine framed normalization calculation does not provide global line-bundle descent.",
-        "Resolve ROOT-ALGEBRAIC and ROOT-COARSE for the finite diagonalizable quotient, coarse universal property, arbitrary base-change compatibility and the regular/DM hypotheses. Preserve the full nonreduced closed fibre, its separate reduced gerbe, and the distinction between arbitrary positive exponents and invertible exponents.",
-        "Finish the actual geometric signatures in LEAN-GEOMETRY. The canonical admitted file now elaborates at both exact pins; its native invariant-algebra evidence does not close the quotient-stack comparisons."
+        "Implement the accepted parent targets and RS.1 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:RS.2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Construct coherent reindexing of native line-bundle root-object groupoids over all positive divisibility indices and compare their genuine two-limit, on objects, arrows and cocycles, with the factorial system. The existing affine point groupoid diagram does not supply this comparison.",
-        "Resolve TOWER-AFF and TOWER-TYPING: construct local line frames and the inverse limit of finite frame torsors, prove it is an fpqc torsor, and establish the infinite affine quotient equivalence with all finite projections and base changes. The existing affine Spec limit, coaction, invariant algebra and Cartesian tensor comparison are retained prerequisites, not remaining algebraic tasks.",
-        "Resolve KUMMER-FINITE and prove finite-stage class lifting and isomorphism detection for actual coherent torsor towers. Identify the reduced infinite DVR gerbe after a chosen neutralization, including its automorphisms and the change of origin under a different neutralization.",
-        "Retain infinite H1 and torsors on the fpqc site, finite Kummer on the fppf site, and the compatible roots-of-two torsor over Q that is not fppf-locally trivial. Do not replace a two-limit by an inverse limit of sets or by base-field points.",
-        "Resolve the shared STACK-GEOM, JAC-A and ORDINARY-STACKS carriers, complete higher-universe adapters, and finish the actual geometric signatures omitted under LEAN-GEOMETRY. No algebraicity of finite presentation is asserted for the infinite quotient."
+        "Implement the accepted parent targets and RS.2 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.0",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve CURVE-GEOM and STACK-GEOM with ORDINARY-STACKS: actual Picard stacks in every integer degree, the root rigidification square-action quotient and its gerbe, and the version retaining a root section on R.",
-        "Type the root Picard data and their tensor/dual coherence using actual supplier carriers (LEAN-GEOMETRY). Retain the distinction between a section only on R and a global section, and avoid requiring a chosen degree-one rational point."
+        "Implement the accepted parent targets and GC.0 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve CURVE-GEOM and STACK-GEOM for the relative evaluation two-pullback, incidence strata and transverse smoothness criterion, symmetric coarse space, root addition and both Abel-Jacobi maps.",
-        "Complete actual geometric signatures (LEAN-GEOMETRY) for hat spaces, their effective opens and ordered divisor maps; preserve zero global sections and nonreduced bases in the hat space, and nonrepresentable proper quasi-finite ordered maps at branch collisions."
+        "Implement the accepted parent targets and GC.1 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve FA-ADELES and CURVE-GEOM for function-field completions, residue units, idele gluing and the root Picard double-action groupoid with its degree.",
-        "Complete the actual signed right-action root-divisor groupoid and its separate Picard double-quotient functor (LEAN-GEOMETRY), retaining both positive and negative divisors, principal ideles before the further quotient, labelled product-of-mu_2 stabilizers and the O_X(−E) valuation sign."
+        "Implement the accepted parent targets and GC.2 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve PI1 and TAME-INERTIA and the distinct stack gap ST-LISSE for the root-curve inertia correspondence and extension/full faithfulness on the relevant tame DM stacks; global rank-one monodromy is not restricted to order two.",
-        "Resolve ST-OPS and DUALITY-SCHEME for rational constructible/lisse sheaf operations, finite tame groupoid fibres, intermediate extension, curve cohomological bounds and Frobenius-compatible duality. Scheme results alone do not give these stack comparisons.",
-        "Resolve EXTERIOR-COMP for native graded antisymmetrization with Koszul signs and the Frobenius-equivariant exterior-power comparison, including d=0 and the vanishing range.",
-        "Finish LEAN-GEOMETRY signatures and the collision, multiplicativity, associativity and symmetry comparisons with rational averaging, including when ell divides d!."
+        "Implement the accepted parent targets and GC.3 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve CURVE-GEOM for family evaluation/base change at d >= deg(R) + max(2g-1,1), the affine fibre chart and its exact weights, without replacing coherent Riemann-Roch in families by a function-field dimension formula.",
-        "Resolve STACK-GEOM, PI1 and ST-LISSE for the weighted-cover ramification proof and effective high-degree Abel-Jacobi descent with full faithfulness; handle empty R through the separate ordinary projective-fibre comparison.",
-        "Complete LEAN-GEOMETRY signatures with the specified fibre charts and descent theorem. Connected fibres alone do not supply effective descent."
+        "Implement the accepted parent targets and GC.4 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.5",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve CURVE-GEOM and the inherited GC.3/GC.4 sheaf descent inputs for effective auxiliary divisors away from R, translation, and all-integer-degree character sheaves without assuming a degree-one rational point.",
-        "Complete LEAN-GEOMETRY signatures for choice comparisons and their cocycles, effective and hat Abel-Jacobi pullbacks, unit, all-degree multiplication, associativity and symmetry. Retain zero-section stalks on the entire hat space."
+        "Implement the accepted parent targets and GC.5 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     },
     {
       "stageId": "FunctionFieldArithmeticPartII:GC.6",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Resolve STACK-GEOM and CURVE-GEOM for the root multiplicative sheaf, ramified norm and residue-square comparisons, norm sections and the actual root Picard torsor interpretation.",
-        "Resolve NORM-2EXACT by specifying connecting maps, compatible null-homotopies and effective descent obstructions for the four-term exact sheaf complex. Do not substitute ordinary kernel exactness on line-bundle classes; keep the quadratic trace argument separate.",
-        "Resolve FA-ADELES, FA-RECIPROCITY and FA-APPROX for support-moving approximation preserving all residue-root frames and character determination modulo the actual modified-unit image.",
-        "Complete LEAN-GEOMETRY signatures and the closed-point cyclic Frobenius trace computation, all-degree character comparison and quadratic split/inert values, retaining geometric Frobenius and inverse-uniformizer conventions."
+        "Implement the accepted parent targets and GC.6 refinements; planning completeness does not imply geometric closure or implementation.",
+        "Discharge the precise supplier/interface and native-signature frontiers collected under this layer in the aggregate reader and assembly handoff."
       ]
     }
   ],
@@ -42140,10 +42212,8 @@
     {
       "id": "ST-LISSE",
       "title": "Root-stack lisse categories and effective descent",
-      "detail": "The atlas scheme lisse/fundamental-group suppliers do not yet provide root-curve inertia comparison, full faithfulness on dense opens of normal DM stacks, or the nonproper high-degree Abel–Jacobi locally trivial-fibration descent theorem with the explicit affine fibre charts. Obtain source-qualified proofs from the coordinated EtaleDualityAndPerverseSheavesPartIIStacks proposal. Its ST.0–ST.6 keys are provisional, not registered stages or reserved node IDs, and are not used as pretend prerequisites. This is a typed-and-proof leaf, not a claim that connected fibres alone imply descent.",
+      "detail": "Shared stack-lisse interface, consolidated as ASM-STACK-LISSE in the assembly handoff: normal DM finite-cover/monodromy comparison and atlas descent (GC3-STACK-PI1), with smooth Artin-stack lisse descent, local adic coefficients and Hom/tensor/base-change compatibility (GC4-LISSE-ADAPTER). GC.4 uses the reviewed proper-quotient/chart-gluing route, not a general nonproper Abel–Jacobi descent assertion. The proposed EtaleDualityAndPerverseSheaves stacks Part II is the intended owner; its provisional ST stage names are not registered prerequisites.",
       "neededBy": [
-        "FunctionFieldArithmeticPartII:GC.3/tame-local-systems",
-        "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
         "FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected",
         "FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent",
         "FunctionFieldArithmeticPartII:GC.4/high-degree-descent"
@@ -42152,19 +42222,16 @@
     {
       "id": "ST-OPS",
       "title": "Source-qualified sheaf operations for the nonrepresentable ordered map",
-      "detail": "Supply Q̄ℓ constructible/lisse categories on these tame DM stacks, external tensor/Künneth, proper base change, rational finite-groupoid cohomology vanishing, the precise quasi-finite nonrepresentable pushforward/intermediate-extension theorem and the lisse rank-one extension criterion. Supply smooth-DM duality and the curve cohomological bound. Scheme EDC.5 or EDC.7 alone cannot serve as these statements, and no unrestricted Artin-stack boundedness or decomposition theorem is inferred.",
+      "detail": "The parent pushforward/perverse description retains a precise stack comparison frontier: GC3-STACK-PUSHFORWARD supplies proper base change for the nonrepresentable ordered map, and GC3-COARSE-STALKS supplies coarse pushforward, nilpotent invariance and Leray. Rational finite-group acyclicity is planned by the accepted GC.3 follow-up; cohomology, Künneth and duality proceed on schemes. Consumers needing only the lisse line use monodromy-symmetric-local-system. No general stack decomposition theorem is assumed.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.3/symmetric-local-system",
-        "FunctionFieldArithmeticPartII:GC.3/middle-extension",
-        "FunctionFieldArithmeticPartII:GC.3/collision-descent",
-        "FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing",
-        "FunctionFieldArithmeticPartII:GC.3/exterior-cohomology"
+        "FunctionFieldArithmeticPartII:GC.3/middle-extension"
       ]
     },
     {
       "id": "NORM-2EXACT",
       "title": "Picard-stack consequence of the four-term exact sheaf complex",
-      "detail": "Specify the coherent exactness notion intended in (A.11), its null-homotopies and descent obstructions, and prove the precise consequence from the two short exact sheaf sequences. For the ramified cover P¹→P¹, t↦t², O(1) is σ-invariant while pullback degrees are even; this rejects ordinary kernel exactness. A bare isomorphism L′≅σ*L′ does not supply the missing compatible root-normalized descent data. This is a new source-interpretation gap, not a proof of false intended two-categorical exactness. It does not block the independent Proposition A.12 trace proof.",
+      "detail": "The accepted GC.6/torsor-fibre-sequences, connecting-maps, norm-descent-obstruction and invariance-versus-descent now specify the based fibres, compatible norm trivializations and primary/secondary cohomological obstructions. Their actual geometric/torsor carriers remain to be integrated. Source issue E8 remains an interpretation qualification of (A.11), not a missing statement of ordinary Picard-class exactness and not a claim to know the authors’ intended two-categorical exactness.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.6/picard-descent-obstructions"
       ]
@@ -42172,25 +42239,16 @@
     {
       "id": "FA-APPROX",
       "title": "Support-moving approximation with all residue-root frames",
-      "detail": "The final character-determination step needs strong approximation that moves a root-Picard representative away from R while matching its chosen square-root frames, modulo the actual modified-unit image. The parent stages state general arithmetic objects but have no exact blueprint node giving this contract. The requested precise statement and its closed-point generator proof must be supplied.",
+      "detail": "Generic finite-precision weak approximation already exists at the pins. GC.6/unit-residue-approximation, root-framed-support-moving and actual-unit-image-determination specify its application, including the empty family and the actual modified-unit image. The remaining integration is the closed-point/place/rational-line-frame dictionary requested by GC6-CURVE-DICTIONARY, not a new generic approximation theorem.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:GC.6/away-ramification-generation",
         "FunctionFieldArithmeticPartII:GC.6/quadratic-trace"
       ]
     },
     {
-      "id": "EXTERIOR-COMP",
-      "title": "Comparison of graded antisymmetrization with the native exterior power",
-      "detail": "Confirm or add the exact native exterior-power equivalence for graded degree-one tensor invariants, with rational averaging and Frobenius functoriality. The baseline declaration read gives the exterior-power type, not this comparison theorem; no claim that the comparison is already built is made.",
-      "neededBy": [
-        "FunctionFieldArithmeticPartII:GC.3/koszul-exterior",
-        "FunctionFieldArithmeticPartII:GC.3/exterior-cohomology"
-      ]
-    },
-    {
       "id": "LEAN-GEOMETRY",
       "title": "Signatures blocked by absent geometric carriers",
-      "detail": "The suggested file prototypes the native root-object and affine-action fragment. All other geometric signatures need the actual algebraic-stack, Picard-stack, torsor, root pullback and constructible/lisse sheaf types from the requests and ST-LISSE/ST-OPS. The file carries an exhaustive omission ledger by declaration/API/test name; it does not replace missing types or conditions with arbitrary predicate fields. Complete those typed signatures after their suppliers fix their concrete types, and compile with an existing pinned build. The complete admitted native file now elaborates against both exact pins. The omission ledger still has no typed actual geometric signatures, so that compilation does not close this gap. Review checkpoint: rootDivisorGroupoid and its six API/four test signatures require the actual action-groupoid, idele, divisor and Picard carriers. Their omission ledger is explicit in the suggested file; no arbitrary predicate substitutes for these types.",
+      "detail": "The aggregate Suggested file now contains only light real-bodied native definitions, milestone statements and representative examples. The complete target/API/test catalogue and geometric omission ledger are in the aggregate reader. Actual root/quotient/Picard/torsor/stack-lisse carriers and coherent native adapters remain absent at the atlas pins; elaboration of coordinate statements does not implement these geometric targets. Historical large prototype files are superseded as suggested forms.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -42293,7 +42351,7 @@
     {
       "id": "TOWER-TYPING",
       "title": "Typed infinite fpqc comparison and root-limit coherence",
-      "detail": "The finite affine maps/basis and root-specific proof leaves are explicit. Complete the TOWER-AFF limit-torsor verification on native affine schemes and the factorial compatible-object comparison with the actual root groupoid carrier. The infinite quotient/Kummer/geometric signatures still need those carriers; native finite algebra signatures do not certify the infinite comparison. The native affine-chart IsLimit, universal maps and factorial/coefficient scheme comparisons now have explicit contracts and separate proof evidence; the remaining TOWER-AFF and coherent root-groupoid obligations are unchanged. The arbitrary affine-chart coefficient square now has an explicit native ring pushout, tensor equivalence and categorical scheme pullback with both projections. This discharges the affine Cartesian comparison only; higher-universe, coherent root-groupoid and TOWER-AFF fpqc obligations remain open. The actual affine tensor base-change comparison now intertwines the universal rational-character coaction and identifies its tensor equalizer with B. The coherent root-groupoid and TOWER-AFF fpqc comparisons remain open. The actual finite root ring and scheme diagrams now have coefficient natural transformations for every positive index, with identity/composition coherence. The existing infinite coefficient map restricts to every finite level, and its actual affine scheme base-change isomorphism and inverse respect every finite projection. This discharges the affine finite-projection square only. Higher-universe adapters, coherent root-object groupoid reindexing and finite projections for the general stack comparison, TOWER-AFF fpqc frame torsors and actual infinite quotient/descent on objects and arrows remain open. All ten stages, eight gaps, thirteen requests, both paper routes, full omission ledger, finite Kummer/DVR bridges and geometric sheaf obligations retain their scope. The finite affine charts now have actual algebra-valued point action groupoids retaining every roots-of-unity arrow label, native power functors for all positive n|N, and change-of-test-algebra functors. Root images and labels satisfy identity/composition power laws and commute with test-algebra change. This discharges a finite chart point-and-arrow prerequisite only: no general line-bundle root-object equivalence, coherent infinite groupoid reindexing, frame-torsor existence, fppf stackification or fpqc quotient/descent is inferred. Higher-universe adapters and every existing TOWER-TYPING/TOWER-AFF geometric obligation remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes and the complete omission ledger retain their scope. The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope. An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged. For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations. For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation. Normalization covers now commute with arbitrary changes of the test A-algebra. For phi:B to C and p=(u,y), the actual A-algebra map Dp to D(phi p) sends T to T and coefficients through phi, preserves identity and composition, and commutes with every actual framed-arrow normalization map. Its coefficient square is a native ring pushout, hence its spectrum square is Cartesian. The native isomorphism with the chosen scheme pullback has both forward and inverse projection formulas, for every natural exponent. For positive exponent these components form a native natural transformation between the underlying normalization cover functors; the whole chart natural transformation factors through it exactly, and each component gives the Cartesian square of the existing singleton fppf covers. No flatness or injectivity of phi is assumed: over Z/4 to Z/2 a nonzero square-zero normalized section is killed. Wild exponents and zero rings remain allowed. Native sheaf RootObject comparison, local frame existence, stackification, effective fpqc descent, coherent iterated scheme comparisons, infinite genuine 2-limits and higher-universe adapters remain open, as do all inherited source, supplier and geometric obligations. Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations. Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations. For every positive exponent and arbitrary change of test A-algebra, the actual chosen-frame normalization functor now has a native natural isomorphism over Spec C with the native Over.pullback of the normalization functor over Spec B. Its components use the existing chosen scheme comparison followed by native symmetry; both forward and inverse projections and actual framed-arrow naturality are specified. The actual native adjunction counit, specialized to normalization, recovers the previous normalizationChangeNatTrans through this isomorphism, and the whole normalized-chart natural transformation transports in both directions. The nonflat Z/4 to Z/2 tests kill a nonzero square-zero section and collapse a nonidentity minus-one stabilizer; no faithfulness of coefficient change or pullback is asserted. Wild exponents and zero rings are retained. General native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, higher coherence, infinite genuine 2-limits and higher-universe adapters remain open. All ten stages, eight gaps, thirteen requests, forty planets, both paper routes, the full omission ledger and inherited source findings retain their scope.",
+      "detail": "Integrate the coherent root and torsor carriers, fpqc quotient and universe adapters specified by RS.2. The generic finite-flat-torsor tower theorem is owned here as RS.2/flat-torsor-tower-limit, consumed by coframe-inverse-limit/coframe-fpqc-torsor. Native algebra calculations alone do not supply the geometric comparison.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.2/factorial-root-limit",
         "FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit",
@@ -42310,7 +42368,7 @@
       "roadmaps": [
         "FunctionFieldArithmeticPartII"
       ],
-      "detail": "The two issue briefs share the FunctionFieldArithmetic parent but have different targets and proof closures. Yun–Zhang Appendix A builds rank-one sheaves with root ramification; AV §§3–6/App. D uses everywhere-unramified Sp/GSp systems, spinor norms, Hurwitz monodromy and Hilbert–Siegel slices. No proof of either endpoint consumes the other endpoint. Root stacks remain owned here even after the split.",
+      "detail": "The two issue briefs share the FunctionFieldArithmetic parent but have different targets and proof closures. Yun–Zhang Appendix A builds rank-one sheaves with root ramification; AV §§3–6/App. D uses everywhere-unramified Sp/GSp systems, spinor norms, Hurwitz monodromy and Hilbert–Siegel slices. No proof of either endpoint consumes the other endpoint. The coherent infinite-root and root-Picard applications remain here after the split; generic finite roots are imported from current SchemeAndStackFoundations §1.21.",
       "proposal": "Keep FunctionFieldArithmeticPartII with stages RS.0–RS.2 and GC.0–GC.6 for the first route. Create the sibling SymplecticLFunctionsModSquares, parent FunctionFieldArithmetic, area etale, title “Global function fields, reciprocity and automorphic foundations, Part II: central values of symplectic L-functions mod squares”, with stage assignments below. Both keep the parent as their first roadmap prerequisite. Preserve all 38 contracts, source issues and route-A imports; do not reassign AV to the root-stack stages.",
       "stageAssignments": [
         {
@@ -42913,8 +42971,9 @@
         "SchemeAndStackFoundations",
         "FunctionFieldArithmeticPartII"
       ],
-      "detail": "The YZ19 extraction’s earlier SF.1 generic-root assignment predates this issue’s explicit reserved canonical owner.",
-      "proposal": "D0 supplies ordinary quotient groupoids, two-fibre products and the classifying-pair carrier. SF.1 supplies scheme/affine descent and chart comparisons. R09.4 supplies finite-quotient algebraicity and R09.5 the coarse universal property. The single owner for finite/infinite roots, root-fibre calculations and DVR towers is FunctionFieldArithmeticPartII:key/root-stacks and RS.0–RS.2. Update YZ19/160 and Bresciani/36–37 consumers to those node IDs. Do not add a broad SF.1 reverse dependency creating a cycle."
+      "detail": "The earlier local reservation for all roots predates the merged generic SchemeAndStackFoundations finite-root contract. Current upstream ownership governs this assembly.",
+      "proposal": "Import generic stackification/two-fibre products from SchemeAndStackFoundations §1.18 and the line-section classifier, site-independent quotients and finite root stacks (including transitions, affine charts and nonreduced zero fibres) from §1.21. Its §3.4 supplies the native Picard core; AlgebraicVectorBundles supplies coherent native tensor/section/pullback. Preserve the local finite-root ids only as native specialization/comparison anchors. FunctionFieldArithmeticPartII RS.2 owns the coherent infinite diagram, fpqc quotient and DVR/Kummer application; GC.0–GC.6 own the root-Picard application. RS.1 retains relative/stack-base/wild geometry and the precise nonreduced diagonalizable coarse request. Point YZ19/160 and Bresciani/36–37 at those contracts according to their finite or infinite scope. Do not replan a generic finite root or use DiamondsAndVStacks D0, the Perf/v instance, as the generic scheme-site owner.",
+      "assemblyDisposition": "Supersedes the old all-roots-local ownership proposal; this is an ownership correction for independent assembly review, not a change to any review verdict or a performed atlas restructure."
     },
     {
       "action": "rescope",
@@ -42923,7 +42982,8 @@
         "FunctionFieldArithmeticPartII"
       ],
       "detail": "The generic scheme EDC roadmap cannot supply the DM-stack operations required for root symmetric powers and Picard stacks.",
-      "proposal": "Coordinate with the already proposed EtaleDualityAndPerverseSheavesPartIIStacks owner in the repaired YZ17/YZ19 routes. Place ST-LISSE/ST-OPS there, with finite-type tame-DM and coefficient hypotheses. Preserve its existing Artin-stack limits, boundedness conditions and groupoid weighting; the local root-Picard application and character construction remain here. Its unregistered provisional ST keys are not valid existing dependencies."
+      "proposal": "Coordinate with the already proposed EtaleDualityAndPerverseSheavesPartIIStacks owner in the repaired YZ17/YZ19 routes. Place ST-LISSE/ST-OPS there, with finite-type tame-DM and coefficient hypotheses. Preserve its existing Artin-stack limits, boundedness conditions and groupoid weighting; the local root-Picard application and character construction remain here. Its unregistered provisional ST keys are not valid existing dependencies.",
+      "assemblyDisposition": "Consolidate the exact GC3-STACK-PI1 and GC4-LISSE-ADAPTER facets as ASM-STACK-LISSE. Retain GC3-STACK-PUSHFORWARD and GC3-COARSE-STALKS separately. GC.3 cohomology uses its rational coarse/scheme route; GC.4 uses its proper-quotient/chart-gluing route. No general decomposition theorem or nonproper descent theorem is commissioned."
     }
   ],
   "sourceIssues": [
@@ -53130,5 +53190,42 @@
       "sourceBoundary": "Both source routes and the 38-contract symplectic split inventory remain unchanged; completing the pass does not accept the split or certify its proposed sibling stages.",
       "compilation": "No Lean run in this pass. The canonical file still lacks an existing exact-pin Tau Ceti build; predecessor proof receipts are preserved and attributed separately."
     }
-  ]
+  ],
+  "assembly": {
+    "job": "ASM-FunctionFieldArithmeticPartII",
+    "issue": 9244,
+    "agent": "Codex — codex-PJFFPa",
+    "date": "2026-10-18",
+    "reader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "suggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "parts": [
+      "RS.0",
+      "RS.1",
+      "RS.2",
+      "GC.0",
+      "GC.1",
+      "GC.2",
+      "GC.3",
+      "GC.4",
+      "GC.5",
+      "GC.6"
+    ],
+    "targets": 834,
+    "reviewBoundary": "Review verdicts are retained unchanged. Assembly prerequisite, ownership, proof-route and gap reconciliations require the independent assembly review; no implementation is claimed.",
+    "retiredGaps": [
+      {
+        "id": "EXTERIOR-COMP",
+        "resolution": "Accepted GC.3/alternating-invariants-exterior and current-library import contracts specify the formerly missing comparison; implementation remains unchecked."
+      }
+    ],
+    "upstreamSnapshot": {
+      "localRoadmaps": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "currentLibrary": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "remoteRoadmaps": "9a305e195e7870e5136053897997f7538a01121e",
+      "finiteRoots": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a305e195e7870e5136053897997f7538a01121e/TauCetiRoadmap/SchemeAndStackFoundations/README.md"
+    },
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "planetReconciliation": "RS.1 retains Root stacks plus the five native-refinement planets. Four parent supporting contracts lose only their planet designation; all target/API/test content is retained."
+  }
 }

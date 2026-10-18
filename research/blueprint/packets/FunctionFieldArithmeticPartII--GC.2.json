@@ -1040,5 +1040,10 @@
         "note": "Negative weighted degree, principal-idele invariance and inverse uniformizer checked; corrected the diagram to forget roots before factoring through ordinary divisors."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }

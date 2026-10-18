@@ -1,8425 +1,1040 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document is
-definitive. These signatures suggest Lean forms so that contributors and
-reviewers converge on names and signatures. No implementation is claimed.
+This file is not the roadmap and is not exhaustive. The companion roadmap document
+research/blueprint/readmes/FunctionFieldArithmeticPartII.md is definitive: it states
+all targets, hypotheses, prerequisites, APIs, checks, worked examples and sources.
+These suggested forms coordinate names and signatures; no implementation is claimed.
 
-The planning pass is complete at the protocol node budget; every stage remains
-partial. All declaration bodies and the geometric omission ledger are retained.
-Complete planning status does not certify this file or close its geometric gaps.
+Atlas pins: Tau Ceti f790474821cf4256814db967cb154e7af3d0c369;
+Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
 
-The native fragment uses the pinned invertible-sheaf and quotient-ring types.
-The omission ledger below records signatures needing actual geometric types
-from other roadmap owners. It does not replace them with assumed predicates.
-The complete file elaborated on 2026-10-11 at Mathlib 082e2d3 and Tau Ceti
-f790474, with zero errors and only admitted-proof warnings. The six failing
-native diagram/cocone/coefficient-naturality proof fields use admissions, as
-required for this suggested-signature file. Missing geometric signatures stay
-in the omission ledger; elaboration does not construct those carriers or
-certify any implementation.
-The finite action-comparison fragment was checked against pinned Mathlib with
-its native character generator expanded. The suggested bodies are admitted
-under PROTOCOL §13; separate proof-prototype evidence is recorded in the handoff;
-this does not certify the complete file or any implementation.
+The ten reviewed fragments are joined in layer order. Only light definitions over
+existing native carriers, milestone signatures and representative examples remain.
+In particular, the former large parent prototype, GC.2's diagonal/action/functor
+construction and GC.3's private reconstructions of existing exterior maps are README
+specifications/imports. Their removal from suggested forms changes no target or test.
+
+Omission ledger (every named target/API/test remains in the reader's layer catalogue):
+RS.0: native root pullback, frame/chart equivalences, stackification and universe maps.
+RS.1: native comparison with upstream finite roots, universal root, stack base change,
+quotient/algebraicity/coarse, regularity and the exact DM locus. Coordinate rings below
+are genuine rings, not geometric stack carriers.
+RS.2: native root pseudodiagram and two-limit, finite-flat-torsor tower theorem,
+coframes, fpqc quotient, DVR gerbe, Kummer H1 and non-fppf torsor comparisons.
+GC.0: root Picard pseudofunctor, tensor/dual/degree coherence, frame quotient and gerbe.
+The light fibre data below do not construct a groupoid or stack instance.
+GC.1: relative evaluation and effective opens, incidence/smooth/coarse/fibre charts,
+root addition, ordered map and Abel–Jacobi. The product below only uses native μ₂.
+GC.2: generic/local frames, gluing and both signed right/double action groupoids,
+Abel–Jacobi and stabilizer comparisons. Only native local-unit coordinates occur here.
+GC.3: the current-library exterior comparison, monodromy lisse line, coarse model,
+rational coarse comparison, twisted curve and symmetric cohomology, and pushforward
+comparison. The Koszul action below is a sign twist of the existing tensor action.
+GC.4: family fibre, proper scalar quotient, chart descent line and effective gluing.
+GC.5: signed divisor lines, normalized all-degree character, translation and hat pullback.
+GC.6: geometric root-unit sheaf/torsors, norms, based fibres and obstruction maps,
+root-framed support moving, reciprocity and all-degree Frobenius character comparison.
+
+The actual stack/Picard/torsor/lisse carriers and their native adapters are absent at
+the pins. The reader and handoff retain their precise supplier frontiers, including
+ASM-STACK-LISSE. No arbitrary carrier, placeholder predicate or admitted data replaces
+them. Elaborating admitted proof statements certifies types, not the mathematics.
 -/
 
-import Mathlib.CategoryTheory.Comma.Over.Pullback
-
-import Mathlib.CategoryTheory.Comma.Over.Basic
-
-import Mathlib.AlgebraicGeometry.Sites.Fpqc
-
-import Mathlib.CategoryTheory.Functor.FullyFaithful
-
-import Mathlib.CategoryTheory.Groupoid.Grpd.Basic
-
-import Mathlib.CategoryTheory.Groupoid
-
-import Mathlib.AlgebraicGeometry.Pullbacks
-import Mathlib.Algebra.Category.Ring.Constructions
-import Mathlib.AlgebraicGeometry.GammaSpecAdjunction
-import Mathlib.CategoryTheory.Limits.Preserves.Basic
-import Mathlib.Topology.Instances.AddCircle.Defs
-import TauCeti.Algebra.AddCircle
-import Mathlib.RingTheory.Bialgebra.Convolution
-import TauCeti.Algebra.AlgebraicGroup.FunctorOfPoints
-import Mathlib.Algebra.Colimit.DirectLimit
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
-import Mathlib.Algebra.Category.CommAlgCat.Basic
-import Mathlib.CategoryTheory.Category.Preorder
-import Mathlib.Data.Nat.Factorial.Basic
-import Mathlib.Data.Nat.GCD.Basic
-import Mathlib.AlgebraicGeometry.Morphisms.Finite
-import Mathlib.AlgebraicGeometry.Morphisms.Flat
-import Mathlib.GroupTheory.Perm.Fin
-import Mathlib.Algebra.BigOperators.Intervals
-import Mathlib.Data.Nat.ModEq
-import Mathlib.Data.Finset.Prod
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Algebra.Field.ZMod
-import TauCeti.AlgebraicGeometry.LineBundle.TensorProduct
-import Mathlib.Algebra.Group.Fin.Basic
+import TauCeti.AlgebraicGeometry.LineBundle.Basic
+import TauCeti.Algebra.Category.ModuleCat.Sheaf.Free
+import TauCeti.Algebra.Category.ModuleCat.Sheaf.Invertible.LocalTriviality
 import Mathlib.AlgebraicGeometry.Modules.Sheaf
-import Mathlib.Algebra.Category.ModuleCat.Sheaf.Free
-import Mathlib.CategoryTheory.Core
+import Mathlib.AlgebraicGeometry.Scheme
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Tactic.NormNum
+import Mathlib.Algebra.MvPolynomial.Basic
 import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.RingTheory.RootsOfUnity.Basic
-import TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Basic
-import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
-import Mathlib.LinearAlgebra.TensorProduct.Basis
-import Mathlib.Algebra.Polynomial.Monic
-import Mathlib.Algebra.Polynomial.Degree.Operations
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
-import Mathlib.FieldTheory.Minpoly.Finite
-import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
-import Mathlib.RingTheory.Polynomial.GaussLemma
 import Mathlib.CategoryTheory.CofilteredSystem
-import Mathlib.RingTheory.TensorProduct.Maps
-import Mathlib.LinearAlgebra.Isomorphisms
-import Mathlib.LinearAlgebra.Quotient.Defs
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.Data.PNat.Basic
+import Mathlib.Basic.Real.Basic
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.FieldTheory.RatFunc.AsPolynomial
+import TauCeti.AlgebraicGeometry.LineBundle.TensorProduct
+import Mathlib.Algebra.DualNumber
+import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Data.Fin.VecNotation
+import TauCeti.Algebra.AlgebraicGroup.RootsOfUnity.Scheme
+import Mathlib.CategoryTheory.Action
+import Mathlib.Algebra.Group.Hom.Instances
+import Mathlib.Topology.Algebra.RestrictedProduct.Units
+import Mathlib.Topology.Algebra.Valued.WithVal
+import Mathlib.RingTheory.Valuation.ValuationSubring
+import Mathlib.FieldTheory.Finite.Basic
+import TauCeti.FieldTheory.FunctionField.Place.Zeros
+import TauCeti.FieldTheory.FunctionField.Divisor.ProductFormula
+import Mathlib.LinearAlgebra.ExteriorPower.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
+import Mathlib.LinearAlgebra.TensorPower.Basic
+import Mathlib.LinearAlgebra.Alternating.Basic
+import Mathlib.RepresentationTheory.Invariants
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Basic
+import TauCeti.RepresentationTheory.Symmetric.TensorAction.Invariants
+import Mathlib.Algebra.Ring.Pi
+import TauCeti.FieldTheory.FunctionField.Divisor.Basic
+import Mathlib.Algebra.Group.Subgroup.Ker
+import Mathlib.Algebra.Ring.PUnit
+import Mathlib.LinearAlgebra.PiTensorProduct.Finite
+import Mathlib.LinearAlgebra.Trace
+import Mathlib.Logic.Equiv.Fin.Rotate
+import TauCeti.FieldTheory.FunctionField.Place.Approximation
+
+noncomputable section
+
+/-! ## RS.0 -/
 
 open CategoryTheory AlgebraicGeometry
 
-noncomputable section
+namespace TauCeti.RootStack.RS0NativeSuggested
+
+universe u v
+
+section CoordinateEndConditions
+
+variable {B : Type u} {C : Type v} [CommRing B] [CommRing C]
+
+/-- Native-frame-change, with the source and target frames changed by actual units. -/
+theorem frameChange_equation (n : ℕ) (u a b : Bˣ) (y f : B)
+    (h : (u : B) * y ^ n = f) :
+    ((b * u * (a ^ n)⁻¹ : Bˣ) : B) * ((a : B) * y) ^ n = (b : B) * f := by
+  sorry
+
+/-- Native-frame-change on arrows: retain the section and the power-identification square. -/
+theorem frameChange_arrow (n : ℕ) (u q w a c b : Bˣ) (y z : B)
+    (hs : z = (w : B) * y) (hp : q * w ^ n = u) :
+    (c : B) * z = ((c * w * a⁻¹ : Bˣ) : B) * ((a : B) * y) ∧
+      (b * q * (c ^ n)⁻¹) * (c * w * a⁻¹) ^ n = b * u * (a ^ n)⁻¹ := by
+  sorry
+
+/-- Native-coefficient-naturality: an arbitrary ring map transports the root equation. -/
+theorem coefficientChange_equation (ψ : B →+* C) (n : ℕ) (u : Bˣ) (y f : B)
+    (h : (u : B) * y ^ n = f) :
+    ((Units.map ψ.toMonoidHom u : Cˣ) : C) * (ψ y) ^ n = ψ f := by
+  sorry
+
+/-- Native-coefficient-naturality on every labelled arrow, including zero sections. -/
+theorem coefficientChange_arrow (ψ : B →+* C) (n : ℕ) (u q w : Bˣ) (y z : B)
+    (hs : z = (w : B) * y) (hp : q * w ^ n = u) :
+    ψ z = ((Units.map ψ.toMonoidHom w : Cˣ) : C) * ψ y ∧
+      Units.map ψ.toMonoidHom q * (Units.map ψ.toMonoidHom w) ^ n =
+        Units.map ψ.toMonoidHom u := by
+  sorry
+
+/-- Native-local-normalization's section equation, conditional on the actual unit root.
+The existence and fppf cover are the accepted parent targets, not assumptions hidden in data. -/
+theorem localNormalization_equation (n : ℕ) (u r : Bˣ) (y f : B)
+    (hr : r ^ n = u) (hy : (u : B) * y ^ n = f) :
+    ((r : B) * y) ^ n = f := by
+  sorry
+
+/-- Native-chart-frame-independence: the ratio of two unit roots is a μ_n label. -/
+theorem transitionRoot_ratio (n : ℕ) (b r₁ r₂ : Bˣ)
+    (h₁ : r₁ ^ n = b) (h₂ : r₂ ^ n = b) :
+    (r₂ * r₁⁻¹) ^ n = 1 := by
+  sorry
+
+end CoordinateEndConditions
+
+section NativeCarrierChecks
+
+/-- The native coordinate bridge is an actual ring isomorphism, not definitional equality. -/
+example (B : CommRingCat.{u}) (b : B) :
+    (Scheme.ΓSpecIso B).hom ((Scheme.ΓSpecIso B).inv b) = b := by
+  sorry
+
+/-- Native line frames exist locally by an already implemented baseline declaration. -/
+example {X : Scheme.{u}} (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
+    Nonempty (TauCeti.SheafOfModules.LocalTrivializations.{u, u, u} (R := X.ringCatSheaf) M.obj) := by
+  exact ⟨TauCeti.SheafOfModules.LocalTrivializations.ofIsInvertible.{u, u, u} (R := X.ringCatSheaf) M.obj⟩
+
+/-- Native section transport along an actual module isomorphism has the required roundtrip. -/
+example {X : Scheme.{u}} {M N : X.Modules} (e : M ≅ N) (t : Γ(M, ⊤)) :
+    e.inv.app ⊤ (e.hom.app ⊤ t) = t := by
+  sorry
+
+end NativeCarrierChecks
+
+section WorkedCoordinateChecks
+
+-- FramedNativeRoot.test_zero / framedNativeEquiv.test_zero_arrows / chart-realization:
+-- the two distinct scalar labels preserve a zero section and its power identification.
+example : (1 : (ZMod 4)ˣ) ≠ -1 := by
+  decide
+
+example : ((-1 : (ZMod 4)ˣ) : ZMod 4) * 0 = 0 ∧
+    (-1 : (ZMod 4)ˣ) ^ 2 = 1 := by
+  norm_num
+
+-- FramedNativeEquiv.test_nonnormalized / chart-realization.test_not_surjective.
+example : (3 : ZMod 4) * (1 : ZMod 4) ^ 2 = 3 := by
+  norm_num
+
+example : ¬ ∃ z : ZMod 4, z ^ 2 = 3 := by
+  sorry
+
+-- The nonzero nilpotent example tests roots with section against the reduced gerbe shortcut.
+example : (3 : ZMod 9) ≠ 0 ∧ (3 : ZMod 9) ^ 2 = 0 := by
+  decide
+
+example : ¬ ∃ w : (ZMod 9)ˣ, (w : ZMod 9) * 3 = 0 := by
+  sorry
+
+-- An arbitrary test change may kill both a section and a nonidentity stabilizer.
+example (ψ : ZMod 4 →+* ZMod 2) : ψ 2 = 0 ∧ ψ (-1) = 1 := by
+  constructor
+  · simpa only [map_ofNat] using (show (2 : ZMod 2) = 0 from by decide)
+  · simpa only [map_neg, map_one] using (show (-1 : ZMod 2) = 1 from by decide)
+
+-- The exponent-zero tensor-power check must read one, even for a zero section.
+example {B : Type u} [CommRing B] : (0 : B) ^ 0 = 1 := by
+  norm_num
+
+-- Source-frame direction check: y'=2y requires u'=u/4 for n=2.
+example : (1 / 4 : ℚ) * (2 : ℚ) ^ 2 = 1 := by
+  norm_num
+
+end WorkedCoordinateChecks
+
+
+
+end TauCeti.RootStack.RS0NativeSuggested
+
+/-! ## RS.1 -/
+
+namespace TauCeti.FiniteRoot.RS1Suggested
+
 universe u
 
-namespace TauCeti.RootStack
+/-- The equation of the smooth frame presentation, with z = X 0 and q = X 1. -/
+noncomputable abbrev presentationRelation (A : Type u) [CommRing A] (f : A) (n : ℕ) :
+    MvPolynomial (Fin 2) A :=
+  MvPolynomial.X 0 ^ n - MvPolynomial.X 1 * MvPolynomial.C f
 
-variable {X : Scheme.{u}}
+/-- A[z,q,q⁻¹]/(zⁿ-qf), as the actual localization of a polynomial quotient. -/
+abbrev smoothPresentationRing (A : Type u) [CommRing A] (f : A) (n : ℕ) :=
+  Localization.Away
+    (Ideal.Quotient.mk (Ideal.span ({presentationRelation A f n} : Set (MvPolynomial (Fin 2) A)))
+      (MvPolynomial.X 1))
 
--- A section is the native value of the module presheaf on the top open.
-abbrev Section (L : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :=
-  Γ(L.obj, (⊤ : X.Opens))
-
-abbrev mapSection {L M : TauCeti.AlgebraicGeometry.InvertibleSheaf X}
-    (e : L ≅ M) (s : Section L) : Section M :=
-  e.hom.hom.app (⊤ : X.Opens) s
-
-def tensorPower (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    ℕ → TauCeti.AlgebraicGeometry.InvertibleSheaf X
-  | 0 => TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X
-  | n + 1 => TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct (tensorPower M n) M
-
-lemma tensorPower.zero (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    tensorPower M 0 = TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X := by
+/-- Native-regularity: the ring of the actual smooth G_m frame atlas is regular.
+The hypotheses mean that f cuts out a regular effective Cartier divisor. -/
+theorem smoothPresentationRing_regular (A : Type u) [CommRing A] [IsRegularRing A]
+    (f : A) (hf : f ∈ nonZeroDivisors A)
+    [IsRegularRing (A ⧸ Ideal.span ({f} : Set A))] (n : ℕ) (hn : 0 < n) :
+    IsRegularRing (smoothPresentationRing A f n) := by
   sorry
 
-lemma tensorPower.succ (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) (n : ℕ) :
-    tensorPower M (n + 1) =
-      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct (tensorPower M n) M := by
+/-- Native-geometric-fibres: the ramified chart retains a nonzero nilpotent.
+The full stack fibre is obtained by a torsor quotient, not by deleting this element. -/
+theorem zeroFibre_nonreduced (K : Type u) [Field K] (n : ℕ) (hn : 1 < n) :
+    (AdjoinRoot.root (Polynomial.X ^ n : Polynomial K)) ^ n = 0 ∧
+      AdjoinRoot.root (Polynomial.X ^ n : Polynomial K) ≠ 0 := by
   sorry
 
-def tensorPower.mapIso {M N : TauCeti.AlgebraicGeometry.InvertibleSheaf X}
-    (n : ℕ) (e : M ≅ N) : tensorPower M n ≅ tensorPower N n := by
+/-- Native-dm-locus: the tangent μ_p point is invisible on geometric field points.
+Its actual carrier is the native dual-number polynomial quotient. -/
+theorem wildInertia_tangent (K : Type u) [Field K] (p : ℕ) (hp : p.Prime) [CharP K p] :
+    (1 + AdjoinRoot.root (Polynomial.X ^ 2 : Polynomial K)) ^ p = 1 ∧
+      (1 + AdjoinRoot.root (Polynomial.X ^ 2 : Polynomial K)) ≠ 1 := by
   sorry
 
--- tensorPower.test_zero
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    tensorPower M 0 = TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X := by
+/-- The n=1 presentation eliminates z by z=qf, rather than requiring f to be a unit. -/
+example {A : Type u} [CommRing A] (f q : A) :
+    MvPolynomial.eval ![q * f, q] (presentationRelation A f 1) = 0 := by
   sorry
 
--- tensorPower.test_one
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    Nonempty (tensorPower M 1 ≅ M) := by
+/-- Unit sections have no relative automorphisms; no invertibility of n is needed. -/
+example {A : Type u} [CommRing A] (w : Aˣ) (y : A)
+    (hy : IsUnit y) (h : (w : A) * y = y) : w = 1 := by
   sorry
 
--- tensorPower.test_two
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    Nonempty (tensorPower M 2 ≅
-      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct M M) := by
+/-- A zero square-root section over a nonreduced ring need not itself be zero. -/
+example : (3 : ZMod 9) ^ 2 = 0 ∧ (3 : ZMod 9) ≠ 0 := by
+  decide
+
+/-- A native power-identification coefficient need not have a global normalizing root. -/
+example : ¬ ∃ r : ZMod 4, r ^ 2 = 3 := by
+  decide
+
+/-- The base Z example has exponent 3 invertible on its branch divisor V(2). -/
+example : IsUnit (3 : ZMod 2) := by
+  simpa only [show (3 : ZMod 2) = 1 from by decide] using
+    (isUnit_one : IsUnit (1 : ZMod 2))
+
+
+
+end TauCeti.FiniteRoot.RS1Suggested
+
+/-! ## RS.2 -/
+
+namespace TauCeti.AlgebraicGeometry.RootStack
+
+universe u v w
+
+namespace RootKummer
+
+/-- `K_n(k) = kˣ/(kˣ)^n`: Mathlib's quotient group at a positive Kummer degree. -/
+abbrev coordinate (k : Type u) [Field k] (n : ℕ+) :=
+  kˣ ⧸ (powMonoidHom (n : ℕ) : kˣ →* kˣ).range
+
+/-- The class `[a]_n` of a unit. -/
+abbrev ofUnit (k : Type u) [Field k] (n : ℕ+) : kˣ →* coordinate k n :=
+  QuotientGroup.mk' _
+
+theorem ofUnit_eq_one (k : Type u) [Field k] (n : ℕ+) (a : kˣ) :
+    ofUnit k n a = 1 ↔ ∃ b : kˣ, b ^ (n : ℕ) = a := by
   sorry
 
--- A root-power step; its construction uses JAC-A's section tensor map.
--- This is not an alternative definition of the native tensor product.
-def sectionPower.tensorStep (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (n : ℕ) (t : Section M) (v : Section (tensorPower M n)) :
-    Section (tensorPower M (n + 1)) := by
+/-- The coordinate transition `K_m(k) → K_n(k)` for `n ∣ m`, induced by the identity of `kˣ`,
+so `[a]_m ↦ [a]_n`. It is not induced by raising to the power `m / n`. -/
+def transition (k : Type u) [Field k] {n m : ℕ+} (h : (n : ℕ) ∣ (m : ℕ)) :
+    coordinate k m →* coordinate k n :=
+  QuotientGroup.map _ _ (MonoidHom.id kˣ) (by
+    rintro _ ⟨b, rfl⟩
+    obtain ⟨q, hq⟩ := h
+    exact ⟨b ^ q, by simp [← pow_mul, hq, mul_comm]⟩)
+
+@[simp]
+theorem transition_ofUnit (k : Type u) [Field k] {n m : ℕ+} (h : (n : ℕ) ∣ (m : ℕ))
+    (a : kˣ) : transition k h (ofUnit k m a) = ofUnit k n a :=
+  rfl
+
+@[simp]
+theorem transition_id (k : Type u) [Field k] (n : ℕ+) :
+    transition k (dvd_refl (n : ℕ)) = MonoidHom.id (coordinate k n) := by
   sorry
 
-def sectionPower (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (n : ℕ) (t : Section M) : Section (tensorPower M n) := by
+theorem transition_comp (k : Type u) [Field k] {n m l : ℕ+}
+    (hnm : (n : ℕ) ∣ (m : ℕ)) (hml : (m : ℕ) ∣ (l : ℕ)) :
+    (transition k hnm).comp (transition k hml) = transition k (hnm.trans hml) := by
   sorry
 
-lemma sectionPower.zero (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (t : Section M) :
-    sectionPower M 0 t =
-      (SheafOfModules.freeSection (R := X.ringCatSheaf) PUnit.unit).val
-        (Opposite.op (⊤ : X.Opens)) := by
+/-- `lim_n K_n(k)`: the families of Kummer coordinates compatible with every transition. -/
+def compatibleFamilies (k : Type u) [Field k] : Subgroup ((n : ℕ+) → coordinate k n) where
+  carrier := {c | ∀ (n m : ℕ+) (h : (n : ℕ) ∣ (m : ℕ)), transition k h (c m) = c n}
+  one_mem' := fun n m h => by simp
+  mul_mem' := fun {a b} ha hb n m h => by
+    simp only [Pi.mul_apply, map_mul, ha n m h, hb n m h]
+  inv_mem' := fun {a} ha n m h => by
+    simp only [Pi.inv_apply, map_inv, ha n m h]
+
+end RootKummer
+
+open RootKummer
+
+-- RootKummerTests.one: `K_1(k)` is trivial for every field.
+example (k : Type u) [Field k] (x : coordinate k 1) : x = 1 := by
   sorry
 
-lemma sectionPower.succ (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (n : ℕ) (t : Section M) :
-    sectionPower M (n + 1) t = sectionPower.tensorStep M n t (sectionPower M n t) := by
+-- RootKummerTests.two: the class of 2 in `K_2(ℚ)` is nontrivial; the class of 4 is trivial.
+example (a : ℚˣ) (ha : (a : ℚ) = 2) : ofUnit ℚ 2 a ≠ 1 := by
   sorry
 
-lemma sectionPower.mapIso {M N : TauCeti.AlgebraicGeometry.InvertibleSheaf X}
-    (n : ℕ) (e : M ≅ N) (t : Section M) :
-    mapSection (tensorPower.mapIso n e) (sectionPower M n t) =
-      sectionPower N n (mapSection e t) := by
+example (a : ℚˣ) (ha : (a : ℚ) = 4) : ofUnit ℚ 2 a = 1 := by
   sorry
 
--- sectionPower.test_zero
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    sectionPower M 0 0 =
-      (SheafOfModules.freeSection (R := X.ringCatSheaf) PUnit.unit).val
-        (Opposite.op (⊤ : X.Opens)) := by
+-- RootKummerTests.transition: `K_4(ℚ) → K_2(ℚ)` keeps the representative 2;
+-- squaring the representative would kill the class.
+example (a : ℚˣ) (ha : (a : ℚ) = 2) :
+    transition ℚ (show ((2 : ℕ+) : ℕ) ∣ ((4 : ℕ+) : ℕ) by decide) (ofUnit ℚ 4 a) ≠ 1 := by
   sorry
 
--- sectionPower.test_one
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) (t : Section M) :
-    mapSection (TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialLeftIso M)
-      (sectionPower M 1 t) = t := by
+-- RootKummerTests.wild: over `𝔽_p(t)` the class of `t` in `K_p` is nontrivial,
+-- although the only `p`-th root of unity in the field is 1.
+example (p : ℕ) [hp : Fact p.Prime] :
+    ofUnit (RatFunc (ZMod p)) ⟨p, hp.out.pos⟩
+      (Units.mk0 RatFunc.X RatFunc.X_ne_zero) ≠ 1 := by
   sorry
 
--- sectionPower.test_zero_positive
-example (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X) (n : ℕ) [NeZero n] :
-    sectionPower M n 0 = 0 := by
+-- RootKummerTests.realFamilies: over `ℝ` the compatible families are the trivial family and
+-- `([-1]_n)_n`; over an algebraically closed field there is only the trivial family.
+example : Nat.card (compatibleFamilies ℝ) = 2 := by
   sorry
 
-structure RootObject (n : ℕ) [NeZero n]
-    (L : TauCeti.AlgebraicGeometry.InvertibleSheaf X) (s : Section L) where
-  line : TauCeti.AlgebraicGeometry.InvertibleSheaf X
-  rootSection : Section line
-  powerIso : tensorPower line n ≅ L
-  section_eq : mapSection powerIso (sectionPower line n rootSection) = s
+example (k : Type u) [Field k] [IsAlgClosed k] (c : compatibleFamilies k) : c = 1 := by
+  sorry
 
--- The equality fields are the defining equations of root data, not theorem
--- conclusions used as assumptions. All line and section types are native.
-structure RootObject.iso {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a b : RootObject n L s) where
+-- Finite chart checks: a nilpotent root is not forced to be zero.
+example (k : Type u) [Field k] (n : ℕ+) :
+    AdjoinRoot.root ((Polynomial.X : Polynomial k) ^ (n : ℕ)) ^ (n : ℕ) = 0 := by
+  sorry
+
+example (k : Type u) [Field k] (r : ℕ) :
+    AdjoinRoot.root ((Polynomial.X : Polynomial k) ^ (r + 1)) ^ r ≠ 0 := by
+  sorry
+
+-- Field-valued roots do not detect wild group-scheme inertia.
+example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
+    (ζ : rootsOfUnity p k) : (ζ : kˣ) = 1 := by
+  sorry
+
+-- A finite extension cannot contain roots of 2 of unbounded degree.
+-- This is an imported parent milestone, recorded as a separating check.
+example (K : Type u) [Field K] [Algebra ℚ K] [FiniteDimensional ℚ K]
+    (n : ℕ+) (x : K) (hx : x ^ (n : ℕ) = 2) :
+    (n : ℕ) ≤ Module.finrank ℚ K := by
+  sorry
+
+-- The pinned compactness ingredient requires no surjective transition maps.
+example {J : Type u} [CategoryTheory.Category.{w} J]
+    [CategoryTheory.IsCofilteredOrEmpty J]
+    (F : CategoryTheory.Functor J (Type v))
+    [∀ j, Finite (F.obj j)] [∀ j, Nonempty (F.obj j)] :
+    F.sections.Nonempty := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.RootStack
+
+/-! ## GC.0 -/
+
+open CategoryTheory AlgebraicGeometry
+
+namespace TauCeti.RamifiedClassField.GC0
+
+universe u
+
+variable {Y Z : Scheme.{u}} (i : Z ⟶ Y)
+
+/-- Native data over a scheme arrow; use `R × S ⟶ X × S` in the roadmap. -/
+structure RootPicardData where
+  line : TauCeti.AlgebraicGeometry.InvertibleSheaf Y
+  rootLine : TauCeti.AlgebraicGeometry.InvertibleSheaf Z
+  squareIso :
+    (TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct rootLine rootLine).obj ≅
+      (Scheme.Modules.pullback i).obj line.obj
+
+namespace RootPicardData
+
+variable {i}
+
+/-- Isomorphisms preserve the square identification; arbitrary module maps are excluded. -/
+structure Iso (a b : RootPicardData i) where
   lineIso : a.line ≅ b.line
-  section_eq : mapSection lineIso a.rootSection = b.rootSection
-  power_eq : tensorPower.mapIso n lineIso ≪≫ b.powerIso = a.powerIso
+  rootIso : a.rootLine ≅ b.rootLine
+  compatibility :
+    ((TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft
+        (K := a.rootLine) rootIso).hom.hom ≫
+      (TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrRight
+        (L := b.rootLine) rootIso).hom.hom) ≫ b.squareIso.hom =
+    a.squareIso.hom ≫ (Scheme.Modules.pullback i).map lineIso.hom.hom
 
-def RootObject.canonicalOne (L : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (s : Section L) : RootObject 1 L s := by
-  sorry
-
--- RootObject.mk and RootObject.line are the structure constructor/projection.
--- RootObject.test_one
-example (L : TauCeti.AlgebraicGeometry.InvertibleSheaf X) (s : Section L)
-    (a : RootObject 1 L s) :
-    ∃! e : RootObject.iso a (RootObject.canonicalOne L s), True := by
-  sorry
-
--- RootObject.test_zero
-example (n : ℕ) [NeZero n] :
-    ∃ a : RootObject n (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) 0,
-      a.line = TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X ∧ a.rootSection = 0 := by
-  sorry
-
--- RootObject.test_trivialization is stated in the native coordinate continuation
--- below. Generic tensor-section compatibility proofs remain JAC-A inputs.
-
-section Affine
-variable {A : Type u} [CommRing A]
-
-def affineAction (f : A) (n : ℕ) [NeZero n] (ζ : rootsOfUnity n A) :
-    AdjoinRoot (Polynomial.X ^ n - Polynomial.C f) ≃ₐ[A]
-      AdjoinRoot (Polynomial.X ^ n - Polynomial.C f) := by
-  sorry
-
-lemma affineAction.root (f : A) (n : ℕ) [NeZero n] (ζ : rootsOfUnity n A) :
-    affineAction f n ζ (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      algebraMap A _ ((ζ : Aˣ) : A) *
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
-  sorry
-
-lemma affineAction.constant (f a : A) (n : ℕ) [NeZero n] (ζ : rootsOfUnity n A) :
-    affineAction f n ζ (algebraMap A _ a) = algebraMap A _ a := by
-  sorry
-
-lemma affineAction.mul (f : A) (n : ℕ) [NeZero n] (ζ ξ : rootsOfUnity n A) :
-    affineAction f n (ζ * ξ) = (affineAction f n ζ).trans (affineAction f n ξ) := by
-  sorry
-
--- affineAction.test_one
-example (f : A) (n : ℕ) [NeZero n] :
-    affineAction f n 1 = AlgEquiv.refl := by
-  sorry
-
--- affineAction.test_sign
-example (f : A) : ∃ ζ : rootsOfUnity 2 A,
-    ((ζ : Aˣ) : A) = -1 ∧
-    affineAction f 2 ζ (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
-      -AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f) := by
-  sorry
-
--- affineAction.test_infinitesimal
-example (p : ℕ) [Fact p.Prime] [NeZero p] [CharP A p]
-    (ε : A) (hε : ε ^ 2 = 0) (hε0 : ε ≠ 0) (f : A) :
-    ∃ ζ : rootsOfUnity p A, ((ζ : Aˣ) : A) = 1 + ε ∧ ζ ≠ 1 ∧
-      affineAction f p ζ (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C f)) =
-        algebraMap A _ (1 + ε) *
-          AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C f) := by
-  sorry
-
--- Root-specific affine continuation. These abbreviations only name native
--- carriers; they do not construct another polynomial quotient or μ_n group.
-open scoped TensorProduct
-
-abbrev AffineRing (f : A) (n : ℕ) :=
-  AdjoinRoot (Polynomial.X ^ n - Polynomial.C f)
-
-abbrev MuHopf (R : Type u) [CommRing R] (n : ℕ) :=
-  MonoidAlgebra R (Multiplicative (ZMod n))
-
-lemma affineRoot.pow_eq (f : A) (n : ℕ) :
-    AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ n =
-      algebraMap A (AffineRing f n) f := by
-  sorry
-
-lemma affineCharacter.pow (n i : ℕ) :
-    (MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A)) ^ i =
-      MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) := by
-  sorry
-
-lemma affineRoot.pow_reduce (f : A) (n k : ℕ) [NeZero n] :
-    AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ k =
-      f ^ (k / n) • (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ (k % n)) := by
-  sorry
-
-def affineCoaction (f : A) (n : ℕ) [NeZero n] :
-    AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n) := by
-  sorry
-
-lemma affineCoaction.root (f : A) (n : ℕ) [NeZero n] :
-    affineCoaction f n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
-  sorry
-
-lemma affineCoaction.constant (f a : A) (n : ℕ) [NeZero n] :
-    affineCoaction f n (algebraMap A (AffineRing f n) a) =
-      (1 : MuHopf A n) ⊗ₜ[A] algebraMap A (AffineRing f n) a := by
-  sorry
-
-lemma affineCoaction.unique (f : A) (n : ℕ) [NeZero n]
-    (ψ : AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n))
-    (hψ : ψ (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) :
-    ψ = affineCoaction f n := by
-  sorry
-
-lemma affineCoaction.weight (f : A) (n i : ℕ) [NeZero n] :
-    affineCoaction f n ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A]
-        ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i) := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.counit
-lemma affineCoaction.counit (f : A) (n : ℕ) [NeZero n] :
-    ((Algebra.TensorProduct.lid A (AffineRing f n)).toAlgHom.comp
-      (Algebra.TensorProduct.map (Bialgebra.counitAlgHom A (MuHopf A n))
-        (AlgHom.id A (AffineRing f n)))).comp (affineCoaction f n) =
-      AlgHom.id A (AffineRing f n) := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.coassoc
-lemma affineCoaction.coassoc (f : A) (n : ℕ) [NeZero n] :
-    (Algebra.TensorProduct.assoc A A A (MuHopf A n) (MuHopf A n)
-      (AffineRing f n)).toAlgHom.comp
-      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom A (MuHopf A n))
-        (AlgHom.id A (AffineRing f n))).comp (affineCoaction f n)) =
-      (Algebra.TensorProduct.map (AlgHom.id A (MuHopf A n))
-        (affineCoaction f n)).comp (affineCoaction f n) := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.nativePoint
-lemma affineCoaction.nativePoint (f : A) (n : ℕ) [NeZero n]
-    (ζ : rootsOfUnity n A) :
-    ((Algebra.TensorProduct.lid A (AffineRing f n)).toAlgHom.comp
-      (Algebra.TensorProduct.map
-        (((TauCeti.RootsOfUnityGroup.pointsMulEquiv (R := A) (A := A) n).symm ζ).ofConv)
-        (AlgHom.id A (AffineRing f n)))).comp (affineCoaction f n) =
-      (affineAction f n ζ).toAlgHom := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.invariants
-theorem affineCoaction.invariants (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
-    affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b ↔
-      ∃ a : A, b = algebraMap A (AffineRing f n) a := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.test_one
-example (f : A) (b : AffineRing f 1) :
-    affineCoaction f 1 b = (1 : MuHopf A 1) ⊗ₜ[A] b := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.test_sign
-example (f : A) :
-    ∃ ζ : rootsOfUnity 2 A, ((ζ : Aˣ) : A) = -1 ∧
-      (Algebra.TensorProduct.lid A (AffineRing f 2))
-        (Algebra.TensorProduct.map
-          (((TauCeti.RootsOfUnityGroup.pointsMulEquiv (R := A) (A := A) 2).symm ζ).ofConv)
-          (AlgHom.id A (AffineRing f 2))
-          (affineCoaction f 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)))) =
-        -AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f) := by
-  sorry
-
--- TauCeti.RootStack.affineCoaction.test_characteristic_p
-example (k : Type u) [Field k] (p : ℕ) [Fact p.Prime] [NeZero p] [CharP k p] :
-    AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) ≠ 0 ∧
-      affineCoaction (0 : k) p (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k))) ≠
-        (1 : MuHopf k p) ⊗ₜ[k]
-          AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) ∧
-      ∀ ζ : rootsOfUnity p k,
-        affineAction (0 : k) p ζ (AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k))) =
-          AdjoinRoot.root (Polynomial.X ^ p - Polynomial.C (0 : k)) := by
-  sorry
-
--- Invariant theorem acceptance: a nonreduced coefficient ring is allowed.
-example (f : A) (b : AffineRing f 2) :
-    affineCoaction f 2 b = (1 : MuHopf A 2) ⊗ₜ[A] b ↔
-      ∃ a : A, b = algebraMap A (AffineRing f 2) a := by
-  sorry
-
--- Invariant theorem acceptance: the zero-ring case has no artificial degree premise.
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
-    affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b ∧
-      ∃ a : A, b = algebraMap A (AffineRing f n) a := by
-  sorry
-
-/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/
-open Module AlgebraicGeometry
-
-def affineTransition (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    AffineRing f n →ₐ[A] AffineRing f (n * m) := by
-  sorry
-
-lemma affineTransition.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineTransition f n m (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ m := by
-  sorry
-
-local instance affineTransition.coefficientAlgebra (f : A) (n m : ℕ)
-    [NeZero n] [NeZero m] : Algebra (AffineRing f n) (AffineRing f (n*m)) :=
-  (affineTransition f n m).toRingHom.toAlgebra
-
-lemma affineTransition.constant (f a : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineTransition f n m (algebraMap A (AffineRing f n) a) =
-      algebraMap A (AffineRing f (n * m)) a := by
-  sorry
-
-lemma affineTransition.unique (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (j : AffineRing f n →ₐ[A] AffineRing f (n * m))
-    (hj : j (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ m) :
-    j = affineTransition f n m := by
-  sorry
-
-lemma affineTransition.comp (f : A) (n m k : ℕ)
-    [NeZero n] [NeZero m] [NeZero k] :
-    (affineTransition f (n * m) k).comp (affineTransition f n m) =
-      (AdjoinRoot.algEquivOfEq A
-        (Polynomial.X ^ (n * (m*k)) - Polynomial.C f)
-        (Polynomial.X ^ ((n*m) * k) - Polynomial.C f)
-        (by rw [Nat.mul_assoc])).toAlgHom.comp (affineTransition f n (m*k)) := by
-  sorry
-
-abbrev affineIteratedRing (f : A) (n m : ℕ) :=
-  AdjoinRoot (Polynomial.X ^ m -
-    Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)))
-
-def affineIteratedReverse (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    AffineRing f (n * m) →ₐ[A] affineIteratedRing f n m := by
-  sorry
-
-lemma affineIteratedReverse.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineIteratedReverse f n m (AdjoinRoot.root (Polynomial.X ^ (n*m) - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ m -
-        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f))) := by
-  sorry
-
-lemma affineIteratedReverse.constant (f a : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineIteratedReverse f n m (algebraMap A (AffineRing f (n*m)) a) =
-      algebraMap A (affineIteratedRing f n m) a := by
-  sorry
-
-lemma affineIteratedReverse.coefficient (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (b : AffineRing f n) :
-    affineIteratedReverse f n m (affineTransition f n m b) =
-      algebraMap (AffineRing f n) (affineIteratedRing f n m) b := by
-  sorry
-
-def affineTransitionIterated (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
-       (affineTransition f n m).toRingHom.toAlgebra;
-     AdjoinRoot (Polynomial.X ^ m -
-       Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f))) ≃ₐ[AffineRing f n]
-       AffineRing f (n * m)) := by
-  sorry
-
-lemma affineTransitionIterated.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineTransitionIterated f n m
-      (AdjoinRoot.root (Polynomial.X ^ m -
-        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)))) =
-      AdjoinRoot.root (Polynomial.X ^ (n*m) - Polynomial.C f) := by
-  sorry
-
-lemma affineTransitionIterated.coefficient (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (b : AffineRing f n) :
-    affineTransitionIterated f n m (algebraMap (AffineRing f n) (affineIteratedRing f n m) b) =
-      affineTransition f n m b := by
-  sorry
-
-def affineTransitionBasis (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
-       (affineTransition f n m).toRingHom.toAlgebra;
-     Basis (Fin m) (AffineRing f n) (AffineRing f (n * m))) := by
-  sorry
-
-lemma affineTransitionBasis.apply (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (i : Fin m) :
-    affineTransitionBasis f n m i =
-      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
-  sorry
-
-lemma affineTransitionBasis.repr (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (b : AffineRing f (n * m)) :
-    b = ∑ i : Fin m, affineTransition f n m ((affineTransitionBasis f n m).repr b i) *
-      AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
-  sorry
-
-lemma affineTransitionBasis.repr_symm (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (c : Fin m →₀ AffineRing f n) :
-    (affineTransitionBasis f n m).repr.symm c =
-      ∑ i : Fin m, affineTransition f n m (c i) *
-        AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ (i : ℕ) := by
-  sorry
-
-theorem affineTransitionFaithfullyFlat (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    (let : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
-       (affineTransition f n m).toRingHom.toAlgebra;
-     Module.FaithfullyFlat (AffineRing f n) (AffineRing f (n * m))) := by
-  sorry
-
-theorem affineTransitionSpecProperties (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
-    Flat (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
-    Surjective (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) := by
-  sorry
-
--- affineTransitionSpecProperties.test_wild
-example :
-    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
-    Flat (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
-    Surjective (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) := by
-  sorry
-
--- affineTransition.test_one
-example (f : A) (n : ℕ) [NeZero n] :
-    affineTransition f n 1 =
-      (AdjoinRoot.algEquivOfEq A
-        (Polynomial.X ^ n - Polynomial.C f)
-        (Polynomial.X ^ (n*1) - Polynomial.C f)
-        (by rw [Nat.mul_one])).toAlgHom := by
-  sorry
-
--- affineTransition.test_four_to_two
-example (f : A) :
-    affineTransition f 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2 := by
-  sorry
-
--- affineTransition.test_nilpotent
-example (k : Type u) [Field k] :
-    affineTransition (0 : k) 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))) =
-      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k)) ^ 2 ∧
-    affineTransition (0 : k) 2 2 (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))) ≠ 0 := by
-  sorry
-
--- affineTransitionBasis.test_one
-example (f : A) (n : ℕ) [NeZero n] (i : Fin 1) :
-    affineTransitionBasis f n 1 i = 1 := by
-  sorry
-
--- affineTransitionBasis.test_four
-example (f : A) (b : AffineRing f 4) :
-    ∃! c : Fin 2 → AffineRing f 2,
-      b = affineTransition f 2 2 (c 0) +
-        affineTransition f 2 2 (c 1) * AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) := by
-  sorry
-
--- affineTransitionBasis.test_zeroRing
-example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m] (i : Fin m) :
-    affineTransitionBasis f n m i = 0 := by
-  sorry
-
--- affineIteratedReverse.test_root
-example (k : Type u) [Field k] :
-    affineIteratedReverse (0 : k) 2 2
-      (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k))) =
-      AdjoinRoot.root (Polynomial.X ^ 2 -
-        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k)))) := by
-  sorry
-
--- affineIteratedReverse.test_coefficient
-example (f : A) :
-    affineIteratedReverse f 2 2 (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2) =
-      algebraMap (AffineRing f 2) (affineIteratedRing f 2 2)
-        (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) := by
-  sorry
-
--- affineIteratedReverse.test_fourth_power
-example (f : A) :
-    affineIteratedReverse f 2 2 (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 4) =
-      algebraMap A (affineIteratedRing f 2 2) f := by
-  sorry
-
--- affineIteratedReverse.test_zeroRing
-example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m]
-    (b : AffineRing f (n*m)) : affineIteratedReverse f n m b = 0 := by
-  sorry
-
--- affineTransitionBasis.test_nonreduced
-example :
-    (letI : Algebra (AffineRing (2 : ZMod 4) 2) (AffineRing (2 : ZMod 4) 4) :=
-      (affineTransition (2 : ZMod 4) 2 2).toRingHom.toAlgebra;
-    Module.FaithfullyFlat (AffineRing (2 : ZMod 4) 2) (AffineRing (2 : ZMod 4) 4)) := by
-  sorry
-
--- affineTransitionBasis.test_wild
-example :
-    (letI : Algebra (AffineRing (0 : ZMod 2) 2) (AffineRing (0 : ZMod 2) 4) :=
-      (affineTransition (0 : ZMod 2) 2 2).toRingHom.toAlgebra;
-    Module.FaithfullyFlat (AffineRing (0 : ZMod 2) 2) (AffineRing (0 : ZMod 2) 4)) := by
-  sorry
-
--- affineTransitionBasis.test_finite_free
-example (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    Module.Free (AffineRing f n) (AffineRing f (n*m)) ∧
-    Module.Finite (AffineRing f n) (AffineRing f (n*m)) := by
-  sorry
-
-/- END NATIVE FINITE ROOT TRANSITIONS -/
-
-end Affine
-
-lemma rootTwoDegreeBound (K : Type u) [Field K] [Algebra ℚ K]
-    [FiniteDimensional ℚ K] (n : ℕ) (hn : 0 < n) (x : K) (hx : x ^ n = 2) :
-    n ≤ Module.finrank ℚ K := by
-  sorry
-
--- Acceptance of the non-fppf Kummer tower: no finite extension supplies all roots.
-example (K : Type u) [Field K] [Algebra ℚ K] [FiniteDimensional ℚ K] :
-    ¬ ∀ n : ℕ, 0 < n → ∃ x : K, x ^ n = 2 := by
-  sorry
-end TauCeti.RootStack
-
-/-
-Exact omission ledger for LEAN-GEOMETRY and LEAN-SECTION-COMP.
-The statements below are mathematical obligations, not Lean declarations.
-No missing carrier or theorem is encoded as an arbitrary Prop assumption.
-
-Node FunctionFieldArithmeticPartII:key/root-stacks
-For n≥1 and a line bundle with section (L,s) on a scheme X or an algebraic stack X, define
-√[n]{(L,s)/X} on T→X as the groupoid of root objects of (L_T,s_T). Pullback and its coherent
-isomorphisms define the fibred stack. For an effective Cartier divisor D use (O_X(D),s_D). Arbitrary
-exponents use the fppf topology; the étale description is asserted only when n is invertible.
-API TauCeti.RootStack.rootStack.object: The fibre over T→X is exactly the root-object groupoid of (L_T,s_T).
-API TauCeti.RootStack.rootStack.forget: Forget root data to the base T→X.
-API TauCeti.RootStack.rootStack.baseChange: A base morphism induces pullback of root data with identity/composition coherence.
-API TauCeti.RootStack.rootStack.universalRoot: The stack carries the universal line bundle, section and n-th-power isomorphism; maps into it are
-equivalent to such root data.
-Example TauCeti.RootStack.rootStack.test_exponent_one: The n=1 stack is equivalent to X over X.
-Example TauCeti.RootStack.rootStack.test_unit_section: For (O_X,1), every exponent gives a stack equivalent to X.
-Example TauCeti.RootStack.rootStack.test_zero_section: Over an algebraically closed field, (O,0) at invertible n>1 has μ_n automorphisms and is not the
-coarse point.
-Example TauCeti.RootStack.rootStack.test_stack_base: At n=1 over BG the output is BG, rather than Spec k.
-API TauCeti.RootStack.rootStack.affinePresentation: For a scheme affine chart X=Spec A and a trivialized (L,s)=(O,f), the root stack is [Spec A[t]/(t^n−f)/μ_n] with the grading action; this is the RS.1/affine-chart comparison, including wild exponents.
-API TauCeti.RootStack.rootStack.coarseComparison: For a scheme base the projection is the coarse moduli map, is an isomorphism away from V(s), and has affine invariant algebra A. For an algebraic-stack base use the relative coarse assertion after scheme base change (RS.1/coarse-space).
-API TauCeti.RootStack.rootStack.closedFibre: Over a geometric zero of s the full fibre is [Spec k[t]/(t^n)/μ_n], while its reduction is Bμ_n; this exposes RS.1/closed-fibre without discarding nilpotent root sections.
-API TauCeti.RootStack.rootStack.regularDM: For a regular scheme X and regular Cartier divisor D the root stack is regular; it is DM when n is invertible. A geometric branch point of characteristic dividing n has non-étale μ_n inertia (RS.1/regular-dm).
-API TauCeti.RootStack.rootStack.transitionLimit: The finite map from order nm to n sends (M,t) to (M^m,t^m), coherently under composition and base change. The infinite root stack is the genuine groupoid two-limit with these transition isomorphisms (RS.2/transition and infinite-root-stack).
-API TauCeti.RootStack.rootStack.dvrGerbe: For a DVR, after choosing a neutralization the reduced infinite closed fibre is B_k lim_n μ_n in the fpqc topology; its isomorphism classes are H1_fpqc(k,lim_n μ_n), with the origin dependent on that choice (RS.2/dvr-infinite-gerbe and dvr-kummer-classes).
-Example TauCeti.RootStack.rootStack.test_affine_cartier: For X=Spec k[x], f=x and n=3, recover [Spec k[x,t]/(t³−x)/μ_3] with ζ·t=ζt, retaining the stack action as well as the ring.
-Example TauCeti.RootStack.rootStack.test_coarse_grading: In characteristic p with n=p, the μ_p grading still gives (A[t]/(t^p−f))^{μ_p}=A; using only geometric μ_p(k)-points would incorrectly make every function invariant.
-Example TauCeti.RootStack.rootStack.test_nilpotent_fibre: For n=2 and k of characteristic not two, the root t=ε over k[ε]/(ε²) is a nonzero section in the zero fibre, which a pure Bμ_2 replacement would lose.
-Example TauCeti.RootStack.rootStack.test_wild_branch: For X=Spec k[x], D=V(x), char k=p and n=p, the root stack is regular but not DM along x=0; the unit-section case remains X even at this exponent.
-Example TauCeti.RootStack.rootStack.test_transition_coherence: A fourth root maps to its square at order two and then to its fourth power at order one, agreeing with the direct transition and its base changes. Unrelated finite roots without transition isomorphisms are not an infinite object.
-Example TauCeti.RootStack.rootStack.test_dvr_origin: For a DVR the reduced infinite fibre has lim_n μ_n automorphisms after neutralization; changing the chosen origin translates its H1_fpqc coordinate, rather than canonically identifying all torsor classes with the trivial one.
-
-Node FunctionFieldArithmeticPartII:RS.1/two-pullback
-Let A=[A¹/G_m] classify a line bundle with section and [n]:A→A take its n-th tensor power. The root
-stack is X×_{A,[n]}A with its universal root. For a stack base this is a two-fibre product,
-including the specified isomorphism, not an equality pullback of coarse points.
-
-Node FunctionFieldArithmeticPartII:RS.1/base-change
-For any f:Y→X there is a canonical equivalence Y×_X√[n]{(L,s)/X}≃√[n]{(f*L,f*s)/Y}, compatible with
-identity and composition of f.
-
-Node FunctionFieldArithmeticPartII:RS.1/affine-chart
-If X=Spec A and (L,s) is trivialized with s=f, then √[n]{(L,s)/X}≃[Spec AdjoinRoot(Tⁿ−f)/μ_n], with
-the diagonalizable action already constructed. This is a quotient stack with torsors, not an orbit
-set.
-
-Node FunctionFieldArithmeticPartII:RS.1/closed-fibre
-For a geometric point x with s(x)=0, the full fibre is [Spec κ(x)[t]/tⁿ /μ_n]. Its reduction is
-Bμ_n. If s(x)≠0 the fibre is the point. For n>1 the full closed fibre must not be identified with
-its reduced gerbe.
-
-Node FunctionFieldArithmeticPartII:RS.1/coarse-space
-For a scheme base X, the projection of the root stack to X is its coarse-space morphism. For an
-algebraic-stack base, it is relative coarse over X: after scheme base change it has the preceding
-coarse property. It is not an assertion that X is an absolute algebraic space.
-
-Node FunctionFieldArithmeticPartII:RS.1/regular-dm
-If X is a regular scheme and D is a regular effective Cartier divisor, √[n]{(O(D),s_D)/X} is regular; when n
-is invertible on X it is Deligne–Mumford with μ_n inertia over D and trivial inertia outside D. If a
-geometric branch point has characteristic dividing n, its μ_n inertia is not étale, so the stack is
-not DM there. An empty divisor still gives X in every characteristic.
-
-Node FunctionFieldArithmeticPartII:RS.2/transition
-For positive m,n the transition √[mn]{(L,s)}→√[n]{(L,s)} sends (M,t,φ) to (Mᵐ,tᵐ,φ), using the
-coherent identification (Mᵐ)ⁿ≅Mᵐⁿ. Transitions are compatible with base change and with
-multiplication of positive integers.
-API TauCeti.RootStack.transition.object: The root line and section become Mᵐ and tᵐ.
-API TauCeti.RootStack.transition.one: The m=1 transition is the identity.
-API TauCeti.RootStack.transition.comp: Transitions for a and b compose to the transition for ab with the specified coherence.
-Example TauCeti.RootStack.transition.test_identity: Transition from n to n is identity.
-Example TauCeti.RootStack.transition.test_four_to_two: A fourth root (M,t) maps to the square root (M²,t²).
-Example TauCeti.RootStack.transition.test_base_change: Pulling a transition back to Y gives the transition of the pulled-back section.
-
-Node FunctionFieldArithmeticPartII:RS.2/infinite-root-stack
-Define √[infinity]{(L,s)/X} as the two-inverse limit of the finite root stacks indexed by positive
-integers ordered by divisibility, on the fpqc scheme site. Its objects over T are compatible finite
-root objects with transition isomorphisms satisfying cocycles; arrows are compatible systems of root
-isomorphisms. It is an fpqc stack, hence also an fppf stack by restriction, and is not asserted to
-be an algebraic stack of finite presentation. Its affine quotient uses fpqc torsors.
-API TauCeti.RootStack.infiniteRootStack.projection: Project a coherent system to its n-th root.
-API TauCeti.RootStack.infiniteRootStack.lift: A compatible family of maps into the finite roots determines a map into the two-limit, with
-compatible 2-morphisms.
-API TauCeti.RootStack.infiniteRootStack.baseChange: The two-limit commutes with base change in X.
-Example TauCeti.RootStack.infiniteRootStack.test_unit_section: The infinite root of (O_X,1) is X.
-Example TauCeti.RootStack.infiniteRootStack.test_projection: Its n-th projection followed by a finite transition is the corresponding lower projection.
-Example TauCeti.RootStack.infiniteRootStack.test_coherence: Choosing unrelated n-th roots without transition isomorphisms does not define an infinite root
-object.
-
-Node FunctionFieldArithmeticPartII:RS.2/infinite-base-change
-For f:Y→X the canonical map √[∞]{(f*L,f*s)/Y}→Y×_X√[∞]{(L,s)/X} is an equivalence, compatible with
-every finite projection.
-
-Node FunctionFieldArithmeticPartII:RS.2/dvr-roots
-For a DVR A with uniformizer π and closed divisor D, the n-th root is [Spec A[t]/(tⁿ−π)/μ_n].
-Replacing π by uπ gives a canonically equivalent stack as a root of the same Cartier pair; it does
-not require choosing an n-th root of u in A.
-
-Node FunctionFieldArithmeticPartII:RS.2/dvr-infinite-gerbe
-The reduced closed fibre of the infinite root of a DVR with residue field k is the inverse system of
-the root gerbes of the normal line, banded by lim_n μ_n=Ẑ(1). It is noncanonically equivalent to
-B_kẐ(1); a chosen trivialization of the normal line gives a compatible neutralization. The
-neutralization is not part of the canonical root stack.
-
-Node FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes
-After choosing a neutralization of the infinite reduced DVR gerbe over k, its k-points up to
-isomorphism identify with H1_fpqc(k,G), where G=lim_n μ_n, and with lim_n H1_fppf(k,μ_n)=lim_n
-k×/(k×)^n. Infinite torsors are fpqc; the finite Kummer calculation is fppf. The full groupoid
-retains G(k) automorphisms, and changing the neutralization changes the chosen origin.
-
-Node FunctionFieldArithmeticPartII:GC.0/root-picard
-Pic_X^√R(S) is the groupoid of (L,K_R,ι), where L is a line bundle on X×S, K_R a line bundle on R×S
-and ι:K_R²≅L|_{R×S}. Its degree-d component imposes degree d on every geometric fibre; d ranges over
-all integers. Tensor product and dual give the graded commutative Picard stack.
-API TauCeti.RamifiedClassField.rootPicard.object: Create (L,K_R,ι) from the two line bundles and the square identification.
-API TauCeti.RamifiedClassField.rootPicard.degree: The degree is the fibrewise degree of L, additive under tensor product.
-API TauCeti.RamifiedClassField.rootPicard.tensor: Tensor two objects and their root identifications; dual gives inverse up to coherent isomorphism.
-API TauCeti.RamifiedClassField.rootPicard.forget: Forget K_R,ι to the ordinary Picard stack.
-Example TauCeti.RamifiedClassField.rootPicard.test_empty_R: At R=∅ this is the ordinary graded Picard stack.
-Example TauCeti.RamifiedClassField.rootPicard.test_degree_minus_one: Negative-degree components contain line bundles and are not declared empty.
-Example TauCeti.RamifiedClassField.rootPicard.test_stabilizer: Over an algebraically closed field with r geometric branch points, forgetting roots has relative
-stabilizer μ₂^r.
-
-Node FunctionFieldArithmeticPartII:GC.0/square-action-quotient
-Let Pic_{X,R} classify (L,γ:L|_R≅O_R). Then Pic_X^√R≃[Pic_{X,R}/[2]Res_{R/k}G_m], where the acting
-group changes the rigidification through its square. The forgetful morphism to Pic_X is a
-Res_{R/k}μ₂-gerbe.
-
-Node FunctionFieldArithmeticPartII:GC.0/root-picard-section
-Pic_X^{√R;√R}(S) additionally carries α_R∈Γ(R×S,K_R). It does not carry a global section of L. The
-zero root section is allowed.
-API TauCeti.RamifiedClassField.rootPicardSection.object: Adjoin α_R to a root-Picard object, including α_R=0.
-API TauCeti.RamifiedClassField.rootPicardSection.forget: Forget α_R to Pic_X^√R.
-API TauCeti.RamifiedClassField.rootPicardSection.squareEvaluation: The squared section ι(α_R²) lies in L|_R.
-Example TauCeti.RamifiedClassField.rootPicardSection.test_zero: Every root-Picard object admits the zero root section.
-Example TauCeti.RamifiedClassField.rootPicardSection.test_empty_R: At R=∅ the forgetful map is an equivalence.
-Example TauCeti.RamifiedClassField.rootPicardSection.test_weights: In the rigidified quotient α_R has weight one while the rigidification has weight two.
-
-Node FunctionFieldArithmeticPartII:GC.1/root-symmetric-space
-For d≥0 let hatX_d^√R classify (L,K_R,ι,a,α_R) of degree d with a∈Γ(X×S,L) and ι(α_R²)=a|_{R×S}.
-Define X_d^√R as the open where a is nonzero on every geometric fibre, and U_d^√R as the inverse
-image of Sym^d(X−R). Hat spaces admit zero global sections and nonreduced bases.
-API TauCeti.RamifiedClassField.rootSymmetricPower.hatObject: Construct a hat object from the five data and the restriction equation.
-API TauCeti.RamifiedClassField.rootSymmetricPower.effectiveOpen: The open X_d consists exactly of sections nonzero on every geometric fibre.
-API TauCeti.RamifiedClassField.rootSymmetricPower.forgetRoot: Forgetting the root line and section maps to the ordinary degree-d section space.
-API TauCeti.RamifiedClassField.rootSymmetricPower.awayFromR: On divisors disjoint from R the root-forgetting map is an equivalence.
-Example TauCeti.RamifiedClassField.rootSymmetricPower.test_d_zero: At d=0 the effective space is Spec k; the section nowhere vanishes.
-Example TauCeti.RamifiedClassField.rootSymmetricPower.test_empty_R: At R=∅ the effective space is Sym^d X.
-Example TauCeti.RamifiedClassField.rootSymmetricPower.test_closed_fibre: Over a divisor containing a branch point the full fibre has the nilpotent root chart, rather than
-only Bμ₂.
-Example TauCeti.RamifiedClassField.rootSymmetricPower.test_hat_zero: The hat degree-d space admits a=0 and α_R=0 for any root-Picard object in that degree.
-
-Node FunctionFieldArithmeticPartII:GC.1/evaluation-pullback
-The root symmetric-power stack is the two-pullback of the ordinary evaluation map to [Res_R A¹/Res_R
-G_m] along its square-power map. Over a splitting field the latter is a product of copies of
-[A¹/G_m], one for each geometric point of R.
-
-Node FunctionFieldArithmeticPartII:GC.1/incidence-transversality
-After splitting R, in Sym^d X each incidence divisor D_x of effective divisors containing x is
-smooth, and intersections for a subset I of distinct branch points identify with Sym^{d−|I|}X when
-d≥|I|, with codimension |I|; the intersection is empty when d<|I|.
-
-Node FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion
-Let Z be a smooth irreducible scheme over an algebraically closed field and let r line bundles with sections determine f:Z→[A^r/G_m^r]. Assume no section vanishes identically on Z, so each scheme-theoretic zero locus D_i is an effective Cartier divisor, possibly empty. Then f is smooth if and only if every D_i is smooth and all their intersections are transverse, with each nonempty intersection indexed by I of codimension |I|.
-
-Node FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth
-The effective root symmetric power X_d^√R is smooth over k of dimension d and is DM. Its evaluation
-map to [Res_R A¹/Res_R G_m] is smooth.
-
-Node FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse
-The root-forgetting projection X_d^√R→Sym^d X is its coarse-space morphism and is an equivalence
-over Sym^d(X−R).
-
-Node FunctionFieldArithmeticPartII:GC.1/root-addition
-For d,e≥0 tensor L and K_R and multiply both sections to define
-hatadd_{d,e}:hatX_d^√R×hatX_e^√R→hatX_{d+e}^√R. Restriction gives addition on the effective opens;
-the same construction gives effective-divisor translation of the hat space.
-API TauCeti.RamifiedClassField.rootAddition.object: Root addition tensors line bundles and multiplies sections.
-API TauCeti.RamifiedClassField.rootAddition.unit: Adding the degree-zero unit object gives the original divisor.
-API TauCeti.RamifiedClassField.rootAddition.coherence: Associativity and symmetry are the imported coherent tensor isomorphisms, with the same section
-equations.
-Example TauCeti.RamifiedClassField.rootAddition.test_empty: Adding two empty divisors gives the empty divisor.
-Example TauCeti.RamifiedClassField.rootAddition.test_ordinary: At R=∅ this is ordinary symmetric-power addition.
-Example TauCeti.RamifiedClassField.rootAddition.test_branch_section: Two zero root-section values multiply to zero, rather than cancel or become nonzero.
-
-Node FunctionFieldArithmeticPartII:GC.1/ordered-divisors
-Iterated addition defines p_d:(X_1^√R)^d→X_d^√R, with its S_d-equivariance and the degree-zero unit
-map.
-API TauCeti.RamifiedClassField.orderedRootDivisors.one: p_1 is the identity.
-API TauCeti.RamifiedClassField.orderedRootDivisors.permutation: Every σ∈S_d acts on the source and p_d is equivariant with coherent target isomorphisms.
-API TauCeti.RamifiedClassField.orderedRootDivisors.blockAddition: Concatenating ordered tuples agrees with root addition after their separate p_d maps.
-Example TauCeti.RamifiedClassField.orderedRootDivisors.test_zero: p_0 maps the point to the empty root divisor.
-Example TauCeti.RamifiedClassField.orderedRootDivisors.test_one: p_1 is identity on the root curve.
-Example TauCeti.RamifiedClassField.orderedRootDivisors.test_collision: p_2 is not representable at two equal branch points: its relative inertia contains diagonal μ₂.
-
-Node FunctionFieldArithmeticPartII:GC.1/ordered-proper
-The ordered map p_d is proper and quasi-finite in the nonrepresentable stack sense; the generic
-distinct-point locus is an S_d-cover. Its finite relative stabilizers are tame μ₂-products. No
-representably finite morphism is asserted at branch collisions.
-
-Node FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi
-Define hatAJ_d:hatX_d^√R→Pic_X^√R,d by forgetting a and α_R, and the refined map retaining α_R to
-Pic_X^{√R;√R,d}. Restrict the first map to AJ_d:X_d^√R→Pic_X^√R,d. Addition commutes with the
-product AJ_d×AJ_e and Picard tensor multiplication.
-API TauCeti.RamifiedClassField.rootAbelJacobi.hat: The hat map forgets both sections and retains the two root line bundles and ι.
-API TauCeti.RamifiedClassField.rootAbelJacobi.refined: The refined map forgets a and retains α_R.
-API TauCeti.RamifiedClassField.rootAbelJacobi.addition: AJ_{d+e}∘add≅mult∘(AJ_d×AJ_e).
-Example TauCeti.RamifiedClassField.rootAbelJacobi.test_empty_R: At R=∅ the effective map is the ordinary Abel–Jacobi map to Pic^d.
-Example TauCeti.RamifiedClassField.rootAbelJacobi.test_zero: At d=0 the effective point maps to the tensor unit.
-Example TauCeti.RamifiedClassField.rootAbelJacobi.test_hat_zero: A zero global section still has a defined hatAJ image.
-
-Node FunctionFieldArithmeticPartII:GC.2/root-units
-At x∈R let O_{√x}×={(u,v)∈O_x××k(x)× : ū=v²}, with componentwise multiplication. For x∉R use O_x×.
-Let O_{√R}× be their product. Its map to adelic units forgets v and has kernel ∏_{x∈R}μ₂(k(x)); do
-not assume it is injective.
-API TauCeti.RamifiedClassField.rootUnits.mk: Create (u,v) with ū=v².
-API TauCeti.RamifiedClassField.rootUnits.forget: Project to u in O_x× and to the corresponding idele unit.
-API TauCeti.RamifiedClassField.rootUnits.kernel: The kernel consists of u=1 and v²=1.
-Example TauCeti.RamifiedClassField.rootUnits.test_empty_R: At R=∅ the product is the ordinary unit product.
-Example TauCeti.RamifiedClassField.rootUnits.test_minus_one: At a ramified place, (1,−1) is a nontrivial kernel element.
-Example TauCeti.RamifiedClassField.rootUnits.test_nonsquare: A unit with nonsquare residue has no lift to this group.
-
-Node FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid
-There is an equivalence Pic_X^√R(k)≃F×\A_F×/O_{√R}× as a double-action groupoid. The right action
-uses the actual noninjective homomorphism to idele units. Degree and all stabilizers are retained.
-At x∉R, π_x⁻¹ represents O_X(x)^♮.
-
-Node FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid
-Declaration TauCeti.RamifiedClassField.rootDivisorGroupoid: Define Div^√R(X) to be the action groupoid A_F×/O_{√R}× for the actual homomorphism O_{√R}×→A_F×. It contains signed divisors in all degrees; neither quotient by F× nor an effectivity condition is imposed. The forgetful map to A_F×/O×=Div(X) uses E(a)=Σ_x v_x(a_x)x. With this valuation convention its Abel–Jacobi functor lands in the double quotient Pic_X^√R(k) and has underlying line bundle O_X(−E(a)), with the retained square-root line along R. The quadratic character is pulled back along this functor. Effective section moduli are a separate construction; they are not identified with this entire groupoid.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.ofIdele: An idele a determines its object in the right-action groupoid.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.arrow: A modified unit h gives the arrow a→a·forget(h); its label h is retained even when forget(h)=1.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.forget: The ordinary signed divisor is E(a)=Σ_x v_x(a_x)x, and modified-unit arrows preserve it.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.tensor: Idele multiplication supplies addition of root divisors; identity and inverse give the unit and additive inverse, with their groupoid coherence.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.abelJacobi: The right quotient maps to F×\A_F×/O_{√R}×; its underlying line is O_X(−E) in the stated valuation convention.
-API TauCeti.RamifiedClassField.rootDivisorGroupoid.automorphisms: The automorphism group of every idele object is ker(O_{√R}×→A_F×)=∏_{x∈R}μ₂(k(x)); at R=∅ it is trivial.
-Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_empty_R_signed: For R=∅ the groupoid is equivalent to the discrete groupoid of all signed divisors. A uniformizer idele and its inverse give x and −x; both occur.
-Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_uniformizer_sign: For x∉R the idele equal to π_x⁻¹ at x and 1 elsewhere has E=−x and Abel–Jacobi line O_X(x).
-Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_branch_kernel: At any branch point in odd characteristic, the modified unit with u=1,v=−1 there and identity elsewhere gives a nonidentity automorphism of the unit idele.
-Example TauCeti.RamifiedClassField.rootDivisorGroupoid.test_principal_not_quotiented: For R=∅ and a nonconstant f∈F× with nonzero principal divisor, the identity and diagonal-f objects are not isomorphic in the right quotient, but their images in the double Picard quotient are isomorphic.
-These signatures remain omitted pending actual supplier carriers, under LEAN-GEOMETRY.
-
-Node FunctionFieldArithmeticPartII:GC.3/tame-local-systems
-Rank-one Q̄ℓ-local systems L on X_1^√R correspond to rank-one tame local systems on U=X−R whose
-geometric inertia characters have order dividing two. Their global monodromy can have arbitrary
-order; in particular an unramified character of order three is allowed.
-
-Node FunctionFieldArithmeticPartII:GC.3/symmetric-local-system
-For L as above and d≥0 define K_d=(p_{d,!}L^{⊠d})^{S_d} with no shift, and L_d=H⁰(K_d). The
-collision and middle-extension lemmas prove K_d≅L_d, with L_d lisse rank one and L_d[d] perverse.
-The invariant projector is d!⁻¹Σσ over Q̄ℓ, including when ℓ divides d!.
-API TauCeti.RamifiedClassField.symmetricLocalSystem.zero: L_0 is the coefficient line on Spec k.
-API TauCeti.RamifiedClassField.symmetricLocalSystem.one: L_1=L under p_1=id.
-API TauCeti.RamifiedClassField.symmetricLocalSystem.invariantProjector: L_d is the image of d!⁻¹Σσ on the unshifted p_{d,!}L^{⊠d}.
-API TauCeti.RamifiedClassField.symmetricLocalSystem.perverseShift: L_d[d] is the perverse intermediate extension from the distinct-point open.
-Example TauCeti.RamifiedClassField.symmetricLocalSystem.test_zero: The zeroth symmetric local system is the coefficient line in degree zero.
-Example TauCeti.RamifiedClassField.symmetricLocalSystem.test_one: The first symmetric local system is L in degree zero.
-Example TauCeti.RamifiedClassField.symmetricLocalSystem.test_shift: At d=1 the complex L[1] is perverse, while L is the unshifted lisse sheaf.
-Example TauCeti.RamifiedClassField.symmetricLocalSystem.test_order_three: An unramified order-three character still gives this construction.
-
-Node FunctionFieldArithmeticPartII:GC.3/collision-kernel
-At a geometric divisor Σm_x x, the relative inertia of the ordered map over a branch point x is
-ker(μ₂^{m_x}→μ₂). It acts trivially on L_x^{⊗m_x}, since the same rank-one character occurs in every
-factor.
-
-Node FunctionFieldArithmeticPartII:GC.3/middle-extension
-The rational invariant object (p_{d,!}L^{⊠d}[d])^{S_d} is the perverse intermediate extension of the
-distinct-point local system. Its unshifted stalks have no higher relative cohomology because the
-relative fibres are finite tame groupoids with rational coefficients.
-
-Node FunctionFieldArithmeticPartII:GC.3/collision-descent
-L_d is a rank-one local system on all of X_d^√R, including repeated branch divisors.
-
-Node FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing
-If L is geometrically nontrivial on the proper root curve, H⁰(X_1^√R_kbar,L)=H²(X_1^√R_kbar,L)=0;
-its cohomology is concentrated in degree one.
-
-Node FunctionFieldArithmeticPartII:GC.3/koszul-exterior
-For a vector space V concentrated in cohomological degree one, the S_d-invariants of its d-fold
-graded tensor power are ∧^dV in degree d. The permutation action includes the Koszul sign, so this
-is the exterior rather than the ordinary symmetric power.
-
-Node FunctionFieldArithmeticPartII:GC.3/exterior-cohomology
-For geometrically nontrivial L, H^i(X_d^√R_kbar,L_d)=0 for i≠d, and H^d≅∧^dH¹(X_1^√R_kbar,L),
-naturally and Frobenius-equivariantly. This includes d=0; exterior powers vanish for d above dim H¹.
-
-Node FunctionFieldArithmeticPartII:GC.3/multiplicity-free-product
-On the locus where the two effective divisors have mutually disjoint support away from R,
-add*L_{d+e}≅L_d⊠L_e by concatenating the tensor lines on ordered divisors.
-
-Node FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity
-The distinct-point isomorphism extends uniquely to α_{d,e}:add*L_{d+e}≅L_d⊠L_e on X_d^√R×X_e^√R.
-
-Node FunctionFieldArithmeticPartII:GC.3/symmetric-associativity
-For d,e,f≥0 the two composites of α_{d,e}, α_{d+e,f} and α_{e,f}, α_{d,e+f} agree after the
-specified tensor/addition associators.
-
-Node FunctionFieldArithmeticPartII:GC.3/symmetric-symmetry
-The α_{d,e} isomorphisms commute with exchanging d,e and with the ordinary symmetry of rank-one
-sheaves; α_{0,d} and α_{d,0} are the canonical unit isomorphisms.
-
-Node FunctionFieldArithmeticPartII:GC.4/evaluation-surjective
-If d≥ρ+max(2g−1,1), then for a degree-d line bundle L, H¹(X,L(−R))=0. In families, π_*L and π_*L(−R)
-are vector bundles of ranks d−g+1 and d−ρ−g+1, commute with base change, and π_*L→π_*(L|_R) is
-surjective.
-
-Node FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart
-At a fixed geometric root-Picard object (L,K_R,ι), the two-fibre of AJ_d is M=H⁰(X,L) minus
-{0}×_{H⁰(R,L|_R)}H⁰(R,K_R), with the second map α↦ι(α²). For ρ>0 and the degree bound, a splitting
-of evaluation identifies M≃A^n minus {0}, n=d−g+1. Scaling K_R by λ and L by λ² gives weights two on
-n−ρ coordinates and one on ρ coordinates.
-
-Node FunctionFieldArithmeticPartII:GC.4/weighted-cover
-For n≥ρ+1 and ρ≥1, set a=n−ρ. The coordinate map [x₁,…,x_a,y₁,…,y_ρ]↦[x₁²,…,x_a²,y₁,…,y_ρ] defines a
-finite cover P^{n−1}→[A^n minus {0}/G_m], with weights (2^a,1^ρ). Its generic Galois group is μ₂^a.
-
-Node FunctionFieldArithmeticPartII:GC.4/weighted-ramification
-A proper subgroup Γ⊊μ₂^a gives an intermediate cover of the weighted quotient that is ramified along
-at least one coordinate divisor x_i=0 in a chart where a weight-one coordinate y_ρ is nonzero. Hence
-such an intermediate cover cannot be finite étale.
-
-Node FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected
-After base change to an algebraically closed field K of characteristic not two, the weighted
-quotient [A_K^n minus {0}/G_m,K] with weights (2^{n−ρ},1^ρ), ρ≥1 and n≥ρ+1, has no nontrivial
-connected finite étale cover. Every rank-one lisse Q̄ℓ-local system on the original quotient is
-geometrically constant.
-
-Node FunctionFieldArithmeticPartII:GC.4/fibre-triviality
-Under the high-degree bound and ρ>0, L_d restricts to a constant sheaf on each geometric two-fibre M
-of AJ_d.
-
-Node FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent
-When R=∅ and d≥max(2g−1,1), the symmetric local system descends along the ordinary Abel–Jacobi map
-to the degree-d Picard stack. The ordinary scalar action has weight one; the projective fibre
-quotient is P^{d−g}.
-
-Node FunctionFieldArithmeticPartII:GC.4/high-degree-descent
-For d≥ρ+max(2g−1,1), L_d descends to a rank-one local system L_d^Pic on Pic_X^√R,d with
-AJ_d*L_d^Pic≅L_d. Descent and its comparison are unique up to the canonical isomorphism compatible
-with pullback; the pullback functor is fully faithful in this setting.
-
-Node FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors
-For every integer d and bound B there exists an effective divisor D on U=X−R with d+deg D≥B. The
-construction requires no rational point of degree one. For two choices D,E, a common effective
-enlargement is D+E.
-
-Node FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line
-For an effective D=Σn_x x supported on U, define the Frobenius line L_D as the tensor product of the
-fibres of L over all geometric points above x, each repeated n_x times, with its Frobenius
-permutation descent. This is the value of L_{deg D} at the canonical root divisor O(D)^♮.
-API TauCeti.RamifiedClassField.divisorTensorLine.zero: L_0 is the coefficient line.
-API TauCeti.RamifiedClassField.divisorTensorLine.sum: L_{D+E}≅L_D⊗L_E with the inherited tensor coherence.
-API TauCeti.RamifiedClassField.divisorTensorLine.closedPoint: The Frobenius action for a closed point is the cyclic permutation with its local Frobenius action.
-Example TauCeti.RamifiedClassField.divisorTensorLine.test_empty: The empty divisor gives Q̄ℓ.
-Example TauCeti.RamifiedClassField.divisorTensorLine.test_rational: For a rational point x outside R the line is L_x.
-Example TauCeti.RamifiedClassField.divisorTensorLine.test_degree_two: For a degree-two closed point the line is the tensor of both conjugate fibres with Frobenius
-descent.
-
-Node FunctionFieldArithmeticPartII:GC.5/translate-high-degree
-If D is effective away from R and both d and d+deg D satisfy the high-degree bound, there is a
-canonical isomorphism t_D*L_{d+deg D}^Pic≅L_d^Pic⊗L_D.
-
-Node FunctionFieldArithmeticPartII:GC.5/all-degree-extension
-For d∈Z choose effective D⊂U with d+deg D≥B=ρ+max(2g−1,1) and set L_d^Pic=t_D*L_{d+deg D}^Pic⊗L_D⁻¹.
-The comparison and cocycle lemmas identify different choices canonically; the resulting graded sheaf
-is L^Pic on the whole root Picard stack.
-API TauCeti.RamifiedClassField.picardCharacter.component: The degree-d component is the normalized translated high-degree sheaf.
-API TauCeti.RamifiedClassField.picardCharacter.comparison: The sheaves from two effective choices are canonically isomorphic through their common enlargement.
-API TauCeti.RamifiedClassField.picardCharacter.translation: t_D*L_{d+deg D}^Pic≅L_d^Pic⊗L_D for every d and effective D away from R.
-Example TauCeti.RamifiedClassField.picardCharacter.test_negative_degree: The construction gives a sheaf on degree −1 without choosing a degree-one rational point.
-Example TauCeti.RamifiedClassField.picardCharacter.test_common_sum: The comparisons through D+E agree with comparisons through further effective enlargements.
-Example TauCeti.RamifiedClassField.picardCharacter.test_high_degree: Above B it agrees with the original high-degree descent.
-
-Node FunctionFieldArithmeticPartII:GC.5/choice-comparison
-For effective D,E giving high degrees, the two constructions of L_d^Pic are canonically identified
-by translating each once more to the high degree d+deg D+deg E and using L_{D+E}≅L_D⊗L_E.
-
-Node FunctionFieldArithmeticPartII:GC.5/choice-cocycle
-For any three effective choices D,E,F the canonical comparison D→E followed by E→F is the comparison
-D→F. Comparisons are unchanged by further common effective enlargement.
-
-Node FunctionFieldArithmeticPartII:GC.5/effective-pullback
-For every d≥0, AJ_d*L_d^Pic≅L_d canonically. Choose an effective D away from R reaching B; the
-translated comparison and multiplication cancel L_D.
-
-Node FunctionFieldArithmeticPartII:GC.5/unit-trivialization
-At the root-Picard tensor unit e, the pullback e*L^Pic is canonically Q̄ℓ, via the degree-zero
-effective Abel–Jacobi comparison.
-
-Node FunctionFieldArithmeticPartII:GC.5/high-degree-multiplication
-For d,e≥B, mult*L_{d+e}^Pic≅L_d^Pic⊠L_e^Pic on the product Pic^√R,d×Pic^√R,e. The pullback
-comparison uses AJ_d×AJ_e, not AJ_{d+e}.
-
-Node FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication
-For all d,e∈Z there is a canonical isomorphism μ_{d,e}:mult*L_{d+e}^Pic≅L_d^Pic⊠L_e^Pic. It is the
-high-degree isomorphism transported by independent effective divisors D,E and normalized using
-L_{D+E}≅L_D⊗L_E.
-
-Node FunctionFieldArithmeticPartII:GC.5/character-associativity
-For all integers d,e,f, the two composites of μ for the three-degree product agree under the Picard
-and sheaf associators.
-
-Node FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit
-The multiplication μ_{d,e} commutes with exchanging factors, and its restrictions along e×id and
-id×e are the identity unit maps after the canonical unit trivialization.
-
-Node FunctionFieldArithmeticPartII:GC.5/hat-character-pullback
-For every integer degree in which the hat section moduli problem is defined, set
-hatL_d=hatAJ_d*L_d^Pic. On the effective open it is canonically L_d for d≥0. This is a pullback
-along the entire hat map, so its zero-section stalks remain rank one.
-API TauCeti.RamifiedClassField.hatCharacter.definition: hatL_d is exactly hatAJ_d*L_d^Pic.
-API TauCeti.RamifiedClassField.hatCharacter.effective: Its restriction to the effective open is canonically L_d.
-API TauCeti.RamifiedClassField.hatCharacter.zeroSection: At a zero global section its stalk is the character line of the underlying root-Picard object.
-Example TauCeti.RamifiedClassField.hatCharacter.test_effective: The restriction agrees with the unshifted degree-zero symmetric local system.
-Example TauCeti.RamifiedClassField.hatCharacter.test_zero: The zero-section stalk is rank one, not zero.
-Example TauCeti.RamifiedClassField.hatCharacter.test_degree_zero: At the effective empty divisor it is the coefficient line with the canonical unit.
-
-Node FunctionFieldArithmeticPartII:GC.6/root-multiplicative-sheaf
-On X_et define G_m,X^√R=G_m,X×_{i_*G_m,R,[2]}i_*G_m,R. Its sections are pairs (u,v) of a unit and a
-root unit on R satisfying u|_R=v². Its torsor stack is the root Picard stack.
-API TauCeti.RamifiedClassField.rootMultiplicativeSheaf.sections: Its sections are exactly (u,v) with u|_R=v².
-API TauCeti.RamifiedClassField.rootMultiplicativeSheaf.forget: Forget v to G_m,X.
-API TauCeti.RamifiedClassField.rootMultiplicativeSheaf.torsors: Its torsor stack is Pic_X^√R.
-Example TauCeti.RamifiedClassField.rootMultiplicativeSheaf.test_empty_R: At R=∅ this is G_m,X.
-Example TauCeti.RamifiedClassField.rootMultiplicativeSheaf.test_kernel: The forgetful kernel on R is μ₂.
-Example TauCeti.RamifiedClassField.rootMultiplicativeSheaf.test_nonadditive: For odd-characteristic residue rings the square map is multiplicative but does not define an
-additive ring map.
-
-Node FunctionFieldArithmeticPartII:GC.6/norm-residue-square
-For the smooth geometrically connected double cover ν:X′→X with reduced ramification R′≃R and
-involution σ, restriction of Nm(u) to R is (u|_{R′})². For a line bundle L′, Nm(L′)|_R≅(L′|_{R′})²
-canonically.
-
-Node FunctionFieldArithmeticPartII:GC.6/root-norm
-The sheaf map Nm^√R=(Nm,r_{R′}):ν_*G_m,X′→G_m,X^√R induces the root norm Pic_X′→Pic_X^√R, sending L′
-to (Nm L′,L′|_{R′},ι). It lifts the ordinary norm and respects tensor products.
-API TauCeti.RamifiedClassField.rootNorm.object: The object is (Nm L′,L′|_{R′},ι).
-API TauCeti.RamifiedClassField.rootNorm.forget: Forgetting roots gives the ordinary norm.
-API TauCeti.RamifiedClassField.rootNorm.tensor: Root norm preserves tensor product with the canonical coherent norm isomorphism.
-API TauCeti.RamifiedClassField.rootNorm.baseChange: It commutes with admissible base changes of the double cover.
-Example TauCeti.RamifiedClassField.rootNorm.test_trivial: The trivial upstairs line maps to the root-Picard tensor unit.
-Example TauCeti.RamifiedClassField.rootNorm.test_branch: Its chosen root at a branch point is precisely the upstairs fibre of L′.
-Example TauCeti.RamifiedClassField.rootNorm.test_degree: The norm of a degree-one upstairs line has degree one, while pullback of a degree-one downstairs
-line has degree two.
-
-Node FunctionFieldArithmeticPartII:GC.6/root-norm-surjective
-Nm^√R:ν_*G_m,X′→G_m,X^√R is surjective as an étale sheaf under the odd-characteristic double-cover
-hypotheses.
-
-Node FunctionFieldArithmeticPartII:GC.6/norm-kernel
-As étale sheaves, ker Nm^√R is the image of u↦u/(σu), and ker(1−σ)=G_m,X inside ν_*G_m,X′. At
-ramification a root-normalized norm-one u has residue one, so w=1+u is locally a unit and u=w/(σw).
-
-Node FunctionFieldArithmeticPartII:GC.6/exact-sheaf-complex
-The étale sheaf complex 1→G_m,X→ν_*G_m,X′→^{1−σ}ν_*G_m,X′→^{Nm^√R}G_m,X^√R→1 is exact, with
-specified zero composites. Passing to torsor groupoids requires its connecting obstruction data;
-this theorem does not claim a short exact sequence of Picard groups.
-
-Node FunctionFieldArithmeticPartII:GC.6/picard-descent-obstructions
-Let K=ker Nm^√R. Interpret the exact sheaf complex as the two short exact sequences G_m→ν_*G_m→K and
-K→ν_*G_m→G_m^√R, and apply their derived cohomology and torsor descent. Any Picard-stack exactness
-statement must specify the connecting maps, coherent norm trivializations and effectiveness
-obstructions, rather than replacing the result by an ordinary kernel of 1−σ on line-bundle classes.
-
-Node FunctionFieldArithmeticPartII:GC.6/hat-root-norm
-Send (L′,a′) on X′ to (Nm L′,L′|_{R′},ι,Nm a′,a′|_{R′}) on hatX_d^√R. It commutes with hat
-Abel–Jacobi and the root norm, and restricts to effective sections.
-API TauCeti.RamifiedClassField.hatRootNorm.object: The root line and root section are L′|_{R′} and a′|_{R′}.
-API TauCeti.RamifiedClassField.hatRootNorm.abelJacobi: hatAJ∘hatNorm≅rootNorm∘hatAJ′.
-API TauCeti.RamifiedClassField.hatRootNorm.effective: A fibrewise-nonzero upstairs section gives a fibrewise-nonzero norm section.
-Example TauCeti.RamifiedClassField.hatRootNorm.test_zero: A zero section maps to a zero global and root section.
-Example TauCeti.RamifiedClassField.hatRootNorm.test_branch: At ramification the norm section restricts to the square of a′|_{R′}.
-Example TauCeti.RamifiedClassField.hatRootNorm.test_ordinary: Forgetting roots recovers the ordinary norm on section spaces.
-
-Node FunctionFieldArithmeticPartII:GC.6/quadratic-input
-For the geometrically connected double cover, ν_*Q̄ℓ decomposes into the ± eigensheaves of σ; its
-anti-invariant restriction to U is rank one, geometrically nontrivial and has inertia −1 exactly at
-R. Extend it to the root curve through the tame correspondence. The parent’s arithmetic reciprocity
-gives η_{F′/F}:F×\A_F×→{±1}, which is trivial on the image of O_{√R}×.
-API TauCeti.RamifiedClassField.quadraticInput.antiInvariant: The input on U is the −1 eigensheaf of ν_*Q̄ℓ.
-API TauCeti.RamifiedClassField.quadraticInput.inertia: Every ramified inertia generator acts by −1.
-API TauCeti.RamifiedClassField.quadraticInput.ideleCharacter: The arithmetic character factors through the root-unit idele quotient.
-Example TauCeti.RamifiedClassField.quadraticInput.test_split_point: At a split unramified point the local Frobenius trace is +1.
-Example TauCeti.RamifiedClassField.quadraticInput.test_inert_point: At an inert unramified point the local Frobenius trace is −1.
-Example TauCeti.RamifiedClassField.quadraticInput.test_geometric_connectedness: A constant quadratic cover is excluded from the geometrically nontrivial input assertion.
-
-Node FunctionFieldArithmeticPartII:GC.6/trace-character
-The Frobenius trace of L^Pic is a multiplicative Q̄ℓ×-valued function on isomorphism classes of
-Pic_X^√R(k), normalized to one at the tensor unit. Via the adelic equivalence it defines an idele
-character. For general input L its range is not restricted to {±1}.
+end RootPicardData
 
-Node FunctionFieldArithmeticPartII:GC.6/closed-point-trace
-For a closed point x∈U of degree δ, Tr(Fr_k,(L_δ)_{[x]})=Tr(Fr_x,L_x). On the tensor of δ conjugate
-rank-one fibres, Frobenius cyclically permutes factors and applies Fr_x on the wrapped factor.
+/-- A section along the root locus, with no global section on `Y`. -/
+structure RootPicardSectionData where
+  root : RootPicardData i
+  sectionOnRoot : Γ(root.rootLine.obj, (⊤ : Z.Opens))
 
-Node FunctionFieldArithmeticPartII:GC.6/away-ramification-generation
-Every class of the root-Picard idele groupoid is a difference of canonical root-divisor classes
-supported on U, after multiplying by the modified-unit image. Thus a normalized idele character is
-determined by its values on π_x⁻¹ for x∈U.
+namespace RootPicardSectionData
 
-Node FunctionFieldArithmeticPartII:GC.6/quadratic-trace
-For the geometrically connected double cover, the Frobenius trace of its all-degree root-Picard
-character sheaf equals η_{F′/F} under the adelic groupoid equivalence, with π_x⁻¹↔O_X(x)^♮ and
-geometric Frobenius. At unramified x the value is +1 for split x and −1 for inert x.
+variable {i}
 
-Node FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent
-For every positive n and line bundle with section (L,s), the finite root-object pseudofunctor is a
-stack for the pinned fpqc topology, including on scheme test objects over a stack base. Thus its
-fppf restriction and its fpqc construction give the same root objects and arrows on every test
-scheme; the stronger descent assertion is a theorem, not an automatic change of topology.
+/-- In addition to the square, an arrow preserves the root section. -/
+structure Iso (a b : RootPicardSectionData i) where
+  rootIso : RootPicardData.Iso a.root b.root
+  section_eq :
+    rootIso.rootIso.hom.hom.app (⊤ : Z.Opens) a.sectionOnRoot = b.sectionOnRoot
 
-Node FunctionFieldArithmeticPartII:RS.2/factorial-root-limit
-Restriction of compatible root systems from all positive divisibility indices to 1!,2!,3!,… is an
-equivalence of groupoids, naturally over every test scheme. It preserves actual root arrows and
-transition isomorphisms, not merely their isomorphism classes.
+def zero (a : RootPicardData i) : RootPicardSectionData i := ⟨a, 0⟩
 
-Node FunctionFieldArithmeticPartII:RS.2/kummer-torsor-limit
-Over a field k let G=lim_(n|m) μ_n in the fpqc topology, with transition μ_(nm)→μ_n given by the mth
-power. The groupoid of fpqc G-torsors is equivalent to the two-limit of the groupoids of finite
-μ_n-torsors, with specified quotient comparisons and their cocycles. No finite-presentation or
-etale-local-triviality assertion for G is made.
-
-Node FunctionFieldArithmeticPartII:RS.2/kummer-limit-iso-detection
-Two compatible finite μ_n-torsor towers over a field k are isomorphic if their n-th torsors are
-isomorphic for every positive n. Individual finite-stage isomorphisms need not be chosen compatibly
-in advance.
-
-Node FunctionFieldArithmeticPartII:RS.2/kummer-limit-class-lift
-Every element of lim_n H1_fppf(k,μ_n) is the finite-stage class family of a coherent finite torsor
-tower, hence of an fpqc G-torsor. Compatible classes are converted to actual quotient isomorphisms,
-rather than treated as a preexisting compatible object.
-
-Node FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient
-For B_n=A[T]/(T^n−f) with the displayed divisibility maps, put B_infinity=colim_n B_n and G=lim_n
-μ_n, with its diagonalizable grading action. The infinite root stack of (O_A,f) is [Spec
-B_infinity/G] as an fpqc quotient stack. Its morphism groupoids and finite projections agree with
-the two-limit of the finite roots. This is not asserted to be an algebraic stack of finite
-presentation.
-
-Node FunctionFieldArithmeticPartII:RS.2/kummer-tower-not-fppf
-Over Q, the compatible finite torsors P_n=Spec Q[T]/(T^n−2) define an fpqc G=lim_n μ_n torsor
-P_infinity. It has no section after any nonempty fppf Q-cover. Each individual P_n is fppf-locally
-trivial, so replacing all infinite torsors by fppf-locally trivial G-torsors loses this point of the
-infinite classifying gerbe.
-
--/
-
-
-/-! Root-specific coordinate comparisons. These native signatures are uncompiled.
-The coordinate and unit-section abbreviations below only expose the existing
-freePUnitIsoUnit and freeSection maps; they are not substitute geometric types. -/
-namespace TauCeti.RootStack
-
-variable {X : Scheme.{u}}
-
-private abbrev trivialSectionUnit :
-    Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :=
-  (SheafOfModules.freeSection (R := X.ringCatSheaf) PUnit.unit).val
-    (Opposite.op (⊤ : X.Opens))
-
-private abbrev trivialSectionCoordinate
-    (v : Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)) : Γ(X, ⊤) :=
-  (TauCeti.SheafOfModules.freePUnitIsoUnit X.ringCatSheaf).hom.val.app
-    (Opposite.op (⊤ : X.Opens)) v
-
-def tensorPower.trivialIso (n : ℕ) :
-    tensorPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) n ≅
-      TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X := by sorry
-
-lemma tensorPower.trivialIso_zero :
-    tensorPower.trivialIso (X := X) 0 = Iso.refl _ := by sorry
-
-lemma tensorPower.trivialIso_succ (n : ℕ) :
-    tensorPower.trivialIso (X := X) (n + 1) =
-      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft
-        (tensorPower.trivialIso n) ≪≫
-      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso
-        (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) := by sorry
-
-lemma tensorPower.trivialIso_unit (n : ℕ) :
-    trivialSectionCoordinate (mapSection (tensorPower.trivialIso n)
-      (sectionPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) n
-        trivialSectionUnit)) = 1 := by sorry
-
--- tensorPower.trivialIso_test_zero
-example : tensorPower.trivialIso (X := X) 0 = Iso.refl _ := by sorry
-
--- tensorPower.trivialIso_test_one
-example : tensorPower.trivialIso (X := X) 1 =
-    TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso
-      (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) := by sorry
-
--- tensorPower.trivialIso_test_two
-example (v : Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)) :
-    trivialSectionCoordinate (mapSection (tensorPower.trivialIso 2)
-      (sectionPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) 2 v)) =
-      trivialSectionCoordinate v ^ 2 := by sorry
-
-lemma sectionPower.in_trivialization
-    (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
-    (e : M ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (v : Section M) (n : ℕ) :
-    trivialSectionCoordinate (mapSection
-      (tensorPower.mapIso n e ≪≫ tensorPower.trivialIso n) (sectionPower M n v)) =
-      trivialSectionCoordinate (mapSection e v) ^ n := by sorry
-
--- This coefficient is the image of the native unit section, not an assumption.
-private abbrev rootPowerCoefficient {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a : RootObject n L s)
-    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) : Γ(X, ⊤) :=
-  trivialSectionCoordinate (mapSection
-    ((tensorPower.trivialIso n).symm ≪≫ tensorPower.mapIso n e.symm ≪≫
-      a.powerIso ≪≫ l) trivialSectionUnit)
-
-lemma RootObject.powerIdentification_isUnit {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a : RootObject n L s)
-    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
-    IsUnit (rootPowerCoefficient a e l) ∧
-      ∀ v : Section (tensorPower a.line n),
-        trivialSectionCoordinate (mapSection (a.powerIso ≪≫ l) v) =
-          rootPowerCoefficient a e l *
-            trivialSectionCoordinate (mapSection
-              (tensorPower.mapIso n e ≪≫ tensorPower.trivialIso n) v) := by sorry
-
-theorem RootObject.trivializationEquation {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a : RootObject n L s)
-    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
-    IsUnit (rootPowerCoefficient a e l) ∧
-      rootPowerCoefficient a e l *
-        trivialSectionCoordinate (mapSection e a.rootSection) ^ n =
-          trivialSectionCoordinate (mapSection l s) := by sorry
-
--- RootObject.test_trivialization: the omitted comparison now has a native signature.
-example {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a : RootObject n L s)
-    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
-    ∃ u : Γ(X, ⊤)ˣ, (u : Γ(X, ⊤)) = rootPowerCoefficient a e l ∧
-      (u : Γ(X, ⊤)) * trivialSectionCoordinate (mapSection e a.rootSection) ^ n =
-        trivialSectionCoordinate (mapSection l s) := by sorry
-
-lemma RootObject.arrow_scalar_equations {n : ℕ} [NeZero n]
-    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
-    (a b : RootObject n L s) (h : RootObject.iso a b)
-    (ea : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (eb : b.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
-    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
-    ∃ w : Γ(X, ⊤)ˣ,
-      trivialSectionCoordinate (mapSection eb b.rootSection) =
-        (w : Γ(X, ⊤)) * trivialSectionCoordinate (mapSection ea a.rootSection) ∧
-      rootPowerCoefficient b eb l * (w : Γ(X, ⊤)) ^ n =
-        rootPowerCoefficient a ea l := by sorry
-
-end TauCeti.RootStack
-
-/-!
-## Finite affine torsor comparison: kernel and cokernel
-
-Continuation for issue #3403, ChatGPT — gpt-6astra-20261002-c4d9.
-These are native algebraic candidates for RS.1/affine-chart and the finite
-frame-torsor input to RS.2/kummer-torsor-limit. They use the existing affine
-ring and Hopf coaction, not a replacement group scheme or torsor predicate.
-The handoff gives their proofs and their exact packet-integration boundary.
-No algebraic-stack or infinite-torsor signature is supplied by this fragment.
-The full file is NOT COMPILED. The suggested declarations are admitted
-under PROTOCOL §13. Separate Mathlib-only proof-prototype checks are recorded in the handoff.
--/
-namespace TauCeti.RootStack
-
-section AffineTorsorComparison
-
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
-/-- The action comparison on coordinate algebras, with the unchanged right
-factor. Its formula on pure tensors is specified below. -/
-def affineTorsorComparison (f : A) (n : ℕ) [NeZero n] :
-    (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
-      (MuHopf A n ⊗[A] AffineRing f n) := by
-  sorry
-
-lemma affineTorsorComparison.tmul (f : A) (n : ℕ) [NeZero n]
-    (x y : AffineRing f n) :
-    affineTorsorComparison f n (x ⊗ₜ[A] y) =
-      affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y) := by
-  sorry
-
-lemma affineTorsorComparison.left_root (f : A) (n : ℕ) [NeZero n] :
-    affineTorsorComparison f n
-      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ⊗ₜ[A]
-        (1 : AffineRing f n)) =
-      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
-  sorry
-
-lemma affineTorsorComparison.right_factor (f : A) (n : ℕ) [NeZero n]
-    (y : AffineRing f n) :
-    affineTorsorComparison f n ((1 : AffineRing f n) ⊗ₜ[A] y) =
-      (1 : MuHopf A n) ⊗ₜ[A] y := by
-  sorry
-
-lemma affineTorsorComparison.unique (f : A) (n : ℕ) [NeZero n]
-    (h : (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
-      (MuHopf A n ⊗[A] AffineRing f n))
-    (hh : ∀ x y : AffineRing f n,
-      h (x ⊗ₜ[A] y) = affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y)) :
-    h = affineTorsorComparison f n := by
-  sorry
-
-/-- Weighted permutation formula in the native monic tensor bases.
-No division by n, reducedness, or unit condition on f is used. -/
-lemma affineTorsorComparison.monomial (f : A) (n : ℕ) [NeZero n]
-    (i j : Fin n) :
-    affineTorsorComparison f n
-      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ j.val)) =
-      f ^ ((i.val + j.val) / n) •
-        (MonoidAlgebra.single (Multiplicative.ofAdd (i.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
-            ((i.val + j.val) % n))) := by
-  sorry
-
-/-- Every source tensor has unique monic-basis coefficients, including over
-the zero ring. In that case use the unique coefficient function directly. -/
-lemma affineTorsorComparison.source_coordinates (f : A) (n : ℕ) [NeZero n]
-    (z : AffineRing f n ⊗[A] AffineRing f n) :
-    ∃! c : (Fin n × Fin n) → A,
-      z = ∑ p : Fin n × Fin n, c p •
-        ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
-
-/-- Character basis in the first factor and monic basis in the second. -/
-lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing f n) :
-    ∃! c : (Fin n × Fin n) → A,
-      z = ∑ p : Fin n × Fin n, c p •
-        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
-
-/-- The actual finite coefficient equivalence, fixed by the original tensor
-monomials. This includes the subsingleton coefficient ring. -/
-def affineTorsorComparison.sourceCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    (AffineRing f n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
-
-lemma affineTorsorComparison.sourceCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    (affineTorsorComparison.sourceCoordinateEquiv f n).symm c =
-      ∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
-
-lemma affineTorsorComparison.sourceCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    affineTorsorComparison.sourceCoordinateEquiv f n
-      (∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
-
-lemma affineTorsorComparison.sourceCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    affineTorsorComparison.sourceCoordinateEquiv f n
-      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
-      Pi.single p 1 := by sorry
-
-/-- The character tensor coefficient equivalence uses every group-algebra
-character, including in characteristic dividing n. -/
-def affineTorsorComparison.targetCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    (MuHopf A n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
-
-lemma affineTorsorComparison.targetCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    (affineTorsorComparison.targetCoordinateEquiv f n).symm c =
-      ∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
-
-lemma affineTorsorComparison.targetCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    affineTorsorComparison.targetCoordinateEquiv f n
-      (∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
-
-lemma affineTorsorComparison.targetCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    affineTorsorComparison.targetCoordinateEquiv f n
-      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
-      Pi.single p 1 := by sorry
-
--- affineTorsorComparison.sourceCoordinateEquiv.test_one
-example (f : A) : affineTorsorComparison.sourceCoordinateEquiv f 1
-    ((1 : AffineRing f 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
-
--- affineTorsorComparison.sourceCoordinateEquiv.test_zero_ring
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
-    (z : AffineRing f n ⊗[A] AffineRing f n) :
-    affineTorsorComparison.sourceCoordinateEquiv f n z = 0 := by sorry
-
--- affineTorsorComparison.sourceCoordinateEquiv.test_nonreduced
-example : affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2
-    (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ⊗ₜ[ZMod 4]
-      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))) (1, 1) = 1 := by sorry
-
--- affineTorsorComparison.targetCoordinateEquiv.test_one
-example (f : A) : affineTorsorComparison.targetCoordinateEquiv f 1
-    ((1 : MuHopf A 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
-
--- affineTorsorComparison.targetCoordinateEquiv.test_zero_ring
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing f n) :
-    affineTorsorComparison.targetCoordinateEquiv f n z = 0 := by sorry
-
--- affineTorsorComparison.targetCoordinateEquiv.test_wild_character
-example : affineTorsorComparison.targetCoordinateEquiv (0 : ZMod 2) 2
-    (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
-      (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by sorry
-
-def affineTorsorComparison.coefficientPermutation (n : ℕ) [NeZero n] :
-    (Fin n × Fin n) ≃ (Fin n × Fin n) := by sorry
-
-lemma affineTorsorComparison.coefficientPermutation_apply (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    coefficientPermutation n p = (p.1, p.1 + p.2)  := by sorry
-
-lemma affineTorsorComparison.coefficientPermutation_symm (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    (coefficientPermutation n).symm p = (p.1, p.2 - p.1)  := by sorry
-
-lemma affineTorsorComparison.wrap_iff_lower (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val ↔
-      n ≤ p.1.val + p.2.val  := by sorry
-
--- affineTorsorComparison.coefficientPermutation.test_one
-example (p : Fin 1 × Fin 1) : affineTorsorComparison.coefficientPermutation 1 p = p  := by sorry
-
--- affineTorsorComparison.coefficientPermutation.test_wrap
-example : affineTorsorComparison.coefficientPermutation 2 (1,1) = (1,0)  := by sorry
-
--- affineTorsorComparison.coefficientPermutation.test_inverse
-example : (affineTorsorComparison.coefficientPermutation 3).symm (2,0) = (2,1)  := by sorry
-
-lemma affineTorsorComparison.coefficientPermutation_val (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    (coefficientPermutation n p).2.val = (p.1.val + p.2.val) % n  := by sorry
-
-lemma affineTorsorComparison.monomial_permuted (f : A) (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    affineTorsorComparison f n
-      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
-      (if (coefficientPermutation n p).2.val < p.1.val then f else 1) •
-        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
-            (coefficientPermutation n p).2.val))  := by sorry
-
-lemma affineTorsorComparison.monomial_coordinates (f : A) (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    targetCoordinateEquiv f n (affineTorsorComparison f n
-      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) =
-      (if (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val
-        then f else 1) • Pi.single (coefficientPermutation n p) 1  := by sorry
-
-lemma affineTorsorComparison.coefficient_map (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) (q : Fin n × Fin n) :
-    targetCoordinateEquiv f n
-      (affineTorsorComparison f n ((sourceCoordinateEquiv f n).symm c)) q =
-      (if q.2.val < q.1.val then f else 1) *
-        c ((coefficientPermutation n).symm q)  := by sorry
-
-/-- The nonwrapping source coefficients vanish; the wrapping coefficients
-lie in the annihilator of f. This also specifies the kernel comparison map. -/
-lemma affineTorsorComparison.kernel_coefficients (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    affineTorsorComparison f n
-      (∑ p : Fin n × Fin n, c p •
-        ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = 0 ↔
-      ∀ p : Fin n × Fin n,
-        if p.1.val + p.2.val < n then c p = 0 else f * c p = 0 := by sorry
-
-/-- Target coefficients below the diagonal, not all coefficients, must be
-multiples of f. This specifies the cokernel quotient map. -/
-lemma affineTorsorComparison.image_coefficients (f : A) (n : ℕ) [NeZero n]
-    (c : (Fin n × Fin n) → A) :
-    (∑ p : Fin n × Fin n, c p •
-      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) ∈
-      LinearMap.range (affineTorsorComparison f n).toLinearMap ↔
-      ∀ p : Fin n × Fin n, p.2.val < p.1.val → ∃ a : A, c p = f * a := by sorry
-
-/-- Kernel coefficients of an actual tensor, rather than a chosen presentation. -/
-lemma affineTorsorComparison.kernel_coordinate_condition (f : A) (n : ℕ) [NeZero n]
-    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
-    (p : Fin n × Fin n) :
-    if p.1.val + p.2.val < n then sourceCoordinateEquiv f n z p = 0
-      else f * sourceCoordinateEquiv f n z p = 0 := by
-  sorry
-
-/-- The specified kernel equivalence extracts wrapping coefficients; its inverse
-extends an annihilator family by zero before native source synthesis. -/
-noncomputable def affineTorsorComparison.kernelCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    (LinearMap.ker (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
-      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
-        LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))) := by
-  sorry
-
-lemma affineTorsorComparison.kernelCoordinateEquiv_apply (f : A) (n : ℕ) [NeZero n]
-    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
-    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
-    (kernelCoordinateEquiv f n z p : A) = sourceCoordinateEquiv f n z p.val := by
-  sorry
-
-lemma affineTorsorComparison.kernelCoordinateEquiv_symm_coordinates (f : A) (n : ℕ) [NeZero n]
-    (d : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
-      LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))) (p : Fin n × Fin n) :
-    sourceCoordinateEquiv f n ((kernelCoordinateEquiv f n).symm d :
-      AffineRing f n ⊗[A] AffineRing f n) p =
-      if hp : n ≤ p.1.val + p.2.val then (d ⟨p, hp⟩ : A) else 0 := by
-  sorry
-
-lemma affineTorsorComparison.kernelCoordinateEquiv_nonwrap (f : A) (n : ℕ) [NeZero n]
-    (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
-    (p : Fin n × Fin n) (hp : p.1.val + p.2.val < n) :
-    sourceCoordinateEquiv f n z p = 0 := by
-  sorry
-
-/-- Native kernel, indexed by the wrapping source pairs. The coordinate
-formula specifies the equivalence, not just its abstract isomorphism class. -/
-theorem affineTorsorComparison.kernel_equiv (f : A) (n : ℕ) [NeZero n] :
-    ∃ e : (LinearMap.ker (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
-      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
-        LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))),
-      ∀ (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
-        (c : (Fin n × Fin n) → A)
-        (_hc : (z : AffineRing f n ⊗[A] AffineRing f n) =
-          ∑ p : Fin n × Fin n, c p •
-            ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-              (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)))
-        (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}),
-        (e z p : A) = c p.val := by
-  sorry
-
-/-- Lower target coefficients modulo the actual principal ideal. -/
-noncomputable def affineTorsorComparison.cokernelResidue (f : A) (n : ℕ) [NeZero n] :
-    (MuHopf A n ⊗[A] AffineRing f n) →ₗ[A]
-      ({p : Fin n × Fin n // p.2.val < p.1.val} → A ⧸ Ideal.span ({f} : Set A)) := by
-  sorry
-
-lemma affineTorsorComparison.cokernelResidue_apply (f : A) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing f n)
-    (p : {p : Fin n × Fin n // p.2.val < p.1.val}) :
-    cokernelResidue f n z p =
-      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (targetCoordinateEquiv f n z p.val) := by
-  sorry
-
-lemma affineTorsorComparison.cokernelResidue_surjective (f : A) (n : ℕ) [NeZero n] :
-    Function.Surjective (cokernelResidue f n) := by
-  sorry
-
-lemma affineTorsorComparison.cokernelResidue_ker (f : A) (n : ℕ) [NeZero n] :
-    LinearMap.ker (cokernelResidue f n) =
-      LinearMap.range (affineTorsorComparison f n).toLinearMap := by
-  sorry
-
-/-- Native first-isomorphism equivalence, transported by the proved equality
-of the residue kernel and the actual comparison range as A-submodules. -/
-noncomputable def affineTorsorComparison.cokernelCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    ((MuHopf A n ⊗[A] AffineRing f n) ⧸
-      LinearMap.range (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
-      ({p : Fin n × Fin n // p.2.val < p.1.val} → A ⧸ Ideal.span ({f} : Set A)) := by
-  sorry
-
-lemma affineTorsorComparison.cokernelCoordinateEquiv_mk (f : A) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing f n)
-    (p : {p : Fin n × Fin n // p.2.val < p.1.val}) :
-    cokernelCoordinateEquiv f n (Submodule.Quotient.mk z) p =
-      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (targetCoordinateEquiv f n z p.val) := by
-  sorry
-
-lemma affineTorsorComparison.cokernelCoordinateEquiv_symm_residue (f : A) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing f n) :
-    (cokernelCoordinateEquiv f n).symm (cokernelResidue f n z) =
-      Submodule.Quotient.mk z := by
-  sorry
-
-lemma affineTorsorComparison.cokernelCoordinateEquiv_eq_iff (f : A) (n : ℕ) [NeZero n]
-    (z w : MuHopf A n ⊗[A] AffineRing f n) :
-    (Submodule.Quotient.mk z : (MuHopf A n ⊗[A] AffineRing f n) ⧸
-      LinearMap.range (affineTorsorComparison f n).toLinearMap) = Submodule.Quotient.mk w ↔
-      cokernelResidue f n z = cokernelResidue f n w := by
-  sorry
-
-/-- Native module cokernel, indexed by the strictly lower triangular target
-pairs. Its formula is the quotient of exactly those coefficients modulo f.
-This is not a quotient algebra or an orbit-space construction. -/
-theorem affineTorsorComparison.cokernel_equiv (f : A) (n : ℕ) [NeZero n] :
-    ∃ e : ((MuHopf A n ⊗[A] AffineRing f n) ⧸
-      LinearMap.range (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
-      ({p : Fin n × Fin n // p.2.val < p.1.val} →
-        A ⧸ (Ideal.span ({f} : Set A))),
-      ∀ (c : (Fin n × Fin n) → A)
-        (p : {p : Fin n × Fin n // p.2.val < p.1.val}),
-        e (Submodule.Quotient.mk (∑ q : Fin n × Fin n, c q •
-          (MonoidAlgebra.single (Multiplicative.ofAdd (q.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-            (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ q.2.val)))) p =
-          Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (c p.val) := by
-  sorry
-
-theorem affineTorsorComparison.injective_iff (f : A) (n : ℕ) [NeZero n] :
-    Function.Injective (affineTorsorComparison f n) ↔
-      n = 1 ∨ Function.Injective (fun a : A => f * a) := by sorry
-
-theorem affineTorsorComparison.surjective_iff (f : A) (n : ℕ) [NeZero n] :
-    Function.Surjective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
-
-theorem affineTorsorComparison.bijective_iff (f : A) (n : ℕ) [NeZero n] :
-    Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
-
-/-- The inverse of the root on a specified unit chart. -/
-lemma affineRoot.unit_mul_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
-    AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) *
-      (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) = 1 := by
-  sorry
-
-/-- The actual comparison promoted to an algebra equivalence on the unit locus. -/
-def affineTorsorComparison.unitEquiv (v : Aˣ) (n : ℕ) [NeZero n] :
-    (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) ≃ₐ[A]
-      (MuHopf A n ⊗[A] AffineRing (v : A) n) := by
-  sorry
-
-lemma affineTorsorComparison.unitEquiv_toAlgHom (v : Aˣ) (n : ℕ) [NeZero n] :
-    (affineTorsorComparison.unitEquiv v n).toAlgHom =
-      affineTorsorComparison (v : A) n := by
-  sorry
-
-lemma affineTorsorComparison.unitEquiv_symm_character (v : Aˣ) (n : ℕ) [NeZero n] :
-    (affineTorsorComparison.unitEquiv v n).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing (v : A) n)) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ⊗ₜ[A]
-        (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
-          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) := by
-  sorry
-
-lemma affineTorsorComparison.unitEquiv_symm_right (v : Aˣ) (n : ℕ) [NeZero n]
-    (b : AffineRing (v : A) n) :
-    (affineTorsorComparison.unitEquiv v n).symm
-      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
-  sorry
-
-/-- The inverse on every native character/right-factor tensor. -/
-lemma affineTorsorComparison.unitEquiv_symm_character_tmul (v : Aˣ) (n : ℕ)
-    [NeZero n] (i : ℕ) (b : AffineRing (v : A) n) :
-    (affineTorsorComparison.unitEquiv v n).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A] b) =
-      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ i) ⊗ₜ[A]
-        ((algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
-          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ^ i * b) := by
-  sorry
-
-/-- The algebra equivalence is fixed by the original comparison and the
-inverse image of the character generator. This includes characteristic
-which divides n; no inverse of n occurs. -/
-theorem affineTorsorComparison.unit_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
-    ∃ e : (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) ≃ₐ[A]
-        (MuHopf A n ⊗[A] AffineRing (v : A) n),
-      e.toAlgHom = affineTorsorComparison (v : A) n ∧
-      e.symm (MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing (v : A) n)) =
-        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ⊗ₜ[A]
-          (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
-            AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ∧
-      ∀ b : AffineRing (v : A) n,
-        e.symm ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by sorry
-
-/-- Determinant of the matrix supplied by the monomial formula. The same
-pair ordering is used on rows and columns. -/
-theorem affineTorsorComparison.determinant (f : A) (n : ℕ) [NeZero n] :
-    let M : Matrix (Fin n × Fin n) (Fin n × Fin n) A :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % n
-        then f ^ ((c.1.val + c.2.val) / n) else 0
-    Matrix.det M = (-1 : A) ^ ((n - 1) * (n * (n - 1) / 2)) *
-      f ^ (n * (n - 1) / 2) := by sorry
-
-/-- Restrict the actual cyclic coefficient permutation to the killed columns. -/
-def affineTorsorComparison.wrappingEquiv (n : ℕ) [NeZero n] :
-    {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} ≃
-      {q : Fin n × Fin n // q.2.val < q.1.val} := by
-  sorry
-lemma affineTorsorComparison.wrappingEquiv_apply (n : ℕ) [NeZero n]
-    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
-    (wrappingEquiv n p).val = coefficientPermutation n p.val := by
-  sorry
-lemma affineTorsorComparison.wrappingEquiv_symm (n : ℕ) [NeZero n]
-    (q : {q : Fin n × Fin n // q.2.val < q.1.val}) :
-    ((wrappingEquiv n).symm q).val = (coefficientPermutation n).symm q.val := by
-  sorry
-lemma affineTorsorComparison.wrappingEquiv_injective (n : ℕ) [NeZero n] :
-    Function.Injective (wrappingEquiv n) := by
-  sorry
-lemma affineTorsorComparison.lower_card (n : ℕ) :
-    Fintype.card {q : Fin n × Fin n // q.2.val < q.1.val} =
-      n * (n - 1) / 2 := by
-  sorry
-lemma affineTorsorComparison.wrapping_card (n : ℕ) [NeZero n] :
-    Fintype.card {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} =
-      n * (n - 1) / 2 := by
-  sorry
-/-- At zero the specified native kernel coordinates have arbitrary A-values. -/
-noncomputable def affineTorsorComparison.kernelZeroEquiv (n : ℕ) [NeZero n] :
-    (LinearMap.ker (affineTorsorComparison (0 : A) n).toLinearMap) ≃ₗ[A]
-      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} → A) := by
-  sorry
-lemma affineTorsorComparison.kernelZeroEquiv_apply (n : ℕ) [NeZero n]
-    (z : LinearMap.ker (affineTorsorComparison (0 : A) n).toLinearMap)
-    (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}) :
-    kernelZeroEquiv n z p = sourceCoordinateEquiv (0 : A) n z p.val := by
-  sorry
-lemma affineTorsorComparison.kernelZeroEquiv_injective (n : ℕ) [NeZero n] :
-    Function.Injective (kernelZeroEquiv (A := A) n) := by
-  sorry
-lemma affineTorsorComparison.kernelZeroEquiv_symm_coordinates (n : ℕ) [NeZero n]
-    (d : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val} → A) (p : Fin n × Fin n) :
-    sourceCoordinateEquiv (0 : A) n ((kernelZeroEquiv n).symm d :
-      AffineRing (0 : A) n ⊗[A] AffineRing (0 : A) n) p =
-      if hp : n ≤ p.1.val + p.2.val then d ⟨p, hp⟩ else 0 := by
-  sorry
-lemma affineTorsorComparison.source_finrank (k : Type u) [Field k]
-    (f : k) (n : ℕ) [NeZero n] :
-    Module.finrank k (AffineRing f n ⊗[k] AffineRing f n) = n * n := by
-  sorry
-lemma affineTorsorComparison.kernel_zero_finrank (k : Type u) [Field k]
-    (n : ℕ) [NeZero n] :
-    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) n).toLinearMap) =
-      n * (n - 1) / 2 := by
-  sorry
-lemma affineTorsorComparison.range_zero_finrank (k : Type u) [Field k]
-    (n : ℕ) [NeZero n] :
-    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) n).toLinearMap) =
-      n * (n + 1) / 2 := by
-  sorry
-
-/-- At the zero section over a field the loss of rank is exactly triangular. -/
-theorem affineTorsorComparison.zero_rank (k : Type u) [Field k]
-    (n : ℕ) [NeZero n] :
-    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) n).toLinearMap) =
-      n * (n + 1) / 2 ∧
-    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) n).toLinearMap) =
-      n * (n - 1) / 2 := by sorry
-
--- affineTorsorComparison.test_exponent_one: no unit condition on f.
-example (f : A) : Function.Bijective (affineTorsorComparison f 1) := by sorry
-
--- affineTorsorComparison.test_zero_ring: the usual zero-ring unit convention.
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] :
-    Function.Bijective (affineTorsorComparison f n) := by sorry
-
--- affineTorsorComparison.test_branch_kernel: an actual nonzero source tensor.
-example (k : Type u) [Field k] :
-    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))
-    x ⊗ₜ[k] x ≠ 0 ∧ affineTorsorComparison (0 : k) 2 (x ⊗ₜ[k] x) = 0 := by sorry
-
--- affineTorsorComparison.test_regular_nonunit: injective does not mean torsor.
-example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
-    ¬ Function.Surjective (affineTorsorComparison (2 : ℤ) 2) := by sorry
-
--- affineTorsorComparison.test_nilpotent_parameter: nonzero f is not enough.
-example :
-    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))
-    let z := (2 : ZMod 4) • (x ⊗ₜ[ZMod 4] x)
-    z ≠ 0 ∧ affineTorsorComparison (2 : ZMod 4) 2 z = 0 := by sorry
-
--- affineTorsorComparison.test_wild_unit: the chart is a torsor despite its
--- nonzero nilpotent and despite 2 not being invertible in the base field.
-example :
-    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2))
-    Function.Bijective (affineTorsorComparison (1 : ZMod 2) 2) ∧
-      x - 1 ≠ 0 ∧ (x - 1) ^ 2 = 0 := by sorry
-
--- affineTorsorComparison.test_nonflat_kernel: coordinate maps base change,
--- but their kernels need not commute with the nonflat coefficient change Z→F2.
-example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
-    ¬ Function.Injective (affineTorsorComparison (0 : ZMod 2) 2) := by sorry
-
--- affineTorsorComparison.test_cokernel_nonreduced: retain A/(f), not
--- its reduction. The quotient for f=4 over Z/8 has an element of order four.
-example :
-    let C := ((MuHopf (ZMod 8) 2 ⊗[ZMod 8] AffineRing (4 : ZMod 8) 2) ⧸
-      LinearMap.range (affineTorsorComparison (4 : ZMod 8) 2).toLinearMap)
-    Nonempty (C ≃ₗ[ZMod 8]
-      ((ZMod 8) ⧸ (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8))))) ∧
-      ∃ z : C, (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by sorry
-
-end AffineTorsorComparison
-end TauCeti.RootStack
-
-/-! Module quotient acceptance computations. -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
--- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_one
-example (f : A) (z : LinearMap.ker (affineTorsorComparison f 1).toLinearMap) : z = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_nonreduced
-example :
-    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} →
-      LinearMap.ker ((2 : ZMod 4) • (LinearMap.id : ZMod 4 →ₗ[ZMod 4] ZMod 4)) :=
-      fun _ => ⟨2, by change (2 : ZMod 4) * 2 = 0; decide⟩
-    let z := (affineTorsorComparison.kernelCoordinateEquiv (2 : ZMod 4) 2).symm d
-    (z : AffineRing (2 : ZMod 4) 2 ⊗[ZMod 4] AffineRing (2 : ZMod 4) 2) ≠ 0 ∧
-      affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2 z (1,1) = 2 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.kernelCoordinateEquiv.test_branch
-example (k : Type u) [Field k] :
-    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} →
-      LinearMap.ker ((0 : k) • (LinearMap.id : k →ₗ[k] k)) :=
-      fun _ => ⟨1, by simp⟩
-    affineTorsorComparison.sourceCoordinateEquiv (0 : k) 2
-      ((affineTorsorComparison.kernelCoordinateEquiv (0 : k) 2).symm d) (1,1) = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_one
-example (f : A) (z : MuHopf A 1 ⊗[A] AffineRing f 1) :
-    affineTorsorComparison.cokernelResidue f 1 z = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_upper
-example (f : A) :
-    affineTorsorComparison.cokernelResidue f 2
-      (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 2)) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing f 2)) = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelResidue.test_lower
-example (f : A) :
-    affineTorsorComparison.cokernelResidue f 2
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing f 2)) ⟨(1,0), by decide⟩ =
-      Ideal.Quotient.mk (Ideal.span ({f} : Set A)) 1 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_one
-example (f : A) (z : (MuHopf A 1 ⊗[A] AffineRing f 1) ⧸
-    LinearMap.range (affineTorsorComparison f 1).toLinearMap) : z = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_regular_nonunit
-example :
-    let z := (Submodule.Quotient.mk
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ℤ) ⊗ₜ[ℤ]
-        (1 : AffineRing (2 : ℤ) 2)) :
-      (MuHopf ℤ 2 ⊗[ℤ] AffineRing (2 : ℤ) 2) ⧸
-        LinearMap.range (affineTorsorComparison (2 : ℤ) 2).toLinearMap)
-    z ≠ 0 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.cokernelCoordinateEquiv.test_nonreduced
-example :
-    let z := (Submodule.Quotient.mk
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 8) ⊗ₜ[ZMod 8]
-        (1 : AffineRing (4 : ZMod 8) 2)) :
-      (MuHopf (ZMod 8) 2 ⊗[ZMod 8] AffineRing (4 : ZMod 8) 2) ⧸
-        LinearMap.range (affineTorsorComparison (4 : ZMod 8) 2).toLinearMap)
-    (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by
-  sorry
-
-
-end TauCeti.RootStack
-
--- Native acceptance computations for the coaction proof continuation.
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
--- TauCeti.RootStack.affineRoot.pow_eq.test_wild_branch
-example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 2)) ^ 2 = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineRoot.pow_eq.test_regular_nonunit
-example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ℤ)) ^ 4 =
-    algebraMap ℤ (AffineRing (2 : ℤ) 2) 4 := by
-  sorry
-
--- TauCeti.RootStack.affineRoot.pow_reduce.test_nilpotent
-example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ^ 4 = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineCharacter.pow.test_wild_order
-example : (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2)) ^ 2 = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.test_branch_image
-example (f : A) :
-    affineTorsorComparison f 2
-      (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f) ⊗ₜ[A]
-        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
-      f • (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing f 2)) := by
-  sorry
-
-end TauCeti.RootStack
-
-/-! Unit chart acceptance computations. -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
--- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_one
-example (v : Aˣ) :
-    (affineTorsorComparison.unitEquiv v 1).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 1)) (1 : A) ⊗ₜ[A]
-        (1 : AffineRing (v : A) 1)) = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_wild
-example :
-    (affineTorsorComparison.unitEquiv (1 : (ZMod 2)ˣ) 2).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
-        (1 : AffineRing (1 : ZMod 2) 2)) =
-      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) ⊗ₜ[ZMod 2]
-        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) := by
-  sorry
-
--- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_coefficient
-example :
-    let v : (ZMod 5)ˣ := ⟨2,3,by decide,by decide⟩
-    (affineTorsorComparison.unitEquiv v 2).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 5) ⊗ₜ[ZMod 5]
-        (1 : AffineRing (2 : ZMod 5) 2)) =
-      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5)) ⊗ₜ[ZMod 5]
-        (algebraMap (ZMod 5) (AffineRing (2 : ZMod 5) 2) 3 *
-          AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 5))) := by
+theorem zero_forget (a : RootPicardData i) : (zero a).root = a := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_zero_ring
-example [Subsingleton A] (v : Aˣ) (n : ℕ) [NeZero n]
-    (z : MuHopf A n ⊗[A] AffineRing (v : A) n) :
-    (affineTorsorComparison.unitEquiv v n).symm z = 0 := by
+theorem zero_section (a : RootPicardData i) : (zero a).sectionOnRoot = 0 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.unitEquiv.test_right_factor
-example (v : Aˣ) (n : ℕ) [NeZero n] (b : AffineRing (v : A) n) :
-    (affineTorsorComparison.unitEquiv v n).symm
-      ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by
-  sorry
-
-end TauCeti.RootStack
-
-/-! Zero-section rank acceptance computations. -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
--- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_one
-example : Fintype.card {p : Fin 1 × Fin 1 // 1 ≤ p.1.val + p.2.val} = 0 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_two
-example : (affineTorsorComparison.wrappingEquiv 2 ⟨(1,1), by decide⟩).val = (1,0) := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.wrappingEquiv.test_inverse
-example : ((affineTorsorComparison.wrappingEquiv 3).symm ⟨(2,0), by decide⟩).val = (2,1) := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.lower_card.test_zero
-example : Fintype.card {q : Fin 0 × Fin 0 // q.2.val < q.1.val} = 0 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.lower_card.test_three
-example : Fintype.card {q : Fin 3 × Fin 3 // q.2.val < q.1.val} = 3 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.wrapping_card.test_three
-example : Fintype.card {p : Fin 3 × Fin 3 // 3 ≤ p.1.val + p.2.val} = 3 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_one
-example (z : LinearMap.ker (affineTorsorComparison (0 : A) 1).toLinearMap) : z = 0 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_nonreduced
-example :
-    let d : {p : Fin 2 × Fin 2 // 2 ≤ p.1.val + p.2.val} → ZMod 4 := fun _ => 2
-    let z := (affineTorsorComparison.kernelZeroEquiv 2).symm d
-    affineTorsorComparison.sourceCoordinateEquiv (0 : ZMod 4) 2 z (1,1) = 2 ∧
-      affineTorsorComparison.sourceCoordinateEquiv (0 : ZMod 4) 2 z (0,0) = 0 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.kernelZeroEquiv.test_zero_ring
-example (n : ℕ) [NeZero n]
-    (z : LinearMap.ker (affineTorsorComparison (0 : ZMod 1) n).toLinearMap) :
-    affineTorsorComparison.kernelZeroEquiv n z = 0 := Subsingleton.elim _ _
--- TauCeti.RootStack.affineTorsorComparison.source_finrank.test_two
-example (k : Type u) [Field k] (f : k) :
-    Module.finrank k (AffineRing f 2 ⊗[k] AffineRing f 2) = 4 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.kernel_zero_finrank.test_one
-example (k : Type u) [Field k] :
-    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) 1).toLinearMap) = 0 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.range_zero_finrank.test_wild
-section
-local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
-example :
-    Module.finrank (ZMod 3) (LinearMap.range (affineTorsorComparison (0 : ZMod 3) 3).toLinearMap) = 6 := by
-  sorry
-end
--- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_two
-example (k : Type u) [Field k] :
-    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) 2).toLinearMap) = 3 ∧
-    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) 2).toLinearMap) = 1 := by
-  sorry
--- TauCeti.RootStack.affineTorsorComparison.zero_rank.test_four
-example :
-    Module.finrank ℚ (LinearMap.range (affineTorsorComparison (0 : ℚ) 4).toLinearMap) = 10 ∧
-    Module.finrank ℚ (LinearMap.ker (affineTorsorComparison (0 : ℚ) 4).toLinearMap) = 6 := by
-  sorry
-end TauCeti.RootStack
-
-/- BEGIN NATIVE ROOT DETERMINANT DEPENDENCIES -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-
-lemma affineTorsorComparison.coefficientPermutation_rows (n : ℕ) [NeZero n] :
-    coefficientPermutation n = Equiv.prodCongrRight (fun i : Fin n => finCycle i) := by
-  sorry
-
-lemma affineTorsorComparison.coefficientPermutation_sign (n : ℕ) [NeZero n] :
-    Equiv.Perm.sign (coefficientPermutation n) =
-      (-1 : ℤˣ) ^ ((n - 1) * (n * (n - 1) / 2)) := by
-  sorry
+end RootPicardSectionData
 
-lemma affineTorsorComparison.weight_exponent (n : ℕ) [NeZero n]
-    (p : Fin n × Fin n) :
-    (p.1.val + p.2.val) / n = if n ≤ p.1.val + p.2.val then 1 else 0 := by
+/-- The square action gives an arrow of root data with the underlying line fixed. -/
+theorem square_frame_compatibility (A : Type*) [CommRing A] (u gamma : Aˣ) :
+    (u ^ 2 * gamma)⁻¹ * u ^ 2 = gamma⁻¹ := by
   sorry
 
-lemma affineTorsorComparison.weight_product (f : A) (n : ℕ) [NeZero n] :
-    (∏ p : Fin n × Fin n, f ^ ((p.1.val + p.2.val) / n)) =
-      f ^ (n * (n - 1) / 2) := by
+/-- The root-section coordinate has weight one and its square has weight two. -/
+theorem section_square_covariance (A : Type*) [CommRing A] (u : Aˣ) (a : A) :
+    ((u : A) * a) ^ 2 = (u : A) ^ 2 * a ^ 2 := by
   sorry
 
-lemma affineTorsorComparison.matrix_reindex (f : A) (n : ℕ) [NeZero n] :
-    let M : Matrix (Fin n × Fin n) (Fin n × Fin n) A :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % n
-        then f ^ ((c.1.val + c.2.val) / n) else 0
-    M = (Matrix.diagonal (fun c : Fin n × Fin n =>
-      f ^ ((c.1.val + c.2.val) / n))).submatrix (coefficientPermutation n).symm id := by
+/-- A frame section kills the relative stabilizer over any commutative ring. -/
+theorem frame_relative_stabilizer_iff (A : Type*) [CommRing A] (v a : Aˣ) :
+    (v ^ 2 = 1 ∧ v * a = a) ↔ v = 1 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_rows.test_wrap
-example : affineTorsorComparison.coefficientPermutation 4 (3, 3) = (3, 2) := by
+/-- Nonempty split root loci with frame sections also kill the ordinary scalar. -/
+theorem frame_full_stabilizer_iff (A : Type*) [CommRing A]
+    (r : ℕ) (hr : 0 < r) (c : Aˣ) (v a : Fin r → Aˣ) :
+    (∀ j, v j ^ 2 = c ∧ v j * a j = a j) ↔
+      c = 1 ∧ v = fun _ => 1 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_two
-example : Equiv.Perm.sign (affineTorsorComparison.coefficientPermutation 2) = (-1 : ℤˣ) := by
+example (a : RootPicardData i) : (RootPicardSectionData.zero a).root = a := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_sign.test_three
-example : Equiv.Perm.sign (affineTorsorComparison.coefficientPermutation 3) = (1 : ℤˣ) := by
+example : (-1 : ZMod 5) ^ 2 = 1 ∧ (-1 : ZMod 5) * 0 = 0 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_wrap
-example : ((1 : Fin 2).val + (1 : Fin 2).val) / 2 = 1 := by
+example : (-1 : ZMod 5) * 1 ≠ 1 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.weight_exponent.test_nonwrap
-example : ((0 : Fin 2).val + (1 : Fin 2).val) / 2 = 0 := by
+example : (DualNumber.eps : DualNumber (ZMod 5)) ≠ 0 ∧
+    (DualNumber.eps : DualNumber (ZMod 5)) ^ 2 = 0 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.weight_product.test_nonunit
-example : (∏ p : Fin 2 × Fin 2, (2 : ℤ) ^ ((p.1.val + p.2.val) / 2)) = 2 := by
+example : (2 : ZMod 5) ^ 2 = 4 ∧ (2 : ZMod 5) * 1 = 2 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.matrix_reindex.test_weight
-example (f : A) :
-    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) A :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
-        then f ^ ((c.1.val + c.2.val) / 2) else 0
-     M (1, 0) (1, 1)) = f := by
+/-- With no root coordinates, the stabilizer equations leave a nontrivial scalar. -/
+example : ∃ c : (ZMod 5)ˣ, c ≠ 1 ∧
+    ∀ j : Fin 0, (1 : (ZMod 5)ˣ) ^ 2 = c ∧
+      (1 : (ZMod 5)ˣ) * 1 = 1 := by
   sorry
 
--- TauCeti.RootStack.affineTorsorComparison.determinant.test_exponent_one
-example (f : A) :
-    (let M : Matrix (Fin 1 × Fin 1) (Fin 1 × Fin 1) A :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 1
-        then f ^ ((c.1.val + c.2.val) / 1) else 0
-     Matrix.det M) = 1 := by
-  sorry
 
--- TauCeti.RootStack.affineTorsorComparison.determinant.test_three
-example (f : A) :
-    (let M : Matrix (Fin 3 × Fin 3) (Fin 3 × Fin 3) A :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 3
-        then f ^ ((c.1.val + c.2.val) / 3) else 0
-     Matrix.det M) = f ^ 3 := by
-  sorry
 
--- TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring
-example :
-    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 1) :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
-        then (0 : ZMod 1) ^ ((c.1.val + c.2.val) / 2) else 0
-     Matrix.det M) = 0 := by
-  sorry
+end TauCeti.RamifiedClassField.GC0
 
--- TauCeti.RootStack.affineTorsorComparison.determinant.test_wild
-example :
-    (let M : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 2) :=
-      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % 2
-        then (1 : ZMod 2) ^ ((c.1.val + c.2.val) / 2) else 0
-     Matrix.det M) = 1 := by
-  sorry
+/-! ## GC.1 -/
 
-end TauCeti.RootStack
-/- END NATIVE ROOT DETERMINANT DEPENDENCIES -/
+namespace TauCeti.RamifiedClassField
 
-/-! Native factorial chart diagram continuation, Codex codex-J6LwjP. -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
 open CategoryTheory
+open scoped BigOperators CategoryTheory.MonObj
 
--- Actual maps at divisibility indices avoid quotient carrier transports.
-def affineDivisibility (f : A) (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
-    AffineRing f n →ₐ[A] AffineRing f N := by
-  sorry
-
-lemma affineDivisibility.root (f : A) (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
-    affineDivisibility f n N h (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ N - Polynomial.C f) ^ (N / n) := by
-  sorry
-
-lemma affineDivisibility.identity (f : A) (n : ℕ) [NeZero n] :
-    affineDivisibility f n n (dvd_refl n) = AlgHom.id A (AffineRing f n) := by
-  sorry
-
-lemma affineDivisibility.composition (f : A) (n N K : ℕ)
-    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (k : N ∣ K) :
-    (affineDivisibility f N K k).comp (affineDivisibility f n N h) =
-      affineDivisibility f n K (dvd_trans h k) := by
-  sorry
-
-lemma affineDivisibility.constant (f a : A) (n N : ℕ)
-    [NeZero n] [NeZero N] (h : n ∣ N) :
-    affineDivisibility f n N h (algebraMap A (AffineRing f n) a) =
-      algebraMap A (AffineRing f N) a := by
-  sorry
-
-lemma affineDivisibility.unique (f : A) (n N : ℕ) [NeZero n] [NeZero N]
-    (h : n ∣ N) (g : AffineRing f n →ₐ[A] AffineRing f N)
-    (hg : g (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ N - Polynomial.C f) ^ (N / n)) :
-    g = affineDivisibility f n N h := by
-  sorry
-
-lemma affineDivisibility.multiplicative (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    affineDivisibility f n (n*m) (dvd_mul_right n m) = affineTransition f n m := by
-  sorry
-
--- A genuine native functor, not a family whose compatibility is assumed.
-def factorialAffineTower (f : A) : ℕ ⥤ CommAlgCat.{u} A := by
-  sorry
-
--- Keep the specified chart carrier visible even when the functor's body is admitted.
-def factorialAffineTower.chart (f : A) (i : ℕ) :
-    ((factorialAffineTower f).obj i) ≃ₐ[A] AffineRing f (Nat.factorial (i+1)) := by
-  sorry
-
-lemma factorialAffineTower.root (f : A) {i j : ℕ} (h : i ≤ j) :
-    factorialAffineTower.chart f j
-      (((factorialAffineTower f).map (homOfLE h)).hom
-        ((factorialAffineTower.chart f i).symm
-          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f)))) =
-      AdjoinRoot.root (Polynomial.X ^ Nat.factorial (j+1) - Polynomial.C f) ^
-        (Nat.factorial (j+1) / Nat.factorial (i+1)) := by
-  sorry
-
-lemma factorialAffineTower.constant (f a : A) {i j : ℕ} (h : i ≤ j) :
-    factorialAffineTower.chart f j
-      (((factorialAffineTower f).map (homOfLE h)).hom
-        ((factorialAffineTower.chart f i).symm
-          (algebraMap A (AffineRing f (Nat.factorial (i+1))) a))) =
-      algebraMap A (AffineRing f (Nat.factorial (j+1))) a := by
-  sorry
-
--- affineDivisibilityTests.identity
-example (f : A) (n : ℕ) [NeZero n] :
-    affineDivisibility f n n (dvd_refl n) = AlgHom.id A (AffineRing f n) := by
-  sorry
-
--- affineDivisibilityTests.fourToTwo
-example (f : A) :
-    affineDivisibility f 2 4 (by decide)
-      (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
-      AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2 := by
-  sorry
-
--- affineDivisibilityTests.coefficients
-example (f a : ZMod 4) :
-    affineDivisibility f 2 6 (by decide) (algebraMap (ZMod 4) (AffineRing f 2) a) =
-      algebraMap (ZMod 4) (AffineRing f 6) a := by
-  sorry
-
--- factorialAffineTowerTests.firstLevel
-example (f : A) :
-    (factorialAffineTower f).obj 0 = CommAlgCat.of A (AffineRing f 1) := by
-  sorry
-
--- factorialAffineTowerTests.twoToSix
-example (f : A) :
-    factorialAffineTower.chart f 2
-      (((factorialAffineTower f).map (homOfLE (by decide : 1 ≤ 2))).hom
-        ((factorialAffineTower.chart f 1).symm
-          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C f)))) =
-      AdjoinRoot.root (Polynomial.X ^ Nat.factorial 3 - Polynomial.C f) ^ 3 := by
-  sorry
-
--- factorialAffineTowerTests.composite
-example (f : A) :
-    factorialAffineTower.chart f 3
-      ((((factorialAffineTower f).map (homOfLE (by decide : 2 ≤ 3))).hom.comp
-        ((factorialAffineTower f).map (homOfLE (by decide : 1 ≤ 2))).hom)
-        ((factorialAffineTower.chart f 1).symm
-          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C f)))) =
-      AdjoinRoot.root (Polynomial.X ^ Nat.factorial 4 - Polynomial.C f) ^ 12 := by
-  sorry
-
--- factorialAffineTowerTests.wildNilpotent
-example :
-    factorialAffineTower.chart (0 : ZMod 2) 2
-      (((factorialAffineTower (0 : ZMod 2)).map (homOfLE (by decide : 1 ≤ 2))).hom
-        ((factorialAffineTower.chart (0 : ZMod 2) 1).symm
-          (AdjoinRoot.root (Polynomial.X ^ Nat.factorial 2 - Polynomial.C (0 : ZMod 2))))) ≠ 0 := by
-  sorry
-
--- factorialAffineTowerTests.zeroRing
-example {i j : ℕ} (h : i ≤ j) (x : (factorialAffineTower (0 : ZMod 1)).obj i) :
-    factorialAffineTower.chart (0 : ZMod 1) j
-      (((factorialAffineTower (0 : ZMod 1)).map (homOfLE h)).hom x) = 0 := by
-  sorry
-
-end TauCeti.RootStack
-
-
-/-! Native factorial root colimit continuation. -/
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits
-variable {A : Type u} [CommRing A]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-def factorialAffineMap (f : A) (i j : ℕ) (h : i ≤ j) :
-    AffineRing f (Nat.factorial (i+1)) →ₐ[A] AffineRing f (Nat.factorial (j+1)) := by
-  sorry
-
-instance factorialAffineDirected (f : A) :
-    DirectedSystem (fun i => AffineRing f (Nat.factorial (i+1)))
-      (fun i j h => factorialAffineMap f i j h) := by
-  sorry
-
-abbrev FactorialAffineColimit (f : A) :=
-  DirectLimit (fun i => AffineRing f (Nat.factorial (i+1))) (factorialAffineMap f)
-
-
-def factorialAffineInclusion (f : A) (i : ℕ) :
-    AffineRing f (Nat.factorial (i+1)) →ₐ[A] FactorialAffineColimit f := by
-  sorry
-
-lemma factorialAffineInclusion.transition (f : A) {i j : ℕ} (h : i ≤ j)
-    (x : AffineRing f (Nat.factorial (i+1))) :
-    factorialAffineInclusion f j (factorialAffineMap f i j h x) =
-      factorialAffineInclusion f i x := by
-  sorry
-
-lemma factorialAffineInclusion.root (f : A) {i j : ℕ} (h : i ≤ j) :
-    factorialAffineInclusion f i (AdjoinRoot.root _) =
-      factorialAffineInclusion f j (AdjoinRoot.root _) ^
-        (Nat.factorial (j+1) / Nat.factorial (i+1)) := by
-  sorry
-
-lemma factorialAffineInclusion.pow (f : A) (i : ℕ) :
-    factorialAffineInclusion f i (AdjoinRoot.root _) ^ Nat.factorial (i+1) =
-      algebraMap A (FactorialAffineColimit f) f := by
-  sorry
-
-lemma affineDivisibility.injective (f : A) (n N : ℕ) [NeZero n] [NeZero N]
-    (h : n ∣ N) : Function.Injective (affineDivisibility f n N h) := by
-  sorry
-
-lemma factorialAffineInclusion.injective (f : A) (i : ℕ) :
-    Function.Injective (factorialAffineInclusion f i) := by
-  sorry
-
-lemma factorialAffineColimit.exists_level (f : A) (x : FactorialAffineColimit f) :
-    ∃ i, ∃ y : AffineRing f (Nat.factorial (i+1)), factorialAffineInclusion f i y = x := by
-  sorry
-
-lemma factorialAffineColimit.hom_ext (f : A) {C : Type u} [CommRing C] [Algebra A C]
-    (g h : FactorialAffineColimit f →ₐ[A] C)
-    (heq : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      h (factorialAffineInclusion f i (AdjoinRoot.root _))) : g = h := by
-  sorry
-
-def factorialAffineCocone (f : A) : Cocone (factorialAffineTower f) := by
-  sorry
-
-def factorialAffineCocone.isColimit (f : A) : IsColimit (factorialAffineCocone f) := by
-  sorry
-
-def factorialAffineRootLift (f : A) {C : Type u} [CommRing C] [Algebra A C]
-    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
-    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i) :
-    FactorialAffineColimit f →ₐ[A] C := by
-  sorry
-
-lemma factorialAffineRootLift.root (f : A) {C : Type u} [CommRing C] [Algebra A C]
-    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
-    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
-    (i : ℕ) :
-    factorialAffineRootLift f r hr hc (factorialAffineInclusion f i (AdjoinRoot.root _)) = r i := by
-  sorry
-
--- factorialAffineColimit.test_wild_nonzero
-
-example : factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _) ≠ 0 := by
-  sorry
-
--- factorialAffineColimit.test_wild_square
-
-example : factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _) ^ 2 = 0 := by
-  sorry
-
--- factorialAffineColimit.test_two_to_six
-
-example (f : A) : factorialAffineInclusion f 1 (AdjoinRoot.root _) =
-    factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 3 := by
-  sorry
-
-def factorialAffineCocone.point (f : A) :
-    (factorialAffineCocone f).pt ≅ CommAlgCat.of A (FactorialAffineColimit f) := by
-  sorry
-
-lemma factorialAffineCocone.leg (f : A) (i : ℕ) :
-    ((factorialAffineCocone f).ι.app i ≫ (factorialAffineCocone.point f).hom).hom =
-      (factorialAffineInclusion f i).comp (factorialAffineTower.chart f i).toAlgHom := by
-  sorry
-
-lemma factorialAffineRootLift.unique (f : A) {C : Type u} [CommRing C] [Algebra A C]
-    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
-    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
-    (g : FactorialAffineColimit f →ₐ[A] C)
-    (hg : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) = r i) :
-    g = factorialAffineRootLift f r hr hc := by
-  sorry
-
-lemma factorialAffineRootLift.postcomp (f : A) {C D : Type u} [CommRing C] [Algebra A C]
-    [CommRing D] [Algebra A D] (k : C →ₐ[A] D)
-    (r : ℕ → C) (hr : ∀ i, r i ^ Nat.factorial (i+1) = algebraMap A C f)
-    (hc : ∀ i j, i ≤ j → r j ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = r i)
-    (hs : ∀ i, k (r i) ^ Nat.factorial (i+1) = algebraMap A D f)
-    (ht : ∀ i j, i ≤ j → k (r j) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = k (r i)) :
-    k.comp (factorialAffineRootLift f r hr hc) =
-      factorialAffineRootLift f (fun i => k (r i)) hs ht := by
-  sorry
-
--- factorialAffineInclusion.test_coefficients
-
-example (a : ZMod 4) :
-    factorialAffineInclusion (2 : ZMod 4) 1 (algebraMap (ZMod 4) _ a) =
-      algebraMap (ZMod 4) (FactorialAffineColimit (2 : ZMod 4)) a := by
-  sorry
-
--- factorialAffineColimit.test_zeroRing
-
-example (x : FactorialAffineColimit (0 : ZMod 1)) : x = 0 := by
-  sorry
-
--- factorialAffineCocone.test_wild
-
-example : IsColimit (factorialAffineCocone (0 : ZMod 2)) := by
-  sorry
-
--- factorialAffineCocone.test_zeroRing
-
-example : IsColimit (factorialAffineCocone (0 : ZMod 1)) := by
-  sorry
-
--- factorialAffineCocone.test_leg
-
-example (f : A) :
-    ((factorialAffineCocone f).ι.app 0 ≫ (factorialAffineCocone.point f).hom).hom =
-      (factorialAffineInclusion f 0).comp (factorialAffineTower.chart f 0).toAlgHom := by
-  sorry
-
--- factorialAffineRootLift.test_one
-
-example : factorialAffineRootLift (1 : ℤ) (fun _ => (1 : ℤ))
-    (by simp) (by simp) (factorialAffineInclusion (1 : ℤ) 2 (AdjoinRoot.root _)) = 1 := by
-  sorry
-
--- factorialAffineRootLift.test_zero
-
-example : factorialAffineRootLift (0 : ZMod 2) (fun _ => (0 : ZMod 2))
-    (by simp [Nat.factorial_ne_zero]) (by
-      intro i j h
-      have hd : 0 < Nat.factorial (j+1) / Nat.factorial (i+1) :=
-        Nat.div_pos (Nat.factorial_le (Nat.add_le_add_right h 1))
-          (Nat.factorial_pos _)
-      exact zero_pow (Nat.ne_of_gt hd))
-    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)) = 0 := by
-  sorry
-
--- factorialAffineRootLift.test_identity
-
-example (f : A) (hr : ∀ i, factorialAffineInclusion f i (AdjoinRoot.root _) ^
-    Nat.factorial (i+1) = algebraMap A (FactorialAffineColimit f) f)
-    (hc : ∀ i j, i ≤ j → factorialAffineInclusion f j (AdjoinRoot.root _) ^
-      (Nat.factorial (j+1) / Nat.factorial (i+1)) =
-        factorialAffineInclusion f i (AdjoinRoot.root _)) :
-    factorialAffineRootLift f (fun i => factorialAffineInclusion f i (AdjoinRoot.root _)) hr hc =
-      AlgHom.id A (FactorialAffineColimit f) := by
-  sorry
-
-end TauCeti.RootStack
-
-/-! Positive-divisibility root chart colimit and factorial comparison. -/
-noncomputable section
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-
-/-- Root exponents, with the divisibility preorder rather than numeric order. -/
-structure RootDivIndex where
-  exponent : ℕ
-  positive : 0 < exponent
-
-@[reducible] instance : Preorder RootDivIndex where
-  le n N := n.exponent ∣ N.exponent
-  le_refl n := dvd_refl _
-  le_trans _ _ _ := dvd_trans
-
-instance : DecidableLE RootDivIndex :=
-  fun n N => inferInstanceAs (Decidable (n.exponent ∣ N.exponent))
-
-instance (n : RootDivIndex) : NeZero n.exponent := ⟨Nat.ne_of_gt n.positive⟩
-instance : Inhabited RootDivIndex := ⟨⟨1, by decide⟩⟩
-instance : IsDirectedOrder RootDivIndex where
-  directed n N := ⟨⟨n.exponent * N.exponent, Nat.mul_pos n.positive N.positive⟩,
-    dvd_mul_right _ _, dvd_mul_left _ _⟩
-
-abbrev RootDivIndex.factorial (i : ℕ) : RootDivIndex :=
-  ⟨Nat.factorial (i+1), Nat.factorial_pos _⟩
-
-lemma RootDivIndex.cofinal (n : RootDivIndex) :
-    n ≤ RootDivIndex.factorial n.exponent := by
-  sorry
-
-lemma RootDivIndex.factorial_mono {i j : ℕ} (h : i ≤ j) :
-    RootDivIndex.factorial i ≤ RootDivIndex.factorial j := by
-  sorry
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-lemma factorialAffineInclusion.comp_transition (f : A) {i j : ℕ} (h : i ≤ j) :
-    (factorialAffineInclusion f j).comp (factorialAffineMap f i j h) =
-      factorialAffineInclusion f i := by
-  sorry
-
-def factorialAffineExtension (f : A) (n : RootDivIndex) :
-    AffineRing f n.exponent →ₐ[A] FactorialAffineColimit f := by
-  sorry
-
-lemma factorialAffineExtension.at_level (f : A) (n : RootDivIndex) (i : ℕ)
-    (h : n ≤ RootDivIndex.factorial i) :
-    factorialAffineExtension f n =
-      (factorialAffineInclusion f i).comp (affineDivisibility f _ _ h) := by
-  sorry
-
-lemma factorialAffineExtension.transition (f : A) {n N : RootDivIndex} (h : n ≤ N) :
-    (factorialAffineExtension f N).comp (affineDivisibility f _ _ h) =
-      factorialAffineExtension f n := by
-  sorry
-
-lemma factorialAffineExtension.factorial (f : A) (i : ℕ) :
-    factorialAffineExtension f (RootDivIndex.factorial i) =
-      factorialAffineInclusion f i := by
-  sorry
-
-lemma factorialAffineExtension.injective (f : A) (n : RootDivIndex) :
-    Function.Injective (factorialAffineExtension f n) := by
-  sorry
-
-def divisibilityAffineMap (f : A) (n N : RootDivIndex) (h : n ≤ N) :
-    AffineRing f n.exponent →ₐ[A] AffineRing f N.exponent := by
-  sorry
-
-instance divisibilityAffineDirected (f : A) :
-    DirectedSystem (fun n : RootDivIndex => AffineRing f n.exponent)
-      (fun i j h => divisibilityAffineMap f i j h) := by
-  sorry
-
-abbrev DivisibilityAffineColimit (f : A) :=
-  DirectLimit (fun n : RootDivIndex => AffineRing f n.exponent) (divisibilityAffineMap f)
-
-def divisibilityAffineInclusion (f : A) (n : RootDivIndex) :
-    AffineRing f n.exponent →ₐ[A] DivisibilityAffineColimit f := by
-  sorry
-
-lemma divisibilityAffineInclusion.transition (f : A) {n N : RootDivIndex} (h : n ≤ N)
-    (x : AffineRing f n.exponent) :
-    divisibilityAffineInclusion f N (affineDivisibility f _ _ h x) =
-      divisibilityAffineInclusion f n x := by
-  sorry
-
-lemma divisibilityAffineInclusion.injective (f : A) (n : RootDivIndex) :
-    Function.Injective (divisibilityAffineInclusion f n) := by
-  sorry
-
-lemma divisibilityAffineColimit.exists_level (f : A) (x : DivisibilityAffineColimit f) :
-    ∃ n : RootDivIndex, ∃ y : AffineRing f n.exponent, divisibilityAffineInclusion f n y = x := by
-  sorry
-
-lemma divisibilityAffineColimit.hom_ext (f : A) {C : Type u} [CommRing C] [Algebra A C]
-    (g h : DivisibilityAffineColimit f →ₐ[A] C)
-    (heq : ∀ n, g (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-      h (divisibilityAffineInclusion f n (AdjoinRoot.root _))) : g = h := by
-  sorry
-
-def divisibilityToFactorial (f : A) :
-    DivisibilityAffineColimit f →ₐ[A] FactorialAffineColimit f := by
-  sorry
-
-lemma divisibilityToFactorial.inclusion (f : A) (n : RootDivIndex)
-    (x : AffineRing f n.exponent) :
-    divisibilityToFactorial f (divisibilityAffineInclusion f n x) =
-      factorialAffineExtension f n x := by
-  sorry
-
-def factorialToDivisibility (f : A) :
-    FactorialAffineColimit f →ₐ[A] DivisibilityAffineColimit f := by
-  sorry
-
-lemma factorialToDivisibility.inclusion (f : A) (i : ℕ)
-    (x : AffineRing f (Nat.factorial (i+1))) :
-    factorialToDivisibility f (factorialAffineInclusion f i x) =
-      divisibilityAffineInclusion f (RootDivIndex.factorial i) x := by
-  sorry
-
-lemma divisibilityToFactorial.left_inverse (f : A) (x : DivisibilityAffineColimit f) :
-    factorialToDivisibility f (divisibilityToFactorial f x) = x := by
-  sorry
-
-lemma divisibilityToFactorial.right_inverse (f : A) (x : FactorialAffineColimit f) :
-    divisibilityToFactorial f (factorialToDivisibility f x) = x := by
-  sorry
-
-def divisibilityFactorialEquiv (f : A) :
-    DivisibilityAffineColimit f ≃ₐ[A] FactorialAffineColimit f := by
-  sorry
-
-lemma divisibilityFactorialEquiv.inclusion (f : A) (n : RootDivIndex) (i : ℕ)
-    (h : n ≤ RootDivIndex.factorial i) (x : AffineRing f n.exponent) :
-    divisibilityFactorialEquiv f (divisibilityAffineInclusion f n x) =
-      factorialAffineInclusion f i (affineDivisibility f _ _ h x) := by
-  sorry
-
-lemma divisibilityFactorialEquiv.root (f : A) (n : RootDivIndex) (i : ℕ)
-    (h : n ≤ RootDivIndex.factorial i) :
-    divisibilityFactorialEquiv f (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-      factorialAffineInclusion f i (AdjoinRoot.root _) ^
-        (Nat.factorial (i+1) / n.exponent) := by
-  sorry
-end TauCeti.RootStack
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-
-lemma divisibilityAffineInclusion.pow (f : A) (n : RootDivIndex) :
-    divisibilityAffineInclusion f n (AdjoinRoot.root _) ^ n.exponent =
-      algebraMap A (DivisibilityAffineColimit f) f := by
-  sorry
-
-lemma divisibilityAffineInclusion.root (f : A) {n N : RootDivIndex} (h : n ≤ N) :
-    divisibilityAffineInclusion f n (AdjoinRoot.root _) =
-      divisibilityAffineInclusion f N (AdjoinRoot.root _) ^ (N.exponent / n.exponent) := by
-  sorry
--- rootDivIndex.test_zero
-
-example (n : RootDivIndex) : n.exponent ≠ 0 := by
-  sorry
--- rootDivIndex.test_two_six
-
-example : (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ := by
-  sorry
--- rootDivIndex.test_numeric_order
-
-example : ¬ (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨3, by decide⟩ := by
-  sorry
--- factorialAffineExtension.test_three_at_six
-
-example (f : A) : factorialAffineExtension f ⟨3, by decide⟩ =
-    (factorialAffineInclusion f 2).comp (affineDivisibility f 3 6 (by decide)) := by
-  sorry
--- factorialAffineExtension.test_choice
-
-example (f : A) (x : AffineRing f 3) :
-    factorialAffineInclusion f 2 (affineDivisibility f 3 6 (by decide) x) =
-      factorialAffineInclusion f 3 (affineDivisibility f 3 24 (by decide) x) := by
-  sorry
--- factorialAffineExtension.test_one
-
-example (f : A) : factorialAffineExtension f (RootDivIndex.factorial 0) =
-    factorialAffineInclusion f 0 := by
-  sorry
--- divisibilityAffineColimit.test_wild_nonzero
-
-example : divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _) ≠ 0 := by
-  sorry
--- divisibilityAffineColimit.test_wild_square
-
-example : divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _) ^ 2 = 0 := by
-  sorry
--- divisibilityAffineColimit.test_zero_ring
-
-example (x : DivisibilityAffineColimit (0 : ZMod 1)) : x = 0 := by
-  sorry
--- divisibilityAffineInclusion.test_two_six
-
-example (f : A) : divisibilityAffineInclusion f ⟨2, by decide⟩ (AdjoinRoot.root _) =
-    divisibilityAffineInclusion f ⟨6, by decide⟩ (AdjoinRoot.root _) ^ 3 := by
-  sorry
--- divisibilityAffineInclusion.test_coefficients
-
-example (f a : ZMod 4) :
-    divisibilityAffineInclusion f ⟨3, by decide⟩ (algebraMap (ZMod 4) _ a) =
-      algebraMap (ZMod 4) (DivisibilityAffineColimit f) a := by
-  sorry
--- divisibilityAffineInclusion.test_identity
-
-example (f : A) (n : RootDivIndex) (x : AffineRing f n.exponent) :
-    divisibilityAffineInclusion f n (affineDivisibility f n.exponent n.exponent (dvd_refl _) x) =
-      divisibilityAffineInclusion f n x := by
-  sorry
--- divisibilityToFactorial.test_three
-
-example (f : A) : divisibilityToFactorial f
-    (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 2 := by
-  sorry
--- divisibilityToFactorial.test_coefficients
-
-example (f a : ZMod 4) :
-    divisibilityToFactorial f (algebraMap (ZMod 4) _ a) =
-      algebraMap (ZMod 4) (FactorialAffineColimit f) a := by
-  sorry
--- divisibilityToFactorial.test_factorial
-
-example (f : A) (i : ℕ) (x : AffineRing f (Nat.factorial (i+1))) :
-    divisibilityToFactorial f
-      (divisibilityAffineInclusion f (RootDivIndex.factorial i) x) =
-        factorialAffineInclusion f i x := by
-  sorry
--- factorialToDivisibility.test_root
-
-example (f : A) : factorialToDivisibility f (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
-    divisibilityAffineInclusion f ⟨2, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
--- factorialToDivisibility.test_coefficients
-
-example (f a : ZMod 4) :
-    factorialToDivisibility f (algebraMap (ZMod 4) _ a) =
-      algebraMap (ZMod 4) (DivisibilityAffineColimit f) a := by
-  sorry
--- factorialToDivisibility.test_zero
-
-example : factorialToDivisibility (0 : ZMod 1) 0 = 0 := by
-  sorry
--- divisibilityFactorialEquiv.test_three
-
-example (f : A) : divisibilityFactorialEquiv f
-    (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      factorialAffineInclusion f 2 (AdjoinRoot.root _) ^ 2 := by
-  sorry
--- divisibilityFactorialEquiv.test_coefficients
-
-example (f a : ZMod 4) :
-    divisibilityFactorialEquiv f (algebraMap (ZMod 4) _ a) =
-      algebraMap (ZMod 4) (FactorialAffineColimit f) a := by
-  sorry
--- divisibilityFactorialEquiv.test_inverse
-
-example (f : A) (x : DivisibilityAffineColimit f) :
-    (divisibilityFactorialEquiv f).symm (divisibilityFactorialEquiv f x) = x := by
-  sorry
-end TauCeti.RootStack
-
-namespace TauCeti.RootStack
-section FactorialScalingContinuation
-variable {A : Type u} [CommRing A]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-
-def factorialRootScalars (A : Type u) [CommRing A] : Subgroup (ℕ → Aˣ) := by sorry
-
-lemma factorialRootScalars.pow (s : factorialRootScalars A) (i : ℕ) :
-    ((s.val i : Aˣ) : A) ^ Nat.factorial (i+1) = 1 := by sorry
-
-lemma factorialRootScalars.transition (s : factorialRootScalars A) {i j : ℕ} (h : i ≤ j) :
-    ((s.val j : Aˣ) : A) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) = (s.val i : A) := by sorry
-
-def factorialScale (f : A) (s : factorialRootScalars A) :
-    FactorialAffineColimit f →ₐ[A] FactorialAffineColimit f := by sorry
-
-lemma factorialScale.root (f : A) (s : factorialRootScalars A) (i : ℕ) :
-    factorialScale f s (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      algebraMap A _ (s.val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
-
-lemma factorialScale.constant (f a : A) (s : factorialRootScalars A) :
-    factorialScale f s (algebraMap A _ a) = algebraMap A _ a := by sorry
-
-lemma factorialScale.one (f : A) : factorialScale f 1 = AlgHom.id A _ := by sorry
-
-lemma factorialScale.mul (f : A) (s t : factorialRootScalars A) :
-    factorialScale f (s*t) = (factorialScale f s).comp (factorialScale f t) := by sorry
-
-def factorialScaleEquiv (f : A) (s : factorialRootScalars A) :
-    FactorialAffineColimit f ≃ₐ[A] FactorialAffineColimit f := by sorry
-
-lemma factorialScaleEquiv.root (f : A) (s : factorialRootScalars A) (i : ℕ) :
-    factorialScaleEquiv f s (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      algebraMap A _ (s.val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
-
-lemma factorialScaleEquiv.inverse_root (f : A) (s : factorialRootScalars A) (i : ℕ) :
-    (factorialScaleEquiv f s).symm (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      algebraMap A _ ((s⁻¹).val i : A) * factorialAffineInclusion f i (AdjoinRoot.root _) := by sorry
-
-def factorialUniversalScalars (A : Type u) [CommRing A] :
-    factorialRootScalars (FactorialAffineColimit (1 : A)) := by sorry
-
-lemma factorialUniversalScalars.value (i : ℕ) :
-    (((factorialUniversalScalars A).val i : (FactorialAffineColimit (1 : A))ˣ) :
-      FactorialAffineColimit (1 : A)) = factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) := by sorry
-
--- test: factorialRootScalars.test_one
-example (i : ℕ) : ((1 : factorialRootScalars A).val i : Aˣ) = 1 := by sorry
-
--- test: factorialRootScalars.test_inverse
-example (s : factorialRootScalars A) (i : ℕ) :
-    ((s⁻¹).val i : Aˣ) * (s.val i : Aˣ) = 1 := by sorry
-
--- test: factorialRootScalars.test_individual_roots
-example (i : ℕ) :
-    (if i = 1 then (-1 : ℤˣ) else 1) ^ Nat.factorial (i+1) = 1 := by sorry
-
--- test: factorialRootScalars.test_incoherent
-example :
-    (fun i : ℕ => if i = 1 then (-1 : ℤˣ) else 1) ∉ factorialRootScalars ℤ := by sorry
-
--- test: factorialScale.test_one
-example (f : A) (x : FactorialAffineColimit f) : factorialScale f 1 x = x := by sorry
-
--- test: factorialScale.test_constant
-example (s : factorialRootScalars (ZMod 4)) :
-    factorialScale (2 : ZMod 4) s (algebraMap (ZMod 4) _ (3 : ZMod 4)) =
-      algebraMap (ZMod 4) _ (3 : ZMod 4) := by sorry
-
--- test: factorialScale.test_composition
-example (f : A) (s t : factorialRootScalars A) (x : FactorialAffineColimit f) :
-    factorialScale f (s*t) x = factorialScale f s (factorialScale f t x) := by sorry
-
--- test: factorialScaleEquiv.test_roundtrip
-example (f : A) (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
-    (factorialScaleEquiv f s).symm (factorialScaleEquiv f s x) = x := by sorry
-
--- test: factorialScaleEquiv.test_root
-example (f : A) (s : factorialRootScalars A) :
-    factorialScaleEquiv f s (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
-      algebraMap A _ (s.val 1 : A) * factorialAffineInclusion f 1 (AdjoinRoot.root _) := by sorry
-
--- test: factorialScaleEquiv.test_wild_zero
-example (s : factorialRootScalars (ZMod 2)) :
-    factorialScaleEquiv (0 : ZMod 2) s (factorialAffineInclusion (0 : ZMod 2) 1
-      (AdjoinRoot.root _)) ≠ 0 := by sorry
-
--- test: factorialUniversalScalars.test_root
-example : (((factorialUniversalScalars (ZMod 4)).val 1 :
-    (FactorialAffineColimit (1 : ZMod 4))ˣ) : FactorialAffineColimit (1 : ZMod 4)) ^ 2 = 1 := by sorry
-
--- test: factorialUniversalScalars.test_nontrivial
-example : (factorialUniversalScalars (ZMod 3)).val 1 ≠ 1 := by sorry
-
--- test: factorialUniversalScalars.test_zero_ring
-example : factorialUniversalScalars (ZMod 1) = 1 := by sorry
-
-end FactorialScalingContinuation
-end TauCeti.RootStack
-
-namespace TauCeti.RootStack
-section FactorialCoefficients
-variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-def factorialRootScalars.map (φ : A →+* B) :
-    factorialRootScalars A →* factorialRootScalars B := by sorry
-
-lemma factorialRootScalars.map_value (φ : A →+* B) (s : factorialRootScalars A) (i : ℕ) :
-    (((factorialRootScalars.map φ s).val i : Bˣ) : B) = φ (s.val i : A) := by sorry
-
-lemma factorialRootScalars.map_id :
-    factorialRootScalars.map (RingHom.id A) = MonoidHom.id (factorialRootScalars A) := by sorry
-
-lemma factorialRootScalars.map_comp (φ : A →+* B) (ψ : B →+* C) :
-    factorialRootScalars.map (ψ.comp φ) =
-      (factorialRootScalars.map ψ).comp (factorialRootScalars.map φ) := by sorry
-
-lemma factorialAffineColimit.ringHom_ext (f : A) (φ : A →+* B)
-    (g h : FactorialAffineColimit f →+* B)
-    (hg : ∀ a, g (algebraMap A _ a) = φ a)
-    (hh : ∀ a, h (algebraMap A _ a) = φ a)
-    (hr : ∀ i, g (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      h (factorialAffineInclusion f i (AdjoinRoot.root _))) : g = h := by sorry
-
-def factorialCoefficientMap (φ : A →+* B) (f : A) :
-    FactorialAffineColimit f →+* FactorialAffineColimit (φ f) := by sorry
-
-lemma factorialCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
-    factorialCoefficientMap φ f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by sorry
-
-lemma factorialCoefficientMap.constant (φ : A →+* B) (f a : A) :
-    factorialCoefficientMap φ f (algebraMap A _ a) =
-      algebraMap B _ (φ a) := by sorry
-
-lemma factorialCoefficientMap.id (f : A) :
-    factorialCoefficientMap (RingHom.id A) f = RingHom.id (FactorialAffineColimit f) := by sorry
-
-lemma factorialCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    factorialCoefficientMap (ψ.comp φ) f =
-      (factorialCoefficientMap ψ (φ f)).comp (factorialCoefficientMap φ f) := by sorry
-
-lemma factorialScale.coefficient_naturality (φ : A →+* B) (f : A)
-    (s : factorialRootScalars A) :
-    (factorialCoefficientMap φ f).comp (factorialScale f s).toRingHom =
-      (factorialScale (φ f) (factorialRootScalars.map φ s)).toRingHom.comp
-        (factorialCoefficientMap φ f) := by sorry
-
-lemma factorialScaleEquiv.coefficient_naturality (φ : A →+* B) (f : A)
-    (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
-    factorialCoefficientMap φ f (factorialScaleEquiv f s x) =
-      factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)
-        (factorialCoefficientMap φ f x) := by sorry
-
-lemma factorialScaleEquiv.inverse_coefficient_naturality (φ : A →+* B) (f : A)
-    (s : factorialRootScalars A) (x : FactorialAffineColimit f) :
-    factorialCoefficientMap φ f ((factorialScaleEquiv f s).symm x) =
-      (factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)).symm
-        (factorialCoefficientMap φ f x) := by sorry
-
--- test: factorialCoefficientTests.scalar_value
-example (φ : A →+* B) (s : factorialRootScalars A) (i : ℕ) :
-    (((factorialRootScalars.map φ s).val i : Bˣ) : B) = φ (s.val i : A) := by sorry
-
--- test: factorialCoefficientTests.scalar_one
-example (φ : A →+* B) : factorialRootScalars.map φ 1 = 1 := by sorry
-
--- test: factorialCoefficientTests.scalar_inverse
-example (φ : A →+* B) (s : factorialRootScalars A) :
-    factorialRootScalars.map φ s⁻¹ = (factorialRootScalars.map φ s)⁻¹ := by sorry
-
--- test: factorialCoefficientTests.identity
-example (f : A) (x : FactorialAffineColimit f) :
-    factorialCoefficientMap (RingHom.id A) f x = x := by sorry
-
--- test: factorialCoefficientTests.root
-example (φ : A →+* B) (f : A) :
-    factorialCoefficientMap φ f (factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
-      factorialAffineInclusion (φ f) 1 (AdjoinRoot.root _) := by sorry
-
--- test: factorialCoefficientTests.composition
-example (φ : A →+* B) (ψ : B →+* C) (f : A) (x : FactorialAffineColimit f) :
-    factorialCoefficientMap (ψ.comp φ) f x =
-      factorialCoefficientMap ψ (φ f) (factorialCoefficientMap φ f x) := by sorry
-
--- test: factorialCoefficientTests.zero_ring
-example (φ : ℤ →+* ZMod 1) (f : ℤ) (x : FactorialAffineColimit f) :
-    factorialCoefficientMap φ f x = 0 := by sorry
-
--- test: factorialCoefficientTests.mod_two
-example : factorialCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-    (algebraMap ℤ _ (2 : ℤ)) = 0 := by sorry
-
--- test: factorialCoefficientTests.scaling_square
-example (φ : A →+* B) (f : A) (s : factorialRootScalars A)
-    (x : FactorialAffineColimit f) :
-    factorialCoefficientMap φ f (factorialScaleEquiv f s x) =
-      factorialScaleEquiv (φ f) (factorialRootScalars.map φ s)
-        (factorialCoefficientMap φ f x) := by sorry
-
-end FactorialCoefficients
-end TauCeti.RootStack
-
-
-/-! Universal factorial root coaction — Codex codex-a71f92. -/
-namespace TauCeti.RootStack
-section FactorialUniversalCoaction
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
-def factorialCoaction (f : A) :
-    FactorialAffineColimit f →ₐ[A]
-      (FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) := by
-  sorry
-
-lemma factorialCoaction.root (f : A) (i : ℕ) :
-    factorialCoaction f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) ⊗ₜ[A]
-        factorialAffineInclusion f i (AdjoinRoot.root _) := by
-  sorry
-
-lemma factorialCoaction.constant (f a : A) :
-    factorialCoaction f (algebraMap A _ a) =
-      (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A]
-        algebraMap A (FactorialAffineColimit f) a := by
-  sorry
-
-def factorialCounit (A : Type u) [CommRing A] :
-    FactorialAffineColimit (1 : A) →ₐ[A] A := by
-  sorry
-
-lemma factorialCounit.root (i : ℕ) :
-    factorialCounit A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = 1 := by
-  sorry
-
-lemma factorialCounit.constant (a : A) :
-    factorialCounit A (algebraMap A _ a) = a := by
-  sorry
-
-lemma factorialCounit.surjective : Function.Surjective (factorialCounit A) := by
-  sorry
-
-lemma factorialCoaction.counit (f : A) :
-    ((Algebra.TensorProduct.lid A (FactorialAffineColimit f)).toAlgHom.comp
-      (Algebra.TensorProduct.map (factorialCounit A)
-        (AlgHom.id A (FactorialAffineColimit f)))).comp (factorialCoaction f) =
-      AlgHom.id A (FactorialAffineColimit f) := by
-  sorry
-
-lemma factorialCoaction.coassoc (f : A) :
-    (Algebra.TensorProduct.assoc A A A
-      (FactorialAffineColimit (1 : A)) (FactorialAffineColimit (1 : A))
-      (FactorialAffineColimit f)).toAlgHom.comp
-      ((Algebra.TensorProduct.map (factorialCoaction (1 : A))
-        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialCoaction f)) =
-      (Algebra.TensorProduct.map (AlgHom.id A (FactorialAffineColimit (1 : A)))
-        (factorialCoaction f)).comp (factorialCoaction f) := by
-  sorry
-
-lemma factorialCoaction.right_counit :
-    ((Algebra.TensorProduct.rid A A (FactorialAffineColimit (1 : A))).toAlgHom.comp
-      (Algebra.TensorProduct.map (AlgHom.id A (FactorialAffineColimit (1 : A)))
-        (factorialCounit A))).comp (factorialCoaction (1 : A)) =
-      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
-  sorry
-
-lemma factorialCoaction.cocomm :
-    (Algebra.TensorProduct.comm A (FactorialAffineColimit (1 : A))
-      (FactorialAffineColimit (1 : A))).toAlgHom.comp (factorialCoaction (1 : A)) =
-        factorialCoaction (1 : A) := by
-  sorry
-
-def factorialAntipode (A : Type u) [CommRing A] :
-    FactorialAffineColimit (1 : A) →ₐ[A] FactorialAffineColimit (1 : A) := by
-  sorry
-
-lemma factorialAntipode.root (i : ℕ) :
-    factorialAntipode A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
-      (((factorialUniversalScalars A)⁻¹).val i : FactorialAffineColimit (1 : A)) := by
-  sorry
-
-lemma factorialAntipode.left_inverse :
-    (Algebra.TensorProduct.lift (factorialAntipode A)
-      (AlgHom.id A (FactorialAffineColimit (1 : A)))
-      (fun _ _ => Commute.all _ _)).comp (factorialCoaction (1 : A)) =
-        (Algebra.ofId A (FactorialAffineColimit (1 : A))).comp (factorialCounit A) := by
-  sorry
-
-lemma factorialAntipode.right_inverse :
-    (Algebra.TensorProduct.lift (AlgHom.id A (FactorialAffineColimit (1 : A)))
-      (factorialAntipode A) (fun _ _ => Commute.all _ _)).comp
-        (factorialCoaction (1 : A)) =
-        (Algebra.ofId A (FactorialAffineColimit (1 : A))).comp (factorialCounit A) := by
-  sorry
-
-lemma factorialAntipode.involutive :
-    (factorialAntipode A).comp (factorialAntipode A) =
-      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
-  sorry
-
-def factorialScalarEvaluation {B : Type u} [CommRing B] [Algebra A B]
-    (s : factorialRootScalars B) :
-    FactorialAffineColimit (1 : A) →ₐ[A] B := by
-  sorry
-
-lemma factorialScalarEvaluation.root {B : Type u} [CommRing B] [Algebra A B]
-    (s : factorialRootScalars B) (i : ℕ) :
-    factorialScalarEvaluation (A := A) s
-      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = (s.val i : B) := by
-  sorry
-
-lemma factorialScalarEvaluation.constant {B : Type u} [CommRing B] [Algebra A B]
-    (s : factorialRootScalars B) (a : A) :
-    factorialScalarEvaluation (A := A) s (algebraMap A _ a) = algebraMap A B a := by
-  sorry
-
-lemma factorialScalarEvaluation.universal :
-    factorialScalarEvaluation (A := A) (factorialUniversalScalars A) =
-      AlgHom.id A (FactorialAffineColimit (1 : A)) := by
-  sorry
-
-def factorialScalarPoints {B : Type u} [CommRing B] [Algebra A B] :
-    (FactorialAffineColimit (1 : A) →ₐ[A] B) ≃ factorialRootScalars B := by
-  sorry
-
-lemma factorialScalarPoints.value {B : Type u} [CommRing B] [Algebra A B]
-    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) (i : ℕ) :
-    (((factorialScalarPoints p).val i : Bˣ) : B) =
-      p (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by
-  sorry
-
-lemma factorialScalarPoints.naturality {B C : Type u} [CommRing B] [CommRing C]
-    [Algebra A B] [Algebra A C] (p : FactorialAffineColimit (1 : A) →ₐ[A] B)
-    (k : B →ₐ[A] C) :
-    factorialScalarPoints (k.comp p) =
-      factorialRootScalars.map k.toRingHom (factorialScalarPoints p) := by
-  sorry
-
-lemma factorialScalarPoints.left_inverse {B : Type u} [CommRing B] [Algebra A B]
-    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
-    factorialScalarEvaluation (factorialScalarPoints p) = p := by
-  sorry
-
-lemma factorialScalarPoints.right_inverse {B : Type u} [CommRing B] [Algebra A B]
-    (s : factorialRootScalars B) :
-    factorialScalarPoints (factorialScalarEvaluation (A := A) s) = s := by
-  sorry
-
-lemma factorialCoaction.specialization (f : A) (s : factorialRootScalars A) :
-    (Algebra.TensorProduct.lift
-      ((Algebra.ofId A (FactorialAffineColimit f)).comp (factorialScalarEvaluation s))
-      (AlgHom.id A (FactorialAffineColimit f))
-      (fun _ _ => Commute.all _ _)).comp (factorialCoaction f) = factorialScale f s := by
-  sorry
-
-lemma factorialCoaction.injective (f : A) : Function.Injective (factorialCoaction f) := by
-  sorry
-
-abbrev factorialBialgebra (A : Type u) [CommRing A] :
-    Bialgebra A (FactorialAffineColimit (1 : A)) := by
-  exact Bialgebra.ofAlgHom (factorialCoaction (1 : A)) (factorialCounit A)
-    (by sorry) (by sorry) (by sorry)
-
-lemma factorialBialgebra.comul :
-    letI := factorialBialgebra A
-    Bialgebra.comulAlgHom A (FactorialAffineColimit (1 : A)) =
-      factorialCoaction (1 : A) := by
-  sorry
-
-lemma factorialBialgebra.counit :
-    letI := factorialBialgebra A
-    Bialgebra.counitAlgHom A (FactorialAffineColimit (1 : A)) =
-      factorialCounit A := by
-  sorry
-
-abbrev factorialHopfAlgebra (A : Type u) [CommRing A] :
-    letI := factorialBialgebra A
-    HopfAlgebra A (FactorialAffineColimit (1 : A)) := by
-  letI := factorialBialgebra A
-  exact HopfAlgebra.ofAlgHom (factorialAntipode A) (by sorry) (by sorry)
-
-lemma factorialHopfAlgebra.antipode :
-    letI := factorialBialgebra A
-    letI := factorialHopfAlgebra A
-    HopfAlgebra.antipode A (A := FactorialAffineColimit (1 : A)) =
-      (factorialAntipode A).toLinearMap := by
-  sorry
-
-
--- factorialCoactionTests.degree_two
-example : factorialCoaction (2 : ZMod 4)
-    (factorialAffineInclusion (2 : ZMod 4) 1 (AdjoinRoot.root _)) =
-    factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) ⊗ₜ[ZMod 4]
-      factorialAffineInclusion (2 : ZMod 4) 1 (AdjoinRoot.root _) := by
-  sorry
-
-
--- factorialCoactionTests.coefficient_two
-example : factorialCoaction (0 : ZMod 4)
-    (algebraMap (ZMod 4) _ 2) =
-      1 ⊗ₜ[ZMod 4] algebraMap (ZMod 4) (FactorialAffineColimit (0 : ZMod 4)) 2 := by
-  sorry
-
-
--- factorialCoactionTests.zero_ring
-example : factorialCoaction (0 : ZMod 1) 0 = 0 := by
-  sorry
-
-
--- factorialCoactionTests.wild_nonzero
-example : factorialCoaction (0 : ZMod 2)
-    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)) ≠ 0 := by
-  sorry
-
-
--- factorialCoactionTests.wild_square_zero
-example : (factorialCoaction (0 : ZMod 2)
-    (factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _))) ^ 2 = 0 := by
-  sorry
-
-
--- factorialCounitTests.degree_two
-example : factorialCounit (ZMod 4)
-    (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) = 1 := by
-  sorry
-
-
--- factorialCounitTests.coefficient_two
-example : factorialCounit (ZMod 4) (algebraMap (ZMod 4) _ 2) = 2 := by
-  sorry
-
-
--- factorialCounitTests.zero_ring
-example : factorialCounit (ZMod 1) 0 = 0 := by
-  sorry
-
-
--- factorialAntipodeTests.inverse_root
-example : factorialAntipode A
-    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) *
-      factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) = 1 := by
-  sorry
-
-
--- factorialAntipodeTests.involutive
-example (x : FactorialAffineColimit (1 : A)) :
-    factorialAntipode A (factorialAntipode A x) = x := by
-  sorry
-
-
--- factorialAntipodeTests.zero_ring
-example : factorialAntipode (ZMod 1) 0 = 0 := by
-  sorry
-
-
--- factorialScalarEvaluationTests.universal
-example : factorialScalarEvaluation (A := A) (factorialUniversalScalars A)
-    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) =
-      factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) := by
-  sorry
-
-
--- factorialScalarEvaluationTests.identity_scalar
-example : factorialScalarEvaluation (A := A) (1 : factorialRootScalars A)
-    (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) = 1 := by
-  sorry
-
-
--- factorialScalarEvaluationTests.coefficient_two
-example : factorialScalarEvaluation (A := ZMod 4) (1 : factorialRootScalars (ZMod 4))
-    (algebraMap (ZMod 4) _ 2) = 2 := by
-  sorry
-
-
--- factorialScalarPointsTests.left_inverse
-example (p : FactorialAffineColimit (1 : A) →ₐ[A] A) :
-    factorialScalarEvaluation (factorialScalarPoints p) = p := by
-  sorry
-
-
--- factorialScalarPointsTests.right_inverse
-example (s : factorialRootScalars (ZMod 1)) :
-    factorialScalarPoints (factorialScalarEvaluation (A := ZMod 1) s) = s := by
-  sorry
-
-
--- factorialScalarPointsTests.universal
-example : factorialScalarPoints (AlgHom.id A (FactorialAffineColimit (1 : A))) =
-    factorialUniversalScalars A := by
-  sorry
-
-
--- factorialBialgebraTests.comul_root
-example :
-    letI := factorialBialgebra (ZMod 4)
-    Bialgebra.comulAlgHom (ZMod 4) (FactorialAffineColimit (1 : ZMod 4))
-      (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) =
-        factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) ⊗ₜ[ZMod 4]
-          factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _) := by
-  sorry
-
-
--- factorialBialgebraTests.counit_root
-example :
-    letI := factorialBialgebra (ZMod 2)
-    Bialgebra.counitAlgHom (ZMod 2) (FactorialAffineColimit (1 : ZMod 2))
-      (factorialAffineInclusion (1 : ZMod 2) 1 (AdjoinRoot.root _)) = 1 := by
-  sorry
-
-
--- factorialBialgebraTests.zero_ring
-example :
-    letI := factorialBialgebra (ZMod 1)
-    Bialgebra.comulAlgHom (ZMod 1) (FactorialAffineColimit (1 : ZMod 1)) 0 = 0 := by
-  sorry
-
-
--- factorialHopfAlgebraTests.inverse_root
-example :
-    letI := factorialBialgebra A
-    letI := factorialHopfAlgebra A
-    HopfAlgebra.antipode A (A := FactorialAffineColimit (1 : A))
-      (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _)) *
-        factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) = 1 := by
-  sorry
-
-
--- factorialHopfAlgebraTests.involutive
-example (x : FactorialAffineColimit (1 : A)) :
-    letI := factorialBialgebra A
-    letI := factorialHopfAlgebra A
-    HopfAlgebra.antipode A (HopfAlgebra.antipode A x) = x := by
-  sorry
-
-
--- factorialHopfAlgebraTests.zero_ring
-example :
-    letI := factorialBialgebra (ZMod 1)
-    letI := factorialHopfAlgebra (ZMod 1)
-    HopfAlgebra.antipode (ZMod 1) (A := FactorialAffineColimit (1 : ZMod 1)) 0 = 0 := by
-  sorry
-
-
-end FactorialUniversalCoaction
-end TauCeti.RootStack
-
-/-! Coefficient naturality of the universal factorial coaction.
-All ring maps and tensor products below use the actual inherited native carriers. -/
-
-namespace TauCeti.RootStack
-section FactorialCoefficientCoaction
-variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
-open scoped TensorProduct
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-def factorialUnitCoefficientMap (φ : A →+* B) :
-    FactorialAffineColimit (1 : A) →+* FactorialAffineColimit (1 : B) := by sorry
-lemma factorialUnitCoefficientMap.root (φ : A →+* B) (i : ℕ) :
-    factorialUnitCoefficientMap φ (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
-      factorialAffineInclusion (1 : B) i (AdjoinRoot.root _) := by sorry
-lemma factorialUnitCoefficientMap.constant (φ : A →+* B) (a : A) :
-    factorialUnitCoefficientMap φ (algebraMap A _ a) = algebraMap B _ (φ a) := by sorry
-lemma factorialUnitCoefficientMap.id :
-    factorialUnitCoefficientMap (RingHom.id A) = RingHom.id (FactorialAffineColimit (1 : A)) := by sorry
-lemma factorialUnitCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) :
-    factorialUnitCoefficientMap (ψ.comp φ) =
-      (factorialUnitCoefficientMap ψ).comp (factorialUnitCoefficientMap φ) := by sorry
-lemma factorialCounit.coefficient_naturality (φ : A →+* B) :
-    (factorialCounit B).toRingHom.comp (factorialUnitCoefficientMap φ) =
-      φ.comp (factorialCounit A).toRingHom := by sorry
-def factorialTensorCoefficientMap (φ : A →+* B) (f : A) :
-    (FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) →+*
-      (FactorialAffineColimit (1 : B) ⊗[B] FactorialAffineColimit (φ f)) := by sorry
-lemma factorialTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
-    (h : FactorialAffineColimit (1 : A)) (x : FactorialAffineColimit f) :
-    factorialTensorCoefficientMap φ f (h ⊗ₜ[A] x) =
-      factorialUnitCoefficientMap φ h ⊗ₜ[B] factorialCoefficientMap φ f x := by sorry
-lemma factorialTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
-    factorialTensorCoefficientMap φ f (algebraMap A _ a) = algebraMap B _ (φ a) := by sorry
-set_option maxHeartbeats 2000000 in
-lemma factorialCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
-    (factorialTensorCoefficientMap φ f).comp (factorialCoaction f).toRingHom =
-      (factorialCoaction (φ f)).toRingHom.comp (factorialCoefficientMap φ f) := by sorry
-lemma factorialUnitCoefficientMap.universal_scalars (φ : A →+* B) :
-    factorialRootScalars.map (factorialUnitCoefficientMap φ) (factorialUniversalScalars A) =
-      factorialUniversalScalars B := by sorry
-lemma factorialUnitCoefficientMap.inverse_value (φ : A →+* B) (i : ℕ) :
-    factorialUnitCoefficientMap φ
-      (((factorialUniversalScalars A)⁻¹).val i : FactorialAffineColimit (1 : A)) =
-      (((factorialUniversalScalars B)⁻¹).val i : FactorialAffineColimit (1 : B)) := by sorry
-lemma factorialAntipode.coefficient_naturality (φ : A →+* B) :
-    (factorialAntipode B).toRingHom.comp (factorialUnitCoefficientMap φ) =
-      (factorialUnitCoefficientMap φ).comp (factorialAntipode A).toRingHom := by sorry
-lemma factorialTensorCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
-    factorialTensorCoefficientMap φ f
-      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _) ⊗ₜ[A]
-        factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      factorialAffineInclusion (1 : B) i (AdjoinRoot.root _) ⊗ₜ[B]
-        factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by sorry
-lemma factorialTensorCoefficientMap.id (f : A) :
-    factorialTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by sorry
-lemma factorialTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    factorialTensorCoefficientMap (ψ.comp φ) f =
-      (factorialTensorCoefficientMap ψ (φ f)).comp (factorialTensorCoefficientMap φ f) := by sorry
-end FactorialCoefficientCoaction
-end TauCeti.RootStack
-namespace TauCeti.RootStack
-section CoefficientNaturalityTests
-variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
-open scoped TensorProduct
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
--- coefficientUnitTests.reduction_two
-example : factorialUnitCoefficientMap (Int.castRingHom (ZMod 2))
-    (algebraMap ℤ _ 2) = 0 := by sorry
--- coefficientUnitTests.identity
-example (x : FactorialAffineColimit (1 : A)) :
-    factorialUnitCoefficientMap (RingHom.id A) x = x := by sorry
--- coefficientUnitTests.composition
-example (φ : A →+* B) (ψ : B →+* C) (x : FactorialAffineColimit (1 : A)) :
-    factorialUnitCoefficientMap (ψ.comp φ) x =
-      factorialUnitCoefficientMap ψ (factorialUnitCoefficientMap φ x) := by sorry
--- coefficientUnitTests.zero_ring
-example : factorialUnitCoefficientMap (Int.castRingHom (ZMod 1)) 1 = 0 := by sorry
--- coefficientTensorTests.degree_two
-example (φ : A →+* B) (f : A) :
-    factorialTensorCoefficientMap φ f
-      (factorialAffineInclusion (1 : A) 1 (AdjoinRoot.root _) ⊗ₜ[A]
-        factorialAffineInclusion f 1 (AdjoinRoot.root _)) =
-      factorialAffineInclusion (1 : B) 1 (AdjoinRoot.root _) ⊗ₜ[B]
-        factorialAffineInclusion (φ f) 1 (AdjoinRoot.root _) := by sorry
--- coefficientTensorTests.reduction_two
-example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-    (algebraMap ℤ _ 2) = 0 := by sorry
--- coefficientTensorTests.identity
-example (f : A) (x : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
-    factorialTensorCoefficientMap (RingHom.id A) f x = x := by sorry
--- coefficientTensorTests.composition
-example (φ : A →+* B) (ψ : B →+* C) (f : A)
-    (x : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
-    factorialTensorCoefficientMap (ψ.comp φ) f x =
-      factorialTensorCoefficientMap ψ (φ f) (factorialTensorCoefficientMap φ f x) := by sorry
--- coefficientTensorTests.zero_ring
-example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 1)) (0 : ℤ) 1 = 0 := by sorry
--- coefficientCoactionTests.square
-example (φ : A →+* B) (f : A) (x : FactorialAffineColimit f) :
-    factorialTensorCoefficientMap φ f (factorialCoaction f x) =
-      factorialCoaction (φ f) (factorialCoefficientMap φ f x) := by sorry
--- coefficientCounitTests.square
-example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
-    factorialCounit B (factorialUnitCoefficientMap φ x) = φ (factorialCounit A x) := by sorry
--- coefficientAntipodeTests.square
-example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
-    factorialAntipode B (factorialUnitCoefficientMap φ x) =
-      factorialUnitCoefficientMap φ (factorialAntipode A x) := by sorry
-set_option maxHeartbeats 2000000 in
--- coefficientCoactionTests.wild_square_zero
-example : (factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-    (factorialCoaction (0 : ℤ)
-      (factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _)))) ^ 2 = 0 := by sorry
-set_option maxHeartbeats 2000000 in
--- coefficientCoactionTests.wild_nonzero
-example : factorialTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-    (factorialCoaction (0 : ℤ)
-      (factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _))) ≠ 0 := by sorry
-end CoefficientNaturalityTests
-end TauCeti.RootStack
-
-/-! Convolution points of the factorial unity-root Hopf algebra. -/
-namespace TauCeti.RootStack
-section FactorialConvolutionPoints
-variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
-open WithConv
-local instance : Bialgebra A (FactorialAffineColimit (1 : A)) := factorialBialgebra A
-
-lemma factorialConvPoints.root
-    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
-    (p * q).ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
-      p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) *
-      q.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by sorry
-
-lemma factorialConvPoints.one_root (i : ℕ) :
-    (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)).ofConv
-      (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) = 1 := by sorry
-
-lemma factorialScalarPoints.conv_mul
-    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
-    factorialScalarPoints (p * q).ofConv =
-      factorialScalarPoints p.ofConv * factorialScalarPoints q.ofConv := by sorry
-
-lemma factorialScalarPoints.conv_one :
-    factorialScalarPoints
-      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)).ofConv = 1 := by sorry
-
-lemma factorialScalarEvaluation.conv_mul (s t : factorialRootScalars B) :
-    toConv (factorialScalarEvaluation (A := A) (s*t)) =
-      toConv (factorialScalarEvaluation (A := A) s) *
-        toConv (factorialScalarEvaluation (A := A) t) := by sorry
-
-lemma factorialScalarEvaluation.conv_one :
-    toConv (factorialScalarEvaluation (A := A) (1 : factorialRootScalars B)) =
-      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
-
-lemma factorialScalarPoints.antipode
-    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
-    factorialScalarPoints (p.comp (factorialAntipode A)) = (factorialScalarPoints p)⁻¹ := by sorry
-
-lemma factorialScalarEvaluation.antipode (s : factorialRootScalars B) :
-    factorialScalarEvaluation (A := A) s⁻¹ =
-      (factorialScalarEvaluation (A := A) s).comp (factorialAntipode A) := by sorry
-
-lemma factorialConvPoints.left_inverse
-    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
-    toConv (p.comp (factorialAntipode A)) * toConv p =
-      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
-
-lemma factorialConvPoints.right_inverse
-    (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
-    toConv p * toConv (p.comp (factorialAntipode A)) =
-      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
-
-def factorialScalarPointsMulEquiv (A B : Type u) [CommRing A] [CommRing B] [Algebra A B] :
-    WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B) ≃* factorialRootScalars B := by sorry
-
-lemma factorialScalarPointsMulEquiv.apply
-    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
-    factorialScalarPointsMulEquiv A B p = factorialScalarPoints p.ofConv := by sorry
-
-lemma factorialScalarPointsMulEquiv.symm_apply (s : factorialRootScalars B) :
-    (factorialScalarPointsMulEquiv A B).symm s =
-      toConv (factorialScalarEvaluation (A := A) s) := by sorry
-
-lemma factorialScalarPointsMulEquiv.naturality
-    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (k : B →ₐ[A] C) :
-    factorialScalarPointsMulEquiv A C (toConv (k.comp p.ofConv)) =
-      factorialRootScalars.map k.toRingHom (factorialScalarPointsMulEquiv A B p) := by sorry
-
-lemma factorialScalarEvaluation.naturality (s : factorialRootScalars B) (k : B →ₐ[A] C) :
-    k.comp (factorialScalarEvaluation (A := A) s) =
-      factorialScalarEvaluation (A := A) (factorialRootScalars.map k.toRingHom s) := by sorry
-
-lemma factorialScalarPointsMulEquiv.pow
-    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (n : ℕ) :
-    factorialScalarPointsMulEquiv A B (p^n) =
-      (factorialScalarPointsMulEquiv A B p)^n := by sorry
-
-lemma factorialScalarPointsMulEquiv.mul
-    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
-    factorialScalarPointsMulEquiv A B (p*q) =
-      factorialScalarPointsMulEquiv A B p * factorialScalarPointsMulEquiv A B q := by sorry
-
-lemma factorialScalarPointsMulEquiv.one : factorialScalarPointsMulEquiv A B 1 = 1 := by sorry
-
-lemma factorialScalarPointsMulEquiv.root
-    (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
-    ((factorialScalarPointsMulEquiv A B p).val i : B) =
-      p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) := by sorry
-
-lemma factorialConvPoints.comm
-    (p q : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) : p*q = q*p := by sorry
-
--- test: convolutionPointsTests.degree_two
-example (s t : factorialRootScalars (ZMod 4)) :
-    (toConv (factorialScalarEvaluation (A := ZMod 4) s) *
-      toConv (factorialScalarEvaluation (A := ZMod 4) t)).ofConv
-      (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) =
-      (s.val 1 : ZMod 4) * (t.val 1 : ZMod 4) := by sorry
-
--- test: convolutionPointsTests.identity
-example : factorialScalarPointsMulEquiv A B 1 = 1 := by sorry
-
--- test: convolutionPointsTests.roundtrip
-example (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) :
-    (factorialScalarPointsMulEquiv A B).symm (factorialScalarPointsMulEquiv A B p) = p := by sorry
-
--- test: convolutionPointsTests.inverse
-example (p : FactorialAffineColimit (1 : A) →ₐ[A] B) :
-    toConv (p.comp (factorialAntipode A)) * toConv p =
-      (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) := by sorry
-
--- test: convolutionPointsTests.zero_ring
-example : factorialScalarPointsMulEquiv (ZMod 1) (ZMod 1) 1 = 1 := by sorry
-
--- test: convolutionPointsTests.counit_not_identity
-example : (factorialScalarPointsMulEquiv (ZMod 3)
-    (FactorialAffineColimit (1 : ZMod 3))
-    (toConv (AlgHom.id (ZMod 3) (FactorialAffineColimit (1 : ZMod 3))))).val 1 ≠ 1 := by sorry
-
--- test: convolutionPointsTests.naturality
-example (s : factorialRootScalars B) (k : B →ₐ[A] C) :
-    factorialScalarPointsMulEquiv A C
-      (toConv (k.comp (factorialScalarEvaluation (A := A) s))) =
-      factorialRootScalars.map k.toRingHom s := by sorry
-
--- test: convolutionPointsTests.root_order
-example (p : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) (i : ℕ) :
-    p.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) ^
-      Nat.factorial (i+1) = 1 := by sorry
-
-end FactorialConvolutionPoints
-end TauCeti.RootStack
-
-/-! Native action on factorial affine-chart points, distinct from quotient descent. -/
-namespace TauCeti.RootStack
-section FactorialPointAction
-variable {A B C : Type u} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
-open WithConv
-open scoped TensorProduct
-local instance : Bialgebra A (FactorialAffineColimit (1 : A)) := factorialBialgebra A
-
-def factorialPointAction (f : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) : FactorialAffineColimit f →ₐ[A] B := by
-  sorry
-
-lemma factorialPointAction.root (f : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) (i : ℕ) :
-    factorialPointAction f g x (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      g.ofConv (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) *
-        x (factorialAffineInclusion f i (AdjoinRoot.root _)) := by
-  sorry
-
-lemma factorialPointAction.constant (f a : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f g x (algebraMap A _ a) = algebraMap A B a := by
-  sorry
-
-lemma factorialPointAction.one (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f 1 x = x := by
-  sorry
-
-lemma factorialPointAction.mul (f : A)
-    (g h : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f (g*h) x =
-      factorialPointAction f g (factorialPointAction f h x) := by
-  sorry
-
-@[instance_reducible]
-def factorialPointMulAction (f : A) :
-    MulAction (WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-      (FactorialAffineColimit f →ₐ[A] B) := by
-  sorry
-
-lemma factorialPointMulAction.smul (f : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    let := factorialPointMulAction (B := B) f
-    g • x = factorialPointAction f g x := by
-  sorry
-
-lemma factorialPointAction.naturality (f : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) (k : B →ₐ[A] C) :
-    k.comp (factorialPointAction f g x) =
-      factorialPointAction f (toConv (k.comp g.ofConv)) (k.comp x) := by
-  sorry
-
-lemma factorialPointAction.scaling (f : A) (s : factorialRootScalars A)
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f
-      (toConv ((Algebra.ofId A B).comp (factorialScalarEvaluation (A := A) s))) x =
-        x.comp (factorialScale f s) := by
-  sorry
-
-lemma factorialPointAction.universal (f : A) :
-    factorialPointAction f
-      (toConv (Algebra.TensorProduct.includeLeft :
-        FactorialAffineColimit (1 : A) →ₐ[A]
-          FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f))
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) =
-          factorialCoaction f := by
-  sorry
-
-lemma factorialPointAction.left_inverse (f : A)
-    (g : FactorialAffineColimit (1 : A) →ₐ[A] B)
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f (toConv (g.comp (factorialAntipode A)))
-      (factorialPointAction f (toConv g) x) = x := by
-  sorry
-
-lemma factorialPointAction.right_inverse (f : A)
-    (g : FactorialAffineColimit (1 : A) →ₐ[A] B)
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f (toConv g)
-      (factorialPointAction f (toConv (g.comp (factorialAntipode A))) x) = x := by
-  sorry
-
-lemma factorialPointAction.fixed_zero_roots (f : A)
-    (g : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B)
-    (hx : ∀ i, x (factorialAffineInclusion f i (AdjoinRoot.root _)) = 0) :
-    factorialPointAction f g x = x := by
-  sorry
-
--- pointActionTests.degree_two
-example (g : WithConv (FactorialAffineColimit (1 : ZMod 4) →ₐ[ZMod 4] ZMod 4))
-    (x : FactorialAffineColimit (0 : ZMod 4) →ₐ[ZMod 4] ZMod 4) :
-    factorialPointAction (0 : ZMod 4) g x
-      (factorialAffineInclusion (0 : ZMod 4) 1 (AdjoinRoot.root _)) =
-      g.ofConv (factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) *
-        x (factorialAffineInclusion (0 : ZMod 4) 1 (AdjoinRoot.root _)) := by
-  sorry
-
--- pointActionTests.identity
-example (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
-    factorialPointAction f 1 x = x := by
-  sorry
-
--- pointActionTests.universal
-example (f : A) :
-    factorialPointAction f
-      (toConv (Algebra.TensorProduct.includeLeft :
-        FactorialAffineColimit (1 : A) →ₐ[A]
-          FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f))
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) =
-          factorialCoaction f := by
-  sorry
-
--- pointActionTests.fixed_zero_roots
-example (g : WithConv (FactorialAffineColimit (1 : ZMod 2) →ₐ[ZMod 2] ZMod 2))
-    (x : FactorialAffineColimit (0 : ZMod 2) →ₐ[ZMod 2] ZMod 2)
-    (hx : ∀ i, x (factorialAffineInclusion (0 : ZMod 2) i (AdjoinRoot.root _)) = 0) :
-    factorialPointAction (0 : ZMod 2) g x = x := by
-  sorry
-
--- pointMulActionTests.identity
-example (f : A) (x : FactorialAffineColimit f →ₐ[A] B) :
-    let := factorialPointMulAction (B := B) f
-    (1 : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B)) • x = x := by
-  sorry
-
--- pointMulActionTests.composition
-example (f : A) (g h : WithConv (FactorialAffineColimit (1 : A) →ₐ[A] B))
-    (x : FactorialAffineColimit f →ₐ[A] B) :
-    let := factorialPointMulAction (B := B) f
-    (g*h) • x = g • (h • x) := by
-  sorry
-
--- pointMulActionTests.zero_ring
-example (x : FactorialAffineColimit (0 : ZMod 1) →ₐ[ZMod 1] ZMod 1) :
-    let := factorialPointMulAction (B := ZMod 1) (0 : ZMod 1)
-    (1 : WithConv (FactorialAffineColimit (1 : ZMod 1) →ₐ[ZMod 1] ZMod 1)) • x = x := by
-  sorry
-
-
-end FactorialPointAction
-end TauCeti.RootStack
-
-/- BEGIN FINITE CYCLIC COORDINATES -/
-namespace TauCeti.RootStack
-variable {A : Type u} [CommRing A]
-open scoped TensorProduct
-
-def affineUnitCharacter (n : ℕ) [NeZero n] :
-    Multiplicative (ZMod n) →* AffineRing (1 : A) n := by
-  sorry
-
-lemma affineUnitCharacter.natCast (n k : ℕ) [NeZero n] :
-    affineUnitCharacter (A := A) n (Multiplicative.ofAdd (k : ZMod n)) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k := by
-  sorry
-
-def affineUnitToCyclic (n : ℕ) [NeZero n] :
-    AffineRing (1 : A) n →ₐ[A] MuHopf A n := by
-  sorry
-
-lemma affineUnitToCyclic.root (n : ℕ) [NeZero n] :
-    affineUnitToCyclic (A := A) n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A))) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) := by
-  sorry
-
-def affineUnitFromCyclic (n : ℕ) [NeZero n] :
-    MuHopf A n →ₐ[A] AffineRing (1 : A) n := by
-  sorry
-
-lemma affineUnitFromCyclic.single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
-    affineUnitFromCyclic n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
-      a • AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k.val := by
-  sorry
-
-lemma affineUnitCyclic.left_inverse (n : ℕ) [NeZero n] :
-    (affineUnitFromCyclic (A := A) n).comp (affineUnitToCyclic n) =
-      AlgHom.id A (AffineRing (1 : A) n) := by
-  sorry
-
-lemma affineUnitCyclic.right_inverse (n : ℕ) [NeZero n] :
-    (affineUnitToCyclic (A := A) n).comp (affineUnitFromCyclic n) =
-      AlgHom.id A (MuHopf A n) := by
-  sorry
-
-def affineUnitCyclicEquiv (n : ℕ) [NeZero n] :
-    AffineRing (1 : A) n ≃ₐ[A] MuHopf A n := by
-  sorry
-
-lemma affineUnitCyclicEquiv.root (n : ℕ) [NeZero n] :
-    affineUnitCyclicEquiv (A := A) n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A))) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod n)) (1 : A) := by
-  sorry
-
-lemma affineUnitCyclicEquiv.inverse_single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
-    (affineUnitCyclicEquiv n).symm (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
-      a • AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ k.val := by
-  sorry
-
-lemma affineUnitCyclicEquiv.coaction (n : ℕ) [NeZero n] :
-    (Algebra.TensorProduct.map (AlgHom.id A (MuHopf A n))
-      (affineUnitCyclicEquiv n).toAlgHom).comp (affineCoaction (1 : A) n) =
-      (Bialgebra.comulAlgHom A (MuHopf A n)).comp (affineUnitCyclicEquiv n).toAlgHom := by
-  sorry
-
-lemma affineUnitCyclicEquiv.divisibility_single (n N : ℕ) [NeZero n] [NeZero N]
-    (h : n ∣ N) (k : ZMod n) (a : A) :
-    affineUnitCyclicEquiv N
-      (affineDivisibility (1 : A) n N h
-        ((affineUnitCyclicEquiv n).symm (MonoidAlgebra.single (Multiplicative.ofAdd k) a))) =
-      MonoidAlgebra.single (Multiplicative.ofAdd ((N / n * k.val : ℕ) : ZMod N)) a := by
-  sorry
-
-lemma affineUnitCyclicEquiv.counit (n : ℕ) [NeZero n] :
-    (Bialgebra.counitAlgHom A (MuHopf A n)).comp (affineUnitCyclicEquiv n).toAlgHom =
-      AdjoinRoot.liftAlgHom (Polynomial.X ^ n - Polynomial.C (1 : A))
-        (AlgHom.id A A) (1 : A) (by simp) := by
-  sorry
-
-lemma affineUnitCyclicEquiv.antipode_root (n : ℕ) [NeZero n] :
-    HopfAlgebra.antipode A (affineUnitCyclicEquiv n
-      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)))) =
-      affineUnitCyclicEquiv n
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (1 : A)) ^ (n - 1)) := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCharacter.test_one
-example (g : Multiplicative (ZMod 1)) : affineUnitCharacter (A := A) 1 g = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCharacter.test_wrap
-example : affineUnitCharacter (A := A) 2 (Multiplicative.ofAdd (3 : ZMod 2)) =
-    AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : A)) := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCharacter.test_square
-example : (affineUnitCharacter (A := A) 2 (Multiplicative.ofAdd (1 : ZMod 2))) ^ 2 = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitToCyclic.test_one
-example : affineUnitToCyclic (A := A) 1 (AdjoinRoot.root (Polynomial.X ^ 1 - Polynomial.C (1 : A))) = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitToCyclic.test_cube
-example : affineUnitToCyclic (A := A) 3
-    (AdjoinRoot.root (Polynomial.X ^ 3 - Polynomial.C (1 : A)) ^ 4) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 3)) (1 : A) := by
-  sorry
-
--- TauCeti.RootStack.affineUnitToCyclic.test_zeroRing
-example [Subsingleton A] (n : ℕ) [NeZero n] (x : AffineRing (1 : A) n) :
-    affineUnitToCyclic n x = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitFromCyclic.test_constant
-example (a : A) : affineUnitFromCyclic 1 (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 1)) a) =
-    algebraMap A (AffineRing (1 : A) 1) a := by
-  sorry
-
--- TauCeti.RootStack.affineUnitFromCyclic.test_nontrivial_basis
-example : affineUnitFromCyclic 4 (MonoidAlgebra.single (Multiplicative.ofAdd (3 : ZMod 4)) (2 : A)) =
-    (2 : A) • AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (1 : A)) ^ 3 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitFromCyclic.test_multiplication
-example : affineUnitFromCyclic 2
-    (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) *
-      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A)) = 1 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCyclicEquiv.test_transition_two_six
-example : affineUnitCyclicEquiv 6
-    (affineDivisibility (1 : ℤ) 2 6 (by decide)
-      ((affineUnitCyclicEquiv 2).symm (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ℤ)))) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (3 : ZMod 6)) (1 : ℤ) := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCyclicEquiv.test_wild_nilpotent
-example :
-    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2)) - 1
-    x ≠ 0 ∧ x ^ 2 = 0 := by
-  sorry
-
--- TauCeti.RootStack.affineUnitCyclicEquiv.test_zeroRing
-example [Subsingleton A] (n : ℕ) [NeZero n] (x : MuHopf A n) :
-    affineUnitCyclicEquiv n ((affineUnitCyclicEquiv n).symm x) = x := by
-  sorry
-
-end TauCeti.RootStack
-/- END FINITE CYCLIC COORDINATES -/
-
-/- BEGIN INFINITE RATIONAL CHARACTERS -/
-noncomputable section
-universe uQZ
-namespace TauCeti.RootStack
-variable {A : Type uQZ} [CommRing A]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-local instance (q : ℚ) : NeZero q.den := ⟨Nat.ne_of_gt q.den_pos⟩
-open scoped TensorProduct
-
-def affineQZCharacter (n : ℕ) [NeZero n] : ZMod n →+ AddCircle (1 : ℚ) := by
-  sorry
-
-lemma affineQZCharacter.intCast (n : ℕ) [NeZero n] (k : ℤ) :
-    affineQZCharacter n (k : ZMod n) = ((k / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)) := by
-  sorry
-
-lemma affineQZCharacter.one (n : ℕ) [NeZero n] :
-    affineQZCharacter n 1 = ((1 / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)) := by
-  sorry
-
-lemma affineQZCharacter.injective (n : ℕ) [NeZero n] :
-    Function.Injective (affineQZCharacter n) := by
-  sorry
-
-lemma affineQZCharacter.divisibility (n N : ℕ) [NeZero n] [NeZero N]
-    (h : n ∣ N) (k : ZMod n) :
-    affineQZCharacter N ((N / n * k.val : ℕ) : ZMod N) = affineQZCharacter n k := by
-  sorry
-
-lemma affineQZCharacter.exhaustive (u : AddCircle (1 : ℚ)) :
-    ∃ (n : ℕ) (hn : 0 < n),
-      ∃ k : ZMod n, @affineQZCharacter n ⟨Nat.ne_of_gt hn⟩ k = u := by
-  sorry
-
-def finiteQZAlgMap (A : Type uQZ) [CommRing A] (n : ℕ) [NeZero n] :
-    MuHopf A n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
-  sorry
-
-lemma finiteQZAlgMap.single (n : ℕ) [NeZero n] (k : ZMod n) (a : A) :
-    finiteQZAlgMap A n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (affineQZCharacter n k)) a := by
-  sorry
-
-lemma finiteQZAlgMap.injective (n : ℕ) [NeZero n] :
-    Function.Injective (finiteQZAlgMap A n) := by
-  sorry
-
-lemma finiteQZAlgMap.transition (n N : ℕ) [NeZero n] [NeZero N]
-    (h : n ∣ N) (k : ZMod n) (a : A) :
-    finiteQZAlgMap A N (MonoidAlgebra.single
-      (Multiplicative.ofAdd ((N / n * k.val : ℕ) : ZMod N)) a) =
-      finiteQZAlgMap A n (MonoidAlgebra.single (Multiplicative.ofAdd k) a) := by
-  sorry
-
-def finiteRootQZMap (A : Type uQZ) [CommRing A] (n : ℕ) [NeZero n] :
-    AffineRing (1 : A) n →ₐ[A] MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
-  sorry
-
-lemma finiteRootQZMap.root (n : ℕ) [NeZero n] :
-    finiteRootQZMap A n (AdjoinRoot.root _) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (n : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
-
-lemma finiteRootQZMap.injective (n : ℕ) [NeZero n] :
-    Function.Injective (finiteRootQZMap A n) := by
-  sorry
-
-lemma finiteRootQZMap.transition (n N : ℕ) [NeZero n] [NeZero N] (h : n ∣ N) :
-    (finiteRootQZMap A N).comp (affineDivisibility (1 : A) n N h) = finiteRootQZMap A n := by
-  sorry
-
-lemma factorialQZRoot_power (A : Type uQZ) [CommRing A] (i : ℕ) :
-    (MonoidAlgebra.single (Multiplicative.ofAdd
-      (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-      (1 : A)) ^ Nat.factorial (i+1) = 1 := by
-  sorry
-
-lemma factorialQZRoot_transition (A : Type uQZ) [CommRing A] (i j : ℕ) (h : i ≤ j) :
-    (MonoidAlgebra.single (Multiplicative.ofAdd
-      (((1 / (Nat.factorial (j+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-      (1 : A)) ^ (Nat.factorial (j+1) / Nat.factorial (i+1)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
-
-def factorialUnitQZMap (A : Type uQZ) [CommRing A] :
-    FactorialAffineColimit (1 : A) →ₐ[A]
-      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
-  sorry
-
-lemma factorialUnitQZMap.root (A : Type uQZ) [CommRing A] (i : ℕ) :
-    factorialUnitQZMap A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
-
-lemma factorialUnitQZMap.leg (A : Type uQZ) [CommRing A] (n : RootDivIndex)
-    (x : AffineRing (1 : A) n.exponent) :
-    factorialUnitQZMap A (factorialAffineExtension (1 : A) n x) =
-      finiteRootQZMap A n.exponent x := by
-  sorry
-
-lemma factorialUnitQZMap.injective (A : Type uQZ) [CommRing A] :
-    Function.Injective (factorialUnitQZMap A) := by
-  sorry
-
-lemma factorialUnitQZMap.surjective (A : Type uQZ) [CommRing A] :
-    Function.Surjective (factorialUnitQZMap A) := by
-  sorry
-
-def factorialUnitQZEquiv (A : Type uQZ) [CommRing A] :
-    FactorialAffineColimit (1 : A) ≃ₐ[A]
-      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) := by
-  sorry
-
-lemma factorialUnitQZEquiv.root (A : Type uQZ) [CommRing A] (i : ℕ) :
-    factorialUnitQZEquiv A (factorialAffineInclusion (1 : A) i (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
-
-lemma factorialUnitQZEquiv.inverse_single_den (A : Type uQZ) [CommRing A] (q : ℚ) (a : A) :
-    (factorialUnitQZEquiv A).symm
-      (MonoidAlgebra.single (Multiplicative.ofAdd (q : AddCircle (1 : ℚ))) a) =
-      factorialAffineExtension (1 : A) ⟨q.den, q.den_pos⟩
-        ((affineUnitCyclicEquiv (A := A) q.den).symm
-          (MonoidAlgebra.single (Multiplicative.ofAdd (q.num : ZMod q.den)) a)) := by
-  sorry
-
-lemma factorialUnitQZEquiv.comul (A : Type uQZ) [CommRing A]
-    (x : FactorialAffineColimit (1 : A)) :
-    Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
-      (factorialUnitQZEquiv A).toAlgHom (factorialCoaction (1 : A) x) =
-      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
-  sorry
-
-lemma factorialUnitQZEquiv.counit (A : Type uQZ) [CommRing A]
-    (x : FactorialAffineColimit (1 : A)) :
-    Coalgebra.counit (R := A) (factorialUnitQZEquiv A x) = factorialCounit A x := by
-  sorry
-
-lemma factorialUnitQZEquiv.antipode (A : Type uQZ) [CommRing A]
-    (x : FactorialAffineColimit (1 : A)) :
-    HopfAlgebra.antipode A (factorialUnitQZEquiv A x) =
-      factorialUnitQZEquiv A (factorialAntipode A x) := by
-  sorry
-
-lemma factorialUnitQZEquiv.coefficient_natural {B : Type uQZ} [CommRing B]
-    (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
-    MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ
-      (factorialUnitQZEquiv A x) =
-      factorialUnitQZEquiv B (factorialUnitCoefficientMap φ x) := by
-  sorry
-
--- TauCeti.RootStack.affineQZCharacter.test_one
-example  : affineQZCharacter 1 1 = 0 := by
-  sorry
--- TauCeti.RootStack.affineQZCharacter.test_orientation
-example  : affineQZCharacter 3 1 ≠ (((2 / 3 : ℚ) : AddCircle (1 : ℚ))) := by
-  sorry
--- TauCeti.RootStack.affineQZCharacter.test_two_six
-example  : affineQZCharacter 6 (3 : ZMod 6) = (((1 / 2 : ℚ) : AddCircle (1 : ℚ))) := by
-  sorry
--- TauCeti.RootStack.finiteQZAlgMap.test_constant
-example (a : A) : finiteQZAlgMap A 1 (MonoidAlgebra.single (Multiplicative.ofAdd (0 : ZMod 1)) a) = algebraMap A _ a := by
-  sorry
--- TauCeti.RootStack.finiteQZAlgMap.test_negative
-example (a : A) : finiteQZAlgMap A 3 (MonoidAlgebra.single (Multiplicative.ofAdd (-1 : ZMod 3)) a) = MonoidAlgebra.single (Multiplicative.ofAdd (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) a := by
-  sorry
--- TauCeti.RootStack.finiteQZAlgMap.test_wild
-example  : let v := finiteQZAlgMap (ZMod 2) 2 (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) 1 - 1); v ≠ 0 ∧ v ^ 2 = 0 := by
-  sorry
--- TauCeti.RootStack.finiteRootQZMap.test_one
-example  : finiteRootQZMap A 1 (AdjoinRoot.root _) = 1 := by
-  sorry
--- TauCeti.RootStack.finiteRootQZMap.test_three
-example  : finiteRootQZMap A 3 (AdjoinRoot.root _) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 3 : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
--- TauCeti.RootStack.finiteRootQZMap.test_zero_ring
-example  : Function.Injective (finiteRootQZMap (ZMod 1) 2) := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZMap.test_level_zero
-example  : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 0 (AdjoinRoot.root _)) = 1 := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZMap.test_level_two
-example  : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 2 (AdjoinRoot.root _)) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 6 : ℚ) : AddCircle (1 : ℚ)))) 1 := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients
-example  : factorialUnitQZMap (ZMod 4) (2 * factorialAffineInclusion (1 : ZMod 4) 1 (AdjoinRoot.root _)) = MonoidAlgebra.single (Multiplicative.ofAdd (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) 2 := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative
-example  : (factorialUnitQZEquiv A).symm (MonoidAlgebra.single (Multiplicative.ofAdd (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) 1) = factorialAffineExtension (1 : A) ⟨3, by decide⟩ ((AdjoinRoot.root _) ^ 2) := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf
-example  : let v := factorialUnitQZEquiv (ZMod 2) (factorialAffineInclusion (1 : ZMod 2) 1 (AdjoinRoot.root _) - 1); v ≠ 0 ∧ v ^ 2 = 0 ∧ Coalgebra.comul (R := ZMod 2) v = v ⊗ₜ[ZMod 2] v + v ⊗ₜ[ZMod 2] (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) + (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2] v := by
-  sorry
--- TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients
-example (x : FactorialAffineColimit (1 : ℤ)) : MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) (Int.castRingHom (ZMod 2)) (factorialUnitQZEquiv ℤ x) = factorialUnitQZEquiv (ZMod 2) (factorialUnitCoefficientMap (Int.castRingHom (ZMod 2)) x) := by
-  sorry
-
-end TauCeti.RootStack
-end
-/- END INFINITE RATIONAL CHARACTERS -/
-
-/-! Rational-character LEFT coaction on the actual arbitrary-section root chart.
-Compilation receipts are in the handoff. No geometric fpqc quotient is inferred.
-The parameter f is not a unit assumption. Characters stay in the first factor. -/
-noncomputable section
-universe uQZCoact
-namespace TauCeti.RootStack
-variable {A : Type uQZCoact} [CommRing A]
-open scoped TensorProduct
-
-def factorialQZCoaction (f : A) :
-    FactorialAffineColimit f →ₐ[A]
-      (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-        FactorialAffineColimit f) := by
-  sorry
-
-lemma factorialQZCoaction.transport (f : A) :
-    factorialQZCoaction f =
-      (Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
-        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialCoaction f) := by
-  sorry
-
-lemma factorialQZCoaction.root (f : A) (i : ℕ) :
-    factorialQZCoaction f (factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-        (1 : A) ⊗ₜ[A]
-          factorialAffineInclusion f i (AdjoinRoot.root _) := by
-  sorry
-
-lemma factorialQZCoaction.constant (f a : A) :
-    factorialQZCoaction f (algebraMap A _ a) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        algebraMap A (FactorialAffineColimit f) a := by
-  sorry
-
-lemma factorialQZCoaction.power (f : A) (i k : ℕ) :
-    factorialQZCoaction f ((factorialAffineInclusion f i (AdjoinRoot.root _)) ^ k) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((k / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-        (1 : A) ⊗ₜ[A]
-          ((factorialAffineInclusion f i (AdjoinRoot.root _)) ^ k) := by
-  sorry
-
-lemma factorialQZCoaction.counit (f : A) :
-    ((Algebra.TensorProduct.lid A (FactorialAffineColimit f)).toAlgHom.comp
-      (Algebra.TensorProduct.map
-        (Bialgebra.counitAlgHom A
-          (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
-        (AlgHom.id A (FactorialAffineColimit f)))).comp (factorialQZCoaction f) =
-      AlgHom.id A (FactorialAffineColimit f) := by
-  sorry
-
-lemma factorialQZCoaction.coassoc (f : A) :
-    let G := MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))
-    (Algebra.TensorProduct.assoc A A A G G (FactorialAffineColimit f)).toAlgHom.comp
-      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom A G)
-        (AlgHom.id A (FactorialAffineColimit f))).comp (factorialQZCoaction f)) =
-      (Algebra.TensorProduct.map (AlgHom.id A G) (factorialQZCoaction f)).comp
-        (factorialQZCoaction f) := by
-  sorry
-
-lemma factorialQZCoaction.injective (f : A) :
-    Function.Injective (factorialQZCoaction f) := by
-  sorry
-
-lemma factorialQZCoaction.coinvariant_iff (f : A) (x : FactorialAffineColimit f) :
-    factorialQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x ↔
-    factorialCoaction f x = (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A] x := by
-  sorry
-
-lemma factorialQZCoaction.unity (x : FactorialAffineColimit (1 : A)) :
-    Algebra.TensorProduct.map
-      (AlgHom.id A (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
-      (factorialUnitQZEquiv A).toAlgHom (factorialQZCoaction (1 : A) x) =
-      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_level_zero
-example (f : A) :
-    factorialQZCoaction f (factorialAffineInclusion f 0 (AdjoinRoot.root _)) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        algebraMap A (FactorialAffineColimit f) f := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_sixth_root
-example :
-    factorialQZCoaction (2 : ZMod 4)
-      ((factorialAffineInclusion (2 : ZMod 4) 2 (AdjoinRoot.root _)) ^ 2) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 4) ⊗ₜ[ZMod 4]
-          ((factorialAffineInclusion (2 : ZMod 4) 2 (AdjoinRoot.root _)) ^ 2) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_native_transport
-example (f : A) (x : FactorialAffineColimit f) :
-    factorialQZCoaction f x =
-      Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
-        (AlgHom.id A (FactorialAffineColimit f)) (factorialCoaction f x) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_wild_zero_section
-example :
-    let u := factorialAffineInclusion (0 : ZMod 2) 1 (AdjoinRoot.root _)
-    factorialQZCoaction (0 : ZMod 2) u ≠
-      (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2] u := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_unity
-example (x : FactorialAffineColimit (1 : A)) :
-    Algebra.TensorProduct.map
-      (AlgHom.id A (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
-      (factorialUnitQZEquiv A).toAlgHom (factorialQZCoaction (1 : A) x) =
-      Coalgebra.comul (R := A) (factorialUnitQZEquiv A x) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-/-! Arbitrary-section rational-character coefficient change.
-The Q/Z equivalence and incoming rational coaction are admitted inputs in the
-typing harness. The following bodies are authored conditional deductions. -/
-noncomputable section
-universe uQZCoeff
-namespace TauCeti.RootStack
-variable {A B C : Type uQZCoeff} [CommRing A] [CommRing B] [CommRing C]
-open scoped TensorProduct
-
-def factorialQZTensorCoefficientMap (φ : A →+* B) (f : A) :
-    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      FactorialAffineColimit f) →+*
-    (MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-      FactorialAffineColimit (φ f)) := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
-    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
-    (x : FactorialAffineColimit f) :
-    factorialQZTensorCoefficientMap φ f (g ⊗ₜ[A] x) =
-      MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ g ⊗ₜ[B]
-        factorialCoefficientMap φ f x := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.single (φ : A →+* B) (f a : A)
-    (q : AddCircle (1 : ℚ)) (x : FactorialAffineColimit f) :
-    factorialQZTensorCoefficientMap φ f
-      (MonoidAlgebra.single (Multiplicative.ofAdd q) a ⊗ₜ[A] x) =
-      MonoidAlgebra.single (Multiplicative.ofAdd q) (φ a) ⊗ₜ[B]
-        factorialCoefficientMap φ f x := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
-    factorialQZTensorCoefficientMap φ f (algebraMap A _ a) =
-      algebraMap B _ (φ a) := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.id (f : A) :
-    factorialQZTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    factorialQZTensorCoefficientMap (ψ.comp φ) f =
-      (factorialQZTensorCoefficientMap ψ (φ f)).comp
-        (factorialQZTensorCoefficientMap φ f) := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.transport (φ : A →+* B) (f : A)
-    (y : FactorialAffineColimit (1 : A) ⊗[A] FactorialAffineColimit f) :
-    factorialQZTensorCoefficientMap φ f
-      (Algebra.TensorProduct.map (factorialUnitQZEquiv A).toAlgHom
-        (AlgHom.id A (FactorialAffineColimit f)) y) =
-      Algebra.TensorProduct.map (factorialUnitQZEquiv B).toAlgHom
-        (AlgHom.id B (FactorialAffineColimit (φ f)))
-          (factorialTensorCoefficientMap φ f y) := by
-  sorry
-
-lemma factorialQZTensorCoefficientMap.root (φ : A →+* B) (f : A) (i : ℕ) :
-    factorialQZTensorCoefficientMap φ f
-      (MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-        (1 : A) ⊗ₜ[A] factorialAffineInclusion f i (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (Nat.factorial (i+1) : ℚ) : ℚ) : AddCircle (1 : ℚ))))
-        (1 : B) ⊗ₜ[B] factorialAffineInclusion (φ f) i (AdjoinRoot.root _) := by
-  sorry
-
-lemma factorialQZCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
-    (factorialQZTensorCoefficientMap φ f).comp (factorialQZCoaction f).toRingHom =
-      (factorialQZCoaction (φ f)).toRingHom.comp (factorialCoefficientMap φ f) := by
-  sorry
-
-lemma factorialQZCoaction.map_coinvariant (φ : A →+* B) (f : A)
-    (x : FactorialAffineColimit f)
-    (hx : factorialQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
-    factorialQZCoaction (φ f) (factorialCoefficientMap φ f x) =
-      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        factorialCoefficientMap φ f x := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_negative_weight
-example (x : FactorialAffineColimit (0 : ℤ)) :
-    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-      (MonoidAlgebra.single (Multiplicative.ofAdd
-        (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ℤ) ⊗ₜ[ℤ] x) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((-1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 2) ⊗ₜ[ZMod 2]
-        factorialCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ) x := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_nonflat_kills_coefficient
-example (q : AddCircle (1 : ℚ)) (x : FactorialAffineColimit (0 : ℤ)) :
-    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-      (MonoidAlgebra.single (Multiplicative.ofAdd q) (2 : ℤ) ⊗ₜ[ℤ] x) = 0 ∧
-    ¬ Function.Injective (factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_wild_zero_section
-example :
-    (Int.castRingHom (ZMod 2)) (0 : ℤ) = 0 ∧
-    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ)
-      (MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) (1 : ℤ) ⊗ₜ[ℤ]
-          factorialAffineInclusion (0 : ℤ) 1 (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / 2 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 2) ⊗ₜ[ZMod 2]
-          factorialAffineInclusion ((Int.castRingHom (ZMod 2)) (0 : ℤ)) 1
-            (AdjoinRoot.root _) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_zero_ring
-example (y : MonoidAlgebra ℤ (Multiplicative (AddCircle (1 : ℚ))) ⊗[ℤ]
-    FactorialAffineColimit (0 : ℤ)) :
-    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 1)) (0 : ℤ) y = 0 := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_identity
-example (f : A) (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-    FactorialAffineColimit f) :
-    factorialQZTensorCoefficientMap (RingHom.id A) f y = y := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZTensorCoefficientMap.test_three_rings
-example (φ : A →+* B) (ψ : B →+* C) (f : A)
-    (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      FactorialAffineColimit f) :
-    factorialQZTensorCoefficientMap (ψ.comp φ) f y =
-      factorialQZTensorCoefficientMap ψ (φ f) (factorialQZTensorCoefficientMap φ f y) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_nonunit_coefficient_square
-example (x : FactorialAffineColimit (2 : ℤ)) :
-    (Int.castRingHom (ZMod 2)) (2 : ℤ) = 0 ∧
-    factorialQZTensorCoefficientMap (Int.castRingHom (ZMod 2)) (2 : ℤ)
-      (factorialQZCoaction (2 : ℤ) x) =
-      factorialQZCoaction ((Int.castRingHom (ZMod 2)) (2 : ℤ))
-        (factorialCoefficientMap (Int.castRingHom (ZMod 2)) (2 : ℤ) x) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_unity_coefficient_square
-example (φ : A →+* B) (x : FactorialAffineColimit (1 : A)) :
-    factorialQZTensorCoefficientMap φ (1 : A) (factorialQZCoaction (1 : A) x) =
-      factorialQZCoaction (φ 1) (factorialCoefficientMap φ (1 : A) x) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_coinvariant_constants
-example (φ : A →+* B) (f a : A) :
-    factorialQZCoaction (φ f) (factorialCoefficientMap φ f (algebraMap A _ a)) =
-      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        factorialCoefficientMap φ f (algebraMap A _ a) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-/- Native rational-character computation API. Separate proof evidence is in the handoff. -/
-noncomputable section
-universe uQZ
-namespace TauCeti.RootStack
-variable {A : Type uQZ} [CommRing A]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-lemma affineQZCharacter.natCast (n : ℕ) [NeZero n] (k : ℕ) :
-    affineQZCharacter n (k : ZMod n) = ((k / (n : ℚ) : ℚ) : AddCircle (1 : ℚ))  := by
-  sorry
-
-lemma affineQZCharacter.apply (n : ℕ) [NeZero n] (k : ZMod n) :
-    affineQZCharacter n k = ((k.val / (n : ℚ) : ℚ) : AddCircle (1 : ℚ))  := by
-  sorry
-
-lemma factorialUnitQZMap.level (A : Type uQZ) [CommRing A] (i : ℕ)
-    (x : AffineRing (1 : A) (Nat.factorial (i+1))) :
-    factorialUnitQZMap A (factorialAffineInclusion (1 : A) i x) =
-      finiteRootQZMap A (Nat.factorial (i+1)) x  := by
-  sorry
-
--- TauCeti.RootStack.affineQZCharacter.test_natcast_period
-example : affineQZCharacter 3 (7 : ZMod 3) = ((7 / 3 : ℚ) : AddCircle (1 : ℚ))  := by
-  sorry
-
--- TauCeti.RootStack.affineQZCharacter.test_negative_representative
-example : affineQZCharacter 3 (-1 : ZMod 3) = ((2 / 3 : ℚ) : AddCircle (1 : ℚ))  := by
-  sorry
-
--- TauCeti.RootStack.factorialUnitQZMap.test_level_basis
-example (a : A) : factorialUnitQZMap A (factorialAffineInclusion (1 : A) 2
-    ((affineUnitCyclicEquiv 6).symm (MonoidAlgebra.single (Multiplicative.ofAdd (2 : ZMod 6)) a))) =
-    MonoidAlgebra.single (Multiplicative.ofAdd ((1/3 : ℚ) : AddCircle (1 : ℚ))) a  := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-/- Rational coaction boundary API. The separate proof certificate is in the handoff. -/
-noncomputable section
-universe uNewQZ
-namespace TauCeti.RootStack
-variable {A : Type uNewQZ} [CommRing A]
-open scoped TensorProduct
-
-lemma factorialQZCoaction.root_degree (f : A) (i : ℕ) :
-    factorialQZCoaction f
-      ((factorialAffineInclusion f i (AdjoinRoot.root _)) ^ Nat.factorial (i+1)) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        algebraMap A (FactorialAffineColimit f) f := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_degree_six_nonunit
-example :
-    factorialQZCoaction (2 : ZMod 4)
-      ((factorialAffineInclusion (2 : ZMod 4) 2 (AdjoinRoot.root _)) ^ 6) =
-      (1 : MonoidAlgebra (ZMod 4) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 4]
-        algebraMap (ZMod 4) (FactorialAffineColimit (2 : ZMod 4)) 2 := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_power_zero
-example (f : A) (i : ℕ) :
-    factorialQZCoaction f ((factorialAffineInclusion f i (AdjoinRoot.root _)) ^ 0) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        (1 : FactorialAffineColimit f) := by
-  sorry
-
--- test: TauCeti.RootStack.factorialQZCoaction.test_zero_ring_injective
-example : Function.Injective (factorialQZCoaction (0 : ZMod 1)) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-namespace TauCeti.RootStack
-open scoped TensorProduct
-noncomputable section
-variable {A : Type u} [CommRing A]
-
-lemma affineCoaction.coordinates_diagonal (f : A) (n : ℕ) [NeZero n]
-    (c : Fin n → A) (q : Fin n × Fin n) :
-    affineTorsorComparison.targetCoordinateEquiv f n
-      (affineCoaction f n (∑ i : Fin n, c i • (AdjoinRoot.root
-        (Polynomial.X ^ n - Polynomial.C f) ^ i.val))) q =
-      if q.1 = q.2 then c q.2 else 0 := by sorry
-
-lemma affineCoaction.coordinates_constant_row (f : A) (n : ℕ) [NeZero n]
-    (c : Fin n → A) (q : Fin n × Fin n) :
-    affineTorsorComparison.targetCoordinateEquiv f n
-      ((1 : MuHopf A n) ⊗ₜ[A] (∑ i : Fin n, c i • (AdjoinRoot.root
-        (Polynomial.X ^ n - Polynomial.C f) ^ i.val))) q =
-      if q.1 = 0 then c q.2 else 0 := by sorry
-
-lemma affineCoaction.invariants_sum_iff (f : A) (n : ℕ) [NeZero n]
-    (c : Fin n → A) :
-    affineCoaction f n (∑ i : Fin n, c i • (AdjoinRoot.root
-        (Polynomial.X ^ n - Polynomial.C f) ^ i.val)) =
-      (1 : MuHopf A n) ⊗ₜ[A] (∑ i : Fin n, c i • (AdjoinRoot.root
-        (Polynomial.X ^ n - Polynomial.C f) ^ i.val)) ↔
-      ∀ i : Fin n, i ≠ 0 → c i = 0 := by sorry
-
-lemma affineCoaction.invariants_unique (f : A) (n : ℕ) [NeZero n]
-    (b : AffineRing f n) (h : affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b) :
-    ∃! a : A, b = algebraMap A (AffineRing f n) a := by sorry
-
-def affineInvariantEquiv (f : A) (n : ℕ) [NeZero n] :
-    A ≃ₐ[A] ↥(AlgHom.equalizer (affineCoaction f n)
-      (Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-        MuHopf A n ⊗[A] AffineRing f n)) := by sorry
-
-lemma affineInvariantEquiv.apply_coe (f : A) (n : ℕ) [NeZero n] (a : A) :
-    (affineInvariantEquiv f n a).val = algebraMap A (AffineRing f n) a := by sorry
-
-lemma affineInvariantEquiv.inverse_coe (f : A) (n : ℕ) [NeZero n]
-    (x : ↥(AlgHom.equalizer (affineCoaction f n)
-      (Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-        MuHopf A n ⊗[A] AffineRing f n))) :
-    algebraMap A (AffineRing f n) ((affineInvariantEquiv f n).symm x) = x.val := by sorry
-
-lemma affineInvariantEquiv.eq_iff (f : A) (n : ℕ) [NeZero n]
-    (x : ↥(AlgHom.equalizer (affineCoaction f n)
-      (Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-        MuHopf A n ⊗[A] AffineRing f n))) (a : A) :
-    (affineInvariantEquiv f n).symm x = a ↔ x.val = algebraMap A (AffineRing f n) a := by sorry
-
--- test: AffineInvariantTests.wild_root
-example : affineCoaction (0 : ZMod 2) 2 (AdjoinRoot.root _) ≠
-    (1 : MuHopf (ZMod 2) 2) ⊗ₜ[ZMod 2] (AdjoinRoot.root _) := by sorry
-
--- test: AffineInvariantTests.nilpotent_weight
-example : affineCoaction (0 : ZMod 4) 2 ((2 : ZMod 4) • AdjoinRoot.root _) ≠
-    (1 : MuHopf (ZMod 4) 2) ⊗ₜ[ZMod 4] ((2 : ZMod 4) • AdjoinRoot.root _) := by sorry
-
--- test: AffineInvariantTests.unique_nilpotent_constant
-example : ∃! a : ZMod 4, algebraMap (ZMod 4) (AffineRing (0 : ZMod 4) 2) 2 =
-    algebraMap (ZMod 4) (AffineRing (0 : ZMod 4) 2) a := by sorry
-
--- test: AffineInvariantTests.zero_ring
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
-    affineCoaction f n b = (1 : MuHopf A n) ⊗ₜ[A] b ∧
-      ∃! a : A, b = algebraMap A (AffineRing f n) a := by sorry
-
--- test: AffineInvariantTests.exponent_one
-example (f : A) (b : AffineRing f 1) : ∃! a : A, b = algebraMap A (AffineRing f 1) a := by sorry
-
--- test: AffineInvariantTests.equivalence_linear_root
-example : (affineInvariantEquiv (7 : ZMod 11) 1).symm
-    ⟨AdjoinRoot.root _, by
-      have hr := affineRoot.pow_eq (7 : ZMod 11) 1
-      simp only [pow_one] at hr
-      change affineCoaction (7 : ZMod 11) 1 (AdjoinRoot.root _) =
-        (1 : MuHopf (ZMod 11) 1) ⊗ₜ[ZMod 11] (AdjoinRoot.root _)
-      rw [hr]
-      exact affineCoaction.constant _ _ _⟩ = 7 := by sorry
-
--- test: AffineInvariantTests.equivalence_nilpotent
-example : (affineInvariantEquiv (0 : ZMod 4) 2).symm
-    (affineInvariantEquiv (0 : ZMod 4) 2 2) = 2 ∧
-      ((affineInvariantEquiv (0 : ZMod 4) 2 2).val) ^ 2 = 0 := by sorry
-
--- test: AffineInvariantTests.equivalence_zero_ring
-example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
-    (x : ↥(AlgHom.equalizer (affineCoaction f n)
-      (Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-        MuHopf A n ⊗[A] AffineRing f n))) :
-    (affineInvariantEquiv f n).symm x = 0 := by sorry
-
-end
-end TauCeti.RootStack
-namespace TauCeti.RootStack
-open scoped TensorProduct
-noncomputable section
-variable {A : Type u} [CommRing A]
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-def qzTensorCoefficient (f : A) (q : AddCircle (1 : ℚ)) :
-    MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      FactorialAffineColimit f →ₗ[A] FactorialAffineColimit f  := by sorry
-
-lemma qzTensorCoefficient.single (f : A) (q r : AddCircle (1 : ℚ))
-    (a : A) (x : FactorialAffineColimit f) :
-    qzTensorCoefficient f q
-      (MonoidAlgebra.single (Multiplicative.ofAdd r) a ⊗ₜ[A] x) =
-      if r = q then a • x else 0  := by sorry
-
-lemma qzTensorCoefficient.constant (f : A) (q : AddCircle (1 : ℚ))
-    (x : FactorialAffineColimit f) :
-    qzTensorCoefficient f q
-      ((1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) =
-      if q = 0 then x else 0  := by sorry
-
-lemma affineQZCharacter.fin_injective (n : ℕ) [NeZero n] :
-    Function.Injective (fun k : Fin n => affineQZCharacter n (k.val : ZMod n))  := by sorry
-
-lemma qzTensorCoefficient.coaction_constant (f a : A) (q : AddCircle (1 : ℚ)) :
-    qzTensorCoefficient f q (factorialQZCoaction f (algebraMap A _ a)) =
-      if q = 0 then algebraMap A (FactorialAffineColimit f) a else 0  := by sorry
-
-lemma factorialQZCoaction.coefficient_sum (f : A) (i : ℕ)
-    (c : Fin (Nat.factorial (i+1)) → A) (k : Fin (Nat.factorial (i+1))) :
-    qzTensorCoefficient f (affineQZCharacter (Nat.factorial (i+1)) k.val)
-      (factorialQZCoaction f
-        (factorialAffineInclusion f i
-          (∑ j : Fin (Nat.factorial (i+1)), c j • (AdjoinRoot.root
-            (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f) ^ j.val)))) =
-    factorialAffineInclusion f i
-      (c k • (AdjoinRoot.root
-        (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f) ^ k.val))  := by sorry
-
-lemma factorialQZCoaction.invariants_sum_iff (f : A) (i : ℕ)
-    (c : Fin (Nat.factorial (i+1)) → A) :
-    factorialQZCoaction f
-      (factorialAffineInclusion f i
-        (∑ j : Fin (Nat.factorial (i+1)), c j • (AdjoinRoot.root
-          (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f) ^ j.val))) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        (factorialAffineInclusion f i
-          (∑ j : Fin (Nat.factorial (i+1)), c j • (AdjoinRoot.root
-            (Polynomial.X ^ Nat.factorial (i+1) - Polynomial.C f) ^ j.val))) ↔
-      ∀ j : Fin (Nat.factorial (i+1)), j ≠ 0 → c j = 0  := by sorry
-
-theorem factorialQZCoaction.invariants (f : A) (x : FactorialAffineColimit f) :
-    factorialQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x ↔
-      ∃ a : A, x = algebraMap A (FactorialAffineColimit f) a  := by sorry
-
-lemma factorialAffineColimit.coefficient_injective (f : A) :
-    Function.Injective (algebraMap A (FactorialAffineColimit f))  := by sorry
-
-lemma factorialQZCoaction.invariants_unique (f : A) (x : FactorialAffineColimit f)
-    (h : factorialQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
-    ∃! a : A, x = algebraMap A (FactorialAffineColimit f) a  := by sorry
-
-theorem factorialCoaction.invariants (f : A) (x : FactorialAffineColimit f) :
-    factorialCoaction f x = (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A] x ↔
-      ∃ a : A, x = algebraMap A (FactorialAffineColimit f) a  := by sorry
-
-def factorialInvariantEquiv (f : A) :
-    A ≃ₐ[A] ↥(AlgHom.equalizer (factorialQZCoaction f)
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          FactorialAffineColimit f))  := by sorry
-
-lemma factorialInvariantEquiv.apply_coe (f : A) (a : A) :
-    (factorialInvariantEquiv f a).val = algebraMap A (FactorialAffineColimit f) a  := by sorry
-
-lemma factorialInvariantEquiv.inverse_coe (f : A)
-    (x : ↥(AlgHom.equalizer (factorialQZCoaction f)
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          FactorialAffineColimit f))) :
-    algebraMap A (FactorialAffineColimit f) ((factorialInvariantEquiv f).symm x) = x.val  := by sorry
-
-lemma factorialInvariantEquiv.eq_iff (f : A)
-    (x : ↥(AlgHom.equalizer (factorialQZCoaction f)
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          FactorialAffineColimit f))) (a : A) :
-    (factorialInvariantEquiv f).symm x = a ↔
-      x.val = algebraMap A (FactorialAffineColimit f) a  := by sorry
-end
-end TauCeti.RootStack
-namespace TauCeti.RootStack
-open scoped TensorProduct
-noncomputable section
-variable {A : Type u} [CommRing A]
--- TauCeti.RootStack.qzTensorCoefficient.test_matching
-example (f : A) (q : AddCircle (1 : ℚ)) (a : A) (x : FactorialAffineColimit f) :
-    qzTensorCoefficient f q
-      (MonoidAlgebra.single (Multiplicative.ofAdd q) a ⊗ₜ[A] x) = a • x  := by sorry
-
--- TauCeti.RootStack.qzTensorCoefficient.test_nonzero_character
-example (f : A) (q : AddCircle (1 : ℚ)) (hq : q ≠ 0) (x : FactorialAffineColimit f) :
-    qzTensorCoefficient f q
-      ((1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) = 0  := by sorry
-
--- TauCeti.RootStack.qzTensorCoefficient.test_zero_character
-example (f : A) (x : FactorialAffineColimit f) :
-    qzTensorCoefficient f 0
-      ((1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) = x  := by sorry
-
--- TauCeti.RootStack.qzTensorCoefficient.test_zero_ring
-example (q : AddCircle (1 : ℚ)) (x : FactorialAffineColimit (0 : ZMod 1)) :
-    qzTensorCoefficient (0 : ZMod 1) q
-      ((1 : MonoidAlgebra (ZMod 1) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 1] x) = 0  := by sorry
-
--- TauCeti.RootStack.factorialInvariantEquiv.test_coefficient_two
-example : (factorialInvariantEquiv (2 : ZMod 4) (2 : ZMod 4)).val =
-    algebraMap (ZMod 4) (FactorialAffineColimit (2 : ZMod 4)) 2  := by sorry
-
--- TauCeti.RootStack.factorialInvariantEquiv.test_zero_ring
-example : (factorialInvariantEquiv (0 : ZMod 1) (0 : ZMod 1)).val = 0  := by sorry
-
--- TauCeti.RootStack.factorialInvariantEquiv.test_unity
-example (a : A) : factorialCoaction (1 : A)
-    (factorialInvariantEquiv (1 : A) a).val =
-    (1 : FactorialAffineColimit (1 : A)) ⊗ₜ[A]
-      (factorialInvariantEquiv (1 : A) a).val  := by sorry
-
--- TauCeti.RootStack.factorialInvariantEquiv.test_inverse
-example (f : A)
-    (x : ↥(AlgHom.equalizer (factorialQZCoaction f)
-      (Algebra.TensorProduct.includeRight : FactorialAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          FactorialAffineColimit f))) :
-    factorialInvariantEquiv f ((factorialInvariantEquiv f).symm x) = x  := by sorry
-
--- TauCeti.RootStack.factorialQZCoaction.test_unique_constants
-example (f a : A) : ∃! b : A,
-    algebraMap A (FactorialAffineColimit f) a = algebraMap A (FactorialAffineColimit f) b  := by sorry
-
--- TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion
-example (c : Fin (2) → ZMod 2) :
-    factorialQZCoaction (0 : ZMod 2)
-      (factorialAffineInclusion (0 : ZMod 2) 1
-        (∑ j : Fin (2), c j • (AdjoinRoot.root
-          (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 2)) ^ j.val))) =
-    (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2]
-      (factorialAffineInclusion (0 : ZMod 2) 1
-        (∑ j : Fin (2), c j • (AdjoinRoot.root
-          (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 2)) ^ j.val))) ↔
-    c 1 = 0  := by sorry
-
--- TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected
-example :
-    let c : Fin (2) → ZMod 4 := fun j => if j = 1 then 2 else 0
-    ¬(factorialQZCoaction (0 : ZMod 4)
-      (factorialAffineInclusion (0 : ZMod 4) 1
-        (∑ j : Fin (2), c j • (AdjoinRoot.root
-          (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 4)) ^ j.val))) =
-    (1 : MonoidAlgebra (ZMod 4) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 4]
-      (factorialAffineInclusion (0 : ZMod 4) 1
-        (∑ j : Fin (2), c j • (AdjoinRoot.root
-          (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 4)) ^ j.val))))  := by sorry
-
--- TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring
-example (x : FactorialAffineColimit (0 : ZMod 1)) :
-    ∃! a : ZMod 1, x = algebraMap (ZMod 1) (FactorialAffineColimit (0 : ZMod 1)) a  := by sorry
-end
-end TauCeti.RootStack
-
-noncomputable section
-universe uDiv vDiv
-namespace TauCeti.RootStack
-variable {A : Type uDiv} [CommRing A]
-open scoped TensorProduct
-local instance (i : ℕ) : NeZero (Nat.factorial (i+1)) := ⟨Nat.factorial_ne_zero _⟩
-
-/-- The existing cofinal chart comparison on the actual coaction target. -/
-def divisibilityQZTensorEquiv (f : A) :
-    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      DivisibilityAffineColimit f) ≃ₐ[A]
-    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      FactorialAffineColimit f) :=
-  Algebra.TensorProduct.congr (AlgEquiv.refl) (divisibilityFactorialEquiv f)
-
-lemma divisibilityQZTensorEquiv.tmul (f : A)
-    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
-    (x : DivisibilityAffineColimit f) :
-    divisibilityQZTensorEquiv f (g ⊗ₜ[A] x) =
-      g ⊗ₜ[A] divisibilityFactorialEquiv f x := by
-  sorry
-
-lemma divisibilityQZTensorEquiv.symm_tmul (f : A)
-    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
-    (x : FactorialAffineColimit f) :
-    (divisibilityQZTensorEquiv f).symm (g ⊗ₜ[A] x) =
-      g ⊗ₜ[A] (divisibilityFactorialEquiv f).symm x := by
-  sorry
-
-/-- The universal coaction on the colimit indexed by all positive divisibilities. -/
-def divisibilityQZCoaction (f : A) :
-    DivisibilityAffineColimit f →ₐ[A]
-      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-        DivisibilityAffineColimit f :=
-  (divisibilityQZTensorEquiv f).symm.toAlgHom.comp
-    ((factorialQZCoaction f).comp (divisibilityFactorialEquiv f).toAlgHom)
-
-lemma divisibilityQZCoaction.transport (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityQZTensorEquiv f (divisibilityQZCoaction f x) =
-      factorialQZCoaction f (divisibilityFactorialEquiv f x) := by
-  sorry
-
-lemma factorialQZCoaction.extension_root (f : A) (n : RootDivIndex) :
-    factorialQZCoaction f (factorialAffineExtension f n (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (n.exponent : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : A) ⊗ₜ[A]
-        factorialAffineExtension f n (AdjoinRoot.root _) := by
-  sorry
-
-lemma divisibilityQZCoaction.root (f : A) (n : RootDivIndex) :
-    divisibilityQZCoaction f (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / (n.exponent : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : A) ⊗ₜ[A]
-        divisibilityAffineInclusion f n (AdjoinRoot.root _) := by
-  sorry
-
-lemma divisibilityQZCoaction.level (f : A) (n : RootDivIndex) :
-    (divisibilityQZCoaction f).comp (divisibilityAffineInclusion f n) =
-      (Algebra.TensorProduct.map (finiteQZAlgMap A n.exponent)
-        (divisibilityAffineInclusion f n)).comp (affineCoaction f n.exponent) := by
-  sorry
-
-lemma divisibilityQZCoaction.constant (f a : A) :
-    divisibilityQZCoaction f (algebraMap A _ a) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        algebraMap A (DivisibilityAffineColimit f) a := by
-  sorry
-
-lemma divisibilityQZCoaction.counit (f : A) :
-    ((Algebra.TensorProduct.lid A (DivisibilityAffineColimit f)).toAlgHom.comp
-      (Algebra.TensorProduct.map
-        (Bialgebra.counitAlgHom A (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))))
-        (AlgHom.id A (DivisibilityAffineColimit f)))).comp (divisibilityQZCoaction f) =
-      AlgHom.id A (DivisibilityAffineColimit f) := by
-  sorry
-
-lemma divisibilityQZCoaction.coassoc (f : A) :
-    let G := MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))
-    (Algebra.TensorProduct.assoc A A A G G (DivisibilityAffineColimit f)).toAlgHom.comp
-      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom A G)
-        (AlgHom.id A (DivisibilityAffineColimit f))).comp (divisibilityQZCoaction f)) =
-      (Algebra.TensorProduct.map (AlgHom.id A G) (divisibilityQZCoaction f)).comp
-        (divisibilityQZCoaction f) := by
-  sorry
-
-lemma divisibilityQZCoaction.coinvariant_iff (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x ↔
-    factorialQZCoaction f (divisibilityFactorialEquiv f x) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        divisibilityFactorialEquiv f x := by
-  sorry
-
-lemma divisibilityAffineColimit.coefficient_injective (f : A) :
-    Function.Injective (algebraMap A (DivisibilityAffineColimit f)) := by
-  sorry
-
-theorem divisibilityQZCoaction.invariants (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x ↔
-    ∃ a : A, x = algebraMap A (DivisibilityAffineColimit f) a := by
-  sorry
-
-lemma divisibilityQZCoaction.invariants_unique (f : A) (x : DivisibilityAffineColimit f)
-    (hx : divisibilityQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
-    ∃! a : A, x = algebraMap A (DivisibilityAffineColimit f) a := by
-  sorry
-
-def divisibilityInvariantEquiv (f : A) :
-    A ≃ₐ[A] ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f)) := by
-  let I := AlgHom.equalizer (divisibilityQZCoaction f)
-    (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-      MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-        DivisibilityAffineColimit f)
-  let g := (Algebra.ofId A (DivisibilityAffineColimit f)).codRestrict I
-    (fun a => divisibilityQZCoaction.constant f a)
-  apply AlgEquiv.ofBijective g
-  constructor
-  · intro a b h
-    exact divisibilityAffineColimit.coefficient_injective f (congrArg Subtype.val h)
-  · intro x
-    obtain ⟨a,ha⟩ := (divisibilityQZCoaction.invariants f x.val).mp x.property
-    exact ⟨a,Subtype.ext ha.symm⟩
-
-lemma divisibilityInvariantEquiv.apply_coe (f a : A) :
-    (divisibilityInvariantEquiv f a).val = algebraMap A (DivisibilityAffineColimit f) a := by
-  sorry
-
-lemma divisibilityInvariantEquiv.inverse_coe (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) :
-    algebraMap A (DivisibilityAffineColimit f) ((divisibilityInvariantEquiv f).symm x) = x.val := by
-  sorry
-
-lemma divisibilityInvariantEquiv.eq_iff (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) (a : A) :
-    (divisibilityInvariantEquiv f).symm x = a ↔
-      x.val = algebraMap A (DivisibilityAffineColimit f) a := by
-  sorry
-
-lemma divisibilityInvariantEquiv.factorial (f a : A) :
-    divisibilityFactorialEquiv f (divisibilityInvariantEquiv f a).val =
-      (factorialInvariantEquiv f a).val := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-
-noncomputable section
-universe uDivTest
-namespace TauCeti.RootStack
-variable {A : Type uDivTest} [CommRing A]
-open scoped TensorProduct
-
--- test: divisibilityQZTensorEquiv.test_pure
-example (f : A) (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
-    (x : DivisibilityAffineColimit f) : divisibilityQZTensorEquiv f (g ⊗ₜ[A] x) =
-      g ⊗ₜ[A] divisibilityFactorialEquiv f x := by
-  sorry
-
--- test: divisibilityQZTensorEquiv.test_inverse
-example (f : A) (x : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-    DivisibilityAffineColimit f) :
-    (divisibilityQZTensorEquiv f).symm (divisibilityQZTensorEquiv f x) = x := by
-  sorry
-
--- test: divisibilityQZTensorEquiv.test_zero_ring
-example (x : MonoidAlgebra (ZMod 1) (Multiplicative (AddCircle (1 : ℚ))) ⊗[ZMod 1]
-    DivisibilityAffineColimit (0 : ZMod 1)) : divisibilityQZTensorEquiv (0 : ZMod 1) x = 0 := by
-  sorry
-
--- test: divisibilityQZCoaction.test_third_root
-example : divisibilityQZCoaction (2 : ZMod 4)
-    (divisibilityAffineInclusion (2 : ZMod 4) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd
-        (((1 / 3 : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 4) ⊗ₜ[ZMod 4]
-        divisibilityAffineInclusion (2 : ZMod 4) ⟨3, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityQZCoaction.test_one
-example (f : A) : divisibilityQZCoaction f
-    (divisibilityAffineInclusion f ⟨1, by decide⟩ (AdjoinRoot.root _)) =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A]
-        algebraMap A (DivisibilityAffineColimit f) f := by
-  sorry
-
--- test: divisibilityQZCoaction.test_divisibility
-example (f : A) : divisibilityQZCoaction f
-    (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      divisibilityQZCoaction f
-        (divisibilityAffineInclusion f ⟨6, by decide⟩ (AdjoinRoot.root _)) ^ 2 := by
-  sorry
-
--- test: divisibilityQZCoaction.test_native_transport
-example (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityQZTensorEquiv f (divisibilityQZCoaction f x) =
-      factorialQZCoaction f (divisibilityFactorialEquiv f x) := by
-  sorry
-
--- test: divisibilityInvariantEquiv.test_coefficient_two
-example : (divisibilityInvariantEquiv (2 : ZMod 4) (2 : ZMod 4)).val =
-    algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) 2 := by
-  sorry
-
--- test: divisibilityInvariantEquiv.test_zero_ring
-example : (divisibilityInvariantEquiv (0 : ZMod 1) (0 : ZMod 1)).val = 0 := by
-  sorry
-
--- test: divisibilityInvariantEquiv.test_inverse
-example (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) :
-    divisibilityInvariantEquiv f ((divisibilityInvariantEquiv f).symm x) = x := by
-  sorry
-
--- test: divisibilityQZCoaction.test_wild_nilpotent
-example :
-    let u := divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _)
-    u ≠ 0 ∧ u ^ 2 = 0 ∧
-      divisibilityQZCoaction (0 : ZMod 2) u ≠
-        (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2] u := by
-  sorry
-
--- test: divisibilityQZCoaction.test_finite_level
-example (f : A) (x : AffineRing f 3) :
-    divisibilityQZCoaction f (divisibilityAffineInclusion f ⟨3, by decide⟩ x) =
-      Algebra.TensorProduct.map (finiteQZAlgMap A 3)
-        (divisibilityAffineInclusion f ⟨3, by decide⟩) (affineCoaction f 3 x) := by
-  sorry
-
--- test: divisibilityInvariantEquiv.test_factorial
-example (f a : A) : divisibilityFactorialEquiv f (divisibilityInvariantEquiv f a).val =
-    (factorialInvariantEquiv f a).val := by
-  sorry
-
--- test: divisibilityInvariantEquiv.test_unique
-example (f a b : A) (h : (divisibilityInvariantEquiv f a).val =
-    (divisibilityInvariantEquiv f b).val) : a = b := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uDivCoeff
-namespace TauCeti.RootStack
-variable {A B C : Type uDivCoeff} [CommRing A] [CommRing B] [CommRing C]
-open scoped TensorProduct
-
-def divisibilityCoefficientMap (φ : A →+* B) (f : A) :
-    DivisibilityAffineColimit f →+* DivisibilityAffineColimit (φ f) :=
-  (divisibilityFactorialEquiv (φ f)).symm.toRingHom.comp
-    ((factorialCoefficientMap φ f).comp (divisibilityFactorialEquiv f).toRingHom)
-
-lemma divisibilityCoefficientMap.transport (φ : A →+* B) (f : A)
-    (x : DivisibilityAffineColimit f) :
-    divisibilityFactorialEquiv (φ f) (divisibilityCoefficientMap φ f x) =
-      factorialCoefficientMap φ f (divisibilityFactorialEquiv f x) := by
-  sorry
-
-lemma divisibilityCoefficientMap.constant (φ : A →+* B) (f a : A) :
-    divisibilityCoefficientMap φ f (algebraMap A _ a) = algebraMap B _ (φ a) := by
-  sorry
-
-lemma divisibilityCoefficientMap.root (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    divisibilityCoefficientMap φ f (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-      divisibilityAffineInclusion (φ f) n (AdjoinRoot.root _) := by
-  sorry
-
-lemma divisibilityCoefficientMap.id (f : A) :
-    divisibilityCoefficientMap (RingHom.id A) f = RingHom.id _ := by
-  sorry
-
-lemma divisibilityCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilityCoefficientMap (ψ.comp φ) f =
-      (divisibilityCoefficientMap ψ (φ f)).comp (divisibilityCoefficientMap φ f) := by
-  sorry
-
-def divisibilityQZTensorCoefficientMap (φ : A →+* B) (f : A) :
-    (MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      DivisibilityAffineColimit f) →+*
-    (MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-      DivisibilityAffineColimit (φ f)) :=
-  (divisibilityQZTensorEquiv (φ f)).symm.toRingHom.comp
-    ((factorialQZTensorCoefficientMap φ f).comp (divisibilityQZTensorEquiv f).toRingHom)
-
-lemma divisibilityQZTensorCoefficientMap.transport (φ : A →+* B) (f : A)
-    (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-      DivisibilityAffineColimit f) :
-    divisibilityQZTensorEquiv (φ f) (divisibilityQZTensorCoefficientMap φ f y) =
-      factorialQZTensorCoefficientMap φ f (divisibilityQZTensorEquiv f y) := by
-  sorry
-
-lemma divisibilityQZTensorCoefficientMap.tmul (φ : A →+* B) (f : A)
-    (g : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))))
-    (x : DivisibilityAffineColimit f) :
-    divisibilityQZTensorCoefficientMap φ f (g ⊗ₜ[A] x) =
-      MonoidAlgebra.mapRingHom (Multiplicative (AddCircle (1 : ℚ))) φ g ⊗ₜ[B]
-        divisibilityCoefficientMap φ f x := by
-  sorry
-
-lemma divisibilityQZTensorCoefficientMap.single (φ : A →+* B) (f a : A)
-    (q : AddCircle (1 : ℚ)) (x : DivisibilityAffineColimit f) :
-    divisibilityQZTensorCoefficientMap φ f
-      (MonoidAlgebra.single (Multiplicative.ofAdd q) a ⊗ₜ[A] x) =
-      MonoidAlgebra.single (Multiplicative.ofAdd q) (φ a) ⊗ₜ[B]
-        divisibilityCoefficientMap φ f x := by
-  sorry
-
-lemma divisibilityQZTensorCoefficientMap.constant (φ : A →+* B) (f a : A) :
-    divisibilityQZTensorCoefficientMap φ f (algebraMap A _ a) =
-      algebraMap B _ (φ a) := by
-  sorry
-
-lemma divisibilityQZTensorCoefficientMap.id (f : A) :
-    divisibilityQZTensorCoefficientMap (RingHom.id A) f = RingHom.id _ := by
-  sorry
-
-lemma divisibilityQZTensorCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilityQZTensorCoefficientMap (ψ.comp φ) f =
-      (divisibilityQZTensorCoefficientMap ψ (φ f)).comp
-        (divisibilityQZTensorCoefficientMap φ f) := by
-  sorry
-
-lemma divisibilityQZCoaction.coefficient_naturality (φ : A →+* B) (f : A) :
-    (divisibilityQZTensorCoefficientMap φ f).comp (divisibilityQZCoaction f).toRingHom =
-      (divisibilityQZCoaction (φ f)).toRingHom.comp (divisibilityCoefficientMap φ f) := by
-  sorry
-
-lemma divisibilityQZCoaction.map_coinvariant (φ : A →+* B) (f : A)
-    (x : DivisibilityAffineColimit f)
-    (hx : divisibilityQZCoaction f x =
-      (1 : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[A] x) :
-    divisibilityQZCoaction (φ f) (divisibilityCoefficientMap φ f x) =
-      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        divisibilityCoefficientMap φ f x := by
-  sorry
-
-def divisibilityInvariantCoefficientMap (φ : A →+* B) (f : A) :
-    ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f)) →+*
-    ↥(AlgHom.equalizer (divisibilityQZCoaction (φ f))
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit (φ f) →ₐ[B]
-        MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-          DivisibilityAffineColimit (φ f))) where
-  toFun x := ⟨divisibilityCoefficientMap φ f x.val,
-    divisibilityQZCoaction.map_coinvariant φ f x.val x.property⟩
-  map_one' := Subtype.ext (map_one _)
-  map_mul' x y := Subtype.ext (map_mul _ x.val y.val)
-  map_zero' := Subtype.ext (map_zero _)
-  map_add' x y := Subtype.ext (map_add _ x.val y.val)
+universe u
 
-lemma divisibilityInvariantCoefficientMap.coe (φ : A →+* B) (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) :
-    (divisibilityInvariantCoefficientMap φ f x).val =
-      divisibilityCoefficientMap φ f x.val := by
-  sorry
-
-lemma divisibilityInvariantCoefficientMap.forward (φ : A →+* B) (f a : A) :
-    divisibilityInvariantCoefficientMap φ f (divisibilityInvariantEquiv f a) =
-      divisibilityInvariantEquiv (φ f) (φ a) := by
-  sorry
-
-lemma divisibilityInvariantCoefficientMap.coordinate (φ : A →+* B) (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) :
-    (divisibilityInvariantEquiv (φ f)).symm (divisibilityInvariantCoefficientMap φ f x) =
-      φ ((divisibilityInvariantEquiv f).symm x) := by
-  sorry
-
-lemma divisibilityInvariantCoefficientMap.id (f : A) :
-    divisibilityInvariantCoefficientMap (RingHom.id A) f = RingHom.id _ := by
-  sorry
-
-attribute [local irreducible] divisibilityQZCoaction
-
-lemma divisibilityInvariantCoefficientMap.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilityInvariantCoefficientMap (ψ.comp φ) f =
-      (divisibilityInvariantCoefficientMap ψ (φ f)).comp
-        (divisibilityInvariantCoefficientMap φ f) := by
-  sorry
-
-lemma divisibilityInvariantCoefficientMap.injective_iff (φ : A →+* B) (f : A) :
-    Function.Injective (divisibilityInvariantCoefficientMap φ f) ↔ Function.Injective φ := by
-  sorry
-
-lemma divisibilityInvariantCoefficientMap.surjective_iff (φ : A →+* B) (f : A) :
-    Function.Surjective (divisibilityInvariantCoefficientMap φ f) ↔ Function.Surjective φ := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uDivCoeffTest
-namespace TauCeti.RootStack
-variable {A B : Type uDivCoeffTest} [CommRing A] [CommRing B]
-open scoped TensorProduct
-
--- test: divisibilityCoefficientMap.test_third_root
-example : divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-    (divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      divisibilityAffineInclusion ((Int.castRingHom (ZMod 4)) (2 : ℤ))
-        ⟨3, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityCoefficientMap.test_identity
-example (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityCoefficientMap (RingHom.id A) f x = x := by
-  sorry
-
--- test: divisibilityCoefficientMap.test_zero_ring
-example (x : DivisibilityAffineColimit (0 : ZMod 2)) :
-    divisibilityCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
-      (0 : ZMod 2) x = 0 := by
-  sorry
-
--- test: divisibilityCoefficientMap.test_killed_constant
-example : algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 ≠ 0 ∧
-    divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-      (algebraMap ℤ _ 4) = 0 := by
-  sorry
-
--- test: divisibilityQZTensorCoefficientMap.test_character
-example : divisibilityQZTensorCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-    (MonoidAlgebra.single (Multiplicative.ofAdd ((1 / 3 : ℚ) : AddCircle (1 : ℚ))) (2 : ℤ)
-      ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-    MonoidAlgebra.single (Multiplicative.ofAdd ((1 / 3 : ℚ) : AddCircle (1 : ℚ)))
-      ((Int.castRingHom (ZMod 4)) (2 : ℤ)) ⊗ₜ[ZMod 4]
-      divisibilityAffineInclusion ((Int.castRingHom (ZMod 4)) (2 : ℤ))
-        ⟨3, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityQZTensorCoefficientMap.test_identity
-example (f : A) (y : MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-    DivisibilityAffineColimit f) : divisibilityQZTensorCoefficientMap (RingHom.id A) f y = y := by
-  sorry
-
--- test: divisibilityQZTensorCoefficientMap.test_zero_ring
-example (y : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ))) ⊗[ZMod 2]
-    DivisibilityAffineColimit (0 : ZMod 2)) :
-    divisibilityQZTensorCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
-      (0 : ZMod 2) y = 0 := by
-  sorry
-
--- test: divisibilityQZTensorCoefficientMap.test_coaction
-example (x : DivisibilityAffineColimit (2 : ℤ)) :
-    divisibilityQZTensorCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-      (divisibilityQZCoaction (2 : ℤ) x) =
-    divisibilityQZCoaction ((Int.castRingHom (ZMod 4)) (2 : ℤ))
-      (divisibilityCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ) x) := by
-  sorry
-
--- test: divisibilityInvariantCoefficientMap.test_coefficient
-example : divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-    (divisibilityInvariantEquiv (2 : ℤ) 3) =
-    divisibilityInvariantEquiv ((Int.castRingHom (ZMod 4)) (2 : ℤ))
-      ((Int.castRingHom (ZMod 4)) (3 : ℤ)) := by
-  sorry
-
--- test: divisibilityInvariantCoefficientMap.test_coordinate
-example (φ : A →+* B) (f : A)
-    (x : ↥(AlgHom.equalizer (divisibilityQZCoaction f)
-      (Algebra.TensorProduct.includeRight : DivisibilityAffineColimit f →ₐ[A]
-        MonoidAlgebra A (Multiplicative (AddCircle (1 : ℚ))) ⊗[A]
-          DivisibilityAffineColimit f))) :
-    (divisibilityInvariantEquiv (φ f)).symm (divisibilityInvariantCoefficientMap φ f x) =
-      φ ((divisibilityInvariantEquiv f).symm x) := by
-  sorry
-
--- test: divisibilityInvariantCoefficientMap.test_zero_ring
-example : Function.Surjective
-    (divisibilityInvariantCoefficientMap (ZMod.castHom (by decide : 1 ∣ 2) (ZMod 1))
-      (0 : ZMod 2)) := by
-  sorry
-
--- test: divisibilityInvariantCoefficientMap.test_killed_coefficient
-example : divisibilityInvariantEquiv (2 : ℤ) 4 ≠ divisibilityInvariantEquiv (2 : ℤ) 0 ∧
-    divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-      (divisibilityInvariantEquiv (2 : ℤ) 4) =
-    divisibilityInvariantCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ)
-      (divisibilityInvariantEquiv (2 : ℤ) 0) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-/-! Actual positive-divisibility root charts as a scheme inverse limit. -/
-noncomputable section
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
-variable {A : Type u} [CommRing A]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
-def divisibilityRingDiagram (f : A) : RootDivIndex ⥤ CommRingCat.{u} where
-  obj n := CommRingCat.of (AffineRing f n.exponent)
-  map h := CommRingCat.ofHom (divisibilityAffineMap f _ _ (leOfHom h)).toRingHom
-  map_id n := by
-    sorry
-  map_comp {n N P} h k := by
-    sorry
-
-def divisibilityRingCocone (f : A) : Cocone (divisibilityRingDiagram f) where
-  pt := CommRingCat.of (DivisibilityAffineColimit f)
-  ι.app n := CommRingCat.ofHom (divisibilityAffineInclusion f n).toRingHom
-  ι.naturality n N h := by
-    sorry
-
-def divisibilityRingCocone.isColimit (f : A) : IsColimit (divisibilityRingCocone f) where
-  desc s := CommRingCat.ofHom (DirectLimit.Ring.lift _ (divisibilityAffineMap f) s.pt
-    (fun n => (s.ι.app n).hom) (fun n N h x => by
-      exact congrArg (fun z => z.hom x) (s.w (homOfLE h))))
-  fac s n := by
-    sorry
-  uniq s m hm := by
-    sorry
-
-def divisibilitySpecDiagram (f : A) : RootDivIndexᵒᵖ ⥤ Scheme.{u} :=
-  (divisibilityRingDiagram f).op ⋙ Scheme.Spec
-
-def divisibilitySpecCone (f : A) : Cone (divisibilitySpecDiagram f) :=
-  Scheme.Spec.mapCone (divisibilityRingCocone f).op
-
-lemma divisibilitySpecCone.projection (f : A) (n : RootDivIndex) :
-    (divisibilitySpecCone f).π.app (op n) =
-      Spec.map (CommRingCat.ofHom (divisibilityAffineInclusion f n).toRingHom) := by
-  sorry
-
-def divisibilitySpecCone.isLimit (f : A) : IsLimit (divisibilitySpecCone f) :=
-  isLimitOfPreserves Scheme.Spec (divisibilityRingCocone.isColimit f).op
-
-def divisibilitySpecLift (f : A) (s : Cone (divisibilitySpecDiagram f)) :
-    s.pt ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
-  (divisibilitySpecCone.isLimit f).lift s
-
-lemma divisibilitySpecLift.projection (f : A) (s : Cone (divisibilitySpecDiagram f))
-    (n : RootDivIndex) :
-    divisibilitySpecLift f s ≫ (divisibilitySpecCone f).π.app (op n) = s.π.app (op n) := by
-  sorry
-
-lemma divisibilitySpecLift.unique (f : A) (s : Cone (divisibilitySpecDiagram f))
-    (g : s.pt ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)))
-    (h : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) = s.π.app (op n)) :
-    g = divisibilitySpecLift f s := by
-  sorry
-
-lemma divisibilitySpecCone.hom_ext (f : A) {T : Scheme.{u}}
-    (g h : T ⟶ Spec (CommRingCat.of (DivisibilityAffineColimit f)))
-    (heq : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) =
-      h ≫ (divisibilitySpecCone f).π.app (op n)) : g = h := by
-  sorry
-
-def factorialDivisibilitySpecIso (f : A) :
-    Spec (CommRingCat.of (FactorialAffineColimit f)) ≅
-      Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
-  Scheme.Spec.mapIso (divisibilityFactorialEquiv f).toRingEquiv.toCommRingCatIso.op
-
-lemma factorialDivisibilitySpecIso.projection (f : A) (n : RootDivIndex) :
-    (factorialDivisibilitySpecIso f).hom ≫ (divisibilitySpecCone f).π.app (op n) =
-      Spec.map (CommRingCat.ofHom (factorialAffineExtension f n).toRingHom) := by
-  sorry
-
-lemma factorialDivisibilitySpecIso.factorial_projection (f : A) (i : ℕ) :
-    (factorialDivisibilitySpecIso f).hom ≫
-      (divisibilitySpecCone f).π.app (op (RootDivIndex.factorial i)) =
-      Spec.map (CommRingCat.ofHom (factorialAffineInclusion f i).toRingHom) := by
-  sorry
-
-def divisibilitySpecCoefficientMap {B : Type u} [CommRing B] (φ : A →+* B) (f : A) :
-    Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ⟶
-      Spec (CommRingCat.of (DivisibilityAffineColimit f)) :=
-  Spec.map (CommRingCat.ofHom (divisibilityCoefficientMap φ f))
-
-lemma divisibilitySpecCoefficientMap.id (f : A) :
-    divisibilitySpecCoefficientMap (RingHom.id A) f = 𝟙 _ := by
-  sorry
-
-lemma divisibilitySpecCoefficientMap.comp {B C : Type u} [CommRing B] [CommRing C]
-    (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilitySpecCoefficientMap (ψ.comp φ) f =
-      divisibilitySpecCoefficientMap ψ (φ f) ≫ divisibilitySpecCoefficientMap φ f := by
-  sorry
-
-lemma divisibilitySpecCone.over (f : A) (n : RootDivIndex) :
-    (divisibilitySpecCone f).π.app (op n) ≫ Spec.algebraMap A (AffineRing f n.exponent) =
-      Spec.algebraMap A (DivisibilityAffineColimit f) := by
-  sorry
-
-lemma divisibilitySpecLift.precomp (f : A) (s : Cone (divisibilitySpecDiagram f))
-    {T : Scheme.{u}} (g : T ⟶ s.pt) :
-    divisibilitySpecLift f (s.extend g) = g ≫ divisibilitySpecLift f s := by
-  sorry
-
-lemma divisibilitySpecCoefficientMap.base {B : Type u} [CommRing B]
-    (φ : A →+* B) (f : A) :
-    divisibilitySpecCoefficientMap φ f ≫ Spec.algebraMap A (DivisibilityAffineColimit f) =
-      Spec.algebraMap B (DivisibilityAffineColimit (φ f)) ≫
-        Spec.map (CommRingCat.ofHom φ) := by
-  sorry
-
-lemma divisibilitySpecCoefficientMap.factorial {B : Type u} [CommRing B]
-    (φ : A →+* B) (f : A) :
-    (factorialDivisibilitySpecIso (φ f)).hom ≫ divisibilitySpecCoefficientMap φ f =
-      Spec.map (CommRingCat.ofHom (factorialCoefficientMap φ f)) ≫
-        (factorialDivisibilitySpecIso f).hom := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
-variable {A : Type u} [CommRing A]
-
--- test: divisibilityRingDiagram.test_two_six
-example (f : A) :
-    ((divisibilityRingDiagram f).map
-      (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide))).hom
-      (AdjoinRoot.root _) = (AdjoinRoot.root _ : AffineRing f 6) ^ 3 := by
-  sorry
-
--- test: divisibilityRingDiagram.test_zero_ring_identity
-example : (divisibilityRingDiagram (0 : ZMod 1)).map
-    (𝟙 (⟨3, by decide⟩ : RootDivIndex)) = 𝟙 _ := by
-  sorry
-
--- test: divisibilityRingDiagram.test_numeric_order
-example : ¬ Nonempty ((⟨2, by decide⟩ : RootDivIndex) ⟶ ⟨3, by decide⟩) := by
-  sorry
-
--- test: divisibilityRingCocone.test_third_root
-example (f : A) : ((divisibilityRingCocone f).ι.app ⟨3, by decide⟩).hom
-    (AdjoinRoot.root _) = divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityRingCocone.test_nonreduced_coefficient
-example : ((divisibilityRingCocone (2 : ZMod 4)).ι.app ⟨3, by decide⟩).hom
-    (algebraMap (ZMod 4) (AffineRing (2 : ZMod 4) 3) 2) =
-      algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) 2 := by
-  sorry
-
--- test: divisibilityRingCocone.test_zero_ring
-example (x : (divisibilityRingCocone (0 : ZMod 1)).pt) : x = 0 := by
-  sorry
-
--- test: divisibilitySpecDiagram.test_third_chart
-example (f : A) : (divisibilitySpecDiagram f).obj (op ⟨3, by decide⟩) =
-    Spec (CommRingCat.of (AffineRing f 3)) := by
-  sorry
-
--- test: divisibilitySpecDiagram.test_reversed_transition
-example (f : A) : (divisibilitySpecDiagram f).map
-    (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op =
-      Spec.map (CommRingCat.ofHom (affineDivisibility f 2 6 (by decide)).toRingHom) := by
-  sorry
-
--- test: divisibilitySpecDiagram.test_empty_zero_ring
-example : IsEmpty ((divisibilitySpecDiagram (0 : ZMod 1)).obj (op ⟨3, by decide⟩)) := by
-  sorry
-
--- test: divisibilitySpecCone.test_third_projection
-example (f : A) : (divisibilitySpecCone f).π.app (op ⟨3, by decide⟩) =
-    Spec.map (CommRingCat.ofHom (divisibilityAffineInclusion f ⟨3, by decide⟩).toRingHom) := by
-  sorry
-
--- test: divisibilitySpecCone.test_wild_base
-example : (divisibilitySpecCone (0 : ZMod 2)).π.app (op ⟨2, by decide⟩) ≫
-    Spec.algebraMap (ZMod 2) (AffineRing (0 : ZMod 2) 2) =
-      Spec.algebraMap (ZMod 2) (DivisibilityAffineColimit (0 : ZMod 2)) := by
-  sorry
-
--- test: divisibilitySpecCone.test_zero_ring_limit
-example : IsLimit (divisibilitySpecCone (0 : ZMod 1)) := by
-  sorry
-
--- test: divisibilitySpecLift.test_self
-example (f : A) : divisibilitySpecLift f (divisibilitySpecCone f) = 𝟙 _ := by
-  sorry
-
--- test: divisibilitySpecLift.test_arbitrary_scheme
-example (f : A) (s : Cone (divisibilitySpecDiagram f)) :
-    divisibilitySpecLift f s ≫ (divisibilitySpecCone f).π.app (op ⟨3, by decide⟩) =
-      s.π.app (op ⟨3, by decide⟩) := by
-  sorry
-
--- test: divisibilitySpecLift.test_precomposition
-example (f : A) (s : Cone (divisibilitySpecDiagram f)) {T : Scheme.{u}} (g : T ⟶ s.pt) :
-    divisibilitySpecLift f (s.extend g) = g ≫ divisibilitySpecLift f s := by
-  sorry
-
--- test: factorialDivisibilitySpecIso.test_inverse
-example (f : A) : (factorialDivisibilitySpecIso f).hom ≫
-    (factorialDivisibilitySpecIso f).inv = 𝟙 _ := by
-  sorry
-
--- test: factorialDivisibilitySpecIso.test_third_projection
-example : (factorialDivisibilitySpecIso (2 : ZMod 4)).hom ≫
-    (divisibilitySpecCone (2 : ZMod 4)).π.app (op ⟨3, by decide⟩) =
-      Spec.map (CommRingCat.ofHom (factorialAffineExtension (2 : ZMod 4) ⟨3, by decide⟩).toRingHom) := by
-  sorry
-
--- test: factorialDivisibilitySpecIso.test_zero_ring
-example : (factorialDivisibilitySpecIso (0 : ZMod 1)).hom ≫
-    (divisibilitySpecCone (0 : ZMod 1)).π.app (op (RootDivIndex.factorial 0)) =
-      Spec.map (CommRingCat.ofHom (factorialAffineInclusion (0 : ZMod 1) 0).toRingHom) := by
-  sorry
-
--- test: divisibilitySpecCoefficientMap.test_identity
-example : divisibilitySpecCoefficientMap (RingHom.id (ZMod 4)) 2 = 𝟙 _ := by
-  sorry
-
--- test: divisibilitySpecCoefficientMap.test_nonflat_base
-example : divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) 2 ≫
-    Spec.algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) =
-      Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) ≫
-        Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 4))) := by
-  sorry
-
--- test: divisibilitySpecCoefficientMap.test_zero_ring_target
-example (φ : ZMod 4 →+* ZMod 1) : divisibilitySpecCoefficientMap
-    (φ.comp (Int.castRingHom (ZMod 4))) 2 =
-      divisibilitySpecCoefficientMap φ 2 ≫ divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) 2 := by
-  sorry
-
-end TauCeti.RootStack
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uBaseChange
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open scoped TensorProduct
-variable {A B C : Type uBaseChange} [CommRing A] [CommRing B] [CommRing C]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
-lemma divisibilityAffineColimit.ringHom_ext (f : A)
-    {g h : DivisibilityAffineColimit f →+* C}
-    (hc : ∀ a, g (algebraMap A _ a) = h (algebraMap A _ a))
-    (hr : ∀ n, g (divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-      h (divisibilityAffineInclusion f n (AdjoinRoot.root _))) : g = h := by
-  sorry
-
-def divisibilityBaseChangeLevel (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
-    AffineRing (φ f) n.exponent →+* C :=
-  AdjoinRoot.lift β (α (divisibilityAffineInclusion f n (AdjoinRoot.root _))) (by
-    simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
-      Polynomial.eval₂_C]
-    rw [← map_pow, divisibilityAffineInclusion.pow, h, sub_self])
-
-lemma divisibilityBaseChangeLevel.root (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
-    divisibilityBaseChangeLevel φ f α β h n (AdjoinRoot.root _) =
-      α (divisibilityAffineInclusion f n (AdjoinRoot.root _)) := by
-  sorry
+variable (B : Type u) [CommRing B]
 
-lemma divisibilityBaseChangeLevel.constant (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) (b : B) :
-    divisibilityBaseChangeLevel φ f α β h n (algebraMap B _ b) = β b := by
-  sorry
-
-lemma divisibilityBaseChangeLevel.transition (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) {n N : RootDivIndex} (hn : n ≤ N) :
-    (divisibilityBaseChangeLevel φ f α β h N).comp
-      (divisibilityAffineMap (φ f) n N hn).toRingHom =
-      divisibilityBaseChangeLevel φ f α β h n := by
-  sorry
-
-def divisibilityBaseChangeDesc (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
-    DivisibilityAffineColimit (φ f) →+* C :=
-  DirectLimit.Ring.lift _ (divisibilityAffineMap (φ f)) C
-    (divisibilityBaseChangeLevel φ f α β h)
-    (fun _n _N hn x => DFunLike.congr_fun (divisibilityBaseChangeLevel.transition φ f α β h hn) x)
-
-lemma divisibilityBaseChangeDesc.level (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex)
-    (x : AffineRing (φ f) n.exponent) :
-    divisibilityBaseChangeDesc φ f α β h (divisibilityAffineInclusion (φ f) n x) =
-      divisibilityBaseChangeLevel φ f α β h n x := by
-  sorry
-
-lemma divisibilityBaseChangeDesc.constant (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (b : B) :
-    divisibilityBaseChangeDesc φ f α β h (algebraMap B _ b) = β b := by
-  sorry
-
-lemma divisibilityBaseChangeDesc.root (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (n : RootDivIndex) :
-    divisibilityBaseChangeDesc φ f α β h
-      (divisibilityAffineInclusion (φ f) n (AdjoinRoot.root _)) =
-      α (divisibilityAffineInclusion f n (AdjoinRoot.root _)) := by
-  sorry
-
-lemma divisibilityBaseChangeDesc.coefficient (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
-    (divisibilityBaseChangeDesc φ f α β h).comp (divisibilityCoefficientMap φ f) = α := by
-  sorry
-
-lemma divisibilityBaseChangeDesc.unique (φ : A →+* B) (f : A)
-    (α : DivisibilityAffineColimit f →+* C) (β : B →+* C)
-    (h : ∀ a, α (algebraMap A _ a) = β (φ a))
-    (g : DivisibilityAffineColimit (φ f) →+* C)
-    (hb : ∀ b, g (algebraMap B _ b) = β b)
-    (hc : g.comp (divisibilityCoefficientMap φ f) = α) :
-    g = divisibilityBaseChangeDesc φ f α β h := by
-  sorry
-
-lemma divisibilityBaseChangeIsPushout (φ : A →+* B) (f : A) :
-    IsPushout (CommRingCat.ofHom φ) (CommRingCat.ofHom (algebraMap A (DivisibilityAffineColimit f)))
-      (CommRingCat.ofHom (algebraMap B (DivisibilityAffineColimit (φ f))))
-      (CommRingCat.ofHom (divisibilityCoefficientMap φ f)) := by
-  sorry
-
-lemma divisibilitySpecCoefficientMap.isPullback (φ : A →+* B) (f : A) :
-    IsPullback (Spec.algebraMap B (DivisibilityAffineColimit (φ f)))
-      (divisibilitySpecCoefficientMap φ f) (Spec.map (CommRingCat.ofHom φ))
-      (Spec.algebraMap A (DivisibilityAffineColimit f)) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uBaseCompare
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open scoped TensorProduct
-variable {A B : Type uBaseCompare} [CommRing A] [CommRing B]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
-def divisibilityTensorEquiv [Algebra A B] (f : A) :
-    B ⊗[A] DivisibilityAffineColimit f ≃ₐ[B]
-      DivisibilityAffineColimit (algebraMap A B f) :=
-  let e := (CommRingCat.isPushout_tensorProduct A B (DivisibilityAffineColimit f)).isoIsPushout _ _
-    (divisibilityBaseChangeIsPushout (algebraMap A B) f)
-  { __ := e.commRingCatIsoToRingEquiv
-    commutes' b := congrArg (fun k => k.hom b)
-      ((CommRingCat.isPushout_tensorProduct A B (DivisibilityAffineColimit f)).inl_isoIsPushout_hom _ _
-        (divisibilityBaseChangeIsPushout (algebraMap A B) f)) }
-
-lemma divisibilityTensorEquiv.right [Algebra A B] (f : A) (x : DivisibilityAffineColimit f) :
-    divisibilityTensorEquiv (B := B) f (1 ⊗ₜ[A] x) =
-      divisibilityCoefficientMap (algebraMap A B) f x := by
-  sorry
-
-lemma divisibilityTensorEquiv.tmul [Algebra A B] (f : A) (b : B)
-    (x : DivisibilityAffineColimit f) :
-    divisibilityTensorEquiv (B := B) f (b ⊗ₜ[A] x) =
-      algebraMap B _ b * divisibilityCoefficientMap (algebraMap A B) f x := by
-  sorry
-
-lemma divisibilityTensorEquiv.inverse_root [Algebra A B] (f : A) (n : RootDivIndex) :
-    (divisibilityTensorEquiv (B := B) f).symm
-      (divisibilityAffineInclusion (algebraMap A B f) n (AdjoinRoot.root _)) =
-        1 ⊗ₜ[A] divisibilityAffineInclusion f n (AdjoinRoot.root _) := by
-  sorry
-
-def divisibilitySpecBaseChangeIso (φ : A →+* B) (f : A) :
-    Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ≅
-      pullback (Spec.map (CommRingCat.ofHom φ)) (Spec.algebraMap A (DivisibilityAffineColimit f)) :=
-  (divisibilitySpecCoefficientMap.isPullback φ f).isoPullback
-
-lemma divisibilitySpecBaseChangeIso.fst (φ : A →+* B) (f : A) :
-    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.fst _ _ =
-      Spec.algebraMap B (DivisibilityAffineColimit (φ f)) := by
-  sorry
-
-lemma divisibilitySpecBaseChangeIso.snd (φ : A →+* B) (f : A) :
-    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.snd _ _ =
-      divisibilitySpecCoefficientMap φ f := by
-  sorry
-
-lemma divisibilitySpecBaseChangeIso.inverse_snd (φ : A →+* B) (f : A) :
-    (divisibilitySpecBaseChangeIso φ f).inv ≫ divisibilitySpecCoefficientMap φ f =
-      pullback.snd _ _ := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uBCtest
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open scoped TensorProduct
-variable {A B C : Type uBCtest} [CommRing A] [CommRing B] [CommRing C]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
--- test: divisibilityBaseChangeLevel.test_nilpotent_constant
-example : divisibilityBaseChangeLevel (RingHom.id (ZMod 4)) 2 (RingHom.id _)
-    (algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)))
-    (fun _ => rfl) ⟨3, by decide⟩ (algebraMap (ZMod 4) _ 2) =
-      algebraMap (ZMod 4) (DivisibilityAffineColimit (2 : ZMod 4)) 2 := by
-  sorry
-
--- test: divisibilityBaseChangeLevel.test_wild_root
-example : divisibilityBaseChangeLevel (RingHom.id (ZMod 2)) 0 (RingHom.id _)
-    (algebraMap (ZMod 2) (DivisibilityAffineColimit (0 : ZMod 2)))
-    (fun _ => rfl) ⟨2, by decide⟩ (AdjoinRoot.root _) ^ 2 = 0 := by
-  sorry
-
--- test: divisibilityBaseChangeLevel.test_two_six
-example (φ : A →+* B) (f : A) (α : DivisibilityAffineColimit f →+* C)
-    (β : B →+* C) (h : ∀ a, α (algebraMap A _ a) = β (φ a)) :
-    divisibilityBaseChangeLevel φ f α β h ⟨6, by decide⟩ (AdjoinRoot.root _ ^ 3) =
-      divisibilityBaseChangeLevel φ f α β h ⟨2, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityBaseChangeDesc.test_nonflat_identity
-example (x : DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))) :
-    divisibilityBaseChangeDesc (Int.castRingHom (ZMod 4)) (2 : ℤ)
-      (divisibilityCoefficientMap _ _) (algebraMap (ZMod 4) _)
-      (divisibilityCoefficientMap.constant _ _) x = x := by
-  sorry
-
--- test: divisibilityBaseChangeDesc.test_polynomial
-example (φ : A →+* B) (f : A) (α : DivisibilityAffineColimit f →+* C)
-    (β : B →+* C) (h : ∀ a, α (algebraMap A _ a) = β (φ a)) (b : B) :
-    divisibilityBaseChangeDesc φ f α β h
-      (divisibilityAffineInclusion (φ f) ⟨3, by decide⟩ (AdjoinRoot.root _) + algebraMap B _ b) =
-      α (divisibilityAffineInclusion f ⟨3, by decide⟩ (AdjoinRoot.root _)) + β b := by
-  sorry
-
--- test: divisibilityBaseChangeDesc.test_zero_target
-example (φ : ℤ →+* ZMod 4) (f : ℤ) (α : DivisibilityAffineColimit f →+* ZMod 1)
-    (β : ZMod 4 →+* ZMod 1) (h : ∀ a, α (algebraMap ℤ _ a) = β (φ a))
-    (x : DivisibilityAffineColimit (φ f)) :
-    divisibilityBaseChangeDesc φ f α β h x = 0 := by
-  sorry
-
--- test: divisibilityTensorEquiv.test_nonflat_killed_constant
-example : algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 ≠ 0 ∧
-    (1 : ZMod 4) ⊗ₜ[ℤ] algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ)) 4 = 0 := by
-  sorry
-
--- test: divisibilityTensorEquiv.test_nonzero_nilpotent
-example : let z := (divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ)).symm (divisibilityAffineInclusion (0 : ZMod 2) ⟨2, by decide⟩ (AdjoinRoot.root _)); z ≠ 0 ∧ z ^ 2 = 0 := by
-  sorry
-
--- test: divisibilityTensorEquiv.test_third_root
-example : (divisibilityTensorEquiv (B := ZMod 4) (2 : ℤ)).symm
-    (divisibilityAffineInclusion (algebraMap ℤ (ZMod 4) 2) ⟨3, by decide⟩ (AdjoinRoot.root _)) =
-      (1 : ZMod 4) ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩ (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityTensorEquiv.test_zero_ring
-example (x : ZMod 1 ⊗[ℤ] DivisibilityAffineColimit (0 : ℤ)) :
-    divisibilityTensorEquiv (B := ZMod 1) (0 : ℤ) x = 0 := by
-  sorry
-
--- test: divisibilitySpecBaseChangeIso.test_nonflat_pullback
-example : IsPullback
-    (Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))))
-    (divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 4)) (2 : ℤ))
-    (Spec.map (CommRingCat.ofHom (Int.castRingHom (ZMod 4))))
-    (Spec.algebraMap ℤ (DivisibilityAffineColimit (2 : ℤ))) := by
-  sorry
-
--- test: divisibilitySpecBaseChangeIso.test_first_projection
-example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 4)) (2 : ℤ)).hom ≫
-    pullback.fst _ _ =
-      Spec.algebraMap (ZMod 4) (DivisibilityAffineColimit ((Int.castRingHom (ZMod 4)) (2 : ℤ))) := by
-  sorry
-
--- test: divisibilitySpecBaseChangeIso.test_wild_projection
-example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 2)) (0 : ℤ)).hom ≫
-    pullback.snd _ _ = divisibilitySpecCoefficientMap (Int.castRingHom (ZMod 2)) (0 : ℤ) := by
-  sorry
-
--- test: divisibilitySpecBaseChangeIso.test_zero_ring_inverse
-example : (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 1)) (0 : ℤ)).hom ≫
-    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 1)) (0 : ℤ)).inv = 𝟙 _ := by
-  sorry
+/-- Coordinate notation for multiplication in the native μ₂-points. -/
+noncomputable abbrev orderedInertiaProduct (m : ℕ) :
+    (Fin m → rootsOfUnity 2 B) →* rootsOfUnity 2 B :=
+  ∏ i : Fin m, Pi.evalMonoidHom (fun _ : Fin m => rootsOfUnity 2 B) i
 
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uCoactionBase
-namespace TauCeti.RootStack
-open scoped TensorProduct
-variable {A B : Type uCoactionBase} [CommRing A] [CommRing B] [Algebra A B]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
-/-- Extend the actual coefficient-changed LEFT coaction by the tensor adjunction. -/
-def divisibilityBaseChangeCoaction (f : A) :
-    B ⊗[A] DivisibilityAffineColimit f →ₐ[B]
-      MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-        DivisibilityAffineColimit (algebraMap A B f) := by
-  let T := MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-    DivisibilityAffineColimit (algebraMap A B f)
-  let g : DivisibilityAffineColimit f →ₐ[A] T :=
-    { (divisibilityQZTensorCoefficientMap (algebraMap A B) f).comp
-        (divisibilityQZCoaction f).toRingHom with
-      commutes' a := by
-        change divisibilityQZTensorCoefficientMap (algebraMap A B) f
-          (divisibilityQZCoaction f (algebraMap A _ a)) = _
-        rw [(divisibilityQZCoaction f).commutes,
-          divisibilityQZTensorCoefficientMap.constant]
-        exact (IsScalarTower.algebraMap_apply A B T a).symm }
-  exact AlgHom.liftEquiv A B (DivisibilityAffineColimit f) T g
-
-lemma divisibilityBaseChangeCoaction.tmul (f : A) (b : B)
-    (x : DivisibilityAffineColimit f) :
-    divisibilityBaseChangeCoaction (B := B) f (b ⊗ₜ[A] x) =
-      b • divisibilityQZTensorCoefficientMap (algebraMap A B) f
-        (divisibilityQZCoaction f x) := by
-  sorry
-
-lemma divisibilityBaseChangeCoaction.compare (f : A) :
-    divisibilityBaseChangeCoaction (B := B) f =
-      (divisibilityQZCoaction (algebraMap A B f)).comp
-        (divisibilityTensorEquiv (B := B) f).toAlgHom := by
-  sorry
-
-lemma divisibilityBaseChangeCoaction.root (f : A) (n : RootDivIndex) :
-    divisibilityBaseChangeCoaction (B := B) f
-      (1 ⊗ₜ[A] divisibilityAffineInclusion f n (AdjoinRoot.root _)) =
-        MonoidAlgebra.single (Multiplicative.ofAdd
-          (((1 / (n.exponent : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : B) ⊗ₜ[B]
-          divisibilityAffineInclusion (algebraMap A B f) n (AdjoinRoot.root _) := by
-  sorry
-
-lemma divisibilityBaseChangeCoaction.coefficient (f : A) (b : B) :
-    divisibilityBaseChangeCoaction (B := B) f
-      (algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b) =
-        (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-          algebraMap B (DivisibilityAffineColimit (algebraMap A B f)) b := by
-  sorry
-
-/-- Tensor coinvariance is universal coaction equality, not fixedness at scalar points. -/
-lemma divisibilityBaseChangeCoaction.coinvariant_iff (f : A)
-    (z : B ⊗[A] DivisibilityAffineColimit f) :
-    divisibilityBaseChangeCoaction (B := B) f z =
-      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        divisibilityTensorEquiv (B := B) f z ↔
-      ∃ b : B, z = algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
-  sorry
-
-def divisibilityTensorInvariantEquiv (f : A) :
-    B ≃ₐ[B] ↥(AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
-      ((Algebra.TensorProduct.includeRight :
-        DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
-          MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-            DivisibilityAffineColimit (algebraMap A B f)).comp
-              (divisibilityTensorEquiv (B := B) f).toAlgHom)) := by
-  let I := AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
-    ((Algebra.TensorProduct.includeRight :
-      DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
-        MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-          DivisibilityAffineColimit (algebraMap A B f)).comp
-            (divisibilityTensorEquiv (B := B) f).toAlgHom)
-  let g := (Algebra.ofId B (B ⊗[A] DivisibilityAffineColimit f)).codRestrict I
-    (fun b => by
-      change divisibilityBaseChangeCoaction (B := B) f (algebraMap B _ b) = _
-      rw [divisibilityBaseChangeCoaction.coefficient]
-      change (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        algebraMap B (DivisibilityAffineColimit (algebraMap A B f)) b =
-          1 ⊗ₜ[B] divisibilityTensorEquiv (B := B) f (algebraMap B _ b)
-      rw [AlgEquiv.commutes])
-  apply AlgEquiv.ofBijective g
-  constructor
-  · intro b c h
-    apply divisibilityAffineColimit.coefficient_injective (algebraMap A B f)
-    have hv : divisibilityTensorEquiv (B := B) f (algebraMap B _ b) =
-        divisibilityTensorEquiv (B := B) f (algebraMap B _ c) :=
-      congrArg (fun z => divisibilityTensorEquiv (B := B) f z.val) h
-    simpa only [AlgEquiv.commutes] using hv
-  · intro z
-    obtain ⟨b,hb⟩ := (divisibilityBaseChangeCoaction.coinvariant_iff f z.val).mp z.property
-    exact ⟨b, Subtype.ext hb.symm⟩
-
-lemma divisibilityTensorInvariantEquiv.apply_coe (f : A) (b : B) :
-    (divisibilityTensorInvariantEquiv (B := B) f b).val =
-      algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
-  sorry
-
-lemma divisibilityTensorInvariantEquiv.chart (f : A) (b : B) :
-    divisibilityTensorEquiv (B := B) f
-      (divisibilityTensorInvariantEquiv (B := B) f b).val =
-        (divisibilityInvariantEquiv (algebraMap A B f) b).val := by
-  sorry
-
-lemma divisibilityTensorInvariantEquiv.inverse_coe (f : A)
-    (z : ↥(AlgHom.equalizer (divisibilityBaseChangeCoaction (B := B) f)
-      ((Algebra.TensorProduct.includeRight :
-        DivisibilityAffineColimit (algebraMap A B f) →ₐ[B]
-          MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ))) ⊗[B]
-            DivisibilityAffineColimit (algebraMap A B f)).comp
-              (divisibilityTensorEquiv (B := B) f).toAlgHom))) :
-    algebraMap B (B ⊗[A] DivisibilityAffineColimit f)
-      ((divisibilityTensorInvariantEquiv (B := B) f).symm z) = z.val := by
-  sorry
-
-lemma divisibilityBaseChangeCoaction.invariants_unique (f : A)
-    (z : B ⊗[A] DivisibilityAffineColimit f)
-    (hz : divisibilityBaseChangeCoaction (B := B) f z =
-      (1 : MonoidAlgebra B (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[B]
-        divisibilityTensorEquiv (B := B) f z) :
-    ∃! b : B, z = algebraMap B (B ⊗[A] DivisibilityAffineColimit f) b := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uCoactionTest
-namespace TauCeti.RootStack
-open scoped TensorProduct
-variable {A B : Type uCoactionTest} [CommRing A] [CommRing B] [Algebra A B]
-
--- test: divisibilityBaseChangeCoaction.test_nonflat_third_root
-example : divisibilityBaseChangeCoaction (B := ZMod 4) (2 : ℤ)
-    ((1 : ZMod 4) ⊗ₜ[ℤ] divisibilityAffineInclusion (2 : ℤ) ⟨3, by decide⟩
-      (AdjoinRoot.root _)) =
-    MonoidAlgebra.single (Multiplicative.ofAdd
-      (((1 / (3 : ℚ) : ℚ) : AddCircle (1 : ℚ)))) (1 : ZMod 4) ⊗ₜ[ZMod 4]
-      divisibilityAffineInclusion (algebraMap ℤ (ZMod 4) 2) ⟨3, by decide⟩
-        (AdjoinRoot.root _) := by
-  sorry
-
--- test: divisibilityBaseChangeCoaction.test_tensor_formula
-example (f : A) (b : B) (x : DivisibilityAffineColimit f) :
-    divisibilityBaseChangeCoaction (B := B) f (b ⊗ₜ[A] x) =
-      (divisibilityQZCoaction (algebraMap A B f))
-        (divisibilityTensorEquiv (B := B) f (b ⊗ₜ[A] x)) := by
-  sorry
-
--- test: divisibilityBaseChangeCoaction.test_zero_ring
-example (z : (ZMod 1) ⊗[ℤ] DivisibilityAffineColimit (2 : ℤ)) :
-    divisibilityBaseChangeCoaction (B := ZMod 1) (2 : ℤ) z =
-      (1 : MonoidAlgebra (ZMod 1) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 1]
-        divisibilityTensorEquiv (B := ZMod 1) (2 : ℤ) z := by
-  sorry
-
--- test: divisibilityBaseChangeCoaction.test_wild_not_coinvariant
-example :
-    let u := divisibilityAffineInclusion (algebraMap ℤ (ZMod 2) (0 : ℤ))
-      ⟨2, by decide⟩ (AdjoinRoot.root _)
-    let z := (divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ)).symm u
-    z ≠ 0 ∧ z ^ 2 = 0 ∧
-      divisibilityBaseChangeCoaction (B := ZMod 2) (0 : ℤ) z ≠
-        (1 : MonoidAlgebra (ZMod 2) (Multiplicative (AddCircle (1 : ℚ)))) ⊗ₜ[ZMod 2]
-          divisibilityTensorEquiv (B := ZMod 2) (0 : ℤ) z := by
-  sorry
-
--- test: divisibilityTensorInvariantEquiv.test_nilpotent_coefficient
-example :
-    (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) 2).val ≠ 0 ∧
-      (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) 2).val ^ 2 = 0 := by
+/-- The coordinate part of `orderedInertia`: discard coordinate zero in the kernel.
+The inverse inserts the inverse product in coordinate zero. A permutation transports this
+distinguished index; keeping it fixed requires the conjugated action on the other coordinates. -/
+theorem orderedInertia_kernel (n : ℕ) :
+    ∃ e : (orderedInertiaProduct B (n + 1)).ker ≃* (Fin n → rootsOfUnity 2 B),
+      ∀ ζ i, e ζ i = ζ.val i.succ := by
   sorry
 
--- test: divisibilityTensorInvariantEquiv.test_inverse
-example (f : A) (b : B) :
-    (divisibilityTensorInvariantEquiv (B := B) f).symm
-      (divisibilityTensorInvariantEquiv (B := B) f b) = b := by
+/-- Algebra change acts on every coordinate, including nonreduced value algebras. -/
+theorem orderedInertia_naturality {C : Type u} [CommRing C]
+    (φ : B →+* C) (m : ℕ) (ζ : Fin m → rootsOfUnity 2 B) :
+    restrictRootsOfUnity φ 2 (orderedInertiaProduct B m ζ) =
+      orderedInertiaProduct C m (fun i => restrictRootsOfUnity φ 2 (ζ i)) := by
   sorry
 
--- test: divisibilityTensorInvariantEquiv.test_chart
-example (b : ZMod 4) : divisibilityTensorEquiv (B := ZMod 4) (2 : ℤ)
-    (divisibilityTensorInvariantEquiv (B := ZMod 4) (2 : ℤ) b).val =
-      (divisibilityInvariantEquiv (algebraMap ℤ (ZMod 4) 2) b).val := by
+/-- Multiplication and its kernel are canonical under reindexing all factors. -/
+theorem orderedInertia_reindex (m : ℕ) (σ : Fin m ≃ Fin m)
+    (ζ : Fin m → rootsOfUnity 2 B) :
+    orderedInertiaProduct B m (fun i => ζ (σ i)) = orderedInertiaProduct B m ζ := by
   sorry
 
--- test: divisibilityTensorInvariantEquiv.test_zero_ring
-example : (divisibilityTensorInvariantEquiv (B := ZMod 1) (2 : ℤ) 0).val = 0 := by
+-- No branch factor is present at multiplicity zero.
+example (ζ : Fin 0 → rootsOfUnity 2 B) : orderedInertiaProduct B 0 ζ = 1 := by
   sorry
 
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uFiniteBase
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
-variable {A B C : Type uFiniteBase} [CommRing A] [CommRing B] [CommRing C]
-attribute [local irreducible] divisibilityCoefficientMap factorialCoefficientMap
-
-def divisibilityRingCoefficientNatTrans (φ : A →+* B) (f : A) :
-    divisibilityRingDiagram f ⟶ divisibilityRingDiagram (φ f) where
-  app n := CommRingCat.ofHom (AdjoinRoot.map φ _ _ (by simp))
-  naturality n N h := by
-    sorry
-
-lemma divisibilityRingCoefficientNatTrans.root (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    ((divisibilityRingCoefficientNatTrans φ f).app n).hom (AdjoinRoot.root _) =
-      AdjoinRoot.root _ := by
-  sorry
-
-lemma divisibilityRingCoefficientNatTrans.constant (φ : A →+* B) (f a : A) (n : RootDivIndex) :
-    ((divisibilityRingCoefficientNatTrans φ f).app n).hom (algebraMap A (AffineRing f n.exponent) a) =
-      algebraMap B (AffineRing (φ f) n.exponent) (φ a) := by
-  sorry
-
-lemma divisibilityRingCoefficientNatTrans.id (f : A) :
-    divisibilityRingCoefficientNatTrans (RingHom.id A) f = 𝟙 (divisibilityRingDiagram f) := by
-  sorry
-
-lemma divisibilityRingCoefficientNatTrans.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilityRingCoefficientNatTrans (ψ.comp φ) f =
-      divisibilityRingCoefficientNatTrans φ f ≫ divisibilityRingCoefficientNatTrans ψ (φ f) := by
-  sorry
-
-lemma divisibilityCoefficientMap.level (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    (divisibilityCoefficientMap φ f).comp (divisibilityAffineInclusion f n).toRingHom =
-      (divisibilityAffineInclusion (φ f) n).toRingHom.comp
-        ((divisibilityRingCoefficientNatTrans φ f).app n).hom := by
-  sorry
-
-def divisibilitySpecCoefficientNatTrans (φ : A →+* B) (f : A) :
-    divisibilitySpecDiagram (φ f) ⟶ divisibilitySpecDiagram f :=
-  Functor.whiskerRight (NatTrans.op (divisibilityRingCoefficientNatTrans φ f)) Scheme.Spec
-
-lemma divisibilitySpecCoefficientNatTrans.app (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    (divisibilitySpecCoefficientNatTrans φ f).app (op n) =
-      Spec.map ((divisibilityRingCoefficientNatTrans φ f).app n) := by
-  sorry
-
-lemma divisibilitySpecCoefficientNatTrans.id (f : A) :
-    divisibilitySpecCoefficientNatTrans (RingHom.id A) f = 𝟙 (divisibilitySpecDiagram f) := by
+-- A single branch preimage has no relative inertia kernel.
+example (ζ : Fin 1 → rootsOfUnity 2 B) : orderedInertiaProduct B 1 ζ = ζ 0 := by
   sorry
 
-lemma divisibilitySpecCoefficientNatTrans.comp (φ : A →+* B) (ψ : B →+* C) (f : A) :
-    divisibilitySpecCoefficientNatTrans (ψ.comp φ) f =
-      divisibilitySpecCoefficientNatTrans ψ (φ f) ≫ divisibilitySpecCoefficientNatTrans φ f := by
+-- A double collision has a diagonal kernel, even though each factor is tame.
+example (ζ : rootsOfUnity 2 B) :
+    orderedInertiaProduct B 2 ![ζ, ζ⁻¹] = 1 := by
   sorry
 
-lemma divisibilitySpecCoefficientMap.projection (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    divisibilitySpecCoefficientMap φ f ≫ (divisibilitySpecCone f).π.app (op n) =
-      (divisibilitySpecCone (φ f)).π.app (op n) ≫
-        (divisibilitySpecCoefficientNatTrans φ f).app (op n) := by
+example (ζ : rootsOfUnity 2 B) (hζ : ζ ≠ 1) :
+    ¬Function.Injective (orderedInertiaProduct B 2) := by
   sorry
 
-lemma divisibilitySpecBaseChangeIso.projection (φ : A →+* B) (f : A) (n : RootDivIndex) :
-    (divisibilitySpecBaseChangeIso φ f).hom ≫ pullback.snd _ _ ≫
-      (divisibilitySpecCone f).π.app (op n) =
-    (divisibilitySpecCone (φ f)).π.app (op n) ≫
-      (divisibilitySpecCoefficientNatTrans φ f).app (op n) := by
+-- Agreement with the existing group-scheme point comparison, not a new μ₂ model.
+example (R : Type u) [CommRing R] [Algebra R B] (m : ℕ)
+    (p : Fin m →
+      ((AlgebraicGeometry.Spec (CommRingCat.of B)).asOver
+        (AlgebraicGeometry.Spec (CommRingCat.of R)) ⟶
+        (TauCeti.RootsOfUnityGroup.groupScheme R 2).X)) :
+    TauCeti.RootsOfUnityGroup.schemePointsMulEquiv (R := R) (A := B) 2
+        (List.ofFn p).prod =
+      orderedInertiaProduct B m (fun i =>
+        TauCeti.RootsOfUnityGroup.schemePointsMulEquiv (R := R) (A := B) 2 (p i)) := by
   sorry
 
-lemma divisibilitySpecBaseChangeIso.inverse_projection (φ : A →+* B) (f : A)
-    (n : RootDivIndex) :
-    (divisibilitySpecBaseChangeIso φ f).inv ≫
-      (divisibilitySpecCone (φ f)).π.app (op n) ≫
-        (divisibilitySpecCoefficientNatTrans φ f).app (op n) =
-      pullback.snd _ _ ≫ (divisibilitySpecCone f).π.app (op n) := by
+-- The coordinate equation in rootAdditionChart; the geometric quotient map is a README target.
+example (f g s t : B) (hs : s ^ 2 = f) (ht : t ^ 2 = g) :
+    (s * t) ^ 2 = f * g := by
   sorry
 
-lemma divisibilitySpecCoefficientMap.unique (φ : A →+* B) (f : A)
-    (g : Spec (CommRingCat.of (DivisibilityAffineColimit (φ f))) ⟶
-      Spec (CommRingCat.of (DivisibilityAffineColimit f)))
-    (hg : ∀ n, g ≫ (divisibilitySpecCone f).π.app (op n) =
-      (divisibilitySpecCone (φ f)).π.app (op n) ≫
-        (divisibilitySpecCoefficientNatTrans φ f).app (op n)) :
-    g = divisibilitySpecCoefficientMap φ f := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits Opposite AlgebraicGeometry
-
--- test: finiteProjectionTests.nonflat_third_root
-example :
-    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
-      ⟨3, by decide⟩).hom (AdjoinRoot.root _) =
-        AdjoinRoot.root (Polynomial.X ^ 3 - Polynomial.C (2 : ZMod 4)) := by
-  sorry
-
--- test: finiteProjectionTests.six_to_three
-example :
-    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
-      ⟨6, by decide⟩).hom
-        (affineDivisibility (2 : ℤ) 3 6 (by decide) (AdjoinRoot.root _)) =
-      (AdjoinRoot.root (Polynomial.X ^ 6 - Polynomial.C (2 : ZMod 4))) ^ 2 := by
-  sorry
-
--- test: finiteProjectionTests.zero_coefficient_ring
-example (x : AffineRing (2 : ℤ) 3) :
-    ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 1)) (2 : ℤ)).app
-      ⟨3, by decide⟩).hom x = 0 := by
-  sorry
-
--- test: finiteProjectionTests.wild_root_survives
-example :
-    let y := ((divisibilityRingCoefficientNatTrans (Int.castRingHom (ZMod 2)) (0 : ℤ)).app
-      ⟨2, by decide⟩).hom (AdjoinRoot.root _)
-    y ≠ 0 ∧ y ^ 2 = 0 := by
-  sorry
-
--- test: finiteProjectionTests.identity_scheme_diagram
-example : divisibilitySpecCoefficientNatTrans (RingHom.id (ZMod 4)) (2 : ZMod 4) =
-    𝟙 (divisibilitySpecDiagram (2 : ZMod 4)) := by
-  sorry
-
--- test: finiteProjectionTests.composed_quotient_diagram
-example :
-    divisibilitySpecCoefficientNatTrans
-      ((ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).comp (Int.castRingHom (ZMod 4))) (2 : ℤ) =
-    divisibilitySpecCoefficientNatTrans (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2))
-      ((Int.castRingHom (ZMod 4)) (2 : ℤ)) ≫
-        divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ) := by
-  sorry
 
--- test: finiteProjectionTests.nonflat_projection_square
-example :
-    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 4)) (2 : ℤ)).hom ≫
-      pullback.snd _ _ ≫ (divisibilitySpecCone (2 : ℤ)).π.app (op ⟨3, by decide⟩) =
-    (divisibilitySpecCone ((Int.castRingHom (ZMod 4)) (2 : ℤ))).π.app (op ⟨3, by decide⟩) ≫
-      (divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 4)) (2 : ℤ)).app
-        (op ⟨3, by decide⟩) := by
-  sorry
 
--- test: finiteProjectionTests.inverse_wild_projection
-example :
-    (divisibilitySpecBaseChangeIso (Int.castRingHom (ZMod 2)) (0 : ℤ)).inv ≫
-      (divisibilitySpecCone ((Int.castRingHom (ZMod 2)) (0 : ℤ))).π.app (op ⟨2, by decide⟩) ≫
-        (divisibilitySpecCoefficientNatTrans (Int.castRingHom (ZMod 2)) (0 : ℤ)).app
-          (op ⟨2, by decide⟩) =
-      pullback.snd _ _ ≫ (divisibilitySpecCone (0 : ℤ)).π.app (op ⟨2, by decide⟩) := by
-  sorry
+end TauCeti.RamifiedClassField
 
-end TauCeti.RootStack
-end
+/-! ## GC.2 -/
 
-noncomputable section
-set_option maxHeartbeats 800000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-universe uPoint
-namespace TauCeti.RootStack
 open CategoryTheory
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
+open scoped RestrictedProduct WithZero
 
--- The actual algebra-valued points of the existing finite affine chart.
--- This is the chart action groupoid; general line-bundle roots and descent remain separate.
-@[reducible]
-def affineRootPointGroupoid (f : A) (n : ℕ) [NeZero n] (B : Type uPoint)
-    [CommRing B] [Algebra A B] := AffineRing f n →ₐ[A] B
+namespace TauCeti.RamifiedClassField.GC2
 
-@[instance_reducible]
-def affineRootPointGroupoid.groupoid (f : A) (n : ℕ) [NeZero n] :
-    Groupoid (affineRootPointGroupoid f n B) where
-  Hom p q := {ζ : rootsOfUnity n B //
-    q (AdjoinRoot.root _) = ((ζ : Bˣ) : B) * p (AdjoinRoot.root _)}
-  id p := ⟨1, by simp⟩
-  comp h j := ⟨j.1 * h.1, by
-    simpa only [Subgroup.coe_mul, Units.val_mul, mul_assoc] using
-      j.2.trans (congrArg (fun b : B => ((j.1 : Bˣ) : B) * b) h.2)⟩
-  id_comp := by intros; apply Subtype.ext; exact mul_one _
-  comp_id := by intros; apply Subtype.ext; exact one_mul _
-  assoc := by intros; apply Subtype.ext; exact (mul_assoc _ _ _).symm
-  inv h := ⟨h.1⁻¹, by
-    simpa only [Subgroup.coe_inv, ← mul_assoc, Units.inv_mul, one_mul] using
-      (congrArg (fun b : B => (((h.1 : Bˣ)⁻¹ : Bˣ) : B) * b) h.2).symm⟩
-  inv_comp := by intros; apply Subtype.ext; exact mul_inv_cancel _
-  comp_inv := by intros; apply Subtype.ext; exact inv_mul_cancel _
+variable {k F : Type*} [Field k] [Field F] [Algebra k F]
 
-attribute [instance] affineRootPointGroupoid.groupoid
+/-- The existing completion at a native normalized place. -/
+abbrev LocalField (P : Place k F) := Valuation.Completion P.valuation
 
-def affineRootPoint (f : A) (n : ℕ) [NeZero n] (b : B)
-    (hb : b ^ n = algebraMap A B f) : affineRootPointGroupoid f n B :=
-  AdjoinRoot.liftAlgHom _ (Algebra.ofId A B) b (by
-    simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
-      Polynomial.eval₂_C, sub_eq_zero]
-    exact hb)
+/-- The completed valuation ring, as a native valuation subring. -/
+abbrev LocalIntegers (P : Place k F) : ValuationSubring (LocalField P) :=
+  (Valued.v : Valuation (LocalField P) ℤᵐ⁰).valuationSubring
 
-lemma affineRootPoint.root (f : A) (n : ℕ) [NeZero n] (b : B)
-    (hb : b ^ n = algebraMap A B f) :
-    affineRootPoint f n b hb (AdjoinRoot.root _) = b := by
+/-- Carrier spelling for the imported FA.2 projective ideles, including infinity. -/
+abbrev Ideles (k F : Type*) [Field k] [Field F] [Algebra k F] :=
+  Πʳ P : Place k F, [(LocalField P)ˣ, (LocalIntegers P).unitGroup]
+
+abbrev IntegralUnits (k F : Type*) [Field k] [Field F] [Algebra k F] :=
+  (P : Place k F) → (LocalIntegers P).unitGroup
+
+abbrev BranchUnits (R : Finset (Place k F)) :=
+  (x : R) → (IsLocalRing.ResidueField (LocalIntegers x.val))ˣ
+
+def residueProduct (R : Finset (Place k F)) : IntegralUnits k F →* BranchUnits R where
+  toFun u x := (LocalIntegers x.val).unitGroupToResidueFieldUnits (u x.val)
+  map_one' := by
+    funext x
+    exact map_one (LocalIntegers x.val).unitGroupToResidueFieldUnits
+  map_mul' u v := by
+    funext x
+    exact map_mul (LocalIntegers x.val).unitGroupToResidueFieldUnits _ _
+
+/-- A light equalizer spelling of the inherited modified-unit group; labels survive. -/
+def rootUnitSubgroup (R : Finset (Place k F)) :
+    Subgroup (IntegralUnits k F × BranchUnits R) :=
+  ((residueProduct R).comp (MonoidHom.fst _ _)).eqLocus
+    ((powMonoidHom 2).comp (MonoidHom.snd _ _))
+
+abbrev RootUnits (R : Finset (Place k F)) := rootUnitSubgroup R
+
+/-- The actual residue-square relation retains every root label. -/
+theorem rootUnit_relation (R : Finset (Place k F)) (h : RootUnits R) (x : R) :
+    (LocalIntegers x.val).unitGroupToResidueFieldUnits (h.val.1 x.val) = h.val.2 x ^ 2 := by
   sorry
 
-lemma affineRootPoint.unique (f : A) (n : ℕ) [NeZero n] (b : B)
-    (hb : b ^ n = algebraMap A B f) (p : affineRootPointGroupoid f n B)
-    (hp : p (AdjoinRoot.root _) = b) : p = affineRootPoint f n b hb := by
+/-- Lifting units requires square residues, rather than an injective modification map. -/
+theorem rootUnits_lift_iff (R : Finset (Place k F)) (u : IntegralUnits k F) :
+    (∃ h : RootUnits R, h.val.1 = u) ↔ ∀ x : R, IsSquare (residueProduct R u x) := by
   sorry
 
-lemma affineRootPointGroupoid.point_ext {f : A} {n : ℕ} [NeZero n]
-    {p q : affineRootPointGroupoid f n B}
-    (h : p (AdjoinRoot.root _) = q (AdjoinRoot.root _)) : p = q := by
+-- The signed, residue-degree-weighted divisor convention.
+example (P : Place k F) :
+    Divisor.degree (-Finsupp.single P (1 : ℤ)) = -(P.degree : ℤ) := by
   sorry
 
-lemma affineRootPointGroupoid.hom_ext {f : A} {n : ℕ} [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h j : p ⟶ q) (he : h.1 = j.1) : h = j := by
+-- Empty ramification removes the residue constraint.
+example (u : IntegralUnits k F) (v : BranchUnits (∅ : Finset (Place k F))) :
+    (u, v) ∈ rootUnitSubgroup (∅ : Finset (Place k F)) := by
   sorry
 
-lemma affineRootPointGroupoid.id_label {f : A} {n : ℕ} [NeZero n]
-    (p : affineRootPointGroupoid f n B) : (𝟙 p : p ⟶ p).1 = 1 := by
+-- The root label can be nontrivial although its square is the fixed residue.
+example : ((1 : ℤˣ) ^ 2 = 1) ∧ ((-1 : ℤˣ) ^ 2 = 1) ∧ (1 : ℤˣ) ≠ -1 := by
   sorry
 
-lemma affineRootPointGroupoid.comp_label {f : A} {n : ℕ} [NeZero n]
-    {p q r : affineRootPointGroupoid f n B} (h : p ⟶ q) (j : q ⟶ r) :
-    (h ≫ j).1 = j.1 * h.1 := by
+end TauCeti.RamifiedClassField.GC2
+
+/-! ## GC.3 -/
+
+open scoped TensorProduct
+
+namespace TauCeti.RamifiedClassField
+
+open Equiv
+
+section Koszul
+
+variable (K : Type*) [CommRing K] (V : Type*) [AddCommGroup V] [Module K V]
+
+/-- The Koszul-signed permutation action on `⨂[K]^d V`: `σ` permutes the tensor
+factors and multiplies by `sign σ`. It is the action of `S_d` on the degree-`d`
+part of the graded tensor power of a graded module concentrated in degree one. -/
+def koszulPermAction (d : ℕ) (σ : Perm (Fin d)) : (⨂[K]^d V) →ₗ[K] (⨂[K]^d V) :=
+  ((Perm.sign σ : ℤ)) • PiTensorProduct.reindexRepresentation K V (Fin d) σ
+
+namespace koszulPermAction
+
+variable {K V}
+
+theorem apply_tprod (d : ℕ) (σ : Perm (Fin d)) (v : Fin d → V) :
+    koszulPermAction K V d σ (PiTensorProduct.tprod K v) =
+      ((Perm.sign σ : ℤ)) • PiTensorProduct.tprod K (fun i => v (σ.symm i)) := by
   sorry
 
-lemma affineRootPointGroupoid.inv_label {f : A} {n : ℕ} [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    (Groupoid.inv h).1 = h.1⁻¹ := by
+variable (K V)
+
+theorem one (d : ℕ) : koszulPermAction K V d 1 = LinearMap.id := by
   sorry
 
-lemma affineRootPointGroupoid.root_equation {f : A} {n : ℕ} [NeZero n]
-    (p : affineRootPointGroupoid f n B) :
-    p (AdjoinRoot.root _) ^ n = algebraMap A B f := by
+theorem mul (d : ℕ) (σ τ : Perm (Fin d)) :
+    koszulPermAction K V d (σ * τ) = koszulPermAction K V d σ ∘ₗ koszulPermAction K V d τ := by
   sorry
 
-def affineRootPointPower (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N) :
-    affineRootPointGroupoid f N B ⥤ affineRootPointGroupoid f n B where
-  obj p := p.comp (affineDivisibility f n N hn)
-  map {p q} h := ⟨⟨(h.1 : Bˣ) ^ (N / n), by
-      rw [mem_rootsOfUnity, ← pow_mul, Nat.div_mul_cancel hn]
-      exact h.1.2⟩, by
-    change q (affineDivisibility f n N hn (AdjoinRoot.root _)) =
-      (((h.1 : Bˣ) ^ (N / n) : Bˣ) : B) *
-        p (affineDivisibility f n N hn (AdjoinRoot.root _))
-    rw [affineDivisibility.root, map_pow, map_pow]
-    simpa only [mul_pow, Units.val_pow_eq_pow_val] using
-      congrArg (fun b : B => b ^ (N / n)) h.2⟩
-  map_id p := by
-    apply Subtype.ext
-    apply Subtype.ext
-    exact one_pow _
-  map_comp h j := by
-    apply Subtype.ext
-    apply Subtype.ext
-    exact mul_pow _ _ _
-
-lemma affineRootPointPower.obj_root (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N)
-    (p : affineRootPointGroupoid f N B) :
-    ((affineRootPointPower f n N hn).obj p) (AdjoinRoot.root _) =
-      p (AdjoinRoot.root _) ^ (N / n) := by
+/-- The sign twist of Tau Ceti's unsigned permutation representation. -/
+theorem eq_sign_smul_reindexRepresentation (d : ℕ) (σ : Perm (Fin d)) :
+    koszulPermAction K V d σ =
+      ((Perm.sign σ : ℤ)) • PiTensorProduct.reindexRepresentation K V (Fin d) σ := by
   sorry
 
-lemma affineRootPointPower.map_label (f : A) (n N : ℕ) [NeZero n] [NeZero N] (hn : n ∣ N)
-    {p q : affineRootPointGroupoid f N B} (h : p ⟶ q) :
-    (((affineRootPointPower f n N hn).map h).1 : Bˣ) = (h.1 : Bˣ) ^ (N / n) := by
+variable {K V}
+
+/-- A transposition acts by minus the ordinary flip: the Koszul sign. -/
+theorem swap_tprod (v w : V) :
+    koszulPermAction K V 2 (swap 0 1) (PiTensorProduct.tprod K ![v, w]) =
+      -PiTensorProduct.tprod K ![w, v] := by
   sorry
 
-lemma affineRootPointPower.identity_obj (f : A) (n : ℕ) [NeZero n]
-    (p : affineRootPointGroupoid f n B) :
-    (affineRootPointPower f n n (dvd_refl n)).obj p = p := by
+/-- Naturality in linear maps; a Frobenius acting linearly is a special case. -/
+theorem naturality {W : Type*} [AddCommGroup W] [Module K W] (f : V →ₗ[K] W) (d : ℕ)
+    (σ : Perm (Fin d)) :
+    PiTensorProduct.map (fun _ : Fin d => f) ∘ₗ koszulPermAction K V d σ =
+      koszulPermAction K W d σ ∘ₗ PiTensorProduct.map (fun _ : Fin d => f) := by
   sorry
 
-lemma affineRootPointPower.identity_label (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    (((affineRootPointPower f n n (dvd_refl n)).map h).1 : Bˣ) = (h.1 : Bˣ) := by
+end koszulPermAction
+
+-- The exterior comparison uses current-library antisymmetrization and projection.
+-- Their maps are README imports; pin-only private reconstructions are omitted here.
+example (L : Type*) [Field L] [CharZero L] (n d : ℕ) :
+    Module.finrank L (⋀[L]^d (Fin n → L)) = n.choose d := by
   sorry
 
-lemma affineRootPointPower.composition_obj (f : A) (n N K : ℕ)
-    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K)
-    (p : affineRootPointGroupoid f K B) :
-    (affineRootPointPower f n N h).obj ((affineRootPointPower f N K j).obj p) =
-      (affineRootPointPower f n K (dvd_trans h j)).obj p := by
+end Koszul
+
+section Averaging
+
+variable {K G V W : Type*} [CommRing K] [Group G] [Fintype G]
+  [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
+
+/-- Invariants are exact when `|G|` is invertible: an equivariant surjection is
+surjective on invariants, by averaging a preimage. -/
+theorem invariants_map_surjective [Invertible (Fintype.card G : K)]
+    {ρ : Representation K G V} {τ : Representation K G W} (f : V →ₗ[K] W)
+    (hf : ∀ g, f ∘ₗ ρ g = τ g ∘ₗ f) (hs : Function.Surjective f) :
+    ∀ w ∈ τ.invariants, ∃ v ∈ ρ.invariants, f v = w := by
   sorry
 
-lemma affineRootPointPower.composition_label (f : A) (n N K : ℕ)
-    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K)
-    {p q : affineRootPointGroupoid f K B} (a : p ⟶ q) :
-    (((affineRootPointPower f n N h).map ((affineRootPointPower f N K j).map a)).1 : Bˣ) =
-      (((affineRootPointPower f n K (dvd_trans h j)).map a).1 : Bˣ) := by
+end Averaging
+
+/-- Rational acyclicity: a finite group whose order is invertible in the
+coefficients has no cohomology in positive degree. -/
+theorem groupCohomology_isZero_of_invertible {k G : Type} [CommRing k] [Group G] [Fintype G]
+    [Invertible (Fintype.card G : k)] (A : Rep k G) (n : ℕ) :
+    CategoryTheory.Limits.IsZero (groupCohomology A (n + 1)) := by
   sorry
 
-def affineRootPointChange (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
-    affineRootPointGroupoid f n B ⥤ affineRootPointGroupoid f n C where
-  obj p := φ.comp p
-  map {p q} h := ⟨restrictRootsOfUnity φ n h.1, by
-    change φ (q (AdjoinRoot.root _)) =
-      φ (((h.1 : Bˣ) : B)) * φ (p (AdjoinRoot.root _))
-    exact (congrArg φ h.2).trans (map_mul φ _ _)⟩
-  map_id p := by apply Subtype.ext; exact (restrictRootsOfUnity φ n).map_one
-  map_comp h j := by apply Subtype.ext; exact (restrictRootsOfUnity φ n).map_mul _ _
+section TensorCharacter
 
-lemma affineRootPointChange.obj_root (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C)
-    (p : affineRootPointGroupoid f n B) :
-    ((affineRootPointChange f n φ).obj p) (AdjoinRoot.root _) =
-      φ (p (AdjoinRoot.root _)) := by
+variable {A M : Type*} [CommGroup A] [CommMonoid M]
+
+/-- The tensor character `(a_i) ↦ ∏ χ(a_i)` on `A^m` is `χ` of the product. -/
+theorem prod_character_eq_comp_prod (χ : A →* M) {m : ℕ} (a : Fin m → A) :
+    ∏ i, χ (a i) = χ (∏ i, a i) := by
   sorry
 
-lemma affineRootPointChange.map_label (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C)
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    ((affineRootPointChange f n φ).map h).1 = restrictRootsOfUnity φ n h.1 := by
+/-- Hence it is trivial on the kernel of multiplication `A^m → A`. -/
+theorem prod_character_eq_one_of_prod_eq_one (χ : A →* M) {m : ℕ} (a : Fin m → A)
+    (h : ∏ i, a i = 1) : ∏ i, χ (a i) = 1 := by
   sorry
 
-lemma affineRootPointChange.power_obj (f : A) (n N : ℕ) [NeZero n] [NeZero N]
-    (hn : n ∣ N) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f N B) :
-    (affineRootPointChange f n φ).obj ((affineRootPointPower f n N hn).obj p) =
-      (affineRootPointPower f n N hn).obj ((affineRootPointChange f N φ).obj p) := by
+/-- Permuting the factors does not change the tensor character: there is no sign
+on a tensor power of a degree-zero line. -/
+theorem prod_character_perm (χ : A →* M) {m : ℕ} (a : Fin m → A) (σ : Perm (Fin m)) :
+    ∏ i, χ (a (σ i)) = ∏ i, χ (a i) := by
   sorry
 
-lemma affineRootPointChange.power_label (f : A) (n N : ℕ) [NeZero n] [NeZero N]
-    (hn : n ∣ N) (φ : B →ₐ[A] C) {p q : affineRootPointGroupoid f N B} (h : p ⟶ q) :
-    (((affineRootPointChange f n φ).map ((affineRootPointPower f n N hn).map h)).1 : Cˣ) =
-      (((affineRootPointPower f n N hn).map ((affineRootPointChange f N φ).map h)).1 : Cˣ) := by
+-- tensor-character-kernel: for `A = ℤˣ ≃ μ₂` and the sign character, `(−1, −1)` lies in
+-- the kernel of multiplication and the tensor character is trivial on it.
+example : ∏ i : Fin 2, (MonoidHom.id ℤˣ) (![-1, -1] i) = 1 := by
   sorry
 
-end TauCeti.RootStack
-end
+end TensorCharacter
 
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
+end TauCeti.RamifiedClassField
 
--- test: rootPointTests.exponent_one
-example (f : A) (p : affineRootPointGroupoid f 1 B) :
-    p = affineRootPoint f 1 (algebraMap A B f) (by simp) := by
+/-! ## GC.4 -/
+
+namespace TauCeti.RamifiedClassField
+
+universe u v w
+
+variable {A : Type u} {I : Type v} {J : Type w}
+
+/-- Section coordinates after splitting evaluation: `(u, α) ↦ (u, α²)`. -/
+def quadraticSection [CommRing A] (v : (I → A) × (J → A)) :
+    (I → A) × (J → A) :=
+  (v.1, fun j => v.2 j ^ 2)
+
+namespace quadraticSection
+
+variable [CommRing A]
+
+theorem kernelCoordinates (v : (I → A) × (J → A)) :
+    (quadraticSection v).1 = v.1 := by
   sorry
 
--- test: rootPointTests.nilpotent_point
+theorem rootCoordinates (v : (I → A) × (J → A)) (j : J) :
+    (quadraticSection v).2 j = v.2 j ^ 2 := by
+  sorry
+
+theorem baseChange {B : Type*} [CommRing B] (f : A →+* B)
+    (v : (I → A) × (J → A)) :
+    quadraticSection (f ∘ v.1, f ∘ v.2) =
+      (f ∘ (quadraticSection v).1, f ∘ (quadraticSection v).2) := by
+  sorry
+
+/-- Weight two on the kernel block, weight one on the root block. -/
+theorem weighted (c : A) (v : (I → A) × (J → A)) :
+    quadraticSection (fun i => c ^ 2 * v.1 i, fun j => c * v.2 j) =
+      (fun i => c ^ 2 * (quadraticSection v).1 i,
+        fun j => c ^ 2 * (quadraticSection v).2 j) := by
+  sorry
+
+/-- Only a reduced coefficient ring allows this test on raw ring-valued points. -/
+theorem zero_iff [IsReduced A] (v : (I → A) × (J → A)) :
+    quadraticSection v = 0 ↔ v = 0 := by
+  sorry
+
+-- test_small: a linear or all-squared coordinate map fails this.
+example : quadraticSection ((fun _ : Fin 1 => (2 : ℤ)), fun _ : Fin 1 => (3 : ℤ)) =
+    ((fun _ : Fin 1 => (2 : ℤ)), fun _ : Fin 1 => (9 : ℤ)) := by
+  sorry
+
+-- test_empty_root: agreement with the identity section coordinate for R empty.
+example (u : I → A) (a : Fin 0 → A) : quadraticSection (u, a) = (u, a) := by
+  sorry
+
+-- test_not_injective: the full chart must retain α as well as this section.
+example : quadraticSection ((fun _ : Fin 1 => (0 : ℤ)), fun _ : Fin 1 => (1 : ℤ)) =
+      quadraticSection ((fun _ : Fin 1 => (0 : ℤ)), fun _ : Fin 1 => (-1 : ℤ)) ∧
+    ((fun _ : Fin 1 => (0 : ℤ)), fun _ : Fin 1 => (1 : ℤ)) ≠
+      ((fun _ : Fin 1 => (0 : ℤ)), fun _ : Fin 1 => (-1 : ℤ)) := by
+  sorry
+
+-- test_nilpotent: a nonzero ring-valued tuple can have zero section coordinate.
 example :
-    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
-    p (AdjoinRoot.root _) ≠ 0 ∧ p (AdjoinRoot.root _) ^ 2 = 0 := by
+    quadraticSection
+        ((fun _ : Fin 1 => (0 : DualNumber (ZMod 3))),
+          fun _ : Fin 1 => (DualNumber.eps : DualNumber (ZMod 3))) = 0 ∧
+      ((fun _ : Fin 1 => (0 : DualNumber (ZMod 3))),
+        fun _ : Fin 1 => (DualNumber.eps : DualNumber (ZMod 3))) ≠ 0 := by
   sorry
 
--- test: rootPointTests.distinct_orbits
+-- test_effective_nilpotent: a unit kernel coordinate retains nilpotent α.
 example :
-    let p := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
-    let q := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
-    ¬Nonempty (p ⟶ q) := by
+    quadraticSection
+        ((fun _ : Fin 1 => (1 : DualNumber (ZMod 3))),
+          fun _ : Fin 1 => (DualNumber.eps : DualNumber (ZMod 3))) =
+      ((fun _ : Fin 1 => (1 : DualNumber (ZMod 3))),
+        fun _ : Fin 1 => (0 : DualNumber (ZMod 3))) := by
   sorry
 
--- test: rootPointTests.wild_stabilizer_zero
+end quadraticSection
+
+end TauCeti.RamifiedClassField
+
+/-! ## GC.5 -/
+
+namespace TauCeti.RamifiedClassField
+
+open TauCeti
+open TauCeti.AlgebraicGeometry
+
+variable {k F : Type*} [Field k] [Field F] [Algebra k F]
+
+/-- Effective away-place divisors carrying degree d above the bound B. -/
+def auxiliaryDivisors (S : Set (Place k F)) (d B : ℤ) : Set (Divisor k F) :=
+  {D | 0 ≤ D ∧ (∀ P ∈ S, D P = 0) ∧ B ≤ d + Divisor.degree D}
+
+namespace auxiliaryDivisors
+
+variable {S : Set (Place k F)} {d B B' : ℤ} {D E : Divisor k F}
+
+theorem mem_iff : D ∈ auxiliaryDivisors S d B ↔
+    0 ≤ D ∧ (∀ P ∈ S, D P = 0) ∧ B ≤ d + Divisor.degree D := by
+  sorry
+
+theorem effective (hD : D ∈ auxiliaryDivisors S d B) : 0 ≤ D := by
+  sorry
+
+theorem away (hD : D ∈ auxiliaryDivisors S d B) (P : Place k F)
+    (hP : P ∈ S) : D P = 0 := by
+  sorry
+
+theorem degree_bound (hD : D ∈ auxiliaryDivisors S d B) :
+    B ≤ d + Divisor.degree D := by
+  sorry
+
+theorem mono_bound (hBB' : B' ≤ B) (hD : D ∈ auxiliaryDivisors S d B) :
+    D ∈ auxiliaryDivisors S d B' := by
+  sorry
+
+/-- A common effective enlargement; both inputs have nonnegative degree. -/
+theorem add_mem (hD : D ∈ auxiliaryDivisors S d B)
+    (hE : E ∈ auxiliaryDivisors S d B) :
+    D + E ∈ auxiliaryDivisors S d B ∧ D ≤ D + E ∧ E ≤ D + E := by
+  sorry
+
+/-- The witness is an away place of any positive residue degree. -/
+theorem nonempty_of_away_place (hF : IsFunctionField k F) (P : Place k F)
+    (hP : P ∉ S) : (auxiliaryDivisors S d B).Nonempty := by
+  sorry
+
+theorem zero_mem_iff : (0 : Divisor k F) ∈ auxiliaryDivisors S d B ↔ B ≤ d := by
+  sorry
+
+-- test_zero: catches an incorrect strict bound or a nonempty-support condition.
+example : (0 : Divisor k F) ∈ auxiliaryDivisors S d B ↔ B ≤ d := by
+  sorry
+
+-- test_degree_two: detects use of unweighted divisor degree.
+example (P : Place k F) (hP : P ∉ S) (hdeg : P.degree = 2) :
+    WeilDivisor.ofPoint P ∈ auxiliaryDivisors S d B ↔ B ≤ d + 2 := by
+  sorry
+
+-- test_negative: a signed divisor is not an effective auxiliary choice.
+example (P : Place k F) :
+    -WeilDivisor.ofPoint P ∉ auxiliaryDivisors S d B := by
+  sorry
+
+-- test_ramified: meeting the degree bound does not permit ramified support.
+example (P : Place k F) (hP : P ∈ S) :
+    WeilDivisor.ofPoint P ∉ auxiliaryDivisors S d B := by
+  sorry
+
+-- test_negative_degree: no degree-one point is needed to cross the bound.
+example (P : Place k F) (hP : P ∉ S) (hdeg : P.degree = 2) :
+    4 • WeilDivisor.ofPoint P ∈ auxiliaryDivisors S (-5) 3 ∧
+      3 • WeilDivisor.ofPoint P ∉ auxiliaryDivisors S (-5) 3 := by
+  sorry
+
+end auxiliaryDivisors
+end TauCeti.RamifiedClassField
+
+/-! ## GC.6 -/
+
+namespace TauCeti.RamifiedClassField.GC6
+
+open scoped TensorProduct
+
+universe u v
+
+section RootUnits
+
+variable {A : Type u} {B : Type v} [CommRing A] [CommRing B]
+
+/-- Coordinates for sections of the root multiplicative sheaf on a framed chart. -/
+def rootUnitCoordinates (r : A →+* B) : Subgroup (Aˣ × Bˣ) :=
+  ((Units.map r.toMonoidHom).comp (MonoidHom.fst Aˣ Bˣ)).eqLocus
+    ((powMonoidHom 2).comp (MonoidHom.snd Aˣ Bˣ))
+
+theorem mem_rootUnitCoordinates (r : A →+* B) (u : Aˣ) (v : Bˣ) :
+    (u, v) ∈ rootUnitCoordinates r ↔ Units.map r.toMonoidHom u = v ^ 2 :=
+  sorry
+
+theorem rootUnitCoordinates_ext (r : A →+* B)
+    (x y : rootUnitCoordinates r) (h₁ : x.1.1 = y.1.1) (h₂ : x.1.2 = y.1.2) :
+    x = y :=
+  sorry
+
+theorem rootUnitCoordinates_fst_kernel (r : A →+* B) (v : Bˣ) :
+    (1, v) ∈ rootUnitCoordinates r ↔ v ^ 2 = 1 :=
+  sorry
+
+/-- Compatibility with ordinary units when the residue ring has one element. -/
+theorem rootUnitCoordinates_empty_residue (r : A →+* B) [Subsingleton B] :
+    rootUnitCoordinates r = ⊤ :=
+  sorry
+
+/-- The zero residue ring imposes no constraint on the ordinary units. -/
+example : rootUnitCoordinates (Int.castRingHom PUnit) = ⊤ :=
+  sorry
+
+/-- Both residue roots are retained, even when the ordinary unit is fixed. -/
+example : ((1 : ℤˣ), (1 : ℤˣ)) ∈ rootUnitCoordinates (RingHom.id ℤ) :=
+  sorry
+
+example : ((1 : ℤˣ), (-1 : ℤˣ)) ∈ rootUnitCoordinates (RingHom.id ℤ) :=
+  sorry
+
+example : ((1 : ℤˣ), (1 : ℤˣ)) ≠ ((1 : ℤˣ), (-1 : ℤˣ)) :=
+  sorry
+
+/-- Root compatibility is stronger than being an arbitrary pair of units. -/
+example : ((-1 : ℤˣ), (1 : ℤˣ)) ∉ rootUnitCoordinates (RingHom.id ℤ) :=
+  sorry
+
+end RootUnits
+
+section Approximation
+
+variable {k : Type u} {F : Type v} [Field k] [Field F] [Algebra k F]
+
+/-- Nonzero simultaneous residue prescriptions, including an empty index set.
+The weak approximation theorem itself is already in Tau Ceti. -/
+theorem exists_unit_with_residues {ι : Type*} [Finite ι]
+    (P : ι → TauCeti.Place k F) (hP : Function.Injective P)
+    (y : ∀ i, (P i).ResidueFieldˣ) :
+    ∃ g : Fˣ, ∃ hg : ∀ i, (g : F) ∈ (P i).integers,
+      ∀ i, IsLocalRing.residue (P i).integers ⟨(g : F), hg i⟩ = (y i : (P i).ResidueField) :=
+  sorry
+
+example (P : Empty → TauCeti.Place k F) (y : ∀ i, (P i).ResidueFieldˣ) :
+    ∃ g : Fˣ, ∃ hg : ∀ i, (g : F) ∈ (P i).integers,
+      ∀ i, IsLocalRing.residue (P i).integers ⟨(g : F), hg i⟩ = (y i : (P i).ResidueField) :=
+  sorry
+
+end Approximation
+
+section CyclicTrace
+
+variable {E : Type*} [Field E]
+variable {V : Type*} [AddCommGroup V] [Module E V] [FiniteDimensional E V]
+
+/-- One Frobenius is applied during the whole cycle. In dimension one, the
+trace is the local scalar, independently of the closed-point degree. -/
+theorem rankOne_cyclicTensor_trace (n : ℕ) (hV : Module.finrank E V = 1)
+    (a : E) :
+    LinearMap.trace E (⨂[E] _ : Fin (n + 1), V)
+      ((PiTensorProduct.map (fun i : Fin (n + 1) =>
+          if i = Fin.last n then a • (LinearMap.id : V →ₗ[E] V) else LinearMap.id)).comp
+        (PiTensorProduct.reindex E (fun _ : Fin (n + 1) => V)
+          (finRotate (n + 1)).symm).toLinearMap) = a :=
+  sorry
+
+/-- Degree two and inert scalar: raising the scalar to the degree would fail. -/
 example :
-    let p := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
-    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 ∧ h ≠ 𝟙 p := by
+    LinearMap.trace ℚ (⨂[ℚ] _ : Fin 2, ℚ)
+      ((PiTensorProduct.map (fun i : Fin 2 =>
+          if i = Fin.last 1 then (-1 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ) else LinearMap.id)).comp
+        (PiTensorProduct.reindex ℚ (fun _ : Fin 2 => ℚ)
+          (finRotate 2).symm).toLinearMap) = -1 :=
   sorry
 
--- test: rootPointTests.wild_stabilizer_two
+/-- A nonquadratic scalar checks that the cyclic identity is linear algebra. -/
 example :
-    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
-    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 := by
+    LinearMap.trace ℚ (⨂[ℚ] _ : Fin 3, ℚ)
+      ((PiTensorProduct.map (fun i : Fin 3 =>
+          if i = Fin.last 2 then (2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ) else LinearMap.id)).comp
+        (PiTensorProduct.reindex ℚ (fun _ : Fin 3 => ℚ)
+          (finRotate 3).symm).toLinearMap) = 2 :=
   sorry
 
--- test: rootPointTests.inverse_label
-example (f : A) (n : ℕ) [NeZero n] {p q : affineRootPointGroupoid f n B}
-    (h : p ⟶ q) : (h ≫ Groupoid.inv h).1 = 1 ∧ (Groupoid.inv h ≫ h).1 = 1 := by
-  sorry
-
--- test: rootPointTests.universal_six_to_two
-example (f : A) :
-    ((affineRootPointPower f 2 6 (by decide)).obj
-      (AlgHom.id A (AffineRing f 6))) (AdjoinRoot.root _) =
-        AdjoinRoot.root (Polynomial.X ^ 6 - Polynomial.C f) ^ 3 := by
-  sorry
-
--- test: rootPointTests.power_kills_sign
-example :
-    let p := affineRootPoint (0 : ZMod 4) 4 (0 : ZMod 4) (by decide)
-    ∃ h : p ⟶ p, ((h.1 : (ZMod 4)ˣ) : ZMod 4) = 3 ∧
-      (((affineRootPointPower (0 : ZMod 4) 2 4 (by decide)).map h).1 : (ZMod 4)ˣ) = 1 := by
-  sorry
-
--- test: rootPointTests.identity_nonreduced
-example :
-    let p := affineRootPoint (0 : ZMod 4) 2 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4) ^ 2 = 0))
-    (affineRootPointPower (0 : ZMod 4) 2 2 (dvd_refl 2)).obj p = p := by
-  sorry
-
--- test: rootPointTests.nonfactorial_composition
-example (f : A) (p : affineRootPointGroupoid f 12 B) :
-    (affineRootPointPower f 2 6 (by decide)).obj
-        ((affineRootPointPower f 6 12 (by decide)).obj p) =
-      (affineRootPointPower f 2 12 (by decide)).obj p := by
-  sorry
-
--- test: rootPointTests.nonflat_change_collapses_point
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 :=
-      { __ := ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2), commutes' z := by simp }
-    let p := affineRootPoint (0 : ℤ) 2 (2 : ZMod 4) (by decide)
-    p (AdjoinRoot.root _) ≠ 0 ∧
-      (affineRootPointChange (0 : ℤ) 2 φ).obj p =
-        affineRootPoint (0 : ℤ) 2 (0 : ZMod 2) (by decide) := by
-  sorry
-
--- test: rootPointTests.change_power_square
-example (f : A) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f 6 B) :
-    (affineRootPointChange f 2 φ).obj ((affineRootPointPower f 2 6 (by decide)).obj p) =
-      (affineRootPointPower f 2 6 (by decide)).obj ((affineRootPointChange f 6 φ).obj p) := by
-  sorry
-
--- test: rootPointTests.change_keeps_labels
-example (f : A) (φ : B →ₐ[A] C) (p : affineRootPointGroupoid f 3 B) :
-    ((affineRootPointChange f 3 φ).map (𝟙 p)).1 = 1 := by
-  sorry
-
--- test: rootPointTests.zero_test_ring
-example (p q : affineRootPointGroupoid (0 : ℤ) 2 (ZMod 1)) : p = q := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory Opposite
-variable {A B C D : Type uPoint} [CommRing A] [CommRing B] [CommRing C] [CommRing D]
-variable [Algebra A B] [Algebra A C] [Algebra A D]
-
-lemma affineRootPointGroupoid.eqToHom_label {f : A} {n : ℕ} [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p = q) :
-    (eqToHom h).1 = 1 := by
-  sorry
-
-lemma affineRootPointGroupoid.functor_ext {E : Type*} [Category* E]
-    {f : A} {n : ℕ} [NeZero n] {F G : E ⥤ affineRootPointGroupoid f n B}
-    (ho : ∀ p, F.obj p = G.obj p)
-    (ha : ∀ {p q} (h : p ⟶ q), ((F.map h).1 : Bˣ) = ((G.map h).1 : Bˣ)) : F = G := by
-  sorry
-
-lemma affineRootPointPower.identity (f : A) (n : ℕ) [NeZero n] :
-    affineRootPointPower (B := B) f n n (dvd_refl n) = 𝟭 _ := by
-  sorry
-
-lemma affineRootPointPower.composition (f : A) (n N K : ℕ)
-    [NeZero n] [NeZero N] [NeZero K] (h : n ∣ N) (j : N ∣ K) :
-    affineRootPointPower (B := B) f N K j ⋙ affineRootPointPower f n N h =
-      affineRootPointPower f n K (dvd_trans h j) := by
-  sorry
-
-lemma affineRootPointChange.identity (f : A) (n : ℕ) [NeZero n] :
-    affineRootPointChange f n (AlgHom.id A B) = 𝟭 _ := by
-  sorry
-
-lemma affineRootPointChange.composition (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
-    affineRootPointChange f n φ ⋙ affineRootPointChange f n ψ =
-      affineRootPointChange f n (ψ.comp φ) := by
-  sorry
-
-lemma affineRootPointChange.power (f : A) (n N : ℕ) [NeZero n] [NeZero N]
-    (hn : n ∣ N) (φ : B →ₐ[A] C) :
-    affineRootPointPower f n N hn ⋙ affineRootPointChange f n φ =
-      affineRootPointChange f N φ ⋙ affineRootPointPower f n N hn := by
-  sorry
-
-@[reducible]
-def rootPointDiagram (f : A) (B : Type uPoint) [CommRing B] [Algebra A B] :
-    RootDivIndexᵒᵖ ⥤ Grpd.{uPoint, uPoint} where
-  obj n := Grpd.of (affineRootPointGroupoid f n.unop.exponent B)
-  map {n N} h := affineRootPointPower f N.unop.exponent n.unop.exponent (leOfHom h.unop)
-  map_id n := affineRootPointPower.identity f n.unop.exponent
-  map_comp h j := (affineRootPointPower.composition f _ _ _ (leOfHom j.unop)
-    (leOfHom h.unop)).symm
-
-lemma rootPointDiagram.obj (f : A) (n : RootDivIndex) :
-    (rootPointDiagram f B).obj (op n) =
-      Grpd.of (affineRootPointGroupoid f n.exponent B) := by
-  sorry
-
-lemma rootPointDiagram.map_root (f : A) {n N : RootDivIndex} (h : n ≤ N)
-    (p : affineRootPointGroupoid f N.exponent B) :
-    (show AffineRing f n.exponent →ₐ[A] B from
-      ((rootPointDiagram f B).map (homOfLE h).op).obj p) (AdjoinRoot.root _) =
-      p (AdjoinRoot.root _) ^ (N.exponent / n.exponent) := by
-  sorry
-
-lemma rootPointDiagram.map_label (f : A) {n N : RootDivIndex} (h : n ≤ N)
-    {p q : affineRootPointGroupoid f N.exponent B} (a : p ⟶ q) :
-    ((((rootPointDiagram f B).map (homOfLE h).op).map a).1 : Bˣ) =
-      (a.1 : Bˣ) ^ (N.exponent / n.exponent) := by
-  sorry
-
-def rootPointChangeNatTrans (f : A) (φ : B →ₐ[A] C) :
-    rootPointDiagram f B ⟶ rootPointDiagram f C where
-  app n := affineRootPointChange f n.unop.exponent φ
-  naturality _ _ h := affineRootPointChange.power f _ _ (leOfHom h.unop) φ
-
-lemma rootPointChangeNatTrans.app_root (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
-    (p : affineRootPointGroupoid f n.exponent B) :
-    (show AffineRing f n.exponent →ₐ[A] C from
-      ((rootPointChangeNatTrans f φ).app (op n)).obj p) (AdjoinRoot.root _) =
-      φ (p (AdjoinRoot.root _)) := by
-  sorry
-
-lemma rootPointChangeNatTrans.app_label (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
-    {p q : affineRootPointGroupoid f n.exponent B} (a : p ⟶ q) :
-    ((((rootPointChangeNatTrans f φ).app (op n)).map a).1) =
-      restrictRootsOfUnity φ n.exponent a.1 := by
-  sorry
-
-lemma rootPointChangeNatTrans.identity (f : A) :
-    rootPointChangeNatTrans f (AlgHom.id A B) = 𝟙 (rootPointDiagram f B) := by
-  sorry
-
-lemma rootPointChangeNatTrans.composition (f : A) (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
-    rootPointChangeNatTrans f φ ≫ rootPointChangeNatTrans f ψ =
-      rootPointChangeNatTrans f (ψ.comp φ) := by
-  sorry
-
-@[reducible]
-def rootPointFunctor (f : A) :
-    CommAlgCat.{uPoint} A ⥤ (RootDivIndexᵒᵖ ⥤ Grpd.{uPoint, uPoint}) where
-  obj B := rootPointDiagram f B
-  map φ := rootPointChangeNatTrans f φ.hom
-  map_id _ := rootPointChangeNatTrans.identity f
-  map_comp φ ψ := (rootPointChangeNatTrans.composition f φ.hom ψ.hom).symm
-
-lemma rootPointFunctor.obj (f : A) (B : CommAlgCat.{uPoint} A) :
-    (rootPointFunctor f).obj B = rootPointDiagram f B := by
-  sorry
-
-lemma rootPointFunctor.map_root (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
-    (p : affineRootPointGroupoid f n.exponent B) :
-    (show AffineRing f n.exponent →ₐ[A] C from
-      (((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op n)).obj p)
-      (AdjoinRoot.root _) = φ (p (AdjoinRoot.root _)) := by
-  sorry
-
-lemma rootPointFunctor.map_label (f : A) (φ : B →ₐ[A] C) (n : RootDivIndex)
-    {p q : affineRootPointGroupoid f n.exponent B} (a : p ⟶ q) :
-    (((((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op n)).map a).1) =
-      restrictRootsOfUnity φ n.exponent a.1 := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory Opposite
-variable {A B C D : Type uPoint} [CommRing A] [CommRing B] [CommRing C] [CommRing D]
-variable [Algebra A B] [Algebra A C] [Algebra A D]
-
--- test: rootDiagramTests.divisibility_direction
-example : ¬Nonempty ((op ⟨3, by decide⟩ : RootDivIndexᵒᵖ) ⟶ op ⟨2, by decide⟩) := by
-  sorry
-
--- test: rootDiagramTests.nonfactorial_functor_composition
-example (f : A) :
-    (rootPointDiagram f B).map (homOfLE (show (⟨6, by decide⟩ : RootDivIndex) ≤ ⟨12, by decide⟩ from by decide)).op ≫
-      (rootPointDiagram f B).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op =
-        affineRootPointPower f 2 12 (by decide) := by
-  sorry
-
--- test: rootDiagramTests.nilpotent_power
-example :
-    let p := affineRootPoint (0 : ZMod 4) 6 (2 : ZMod 4) (by exact (by decide : (2 : ZMod 4)^6 = 0))
-    p (AdjoinRoot.root _) ≠ 0 ∧
-    (show AffineRing (0 : ZMod 4) 2 →ₐ[ZMod 4] ZMod 4 from
-      ((rootPointDiagram (0 : ZMod 4) (ZMod 4)).map
-        (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op).obj p)
-        (AdjoinRoot.root _) = 0 := by
-  sorry
-
--- test: rootDiagramTests.power_not_faithful
-example :
-    let p := affineRootPoint (0 : ZMod 4) 4 (0 : ZMod 4) (by decide)
-    let F := (rootPointDiagram (0 : ZMod 4) (ZMod 4)).map
-      (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨4, by decide⟩ from by decide)).op
-    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ F.map h = 𝟙 (F.obj p) := by
-  sorry
-
--- test: rootDiagramTests.nonflat_natural_change
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 :=
-      { __ := ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2), commutes' z := by simp }
-    let p := affineRootPoint (0 : ℤ) 2 (2 : ZMod 4) (by decide)
-    p (AdjoinRoot.root _) ≠ 0 ∧
-      (((rootPointFunctor (0 : ℤ)).map (CommAlgCat.ofHom φ)).app (op ⟨2, by decide⟩)).obj p =
-        affineRootPoint (0 : ℤ) 2 (0 : ZMod 2) (by decide) := by
-  sorry
-
--- test: rootDiagramTests.change_power_square
-example (f : A) (φ : B →ₐ[A] C) :
-    (rootPointDiagram f B).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op ≫
-        ((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op ⟨2, by decide⟩) =
-      ((rootPointFunctor f).map (CommAlgCat.ofHom φ)).app (op ⟨6, by decide⟩) ≫
-        (rootPointDiagram f C).map (homOfLE (show (⟨2, by decide⟩ : RootDivIndex) ≤ ⟨6, by decide⟩ from by decide)).op := by
-  sorry
-
--- test: rootDiagramTests.three_algebra_changes
-example (f : A) (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) :
-    (rootPointFunctor f).map (CommAlgCat.ofHom φ) ≫
-        (rootPointFunctor f).map (CommAlgCat.ofHom ψ) =
-      (rootPointFunctor f).map (CommAlgCat.ofHom (ψ.comp φ)) ∧
-    (rootPointFunctor f).map (𝟙 (CommAlgCat.of A B)) = 𝟙 _ := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-
--- Coordinates after choosing a frame for the root line, with no normalization
--- of its power identification. No global frame existence or descent is asserted.
-structure FramedRoot (f : A) (n : ℕ) (B : Type uPoint) [CommRing B] [Algebra A B] where
-  coefficient : Bˣ
-  root : B
-  equation : (coefficient : B) * root ^ n = algebraMap A B f
-
-@[instance_reducible]
-def FramedRoot.groupoid (f : A) (n : ℕ) : Groupoid (FramedRoot f n B) where
-  Hom p q := {w : Bˣ // q.root = (w : B) * p.root ∧
-    q.coefficient * w ^ n = p.coefficient}
-  id p := ⟨1, by simp⟩
-  comp h j := ⟨j.1 * h.1, by
-    constructor
-    · simpa only [Units.val_mul, mul_assoc] using
-        j.2.1.trans (congrArg (fun b : B => (j.1 : B) * b) h.2.1)
-    · rw [mul_pow, ← mul_assoc, j.2.2, h.2.2]⟩
-  id_comp := by intros; apply Subtype.ext; exact mul_one _
-  comp_id := by intros; apply Subtype.ext; exact one_mul _
-  assoc := by intros; apply Subtype.ext; exact (mul_assoc _ _ _).symm
-  inv h := ⟨h.1⁻¹, by
-    constructor
-    · simpa only [← mul_assoc, Units.inv_mul, one_mul] using
-        (congrArg (fun b : B => ((h.1⁻¹ : Bˣ) : B) * b) h.2.1).symm
-    · calc
-        _ = (_ * h.1 ^ n) * (h.1⁻¹) ^ n := congrArg (fun z => z * (h.1⁻¹) ^ n) h.2.2.symm
-        _ = _ := by rw [inv_pow, mul_assoc, mul_inv_cancel, mul_one]⟩
-  inv_comp := by intros; apply Subtype.ext; exact mul_inv_cancel _
-  comp_inv := by intros; apply Subtype.ext; exact inv_mul_cancel _
-
-attribute [instance] FramedRoot.groupoid
-
-lemma FramedRoot.coordinate_equation {f : A} {n : ℕ} (p : FramedRoot f n B) :
-    (p.coefficient : B) * p.root ^ n = algebraMap A B f := by
-  sorry
-
-lemma FramedRoot.hom_ext {f : A} {n : ℕ} {p q : FramedRoot f n B}
-    (h j : p ⟶ q) (he : h.1 = j.1) : h = j := by
-  sorry
-
-lemma FramedRoot.id_label {f : A} {n : ℕ} (p : FramedRoot f n B) :
-    (𝟙 p : p ⟶ p).1 = 1 := by
-  sorry
-
-lemma FramedRoot.comp_label {f : A} {n : ℕ} {p q r : FramedRoot f n B}
-    (h : p ⟶ q) (j : q ⟶ r) : (h ≫ j).1 = j.1 * h.1 := by
-  sorry
-
-lemma FramedRoot.inv_label {f : A} {n : ℕ} {p q : FramedRoot f n B}
-    (h : p ⟶ q) : (Groupoid.inv h).1 = h.1⁻¹ := by
-  sorry
-
-lemma FramedRoot.arrow_section {f : A} {n : ℕ} {p q : FramedRoot f n B}
-    (h : p ⟶ q) : q.root = (h.1 : B) * p.root := by
-  sorry
-
-lemma FramedRoot.arrow_coefficient {f : A} {n : ℕ} {p q : FramedRoot f n B}
-    (h : p ⟶ q) : q.coefficient * h.1 ^ n = p.coefficient := by
-  sorry
-
-def rootChartEmbedding (f : A) (n : ℕ) [NeZero n] :
-    affineRootPointGroupoid f n B ⥤ FramedRoot f n B where
-  obj p := ⟨1, p (AdjoinRoot.root _), by
-    simpa only [Units.val_one, one_mul] using affineRootPointGroupoid.root_equation p⟩
-  map h := ⟨(h.1 : Bˣ), h.2, by
-    simpa only [one_mul] using ((mem_rootsOfUnity n (h.1 : Bˣ)).mp h.1.2)⟩
-  map_id _ := rfl
-  map_comp _ _ := rfl
-
-lemma rootChartEmbedding.obj_coefficient (f : A) (n : ℕ) [NeZero n]
-    (p : affineRootPointGroupoid f n B) :
-    ((rootChartEmbedding f n).obj p).coefficient = 1 := by
-  sorry
-
-lemma rootChartEmbedding.obj_section (f : A) (n : ℕ) [NeZero n]
-    (p : affineRootPointGroupoid f n B) :
-    ((rootChartEmbedding f n).obj p).root = p (AdjoinRoot.root _) := by
-  sorry
-
-lemma rootChartEmbedding.map_label (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    ((rootChartEmbedding f n).map h).1 = (h.1 : Bˣ) := by
-  sorry
-
-def rootChartEmbedding.fullyFaithful (f : A) (n : ℕ) [NeZero n] :
-    (rootChartEmbedding f n (B := B)).FullyFaithful where
-  preimage h := ⟨⟨h.1, (mem_rootsOfUnity n (h.1 : Bˣ)).mpr (by simpa only [rootChartEmbedding, one_mul] using h.2.2)⟩, h.2.1⟩
-  map_preimage _ := rfl
-  preimage_map _ := rfl
-
-def rootChartEmbedding.homEquiv (f : A) (n : ℕ) [NeZero n]
-    (p q : affineRootPointGroupoid f n B) :
-    (p ⟶ q) ≃ ((rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :=
-  (rootChartEmbedding.fullyFaithful f n).homEquiv
-
-lemma rootChartEmbedding.preimage_label (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B}
-    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
-    (((rootChartEmbedding.fullyFaithful f n).preimage h).1 : Bˣ) = h.1 := by
-  sorry
-
-lemma rootChartEmbedding.map_preimage (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B}
-    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
-    (rootChartEmbedding f n).map ((rootChartEmbedding.fullyFaithful f n).preimage h) = h := by
-  sorry
-
-lemma rootChartEmbedding.preimage_map (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    (rootChartEmbedding.fullyFaithful f n).preimage ((rootChartEmbedding f n).map h) = h := by
-  sorry
-
-lemma rootChartEmbedding.homEquiv_label (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B} (h : p ⟶ q) :
-    (rootChartEmbedding.homEquiv f n p q h).1 = (h.1 : Bˣ) := by
-  sorry
-
-lemma rootChartEmbedding.homEquiv_symm_label (f : A) (n : ℕ) [NeZero n]
-    {p q : affineRootPointGroupoid f n B}
-    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
-    (((rootChartEmbedding.homEquiv f n p q).symm h).1 : Bˣ) = h.1 := by
-  sorry
-
-lemma rootChartEmbedding.homEquiv_identity (f : A) (n : ℕ) [NeZero n]
-    (p : affineRootPointGroupoid f n B) :
-    rootChartEmbedding.homEquiv f n p p (𝟙 p) = 𝟙 _ := by
-  sorry
-
-lemma rootChartEmbedding.homEquiv_composition (f : A) (n : ℕ) [NeZero n]
-    {p q r : affineRootPointGroupoid f n B} (h : p ⟶ q) (j : q ⟶ r) :
-    rootChartEmbedding.homEquiv f n p r (h ≫ j) =
-      rootChartEmbedding.homEquiv f n p q h ≫ rootChartEmbedding.homEquiv f n q r j := by
-  sorry
-
-lemma FramedRoot.normalized_section_pow {f : A} {n : ℕ} (p : FramedRoot f n B)
-    (w : Bˣ) (hw : w ^ n = p.coefficient) :
-    ((w : B) * p.root) ^ n = algebraMap A B f := by
-  sorry
-
--- An arrow from p to a normalized chart object has exactly the required
--- unit-root label. This is an objectwise criterion before any stackification.
-lemma rootChartEmbedding.essentialImage_iff (f : A) (n : ℕ) [NeZero n]
-    (p : FramedRoot f n B) :
-    (∃ q : affineRootPointGroupoid f n B, Nonempty (p ≅ (rootChartEmbedding f n).obj q)) ↔
-      ∃ w : Bˣ, w ^ n = p.coefficient := by
-  sorry
-
-lemma rootChartEmbedding.exponent_one (f : A) (p : FramedRoot f 1 B) :
-    ∃ q : affineRootPointGroupoid f 1 B, Nonempty (p ≅ (rootChartEmbedding f 1).obj q) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-
--- test: framedRootTests.chart_coordinates
-example (f : A) (n : ℕ) [NeZero n] (y : B) (hy : y ^ n = algebraMap A B f) :
-    let q := affineRootPoint f n y hy
-    ((rootChartEmbedding f n).obj q).coefficient = 1 ∧
-    ((rootChartEmbedding f n).obj q).root = y ∧
-    (∃ p : affineRootPointGroupoid f n B,
-      Nonempty ((rootChartEmbedding f n).obj q ≅ (rootChartEmbedding f n).obj p)) := by
-  sorry
-
--- test: framedRootTests.all_arrows_recovered
-example (f : A) (n : ℕ) [NeZero n] (p q : affineRootPointGroupoid f n B) :
-    Function.Bijective ((rootChartEmbedding f n).map :
-      (p ⟶ q) → ((rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q)) ∧
-    ∀ h : p ⟶ q, (rootChartEmbedding.homEquiv f n p q h).1 = (h.1 : Bˣ) := by
-  sorry
-
--- test: framedRootTests.exponent_one
-example (f : A) (p : FramedRoot f 1 B) :
-    (p.coefficient : B) * p.root = algebraMap A B f ∧
-    ∃ q : affineRootPointGroupoid f 1 B, Nonempty (p ≅ (rootChartEmbedding f 1).obj q) := by
-  sorry
-
--- test: framedRootTests.inverse_and_composition
-example (f : A) (n : ℕ) [NeZero n] {p q r : affineRootPointGroupoid f n B}
-    (h : p ⟶ q) (j : q ⟶ r) :
-    ((rootChartEmbedding f n).map (h ≫ j)).1 = (j.1 : Bˣ) * (h.1 : Bˣ) ∧
-    (Groupoid.inv ((rootChartEmbedding f n).map h)).1 = (h.1 : Bˣ)⁻¹ ∧
-    (𝟙 ((rootChartEmbedding f n).obj p) : _ ⟶ _).1 = 1 := by
-  sorry
-
--- test: framedRootTests.wild_stabilizer_retained
-example :
-    let q := affineRootPoint (0 : ZMod 4) 2 (0 : ZMod 4) (by decide)
-    ∃ h : q ⟶ q, h ≠ 𝟙 q ∧
-      (rootChartEmbedding (0 : ZMod 4) 2).map h ≠ 𝟙 _ ∧
-      (((rootChartEmbedding (0 : ZMod 4) 2).map h).1 : ZMod 4) = -1 := by
-  sorry
-
--- test: framedRootTests.arrow_roundtrips
-example (f : A) (n : ℕ) [NeZero n] (p q : affineRootPointGroupoid f n B)
-    (h : (rootChartEmbedding f n).obj p ⟶ (rootChartEmbedding f n).obj q) :
-    (rootChartEmbedding f n).map ((rootChartEmbedding.fullyFaithful f n).preimage h) = h ∧
-    rootChartEmbedding.homEquiv f n p q ((rootChartEmbedding.homEquiv f n p q).symm h) = h ∧
-    (((rootChartEmbedding.homEquiv f n p q).symm h).1 : Bˣ) = h.1 := by
-  sorry
-
--- test: framedRootTests.unit_section_chart_empty
-example :
-    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1, 1, by decide⟩
-    p.root = 1 ∧ p.coefficient ≠ 1 ∧
-    ¬(∃ q : affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4),
-      Nonempty (p ≅ (rootChartEmbedding (3 : ZMod 4) 2).obj q)) := by
-  sorry
-
--- test: framedRootTests.normalization_obstruction
-example :
-    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1, 1, by decide⟩
-    ¬(∃ w : (ZMod 4)ˣ, w ^ 2 = p.coefficient) := by
-  sorry
-
--- test: framedRootTests.zero_section_retains_nilpotents
-example :
-    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1, 3, by decide⟩
-    let q : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1, 0, by decide⟩
-    p.coefficient = q.coefficient ∧ p.root ≠ 0 ∧ ¬Nonempty (p ⟶ q) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory
-set_option maxHeartbeats 1200000
-set_option synthInstance.maxHeartbeats 200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
-
-def framedRootChange (f : A) (n : ℕ) (φ : B →ₐ[A] C) :
-    FramedRoot f n B ⥤ FramedRoot f n C where
-  obj p := ⟨Units.map φ.toMonoidHom p.coefficient, φ p.root, by
-    change φ (p.coefficient : B) * φ p.root ^ n = algebraMap A C f
-    rw [← map_pow, ← map_mul, p.equation, φ.commutes]⟩
-  map h := ⟨Units.map φ.toMonoidHom h.1, by
-    constructor
-    · exact (congrArg φ h.2.1).trans (map_mul φ _ _)
-    · simpa only [map_mul,map_pow] using congrArg (Units.map φ.toMonoidHom) h.2.2⟩
-  map_id _ := by apply Subtype.ext; exact (Units.map φ.toMonoidHom).map_one
-  map_comp _ _ := by apply Subtype.ext; exact (Units.map φ.toMonoidHom).map_mul _ _
-
-lemma framedRootChange.obj_coefficient (f : A) (n : ℕ) (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    ((framedRootChange f n φ).obj p).coefficient = Units.map φ.toMonoidHom p.coefficient := by
-  sorry
-
-lemma framedRootChange.obj_root (f : A) (n : ℕ) (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    ((framedRootChange f n φ).obj p).root = φ p.root := by
-  sorry
-
-lemma framedRootChange.map_label (f : A) (n : ℕ) (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((framedRootChange f n φ).map h).1 = Units.map φ.toMonoidHom h.1 := by
-  sorry
-
-variable {f : A} {n : ℕ} [NeZero n]
-
-def FramedRoot.normalizationUnit (p : FramedRoot f n B) :
-    (AffineRing (p.coefficient : B) n)ˣ :=
-  Units.mkOfMulEqOne (AdjoinRoot.root _)
-    (algebraMap B (AffineRing (p.coefficient : B) n) ((p.coefficient⁻¹ : Bˣ) : B) *
-      AdjoinRoot.root _ ^ (n-1)) (affineRoot.unit_mul_inverse p.coefficient n)
-
-lemma FramedRoot.normalizationUnit_coe (p : FramedRoot f n B) :
-    (p.normalizationUnit : AffineRing (p.coefficient : B) n) = AdjoinRoot.root _ := by
-  sorry
-
-lemma FramedRoot.normalizationUnit_inv (p : FramedRoot f n B) :
-    ((p.normalizationUnit⁻¹ : (AffineRing (p.coefficient : B) n)ˣ) :
-      AffineRing (p.coefficient : B) n) =
-      algebraMap B (AffineRing (p.coefficient : B) n) ((p.coefficient⁻¹ : Bˣ) : B) *
-        AdjoinRoot.root _ ^ (n-1) := by
-  sorry
-
-lemma FramedRoot.normalizationUnit_pow (p : FramedRoot f n B) :
-    p.normalizationUnit ^ n =
-      Units.map (algebraMap B (AffineRing (p.coefficient : B) n)).toMonoidHom p.coefficient := by
-  sorry
-
-def FramedRoot.normalizationPoint (p : FramedRoot f n B) :
-    affineRootPointGroupoid f n (AffineRing (p.coefficient : B) n) :=
-  affineRootPoint f n
-    ((p.normalizationUnit : AffineRing (p.coefficient : B) n) *
-      algebraMap B (AffineRing (p.coefficient : B) n) p.root)
-    (((framedRootChange f n (IsScalarTower.toAlgHom A B
-      (AffineRing (p.coefficient : B) n))).obj p).normalized_section_pow
-        p.normalizationUnit p.normalizationUnit_pow)
-
-lemma FramedRoot.normalizationPoint_root (p : FramedRoot f n B) :
-    p.normalizationPoint (AdjoinRoot.root _) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
-        algebraMap B (AffineRing (p.coefficient : B) n) p.root := by
-  sorry
-
-lemma FramedRoot.normalizationPoint_coefficients (p : FramedRoot f n B) (a : A) :
-    p.normalizationPoint (algebraMap A (AffineRing f n) a) =
-      algebraMap A (AffineRing (p.coefficient : B) n) a := by
-  sorry
-
-lemma FramedRoot.normalizationPoint_unique (p : FramedRoot f n B)
-    (q : affineRootPointGroupoid f n (AffineRing (p.coefficient : B) n))
-    (h : q (AdjoinRoot.root _) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
-        algebraMap B (AffineRing (p.coefficient : B) n) p.root) :
-    q = p.normalizationPoint := by
-  sorry
-
-def FramedRoot.normalizationIso (p : FramedRoot f n B) :
-    (framedRootChange f n (IsScalarTower.toAlgHom A B
-      (AffineRing (p.coefficient : B) n))).obj p ≅
-        (rootChartEmbedding f n).obj p.normalizationPoint :=
-  (Groupoid.isoEquivHom _ _).symm ⟨p.normalizationUnit, by
-    constructor
-    · exact p.normalizationPoint_root
-    · change 1 * p.normalizationUnit ^ n = _
-      rw [one_mul]
-      apply Units.ext
-      exact affineRoot.pow_eq (p.coefficient : B) n⟩
-
-lemma FramedRoot.normalizationIso_hom_label (p : FramedRoot f n B) :
-    p.normalizationIso.hom.1 = p.normalizationUnit := by
-  sorry
-
-lemma FramedRoot.normalizationIso_inv_label (p : FramedRoot f n B) :
-    p.normalizationIso.inv.1 = p.normalizationUnit⁻¹ := by
-  sorry
-
-lemma FramedRoot.normalizationIso_section (p : FramedRoot f n B) :
-    ((rootChartEmbedding f n).obj p.normalizationPoint).root =
-      (p.normalizationIso.hom.1 : AffineRing (p.coefficient : B) n) *
-        ((framedRootChange f n (IsScalarTower.toAlgHom A B
-          (AffineRing (p.coefficient : B) n))).obj p).root := by
-  sorry
-
-lemma FramedRoot.normalization_finite_basis (p : FramedRoot f n B) :
-    Nonempty (Module.Basis (Fin n) B (AffineRing (p.coefficient : B) n)) := by
-  sorry
-
-lemma FramedRoot.normalization_faithfullyFlat (p : FramedRoot f n B) :
-    Module.FaithfullyFlat B (AffineRing (p.coefficient : B) n) := by
-  sorry
-
-omit [NeZero n] in
-lemma FramedRoot.normalization_finitePresentation (p : FramedRoot f n B) :
-    Algebra.FinitePresentation B (AffineRing (p.coefficient : B) n) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
-
--- test: framedNormalizationTests.actual_arrow_change
-example (f : A) (n : ℕ) (φ : B →ₐ[A] C) {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((framedRootChange f n φ).obj p).root = φ p.root ∧
-    ((framedRootChange f n φ).obj q).coefficient *
-      ((framedRootChange f n φ).map h).1 ^ n = ((framedRootChange f n φ).obj p).coefficient ∧
-    ((framedRootChange f n φ).map h).1 = Units.map φ.toMonoidHom h.1 := by
-  sorry
-
--- test: framedNormalizationTests.nonfaithful_change
-example :
-    letI : Algebra (ZMod 4) (ZMod 2) := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toAlgebra
-    let φ := Algebra.ofId (ZMod 4) (ZMod 2)
-    let p : FramedRoot (0 : ZMod 4) 2 (ZMod 4) := ⟨1,0,by decide⟩
-    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ (framedRootChange (0 : ZMod 4) 2 φ).map h = 𝟙 _ := by
-  sorry
-
--- test: framedNormalizationTests.unit_and_inverse
-example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B) :
-    p.normalizationUnit ^ n =
-      Units.map (algebraMap B (AffineRing (p.coefficient : B) n)).toMonoidHom p.coefficient ∧
-    p.normalizationIso.hom.1 = p.normalizationUnit ∧
-    p.normalizationIso.inv.1 = p.normalizationUnit⁻¹ ∧
-    p.normalizationIso.hom ≫ p.normalizationIso.inv = 𝟙 _ := by
-  sorry
-
--- test: framedNormalizationTests.wild_obstruction_removed
-example :
-    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1,1,by decide⟩
-    (¬Nonempty (affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4))) ∧
-    Nonempty ((framedRootChange (3 : ZMod 4) 2 (IsScalarTower.toAlgHom (ZMod 4) (ZMod 4)
-      (AffineRing (p.coefficient : ZMod 4) 2))).obj p ≅
-        (rootChartEmbedding (3 : ZMod 4) 2).obj p.normalizationPoint) ∧
-    Module.FaithfullyFlat (ZMod 4) (AffineRing (p.coefficient : ZMod 4) 2) ∧
-    Algebra.FinitePresentation (ZMod 4) (AffineRing (p.coefficient : ZMod 4) 2) := by
-  sorry
-
--- test: framedNormalizationTests.nilpotent_section_retained
-example :
-    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1,3,by decide⟩
-    p.normalizationPoint (AdjoinRoot.root _) ≠ 0 ∧
-      p.normalizationPoint (AdjoinRoot.root _) ^ 2 = 0 := by
-  sorry
-
--- test: framedNormalizationTests.exponent_one
-example (f : A) (p : FramedRoot f 1 B) :
-    p.normalizationPoint (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f ∧
-    p.normalizationIso.hom.1 =
-      Units.map (algebraMap B (AffineRing (p.coefficient : B) 1)).toMonoidHom p.coefficient := by
-  sorry
-
--- test: framedNormalizationTests.zero_ring
-example :
-    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
-    (p.normalizationUnit : AffineRing (p.coefficient : ZMod 1) 3) = 0 ∧
-    p.normalizationPoint (AdjoinRoot.root _) = 0 ∧
-    Nonempty (Module.Basis (Fin 3) (ZMod 1) (AffineRing (p.coefficient : ZMod 1) 3)) ∧
-    Module.FaithfullyFlat (ZMod 1) (AffineRing (p.coefficient : ZMod 1) 3) := by
-  sorry
-
--- test: framedNormalizationTests.zero_section
-example (n : ℕ) [NeZero n] (u : Bˣ) :
-    let p : FramedRoot (0 : A) n B := ⟨u,0,by simp [NeZero.ne n]⟩
-    p.normalizationPoint (AdjoinRoot.root _) = 0 ∧
-    p.normalizationIso.hom.1 = p.normalizationUnit ∧
-    ((rootChartEmbedding (0 : A) n).obj p.normalizationPoint).coefficient = 1 := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-variable {f : A} {n : ℕ}
-
-def FramedRoot.normalizationSpecMap (p : FramedRoot f n B) :
-    Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) ⟶
-      Spec (CommRingCat.of B) :=
-  Spec.algebraMap B (AffineRing (p.coefficient : B) n)
-
-lemma FramedRoot.normalizationSpecMap_finitePresentation (p : FramedRoot f n B) :
-    LocallyOfFinitePresentation p.normalizationSpecMap := by
-  sorry
-
-variable [NeZero n]
-
-lemma FramedRoot.normalizationSpecMap_flat (p : FramedRoot f n B) :
-    Flat p.normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationSpecMap_surjective (p : FramedRoot f n B) :
-    Surjective p.normalizationSpecMap := by
-  sorry
-
-def FramedRoot.normalizationCover (p : FramedRoot f n B) :
-    Scheme.Cover.{0} Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
-  letI := p.normalizationSpecMap_surjective
-  exact p.normalizationSpecMap.cover
-    (P := @Flat ⊓ @LocallyOfFinitePresentation)
-    ⟨p.normalizationSpecMap_flat,p.normalizationSpecMap_finitePresentation⟩
-
-lemma FramedRoot.normalizationCover_source (p : FramedRoot f n B) :
-    p.normalizationCover.X PUnit.unit =
-      Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) := by
-  sorry
-
-lemma FramedRoot.normalizationCover_map (p : FramedRoot f n B) :
-    p.normalizationCover.f PUnit.unit = p.normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationCover_presieve (p : FramedRoot f n B) :
-    p.normalizationCover.presieve₀ = Presieve.singleton p.normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationCover_covers (p : FramedRoot f n B)
-    (x : Spec (CommRingCat.of B)) :
-    ∃ y : Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)),
-      p.normalizationCover.f PUnit.unit y = x := by
-  sorry
-
-lemma FramedRoot.normalizationCover_mem (p : FramedRoot f n B) :
-    Presieve.singleton p.normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
-  sorry
-
-def FramedRoot.normalizationChartMap (p : FramedRoot f n B) :
-    Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) ⟶
-      Spec (CommRingCat.of (AffineRing f n)) :=
-  Spec.map (CommRingCat.ofHom p.normalizationPoint.toRingHom)
-
-lemma FramedRoot.normalizationChartMap_appTop (p : FramedRoot f n B) :
-    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
-          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
-  sorry
-
-lemma FramedRoot.normalizationChartMap_root (p : FramedRoot f n B) :
-    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom).hom
-          (AdjoinRoot.root _) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
-        algebraMap B (AffineRing (p.coefficient : B) n) p.root := by
-  sorry
-
-lemma FramedRoot.normalizationChartMap_overBase (p : FramedRoot f n B) :
-    p.normalizationChartMap ≫ Spec.algebraMap A (AffineRing f n) =
-      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap A B := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-
--- test: framedCoverTests.actual_singleton_cover
-example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B)
-    (x : Spec (CommRingCat.of B)) :
-    Flat p.normalizationSpecMap ∧ Surjective p.normalizationSpecMap ∧
-    LocallyOfFinitePresentation p.normalizationSpecMap ∧
-    p.normalizationCover.presieve₀ = Presieve.singleton p.normalizationSpecMap ∧
-    ∃ y : Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)),
-      p.normalizationCover.f PUnit.unit y = x := by
-  sorry
-
--- test: framedCoverTests.actual_chart_triangle
-example {f : A} {n : ℕ} [NeZero n] (p : FramedRoot f n B) :
-    p.normalizationChartMap ≫ Spec.algebraMap A (AffineRing f n) =
-      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap A B ∧
-    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
-          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
-  sorry
-
--- test: framedCoverTests.wild_cover_without_original_chart
-example :
-    let p : FramedRoot (3 : ZMod 4) 2 (ZMod 4) := ⟨-1,1,by decide⟩
-    (¬Nonempty (affineRootPointGroupoid (3 : ZMod 4) 2 (ZMod 4))) ∧
-    Presieve.singleton p.normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 4))) ∧
-    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing (3 : ZMod 4) 2))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : ZMod 4) 2))).hom).hom
-          (AdjoinRoot.root _) = AdjoinRoot.root _ := by
-  sorry
-
--- test: framedCoverTests.nilpotent_chart_section
-example :
-    let p : FramedRoot (0 : ZMod 9) 2 (ZMod 9) := ⟨1,3,by decide⟩
-    let z := ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing (0 : ZMod 9) 2))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : ZMod 9) 2))).hom).hom
-          (AdjoinRoot.root _)
-    z ≠ 0 ∧ z ^ 2 = 0 ∧
-    Presieve.singleton p.normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 9))) := by
-  sorry
-
--- test: framedCoverTests.exponent_one
-example (f : A) (p : FramedRoot f 1 B) :
-    Presieve.singleton p.normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) ∧
-    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f 1))).inv ≫
-      p.normalizationChartMap.appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) 1))).hom).hom
-          (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f := by
-  sorry
-
--- test: framedCoverTests.zero_ring
-example :
-    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
-    Presieve.singleton p.normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) ∧
-    p.normalizationCover.X PUnit.unit =
-      Spec (CommRingCat.of (AffineRing (p.coefficient : ZMod 1) 3)) ∧
-    p.normalizationChartMap ≫ Spec.algebraMap (ZMod 1) (AffineRing (0 : ZMod 1) 3) =
-      p.normalizationCover.f PUnit.unit ≫ Spec.algebraMap (ZMod 1) (ZMod 1) := by
-  sorry
-
--- test: framedCoverTests.exponent_zero_finite_presentation
-example (f : A) (p : FramedRoot f 0 B) :
-    LocallyOfFinitePresentation p.normalizationSpecMap := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-variable {f : A} {n : ℕ}
-
-def FramedRoot.normalizationRingMap {p q : FramedRoot f n B} (h : p ⟶ q) :
-    AffineRing (q.coefficient : B) n →ₐ[B] AffineRing (p.coefficient : B) n :=
-  AdjoinRoot.liftAlgHom _ (Algebra.ofId B _)
-    (AdjoinRoot.root _ * algebraMap B _ ((h.1⁻¹ : Bˣ) : B)) (by
-      have hu : p.coefficient * h.1⁻¹ ^ n = q.coefficient := by
-        calc
-          _ = (q.coefficient * h.1 ^ n) * h.1⁻¹ ^ n :=
-            congrArg (fun v : Bˣ => v * h.1⁻¹ ^ n) h.2.2.symm
-          _ = _ := by rw [mul_assoc,← mul_pow,mul_inv_cancel,one_pow,mul_one]
-      simp only [Polynomial.eval₂_sub,Polynomial.eval₂_pow,Polynomial.eval₂_X,
-        Polynomial.eval₂_C]
-      change (AdjoinRoot.root _ * algebraMap B _ ((h.1⁻¹ : Bˣ) : B)) ^ n -
-        algebraMap B _ (q.coefficient : B) = 0
-      rw [mul_pow,affineRoot.pow_eq,← map_pow,← map_mul,sub_eq_zero]
-      exact congrArg (algebraMap B _) (congrArg (fun v : Bˣ => (v : B)) hu))
-
-lemma FramedRoot.normalizationRingMap_root {p q : FramedRoot f n B} (h : p ⟶ q) :
-    FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
-        algebraMap B _ ((h.1⁻¹ : Bˣ) : B) := by
-  sorry
-
-lemma FramedRoot.normalizationRingMap_coefficients {p q : FramedRoot f n B}
-    (h : p ⟶ q) (b : B) :
-    FramedRoot.normalizationRingMap h
-      (algebraMap B (AffineRing (q.coefficient : B) n) b) =
-        algebraMap B (AffineRing (p.coefficient : B) n) b := by
-  sorry
-
-lemma FramedRoot.normalizationRingMap_identity (p : FramedRoot f n B) :
-    FramedRoot.normalizationRingMap (𝟙 p) = AlgHom.id B _ := by
-  sorry
-
-lemma FramedRoot.normalizationRingMap_composition {p q r : FramedRoot f n B}
-    (h : p ⟶ q) (j : q ⟶ r) :
-    (FramedRoot.normalizationRingMap h).comp (FramedRoot.normalizationRingMap j) =
-      FramedRoot.normalizationRingMap (h ≫ j) := by
-  sorry
-
-variable [NeZero n]
-
-lemma FramedRoot.normalizationRingMap_point {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((FramedRoot.normalizationRingMap h).restrictScalars A).comp q.normalizationPoint =
-      p.normalizationPoint := by
-  sorry
-
-lemma FramedRoot.normalizationRingMap_injective {p q : FramedRoot f n B} :
-    Function.Injective (FramedRoot.normalizationRingMap : (p ⟶ q) → _) := by
-  sorry
-
-omit [NeZero n] in
-lemma FramedRoot.normalizationRingMap_overBase {p q : FramedRoot f n B} (h : p ⟶ q) :
-    Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
-      q.normalizationSpecMap = p.normalizationSpecMap := by
-  sorry
-
-def normalizationFunctor (f : A) (n : ℕ) [NeZero n] :
-    FramedRoot f n B ⥤ Over (Spec (CommRingCat.of B)) where
-  obj p := Over.mk p.normalizationSpecMap
-  map h := Over.homMk
-    (Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom))
-    (FramedRoot.normalizationRingMap_overBase h)
-  map_id p := by
-    apply Over.OverMorphism.ext
-    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap (𝟙 p)).toRingHom) = 𝟙 _
-    rw [FramedRoot.normalizationRingMap_identity]
-    exact Spec.map_id _
-  map_comp h j := by
-    apply Over.OverMorphism.ext
-    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap (h ≫ j)).toRingHom) =
-      Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
-        Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap j).toRingHom)
-    rw [← FramedRoot.normalizationRingMap_composition]
-    exact Spec.map_comp (CommRingCat.ofHom (FramedRoot.normalizationRingMap j).toRingHom)
-      (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom)
-
-lemma normalizationFunctor_obj (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
-    (normalizationFunctor f n).obj p = Over.mk p.normalizationSpecMap := by
-  sorry
-
-lemma normalizationFunctor_map (f : A) (n : ℕ) [NeZero n]
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((normalizationFunctor f n).map h).left =
-      Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) := by
-  sorry
-
-lemma normalizationFunctor_faithful (f : A) (n : ℕ) [NeZero n] :
-    (normalizationFunctor f n (B := B)).Faithful := by
-  sorry
-
-attribute [instance] normalizationFunctor_faithful
-
-lemma normalizationFunctor_map_isIso (f : A) (n : ℕ) [NeZero n]
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    IsIso ((normalizationFunctor f n).map h) := by
-  sorry
-
-lemma normalizationFunctor_cover (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
-    Presieve.singleton ((normalizationFunctor f n).obj p).hom ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
-  sorry
-
-lemma FramedRoot.normalizationChartMap_naturality {p q : FramedRoot f n B} (h : p ⟶ q) :
-    Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
-      q.normalizationChartMap = p.normalizationChartMap := by
-  sorry
-
-def normalizationChartNatTrans (f : A) (n : ℕ) [NeZero n] :
-    normalizationFunctor f n (B := B) ⋙ Over.forget (Spec (CommRingCat.of B)) ⟶
-      (Functor.const (FramedRoot f n B)).obj (Spec (CommRingCat.of (AffineRing f n))) where
-  app p := p.normalizationChartMap
-  naturality p q h := by
-    change Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom) ≫
-      q.normalizationChartMap = p.normalizationChartMap ≫ 𝟙 _
-    rw [Category.comp_id]
-    exact FramedRoot.normalizationChartMap_naturality h
-
-lemma normalizationChartNatTrans_app (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
-    (normalizationChartNatTrans f n).app p = p.normalizationChartMap := by
-  sorry
-
-lemma normalizationChartNatTrans_appTop (f : A) (n : ℕ) [NeZero n] (p : FramedRoot f n B) :
-    (Scheme.ΓSpecIso (CommRingCat.of (AffineRing f n))).inv ≫
-      ((normalizationChartNatTrans f n).app p).appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) n))).hom =
-          CommRingCat.ofHom p.normalizationPoint.toRingHom := by
-  sorry
+end CyclicTrace
 
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B : Type uPoint} [CommRing A] [CommRing B] [Algebra A B]
-
--- test: normalizationArrowTests.generators
-example {f : A} {n : ℕ} {p q : FramedRoot f n B} (h : p ⟶ q) (b : B) :
-    FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (p.coefficient : B)) *
-        algebraMap B _ ((h.1⁻¹ : Bˣ) : B) ∧
-    FramedRoot.normalizationRingMap h
-      (algebraMap B (AffineRing (q.coefficient : B) n) b) =
-        algebraMap B (AffineRing (p.coefficient : B) n) b := by
-  sorry
-
--- test: normalizationArrowTests.functoriality
-example {f : A} {n : ℕ} {p q r : FramedRoot f n B} (h : p ⟶ q) (j : q ⟶ r) :
-    FramedRoot.normalizationRingMap (𝟙 p) = AlgHom.id B _ ∧
-    (FramedRoot.normalizationRingMap h).comp (FramedRoot.normalizationRingMap j) =
-      FramedRoot.normalizationRingMap (h ≫ j) := by
-  sorry
-
--- test: normalizationArrowTests.actual_scheme_diagram
-example {f : A} {n : ℕ} [NeZero n] {p q : FramedRoot f n B} (h : p ⟶ q) :
-    IsIso ((normalizationFunctor f n).map h) ∧
-    ((normalizationFunctor f n).map h).left ≫ q.normalizationSpecMap = p.normalizationSpecMap ∧
-    ((normalizationFunctor f n).map h).left ≫
-      (normalizationChartNatTrans f n).app q = (normalizationChartNatTrans f n).app p ∧
-    (normalizationFunctor f n).map h ≫ (normalizationFunctor f n).map (Groupoid.inv h) =
-      𝟙 ((normalizationFunctor f n).obj p) ∧
-    Presieve.singleton ((normalizationFunctor f n).obj p).hom ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) := by
-  sorry
-
--- test: normalizationArrowTests.zero_section_automorphism
-example :
-    ∃ (p : FramedRoot (0 : ZMod 4) 2 (ZMod 4)) (h : p ⟶ p),
-      p.root = 0 ∧ h.1 = -1 ∧
-      (normalizationFunctor (0 : ZMod 4) 2).map h ≠ 𝟙 _ := by
-  sorry
-
--- test: normalizationArrowTests.nilpotent_section
-example :
-    ∃ (p q : FramedRoot (0 : ZMod 9) 2 (ZMod 9)) (h : p ⟶ q),
-      p.root = 3 ∧ q.root = 6 ∧ h.1 = -1 ∧
-      let z := p.normalizationPoint (AdjoinRoot.root _)
-      FramedRoot.normalizationRingMap h (q.normalizationPoint (AdjoinRoot.root _)) = z ∧
-        z ≠ 0 ∧ z ^ 2 = 0 := by
-  sorry
-
--- test: normalizationArrowTests.coefficient_change
-example :
-    ∃ (p q : FramedRoot (1 : ZMod 7) 2 (ZMod 7)) (h : p ⟶ q),
-      (p.coefficient : ZMod 7) = 1 ∧ (q.coefficient : ZMod 7) = 2 ∧
-      p.root = 1 ∧ q.root = 2 ∧ (h.1 : ZMod 7) = 2 ∧
-      FramedRoot.normalizationRingMap h (AdjoinRoot.root _) =
-        AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (p.coefficient : ZMod 7)) *
-          algebraMap (ZMod 7) _ 4 ∧
-      ((normalizationFunctor (1 : ZMod 7) 2).map h).left ≫ q.normalizationChartMap =
-        p.normalizationChartMap := by
-  sorry
-
--- test: normalizationArrowTests.exponent_one
-example (f : A) (p : FramedRoot f 1 B) :
-    Presieve.singleton ((normalizationFunctor f 1).obj p).hom ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of B)) ∧
-    ((Scheme.ΓSpecIso (CommRingCat.of (AffineRing f 1))).inv ≫
-      ((normalizationChartNatTrans f 1).app p).appTop ≫
-        (Scheme.ΓSpecIso (CommRingCat.of (AffineRing (p.coefficient : B) 1))).hom).hom
-          (AdjoinRoot.root _) = algebraMap A (AffineRing (p.coefficient : B) 1) f := by
-  sorry
-
--- test: normalizationArrowTests.zero_ring
-example :
-    let p : FramedRoot (0 : ZMod 1) 3 (ZMod 1) := ⟨1,0,by decide⟩
-    (normalizationFunctor (0 : ZMod 1) 3).map (𝟙 p) = 𝟙 _ ∧
-    Presieve.singleton ((normalizationFunctor (0 : ZMod 1) 3).obj p).hom ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) ∧
-    (normalizationChartNatTrans (0 : ZMod 1) 3).app p = p.normalizationChartMap := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-universe uNormalizationChange
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D : Type uNormalizationChange}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D]
-variable [Algebra A B] [Algebra A C] [Algebra A D]
-variable {f : A} {n : ℕ}
-
-def FramedRoot.normalizationChange (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    AffineRing (p.coefficient : B) n →ₐ[A]
-      AffineRing (((framedRootChange f n φ).obj p).coefficient : C) n :=
-  AdjoinRoot.mapAlgHom φ _ _ (by
-    simp only [Polynomial.map_sub,Polynomial.map_pow,Polynomial.map_X,Polynomial.map_C]
-    exact dvd_refl _)
-
-lemma FramedRoot.normalizationChange_root (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    p.normalizationChange φ (AdjoinRoot.root _) = AdjoinRoot.root _ := by
-  sorry
-
-lemma FramedRoot.normalizationChange_coefficients (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) (b : B) :
-    p.normalizationChange φ (algebraMap B _ b) = algebraMap C _ (φ b) := by
-  sorry
-
-lemma FramedRoot.normalizationChange_identity (p : FramedRoot f n B) :
-    p.normalizationChange (AlgHom.id A B) = AlgHom.id A _ := by
-  sorry
-
-lemma FramedRoot.normalizationChange_composition (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    (((framedRootChange f n φ).obj p).normalizationChange ψ).comp
-      (p.normalizationChange φ) = p.normalizationChange (ψ.comp φ) := by
-  sorry
-
-lemma FramedRoot.normalizationChange_arrow (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((FramedRoot.normalizationRingMap ((framedRootChange f n φ).map h)).restrictScalars A).comp
-      (q.normalizationChange φ) =
-    (p.normalizationChange φ).comp ((FramedRoot.normalizationRingMap h).restrictScalars A) := by
-  sorry
-
-lemma FramedRoot.normalizationChange_overBase (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ≫
-      p.normalizationSpecMap =
-    ((framedRootChange f n φ).obj p).normalizationSpecMap ≫
-      Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
-
-lemma FramedRoot.normalizationChange_isPushout (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    IsPushout (CommRingCat.ofHom φ.toRingHom)
-      (CommRingCat.ofHom (algebraMap B (AffineRing (p.coefficient : B) n)))
-      (CommRingCat.ofHom (algebraMap C
-        (AffineRing (((framedRootChange f n φ).obj p).coefficient : C) n)))
-      (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) := by
-  sorry
-
-lemma FramedRoot.normalizationChange_isPullback (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    IsPullback ((framedRootChange f n φ).obj p).normalizationSpecMap
-      (Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom))
-      (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap := by
-  sorry
-
-def FramedRoot.normalizationBaseChangeIso (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    Spec (CommRingCat.of
-      (AffineRing (((framedRootChange f n φ).obj p).coefficient : C) n)) ≅
-      pullback (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap :=
-  (p.normalizationChange_isPullback φ).isoPullback
-
-lemma FramedRoot.normalizationBaseChangeIso_hom_fst (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationBaseChangeIso φ).hom ≫ pullback.fst _ _ =
-      ((framedRootChange f n φ).obj p).normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationBaseChangeIso_hom_snd (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationBaseChangeIso φ).hom ≫ pullback.snd _ _ =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) := by
-  sorry
-
-lemma FramedRoot.normalizationBaseChangeIso_inv_fst (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationBaseChangeIso φ).inv ≫
-      ((framedRootChange f n φ).obj p).normalizationSpecMap = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationBaseChangeIso_inv_snd (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationBaseChangeIso φ).inv ≫
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) = pullback.snd _ _ := by
-  sorry
-
-variable [NeZero n]
-
-lemma FramedRoot.normalizationChange_point (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    (p.normalizationChange φ).comp p.normalizationPoint =
-      ((framedRootChange f n φ).obj p).normalizationPoint := by
-  sorry
-
-lemma FramedRoot.normalizationChange_chart (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ≫
-      p.normalizationChartMap = ((framedRootChange f n φ).obj p).normalizationChartMap := by
-  sorry
-
-def normalizationChangeNatTrans (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
-    framedRootChange f n φ ⋙ normalizationFunctor f n ⋙ Over.forget (Spec (CommRingCat.of C)) ⟶
-      normalizationFunctor f n ⋙ Over.forget (Spec (CommRingCat.of B)) where
-  app p := Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom)
-  naturality p q h := by
-    change Spec.map (CommRingCat.ofHom
-        (FramedRoot.normalizationRingMap ((framedRootChange f n φ).map h)).toRingHom) ≫
-      Spec.map (CommRingCat.ofHom (q.normalizationChange φ).toRingHom) =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ≫
-        Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom)
-    rw [← Spec.map_comp,← Spec.map_comp]
-    exact congrArg (fun k => Spec.map (CommRingCat.ofHom k.toRingHom))
-      (FramedRoot.normalizationChange_arrow φ h)
-
-lemma normalizationChangeNatTrans_app (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    (normalizationChangeNatTrans f n φ).app p =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) := by
-  sorry
-
-lemma normalizationChangeNatTrans_base (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    (normalizationChangeNatTrans f n φ).app p ≫ p.normalizationSpecMap =
-      ((framedRootChange f n φ).obj p).normalizationSpecMap ≫
-        Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
-
-lemma normalizationChangeNatTrans_chart (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
-    normalizationChangeNatTrans f n φ ≫ normalizationChartNatTrans f n =
-      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) := by
-  sorry
-
-lemma normalizationChangeNatTrans_isPullback (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    IsPullback ((framedRootChange f n φ).obj p).normalizationSpecMap
-      ((normalizationChangeNatTrans f n φ).app p)
-      (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D : Type uNormalizationChange}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D]
-variable [Algebra A B] [Algebra A C] [Algebra A D]
-
--- test: normalizationChangeTests.generators
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (p : FramedRoot f n B) (b : B) :
-    p.normalizationChange φ (AdjoinRoot.root _) = AdjoinRoot.root _ ∧
-    p.normalizationChange φ (algebraMap B _ b) = algebraMap C _ (φ b) := by
-  sorry
-
--- test: normalizationChangeTests.identity_composition
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    p.normalizationChange (AlgHom.id A B) = AlgHom.id A _ ∧
-    (((framedRootChange f n φ).obj p).normalizationChange ψ).comp
-      (p.normalizationChange φ) = p.normalizationChange (ψ.comp φ) := by
-  sorry
-
--- test: normalizationChangeTests.arrow_chart_cover
-example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((FramedRoot.normalizationRingMap ((framedRootChange f n φ).map h)).restrictScalars A).comp
-        (q.normalizationChange φ) =
-      (p.normalizationChange φ).comp ((FramedRoot.normalizationRingMap h).restrictScalars A) ∧
-    normalizationChangeNatTrans f n φ ≫ normalizationChartNatTrans f n =
-      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) ∧
-    IsPullback ((framedRootChange f n φ).obj p).normalizationSpecMap
-      ((normalizationChangeNatTrans f n φ).app p)
-      (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap ∧
-    Presieve.singleton ((framedRootChange f n φ).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of C)) := by
-  sorry
-
--- test: normalizationChangeTests.both_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    let e := p.normalizationBaseChangeIso φ
-    e.hom ≫ pullback.fst _ _ = ((framedRootChange f n φ).obj p).normalizationSpecMap ∧
-    e.hom ≫ pullback.snd _ _ =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ∧
-    e.inv ≫ ((framedRootChange f n φ).obj p).normalizationSpecMap = pullback.fst _ _ ∧
-    e.inv ≫ Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) =
-      pullback.snd _ _ ∧ e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationChangeTests.killed_nilpotent
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
-    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1,2,by decide⟩
-    let z := p.normalizationPoint (AdjoinRoot.root _)
-    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange φ z = 0 ∧
-      ¬ Function.Injective (p.normalizationChange φ) ∧
-    IsPullback ((framedRootChange (0 : ℤ) 2 φ).obj p).normalizationSpecMap
-      ((normalizationChangeNatTrans (0 : ℤ) 2 φ).app p)
-      (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap := by
-  sorry
-
--- test: normalizationChangeTests.wild_exponent
-example (φ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
-    (3 : ZMod 3) = 0 ∧
-    IsPullback ((framedRootChange (0 : ℤ) 3 φ).obj p).normalizationSpecMap
-      ((normalizationChangeNatTrans (0 : ℤ) 3 φ).app p)
-      (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 φ).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 3))) := by
-  sorry
-
--- test: normalizationChangeTests.exponent_one
-example (f : A) (φ : B →ₐ[A] C) (p : FramedRoot f 1 B) :
-    p.normalizationChange φ (p.normalizationPoint (AdjoinRoot.root _)) =
-      algebraMap A _ f ∧
-    (p.normalizationBaseChangeIso φ).hom ≫ pullback.snd _ _ ≫ p.normalizationChartMap =
-      ((framedRootChange f 1 φ).obj p).normalizationChartMap := by
-  sorry
-
--- test: normalizationChangeTests.exponent_zero
-example (φ : B →ₐ[A] C) (p : FramedRoot (1 : A) 0 B) :
-    p.normalizationChange φ (AdjoinRoot.root _) = AdjoinRoot.root _ ∧
-    (p.normalizationBaseChangeIso φ).hom ≫ pullback.fst _ _ =
-      ((framedRootChange (1 : A) 0 φ).obj p).normalizationSpecMap ∧
-    (p.normalizationBaseChangeIso φ).hom ≫ (p.normalizationBaseChangeIso φ).inv = 𝟙 _ := by
-  sorry
-
--- test: normalizationChangeTests.zero_ring
-example :
-    let φ : ℤ →ₐ[ℤ] ZMod 1 := Algebra.ofId ℤ (ZMod 1)
-    let p : FramedRoot (0 : ℤ) 3 ℤ := ⟨1,0,by norm_num⟩
-    p.normalizationChange φ (AdjoinRoot.root _) = 0 ∧
-    (p.normalizationBaseChangeIso φ).hom ≫ pullback.fst _ _ =
-      ((framedRootChange (0 : ℤ) 3 φ).obj p).normalizationSpecMap ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 φ).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-universe uNormalizationTower
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D E : Type uNormalizationTower}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
-variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
-variable {f : A} {n : ℕ}
-
-def FramedRoot.normalizationChangeSpecMap (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    Spec (CommRingCat.of (AffineRing
-      (((framedRootChange f n φ).obj p).coefficient : C) n)) ⟶
-        Spec (CommRingCat.of (AffineRing (p.coefficient : B) n)) :=
-  Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom)
-
-lemma FramedRoot.normalizationChangeSpecMap_identity (p : FramedRoot f n B) :
-    p.normalizationChangeSpecMap (AlgHom.id A B) = 𝟙 _ := by
-  sorry
-
-lemma FramedRoot.normalizationChangeSpecMap_composition (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    ((framedRootChange f n φ).obj p).normalizationChangeSpecMap ψ ≫
-      p.normalizationChangeSpecMap φ = p.normalizationChangeSpecMap (ψ.comp φ) := by
-  sorry
-
-lemma FramedRoot.normalizationChangeSpecMap_associativity (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationChangeSpecMap χ ≫
-      ((framedRootChange f n φ).obj p).normalizationChangeSpecMap ψ) ≫
-        p.normalizationChangeSpecMap φ =
-      p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) := by
-  sorry
-
-lemma FramedRoot.normalizationChangeSpecMap_overBase (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    p.normalizationChangeSpecMap φ ≫ p.normalizationSpecMap =
-      ((framedRootChange f n φ).obj p).normalizationSpecMap ≫
-        Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
-
-lemma FramedRoot.normalizationChangeSpecMap_isPullback (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    IsPullback ((framedRootChange f n φ).obj p).normalizationSpecMap
-      (p.normalizationChangeSpecMap φ) (Spec.map (CommRingCat.ofHom φ.toRingHom))
-      p.normalizationSpecMap := by
-  sorry
-
-def FramedRoot.normalizationPullbackTransportIso (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    pullback (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-      ((framedRootChange f n φ).obj p).normalizationSpecMap ≅
-    pullback (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap) :=
-  asIso (pullback.map _ _ _ _ (𝟙 _) (p.normalizationBaseChangeIso φ).hom (𝟙 _)
-    (by simp) (by simpa using (p.normalizationBaseChangeIso_hom_fst φ).symm))
-
-lemma FramedRoot.normalizationPullbackTransportIso_hom_fst (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationPullbackTransportIso φ ψ).hom ≫ pullback.fst _ _ =
-      pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationPullbackTransportIso_hom_snd (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationPullbackTransportIso φ ψ).hom ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ (p.normalizationBaseChangeIso φ).hom := by
-  sorry
-
-lemma FramedRoot.normalizationPullbackTransportIso_inv_fst (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationPullbackTransportIso φ ψ).inv ≫ pullback.fst _ _ =
-      pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationPullbackTransportIso_inv_snd (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationPullbackTransportIso φ ψ).inv ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ (p.normalizationBaseChangeIso φ).inv := by
-  sorry
-
-def FramedRoot.normalizationIteratedBaseChangeIso (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    Spec (CommRingCat.of (AffineRing
-      (((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).coefficient : D) n)) ≅
-    pullback (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap) :=
-  ((framedRootChange f n φ).obj p).normalizationBaseChangeIso ψ ≪≫
-    p.normalizationPullbackTransportIso φ ψ
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_hom_fst (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationIteratedBaseChangeIso φ ψ).hom ≫ pullback.fst _ _ =
-      ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_hom_snd (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationIteratedBaseChangeIso φ ψ).hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ =
-      p.normalizationChangeSpecMap (ψ.comp φ) := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_inv_fst (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationIteratedBaseChangeIso φ ψ).inv ≫
-      ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationSpecMap =
-        pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_inv_snd (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationIteratedBaseChangeIso φ ψ).inv ≫
-      p.normalizationChangeSpecMap (ψ.comp φ) = pullback.snd _ _ ≫ pullback.snd _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_paste (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    p.normalizationIteratedBaseChangeIso φ ψ ≪≫
-      pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom φ.toRingHom))
-        p.normalizationSpecMap (Spec.map (CommRingCat.ofHom ψ.toRingHom)) ≪≫
-      pullback.congrHom
-        (Spec.map_comp (CommRingCat.ofHom φ.toRingHom) (CommRingCat.ofHom ψ.toRingHom)).symm
-        rfl = p.normalizationBaseChangeIso (ψ.comp φ) := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_paste_inverse (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (pullback.congrHom
-        (Spec.map_comp (CommRingCat.ofHom φ.toRingHom) (CommRingCat.ofHom ψ.toRingHom)).symm
-        (rfl : p.normalizationSpecMap = p.normalizationSpecMap)).inv ≫
-      (pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom φ.toRingHom))
-        p.normalizationSpecMap (Spec.map (CommRingCat.ofHom ψ.toRingHom))).inv ≫
-      (p.normalizationIteratedBaseChangeIso φ ψ).inv =
-        (p.normalizationBaseChangeIso (ψ.comp φ)).inv := by
-  sorry
-
-lemma FramedRoot.normalizationBaseChangeIso_identity_snd (p : FramedRoot f n B) :
-    (p.normalizationBaseChangeIso (AlgHom.id A B)).hom ≫ pullback.snd _ _ = 𝟙 _ := by
-  sorry
-
-lemma FramedRoot.normalizationBaseChangeIso_naturality (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    Spec.map (CommRingCat.ofHom
-        (FramedRoot.normalizationRingMap ((framedRootChange f n φ).map h)).toRingHom) ≫
-      (q.normalizationBaseChangeIso φ).hom =
-    (p.normalizationBaseChangeIso φ).hom ≫
-      pullback.map _ _ _ _ (𝟙 _)
-        (Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom)) (𝟙 _)
-        (by simp) (by simpa using (FramedRoot.normalizationRingMap_overBase h).symm) := by
-  sorry
-
-lemma FramedRoot.normalizationIteratedBaseChangeIso_chart [NeZero n]
-    (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    (p.normalizationIteratedBaseChangeIso φ ψ).hom ≫ pullback.snd _ _ ≫
-      pullback.snd _ _ ≫ p.normalizationChartMap =
-        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationChartMap := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D E : Type uNormalizationTower}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
-variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
-
--- test: normalizationTowerTests.map_coherence
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E)
-    (p : FramedRoot f n B) :
-    p.normalizationChangeSpecMap (AlgHom.id A B) = 𝟙 _ ∧
-    ((framedRootChange f n φ).obj p).normalizationChangeSpecMap ψ ≫
-      p.normalizationChangeSpecMap φ = p.normalizationChangeSpecMap (ψ.comp φ) ∧
-    (((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationChangeSpecMap χ ≫
-      ((framedRootChange f n φ).obj p).normalizationChangeSpecMap ψ) ≫
-        p.normalizationChangeSpecMap φ = p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) ∧
-    IsPullback ((framedRootChange f n (ψ.comp φ)).obj p).normalizationSpecMap
-      (p.normalizationChangeSpecMap (ψ.comp φ))
-      (Spec.map (CommRingCat.ofHom (ψ.comp φ).toRingHom)) p.normalizationSpecMap ∧
-    (p.normalizationBaseChangeIso (AlgHom.id A B)).hom ≫ pullback.snd _ _ = 𝟙 _ := by
-  sorry
-
--- test: normalizationTowerTests.transport_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    let e := p.normalizationPullbackTransportIso φ ψ
-    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationBaseChangeIso φ).hom ∧
-    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.inv ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationBaseChangeIso φ).inv ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationTowerTests.iterated_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    let q := (framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)
-    e.hom ≫ pullback.fst _ _ = q.normalizationSpecMap ∧
-    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (ψ.comp φ) ∧
-    e.inv ≫ q.normalizationSpecMap = pullback.fst _ _ ∧
-    e.inv ≫ p.normalizationChangeSpecMap (ψ.comp φ) = pullback.snd _ _ ≫ pullback.snd _ _ ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationTowerTests.pasting
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    let a := pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom φ.toRingHom))
-      p.normalizationSpecMap (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-    let c := pullback.congrHom
-      (Spec.map_comp (CommRingCat.ofHom φ.toRingHom) (CommRingCat.ofHom ψ.toRingHom)).symm
-      (rfl : p.normalizationSpecMap = p.normalizationSpecMap)
-    e ≪≫ a ≪≫ c = p.normalizationBaseChangeIso (ψ.comp φ) ∧
-    c.inv ≫ a.inv ≫ e.inv = (p.normalizationBaseChangeIso (ψ.comp φ)).inv := by
-  sorry
-
--- test: normalizationTowerTests.actual_arrow
-example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    Spec.map (CommRingCat.ofHom
-        (FramedRoot.normalizationRingMap ((framedRootChange f n φ).map h)).toRingHom) ≫
-      (q.normalizationBaseChangeIso φ).hom =
-    (p.normalizationBaseChangeIso φ).hom ≫
-      pullback.map _ _ _ _ (𝟙 _)
-        (Spec.map (CommRingCat.ofHom (FramedRoot.normalizationRingMap h).toRingHom)) (𝟙 _)
-        (by simp) (by simpa using (FramedRoot.normalizationRingMap_overBase h).symm) ∧
-    (p.normalizationIteratedBaseChangeIso φ ψ).hom ≫ pullback.snd _ _ ≫
-      pullback.snd _ _ ≫ p.normalizationChartMap =
-        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationChartMap := by
-  sorry
-
--- test: normalizationTowerTests.killed_nilpotent
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
-    let ψ := AlgHom.id ℤ (ZMod 2)
-    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1,2,by decide⟩
-    let z := p.normalizationPoint (AdjoinRoot.root _)
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange (ψ.comp φ) z = 0 ∧
-    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (ψ.comp φ) ∧
-    e.hom ≫ e.inv = 𝟙 _ := by
-  sorry
-
--- test: normalizationTowerTests.wild_exponent
-example (φ ψ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    (3 : ZMod 3) = 0 ∧
-    e.hom ≫ pullback.fst _ _ =
-      ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p)).normalizationSpecMap ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (ψ.comp φ)).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 3))) := by
-  sorry
-
--- test: normalizationTowerTests.exponent_zero
-example (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot (1 : A) 0 B) :
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    e.hom ≫ pullback.fst _ _ =
-      ((framedRootChange (1 : A) 0 ψ).obj ((framedRootChange (1 : A) 0 φ).obj p)).normalizationSpecMap ∧
-    e.hom ≫ e.inv = 𝟙 _ := by
-  sorry
-
--- test: normalizationTowerTests.zero_ring
-example :
-    let φ := Algebra.ofId ℤ (ZMod 1)
-    let ψ := AlgHom.id ℤ (ZMod 1)
-    let p : FramedRoot (0 : ℤ) 3 ℤ := ⟨1,0,by norm_num⟩
-    let e := p.normalizationIteratedBaseChangeIso φ ψ
-    e.hom ≫ pullback.fst _ _ =
-      ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p)).normalizationSpecMap ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (ψ.comp φ)).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-universe uNormalizationThree
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D E : Type uNormalizationThree}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
-variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
-variable {f : A} {n : ℕ}
-
-def FramedRoot.normalizationPastingIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    pullback (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap) ≅
-    pullback (Spec.map (CommRingCat.ofHom (ψ.comp φ).toRingHom)) p.normalizationSpecMap :=
-  pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom φ.toRingHom))
-    p.normalizationSpecMap (Spec.map (CommRingCat.ofHom ψ.toRingHom)) ≪≫
-  pullback.congrHom
-    (Spec.map_comp (CommRingCat.ofHom φ.toRingHom) (CommRingCat.ofHom ψ.toRingHom)).symm rfl
-
-lemma FramedRoot.normalizationPastingIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    (p.normalizationPastingIso φ ψ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationPastingIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    (p.normalizationPastingIso φ ψ).hom ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ pullback.snd _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationPastingIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    (p.normalizationPastingIso φ ψ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationPastingIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (p : FramedRoot f n B) :
-    (p.normalizationPastingIso φ ψ).inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ =
-      pullback.snd _ _ := by
-  sorry
-
-def FramedRoot.normalizationTripleTransportIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
-      ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationSpecMap ≅
-    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) :=
-  asIso (pullback.map _ _ _ _ (𝟙 _) (p.normalizationIteratedBaseChangeIso φ ψ).hom (𝟙 _)
-    (by simp) (by simpa using (p.normalizationIteratedBaseChangeIso_hom_fst φ ψ).symm))
-
-lemma FramedRoot.normalizationTripleTransportIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleTransportIso φ ψ χ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTripleTransportIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleTransportIso φ ψ χ).hom ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).hom := by
-  sorry
-
-lemma FramedRoot.normalizationTripleTransportIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleTransportIso φ ψ χ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTripleTransportIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleTransportIso φ ψ χ).inv ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).inv := by
-  sorry
-
-def FramedRoot.normalizationTripleBaseChangeIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    Spec (CommRingCat.of (AffineRing
-      (((framedRootChange f n χ).obj
-        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).coefficient : E) n)) ≅
-    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) :=
-  ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p)).normalizationBaseChangeIso χ ≪≫
-    p.normalizationTripleTransportIso φ ψ χ
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫ pullback.fst _ _ =
-      ((framedRootChange f n χ).obj
-        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫
-      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ =
-        p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleBaseChangeIso φ ψ χ).inv ≫
-      ((framedRootChange f n χ).obj
-        ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationSpecMap =
-          pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleBaseChangeIso φ ψ χ).inv ≫
-      p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) =
-        pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ := by
-  sorry
-
-def FramedRoot.normalizationTriplePastingIso (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    pullback (Spec.map (CommRingCat.ofHom χ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)) ≅
-    pullback (Spec.map (CommRingCat.ofHom (χ.comp (ψ.comp φ)).toRingHom)) p.normalizationSpecMap :=
-  asIso (pullback.map _ _ _ _ (𝟙 _) (p.normalizationPastingIso φ ψ).hom (𝟙 _)
-    (by simp) (by simpa using (p.normalizationPastingIso_hom_fst φ ψ).symm)) ≪≫
-  p.normalizationPastingIso (ψ.comp φ) χ
-
-lemma FramedRoot.normalizationTriplePastingIso_hom_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).hom ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTriplePastingIso_hom_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).hom ≫ pullback.snd _ _ =
-      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTriplePastingIso_inv_fst (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).inv ≫ pullback.fst _ _ = pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTriplePastingIso_inv_snd (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).inv ≫
-      pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationTriplePastingIso_associativity (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    p.normalizationTriplePastingIso φ ψ χ =
-      pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
-        (Spec.map (CommRingCat.ofHom χ.toRingHom)) ≪≫
-      pullback.congrHom
-        (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
-        rfl ≪≫ p.normalizationPastingIso φ (χ.comp ψ) ≪≫
-      pullback.congrHom
-        (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
-          (AlgHom.comp_assoc χ ψ φ)) rfl := by
-  sorry
-
-lemma FramedRoot.normalizationTriplePastingIso_associativity_inverse (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).inv =
-      (pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-        (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
-        (Spec.map (CommRingCat.ofHom χ.toRingHom)) ≪≫
-      pullback.congrHom
-        (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
-        rfl ≪≫ p.normalizationPastingIso φ (χ.comp ψ) ≪≫
-      pullback.congrHom
-        (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
-          (AlgHom.comp_assoc χ ψ φ)) rfl).inv := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_paste (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D)
-    (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    p.normalizationTripleBaseChangeIso φ ψ χ ≪≫ p.normalizationTriplePastingIso φ ψ χ =
-      p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_paste_inverse (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTriplePastingIso φ ψ χ).inv ≫
-      (p.normalizationTripleBaseChangeIso φ ψ χ).inv =
-        (p.normalizationBaseChangeIso (χ.comp (ψ.comp φ))).inv := by
-  sorry
-
-lemma FramedRoot.normalizationTripleBaseChangeIso_chart [NeZero n] (φ : B →ₐ[A] C)
-    (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    (p.normalizationTripleBaseChangeIso φ ψ χ).hom ≫ pullback.snd _ _ ≫
-      pullback.snd _ _ ≫ pullback.snd _ _ ≫ p.normalizationChartMap =
-        ((framedRootChange f n χ).obj
-          ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))).normalizationChartMap := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-set_option linter.style.haveILetI false
-variable {A B C D E : Type uNormalizationThree}
-variable [CommRing A] [CommRing B] [CommRing C] [CommRing D] [CommRing E]
-variable [Algebra A B] [Algebra A C] [Algebra A D] [Algebra A E]
-
--- test: normalizationThreeTests.pasting_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (p : FramedRoot f n B) :
-    let e := p.normalizationPastingIso φ ψ
-    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ pullback.snd _ _ ∧
-    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationThreeTests.transport_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    let e := p.normalizationTripleTransportIso φ ψ χ
-    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).hom ∧
-    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.inv ≫ pullback.snd _ _ = pullback.snd _ _ ≫ (p.normalizationIteratedBaseChangeIso φ ψ).inv ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationThreeTests.triple_projections
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot f n B) :
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    let q := (framedRootChange f n χ).obj ((framedRootChange f n ψ).obj ((framedRootChange f n φ).obj p))
-    e.hom ≫ pullback.fst _ _ = q.normalizationSpecMap ∧
-    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) ∧
-    e.inv ≫ q.normalizationSpecMap = pullback.fst _ _ ∧
-    e.inv ≫ p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) = pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationThreeTests.collapse_associativity
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E)
-    (p : FramedRoot f n B) :
-    let e := p.normalizationTriplePastingIso φ ψ χ
-    let a := pullbackRightPullbackFstIso (Spec.map (CommRingCat.ofHom ψ.toRingHom))
-      (pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap)
-      (Spec.map (CommRingCat.ofHom χ.toRingHom))
-    let c := pullback.congrHom
-      (Spec.map_comp (CommRingCat.ofHom ψ.toRingHom) (CommRingCat.ofHom χ.toRingHom)).symm
-      (rfl : pullback.fst (Spec.map (CommRingCat.ofHom φ.toRingHom)) p.normalizationSpecMap = _)
-    let b := p.normalizationPastingIso φ (χ.comp ψ)
-    let d := pullback.congrHom
-      (congrArg (fun k : B →ₐ[A] E => Spec.map (CommRingCat.ofHom k.toRingHom))
-        (AlgHom.comp_assoc χ ψ φ)) (rfl : p.normalizationSpecMap = _)
-    e.hom ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.hom ≫ pullback.snd _ _ = pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ∧
-    e.inv ≫ pullback.fst _ _ = pullback.fst _ _ ∧
-    e.inv ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = pullback.snd _ _ ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ ∧
-    e = a ≪≫ c ≪≫ b ≪≫ d ∧ e.inv = d.inv ≫ b.inv ≫ c.inv ≫ a.inv := by
-  sorry
-
--- test: normalizationThreeTests.direct_comparison
-example {f : A} {n : ℕ} (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E)
-    (p : FramedRoot f n B) :
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    let c := p.normalizationTriplePastingIso φ ψ χ
-    e ≪≫ c = p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) ∧
-    c.inv ≫ e.inv = (p.normalizationBaseChangeIso (χ.comp (ψ.comp φ))).inv := by
-  sorry
-
--- test: normalizationThreeTests.killed_nilpotent
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
-    let ψ := AlgHom.id ℤ (ZMod 2)
-    let χ := AlgHom.id ℤ (ZMod 2)
-    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1,2,by decide⟩
-    let z := p.normalizationPoint (AdjoinRoot.root _)
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange (χ.comp (ψ.comp φ)) z = 0 ∧
-    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ = p.normalizationChangeSpecMap (χ.comp (ψ.comp φ)) ∧
-    e.hom ≫ e.inv = 𝟙 _ := by
-  sorry
-
--- test: normalizationThreeTests.wild_chart
-example (φ ψ χ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    (3 : ZMod 3) = 0 ∧
-    e.hom ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫ pullback.snd _ _ ≫
-      p.normalizationChartMap =
-        ((framedRootChange (0 : ℤ) 3 χ).obj
-          ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p))).normalizationChartMap ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (χ.comp (ψ.comp φ))).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 3))) := by
-  sorry
-
--- test: normalizationThreeTests.exponent_zero
-example (φ : B →ₐ[A] C) (ψ : C →ₐ[A] D) (χ : D →ₐ[A] E) (p : FramedRoot (1 : A) 0 B) :
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    e ≪≫ p.normalizationTriplePastingIso φ ψ χ = p.normalizationBaseChangeIso (χ.comp (ψ.comp φ)) ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationThreeTests.zero_ring
-example :
-    let φ := Algebra.ofId ℤ (ZMod 1)
-    let ψ := AlgHom.id ℤ (ZMod 1)
-    let χ := AlgHom.id ℤ (ZMod 1)
-    let p : FramedRoot (0 : ℤ) 3 ℤ := ⟨1,0,by norm_num⟩
-    let e := p.normalizationTripleBaseChangeIso φ ψ χ
-    e.hom ≫ pullback.fst _ _ =
-      ((framedRootChange (0 : ℤ) 3 χ).obj ((framedRootChange (0 : ℤ) 3 ψ).obj ((framedRootChange (0 : ℤ) 3 φ).obj p))).normalizationSpecMap ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ ∧
-    Presieve.singleton ((framedRootChange (0 : ℤ) 3 (χ.comp (ψ.comp φ))).obj p).normalizationSpecMap ∈
-      Scheme.fppfPrecoverage (Spec (CommRingCat.of (ZMod 1))) := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option synthInstance.maxHeartbeats 200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C] {f : A} {n : ℕ} [NeZero n]
-
-def FramedRoot.normalizationOverBaseChangeIso (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (normalizationFunctor f n).obj ((framedRootChange f n φ).obj p) ≅
-      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).obj
-        ((normalizationFunctor f n).obj p) :=
-  Over.isoMk (p.normalizationBaseChangeIso φ ≪≫
-    pullbackSymmetry (Spec.map (CommRingCat.ofHom φ.toRingHom))
-      p.normalizationSpecMap) (by
-    change ((p.normalizationBaseChangeIso φ).hom ≫
-      (pullbackSymmetry _ _).hom) ≫ pullback.snd _ _ = _
-    rw [Category.assoc, pullbackSymmetry_hom_comp_snd,
-      FramedRoot.normalizationBaseChangeIso_hom_fst]
-    rfl)
-
-lemma FramedRoot.normalizationOverBaseChangeIso_hom_fst (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationOverBaseChangeIso φ).hom.left ≫ pullback.fst _ _ =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) := by
-  sorry
-
-lemma FramedRoot.normalizationOverBaseChangeIso_hom_snd (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationOverBaseChangeIso φ).hom.left ≫ pullback.snd _ _ =
-      ((framedRootChange f n φ).obj p).normalizationSpecMap := by
-  sorry
-
-lemma FramedRoot.normalizationOverBaseChangeIso_inv_fst (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationOverBaseChangeIso φ).inv.left ≫
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) =
-        pullback.fst _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationOverBaseChangeIso_inv_snd (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (p.normalizationOverBaseChangeIso φ).inv.left ≫
-      ((framedRootChange f n φ).obj p).normalizationSpecMap =
-        pullback.snd _ _ := by
-  sorry
-
-lemma FramedRoot.normalizationOverBaseChangeIso_naturality (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    (normalizationFunctor f n).map ((framedRootChange f n φ).map h) ≫
-      (q.normalizationOverBaseChangeIso φ).hom =
-    (p.normalizationOverBaseChangeIso φ).hom ≫
-      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
-        ((normalizationFunctor f n).map h) := by
-  sorry
-
-def normalizationBaseChangeNatIso (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) :
-    framedRootChange f n φ ⋙ normalizationFunctor f n ≅
-      normalizationFunctor f n ⋙
-        Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom)) :=
-  NatIso.ofComponents (fun p => p.normalizationOverBaseChangeIso φ)
-    (fun h => FramedRoot.normalizationOverBaseChangeIso_naturality φ h)
-
-lemma normalizationBaseChangeNatIso_app (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (normalizationBaseChangeNatIso f n φ).app p =
-      p.normalizationOverBaseChangeIso φ := by
-  sorry
-
-def normalizationPullbackProjection (f : A) (n : ℕ) [NeZero n]
-    (φ : B →ₐ[A] C) :
-    normalizationFunctor f n ⋙
-      Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom)) ⋙
-        Over.forget (Spec (CommRingCat.of C)) ⟶
-      normalizationFunctor f n ⋙ Over.forget (Spec (CommRingCat.of B)) :=
-  Functor.whiskerLeft (normalizationFunctor f n)
-    (Functor.whiskerRight (Over.mapPullbackAdj
-      (Spec.map (CommRingCat.ofHom φ.toRingHom))).counit
-        (Over.forget (Spec (CommRingCat.of B))))
-
-lemma normalizationPullbackProjection_app (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (normalizationPullbackProjection f n φ).app p =
-      pullback.fst p.normalizationSpecMap
-        (Spec.map (CommRingCat.ofHom φ.toRingHom)) := by
-  sorry
-
-lemma normalizationPullbackProjection_base (φ : B →ₐ[A] C)
-    (p : FramedRoot f n B) :
-    (normalizationPullbackProjection f n φ).app p ≫ p.normalizationSpecMap =
-      pullback.snd p.normalizationSpecMap
-        (Spec.map (CommRingCat.ofHom φ.toRingHom)) ≫
-          Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
-
-lemma normalizationPullbackProjection_naturality (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    ((Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
-      ((normalizationFunctor f n).map h)).left ≫
-        (normalizationPullbackProjection f n φ).app q =
-      (normalizationPullbackProjection f n φ).app p ≫
-        ((normalizationFunctor f n).map h).left := by
-  sorry
-
-lemma normalizationBaseChangeNatIso_projection (φ : B →ₐ[A] C) :
-    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).hom
-        (Over.forget (Spec (CommRingCat.of C))) ≫
-      normalizationPullbackProjection f n φ = normalizationChangeNatTrans f n φ := by
-  sorry
-
-lemma normalizationBaseChangeNatIso_chart (φ : B →ₐ[A] C) :
-    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).hom
-        (Over.forget (Spec (CommRingCat.of C))) ≫
-      (normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n) =
-    Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) := by
-  sorry
-
-lemma normalizationBaseChangeNatIso_inverse_projection (φ : B →ₐ[A] C) :
-    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).inv
-        (Over.forget (Spec (CommRingCat.of C))) ≫ normalizationChangeNatTrans f n φ =
-      normalizationPullbackProjection f n φ := by
-  sorry
-
-lemma normalizationBaseChangeNatIso_inverse_chart (φ : B →ₐ[A] C) :
-    Functor.whiskerRight (normalizationBaseChangeNatIso f n φ).inv
-        (Over.forget (Spec (CommRingCat.of C))) ≫
-      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) =
-    normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n := by
-  sorry
-
-end TauCeti.RootStack
-end
-
-noncomputable section
-namespace TauCeti.RootStack
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-set_option maxHeartbeats 1200000
-set_option backward.isDefEq.respectTransparency false
-set_option backward.isDefEq.respectTransparency.types false
-variable {A B C : Type uPoint} [CommRing A] [CommRing B] [CommRing C]
-variable [Algebra A B] [Algebra A C]
-
--- test: normalizationNatIsoTests.over_projections_roundtrips
-example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C) (p : FramedRoot f n B) :
-    let e := p.normalizationOverBaseChangeIso φ
-    e.hom.left ≫ pullback.fst _ _ =
-      Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) ∧
-    e.hom.left ≫ pullback.snd _ _ = ((framedRootChange f n φ).obj p).normalizationSpecMap ∧
-    e.inv.left ≫ Spec.map (CommRingCat.ofHom (p.normalizationChange φ).toRingHom) =
-      pullback.fst _ _ ∧
-    e.inv.left ≫ ((framedRootChange f n φ).obj p).normalizationSpecMap = pullback.snd _ _ ∧
-    e.hom ≫ e.inv = 𝟙 _ ∧ e.inv ≫ e.hom = 𝟙 _ := by
-  sorry
-
--- test: normalizationNatIsoTests.whole_chart_transport
-example (f : A) (n : ℕ) [NeZero n] (φ : B →ₐ[A] C) :
-    let e := normalizationBaseChangeNatIso f n φ
-    Functor.whiskerRight e.hom (Over.forget (Spec (CommRingCat.of C))) ≫
-      normalizationPullbackProjection f n φ = normalizationChangeNatTrans f n φ ∧
-    Functor.whiskerRight e.inv (Over.forget (Spec (CommRingCat.of C))) ≫
-      normalizationChangeNatTrans f n φ = normalizationPullbackProjection f n φ ∧
-    Functor.whiskerRight e.hom (Over.forget (Spec (CommRingCat.of C))) ≫
-      (normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n) =
-      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) ∧
-    Functor.whiskerRight e.inv (Over.forget (Spec (CommRingCat.of C))) ≫
-      Functor.whiskerLeft (framedRootChange f n φ) (normalizationChartNatTrans f n) =
-      normalizationPullbackProjection f n φ ≫ normalizationChartNatTrans f n := by
-  sorry
-
--- test: normalizationNatIsoTests.actual_arrow_naturality
-example {f : A} {n : ℕ} [NeZero n] (φ : B →ₐ[A] C)
-    {p q : FramedRoot f n B} (h : p ⟶ q) :
-    (normalizationFunctor f n).map ((framedRootChange f n φ).map h) ≫
-      ((normalizationBaseChangeNatIso f n φ).app q).hom =
-    ((normalizationBaseChangeNatIso f n φ).app p).hom ≫
-      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
-        ((normalizationFunctor f n).map h) ∧
-    (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
-        ((normalizationFunctor f n).map h) ≫
-      ((normalizationBaseChangeNatIso f n φ).app q).inv =
-    ((normalizationBaseChangeNatIso f n φ).app p).inv ≫
-      (normalizationFunctor f n).map ((framedRootChange f n φ).map h) := by
-  sorry
-
--- test: normalizationNatIsoTests.killed_nilpotent
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
-    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1, 2, by decide⟩
-    let z := p.normalizationPoint (AdjoinRoot.root _)
-    z ≠ 0 ∧ z ^ 2 = 0 ∧ p.normalizationChange φ z = 0 ∧
-    ((normalizationBaseChangeNatIso (0 : ℤ) 2 φ).app p).hom.left ≫
-      (normalizationPullbackProjection (0 : ℤ) 2 φ).app p ≫ p.normalizationChartMap =
-      ((framedRootChange (0 : ℤ) 2 φ).obj p).normalizationChartMap := by
-  sorry
-
--- test: normalizationNatIsoTests.collapsed_stabilizer
-example :
-    let φ : ZMod 4 →ₐ[ℤ] ZMod 2 := (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toIntAlgHom
-    let p : FramedRoot (0 : ℤ) 2 (ZMod 4) := ⟨1, 0, by decide⟩
-    ∃ h : p ⟶ p, h ≠ 𝟙 p ∧ (framedRootChange (0 : ℤ) 2 φ).map h = 𝟙 _ ∧
-      (Over.pullback (Spec.map (CommRingCat.ofHom φ.toRingHom))).map
-        ((normalizationFunctor (0 : ℤ) 2).map h) = 𝟙 _ := by
-  sorry
-
--- test: normalizationNatIsoTests.wild_exponent
-example (φ : ZMod 3 →ₐ[ℤ] ZMod 3) (p : FramedRoot (0 : ℤ) 3 (ZMod 3)) :
-    (3 : ZMod 3) = 0 ∧
-    ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).hom ≫
-      ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).inv = 𝟙 _ ∧
-    (normalizationPullbackProjection (0 : ℤ) 3 φ).app p ≫ p.normalizationSpecMap =
-      pullback.snd _ _ ≫ Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
-
--- test: normalizationNatIsoTests.exponent_one
-example (f : A) (φ : B →ₐ[A] C) (p : FramedRoot f 1 B) :
-    p.normalizationChange φ (p.normalizationPoint (AdjoinRoot.root _)) =
-      algebraMap A _ f ∧
-    ((normalizationBaseChangeNatIso f 1 φ).app p).hom.left ≫
-      (normalizationPullbackProjection f 1 φ).app p =
-        (normalizationChangeNatTrans f 1 φ).app p := by
-  sorry
-
--- test: normalizationNatIsoTests.zero_ring
-example :
-    let φ : ZMod 1 →ₐ[ℤ] ZMod 1 := AlgHom.id ℤ _
-    let p : FramedRoot (0 : ℤ) 3 (ZMod 1) := ⟨1, 0, by decide⟩
-    ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).inv ≫
-      ((normalizationBaseChangeNatIso (0 : ℤ) 3 φ).app p).hom = 𝟙 _ ∧
-    (normalizationPullbackProjection (0 : ℤ) 3 φ).app p ≫ p.normalizationSpecMap =
-      pullback.snd _ _ ≫ Spec.map (CommRingCat.ofHom φ.toRingHom) := by
-  sorry
+end TauCeti.RamifiedClassField.GC6
 
-end TauCeti.RootStack
 end

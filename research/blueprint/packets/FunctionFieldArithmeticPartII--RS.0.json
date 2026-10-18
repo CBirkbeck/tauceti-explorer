@@ -946,15 +946,15 @@
         "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
         "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
         "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
-        "DiamondsAndVStacks:D0/stackification",
-        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
         "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
         "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
       ],
       "proofSteps": [
         "Reuse the parent fpqc root-descent theorem; its restriction is an fppf stack. Its exact module-descent supplier is R09.3, so effective descent is not inferred merely from a chart.",
         "Full faithfulness follows from native-chart-realization and the Hom equations. Local essential surjectivity is native-local-normalization on the affine basis.",
-        "Apply Stacks Lemma8.9.1 via D0’s stackification: Q has sheaf Hom sets since it embeds fully faithfully into the stack R. The morphism Q→R has the two characterizing properties, so the induced stackification comparison is an equivalence.",
+        "Apply Stacks Lemma8.9.1 via the current SF.1 stackification contract: Q has sheaf Hom sets since it embeds fully faithfully into the stack R. The morphism Q→R has the two characterizing properties, so the induced stackification comparison is an equivalence.",
         "The universal property gives the actual equivalence and invertible modifications; it also compares the coefficient-change extensions. Use the requested affine-basis comparison to extend to test schemes, rather than equating an affine site with the full site."
       ],
       "acceptance": [
@@ -1003,7 +1003,7 @@
         "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
         "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
         "FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso",
-        "DiamondsAndVStacks:D0/stackification"
+        "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
         "Use native-frame-change to identify framed coordinates under l,l′. The two stackification equivalences land in the same native root groupoid, so their composite defines the canonical stack equivalence.",
@@ -1107,13 +1107,13 @@
         "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
         "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
         "SchemeAndStackFoundations:SF.0",
-        "DiamondsAndVStacks:D0"
+        "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
-        "Request generic native scheme/module universe comparisons from SF.0 and descent transport along the resulting equivalence of sites from D0. Those generic constructions are owned there, not recreated here.",
+        "Request generic native scheme/module universe comparisons from SF.0 and descent transport along the resulting equivalence of sites from SF.1. Those generic constructions are owned there, not recreated here.",
         "Lift M,t,φ using the section and tensor comparisons; these carry φ(t^n)=s to the identical typed root equation in the enlarged universe. Lift h and both arrow squares in the same way.",
         "Use essential surjectivity of the supplied invertible-sheaf lift on each matched scheme to recover a small root line. Its section bijection recovers t; full faithfulness, together with the tensor and target-line comparisons, recovers φ and every root arrow. Faithfulness reflects the section equation and both arrow equations. Thus the inverse recovers all enlarged roots on that test scheme, rather than only roots already in the lift's image.",
-        "The supplier’s pullback comparisons transport the root pseudofunctor, κ and frame equivalence; D0’s equivalent-site transport and stackification universal property transport native-stackification-equivalence.",
+        "The supplier’s pullback comparisons transport the root pseudofunctor, κ and frame equivalence; the requested SF.1 equivalent-site transport and stackification universal property transport native-stackification-equivalence.",
         "Underlying coherent lift maps satisfy triangle/pentagon, hence so do their root restrictions. Genuine new larger test objects are handled by the formula of the native root pseudofunctor at that universe, not asserted to come from the small site."
       ],
       "acceptance": [
@@ -1234,11 +1234,12 @@
     },
     {
       "id": "UNIVERSE-STACKS-RS0",
-      "supplier": "DiamondsAndVStacks:D0",
+      "supplier": "SchemeAndStackFoundations:SF.1",
       "need": "Transport groupoid-valued pseudofunctors, covering topologies, IsStack and stackification across an equivalence with the essential-image lifted site, including strong transformations and invertible modifications. Root-specific transport uses this generic adapter; no equality between all universe levels of schemes is asserted.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter"
-      ]
+      ],
+      "assemblyDisposition": "Generic site-level stackification and quotient carriers now belong to current SchemeAndStackFoundations §§1.18 and 1.21. The equivalent-site/universe adapter is requested from that owner, not its Perf/v instance."
     }
   ],
   "coverage": [
@@ -1500,5 +1501,10 @@
         "note": "Strengthened the geometry request to an equivalence on full invertible-sheaf groupoids over each matched scheme, with section bijections and full faithfulness. The inverse now explicitly recovers arbitrary enlarged root lines, rather than only preselected lifts. Test-site comparisons still exclude genuinely larger schemes."
       }
     ]
+  },
+  "assembly": {
+    "aggregateReader": "research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+    "aggregateSuggested": "research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+    "job": "ASM-FunctionFieldArithmeticPartII"
   }
 }
