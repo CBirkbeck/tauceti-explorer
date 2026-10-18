@@ -208,7 +208,7 @@ C3 masses u1 abelian 0.1400315194819872 elementary 0.1575354594172356
 
 ## Payload integrity
 
-- `README.md`: 144484 bytes; SHA-256 `8316cdd14464fd3dc57a8ff50e793470373c8719adb9b8b09ed3d6174500d4e7`.
+- `README.md`: 144596 bytes; SHA-256 `5cfcc19dd80d69b9e66b20a7334a6888b731079d851759a9533cb5a706d9ed98`.
 - `Suggested.lean`: 8777 bytes; SHA-256 `13f06053e9e4208925534a9abfaafd6b7f8cb44fd71f637d9f18b97fb1a2f0b0`.
 - `metadata.toml`: 18 bytes; SHA-256 `d303572d699e7ef5619039e39ca2cc23feb22354dad61e5014fe05151078b2a7`.
 - Accepted packet at preparation: SHA-256 `88b97e478df263a2194fcec63887c4c422842682cccaf8897b8076dff91e42a6`.
@@ -1154,7 +1154,7 @@ Assume (SZ_Γ); A finite admissible; u any integer (this uses Theorem 5.12 for a
 
 For ℓ ≥ |A|, |Sur_Γ(X, A)| = |Sur_Γ(X^{𝒞_ℓ}, A)|, so the function is constant on each U_{𝒞_ℓ,H} and the integral is Σ_H |Sur_Γ(H, A)| μ_u(U_{𝒞_ℓ,H}).
 
-Apply §4.5 to f_n(H, ℓ) = E(|Sur_Γ(X_{u,n}, A)| · 1[X_{u,n}^{𝒞_ℓ} ≅ H]); conditioning on Y(S̄) as in the proof of LWZB Theorem 6.2 gives f_n = g_n P_{u,n}(U_{𝒞_ℓ,H}) with g_n = |Y(A^{𝒞_ℓ})|^{n+u}|Sur_Γ(ρ, π_A)||Sur_Γ((𝓕_n)^{𝒞_ℓ}, H)||Sur_Γ(H, A^{𝒞_ℓ})| / (|Y(A)|^{n+u}|Y(H)|^{n+u}|Aut_Γ(H)|), Here π_A:A→A^{𝒞_ℓ} is completion, τ:(𝓕_n)^{𝒞_ℓ}→A^{𝒞_ℓ} is any Γ-surjection and ρ=τ∘η_{𝓕_n}; the lift count is independent of τ by §3.5. If no such τ exists, the counts are zero. For sufficiently large n it exists, and g_n is bounded by its limit |Y(A^{𝒞_ℓ})|^u |Sur_Γ(H,A^{𝒞_ℓ})| / (|Y(A)|^u |Y(H)|^u |Aut_Γ(H)|), by §3.5 and §1.4.
+Apply §4.5 to f_n(H, ℓ) = E(|Sur_Γ(X_{u,n}, A)| · 1[X_{u,n}^{𝒞_ℓ} ≅ H]); conditioning on Y(S̄) as in the proof of LWZB Theorem 6.2 gives f_n = g_n P_{u,n}(U_{𝒞_ℓ,H}) with g_n = |Y(A^{𝒞_ℓ})|^{n+u}|Sur_Γ(ρ, π_A)||Sur_Γ((𝓕_n)^{𝒞_ℓ}, H)||Sur_Γ(H, A^{𝒞_ℓ})| / (|Y(A)|^{n+u}|Y(H)|^{n+u}|Aut_Γ(H)|), Here π_A:A→A^{𝒞_ℓ} is completion, τ:(𝓕_n)^{𝒞_ℓ}→A^{𝒞_ℓ} is any Γ-surjection and ρ=τ∘η_{𝓕_n}; the lift count is independent of τ by §3.5. If no such τ exists, the counts are zero. For admissible H the displayed limit is valid and g_n is bounded by it; for nonadmissible H, Sur_Γ(𝓕_n,H) is empty for every n, so set g_n=g=0 instead. The admissible limit is |Y(A^{𝒞_ℓ})|^u |Sur_Γ(H,A^{𝒞_ℓ})| / (|Y(A)|^u |Y(H)|^u |Aut_Γ(H)|), by §3.5 and §1.4.
 
 Monotone positivity holds as in §4.5; the sum over H of lim_n f_n is lim_n E|Sur_Γ(X_{u,n}, A)| = [A : A^Γ]^{−u} (§5.1), and for ℓ ≥ |A| the left side is Σ_H |Sur_Γ(H, A)|μ_u(U_{𝒞_ℓ,H}).
 
