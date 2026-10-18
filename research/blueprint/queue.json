@@ -135529,6 +135529,25 @@
    "prompt": "research/blueprint/prompts/REV-PKG-EffectiveClassNumbers~adv.md",
    "note": "deliverables arrived from an external worker on issue #10395",
    "finishedAt": "2026-10-18T21:45:47Z"
+  },
+  {
+   "id": "FIX-PKG-ModularityAndLanglandsExtensions~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ModularityAndLanglandsExtensions"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ModularityAndLanglandsExtensions~adv2.md",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/review.json",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/README.md",
+    "research/blueprint/packages/ModularityAndLanglandsExtensions/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv2.md"
   }
  ]
 }
