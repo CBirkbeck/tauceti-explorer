@@ -12,7 +12,7 @@ real bodies over carriers that exist at these pins, and statable checks:
 the similitude submonoid of the symplectic form, the
 Iwahori indices, the integers of classical weights, the Iwahori multiplicities,
 the patching dimension count, the ordinarity criterion for a Frobenius
-polynomial, the centre of the Hasse–Weil functional equation and the group orders
+polynomial, the reflection parameter of the whole Hasse–Weil zeta function and the group orders
 behind S_6 ≅ Sp_4(F_2). GSp_4-valued Galois representations, compatible systems,
 Hilbert–Siegel varieties, Hida complexes, deformation rings, patched modules and
 the lifting and potential modularity theorems have no carriers at the pins; they
@@ -176,6 +176,11 @@ def IsDistinguishedOrdinary (p : ℕ) (a₁ a₂ : ℤ) : Prop :=
 example : IsDistinguishedOrdinary 5 1 2 := sorry
 example : ¬ IsDistinguishedOrdinary 5 2 1 := sorry
 
+/-- The scalar seed in BCGP25 Lemma 9.3.7 is ordinary but not residually distinguished:
+its elliptic factors have traces −1 and 2, hence a₁ = 1 and a₂ = 4. -/
+example : ¬ (3 : ℤ) ∣ (4 : ℤ) := by decide
+example : ¬ IsDistinguishedOrdinary 3 1 4 := sorry
+
 /-- AP.6 (Lemma 9.2.6, corrected choice of q): Δ_v = a₁^2 − 4a₂ + 8p, the discriminant of
 t^2 − a₁t + (a₂ − 2p), whose roots are α + p/α and β + p/β. -/
 def switchDiscriminant (p : ℕ) (a₁ a₂ : ℤ) : ℤ := a₁ ^ 2 - 4 * a₂ + 8 * p
@@ -186,10 +191,13 @@ theorem switchDiscriminant_eq_discrim (p : ℕ) (a₁ a₂ : ℤ) :
 end Frobenius
 
 /-- AP.6 (Corollary 9.3.3, corrected): the completed Hasse–Weil function of a smooth projective
-variety of dimension d is symmetric under s ↦ d + 1 − s. -/
+variety of dimension d has reflection parameter d + 1 (twice its symmetry centre),
+conditional on its expected functional equation. For degree-i cohomology the parameter is i+1.
+This definition concerns the whole completed zeta function, not only H¹. -/
 def hasseWeilCentre (d : ℕ) : ℕ := d + 1
 
-/-- For a genus two curve the symmetry is s ↦ 2 − s; 3 − s belongs to its Jacobian. -/
+/-- For a curve the whole zeta function reflects by 2 − s; for a surface by 3 − s.
+The H¹ L-function of both a curve and its Jacobian reflects by 2 − s. -/
 example : hasseWeilCentre 1 = 2 := rfl
 example : hasseWeilCentre 2 = 3 := rfl
 
