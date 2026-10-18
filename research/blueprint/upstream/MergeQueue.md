@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T15:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T16:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -9,7 +9,6 @@ Generated 2026-10-18T15:40Z from the README supplier graph of every open pull re
 - #284 HomotopySpheres (Paul-Lez, other author)
 - #286 ThetaSeries (seewoo5, other author)
 - #417 PointProcesses (mccorvie, other author)
-- #444 GraphConnectivityAndFlows (fzaiser, other author)
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
@@ -24,7 +23,7 @@ Generated 2026-10-18T15:40Z from the README supplier graph of every open pull re
 - #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 2
-- #813 AdicSpacesPartIII — ready (approved at an earlier head); waits on #944
+- #813 AdicSpacesPartIII — ready; waits on #944
 - #248 LFunctions (roed-math, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
@@ -90,7 +89,7 @@ Generated 2026-10-18T15:40Z from the README supplier graph of every open pull re
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #785, #818, #849, #856, #857, #858, #868, #938, #940, #944
 
 ## Wave 18
-- #852 NeronModelsAndSemistableAbelianVarieties — ready; waits on #785, #813, #848, #849, #850, #853, #856, #857, #879, #938, #940, #444
+- #852 NeronModelsAndSemistableAbelianVarieties — ready; waits on #785, #813, #848, #849, #850, #853, #856, #857, #879, #938, #940
 - #1034 DeformationAndDerivedPatchingAlgebra — ready (approved at an earlier head); waits on #785, #858, #872, #908, #944, #899
 - #1154 InductionRestrictionPartII — draft; waits on #850
 
@@ -98,7 +97,7 @@ Generated 2026-10-18T15:40Z from the README supplier graph of every open pull re
 - #869 SelmerIwasawaCohomology — ready (approved at an earlier head); waits on #816, #849, #852, #858, #879, #940, #944, #248
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #785, #848, #850, #852, #853, #938
 - #873 LefschetzPencilsAndVanishingCycles — ready (approved at an earlier head); waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #944, #1103, #1104
-- #914 FreeGroupsAndLimitGroups — ready; waits on #852, #444
+- #914 FreeGroupsAndLimitGroups — ready; waits on #852
 
 ## Wave 20
 - #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
