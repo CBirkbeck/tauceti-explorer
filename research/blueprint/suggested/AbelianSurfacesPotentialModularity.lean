@@ -12,7 +12,7 @@ real bodies over carriers that exist at these pins, and statable checks:
 the similitude submonoid of the symplectic form, the
 Iwahori indices, the integers of classical weights, the Iwahori multiplicities,
 the patching dimension count, the ordinarity criterion for a Frobenius
-polynomial, the centre of the Hasse–Weil functional equation and the group orders
+polynomial, the reflection sum of the Hasse–Weil functional equation and the group orders
 behind S_6 ≅ Sp_4(F_2). GSp_4-valued Galois representations, compatible systems,
 Hilbert–Siegel varieties, Hida complexes, deformation rings, patched modules and
 the lifting and potential modularity theorems have no carriers at the pins; they
@@ -131,7 +131,8 @@ theorem multiplicityOfRanks_eq {ι : Type*} [Fintype ι] [DecidableEq ι] (n : �
         4 ^ ((Finset.univ.filter fun v => n v = 1).card +
           (Finset.univ.filter fun v => n v = 2).card) := sorry
 
-/-- Theorem 7.13.6: the eigenspace has dimension 8 d_ρ, the 8 = |W| coming from v₀. -/
+/-- The dimension predicted by Theorem 7.13.6, conditional on the roadmap's recorded
+patching and supplier gaps: 8 d_ρ, with 8 = |W| coming from v₀. -/
 def eigenspaceDimension {ι : Type*} [Fintype ι] (n : ι → Fin 4) : ℕ :=
   8 * multiplicityOfRanks n
 
@@ -187,11 +188,11 @@ end Frobenius
 
 /-- AP.6 (Corollary 9.3.3, corrected): the completed Hasse–Weil function of a smooth projective
 variety of dimension d is symmetric under s ↦ d + 1 − s. -/
-def hasseWeilCentre (d : ℕ) : ℕ := d + 1
+def hasseWeilReflectionSum (d : ℕ) : ℕ := d + 1
 
 /-- For a genus two curve the symmetry is s ↦ 2 − s; 3 − s belongs to its Jacobian. -/
-example : hasseWeilCentre 1 = 2 := rfl
-example : hasseWeilCentre 2 = 3 := rfl
+example : hasseWeilReflectionSum 1 = 2 := rfl
+example : hasseWeilReflectionSum 2 = 3 := rfl
 
 section Groups
 
