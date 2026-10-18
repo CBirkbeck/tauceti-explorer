@@ -9963,8 +9963,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ZAGIER.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11",
+   "finishedAt": "2026-10-18T02:51:18Z"
   },
   {
    "id": "REV-DESIGN-ZAGIER",
@@ -10031,7 +10032,8 @@
    "avoidAccountOf": "DESIGN-BCGP18",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-BCGP18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #907"
   },
   {
    "id": "DESIGN-BCGP25",
@@ -10094,8 +10096,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PAN.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #950"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #950",
+   "finishedAt": "2026-10-18T02:51:20Z"
   },
   {
    "id": "REV-DESIGN-PAN",
@@ -10137,8 +10140,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SKINNER.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #951"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #951",
+   "finishedAt": "2026-10-18T02:51:21Z"
   },
   {
    "id": "REV-DESIGN-SKINNER",
@@ -11885,8 +11889,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LocallyAnalyticDistributionsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3374"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3374",
+   "finishedAt": "2026-10-18T02:51:22Z"
   },
   {
    "id": "REV-DESIGN-LocallyAnalyticDistributionsPartII",
@@ -12386,8 +12391,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuadraticFormInvariantsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3385"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3385",
+   "finishedAt": "2026-10-18T02:51:24Z"
   },
   {
    "id": "REV-DESIGN-QuadraticFormInvariantsPartII",
@@ -12827,7 +12833,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ColemanPowerSeriesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3396"
   },
   {
    "id": "REV-DESIGN-ColemanPowerSeriesPartII",
@@ -13419,7 +13426,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ProbabilisticAndMetricNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3404"
   },
   {
    "id": "REV-DESIGN-ProbabilisticAndMetricNumberTheoryPartII",
@@ -13841,7 +13849,9 @@
    "avoidAccountOf": "DESIGN-FuchsianOrbifoldsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FuchsianOrbifoldsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3532",
+   "finishedAt": "2026-10-18T02:51:26Z"
   },
   {
    "id": "DESIGN-ModularCurvesPartIII",
@@ -16121,7 +16131,9 @@
    "avoidAccountOf": "DESIGN-DiophantineApproximationAndTranscendencePartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DiophantineApproximationAndTranscendencePartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3517",
+   "finishedAt": "2026-10-18T02:51:29Z"
   },
   {
    "id": "DESIGN-ConformalMappingPartII",
@@ -16440,7 +16452,8 @@
    "avoidAccountOf": "DESIGN-AbelianSurfacesPotentialModularity",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AbelianSurfacesPotentialModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3485"
   },
   {
    "id": "DESIGN-AbelianSurfacesModularity",
@@ -16618,8 +16631,9 @@
    "avoidAccountOf": "DESIGN-PerfectoidSpacesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PerfectoidSpacesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3590"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3590",
+   "finishedAt": "2026-10-18T02:51:32Z"
   },
   {
    "id": "DESIGN-DirectSummandsAndBigCohenMacaulay",
@@ -16639,7 +16653,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DirectSummandsAndBigCohenMacaulay.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3479"
   },
   {
    "id": "REV-DESIGN-DirectSummandsAndBigCohenMacaulay",
@@ -17003,8 +17018,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllAdicHomotopyTypesAndWeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4582"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4582",
+   "finishedAt": "2026-10-18T02:51:35Z"
   },
   {
    "id": "REV-DESIGN-EllAdicHomotopyTypesAndWeights",
@@ -29327,7 +29343,7 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/BP-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-K2SymbolsBrauer--T.1",
@@ -29336,7 +29352,8 @@
     "BP-MotivicEtaleKTheory--M.6b",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1012"
+   "note": "deliverables arrived from an external worker on issue #1012",
+   "finishedAt": "2026-10-18T02:51:37Z"
   },
   {
    "id": "REV-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -29688,13 +29705,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-TropicalAndBerkovichArithmetic.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1019"
+   "note": "deliverables arrived from an external worker on issue #1019",
+   "finishedAt": "2026-10-18T02:51:38Z"
   },
   {
    "id": "REV-TropicalAndBerkovichArithmetic",
@@ -30978,7 +30996,9 @@
    ],
    "avoidAccountOf": "BP-StableReductionPartII--MC.1",
    "prompt": "research/blueprint/prompts/REV-StableReductionPartII--MC.1.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8937",
+   "finishedAt": "2026-10-18T02:51:39Z"
   },
   {
    "id": "BP-StableReductionPartII--MC.2",
@@ -31024,7 +31044,9 @@
    ],
    "avoidAccountOf": "BP-StableReductionPartII--MC.2",
    "prompt": "research/blueprint/prompts/REV-StableReductionPartII--MC.2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8938",
+   "finishedAt": "2026-10-18T02:51:42Z"
   },
   {
    "id": "BP-StableReductionPartII--MC.3",
@@ -31166,7 +31188,9 @@
    ],
    "avoidAccountOf": "BP-StableReductionPartII--MC.5",
    "prompt": "research/blueprint/prompts/REV-StableReductionPartII--MC.5.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8941",
+   "finishedAt": "2026-10-18T02:51:45Z"
   },
   {
    "id": "BP-StableReductionPartII--MC.6",
@@ -31212,7 +31236,9 @@
    ],
    "avoidAccountOf": "BP-StableReductionPartII--MC.6",
    "prompt": "research/blueprint/prompts/REV-StableReductionPartII--MC.6.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8942",
+   "finishedAt": "2026-10-18T02:51:49Z"
   },
   {
    "id": "BP-StableReductionPartII--MC.7",
@@ -31258,7 +31284,9 @@
    ],
    "avoidAccountOf": "BP-StableReductionPartII--MC.7",
    "prompt": "research/blueprint/prompts/REV-StableReductionPartII--MC.7.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8943",
+   "finishedAt": "2026-10-18T02:51:52Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.0",
@@ -31928,7 +31956,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--GC.1",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--GC.1.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8945",
+   "finishedAt": "2026-10-18T02:51:55Z"
   },
   {
    "id": "BP-FunctionFieldArithmeticPartII--GC.2",
@@ -32022,7 +32052,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--GC.3",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--GC.3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8947",
+   "finishedAt": "2026-10-18T02:51:59Z"
   },
   {
    "id": "BP-FunctionFieldArithmeticPartII--GC.4",
@@ -32164,7 +32196,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--GC.6",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--GC.6.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8950",
+   "finishedAt": "2026-10-18T02:52:02Z"
   },
   {
    "id": "BP-K3BlochGroups--V.1",
@@ -47617,7 +47651,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnalyticNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10371"
   },
   {
    "id": "REV-PKG-AnalyticNumberTheoryPartII",
@@ -48176,7 +48211,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatisticsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10372"
   },
   {
    "id": "REV-PKG-ArithmeticStatisticsPartII",
@@ -107857,11 +107893,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #760"
+   "note": "claimed on GitHub issue #760"
   },
   {
    "id": "REV-IntegralIwasawaTheory--I.8",
@@ -115154,8 +115190,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CMRankZeroConverse.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1885"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1885",
+   "finishedAt": "2026-10-18T02:52:09Z"
   },
   {
    "id": "REV-DESIGN-CMRankZeroConverse",
@@ -115223,7 +115260,9 @@
    "avoidAccountOf": "DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1728",
+   "finishedAt": "2026-10-18T02:52:10Z"
   },
   {
    "id": "DESIGN-AnticyclotomicLocalUnits",
@@ -115243,8 +115282,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AnticyclotomicLocalUnits.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1688"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1688",
+   "finishedAt": "2026-10-18T02:52:13Z"
   },
   {
    "id": "REV-DESIGN-AnticyclotomicLocalUnits",
@@ -115561,8 +115601,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GeometricFreyMazur.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1698"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1698",
+   "finishedAt": "2026-10-18T02:52:14Z"
   },
   {
    "id": "REV-DESIGN-GeometricFreyMazur",
