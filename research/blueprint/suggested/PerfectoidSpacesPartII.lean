@@ -258,12 +258,22 @@ variable (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRin
 /-- The base `A = W(k)⟦T_1,…,T_n⟧` of André B §2.2. -/
 abbrev Base := MvPowerSeries (Fin n) (WittVector p k)
 
-/-- The Kummer algebra `A[X]/(X^{p^e} − g)[1/p]`, the level `(0, e)` of André B (8). -/
+/-- The Kummer algebra `A[X]/(X^{p^e} − g)[1/p]`, the level `(0, e)` of André B (8).
+The root is freely adjoined: no irreducibility or domain instance is intended. -/
 abbrev kummerAlgebra (g : Base p k n) (e : ℕ) :=
   Localization.Away ((p : AdjoinRoot (Polynomial.X ^ (p ^ e) - Polynomial.C g)))
 
+/-- A free root algebra can have zero divisors even for a unit radicand. This is the
+rational counterpart of the packet test `kummerTower_unit_not_identity`. -/
+example :
+    let f : Polynomial ℚ := Polynomial.X ^ 2 - Polynomial.C 1
+    let z := AdjoinRoot.root f
+    z - 1 ≠ 0 ∧ z + 1 ≠ 0 ∧ (z - 1) * (z + 1) = 0 := by
+  sorry
+
 /-- André B, Corollaire 2.6.1 at level `(0, e)`: `A` is pure in the integral closure of `A` in
-`A[g^{1/p^e}][1/p]`; equivalently, being finite over `A`, it is an `A`-module direct summand. -/
+`A[g^{1/p^e}][1/p]`. This is integral closure relative to that algebra,
+not normalization in its total quotient ring; equivalently, being finite over `A`, it is an `A`-module direct summand. -/
 theorem isPure_kummer (g : Base p k n) (hg : g ≠ 0) (e : ℕ) :
     Module.IsPure (Algebra.linearMap (Base p k n)
       (integralClosure (Base p k n) (kummerAlgebra p k n g e))) := by
