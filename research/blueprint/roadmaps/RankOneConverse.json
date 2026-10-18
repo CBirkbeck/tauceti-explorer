@@ -37,7 +37,7 @@
     {
       "key": "PC.1",
       "title": "Rational Selmer localization and strict kernels",
-      "description": "Define the rank-one localization criterion on an actual linear restriction map. Assemble the GL₂-type Kummer/Sha and quadratic comparisons, repair componentwise eigenlogarithm localization, compute the two-dimensional semilocal image and prove strict/one-sided kernel vanishing. Import ordinary modular parity.",
+      "description": "Define the rank-one localization criterion on an actual linear restriction map. Assemble the GL₂-type Kummer/Sha and quadratic comparisons, repair componentwise eigenlogarithm localization, compute the two-dimensional semilocal image and prove strict/one-sided kernel vanishing. Import ordinary modular parity at good p, as in the source specialization.",
       "requires": [
         "SelmerIwasawaCohomology:L4",
         "RankZeroOneBSD:BSD.1",
@@ -50,7 +50,7 @@
     {
       "key": "PC.2",
       "title": "Anticyclotomic divisibility and augmentation control",
-      "description": "Instantiate the inverse-tautological anticyclotomic Selmer deformation with the inertia-strict condition at one p-adic prime. Match integral imprimitive analytic functions and character conventions. Specialize the ordinary Wan Fitting bound with exact control and divisorial closure. Prove that augmentation vanishing produces a nonzero rational one-sided class.",
+      "description": "Instantiate the inverse-tautological anticyclotomic Selmer deformation with the inertia-strict condition at one p-adic prime and bounded p-primary lattice-change errors. Match integral imprimitive analytic functions and character conventions. Specialize the ordinary Wan Fitting bound with exact control and divisorial closure. Prove that augmentation vanishing produces a nonzero rational one-sided class.",
       "requires": [
         "SelmerIwasawaCohomology:L3",
         "SelmerIwasawaCohomology:L2",
@@ -89,7 +89,8 @@
         "HeegnerPointEulerSystems:HE.7",
         "EllipticCurveModularity:R29.5",
         "EllipticCurveModularity:R29.6",
-        "RankZeroOneBSD:BSD.1"
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.0"
       ]
     },
     {
@@ -158,7 +159,7 @@
       "sha256": "3936b305ce070959713b1331a895a9ff8877ac12666bb1ad8f4b20c09e6c870d",
       "read": "2026-10-18",
       "readSections": [
-        "Introduction, Theorems 1.1–1.2, pp. 384–386; §2B–C, pp. 392–394; proof of Theorem 1.2, pp. 479–480"
+        "Introduction, Theorems 1.1–1.2, pp. 384–386; §2B–C, pp. 392–394; §7E, Proposition 7.7 and equations (7-2)–(7-6), pp. 445–449; proof of Theorem 1.2, pp. 479–480"
       ]
     },
     {
@@ -182,7 +183,7 @@
       "sha256": "f9faa40aa5e30eba705da88e3d68c8aa43069b5be01c1cc6ece212dd57879748",
       "read": "2026-10-18",
       "readSections": [
-        "§3.1.6–3.1.8, pp. 20–21; §3.2, Proposition 3.2.8, Corollary 3.2.9, Propositions 3.2.11 and 3.2.13, pp. 24–26"
+        "§3.1.6–3.1.8, pp. 19–21; §3.2, Proposition 3.2.8, Corollary 3.2.9, Propositions 3.2.11 and 3.2.13, pp. 23–26"
       ]
     },
     {
