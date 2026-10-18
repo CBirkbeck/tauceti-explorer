@@ -14,7 +14,7 @@
     "AnticyclotomicLocalUnits:ALU.8"
   ],
   "status": "complete",
-  "summary": "All nine layers are planned at target level, from the pinned principal-unit/formal-point APIs to the integral signed decomposition, every matching-character nonvanishing statement and finite signed Kummer exports. The dependency graph separates early CM input from signed freeness and treats the primitive modular trace system as local. Every definition has a use-derived API and discriminating tests. Ten explicit missing-input/source contracts and supplier requests prevent a closed status; all implementation statuses remain unchecked.",
+  "summary": "All nine layers are planned at target level, from the pinned principal-unit/formal-point APIs to the integral signed decomposition, every matching-character nonvanishing statement and finite signed Kummer exports. The dependency graph separates early CM input from signed freeness and treats the primitive modular trace system as local. Every definition has a use-derived API and discriminating tests. Eleven explicit missing-input/source contracts and supplier requests prevent a closed status; all implementation statuses remain unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -24,63 +24,63 @@
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "kind": "def",
         "provides": "Existing unit filtration subgroup of K× for a nonarchimedean local field; n=1 is used for principal units.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean:88, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "tauceti:TauCeti.unitFiltration_one",
         "module": "TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean",
         "kind": "theorem",
         "provides": "At depth one this subgroup is the valuation-ring principal-unit subgroup, with the existing local-field and valuation instances.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean:173, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "tauceti:WeierstrassCurve.formalPointHomAdicCompletion",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
         "kind": "def",
         "provides": "The existing homomorphism from maximal-ideal formal points to elliptic points in a height-one adic completion of a Dedekind domain, for an elliptic Weierstrass curve over its valuation ring.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean:264, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "tauceti:WeierstrassCurve.formalPointHomAdicCompletion_injective",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
         "kind": "theorem",
         "provides": "Injectivity of that formal-to-elliptic map under its existing ellipticity and adic-completion hypotheses.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean:283, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "tauceti:WeierstrassCurve.range_formalPointHomAdicCompletion",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
         "kind": "theorem",
         "provides": "The image consists of zero and points with 1 < Valued.v(xCoord); applies only after supplying the adic-completion realization in G1.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean:158, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "mathlib:PowerSeries.coeff",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "kind": "def",
         "provides": "The coefficient linear map on the actual univariate formal power series carrier.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, Mathlib/RingTheory/PowerSeries/Basic.lean:80, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "mathlib:PowerSeries.constantCoeff",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "kind": "def",
         "provides": "The constant-coefficient ring homomorphism, used as augmentation after the one-variable Iwasawa identification.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, Mathlib/RingTheory/PowerSeries/Basic.lean:143, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "mathlib:PowerSeries.derivative",
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "kind": "def",
         "provides": "The actual formal-series derivation for commutative semirings; not analytic evaluation at a torsion point.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, Mathlib/RingTheory/PowerSeries/Derivative.lean:50, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       },
       {
         "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
         "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
         "kind": "theorem",
         "provides": "Over a commutative ring, a power series is a unit exactly when its constant coefficient is a unit.",
-        "checked": "Actual declaration and surrounding hypotheses read in the shared build at the recorded exact pin, 2026-10-18."
+        "checked": "Independently confirmed at the recorded exact commit, Mathlib/RingTheory/PowerSeries/Inverse.lean:111, including surrounding typeclass hypotheses and conventions; REV-DESIGN-AnticyclotomicLocalUnits, 2026-10-18."
       }
     ]
   },
@@ -117,7 +117,7 @@
       "id": "Haz77",
       "title": "On norm maps for one dimensional formal groups III",
       "authors": "Michiel Hazewinkel",
-      "edition": "Journal of Pure and Applied Algebra 10 (1977), 305–314",
+      "edition": "Duke Mathematical Journal 44, no.2 (1977), 305–314",
       "url": "https://ir.cwi.nl/pub/10014/10014D.pdf",
       "readSections": [
         "§§1–4, pp.305–314; Theorem 1.3, Lemmas 2.4 and 3.5 and the proof in §4"
@@ -201,12 +201,12 @@
       "tests": [
         {
           "name": "trivial_plus",
-          "kind": "value",
+          "kind": "computation",
           "statement": "The trivial character lies in Ξ⁺ and not Ξ⁻."
         },
         {
           "name": "order_p_plus",
-          "kind": "value",
+          "kind": "computation",
           "statement": "An exact order-p character has conductor p² and lies in Ξ⁺."
         },
         {
@@ -244,7 +244,7 @@
         "Φ_n=Φ(F[π^(n+1)]), Δ=Gal(Φ_0/Φ), ω=κ|Δ, Γ=Gal(Φ_∞/Φ_0)=Γ⁺×Γ⁻; Θ_n=Φ_n^Δ and Ψ_n=Θ_n^(Γ⁺), with [Ψ_n:Φ]=p^n. Complex conjugation fixes Γ⁺ and inverts Γ⁻."
       ],
       "proofSteps": [
-        "Use the pinned principal-unit subgroup, not a newly defined unit group. Norms preserve principal units and commute with Δ.",
+        "Use the pinned principal-unit subgroup, not a newly defined unit group. Norms preserve principal units and commute with Δ. For the additive Z_p action, show P_n is an abelian pro-p group using its unit filtration and reuse the current IsProP.module/continuousSMul_module API recorded in upstreamNotes.",
         "O is finite free over ℤ_p, so tensoring and this compact inverse limit agree; supply this instance through L5.",
         "Since |Δ|=p²−1 is an O-unit, integral character projection defines the omega part."
       ],
@@ -254,7 +254,7 @@
       "prerequisites": [
         "tauceti:TauCeti.unitFiltration",
         "tauceti:TauCeti.unitFiltration_one",
-        "PadicMeasuresIwasawaAlgebras:L1",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
         "PadicMeasuresIwasawaAlgebras:L4",
         "PadicMeasuresIwasawaAlgebras:L5"
       ],
@@ -286,6 +286,16 @@
           "name": "Anticyclotomic.unitLimit_action",
           "role": "compatibility",
           "statement": "Finite-level group-ring projections of the completed action agree with the Galois action on principal units."
+        },
+        {
+          "name": "Anticyclotomic.unitLimit_mk",
+          "role": "constructor",
+          "statement": "A norm-compatible family u_n∈P_n⊗O gives a unique element of Ũ∞; applying e_ω gives its omega component, and e_ω fixes an omega-equivariant family."
+        },
+        {
+          "name": "Anticyclotomic.omegaPart_projector",
+          "role": "simp",
+          "statement": "e_ω²=e_ω; it commutes with every norm and Γ-action. The zero family is the multiplicative identity at each principal-unit coordinate."
         }
       ],
       "tests": [
@@ -296,7 +306,7 @@
         },
         {
           "name": "norm_tensor",
-          "kind": "relation",
+          "kind": "compatibility",
           "statement": "Norm(u⊗a)=N(u)⊗a; the norm is not multiplication by [Φ_(n+1):Φ_n] on an arbitrary unit."
         },
         {
@@ -401,7 +411,7 @@
         {
           "name": "Anticyclotomic.inverseTwist_eval",
           "role": "equivalence",
-          "statement": "Evaluation at v:T gives an O-linear equivalence M*≃M."
+          "statement": "Evaluation at a chosen O-basis vector v of T gives a continuous O-linear equivalence M*≃M, with inverse m↦(av↦am)."
         },
         {
           "name": "Anticyclotomic.inverseTwist_action",
@@ -412,6 +422,16 @@
           "name": "Anticyclotomic.inverseTwist_changeBasis",
           "role": "functoriality",
           "statement": "Replacing v by bv changes evaluation to b times the old evaluation, b∈O×; evaluations compose with all O-linear equivariant maps."
+        },
+        {
+          "name": "Anticyclotomic.inverseTwist_ext",
+          "role": "extensionality",
+          "statement": "Two O-linear maps T→M agree iff they agree at a chosen O-basis vector; evaluation is an equivalence only for a basis vector, not for an arbitrary v∈T."
+        },
+        {
+          "name": "Anticyclotomic.inverseTwist_map",
+          "role": "functoriality",
+          "statement": "An O-linear equivariant map M→N induces M*→N* by postcomposition, preserving identities, composition and the compact topology."
         }
       ],
       "tests": [
@@ -427,7 +447,7 @@
         },
         {
           "name": "basis_minus_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Evaluation at −v is minus evaluation at v; the underlying Hom object is unchanged."
         }
       ],
@@ -470,7 +490,7 @@
       "prerequisites": [
         "AnticyclotomicLocalUnits:ALU.0/unit-rank-two",
         "AnticyclotomicLocalUnits:ALU.0/inverse-tate-twist",
-        "PadicMeasuresIwasawaAlgebras:L1",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
         "PadicMeasuresIwasawaAlgebras:L4",
         "PadicMeasuresIwasawaAlgebras:L5"
       ],
@@ -497,12 +517,22 @@
           "name": "Anticyclotomic.quotient_generator_independent",
           "role": "equivalence",
           "statement": "The identity on U∞ induces the canonical quotient equivalence for σ and σ^a, for a∈ℤ_p×."
+        },
+        {
+          "name": "Anticyclotomic.quotient_mk_surjective",
+          "role": "constructor",
+          "statement": "The canonical map U∞*→V∞* is continuous and surjective; q(x)=q(y) iff x−y∈(σ−1)U∞*."
+        },
+        {
+          "name": "Anticyclotomic.quotient_action",
+          "role": "simp",
+          "statement": "The induced Γ⁻ action commutes with q, and q(σx)=q(x); use the existing quotient-module map and equality API."
         }
       ],
       "tests": [
         {
           "name": "rank_two_survives",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Specializing the Γ⁺ coordinate leaves Λ², not a rank-one module."
         },
         {
@@ -675,12 +705,17 @@
           "name": "Anticyclotomic.delta_trace",
           "role": "relation",
           "statement": "Tr_(Φ_(n+1)/Φ_n)δ_(n+1)(x)=π δ_n(x)."
+        },
+        {
+          "name": "Anticyclotomic.delta_zero",
+          "role": "simp",
+          "statement": "δ(0)=0 and δ_n(0)=0, where zero of the additive unit limit is the compatible family of multiplicative units 1."
         }
       ],
       "tests": [
         {
           "name": "constant_series_zero",
-          "kind": "value",
+          "kind": "computation",
           "statement": "The logarithmic derivative of a constant Coleman unit is zero."
         },
         {
@@ -756,6 +791,11 @@
           "name": "Anticyclotomic.deltaChar_coefficients",
           "role": "functoriality",
           "statement": "Coefficient embeddings transport δ_χ to the derivative for the embedded character."
+        },
+        {
+          "name": "Anticyclotomic.deltaChar_linear",
+          "role": "structure",
+          "statement": "The finite sum gives an O-linear continuous map with δ_χ(0)=0; after descent to V∞* its Λ action is through χ⁻¹, and the quotient map computes the same value."
         }
       ],
       "tests": [
@@ -766,7 +806,7 @@
         },
         {
           "name": "pi_level_scale",
-          "kind": "relation",
+          "kind": "compatibility",
           "statement": "The full Gal(Φ_n/Φ) sum is divided by π^(n+1), not by p^n or |Gal(Φ_n/Φ)|."
         },
         {
@@ -843,7 +883,8 @@
       ],
       "proofSteps": [
         "Use inverse-character specialization to prove stability under the full completed action.",
-        "Intersections of closed kernels are closed, hence finite generation follows from noetherianity of Λ and V∞*≃Λ²."
+        "Intersections of closed kernels are closed, hence finite generation follows from noetherianity of Λ and V∞*≃Λ².",
+        "The coefficient-extension API uses tensor-valued derivatives. Do not infer coordinatewise kernel membership from scalar-valued CM reciprocity without G11."
       ],
       "acceptance": [
         "For ε∈{+,−}, define V∞*,ε=⋂_(χ∈Ξ^(−ε)) ker δ_χ inside V∞*. These are closed Λ-submodules. In particular the minus module kills the trivial character and lies in ker δ; the plus module is allowed to have a unit δ-value."
@@ -880,24 +921,34 @@
         {
           "name": "Anticyclotomic.signedUnits_baseChange",
           "role": "functoriality",
-          "statement": "For a finite free coefficient extension W/O, the simultaneous kernels commute with tensoring, by choosing an O-basis of W."
+          "statement": "For finite free W/O, tensor-valued derivatives δ_χ,W=δ_χ⊗id_W land in C_p⊗_O W, and (V∞*,ε)⊗_O W=⋂_(χ∈Ξ^(−ε))ker δ_χ,W by finite basis coordinates. Scalar evaluation into C_p is a different map; its kernels require the extra comparison G11."
+        },
+        {
+          "name": "Anticyclotomic.signedUnits_mk",
+          "role": "constructor",
+          "statement": "An element x of V∞* together with vanishing of its opposite-parity derivatives gives an element of the signed submodule. Equality is equality in V∞*, and inclusion preserves zero, addition and Λ-scalars."
         }
       ],
       "tests": [
         {
           "name": "same_parity_not_killed",
           "kind": "non-example",
-          "statement": "The definition does not require a plus element to have δ_1=0."
+          "statement": "For the eventual optimal plus unit ξ*, δ_1(ξ*)=(1+p⁻¹)δ(ξ*)≠0. Imposing same-parity vanishing on units would exclude this element."
         },
         {
           "name": "minus_trivial_zero",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Every minus element has δ=0 using the nonzero trivial Euler factor."
         },
         {
           "name": "zero_both_signs",
           "kind": "degenerate",
           "statement": "Zero belongs to both kernels; nonzero common elements must be excluded by the later pairing theorem."
+        },
+        {
+          "name": "tensor_scalar_kernel_distinction",
+          "kind": "non-example",
+          "statement": "If W=O[ζ_p] and E=Φ(ζ_p), the nonzero tensor ζ_p⊗1−1⊗ζ_p in E⊗_O W maps to zero under scalar multiplication into C_p. A scalar-kernel basis argument without a comparison hypothesis fails this case."
         }
       ],
       "uses": [
@@ -1057,7 +1108,7 @@
         },
         {
           "name": "transition_adjunction",
-          "kind": "relation",
+          "kind": "compatibility",
           "statement": "Restriction on points is adjoint to norm on units."
         },
         {
@@ -1217,12 +1268,17 @@
           "name": "Anticyclotomic.logChar_trivial",
           "role": "compatibility",
           "statement": "λ_1(y)=p^(−n)Tr_(Ψ_n/Φ)λ(y)."
+        },
+        {
+          "name": "Anticyclotomic.logChar_linear",
+          "role": "structure",
+          "statement": "λ_χ is an O-linear map for formal addition and the formal O-action; λ_χ(0)=0, and inclusion into a higher field commutes with it."
         }
       ],
       "tests": [
         {
           "name": "base_trivial",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For y∈F(Φ), λ_1(y)=λ(y)."
         },
         {
@@ -1303,12 +1359,22 @@
           "name": "Anticyclotomic.signedPoints_tensor_injective",
           "role": "compatibility",
           "statement": "D^ε→D is the injective map induced by the actual inclusion of formal points."
+        },
+        {
+          "name": "Anticyclotomic.signedPoints_mk_ext",
+          "role": "constructor",
+          "statement": "A formal point with all same-parity logarithms zero gives a signed point; two signed points agree iff their underlying formal points agree. The inherited O-submodule operations need no new group law."
+        },
+        {
+          "name": "Anticyclotomic.signedPoints_transition",
+          "role": "functoriality",
+          "statement": "Field inclusions and formal traces carry the signed submodules to the same sign, and their maps commute with the inclusions into F(Ψ∞)."
         }
       ],
       "tests": [
         {
           "name": "base_minus",
-          "kind": "value",
+          "kind": "computation",
           "statement": "F(Φ)⊆A⁻, since all odd-conductor characters are nontrivial."
         },
         {
@@ -1402,7 +1468,7 @@
       "sources": [
         {
           "sourceId": "BKO21",
-          "locator": "§4, equation (4.2), p.955; Rubin87 Lemma 5.5(v), p.413",
+          "locator": "§4, equation (4.2), p.955; Rubin87 Lemma 5.5(v)–(vi), p.413",
           "match": "A⁺∩A⁻=0; for each n, [p^n]F(Ψ_n)⊆A_n⁺+A_n⁻; hence D=D⁺+D⁻. Both A⁺ and A⁻ have infinite O-rank. This stage asserts a sum of divisible submodules, without assuming their intersection is zero. Proof/convention differences and unverified supplier inputs are made explicit in the proof steps and gaps."
         }
       ],
@@ -1584,7 +1650,7 @@
       "proofSteps": [
         "Use the early classes and their corestriction/reciprocity properties from G2. Construct every map in (3.5) with its source, target and Galois action.",
         "Use p splitting in the relevant ring-class extension and p∤h_K to justify the semilocal group-ring identifications. The evaluation at ν is not an idempotent divided by a p-power.",
-        "If ν has exact order l^r, use conductor l^(r+1), not l^r. With m denoting conductor exponent, index L_r accordingly.",
+        "If ν is nontrivial of exact order l^r (r≥1), use conductor l^(r+1), not l^r. The trivial character has conductor exponent zero. With m denoting conductor exponent, index L_r accordingly.",
         "Augment H and average only over Δ of order p²−1. Apply the actual formal Kummer isomorphism to reach U∞*, keeping the invariant differential normalized by Ω."
       ],
       "acceptance": [
@@ -1607,7 +1673,7 @@
         {
           "name": "Anticyclotomic.xiNu_projection",
           "role": "data",
-          "statement": "The finite-level image is the seven-map localization/projection composite, with each tensor coefficient retained."
+          "statement": "The finite-level image is the specified localization/projection composite, with every source, target, Galois action and tensor coefficient retained."
         },
         {
           "name": "Anticyclotomic.xiNu_norm",
@@ -1623,6 +1689,11 @@
           "name": "Anticyclotomic.xiNu_quotient",
           "role": "projection",
           "statement": "The anticyclotomic class is its image in V∞*⊗R, using σ−1 after inverse twisting."
+        },
+        {
+          "name": "Anticyclotomic.xiNu_zero_add",
+          "role": "structure",
+          "statement": "The localization/projection composite is linear on the early cohomology classes: it sends zero to zero and sums to sums, and is compatible with extension of the coefficient ring."
         }
       ],
       "tests": [
@@ -1637,9 +1708,9 @@
           "statement": "The class projection averages over Δ of order p²−1; Δ′ of order p+1 belongs to the point construction."
         },
         {
-          "name": "no_final_L_function",
-          "kind": "dependency",
-          "statement": "Every map is defined from early zeta classes and local cohomology before Rubin’s signed p-adic L-function exists."
+          "name": "nu_group_ring_evaluation",
+          "kind": "computation",
+          "statement": "On a basis element [g] of R[Gal(L_r/K)], evaluation is ν(g), not ν(g)⁻¹; on [1] it is 1. Augmentation on the H factor sends each [h] to 1."
         }
       ],
       "uses": [
@@ -1702,19 +1773,22 @@
       ],
       "title": "CM-class derivative values and sign",
       "kind": "theorem",
-      "statement": "With the chosen differential and CM period, δ(ξ_ν)=Ω⁻¹ L_(l^m f)(overline(φ)ν,1) and δ_χ(ξ_ν)=Ω⁻¹ L_(l^m p f)(overline(φ)νχ,1). Subscripts mean omission of those Euler factors. If ε=W(φ), the anticyclotomic image lies in V∞*,ε⊗R. In particular the selected canonical φ gives the plus module.",
+      "statement": "With the chosen differential and CM period, δ(ξ_ν)=Ω⁻¹ L_(l^m f)(overline(φ)ν,1) and δ_χ(ξ_ν)=Ω⁻¹ L_(l^m p f)(overline(φ)νχ,1). Subscripts mean omission of those Euler factors. Put ε=W(φ). The scalar derivatives vanish for χ∈Ξ^(−ε). With the coefficient comparison G11, this gives membership of the anticyclotomic image in V∞*,ε⊗_O R; the selected canonical φ has ε=+.",
       "hypotheses": [
         "p is prime and p ≥ 5; Φ/ℚ_p is unramified of degree two, O is its integer ring and π = −p.",
         "F/O is the Lubin–Tate formal O-module for π, λ its logarithm with λ′(0)=1, and T=T_πF is free of rank one over O.",
-        "Φ_n=Φ(F[π^(n+1)]), Δ=Gal(Φ_0/Φ), ω=κ|Δ, Γ=Gal(Φ_∞/Φ_0)=Γ⁺×Γ⁻; Θ_n=Φ_n^Δ and Ψ_n=Θ_n^(Γ⁺), with [Ψ_n:Φ]=p^n. Complex conjugation fixes Γ⁺ and inverts Γ⁻."
+        "Φ_n=Φ(F[π^(n+1)]), Δ=Gal(Φ_0/Φ), ω=κ|Δ, Γ=Gal(Φ_∞/Φ_0)=Γ⁺×Γ⁻; Θ_n=Φ_n^Δ and Ψ_n=Θ_n^(Γ⁺), with [Ψ_n:Φ]=p^n. Complex conjugation fixes Γ⁺ and inverts Γ⁻.",
+        "For the tensor-valued signed-membership conclusion, the chosen CM coefficient ring and projected class satisfy the coefficient comparison specified in G11."
       ],
       "proofSteps": [
         "Apply the early explicit reciprocity law of G2 to the localized zeta class, then Wiles’s formula with π=−p and the fixed period. Complex conjugation applies to φ alone; neither ν nor χ is inverted in the displayed formula.",
         "For χ of opposite conductor parity, the root number of overline(φ)νχ is (−1)^c(χ) W(φ)=−1; self-duality forces the central value to vanish.",
-        "The trivial-character formula differs from the finite-character formula by removal of the p-Euler factor 1−(−p)/p²=1+1/p, matching δ_1=(1+p⁻¹)δ."
+        "The trivial-character formula differs from the finite-character formula by removal of the p-Euler factor 1−(−p)/p²=1+1/p, matching δ_1=(1+p⁻¹)δ.",
+        "Root-number vanishing is initially a scalar equality in C_p. To infer membership in the tensor extension of the O-defined signed module, establish G11; arbitrary finite freeness of R/O alone does not justify this step."
       ],
       "acceptance": [
-        "At χ=1 the removed p-Euler factor is 1+1/p. Only φ is complex-conjugated in the published (3.6); ν and χ are not inverted."
+        "At χ=1 the removed p-Euler factor is 1+1/p. Only φ is complex-conjugated in the published (3.6); ν and χ are not inverted.",
+        "Opposite-parity root-number vanishing is scalar; tensor-valued signed membership must pass the G11 comparison before the O-basis descent."
       ],
       "prerequisites": [
         "AnticyclotomicLocalUnits:ALU.4/projected-cm-class",
@@ -1726,7 +1800,7 @@
         {
           "sourceId": "BKO21",
           "locator": "Proposition 3.3 and equations (3.6)–(3.7), p.953",
-          "match": "With the chosen differential and CM period, δ(ξ_ν)=Ω⁻¹ L_(l^m f)(overline(φ)ν,1) and δ_χ(ξ_ν)=Ω⁻¹ L_(l^m p f)(overline(φ)νχ,1). Subscripts mean omission of those Euler factors. If ε=W(φ), the anticyclotomic image lies in V∞*,ε⊗R. In particular the selected canonical φ gives the plus module. Proof/convention differences and unverified supplier inputs are made explicit in the proof steps and gaps."
+          "match": "BKO Proposition 3.3 gives the scalar interpolation values and sign. This packet makes explicit the additional G11 comparison needed by its pre-freeness tensor-coordinate descent; it does not claim that finite freeness alone supplies that comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1746,15 +1820,16 @@
       "hypotheses": [
         "p is prime and p ≥ 5; Φ/ℚ_p is unramified of degree two, O is its integer ring and π = −p.",
         "F/O is the Lubin–Tate formal O-module for π, λ its logarithm with λ′(0)=1, and T=T_πF is free of rank one over O.",
-        "Φ_n=Φ(F[π^(n+1)]), Δ=Gal(Φ_0/Φ), ω=κ|Δ, Γ=Gal(Φ_∞/Φ_0)=Γ⁺×Γ⁻; Θ_n=Φ_n^Δ and Ψ_n=Θ_n^(Γ⁺), with [Ψ_n:Φ]=p^n. Complex conjugation fixes Γ⁺ and inverts Γ⁻."
+        "Φ_n=Φ(F[π^(n+1)]), Δ=Gal(Φ_0/Φ), ω=κ|Δ, Γ=Gal(Φ_∞/Φ_0)=Γ⁺×Γ⁻; Θ_n=Φ_n^Δ and Ψ_n=Θ_n^(Γ⁺), with [Ψ_n:Φ]=p^n. Complex conjugation fixes Γ⁺ and inverts Γ⁻.",
+        "The CM coefficient comparison G11 holds for the chosen unit-value specialization; it must be established before invoking signed freeness."
       ],
       "proofSteps": [
         "Use the G2 Finis specialization to choose ν with Ω⁻¹ L_f(overline(φ)ν,1) a unit in a finite coefficient ring W. Check all local μ and b invariants vanish in this canonical-character situation and remove the l-Euler factor using the exact conductor.",
-        "The finite free coefficient extension W/O preserves the signed kernels: writing a finite tensor ξ_ν in an O-basis gives coefficients v_i∈V∞*,+.",
+        "Use the G11 comparison to place ξ_ν in V∞*,+⊗_O W for the finite coefficient ring W. Only after this membership is established may an O-basis of W express it with coefficients v_i∈V∞*,+. Finite freeness alone does not prove the membership from scalar vanishing.",
         "If all δ(v_i) were in pO, δ(ξ_ν) would be in pW and could not be a unit. Choose one v_i with unit derivative. This avoids relying on the signed rank-one assertion that BKO invokes at this point."
       ],
       "acceptance": [
-        "For an O-basis of W, at least one coordinate derivative lies outside pO. This descent never uses that the plus module is already free."
+        "Once G11 gives membership in the tensor extension of the plus module, at least one O-basis coordinate has derivative outside pO. This descent never uses plus-module freeness; verifying G11 is part of the remaining proof input."
       ],
       "prerequisites": [
         "AnticyclotomicLocalUnits:ALU.4/cm-class-values",
@@ -2095,12 +2170,17 @@
           "name": "Anticyclotomic.fineLift_rigid",
           "role": "compatibility",
           "statement": "The represented elliptic curve is an actual family on the fine model; a coarse moduli point alone is not sufficient."
+        },
+        {
+          "name": "Anticyclotomic.fineLift_baseChange",
+          "role": "functoriality",
+          "statement": "Extension of the unramified coefficient ring transports the marked curve, cyclic subgroup, exact-order-M point and forgetful map; it preserves their represented moduli class."
         }
       ],
       "tests": [
         {
           "name": "M_p_plus_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For p=5, M=6 is fine and φ(M)=2 is prime to p."
         },
         {
@@ -2180,7 +2260,7 @@
       "tests": [
         {
           "name": "primitive_log",
-          "kind": "value",
+          "kind": "computation",
           "statement": "λ(Q) has valuation one, so Q is primitive and [p]Q is not primitive."
         },
         {
@@ -2258,6 +2338,11 @@
           "name": "Anticyclotomic.quasicanonical_reduction",
           "role": "relation",
           "statement": "Each x_s reduces to the identity, using the Frobenius reduction of the marked chain."
+        },
+        {
+          "name": "Anticyclotomic.quasicanonical_marking",
+          "role": "compatibility",
+          "statement": "The quotient isogeny A→A_s transports the prime-to-p cyclic marking isomorphically and commutes with the Galois action, so z_s and x_s have the asserted field of definition."
         }
       ],
       "tests": [
@@ -2268,7 +2353,7 @@
         },
         {
           "name": "conductor_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "[Ψ′_1:Φ]=p+1, and its tame group is not Δ of order p²−1."
         },
         {
@@ -2338,6 +2423,11 @@
           "name": "Anticyclotomic.optimalPoint_tameTrace",
           "role": "compatibility",
           "statement": "The trace has p+1 terms from x_(s+1), rather than p²−1 terms from x_s."
+        },
+        {
+          "name": "Anticyclotomic.optimalPoint_trace_linear",
+          "role": "structure",
+          "statement": "The tame trace is the sum in the existing formal group, hence O-linear and Galois-equivariant. Inclusion into a larger field commutes with that sum."
         }
       ],
       "tests": [
@@ -2348,7 +2438,7 @@
         },
         {
           "name": "primitive_multiplier",
-          "kind": "value",
+          "kind": "computation",
           "statement": "[p+1] preserves p-primitivity of Q, whereas [p] does not."
         },
         {
@@ -2506,7 +2596,7 @@
       "proofSteps": [
         "Choose a finite-index G_n-stable lattice with rational parity representation O[G_1]⊕⊕_(3≤k≤n, k odd)(O[G_k]/O[G_(k−1)]). The embeddings in the quotients are the norm embeddings, not arbitrary maps of group rings.",
         "Herbrand quotients are unchanged by finite-index lattice replacement because a finite cyclic-group module has quotient one.",
-        "For O[G_k] as G_n-module, Ĥ⁰=O/p^(n−k)O and H¹=0. Since |O/pO|=p², multiply p^(2(n−1)) by the ratios p^(2(n−k))/p^(2(n−k+1)); the result is p^(n−1). The generic cyclic cohomology formulas are requested from R02.1."
+        "For O[G_k] as G_n-module, Ĥ⁰=O/p^(n−k)O and H¹=0. Since |O/pO|=p², multiply p^(2(n−1)) by the ratios p^(2(n−k))/p^(2(n−k+1)); the result is p^(n−1). The generic cyclic cohomology formulas are supplied by ClassFieldTheory Layer 0."
       ],
       "acceptance": [
         "For n=1 the Herbrand quotient is 1; for n=3 it is p². These are cardinalities over O, with residue cardinality p²."
@@ -2515,8 +2605,7 @@
         "AnticyclotomicLocalUnits:ALU.3/formal-fourier-lattices",
         "AnticyclotomicLocalUnits:ALU.3/signed-formal-points",
         "AnticyclotomicLocalUnits:ALU.6/optimal-point-parity",
-        "ArithmeticGaloisDuality:R02.1/discrete-quotient-colimit",
-        "ArithmeticGaloisDuality:R02.1"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers"
       ],
       "sources": [
         {
@@ -2857,8 +2946,8 @@
       ]
     },
     {
-      "supplier": "PadicMeasuresIwasawaAlgebras:L1",
-      "need": "Use the existing completed-group-algebra/measure construction and its finite-quotient action with coefficient ring O, including change of coefficients. Current TauCetiRoadmap ProfiniteProPGroups Layer 9 already has CompletedGroupAlgebra R G; adapt that construction instead of planning a second general completed algebra.",
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "need": "Reuse TauCeti.completedGroupAlgebra O Γ, its proj/mk/ext interface, and IsCompactModule.completedGroupAlgebraModule with continuousSMul_completedGroupAlgebraModule, as consumed by the current upstream Layer 9. These general constructions exist in current Tau Ceti, beyond the older packet pin; they are not new ALU targets. The coefficient-O power-series coordinate and scalar-extension comparison are the separate L4/L5 requests.",
       "neededBy": [
         "AnticyclotomicLocalUnits:ALU.0/principal-unit-limit",
         "AnticyclotomicLocalUnits:ALU.0/anticyclotomic-quotient"
@@ -2910,8 +2999,8 @@
       ]
     },
     {
-      "supplier": "ArithmeticGaloisDuality:R02.1",
-      "need": "For a finite cyclic group acting on a torsion-free O-lattice, supply the norm descriptions of Ĥ⁰ and H¹, multiplicativity of the Herbrand quotient in exact sequences, its value one on finite modules, and the invariant long exact sequence. Continuous cohomology/direct-limit passage must retain the discrete module topology.",
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+      "need": "Use the existing finite cyclic Tate-cohomology carrier, two-periodicity, Ĥ⁰=M^G/NM and H¹=ker N/(g−1)M; supply Herbrand-quotient multiplicativity, value one for finite modules and finite-index invariance for O-lattices. The invariant long exact sequence uses these same cohomology objects. This is ClassFieldTheory Layer 0, not the coefficient-limit stage R02.1.",
       "neededBy": [
         "AnticyclotomicLocalUnits:ALU.7/minus-herbrand-quotient"
       ]
@@ -2950,6 +3039,38 @@
         "AnticyclotomicLocalUnits:ALU.5/manin-unit-separability",
         "AnticyclotomicLocalUnits:ALU.6/hecke-lattice-neighbours"
       ]
+    },
+    {
+      "supplier": "ArithmeticGaloisDuality:R02.1",
+      "need": "Use tate-inverse-limit for inverse systems of finite Galois modules, retaining the lim¹ term unless its Mittag–Leffler condition is proved. Use discrete-quotient-colimit for T finite free over Z_p and W=T⊗Q_p/Z_p, here T=T_πF; identify W[p^k] with T/p^k compatibly with transitions. Neither theorem supplies cyclic Herbrand quotients or a torsion-free A⁻ coefficient-colimit theorem. The actual formal Kummer obstruction comparison remains G7/G8.",
+      "neededBy": [
+        "AnticyclotomicLocalUnits:ALU.2/finite-formal-kummer",
+        "AnticyclotomicLocalUnits:ALU.2/formal-norm-vanishing",
+        "AnticyclotomicLocalUnits:ALU.2/two-variable-kummer-pairing",
+        "AnticyclotomicLocalUnits:ALU.2/anticyclotomic-kummer-pairing"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:L1",
+      "need": "Use the de Rham dual exponential exp*:H¹(K,V)→Fil⁰D_dR(V), transpose to exp for V*(1) under local Tate duality and the de Rham trace pairing, from L1/dual-exponential. The CM representation, differential and semilocal coefficient identifications are G2; the Wiles comparison with δ_χ remains G9.",
+      "neededBy": [
+        "AnticyclotomicLocalUnits:ALU.4/wiles-dual-exponential"
+      ]
+    },
+    {
+      "supplier": "EllipticCurveModularity:R29.5",
+      "need": "Use modular-parametrisation: the actual cusp-normalized X₀(N)→E through the newform quotient of J₀(N), with pullback of a Néron differential a nonzero rational multiple of f(q)dq/q. Choose the optimal E in its isogeny class. Integrality and the good-prime unit value of the Manin constant are the separate Abbes–Ullmo application in ALU.5/G4.",
+      "neededBy": [
+        "AnticyclotomicLocalUnits:ALU.5/auxiliary-supersingular-curve",
+        "AnticyclotomicLocalUnits:ALU.5/manin-unit-separability"
+      ]
+    },
+    {
+      "supplier": "EllipticCurveModularity:R29.6",
+      "need": "Use modularity-theorem for every elliptic curve over Q, at its exact conductor N: the weight-two trivial-character newform and its genuine J₀(N) elliptic quotient. This supplies modularity of the auxiliary curve, not the existence or finite-field count of trace-zero curves (G3).",
+      "neededBy": [
+        "AnticyclotomicLocalUnits:ALU.5/auxiliary-supersingular-curve"
+      ]
     }
   ],
   "coverage": [
@@ -2968,6 +3089,7 @@
       "remaining": [
         "AnticyclotomicLocalUnits/G1: Unregistered Lubin–Tate and quasi-canonical supplier",
         "AnticyclotomicLocalUnits/G6: Height-two Coleman proof input",
+        "AnticyclotomicLocalUnits/G11: CM coefficients and signed-kernel descent before freeness",
         "Resolve the recorded supplier-stage requests before closure."
       ]
     },
@@ -2997,6 +3119,7 @@
         "AnticyclotomicLocalUnits/G2: Unregistered early CM special-value supplier",
         "AnticyclotomicLocalUnits/G9: Original Wiles reciprocity proof unavailable",
         "AnticyclotomicLocalUnits/G10: Auxiliary-field class-number bound",
+        "AnticyclotomicLocalUnits/G11: CM coefficients and signed-kernel descent before freeness",
         "Resolve the recorded supplier-stage requests before closure."
       ]
     },
@@ -3144,6 +3267,16 @@
       "neededBy": [
         "AnticyclotomicLocalUnits:ALU.4/auxiliary-cm-field"
       ]
+    },
+    {
+      "id": "AnticyclotomicLocalUnits/G11",
+      "title": "CM coefficients and signed-kernel descent before freeness",
+      "detail": "The reciprocity formula gives scalar δ_χ(ξ_ν)=0 in C_p, whereas finite-free basis descent needs (δ_χ⊗id_W)(ξ_ν)=0 in C_p⊗_O W. Multiplication C_p⊗_O W→C_p need not be injective. Establish this comparison for the chosen CM classes without using the later signed decomposition or plus freeness. A sufficient route is to choose a finite unramified coefficient field W[1/p]/Φ for the canonical CM and prime-to-p ν values, prove that every relevant derivative and character value lies in a finite totally ramified LT field, and use linear disjointness there. The existence and integrality of that unramified CM coefficient choice must be proved from the early G2 data (including p∤h_K), not assumed from finite freeness. Alternatively supply a tensor-valued reciprocity law with the required vanishing. BKO Proposition 3.3/Theorem 3.4 pp.953–954 state the scalar values and signed result but do not prove this replacement for their invocation of earlier signed rank-one freeness.",
+      "neededBy": [
+        "AnticyclotomicLocalUnits:ALU.1/signed-unit-modules",
+        "AnticyclotomicLocalUnits:ALU.4/cm-class-values",
+        "AnticyclotomicLocalUnits:ALU.4/optimal-unit"
+      ]
     }
   ],
   "sourceIssues": [
@@ -3161,7 +3294,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the displayed bound in Lemma 5.2(ii), p.956, and its proof p.957: at p=47 it is zero. The corrected generic-j count gives 3μ and proves the needed conclusion.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E2",
@@ -3169,7 +3307,7 @@
       "kind": "misprint",
       "locator": "§3.0.2 and Proposition 3.3, pp.951–953; proof of Theorem 3.4, p.954; published version recorded in sourceVersions",
       "printed": "The exponent indexing an anticyclotomic l-power character is used both for its order and its conductor.",
-      "correction": "Use ν of conductor l^m; exact order l^r means m=r+1 in this tower, and index the zeta class and ring-class field by that conductor.",
+      "correction": "Use ν of conductor l^m; a nontrivial ν of exact order l^r, r≥1, has m=r+1 in this tower. Index the zeta class and ring-class field by that conductor; the trivial character has conductor exponent zero.",
       "reason": "The first wild character has order l and conductor l², so using the same exponent selects the wrong Euler factor and source field.",
       "affects": "nothing",
       "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E2",
@@ -3177,23 +3315,33 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against §3.0.2 and Proposition 3.3, pp.951–953: the wild ring-class character order and ideal conductor differ by one exponent. The correction now excludes the trivial character from that shift.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E3",
       "source": "BKO21",
       "kind": "misprint",
       "locator": "Quasi-canonical lift paragraph, p.958; published version recorded in sourceVersions",
-      "printed": "The wild anticyclotomic field in the tame fixed-field relation is denoted by the full LT torsion-field symbol.",
-      "correction": "Use Ψ_s=(Ψ′_(s+1))^(Δ′), with |Δ′|=p+1.",
-      "reason": "The fixed field has degree p^s over Φ, whereas Φ_s has degree (p²−1)p^(2s).",
+      "printed": "The degree of the quasi-canonical field is labelled [Φ′_s:Φ], although the field just defined is Ψ′_s.",
+      "correction": "For s≥1, write [Ψ′_s:Φ]=p^(s−1)(p+1). The correctly printed tame fixed-field relation on p.959 is Ψ_s=(Ψ′_(s+1))^(Δ′).",
+      "reason": "The preceding Galois-group formula is for Ψ′_s. The symbol Φ′_s in its degree is undefined; this is a degree-label typo, not a wrong fixed-field assertion.",
       "affects": "nothing",
       "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E3",
       "searched": [
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after correcting the report of the typo: the page image p.958 has Φ′_s in the degree label. The fixed-field relation on p.959 is already correct.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E4",
@@ -3209,13 +3357,18 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the page image of the proof of Theorem 5.5(ii), p.959. The forward conductor-s+1 neighbours must be conjugates of x_(s+1).",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E5",
       "source": "BKO21",
       "kind": "misprint",
-      "locator": "Theorem 5.5(ii), conductor-zero boundary, p.959; published version recorded in sourceVersions",
+      "locator": "Final sentence of the proof of Theorem 5.5(ii), p.959; published version recorded in sourceVersions",
       "printed": "The trace at the first quasi-canonical boundary uses the full tame LT group symbol.",
       "correction": "Use Δ′=Gal(Ψ′_1/Φ), of order p+1.",
       "reason": "The quasi-canonical first field has degree p+1, not p²−1; its trace of Q is (p+1)Q.",
@@ -3225,7 +3378,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the final sentence of that proof, p.959, rather than in the theorem statement. Its boundary trace uses the order-p+1 group Δ′.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E6",
@@ -3241,7 +3399,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the page image of Corollary 5.6, p.959. The ambient quotient needs the same inverse twist as its minus submodule.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E7",
@@ -3257,7 +3420,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a claimed misprint. The page image of the proof of Theorem 5.8, p.960, uses the descended δ and does not assert δ_1=δ. The Euler factor is a useful missing explanation, proved in the trivial-derivative node, but no printed false equality occurs at this locator.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E8",
@@ -3273,7 +3441,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in §6.0.2, p.962: the finite Fourier quotient for the specified tower has base Φ.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E9",
@@ -3289,7 +3462,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing Lemma 5.1(ii) with its scalar Frobenius proof, p.956: [εp] reduces to X^(p²), so the LT parameter has the scalar Frobenius sign.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E10",
@@ -3305,7 +3483,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the proof of Lemma 5.2, p.957: elliptic automorphism orders control the j-map, while the different separately controls the parametrization.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E11",
@@ -3321,7 +3504,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Rubin §2, pp.407–408, and BKO footnote 2, p.948. The alternating sign gives the required [−p]-compatible sequence.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E12",
@@ -3337,7 +3525,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the statement and proof of Rubin Lemma 4.2, p.410. Continuity alone does not imply preservation of the augmentation maximal ideal; the coefficient-of-T functional gives the stated counterexample.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     },
     {
       "id": "AnticyclotomicLocalUnits/E13",
@@ -3353,7 +3546,12 @@
         "The existing atlas errata packet PAPER-BURUNGALE-KOBAYASHI-OTA-21 and its reviewed findings.",
         "The published Annals article page and publisher PDF; Rubin’s published Göttingen scan when applicable.",
         "Web searches for the named result with erratum/correction; no later correction found for findings marked new."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the page image p.959. The printed p scalar multiples generate the same lattice for s≥1; a second Z_p-coordinate gives the distinct forward lines.",
+        "by": "REV-DESIGN-AnticyclotomicLocalUnits"
+      }
     }
   ],
   "sourceVersions": [
@@ -3374,7 +3572,7 @@
     {
       "kind": "published",
       "url": "https://ir.cwi.nl/pub/10014/10014D.pdf",
-      "citation": "Journal of Pure and Applied Algebra 10 (1977), 305–314",
+      "citation": "Duke Mathematical Journal 44, no.2 (1977), 305–314",
       "read": "2026-10-18",
       "sha256": "5bbb94e03c8cbcb82b83bd1dbf28f6a0300a50f18b570668799190f4f268a3c8"
     },
@@ -3396,11 +3594,281 @@
   "upstreamNotes": [
     {
       "roadmap": "ProfiniteProPGroups",
-      "detail": "Current upstream Layer 9 already defines CompletedGroupAlgebra R G. Reuse its general construction; only the coefficient-O Iwasawa interfaces are requested. It is not available at the older implementation pin."
+      "detail": "Current upstream ProfiniteProPGroups Layer 9 consumes TauCeti.completedGroupAlgebra (lowercase c), its proj/mk/ext API and the compact-module action. Read in current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, Topology/Algebra/Group/Profinite/CompletedGroupAlgebra/{Basic,Module,PowerSeries,Filtration}.lean. Basic and Module are general in R and apply to O; PowerSeries supplies the Z_p coordinate, so the finite coefficient-O comparison stays with L4/L5. These files are absent at f790474; cite the upstream layer rather than inventing a pinned baseline declaration or replanning the constructions."
     },
     {
       "roadmap": "ModularCurves",
       "detail": "Current Layer 10 is prime-level compactification only. Composite levels 27/32 and mixed fine levels needed here require the explicit G4 extension; the existing affine/cyclic/coarse layers remain suppliers."
+    },
+    {
+      "roadmap": "ProfiniteArithmetic",
+      "detail": "Current Layer 1.3 and Tau Ceti Topology/Algebra/Group/Profinite/ProP/PadicPow.lean provide IsProP.module and continuousSMul_module for an abelian pro-p group. Use that scalar action on Additive P_n after proving P_n is pro-p from its principal-unit filtration; ALU does not own a second generic Z_p powering construction. This is current-library reuse beyond the older pin."
+    },
+    {
+      "roadmap": "ClassFieldTheory",
+      "detail": "Current Layer 0 explicitly owns generic finite cyclic Tate cohomology and the Herbrand-quotient formalism. R02.1 supplies coefficient limits, not that theorem. The ALU.7 request and stage prerequisites have been redirected accordingly."
+    },
+    {
+      "roadmap": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+      "detail": "The separate atlas errata E3 describes the wrong locus: p.958 has a degree-label typo, while the p.959 tame fixed-field relation is correct. Its E7 misprint allegation is unsupported by the page image: p.960 uses δ without asserting δ_1=δ. The reviewed packet retains corrected E3 and rejected E7 for traceability. The errata file is outside this review job’s deliverables."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AnticyclotomicLocalUnits",
+    "date": "2026-10-18",
+    "notes": "Independent review of every target, source locator, proof sketch, API, test, planet, exact-pin baseline declaration and supplier contract. Corrected source reports, coefficient-kernel descent, supplier ownership and missing interfaces. Accepted as a target-level planning pass with eleven explicit gaps and nine planned, zero closed stages; this is not acceptance of proof closure. The new G11 condition is explicit wherever used. Suggested Lean file elaborates at the pins with only its two intended theorem-placeholder warnings. See the review report and handoff for out-of-scope reader/errata follow-ups.",
+    "checked": [
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.0/conductor-parity",
+        "verdict": "corrected",
+        "note": "The trivial character has conductor zero; exact order p^r with r≥1 has conductor exponent r+1. Tests use the permitted computation kind."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.0/principal-unit-limit",
+        "verdict": "corrected",
+        "note": "Reuses the pinned principal-unit subgroup and current generic completed action. Added inverse-limit constructor/projector API and the pro-p scalar-action supplier."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.0/unit-rank-two",
+        "verdict": "verified",
+        "note": "Rubin Proposition 1.1 and Wintenberger §4 match the nonexceptional tame component and rank two; the general norm-control input remains G5."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.0/inverse-tate-twist",
+        "verdict": "corrected",
+        "note": "Contragredient action is κ⁻¹ and evaluation requires a Tate basis. Added extensionality, coefficient-map functoriality and the explicit basis hypothesis."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.0/anticyclotomic-quotient",
+        "verdict": "corrected",
+        "note": "The twisted relation σ−κ(σ) corresponds to σ−1 after inverse twisting. Generic algebra supplier corrected; quotient constructor, equality and action API added."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.1/lubin-tate-coleman",
+        "verdict": "verified",
+        "note": "Interpolation, norm operator and Tate-basis change match BKO §2 and Rubin §2 with π=−p; full height-two existence proof remains G6."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.1/coates-wiles-derivatives",
+        "verdict": "corrected",
+        "note": "The invariant derivative divides by λ′ at torsion points. Added zero and coefficient-linear extension API; tests distinguish the invariant derivative."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.1/character-derivative",
+        "verdict": "corrected",
+        "note": "The weighted sum has π^(−n−1) and χ, giving inverse-character equivariance. Added its coefficient-linear-map interface."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.1/trivial-derivative",
+        "verdict": "verified",
+        "note": "The trivial Euler factor is 1+p⁻¹. The descended δ is augmentation-linear; BKO p.960 does not print the false equality alleged in E7."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.1/signed-unit-modules",
+        "verdict": "corrected",
+        "note": "Unit signs kill opposite parity. Corrected finite-free base change to tensor-valued kernels and added an explicit scalar-kernel counterexample; G11 records the missing CM comparison."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.2/finite-formal-kummer",
+        "verdict": "verified",
+        "note": "Finite Kummer exactness and the actual Cartier dual are kept distinct from self-duality. The formal comparison and limit inputs remain explicit G7/G8."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.2/formal-norm-vanishing",
+        "verdict": "verified",
+        "note": "Hazewinkel Theorem 1.3 requires an unramified ground field. The claimed tower application is conditional on the recorded finite ramified-base extension G8."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.2/two-variable-kummer-pairing",
+        "verdict": "corrected",
+        "note": "The pairing is the Kummer/local-reciprocity pairing with the inverse twist, rather than an arbitrary duality. Corrected test-kind labels; G7/G8 remain required."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.2/anticyclotomic-kummer-pairing",
+        "verdict": "verified",
+        "note": "Taking Γ⁺ coinvariants on units corresponds to Γ⁺ invariants on divisible points. Saturation and norm-vanishing prerequisites are explicit."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.2/wiles-trace-formula",
+        "verdict": "verified",
+        "note": "The trace formula has π^(−m−1−k), the invariant logarithm and an admissibly large m; the unread original reciprocity proof remains G9."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/character-logarithm",
+        "verdict": "corrected",
+        "note": "Point Fourier projection uses χ⁻¹ and normalized p^(−m), hence direct-character equivariance. Added its linear-map API and normalized test labels."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/signed-formal-points",
+        "verdict": "corrected",
+        "note": "Point signs kill the same parity. Saturation justifies the embedding after tensoring; constructors, ambient extensionality and trace compatibility added."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/formal-fourier-lattices",
+        "verdict": "verified",
+        "note": "The logarithm is a finite-index lattice comparison, not an integral normal-basis assertion. Rational Fourier denominators divide p^n."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/divisible-point-sum",
+        "verdict": "corrected",
+        "note": "The divisible sum does not assert a direct sum. Corrected the Rubin locator to include Lemma 5.5(vi), which gives the p^n bound."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/finite-formal-saturation",
+        "verdict": "verified",
+        "note": "The finite-level embeddings require O-saturation, proved using absence of formal π-torsion in the tame-fixed tower."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/signed-annihilator",
+        "verdict": "verified",
+        "note": "The annihilator follows from Wiles reciprocity with the opposite unit convention and inverse dual action; it uses the actual pairing."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.3/signed-rank-bounds",
+        "verdict": "verified",
+        "note": "The point ranks and annihilator duality give the rank bounds without invoking the later signed freeness theorem."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.4/auxiliary-cm-field",
+        "verdict": "verified",
+        "note": "The CM-field and canonical-character choices match BKO Lemma 3.1 and Theorem 3.4. Early CM and class-number proof inputs remain G2/G10."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.4/projected-cm-class",
+        "verdict": "corrected",
+        "note": "The projected class retains the specified semilocal maps. Corrected the nontrivial order/conductor boundary and added coefficient linearity and an actual group-ring evaluation test."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.4/wiles-dual-exponential",
+        "verdict": "verified",
+        "note": "The general dual exponential is requested from PadicHodgeRegulators L1; its CM normalization is a separate comparison with G2/G9."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.4/cm-class-values",
+        "verdict": "corrected",
+        "note": "Scalar interpolation and root-number vanishing are verified against BKO Proposition 3.3. Tensor-valued signed membership is explicitly conditional on new G11."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.4/optimal-unit",
+        "verdict": "corrected",
+        "note": "Replaced the unjustified scalar-kernel coordinate descent by membership via G11 followed by finite-free coordinates. This remains independent of plus freeness."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/auxiliary-supersingular-curve",
+        "verdict": "verified",
+        "note": "The auxiliary good trace-zero curve, optimal representative and exceptional levels 27/32 agree with BKO §§5.0.1–5.0.2; supersingular existence input remains G3."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/manin-unit-separability",
+        "verdict": "verified",
+        "note": "Abbes–Ullmo Theorem A applies to the optimal curve at a good prime. Its integral-model and composite-level prerequisites remain G4."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/scalar-frobenius",
+        "verdict": "verified",
+        "note": "Scalar Frobenius is [εp], giving LT parameter εp; for trace −2p this is −p. This corrects the source sign through E9."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/supersingular-mass-application",
+        "verdict": "verified",
+        "note": "The stated supersingular counts match the BKO application. The general finite-field count supplier and unread original proofs remain G3."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/ramification-bound",
+        "verdict": "verified",
+        "note": "Riemann–Hurwitz bounds ramification of the separable parametrization by 2g−2. Elliptic stabilizers belong to the j-map instead."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/generic-supersingular-bound",
+        "verdict": "verified",
+        "note": "The generic-j count μ floor((p−1)/12) is stronger than the printed weak bound and works at p=47. No positive conclusion is drawn from a zero lower bound."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/exceptional-supersingular-bounds",
+        "verdict": "verified",
+        "note": "The j=0 and j=1728 orbit bounds are μ/3 and μ/2; each exceeds μ/6. They use scalar-Frobenius representatives."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/fine-level-unramified-lift",
+        "verdict": "corrected",
+        "note": "The fine auxiliary level is p+1, prime to p. Added base-change/reduction compatibility; composite and mixed-level geometry remains G4."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.5/primitive-formal-cm-point",
+        "verdict": "corrected",
+        "note": "The formal local isomorphism and prime-to-p multiplier preserve a primitive point. Test labels corrected; LT realization remains G1."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.6/quasicanonical-modular-points",
+        "verdict": "corrected",
+        "note": "Correct quasi-canonical field degrees and tame indices are retained. Added marking-change compatibility; quasi-canonical theory is explicit G1."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.6/optimal-point-system",
+        "verdict": "corrected",
+        "note": "The definition traces x_(s+1) through the order-p+1 tame group. Added O-linear/formal-trace compatibility and normalized test labels."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.6/hecke-lattice-neighbours",
+        "verdict": "verified",
+        "note": "The independent second coordinate θ makes the p forward lattices distinct; the backward lattice is homothetic to the preceding one."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.6/optimal-trace-relations",
+        "verdict": "verified",
+        "note": "The first boundary trace is −y and later traces are −y_(s−1); y₀=0 and y is primitive. These follow from a_p(E)=0."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.6/optimal-point-parity",
+        "verdict": "verified",
+        "note": "Even points are plus and odd points minus under same-parity vanishing; iterated odd trace is the stated signed p-power multiple of y."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.7/minus-herbrand-quotient",
+        "verdict": "corrected",
+        "note": "Herbrand quotient p^(n−1) uses residue degree two and odd n. Redirected generic cyclic cohomology to ClassFieldTheory Layer 0."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.7/minus-first-cohomology",
+        "verdict": "verified",
+        "note": "Primitive trace norms bound the zeroth Tate group by p^(n−1); the Herbrand quotient forces finite H¹ to vanish, then continuous H¹ vanishes."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.7/minus-divisible-invariants",
+        "verdict": "verified",
+        "note": "Rubin Proposition 7.4 uses only the primitive trace system here. Invariants are the actual base formal points tensored with Φ/O."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.7/minus-quotient-and-kernel-free",
+        "verdict": "verified",
+        "note": "Rank-one coinvariants and the compact Λ-module criterion yield the free quotient; its kernel is a free rank-one direct summand."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.8/augmentation-unit-generation",
+        "verdict": "verified",
+        "note": "Generation uses augmentation-linearity and the constant-coefficient unit criterion. Continuity alone would fail, as the Lean counterexample confirms."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.8/integral-signed-decomposition",
+        "verdict": "verified",
+        "note": "The plus optimal element generates the quotient and meets the minus kernel trivially. This yields an integral compact Λ-direct sum."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.8/all-character-derivatives-nonzero",
+        "verdict": "verified",
+        "note": "Rubin Lemma 10.1 gives a nonzero Fourier derivative for each finite character, including the trivial boundary handled separately."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.8/signed-generator-nonvanishing",
+        "verdict": "verified",
+        "note": "Nonzero evaluation on a matching signed generator follows from the decomposition and specialization; opposite characters vanish by definition."
+      },
+      {
+        "nodeId": "AnticyclotomicLocalUnits:ALU.8/finite-signed-point-export",
+        "verdict": "verified",
+        "note": "The export reuses the signed point carrier and actual Kummer embedding, with restriction/corestriction compatibility. It introduces no second Selmer condition."
+      }
+    ]
+  }
 }
