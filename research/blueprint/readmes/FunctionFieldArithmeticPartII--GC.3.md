@@ -41,7 +41,8 @@ geometrically connected curve of genus $g$, and $R\subset X$ a reduced finite
 closed subscheme, possibly empty, with $\rho=\deg R$. Put $U=X\setminus R$ and
 $j:U\to X$. Fix a prime $\ell\ne p$ and coefficients
 $\overline{\mathbf Q}_\ell$. Geometric Frobenius is used throughout. All sheaves
-called local systems are lisse and unshifted; $L_d[d]$, not $L_d$, is the perverse
+called local systems are lisse, defined over a finite extension $E/\mathbf Q_\ell$
+before extension to $\overline{\mathbf Q}_\ell$, and unshifted; $L_d[d]$, not $L_d$, is the perverse
 normalization (source issue EGC3-3).
 
 The parent supplies the following, which this layer does not redefine:
@@ -75,7 +76,7 @@ concentrated in degree one, the symmetric group therefore acts by the sign
 twist of the ordinary permutation action. Tau Ceti already has the ordinary
 action, `PiTensorProduct.reindexRepresentation`, and its invariants (the span
 of the pure powers when $d!$ is invertible). The three targets of this section
-add the sign and the comparison with the exterior power. They are generic
+add the sign and its compatibility/comparison with the existing exterior maps. They are generic
 algebra; the packet records that they move to a generic owner if one is
 designated.
 
@@ -107,16 +108,23 @@ factors the same permutation acts without sign.
 | `koszulRepresentation.test_degree_zero` | degenerate | For $d=0$ every element of $V^{\otimes0}\simeq K$ is invariant. |
 | `koszulRepresentation.test_degree_one` | degenerate | For $d=1$ every element of $V$ is invariant. |
 | `koszulRepresentation.test_line_square` | computation | With $2$ invertible the invariants on $K^{\otimes2}$ are zero; the unsigned action would keep the whole line. |
-| `koszulRepresentation.test_pure_square` | non-example | $x\otimes x$ is fixed by the unsigned action, but by the Koszul-signed action only when $x\otimes x=0$; forgetting the sign gives symmetric tensors. |
+| `koszulRepresentation.test_pure_square` | non-example | With $2$ invertible, $x\otimes x$ is fixed by the unsigned action, but by the Koszul-signed action only when $x\otimes x=0$; forgetting the sign gives symmetric tensors. |
 | `koszulRepresentation.test_char_two` | non-example | Over $\mathbf Z/2$ the sign is trivial, so $(\mathbf Z/2)^{\otimes2}$ is invariant although $\wedge^2(\mathbf Z/2)=0$. |
 
-Inputs: Tau Ceti `PiTensorProduct.reindexRepresentation` and
-`commute_reindexRepresentation_map`; Mathlib `PiTensorProduct.reindex`,
-`map_reindex`, `TensorPower`, `Equiv.Perm.sign`. Source: YZ19, proof of
+Inputs: Tau Ceti `PiTensorProduct.reindexRepresentation` and its
+endomorphism commutation lemma `commute_reindexRepresentation_map`; Mathlib `PiTensorProduct.reindex`,
+`map_reindex` (for maps between different modules), `TensorPower`,
+`Equiv.Perm.sign`. Source: YZ19, proof of
 Lemma A.6, p. 519, which names the Koszul sign convention.
 
-**New target:** `GC.3/antisymmetrization`, proposed name
-`TauCeti.RamifiedClassField.antisymmetrization`. The antisymmetrization
+**Existing maps, with one new compatibility lemma:** `GC.3/antisymmetrization`.
+Current Mathlib has `exteriorPower.toTensorPower`; current Tau Ceti has
+`exteriorPower.fromTensorPower` and the factorial, norm and naturality identities
+in `TauCeti/LinearAlgebra/ExteriorPower/Basic.lean` at commit
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, lines 170–247. These maps are
+imports and are not construction targets of this layer. They postdate the
+mandatory atlas pins, so the suggested file uses private light models for the
+additional signed-action statements. The antisymmetrization
 $\alpha_d:\wedge^dV\to V^{\otimes d}$ is
 
 $$
@@ -134,12 +142,11 @@ absorbs the sign of $\tau$. No invertibility is needed for the construction.
 
 | Name | Role | Contract |
 | --- | --- | --- |
-| `antisymmetrization` | constructor | $\alpha_d:\wedge^dV\to V^{\otimes d}$. |
-| `exteriorProjection` | data | $\pi_d:V^{\otimes d}\to\wedge^dV$. |
-| `antisymmetrization.apply_ιMulti` | simp | The signed-sum formula on $v_1\wedge\cdots\wedge v_d$. |
-| `antisymmetrization.exteriorProjection_comp` | relation | $\pi_d\circ\alpha_d=d!\cdot\mathrm{id}$. |
-| `antisymmetrization.mem_invariants` | characterisation | Every value of $\alpha_d$ is Koszul-invariant. |
-| `antisymmetrization.naturality` | functoriality | $\alpha_d\circ\wedge^df=f^{\otimes d}\circ\alpha_d$. |
+| `antisymmetrization.mem_invariants` | characterisation | Every value of the existing $\alpha_d$ is invariant for the Koszul-signed action. |
+
+The generator formula, $\pi_d\alpha_d=d!$, the reverse composite equal to the
+signed permutation sum, and naturality are existing library API. The following
+checks fix the conventions of the private models used at the old pins.
 
 | Test | Kind | Instance and error detected |
 | --- | --- | --- |
@@ -149,8 +156,9 @@ absorbs the sign of $\tau$. No invertibility is needed for the construction.
 | `antisymmetrization.test_char_two` | non-example | Over $\mathbf Z/2$ with $V=\mathbf Z/2$, $\alpha_2=0$ while the Koszul-signed invariants of $V^{\otimes2}$ are nonzero. |
 
 Source: Conrad, *Exterior powers*, §4, display (4.1), p. 12, and p. 13, where the
-same map embeds $\wedge^k$ as the skew-symmetric tensors and the return to
-$\wedge^k$ is multiplication by $k!$.
+finite-dimensional vector-space discussion identifies skew-symmetric tensors
+and computes the factor $k!$. The all-module unit-factorial comparison below
+follows from the explicit two-composite argument and the current-library API.
 
 **New target:** `GC.3/alternating-invariants-exterior` (theorem; Lean
 `antisymmetrization.bijective`). If $d!$ is a unit in $K$, then $\alpha_d$ is an
@@ -193,7 +201,13 @@ $G$-module $M$, for example any $\overline{\mathbf Q}_\ell$-representation of a
 finite group, then $H^r(G,M)=0$ for $r>0$ and $H^0(G,M)=M^G$. Corestriction
 after restriction to the trivial subgroup is multiplication by $|G|$ and factors
 through $H^r(1,M)=0$ (Milne, *Class Field Theory* v4.03, II.1.30–1.31, p. 70; the
-same statement is `corestriction_comp_res` in ProfiniteCohomology Layer 10). Checks:
+transfer owner is ProfiniteCohomology Layer 10).
+The proof uses the current library's ordinary all-degree annihilation theorem
+`groupCohomology.natCard_nsmul_eq_zero` directly, in
+`TauCeti/RepresentationTheory/Homological/GroupCohomology/Corestriction.lean`,
+commit `a91d3aa`, lines 430–445. Only the invertible-order consequence is a new
+target here. ProfiniteCohomology Layer 3 compares degrees 0–2 and is not used as
+an all-degree comparison. Checks:
 $\mu_2$ acting on $\overline{\mathbf Q}_\ell$ by the sign has no cohomology at all;
 $\mathbf Z/2$ acting trivially on $\mathbf F_2$ has $H^r=\mathbf F_2$ for every $r$.
 This is the rational finite-groupoid vanishing of the parent's collision and
@@ -204,11 +218,15 @@ middle-extension arguments, and of the coarse pushforward below.
 `prod_character_perm`). For a commutative group $A$ (here $\mu_2(\bar k)$), a
 character $\chi$ and $m\ge1$, the character $(a_i)\mapsto\prod\chi(a_i)$ of $A^m$
 equals $\chi\circ\mu_m$, where $\mu_m$ is multiplication. It is trivial on
-$N_m=\ker\mu_m$ and invariant under permutations of the factors. So the
-pushforward along $B(A^m)\to B(A)$ of the line $\chi^{\boxtimes m}$ is the line
-$\chi$ in degree zero, by the previous lemma. At $n\cdot x$ with $x\in R$ the stalk
-of the symmetric local system is therefore a line on which the stabilizer $\mu_2$
-acts by the inertia character of $L$ at $x$, not by its $n$-th power. If two
+$N_m=\ker\mu_m$ and invariant under permutations of the factors. This algebra
+holds without a finiteness hypothesis. **For finite $A$**, derived $N_m$-invariants
+of the tensor line are that line in degree zero, with quotient character $\chi$.
+For infinite $A$ this conclusion can fail: with $A=\mathbf Z$, $m=2$ and trivial
+character, $N_m\simeq\mathbf Z$ has nonzero rational $H^1$. The translation
+into pushforward along $B(A^m)\to B(A)$ is made in
+`pushforward-description-comparison` using gap GC3-STACK-PUSHFORWARD.
+In the application $A=\mu_2(\bar k)$ is finite; the residual stabilizer acts by
+$\chi$, not its $m$-th power. If two
 factors carried different characters, $(-1,-1)\in N_2$ would act by $-1$. Source:
 YZ19, proof of Lemma A.7, pp. 519–520. This is the algebraic content of the
 parent lemma `GC.3/collision-kernel`.
@@ -265,7 +283,7 @@ TAME-INERTIA by accepted node ids and refines `GC.3/tame-local-systems`.
    with the $S_d$-linearization that permutes tensor factors **without sign**.
    It descends along the $S_d$-cover to a rank-one local system $L_d^\circ$ on
    $U_d^\circ$. Over $\bar k$ its monodromy is YZ19 (A.6),
-   $\pi_1(U_d^\circ)\to\pi_1(U)^d\rtimes S_d\to\overline{\mathbf Q}_\ell^\times$,
+   $\pi_1((U_d^\circ)_{\bar k})\to\pi_1(U_{\bar k})^d\rtimes S_d\to\overline{\mathbf Q}_\ell^\times$,
    $(g_1,\dots,g_d;\sigma)\mapsto\prod\chi(g_i)$.
 2. $L_d^\circ$ extends to a rank-one local system $\mathbb L_d$ on
    $X_d^{\sqrt R}$, uniquely up to unique isomorphism compatible with the
@@ -285,6 +303,13 @@ extensions descend along the atlas (gap GC3-STACK-PI1), and uniqueness is full
 faithfulness on dense opens (`IG.5/finite-cover-image-lemmas`). The
 construction is over $k$, so $\mathbb L_d$ has its Frobenius descent datum.
 
+The stabilizer character is obtained without stack pushforward. For fixed
+geometric $x\in R$, the divisor of divisors containing $x$ is smooth and
+connected (YZ19 Lemma A.4, pp. 516–517). The $\mu_2$-action on a lisse line is
+locally constant there. At its generic point the product chart above identifies
+it with the inertia character of $L$, so the same character occurs at $n\cdot x$
+and at intersections with other root divisors.
+
 | Name | Role | Contract |
 | --- | --- | --- |
 | `monodromySymmetricLocalSystem` | constructor | $\mathbb L_d$ on $X_d^{\sqrt R}$ with Frobenius descent datum. |
@@ -294,6 +319,8 @@ construction is over $k$, so $\mathbb L_d$ has its Frobenius descent datum.
 | `.monodromy` | characterisation | Over $\bar k$ the monodromy on $U_d^\circ$ is (A.6) with $\chi$ valued in $\overline{\mathbf Q}_\ell^\times$. |
 | `.stalk` | other | At $D=\sum n_xx$ the stalk is a line; the stabilizer factor at $x\in R\cap\operatorname{supp}D$ acts by the inertia character of $L$ at $x$. |
 | `.multiplicative` | compatibility | $\operatorname{add}_{d,e}^*\mathbb L_{d+e}\simeq\mathbb L_d\boxtimes\mathbb L_e$, associative, commutative and unital; promoted to the parent `GC.3/symmetric-multiplicativity`. |
+| `.map` | functoriality | A morphism $f:L\to L'$ induces the descended/pushed-forward $f^{\boxtimes d}$; it commutes with restriction, stalks and Frobenius. |
+| `.map_id`, `.map_comp` | functoriality | Identity and composition agree with those of the induced maps. |
 
 | Test | Kind | Instance and error detected |
 | --- | --- | --- |
@@ -301,8 +328,9 @@ construction is over $k$, so $\mathbb L_d$ has its Frobenius descent datum.
 | `.test_one` | compatibility | $\mathbb L_1=L$. |
 | `.test_constant` | computation | For $R=\varnothing$ and $L$ constant, $\mathbb L_d$ is constant on $X_d$. |
 | `.test_order_three` | computation | For $\chi$ unramified with trivial geometric monodromy and $\chi(\mathrm{Frob})=\zeta_3$, $\mathbb L_d$ is geometrically constant with Frobenius $\zeta_3^d$; rejects a global quadratic restriction. |
-| `.test_koszul_sign_obstructs` | non-example | With the sign-twisted linearization the descended system has monodromy $-1$ around $\Delta$ and does not extend; the Koszul sign belongs to cohomology, not to these tensor lines. |
+| `.test_koszul_sign_obstructs` | non-example | In degree two, with the sign-twisted linearization the descended system has monodromy $-1$ around $\Delta$ and does not extend; the Koszul sign belongs to cohomology, not to these tensor lines. |
 | `.test_stabilizer_character` | characterisation | At $2x$, $x\in R$ with sign inertia, the stabilizer acts on the stalk by the sign, not by its square. |
+| `.test_scalar_map` | computation | On a constant input, $f=2\,\mathrm{id}$ induces $2^d\,\mathrm{id}$. The zero map induces zero for $d\ge1$ and identity for $d=0$. |
 
 Sources: YZ19, §A.2.1 and the proof of Lemma A.8 with (A.5)–(A.6), pp. 519–520,
 where the monodromy on the multiplicity-free locus is what proves
@@ -318,12 +346,16 @@ $(p_{d,!}L^{\boxtimes d})^{S_d}$, the parent definition
 `GC.3/symmetric-local-system`. The pullback $p_d^*\mathbb L_d$ agrees
 equivariantly with $L^{\boxtimes d}$ on the dense open $(U^d)^\circ$, so
 adjunction gives an $S_d$-invariant map $\mathbb L_d\to p_{d*}L^{\boxtimes d}$.
-At $D=\sum n_xx$ proper base change computes the target stalk from the fibre: a
-product of the maps $[\mathrm{pt}/\mu_2]^{n_x}\to[\mathrm{pt}/\mu_2]$ for $x\in R$ and
-finite sets for $x\in U$. The tensor-character and acyclicity lemmas show that its
-invariant part is one line in degree zero, so the map is an isomorphism. Proper
+At $D=\sum n_xx$ proper base change and invariance under nilpotent
+thickenings reduce the target stalk calculation to a finite groupoid, whose
+residual-gerbe maps are products of $[\mathrm{pt}/\mu_2]^{n_x}\to[\mathrm{pt}/\mu_2]$ for $x\in R$ and
+finite reduced sets for $x\in U$. The full fibres can be nonreduced
+(source issue EGC3-5). Relative stabilizers are the finite kernels
+$\prod_x\ker(\mu_2^{n_x}\to\mu_2)$. The tensor-character and acyclicity lemmas
+give one line in degree zero after taking $S_d$-invariants. The adjunction unit
+is the identity on that kernel-invariant line, so the map is an isomorphism. Proper
 base change along this proper quasi-finite but **non-representable** map is gap
-GC3-STACK-PUSHFORWARD (source issue EGC3-2). Checks: $d=1$ is the identity; over
+GC3-STACK-PUSHFORWARD, including nilpotent invariance (source issues EGC3-2, EGC3-5). Checks: $d=1$ is the identity; over
 $U_d^\circ$ both sides are $L_d^\circ$; at $2x$, $x\in R$, a theorem for
 representable finite maps does not apply.
 
@@ -343,7 +375,12 @@ $\overline{\mathbf Q}_\ell$-sheaf with Frobenius descent datum, equal to
 $L_d^\circ$ on $U_d^\circ$, with stalk $\bigotimes_xF_x^{\otimes n_x}$ at
 $D=\sum n_xx$: the $S_d$-orbit of an ordered preimage has stabilizer
 $\prod_xS_{n_x}$, which acts trivially on a tensor power of a line. It injects into
-$j'_*(L_d^\circ)$ for $j':U_d^\circ\to X_d$.
+$j'_*(L_d^\circ)$ for $j':U_d^\circ\to X_d$. To see injectivity,
+use finite quadratic root charts $f:Y\to X$. On a chart the pullback of $L$
+is lisse and $F$ is the invariant summand of its finite pushforward. Products
+of charts give the same description for $F^{\boxtimes d}$. A lisse sheaf on a
+normal chart injects into the direct image of its dense-open restriction;
+finite pushforward and the invariant summand preserve that injection.
 
 | Name | Role | Contract |
 | --- | --- | --- |
@@ -352,13 +389,16 @@ $j'_*(L_d^\circ)$ for $j':U_d^\circ\to X_d$.
 | `.restrictDistinct` | compatibility | The restriction of $\mathcal M_d$ to $U_d^\circ$ is $L_d^\circ$. |
 | `.zero`, `.one` | simp | $\mathcal M_0=\overline{\mathbf Q}_\ell$; $\mathcal M_1=j_*L$. |
 | `.subsheaf` | other | $\mathcal M_d\to j'_*(L_d^\circ)$ is injective. |
+| `.map` | functoriality | A morphism $f:L\to L'$ induces the descended/pushed-forward $f^{\boxtimes d}$; it commutes with restriction, stalks and Frobenius. |
+| `.map_id`, `.map_comp` | functoriality | Identity and composition agree with those of the induced maps. |
 
 | Test | Kind | Instance and error detected |
 | --- | --- | --- |
 | `.test_zero` | degenerate | $\mathcal M_0=\overline{\mathbf Q}_\ell$ on $\operatorname{Spec}k$. |
 | `.test_one` | compatibility | $\mathcal M_1=j_*L$. |
 | `.test_kummer_stalks` | computation | $X=\mathbf P^1$, $R=\{0,\infty\}$, quadratic Kummer $\chi$: the stalks of $\mathcal M_2$ at $2\cdot0$ and $0+\infty$ vanish, and at $y+y'$ with $y,y'\in U$ the stalk is a line. |
-| `.test_not_lisse` | non-example | With sign inertia at some $x\in R$, $\mathcal M_d$ vanishes on the image of $D_x$ but not on $U_d^\circ$: it is not lisse, while $\mathbb L_d$ is. The coarse model carries cohomology, not descent. |
+| `.test_not_lisse` | non-example | For $d\ge1$ and sign inertia at some $x\in R$, $\mathcal M_d$ vanishes on the image of $D_x$ but not on $U_d^\circ$: it is not lisse, while $\mathbb L_d$ is. The coarse model carries cohomology, not descent. |
+| `.test_scalar_map` | computation | On a constant input, $f=2\,\mathrm{id}$ induces $2^d\,\mathrm{id}$. The zero map induces zero for $d\ge1$ and identity for $d=0$. |
 
 If $\chi$ is unramified at every point of $R$, $F$ is lisse and $\mathcal M_d$ is
 Deligne's symmetric-power local system on $X_d$.
@@ -373,7 +413,8 @@ for all $i$; for $d=1$, $H^i(X_1^{\sqrt R}\otimes\bar k,L)\simeq H^i(X\otimes\ba
    $G_D=\prod_{x\in R\cap\operatorname{supp}D}\mu_2$ (Abramovich–Vistoli
    Lemma 2.2.3; `SF.1/tame-local-structure`), and
    $(R^i\omega_{d*}\mathbb L_d)_D=H^i(G_D,(\mathbb L_d)_{\tilde D})$ (gap
-   GC3-COARSE-STALKS).
+   GC3-COARSE-STALKS). This passes from the possibly nonreduced full fibre to
+   its reduced gerbe $BG_D$ by nilpotent invariance (`RS.1/closed-fibre`, EGC3-5).
 2. These vanish for $i>0$, and for $i=0$ give a line exactly when every inertia
    character at $R\cap\operatorname{supp}D$ is trivial
    (`GC.3/finite-group-rational-acyclicity`, `GC.3/tensor-character-kernel`).
@@ -417,7 +458,11 @@ with nontrivial action (`IG.0/etale-fundamental-group`). Poincaré duality for
 $j_*$ coefficients on the projective curve
 (`EDC.2/curve-poincare-duality-with-j-star-statement`, Weil I 2.12) pairs
 $H^2(j_*L)$ with $H^0(j_*L^\vee(1))$, and $L^\vee$ is again geometrically
-nontrivial. Checks: the constant sheaf on $\mathbf P^1$ and a geometrically
+nontrivial. The geometric bound $H^i=0$ for $i>2$ is an explicit SF.2
+request integrating EtaleCohomologyFoundations §F.3; §F.4.5 extends rational
+duality from finite $E/\mathbf Q_\ell$ to $\overline{\mathbf Q}_\ell$. Negative
+degrees vanish for an ordinary sheaf. `rational-coarse-comparison` is a direct
+prerequisite for the root-curve conclusion. Checks: the constant sheaf on $\mathbf P^1$ and a geometrically
 trivial $\chi$ with $\chi(\mathrm{Frob})=\zeta_3$ are excluded; for the quadratic
 Kummer character on $\mathbf P^1$ ramified at $0,\infty$ even $H^1=0$. This answers
 the parent request DUALITY-SCHEME on the coarse curve, where no stack duality is
@@ -473,9 +518,12 @@ assembly. They change no parent statement and create no cycle.
   `EDC.2/curve-poincare-duality-with-j-star-statement` (accepted).
 - **SchemeAndStackFoundations:** `SF.1/root-stack`, `SF.1/coarse-moduli-space`,
   `SF.1/tame-local-structure` (upstream main §§1.19, 1.21, 1.23); a request to SF.2
-  for Künneth, finite pushforward and proper base change of constructible
+  for Künneth, finite pushforward, proper base change, the geometric curve
+  cohomological bound, finite coefficient-field extension and Frobenius compatibility of constructible
   $\overline{\mathbf Q}_\ell$-sheaves, integrated from EtaleCohomologyFoundations.
-- **Tau Ceti roadmap ProfiniteCohomology, Layer 10:** `corestriction_comp_res`.
+- **Tau Ceti roadmap ProfiniteCohomology, Layer 10:** transfer is its existing
+  direction; the proof reuses the current library's ordinary all-degree
+  `groupCohomology.natCard_nsmul_eq_zero`.
 - **Libraries:** Tau Ceti `reindexRepresentation`, its invariants and
   `range_norm_eq_invariants`; Mathlib exterior powers, alternatization,
   `PiTensorProduct`, averaging, `groupCohomology`, idempotent completeness.
@@ -487,10 +535,16 @@ exactly three statements from it.
 
 | Gap | Statement needed | Intended owner | Consumers here |
 | --- | --- | --- | --- |
-| GC3-STACK-PI1 | Noohi's fundamental group of a connected Deligne–Mumford stack, lisse $\overline{\mathbf Q}_\ell$-sheaves as its continuous representations, atlas descent. | ST.0, ST.2 | `root-curve-character-dictionary`, `monodromy-symmetric-local-system` |
-| GC3-COARSE-STALKS | For a tame Deligne–Mumford stack with coarse map $\omega$: $(R^i\omega_*F)_{\bar y}=H^i(G_{\bar y},F_{\tilde y})$ and the Leray comparison, with Frobenius. | ST.0–ST.2 | `rational-coarse-comparison` |
-| GC3-STACK-PUSHFORWARD | Proper base change along proper quasi-finite non-representable morphisms. | ST.1 | `pushforward-description-comparison` only |
+| GC3-STACK-PI1 | Noohi's fundamental group of a connected normal Deligne–Mumford stack, lisse $\overline{\mathbf Q}_\ell$-sheaves as its continuous representations, atlas descent. | ST.0, ST.2 | `root-curve-character-dictionary`, `monodromy-symmetric-local-system` |
+| GC3-COARSE-STALKS | For a tame Deligne–Mumford stack with coarse map $\omega$: $(R^i\omega_*F)_{\bar y}=H^i(G_{\bar y},F_{\tilde y})$ and the Leray comparison, with Frobenius and nilpotent invariance. | ST.0–ST.2 | `rational-coarse-comparison` |
+| GC3-STACK-PUSHFORWARD | Proper base change along proper quasi-finite non-representable morphisms, including nilpotent invariance. | ST.1 | `pushforward-description-comparison` only |
 | GC3-LEAN-CARRIERS | Stack, sheaf and fundamental-group carriers for the geometric signatures. | Tau Ceti | all geometric targets |
+
+The representation dictionary is requested only on normal stacks for objects
+defined over finite $E/\mathbf Q_\ell$. General rational lisse sheaves on
+nonnormal spaces need not admit a global lattice or come from the profinite
+fundamental group (EtaleCohomologyFoundations §F.4.5). Every stack and chart
+used for this dictionary here is normal.
 
 They replace, for GC.3, the parent gaps ST-LISSE and ST-OPS; the parent gap
 EXTERIOR-COMP is discharged. GC3-STACK-PI1 overlaps the gap GC4-LISSE-ADAPTER of
@@ -515,13 +569,19 @@ Deligne–Mumford stacks) and WeilConjectures WC.6, so one owner serves all thre
   needs the corresponding statement for such morphisms; the monodromy
   construction avoids it.
 - **EGC3-3 (inherited E1).** $L_d$ is the unshifted object; $L_d[d]$ is perverse.
-- **EGC3-4 (inherited E3).** In Lemma A.8 the character $\chi$ takes values in
+- **EGC3-4 (inherited E3, independently confirmed).** In Lemma A.8 the character $\chi$ takes values in
   $\overline{\mathbf Q}_\ell^\times$, not $\{\pm1\}$; only the inertia at $R$ has
   order dividing two.
+- **EGC3-5 (inherited E2, independently confirmed).** The full zero-section
+  fibre in §A.1.3, pp. 515–516, is
+  $[\operatorname{Spec}K[t]/(t^2)/\mu_2]$. Its reduction is $B\mu_2$.
+  The coarse and ordered stalk calculations use nilpotent invariance before
+  passing to reduced gerbes or finite groupoids.
 
 Sources read: YZ19, published author-hosted PDF
 (https://math.mit.edu/~zyun/GZW_ramified_published.pdf), Appendix A.1–A.2.1,
-pp. 514–521, with page images of pp. 518–519, and arXiv v2 pp. 85–86; Stacks
+pp. 514–520 (the inherited source inventory also records Lemma A.9 on p. 521),
+with page images of pp. 506, 519–520, and arXiv v2 pp. 85–86; Stacks
 Project §§58.21, 58.31 and 12.4; Noohi, *Fundamental groups of algebraic stacks*
 (arXiv:math/0201021), §4 and §7; Abramovich–Vistoli, *Compactifying the space of
 stable maps* (arXiv:math/9908167v2), §§2.2–2.3; Conrad, *Exterior powers*, §§2–5;
@@ -535,7 +595,8 @@ restricted source was used.
 states the algebra of this layer over carriers present at the pins (Mathlib
 082e2d3, Tau Ceti f790474): the real-bodied definitions `koszulPermAction`,
 `koszulRepresentation` (on Tau Ceti's `reindexRepresentation`),
-`antisymmetrization` and `exteriorProjection`, their API, the comparison
+private light models of the already existing `antisymmetrization` and
+`exteriorProjection`, the new invariant-image compatibility and the comparison
 `antisymmetrization.bijective`, `invariants_map_surjective`,
 `groupCohomology_isZero_of_invertible`, the three tensor-character lemmas, and
 the tests of this document as labelled `example`s. Proofs are `sorry`; no data
