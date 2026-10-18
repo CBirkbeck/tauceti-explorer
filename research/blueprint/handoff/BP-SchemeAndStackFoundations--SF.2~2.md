@@ -1,6 +1,39 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-Ke3jUD, 2026-10-18
+## Current run — Codex session codex-o1dYqw, 2026-10-18
+
+Blocked checkpoint; the revision is unfinished. The bot confirmed the claim in
+[comment 6256609447](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256609447).
+I missed the manager's [prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+when selecting the issue. The available label conflicts with that instruction;
+claim confirmation does not reopen its mathematical scope.
+
+Fresh GitHub reads confirm upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged,
+with the merge commits and dates recorded below. Current upstream README blob
+`2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5` explicitly assigns sites and scheme
+cohomology to Layer 2, including Nisnevich foundations (§§2.12–2.14), coherent
+duality (§§2.18–2.21), scheme Brauer groups (§2.22) and equivariant cohomology
+(§2.23). Its §2.4 excludes general banded-gerbe classification; this does not
+supply authorization to restart the superseded revision. The suggested-file
+blob remains `98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. The supplied read-only
+checkout lacks this directory; current GitHub main establishes ownership.
+No shared checkout was changed or built.
+
+Only this handoff changes. No mathematical correction, ownership move or new
+request is claimed. Packet and SF.2 coverage remain partial, with 85 nodes,
+160 API items, 87 definition/construction tests, three planets, 89 baseline
+declarations, 11 gaps and nine requests. The packet checker reports zero
+errors and warnings; whitespace validation passes. Lean was neither changed
+nor compiled. No source passage was copied into the repository.
+
+The manager must reconcile queue eligibility and specify any extension beyond
+the authoritative upstream scope before mathematics resumes. Existing packet
+and review retain the worklist; no scratch material is needed. This run submits
+the blocked checkpoint its instructions require and takes no second job.
+Another automatic return to available must not trigger this same selection.
+
+## Earlier run — Codex session codex-Ke3jUD, 2026-10-18
 
 The bot confirmed this session's claim in
 [comment 6256036272](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256036272).
