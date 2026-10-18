@@ -11,7 +11,6 @@
     "MultiquadraticPartII",
     "AutomorphicSpectralTheory",
     "tauceti:TauCetiRoadmap/ConformalMapping",
-    "tauceti:TauCetiRoadmap/UniversalCovers",
     "tauceti:TauCetiRoadmap/AlgebraicTopology"
   ],
   "stages": [
@@ -20,6 +19,7 @@
       "title": "Nielsen regions and bordered signatures",
       "description": "For a nonelementary discrete subgroup of PSL₂(ℝ), define its limit set in the full ideal circle, the closed hyperbolic hull and its orbifold quotient. Prove geometric finiteness for finitely generated groups, identify funnels and their primitive boundary axes, construct the finite signature (g;m₁,…,mᵣ;s;t), and derive area=2π(2g−2+s+t+Σ(1−1/mⱼ)) from polygon Gauss–Bonnet. Boundary means actual geodesic boundary; paired polygon edges and cusp truncation curves are excluded. Include the first-kind comparison with the parent’s cofinite case.",
       "requires": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
@@ -60,8 +60,7 @@
       "requires": [
         "FuchsianOrbifoldsPartII:N.2",
         "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l2--schwarz-lemma-extensions",
-        "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+        "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle"
       ]
     },
     {
@@ -126,20 +125,23 @@
       "sha256": "4eb1f4c626d58673afdcd7b5769854d288e860d951af76695a4129a0d70e28c8",
       "accessed": "2026-10-18",
       "readSections": [
-        "The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60"
+        "The convex core, pp.32–33, especially the two-dimensional Fuchsian statement after Proposition 4.60",
+        "Theorem 3.33 p.21, finite generation and geometric finiteness for Fuchsian groups"
       ]
     },
     {
       "id": "UPSTREAM",
-      "title": "Current Fuchsian, conformal and differential-geometric supplier roadmaps",
+      "title": "Current supplier roadmaps and completed covering theory",
       "authors": "The Tau Ceti roadmap contributors",
       "edition": "0d144d044dacebca17b654695b6f1ad58f159b27",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27",
       "accessed": "2026-10-18",
       "readSections": [
-        "FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README, L2 and L4",
-        "DifferentialGeometry README Layer 5 and Suggested.lean Stokes signatures; UniversalCovers Stage 2 and AlgebraicTopology Stage 7",
-        "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or core API found"
+        "FuchsianOrbifolds README and Suggested.lean, Layers 0–6; ConformalMapping README L2/L4",
+        "DifferentialGeometry README Layer 5.3/5.5 and Suggested.lean Stokes signatures; AlgebraicTopology Stages 1/7",
+        "Completed/UniversalCovers README Stage 2, STATUS and Suggested.lean: ordinary lifting and deck conjugation are already implemented, including at the packet baseline",
+        "IntegralLattices README Layer B2–B3 and Suggested.lean LayerBContract; GlobalNumberFields owns the consumed order/NarrowPic carriers",
+        "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: OnePoint projective action, UpperHalfPlane polygon/measure and Fuchsian quotient/cusp files searched; no limit-set or Nielsen-core API found"
       ]
     }
   ],
@@ -156,6 +158,19 @@
         "FuchsianOrbifoldsPartII:N.5/core-stokes"
       ],
       "location": "TauCetiRoadmap/DifferentialGeometry/README.md, Layer 5.3 and 5.5; Suggested.lean integralTopForm_mextDeriv and corners interfaces."
+    },
+    {
+      "supplier": "IntegralLattices",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "layers": [
+        "B2",
+        "B3"
+      ],
+      "need": "Consume the oriented primitive binary form/ideal class dictionary, its mandatory sign clause at positive discriminant, and compatibility with inversion and composition. GN.3 supplies only the maximal-order/DIT convention adapter to the pinned NarrowClassGroup.",
+      "neededBy": [
+        "FuchsianOrbifoldsPartII:N.4/complementarity"
+      ],
+      "location": "TauCetiRoadmap/IntegralLattices/README.md, Layer B2–B3; Suggested.lean LayerBContract. GlobalNumberFields Layer 11 owns the consumed order and NarrowPic carriers."
     }
   ],
   "dependencyGranularity": "GN.4 imports only the three bottom-level geodesic nodes listed in N.2/nodeImports, never its surface-equidistribution theorem. That theorem consumes this roadmap, so a whole-layer GN.4 prerequisite would create a spurious cycle."
