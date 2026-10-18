@@ -1,0 +1,288 @@
+{
+ "id": "LocallyAnalyticCompletedCohomology",
+ "title": "Completed cohomology and p-adic local–global compatibility over Q, Part II: locally analytic vectors",
+ "area": "langlands",
+ "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
+ "summary": "Lue Pan's geometric study of the GL₂(Q_p)-locally analytic vectors in the completed cohomology of modular curves. Relative Sen theory gives a differential equation on the perfectoid modular curve; the locally analytic functions pushed forward along the Hodge–Tate period map form a sheaf on the flag variety with a horizontal Cartan action that is the Sen operator. From it come overconvergent forms, weight-one classicality, Gouvêa's conjecture, two differential operators whose composite is Fontaine's operator, and a proof of Emerton's classicality theorem without the p-adic local Langlands correspondence, with geometric descriptions of Π_ρ^la in the supercuspidal and principal series cases.",
+ "readme": "# Completed cohomology over Q, Part II: locally analytic vectors\n\n**Purpose.** Formalise Lue Pan's two papers on the GL₂(Q\\_p)-locally analytic vectors in the completed cohomology of modular curves (Forum Math. Pi 10 (2022) e7; Annals 203 (2026) 121–281). The end theorems are: the description of the isotypic parts of H̃¹(K^p, C)^la by overconvergent modular forms; weight-one classicality, the Fontaine–Mazur conjecture in the irregular case and Gouvêa's conjecture; Emerton's classicality theorem for de Rham representations, proved without the p-adic local Langlands correspondence; and the geometric descriptions of Π\\_ρ^la in the supercuspidal and principal series cases.\n\n**Scope.** This is a Part II of CompletedCohomologyAndLocalGlobalCompatibility. It starts from completed cohomology, its Hecke algebra and Emerton's local–global compatibility, all imported from that roadmap and from CompletedCohomologyPartII. It adds:\n- relative Sen theory and its differential equation;\n- the sheaf O^la on the flag variety and its horizontal Cartan action, which is the Sen operator;\n- the differential operators d and d̄ and the intertwining operator;\n- their kernels over the Newton strata of the flag variety;\n- the comparison of the intertwining operator with Fontaine's operator.\n\n**Conventions.** C = C\\_p. The cyclotomic character has Hodge–Tate weight −1. Weights χ = (n₁, n₂) are characters of the diagonal Cartan. ∞ ∈ Fl is the zero of e₁.\n\n**Layers.**\n- LA.0: relative Sen theory.\n- LA.1: the sheaf O^la and θ\\_h.\n- LA.2: its local structure, and H̃^i(K^p, C)^la = H^i(Fl, O^la).\n- LA.3: the Sen operator and the LB topology.\n- LA.4: overconvergent forms and the μ-isotypic decomposition.\n- LA.5: weight-one classicality and Gouvêa.\n- LA.6: d, d̄ and I\\_k.\n- LA.7: n-invariants of ker I¹\\_k.\n- LA.8: the ordinary stratum.\n- LA.9: the supersingular stratum.\n- LA.10: spectral decomposition, de Rham complexes and vanishing cycles.\n- LA.11: I = Fontaine's operator.\n- LA.12: classicality and Π\\_ρ^la.\n\n**Non-goals.** This roadmap does not plan the following:\n- general locally analytic representation theory, which belongs to LocallyAnalyticRepresentationsOfLocalGroups and LocallyAnalyticDistributions;\n- Fontaine's almost de Rham theory, which belongs to a PadicHodgeTheory Part II;\n- the Lubin–Tate and Drinfeld towers and their duality, which belong to EndoscopicTransferAndUnitaryTraceComparison ET.6a;\n- the perfectoid modular curve, which belongs to PerfectoidShimuraVarieties;\n- the p-adic local Langlands correspondence, which belongs to PadicLocalLanglandsForGL2Qp.\n\nThe special case of the description of Π\\_ρ^la (Pan II Remark 7.3.11) is recorded only as a conditional claim.\n\nThe full document is research/blueprint/readmes/LocallyAnalyticCompletedCohomology.md.",
+ "prerequisites": [
+  "CompletedCohomologyAndLocalGlobalCompatibility",
+  "AbelianSchemesAndArithmeticModuli",
+  "AlgebraicModularFormsAndSerreWeights",
+  "AutomorphicBundles",
+  "AutomorphicGaloisRepresentations",
+  "CohomologyComparisons",
+  "CompletedCohomologyPartII",
+  "DiamondsAndVStacks",
+  "EndoscopicTransferAndUnitaryTraceComparison",
+  "GL2AutomorphicRepresentationsAndTransfer",
+  "HodgeTateAndCanonicalSubgroups",
+  "IgusaVarietiesAndTorsionConcentration",
+  "LocallyAnalyticDistributions",
+  "ModularCurvesPartII",
+  "PadicDifferentialEquationsAndRigidCohomology",
+  "PadicHodgeTheory",
+  "PadicLocalLanglandsForGL2Qp",
+  "PerfectoidShimuraVarieties",
+  "PerfectoidSpaces",
+  "SmoothRepresentationsOfLocalGroups",
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+ ],
+ "stages": [
+  {
+   "key": "LA.0",
+   "title": "Relative Sen theory and locally analytic coverings",
+   "description": "For a log G-Galois pro-étale perfectoid covering X̃ = Spa(B, B⁺) of a small smooth affinoid curve X over C (G a compact p-adic Lie group, p-power ramification along at most one point), base change the Kummer tower of a chart X → T¹ or B¹, prove that the result satisfies the Berger–Colmez Tate–Sen conditions, construct the relative Sen operator φ_V on B_∞ ⊗ V for finite-dimensional V, and deduce the differential equation: an element θ ∈ B ⊗ Lie(G), canonical up to A^×, functorial in (G, X̃), annihilating the locally analytic vectors B^la (Pan I Theorem 3.1.2). Define locally analytic coverings through Faltings's extension (FE) (Pan I Definition 3.5.4), prove θ ≠ 0 for them, and prove that R^iLA(B) = 0 for i ≥ 1 exactly for locally analytic coverings, with strong LA-acyclicity, and its Čech version on non-small affinoids (Pan I Theorem 3.6.1, Corollary 3.6.10). The general theory of locally analytic vectors and of R^iLA is imported.",
+   "requires": [
+    "HodgeTateAndCanonicalSubgroups:T6:comparison",
+    "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+    "LocallyAnalyticDistributions:L0",
+    "PadicHodgeTheory:P7",
+    "PadicHodgeTheory:R06.1",
+    "PerfectoidSpaces:P3",
+    "PerfectoidSpaces:P7"
+   ]
+  },
+  {
+   "key": "LA.1",
+   "title": "The perfectoid modular curve, the sheaf O^la and the horizontal Cartan action",
+   "description": "On the perfectoid modular curve X_{K^p} with Hodge–Tate period map π_HT: X_{K^p} → Fl = P¹, construct the fake Hasse invariants e₁, e₂, the coordinate x = e₂/e₁ and the function t; identify Faltings's extension with the relative Hodge–Tate sequence up to −1 (Pan I Theorem 4.2.2); prove that preimages of small affinoids are locally analytic coverings and compute θ = (x x²; −1 −x) (Pan I Corollary 4.2.3, Theorem 4.2.4). Define O_{K^p} = π_{HT*}O and its subsheaves O^la_{K^p} and O^sm_{K^p}, the bundles g⁰ ⊃ b⁰ ⊃ n⁰ on Fl, prove that n⁰ acts trivially on O^la (Pan I Theorem 4.2.7), construct the horizontal Cartan action θ_h of h = b⁰/n⁰ with its Harish-Chandra compatibility and the weight sheaves O^{la,χ} (Pan I Corollary 4.2.8), and the twists ω^{k,la} with the Hecke-equivariant Hodge–Tate sequence (Pan II §3.1, §4.2.3).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.0",
+    "AlgebraicModularFormsAndSerreWeights:R15.1",
+    "AutomorphicBundles:B3",
+    "HodgeTateAndCanonicalSubgroups:T6:comparison",
+    "LocallyAnalyticDistributions:L0",
+    "PerfectoidShimuraVarieties:S1",
+    "PerfectoidShimuraVarieties:S3",
+    "PerfectoidShimuraVarieties:S5",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ]
+  },
+  {
+   "key": "LA.2",
+   "title": "Local structure of O^la and completed cohomology",
+   "description": "Prove that Borel-invariant locally analytic sections are smooth (Pan I Lemma 4.3.3); the power-series expansion of sections of O^la along x − x_n, log(e₁/e_{1,n}), log(t/t_n) with explicit norm bounds (Pan I Theorem 4.3.9) and the Banach algebras O_n(U){x, e₁, t}; strong LA-acyclicity of O_{K^p}(U) on the basis 𝔅 (Pan I Proposition 4.3.15); Scholze's comparison of completed cohomology with H^i(X_{K^p}, O⁺) (Pan I Theorem 4.4.2, Corollary 4.4.3); and H̃^i(K^p, C)^la ≅ H^i(Fl, O^la_{K^p}) (Pan I Theorem 4.4.6). In weight χ: the description of sections of O^{la,χ} (Pan I Lemma 5.1.2, Pan II Theorem 3.2.2, Corollary 3.2.3), the cohomology of O^{la,χ} against the χ-part of H¹ (Pan I Corollary 5.1.3), the locally algebraic subsheaves and the twisting isomorphism (Pan II §3.2.5–3.2.9), and the essential vanishing of Čech cohomology of the analytic pieces with the extension to the larger cover (Pan II Proposition 3.2.11, Corollary 3.2.13).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.0",
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.1",
+    "CompletedCohomologyPartII:CC.2",
+    "CompletedCohomologyPartII:CC.5",
+    "DiamondsAndVStacks:D2",
+    "HodgeTateAndCanonicalSubgroups:T6:comparison",
+    "LocallyAnalyticDistributions:L0",
+    "PadicHodgeTheory:P8",
+    "PerfectoidShimuraVarieties:S3",
+    "PerfectoidShimuraVarieties:S5"
+   ]
+  },
+  {
+   "key": "LA.3",
+   "title": "Geometric Sen theory and the topology of the cohomology",
+   "description": "Define Sen operators and Hodge–Tate weights for semilinear C-Banach representations through the decompletion W ↦ W^K (Pan I Definition 5.1.5, Pan II §3.3); prove that θ_h(diag(0, 1)) is the unique Sen operator on O^la_{K^p}(U) and on H^i(Fl, O^la_{K^p}) = H̃^i(K^p, C)^la (Pan I Theorems 5.1.8, 5.1.11), that the G_n-analytic vectors of O^{la,(n₁,n₂)}(U) are Hodge–Tate of weight −n₂ and their Čech cohomology too (Pan II Propositions 3.3.8, 3.4.10), and that restriction to a strictly smaller open is compact after decompletion (Pan II Proposition 3.3.10). Topologise H^i(Fl, O^{la,χ}) as an LB-space through the strict Čech complexes of analytic vectors and prove it Hausdorff, with compact transition maps and analytic vectors coming from a finite level (Pan II §3.4).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributions:L4",
+    "PadicHodgeTheory:P7",
+    "PadicHodgeTheory:R06.1",
+    "PadicHodgeTheory:R06.2"
+   ]
+  },
+  {
+   "key": "LA.4",
+   "title": "n-cohomology, overconvergent forms and the μ-isotypic decomposition",
+   "description": "Define overconvergent modular forms of weight χ as the fibre at ∞ of O^{la,χ} and compare them with the classical M†_k(K^p) (Pan I Definitions 5.2.3, 5.2.5, Proposition 5.2.6), the smooth sheaves ω^{k,sm} with H^i(Fl, ω^{k,sm}) = colim H^i(X_{K^pK_p}, ω^k) and M_k(K^p) (Pan I Lemma 5.3.5, Definition 5.3.8); compute the n-coinvariants and n-invariants of O^{la,χ} (Pan I Propositions 5.2.10, 5.2.12), the n-cohomology of H¹ for general and for integral weights (Pan I Theorems 5.2.15, 5.3.11, 5.3.13, 5.3.16, 5.3.18), and prove the Hodge–Tate decomposition of H̃¹(C)^la_μ into overconvergent forms of weights k and 2 − k and coherent cohomology (Pan I Theorem 5.4.2) and its weight-one variant with the nilpotent Sen operator (Pan I Theorem 5.4.6).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.3",
+    "AlgebraicModularFormsAndSerreWeights:R15.1",
+    "HodgeTateAndCanonicalSubgroups:T3",
+    "HodgeTateAndCanonicalSubgroups:T4",
+    "ModularCurvesPartII:R13.4a"
+   ]
+  },
+  {
+   "key": "LA.5",
+   "title": "Weight-one classicality and Gouvêa's conjecture",
+   "description": "From the μ-isotypic decomposition and Galois representations of the big Hecke algebra: pro-modular and pro-cohomological representations (Pan I Definition 6.1.2, Lemmas 6.1.3–6.1.4) and the infinitesimal character of H̃¹(C)^la[p_λ] (Pan I Proposition 6.1.5); classicality of a weight-one overconvergent eigensystem with a U_p-eigenvector and Hodge–Tate weights 0, 0 (Pan I Theorem 6.2.2); the weak local–global compatibility at possibly Eisenstein maximal ideals (Pan I Theorem 6.3.5, Corollary 6.3.6); existence of a U_p-eigenvector by Colmez's Kirillov model (Pan I Corollaries 6.4.4, 6.4.6); classicality of every pro-modular ρ with Hodge–Tate weights 0, 0 (Pan I Theorem 6.4.7), the Fontaine–Mazur conjecture in the irregular case (Pan I Theorem 6.4.8, Corollary 6.4.9) and Gouvêa's conjecture with its converse (Pan I Theorem 6.4.11).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.3",
+    "LocallyAnalyticCompletedCohomology:LA.4",
+    "AlgebraicModularFormsAndSerreWeights:R15.2",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+    "CompletedCohomologyPartII:CC.8",
+    "LocallyAnalyticDistributions:L0",
+    "ModularCurvesPartII:R14.6",
+    "PadicLocalLanglandsForGL2Qp:R30.4",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ]
+  },
+  {
+   "key": "LA.6",
+   "title": "The differential operators d and d̄ and the intertwining operator",
+   "description": "Construct the smooth de Rham bundle and the characteristic-zero theta operators θ'_{k+1}, θ_{k+1} from Kodaira–Spencer; prove the existence and uniqueness of the O_Fl-linear operator d_{k+1}: ω^{−k,la,(0,0)} → ω^{k+2,la,(0,0)} extending θ'_{k+1} along the modular curve (Pan II Theorem 4.1.4) and the O^sm-linear operator d̄_{k+1} along the flag variety obtained from u₊ by Beilinson–Bernstein localisation and BGG (Pan II Theorem 4.2.7), with d̄_{k+1} surjective and its kernel locally algebraic (Pan II Proposition 4.2.9); the density of O^sm ⊗ O_Fl in O^{la,(0,0)}; and define the intertwining operator I_k = d̄'_{k+1} ∘ d_{k+1}: O^{la,(−k,0)} → O^{la,(1,−1−k)}(k+1) and I¹_k = H¹(I_k) (Pan II Definitions 4.3.1, 4.3.3).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.3",
+    "LocallyAnalyticCompletedCohomology:LA.4",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AlgebraicModularFormsAndSerreWeights:R15.1",
+    "AutomorphicBundles:B3",
+    "PerfectoidShimuraVarieties:S3",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ]
+  },
+  {
+   "key": "LA.7",
+   "title": "The n-invariants of ker I¹_k and their finiteness",
+   "description": "Reduce ker I¹_k to ker H¹(d_{k+1}) (Pan II Lemmas 4.4.2, 4.4.4); compute the n-invariants of O^{la,χ} and of its cohomology in terms of overconvergent forms at infinite level and the classical theta operator (Pan II Proposition 4.4.7, Corollary 4.4.8, §4.4.10); define D₀ (Pan II Definition 4.4.11) and give the weight decomposition of (ker I¹_k)^n (Pan II Proposition 4.4.12, Lemmas 4.4.13–4.4.14); prove that it is classical (Pan II Theorem 4.4.15) and that the analytic n-invariants are finite-dimensional on each eigenspace (Pan II Corollary 4.4.18, Lemmas 4.4.19–4.4.21).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.3",
+    "LocallyAnalyticCompletedCohomology:LA.4",
+    "LocallyAnalyticCompletedCohomology:LA.6",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "ModularCurvesPartII:R13.5"
+   ]
+  },
+  {
+   "key": "LA.8",
+   "title": "The ordinary stratum: the operators over P¹(Q_p)",
+   "description": "On the Newton stratification Fl = P¹(Q_p) ⊔ Ω compute the stalk of O^{la,χ} at ∞ as a completed tensor product with overconvergent forms (Pan II Lemma 5.1.2), the kernel of d_{k+1} there (Pan II Proposition 5.1.4), and its cokernel through the rigid cohomology of Igusa curves (Pan II Proposition 5.1.8), giving the cokernel sheaves on P¹(Q_p) as smooth and locally analytic inductions from the Borel (Pan II §§5.1.9–5.1.10, Corollaries 5.1.11–5.1.12). The rigid cohomology of Igusa curves and its finiteness are imported.",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.4",
+    "LocallyAnalyticCompletedCohomology:LA.6",
+    "LocallyAnalyticCompletedCohomology:LA.7",
+    "IgusaVarietiesAndTorsionConcentration:IG.3",
+    "LocallyAnalyticDistributions:L0",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ]
+  },
+  {
+   "key": "LA.9",
+   "title": "The supersingular stratum: Lubin–Tate and Drinfeld towers",
+   "description": "On the Lubin–Tate tower at infinite level: the local differential equation (Pan II Theorem 5.2.6) and the power-series description of locally analytic vectors (Pan II Theorem 5.2.8, Corollary 5.2.10), the sheaves on Ω and the operators d^{k+1}_LT, d̄^{k+1}_LT with kernel and image (Pan II Theorems 5.2.15–5.2.16). On the Drinfeld side: the differential equation and the power-series description (Pan II Theorems 5.3.6, 5.3.8), the agreement of the two Cartan actions (Pan II Corollary 5.3.13, Lemma 5.3.14) and the operator d̄^{k+1}_Dr (Pan II Theorem 5.3.17); with the duality theorems imported, the identification of ker d_{k+1} on Ω with D_p^×-smooth sections (Pan II Corollary 5.3.21). Through the supersingular uniformization at infinite level (Pan II Theorem 5.4.2, Lemma 5.4.4): d_{k+1} is surjective on Ω and I¹_k is surjective (Pan II Corollaries 5.4.6–5.4.8), ker d_{k+1} on Ω is quaternionic forms (Pan II Proposition 5.4.12) and the global kernels of d_{k+1} and d'_{k+1} (Pan II Proposition 5.4.15, Corollary 5.4.16).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.0",
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.6",
+    "LocallyAnalyticCompletedCohomology:LA.8",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "HodgeTateAndCanonicalSubgroups:T6:comparison",
+    "PerfectoidShimuraVarieties:S5"
+   ]
+  },
+  {
+   "key": "LA.10",
+   "title": "Spectral decomposition, de Rham complexes and vanishing cycles",
+   "description": "The three-step filtration of ker I¹_k (Pan II Lemma 5.5.2, Theorem 5.5.4); systems of Hecke eigenvalues of classical and quaternionic forms; the generalised-eigenspace decomposition of ker I¹_k (Pan II Theorem 5.5.7 = Theorem 1.2.3, Lemma 5.5.8, Corollary 5.5.9); the two-term de Rham complex DR_k on Fl with its Hodge filtration given by classical forms and the description of H¹(DR_k) (Pan II §5.5.10, Lemma 5.5.11, Definition 5.5.12, Proposition 5.5.13, Corollary 5.5.14); the compactly supported de Rham cohomology of the Drinfeld tower and the p-adic vanishing-cycle exact sequence, with the honesty of the Igusa eigenspaces (Pan II Definition 5.6.5, Theorem 5.6.7, Corollary 5.6.11).",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.4",
+    "LocallyAnalyticCompletedCohomology:LA.6",
+    "LocallyAnalyticCompletedCohomology:LA.7",
+    "LocallyAnalyticCompletedCohomology:LA.8",
+    "LocallyAnalyticCompletedCohomology:LA.9",
+    "AlgebraicModularFormsAndSerreWeights:R15.2",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.5"
+   ]
+  },
+  {
+   "key": "LA.11",
+   "title": "The intertwining operator is Fontaine's operator",
+   "description": "Construct the truncated relative period sheaves B⁺_{dR,k} on the perfectoid modular curve and their locally analytic isotypic parts for the infinitesimal character χ̃_k (Pan II §§6.2.1–6.2.3, Lemma 6.2.2), the Fontaine operator N_k on them (Pan II Definition 6.2.5), their cohomology and its comparison with completed cohomology (Pan II Lemma 6.2.9–Proposition 6.2.17), and prove that I_{k−1} equals N_k up to a nonzero rational scalar (Pan II Theorem 6.2.6 = Theorem 1.2.10): the reduction to two comparisons through OB⁺_dR and the Kodaira–Spencer presentation (Pan II §6.3), the first comparison through the period x̃ and the p-adic Legendre relation (Pan II §6.4), and the second comparison through Faltings's extension (Pan II §6.5). Fontaine's operator for Banach and LB B⁺_dR/(t^k)-modules is imported.",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.1",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.3",
+    "LocallyAnalyticCompletedCohomology:LA.6",
+    "AlgebraicModularFormsAndSerreWeights:R15.1",
+    "CohomologyComparisons:CP.6",
+    "HodgeTateAndCanonicalSubgroups:T6:comparison",
+    "PadicHodgeTheory:P8",
+    "PadicHodgeTheory:R06.1",
+    "PadicHodgeTheory:R06.2"
+   ]
+  },
+  {
+   "key": "LA.12",
+   "title": "Classicality and the locally analytic vectors of Π_ρ",
+   "description": "Compare completed cohomology with the cohomology of the truncated period sheaves (Pan II Theorem 7.2.2, Lemma 7.2.7, with Proposition 7.2.3 and Lemmas 7.2.4–7.2.6 imported) and obtain the Fontaine operator N on H̃¹(K^p, Q_p)^{la,χ̃_k} (Pan II §1.2.2). Prove Emerton's classicality theorem — an absolutely irreducible two-dimensional ρ appearing in completed cohomology and de Rham at p with Hodge–Tate weights 0, k > 0 comes from a cuspidal eigenform of weight k + 1 — and the finiteness of the n-invariants of Π_ρ (Pan II Theorem 7.1.2 = Theorems 1.1.2, 1.1.14), the description of Π_ρ^la ⊗̂ C in the supercuspidal case (Breuil–Strauch) and the principal series case (Berger–Breuil–Emerton) (Pan II Theorems 7.3.2, 7.3.7), and the uniform description as H¹(DR_{k−1})[λ]/Fil¹ (Pan II Remarks 1.1.13, 7.3.10). The special case is recorded as the conditional claim of Pan II Remark 7.3.11.",
+   "requires": [
+    "LocallyAnalyticCompletedCohomology:LA.10",
+    "LocallyAnalyticCompletedCohomology:LA.11",
+    "LocallyAnalyticCompletedCohomology:LA.2",
+    "LocallyAnalyticCompletedCohomology:LA.5",
+    "LocallyAnalyticCompletedCohomology:LA.7",
+    "LocallyAnalyticCompletedCohomology:LA.8",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "CohomologyComparisons:CP.6",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.3",
+    "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+    "CompletedCohomologyPartII:CC.4",
+    "CompletedCohomologyPartII:CC.5",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+    "PadicLocalLanglandsForGL2Qp:R30.4",
+    "PadicLocalLanglandsForGL2Qp:R30.6"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "Pan22",
+   "title": "On locally analytic vectors of the completed cohomology of modular curves",
+   "authors": "Lue Pan",
+   "edition": "Forum of Mathematics, Pi 10 (2022), e7, 1–82, open-access version of record, doi:10.1017/fmp.2022.1; page numbers are the printed (= PDF) pages; compared with arXiv:2008.07099v3",
+   "url": "https://doi.org/10.1017/fmp.2022.1",
+   "sha256": "61549f3aa31342994049b2d4780009f722c96b6331d0db6dd5bede0453bc293e",
+   "accessed": "2026-10-18",
+   "readSections": [
+    "§1 (main theorems and strategy), pp. 1–9",
+    "§2, pp. 9–13",
+    "§3 in full, pp. 13–30",
+    "§4 in full, pp. 30–46",
+    "§5: statements and the arguments of §§5.1–5.4, pp. 46–67",
+    "§6: statements of §§6.1–6.4 and the proofs of Theorems 6.2.2 and 6.4.7, pp. 67–79"
+   ]
+  },
+  {
+   "id": "PanII",
+   "title": "On locally analytic vectors of the completed cohomology of modular curves II",
+   "authors": "Lue Pan",
+   "edition": "Annals of Mathematics 203 (2026), no. 1, 121–281 (doi:10.4007/annals.2026.203.1.3, not obtained); read in arXiv:2209.06366v1 (14 September 2022), the only arXiv version; all locators are its labels and pages",
+   "url": "https://arxiv.org/abs/2209.06366v1",
+   "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4",
+   "accessed": "2026-10-18",
+   "readSections": [
+    "§1, pp. 1–11",
+    "§3 statements, pp. 17–33",
+    "§4, pp. 33–51",
+    "§5 statements and the structure of the arguments, pp. 51–83",
+    "§6.2 and the statements of §§6.3–6.5, pp. 92–115",
+    "§7, pp. 115–125",
+    "every other statement through the reviewed extraction PAPER-PAN-26, whose locators were spot-checked against the PDF"
+   ]
+  }
+ ],
+ "status": "draft"
+}
