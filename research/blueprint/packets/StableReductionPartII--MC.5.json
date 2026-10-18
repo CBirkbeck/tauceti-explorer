@@ -1,0 +1,1596 @@
+{
+  "roadmapId": "StableReductionPartII",
+  "protocol": "blueprint-v1",
+  "part": "MC.5",
+  "scope": [
+    "StableReductionPartII:MC.5"
+  ],
+  "status": "complete",
+  "summary": "Complete the MC.5 planning pass by importing its thirteen accepted targets, specifying the missing integral determinant/pairing supplier contracts, and planning the moduli-specific descent and Picard proof bridges. Rational Chow identities, integral line isomorphisms and choices of those isomorphisms are separate statements. No implementation is asserted.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "kind": "declaration",
+        "provides": "Full subcategory of actual scheme modules satisfying the site-level rank-one condition; not a stack or a line-class placeholder.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "kind": "declaration",
+        "provides": "Globally free rank-one scheme sheaf, using the PUnit-indexed free module.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+        "kind": "declaration",
+        "provides": "Tensor product of actual invertible sheaves, with the sheafified module tensor product as underlying object.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
+        "kind": "declaration",
+        "provides": "Canonical right tensor-unit isomorphism on invertible sheaves.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
+        "kind": "declaration",
+        "provides": "Skeleton of the category of invertible sheaves, with commutative-monoid structure; this file does not construct inverses or the full Picard group.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
+        "kind": "declaration",
+        "provides": "Equality of classes iff the underlying module sheaves admit an isomorphism; equality supplies no preferred isomorphism.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_tensorProduct",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
+        "kind": "declaration",
+        "provides": "The class of the tensor product is the product of the two classes.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "kind": "declaration",
+        "provides": "Pullback functor on actual scheme module sheaves, without a flatness hypothesis; this alone is not the stack line-bundle pullback interface.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.mapIso",
+        "module": "Mathlib/CategoryTheory/Iso.lean",
+        "kind": "declaration",
+        "provides": "Functorial transport of isomorphisms, used for the compact scheme-level comparison checks.",
+        "checked": "Statement read in source at the recorded pinned commit, 2026-10-18."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Yuan2024",
+      "title": "Arithmetic bigness and a uniform Bogomolov-type result",
+      "authors": "Xinyi Yuan",
+      "edition": "Author preprint, August 21, 2024; page numbers refer to this version",
+      "url": "https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+      "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "§3.1.1, pp. 41–42, including Theorem 3.3",
+        "§3.1.2, pp. 42–43"
+      ]
+    },
+    {
+      "id": "Mumford1977",
+      "title": "Stability of projective varieties",
+      "authors": "David Mumford",
+      "edition": "L’Enseignement Mathématique 23 (1977), 39–110; author-hosted journal scan",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf",
+      "sha256": "558c5e1a56a522c7d6815b4def3e6410690e8e8d28642f49df6887b57905bd80",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "Definition 5.9 and Theorem 5.10, printed pp. 100–102",
+        "Lemma 5.14, statement p. 102 and proof pp. 103–105; integral descent argument pp. 102–103"
+      ]
+    },
+    {
+      "id": "Deligne1987",
+      "title": "Le déterminant de la cohomologie",
+      "authors": "Pierre Deligne",
+      "edition": "Contemporary Mathematics 67 (1987), 93–177; IAS-hosted scan",
+      "url": "https://publications.ias.edu/sites/default/files/Number58.pdf",
+      "sha256": "12f7e48f416557500ac897b834d8eb7f79d4f31cb42ca150d366f005125b1b69",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "§§6.1–6.4, printed pp. 141–143",
+        "Construction 7.2 and (7.2.1), printed pp. 147–149",
+        "§7.4 and Construction 7.5, printed pp. 150–151"
+      ]
+    },
+    {
+      "id": "KnudsenMumford1976",
+      "title": "The projectivity of the moduli space of stable curves I: Preliminaries on det and Div",
+      "authors": "Finn Faye Knudsen; David Mumford",
+      "edition": "Mathematica Scandinavica 39 (1976), 19–55; author-hosted journal scan",
+      "url": "https://www.dam.brown.edu/people/mumford/alg_geom/papers/1976b--DetDiv%2BKnudsenSequel-GT.pdf",
+      "sha256": "56bb67830d2d16a1c3c6e6b9ccd35e406d374f2e36669b938c10f78d45b0b0f2",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "§1, graded invertible sheaves and Proposition 1, printed pp. 20–21",
+        "Lemma 2, printed p. 28, and determinant of a bounded complex, printed pp. 30–32"
+      ]
+    },
+    {
+      "id": "ErikssonFreixas2024",
+      "title": "Deligne–Riemann–Roch and intersection bundles",
+      "authors": "Dennis Eriksson; Gerard Freixas i Montplet",
+      "edition": "Journal de l’École polytechnique — Mathématiques 11 (2024), 247–361; version of record",
+      "url": "https://jep.centre-mersenne.org/item/10.5802/jep.254.pdf",
+      "sha256": "b1bd3f2acebd7d8c9802bab4a44a251887748e569654e0dbc72a7fd64871c6f2",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "Definition 1.1, printed p. 258",
+        "Propositions 4.14–4.15 and Definition 4.16, printed pp. 286–287",
+        "§6.1.1, (6.3), Proposition 6.1 and Remark 6.2, printed pp. 310–312",
+        "§6.1.4, Proposition 6.8 and Corollary 6.9, printed pp. 316–318"
+      ]
+    },
+    {
+      "id": "Knudsen1983III",
+      "title": "The projectivity of the moduli space of stable curves, III: The line bundles on M_g,n, and a proof of the projectivity of M̄_g,n in characteristic 0",
+      "authors": "Finn Faye Knudsen",
+      "edition": "Mathematica Scandinavica 52 (1983), 200–212; journal scan",
+      "url": "https://journals.msp.org/mscand/article/download/1623/1622/1654",
+      "sha256": "97c2d29246b5aeff4820b4f7e74aaf8ad2e32eb72c25d05acfb7b2cbd8f017f2",
+      "readDate": "2026-10-18",
+      "readSections": [
+        "§4, descent cocycle and line definitions, printed p. 201",
+        "Theorem 4.1(a) and duality proof, printed p. 202",
+        "Theorem 4.2(a) and normalization-sequence proof, printed p. 203"
+      ]
+    },
+    {
+      "id": "EdidinGraham1997",
+      "title": "Equivariant intersection theory",
+      "authors": "Dan Edidin; William Graham",
+      "edition": "arXiv:alg-geom/9609018v3, May 16, 1997; preprint pagination, not the Inventiones pagination",
+      "url": "https://arxiv.org/pdf/alg-geom/9609018v3",
+      "readDate": "2026-10-18",
+      "sha256": "9a7b60f5b4584c3dc44d759bc10d3a0915280edc5f3cc5377477d9a4baed3df8",
+      "readSections": [
+        "Theorem 1 and Lemma 2, pp. 7–8; Corollary 1, p. 9",
+        "§§5.2–5.3, Propositions 14–19, pp. 28–29"
+      ]
+    },
+    {
+      "id": "EdidinGraham1999",
+      "title": "Riemann–Roch for equivariant Chow groups",
+      "authors": "Dan Edidin; William Graham",
+      "edition": "arXiv:math/9905081v2, October 12, 1999; preprint pagination",
+      "url": "https://arxiv.org/pdf/math/9905081v2",
+      "readDate": "2026-10-18",
+      "sha256": "6dfbf33d1ed9ccc4debe50e0ebd03fc92c82f469b7af2225b3e9c7fe4ae31ca1",
+      "readSections": [
+        "§1.2, conventions, p. 3",
+        "Theorem 3.1 and proof, pp. 13–14"
+      ]
+    },
+    {
+      "id": "Luo1998",
+      "title": "A presentation of the mapping class groups",
+      "authors": "Feng Luo",
+      "edition": "arXiv:math/9801025v1, January 7, 1998; preprint pagination",
+      "url": "https://arxiv.org/pdf/math/9801025v1",
+      "readDate": "2026-10-18",
+      "sha256": "28069e3bcc4021f84ad322df787feacec27ed3d403516bdbc94a4be734641d2a",
+      "readSections": [
+        "§1, Gervais presentation theorem, p. 1; main unnumbered theorem, p. 2",
+        "§2, presentation proof, pp. 3–4"
+      ]
+    },
+    {
+      "id": "Hall2011",
+      "title": "Generalizing the GAGA principle",
+      "authors": "Jack Hall",
+      "edition": "arXiv:1101.5123v2, January 27, 2011; preprint pagination",
+      "url": "https://arxiv.org/pdf/1101.5123v2",
+      "readDate": "2026-10-18",
+      "sha256": "dcd5ef36ccf0f0b9cc138873cbfce8ed97d6d77f72705d30008bec861ebbf651",
+      "readSections": [
+        "Theorem 1, p. 1",
+        "Appendix A, Theorem A.1 and Corollaries A.2–A.3, p. 17; proof, p. 18"
+      ]
+    },
+    {
+      "id": "FredianiNeumann2004",
+      "title": "Étale homotopy types of moduli stacks of algebraic curves with symmetries",
+      "authors": "Paola Frediani; Frank Neumann",
+      "edition": "arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher",
+      "url": "https://arxiv.org/pdf/math/0404387v1",
+      "readDate": "2026-10-18",
+      "sha256": "216063b03ac0f16f72ad482ec417ce6622513392ad8fed6b3a8806f476440e33",
+      "readSections": [
+        "Theorem 1.5, p. 9",
+        "Theorem 2.5 and Proposition 2.6, p. 11",
+        "§2.3, quotient-groupoid calculation, pp. 17–18; Proposition 2.14 and proof, p. 19"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "StableReductionPartII:MC.5/universal-dualizing-pairing",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Dualizing Deligne pairing",
+      "kind": "construction",
+      "statement": "For g≥2 and f:C→M̄_g over Z, construct P_g=⟨ω_f,ω_f⟩ as a line object on M̄_g. Precisely, P_g is a cartesian assignment to each T-valued stable curve of the GPAIR line ⟨ω_C/T,ω_C/T⟩ in the core of InvertibleSheaf T, together with base-change isomorphisms and their cocycle. Equivalently it is a 1-morphism M̄_g→BG_m, using the existing line-stack equivalence. Its tensor operations and isomorphisms occur in this Picard groupoid, not in its set of isomorphism classes.",
+      "hypotheses": [
+        "g≥2; universal unpointed stable curve; untwisted relative dualizing sheaf.",
+        "GDET/GPAIR and the arbitrary-base nodal-dualizing extension in gap NODAL-BC are supplied."
+      ],
+      "proofSteps": [
+        "On a scheme chart use the parent stable-curve dualizing line, local projectivity of a stable curve and the integral GPAIR construction.",
+        "Its canonical base-change comparisons, and the dualizing base-change maps, give descent along the chart groupoid.",
+        "Apply SF.1 line-stack equivalence and effective descent to obtain a line on the stack; verify identity, composition and 2-isomorphism invariance."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/hodge-bundle",
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "StableReductionPartII:key/moduli-curves"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yuan2024",
+          "locator": "Theorem 3.3, §3.1.1, p. 42; §3.1.2, pp. 42–43",
+          "match": "Uses the universal relative-dualizing pairing and its classifying pullback."
+        },
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "(6.3), Proposition 6.1, pp. 310–312",
+          "match": "Supplies the actual line-valued chart construction and coherent arbitrary base change, permitting effective descent."
+        }
+      ],
+      "acceptance": [
+        "A chartwise line plus class equality is insufficient: its actual comparison morphisms satisfy the groupoid cocycle.",
+        "Specialization to a nodal F_p-valued stable curve is admitted.",
+        "The universal line is independent, up to the specified coherent isomorphism, of a choice of chart."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "GDET",
+        "GPAIR",
+        "NODAL-BC"
+      ],
+      "upstreamPrerequisites": [
+        "AV-L0A",
+        "AV-L0B"
+      ],
+      "planet": {
+        "name": "Dualizing Deligne pairing"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.5/integral-noether",
+          "how": "Provides the line on the right-hand side, integrally over Z."
+        },
+        {
+          "where": "StableReductionPartII:MC.5/noether-arbitrary-base-pullback",
+          "how": "Identifies classifying pullback with the family pairing, including singular and nonreduced bases."
+        }
+      ],
+      "api": [
+        {
+          "name": "dualizingPairing_onChart",
+          "role": "characterisation",
+          "statement": "For x:T→M̄_g, x*P_g≅⟨ω_Cx/T,ω_Cx/T⟩, with its actual four-determinant expression."
+        },
+        {
+          "name": "dualizingPairing_pullback",
+          "role": "functoriality",
+          "statement": "The chart comparison is coherent for arbitrary T′→T, for identities/composites, and for isomorphisms of stable families."
+        },
+        {
+          "name": "dualizingPairing_selfSwap",
+          "role": "relation",
+          "statement": "The canonical self-interchange is +1 because the dualizing degree is 2g−2, including nodal fibres."
+        },
+        {
+          "name": "dualizingPairing_schemeCarrier",
+          "role": "compatibility",
+          "statement": "On a scheme chart the value belongs to the core of the pinned InvertibleSheaf category, via SF.1’s BG_m equivalence, not merely to LineBundleClass."
+        }
+      ],
+      "tests": [
+        {
+          "name": "constant-genus-two",
+          "statement": "For a fixed stable genus-two curve C/k pulled to S, P is the pullback of the one-dimensional k-line ⟨ω_C,ω_C⟩; the degree for self-symmetry is 2."
+        },
+        {
+          "name": "boundary-point",
+          "statement": "A stable nodal genus-two curve over k has a pairing line; restricting this construction to smooth curves fails."
+        },
+        {
+          "name": "closed-characteristic-p",
+          "statement": "Base change along Spec(F_p)→Spec(Z), which is not flat, preserves the stated chart comparison."
+        },
+        {
+          "name": "self-interchange",
+          "statement": "For every g≥2 the self-swap is +1; replacing ω by an arbitrary odd-degree line does not justify this conclusion."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Hodge determinant and derived direct image",
+      "kind": "comparison",
+      "statement": "For a proper stable family f:C→S of connected arithmetic genus g, let E=f_*ω and λ=det E. There are natural underlying-line isomorphisms d_f(ω)≅λ and d_f(O_C)≅λ, coherent with arbitrary base change. In graded lines their integer degrees are respectively g−1 and 1−g; these grades are not silently identified with the ordinary rank-g determinant grading.",
+      "hypotheses": [
+        "S a scheme chart of the stable stack, including arbitrary base via NODAL-BC.",
+        "Relative trace R¹f_*ω≅O_S and Serre duality R¹f_*O≅E∨, with f_*O≅O_S."
+      ],
+      "proofSteps": [
+        "Use the parent connected-nodal cohomology and duality contracts to identify the two cohomology sheaves in degrees zero and one.",
+        "Compute the alternating determinant, retaining the trace trivialization and canonical double-dual comparison.",
+        "Transport the identifications along derived base change; check the equality of grades and descent separately from the underlying line."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/hodge-bundle",
+        "StableReductionPartII:MC.5/hodge-determinant",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid"
+      ],
+      "sources": [
+        {
+          "sourceId": "Knudsen1983III",
+          "locator": "§4, definitions (a)–(b), p. 201; Theorem 4.1 proof, p. 202",
+          "match": "Defines the Hodge line by the derived determinant and compares the O and dualizing determinants using curve duality."
+        },
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Definition 5.9 and Theorem 5.10, pp. 100–102",
+          "match": "Uses the determinant of the derived direct image for the Hodge and pluricanonical lines."
+        },
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "Definition 4.16, p. 287",
+          "match": "Specifies the graded determinant-of-cohomology convention used in the comparison."
+        }
+      ],
+      "acceptance": [
+        "For g=0 on a stable pointed genus-zero family, both underlying lines are trivial but the two derived grades are −1 and +1.",
+        "For a smooth genus-one family, both derived grades are zero while E has rank one.",
+        "R¹f_*ω cannot be omitted from the determinant formula."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "GDET",
+        "NODAL-BC"
+      ],
+      "upstreamPrerequisites": [
+        "AV-L0B",
+        "AV-L0C"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/noether-defect-line",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Noether defect line",
+      "kind": "definition",
+      "statement": "For g≥2 define the line N_g=λ_g^{⊗12}⊗P_g∨⊗O(−Δ) as an object of the line Picard groupoid on M̄_g/Z, where P_g is the actual universal dualizing pairing and O(−Δ)=O(Δ)∨. Its class vanishes exactly when a Noether isomorphism λ_g^{⊗12}≅P_g⊗O(Δ) exists. This criterion concerns existence; the set of choices is a torsor under global units.",
+      "hypotheses": [
+        "g≥2; use the reduced local-node boundary convention of the imported boundary-divisor node.",
+        "All tensor powers, duals, evaluation and cancellation maps live in the stack Picard groupoid supplied by SF.1/SF.3."
+      ],
+      "proofSteps": [
+        "Apply tensor, dual and powers to the imported Hodge and boundary lines and the constructed P_g.",
+        "Tensor cancellation identifies trivializations of N_g with Noether comparison isomorphisms.",
+        "The Picard-groupoid unit automorphisms identify the ratio of two trivializations with a global unit."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/hodge-determinant",
+        "StableReductionPartII:MC.5/boundary-divisor",
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
+        "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yuan2024",
+          "locator": "Theorem 3.3 and §3.1.2, p. 42",
+          "match": "The three lines and the universal-choice convention yield this obstruction line by tensor cancellation."
+        },
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Theorem 5.10 and its proof, pp. 100–103",
+          "match": "Separates the rational computation, torsion-freeness step and integral descent; the defect packages precisely those steps."
+        }
+      ],
+      "acceptance": [
+        "The boundary occurs with a negative sign in N_g and a positive sign on the right of the Noether isomorphism.",
+        "A vanishing rational Chern class alone does not construct a trivialization.",
+        "Two comparisons are compared as maps of line objects before passing to classes."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.5/rational-defect-torsion",
+          "how": "Turns rational GRR plus the pairing Chern comparison into a torsion class."
+        },
+        {
+          "where": "StableReductionPartII:MC.5/integral-noether",
+          "how": "The Picard injection and complex torsion-freeness kill this integral obstruction line."
+        }
+      ],
+      "api": [
+        {
+          "name": "noetherDefect_pullback",
+          "role": "functoriality",
+          "statement": "Pull back N_g with its tensor and dual comparisons along any classifying map; for arbitrary families the boundary term means the pullback line."
+        },
+        {
+          "name": "noetherDefect_trivialization",
+          "role": "equivalence",
+          "statement": "Trivializations N_g≅O correspond to isomorphisms λ_g^12≅P_g⊗O(Δ), with inverse given by tensor cancellation."
+        },
+        {
+          "name": "noetherDefect_class",
+          "role": "compatibility",
+          "statement": "Its Picard class is 12[λ_g]−[P_g]−[O(Δ)]; on an actual scheme chart equality of line classes is the pinned nonempty-isomorphism criterion."
+        },
+        {
+          "name": "noetherDefect_ratio",
+          "role": "characterisation",
+          "statement": "Given two trivializations, a unique unit takes one to the other; class equality contains no preferred choice."
+        }
+      ],
+      "tests": [
+        {
+          "name": "three-trivial-lines",
+          "statement": "If λ, P and O(Δ) are equipped with trivializations on a test scheme, the induced N is trivial; changing a trivialization changes the map, not its class."
+        },
+        {
+          "name": "boundary-sign",
+          "statement": "If a trait node has equation xy=π^m, its boundary contribution to a rational section of N has order −m; the Noether right-hand boundary line has order +m."
+        },
+        {
+          "name": "rational-torsion",
+          "statement": "For a nontrivial torsion line, vanishing in Pic⊗Q does not give an integral trivialization; the proof must still use complex torsion-freeness."
+        },
+        {
+          "name": "nonuniversal-unit",
+          "statement": "On a Q-scheme, multiplying a comparison by 2 produces another comparison. It need not be the pullback of a universal choice differing by ±1."
+        }
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Chern class of the dualizing pairing",
+      "kind": "comparison",
+      "statement": "On M̄_g/C, g≥2, the universal pairing satisfies c₁(P_g)=f_*(c₁(ω_f)²) in CH¹(M̄_g/C;Q). The scheme-level integral input is the degree-one graded-K comparison for Deligne pairings on divisorial bases. Its passage to rational Chow and then to the moduli stack must use named comparison/descent maps, and is not an integral identification of arbitrary stack Chow and Picard groups.",
+      "hypotheses": [
+        "Use SF.5 stack Chow with rational coefficients and its actual first-Chern/proper-pushforward operations.",
+        "Supply gap CHOW-PIC: pairing Chern comparison and codimension-one Picard comparison for this smooth DM stack, including stabilizers."
+      ],
+      "proofSteps": [
+        "On a suitable divisorial scheme chart apply Eriksson–Freixas Corollary 6.9 to the two line arguments.",
+        "Use the rational Chern-character comparison to convert its graded-K identity to Chow.",
+        "Use a smooth equivariant Hilbert presentation of the moduli stack and compatible mixed quotients (Edidin–Graham, Propositions 14–19), so that the chart computation is an equivariant identity and not merely an identity after forgetting equivariance. Theorem 3.1 of their Riemann–Roch paper supplies the compatible proper pushforward. Supply the comparison to the chosen SF.5 stack-Chow carrier in CHOW-PIC; pullback to a plain atlas alone is not an injection on Picard groups."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "SchemeAndStackFoundations:SF.5/stack-chow",
+        "SchemeAndStackFoundations:SF.5/first-chern",
+        "SchemeAndStackFoundations:SF.5/chern-character"
+      ],
+      "sources": [
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "§6.1.4, Proposition 6.8 and Corollary 6.9, pp. 316–318",
+          "match": "Identifies the Deligne-pairing Chern class with the direct image in graded K-theory under the divisorial-base hypothesis."
+        },
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Theorem 5.10, rational calculation, pp. 100–102",
+          "match": "Supplies the moduli rational computation, including the local singularity correction; a formal stack Chow comparison is still required."
+        },
+        {
+          "sourceId": "EdidinGraham1997",
+          "locator": "Theorem 1, pp. 7–8; Corollary 1, p. 9; Propositions 14–19, pp. 28–29",
+          "match": "Gives the equivariant Chern/Picard comparison, its quotient-stack interpretation and rational intersection-product compatibility."
+        },
+        {
+          "sourceId": "EdidinGraham1999",
+          "locator": "Theorem 3.1(b)–(e), pp. 13–14",
+          "match": "Supplies proper equivariant pushforward and the smooth/qualified-lci Riemann–Roch compatibilities needed in a quotient presentation, with rational coefficients."
+        }
+      ],
+      "acceptance": [
+        "State the divisorial-scheme hypothesis before using Corollary 6.9.",
+        "The smooth-scheme GRR signature is not advertised as arbitrary singular or stack GRR.",
+        "The sign in the pairing term is positive."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "GPAIR",
+        "CHOW-PIC"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/rational-defect-torsion",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Rational Noether computation gives a torsion defect",
+      "kind": "theorem",
+      "statement": "For g≥2 the class [N_g/C] is torsion in Pic(M̄_g/C). Equivalently, some positive tensor power of N_g/C is trivial. This is the precise intermediate conclusion of rational Noether: 12c₁λ=f_*(c₁ω²)+[Δ] together with the pairing Chern comparison and the rational codimension-one Picard–Chow comparison.",
+      "hypotheses": [
+        "The imported rational-noether identity is over C and has coefficient one on every reduced universal node branch.",
+        "CHOW-PIC supplies an injective Pic⊗Q→CH¹⊗Q comparison for the actual stack; N_g is a genuine line, not a rational formal symbol."
+      ],
+      "proofSteps": [
+        "Compute c₁(N_g/C) from its three factors and cancel using rational Noether and pairing-chern-on-moduli.",
+        "Transport the vanishing to Pic⊗Q through the specified codimension-one comparison.",
+        "Use that the kernel of an abelian group’s map to its rationalization is its torsion subgroup; do not infer [N]=0 integrally yet."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/noether-defect-line",
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+        "StableReductionPartII:MC.5/rational-noether",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Theorem 5.10, pp. 100–105; Lemma 5.14, p. 102",
+          "match": "First obtains the line relation rationally and then needs a separate torsion-freeness theorem to make it integral."
+        },
+        {
+          "sourceId": "Yuan2024",
+          "locator": "Theorem 3.3, p. 42",
+          "match": "States the integral endpoint, for which this node supplies only the rational/torsion intermediate step."
+        },
+        {
+          "sourceId": "EdidinGraham1997",
+          "locator": "Corollary 1, p. 9; Propositions 16–19, pp. 28–29",
+          "match": "Identifies equivariant Picard and codimension-one Chow for a smooth quotient presentation; rationalization detects exactly the torsion ambiguity."
+        }
+      ],
+      "acceptance": [
+        "The conclusion includes an existential positive exponent, not a canonical trivialization or an asserted exponent 12.",
+        "A torsion character line on Bμ_r over C demonstrates why a rational class identity does not by itself imply an integral one."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "CHOW-PIC"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Boundary twists kill torsion-line monodromy",
+      "kind": "theorem",
+      "statement": "Let g≥2 and L be an r-torsion line on M̄_g/C with a chosen L^r≅O and r≥1. The associated μ_r-torsor on the stack has trivial monodromy on M_g/C: after analytification and pullback to Teichmüller space, its character Mod_g→μ_r is trivial. Indeed extension over each transverse one-node smoothing kills the associated Dehn twist, and Dehn twists generate Mod_g. The torsor is then trivial over the normal compactified stack, so L is trivial. Quotient stacks and their inertia are retained throughout; a coarse-space argument is insufficient, including in genus two.",
+      "hypotheses": [
+        "Use algebraic finite étale μ_r-torsors over C, where r is invertible; do not use the same étale argument in characteristic dividing r.",
+        "TOPOLOGY supplies the analytic stack quotient [T_g/Mod_g], simple connectedness of T_g, mapping-class generation, nodal monodromy and cover comparison, including algebraic recovery on the proper DM stack."
+      ],
+      "proofSteps": [
+        "Construct Spec(⊕_{i=0}^{r−1}L^i), with multiplication from L^r≅O, using the existing torsor/relative-Spec machinery.",
+        "Pull the analytic torsor to the contractible Teichmüller space. Descent along the action groupoid T_g×Mod_g gives a character of the full mapping-class group. The nerve has action face maps: it is not the product simplicial object with constant T_g; its realization is a homotopy quotient with contractible fibre over BMod_g (sourceIssues E15–E17).",
+        "A transverse smoothing disk has trivial étale/topological cover when filled in, so the loop around its puncture acts trivially; its mapping-class monodromy is the corresponding Dehn twist.",
+        "Use Luo’s generation theorem to kill the character. Extend the analytic cover splitting from the dense smooth locus across the normal compactified stack by normalization, retaining inertia; the disk argument is applied in stack charts. Hall Theorem 1 with proper DM source M̄_g/C and target Bμ_r algebraizes the trivialization and its inverse. Equivalently apply separated GAGA to the line isomorphism on the proper stack."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.1/torsor",
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+        "StableReductionPartII:MC.5/boundary-divisor",
+        "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "MordellLawrenceVenkatesh:LV.5/mapping-class-group",
+        "MordellLawrenceVenkatesh:LV.5/dehn-twist"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Lemma 5.14, statement p. 102 and proof pp. 103–105",
+          "match": "Uses the Teichmüller-space cover, mapping-class characters and boundary Dehn twists to eliminate torsion; the cited analytic inputs require separate supplier contracts."
+        },
+        {
+          "sourceId": "FredianiNeumann2004",
+          "locator": "Theorem 2.5 and Proposition 2.6, p. 11; §2.3, pp. 17–19, with corrections E15–E17 below",
+          "match": "Supplies Teichmüller representability and contractibility. Use the action groupoid and homotopy quotient, retaining stabilizers; the displayed product-of-simplicial-spaces proof is corrected in sourceIssues."
+        },
+        {
+          "sourceId": "Luo1998",
+          "locator": "§1, main unnumbered theorem, p. 2",
+          "match": "Presents the orientation-preserving mapping class group of a compact oriented surface by all Dehn twists, hence gives generation for the closed genus-g surface."
+        },
+        {
+          "sourceId": "Hall2011",
+          "locator": "Theorem 1, p. 1; Theorem A.1 and Corollary A.3, p. 17",
+          "match": "For a proper DM source, analytification recovers morphisms to the DM target Bμ_r and their isomorphisms. Separated GAGA also recovers coherent line isomorphisms on the proper compactification."
+        }
+      ],
+      "acceptance": [
+        "Include separating as well as nonseparating nodal monodromy, and do not suppress inertia by replacing the stack with its coarse space.",
+        "For r=1 the torsor is trivial. For arbitrary r over C it is étale; this reasoning does not assert the same in characteristic p dividing r.",
+        "Triviality on the dense open is extended by normality, not by an unproved claim that restriction of arbitrary line bundles is injective."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "TOPOLOGY"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "A complex trivialization descends to the rational fibre",
+      "kind": "theorem",
+      "statement": "Let X=M̄_g/Z, g≥2, and L a line on X. If L_C is trivial, then L_Q is trivial. More precisely H⁰(X_Q,L_Q)⊗_Q C≅H⁰(X_C,L_C) is one-dimensional, because Γ(X_C,O)=C. Choose a nonzero rational section in this space; after base change it is a nonzero constant multiple of a trivialization and hence nowhere vanishing. Faithful flatness then makes its evaluation O_XQ→L_Q an isomorphism.",
+      "hypotheses": [
+        "Proper stable-moduli stack over Z, and the geometrically connected/irreducible fibre statements imported from MC.1/MC.4.",
+        "DESCENT supplies H⁰ flat field-extension base change on the proper DM stack and descent of the evaluation isomorphism.",
+        "No claim is made that a line trivial after every arbitrary field extension descends without these H⁰ hypotheses."
+      ],
+      "proofSteps": [
+        "Use flat cohomology base change for Q→C, without asserting the chosen complex section itself has rational coefficients.",
+        "The right-hand H⁰ has dimension one since the line is trivial and the proper connected complex stack has only constant functions.",
+        "A nonzero rational vector becomes a nonzero scalar multiple of a complex trivialization. Descend invertibility of its evaluation map by faithful flatness."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.1/proper-moduli",
+        "StableReductionPartII:MC.4/irreducible-geometric-fibres",
+        "StableReductionPartII:MC.5/universal-units",
+        "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+        "SchemeAndStackFoundations:SF.1/stack-quasi-coherent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Paragraph following Lemma 5.14, printed pp. 102–103",
+          "match": "Uses invariant global sections and flat base change to pass from a complex trivial line to a rational section, before the vertical-divisor argument."
+        }
+      ],
+      "acceptance": [
+        "One-dimensionality is proved before selecting the rational section.",
+        "The evaluation map, rather than only its space of sections, descends as an isomorphism.",
+        "The argument respects stabilizer actions and thus applies to the stack line, not only its atlas restriction."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "DESCENT"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Vertical divisors on the integral stable stack",
+      "kind": "lemma",
+      "statement": "For X=M̄_g/Z, g≥2, every Cartier divisor whose support is vertical is a finite sum D=Σ_p n_p X_Fp of whole prime fibres, with integral n_p. Since X/Z is smooth with geometrically irreducible fibres, each X_Fp is reduced, irreducible and Cartier of multiplicity one. Consequently D=div_X(∏_p p^{n_p}). In particular, for any line L on X, a trivialization of L|X_Q extends after multiplication by a rational number to a nowhere-vanishing section on X.",
+      "hypotheses": [
+        "X is the smooth integral noetherian stable DM stack with geometrically irreducible fibres.",
+        "DIVISORS supplies Cartier/Weil comparison, divisors of rational sections and the codimension-one criterion on a smooth DM stack, extending the scheme-only SF.3 excision result."
+      ],
+      "proofSteps": [
+        "A codimension-one irreducible vertical support lies over a unique prime and equals that whole irreducible fibre; use smoothness and dimension to exclude a proper codimension-one subvariety of the fibre.",
+        "Smoothness makes each prime fibre reduced, and flatness makes p a nonzerodivisor, with divisor exactly that fibre.",
+        "A Cartier divisor has finitely many such components on the quasi-compact stack. Compare with the principal divisor of the rational number ∏p^{n_p}.",
+        "For a line rationally trivialized on X_Q, subtract this principal divisor from the divisor of its rational section; regularity/codimension-one comparison then makes it a global trivialization."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.1/smooth-dimension",
+        "StableReductionPartII:MC.4/irreducible-geometric-fibres",
+        "SchemeAndStackFoundations:SF.3/picard-excision-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Mumford1977",
+          "locator": "Integral descent after Lemma 5.14, printed pp. 102–103",
+          "match": "Removes vertical zeros or poles by whole-prime-fibre principal divisors, proving the needed integral restriction injectivity."
+        }
+      ],
+      "acceptance": [
+        "Negative coefficients are allowed; the correcting scalar belongs to Q×, not necessarily Z.",
+        "Multiplicity one uses smoothness; the same formula without multiplicities is false for a nonreduced prime fibre.",
+        "The scheme excision node does not already prove this stack statement."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "DIVISORS"
+      ]
+    },
+    {
+      "id": "StableReductionPartII:MC.5/noether-arbitrary-base-pullback",
+      "parentStageId": "StableReductionPartII:MC.5",
+      "realises": [
+        "StableReductionPartII:MC.5"
+      ],
+      "title": "Noether isomorphism under arbitrary classifying pullback",
+      "kind": "theorem",
+      "statement": "Choose one universal integral isomorphism e:λ_g^12≅P_g⊗O(Δ), g≥2. For every stable genus-g family C→S classified by c:S→M̄_g, pullback and the Hodge/pairing comparisons give an actual line isomorphism (det f_*ω)^12≅⟨ω,ω⟩⊗c*O(Δ), coherent under arbitrary base change and isomorphisms of families. If S is integral noetherian and the family is generically smooth, c*O(Δ)=O(Δ_S) with its pulled-back effective-Cartier section. For a family lying in the boundary, c*O(Δ) still exists but its pulled-back section can be zero and need not cut out an effective Cartier divisor. Any two universal choices differ by ±1, whose images may coincide over characteristic two. Arbitrary family isomorphisms can instead differ by any unit on S.",
+      "hypotheses": [
+        "All stable-family Hodge and dualizing base-change comparisons have been extended to arbitrary bases as specified in NODAL-BC.",
+        "The imported integral-noether and universal-units theorems give a universal choice and its universal ambiguity.",
+        "An effective-Cartier family boundary is asserted only under the stated integral/noetherian/generically-smooth hypotheses."
+      ],
+      "proofSteps": [
+        "Apply the stack Picard pullback functor to e; identify its left side using Hodge base change and AV determinant pullback.",
+        "Identify the pairing by universal-dualizing-pairing and keep the boundary as a line with its pulled-back section.",
+        "Use nonvanishing of the generic smoothing parameters only when identifying the pulled-back section with a Cartier divisor.",
+        "Transport the unique ratio unit of two universal comparisons through the same pullback functor; Γ(M̄_g/Z,O×)=Z× supplies ±1."
+      ],
+      "prerequisites": [
+        "StableReductionPartII:MC.5/integral-noether",
+        "StableReductionPartII:MC.5/universal-units",
+        "StableReductionPartII:MC.5/hodge-bundle",
+        "StableReductionPartII:MC.5/hodge-determinant",
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "StableReductionPartII:MC.5/boundary-divisor",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+        "mathlib:CategoryTheory.Functor.mapIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yuan2024",
+          "locator": "§3.1.2, pp. 42–43",
+          "match": "States the classifying-pullback comparison and its universal-choice interpretation for generically smooth integral Noetherian families; arbitrary-base line pullback here follows from the explicit stack line and base-change contracts."
+        },
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "Definition 4.16, p. 287; Proposition 6.1, pp. 311–312",
+          "match": "Provides the nonflat and non-Noetherian pairing base-change input for the stated extension."
+        }
+      ],
+      "acceptance": [
+        "For a stable nodal curve over a field, the boundary line pulls back while its boundary section is zero; do not call that zero locus an effective Cartier divisor.",
+        "For xy=π^m on a trait, the pulled-back boundary section has order m, not one.",
+        "On an F₂-scheme the two universal signs have identical images. On a Q-scheme, multiplying a family comparison by 2 shows why arbitrary comparisons are not exhausted by the universal choices."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "status": "missing",
+        "namespace": "StableReductionPartII.MC5",
+        "module": "TauCeti/AlgebraicGeometry/Moduli/StableCurves/Noether"
+      },
+      "gapDependencies": [
+        "GDET",
+        "GPAIR",
+        "NODAL-BC"
+      ],
+      "upstreamPrerequisites": [
+        "AV-L0A",
+        "AV-L0B",
+        "AV-L0C"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "Import the locally Noetherian proper-flat connected nodal-curve cohomology, relative dualizing line, trace/Serre duality, normalization-residue sequences, and base-change comparisons as actually stated by StableReduction layer 2. The arbitrary-base extension is NODAL-BC, not silently included in this request.",
+      "neededBy": [
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/hodge-bundle",
+        "StableReductionPartII:MC.5/hodge-forgetting",
+        "StableReductionPartII:MC.5/separating-hodge",
+        "StableReductionPartII:MC.5/nonseparating-hodge"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Import the Picard groupoid, its unit-automorphism/global-unit identification and scheme Picard/class/divisor comparisons. Extend its scheme excision and Cartier/Weil rational-section theory to the smooth integral DM stable stack in DIVISORS; that extension is not supplied by the current scheme-only node.",
+      "neededBy": [
+        "StableReductionPartII:MC.5/noether-defect-line",
+        "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli",
+        "StableReductionPartII:MC.5/integral-picard-injection"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Use the existing rational Chern, projective smooth-scheme GRR and stack-Chow constructions. Supply the missing compatible first-Chern/proper-pushforward and Pic⊗Q→CH¹ comparison on M̄_g/C in CHOW-PIC. This request does not attribute integral determinant/Deligne-pairing or arbitrary nodal/stack GRR to SF.5. Edidin–Graham 1997 Corollary 1 and Propositions 16–19, and 1999 Theorem 3.1, now give precise equivariant comparison sources for the smooth Hilbert quotient presentation.",
+      "neededBy": [
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+        "StableReductionPartII:MC.5/rational-defect-torsion",
+        "StableReductionPartII:MC.5/rational-noether"
+      ]
+    },
+    {
+      "supplier": "MordellLawrenceVenkatesh:LV.5",
+      "need": "Use the existing surface, mapping-class-group and Dehn-twist definitions; supply a closed-oriented-genus-g mapping-class generation theorem by Dehn twists. The current dehn-twist node gives conjugacy and disjoint commutation, not generation. The analytic Teichmüller/stack comparison is the separately unassigned part of TOPOLOGY. Use Luo1998, §1 main unnumbered theorem, p. 2, for the generation input; its orientation and boundary conventions specialize to the closed surface.",
+      "neededBy": [
+        "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Provide the scheme flat-field-extension H⁰ base-change theorem with its actual evaluation map; extend to the proper stable DM stack by descent in DESCENT, retaining invariant sections/stabilizers. Use it both for Q→C descent of a complex-trivial line and for the integral universal global-function computation.",
+      "neededBy": [
+        "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "StableReductionPartII:MC.5/universal-units"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "StableReductionPartII:MC.5",
+      "status": "planned",
+      "remaining": [
+        "Assign and plan the proposed GDET/GPAIR foundational extension; sources and exact contracts are acquired here.",
+        "Close NODAL-BC, CHOW-PIC, TOPOLOGY, DESCENT and DIVISORS with exact supplier nodes and their recorded generality.",
+        "Assemble the thirteen imported targets and nine support nodes, retaining AV-L0A/L0B/L0C current-main prerequisites and the five total planets."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GDET",
+      "title": "Assign the commutative graded determinant realization and scheme descent extension",
+      "neededBy": [
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/universal-dualizing-pairing"
+      ],
+      "detail": "The exact GDET contract, source range, API and five discriminating tests are in proposedSupplierContracts. NE.2/determinant-functor already owns the virtual determinant for associative rings; it does not supply its commutative graded-invertible-sheaf realization or scheme descent. No copy of that universal determinant is planned here. The proposed SchemeAndStackFoundations, Part II owner is not yet a roadmap/stage and therefore cannot honestly be cited as an existing prerequisite."
+    },
+    {
+      "id": "GPAIR",
+      "title": "Assign integral Deligne pairing and coherent laws beyond the existing foundations",
+      "neededBy": [
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli"
+      ],
+      "detail": "The exact GPAIR contract in proposedSupplierContracts has acquired sources, arbitrary-base hypotheses, seven API statements and seven tests. No existing roadmap node plans this unmetrized integral curve pairing. Propose SchemeAndStackFoundations, Part II and import it once; this packet specializes it to the universal dualizing line rather than assigning a second generic owner. Arakelov metric refinements are outside this job."
+    },
+    {
+      "id": "NODAL-BC",
+      "title": "Arbitrary-base nodal dualizing and Hodge comparisons",
+      "neededBy": [
+        "StableReductionPartII:MC.5/hodge-bundle",
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/universal-dualizing-pairing",
+        "StableReductionPartII:MC.5/noether-arbitrary-base-pullback"
+      ],
+      "detail": "StableReduction layer 2 explicitly works locally Noetherian. Extend the same dualizing sheaf, trace, Hodge finite-local-freeness and coherent arbitrary base-change maps to finitely presented stable families over arbitrary bases by finite-presentation approximation and descent. Do not create a second nodal dualizing sheaf. The 2024 pairing source removes the Noetherian restriction for the pairing/determinant supplier, not automatically for this coherent-curve input."
+    },
+    {
+      "id": "CHOW-PIC",
+      "title": "Stack codimension-one Chern/Picard comparison for the rational computation",
+      "neededBy": [
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli",
+        "StableReductionPartII:MC.5/rational-defect-torsion",
+        "StableReductionPartII:MC.5/rational-noether"
+      ],
+      "detail": "Supply compatible first-Chern, pairing and proper-pushforward maps in SF.5’s stack-Chow carrier for M̄_g/C. On its smooth Hilbert quotient presentation [H/PGL], Edidin–Graham 1997 Corollary 1 and Propositions 16–19 identify Pic([H/PGL]) with equivariant CH¹, including stabilizers; their 1999 Theorem 3.1 supplies equivariant rational Riemann–Roch and proper covariance. Eriksson–Freixas Corollary 6.9 supplies the pairing identity on divisorial mixed-quotient schemes. Prove independence of the presentation and compatibility with SF.5/Kresch Chow. The mathematical route and source are acquired; the matching formal supplier interface is absent. The current smooth-scheme GRR node alone does not supply this extension."
+    },
+    {
+      "id": "TOPOLOGY",
+      "title": "Analytic stack/Teichmüller and boundary-cover comparison",
+      "neededBy": [
+        "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy",
+        "StableReductionPartII:MC.5/complex-picard-torsion-free"
+      ],
+      "detail": "Assign the analytic stack/Teichmüller and boundary-cover extension. Frediani–Neumann Theorem 2.5 and Proposition 2.6, p. 11, give Teichmüller representability and contractibility; its §2.3 groupoid discussion must be corrected as E15–E17, using T_g×Mod_g with action face maps. Luo’s main theorem, p. 2, supplies Dehn-twist generation; Mumford Lemma 5.14, pp. 103–105, supplies the nodal smoothing-loop argument. Hall Theorem 1 and Appendix A supply recovery on the proper DM compactification (target Bμ_r, not an unqualified DM-target theorem applied to BG_m). Formalize the analytic quotient, finite-cover descent, monodromy and normal extension. LV.5 owns surfaces, Mod and twists, but no exact supplying node exists for this complete analytic interface. The consumer proof and independent primary sources are now specified; this is an ownership/formal-interface gap, not a missing claim that the sources prove the corrected chain verbatim."
+    },
+    {
+      "id": "DESCENT",
+      "title": "Proper-DM H⁰ base change and universal functions",
+      "neededBy": [
+        "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "StableReductionPartII:MC.5/universal-units"
+      ],
+      "detail": "Extend the scheme H⁰ flat-field-extension theorem to the actual proper stable DM stack, including compatibility of invariant sections and their evaluation maps. For Γ(M̄_g/Z,O)=Z also supply the proper smooth geometrically connected stack global-function theorem (or prove by a rational-function/vertical-integrality argument); mere scheme atlas global functions are insufficient. The rational-descent argument explicitly uses one-dimensionality and faithful-flat descent, closing the logical step omitted from the base sketch once this supplier is supplied."
+    },
+    {
+      "id": "DIVISORS",
+      "title": "Cartier/Weil divisor descent on the smooth integral DM stack",
+      "neededBy": [
+        "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli",
+        "StableReductionPartII:MC.5/integral-picard-injection"
+      ],
+      "detail": "Extend SF.3’s scheme locally-factorial Picard/excision and rational-section statements to a smooth integral noetherian DM stack, with valuations, equality detected in codimension one, and descent of rational sections. Apply only to M̄_g/Z with geometrically irreducible reduced prime fibres. The proof of vertical principality is now explicit; the current scheme excision node does not already supply the stack carrier/theorem."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "StableReductionPartII/E15",
+      "source": "FredianiNeumann2004",
+      "kind": "error",
+      "locator": "arXiv:math/0404387v1, §2.3, p. 18, paragraph following the two local-isomorphism projections",
+      "printed": "The argument transfers rigidity of marked curves to the forgotten objects and concludes that the arrow-to-object-pair map is an immersion.",
+      "correction": "After forgetting markings, retain automorphism arrows. For G=1 the arrow space is T_g×Mod_g and its map to T_g×T_g is unramified, but need not be a monomorphism or an immersion in the locally closed embedding sense.",
+      "reason": "Take G=1, g=2 and a marked genus-two curve x. Its underlying unmarked curve has both the identity and hyperelliptic involution; these give distinct arrows above (x,x). An immersion is a monomorphism and cannot have this fibre. Rigidity of an object with its marking does not remove automorphisms of its image in the unmarked stack.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+        "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+        "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+        "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+      ]
+    },
+    {
+      "id": "StableReductionPartII/E16",
+      "source": "FredianiNeumann2004",
+      "kind": "misprint",
+      "locator": "arXiv:math/0404387v1, §2.3, p. 18, fibre formula near the bottom",
+      "printed": "The fibre over fixed x of the arrow-space projection is identified with T_g^G×Γ_g,G.",
+      "correction": "The entire arrow space has that product form in the intended quotient presentation. A fixed source fibre is the discrete group Γ_g,G, with its target determined by the action; for G=1 this is Mod_g.",
+      "reason": "The projection is already stated to be a local isomorphism, hence its point fibres are discrete. With G=1 and g≥2, T_g has positive dimension 3g−3, so its product with Mod_g cannot be such a fibre.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+        "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+        "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+        "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+      ]
+    },
+    {
+      "id": "StableReductionPartII/E17",
+      "source": "FredianiNeumann2004",
+      "kind": "error",
+      "locator": "arXiv:math/0404387v1, Proposition 2.14 proof, p. 19, product-simplicial-object identification",
+      "printed": "The degreewise products in the action-groupoid nerve are treated as a product simplicial object T_g^G×BΓ_g,G and used to assert a product realization.",
+      "correction": "Use the action nerve, whose realization is EΓ_g,G×_Γ_g,G T_g^G. Its projection to BΓ_g,G has contractible fibre T_g^G and yields the required homotopy equivalence. The constant-product simplicial identification is not justified.",
+      "reason": "Already for G=1 and an element γ moving x, the two degree-one face maps of the action arrow (x,γ) are x and γx. In the constant-T_g product with BMod_g both faces keep the same T_g coordinate. The degreewise product bijections therefore do not respect the simplicial maps. This repairs the proof without rejecting the proposition’s homotopy-equivalence conclusion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0404387 submission history checked 2026-10-18: only v1 is listed.",
+        "Paola Frediani publication list, https://mate.unipv.it/frediani/papers.html, and Frank Neumann publication list, https://le.ac.uk/people/frank-neumann, checked 2026-10-18; no correction listed.",
+        "Publisher article and PDF endpoints at https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99 were attempted 2026-10-18 but returned an HTML access/challenge page, not the article. No published-version comparison is claimed.",
+        "Title/author searches for erratum and corrigendum, 2026-10-18, found no separate correction."
+      ]
+    }
+  ],
+  "baselineAudit": {
+    "reviewedAudit": "data/library-coverage.json: StableReduction layer 2",
+    "verdict": "The reviewed parent audit finds the coherent-curve/duality lane not built. The pinned scheme line carriers are real, but they do not provide stable stacks, determinant of cohomology, Deligne pairings, stack Picard injection or the analytic/topological inputs. No separate MC.5 audit entry exists.",
+    "searches": [
+      "Read the actual pinned LineBundle/Basic, TensorProduct and Class files and Mathlib scheme-module pullback.",
+      "Searched pinned and current TauCeti for determinant of cohomology, Deligne pairing, Teichmüller and Dehn-twist generation; no supplying declaration found.",
+      "Read current AlgebraicVectorBundles and StableReduction READMEs, and inspected their Suggested files; current upstream work is imported, never reconstructed here.",
+      "Searched all blueprint nodes and stage links touching StableReductionPartII; no MC.5 link packet supplies the missing core. Ring-valued virtual determinants already have a separate owner.",
+      "Searched all current read-only upstream README/Suggested files for Deligne pairings and determinant of cohomology; no supplying generic construction found. The current checkout does not contain a SchemeAndStackFoundations directory; the accepted atlas supplier nodes are used without asserting an uninspected upstream extension."
+    ]
+  },
+  "upstreamImports": [
+    {
+      "id": "AV-L0A",
+      "roadmap": "AlgebraicVectorBundles",
+      "layer": "L0A",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md#l0a--sheaves-of-modules",
+      "provides": "Closed symmetric monoidal sheaves and coherent strong symmetric monoidal pullback."
+    },
+    {
+      "id": "AV-L0B",
+      "roadmap": "AlgebraicVectorBundles",
+      "layer": "L0B",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md#l0b--quasicoherent-and-finite-locally-free-sheaves",
+      "provides": "Finite locally free sheaves, bundled rank, arbitrary pullback, affine finite-projective comparison and rank-one identification with InvertibleSheaf."
+    },
+    {
+      "id": "AV-L0C",
+      "roadmap": "AlgebraicVectorBundles",
+      "layer": "L0C",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md#l0c--polynomial-operations",
+      "provides": "Exterior powers, ordinary determinants and coherent pullback comparison. No determinant of a complex or Deligne pairing is supplied."
+    }
+  ],
+  "upstreamIdentifierNote": "AlgebraicVectorBundles postdates the atlas stage snapshot. Its immutable current-main URLs and layer labels are recorded in upstreamImports/upstreamPrerequisites, rather than inventing a library declaration or a stage ID that check_blueprint does not know. They are genuine imported roadmap prerequisites. Assembly must retain them.",
+  "proposedSupplierContracts": [
+    {
+      "id": "GDET",
+      "proposedOwner": "SchemeAndStackFoundations, Part II",
+      "status": "Unassigned extension; a recorded gap, not an existing supplier stage.",
+      "need": "For schemes, realize the commutative-ring virtual determinant in graded invertible sheaves, descend it from finite-projective complexes to perfect complexes and glue. For proper flat finitely presented f, perfect E has perfect Rf_*E and λ_f(E)=det Rf_*E commutes with arbitrary derived base change. Locally λ_f(E) has line ⊗_i(det P^i)^{(−1)^i} and grade Σ_i(−1)^i rank(P^i) for a finite-projective model of Rf_*E. Quasi-isomorphisms and acyclic models have the specified canonical comparisons; exact-sequence and shift comparisons retain Koszul signs. This is not the assertion that every distinguished triangle has a functorial arbitrary-triangle determinant isomorphism.",
+      "buildsOn": [
+        "AV-L0A",
+        "AV-L0B",
+        "AV-L0C",
+        "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+        "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "KnudsenMumford1976",
+          "locator": "§1, pp. 20–21; Lemma 2, p. 28; bounded-complex formula, pp. 30–32",
+          "match": "Supplies graded lines, their sign symmetry and the passage from complexes to determinant data."
+        },
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "Propositions 4.14(2), 4.15(2), Definition 4.16, pp. 286–287",
+          "match": "Gives the proper flat finite-presentation perfect pushforward and arbitrary-base-change range, including non-Noetherian bases."
+        }
+      ],
+      "api": [
+        {
+          "name": "detPerfect_affine",
+          "role": "compatibility",
+          "statement": "On an affine and a degree-zero finite projective module, agree with AV-L0C exterior determinant, with grade equal to its rank."
+        },
+        {
+          "name": "detPerfect_acyclic",
+          "role": "characterisation",
+          "statement": "An acyclic perfect complex has the canonical determinant trivialization, compatible with quasi-isomorphisms."
+        },
+        {
+          "name": "detPerfect_shortExact",
+          "role": "functoriality",
+          "statement": "A short exact sequence of perfect complex models gives a natural additivity isomorphism with the Knudsen–Mumford coherence laws."
+        },
+        {
+          "name": "detPerfect_shift",
+          "role": "relation",
+          "statement": "Shifting by one inverts the graded line; the integer grade changes sign."
+        },
+        {
+          "name": "detCohomology_baseChange",
+          "role": "functoriality",
+          "statement": "For every S′→S, derived base change identifies pullback of λ_f(E) with λ_f′(Lh*E), with identity and composition cocycles."
+        },
+        {
+          "name": "detCohomology_duality",
+          "role": "compatibility",
+          "statement": "Use actual curve Serre duality to compare det Rf_*O and det Rf_*ω with the ordinary Hodge determinant; do not identify their integer grades."
+        }
+      ],
+      "tests": [
+        {
+          "name": "degree-zero-rank-two",
+          "statement": "For R² in degree zero the line is ∧²R² and the grade is 2; exchanging the two standard basis vectors acts by −1."
+        },
+        {
+          "name": "identity-complex",
+          "statement": "For [R --id→ R] in degrees 0,1 the grade is 0 and the canonical acyclic determinant is R."
+        },
+        {
+          "name": "shifted-line",
+          "statement": "For R concentrated in degree 1 the determinant line is R∨ and its grade is −1, rather than +1."
+        },
+        {
+          "name": "nonflat-specialization",
+          "statement": "The required base-change map exists for Spec(F_p)→Spec(Z); requiring this map to be flat fails the contract."
+        },
+        {
+          "name": "projective-line",
+          "statement": "For P¹_R→Spec(R), λ(O(1)) is det(R²) of grade 2, while λ(O(−2)) has grade −1; these are not both H⁰ determinants."
+        }
+      ]
+    },
+    {
+      "id": "GPAIR",
+      "proposedOwner": "SchemeAndStackFoundations, Part II",
+      "status": "Unassigned extension; a recorded gap, not an existing supplier stage.",
+      "need": "For f:X→S locally projective, faithfully flat, finitely presented and of pure relative dimension one, construct the integral Deligne pairing on actual line bundles, with arbitrary base change. Put d(A)=underlying line of λ_f(A). In the fixed order, ⟨L,M⟩=d(L⊗M)⊗d(O_X)⊗d(L)∨⊗d(M)∨. The determinant calculation is made in graded lines before passing to its grade-zero line. Coherent bilinearity, permutation, norm and divisor comparisons are data to prove, not consequences of an equality in K₀ or Pic⊗Q. No smoothness or Noetherian assumption is imposed.",
+      "buildsOn": [
+        "GDET",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid"
+      ],
+      "sources": [
+        {
+          "sourceId": "Deligne1987",
+          "locator": "Construction 7.2, (7.2.1), pp. 147–149; §7.4, p. 150",
+          "match": "Gives the rank-zero determinant expression and the coherent bilinear comparison for proper flat curves, beyond the smooth discussion in §6."
+        },
+        {
+          "sourceId": "ErikssonFreixas2024",
+          "locator": "Definition 1.1, p. 258; (6.3), Proposition 6.1, Remark 6.2, pp. 310–312",
+          "match": "Supplies the locally projective arbitrary-base version and the sign, scalar and relative-divisor laws."
+        }
+      ],
+      "api": [
+        {
+          "name": "delignePairing_detComparison",
+          "role": "characterisation",
+          "statement": "Use exactly the four-term determinant expression above; its Euler-characteristic grade is zero by curve Riemann–Roch."
+        },
+        {
+          "name": "delignePairing_bilinear",
+          "role": "structure",
+          "statement": "Tensor-product additivity in both arguments, coherent with unit, associativity, interchange and permutations."
+        },
+        {
+          "name": "delignePairing_baseChange",
+          "role": "functoriality",
+          "statement": "Pullback identifies the pairing with the pairing on the cartesian family for every base morphism; identity and composition comparisons satisfy descent."
+        },
+        {
+          "name": "delignePairing_relativeDivisor",
+          "role": "compatibility",
+          "statement": "For a relative effective Cartier divisor D finite flat over S, identify ⟨O(D),M⟩ with N_D/S(M|D). If D is empty on an open-and-closed component, the value there is the trivial line."
+        },
+        {
+          "name": "delignePairing_scalar",
+          "role": "relation",
+          "statement": "Multiplication by u on L acts on the pairing by u^{deg(M)} on each rank/degree component."
+        },
+        {
+          "name": "delignePairing_selfSymmetry",
+          "role": "relation",
+          "statement": "The canonical interchange on ⟨L,L⟩ is multiplication by (−1)^{deg(L)}. It is not always the identity."
+        },
+        {
+          "name": "delignePairing_firstChern",
+          "role": "compatibility",
+          "statement": "On the divisorial-scheme range of Corollary 6.9 identify the pairing class with the degree-two Chern pushforward in the graded K-group; the Chow and stack extensions are separate named needs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "trivial-argument",
+          "statement": "⟨O_X,M⟩ has the bilinear unit trivialization; omitting the d(O_X) term breaks this normalization."
+        },
+        {
+          "name": "section-divisor",
+          "statement": "For a section s in the smooth locus, ⟨O(s),M⟩≅s*M by the degree-one norm; no inverse appears."
+        },
+        {
+          "name": "odd-self-symmetry",
+          "statement": "For P¹_k and L=O(1), the canonical self-interchange is −1 when char(k)≠2, even though the pairing line is one-dimensional."
+        },
+        {
+          "name": "dualizing-even-degree",
+          "statement": "For a connected stable genus-g fibre, deg(ω)=2g−2 is even, so self-interchange of ⟨ω,ω⟩ is +1."
+        },
+        {
+          "name": "base-line-degree",
+          "statement": "For L=f*A, identify ⟨f*A,M⟩ with A^{deg(M)}. For M=O(1) on P¹ this is A, not A∨."
+        },
+        {
+          "name": "nodal-nonflat-base-change",
+          "statement": "For a stable nodal family over Z and its F_p fibre, the integral pairing specializes; a smooth-family-only or flat-base-change-only definition fails."
+        },
+        {
+          "name": "finite-flat-norm",
+          "statement": "For a relative divisor of degree two, multiplication by u on M acts by u² on its norm pairing, not by u."
+        }
+      ]
+    }
+  ],
+  "importedTargets": [
+    {
+      "nodeId": "StableReductionPartII:MC.5/hodge-bundle",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "The rank-g Hodge bundle on every stable pointed stack, with untwisted ω and arbitrary base change.",
+      "additionalPrerequisites": [],
+      "gapDependencies": [
+        "NODAL-BC"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/hodge-determinant",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "The ordinary determinant line; replace the legacy SF.5 determinant citation by AV-L0B/L0C plus stack descent.",
+      "additionalPrerequisites": [
+        "SchemeAndStackFoundations:SF.1/line-bundle-section-stack"
+      ],
+      "gapDependencies": []
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/hodge-forgetting",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Coherent forgetting/stabilization comparison, only where the target stable moduli problem exists.",
+      "additionalPrerequisites": [],
+      "gapDependencies": [
+        "NODAL-BC"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/separating-hodge",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Ordered direct-sum and determinant comparison with exchange sign (−1)^{g₁g₂}.",
+      "additionalPrerequisites": [],
+      "gapDependencies": [
+        "NODAL-BC"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/nonseparating-hodge",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Ordered-residue exact sequence; branch exchange negates the quotient residue.",
+      "additionalPrerequisites": [],
+      "gapDependencies": [
+        "NODAL-BC"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/boundary-divisor",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Universal effective Cartier boundary and its conditional effective-Cartier family pullback.",
+      "additionalPrerequisites": [],
+      "gapDependencies": []
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/rational-noether",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Complex rational GRR identity; it remains a rational Chow computation.",
+      "additionalPrerequisites": [
+        "StableReductionPartII:MC.5/hodge-determinant-cohomology",
+        "StableReductionPartII:MC.5/pairing-chern-on-moduli"
+      ],
+      "gapDependencies": [
+        "CHOW-PIC"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/complex-picard-torsion-free",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "No torsion in the complex compactified stack Picard group.",
+      "additionalPrerequisites": [
+        "StableReductionPartII:MC.5/torsion-cover-boundary-monodromy"
+      ],
+      "gapDependencies": [
+        "TOPOLOGY"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/integral-picard-injection",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Restriction from Z to C is injective on Picard groups.",
+      "additionalPrerequisites": [
+        "StableReductionPartII:MC.5/complex-trivialization-rational-descent",
+        "StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli"
+      ],
+      "gapDependencies": [
+        "DESCENT",
+        "DIVISORS"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/integral-noether",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "The integral universal line-isomorphism existence theorem.",
+      "additionalPrerequisites": [
+        "StableReductionPartII:MC.5/noether-defect-line",
+        "StableReductionPartII:MC.5/rational-defect-torsion",
+        "StableReductionPartII:MC.5/complex-picard-torsion-free",
+        "StableReductionPartII:MC.5/integral-picard-injection"
+      ],
+      "gapDependencies": []
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/universal-units",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Global functions Z and units ±1 on the integral universal stack.",
+      "additionalPrerequisites": [],
+      "gapDependencies": [
+        "DESCENT"
+      ]
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/semi-canonical-noether",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Pullbacks of universal choices; not a classification of all family isomorphisms.",
+      "additionalPrerequisites": [
+        "StableReductionPartII:MC.5/noether-arbitrary-base-pullback"
+      ],
+      "gapDependencies": []
+    },
+    {
+      "nodeId": "StableReductionPartII:MC.5/boundary-thickness",
+      "fromPacket": "StableReductionPartII.json",
+      "provides": "Residue-weighted sum of node thicknesses at codimension-one traits.",
+      "additionalPrerequisites": [],
+      "gapDependencies": []
+    }
+  ],
+  "inheritedTargetApi": {
+    "hodge-bundle": {
+      "api": [
+        {
+          "name": "hodge_rank",
+          "role": "characterisation",
+          "statement": "E=f_*ω is locally free of constant rank g."
+        },
+        {
+          "name": "hodge_baseChange",
+          "role": "functoriality",
+          "statement": "For every base change h, h*E≅E′, with the identity/composition cocycle."
+        },
+        {
+          "name": "hodge_untwisted",
+          "role": "compatibility",
+          "statement": "Use ω, not ω(sum of markings); the usual Serre trace comparison is retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "genus-zero-three-marks",
+          "statement": "On M̄_0,3 the Hodge bundle is zero; f_*ω(sum marks) has rank two and is the wrong definition."
+        },
+        {
+          "name": "genus-one",
+          "statement": "On M̄_1,1 the Hodge bundle has rank one, not the number of markings."
+        },
+        {
+          "name": "separating-two-elliptic",
+          "statement": "A genus-two fibre made from two elliptic components has Hodge space the direct sum of their one-dimensional spaces."
+        }
+      ]
+    },
+    "hodge-determinant": {
+      "api": [
+        {
+          "name": "hodgeDet_rankZero",
+          "role": "simp",
+          "statement": "The determinant of the zero bundle is the trivial line."
+        },
+        {
+          "name": "hodgeDet_baseChange",
+          "role": "functoriality",
+          "statement": "Use AV-L0C coherent pullback and descend this comparison to the stack."
+        },
+        {
+          "name": "hodgeDet_orderedSum",
+          "role": "compatibility",
+          "statement": "Concatenated wedge bases determine the direct-sum determinant comparison; exchanging blocks changes it by (−1)^{g₁g₂}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "genus-zero-line",
+          "statement": "Although E has rank zero, λ has rank one and is canonically trivial."
+        },
+        {
+          "name": "one-plus-one-swap",
+          "statement": "Swapping two genus-one Hodge blocks acts by −1 before specializing to characteristic two."
+        },
+        {
+          "name": "ordered-residue",
+          "statement": "For nonseparating clutching, the two residue orderings differ by −1 on the quotient line, even when the underlying λ line is isomorphic in both descriptions."
+        }
+      ]
+    },
+    "boundary-divisor": {
+      "api": [
+        {
+          "name": "boundary_line_section",
+          "role": "data",
+          "statement": "Use (O(Δ),s_Δ) on the stack; locally s_Δ is the product of the node smoothing parameters."
+        },
+        {
+          "name": "boundary_pullback",
+          "role": "functoriality",
+          "statement": "The line and section pull back along every map; Cartier-divisor pullback requires the pulled-back section to be regular."
+        },
+        {
+          "name": "boundary_trait",
+          "role": "compatibility",
+          "statement": "On a normal generically smooth trait the order is the residue-degree-weighted sum of smoothing thicknesses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "one-thick-node",
+          "statement": "For xy=π³, the order is 3."
+        },
+        {
+          "name": "two-nodes",
+          "statement": "For split nodes of thicknesses 2 and 5, the total order is 7."
+        },
+        {
+          "name": "nonsplit-node",
+          "statement": "A closed node of residue degree d and thickness m contributes d·m before splitting."
+        },
+        {
+          "name": "wholly-boundary",
+          "statement": "A nodal stable curve over a field has pulled-back section zero; its line still exists but the zero subscheme is not an effective Cartier divisor."
+        }
+      ]
+    },
+    "semi-canonical-noether": {
+      "api": [
+        {
+          "name": "semiCanonical_fromUniversal",
+          "role": "constructor",
+          "statement": "Fix a universal line comparison; its pullback with the stated Hodge/pairing comparisons is a semi-canonical family comparison."
+        },
+        {
+          "name": "semiCanonical_ratio",
+          "role": "characterisation",
+          "statement": "Two universal choices differ by a unique element of Z×={±1}; their family pullbacks differ by its image in Γ(S,O_S)×."
+        },
+        {
+          "name": "semiCanonical_baseChange",
+          "role": "functoriality",
+          "statement": "The chosen comparisons commute with arbitrary classifying pullback, with the Cartier-boundary interpretation restricted to generically smooth integral Noetherian bases."
+        }
+      ],
+      "tests": [
+        {
+          "name": "integer-units",
+          "statement": "On the universal integral stack the two comparison choices differ by +1 or −1, with no other unit available."
+        },
+        {
+          "name": "characteristic-two",
+          "statement": "After pullback to a characteristic-two scheme the two signs coincide, so the family set of induced choices need not have two distinct elements."
+        },
+        {
+          "name": "extra-family-unit",
+          "statement": "On a Q-scheme, multiplying any comparison by 2 gives a valid family comparison whose ratio is not the image of a universal sign; the definition does not classify all family isomorphisms."
+        }
+      ]
+    }
+  },
+  "ownershipBoundaries": [
+    {
+      "target": "Ordinary finite-locally-free determinants",
+      "owner": "AlgebraicVectorBundles L0B–L0C",
+      "action": "Import current upstream; no determinant-of-a-bundle definition node here."
+    },
+    {
+      "target": "Stack line and Picard groupoid",
+      "owner": "SchemeAndStackFoundations SF.1/SF.3",
+      "action": "Use Hom(X,BG_m) and its modifications, or the equivalent cartesian invertible sheaves; no substitute line-class structure."
+    },
+    {
+      "target": "Virtual determinant over associative rings",
+      "owner": "NoncommutativeAndEquivariantIwasawa:NE.2/determinant-functor",
+      "action": "Request only the new commutative graded-line realization/descent through GDET; do not rebuild the virtual category or general K-theory."
+    },
+    {
+      "target": "Unmetrized integral Deligne pairing",
+      "owner": "Unassigned: proposed SchemeAndStackFoundations, Part II",
+      "action": "GPAIR is a supplier specification with sources/API/tests; there is no generic pairing definition node in this consumer."
+    },
+    {
+      "target": "Analytic moduli topology",
+      "owner": "Unassigned extension, coordinated with MordellLawrenceVenkatesh LV.5",
+      "action": "Keep LV.5 definitions and request generation there; assign Teichmüller/GAGA comparison separately without duplicating surface or mapping-class-group definitions."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "extend",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "StableReductionPartII",
+        "NoncommutativeAndEquivariantIwasawa"
+      ],
+      "detail": "SF.1/SF.3 supply stack lines and Picard theory, SF.5 rational Chow; none supplies the integral scheme determinant/pairing core. The accepted base packet already proposed this extension.",
+      "proposal": "Create SchemeAndStackFoundations, Part II: graded determinant realization and integral Deligne pairings, with GDET/GPAIR as its exact incoming requirements. It builds on SF.1/SF.3 and current AlgebraicVectorBundles, and compares with the NE.2 virtual ring determinant instead of reconstructing it. Keep only stable-moduli applications in MC.5. Assign the extension before declaring MC.5 closed."
+    },
+    {
+      "action": "extend",
+      "roadmaps": [
+        "StableReduction",
+        "StableReductionPartII"
+      ],
+      "detail": "The current StableReduction coherent-curve lane is locally Noetherian; MC.5 states arbitrary-base comparisons.",
+      "proposal": "Route NODAL-BC to a Part II coherent-curve extension using finite-presentation approximation and the existing nodal dualizing sheaf. Keep this as an explicit incoming obligation, not an assertion that upstream already proves it."
+    },
+    {
+      "action": "extend",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "MordellLawrenceVenkatesh",
+        "StableReductionPartII"
+      ],
+      "detail": "The analytic stack topology, stack H⁰, divisor and codimension-one Picard comparisons exceed the verified supplier statements.",
+      "proposal": "Extend the relevant foundation stages for DESCENT, DIVISORS and CHOW-PIC; assign an analytic-moduli/Teichmüller extension for TOPOLOGY, retaining LV.5 as the sole surface/mapping-class/twist owner. Keep existing roadmap IDs until a separately reviewed restructuring assigns these additions."
+    }
+  ],
+  "planetSelection": {
+    "new": [
+      "StableReductionPartII:MC.5/universal-dualizing-pairing"
+    ],
+    "retainFromBase": [
+      "StableReductionPartII:MC.5/hodge-bundle",
+      "StableReductionPartII:MC.5/hodge-determinant",
+      "StableReductionPartII:MC.5/boundary-divisor",
+      "StableReductionPartII:MC.5/integral-noether"
+    ],
+    "totalForMC5": 5,
+    "reason": "One new pairing planet plus the four existing base planets; no duplicate or seventh planet."
+  },
+  "sourceNotes": [
+    "No source passages or section-by-section summaries are stored. All statements, proof outlines and match descriptions are written in our own words.",
+    "The accessible 2024 author version of Yuan is cited by its own page numbers; these are not asserted to be pages of the later publication.",
+    "Moret-Bailly’s 1989 paper is cited by Yuan, but no readable primary copy was obtained; none of this packet’s source claims relies on having read it.",
+    "Deligne §6 starts with smooth curves; the nodal-family contract uses Construction 7.2 and the 2024 general-base treatment instead.",
+    "Source findings E15–E17 concern only the inspected Frediani–Neumann arXiv v1 proof paragraphs; no comparison with the inaccessible published text is asserted. They correct the groupoid proof, not the contractibility input or homotopy-equivalence conclusion. Other missing formal supplier inputs remain gaps, not alleged source errors."
+  ],
+  "suggestedFile": {
+    "path": "research/blueprint/suggested/StableReductionPartII--MC.5.lean",
+    "shape": "Four statements about actual scheme line comparisons and nine examples; no new data definitions, no constructions of unavailable carriers.",
+    "compiled": true,
+    "validation": "lean-check, pinned Mathlib 082e2d3 / TauCeti f790474, 2026-10-18; exit 0, only thirteen expected proof-placeholder warnings.",
+    "limits": "This does not elaborate the stack, perfect-complex, Hodge or pairing targets; those carriers are absent at the pins and all full targets remain in the reader."
+  },
+  "dependencyConventions": {
+    "prerequisites": "Resolved library, packet-node or existing stage IDs.",
+    "additionalPrerequisites": "Supplementary proof inputs for imported targets; the imported node is retained rather than copied. These edges participate in the combined DAG.",
+    "upstreamPrerequisites": "Exact current-main roadmap imports missing from the atlas stage registry; resolved in upstreamImports.",
+    "gapDependencies": "Explicit unresolved proof inputs, resolved to the named gaps and (for GDET/GPAIR) exact proposedSupplierContracts. These are terminal obligations, never claims of supplied results."
+  },
+  "sourceVersions": [
+    {
+      "source": "FredianiNeumann2004",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0404387v1",
+      "read": "2026-10-18",
+      "sha256": "216063b03ac0f16f72ad482ec417ce6622513392ad8fed6b3a8806f476440e33",
+      "note": "Only the arXiv v1 proof paragraphs were inspected for E15–E17. The publisher served an HTML challenge instead of the version of record; no finding is attributed to the published K-Theory text."
+    }
+  ],
+  "sourceIssueIdNote": "The accepted base packet already owns E1–E14. This part adds E15–E17 without copying or changing those findings."
+}
