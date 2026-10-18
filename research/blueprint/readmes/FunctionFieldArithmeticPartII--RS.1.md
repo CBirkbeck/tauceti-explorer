@@ -23,7 +23,7 @@ infinite tower and no general stackification, quotient, Picard groupoid or
 quasi-coherent descent theory.
 
 Current TauCetiRoadmap already owns those general theories and finite root
-stacks in **Scheme and stack foundations**, §§1.1, 1.18–1.23 and 3.4.
+stacks in **Scheme and stack foundations**, §§1.1, 1.15–1.23 and 3.4.
 Its §1.21 supplies the root 2-pullback, universal data, affine chart, base change,
 index-one comparison, complement of the zero locus and invertible-index DM
 result. Each use here is an import through the exact corresponding
@@ -255,7 +255,7 @@ Let X=Spec A, choose a frame l of L and write s=f·l. Put W=Spec A[z]/(z^n−f),
 
 **Acceptance.** For f=0 and n>1, W→Spec A is not a μ_n-torsor in general; W→[W/μ_n] is the torsor used here. For A=Z/4, n=2, the root with t=0 and φ coefficient 3 need not have an A-valued normalized frame; its torsor still gives an object of the quotient. The formula z(e·ζ)=ζ^−1z(e) prevents reversing the associated-line convention.
 
-**Sources.** AGV08, Appendix B.2, pp.53–54: The affine equation and the quotient presentation are obtained by normalizing the power identification of the root line. TV17, Corollary 3.13, p.16, rank-one chart P=N: The finite logarithmic root chart is a finite diagonalizable torsor quotient; the rank-one case agrees with this affine root chart.
+**Sources.** AGV08, Appendix B.2, pp.53–54: Normalize the power identification using an fppf μ_n-torsor to obtain the finite affine equation. The finite quotient comparison follows from that normalization and torsor descent, not from the false product-isomorphism assertion on p.54 (E13). TV17, Corollary 3.13, p.16, rank-one chart P=N: The finite logarithmic root chart is a finite diagonalizable torsor quotient; the rank-one case agrees with this affine root chart.
 
 ### 6. A smooth presentation valid for wild roots
 
@@ -290,10 +290,11 @@ For the affine pair (A,f) put V_n(f)=Spec A[z,q,q^−1]/(z^n−q f). Give it the
 - `FiniteRoot.smoothPresentation_zero` (computation): For f=0, V_n(0)=Spec A[z,q,q^−1]/(z^n). For a field and n>1 this atlas is nonreduced, although its map to the root stack is smooth.
 - `FiniteRoot.smoothPresentation_wild` (non-example): For A=F_p[x], f=x and n=p, the atlas is Spec F_p[z,q,q^−1], via x=q^−1z^p, and is regular. The finite chart W→R is a μ_p-torsor and is not smooth.
 - `FiniteRoot.smoothPresentation_unit` (compatibility): For f a unit, eliminate q=z^n/f to obtain V_n(f)≅Spec A[z,z^−1]; the G_m action scales z and its quotient is Spec A.
+- `FiniteRoot.smoothPresentation_not_product` (non-example): For A=C, f=1 and n=2, V_2(1)≅G_m is connected. W_2(1) consists of two reduced points, so W_2(1)×G_m has two connected components. Only its antidiagonal μ₂ quotient gives V_2(1).
 
 **Acceptance.** The atlas is smooth as a map to the stack in characteristic p with n=p.
 
-**Sources.** AGV08, Appendix B.2, pp.53–54, presentation as [V_σ/G_m]: The frame presentation uses a smooth G_m atlas even when the finite root group is not smooth. Our q is the inverse of the coefficient of the power identification. SSF, §1.15–§1.16 and §1.21; no fixed pagination: Representability of torsors, contracted products and smooth quotient atlases are imported general results.
+**Sources.** AGV08, Appendix B.2, pp.53–54, presentation as [V_σ/G_m]: The frame presentation uses a smooth G_m atlas even when the finite root group is not smooth. Our q is the inverse of the coefficient of the power identification. The ordinary-product assertion at the top of preprint p.54 is false (E13); the contracted-product comparison above follows instead from the invariant coordinate map and torsor descent. SSF, §1.15–§1.16 and §1.21; no fixed pagination: Representability of torsors, contracted products and smooth quotient atlases are imported general results.
 
 ### 7. Algebraicity and finite relative diagonal
 
@@ -500,7 +501,7 @@ The geometric signatures excluded at these pins are exactly:
 | `native-upstream-equivalence`, all six `nativeEquiv*` API items and its four tests | Root and line-section stack carriers, strong transformations and the native 2-pullback. |
 | `native-universal-root-comparison`, `native-basechange-square` | Actual universal triple, structural 2-isomorphisms and modifications. |
 | `native-quotient-comparison` | Actual μ_n torsor quotient and associated-line descent; Z/4 retains its global-normalization obstruction. |
-| `native-smooth-presentation`, all six `smoothPresentation*` API items and its four tests | Actual frame torsor, quotient map and contracted-product comparison; the retained abbreviations name only its ring. |
+| `native-smooth-presentation`, all six `smoothPresentation*` API items and its five tests | Actual frame torsor, quotient map and contracted-product comparison; the retained abbreviations name only its ring. |
 | `native-algebraicity` | Algebraic-stack and relative morphism-property carriers. |
 | `native-coarse-space` | Actual coarse universal property, geometric classes and QCoh right adjoint, plus the stated supplier contract. |
 | `native-geometric-fibres` | Actual 2-fibre, closed substack, reduction and gerbe; its ring end condition is retained. |
@@ -528,20 +529,32 @@ No restricted book was needed.
 
 - **Stacks.** The Stacks Project Authors, [The Stacks Project](https://stacks.math.columbia.edu), Tag pages accessed 2026-10-18; section/lemma numbers as served; no fixed pagination. Read 2026-10-18: Proposition 35.5.2 (023T) with proof; Lemma 35.7.6 (05B2) with proof. §10.106 (00NN), in particular Lemmas 10.106.3–10.106.4; Lemma 10.163.10 (07NF). §100.7 (04YE), Lemma 100.7.1, Definition 100.7.2 (04YG), Remark 100.7.3.
 
-- **SSF.** Tau Ceti roadmap contributors, [Scheme and stack foundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/350e970ce49f707a327909beac0b7b7c782cc7ee/TauCetiRoadmap/SchemeAndStackFoundations/README.md), TauCetiRoadmap main 350e970ce49f707a327909beac0b7b7c782cc7ee; Markdown, no fixed pagination. Read 2026-10-18: §1.1; §1.18–§1.23; §3.4 Picard groupoids; §4.13 regular schemes. Suggested.lean: corresponding stack-in-groupoids declaration and absence of retained heavy root/quotient declarations; README owns the omitted carriers.
+- **SSF.** Tau Ceti roadmap contributors, [Scheme and stack foundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/350e970ce49f707a327909beac0b7b7c782cc7ee/TauCetiRoadmap/SchemeAndStackFoundations/README.md), TauCetiRoadmap main 350e970ce49f707a327909beac0b7b7c782cc7ee; Markdown, no fixed pagination. Read 2026-10-18: §1.1; §1.15–§1.23; §3.4 Picard groupoids; §4.13 regular schemes. Suggested.lean: corresponding stack-in-groupoids declaration and absence of retained heavy root/quotient declarations; README owns the omitted carriers.
 
 - **AVB.** Tau Ceti roadmap contributors, [Algebraic vector bundles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicVectorBundles/README.md), Provided TauCetiRoadmap checkout 0d144d044dacebca17b654695b6f1ad58f159b27; Markdown, no fixed pagination. Read 2026-10-18: README in full: native module tensor/section/pullback L0A, rank-one and finite locally free L0B, relative Spec and bundle equivalences; Suggested.lean inspected.
 
 - **JAC.** Tau Ceti roadmap contributors, [Jacobian challenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/JacobianChallenge/README.md), Provided TauCetiRoadmap checkout 0d144d044dacebca17b654695b6f1ad58f159b27; Markdown, no fixed pagination. Read 2026-10-18: README in full; native invertible sheaves, Picard and tensor infrastructure are supplier mathematics.
 
-The accepted parent's source finding `FunctionFieldArithmeticPartII/E12` is
-inherited with its provenance: AGV's selected preprint p.53 uses an unbound
-exponent in the section equation. The definition uses the same exponent n as
-its power identification. The selected passage was reread; this job makes no
-new erratum-search or version-of-record claim. It found no additional source
-error. The full-fibre distinction above follows AGV's correct nilpotent
-embedding, so it does not rely on the erroneous full-fibre identification
-recorded elsewhere in the parent.
+The independent review reconfirmed the inherited source finding
+`FunctionFieldArithmeticPartII/E12` in the rendered AGV preprint p.53: the
+section equation uses an unbound exponent, where the power-identification
+exponent is required. Earlier review provenance is preserved.
+
+It also recorded `FunctionFieldArithmeticPartII/E13`. At the top of preprint
+p.54, AGV identifies the ordinary product of the finite root scheme and G_m
+with the frame scheme. With A=C, f=1 and n=2, the former has two connected
+components and the latter is G_m. The correct comparison takes the
+antidiagonal μ_n quotient, with invariant coordinates (w,λ)↦(λw,λ^n), as
+already specified in target 6. Its new fifth test catches this error.
+The source matches explicitly avoid using the false product assertion.
+
+Both findings concern only arXiv:math/0603151v2, whose URL, date and hash are
+recorded in `sourceVersions`. The current arXiv version list, exact-title
+erratum/correction searches and Abramovich's public paper directories yielded
+no identified correction. The journal page served an access-block page, so
+this review makes no claim about the version of record. The full-fibre
+statement above uses AGV's correct nilpotent embedding and does not depend
+on the erroneous full-fibre identification recorded elsewhere in the parent.
 
 The five planets are Root stack comparison, Universal root, Affine root
 quotient, Coarse space of a root stack and Regular root stack. They show the
