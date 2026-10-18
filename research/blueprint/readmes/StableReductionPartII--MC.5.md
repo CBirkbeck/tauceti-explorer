@@ -17,9 +17,9 @@ Throughout, g,n are nonnegative integers and stable pointed stacks require 2g−
 
 A line on a stack X is a morphism X→BG_m, with line isomorphisms given by invertible modifications. Equivalently it is a cartesian family of actual invertible sheaves on test schemes, together with the pullback cocycle. This imports `SchemeAndStackFoundations:SF.1/line-bundle-section-stack` and its BG_m equivalence. Tensor, dual, integer powers, evaluation and cancellation act in the resulting Picard groupoid. A comparison A≅B is a map in that groupoid; [A]=[B] is a statement in its group of isomorphism classes. Automorphisms of any line are global units. This uses `SchemeAndStackFoundations:SF.3/picard-groupoid` and SF.1 descent, rather than a new line carrier.
 
-Current upstream [AlgebraicVectorBundles, L0A–L0C](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md#layers) supplies the symmetric monoidal sheaf structure and pullback, finite locally free sheaves and rank, and ordinary exterior powers and determinants. These are imports `AV-L0A`, `AV-L0B`, `AV-L0C`. They postdate the atlas stage snapshot, so the packet records their immutable upstream URLs separately; they are not invented library declarations. L0C does not supply a determinant of cohomology or a Deligne pairing.
+Current upstream [AlgebraicVectorBundles, L0A–L0C](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicVectorBundles/README.md#layers) supplies the symmetric monoidal sheaf structure and pullback, finite locally free sheaves and rank, and ordinary exterior powers and determinants. These are imports `AV-L0A`, `AV-L0B`, `AV-L0C`. They postdate the atlas stage snapshot, so the packet records their immutable upstream URLs separately; they are not invented library declarations. L0C does not supply a determinant of cohomology or a Deligne pairing.
 
-[StableReduction, layer 2](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/StableReduction/README.md#layer-2-coherent-curve-theory-duality-and-positivity) supplies the same nodal dualizing sheaf, coherent cohomology, trace and Serre duality on locally Noetherian bases. Its extension to arbitrary stable-family bases is the explicit input `NODAL-BC`; it is not obtained just by removing a hypothesis from the upstream statement. The parent normalization/dual-graph and stable-family theories are also imported through the accepted MC.0–MC.3 targets.
+[StableReduction, layer 2](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/StableReduction/README.md#layer-2-coherent-curve-theory-duality-and-positivity) supplies the same nodal dualizing sheaf, coherent cohomology, trace and Serre duality on locally Noetherian bases. Its extension to arbitrary stable-family bases is the explicit input `NODAL-BC`; it is not obtained just by removing a hypothesis from the upstream statement. The parent normalization/dual-graph and stable-family theories are also imported through the accepted MC.0–MC.3 targets.
 
 The fixed library baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The actual pinned `InvertibleSheaf X`, tensor product and `LineBundleClass X` exist. The latter currently has a commutative monoid structure, not a constructed full Picard group with inverses. Its `mk_eq_mk_iff` identifies equality with existence of an underlying-sheaf isomorphism. Stack carriers and the missing dual/group structure are imported roadmap work. The reviewed parent layer-2 audit finds the coherent-curve lane not built; there is no separate reviewed MC.5 audit. Searches in both pinned and current libraries found no supplying Deligne-pairing, determinant-of-cohomology or Teichmüller-space declaration.
 
@@ -58,9 +58,9 @@ The last map is the residue at the first branch, and gives α*λ_g,n≅λ_g−1,
 
 **Checks and worked examples.**
 
-- **genus-zero-three-marks**: On M̄_0,3 the Hodge bundle is zero; f_*ω(sum marks) has rank two and is the wrong definition.
-- **genus-one**: On M̄_1,1 the Hodge bundle has rank one, not the number of markings.
-- **separating-two-elliptic**: A genus-two fibre made from two elliptic components has Hodge space the direct sum of their one-dimensional spaces.
+- **genus-zero-three-marks** (degenerate): On M̄_0,3 the Hodge bundle is zero; f_*ω(sum marks) has rank two and is the wrong definition.
+- **genus-one** (computation): On M̄_1,1 the Hodge bundle has rank one, not the number of markings.
+- **separating-two-elliptic** (computation): A genus-two fibre made from two elliptic components has Hodge space the direct sum of their one-dimensional spaces.
 
 ### hodge-determinant — inherited API and tests
 
@@ -72,9 +72,9 @@ The last map is the residue at the first branch, and gives α*λ_g,n≅λ_g−1,
 
 **Checks and worked examples.**
 
-- **genus-zero-line**: Although E has rank zero, λ has rank one and is canonically trivial.
-- **one-plus-one-swap**: Swapping two genus-one Hodge blocks acts by −1 before specializing to characteristic two.
-- **ordered-residue**: For nonseparating clutching, the two residue orderings differ by −1 on the quotient line, even when the underlying λ line is isomorphic in both descriptions.
+- **genus-zero-line** (degenerate): Although E has rank zero, λ has rank one and is canonically trivial.
+- **one-plus-one-swap** (computation): Swapping two genus-one Hodge blocks acts by −1 before specializing to characteristic two.
+- **ordered-residue** (compatibility): For nonseparating clutching, the two residue orderings differ by −1 on the quotient line, even when the underlying λ line is isomorphic in both descriptions.
 
 **Additional clutching checks.** Forgetting one marking on M̄_0,4 preserves the zero Hodge bundle. Two elliptic components give a rank-two direct sum and exchange sign −1. A genus-zero separating block contributes sign +1. A one-loop graph adds one residue dimension in the nonseparating sequence; switching its branches negates that residue. In characteristic two the two signs have equal images, but their integral equivariant origins remain specified.
 
@@ -99,11 +99,11 @@ For schemes, realize the commutative-ring virtual determinant in graded invertib
 
 **Checks and worked examples.**
 
-- **degree-zero-rank-two**: For R² in degree zero the line is ∧²R² and the grade is 2; exchanging the two standard basis vectors acts by −1.
-- **identity-complex**: For [R --id→ R] in degrees 0,1 the grade is 0 and the canonical acyclic determinant is R.
-- **shifted-line**: For R concentrated in degree 1 the determinant line is R∨ and its grade is −1, rather than +1.
-- **nonflat-specialization**: The required base-change map exists for Spec(F_p)→Spec(Z); requiring this map to be flat fails the contract.
-- **projective-line**: For P¹_R→Spec(R), λ(O(1)) is det(R²) of grade 2, while λ(O(−2)) has grade −1; these are not both H⁰ determinants.
+- **degree-zero-rank-two** (computation): For R² in degree zero the line is ∧²R² and the grade is 2; exchanging the two standard basis vectors acts by −1.
+- **identity-complex** (degenerate): For [R --id→ R] in degrees 0,1 the grade is 0 and the canonical acyclic determinant is R.
+- **shifted-line** (computation): For R concentrated in degree 1 the determinant line is R∨ and its grade is −1, rather than +1.
+- **nonflat-specialization** (compatibility): The required base-change map exists for Spec(F_p)→Spec(Z); requiring this map to be flat fails the contract.
+- **projective-line** (computation): For P¹_R→Spec(R), λ(O(1)) is det(R²) of grade 2, while λ(O(−2)) has grade −1; these are not both H⁰ determinants.
 
 **Sources.** [Finn Faye Knudsen; David Mumford](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1976b--DetDiv%2BKnudsenSequel-GT.pdf), §1, pp. 20–21; Lemma 2, p. 28; bounded-complex formula, pp. 30–32: Supplies graded lines, their sign symmetry and the passage from complexes to determinant data.; [Dennis Eriksson; Gerard Freixas i Montplet](https://jep.centre-mersenne.org/item/10.5802/jep.254.pdf), Propositions 4.14(2), 4.15(2), Definition 4.16, pp. 286–287: Gives the proper flat finite-presentation perfect pushforward and arbitrary-base-change range, including non-Noetherian bases.
 
@@ -125,13 +125,13 @@ For f:X→S locally projective, faithfully flat, finitely presented and of pure 
 
 **Checks and worked examples.**
 
-- **trivial-argument**: ⟨O_X,M⟩ has the bilinear unit trivialization; omitting the d(O_X) term breaks this normalization.
-- **section-divisor**: For a section s in the smooth locus, ⟨O(s),M⟩≅s*M by the degree-one norm; no inverse appears.
-- **odd-self-symmetry**: For P¹_k and L=O(1), the canonical self-interchange is −1 when char(k)≠2, even though the pairing line is one-dimensional.
-- **dualizing-even-degree**: For a connected stable genus-g fibre, deg(ω)=2g−2 is even, so self-interchange of ⟨ω,ω⟩ is +1.
-- **base-line-degree**: For L=f*A, identify ⟨f*A,M⟩ with A^{deg(M)}. For M=O(1) on P¹ this is A, not A∨.
-- **nodal-nonflat-base-change**: For a stable nodal family over Z and its F_p fibre, the integral pairing specializes; a smooth-family-only or flat-base-change-only definition fails.
-- **finite-flat-norm**: For a relative divisor of degree two, multiplication by u on M acts by u² on its norm pairing, not by u.
+- **trivial-argument** (degenerate): ⟨O_X,M⟩ has the bilinear unit trivialization; omitting the d(O_X) term breaks this normalization.
+- **section-divisor** (compatibility): For a section s in the smooth locus, ⟨O(s),M⟩≅s*M by the degree-one norm; no inverse appears.
+- **odd-self-symmetry** (computation): For P¹_k and L=O(1), the canonical self-interchange is −1 when char(k)≠2, even though the pairing line is one-dimensional.
+- **dualizing-even-degree** (computation): For a connected stable genus-g fibre, deg(ω)=2g−2 is even, so self-interchange of ⟨ω,ω⟩ is +1.
+- **base-line-degree** (compatibility): For L=f*A, identify ⟨f*A,M⟩ with A^{deg(M)}. For M=O(1) on P¹ this is A, not A∨.
+- **nodal-nonflat-base-change** (compatibility): For a stable nodal family over Z and its F_p fibre, the integral pairing specializes; a smooth-family-only or flat-base-change-only definition fails.
+- **finite-flat-norm** (computation): For a relative divisor of degree two, multiplication by u on M acts by u² on its norm pairing, not by u.
 
 **Sources.** [Pierre Deligne](https://publications.ias.edu/sites/default/files/Number58.pdf), Construction 7.2, (7.2.1), pp. 147–149; §7.4, p. 150: Gives the rank-zero determinant expression and the coherent bilinear comparison for proper flat curves, beyond the smooth discussion in §6.; [Dennis Eriksson; Gerard Freixas i Montplet](https://jep.centre-mersenne.org/item/10.5802/jep.254.pdf), Definition 1.1, p. 258; (6.3), Proposition 6.1, Remark 6.2, pp. 310–312: Supplies the locally projective arbitrary-base version and the sign, scalar and relative-divisor laws.
 
@@ -172,10 +172,10 @@ For g≥2 and f:C→M̄_g over Z, construct P_g=⟨ω_f,ω_f⟩ as a line object
 
 **Checks and worked examples.**
 
-- **constant-genus-two**: For a fixed stable genus-two curve C/k pulled to S, P is the pullback of the one-dimensional k-line ⟨ω_C,ω_C⟩; the degree for self-symmetry is 2.
-- **boundary-point**: A stable nodal genus-two curve over k has a pairing line; restricting this construction to smooth curves fails.
-- **closed-characteristic-p**: Base change along Spec(F_p)→Spec(Z), which is not flat, preserves the stated chart comparison.
-- **self-interchange**: For every g≥2 the self-swap is +1; replacing ω by an arbitrary odd-degree line does not justify this conclusion.
+- **constant-genus-two** (compatibility): For a fixed stable genus-two curve C/k pulled to S, P is the pullback of the one-dimensional k-line ⟨ω_C,ω_C⟩; the degree for self-symmetry is 2.
+- **boundary-point** (non-example): A stable nodal genus-two curve over k has a pairing line; restricting this construction to smooth curves fails.
+- **closed-characteristic-p** (compatibility): Base change along Spec(F_p)→Spec(Z), which is not flat, preserves the stated chart comparison.
+- **self-interchange** (computation): For every g≥2 the self-swap is +1; replacing ω by an arbitrary odd-degree line does not justify this conclusion.
 
 **Sources.** [Xinyi Yuan](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Theorem 3.3, §3.1.1, p. 42; §3.1.2, pp. 42–43: Uses the universal relative-dualizing pairing and its classifying pullback.; [Dennis Eriksson; Gerard Freixas i Montplet](https://jep.centre-mersenne.org/item/10.5802/jep.254.pdf), (6.3), Proposition 6.1, pp. 310–312: Supplies the actual line-valued chart construction and coherent arbitrary base change, permitting effective descent.
 
@@ -242,10 +242,10 @@ For g≥2 define the line N_g=λ_g^{⊗12}⊗P_g∨⊗O(−Δ) as an object of t
 
 **Checks and worked examples.**
 
-- **three-trivial-lines**: If λ, P and O(Δ) are equipped with trivializations on a test scheme, the induced N is trivial; changing a trivialization changes the map, not its class.
-- **boundary-sign**: If a trait node has equation xy=π^m, its boundary contribution to a rational section of N has order −m; the Noether right-hand boundary line has order +m.
-- **rational-torsion**: For a nontrivial torsion line, vanishing in Pic⊗Q does not give an integral trivialization; the proof must still use complex torsion-freeness.
-- **nonuniversal-unit**: On a Q-scheme, multiplying a comparison by 2 produces another comparison. It need not be the pullback of a universal choice differing by ±1.
+- **three-trivial-lines** (degenerate): If λ, P and O(Δ) are equipped with trivializations on a test scheme, the induced N is trivial; changing a trivialization changes the map, not its class.
+- **boundary-sign** (computation): For a trait with one split node xy=π^m, the canonical rational section of the boundary factor O(−Δ) in N has order −m; the section of O(Δ) on the Noether right-hand side has order +m. This does not assign an order to an unspecified rational section of the whole defect line.
+- **rational-torsion** (non-example): For a nontrivial torsion line, vanishing in Pic⊗Q does not give an integral trivialization; the proof must still use complex torsion-freeness.
+- **nonuniversal-unit** (non-example): On a Q-scheme, multiplying a comparison by 2 produces another comparison. It need not be the pullback of a universal choice differing by ±1.
 
 **Sources.** [Xinyi Yuan](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Theorem 3.3 and §3.1.2, p. 42: The three lines and the universal-choice convention yield this obstruction line by tensor cancellation.; [David Mumford](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf), Theorem 5.10 and its proof, pp. 100–103: Separates the rational computation, torsion-freeness step and integral descent; the defect packages precisely those steps.
 
@@ -271,10 +271,10 @@ For any classifying map c:S→M̄_g, the line with section c*(O(Δ),s_Δ) exists
 
 **Checks and worked examples.**
 
-- **one-thick-node**: For xy=π³, the order is 3.
-- **two-nodes**: For split nodes of thicknesses 2 and 5, the total order is 7.
-- **nonsplit-node**: A closed node of residue degree d and thickness m contributes d·m before splitting.
-- **wholly-boundary**: A nodal stable curve over a field has pulled-back section zero; its line still exists but the zero subscheme is not an effective Cartier divisor.
+- **one-thick-node** (computation): For xy=π³, the order is 3.
+- **two-nodes** (computation): For split nodes of thicknesses 2 and 5, the total order is 7.
+- **nonsplit-node** (computation): A closed node of residue degree d and thickness m contributes d·m before splitting.
+- **wholly-boundary** (non-example): A nodal stable curve over a field has pulled-back section zero; its line still exists but the zero subscheme is not an effective Cartier divisor.
 
 Retain `StableReductionPartII:MC.5/boundary-thickness`. For a generically smooth stable family over a normal integral Noetherian base S and a codimension-one point v, the local ring is a DVR. After a finite unramified extension splitting the special-fibre nodes, write a completed local nodal equation xy=uπ^m with u a unit and m≥1. Then
 
@@ -325,6 +325,8 @@ Unresolved supplier inputs: `GPAIR`, `CHOW-PIC`.
 - The smooth-scheme GRR signature is not advertised as arbitrary singular or stack GRR.
 - The sign in the pairing term is positive.
 
+The published Proposition 6.8 proof has the local display typo E18 described below: retain the gamma operation on both sides of its projection formula. This does not change the graded K-group statement or Corollary 6.9; the separate stack-Chow bridge remains CHOW-PIC.
+
 ### Rational Noether computation gives a torsion defect
 
 Declaration: `StableReductionPartII:MC.5/rational-defect-torsion` (theorem).
@@ -361,11 +363,11 @@ Let g≥2 and L be an r-torsion line on M̄_g/C with a chosen L^r≅O and r≥1.
 **Construction or proof.**
 
 1. Construct Spec(⊕_{i=0}^{r−1}L^i), with multiplication from L^r≅O, using the existing torsor/relative-Spec machinery.
-2. Pull the analytic torsor to the contractible Teichmüller space. Descent along the action groupoid T_g×Mod_g gives a character of the full mapping-class group. The nerve has action face maps: it is not the product simplicial object with constant T_g; its realization is a homotopy quotient with contractible fibre over BMod_g (sourceIssues E15–E17).
+2. Pull the analytic torsor to the contractible Teichmüller space. Descent along the action groupoid T_g×Mod_g gives a character of the full mapping-class group. The nerve has action face maps: it is not the product simplicial object with constant T_g; its realization is a homotopy quotient with contractible fibre over BMod_g (sourceIssues E16–E17).
 3. A transverse smoothing disk has trivial étale/topological cover when filled in, so the loop around its puncture acts trivially; its mapping-class monodromy is the corresponding Dehn twist.
 4. Use Luo’s generation theorem to kill the character. Extend the analytic cover splitting from the dense smooth locus across the normal compactified stack by normalization, retaining inertia; the disk argument is applied in stack charts. Hall Theorem 1 with proper DM source M̄_g/C and target Bμ_r algebraizes the trivialization and its inverse. Equivalently apply separated GAGA to the line isomorphism on the proper stack.
 
-**Sources.** [David Mumford](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf), Lemma 5.14, statement p. 102 and proof pp. 103–105: Uses the Teichmüller-space cover, mapping-class characters and boundary Dehn twists to eliminate torsion; the cited analytic inputs require separate supplier contracts.; [Paola Frediani; Frank Neumann](https://arxiv.org/pdf/math/0404387v1), Theorem 2.5 and Proposition 2.6, p. 11; §2.3, pp. 17–19, with corrections E15–E17 below: Supplies Teichmüller representability and contractibility. Use the action groupoid and homotopy quotient, retaining stabilizers; the displayed product-of-simplicial-spaces proof is corrected in sourceIssues.; [Feng Luo](https://arxiv.org/pdf/math/9801025v1), §1, main unnumbered theorem, p. 2: Presents the orientation-preserving mapping class group of a compact oriented surface by all Dehn twists, hence gives generation for the closed genus-g surface.; [Jack Hall](https://arxiv.org/pdf/1101.5123v2), Theorem 1, p. 1; Theorem A.1 and Corollary A.3, p. 17: For a proper DM source, analytification recovers morphisms to the DM target Bμ_r and their isomorphisms. Separated GAGA also recovers coherent line isomorphisms on the proper compactification.
+**Sources.** [David Mumford](https://www.dam.brown.edu/people/mumford/alg_geom/papers/1977a--StabilityLecturesIHES-Swiss.pdf), Lemma 5.14, statement p. 102 and proof pp. 103–105: Uses the Teichmüller-space cover, mapping-class characters and boundary Dehn twists to eliminate torsion; the cited analytic inputs require separate supplier contracts.; [Paola Frediani; Frank Neumann](https://arxiv.org/pdf/math/0404387v1), Theorem 2.5 and Proposition 2.6, p. 11; §2.3, pp. 17–19, with corrections E16–E17 below: Supplies Teichmüller representability and contractibility. Use the action groupoid and homotopy quotient, retaining stabilizers; the displayed product-of-simplicial-spaces proof is corrected in sourceIssues.; [Feng Luo](https://arxiv.org/pdf/math/9801025v1), §1, main unnumbered theorem, p. 2: Presents the orientation-preserving mapping class group of a compact oriented surface by all Dehn twists, hence gives generation for the closed genus-g surface.; [Jack Hall](https://arxiv.org/pdf/1101.5123v2), Theorem 1, p. 1; Theorem A.1 and Corollary A.3, p. 17: For a proper DM source, analytification recovers morphisms to the DM target Bμ_r and their isomorphisms. Separated GAGA also recovers coherent line isomorphisms on the proper compactification.
 
 **Prerequisites.** `SchemeAndStackFoundations:SF.1/torsor`, `SchemeAndStackFoundations:SF.1/line-bundle-section-stack`, `StableReductionPartII:MC.5/boundary-divisor`, `StableReductionPartII:MC.1/finite-unramified-diagonal`, `MordellLawrenceVenkatesh:LV.5/mapping-class-group`, `MordellLawrenceVenkatesh:LV.5/dehn-twist`.
 
@@ -452,9 +454,9 @@ Retain the definition `StableReductionPartII:MC.5/semi-canonical-noether`: for a
 
 **Checks and worked examples.**
 
-- **integer-units**: On the universal integral stack the two comparison choices differ by +1 or −1, with no other unit available.
-- **characteristic-two**: After pullback to a characteristic-two scheme the two signs coincide, so the family set of induced choices need not have two distinct elements.
-- **extra-family-unit**: On a Q-scheme, multiplying any comparison by 2 gives a valid family comparison whose ratio is not the image of a universal sign; the definition does not classify all family isomorphisms.
+- **integer-units** (computation): On the universal integral stack the two comparison choices differ by +1 or −1, with no other unit available.
+- **characteristic-two** (computation): After pullback to a characteristic-two scheme the two signs coincide, so the family set of induced choices need not have two distinct elements.
+- **extra-family-unit** (non-example): On a Q-scheme, multiplying any comparison by 2 gives a valid family comparison whose ratio is not the image of a universal sign; the definition does not classify all family isomorphisms.
 
 ### Noether isomorphism under arbitrary classifying pullback
 
@@ -505,7 +507,7 @@ The MC.5 target inventory is preserved as follows. Node IDs in the first column 
 | `semi-canonical-noether` | Pullbacks of universal choices; not a classification of all family isomorphisms. Inputs: `StableReductionPartII:MC.5/noether-arbitrary-base-pullback`.  |
 | `boundary-thickness` | Residue-weighted sum of node thicknesses at codimension-one traits.  |
 
-The packet's `prerequisites` are resolved pinned declarations, existing nodes or requested existing stages. `additionalPrerequisites` adds the explicitly exposed proof inputs to imported targets without copying their nodes. `upstreamPrerequisites` names the exact current AV imports missing from the stage registry. `gapDependencies` terminates a chain at an honestly unresolved supplier input. Together these give the dependency graph; the new nodes do not pretend that a proposed Part II stage already exists.
+The packet's `prerequisites` are resolved pinned declarations, existing nodes or requested existing stages. `removedPrerequisites` first removes the obsolete SF.5 edge from the imported ordinary `hodge-determinant`; its AV-L0B/L0C imports and SF.1 stack descent are explicit edges. `additionalPrerequisites` then adds the exposed proof inputs to imported targets without copying their nodes. `upstreamPrerequisites` names the exact current AV imports missing from the stage registry. `gapDependencies` terminates a chain at an honestly unresolved supplier input. Together these give the dependency graph; the new nodes do not pretend that a proposed Part II stage already exists.
 
 The nine new targets have no dependency cycle, including after the supplementary edges are added to the imported targets. In particular, arbitrary-base pullback derives the semi-canonical convention directly from the universal isomorphism and units; it does not use the semi-canonical definition as a theorem proving itself.
 
@@ -545,7 +547,7 @@ Consumers: `StableReductionPartII:MC.5/pairing-chern-on-moduli`, `StableReductio
 
 ### TOPOLOGY — Analytic stack/Teichmüller and boundary-cover comparison
 
-Assign the analytic stack/Teichmüller and boundary-cover extension. Frediani–Neumann Theorem 2.5 and Proposition 2.6, p. 11, give Teichmüller representability and contractibility; its §2.3 groupoid discussion must be corrected as E15–E17, using T_g×Mod_g with action face maps. Luo’s main theorem, p. 2, supplies Dehn-twist generation; Mumford Lemma 5.14, pp. 103–105, supplies the nodal smoothing-loop argument. Hall Theorem 1 and Appendix A supply recovery on the proper DM compactification (target Bμ_r, not an unqualified DM-target theorem applied to BG_m). Formalize the analytic quotient, finite-cover descent, monodromy and normal extension. LV.5 owns surfaces, Mod and twists, but no exact supplying node exists for this complete analytic interface. The consumer proof and independent primary sources are now specified; this is an ownership/formal-interface gap, not a missing claim that the sources prove the corrected chain verbatim.
+Assign the analytic stack/Teichmüller and boundary-cover extension. Frediani–Neumann Theorem 2.5 and Proposition 2.6, p. 11, give Teichmüller representability and contractibility; its §2.3 groupoid discussion must be corrected as E16–E17, using T_g×Mod_g with action face maps. Luo’s main theorem, p. 2, supplies Dehn-twist generation; Mumford Lemma 5.14, pp. 103–105, supplies the nodal smoothing-loop argument. Hall Theorem 1 and Appendix A supply recovery on the proper DM compactification (target Bμ_r, not an unqualified DM-target theorem applied to BG_m). Formalize the analytic quotient, finite-cover descent, monodromy and normal extension. LV.5 owns surfaces, Mod and twists, but no exact supplying node exists for this complete analytic interface. The consumer proof and independent primary sources are now specified; this is an ownership/formal-interface gap, not a missing claim that the sources prove the corrected chain verbatim.
 
 Consumers: `StableReductionPartII:MC.5/torsion-cover-boundary-monodromy`, `StableReductionPartII:MC.5/complex-picard-torsion-free`.
 
@@ -565,6 +567,10 @@ Consumers: `StableReductionPartII:MC.5/vertical-divisors-on-stable-moduli`, `Sta
 
 **Planets.** Retain the base Hodge bundle, Hodge determinant, Boundary divisor and Integral Noether formula planets. Add Dualizing Deligne pairing. There are five planets in MC.5 in total; the generic incoming contracts are not extra moduli planets.
 
+## Independent review
+
+The independent review `REV-StableReductionPartII--MC.5` accepts this completed planning pass. It checked all nine support nodes and thirteen imported targets, all eleven primary sources and nine pinned declarations. The seven named supplier gaps remain unresolved, so MC.5 is **planned**, not closed or implemented. All 33 worked tests now record their kind; the dependency overlay explicitly replaces the obsolete ordinary-determinant SF.5 edge with AV-L0B/L0C and stack descent. The [review report](../reviews/REV-StableReductionPartII--MC.5.md) records the checks and corrections.
+
 ## Suggested file and sources
 
 The companion [Suggested.lean](../suggested/StableReductionPartII--MC.5.lean) contains four statements on actual scheme-line comparison carriers and nine worked examples. It has no data definitions and constructs no stack, perfect complex or pairing substitute. It checks the class-to-isomorphism interface, the automorphism ratio of comparisons, pullback of actual isomorphisms and scalar signs. The geometric targets above remain fully stated here because their carriers are absent at the pins. `lean-check` completed successfully against the pins with only the thirteen expected omitted-proof warnings.
@@ -583,44 +589,66 @@ The sources below were read at the indicated locators on 2026-10-18. Page number
 - **Jack Hall, [Generalizing the GAGA principle](https://arxiv.org/pdf/1101.5123v2)**. arXiv:1101.5123v2, January 27, 2011; preprint pagination. Read: Theorem 1, p. 1; Appendix A, Theorem A.1 and Corollaries A.2–A.3, p. 17; proof, p. 18.
 - **Paola Frediani; Frank Neumann, [Étale homotopy types of moduli stacks of algebraic curves with symmetries](https://arxiv.org/pdf/math/0404387v1)**. arXiv:math/0404387v1, April 21, 2004; preprint pagination only; the published K-Theory text was not served by the publisher. Read: Theorem 1.5, p. 9; Theorem 2.5 and Proposition 2.6, p. 11; §2.3, quotient-groupoid calculation, pp. 17–18; Proposition 2.14 and proof, p. 19.
 
-Yuan cites Moret-Bailly's 1989 arithmetic Noether paper. A readable primary copy was not obtained, and this document makes no claim to have read it. The acquired Mumford, Deligne and Eriksson–Freixas i Montplet sources supply the proof route and integral pairing construction used here. The source findings below concern only Frediani–Neumann arXiv v1 proof paragraphs. The publisher returned an HTML challenge rather than the version of record, so no finding is attributed to the published K-Theory text. The corrected action-groupoid proof preserves the homotopy-equivalence conclusion. Missing formal supplier results remain planning gaps.
+Yuan cites Moret-Bailly's 1989 arithmetic Noether paper. A readable primary copy was not obtained, and this document makes no claim to have read it. The acquired Mumford, Deligne and Eriksson–Freixas i Montplet sources supply the proof route and integral pairing construction used here. The Frediani–Neumann findings below concern only its arXiv v1 proof paragraphs; E18 separately concerns the published Eriksson–Freixas i Montplet text. The publisher returned an HTML challenge rather than the version of record, so no finding is attributed to the published K-Theory text. The corrected action-groupoid proof preserves the homotopy-equivalence conclusion. E15 is rejected as an allegation about analytic immersion. The local display typo E18 leaves the intended graded K argument and Corollary 6.9 unchanged. Missing formal supplier results remain planning gaps.
 
-## Source findings requiring independent review
+## Independently reviewed source findings
 
-### StableReductionPartII/E15 — error
+### StableReductionPartII/E15 — error (rejected)
 
-**Version and locator.** arXiv:math/0404387v1, §2.3, p. 18, paragraph following the two local-isomorphism projections.
+**Version and locator.** arXiv:math/0404387v1, §2.3, p. 18, paragraph following the two local-isomorphism projections
 
-**Finding.** The argument transfers rigidity of marked curves to the forgotten objects and concludes that the arrow-to-object-pair map is an immersion.
+**Finding.** The text invokes rigidity of the marked data and calls the arrow-to-object-pair map an immersion.
 
-**Correction.** After forgetting markings, retain automorphism arrows. For G=1 the arrow space is T_g×Mod_g and its map to T_g×T_g is unramified, but need not be a monomorphism or an immersion in the locally closed embedding sense.
+**Correction or qualification.** Retain stabilizer arrows after forgetting markings. The action groupoid for G=1 is not a monomorphism over T_g×T_g, but its arrow map is locally a graph because its source projection is a local isomorphism. This is compatible with analytic immersion in the local differential sense.
 
-**Check.** Take G=1, g=2 and a marked genus-two curve x. Its underlying unmarked curve has both the identity and hyperelliptic involution; these give distinct arrows above (x,x). An immersion is a monomorphism and cannot have this fibre. Rigidity of an object with its marking does not remove automorphisms of its image in the unmarked stack.
+**Check.** At a genus-two point the identity and hyperelliptic involution give two arrows over (x,x). This disproves global monomorphism, not local analytic immersion. In a source chart the arrow map is a holomorphic graph, hence an immersion in the differential sense. The alleged source error depends on reading immersion as a locally closed embedding and is not established by this example.
 
-**Effect.** the proof. **Correction status.** No correction found in the searches recorded below; this is a proposed new finding awaiting independent review.
+**Independent verdict.** Rejected: The two-arrow example tests monomorphism rather than analytic immersion. The local-isomorphism source projection makes the arrow map locally a graph; no contradiction with that analytic meaning follows. Retain the inertia warning without treating the passage as a verified error.
 
-### StableReductionPartII/E16 — misprint
+**Recorded effect.** the proof. The original allegation is retained for audit, not as a verified source error.
 
-**Version and locator.** arXiv:math/0404387v1, §2.3, p. 18, fibre formula near the bottom.
+### StableReductionPartII/E16 — misprint (confirmed)
+
+**Version and locator.** arXiv:math/0404387v1, §2.3, p. 18, fibre formula near the bottom
 
 **Finding.** The fibre over fixed x of the arrow-space projection is identified with T_g^G×Γ_g,G.
 
-**Correction.** The entire arrow space has that product form in the intended quotient presentation. A fixed source fibre is the discrete group Γ_g,G, with its target determined by the action; for G=1 this is Mod_g.
+**Correction or qualification.** The entire arrow space has that product form in the intended quotient presentation. A fixed source fibre is the discrete group Γ_g,G, with its target determined by the action; for G=1 this is Mod_g.
 
 **Check.** The projection is already stated to be a local isomorphism, hence its point fibres are discrete. With G=1 and g≥2, T_g has positive dimension 3g−3, so its product with Mod_g cannot be such a fibre.
 
-**Effect.** nothing. **Correction status.** No correction found in the searches recorded below; this is a proposed new finding awaiting independent review.
+**Independent verdict.** Confirmed: The printed fixed-source fibre cannot contain the positive-dimensional Teichmüller factor when the projection is a local isomorphism. The G=1, g=2 specialization already proves the dimensional contradiction; the full arrow space and a source fibre have been confused.
 
-### StableReductionPartII/E17 — error
+**Recorded effect.** nothing. No separate correction was found in the searches recorded in the packet.
 
-**Version and locator.** arXiv:math/0404387v1, Proposition 2.14 proof, p. 19, product-simplicial-object identification.
+### StableReductionPartII/E17 — error (confirmed)
+
+**Version and locator.** arXiv:math/0404387v1, Proposition 2.14 proof, p. 19, product-simplicial-object identification
 
 **Finding.** The degreewise products in the action-groupoid nerve are treated as a product simplicial object T_g^G×BΓ_g,G and used to assert a product realization.
 
-**Correction.** Use the action nerve, whose realization is EΓ_g,G×_Γ_g,G T_g^G. Its projection to BΓ_g,G has contractible fibre T_g^G and yields the required homotopy equivalence. The constant-product simplicial identification is not justified.
+**Correction or qualification.** Use the action nerve, whose realization is EΓ_g,G×_Γ_g,G T_g^G. Its projection to BΓ_g,G has contractible fibre T_g^G and yields the required homotopy equivalence. The constant-product simplicial identification is not justified.
 
 **Check.** Already for G=1 and an element γ moving x, the two degree-one face maps of the action arrow (x,γ) are x and γx. In the constant-T_g product with BMod_g both faces keep the same T_g coordinate. The degreewise product bijections therefore do not respect the simplicial maps. This repairs the proof without rejecting the proposition’s homotopy-equivalence conclusion.
 
-**Effect.** the proof. **Correction status.** No correction found in the searches recorded below; this is a proposed new finding awaiting independent review.
+**Independent verdict.** Confirmed: For an action moving x the two arrow faces land at different points, whereas the proposed constant-space product keeps x fixed. Thus the degreewise product is not a simplicial identification. The Borel construction gives the required homotopy equivalence without this identification.
 
-The arXiv history lists only v1. The author publication lists at [Frediani](https://mate.unipv.it/frediani/papers.html) and [Neumann](https://le.ac.uk/people/frank-neumann), and title/author searches for corrections were checked on 2026-10-18 without finding a separate erratum. The [publisher article/PDF endpoints](https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99) returned an HTML challenge. These searches do not establish that the published version contains the same paragraphs.
+**Recorded effect.** the proof. No separate correction was found in the searches recorded in the packet.
+
+### StableReductionPartII/E18 — misprint (confirmed)
+
+**Version and locator.** Published J. Éc. polytech. Math. 11 (2024), Proposition 6.8 proof, printed p. 317, unnumbered projection-formula display after the complete-flag construction
+
+**Finding.** The left side of the projection-formula display uses the factor [E]−r, whereas the right side retains its k₀-th gamma operation.
+
+**Correction or qualification.** Retain γ^{k₀}([E]−r) on the left as well as on the right. The other factors and the complete-flag pushforward remain as in the intended argument.
+
+**Check.** Take f:P¹_k→Spec(k), E=O(1), r=1, k₀=3 and no other gamma factors. The complete-flag map is the identity and its extra product is 1. The printed left side has Euler characteristic χ(O(1))−χ(O)=1. On the right γ³([O(1)]−1)=0 because the gamma series for a line minus 1 has only its linear term. Restoring the gamma operation makes both sides zero and restores the filtration degree needed for n=1.
+
+**Independent verdict.** Confirmed: The rank-one complete-flag example gives 1 on the printed left side and 0 on the right. The preceding argument and right side both require the omitted gamma operation. This is a local display typo, not a counterexample to Proposition 6.8 or Corollary 6.9.
+
+**Recorded effect.** nothing. No separate correction was found in the searches recorded in the packet.
+
+E15–E17 were checked against [arXiv v1](https://arxiv.org/pdf/math/0404387v1), whose history lists only v1. The author publication lists at [Frediani](https://mate.unipv.it/frediani/papers.html) and [Neumann](https://le.ac.uk/people/frank-neumann), and title/author correction searches were checked on 2026-10-18. The [publisher endpoints](https://link.springer.com/article/10.1023/B:KTHE.0000021708.13907.99) returned an HTML challenge, so these verdicts are not attributed to the published K-Theory text.
+
+E18 was checked in the [published JEP PDF](https://jep.centre-mersenne.org/item/10.5802/jep.254.pdf), printed p. 317. The [article page](https://jep.centre-mersenne.org/articles/10.5802/jep.254/), [arXiv history](https://arxiv.org/abs/2305.13129), [Freixas publication list](https://perso.pages.math.cnrs.fr/users/gerard.freixas/research.html), [Eriksson publication list](https://denniseriksson-math.github.io/Dennis-Math/) and title/author correction searches were checked on 2026-10-18 without locating a separate correction. The arXiv versions predate publication; no comparison with their text is claimed. PDF hashes and version-specific reading records are in the packet.
