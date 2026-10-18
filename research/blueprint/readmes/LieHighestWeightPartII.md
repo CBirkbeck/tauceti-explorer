@@ -104,7 +104,7 @@ Tests:
 
 Check: Changing G by a central isogeny gives the same orbit relation over K.
 
-Sources: [SOM] §2.1–§2.4, pp.11–13 — Nilpotent elements are classified by the adjoint action; zero is included.
+Sources: [SOM] §3.1, pp.15–16 — The adjoint action defines nilpotent orbits, and the triple-orbit correspondence includes the zero homomorphism.
 
 
 ### Jordan decomposition and the reduction to distinguished nilpotents
@@ -126,7 +126,7 @@ Direct inputs: `mathlib:LieAlgebra.IsKilling`, `tauceti:TauCetiRoadmap/Represent
 
 Check: For sl3, the centralizer of diag(1,1,−2) has derived algebra sl2; a nilpotent commuting with it has zero central component.
 
-Sources: [BAL] §5, proof of Theorem 5.1, pp.14–15 — The induction uses Jordan stability and the proper derived centralizer; these algebraic steps also work over K.; [SOM] §2.4, pp.12–13 — Semisimple centralizers supply the induction in Jacobson–Morozov.
+Sources: [BAL] §5, proof of Theorem 5.1, pp.14–15 — The induction uses Jordan stability and the proper derived centralizer; these algebraic steps also work over K.
 
 
 ### Jacobson–Morozov theorem
@@ -251,7 +251,7 @@ Tests:
 
 - **restriction_zero**: A two-dimensional trivial L-module restricts to two copies of the sl2 trivial module.
 - **restriction_standard**: The sl2 standard module restricts to Sl2Std(K,1), with H-weights 1,−1.
-- **restriction_sign**: Swapping E and F requires replacing H by −H; swapping only E,F does not define this restriction.
+- **restriction_sign**: For the standard nonzero triple of sl2, swapping E and F while fixing H violates [E,F]=H. Replacing H by −H as well gives a valid swapped triple.
 
 Check: This is a comparison with the native restriction operation, not a second representation carrier.
 
@@ -616,7 +616,7 @@ Direct inputs: `LieHighestWeightPartII:N2/classical-recognition`, `LieHighestWei
 
 Check: A half-spin test is legal even for adjoint G; the quantifier is on L-modules. Factor-selective modules prevent two isomorphic simple factors from being silently permuted.
 
-Sources: [CH] Lemma 2.4, p.7; Appendix Lemma 10.9, p.35 — The simple result is assembled over simple factors, with all finite Lie modules as tests.
+Sources: [CH] Lemma 2.4, pp.6–7; Appendix Lemma 10.9, p.35 — The simple result is assembled over simple factors, with all finite Lie modules as tests.
 
 
 ## N5: Highest weights and geometric weight patterns
@@ -820,7 +820,7 @@ The finite check is deliberately stronger than the assertion about realised char
 | E7 | 126 | 2187 | 2187 | 274 | 274 |
 | E8 | 240 | 6561 | 6561 | 245 | 245 |
 
-These values were independently recomputed using exact integer arithmetic during design. The proof-assistant certificate and the comparison of the enumerated roots to the existing finite integral root datum are implementation targets, not claims about this arithmetic experiment. Omitting opposition in E6 leaves 212 candidates and only 123 distinct profiles; the symmetry condition is essential for this certificate. Independently, the public SLA weighted diagrams, with zero added, give 5,16,21,45,70 profiles in G2,F4,E6,E7,E8, with no collisions. Those are database orbit counts, not the candidate counts above.
+These values were independently recomputed using exact integer arithmetic during design. The proof-assistant certificate and the comparison of the enumerated roots to the existing finite integral root datum are implementation targets, not claims about this arithmetic experiment. Omitting opposition in E6 leaves 212 candidates and only 123 distinct profiles; the symmetry condition is essential for this certificate. Independently, the public SLA weighted diagrams, with zero added, give 5,16,21,45,70 profiles in G2,F4,E6,E7,E8, with no collisions. Those are database orbit counts, not the candidate counts above. Independent review also matched all 91 numeric profiles printed in CH Tables 2–4 against profiles recomputed from the pinned SLA diagrams (5 G2, 16 F4, 70 E8, including zero). This comparison checks the numeric profiles; root-vector triple witnesses remain construction targets, and the printed names remain opaque row keys.
 
 For reproducibility the arithmetic algorithm starts with the simple unit vectors, closes under the reflections that change only coordinate j by subtracting Σ_i c_i Aij, and uses the root sets of sizes in the table. In the formal implementation termination is supplied by the existing finite root datum and equality to this closure is proved; a terminating scratch search by itself supplies neither fact. Profile entries are root dot-product counts plus rank at degree zero. Check symmetry, the total dimensions 14,52,78,133,248, and principal maximal degrees 10,22,22,34,58. These checks detect numbering and Cartan-term errors before testing injectivity.
 
@@ -835,7 +835,7 @@ The following are ordinary existing-roadmap inputs. A request records the exact 
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles`: Finite-dimensional irreducibles for every dominant integral Lie weight, including D_r half-spin; this is Lie-module classification, not a claim that these modules all descend to an algebraic group. The narrow algebraic-character existence bridge is proved in N5.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-5-complete-reducibility-weyls-theorem`: Weyl complete reducibility. Applied to the adjoint module this decomposes a semisimple algebra as a finite direct sum of simple ideals, with factor projections used in N4.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas`: Formal Lie characters, leading dominant orbit sums and highest-weight weight multiplicities; this contract does not assert algebraic-group descent. Compute the minuscule D_r half-spin weights over K using the actual Lie weight lattice.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations`: The normalized Chevalley system and the Serre-presentation isomorphism Matrix.ToLieAlgebra(K,CM)≅L for simple L, assembled componentwise for semisimple L. This supplies the Lie-algebra isomorphism from a classical root type to its standard model and the root-generator bracket conventions for finite appendix witnesses; a root-system isomorphism alone is not a Lie-algebra isomorphism.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations`: The normalized Chevalley system and the Serre-presentation isomorphism Matrix.ToLieAlgebra(K,Aᵀ)≅L for simple L, where Aij=αi(hj) is the root-row/coroot-column Cartan matrix, assembled componentwise for semisimple L. The transpose is required because the Serre constructor uses [Hi,Ej]=CMij Ej. This supplies the Lie-algebra isomorphism from a classical root type to its standard model and the root-generator bracket conventions for finite appendix witnesses; a root-system isomorphism alone is not a Lie-algebra isomorphism.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n`: The native reductive Lie decomposition into center and semisimple derived algebra, used after identifying a semisimple centralizer from its roots. Do not assert complete reducibility for arbitrary modules over an abelian center.
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`: Finite algebraic representation/comodule category with tensor and dual operations, the coordinate comodule and its local finiteness (every element is contained in a finite-dimensional subcomodule), and a faithful closed immersion of an affine algebraic group into GL(V).
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`: Lie(G), differentiation of rational representations, and the adjoint action identified with the native Lie bracket. Compatibility with morphisms, centralizers and base change.
