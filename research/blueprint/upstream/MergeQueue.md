@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T16:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T17:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -39,7 +39,7 @@ Generated 2026-10-18T16:50Z from the README supplier graph of every open pull re
 
 ## Wave 5
 - #815 AdicSpacesPartIV — ready (approved at an earlier head); waits on #813, #814, #818, #944
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #813, #814, #818
+- #820 DiamondsAndVStacks — ready; waits on #813, #814, #818
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 6
