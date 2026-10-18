@@ -1,6 +1,51 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-Urz4li, 2026-10-18
+## Current run — Codex session codex-Ke3jUD, 2026-10-18
+
+The bot confirmed this session's claim in
+[comment 6256036272](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256036272).
+I read the issue body and review before claiming, but missed the manager's
+[explicit prohibition in the comment history](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380).
+This was a selection error. No subsequent human instruction reopens the
+revision or specifies an extension. This run submits the blocked checkpoint
+required by its instructions and takes no second job.
+
+Fresh GitHub API reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) merged on
+2026-10-14 at 04:47:45 UTC, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) merged on
+2026-10-16 at 02:48:52 UTC, commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`.
+The current upstream README remains blob
+`2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`; Suggested.lean remains blob
+`98d33af8657ee848f176ba05b2a2037d8f1bfaf6`.
+I inspected Layer 2's Nisnevich foundations (§§2.12–2.14), derived
+quasi-coherent categories (§2.18), coherent duality (§§2.19–2.21), Azumaya
+splitting classes (§2.22) and equivariant cohomology (§2.23). Section 2.4
+excludes general banded-gerbe classification; that boundary does not
+authorize restarting this revision. These are ownership checks, not a
+correctness review or a formalisation claim. The supplied read-only checkout
+lacks this roadmap directory, so current GitHub main supplied the evidence.
+No shared checkout was changed or built.
+
+Only this handoff changes. The packet and SF.2 coverage remain `partial`:
+85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas and
+7 comparisons), 160 API items, 87 definition/construction tests, 3 planets,
+89 baseline declarations, 11 gaps and 9 requests. No review correction,
+closure, ownership move or supplier request is claimed. The packet checker
+reports **0 errors and 0 warnings**; whitespace validation passes. The
+suggested Lean file was neither changed nor compiled. No mathematical source
+was copied into the repository.
+
+The manager must reconcile the stale queue entry with the supersession
+instruction before another selection. Resume mathematics only with a
+specified extension beyond the authoritative upstream scope, or with concrete
+changes routed to its upstream owner. Automatic availability and bot claim
+confirmation do not provide that scope. The existing packet and review retain
+the mathematical worklist; no scratch material is needed to resume.
+
+## Earlier run — Codex session codex-Urz4li, 2026-10-18
 
 The bot confirmed this run's claim after
 [comment 6255583070](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6255583070).
