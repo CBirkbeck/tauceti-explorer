@@ -1,0 +1,273 @@
+{
+ "id": "DirectSummandsAndBigCohenMacaulay",
+ "title": "Direct summands and big Cohen–Macaulay algebras",
+ "area": "commutative",
+ "parent": null,
+ "summary": "This roadmap proves Hochster's direct summand theorem — every finite extension of a Noetherian regular ring splits as a module map, i.e. regular rings are splinters — by both of its perfectoid proofs: André's, through the perfectoid Abhyankar lemma and the flatness of Kummer towers over W(k)⟦T_1,…,T_n⟧, and Bhatt's, through perfectoid covers of regular local rings and the quantitative Riemann extension theorem. It constructs balanced big Cohen–Macaulay algebras for every Noetherian local ring (André in mixed characteristic, with Hochster's partial algebra modifications), deduces that finite covers of regular rings are dominated by faithfully flat algebras and that pure subrings of regular rings are Cohen–Macaulay, and proves Bhatt's derived direct summand theorem that regular rings are derived splinters. Purity, almost purity, the Abhyankar lemma, the Kummer tower and the Riemann extension theorems are imported from Perfectoid rings and spaces, Part II.",
+ "readme": "# Direct summands and big Cohen–Macaulay algebras\n\n**Purpose.** Hochster's direct summand conjecture, now a theorem of André and Bhatt, says that every finite extension R ⊆ S of a Noetherian regular ring splits as a map of R-modules: regular rings are splinters. This roadmap plans both perfectoid proofs, the existence of balanced big Cohen–Macaulay algebras for every Noetherian local ring, the domination of finite covers of regular rings by faithfully flat algebras, the Cohen–Macaulayness of pure subrings of regular rings of mixed characteristic, and Bhatt's derived direct summand theorem.\n\n**Scope and boundaries.** It starts where Perfectoid rings and spaces, Part II (PerfectoidSpacesPartII) stops: pure and almost pure maps, André's Krull detection lemma, the Kummer tower over W(k)⟦T_1,…,T_n⟧ with André's flatness theorem, the perfectoid Abhyankar lemma and Bhatt's quantitative Riemann extension theorem are imported from there. Almost mathematics, perfectoid rings, almost purity and Scholze's vanishing theorem come from Perfectoid rings and spaces; Bhatt's root extension and André's flatness lemma in Bhatt–Scholze's form from Perfectoid quotients; complete local coefficient rings, systems of parameters, depth, injective hulls, Matlis duality and perfect complexes from Commutative algebra for deformation theory and patching; Koszul complexes and Bhatt's flatness criterion from Derived de Rham cohomology; derived categories and pushforward from Enhanced derived categories of sheaves; Néron–Popescu approximation, flat base change and modifications from Scheme, stack, cohomology and intersection foundations; admissible blow-ups and the specialisation map from Adic spaces, Part II; coherent pushforward under proper morphisms from the Tau Ceti roadmap Stable reduction. Hochster's 1983 reduction of the conjecture to the unramified case through canonical elements is not a target: the general case is reached through Bhatt's theorem for all complete regular local rings and, independently, through flat domination.\n\n**Conventions.** Rings are commutative with 1. A splitting of an R-algebra S is an R-linear ρ : S → R with ρ(1) = 1; it is not multiplicative. Big Cohen–Macaulay modules need not be finitely generated; \"balanced\" means every system of parameters is weakly regular. Almost statements always name their ideal of p-power roots.\n\n**Sources.** André, *La conjecture du facteur direct* (Publ. Math. IHÉS 127, 2018); Bhatt, *On the direct summand conjecture and its derived variant* (arXiv:1608.08882v2, Invent. Math. 212, 2018); Hochster, *Big Cohen–Macaulay algebras in dimension three via Heitmann's theorem* (2002); Heitmann–Ma (arXiv:1703.08281); Huneke–Lyubeznik (arXiv:math/0604046); Bhatt, *Derived splinters in positive characteristic* (arXiv:1109.0354); Bhatt–Ma–Patakfalvi–Schwede–Tucker–Waldron–Witaszek §2.2 (arXiv:2012.15801); Datta–Murayama (arXiv:2007.10383).\n\n**Layers.** DS.0 splittings, splinters and big Cohen–Macaulay modules; DS.1 Hochster's purity criteria and characteristic p; DS.2 André's theorem for W(k)⟦T⟧; DS.3 Bhatt's perfectoid covers and his theorem for complete regular local rings; DS.4 big Cohen–Macaulay algebras; DS.5 the direct summand theorem and flat domination; DS.6 pure subrings of regular rings; DS.7 the derived direct summand theorem.\n\n**Non-goals.** Weak functoriality of big Cohen–Macaulay algebras in general (André 2020, Heitmann–Ma), the mixed-characteristic theorem that the p-adic completion of R⁺ is big Cohen–Macaulay (Bhatt 2020), the syzygy and improved new intersection theorems, and the characterisation of regularity by perfectoid covers (Bhatt–Iyengar–Ma) are not targets.\n",
+ "prerequisites": [
+  "PerfectoidSpacesPartII",
+  "PerfectoidSpaces",
+  "PerfectoidQuotients",
+  "DeformationAndDerivedPatchingAlgebra",
+  "DerivedDeRhamCohomology",
+  "EnhancedDerivedSheaves",
+  "SchemeAndStackFoundations",
+  "AdicSpacesPartII",
+  "tauceti:TauCetiRoadmap/StableReduction"
+ ],
+ "stages": [
+  {
+   "key": "DS.0",
+   "title": "Splittings, splinters and big Cohen–Macaulay modules",
+   "description": "Commutative algebra of splittings and of big Cohen–Macaulay modules, with no perfectoid input. Pure and almost pure maps and André's Krull detection lemma are imported from PerfectoidSpacesPartII RA.5; systems of parameters, injective hulls and Matlis duality from DeformationAndDerivedPatchingAlgebra R03.3. Targets:\n\n- **Split algebras**: an R-algebra S is split if some R-linear ρ : S → R has ρ(1) = 1; for S finite over a Noetherian R this is local on R, descends along faithfully flat maps and is equivalent to purity.\n- **Splinters**: reduced Noetherian rings over which every finite injective algebra splits.\n- **Big Cohen–Macaulay modules** over a Noetherian local ring (some system of parameters weakly regular and M ≠ mM, no finiteness) and **balanced** ones (every system of parameters); m-adic completion turns the first into the second; over a regular local ring balanced big Cohen–Macaulay modules are faithfully flat (André B Remarque 4.2.1).\n- **The splitting obstruction** α_u ∈ Hom_{D(A)}(cone u, A[1]) of a unit map u : A → K, its flat base change and its reduction modulo powers of an ideal.\n- **Reductions** of the splitting problem to a domain finite over a complete regular local ring with algebraically closed residue field and, in mixed characteristic, a discriminant g nonzero modulo p.\n- The **trace splitting** (every Noetherian regular ring containing ℚ is a splinter) and the case of **dimension ≤ 2**.",
+   "requires": [
+    "PerfectoidSpacesPartII:RA.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "DerivedDeRhamCohomology:DD.1",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "DS.1",
+   "title": "Hochster's purity criteria and the characteristic-p theorem",
+   "description": "Hochster's criteria turning purity or a nonzero dual into a splitting (André B Annexe A.3, corrected). Targets:\n\n- **Hochster's endomorphism criterion**: for a local ring R, separated for a regular (or zero) element r ∈ m, with a local endomorphism σ making R free over σ(R) and ∩σ^j(m)R ⊆ rR, and an extension S on which σ extends injectively, Hom_R(S, R) ≠ 0 implies R → S splits.\n- **Pure maps out of complete Noetherian local rings split** (by Matlis duality); completeness cannot be weakened to excellent Henselian (Datta–Murayama).\n- **The direct summand theorem in characteristic p**: every Noetherian regular 𝔽_p-algebra is a splinter.",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "PerfectoidSpacesPartII:RA.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "DS.2",
+   "title": "André's direct summand theorem for W(k)⟦T_1,…,T_n⟧",
+   "description": "André's proof for the unramified complete regular local ring A = W(k)⟦T_1, …, T_n⟧, k perfect of characteristic p, using the Kummer-tower flatness and the fragment of the perfectoid Abhyankar lemma planned in PerfectoidSpacesPartII RA.5 (with RA.4 behind it). Targets:\n\n- **Adic splitting criterion**: for A Noetherian, I in the Jacobson radical and S finite, splittings modulo every I^m give a splitting (Artin–Rees pro-isomorphism).\n- **Splitting modulo p^m**: for B a domain finite over A with discriminant g ∈ A ∖ pA, A/p^m → B/p^m splits for every m (André B §3.3).\n- **André's direct summand theorem for W(k)⟦T⟧** (Théorème 0.2.1).",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "PerfectoidSpacesPartII:RA.5",
+    "PerfectoidSpaces:P0",
+    "DeformationAndDerivedPatchingAlgebra:R03.1"
+   ]
+  },
+  {
+   "key": "DS.3",
+   "title": "Perfectoid covers of regular local rings and Bhatt's proof",
+   "description": "Bhatt's proof of the direct summand theorem for every complete regular local ring of mixed characteristic, ramified or not, replacing the Abhyankar lemma by the quantitative Riemann extension theorem of PerfectoidSpacesPartII RA.1. Targets:\n\n- **Cohen presentations** of complete regular local rings: W(k)⟦x_2, …, x_d⟧ when p ∉ m², W(k)⟦X_1, …, X_d⟧/(p − f) when p ∈ m².\n- **Perfectoid covers** A_0 → A of p-torsion-free regular local rings by integral perfectoid algebras over Q_p(p^{1/p^∞})^, almost faithfully flat (Tor almost zero, detection of nonzero modules), faithfully flat when unramified (Bhatt Proposition 5.2).\n- **Detection of the splitting obstruction** of a perfect cone after the cover and the root extension of the discriminant (Bhatt Theorem 2.3, PerfectoidQuotients Q3).\n- **Almost splitting on the annuli** A_∞⟨p^n/g⟩ by almost purity, and the **limit argument** through the derived quantitative Riemann extension theorem.\n- **Bhatt's direct summand theorem** for complete regular local rings of mixed characteristic (Theorem 5.4).",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "PerfectoidSpacesPartII:RA.0",
+    "PerfectoidSpacesPartII:RA.1",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P3",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q3",
+    "DerivedDeRhamCohomology:DD.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DeformationAndDerivedPatchingAlgebra:P7"
+   ]
+  },
+  {
+   "key": "DS.4",
+   "title": "Big Cohen–Macaulay algebras",
+   "description": "Existence of balanced big Cohen–Macaulay algebras for every Noetherian local ring, and weak functoriality from almost Cohen–Macaulay squares. Targets:\n\n- **Almost Cohen–Macaulay algebras** for (B, x, π^{1/p^∞}) (André B Définition 4.1.1(3)) and their **criteria** by almost isomorphism with faithfully flat algebras (Lemme 4.1.3).\n- **Hochster's partial algebra modifications**, his **modification criterion** (a big Cohen–Macaulay square exists iff no double sequence is bad) and his **key lemma** extending maps with controlled denominators.\n- **Almost Cohen–Macaulay ⇒ balanced big Cohen–Macaulay** (Proposition 4.1.2) and **weak functoriality from almost Cohen–Macaulay squares** (Proposition 4.4.1).\n- **Reductions** (completion, minimal primes, reduced quotient, perfect residue field).\n- **Existence**: André in mixed characteristic (Théorème 0.7.1), Hochster–Huneke in characteristic p (R⁺ is balanced big Cohen–Macaulay) and in equal characteristic 0.",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "PerfectoidSpacesPartII:RA.5",
+    "PerfectoidSpaces:P0",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "DS.5",
+   "title": "The direct summand theorem and flat domination",
+   "description": "The final theorems for regular rings. Targets:\n\n- **The direct summand theorem**: every Noetherian regular ring is a splinter (André Théorème 0.1.1, Bhatt Theorem 1.1), with André's and Bhatt's mixed characteristic proofs as alternative routes.\n- **Products of flat modules over a Noetherian ring are flat** (needed for the global product).\n- **Flat domination of finite covers**: every finite extension of a Noetherian regular ring is dominated by a faithfully flat algebra (Théorème 0.7.2, corrected to dominating components).\n- **R → R⁺ splits** for complete regular local rings.\n- **Contracted ideals and the monomial theorem** as consequences.",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "DirectSummandsAndBigCohenMacaulay:DS.1",
+    "DirectSummandsAndBigCohenMacaulay:DS.2",
+    "DirectSummandsAndBigCohenMacaulay:DS.3",
+    "DirectSummandsAndBigCohenMacaulay:DS.4",
+    "PerfectoidSpacesPartII:RA.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "DS.6",
+   "title": "Cohen–Macaulayness of pure subrings of regular rings",
+   "description": "André's Théorème 4.4.2. Targets:\n\n- **Purity survives completion and passage to perfect residue fields** (Lemme A.2.2).\n- **Weak functoriality for regular targets**: an injective local map of complete local domains of mixed characteristic with separable residue extension and regular target fits in a square of balanced big Cohen–Macaulay algebras (§4.4, using the ramified-base form of André's flatness theorem from PerfectoidSpacesPartII RA.5).\n- **Descent of Cohen–Macaulayness** through such a square and purity.\n- **Pure subrings of regular local rings of mixed characteristic are Cohen–Macaulay** (separable residue extension).",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "DirectSummandsAndBigCohenMacaulay:DS.4",
+    "PerfectoidSpacesPartII:RA.3",
+    "PerfectoidSpacesPartII:RA.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "DS.7",
+   "title": "The derived direct summand theorem",
+   "description": "Bhatt's Theorem 1.2: for a Noetherian regular ring A_0 and a proper surjective X_0 → Spec A_0, A_0 → RΓ(X_0, O) splits in D(A_0). Targets:\n\n- **Derived splinters**.\n- **Perfectness of proper coherent cohomology** over regular local rings, with flat base change.\n- **Reductions** of the derived obstruction to complete regular local rings and generically finite integral covers.\n- **Almost splitting of proper maps over integral perfectoid algebras** that are finite étale and surjective after inverting p (Proposition 6.2, corrected).\n- **Characteristic p**: killing higher coherent cohomology by finite covers and the equality of splinters and derived splinters (Bhatt 2012).\n- **Characteristic 0**: Kovács' theorem through Néron–Popescu approximation.\n- **The derived direct summand theorem**.",
+   "requires": [
+    "DirectSummandsAndBigCohenMacaulay:DS.0",
+    "DirectSummandsAndBigCohenMacaulay:DS.1",
+    "DirectSummandsAndBigCohenMacaulay:DS.3",
+    "DirectSummandsAndBigCohenMacaulay:DS.4",
+    "PerfectoidSpacesPartII:RA.1",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P2",
+    "PerfectoidSpaces:P3",
+    "PerfectoidQuotients:Q3",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.4",
+    "AdicSpacesPartII:R2",
+    "EnhancedDerivedSheaves:E1",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ANDRE18B",
+   "title": "La conjecture du facteur direct",
+   "authors": "Yves André",
+   "edition": "Published version, Publications Mathématiques de l’IHÉS 127 (2018), 71–93, DOI 10.1007/s10240-017-0097-9 (Numdam copy; arXiv:1609.00345 is the shorter preprint, numbered differently). Page numbers are the journal's.",
+   "url": "https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf",
+   "readSections": [
+    "Introduction §§0.1–0.8, pp. 71–75",
+    "§1.1, Lemmes 1.1.1–1.1.2, pp. 75–76",
+    "§§1.2–2.6 skimmed for the inputs owned by PerfectoidSpacesPartII RA.2 and RA.5, pp. 76–83",
+    "§3 complete, pp. 83–84",
+    "§4 complete (Définition 4.1.1, Proposition 4.1.2, Lemme 4.1.3, §§4.2–4.4, Proposition 4.4.1, Théorème 4.4.2), pp. 84–88",
+    "Annexe A complete (A.1–A.4), pp. 89–92",
+    "Bibliography, pp. 92–93"
+   ]
+  },
+  {
+   "id": "BHATT18",
+   "title": "On the direct summand conjecture and its derived variant",
+   "authors": "Bhargav Bhatt",
+   "edition": "arXiv:1608.08882v2 (11 November 2017); published in Inventiones Mathematicae 212 (2018), 297–317. The arXiv text was read; theorem numbers agree with the published version as cited by later work, pages are the preprint's.",
+   "url": "https://arxiv.org/pdf/1608.08882v2",
+   "readSections": [
+    "complete: §§1–6 and references, pp. 1–12"
+   ]
+  },
+  {
+   "id": "HOCHSTER02",
+   "title": "Big Cohen–Macaulay algebras in dimension three via Heitmann's theorem",
+   "authors": "Melvin Hochster",
+   "edition": "J. Algebra 254 (2002), 395–408; author preprint (scanned) from the author's page",
+   "url": "https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/09/bigcm3.pdf",
+   "readSections": [
+    "§4 (partial algebra modifications, Theorem 4.2), pp. 8–9 of the preprint",
+    "§5, Lemma 5.1 and its proof, pp. 9–10 of the preprint"
+   ]
+  },
+  {
+   "id": "HEITMANNMA18",
+   "title": "Big Cohen–Macaulay algebras and the vanishing conjecture for maps of Tor in mixed characteristic",
+   "authors": "Raymond Heitmann and Linquan Ma",
+   "edition": "arXiv:1703.08281v2 (18 March 2018); published in Algebra & Number Theory 12 (2018)",
+   "url": "https://arxiv.org/pdf/1703.08281v2",
+   "readSections": [
+    "§1 including §1.2 (partial algebra modifications, Theorem 1.6), pp. 1–3"
+   ]
+  },
+  {
+   "id": "BMPSTWW",
+   "title": "Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
+   "authors": "B. Bhatt, L. Ma, Z. Patakfalvi, K. Schwede, K. Tucker, J. Waldron and J. Witaszek",
+   "edition": "arXiv:2012.15801v3",
+   "url": "https://arxiv.org/pdf/2012.15801v3",
+   "readSections": [
+    "§2.2 (big Cohen–Macaulay modules and algebras, Theorem 2.5, Lemma 2.6), pp. 12–14",
+    "Definition 2.12 (splinters) and the paragraph after it, p. 15"
+   ]
+  },
+  {
+   "id": "DATTAMURAYAMA",
+   "title": "Permanence properties of F-injectivity",
+   "authors": "Rankeya Datta and Takumi Murayama",
+   "edition": "arXiv:2007.10383v1",
+   "url": "https://arxiv.org/pdf/2007.10383v1",
+   "readSections": [
+    "Proposition 5.4.1 and the surrounding discussion of solidity, pp. 28–29 (statement checked against the extraction's reading)"
+   ]
+  },
+  {
+   "id": "HUNEKELYUBEZNIK",
+   "title": "Absolute integral closure in positive characteristic",
+   "authors": "Craig Huneke and Gennady Lyubeznik",
+   "edition": "arXiv:math/0604046v1 (3 April 2006); published in Advances in Mathematics 210 (2007), 498–504",
+   "url": "https://arxiv.org/pdf/math/0604046v1",
+   "readSections": [
+    "complete: §1, Theorem 2.1, Lemma 2.2, Corollary 2.3, pp. 1–6"
+   ]
+  },
+  {
+   "id": "HOCHSTERLC",
+   "title": "Local cohomology (Math 615 lecture notes, Winter 2011)",
+   "authors": "Melvin Hochster",
+   "edition": "version of January 6, 2011, from the author's page",
+   "url": "https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf",
+   "readSections": [
+    "§5, Theorem (5.4) (Matlis duality), p. 19"
+   ]
+  },
+  {
+   "id": "BHATT12",
+   "title": "Derived splinters in positive characteristic",
+   "authors": "Bhargav Bhatt",
+   "edition": "arXiv:1109.0354v1 (2 September 2011); published in Compositio Mathematica 148 (2012), 1757–1786",
+   "url": "https://arxiv.org/pdf/1109.0354v1",
+   "readSections": [
+    "Introduction, Definitions 0.1–0.2, Theorems 0.3–0.4, pp. 1–2",
+    "§1, Examples 1.1–1.3, pp. 2–3"
+   ]
+  },
+  {
+   "id": "HOCHSTER73",
+   "title": "Contracted ideals from integral extensions of regular rings",
+   "authors": "Melvin Hochster",
+   "edition": "Nagoya Mathematical Journal 51 (1973), 25–43. Not reread in this job: cited through André B §3.4 and A.3 and through the extraction PAPER-ANDRE-18-B, which read p. 30.",
+   "url": "https://doi.org/10.1017/S0027763000015701",
+   "readSections": [
+    "not read in this job"
+   ]
+  },
+  {
+   "id": "HH95",
+   "title": "Applications of the existence of big Cohen–Macaulay algebras",
+   "authors": "Melvin Hochster and Craig Huneke",
+   "edition": "Advances in Mathematics 113 (1995), 45–117. Not read in this job: cited as André B §§4.3–4.4 and BMPSTWW §2.2 cite it.",
+   "url": "https://doi.org/10.1006/aima.1995.1035",
+   "readSections": [
+    "not read in this job"
+   ]
+  },
+  {
+   "id": "KOVACS00",
+   "title": "A characterization of rational singularities",
+   "authors": "Sándor J. Kovács",
+   "edition": "Duke Mathematical Journal 102 (2000), 187–191. Not read in this job: cited as Bhatt [Bhatt18, Theorem 1.2] and Bhatt [Bhatt12, Example 1.2] cite it.",
+   "url": "https://doi.org/10.1215/S0012-7094-00-10221-9",
+   "readSections": [
+    "not read in this job"
+   ]
+  }
+ ],
+ "status": "draft"
+}
