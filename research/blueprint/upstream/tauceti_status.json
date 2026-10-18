@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-18T15:30Z",
+ "updated": "2026-10-18T15:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -44,7 +44,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
-   "head": "43510be",
+   "head": "1e875b1",
    "review": {
     "recommendation": "approve",
     "current": false,
@@ -59,9 +59,9 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "cf3e93e",
+   "head": "e464f58",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": false,
     "draft": false,
     "maintainer": ""
@@ -1357,7 +1357,7 @@
   "InductionRestrictionPartII": {
    "stage": "pr",
    "pr": 1154,
-   "head": "2f8b228",
+   "head": "b483cfd",
    "note": "ported 2026-10-18 from the accepted explorer package (outside the Caraiani–Newton closure; supplier of ArithmeticStatisticsPartV); red team running",
    "review": {
     "recommendation": null,

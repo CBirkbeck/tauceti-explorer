@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T15:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T15:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -51,20 +51,20 @@ Generated 2026-10-18T15:30Z from the README supplier graph of every open pull re
 - #908 EnhancedDerivedSheaves — ready (approved at an earlier head); waits on #818, #944, #947
 
 ## Wave 8
+- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #908, #944, #446, #447
 - #938 EtaleCohomologyFoundations — ready (approved at an earlier head); waits on #813, #908, #944
 
 ## Wave 9
+- #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #286, #934
 - #940 PadicPeriodRings — ready; waits on #816, #818, #938, #944
 
 ## Wave 10
 - #868 DerivedDeRhamCohomology — ready; waits on #818, #908, #940, #944
 
 ## Wave 11
-- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #868, #908, #944, #446, #447
 - #857 CrystallineCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #868, #908, #940, #944
 
 ## Wave 12
-- #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #286, #934
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #818, #857, #868, #908, #944
