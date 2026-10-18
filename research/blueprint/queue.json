@@ -53276,8 +53276,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-InductionRestrictionPartII~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10391",
-   "finishedAt": "2026-10-18T10:33:53Z"
+   "finishedAt": "2026-10-18T10:33:53Z",
+   "note": "deliverables arrived from an external worker on issue #10391"
   },
   {
    "id": "PKG-IntegralHeckeAndGaloisDeterminants",
