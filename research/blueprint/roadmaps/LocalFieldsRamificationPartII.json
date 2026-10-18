@@ -1,0 +1,201 @@
+{
+  "id": "LocalFieldsRamificationPartII",
+  "title": "Local fields and ramification, Part II: general valued fields",
+  "area": "padic",
+  "parent": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+  "summary": "Arbitrary-rank valued-field ramification, complements to tame extensions, rank-one decompletion and finite-height descent culminating in p-closed tameness and its separable P-tame export. This is the general-valued-fields direction; the independent Swan-conductor and DVR-module directions are assigned separate proposed roadmaps. It supplies the field-theoretic tameness input to alteration distillation and the general algebraic valuation inequality used by analytic consumers, with APIs and discriminating examples for each definition.",
+  "readme": "# Local fields and ramification, Part II: general valued fields\n\nThis roadmap extends [Local fields and ramification](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification) from nonarchimedean local fields to arbitrary Krull valuations. Its endpoint is the following statement: if a valued field has residue characteristic exponent p and has no nontrivial finite p-extension, then every algebraic valued extension is tame. The valuation can have infinite height; the field need not be complete or henselian, and its residue field need not be perfect. The separable export says that a separably P-closed field is separably P-tame at every residue prime in P.\n\nThe development provides reusable definitions of the extension classes, their tower laws, complements to the unramified and tame towers, rank-one decompletion, composition of valuations, and the algebraic Abhyankar inequality. Its consumers include prime-to-degree alteration distillation and the algebraic valuation input to DiamondEtaleCohomology C8. The latter retains its stronger analytic comparison with modified topological transcendence degree. Kato's Swan conductors and finite-length DVR modules are independent continuations with the same local-field parent; the packet preserves their complete briefs and item assignments under separate proposed roadmap ids.\n\nThe reader document specifies every target. The associated suggested Lean file is a compact aid to names and signatures, using carriers available at the pinned libraries. It states the light field-theoretic definitions and selected milestones. The valuation-field henselization, ramification tower, maximal extensions, composition and finite-height constructions are specified here with their APIs and tests; their missing carriers are not replaced by placeholder data in the suggested file. Every target remains unchecked as an implementation claim.\n\n## Conventions and carriers\n\nA valued field consists of a field K and a Mathlib valuation subring V of K. Compatible extensions use a local embedding of valuation rings restricting to V. Equivalence of valuations means equality of these subrings; no choice of numerical value group is part of the extension property. Mathlib's canonical ValuationSubring.ValueGroup includes zero. In expressions involving tensor products or rational rank, Γ_K denotes the group of its nonzero units, written additively. For norm comparisons we use the multiplicative convention with V given by valuation at most one. Passing between these conventions reverses the familiar additive sign in the usual way.\n\nWrite κ_K for the residue field, and p=exp.char(κ_K): p is prime in positive residue characteristic and p=1 in characteristic zero. A p-number is a power p^n when p is prime. For p=1 the allowed prime set is empty, so only degree one is allowed. Prime-to-p means all primes when p=1. No Sylow theorem is instantiated with p=1. A P-number always has positive degree; zero is excluded even for the set of all primes.\n\nFix one algebraic closure K^a, its embedded separable closure K^s, and a prolongation of V. All henselizations and ramification subfields are embedded compatibly in this closure. Equalities of subfields refer to these choices, and tensor comparisons use the prescribed multiplication map. Changing the prolongation conjugates the tower. A splitting is an actual tensor-product isomorphism with both factor maps, not merely trivial intersection. A maximal extension is a Zorn-maximal intermediate field with its named properties, not a canonical choice and not necessarily normal.\n\nHenselian valued field means HenselianLocalRing(V). The relative property “henselian extension” instead means unique prolongation to the extension field. Tame field means K^a=K^t in Temkin's convention, without adding henselianity to the definition. Separably tame means K^s=K^t and does not imply perfection. Totally ramified permits a purely inseparable residue extension; the equation f=1 is a local-field specialization. Unramified and tame extensions are separable. A tame finite henselian extension is defectless, has separable residue extension and prime-to-p value index. The degree formula is asserted with finiteness, and with the henselian hypothesis or its local-field specialization.\n\nHeight means Mathlib's ringKrullDim(V), identified with the convex-subgroup rank of Γ_K. Finite height d means the full prime spectrum consists of exactly d+1 prime ideals in a chain; height one is the nontrivial archimedean-value-group case. It does not mean completeness. Γ may be nondiscrete, and finite height need not imply finite rational rank. The bound needed here goes in the other direction: height is bounded by rational rank.\n\n## Existing theory and ownership\n\nThe pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The packet records the individual declarations whose actual source statements were read. Use ValuationSubring and its canonical valuation, Valuation.HasExtension for compatibility, HenselianLocalRing, IntermediateField.LinearDisjoint, the algebraic tensor-field theorem, the separable/purely-inseparable disjointness theorem, IsPurelyInseparable.finrank_eq_pow, Valuation.RankOne, IsKrasner and ringKrullDim. Use the existing ValuationSubring.decompositionSubgroup stabilizer and inertiaSubgroup residue-action kernel; the new tower target proves their fixed-field comparisons. For coarsenings reuse ValuationSubring.ofPrime, idealOfLE and their inverse laws. TauCeti.AbsoluteGaloisGroup and the algebraic/separable-closure restriction equivalence supply the existing Galois carrier and topology. Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat supplies the existing descent statement.\n\nThe current LocalFieldsRamification, LocalGaloisGroups, ProfiniteArithmetic and ProfiniteProPGroups roadmap sources and the current Tau Ceti library have been screened in addition to the pinned baseline. Their local-field and profinite results are imported, not restated as new work. The boundary table gives the direction of each import.\n\n| Supplier | Imported interface | Consumer |\n| --- | --- | --- |\n| LocalFieldsRamification Layers 2–4 | Unramified local fields, ramification, tame inertia and arithmetic Frobenius | GF.2 local-field comparison |\n| ModularCurves 4D | Local-ring strict henselization, with one consolidated request for non-strict semilocal henselization and filtered compatibility | GF.1, GF.2, GF.4 |\n| ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles | Strict localization of a valuation ring and the arbitrary-rank strictly henselian pro-p/tame-quotient theorem | GF.2 ramification tower |\n| ProfiniteProPGroups Layers 2, 5, 6 | Sylow theory, finite embedding problems and the Sylow comparison of cohomological dimension | GF.2–GF.3 |\n| ProfiniteCohomology Layers 9, 11 | Galois cohomology interface, ordinary cd_p and its reductions | GF.3 |\n| SchemeAndStackFoundations SF.4/flattening-by-blowup | General flattening and finite-presentation input, specialized over a finite-height valuation ring | GF.5 unramified composition |\n\nThe H1 edge points into this roadmap. The valued-field construction proves that the supplied henselized local rings are valuation rings; it does not define another local-ring functor. The additional ModularCurves request includes EGA IV₄ 18.6.8 for integral semilocal normalization, not only finite algebras, and 18.6.14 for filtered local colimits. The overlapping draft PerfectoidSpaces P3 and H1/SF.2 requests belong at that same owner.\n\nTwo precise additional cohomological inputs are required by the henselian Pank proof: the characteristic-p bound cd_p(G_F)≤1 for every field F of characteristic p, and the section theorem for an arbitrary profinite surjection with pro-p kernel when its quotient has cd_p≤1. ProfiniteProPGroups Layer 5's projectivity interface for total pro-p groups does not state the second result. The packet records these as G1/G2 and proposes a ProfiniteCohomology Part II. They are proof-closure obligations, with exact statements and proof routes, rather than new variants of the existing group or cohomology carriers.\n\n## Layer overview\n\n| Layer | Targets | Internal inputs |\n| --- | --- | --- |\n| GF.0 | P-extensions, two closedness predicates, split towers | Existing field theory |\n| GF.1 | Normalization, valued henselization, tensor factors | GF.0 and local-ring supplier |\n| GF.2 | Ramification tower, six classes, comparisons | GF.0–GF.1 and H1 |\n| GF.3 | Maximal complements and henselian Pank | GF.0–GF.2 and profinite suppliers |\n| GF.4 | Rank-one approximation, decompletion and splitting | GF.1–GF.3 |\n| GF.5 | Composition, finite-height chain, Abhyankar inequality | GF.1–GF.2 and general flattening |\n| GF.6 | Finite-height descent and general tameness | GF.0–GF.5 |\n\nEach target below gives its packet id, exact statement, construction or proof route, source locator and verification requirements. API and tests are part of the definition's specification; the test labels also identify the intended mathematical examples when a heavy carrier cannot yet be stated in the compact suggested file.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/ModularCurves",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "ClassicalAdicEtaleCohomology",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "GF.0",
+      "title": "Prime-supported extensions and split towers",
+      "description": "Build the degree and field-theoretic interfaces on existing intermediate fields and linear disjointness. Positive degree and the distinction between separable and unrestricted extensions are part of the specification. Maximal P-extensions exist, but their normal closures need not be P-extensions.\n\n**Prime-supported positive integers.** For a set P of prime natural numbers, IsPNumber(P,n) means n > 0 and every prime divisor of n belongs to P. The singleton {p} gives exactly the positive powers of p when p is prime; the empty set gives only 1.\n\n**Prime-supported algebraic extensions.** IsPExtension(P,L/K) means L/K is algebraic and every finite intermediate E/K has P-number degree. Neither L/K nor its normal closure is required to be Galois.\n\n**Prime-supported closed fields.** IsPClosed(P,K) means every finite P-extension E/K is trivial. Equivalently every finite intermediate P-extension in an algebraic closure is the bottom field. This condition includes purely inseparable extensions.\n\n**Maximal prime-supported extensions.** Inside an algebraic closure every P-extension is contained in a maximal P-extension K_P/K, and K_P is P-closed. If exp.char K = q is prime and q belongs to P, a P-closed K is perfect. Every characteristic-zero field is perfect.\n\n**Linearly disjoint complements.** For algebraic L/M/K in a fixed ambient L, a splitting is an intermediate E/K with E linearly disjoint from M over K and E M = L. Its comparison is the multiplication isomorphism E ⊗_K M ≅ L, with the prescribed two embeddings. Splitting is existence of such an E, without a canonical choice.\n\n**Separably prime-supported closed fields.** SeparablyPClosed(P,K) means that every finite separable P-extension E/K is trivial. Test finite separable intermediate fields in one algebraic closure; no perfection condition is imposed.\n\nCheck: Keep unrestricted and separable closedness separate, use multiplication tensors and exclude zero degree.",
+      "requires": []
+    },
+    {
+      "key": "GF.1",
+      "title": "Valued henselization and normalization",
+      "description": "Transfer the supplied local-ring henselization to valued fields. Normalization is semilocal in a finite field extension, but need not be a finite module. This distinction matters in the tensor decomposition. The normalization/prolongation theorem and the integrally closed subalgebra consequence work at arbitrary height.\n\n**Normalization and valuation prolongations.** For a valuation subring V of K and a finite extension L/K, the integral closure B of V in L is semilocal. Its maximal ideals correspond to the extensions of the valuation ring to L, and B_m is the corresponding valuation ring. More generally every localization A_q of an integrally closed V-subalgebra A ⊆ L is a valuation ring of Frac(A). No finiteness of B as a V-module is asserted.\n\n**Henselization as a valued field.** For V ⊆ K construct K^h = Frac(V^h), using the imported local-ring henselization. V^h is a valuation ring, K^h/K is separable algebraic and immediate (unchanged residue field and value group), and every compatible embedding into a henselian valued field has a unique extension from K^h. Henselianity of K means exactly HenselianLocalRing(V).\n\n**Tensor decomposition by prolongations.** Let L/K be finite, V ⊆ K a valuation ring, and w_1,…,w_r all distinct prolongations to L, counted as valuation rings on the fixed L. Then L ⊗_K K^h ≅ ∏_(i=1)^r L_(w_i)^h as K^h-algebras, with each projection induced by the selected prolongation. This includes inseparable finite extensions.\n\nCheck: For a henselian K there is one factor; for a split prime of a number field there are several factors, so the tensor cannot be called a field.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+      ]
+    },
+    {
+      "key": "GF.2",
+      "title": "The ramification tower and extension classes",
+      "description": "Construct the embedded tower using the strict-localization and strict tame-quotient inputs. Express the six classes intrinsically at the selected prolongation and establish their tower laws. Defect is retained in the tame criterion; the local-field degree formula is used only in the explicitly stated comparison.\n\n**The valuation-ring étale criterion.** For finite valued L/K, L^h/K^h is unramified exactly when O_L is essentially étale over O_K. Adding equality of residue fields gives the strict version. Étale implies essentially étale always; if the valuation has finite height the two are equivalent. There is no noetherian or rank-one hypothesis in the essentially étale equivalence.\n\n**The ramification tower.** Fix a prolongation of V to K^a and the embedded separable closure K^s. Define K^h ⊆ K^u ⊆ K^t ⊆ K^s, where K^u is the maximal unramified extension of K^h and K^t its maximal tame extension. The integer ring of K^u is V^sh. In Gal(K^s/K), use the existing ValuationSubring.decompositionSubgroup for D and its existing inertiaSubgroup for I; view I in G_K through its subgroup inclusion. Prove that D fixes K^h and I fixes K^u, and construct W fixing K^t. D/I ≅ Gal(κ^s/κ). D and I may be proper subgroups; K^h/K need not be normal, so no quotient by D is used.\n\n**Unramified algebraic extensions.** A selected valued algebraic extension L/K is unramified when L^h/K^h is unramified in the henselian sense: it lies in the maximal unramified extension of K^h. Over a henselian base these finite extensions correspond to finite separable residue extensions; the value group is unchanged.\n\n**Strictly unramified extensions.** A valued algebraic extension L/K is strictly unramified when it is unramified and κ_L=κ_K via the induced embedding. This is a relative condition and does not require either residue field to be separably closed.\n\n**Tame algebraic extensions.** A selected valued algebraic L/K is tame when L^h/K^h is tame. For finite henselian L/K, let M/K be its maximal unramified subextension; tameness means [L:M] is prime to p=exp.char κ_K. Equivalently κ_L/κ_K is separable, Γ_L/Γ_K has order prime to p, and [L:K]=[κ_L:κ_K]·[Γ_L:Γ_K]. For arbitrary algebraic extensions require this at every finite henselian level. The equality retains finiteness and excludes defect.\n\n**Henselian extensions in the relative sense.** An algebraic valued extension L/K is a henselian extension if the valuation ring of K has exactly one prolongation to the underlying field L, namely the chosen one. This does not say that L itself is henselian.\n\n**Unique prolongation and henselization disjointness.** For algebraic valued L/K, L/K is a henselian extension exactly when L and K^h are linearly disjoint over K. In that case the canonical multiplication map identifies L ⊗_K K^h with L^h.\n\n**Totally ramified extensions.** A selected algebraic valued extension L/K is totally ramified if L and K^u are linearly disjoint over K. Equivalently L/K is a henselian extension and κ_L/κ_K is purely inseparable. Equality of residue fields is not required.\n\n**Purely wild extensions.** A selected algebraic valued extension L/K is purely wild if L and K^t are linearly disjoint over K. Equivalently it is a totally ramified p-extension. Over a henselian K this is also equivalent to purely inseparable residue extension and a p-primary torsion value-group quotient, with defect allowed.\n\n**Tame fields in the adopted convention.** A valued field K is tame if K^a=K^t, equivalently every algebraic valued extension of K is tame for every prolongation. No henselian hypothesis is added to this definition. A tame field is perfect.\n\n**Separably tame fields.** A valued field K is separably tame if K^s=K^t, equivalently every finite separable extension is tame for every prolongation. This does not assert that K is perfect.\n\n**Tower and filtered-union laws.** For each of the six properties strictly unramified, unramified, tame, henselian extension, totally ramified and purely wild, an algebraic tower M/L/K has the property exactly when both steps do. Each property is preserved under directed unions of subextensions. For a selected prolongation, L^h=LK^h, L^u=LK^u and L^t=LK^t inside a common valued algebraic closure. Unramified and tame extensions are preserved by every valued base change and every selected prolongation on the compositum.\n\n**Compatibility with the local-field roadmap.** For finite extensions of nonarchimedean local fields, these definitions agree with LocalFieldsRamification Layers 2–4: unramified iff e=1, totally ramified iff f=1, tame iff p does not divide e, and wild inertia is the same closed subgroup P_K in the absolute Galois group. The arbitrary-rank character pairing restricts to the existing tame inertia character with its arithmetic Frobenius action x↦x^q.\n\n**The tame tower under perfection.** Let K have characteristic q>0 and let K^perf be its perfection with the unique prolonged valuation. The canonical equivalence of separable extensions identifies L/K with L K^perf/K^perf, preserves degrees, and preserves unramified and tame extensions after the corresponding henselizations. In a common algebraic closure (K^perf)^t=K^t K^perf. The residue fields and value groups change by purely inseparable extension and q-divisible hull, respectively. In characteristic zero the comparison is the identity. For every prime set P, K is separably P-closed if and only if K^perf is P-closed.\n\nCheck: For F_p(t) with its t-adic valuation the perfection changes Z to Z[1/p]. A prime-to-p radical remains tame of the same degree; an Artin–Schreier extension with pole order one must not be declared tame after perfection.",
+      "requires": [
+        "LocalFieldsRamificationPartII:GF.1",
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+        "LocalFieldsRamificationPartII:GF.0",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
+      ]
+    },
+    {
+      "key": "GF.3",
+      "title": "Maximal complements and henselian Pank splitting",
+      "description": "Zorn gives maximal extensions in each class. The elementary complementary pairs are established before the non-elementary purely wild complement theorem. Keep the full and separable closures distinct, and translate to profinite quotients only under the normality hypotheses that make the quotient exist.\n\n**Maximal extensions with prescribed ramification properties.** In a chosen valued algebraic closure, any extension satisfying a specified subset S of the six GF.2 properties is contained in a maximal such extension. Also construct maximal separable S-extensions by restricting to K^s. Maximal means no proper algebraic extension in the same class, and does not specify a canonical subfield.\n\n**Unramified and tame complements.** If K_hu/K is maximal among extensions that are both henselian extensions and unramified, then K^h ⊗_K K_hu ≅ K^u. If K_rt/K is maximal among tame totally ramified extensions, then K^u ⊗_K K_rt ≅ K^t. Both maps are multiplication maps with the chosen factor embeddings.\n\n**Field-theoretic splitting equivalences.** For a class C of valued fields closed under algebraic extensions, the following assertions, each quantified over K in C, are equivalent: some maximal purely wild K_w splits K^a/K^t/K; every maximal purely wild K_w does; every maximal purely wild K_w is a tame field; and K is tame exactly when it has no nontrivial purely wild extension. There are corresponding separable assertions, replacing K^a by K^s and tame by separably tame. Over henselian K only, the splitting is equivalent to a continuous section Gal(K^t/K)→G_K of the quotient map G_K→Gal(K^t/K). For nonhenselian K use a closed complement to W as a subgroup factorization, without assuming W normal in G_K.\n\n**Pank splitting over a henselian field.** Let K be henselian with arbitrary-rank valuation and residual characteristic exponent p. Every maximal purely wild K_w/K gives a multiplication isomorphism K^t ⊗_K K_w ≅ K^a. The separable version gives K^t ⊗_K K_sw ≅ K^s for every maximal separable purely wild K_sw. For p=1 these statements reduce to K^t=K^s and K_w=K^perf.\n\nCheck: A Schur–Zassenhaus argument alone is insufficient when the residue absolute Galois group has p-quotients. The two additional supplier inputs are listed as gaps and a proposed Profinite Cohomology Part II.",
+      "requires": [
+        "LocalFieldsRamificationPartII:GF.2",
+        "LocalFieldsRamificationPartII:GF.0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups"
+      ]
+    },
+    {
+      "key": "GF.4",
+      "title": "Height-one approximation and decompletion",
+      "description": "Use rank one exactly where approximation is required. The completion supplies density and root control, while the object being descended is an extension of the henselization. The maximal compatible-pair argument is essential for infinite separable extensions.\n\n**Rank-one norm and root-continuity bridge.** For a nontrivially valued height-one K, choose an order embedding of its actual value group into positive reals and the associated ultrametric norm. Its completion is henselian, contains K^h, and K is dense in K^h. In a normal algebraic extension of a henselian rank-one normed field the Krasner inequality gives x∈K(y), with x separable, y algebraic, and |x−y| strictly smaller than every distance from x to a distinct conjugate. Roots of a monic separable polynomial vary continuously with its coefficients; sufficiently close monic polynomials of the same degree have their roots uniquely paired beyond the largest conjugate-closeness bound.\n\n**Descent from the henselization.** If K has height one and L/K^h is separable algebraic, there is an algebraic henselian extension E/K and a compatible valued isomorphism E^h ≅ L with E ⊗_K K^h ≅ L. For finite L/K^h choose E/K finite of the same degree. No claim is made for inseparable L/K^h or arbitrary height.\n\n**Maximal separable wildness under henselization.** If K has height one, then E/K is a maximal separable purely wild extension exactly when E/K is a henselian extension and E^h/K^h is maximal separable purely wild.\n\n**Pank splitting in height one.** If K has height one, without a henselian hypothesis, every maximal purely wild K_w satisfies K^t ⊗_K K_w ≅ K^a. Every maximal separable purely wild K_sw satisfies K^t ⊗_K K_sw ≅ K^s.\n\n**Tameness in height one.** If K has height one, residual characteristic exponent p, and is p-closed (with p=1 meaning the empty prime set), then K is tame.\n\nCheck: Every residue-characteristic-zero height-one field satisfies the empty-prime closedness hypothesis. Q_p fails the prime-p hypothesis because X^p−p gives a nontrivial p-extension.",
+      "requires": [
+        "LocalFieldsRamificationPartII:GF.1",
+        "LocalFieldsRamificationPartII:GF.2",
+        "LocalFieldsRamificationPartII:GF.0",
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+        "LocalFieldsRamificationPartII:GF.3"
+      ]
+    },
+    {
+      "key": "GF.5",
+      "title": "Composed valuations and finite height",
+      "description": "Use residue pullback for composition and existing Krull dimension for height. The composition criteria remember both coarse and residual ramification. The final residue exponent controls the additional value-group condition even when the coarse residue field has characteristic zero.\n\n**Composition by a residue valuation.** Let V be a valuation subring of K and R a valuation subring of κ_V. Define V∘R as the inverse image of R under V→κ_V, viewed as a subring of K. It is a valuation ring. Conversely, if U⊆V are valuation subrings of K, U is this pullback of the induced valuation ring on κ_V, and V=U_P for P=U∩m_V. Use the existing ofPrime/idealOfLE inverse laws to identify coarsenings; do not construct a second localization API.\n\n**Height and the coarsening chain.** Use ringKrullDim(V) as valuation height, without defining a second dimension invariant. If this dimension equals a natural d, construct the ordered chain of the d+1 prime ideals of V. For every 0≤i≤d construct the unique coarsening K_i of height i, and the induced valued residue field κ_i of height d−i. Identify height with the convex-subgroup rank of the ordered value group. Height zero means the trivial valuation.\n\n**Abhyankar inequality and the height bound.** For a valued field extension L/K of finite transcendence degree, rr(Γ_L/Γ_K)+trdeg(κ_L/κ_K) ≤ trdeg(L/K), where rr(A)=dim_Q(A⊗_Z Q). For every ordered abelian group of finite rational rank, its convex-subgroup rank is at most that rational rank. Consequently a field of finite transcendence degree over its prime field, and every algebraic extension of it, has finite valuation height. The general inequality is owned here; no analytic topological-transcendence-degree equality is asserted.\n\n**Unramifiedness under composition.** Let L/K be algebraic, K of finite height d, and 0≤i≤d. Then L/K is unramified exactly when both L_i/K_i and κ_(L_i)/κ_(K_i), with their induced residual valuations, are unramified.\n\n**Tameness under composition.** Under the preceding finite-height hypotheses let p=exp.char κ_K be the FINAL residue exponent and p_i=exp.char κ_(K_i) the coarse residue exponent. Then L/K is tame exactly when L_i/K_i and the residual valued extension are tame and Γ_(L_i)/Γ_(K_i) has no nonzero p-torsion. The torsion condition is automatic if p_i=p. For p=1 it is vacuous.\n\n**Tame fields under composition.** For finite-height K and K_i as above, K is tame exactly when K_i and its residually valued κ_i are tame fields and Γ_(K_i) is p-divisible, with p the final residue exponent. If p_i=p, divisibility follows from tameness of K_i and need not be assumed separately.\n\nCheck: The coarse t-adic field Q_p((t)) is tame in residue characteristic zero, but the composed field cannot be declared tame: its coarse value group Z is not p-divisible and its residual valued Q_p is not tame.",
+      "requires": [
+        "LocalFieldsRamificationPartII:GF.2",
+        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+        "SchemeAndStackFoundations:SF.4/flattening-by-blowup"
+      ]
+    },
+    {
+      "key": "GF.6",
+      "title": "The general tameness theorem and separable export",
+      "description": "First prove the finite-height result by induction through the composed-valuation criterion. Descend each finite extension to a relatively algebraically closed subfield of finite transcendence degree to remove the height restriction. Export the separable statement through perfection without asserting that the original field is perfect.\n\n**Residues and values of a p-closed field.** Let K be p-closed, p prime, with final residue characteristic p. For every coarsening V_i, the field κ_i is p-closed as an abstract field, and Γ_(K_i) is p-divisible. If exp.char κ_i=1, use characteristic-zero-residue tameness for the coarse field, not an induction hypothesis with the wrong residue prime.\n\n**Tameness at finite height.** Every finite-height valued field K of residual characteristic exponent p that is p-closed is tame.\n\n**Finite-height descent inside a p-closed field.** Let K be a p-closed valued field with final residue exponent p, and L/K finite. There is a subfield K_0⊆K, relatively algebraically closed in K, of finite transcendence degree over the prime field, and a finite L_0/K_0 such that multiplication gives L_0⊗_(K_0)K ≅ L with the selected valuation. K_0 is p-closed and has finite height. Although K_0 need not be finitely generated after taking relative algebraic closure, its transcendence degree and valuation-height bound remain finite.\n\n**Tameness of p-closed valued fields.** Let K be a field with any Krull valuation, including a valuation of infinite height, and let p be its residue characteristic exponent. If K has no nontrivial finite p-extension, then every algebraic valued extension of K is tame: K^a=K^t. When p=1, p-extension means a degree-1 extension, and the conclusion holds for every valued field of residue characteristic zero.\n\n**The separable prime-supported tameness export.** For a prime set P, if K has no nontrivial finite separable P-extension, then every finite separable L/K is tame for every prolongation whose final residue characteristic p belongs to P. At residue characteristic zero the same conclusion is automatic. For fully P-closed K the corresponding assertion holds for all algebraic extensions. These are respectively separable P-tameness and P-tameness; neither asserts tameness at residue primes outside P.\n\nCheck: For the imperfect separable closure of F_p(t), the hypothesis holds but t^(1/p) gives a non-tame algebraic extension. The separable conclusion survives.",
+      "requires": [
+        "LocalFieldsRamificationPartII:GF.0",
+        "LocalFieldsRamificationPartII:GF.5",
+        "LocalFieldsRamificationPartII:GF.4",
+        "LocalFieldsRamificationPartII:GF.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "temkin17",
+      "title": "Tame distillation and desingularization by p-alterations",
+      "authors": "Michael Temkin",
+      "edition": "Annals of Mathematics 186 (2017), 97–126",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf",
+      "sha256": "1f4ac06f2f31430abdd984d8e635a324defb6de340f6a599f708c04996fbfba4",
+      "readSections": [
+        "§2, pp. 103–112, statements and proofs; §3.2.1–3.2.6, pp. 115–116; page image of §2.4.6, p. 108",
+        "Theorems 3.2.12 and 3.3.6 and their proofs, pp. 118 and 120; Lemma 3.3.7 and proof, p. 120; Theorem 4.2.1 and proof through Step 4, pp. 121–122, for the separable export boundary"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "kpr86",
+      "title": "Immediate and purely wild extensions of valued fields",
+      "authors": "Franz-Viktor Kuhlmann, Matthias Pank, Peter Roquette",
+      "edition": "Manuscripta Mathematica 55 (1986), 39–67; scanned author-hosted article",
+      "url": "https://www.fvkuhlmann.de/KPR.pdf",
+      "sha256": "858039a257c7e1f876a4e1dedd84a2b44bdc0bb90bc15b58b87421f772c35e66",
+      "readSections": [
+        "§1 conventions p. 41; Theorems 2.1–2.2, Lemma 2.3 and Proposition 2.4, pp. 42–43; Corollary 2.5 and proof of Theorem 2.2, p. 44; limited Schur–Zassenhaus form p. 45"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "temkin10",
+      "title": "Stable modification of relative curves",
+      "authors": "Michael Temkin",
+      "edition": "Journal of Algebraic Geometry 19 (2010), 603–677; author preprint pagination",
+      "url": "https://math.huji.ac.il/~temkin/papers/Stable_Modification.pdf",
+      "sha256": "be5332912dc4b6839c7a6df971dc19155796ab25d14b8bb9b504a6357a878bd9",
+      "readSections": [
+        "Proposition 2.2.2 and proof, author pp. 11–12"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "kkv16",
+      "title": "Valuations on rational function fields that are invariant under permutation of the variables",
+      "authors": "F.-V. Kuhlmann, K. Kuhlmann, C. Vişan",
+      "edition": "Journal of Algebra 464 (2016), 279–296; author preprint pagination",
+      "url": "https://www.fvkuhlmann.de/symmval.pdf",
+      "sha256": "876c51125fe8501cab0a048adc3b680f6d1c30ac009513634024b591fd34eb79",
+      "readSections": [
+        "§2 Lemma 2.1, author pp. 6–7; Abhyankar inequality (12), author p. 8"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "cks23",
+      "title": "Continuity of roots for polynomials over valued fields",
+      "authors": "H. Ćmiel, F.-V. Kuhlmann, P. Szewczyk",
+      "edition": "Communications in Algebra 51 (2023), 1383–1412; author preprint pagination",
+      "url": "https://www.fvkuhlmann.de/CoRfinal.pdf",
+      "sha256": "6589f1bf4d0692b44236c11b6eb05982f9414eba229c3581c66f1639fa7c464a",
+      "readSections": [
+        "Theorems 14 and 16, Example 15 and proof, author pp. 12–15"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "stacks",
+      "title": "The Stacks Project: Extensions of valuation rings",
+      "authors": "The Stacks Project Authors",
+      "edition": "§15.125, tag 0ASF, accessed 2026-10-18",
+      "url": "https://stacks.math.columbia.edu/tag/0ASF",
+      "readSections": [
+        "Lemmas 15.125.2–6 and proofs (fundamental inequality, purely inseparable normalization, étale and henselian valuation rings)"
+      ]
+    },
+    {
+      "id": "ega4",
+      "title": "Éléments de géométrie algébrique IV, quatrième partie",
+      "authors": "A. Grothendieck, with J. Dieudonné",
+      "edition": "Publications Mathématiques de l’IHÉS 32 (1967)",
+      "url": "https://www.numdam.org/item/PMIHES_1967__32__5_0/",
+      "readSections": [
+        "Lemma 17.7.5(iv), Proposition 17.7.7, pp. 80–81; Proposition 18.6.8 and proof, p. 139; Proposition 18.6.14 and proof, pp. 141–142; read in the cleared reference copy, without copying text"
+      ]
+    },
+    {
+      "id": "aid25",
+      "title": "A Choice-free look at algebraic extensions of valuations",
+      "authors": "Cédric Aïd",
+      "edition": "arXiv:2511.07177v1, 10 November 2025",
+      "url": "https://arxiv.org/pdf/2511.07177v1",
+      "sha256": "bd591da23737028e98d46e4ad44578eb2c1addf8fca658fa6d0aef51ae2d946c",
+      "readSections": [
+        "Propositions 2.6–2.7, pp. 4–5; Propositions 3.3 and 3.6 and Theorem 3.7, pp. 5–9; Propositions 4.1–4.3 and Theorem 4.4 with proofs, pp. 10–13"
+      ],
+      "accessed": "2026-10-18"
+    },
+    {
+      "id": "stacks-finiteness",
+      "title": "The Stacks Project: Flatness and finiteness conditions",
+      "authors": "The Stacks Project Authors",
+      "edition": "§15.26, tag 054A, accessed 18 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/054A",
+      "readSections": [
+        "Lemmas 15.26.3–4 and 15.26.6 with proofs; numbering at access date"
+      ]
+    }
+  ],
+  "status": "draft"
+}
