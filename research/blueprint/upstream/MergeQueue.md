@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T18:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-18T18:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready (approved at an earlier head)
@@ -42,8 +42,8 @@ Generated 2026-10-18T18:10Z from the README supplier graph of every open pull re
 - #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
-- #815 AdicSpacesPartIV — ready (approved at an earlier head); waits on #813, #814, #818, #944
-- #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #813, #814, #818
+- #815 AdicSpacesPartIV — draft; waits on #813, #814, #818, #944
+- #820 DiamondsAndVStacks — draft; waits on #813, #814, #818
 - #947 BordismFormalGroups (kim-em, other author)
 
 ## Wave 6
@@ -66,11 +66,11 @@ Generated 2026-10-18T18:10Z from the README supplier graph of every open pull re
 
 ## Wave 11
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
-- #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
+- #854 LocallyAnalyticDistributions — draft; waits on #785, #813, #815, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #818, #857, #868, #908, #944
 
 ## Wave 12
-- #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #853, #857, #868, #908, #938, #944, #1056, #279, #887, #896, #918, #953, #954, #973, #992
+- #848 ComplexComparisonPartII — draft; waits on #853, #857, #868, #908, #938, #944, #1056, #279, #887, #896, #918, #953, #954, #973, #992
 
 ## Wave 13
 - #849 AbelianSchemesAndArithmeticModuli — ready; waits on #848, #853, #857, #908, #938, #280
@@ -85,7 +85,7 @@ Generated 2026-10-18T18:10Z from the README supplier graph of every open pull re
 
 ## Wave 16
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #785, #792, #814, #848, #849, #853, #856, #858, #908, #938
-- #851 GeometryOfNumbersAndQuadraticArithmetic — ready (approved at an earlier head); waits on #785, #792, #858, #908, #1142, #248, #280, #284, #286, #417, #894, #947
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #785, #792, #858, #908, #1142, #248, #280, #284, #286, #417, #894, #947
 - #872 DeformationAndDerivedPatchingAlgebraPartII — draft; waits on #858, #944
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — ready (approved at an earlier head); waits on #785, #818, #849, #856, #857, #858, #868, #938, #940, #944
 
