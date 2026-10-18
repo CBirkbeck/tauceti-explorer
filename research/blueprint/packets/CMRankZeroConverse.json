@@ -464,8 +464,9 @@
         "Even k≥2; W=M_f(h), W′=M_{f*}(h); modular local cohomology has dim H¹(ℚ_p,W)=2, dim H¹_f(ℚ_p,W)=1 and H⁰=H²=0, also for W′."
       ],
       "proofSteps": [
-        "Use rational Poitou–Tate (Kato 14.9.3) for a lattice in W′ first. Its dual Selmer term is controlled by H¹_f(ℚ,W)=0; the global Euler-characteristic identity and the one-dimensional local quotient force H¹_f(ℚ,W′)=0. The finite difference between Kato’s S(T) and the classical finite Selmer group disappears after rationalization.",
-        "Apply the same exact sequence to W. Its dual Selmer term now vanishes, and H²(ℚ_p,W)=0, giving the asserted global H² vanishing.",
+        "First apply rational Poitou–Tate (Kato 14.9.3) to W′. Its Tate-dual finite Selmer term is zero by H¹_f(ℚ,W)=0, and local H²(ℚ_p,W′)=0; exactness therefore gives global H²(W′)=0 and an isomorphism H¹(W′)/H¹_f(W′)≅H¹(ℚ_p,W′)/H¹_f(ℚ_p,W′). The right side has dimension one. The finite difference between Kato’s S(T) and the classical finite Selmer group disappears after rationalization.",
+        "Global H⁰(W′)=0 and the Euler identity h⁰−h¹+h²=−1 now give dim H¹(W′)=1. Since its quotient by H¹_f(W′) also has dimension one, H¹_f(ℚ,W′)=0.",
+        "Apply the same Poitou–Tate sequence to W. Its Tate-dual finite Selmer term now vanishes, and H²(ℚ_p,W)=0, giving the asserted global H² vanishing.",
         "At p=2 retain real-place Tate terms and the integral errors killed by 2 through both applications. Only then invert p."
       ],
       "acceptance": [
@@ -839,12 +840,13 @@
         "Even k≥2 and every p; use the actual arithmetic newform L-function and Kato’s coefficient/period embeddings."
       ],
       "proofSteps": [
-        "The central H_g=H_f theorem makes exp*(loc_p centralZeta) nonzero. Apply the Kato L3 interpolation formula at r=h and the trivial finite character, after the semilinear twist by k−r=h.",
-        "The period projection is (2πi)^(h−1)L^{(p)}(f*,h)γ^{(−1)^(h−1)}. Nonzero regulator therefore forces the p-omitted value to be nonzero. Period comparison maps on the designated line are isomorphisms.",
+        "The central H_g=H_f theorem makes exp*(loc_p centralZeta(γ)) nonzero. Choose an F-basis γ₁,γ₂ of the Hecke-field realization, whose extension to E=F_λ is M_f. The zeta morphism, twist-specialization, localization and dual exponential are E-linear; consequently at least one γᵢ has nonzero regulator. Apply Kato’s complex period formula to that F-rational γᵢ, not directly to an arbitrary completed-coefficient vector γ.",
+        "At r=h and the trivial finite character, the twist is k−r=h and the period projection is (2πi)^(h−1)L^{(p)}(f*,h)γᵢ^{(−1)^(h−1)}. The period comparison on the designated line is an isomorphism, so a nonzero regulator forces L^{(p)}(f*,h)≠0.",
         "Use L^{(p)}(f*,s)=P_p(f*,p^(−s))L(f*,s), with every bad local factor retained. Nonvanishing of this product implies L(f*,h)≠0. Then L(f*,h)=overline{L(f,h)} under the chosen complex embedding. No division by a possibly zero Euler factor is needed for this implication."
       ],
       "acceptance": [
-        "The critical value lies in the range 1≤h≤k−1. An unrestricted assertion ker exp*=H_f is not used."
+        "The critical value lies in the range 1≤h≤k−1. An unrestricted assertion ker exp*=H_f is not used.",
+        "The statement allows γ∈M_f over E=F_λ; its proof reduces to F-rational basis vectors before using complex periods. No scalar embedding F_λ→ℂ or complex period map on arbitrary completed scalars is assumed."
       ],
       "prerequisites": [
         "CMRankZeroConverse:C.2/specialized-zeta",
@@ -1848,13 +1850,22 @@
       "printed": "Own-word description: The implication from the vanishing Selmer space to global H² is compressed into an appeal to duality.",
       "correction": "First apply rational Poitou–Tate to W′, use the Euler identity and local dimensions to deduce H¹_f(ℚ,W′)=0, then apply it to W to kill H². Retain real-place 2-torsion errors until rationalization.",
       "reason": "The first dual Selmer term belongs to W′, whereas the hypothesis concerns W. Interchanging them without this argument omits a nontrivial step.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E5; no separate published correction established in this job.",
+      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E5; no separate published correction established in this job. Independent review rejects this proposed mistake; retained as review history.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The asserted implication is valid. Kato (14.9.3), (14.9.5) and Proposition 14.12 give it by first applying duality to W′, obtaining H²(W′)=0 and a one-dimensional global quotient, then Euler characteristic gives H¹_f(W′)=0 and duality for W gives H²(W)=0. BT invokes duality and the same Euler identity in this paragraph. An explicit intermediate dimension calculation is valuable for formalisation, but no failed inference or missing mathematical input is established; the packet’s expanded lemma is retained.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     },
     {
       "id": "CMRankZeroConverse/E2",
@@ -1863,13 +1874,22 @@
       "printed": "Own-word description: The displayed dual Selmer comparison uses the CM field as if it were a coefficient field for a ℤ_p module and suppresses the dual representation and central Tate twist.",
       "correction": "Use completed coefficient fields L, actual Kummer Tate modules, V_pE⊗L=η⊕η̄, M_{f_η}(1)⊗L≅Ind η̄ and finite-condition Shapiro. Only the resulting Selmer-vanishing implication is needed.",
       "reason": "A tensor product over ℤ_p cannot be formed with an unspecified complex/number-field scalar action, and Kato’s M_f is the cohomological dual of the arithmetic representation.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E3; no separate published correction established in this job.",
+      "known": "Recorded by PAPER-BURUNGALE-TIAN-26/E3; no separate correction located in the checked listings. Finding scoped to arXiv v2; published text not collated.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the seven-page v2 display, the number field K is used as a scalar extension of a ℤ_p module without a completion, and the two modular groups omit the weight-two central twist in Kato’s cohomological convention. Kato (14.10.1), p. 240, fixes the dual/twist convention. The corrected Kummer Tate-module comparison over a completed field L and finite-condition Shapiro has the needed vanishing consequence. This confirms a notation/type misprint in the preprint display, not a failure of Theorem 1.1.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     },
     {
       "id": "CMRankZeroConverse/E3",
@@ -1878,13 +1898,22 @@
       "printed": "Own-word description: The passage from failure of the finite condition to nonzero dual exponential does not explicitly justify equality of the geometric and finite conditions.",
       "correction": "Prove D_cris(W^∨(1))^{φ=1}=0 by the central local Frobenius bounds and apply the Bloch–Kato dimension formula, obtaining H_g=H_f=ker exp*.",
       "reason": "For a general de Rham representation ker exp*=H_g, which can be larger than H_f. A bad-prime purity check is necessary here.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E16; no separate published correction established in this job.",
+      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E16; no separate published correction established in this job. Independent review rejects this proposed mistake; retained as review history.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The local assertion needed in the proof is true at every prime: Kato (14.10.4)–(14.10.5), p. 241, exclude eigenvalue one on D_cris(M_{f*}(h)), including the monodromy-invariant bad-prime case. The Bloch–Kato dimension comparison then gives H_g=H_f and ker exp*=H_f. BT’s brief invocation of the modular reciprocity law suppresses this standard local verification; that is an implementation lemma, not evidence of an erroneous source argument. Retain central-hg-equals-hf without registering a published gap.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     },
     {
       "id": "CMRankZeroConverse/E4",
@@ -1893,13 +1922,22 @@
       "printed": "Own-word description: The surviving conjugation eigenspace in the finite-level class needs the zeta sign relation to identify its generator.",
       "correction": "Use z(cγ)=−σ_{−1}z(γ), evaluate σ_{−1} at (−1)^h and impose γ^{(−1)^(h−1)}≠0. The opposite eigenspace specializes to zero.",
       "reason": "A nonzero vector in the wrong eigenspace cannot generate the one-dimensional central cohomology.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E6; no separate published correction established in this job.",
+      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E6; no separate published correction established in this job. Independent review rejects this proposed mistake; retained as review history.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "rejected",
+        "reason": "BT v2, p. 6, explicitly chooses ε=(−1)^(k/2−1) and requires γ^ε≠0 before (3.2). Kato Theorem 12.5(1), p. 221, gives z(cγ)=−σ_{−1}z(γ), so this is exactly the surviving eigenspace. The proposed repair agrees with the source’s existing choice; it does not correct a mistake. Keep the sign API and wrong-eigenspace tests.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     },
     {
       "id": "CMRankZeroConverse/E5",
@@ -1908,13 +1946,22 @@
       "printed": "Own-word description: The citation to a rank-zero proportion does not state the Selmer-strength input, and the maximal-order reduction is implicit.",
       "correction": "Use the reduced 3-Selmer rank-zero output of the BKLOS proof; for a nonmaximal CM order first pass by a K-isogeny to maximal order and preserve 3∞ corank, not finite Sel₃ dimension.",
       "reason": "Mordell–Weil rank zero does not imply Selmer corank zero; bounded finite Selmer torsion is not an isogeny-invariant dimension.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E7; no separate published correction established in this job.",
+      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E7; no separate published correction established in this job. Independent review rejects this proposed mistake; retained as review history.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "rejected",
+        "reason": "BT Theorem 3.5, p. 7, already states 3∞ Selmer corank zero. Although BKLOS Theorem 2.7 states the Mordell–Weil consequence, its §9.2, p. 14, bounds the average even 3-Selmer rank on T₀ and yields the stronger Selmer-zero subset. Its proof of Theorem 2.7, §11, p. 19, explicitly passes to maximal order by isogeny. Rational Selmer corank is isogeny invariant, so the cited proof supports BT’s formulation. Expanding the citation is useful; no source error or missing maximal-order argument is established.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     },
     {
       "id": "CMRankZeroConverse/E6",
@@ -1923,13 +1970,22 @@
       "printed": "Own-word description: The Smith input and residue-class parity discussion need their precise positive-parameter family to support the stated half-density.",
       "correction": "Use positive squarefree n≡1,2,3 mod 8 and the 2∞ corank-zero relative-density-one theorem; derive the upper bound by root numbers. Transfer to both-sign fundamental discriminants with the actual piecewise rescaled height.",
       "reason": "Negative n does not obey the same bare residue table; finite Sel₂ dimension includes rational 2-torsion. A density statement in one ordering is not automatically one in another.",
-      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E8; no separate published correction established in this job.",
+      "known": "Recorded in PAPER-BURUNGALE-TIAN-26/E8; no separate published correction established in this job. Independent review rejects this proposed mistake; retained as review history.",
       "searched": [
         "Public arXiv v2, read 2026-10-18",
         "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
+        "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md",
+        "https://arxiv.org/abs/2506.03465 — submission history checked 2026-10-18; v2 is the latest listed version.",
+        "https://annals.math.princeton.edu/2026/203-1/p01 — publication metadata and correction links checked 2026-10-18; no correction listed there; published full text not obtained.",
+        "https://www.mcm.ac.cn/people/members/202012/t20201204_1093674.html — indexed author publication listing located; direct opening failed with HTTP 502 on 2026-10-18, so its contents were not checked."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "source": "BT",
+      "review": {
+        "verdict": "rejected",
+        "reason": "BT Theorem 3.3, p. 6, explicitly uses positive squarefree n≡1,2,3 mod 8 and 2∞ Selmer corank. Footnote 2, p. 2, gives the root-number classes in that positive family. The source therefore does not confuse signs or finite Sel₂ dimension. The packet’s separate fundamental-discriminant height comparison is a useful consequence beyond the source’s positive-parameter formulation, not a repair of that formulation.",
+        "by": "REV-DESIGN-CMRankZeroConverse"
+      }
     }
   ],
   "restructure": [
@@ -1959,6 +2015,180 @@
       "checked": "2026-10-18",
       "roadmaps": "Current main in the read-only environment, including LocalGaloisGroups and ProfiniteArithmetic, and the nine newer roadmap directions omitted from the atlas snapshot.",
       "note": "Read the relevant current Suggested files and inspected the current Tau Ceti library. Existing completed group algebra Basic/Map/PowerSeries/DyadicCoordinate is infrastructure supplied to SI, not replanned here. The current LocalGaloisGroups/ProfiniteArithmetic directions do not implement the arithmetic-duality or modular converse targets. No upstream file is edited."
+    },
+    {
+      "checked": "2026-10-18",
+      "by": "REV-DESIGN-CMRankZeroConverse",
+      "roadmaps": "Independent screen of all nine newer roadmap directions and their current Suggested files; read the LocalGaloisGroups/ProfiniteArithmetic scope and the ModularForms L7 and EllipticCurves L5/L7 specifications.",
+      "note": "No owned CM converse or twist-density target is already present. Current completed-group-algebra CharacterDivision and coordinate files are supplier infrastructure, not a reason to introduce a second Iwasawa algebra here. The existing upstream L7 Selmer/isogeny and L5 twist interfaces remain the correct owners of the requested general extensions."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2506.03465v2",
+      "citation": "arXiv:2506.03465v2, 11 October 2025, 7 pages; published Annals of Mathematics 203 (2026), no. 1, 1–13",
+      "read": "2026-10-18",
+      "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664",
+      "scope": "Entire seven-page arXiv v2 read. All six sourceIssue verdicts concern this text. The 13-page version of record was not obtained: the Annals landing page exposed metadata but no article text, and Project Euclid returned no readable article body. No assertion is made that a preprint misprint persists in the published version."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-CMRankZeroConverse",
+    "date": "2026-10-18",
+    "notes": "Accepted as a target-level plan with all seven layers still planned, ten explicit supplier requests and GAP-CM/GAP-SMITH retained. Independently read all 30 nodes, 43 named supplier statements, six baseline declarations, six source findings, 29 API items and 21 tests; checked the current upstream directions and reviewed library audit. Expanded the duality dimension calculation and corrected the period proof for completed coefficients. Confirmed only the typed Selmer-display misprint E2 in arXiv v2; rejected the other five proposed errata as valid abbreviated arguments or assertions already explicit in the source. Suggested Lean elaborates at the pins with only 17 proof-placeholder warnings. No new node, baseline replacement, implementation or closed-stage claim.",
+    "checked": [
+      {
+        "nodeId": "CMRankZeroConverse:C.0/p-converse-property",
+        "verdict": "verified",
+        "note": "Checked BT (1.1), p. 1, against the exact parent analytic-rank and SI corank/elliptic Selmer statements. Direction, rank parameter and p=2 are correct; the three tests distinguish corank from finite Sel₂."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.0/central-sign",
+        "verdict": "verified",
+        "note": "Checked ε=(−1)^(h−1), the rational projection, weights 2/4/6 and the total-definition boundary. The four API claims hold; no integral dyadic projector is asserted."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.0/modular-normalization",
+        "verdict": "verified",
+        "note": "Checked Kato (14.10.1)–(14.10.5), pp. 240–241, and the R19 realization/comparison statements. The page image uses inverse arithmetic Frobenius, agreeing with the packet’s geometric convention; W′=M_{f*}(h)."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.0/central-prime",
+        "verdict": "verified",
+        "note": "Checked the negative-half-weight evaluation, p inverted, selected finite-character component, residue field and DVR. SI’s general specialization node needs the exact Kato-complex/evaluation extension already specified in request R6; p=2 tests retain Δ until rationalization."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.1/modular-h0-vanishing",
+        "verdict": "verified",
+        "note": "Absolute irreducibility of the actual classical realization at every λ implies the stated global H⁰ vanishing, also after twisting. R19.3 has precisely this all-prime scope."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.1/selmer-zero-h2",
+        "verdict": "corrected",
+        "note": "Expanded the first duality application to give H²(W′)=0 and a one-dimensional global quotient explicitly, then used Euler characteristic to obtain H¹_f(W′)=0 before the second application. The exact rational Euler/amplitude and local-dimension inputs remain explicit supplier requests."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.1/global-dimension",
+        "verdict": "verified",
+        "note": "Checked the Euler sign h⁰−h¹+h²=−dim W^{c=−1}=−1 using rank-two oddness and the preceding vanishings. The conclusion is the dimension of Kato j_* cohomology, not an arbitrary enlarged ramification set."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.1/central-hg-equals-hf",
+        "verdict": "verified",
+        "note": "Checked the coefficient-prime compatibility/purity inputs and local Bloch–Kato dimension/kernel statements. At the centre, crystalline eigenvalues on W′ have complex absolute value p^(−1/2) or p^(−1); none is one, including bad p."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.2/specialization-application",
+        "verdict": "verified",
+        "note": "Checked both Tor degrees, finite generation, rational amplitude ≤2, the order of Nakayama and the selected specialization prime. The existing generic SI theorem alone is not asserted to give the exact Kato comparison; R6 supplies it."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.2/specialized-zeta",
+        "verdict": "verified",
+        "note": "Checked that this is a composition of the actual zeta morphism, twist and evaluation; its E-linearity, lattice independence and sign follow from the suppliers. All four tests discriminate plausible wrong constructions."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.2/zeta-basis",
+        "verdict": "verified",
+        "note": "Equality of characteristic ideals over A_𝔮, together with vanishing H², kills the torsion quotient there. The c-sign relation kills the other component and every nonzero correct-sign projection spans the localized zeta submodule. A single divisibility would not suffice."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.2/nonfinite-localization",
+        "verdict": "verified",
+        "note": "Checked that a nonzero global basis class satisfying all finite conditions away from p would contradict H¹_f=0 if its p-localization were finite. The bad-prime finite-condition comparison is explicitly requested from SI, not assumed from unramified good-prime theory."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.3/reciprocity-nonvanishing",
+        "verdict": "corrected",
+        "note": "Corrected the proof to reduce arbitrary completed-coefficient γ to an F-rational basis before applying complex periods. Kato 12.5(1) supplies f*, twist h, sign and period exponent h−1; nonvanishing of the omitted-factor product implies full nonvanishing without division."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.3/conditional-converse",
+        "verdict": "verified",
+        "note": "The implication follows from the basis, nonfinite-localization and reciprocity nodes for any newform under the precise rational equality and module-structure hypotheses. It makes no unconditional non-CM claim."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.3/cm-newform-converse",
+        "verdict": "verified",
+        "note": "Checked BT Theorems 2.6 and 3.1. The all-prime CM result is retained with GAP-CM for the unregistered exact equality and independent early module structure; Kato 15.17 is not substituted for equality."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.4/cm-selmer-comparison",
+        "verdict": "verified",
+        "note": "Checked the Kummer Tate-module comparison, rational CM decomposition, Weil-pairing dual and the weight-two Tate twist. The existing CM induction node requires E/ℚ, so R8 correctly requests the general E/K theta comparison and finite-condition Shapiro."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.4/cm-elliptic-k",
+        "verdict": "verified",
+        "note": "Both weight-two modular Selmer spaces vanish after faithful coefficient extension; the two central CM converse results and full CM L-factorization give L(E/K,1)≠0 for arbitrary CM order and every p. No Sha finiteness is inferred."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.4/cm-corank-double",
+        "verdict": "verified",
+        "note": "The parent odd-prime direct sum and dyadic finite-error comparison give the rational corank sum. The CM self-twist is a Q-isogeny, and the requested all-prime isogeny corank comparison gives doubling even when p divides its degree."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.4/cm-order-double",
+        "verdict": "verified",
+        "note": "The parent full quadratic factorization and CM self-twist isogeny give equality of the two Q L-functions and hence central-order doubling, without coprimality or rank≤1 hypotheses. R2 specifies every bad Euler factor."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.4/cm-elliptic-q",
+        "verdict": "verified",
+        "note": "The K theorem, corank doubling and order doubling imply the stated Q p-converse for every prime; pConverse is the C.0 predicate on the actual analytic rank."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.5/even-goldfeld",
+        "verdict": "verified",
+        "note": "The definition requires an exact limit over both-sign fundamental discriminants ordered by |d|. Its API and four tests distinguish half-density from a lower bound, and correctly include the trivial squareclass d=1."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.5/congruent-even-nonvanishing",
+        "verdict": "verified",
+        "note": "Checked BT Theorem 3.3 and the expressly conditional ST.5 statement. The positive squarefree family and corank-zero input are exact; GAP-SMITH honestly prevents an unsupported unconditional supplier edge."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.5/congruent-half-density",
+        "verdict": "verified",
+        "note": "Density one in the three positive sign-plus residue classes gives the lower half; the imported root-number obstruction on residues 5,6,7 supplies the upper half. This is an exact density among positive squarefree parameters."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.5/fundamental-discriminant-goldfeld",
+        "verdict": "verified",
+        "note": "Independently checked the discriminant multipliers and weights: residues 1,3 contribute 5/4 each, residue 2 contributes 1/2, totalling 3 of 6. The error term restricts to each positive-density residue class and remains o(X) under the finitely many rescalings."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/cm-twist-nonvanishing",
+        "verdict": "verified",
+        "note": "Checked the full ST.5 corank endpoint and BKLOS §§9.2 and 11. Maximal-order norm-3 isogenies give ratio one; rational corank transfers to other orders. Combining with p=3 converse yields only the stated lower limiting proportion in the specified unweighted height."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/cube-sum-model",
+        "verdict": "verified",
+        "note": "Checked all five coefficients, discriminant, j=0, base change, both homogeneous substitutions and the inverse scalar 18n. The four tests distinguish scale, n² dependence and the singular n=0 case. The full pointed projective comparison stays a requested supplier interface."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/cube-sum-cm",
+        "verdict": "verified",
+        "note": "The automorphism (X,Y)↦(ζ₃X,Y) yields the maximal order ℤ[ζ₃]; K has discriminant −3 and 3 ramifies. This verifies the CM twist theorem for each fixed n≠0, without asserting an integer-parameter cube-sum density."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/descending-twist-cosets",
+        "verdict": "verified",
+        "note": "Checked the generic pointed twist argument and both exceptional j cases. In the j=0 quotient the exponent-two relation [u]³=1 forces [u]=1; in the j=1728 case a square in Q gives the rational or √D coset. Two cosets suffice even if E itself does not descend."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/descending-twists-thin",
+        "verdict": "verified",
+        "note": "For rational primes unramified in K, the support height of [ℓ] is ℓ² in both split and inert cases. Removing finitely many fixed support/ramified primes gives the O(√X) upper bound. The positive linear total count remains explicitly requested from ST.0, with the correct square ideal-class subgroup."
+      },
+      {
+        "nodeId": "CMRankZeroConverse:C.6/nondescent-density",
+        "verdict": "verified",
+        "note": "Removing an O(√X) set from a numerator of lower proportion ≥1/2 against a positive linear denominator preserves that lower bound. The non-descending denominator is asymptotic to the full denominator; no exact density or new isomorphism weights are claimed."
+      }
+    ]
+  }
 }
